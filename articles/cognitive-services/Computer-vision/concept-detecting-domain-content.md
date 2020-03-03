@@ -1,5 +1,5 @@
 ---
-title: Detect domain-specific content - Computer Vision
+title: Domain-specific content - Computer Vision
 titleSuffix: Azure Cognitive Services
 description: Learn how to specify an image categorization domain to return more detailed information about an image.
 services: cognitive-services
@@ -16,17 +16,17 @@ ms.custom: seodec18
 
 # Detect domain-specific content
 
-In addition to tagging and high-level categorization, Computer Vision also supports further domain-specific analysis using models that have been trained on specialized data. 
+In addition to tagging and high-level categorization, Computer Vision also supports further domain-specific analysis using models that have been trained on specialized data.
 
 There are two ways to use the domain-specific models: by themselves (scoped analysis) or as an enhancement to the categorization feature.
 
 ### Scoped analysis
 
-You can analyze an image using only the chosen domain-specific model by calling the [Models/\<model\>/Analyze](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e200) API. 
+You can analyze an image using only the chosen domain-specific model by calling the [Models/\<model\>/Analyze](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e200) API.
 
 The following is a sample JSON response returned by the **models/celebrities/analyze** API for the given image:
 
-![Satya Nadella standing](./images/satya.jpeg)
+![Satya Nadella standing, smiling](./images/satya.jpeg)
 
 ```json
 {
@@ -51,28 +51,28 @@ The following is a sample JSON response returned by the **models/celebrities/ana
 }
 ```
 
-### Enhanced categorization analysis  
+### Enhanced categorization analysis
 
-You can also use domain-specific models to supplement general image analysis. You do this as part of [high-level categorization](concept-categorizing-images.md) by specifying domain-specific models in the *details* parameter of the [Analyze](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API call. 
+You can also use domain-specific models to supplement general image analysis. You do this as part of [high-level categorization](concept-categorizing-images.md) by specifying domain-specific models in the *details* parameter of the [Analyze](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API call.
 
-In this case, the 86-category taxonomy classifier is called first. If any of the detected categories have a matching domain-specific model, the image is passed through that model as well and the results are added. 
+In this case, the 86-category taxonomy classifier is called first. If any of the detected categories have a matching domain-specific model, the image is passed through that model as well and the results are added.
 
 The following JSON response shows how domain-specific analysis can be included as the `detail` node in a broader categorization analysis.
 
 ```json
-"categories":[  
-  {  
+"categories":[
+  {
     "name":"abstract_",
     "score":0.00390625
   },
-  {  
+  {
     "name":"people_",
     "score":0.83984375,
-    "detail":{  
-      "celebrities":[  
-        {  
+    "detail":{
+      "celebrities":[
+        {
           "name":"Satya Nadella",
-          "faceRectangle":{  
+          "faceRectangle":{
             "left":597,
             "top":162,
             "width":248,
@@ -81,8 +81,8 @@ The following JSON response shows how domain-specific analysis can be included a
           "confidence":0.999028444
         }
       ],
-      "landmarks":[  
-        {  
+      "landmarks":[
+        {
           "name":"Forbidden City",
           "confidence":0.9978346
         }
@@ -104,20 +104,20 @@ Currently, Computer Vision supports the following domain-specific models:
 Calling the [Models](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fd) API will return this information along with the categories to which each model can apply:
 
 ```json
-{  
-  "models":[  
-    {  
+{
+  "models":[
+    {
       "name":"celebrities",
-      "categories":[  
+      "categories":[
         "people_",
         "人_",
         "pessoas_",
         "gente_"
       ]
     },
-    {  
+    {
       "name":"landmarks",
-      "categories":[  
+      "categories":[
         "outdoor_",
         "户外_",
         "屋外_",

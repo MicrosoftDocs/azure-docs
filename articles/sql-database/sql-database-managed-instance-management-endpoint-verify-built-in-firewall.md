@@ -1,16 +1,15 @@
 ---
-title: Discover Azure SQL Database Managed Instance built-in firewall | Microsoft Docs
+title: Discover managed instance built-in firewall
 description: Learn how to verify built-in firewall protection in Azure SQL Database Managed Instance.
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
 ms.custom: 
 ms.devlang: 
-ms.topic: howto
+ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
-ms.reviewer: carlrab
-manager: craigg
+ms.reviewer: sstein, carlrab
 ms.date: 12/04/2018
 ---
 # Verifying the Managed Instance built-in firewall

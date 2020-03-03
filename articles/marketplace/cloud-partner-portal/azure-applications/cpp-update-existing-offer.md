@@ -1,20 +1,13 @@
 ---
-title: Update an existing Azure application offer | Microsoft Docs
+title: Update an existing Azure application offer | Azure Marketplace
 description: How to update an existing Azure application offer on the Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal, 
-documentationcenter:
 author: dan-wesley
-manager: Patrick.Butler  
-editor:
-
-ms.assetid: 
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.author: pbutlerm
+ms.author: pabutler
 ---
 
 # Update an existing Azure application offer
@@ -71,6 +64,9 @@ Use the following steps to update the marketplace metadata associated with your 
 2. Under **All offers**, find the offer you'd like to update.
 3. Go to the **Marketplace** tab. Use the instructions in [Publish Azure application offer](./cpp-publish-offer.md) to make metadata changes.
 4. Select **Publish** to start the workflow to publish your changes.
+ 
+>[!Note]
+>Cloud Solution Providers (CSP) partner channel opt-in is now available.  Please see [Cloud Solution Providers](../../cloud-solution-providers.md) for more information on marketing your offer through the Microsoft CSP partner channels.
 
 ## Deleting an existing offer
 

@@ -1,18 +1,9 @@
 ---
-title: Use Azure Automation to launch a job in StorSimple Data Manager | Microsoft Docs
+title: Use Azure Automation to launch a job in StorSimple Data Manager
 description: Learn how to use Azure Automation for triggering StorSimple Data Manager jobs
-services: storsimple
-documentationcenter: NA
 author: alkohli
-manager: jeconnoc
-editor: ''
-
-ms.assetid:
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: TBD
+ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: alkohli
 ---
@@ -49,20 +40,20 @@ Before you begin, ensure that you have:
 
 3. In the **Add Automation**:
 
-    1. Supply the **Name** of your automation account.
-    2. Select the **Subscription** linked to your StorSimple Data Manager service.
-    3. Create a new resource group or select from an existing resource group.
-    4. Select a **Location**.
-    5. Leave the default **Create Run As account** option selected.
-    6. To get a link for quick access on the dashboard, check **Pin to dashboard**. Click **Create**.
+   1. Supply the **Name** of your automation account.
+   2. Select the **Subscription** linked to your StorSimple Data Manager service.
+   3. Create a new resource group or select from an existing resource group.
+   4. Select a **Location**.
+   5. Leave the default **Create Run As account** option selected.
+   6. To get a link for quick access on the dashboard, check **Pin to dashboard**. Click **Create**.
 
-    ![Create Run as automation account](./media/storsimple-data-manager-job-using-automation/create-automation-run-as-account.png)
+      ![Create Run as automation account](./media/storsimple-data-manager-job-using-automation/create-automation-run-as-account.png)
     
-    After the automation account is successfully created, you are notified.
+      After the automation account is successfully created, you are notified.
     
-    ![Notification for deployment of automation account](./media/storsimple-data-manager-job-using-automation/deployment-automation-account-notification1.png)
+      ![Notification for deployment of automation account](./media/storsimple-data-manager-job-using-automation/deployment-automation-account-notification1.png)
 
-    For more information, go to [Create a Run As account](../automation/automation-create-runas-account.md).
+      For more information, go to [Create a Run As account](../automation/automation-create-runas-account.md).
 
 3. In the newly created account, go to **Shared Resources > Modules** and click **+ Add module**.
 

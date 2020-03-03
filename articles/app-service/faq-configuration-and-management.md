@@ -1,18 +1,11 @@
 ---
-title: Configuration FAQs - Azure App Service | Microsoft Docs
-description: Get answers to frequently asked questions about configuration and management issues for the Web Apps feature of Azure App Service.
-services: app-service\web
-documentationcenter: ''
+title: Configuration FAQs
+description: Get answers to frequently asked questions about configuration and management issues for Azure App Service.
 author: genlin
-manager: cshepard
-editor: ''
+manager: dcscontentpm
 tags: top-support-issue
 
 ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
@@ -26,7 +19,7 @@ This article has answers to frequently asked questions (FAQs) about configuratio
 
 ## Are there limitations I should be aware of if I want to move App Service resources?
 
-If you plan to move App Service resources to a new resource group or subscription, there are a few limitations to be aware of. For more information, see [App Service limitations](../azure-resource-manager/resource-group-move-resources.md#app-service-limitations).
+If you plan to move App Service resources to a new resource group or subscription, there are a few limitations to be aware of. For more information, see [App Service limitations](../azure-resource-manager/management/move-limitations/app-service-move-limitations.md).
 
 ## How do I use a custom domain name for my web app?
 
@@ -40,23 +33,23 @@ To learn how to purchase and set up a custom domain for your App Service web app
 
 ## How do I upload and configure an existing SSL certificate for my web app?
 
-To learn how to upload and set up an existing custom SSL certificate, see [Bind an existing custom SSL certificate to an Azure web app](app-service-web-tutorial-custom-ssl.md#upload).
+To learn how to upload and set up an existing custom SSL certificate, see [Add an SSL certificate to your App Service app](configure-ssl-certificate.md).
 
 
 ## How do I purchase and configure a new SSL certificate in Azure for my web app?
 
-To learn how to purchase and set up an SSL certificate for your App Service web app, see [Add an SSL certificate to your App Service app](web-sites-purchase-ssl-web-site.md).
+To learn how to purchase and set up an SSL certificate for your App Service web app, see [Add an SSL certificate to your App Service app](configure-ssl-certificate.md).
 
 
 ## How do I move Application Insights resources?
 
 Currently, Azure Application Insights doesn't support the move operation. If your original resource group includes an Application Insights resource, you cannot move that resource. If you include the Application Insights resource when you try to move an App Service app, the entire move operation fails. However, Application Insights and the App Service plan do not need to be in the same resource group as the app for the app to function correctly.
 
-For more information, see [App Service limitations](../azure-resource-manager/resource-group-move-resources.md#app-service-limitations).
+For more information, see [App Service limitations](../azure-resource-manager/management/move-limitations/app-service-move-limitations.md).
 
 ## Where can I find a guidance checklist and learn more about resource move operations?
 
-[App Service limitations](../azure-resource-manager/resource-group-move-resources.md#app-service-limitations) shows you how to move resources to either a new subscription or to a new resource group in the same subscription. You can get information about the resource move checklist, learn which services support the move operation, and learn more about App Service limitations and other topics.
+[App Service limitations](../azure-resource-manager/management/move-limitations/app-service-move-limitations.md) shows you how to move resources to either a new subscription or to a new resource group in the same subscription. You can get information about the resource move checklist, learn which services support the move operation, and learn more about App Service limitations and other topics.
 
 ## How do I set the server time zone for my web app?
 
@@ -68,7 +61,7 @@ To set the server time zone for your web app:
     * Value = *The time zone you want*
 3. Select **Save**.
 
-See the **Timezone** column in the [Default Time Zones](https://docs.microsoft.com/windows-hardware/manufacture/desktop/default-time-zones) article for accepted values.
+For the App services that run on Windows, see the **Timezone** column in the [Default Time Zones](https://docs.microsoft.com/windows-hardware/manufacture/desktop/default-time-zones) article for accepted values. For the App services that run on Linux, set the [TZ database name](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) as the time zone value. Here is an example of TZ database name: America/Adak.
 
 ## Why do my continuous WebJobs sometimes fail?
 
@@ -93,7 +86,7 @@ Note that to use a dedicated or reserved IP address for inbound calls, your App 
 
 ## Can I export my App Service certificate to use outside Azure, such as for a website hosted elsewhere? 
 
-App Service certificates are considered Azure resources. They are not intended to use outside your Azure services. You cannot export them to use outside Azure. For more information, see [FAQs for App Service certificates and custom domains](https://social.msdn.microsoft.com/Forums/azure/f3e6faeb-5ed4-435a-adaa-987d5db43b80/faq-on-app-service-certificates-and-custom-domains?forum=windowsazurewebsitespreview).
+Yes, you can export them to use outside Azure. For more information, see [FAQs for App Service certificates and custom domains](https://social.msdn.microsoft.com/Forums/azure/f3e6faeb-5ed4-435a-adaa-987d5db43b80/faq-on-app-service-certificates-and-custom-domains?forum=windowsazurewebsitespreview).
 
 ## Can I export my App Service certificate to use with other Azure cloud services?
 
@@ -148,12 +141,9 @@ Exception: System.Data.Entity.Core.EntityException: The underlying provider fail
 
 The exception was caused by an issue with the Hybrid Connection Manager that has since been fixed. Be sure to [update your Hybrid Connection Manager](https://go.microsoft.com/fwlink/?LinkID=841308) to resolve this issue.
 
-## How do I add or edit a URL rewrite rule?
+## How do I add a URL rewrite rule?
 
-To add or edit a URL rewrite rule:
-
-1. Set up Internet Information Services (IIS) Manager so that it connects to your App Service web app. To learn how to connect IIS Manager to App Service, see [Remote administration of Azure websites by using IIS Manager](https://azure.microsoft.com/blog/remote-administration-of-windows-azure-websites-using-iis-manager/).
-2. In IIS Manager, add or edit a URL rewrite rule. To learn how to add or edit a URL rewrite rule, see [Create rewrite rules for the URL rewrite module](https://www.iis.net/learn/extensions/url-rewrite-module/creating-rewrite-rules-for-the-url-rewrite-module).
+To add a URL rewrite rule, create a web.config file with the relevant config entries in the **wwwroot** folder. For more information, see [Azure App Services: Understanding URL rewrite](https://blogs.msdn.microsoft.com/madhurabharadwaj/2018/06/01/azure-app-services-understanding-url-re-write/).
 
 ## How do I control inbound traffic to App Service?
 
@@ -166,7 +156,7 @@ If you use App Service Environment, you can use [Barracuda firewall](https://azu
 
 ## How do I block ports in an App Service web app?
 
-In the App Service shared tenant environment, it is not possible to block specific ports because of the nature of the infrastructure. TCP ports 4016, 4018, and 4020 also might be open for Visual Studio remote debugging.
+In the App Service shared tenant environment, it is not possible to block specific ports because of the nature of the infrastructure. TCP ports 4020, 4022, and 4024 also might be open for Visual Studio remote debugging.
 
 In App Service Environment, you have full control over inbound  and outbound traffic. You can use Network Security Groups to restrict or block specific ports. For more information about App Service Environment, see [Introducing App Service Environment](https://azure.microsoft.com/blog/introducing-app-service-environment/).
 
@@ -205,7 +195,7 @@ Currently, you cannot have point-to-site VPN connections to a virtual network th
 
 Currently, connecting an App Service web app to a virtual network that has a static routing (policy-based) gateway is not supported. If your target virtual network already exists, it must have point-to-site VPN enabled, with a dynamic routing gateway, before it can be connected to an app. If your gateway is set to static routing, you cannot enable a point-to-site VPN. 
 
-For more information, see [Integrate an app with an Azure virtual network](web-sites-integrate-with-vnet.md#getting-started).
+For more information, see [Integrate an app with an Azure virtual network](web-sites-integrate-with-vnet.md).
 
 ## In my App Service Environment, why can I create only one App Service plan, even though I have two workers available?
 
@@ -250,7 +240,7 @@ For more information about scheduled WebJobs, see [Create a scheduled WebJob by 
 
 ## How do I perform penetration testing for my App Service app?
 
-To perform penetration testing, [submit a request](https://portal.msrc.microsoft.com/en-us/engage/pentest).
+To perform penetration testing, [submit a request](https://portal.msrc.microsoft.com/engage/pentest).
 
 ## How do I configure a custom domain name for an App Service web app that uses Traffic Manager?
 
@@ -320,4 +310,4 @@ You also can specify the specific dynamic and static MIME types that you want to
 
 ## How do I migrate from an on-premises environment to App Service?
 
-To migrate sites from Windows and Linux web servers to App Service, you can use Azure App Service Migration Assistant. The migration tool creates web apps and databases in Azure as needed, and then publishes the content. For more information, see [Azure App Service Migration Assistant](https://www.migratetoazure.net/).
+To migrate sites from Windows and Linux web servers to App Service, you can use Azure App Service Migration Assistant. The migration tool creates web apps and databases in Azure as needed, and then publishes the content. For more information, see [Azure App Service Migration Assistant](https://appmigration.microsoft.com/).

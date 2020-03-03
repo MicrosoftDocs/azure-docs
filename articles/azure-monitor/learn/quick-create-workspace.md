@@ -1,18 +1,12 @@
 ---
 title: Create a Log Analytics workspace in the Azure Portal | Microsoft Docs
 description: Learn how to create a Log Analytics workspace to enable management solutions and data collection from your cloud and on-premises environments in the Azure portal.
-services: log-analytics
-documentationcenter: log-analytics
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: 
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 02/07/2019
-ms.author: magoedte
+author: bwren
+ms.author: bwren
+ms.date: 03/12/2019
+
 ---
 
 # Create a Log Analytics workspace in the Azure portal
@@ -20,7 +14,7 @@ Use the **Log Analytics workspaces** menu to create a Log Analytics workspace us
 
 * Azure resources in your subscription
 * On-premises computers monitored by System Center Operations Manager
-* Device collections from System Center Configuration Manager 
+* Device collections from Configuration Manager 
 * Diagnostics or log data from Azure storage
 
 For other sources, such as Azure VMs and Windows or Linux VMs in your environment, see the following topics:
@@ -41,11 +35,11 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
   
 2. Click **Add**, and then select choices for the following items:
 
-  * Provide a name for the new **Log Analytics workspace**, such as *DefaultLAWorkspace*. 
-  * Select a **Subscription** to link to by selecting from the drop-down list if the default selected is not appropriate.
-  * For **Resource Group**, choose to use an existing resource group already setup or create a new one.  
-  * Select an available **Location**.  For more information, see which [regions Log Analytics is available in](https://azure.microsoft.com/regions/services/).
-  * If you are creating a workspace in a new subscription created after April 2, 2018, it will automatically use the *Per GB* pricing plan and the option to select a pricing tier will not be available.  If you are creating a workspace for an existing subscription created before April 2, or to subscription that was tied to an existing Enterprise Agreement (EA) enrollment, select your preferred pricing tier.  For more information about the particular tiers, see [Log Analytics Pricing Details](https://azure.microsoft.com/pricing/details/log-analytics/).
+   * Provide a name for the new **Log Analytics workspace**, such as *DefaultLAWorkspace*. This name must be globally unique across all Azure Monitor subscriptions.
+   * Select a **Subscription** to link to by selecting from the drop-down list if the default selected is not appropriate.
+   * For **Resource Group**, choose to use an existing resource group already setup or create a new one.  
+   * Select an available **Location**.  For more information, see which [regions Log Analytics is available in](https://azure.microsoft.com/regions/services/) and search for Azure Monitor from the **Search for a product** field.  
+   * If you are creating a workspace in a new subscription created after April 2, 2018, it will automatically use the *Per GB* pricing plan and the option to select a pricing tier will not be available.  If you are creating a workspace for an existing subscription created before April 2, or to subscription that was tied to an existing Enterprise Agreement (EA) enrollment, select your preferred pricing tier.  For more information about the particular tiers, see [Log Analytics Pricing Details](https://azure.microsoft.com/pricing/details/log-analytics/).
 
         ![Create Log Analytics resource blade](media/quick-create-workspace/create-loganalytics-workspace-02.png)  
 

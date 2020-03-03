@@ -1,20 +1,20 @@
 ---
 title: "Tutorial: Use custom logo detector to recognize Azure services - Custom Vision"
-titlesuffix: Azure Cognitive Services
-description: In this tutorial, you will step through a sample app that uses Azure Custom Vision as part of a logo detection scenario. Learn how Custom Vision is used with other components to deliver an end-to-end application.
+titleSuffix: Azure Cognitive Services
+description: In this tutorial, you will step through a sample app that uses Custom Vision as part of a logo detection scenario. Learn how Custom Vision is used with other components to deliver an end-to-end application.
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: tutorial
-ms.date: 12/21/2018
+ms.date: 12/05/2019
 ms.author: pafarley
 ---
 # Tutorial: Recognize Azure service logos in camera pictures
 
-In this tutorial, you'll explore a sample app that uses Azure Custom Vision as part of a larger scenario. The AI Visual Provision app, a Xamarin.Forms app for mobile platforms, analyzes camera pictures of Azure service logos and then deploys the actual services to the user's Azure account. Here you'll learn how it uses Custom Vision in coordination with other components to deliver a useful end-to-end application. Run the whole app scenario for yourself, or simply complete the Custom Vision part of the setup and explore how the app uses it.
+In this tutorial, you'll explore a sample app that uses Custom Vision as part of a larger scenario. The AI Visual Provision app, a Xamarin.Forms app for mobile platforms, analyzes camera pictures of Azure service logos and then deploys the actual services to the user's Azure account. Here you'll learn how it uses Custom Vision in coordination with other components to deliver a useful end-to-end application. You can run the whole app scenario for yourself, or you can complete only the Custom Vision part of the setup and explore how the app uses it.
 
 This tutorial will show you how to:
 
@@ -27,7 +27,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-- [Visual Studio 2017](https://www.visualstudio.com/downloads/)
+- [Visual Studio 2017 or later](https://www.visualstudio.com/downloads/)
 - The Xamarin workload for Visual Studio (see [Installing Xamarin](https://docs.microsoft.com/xamarin/cross-platform/get-started/installation/windows))
 - An iOS or Android emulator for Visual Studio
 - The [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli-windows?view=azure-cli-latest) (optional)
@@ -46,41 +46,41 @@ Sign in to the [Custom Vision website](https://customvision.ai/) and create a ne
 
 Next, train the logo detection algorithm by uploading images of Azure service logos and tagging them manually. The AIVisualProvision repository includes a set of training images that you can use. On the website, select the **Add images** button on the **Training Images** tab. Then go to the **Documents/Images/Training_DataSet** folder of the repository. You'll need to manually tag the logos in each image, so if you're only testing out this project, you might want to upload only a subset of the images. Upload at least 15 instances of each tag you plan to use.
 
-After you upload the training images, select the first one on the display. This will bring up the tagging window. Draw boxes and assign tags for each logo in each image. 
+After you upload the training images, select the first one on the display. The tagging window will appear. Draw boxes and assign tags for each logo in each image. 
 
 ![Logo tagging on the Custom Vision website](media/azure-logo-tutorial/tag-logos.png)
 
 The app is configured to work with specific tag strings. You'll find the definitions in the *Source\VisualProvision\Services\Recognition\RecognitionService.cs* file:
 
-[!code-csharp[Tag definitions](~/AIVisualProvision/Source/VisualProvision/Services/Recognition/RecognitionService.cs?range=18-33)]
+[!code-csharp[Tag definitions](~/AIVisualProvision/Source/VisualProvision/Services/Recognition/RecognitionService.cs?name=snippet_constants)]
 
 After you tag an image, go to the right to tag the next one. Close the tagging window when you finish.
 
 ## Train the object detector
 
-In the left pane, set the **Tags** switch to **Tagged** to display your images. Then select the green button at the top of the page to train the model. Doing this will teach the algorithm to recognize the same tags in new images. It will also test the model on some of your existing images to generate accuracy scores.
+In the left pane, set the **Tags** switch to **Tagged** to display your images. Then select the green button at the top of the page to train the model. The algorithm will train to recognize the same tags in new images. It will also test the model on some of your existing images to generate accuracy scores.
 
 ![The Custom Vision website, on the Training Images tab. In this screenshot, the Train button is outlined](media/azure-logo-tutorial/train-model.png)
 
 ## Get the prediction URL
 
-After your model is trained, you're ready to integrate it into your app. To do this, you'll need to get the endpoint URL (the address of your model, which the app will query) and the prediction key (to grant the app access to prediction requests). On the **Performance** tab, select the **Prediction URL** button at the top of the page.
+After your model is trained, you're ready to integrate it into your app. You'll need to get the endpoint URL (the address of your model, which the app will query) and the prediction key (to grant the app access to prediction requests). On the **Performance** tab, select the **Prediction URL** button at the top of the page.
 
 ![The Custom Vision website, showing a Prediction API window that displays a URL address and API key](media/azure-logo-tutorial/cusvis-endpoint.png)
 
-Copy the image file URL and the **Prediction-Key** value to the appropriate fields in the *Source\VisualProvision\AppSettings.cs* file:
+Copy the endpoint URL and the **Prediction-Key** value to the appropriate fields in the *Source\VisualProvision\AppSettings.cs* file:
 
-[!code-csharp[Custom Vision fields](~/AIVisualProvision/Source/VisualProvision/AppSettings.cs?range=22-26)]
+[!code-csharp[Custom Vision fields](~/AIVisualProvision/Source/VisualProvision/AppSettings.cs?name=snippet_cusvis_keys)]
 
 ## Examine Custom Vision usage
 
 Open the *Source/VisualProvision/Services/Recognition/CustomVisionService.cs* file to see how the app uses your Custom Vision key and endpoint URL. The **PredictImageContentsAsync** method takes a byte stream of an image file along with a cancellation token (for asynchronous task management), calls the Custom Vision prediction API, and returns the result of the prediction. 
 
-[!code-csharp[Custom Vision fields](~/AIVisualProvision/Source/VisualProvision/Services/Recognition/CustomVisionService.cs?range=12-28)]
+[!code-csharp[Custom Vision fields](~/AIVisualProvision/Source/VisualProvision/Services/Recognition/CustomVisionService.cs?name=snippet_prediction)]
 
 This result takes the form of a **PredictionResult** instance, which itself contains a list of **Prediction** instances. A **Prediction** contains a detected tag and its bounding box location in the image.
 
-[!code-csharp[Custom Vision fields](~/AIVisualProvision/Source/VisualProvision/Services/Recognition/Prediction.cs?range=3-12)]
+[!code-csharp[Custom Vision fields](~/AIVisualProvision/Source/VisualProvision/Services/Recognition/Prediction.cs?name=snippet_prediction_class)]
 
 To learn more about how the app handles this data, start with the **GetResourcesAsync** method. This method is defined in the *Source/VisualProvision/Services/Recognition/RecognitionService.cs* file.  
 
@@ -90,12 +90,11 @@ The Custom Vision portion of the tutorial is complete. If you want to run the ap
 
 Subscribe to the Computer Vision service to get a key and endpoint URL. For help on this step, see [How to obtain subscription keys](https://docs.microsoft.com/azure/cognitive-services/computer-vision/vision-api-how-to-topics/howtosubscribe).
 
-![The Computer Vision service in the Azure portal, with the Quick start menu selected. A link for keys is outlined, as is the API endpoint URL](media/azure-logo-tutorial/comvis-keys.png)
+![The Computer Vision service in the Azure portal, with the Quickstart menu selected. A link for keys is outlined, as is the API endpoint URL](media/azure-logo-tutorial/comvis-keys.png)
 
 Next, open the *Source\VisualProvision\AppSettings.cs* file and populate the `ComputerVisionEndpoint` and `ComputerVisionKey` variables with the correct values.
 
-[!code-csharp[Computer Vision fields](~/AIVisualProvision/Source/VisualProvision/AppSettings.cs?range=28-32)]
-
+[!code-csharp[Computer Vision fields](~/AIVisualProvision/Source/VisualProvision/AppSettings.cs?name=snippet_comvis_keys)]
 
 ## Create a service principal
 
@@ -126,16 +125,18 @@ Upon successful completion, you should see the following JSON output, including 
   ...
 }
 ```
+
 Take note of the `clientId` and `tenantId` values. Add them to the appropriate fields in the *Source\VisualProvision\AppSettings.cs* file.
 
-[!code-csharp[Computer Vision fields](~/AIVisualProvision/Source/VisualProvision/AppSettings.cs?range=8-16)]
+[!code-csharp[Computer Vision fields](~/AIVisualProvision/Source/VisualProvision/AppSettings.cs?name=snippet_serviceprincipal)]
 
 ## Run the app
 
 At this point, you've given the app access to:
-* A trained Custom Vision model
-* The Computer Vision service
-* A service principal account 
+
+- A trained Custom Vision model
+- The Computer Vision service
+- A service principal account
 
 Follow these steps to run the app:
 
@@ -158,7 +159,6 @@ Follow these steps to run the app:
 
     ![The app screen, showing a drop-down field for Target Azure subscription](media/azure-logo-tutorial/app-az-subscription.png)
 
-    
 
 1. The camera on your device will be activated. Take a photo of one of the Azure service logos that you trained. A deployment window should prompt you to select a region and resource group for the new services (as you would do if you were deploying them from the Azure portal). 
 
@@ -166,7 +166,7 @@ Follow these steps to run the app:
 
     ![An app screen showing fields for the deployment region and resource group](media/azure-logo-tutorial/app-deployment-options.png)
 
-## Clean up resources 
+## Clean up resources
 
 If you've followed all of the steps of this scenario and used the app to deploy Azure services to your account, go to the [Azure portal](https://ms.portal.azure.com/). There, cancel the services you don't want to use.
 

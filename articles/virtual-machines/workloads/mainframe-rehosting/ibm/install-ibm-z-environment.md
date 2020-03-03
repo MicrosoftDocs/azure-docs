@@ -1,11 +1,15 @@
----
+﻿---
 title: Install IBM zD&T dev/test environment on Azure | Microsoft Docs
-description: Ddeploy IBM Z Development and Test Environment (zD&T) on Azure Virtual Machine (VM) infrastructure as a service (IaaS).
+description: Deploy IBM Z Development and Test Environment (zD&T) on Azure Virtual Machine (VM) infrastructure as a service (IaaS).
 services: virtual-machines-linux
+ms.service: virtual-machines-linux
 documentationcenter:
 author: njray
+ms.author: edprice
 manager: edprice
 editor: edprice
+ms.topic: conceptual
+ms.date: 04/02/2019
 tags:
 keywords:
 ---
@@ -14,7 +18,7 @@ keywords:
 
 To create a dev/test environment for mainframe workloads on IBM Z Systems, you can deploy IBM Z Development and Test Environment (zD&T) on Azure Virtual Machine (VM) infrastructure as a service (IaaS).
 
-With zD&T, you can take advantage of the cost savings of the x86 platform for your less critical development and test environments, and then push the updates back to a Z System production environment. For more information, see the [IBM ZD&T installation instructions](http://www-01.ibm.com/support/docview.wss?uid=swg24044565#INSTALL).
+With zD&T, you can take advantage of the cost savings of the x86 platform for your less critical development and test environments, and then push the updates back to a Z System production environment. For more information, see the [IBM ZD&T installation instructions](https://www-01.ibm.com/support/docview.wss?uid=swg24044565#INSTALL).
 
 Azure and Azure Stack support the following versions:
 
@@ -95,7 +99,7 @@ The installation file for the web server is **ZDT\_Install\_EE\_V12.0.0.1.tgz**.
 	./ZDT_Install_EE_V12.0.0.0.x86_64
 	```
 
-3. Select **1** to install Enterprise Server.
+3. Select **1** to install Enterprise Server.
 
 4. Press **Enter** and read the license agreements carefully. At the end of the license, enter **Yes** to proceed.
 

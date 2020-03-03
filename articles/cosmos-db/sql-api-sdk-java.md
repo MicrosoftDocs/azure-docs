@@ -6,7 +6,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 11/29/2018
+ms.date: 02/21/2020
 ms.author: sngun
 
 
@@ -23,8 +23,8 @@ ms.author: sngun
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST Resource Provider](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](sql-api-query-reference.md)
-> * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
-> * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
+> * [Bulk executor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
+> * [Bulk executor - Java](sql-api-sdk-bulk-executor-java.md)
 
 The SQL API Java SDK supports synchronous operations. For asynchronous support, use the [SQL API Async Java SDK](sql-api-sdk-async-java.md). 
 
@@ -39,12 +39,58 @@ The SQL API Java SDK supports synchronous operations. For asynchronous support, 
 
 ## Release notes
 
+### <a name="2.4.7"/>2.4.7
+* Fixes connection pool timeout issue.
+* Fixes auth token refresh on internal retries.
+
+### <a name="2.4.6"/>2.4.6
+* Updated correct client side replica policy tag on databaseAccount and made databaseAccount configuration reads from cache.
+
+### <a name="2.4.5"/>2.4.5
+* Avoiding retry on invalid partition key range error, if user provides pkRangeId.
+
+### <a name="2.4.4"/>2.4.4
+* Optimized partition key range cache refreshes.
+* Fixes the scenario where the SDK doesn't entertain partition split hint from server and results in incorrect client side routing caches refresh.
+
+### <a name="2.4.2"/>2.4.2
+* Optimized collection cache refreshes.
+
+### <a name="2.4.1"/>2.4.1
+* Added support to retrieve inner exception message from request diagnostic string.
+
+### <a name="2.4.0"/>2.4.0
+* Introduced version api on PartitionKeyDefinition.
+
+### <a name="2.3.0"/>2.3.0
+* Added separate timeout support for direct mode.
+
+### <a name="2.2.3"/>2.2.3
+* Consuming null error message from service and producing document client exception.
+
+### <a name="2.2.2"/>2.2.2
+* Socket connection improvement, adding SoKeepAlive default true.
+
+### <a name="2.2.0"/>2.2.0
+* Added request diagnostics string support.
+
+### <a name="2.1.3"/>2.1.3
+* Fixed bug in PartitionKey for Hash V2.
+
+### <a name="2.1.2"/>2.1.2
+* Added support for composite indexes.
+* Fixed bug in global endpoint manager to force refresh.
+* Fixed bug for upserts with pre-conditions in direct mode.
+
+### <a name="2.1.1"/>2.1.1
+* Fixed bug in gateway address cache.
+
 ### <a name="2.1.0"/>2.1.0
 * Multi-region write support added for direct mode.
 * Added support for handling IOExceptions thrown as ServiceUnavailable exceptions, from a proxy.
 * Fixed a bug in endpoint discovery retry policy.
 * Fixed a bug to ensure null pointer exceptions are not thrown in BaseDatabaseAccountConfigurationProvider.
-* Fixed a bug to ensure Query Iterator does not return nulls.
+* Fixed a bug to ensure QueryIterator does not return nulls.
 * Fixed a bug to ensure large PartitionKey is allowed
 
 ### <a name="2.0.0"/>2.0.0
@@ -108,11 +154,11 @@ The SQL API Java SDK supports synchronous operations. For asynchronous support, 
 * Fixed a few bugs in the session container that may cause an "Owner resource not found" exception for requests immediately after collection creation.
 
 ### <a name="1.9.5"/>1.9.5
-* Added support for aggregation queries (COUNT, MIN, MAX, SUM, and AVG). See [Aggregation support](how-to-sql-query.md#Aggregates).
+* Added support for aggregation queries (COUNT, MIN, MAX, SUM, and AVG). See [Aggregation support](sql-query-aggregates.md).
 * Added support for change feed.
 * Added support for collection quota information through RequestOptions.setPopulateQuotaInfo.
 * Added support for stored procedure script logging through RequestOptions.setScriptLoggingEnabled.
-* Fixed a bug where query in DirectHttps mode may hang when encountering throttle failures.
+* Fixed a bug where query in DirectHttps mode may stop responding when encountering throttle failures.
 * Fixed a bug in session consistency mode.
 * Fixed a bug which may cause NullReferenceException in HttpContext when request rate is high.
 * Improved performance of DirectHttps mode.
@@ -183,7 +229,7 @@ The SQL API Java SDK supports synchronous operations. For asynchronous support, 
 
 ### <a name="1.2.0"/>1.2.0
 * Supports GeoSpatial Index
-* Validates id property for all resources. Ids for resources cannot contain ?, /, #, \, characters or end with a space.
+* Validates ID property for all resources. Ids for resources cannot contain ?, /, #, \, characters or end with a space.
 * Adds new header "index transformation progress" to ResourceResponse.
 
 ### <a name="1.1.0"/>1.1.0
@@ -200,6 +246,11 @@ New features and functionality and optimizations are only added to the current S
 Any request to Cosmos DB using a retired SDK will be rejected by the service.
 
 > [!WARNING]
+> All versions **1.x** of the SQL SDK for Java will be retired on **May 30, 2020**.
+> 
+>
+
+> [!WARNING]
 > All versions of the SQL SDK for Java prior to version **1.0.0** were retired on **February 29, 2016**.
 > 
 > 
@@ -208,39 +259,53 @@ Any request to Cosmos DB using a retired SDK will be rejected by the service.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
-| 2.1.1 |Nov 21, 2018 |--- |
+| [2.4.7](#2.4.7) |Feb 20, 2020 |--- |
+| [2.4.6](#2.4.6) |Jan 24, 2020 |--- |
+| [2.4.5](#2.4.5) |Nov 10, 2019 |--- |
+| [2.4.4](#2.4.4) |Oct 24, 2019 |--- |
+| [2.4.2](#2.4.2) |Sep 26, 2019 |--- |
+| [2.4.1](#2.4.1) |Jul 18, 2019 |--- |
+| [2.4.0](#2.4.0) |May 04, 2019 |--- |
+| [2.3.0](#2.3.0) |Apr 24, 2019 |--- |
+| [2.2.3](#2.2.3) |Apr 16, 2019 |--- |
+| [2.2.2](#2.2.2) |Apr 05, 2019 |--- |
+| [2.2.0](#2.2.0) |Mar 27, 2019 |--- |
+| [2.1.3](#2.1.3) |Mar 13, 2019 |--- |
+| [2.1.2](#2.1.2) |Mar 09, 2019 |--- |
+| [2.1.1](#2.1.1) |Dec 13, 2018 |--- |
+| [2.1.0](#2.1.0) |Nov 20, 2018 |--- |
 | [2.0.0](#2.0.0) |Sept 21, 2018 |--- |
-| [1.16.4](#1.16.4) |Sept 10, 2018 |--- |
-| [1.16.3](#1.16.3) |Sept 09, 2018 |--- |
-| [1.16.2](#1.16.2) |June 29, 2018 |--- |
-| [1.16.1](#1.16.1) |May 16, 2018 |--- |
-| [1.16.0](#1.16.0) |March 15, 2018 |--- |
-| [1.15.0](#1.15.0) |Nov 14, 2017 |--- |
-| [1.14.0](#1.14.0) |Oct 28, 2017 |--- |
-| [1.13.0](#1.13.0) |August 25, 2017 |--- |
-| [1.12.0](#1.12.0) |July 11, 2017 |--- |
-| [1.11.0](#1.11.0) |May 10, 2017 |--- |
-| [1.10.0](#1.10.0) |March 11, 2017 |--- |
-| [1.9.6](#1.9.6) |February 21, 2017 |--- |
-| [1.9.5](#1.9.5) |January 31, 2017 |--- |
-| [1.9.4](#1.9.4) |November 24, 2016 |--- |
-| [1.9.3](#1.9.3) |October 30, 2016 |--- |
-| [1.9.2](#1.9.2) |October 28, 2016 |--- |
-| [1.9.1](#1.9.1) |October 26, 2016 |--- |
-| [1.9.0](#1.9.0) |October 03, 2016 |--- |
-| [1.8.1](#1.8.1) |June 30, 2016 |--- |
-| [1.8.0](#1.8.0) |June 14, 2016 |--- |
-| [1.7.1](#1.7.1) |April 30, 2016 |--- |
-| [1.7.0](#1.7.0) |April 27, 2016 |--- |
-| [1.6.0](#1.6.0) |March 29, 2016 |--- |
-| [1.5.1](#1.5.1) |December 31, 2015 |--- |
-| [1.5.0](#1.5.0) |December 04, 2015 |--- |
-| [1.4.0](#1.4.0) |October 05, 2015 |--- |
-| [1.3.0](#1.3.0) |October 05, 2015 |--- |
-| [1.2.0](#1.2.0) |August 05, 2015 |--- |
-| [1.1.0](#1.1.0) |July 09, 2015 |--- |
-| 1.0.1 |May 12, 2015 |--- |
-| [1.0.0](#1.0.0) |April 07, 2015 |--- |
+| [1.16.4](#1.16.4) |Sept 10, 2018 |May 30, 2020 |
+| [1.16.3](#1.16.3) |Sept 09, 2018 |May 30, 2020 |
+| [1.16.2](#1.16.2) |June 29, 2018 |May 30, 2020 |
+| [1.16.1](#1.16.1) |May 16, 2018 |May 30, 2020 |
+| [1.16.0](#1.16.0) |March 15, 2018 |May 30, 2020 |
+| [1.15.0](#1.15.0) |Nov 14, 2017 |May 30, 2020 |
+| [1.14.0](#1.14.0) |Oct 28, 2017 |May 30, 2020 |
+| [1.13.0](#1.13.0) |August 25, 2017 |May 30, 2020 |
+| [1.12.0](#1.12.0) |July 11, 2017 |May 30, 2020 |
+| [1.11.0](#1.11.0) |May 10, 2017 |May 30, 2020 |
+| [1.10.0](#1.10.0) |March 11, 2017 |May 30, 2020 |
+| [1.9.6](#1.9.6) |February 21, 2017 |May 30, 2020 |
+| [1.9.5](#1.9.5) |January 31, 2017 |May 30, 2020 |
+| [1.9.4](#1.9.4) |November 24, 2016 |May 30, 2020 |
+| [1.9.3](#1.9.3) |October 30, 2016 |May 30, 2020 |
+| [1.9.2](#1.9.2) |October 28, 2016 |May 30, 2020 |
+| [1.9.1](#1.9.1) |October 26, 2016 |May 30, 2020 |
+| [1.9.0](#1.9.0) |October 03, 2016 |May 30, 2020 |
+| [1.8.1](#1.8.1) |June 30, 2016 |May 30, 2020 |
+| [1.8.0](#1.8.0) |June 14, 2016 |May 30, 2020 |
+| [1.7.1](#1.7.1) |April 30, 2016 |May 30, 2020 |
+| [1.7.0](#1.7.0) |April 27, 2016 |May 30, 2020 |
+| [1.6.0](#1.6.0) |March 29, 2016 |May 30, 2020 |
+| [1.5.1](#1.5.1) |December 31, 2015 |May 30, 2020 |
+| [1.5.0](#1.5.0) |December 04, 2015 |May 30, 2020 |
+| [1.4.0](#1.4.0) |October 05, 2015 |May 30, 2020 |
+| [1.3.0](#1.3.0) |October 05, 2015 |May 30, 2020 |
+| [1.2.0](#1.2.0) |August 05, 2015 |May 30, 2020 |
+| [1.1.0](#1.1.0) |July 09, 2015 |May 30, 2020 |
+| 1.0.1 |May 12, 2015 |May 30, 2020 |
+| [1.0.0](#1.0.0) |April 07, 2015 |May 30, 2020 |
 | 0.9.5-prelease |Mar 09, 2015 |February 29, 2016 |
 | 0.9.4-prelease |February 17, 2015 |February 29, 2016 |
 | 0.9.3-prelease |January 13, 2015 |February 29, 2016 |

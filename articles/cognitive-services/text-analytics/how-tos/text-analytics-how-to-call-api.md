@@ -1,7 +1,7 @@
 ---
 title: Call the Text Analytics API
-titlesuffix: Azure Cognitive Services
-description: Learn how to call the Text Analytics REST API.
+titleSuffix: Azure Cognitive Services
+description: This article explains how you can call the Azure Cognitive Services Text Analytics REST API and Postman.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 02/13/2019
+ms.date: 07/30/2019
 ms.author: aahi
 ---
 
@@ -21,12 +21,11 @@ Each request must include your access key and an HTTP endpoint. The endpoint spe
 
 Recall that Text Analytics is stateless so there are no data assets to manage. Your text is uploaded, analyzed upon receipt, and results are returned immediately to the calling application.
 
-> [!Tip]
-> For one-off calls to see how the API works, you can send POST requests from the built-in **API testing console**, available on any [API doc page](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6). There is no setup, and the only requirements are to paste an access key and the JSON documents into the request. 
+[!INCLUDE [text-analytics-api-references](../includes/text-analytics-api-references.md)]
 
 ## Prerequisites
 
-You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with the Text Analytics API, and the [endpoint and access key](text-analytics-how-to-access-key.md) that is generated for you when you sign up for Cognitive Services. 
+[!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 
 <a name="json-schema"></a>
 
@@ -54,12 +53,12 @@ The service accepts request up to 1 MB in size. If you are using Postman (or ano
    + Paste in the endpoint you copied from the portal page.
    + Append a resource.
 
-  Resource endpoints are as follows (your region may vary):
+   Resource endpoints are as follows (your region may vary):
 
-   + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment`
-   + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/keyPhrases`
-   + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/languages`
-   + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1-preview/entities`
+   + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/sentiment`
+   + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/keyPhrases`
+   + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/languages`
+   + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/entities`
 
 2. Set the three request headers:
 
@@ -67,7 +66,7 @@ The service accepts request up to 1 MB in size. If you are using Postman (or ano
    + `Content-Type`: application/json.
    + `Accept`: application/json.
 
-  Your request should look similar to the following screenshot, assuming a **/keyPhrases** resource.
+   Your request should look similar to the following screenshot, assuming a **/keyPhrases** resource.
 
    ![Request screenshot with endpoint and headers](../media/postman-request-keyphrase-1.png)
 
@@ -80,12 +79,12 @@ The service accepts request up to 1 MB in size. If you are using Postman (or ano
   + [Language detection](text-analytics-how-to-language-detection.md)  
   + [Key phrase extraction](text-analytics-how-to-keyword-extraction.md)  
   + [Sentiment analysis](text-analytics-how-to-sentiment-analysis.md)  
-  + [Entity recognition (Preview)](text-analytics-how-to-entity-linking.md)  
+  + [Entity recognition](text-analytics-how-to-entity-linking.md)  
 
 
-6. Click **Send** to submit the request. You can submit up to 100 requests per minute. 
+6. Click **Send** to submit the request. See the [data limits](../overview.md#data-limits) section in the overview for information on the number of requests you can send per minute and second.
 
-  In Postman, the response is displayed in the next window down, as a single JSON document, with an item for each document ID provided in the request.
+   In Postman, the response is displayed in the next window down, as a single JSON document, with an item for each document ID provided in the request.
 
 ## See also 
 

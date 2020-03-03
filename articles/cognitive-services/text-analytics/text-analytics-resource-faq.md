@@ -1,7 +1,7 @@
 ---
 title: Frequently Asked Questions about the Text Analytics API
 titleSuffix: Azure Cognitive Services
-description: Get answers to common questions about the Text Analytics API.
+description: Find answers to commonly asked questions about concepts, code, and scenarios related to the Text Analytics API for Azure Cognitive Services.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -49,4 +49,4 @@ Is your question about a missing feature or functionality? Consider requesting o
 ## See also
 
  [StackOverflow: Text Analytics API](https://stackoverflow.com/questions/tagged/text-analytics-api)   
- [StackOverflow: Cognitive Services](http://stackoverflow.com/questions/tagged/microsoft-cognitive)
+ [StackOverflow: Cognitive Services](https://stackoverflow.com/questions/tagged/microsoft-cognitive)

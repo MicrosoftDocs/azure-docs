@@ -1,12 +1,11 @@
 ---
 title: Tutorial - Extend Windows file servers with Azure File Sync | Microsoft Docs
 description: Learn how to extend Windows file servers with Azure File Sync, from start to finish.
-services: storage
-author: wmgries
+author: roygara
 ms.service: storage
 ms.topic: tutorial
 ms.date: 10/23/2018
-ms.author: wgries
+ms.author: rogarana
 ms.subservice: files
 #Customer intent: As an IT Administrator, I want see how to extend Windows file servers with Azure File Sync, so I can evaluate the process for extending storage capacity of my Windows servers.
 ---
@@ -131,7 +130,7 @@ At this point, you've created a new virtual machine and attached a data disk. Ne
 
 For the Windows Server 2016 Datacenter server, disable Internet Explorer Enhanced Security Configuration. This step is required only for initial server registration. You can re-enable it after the server has been registered.
 
-In the Windows Server 2016 Datacenter VM, Server Manager opens automatically.  If Server Manager doesn't open by default, search for it in File Explorer.
+In the Windows Server 2016 Datacenter VM, Server Manager opens automatically.  If Server Manager doesn't open by default, search for it in Start Menu.
 
 1. In **Server Manager**, select **Local Server**.
 
@@ -177,7 +176,7 @@ Next, in the Windows Server 2016 Datacenter VM, install the Azure PowerShell mod
 1. Run the following command:
 
    ```powershell
-   Install-Module -Name AzureRm
+   Install-Module -Name Az
    ```
 
    > [!NOTE]
@@ -196,7 +195,7 @@ Next, in the Windows Server 2016 Datacenter VM, install the Azure PowerShell mod
 
 1. Answer **Yes** or **Yes to All** to continue with the installation.
 
-The `AzureRM` module is a rollup module for the Azure PowerShell cmdlets. Installing it downloads all the available Azure Resource Manager modules and makes their cmdlets available for use.
+The `Az` module is a rollup module for the Azure PowerShell cmdlets. Installing it downloads all the available Azure Resource Manager modules and makes their cmdlets available for use.
 
 At this point, you've set up your environment for the tutorial. You're ready to deploy the Storage Sync Service.
 

@@ -1,20 +1,13 @@
 ---
-title: Create a Microsoft Developer account | Microsoft Docs
+title: Create a Microsoft Developer account | Azure Marketplace
 description: Requirements and steps for creating a Microsoft Developer account.
 services: Azure, Marketplace, Cloud Partner Portal, 
-documentationcenter:
 author: v-miclar
-manager: Patrick.Butler  
-editor:
-
-ms.assetid: 
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pbutlerm
+ms.author: pabutler
 ---
 
 
@@ -102,7 +95,7 @@ account that is shared for the company, **and the same account must be used in t
 browsing session to ensure that you're not signed in to a personal
 account.
 
-2. Go to the [Windows Dev Center](http://dev.windows.com/registration?accountprogram=azure)
+2. Go to the [Windows Dev Center](https://dev.windows.com/registration?accountprogram=azure)
 to register yourself as a seller. Please read the
 following important note before you proceed.
 
@@ -121,7 +114,7 @@ following important note before you proceed.
    ![Select country/region](./media/cloud-partner-portal-create-dev-center-registration/imgRegisterCo_04.png)
 
     >[!WARNING]
-    >"Sell-from" Countries: In order to sell your services on the Azure Marketplace, your registered entity needs to be from one of the approved "sell-from" countries shown in the dropdown list. This restriction is for payout and taxation reasons. For more information, see the Marketplace participation policies.
+    >"Sell-from" Countries/Regions: In order to sell your services on the Azure Marketplace, your registered entity needs to be from one of the approved "sell-from" countries/regions shown in the dropdown list. This restriction is for payout and taxation reasons. For more information, see the Marketplace participation policies.
 
 5. Select **Company** as your "Account Type" and then select **Next**.
 
@@ -178,7 +171,7 @@ To publish commercial offers for purchase, you need to add payout and tax inform
 
 **To provide bank information**
 
-1.  Sign in to the [Microsoft Developer Center](http://dev.windows.com/registration?accountprogram=azure) with your Microsoft account.
+1.  Sign in to the [Microsoft Developer Center](https://dev.windows.com/registration?accountprogram=azure) with your Microsoft account.
 2.  Select **Payout account** in the left menu, under **Choose payment method**, select **Bank account** or **PayPal**.
 
     >[!NOTE]
@@ -194,7 +187,7 @@ To publish commercial offers for purchase, you need to add payout and tax inform
 
 **To provide tax information**
 
-1.  Sign in to the [Microsoft Developer Center](http://dev.windows.com/registration?accountprogram=azure)
+1.  Sign in to the [Microsoft Developer Center](https://dev.windows.com/registration?accountprogram=azure)
     with your Microsoft account (if needed).
 2.  On the left menu, select **Tax profile**.
 3.  On the **Set up your tax form** page:

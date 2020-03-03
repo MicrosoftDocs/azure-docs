@@ -1,6 +1,6 @@
 ---
-title: 'Add a gateway to an Azure VNet for ExpressRoute: Portal | Microsoft Docs'
-description: This article walks you through adding a virtual network gateway to an already created Resource Manager VNet for ExpressRoute.
+title: 'Azure ExpressRoute: Add a gateway to a VNet: portal'
+description: This article walks you through adding a virtual network gateway to an already created Resource Manager VNet for ExpressRoute using the Azure portal.
 services: expressroute
 author: cherylmc
 
@@ -46,7 +46,7 @@ You can view a [Video](https://azure.microsoft.com/documentation/videos/azure-ex
 
 ## Create the gateway subnet
 
-1. In the [portal](http://portal.azure.com), navigate to the Resource Manager virtual network for which you want to create a virtual network gateway.
+1. In the [portal](https://portal.azure.com), navigate to the Resource Manager virtual network for which you want to create a virtual network gateway.
 2. In the **Settings** section of your VNet blade, click **Subnets** to expand the Subnets blade.
 3. On the **Subnets** blade, click **+Gateway subnet** to open the **Add subnet** blade. 
    

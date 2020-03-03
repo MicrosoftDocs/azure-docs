@@ -1,9 +1,10 @@
 ---
-title: Deploy Azure API for FHIR using Azure Portal
-description: Deploy Azure API for FHIR using Azure Portal.
+title: 'Quickstart: Deploy Azure API for FHIR using Azure portal'
+description: In this quickstart, you'll learn how to deploy Azure API for FHIR and configure settings using the Azure portal.
 services: healthcare-apis
 author: hansenms
 ms.service: healthcare-apis
+ms.subservice: fhir
 ms.topic: quickstart 
 ms.date: 02/07/2019
 ms.author: mihansen
@@ -11,7 +12,7 @@ ms.author: mihansen
 
 # Quickstart: Deploy Azure API for FHIR using Azure portal
 
-In this quickstart, you'll learn how to deploy Azure API for FHIR using the Azure Portal.
+In this quickstart, you'll learn how to deploy Azure API for FHIR using the Azure portal.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -43,11 +44,16 @@ Confirm creation and await FHIR API deployment.
 
 ## Additional settings
 
-Click **Next: Additional settings** to configure the identity object IDs that should be allowed to access this Azure API for FHIR:
+Click **Next: Additional settings** to configure the authority, audience, identity object IDs that should be allowed to access this Azure API for FHIR, enable SMART on FHIR if needed, and configure database throughput:
 
-![Configure allowed object IDs](media/quickstart-paas-portal/configure-allowed-oids.png)
+- **Authority:** You can specify different Azure AD tenant from the one that you are logged into as authentication authority for the service.
+- **Audience:** You can specify audience, that is different from https:\//azurehealthcareapis.com.
+- **Allowed object IDs:** You can specify identity object IDs that should be allowed to access this Azure API for FHIR. You can learn more on finding the object id for users and service principals in the [Find identity object IDs](find-identity-object-ids.md) how-to guide.  
+- **Smart On FHIR proxy:** You can enable SMART on FHIR proxy. For details on how to configure SMART on FHIR proxy see tutorial [Azure API for FHIR SMART on FHIR proxy](https://docs.microsoft.com/azure/healthcare-apis/use-smart-on-fhir-proxy)  
+- **Provisioned throughput (RU/s):** Here you can specify throughput settings for the underlying database for your Azure API for FHIR. You can change this setting later in the Database blade. For more details, please see the [configure database settings](configure-database.md) page.
 
-See [how to find identity object IDs](find-identity-object-ids.md) for details on how to locate identity object IDs for users and service principals.
+
+![Configure allowed object IDs](media/quickstart-paas-portal/configure-audience.png)
 
 ## Fetch FHIR API capability statement
 
@@ -59,7 +65,7 @@ When no longer needed, you can delete the resource group, Azure API for FHIR, an
 
 ## Next steps
 
-In this tutorial, you've deployed the Azure API for FHIR into your subscription. To learn how to access the FHIR API using Postman, proceed to the Postman tutorial.
+In this quickstart guide, you've deployed the Azure API for FHIR into your subscription. To set additional settings in your Azure API for FHIR, proceed to the additional settings how-to guide.
 
 >[!div class="nextstepaction"]
->[Access FHIR API using Postman](access-fhir-postman-tutorial.md)
+>[Additional settings in Azure API for FHIR](azure-api-for-fhir-additional-settings.md)

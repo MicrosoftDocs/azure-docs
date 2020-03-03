@@ -32,12 +32,18 @@
     href: https://github.com/Azure/azure-relay/tree/master/samples/wcf-relay
 - name: Concepts
   items:
-  - name: Authentication and authorization
-    href: relay-authentication-and-authorization.md
+  - name: Security
+    items:
+    - name: Authentication and authorization
+      href: relay-authentication-and-authorization.md
+    - name: Built-in security controls
+      href: service-bus-relay-security-controls.md
   - name: Hybrid Connections protocol
     href: relay-hybrid-connections-protocol.md
 - name: How To
   items:
+  - name: Migrate from Azure Service Manager (classic) APIs to Resource Manager APIs
+    href: ../service-bus-messaging/deprecate-service-bus-management.md?toc=%2fazure%2fservice-bus-relay%2ftoc.json    
   - name: Plan and design
     items:
     - name: Migrate from ACS to SAS
@@ -46,8 +52,6 @@
     items:
     - name: Create a namespace
       href: relay-create-namespace-portal.md
-    - name: Use WCF Relay to expose WCF services to external clients
-      href: relay-wcf-dotnet-get-started.md
     - name: Available APIs
       href: relay-api-overview.md
       items:
@@ -86,4 +90,4 @@
   - name: Samples
     href: https://github.com/azure/azure-relay/tree/master/samples
   - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-servicebusrelay
+    href: https://stackoverflow.com/questions/tagged/azure-servicebusrelay

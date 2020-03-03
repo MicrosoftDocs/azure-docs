@@ -1,9 +1,9 @@
 ---
-title: Use a Linux VM system-assigned managed identity to access Azure Resource Manager
+title: Quickstart`:` Use a managed identity to access Azure Resource Manager - Azure AD
 description: A quickstart that walks you through the process of using a Linux VM system-assigned managed identity to access Azure Resource Manager.
 services: active-directory
 documentationcenter: ''
-author: priyamohanram
+author: MarkusVi
 manager: daveba
 editor: bryanla
 
@@ -14,7 +14,7 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
-ms.author: priyamo
+ms.author: markvi
 ms.collection: M365-identity-device-management
 ---
 
@@ -99,3 +99,4 @@ In this quickstart, you learned how to use a system-assigned managed identity to
 
 > [!div class="nextstepaction"]
 >[Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview)
+>[Create, list or delete a user-assigned managed identity using Azure PowerShell](how-to-manage-ua-identity-powershell.md)

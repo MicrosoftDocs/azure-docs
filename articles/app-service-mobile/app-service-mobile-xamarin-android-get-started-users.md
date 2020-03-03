@@ -1,25 +1,17 @@
 ---
-title: Get Started with authentication for Mobile Apps in Xamarin Android
-description: Learn how to use Mobile Apps to authenticate users of your Xamarin Android app through a variety of identity providers, including AAD, Google, Facebook, Twitter, and Microsoft.
-services: app-service\mobile
-documentationcenter: xamarin
-author: conceptdev
-manager: panarasi
-editor: ''
+title: Get Started with authentication in Xamarin Android
+description: Learn how to use Mobile Apps to authenticate users of your Xamarin Android app with identity providers like AAD, Google, Facebook, Twitter, and Microsoft.
 
 ms.assetid: 570fc12b-46a9-4722-b2e0-0d1c45fb2152
-ms.service: app-service-mobile
-ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin-android
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/24/2018
-ms.author: panarasi
-
+ms.date: 06/25/2019
 ---
 # Add authentication to your Xamarin.Android app
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
 
+## Overview
 This topic shows you how to authenticate users of a Mobile App from your client application. In this tutorial, you add authentication to the quickstart project using an identity provider that is supported by Azure Mobile Apps. After being successfully authenticated and authorized in the Mobile App, the user ID value is displayed.
 
 This tutorial is based on the Mobile App quickstart. You must also first complete the tutorial [Create a Xamarin.Android app]. If you do not use the downloaded quick start server project, you must add the authentication extension package to your project. For more information about server extension packages, see [Work with the .NET backend server SDK for Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
@@ -53,7 +45,7 @@ The app is updated to require users to tap the **Sign in** button and authentica
 
 1. Add the following code to the **TodoActivity** class:
    
-        // Define a authenticated user.
+        // Define an authenticated user.
         private MobileServiceUser user;
         private async Task<bool> Authenticate()
         {

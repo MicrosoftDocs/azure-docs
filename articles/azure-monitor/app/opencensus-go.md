@@ -1,14 +1,9 @@
 ---
 title: OpenCensus Go tracing with Azure Application Insights | Microsoft Docs
 description: Provides instructions to integrate OpenCensus Go tracing with the local forwarder and Application Insights
-services: application-insights
-keywords:
-author: mrbullwinkle
-ms.author: mbullwin
-ms.date: 09/15/2018
-ms.service: application-insights
 ms.topic: conceptual
-manager: carmonm
+ms.date: 09/15/2018
+
 ---
 
 # Collect distributed traces from Go (Preview)
@@ -35,12 +30,14 @@ First you have to create an Application Insights resource which will generate an
 
    ![Adding Application Insights Resource](./media/opencensus-Go/0001-create-resource.png)
 
+ > [!NOTE]
+   >If this is your first time creating an Application Insights resource you can learn more by visiting the [Create an Application Insights Resource](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource) article.
+
    A configuration box appears; use the following table to fill out the input fields.
 
-    | Settings        | Value           | Description  |
+   | Settings        | Value           | Description  |
    | ------------- |:-------------|:-----|
    | **Name**      | Globally Unique Value | Name that identifies the app you are monitoring |
-   | **Application Type** | General | Type of app you are monitoring |
    | **Resource Group**     | myResourceGroup      | Name for the new resource group to host App Insights data |
    | **Location** | East US | Choose a location near you, or near where your app is hosted |
 

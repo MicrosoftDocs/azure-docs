@@ -1,28 +1,21 @@
 ---
-title: Azure Service Fabric container application manifest examples | Microsoft Docs
+title: Azure Service Fabric container application manifest examples
 description: Learn how to configure application and service manifest settings for a multi-container Service Fabric application.
-services: service-fabric
-documentationcenter: na
-author: rwike77
-manager: timlt
-editor: 
-ms.assetid: 
-ms.service: service-fabric
-ms.devlang: xml
+author: peterpogorski
+
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: multiple
 ms.date: 06/08/2018
-ms.author: ryanwi
+ms.author: pepogors
 ---
 
 # Multi-container application and service manifest examples
 The following are examples of the application and service manifests for a multi-container Service Fabric application. The purpose of these examples is to show what settings are available and how to use them. These application and service manifests are based on the [Windows Server 2016 Container Sample](https://github.com/Azure-Samples/service-fabric-containers/tree/master/Windows) manifests.
 
 The following features are shown:
+
 |Manifest|Features|
 |---|---|
-|[Application manifest](#application-manifest)| [override environment variables](service-fabric-get-started-containers.md#configure-and-set-environment-variables), [configure container port-to-host mapping](service-fabric-get-started-containers.md#configure-container-port-to-host-port-mapping-and-container-to-container-discovery), [configure container registry authentication](service-fabric-get-started-containers.md#configure-container-registry-authentication), [resource governance](service-fabric-resource-governance.md), [set isolation mode](service-fabric-get-started-containers.md#configure-isolation-mode), [specify OS build-specific container images](service-fabric-get-started-containers.md#specify-os-build-specific-container-images)| 
+|[Application manifest](#application-manifest)| [override environment variables](service-fabric-get-started-containers.md#configure-and-set-environment-variables), [configure container port-to-host mapping](service-fabric-get-started-containers.md#configure-container-port-to-host-port-mapping-and-container-to-container-discovery), [configure container registry authentication](service-fabric-get-started-containers.md#configure-container-repository-authentication), [resource governance](service-fabric-resource-governance.md), [set isolation mode](service-fabric-get-started-containers.md#configure-isolation-mode), [specify OS build-specific container images](service-fabric-get-started-containers.md#specify-os-build-specific-container-images)| 
 |[FrontEndService service manifest](#frontendservice-service-manifest)| [set environment variables](service-fabric-get-started-containers.md#configure-and-set-environment-variables), [configure an endpoint](service-fabric-get-started-containers.md#configure-communication), pass commands to the container, [import a certificate into a container](service-fabric-securing-containers.md)| 
 |[BackEndService service manifest](#backendservice-service-manifest)|[set environment variables](service-fabric-get-started-containers.md#configure-and-set-environment-variables), [configure an endpoint](service-fabric-get-started-containers.md#configure-communication), [configure volume driver](service-fabric-containers-volume-logging-drivers.md)| 
 
@@ -35,8 +28,8 @@ See [Application manifest elements](#application-manifest-elements), [FrontEndSe
 <ApplicationManifest ApplicationTypeName="Container.ApplicationType"
                      ApplicationTypeVersion="1.0.0"
                      xmlns="http://schemas.microsoft.com/2011/01/fabric"
-                     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                     xmlns:xsd="https://www.w3.org/2001/XMLSchema"
+                     xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
   <Parameters>
     <Parameter Name="BackEndService_InstanceCount" DefaultValue="-1" />
     <Parameter Name="FrontEndService_InstanceCount" DefaultValue="-1" />
@@ -166,8 +159,8 @@ See [Application manifest elements](#application-manifest-elements), [FrontEndSe
 <ServiceManifest Name="FrontEndServicePkg"
                  Version="1.0.0"
                  xmlns="http://schemas.microsoft.com/2011/01/fabric"
-                 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                 xmlns:xsd="https://www.w3.org/2001/XMLSchema"
+                 xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
   <ServiceTypes>
     <!-- This is the name of your ServiceType.
          The UseImplicitHost attribute indicates this is a guest service. -->
@@ -216,8 +209,8 @@ See [Application manifest elements](#application-manifest-elements), [FrontEndSe
 <ServiceManifest Name="BackEndServicePkg"
                  Version="1.0.0"
                  xmlns="http://schemas.microsoft.com/2011/01/fabric"
-                 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                 xmlns:xsd="https://www.w3.org/2001/XMLSchema"
+                 xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
   <ServiceTypes>
     <!-- This is the name of your ServiceType.
          The UseImplicitHost attribute indicates this is a guest service. -->
@@ -351,7 +344,7 @@ The executable specified by EntryPoint is typically the long-running service hos
  For more information, see [ContainerHost Element](service-fabric-service-model-schema-elements.md#ContainerHostElementContainerHostEntryPointTypeComplexTypeDefinedInEntryPointDescriptionTypecomplexType)
 
 ### ImageName Element
-The repo and image on https://hub.docker.com or Azure Container Registry. For more information, see [ImageName Element](service-fabric-service-model-schema-elements.md#ImageNameElementxs:stringComplexTypeDefinedInContainerHostEntryPointTypecomplexType)
+The repo and image on [https://hub.docker.com](https://hub.docker.com) or Azure Container Registry. For more information, see [ImageName Element](service-fabric-service-model-schema-elements.md#ImageNameElementxs:stringComplexTypeDefinedInContainerHostEntryPointTypecomplexType)
 
 ### EnvironmentVariables Element
 Pass environment variables to your container or exe.  For more information, see [EnvironmentVariables Element](service-fabric-service-model-schema-elements.md#EnvironmentVariablesElementEnvironmentVariablesTypeComplexTypeDefinedInCodePackageTypecomplexType)
@@ -395,7 +388,7 @@ The executable specified by EntryPoint is typically the long-running service hos
 For more information, see [ContainerHost Element](service-fabric-service-model-schema-elements.md#ContainerHostElementContainerHostEntryPointTypeComplexTypeDefinedInEntryPointDescriptionTypecomplexType)
 
 ### ImageName Element
-The repo and image on https://hub.docker.com or Azure Container Registry. For more information, see [ImageName Element](service-fabric-service-model-schema-elements.md#ImageNameElementxs:stringComplexTypeDefinedInContainerHostEntryPointTypecomplexType)
+The repo and image on [https://hub.docker.com](https://hub.docker.com) or Azure Container Registry. For more information, see [ImageName Element](service-fabric-service-model-schema-elements.md#ImageNameElementxs:stringComplexTypeDefinedInContainerHostEntryPointTypecomplexType)
 
 ### Commands Element
 Pass a comma delimited list of commands to the container. For more information, see [Commands Element](service-fabric-service-model-schema-elements.md#CommandsElementxs:stringComplexTypeDefinedInContainerHostEntryPointTypecomplexType)

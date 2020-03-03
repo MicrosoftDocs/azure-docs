@@ -1,363 +1,205 @@
 ---
-title: "Quickstart: Python SDK"
-titleSuffix: "Azure Cognitive Services"
-description: In this quickstart, you learn how to use the Python SDK for common tasks.
+title: "Quickstart: Computer Vision client library for Python"
+description: Get started with the Computer Vision client library for Python with this quickstart.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
-
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 02/26/2019
+ms.date: 12/05/2019
 ms.author: pafarley
 ---
-# Azure Cognitive Services Computer Vision SDK for Python
 
-The Computer Vision service provides developers with access to advanced algorithms for processing images and returning information. Computer Vision algorithms analyze the content of an image in different ways, depending on the visual features you're interested in. 
+# Quickstart: Computer Vision client library for Python
 
-* [Analyze an image](#analyze-an-image)
-* [Get subject domain list](#get-subject-domain-list)
-* [Analyze an image by domain](#analyze-an-image-by-domain)
-* [Get text description of an image](#get-text-description-of-an-image)
-* [Get handwritten text from image](#get-text-from-image)
-* [Generate thumbnail](#generate-thumbnail)
+The Computer Vision service provides developers with access to advanced algorithms for processing images and returning information. Computer Vision algorithms analyze the content of an image in different ways, depending on the visual features you're interested in.
 
-For more information about this service, see [What is Computer Vision?][computervision_docs].
+Use the Computer Vision client library for Python to:
 
-Looking for more documentation?
+* Analyze an image for tags, text description, faces, adult content, and more.
+* Recognize printed and handwritten text with the Batch Read API.
 
-* [SDK reference documentation](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision)
-* [Cognitive Services Computer Vision documentation](https://docs.microsoft.com/azure/cognitive-services/computer-vision/)
+> [!NOTE]
+> The scenarios in this quickstart use remote image URLs. For sample code that does the same operations on local images, see the code on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/ComputerVision/ComputerVisionQuickstart.py).
+
+[Reference documentation](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-vision-computervision) | [Package (PiPy)](https://pypi.org/project/azure-cognitiveservices-vision-computervision/) | [Samples](https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision&sort=0)
 
 ## Prerequisites
 
-* [Python 3.6+][python]
-* Free [Computer Vision key][computervision_resource] and associated region. You need these values when you create the instance of the [ComputerVisionAPI][ref_computervisionclient] client object. Use one of the following methods to get these values. 
+* Azure subscription - [Create one for free](https://azure.microsoft.com/free/)
+* [Python 3.x](https://www.python.org/)
 
-### If you don't have an Azure Subscription
+## Setting up
 
-Create a free key valid for 7 days with the **Try It** experience. When the key is created, copy the key and region name. You will need this to [create the client](#create-client).
+### Create a Computer Vision Azure resource
 
-Keep the following after the key is created:
+Azure Cognitive Services are represented by Azure resources that you subscribe to. Create a resource for Computer Vision using the [Azure portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) or [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) on your local machine. You can also:
 
-* Key value: a 32 character string with the format of `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` 
-* Key region: the subdomain of the endpoint URL, https://**westcentralus**.api.cognitive.microsoft.com
+* Get a [trial key](https://azure.microsoft.com/try/cognitive-services/#decision) valid for seven days for free. After you sign up, it will be available on the [Azure website](https://azure.microsoft.com/try/cognitive-services/my-apis/).  
+* View your resource on the [Azure portal](https://portal.azure.com/)
 
-### If you have an Azure Subscription
+After you get a key from your trial subscription or resource, [create environment variables](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for the key and endpoint URL, named `COMPUTER_VISION_SUBSCRIPTION_KEY` and `COMPUTER_VISION_ENDPOINT`, respectively.
+ 
+### Create a new Python application
 
-If you need a Computer Vision API account, the easiest method to create one in your subscription is to use the following [Azure CLI][azure_cli] command. You need to choose the resource group name, for example, "my-cogserv-group" and the computer vision resource name, such as "my-computer-vision-resource". 
+Create a new Python script&mdash;*quickstart-file.py*, for example. Then open it in your preferred editor or IDE and import the following libraries.
 
-```Bash
-RES_REGION=westeurope 
-RES_GROUP=<resourcegroup-name>
-ACCT_NAME=<computervision-account-name>
+[!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ComputerVisionQuickstart.py?name=snippet_imports)]
 
-az cognitiveservices account create \
-    --resource-group $RES_GROUP \
-    --name $ACCT_NAME \
-    --location $RES_REGION \
-    --kind ComputerVision \
-    --sku S1 \
-    --yes
+Then, create variables for your resource's Azure endpoint and key.
+
+[!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ComputerVisionQuickstart.py?name=snippet_vars)]
+
+> [!NOTE]
+> If you created the environment variable after you launched the application, you will need to close and reopen the editor, IDE, or shell running it to access the variable.
+
+### Install the client library
+
+You can install the client library with:
+
+```console
+pip install --upgrade azure-cognitiveservices-vision-computervision
 ```
 
-<!--
-## Installation
+## Object model
 
-Install the Azure Cognitive Services Computer Vision SDK with [pip][pip], optionally within a [virtual environment][venv].
+The following classes and interfaces handle some of the major features of the Computer Vision Python SDK.
 
-### Configure a virtual environment (optional)
+|Name|Description|
+|---|---|
+|[ComputerVisionClientOperationsMixin](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.operations.computervisionclientoperationsmixin?view=azure-python)| This class directly handles all of the image operations, such as image analysis, text detection, and thumbnail generation.|
+| [ComputerVisionClient](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-python) | This class is needed for all Computer Vision functionality. You instantiate it with your subscription information, and you use it to produce instances of other classes. It implements **ComputerVisionClientOperationsMixin**.|
+|[VisualFeatureTypes](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.models.visualfeaturetypes?view=azure-python)| This enum defines the different types of image analysis that can be done in a standard Analyze operation. You specify a set of **VisualFeatureTypes** values depending on your needs. |
 
-Although not required, you can keep your base system and Azure SDK environments isolated from one another if you use a [virtual environment][virtualenv]. Execute the following commands to configure and then enter a virtual environment with [venv][venv], such as `cogsrv-vision-env`:
+## Code examples
 
-```Bash
-python3 -m venv cogsrv-vision-env
-source cogsrv-vision-env/bin/activate
-```
--->
+These code snippets show you how to do the following tasks with the Computer Vision client library for Python:
 
-### Install the SDK
+* [Authenticate the client](#authenticate-the-client)
+* [Analyze an image](#analyze-an-image)
+* [Read printed and handwritten text](#read-printed-and-handwritten-text)
 
-Install the Azure Cognitive Services Computer Vision SDK for Python [package][pypi_computervision] with [pip][pip]:
+## Authenticate the client
 
-```Bash
-pip install azure-cognitiveservices-vision-computervision
-```
+> [!NOTE]
+> This quickstart assumes you've [created an environment variable](../../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication) for your Computer Vision key, named `COMPUTER_VISION_SUBSCRIPTION_KEY`.
 
-## Authentication
+Instantiate a client with your endpoint and key. Create a [CognitiveServicesCredentials](https://docs.microsoft.com/python/api/msrest/msrest.authentication.cognitiveservicescredentials?view=azure-python) object with your key, and use it with your endpoint to create a [ComputerVisionClient](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-python) object.
 
-Once you create your Computer Vision resource, you need its **region**, and one of its **account keys** to instantiate the client object.
+[!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ComputerVisionQuickstart.py?name=snippet_client)]
 
-Use these values when you create the instance of the [ComputerVisionAPI][ref_computervisionclient] client object. 
+## Analyze an image
 
-<!--
+Save a reference to the URL of an image you want to analyze.
 
-For example, use the Bash terminal to set the environment variables:
+[!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ComputerVisionQuickstart.py?name=snippet_remoteimage)]
 
-```Bash
-ACCOUNT_REGION=<resourcegroup-name>
-ACCT_NAME=<computervision-account-name>
-```
+### Get image description
 
-### For Azure subscription usrs, get credentials for key and region
+The following code gets the list of generated captions for the image. See [Describe images](../concept-describing-images.md) for more details.
 
-If you do not remember your region and key, you can use the following method to find them. If you need to create a key and region, you can use the method for [Azure subscription holders](#if-you-have-an-azure-subscription) or for [users without an Azure subscription](#if-you-dont-have-an-azure-subscription).
+[!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ComputerVisionQuickstart.py?name=snippet_describe)]
 
-Use the [Azure CLI][cloud_shell] snippet below to populate two environment variables with the Computer Vision account **region** and one of its **keys** (you can also find these values in the [Azure portal][azure_portal]). The snippet is formatted for the Bash shell.
+### Get image category
 
-```Bash
-RES_GROUP=<resourcegroup-name>
-ACCT_NAME=<computervision-account-name>
+The following code gets the detected category of the image. See [Categorize images](../concept-categorizing-images.md) for more details.
 
-export ACCOUNT_REGION=$(az cognitiveservices account show \
-    --resource-group $RES_GROUP \
-    --name $ACCT_NAME \
-    --query location \
-    --output tsv)
+[!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ComputerVisionQuickstart.py?name=snippet_categorize)]
 
-export ACCOUNT_KEY=$(az cognitiveservices account keys list \
-    --resource-group $RES_GROUP \
-    --name $ACCT_NAME \
-    --query key1 \
-    --output tsv)
-```
--->
+### Get image tags
 
-### Create client
+The following code gets the set of detected tags in the image. See [Content tags](../concept-tagging-images.md) for more details.
 
-Create the [ComputerVisionAPI][ref_computervisionclient] client object. Change the region and key values in the following code example to your own values.
+[!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ComputerVisionQuickstart.py?name=snippet_tags)]
 
-```Python
-from azure.cognitiveservices.vision.computervision import ComputerVisionAPI
-from azure.cognitiveservices.vision.computervision.models import VisualFeatureTypes
-from msrest.authentication import CognitiveServicesCredentials
+### Detect objects
 
-region = "westcentralus"
-key = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+The following code detects common objects in the image and prints them to the console. See [Object detection](../concept-object-detection.md) for more details.
 
-credentials = CognitiveServicesCredentials(key)
-client = ComputerVisionAPI(region, credentials)
-```
+[!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ComputerVisionQuickstart.py?name=snippet_objects)]
 
-You need a [ComputerVisionAPI][ref_computervisionclient] client object before using any of the following tasks.
+### Detect brands
 
-### Analyze an image
+The following code detects corporate brands and logos in the image and prints them to the console. See [Brand detection](../concept-brand-detection.md) for more details.
 
-You can analyze an image for certain features with [`analyze_image`][ref_computervisionclient_analyze_image]. Use the [`visual_features`][ref_computervision_model_visualfeatures] property to set the types of analysis to perform on the image. Common values are `VisualFeatureTypes.tags` and `VisualFeatureTypes.description`.
+[!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ComputerVisionQuickstart.py?name=snippet_brands)]
 
-```Python
-url = "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Broadway_and_Times_Square_by_night.jpg/450px-Broadway_and_Times_Square_by_night.jpg"
+### Detect faces
 
-image_analysis = client.analyze_image(url,visual_features=[VisualFeatureTypes.tags])
+The following code returns the detected faces in the image with their rectangle coordinates and select face attributes. See [Face detection](../concept-detecting-faces.md) for more details.
 
-for tag in image_analysis.tags:
-    print(tag)
-```
+[!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ComputerVisionQuickstart.py?name=snippet_faces)]
 
-### Get subject domain list
+### Detect adult, racy, or gory content
 
-Review the subject domains used to analyze your image with [`list_models`][ref_computervisionclient_list_models]. These domain names are used when [analyzing an image by domain](#analyze-an-image-by-domain). An example of a domain is `landmarks`.
+The following code prints the detected presence of adult content in the image. See [Adult, racy, gory content](../concept-detecting-adult-content.md) for more details.
 
-```Python
-models = client.list_models()
+[!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ComputerVisionQuickstart.py?name=snippet_adult)]
 
-for x in models.models_property:
-    print(x)
-```
+### Get image color scheme
 
-### Analyze an image by domain
+The following code prints the detected color attributes in the image, like the dominant colors and accent color. See [Color schemes](../concept-detecting-color-schemes.md) for more details.
 
-You can analyze an image by subject domain with [`analyze_image_by_domain`][ref_computervisionclient_analyze_image_by_domain]. Get the [list of supported subject domains](#get-subject-domain-list) in order to use the correct domain name.  
+[!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ComputerVisionQuickstart.py?name=snippet_color)]
 
-```Python
-# type of prediction
-domain = "landmarks"
+### Get domain-specific content
 
-# Public domain image of Eiffel tower
-url = "https://images.pexels.com/photos/338515/pexels-photo-338515.jpeg"
+Computer Vision can use specialized model to do further analysis on images. See [Domain-specific content](../concept-detecting-domain-content.md) for more details. 
 
-# English language response
-language = "en"
+The following code parses data about detected celebrities in the image.
 
-analysis = client.analyze_image_by_domain(domain, url, language)
+[!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ComputerVisionQuickstart.py?name=snippet_celebs)]
 
-for landmark in analysis.result["landmarks"]:
-    print(landmark["name"])
-    print(landmark["confidence"])
+The following code parses data about detected landmarks in the image.
+
+[!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ComputerVisionQuickstart.py?name=snippet_landmarks)]
+
+### Get the image type
+
+The following code prints information about the type of image&mdash;whether it is clip art or line drawing.
+
+[!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ComputerVisionQuickstart.py?name=snippet_type)]
+
+## Read printed and handwritten text
+
+Computer Vision can read visible text in an image and convert it to a character stream. You do this in two parts.
+
+### Call the Read API
+
+First, use the following code to call the **batch_read_file** method for the given image. This returns an operation ID and starts an asynchronous process to read the content of the image.
+
+[!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ComputerVisionQuickstart.py?name=snippet_read_call)]
+
+### Get Read results
+
+Next, get the operation ID returned from the **batch_read_file** call, and use it to query the service for operation results. The following code checks the operation at one-second intervals until the results are returned. It then prints the extracted text data to the console.
+
+[!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ComputerVisionQuickstart.py?name=snippet_read_response)]
+
+## Run the application
+
+Run the application with the `python` command on your quickstart file.
+
+```console
+python quickstart-file.py
 ```
 
-### Get text description of an image
+## Clean up resources
 
-You can get a language-based text description of an image with [`describe_image`][ref_computervisionclient_describe_image]. Request several descriptions with the `max_description` property if you are doing text analysis for keywords associated with the image. Examples of a text description for the following image include `a train crossing a bridge over a body of water`, `a large bridge over a body of water`, and `a train crossing a bridge over a large body of water`.
+If you want to clean up and remove a Cognitive Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
 
-```Python
-domain = "landmarks"
-url = "http://www.public-domain-photos.com/free-stock-photos-4/travel/san-francisco/golden-gate-bridge-in-san-francisco.jpg"
-language = "en"
-max_descriptions = 3
+* [Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#clean-up-resources)
+* [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli#clean-up-resources)
 
-analysis = client.describe_image(url, max_descriptions, language)
-
-for caption in analysis.captions:
-    print(caption.text)
-    print(caption.confidence)
-```
-
-### Get text from image
-
-You can get any handwritten or printed text from an image. This requires two calls to the SDK: [`recognize_text`][ref_computervisionclient_recognize_text] and [`get_text_operation_result`][ref_computervisionclient_get_text_operation_result]. The call to recognize_text is asynchronous. In the results of the get_text_operation_result call, you need to check if the first call completed with [`TextOperationStatusCodes`][ref_computervision_model_textoperationstatuscodes] before extracting the text data. The results include the text as well as the bounding box coordinates for the text. 
-
-```Python
-# import models
-from azure.cognitiveservices.vision.computervision.models import TextRecognitionMode
-from azure.cognitiveservices.vision.computervision.models import TextOperationStatusCodes
-
-url = "https://azurecomcdn.azureedge.net/cvt-1979217d3d0d31c5c87cbd991bccfee2d184b55eeb4081200012bdaf6a65601a/images/shared/cognitive-services-demos/read-text/read-1-thumbnail.png"
-mode = TextRecognitionMode.handwritten
-raw = True
-custom_headers = None
-numberOfCharsInOperationId = 36
-
-# SDK call
-rawHttpResponse = client.recognize_text(url, mode, custom_headers,  raw)
-
-# Get ID from returned headers
-operationLocation = rawHttpResponse.headers["Operation-Location"]
-idLocation = len(operationLocation) - numberOfCharsInOperationId
-operationId = operationLocation[idLocation:]
-
-# SDK call
-result = client.get_text_operation_result(operationId)
-
-# Get data
-if result.status == TextOperationStatusCodes.succeeded:
-
-    for line in result.recognition_result.lines:
-        print(line.text)
-        print(line.bounding_box)
-```
-
-### Generate thumbnail
-
-You can generate a thumbnail (JPG) of an image with [`generate_thumbnail`][ref_computervisionclient_generate_thumbnail]. The thumbnail does not need to be in the same proportions as the original image. 
-
-Install **Pillow** to use this example:
-
-```bash
-pip install Pillow
-``` 
-
-Once Pillow is installed, use the package in the following code example to generate the thumbnail image.
-
-```Python
-# Pillow package
-from PIL import Image
-
-# IO package to create local image
-import io
-
-width = 50
-height = 50
-url = "http://www.public-domain-photos.com/free-stock-photos-4/travel/san-francisco/golden-gate-bridge-in-san-francisco.jpg"
-
-thumbnail = client.generate_thumbnail(width, height, url)
-
-for x in thumbnail:
-    image = Image.open(io.BytesIO(x))
-
-image.save('thumbnail.jpg')
-```
-
-## Troubleshooting
-
-### General
-
-When you interact with the [ComputerVisionAPI][ref_computervisionclient] client object using the Python SDK, the [`ComputerVisionErrorException`][ref_computervision_computervisionerrorexception] class is used to return errors. Errors returned by the service correspond to the same HTTP status codes returned for REST API requests.
-
-For example, if you try to analyze an image with an invalid key, a `401` error is returned. In the following snippet, the [error][ref_httpfailure] is handled gracefully by catching the exception and displaying additional information about the error.
-
-```Python
-
-domain = "landmarks"
-url = "http://www.public-domain-photos.com/free-stock-photos-4/travel/san-francisco/golden-gate-bridge-in-san-francisco.jpg"
-language = "en"
-max_descriptions = 3
-
-try:
-    analysis = client.describe_image(url, max_descriptions, language)
-
-    for caption in analysis.captions:
-        print(caption.text)
-        print(caption.confidence)
-except HTTPFailure as e:
-    if e.status_code == 401:
-        print("Error unauthorized. Make sure your key and region are correct.")
-    else:
-        raise
-```
-
-### Handle transient errors with retries
-
-While working with the [ComputerVisionAPI][ref_computervisionclient] client, you might encounter transient failures caused by [rate limits][computervision_request_units] enforced by the service, or other transient problems like network outages. For information about handling these types of failures, see [Retry pattern][azure_pattern_retry] in the Cloud Design Patterns guide, and the related [Circuit Breaker pattern][azure_pattern_circuit_breaker].
-
-### More sample code
-
-Several Computer Vision Python SDK samples are available to you in the SDK's GitHub repository. These samples provide example code for additional scenarios commonly encountered while working with Computer Vision:
-
-* [recognize_text][recognize-text]
 
 ## Next steps
 
+In this quickstart, you learned how to use the Computer Vision library for Python to do basis tasks. Next, explore the reference documentation to learn more about the library.
+
+
 > [!div class="nextstepaction"]
-> [Applying content tags to images](../concept-tagging-images.md)
+>[Computer Vision API reference (Python)](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision)
 
-<!-- LINKS -->
-[pip]: https://pypi.org/project/pip/
-[python]: https://www.python.org/downloads/
-
-[azure_cli]: https://docs.microsoft.com/cli/azure
-[azure_pattern_circuit_breaker]: https://docs.microsoft.com/azure/architecture/patterns/circuit-breaker
-[azure_pattern_retry]: https://docs.microsoft.com/azure/architecture/patterns/retry
-[azure_portal]: https://portal.azure.com
-[azure_sub]: https://azure.microsoft.com/free/
-
-[cloud_shell]: https://docs.microsoft.com/azure/cloud-shell/overview
-
-[venv]: https://docs.python.org/3/library/venv.html
-[virtualenv]: https://virtualenv.pypa.io
-
-[source_code]: https://github.com/Azure/azure-sdk-for-python/tree/master/azure-cognitiveservices-vision-computervision
-
-[pypi_computervision]:https://pypi.org/project/azure-cognitiveservices-vision-computervision/
-[pypi_pillow]:https://pypi.org/project/Pillow/
-
-[ref_computervision_sdk]: https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision?view=azure-python
-[ref_computervision_computervisionerrorexception]:https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.models.computervisionerrorexception?view=azure-python
-[ref_httpfailure]: https://docs.microsoft.com/python/api/msrest/msrest.exceptions.httpoperationerror?view=azure-python
-
-
-[computervision_resource]: https://docs.microsoft.com/azure/cognitive-services/computer-vision/vision-api-how-to-topics/howtosubscribe
-
-[computervision_docs]: https://docs.microsoft.com/azure/cognitive-services/computer-vision/home
-
-[ref_computervisionclient]: https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.computervisionapi?view=azure-python
-
-
-[ref_computervisionclient_analyze_image]: https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.computervisionapi?view=azure-python#analyze-image-url--visual-features-none--details-none--language--en---custom-headers-none--raw-false----operation-config-
-[ref_computervisionclient_list_models]:https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.computervisionapi?view=azure-python#list-models-custom-headers-none--raw-false----operation-config-
-[ref_computervisionclient_analyze_image_by_domain]:https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.computervisionapi?view=azure-python#analyze-image-by-domain-model--url--language--en---custom-headers-none--raw-false----operation-config-
-[ref_computervisionclient_describe_image]:https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.computervisionapi?view=azure-python#describe-image-url--max-candidates--1---language--en---custom-headers-none--raw-false----operation-config-
-[ref_computervisionclient_recognize_text]:https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.computervisionapi?view=azure-python#recognize-text-url--mode--custom-headers-none--raw-false----operation-config-
-[ref_computervisionclient_get_text_operation_result]:https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.computervisionapi?view=azure-python#get-text-operation-result-operation-id--custom-headers-none--raw-false----operation-config-
-[ref_computervisionclient_generate_thumbnail]:https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.computervisionapi?view=azure-python#generate-thumbnail-width--height--url--smart-cropping-false--custom-headers-none--raw-false--callback-none----operation-config-
-
-
-[ref_computervision_model_visualfeatures]:https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.models.visualfeaturetypes?view=azure-python
-
-[ref_computervision_model_textoperationstatuscodes]:https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.models.textoperationstatuscodes?view=azure-python
-
-[computervision_request_units]:https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision/
-
-[recognize-text]:https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/vision/computer_vision_samples.py
-
+* [What is Computer Vision?](../Home.md)
+* The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/ComputerVision/ComputerVisionQuickstart.py).

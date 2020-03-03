@@ -2,12 +2,9 @@
 title: Reset the credentials for an Azure Kubernetes Service (AKS) cluster
 description: Learn how update or reset the service principal credentials for a cluster in Azure Kubernetes Service (AKS)
 services: container-service
-author: iainfoulds
-
-ms.service: container-service
 ms.topic: article
-ms.date: 01/30/2019
-ms.author: iainfou
+ms.date: 05/31/2019
+
 ---
 
 # Update or rotate the credentials for a service principal in Azure Kubernetes Service (AKS)
@@ -16,7 +13,7 @@ By default, AKS clusters are created with a service principal that has a one-yea
 
 ## Before you begin
 
-You need the Azure CLI version 2.0.56 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
+You need the Azure CLI version 2.0.65 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
 ## Choose to update or create a service principal
 
@@ -25,17 +22,14 @@ When you want to update the credentials for an AKS cluster, you can choose to:
 * update the credentials for the existing service principal used by the cluster, or
 * create a service principal and update the cluster to use these new credentials.
 
-If you want to create a service principal and then update the AKS cluster, skip the rest of the steps in this section and continue to [create a service principal](#create-a-service-principal). If you want to update the credentials for the existing service principal used by the AKS cluster, continue with the steps in this section.
+### Update Existing Service Principal Expiration
 
-### Get the service principal ID
-
-To update the credentials for the existing service principal, get the service principal ID of your cluster using the [az aks show][az-aks-show] command. The following example gets the ID for the cluster named *myAKSCluster* in the *myResourceGroup* resource group. The service principal ID is set as a variable for use in additional command.
+To update the credentials for the existing service principal, get the service principal ID of your cluster using the [az aks show][az-aks-show] command. The following example gets the ID for the cluster named *myAKSCluster* in the *myResourceGroup* resource group. The service principal ID is set as a variable named *SP_ID* for use in additional command.
 
 ```azurecli-interactive
-SP_ID=$(az aks show -g myResourceGroup -n myAKSCluster --query servicePrincipalProfile.clientId -o tsv)
+SP_ID=$(az aks show --resource-group myResourceGroup --name myAKSCluster \
+    --query servicePrincipalProfile.clientId -o tsv)
 ```
-
-### Update the service principal credentials
 
 With a variable set that contains the service principal ID, now reset the credentials using [az ad sp credential reset][az-ad-sp-credential-reset]. The following example lets the Azure platform generate a new secure secret for the service principal. This new secure secret is also stored as a variable.
 
@@ -43,9 +37,9 @@ With a variable set that contains the service principal ID, now reset the creden
 SP_SECRET=$(az ad sp credential reset --name $SP_ID --query password -o tsv)
 ```
 
-Now continue on to [update AKS cluster with new credentials](#update-aks-cluster-with-new-credentials).
+Now continue on to [update AKS cluster with new credentials](#update-aks-cluster-with-new-credentials). This step is necessary for the Service Principal changes to reflect on the AKS cluster.
 
-## Create a service principal
+### Create a New Service Principal
 
 If you chose to update the existing service principal credentials in the previous section, skip this step. Continue to [update AKS cluster with new credentials](#update-aks-cluster-with-new-credentials).
 
@@ -72,6 +66,8 @@ Now define variables for the service principal ID and client secret using the ou
 SP_ID=7d837646-b1f3-443d-874c-fd83c7c739c5
 SP_SECRET=a5ce83c9-9186-426d-9183-614597c7f2f7
 ```
+
+Now continue on to [update AKS cluster with new credentials](#update-aks-cluster-with-new-credentials). This step is necessary for the Service Principal changes to reflect on the AKS cluster.
 
 ## Update AKS cluster with new credentials
 

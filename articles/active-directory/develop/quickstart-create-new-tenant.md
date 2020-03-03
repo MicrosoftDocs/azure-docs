@@ -2,27 +2,22 @@
 title: Create an Azure Active Directory tenant | Microsoft Docs
 description: Learn how to create an Azure AD tenant to use for registering and building applications.
 services: active-directory
-documentationcenter: ''
-author: CelesteDG
-manager: mtillman
-editor: ''
+author: rwike77
+manager: CelesteDG
 
 ms.assetid: 1f4b24eb-ab4d-4baa-a717-2a0e5b8d27cd
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 02/05/2019
-ms.author: celested
-ms.reviewer: dadobali
-ms.custom: aaddev
+ms.author: ryanwi
+ms.reviewer: jmprieur
+ms.custom: aaddev, identityplatformtop40, fasttrack-edit
 #Customer intent: As an application developer, I need to create an Microsoft identity environment so I can use it to register applications.
-ms.collection: M365-identity-device-management
 ---
 
-# Quickstart: Set up a dev environment
+# Quickstart: Set up a tenant
 
 The Microsoft identity platform allows developers to build apps targeting a wide variety of custom Microsoft 365 environments and identities. To get started using Microsoft identity platform, you will need access to an environment, also called an Azure AD tenant, that can register and manage apps, have access to Microsoft 365 data, and deploy custom Conditional Access and tenant restrictions.
 
@@ -52,14 +47,14 @@ Many developers already have tenants through services or subscriptions that are 
 
 > [!TIP]
 > If you need to find the tenant ID, you can:
-* Hover over your account name to get the directory / tenant ID, or
-* Select **Azure Active Directory > Properties > Directory ID** in the Azure portal
+> * Hover over your account name to get the directory / tenant ID, or
+> * Select **Azure Active Directory > Properties > Directory ID** in the Azure portal
 
 If you don't have an existing tenant associated with your account, you'll see a GUID under your account name and you won't be able to perform actions like registering apps until you follow the steps of the next section.
 
 ### Create a new Azure AD tenant
 
-If you don't already have an Azure AD tenant or want to create a new one for development, follow the [directory creation experience](https://portal.azure.com/#create/Microsoft.AzureActiveDirectory). You will have to provide the following info to create your new tenant:
+If you don't already have an Azure AD tenant or want to create a new one for development, see the [quickstart](../fundamentals/active-directory-access-create-new-tenant.md) or simply follow the [directory creation experience](https://portal.azure.com/#create/Microsoft.AzureActiveDirectory). You will have to provide the following info to create your new tenant:
 
 - **Organization name**
 - **Initial domain** - this will be part of *.onmicrosoft.com. You can customize the domain more later.

@@ -1,5 +1,5 @@
 ---
-title: B2B collaboration for hybrid organizations - Azure Active Directory | Microsoft Docs
+title: B2B collaboration for hybrid organizations - Azure AD
 description: Give partners access to both on-premises and cloud resources with Azure AD B2B collaboration.
 
 services: active-directory
@@ -10,8 +10,8 @@ ms.date: 04/26/2018
 
 ms.author: mimart
 author: msmimart
-manager: daveba
-ms.reviewer: sasubram
+manager: celestedg
+ms.reviewer: mal
 
 ms.collection: M365-identity-device-management
 ---

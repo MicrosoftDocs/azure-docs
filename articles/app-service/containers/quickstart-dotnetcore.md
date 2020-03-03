@@ -1,22 +1,12 @@
 ---
-title: Create ASP.NET Core app on Linux - Azure App Service | Microsoft Docs
-description: Deploy your first .NET Core Hello World app to App Service on Linux in minutes.
+title: 'Quickstart: Run a Linux ASP.NET Core app'
+description: Get started with Linux apps on Azure App Service by deploying your first ASP.NET Core app to a Linux container in App Service.
 keywords: azure app service, web app, dotnet, core, linux, oss
-services: app-service
-documentationCenter: ''
-author: cephalin
-manager: syntaxc4
-editor: ''
-
 ms.assetid: c02959e6-7220-496a-a417-9b2147638e2e
-ms.service: app-service
-ms.workload: web
 ms.tgt_pltfrm: linux
-ms.devlang: na
 ms.topic: quickstart
-ms.date: 04/11/2018
-ms.author: cfowler
-ms.custom: mvc
+ms.date: 03/27/2019
+ms.custom: mvc, cli-validate
 ms.custom: seodec18
 ---
 # Create an ASP.NET Core app in App Service on Linux
@@ -45,7 +35,7 @@ To complete this quickstart:
 In a terminal window on your machine, create a directory named `hellodotnetcore` and change the current directory to it.
 
 ```bash
-md hellodotnetcore
+mkdir hellodotnetcore
 cd hellodotnetcore
 ```
 
@@ -91,10 +81,10 @@ git commit -m "first commit"
 
 [!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-dotnetcore-linux-no-h.md)]
 
-Browse to your newly created app. Replace _&lt;app name>_ with your app name.
+Browse to your newly created app. Replace _&lt;app-name>_ with your app name.
 
 ```bash
-http://<app name>.azurewebsites.net
+http://<app-name>.azurewebsites.net
 ```
 
 Here is what your new app should look like:
@@ -128,7 +118,7 @@ remote:   ...
 remote: Finished successfully.
 remote: Running post deployment command(s)...
 remote: Deployment successful.
-To https://cephalin-dotnetcore.scm.azurewebsites.net/cephalin-dotnetcore.git
+To https://<app-name>.scm.azurewebsites.net/<app-name>.git
  * [new branch]      master -> master
 ```
 
@@ -184,4 +174,7 @@ The left menu provides different pages for configuring your app.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Build a .NET Core and SQL Database app in Azure App Service on Linux](tutorial-dotnetcore-sqldb-app.md)
+> [Tutorial: ASP.NET Core app with SQL Database](tutorial-dotnetcore-sqldb-app.md)
+
+> [!div class="nextstepaction"]
+> [Configure ASP.NET Core app](configure-language-dotnetcore.md)

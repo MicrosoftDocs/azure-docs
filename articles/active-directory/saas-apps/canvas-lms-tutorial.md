@@ -8,7 +8,8 @@ manager: daveba
 ms.reviewer: barbkess
 
 ms.assetid: bfed291c-a33e-410d-b919-5b965a631d45
-ms.service: Azure-Active-Directory
+ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -178,7 +179,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     a. In the **Name** field enter **BrittaSimon**.
   
-    b. In the **User name** field type **brittasimon@yourcompanydomain.extension**  
+    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
     For example, BrittaSimon@contoso.com
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
@@ -237,16 +238,16 @@ To enable Azure AD users to log in to Canvas, they must be provisioned into Canv
 
    a. In the **Full Name** textbox, enter the name of user like **BrittaSimon**.
 
-   b. In the **Email** textbox, enter the email of user like **brittasimon@contoso.com**.
+   b. In the **Email** textbox, enter the email of user like **brittasimon\@contoso.com**.
 
-   c. In the **Login** textbox, enter the user’s Azure AD email address like **brittasimon@contoso.com**.
+   c. In the **Login** textbox, enter the user’s Azure AD email address like **brittasimon\@contoso.com**.
 
    d. Select **Email the user about this account creation**.
 
    e. Click **Add User**.
 
 > [!NOTE]
-> You can use any other Canvas user account creation tools or APIs provided by Canvas to provision AAD user accounts.
+> You can use any other Canvas user account creation tools or APIs provided by Canvas to provision Azure AD user accounts.
 
 ### Test single sign-on
 
@@ -260,5 +261,5 @@ When you click the Canvas tile in the Access Panel, you should be automatically 
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -1,20 +1,10 @@
 ---
-title: Package and deploy containers as a Service Fabric app in Azure | Microsoft Docs
+title: Package and deploy containers
 description: In this tutorial, you learn how to generate an Azure Service Fabric application definition using Yeoman and package the application. 
-services: service-fabric
-documentationcenter: ''
 author: suhuruli
-manager: timlt
-editor: suhuruli
-tags: servicefabric
-keywords: Docker, Containers, Microservices, Service Fabric, Azure
 
-ms.assetid: 
-ms.service: service-fabric
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/31/2019
+ms.date: 07/22/2019
 ms.author: suhuruli
 ms.custom: mvc
 ---
@@ -117,9 +107,9 @@ ApplicationManifest.xml azurevotefrontPkg azurevotebackPkg
 
 For Service Fabric to pull the container images from Azure Container Registry, we need to provide the credentials in the **ApplicationManifest.xml**.
 
-Log in to your ACR instance. Use the **az acr login** command to complete the operation. Provide the unique name given to the container registry when it was created.
+Sign in to your ACR instance. Use the **az acr login** command to complete the operation. Provide the unique name given to the container registry when it was created.
 
-```bash
+```azurecli
 az acr login --name <acrName>
 ```
 
@@ -127,7 +117,7 @@ The command returns a **Login Succeeded** message once completed.
 
 Next, run the following command to get the password of your container registry. This password is used by Service Fabric to authenticate with ACR to pull the container images.
 
-```bash
+```azurecli
 az acr credential show -n <acrName> --query passwords[0].value
 ```
 
@@ -204,7 +194,7 @@ For Service Fabric to assign this DNS name to the backend service, the name need
 
 The frontend service reads an environment variable to know the DNS name of the Redis instance. This environment variable is already defined in the Dockerfile that was used to generate the Docker image and no action needs to be taken here.
 
-```Dockerfile
+```dockerfile
 ENV REDIS redisbackend.testapp
 ```
 
@@ -277,11 +267,11 @@ Use the install script provided in the **TestContainer** directory to copy the a
 ./install.sh
 ```
 
-Open a browser and navigate to Service Fabric Explorer at http://containertestcluster.eastus.cloudapp.azure.com:19080/Explorer. Expand the Applications node and note that there is an entry for your application type and another for the instance.
+Open a browser and navigate to Service Fabric Explorer at http:\//containertestcluster.eastus.cloudapp.azure.com:19080/Explorer. Expand the Applications node and note that there is an entry for your application type and another for the instance.
 
 ![Service Fabric Explorer][sfx]
 
-In order to connect to the running application, open a web browser and go to the cluster url - for example http://containertestcluster.eastus.cloudapp.azure.com:80. You should see the Voting application in the web UI.
+In order to connect to the running application, open a web browser and go to the cluster url - for example http:\//containertestcluster.eastus.cloudapp.azure.com:80. You should see the Voting application in the web UI.
 
 ![votingapp][votingapp]
 
@@ -299,7 +289,7 @@ Use the uninstall script provided in the template to delete the application inst
 
 ```xml
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<ApplicationManifest ApplicationTypeName="TestContainerType" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<ApplicationManifest ApplicationTypeName="TestContainerType" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
   <ServiceManifestImport>
     <ServiceManifestRef ServiceManifestName="azurevotefrontPkg" ServiceManifestVersion="1.0.0"/>
     <Policies>
@@ -337,7 +327,7 @@ Use the uninstall script provided in the template to delete the application inst
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <ServiceManifest Name="azurevotefrontPkg" Version="1.0.0"
-                 xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+                 xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" >
 
    <ServiceTypes>
       <StatelessServiceType ServiceTypeName="azurevotefrontType" UseImplicitHost="true">
@@ -352,7 +342,7 @@ Use the uninstall script provided in the template to delete the application inst
          </ContainerHost>
       </EntryPoint>
       <EnvironmentVariables>
-      </EnvironmentVariables>
+      </EnvironmentVariables>
    </CodePackage>
 
   <Resources>
@@ -372,7 +362,7 @@ Use the uninstall script provided in the template to delete the application inst
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <ServiceManifest Name="azurevotebackPkg" Version="1.0.0"
-                 xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+                 xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" >
 
    <ServiceTypes>
       <StatelessServiceType ServiceTypeName="azurevotebackType" UseImplicitHost="true">
@@ -387,7 +377,7 @@ Use the uninstall script provided in the template to delete the application inst
          </ContainerHost>
       </EntryPoint>
       <EnvironmentVariables>
-      </EnvironmentVariables>
+      </EnvironmentVariables>
    </CodePackage>
      <Resources>
     <Endpoints>

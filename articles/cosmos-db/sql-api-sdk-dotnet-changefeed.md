@@ -1,5 +1,5 @@
 ---
-title: 'Azure Cosmos DB: .NET Change Feed Processor API, SDK & resources'
+title: Azure Cosmos DB .NET change feed Processor API, SDK release notes 
 description: Learn all about the Change Feed Processor API and SDK including release dates, retirement dates, and changes made between each version of the .NET Change Feed Processor SDK.
 author: ealsur
 ms.service: cosmos-db
@@ -8,10 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 01/30/2019
 ms.author: maquaran
-
 ---
+
 # .NET Change Feed Processor SDK: Download and release notes
+
 > [!div class="op_single_selector"]
+>
 > * [.NET](sql-api-sdk-dotnet.md)
 > * [.NET Change Feed](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
@@ -22,8 +24,8 @@ ms.author: maquaran
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST Resource Provider](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](sql-api-query-reference.md)
-> * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
-> * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
+> * [Bulk executor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
+> * [Bulk executor - Java](sql-api-sdk-bulk-executor-java.md)
 
 |   |   |
 |---|---|
@@ -32,15 +34,32 @@ ms.author: maquaran
 |**Get started**|[Get started with the Change Feed Processor .NET SDK](change-feed.md)|
 |**Current supported framework**| [Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</br> [Microsoft .NET Core](https://www.microsoft.com/net/download/core) |
 
+> [!NOTE]
+> If you are using change feed processor, please see the latest version 3.x of the [.NET SDK](change-feed-processor.md), which has change feed built into the SDK. 
+
 ## Release notes
 
 ### v2 builds
 
+### <a name="2.2.8"/>2.2.8
+* Stability and diagnosability improvements:
+  * Added support to detect reading change feed taking long time. When it takes longer than the value specified by the `ChangeFeedProcessorOptions.ChangeFeedTimeout` property, the following steps are taken:
+    * The operation to read change feed on the problematic partition is aborted.
+    * The change feed processor instance drops ownership of the problematic lease. The dropped lease will be picked up during the next lease acquire step that will be done by the same or different change feed processor instance. This way, reading change feed will start over.
+    * An issue is reported to the health monitor. The default heath monitor sends all reported issues to trace log.
+  * Added a new public property: `ChangeFeedProcessorOptions.ChangeFeedTimeout`. The default value of this property is 10 mins.
+  * Added a new public enum value: `Monitoring.MonitoredOperation.ReadChangeFeed`. When the value of `HealthMonitoringRecord.Operation` is set to `Monitoring.MonitoredOperation.ReadChangeFeed`, it indicates the health issue is related to reading change feed.
+
+### <a name="2.2.7"/>2.2.7
+* Improved load balancing strategy for scenario when getting all leases takes longer than lease expiration interval, e.g. due to network issues:
+  * In this scenario load balancing algorithm used to falsely consider leases as expired, causing stealing leases from active owners. This could trigger unnecessary re-balancing a lot of leases.
+  * This issue is fixed in this release by avoiding retry on conflict while acquiring expired lease which owner hasn't changed and posponing acquiring expired lease to next load balancing iteration.
+
 ### <a name="2.2.6"/>2.2.6
 * Improved handling of Observer exceptions.
 * Richer information on Observer errors:
- * When an Observer is closed due to an exception thrown by Observer's ProcessChangesAsync, the CloseAsync will now receive the reason parameter set to ChangeFeedObserverCloseReason.ObserverError.
- * Added traces to identify errors within user code in an Observer.
+  * When an Observer is closed due to an exception thrown by Observer's ProcessChangesAsync, the CloseAsync will now receive the reason parameter set to ChangeFeedObserverCloseReason.ObserverError.
+  * Added traces to identify errors within user code in an Observer.
 
 ### <a name="2.2.5"/>2.2.5
 * Added support for handling split in collections that use shared database throughput.
@@ -125,7 +144,7 @@ ms.author: maquaran
 
 ### <a name="1.3.1"/>1.3.1
 * Stability improvements.
-  * Fix for handling cancelled tasks issue that might lead to stopped observers on some partitions.
+  * Fix for handling canceled tasks issue that might lead to stopped observers on some partitions.
 * Support for manual checkpointing.
 * Compatible with [SQL .NET SDK](sql-api-sdk-dotnet.md) versions 1.21 and above.
 
@@ -146,8 +165,8 @@ ms.author: maquaran
 * GA SDK
 * Compatible with [SQL .NET SDK](sql-api-sdk-dotnet.md) versions 1.14.1 and below.
 
-
 ## Release & Retirement dates
+
 Microsoft will provide notification at least **12 months** in advance of retiring an SDK in order to smooth the transition to a newer/supported version.
 
 New features and functionality and optimizations are only added to the current SDK, as such it is recommended that you always upgrade to the latest SDK version as early as possible. 
@@ -158,6 +177,8 @@ Any request to Cosmos DB using a retired SDK will be rejected by the service.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [2.2.8](#2.2.8) |October 28, 2019 |--- |
+| [2.2.7](#2.2.7) |May 14, 2019 |--- |
 | [2.2.6](#2.2.6) |January 29, 2019 |--- |
 | [2.2.5](#2.2.5) |December 13, 2018 |--- |
 | [2.2.4](#2.2.4) |November 29, 2018 |--- |
@@ -172,10 +193,10 @@ Any request to Cosmos DB using a retired SDK will be rejected by the service.
 | [1.1.0](#1.1.0) |August 13, 2017 |--- |
 | [1.0.0](#1.0.0) |July 07, 2017 |--- |
 
-
 ## FAQ
+
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
 ## See also
-To learn more about Cosmos DB, see [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) service page. 
 
+To learn more about Cosmos DB, see [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) service page.

@@ -1,9 +1,9 @@
 ---
-title: Create a VM with a static private IP address - Azure PowerShell | Microsoft Docs
+title: Create a VM with a static private IP address - Azure PowerShell
 description: Learn how to create a virtual machine with a private IP address using PowerShell.
 services: virtual-network
 documentationcenter: na
-author: jimdial
+author: KumudD
 manager: twooley
 editor: ''
 tags: azure-resource-manager
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/07/2019
-ms.author: jdial
+ms.author: kumud
 ms.custom: 
 ---
 
@@ -23,7 +23,7 @@ ms.custom:
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-You can create a virtual machine (VM) with a static private IP address. Assign a static private IP address, rather than a dynamic address, to ensure that the address never changes. Learn more about [static private IP addresses](virtual-network-ip-addresses-overview-arm.md#allocation-method). To change a private IP address assigned to an existing VM from dynamic to static, or to work with public IP addresses, see [Add, change, or remove IP addresses](virtual-network-network-interface-addresses.md).
+You can create a virtual machine (VM) with a static private IP address. Assign a static private IP address, rather than a dynamic address, if you want to select which address from a subnet is assigned to a VM. Learn more about [static private IP addresses](virtual-network-ip-addresses-overview-arm.md#allocation-method). To change a private IP address assigned to an existing VM from dynamic to static, or to work with public IP addresses, see [Add, change, or remove IP addresses](virtual-network-network-interface-addresses.md).
 
 ## Create a virtual machine
 
@@ -87,14 +87,12 @@ You can complete the following steps from your local computer or by using the Az
 
 > [!WARNING]
 > Though you can add private IP address settings to the operating system, we recommend not doing so until after reading [Add a private IP address to an operating system](virtual-network-network-interface-addresses.md#private).
->
->
-<a name = "change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface"></a>
-
+> 
+> 
+> <a name = "change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface"></a>
+> 
 > [!IMPORTANT]
 > To access the VM from the internet, you must assign a public IP address to the VM. You can also change a dynamic private IP address assignment to a static assignment. For details, see [Add or change IP addresses](virtual-network-network-interface-addresses.md). Additionally, it's recommended that you limit the network traffic to your VM by associating a network security group to the network interface, the subnet you created the network interface in, or both. For details, see [Manage network security groups](manage-network-security-group.md).
->
->
 
 ## Clean up resources
 
@@ -106,5 +104,5 @@ Remove-AzResourceGroup -Name myResourceGroup -Force
 
 ## Next steps
 
-- Learn more about [private IP addresses](virtual-network-ip-addresses-overview-arm.md#private-ip-addresses) and assigning a [static private IP address](virtual-network-network-interface-addresses.md#add-ip-addresses) to an Azure virtual machine
-- Learn more about creating [Linux](../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-network%2ftoc.json) and [Windows](../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-network%2ftoc.json) virtual machines
+- Learn more about [private IP addresses](virtual-network-ip-addresses-overview-arm.md#private-ip-addresses) and assigning a [static private IP address](virtual-network-network-interface-addresses.md#add-ip-addresses) to an Azure virtual machine.
+- Learn more about creating [Linux](../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-network%2ftoc.json) and [Windows](../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-network%2ftoc.json) virtual machines.

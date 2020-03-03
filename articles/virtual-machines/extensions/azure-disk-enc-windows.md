@@ -1,15 +1,14 @@
 ---
-title: Azure Disk Encryption for Windows | Microsoft Docs
+title: Azure Disk Encryption for Windows 
 description: Deploys Azure Disk Encryption to a Windows virtual machine using a virtual machine extension.
 services: virtual-machines-windows 
 documentationcenter: ''
 author: ejarvi 
-manager: jeconnoc 
+manager: gwallace 
 editor: ''
 
 ms.assetid: 
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
@@ -25,19 +24,19 @@ Azure Disk Encryption leverages BitLocker to provide full disk encryption on Azu
 
 ## Prerequisites
 
-For a full list of prerequisites, see [Azure Disk Encryption Prerequisites](
-../../security/azure-security-disk-encryption-prerequisites.md).
+For a full list of prerequisites, see [Azure Disk Encryption for Linux VMs](../linux/disk-encryption-overview.md), specifically the following sections:
 
-### Operating system
+- [Azure Disk Encryption for Linux VMs](../windows/disk-encryption-overview.md#supported-vms-and-operating-systems)
+- [Networking requirements](../windows/disk-encryption-overview.md#networking-requirements)
+- [Group Policy requirements](../windows/disk-encryption-overview.md#group-policy-requirements)
 
-For a list of currently Windows versions, see [Azure Disk Encryption Prerequisites](../../security/azure-security-disk-encryption-prerequisites.md).
+## Extension schemata
 
-### Internet connectivity
+There are two schemata for the Windows AzureDiskEncryption extension: v2.2, a newer, recommended schema that does not use Azure Active Directory (AAD) properties, and v1.1, an older schema that requires AAD properties. You must use the schema version corresponding to the extension you are using: schema v2.2 for the AzureDiskEncryption extension version 2.2, schema v1.1 for the AzureDiskEncryption extension version 1.1.
 
-Azure Disk Encryption requires Internet connectivity for access to Active Directory, Key Vault, Storage, and package management endpoints.  For more on network security settings, see [Azure Disk Encryption Prerequisites](
-../../security/azure-security-disk-encryption-prerequisites.md).
+### Schema v2.2: No AAD (recommended)
 
-## Extension schema
+The v2.2 schema is recommended for all new VMs and does not require Azure Active Directory properties.
 
 ```json
 {
@@ -46,24 +45,88 @@ Azure Disk Encryption requires Internet connectivity for access to Active Direct
   "apiVersion": "2015-06-15",
   "location": "[location]",
   "properties": {
-	"protectedSettings": {
-	  "AADClientSecret": "[aadClientSecret]",
-	},
-	"publisher": "Microsoft.Azure.Security",
-	"settings": {
-	  "AADClientID": "[aadClientID]",
-	  "EncryptionOperation": "[encryptionOperation]",
-	  "KeyEncryptionAlgorithm": "[keyEncryptionAlgorithm]",
-	  "KeyEncryptionKeyURL": "[keyEncryptionKeyURL]",
-	  "KeyVaultURL": "[keyVaultURL]",
-	  "SequenceVersion": "sequenceVersion]",
-	  "VolumeType": "[volumeType]"
-	},
-	"type": "AzureDiskEncryption",
-	"typeHandlerVersion": "[extensionVersion]"
+    "publisher": "Microsoft.Azure.Security",
+    "settings": {
+      "EncryptionOperation": "[encryptionOperation]",
+      "KeyEncryptionAlgorithm": "[keyEncryptionAlgorithm]",
+      "KeyEncryptionKeyURL": "[keyEncryptionKeyURL]",
+      "KekVaultResourceId": "[keyVaultResourceID]",
+      "KeyVaultURL": "[keyVaultURL]",
+      "KeyVaultResourceId": "[keyVaultResourceID]",
+      "SequenceVersion": "sequenceVersion]",
+      "VolumeType": "[volumeType]"
+    },
+  "type": "AzureDiskEncryption",
+  "typeHandlerVersion": "[extensionVersion]"
   }
 }
 ```
+
+
+### Schema v1.1: with AAD 
+
+The 1.1 schema requires `aadClientID` and either `aadClientSecret` or `AADClientCertificate` and is not recommended for new VMs.
+
+Using `aadClientSecret`:
+
+```json
+{
+  "type": "extensions",
+  "name": "[name]",
+  "apiVersion": "2015-06-15",
+  "location": "[location]",
+  "properties": {
+    "protectedSettings": {
+      "AADClientSecret": "[aadClientSecret]"
+    },    
+    "publisher": "Microsoft.Azure.Security",
+    "settings": {
+      "AADClientID": "[aadClientID]",
+      "EncryptionOperation": "[encryptionOperation]",
+      "KeyEncryptionAlgorithm": "[keyEncryptionAlgorithm]",
+      "KeyEncryptionKeyURL": "[keyEncryptionKeyURL]",
+      "KekVaultResourceId": "[keyVaultResourceID]",
+      "KeyVaultURL": "[keyVaultURL]",
+      "KeyVaultResourceId": "[keyVaultResourceID]",
+      "SequenceVersion": "sequenceVersion]",
+      "VolumeType": "[volumeType]"
+    },
+  "type": "AzureDiskEncryption",
+  "typeHandlerVersion": "[extensionVersion]"
+  }
+}
+```
+
+Using `AADClientCertificate`:
+
+```json
+{
+  "type": "extensions",
+  "name": "[name]",
+  "apiVersion": "2015-06-15",
+  "location": "[location]",
+  "properties": {
+    "protectedSettings": {
+      "AADClientCertificate": "[aadClientCertificate]"
+    },    
+    "publisher": "Microsoft.Azure.Security",
+    "settings": {
+      "AADClientID": "[aadClientID]",
+      "EncryptionOperation": "[encryptionOperation]",
+      "KeyEncryptionAlgorithm": "[keyEncryptionAlgorithm]",
+      "KeyEncryptionKeyURL": "[keyEncryptionKeyURL]",
+      "KekVaultResourceId": "[keyVaultResourceID]",
+      "KeyVaultURL": "[keyVaultURL]",
+      "KeyVaultResourceId": "[keyVaultResourceID]",
+      "SequenceVersion": "sequenceVersion]",
+      "VolumeType": "[volumeType]"
+    },
+  "type": "AzureDiskEncryption",
+  "typeHandlerVersion": "[extensionVersion]"
+  }
+}
+```
+
 
 ### Property values
 
@@ -71,15 +134,17 @@ Azure Disk Encryption requires Internet connectivity for access to Active Direct
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
 | publisher | Microsoft.Azure.Security | string |
-| type | AzureDiskEncryptionForWindows| string |
-| typeHandlerVersion | 1.0, 2.2 (VMSS) | int |
-| (optional) AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | guid | 
-| (optional) AADClientSecret | password | string |
-| (optional) AADClientCertificate | thumbprint | string |
-| EncryptionOperation | EnableEncryption | string | 
-| KeyEncryptionAlgorithm | RSA-OAEP | string |
+| type | AzureDiskEncryptionForLinux | string |
+| typeHandlerVersion | 1.1, 2.2 | string |
+| (1.1 schema) AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | guid | 
+| (1.1 schema) AADClientSecret | password | string |
+| (1.1 schema) AADClientCertificate | thumbprint | string |
+| DiskFormatQuery | {"dev_path":"","name":"","file_system":""} | JSON dictionary |
+| EncryptionOperation | EnableEncryption, EnableEncryptionFormatAll | string | 
+| KeyEncryptionAlgorithm | 'RSA-OAEP', 'RSA-OAEP-256', 'RSA1_5' | string |
 | KeyEncryptionKeyURL | url | string |
 | KeyVaultURL | url | string |
+| (optional) Passphrase | password | string | 
 | SequenceVersion | uniqueidentifier | string |
 | VolumeType | OS, Data, All | string |
 

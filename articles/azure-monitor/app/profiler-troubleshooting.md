@@ -1,19 +1,20 @@
 ---
-title: Troubleshoot problems with Azure Application Insights Profiler | Microsoft Docs
+title: Troubleshoot problems with Azure Application Insights Profiler
 description: This article presents troubleshooting steps and information to help developers who are having trouble enabling or using Application Insights Profiler.
-services: application-insights
-documentationcenter: ''
-author: cweining
-manager: carmonm
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.reviewer: mbullwin
-ms.date: 08/06/2018
+author: cweining
 ms.author: cweining
+ms.date: 08/06/2018
+
+ms.reviewer: mbullwin
 ---
+
 # Troubleshoot problems enabling or viewing Application Insights Profiler
+
+## Active issues
+
+* Profiling for ASP.NET Core 3.x applications isn't supported yet.
+  * If you must have Profiler on, a workaround is to use [Application Insights Profiler for ASP.NET Core](https://github.com/microsoft/ApplicationInsights-Profiler-AspNetCore). The profiler is labeled for Linux, but it also works with .NET Core 3.0+ applications on Windows. For details, see [Supported versions](https://github.com/microsoft/ApplicationInsights-Profiler-AspNetCore#supported-versions).
 
 ## <a id="troubleshooting"></a>General troubleshooting
 
@@ -30,11 +31,11 @@ Profiler writes trace messages and custom events to your Application Insights re
     ```
     The following image displays two examples of searches from two AI resources: 
     
-    * At the left, the application isn't receiving requests while Profiler is running. The message explains that the upload was canceled because of no activity. 
+   * At the left, the application isn't receiving requests while Profiler is running. The message explains that the upload was canceled because of no activity. 
 
-    * At the right, Profiler started and sent custom events when it detected requests that happened while Profiler was running. If the ServiceProfilerSample custom event is displayed, it means that Profiler attached a trace to a request and you can view the trace in the **Application Insights Performance** pane.
+   * At the right, Profiler started and sent custom events when it detected requests that happened while Profiler was running. If the ServiceProfilerSample custom event is displayed, it means that Profiler attached a trace to a request and you can view the trace in the **Application Insights Performance** pane.
 
-    If no telemetry is displayed, Profiler is not running. To troubleshoot, see the troubleshooting sections for your specific app type later in this article.  
+     If no telemetry is displayed, Profiler is not running. To troubleshoot, see the troubleshooting sections for your specific app type later in this article.  
 
      ![Search Profiler telemetry][profiler-search-telemetry]
 
@@ -45,6 +46,7 @@ Profiler writes trace messages and custom events to your Application Insights re
 * If your web app is an ASP.NET Core application, it must be running at least ASP.NET Core 2.0.
 * If the data you're trying to view is older than a couple of weeks, try limiting your time filter and try again. Traces are deleted after seven days.
 * Make sure that proxies or a firewall have not blocked access to https://gateway.azureserviceprofiler.net.
+* Profiler isn't supported on free or shared app service plans. If you're using one of those plans, try scaling up to one of the basic plans and Profiler should start working.
 
 ### <a id="double-counting"></a>Double counting in parallel threads
 
@@ -61,9 +63,15 @@ Submit a support ticket in the portal. Be sure to include the correlation ID fro
 For Profiler to work properly:
 * Your web app service plan must be Basic tier or higher.
 * Your web app must have Application Insights enabled.
-* Your web app must have the **APPINSIGHTS_INSTRUMENTATIONKEY** app setting configured with the same instrumentation key that's used by the Application Insights SDK.
-* Your web app must have the **APPINSIGHTS_PROFILERFEATURE_VERSION** app setting defined and set to 1.0.0.
-* Your web app must have the **DiagnosticServices_EXTENSION_VERSION** app setting defined and the value set to ~3.
+* Your web app must have the following app settings:
+
+    |App Setting    | Value    |
+    |---------------|----------|
+    |APPINSIGHTS_INSTRUMENTATIONKEY         | iKey for your Application Insights resource    |
+    |APPINSIGHTS_PROFILERFEATURE_VERSION | 1.0.0 |
+    |DiagnosticServices_EXTENSION_VERSION | ~3 |
+
+
 * The **ApplicationInsightsProfiler3** webjob must be running. To check the webjob:
    1. Go to [Kudu](https://blogs.msdn.microsoft.com/cdndevs/2015/04/01/the-kudu-debug-console-azure-websites-best-kept-secret/).
    1. In the **Tools** menu, select **WebJobs Dashboard**.  
@@ -71,28 +79,29 @@ For Profiler to work properly:
    
       ![profiler-webjob]   
    
-   1. To view the details of the webjob, including the log, select the **ApplicationInsightsProfiler2** link.  
+   1. To view the details of the webjob, including the log, select the **ApplicationInsightsProfiler3** link.  
      The **Continuous WebJob Details** pane opens.
 
       ![profiler-webjob-log]
 
-If you can't figure out why Profiler isn't working for you, you can download the log and send it to our team for assistance. 
+If you can't figure out why Profiler isn't working for you, you can download the log and send it to our team for assistance, serviceprofilerhelp@microsoft.com. 
     
 ### Manual installation
 
-When you configure Profiler, updates are made to the web app's settings. If your environment requires it, you can apply the updates manually. An example might be that your application is running in a Web Apps environment for PowerApps. To apply updates manually, do the following:
+When you configure Profiler, updates are made to the web app's settings. If your environment requires it, you can apply the updates manually. An example might be that your application is running in a Web Apps environment for PowerApps. To apply updates manually:
 
 1. In the **Web App Control** pane, open **Settings**.
 
-1. Set **.Net Framework version** to **v4.6**.
+1. Set **.NET Framework version** to **v4.6**.
 
 1. Set **Always On** to **On**.
+1. Create these app settings:
 
-1. Add the **APPINSIGHTS_INSTRUMENTATIONKEY** app setting, and set the value to the same instrumentation key that's used by the SDK.
-
-1. Add the **APPINSIGHTS_PROFILERFEATURE_VERSION** app setting, and set the value to 1.0.0.
-
-1. Add the **DiagnosticServices_EXTENSION_VERSION** app setting, and set the value to ~3.
+    |App Setting    | Value    |
+    |---------------|----------|
+    |APPINSIGHTS_INSTRUMENTATIONKEY         | iKey for your Application Insights resource    |
+    |APPINSIGHTS_PROFILERFEATURE_VERSION | 1.0.0 |
+    |DiagnosticServices_EXTENSION_VERSION | ~3 |
 
 ### Too many active profiling sessions
 
@@ -118,7 +127,7 @@ Profiler runs as a continuous webjob in the web app. You can open the web app re
 
 ## Troubleshoot problems with Profiler and Azure Diagnostics
 
-  >**There is a bug in the profiler that ships in the latest version of WAD for Cloud Services.** In order to use profiler with a cloud service, it only supports AI SDK up to version 2.7.2. If you are using a newer version of the AI SDK, you'll have to go back to 2.7.2 in order to use the profiler.
+>**The bug in the profiler that ships in the WAD for Cloud Services has been fixed.** The latest version of WAD (1.12.2.0) for Cloud Services works with all recent versions of the App Insights SDK. Cloud Service hosts will upgrade WAD automatically, but it isn't immediate. To force an upgrade, you can redeploy your service or reboot the node.
 
 To see whether Profiler is configured correctly by Azure Diagnostics, do the following three things: 
 1. First, check to see whether the contents of the Azure Diagnostics configuration that are deployed are what you expect. 
@@ -129,15 +138,19 @@ To see whether Profiler is configured correctly by Azure Diagnostics, do the fol
 
 To check the settings that were used to configure Azure Diagnostics:
 
-1. Sign in to the virtual machine (VM), and then open the log file at this location: 
+1. Sign in to the virtual machine (VM), and then open the log file at this location. (The drive could be c: or d: and the plugin version could be different.)
 
     ```
-    c:\logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\1.11.3.12\DiagnosticsPlugin.logs  
+    c:\logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\1.11.3.12\DiagnosticsPlugin.log  
+    ```
+    or
+    ```
+    c:\WindowsAzure\logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\1.11.3.12\DiagnosticsPlugin.log
     ```
 
 1. In the file, you can search for the string **WadCfg** to find the settings that were passed to the VM to configure Azure Diagnostics. You can check to see whether the iKey used by the Profiler sink is correct.
 
-1. Check the command line that's used to start Profiler. The arguments that are used to launch Profiler are in the following file:
+1. Check the command line that's used to start Profiler. The arguments that are used to launch Profiler are in the following file. (The drive could be c: or d:)
 
     ```
     D:\ProgramData\ApplicationInsightsProfiler\config.json
@@ -150,6 +163,11 @@ To check the settings that were used to configure Azure Diagnostics:
     If Profiler is running while your application is receiving requests, the following message is displayed: *Activity detected from iKey*. 
 
     When the trace is being uploaded, the following message is displayed: *Start to upload trace*. 
+
+
+## Edit network proxy or firewall rules
+
+If your application connects to the Internet via a proxy or a firewall, you may need to edit the rules to allow your application to communicate with the Application Insights Profiler service. The IPs used by Application Insights Profiler are included in the Azure Monitor service tag.
 
 
 [profiler-search-telemetry]:./media/profiler-troubleshooting/Profiler-Search-Telemetry.png

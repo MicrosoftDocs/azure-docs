@@ -6,5 +6,8 @@ ms.topic: include
 ms.date: 11/20/2018
 ---
 
-You must have a [Cognitive Services API subscription](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with access to the Text Analytics API. If you don't have a subscription, you can [create an account](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) for free. Before continuing, you will need the Text Analytics subscription key provided after activating your account.
+A key and endpoint for a Text Analytics resource. Azure Cognitive Services are represented by Azure resources that you subscribe to. Create a resource for Text Analytics using the [Azure portal](../articles/cognitive-services/cognitive-services-apis-create-account.md) or [Azure CLI](../articles/cognitive-services/cognitive-services-apis-create-account-cli.md) on your local machine. You can also:
 
+* Get a [trial key](https://azure.microsoft.com/try/cognitive-services/#lang) valid for seven days for free. After signing up, it will be available on the [Azure website](https://azure.microsoft.com/try/cognitive-services/my-apis/).
+
+* View your resource on the [Azure portal](https://portal.azure.com/)

@@ -1,10 +1,10 @@
 ---
-title: Push notifications to specific users using Azure Notification Hubs | Microsoft Docs
+title: Send push notifications to specific users using Azure Notification Hubs | Microsoft Docs
 description: Learn how to send push notifications to specific users by using Azure Notification Hubs. 
 documentationcenter: ios
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethm
+manager: femila
+editor: jwargo
 services: notification-hubs
 
 ms.assetid: 1f7d1410-ef93-4c4b-813b-f075eed20082
@@ -14,10 +14,12 @@ ms.tgt_pltfrm: ios
 ms.devlang: objective-c
 ms.topic: article
 ms.date: 01/04/2019
-ms.author: jowargo
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 01/04/2019
 ---
 
-# Tutorial: Push notifications to specific users using Azure Notification Hubs
+# Tutorial: Send push notifications to specific users using Azure Notification Hubs
 
 [!INCLUDE [notification-hubs-selector-aspnet-backend-notify-users](../../includes/notification-hubs-selector-aspnet-backend-notify-users.md)]
 
@@ -50,7 +52,7 @@ This tutorial assumes that you have created and configured your notification hub
 
 2. In the `Main.storyboard` file, add the components shown in the screenshot from the object library.
 
-    ![Edit storybard in Xcode interface builder][1]
+    ![Edit storyboard in Xcode interface builder][1]
 
    * **Username**: A UITextField with placeholder text, *Enter Username*, immediately beneath the send results label and constrained to the left and right margins and beneath the send results label.
    * **Password**: A UITextField with placeholder text, *Enter Password*, immediately beneath the username text field and constrained to the left and right margins and beneath the username text field. Check the **Secure Text Entry** option in the Attribute Inspector, under *Return Key*.
@@ -60,7 +62,7 @@ This tutorial assumes that you have created and configured your notification hub
    * **APNS**: Label and switch to enable sending the notification to the Apple Platform Notification Service.
    * **Recipient Username:A** UITextField with placeholder text, *Recipient username tag*, immediately beneath the GCM label and constrained to the left and right margins and beneath the GCM label.
 
-    Some components were added in the [Getting Started with Notification Hubs (iOS)](notification-hubs-ios-apple-push-notification-apns-get-started.md) tutorial.
+     Some components were added in the [Getting Started with Notification Hubs (iOS)](notification-hubs-ios-apple-push-notification-apns-get-started.md) tutorial.
 
 3. **Ctrl** drag from the components in the view to `ViewController.h` and add these new outlets.
 

@@ -1,6 +1,6 @@
 ---
 title: Protect your content with Azure Media Services | Microsoft Docs
-description: This articles give an overview of content protection with Media Services.
+description: This article gives an overview of content protection with Azure Media Services v2.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,13 +13,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 04/01/2019
 ms.author: juliako
 
 ---
 # Content protection overview 
 
- You can use Azure Media Services to secure your media from the time it leaves your computer through storage, processing, and delivery. With Media Services, you can deliver your live and on-demand content encrypted dynamically with Advanced Encryption Standard (AES-128) or any of the three major digital rights management (DRM) systems: Microsoft PlayReady, Google Widevine, and Apple FairPlay. Media Services also provides a service for delivering AES keys and DRM (PlayReady, Widevine, and FairPlay) licenses to authorized clients. 
+> [!NOTE]
+> No new features or functionality are being added to Media Services v2. <br/>Check out the latest version, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Also, see [migration guidance from v2 to v3](../latest/migrate-from-v2-to-v3.md)
+
+You can use Azure Media Services to secure your media from the time it leaves your computer through storage, processing, and delivery. With Media Services, you can deliver your live and on-demand content encrypted dynamically with Advanced Encryption Standard (AES-128) or any of the three major digital rights management (DRM) systems: Microsoft PlayReady, Google Widevine, and Apple FairPlay. Media Services also provides a service for delivering AES keys and DRM (PlayReady, Widevine, and FairPlay) licenses to authorized clients. 
 
 The following image illustrates the Media Services content protection workflow: 
 
@@ -80,6 +83,10 @@ The following considerations apply:
   * **cenc**: For PlayReady or Widevine (common encryption)
   * **cbcs-aapl**: For FairPlay (AES CBC encryption)
   * **cbc**: For AES envelope encryption
+
+## Additional notes
+
+* Widevine is a service provided by Google Inc. and subject to the terms of service and Privacy Policy of Google, Inc.
 
 ## Next steps
 The following articles describe next steps to help you get started with content protection:

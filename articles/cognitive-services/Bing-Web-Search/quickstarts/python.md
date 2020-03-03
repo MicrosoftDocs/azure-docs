@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 02/12/2019
+ms.date: 12/09/2019
 ms.author: aahi
 ms.custom: seodec2018
 #Customer intent: As a new developer, I want to make my first call to the Bing Web Search API and receive a response using Python.
@@ -16,9 +16,9 @@ ms.custom: seodec2018
 
 # Quickstart: Use Python to call the Bing Web Search API  
 
-Use this quickstart to make your first call to the Bing Web Search API and receive the JSON response. This Python application sends a search request to the API, and displays the response. While this application is written in Python, the API is a RESTful Web service compatible with most programming languages.
+Use this quickstart to make your first call to the Bing Web Search API and receive the JSON response. This Python application sends a search request to the API, and shows the response. While this application is written in Python, the API is a RESTful Web service compatible with most programming languages.
 
-This example is run as a Jupyter notebook on [MyBinder](https://mybinder.org). Click the launch Binder badge:
+This example is run as a Jupyter notebook on [MyBinder](https://mybinder.org). Select the launch binder badge:
 
 [![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=BingWebSearchAPI.ipynb)
 
@@ -37,7 +37,7 @@ subscription_key = "YOUR_ACCESS_KEY"
 assert subscription_key
 ```
 
-Declare the Bing Web Search API endpoint. If you run into any authorization errors, double-check this value against the Bing search endpoint in your Azure dashboard.
+Declare the Bing Web Search API endpoint. You can use the global endpoint below, or the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 
 ```python
 search_url = "https://api.cognitive.microsoft.com/bing/v7.0/search"
@@ -51,13 +51,13 @@ search_term = "Azure Cognitive Services"
 
 ## Make a request
 
-This block uses the `requests` library to call the Bing Web Search API and return the results as a JSON object. The API key is passed in the `headers` dictionary, and the search term and query parameters are passed in the `params` dictionary. See [Bing Web Search API v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference) documentation for a complete list of options and parameters.
+This block uses the `requests` library to call the Bing Web Search API and return the results as a JSON object. The API key is passed in the `headers` dictionary, and the search term and query parameters are passed in the `params` dictionary. See [Bing Web Search API v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference) documentation for a complete list of options and parameters.
 
 ```python
 import requests
 
-headers = {"Ocp-Apim-Subscription-Key" : subscription_key}
-params  = {"q": search_term, "textDecorations":True, "textFormat":"HTML"}
+headers = {"Ocp-Apim-Subscription-Key": subscription_key}
+params = {"q": search_term, "textDecorations": True, "textFormat": "HTML"}
 response = requests.get(search_url, headers=headers, params=params)
 response.raise_for_status()
 search_results = response.json()
@@ -65,7 +65,7 @@ search_results = response.json()
 
 ## Format and display the response
 
-The `search_results` object includes the search results and metadata such as related queries and pages. This code uses the `IPython.display` library to format and display the response in your browser.
+The `search_results` object includes the search results and metadata like related queries and pages. This code uses the `IPython.display` library to format and display the response in your browser.
 
 ```python
 from IPython.display import HTML
@@ -73,7 +73,7 @@ from IPython.display import HTML
 rows = "\n".join(["""<tr>
                        <td><a href=\"{0}\">{1}</a></td>
                        <td>{2}</td>
-                     </tr>""".format(v["url"],v["name"],v["snippet"]) \
+                     </tr>""".format(v["url"], v["name"], v["snippet"])
                   for v in search_results["webPages"]["value"]])
 HTML("<table>{0}</table>".format(rows))
 ```

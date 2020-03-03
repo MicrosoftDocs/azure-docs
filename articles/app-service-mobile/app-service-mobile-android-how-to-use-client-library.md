@@ -1,20 +1,14 @@
 ---
-title: How to use the Azure Mobile Apps SDK for Android | Microsoft Docs
+title: How to use the SDK for Android
 description: How to use the Azure Mobile Apps SDK for Android
-services: app-service\mobile
-documentationcenter: android
-author: conceptdev
-manager: crdun
 
 ms.assetid: 5352d1e4-7685-4a11-aaf4-10bd2fa9f9fc
-ms.service: app-service-mobile
-ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: article
-ms.date: 11/16/2017
-ms.author: crdun
+ms.date: 06/25/2019
 ---
+
 # How to use the Azure Mobile Apps SDK for Android
 
 This guide shows you how to use the Android client SDK for Mobile Apps to implement common scenarios, such as:
@@ -48,12 +42,20 @@ If you decide not to complete the Quickstart tutorial, complete the following ta
 
 Change both **build.gradle** files:
 
-1. Add this code to the *Project* level **build.gradle** file inside the *buildscript* tag:
+1. Add this code to the *Project* level **build.gradle** file:
 
     ```gradle
     buildscript {
         repositories {
             jcenter()
+            google()
+        }
+    }
+
+    allprojects {
+        repositories {
+            jcenter()
+            google()
         }
     }
     ```
@@ -61,7 +63,7 @@ Change both **build.gradle** files:
 2. Add this code to the *Module app* level **build.gradle** file inside the *dependencies* tag:
 
     ```gradle
-    compile 'com.microsoft.azure:azure-mobile-android:3.4.0@aar'
+    implementation 'com.microsoft.azure:azure-mobile-android:3.4.0@aar'
     ```
 
     Currently the latest version is 3.4.0. The supported versions are listed [on bintray][14].
@@ -969,17 +971,17 @@ android {
 }
 ```
 
-Finally, add `com.android.support:customtabs:23.0.1` to the dependencies list in the `build.gradle` file:
+Finally, add `com.android.support:customtabs:28.0.0` to the dependencies list in the `build.gradle` file:
 
 ```gradle
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.google.code.gson:gson:2.3'
-    compile 'com.google.guava:guava:18.0'
-    compile 'com.android.support:customtabs:23.0.1'
-    compile 'com.squareup.okhttp:okhttp:2.5.0'
-    compile 'com.microsoft.azure:azure-mobile-android:3.4.0@aar'
-    compile 'com.microsoft.azure:azure-notifications-handler:1.0.1@jar'
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.google.code.gson:gson:2.3'
+    implementation 'com.google.guava:guava:18.0'
+    implementation 'com.android.support:customtabs:28.0.0'
+    implementation 'com.squareup.okhttp:okhttp:2.5.0'
+    implementation 'com.microsoft.azure:azure-mobile-android:3.4.0@aar'
+    implementation 'com.microsoft.azure:azure-notifications-handler:1.0.1@jar'
 }
 ```
 
@@ -1086,11 +1088,11 @@ You can use the Active Directory Authentication Library (ADAL) to sign users int
         exclude 'META-INF/MSFTSIG.SF'
     }
     dependencies {
-        compile fileTree(dir: 'libs', include: ['*.jar'])
-        compile('com.microsoft.aad:adal:1.1.1') {
+        implementation fileTree(dir: 'libs', include: ['*.jar'])
+        implementation('com.microsoft.aad:adal:1.16.1') {
             exclude group: 'com.android.support'
-        } // Recent version is 1.1.1
-        compile 'com.android.support:support-v4:23.0.0'
+        } // Recent version is 1.16.1
+        implementation 'com.android.support:support-v4:28.0.0'
     }
     ```
 

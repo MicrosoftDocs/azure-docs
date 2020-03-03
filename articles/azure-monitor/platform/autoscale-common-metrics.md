@@ -1,15 +1,14 @@
 ---
 title: Autoscale common metrics
 description: Learn which metrics are commonly used for autoscaling your Cloud Services, Virtual Machines and Web Apps.
-author: anirudhcavale
-services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 12/6/2016
-ms.author: ancav
 ms.subservice: autoscale
 ---
 # Azure Monitor autoscaling common metrics
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Azure Monitor autoscaling allows you to scale the number of running instances up or down, based on telemetry data (metrics). This document describes common metrics that you might want to use. In the Azure portal, you can choose the metric of the resource to scale by. However, you can also choose any metric from a different resource to scale by.
 
 Azure Monitor autoscale applies only to [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloud Services](https://azure.microsoft.com/services/cloud-services/), [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/), and [API Management services](https://docs.microsoft.com/azure/api-management/api-management-key-concepts). Other Azure services use different scaling methods.
@@ -31,13 +30,13 @@ The following host-level metrics are emitted by default for Azure VM and VMSS in
 - [Host metrics for Resource Manager-based Windows and Linux VMs](../../azure-monitor/platform/metrics-supported.md#microsoftcomputevirtualmachines)
 - [Host metrics for Resource Manager-based Windows and Linux VM Scale Sets](../../azure-monitor/platform/metrics-supported.md#microsoftcomputevirtualmachinescalesets)
 
-### Guest OS metrics Resource Manager-based Windows VMs
+### Guest OS metrics for Resource Manager-based Windows VMs
 When you create a VM in Azure, diagnostics is enabled by using the Diagnostics extension. The diagnostics extension emits a set of metrics taken from inside of the VM. This means you can autoscale off of metrics that are not emitted by default.
 
 You can generate a list of the metrics by using the following command in PowerShell.
 
 ```
-Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
+Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
 ```
 
 You can create an alert for the following metrics:
@@ -78,7 +77,7 @@ When you create a VM in Azure, diagnostics is enabled by default by using Diagno
 You can generate a list of the metrics by using the following command in PowerShell.
 
 ```
-Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
+Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
 ```
 
  You can create an alert for the following metrics:
@@ -124,14 +123,14 @@ Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property N
 | \NetworkInterface\TotalTxErrors |Count |
 | \NetworkInterface\TotalCollisions |Count |
 
-## Commonly used Web (Server Farm) metrics
-You can also perform autoscale based on common web server metrics such as the Http queue length. It's metric name is **HttpQueueLength**.  The following section lists available server farm (Web Apps) metrics.
+## Commonly used App Service (Server Farm) metrics
+You can also perform autoscale based on common web server metrics such as the Http queue length. Its metric name is **HttpQueueLength**.  The following section lists available server farm (App Service) metrics.
 
 ### Web Apps metrics
 You can generate a list of the Web Apps metrics by using the following command in PowerShell.
 
 ```
-Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
+Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
 ```
 
 You can alert on or scale by these metrics.
@@ -154,8 +153,8 @@ For example, with a Classic Storage Account the autoscale setting metricTrigger 
 
 ```
 "metricName": "ApproximateMessageCount",
- "metricNamespace": "",
- "metricResourceUri": "/subscriptions/SUBSCRIPTION_ID/resourceGroups/RES_GROUP_NAME/providers/Microsoft.ClassicStorage/storageAccounts/STORAGE_ACCOUNT_NAME/services/queue/queues/QUEUE_NAME"
+"metricNamespace": "",
+"metricResourceUri": "/subscriptions/SUBSCRIPTION_ID/resourceGroups/RES_GROUP_NAME/providers/Microsoft.ClassicStorage/storageAccounts/STORAGE_ACCOUNT_NAME/services/queue/queues/QUEUE_NAME"
  ```
 
 For a (non-classic) storage account, the metricTrigger would include:
@@ -172,7 +171,7 @@ You can scale by Service Bus queue length, which is the number of messages in th
 For VM scale sets, you can update the Autoscale setting in the Resource Manager template to use *metricName* as *ApproximateMessageCount* and pass the ID of the storage queue as *metricResourceUri*.
 
 ```
-"metricName": "MessageCount",
+"metricName": "ApproximateMessageCount",
  "metricNamespace": "",
 "metricResourceUri": "/subscriptions/SUBSCRIPTION_ID/resourceGroups/RES_GROUP_NAME/providers/Microsoft.ServiceBus/namespaces/SB_NAMESPACE/queues/QUEUE_NAME"
 ```

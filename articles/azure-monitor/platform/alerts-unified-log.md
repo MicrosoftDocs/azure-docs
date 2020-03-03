@@ -1,14 +1,13 @@
 ---
 title: Log alerts in Azure Monitor
 description: Trigger emails, notifications, call websites URLs (webhooks), or automation when the analytic query conditions you specify are met for Azure Alerts.
-author: msvijayn
-services: monitoring
-ms.service: azure-monitor
+author: yanivlavi
+ms.author: yalavi
 ms.topic: conceptual
-ms.date: 2/20/2019
-ms.author: vinagara
+ms.date: 5/31/2019
 ms.subservice: alerts
 ---
+
 # Log alerts in Azure Monitor
 
 This article provides details of Log alerts are one of the types of alerts supported within the [Azure Alerts](../../azure-monitor/platform/alerts-overview.md) and allow users to use Azure's analytics platform as basis for alerting.
@@ -21,13 +20,13 @@ Log Alert consists of Log Search rules created for [Azure Monitor Logs](../../az
 
 ## Log search alert rule - definition and types
 
-Log search rules are created by Azure Alerts to automatically run specified log queries at regular intervals.  If the results of the log query match particular criteria, then an alert record is created. The rule can then automatically run one or more actions using [Action Groups](../../azure-monitor/platform/action-groups.md). [Azure Monitoring Contributor](../../azure-monitor/platform/roles-permissions-security.md) role for creating, modifying, and updating log alerts may be required; along with access & query execution rights for the analytics target(s) in alert rule or alert query. If the user creating doesn't have access to all analytics target(s) in alert rule or alert query - the rule creation may fail or the log alert rule will be executed with partial results.
+Log search rules are created by Azure Alerts to automatically run specified log queries at regular intervals.  If the results of the log query match particular criteria, then an alert record is created. The rule can then automatically run one or more actions using [Action Groups](../../azure-monitor/platform/action-groups.md). [Azure Monitoring Contributor](../../azure-monitor/platform/roles-permissions-security.md) role for creating, modifying, and updating log alerts may be required; along with access & query execution rights for the analytics target(s) in alert rule or alert query. In case the user creating doesn't have access to all analytics target(s) in alert rule or alert query - the rule creation may fail or the log alert rule will be executed with partial results.
 
 Log search rules are defined by the following details:
 
 - **Log Query**.  The query that runs every time the alert rule fires.  The records returned by this query are used to determine whether an alert is to be triggered. Analytics query can be for a specific Log Analytics workspace or Application Insights app and even span across [multiple Log Analytics and Application Insights resources](../../azure-monitor/log-query/cross-workspace-query.md#querying-across-log-analytics-workspaces-and-from-application-insights) provided the user has access as well as query rights to all resources. 
     > [!IMPORTANT]
-    > Log alert **do not** support use of [functions](../log-query/functions.md) for security reasons. Also [cross-resource query](../../azure-monitor/log-query/cross-workspace-query.md#querying-across-log-analytics-workspaces-and-from-application-insights) support in log alerts for Application Insights and log alerts for [Log Analytics configured using scheduledQueryRules API](../../azure-monitor/platform/alerts-log-api-switch.md) only.
+    > [cross-resource query](../../azure-monitor/log-query/cross-workspace-query.md#querying-across-log-analytics-workspaces-and-from-application-insights) support in log alerts for Application Insights and log alerts for [Log Analytics configured using scheduledQueryRules API](../../azure-monitor/platform/alerts-log-api-switch.md) only.
 
     Some analytic commands and combinations are incompatible with use in log alerts; for more details view, [Log alert queries in Azure Monitor](../../azure-monitor/platform/alerts-log-query.md).
 
@@ -70,7 +69,7 @@ Then alert would run the query every 5 minutes, with 30 minutes of data - to loo
 
 ### Metric measurement alert rules
 
-**Metric measurement** alert rules create an alert for each object in a query with a value that exceeds a specified threshold.  They have the following distinct differences from **Number of results** alert rules.
+**Metric measurement** alert rules create an alert for each object in a query with a value that exceeds a specified threshold and specified trigger condition. Unlike **Number of results** alert rules, **Metric measurement** alert rules work when analytics result provides a time series. They have the following distinct differences from **Number of results** alert rules.
 
 - **Aggregate function**: Determines the calculation that is performed and potentially a numeric field to aggregate.  For example, **count()** returns the number of records in the query, **avg(CounterValue)** returns the average of the CounterValue field over the interval. Aggregate function in query must be named/called: AggregatedValue and provide a numeric value. 
 
@@ -121,16 +120,25 @@ Since alert is configured to trigger based on total breaches are more than two, 
 
 ## Log search alert rule - firing and state
 
-Log search alert rule works on the logic predicated by user as per configuration and the custom analytics query used. Since the logic of the exact condition or reason why the alert rule should trigger is encapsulated in an Analytics query - which can differ in each log alert rule. Azure Alerts has scarce info of the specific underlying root-cause inside the log results when the threshold condition of log search alert rule is met or exceeded. Thus log alerts are referred to as state-less and will fire every time the log search result is sufficient to exceed the threshold specified in log alerts of *number of results* or *metric measurement* type of condition. And log alert rules will continually keep firing, as long as the alert condition is met by the result of custom analytics query provided; without the alert every getting resolved. As the logic of the exact root-cause of monitoring failure is masked inside the analytics query provided by the user; there is no means by which Azure Alerts to conclusively deduce whether log search result not meeting threshold indicates resolution of the issue.
+Log search alert rules work only on the logic you build into the query. The alert system doesn't have any other context of the state of the system, your intent, or the root cause implied by the query. As such, log alerts are referred to as state-less. The conditions are evaluated as "TRUE" or "FALSE" each time they are run.  An alert will fire each time the evaluation of the alert condition is "TRUE", regardless of it is fired previously.    
 
-Now assume we have a log alert rule called *Contoso-Log-Alert*, as per configuration in the [example provided for Number of Results type log alert](#example-of-number-of-records-type-log-alert). 
-- At 1:05 PM when Contoso-Log-Alert was executed by Azure alerts, the log search result yielded 0 records; below the threshold and hence not firing the alert. 
-- At the next iteration at 1:10 PM when Contoso-Log-Alert was executed by Azure alerts, log search result provided 5 records; exceeding the threshold and firing the alert, soon after by triggering the [action group](../../azure-monitor/platform/action-groups.md) associated. 
-- At 1:15 PM when Contoso-Log-Alert was executed by Azure alerts, log search result provided 2 records; exceeding the threshold and firing the alert, soon after by triggering the [action group](../../azure-monitor/platform/action-groups.md) associated.
-- Now at the next iteration at 1:20 PM when Contoso-Log-Alert was executed by Azure alert, log search result provided again 0 records; below the threshold and hence not firing the alert.
+Let's see this behavior in action with a practical example. Assume we have a log alert rule called *Contoso-Log-Alert*, which is configured as shown in the [example provided for Number of Results type log alert](#example-of-number-of-records-type-log-alert). The condition is a custom alert query designed to look for 500 result code in logs. If one more more 500 result codes are found in logs, the condition of the alert is true. 
 
-But in the above listed case, at 1:15 PM - Azure alerts can't determine that the underlying issues seen at 1:10 persist and if there is net new failures; as query provided by user may be taking into account earlier records - Azure alerts can be sure. Hence to err on the side of caution, when Contoso-Log-Alert is executed at 1:15 PM, configured [action group](../../azure-monitor/platform/action-groups.md) is fired again. Now at 1:20 PM when no records are seen - Azure alerts can't be certain that the cause of the records has been solved; hence Contoso-Log-Alert will not changed to Resolved in Azure Alert dashboard and/or notifications sent out stating resolution of alert.
+At each interval below, the Azure alerts system evaluates the condition for the *Contoso-Log-Alert*.
 
+
+| Time    | Num of records returned by log search query | Log condition evalution | Result 
+| ------- | ----------| ----------| ------- 
+| 1:05 PM | 0 records | 0 is not > 0 so FALSE |  Alert does not fire. No actions called.
+| 1:10 PM | 2 records | 2 > 0 so TRUE  | Alert fires and action groups called. Alert state ACTIVE.
+| 1:15 PM | 5 records | 5 > 0 so TRUE  | Alert fires and action groups called. Alert state ACTIVE.
+| 1:20 PM | 0 records | 0 is not > 0 so FALSE |  Alert does not fire. No actions called. Alert state left ACTIVE.
+
+Using the previous case as an example:
+
+At 1:15 PM Azure alerts can't determine if the underlying issues seen at 1:10 persist and if the records are net new failures or repeats of older failures at 1:10PM. The query provided by user may or may not be taking into account earlier records and the system doesn't know. The Azure alerts system is built to err on the side of caution, and fires the alert and associated actions again at 1:15 PM. 
+
+At 1:20 PM when zero records are seen with 500 result code, Azure alerts can't be certain that the cause of 500 result code seen at 1:10 PM and 1:15 PM is now solved. It doesn't know if the 500 error issues will happen for the same reasons again. Hence *Contoso-Log-Alert* does not change to **Resolved** in Azure Alert dashboard and/or notifications are not sent out stating the alert is resolved. Only you, who understands the exact condition or reason for the logic embedded in the analytics query, can [mark the alert as closed](alerts-managing-alert-states.md) as needed.
 
 ## Pricing and Billing of Log Alerts
 
@@ -139,7 +147,7 @@ Pricing applicable for Log Alerts is stated at the [Azure Monitor Pricing](https
 - Log Alerts on Application Insights shown with exact alert name along with resource group and alert properties
 - Log Alerts on Log Analytics shown with exact alert name along with resource group and alert properties; when created using [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules)
 
-The [legacy Log Analytics API](../../azure-monitor/platform/api-alerts.md) has alert actions and schedules as part of Log Analytics Saved Search and not proper [Azure Resources](../../azure-resource-manager/resource-group-overview.md). Hence to enable billing for such legacy log alerts created for Log Analytics using of Azure portal **without** [switching to new API](../../azure-monitor/platform/alerts-log-api-switch.md) or via [legacy Log Analytics API](../../azure-monitor/platform/api-alerts.md) - hidden pseudo alert rules are created on `microsoft.insights/scheduledqueryrules` for billing on Azure. The hidden pseudo alert rules created for billing on `microsoft.insights/scheduledqueryrules` as shown as `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>` along with resource group and alert properties.
+The [legacy Log Analytics API](../../azure-monitor/platform/api-alerts.md) has alert actions and schedules as part of Log Analytics Saved Search and not proper [Azure Resources](../../azure-resource-manager/management/overview.md). Hence to enable billing for such legacy log alerts created for Log Analytics using of Azure portal **without** [switching to new API](../../azure-monitor/platform/alerts-log-api-switch.md) or via [legacy Log Analytics API](../../azure-monitor/platform/api-alerts.md) - hidden pseudo alert rules are created on `microsoft.insights/scheduledqueryrules` for billing on Azure. The hidden pseudo alert rules created for billing on `microsoft.insights/scheduledqueryrules` as shown as `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>` along with resource group and alert properties.
 
 > [!NOTE]
 > If invalid characters such as `<, >, %, &, \, ?, /` are present, they will be replaced with `_` in the hidden pseudo  alert rule name and hence also in the Azure bill.
@@ -148,6 +156,8 @@ To remove the hidden scheduleQueryRules resources created for billing of alert r
 
 - Either user can [switch API preference for the alert rules on the Log Analytics workspace](../../azure-monitor/platform/alerts-log-api-switch.md) and with no loss of their alert rules or monitoring move to Azure Resource Manager compliant [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules). Thereby eliminate the need to make pseudo hidden alert rules for billing.
 - Or if the user doesn't want to switch API preference, the user will need to **delete** the original schedule and alert action using [legacy Log Analytics API](api-alerts.md) or delete in [Azure portal the original log alert rule](../../azure-monitor/platform/alerts-log.md#view--manage-log-alerts-in-azure-portal)
+
+Additionally for the hidden scheduleQueryRules resources created for billing of alert rules using [legacy Log Analytics API](api-alerts.md), any modification operation like PUT will fail. As the `microsoft.insights/scheduledqueryrules` type pseudo rules are for purpose of billing the alert rules created using [legacy Log Analytics API](api-alerts.md). Any alert rule modification should be done using [legacy Log Analytics API](api-alerts.md) (or) user can [switch API preference for the alert rules](../../azure-monitor/platform/alerts-log-api-switch.md) to use [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) instead.
 
 ## Next steps
 

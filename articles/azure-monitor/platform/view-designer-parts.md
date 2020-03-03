@@ -1,18 +1,12 @@
 ---
 title: A reference guide to the View Designer parts in Azure Monitor | Microsoft Docs
 description: By using View Designer in Azure Monitor, you can create custom views that are displayed in the Azure portal and contain a variety of visualizations on data in the Log Analytics workspace. This article is a reference guide to the settings for the visualization parts that are available in your custom views.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: 5718d620-b96e-4d33-8616-e127ee9379c4
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 03/12/2018
+author: bwren
 ms.author: bwren
+ms.date: 03/12/2018
+
 ---
 
 # Reference guide to View Designer visualization parts in Azure Monitor
@@ -39,6 +33,9 @@ The available View Designer tile types are described in the following table:
 | [Stack of line charts part](#stack-of-line-charts-part) |Displays three separate line charts, with multiple series from a log query over time. |
 
 The next sections describe the tile types and their properties in detail.
+
+> [!NOTE]
+> Parts in views are based on [log queries](../log-query/log-query-overview.md) in your Log Analytics workspace. They do not currently support [cross resource queries](../log-query/cross-workspace-query.md) to retrieve data from Application Insights.
 
 ## List of queries part
 The list of queries part displays a list of log queries. You can select each query to display its results. The view includes a single query by default, and you can select **+ Query** to add additional queries.
@@ -317,7 +314,7 @@ The name and value separator is the single-character delimiter to use to parse t
 For example, consider a property called *Location* that included values such as *Redmond-Building 41* and *Bellevue-Building 12*. You can specify a dash (-) for the name and value separator and *City-Building* for the name. This approach parses each value into two properties called *City* and *Building*.
 
 ### <a name="click-through-navigation"></a>Click-Through Navigation
-Click-through navigation defines what action will be taken when you click on a header or list item in a view.  This will either open a query in the [Log Analyticsl](../../azure-monitor/log-query/portals.md) or launch another view.
+Click-through navigation defines what action will be taken when you click on a header or list item in a view.  This will either open a query in the [Log Analytics](../../azure-monitor/log-query/portals.md) or launch another view.
 
 The following table describes the settings for click-through navigation.
 

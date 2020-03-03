@@ -1,20 +1,17 @@
 ---
-title: Introduction to resource troubleshooting in Azure Network Watcher | Microsoft Docs
+title: Introduction to resource troubleshooting
+titleSuffix: Azure Network Watcher
 description: This page provides an overview of the Network Watcher resource troubleshooting capabilities
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
-editor: 
-
-ms.assetid: c1145cd6-d1cf-4770-b1cc-eaf0464cc315
+author: damendo
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 06/19/2017
-ms.author: jdial
+ms.author: damendo
 ---
 
 # Introduction to resource troubleshooting in Azure Network Watcher
@@ -103,7 +100,7 @@ The resource troubleshooting log files are stored in a storage account after res
 > [!NOTE]
 > In some cases, only a subset of the logs files is written to storage.
 
-For instructions on downloading files from azure storage accounts, refer to [Get started with Azure Blob storage using .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Another tool that can be used is Storage Explorer. More information about Storage Explorer can be found here at the following link: [Storage Explorer](http://storageexplorer.com/)
+For instructions on downloading files from azure storage accounts, refer to [Get started with Azure Blob storage using .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Another tool that can be used is Storage Explorer. More information about Storage Explorer can be found here at the following link: [Storage Explorer](https://storageexplorer.com/)
 
 ### ConnectionStats.txt
 

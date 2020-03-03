@@ -2,10 +2,14 @@
 title: Set up an Application Developers Controlled Distribution (ADCD) in IBM zD&T v1 | Microsoft Docs
 description: Run an IBM Z Development and Test Environment (zD&T) environment on Azure Virtual Machines (VMs).
 services: virtual-machines-linux
+ms.service: virtual-machines-linux
 documentationcenter:
 author: njray
 manager: edprice
+ms.author: edprice
 editor: edprice
+ms.topic: conceptual
+ms.date: 02/22/2019
 tags:
 keywords:
 ---
@@ -16,7 +20,7 @@ You can run an IBM Z Development and Test Environment (zD&T) environment on Azur
 This article shows you how to set up an ADCD instance in a zD&T environment on Azure. ADCDs create complete Z Series operating system implementations for development and testing environments that run in zD&T.
 
 Like zD&T, ADCDs are available only to IBM customers and partners and are exclusively for development and testing purposes. They are not to be used for production environments. Numerous IBM installation packages are available for download through [Passport Advantage](https://www.ibm.com/support/knowledgecenter/en/SSTQBD_12.0.0/com.ibm.zsys.rdt.guide.adcd.doc/topics/installation_ps.html)
-or [IBM PartnerWorld](https://www-356.ibm.com/partnerworld/wps/servlet/ContentHandler/isv_com_sys_zos_adcd).
+or [IBM PartnerWorld](https://www.ibm.com/partnerworld/public).
 
 ## Prerequisites
 
@@ -34,7 +38,7 @@ or [IBM PartnerWorld](https://www-356.ibm.com/partnerworld/wps/servlet/ContentHa
 
 ## Download the installation packages from Passport Advantage
 
-Access to the ADCD media is required. The steps below assume you are an IBM customers and can use Passport Advantage. IBM partners can use [IBM PartnerWorld](https://www-356.ibm.com/partnerworld/wps/servlet/ContentHandler/isv_com_sys_zos_adcd).
+Access to the ADCD media is required. The steps below assume you are an IBM customers and can use Passport Advantage. IBM partners can use [IBM PartnerWorld](https://www.ibm.com/partnerworld/public).
 
 > [!NOTE]
 > This article assumes that a Windows PC is used to access Azure portal and to download the IBM media. If you are using a Mac or Ubuntu desktop, the commands and process for obtaining the IBM media may differ slightly.
@@ -84,7 +88,7 @@ Now that you have the package(s), you must upload them to your VM on Azure.
         gunzip \*.gz
     ```
     
-![](media/01-gunzip.png)
+![File explorer showing decompressed gz volumes](media/01-gunzip.png)
 
 ## Configure the image storage
 
@@ -100,11 +104,11 @@ The next step is to configure zD&T to use the uploaded package(s). The image sto
      >
      > Remember, your web access uses port 9443. Use this to log on to the web server. The user ID for ZD&T is **zdtadmin** and the password is **password**.
 
-    ![](media/02-welcome.png)
+    ![IBM zD&T Enterprise Edition Welcome screen](media/02-welcome.png)
 
 3. On the **Quick Start** page, under **Configure**, select **Image Storage**.
 
-     ![](media/03-quickstart.png)
+     ![IBM zD&T Enterprise Edition Quick Start screen](media/03-quickstart.png)
 
 4. On the **Configure image storage** page, select **SSH File Transfer Protocol**.
 
@@ -128,7 +132,7 @@ The next step is to configure the zD&T target environment. This emulated hosted 
 
 5. In the **Target Environment label** box, enter a label such as **MyCICS.**
 
-     ![](media/04-add-target.png)
+     ![Add target environment screen](media/04-add-target.png)
 
 ## Configure ADCD and deploy
 
@@ -138,7 +142,7 @@ After completing the previous configuration steps, you must configure zD&T to us
 
 2. Assuming all the images were uploaded to the correct directories, click the **IMAGE from ADCD** link displayed in the lower right (shown in step 7 in the following screenshot).
 
-     ![](media/05-adcd.png)
+     ![IBM zD&T Enterprise Edition - Configure ADCD screen](media/05-adcd.png)
 
 ## Create the image
 
@@ -152,7 +156,7 @@ When the previous configuration step is complete, the **Create an image using AD
 
 4. Select the **Create Image** button at the lower right.
 
-     ![](media/06-adcd.png)
+     ![IBM zD&T Enterprise Edition - Create an image using ADCD Components screen](media/06-adcd.png)
 
 5. In the window that appears, telling you the image was deployed successfully, choose **Deploy images**.
 
@@ -164,7 +168,7 @@ When the previous configuration step is complete, the **Create an image using AD
 
 9. Make sure the box is selected for **Automatically issue IPL command to z/OS after deploy**.
 
-     ![](media/07-properties.png)
+     ![Properties screen](media/07-properties.png)
 
 10. Select **Complete**.
 
@@ -182,12 +186,12 @@ Congratulations! You are now running an IBM mainframe environment on Azure.
 - [Mainframe migration: myths and facts](https://docs.microsoft.com/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/myths-and-facts)
 - [IBM DB2 pureScale on Azure](https://docs.microsoft.com/azure/virtual-machines/linux/ibm-db2-purescale-azure)
 - [Troubleshooting](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/)
-- [Demystifying mainframe to Azure migration](https://azure.microsoft.com/en-us/resources/demystifying-mainframe-to-azure-migration/)
+- [Demystifying mainframe to Azure migration](https://azure.microsoft.com/resources/demystifying-mainframe-to-azure-migration/)
 
 <!-- INTERNAL LINKS -->
 [microfocus-get-started]: /microfocus/get-started.md
 [microfocus-setup]: /microfocus/set-up-micro-focus-on-azure.md
 [microfocus-demo]: /microfocus/demo.md
 [ibm-get-started]: /ibm/get-started.md
-[ibm-install-z]: /ibm/install-ibm-z-environment.md
+[ibm-install-z]: install-ibm-z-environment.md
 [ibm-demo]: /ibm/demo.md

@@ -1,6 +1,6 @@
 ---
-title: "Quickstart: Send a search request to the Bing Entity Search REST API using PHP"
-titlesuffix: Azure Cognitive Services
+title: "Quickstart: Send a search request to the REST API using PHP - Bing Entity Search"
+titleSuffix: Azure Cognitive Services
 description: Use this quickstart to send a request to the Bing Entity Search REST API using PHP, and receive a JSON response.
 services: cognitive-services
 author: aahill
@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 02/01/2019
+ms.date: 12/11/2019
 ms.author: aahi
 ---
 
@@ -21,7 +21,7 @@ While this application is written in PHP, the API is a RESTful Web service compa
 
 ## Prerequisites
 
-* [PHP 5.6.x](http://php.net/downloads.php) or later
+* [PHP 5.6.x](https://php.net/downloads.php) or later
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-entity-search-signup-requirements.md)]
 
@@ -32,7 +32,8 @@ To run this application, follow these steps.
 1. Create a new PHP project in your favorite IDE.
 2. Add the code provided below.
 3. Replace the `key` value with an access key valid for your subscription.
-4. Run the program.
+4. You can use the global endpoint below, or the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
+5. Run the program.
 
 ```php
 <?php
@@ -60,7 +61,7 @@ function search ($host, $path, $key, $mkt, $query) {
 	$headers = "Ocp-Apim-Subscription-Key: $key\r\n";
 
 	// NOTE: Use the key 'http' even if you are making an HTTPS request. See:
-	// http://php.net/manual/en/function.stream-context-create.php
+	// https://php.net/manual/en/function.stream-context-create.php
 	$options = array (
 		'http' => array (
 			'header' => $headers,
@@ -118,7 +119,7 @@ A successful response is returned in JSON, as shown in the following example:
         "_type": "Restaurant",
         "webSearchUrl": "https://www.bing.com/search?q=Pickles+and+Preserves...",
         "name": "Munson's Pickles and Preserves Farm",
-        "url": "http://www.princi.com/",
+        "url": "https://www.princi.com/",
         "entityPresentationInfo": {
           "entityScenario": "ListItem",
           "entityTypeHints": [
@@ -149,4 +150,4 @@ A successful response is returned in JSON, as shown in the following example:
 > [Build a single-page web app](../tutorial-bing-entities-search-single-page-app.md)
 
 * [What is the Bing Entity Search API?](../overview.md )
-* [Bing Entity Search API Reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference)
+* [Bing Entity Search API Reference](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference)

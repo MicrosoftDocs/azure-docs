@@ -1,20 +1,17 @@
 ﻿---
-title: Azure Quickstart - Set & retrieve a secret from Key Vault using PowerShell | Microsoft Docs
-description: 
+title: "Quickstart: Set & retrieve a secret from Key Vault using PowerShell"
+description: In this quickstart, learn how to create, retrieve, and delete secrets from an Azure key vault using PowerShell
 services: key-vault
-author: barclayn
-manager: barbkess
+author: msmbaldwin
+manager: rkarlin
 tags: azure-resource-manager
 
-ms.assetid: 1126f665-2e6c-4cca-897e-7d61842e8334
 ms.service: key-vault
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: powershell
+ms.subservice: secrets
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 01/07/2019
-ms.author: barclayn
+ms.date: 11/08/2019
+ms.author: mbaldwin
 #Customer intent:As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure
 
 ---
@@ -26,7 +23,7 @@ Azure Key Vault is a cloud service that works as a secure secrets store. You can
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 If you choose to install and use PowerShell locally, this tutorial requires Azure PowerShell module version 1.0.0 or later. Type `$PSVersionTable.PSVersion` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps). If you are running PowerShell locally, you also need to run `Login-AzAccount` to create a connection with Azure.
 
@@ -59,7 +56,7 @@ New-AzKeyVault -Name 'Contoso-Vault2' -ResourceGroupName 'ContosoResourceGroup' 
 The output of this cmdlet shows properties of the newly created key vault. Take note of the two properties listed below:
 
 * **Vault Name**: In the example that is **Contoso-Vault2**. You will use this name for other Key Vault cmdlets.
-* **Vault URI**: In this example that is https://contosokeyvault.vault.azure.net/. Applications that use your vault through its REST API must use this URI.
+* **Vault URI**: In this example that is https://Contoso-Vault2.vault.azure.net/. Applications that use your vault through its REST API must use this URI.
 
 After vault creation your Azure account is the only account allowed to do anything on this new vault.
 
@@ -78,13 +75,13 @@ $secretvalue = ConvertTo-SecureString 'hVFkk965BuUv' -AsPlainText -Force
 Then, type the PowerShell commands below to create a secret in Key Vault called **ExamplePassword** with the value **hVFkk965BuUv** :
 
 ```azurepowershell-interactive
-$secret = Set-AzKeyVaultSecret -VaultName 'ContosoKeyVault' -Name 'ExamplePassword' -SecretValue $secretvalue
+$secret = Set-AzKeyVaultSecret -VaultName 'Contoso-Vault2' -Name 'ExamplePassword' -SecretValue $secretvalue
 ```
 
 To view the value contained in the secret as plain text:
 
 ```azurepowershell-interactive
-(Get-AzKeyVaultSecret -vaultName "Contosokeyvault" -name "ExamplePassword").SecretValueText
+(Get-AzKeyVaultSecret -vaultName "Contoso-Vault2" -name "ExamplePassword").SecretValueText
 ```
 
 Now, you have created a Key Vault, stored a secret, and retrieved it.
@@ -101,9 +98,9 @@ Remove-AzResourceGroup -Name ContosoResourceGroup
 
 ## Next steps
 
-In this quickstart, you have created a Key Vault and stored a software key in it. To learn more about Key Vault and how you can use it with your applications continue to the tutorial for web applications working with Key Vault.
+In this quickstart you created a Key Vault and stored a secret in it. To learn more about Key Vault and how to integrate it with your applications, continue on to the articles below.
 
-To learn how to read a secret from Key Vault from a web application using managed identities for Azure resources, continue with the following tutorial
-
-> [!div class="nextstepaction"]
-> [Configure an Azure web application to read a secret from Key vault](quick-create-net.md).
+- Read an [Overview of Azure Key Vault](key-vault-overview.md)
+- See the reference for the [Azure PowerShell Key Vault cmdlets](/powershell/module/az.keyvault/?view=azps-2.6.0#key_vault)
+- Learn about [keys, secrets, and certificates](about-keys-secrets-and-certificates.md)
+- Review [Azure Key Vault best practices](key-vault-best-practices.md)

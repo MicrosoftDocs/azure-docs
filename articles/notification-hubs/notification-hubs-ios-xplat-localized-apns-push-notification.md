@@ -1,11 +1,11 @@
 ---
-title: Push localized notifications to iOS devices using Azure Notification Hubs | Microsoft Docs
+title: Send localized push notifications to iOS using Azure Notification Hubs | Microsoft Docs
 description: Learn how to use push localized notifications to iOS devices by using Azure Notification Hubs. 
 services: notification-hubs
 documentationcenter: ios
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 
 ms.assetid: 484914b5-e081-4a05-a84a-798bbd89d428
 ms.service: notification-hubs
@@ -14,16 +14,18 @@ ms.tgt_pltfrm: ios
 ms.devlang: objective-c
 ms.topic: article
 ms.date: 01/04/2019
-ms.author: jowargo
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 01/04/2019
 ---
 
-# Tutorial: Push localized notifications to iOS devices using Azure Notification Hubs
+# Tutorial: Send localized push notifications to iOS using Azure Notification Hubs
 
 > [!div class="op_single_selector"]
 > * [Windows Store C#](notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md)
 > * [iOS](notification-hubs-ios-xplat-localized-apns-push-notification.md)
 
-This tutorial shows you how to use the [templates](notification-hubs-templates-cross-platform-push-messages.md) feature of Azure Notification Hubs to broadcast breaking news notifications that have been localized by language and device. In this tutorial, you start with the iOS app created in [Use Notification Hubs to send breaking news]. When complete, you can register for categories you are interested in, specify a language in which to receive the notifications, and receive only push notifications for the selected categories in that language.
+This tutorial shows you how to use the [templates](notification-hubs-templates-cross-platform-push-messages.md) feature of Azure Notification Hubs to broadcast breaking news notifications that have been localized by language and device. In this tutorial, you start with the iOS app created in [Use Notification Hubs to send breaking news]. When complete, you can register for categories you're interested in, specify a language in which to receive the notifications, and receive only push notifications for the selected categories in that language.
 
 There are two parts to this scenario:
 
@@ -45,7 +47,7 @@ In [Use Notification Hubs to send breaking news], you built an app that used **t
 > [!NOTE]
 > One way to send localized notifications is to create multiple versions of each tag. For instance, to support English, French, and Mandarin, you would need three different tags for world news: "world_en", "world_fr", and "world_ch". You would then have to send a localized version of the world news to each of these tags. In this topic, you use templates to avoid the proliferation of tags and the requirement of sending multiple messages.
 
-At a high level, templates are a way to specify how a specific device should receive a notification. The template specifies the exact payload format by referring to properties that are part of the message sent by your app back-end. In your case, you send a locale-agnostic message containing all supported languages:
+Templates are a way to specify how a specific device should receive a notification. The template specifies the exact payload format by referring to properties that are part of the message sent by your app back-end. In your case, you send a locale-agnostic message containing all supported languages:
 
 ```json
 {
@@ -70,7 +72,7 @@ For more information on templates, see [Templates](notification-hubs-templates-c
 ## Prerequisites
 
 * Complete the [Push notifications to specific iOS devices](notification-hubs-ios-xplat-segmented-apns-push-notification.md) tutorial and have the code available, because this tutorial builds directly upon that code.
-* Visual Studio 2017 is optional.
+* Visual Studio 2019 is optional.
 
 ## Update the app user interface
 
@@ -86,7 +88,7 @@ Then make sure to add an IBOutlet in your ViewController.h as shown in the follo
 
 ## Build the iOS app
 
-1. In your `Notification.h` add the `retrieveLocale` method, and modify the store and subscribe methods as shown in the following code:
+1. In your `Notification.h`, add the `retrieveLocale` method, and modify the store and subscribe methods as shown in the following code:
 
     ```objc
     - (void) storeCategoriesAndSubscribeWithLocale:(int) locale categories:(NSSet*) categories completion: (void (^)(NSError* error))completion;
@@ -267,14 +269,14 @@ In this tutorial, you sent localized notifications to iOS devices. To learn how 
 [14]: ./media/notification-hubs-ios-send-localized-breaking-news/ios_localized2.png
 
 <!-- URLs. -->
-[How To: Service Bus Notification Hubs (iOS Apps)]: http://msdn.microsoft.com/library/jj927168.aspx
+[How To: Service Bus Notification Hubs (iOS Apps)]: https://msdn.microsoft.com/library/jj927168.aspx
 [Use Notification Hubs to send breaking news]: notification-hubs-ios-xplat-segmented-apns-push-notification.md
 [Mobile Service]: /develop/mobile/tutorials/get-started
 [Notify users with Notification Hubs: ASP.NET]: notification-hubs-aspnet-backend-ios-apple-apns-notification.md
 [Notify users with Notification Hubs: Mobile Services]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
-[Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-[My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
+[Submit an app page]: https://go.microsoft.com/fwlink/p/?LinkID=266582
+[My Applications]: https://go.microsoft.com/fwlink/p/?LinkId=262039
+[Live SDK for Windows]: https://go.microsoft.com/fwlink/p/?LinkId=262253
 [Get started with Mobile Services]: /develop/mobile/tutorials/get-started/#create-new-service
 [Get started with data]: /develop/mobile/tutorials/get-started-with-data-ios
 [Get started with authentication]: /develop/mobile/tutorials/get-started-with-users-ios
@@ -283,6 +285,6 @@ In this tutorial, you sent localized notifications to iOS devices. To learn how 
 [Authorize users with scripts]: /develop/mobile/tutorials/authorize-users-in-scripts-ios
 [JavaScript and HTML]: ../get-started-with-push-js.md
 [Windows Developer Preview registration steps for Mobile Services]: ../mobile-services-windows-developer-preview-registration.md
-[wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
-[Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
-[Notification Hubs How-To for iOS]: http://msdn.microsoft.com/library/jj927168.aspx
+[wns object]: https://go.microsoft.com/fwlink/p/?LinkId=260591
+[Notification Hubs Guidance]: https://msdn.microsoft.com/library/jj927170.aspx
+[Notification Hubs How-To for iOS]: https://msdn.microsoft.com/library/jj927168.aspx

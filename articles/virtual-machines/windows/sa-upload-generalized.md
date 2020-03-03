@@ -1,10 +1,10 @@
 ---
-title: Upload a generalize VHD to create multiple VMs in Azure | Microsoft Docs
+title: Upload a generalize VHD to create multiple VMs in Azure 
 description: Upload a generalized VHD to an Azure storage account to create a Windows VM to use with the Resource Manager deployment model.
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 
@@ -12,7 +12,7 @@ ms.assetid:
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
+
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: cynthn
@@ -27,7 +27,7 @@ If you want to create a VM from a specialized VHD in a storage account, see [Cre
 
 This topic covers using storage accounts, but we recommend customers move to using Managed Disks instead. For a complete walk-through of how to prepare, upload and create a new VM using managed disks, see [Create a new VM from a generalized VHD uploaded to Azure using Managed Disks](upload-generalized-managed.md).
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+ 
 
 ## Prepare the VM
 
@@ -171,7 +171,7 @@ Create the vNet and subnet of the [virtual network](../../virtual-network/virtua
 2. Create the virtual network. The following sample creates a virtual network named **myVnet** in the **West US** location with the address prefix of **10.0.0.0/16**.  
    
     ```powershell
-    $location = "West US"
+    $location = "WestUS"
     $vnetName = "myVnet"
     $vnet = New-AzVirtualNetwork -Name $vnetName -ResourceGroupName $rgName -Location $location `
         -AddressPrefix 10.0.0.0/16 -Subnet $singleSubnet

@@ -8,7 +8,8 @@ manager: mtillman
 ms.reviewer: barbkess
 
 ms.assetid: 06853edd-e8da-4ad2-a4e6-5555d592cee5
-ms.service: Azure-Active-Directory
+ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -155,7 +156,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     a. In the **Name** field enter **BrittaSimon**.
   
-    b. In the **User name** field type **brittasimon@yourcompanydomain.extension**  
+    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
     For example, BrittaSimon@contoso.com
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
@@ -201,7 +202,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
     ![ClickUp Productivity Configuration](./media/clickup-productivity-platform-tutorial/user2.png)
 
     > [!NOTE]
-    > User will get the notification and he has to accept the invitation to activate the account.
+    > The user will get the notification and they must accept the invitation to activate the account.
 
 ### Test single sign-on
 
@@ -211,9 +212,9 @@ When you click the ClickUp Productivity Platform tile in the Access Panel, you s
 
 ## Additional Resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

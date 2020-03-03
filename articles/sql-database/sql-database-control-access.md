@@ -1,24 +1,24 @@
 ---
-title: Granting access to Azure SQL Database and SQL Data Warehouse | Microsoft Docs
-description: Learn about granting access to Microsoft Azure SQL Database and SQL Data Warehouse.
+title: Granting access
+description: Learn about granting access to Microsoft Azure SQL Database and Azure Synapse.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: sql-data-warehouse
+titleSuffix: Azure SQL Database and Azure Synapse
+ms.custom: sql-data-warehouse, seo-lt-2019
 ms.devlang: 
 ms.topic: conceptual
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
-manager: craigg
-ms.date: 02/04/2019
+ms.date: 02/06/2020
 ---
-# Azure SQL Database and SQL Data Warehouse access control
+# Azure SQL Database and Azure Synapse access control
 
-To provide security, Azure [SQL Database](sql-database-technical-overview.md) and [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) control access with firewall rules limiting connectivity by IP address, authentication mechanisms requiring users to prove their identity, and authorization mechanisms limiting users to specific actions and data. 
+To provide security, Azure [SQL Database](sql-database-technical-overview.md) and [Azure Synapse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) control access with firewall rules limiting connectivity by IP address, authentication mechanisms requiring users to prove their identity, and authorization mechanisms limiting users to specific actions and data. 
 
 > [!IMPORTANT]
-> For an overview of the SQL Database security features, see [SQL security overview](sql-database-security-overview.md). For a tutorial, see [Secure your Azure SQL Database](sql-database-security-tutorial.md). For an overview of SQL Data Warehouse security features, see [SQL Data Warehouse security overview](../sql-data-warehouse/sql-data-warehouse-overview-manage-security.md)
+> For an overview of the SQL Database security features, see [SQL security overview](sql-database-security-overview.md). For a tutorial, see [Secure your Azure SQL Database](sql-database-security-tutorial.md). For an overview of SQL Analytics security features in Azure Synapse, see [Azure Synapse security overview](../sql-data-warehouse/sql-data-warehouse-overview-manage-security.md)
 
 ## Firewall and firewall rules
 
@@ -37,7 +37,7 @@ SQL Database supports two types of authentication:
   This authentication method uses a username and password. When you created the SQL Database server for your database, you specified a "server admin" login with a username and password. Using these credentials, you can authenticate to any database on that server as the database owner, or "dbo." 
 - **Azure Active Directory Authentication**:
 
-  This authentication method uses identities managed by Azure Active Directory and is supported for managed and integrated domains. Use Active Directory authentication (integrated security) [whenever possible](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode). If you want to use Azure Active Directory Authentication, you must create another server admin called the "Azure AD admin," which is allowed to administer Azure AD users and groups. This admin can also perform all operations that a regular server admin can. See [Connecting to SQL Database By Using Azure Active Directory Authentication](sql-database-aad-authentication.md) for a walkthrough of how to create an Azure AD admin to enable Azure Active Directory Authentication.
+  This authentication method uses identities managed by Azure Active Directory and is supported for managed and integrated domains. If you want to use Azure Active Directory Authentication, you must create another server admin called the "Azure AD admin," which is allowed to administer Azure AD users and groups. This admin can also perform all operations that a regular server admin can. See [Connecting to SQL Database By Using Azure Active Directory Authentication](sql-database-aad-authentication.md) for a walkthrough of how to create an Azure AD admin to enable Azure Active Directory Authentication.
 
 The Database Engine closes connections that remain idle for more than 30 minutes. The connection must login again before it can be used. Continuously active connections to SQL Database require reauthorization (performed by the database engine) at least every 10 hours. The database engine attempts reauthorization using the originally submitted password and no user input is required. For performance reasons, when a password is reset in SQL Database, the connection is not reauthenticated, even if the connection is reset due to connection pooling. This is different from the behavior of on-premises SQL Server. If the password has been changed since the connection was initially authorized, the connection must be terminated and a new connection made using the new password. A user with the `KILL DATABASE CONNECTION` permission can explicitly terminate a connection to SQL Database by using the [KILL](https://docs.microsoft.com/sql/t-sql/language-elements/kill-transact-sql) command.
 

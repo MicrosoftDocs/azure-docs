@@ -8,6 +8,7 @@ manager: daveba
 editor: curtand
 ms.assetid: f1b851aa-54d7-4cb4-8f5c-60680e2ce866
 ms.service: active-directory
+ms.subservice: hybrid
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -149,7 +150,7 @@ Azure AD Connect Health for AD FS generates this alert when the Health Agent ins
 
 Most often this test fails because the Health Agent is unable to resolve the AD FS farm name. This can happen if the AD FS servers are behind a network load balancers and the request gets initiated from a node that's behind the load balancer (as opposed to a regular client that is in front of the load balancer). This can be fixed by updating the "hosts" file located under "C:\Windows\System32\drivers\etc" to include the IP address of the AD FS server or a loopback IP address (127.0.0.1) for the AD FS farm name (such as sts.contoso.com). Adding the host file will short-circuit the network call, thus allowing the Health Agent to get the token.
 
-**Q: I got an email indicating my machines are NOT patched for the recent ransomeware attacks. Why did I receive this email?**
+**Q: I got an email indicating my machines are NOT patched for the recent ransomware attacks. Why did I receive this email?**
 
 Azure AD Connect Health service scanned all the machines it monitors to ensure the required patches were installed. The email was sent to the tenant administrators if at least one machine did not have the critical patches. The following logic was used to make this determination.
 1. Find all the hotfixes installed on the machine.
@@ -186,6 +187,9 @@ CheckForMS17-010
 **Q: Why are my ADFS audits not being generated?**
 
 Please use PowerShell cmdlet <i>Get-AdfsProperties -AuditLevel</i> to ensure audit logs is not in disabled state. Read more about [ADFS audit logs](https://docs.microsoft.com/windows-server/identity/ad-fs/technical-reference/auditing-enhancements-to-ad-fs-in-windows-server#auditing-levels-in-ad-fs-for-windows-server-2016). Notice if there are advanced audit settings pushed to the ADFS server, any changes with auditpol.exe will be overwritten (event if Application Generated is not configured). In this case, please set the local security policy to log Application Generated failures and success.
+
+**Q: When will the agent certificate be automatic renewed before expiration?**
+The agent certification will be automatic renewed **6 months** before its expiration date. If it is not renewed, please ensure the network connection of the agent is stable. Restart the agent services or update to the latest version may also solve the issue.
 
 
 ## Related links

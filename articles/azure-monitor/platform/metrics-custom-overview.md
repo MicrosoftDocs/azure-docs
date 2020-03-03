@@ -3,9 +3,9 @@ title: Custom metrics in Azure Monitor
 description: Learn about custom metrics in Azure Monitor and how they are modeled.
 author: ancav
 services: azure-monitor
-ms.service: azure-monitor
+
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: metrics
 ---
@@ -49,17 +49,17 @@ This property captures what Azure region the resource you're emitting metrics fo
 >
 
 ### Timestamp
-Each data point sent to Azure Monitor must be marked with a timestamp. This timestamp captures the DateTime at which the metric value is measured or collected. Azure Monitor accepts metric data with timestamps as far as 20 minutes in the past and 5 minutes in the future.
+Each data point sent to Azure Monitor must be marked with a timestamp. This timestamp captures the DateTime at which the metric value is measured or collected. Azure Monitor accepts metric data with timestamps as far as 20 minutes in the past and 5 minutes in the future. The timestamp must be in ISO 8601 format.
 
 ### Namespace
-Namespaces are a way to categorize or group similar metrics together. By using namespaces, you can achieve isolation between groups of metrics that might collect different insights or performance indicators. For example, you might have a namespace called **ContosoMemoryMetrics** that tracks memory-use metrics which profile your app. Another namespace called **ContosoAppTransaction** might track all metrics about user transactions in your application.
+Namespaces are a way to categorize or group similar metrics together. By using namespaces, you can achieve isolation between groups of metrics that might collect different insights or performance indicators. For example, you might have a namespace called **contosomemorymetrics** that tracks memory-use metrics which profile your app. Another namespace called **contosoapptransaction** might track all metrics about user transactions in your application.
 
 ### Name
 **Name** is the name of the metric that's being reported. Usually, the name is descriptive enough to help identify what's measured. An example is a metric that measures the number of memory bytes used on a given VM. It might have a metric name like **Memory Bytes In Use**.
 
 ### Dimension keys
 A dimension is a key or value pair that helps describe additional characteristics about the metric being collected. By using the additional characteristics, you can collect more information about the metric, which allows for deeper insights. For example, the **Memory Bytes In Use** metric might have a dimension key called **Process** that captures how many bytes of memory each process on a VM consumes. By using this key, you can filter the metric to see how much memory specific processes use or to identify the top five processes by memory usage.
-Each custom metric can have up to 10 dimensions.
+Dimensions are optional, not all metrics may have dimensions. A custom metric can have up to 10 dimensions.
 
 ### Dimension values
 When reporting a metric data point, for each dimension key on the metric being reported, there's a corresponding dimension value. For example, you might want to report the memory used by the ContosoApp on your VM:
@@ -69,6 +69,7 @@ When reporting a metric data point, for each dimension key on the metric being r
 * The dimension value would be **ContosoApp.exe**.
 
 When publishing a metric value, you can only specify a single dimension value per dimension key. If you collect the same memory utilization for multiple processes on the VM, you can report multiple metric values for that timestamp. Each metric value would specify a different dimension value for the **Process** dimension key.
+Dimensions are optional, not all metrics may have dimensions. If a metric post defines dimension keys, corresponding dimension values are mandatory.
 
 ### Metric values
 Azure Monitor stores all metrics at one-minute granularity intervals. We understand that during a given minute, a metric might need to be sampled several times. An example is CPU utilization. Or it might need to be measured for many discrete events. An example is sign-in transaction latencies. To limit the number of raw values you have to emit and pay for in Azure Monitor, you can locally pre-aggregate and emit the values:
@@ -161,15 +162,31 @@ After custom metrics are submitted to Azure Monitor, you can browse them via the
 ## Supported regions
 During the public preview, the ability to publish custom metrics is available only in a subset of Azure regions. This restriction means that metrics can be published only for resources in one of the supported regions. The following table lists the set of supported Azure regions for custom metrics. It also lists the corresponding endpoints that metrics for resources in those regions should be published to:
 
-|Azure region|Regional endpoint prefix|
+|Azure region |Regional endpoint prefix|
 |---|---|
-|East US|https://eastus.monitoring.azure.com/|
-|South Central US|https://southcentralus.monitoring.azure.com/|
-|West Central US|https://westcentralus.monitoring.azure.com/|
-|West US 2|https://westus2.monitoring.azure.com/|
-|Southeast Asia|https://southeastasia.monitoring.azure.com/|
-|North Europe|https://northeurope.monitoring.azure.com/|
-|West Europe|https://westeurope.monitoring.azure.com/|
+| **US and Canada** | |
+|West Central US | https:\//westcentralus.monitoring.azure.com/ |
+|West US 2       | https:\//westus2.monitoring.azure.com/ |
+|North Central US | https:\//northcentralus.monitoring.azure.com
+|South Central US| https:\//southcentralus.monitoring.azure.com/ |
+|Central US      | https:\//centralus.monitoring.azure.com |
+|Canada Central | https:\//canadacentral.monitoring.azure.comc
+|East US| https:\//eastus.monitoring.azure.com/ |
+| **Europe** | |
+|North Europe    | https:\//northeurope.monitoring.azure.com/ |
+|West Europe     | https:\//westeurope.monitoring.azure.com/ |
+|UK South | https:\//uksouth.monitoring.azure.com
+|France Central | https:\//francecentral.monitoring.azure.com |
+| **Africa** | |
+|South Africa North | https:\//southafricanorth.monitoring.azure.com
+| **Asia** | |
+|Central India | https:\//centralindia.monitoring.azure.com
+|Australia East | https:\//australiaeast.monitoring.azure.com
+|Japan East | https:\//japaneast.monitoring.azure.com
+|Southeast Asia  | https:\//southeastasia.monitoring.azure.com |
+|East Asia | https:\//eastasia.monitoring.azure.com
+|Korea Central   | https:\//koreacentral.monitoring.azure.com
+
 
 ## Quotas and limits
 Azure Monitor imposes the following usage limits on custom metrics:
@@ -179,6 +196,7 @@ Azure Monitor imposes the following usage limits on custom metrics:
 |Active time series/subscriptions/region|50,000|
 |Dimension keys per metric|10|
 |String length for metric namespaces, metric names, dimension keys, and dimension values|256 characters|
+
 An active time series is defined as any unique combination of metric, dimension key, or dimension value that has had metric values published in the past 12 hours.
 
 ## Next steps

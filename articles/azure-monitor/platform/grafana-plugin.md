@@ -1,20 +1,14 @@
 ---
 title: Monitor Azure services and applications using Grafana
 description: Route Azure Monitor and Application Insights data so you can view them in Grafana.
-services: azure-monitor
-keywords: 
-author: rboucher
-ms.author: robb
-ms.date: 11/06/2017
-ms.topic: conceptual
-ms.service: azure-monitor
 ms.subservice: ""
+ms.topic: conceptual
+ms.date: 11/06/2017
+
 ---
 
 # Monitor your Azure services in Grafana
 You can now monitor Azure services and applications from [Grafana](https://grafana.com/) using the [Azure Monitor data source plugin](https://grafana.com/plugins/grafana-azure-monitor-datasource). The plugin gathers application performance data collected by Azure Monitor, including various logs and metrics. You can then display this data on your Grafana dashboard.
-
-The plugin is currently in preview.
 
 Use the following steps to set up a Grafana server and build dashboards for metrics and logs from Azure Monitor.
 
@@ -42,13 +36,13 @@ To set up a local Grafana server, [download and install Grafana in your local en
 
 7. Get the public IP address of your Grafana server - go back to the list of resources and select **Public IP address**.
 
-## Log in to Grafana
+## Sign in to Grafana
 
 1. Using the IP address of your server, open the Login page at *http://\<IP address\>:3000* or the *\<DNSName>\:3000* in your browser. While 3000 is the default port, note you might have selected a different port during setup. You should see a login page for the Grafana server you built.
 
     ![Grafana login screen](./media/grafana-plugin/grafana-login-screen.png)
 
-2. Log in with the user name *admin* and the Grafana server admin password you created earlier. If you're using a local setup, the default password would be *admin*, and you'd be requested to change it on your first login.
+2. Sign in with the user name *admin* and the Grafana server admin password you created earlier. If you're using a local setup, the default password would be *admin*, and you'd be requested to change it on your first login.
 
 ## Configure data source plugin
 
@@ -72,9 +66,9 @@ Once successfully logged in, you should see that the Azure Monitor data source p
 
         > [!NOTE]
         > Some data source fields are named differently than their correlated Azure settings:
-        >     * Tenant ID is the Azure Directory ID
-        >     * Client ID is the Azure Active Directory Application ID
-        >     * Client Secret is the Azure Active Directory Application key value
+        > * Tenant ID is the Azure Directory ID
+        > * Client ID is the Azure Active Directory Application ID
+        > * Client Secret is the Azure Active Directory Application key value
 
 5. If you use Application Insights, you can also include your Application Insights API and application ID to collect Application Insights based metrics. For more information, see [Getting your API key and Application ID](https://dev.applicationinsights.io/documentation/Authorization/API-key-and-App-ID).
 
@@ -91,16 +85,16 @@ Once successfully logged in, you should see that the Azure Monitor data source p
     ![Grafana new graph](./media/grafana-plugin/grafana-new-graph-dark.png)
 
 4. Select the Azure Monitor data source you've configured.
-    * Collecting Azure Monitor metrics - select **Azure Monitor** in the service dropdown. A list of selectors shows up, where you can select the resources and metric to monitor in this chart. To collect metrics from a VM, use the namespace **Microsoft.Compute/VirtualMachines**. Once you have selected VMs and metrics, you can start viewing their data in the dashboard.
-    ![Grafana graph config for Azure Monitor](./media/grafana-plugin/grafana-graph-config-for-azure-monitor-dark.png)
-    * Collecting Azure Monitor log data - select **Azure Log Analytics** in the service dropdown. Select the workspace you'd like to query and set the query text. You can copy here any log query you already have or create a new one. As you type in your query, IntelliSense will show up and suggest autocomplete options. Select the visualization type, **Time series** **Table**, and run the query.
+   * Collecting Azure Monitor metrics - select **Azure Monitor** in the service dropdown. A list of selectors shows up, where you can select the resources and metric to monitor in this chart. To collect metrics from a VM, use the namespace **Microsoft.Compute/VirtualMachines**. Once you have selected VMs and metrics, you can start viewing their data in the dashboard.
+     ![Grafana graph config for Azure Monitor](./media/grafana-plugin/grafana-graph-config-for-azure-monitor-dark.png)
+   * Collecting Azure Monitor log data - select **Azure Log Analytics** in the service dropdown. Select the workspace you'd like to query and set the query text. You can copy here any log query you already have or create a new one. As you type in your query, IntelliSense will show up and suggest autocomplete options. Select the visualization type, **Time series** **Table**, and run the query.
     
-    > [!NOTE]
-    >
-    > The default query provided with the plugin uses two macros: "$__timeFilter() and $__interval. 
-    > These macros allow Grafana to dynamically calculate the time range and time grain, when you zoom in on part of a chart. You can remove these macros and use a standard time filter, such as *TimeGenerated > ago(1h)*, but that means the graph would not support the zoom in feature.
+     > [!NOTE]
+     >
+     > The default query provided with the plugin uses two macros: "$__timeFilter() and $__interval. 
+     > These macros allow Grafana to dynamically calculate the time range and time grain, when you zoom in on part of a chart. You can remove these macros and use a standard time filter, such as *TimeGenerated > ago(1h)*, but that means the graph would not support the zoom in feature.
     
-    ![Grafana graph config for Azure Log Analytics](./media/grafana-plugin/grafana-graph-config-for-azure-log-analytics-dark.png)
+     ![Grafana graph config for Azure Log Analytics](./media/grafana-plugin/grafana-graph-config-for-azure-log-analytics-dark.png)
 
 5. Following is a simple dashboard with two charts. The one on left shows the CPU percentage of two VMs. The chart on the right shows the transactions in an Azure Storage account broken down by the Transaction API type.
     ![Grafana Two Charts Example](media/grafana-plugin/grafana6.png)
@@ -114,8 +108,6 @@ You can also reuse this set up to include metrics from your Prometheus server. U
 
 Here are good reference articles on how to use Telegraf, InfluxDB, Prometheus, and Docker
  - [How To Monitor System Metrics with the TICK Stack on Ubuntu 16.04](https://www.digitalocean.com/community/tutorials/how-to-monitor-system-metrics-with-the-tick-stack-on-ubuntu-16-04)
-
- - [Monitor Docker resource metrics with Grafana, InfluxDB, and Telegraf](https://blog.vpetkov.net/2016/08/04/monitor-docker-resource-metrics-with-grafana-influxdb-and-telegraf/)
 
  - [A monitoring solution for Docker hosts, containers, and containerized services](https://stefanprodan.com/2016/a-monitoring-solution-for-docker-hosts-containers-and-containerized-services/)
 
@@ -163,5 +155,5 @@ If you've setup a Grafana environment on Azure, you are charged when VMs are run
 2. On your resource group page, click **Delete**, type **Grafana** in the text box, and then click **Delete**.
 
 ## Next steps
-* [Overview of Azure Monitor Metrics](../../azure-monitor/platform/data-collection.md)
+* [Overview of Azure Monitor Metrics](data-platform.md)
 

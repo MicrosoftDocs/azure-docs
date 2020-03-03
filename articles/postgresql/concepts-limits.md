@@ -1,38 +1,43 @@
 ---
-title: Limitations in Azure Database for PostgreSQL
-description: This article describes limitations in Azure Database for PostgreSQL, such as number of connection and storage engine options.
+title: Limits - Azure Database for PostgreSQL - Single Server
+description: This article describes limits in Azure Database for PostgreSQL - Single Server, such as number of connection and storage engine options.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 1/22/2019
+ms.date: 01/28/2020
+ms.custom: fasttrack-edit
 ---
-# Limitations in Azure Database for PostgreSQL
-The following sections describe capacity and functional limits in the database service.
+# Limits in Azure Database for PostgreSQL - Single Server
+The following sections describe capacity and functional limits in the database service. If you'd like to learn about resource (compute, memory, storage) tiers, see the [pricing tiers](concepts-pricing-tiers.md) article.
+
 
 ## Maximum connections
-The maximum number of connections per pricing tier and vCores are as follows: 
+The maximum number of connections per pricing tier and vCores are shown below. The Azure system requires five connections to monitor the Azure Database for PostgreSQL server. 
 
-|**Pricing Tier**| **vCore(s)**| **Max Connections** |
-|---|---|---|
-|Basic| 1| 50 |
-|Basic| 2| 100 |
-|General Purpose| 2| 150|
-|General Purpose| 4| 250|
-|General Purpose| 8| 480|
-|General Purpose| 16| 950|
-|General Purpose| 32| 1500|
-|General Purpose| 64| 1900|
-|Memory Optimized| 2| 300|
-|Memory Optimized| 4| 500|
-|Memory Optimized| 8| 960|
-|Memory Optimized| 16| 1900|
-|Memory Optimized| 32| 1900|
+|**Pricing Tier**| **vCore(s)**| **Max Connections** | **Max User Connections** |
+|---|---|---|---|
+|Basic| 1| 55 | 50|
+|Basic| 2| 105 | 100|
+|General Purpose| 2| 150| 145|
+|General Purpose| 4| 250| 245|
+|General Purpose| 8| 480| 475|
+|General Purpose| 16| 950| 945|
+|General Purpose| 32| 1500| 1495|
+|General Purpose| 64| 1900| 1895|
+|Memory Optimized| 2| 300| 295|
+|Memory Optimized| 4| 500| 495|
+|Memory Optimized| 8| 960| 955|
+|Memory Optimized| 16| 1900| 1895|
+|Memory Optimized| 32| 1987| 1982|
 
 When connections exceed the limit, you may receive the following error:
 > FATAL:  sorry, too many clients already
 
-The Azure system requires five connections to monitor the Azure Database for PostgreSQL server. 
+> [!IMPORTANT]
+> For best experience, we recommend that you use a connection pooler like pgBouncer to efficiently manage connections.
+
+A PostgreSQL connection, even idle, can occupy about 10MB of memory. Also, creating new connections takes time. Most applications request many short-lived connections, which compounds this situation. The result is fewer resources available for your actual workload leading to decreased performance. A connection pooler that decreases idle connections and reuses existing connections will help avoid this. To learn more, visit our [blog post](https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/not-all-postgres-connection-pooling-is-equal/ba-p/825717).
 
 ## Functional limitations
 ### Scale operations
@@ -41,6 +46,9 @@ The Azure system requires five connections to monitor the Azure Database for Pos
 
 ### Server version upgrades
 - Automated migration between major database engine versions is currently not supported. If you would like to upgrade to the next major version, take a [dump and restore](./howto-migrate-using-dump-and-restore.md) it to a server that was created with the new engine version.
+
+> Note that prior to PostgreSQL version 10, the [PostgreSQL versioning policy](https://www.postgresql.org/support/versioning/) considered a _major version_ upgrade to be an increase in the first _or_ second number (for example, 9.5 to 9.6 was considered a _major_ version upgrade).
+> As of version 10, only a change in the first number is considered a major version upgrade (for example, 10.0 to 10.1 is a _minor_ version upgrade, and 10 to 11 is a _major_ version upgrade).
 
 ### VNet service endpoints
 - Support for VNet service endpoints is only for General Purpose and Memory Optimized servers.

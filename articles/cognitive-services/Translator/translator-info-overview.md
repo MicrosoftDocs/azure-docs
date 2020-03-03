@@ -3,17 +3,17 @@ title: What is the Translator Text API? - Translator Text API
 titlesuffix: Azure Cognitive Services
 description: Integrate the Translator Text API into your applications, websites, tools, and other solutions to provide multi-language user experiences.
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: overview
-ms.date: 02/21/2019
-ms.author: erhopf
+ms.date: 12/09/2019
+ms.author: swmachan
 ms.custom: seodec18
 ---
 
-# What is Translator Text API?
+# What is the Translator Text API?
 
 The Translator Text API is easy to integrate in your applications, websites, tools, and solutions. It allows you to add multi-language user experiences in [more than 60 languages](languages.md), and can be used on any hardware platform with any operating system for text-to-text language translation.
 
@@ -23,7 +23,7 @@ The Translator Text API is part of the Azure [Cognitive Services API](https://do
 
 Microsoft Translator is a cloud-based machine translation service. The core service is the Translator Text API, which powers a number of Microsoft products and services, and is used by thousands of businesses worldwide in their applications and workflows, which allows their content to reach a global audience.
 
-Speech translation, powered by the Translator Text API, is also available through the [Microsoft Speech Service](https://docs.microsoft.com/azure/cognitive-services/speech-service/). It combines functionality from the Translator Speech API, Bing Speech API, and Custom Speech Service (preview) into a unified and fully customizable service. Speech Service is replacing the Translator Speech API, which will be decommissioned on October 15, 2019.
+Speech translation, powered by the Translator Text API, is also available through the [Microsoft Speech Service](https://docs.microsoft.com/azure/cognitive-services/speech-service/). It combines functionality from the Translator Speech API and the Custom Speech Service into a unified and fully customizable service. Speech Service is replacing the Translator Speech API, which will be decommissioned on October 15, 2019.
 
 ## Language support
 

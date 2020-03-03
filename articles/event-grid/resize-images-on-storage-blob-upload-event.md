@@ -1,6 +1,6 @@
 ---
-title: Use Azure Event Grid to automate resizing uploaded images | Microsoft Docs
-description: Azure Event Grid can trigger on blob uploads in Azure Storage. You can use this to send image files uploaded to Azure Storage to other services, such as Azure Functions, for resizing and other improvements.
+title: 'Tutorial: Use Azure Event Grid to automate resizing uploaded images'
+description: 'Tutorial: Azure Event Grid can trigger on blob uploads in Azure Storage. You can use this to send image files uploaded to Azure Storage to other services, such as Azure Functions, for resizing and other improvements.'
 services: event-grid, functions
 author: spelluru
 manager: jpconnoc
@@ -10,7 +10,7 @@ ms.service: event-grid
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/29/2019
+ms.date: 11/05/2019
 ms.author: spelluru
 ms.custom: mvc
 ---
@@ -44,6 +44,8 @@ In this tutorial, you learn how to:
 > * Create a Blob storage event subscription in Event Grid
 
 ## Prerequisites
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 To complete this tutorial:
 
@@ -138,7 +140,7 @@ THUMBNAIL_WIDTH=100 FUNCTIONS_EXTENSION_VERSION=~2
 ```azurecli-interactive
 blobStorageAccount=<name of the Blob storage account you created in the previous tutorial>
 
-blobStorageAccountKey=$(az storage account keys list -g myResourceGroup \
+blobStorageAccountKey=$(az storage account keys list -g $resourceGroupName \
 -n $blobStorageAccount --query [0].value --output tsv)
 
 storageConnectionString=$(az storage account show-connection-string --resource-group $resourceGroupName \
@@ -268,6 +270,8 @@ Click **Choose File** to select a file, then click **Upload Image**. When the up
 Click **Choose File** to select a file, then click **Upload Image**. When the upload is successful, the browser navigates to a success page. Click the link to return to the home page. A copy of the uploaded image is displayed in the **Generated thumbnails** area. (If the image doesn't appear at first, try reloading the page.) This image was resized by the function, added to the *thumbnails* container, and downloaded by the web client.
 
 ![Published web app in browser](./media/resize-images-on-storage-blob-upload-event/upload-app-nodejs-thumb.png)
+
+---
 
 ## Next steps
 

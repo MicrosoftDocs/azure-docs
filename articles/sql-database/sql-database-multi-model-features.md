@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database Multi-model capabilities | Microsoft Docs
+title: Multi-model capabilities
 description: Azure SQL Database enables you to work with multiple data models in the same database.
 services: sql-database
 ms.service: sql-database
@@ -10,19 +10,29 @@ ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer:
-manager: craigg
 ms.date: 12/17/2018
 ---
 # Multi-model capabilities of Azure SQL Database
 
 Multi-model databases enable you to store and work with data represented in multiple data formats such as relational data, graphs, JSON/XML documents, key-value pairs, etc.
 
-Azure SQL Database is designed to work with the relational model that provides the best performance in the most of the cases for a variety of general-purpose applications. However, Azure SQL Database is not limited to relational-data only. Azure SQL Database enables you to use a variety of non-relational formats that are tightly integrated into the relational model. Azure SQL provides the following multi-model features:
+## When to use multi-model capabilities
+
+Azure SQL Database is designed to work with the relational model that provides the best performance in the most of the cases for a variety of general-purpose applications. However, Azure SQL Database is not limited to relational-data only. Azure SQL Database enables you to use a variety of non-relational formats that are tightly integrated into the relational model.
+You should consider using multi-model capabilities of Azure SQL Database in the following cases:
+- You have some information or structures that are better fit for NoSQL models and you don't want to use separate NoSQL database.
+- A majority of your data is suitable for relational model, and you need to model some parts of your data in NoSQL style.
+- You want to leverage rich Transact-SQL language to query and analyze both relational and NoSQL data, and integrate it with a variety of tools and applications that can use SQL language.
+- You want to apply database features such as [in-memory technologies](sql-database-in-memory.md) to improve performance of your analytic or processing of your NoSQL data structures, use [transactional replication](sql-database-managed-instance-transactional-replication.md) or [readable replicas](sql-database-read-scale-out.md) to create copy of your data on the other place and offload some analytic workloads from the primary database.
+
+## Overview
+
+Azure SQL provides the following multi-model features:
 - [Graph features](#graph-features) enable you to represent your data as set of nodes and edges, and use standard Transact-SQL queries enhanced with graph `MATCH` operator to query the graph data.
 - [JSON features](#json-features) enable you to put JSON documents in tables, transform relational data to JSON documents and vice versa. You can use the standard Transact-SQL language enhanced with JSON functions for parsing documents, and use non clustered indexes, columnstore indexes, or memory-optimized tables, to optimize your queries.
 - [Spatial features](#spatial-features) enables you to store geographical and geometrical data, index them using the spatial indexes, and retrieve the data using spatial queries.
 - [XML features](#xml-features) enable you to store and index XML data in your database and use native XQuery/XPath operations to work with XML data. Azure SQL database has specialized built-in XML query engine that process XML data.
-- [Key-value pairs](#key-value-pairs) are not explicitly supported as special features since key-value paris can be natively modeled as two-column tables.
+- [Key-value pairs](#key-value-pairs) are not explicitly supported as special features since key-value pairs can be natively modeled as two-column tables.
 
   > [!Note]
   > You can use JSON Path expression, XQuery/XPath expressions, spatial functions, and graph-query expressions in the same Transact-SQL query to access any data that you stored in the database. Also, any tool or programming language that can execute Transact-SQL queries, can also use that query interface to access multi-model data. This is the key difference compared to the multi-model databases such as [Azure Cosmos DB](/azure/cosmos-db/) that provides specialized API for different data models.
@@ -50,9 +60,9 @@ There is nothing a graph database can achieve, which cannot be achieved using a 
 
 ## JSON features
 
-Azure SQL Database lets you parse and query data represented in JavaScript Object Notation [(JSON)](http://www.json.org/) format, and export your relational data as JSON text.
+Azure SQL Database lets you parse and query data represented in JavaScript Object Notation [(JSON)](https://www.json.org/) format, and export your relational data as JSON text.
 
-JSON is a popular data format used for exchanging data in modern web and mobile applications. JSON is also used for storing semi-structured data in log files or in NoSQL databases like [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). Many REST web services return results formatted as JSON text or accept data formatted as JSON. Most Azure services such as [Azure Search](https://azure.microsoft.com/services/search/), [Azure Storage](https://azure.microsoft.com/services/storage/), and [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) have REST endpoints that return or consume JSON.
+JSON is a popular data format used for exchanging data in modern web and mobile applications. JSON is also used for storing semi-structured data in log files or in NoSQL databases like [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). Many REST web services return results formatted as JSON text or accept data formatted as JSON. Most Azure services such as [Azure Cognitive Search](https://azure.microsoft.com/services/search/), [Azure Storage](https://azure.microsoft.com/services/storage/), and [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) have REST endpoints that return or consume JSON.
 
 Azure SQL Database lets you work with JSON data easily and integrate your database with modern services. Azure SQL Database provides the following functions for working with JSON data:
 
@@ -73,7 +83,7 @@ Document models can be used instead of the relational models in some specific sc
 
 ## Spatial features
 
-Spatial data represents information about the physical location and shape of geometric objects. These objects can be point locations or more complex objects such as countries, roads, or lakes.
+Spatial data represents information about the physical location and shape of geometric objects. These objects can be point locations or more complex objects such as countries/regions, roads, or lakes.
 
 Azure SQL Database supports two spatial data types - the geometry data type and the geography data type.
 - The geometry type represents data in a Euclidean (flat) coordinate system.
@@ -119,7 +129,7 @@ CREATE TABLE Collection (
 
 You can customize this key-value structure to fit your needs without any constraints. As an example, the value can be XML document instead of `nvarchar(max)` type, if the value is JSON document, you can put `CHECK` constraint that verifies the validity of JSON content. You can put any number of values related to one key in the additional columns, add computed columns and indexes to simplify and optimize data access, define the table as memory/optimized schema-only table to get better performance, etc.
 
-See [how BWin is using In-Memory OLTP to achieve unprecedented performance and scale](https://blogs.msdn.microsoft.com/sqlcat/2016/10/26/how-bwin-is-using-sql-server-2016-in-memory-oltp-to-achieve-unprecedented-performance-and-scale/) for their ASP.NET caching solution that achieved 1.200.000 batches per seconds, as an example how relational model can be effectively used as key-value pair solution in practice.
+See [how BWin is using In-Memory OLTP to achieve unprecedented performance and scale](https://blogs.msdn.microsoft.com/sqlcat/20../../how-bwin-is-using-sql-server-2016-in-memory-oltp-to-achieve-unprecedented-performance-and-scale/) for their ASP.NET caching solution that achieved 1.200.000 batches per seconds, as an example how relational model can be effectively used as key-value pair solution in practice.
 
 ## Next steps
 Multi-model capabilities in Azure SQL Databases are also the core SQL Server Database Engine features that are shared between Azure SQL Database and SQL Server. To learn more details about these features, visit the SQL Relational database documentation pages:

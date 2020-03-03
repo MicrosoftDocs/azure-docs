@@ -2,20 +2,27 @@
   href: index.yml
 - name: Overview
   items:
-  - name: Overview of Azure Resource Graph
-    displayName: resource manager, query language, rbac, permissions
+  - name: What is Azure Resource Graph?
+    displayName: Resource Manager, query language, rbac, permissions
     href: overview.md
 - name: Quickstarts
   expanded: true
   items:
+  - name: Run your first query - Azure portal
+    displayName: portal, resource, graph, explorer
+    href: first-query-portal.md
   - name: Run your first query - Azure CLI
     displayName: extension, docker
     href: first-query-azurecli.md
   - name: Run your first query - PowerShell
     displayName: module, docker, Az.ResourceGraph
     href: first-query-powershell.md
+- name: Tutorials
+  items:
+  - name: Create and share a query in Azure portal
+    displayName: query, portal
+    href: ./tutorials/create-share-query.md
 - name: Samples
-  expanded: true
   items:
   - name: Starter queries
     displayName: query language, data explorer, count, list, show
@@ -24,7 +31,6 @@
     displayName: query language, data explorer, list, regex
     href: ./samples/advanced.md
 - name: Concepts
-  expanded: true
   items:
   - name: Understanding the query language
     displayName: query language, data explorer, tabular, operators, functions
@@ -35,23 +41,54 @@
   - name: Work with large data sets
     displayName: page, first, skip, token
     href: ./concepts/work-with-data.md
+  - name: Guidance for throttled requests
+    displayName: pagination, batching, throttling, parallel
+    href: ./concepts/guidance-for-throttled-requests.md
+- name: How-to guides
+  items:
+  - name: Get resource changes
+    displayName: resource, change, history, snapshot, details
+    href: ./how-to/get-resource-changes.md
+- name: Troubleshoot
+  displayName: errors, violation
+  href: ./troubleshoot/general.md
 - name: Reference
   items:
-  - name: Azure PowerShell
-    href: /powershell/module/az.resourcegraph/
   - name: Azure CLI
     href: /cli/azure/ext/resource-graph/graph
-  - name: REST API
-    href: /rest/api/azureresourcegraph/resources/resources
-  - name: OpenAPI (Swagger)
-    href: https://github.com/Azure/azure-rest-api-specs/tree/master/specification/resourcegraph/resource-manager/Microsoft.ResourceGraph/preview/2018-09-01-preview
+  - name: Azure PowerShell
+    href: /powershell/module/az.resourcegraph/
+  - name: Azure SDK for .NET
+    href: /dotnet/api/Microsoft.Azure.Management.ResourceGraph
+  - name: Azure SDK for .NET (NuGet)
+    href: https://www.nuget.org/packages/Microsoft.Azure.Management.ResourceGraph/
+  - name: Azure SDK for Go
+    href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/resourcegraph/mgmt/2019-04-01/resourcegraph
+  - name: Azure SDK for Java
+    href: /java/api/overview/azure/resourcegraph/management?view=azure-java-stable
+  - name: Azure SDK for Java (Maven)
+    href: https://search.maven.org/artifact/com.microsoft.azure.resourcegraph.v2019_04_01/azure-mgmt-resourcegraph/1.0.0-beta/jar
+  - name: Azure SDK for Node
+    href: /javascript/api/@azure/arm-resourcegraph
+  - name: Azure SDK for Python
+    href: /python/api/azure-mgmt-resourcegraph/azure.mgmt.resourcegraph
+  - name: Azure SDK for Ruby (Gem)
+    href: https://rubygems.org/gems/azure_mgmt_resourcegraph
+  - name: REST
+    href: /rest/api/azure-resourcegraph/
+  - name: OpenAPI
+    href: https://github.com/Azure/azure-rest-api-specs/tree/master/specification/resourcegraph/resource-manager/Microsoft.ResourceGraph/stable/2019-04-01 
+  - name: Resource Graph tables and resource types
+    href: ./reference/supported-tables-resources.md
 - name: Resources
   items:
   - name: Azure roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
+  - name: GitHub samples repo
+    href: https://github.com/Azure-Samples/Governance/tree/master/src/resource-graph
   - name: UserVoice
-    href: https://feedback.azure.com/forums/915958-azure-governance
+    href: https://feedback.azure.com/forums/915958-azure-governance?category_id=345061
   - name: Governance YouTube Channel
     href: https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ

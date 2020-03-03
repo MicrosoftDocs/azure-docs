@@ -1,10 +1,10 @@
 ---
 
-title: Find Azure Active Directory user activity reports in Azure portal | Microsoft Docs
+title: Find user activity reports in Azure portal | Microsoft Docs
 description: Learn where the Azure Active Directory user activity reports are in the Azure portal.
 services: active-directory
 documentationcenter: ''
-author: priyamohanram
+author: MarkusVi
 manager: daveba
 editor: ''
 
@@ -13,7 +13,7 @@ ms.topic: conceptual
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: priyamo
+ms.author: markvi
 ms.reviewer: dhanyahk 
 
 ms.collection: M365-identity-device-management
@@ -46,15 +46,46 @@ The audit logs report consolidates the following reports:
 
 ### Filtering on audit logs
 
-You can use advanced filtering in the audit report to access a specific category of audit data, by specifying it in the **Activity category** filter. For example, to view all activities related to self-service password reset, select the **Self-service password management** category. 
+You can use advanced filtering in the audit report to access a specific category of audit data, by specifying it in the **Category** filter. For example, to view all activities related to users, select the **UserManagement** category. 
 
-Activity categories include:
+Categories include:
 
+- All
+- AdministrativeUnit
+- ApplicationManagement
+- Authentication
+- Authorization
+- Contact
+- Device
+- DeviceConfiguration
+- DirectoryManagement
+- EntitlementManagement
+- GroupManagement
+- Other
+- Policy
+- ResourceManagement
+- RoleManagement
+- UserManagement
+
+You can also filter on a specific service using the **Service** dropdown filter. For example, to get all audit events related to self-service password management, select the **Self-service Password Management** filter.
+
+Services include:
+
+- All
+- Access Reviews
+- Account Provisioning 
+- Application SSO
+- Authentication Methods
+- B2C
+- Conditional Access
 - Core Directory
-- Self-service Password Management
+- Entitlement Management
+- Identity Protection
+- Invited Users
+- PIM
 - Self-service Group Management
-- Account Provisioning
-
+- Self-service Password Management
+- Terms of Use
 
 ## Sign-ins report 
 
@@ -79,13 +110,13 @@ You can use the sign-ins report to view details about application usage, by filt
 
 ### Anomalous activity reports
 
-Anomalous activity reports provide information on security-related risk events that Azure AD can detect and report on.
+Anomalous activity reports provide information on security-related risk detections that Azure AD can detect and report on.
 
-The following table lists the Azure AD anomalous activity security reports, and corresponding risk event types in the Azure portal. For more information, see
-[Azure Active Directory risk events](concept-risk-events.md).  
+The following table lists the Azure AD anomalous activity security reports, and corresponding risk detection types in the Azure portal. For more information, see
+[Azure Active Directory risk detections](concept-risk-events.md).  
 
 
-| Azure AD anomalous activity report |  Identity protection risk event type|
+| Azure AD anomalous activity report |  Identity protection risk detection type|
 | :--- | :--- |
 | Users with leaked credentials | Leaked credentials |
 | Irregular sign-in activity | Impossible travel to atypical locations |
@@ -94,15 +125,15 @@ The following table lists the Azure AD anomalous activity security reports, and 
 | Sign-ins from IP addresses with suspicious activity | Sign-ins from IP addresses with suspicious activity |
 | - | Sign-ins from unfamiliar locations |
 
-The following Azure AD anomalous activity security reports are not included as risk events in the Azure portal:
+The following Azure AD anomalous activity security reports are not included as risk detections in the Azure portal:
 
 * Sign-ins after multiple failures
 * Sign-ins from multiple geographies
 
 
-### Detected risk events
+### Detected risk detections
 
-You can access reports about detected risk events in the **Security** section of the **Azure Active Directory** blade in the [Azure portal](https://portal.azure.com). Detected risk events are tracked in the following reports:   
+You can access reports about detected risk detections in the **Security** section of the **Azure Active Directory** blade in the [Azure portal](https://portal.azure.com). Detected risk detections are tracked in the following reports:   
 
 - [Users at risk](concept-user-at-risk.md)
 - [Risky sign-ins](concept-risky-sign-ins.md)
@@ -121,11 +152,11 @@ I downloaded the activity logs (audit or sign-ins) and I don’t see all the rec
  
 #### Cause
 
-When you download activity logs in the Azure portal, we limit the scale to 5000 records, sorted by most recent first. 
+When you download activity logs in the Azure portal, we limit the scale to 250000 records, sorted by most recent first. 
 
 #### Resolution
 
-You can leverage [Azure AD Reporting APIs](concept-reporting-api.md) to fetch up to a million records at any given point. Our recommended approach is to [run a script on a scheduled basis](tutorial-signin-logs-download-script.md) that calls the reporting APIs to fetch records in an incremental fashion over a period of time (for example, daily or weekly). 
+You can leverage [Azure AD Reporting APIs](concept-reporting-api.md) to fetch up to a million records at any given point.
 
 ### Missing audit data for recent actions in the Azure portal
 

@@ -1,5 +1,5 @@
 ﻿---
-title: Database-per-tenant SaaS tutorial - Azure SQL Database | Microsoft Docs 
+title: Database-per-tenant SaaS tutorial
 description: Deploy and explore the Wingtip Tickets SaaS multitenant application that demonstrates the database-per-tenant pattern and other SaaS patterns by using Azure SQL Database.
 services: sql-database
 ms.service: sql-database
@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: MightyPen
 ms.author: genemi
 ms.reviewer: sstein
-manager: craigg
 ms.date: 01/25/2019
 ---
 # Deploy and explore a multitenant SaaS app that uses the database-per-tenant pattern with SQL Database
@@ -50,7 +49,7 @@ Choose your names now, and write them down.
 
 1. To open the Wingtip Tickets SaaS database-per-tenant deployment template in the Azure portal, select **Deploy to Azure**.
 
-   <a href="https://aka.ms/deploywingtipdpt" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
+   <a href="https://aka.ms/deploywingtipdpt" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
 
 1. Enter values in the template for the required parameters.
 
@@ -109,7 +108,7 @@ A central **Events Hub** page provides a list of links to the tenants in your de
 
     ![Events Hub](media/saas-dbpertenant-get-started-deploy/events-hub.png)
 
-2. Select **Fabrikam Jazz Club** in the Events Hub.
+2. Select **Fabrikam Jazz Club** in the Events Hub.
 
     ![Events](./media/saas-dbpertenant-get-started-deploy/fabrikam.png)
 
@@ -180,9 +179,9 @@ If you want to control and monitor the background jobs, use the following cmdlet
 
 4. If `$OneTime = $false`, the load generator starts the background jobs and then continues to run. Every 10 seconds, it monitors for any new tenants that are provisioned. If you set `$OneTime = $true`, the LoadGenerator starts the background jobs and then stops running in the foreground. For this tutorial, leave `$OneTime = $false`.
 
-  Use Ctrl-C or Stop Operation Ctrl-Break if you want to stop or restart the load generator.
+   Use Ctrl-C or Stop Operation Ctrl-Break if you want to stop or restart the load generator.
 
-  If you leave the load generator running in the foreground, use another PowerShell ISE instance to run other PowerShell scripts.
+   If you leave the load generator running in the foreground, use another PowerShell ISE instance to run other PowerShell scripts.
 
 &nbsp;
 
@@ -215,14 +214,14 @@ Refresh the Events Hub to make the new tenant appear in the list.
 
 Now that you've started running a load against the collection of tenants, let's look at some of the resources that were deployed.
 
-1. In the [Azure portal](http://portal.azure.com), browse to your list of SQL servers. Then open the **catalog-dpt-&lt;USER&gt;** server.
+1. In the [Azure portal](https://portal.azure.com), browse to your list of SQL servers. Then open the **catalog-dpt-&lt;USER&gt;** server.
     - The catalog server contains two databases, **tenantcatalog** and **basetenantdb** (a template database that's copied to create new tenants).
 
    ![Databases](./media/saas-dbpertenant-get-started-deploy/databases.png)
 
 2. Go back to your list of SQL servers.
 
-3. Open the **tenants1-dpt-&lt;USER&gt;** server that holds the tenant databases.
+3. Open the **tenants1-dpt-&lt;USER&gt;** server that holds the tenant databases.
 
 4. See the following items:
 
@@ -235,7 +234,7 @@ Now that you've started running a load against the collection of tenants, let's 
 
 After *LoadGenerator.ps1* runs for several minutes, enough data should be available to start looking at some monitoring capabilities. These capabilities are built into pools and databases.
 
-Browse to the server **tenants1-dpt-&lt;user&gt;**, and select **Pool1** to view resource utilization for the pool. In the following charts, the load generator ran for one hour.
+Browse to the server **tenants1-dpt-&lt;user&gt;**, and select **Pool1** to view resource utilization for the pool. In the following charts, the load generator ran for one hour.
 
    ![Monitor pool](./media/saas-dbpertenant-get-started-deploy/monitor-pool.png)
 
@@ -248,7 +247,7 @@ The two charts illustrate that elastic pools and SQL Database are well suited to
 
 - For more information, see additional [tutorials that build on the Wingtip Tickets SaaS database-per-tenant application](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials).
 - To learn about elastic pools, see [What is an Azure SQL elastic pool?](sql-database-elastic-pool.md).
-- To learn about elastic jobs, see [Manage scaled-out cloud databases](sql-database-elastic-jobs-overview.md).
+- To learn about elastic jobs, see [Manage scaled-out cloud databases](elastic-jobs-overview.md).
 - To learn about multitenant SaaS applications, see [Design patterns for multitenant SaaS applications](saas-tenancy-app-design-patterns.md).
 
 ## Next steps

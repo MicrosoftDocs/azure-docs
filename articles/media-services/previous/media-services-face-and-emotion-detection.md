@@ -13,12 +13,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/10/2019
-ms.author: milanga;juliako;
-
+ms.date: 03/18/2019
+ms.author: juliako
+ms.reviewer: milanga
 ---
 # Detect Face and Emotion with Azure Media Analytics
+
+> [!NOTE]
+> The **Azure Media Face Detector** media processor will be retired. For the retirement date, see the [legacy components](legacy-components.md) topic.
+
 ## Overview
+
 The **Azure Media Face Detector** media processor (MP) enables you to count, track movements, and even gauge audience participation and reaction via facial expressions. This service contains two features: 
 
 * **Face detection**
@@ -56,7 +61,7 @@ Face Detector uses techniques of fragmentation (where the metadata can be broken
 
 ## Face detection input and output example
 ### Input video
-[Input Video](http://ampdemo.azureedge.net/azuremediaplayer.html?url=https%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fc8834d9f-0b49-4b38-bcaf-ece2746f1972%2FMicrosoft%20Convergence%202015%20%20Keynote%20Highlights.ism%2Fmanifest&amp;autoplay=false)
+[Input Video](https://ampdemo.azureedge.net/azuremediaplayer.html?url=httpss%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fc8834d9f-0b49-4b38-bcaf-ece2746f1972%2FMicrosoft%20Convergence%202015%20%20Keynote%20Highlights.ism%2Fmanifest&amp;autoplay=false)
 
 ### Task configuration (preset)
 When creating a task with **Azure Media Face Detector**, you must specify a configuration preset. The following configuration preset is just for face detection.
@@ -128,7 +133,7 @@ The following example of JSON output was truncated.
 
 ## Emotion detection input and output example
 ### Input video
-[Input Video](http://ampdemo.azureedge.net/azuremediaplayer.html?url=https%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fc8834d9f-0b49-4b38-bcaf-ece2746f1972%2FMicrosoft%20Convergence%202015%20%20Keynote%20Highlights.ism%2Fmanifest&amp;autoplay=false)
+[Input Video](https://ampdemo.azureedge.net/azuremediaplayer.html?url=httpss%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fc8834d9f-0b49-4b38-bcaf-ece2746f1972%2FMicrosoft%20Convergence%202015%20%20Keynote%20Highlights.ism%2Fmanifest&amp;autoplay=false)
 
 ### Task configuration (preset)
 When creating a task with **Azure Media Face Detector**, you must specify a configuration preset. The following configuration preset specifies to create JSON based on the emotion detection.
@@ -518,5 +523,5 @@ namespace FaceDetection
 ## Related links
 [Azure Media Services Analytics Overview](media-services-analytics-overview.md)
 
-[Azure Media Analytics demos](http://amslabs.azurewebsites.net/demos/Analytics.html)
+[Azure Media Analytics demos](https://amslabs.azurewebsites.net/demos/Analytics.html)
 

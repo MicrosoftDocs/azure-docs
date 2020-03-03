@@ -1,41 +1,24 @@
 ---
-title: Introduction to App Service on Linux - Azure | Microsoft Docs
-description: Learn about Azure App Service on Linux.
+title: Run code on default Linux containers
+description: Azure App Service can run your code on pre-built Linux containers. Find out how you can run your Linux web applications on Azure.
 keywords: azure app service, linux, oss
-services: app-service
-documentationcenter: ''
-author: msangapu
-manager: jeconnoc
-editor: ''
+author: msangapu-msft
 
 ms.assetid: bc85eff6-bbdf-410a-93dc-0f1222796676
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: overview
 ms.date: 1/11/2019
-ms.author: msangapu;yili
+ms.author: msangapu
 ms.custom: mvc
 ms.custom: seodec18
 
 ---
 # Introduction to Azure App Service on Linux
 
-[Azure App Service](../overview.md) is a fully managed compute platform that is optimized for hosting websites and web applications. Customers can use App Service on Linux to host web apps natively on Linux for supported application stacks. The [Languages](#languages) section lists the application stacks that are currently supported.
+[Azure App Service](../overview.md) is a fully managed compute platform that is optimized for hosting websites and web applications. Customers can use App Service on Linux to host web apps natively on Linux for supported application stacks.
 
 ## Languages
 
-App Service on Linux supports a number of Built-in images in order to increase developer productivity. If the runtime your application requires is not supported in the built-in images, there are instructions on how to [build your own Docker image](tutorial-custom-docker-image.md) to deploy to Web App for Containers.
-
-| Language | Supported Versions |
-|---|---|
-| Node.js | 4.4, 4.5, 4.8, 6.2, 6.6, 6.9, 6.10, 6.11, 8.0, 8.1, 8.2, 8.8, 8.9, 8.11, 9.4, 10.1,10.10 |
-| Java * | Tomcat 8.5, 9.0, Java SE, WildFly 14 (all running JRE 8) |
-| PHP | 5.6, 7.0, 7.2 |
-| Python (Preview) | 2.7, 3.6, 3.7 |
-| .NET Core | 1.0, 1.1, 2.0, 2.1 |
-| Ruby | 2.3 |
+App Service on Linux supports a number of Built-in images in order to increase developer productivity. Languages include: Node.js, Java (JRE 8 & JRE 11), PHP, Python, .NET Core and Ruby. Run [`az webapp list-runtimes --linux`](https://docs.microsoft.com/cli/azure/webapp?view=azure-cli-latest#az-webapp-list-runtimes) to view the latest languages and supported versions. If the runtime your application requires is not supported in the built-in images, there are instructions on how to [build your own Docker image](tutorial-custom-docker-image.md) to deploy to Web App for Containers.
 
 ## Deployments
 
@@ -68,20 +51,18 @@ Check the [Azure Status Dashboard](https://azure.microsoft.com/status).
 
 The Azure portal shows only features that currently work for Web App for Containers. As we enable more features, they will become visible on the portal.
 
-Some features, such as virtual network integration, Azure Active Directory/third-party authentication, or Kudu site extensions, are not available yet. Once these features are available, we will update our documentation and blog about the changes.
+App Service on Linux is only supported with [Free, Basic, Standard, and Premium](https://azure.microsoft.com/pricing/details/app-service/plans/) app service plans and does not have a [Shared](https://azure.microsoft.com/pricing/details/app-service/plans/) tier. You cannot create a Linux Web App in an App Service plan already hosting non-Linux Web Apps.  
 
-App Service on Linux is only supported with [Basic, Standard, and Premium](https://azure.microsoft.com/pricing/details/app-service/plans/) app service plans and does not have a [Free or Shared](https://azure.microsoft.com/pricing/details/app-service/plans/) tier. You cannot create Web App for Containers in an App Service plan already hosting non-Linux Web Apps. 
-
-Also, based on a current limitation, don't mix Windows and Linux apps in the same resource group.
+Based on a current limitation, for the same resource group you cannot mix Windows and Linux apps in the same region.
 
 ## Troubleshooting
 
-When your application fails to start or you want to check the logging from your app, check the Docker logs in the LogFiles directory. You can access this directory either through your SCM site or via FTP.
-To log the `stdout` and `stderr` from your container, you need to enable **Docker Container logging** under **Diagnostics Logs**.
+> [!NOTE]
+> There's new integrated logging capability with [Azure Monitoring (preview)](https://docs.microsoft.com/azure/app-service/troubleshoot-diagnostic-logs#send-logs-to-azure-monitor-preview) . 
+>
+>
 
-![Enabling Logging][2]
-
-The setting takes effect immediately. App Service detects the settings change and restarts the container for you automatically.
+When your application fails to start or you want to check the logging from your app, check the Docker logs in the LogFiles directory. You can access this directory either through your SCM site or via FTP. To log the `stdout` and `stderr` from your container, you need to enable **Application Logging** under **App Service Logs**. The setting takes effect immediately. App Service detects the change and restarts the container automatically.
 
 You can access the SCM site from **Advanced Tools** in the **Development Tools** menu.
 

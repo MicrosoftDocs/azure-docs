@@ -1,13 +1,13 @@
 ---
-title: Microsoft Azure Data Box Disk overview | Microsoft Docs in data 
-description: Describes Azure Data Box Disk, a cloud solution that enables you to transfer large amounts of data into Azure
+title: Microsoft Azure Data Box Disk security features | Microsoft Docs in data 
+description: Describes security features implemented for Azure Data Box Disk, a cloud solution that enables you to transfer large amounts of data into Azure
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: disk
-ms.topic: overview
-ms.date: 01/09/2019
+ms.topic: conceptual
+ms.date: 11/04/2019
 ms.author: alkohli
 ---
 # Azure Data Box Disk security and data protection
@@ -66,17 +66,17 @@ Azure Data Box Disk collects and displays personal information in the following 
 
 - **Order details** – Once the order is created, the shipping address, email, contact information of users is stored in the Azure portal. The information saved includes:
 
-    - Contact name
-    - Phone number
-    - Email
-    - Street address
-    - City
-    - Zip/postal code
-    - State
-    - Country/Province/Region
-    - Drive ID
-    - Carrier account number
-    - Shipping tracking number
+  - Contact name
+  - Phone number
+  - Email
+  - Street address
+  - City
+  - Zip/postal code
+  - State
+  - Country/Province/Region
+  - Drive ID
+  - Carrier account number
+  - Shipping tracking number
 
     The order details are deleted by the Data Box service when the job completes or when you delete the order.
 

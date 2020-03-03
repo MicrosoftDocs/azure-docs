@@ -1,152 +1,170 @@
----
-title: Manage and monitor Azure VM backups with the Azure Backup service
-description: Learn how to manage and monitor Azure VM backup with the Azure Backup service.
-services: backup
-author: sogup
-manager: vijayts
-ms.service: backup
+﻿---
+title: Manage and monitor Azure VM backups
+description: Learn how to manage and monitor Azure VM backups by using the Azure Backup service.
+ms.reviewer: sogup
 ms.topic: conceptual
-ms.date: 02/17/2019
-ms.author: sogup
+ms.date: 09/18/2019
 ---
-# Manage Azure VM backups
+# Manage Azure VM backups with Azure Backup service
 
-This article describes how to manage Azure VMs backed up with the [Azure Backup service](backup-overview.md) backups, and summarizes backup alerts information available in the portal dashboard.
+This article describes how to manage Azure virtual machines (VMs) that are backed up by using the [Azure Backup service](backup-overview.md). The article also summarizes the backup information you can find on the vault dashboard.
 
-
-In the Azure portal, the Recovery Services vault dashboard provides access to information about the vault including:
+In the Azure portal, the Recovery Services vault dashboard provides access to vault information, including:
 
 * The latest backup, which is also the latest restore point.
-* The backup policy
-* The total size of all backup snapshots
-* The number of VMs enabled for backup
+* The backup policy.
+* The total size of all backup snapshots.
+* The number of VMs that are enabled for backups.
 
-You can manage backups using the dashboard, and by drilling down to individual VMs. achine backup begin with opening the vault in the dashboard. 
+You can manage backups by using the dashboard and by drilling down to individual VMs. To begin machine backups, open the vault on the dashboard.
 
-![Full view with slider](./media/backup-azure-manage-vms/bottom-slider.png)
+![Full dashboard view with slider](./media/backup-azure-manage-vms/bottom-slider.png)
 
-## View VMs in the dashboard
+## View VMs on the dashboard
+
+To view VMs on the vault dashboard:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. On the Hub menu, click **Browse** and in the list of resources, type **Recovery Services**. As you begin typing, the list filters based on your input. Click **Recovery Services vault**. 
+2. On the Hub menu, select **Browse**. In the list of resources, type **Recovery Services**. As you type, the list is filtered based on your input. Select **Recovery Services vaults**.
 
-    ![Create Recovery Services Vault step 1](./media/backup-azure-manage-vms/browse-to-rs-vaults.png)
+    ![Create a Recovery Services vault](./media/backup-azure-manage-vms/browse-to-rs-vaults.png)
 
-3. For ease of use, right-click the vault in the vaults list > **Pin to dashboard**.
-4. Open the vault dashboard. 
-    ![Open vault dashboard and Settings blade](./media/backup-azure-manage-vms/full-view-rs-vault.png)
+3. For ease of use, right-click the vault and select **Pin to dashboard**.
+4. Open the vault dashboard.
 
-4. On the **Backup Items** tile, click **Azure Virtual Machines**.
+    ![Open the vault dashboard and Settings pane](./media/backup-azure-manage-vms/full-view-rs-vault.png)
 
-    ![Open backup items tile](./media/backup-azure-manage-vms/contoso-vault-1606.png)
+5. On the **Backup Items** tile, select **Azure Virtual Machines**.
 
-5. In **Backup Items** blade, you can see the last backup job for each item. In this example, there is one virtual machine, demovm-markgal, protected by this vault.  
+    ![Open the Backup Items tile](./media/backup-azure-manage-vms/contoso-vault-1606.png)
 
-    ![Backup items tile](./media/backup-azure-manage-vms/backup-items-blade-select-item.png)
+6. On the **Backup Items** pane, you can view the list of protected VMs. In this example, the vault protects one virtual machine: demobackup.  
 
- 
-6. From the vault item dashboard, you can create or modify backup policies, view restore points, run an on-demand backup, stop and resume protection of VMs, delete recovery points, and run a restore.
+    ![View the Backup Items pane](./media/backup-azure-manage-vms/backup-items-blade-select-item.png)
 
-    ![Backup items dashboard with Settings blade](./media/backup-azure-manage-vms/item-dashboard-settings.png)
+7. From the vault item's dashboard, modify backup policies, run an on-demand backup, stop or resume protection of VMs,  delete backup data, view restore points, and run a restore.
 
+    ![The Backup Items dashboard and the Settings pane](./media/backup-azure-manage-vms/item-dashboard-settings.png)
 
+## Manage backup policy for a VM
 
-## Manage backup policies
-1. On the [vault item dashboard](#view-vms-in-the-dashboard), click **All Settings** .
+To manage a backup policy:
 
-    ![Backup policy blade](./media/backup-azure-manage-vms/all-settings-button.png)
-2. In **Settings**, click**Backup policy**e.
-3. From the **Choose backup policy** menu:
+1. Sign in to the [Azure portal](https://portal.azure.com/). Open the vault dashboard.
+2. On the **Backup Items** tile, select **Azure Virtual Machines**.
 
-   * To change policies, select a different policy and click **Save**. The new policy is immediately applied to the vault.
-   * To create a policy, select **Create New**. [Learn more](backup-azure-arm-vms-prepare.md#configure-a-backup-policy)
+    ![Open the Backup Items tile](./media/backup-azure-manage-vms/contoso-vault-1606.png)
 
-     ![Virtual machine backup](./media/backup-azure-manage-vms/backup-policy-create-new.png)
+3. On the **Backup Items** pane, you can view the list of protected VMs and last backup status with latest restore points time.
 
+    ![View the Backup Items pane](./media/backup-azure-manage-vms/backup-items-blade-select-item.png)
+
+4. From the vault item's dashboard, you can select a backup policy.
+
+   * To switch policies, select a different policy and then select **Save**. The new policy is immediately applied to the vault.
+
+     ![Choose a backup policy](./media/backup-azure-manage-vms/backup-policy-create-new.png)
 
 ## Run an on-demand backup
-You can take an on-demand backup of a VM once it is configured for protection.
-- If the initial backup is pending, on-demand backup creates a full copy of the virtual machine in the Recovery Services vault.
-- If the initial backup is completed, an on-demand backup will only send changes from the previous snapshot, to the Recovery Services vault. That is, subsequent backups are always incremental.
-- The retention range for an on-demand backup is the retention value specified for the Daily backup point in the policy. If no Daily backup point is selected, then the weekly backup point is used.
 
+You can run an on-demand backup of a VM after you set up its protection. Keep these details in mind:
+
+* If the initial backup is pending, on-demand backup creates a full copy of the VM in the Recovery Services vault.
+* If the initial backup is complete, an on-demand backup will only send changes from the previous snapshot to the Recovery Services vault. That is, later backups are always incremental.
+* The retention range for an on-demand backup is the retention value that you specify when you trigger the backup.
 
 To trigger an on-demand backup:
 
-1. On the [vault item dashboard](#view-vms-in-the-dashboard), click **Backup now**.
+1. On the [vault item dashboard](#view-vms-on-the-dashboard), under **Protected Item**, select **Backup Item**.
 
-    ![Backup now button](./media/backup-azure-manage-vms/backup-now-button.png)
+    ![The Backup now option](./media/backup-azure-manage-vms/backup-now-button.png)
 
- 2. Click **Yes** to start the backup job.
+2. From **Backup Management Type**, select **Azure Virtual Machine**. The **Backup Item (Azure Virtual Machine)** pane appears.
+3. Select a VM and select **Backup Now** to create an on-demand backup. The **Backup Now** pane appears.
+4. In the **Retain Backup Till** field, specify a date for the backup to be retained.
 
-    ![Backup now button](./media/backup-azure-manage-vms/backup-now-check.png)
+    ![The Backup Now calendar](./media/backup-azure-manage-vms/backup-now-check.png)
 
- 
- The backup job creates a recovery point. The retention range of the recovery point is the same as retention range specified in the policy associated with the virtual machine. To track the progress for the job, in the vault dashboard, click the **Backup Jobs** tile.  
+5. Select **OK** to run the backup job.
+
+To track the job's progress, on the vault dashboard, select the **Backup Jobs** tile.
 
 ## Stop protecting a VM
 
-There are two ways to stop protecting VMs:
+There are two ways to stop protecting a VM:
 
-- Stop all future backup jobs and delete all recovery points. You won't be able to restore the VM in this case.
-- Stop all future backup jobs but leave the recovery points. There's a cost associated with leaving the recovery points in storage. However, the benefit of leaving the recovery points is you can restore the VM if needed. [Learn more](https://azure.microsoft.com/pricing/details/backup/) about pricing details.
+* **Stop protection and retain backup data**. This option will stop all future backup jobs from protecting your VM; however, Azure Backup service will retain the recovery points that have been backed up.  You'll need to pay to keep the recovery points in the vault (see [Azure Backup pricing](https://azure.microsoft.com/pricing/details/backup/) for details). You'll be able to restore the VM if needed. If you decide to resume VM protection, then you can use *Resume backup* option.
+* **Stop protection and delete backup data**. This option will stop all future backup jobs from protecting your VM and delete all the recovery points. You won't be able to restore the VM nor use *Resume backup* option.
 
-Note that:
+>[!NOTE]
+>If you delete a data source without stopping backups, new backups will fail. Old recovery points will expire according to the policy, but one last recovery point will always be kept until you stop the backups and delete the data.
+>
 
-- If you leave the recovery points, the points will be cleaned up in accordance with backup policy. You incur charges for the protected instance and the consumed storage, until all recovery points are cleaned up. [Learn more](https://azure.microsoft.com/pricing/details/backup/) about pricing.
-- When you leave recovery points intact, although they expire as per the retention policy, Azure Backup always keeps one last recovery point until you explicitly delete backup data.
-- If you delete a data source without stopping backup, new backups will start failing. Again, old recovery points will expire according to policy, but one last recovery point will always be retained until you stop backup and delete the data.
+### Stop protection and retain backup data
 
+To stop protection and retain data of a VM:
 
+1. On the [vault item's dashboard](#view-vms-on-the-dashboard), select **Stop backup**.
+2. Choose **Retain Backup Data**, and confirm your selection as needed. Add a comment if you want. If you aren't sure of the item's name, hover over the exclamation mark to view the name.
 
-To stop protection for a virtual machine:
+    ![Retain Backup data](./media/backup-azure-manage-vms/retain-backup-data.png)
 
-1. On the [vault item dashboard](#view-vms-in-the-dashboard), click **Stop backup**.
-2. Choose whether to retain or delete the backup data, and confirm as needed. Confirm as required and optionally provide a comment. If you aren't sure of the item name, hover over the exclamation mark to view the name.
+A notification lets you know that the backup jobs have been stopped.
 
-    ![Stop protection](./media/backup-azure-manage-vms/retain-or-delete-option.png)
+### Stop protection and delete backup data
 
- A notification message lets you know the backup jobs have been stopped.
+To stop protection and delete data of a VM:
 
+1. On the [vault item's dashboard](#view-vms-on-the-dashboard), select **Stop backup**.
+2. Choose **Delete Backup Data**, and confirm your selection as needed. Enter the name of the backup item and add a comment if you want.
+
+    ![Delete backup data](./media/backup-azure-manage-vms/delete-backup-data1.png)
 
 ## Resume protection of a VM
 
-If you retained backup data when the VM was stopped, you can resume protection. If you deleted backup data then you can't resume.
+If you chose [Stop protection and retain backup data](#stop-protection-and-retain-backup-data) option during stop VM protection, then you can use **Resume backup**. This option is not available if you choose [Stop protection and delete backup data](#stop-protection-and-delete-backup-data) option or [Delete backup data](#delete-backup-data).
 
-Te
+To resume protection for a VM:
 
-1. On the [vault item dashboard](#view-vms-in-the-dashboard), click **Resume backup**.
+1. On the [vault item's dashboard](#view-vms-on-the-dashboard), select **Resume backup**.
 
-2. Follow the steps in [Manage backup policies](#manage-backup-policies) to assign the policy for the virtual machine. you can choose a different policy than the policy with which virtual machine was protected initially.
-3. After the backup policy is applied to the virtual machine, you see the following message.
+2. Follow the steps in [Manage backup policies](#manage-backup-policy-for-a-vm) to assign the policy for the VM. You don't need to choose the VM's initial protection policy.
+3. After you apply the backup policy to the VM, you see the following message:
 
-    ![Successfully protected VM](./media/backup-azure-manage-vms/success-message.png)
+    ![Message indicating a successfully protected VM](./media/backup-azure-manage-vms/success-message.png)
 
-## Delete Backup data
+## Delete backup data
 
-You can delete the backup data associated with a VM during the **Stop backup** job, or anytime after the backup job has completed.
+There are two ways to delete a VM's backup data:
 
-- It may even be beneficial to wait days or weeks before deleting the recovery points.
-- Unlike restoring recovery points, when deleting backup data, you cannot choose specific recovery points to delete. If you choose to delete your backup data, you delete all recovery points associated with the item.
+* From the vault item dashboard, select Stop backup and follow the instructions for [Stop protection and delete backup data](#stop-protection-and-delete-backup-data) option.
 
-This procedure assumes the Backup job for the VM has been stopped or disabled.
+  ![Select Stop backup](./media/backup-azure-manage-vms/stop-backup-buttom.png)
 
+* From the vault item dashboard, select Delete backup data. This option is enabled if you had chosen to [Stop protection and retain backup data](#stop-protection-and-retain-backup-data) option during stop VM protection
 
-1. On the [vault item dashboard](#view-vms-in-the-dashboard), click **Delete backup**.
+  ![Select Delete backup](./media/backup-azure-manage-vms/delete-backup-buttom.png)
 
-    ![VM Type](./media/backup-azure-manage-vms/delete-backup-buttom.png)
+  * On the [vault item dashboard](#view-vms-on-the-dashboard), select **Delete backup data**.
+  * Type the name of the backup item to confirm that you want to delete the recovery points.
 
-2. Type the name of the item to confirm you want to delete the recovery points.
+    ![Delete backup data](./media/backup-azure-manage-vms/delete-backup-data1.png)
 
-    ![Stop verification](./media/backup-azure-manage-vms/item-verification-box.png)
+  * To delete the backup data for the item, select **Delete**. A notification message lets you know that the backup data has been deleted.
 
-4. To delete the backup data for the current item, click
-    ![Stop backup button](./media/backup-azure-manage-vms/delete-button.png)
+To protect your data, Azure Backup includes the soft delete feature. With soft delete, even after the backup (all the recovery points) of a VM is deleted, the backup data is retained for 14 additional days. For more information, see [the soft delete documentation](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud).
 
-    A notification message lets you know the backup data has been deleted.
+  > [!NOTE]
+  > When you delete backup data you delete all associated recovery points. You can't choose specific recovery points to delete.
+
+### Backup item where primary data source no longer exists
+
+* If Azure VMs configured for Azure backup are either deleted or moved without stopping protection, then both scheduled backup jobs and on demand (ad-hoc) backup jobs will fail with the error UserErrorVmNotFoundV2. The backup pre-check will appear as critical only for failed on-demand backup jobs (failed scheduled jobs are not displayed).
+* These backup items remain active in the system adhering to the backup and retention policy set by the user. The backed-up data for these Azure VMs will be retained according to the retention policy. The expired recovery points (except the last recovery point) are cleaned according to the retention range set in the backup policy.
+* Users are recommended to delete the backup items where the primary data source no longer exists to avoid any additional cost, if the backup item/data for the delete resources is no longer required as the last recovery point is retained forever and the user is charged as per the backup pricing applicable.
 
 ## Next steps
-- [Learn about](backup-azure-vms-first-look-arm.md) backing up Azure VMs from VM settings.
-- [Learn about](backup-azure-arm-restore-vms.md) restoring VMs. 
-- [Learn about](backup-azure-monitor-vms.md) monitoring Azure VM backups.
- 
+
+* Learn how to [back up Azure VMs from the VM's settings](backup-azure-vms-first-look-arm.md).
+* Learn how to [restore VMs](backup-azure-arm-restore-vms.md).
+* Learn how to [monitor Azure VM backups](backup-azure-monitor-vms.md).

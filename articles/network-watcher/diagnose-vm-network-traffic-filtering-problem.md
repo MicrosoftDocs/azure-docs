@@ -1,10 +1,10 @@
 ---
-title: Diagnose a virtual machine network traffic filter problem - quickstart - Azure portal | Microsoft Docs
+title: 'Quickstart: Diagnose a VM network traffic filter problem - Azure portal'
+titleSuffix: Azure Network Watcher
 description: In this quickstart, you learn how to diagnose a virtual machine network traffic filter problem using the IP flow verify  capability of Azure Network Watcher.
 services: network-watcher
 documentationcenter: network-watcher
-author: jimdial
-manager: jeconnoc
+author: damendo
 editor: ''
 tags: azure-resource-manager
 Customer intent: I need to diagnose a virtual machine (VM) network traffic filter problem that prevents communication to and from a VM.
@@ -16,7 +16,7 @@ ms.topic: quickstart
 ms.tgt_pltfrm: network-watcher
 ms.workload: infrastructure
 ms.date: 04/20/2018
-ms.author: jdial
+ms.author: damendo
 ms.custom: mvc
 
 ---
@@ -82,7 +82,7 @@ When you create a VM, Azure allows and denies network traffic to and from the VM
     | Direction         | Outbound                                                                                          |
     | Local IP address  | 10.0.0.4                                                                                          |
     | Local port      | 60000                                                                                                |
-    | Remote IP address | 13.107.21.200 - One of the addresses for www.bing.com.                                             |
+    | Remote IP address | 13.107.21.200 - One of the addresses for <www.bing.com>.                                             |
     | Remote port       | 80                                                                                                |
 
     ![IP flow verify](./media/diagnose-vm-network-traffic-filtering-problem/ip-flow-verify-outbound.png)

@@ -39,7 +39,7 @@ For simple filtering by subject, specify a starting or ending value for the subj
 
 When publishing events to custom topics, create subjects for your events that make it easy for subscribers to know whether they're interested in the event. Subscribers use the subject property to filter and route events. Consider adding the path for where the event happened, so subscribers can filter by segments of that path. The path enables subscribers to narrowly or broadly filter events. If you provide a three segment path like `/A/B/C` in the subject, subscribers can filter by the first segment `/A` to get a broad set of events. Those subscribers get events with subjects like `/A/B/C` or `/A/D/E`. Other subscribers can filter by `/A/B` to get a narrower set of events.
 
-The JSON syntax for filtering by event type is:
+The JSON syntax for filtering by subject is:
 
 ```json
 "filter": {
@@ -57,23 +57,40 @@ To filter by values in the data fields and specify the comparison operator, use 
 * key - The field in the event data that you're using for filtering. It can be a number, boolean, or string.
 * value or values - The value or values to compare to the key.
 
-The JSON syntax for using advanced filters is:
+If you specify a single filter with multiple values, an **OR** operation is performed, so the value of the key field must be one of these values. Here is an example:
 
 ```json
-"filter": {
-  "advancedFilters": [
+"advancedFilters": [
     {
-      "operatorType": "NumberGreaterThanOrEquals",
-      "key": "Data.Key1",
-      "value": 5
+        "operatorType": "StringContains",
+        "key": "Subject",
+        "values": [
+            "/providers/microsoft.devtestlab/",
+            "/providers/Microsoft.Compute/virtualMachines/"
+        ]
+    }
+]
+```
+
+If you specify multiple different filters, an **AND** operation is performed, so each filter condition must be met. Here is an example: 
+
+```json
+"advancedFilters": [
+    {
+        "operatorType": "StringContains",
+        "key": "Subject",
+        "values": [
+            "/providers/microsoft.devtestlab/"
+        ]
     },
     {
-      "operatorType": "StringContains",
-      "key": "Subject",
-      "values": ["container1", "container2"]
+        "operatorType": "StringContains",
+        "key": "Subject",
+        "values": [
+            "/providers/Microsoft.Compute/virtualMachines/"
+        ]
     }
-  ]
-}
+]
 ```
 
 ### Operator
@@ -103,7 +120,7 @@ All string comparisons are case-insensitve.
 
 For events in the Event Grid schema, use the following values for the key:
 
-* Id
+* ID
 * Topic
 * Subject
 * EventType
@@ -136,8 +153,6 @@ Advanced filtering has the following limitations:
 * Five advanced filters per event grid subscription
 * 512 characters per string value
 * Five values for **in** and **not in** operators
-* The key can only have one level of nesting (like data.key1)
-* Custom event schemas can be filtered only on top-level fields
 
 The same key can be used in more than one filter.
 

@@ -1,20 +1,17 @@
 ---
-title: Manage Network Security Group flow logs with Azure Network Watcher - REST API | Microsoft Docs
+title: Manage NSG flow logs - Azure REST API
+titleSuffix: Azure Network Watcher
 description: This page explains how to manage Network Security Group flow logs in Azure Network Watcher with REST API
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: timlt
-editor: 
-
-ms.assetid: 2ab25379-0fd3-4bfe-9d82-425dfc7ad6bb
+author: damendo
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 02/22/2017
-ms.author: jdial
+ms.author: damendo
 
 ---
 
@@ -52,7 +49,7 @@ In this scenario, you will:
 
 Log in to armclient with your Azure credentials.
 
-```PowerShell
+```powershell
 armclient login
 ```
 
@@ -207,7 +204,7 @@ The following is an example of the response returned:
 
 ## Download a flow log
 
-The storage location of a flow log is defined at creation. A convenient tool to access these flow logs saved to a storage account is Microsoft Azure Storage Explorer, which can be downloaded here:  http://storageexplorer.com/
+The storage location of a flow log is defined at creation. A convenient tool to access these flow logs saved to a storage account is Microsoft Azure Storage Explorer, which can be downloaded here:  https://storageexplorer.com/
 
 If a storage account is specified, packet capture files are saved to a storage account at the following location:
 

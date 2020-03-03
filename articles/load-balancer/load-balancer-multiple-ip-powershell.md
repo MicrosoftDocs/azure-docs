@@ -1,10 +1,10 @@
-﻿---
+---
 title: Load balancing on multiple IP configurations - Azure CLI
-titlesuffix: Azure Load Balancer
-description: Load balancing across primary and secondary IP configurations.
+titleSuffix: Azure Load Balancer
+description: In this article, learn about load balancing across primary and secondary IP configurations using Azure CLI.
 services: load-balancer
 documentationcenter: na
-author: anavinahar
+author: asudbring
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -12,7 +12,7 @@ ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
-ms.author: annahar
+ms.author: allensu
 ---
 
 # Load balancing on multiple IP configurations using PowerShell
@@ -138,4 +138,4 @@ Follow the steps below to achieve the scenario outlined in this article:
 
 ## Next steps
 - Learn more about how to combine load balancing services in Azure in [Using load-balancing services in Azure](../traffic-manager/traffic-manager-load-balancing-azure.md).
-- Learn how you can use different types of logs in Azure to manage and troubleshoot load balancer in [Log analytics for Azure Load Balancer](../load-balancer/load-balancer-monitor-log.md).
+- Learn how you can use different types of logs in Azure to manage and troubleshoot load balancer in [Azure Monitor logs for Azure Load Balancer](../load-balancer/load-balancer-monitor-log.md).

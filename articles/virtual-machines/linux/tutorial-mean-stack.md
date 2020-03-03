@@ -1,16 +1,15 @@
 ---
-title: Tutorial - Create a MEAN stack on a Linux virtual machine in Azure | Microsoft Docs
+title: Tutorial - Create a MEAN stack on a Linux virtual machine in Azure 
 description: In this tutorial, you learn how to create a MongoDB, Express, AngularJS, and Node.js (MEAN) stack on a Linux VM in Azure. 
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 
 ms.assetid: 
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
@@ -33,7 +32,7 @@ This tutorial shows you how to implement a MongoDB, Express, AngularJS, and Node
 > * Access the routes with AngularJS
 > * Run the application
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+This tutorial uses the CLI within the [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), which is constantly updated to the latest version. To open the Cloud Shell, select **Try it** from the top of any code block.
 
 If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.30 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
 
@@ -89,13 +88,13 @@ sudo apt-get install -y nodejs
 ```
 
 ## Install MongoDB and set up the server
-[MongoDB](http://www.mongodb.com) stores data in flexible, JSON-like documents. Fields in a database can vary from document to document and data structure can be changed over time. For our example application, we are adding book records to MongoDB that contain book name, isbn number, author, and number of pages. 
+[MongoDB](https://www.mongodb.com) stores data in flexible, JSON-like documents. Fields in a database can vary from document to document and data structure can be changed over time. For our example application, we are adding book records to MongoDB that contain book name, isbn number, author, and number of pages. 
 
 1. On the VM, using the bash shell that you opened with SSH, set the MongoDB key.
 
     ```bash
     sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 0C49F3730359A14518585931BC711F9BA15703C6
-    echo "deb [ arch=amd64 ] http://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/3.4 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.4.list
+    echo "deb [ arch=amd64 ] https://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/3.4 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.4.list
     ```
 
 2. Update the package manager with the key.
@@ -147,7 +146,7 @@ sudo apt-get install -y nodejs
 
 ## Install Express and set up routes to the server
 
-[Express](https://expressjs.com) is a minimal and flexible Node.js web application framework that provides features for web and mobile applications. Express is used in this tutorial to pass book information to and from our MongoDB database. [Mongoose](http://mongoosejs.com) provides a straight-forward, schema-based solution to model your application data. Mongoose is used in this tutorial to provide a book schema for the database.
+[Express](https://expressjs.com) is a minimal and flexible Node.js web application framework that provides features for web and mobile applications. Express is used in this tutorial to pass book information to and from our MongoDB database. [Mongoose](https://mongoosejs.com) provides a straight-forward, schema-based solution to model your application data. Mongoose is used in this tutorial to provide a book schema for the database.
 
 1. Install Express and Mongoose.
 
@@ -322,7 +321,7 @@ sudo apt-get install -y nodejs
     nodejs server.js
     ```
 
-2. Open a web browser to the address that you recorded for the VM. For example, *http://13.72.77.9:3300*. You should see something like the following page:
+2. Open a web browser to the address that you recorded for the VM. For example, *http:\//13.72.77.9:3300*. You should see something like the following page:
 
     ![Book record](media/tutorial-mean/meanstack-init.png)
 

@@ -1,18 +1,16 @@
 ---
-title: Roles and permissions for Azure Data Factory | Microsoft Docs
+title: Roles and permissions for Azure Data Factory 
 description: Describes the roles and permissions required to create Data Factories and to work with child resources.
-author: douglaslMS
-ms.author: douglasl
-manager: craigg
 ms.date: 11/5/2018
 ms.topic: conceptual
 ms.service: data-factory
-
 services: data-factory
 documentationcenter: ''
 ms.workload: data-services
-ms.tgt_pltfrm: na
 
+author: djpmsft
+ms.author: daperlov
+manager: anandsub
 ---
 
 # Roles and permissions for Azure Data Factory
@@ -27,7 +25,7 @@ To create and manage child resources for Data Factory - including datasets, link
 - To create and manage child resources in the Azure portal, you must belong to the **Data Factory Contributor** role at the resource group level or above.
 - To create and manage child resources with PowerShell or the SDK, the **contributor** role at the resource level or above is sufficient.
 
-For sample instructions about how to add a user to a role, see the [Add roles](../billing/billing-add-change-azure-subscription-administrator.md) article.
+For sample instructions about how to add a user to a role, see the [Add roles](../cost-management-billing/manage/add-change-subscription-administrator.md) article.
 
 ## Set up permissions
 
@@ -76,6 +74,10 @@ Here are a few examples that demonstrate what you can achieve with custom roles:
 
   1. Assign the built-in **contributor** role at the data factory level.
   2. Create a custom role with the permission  **Microsoft.Resources/deployments/**. Assign this custom role to the user at resource group level.
+
+- Let a user only be able to test connection in a linked service
+
+    Create a custom role role with permissions for the following actions: **Microsoft.DataFactory/factories/getFeatureValue/read** and **Microsoft.DataFactory/factories/getDataPlaneAccess/read**. Assign this custom role on the data factory resource for the user.
 
 - Let a user update a data factory from PowerShell or the SDK, but not in the Azure portal.
 

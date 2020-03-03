@@ -55,8 +55,15 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
     ![Connect to virtual machine](./media/tutorial-use-custom-lab/connect-button.png)
 2. Save the downloaded **RDP** file your hard disk and use it to connect to the virtual machine. Specify the user name and password you mentioned when the VM was created in the previous section. 
 
-    > [!NOTE] 
-    > To connect to a Linux VM, SSH and/or RDP access must be enabled for the VM. For steps to connect to a Linux VM via RDP, see [Install and configure Remote Desktop to connect to a Linux VM in Azure](../virtual-machines/linux/use-remote-desktop.md). 
+    To connect to a Linux VM, SSH and/or RDP access must be enabled for the VM. For steps to connect to a Linux VM via RDP, see [Install and configure Remote Desktop to connect to a Linux VM in Azure](../virtual-machines/linux/use-remote-desktop.md). 
+
+    > [!NOTE]
+    > There are other ways to get to the Virtual Machine page for your VM. Here are some of them: 
+    > 
+    > 1. Search for all VMs in your subscription. Select your VM in the list of VMs to get to the **Virtual Machine** page.
+    > 2. Navigate to the **Resource Group** page for the resource group. Then, select your VM from the list of resources in the resource group to get to the **Virtual Machine** page. 
+    >
+    > Don't use the **Connect** button on the toolbar on the **Virtual Machine** page that you get to by using the these options. Instead, navigate to the **Virtual Machine** page from the **DevTest Labs** page as shown in this article, and then use the **Connect** button on the toolbar.
 
 
 ## Unclaim the VM

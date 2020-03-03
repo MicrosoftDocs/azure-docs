@@ -1,16 +1,16 @@
 ---
-title: Move data from Amazon Redshift by using Azure Data Factory | Microsoft Docs
+title: Move data from Amazon Redshift by using Azure Data Factory 
 description: Learn how to move data from Amazon Redshift by using Azure Data Factory Copy Activity.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 
 
 ms.assetid: 01d15078-58dc-455c-9d9d-98fbdf4ea51e
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
+
 
 ms.topic: conceptual
 ms.date: 01/22/2018
@@ -34,7 +34,7 @@ Data Factory currently supports only moving data from Amazon Redshift to a [supp
 > To achieve the best performance when copying large amounts of data from Amazon Redshift, consider using the built-in Redshift **UNLOAD** command through Amazon Simple Storage Service (Amazon S3). For details, see [Use UNLOAD to copy data from Amazon Redshift](#use-unload-to-copy-data-from-amazon-redshift).
 
 ## Prerequisites
-* If you are moving data to an on-premises data store, install [Data Management Gateway](data-factory-data-management-gateway.md) on an on-premises machine. Grant access for a gateway to the Amazon Redshift cluster by using the on-premises machine IP address. For instructions, see [Authorize access to the cluster](http://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html).
+* If you are moving data to an on-premises data store, install [Data Management Gateway](data-factory-data-management-gateway.md) on an on-premises machine. Grant access for a gateway to the Amazon Redshift cluster by using the on-premises machine IP address. For instructions, see [Authorize access to the cluster](https://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html).
 * To move data to an Azure data store, see the [Compute IP address and SQL ranges that are used by the Microsoft Azure Datacenters](https://www.microsoft.com/download/details.aspx?id=41653).
 
 ## Getting started
@@ -42,7 +42,7 @@ You can create a pipeline with a copy activity to move data from an Amazon Redsh
 
 The easiest way to create a pipeline is to use the Azure Data Factory Copy Wizard. For a quick walkthrough on creating a pipeline by using the Copy Wizard, see the [Tutorial: Create a pipeline by using the Copy Wizard](data-factory-copy-data-wizard-tutorial.md).
 
-You can also create a pipeline by using the Azure portal, Visual Studio, Azure PowerShell, or other tools. Azure Resource Manager templates, the .NET API, or the REST API can also be used to create the pipeline. For step-by-step instructions to create a pipeline with a copy activity, see the [Copy Activity tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+You can also create a pipeline by using Visual Studio, Azure PowerShell, or other tools. Azure Resource Manager templates, the .NET API, or the REST API can also be used to create the pipeline. For step-by-step instructions to create a pipeline with a copy activity, see the [Copy Activity tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 Whether you use the tools or APIs, you perform the following steps to create a pipeline that moves data from a source data store to a sink data store:
 
@@ -98,7 +98,7 @@ Alternatively, you can use the **RelationalSource** type, which includes Amazon 
 
 ## Use UNLOAD to copy data from Amazon Redshift
 
-The Amazon Redshift [**UNLOAD**](http://docs.aws.amazon.com/redshift/latest/dg/r_UNLOAD.html) command unloads the results of a query to one or more files on Amazon S3. This command is recommended by Amazon for copying large datasets from Redshift.
+The Amazon Redshift [**UNLOAD**](https://docs.aws.amazon.com/redshift/latest/dg/r_UNLOAD.html) command unloads the results of a query to one or more files on Amazon S3. This command is recommended by Amazon for copying large datasets from Redshift.
 
 **Example: Copy data from Amazon Redshift to Azure SQL Data Warehouse**
 
@@ -145,7 +145,7 @@ The sample has the following data factory entities:
 * A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).
 * An input [dataset](data-factory-create-datasets.md) of type [RelationalTable](#dataset-properties)
 * An output [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties)
-* A [pipeline](data-factory-create-pipelines.md) with a copy activity that uses the [RelationalSource](#copy-activity-properties) and [BlobSink](data-factory-azure-blob-connector.md##copy-activity-properties) properties
+* A [pipeline](data-factory-create-pipelines.md) with a copy activity that uses the [RelationalSource](#copy-activity-properties) and [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties) properties
 
 The sample copies data from a query result in Amazon Redshift to an Azure blob hourly. The JSON properties that are used in the sample are described in the sections that follow the entity definitions.
 

@@ -1,16 +1,16 @@
 ---
-title: "Quickstart: Get image insights using the Bing Visual Search SDK for C#"
+title: "Quickstart: Get image insights using the SDK for C# - Bing Visual Search"
 titleSuffix: Azure Cognitive Services
-description: Learn how to upload an image using the Bing Visual Search SDK and get insights about it.
+description: Learn how to upload an image using the Bing Visual Search SDK and get insights about it with this quickstart.
 services: cognitive-services
-author: mikedodaro
+author: aahill
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 05/16/2018
-ms.author: v-gedod
+ms.date: 12/17/2019
+ms.author: aahi
 ---
 
 # Quickstart: Get image insights using the Bing Visual Search SDK for C#
@@ -19,8 +19,8 @@ Use this quickstart to begin getting image insights from the Bing Visual Search 
 
 ## Prerequisites
 
-* Any edition of [Visual Studio 2017](https://www.visualstudio.com/downloads/).
-* If you are using Linux/MacOS, this application can be run using [Mono](http://www.mono-project.com/).
+* [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/).
+* If you are using Linux/MacOS, this application can be run using [Mono](https://www.mono-project.com/).
 * The NuGet Visual Search package. 
     - From the Solution Explorer in Visual Studio, right-click on your project and select `Manage NuGet Packages` from the menu. Install the `Microsoft.Azure.CognitiveServices.Search.VisualSearch` package. Installing the NuGet packages also installs the following:
         - Microsoft.Rest.ClientRuntime
@@ -28,7 +28,7 @@ Use this quickstart to begin getting image insights from the Bing Visual Search 
         - Newtonsoft.Json
 
 
-[!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
+[!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](../../../includes/cognitive-services-bing-visual-search-signup-requirements.md)]
 
 <a name="client"></a>
 

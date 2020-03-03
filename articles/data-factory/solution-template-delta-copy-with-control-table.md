@@ -1,47 +1,51 @@
 ---
-title: Delta copy from database with control table with Azure Data Factory | Microsoft Docs
+title: Delta copy from a database using a control table
 description: Learn how to use a solution template to incrementally copy new or updated rows only from a database with Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: dearandyxu
 ms.author: yexu
 ms.reviewer: douglasl
-manager: craigg
+manager: anandsub
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 12/24/2018
 ---
-# Delta copy from database with control table
 
-When you want to incrementally load changes (new or updated rows) only from a table in a database to Azure with an external control table storing the high-watermark value.  The present template is designed for that case. 
+# Delta copy from a database with a control table
 
-This template requires the schema of source database MUST containing timestamp column or incrementing key to identify the new or updated rows.
+This article describes a template that's available to incrementally load new or updated rows from a database table to Azure by using an external control table that stores a high-watermark value.
 
-If you do have timestamp column in your source database to identify the new or updated rows, but do not want to create an external control table to enable delta copy, you can use the Copy Data tool to get a pipeline, which uses a trigger-scheduled time as a variable to read the new rows only from source database.
+This template requires that the schema of the source database contains a timestamp column or incrementing key to identify new or updated rows.
+
+>[!NOTE]
+> If you have a timestamp column in your source database to identify new or updated rows but you don't want to create an external control table to use for delta copy, you can instead use the [Azure Data Factory Copy Data tool](copy-data-tool.md) to get a pipeline. That tool uses a trigger-scheduled time as a variable to read new rows from the source database.
 
 ## About this solution template
 
-This template always retrieves the old watermark value first, and then compares it with the current watermark value. After that, it only copies the changes from the source database based on the comparison between 2 watermark values.  When complete, it stores the new high-watermark value to an external control table for delta data loading next time.
+This template first retrieves the old watermark value and compares it with the current watermark value. After that, it copies only the changes from the source database, based on a comparison between the two watermark values. Finally, it stores the new high-watermark value to an external control table for delta data loading next time.
 
 The template contains four activities:
--   A **Lookup** activity to retrieve the old high-watermark value stored in an external control table.
--   A **Lookup** activity to retrieve the current high-watermark value from source database.
--   A **Copy** activity to copy the changes only from the source database to the destination store. The query used to identify the changes from source database in the copy activity is similar as 'SELECT * FROM Data_Source_Table WHERE TIMESTAMP_Column > “last high-watermark” and TIMESTAMP_Column <= “current high-watermark”'.
--   A **SqlServerStoredProcedure** activity to write the current high-watermark value to an external control table for delta copy next time.
+- **Lookup** retrieves the old high-watermark value, which is stored in an external control table.
+- Another **Lookup** activity retrieves the current high-watermark value from the source database.
+- **Copy** copies only changes from the source database to the destination store. The query that identifies the changes in the source database is similar to 'SELECT * FROM Data_Source_Table WHERE TIMESTAMP_Column > “last high-watermark” and TIMESTAMP_Column <= “current high-watermark”'.
+- **SqlServerStoredProcedure** writes the current high-watermark value to an external control table for delta copy next time.
 
-The template defines five parameters:
--   The parameter *Data_Source_Table_Name* is the table name from source database where you want to load data from.
--   The parameter *Data_Source_WaterMarkColumn* is the column name in the source table which can be used to identify the new or updated rows. Normally, the type of this column can be datetime or INT etc.
--   The parameter *Data_Destination_Folder_Path* or *Data_Destination_Table_Name* is the place where the data is copied into your destination store.
--   The parameter *Control_Table_Table_Name* is the name of external control table to store the high-watermark value.
--   The parameter *Control_Table_Column_Name* is the column name in the external control table to store the high-watermark value.
+The template defines following parameters:
+- *Data_Source_Table_Name* is the table in the source database that you want to load data from.
+- *Data_Source_WaterMarkColumn* is the name of the column in the source table that's used to identify new or updated rows. The type of this column is typically *datetime*, *INT*, or similar.
+- *Data_Destination_Container* is the root path of the place where the data is copied to in your destination store.
+- *Data_Destination_Directory* is the directory path under the root of the place where the data is copied to in your destination store.
+- *Data_Destination_Table_Name* is the place where the data is copied to in your destination store (applicable when "Azure Synapse Analytics (formerly SQL DW)" is selected as Data Destination).
+- *Data_Destination_Folder_Path* is the place where the data is copied to in your destination store (applicable when "File System" or "Azure Data Lake Storage Gen1" is selected as Data Destination).
+- *Control_Table_Table_Name* is the external control table that stores the high-watermark value.
+- *Control_Table_Column_Name* is the column in the external control table that stores the high-watermark value.
 
 ## How to use this solution template
 
-1. Explore the source table you want to load, and define the high-watermark column which can be used to slice the new or updated rows. Normally, the type of this column can be datetime or INT etc., and its data keeping increasing when new rows being added.  From the sample source table (table name: data_source_table) below, we can use column *LastModifytime* as the high-watermark column.
+1. Explore the source table you that want to load, and define the high-watermark column that can be used to identify new or updated rows. The type of this column might be *datetime*, *INT*, or similar. This column's value increases as new rows are added. From the following sample source table (data_source_table), we can use the *LastModifytime* column as the high-watermark column.
 
 	```sql
 			PersonID	Name	LastModifytime
@@ -56,7 +60,7 @@ The template defines five parameters:
 			9	iiiiiiiii	2017-09-09 09:01:00.000
 	```
 	
-2. Create a control table in a SQL server or SQL Azure to store the high-watermark value for delta data loading. From the example below, you can see the name of control table is *watermarktable*. Within it, the column name to store the high-watermark value is *WatermarkValue* and its type is *datetime*.
+2. Create a control table in SQL Server or Azure SQL Database to store the high-watermark value for delta data loading. In the following example, the name of the control table is *watermarktable*. In this table, *WatermarkValue* is the column that stores the high-watermark value, and its type is *datetime*.
 
 	```sql
 			create table watermarktable
@@ -67,7 +71,7 @@ The template defines five parameters:
 			VALUES ('1/1/2010 12:00:00 AM')
 	```
 	
-3. Create a stored procedure in the same SQL server or SQL Azure used to create control table. The stored procedure is used to write the new high-watermark value into the external control table for delta data loading next time.
+3. Create a stored procedure in the same SQL Server or Azure SQL Database instance that you used to create the control table. The stored procedure is used to write the new high-watermark value to the external control table for delta data loading next time.
 
 	```sql
 			CREATE PROCEDURE update_watermark @LastModifiedtime datetime
@@ -81,43 +85,41 @@ The template defines five parameters:
 			END
 	```
 	
-4. Go to template **Delta copy from Database**, and create a **new connection** to your source database where the data copy from.
+4. Go to the **Delta copy from Database** template. Create a **New** connection to the source database that you want to data copy from.
 
     ![Create a new connection to the source table](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable4.png)
 
-5. Create a **new connection** to your destination data store where the data copy to.
+5. Create a **New** connection to the destination data store that you want to copy the data to.
 
     ![Create a new connection to the destination table](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable5.png)
 
-6. Create a **new connection** to your external control table and stored procedure.  It is connecting to the database where you had created the control table and stored procedure in step #2 and #3.
+6. Create a **New** connection to the external control table and stored procedure that you created in steps 2 and 3.
 
     ![Create a new connection to the control table data store](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable6.png)
 
-7. Click **Use this template**.
-
-     ![Use this template](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable7.png)
+7. Select **Use this template**.
 	
-8. You see the pipeline available in the panel, as shown in the following example:
+8. You see the available pipeline, as shown in the following example:
+  
+    ![Review the pipeline](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable8.png)
 
-     ![Review pipeline](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable8.png)
+9. Select **Stored Procedure**. For **Stored procedure name**, choose **[dbo].[update_watermark]**. Select **Import parameter**, and then select **Add dynamic content**.  
 
-9. Click Stored Procedure activity, select **Stored procedure name**, click **import parameter** and click **Add dynamic content**.  
+    ![Set the stored procedure activity](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable9.png)	
 
-     ![Set Stored Procedure activity](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable9.png)	
+10. Write the content **\@{activity('LookupCurrentWaterMark').output.firstRow.NewWatermarkValue}**, and then select **Finish**.  
 
-10. Write the content **@{activity('LookupCurrentWaterMark').output.firstRow.NewWatermarkValue}** and click **Finish**.  
-
-     ![Write the content for parameter for Stored Procedure](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable10.png)		 
+    ![Write the content for the parameters of the stored procedure](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable10.png)		 
 	 
-11. Click **Debug**, input the parameters and click **Finish**.
+11. Select **Debug**, enter the **Parameters**, and then select **Finish**.
 
-    ![Click the Debug](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable11.png)
+    ![Select **Debug**](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable11.png)
 
-12. You see the result available in the panel, as shown in the following example:
+12. Results similar to the following example are displayed:
 
     ![Review the result](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable12.png)
 
-13. You can create new rows in your source table.  The sample sql to create new rows can be as following:
+13. You can create new rows in your source table. Here is sample SQL language to create new rows:
 
 	```sql
 			INSERT INTO data_source_table
@@ -126,16 +128,16 @@ The template defines five parameters:
 			INSERT INTO data_source_table
 			VALUES (11, 'newdata','9/11/2017 9:01:00 AM')
 	```
-13. Run the pipeline again by clicking **Debug**, input the parameters and click **Finish**.
 
-    ![Click the Debug](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable11.png)
+14. To run the pipeline again, select **Debug**, enter the **Parameters**, and then select **Finish**.
 
-14. You see only new rows were copied into the destination.
+    You will see that only new rows were copied to the destination.
 
-15. (Optional) If you select SQL Data Warehouse as data destination, you also need to input the connection of an Azure blob storage as a staging, which is required by SQL Data Warehouse Polybase.  Please make sure the container in blob storage has already created.  
+15. (Optional:) If you select Azure Synapse Analytics (formerly SQL DW) as the data destination, you must also provide a connection to Azure Blob storage for staging, which is required by SQL Data Warehouse Polybase. The template will generate a container path for you. After the pipeline run, check whether the container has been created in Blob storage.
     
-	![Configure Polybase](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable15.png)
+    ![Configure Polybase](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable15.png)
 	
 ## Next steps
 
-- [Introduction to Azure Data Factory](introduction.md)
+- [Bulk copy from a database by using a control table with Azure Data Factory](solution-template-bulk-copy-with-control-table.md)
+- [Copy files from multiple containers with Azure Data Factory](solution-template-copy-files-multiple-containers.md)

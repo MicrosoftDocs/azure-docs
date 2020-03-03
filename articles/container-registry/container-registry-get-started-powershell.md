@@ -1,13 +1,8 @@
 ﻿---
-title: Quickstart - Create a private Docker registry in Azure - PowerShell
-description: Quickly learn to create a private Docker container registry in Azure with PowerShell.
-services: container-registry
-author: dlepow
-
-ms.service: container-registry
+title: Quickstart - Create registry - Powershell
+description: Quickly learn to create a private Docker registry in Azure Container Registry with PowerShell
 ms.topic: quickstart
 ms.date: 01/22/2019
-ms.author: danlep
 ms.custom: "seodec18, mvc"
 ---
 
@@ -97,7 +92,7 @@ In this quickstart, you created an Azure Container Registry with Azure PowerShel
 [docker-windows]: https://docs.docker.com/docker-for-windows/
 
 <!-- Links - internal -->
-[Connect-AzAccount]: /powershell/module/az.profile/connect-azaccount
+[Connect-AzAccount]: /powershell/module/az.accounts/connect-azaccount
 [Get-AzContainerRegistryCredential]: /powershell/module/az.containerregistry/get-azcontainerregistrycredential
 [Get-Module]: /powershell/module/microsoft.powershell.core/get-module
 [New-AzContainerRegistry]: /powershell/module/az.containerregistry/New-AzContainerRegistry

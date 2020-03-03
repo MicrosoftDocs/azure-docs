@@ -1,19 +1,13 @@
 ---
-title: Restore from backup - Azure App Service
-description: Learn how to restore your app from a snapshot.
-services: app-service
-documentationcenter: ''
-author: ahmedelnably
-manager: cfowler
-editor: ''
+title: Restore app from a snapshot
+description: Learn how to restore your app from a snapshot. Recover from unexpected data loss in Premium tier with the automatic shadow copies.
+author: georgewallace
 
 ms.assetid: 4164f9b5-f735-41c6-a2bb-71f15cdda417
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: multiple
 ms.topic: article
 ms.date: 04/04/2018
-ms.author: aelnably;nicking
+ms.author: gwallace
+ms.reviewer: nicking
 ms.custom: seodec18
 
 ---
@@ -26,7 +20,7 @@ Snapshots are incremental shadow copies, and they offer several advantages over 
 - No configuration required.
 
 Restoring from snapshots is available to apps running in **Premium** tier or higher. For information about scaling
-up your app, see [Scale up an app in Azure](web-sites-scale.md).
+up your app, see [Scale up an app in Azure](manage-scale-up.md).
 
 ## Limitations
 

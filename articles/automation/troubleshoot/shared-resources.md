@@ -1,10 +1,10 @@
 ---
 title: Troubleshoot errors with Azure Automation shared resources
-description: Learn how to troubleshoot issues with Azure Automation shared resources
+description: Learn how to troubleshoot and resolve issues with Azure Automation shared resources supporting runbooks. 
 services: automation
-author: georgewallace
-ms.author: gwallace
-ms.date: 02/22/2019
+author: mgoedtel
+ms.author: magoedte
+ms.date: 03/12/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
@@ -23,7 +23,7 @@ A module is stuck in the **Importing** state when you import or update your modu
 
 #### Cause
 
-Importing PowerShell modules is a complex multi-step process. This process introduces the possibility of a module not importing correctly. If this issue occurs, the module you're importing can be stuck in a transient state. To learn more about this process, see [Importing a PowerShell Module]( /powershell/developer/module/importing-a-powershell-module#the-importing-process).
+Importing PowerShell modules is a complex multi-step process. This process introduces the possibility of a module not importing correctly. If this issue occurs, the module you're importing can be stuck in a transient state. To learn more about this process, see [Importing a PowerShell Module](/powershell/scripting/developer/module/importing-a-powershell-module#the-importing-process).
 
 #### Resolution
 
@@ -39,7 +39,7 @@ Remove-AzureRmAutomationModule -Name ModuleName -ResourceGroupName ExampleResour
 
 A banner with the following message stays in your account after trying to update your AzureRM modules:
 
-```
+```error
 Azure modules are being updated
 ```
 
@@ -49,7 +49,7 @@ There is a known issue with updating the AzureRM modules in an Automation Accoun
 
 #### Resolution
 
-To update your Azure modules in your Automation Account, it must be in a resource group that has a alphanumeric name. Resource groups with numeric names starting with 0 are unable to update AzureRM modules at this time.
+To update your Azure modules in your Automation Account, it must be in a resource group that has an alphanumeric name. Resource groups with numeric names starting with 0 are unable to update AzureRM modules at this time.
 
 ### <a name="module-fails-to-import"></a>Scenario: Module fails to import or cmdlets can't be executed after importing
 
@@ -132,6 +132,30 @@ You don't have the permissions that you need to create or update the Run As acco
 To create or update a Run As account, you must have appropriate permissions to the various resources used by the Run As account. To learn about the permissions needed to create or update a Run As account, see [Run As account permissions](../manage-runas-account.md#permissions).
 
 If the issue is because of a lock, verify that the lock is ok to remove it. Then navigate to the resource that is locked, right-click the lock and choose **Delete** to remove the lock.
+
+### <a name="iphelper"></a>Scenario: You receive the error "Unable to find an entry point named 'GetPerAdapterInfo' in DLL 'iplpapi.dll'" when executing a runbook.
+
+#### Issue
+
+When executing a runbook you receive the following exception:
+
+```error
+Unable to find an entry point named 'GetPerAdapterInfo' in DLL 'iplpapi.dll'
+```
+
+#### Cause
+
+This error is most likely caused by an incorrectly configured [Run As Account](../manage-runas-account.md).
+
+#### Resolution
+
+Make sure your [Run As Account](../manage-runas-account.md) is properly configured. Once it is configured correctly, ensure you have the proper code in your runbook to authenticate with Azure. The following example shows a snippet of code to authenticate to Azure in a runbook using a Run As Account.
+
+```powershell
+$connection = Get-AutomationConnection -Name AzureRunAsConnection
+Connect-AzureRmAccount -ServicePrincipal -Tenant $connection.TenantID `
+-ApplicationID $connection.ApplicationID -CertificateThumbprint $connection.CertificateThumbprint
+```
 
 ## Next steps
 

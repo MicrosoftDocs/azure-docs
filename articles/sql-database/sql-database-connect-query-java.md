@@ -1,5 +1,5 @@
 ---
-title: Use Java to query Azure SQL Database | Microsoft Docs
+title: Use Java to query a database
 description: Shows you how to use Java to create a program that connects to an Azure SQL database and query it using T-SQL statements.
 services: sql-database
 ms.service: sql-database
@@ -9,40 +9,42 @@ ms.topic: quickstart
 author: ajlam
 ms.author: andrela
 ms.reviewer: v-masebo
-manager: craigg
-ms.date: 02/12/2019
+ms.date: 03/25/2019
+ms.custom: seo-java-july2019. seo-java-august2019
 ---
 # Quickstart: Use Java to query an Azure SQL database
 
-This article demonstrates how to use [Java](/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server) to connect to an Azure SQL database. You can then use T-SQL statements to query data.
+In this quickstart, you use Java to connect to an Azure SQL database and use T-SQL statements to query data.
 
 ## Prerequisites
 
-To complete this sample, make sure you have the following prerequisites:
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- An [Azure SQL database](sql-database-single-database-get-started.md)
+- [Java](/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server)-related software
 
-- An Azure SQL database. You can use one of these quickstarts to create and then configure a database in Azure SQL Database:
+  # [macOS](#tab/macos)
 
-  || Single database | Managed instance |
-  |:--- |:--- |:---|
-  | Create| [Portal](sql-database-single-database-get-started.md) | [Portal](sql-database-managed-instance-get-started.md) |
-  || [CLI](scripts/sql-database-create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
-  || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) | [PowerShell](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/) |
-  | Configure | [Server-level IP firewall rule](sql-database-server-level-firewall-rule.md)| [Connectivity from a VM](sql-database-managed-instance-configure-vm.md)|
-  |||[Connectivity from on-site](sql-database-managed-instance-configure-p2s.md)
-  |Load data|Adventure Works loaded per quickstart|[Restore Wide World Importers](sql-database-managed-instance-get-started-restore.md)
-  |||Restore or import Adventure Works from [BACPAC](sql-database-import.md) file from [github](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
-  |||
+  Install Homebrew and Java, then install Maven using steps **1.2** and **1.3** in [Create Java apps using SQL Server on macOS](https://www.microsoft.com/sql-server/developer-get-started/java/mac/).
 
-  > [!IMPORTANT]
-  > The scripts in this article are written to use the Adventure Works database. With a managed instance, you must either import the Adventure Works database into an instance database or modify the scripts in this article to use the Wide World Importers database.
+  # [Ubuntu](#tab/ubuntu)
 
-- Java-related software installed for your operating system:
+  Install Java, the Java Development Kit, then install Maven using steps **1.2**, **1.3**, and **1.4** in [Create Java apps using SQL Server on Ubuntu](https://www.microsoft.com/sql-server/developer-get-started/java/ubuntu/).
 
-  - **MacOS**, install Homebrew and Java, then install Maven. See [Step 1.2 and 1.3](https://www.microsoft.com/sql-server/developer-get-started/java/mac/).
+  # [Windows](#tab/windows)
 
-  - **Ubuntu**, install Java, the Java Development Kit, then install Maven. See [Step 1.2, 1.3, and 1.4](https://www.microsoft.com/sql-server/developer-get-started/java/ubuntu/).
+  Install Java, then install Maven using steps **1.2** and **1.3** in [Create Java apps using SQL Server on Windows](https://www.microsoft.com/sql-server/developer-get-started/java/windows/).
 
-  - **Windows**, install Java, then install Maven. See [Step 1.2 and 1.3](https://www.microsoft.com/sql-server/developer-get-started/java/windows/).
+  ---
+
+> [!IMPORTANT]
+> The scripts in this article are written to use the **Adventure Works** database.
+
+> [!NOTE]
+> You can optionally choose to use an Azure SQL managed instance.
+>
+> To create and configure, use the [Azure Portal](sql-database-managed-instance-get-started.md), [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md), or [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44), then setup [on-site](sql-database-managed-instance-configure-p2s.md) or [VM](sql-database-managed-instance-configure-vm.md) connectivity.
+>
+> To load data, see [restore with BACPAC](sql-database-import.md) with the [Adventure Works](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works) file, or see [restore the Wide World Importers database](sql-database-managed-instance-get-started-restore.md).
 
 ## Get SQL server connection information
 
@@ -50,7 +52,7 @@ Get the connection information you need to connect to the Azure SQL database. Yo
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-2. Navigate to the **SQL databases**  or **SQL managed instances** page.
+2. Select **SQL databases** or open the **SQL managed instances** page.
 
 3. On the **Overview** page, review the fully qualified server name next to **Server name** for a single database or the fully qualified server name next to **Host** for a managed instance. To copy the server name or host name, hover over it and select the **Copy** icon. 
 

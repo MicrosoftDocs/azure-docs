@@ -1,13 +1,8 @@
 ---
-title: Tutorial - Build container images in the cloud - Azure Container Registry Tasks
+title: Tutorial - Quick container image build
 description: In this tutorial, you learn how to build a Docker container image in Azure with Azure Container Registry Tasks (ACR Tasks), then deploy it to Azure Container Instances.
-services: container-registry
-author: dlepow
-
-ms.service: container-registry
 ms.topic: tutorial
 ms.date: 09/24/2018
-ms.author: danlep
 ms.custom: "seodec18, mvc"
 # Customer intent: As a developer or devops engineer, I want to quickly build
 # container images in Azure, without having to install dependencies like Docker
@@ -29,7 +24,7 @@ In this tutorial, part one of a series:
 > * Build a container image in Azure
 > * Deploy a container to Azure Container Instances
 
-In subsequent tutorials, you learn to use ACR Tasks for automated container image builds on code commit and base image update. ACR Tasks can also run [multi-step tasks](container-registry-tasks-multi-step.md) (currently in preview), using a YAML file to define steps to build, push, and optionally test multiple containers.
+In subsequent tutorials, you learn to use ACR Tasks for automated container image builds on code commit and base image update. ACR Tasks can also run [multi-step tasks](container-registry-tasks-multi-step.md), using a YAML file to define steps to build, push, and optionally test multiple containers.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -55,13 +50,13 @@ Once you've forked the repo, clone your fork and enter the directory containing 
 
 Clone the repo with `git`, replace **\<your-github-username\>** with your GitHub username:
 
-```azurecli-interactive
+```console
 git clone https://github.com/<your-github-username>/acr-build-helloworld-node
 ```
 
 Enter the directory containing the source code:
 
-```azurecli-interactive
+```console
 cd acr-build-helloworld-node
 ```
 
@@ -73,9 +68,11 @@ The commands in this tutorial series are formatted for the Bash shell. If you pr
 
 Now that you've pulled the source code down to your machine, follow these steps to create a container registry and build the container image with ACR Tasks.
 
-To make executing the sample commands easier, the tutorials in this series use shell environment variables. Execute the following command to set the `ACR_NAME` variable. Replace **\<registry-name\>** with a unique name for your new container registry. The registry name must be unique within Azure, and contain 5-50 alphanumeric characters. The other resources you create in the tutorial are based on this name, so you should need to modify only this first variable.
+To make executing the sample commands easier, the tutorials in this series use shell environment variables. Execute the following command to set the `ACR_NAME` variable. Replace **\<registry-name\>** with a unique name for your new container registry. The registry name must be unique within Azure, contain only lower case letters, and contain 5-50 alphanumeric characters. The other resources you create in the tutorial are based on this name, so you should need to modify only this first variable.
 
-```azurecli-interactive
+[![Embed launch](https://shell.azure.com/images/launchcloudshell.png "Launch Azure Cloud Shell")](https://shell.azure.com)
+
+```console
 ACR_NAME=<registry-name>
 ```
 

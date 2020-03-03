@@ -1,7 +1,7 @@
 ---
-title: "Quickstart: Extract handwritten text - JavaScript"
+title: "Quickstart: Computer Vision 2.0 and 2.1 - Extract printed and handwritten text - REST, JavaScript"
 titleSuffix: "Azure Cognitive Services"
-description: In this quickstart, you extract handwritten text from an image using the Computer Vision API with JavaScript.
+description: In this quickstart, you extract printed and handwritten text from an image using the Computer Vision API with JavaScript.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -9,33 +9,48 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 08/28/2018
+ms.date: 12/05/2019
 ms.author: pafarley
 ms.custom: seodec18
 ---
-# Quickstart: Extract handwritten text using the REST API and JavaScript in Computer Vision
+# Quickstart: Extract printed and handwritten text using the Computer Vision 2.0 and 2.1 REST API and JavaScript
 
-In this quickstart, you extract handwritten text from an image by using Computer Vision's REST API. With the [Recognize Text](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) and the [Get Recognize Text Operation Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2cf1154055056008f201) methods, you can detect handwritten text in an image, then extract recognized characters into a machine-usable character stream.
+In this quickstart, you will extract printed and/or handwritten text from an image using the Computer Vision REST API. With the [Batch Read](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) and [Read Operation Result](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) methods, you can detect text in an image and extract recognized characters into a machine-readable character stream. The API will determine which recognition model to use for each line of text, so it supports images with both printed and handwritten text.
+
+Compared to Computer Vision 2.0 and 2.1, the Computer Vision 3.0 Public Preview provides:
+
+* even better accuracy
+* a changed output format
+* confidence score for words
+* support of both Spanish and English languages with the additional language parameter
+
+#### [Version 2](#tab/version-2)
 
 > [!IMPORTANT]
-> Unlike the [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) method, the [Recognize Text](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) method runs asynchronously. This method does not return any information in the body of a successful response. Instead, the Recognize Text method returns a URI in the value of the `Operation-Content` response header field. You can then call this URI, which represents the [Get Recognize Text Operation Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2cf1154055056008f201) method, to both check the status and return the results of the Recognize Text method call.
+> The [Batch Read](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) method runs asynchronously. This method does not return any information in the body of a successful response. Instead, the Batch Read method returns a URI in the value of the `Operation-Location` response header field. You can then call this URI, which represents the [Read Operation Result](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) API, to both check the status and return the results of the Batch Read method call.
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) before you begin.
+#### [Version 3 (Public preview)](#tab/version-3)
+
+> [!IMPORTANT]
+> The [Batch Read](https://westus2.dev.cognitive.microsoft.com/docs/services/5d98695995feb7853f67d6a6/operations/5d986960601faab4bf452005) method runs asynchronously. This method does not return any information in the body of a successful response. Instead, the Batch Read method returns a URI in the value of the `Operation-Location` response header field. You can then call this URI, which represents the [Read Operation Result](https://westus2.dev.cognitive.microsoft.com/docs/services/5d98695995feb7853f67d6a6/operations/5d9869604be85dee480c8750) API, to both check the status and return the results of the Batch Read method call.
+
+---
 
 ## Prerequisites
 
-You must have a subscription key for Computer Vision. To get a subscription key, see [Obtaining Subscription Keys](../Vision-API-How-to-Topics/HowToSubscribe.md).
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) before you begin.
+
+You must have a subscription key for Computer Vision. You can get a free trial key from [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Or, follow the instructions in [Create a Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) to subscribe to Computer Vision and get your key. Then, [create environment variables](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for the key and service endpoint string, named `COMPUTER_VISION_SUBSCRIPTION_KEY` and `COMPUTER_VISION_ENDPOINT`, respectively.
 
 ## Create and run the sample
+
+#### [Version 2](#tab/version-2)
 
 To create and run the sample, do the following steps:
 
 1. Copy the following code into a text editor.
-1. Make the following changes in code where needed:
-    1. Replace the value of `subscriptionKey` with your subscription key.
-    1. Replace the value of `uriBase` with the endpoint URL for the [Recognize Text](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) method from the Azure region where you obtained your subscription keys, if necessary.
-    1. Optionally, replace the value of the `value` attribute for the `inputImage` control with the URL of a different image from which you want to extract handwritten text.
-1. Save the code as a file with an `.html` extension. For example, `get-handwriting.html`.
+1. Optionally, replace the value of the `value` attribute for the `inputImage` control with the URL of a different image from which you want to extract text.
+1. Save the code as a file with an `.html` extension. For example, `get-text.html`.
 1. Open a browser window.
 1. In the browser, drag and drop the file into the browser window.
 1. When the webpage is displayed in the browser, choose the **Read image** button.
@@ -44,8 +59,8 @@ To create and run the sample, do the following steps:
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Handwriting Sample</title>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+    <title>Text Recognition Sample</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
 </head>
 <body>
 
@@ -55,24 +70,11 @@ To create and run the sample, do the following steps:
         // *** Update or verify the following values. ***
         // **********************************************
 
-        // Replace <Subscription Key> with your valid subscription key.
-        var subscriptionKey = "<Subscription Key>";
-
-        // You must use the same Azure region in your REST API method as you used to
-        // get your subscription keys. For example, if you got your subscription keys
-        // from the West US region, replace "westcentralus" in the URL
-        // below with "westus".
-        //
-        // Free trial subscription keys are generated in the "westus" region.
-        // If you use a free trial subscription key, you shouldn't need to change
-        // this region.
-        var uriBase =
-            "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/recognizeText";
-
-        // Request parameter.
-        var params = {
-            "mode": "Handwritten",
-        };
+        let subscriptionKey = process.env['COMPUTER_VISION_SUBSCRIPTION_KEY'];
+        let endpoint = process.env['COMPUTER_VISION_ENDPOINT']
+        if (!subscriptionKey) { throw new Error('Set your environment variables for your subscription key and endpoint.'); }
+        
+        var uriBase = endpoint + "vision/v2.1/read/core/asyncBatchAnalyze";
 
         // Display the image.
         var sourceImageUrl = document.getElementById("inputImage").value;
@@ -83,7 +85,7 @@ To create and run the sample, do the following steps:
         //
         // Make the first REST API call to submit the image for processing.
         $.ajax({
-            url: uriBase + "?" + $.param(params),
+            url: uriBase,
 
             // Request headers.
             beforeSend: function(jqXHR){
@@ -99,10 +101,10 @@ To create and run the sample, do the following steps:
 
         .done(function(data, textStatus, jqXHR) {
             // Show progress.
-            $("#responseTextArea").val("Handwritten text submitted. " +
+            $("#responseTextArea").val("Text submitted. " +
                 "Waiting 10 seconds to retrieve the recognized text.");
 
-            // Note: The response may not be immediately available. Handwriting
+            // Note: The response may not be immediately available. Text
             // recognition is an asynchronous operation that can take a variable
             // amount of time depending on the length of the text you want to
             // recognize. You may need to wait or retry the GET operation.
@@ -160,8 +162,8 @@ To create and run the sample, do the following steps:
         });
     };
 </script>
-<h1>Read handwritten image:</h1>
-Enter the URL to an image of handwritten text, then click
+<h1>Read text from image:</h1>
+Enter the URL to an image of text, then click
 the <strong>Read image</strong> button.
 <br><br>
 Image to read:
@@ -186,278 +188,579 @@ Image to read:
 </html>
 ```
 
+#### [Version 3 (Public preview)](#tab/version-3)
+
+To create and run the sample, do the following steps:
+
+1. Copy the following code into a text editor.
+1. Optionally, replace the value of the `value` attribute for the `inputImage` control with the URL of a different image from which you want to extract text.
+1. Save the code as a file with an `.html` extension. For example, `get-text.html`.
+1. Open a browser window.
+1. When the webpage is displayed in the browser, fill the required parameters, and choose the **Read image** button.
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Text Recognition Sample</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+</head>
+<body>
+
+<script type="text/javascript">
+    function processImage() {
+        // **********************************************
+        // *** Update or verify the following values. ***
+        // **********************************************
+
+        let subscriptionKey = document.getElementById("key").value;
+        let endpoint = document.getElementById("endpoint").value;
+        if (!subscriptionKey) { throw new Error('Set your environment variables for your subscription key and endpoint.'); }
+        let language = document.getElementById("language").value;
+        
+        var uriBase = endpoint + "/vision/v3.0-preview/read/analyze";
+
+        // Display the image.
+        var sourceImageUrl = document.getElementById("inputImage").value;
+        document.querySelector("#sourceImage").src = sourceImageUrl;
+
+        const params = {
+            language: language,
+        };
+
+        const searchParams = new URLSearchParams(params);
+
+        // This operation requires two REST API calls. One to submit the image
+        // for processing, the other to retrieve the text found in the image.
+        //
+        // Make the first REST API call to submit the image for processing.
+        $.ajax({
+            url: uriBase + "?" + searchParams.toString(),
+
+            // Request headers.
+            beforeSend: function(jqXHR){
+                jqXHR.setRequestHeader("Content-Type","application/json");
+                jqXHR.setRequestHeader("Ocp-Apim-Subscription-Key", subscriptionKey);
+            },
+
+            type: "POST",
+
+            // Request body.
+            data: JSON.stringify({url: sourceImageUrl}),
+        })
+
+        .done(function(data, textStatus, jqXHR) {
+            // Show progress.
+            $("#responseTextArea").val("Text submitted. " +
+                "Waiting 10 seconds to retrieve the recognized text.");
+
+            // Note: The response may not be immediately available. Text
+            // recognition is an asynchronous operation that can take a variable
+            // amount of time depending on the length of the text you want to
+            // recognize. You may need to wait or retry the GET operation.
+            //
+            // Wait ten seconds before making the second REST API call.
+            setTimeout(function () {
+                // "Operation-Location" in the response contains the URI
+                // to retrieve the recognized text.
+                var operationLocation = jqXHR.getResponseHeader("Operation-Location");
+
+                // Make the second REST API call and get the response.
+                $.ajax({
+                    url: operationLocation,
+
+                    // Request headers.
+                    beforeSend: function(jqXHR){
+                        jqXHR.setRequestHeader("Content-Type","application/json");
+                        jqXHR.setRequestHeader(
+                            "Ocp-Apim-Subscription-Key", subscriptionKey);
+                    },
+
+                    type: "GET",
+                })
+
+                .done(function(data) {
+                    // Show formatted JSON on webpage.
+                    $("#responseTextArea").val(JSON.stringify(data, null, 2));
+                })
+
+                .fail(function(jqXHR, textStatus, errorThrown) {
+                    // Display error message.
+                    var errorString = (errorThrown === "") ? "Error. " :
+                        errorThrown + " (" + jqXHR.status + "): ";
+                    errorString += (jqXHR.responseText === "") ? "" :
+                        (jQuery.parseJSON(jqXHR.responseText).message) ?
+                            jQuery.parseJSON(jqXHR.responseText).message :
+                            jQuery.parseJSON(jqXHR.responseText).error.message;
+                    alert(errorString);
+                });
+            }, 10000);
+        })
+
+        .fail(function(jqXHR, textStatus, errorThrown) {
+            // Put the JSON description into the text area.
+            $("#responseTextArea").val(JSON.stringify(jqXHR, null, 2));
+
+            // Display error message.
+            var errorString = (errorThrown === "") ? "Error. " :
+                errorThrown + " (" + jqXHR.status + "): ";
+            errorString += (jqXHR.responseText === "") ? "" :
+                (jQuery.parseJSON(jqXHR.responseText).message) ?
+                    jQuery.parseJSON(jqXHR.responseText).message :
+                    jQuery.parseJSON(jqXHR.responseText).error.message;
+            alert(errorString);
+        });
+    };
+</script>
+<h1>Read text from image:</h1>
+Enter the URL to an image of text, then click
+the <strong>Read image</strong> button.
+<br><br>
+Endpoint: 
+<input type="text" name="endpoint" id="endpoint" value="" style="width: 300px;"/>
+<div style="margin: 20px;">Example: https://westus2.api.cognitive.microsoft.com</div>
+Subscription Key:    
+<input type="text" name="key" id="key" value="" style="width: 300px;"/>
+<br><br>
+Language: 
+<input type="text" name="language" id="language"
+    value="en" />
+<div style="margin: 20px;">Accepted values are &quot;en&quot; and &quot;es&quot;</div>
+
+<br><br>
+Image to read:
+<input type="text" name="inputImage" id="inputImage"
+    value="https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Cursive_Writing_on_Notebook_paper.jpg/800px-Cursive_Writing_on_Notebook_paper.jpg" />
+<button onclick="processImage()">Read image</button>
+<br><br>
+<div id="wrapper" style="width:1020px; display:table;">
+    <div id="jsonOutput" style="width:600px; display:table-cell;">
+        Response:
+        <br><br>
+        <textarea id="responseTextArea" class="UIInput"
+                  style="width:580px; height:400px;"></textarea>
+    </div>
+    <div id="imageDiv" style="width:420px; display:table-cell;">
+        Source image:
+        <br><br>
+        <img id="sourceImage" width="400" />
+    </div>
+</div>
+</body>
+</html>
+```
+
+---
+
 ## Examine the response
 
 A successful response is returned in JSON. The sample webpage parses and displays a successful response in the browser window, similar to the following example:
 
+#### [Version 2](#tab/version-2)
+
 ```json
 {
   "status": "Succeeded",
-  "recognitionResult": {
-    "lines": [
+  "recognitionResults": [
+    {
+      "page": 1,
+      "clockwiseOrientation": 349.59,
+      "width": 3200,
+      "height": 3200,
+      "unit": "pixel",
+      "lines": [
+        {
+          "boundingBox": [202,618,2047,643,2046,840,200,813],
+          "text": "Our greatest glory is not",
+          "words": [
+            {
+              "boundingBox": [204,627,481,628,481,830,204,829],
+              "text": "Our"
+            },
+            {
+              "boundingBox": [519,628,1057,630,1057,832,518,830],
+              "text": "greatest"
+            },
+            {
+              "boundingBox": [1114,630,1549,631,1548,833,1114,832],
+              "text": "glory"
+            },
+            {
+              "boundingBox": [1586,631,1785,632,1784,834,1586,833],
+              "text": "is"
+            },
+            {
+              "boundingBox": [1822,632,2115,633,2115,835,1822,834],
+              "text": "not"
+            }
+          ]
+        },
+        {
+          "boundingBox": [420,1273,2954,1250,2958,1488,422,1511],
+          "text": "but in rising every time we fall",
+          "words": [
+            {
+              "boundingBox": [423,1269,634,1268,635,1507,424,1508],
+              "text": "but"
+            },
+            {
+              "boundingBox": [667,1268,808,1268,809,1506,668,1507],
+              "text": "in"
+            },
+            {
+              "boundingBox": [874,1267,1289,1265,1290,1504,875,1506],
+              "text": "rising"
+            },
+            {
+              "boundingBox": [1331,1265,1771,1263,1772,1502,1332,1504],
+              "text": "every"
+            },
+            {
+              "boundingBox": [1812, 1263, 2178, 1261, 2179, 1500, 1813, 1502],
+              "text": "time"
+            },
+            {
+              "boundingBox": [2219, 1261, 2510, 1260, 2511, 1498, 2220, 1500],
+              "text": "we"
+            },
+            {
+              "boundingBox": [2551, 1260, 3016, 1258, 3017, 1496, 2552, 1498],
+              "text": "fall"
+            }
+          ]
+        },
+        {
+          "boundingBox": [1612, 903, 2744, 935, 2738, 1139, 1607, 1107],
+          "text": "in never failing ,",
+          "words": [
+            {
+              "boundingBox": [1611, 934, 1707, 933, 1708, 1147, 1613, 1147],
+              "text": "in"
+            },
+            {
+              "boundingBox": [1753, 933, 2132, 930, 2133, 1144, 1754, 1146],
+              "text": "never"
+            },
+            {
+              "boundingBox": [2162, 930, 2673, 927, 2674, 1140, 2164, 1144],
+              "text": "failing"
+            },
+            {
+              "boundingBox": [2703, 926, 2788, 926, 2790, 1139, 2705, 1140],
+              "text": ",",
+              "confidence": "Low"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+```
+
+#### [Version 3 (Public preview)](#tab/version-3)
+
+```json
+{
+  "status": "succeeded",
+  "createdDateTime": "2020-02-11T20:56:33Z",
+  "lastUpdatedDateTime": "2020-02-11T20:56:34Z",
+  "analyzeResult": {
+    "version": "3.0.0",
+    "readResults": [
       {
-        "boundingBox": [
-          2,
-          52,
-          65,
-          46,
-          69,
-          89,
-          7,
-          95
-        ],
-        "text": "dog",
-        "words": [
+        "page": 1,
+        "language": "en",
+        "angle": 0.8206,
+        "width": 800,
+        "height": 154,
+        "unit": "pixel",
+        "lines": [
           {
+            "language": "en",
             "boundingBox": [
-              0,
-              59,
-              63,
-              43,
-              77,
-              86,
-              3,
-              102
-            ],
-            "text": "dog"
-          }
-        ]
-      },
-      {
-        "boundingBox": [
-          6,
-          2,
-          771,
-          13,
-          770,
-          75,
-          5,
-          64
-        ],
-        "text": "The quick brown fox jumps over the lazy",
-        "words": [
-          {
-            "boundingBox": [
-              0,
+              6,
               4,
-              92,
+              774,
+              14,
+              773,
+              61,
               5,
+              49
+            ],
+            "text": "The quick brown fox jumps over the lazy",
+            "words": [
+              {
+                "boundingBox": [
+                  14,
+                  5,
+                  76,
+                  6,
+                  74,
+                  49,
+                  12,
+                  48
+                ],
+                "text": "The",
+                "confidence": 0.83
+              },
+              {
+                "boundingBox": [
+                  84,
+                  6,
+                  182,
+                  7,
+                  180,
+                  51,
+                  82,
+                  49
+                ],
+                "text": "quick",
+                "confidence": 0.762
+              },
+              {
+                "boundingBox": [
+                  191,
+                  7,
+                  312,
+                  9,
+                  309,
+                  54,
+                  189,
+                  51
+                ],
+                "text": "brown",
+                "confidence": 0.67
+              },
+              {
+                "boundingBox": [
+                  320,
+                  9,
+                  382,
+                  10,
+                  379,
+                  55,
+                  317,
+                  54
+                ],
+                "text": "fox",
+                "confidence": 0.849
+              },
+              {
+                "boundingBox": [
+                  390,
+                  10,
+                  497,
+                  11,
+                  493,
+                  57,
+                  387,
+                  55
+                ],
+                "text": "jumps",
+                "confidence": 0.703
+              },
+              {
+                "boundingBox": [
+                  506,
+                  11,
+                  596,
+                  12,
+                  591,
+                  59,
+                  502,
+                  57
+                ],
+                "text": "over",
+                "confidence": 0.799
+              },
+              {
+                "boundingBox": [
+                  604,
+                  12,
+                  666,
+                  13,
+                  661,
+                  60,
+                  600,
+                  59
+                ],
+                "text": "the",
+                "confidence": 0.923
+              },
+              {
+                "boundingBox": [
+                  674,
+                  13,
+                  773,
+                  14,
+                  768,
+                  62,
+                  670,
+                  60
+                ],
+                "text": "lazy",
+                "confidence": 0.863
+              }
+            ]
+          },
+          {
+            "language": "en",
+            "boundingBox": [
+              5,
+              53,
+              79,
+              56,
               77,
-              71,
-              0,
-              71
-            ],
-            "text": "The"
-          },
-          {
-            "boundingBox": [
-              74,
-              4,
-              189,
-              5,
-              174,
-              72,
-              60,
-              71
-            ],
-            "text": "quick"
-          },
-          {
-            "boundingBox": [
-              176,
-              5,
-              321,
-              6,
-              306,
-              73,
-              161,
-              72
-            ],
-            "text": "brown"
-          },
-          {
-            "boundingBox": [
-              308,
-              6,
-              387,
-              6,
-              372,
-              73,
-              293,
-              73
-            ],
-            "text": "fox"
-          },
-          {
-            "boundingBox": [
-              382,
-              6,
-              506,
-              7,
-              491,
-              74,
-              368,
-              73
-            ],
-            "text": "jumps"
-          },
-          {
-            "boundingBox": [
-              492,
-              7,
-              607,
-              8,
-              592,
-              75,
-              478,
-              74
-            ],
-            "text": "over"
-          },
-          {
-            "boundingBox": [
-              589,
-              8,
-              673,
-              8,
-              658,
-              75,
-              575,
-              75
-            ],
-            "text": "the"
-          },
-          {
-            "boundingBox": [
-              660,
-              8,
-              783,
-              9,
-              768,
-              76,
-              645,
-              75
-            ],
-            "text": "lazy"
-          }
-        ]
-      },
-      {
-        "boundingBox": [
-          2,
-          84,
-          783,
-          96,
-          782,
-          154,
-          1,
-          148
-        ],
-        "text": "Pack my box with five dozen liquor jugs",
-        "words": [
-          {
-            "boundingBox": [
-              0,
-              86,
-              94,
-              87,
-              72,
-              151,
-              0,
-              149
-            ],
-            "text": "Pack"
-          },
-          {
-            "boundingBox": [
-              76,
-              87,
-              164,
-              88,
-              142,
-              152,
-              54,
-              150
-            ],
-            "text": "my"
-          },
-          {
-            "boundingBox": [
-              155,
-              88,
-              243,
-              89,
-              222,
-              152,
-              134,
-              151
-            ],
-            "text": "box"
-          },
-          {
-            "boundingBox": [
-              226,
-              89,
-              344,
-              90,
-              323,
-              154,
-              204,
-              152
-            ],
-            "text": "with"
-          },
-          {
-            "boundingBox": [
-              336,
-              90,
-              432,
-              91,
-              411,
-              154,
-              314,
-              154
-            ],
-            "text": "five"
-          },
-          {
-            "boundingBox": [
-              419,
-              91,
-              538,
-              92,
-              516,
-              154,
-              398,
-              154
-            ],
-            "text": "dozen"
-          },
-          {
-            "boundingBox": [
-              547,
-              92,
-              701,
-              94,
-              679,
-              154,
-              525,
-              154
-            ],
-            "text": "liquor"
-          },
-          {
-            "boundingBox": [
-              696,
-              94,
-              800,
               95,
-              780,
-              154,
-              675,
-              154
+              4,
+              92
             ],
-            "text": "jugs"
+            "text": "dog",
+            "words": [
+              {
+                "boundingBox": [
+                  6,
+                  53,
+                  74,
+                  56,
+                  72,
+                  95,
+                  5,
+                  92
+                ],
+                "text": "dog",
+                "confidence": 0.418
+              }
+            ]
+          },
+          {
+            "language": "en",
+            "boundingBox": [
+              0,
+              90,
+              787,
+              95,
+              787,
+              145,
+              0,
+              136
+            ],
+            "text": "Pack my box with five dozen liquor jugs",
+            "words": [
+              {
+                "boundingBox": [
+                  1,
+                  96,
+                  79,
+                  93,
+                  79,
+                  135,
+                  0,
+                  136
+                ],
+                "text": "Pack",
+                "confidence": 0.835
+              },
+              {
+                "boundingBox": [
+                  87,
+                  93,
+                  151,
+                  92,
+                  151,
+                  135,
+                  87,
+                  135
+                ],
+                "text": "my",
+                "confidence": 0.88
+              },
+              {
+                "boundingBox": [
+                  162,
+                  92,
+                  226,
+                  91,
+                  225,
+                  135,
+                  161,
+                  135
+                ],
+                "text": "box",
+                "confidence": 0.301
+              },
+              {
+                "boundingBox": [
+                  234,
+                  91,
+                  335,
+                  90,
+                  335,
+                  135,
+                  233,
+                  135
+                ],
+                "text": "with",
+                "confidence": 0.959
+              },
+              {
+                "boundingBox": [
+                  346,
+                  91,
+                  418,
+                  91,
+                  417,
+                  136,
+                  345,
+                  135
+                ],
+                "text": "five",
+                "confidence": 0.489
+              },
+              {
+                "boundingBox": [
+                  426,
+                  91,
+                  527,
+                  93,
+                  527,
+                  138,
+                  425,
+                  136
+                ],
+                "text": "dozen",
+                "confidence": 0.727
+              },
+              {
+                "boundingBox": [
+                  554,
+                  94,
+                  687,
+                  98,
+                  687,
+                  143,
+                  553,
+                  139
+                ],
+                "text": "liquor",
+                "confidence": 0.377
+              },
+              {
+                "boundingBox": [
+                  701,
+                  99,
+                  787,
+                  103,
+                  787,
+                  146,
+                  700,
+                  143
+                ],
+                "text": "jugs",
+                "confidence": 0.693
+              }
+            ]
           }
         ]
       }
@@ -466,9 +769,7 @@ A successful response is returned in JSON. The sample webpage parses and display
 }
 ```
 
-## Clean up resources
-
-When no longer needed, delete the file.
+---
 
 ## Next steps
 

@@ -6,7 +6,7 @@ services: networking
 author: rambk
 manager: tracsman
 
-ms.service: expressroute,vpn-gateway,virtual-network
+ms.service: virtual-network
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 10/18/2018
@@ -24,13 +24,13 @@ Control plane analysis essentially examines routes that are exchanged between ne
 
 The following figure illustrates the network from the perspective of a hub virtual network (VNet) and a spoke VNet (highlighted in blue). The figure also shows the autonomous system number (ASN) of different networks and routes that are exchanged between different networks: 
 
-[![1]][1]
+![1][1]
 
 The ASN of the VNet's Azure ExpressRoute gateway is different from the ASN of Microsoft Enterprise Edge Routers (MSEEs). An ExpressRoute gateway uses a private ASN (a value of **65515**) and MSEEs use public ASN (a value of **12076**) globally. When you configure ExpressRoute peering, because MSEE is the peer, you use **12076** as the peer ASN. On the Azure side, MSEE establishes eBGP peering with the ExpressRoute gateway. The dual eBGP peering that the MSEE establishes for each ExpressRoute peering is transparent at the control plane level. Therefore, when you view an ExpressRoute route table, you see the VNet’s ExpressRoute gateway ASN for the VNet’s prefixes. 
 
 The following figure shows a sample ExpressRoute route table: 
 
-[![5]][5]
+![5][5]
 
 Within Azure, the ASN is significant only from a peering perspective. By default, the ASN of both the ExpressRoute gateway and the VPN gateway in Azure VPN Gateway is **65515**.
 
@@ -38,19 +38,19 @@ Within Azure, the ASN is significant only from a peering perspective. By default
 
 Both on-premises Location 1 and the remote VNet are connected to the hub VNet via ExpressRoute 1. They share the same perspective of the topology, as shown in the following diagram:
 
-[![2]][2]
+![2][2]
 
 ## On-premises Location 1 and the branch VNet perspective via a site-to-site VPN
 
 Both on-premises Location 1 and the branch VNet are connected to a hub VNet’s VPN gateway via a site-to-site VPN connection. They share the same perspective of the topology, as shown in the following diagram:
 
-[![3]][3]
+![3][3]
 
 ## On-premises Location 2 perspective
 
 On-premises Location 2 is connected to a hub VNet via private peering of ExpressRoute 2: 
 
-[![4]][4]
+![4][4]
 
 ## ExpressRoute and site-to-site VPN connectivity in tandem
 
@@ -99,7 +99,7 @@ See the [ExpressRoute FAQ][ExR-FAQ] to:
 
 <!--Link References-->
 [Setup]: https://docs.microsoft.com/azure/networking/connectivty-interoperability-preface
-[Configuration]: https://docs.microsoft.com/azure/networking/connectivty-interoperability-config
+[Configuration]: https://docs.microsoft.com/azure/networking/connectivty-interoperability-configuration
 [ExpressRoute]: https://docs.microsoft.com/azure/expressroute/expressroute-introduction
 [VPN]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways
 [VNet]: https://docs.microsoft.com/azure/virtual-network/tutorial-connect-virtual-networks-portal

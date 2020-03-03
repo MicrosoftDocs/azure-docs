@@ -7,7 +7,7 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: conceptual
 ms.custom: mvc
-ms.date: 10/25/2018
+ms.date: 03/18/2019
 ms.author: troyhop
 
 # As an IT Pro, I need to create advanced custom simulated devices to test my IoT solution.
@@ -483,7 +483,7 @@ function main(context, state) {
 
     // ...
 
-    return state;
+    return updateState;
 }
 ```
 

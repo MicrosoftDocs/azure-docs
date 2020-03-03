@@ -1,9 +1,9 @@
 ---
-title: FAQs and known issues with managed identities for Azure resources
+title: FAQs and known issues with managed identities - Azure AD
 description: Known issues with managed identities for Azure resources.
 services: active-directory
 documentationcenter: 
-author: priyamohanram
+author: MarkusVi
 manager: daveba
 editor: 
 ms.assetid: 2097381a-a7ec-4e3b-b4ff-5d2fb17403b6
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: 
 ms.workload: identity
 ms.date: 12/12/2017
-ms.author: priyamo
+ms.author: markvi
 ms.collection: M365-identity-device-management
 ---
 
@@ -50,17 +50,17 @@ The security boundary of the identity is the resource to which it is attached to
 When using managed identities for Azure resources with VMs, we recommend using the IMDS endpoint. The Azure Instance Metadata Service is a REST Endpoint accessible to all IaaS VMs created via the Azure Resource Manager. 
 
 Some of the benefits of using managed identities for Azure resources over IMDS are:
-    - All Azure IaaS supported operating systems can use managed identities for Azure resources over IMDS.
-    - No longer need to install an extension on your VM to enable managed identities for Azure resources. 
-    - The certificates used by managed identities for Azure resources are no longer present in the VM.
-    - The IMDS endpoint is a well-known non-routable IP address, only available from within the VM.
-    - 1000 user-assigned managed identities can be assigned to a single VM. 
+- All Azure IaaS supported operating systems can use managed identities for Azure resources over IMDS.
+- No longer need to install an extension on your VM to enable managed identities for Azure resources. 
+- The certificates used by managed identities for Azure resources are no longer present in the VM.
+- The IMDS endpoint is a well-known non-routable IP address, only available from within the VM.
+- 1000 user-assigned managed identities can be assigned to a single VM. 
 
 The managed identities for Azure resources VM extension is still available; however, we are no longer developing new functionality on it. We recommend switching to use the IMDS endpoint. 
 
 Some of the limitations of using the VM extension endpoint are:
-    - Limited support for Linux distributions: CoreOS Stable, CentOS 7.1, Red Hat 7.2, Ubuntu 15.04, Ubuntu 16.04
-    - Only 32 user-assigned managed identities can be assigned to the VM.
+- Limited support for Linux distributions: CoreOS Stable, CentOS 7.1, Red Hat 7.2, Ubuntu 15.04, Ubuntu 16.04
+- Only 32 user-assigned managed identities can be assigned to the VM.
 
 
 Note: The managed identities for Azure resources VM extension will be out of support in January 2019. 
@@ -70,12 +70,17 @@ For more information on Azure Instance Metadata Service, see [IMDS documentation
 ### Will managed identities be recreated automatically if I move a subscription to another directory?
 
 No. If you move a subscription to another directory, you will have to manually re-create them and grant Azure RBAC role assignments again.
-    - For system assigned managed identities: disable and re-enable. 
-    - For user assigned managed identities: delete, re-create and attach them again to the necessary resources (e.g. virtual machines)
+- For system assigned managed identities: disable and re-enable. 
+- For user assigned managed identities: delete, re-create and attach them again to the necessary resources (e.g. virtual machines)
 
 ### Can I use a managed identity to access a resource in a different directory/tenant?
 
 No. Managed identities do not currently support cross-directory scenarios. 
+
+### What Azure RBAC permissions are required to managed identity on a resource? 
+
+- System-assigned managed identity: You need write permissions over the resource. For example, for virtual machines you need Microsoft.Compute/virtualMachines/write. This action is included in resource specific built-in roles like [Virtual Machine Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#virtual-machine-contributor).
+- User-assigned managed identity: You need write permissions over the resource. For example, for virtual machines you need Microsoft.Compute/virtualMachines/write. In addition to [Managed Identity Operator](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#managed-identity-operator) role assignment over the managed identity.
 
 ### How do you restart the managed identities for Azure resources extension?
 On Windows and certain versions of Linux, if the extension stops, the following cmdlet may be used to manually restart it:

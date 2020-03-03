@@ -4,20 +4,17 @@
   items:
   - name: What is authentication?
     href: overview-authentication.md
-- name: Quickstart
-  items:
-  - name: Configure password reset
-    href: quickstart-sspr.md
 - name: Tutorials
+  expanded: true
   items:
-  - name: 1 Enable MFA for Applications
-    href: tutorial-mfa-applications.md
-  - name: 2 Enable a SSPR pilot
-    href: tutorial-sspr-pilot.md
-  - name: Enable SSPR on-premises integration
-    href: tutorial-enable-writeback.md
-  - name: Enable Windows 10 password reset
-    href: tutorial-sspr-windows.md
+  - name: Enable self-service password reset
+    href: tutorial-enable-sspr.md
+  - name: Enable Azure Multi-Factor Authentication
+    href: tutorial-enable-azure-mfa.md
+  - name: Enable password writeback to on-premises
+    href: tutorial-enable-sspr-writeback.md
+  - name: Configure custom banned password lists
+    href: tutorial-configure-custom-password-protection.md
   - name: Integrate Azure Identity Protection
     href: tutorial-risk-based-sspr-mfa.md
 - name: Concepts
@@ -25,7 +22,9 @@
   items:
   - name: Authentication methods
     href: concept-authentication-methods.md
-  - name: Combined registration
+  - name: Passwordless authentication
+    href: concept-authentication-passwordless.md
+  - name: Security information registration
     href: concept-registration-mfa-sspr-combined.md
   - name: Password reset
     items:
@@ -43,16 +42,16 @@
     items:
     - name: How MFA works
       href: concept-mfa-howitworks.md
-    - name: What version is right?
-      href: concept-mfa-whichversion.md
     - name: License your users
       href: concept-mfa-licensing.md
     - name: Manage an Auth Provider
       href: concept-mfa-authprovider.md
     - name: Security guidance
       href: multi-factor-authentication-security-best-practices.md
+    - name: Data residency
+      href: concept-mfa-data-residency.md
     - name: MFA for Office 365
-      href: https://support.office.com/article/Plan-for-multi-factor-authentication-for-Office-365-Deployments-043807b2-21db-4d5c-b430-c8a6dee0e6ba
+      href: https://docs.microsoft.com/office365/admin/security-and-compliance/set-up-multi-factor-authentication?view=o365-worldwide
     - name: MFA FAQ
       href: multi-factor-authentication-faq.md
   - name: Azure AD password protection
@@ -67,17 +66,15 @@
   items:
   - name: Self-service password reset
     items:
-    - name: Deploy self-service password reset
+    - name: Deployment guide
       href: howto-sspr-deployment.md
     - name: Pre-register authentication data
       href: howto-sspr-authenticationdata.md
-    - name: Enable password writeback
-      href: howto-sspr-writeback.md
-    - name: SSPR for Windows 7, 8, and 8.1
-      href: howto-sspr-windows-7-8.md
+    - name: SSPR for Windows clients
+      href: howto-sspr-windows.md
   - name: Cloud-based MFA
     items:
-    - name: Deploy cloud-based MFA
+    - name: Deployment guide
       href: howto-mfa-getstarted.md
     - name: Per user MFA
       href: howto-mfa-userstates.md
@@ -100,12 +97,12 @@
       - name: Advanced configuration for NPS extension
         href: howto-mfa-nps-extension-advanced.md
       - name: Azure VPN and Azure MFA
-        href: ../../vpn-gateway/vpn-gateway-radiuis-mfa-nsp.md
+        href: ../../vpn-gateway/vpn-gateway-radius-mfa-nsp.md
       - name: Remote Desktop Gateway
         href: howto-mfa-nps-extension-rdg.md
       - name: VPN
         href: howto-mfa-nps-extension-vpn.md
-  - name: Combined registration
+  - name: Security info registration
     items:
     - name: Enable combined registration
       href: howto-registration-mfa-sspr-combined.md
@@ -113,8 +110,6 @@
       href: howto-registration-mfa-sspr-combined-troubleshoot.md
   - name: Azure AD password protection
     items:
-    - name: Configure the banned password list
-      href: howto-password-ban-bad-configure.md
     - name: On-premises integration
       items:
       - name: Deploy Azure AD password protection
@@ -131,10 +126,22 @@
         href: howto-password-ban-bad-on-premises-agent-versions.md
   - name: Azure AD smart lockout
     href: howto-password-smart-lockout.md
-  - name: Windows Hello for Business
-    href: https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification
-  - name: Password-less phone sign-in
-    href: howto-authentication-phone-sign-in.md
+  - name: Passwordless
+    items: 
+      - name: Deploying passwordless
+        href: howto-authentication-passwordless-deployment.md
+      - name: Passwordless FIDO2 security keys
+        items:
+          - name: Enable FIDO2 security keys for your tenant
+            href: howto-authentication-passwordless-security-key.md
+          - name: Sign in to Windows 10 devices
+            href: howto-authentication-passwordless-security-key-windows.md
+          - name: SSO to on-premises resources
+            href: howto-authentication-passwordless-security-key-on-premises.md
+      - name: Passwordless phone sign-in
+        href: howto-authentication-passwordless-phone.md
+      - name: Windows Hello for Business
+        href: https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification
   - name: Certificate-based authentication
     items:
     - name: Get started with certificate auth
@@ -144,12 +151,10 @@
         href: active-directory-certificate-based-authentication-android.md
       - name: CBA on iOS Devices
         href: active-directory-certificate-based-authentication-ios.md
-  - name: Develop
-    items:
-    - name: Build MFA into custom apps
-      href: howto-mfa-sdk.md
   - name: Reporting
     items:
+    - name: Usage and insights
+      href: howto-authentication-methods-usage-insights.md
     - name: SSPR Reports
       href: howto-sspr-reporting.md
     - name: MFA Reports

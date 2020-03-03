@@ -1,24 +1,15 @@
 ---
-title: Import and export data with projects with Azure Notebooks
-description: How to bring data into an Azure Notebooks project from external sources, and how to export data from a project.
-services: app-service
-documentationcenter: ''
-author: kraigb
-manager: douge
-
-ms.assetid: 586b423b-6668-4bdd-9592-4c237d7458fb
-ms.service: notebooks
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+title: Import and export data with projects with Azure Notebooks Preview
+description: Learn how to bring data into an Azure Notebooks Preview project from external sources, and how to export data from a project.
+ms.topic: how-to
 ms.date: 12/04/2018
-ms.author: kraigb
 ---
 
-# Work with data files in Azure Notebook projects
+# Work with data files in Azure Notebooks Preview projects
 
 Data is the lifeblood of many Jupyter notebooks, especially notebooks used for data science. With Azure Notebooks, you can easily  import from a variety of sources into a project, and then use that data from notebooks. You can also have notebooks generate data that's stored in the project, which you can then download for use elsewhere.
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 The **Data** menu within a running notebook also provides **Upload** and **Download** commands, which work with files in the project as well as temporary files for the current notebook session.
 
@@ -38,13 +29,13 @@ You can bring files into a project from the project dashboard, or within a runni
 
 1. Select the **Upload** command, then either **From URL** or **From computer** and project the necessary details for the data you want to import:
 
-    - **From URL**: Enter the source address in the **File URL** field and the filename to assign to the notebook in your project in the **File Name** field. Then select **+ Add File** to add the URL to the upload list. Repeat the process for any additional URLs, then select **Done**.
+   - **From URL**: Enter the source address in the **File URL** field and the filename to assign to the notebook in your project in the **File Name** field. Then select **+ Add File** to add the URL to the upload list. Repeat the process for any additional URLs, then select **Done**.
 
-    ![Upload from URL popup](media/quickstarts/upload-from-url-popup.png)
+     ![Upload from URL popup](media/quickstarts/upload-from-url-popup.png)
 
-    - **From computer**: Drag and drop files into the popup, or select **Choose Files**, then browse to and select the data files you want to import. You can drop or choose any number of files, of any type and format because it's up to the code in the notebook to open the file and parse its data.
+   - **From computer**: Drag and drop files into the popup, or select **Choose Files**, then browse to and select the data files you want to import. You can drop or choose any number of files, of any type and format because it's up to the code in the notebook to open the file and parse its data.
 
-    ![Upload from computer popup](media/quickstarts/upload-from-computer-popup.png)
+     ![Upload from computer popup](media/quickstarts/upload-from-computer-popup.png)
 
 1. Once imported, files appear on the project dashboard and can be accessed within notebook code using relative pathnames to the containing folder.
 

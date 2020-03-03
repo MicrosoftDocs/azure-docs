@@ -1,17 +1,17 @@
 ---
-title: Integrate Azure DNS with your Azure resources
-description: Learn how to use Azure DNS along to provide DNS for your Azure resources.
+title: Integrate Azure DNS with your Azure resources - Azure DNS
+description: In this article, learn how to use Azure DNS along to provide DNS for your Azure resources.
 services: dns
-author: vhorne
+author: rohinkoul
 ms.service: dns
 ms.topic: article
-ms.date: 1/18/2019
-ms.author: victorh
+ms.date: 7/13/2019
+ms.author: rohink
 ---
 
 # Use Azure DNS to provide custom domain settings for an Azure service
 
-Azure DNS provides DNS for a custom domain for any of your Azure resources that support custom domains or that have a fully qualified domain name (FQDN). An example is you have an Azure web app and you want your users to access it by either using contoso.com, or www.contoso.com as an FQDN. This article walks you through configuring your Azure service with Azure DNS for using custom domains.
+Azure DNS provides DNS for a custom domain for any of your Azure resources that support custom domains or that have a fully qualified domain name (FQDN). An example is you have an Azure web app and you want your users to access it by either using contoso.com, or www\.contoso.com as an FQDN. This article walks you through configuring your Azure service with Azure DNS for using custom domains.
 
 ## Prerequisites
 
@@ -49,7 +49,7 @@ On the **Add hostname** blade, enter the CNAME record in the **hostname** text f
 
 ## Public IP address
 
-To configure a custom domain for services that use a public IP address resource such as Application Gateway, Load Balancer, Cloud Service, Resource Manager VMs, and, Classic VMs, a CNAME record used.
+To configure a custom domain for services that use a public IP address resource such as Application Gateway, Load Balancer, Cloud Service, Resource Manager VMs, and, Classic VMs, an A record is used.
 
 Navigate to **Networking** > **Public IP address**, select the Public IP resource and click **Configuration**. Notate the IP address shown.
 
@@ -64,7 +64,7 @@ Navigate to your DNS Zone and click **+ Record set**. Fill out the following inf
 |Type     | A        | Use an A record as the resource is an IP address.        |
 |TTL     | 1        | 1 is used for 1 hour        |
 |TTL unit     | Hours        | Hours are used as the time measurement         |
-|IP Address     | <your ip address>       | The public IP address.|
+|IP Address     | `<your ip address>`       | The public IP address.|
 
 ![create an A record](./media/dns-custom-domain/arecord.png)
 
@@ -105,6 +105,8 @@ Once the process is complete, run **nslookup** to validate name resolution is wo
 ![figure 1](./media/dns-custom-domain/finalnslookup.png)
 
 To learn more about mapping a custom domain to App Service, visit [Map an existing custom DNS name to Azure Web Apps](../app-service/app-service-web-tutorial-custom-domain.md?toc=%dns%2ftoc.json).
+
+To learn how to migrate an active DNS name, see [Migrate an active DNS name to Azure App Service](../app-service/manage-custom-dns-migrate-domain.md).
 
 If you need to purchase a custom domain, visit [Buy a custom domain name for Azure Web Apps](../app-service/manage-custom-dns-buy-domain.md) to learn more about App Service domains.
 

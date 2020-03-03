@@ -1,16 +1,16 @@
 ---
-title: "Quickstart: Perform a news search - Bing News Search SDK for C#"
+title: "Quickstart: Perform a news search using the SDK for C# - Bing News Search"
 titleSuffix: Azure Cognitive Services
-description: Use this quickstart to search for news using the Bing News Search SDK for Python, and process the response.
+description: Use this quickstart to search for news using the Bing News Search SDK for C#, and process the response.
 services: cognitive-services
-author: mikedodaro
+author: aahill
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: quickstart
-ms.date: 01/10/2019
-ms.author: v-gedod
+ms.date: 12/12/2019
+ms.author: aahi
 ms.custom: seodec2018
 ---
 
@@ -20,9 +20,9 @@ Use this quickstart to begin searching for news with the Bing News Search SDK fo
 
 ## Prerequisites
 
-* Any edition of [Visual Studio 2017](https://www.visualstudio.com/downloads/).
+* Any edition of [Visual Studio 2017 or later](https://www.visualstudio.com/downloads/).
 * The [Json.NET](https://www.newtonsoft.com/json) framework, available as a NuGet package.
-* If you are using Linux/MacOS, this application can be run using [Mono](http://www.mono-project.com/).
+* If you are using Linux/MacOS, this application can be run using [Mono](https://www.mono-project.com/).
 
 * The [Bing News Search SDK NuGet package](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.NewsSearch/1.2.0). Installing this package also installs the following:
     * Microsoft.Rest.ClientRuntime
@@ -33,11 +33,9 @@ To set up a console application using the Bing News Search SDK, browse to the `M
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../includes/cognitive-services-bing-news-search-signup-requirements.md)]
 
-See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
-
 ## Create and initialize a project
 
-1. create a new C# console solution in Visual Studio. Then add the following into the main code file.
+1. Create a new C# console solution in Visual Studio. Then add the following into the main code file.
     
     ```csharp
     using System;
@@ -87,4 +85,4 @@ See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.
 ## Next steps
 
 > [!div class="nextstepaction"]
-[Create a single-page web app](tutorial-bing-news-search-single-page-app.md)
+> [Create a single-page web app](tutorial-bing-news-search-single-page-app.md)

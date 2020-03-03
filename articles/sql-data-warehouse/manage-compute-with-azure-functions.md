@@ -1,30 +1,31 @@
 ---
-title: 'Tutorial: Manage compute with Azure Functions in Azure SQL Data Warehouse | Microsoft Docs'
-description: How to use Azure functions to manage the compute of your data warehouse.
+title: 'Tutorial: Manage compute with Azure Functions'
+description: How to use Azure functions to manage the compute of your SQL pool in Azure Synapse Analytics.
 services: sql-data-warehouse
-author: KavithaJonnakuti
+author: julieMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: consume
 ms.date: 04/27/2018
-ms.author: kavithaj
+ms.author: jrasnick
 ms.reviewer: igorstan
+ms.custom: seo-lt-2019, azure-synapse
 ---
 
-# Use Azure Functions to manage compute resources in Azure SQL Data Warehouse
+# Use Azure Functions to manage compute resources in Azure Synapse Analytics SQL pool
 
-This tutorial uses Azure Functions to manage compute resources for a data warehouse in Azure SQL Data Warehouse.
+This tutorial uses Azure Functions to manage compute resources for a SQL pool in Azure Synapse Analytics.
 
-In order to use Azure Function App with SQL Data Warehouse, you must create a [Service Principal Account](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal) with contributor access under the same subscription as your data warehouse instance. 
+In order to use Azure Function App with SQL pool, you must create a [Service Principal Account](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal) with contributor access under the same subscription as your SQL pool instance. 
 
 ## Deploy timer-based scaling with an Azure Resource Manager template
 
 To deploy the template, you need the following information:
 
-- Name of the resource group your SQL DW instance is in
-- Name of the logical server your SQL DW instance is in
-- Name of your SQL DW instance
+- Name of the resource group your SQL pool instance is in
+- Name of the logical server your SQL pool instance is in
+- Name of your SQL pool instance
 - Tenant ID (Directory ID) of your Azure Active Directory
 - Subscription ID 
 - Service Principal Application ID
@@ -52,14 +53,14 @@ Once you've deployed the template, you should find three new resources: a free A
 
 4. In the schedule area, add the time the CRON expression you would like to reflect how often you want the SQL Data Warehouse to be scaled up. 
 
-  ![Change function schedule](media/manage-compute-with-azure-functions/change-schedule.png)
+   ![Change function schedule](media/manage-compute-with-azure-functions/change-schedule.png)
 
-  The value of `schedule` is a [CRON expression](http://en.wikipedia.org/wiki/Cron#CRON_expression) that includes these six fields: 
-  ```json
-  {second} {minute} {hour} {day} {month} {day-of-week}
-  ```
+   The value of `schedule` is a [CRON expression](https://en.wikipedia.org/wiki/Cron#CRON_expression) that includes these six fields: 
+   ```json
+   {second} {minute} {hour} {day} {month} {day-of-week}
+   ```
 
-  For example, *"0 30 9 * * 1-5"* would reflect a trigger every weekday at  9:30am. For more information, visit Azure Functions [schedule examples][schedule examples].
+   For example, *"0 30 9 * * 1-5"* would reflect a trigger every weekday at  9:30am. For more information, visit Azure Functions [schedule examples][schedule examples].
 
 
 ## Change the time of the scale operation
@@ -113,17 +114,17 @@ Currently, there are only two scaling functions included within the template. Wi
 5. Set your operation variable to the desired behavior as follows:
 
    ```javascript
-   // Resume the data warehouse instance
+   // Resume the SQL pool instance
    var operation = {
        "operationType": "ResumeDw"
    }
 
-   // Pause the data warehouse instance
+   // Pause the SQL pool instance
    var operation = {
        "operationType": "PauseDw"
    }
 
-   // Scale the data warehouse instance to DW600
+   // Scale the SQL pool instance to DW600
    var operation = {
        "operationType": "ScaleDw",
        "ServiceLevelObjective": "DW600"
@@ -171,7 +172,7 @@ Scale up at 8am to DW1000 , scale down once to DW600 at 4pm on the weekdays. Pau
 
 Learn more about [timer trigger](../azure-functions/functions-create-scheduled-function.md) Azure functions.
 
-Checkout the SQL Data Warehouse [samples repository](https://github.com/Microsoft/sql-data-warehouse-samples).
+Checkout the SQL pool [samples repository](https://github.com/Microsoft/sql-data-warehouse-samples).
 
 
 

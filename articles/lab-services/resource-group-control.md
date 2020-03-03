@@ -11,7 +11,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/15/2019
+ms.date: 06/03/2019
 ms.author: spelluru
 
 ---
@@ -27,25 +27,27 @@ As a lab owner, you can configure your lab virtual machines to be created in a s
 
 With this feature, you can use a script to specify a new or existing resource group within your Azure subscription for all your lab VMs. Currently, Azure DevTest Labs supports this feature through an API.
 
-## API to configure a resource group for lab VMs
-You have the following options as a lab owner when using this API:
+> [!NOTE]
+> All subscription limits apply when you create labs in DevTest Labs. Think of a lab as any other resource in your subscription. In case of resource groups, the limit is [980 resource groups per subscription](../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits). 
 
-- Choose the **lab’s resource group** for all virtual machines.
-- Choose an **existing resource group** other than the lab's resource group for all virtual machines.
-- Enter a **new resource group** name for all virtual machines.
-- Continue using the existing behavior, in which a resource group is created for each VM in the lab.
- 
-This setting applies to new virtual machines created in the lab. The older VMs in your lab that were created in their own resource groups remain unaffected. Environments that are created in your lab continue to remain in their own resource groups.
+## Use Azure portal
+Follow these steps to specify a resource group for all VMs created in the lab. 
 
-How to use this API:
-- Use API version **2018_10_15_preview**.
-- If you specify a new resource group, ensure that you have **write permissions on resource groups** in your subscription. If you lack write permissions, creating new virtual machines in the specified resource group will fail.
-- While using the API, pass in the **full resource group ID**. For example: `/subscriptions/<SubscriptionID>/resourceGroups/<ResourceGroupName>`. Ensure that the resource group is in the same subscription as the lab. 
+1. Sign in to the [Azure portal](https://portal.azure.com).
+2. Select **All Services** on the left navigational menu. 
+3. Select **DevTest Labs** from the list.
+4. From the list of labs, select your **lab**.  
+5. Select **Configuration and policies** in the **Settings** section on the left menu. 
+6. Select **Lab settings** on the left menu. 
+7. Select **All virtual machines in one resource group**. 
+8. Select an existing resource group in the drop-down list (or) select **Create new**, enter a **name** for the resource group, and select **OK**. 
+
+    ![Select the resource group for all lab VMs](./media/resource-group-control/select-resource-group.png)
 
 ## Use PowerShell 
 The following example shows how to use a PowerShell script to create all lab virtual machines in a new resource group.
 
-```PowerShell
+```powershell
 [CmdletBinding()]
 Param(
     $subId,
@@ -69,7 +71,7 @@ az resource update -g $labRg -n $labName --resource-type "Microsoft.DevTestLab/l
 
 Invoke the script by using the following command. ResourceGroup.ps1 is the file that contains the preceding script:
 
-```PowerShell
+```powershell
 .\ResourceGroup.ps1 -subId <subscriptionID> -labRg <labRGNAme> -labName <LanName> -vmRg <RGName> 
 ```
 
@@ -94,6 +96,22 @@ If you're using an Azure Resource Manager template to create a lab, use the **vm
             "dependsOn": []
         },
 ```
+
+
+## API to configure a resource group for lab VMs
+You have the following options as a lab owner when using this API:
+
+- Choose the **lab’s resource group** for all virtual machines.
+- Choose an **existing resource group** other than the lab's resource group for all virtual machines.
+- Enter a **new resource group** name for all virtual machines.
+- Continue using the existing behavior, in which a resource group is created for each VM in the lab.
+ 
+This setting applies to new virtual machines created in the lab. The older VMs in your lab that were created in their own resource groups remain unaffected. Environments that are created in your lab continue to remain in their own resource groups.
+
+How to use this API:
+- Use API version **2018_10_15_preview**.
+- If you specify a new resource group, ensure that you have **write permissions on resource groups** in your subscription. If you lack write permissions, creating new virtual machines in the specified resource group will fail.
+- While using the API, pass in the **full resource group ID**. For example: `/subscriptions/<SubscriptionID>/resourceGroups/<ResourceGroupName>`. Ensure that the resource group is in the same subscription as the lab. 
 
 
 ## Next steps

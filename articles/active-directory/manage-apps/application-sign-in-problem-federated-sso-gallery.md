@@ -1,10 +1,10 @@
 ---
-title: Problems signing in to a gallery application configured for federated single sign-on | Microsoft Docs
+title: Problems signing in to federated single sign-on gallery app | Microsoft Docs
 description: Guidance for the specific errors when signing into an application you have configured for SAML-based federated single sign-on with Azure AD
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 
 ms.assetid: 
 ms.service: active-directory
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/18/2019
-ms.author: celested
+ms.author: mimart
 ms.reviewer: luleon, asteen
 
 ms.collection: M365-identity-device-management
@@ -25,12 +25,12 @@ ms.collection: M365-identity-device-management
 To troubleshoot the sign-in issues below, we recommend you follow these suggestion to get better diagnosis and automate the resolution steps:
 
 - Install the [My Apps Secure Browser Extension](access-panel-extension-problem-installing.md) to help Azure Active Directory (Azure AD) to provide better diagnosis and resolutions when using the testing experience in the Azure portal.
-- Reproduce the error using the testing experience in the app configuration page in the Azure portal. Learn more on [Debug SAML-based single sign-on applications](../develop/howto-v1-debug-saml-sso-issues.md)
+- Reproduce the error using the testing experience in the app configuration page in the Azure portal. Learn more on [Debug SAML-based single sign-on applications](../azuread-dev/howto-v1-debug-saml-sso-issues.md)
 
 
 ## Application not found in directory
 
-*Error AADSTS70001: Application with Identifier ‘https://contoso.com’ was not found in the directory*.
+*Error AADSTS70001: Application with Identifier 'https:\//contoso.com' was not found in the directory*.
 
 **Possible cause**
 
@@ -38,7 +38,7 @@ The `Issuer` attribute sent from the application to Azure AD in the SAML request
 
 **Resolution**
 
-Ensure that the `Issuer` attribute in the SAML request matches the Identifier value configured in Azure AD. If you use the [testing experience](../develop/howto-v1-debug-saml-sso-issues.md) in the Azure portal with the My Apps Secure Browser Extension, you don't need to manually follow these steps.
+Ensure that the `Issuer` attribute in the SAML request matches the Identifier value configured in Azure AD. If you use the [testing experience](../azuread-dev/howto-v1-debug-saml-sso-issues.md) in the Azure portal with the My Apps Secure Browser Extension, you don't need to manually follow these steps.
 
 1.  Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator** or **Co-admin**.
 
@@ -60,7 +60,7 @@ Ensure that the `Issuer` attribute in the SAML request matches the Identifier va
 
 ## The reply address does not match the reply addresses configured for the application
 
-*Error AADSTS50011: The reply address ‘https://contoso.com’ does not match the reply addresses configured for the application*
+*Error AADSTS50011: The reply address 'https:\//contoso.com' does not match the reply addresses configured for the application*
 
 **Possible cause**
 
@@ -68,7 +68,7 @@ The `AssertionConsumerServiceURL` value in the SAML request doesn't match the Re
 
 **Resolution**
 
-Ensure that the `AssertionConsumerServiceURL` value in the SAML request matches the Reply URL value configured in Azure AD. If you use the [testing experience](../develop/howto-v1-debug-saml-sso-issues.md) in the Azure portal with the My Apps Secure Browser Extension, you don't need to manually follow these steps.
+Ensure that the `AssertionConsumerServiceURL` value in the SAML request matches the Reply URL value configured in Azure AD. If you use the [testing experience](../azuread-dev/howto-v1-debug-saml-sso-issues.md) in the Azure portal with the My Apps Secure Browser Extension, you don't need to manually follow these steps.
 
 1.  Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator** or **Co-admin**.
 
@@ -90,7 +90,7 @@ After you've updated the Reply URL value in Azure AD, and it matches the value s
 
 ## User not assigned a role
 
-*Error AADSTS50105: The signed in user 'brian@contoso.com' is not assigned to a role for the application*.
+*Error AADSTS50105: The signed in user 'brian\@contoso.com' is not assigned to a role for the application*.
 
 **Possible cause**
 
@@ -98,7 +98,7 @@ The user has not been granted access to the application in Azure AD.
 
 **Resolution**
 
-To assign one or more users to an application directly, follow the steps below. If you use the [testing experience](../develop/howto-v1-debug-saml-sso-issues.md) in the Azure portal with the My Apps Secure Browser Extension, you don't need to manually follow these steps.
+To assign one or more users to an application directly, follow the steps below. If you use the [testing experience](../azuread-dev/howto-v1-debug-saml-sso-issues.md) in the Azure portal with the My Apps Secure Browser Extension, you don't need to manually follow these steps.
 
 1.  Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator**.
 
@@ -147,9 +147,9 @@ Azure AD doesn’t support the SAML request sent by the application for single s
 
 **Resolution**
 
-1.  Capture the SAML request. Follow the tutorial [How to debug SAML-based single sign-on to applications in Azure AD](../develop/howto-v1-debug-saml-sso-issues.md) to learn how to capture the SAML request.
+1. Capture the SAML request. Follow the tutorial [How to debug SAML-based single sign-on to applications in Azure AD](../azuread-dev/howto-v1-debug-saml-sso-issues.md) to learn how to capture the SAML request.
 
-1.  Contact the application vendor and share the following info:
+1. Contact the application vendor and share the following info:
 
    -   SAML request
 
@@ -159,7 +159,7 @@ The application vendor should validate that they support the Azure AD SAML imple
 
 ## Misconfigured application
 
-*Error AADSTS650056: Misconfigured application. This could be due to one of the following: The client has not listed any permissions for 'AAD Graph' in the requested permissions in the client's application registration. Or, The admin has not consented in the tenant. Or, Check the application identifier in the request to ensure it matches the configured client application identifier. Please contact your admin to fix the configuration or consent on behalf of the tenant.*.
+*Error AADSTS650056: Misconfigured application. This could be due to one of the following: The client has not listed any permissions in the requested permissions in the client's application registration. Or, The admin has not consented in the tenant. Or, Check the application identifier in the request to ensure it matches the configured client application identifier. Please contact your admin to fix the configuration or consent on behalf of the tenant.*.
 
 **Possible cause**
 
@@ -167,7 +167,7 @@ The `Issuer` attribute sent from the application to Azure AD in the SAML request
 
 **Resolution**
 
-Ensure that the `Issuer` attribute in the SAML request matches the Identifier value configured in Azure AD. If you use the [testing experience](../develop/howto-v1-debug-saml-sso-issues.md) in the Azure portal with the My Apps Secure Browser Extension, you don't need to manually follow these steps:
+Ensure that the `Issuer` attribute in the SAML request matches the Identifier value configured in Azure AD. If you use the [testing experience](../azuread-dev/howto-v1-debug-saml-sso-issues.md) in the Azure portal with the My Apps Secure Browser Extension, you don't need to manually follow these steps:
 
 1.  Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator** or **Co-admin**.
 
@@ -268,4 +268,4 @@ To learn how to customize the SAML attribute claims sent to your application, se
 
 ## Next steps
 
-[How to debug SAML-based single sign-on to applications in Azure AD](../develop/howto-v1-debug-saml-sso-issues.md)
+[How to debug SAML-based single sign-on to applications in Azure AD](../azuread-dev/howto-v1-debug-saml-sso-issues.md)

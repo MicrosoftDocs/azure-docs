@@ -18,12 +18,18 @@
     href: tutorial-phs-backup.md
 - name: Concepts
   items:
+   - name: Hybrid Identity
+     items:
+     - name: Cloud Governed Management for On-Premises Workloads
+       href: cloud-governed-management-for-on-premises.md
+     - name: Four steps to a strong identity foundation
+       href: four-steps.md
    - name: Azure AD Connect and Connect Health
      items:
      - name: What is Azure AD Connect and Connect Health?
        href: whatis-azure-ad-connect.md
      - name: Choose the right authentication
-       href: https://docs.microsoft.com/azure/security/azure-ad-choose-authn
+       href: https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn
      - name: Identity synchronization and duplicate attribute resiliency
        href: how-to-connect-syncservice-duplicate-attribute-resiliency.md
    - name: Password hash synchronization
@@ -64,6 +70,8 @@
      items:
      - name: What is Azure AD Connect Sync?
        href: how-to-connect-sync-whatis.md
+     - name: Azure ADSync service account
+       href: concept-adsync-service-account.md
      - name: Azure AD Connect Sync features
        href: how-to-connect-syncservice-features.md
      - name: What is the Azure AD Connect Sync service manager?
@@ -187,7 +195,7 @@
       href: how-to-connect-configure-ad-ds-connector-account.md
     - name: Change the Azure ADSync service account password
       href: how-to-connect-sync-change-serviceacct-pass.md
-    - name: Change the Azure AD Connector account
+    - name: Change the Azure AD Connector account password
       href: how-to-connect-azureadaccount.md
     - name: Change the AD DS Connector account password
       href: how-to-connect-sync-change-addsacct-pass.md
@@ -212,6 +220,8 @@
       href: how-to-connect-fed-ssl-update.md
     - name: Manage the AD FS trust with Azure AD
       href: how-to-connect-azure-ad-trust.md
+    - name: Configure group claims for applications
+      href: how-to-connect-fed-group-claims.md
     - name: Change hash algorithm for O365 RP
       href: how-to-connect-fed-sha256-guidance.md
     - name: Use a SAML 2.0 server as your Idp
@@ -246,12 +256,14 @@
       href: how-to-connect-health-alert-catalog.md
   - name: Manage Azure AD Connect Sync  
     items:
-    - name: Manage operational task
-      href: how-to-connect-sync-operations.md
+    - name: Staging server and disaster recovery
+      href: how-to-connect-sync-staging-server.md
     - name: Best practices for changing the default configuration
       href: how-to-connect-sync-best-practices-changing-default-configuration.md
     - name: Change the default configuration
       href: how-to-connect-sync-change-the-configuration.md
+    - name: Fix modified default rules
+      href: how-to-connect-fix-default-rules.md
     - name: Configure directory extensions
       href: how-to-connect-sync-feature-directory-extensions.md
     - name: Configure preferred data location
@@ -274,6 +286,8 @@
          href: how-to-connect-sync-service-manager-ui-mvsearch.md
   - name: Troubleshoot
     items:
+    - name: What is the Azure AD Connect Admin Agent?
+      href: whatis-aadc-admin-agent.md
     - name: What is the ADConnectivityTools PowerShell module?
       href: how-to-connect-adconnectivitytools.md
     - name: Connectivity
@@ -282,6 +296,8 @@
       href: tshoot-connect-sync-errors.md
     - name: Object is not synchronized
       href: tshoot-connect-object-not-syncing.md
+    - name: Source anchor during installation
+      href: tshoot-connect-source-anchor.md
     - name: Object sync using the troubleshooting task
       href: tshoot-connect-objectsync.md
     - name: Password hash synchronization
@@ -308,6 +324,8 @@
     href:  reference-connect-version-history.md
   - name: Azure AD Connect Health version history
     href: reference-connect-health-version-history.md
+  - name: Azure AD Pass-through Authentication agent version history
+    href: reference-connect-pta-version-history.md
   - name: Connector version history
     href: reference-connect-sync-connector-version-history.md
   - name: Accounts and permissions
@@ -338,3 +356,7 @@
     href: reference-connect-adsynctools.md
   - name: ADConnectivityTools Reference
     href: reference-connect-adconnectivitytools.md
+  - name: msExchUserHoldPolicies and cloudMSExchUserHoldPolicies
+    href: reference-connect-msexchuserholdpolicies.md
+  - name: Understanding Azure AD Connect 1.4.xx.x device disappearance
+    href: reference-connect-device-disappearance.md

@@ -1,13 +1,11 @@
 ---
-title: Scalability and performance targets for VM disks on Linux - Microsoft Azure | Microsoft Docs
+title: Scalability and performance targets for VM disks on Linux
 description: Learn about scalability and performance targets for virtual machine disks attached to VMs running Linux.
-services: "virtual-machines-linux,storage"
 author: roygara
 ms.author: rogarana
 ms.date: 11/15/2017
-ms.topic: article
+ms.topic: conceptual
 ms.service: virtual-machines-linux
-ms.tgt_pltfrm: linux
 ms.subservice: disks
 ---
 
@@ -30,4 +28,4 @@ Sizes denoted with an asterisk are currently in preview. See our [FAQ](faq-for-d
 
 ## See also
 
-[Azure subscription and service limits, quotas, and constraints](https://docs.microsoft.com/azure/azure-subscription-service-limits)
+[Azure subscription and service limits, quotas, and constraints](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits)

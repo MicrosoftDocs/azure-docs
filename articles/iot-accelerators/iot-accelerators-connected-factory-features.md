@@ -1,12 +1,12 @@
 ---
 title: Connected Factory solution features - Azure | Microsoft Docs
-description: An overview of the features of the Connected Factory preconfigured solution.
+description: This article describes an overview of the features of the Connected Factory preconfigured solution, such as cloud dashboard, rules, and alerts.
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: conceptual
-ms.date: 02/08/2019
+ms.date: 06/10/2019
 ms.author: dobett
 ---
 
@@ -60,7 +60,4 @@ Connected Factory includes the following features:
 
 ## Next steps
 
-Learn more about the Connected Factory preconfigured solution by reading the following articles:
-
-* [Connected Factory preconfigured solution walkthrough](iot-accelerators-connected-factory-sample-walkthrough.md)
-* [Deploy a gateway for Connected Factory]( iot-accelerators-connected-factory-gateway-deployment.md)
+To learn more about the Connected Factory solution accelerator, see the Quickstart [Try a cloud-based solution to manage my industrial IoT devices](quickstart-connected-factory-deploy.md).

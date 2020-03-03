@@ -1,5 +1,5 @@
 ---
-title: Configure Always On Availability Group Listeners – Microsoft Azure | Microsoft Docs
+title: Configure availability group listeners & load balancer (PowerShell)
 description: Configure Availability Group Listeners on the Azure Resource Manager model, using an internal load balancer with one or more IP addresses.
 services: virtual-machines
 documentationcenter: na
@@ -8,12 +8,13 @@ manager: craigg
 editor: monicar
 ms.assetid: 14b39cde-311c-4ddf-98f3-8694e01a7d3b
 ms.service: virtual-machines-sql
-ms.devlang: na
+
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 02/06/2019
 ms.author: mikeray
+ms.custom: "seo-lt-2019"
 
 ---
 # Configure one or more Always On availability group listeners - Resource Manager
@@ -43,7 +44,7 @@ The examples in this article are tested using Azure PowerShell module version 5.
 
 Verify your PowerShell module is 5.4.1 or later.
 
-See [Install the Azure PowerShell module](http://docs.microsoft.com/powershell/azure/install-az-ps).
+See [Install the Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps).
 
 ## Configure the Windows Firewall
 
@@ -59,14 +60,14 @@ The current [Microsoft template](virtual-machines-windows-portal-sql-alwayson-av
 
 The examples in this article specify a standard load balancer. In the examples, the script includes `-sku Standard`.
 
-```PowerShell
-$ILB= New-AzureRmLoadBalancer -Location $Location -Name $ILBName -ResourceGroupName $ResourceGroupName -FrontendIpConfiguration $FEConfig -BackendAddressPool $BEConfig -LoadBalancingRule $ILBRule -Probe $SQLHealthProbe -sku Standard
+```powershell
+$ILB= New-AzLoadBalancer -Location $Location -Name $ILBName -ResourceGroupName $ResourceGroupName -FrontendIpConfiguration $FEConfig -BackendAddressPool $BEConfig -LoadBalancingRule $ILBRule -Probe $SQLHealthProbe -sku Standard
 ```
 
 To create a basic load balancer, remove `-sku Standard` from the line that creates the load balancer. For example:
 
-```PowerShell
-$ILB= New-AzureRmLoadBalancer -Location $Location -Name $ILBName -ResourceGroupName $ResourceGroupName -FrontendIpConfiguration $FEConfig -BackendAddressPool $BEConfig -LoadBalancingRule $ILBRule -Probe $SQLHealthProbe
+```powershell
+$ILB= New-AzLoadBalancer -Location $Location -Name $ILBName -ResourceGroupName $ResourceGroupName -FrontendIpConfiguration $FEConfig -BackendAddressPool $BEConfig -LoadBalancingRule $ILBRule -Probe $SQLHealthProbe
 ```
 
 ## Example Script: Create an internal load balancer with PowerShell
@@ -74,7 +75,7 @@ $ILB= New-AzureRmLoadBalancer -Location $Location -Name $ILBName -ResourceGroupN
 > [!NOTE]
 > If you created your availability group with the [Microsoft template](virtual-machines-windows-portal-sql-alwayson-availability-groups.md), the internal load balancer was already created.
 
-The following PowerShell script creates an internal load balancer, configures the load balancing rules, and sets an IP address for the load balancer. To run the script, open Windows PowerShell ISE, and paste the script in the Script pane. Use `Connect-AzAccount` to log in to PowerShell. If you have multiple Azure subscriptions, use `Select-AzSubscription ` to set the subscription. 
+The following PowerShell script creates an internal load balancer, configures the load balancing rules, and sets an IP address for the load balancer. To run the script, open Windows PowerShell ISE, and paste the script in the Script pane. Use `Connect-AzAccount` to log in to PowerShell. If you have multiple Azure subscriptions, use `Select-AzSubscription` to set the subscription. 
 
 ```powershell
 # Connect-AzAccount
@@ -132,7 +133,7 @@ The front-end port is the port that applications use to connect to the SQL Serve
 > [!NOTE]
 > For SQL Server availability groups, each IP address requires a specific probe port. For example, if one IP address on a load balancer uses probe port 59999, no other IP addresses on that load balancer can use probe port 59999.
 
-* For information about load balancer limits, see **Private front end IP per load balancer** under [Networking Limits - Azure Resource Manager](../../../azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits).
+* For information about load balancer limits, see **Private front end IP per load balancer** under [Networking Limits - Azure Resource Manager](../../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits).
 * For information about availability group limits, see [Restrictions (Availability Groups)](https://msdn.microsoft.com/library/ff878487.aspx#RestrictionsAG).
 
 The following script adds a new IP address to an existing load balancer. The ILB uses the listener port for the load balancing front-end port. This port can be the port that SQL Server is listening on. For default instances of SQL Server, the port is 1433. The load balancing rule for an availability group requires a floating IP (direct server return) so the back-end port is the same as the front-end port. Update the variables for your environment. 

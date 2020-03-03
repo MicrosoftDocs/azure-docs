@@ -1,15 +1,15 @@
 ---
-title: Troubleshoot SAP HANA 2.0 scale-out HSR-Pacemaker setup with SLES 12 SP3 on Azure virtual machines| Microsoft Docs
+title: SAP HANA scale-out HSR-Pacemaker with SLES on Azure VMs troubleshooting| Microsoft Docs
 description: Guide to check and troubleshoot a complex SAP HANA scale-out high-availability configuration based on SAP HANA System Replication (HSR) and Pacemaker on SLES 12 SP3 running on Azure virtual machines
 services: virtual-machines-linux
 documentationcenter: ''
-author: hermannd
-manager: jeconnoc
+author: hermanndms
+manager: juergent
 editor: 
 
 
 ms.service: virtual-machines-linux
-ms.devlang: NA
+
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
@@ -963,7 +963,7 @@ This example shows the location constraints caused by a cluster resource migrati
 ![Hawk list constraints](media/hana-vm-scale-out-HA-troubleshooting/hawk-2.png)
 
 
-You can also upload the **hb_report** output in Hawk under **History**, shown as follows. See [hb_report to collect log files](#hbreport-to-collect-log-files): 
+You can also upload the **hb_report** output in Hawk under **History**, shown as follows. See hb_report to collect log files: 
 
 ![Hawk upload hb_report output](media/hana-vm-scale-out-HA-troubleshooting/hawk-3.png)
 

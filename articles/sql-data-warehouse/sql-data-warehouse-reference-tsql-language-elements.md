@@ -1,19 +1,21 @@
 ---
-title: T-SQL language elements - Azure SQL Data Warehouse | Microsoft Docs
-description: Links to the documentation for T-SQL statements supported in Azure SQL Data Warehouse.
+title: T-SQL language elements
+description: Links to the documentation for T-SQL statements supported in SQL Analytics.
 services: sql-data-warehouse
-author: twounder
+author: XiaoyuMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: implement
+ms.subservice: query
 ms.date: 06/13/2018
-ms.author: mausher
+ms.author: xiaoyul
 ms.reviewer: igorstan
+ms.custom: seo-lt-2019
+ms.custom: azure-synapse
 ---
 
-# T-SQL language elements supported in Azure SQL Data Warehouse
-Links to the documentation for T-SQL language elements supported in Azure SQL Data Warehouse.
+# T-SQL language elements supported in SQL Analytics
+Links to the documentation for T-SQL language elements supported in SQL Analytics.
 
 ## Core elements
 * [syntax conventions](/sql/t-sql/language-elements/transact-sql-syntax-conventions-transact-sql)
@@ -272,5 +274,5 @@ Links to the documentation for T-SQL language elements supported in Azure SQL Da
 * [SET XACT_ABORT](https://msdn.microsoft.com/library/ms188792.aspx)
 
 ## Next steps
-For more reference information, see [T-SQL statements in Azure SQL Data Warehouse](sql-data-warehouse-reference-tsql-statements.md), and [System views in Azure SQL Data Warehouse](sql-data-warehouse-reference-tsql-system-views.md).
+For more reference information, see [T-SQL statements in SQL Analytics](sql-data-warehouse-reference-tsql-statements.md), and [System views in SQL Analytics](sql-data-warehouse-reference-tsql-system-views.md).
 

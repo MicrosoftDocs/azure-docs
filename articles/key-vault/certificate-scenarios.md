@@ -2,18 +2,15 @@
 title: Get started with Key Vault certificates
 description: The following scenarios outline several of the primary usages of Key Vault’s certificate management service including the additional steps required for creating your first certificate in your key vault.
 services: key-vault
-documentationcenter:
-author: bryanla
-manager: barbkess
+author: msmbaldwin
+manager: rkarlin
 tags: azure-resource-manager
 
-ms.assetid: a788b958-3acb-4bb6-9c94-4776852aeea1
 ms.service: key-vault
-ms.workload: identity
-ms.tgt_pltfrm: na
+ms.subservice: certificates
 ms.topic: conceptual
 ms.date: 01/07/2019
-ms.author: bryanla
+ms.author: mbaldwin
 
 ---
 
@@ -39,20 +36,19 @@ Certificates are composed of three interrelated resources linked together as a K
 **Step 1** - Certificate Authority (CA) Providers  
 -   On-boarding as the IT Admin, PKI Admin or anyone managing accounts with CAs, for a given company (ex. Contoso)  is a prerequisite to using Key Vault certificates.  
     The following CAs are the current partnered providers with Key Vault:  
-    -   DigiCert - Key Vault offers OV SSL certificates with DigiCert.  
-    -   GlobalSign - Key Vault offers OV SSL certificates with GlobalSign  
-    -   WoSign - Key Vault offers OV SSL or EV SSL certificates with WoSign based on setting configured by customer in their WoSign account on the WoSign portal.  
+    -   DigiCert - Key Vault offers OV TLS/SSL certificates with DigiCert.  
+    -   GlobalSign - Key Vault offers OV TLS/SSL certificates with GlobalSign.  
 
-**Step 2** - An account admin for a CA provider creates credentials to be used by Key Vault to enroll, renew, and use SSL certificates via Key Vault.
+**Step 2** - An account admin for a CA provider creates credentials to be used by Key Vault to enroll, renew, and use TLS/SSL certificates via Key Vault.
 
 **Step 3** - A Contoso admin, along with a Contoso employee (Key Vault user) who owns certificates, depending on the CA, can get a certificate from the admin or directly from the account with the CA.  
 
--   Begin an add credential operation to a key vault by [setting a certificate issuer](/rest/api/keyvault/setcertificateissuer/setcertificateissuer) resource. A certificate issuer is an entity represented in Azure Key Vault (KV) as a CertificateIssuer resource. It is used to provide information about the source of a KV certificate; issuer name, provider, credentials, and other administrative details.
-    -   Ex. MyDigiCertIssuer  
-        -   Provider  
-        -   Credentials – CA account credentials. Each CA has its own specific data.  
+- Begin an add credential operation to a key vault by [setting a certificate issuer](/rest/api/keyvault/setcertificateissuer/setcertificateissuer) resource. A certificate issuer is an entity represented in Azure Key Vault (KV) as a CertificateIssuer resource. It is used to provide information about the source of a KV certificate; issuer name, provider, credentials, and other administrative details.
+  - Ex. MyDigiCertIssuer  
+    -   Provider  
+    -   Credentials – CA account credentials. Each CA has its own specific data.  
 
-     For more information on creating accounts with CA Providers, see the related post on the [Key Vault blog](https://aka.ms/kvcertsblog).  
+    For more information on creating accounts with CA Providers, see the related post on the [Key Vault blog](https://aka.ms/kvcertsblog).  
 
 **Step 3.1** - Set up [certificate contacts](/rest/api/keyvault/setcertificatecontacts/setcertificatecontacts) for notifications. This is the contact for the Key Vault user. Key Vault does not enforce this step.  
 
@@ -64,9 +60,9 @@ Note - This process, through step 3.1, is a onetime operation.
 
 **Step 4** - The following descriptions correspond to the green numbered steps in the preceding diagram.  
   (1) - In the diagram above, your application is creating a certificate which internally begins by creating a key in your key vault.  
-  (2) - Key Vault sends an SSL Certificate Request to the CA.  
+  (2) - Key Vault sends an TLS/SSL Certificate Request to the CA.  
   (3) - Your application polls, in a loop and wait process, for your Key Vault for certificate completion. The certificate creation is complete when Key Vault receives the CA’s response with x509 certificate.  
-  (4) - The CA responds to Key Vault's SSL Certificate Request with an X509 SSL Certificate.  
+  (4) - The CA responds to Key Vault's TLS/SSL Certificate Request with an X509 TLS/SSL Certificate.  
   (5) - Your new certificate creation completes with the merger of the X509 Certificate for the CA.  
 
   Key Vault user – creates a certificate by specifying a policy
@@ -98,6 +94,21 @@ Note - This process, through step 3.1, is a onetime operation.
 -   If there are no further operations, the first thing the Key Vault does is send an expiration notice. 
 
 -   Also, the user can edit the policy, which is functional at the time of import but, contains defaults where no information was specified at import. Ex. no issuer info  
+
+### Formats of Import we support
+We support the following type of Import for PEM file format. A single PEM encoded certificate along with a PKCS#8 encoded, unencrypted key which has the following
+
+-----BEGIN CERTIFICATE-----
+-----END CERTIFICATE-----
+
+-----BEGIN PRIVATE KEY-----
+-----END PRIVATE KEY-----
+
+On certificate merge we support 2 PEM based formats. You can either merge a single PKCS#8 encoded certificate or a base64 encoded P7B file. 
+-----BEGIN CERTIFICATE-----
+-----END CERTIFICATE-----
+
+We currently don't support EC keys in PEM format.
 
 ## Creating a certificate with a CA not partnered with Key Vault  
  This method allows working with other CAs than Key Vault's partnered providers, meaning your organization can work with a CA of its choice.  

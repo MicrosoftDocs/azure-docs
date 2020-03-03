@@ -1,11 +1,11 @@
 ---
-title: How to use Notification Hubs with Java
+title: How to use Azure Notification Hubs with Java
 description: Learn how to use Azure Notification Hubs from a Java back-end.
 services: notification-hubs
 documentationcenter: ''
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 
 ms.assetid: 4c3f966d-0158-4a48-b949-9fa3666cb7e4
 ms.service: notification-hubs
@@ -14,7 +14,9 @@ ms.tgt_pltfrm: java
 ms.devlang: java
 ms.topic: article
 ms.date: 01/04/2019
-ms.author: jowargo
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 01/04/2019
 ---
 
 # How to use Notification Hubs from Java
@@ -385,4 +387,4 @@ This topic showed you how to create a simple Java REST client for Notification H
 [Send localized breaking news]: notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md
 [Send notifications to authenticated users]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
 [Send cross-platform notifications to authenticated users]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
-[Maven]: http://maven.apache.org/
+[Maven]: https://maven.apache.org/

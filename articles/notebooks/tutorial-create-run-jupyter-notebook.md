@@ -1,19 +1,8 @@
 ---
-title: Tutorial - create and run a Jupyter notebook on Azure
-description: How to create an run a Jupyter notebook in Azure Notebooks that demonstrates the process of linear regression in data science.
-services: app-service
-documentationcenter: ''
-author: kraigb
-manager: douge
-
-ms.assetid: 65bbb5fe-9939-4e8e-8f5b-c197d4be142a
-ms.service: notebooks
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+title: Tutorial - create and run a Jupyter notebook - Azure Notebooks Preview
+description: Learn how to create and run a Jupyter notebook in Azure Notebooks Preview that demonstrates the process of linear regression in data science.
+ms.topic: tutorial
 ms.date: 01/11/2019
-ms.author: kraigb
 ---
 
 # Tutorial: create and run a Jupyter notebook with Python
@@ -21,6 +10,17 @@ ms.author: kraigb
 This tutorial walks you through the process of using Azure Notebooks to create a complete Jupyter notebook that demonstrates simple linear regression. In the course of this tutorial, you familiarize yourself with the Jupyter notebook UI, which includes creating different cells, running cells, and presenting the notebook as a slide show.
 
 The completed notebook can be found on [GitHub - Azure Notebooks Samples](https://github.com/Microsoft/AzureNotebooks/tree/master/Samples/Linear%20Regression%20-%20Cricket%20Chirps). This tutorial, however, begins with a new project and an empty notebook so you can experience creating it step by step.
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
+
+In this tutorial, you learn how to:
+
+> [!div class="checklist"]
+> * Create a project notebook with some sample data
+> * Use the notebook interface to create a variety of types of cells
+> * Run the notebook
+> * Save the notebook
+> * Debug the notebook in Visual Studio Code
 
 ## Create the project
 
@@ -36,17 +36,16 @@ The completed notebook can be found on [GitHub - Azure Notebooks Samples](https:
 
 1. In the **Create New Project** popup that appears, enter or set the following details, then select **Create**:
 
-    - **Project name**: Linear Regression Example - Cricket Chirps
-    - **Project ID**: linear-regression-example
-    - **Public project**: (cleared)
-    - **Create a README.md**: (cleared)
+   - **Project name**: Linear Regression Example - Cricket Chirps
+   - **Project ID**: linear-regression-example
+   - **Public project**: (cleared)
+   - **Create a README.md**: (cleared)
 
 1. After a few moments, Azure Notebooks navigates you to the new project.
 
 ## Create the data file
 
-The linear regression model you create in the notebook draws data from a file in your project called *cricket_chirps.csv*. You can create this file either by copying it from [GitHub - Azure Notebooks Samples]
-(https://github.com/Microsoft/AzureNotebooks/tree/master/Samples/Linear%20Regression%20-%20Cricket%20Chirps), or by entering the data directly. The following sections describe both approaches.
+The linear regression model you create in the notebook draws data from a file in your project called *cricket_chirps.csv*. You can create this file either by copying it from [GitHub - Azure Notebooks Samples](https://github.com/Microsoft/AzureNotebooks/tree/master/Samples/Linear%20Regression%20-%20Cricket%20Chirps), or by entering the data directly. The following sections describe both approaches.
 
 ### Upload the data file
 
@@ -178,7 +177,7 @@ You use a number of these commands as you populate the notebook in the sections 
     ```markdown
     # Example Linear Regression
 
-    This notebook contains a walkthrough of a simple linear regression. The data, obtained from [college.cengage.com](http://college.cengage.com/mathematics/brase/understandable_statistics/7e/students/datasets/slr/frames/frame.html), relates the rate of cricket chirps to temperature from *The Song of Insects*, by Dr. G. W. Pierce, Harvard College Press.
+    This notebook contains a walkthrough of a simple linear regression. The data, obtained from [college.cengage.com](https://college.cengage.com/mathematics/brase/understandable_statistics/7e/students/datasets/slr/frames/frame.html), relates the rate of cricket chirps to temperature from *The Song of Insects*, by Dr. G. W. Pierce, Harvard College Press.
 
     In this example we're using the count of chirps per minute as the independent varible to then predict the dependent variable, temperature. In short, we're using a little data science to make ourselves a cricket thermometer. (You could also reverse the data and use temperature to predict the number of chirps, but it's more fun to use crickets as the thermometer itself!)
 
@@ -235,7 +234,7 @@ As the previous Markdown cell explained, you can include commands directly in th
 
     ![Busy indicator for the notebook kernel](media/tutorial/tutorial-kernel-busy.png)
 
-1. It also takes a little time for all of the `pip install` commands to run, and because you already installed these packages in the project environment (and because they're also included in Azure Notebooks by default), you see many messages that read, "Requirement already satisfied." All of that output can be visually distracting, so select that sell (using a single click), then use the **Cell** > **Cell Outputs** > **Toggle** to hide the output. You can also use the **Clear** command on that same submenu to remove the output entirely.
+1. It also takes a little time for all of the `pip install` commands to run, and because you already installed these packages in the project environment (and because they're also included in Azure Notebooks by default), you see many messages that read, "Requirement already satisfied." All of that output can be visually distracting, so select that cell (using a single click), then use the **Cell** > **Cell Outputs** > **Toggle** to hide the output. You can also use the **Clear** command on that same submenu to remove the output entirely.
 
     The **Toggle** command hides only the most recent output from the cell; if you run the cell again, the output reappears.
 
@@ -304,7 +303,7 @@ If you see unexpected results (which you probably will!), check that each cell i
 
     With two independent variables you can imagine a three-dimensional plot with a line fitted to the data. At three or more independent variables, however, it's no longer easy to visualize the fit, but you get the idea. In the end, it's all just mathematics, which a computer can handle easily without having to form a mental picture!
 
-    The regressor's `fit` method here creates the line, which algebraically is of the form `y = x*b1 + b0`, where b1 is the coefficient or slope of the line (which you can get to through `regressor.coef_`), and b0 is the intercept of the line at x=0 (which you can get to through `regressor.intercept`).
+    The regressor's `fit` method here creates the line, which algebraically is of the form `y = x*b1 + b0`, where b1 is the coefficient or slope of the line (which you can get to through `regressor.coef_`), and b0 is the intercept of the line at x=0 (which you can get to through `regressor.intercept_`).
     ```
 
 1. Code cell; when run, this cell shows the output, `LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,normalize=False)`.
@@ -323,7 +322,7 @@ If you see unexpected results (which you probably will!), check that each cell i
 
     With the regressor in hand, we can predict the test set results using its `predict` method. That method takes a vector of independent variables for which you want predictions.
 
-    Because the regressor is fit to the data by virtue of `coef_` and `intercept_` and `coef_`, a prediction is the result of `coef_ * x + intercept_`. (Indeed, `predict(0)` returns `intercept_` and `predict(1)` returns `intercept_ + coef_`.)
+    Because the regressor is fit to the data by virtue of `coef_` and `intercept_`, a prediction is the result of `coef_ * x + intercept_`. (Indeed, `predict(0)` returns `intercept_` and `predict(1)` returns `intercept_ + coef_`.)
 
     In the code, the `y_test` matrix (from when we split the set) contains the real observations. `y_pred` assigned here contains the predictions for the same `X_test` inputs. It's not expected that the test or training points exactly fit the regression; the regression is trying to find the model that we can use to make predictions with new observations of the independent variables.
     ```
@@ -428,4 +427,4 @@ How-to articles:
 - [Present a slide show](present-jupyter-notebooks-slideshow.md)
 - [Work with data files](work-with-project-data-files.md)
 - [Access data resources](access-data-resources-jupyter-notebooks.md)
-- [Use Azure Machine Learning Services](use-machine-learning-services-jupyter-notebooks.md)
+- [Use Azure Machine Learning](use-machine-learning-services-jupyter-notebooks.md)

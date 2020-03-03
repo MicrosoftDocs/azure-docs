@@ -1,6 +1,6 @@
 ---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
-title: Clouds and regions in which Azure Media Services v3 is available| Microsoft Docs
+title: Clouds and regions in which Azure Media Services v3 is available
 description: This article talks about Azure clouds and regions in which Azure Media Services v3 is available.  
 services: media-services
 documentationcenter: ''
@@ -11,7 +11,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 02/07/2019
+ms.date: 01/21/2020
 ms.author: juliako
 ---
 
@@ -32,10 +32,7 @@ Azure Media Services v3 is available via Azure Resource Manager manifest in glob
 
 ## Regions/geographies/locations
 
-* [Azure regions](https://azure.microsoft.com/global-infrastructure/regions/)
-* [Product by region](https://azure.microsoft.com/global-infrastructure/services/)
-* [Azure geographies](https://azure.microsoft.com/global-infrastructure/geographies/)
-* [Azure locations](https://azure.microsoft.com/global-infrastructure/locations/)
+[Regions in which the Azure Media Services service is deployed](https://azure.microsoft.com/global-infrastructure/services/?products=media-services)
 
 ### Region code name 
 
@@ -95,6 +92,12 @@ The following endpoints are important to know when connecting to Media Services 
 | Azure Resource Manager | `https://management.chinacloudapi.cn/` |
 | Authentication | `https://login.chinacloudapi.cn/` |
 | Token audience |  `https://management.core.chinacloudapi.cn/` |
+
+## See also
+
+* [Azure regions](https://azure.microsoft.com/global-infrastructure/regions/)
+* [Azure geographies](https://azure.microsoft.com/global-infrastructure/geographies/)
+* [Azure locations](https://azure.microsoft.com/global-infrastructure/locations/)
 
 ## Next steps
 

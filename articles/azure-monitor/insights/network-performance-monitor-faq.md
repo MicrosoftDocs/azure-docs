@@ -1,25 +1,21 @@
 ---
 title: FAQs - Network Performance Monitor solution in Azure | Microsoft Docs
-description: This article captures the frequently asked questions about NPM in Azure. Network Performance Monitor (NPM) helps you monitor the performance of your networks, in near real time, to detect and locate network performance bottlenecks.
-services: log-analytics
-documentationcenter: ''
+description: This article captures the frequently asked questions about Network Performance Monitor in Azure. Network Performance Monitor (NPM) helps you monitor the performance of your networks in near real time and detect and locate network performance bottlenecks.
+ms.subservice: logs
+ms.topic: conceptual
 author: vinynigam
-manager: agummadi
-editor: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.author: vinigam
 ms.date: 10/12/2018
-ms.author: vinynigam
+
 ---
+
 # Network Performance Monitor solution FAQ
 
 ![Network Performance Monitor symbol](media/network-performance-monitor-faq/npm-symbol.png)
 
 This article captures the frequently asked questions (FAQs) about Network Performance Monitor (NPM) in Azure
 
-[Network Performance Monitor](/azure/networking/network-monitoring-overview) is a cloud-based [hybrid network monitoring](../../azure-monitor/insights/network-performance-monitor-performance-monitor.md) solution that helps you monitor network performance between various points in your network infrastructure. It also helps you monitor network connectivity to [service and application endpoints](../../azure-monitor/insights/network-performance-monitor-service-endpoint.md) and [monitor the performance of Azure ExpressRoute](../../azure-monitor/insights/network-performance-monitor-expressroute.md). 
+[Network Performance Monitor](/azure/networking/network-monitoring-overview) is a cloud-based [hybrid network monitoring](../../azure-monitor/insights/network-performance-monitor-performance-monitor.md) solution that helps you monitor network performance between various points in your network infrastructure. It also helps you monitor network connectivity to [service and application endpoints](../../azure-monitor/insights/network-performance-monitor-service-connectivity.md) and [monitor the performance of Azure ExpressRoute](../../azure-monitor/insights/network-performance-monitor-expressroute.md). 
 
 Network Performance Monitor detects network issues like traffic blackholing, routing errors, and issues that conventional network monitoring methods aren't able to detect. The solution generates alerts and notifies you when a threshold is breached for a network link. It also ensures timely detection of network performance issues and localizes the source of the problem to a particular network segment or device. 
 
@@ -30,24 +26,24 @@ More information on the various capabilities supported by [Network Performance M
 ### What are the platform requirements for the nodes to be used for monitoring by NPM?
 Listed below are the platform requirements for NPM's various capabilities:
 
-- NPM's Performance Monitor and Service Connectivity Monitor capabilities support both Windows server (2008 SP1 or later) and Windows desktops/client operating systems (Windows 10, Windows 8.1, Windows 8 and Windows 7). 
+- NPM's Performance Monitor and Service Connectivity Monitor capabilities support both Windows server and Windows desktops/client operating systems. Windows server OS versions supported are 2008 SP1 or later. Windows desktops/client versions supported are Windows 10, Windows 8.1, Windows 8, and Windows 7. 
 - NPM's ExpressRoute Monitor capability supports only Windows server (2008 SP1 or later) operating system.
 
 ### Can I use Linux machines as monitoring nodes in NPM?
-The capability to monitor networks using Linux-based nodes is currently in private preview. Reach out to your Account Manager to know more. Once you provide the workspace ID, we will go ahead and enable the capability. Linux agents provide monitoring capability only for NPM's Performance Monitor capability, and are not available for the Service Connectivity Monitor and ExpressRoute Monitor capabilities
+The capability to monitor networks using Linux-based nodes is currently in preview. Reach out to your Account Manager to know more. Linux agents provide monitoring capability only for NPM's Performance Monitor capability, and are not available for the Service Connectivity Monitor and ExpressRoute Monitor capabilities
 
 ### What are the size requirements of the nodes to be used for monitoring by NPM?
-For running the NPM solution on node VMs to monitor networks, the nodes should have at least 500-MB memory and one core. You do not need to use separate nodes for running NPM. The solution can run on nodes that have other workloads running on it. The solution has the capability to stop the monitoring process in case it utilizes more than 5% CPU.
+For running the NPM solution on node VMs to monitor networks, the nodes should have at least 500-MB memory and one core. You don't need to use separate nodes for running NPM. The solution can run on nodes that have other workloads running on it. The solution has the capability to stop the monitoring process if it uses more than 5% CPU.
 
 ### To use NPM, should I connect my nodes as Direct agent or through System Center Operations Manager?
-Both the Performance Monitor and the Service Connectivity Monitor capabilities support nodes [connected as Direct Agents](../../azure-monitor/platform/agent-windows.md) as well as [connected through Operations Manager](../../azure-monitor/platform/om-agents.md).
+Both the Performance Monitor and the Service Connectivity Monitor capabilities support nodes [connected as Direct Agents](../../azure-monitor/platform/agent-windows.md) and [connected through Operations Manager](../../azure-monitor/platform/om-agents.md).
 
-For ExpressRoute Monitor capability, the Azure nodes should be connected as Direct Agents only. Azure nodes, which are connected through Operations Manager are not supported. For on-premises nodes, the nodes connected as Direct Agents as well as through Operations Manager are supported for monitoring an ExpressRoute circuit.
+For ExpressRoute Monitor capability, the Azure nodes should be connected as Direct Agents only. Azure nodes, which are connected through Operations Manager are not supported. For on-premises nodes, the nodes connected as Direct Agents and through Operations Manager are supported for monitoring an ExpressRoute circuit.
 
 ### Which protocol among TCP and ICMP should be chosen for monitoring?
-If you are monitoring your network using Windows server-based nodes, we recommend you use TCP as the monitoring protocol since it provides better accuracy. 
+If you're monitoring your network using Windows server-based nodes, we recommend you use TCP as the monitoring protocol since it provides better accuracy. 
 
-ICMP is recommended for Windows desktops/client operating system-based nodes. This platform does not allow TCP data to be sent over raw sockets, which NPM uses to discover network topology.
+ICMP is recommended for Windows desktops/client operating system-based nodes. This platform doesn't allow TCP data to be sent over raw sockets, which NPM uses to discover network topology.
 
 You can get more details on the relative advantages of each protocol [here](../../azure-monitor/insights/network-performance-monitor-performance-monitor.md#choose-the-protocol).
 
@@ -65,8 +61,8 @@ The script configures only Windows Firewall locally. If you have network firewal
 ### How many agents should I use?
 You should use at least one agent for each subnet that you want to monitor.
 
-### What is the maximum number of agents I can use or I see error ".... you have reached your Configuration limit"?
-NPM limits the number of IPs to 5000 IPs per workspace. If a node has both IPv4 and IPv6 addresses, this will count as 2 IPs for that node. Hence, this limit of 5000 IPs would decide the upper limit on the number of agents. You can delete the inactive agents from Nodes tab in NPM >> Configure. NPM also maintains history of all the IPs that were ever assigned to the VM hosting the agent and these also count as separate IPs contributing to that upper limit of 5000 IPs. To free up IPs for your workspace, you can use the Nodes page to delete the IPs that are not in use .
+### What is the maximum number of agents I can use or I see error ".... you've reached your Configuration limit"?
+NPM limits the number of IPs to 5000 IPs per workspace. If a node has both IPv4 and IPv6 addresses, this will count as 2 IPs for that node. Hence, this limit of 5000 IPs would decide the upper limit on the number of agents. You can delete the inactive agents from Nodes tab in NPM >> Configure. NPM also maintains history of all the IPs that were ever assigned to the VM hosting the agent and each is counted as separate IP contributing to that upper limit of 5000 IPs. To free up IPs for your workspace, you can use the Nodes page to delete the IPs that are not in use.
 
 ## Monitoring
 
@@ -97,6 +93,43 @@ NPM uses a probabilistic mechanism to assign fault-probabilities to each network
 ### How can I create alerts in NPM?
 Refer to [alerts section in the documentation](https://docs.microsoft.com/azure/log-analytics/log-analytics-network-performance-monitor#alerts) for step-by-step instructions.
 
+### What are the default Log Analytics queries for alerts
+Performance monitor query
+
+	NetworkMonitoring 
+	 | where (SubType == "SubNetwork" or SubType == "NetworkPath") 
+	 | where (LossHealthState == "Unhealthy" or LatencyHealthState == "Unhealthy") and RuleName == "<<your rule name>>"
+	
+Service connectivity monitor query
+
+	NetworkMonitoring                 
+	 | where (SubType == "EndpointHealth" or SubType == "EndpointPath")
+	 | where (LossHealthState == "Unhealthy" or LatencyHealthState == "Unhealthy" or ServiceResponseHealthState == "Unhealthy" or LatencyHealthState == "Unhealthy") and TestName == "<<your test name>>"
+	
+ExpressRoute monitor queries:
+Circuits query
+
+	NetworkMonitoring
+ 	| where (SubType == "ERCircuitTotalUtilization") and (UtilizationHealthState == "Unhealthy") and CircuitResourceId == "<<your circuit resource ID>>"
+
+Private peering
+
+	NetworkMonitoring 
+	 | where (SubType == "ExpressRoutePeering" or SubType == "ERVNetConnectionUtilization" or SubType == "ExpressRoutePath")   
+ 	| where (LossHealthState == "Unhealthy" or LatencyHealthState == "Unhealthy" or UtilizationHealthState == "Unhealthy") and CircuitName == "<<your circuit name>>" and VirtualNetwork == "<<vnet name>>"
+
+Microsoft peering
+
+	NetworkMonitoring 
+	 | where (SubType == "ExpressRoutePeering" or SubType == "ERMSPeeringUtilization" or SubType == "ExpressRoutePath")
+ 	| where (LossHealthState == "Unhealthy" or LatencyHealthState == "Unhealthy" or UtilizationHealthState == "Unhealthy") and CircuitName == ""<<your circuit name>>" and PeeringType == "MicrosoftPeering"
+
+Common query   
+
+	NetworkMonitoring
+ 	| where (SubType == "ExpressRoutePeering" or SubType == "ERVNetConnectionUtilization" or SubType == "ERMSPeeringUtilization" or SubType == "ExpressRoutePath")
+ 	| where (LossHealthState == "Unhealthy" or LatencyHealthState == "Unhealthy" or UtilizationHealthState == "Unhealthy") 
+
 ### Can NPM monitor routers and servers as individual devices?
 NPM only identifies the IP and host name of underlying network hops (switches, routers, servers, etc.) between the source and destination IPs. It also identifies the latency between these identified hops. It does not individually monitor these underlying hops.
 
@@ -109,17 +142,23 @@ Bandwidth usage is the total of incoming and outgoing bandwidth. It is expressed
 ### Can we get incoming and outgoing bandwidth information for the ExpressRoute?
 Incoming and outgoing values for both Primary and Secondary bandwidth can be captured.
 
-For peering level information, use the below mentioned query in Log Search
+For MS peering level information, use the below mentioned query in Log Search
 
 	NetworkMonitoring 
-    | where SubType == "ExpressRoutePeeringUtilization"
-    | project CircuitName,PeeringName,PrimaryBytesInPerSecond,PrimaryBytesOutPerSecond,SecondaryBytesInPerSecond,SecondaryBytesOutPerSecond
+   	 | where SubType == "ERMSPeeringUtilization"
+   	 | project 	CircuitName,PeeringName,PrimaryBytesInPerSecond,PrimaryBytesOutPerSecond,SecondaryBytesInPerSecond,SecondaryBytesOutPerSecond
+    
+For private peering level information, use the below mentioned query in Log Search
+
+	NetworkMonitoring 
+   	 | where SubType == "ERVNetConnectionUtilization"
+   	 | project 	CircuitName,PeeringName,PrimaryBytesInPerSecond,PrimaryBytesOutPerSecond,SecondaryBytesInPerSecond,SecondaryBytesOutPerSecond
   
-For circuit level information, use the below mentioned query 
+For circuit level information, use the below mentioned query in Log Search
 
 	NetworkMonitoring 
-    | where SubType == "ExpressRouteCircuitUtilization"
-    | project CircuitName,PrimaryBytesInPerSecond, PrimaryBytesOutPerSecond,SecondaryBytesInPerSecond,SecondaryBytesOutPerSecond
+    	| where SubType == "ERCircuitTotalUtilization"
+    	| project CircuitName, PrimaryBytesInPerSecond, PrimaryBytesOutPerSecond,SecondaryBytesInPerSecond,SecondaryBytesOutPerSecond
 
 ### Which regions are supported for NPM's Performance Monitor?
 NPM can monitor connectivity between networks in any part of the world, from a workspace that is hosted in one of the [supported regions](../../azure-monitor/insights/network-performance-monitor.md#supported-regions)
@@ -135,13 +174,36 @@ NPM can monitor your ExpressRoute circuits located in any Azure region. To onboa
 ### Why are some of the hops marked as unidentified in the network topology view?
 NPM uses a modified version of traceroute to discover the topology from the source agent to the destination. 
 An unidentified hop represents that the network hop did not respond to the source agent's traceroute request. 
-If 3 consecutive network hops do not respond to the agent's traceroute, the solution marks the unresponsive hops as unidentified and does not try to discover more hops.
+If three consecutive network hops do not respond to the agent's traceroute, the solution marks the unresponsive hops as unidentified and does not try to discover more hops.
 
 A hop may not respond to a traceroute in one or more of the below scenarios:
 
 * The routers have been configured to not reveal their identity.
 * The network devices are not allowing ICMP_TTL_EXCEEDED traffic.
 * A firewall is blocking the ICMP_TTL_EXCEEDED response from the network device.
+
+When either of the endpoints lies in Azure, traceroute shows up unidentified hops as Azure ndrastructure does not reveal identity to traceroute. 
+
+### I get alerts for unhealthy tests but I do not see the high values in NPM's loss and latency graph. How do I check what is unhealthy?
+NPM raises an alert if end to end latency between source and destination crosses the threshold for any path between them. Some networks have multiple paths connecting the same source and destination. NPM raises an alert is any path is unhealthy. The loss and latency seen in the graphs is the average value for all the paths, hence it may not show the exact value of a single path. To understand where the threshold has been breached, look for the "SubType" column in the alert. If the issue is caused by a path the SubType value will be NetworkPath (for Performance Monitor tests), EndpointPath (for Service Connectivity Monitor tests) and ExpressRoutePath (for ExpressRotue Monitor tests). 
+
+Sample Query to find is path is unhealthy:
+
+	NetworkMonitoring 
+	| where ( SubType == "ExpressRoutePath")
+	| where (LossHealthState == "Unhealthy" or LatencyHealthState == "Unhealthy" or UtilizationHealthState == "Unhealthy") and 			CircuitResourceID =="<your ER circuit ID>" and ConnectionResourceId == "<your ER connection resource id>"
+	| project SubType, LossHealthState, LatencyHealthState, MedianLatency 
+
+### Why does my test show unhealthy but the topology does not 
+NPM monitors end-to-end loss, latency, and topology at different intervals. Loss and latency are measured once every 5 seconds and aggregated every three minutes (for Performance Monitor and Express Route Monitor) while topology is calculated using traceroute once every 10 minutes. For example, between 3:44 and 4:04, topology may be updated three times (3:44, 3:54, 4:04), but loss and latency are updated about seven times (3:44, 3:47, 3:50, 3:53, 3:56, 3:59, 4:02). The topology generated at 3:54 will be rendered for the loss and latency that gets calculated at 3:56, 3:59 and 4:02. Suppose you get an alert that your ER circuit was unhealthy at 3:59. You log on to NPM and try to set the topology time to 3:59. NPM will render the topology generated at 3:54. To understand the last known topology of your network, compare the fields TimeProcessed (time at which loss and latency was calculated) and TracerouteCompletedTime(time at which topology was calculated). 
+
+### What is the difference between the fields E2EMedianLatency and AvgHopLatencyList in the NetworkMonitoring table
+E2EMedianLatency is the latency updated every three minutes after aggregating the results of tcp ping tests, whereas AvgHopLatencyList is updated every 10 mins based on traceroute. To understand the exact time at which E2EMedianLatency was calculated, use the field TimeProcessed. To understand the exact time at which traceroute completed and updated AvgHopLatencyList, use the field TracerouteCompletedTime
+
+### Why does hop-by-hop latency numbers differ from HopLatencyValues 
+HopLatencyValues are source to endpoint.
+For Example: Hops - A,B,C. AvgHopLatency - 10,15,20. This means source to A latency = 10, source to B latency = 15  and source to C latency is 20. 
+UI will calculate A-B hop latency as 5 in the topology
 
 ### The solution shows 100% loss but there is connectivity between the source and destination
 This can happen if either the host firewall or the intermediate firewall (network firewall or Azure NSG) is blocking the communication between the source agent and the destination over the port being used for monitoring by NPM (by default the port is 8084, unless the customer has changed this).

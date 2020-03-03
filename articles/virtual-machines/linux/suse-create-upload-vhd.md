@@ -3,8 +3,8 @@ title: Create and upload a SUSE Linux VHD in Azure
 description: Learn to create and upload an Azure virtual hard disk (VHD) that contains a SUSE Linux operating system.
 services: virtual-machines-linux
 documentationcenter: ''
-author: szarkos
-manager: jeconnoc
+author: mimckitt
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager,azure-service-management
 
@@ -12,19 +12,18 @@ ms.assetid: 066d01a6-2a54-4718-bcd0-90fe7a5303a1
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
+
 ms.topic: article
 ms.date: 03/12/2018
-ms.author: szark
+ms.author: mimckitt
 
 ---
 # Prepare a SLES or openSUSE virtual machine for Azure
-[!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
-## Prerequisites
+
 This article assumes that you have already installed a SUSE or openSUSE Linux operating system to a virtual hard disk. Multiple tools exist to create .vhd files, for example a virtualization solution such as Hyper-V. For instructions, see [Install the Hyper-V Role and Configure a Virtual Machine](https://technet.microsoft.com/library/hh846766.aspx).
 
-### SLES / openSUSE installation notes
+## SLES / openSUSE installation notes
 * Please see also [General Linux Installation Notes](create-upload-generic.md#general-linux-installation-notes) for more tips on preparing Linux for Azure.
 * The VHDX format is not supported in Azure, only **fixed VHD**.  You can convert the disk to VHD format using Hyper-V Manager or the convert-vhd cmdlet.
 * When installing the Linux system it is recommended that you use standard partitions rather than LVM (often the default for many installations). This will avoid LVM name conflicts with cloned VMs, particularly if an OS disk ever needs to be attached to another VM for troubleshooting. [LVM](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) or [RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) may be used on data disks if preferred.
@@ -81,8 +80,10 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (Bring Your
      DHCLIENT_SET_HOSTNAME="no"
 12. In "/etc/sudoers", comment out or remove the following lines if they exist:
     
+	```
      Defaults targetpw   # ask for the password of the target user i.e. root
      ALL    ALL=(ALL) ALL   # WARNING! Only use this together with 'Defaults targetpw'!
+	 ```
 13. Ensure that the SSH server is installed and configured to start at boot time.  This is usually the default.
 14. Do not create swap space on the OS disk.
     
@@ -100,7 +101,7 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (Bring Your
         # logout
 16. Click **Action -> Shut Down** in Hyper-V Manager. Your Linux VHD is now ready to be uploaded to Azure.
 
-- - -
+---
 ## Prepare openSUSE 13.1+
 1. In the center pane of Hyper-V Manager, select the virtual machine.
 2. Click **Connect** to open the window for the virtual machine.
@@ -115,7 +116,7 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (Bring Your
     If the command returns "No repositories defined..." then use the following commands to add these repos:
    
         # sudo zypper ar -f http://download.opensuse.org/repositories/Cloud:Tools/openSUSE_13.1 Cloud:Tools_13.1
-        # sudo zypper ar -f http://download.opensuse.org/distribution/13.1/repo/oss openSUSE_13.1_OSS
+        # sudo zypper ar -f https://download.opensuse.org/distribution/13.1/repo/oss openSUSE_13.1_OSS
         # sudo zypper ar -f http://download.opensuse.org/update/13.1 openSUSE_13.1_Updates
    
     You can then verify the repositories have been added by running the command '`zypper lr`' again. In case one of the relevant update repositories is not enabled, enable it with following command:
@@ -142,9 +143,12 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (Bring Your
    
      DHCLIENT_SET_HOSTNAME="no"
 8. **Important:** In "/etc/sudoers", comment out or remove the following lines if they exist:
-   
+     
+	 ```
      Defaults targetpw   # ask for the password of the target user i.e. root
      ALL    ALL=(ALL) ALL   # WARNING! Only use this together with 'Defaults targetpw'!
+	 ```
+
 9. Ensure that the SSH server is installed and configured to start at boot time.  This is usually the default.
 10. Do not create swap space on the OS disk.
     

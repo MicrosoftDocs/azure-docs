@@ -1,21 +1,12 @@
----
-title: Build Node.js app with MongoDB - Azure App Service | Microsoft Docs 
-description: Learn how to get a Node.js app working in Azure, with connection to a Cosmos DB database with a MongoDB connection string.
-services: app-service\web
-documentationcenter: nodejs
-author: cephalin
-manager: erikre
-editor: ''
+﻿---
+title: 'Tutorial: Node.js app with MongoDB' 
+description: Learn how to get a Node.js app working in Azure, with connection to a MongoDB database in Azure (Cosmos DB). MEAN.js is used in the tutorial.
 
 ms.assetid: 0b4d7d0e-e984-49a1-a57a-3c0caa955f0e
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 05/04/2017
-ms.author: cephalin
-ms.custom: mvc
+ms.custom: mvc, cli-validate
 ms.custom: seodec18
 
 ---
@@ -307,7 +298,7 @@ remote: Handling node.js deployment.
 .
 remote: Deployment successful.
 To https://<app_name>.scm.azurewebsites.net/<app_name>.git
- * [new branch]      master -> master
+ * [new branch]      master -> master
 ``` 
 
 You may notice that the deployment process runs [Gulp](https://gulpjs.com/) after `npm install`. App Service does not run Gulp or Grunt tasks during deployment, so this sample repository has two additional files in its root directory to enable it: 
@@ -346,7 +337,7 @@ Open _modules/articles/server/models/article.server.model.js_.
 In `ArticleSchema`, add a `String` type called `comment`. When you're done, your schema code should look like this:
 
 ```javascript
-var ArticleSchema = new Schema({
+const ArticleSchema = new Schema({
   ...,
   user: {
     type: Schema.ObjectId,
@@ -372,7 +363,7 @@ In the `update` function, add an assignment for `article.comment`. The following
 
 ```javascript
 exports.update = function (req, res) {
-  var article = req.article;
+  let article = req.article;
 
   article.title = req.body.title;
   article.content = req.body.content;

@@ -1,21 +1,11 @@
 ---
-title: Understanding periodic backup configuration in Azure Service Fabric | Microsoft Docs
+title: Understanding periodic backup configuration
 description: Use Service Fabric's periodic backup and restore feature for enabling periodic data backup of your application data.
-services: service-fabric
-documentationcenter: .net
 author: hrushib
-manager: timlt
-editor: hrushib
 
-ms.assetid: FAA45B4A-0258-4CB3-A825-7E8F70F28401
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 05/01/2018
+ms.date: 2/01/2019
 ms.author: hrushib
-
 ---
 # Understanding periodic backup configuration in Azure Service Fabric
 
@@ -94,7 +84,7 @@ A backup policy consists of the following configurations:
         }
         ```
 
-    2. **File share**: This storage type should be selected for _standalone_ clusters when the need is to store data backup on-premise. Description for this storage type requires file share path where backups need to be uploaded. Access to the file share can be configured using one of the following options
+    2. **File share**: This storage type should be selected for _standalone_ clusters when the need is to store data backup on-premises. Description for this storage type requires file share path where backups need to be uploaded. Access to the file share can be configured using one of the following options
         1. _Integrated Windows Authentication_, where the access to file share is provided to all computers belonging to the Service Fabric cluster. In this case, set following fields to configure _file-share_ based backup storage.
 
             ```json
@@ -133,9 +123,6 @@ A backup policy consists of the following configurations:
             "MinimumNumberOfBackups": 20
         }
         ```
-
-> [!IMPORTANT]
-> Due to an issue in the runtime, ensure that the retention duration in the retention policy is configured to be less than 24 days or else it would result in Backup Restore service to go into quorum loss post replica failover.
 
 ## Enable periodic backup
 After defining backup policy to fulfill data backup requirements, the backup policy should be appropriately associated either with an _application_, or _service_, or a _partition_.
@@ -250,4 +237,4 @@ Following is the brief information about supported variants.
 ## Next steps
 - [Backup restore REST API reference](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore)
 
-[0]: ./media/service-fabric-backuprestoreservice/BackupPolicyAssociationExample.png
+[0]: ./media/service-fabric-backuprestoreservice/backup-policy-association-example.png

@@ -12,11 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/18/2019
 ms.author: juliako
 
 ---
 # Use Azure AD authentication to access Azure Media Services API with .NET
+
+> [!NOTE]
+> No new features or functionality are being added to Media Services v2. <br/>Check out the latest version, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Also, see [migration guidance from v2 to v3](../latest/migrate-from-v2-to-v3.md)
 
 Starting with windowsazure.mediaservices 4.0.0.4, Azure Media Services supports authentication based on Azure Active Directory (Azure AD). This topic shows you how to use Azure AD  authentication to access Azure Media Services API with Microsoft .NET.
 
@@ -41,7 +44,7 @@ To connect to the Azure Media Services API with Azure AD authentication, the cli
 
 For example, you don't need to provide the Azure AD authority, Media Services resource URI, or native Azure AD application details. These are well-known values that are already configured by the Azure AD access token provider class. 
 
-If you are not using Azure Media Service .NET SDK, we recommend that you use the [Azure AD Authentication Library](../../active-directory/develop/active-directory-authentication-libraries.md). To get values for the parameters that you need to use with Azure AD Authentication Library, see [Use the Azure portal to access Azure AD authentication settings](media-services-portal-get-started-with-aad.md).
+If you are not using Azure Media Service .NET SDK, we recommend that you use the [Azure AD Authentication Library](../../active-directory/azuread-dev/active-directory-authentication-libraries.md). To get values for the parameters that you need to use with Azure AD Authentication Library, see [Use the Azure portal to access Azure AD authentication settings](media-services-portal-get-started-with-aad.md).
 
 You also have the option of replacing the default implementation of the **AzureAdTokenProvider** with your own implementation.
 

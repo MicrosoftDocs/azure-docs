@@ -1,6 +1,5 @@
 ---
-title: "Create an Angular app with Azure Cosmos DB's API for MongoDB - Use Mongoose to connect to Cosmos DB"
-titleSuffix: Azure Cosmos DB
+title: Connect the Angular app to Azure Cosmos DB's API for MongoDB using Mongoose
 description: This tutorial describes how to build a Node.js application by using Angular and Express to manage the data stored in Cosmos DB. In this part, you use Mongoose to connect to Azure Cosmos DB.
 author: johnpapa
 ms.service: cosmos-db
@@ -51,35 +50,35 @@ Mongoose is an object data modeling (ODM) library for MongoDB and Node.js. You c
 
 1. Copy the following code into the **mongo.js** file. The code provides the following functionality:
 
-    * Requires Mongoose.
-    * Overrides the Mongo promise to use the basic promise that's built into ES6/ES2015 and later versions.
-    * Calls on an env file that lets you set up certain things based on whether you're in staging, production, or development. You'll create that file in the next section.
-    * Includes the MongoDB connection string, which is set in the env file.
-    * Creates a connect function that calls Mongoose.
+   * Requires Mongoose.
+   * Overrides the Mongo promise to use the basic promise that's built into ES6/ES2015 and later versions.
+   * Calls on an env file that lets you set up certain things based on whether you're in staging, production, or development. You'll create that file in the next section.
+   * Includes the MongoDB connection string, which is set in the env file.
+   * Creates a connect function that calls Mongoose.
 
-    ```javascript
-    const mongoose = require('mongoose');
-    /**
+     ```javascript
+     const mongoose = require('mongoose');
+     /**
      * Set to Node.js native promises
-     * Per http://mongoosejs.com/docs/promises.html
+     * Per https://mongoosejs.com/docs/promises.html
      */
-    mongoose.Promise = global.Promise;
+     mongoose.Promise = global.Promise;
 
-    const env = require('./env/environment');
+     const env = require('./env/environment');
 
-    // eslint-disable-next-line max-len
-    const mongoUri = `mongodb://${env.accountName}:${env.key}@${env.accountName}.documents.azure.com:${env.port}/${env.databaseName}?ssl=true`;
+     // eslint-disable-next-line max-len
+     const mongoUri = `mongodb://${env.accountName}:${env.key}@${env.accountName}.documents.azure.com:${env.port}/${env.databaseName}?ssl=true`;
 
-    function connect() {
+     function connect() {
      mongoose.set('debug', true);
      return mongoose.connect(mongoUri, { useMongoClient: true });
-    }
+     }
 
-    module.exports = {
-      connect,
-      mongoose
-    };
-    ```
+     module.exports = {
+     connect,
+     mongoose
+     };
+     ```
     
 1. In the Explorer pane, under **server**, create a folder named **environment**. In the **environment** folder, create a file named **environment.js**.
 
@@ -233,7 +232,7 @@ Next, run the app by using the following steps:
 
     ![New Azure Cosmos DB account in the Azure portal](./media/tutorial-develop-mongodb-nodejs-part5/azure-cosmos-db-heroes-app.png)
 
-There are no heroes stored yet in the app. In the next part of this tutorial, we'll add put, push, and delete functionality. Then we can add, update, and delete heroes from the UI by using Mongoose connections to our Azure Cosmos DB database. 
+There are no heroes stored yet in the app. In the next part of this tutorial, we'll add put, push, and delete functionality. Then we can add, update, and delete heroes from the UI by using Mongoose connections to our Azure Cosmos database. 
 
 ## Clean up resources
 

@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot Azure SQL Database performance issues with Intelligent Insights | Microsoft Docs
+title: Troubleshoot performance issues with Intelligent Insights
 description: Intelligent Insights helps you troubleshoot Azure SQL Database performance issues.
 services: sql-database
 ms.service: sql-database
@@ -10,12 +10,11 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
-manager: craigg
 ms.date: 01/25/2019
 ---
 # Troubleshoot Azure SQL Database performance issues with Intelligent Insights
 
-This page provides information on Azure SQL Database and Managed Instance performance issues detected through the [Intelligent Insights](sql-database-intelligent-insights.md) database performance diagnostics log. The diagnostic log telemetry can be streamed to [Azure Log Analytics](../azure-monitor/insights/azure-sql.md), [Azure Event Hubs](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md), [Azure Storage](sql-database-metrics-diag-logging.md#stream-into-storage), or a third-party solution for custom DevOps alerting and reporting capabilities.
+This page provides information on Azure SQL Database and Managed Instance performance issues detected through the [Intelligent Insights](sql-database-intelligent-insights.md) database performance diagnostics log. The diagnostic log telemetry can be streamed to [Azure Monitor logs](../azure-monitor/insights/azure-sql.md), [Azure Event Hubs](../azure-monitor/platform/resource-logs-stream-event-hubs.md), [Azure Storage](sql-database-metrics-diag-logging.md#stream-diagnostic-telemetry-into-azure-storage), or a third-party solution for custom DevOps alerting and reporting capabilities.
 
 > [!NOTE]
 > For a quick SQL Database performance troubleshooting guide using Intelligent Insights, see the [Recommended troubleshooting flow](sql-database-intelligent-insights-troubleshoot-performance.md#recommended-troubleshooting-flow) flowchart in this document.
@@ -29,7 +28,7 @@ Intelligent Insights automatically detects performance issues with SQL Database 
 | :------------------- | ------------------- | ------------------- |
 | [Reaching resource limits](sql-database-intelligent-insights-troubleshoot-performance.md#reaching-resource-limits) | Consumption of available resources (DTUs), database worker threads, or database login sessions available on the monitored subscription has reached limits. This is affecting the SQL Database performance. | Consumption of CPU resources is reaching Managed Instance limits. This is affecting the database performance. |
 | [Workload increase](sql-database-intelligent-insights-troubleshoot-performance.md#workload-increase) | Workload increase or continuous accumulation of workload on the database was detected. This is affecting the SQL Database performance. | Workload increase has been detected. This is affecting the database performance. |
-| [Memory pressure](sql-database-intelligent-insights-troubleshoot-performance.md#memory-pressure) | Workers that requested memory grants have to wait for memory allocations for statistically significant amounts of time. Or an increased accumulation of workers that requested memory grants exists. This is affecting the SQL Database performance. | Workers that have requested memory grants are waiting for memory allocations for a statistically significant amount of time. This is affecting the database performance. |
+| [Memory pressure](sql-database-intelligent-insights-troubleshoot-performance.md#memory-pressure) | Workers that requested memory grants have to wait for memory allocations for statistically significant amounts of time, or an increased accumulation of workers that requested memory grants exists. This is affecting the SQL Database performance. | Workers that have requested memory grants are waiting for memory allocations for a statistically significant amount of time. This is affecting the database performance. |
 | [Locking](sql-database-intelligent-insights-troubleshoot-performance.md#locking) | Excessive database locking was detected affecting the SQL Database performance. | Excessive database locking was detected affecting the database performance. |
 | [Increased MAXDOP](sql-database-intelligent-insights-troubleshoot-performance.md#increased-maxdop) | The maximum degree of parallelism option (MAXDOP) has changed affecting the query execution efficiency. This is affecting the SQL Database performance. | The maximum degree of parallelism option (MAXDOP) has changed affecting the query execution efficiency. This is affecting the database performance. |
 | [Pagelatch contention](sql-database-intelligent-insights-troubleshoot-performance.md#pagelatch-contention) | Multiple threads are concurrently attempting to access the same in-memory data buffer pages resulting in increased wait times and causing pagelatch contention. This is affecting the SQL database the performance. | Multiple threads are concurrently attempting to access the same in-memory data buffer pages resulting in increased wait times and causing pagelatch contention. This is affecting database the performance. |
@@ -67,7 +66,7 @@ The diagnostics log outputs query hashes of queries that affected the performanc
 
 If you have reached the available session limits, you can optimize your applications by reducing the number of logins made to the database. If you're unable to reduce the number of logins from your applications to the database, consider increasing the pricing tier of your database. Or you can split and move your database into multiple databases for a more balanced workload distribution.
 
-For more suggestions on resolving session limits, see [How to deal with the limits of SQL Database maximum logins](https://blogs.technet.microsoft.com/latam/2015/06/01/how-to-deal-with-the-limits-of-azure-sql-database-maximum-logins/). See [Overview of resource limits on a SQL Database server](sql-database-resource-limits-database-server.md) for information about limits at the server and subscription levels.
+For more suggestions on resolving session limits, see [How to deal with the limits of SQL Database maximum logins](https://blogs.technet.microsoft.com/latam/20../../how-to-deal-with-the-limits-of-azure-sql-database-maximum-logins/). See [Overview of resource limits on a SQL Database server](sql-database-resource-limits-database-server.md) for information about limits at the server and subscription levels.
 
 ## Workload Increase
 
@@ -103,7 +102,7 @@ You can optimize or remove queries related to the clerks with the highest memory
 
 You also can reduce the workload by optimizing or distributing it over multiple databases. Or you can distribute your workload among multiple databases. If these solutions aren't possible, consider increasing the pricing tier of your SQL database subscription to increase the amount of memory resources available to the database.
 
-For additional troubleshooting suggestions, see [Memory grants meditation: The mysterious SQL Server memory consumer with many names](https://blogs.msdn.microsoft.com/sqlmeditation/2013/01/01/memory-meditation-the-mysterious-sql-server-memory-consumer-with-many-names/).
+For additional troubleshooting suggestions, see [Memory grants meditation: The mysterious SQL Server memory consumer with many names](https://blogs.msdn.microsoft.com/sqlmeditation/20../../memory-meditation-the-mysterious-sql-server-memory-consumer-with-many-names/).
 
 ## Locking
 
@@ -253,7 +252,7 @@ This detectable performance pattern combines three different cases of plan regre
 
 The new plan regression condition refers to a state in which SQL Database starts executing a new query execution plan that isn't as efficient as the old plan. The old plan regression condition refers to the state when SQL Database switches from using a new, more efficient plan to the old plan, which isn't as efficient as the new plan. The existing plans changed workload regression refers to the state in which the old and the new plans continuously alternate, with the balance going more toward the poor-performing plan.
 
-For more information on plan regressions, see [What is plan regression in SQL Server?](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2017/06/09/what-is-plan-regression-in-sql-server/). 
+For more information on plan regressions, see [What is plan regression in SQL Server?](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../what-is-plan-regression-in-sql-server/). 
 
 ### Troubleshooting
 
@@ -261,7 +260,7 @@ The diagnostics log outputs the query hashes, good plan ID, bad plan ID, and que
 
 You can analyze which plan is better performing for your specific queries that you can identify with the query hashes provided. After you determine which plan works better for your queries, you can manually force it. 
 
-For more information, see [Learn how SQL Server prevents plan regressions](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2017/04/25/you-shall-not-regress-how-sql-server-2017-prevents-plan-regressions/).
+For more information, see [Learn how SQL Server prevents plan regressions](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../you-shall-not-regress-how-sql-server-2017-prevents-plan-regressions/).
 
 > [!TIP]
 > Did you know that SQL Database built-in intelligence can automatically manage the best-performing query execution plans for your databases?
@@ -326,4 +325,4 @@ Intelligent Insights usually needs one hour of time to perform the root cause an
 - Learn [Intelligent Insights](sql-database-intelligent-insights.md) concepts.
 - Use the [Intelligent Insights Azure SQL Database performance diagnostics log](sql-database-intelligent-insights-use-diagnostics-log.md).
 - Monitor [Azure SQL Database by using Azure SQL Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql).
-- Learn to [collect and consume log data from your Azure resources](../azure-monitor/platform/diagnostic-logs-overview.md).
+- Learn to [collect and consume log data from your Azure resources](../azure-monitor/platform/platform-logs-overview.md).

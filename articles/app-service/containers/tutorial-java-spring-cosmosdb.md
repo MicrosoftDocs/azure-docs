@@ -1,23 +1,21 @@
 ---
-title: Build Java web app on Linux - Azure App Service
-description: Build, deploy, and scale Spring Boot Java Web apps with Azure App Service on Linux and Azure Cosmos DB.
+title: 'Tutorial: Linux Java app with MongoDB'
+description: Learn how to get a data-driven Linux Java app working in Azure App Service, with connection to a MongoDB running in Azure (Cosmos DB).
 author: rloutlaw
 ms.author: routlaw
-manager: angerobe
-ms.service: app-service-web
 ms.devlang: java
 ms.topic: tutorial
 ms.date: 12/10/2018
 ms.custom: mvc
-ms.custom: seodec18
+ms.custom: seodec18, seo-java-july2019, seo-java-august2019, seo-java-september2019
 ---
 
-# Tutorial: Build a Java web app using Spring and Azure Cosmos DB
+# Tutorial: Build a Java Spring Boot web app with Azure App Service on Linux and Azure Cosmos DB
 
 This tutorial walks you through the process of building, configuring, deploying, and scaling Java web apps on Azure. 
 When you are finished, you will have a [Spring Boot](https://projects.spring.io/spring-boot/) application storing data in [Azure Cosmos DB](/azure/cosmos-db) running on [Azure App Service on Linux](/azure/app-service/containers).
 
-![Java app running in Azure appservice](./media/tutorial-java-spring-cosmosdb/spring-todo-app-running-locally.jpg)
+![Spring Boot application storing data in Azure Cosmos DB](./media/tutorial-java-spring-cosmosdb/spring-todo-app-running-locally.jpg)
 
 In this tutorial, you learn how to:
 
@@ -42,7 +40,7 @@ In this tutorial, you learn how to:
 This tutorial uses a sample TODO list app with a web UI that calls a Spring REST API backed by [Spring Data Azure Cosmos DB](https://github.com/Microsoft/spring-data-cosmosdb). The code for the app is available [on GitHub](https://github.com/Microsoft/spring-todo-app). To learn more about writing Java apps using Spring and Cosmos DB, see the [Spring Boot Starter with the Azure Cosmos DB SQL API tutorial](https://docs.microsoft.com/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db ) and the [Spring Data Azure Cosmos DB quick start](https://github.com/Microsoft/spring-data-cosmosdb#quick-start).
 
 
-Run the folllowing commands in your terminal to clone the sample repo and set up the sample app environment.
+Run the following commands in your terminal to clone the sample repo and set up the sample app environment.
 
 ```bash
 git clone --recurse-submodules https://github.com/Azure-Samples/e2e-java-experience-in-app-service-linux-part-2.git
@@ -77,7 +75,7 @@ The name of Cosmos DB must use only lower case letters. Note down the `documentE
         -n <your-azure-COSMOS-DB-name-in-lower-case-letters>
     ```
 
-4. Get your Azure Cosmos DB key to connect to the app. Keep the he `primaryMasterKey`, `documentEndpoint` nearby as you'll need them in the next step.
+4. Get your Azure Cosmos DB key to connect to the app. Keep the `primaryMasterKey`, `documentEndpoint` nearby as you'll need them in the next step.
 
     ```bash
     az cosmosdb list-keys -g <your-azure-group-name> -n <your-azure-COSMOSDB-name>
@@ -100,7 +98,7 @@ export COSMOSDB_URI=<put-your-COSMOS-DB-documentEndpoint-URI-here>
 export COSMOSDB_KEY=<put-your-COSMOS-DB-primaryMasterKey-here>
 export COSMOSDB_DBNAME=<put-your-COSMOS-DB-name-here>
 
-// App Service Linux Configuration
+# App Service Linux Configuration
 export RESOURCEGROUP_NAME=<put-your-resource-group-name-here>
 export WEBAPP_NAME=<put-your-Webapp-name-here>
 export REGION=<put-your-REGION-here>
@@ -168,13 +166,13 @@ bash-3.2$ mvn package spring-boot:run
 
 You can access Spring TODO App locally using this link once the app is started: [http://localhost:8080/](http://localhost:8080/).
 
- ![](./media/tutorial-java-spring-cosmosdb/spring-todo-app-running-locally.jpg)
+ ![Access Spring TODO app locally](./media/tutorial-java-spring-cosmosdb/spring-todo-app-running-locally.jpg)
 
-If you see exceptions instaead of the "Started TodoApplication" message, check that the `bash` script in the previous step exported the environment variables properly and that the values are correct for the Azure Cosmos DB database you created.
+If you see exceptions instead of the "Started TodoApplication" message, check that the `bash` script in the previous step exported the environment variables properly and that the values are correct for the Azure Cosmos DB database you created.
 
 ## Configure Azure deployment
 
-Open the `pom.xml` file in the `initial/spring-boot-todo` directory and add the following  [Maven Plugin for Azure App Service](https://github.com/Microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md) configuration.
+Open the `pom.xml` file in the `initial/spring-boot-todo` directory and add the following  [Azure Web App Plugin for Maven](https://github.com/Microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md) configuration.
 
 ```xml    
 <plugins> 
@@ -185,24 +183,38 @@ Open the `pom.xml` file in the `initial/spring-boot-todo` directory and add the 
        
     <plugin>
         <groupId>com.microsoft.azure</groupId>
-            <artifactId>azure-webapp-maven-plugin</artifactId>
-            <version>1.4.0</version>
-            <configuration>
-            <deploymentType>jar</deploymentType>
-            
+        <artifactId>azure-webapp-maven-plugin</artifactId>
+        <version>1.8.0</version>
+        <configuration>
+            <schemaVersion>v2</schemaVersion>
+
             <!-- Web App information -->
             <resourceGroup>${RESOURCEGROUP_NAME}</resourceGroup>
             <appName>${WEBAPP_NAME}</appName>
             <region>${REGION}</region>
-            
+
             <!-- Java Runtime Stack for Web App on Linux-->
-            <linuxRuntime>jre8</linuxRuntime>
-            
+            <runtime>
+                 <os>linux</os>
+                 <javaVersion>jre8</javaVersion>
+                 <webContainer>jre8</webContainer>
+             </runtime>
+             <deployment>
+                 <resources>
+                 <resource>
+                     <directory>${project.basedir}/target</directory>
+                     <includes>
+                     <include>*.jar</include>
+                     </includes>
+                 </resource>
+                 </resources>
+             </deployment>
+
             <appSettings>
                 <property>
                     <name>COSMOSDB_URI</name>
                     <value>${COSMOSDB_URI}</value>
-                </property>
+                </property> 
                 <property>
                     <name>COSMOSDB_KEY</name>
                     <value>${COSMOSDB_KEY}</value>
@@ -216,9 +228,9 @@ Open the `pom.xml` file in the `initial/spring-boot-todo` directory and add the 
                     <value>-Dserver.port=80</value>
                 </property>
             </appSettings>
-            
+
         </configuration>
-    </plugin>            
+    </plugin>           
     ...
 </plugins>
 ```
@@ -229,7 +241,7 @@ Use the `azure-webapp:deploy` Maven goal to deploy the TODO app to Azure App Ser
 
 ```bash
 
-// Deploy
+# Deploy
 bash-3.2$ mvn azure-webapp:deploy
 [INFO] Scanning for projects...
 [INFO] 
@@ -237,19 +249,22 @@ bash-3.2$ mvn azure-webapp:deploy
 [INFO] Building spring-todo-app 2.0-SNAPSHOT
 [INFO] ------------------------------------------------------------------------
 [INFO] 
-[INFO] --- azure-webapp-maven-plugin:1.4.0:deploy (default-cli) @ spring-todo-app ---
-[INFO] Authenticate with Azure CLI 2.0
+[INFO] --- azure-webapp-maven-plugin:1.8.0:deploy (default-cli) @ spring-todo-app ---
 [INFO] Target Web App doesn't exist. Creating a new one...
 [INFO] Creating App Service Plan 'ServicePlanb6ba8178-5bbb-49e7'...
 [INFO] Successfully created App Service Plan.
 [INFO] Successfully created Web App.
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource to /home/test/e2e-java-experience-in-app-service-linux-part-2/initial/spring-todo-app/target/azure-webapp/spring-todo-app-61bb5207-6fb8-44c4-8230-c1c9e4c099f7
 [INFO] Trying to deploy artifact to spring-todo-app...
+[INFO] Renaming /home/test/e2e-java-experience-in-app-service-linux-part-2/initial/spring-todo-app/target/azure-webapp/spring-todo-app-61bb5207-6fb8-44c4-8230-c1c9e4c099f7/spring-todo-app-2.0-SNAPSHOT.jar to app.jar
+[INFO] Deploying the zip package spring-todo-app-61bb5207-6fb8-44c4-8230-c1c9e4c099f7718326714198381983.zip...
 [INFO] Successfully deployed the artifact to https://spring-todo-app.azurewebsites.net
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
 [INFO] Total time: 02:19 min
-[INFO] Finished at: 2018-10-28T15:32:03-07:00
+[INFO] Finished at: 2019-11-06T15:32:03-07:00
 [INFO] Final Memory: 50M/574M
 [INFO] ------------------------------------------------------------------------
 ```
@@ -262,57 +277,12 @@ open https://spring-todo-app.azurewebsites.net
 
 You should see the app running with the remote URL in the address bar:
 
- ![](./media/tutorial-java-spring-cosmosdb/spring-todo-app-running-in-app-service.jpg)
+ ![Spring Boot application running with a remote URL](./media/tutorial-java-spring-cosmosdb/spring-todo-app-running-in-app-service.jpg)
 
-## View logs to troubleshoot the app
+## Stream diagnostic logs
 
-Enable logging for the deployed Java web app in App Service on  Linux:
+[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-no-h.md)]
 
-```bash
-az webapp log config --name ${WEBAPP_NAME} \
- --resource-group ${RESOURCEGROUP_NAME} \
-  --web-server-logging filesystem
-```
-
-Then stream the web app logs to your terminal:
-
-```bash
-az webapp log tail --name ${WEBAPP_NAME} \
- --resource-group ${RESOURCEGROUP_NAME}
-```
-
-You'll see the most recent lines of output and as new requests are made to the TODO app they will stream in on the console. To exit the console, use CONTROL+C.
-
-```bash
-bash-3.2$ az webapp log tail --name ${WEBAPP_NAME}  --resource-group ${RESOURCEGROUP_NAME}
-2018-10-28T22:50:17  Welcome, you are now connected to log-streaming service.
-2018-10-28T22:44:56.265890407Z   _____                               
-2018-10-28T22:44:56.265930308Z   /  _  \ __________ _________   ____  
-2018-10-28T22:44:56.265936008Z  /  /_\  \___   /  |  \_  __ \_/ __ \ 
-2018-10-28T22:44:56.265940308Z /    |    \/    /|  |  /|  | \/\  ___/ 
-2018-10-28T22:44:56.265944408Z \____|__  /_____ \____/ |__|    \___  >
-2018-10-28T22:44:56.265948508Z         \/      \/                  \/ 
-2018-10-28T22:44:56.265952508Z A P P   S E R V I C E   O N   L I N U X
-2018-10-28T22:44:56.265956408Z Documentation: https://aka.ms/webapp-linux
-2018-10-28T22:44:56.266260910Z Setup openrc ...
-2018-10-28T22:44:57.396926506Z Service `hwdrivers' needs non existent service `dev'
-2018-10-28T22:44:57.397294409Z  * Caching service dependencies ... [ ok ]
-2018-10-28T22:44:57.474152273Z Starting ssh service...
-...
-...
-2018-10-28T22:46:13.432160734Z [INFO] AnnotationMBeanExporter - Registering beans for JMX exposure on startup
-2018-10-28T22:46:13.744859424Z [INFO] TomcatWebServer - Tomcat started on port(s): 80 (http) with context path ''
-2018-10-28T22:46:13.783230205Z [INFO] TodoApplication - Started TodoApplication in 57.209 seconds (JVM running for 70.815)
-2018-10-28T22:46:14.887366993Z 2018-10-28 22:46:14.887  INFO 198 --- [p-nio-80-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
-2018-10-28T22:46:14.887637695Z [INFO] DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization started
-2018-10-28T22:46:14.998479907Z [INFO] DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization completed in 111 ms
-
-2018-10-28T22:49:20.572059062Z Sun Oct 28 22:49:20 GMT 2018 GET ======= /api/todolist =======
-2018-10-28T22:49:25.850543080Z Sun Oct 28 22:49:25 GMT 2018 DELETE ======= /api/todolist/{4f41ab03-1b12-4131-a920-fe5dfec106ca} ======= 
-2018-10-28T22:49:26.047126614Z Sun Oct 28 22:49:26 GMT 2018 GET ======= /api/todolist =======
-2018-10-28T22:49:30.201740227Z Sun Oct 28 22:49:30 GMT 2018 POST ======= /api/todolist ======= Milk
-2018-10-28T22:49:30.413468872Z Sun Oct 28 22:49:30 GMT 2018 GET ======= /api/todolist =======
-```
 
 ## Scale out the TODO App
 
@@ -329,7 +299,7 @@ az appservice plan update --number-of-workers 2 \
 If you don't need these resources for another tutorial (see [Next steps](#next)), you can delete them by running the following command in the Cloud Shell: 
   
 ```bash
-az group delete --name your-azure-group-name
+az group delete --name <your-azure-group-name>
 ```
 
 <a name="next"></a>
@@ -341,9 +311,9 @@ az group delete --name your-azure-group-name
 [Spring Data for Cosmos DB](/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db?view=azure-java-stable), 
 [Azure Cosmos DB](/azure/cosmos-db/sql-api-introduction)
 and
-[App Service Linux](/azure/app-service/containers/app-service-linux-intro).
+[App Service Linux](app-service-linux-intro.md).
 
 Learn more about running Java apps on App Service on Linux in the developer guide.
 
 > [!div class="nextstepaction"] 
-> [Java in App Service Linux dev guide](/azure/app-service/containers/app-service-linux-java)
+> [Java in App Service Linux dev guide](configure-language-java.md)

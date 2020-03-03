@@ -2,17 +2,17 @@
 title: Tutorial - Create custom Azure DNS records for a web app
 description: In this tutorial you create custom domain DNS records for web app using Azure DNS.
 services: dns
-author: vhorne
+author: rohinkoul
 ms.service: dns
 ms.topic: tutorial
-ms.date: 2/19/2019
-ms.author: victorh
+ms.date: 3/11/2019
+ms.author: rohink
 #Customer intent: As an experienced network administrator I want to create DNS records in Azure DNS, so I can host a web app in a custom domain.
 ---
 
 # Tutorial: Create DNS records in a custom domain for a web app 
 
-You can configure Azure DNS to host a custom domain for your web apps. For example, you can create an Azure web app and have your users access it using either www.contoso.com or contoso.com as a fully qualified domain name (FQDN).
+You can configure Azure DNS to host a custom domain for your web apps. For example, you can create an Azure web app and have your users access it using either www\.contoso.com or contoso.com as a fully qualified domain name (FQDN).
 
 > [!NOTE]
 > Contoso.com is used as an example throughout this tutorial. Substitute your own domain name for contoso.com.
@@ -37,18 +37,19 @@ In this tutorial, you learn how to:
 
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## Prerequisites
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-- [Create an App Service app](../app-service/app-service-web-get-started-html.md), or use an app that you created for another tutorial.
+* You must have a domain name available to test with that you can host in Azure DNS . You must have full control of this domain. Full control includes the ability to set the name server (NS) records for the domain.
+* [Create an App Service app](../app-service/app-service-web-get-started-html.md), or use an app that you created for another tutorial.
 
-- Create a DNS zone in Azure DNS, and delegate the zone in your registrar to Azure DNS.
+* Create a DNS zone in Azure DNS, and delegate the zone in your registrar to Azure DNS.
 
    1. To create a DNS zone, follow the steps in [Create a DNS zone](dns-getstarted-create-dnszone.md).
-   2. To delegate your zone to Azure DNS, follow the steps in [DNS domain delegation](dns-domain-delegation.md).
+   2. To delegate your zone to Azure DNS, follow the steps in [DNS domain delegation](dns-delegate-domain-azure-dns.md).
 
 After creating a zone and delegating it to Azure DNS, you can then create records for your custom domain.
 
@@ -68,7 +69,7 @@ In the **Custom domains** page, copy the app's IPv4 address:
 
 ### Create the A record
 
-```powershell
+```azurepowershell
 New-AzDnsRecordSet -Name "@" -RecordType "A" -ZoneName "contoso.com" `
  -ResourceGroupName "MyAzureResourceGroup" -Ttl 600 `
  -DnsRecords (New-AzDnsRecordConfig -IPv4Address "<your web app IP address>")
@@ -78,7 +79,10 @@ New-AzDnsRecordSet -Name "@" -RecordType "A" -ZoneName "contoso.com" `
 
 App Services uses this record only at configuration time to verify that you own the custom domain. You can delete this TXT record after your custom domain is validated and configured in App Service.
 
-```powershell
+> [!NOTE]
+> If you want to verify the domain name, but not route production traffic to the web app, you only need to specify the TXT record for the verification step.  Verification does not require an A or CNAME record in addition to the TXT record.
+
+```azurepowershell
 New-AzDnsRecordSet -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup `
  -Name "@" -RecordType "txt" -Ttl 600 `
  -DnsRecords (New-AzDnsRecordConfig -Value  "contoso.azurewebsites.net")
@@ -92,7 +96,7 @@ Open Azure PowerShell and create a new CNAME record. This example creates a reco
 
 ### Create the record
 
-```powershell
+```azurepowershell
 New-AzDnsRecordSet -ZoneName contoso.com -ResourceGroupName "MyAzureResourceGroup" `
  -Name "www" -RecordType "CNAME" -Ttl 600 `
  -DnsRecords (New-AzDnsRecordConfig -cname "contoso.azurewebsites.net")
@@ -154,7 +158,7 @@ contoso.com text =
 
 Now you can add the custom host names to your web app:
 
-```powershell
+```azurepowershell
 set-AzWebApp `
  -Name contoso `
  -ResourceGroupName MyAzureResourceGroup `
@@ -165,7 +169,7 @@ set-AzWebApp `
 Open a browser and browse to `http://www.<your domainname>` and `http://<you domain name>`.
 
 > [!NOTE]
-> Make sure you include the `http://` prefix, otherwise your browser may attempt predict a URL for you!
+> Make sure you include the `http://` prefix, otherwise your browser may attempt to predict a URL for you!
 
 You should see the same page for both URLs. For example:
 

@@ -22,8 +22,6 @@
     href: front-door-quickstart-template-samples.md
 - name: Concepts
   items:
-  - name: Application layer security
-    href: front-door-application-security.md
   - name: Backends and backend pools
     href: front-door-backend-pool.md
   - name: Caching with Front Door
@@ -48,20 +46,34 @@
     href: front-door-routing-methods.md
   - name: URL rewrite
     href: front-door-url-rewrite.md
+  - name: URL redirect
+    href: front-door-url-redirect.md
 - name: How-to guides
   items:
+  - name: Redirect Traffic
+    items:
+    - name: Configure a Front Door with HTTP to HTTPS redirect
+      href: front-door-how-to-redirect-https.md
+  - name: Onboarding custom domains
+    items:
+    - name: Onboard a root or apex domain
+      href: front-door-how-to-onboard-apex-domain.md
   - name: Troubleshoot
     items:
     - name: Troubleshoot routing issues
       href: front-door-troubleshoot-routing.md
     - name: Allowed certificate authorities
       href: front-door-troubleshoot-allowed-ca.md
+- name: FAQ
+  items:
+  - name: Front Door FAQ
+    href: front-door-faq.md
 - name: Reference
   items:
   - name: Azure CLI
     href: /cli/azure/ext/front-door/
   - name: Azure PowerShell
-    href: /powershell/module/azurerm.frontdoor
+    href: /powershell/module/az.frontdoor
   - name: REST API
     href: /rest/api/frontdoor
 - name: Resources

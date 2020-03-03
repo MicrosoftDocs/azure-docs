@@ -1,6 +1,6 @@
 ---
-title: Azure SQL logins and users | Microsoft Docs
-description: Learn about SQL Database and SQL Data Warehouse security management, specifically how to manage database access and login security through the server-level principal account.
+title: Logins and users
+description: Learn about SQL Database and Azure Synapse security management, specifically how to manage database access and login security through the server-level principal account.
 keywords: sql database security,database security management,login security,database security,database access
 services: sql-database
 ms.service: sql-database
@@ -11,15 +11,15 @@ ms.topic: conceptual
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
-manager: craigg
-ms.date: 02/07/2019
+ms.date: 02/06/2020
+tags: azure-synapse
 ---
-# Controlling and granting database access to SQL Database and SQL Data Warehouse
+# Controlling and granting database access to SQL Database and Azure Synapse Analytics
 
-After firewall rules configuration, you can connect to Azure [SQL Database](sql-database-technical-overview.md) and [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) as one of the administrator accounts, as the database owner, or as a database user in the database.  
+After firewall rules configuration, you can connect to Azure [SQL Database](sql-database-technical-overview.md) and [Azure Synapse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) as one of the administrator accounts, as the database owner, or as a database user in the database.  
 
 > [!NOTE]  
-> This topic applies to Azure SQL server, and to SQL Database and SQL Data Warehouse databases created on the Azure SQL server. For simplicity, SQL Database is used when referring to both SQL Database and SQL Data Warehouse. 
+> This topic applies to Azure SQL server, and to SQL Database and Azure Synapse created on the Azure SQL server. For simplicity, SQL Database is used when referring to both SQL Database and Azure  Synapse.
 > [!TIP]
 > For a tutorial, see [Secure your Azure SQL Database](sql-database-security-tutorial.md). This tutorial does not apply to **Azure SQL Database Managed Instance**.
 
@@ -38,9 +38,9 @@ There are two administrative accounts (**Server admin** and **Active Directory a
 
 - **Azure Active Directory admin**
 
-  One Azure Active Directory account, either an individual or security group account, can also be configured as an administrator. It is optional to configure an Azure AD administrator, but an Azure AD administrator **must** be configured if you want to use Azure AD accounts to connect to SQL Database. For more information about configuring Azure Active Directory access, see [Connecting to SQL Database or SQL Data Warehouse By Using Azure Active Directory Authentication](sql-database-aad-authentication.md) and [SSMS support for Azure AD MFA with SQL Database and SQL Data Warehouse](sql-database-ssms-mfa-authentication.md).
+  One Azure Active Directory account, either an individual or security group account, can also be configured as an administrator. It is optional to configure an Azure AD administrator, but an Azure AD administrator **must** be configured if you want to use Azure AD accounts to connect to SQL Database. For more information about configuring Azure Active Directory access, see [Connecting to SQL Database or Azure Synapse By Using Azure Active Directory Authentication](sql-database-aad-authentication.md) and [SSMS support for Azure AD MFA with SQL Database and Azure Synapse](sql-database-ssms-mfa-authentication.md).
 
-The **Server admin** and **Azure AD admin** accounts has the following characteristics:
+The **Server admin** and **Azure AD admin** accounts have the following characteristics:
 
 - Are the only accounts that can automatically connect to any SQL Database on the server. (To connect to a user database, other accounts must either be the owner of the database, or have a user account in the user database.)
 - These accounts enter user databases as the `dbo` user and they have all the permissions in the user databases. (The owner of a user database also enters the database as the `dbo` user.) 
@@ -49,6 +49,9 @@ The **Server admin** and **Azure AD admin** accounts has the following character
 - Can create, alter, and drop databases, logins, users in master, and server-level IP firewall rules.
 - Can add and remove members to the `dbmanager` and `loginmanager` roles.
 - Can view the `sys.sql_logins` system table.
+- Cannot be renamed.
+- To change the Azure AD admin account, use the Portal or Azure CLI.
+- The Server Admin account cannot be changed afterwards.
 
 ### Configuring the firewall
 
@@ -58,7 +61,7 @@ When the server-level firewall is configured for an individual IP address or ran
 
 When the server-level firewall is properly configured, the **SQL server admin** and the **Azure Active Directory admin** can connect using client tools such as SQL Server Management Studio or SQL Server Data Tools. Only the latest tools provide all the features and capabilities. The following diagram shows a typical configuration for the two administrator accounts.
 
-![Administrator access path](./media/sql-database-manage-logins/1sql-db-administrator-access.png)
+![configuration of the two administration accounts](./media/sql-database-manage-logins/1sql-db-administrator-access.png)
 
 When using an open port in the server-level firewall, administrators can connect to any SQL Database.
 
@@ -143,7 +146,7 @@ In Azure SQL Database use the `ALTER ROLE` statement.
 ALTER ROLE db_owner ADD MEMBER Mary;
 ```
 
-In Azure SQL Data Warehouse use [EXEC sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql).
+In Azure Synapse use [EXEC sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql).
 ```sql
 EXEC sp_addrolemember 'db_owner', 'Mary';
 ```
@@ -197,6 +200,12 @@ When managing logins and users in SQL Database, consider the following:
            WHERE  [name] = N'database_name')
   DROP DATABASE [database_name];
   GO
+  ```
+  
+  Instead, use the following Transact-SQL statement:
+  
+  ```sql
+  DROP DATABASE IF EXISTS [database_name]
   ```
 
 - When executing the `CREATE USER` statement with the `FOR/FROM LOGIN` option, it must be the only statement in a Transact-SQL batch.

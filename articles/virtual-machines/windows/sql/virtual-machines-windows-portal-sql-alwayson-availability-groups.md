@@ -10,7 +10,7 @@ tags: azure-resource-manager
 
 ms.assetid: 64e85527-d5c8-40d9-bbe2-13045d25fc68
 ms.service: virtual-machines-sql
-ms.devlang: na
+
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
@@ -40,10 +40,10 @@ Before you start this tutorial, confirm the following:
 
 * You already have an Azure account. If you don't have one, [sign up for a trial account](https://azure.microsoft.com/pricing/free-trial/).
 * You already know how to use the GUI to provision a SQL Server virtual machine from the virtual machine gallery. For more information, see [Provisioning a SQL Server virtual machine on Azure](virtual-machines-windows-portal-sql-server-provision.md).
-* You already have a solid understanding of availability groups. For more information, see [Always On availability groups (SQL Server)](https://msdn.microsoft.com/library/hh510230.aspx).
+* You already have a solid understanding of availability groups. For more information, see [Always On availability groups (SQL Server)](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server).
 
 > [!NOTE]
-> If you are interested in using availability groups with SharePoint, also see [Configure SQL Server 2012 Always On availability groups for SharePoint 2013](https://technet.microsoft.com/library/jj715261.aspx).
+> If you are interested in using availability groups with SharePoint, also see [Configure SQL Server 2012 Always On availability groups for SharePoint 2013](/SharePoint/administration/configure-an-alwayson-availability-group).
 >
 >
 
@@ -73,7 +73,7 @@ Click **Basics** and configure the following settings:
 * **Administrator user name** is a user account that has domain administrator permissions and is a member of the SQL Server sysadmin fixed server role on both instances of SQL Server. For this tutorial, use **DomainAdmin**.
 * **Password** is the password for the domain administrator account. Use a complex password. Confirm the password.
 * **Subscription** is the subscription that Azure bills to run all deployed resources for the availability group. If your account has multiple subscriptions, you can specify a different subscription.
-* **Resource group** is the name for the group to which all Azure resources that are created by this template belong. For this tutorial, use **SQL-HA-RG**. For more information, see [Azure Resource Manager overview](../../../azure-resource-manager/resource-group-overview.md#resource-groups).
+* **Resource group** is the name for the group to which all Azure resources that are created by this template belong. For this tutorial, use **SQL-HA-RG**. For more information, see [Azure Resource Manager overview](../../../azure-resource-manager/management/overview.md#resource-groups).
 * **Location** is the Azure region where the tutorial creates the resources. Choose an Azure region.
 
 The following screenshot is a completed **Basics** blade:

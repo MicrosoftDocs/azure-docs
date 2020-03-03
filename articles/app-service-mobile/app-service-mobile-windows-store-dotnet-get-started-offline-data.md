@@ -1,21 +1,12 @@
 ---
-title: Enable offline sync for your Universal Windows Platform (UWP) app with Mobile Apps| Microsoft Docs
+title: Enable offline sync for your UWP app
 description: Learn how to use an Azure Mobile App to cache and sync offline data in your Universal Windows Platform (UWP) app.
-documentationcenter: windows
-author: conceptdev
-manager: crdun
-editor: ''
-services: app-service\mobile
 
 ms.assetid: 8fe51773-90de-4014-8a38-41544446d9b5
-ms.service: app-service-mobile
-ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/01/2016
-ms.author: crdun
-
+ms.date: 06/25/2019
 ---
 # Enable offline sync for your Windows app
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
@@ -107,7 +98,7 @@ the local store with the server:
 * **[PullAsync]**
    A pull is started from a [IMobileServiceSyncTable]. When there are tracked changes in the table, an implicit push is run to make sure
    that all tables in the local store along with relationships remain consistent. The *pushOtherTables* parameter controls whether other
-   tables in the context are pushed in an implicit push. The *query* parameter takes an [IMobileServiceTableQuery<T>][IMobileServiceTableQuery]
+   tables in the context are pushed in an implicit push. The *query* parameter takes an [IMobileServiceTableQuery\<T>][IMobileServiceTableQuery]
    or OData query string to filter the returned data. The *queryId* parameter is used to define incremental sync. For more information, see
    [Offline Data Sync in Azure Mobile Apps](app-service-mobile-offline-data-sync.md#how-sync-works).
 * **[PurgeAsync]**

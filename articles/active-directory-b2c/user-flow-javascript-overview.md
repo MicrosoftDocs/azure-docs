@@ -1,36 +1,49 @@
 ---
-title: JavaScript and page contract versions for user flows in Azure Active Directory B2C | Microsoft Docs
-description: Learn how to enable JavaScript and use page contract versions to customize a user flow in Azure Active Directory B2C.
+title: JavaScript and page layout versions
+titleSuffix: Azure AD B2C
+description: Learn how to enable JavaScript and use page layout versions in Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
-manager: daveba
+author: msmimart
+manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/07/2019
-ms.author: davidmu
+ms.date: 02/10/2020
+ms.author: mimart
 ms.subservice: B2C
 ---
 
-# About using JavaScript and page contract versions in a user flow
+# JavaScript and page layout versions in Azure Active Directory B2C
 
-Azure AD B2C provides a set of packaged content containing HTML, CSS, and JavaScript for the user interface elements in your user flows. If you intend to enable [JavaScript](javascript-samples.md) client-side code in your user flows, you’ll want to be sure the elements you’re basing your JavaScript on are immutable. Otherwise, any changes could cause unexpected behavior on your user flow pages. To prevent these issues, you can enforce the use of a page contract for a user flow and specify a page contract version. Doing this will ensure that all the content definitions that you’ve based your JavaScript on are immutable. Even if you don’t intend to enable JavaScript for a user flow, you can specify a page contract version for your user flow pages.
+[!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
-> [!NOTE]
-> This article discusses JavaScript for user flows, but you can also use JavaScript and select page contract versions when you’re using [custom policies](page-contract.md).
+Azure AD B2C provides a set of packaged content containing HTML, CSS, and JavaScript for the user interface elements in your user flows and custom policies.
+
+To enable JavaScript for your applications:
+
+* Enable it on the user flow by using the Azure portal
+* Select a [page layout](page-layout.md)
+* Use [b2clogin.com](b2clogin.md) in your requests
+
+If you intend to enable [JavaScript](javascript-samples.md) client-side code, the elements you base your JavaScript on must be immutable. If they're not immutable, any changes could cause unexpected behavior on your user pages. To prevent these issues, enforce the use of a page layout and specify a page layout version to ensure the content definitions you’ve based your JavaScript on are immutable. Even if you don’t intend to enable JavaScript, you can specify a page layout version for your pages.
 
 ## Enable JavaScript
 
-In the user flow properties, you can enable JavaScript, which also enforces the use of a page contract. Then you can set the page contract version as described in the next section.
+In the user flow **Properties**, you can enable JavaScript. Enabling JavaScript also enforces the use of a page layout. You can then set the page layout version for the user flow as described in the next section.
 
-![Enable JavaScript setting](media/user-flow-javascript-overview/javascript-settings.PNG)
+![User flow properties page with Enable JavaScript setting highlighted](media/user-flow-javascript-overview/javascript-settings.png)
 
-## Specify a page contract version
+## Select a page layout version
 
-Whether or not you enable JavaScript in your user flow's properties, you can specify a page contract version for your user flow pages. Open the user flow and select **Page Layouts**. Under **Layout Name**, select a user flow page and choose the **Page Contract Version**.
+Whether or not you enable JavaScript in your user flow's properties, you can specify a page layout version for your user flow pages. Open the user flow and select **Page layouts**. Under **LAYOUT NAME**, select a user flow page and choose the **Page Layout Version**.
 
-![Enable JavaScript setting](media/user-flow-javascript-overview/page-contract-version.PNG)
+For information about the different page layout versions, see the [Page layout version change log](page-layout.md).
+
+![Page layout settings in portal showing page layout version dropdown](media/user-flow-javascript-overview/page-layout-version.png)
+
+[!INCLUDE [active-directory-b2c-javascript-guidelines](../../includes/active-directory-b2c-javascript-guidelines.md)]
 
 ## Next steps
-See the [JavaScript samples for use in Azure Active Directory B2C](javascript-samples.md).
+
+You can find examples of JavaScript usage in [JavaScript samples for use in Azure Active Directory B2C](javascript-samples.md).

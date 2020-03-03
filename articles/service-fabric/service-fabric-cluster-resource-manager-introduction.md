@@ -1,28 +1,18 @@
 ---
-title: Introducing the Service Fabric Cluster Resource Manager | Microsoft Docs
-description: An introduction to the Service Fabric Cluster Resource Manager.
-services: service-fabric
-documentationcenter: .net
+title: Introducing the Service Fabric Cluster Resource Manager 
+description: Learn about the Service Fabric Cluster Resource Manager, a way to manage orchestration of your application's services.
 author: masnider
-manager: timlt
-editor: ''
 
-ms.assetid: cfab735b-923d-4246-a2a8-220d4f4e0c64
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-
 ---
 # Introducing the Service Fabric cluster resource manager
 Traditionally managing IT systems or online services meant dedicating specific physical or virtual machines to those specific services or systems. Services were architected as tiers. There would be a “web” tier and a “data” or “storage” tier. Applications would have a messaging tier where requests flowed in and out, as well as a set of machines dedicated to caching. Each tier or type of workload had specific machines dedicated to it: the database got a couple machines dedicated to it, the web servers a few. If a particular type of workload caused the machines it was on to run too hot, then you added more machines with that same configuration to that tier. However, not all workloads could be scaled out so easily - particularly with the data tier you would typically replace machines with larger machines. Easy. If a machine failed, that part of the overall application ran at lower capacity until the machine could be restored. Still fairly easy (if not necessarily fun).
 
 Now however the world of service and software architecture has changed. It's more common that applications have adopted a scale-out design. Building applications with containers or microservices (or both) is common. Now, while you may still have only a few machines, they're not running just a single instance of a workload. They may even be running multiple different workloads at the same time. You now have dozens of different types of services (none consuming a full machine's worth of resources), perhaps hundreds of different instances of those services. Each named instance has one or more instances or replicas for High Availability (HA). Depending on the sizes of those workloads, and how busy they are, you may find yourself with hundreds or thousands of machines. 
 
-Suddenly managing your environment is not so simple as managing a few machines dedicated to single types of workloads. Your servers are virtual and no longer have names (you have switched mindsets from [pets to cattle](http://www.slideshare.net/randybias/architectures-for-open-and-scalable-clouds/20) after all). Configuration is less about the machines and more about the services themselves. Hardware that is dedicated to a single instance of a workload is largely a thing of the past. Services themselves have become small distributed systems that span multiple smaller pieces of commodity hardware.
+Suddenly managing your environment is not so simple as managing a few machines dedicated to single types of workloads. Your servers are virtual and no longer have names (you have switched mindsets from [pets to cattle](https://www.slideshare.net/randybias/architectures-for-open-and-scalable-clouds/20) after all). Configuration is less about the machines and more about the services themselves. Hardware that is dedicated to a single instance of a workload is largely a thing of the past. Services themselves have become small distributed systems that span multiple smaller pieces of commodity hardware.
 
 Because your app is no longer a series of monoliths spread across several tiers, you now have many more combinations to deal with. Who decides what types of workloads can run on which hardware, or how many? Which workloads work well on the same hardware, and which conflict? When a machine goes down how do you know what was running there on that machine? Who is in charge of making sure that workload starts running again? Do you wait for the (virtual?) machine to come back or do your workloads automatically fail over to other machines and keep running? Is human intervention required? What about upgrades in this environment?
 

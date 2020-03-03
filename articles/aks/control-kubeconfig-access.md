@@ -2,12 +2,9 @@
 title: Limit access to kubeconfig in Azure Kubernetes Service (AKS)
 description: Learn how to control access to the Kubernetes configuration file (kubeconfig) for cluster administrators and cluster users
 services: container-service
-author: iainfoulds
-
-ms.service: container-service
 ms.topic: article
-ms.date: 01/03/2019
-ms.author: iainfou
+ms.date: 01/28/2020
+
 ---
 
 # Use Azure role-based access controls to define access to the Kubernetes configuration file in Azure Kubernetes Service (AKS)
@@ -20,7 +17,7 @@ This article shows you how to assign RBAC roles that limit who can get the confi
 
 This article assumes that you have an existing AKS cluster. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
 
-This article also requires that you are running the Azure CLI version 2.0.53 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
+This article also requires that you are running the Azure CLI version 2.0.65 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
 
 ## Available cluster roles permissions
 
@@ -31,21 +28,28 @@ The [az aks get-credentials][az-aks-get-credentials] command lets you get the ac
 The two built-in roles are:
 
 * **Azure Kubernetes Service Cluster Admin Role**  
-    * Allows access to *Microsoft.ContainerService/managedClusters/listClusterAdminCredential/action* API call. This API call [lists the cluster admin credentials][api-cluster-admin].
-    * Downloads *kubeconfig* for the *clusterAdmin* role.
+  * Allows access to *Microsoft.ContainerService/managedClusters/listClusterAdminCredential/action* API call. This API call [lists the cluster admin credentials][api-cluster-admin].
+  * Downloads *kubeconfig* for the *clusterAdmin* role.
 * **Azure Kubernetes Service Cluster User Role**
-    * Allows access to *Microsoft.ContainerService/managedClusters/listClusterUserCredential/action* API call. This API call [lists the cluster user credentials][api-cluster-user].
-    * Downloads *kubeconfig* for *clusterUser* role.
+  * Allows access to *Microsoft.ContainerService/managedClusters/listClusterUserCredential/action* API call. This API call [lists the cluster user credentials][api-cluster-user].
+  * Downloads *kubeconfig* for *clusterUser* role.
 
-## Assign role permissions to a user
+These RBAC roles can be applied to an Azure Active Directory (AD) user or group.
 
-To assign one of the Azure roles to a user, you need to get the resource ID of the AKS cluster and the ID of the user account. The following example commands do the following steps:
+> ![NOTE]
+> On clusters that use Azure AD, users with the *clusterUser* role have an empty *kubeconfig* file that prompts a log in. Once logged in, users have access based on their Azure AD user or group settings. Users with the *clusterAdmin* role have admin access.
+>
+> Clusters that do not use Azure AD only use the *clusterAdmin* role.
 
-* Gets the cluster resource ID using the [az aks show][az-aks-show] command for the cluster named *myAKSCluster* in the *myResourceGroup* resource group. Provide your own cluster and resource group name as needed.
-* Uses the [az account show][az-account-show] and [az ad user show][az-ad-user-show] commands get your user ID.
-* Finally, assigns a role using the [az role assignment create][az-role-assignment-create] command.
+## Assign role permissions to a user or group
 
-The following example assigns the *Azure Kubernetes Service Cluster Admin Role*:
+To assign one of the available roles, you need to get the resource ID of the AKS cluster and the ID of the Azure AD user account or group. The following example commands:
+
+* Get the cluster resource ID using the [az aks show][az-aks-show] command for the cluster named *myAKSCluster* in the *myResourceGroup* resource group. Provide your own cluster and resource group name as needed.
+* Use the [az account show][az-account-show] and [az ad user show][az-ad-user-show] commands to get your user ID.
+* Finally, assign a role using the [az role assignment create][az-role-assignment-create] command.
+
+The following example assigns the *Azure Kubernetes Service Cluster Admin Role* to an individual user account:
 
 ```azurecli-interactive
 # Get the resource ID of your AKS cluster
@@ -53,7 +57,7 @@ AKS_CLUSTER=$(az aks show --resource-group myResourceGroup --name myAKSCluster -
 
 # Get the account credentials for the logged in user
 ACCOUNT_UPN=$(az account show --query user.name -o tsv)
-ACCOUNT_ID=$(az ad user show --upn-or-object-id $ACCOUNT_UPN --query objectId -o tsv)
+ACCOUNT_ID=$(az ad user show --id $ACCOUNT_UPN --query objectId -o tsv)
 
 # Assign the 'Cluster Admin' role to the user
 az role assignment create \
@@ -61,6 +65,9 @@ az role assignment create \
     --scope $AKS_CLUSTER \
     --role "Azure Kubernetes Service Cluster Admin Role"
 ```
+
+> [!TIP]
+> If you want to assign permissions to an Azure AD group, update the `--assignee` parameter shown in the previous example with the object ID for the *group* rather than a *user*. To obtain the object ID for a group, use the [az ad group show][az-ad-group-show] command. The following example gets the object ID for the Azure AD group named *appdev*: `az ad group show --group appdev --query objectId -o tsv`
 
 You can change the previous assignment to the *Cluster User Role* as needed.
 
@@ -116,7 +123,7 @@ users:
 
 ## Remove role permissions
 
-To remove role assignments, use the [az role assignment delete][az-role-assignment-delete] command. Specify the account ID and cluster resource ID, as obtained in the previous commands:
+To remove role assignments, use the [az role assignment delete][az-role-assignment-delete] command. Specify the account ID and cluster resource ID, as obtained in the previous commands. If you assigned the role to a group rather than a user, specify the appropriate group object ID rather than account object ID for the `--assignee` parameter:
 
 ```azurecli-interactive
 az role assignment delete --assignee $ACCOUNT_ID --scope $AKS_CLUSTER
@@ -143,4 +150,5 @@ For enhanced security on access to AKS clusters, [integrate Azure Active Directo
 [az-ad-user-show]: /cli/azure/ad/user#az-ad-user-show
 [az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
 [az-role-assignment-delete]: /cli/azure/role/assignment#az-role-assignment-delete
-[aad-integration]: aad-integration.md
+[aad-integration]: azure-ad-integration.md
+[az-ad-group-show]: /cli/azure/ad/group#az-ad-group-show

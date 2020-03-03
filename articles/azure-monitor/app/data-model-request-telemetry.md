@@ -1,18 +1,12 @@
 ---
-title: Azure Application Insights Telemetry Data Model - Request Telemetry | Microsoft Docs
+title: Data model for request telemetry - Azure Application Insights
 description: Application Insights data model for request telemetry
-services: application-insights
-documentationcenter: .net
-author: mrbullwinkle
-manager: carmonm
-ms.service: application-insights
-ms.workload: TBD
-ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 01/07/2019
+
 ms.reviewer: sergkanz
-ms.author: mbullwin
 ---
+
 # Request telemetry: Application Insights data model
 
 A request telemetry item (in [Application Insights](../../azure-monitor/app/app-insights-overview.md)) represents the logical sequence of execution triggered by an external request to your application. Every request execution is identified by unique `ID` and `url` containing all the execution parameters. You can group requests by logical `name` and define the `source` of this request. Code execution can result in `success` or `fail` and has a certain `duration`. Both success and failure executions may be grouped further by `resultCode`. Start time for the request telemetry defined on the envelope level.
@@ -23,7 +17,7 @@ Request telemetry supports the standard extensibility model using custom `proper
 
 Name of the request represents code path taken to process the request. Low cardinality value to allow better grouping of requests. For HTTP requests it represents the HTTP method and URL path template like `GET /values/{id}` without the actual `id` value.
 
-Application Insights web SDK sends request name "as is" with regards to letter case. Grouping on UI is case-sensitive so `GET /Home/Index` is counted separately from `GET /home/INDEX` even though often they result in the same controller and action execution. The reason for that is that urls in general are [case-sensitive](https://www.w3.org/TR/WD-html40-970708/htmlweb.html). You may want to see if all `404` happened for the urls typed in uppercase. You can read more on request name collection by ASP.Net Web SDK in the [blog post](https://apmtips.com/blog/2015/02/23/request-name-and-url/).
+Application Insights web SDK sends request name "as is" with regards to letter case. Grouping on UI is case-sensitive so `GET /Home/Index` is counted separately from `GET /home/INDEX` even though often they result in the same controller and action execution. The reason for that is that urls in general are [case-sensitive](https://www.w3.org/TR/WD-html40-970708/htmlweb.html). You may want to see if all `404` happened for the urls typed in uppercase. You can read more on request name collection by ASP.NET Web SDK in the [blog post](https://apmtips.com/blog/2015/02/23/request-name-and-url/).
 
 Max length: 1024 characters
 

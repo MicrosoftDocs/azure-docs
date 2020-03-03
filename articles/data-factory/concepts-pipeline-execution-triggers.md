@@ -1,20 +1,16 @@
 ---
-title: Pipeline execution and triggers in Azure Data Factory | Microsoft Docs
+title: Pipeline execution and triggers in Azure Data Factory 
 description: This article provides information about how to execute a pipeline in Azure Data Factory, either on-demand or by creating a trigger.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.reviewer: douglasl
-
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-
 ms.topic: conceptual
 ms.date: 07/05/2018
-ms.author: shlo
-
 ---
 
 # Pipeline execution and triggers in Azure Data Factory
@@ -92,10 +88,13 @@ https://management.azure.com/subscriptions/mySubId/resourceGroups/myResourceGrou
 For a complete sample, see [Quickstart: Create a data factory by using the REST API](quickstart-create-data-factory-rest-api.md).
 
 ### Azure PowerShell
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 The following sample command shows you how to manually run your pipeline by using Azure PowerShell:
 
 ```powershell
-Invoke-AzureRmDataFactoryV2Pipeline -DataFactory $df -PipelineName "Adfv2QuickStartPipeline" -ParameterFile .\PipelineParameters.json
+Invoke-AzDataFactoryV2Pipeline -DataFactory $df -PipelineName "Adfv2QuickStartPipeline" -ParameterFile .\PipelineParameters.json
 ```
 
 You pass parameters in the body of the request payload. In the .NET SDK, Azure PowerShell, and the Python SDK, you pass values in a dictionary that's passed as an argument to the call:
@@ -138,7 +137,7 @@ Triggers are another way that you can execute a pipeline run. Triggers represent
 
 - Event-based trigger: A trigger that responds to an event.
 
-Pipelines and triggers have a many-to-many relationship. Multiple triggers can kick off a single pipeline, or a single trigger can kick off multiple pipelines. In the following trigger definition, the **pipelines** property refers to a list of pipelines that are triggered by the particular trigger. The property definition includes values for the pipeline parameters.
+Pipelines and triggers have a many-to-many relationship (except for the tumbling window trigger).Multiple triggers can kick off a single pipeline, or a single trigger can kick off multiple pipelines. In the following trigger definition, the **pipelines** property refers to a list of pipelines that are triggered by the particular trigger. The property definition includes values for the pipeline parameters.
 
 ### Basic trigger definition
 

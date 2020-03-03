@@ -1,5 +1,5 @@
 ---
-title: Set up Azure SQL Data Sync | Microsoft Docs
+title: Set up Data Sync
 description: This tutorial shows you how to set up Azure SQL Data Sync
 services: sql-database
 ms.service: sql-database
@@ -7,10 +7,9 @@ ms.subservice: data-movement
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
-author: allenwux
-ms.author: xiwu
-ms.reviewer: douglasl
-manager: craigg
+author: stevestein
+ms.author: sstein
+ms.reviewer: carlrab
 ms.date: 01/14/2019
 ---
 # Tutorial: Set up SQL Data Sync between Azure SQL Database and SQL Server on-premises
@@ -28,32 +27,38 @@ For PowerShell examples on how to configure SQL Data Sync, see [How to sync betw
 
 ## Create sync group
 
-1. In the browser, navigate to the Azure portal. Locate your SQL database from the dashboard or, select the **SQL databases** icon on the toolbar and on the **SQL databases** page, select the database you want to use as the hub database for Data Sync.
+1. Go to the [Azure portal](https://portal.azure.com) to find your SQL database. Search for and select **SQL databases**.
+
+    ![Search for SQL databases, Microsoft Azure portal](media/sql-database-get-started-sql-data-sync/search-for-sql-databases.png)
+
+1. Select the database you want to use as the hub database for Data Sync.
+
+    ![Select from SQL database list, Microsoft Azure portal](media/sql-database-get-started-sql-data-sync/select-sql-database.png)
 
     > [!NOTE]
-    > The hub database a sync topology's central endpoint, in which a sync group has multiple database endpoints. All other member databases with endpoints in the sync group, sync with the hub database.
+    > The hub database is a sync topology's central endpoint, in which a sync group has multiple database endpoints. All other member databases with endpoints in the sync group, sync with the hub database.
 
-1. On the **SQL database** page for the selected database, select **Sync to other databases**.
+1. On the **SQL database** menu for the selected database, select **Sync to other databases**.
 
-    ![Sync to other databases option](media/sql-database-get-started-sql-data-sync/datasync-overview.png)
+    ![Sync to other databases, SQL database, Microsoft Azure portal](media/sql-database-get-started-sql-data-sync/sync-to-other-databases.png)
 
 1. On the **Sync to other databases** page, select **New Sync Group**. The **New sync group** page opens with **Create sync group (step 1)** highlighted.
 
-  ![Step 1 settings](media/sql-database-get-started-sql-data-sync/stepone.png)
+   ![Step 1 settings](media/sql-database-get-started-sql-data-sync/stepone.png)
 
-  On the **Create Data Sync Group** page, change the following settings:
+   On the **Create Data Sync Group** page, change the following settings:
 
-  | Setting                        | Description |
-  | ------------------------------ | ------------------------------------------------- |
-  | **Sync Group Name** | Enter a name for the new sync group. This name is distinct from the name of the database itself. |
-  | **Sync Metadata Database** | Choose to create a database (recommended) or to use an existing database.<br/><br/>If you choose **New database**, select **Create new database.** Then on the **SQL Database** page, name and configure the new database and select **OK**.<br/><br/>If you choose **Use existing database**, select the database from the list. |
-  | **Automatic Sync** | Select **On** or **Off**.<br/><br/>If you choose **On**, enter a number and select **Seconds**, **Minutes**, **Hours**, or **Days** in the **Sync Frequency** section. |
-  | **Conflict Resolution** | Select **Hub win** or **Member win**.<br/><br/>**Hub win** means when conflicts occur, data in the hub database overwrites conflicting data in the member database.<br/><br/>**Member win** means when conflicts occur, data in the member database overwrites conflicting data in the hub database. |
+   | Setting                        | Description |
+   | ------------------------------ | ------------------------------------------------- |
+   | **Sync Group Name** | Enter a name for the new sync group. This name is distinct from the name of the database itself. |
+   | **Sync Metadata Database** | Choose to create a database (recommended) or to use an existing database.<br/><br/>If you choose **New database**, select **Create new database.** Then on the **SQL Database** page, name and configure the new database and select **OK**.<br/><br/>If you choose **Use existing database**, select the database from the list. |
+   | **Automatic Sync** | Select **On** or **Off**.<br/><br/>If you choose **On**, enter a number and select **Seconds**, **Minutes**, **Hours**, or **Days** in the **Sync Frequency** section. |
+   | **Conflict Resolution** | Select **Hub win** or **Member win**.<br/><br/>**Hub win** means when conflicts occur, data in the hub database overwrites conflicting data in the member database.<br/><br/>**Member win** means when conflicts occur, data in the member database overwrites conflicting data in the hub database. |
 
-  > [!NOTE]
-  > Microsoft recommends to create a new, empty database for use as the **Sync Metadata Database**. Data Sync creates tables in this database and runs a frequent workload. This database is shared as the **Sync Metadata Database** for all Sync Groups in a selected region and you can't change the database or its name without removing all Sync Groups and Sync Agents in the region.
+   > [!NOTE]
+   > Microsoft recommends to create a new, empty database for use as the **Sync Metadata Database**. Data Sync creates tables in this database and runs a frequent workload. This database is shared as the **Sync Metadata Database** for all Sync Groups in a selected region and you can't change the database or its name without removing all Sync Groups and Sync Agents in the region.
 
-  Select **OK** and wait for the sync group to be created and deployed.
+   Select **OK** and wait for the sync group to be created and deployed.
 
 ## Add sync members
 
@@ -89,28 +94,28 @@ In the **Member Database** section, optionally add an on-premises SQL Server to 
 
 1. Select **Choose the Sync Agent Gateway**. The **Select Sync Agent** page opens.
 
-  ![Creating a sync agent](media/sql-database-get-started-sql-data-sync/steptwo-agent.png)
+   ![Creating a sync agent](media/sql-database-get-started-sql-data-sync/steptwo-agent.png)
 
 1. On the **Choose the Sync Agent** page, choose whether to use an existing agent or create an agent.
 
-  If you choose **Existing agents**, select the existing agent from the list.
+   If you choose **Existing agents**, select the existing agent from the list.
 
-  If you choose **Create a new agent**, do the following things:
+   If you choose **Create a new agent**, do the following things:
 
-    1. Download the data sync agent from the link provided and install it on the computer where the SQL Server is located. You can also download the agent directly from [SQL Azure Data Sync Agent](https://www.microsoft.com/download/details.aspx?id=27693).
+   1. Download the data sync agent from the link provided and install it on the computer where the SQL Server is located. You can also download the agent directly from [SQL Azure Data Sync Agent](https://www.microsoft.com/download/details.aspx?id=27693).
 
       > [!IMPORTANT]
       > You have to open outbound TCP port 1433 in the firewall to let the client agent communicate with the server.
 
-    1. Enter a name for the agent.
+   1. Enter a name for the agent.
 
-    1. Select **Create and Generate Key** and copy the agent key to the clipboard.
+   1. Select **Create and Generate Key** and copy the agent key to the clipboard.
 
-    1. Select **OK** to close the **Select Sync Agent** page.
+   1. Select **OK** to close the **Select Sync Agent** page.
 
 1. On the SQL Server computer, locate and run the Client Sync Agent app.
 
-  ![The data sync client agent app](media/sql-database-get-started-sql-data-sync/datasync-preview-clientagent.png)
+   ![The data sync client agent app](media/sql-database-get-started-sql-data-sync/datasync-preview-clientagent.png)
 
     1. In the sync agent app, select **Submit Agent Key**. The **Sync Metadata Database Configuration** dialog box opens.
 
@@ -226,7 +231,7 @@ For more info about SQL Data Sync, see:
 
 - [Data Sync Agent for Azure SQL Data Sync](sql-database-data-sync-agent.md)
 - [Best practices](sql-database-best-practices-data-sync.md) and [How to troubleshoot issues with Azure SQL Data Sync](sql-database-troubleshoot-data-sync.md)
-- [Monitor SQL Data Sync with Log Analytics](sql-database-sync-monitor-oms.md)
+- [Monitor SQL Data Sync with Azure Monitor logs](sql-database-sync-monitor-oms.md)
 - [Update the sync schema with Transact-SQL](sql-database-update-sync-schema.md) or [PowerShell](scripts/sql-database-sync-update-schema.md)
 
 For more info about SQL Database, see:

@@ -1,5 +1,5 @@
 ---
-title: 'Get ARP tables- Troubleshooting ExpressRoute: classic: Azure| Microsoft Docs'
+title: 'Azure ExpressRoute: ARP tables - Troubleshooting: classic'
 description: This page provides instructions for getting the ARP tables for an ExpressRoute circuit - classic deployment model.
 services: expressroute
 author: ganesr
@@ -8,7 +8,6 @@ ms.service: expressroute
 ms.topic: article
 ms.date: 01/30/2017
 ms.author: ganesr
-ms.custom: seodec18
 
 ---
 # Getting ARP tables in the classic deployment model
@@ -50,7 +49,7 @@ The following section provides information about how to view the ARP tables that
 Ensure that you have the following before you continue:
 
 * A valid ExpressRoute circuit that's configured with at least one peering. The circuit must be fully configured by the connectivity provider. You (or your connectivity provider) must configure at least one of the peerings (Azure private, Azure public, or Microsoft) on this circuit.
-* IP address ranges that are used for configuring the peerings (Azure private, Azure public, and Microsoft). Review the IP address assignment examples in the [ExpressRoute routing requirements page](expressroute-routing.md) to get an understanding of how IP addresses are mapped to interfaces on your aise and on the ExpressRoute side. You can get information about the peering configuration by reviewing the [ExpressRoute peering configuration page](expressroute-howto-routing-classic.md).
+* IP address ranges that are used for configuring the peerings (Azure private, Azure public, and Microsoft). Review the IP address assignment examples in the [ExpressRoute routing requirements page](expressroute-routing.md) to get an understanding of how IP addresses are mapped to interfaces on your side and on the ExpressRoute side. You can get information about the peering configuration by reviewing the [ExpressRoute peering configuration page](expressroute-howto-routing-classic.md).
 * Information from your networking team or connectivity provider about the MAC addresses of the interfaces that are used with these IP addresses.
 * The latest Windows PowerShell module for Azure (version 1.50 or later).
 

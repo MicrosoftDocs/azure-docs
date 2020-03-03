@@ -1,16 +1,17 @@
 ---
 title: Optimize storage cost in Azure Cosmos DB
 description: This article explains how to manage storage costs for the data stored in Azure Cosmos DB
-author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/07/2018
-ms.author: rimman
+ms.date: 05/21/2019
+
 ---
 
 # Optimize storage cost in Azure Cosmos DB
 
-Azure Cosmos DB offers unlimited storage and throughput. Unlike throughput, which you have to provision/configure on your Azure Cosmos containers or databases, the storage is billed based on a consumption basis. You are billed only for the logical storage you consume and you don’t have to reserve any storage in advance. Storage automatically scales up and down based on the data that you add or remove to an Azure Cosmos DB container.
+Azure Cosmos DB offers unlimited storage and throughput. Unlike throughput, which you have to provision/configure on your Azure Cosmos containers or databases, the storage is billed based on a consumption basis. You are billed only for the logical storage you consume and you don’t have to reserve any storage in advance. Storage automatically scales up and down based on the data that you add or remove to an Azure Cosmos container.
 
 ## Storage cost
 
@@ -34,7 +35,7 @@ If you want to store rich media types, for example, videos, images, etc., you ha
 
 ## Check storage consumed
 
-To check the storage consumption of an Azure Cosmos container, you can run a HEAD or GET request on the container, and inspect the `x-ms-request-quota` and the `x-ms-request-usage` headers. Alternatively, when working with the .Net SDK, you can use the [DocumentSizeQuota](https://docs.microsoft.com/previous-versions/azure/dn850325(v%3Dazure.100)), and [DocumentSizeUsage](http://msdn.microsoft.com/library/azure/dn850324.aspx) properties to get the storage consumed.
+To check the storage consumption of an Azure Cosmos container, you can run a HEAD or GET request on the container, and inspect the `x-ms-request-quota` and the `x-ms-request-usage` headers. Alternatively, when working with the .NET SDK, you can use the [DocumentSizeQuota](https://docs.microsoft.com/previous-versions/azure/dn850325(v%3Dazure.100)), and [DocumentSizeUsage](https://msdn.microsoft.com/library/azure/dn850324.aspx) properties to get the storage consumed.
 
 ## Using SDK
 

@@ -8,7 +8,8 @@ manager: mtillman
 ms.reviewer: barbkess
 
 ms.assetid: 5665c3ac-5689-4201-80fe-fcc677d4430d
-ms.service: Azure-Active-Directory
+ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -102,6 +103,7 @@ To configure Azure AD single sign-on with Deputy, perform the following steps:
     ![Deputy Domain and URLs single sign-on information](common/idp-intiated.png)
 
     a. In the **Identifier** text box, type a URL using the following pattern:
+
     |  |
 	| ----|
 	| `https://<subdomain>.<region>.au.deputy.com` |
@@ -121,6 +123,7 @@ To configure Azure AD single sign-on with Deputy, perform the following steps:
 	| `https://<subdomain>.<region>.deputy.com` |
 
     b. In the **Reply URL** text box, type a URL using the following pattern:
+	
     | |
 	|----|
 	| `https://<subdomain>.<region>.au.deputy.com/exec/devapp/samlacs` |
@@ -207,7 +210,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     a. In the **Name** field enter **BrittaSimon**.
   
-    b. In the **User name** field type **brittasimon@yourcompanydomain.extension**  
+    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
     For example, BrittaSimon@contoso.com
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
@@ -268,7 +271,7 @@ To enable Azure AD users to log in to Deputy, they must be provisioned into Depu
    
 	d. Click **Save & Invite** button.
 
-5. The AAD account holder receives an email and follows a link to confirm their account before it becomes active. You can use any other Deputy user account creation tools or APIs provided by Deputy to provision AAD user accounts.
+5. The Azure AD account holder receives an email and follows a link to confirm their account before it becomes active. You can use any other Deputy user account creation tools or APIs provided by Deputy to provision Azure AD user accounts.
 
 ### Test single sign-on 
 
@@ -282,5 +285,5 @@ When you click the Deputy tile in the Access Panel, you should be automatically 
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -1,17 +1,8 @@
 ---
-title: Introduction to Azure Service Fabric Resource Model | Microsoft Docs
+title: Introduction to Azure Service Fabric Resource Model 
 description: Learn about the Service Fabric Resource Model, a simplified approach to defining Service Fabric Mesh applications.
-services: service-fabric-mesh
-documentationcenter: .net
 author: vturecek
-manager: timlt
-editor: ''
-ms.assetid: 
-ms.service: service-fabric-mesh
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 10/23/2018
 ms.author: vturecek
 ms.custom: mvc, devcenter 
@@ -79,7 +70,7 @@ Your application code remains portable even outside of Service Fabric Mesh and y
 
 ## Packaging and deployment
 
-Service Fabric Mesh applications based on the resource model are packaged as Docker containers.  Service Fabric Mesh is a shared, multi-tenant environment and containers give you a high level of isolation.  These applications are described using a JSON format or a YAML format (which is then converted to JSON). When deploying a Mesh application to Azure Service Fabric Mesh, the JSON used to describe the application is a Azure Resource Manager template. Resources are mapped to Azure resources.  When deploying a Mesh application to a Service Fabric cluster (standalone or Azure-hosted), the JSON used to describe the application is a format similar to a Azure Resource Manager template.  Once deployed, Mesh applications can be managed through HTTP interfaces or the Azure CLI. 
+Service Fabric Mesh applications based on the resource model are packaged as Docker containers.  Service Fabric Mesh is a shared, multi-tenant environment and containers give you a high level of isolation.  These applications are described using a JSON format or a YAML format (which is then converted to JSON). When deploying a Mesh application to Azure Service Fabric Mesh, the JSON used to describe the application is an Azure Resource Manager template. Resources are mapped to Azure resources.  When deploying a Mesh application to a Service Fabric cluster (standalone or Azure-hosted), the JSON used to describe the application is a format similar to an Azure Resource Manager template.  Once deployed, Mesh applications can be managed through HTTP interfaces or the Azure CLI. 
 
 
 ## Next steps 

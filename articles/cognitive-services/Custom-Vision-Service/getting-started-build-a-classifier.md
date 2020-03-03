@@ -1,34 +1,35 @@
 ---
-title: Build a classifier - Custom Vision Service
-titlesuffix: Azure Cognitive Services
-description: Learn how to use the Custom Vision website to create an image classification model.
+title: "Quickstart Build a classifier - Custom Vision Service"
+titleSuffix: Azure Cognitive Services
+description: In this quickstart, you'll learn how to use the Custom Vision website to create an image classification model.
 services: cognitive-services
 author: anrothMSFT
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: custom-vision
-ms.topic: conceptual
-ms.date: 01/10/2019
+ms.topic: quickstart
+ms.date: 12/05/2019
 ms.author: anroth
 ---
 
-# How to build a classifier with Custom Vision
+# Quickstart: How to build a classifier with Custom Vision
 
-To use the Custom Vision Service for image classification, you must first build a classifier model. In this guide, you'll learn how to build a classifier through the Custom Vision website.
+In this quickstart, you'll learn how to build a classifier through the Custom Vision website. Once you build a classifier model, you can use the Custom Vision service for image classification.
+
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
 
-- A valid Azure subscription. [Create an account](https://azure.microsoft.com/free/) for free.
 - A set of images with which to train your classifier. See below for tips on choosing images.
 
+## Create Custom Vision resources in the Azure portal
 
-## Create Custom Vision resources in the Azure Portal
-To use Custom Vision Service, you will need to create Custom Vision Training and Prediction resources in the in the [Azure portal](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision). This will create both a Training and Prediction resource. 
+[!INCLUDE [create-resources](includes/create-resources.md)]
 
 ## Create a new project
 
-In your web browser, navigate to the [Custom Vision web page](https://customvision.ai) and select __Sign in__. Sign in with the same account you used to sign into the Azure Portal.
+In your web browser, navigate to the [Custom Vision web page](https://customvision.ai) and select __Sign in__. Sign in with the same account you used to sign into the Azure portal.
 
 ![Image of the sign-in page](./media/browser-home.png)
 
@@ -39,47 +40,32 @@ In your web browser, navigate to the [Custom Vision web page](https://customvisi
 
 1. Enter a name and a description for the project. Then select a Resource Group. If your signed-in account is associated with an Azure account, the Resource Group dropdown will display all of your Azure Resource Groups that include a Custom Vision Service Resource. 
 
-> [!NOTE]
-> If no resource group is available, please confirm that you have logged into [customvision.ai](https://customvision.ai) with the same account as you used to log into the [Azure Portal](https://portal.azure.com/). Also, please confirm you have selected the same “Directory” in the Custom Vision portal as the directory in the Azure portal where your Custom Vision resources are located. In both sites, you may select your directory from the drop down account menu at the top right corner of the screen. 
+   > [!NOTE]
+   > If no resource group is available, please confirm that you have logged into [customvision.ai](https://customvision.ai) with the same account as you used to log into the [Azure portal](https://portal.azure.com/). Also, please confirm you have selected the same “Directory” in the Custom Vision portal as the directory in the Azure portal where your Custom Vision resources are located. In both sites, you may select your directory from the drop down account menu at the top right corner of the screen. 
 
-1. Select __Classification__ under __Project Types__. Then, under __Classification Types__, choose either **Multilabel** or **Multiclass**, depending on your use case. Multilabel classification applies any number of your tags to an image (zero or more), while multiclass classification sorts images into single categories (every image you submit will be sorted into the most likely tag). You will be able to change the classification type later if you wish.
+1. Select __Classification__ under __Project Types__. Then, under __Classification Types__, choose either **Multilabel** or **Multiclass**, depending on your use case. Multilabel classification applies any number of your tags to an image (zero or more), while multiclass classification sorts images into single categories (every image you submit will be sorted into the most likely tag). You'll be able to change the classification type later if you want to.
 
 1. Next, select one of the available domains. Each domain optimizes the classifier for specific types of images, as described in the following table. You will be able to change the domain later if you wish.
 
     |Domain|Purpose|
     |---|---|
-    |__Generic__| Optimized for a broad range of image classification tasks. If none of the other domains are appropriate, or you are unsure of which domain to choose, select the Generic domain. |
+    |__Generic__| Optimized for a broad range of image classification tasks. If none of the other domains are appropriate, or you're unsure of which domain to choose, select the Generic domain. |
     |__Food__|Optimized for photographs of dishes as you would see them on a restaurant menu. If you want to classify photographs of individual fruits or vegetables, use the Food domain.|
     |__Landmarks__|Optimized for recognizable landmarks, both natural and artificial. This domain works best when the landmark is clearly visible in the photograph. This domain works even if the landmark is slightly obstructed by people in front of it.|
     |__Retail__|Optimized for images that are found in a shopping catalog or shopping website. If you want high precision classifying between dresses, pants, and shirts, use this domain.|
-    |__Adult__|Optimized to better define adult content and non-adult content. For example, if you want to block images of people in bathing suits, this domain allows you to build a custom classifier to do that.|
     |__Compact domains__| Optimized for the constraints of real-time classification on mobile devices. The models generated by compact domains can be exported to run locally.|
-    
+
 1. Finally, select __Create project__.
 
 ## Choose training images
 
-As a minimum, we recommend you use at least 30 images per tag in the initial training set. You'll also want to collect a few extra images to test your model once it is trained.
-
-In order to train your model effectively, use images with visual variety. Select images with that vary by:
-* camera angle
-* lighting
-* background
-* visual style
-* individual/grouped subject(s)
-* size
-* type
-
-Additionally, make sure all of your training images meet the following criteria:
-* .jpg, .png, or .bmp format
-* no greater than 6MB in size (4MB for prediction images)
-* no less than 256 pixels on the shortest edge; any images shorter than this will be automatically scaled up by the Custom Vision Service
+[!INCLUDE [choose training images](includes/choose-training-images.md)]
 
 ## Upload and tag images
 
-In this section you will upload and manually tag images to help train the classifier. 
+In this section, you'll upload and manually tag images to help train the classifier. 
 
-1. To add images, click the __Add images__ button and then select __Browse local files__. Select __Open__ to move to tagging. Your tag selection will be applied to the entire group of images you've selected to upload, so it is easier to upload images in separate groups according to their desired tags. You can also change the tags for individual images after they have been uploaded.
+1. To add images, click the __Add images__ button and then select __Browse local files__. Select __Open__ to move to tagging. Your tag selection will be applied to the entire group of images you've selected to upload, so it's easier to upload images in separate groups according to their desired tags. You can also change the tags for individual images after they have been uploaded.
 
     ![The add images control is shown in the upper left, and as a button at bottom center.](./media/getting-started-build-a-classifier/add-images01.png)
 
@@ -92,12 +78,7 @@ In this section you will upload and manually tag images to help train the classi
 
     ![The progress bar shows all tasks completed.](./media/getting-started-build-a-classifier/add-images04.png)
 
-To upload another set of images, return to the top of this section and repeat the steps. At some point in your project, you may need to add _negative samples_ to help make your classifier more accurate. Negative samples are those which do not match any of the other tags. When you upload these images, apply the special **Negative** label to them.
-
-> [!NOTE]
-> The Custom Vision Service supports some automatic negative image handling. For example, if you are building a grape vs. banana classifier and submit an image of a shoe for prediction, the classifier should score that image as close to 0% for both grape and banana.
-
-> On the other hand, in cases where the negative images are just a variation of the images used in training, it is likely that the model will classify the negative images as a labeled class due to the great similarities. For example, if you have an orange vs. grapefruit classifier, and you feed in an image of a clementine, it may score the clementine as an orange because many features of the clementine resemble those of oranges. If your negative images are of this nature, we recommend you create one or more additional tags (such as **Other**) and label the negative images with this tag during training to allow the model to better differentiate between these classes.
+To upload another set of images, return to the top of this section and repeat the steps.
 
 ## Train the classifier
 
@@ -120,19 +101,18 @@ After training has completed, the model's performance is estimated and displayed
 
 ### Probability Threshold
 
-Note the **Probability Threshold** slider on the left pane of the **Performance** tab. This is the threshold for a predicted probability to be considered correct when computing precision and recall.
-
-Interpreting prediction calls with a high probability threshold tends to return results with high precision at the expense of recall (the found classifications are correct, but many were not found); a low probability threshold does the opposite (most of the actual classifications were found, but there are false positives within that set). With this in mind, you should set the probability threshold according to the specific needs of your project. Later, on the client side, you should use the same probability threshold value as a filter when receiving prediction results from the model.
+[!INCLUDE [probability threshold](includes/probability-threshold.md)]
 
 ## Manage training iterations
 
-Each time you train your classifier, you create a new _iteration_ with its own updated performance metrics. You can view all of your iterations in the left pane of the **Performance** tab. When you select one, you have the option of making it the _default iteration_ by clicking the **Make default** button at the top. The _default iteration_ is the model that will be used by default when you query it through the Prediction API (from an app, for instance). If you decline to update the _default iteration_, you can continue to train your model without affecting your app's current behavior; then, once you are satisfied with the improved model, you can update the default.
+Each time you train your classifier, you create a new _iteration_ with its own updated performance metrics. You can view all of your iterations in the left pane of the **Performance** tab. You'll also find the **Delete** button, which you can use to delete an iteration if it's obsolete. When you delete an iteration, you delete any images that are uniquely associated with it.
 
-In the left pane you will also find the **Delete** button, which you can use to delete an iteration if it's obsolete. When you delete an iteration, you delete any images that are uniquely associated with it.
+See [Use your model with the prediction API](./use-prediction-api.md) to learn how to access your trained models programmatically.
 
 ## Next steps
 
-In this guide, you learned how to create and train an image classification model using the Custom Vision website. Next, get more information on the iterative process of improving your model.
+In this quickstart, you learned how to create and train an image classification model using the Custom Vision website. Next, get more information on the iterative process of improving your model.
 
-[Test and retrain a model](test-your-model.md)
+> [!div class="nextstepaction"]
+> [Test and retrain a model](test-your-model.md)
 

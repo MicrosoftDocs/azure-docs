@@ -1,5 +1,5 @@
 ---
-title: Create an Azure virtual machine with Accelerated Networking | Microsoft Docs
+title: Create an Azure VM with Accelerated Networking using Azure CLI
 description: Learn how to create a Linux virtual machine with Accelerated Networking enabled.
 services: virtual-network
 documentationcenter: na
@@ -19,7 +19,7 @@ ms.author: gsilva
 ms.custom: 
 
 ---
-# Create a Linux virtual machine with Accelerated Networking
+# Create a Linux virtual machine with Accelerated Networking using Azure CLI
 
 In this tutorial, you learn how to create a Linux virtual machine (VM) with Accelerated Networking. To create a Windows VM with Accelerated Networking, see [Create a Windows VM with Accelerated Networking](create-vm-accelerated-networking-powershell.md). Accelerated networking enables single root I/O virtualization (SR-IOV) to a VM, greatly improving its networking performance. This high-performance path bypasses the host from the datapath, reducing latency, jitter, and CPU utilization, for use with the most demanding network workloads on supported VM types. The following picture shows communication between two VMs with and without accelerated networking:
 
@@ -38,22 +38,28 @@ The benefits of accelerated networking only apply to the VM that it is enabled o
 
 ## Supported operating systems
 The following distributions are supported out of the box from the Azure Gallery: 
-* **Ubuntu 16.04+** 
-* **SLES 12 SP3** 
-* **RHEL 7.4**
-* **CentOS 7.4**
+* **Ubuntu 14.04 with the linux-azure kernel**
+* **Ubuntu 16.04 or later** 
+* **SLES12 SP3 or later** 
+* **RHEL 7.4 or later**
+* **CentOS 7.4 or later**
 * **CoreOS Linux**
 * **Debian "Stretch" with backports kernel**
-* **Oracle Linux 7.4**
+* **Oracle Linux 7.4 and later with Red Hat Compatible Kernel (RHCK)**
+* **Oracle Linux 7.5 and later with UEK version 5**
+* **FreeBSD 10.4, 11.1 & 12.0**
 
 ## Limitations and Constraints
 
 ### Supported VM instances
 Accelerated Networking is supported on most general purpose and compute-optimized instance sizes with 2 or more vCPUs.  These supported series are: D/DSv2 and F/Fs
 
-On instances that support hyperthreading, Accelerated Networking is supported on VM instances with 4 or more vCPUs. Supported series are: D/DSv3, E/ESv3, Fsv2, and Ms/Mms.
+On instances that support hyperthreading, Accelerated Networking is supported on VM instances with 4 or more vCPUs. Supported series are: D/Dsv3, E/Esv3, Fsv2, Lsv2, Ms/Mms and Ms/Mmsv2.
 
 For more information on VM instances, see [Linux VM sizes](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+
+### Custom Images
+If you are using a custom image, and your image supports Accelerated Networking, please make sure to have the required drivers to work with Mellanox ConnectX-3 and ConnectX-4 Lx NICs on Azure.
 
 ### Regions
 Available in all public Azure regions as well as Azure Government Clouds.
@@ -217,6 +223,11 @@ vf_tx_bytes: 1099443970
 vf_tx_dropped: 0
 ```
 Accelerated Networking is now enabled for your VM.
+
+## Handle dynamic binding and revocation of virtual function 
+Applications must run over the synthetic NIC that is exposed in VM. If the application runs directly over the VF NIC, it doesn't receive **all** packets that are destined to the VM, since some packets show up over the synthetic interface.
+If you run an application over the synthetic NIC, it guarantees that the application receives **all** packets that are destined to it. It also makes sure that the application keeps running, even if the VF is revoked when the host is being serviced. 
+Applications binding to the synthetic NIC is a **mandatory** requirement for all applications taking advantage of **Accelerated Networking**.
 
 ## Enable Accelerated Networking on existing VMs
 If you have created a VM without Accelerated Networking, it is possible to enable this feature on an existing VM.  The VM must support Accelerated Networking by meeting the following prerequisites that are also outlined above:

@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/10/2019
+ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -69,8 +69,9 @@ If you already have an installation of Azure AD Connect, select the **Change use
 ![Azure AD Connect: Change the user sign-in](./media/how-to-connect-sso-quick-start/changeusersignin.png)
 
 Continue through the wizard until you get to the **Enable single sign on** page. Provide domain administrator credentials for each Active Directory forest that:
-    * You synchronize to Azure AD through Azure AD Connect.
-    * Contains users you want to enable for Seamless SSO.
+
+* You synchronize to Azure AD through Azure AD Connect.
+* Contains users you want to enable for Seamless SSO.
 
 After completion of the wizard, Seamless SSO is enabled on your tenant.
 
@@ -87,7 +88,10 @@ Follow these instructions to verify that you have enabled Seamless SSO correctly
 ![Azure portal: Azure AD Connect pane](./media/how-to-connect-sso-quick-start/sso10.png)
 
 >[!IMPORTANT]
-> Seamless SSO creates a computer account named `AZUREADSSOACC` (which represents Azure AD) in your on-premises Active Directory (AD) in each AD forest. This computer account is needed for the feature to work. If you are using Pass-the-Hash and Credential Theft Mitigation architectures in your on-premises environment, ensure that the `AZUREADSSOACC` computer account doesn't end up in the Quarantine container. Make the appropriate changes to create the computer account in the Computers container. After Seamless SSO is successfully enabled on the Azure AD Connect wizard, move the `AZUREADSSOACC` computer account to an Organization Unit (OU) where other computer accounts are managed to ensure that it is not deleted inadvertently.
+> Seamless SSO creates a computer account named `AZUREADSSOACC` in your on-premises Active Directory (AD) in each AD forest. The `AZUREADSSOACC` computer account needs to be strongly protected for security reasons. Only Domain Admins should be able to manage the computer account. Ensure that Kerberos delegation on the computer account is disabled, and that no other account in Active Directory has delegation permissions on the `AZUREADSSOACC` computer account. Store the computer account in an Organization Unit (OU) where they are safe from accidental deletions and where only Domain Admins have access.
+
+>[!NOTE]
+> If you are using Pass-the-Hash and Credential Theft Mitigation architectures in your on-premises environment, make appropriate changes to ensure that the `AZUREADSSOACC` computer account doesn't end up in the Quarantine container. 
 
 ## Step 3: Roll out the feature
 
@@ -121,11 +125,11 @@ There are two ways to modify users' Intranet zone settings:
    - **Value name**: The Azure AD URL where the Kerberos tickets are forwarded.
    - **Value** (Data): **1** indicates the Intranet zone.
 
-    The result looks like this:
+     The result looks like this:
 
-    Value name: `https://autologon.microsoftazuread-sso.com`
+     Value name: `https://autologon.microsoftazuread-sso.com`
   
-    Value (Data): 1
+     Value (Data): 1
 
    >[!NOTE]
    > If you want to disallow some users from using Seamless SSO (for instance, if these users sign in on shared kiosks), set the preceding values to **4**. This action adds the Azure AD URL to the Restricted zone, and fails Seamless SSO all the time.
@@ -135,7 +139,7 @@ There are two ways to modify users' Intranet zone settings:
 
     ![Single sign-on](./media/how-to-connect-sso-quick-start/sso7.png)
 
-6. Browse to **User Configuration** > **Administrative Templates** **Policy** > **> **Windows Components** > **Internet Explorer** > **Internet Control Panel** > **Security Page** > **Intranet Zone**. Then select **Allow updates to status bar via script**.
+6. Browse to **User Configuration** > **Policy** > **Administrative Templates** > **Windows Components** > **Internet Explorer** > **Internet Control Panel** > **Security Page** > **Intranet Zone**. Then select **Allow updates to status bar via script**.
 
     ![Single sign-on](./media/how-to-connect-sso-quick-start/sso11.png)
 
@@ -157,9 +161,9 @@ There are two ways to modify users' Intranet zone settings:
    - **Value type**: ***REG_DWORD***.
    - **Value data**: ***00000001***.
  
-    ![Single sign-on](./media/how-to-connect-sso-quick-start/sso16.png)
+     ![Single sign-on](./media/how-to-connect-sso-quick-start/sso16.png)
  
-    ![Single sign-on](./media/how-to-connect-sso-quick-start/sso17.png)
+     ![Single sign-on](./media/how-to-connect-sso-quick-start/sso17.png)
 
 ### Browser considerations
 
@@ -176,6 +180,14 @@ Mozilla Firefox doesn't automatically use Kerberos authentication. Each user mus
 
 Ensure that the machine running the macOS is joined to AD. Instructions for AD-joining your macOS device is outside the scope of this article.
 
+#### Microsoft Edge based on Chromium (all platforms)
+
+If you have overridden the [AuthNegotiateDelegateAllowlist](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#authnegotiatedelegateallowlist) or the [AuthServerAllowlist](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#authserverallowlist) policy settings in your environment, ensure that you add Azure AD's URL (`https://autologon.microsoftazuread-sso.com`) to them as well.
+
+#### Microsoft Edge based on Chromium (macOS and other non-Windows platforms)
+
+For Microsoft Edge based on Chromium on Mac OS and other non-Windows platforms, refer to [the Microsoft Edge based on Chromium Policy List](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#authserverallowlist) for information on how to add the Azure AD URL for integrated authentication to your allow-list.
+
 #### Google Chrome (all platforms)
 
 If you have overridden the [AuthNegotiateDelegateWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthNegotiateDelegateWhitelist) or the [AuthServerWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthServerWhitelist) policy settings in your environment, ensure that you add Azure AD's URL (`https://autologon.microsoftazuread-sso.com`) to them as well.
@@ -188,7 +200,7 @@ The use of third-party Active Directory Group Policy extensions to roll out the 
 
 #### Known browser limitations
 
-Seamless SSO doesn't work in private browsing mode on Firefox and Microsoft Edge browsers. It also doesn't work on Internet Explorer if the browser is running in Enhanced Protected mode.
+Seamless SSO doesn't work in private browsing mode on Firefox and Microsoft Edge browsers. It also doesn't work on Internet Explorer if the browser is running in Enhanced Protected mode. For the next version of Microsoft Edge based on Chromium, it will not work in InPrivate and Guest mode by design.
 
 ## Step 4: Test the feature
 
@@ -196,7 +208,7 @@ To test the feature for a specific user, ensure that all the following condition
   - The user signs in on a corporate device.
   - The device is joined to your Active Directory domain. The device _doesn't_ need to be [Azure AD Joined](../active-directory-azureadjoin-overview.md).
   - The device has a direct connection to your domain controller (DC), either on the corporate wired or wireless network or via a remote access connection, such as a VPN connection.
-  - You have [rolled out the feature](##step-3-roll-out-the-feature) to this user through Group Policy.
+  - You have [rolled out the feature](#step-3-roll-out-the-feature) to this user through Group Policy.
 
 To test the scenario where the user enters only the username, but not the password:
    - Sign in to `https://myapps.microsoft.com/` in a new private browser session.
@@ -212,7 +224,7 @@ In Step 2, Azure AD Connect creates computer accounts (representing Azure AD) in
 >[!IMPORTANT]
 >The Kerberos decryption key on a computer account, if leaked, can be used to generate Kerberos tickets for any user in its AD forest. Malicious actors can then impersonate Azure AD sign-ins for compromised users. We highly recommend that you periodically roll over these Kerberos decryption keys - at least once every 30 days.
 
-For instructions on how to roll over keys, see [Azure Active Directory Seamless Single Sign-On: Frequently asked questions](how-to-connect-sso-faq.md#how-can-i-roll-over-the-kerberos-decryption-key-of-the-azureadssoacc-computer-account). We are working on a capability to introduce automated roll over of keys.
+For instructions on how to roll over keys, see [Azure Active Directory Seamless Single Sign-On: Frequently asked questions](how-to-connect-sso-faq.md). We are working on a capability to introduce automated roll over of keys.
 
 >[!IMPORTANT]
 >You don't need to do this step _immediately_ after you have enabled the feature. Roll over the Kerberos decryption keys at least once every 30 days.

@@ -1,6 +1,6 @@
 ---
-title: Azure Application Gateway Components
-description: This article provides information on the various components in Application Gateway
+title: Application gateway components
+description: This article provides information about the various components in an application gateway
 services: application-gateway
 author: abshamsft
 ms.service: application-gateway
@@ -9,150 +9,144 @@ ms.date: 02/20/2019
 ms.author: absha
 ---
 
-# Application Gateway Components
+# Application gateway components
 
- An Application Gateway serves as the single point of contact for clients. It distributes incoming application traffic across multiple backend pools, such as Azure VMs, VMSS, App Services or on-premises/external servers. To do this, it utilizes several components described below:
+ An application gateway serves as the single point of contact for clients. It distributes incoming application traffic across multiple backend pools, which include Azure VMs, virtual machine scale sets, Azure App Service, and on-premises/external servers. To distribute traffic, an application gateway uses several components described in this article.
 
-![application-gateway-components](.\media\application-gateway-components\application-gateway-components.png)
+![The components used in an application gateway](./media/application-gateway-components/application-gateway-components.png)
 
-## Frontend IP
+## Frontend IP addresses
 
-Fronted IP is the IP (Internet Protocol) address associated with the Application Gateway. You can configure the Application Gateway to either have a Public IP or a Private IP or both. Only one public IP address is supported on an application gateway. Your virtual network and public IP address must be in the same location as your Application Gateway.
+A frontend IP address is the IP address associated with an application gateway. You can configure an application gateway to have a public IP address, a private IP address, or both. An application gateway supports one public or one private IP address. Your virtual network and public IP address must be in the same location as your application gateway. After it's created, a frontend IP address is associated with a listener.
 
-### Static vs Dynamic Public IP
+### Static versus dynamic public IP address
 
-The v1 SKU supports static internal IPs but does not support static Public IPs. The VIP can change if the application gateway is stopped and started. The DNS name associated with the application gateway does not change over the lifecycle of the gateway. For this reason, it is recommended to use a CNAME alias and point it to the DNS address of the application gateway.
+The Azure Application Gateway V2 SKU can be configured to support either both static internal IP address and static public IP address, or only static public IP address. It cannot be configured to support only static internal IP address.
 
-The Application Gateway v2 SKU supports static public IPs and well as Internal IPs. Only one public IP address is supported on an application gateway.
+The V1 SKU can be configured to support static or dynamic internal IP address and dynamic public IP address. The dynamic IP address of Application Gateway does not change on a running gateway. It can change only when you stop or start the Gateway. It does not change on system failures, updates, Azure host updates etc. 
 
-After creating a Frontend IP, it is associated to *listeners* which check for incoming requests on the Frontend IP.
+The DNS name associated with an application gateway doesn't change over the lifecycle of the gateway. As a result, you should use a CNAME alias and point it to the DNS address of the application gateway.
 
 ## Listeners
 
-Before you start using your Application Gateway, you must add one or more listeners. A listener is a process using which the Application Gateway checks for the incoming connection requests, using the protocol and port that you configure. After the listener detects incoming requests from the clients, the Application Gateway routes these requests to the backend servers in the backend pool, using the request routing rules that you define for the listener that received the incoming request.
+A listener is a logical entity that checks for incoming connection requests. A listener accepts a request if the protocol, port, hostname, and IP address associated with the request match the same elements associated with the listener configuration.
 
-Listeners support the following ports and protocols:
+Before you use an application gateway, you must add at least one listener. There can be multiple listeners attached to an application gateway, and they can be used for the same protocol.
+
+After a listener detects incoming requests from clients, the application gateway routes these requests to members in the backend pool configured in the rule.
+
+Listeners support the following ports and protocols.
 
 ### Ports
 
-This is the port on which the listener is listening to the client request. The following range is allowed for the port configuration: 1-65535
+A port is where a listener listens for the client request. You can configure ports ranging from 1 to 65502 for the v1 SKU and 1 to 65199 for the v2 SKU.
 
 ### Protocols
 
-Application Gateway supports the following 4 protocols: HTTP, HTTPS, HTTP/2, Websocket
+Application Gateway supports four protocols: HTTP, HTTPS, HTTP/2, and WebSocket:
+>[!NOTE]
+>HTTP/2 protocol support is available to clients connecting to application gateway listeners only. The communication to backend server pools is always over HTTP/1.1. By default, HTTP/2 support is disabled. You can choose to enable it.
 
-While configuring the listener, you need to choose between HTTP and HTTPS protocol. Application Gateway provides native support for WebSockets and HTTP/2 protocols. You can use WebSockets with both HTTP and HTTPS listeners. 
+- Specify between the HTTP and HTTPS protocols in the listener configuration.
+- Support for [WebSockets and HTTP/2 protocols](overview.md#websocket-and-http2-traffic) is provided natively, and [WebSocket support](application-gateway-websocket.md) is enabled by default. There's no user-configurable setting to selectively enable or disable WebSocket support. Use WebSockets with both HTTP and HTTPS listeners.
 
-HTTP/2 protocol support is available to clients connecting to application gateway listeners only. The communication to backend server pools is over HTTP/1.1. By default, HTTP/2 support is disabled. The following Azure PowerShell code snippet example shows how you can enable it:
-
-```azurepowershell
-$gw = Get-AzureRmApplicationGateway -Name test -ResourceGroupName hm
-
-$gw.EnableHttp2 = $true
-
-Set-AzureRmApplicationGateway -ApplicationGateway $gw
-```
-
-Websocket support is enabled by default. There's no user-configurable setting to selectively enable or disable WebSocket support.
-
-You can use an HTTPS listener for SSL termination which will offload the work of encryption and decryption to your Application Gateway so that your web servers could be unburdened from costly encryption and decryption overhead and your applications can focus on their business logic. You must deploy at least one SSL server certificate for an HTTPS listener. For more information, see [how to configure SSL termination](https://docs.microsoft.com/azure/application-gateway/create-ssl-portal)
+Use an HTTPS listener for SSL termination. An HTTPS listener offloads the encryption and decryption work to your application gateway, so your web servers aren't burdened by the overhead.
 
 ### Custom error pages
 
-Application Gateway allows you to create custom error pages instead of displaying default error pages. You can use your own branding and layout using a custom error page. Application gateway can display a custom error page when a request can't reach the backend. For more information, see [Custom error pages for your Application Gateway](https://docs.microsoft.com/azure/application-gateway/custom-error)
+Application Gateway lets you create custom error pages instead of displaying default error pages. You can use your own branding and layout using a custom error page. Application Gateway displays a custom error page when a request can't reach the backend.
 
-### Types of Listeners
+For more information, see [Custom error pages for your application gateway](custom-error.md).
+
+### Types of listeners
 
 There are two types of listeners:
 
-- **Basic**: This type of listener listens to a single domain site where it has a single DNS mapping to IP address of the Application Gateway. This listener configuration is required when you are hosting a single site behind an Application gateway
-- **Multi-site**: This listener configuration is required when you are configuring more than one web application on the same application gateway instance. This allows you to configure a more efficient topology for your deployments by adding up to 100 websites to one application gateway. Each website can be directed to its own backend pool. For example:  For three subdomains — abc.alpha.com, xyz.alpha.com and pqr.alpha.com pointing to the IP Address of the Application Gateway. Create 3 listeners of the type ‘multi-site’ and configure each listener for the respective port and protocol setting. 
+- **Basic**. This type of listener listens to a single domain site, where it has a single DNS mapping to the IP address of the application gateway. This listener configuration is required when you host a single site behind an application gateway.
 
-After creating a listener, you associate it with a request routing rule which determines how the request received on the listener is to be routed to the backend.
+- **Multi-site**. This listener configuration is required when you configure more than one web application on the same application gateway instance. It allows you to configure a more efficient topology for your deployments by adding up to 100 websites to one application gateway. Each website can be directed to its own backend pool. For example, three subdomains, abc.contoso.com, xyz.contoso.com, and pqr.contoso.com, point to the IP address of the application gateway. You'd create three multi-site listeners and configure each listener for the respective port and protocol setting.
 
-Listeners are processed in the order they are shown. For that reason if a basic listener matches an incoming request it processes it first. Multi-site listeners should be configured before a basic listener to ensure traffic is routed to the correct back-end.
+    For more information, see [Multiple-site hosting](application-gateway-web-app-overview.md).
 
-## Request routing rule
+After you create a listener, you associate it with a request routing rule. This rule determines how the request received on the listener should be routed to the backend.
 
-This is the most important component of the Application Gateway and determines how the traffic on the listener associated with this rule is to be routed. The rule binds the listener, the back-end server pool and the backend HTTP Settings and defines which back-end server pool the traffic should be directed to when it hits a particular listener. One listener can be attached to only one rule.
+Application Gateway processes listeners in the [order shown](configuration-overview.md#order-of-processing-listeners).
 
-There can be two types of request routing rules:
+## Request routing rules
 
-- **Basic:** All requests on the associated listener (eg: blog.contoso.com/*) are forwarded to the associated backend pool using the associated HTTP setting.
-- **Path-based:** This type of rule provides you the ability to route the requests on the associated listener to a specific backend pool based on the URL in the request. If the path of the URL in a request matches the path pattern in a path-based rule, the request is routed using that rule. The path pattern is applied only to the path of the URL, not to its query parameters. 
+A request routing rule is a key component of an application gateway because it determines how to route traffic on the listener. The rule binds the listener, the back-end server pool, and the backend HTTP settings.
 
-If the path of the URL of a request on a listener does not match any of the path-based rules, then the request is routed to the *Default* backend pool and the *Default* HTTP Settings.
+When a listener accepts a request, the request routing rule forwards the request to the backend or redirects it elsewhere. If the request is forwarded to the backend, the request routing rule defines which backend server pool to forward it to. The request routing rule also determines if the headers in the request are to be rewritten. One listener can be attached to one rule.
 
-Rules are processed in the order they are configured. It is recommended that multi-site rules are configured before basic rules to reduce the chance that traffic is routed to the inappropriate backend as the basic rule would match traffic based on port before the multi-site rule being evaluated.
+There are two types of request routing rules:
 
-### Redirection Support
+- **Basic**. All requests on the associated listener (for example, blog.contoso.com/*) are forwarded to the associated backend pool by using the associated HTTP setting.
 
-The request routing rule also allows you to redirect traffic on the Application Gateway. This is a generic redirection mechanism, so you can redirect from and to any port you define using rules. This can help you enable automatic HTTP to HTTPS redirection to ensure all communication between application and your users occurs over an encrypted path. You can specify the target listener or external site to which redirection is desired. The configuration element also supports options to enable appending the URI path and query string to the redirected URL. You can also choose whether redirection is a temporary (HTTP status code 302) or a permanent redirect (HTTP status code 301). When using a basic rule, the redirect configuration is associated with a source listener and is a global redirect. When a path-based rule is used, the redirect configuration is defined on the URL path map. So it only applies to the specific path area of a site. For more information, see [Redirect traffic on your Application Gateway](https://docs.microsoft.com/azure/application-gateway/redirect-overview).
+- **Path-based**. This routing rule lets you route the requests on the associated listener to a specific backend pool, based on the URL in the request. If the path of the URL in a request matches the path pattern in a path-based rule, the rule routes that request. It applies the path pattern only to the URL path, not to its query parameters. If the URL path on a listener request doesn't match any of the path-based rules, it routes the request to the default backend pool and HTTP settings.
 
-### HTTP Headers
+For more information, see [URL-based routing](url-route-overview.md).
 
-Application Gateway inserts x-forwarded-for, x-forwarded-proto, and x-forwarded-port headers into the request forwarded to the backend. The format for x-forwarded-for header is a comma-separated list of IP:Port. The valid values for x-forwarded-proto are http or https. X-forwarded-port specifies the port at which the request reached at the application gateway. Application Gateway also inserts X-Original-Host header that contains the original Host header with which the request arrived. This header is useful in scenarios like Azure Website integration, where the incoming host header is modified before traffic is routed to the backend.
+### Redirection support
 
-#### Rewrite HTTP headers
+The request routing rule also allows you to redirect traffic on the application gateway. This is a generic redirection mechanism, so you can redirect to and from any port you define by using rules.
 
-Using the request routing rules you can add, remove, or update HTTP(S) request and response headers while the request and response packets move between the client and backend pools, via the Application Gateway. The headers can not only be set to static values but also to other headers and important server variables. This will help you accomplish several important use cases, such as extracting IP address of the clients, removing sensitive information about the backend, adding additional security measures, etc. For more information, see[Rewrite HTTP headers on your Application Gateway](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers)
+You can choose the redirection target to be another listener (which can help enable automatic HTTP to HTTPS redirection) or an external site. You can also choose to have the redirection be temporary or permanent, or to append the URI path and query string to the redirected URL.
 
-## HTTP Settings
+For more information, see [Redirect traffic on your application gateway](redirect-overview.md).
 
-The Application Gateway routes traffic to the backend servers using the port number, protocol and other settings specified in this resource. 
+### Rewrite HTTP headers
 
-The backend pools support the following ports and protocols:
+By using the request routing rules, you can add, remove, or update HTTP(S) request and response headers as the request and response packets move between the client and backend pools via the application gateway.
 
-### Ports
+The headers can be set to static values or to other headers and server variables. This helps with important use cases, such as extracting client IP addresses, removing sensitive information about the backend, adding more security, and so on.
 
-This is the port on which the backend servers are listening to the traffic coming from the Application Gateway. The following range is allowed for the port configuration: 1-65535
+For more information, see [Rewrite HTTP headers on your application gateway](rewrite-http-headers.md).
 
-### Protocols
+## HTTP settings
 
-Application Gateway supports both HTTP and HTTPS protocols for routing requests to the backend servers.
+An application gateway routes traffic to the backend servers (specified in the request routing rule that include HTTP settings) by using the port number, protocol, and other settings detailed in this component.
 
-If HTTP protocol is chosen, then traffic flows unencrypted to the backend servers. 
+The port and protocol used in the HTTP settings determine whether the traffic between the application gateway and backend servers is encrypted (providing end-to-end SSL) or unencrypted.
 
-In those cases where unencrypted communication to the backend servers is not an acceptable option, you should choose HTTPS protocol. This setting combined with choosing HTTPS protocol in the listener will allow you to enable [end to end SSL](https://docs.microsoft.com/azure/application-gateway/ssl-overview). That will allow you to securely transmit sensitive data to the backend encrypted. Each backend server in the backend pool with end to end SSL enabled must be configured with a certificate to allow secure communication.
+This component is also used to:
 
-Using the HTTP Setting you can leverage several capabilities:
+- Determine whether a user session is to be kept on the same server by using the [cookie-based session affinity](overview.md#session-affinity).
 
-### Cookie-based session affinity
+- Gracefully remove backend pool members by using [connection draining](overview.md#connection-draining).
 
-This feature is useful when you want to keep a user session on the same server. By using gateway-managed cookies, the Application Gateway can direct subsequent traffic from a user session to the same server for processing. This is important in cases where session state is saved locally on the server for a user session.
+- Associate a custom probe to monitor the backend health, set the request timeout interval, override host name and path in the request, and provide one-click ease to specify settings for the App Service backend.
 
-If the application cannot handle cookie-based affinity, then you will not be able to use this capability
+## Backend pools
 
-### Connection draining
+A backend pool routes request to backend servers, which serve the request. Backend pools can contain:
 
-Connection draining helps you achieve graceful removal of backend pool members during planned service updates. This setting can be applied to all members of a backend pool during rule creation. Once enabled, Application Gateway ensures that all deregistering instances of a backend pool do not receive any new request while allowing existing requests to complete within a configured time limit. This applies to both backend instances that are explicitly removed from the backend pool by an API call as well as backend instances that are reported as unhealthy as determined by the health probes.
+- NICs
+- Virtual machine scale sets
+- Public IP addresses
+- Internal IP addresses
+- FQDN
+- Multitenant backends (such as App Service)
 
-### Override backend path
+Application Gateway backend pool members aren't tied to an availability set. An application gateway can communicate with instances outside of the virtual network that it's in. As a result, the members of the backend pools can be across clusters, across datacenters, or outside Azure, as long as there's IP connectivity.
 
-This feature allows you to override the path in the URL so that the requests for a specific path can be routed to another path. For example, if you intend to route requests for contoso.com/images to default, then enter ‘/’ in this textbox and subsequently attach this HTTP setting to the rule associated with contoso.com/images.
+If you use internal IPs as backend pool members, you must use [virtual network peering](../virtual-network/virtual-network-peering-overview.md) or a [VPN gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md). Virtual network peering is supported and beneficial for load-balancing traffic in other virtual networks.
 
-### Pick host name from a backend address
+An application gateway can also communicate with to on-premises servers when they're connected by Azure ExpressRoute or VPN tunnels if traffic is allowed.
 
-This capability sets the *host* header in the request to the host name of the backend pool (IP or FQDN). This is helpful in the scenarios where the domain name of the backend is different from the DNS name of the application, such as in a scenario where Azure App Service is used as backend. This is because since Azure App Service is a multi-tenant environment using a shared space with a single IP address, an App Service can be accessed only with the hostnames configured in the custom domain settings. By default, it is “example.azurewebsites.net” and if you want to access your App Service using Application Gateway with a hostname not registered in App Service or with Application Gateway’s FQDN, you have to override the hostname in the original request to the App Service’s hostname.
-
-### **Host override**
-
-This capability replaces the *host* header in the incoming request on the Application Gateway to the host name you specify here. 
-
-Once you create an HTTP Setting, you need to associate it with one or more request routing rules.
-
-## Backend Pool
-
-The backend pool is used to route requests to the backend servers which will be serving the request. Backend pools can be composed of NICs, virtual machine scale sets, public IPs, internal IPs, fully qualified domain names (FQDN), and multi-tenant back-ends like Azure App Service. Application Gateway backend pool members are not tied to an availability set. Members of backend pools can be across clusters, data centers, or outside of Azure as long as they have IP connectivity. You can create different backend pools for different types of requests. For example, create one backend pool for general requests and other backend pool for requests to the microservices for your application.
-
-After creating a backend pool you need to associate it with one or more request routing rules. You also need to configure health probes for each backend pool on your Application Gateway. When a request routing rule condition is met, the Application Gateway forwards the traffic to the healthy servers (as determined by the health probes) in the corresponding backend pool.
+You can create different backend pools for different types of requests. For example, create one backend pool for general requests, and then another backend pool for requests to the microservices for your application.
 
 ## Health probes
 
-Azure Application Gateway by default monitors the health of all resources in its back-end pool and automatically removes any resource considered unhealthy from the pool. Application Gateway continues to monitor the unhealthy instances and adds them back to the healthy back-end pool once they become available and respond to health probes. Application gateway sends the health probes with the same port that is defined in the back-end HTTP settings.
+By default, an application gateway monitors the health of all resources in its backend pool and automatically removes unhealthy ones. It then monitors unhealthy instances and adds them back to the healthy backend pool when they become available and respond to health probes.
 
-In addition to using default health probe monitoring, you can also customize the health probe to suit your application's requirements. Custom probes allow you to have a more granular control over the health monitoring. When using custom probes, you can configure the probe interval, the URL and path to test, and how many failed responses to accept before marking the back-end pool instance as unhealthy. It is highly recommended that you configure custom probes to monitor health of each backend pool. For more information, see [Monitor health of your Application gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview)
+In addition to using default health probe monitoring, you can also customize the health probe to suit your application's requirements. Custom probes allow more granular control over the health monitoring. When using custom probes, you can configure the probe interval, the URL and path to test, and how many failed responses to accept before the backend pool instance is marked as unhealthy. We recommend that you configure custom probes to monitor the health of each backend pool.
+
+For more information, see [Monitor the health of your application gateway](../application-gateway/application-gateway-probe-overview.md).
 
 ## Next steps
 
-After learning about Application Gateway components, you [can create an Application Gateway in the Azure portal](quick-create-portal.md) or a [create an Application Gateway using PowerShell](quick-create-powershell.md) or [create an Application Gateway using Azure CLI](quick-create-cli.md).
+Create an application gateway:
+
+* [In the Azure portal](quick-create-portal.md)
+* [By using Azure PowerShell](quick-create-powershell.md)
+* [By using the Azure CLI](quick-create-cli.md)

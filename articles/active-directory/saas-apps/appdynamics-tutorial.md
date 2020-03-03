@@ -8,7 +8,8 @@ manager: daveba
 ms.reviewer: barbkess
 
 ms.assetid: 25fd1df0-411c-4f55-8be3-4273b543100f
-ms.service: Azure-Active-Directory
+ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -128,29 +129,29 @@ To configure Azure AD single sign-on with AppDynamics, perform the following ste
 
 ### Configure AppDynamics Single Sign-On
 
-7. In a different web browser window, log in to your AppDynamics company site as an administrator.
+1. In a different web browser window, log in to your AppDynamics company site as an administrator.
 
-8. In the toolbar on the top, click **Settings**, and then click **Administration**.
+1. In the toolbar on the top, click **Settings**, and then click **Administration**.
 
     ![Administration](./media/appdynamics-tutorial/ic790216.png "Administration")
 
-9. Click the **Authentication Provider** tab.
+1. Click the **Authentication Provider** tab.
 
     ![Authentication Provider](./media/appdynamics-tutorial/ic790224.png "Authentication Provider")
 
-10. In the **Authentication Provider** section, perform the following steps:
+1. In the **Authentication Provider** section, perform the following steps:
 
-    ![SAML Configuration](./media/appdynamics-tutorial/ic790225.png "SAML Configuration")
+   ![SAML Configuration](./media/appdynamics-tutorial/ic790225.png "SAML Configuration")
 
-    a. As **Authentication Provider**, select **SAML**.
+   a. As **Authentication Provider**, select **SAML**.
 
-    b. In the **Login URL** textbox, paste the value of **Login URL** which you have copied from Azure portal.
+   b. In the **Login URL** textbox, paste the value of **Login URL** which you have copied from Azure portal.
 
-    c. In the **Logout URL** textbox, paste the value of **Logout URL** which you have copied from Azure portal.
+   c. In the **Logout URL** textbox, paste the value of **Logout URL** which you have copied from Azure portal.
 
-    d. Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the **Certificate** textbox
+   d. Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the **Certificate** textbox
 
-    e. Click **Save**.
+   e. Click **Save**.
 
 ### Create an Azure AD test user 
 
@@ -170,7 +171,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     a. In the **Name** field enter **BrittaSimon**.
   
-    b. In the **User name** field type **brittasimon@yourcompanydomain.extension**  
+    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
     For example, BrittaSimon@contoso.com
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
@@ -222,5 +223,5 @@ When you click the AppDynamics tile in the Access Panel, you should be automatic
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

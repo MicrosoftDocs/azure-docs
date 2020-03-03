@@ -4,14 +4,15 @@ titlesuffix: Azure Virtual Network
 description: Learn about network and application security groups. Security groups help you filter network traffic between Azure resources.
 services: virtual-network
 documentationcenter: na
-author: jimdial
+author: malopMSFT
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/26/2018
-ms.author: jdial
+ms.date: 01/22/2020
+ms.author: malop
+ms.reviewer: kumud
 ---
 
 # Security groups
@@ -23,14 +24,14 @@ This article explains network security group concepts, to help you use them effe
 
 ## Security rules
 
-A network security group contains zero, or as many rules as desired, within Azure subscription [limits](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). Each rule specifies the following properties:
+A network security group contains zero, or as many rules as desired, within Azure subscription [limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). Each rule specifies the following properties:
 
 |Property  |Explanation  |
 |---------|---------|
 |Name|A unique name within the network security group.|
 |Priority | A number between 100 and 4096. Rules are processed in priority order, with lower numbers processed before higher numbers, because lower numbers have higher priority. Once traffic matches a rule, processing stops. As a result, any rules that exist with lower priorities (higher numbers) that have the same attributes as rules with higher priorities are not processed.|
-|Source or destination| Any, or an individual IP address, classless inter-domain routing (CIDR) block (10.0.0.0/24, for example), [service tag](#service-tags), or [application security group](#application-security-groups). If you specify an address for an Azure resource, specify the private IP address assigned to the resource. Network security groups are processed after Azure translates a public IP address to a private IP address for inbound traffic, and before Azure translates a private IP address to a public IP address for outbound traffic. Learn more about Azure [IP addresses](virtual-network-ip-addresses-overview-arm.md). Specifying a range, a service tag, or application security group, enables you to create fewer security rules. The ability to specify multiple individual IP addresses and ranges (you cannot specify multiple service tags or application groups) in a rule is referred to as [augmented security rules](#augmented-security-rules). Augmented security rules can only be created in network security groups created through the Resource Manager deployment model. You cannot specify multiple IP addresses and IP address ranges in network security groups created through the classic deployment model. Learn more about [Azure deployment models](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).|
-|Protocol     | TCP, UDP, or Any, which includes (but not limited to) TCP, UDP, and ICMP. You cannot specify ICMP alone, so if you require ICMP, use Any. |
+|Source or destination| Any, or an individual IP address, classless inter-domain routing (CIDR) block (10.0.0.0/24, for example), [service tag](service-tags-overview.md), or [application security group](#application-security-groups). If you specify an address for an Azure resource, specify the private IP address assigned to the resource. Network security groups are processed after Azure translates a public IP address to a private IP address for inbound traffic, and before Azure translates a private IP address to a public IP address for outbound traffic. Learn more about Azure [IP addresses](virtual-network-ip-addresses-overview-arm.md). Specifying a range, a service tag, or application security group, enables you to create fewer security rules. The ability to specify multiple individual IP addresses and ranges (you cannot specify multiple service tags or application groups) in a rule is referred to as [augmented security rules](#augmented-security-rules). Augmented security rules can only be created in network security groups created through the Resource Manager deployment model. You cannot specify multiple IP addresses and IP address ranges in network security groups created through the classic deployment model. Learn more about [Azure deployment models](../azure-resource-manager/management/deployment-models.md?toc=%2fazure%2fvirtual-network%2ftoc.json).|
+|Protocol     | TCP, UDP, ICMP or Any.|
 |Direction| Whether the rule applies to inbound, or outbound traffic.|
 |Port range     |You can specify an individual or range of ports. For example, you could specify 80 or 10000-10005. Specifying ranges enables you to create fewer security rules. Augmented security rules can only be created in network security groups created through the Resource Manager deployment model. You cannot specify multiple ports or port ranges in the same security rule in network security groups created through the classic deployment model.   |
 |Action     | Allow or deny        |
@@ -38,49 +39,17 @@ A network security group contains zero, or as many rules as desired, within Azur
 Network security group security rules are evaluated by priority using the 5-tuple information (source, source port, destination, destination port, and protocol) to allow or deny the traffic. A flow record is created for existing connections. Communication is allowed or denied based on the connection state of the flow record. The flow record allows a network security group to be stateful. If you specify an outbound security rule to any address over port 80, for example, it's not necessary to specify an inbound security rule for the response to the outbound traffic. You only need to specify an inbound security rule if communication is initiated externally. The opposite is also true. If inbound traffic is allowed over a port, it's not necessary to specify an outbound security rule to respond to traffic over the port.
 Existing connections may not be interrupted when you remove a security rule that enabled the flow. Traffic flows are interrupted when connections are stopped and no traffic is flowing in either direction, for at least a few minutes.
 
-There are limits to the number of security rules you can create in a network security group. For details, see [Azure limits](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
+There are limits to the number of security rules you can create in a network security group. For details, see [Azure limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
 ## Augmented security rules
 
-Augmented security rules simplify security definition for virtual networks, allowing you to define larger and complex network security policies, with fewer rules. You can combine multiple ports and multiple explicit IP addresses and ranges into a single, easily understood security rule. Use augmented rules in the source, destination, and port fields of a rule. To simplify maintenance of your security rule definition, combine augmented security rules with [service tags](#service-tags) or [application security groups](#application-security-groups). There are limits to the number of addresses, ranges, and ports that you can specify in a rule. For details, see [Azure limits](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
+Augmented security rules simplify security definition for virtual networks, allowing you to define larger and complex network security policies, with fewer rules. You can combine multiple ports and multiple explicit IP addresses and ranges into a single, easily understood security rule. Use augmented rules in the source, destination, and port fields of a rule. To simplify maintenance of your security rule definition, combine augmented security rules with [service tags](service-tags-overview.md) or [application security groups](#application-security-groups). There are limits to the number of addresses, ranges, and ports that you can specify in a rule. For details, see [Azure limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
 ## Service tags
 
- A service tag represents a group of IP address prefixes to help minimize complexity for security rule creation. You cannot create your own service tag, nor specify which IP addresses are included within a tag. Microsoft manages the address prefixes encompassed by the service tag, and automatically updates the service tag as addresses change. You can use service tags in place of specific IP addresses when creating security rules. 
- 
- You can download and integrate with an on premises firewall the list of service tags with prefix details on the following weekly publications for Azure [Public](https://www.microsoft.com/download/details.aspx?id=56519), [US government](https://www.microsoft.com/download/details.aspx?id=57063), [China](https://www.microsoft.com/download/details.aspx?id=57062), and [Germany](https://www.microsoft.com/download/details.aspx?id=57064) clouds.
+A service tag represents a group of IP address prefixes from a given Azure service. It helps to minimize complexity of frequent updates on network security rules.
 
- The following service tags are available for use in security rule definition. Their names vary slightly between [Azure deployment models](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-
-* **VirtualNetwork** (Resource Manager) (**VIRTUAL_NETWORK** for classic): This tag includes the virtual network address space (all CIDR ranges defined for the virtual network), all connected on-premises address spaces, and [peered](virtual-network-peering-overview.md) virtual networks or virtual network connected to a [virtual network gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-* **AzureLoadBalancer** (Resource Manager) (**AZURE_LOADBALANCER** for classic): This tag denotes Azure's infrastructure load balancer. The tag translates to the [Virtual IP address of the host](security-overview.md#azure-platform-considerations) (168.63.129.16) where Azure's health probes originate. If you are not using the Azure load balancer, you can override this rule.
-* **Internet** (Resource Manager) (**INTERNET** for classic): This tag denotes the IP address space that is outside the virtual network and reachable by the public Internet. The address range includes the [Azure owned public IP address space](https://www.microsoft.com/download/details.aspx?id=41653).
-* **AzureCloud** (Resource Manager only): This tag denotes the IP address space for Azure including all [datacenter public IP addresses](https://www.microsoft.com/download/details.aspx?id=41653). If you specify *AzureCloud* for the value, traffic is allowed or denied to Azure public IP addresses. If you only want to allow access to AzureCloud in a specific [region](https://azure.microsoft.com/regions), you can specify the region. For example, if you want to allow access only to Azure AzureCloud in the East US region, you could specify *AzureCloud.EastUS* as a service tag. 
-* **AzureTrafficManager** (Resource Manager only): This tag denotes the IP address space for the Azure Traffic Manager probe IP addresses. More information on Traffic Manager probe IP addresses can be found in the [Azure Traffic Manager FAQ](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs). 
-* **Storage** (Resource Manager only): This tag denotes the IP address space for the Azure Storage service. If you specify *Storage* for the value, traffic is allowed or denied to storage. If you only want to allow access to storage in a specific [region](https://azure.microsoft.com/regions), you can specify the region. For example, if you want to allow access only to Azure Storage in the East US region, you could specify *Storage.EastUS* as a service tag. The tag represents the service, but not specific instances of the service. For example, the tag represents the Azure Storage service, but not a specific Azure Storage account. All address prefixes represented by this tag are also represented by the **Internet** tag. 
-* **Sql** (Resource Manager only): This tag denotes the address prefixes of the Azure SQL Database and Azure SQL Data Warehouse services. If you specify *Sql* for the value, traffic is allowed or denied to Sql. If you only want to allow access to Sql in a specific [region](https://azure.microsoft.com/regions), you can specify the region. For example, if you want to allow access only to Azure SQL Database in the East US region, you could specify *Sql.EastUS* as a service tag. The tag represents the service, but not specific instances of the service. For example, the tag represents the Azure SQL Database service, but not a specific SQL database or server. All address prefixes represented by this tag are also represented by the **Internet** tag. 
-* **AzureCosmosDB** (Resource Manager only): This tag denotes the address prefixes of the Azure Cosmos Database service. If you specify *AzureCosmosDB* for the value, traffic is allowed or denied to AzureCosmosDB. If you only want to allow access to AzureCosmosDB in a specific [region](https://azure.microsoft.com/regions), you can specify the region in the following format AzureCosmosDB.[region name]. 
-* **AzureKeyVault** (Resource Manager only): This tag denotes the address prefixes of the Azure KeyVault service. If you specify *AzureKeyVault* for the value, traffic is allowed or denied to AzureKeyVault. If you only want to allow access to AzureKeyVault in a specific [region](https://azure.microsoft.com/regions), you can specify the region in the following format AzureKeyVault.[region name]. 
-* **EventHub** (Resource Manager only): This tag denotes the address prefixes of the Azure EventHub service. If you specify *EventHub* for the value, traffic is allowed or denied to EventHub. If you only want to allow access to EventHub in a specific [region](https://azure.microsoft.com/regions), you can specify the region in the following format EventHub.[region name]. 
-* **ServiceBus** (Resource Manager only): This tag denotes the address prefixes of the Azure ServiceBus service. If you specify *ServiceBus* for the value, traffic is allowed or denied to ServiceBus. If you only want to allow access to ServiceBus in a specific [region](https://azure.microsoft.com/regions), you can specify the region in the following format ServiceBus.[region name]. 
-* **MicrosoftContainerRegistry** (Resource Manager only): This tag denotes the address prefixes of the Microsoft Container Registry service. If you specify *MicrosoftContainerRegistry* for the value, traffic is allowed or denied to MicrosoftContainerRegistry. If you only want to allow access to MicrosoftContainerRegistry in a specific [region](https://azure.microsoft.com/regions), you can specify the region in the following format MicrosoftContainerRegistry.[region name]. 
-* **AzureContainerRegistry** (Resource Manager only): This tag denotes the address prefixes of the Azure Container Registry service. If you specify *AzureContainerRegistry* for the value, traffic is allowed or denied to AzureContainerRegistry. If you only want to allow access to AzureContainerRegistry in a specific [region](https://azure.microsoft.com/regions), you can specify the region in the following format AzureContainerRegistry.[region name]. 
-* **AppService** (Resource Manager only): This tag denotes the address prefixes of the Azure AppService service. If you specify *AppService* for the value, traffic is allowed or denied to AppService. If you only want to allow access to AppService in a specific [region](https://azure.microsoft.com/regions), you can specify the region in the following format AppService.[region name]. 
-* **AppServiceManagement** (Resource Manager only): This tag denotes the address prefixes of the Azure AppService Management service. If you specify *AppServiceManagement* for the value, traffic is allowed or denied to AppServiceManagement. 
-* **ApiManagement** (Resource Manager only): This tag denotes the address prefixes of the Azure Api Management service. If you specify *ApiManagement* for the value, traffic is allowed or denied to ApiManagement.  
-* **AzureConnectors** (Resource Manager only): This tag denotes the address prefixes of the Azure Connectors service. If you specify *AzureConnectors* for the value, traffic is allowed or denied to AzureConnectors. If you only want to allow access to AzureConnectors in a specific [region](https://azure.microsoft.com/regions), you can specify the region in the following format AzureConnectors.[region name]. 
-* **GatewayManager** (Resource Manager only): This tag denotes the address prefixes of the Azure Gateway Manager service. If you specify *GatewayManager* for the value, traffic is allowed or denied to GatewayManager.  
-* **AzureDataLake** (Resource Manager only): This tag denotes the address prefixes of the Azure Data Lake service. If you specify *AzureDataLake* for the value, traffic is allowed or denied to AzureDataLake. 
-* **AzureActiveDirectory** (Resource Manager only): This tag denotes the address prefixes of the AzureActiveDirectory service. If you specify *AzureActiveDirectory* for the value, traffic is allowed or denied to AzureActiveDirectory.  
-* **AzureMonitor** (Resource Manager only): This tag denotes the address prefixes of the AzureMonitor service. If you specify *AzureMonitor* for the value, traffic is allowed or denied to AzureMonitor. 
-* **ServiceFabric** (Resource Manager only): This tag denotes the address prefixes of the ServiceFabric service. If you specify *ServiceFabric* for the value, traffic is allowed or denied to ServiceFabric. 
-* **AzureMachineLearning** (Resource Manager only): This tag denotes the address prefixes of the AzureMachineLearning service. If you specify *AzureMachineLearning* for the value, traffic is allowed or denied to AzureMachineLearning. 
-
-> [!NOTE]
-> Service tags of Azure services denotes the address prefixes from the specific cloud being used. 
-
-> [!NOTE]
-> If you implement a [virtual network service endpoint](virtual-network-service-endpoints-overview.md) for a service, such as Azure Storage or Azure SQL Database, Azure adds a [route](virtual-networks-udr-overview.md#optional-default-routes) to a virtual network subnet for the service. The address prefixes in the route are the same address prefixes, or CIDR ranges, as the corresponding service tag.
+For more information, see [Azure service tags](service-tags-overview.md). 
 
 ## Default security rules
 
@@ -92,19 +61,19 @@ Azure creates the following default rules in each network security group that yo
 
 |Priority|Source|Source ports|Destination|Destination ports|Protocol|Access|
 |---|---|---|---|---|---|---|
-|65000|VirtualNetwork|0-65535|VirtualNetwork|0-65535|All|Allow|
+|65000|VirtualNetwork|0-65535|VirtualNetwork|0-65535|Any|Allow|
 
 #### AllowAzureLoadBalancerInBound
 
 |Priority|Source|Source ports|Destination|Destination ports|Protocol|Access|
 |---|---|---|---|---|---|---|
-|65001|AzureLoadBalancer|0-65535|0.0.0.0/0|0-65535|All|Allow|
+|65001|AzureLoadBalancer|0-65535|0.0.0.0/0|0-65535|Any|Allow|
 
 #### DenyAllInbound
 
 |Priority|Source|Source ports|Destination|Destination ports|Protocol|Access|
 |---|---|---|---|---|---|---|
-|65500|0.0.0.0/0|0-65535|0.0.0.0/0|0-65535|All|Deny|
+|65500|0.0.0.0/0|0-65535|0.0.0.0/0|0-65535|Any|Deny|
 
 ### Outbound
 
@@ -112,21 +81,21 @@ Azure creates the following default rules in each network security group that yo
 
 |Priority|Source|Source ports| Destination | Destination ports | Protocol | Access |
 |---|---|---|---|---|---|---|
-| 65000 | VirtualNetwork | 0-65535 | VirtualNetwork | 0-65535 | All | Allow |
+| 65000 | VirtualNetwork | 0-65535 | VirtualNetwork | 0-65535 | Any | Allow |
 
 #### AllowInternetOutBound
 
 |Priority|Source|Source ports| Destination | Destination ports | Protocol | Access |
 |---|---|---|---|---|---|---|
-| 65001 | 0.0.0.0/0 | 0-65535 | Internet | 0-65535 | All | Allow |
+| 65001 | 0.0.0.0/0 | 0-65535 | Internet | 0-65535 | Any | Allow |
 
 #### DenyAllOutBound
 
 |Priority|Source|Source ports| Destination | Destination ports | Protocol | Access |
 |---|---|---|---|---|---|---|
-| 65500 | 0.0.0.0/0 | 0-65535 | 0.0.0.0/0 | 0-65535 | All | Deny |
+| 65500 | 0.0.0.0/0 | 0-65535 | 0.0.0.0/0 | 0-65535 | Any | Deny |
 
-In the **Source** and **Destination** columns, *VirtualNetwork*, *AzureLoadBalancer*, and *Internet* are [service tags](#service-tags), rather than IP addresses. In the protocol column, **All** encompasses TCP, UDP, and ICMP. When creating a rule, you can specify TCP, UDP, or All, but you cannot specify ICMP alone. Therefore, if your rule requires ICMP, select *All* for protocol. *0.0.0.0/0* in the **Source** and **Destination** columns represents all addresses.
+In the **Source** and **Destination** columns, *VirtualNetwork*, *AzureLoadBalancer*, and *Internet* are [service tags](service-tags-overview.md), rather than IP addresses. In the protocol column, **Any** encompasses TCP, UDP, and ICMP. When creating a rule, you can specify TCP, UDP, ICMP or Any. *0.0.0.0/0* in the **Source** and **Destination** columns represents all addresses. Clients like Azure portal, Azure CLI, or Powershell can use * or any for this expression.
  
 You cannot remove the default rules, but you can override them by creating rules with higher priorities.
 
@@ -136,7 +105,7 @@ Application security groups enable you to configure network security as a natura
 
 ![Application security groups](./media/security-groups/application-security-groups.png)
 
-In the previous picture, *NIC1* and *NIC2* are members of the *AsgWeb* application security group. *NIC3* is a member of the *AsgLogic* application security group. *NIC4* is a member of the *AsgDb* application security group. Though each network interface in this example is a member of only one application security group, a network interface can be a member of multiple application security groups, up to the [Azure limits](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). None of the network interfaces have an associated network security group. *NSG1* is associated to both subnets and contains the following rules:
+In the previous picture, *NIC1* and *NIC2* are members of the *AsgWeb* application security group. *NIC3* is a member of the *AsgLogic* application security group. *NIC4* is a member of the *AsgDb* application security group. Though each network interface in this example is a member of only one application security group, a network interface can be a member of multiple application security groups, up to the [Azure limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). None of the network interfaces have an associated network security group. *NSG1* is associated to both subnets and contains the following rules:
 
 ### Allow-HTTP-Inbound-Internet
 
@@ -153,7 +122,7 @@ Because the [AllowVNetInBound](#allowvnetinbound) default security rule allows a
 
 |Priority|Source|Source ports| Destination | Destination ports | Protocol | Access |
 |---|---|---|---|---|---|---|
-| 120 | * | * | AsgDb | 1433 | All | Deny |
+| 120 | * | * | AsgDb | 1433 | Any | Deny |
 
 ### Allow-Database-BusinessLogic
 
@@ -167,7 +136,7 @@ The rules that specify an application security group as the source or destinatio
 
 Application security groups have the following constraints:
 
--	There are limits to the number of application security groups you can have in a subscription, as well as other limits related to application security groups. For details, see [Azure limits](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
+-	There are limits to the number of application security groups you can have in a subscription, as well as other limits related to application security groups. For details, see [Azure limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 - You can specify one application security group as the source and destination in a security rule. You cannot specify multiple application security groups in the source or destination.
 - All network interfaces assigned to an application security group have to exist in the same virtual network that the first network interface assigned to the application security group is in. For example, if the first network interface assigned to an application security group named *AsgWeb* is in the virtual network named *VNet1*, then all subsequent network interfaces assigned to *ASGWeb* must exist in *VNet1*. You cannot add network interfaces from different virtual networks to the same application security group.
 - If you specify an application security group as the source and destination in a security rule, the network interfaces in both application security groups must exist in the same virtual network. For example, if *AsgLogic* contained network interfaces from *VNet1*, and *AsgDb* contained network interfaces from *VNet2*, you could not assign *AsgLogic* as the source and *AsgDb* as the destination in a rule. All network interfaces for both the source and destination application security groups need to exist in the same virtual network.
@@ -203,10 +172,17 @@ For outbound traffic, Azure processes the rules in a network security group asso
 - **VM3**: If *NSG2* has a security rule that denies port 80, the traffic is denied. If *NSG2* has a security rule that allows port 80, then port 80 is allowed outbound to the internet, since a network security group is not associated to *Subnet2*.
 - **VM4**: All network traffic is allowed from *VM4,* because a network security group isn't associated to the network interface attached to the virtual machine, or to *Subnet3*.
 
+
+### Intra-Subnet traffic
+
+It's important to note that security rules in an NSG associated to a subnet can affect connectivity between VM's within it. For example, if a rule is added to *NSG1* which denies all inbound and outbound traffic, *VM1* and *VM2* will no longer be able to communicate with each other. Another rule would have to be added specifically to allow this. 
+
+
+
 You can easily view the aggregate rules applied to a network interface by viewing the [effective security rules](virtual-network-network-interface.md#view-effective-security-rules) for a network interface. You can also use the [IP flow verify](../network-watcher/diagnose-vm-network-traffic-filtering-problem.md?toc=%2fazure%2fvirtual-network%2ftoc.json) capability in Azure Network Watcher to determine whether communication is allowed to or from a network interface. IP flow verify tells you whether communication is allowed or denied, and which network security rule allows or denies the traffic.
 
 > [!NOTE]
-> Network security groups are associated to subnets or to virtual machines and cloud services deployed in the classic deployment model, rather than to network interfaces in the Resource Manager deployment model. To learn more about Azure deployment models, see [Understand Azure deployment models](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+> Network security groups are associated to subnets or to virtual machines and cloud services deployed in the classic deployment model, and to subnets or network interfaces in the Resource Manager deployment model. To learn more about Azure deployment models, see [Understand Azure deployment models](../azure-resource-manager/management/deployment-models.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 > [!TIP]
 > Unless you have a specific reason to, we recommended that you associate a network security group to a subnet, or a network interface, but not both. Since rules in a network security group associated to a subnet can conflict with rules in a network security group associated to a network interface, you can have unexpected communication problems that require troubleshooting.

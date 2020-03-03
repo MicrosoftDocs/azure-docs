@@ -1,16 +1,11 @@
 ---
-title: Tutorial - Create custom VM images with Azure PowerShell | Microsoft Docs
+title: Tutorial - Create custom VM images with Azure PowerShell 
 description: In this tutorial, you learn how to use Azure PowerShell to create a custom virtual machine image in Azure
-services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
-editor: tysonn
+manager: gwallace
 tags: azure-resource-manager
-
-ms.assetid: 
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
@@ -31,6 +26,8 @@ Custom images are like marketplace images, but you create them yourself. Custom 
 > * Create a VM from a custom image
 > * List all the images in your subscription
 > * Delete an image
+
+In public preview, we have the [Azure VM Image Builder](https://docs.microsoft.com/azure/virtual-machines/windows/image-builder-overview) service. Simply describe your customizations in a template, and it will handle the image creation steps in this article. [Try Azure Image Builder (preview)](https://docs.microsoft.com/azure/virtual-machines/windows/image-builder).
 
 ## Before you begin
 
@@ -63,7 +60,7 @@ Sysprep removes all your personal account information, among other things, and p
 
 To create an image, the VM needs to be deallocated and marked as generalized in Azure.
 
-Deallocated the VM using [Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm).
+Deallocate the VM using [Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm).
 
 ```azurepowershell-interactive
 Stop-AzVM `
@@ -121,7 +118,7 @@ This example creates a VM named *myVMfromImage* from the *myImage* image, in *my
 New-AzVm `
     -ResourceGroupName "myResourceGroup" `
     -Name "myVMfromImage" `
-	-ImageName "myImage" `
+    -ImageName "myImage" `
     -Location "East US" `
     -VirtualNetworkName "myImageVnet" `
     -SubnetName "myImageSubnet" `
@@ -129,6 +126,9 @@ New-AzVm `
     -PublicIpAddressName "myImagePIP" `
     -OpenPorts 3389
 ```
+
+We recommend that you limit the number of concurrent deployments to 20 VMs from a single image. If you are planning large-scale, concurrent deployments of over 20 VMs from the same custom image, you should use a [Shared Image Gallery](shared-image-galleries.md) with multiple image replicas. 
+
 
 ## Image management 
 
@@ -160,7 +160,7 @@ In this tutorial, you created a custom VM image. You learned how to:
 > * List all the images in your subscription
 > * Delete an image
 
-Advance to the next tutorial to learn about how highly available virtual machines.
+Advance to the next tutorial to learn about how to create highly available virtual machines.
 
 > [!div class="nextstepaction"]
 > [Create highly available VMs](tutorial-availability-sets.md)

@@ -6,7 +6,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.topic: conceptual
 ms.service: site-recovery
-ms.date: 12/27/2018
+ms.date: 08/05/2019
 ms.author: raynew
 ---
 # Replicate Azure Stack VMs to Azure
@@ -184,7 +184,7 @@ Now install the configuration server:
 
 > [!NOTE]
 > The configuration server can also be installed from the command line. [Learn more](physical-manage-configuration-server.md#install-from-the-command-line).
-
+> 
 > It can take 15 minutes or more for the account name to appear in the portal. To update immediately, select **Configuration Servers** > ***server name*** > **Refresh Server**.
 
 ## Step 4: Set up the target environment
@@ -208,7 +208,7 @@ Select and verify target resources.
 4. In **Recovery point retention**, specify how long each recovery point is kept. Replicated VMs can be recovered to any point in the specified time window.
 5. In **App-consistent snapshot frequency**, specify how often application-consistent snapshots are created.
 
-    - A app-consistent snapshot is a point-in-time snapshot of the app data inside the VM.
+    - An app-consistent snapshot is a point-in-time snapshot of the app data inside the VM.
     - Volume Shadow Copy Service (VSS) ensures that apps on the VM are in a consistent state when the snapshot is taken.
 6. Select **OK** to create the policy.
 
@@ -243,9 +243,9 @@ Make sure you've completed all the tasks in [Step 1: Prepare machine](#step-1-pr
 
 > [!NOTE]
 > Site Recovery installs Mobility Service when replication is enabled for a VM.
-
+> 
 > It can take 15 minutes or longer for changes to take effect and appear in the portal.
-
+> 
 > To monitor VMs you add, check the last discovered time for VMs in **Configuration Servers** > **Last Contact At**. To add VMs without waiting for the scheduled discovery, highlight the configuration server (don't select it) and select **Refresh**.
 
 
@@ -327,7 +327,7 @@ When your primary site is up and running again, you can fail back from Azure to 
         - VHD Name: copied-3676553984.vhd
 
 5. Now, use Azure Storage Explorer to download the VHD.
-6. Upload the VHD to Azure Stack with [these steps](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-manage-vm-disks#use-powershell-to-add-multiple-unmanaged-disks-to-a-vm).
+6. Upload the VHD to Azure Stack with [these steps](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-manage-vm-disks#use-powershell-to-add-multiple-disks-to-a-vm).
 7. In the existing VM or new VM, attach the uploaded VHDs.
 8. Check that the OS Disk is correct, and start the VM.
 

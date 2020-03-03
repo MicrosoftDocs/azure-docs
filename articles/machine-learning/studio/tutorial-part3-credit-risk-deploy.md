@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial 3: Deploy credit risk model'
-titleSuffix: Azure Machine Learning Studio
-description: A detailed tutorial showing how to create a predictive analytics solution for credit risk assessment in Azure Machine Learning Studio. This tutorial is part three of a three-part tutorial series. It shows how to deploy a model as a web service.
+titleSuffix: Azure Machine Learning Studio (classic)
+description: A detailed tutorial showing how to create a predictive analytics solution for credit risk assessment in Azure Machine Learning Studio (classic). This tutorial is part three of a three-part tutorial series. It shows how to deploy a model as a web service.
 keywords: credit risk, predictive analytics solution,risk assessment, deploy, web service
 author: sdgilley
 ms.author: sgilley
@@ -11,17 +11,17 @@ ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
 ---
-# Tutorial 3: Deploy credit risk model - Azure Machine Learning Studio
+# Tutorial 3: Deploy credit risk model - Azure Machine Learning Studio (classic)
 
-In this tutorial, you take an extended look at the process of developing a predictive analytics solution. You develop a simple model in Machine Learning Studio.  You then deploy the model as an Azure Machine Learning web service.  This deployed model can make predictions using new data. This tutorial is **part three of a three-part tutorial series**.
+In this tutorial, you take an extended look at the process of developing a predictive analytics solution. You develop a simple model in Machine Learning Studio (classic).  You then deploy the model as an Azure Machine Learning web service.  This deployed model can make predictions using new data. This tutorial is **part three of a three-part tutorial series**.
 
 Suppose you need to predict an individual's credit risk based on the information they gave on a credit application.  
 
-Credit risk assessment is a complex problem, but this tutorial will simplify it a bit. You'll use it as an example of how you can create a predictive analytics solution using Microsoft Azure Machine Learning Studio. You'll use Azure Machine Learning Studio and a Machine Learning web service for this solution. 
+Credit risk assessment is a complex problem, but this tutorial will simplify it a bit. You'll use it as an example of how you can create a predictive analytics solution using Microsoft Azure Machine Learning Studio (classic). You'll use Azure Machine Learning Studio (classic) and a Machine Learning web service for this solution. 
 
 In this three-part tutorial, you start with publicly available credit risk data.  You then develop and train a predictive model.  Finally you deploy the model as a web service.
 
-In [part one of the tutorial](tutorial-part1-credit-risk.md), you created a Machine Learning Studio workspace, uploaded data, and created an experiment.
+In [part one of the tutorial](tutorial-part1-credit-risk.md), you created a Machine Learning Studio (classic) workspace, uploaded data, and created an experiment.
 
 In [part two of the tutorial](tutorial-part2-credit-risk-train.md), you  trained and evaluated models.
 
@@ -33,8 +33,6 @@ In this part of the tutorial you:
 > * Test the web service
 > * Manage the web service
 > * Access the web service
-
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
 ## Prerequisites
 
@@ -66,12 +64,11 @@ you need to delete the following modules:
 
 Select each module and press the Delete key, or right-click the module and select **Delete**. 
 
-![Removed the SVM model](./media/tutorial-part3-credit-risk-deploy/publish3a.png)
-
+![Highlights which modules to delete to remove the Support Vector Machine model](./media/tutorial-part3-credit-risk-deploy/publish3a.png)
 
 Our model should now look something like this:
 
-![Removed the SVM model](./media/tutorial-part3-credit-risk-deploy/publish3.png)
+![Resulting experiment when the Support Vector Machine model is deleted](./media/tutorial-part3-credit-risk-deploy/publish3.png)
 
 Now we're ready to deploy this model using the [Two-Class Boosted Decision Tree][two-class-boosted-decision-tree].
 
@@ -86,7 +83,7 @@ To get this model ready for deployment, you need to convert this training experi
 you could do this manually, but fortunately all three steps can be accomplished by clicking **Set Up Web Service** at the bottom of the experiment canvas (and selecting the **Predictive Web Service** option).
 
 > [!TIP]
-> If you want more details on what happens when you convert a training experiment to a predictive experiment, see [How to prepare your model for deployment in Azure Machine Learning Studio](convert-training-experiment-to-scoring-experiment.md).
+> If you want more details on what happens when you convert a training experiment to a predictive experiment, see [How to prepare your model for deployment in Azure Machine Learning Studio (classic)](convert-training-experiment-to-scoring-experiment.md).
 
 When you click **Set Up Web Service**, several things happen:
 
@@ -104,7 +101,7 @@ When you click **Set Up Web Service**, several things happen:
 
 you need to take one additional step with this particular experiment.
 you added two [Execute R Script][execute-r-script] modules to provide a weighting function to the data. That was just a trick you needed for training and testing, so you can take out those modules in the final model.
-Machine Learning Studio removed one [Execute R Script][execute-r-script] module when it removed the [Split][split] module. Now you can remove the other and connect [Metadata Editor][metadata-editor] directly to [Score Model][score-model].    
+Machine Learning Studio (classic) removed one [Execute R Script][execute-r-script] module when it removed the [Split][split] module. Now you can remove the other and connect [Metadata Editor][metadata-editor] directly to [Score Model][score-model].    
 
 Our experiment should now look like this:  
 
@@ -125,7 +122,7 @@ Run the experiment one last time (click **Run**.) If you want to verify that the
 You can deploy the experiment as either a Classic web service, or as a New web service that's based on Azure Resource Manager.
 
 ### Deploy as a Classic web service
-To deploy a Classic web service derived from our experiment, click **Deploy Web Service** below the canvas and select **Deploy Web Service [Classic]**. Machine Learning Studio deploys the experiment as a web service and takes you to the dashboard for that web service. From this page, you can return to the experiment (**View snapshot** or **View latest**) and run a simple test of the web service (see **Test the web service** below). There is also information here for creating applications that can access the web service (more on that in the next step of this tutorial).
+To deploy a Classic web service derived from our experiment, click **Deploy Web Service** below the canvas and select **Deploy Web Service [Classic]**. Machine Learning Studio (classic) deploys the experiment as a web service and takes you to the dashboard for that web service. From this page, you can return to the experiment (**View snapshot** or **View latest**) and run a simple test of the web service (see **Test the web service** below). There is also information here for creating applications that can access the web service (more on that in the next step of this tutorial).
 
 ![Web service dashboard](./media/tutorial-part3-credit-risk-deploy/publish6.png)
 
@@ -142,7 +139,7 @@ You can configure the service by clicking the **CONFIGURATION** tab. Here you ca
 
 To deploy a New web service derived from our experiment:
 
-1. Click **Deploy Web Service** below the canvas and select **Deploy Web Service [New]**. Machine Learning Studio transfers you to the Azure Machine Learning web services **Deploy Experiment** page.
+1. Click **Deploy Web Service** below the canvas and select **Deploy Web Service [New]**. Machine Learning Studio (classic) transfers you to the Azure Machine Learning web services **Deploy Experiment** page.
 
 1. Enter a name for the web service. 
 
@@ -167,11 +164,11 @@ When the web service is accessed, the user's data enters through the **Web servi
 The results are returned to the user from the web service through the **Web service output** module.
 
 > [!TIP]
-> The way you have the predictive experiment configured, the entire results from the [Score Model][score-model] module are returned. This includes all the input data plus the credit risk value and the scoring probability. But you can return something different if you want - for example, you could return just the credit risk value. To do this, insert a [Project Columns][project-columns] module between [Score Model][score-model] and the **Web service output** to eliminate columns you don't want the web service to return. 
+> The way you have the predictive experiment configured, the entire results from the [Score Model][score-model] module are returned. This includes all the input data plus the credit risk value and the scoring probability. But you can return something different if you want - for example, you could return just the credit risk value. To do this, insert a [Select Columns][select-columns] module between [Score Model][score-model] and the **Web service output** to eliminate columns you don't want the web service to return. 
 > 
 > 
 
-You can test a Classic web service either in **Machine Learning Studio** or in the **Azure Machine Learning Web Services** portal.
+You can test a Classic web service either in **Machine Learning Studio (classic)** or in the **Azure Machine Learning Web Services** portal.
 You can test a New web service only in the **Machine Learning Web Services** portal.
 
 > [!TIP]
@@ -179,9 +176,9 @@ You can test a New web service only in the **Machine Learning Web Services** por
 
 ### Test a Classic web service
 
-You can test a Classic web service in Machine Learning Studio or in the Machine Learning Web Services portal. 
+You can test a Classic web service in Machine Learning Studio (classic) or in the Machine Learning Web Services portal. 
 
-#### Test in Machine Learning Studio
+#### Test in Machine Learning Studio (classic)
 
 1. On the **DASHBOARD** page for the web service, click the **Test** button under **Default Endpoint**. A dialog pops up and asks you for the input data for the service. These are the same columns that appeared in the original credit risk dataset.  
 
@@ -263,4 +260,4 @@ You can also develop a custom application to access the web service using starte
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
 [two-class-boosted-decision-tree]: https://msdn.microsoft.com/library/azure/e3c522f8-53d9-4829-8ea4-5c6a6b75330c/
 [two-class-support-vector-machine]: https://msdn.microsoft.com/library/azure/12d8479b-74b4-4e67-b8de-d32867380e20/
-[project-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
+[select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/

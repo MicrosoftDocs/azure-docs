@@ -1,22 +1,16 @@
 ---
-title: Import and export a domain zone file to Azure DNS using Azure CLI | Microsoft Docs
+title: Import and export a domain zone file - Azure CLI
+titleSuffix: Azure DNS
 description: Learn how to import and export a DNS zone file to Azure DNS by using Azure CLI 
 services: dns
-documentationcenter: na
-author: vhorne
-manager: timlt
-
-ms.assetid: f5797782-3005-4663-a488-ac0089809010
+author: rohinkoul
 ms.service: dns
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 04/30/2018
-ms.author: victorh
+ms.date: 4/3/2019
+ms.author: rohink
+ms.topic: conceptual
 ---
 
-# Import and export a DNS zone file using the Azure CLI 
+# Import and export a DNS zone file using the Azure CLI
 
 This article walks you through how to import and export DNS zone files for Azure DNS using the Azure CLI.
 
@@ -28,7 +22,6 @@ Azure DNS supports importing and exporting zone files by using the Azure command
 
 The Azure CLI is a cross-platform command-line tool used for managing Azure services. It is available for the Windows, Mac, and Linux platforms from the [Azure downloads page](https://azure.microsoft.com/downloads/). Cross-platform support is important for importing and exporting zone files, because the most common name server software, [BIND](https://www.isc.org/downloads/bind/), typically runs on Linux.
 
-
 ## Obtain your existing DNS zone file
 
 Before you import a DNS zone file into Azure DNS, you need to obtain a copy of the zone file. The source of this file depends on where the DNS zone is currently hosted.
@@ -36,18 +29,6 @@ Before you import a DNS zone file into Azure DNS, you need to obtain a copy of t
 * If your DNS zone is hosted by a partner service (such as a domain registrar, dedicated DNS hosting provider, or alternative cloud provider), that service should provide the ability to download the DNS zone file.
 * If your DNS zone is hosted on Windows DNS, the default folder for the zone files is **%systemroot%\system32\dns**. The full path to each zone file also shows on the **General** tab of the DNS console.
 * If your DNS zone is hosted by using BIND, the location of the zone file for each zone is specified in the BIND configuration file **named.conf**.
-
-> [!NOTE]
-> Zone files downloaded from GoDaddy have a slightly nonstandard format. You need to correct this before you import
-> these zone files into Azure DNS.
->
-> DNS names in the RDATA of each DNS record are specified as fully qualified
-> names, but they don't have a terminating "." This means they are interpreted by other DNS systems as relative
-> names. You need to edit the zone file to append the terminating "." to their names before you import them into
-> Azure DNS.
->
-> For example, the CNAME record "www 3600 IN CNAME contoso.com" should be changed to "www 3600 IN CNAME contoso.com."
-> (with a terminating ".").
 
 ## Import a DNS zone file into Azure DNS
 
@@ -89,7 +70,6 @@ Values:
 
 If a zone with this name does not exist in the resource group, it is created for you. If the zone already exists, the imported record sets are merged with existing record sets. 
 
-
 ### Step 1. Import a zone file
 
 To import a zone file for the zone **contoso.com**.
@@ -120,7 +100,7 @@ To verify the DNS zone after you import the file, you can use any one of the fol
 * You can use `nslookup` to verify name resolution for the records. Because the zone isn't delegated yet, you need to specify the correct Azure DNS name servers explicitly. The following sample shows how to retrieve the name server names assigned to the zone. This also shows how to query the "www" record by using `nslookup`.
 
     ```azurecli
-    az network dns record-set ns list -g myresourcegroup -z  --output json 
+    az network dns record-set ns list -g myresourcegroup -z contoso.com  --output json 
     ```
 
     ```json
@@ -170,7 +150,7 @@ After you have verified that the zone has been imported correctly, you need to u
 
 ## Export a DNS zone file from Azure DNS
 
-The format of the Azure CLI command to import a DNS zone is:
+The format of the Azure CLI command to export a DNS zone is:
 
 ```azurecli
 az network dns zone export -g <resource group> -n <zone name> -f <zone file name>
@@ -191,3 +171,9 @@ To export the existing Azure DNS zone **contoso.com** in resource group **myreso
 ```
 az network dns zone export -g myresourcegroup -n contoso.com -f contoso.com.txt
 ```
+
+## Next steps
+
+* Learn how to [manage record sets and records](dns-getstarted-create-recordset-cli.md) in your DNS zone.
+
+* Learn how to [delegate your domain to Azure DNS](dns-domain-delegation.md).

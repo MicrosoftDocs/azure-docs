@@ -8,7 +8,8 @@ manager: mtillman
 ms.reviewer: barbkess
 
 ms.assetid: 818b91d7-01df-4b36-9706-f167c710a73c
-ms.service: Azure-Active-Directory
+ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -76,7 +77,7 @@ To configure and test Azure AD single sign-on with AnswerHub, you need to comple
 2. [Configure AnswerHub single sign-on](#configure-answerhub-single-sign-on) to set up the single sign-on settings on the application side.
 3. [Create an Azure AD test user](#create-an-azure-ad-test-user) named Britta Simon.
 4. [Assign the Azure AD test user](#assign-the-azure-ad-test-user) to enable Britta Simon to use Azure AD single sign-on.
-5. [Create an AnswerHub test user](#create-answerhub-test-user) that corresponds to and is linked to the Azure AD test user.
+5. Create an AnswerHub test user that corresponds to and is linked to the Azure AD test user.
 6. [Test single sign-on](#test-single-sign-on) to verify that the configuration works.
 
 ### Configure Azure AD single sign-on
@@ -182,7 +183,7 @@ In this section, you create a test user named Britta Simon in the Azure portal.
 
     a. In the **Name** box, enter **BrittaSimon**.
   
-    b. In the **User name** box, enter **brittasimon@<yourcompanydomain.extension>**.  
+    b. In the **User name** box, enter **brittasimon\@<yourcompanydomain.extension>**.  
     For example, BrittaSimon@contoso.com.
 
     c. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
@@ -191,7 +192,7 @@ In this section, you create a test user named Britta Simon in the Azure portal.
 
 ### Assign the Azure AD test user
 
-In this section, you set up Britta Simon to use Azure AD single sign-on by granting her access to AnswerHub.
+In this section, you set up the user Britta Simon to use Azure AD single sign-on by granting the user access to AnswerHub.
 
 **To assign the Azure AD test user:**
 
@@ -252,5 +253,5 @@ When you select the AnswerHub tile in the access panel, you should be automatica
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

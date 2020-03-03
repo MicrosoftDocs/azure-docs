@@ -1,6 +1,6 @@
 ---
 title: How to crop videos with Media Encoder Standard - Azure | Microsoft Docs
-description: This article shows how to crop videos with Media Encoder Standard.
+description: Cropping is the process of selecting a rectangular window within the video frame, and encoding just the pixels within that window. This article demonstrates how to crop videos with Media Encoder Standard.
 services: media-services
 documentationcenter: ''
 author: anilmur
@@ -12,8 +12,9 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/08/2019
-ms.author: anilmur;juliako;
+ms.date: 03/18/2019
+ms.author: anilmur
+ms.reviewer: juliako
 
 ---
 # Crop videos with Media Encoder Standard  

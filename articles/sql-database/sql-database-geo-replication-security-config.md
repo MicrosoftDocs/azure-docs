@@ -1,5 +1,5 @@
 ---
-title: Configure Azure SQL Database security for disaster recovery | Microsoft Docs
+title: Configure security for disaster recovery
 description: Learn the security considerations for configuring and managing security after a database restore or a failover to a secondary server.
 services: sql-database
 ms.service: sql-database
@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-manager: craigg
 ms.date: 12/18/2018
 ---
 # Configure and manage Azure SQL Database security for geo-restore or failover
@@ -83,7 +82,9 @@ The last step is to go to the target server, or servers, and generate the logins
 > [!NOTE]
 > If you want to grant user access to the secondary, but not to the primary, you can do that by altering the user login on the primary server by using the following syntax.
 >
+> ```sql
 > ALTER LOGIN <login name> DISABLE
+> ```
 >
 > DISABLE doesn’t change the password, so you can always enable it if needed.
 

@@ -1,23 +1,18 @@
 ---
-title: Install Microsoft Azure StorSimple 8100 device | Microsoft Docs
+title: Install Microsoft Azure StorSimple 8100 device
 description: Describes how to unpack, rack mount, and cable your StorSimple 8100 device before you deploy and configure the software.
-services: storsimple
-documentationcenter: NA
 author: alkohli
-manager: jeconnoc
-editor: ''
-
 ms.assetid: 6098a01e-c031-488a-a8d7-0b607ce665e1
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: TBD
+ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: alkohli
 
 ---
 # Unpack, rack-mount, and cable your StorSimple 8100 device
+
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
+
 ## Overview
 Your Microsoft Azure StorSimple 8100 is a single enclosure, rack-mounted device. This tutorial explains how to unpack, rack-mount, and cable the StorSimple 8100 device hardware before you configure and deploy the StorSimple device.
 

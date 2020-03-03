@@ -13,12 +13,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2019
+ms.date: 03/18/2019
 ms.author: juliako
 
 ---
 
 # Use Media Services to deliver DRM licenses or AES keys 
+
+> [!NOTE]
+> To complete this tutorial, you need an Azure account. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/). 	> No new features or functionality are being added to Media Services v2. <br/>Check out the latest version, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Also, see [migration guidance from v2 to v3](../latest/migrate-from-v2-to-v3.md)
+>
 
 Azure Media Services enables you to ingest, encode, add content protection, and stream your content. For more information, see [Use PlayReady and/or Widevine dynamic common encryption](media-services-protect-with-playready-widevine.md). Some customers want to use Media Services only to deliver licenses and/or keys and encode, encrypt, and stream by using their on-premises servers. This article describes how you can use Media Services to deliver PlayReady and/or Widevine licenses but do the rest with your on-premises servers. 
 
@@ -336,6 +340,10 @@ namespace DeliverDRMLicenses
     }
 }
 ```
+
+## Additional notes
+
+* Widevine is a service provided by Google Inc. and subject to the terms of service and Privacy Policy of Google, Inc.
 
 ## Media Services learning paths
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

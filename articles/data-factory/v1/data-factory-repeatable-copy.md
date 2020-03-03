@@ -1,15 +1,15 @@
 ---
-title: Repeatable copy in Azure Data Factory| Microsoft Docs
+title: Repeatable copy in Azure Data Factory
 description: 'Learn how to avoid duplicates even though a slice that copies data is run more than once.'
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 editor: 
 
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
+
 
 ms.topic: conceptual
 ms.date: 01/10/2018
@@ -112,16 +112,16 @@ This column is used by Azure Data Factory for repeatability purposes and in the 
 1. Define a column of type **binary (32)** in the destination SQL Table. There should be no constraints on this column. Let's name this column as AdfSliceIdentifier for this example.
 
 
-Source table:
+	Source table:
 
 	```sql
 	CREATE TABLE [dbo].[Student](
        [Id] [varchar](32) NOT NULL,
        [Name] [nvarchar](256) NOT NULL
 	)
-	```
+    ```
 
-Destination table: 
+	Destination table: 
 
 	```sql
 	CREATE TABLE [dbo].[Student](
@@ -129,9 +129,9 @@ Destination table:
        [Name] [nvarchar](256) NOT NULL,
        [AdfSliceIdentifier] [binary](32) NULL
 	)
-	```
+    ```
 
-2. Use it in the copy activity as follows:
+1. Use it in the copy activity as follows:
    
     ```json
     "sink":  

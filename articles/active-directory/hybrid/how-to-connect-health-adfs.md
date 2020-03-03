@@ -9,6 +9,7 @@ manager: daveba
 editor: curtand
 ms.assetid: dc0e53d8-403e-462a-9543-164eaa7dd8b3
 ms.service: active-directory
+ms.subservice: hybrid
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -115,5 +116,5 @@ The report provides the following information:
 ## Related links
 * [Azure AD Connect Health](whatis-hybrid-identity-health.md)
 * [Azure AD Connect Health Agent Installation](how-to-connect-health-agent-install.md)
-* [Risky IP report ](how-to-connect-health-adfs-risky-ip.md)
+* [Risky IP report](how-to-connect-health-adfs-risky-ip.md)
 

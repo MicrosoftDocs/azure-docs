@@ -2,8 +2,8 @@
 title: What is Dedicated HSM? - Azure Dedicated HSM | Microsoft Docs
 description: Overview of Azure Dedicated HSM provides key storage capabilities within Azure that meets FIPS 140-2 Level 3 certification
 services: dedicated-hsm
-author: barclayn
-manager: barbkess
+author: msmbaldwin
+manager: rkarlin
 tags: azure-resource-manager
 
 ms.service: key-vault
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: overview
 ms.custom: "mvc, seodec18"
 ms.date: 12/07/2018
-ms.author: barclayn
+ms.author: mbaldwin
 #Customer intent: As an IT Pro, Decision maker I am looking for key storage capability within Azure Cloud that meets FIPS 140-2 Level 3 certification and that gives me exclusive access to the hardware.
 
 ---

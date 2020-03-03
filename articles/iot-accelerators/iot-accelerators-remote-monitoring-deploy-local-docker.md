@@ -1,9 +1,9 @@
 ---
-title: Deploy the remote monitoring solution locally - Docker - Azure | Microsoft Docs 
+title: Deploy Remote Monitoring solution locally - Docker - Azure | Microsoft Docs 
 description: This how-to guide shows you how to deploy the remote monitoring solution accelerator to your local machine using Docker for testing and development.
 author: avneet723
 manager: hegate
-ms.author: avneet723
+ms.author: avneets
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/25/2018
@@ -91,7 +91,7 @@ Follow these steps to start the Stream Analytics job:
 
 ### Connect to the dashboard
 
-To access the Remote Monitoring solution dashboard, navigate to [http://localhost:8080](http://localhost:8080) in your browser. You can now use the Web UI and the local microservices.
+To access the Remote Monitoring solution dashboard, navigate to `http://localhost:8080` in your browser. You can now use the Web UI and the local microservices.
 
 ## Clean up
 

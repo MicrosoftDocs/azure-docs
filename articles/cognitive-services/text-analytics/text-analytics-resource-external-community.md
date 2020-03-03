@@ -1,7 +1,7 @@
 ---
 title: External & community content for Text Analytics API
 titleSuffix: Azure Cognitive Services
-description: Partner blogs, youtube videos, training for Microsoft Cognitive Services Text Analytics API on Azure.
+description: Partner blogs, YouTube videos, training for Azure Cognitive Services Text Analytics API.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 02/13/2019
+ms.date: 03/02/2019
 ms.author: aahi
 ---
 # External & community content for the Text Analytics Cognitive Service
@@ -28,7 +28,11 @@ ms.author: aahi
 
 + [Sentiment analysis with Dynamics 365 CRM Online (MSDN blog)](https://blogs.msdn.microsoft.com/geoffreyinnis/2016/07/11/sentiment-analysis-in-usd-with-cognitive-services-text-analytics/) 
 
-+ PowerBI blog: Extraction of key phrases from Facebook messages: [Part 1](https://community.powerbi.com/t5/Community-Blog/Text-Analytics-in-Power-BI-Extraction-of-key-phrases-from/ba-p/88483) and [Part 2](https://community.powerbi.com/t5/Community-Blog/Text-Analytics-in-Power-BI-Extraction-of-key-phrases-from/ba-p/88487)
++ Power BI blog: Extraction of key phrases from Facebook messages: [Part 1](https://community.powerbi.com/t5/Community-Blog/Text-Analytics-in-Power-BI-Extraction-of-key-phrases-from/ba-p/88483) and [Part 2](https://community.powerbi.com/t5/Community-Blog/Text-Analytics-in-Power-BI-Extraction-of-key-phrases-from/ba-p/88487)
+
++ [Identify the sentiment of comments in a Yammer group with MS Flow (Microsoft tech community)](https://docs.microsoft.com/Yammer/integrate-yammer-with-other-apps/sentiment-analysis-flow-azure)
+
+
 
 ## Videos
 
@@ -45,4 +49,4 @@ Are you looking for information about a feature or use-case that we don't cover?
 ## See also
 
  [StackOverflow: Azure Text Analytics API](https://stackoverflow.com/questions/tagged/text-analytics-api)   
- [StackOverflow: Azure Cognitive Services](http://stackoverflow.com/questions/tagged/microsoft-cognitive)
+ [StackOverflow: Azure Cognitive Services](https://stackoverflow.com/questions/tagged/microsoft-cognitive)

@@ -1,46 +1,64 @@
 ---
-title: How Azure Application Gateway Works
-description: This article provides information on how to the Application Gateway Works
+title: How an application gateway works
+description: This article provides information about how an application gateway accepts incoming requests and routes them to the backend.
 services: application-gateway
 author: abshamsft
 ms.service: application-gateway
 ms.topic: article
-ms.date: 02/20/2019
+ms.date: 11/16/2019
 ms.author: absha
 ---
 
-# How Application Gateway Works
+# How an application gateway works
 
-Application Gateway is a cloud Application Delivery Controller with layer 7 (HTTP) load balancing that enables you to manage the web traffic across your servers. Additionally, it also provides Web Application Firewall (WAF) capabilities that provide centralized protection of your web services from common web exploits and vulnerabilities.
+This article explains how an application gateway accepts incoming requests and routes them to the backend.
 
-When a client makes an HTTP request to the Application Gateway, it acts as a reverse proxy and forwards the traffic to the backend servers based on your configuration. Additionally, the Application Gateway also monitors the health of its backend servers and ensures that it routes traffic only to healthy backends.
+![How an application gateway accepts a request](./media/how-application-gateway-works/how-application-gateway-works.png)
 
-![how-application-gateway-works](.\media\how-application-gateway-works\how-application-gateway-works.png)
+## How an application gateway accepts a request
 
-## How request is accepted
+1. Before a client sends a request to an application gateway, it resolves the domain name of the application gateway by using a Domain Name System (DNS) server. Azure controls the DNS entry because all application gateways are in the azure.com domain.
 
-Before a client sends a request to your Application Gateway, it resolves the Application Gateway's domain name using a Domain Name System (DNS) server. The DNS entry is controlled by Azure, because your Application Gateways are in the azure.com domain. The Azure DNS returns the IP address to the client, which is the *frontend IP address* of the Application Gateway. The Application Gateway accepts incoming traffic on one or more *listeners*. A listener is a process that checks for connection requests. It is configured with a fronted IP address, protocol, and port number for connections from clients to the Application Gateway. If WAF is enabled, Application Gateway checks the request headers and the body (if present) against the *WAF rules* to determine whether the request is a valid request - in which case it will be routed to the backend - or a security threat, in which case the request will be blocked.  
+2. The Azure DNS returns the IP address to the client, which is the frontend IP address of the application gateway.
 
-## How request is routed
+3. The application gateway accepts incoming traffic on one or more listeners. A listener is a logical entity that checks for connection requests. It's configured with a frontend IP address, protocol, and port number for connections from clients to the application gateway.
 
-If the request is found to be valid (or if WAF is not enabled), the *request routing rule* associated with the *listener* is evaluated to determine the *backend pool* to which the request is to be routed. Rules are processed in the order they are listed in the portal. Based on the *request routing rule* configuration, the Application Gateway decides whether to route all the requests on the listener to a specific backend pool or to route them to different backend pools depending on the URL path or to *redirect requests* to another port or external site
+4. If a web application firewall (WAF) is in use, the application gateway checks the request headers and the body, if present, against WAF rules. This action determines if the request is valid request or a security threat. If the request is valid, it's routed to the backend. If the request isn't valid and WAF is in Prevention mode, it's blocked as a security threat. If it's in Detection mode, the request is evaluated and logged, but still forwarded to the backend server.
 
-Once a *backend* *pool* has been chosen, Application Gateway sends the request to one of the backend servers configured in the pool that is healthy (y.y.y.y). The health of the server is determined by a *health probe*. If the backend pool contains more than one server, Application Gateway uses the round robin algorithm to route the requests between the healthy servers, thus load balancing the requests on the servers.
+Azure Application Gateway can be used as an internal application load balancer or as an internet-facing application load balancer. An internet-facing application gateway uses public IP addresses. The DNS name of an internet-facing application gateway is publicly resolvable to its public IP address. As a result, internet-facing application gateways can route client requests to the internet.
 
-After a backend server has been determined, Application Gateway opens a new TCP session with the backend server based on the configuration in the *HTTP settings*. The *HTTP settings* is a component that specifies the protocol, port, and other routing-related setting which is required for establishing a new session with the backend server. The port and protocol used in the HTTP settings determine whether the traffic between the Application Gateway and backend servers is encrypted, thus accomplishing end to end SSL, or unencrypted. While sending the original request to the backend server, Application Gateway honors any custom configuration made in the HTTP settings related to overriding the hostname, path,  protocol; maintaining cookie-based session affinity, connection draining, picking the host name from the backend, etc.
+Internal application gateways use only private IP addresses. If you are using a Custom or [Private DNS zone](https://docs.microsoft.com/azure/dns/private-dns-overview), the domain name should be internally resolvable to the private IP address of the Application Gateway. Therefore, internal load-balancers can only route requests from clients with access to a virtual network for the application gateway.
 
-The Application gateway also inserts these three default HTTP* headers: x-forwarded-for, x-forwarded-proto, and x-forwarded-port into the request forwarded to the backend.
+## How an application gateway routes a request
 
-Once the backend server processes the request and sends an HTTP response with the page content to the Application Gateway, the Application Gateway forwards the response to the client where the page is displayed in the browser.
+If a request is valid and not blocked by WAF, the application gateway evaluates the request routing rule that's associated with the listener. This action determines which backend pool to route the request to.
 
-## Application Load-Balancing Type
+Based on the request routing rule, the application gateway determines whether to route all requests on the listener to a specific backend pool, route requests to different backend pools based on the URL path, or redirect requests to another port or external site.
+>[!NOTE]
+>Rules are processed in the order they're listed in the portal for v1 SKU. 
 
-You can use the Application Gateway as an internal application load balancer or an Internet-facing application load balancer. An Internet-facing Application Gateway has public IP addresses. The DNS name of an Internet-facing Application Gateway is publicly resolvable to its public IP address. Therefore, Internet-facing Application Gateways can route requests from clients over the Internet.
+When the application gateway selects the backend pool, it sends the request to one of the healthy backend servers in the pool (y.y.y.y). The health of the server is determined by a health probe. If the backend pool contains multiple servers, the application gateway uses a round-robin algorithm to route the requests between healthy servers. This load balances the requests on the servers.
 
-An internal Application Gateway has only private IP address. The DNS name of an internal Application Gateway is internally resolvable to its private IP address. Therefore, internal load balancers can only route requests from clients with access to the VNET for the Application Gateway.
+After the application gateway determines the backend server, it opens a new TCP session with the backend server based on HTTP settings. HTTP settings specify the protocol, port, and other routing-related settings that are required to establish a new session with the backend server.
 
-Note that both Internet-facing and internal Application Gateways route requests to your backend servers using private IP addresses. If  your backend pool resource contains a private IP address, VM NIC configuration, or an internally resolvable address, and if your backend pool is a public endpoint, Application Gateway uses its frontend public IP to reach the server. If you haven't provisioned a frontend public IP address, one is assigned for the outbound external connectivity.
+The port and protocol used in HTTP settings determine whether the traffic between the application gateway and backend servers is encrypted (thus accomplishing end-to-end SSL) or is unencrypted.
+
+When an application gateway sends the original request to the backend server, it honors any custom configuration made in the HTTP settings related to overriding the hostname, path, and protocol. This action maintains cookie-based session affinity, connection draining, host-name selection from the backend, and so on.
+
+ >[!NOTE]
+>If the backend pool:
+> - **Is a public endpoint**, the application gateway uses its frontend public IP to reach the server. If there isn't a frontend public IP address, one is assigned for the outbound external connectivity.
+> - **Contains an internally resolvable FQDN or a private IP address**, the application gateway routes the request to the backend server by using its instance private IP addresses.
+> - **Contains an external endpoint or an externally resolvable FQDN**, the application gateway routes the request to the backend server by using its frontend public IP address. The DNS resolution is based on a private DNS zone or custom DNS server, if configured, or it uses the default Azure-provided DNS. If there isn't a frontend public IP address, one is assigned for the outbound external connectivity.
+
+### Modifications to the request
+
+An application gateway inserts four additional headers to all requests before it forwards the requests to the backend. These headers are x-forwarded-for, x-forwarded-proto, x-forwarded-port, and x-original-host. The format for x-forwarded-for header is a comma-separated list of IP:port.
+
+The valid values for x-forwarded-proto are HTTP or HTTPS. X-forwarded-port specifies the port where the request reached the application gateway. X-original-host header contains the original host header with which the request arrived. This header is useful in Azure website integration, where the incoming host header is modified before traffic is routed to the backend. If session affinity is enabled as an option, then it adds a gateway-managed affinity cookie.
+
+You can configure application gateway to modify headers by using [Rewrite HTTP headers](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers) or to modify the URI path by using a path-override setting. However, unless configured to do so, all incoming requests are proxied to the backend.
 
 ## Next steps
 
-After learning about how Application Gateway works, go to [Application Gateway Components](application-gateway-components.md) to understand its components in more details.
+[Learn about application gateway components](application-gateway-components.md)

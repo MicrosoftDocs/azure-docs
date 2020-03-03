@@ -1,6 +1,6 @@
 ---
-title: Secure a single or pooled database in Azure SQL Database | Microsoft Docs
-description: Learn about techniques and features to secure a single or pooled database in Azure SQL Database.
+title: Secure a single or pooled database
+description: A tutorial that teaches you the about techniques and features to secure a single or pooled database in Azure SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -8,10 +8,18 @@ ms.topic: tutorial
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
-manager: craigg
-ms.date: 02/08/2019
+ms.date: 09/03/2019
+ms.custom: seoapril2019
 ---
 # Tutorial: Secure a single or pooled database
+
+In this tutorial you learn how to:
+
+> [!div class="checklist"]
+> - Create server-level and database-level firewall rules
+> - Configure an Azure Active Directory (AD) administrator
+> - Manage user access with SQL authentication, Azure AD authentication, and secure connection strings
+> - Enable security features, such as advanced data security, auditing, data masking, and encryption
 
 Azure SQL Database secures data in a single or pooled database by allowing you to:
 
@@ -23,15 +31,10 @@ Azure SQL Database secures data in a single or pooled database by allowing you t
 > [!NOTE]
 > An Azure SQL database on a managed instance is secured using network security rules and private endpoints as described in [Azure SQL database managed instance](sql-database-managed-instance-index.yml) and [connectivity architecture](sql-database-managed-instance-connectivity-architecture.md).
 
-You can improve your database security with just a few simple steps. In this tutorial you learn how to:
-
-> [!div class="checklist"]
-> - Create server-level and database-level firewall rules
-> - Configure an Azure Active Directory (AD) administrator
-> - Manage user access with SQL authentication, Azure AD authentication, and secure connection strings
-> - Enable security features, such as advanced data security, auditing, data masking, and encryption
-
 To learn more, see the [Azure SQL Database security overview](/azure/sql-database/sql-database-security-index) and [capabilities](sql-database-security-overview.md) articles.
+
+> [!TIP]
+> The following Microsoft Learn module helps you learn for free about  how to [Secure your Azure SQL Database](https://docs.microsoft.com/learn/modules/secure-your-azure-sql-database/).
 
 ## Prerequisites
 
@@ -49,7 +52,7 @@ For all steps in the tutorial, sign in to [Azure portal](https://portal.azure.co
 
 ## Create firewall rules
 
-SQL databases are protected by firewalls in Azure. By default, all connections to the server and database are rejected, except for connections from other Azure services. To learn more, see [Azure SQL Database server-level and database-level firewall rules](sql-database-firewall-configure.md).
+SQL databases are protected by firewalls in Azure. By default, all connections to the server and database are rejected. To learn more, see [Azure SQL Database server-level and database-level firewall rules](sql-database-firewall-configure.md).
 
 Set **Allow access to Azure services** to **OFF** for the most secure configuration. Then, create a [reserved IP (classic deployment)](../virtual-network/virtual-networks-reserved-public-ip.md) for the resource that needs to connect, such as an Azure VM or cloud service, and only allow that IP address access through the firewall. If you're using the [resource manager](/azure/virtual-network/virtual-network-ip-addresses-overview-arm) deployment model, a dedicated public IP address is required for each resource.
 
@@ -71,20 +74,17 @@ To set up a server-level firewall rule:
 
 1. On the **Overview** page, select **Set server firewall**. The **Firewall settings** page for the database server opens.
 
-    1. Select **Add client IP** on the toolbar to add your current IP address to a new firewall rule. The rule can open port 1433 for a single IP address or a range of IP addresses. Select **Save**.
+   1. Select **Add client IP** on the toolbar to add your current IP address to a new firewall rule. The rule can open port 1433 for a single IP address or a range of IP addresses. Select **Save**.
 
-    ![set server firewall rule](./media/sql-database-security-tutorial/server-firewall-rule2.png)
+      ![set server firewall rule](./media/sql-database-security-tutorial/server-firewall-rule2.png)
 
-    1. Select **OK** and close the **Firewall settings** page.
+   1. Select **OK** and close the **Firewall settings** page.
 
 You can now connect to any database in the server with the specified IP address or IP address range.
 
-> [!IMPORTANT]
-> By default, access through the SQL Database firewall is enabled for all Azure services, under **Allow access to Azure services**. Choose **OFF** to disable access for all Azure services.
-
 ### Setup database firewall rules
 
-Database-level firewall rules only apply to individual databases. These rules are portable and will follow the database during a server failover. Database-level firewall rules can only be configured using Transact-SQL (T-SQL) statements, and only after you've configured a server-level firewall rule.
+Database-level firewall rules only apply to individual databases. The database will retain these rules during a server failover. Database-level firewall rules can only be configured using Transact-SQL (T-SQL) statements, and only after you've configured a server-level firewall rule.
 
 To setup a database-level firewall rule:
 
@@ -136,7 +136,7 @@ For information about configuring Azure AD, see:
 
 - [Integrate your on-premises identities with Azure AD](../active-directory/hybrid/whatis-hybrid-identity.md)
 - [Add your own domain name to Azure AD](../active-directory/active-directory-domains-add-azure-portal.md)
-- [Microsoft Azure now supports federation with Windows Server AD](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/)
+- [Microsoft Azure now supports federation with Windows Server AD](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/)
 - [Administer your Azure AD directory](../active-directory/fundamentals/active-directory-administer.md)
 - [Manage Azure AD using PowerShell](/powershell/azure/overview?view=azureadps-2.0)
 - [Hybrid identity required ports and protocols](../active-directory/hybrid/reference-connect-ports.md)
@@ -242,11 +242,11 @@ To enable advanced data security:
 
 1. On the **SQL server** page, find the **Security** section and select **Advanced Data Security**.
 
-    1. Select **ON** under **Advanced Data Security** to enable the feature. Choose a storage account for saving vulnerability assessment results. Then select **Save**.
+   1. Select **ON** under **Advanced Data Security** to enable the feature. Choose a storage account for saving vulnerability assessment results. Then select **Save**.
 
-    ![Navigation pane](./media/sql-database-security-tutorial/threat-settings.png)
+      ![Navigation pane](./media/sql-database-security-tutorial/threat-settings.png)
 
-    You can also configure emails to receive security alerts, storage details, and threat detection types.
+      You can also configure emails to receive security alerts, storage details, and threat detection types.
 
 1. Return to the **SQL databases** page of your database and select **Advanced Data Security** under the **Security** section. Here you'll find various security indicators available for the database.
 
@@ -258,7 +258,7 @@ If anomalous activities are detected, you receive an email with information on t
 
 ### Auditing
 
-The auditing feature tracks database events and writes events to an audit log in either Azure storage, log analytics, or to an event hub. Auditing helps maintain regulatory compliance, understand database activity, and gain insight into discrepancies and anomalies that could indicate potential security violations.
+The auditing feature tracks database events and writes events to an audit log in either Azure storage, Azure Monitor logs, or to an event hub. Auditing helps maintain regulatory compliance, understand database activity, and gain insight into discrepancies and anomalies that could indicate potential security violations.
 
 To enable auditing:
 
@@ -268,25 +268,25 @@ To enable auditing:
 
 1. Under **Auditing** settings, set the following values:
 
-    1. Set **Auditing** to **ON**.
+   1. Set **Auditing** to **ON**.
 
-    1. Select **Audit log destination** as any of the following:
+   1. Select **Audit log destination** as any of the following:
 
-        - **Storage**, an Azure storage account where event logs are saved and can be downloaded as *.xel* files
+       - **Storage**, an Azure storage account where event logs are saved and can be downloaded as *.xel* files
 
-           > [!TIP]
-           > Use the same storage account for all audited databases to get the most from auditing report templates.
+          > [!TIP]
+          > Use the same storage account for all audited databases to get the most from auditing report templates.
 
-        - **Log Analytics**, which automatically stores events for query or further analysis
+       - **Log Analytics**, which automatically stores events for query or further analysis
 
-            > [!NOTE]
-            > A **Log analytics workspace** is required to support advanced features such as analytics, custom alert rules, and Excel or Power BI exports. Without a workspace, only the query editor is available.
+           > [!NOTE]
+           > A **Log Analytics workspace** is required to support advanced features such as analytics, custom alert rules, and Excel or Power BI exports. Without a workspace, only the query editor is available.
 
-        - **Event Hub**, which allows events to be routed for use in other applications
+       - **Event Hub**, which allows events to be routed for use in other applications
 
-    1. Select **Save**.
+   1. Select **Save**.
 
-    ![Audit settings](./media/sql-database-security-tutorial/audit-settings.png)
+      ![Audit settings](./media/sql-database-security-tutorial/audit-settings.png)
 
 1. Now you can select **View audit logs** to view database events data.
 
@@ -328,7 +328,7 @@ To enable or verify encryption:
     ![Transparent Data Encryption](./media/sql-database-security-tutorial/encryption-settings.png)
 
 > [!NOTE]
-> To view encryption status, connect to the database using [SSMS](./sql-database-connect-query-ssms.md) and query the `encryption_state` column of the [sys.dm_database_encryption_keys](/sql/relational-databases/system-dynamic-management-views/sys-dm-database-encryption-keys-transact-sql?view=sql-server-2017) view. A state of `3` indicates the database is encrypted.
+> To view encryption status, connect to the database using [SSMS](./sql-database-connect-query-ssms.md) and query the `encryption_state` column of the [sys.dm_database_encryption_keys](/sql/relational-databases/system-dynamic-management-views/sys-dm-database-encryption-keys-transact-sql) view. A state of `3` indicates the database is encrypted.
 
 ## Next steps
 

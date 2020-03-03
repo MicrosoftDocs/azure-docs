@@ -1,22 +1,10 @@
 ---
-title: Deploy a Service Fabric app with continuous integration and Azure Pipelines in Azure | Microsoft Docs
+title: Deploy an app with CI and Azure Pipelines
 description: In this tutorial, you learn how to set up continuous integration and deployment for a Service Fabric application using Azure Pipelines.
-services: service-fabric
-documentationcenter: .net
-author: rwike77
-manager: timlt
-editor: ''
 
-ms.assetid: 
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 12/02/2018
-ms.author: ryanwi
+ms.date: 07/22/2019
 ms.custom: mvc
-
 ---
 # Tutorial: Deploy an application with CI/CD to a Service Fabric cluster
 
@@ -43,7 +31,7 @@ In this tutorial series you learn how to:
 Before you begin this tutorial:
 
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* [Install Visual Studio 2017](https://www.visualstudio.com/) and install the **Azure development** and **ASP.NET and web development** workloads.
+* [Install Visual Studio 2019](https://www.visualstudio.com/) and install the **Azure development** and **ASP.NET and web development** workloads.
 * [Install the Service Fabric SDK](service-fabric-get-started.md)
 * Create a Windows Service Fabric cluster on Azure, for example by [following this tutorial](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
 * Create an [Azure DevOps organization](https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization-msa-or-work-student). This allows you to create a project in Azure DevOps and use Azure Pipelines.
@@ -82,9 +70,9 @@ Publishing the repo creates a new project in your account with the same name as 
 
 ## Configure Continuous Delivery with Azure Pipelines
 
-A Azure Pipelines build pipeline describes a workflow that is composed of a set of build steps that are executed sequentially. Create a build pipeline that produces a Service Fabric application package, and other artifacts, to deploy to a Service Fabric cluster. Learn more about [Azure Pipelines build pipelines](https://www.visualstudio.com/docs/build/define/create). 
+An Azure Pipelines build pipeline describes a workflow that is composed of a set of build steps that are executed sequentially. Create a build pipeline that produces a Service Fabric application package, and other artifacts, to deploy to a Service Fabric cluster. Learn more about [Azure Pipelines build pipelines](https://www.visualstudio.com/docs/build/define/create). 
 
-A Azure Pipelines release pipeline describes a workflow that deploys an application package to a cluster. When used together, the build pipeline and release pipeline execute the entire workflow starting with source files to ending with a running application in your cluster. Learn more about [Azure Pipelines release pipelines](https://www.visualstudio.com/docs/release/author-release-definition/more-release-definition).
+An Azure Pipelines release pipeline describes a workflow that deploys an application package to a cluster. When used together, the build pipeline and release pipeline execute the entire workflow starting with source files to ending with a running application in your cluster. Learn more about [Azure Pipelines release pipelines](https://www.visualstudio.com/docs/release/author-release-definition/more-release-definition).
 
 ### Create a build pipeline
 
@@ -124,7 +112,7 @@ Select **Tasks**->**Environment 1** and then **+New** to add a new cluster conne
 
 In the **Add new Service Fabric Connection** view select **Certificate Based** or **Azure Active Directory** authentication.  Specify a connection name of "mysftestcluster" and a cluster endpoint of "tcp://mysftestcluster.southcentralus.cloudapp.azure.com:19000" (or the endpoint of the cluster you are deploying to).
 
-For certificate based authentication, add the **Server certificate thumbprint** of the server certificate used to create the cluster.  In **Client certificate**, add the base-64 encoding of the client certificate file. See the help pop-up on that field for info on how to get that base-64 encoded representation of the certificate. Also add the **Password** for the certificate.  You can use the cluster or server certificate if you don't have a separate client certificate.
+For certificate-based authentication, add the **Server certificate thumbprint** of the server certificate used to create the cluster.  In **Client certificate**, add the base-64 encoding of the client certificate file. See the help pop-up on that field for info on how to get that base-64 encoded representation of the certificate. Also add the **Password** for the certificate.  You can use the cluster or server certificate if you don't have a separate client certificate.
 
 For Azure Active Directory credentials, add the **Server certificate thumbprint** of the server certificate used to create the cluster and the credentials you want to use to connect to the cluster in the **Username** and **Password** fields.
 
@@ -140,7 +128,7 @@ Enable a continuous deployment trigger so that a release is automatically create
 
 Select **+ Release** -> **Create a Release** -> **Create** to manually create a release. You can monitor the release progress in the **Releases** tab.
 
-Verify that the deployment succeeded and the application is running in the cluster.  Open a web browser and navigate to [http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/](http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/).  Note the application version, in this example it is "1.0.0.20170616.3".
+Verify that the deployment succeeded and the application is running in the cluster.  Open a web browser and navigate to `http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/`.  Note the application version, in this example it is "1.0.0.20170616.3".
 
 ## Commit and push changes, trigger a release
 
@@ -160,7 +148,7 @@ Pushing the changes to Azure Pipelines automatically triggers a build.  When the
 
 To check your build progress, switch to the **Builds** tab in **Team Explorer** in Visual Studio.  Once you verify that the build executes successfully, define a release pipeline that deploys your application to a cluster.
 
-Verify that the deployment succeeded and the application is running in the cluster.  Open a web browser and navigate to [http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/](http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/).  Note the application version, in this example it is "1.0.0.20170815.3".
+Verify that the deployment succeeded and the application is running in the cluster.  Open a web browser and navigate to `http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/`.  Note the application version, in this example it is "1.0.0.20170815.3".
 
 ![Service Fabric Explorer][sfx1]
 
@@ -187,6 +175,7 @@ In this tutorial, you learned how to:
 > * Automatically deploy and upgrade an application
 
 Advance to the next tutorial:
+> [!div class="nextstepaction"]
 > [Set up monitoring and diagnostics for the application](service-fabric-tutorial-monitoring-aspnet.md)
 
 <!-- Image References -->

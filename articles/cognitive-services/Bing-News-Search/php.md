@@ -1,6 +1,6 @@
 ---
-title: "Quickstart: Perform a news search with PHP - Bing News Search REST API"
-titlesuffix: Azure Cognitive Services
+title: "Quickstart: Perform a news search with PHP and the Bing News Search REST API"
+titleSuffix: Azure Cognitive Services
 description: Use this quickstart to send a request to the Bing News Search REST API using PHP, and receive a JSON response.
 services: cognitive-services
 author: aahill
@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: quickstart
-ms.date: 1/10/2019
+ms.date: 12/12/2019
 ms.author: aahi
 ms.custom: seodec2018
 ---
@@ -29,12 +29,13 @@ See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.
 
 ## Run the application
 
-The [Bing News Search API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference) returns news results from the Bing search engine.
+The [Bing News Search API](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference) returns news results from the Bing search engine.
 
 1. Make sure secure HTTP support is enabled in your `php.ini` as described in the code comment.
 2. Create a new PHP project in your favorite IDE or editor.
 3. Add the code provided below.
 4. Replace the `accessKey` value with an access key valid for your subscription.
+5. You can use the global endpoint below, or the [custom subdomain](../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 5. Run the program.
 
 ```php
@@ -61,7 +62,7 @@ $term = 'Microsoft';
 function BingNewsSearch ($url, $key, $query) {
     // Prepare HTTP request
     // NOTE: Use the key 'http' even if you are making an HTTPS request. See:
-    // http://php.net/manual/en/function.stream-context-create.php
+    // https://php.net/manual/en/function.stream-context-create.php
     $headers = "Ocp-Apim-Subscription-Key: $key\r\n";
     $options = array ('http' => array (
                           'header' => $headers,
@@ -195,4 +196,4 @@ A successful response is returned in JSON, as shown in the following example:
 ## Next steps
 
 > [!div class="nextstepaction"]
-[Create a single-page web app](tutorial-bing-news-search-single-page-app.md)
+> [Create a single-page web app](tutorial-bing-news-search-single-page-app.md)

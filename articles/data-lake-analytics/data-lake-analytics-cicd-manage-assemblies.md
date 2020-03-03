@@ -1,14 +1,10 @@
 ---
-title: Best practices for managing U-SQL assemblies in a CI/CD pipeline for Azure Data Lake
+title: Manage U-SQL assemblies in a CI/CD pipeline - Azure Data Lake
 description: 'Learn the best practices for managing U-SQL C# assemblies in a CI/CD pipeline with Azure DevOps.'
-services: data-lake-analytics
 author: yanancai
 ms.author: yanacai
-ms.reviewer: 
-ms.assetid: 
 ms.service: data-lake-analytics
 ms.topic: conceptual
-ms.workload: big-data
 ms.date: 10/30/2018
 ---
 
@@ -51,9 +47,9 @@ Follow these steps to create projects and add references.
 
     ![Data Lake Tools for Visual Studio--create assembly from reference](./media/data-lake-analytics-cicd-manage-assemblies/data-lake-tools-create-assembly-from-reference.png)
 
-7. Add **Managed Dependencies** and **Additional Files**, if there are any. When you add additional files, the tool uses the relative path to make sure it can find the assemblies on your local machine and on the build machine later. 
+7. Add **Managed Dependencies** and **Additional Files**, if there are any. When you add additional files, the tool uses the relative path to make sure it can find the assemblies on your local machine and on the build machine later.
 
-**@_DeployTempDirectory** in the editor window at the bottom is a predefined variable that points the tool to the build output folder. Under the build output folder, every assembly has a subfolder named with the assembly name. All DLLs and additional files are in that subfolder. 
+**\@_DeployTempDirectory** in the editor window at the bottom is a predefined variable that points the tool to the build output folder. Under the build output folder, every assembly has a subfolder named with the assembly name. All DLLs and additional files are in that subfolder.
 
 ## Build a U-SQL database project
 

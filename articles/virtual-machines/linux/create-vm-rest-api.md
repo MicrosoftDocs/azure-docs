@@ -1,16 +1,16 @@
 ---
-title: Create a Linux virtual machine with the Azure REST API | Microsoft Docs
+title: Create a Linux virtual machine with the Azure REST API 
 description: Learn how to create a Linux virtual machine in Azure that uses Managed Disks and SSH authentication with Azure REST API.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 
 ms.assetid: 
 ms.service: virtual-machines-linux
-ms.devlang: na
+
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
@@ -124,7 +124,7 @@ An example request body is below. Make sure you specify the VM name in the `{com
 }
 ```
 
-For a complete list of the available definitions in the request body, see [Virtual machines create or update request body defintions](/rest/api/compute/virtualmachines/createorupdate#definitions).
+For a complete list of the available definitions in the request body, see [Virtual machines create or update request body definitions](/rest/api/compute/virtualmachines/createorupdate#definitions).
 
 ## Sending the request
 

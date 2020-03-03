@@ -13,11 +13,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
-ms.author: willzhan;juliako
+ms.date: 03/14/2019
+ms.author: willzhan
+ms.reviewer: juliako
 
 ---
-# Hybrid design of DRM subsystems (legacy)
+# Hybrid design of DRM subsystems 
 
 This topic discusses hybrid design of DRM subsystem(s) using Azure Media Services.
 
@@ -109,7 +110,7 @@ In the samples, PlayReady protection works for both DASH and smooth streaming. T
 
 ### Sample 2
 
-* Source (base) URL: http://willzhanmswest.streaming.mediaservices.windows.net/1a670626-4515-49ee-9e7f-cd50853e41d8/Microsoft_HoloLens_TransformYourWorld_816p23.ism/Manifest 
+* Source (base) URL: https://willzhanmswest.streaming.mediaservices.windows.net/1a670626-4515-49ee-9e7f-cd50853e41d8/Microsoft_HoloLens_TransformYourWorld_816p23.ism/Manifest 
 * PlayReady LA_URL (DASH & smooth): http://willzhan12.cloudapp.net/PlayReady/RightsManager.asmx 
 
 ### Sample 3
@@ -121,6 +122,10 @@ In the samples, PlayReady protection works for both DASH and smooth streaming. T
 
 * Source URL: https://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500.ism/manifest 
 * PlayReady LA_URL (DASH & smooth): https://willzhan12.cloudapp.net/playready/rightsmanager.asmx 
+
+## Additional notes
+
+* Widevine is a service provided by Google Inc. and subject to the terms of service and Privacy Policy of Google, Inc.
 
 ## Summary
 

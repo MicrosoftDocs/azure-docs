@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 02/14/2020
 ms.author: spelluru
 
 ---
@@ -23,21 +23,37 @@ In Azure Lab Services, a lab account is a container for managed lab types such a
 The following steps illustrate how to use the Azure portal to create a lab account with Azure Lab Services. 
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Select **All Services** on the left menu. Select **Lab Accounts** in the **DEVOPS** section. If you select star (`*`) next to **Lab Accounts**, it's added to the **FAVORITES** section on the left menu. From the next time onwards, you select **Lab Accounts** under **FAVORITES**.
+2. Select **All Services** on the left menu. Select **Lab Accounts** in the **DevOps** section. If you select star (`*`) next to **Lab Accounts**, it's added to the **FAVORITES** section on the left menu. From the next time onwards, you select **Lab Accounts** under **FAVORITES**.
 
     ![All Services -> Lab Accounts](../media/tutorial-setup-lab-account/select-lab-accounts-service.png)
-3. On the **Lab Accounts** page, select **Add** on the toolbar. 
+3. On the **Lab Accounts** page, select **Add** on the toolbar or **Create lab account** on the page. 
 
     ![Select Add on the Lab Accounts page](../media/tutorial-setup-lab-account/add-lab-account-button.png)
-4. On the **Lab Account** page, do the following actions: 
+4. On the **Basics** tab of the **Create a lab account** page, do the following actions: 
     1. For **Lab account name**, enter a name. 
     2. Select the **Azure subscription** in which you want to create the lab account.
     3. For **Resource group**, select **Create new**, and enter a name for the resource group.
-    4. For **Location**, select a location/region in which you want the lab account to be created. 
-    5. Select **Create**. 
+    4. For **Location**, select a location/region in which you want the lab account to be created.
+    5. For the **Allow lab creator to pick lab location** field, specify whether you want lab creators to be able to select a location for the lab. By default, the option is disabled. When it's disabled, lab creators can't specify a location for the lab they are creating. The labs are created in the closest geographical location to lab account. When it's enabled, a lab creator can select a location at the time of creating a lab. For more information, see [Allow lab creator to pick location for the lab](allow-lab-creator-pick-lab-location.md). 
 
-        ![Create a lab account window](../media/tutorial-setup-lab-account/lab-account-settings.png)
-5. Select the **bell icon** on the toolbar (**Notifications**), confirm that the deployment succeeded, and then select **Go to resource**. 
+        ![Create lab account -> Basics](../media/how-to-manage-lab-accounts/create-lab-account-basics.png)
+5. Select **Next: Advanced** at the bottom of the page to navigate to the **Advanced** tab, and then do the following steps: 
+    1. Select an existing **shared image gallery** or create one. You can save the template VM in the shared image gallery for it to be reused by others. For detailed information on shared image galleries, see [Use a shared image gallery in Azure Lab Services](how-to-use-shared-image-gallery.md).
+    2. Specify whether you want to **automatically shut down Windows virtual machines** when users disconnect from them. Specify how long the virtual machines should wait for the user to reconnect before automatically shutting down. 
+    3. For **Peer virtual network**, select a peer virtual network (VNet) for the lab network. Labs created in this account are connected to the selected VNet and have access to the resources in the selected VNet. For more information, see [Connect your lab's virtual network with a peer virtual network](how-to-connect-peer-virtual-network.md).    
+    8. Specify an **address range** for VMs in the lab. The address range should be in the classless inter-domain routing (CIDR) notation (example: 10.20.0.0/23). Virtual machines in the lab will be created in this address range. For more information, see [Specify an address range for VMs in the lab](how-to-configure-lab-accounts.md#specify-an-address-range-for-vms-in-the-lab)  
+
+        ![Create lab account -> Advanced](../media/how-to-manage-lab-accounts/create-lab-account-advanced.png)  
+6. Select **Next: Tags** at the bottom of the page to switch to the **Tags** tab. Add any tags you want to associate with the lab account. Tags are name/value pairs that enable you to categorize resources and view consolidated billing by applying the same tag to multiple resources and resource groups. For more information, see [Use tags to organize your Azure resources](../../azure-resource-manager/management/tag-resources.md).
+
+    ![Create lab account -> Tags](../media/how-to-manage-lab-accounts/create-lab-account-tags.png)
+7. Select **Review + create** at the bottom of this page to switch to the **Review + create** tab. 
+4. Review the summary information on this page, and select **Create**. 
+
+    ![Create lab account -> Tags](../media/how-to-manage-lab-accounts/create-lab-account-review-create.png)
+5. Wait until the deployment is complete, expand **Next steps**, and select **Go to resource** as shown in the following image: 
+
+    You can also select the **bell icon** on the toolbar (**Notifications**), confirm that the deployment succeeded, and then select **Go to resource**. 
 
     Alternatively, select **Refresh** on the **Lab Accounts** page, and select the lab account you created. 
 
@@ -45,42 +61,6 @@ The following steps illustrate how to use the Azure portal to create a lab accou
 6. You see the following **lab account** page:
 
     ![Lab account page](../media/tutorial-setup-lab-account/lab-account-page.png)
-
-## Add a user to the Lab Creator role
-To set up a classroom lab in a lab account, the user must be a member of the **Lab Creator** role in the lab account. The account you used to create the lab account is automatically added to this role. If you are planning to use the same user account to create a classroom lab, you can skip this step. To use another user account to create a classroom lab, do the following steps: 
-
-To provide educators the permission to create labs for their classes, add them to the **Lab Creator** role:
-
-1. On the **Lab Account** page, select **Access control (IAM)**, and click **+ Add role assignment** on the toolbar. 
-
-    ![Access Control -> Add Role Assignment button](../media/tutorial-setup-lab-account/add-role-assignment-button.png)
-1. On the **Add role assignment** page, select **Lab Creator** for **Role**, select the user you want to add to the Lab Creators role, and select **Save**. 
-
-    ![Add lab creator](../media/tutorial-setup-lab-account/add-lab-creator.png)
-
-
-## Specify Marketplace images available to lab creators
-As a lab account owner, you can specify the Marketplace images that lab creators can use to create labs in the lab account. 
-
-1. Select **Marketplace images** on the menu to the left. By default, you see the full list of images (both enabled and disabled). You can filter the list to see only enabled/disabled images by selecting the **Enabled only**/**Disabled only** option from the drop-down list at the top. 
-    
-    ![Marketplace images page](../media/tutorial-setup-lab-account/marketplace-images-page.png)
-
-    The Marketplace images that are displayed in the list are only the ones that satisfy the following conditions:
-        
-    - Creates a single VM.
-    - Uses Azure Resource Manager to provision VMs
-    - Doesn't require purchasing an extra licensing plan
-2. To **disable** a Marketplace image that has been enabled, do one of the following actions: 
-    1. Select **... (ellipsis)** in the last column, and select **Disable image**. 
-
-        ![Disable one image](../media/tutorial-setup-lab-account/disable-one-image.png) 
-    2. Select one or more images from the list by selecting the checkboxes before the image names in the list, and select **Disable selected images**. 
-
-        ![Disable multiple images](../media/tutorial-setup-lab-account/disable-multiple-images.png) 
-1. Similarly, to **enable** a Marketplace image, do one of the following actions: 
-    1. Select **... (ellipsis)** in the last column, and select **Enable image**. 
-    2. Select one or more images from the list by selecting the checkboxes before the image names in the list, and select **Enable selected images**. 
 
 ## View lab accounts
 1. Sign in to the [Azure portal](https://portal.azure.com).
@@ -90,6 +70,28 @@ As a lab account owner, you can specify the Marketplace images that lab creators
 
     ![All resources -> Lab Accounts](../media/how-to-manage-lab-accounts/all-resources-lab-accounts.png)
 
+## View and manage labs in the lab account
+
+1. On the **Lab Account** page, select **All labs** on the left menu.
+
+    ![Labs in the account](../media/how-to-manage-lab-accounts/labs-in-account.png)
+1. You see a **list of labs** in the account with the following information: 
+    1. Name of the lab.
+    2. The date on which the lab was created. 
+    3. Email address of the user who created the lab. 
+    4. Maximum number of users allowed into the lab. 
+    5. Status of the lab. 
+    6. Role assignments. 
+
+## Delete a lab in the lab account
+Follow instructions in the previous section to see a list of the labs in the lab account.
+
+1. Select **... (ellipsis)**, and select **Delete**. 
+
+    ![Delete a lab - button](../media/how-to-manage-lab-accounts/delete-lab-button.png)
+2. Select **Yes** on the warning message. 
+
+    ![Confirm lab deletion](../media/how-to-manage-lab-accounts/confirm-lab-delete.png)
 
 ## Delete a lab account
 Follow instructions from the previous section that displays lab accounts in a list. Use the following instructions to delete a lab account: 
@@ -103,32 +105,15 @@ Follow instructions from the previous section that displays lab accounts in a li
 
     ![Delete lab account - confirmation](../media/how-to-manage-lab-accounts/delete-lab-account-confirmation.png)
 
-## View and manage labs in the lab account
-
-1. On the **Lab Account** page, select **Labs** on the left menu.
-
-    ![Labs in the account](../media/how-to-manage-lab-accounts/labs-in-account.png)
-1. You see a **list of labs** in the account with the following information: 
-    1. Name of the lab.
-    2. The date on which the lab was created. 
-    3. Email address of the user who created the lab. 
-    4. Maximum number of users allowed into the lab. 
-    5. Status of the lab. 
-
-## Delete a lab in the lab account
-Follow instructions in the previous section to see a list of the labs in the lab account.
-
-1. Select **... (ellipsis)**, and select **Delete**. 
-
-    ![Delete a lab - button](../media/how-to-manage-lab-accounts/delete-lab-button.png)
-2. Select **Yes** on the warning message. 
-
-    ![Confirm lab deletion](../media/how-to-manage-lab-accounts/confirm-lab-delete.png)
+> [!NOTE]
+> You can also use the Az.LabServices PowerShell module (preview) to manage lab accounts. For more information, see the [Az.LabServices home page on GitHub](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Modules/Library).
 
 ## Next steps
 See the following articles:
 
-- [As a lab owner, create and manage labs](how-to-manage-classroom-labs.md)
-- [As a lab owner, set up and publish templates](how-to-create-manage-template.md)
-- [As a lab owner, configure and control usage of a lab](how-to-configure-student-usage.md)
-- [As a lab user, access classroom labs](how-to-use-classroom-lab.md)
+- [Allow lab creator to pick lab location](allow-lab-creator-pick-lab-location.md)
+- [Connect your lab's network with a peer virtual network](how-to-connect-peer-virtual-network.md)
+- [Attach a shared image gallery to a lab](how-to-attach-detach-shared-image-gallery.md)
+- [Add a user as a lab owner](how-to-add-user-lab-owner.md)
+- [View firewall settings for a lab](how-to-configure-firewall-settings.md)
+- [Configure other settings for a lab](how-to-configure-lab-accounts.md)

@@ -1,18 +1,12 @@
 ---
 title: A reference guide to the View Designer tiles in Azure Monitor | Microsoft Docs
 description: By using View Designer in Azure Monitor, you can create custom views that are displayed in the Azure portal and contain a variety of visualizations on data in the Log Analytics workspace. This article is a reference guide to the settings for the tiles that are available in your custom views.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: 41787c8f-6c13-4520-b0d3-5d3d84fcf142
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 01/17/2018
+author: bwren
 ms.author: bwren
+ms.date: 01/17/2018
+
 ---
 
 # Reference guide to View Designer tiles in Azure Monitor
@@ -36,6 +30,9 @@ The available View Designer tiles are described in the following table:
 | [Two timelines](#two-timelines-tile) | A column chart with two series, each based on a separate query. |
 
 The next sections describe the tile types and their properties in detail.
+
+> [!NOTE]
+> Tiles in views are based on [log queries](../log-query/log-query-overview.md) in your Log Analytics workspace. They do not currently support [cross resource queries](../log-query/cross-workspace-query.md) to retrieve data from Application Insights.
 
 ## Number tile
 The **Number** tile displays both the count of records from a log query and a label.

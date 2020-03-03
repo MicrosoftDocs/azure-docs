@@ -1,15 +1,15 @@
 ---
-title: Configure Apache HBase policies in HDInsight with Enterprise Security Package - Azure
-description: Learn how to configure Apache Ranger policies for HBase in Azure HDInsight with Enterprise Security Package.
-services: hdinsight
+title: Apache HBase & Enterprise Security Package - Azure HDInsight
+description: Tutorial - Learn how to configure Apache Ranger policies for HBase in Azure HDInsight with Enterprise Security Package.
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
+ms.reviewer: jasonh
 ms.topic: tutorial
-ms.date: 02/01/2019
+ms.date: 09/04/2019
 ---
 
-# Tutorial: Configure Apache HBase policies in HDInsight with Enterprise Security Package (Preview)
+# Tutorial: Configure Apache HBase policies in HDInsight with Enterprise Security Package
 
 Learn how to configure Apache Ranger policies for Enterprise Security Package (ESP) Apache HBase clusters. ESP clusters are connected to a domain allowing users to authenticate with domain credentials. In this tutorial, you create two Ranger policies to restrict access to different column-families in an HBase table.
 
@@ -81,9 +81,10 @@ You can use SSH to connect to HBase clusters and then use [Apache HBase Shell](h
 4. View the contents of the table:
     
     ```hbaseshell
-    scan 'Contacts'
+    scan 'Customers'
     ```
-    ![HDInsight Hadoop HBase shell](./media/apache-domain-joined-run-hbase/hbase-shell-scan-table.png)
+
+    ![HDInsight Hadoop HBase shell output](./media/apache-domain-joined-run-hbase/hbase-shell-scan-table.png)
 
 ## Create Ranger policies
 
@@ -91,13 +92,13 @@ Create a Ranger policy for **sales_user1** and **marketing_user1**.
 
 1. Open the **Ranger Admin UI**. Click **\<ClusterName>_hbase** under **HBase**.
 
-   ![Apache Ranger Admin UI](./media/apache-domain-joined-run-hbase/apache-ranger-admin-login.png)
+   ![HDInsight Apache Ranger Admin UI](./media/apache-domain-joined-run-hbase/apache-ranger-admin-login.png)
 
 2. The **List of Policies** screen will display all Ranger policies created for this cluster. One pre-configured policy may be listed. Click **Add New Policy**.
 
-    ![Apache Ranger Admin UI Create Policy](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policies-list.png)
+    ![Apache Ranger HBase policies list](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policies-list.png)
 
-3.  On the **Create Policy** screen, enter the following values:
+3. On the **Create Policy** screen, enter the following values:
 
    |**Setting**  |**Suggested value**  |
    |---------|---------|
@@ -114,7 +115,7 @@ Create a Ranger policy for **sales_user1** and **marketing_user1**.
    * `*` indicates zero or more occurrences of characters.
    * `?` indicates single character.
 
-   ![Apache Ranger Admin UI Create Policy](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policy-create-sales.png)
+   ![Apache Ranger policy create sales](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policy-create-sales.png)
 
    >[!NOTE]
    >Wait a few moments for Ranger to sync with Azure AD if a domain user is not automatically populated for **Select User**.
@@ -133,7 +134,7 @@ Create a Ranger policy for **sales_user1** and **marketing_user1**.
    |Select User  | marketing_user1 |
    |Permissions  | Read |
 
-   ![Apache Ranger Admin UI Create Policy](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policy-create-marketing.png)  
+   ![Apache Ranger policy create marketing](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policy-create-marketing.png)  
 
 6. Click **Add** to save the policy.
 
@@ -155,7 +156,7 @@ Based on the Ranger policies configured, **sales_user1** can view all of the dat
    kinit sales_user1
    ```
 
-2. Open the hbase shell and scan the table `Customers`.
+2. Open the HBase shell and scan the table `Customers`.
 
    ```hbaseshell
    hbase shell
@@ -197,14 +198,14 @@ Based on the Ranger policies configured, **sales_user1** can view all of the dat
    kinit marketing_user1
    ```
 
-2. Open the hbase shell and scan the table `Customers`:
+1. Open the HBase shell and scan the table `Customers`:
 
     ```hbaseshell
     hbase shell
     scan `Customers`
     ```
 
-3. Notice that the marketing user can only view the five columns of the `Contact` column-family.
+1. Notice that the marketing user can only view the five columns of the `Contact` column-family.
 
     ```hbaseshell
     ROW                                COLUMN+CELL
@@ -221,9 +222,9 @@ Based on the Ranger policies configured, **sales_user1** can view all of the dat
     2 row(s) in 0.0730 seconds
     ```
 
-9. View the audit access events from the Ranger UI.
+1. View the audit access events from the Ranger UI.
 
-   ![Ranger UI Policy Audit](./media/apache-domain-joined-run-hbase/apache-ranger-admin-audit.png)
+   ![HDInsight Ranger UI Policy Audit](./media/apache-domain-joined-run-hbase/apache-ranger-admin-audit.png)
 
 ## Clean up resources
 

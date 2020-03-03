@@ -1,11 +1,11 @@
 ---
-title: Send custom events to hybrid connection - Event Grid, Azure CLI
-description: Use Azure Event Grid and Azure CLI to publish a topic, and subscribe to that event. A hybrid connection is used for the endpoint. 
+title: 'Tutorial: Send custom events to hybrid connection - Event Grid'
+description: 'Tutorial: Use Azure Event Grid and Azure CLI to publish a topic, and subscribe to that event. A hybrid connection is used for the endpoint.' 
 services: event-grid 
 keywords: 
 author: spelluru
 ms.author: spelluru
-ms.date: 02/02/2019
+ms.date: 11/05/2019
 ms.topic: tutorial
 ms.service: event-grid
 ms.custom: seodec18
@@ -74,7 +74,7 @@ Notice that an [expiration date](concepts.md#event-subscription-expiration) is s
 
 You need an application that can retrieve events from the hybrid connection. The [Microsoft Azure Event Grid Hybrid Connection Consumer sample for C#](https://github.com/Azure-Samples/event-grid-dotnet-hybridconnection-destination) performs that operation. You've already finished the prerequisite steps.
 
-1. Make sure you have Visual Studio 2017 Version 15.5 or later.
+1. Make sure you have Visual Studio 2019 or later.
 
 1. Clone the repository to your local machine.
 

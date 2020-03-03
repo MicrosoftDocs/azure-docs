@@ -1,21 +1,15 @@
 ---
-title: Debug applications with Azure Application Insights in Visual Studio | Microsoft Docs
+title: Debug in Visual Studio with Azure Application Insights
 description: Web app performance analysis and diagnostics during debugging and in production.
-services: application-insights
-documentationcenter: .net
-author: NumberByColors
-manager: carmonm
-ms.assetid: 2059802b-1131-477e-a7b4-5f70fb53f974
-ms.service: application-insights
-ms.custom: vs-azure
-ms.workload: azure-vs
-ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 07/07/2017
-ms.pm_owner: daviste;NumberByColors
-ms.reviewer: mbullwin
+author: NumberByColors
 ms.author: daviste
+ms.date: 07/07/2017
+
+ms.reviewer: mbullwin
+ms.custom: vs-azure
 ---
+
 # Debug your applications with Azure Application Insights in Visual Studio
 In Visual Studio (2015 and later), you can analyze performance and diagnose issues in your ASP.NET web app both in debugging and in production, using telemetry from [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md).
 
@@ -99,5 +93,5 @@ It's also useful if you have some [custom telemetry](../../azure-monitor/app/api
 |  |  |
 | --- | --- |
 | **[Add more data](../../azure-monitor/app/asp-net-more.md)**<br/>Monitor usage, availability, dependencies, exceptions. Integrate traces from logging frameworks. Write custom telemetry. |![Visual studio](./media/visual-studio/64.png) |
-| **[Working with the Application Insights portal](../../azure-monitor/app/app-insights-dashboards.md)**<br/>View dashboards, powerful diagnostic and analytic tools, alerts, a live dependency map of your application, and exported telemetry data. |![Visual studio](./media/visual-studio/62.png) |
+| **[Working with the Application Insights portal](../../azure-monitor/app/overview-dashboard.md)**<br/>View dashboards, powerful diagnostic and analytic tools, alerts, a live dependency map of your application, and exported telemetry data. |![Visual studio](./media/visual-studio/62.png) |
 

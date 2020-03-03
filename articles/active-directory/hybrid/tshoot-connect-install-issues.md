@@ -36,11 +36,11 @@ However, if you don’t meet the express installation criteria and must do the c
 
 ### **Common Issues**
 
-* [Connectivity issues with on-premise Active Directory](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-adconnectivitytools).
+* [Connectivity issues with on-premises Active Directory](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-adconnectivitytools).
 
 * [Connectivity issues with online Azure Active Directory](https://docs.microsoft.com/azure/active-directory/hybrid/tshoot-connect-connectivity).
 
-* [Permission issues with on-premise Active Directory](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-configure-ad-ds-connector-account).
+* [Permission issues with on-premises Active Directory](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-configure-ad-ds-connector-account).
 
 ## **Recommended Documents**
 * [Prerequisites for Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-prerequisites)
@@ -53,7 +53,7 @@ However, if you don’t meet the express installation criteria and must do the c
 
 ## Next steps
 - [Azure AD Connect sync](how-to-connect-sync-whatis.md).
-- [What is hybrid identity?](whatis-hybrid-identity.md).
+- [What is hybrid identity?](whatis-hybrid-identity.md)
 
 
 

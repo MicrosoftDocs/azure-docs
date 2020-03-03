@@ -5,7 +5,7 @@ author: rajani-janaki-ram
 manager: gauravd
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 07/31/2019
 ms.author: rajanaki
 ms.custom: mvc
 ---
@@ -50,13 +50,14 @@ The following diagram helps you determine what strategy to use for your file ser
 
 |Environment  |Recommendation  |Points to consider |
 |---------|---------|---------|
-|File server environment with or without DFSR|   [Use Site Recovery for replication](#replicate-an-on-premises-file-server-by-using-site-recovery)   |    Site Recovery doesn't support shared disk clusters or network attached storage (NAS). If your environment uses these configurations, use any of the other approaches, as appropriate. <br> Site Recovery doesn't support SMB 3.0. The replicated VM incorporates changes only when changes made to the files are updated in the original location of the files.
+|File server environment with or without DFSR|   [Use Site Recovery for replication](#replicate-an-on-premises-file-server-by-using-site-recovery)   |    Site Recovery doesn't support shared disk clusters or network attached storage (NAS). If your environment uses these configurations, use any of the other approaches, as appropriate. <br> Site Recovery doesn't support SMB 3.0. The replicated VM incorporates changes only when changes made to the files are updated in the original location of the files.<br>  Site Recovery offers a near-synchronous data replication process, and hence in  the event of an unplanned failover scenario, there could be potential  data loss, and might create  USN mismatch issues.
 |File server environment with DFSR     |  [Extend DFSR to an Azure IaaS virtual machine](#extend-dfsr-to-an-azure-iaas-virtual-machine)  |  	DFSR works well in extremely bandwidth-crunched environments. This approach requires an Azure VM that is up and running all the time. You need to account for the cost of the VM in your planning.         |
 |Azure IaaS VM     |     File Sync    |     If you use File Sync in a disaster recovery scenario, during failover you must take manual actions to make sure that the file shares are accessible to the client machine in a transparent way. File Sync requires port 445 to be open from the client machine.     |
 
 
 ### Site Recovery support
 Because Site Recovery replication is application agnostic, these recommendations are expected to hold true for the following scenarios.
+
 | Source	|To a secondary site	|To Azure
 |---------|---------|---------|
 |Azure|	-|Yes|
@@ -67,6 +68,8 @@ Because Site Recovery replication is application agnostic, these recommendations
 
 > [!IMPORTANT]
 > Before you continue with any of the following three approaches, make sure that these dependencies are taken care of.
+
+
 
 **Site-to-site connectivity**: A direct connection between the on-premises site and the Azure network must be established to allow communication between servers. Use a secure site-to-site VPN connection to an Azure virtual network that is used as the disaster recovery site. For more information, see [Establish a site-to-site VPN connection between an on-premises site and an Azure virtual network](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal).
 
@@ -123,7 +126,7 @@ The following steps describe replication for a VMware VM. For steps to replicate
 2. Extend on-premises Active Directory.
 3. [Create and provision a file server VM](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json) on the Azure virtual network.
 Make sure that the virtual machine is added to the same Azure virtual network, which has cross-connectivity with the on-premises environment. 
-4. Install and [configure DFSR](https://blogs.technet.microsoft.com/b/filecab/archive/2013/08/21/dfs-replication-initial-sync-in-windows-server-2012-r2-attack-of-the-clones.aspx) on Windows Server.
+4. Install and [configure DFSR](https://techcommunity.microsoft.com/t5/storage-at-microsoft/dfs-replication-initial-sync-in-windows-server-2012-r2-attack-of/ba-p/424877) on Windows Server.
 5. [Implement a DFS namespace](https://docs.microsoft.com/windows-server/storage/dfs-namespaces/deploying-dfs-namespaces).
 6. With the DFS namespace implemented, failover of shared folders from production to disaster recovery sites can be done by updating the DFS namespace folder targets. After these DFS namespace changes replicate via Active Directory, users are connected to the appropriate folder targets transparently.
 

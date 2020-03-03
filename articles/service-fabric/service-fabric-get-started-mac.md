@@ -1,21 +1,11 @@
 ---
-title: Set up your development environment on Mac OS X to work with Azure Service Fabric| Microsoft Docs
-description: Install the runtime, SDK, and tools and create a local development cluster. After completing this setup, you'll be ready to build applications on Mac OS X.
-services: service-fabric
-documentationcenter: linux
+title: Set up your dev environment on macOS
+description: Install the runtime, SDK, and tools and create a local development cluster. After completing this setup, you'll be ready to build applications on macOS.
 author: suhuruli
-manager: timlt
-editor: ''
 
-ms.assetid: bf84458f-4b87-4de1-9844-19909e368deb
-ms.service: service-fabric
-ms.devlang: linux
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 11/17/2017
 ms.author: suhuruli
-
 ---
 # Set up your development environment on Mac OS X
 > [!div class="op_single_selector"]
@@ -53,7 +43,7 @@ To set up a local Docker container and have a Service Fabric cluster running on 
     
     >[!NOTE]
     >
-    >Modifying the daemon directly in Docker is reccommended because the location of the daemon.json file can vary from machine to machine. For example,
+    >Modifying the daemon directly in Docker is recommended because the location of the daemon.json file can vary from machine to machine. For example,
     > ~/Library/Containers/com.docker.docker/Data/database/com.docker.driver.amd64-linux/etc/docker/daemon.json.
     >
 
@@ -149,7 +139,7 @@ Service Fabric provides scaffolding tools that help you to create a Service Fabr
     node -v
     npm -v
     ```
-2. Install the [Yeoman](http://yeoman.io/) template generator on your machine from NPM:
+2. Install the [Yeoman](https://yeoman.io/) template generator on your machine from NPM:
 
     ```bash
     npm install -g yo
@@ -171,8 +161,9 @@ Service Fabric provides scaffolding tools that help you to create a Service Fabr
     brew install gradle
     ```
 
-    >[!TIP]
-    > Be sure to verify you have the correct version of JDK installed. 
+    > [!IMPORTANT]
+    > Current versions of `brew cask install java` may install a more recent version of the JDK.
+    > Be sure to install JDK 8.
 
 ## Deploy your application on your Mac from the terminal
 

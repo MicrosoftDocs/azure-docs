@@ -1,12 +1,8 @@
 ---
 title: Use autoscale to send email and webhook alert notifications
-description: 'See how to use autoscale actions to call web URLs or send email notifications in Azure Monitor. '
-author: anirudhcavale
-services: azure-monitor
-ms.service: azure-monitor
+description: Learn how to use autoscale actions to call web URLs or send email notifications in Azure Monitor.
 ms.topic: conceptual
 ms.date: 04/03/2017
-ms.author: ancav
 ms.subservice: autoscale
 ---
 # Use autoscale actions to send email and webhook alert notifications in Azure Monitor
@@ -18,8 +14,8 @@ Webhooks allow you to route the Azure alert notifications to other systems for p
 ## Email
 Email can be sent to any valid email address. Administrators and co-administrators of the subscription where the rule is running will also be notified.
 
-## Cloud Services and Web Apps
-You can opt-in from the Azure portal for Cloud Services and Server Farms (Web Apps).
+## Cloud Services and App Services
+You can opt-in from the Azure portal for Cloud Services and Server Farms (App Services).
 
 * Choose the **scale by** metric.
 
@@ -27,7 +23,7 @@ You can opt-in from the Azure portal for Cloud Services and Server Farms (Web Ap
 
 ## Virtual Machine scale sets
 For newer Virtual Machines created with Resource Manager (Virtual Machine scale sets), you can configure this using REST API, Resource Manager templates, PowerShell, and CLI. A portal interface is not yet available.
-When using the REST API or Resource Manager template, include the notifications element with the following options.
+When using the REST API or Resource Manager template, include the notifications element in your [autoscalesettings](https://docs.microsoft.com/azure/templates/microsoft.insights/2015-04-01/autoscalesettings) with the following options.
 
 ```
 "notifications": [
@@ -53,6 +49,7 @@ When using the REST API or Resource Manager template, include the notifications 
       }
     ]
 ```
+
 | Field | Mandatory? | Description |
 | --- | --- | --- |
 | operation |yes |value must be "Scale" |
@@ -64,7 +61,7 @@ When using the REST API or Resource Manager template, include the notifications 
 | properties |yes |value must be empty {} or can contain key-value pairs |
 
 ## Authentication in webhooks
-The webhook can authenticate using token-based authentication, where you save the webhook URI with a token ID as a query parameter. For example, https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue
+The webhook can authenticate using token-based authentication, where you save the webhook URI with a token ID as a query parameter. For example, https:\//mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue
 
 ## Autoscale notification webhook payload schema
 When the autoscale notification is generated, the following metadata is included in the webhook payload:
@@ -113,5 +110,5 @@ When the autoscale notification is generated, the following metadata is included
 | portalLink |Yes |Azure portal link to the summary page of the target resource |
 | oldCapacity |Yes |The current (old) instance count when Autoscale took a scale action |
 | newCapacity |Yes |The new instance count that Autoscale scaled the resource to |
-| Properties |No |Optional. Set of <Key, Value> pairs (for example,  Dictionary <String, String>). The properties field is optional. In a custom user interface  or Logic app based workflow, you can enter keys and values that can be passed using the payload. An alternate way to pass custom properties back to the outgoing webhook call is to use the webhook URI itself (as query parameters) |
+| properties |No |Optional. Set of <Key, Value> pairs (for example,  Dictionary <String, String>). The properties field is optional. In a custom user interface  or Logic app based workflow, you can enter keys and values that can be passed using the payload. An alternate way to pass custom properties back to the outgoing webhook call is to use the webhook URI itself (as query parameters) |
 

@@ -1,20 +1,21 @@
 ---
-title: Load Contoso Retail data to Azure SQL Data Warehouse | Microsoft Docs
-description: Use PolyBase and T-SQL commands to load two tables from the Contoso Retail data into Azure SQL Data Warehouse. 
+title: Load Contoso retail data to a SQL Analytics data warehouse
+description: Use PolyBase and T-SQL commands to load two tables from the Contoso retail data into Azure SQL Analytics.
 services: sql-data-warehouse
-author: ckarst
+author: kevinvngo 
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: implement
+ms.subservice: load-data
 ms.date: 04/17/2018
-ms.author: cakarst
+ms.author: kevin
 ms.reviewer: igorstan
+ms.custom: seo-lt-2019
 ---
 
-# Load Contoso Retail data to Azure SQL Data Warehouse
+# Load Contoso retail data to a SQL Analytics data warehouse
 
-Use PolyBase and T-SQL commands to load two tables from the Contoso Retail data into Azure SQL Data Warehouse. To load the full data set, run the example [Load the full Contoso Retail Data Warehouse](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/contoso-data-warehouse/readme.md) from the Microsoft SQL Server Samples repository.
+In this tutorial, you learn to use PolyBase and T-SQL commands to load two tables from the Contoso retail data into a SQL Analytics data warehouse. 
 
 In this tutorial you will:
 
@@ -23,15 +24,18 @@ In this tutorial you will:
 3. Perform optimizations after the load is finished.
 
 ## Before you begin
-To run this tutorial, you need an Azure account that already has a SQL Data Warehouse database. If you don't already have this, see [Create a SQL Data Warehouse][Create a SQL Data Warehouse].
 
-## 1. Configure the data source
-PolyBase uses T-SQL external objects to define the location and attributes of the external data. The external object definitions are stored in SQL Data Warehouse. The data itself is stored externally.
+To run this tutorial, you need an Azure account that already has a SQL Analytics data warehouse. If you don't have a data warehouse provisioned, see [Create a data warehouse and set server-level firewall rule](create-data-warehouse-portal.md).
 
-### 1.1. Create a credential
-**Skip this step** if you are loading the Contoso public data. You don't need secure access to the public data since it is already accessible to anyone.
+## Configure the data source
 
-**Don't skip this step** if you are using this tutorial as a template for loading your own data. To access data through a credential, use the following script to create a database-scoped credential, and then use it when defining the location of the data source.
+PolyBase uses T-SQL external objects to define the location and attributes of the external data. The external object definitions are stored in your SQL Analytics data warehouse. The data is stored externally.
+
+## Create a credential
+
+**Skip this step** if you're loading the Contoso public data. You don't need secure access to the public data since it's already accessible to anyone.
+
+**Don't skip this step** if you're using this tutorial as a template for loading your own data. To access data through a credential, use the following script to create a database-scoped credential. Then use it when defining the location of the data source.
 
 ```sql
 -- A: Create a master key.
@@ -66,10 +70,9 @@ WITH (
 );
 ```
 
-Skip to step 2.
+## Create the external data source
 
-### 1.2. Create the external data source
-Use this [CREATE EXTERNAL DATA SOURCE][CREATE EXTERNAL DATA SOURCE] command to store the location of the data, and the type of data. 
+Use this [CREATE EXTERNAL DATA SOURCE](https://docs.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql?view=sql-server-ver15) command to store the location of the data, and the data type. 
 
 ```sql
 CREATE EXTERNAL DATA SOURCE AzureStorage_west_public
@@ -83,10 +86,10 @@ WITH
 > [!IMPORTANT]
 > If you choose to make your azure blob storage containers public, remember that as the data owner you will be charged for data egress charges when data leaves the data center. 
 > 
-> 
 
-## 2. Configure data format
-The data is stored in text files in Azure blob storage, and each field is separated with a delimiter. Run this [CREATE EXTERNAL FILE FORMAT][CREATE EXTERNAL FILE FORMAT] command to specify the format of the data in the text files. The Contoso data is uncompressed and pipe delimited.
+## Configure the data format
+
+The data is stored in text files in Azure blob storage, and each field is separated with a delimiter. In SSMS, run the following CREATE EXTERNAL FILE FORMAT command to specify the format of the data in the text files. The Contoso data is uncompressed and pipe delimited.
 
 ```sql
 CREATE EXTERNAL FILE FORMAT TextFileFormat 
@@ -100,10 +103,10 @@ WITH
 );
 ``` 
 
-## 3. Create the external tables
-Now that you have specified the data source and file format, you are ready to create the external tables. 
+## Create the external tables
+Now that you've specified the data source and file format, you're ready to create the external tables. 
 
-### 3.1. Create a schema for the data.
+## Create a schema for the data
 To create a place to store the Contoso data in your database, create a schema.
 
 ```sql
@@ -111,13 +114,13 @@ CREATE SCHEMA [asb]
 GO
 ```
 
-### 3.2. Create the external tables.
-Run this script to create the DimProduct and FactOnlineSales external tables. All we are doing here is defining column names and data types, and binding them to the location and format of the Azure blob storage files. The definition is stored in SQL Data Warehouse and the data is still in the Azure Storage Blob.
+## Create the external tables
+
+Run the following script to create the DimProduct and FactOnlineSales external tables. All you're doing here is defining column names and data types, and binding them to the location and format of the Azure blob storage files. The definition is stored in the SQL Analytics data warehouse and the data is still in the Azure Storage Blob.
 
 The  **LOCATION** parameter is the folder under the root folder in the Azure Storage Blob. Each table is in a different folder.
 
 ```sql
-
 --DimProduct
 CREATE EXTERNAL TABLE [asb].DimProduct (
     [ProductKey] [int] NOT NULL,
@@ -199,10 +202,11 @@ WITH
 ;
 ```
 
-## 4. Load the data
-There's different ways to access external data.  You can query data directly from the external table, load the data into new database tables, or add external data to existing database tables.  
+## Load the data
+There are different ways to access external data.  You can query data directly from the external tables, load the data into new tables in the data warehouse, or add external data to existing data warehouse tables.  
 
-### 4.1. Create a new schema
+###  Create a new schema
+
 CTAS creates a new table that contains data.  First, create a schema for the contoso data.
 
 ```sql
@@ -210,8 +214,9 @@ CREATE SCHEMA [cso]
 GO
 ```
 
-### 4.2. Load the data into new tables
-To load data from Azure blob storage and save it in a table inside of your database, use the [CREATE TABLE AS SELECT (Transact-SQL)][CREATE TABLE AS SELECT (Transact-SQL)] statement. Loading with CTAS leverages the strongly typed external tables you have just created.To load the data into new tables, use one [CTAS][CTAS] statement per table. 
+### Load the data into new tables
+
+To load data from Azure blob storage into the data warehouse table, use the [CREATE TABLE AS SELECT (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?view=aps-pdw-2016-au7) statement. Loading with [CTAS](sql-data-warehouse-develop-ctas.md) leverages the strongly typed external tables you've created. To load the data into new tables, use one CTAS statement per table. 
  
 CTAS creates a new table and populates it with the results of a select statement. CTAS defines the new table to have the same columns and data types as the results of the select statement. If you select all the columns from an external table, the new table will be a replica of the columns and data types in the external table.
 
@@ -225,7 +230,8 @@ CREATE TABLE [cso].[DimProduct]            WITH (DISTRIBUTION = HASH([ProductKey
 CREATE TABLE [cso].[FactOnlineSales]       WITH (DISTRIBUTION = HASH([ProductKey]  ) ) AS SELECT * FROM [asb].[FactOnlineSales]        OPTION (LABEL = 'CTAS : Load [cso].[FactOnlineSales]        ');
 ```
 
-### 4.3 Track the load progress
+### Track the load progress
+
 You can track the progress of your load using dynamic management views (DMVs). 
 
 ```sql
@@ -261,8 +267,9 @@ ORDER BY
     gb_processed desc;
 ```
 
-## 5. Optimize columnstore compression
-By default, SQL Data Warehouse stores the table as a clustered columnstore index. After a load completes, some of the data rows might not be compressed into the columnstore.  There's a variety of reasons why this can happen. To learn more, see [manage columnstore indexes][manage columnstore indexes].
+## Optimize columnstore compression
+
+By default, the SQL Analytics data warehouse stores the table as a clustered columnstore index. After a load completes, some of the data rows might not be compressed into the columnstore.  There are different reasons why this can happen. To learn more, see [manage columnstore indexes](sql-data-warehouse-tables-index.md).
 
 To optimize query performance and columnstore compression after a load, rebuild the table to force the columnstore index to compress all the rows. 
 
@@ -274,12 +281,13 @@ ALTER INDEX ALL ON [cso].[DimProduct]               REBUILD;
 ALTER INDEX ALL ON [cso].[FactOnlineSales]          REBUILD;
 ```
 
-For more information on maintaining columnstore indexes, see the [manage columnstore indexes][manage columnstore indexes] article.
+For more information on maintaining columnstore indexes, see the [manage columnstore indexes](sql-data-warehouse-tables-index.md) article.
 
-## 6. Optimize statistics
-It is best to create single-column statistics immediately after a load. There are some choices for statistics. For example, if you create single-column statistics on every column it might take a long time to rebuild all the statistics. If you know certain columns are not going to be in query predicates, you can skip creating statistics on those columns.
+## Optimize statistics
 
-If you decide to create single-column statistics on every column of every table, you can use the stored procedure code sample `prc_sqldw_create_stats` in the [statistics][statistics] article.
+It's best to create single-column statistics immediately after a load. If you know certain columns aren't going to be in query predicates, you can skip creating statistics on those columns. If you create single-column statistics on every column, it might take a long time to rebuild all the statistics. 
+
+If you decide to create single-column statistics on every column of every table, you can use the stored procedure code sample `prc_sqldw_create_stats` in the [statistics](sql-data-warehouse-tables-statistics.md) article.
 
 The following example is a good starting point for creating statistics. It creates single-column statistics on each column in the dimension table, and on each joining column in the fact tables. You can always add single or multi-column statistics to other fact table columns later on.
 
@@ -326,9 +334,9 @@ CREATE STATISTICS [stat_cso_FactOnlineSales_StoreKey] ON [cso].[FactOnlineSales]
 ```
 
 ## Achievement unlocked!
-You have successfully loaded public data into Azure SQL Data Warehouse. Great job!
+You have successfully loaded public data into your data warehouse. Great job!
 
-You can now start querying the tables using queries like the following:
+You can now start querying the tables to explore your data. Run the following query to find out total sales per brand:
 
 ```sql
 SELECT  SUM(f.[SalesAmount]) AS [sales_by_brand_amount]
@@ -339,27 +347,5 @@ GROUP BY p.[BrandName]
 ```
 
 ## Next steps
-To load the full Contoso Retail Data Warehouse data, use the script in 
-For more development tips, see [SQL Data Warehouse development overview][SQL Data Warehouse development overview].
-
-<!--Image references-->
-
-<!--Article references-->
-[Create a SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
-[Load data into SQL Data Warehouse]: sql-data-warehouse-overview-load.md
-[SQL Data Warehouse development overview]: sql-data-warehouse-overview-develop.md
-[manage columnstore indexes]: sql-data-warehouse-tables-index.md
-[Statistics]: sql-data-warehouse-tables-statistics.md
-[CTAS]: sql-data-warehouse-develop-ctas.md
-[label]: sql-data-warehouse-develop-label.md
-
-<!--MSDN references-->
-[CREATE EXTERNAL DATA SOURCE]: https://msdn.microsoft.com/library/dn935022.aspx
-[CREATE EXTERNAL FILE FORMAT]: https://msdn.microsoft.com/library/dn935026.aspx
-[CREATE TABLE AS SELECT (Transact-SQL)]: https://msdn.microsoft.com/library/mt204041.aspx
-[sys.dm_pdw_exec_requests]: https://msdn.microsoft.com/library/mt203887.aspx
-[REBUILD]: https://msdn.microsoft.com/library/ms188388.aspx
-
-<!--Other Web references-->
-[Microsoft Download Center]: http://www.microsoft.com/download/details.aspx?id=36433
-[Load the full Contoso Retail Data Warehouse]: https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/contoso-data-warehouse/readme.md
+To load the full data set, run the example [load the full Contoso retail data warehouse](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/contoso-data-warehouse/readme.md) from the Microsoft SQL Server samples repository.
+For more development tips, see [Design decisions and coding techniques for data warehouses](sql-data-warehouse-overview-develop.md).

@@ -4,8 +4,8 @@ description: Learn how to send authentication tokens from the client to the Azur
 services: media-services
 keywords: content protection, DRM, token authentication
 documentationcenter: ''
-author: dbgeorge
-manager: jasonsue
+author: Juliako
+manager: femila
 editor: ''
 
 ms.assetid: 7c3b35d9-1269-4c83-8c91-490ae65b0817
@@ -14,8 +14,8 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2019
-ms.author: dwgeo
+ms.date: 03/19/2019
+ms.author: juliako
 
 ---
 
@@ -26,7 +26,7 @@ Customers often ask how a player can pass tokens to the Azure Media Services key
 
 - Through the HTTP Authorization header.
     > [!NOTE]
-    > The "Bearer" prefix is expected per the OAuth 2.0 specs. A sample player with the token configuration is hosted on the Azure Media Player [demo page](http://ampdemo.azureedge.net/). To set the video source, choose **AES (JWT Token)** or **AES (SWT Token)**. The token is passed via the Authorization header.
+    > The "Bearer" prefix is expected per the OAuth 2.0 specs. A sample player with the token configuration is hosted on the Azure Media Player [demo page](https://ampdemo.azureedge.net/). To set the video source, choose **AES (JWT Token)** or **AES (SWT Token)**. The token is passed via the Authorization header.
 
 - Via the addition of a URL query parameter with "token=tokenvalue."  
     > [!NOTE]

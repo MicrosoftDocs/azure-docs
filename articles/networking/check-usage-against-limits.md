@@ -3,24 +3,19 @@ title: Check Azure resource usage against limits | Microsoft Docs
 description: Learn how to check your Azure resource usage against Azure subscription limits.
 services: networking
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
-editor: ''
+author: KumudD
+ms.author: kumud
 tags: azure-resource-manager
-
-ms.assetid: 
-ms.service: networking
+ms.service: azure
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/05/2018
-ms.author: jdial
-
 ---
 # Check resource usage against limits
 
-In this article, you learn how to see the number of each network resource type that you've deployed in your subscription and what your [subscription limits](../azure-subscription-service-limits.md?toc=%2fazure%2fnetworking%2ftoc.json#networking-limits) are. The ability to view resource usage against limits is helpful to track current usage, and plan for future use. You can use the [Azure Portal](#azure-portal), [PowerShell](#powershell), or the [Azure CLI](#azure-cli) to track usage.
+In this article, you learn how to see the number of each network resource type that you've deployed in your subscription and what your [subscription limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fnetworking%2ftoc.json#networking-limits) are. The ability to view resource usage against limits is helpful to track current usage, and plan for future use. You can use the [Azure Portal](#azure-portal), [PowerShell](#powershell), or the [Azure CLI](#azure-cli) to track usage.
 
 ## Azure Portal
 
@@ -30,16 +25,16 @@ In this article, you learn how to see the number of each network resource type t
 4. Select the name of the subscription you want to view usage information for.
 5. Under **SETTINGS**, select **Usage + quota**.
 6. You can select the following options:
-    - **Resource types**: You can select all resource types, or select the specific types of resources you want to view.
-    - **Providers**: You can select all resource providers, or select **Compute**, **Network**, or **Storage**.
-    - **Locations**: You can select all Azure locations, or select specific locations.
-    - You can select to show all resources, or only the resources where at least one is deployed.
+   - **Resource types**: You can select all resource types, or select the specific types of resources you want to view.
+   - **Providers**: You can select all resource providers, or select **Compute**, **Network**, or **Storage**.
+   - **Locations**: You can select all Azure locations, or select specific locations.
+   - You can select to show all resources, or only the resources where at least one is deployed.
 
-    The example in the following picture shows all of the network resources with at least one resource deployed in the East US:
+     The example in the following picture shows all of the network resources with at least one resource deployed in the East US:
 
-        ![View usage data](./media/check-usage-against-limits/view-usage.png)
+       ![View usage data](./media/check-usage-against-limits/view-usage.png)
 
-    You can sort the columns by selecting the column heading. The limits shown are the limits for your subscription. If you need to increase a default limit, select **Request Increase**, then complete and submit the support request. All resources have a maximum limit listed in Azure [limits](../azure-subscription-service-limits.md?toc=%2fazure%2fnetworking%2ftoc.json#networking-limits). If your current limit is already at the maximum number, the limit can't be increased.
+     You can sort the columns by selecting the column heading. The limits shown are the limits for your subscription. If you need to increase a default limit, select **Request Increase**, then complete and submit the support request. All resources have a maximum limit listed in Azure [limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fnetworking%2ftoc.json#networking-limits). If your current limit is already at the maximum number, the limit can't be increased.
 
 ## PowerShell
 

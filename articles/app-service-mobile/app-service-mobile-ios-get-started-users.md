@@ -1,21 +1,12 @@
 ---
-title: Add Authentication on iOS with Azure Mobile Apps
-description: Learn how to use Azure Mobile Apps to authenticate users of your iOS app through a variety of identity providers, including AAD, Google, Facebook, Twitter, and Microsoft.
-services: app-service\mobile
-documentationcenter: ios
-author: conceptdev
-manager: crdun
-editor: ''
+title: Add Authentication on iOS
+description: Learn how to use Azure Mobile Apps to authenticate users of your iOS app through identity providers like AAD, Google, Facebook, Twitter, and Microsoft.
 
 ms.assetid: ef3d3cbe-e7ca-45f9-987f-80c44209dc06
-ms.service: app-service-mobile
-ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/23/2017
-ms.author: crdun
-
+ms.date: 06/25/2019
 ---
 # Add authentication to your iOS app
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
@@ -120,7 +111,7 @@ backend as an unauthenticated user, but the *TodoItem* table now requires authen
     ```
 
    Add this code directly before the line reading `#pragma mark - Core Data stack`.  Replace the
-   _appname_ wih the urlScheme value that you used in step 1.
+   _appname_ with the urlScheme value that you used in step 1.
 
 5. Open the `AppName-Info.plist` file (replacing AppName with the name of your app), and add the following code:
 
@@ -208,7 +199,7 @@ backend as an unauthenticated user, but the *TodoItem* table now requires authen
     }
     ```
 
-    Replace the _appname_ wih the urlScheme value that you used in step 1.
+    Replace the _appname_ with the urlScheme value that you used in step 1.
 
 4. Open the `AppName-Info.plist` file (replacing AppName with the name of your app), and add the following code:
 

@@ -30,11 +30,11 @@ When your directory is created, the initial domain name, such as ‘contoso.onmi
 2. Select **Azure Active Directory**.
 3. Select **Custom domain names**.
   
-   ![Opening user management](./media/domains-manage/add-custom-domain.png)
+   ![Opening the user management page](./media/domains-manage/add-custom-domain.png)
 4. Select the name of the domain that you want to be the primary domain.
 5. Select the **Make primary** command. Confirm your choice when prompted.
   
-   ![Make a domain name primary](./media/domains-manage/make-primary-domain.png)
+   ![Make a domain name the primary](./media/domains-manage/make-primary-domain.png)
 
 You can change the primary domain name for your directory to be any verified custom domain that isn't federated. Changing the primary domain for your directory won't change the user name for any existing users.
 
@@ -87,7 +87,7 @@ An error is returned when:
 **Q: Why is the domain deletion failing with an error that states that I have Exchange mastered groups on this domain name?** <br>
 **A:** Today, certain groups like Mail-Enabled Security groups and distributed lists are provisioned by Exchange and need to be manually cleaned up in [Exchange Admin Center (EAC)](https://outlook.office365.com/ecp/). There may be lingering ProxyAddresses which rely on the custom domain name and will need to be updated manually to another domain name. 
 
-**Q: I am logged in as admin@contoso.com but I cannot delete the domain name “contoso.com”?**<br>
+**Q: I am logged in as admin\@contoso.com but I cannot delete the domain name “contoso.com”?**<br>
 **A:** You cannot reference the custom domain name you are trying to delete in your user account name. Ensure that the Global Administrator account is using the initial default domain name (.onmicrosoft.com) such as admin@contoso.onmicrosoft.com. Sign in with a different Global Administrator account that such as admin@contoso.onmicrosoft.com or another custom domain name like “fabrikam.com” where the account is admin@fabrikam.com.
 
 **Q: I clicked the Delete domain button and see `In Progress` status for the Delete operation. How long does it take? What happens if it fails?**<br>
@@ -99,12 +99,12 @@ An error is returned when:
 
 If you find that any of the conditions haven’t been met, manually clean up the references and try to delete the domain again.
 
-## Use PowerShell or Graph API to manage domain names
+## Use PowerShell or the Microsoft Graph API to manage domain names
 
-Most management tasks for domain names in Azure Active Directory can also be completed using Microsoft PowerShell, or programmatically using Azure AD Graph API.
+Most management tasks for domain names in Azure Active Directory can also be completed using Microsoft PowerShell, or programmatically using the Microsoft Graph API.
 
-* [Using PowerShell to manage domain names in Azure AD](https://msdn.microsoft.com/library/azure/e1ef403f-3347-4409-8f46-d72dafa116e0#BKMK_ManageDomains)
-* [Using Graph API to manage domain names in Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/domains-operations)
+* [Using PowerShell to manage domain names in Azure AD](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#domains)
+* [Domain resource type](https://docs.microsoft.com/graph/api/resources/domain?view=graph-rest-1.0)
 
 ## Next steps
 

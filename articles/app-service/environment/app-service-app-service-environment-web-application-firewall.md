@@ -1,20 +1,12 @@
 ---
-title: Configure a web application firewall (WAF) for App Service Environment - Azure
-description: Learn how to configure a web application firewall in front of your App Service Environment.
-services: app-service\web
-documentationcenter: ''
-author: naziml
-manager: erikre
-editor: jimbe
+title: Configure a WAF
+description: Learn how to configure a web application firewall (WAF) in front of your App Service Environment, either with Azure Application Gateway or a third-party WAF.
+author: ccompy
 
 ms.assetid: a2101291-83ba-4169-98a2-2c0ed9a65e8d
-ms.service: app-service
-ms.workload: web
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/03/2018
-ms.author: naziml
+ms.author: stefsch
 ms.custom: mvc
 ms.custom: seodec18
 ---
@@ -62,7 +54,7 @@ Add the management endpoint as shown in the following image to configure your Ba
 
 ![Add Management Endpoint][AddManagementEndpoint]
 
-Use a browser to browse to the management endpoint on your Cloud Service. If your Cloud Service is called test.cloudapp.net, you would access this endpoint by browsing to http://test.cloudapp.net:8000. You should see a login page like the following image that you can log in using credentials you specified in the WAF VM setup phase.
+Use a browser to browse to the management endpoint on your Cloud Service. If your Cloud Service is called test.cloudapp.net, you would access this endpoint by browsing to `http://test.cloudapp.net:8000`. You should see a login page like the following image that you can log in using credentials you specified in the WAF VM setup phase.
 
 ![Management Login Page][ManagementLoginPage]
 

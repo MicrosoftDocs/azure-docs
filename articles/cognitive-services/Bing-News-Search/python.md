@@ -1,6 +1,6 @@
 ---
-title: "Quickstart: Perform a news search with Python - Bing News Search REST API"
-titlesuffix: Azure Cognitive Services
+title: "Quickstart: Perform a news search with Python and the Bing News Search REST API"
+titleSuffix: Azure Cognitive Services
 description:  Use this quickstart to send a request to the Bing News Search REST API using Python, and receive a JSON response.
 services: cognitive-services
 author: aahill
@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: quickstart
-ms.date: 1/10/2019
+ms.date: 12/12/2019
 ms.author: aahi
 ms.custom: seodec2018
 ---
@@ -28,11 +28,9 @@ The source code for this sample is also available on [GitHub](https://github.com
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../includes/cognitive-services-bing-news-search-signup-requirements.md)]
 
-See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
-
 ## Create and initialize the application
 
-1. Create a new Python file in your favorite IDE or editor, and import the request module. Create variables for your subscription key, endpoint and a search term. You can find your endpoint in the Azure dashboard.
+1. Create a new Python file in your favorite IDE or editor, and import the request module. Create variables for your subscription key, endpoint and a search term. You can use the global endpoint below, or the [custom subdomain](../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 
 ```python
 import requests
@@ -73,11 +71,12 @@ These descriptions can then be rendered as a table with the search keyword highl
 
 ```python
 from IPython.display import HTML
-rows = "\n".join(["<tr><td>{0}</td></tr>".format(desc) for desc in descriptions])
+rows = "\n".join(["<tr><td>{0}</td></tr>".format(desc)
+                  for desc in descriptions])
 HTML("<table>"+rows+"</table>")
 ```
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-[Create a single-page web app](tutorial-bing-news-search-single-page-app.md)
+> [Create a single-page web app](tutorial-bing-news-search-single-page-app.md)

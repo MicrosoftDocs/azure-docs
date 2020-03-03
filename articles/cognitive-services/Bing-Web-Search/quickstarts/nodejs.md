@@ -8,17 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 02/12/2019
+ms.date: 12/09/2019
 ms.author: aahi
 ms.custom: seodec2018
 #Customer intent: As a new developer, I want to make my first call to the Bing Web Search API and receive a response using Node.js.
 ---
 
-# Search the web using the Bing Web Search REST API and Node.js
+# Quickstart: Search the web using the Bing Web Search REST API and Node.js
 
-Use this quickstart to make your first call to the Bing Web Search API and receive the JSON response. This Node.js application sends a search request to the API, and displays the response. While this application is written in JavaScript, the API is a RESTful Web service compatible with most programming languages.
+Use this quickstart to make your first call to the Bing Web Search API and receive the JSON response. This Node.js application sends a search request to the API, and shows the response. While this application is written in JavaScript, the API is a RESTful Web service compatible with most programming languages.
 
 ## Prerequisites
+
 Here are a few things that you'll need before running this quickstart:
 
 * [Node.js 6](https://nodejs.org/en/download/) or later
@@ -39,7 +40,7 @@ const https = require('https')
 
 ## Set the subscription key
 
-This code snippet uses the `AZURE_SUBSCRIPTION_KEY` environment variable to store your subscription key, a good practice to prevent the accidental exposure of your keys when deploying code. [Click here](https://azure.microsoft.com/try/cognitive-services/my-apis/?apiSlug=search-api-v7) to look up your subscription key.
+This code snippet uses the `AZURE_SUBSCRIPTION_KEY` environment variable to store your subscription key, a good practice to prevent the accidental exposure of your keys when deploying code. Go to the [Your APIs page](https://azure.microsoft.com/try/cognitive-services/my-apis/?apiSlug=search-api-v7) to look up your subscription key.
 
 If you're unfamiliar with using environment variables, or looking to run this app as fast as possible, then you can replace `process.env['AZURE_SUBSCRIPTION_KEY']` with your subscription key set as a string.
 
@@ -52,7 +53,7 @@ if (!SUBSCRIPTION_KEY) {
 
 ## Create a function to make the request
 
-This function will make a secure GET request, saving the search query as a query parameter in the path. `encodeURIComponent` is used to escape invalid characters, and the subscription key is passed in a header. The callback receives a [response](https://nodejs.org/dist/latest-v10.x/docs/api/http.html#http_class_http_serverresponse) that subscribes to the `data` event to aggregate the JSON body, the `error` event to log any issues, and the `end` event to know when the message should be considered complete. When complete, the app will print the interesting headers and message body. You can play with the colors and set the depth to suit your preference, a depth of `1` gives a nice summary of the response.
+This function will make a secure GET request, saving the search query as a query parameter in the path. `hostname` can be the global endpoint below, or the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.  `encodeURIComponent` is used to escape invalid characters, and the subscription key is passed in a header. The callback receives a [response](https://nodejs.org/dist/latest-v10.x/docs/api/http.html#http_class_http_serverresponse) that subscribes to the `data` event to aggregate the JSON body, the `error` event to log any issues, and the `end` event to know when the message should be considered complete. When complete, the app will print the interesting headers and message body. You can play with the colors and set the depth to suit your preference, a depth of `1` gives a nice summary of the response.
 
 ```javascript
 function bingWebSearch(query) {
@@ -106,7 +107,7 @@ If you'd like to compare your code with ours, here's the complete program:
 const https = require('https')
 const SUBSCRIPTION_KEY = process.env['AZURE_SUBSCRIPTION_KEY']
 if (!SUBSCRIPTION_KEY) {
-  throw new Error('Missing the AZURE_SUBSCRIPTION_KEY environment varable')
+  throw new Error('Missing the AZURE_SUBSCRIPTION_KEY environment variable')
 }
 function bingWebSearch(query) {
   https.get({
@@ -157,9 +158,9 @@ Responses from the Bing Web Search API are returned as JSON. This sample respons
         "snippet": "Knock down barriers between you and your ideas. Enable natural and contextual interaction with tools that augment users' experiences via the power of machine-based AI. Plug them in and bring your ideas to life.",
         "deepLinks": [
           {
-            "name": "Face API",
+            "name": "Face",
             "url": "https://azure.microsoft.com/services/cognitive-services/face/",
-            "snippet": "Add facial recognition to your applications to detect, identify, and verify faces using a Face API from Microsoft Azure. ... Cognitive Services; Face API;"
+            "snippet": "Add facial recognition to your applications to detect, identify, and verify faces using a Face service from Microsoft Azure. ... Cognitive Services; Face service;"
           },
           {
             "name": "Text Analytics",

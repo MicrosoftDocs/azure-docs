@@ -1,18 +1,17 @@
 ---
-title: Persist job and task output to Azure Storage with the Batch service API - Azure Batch | Microsoft Docs
-description: Learn how to use Batch service API to persist Batch task and job output to Azure Storage.
+title: Persist output data to Azure Storage with Batch service API - Azure Batch
+description: Learn how to use the Batch service API to persist Batch task and job output data to Azure Storage.
 services: batch
-author: laurenhughes
-manager: jeconnoc
+author: LauraBrenner
+manager: evansma
 editor: ''
 
 ms.service: batch
-ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: big-compute
-ms.date: 11/14/2018
-ms.author: lahugh
+ms.date: 03/05/2019
+ms.author: labrenne
 ms.custom: seodec18
 
 ---
@@ -33,9 +32,6 @@ Azure Batch provides more than one way to persist task output. Using the Batch s
 - You want to persist output from Batch tasks and job manager tasks in pools created with the virtual machine configuration.
 - You want to persist output to an Azure Storage container with an arbitrary name.
 - You want to persist output to an Azure Storage container named according to the [Batch File Conventions standard](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions). 
-
-> [!NOTE]
-> The Batch service API does not support persisting data from tasks running in pools created with the cloud service configuration. For information about persisting task output from pools running the cloud services configuration, see [Persist job and task data to Azure Storage with the Batch File Conventions library for .NET to persist](batch-task-output-file-conventions.md).
 
 If your scenario differs from those listed above, you may need to consider a different approach. For example, the Batch service API does not currently support streaming output to Azure Storage while the task is running. To stream output, consider using the Batch File Conventions library, available for .NET. For other languages, you'll need to implement your own solution. For more information on other options for persisting task output, see [Persist job and task output to Azure Storage](batch-task-output.md).
 
@@ -181,7 +177,7 @@ If you are developing in a language other than C#, you will need to implement th
 
 The [PersistOutputs][github_persistoutputs] sample project is one of the [Azure Batch code samples][github_samples] on GitHub. This Visual Studio solution demonstrates how to use the Batch client library for .NET to persist task output to durable storage. To run the sample, follow these steps:
 
-1. Open the project in **Visual Studio 2017**.
+1. Open the project in **Visual Studio 2019**.
 2. Add your Batch and Storage **account credentials** to **AccountSettings.settings** in the Microsoft.Azure.Batch.Samples.Common project.
 3. **Build** (but do not run) the solution. Restore any NuGet packages if prompted.
 4. Use the Azure portal to upload an [application package](batch-application-packages.md) for **PersistOutputsTask**. Include the `PersistOutputsTask.exe` and its dependent assemblies in the .zip package, set the application ID to "PersistOutputsTask", and the application package version to "1.0".

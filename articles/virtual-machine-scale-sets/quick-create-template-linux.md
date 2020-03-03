@@ -1,18 +1,9 @@
 ---
-title: Quickstart - Create a Linux virtual machine scale set with an Azure template | Microsoft Docs
+title: Quickstart - Create a Linux virtual machine scale set with an Azure template
 description: Learn how to quickly create a Linux virtual machine scale with an Azure Resource Manager template that deploys a sample app and configures autoscale rules
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: cynthn
-manager: jeconnoc
-editor: ''
 tags: azure-resource-manager
-
-ms.assetid: 
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/27/2018
@@ -33,7 +24,7 @@ If you choose to install and use the CLI locally, this tutorial requires that yo
 ## Define a scale set in a template
 Azure Resource Manager templates let you deploy groups of related resources. Templates are written in JavaScript Object Notation (JSON) and define the entire Azure infrastructure environment for your application. In a single template, you can create the virtual machine scale set, install applications, and configure autoscale rules. With the use of variables and parameters, this template can be reused to update existing, or create additional, scale sets. You can deploy templates through the Azure portal, Azure CLI, or Azure PowerShell, or from continuous integration / continuous delivery (CI/CD) pipelines.
 
-For more information on templates, see [Azure Resource Manager overview](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment). For JSON syntax and properties, see [Microsoft.Compute/virtualMachineScaleSets](/azure/templates/microsoft.compute/virtualmachinescalesets) template reference.
+For more information on templates, see [Azure Resource Manager overview](https://docs.microsoft.com/azure/azure-resource-manager/template-deployment-overview#template-deployment-process). For JSON syntax and properties, see [Microsoft.Compute/virtualMachineScaleSets](/azure/templates/microsoft.compute/virtualmachinescalesets) template reference.
 
 To create a scale with a template, you define the appropriate resources. The core parts of the virtual machine scale set resource type are:
 
@@ -101,7 +92,7 @@ To test your scale set, install a basic web application. When you deploy a scale
 - Location of configuration or install scripts
 - Commands to execute on the VM instances
 
-The [Python HTTP server on Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale) template uses the Custom Script Extension to install [Bottle](http://bottlepy.org/docs/dev/), a Python web framework, and a simple HTTP server. 
+The [Python HTTP server on Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale) template uses the Custom Script Extension to install [Bottle](https://bottlepy.org/docs/dev/), a Python web framework, and a simple HTTP server. 
 
 Two scripts are defined in **fileUris** - *installserver.sh*, and *workserver.py*. These files are downloaded from GitHub, then *commandToExecute* runs `bash installserver.sh` to install and configure the app:
 
@@ -158,7 +149,7 @@ az network public-ip list \
     --query [*].ipAddress -o tsv
 ```
 
-Enter the public IP address of the load balancer in to a web browser in the format *http://publicIpAddress:9000/do_work*. The load balancer distributes traffic to one of your VM instances, as shown in the following example:
+Enter the public IP address of the load balancer in to a web browser in the format *http:\//publicIpAddress:9000/do_work*. The load balancer distributes traffic to one of your VM instances, as shown in the following example:
 
 ![Default web page in NGINX](media/virtual-machine-scale-sets-create-template/running-python-app.png)
 

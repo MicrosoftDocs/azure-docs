@@ -1,6 +1,6 @@
 ---
 title: Create ContentKeys with .NET
-description: Learn how to create content keys that provide secure access to Assets.
+description: This article demonstrates how to create content keys that provide secure access to assets.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,11 +13,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2019
+ms.date: 03/18/2019
 ms.author: juliako
 
 ---
-# Create ContentKeys with .NET (legacy)
+# Create ContentKeys with .NET 
 > [!div class="op_single_selector"]
 > * [REST](media-services-rest-create-contentkey.md)
 > * [.NET](media-services-dotnet-create-contentkey.md)

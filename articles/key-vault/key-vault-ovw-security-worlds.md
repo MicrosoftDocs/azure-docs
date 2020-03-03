@@ -1,11 +1,11 @@
 ---
-ms.assetid: 
 title: Azure Key Vault security worlds | Microsoft Docs
 ms.service: key-vault
+ms.subservice: general
 ms.topic: conceptual
-author: bryanla
-ms.author: bryanla
-manager: barbkess
+author: msmbaldwin
+ms.author: mbaldwin
+manager: rkarlin
 ms.date: 07/03/2017
 ---
 # Azure Key Vault security worlds and geographic boundaries

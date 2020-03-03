@@ -1,6 +1,6 @@
 ---
-title: Percentage Prebuilt entity
-titleSuffix: Azure
+title: Percentage Prebuilt entity - LUIS
+titleSuffix: Azure Cognitive Services
 description: This article contains percentage prebuilt entity information in Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
@@ -8,8 +8,8 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
-ms.date: 11/26/2018
+ms.topic: conceptual
+ms.date: 09/27/2019
 ms.author: diberry
 ---
 
@@ -20,35 +20,68 @@ Percentage numbers can appear as fractions, `3 1/2`, or as percentage, `2%`. Bec
 Percentage is managed from the [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-Numbers.yaml#L114) GitHub repository
 
 ## Resolution for prebuilt percentage entity
+
+The following entity objects are returned for the query:
+
+`set a trigger when my stock goes up 2%`
+
+#### [V3 response](#tab/V3)
+
+The following JSON is with the `verbose` parameter set to `false`:
+
+```json
+"entities": {
+    "percentage": [
+        2
+    ]
+}
+```
+#### [V3 verbose response](#tab/V3-verbose)
+The following JSON is with the `verbose` parameter set to `true`:
+
+```json
+"entities": {
+    "percentage": [
+        2
+    ],
+    "$instance": {
+        "percentage": [
+            {
+                "type": "builtin.percentage",
+                "text": "2%",
+                "startIndex": 36,
+                "length": 2,
+                "modelTypeId": 2,
+                "modelType": "Prebuilt Entity Extractor",
+                "recognitionSources": [
+                    "model"
+                ]
+            }
+        ]
+    }
+}
+```
+#### [V2 response](#tab/V2)
+
 The following example shows the resolution of the **builtin.percentage** entity.
 
 ```json
-{
-  "query": "set a trigger when my stock goes up 2%",
-  "topScoringIntent": {
-    "intent": "SetTrigger",
-    "score": 0.971157849
-  },
-  "intents": [
+"entities": [
     {
-      "intent": "SetTrigger",
-      "score": 0.971157849
-    }
-  ],
-  "entities": [
-    {
-      "entity": "2%",
-      "type": "builtin.percentage",
-      "startIndex": 36,
-      "endIndex": 37,
-      "resolution": {
+        "entity": "2%",
+        "type": "builtin.percentage",
+        "startIndex": 36,
+        "endIndex": 37,
+        "resolution": {
         "value": "2%"
-      }
+        }
     }
-  ]
-}
+]
 ```
+* * * 
 
 ## Next steps
+
+Learn more about the [V3 prediction endpoint](luis-migration-api-v3.md).
 
 Learn about the [ordinal](luis-reference-prebuilt-ordinal.md), [number](luis-reference-prebuilt-number.md), and [temperature](luis-reference-prebuilt-temperature.md) entities. 

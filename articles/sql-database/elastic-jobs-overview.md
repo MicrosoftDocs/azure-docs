@@ -1,38 +1,39 @@
 ---
-title: Azure SQL Elastic Database Jobs | Microsoft Docs
-description: 'Configure Elastic Database Jobs to run Transact-SQL (T-SQL) scripts across a set of one or more Azure SQL databases'
+title: Elastic Database Jobs (preview)
+description: 'Configure Elastic Database Jobs (preview) to run Transact-SQL (T-SQL) scripts across a set of one or more Azure SQL databases'
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
-ms.custom: 
+ms.custom: seo-lt-2019
 ms.devlang: 
-ms.topic: howto
+ms.topic: conceptual
 author: srinia
 ms.author: srinia
 ms.reviewer: sstein
-manager: craigg
 ms.date: 12/18/2018
 ---
 # Create, configure, and manage elastic jobs
 
-In this article, you will learn how to create, configure, and manage elastic jobs. If you have not used Elastic jobs, [learn more about the job automation concepts in Azure SQL Database](sql-database-job-automation-overview.md).
+In this article, you will learn how to create, configure, and manage elastic jobs.
+
+If you have not used Elastic jobs, [learn more about the job automation concepts in Azure SQL Database](sql-database-job-automation-overview.md).
 
 ## Create and configure the agent
 
 1. Create or identify an empty S0 or higher SQL database. This database will be used as the *Job database* during Elastic Job agent creation.
-2. Create an Elastic Job agent in the [portal](https://portal.azure.com/#create/Microsoft.SQLElasticJobAgent), or with [PowerShell](elastic-jobs-powershell.md#create-the-elastic-job-agent).
+2. Create an Elastic Job agent in the [portal](https://portal.azure.com/#create/Microsoft.SQLElasticJobAgent) or with [PowerShell](elastic-jobs-powershell.md#create-the-elastic-job-agent).
 
    ![Creating Elastic Job agent](media/elastic-jobs-overview/create-elastic-job-agent.png)
 
 ## Create, run, and manage jobs
 
-1. Create a credential for job execution in the *Job database* using [PowerShell](elastic-jobs-powershell.md#create-job-credentials-so-that-jobs-can-execute-scripts-on-its-targets), or [T-SQL](elastic-jobs-tsql.md#create-a-credential-for-job-execution).
-2. Define the target group (the databases you want to run the job against) using [PowerShell](elastic-jobs-powershell.md#define-the-target-databases-you-want-to-run-the-job-against), or [T-SQL](elastic-jobs-tsql.md#create-a-target-group-servers).
-3. Create a job agent credential in each database the job will run [(add the user (or role) to each database in the group)](sql-database-control-access.md). For an example, see the [PowerShell tutorial](elastic-jobs-powershell.md#create-job-credentials-so-that-jobs-can-execute-scripts-on-its-targets).
-4. Create a job using [PowerShell](elastic-jobs-powershell.md#create-a-job), or [T-SQL](elastic-jobs-tsql.md#deploy-new-schema-to-many-databases).
-5. Add job steps using [PowerShell](elastic-jobs-powershell.md#create-a-job-step) or [T-SQL](elastic-jobs-tsql.md#deploy-new-schema-to-many-databases).
-6. Run a job using [PowerShell](elastic-jobs-powershell.md#run-the-job), or [T-SQL](elastic-jobs-tsql.md#begin-ad-hoc-execution-of-a-job).
-7. Monitor job execution status using the portal, [PowerShell](elastic-jobs-powershell.md#monitor-status-of-job-executions), or [T-SQL](elastic-jobs-tsql.md#monitor-job-execution-status).
+1. Create a credential for job execution in the *Job database* using [PowerShell](elastic-jobs-powershell.md) or [T-SQL](elastic-jobs-tsql.md#create-a-credential-for-job-execution).
+2. Define the target group (the databases you want to run the job against) using [PowerShell](elastic-jobs-powershell.md) or [T-SQL](elastic-jobs-tsql.md#create-a-target-group-servers).
+3. Create a job agent credential in each database the job will run [(add the user (or role) to each database in the group)](sql-database-control-access.md). For an example, see the [PowerShell tutorial](elastic-jobs-powershell.md).
+4. Create a job using [PowerShell](elastic-jobs-powershell.md) or [T-SQL](elastic-jobs-tsql.md#deploy-new-schema-to-many-databases).
+5. Add job steps using [PowerShell](elastic-jobs-powershell.md) or [T-SQL](elastic-jobs-tsql.md#deploy-new-schema-to-many-databases).
+6. Run a job using [PowerShell](elastic-jobs-powershell.md#run-the-job) or [T-SQL](elastic-jobs-tsql.md#begin-ad-hoc-execution-of-a-job).
+7. Monitor job execution status using the portal, [PowerShell](elastic-jobs-powershell.md#monitor-status-of-job-executions) or [T-SQL](elastic-jobs-tsql.md#monitor-job-execution-status).
 
    ![Portal](media/elastic-jobs-overview/elastic-job-executions-overview.png)
 
@@ -70,6 +71,8 @@ Currently, the preview is limited to 100 concurrent jobs.
 
 To ensure resources aren't overburdened when running jobs against databases in a SQL elastic pool, jobs can be configured to limit the number of databases a job can run against at the same time.
 
+Set the number of concurrent databases a job runs on by setting the `sp_add_jobstep` stored procedure's `@max_parallelism` parameter in T-SQL, or `Add-AzSqlElasticJobStep -MaxParallelism` in PowerShell.
+
 ## Best practices for creating jobs
 
 ### Idempotent scripts
@@ -79,7 +82,7 @@ A simple tactic is to test for the existence of an object before creating it.
 
 
 ```sql
-IF NOT EXIST (some_object)
+IF NOT EXISTS (some_object)
     -- Create the object
     -- If it exists, drop the object before recreating it.
 ```

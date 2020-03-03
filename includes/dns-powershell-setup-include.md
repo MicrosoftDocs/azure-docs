@@ -47,7 +47,7 @@ Install-Module -Name AzureRM.Network -Force
 
 ### Sign in to your Azure account
 
-Open your PowerShell console and connect to your account. For more information, see [Sign in](/azure/install-az-ps.md?view=azps-1.2.0#sign-in).
+Open your PowerShell console and connect to your account. For more information, see [Sign in with AzureRM](/powershell/azure/azurerm/authenticate-azureps).
 
 ```powershell
 Connect-AzureRmAccount

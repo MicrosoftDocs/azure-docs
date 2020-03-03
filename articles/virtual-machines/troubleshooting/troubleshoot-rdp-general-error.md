@@ -4,11 +4,11 @@ description: Learn how to troubleshoot an RDP general error to a Windows VM in A
 services: virtual-machines-windows
 documentationCenter: ''
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 
 ms.service: virtual-machines-windows
-ms.devlang: na
+
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
@@ -225,8 +225,8 @@ For more information, see [Remote Desktop disconnects frequently in Azure VM](tr
 
       Policy definitions\Windows Components\Remote Desktop Services\Remote Desktop Session Host\Connections\Allow users to connect remotely by using Remote Desktop Services
   
-7. Detach the disk from the rescue VM.
-8. [Create a new VM from the disk](../windows/create-vm-specialized.md).
+1. Detach the disk from the rescue VM.
+1. [Create a new VM from the disk](../windows/create-vm-specialized.md).
 
 If the problem still happens, move to the step 2.
 

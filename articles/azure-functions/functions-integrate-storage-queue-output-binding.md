@@ -1,17 +1,10 @@
 ---
-title: Add messages to an Azure Storage queue using Functions | Microsoft Docs
+title: Add messages to an Azure Storage queue using Functions 
 description: Use Azure Functions to create a serverless function that is invoked by an HTTP request and creates a message in an Azure Storage queue.
-services: azure-functions
-documentationcenter: na
-author: ggailey777
-manager: jeconnoc
 
 ms.assetid: 0b609bc0-c264-4092-8e3e-0784dcc23b5d
-ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: quickstart
 ms.date: 09/19/2017
-ms.author: glenga
 ms.custom: mvc
 ---
 # Add messages to an Azure Storage queue using Functions
@@ -36,7 +29,7 @@ In this section, you use the portal UI to add a queue storage output binding to 
 
 1. Select the function that you created in that earlier quickstart.
 
-1. Select **Integrate > New output > Azure Queue storage**.
+1. Select **Integrate > New Output > Azure Queue Storage**.
 
 1. Click **Select**.
 
@@ -117,7 +110,7 @@ A new queue named **outqueue** is created in your Storage account by the Functio
 
 Skip this section if you have already installed Storage Explorer and connected it to the storage account that you're using with this quickstart.
 
-2. Run the [Microsoft Azure Storage Explorer](https://storageexplorer.com/) tool, select the connect icon on the left, choose **Use a storage account name and key**, and select **Next**.
+1. Run the [Microsoft Azure Storage Explorer](https://storageexplorer.com/) tool, select the connect icon on the left, choose **Use a storage account name and key**, and select **Next**.
 
     ![Run the Storage Account Explorer tool.](./media/functions-integrate-storage-queue-output-binding/functions-storage-manager-connect-1.png)
 
@@ -135,13 +128,13 @@ Skip this section if you have already installed Storage Explorer and connected i
  
 1. Click the show/hide icon next to **Account Key** to display the value, and then copy the **Account Key** value and paste it in the **Account key** box in Storage Explorer.
   
-3. Select **Next > Connect**.
+1. Select **Next > Connect**.
 
    ![Paste the storage credentials and connect.](./media/functions-integrate-storage-queue-output-binding/functions-storage-manager-connect-2.png)
 
 ### Examine the output queue
 
-4. In Storage Explorer, select the storage account that you're using for this quickstart.
+1. In Storage Explorer, select the storage account that you're using for this quickstart.
 
 1. Expand the **Queues** node, and then select the queue named **outqueue**. 
 
@@ -149,7 +142,7 @@ Skip this section if you have already installed Storage Explorer and connected i
 
     ![Queue message shown in Storage Explorer](./media/functions-integrate-storage-queue-output-binding/function-queue-storage-output-view-queue.png)
 
-2. Run the function again, and you'll see a new message appear in the queue.  
+1. Run the function again, and you'll see a new message appear in the queue.  
 
 ## Clean up resources
 

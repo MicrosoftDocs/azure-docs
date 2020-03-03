@@ -1,5 +1,5 @@
 ---
-title: Manage multiple SQL databases with elastic pools- Azure | Microsoft Docs
+title: Manage multiple databases with elastic pools
 description: Manage and scale multiple SQL databases - hundreds and thousands - using elastic pools. One price for resources you can distribute where needed.
 services: sql-database
 ms.service: sql-database
@@ -10,8 +10,7 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: ninarn, carlrab
-manager: craigg
-ms.date: 02/07/2019
+ms.date: 08/06/2019
 ---
 # Elastic pools help you manage and scale multiple Azure SQL databases
 
@@ -19,7 +18,7 @@ SQL Database elastic pools are a simple, cost-effective solution for managing an
 
 ## What are SQL elastic pools
 
-SaaS developers build applications on top of large scale data-tiers consisting of multiple databases. A common application pattern is to provision a single database for each customer. But different customers often have varying and unpredictable usage patterns, and it is difficult to predict the resource requirements of each individual database user. Traditionally, you had two options:
+SaaS developers build applications on top of large scale data-tiers consisting of multiple databases. A common application pattern is to provision a single database for each customer. But different customers often have varying and unpredictable usage patterns, and it's difficult to predict the resource requirements of each individual database user. Traditionally, you had two options:
 
 - Over-provision resources based on peak usage and over pay, or
 - Under-provision to save cost, at the expense of performance and customer satisfaction during peaks.
@@ -43,7 +42,7 @@ Within the pool, individual databases are given the flexibility to auto-scale wi
 
 Pools are well suited for a large number of databases with specific utilization patterns. For a given database, this pattern is characterized by low average utilization with relatively infrequent utilization spikes.
 
-The more databases you can add to a pool the greater your savings become. Depending on your application utilization pattern, it is possible to see savings with as few as two S3 databases.
+The more databases you can add to a pool the greater your savings become. Depending on your application utilization pattern, it's possible to see savings with as few as two S3 databases.
 
 The following sections help you understand how to assess if your specific collection of databases can benefit from being in a pool. The examples use Standard pools but the same principles also apply to Basic and Premium pools.
 
@@ -90,7 +89,7 @@ By sharing resources, not all databases in a pool can simultaneously use resourc
 
 To reduce costs for three S3 databases in a 200 eDTU pool, at most two of these databases can simultaneously peak in their utilization. Otherwise, if more than two of these four S3 databases simultaneously peak, the pool would have to be sized to more than 200 eDTUs. If the pool is resized to more than 200 eDTUs, more S3 databases would need to be added to the pool to keep costs lower than compute sizes for single databases.
 
-Note this example does not consider utilization of other databases in the pool. If all databases have some utilization at any given point in time, then less than 2/3 (or 67%) of the databases can peak simultaneously.
+Note this example doesn't consider utilization of other databases in the pool. If all databases have some utilization at any given point in time, then less than 2/3 (or 67%) of the databases can peak simultaneously.
 
 ### Resource utilization per database
 
@@ -128,7 +127,7 @@ In cases where you can't use tooling, the following step-by-step can help you es
 
 ### Elastic jobs and elastic pools
 
-With a pool, management tasks are simplified by running scripts in **[elastic jobs](sql-database-elastic-jobs-overview.md)**. An elastic job eliminates most of tedium associated with large numbers of databases. To begin, see [Getting started with Elastic jobs](sql-database-elastic-jobs-getting-started.md).
+With a pool, management tasks are simplified by running scripts in **[elastic jobs](elastic-jobs-overview.md)**. An elastic job eliminates most of tedium associated with large numbers of databases.
 
 For more information about other database tools for working with multiple databases, see [Scaling out with Azure SQL Database](sql-database-elastic-scale-introduction.md).
 
@@ -152,8 +151,14 @@ Pooled databases generally support the same [business continuity features](sql-d
 
 There are two ways you can create an elastic pool in the Azure portal.
 
-1. You can create an elastic pool by searching **SQL elastic pool** in the **Marketplace** or clicking **+Add** on the SQL elastic pools browse blade. You are able to specify a new or existing server through this pool provisioning workflow.
-2. Or you can create an elastic pool by navigating to an existing SQL server and clicking **Create pool** to create a pool directly into that server. The only difference here is you skip the step where you specify the server during the pool provisioning workflow.
+1. Go to the [Azure portal](https://portal.azure.com) to create an elastic pool. Search for and select **Azure SQL**.
+2. Select **+Add** to open the **Select SQL deployment option** page. You can view additional information about elastic pools by selecting **Show details** on the **Databases** tile.
+3. On the **Databases** tile, select **Elastic pool** in the **Resource type** dropdown, then select **Create**:
+
+   ![Create an elastic pool](./media/sql-database-elastic-pool/create-elastic-pool.png)
+
+
+1. Or you can create an elastic pool by navigating to an existing Azure SQL server and clicking **+ New pool** to create a pool directly into that server.
 
 > [!NOTE]
 > You can create multiple pools on a server, but you can't add databases from different servers into the same pool.
@@ -168,7 +173,7 @@ When you have completed configuring the pool, you can click 'Apply', name the po
 
 In the Azure portal, you can monitor the utilization of an elastic pool and the databases within that pool. You can also make a set of changes to your elastic pool and submit all changes at the same time. These changes include adding or removing databases, changing your elastic pool settings, or changing your database settings.
 
-To start monitoring your elastic pool, find and open an elastic pool in the portal. You will first see a screen that gives you an overview of the status of your elastic pool. This includes:
+To start monitoring your elastic pool, find and open an elastic pool in the portal. You'll first see a screen that gives you an overview of the status of your elastic pool. This includes:
 
 - Monitoring charts showing resources usage of the elastic pool
 - Recent alerts and recommendations, if available, for the elastic pool
@@ -197,9 +202,25 @@ You can also select more metrics to view side by side in this database table to 
 
 For more information, see [create SQL Database alerts in Azure portal](sql-database-insights-alerts-portal.md).
 
+## Customer case studies
+
+- [SnelStart](https://azure.microsoft.com/resources/videos/azure-sql-database-case-study-snelstart/)
+
+  SnelStart used elastic pools with Azure SQL Database to rapidly expand its business services at a rate of 1,000 new Azure SQL Databases per month.
+
+- [Umbraco](https://azure.microsoft.com/resources/videos/azure-sql-database-case-study-umbraco/)
+
+  Umbraco uses elastic pools with Azure SQL Database to quickly provision and scale services for thousands of tenants in the cloud.
+
+- [Daxko/CSI](https://customers.microsoft.com/story/726277-csi-daxko-partner-professional-service-azure)	
+
+   Daxko/CSI uses elastic pools with Azure SQL Database to accelerate its development cycle and to enhance its customer services and performance.	
+
 ## Next steps
 
-- To scale elastic pools, see [Scaling elastic pools](sql-database-elastic-pool.md) and [Scale an elastic pool - sample code](scripts/sql-database-monitor-and-scale-pool-powershell.md)
+- For pricing information, see [Elastic pool pricing](https://azure.microsoft.com/pricing/details/sql-database/elastic).
+- To scale elastic pools, see [Scaling elastic pools](sql-database-elastic-pool-scale.md) and [Scale an elastic pool - sample code](scripts/sql-database-monitor-and-scale-pool-powershell.md)
 - For a video, see [Microsoft Virtual Academy video course on Azure SQL Database elastic capabilities](https://mva.microsoft.com/training-courses/elastic-database-capabilities-with-azure-sql-db-16554)
 - To learn more about design patterns for SaaS applications using elastic pools, see [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md).
 - For a SaaS tutorial using elastic pools, see [Introduction to the Wingtip SaaS application](sql-database-wtp-overview.md).
+- To learn about resource management in elastic pools with many databases, see [Resource management in dense elastic pools](sql-database-elastic-pool-resource-management.md).

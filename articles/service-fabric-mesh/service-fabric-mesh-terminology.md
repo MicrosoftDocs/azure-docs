@@ -1,18 +1,14 @@
 ---
-title: Terminology for Azure Service Fabric Mesh | Microsoft Docs
-description: Learn about common terms for Azure Service Fabric Mesh.
-services: service-fabric-mesh
-keywords:  
-author: rwike77
-ms.author: ryanwi
+title: Terminology for Azure Service Fabric Mesh 
+description: This article details the terminology used by Azure Service Fabric Mesh to help you better understand the terms used in the documentation.
+author: dkkapur
+ms.author: dekapur
 ms.date: 11/28/2018
 ms.topic: conceptual
-ms.service: service-fabric-mesh
-manager: timlt 
 ---
 # Service Fabric Mesh terminology
 
-Azure Service Fabric Mesh is a fully managed service that enables developers to deploy microservices applications without managing virtual machines, storage, or networking. This article details the terminology used by Azure Service Fabric Mesh to understand the terms used in the documentation.
+Azure Service Fabric Mesh is a fully managed service that enables developers to deploy microservices applications without managing virtual machines, storage, or networking. This article details the terminology used by Azure Service Fabric Mesh to help you better understand the terms used in the documentation.
 
 ## Service Fabric
 
@@ -65,14 +61,14 @@ Service Fabric is an open-source platform technology that several different serv
 Different environments have different level of support for frameworks and deployment models. The following table describes the supported framework and deployment model combinations.
 
 | Type of Application | Described By | Azure Service Fabric Mesh | Azure Service Fabric Clusters (any OS)| Local cluster | Standalone cluster |
-|---|---|---|---|---|---|---|---|---|---|
+|---|---|---|---|---|---|
 | Service Fabric Mesh Applications | Resource Model (YAML & JSON) | Supported |Not supported | Windows- supported, Linux and Mac- not supported | Windows- not supported |
 |Service Fabric Native Applications | Native Application Model (XML) | Not Supported| Supported|Supported|Windows- supported|
 
 The following table describes the different application models and the tooling that exists for them against Service Fabric.
 
 | Type of Application | Described By | Visual Studio | Eclipse | SFCTL | AZ CLI | Powershell|
-|---|---|---|---|---|---|---|---|---|---|
+|---|---|---|---|---|---|---|
 | Service Fabric Mesh Applications | Resource Model (YAML & JSON) | VS 2017 |Not supported |Not supported | Supported - Mesh environment only | Not Supported|
 |Service Fabric Native Applications | Native Application Model (XML) | VS 2017 and VS 2015| Supported|Supported|Supported|Supported|
 

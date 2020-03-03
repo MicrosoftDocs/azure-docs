@@ -1,16 +1,15 @@
 ---
-title: Tutorial - manage Azure virtual machines with Azure PowerShell | Microsoft Docs
+title: Tutorial - Manage virtual machines with PowerShell 
 description: In this tutorial, you learn how to use Azure PowerShell to manage Azure virtual machines by applying RBAC, polices, locks and tags
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: tfitzmac
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 
 ms.service: virtual-machines-windows
 ms.workload: infrastructure
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/05/2018
 ms.author: tomfitz
@@ -67,7 +66,7 @@ New-AzRoleAssignment -ObjectId $adgroup.id `
   -RoleDefinitionName "Virtual Machine Contributor"
 ```
 
-If you receive an error stating **Principal <guid> does not exist in the directory**, the new group hasn't propagated throughout Azure Active Directory. Try running the command again.
+If you receive an error stating **Principal \<guid> does not exist in the directory**, the new group hasn't propagated throughout Azure Active Directory. Try running the command again.
 
 Typically, you repeat the process for *Network Contributor* and *Storage Account Contributor* to make sure users are assigned to manage the deployed resources. In this article, you can skip those steps.
 
@@ -137,7 +136,7 @@ After your deployment finishes, you can apply more management settings to the so
 
 ## Lock resources
 
-[Resource locks](../../azure-resource-manager/resource-group-lock-resources.md) prevent users in your organization from accidentally deleting or modifying critical resources. Unlike role-based access control, resource locks apply a restriction across all users and roles. You can set the lock level to *CanNotDelete* or *ReadOnly*.
+[Resource locks](../../azure-resource-manager/management/lock-resources.md) prevent users in your organization from accidentally deleting or modifying critical resources. Unlike role-based access control, resource locks apply a restriction across all users and roles. You can set the lock level to *CanNotDelete* or *ReadOnly*.
 
 To lock the virtual machine and network security group, use the [New-AzResourceLock](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcelock) command:
 
@@ -167,7 +166,7 @@ You see an error stating that the delete operation can't be completed because of
 
 ## Tag resources
 
-You apply [tags](../../azure-resource-manager/resource-group-using-tags.md) to your Azure resources to logically organize them by categories. Each tag consists of a name and a value. For example, you can apply the name "Environment" and the value "Production" to all the resources in production.
+You apply [tags](../../azure-resource-manager/management/tag-resources.md) to your Azure resources to logically organize them by categories. Each tag consists of a name and a value. For example, you can apply the name "Environment" and the value "Production" to all the resources in production.
 
 [!INCLUDE [Resource Manager governance tags Powershell](../../../includes/resource-manager-governance-tags-powershell.md)]
 
@@ -232,8 +231,8 @@ In this tutorial, you created a custom VM image. You learned how to:
 > * Protect critical resources with locks
 > * Tag resources for billing and management
 
-Advance to the next tutorial to learn about how highly available virtual machines.
+Advance to the next tutorial to learn about how to identify changes and manage package updates on a Linux virtual machine.
 
 > [!div class="nextstepaction"]
-> [Monitor virtual machines](tutorial-monitoring.md)
+> [Manage virtual machines](tutorial-config-management.md)
 

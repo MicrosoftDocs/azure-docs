@@ -1,18 +1,9 @@
 ---
 title: Export to Power BI from Azure Application Insights | Microsoft Docs
 description: Analytics queries can be displayed in Power BI.
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-
-ms.assetid: 7f13ea66-09dc-450f-b8f9-f40fdad239f2
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 08/10/2018
-ms.author: mbullwin
+
 ---
 
 # Feed Power BI from Application Insights
@@ -89,10 +80,12 @@ You might encounter errors pertaining to credentials or the size of the dataset.
 ### Unauthorized (401 or 403)
 This can happen if your refresh token has not been updated. Try these steps to ensure you still have access:
 
-1. Sign into the Azure portal, and make sure you can access the resource.
+1. Sign in to the Azure portal, and make sure you can access the resource.
 2. Try to refresh the credentials for the dashboard.
+3. Try to clear the cache from your PowerBI Desktop.
 
- If you do have access and refreshing the credentials does not work, please open a support ticket.
+
+   If you do have access and refreshing the credentials does not work, please open a support ticket.
 
 ### Bad Gateway (502)
 This is usually caused by an Analytics query that returns too much data. Try using a smaller time range for the query. 
@@ -101,8 +94,8 @@ If reducing the dataset coming from the Analytics query doesn't meet your requir
 
 1. Create an [API key](https://dev.applicationinsights.io/documentation/Authorization/API-key-and-App-ID).
 2. Update the Power BI M script that you exported from Analytics by replacing the Azure Resource Manager URL with the Application Insights API.
-   * Replace **https://management.azure.com/subscriptions/...**
-   * with, **https://api.applicationinsights.io/beta/apps/...**
+   * Replace **https:\//management.azure.com/subscriptions/...**
+   * with, **https:\//api.applicationinsights.io/beta/apps/...**
 3. Finally, update the credentials to basic, and use your API key.
 
 **Existing script**

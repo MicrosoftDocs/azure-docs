@@ -1,50 +1,34 @@
 ---
-title: Configure the resource owner password credentials flow in Azure Active Directory B2C | Microsoft Docs
-description: Learn how to configure the resource owner password credentials flow in Azure Active Directory B2C.
+title: Configure the resource owner password credentials flow with custom policies
+titleSuffix: Azure AD B2C
+description: Learn how to configure the resource owner password credentials (ROPC) flow by using custom policies in Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
-manager: daveba
+author: msmimart
+manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/06/2018
-ms.author: davidmu
+ms.date: 02/27/2020
+ms.author: mimart
 ms.subservice: B2C
 ---
 
 # Configure the resource owner password credentials flow in Azure Active Directory B2C using a custom policy
 
-[!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
+[!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
-In Azure Active Directory (Azure AD) B2C, the resource owner password credentials (ROPC) flow is an OAuth standard authentication flow. In this flow, an application, also known as the relying party, exchanges valid credentials for tokens. The credentials include a user ID and password. The tokens returned are an ID token, access token, and a refresh token.
+In Azure Active Directory B2C (Azure AD B2C), the resource owner password credentials (ROPC) flow is an OAuth standard authentication flow. In this flow, an application, also known as the relying party, exchanges valid credentials for tokens. The credentials include a user ID and password. The tokens returned are an ID token, access token, and a refresh token.
 
-The following options are supported in the ROPC flow:
-
-- **Native Client** - User interaction during authentication happens when code runs on a user-side device.
-- **Public client flow** - Only user credentials that are gathered by an application are sent in the API call. The credentials of the application aren't sent.
-- **Add new claims** - The ID token contents can be changed to add new claims.
-
-The following flows aren't supported:
-
-- **Server-to-server** - The identity protection system needs a reliable IP address gathered from the caller (the native client) as part of the interaction. In a server-side API call, only the server’s IP address is used. If too many sign-ins fail, the identity protection system may look at a repeated IP address as an attacker.
-- **Single page application** - A front-end application that is primarily written in JavaScript. Often, the application is written by using a framework like AngularJS, Ember.js, or Durandal.
-- **Confidential client flow** - The application client ID is validated, but the application secret isn't.
+[!INCLUDE [active-directory-b2c-ropc-notes](../../includes/active-directory-b2c-ropc-notes.md)]
 
 ## Prerequisites
 
-Complete the steps in [Get started with custom policies in Azure Active Directory B2C](active-directory-b2c-get-started-custom.md).
+Complete the steps in [Get started with custom policies in Azure Active Directory B2C](custom-policy-get-started.md).
 
 ## Register an application
 
-1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. Make sure you're using the directory that contains your Azure AD B2C tenant by clicking the **Directory and subscription filter** in the top menu and choosing the directory that contains your tenant.
-3. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
-4. Select **Applications**, and then select **Add**.
-5. Enter a name for the application, such as *ROPC_Auth_app*.
-6. Select **No** for **Web App/Web API**, and then select **Yes** for **Native client**.
-7. Leave all other values as they are, and then select **Create**.
-8. Select the new application, and record the Application ID for later use.
+[!INCLUDE [active-directory-b2c-appreg-ropc](../../includes/active-directory-b2c-appreg-ropc.md)]
 
 ##  Create a resource owner policy
 
@@ -84,7 +68,7 @@ Complete the steps in [Get started with custom policies in Azure Active Director
           <OutputClaim ClaimTypeReferenceId="sub" TransformationClaimType="createdClaim" />
         </OutputClaims>
       </ClaimsTransformation>
-    
+
       <ClaimsTransformation Id="AssertRefreshTokenIssuedLaterThanValidFromDate" TransformationMethod="AssertDateTimeIsGreaterThan">
         <InputClaims>
           <InputClaim ClaimTypeReferenceId="refreshTokenIssuedOnDateTime" TransformationClaimType="leftOperand" />
@@ -136,7 +120,7 @@ Complete the steps in [Get started with custom policies in Azure Active Director
     </TechnicalProfile>
     ```
 
-    Replace the **DefaultValue** of **client_id** and **resource_id** with the Application ID of the ProxyIdentityExperienceFramework application that you created in the prerequisite tutorial.
+    Replace the **DefaultValue** of **client_id** with the Application ID of the ProxyIdentityExperienceFramework application that you created in the prerequisite tutorial. Then replace **DefaultValue** of **resource_id** with the Application ID  of the IdentityExperienceFramework application that you also created in the prerequisite tutorial.
 
 5. Add following **ClaimsProvider** elements with their technical profiles to the **ClaimsProviders** element:
 
@@ -241,7 +225,7 @@ Next, update the relying party file that initiates the user journey that you cre
 2. Open the new file and change the value of the **PolicyId** attribute for **TrustFrameworkPolicy** to a unique value. The policy ID is the name of your policy. For example, **B2C_1A_ROPC_Auth**.
 3. Change the value of the **ReferenceId** attribute in **DefaultUserJourney** to `ResourceOwnerPasswordCredentials`.
 4. Change the **OutputClaims** element to only contain the following claims:
-    
+
     ```XML
     <OutputClaim ClaimTypeReferenceId="sub" />
     <OutputClaim ClaimTypeReferenceId="objectId" />
@@ -251,7 +235,7 @@ Next, update the relying party file that initiates the user journey that you cre
     ```
 
 5. On the **Custom Policies** page in your Azure AD B2C tenant, select **Upload Policy**.
-6. Enable **Overwrite the policy if it exists**, and then browse to and select the *TrustFrameworkExtensions.xml* file.
+6. Enable **Overwrite the policy if it exists**, and then browse to and select the *ROPC_Auth.xml* file.
 7. Click **Upload**.
 
 ## Test the policy
@@ -344,4 +328,4 @@ Azure AD B2C meets OAuth 2.0 standards for public client resource owner password
 ## Next steps
 
 - See a full example of this scenario in the [Azure Active Directory B2C custom policy starter pack](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/source/aadb2c-ief-ropc).
-- Learn more about the tokens that are used by Azure Active Directory B2C in the [Token reference](active-directory-b2c-reference-tokens.md).
+- Learn more about the tokens that are used by Azure Active Directory B2C in the [Token reference](tokens-overview.md).

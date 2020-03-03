@@ -8,7 +8,8 @@ manager: mtillman
 ms.reviewer: barbkess
 
 ms.assetid: 47f27746-9057-4b9c-991e-3abf77710f73
-ms.service: Azure-Active-Directory
+ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -108,17 +109,19 @@ To configure Azure AD single sign-on with Coupa, perform the following steps:
 	> The Sign-on URL value is not real. Update this value with the actual Sign-On URL. Contact [Coupa Client support team](https://success.coupa.com/Support/Contact_Us?) to get this value.
 
     b. In the **Identifier** box, type a URL:
+
     | Environment  | URL |
     |:-------------|----|
-    | Sandbox | `devsso35.coupahost.com`|
-    | Production | `prdsso40.coupahost.com`|
+    | Sandbox | `sso-stg1.coupahost.com`|
+    | Production | `sso-prd1.coupahost.com`|
     | | |
 
     c. In the **Reply URL** text box, type a URL:
+
     | Environment | URL |
     |------------- |----|
-    | Sandbox | `https://devsso35.coupahost.com/sp/ACS.saml2`|
-    | Production | `https://prdsso40.coupahost.com/sp/ACS.saml2`|
+    | Sandbox | `https://sso-stg1.coupahost.com/sp/ACS.saml2`|
+    | Production | `https://sso-prd1.coupahost.com/sp/ACS.saml2`|
     | | |
 
 4. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
@@ -171,7 +174,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     a. In the **Name** field enter **BrittaSimon**.
   
-    b. In the **User name** field type **brittasimon@yourcompanydomain.extension**  
+    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
     For example, BrittaSimon@contoso.com
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
@@ -235,7 +238,7 @@ In order to enable Azure AD users to log into Coupa, they must be provisioned in
 	>
 
 >[!NOTE]
->You can use any other Coupa user account creation tools or APIs provided by Coupa to provision AAD user accounts.
+>You can use any other Coupa user account creation tools or APIs provided by Coupa to provision Azure AD user accounts.
 
 ### Test single sign-on 
 
@@ -249,5 +252,5 @@ When you click the Coupa tile in the Access Panel, you should be automatically s
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

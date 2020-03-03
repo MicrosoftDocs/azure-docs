@@ -1,20 +1,13 @@
 ---
 title: Advanced queries in Azure Monitor | Microsoft Docs
 description: This article provides a tutorial for using the Analytics portal to write queries in Azure Monitor.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: 
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 11/15/2018
+author: bwren
 ms.author: bwren
----
+ms.date: 11/15/2018
 
+---
 
 # Writing advanced queries in Azure Monitor
 
@@ -72,7 +65,7 @@ Event
 ```
 
 ## Print
-`print` will return a table with a single column and a single row, showing the result of a calculation. This is often used in cases where you need a simple calcuation. For example, to find the current time in PST and add a column with EST:
+`print` will return a table with a single column and a single row, showing the result of a calculation. This is often used in cases where you need a simple calculation. For example, to find the current time in PST and add a column with EST:
 
 ```Kusto
 print nowPst = now()-8h

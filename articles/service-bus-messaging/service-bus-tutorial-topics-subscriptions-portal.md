@@ -1,12 +1,12 @@
 ---
-title: Tutorial - Update retail inventory assortment using publish/subscribe channels and topic filters with Azure portal | Microsoft Docs
+title: Update inventory using Azure portal and topics/subscriptions
 description: In this tutorial, you learn how to send and receive messages from a topic and subscription, and how to add and use filter rules using .NET
 services: service-bus-messaging
 author: spelluru
 manager: timlt
 
 ms.author: spelluru
-ms.date: 09/22/2018
+ms.date: 01/21/2020
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
@@ -86,7 +86,7 @@ To run the code, do the following:
    - Execute 2: to add your own filters.
    - Execute 3: to optionally remove your own filters. Note that this will not recreate the default filters.
 
-    ![Showing output of 2](./media/service-bus-tutorial-topics-subscriptions-portal/create-rules.png)
+     ![Showing output of 2](./media/service-bus-tutorial-topics-subscriptions-portal/create-rules.png)
 
 8. After filter creation, you can send messages. Press 4 and observe 10 messages being sent to the topic:
 
@@ -391,6 +391,9 @@ private async Task ReceiveMessages(string subscription)
     await receiver.CloseAsync();
 }
 ```
+
+> [!NOTE]
+> You can manage Service Bus resources with [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). The Service Bus Explorer allows users to connect to a Service Bus namespace and administer messaging entities in an easy manner. The tool provides advanced features like import/export functionality or the ability to test topic, queues, subscriptions, relay services, notification hubs and events hubs. 
 
 ## Next steps
 

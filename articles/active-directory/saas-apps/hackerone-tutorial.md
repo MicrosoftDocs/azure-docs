@@ -8,7 +8,8 @@ manager: mtillman
 ms.reviewer: barbkess
 
 ms.assetid: 229d1efb-b6a5-4df8-9839-5d551487db4e
-ms.service: Azure-Active-Directory
+ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -102,14 +103,11 @@ To configure Azure AD single sign-on with HackerOne, perform the following steps
 
     ![HackerOne Domain and URLs single sign-on information](common/sp-identifier.png)
 
-	a. In the **Sign on URL** text box, type a URL using the following pattern:
-    `https://hackerone.com/<company name>/authentication`
+	a. In the **Sign on URL** text box, enter the following:
+    `https://hackerone.com/users/saml/sign_in?email=<configured domain>`
 
-    b. In the **Identifier (Entity ID)** text box, type a URL:
-    `https://hackerone.com/users/saml/metadata`
-
-	> [!NOTE]
-	> This Sign on URL value is not real. Update this value with the actual Sign-On URL. Contact [HackerOne Client support team](mailto:support@hackerone.com) to get this value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    b. In the **Identifier (Entity ID)** text box, enter the following:
+    `hackerone.com`
 
 5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
 
@@ -143,9 +141,9 @@ To configure Azure AD single sign-on with HackerOne, perform the following steps
 
     a. In the **Email Domain** textbox, type a registered domain.
 
-    b. In  **Single Sign On URL** textboxes, paste the value of **Login URL** which you have copied from Azure portal.
+    b. In  **Single Sign On URL** textboxes, paste the value of **Login URL** which you have copied from Azure portal.
 
-	c. Open your downloaded **Certificate file** from Azure portal into Notepad, copy the content of it into your clipboard, and then paste it to the **X509 Certificate**  textbox.
+	c. Open your downloaded **Certificate file** from Azure portal into Notepad, copy the content of it into your clipboard, and then paste it to the **X509 Certificate**  textbox.
 
     d. Click **Save**.
 
@@ -155,7 +153,13 @@ To configure Azure AD single sign-on with HackerOne, perform the following steps
 
     a. Click **Run test**.
 
-    b. If the value of the **Status** field equals **Last test status: created**, contact your [HackerOne support team](mailto:support@hackerone.com) to request a review of your configuration.
+6. When the test finishes successfully and the **Status** field shows **Last test status: success**, select the **Request Verification** button to submit to HackerOne for approval.
+
+    ![Submit to HackerOne for approval](./media/hackerone-tutorial/tutorial-hackerone-006.png)
+
+7. After HackerOne approves the settings, you can select the **Migrate Users** button to require SSO authentication for all users.
+
+    ![Enable SAML](./media/hackerone-tutorial/tutorial-hackerone-007.png)
 
 ### Create an Azure AD test user
 
@@ -174,8 +178,8 @@ The objective of this section is to create a test user in the Azure portal calle
     ![The User dialog box](common/user-properties.png)
 
     a. In the **Name** field enter **BrittaSimon**.
-  
-    b. In the **User name** field type **brittasimon@yourcompanydomain.extension**  
+
+    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
     For example, BrittaSimon@contoso.com
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
@@ -224,4 +228,4 @@ When you click the HackerOne tile in the Access Panel, you should be automatical
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

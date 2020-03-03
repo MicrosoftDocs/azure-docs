@@ -1,10 +1,10 @@
 ---
-title: Prepare an Debian Linux VHD in Azure | Microsoft Docs
+title: Prepare an Debian Linux VHD in Azure 
 description: Learn how to create Debian VHD images for deployment in Azure.
 services: virtual-machines-linux
 documentationcenter: ''
-author: szarkos
-manager: jeconnoc
+author: mimckitt
+manager: gwallace
 editor: ''
 tags: azure-resource-manager,azure-service-management
 
@@ -12,10 +12,10 @@ ms.assetid: a6de7a7c-cc70-44e7-aed0-2ae6884d401a
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
+
 ms.topic: article
 ms.date: 11/13/2018
-ms.author: szark
+ms.author: mimckitt
 
 ---
 # Prepare a Debian VHD for Azure
@@ -30,7 +30,7 @@ This section assumes that you have already installed a Debian Linux operating sy
 * All VHDs on Azure must have a virtual size aligned to 1MB. When converting from a raw disk to VHD, you must ensure that the raw disk size is a multiple of 1MB before conversion. For more information, see [Linux Installation Notes](create-upload-generic.md#general-linux-installation-notes).
 
 ## Use Azure-Manage to create Debian VHDs
-There are tools available for generating Debian VHDs for Azure, such as the [azure-manage](https://github.com/credativ/azure-manage) scripts from [Credativ](http://www.credativ.com/). This is the recommended approach versus creating an image from scratch. For example, to create a Debian 8 VHD run the following commands to download the `azure-manage` utility (and dependencies) and run the `azure_build_image` script:
+There are tools available for generating Debian VHDs for Azure, such as the [azure-manage](https://github.com/credativ/azure-manage) scripts from [Credativ](https://www.credativ.com/). This is the recommended approach versus creating an image from scratch. For example, to create a Debian 8 VHD run the following commands to download the `azure-manage` utility (and dependencies) and run the `azure_build_image` script:
 
     # sudo apt-get update
     # sudo apt-get install git qemu-utils mbr kpartx debootstrap

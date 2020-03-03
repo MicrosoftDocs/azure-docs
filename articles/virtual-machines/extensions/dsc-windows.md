@@ -1,5 +1,5 @@
 ---
-title: Azure Desired State Configuration Extension Handler | Microsoft Docs
+title: Azure Desired State Configuration Extension Handler 
 description: Upload and apply a PowerShell DSC configuration on an Azure VM using DSC Extension
 services: virtual-machines-windows 
 documentationcenter: ''
@@ -8,7 +8,6 @@ manager: carmonm
 editor: ''
 ms.assetid: 
 ms.service: virtual-machines-windows 
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: windows
 ms.workload: 
@@ -67,7 +66,7 @@ The following JSON shows the schema for the settings portion of the DSC Extensio
             "dataCollection": "enable"
         },
     	"advancedOptions": {
-			"forcePullAndApply": false
+			"forcePullAndApply": false,
         	"downloadMappings": {
             	"specificDependencyKey": "https://myCustomDependencyLocation"
         	}
@@ -111,7 +110,7 @@ The following JSON shows the schema for the settings portion of the DSC Extensio
 | settings.configurationArguments | Collection | Defines any parameters you would like to pass to your DSC configuration. This property will not be encrypted.
 | settings.configurationData.url | string | Specifies the URL from which to download your configuration data (.pds1) file to use as input for your DSC configuration. If the URL provided requires a SAS token for access, you will need to set the protectedSettings.configurationDataUrlSasToken property to the value of your SAS token.
 | settings.privacy.dataEnabled | string | Enables or disables telemetry collection. The only possible values for this property are ‘Enable’, ‘Disable’, ”, or $null. Leaving this property blank or null will enable telemetry
-| settings.advancedOptions.forcePullAndApply | Bool | Enables the DSC Extension to update and enact DSC configurations when the refresh mode is Pull.
+| settings.advancedOptions.forcePullAndApply | Bool | This setting is designed to enhance the experience of working with the extension to register nodes  with Azure Automation DSC.  If the value is `$true`, the extension will wait for the first run of the configuration pulled from the service before returning success/failure.  If the value is set to $false, the status returned by the extension will only refer to whether the node was registered with Azure Automation State Configuration successfully and the node configuration will not be run during the registration.
 | settings.advancedOptions.downloadMappings | Collection | Defines alternate locations to download dependencies such as WMF and .NET
 
 ### Protected Settings Property values
@@ -145,7 +144,7 @@ Extension package is downloaded and deployed to this location on the Azure VM
 C:\Packages\Plugins\{Extension_Name}\{Extension_Version}
 ```
 
-Extension status file contains the sub status and status success/error codes along with the detailed error and desciption for each extension run.
+Extension status file contains the sub status and status success/error codes along with the detailed error and description for each extension run.
 ```
 C:\Packages\Plugins\{Extension_Name}\{Extension_Version}\Status\{0}.Status  -> {0} being the sequence number
 ```

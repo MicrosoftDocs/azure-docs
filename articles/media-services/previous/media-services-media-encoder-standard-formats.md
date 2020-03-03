@@ -1,6 +1,6 @@
 ---
 title: Media Encoder Standard formats and codecs - Azure
-description: This topic gives an overview of Media Encoder Standard formats and codecs.
+description: This article provides an overview of Media Encoder Standard formats and codecs.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -12,11 +12,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
-ms.author: juliako;anilmur
+ms.date: 03/18/2019
+ms.author: juliako
+ms.reviewer: anilmur
 
 ---
-# Media Encoder Standard Formats and Codecs (legacy)
+# Media Encoder Standard Formats and Codecs
 
 > [!div class="op_single_selector" title1="Select the version of Media Services that you are using:"]
 > * [Version 2](media-services-media-encoder-standard-formats.md)
@@ -26,7 +27,7 @@ This document contains a list of the most common import and export file formats 
 
 ## Input container/file Formats
 | File formats (file extensions) | Supported |
-| --- | --- | --- | --- |
+| --- | --- |
 | FLV (with H.264 and AAC codecs) (.flv) |Yes |
 | MXF    (.mxf) |Yes |
 | GXF    (.gxf) |Yes |
@@ -55,7 +56,7 @@ or
 
 ## Input video codecs
 | Input video codecs | Supported |
-| --- | --- | --- | --- |
+| --- | --- |
 | AVC 8-bit/10-bit, up to 4:2:2, including AVCIntra |8 bit 4:2:0 and 4:2:2 |
 | Avid DNxHD (in MXF) |Yes |
 | DVCPro/DVCProHD (in MXF) |Yes |
@@ -78,7 +79,7 @@ or
 
 ## Input audio codecs
 | Input Audio Codecs | Supported |
-| --- | --- | --- | --- |
+| --- | --- |
 | AAC (AAC-LC, AAC-HE, and AAC-HEv2; up to 5.1) |Yes |
 | MPEG Layer 2 |Yes |
 | MP3 (MPEG-1 Audio Layer 3) |Yes |

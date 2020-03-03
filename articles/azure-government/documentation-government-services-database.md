@@ -1,6 +1,6 @@
 ---
 title: Azure Government Databases | Microsoft Docs
-description: This provides a comparision of features and guidance on developing applications for Azure Government
+description: This provides a comparison of features and guidance on developing applications for Azure Government
 services: azure-government
 cloud: gov
 documentationcenter: ''
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 08/15/2017
-ms.author: zsk0646
+ms.date: 03/06/2019
+ms.author: zakramer
 
 ---
 # Azure Government Databases
@@ -47,7 +47,7 @@ For details on this service and how to use it, see [Azure SQL Server Stretch Dat
 For details on this service and how to use it, see [Azure Cosmos DB documentation](../cosmos-db/index.yml).
 
 ### Variations
-Azure Cosmos DB is generally available in Azure Government. The **Add Azure Search** function currently isn't available in Cosmos DB for Azure Government because Azure Search is not yet deployed in Azure Government.
+Azure Cosmos DB is generally available in Azure Government with parity to the public version. One exception is the **Add Azure Cognitive Search** function currently, which isn't available in Cosmos DB for Azure Government.
 
 Also, the URLs for accessing Cosmos DB in Azure Government are different:
 
@@ -65,7 +65,7 @@ The following information identifies the Azure Government boundary for Azure Cos
 
 
 ## Azure Cache for Redis
-For details on this service and how to use it, see [Azure Cache for Redis documentation](../azure-cache-for-redis/index.md).
+For details on this service and how to use it, see [Azure Cache for Redis documentation](../azure-cache-for-redis/index.yml).
 
 ### Variations
 The URLs for accessing and managing Azure Cache for Redis in Azure Government are different:
@@ -75,7 +75,7 @@ The URLs for accessing and managing Azure Cache for Redis in Azure Government ar
 | Cache endpoint |*.redis.cache.windows.net |*.redis.cache.usgovcloudapi.net |
 
 > [!NOTE]
-> All scripts and code need to account for the appropriate endpoints and environments. For more information, see [How to connect to other clouds](../azure-cache-for-redis/cache-howto-manage-redis-cache-powershell.md#how-to-connect-to-other-clouds).
+> All scripts and code need to account for the appropriate endpoints and environments. For more information, see [How to connect to other clouds](../azure-cache-for-redis/cache-how-to-manage-redis-cache-powershell.md#how-to-connect-to-other-clouds).
 >
 >
 
@@ -85,6 +85,63 @@ The following information identifies the Azure Government boundary for Azure Cac
 | Regulated/controlled data permitted | Regulated/controlled data not permitted |
 | --- | --- |
 | All data stored and processed in Azure Cache for Redis can contain Azure Government-regulated data. |Azure Cache for Redis metadata is not permitted to contain export-controlled data. Do not enter regulated/controlled data into the following fields: **Cache name, Subscription name, Resource groups, Resource tags, Redis properties**. |
+
+## Azure Database for PostgreSQL
+For details on this service and how to use it, see [Azure Database for PostgreSQL documentation](../postgresql/index.yml).
+
+### Variations
+Advanced Threat Protection, Query Performance Insights and Performance Recommendations for Azure Database for PostgreSQL are **not** available in Azure Government.
+
+The URLs for accessing and managing Azure Database for PostgreSQL in Azure Government are different:
+
+| Service Type | Azure Public | Azure Government |
+| --- | --- | --- |
+| PostgreSQL endpoint |*.postgres.database.azure.com |*.postgres.database.usgovcloudapi.net |
+
+### Considerations
+The following information identifies the Azure Government boundary for Azure Database for PostgreSQL:
+
+| Regulated/controlled data permitted | Regulated/controlled data not permitted |
+| --- | --- |
+| All data stored and processed in Azure Database for PostgreSQL can contain Azure Government-regulated data. Use database tools for data transfer of Azure Government-regulated data. |Azure Database for PostgreSQL metadata is not permitted to contain export-controlled data. This metadata includes all configuration data entered when creating and maintaining your storage product.  Do not enter regulated/controlled data into the following fields: Database name, Subscription name, Resource groups, Server name, Server admin login, Deployment names, Resource names, Resource tags. |
+
+## Azure Database for MariaDB
+For details on this service and how to use it, see [Azure Database for MariaDB documentation](../mariadb/index.yml).
+
+### Variations
+Query Performance Insights and Performance Recommendations for Azure Database for MariaDB are **not** available in Azure Government.
+
+The URLs for accessing and managing Azure Database for MariaDB in Azure Government are different:
+
+| Service Type | Azure Public | Azure Government |
+| --- | --- | --- |
+| MariaDB endpoint |*.mariadb.database.azure.com |*.mariadb.database.usgovcloudapi.net |
+
+### Considerations
+The following information identifies the Azure Government boundary for Azure Database for MariaDB:
+
+| Regulated/controlled data permitted | Regulated/controlled data not permitted |
+| --- | --- |
+| All data stored and processed in Azure Database for MariaDB can contain Azure Government-regulated data. Use database tools for data transfer of Azure Government-regulated data. |Azure Database for MariaDB metadata is not permitted to contain export-controlled data. This metadata includes all configuration data entered when creating and maintaining your storage product.  Do not enter regulated/controlled data into the following fields: Database name, Subscription name, Resource groups, Server name, Server admin login, Deployment names, Resource names, Resource tags. |
+
+## Azure Database for MySQL
+For details on this service and how to use it, see [Azure Database for MySQL documentation](../mysql/index.yml).
+
+### Variations
+Advanced Threat Protection, Query Performance Insights and Performance Recommendations for Azure Database for MySQL are **not** available in Azure Government.
+
+The URLs for accessing and managing Azure Database for MySQL in Azure Government are different:
+
+| Service Type | Azure Public | Azure Government |
+| --- | --- | --- |
+| MySQL endpoint |*.mysql.database.azure.com |*.mysql.database.usgovcloudapi.net |
+
+### Considerations
+The following information identifies the Azure Government boundary for Azure Database for MySQL:
+
+| Regulated/controlled data permitted | Regulated/controlled data not permitted |
+| --- | --- |
+| All data stored and processed in Azure Database for MySQL can contain Azure Government-regulated data. Use database tools for data transfer of Azure Government-regulated data. |Azure Database for MySQL metadata is not permitted to contain export-controlled data. This metadata includes all configuration data entered when creating and maintaining your storage product.  Do not enter regulated/controlled data into the following fields: Database name, Subscription name, Resource groups, Server name, Server admin login, Deployment names, Resource names, Resource tags. |
 
 ## Next steps
 For supplemental information and updates subscribe to the

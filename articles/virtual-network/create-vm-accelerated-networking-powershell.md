@@ -1,5 +1,5 @@
 ---
-title: Create an Azure virtual machine with Accelerated Networking | Microsoft Docs
+title: Create an Azure VM with Accelerated Networking - Azure PowerShell
 description: Learn how to create a Linux virtual machine with Accelerated Networking.
 services: virtual-network
 documentationcenter: ''
@@ -17,7 +17,7 @@ ms.date: 01/04/2018
 ms.author: gsilva
 ---
 
-# Create a Windows virtual machine with Accelerated Networking
+# Create a Windows virtual machine with Accelerated Networking using Azure PowerShell
 
 In this tutorial, you learn how to create a Windows virtual machine (VM) with Accelerated Networking. To create a Linux VM with Accelerated Networking, see [Create a Linux VM with Accelerated Networking](create-vm-accelerated-networking-cli.md). Accelerated networking enables single root I/O virtualization (SR-IOV) to a VM, greatly improving its networking performance. This high-performance path bypasses the host from the datapath, reducing latency, jitter, and CPU utilization, for use with the most demanding network workloads on supported VM types. The following picture shows communication between two VMs with and without accelerated networking:
 
@@ -40,11 +40,12 @@ The benefits of accelerated networking only apply to the VM that it is enabled o
 The following distributions are supported out of the box from the Azure Gallery:
 * **Windows Server 2016 Datacenter** 
 * **Windows Server 2012 R2 Datacenter**
+* **Windows Server 2019 Datacenter**
 
 ### Supported VM instances
 Accelerated Networking is supported on most general purpose and compute-optimized instance sizes with 2 or more vCPUs.  These supported series are: D/DSv2 and F/Fs
 
-On instances that support hyperthreading, Accelerated Networking is supported on VM instances with 4 or more vCPUs. Supported series are: D/DSv3, E/ESv3, Fsv2, and Ms/Mms
+On instances that support hyperthreading, Accelerated Networking is supported on VM instances with 4 or more vCPUs. Supported series are: D/Dsv3, E/Esv3, Fsv2, Lsv2, Ms/Mms and Ms/Mmsv2.
 
 For more information on VM instances, see [Windows VM sizes](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
@@ -69,7 +70,7 @@ After the virtual machine is created, you can confirm Accelerated Networking is 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Install [Azure PowerShell](/powershell/azure/install-az-ps) version 1.0.0 or later. To find your currently installed version, run `Get-Module -ListAvailable Az`. If you need to install or upgrade, install the latest version of the Az module from the [PowerShell Gallery](https://www.powershellgallery.com/packages/Az). In a PowerShell session, log in to an Azure account using [Connect-AzAccount](/powershell/module/az.profile/connect-azaccount).
+Install [Azure PowerShell](/powershell/azure/install-az-ps) version 1.0.0 or later. To find your currently installed version, run `Get-Module -ListAvailable Az`. If you need to install or upgrade, install the latest version of the Az module from the [PowerShell Gallery](https://www.powershellgallery.com/packages/Az). In a PowerShell session, log in to an Azure account using [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount).
 
 In the following examples, replace example parameter names with your own values. Example parameter names included *myResourceGroup*, *myNic*, and *myVM*.
 

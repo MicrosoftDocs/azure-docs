@@ -1,5 +1,5 @@
 ---
-title: Create a SQL Server availability group listener in Azure virtual machines | Microsoft Docs
+title: Configure availability group listeners & load balancer (Azure portal)
 description: Step-by-step instructions for creating a listener for an Always On availability group for SQL Server in Azure virtual machines
 services: virtual-machines
 documentationcenter: na
@@ -9,15 +9,16 @@ editor: monicar
 
 ms.assetid: d1f291e9-9af2-41ba-9d29-9541e3adcfcf
 ms.service: virtual-machines-sql
-ms.devlang: na
+
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 02/16/2017
 ms.author: mikeray 
+ms.custom: "seo-lt-2019"
 
 ---
-# Configure a load balancer for an Always On availability group in Azure
+# Configure a load balancer for an availability group on Azure SQL Server VMs
 This article explains how to create a load balancer for a SQL Server Always On availability group in Azure virtual machines that are running with Azure Resource Manager. An availability group requires a load balancer when the SQL Server instances are on Azure virtual machines. The load balancer stores the IP address for the availability group listener. If an availability group spans multiple regions, each region needs a load balancer.
 
 To complete this task, you need to have a SQL Server availability group deployed on Azure virtual machines that are running with Resource Manager. Both SQL Server virtual machines must belong to the same availability set. You can use the [Microsoft template](virtual-machines-windows-portal-sql-alwayson-availability-groups.md) to automatically create the availability group in Resource Manager. This template automatically creates an internal load balancer for you. 
@@ -63,7 +64,7 @@ First, create the load balancer.
    | --- | --- |
    | **Name** |A text name representing the load balancer. For example, **sqlLB**. |
    | **Type** |**Internal**: Most implementations use an internal load balancer, which allows applications within the same virtual network to connect to the availability group.  </br> **External**: Allows applications to connect to the availability group through a public Internet connection. |
-   | **Virtual network** |Select the virtual network that the SQL Server intances are in. |
+   | **Virtual network** |Select the virtual network that the SQL Server instances are in. |
    | **Subnet** |Select the subnet that the SQL Server instances are in. |
    | **IP address assignment** |**Static** |
    | **Private IP address** |Specify an available IP address from the subnet. Use this IP address when you create a listener on the cluster. In a PowerShell script, later in this article, use this address for the `$ILBIP` variable. |
@@ -231,18 +232,18 @@ To add an IP address to a load balancer with the Azure portal, do the following:
 
 10. Configure the new load balancing rule by using the following settings:
 
-   |Setting |Value
-   |:-----|:----
-   |**Name** |A name to identify the load balancing rule. 
-   |**Frontend IP address** |Select the IP address you created. 
-   |**Protocol** |TCP
-   |**Port** |Use the port that the SQL Server instances are using. A default instance uses port 1433, unless you changed it. 
-   |**Backend port** |Use the same value as **Port**.
-   |**Backend pool** |The pool that contains the virtual machines with the SQL Server instances. 
-   |**Health probe** |Choose the probe you created.
-   |**Session persistence** |None
-   |**Idle timeout (minutes)** |Default (4)
-   |**Floating IP (direct server return)** | Enabled
+    |Setting |Value
+    |:-----|:----
+    |**Name** |A name to identify the load balancing rule. 
+    |**Frontend IP address** |Select the IP address you created. 
+    |**Protocol** |TCP
+    |**Port** |Use the port that the SQL Server instances are using. A default instance uses port 1433, unless you changed it. 
+    |**Backend port** |Use the same value as **Port**.
+    |**Backend pool** |The pool that contains the virtual machines with the SQL Server instances. 
+    |**Health probe** |Choose the probe you created.
+    |**Session persistence** |None
+    |**Idle timeout (minutes)** |Default (4)
+    |**Floating IP (direct server return)** | Enabled
 
 ### Configure the availability group to use the new IP address
 

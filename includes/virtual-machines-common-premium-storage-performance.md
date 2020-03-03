@@ -1,36 +1,14 @@
-﻿---
+---
  title: include file
  description: include file
  services: virtual-machines
  author: roygara
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 09/24/2018
+ ms.date: 07/08/2019
  ms.author: rogarana
  ms.custom: include file
 ---
-
-# Azure premium storage: design for high performance
-
-This article provides guidelines for building high performance applications using Azure Premium Storage. You can use the instructions provided in this document combined with performance best practices applicable to technologies used by your application. To illustrate the guidelines, we have used SQL Server running on Premium Storage as an example throughout this document.
-
-While we address performance scenarios for the Storage layer in this article, you will need to optimize the application layer. For example, if you are hosting a SharePoint Farm on Azure Premium Storage, you can use the SQL Server examples from this article to optimize the database server. Additionally, optimize the SharePoint Farm's Web server and Application server to get the most performance.
-
-This article will help answer following common questions about optimizing application performance on Azure Premium Storage,
-
-* How to measure your application performance?  
-* Why are you not seeing expected high performance?  
-* Which factors influence your application performance on Premium Storage?  
-* How do these factors influence performance of your application on Premium Storage?  
-* How can you optimize for IOPS, Bandwidth and Latency?  
-
-We have provided these guidelines specifically for Premium Storage because workloads running on Premium Storage are highly performance sensitive. We have provided examples where appropriate. You can also apply some of these guidelines to applications running on IaaS VMs with Standard Storage disks.
-
-> [!NOTE]
-> Sometimes, what appears to be a disk performance issue is actually a network bottleneck. In these situations, you should optimize your [network performance](../articles/virtual-network/virtual-network-optimize-network-bandwidth.md).
-> If your VM supports accelerated networking, you should make sure it is enabled. If it is not enabled, you can enable it on already deployed VMs on both [Windows](../articles/virtual-network/create-vm-accelerated-networking-powershell.md#enable-accelerated-networking-on-existing-vms) and [Linux](../articles/virtual-network/create-vm-accelerated-networking-cli.md#enable-accelerated-networking-on-existing-vms).
-
-Before you begin, if you are new to Premium Storage, first read the [Select an Azure disk type for IaaS VMs](../articles/virtual-machines/windows/disks-types.md) and [Azure Storage Scalability and Performance Targets](../articles/storage/common/storage-scalability-targets.md) articles.
 
 ## Application performance indicators
 
@@ -62,15 +40,15 @@ Latency is the time it takes an application to receive a single request, send it
 
 When you are optimizing your application to get higher IOPS and Throughput, it will affect the latency of your application. After tuning the application performance, always evaluate the latency of the application to avoid unexpected high latency behavior.
 
-The following control plane operations on Managed Disks may involve movement of the Disk from one Storage location to another. This is orchestrated via background copy of data that can take several hours to complete, typically less than 24 hours depending on the amount of data in the disks. During that time your application can experience higher than usual read latency as some reads can get redirected to the original location, and can take longer to complete. There is no impact on write latency during this period.
+The following control plane operations on Managed Disks may involve movement of the Disk from one Storage location to another. This is orchestrated via background copy of data that can take several hours to complete, typically less than 24 hours depending on the amount of data in the disks. During that time your application can experience higher than usual read latency as some reads can get redirected to the original location and can take longer to complete. There is no impact on write latency during this period.
 
-1. [Update the storage type](../articles/virtual-machines/windows/convert-disk-storage.md).
-1. [Detach and attach a disk from one VM to another](../articles/virtual-machines/windows/attach-disk-ps.md#attach-an-existing-data-disk-to-a-vm).
-1. [Create a managed disk from a VHD](../articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-vhd.md).
-1. [Create a managed disk from a snapshot](../articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-snapshot.md).
-1. [Convert unmanaged disks to managed disks](../articles/virtual-machines/windows/convert-unmanaged-to-managed-disks.md).
+- Update the storage type.
+- Detach and attach a disk from one VM to another.
+- Create a managed disk from a VHD.
+- Create a managed disk from a snapshot.
+- Convert unmanaged disks to managed disks.
 
-# Performance Application Checklist for disks
+## Performance Application Checklist for disks
 
 The first step in designing high-performance applications running on Azure Premium Storage is understanding the performance requirements of your application. After you have gathered performance requirements, you can optimize your application to achieve the most optimal performance.
 
@@ -128,7 +106,7 @@ Learn more about [iostat](https://linux.die.net/man/1/iostat) and [PerfMon](http
 
 The main factors that influence performance of an application running on Premium Storage are Nature of IO requests, VM size, Disk size, Number of disks, disk caching, multithreading, and queue depth. You can control some of these factors with knobs provided by the system. Most applications may not give you an option to alter the IO size and Queue Depth directly. For example, if you are using SQL Server, you cannot choose the IO size and queue depth. SQL Server chooses the optimal IO size and queue depth values to get the most performance. It is important to understand the effects of both types of factors on your application performance, so that you can provision appropriate resources to meet performance needs.
 
-Throughout this section, refer to the application requirements checklist that you created, to identify how much you need to optimize your application performance. Based on that, you will be able to determine which factors from this section you will need to tune. To witness the effects of each factor on your application performance, run benchmarking tools on your application setup. Refer to the Benchmarking section at the end of this article for steps to run common benchmarking tools on Windows and Linux VMs.
+Throughout this section, refer to the application requirements checklist that you created, to identify how much you need to optimize your application performance. Based on that, you will be able to determine which factors from this section you will need to tune. To witness the effects of each factor on your application performance, run benchmarking tools on your application setup. Refer to the Benchmarking article, linked at the end, for steps to run common benchmarking tools on Windows and Linux VMs.
 
 ### Optimize IOPS, throughput, and latency at a glance
 
@@ -143,7 +121,7 @@ For more information on VM sizes and on the IOPS, throughput, and latency availa
 | **IO size** |Smaller IO size yields higher IOPS. |Larger IO size to yields higher Throughput. | &nbsp;|
 | **VM size** |Use a VM size that offers IOPS greater than your application requirement. |Use a VM size with throughput limit greater than your application requirement. |Use a VM size that offers scale limits greater than your application requirement. |
 | **Disk size** |Use a disk size that offers IOPS greater than your application requirement. |Use a disk size with Throughput limit greater than your application requirement. |Use a disk size that offers scale limits greater than your application requirement. |
-| **VM and Disk Scale Limits** |IOPS limit of the VM size chosen should be greater than total IOPS driven by premium storage disks attached to it. |Throughput limit of the VM size chosen should be greater than total Throughput driven by premium storage disks attached to it. |Scale limits of the VM size chosen must be greater than total scale limits of attached premium storage disks. |
+| **VM and Disk Scale Limits** |IOPS limit of the VM size chosen should be greater than total IOPS driven by storage disks attached to it. |Throughput limit of the VM size chosen should be greater than total Throughput driven by premium storage disks attached to it. |Scale limits of the VM size chosen must be greater than total scale limits of attached premium storage disks. |
 | **Disk Caching** |Enable ReadOnly Cache on premium storage disks with Read heavy operations to get higher Read IOPS. | &nbsp; |Enable ReadOnly Cache on premium storage disks with Ready heavy operations to get very low Read latencies. |
 | **Disk Striping** |Use multiple disks and stripe them together to get a combined higher IOPS and Throughput limit. The combined limit per VM should be higher than the combined limits of attached premium disks. | &nbsp; | &nbsp; |
 | **Stripe Size** |Smaller stripe size for random small IO pattern seen in OLTP applications. For example, use stripe size of 64 KB for SQL Server OLTP application. |Larger stripe size for sequential large IO pattern seen in Data Warehouse applications. For example, use 256 KB stripe size for SQL Server Data warehouse application. | &nbsp; |
@@ -152,7 +130,7 @@ For more information on VM sizes and on the IOPS, throughput, and latency availa
 
 ## Nature of IO requests
 
-An IO request is a unit of input/output operation that your application will be performing. Identifying the nature of IO requests, random or sequential, read or write, small or large, will help you determine the performance requirements of your application. It is important to understand the nature of IO requests, to make the right decisions when designing your application infrastructure.
+An IO request is a unit of input/output operation that your application will be performing. Identifying the nature of IO requests, random or sequential, read or write, small or large, will help you determine the performance requirements of your application. It is important to understand the nature of IO requests, to make the right decisions when designing your application infrastructure. IOs must be distributed evenly to achieve the best performance possible.
 
 IO size is one of the more important factors. The IO size is the size of the input/output operation request generated by your application. The IO size has a significant impact on performance especially on the IOPS and Bandwidth that the application is able to achieve. The following formula shows the relationship between IOPS, IO size, and Bandwidth/Throughput.  
     ![](media/premium-storage-performance/image1.png)
@@ -169,7 +147,7 @@ If you are using an application, which allows you to change the IO size, use thi
 * Smaller IO size to get higher IOPS. For example, 8 KB for an OLTP application.  
 * Larger IO size to get higher Bandwidth/Throughput. For example, 1024 KB for a data warehouse application.
 
-Here is an example on how you can calculate the IOPS and Throughput/Bandwidth for your application. Consider an application using a P30 disk. The maximum IOPS and Throughput/Bandwidth a P30 disk can achieve is 5000 IOPS and 200 MB per second respectively. Now, if your application requires the maximum IOPS from the P30 disk and you use a smaller IO size like 8 KB, the resulting Bandwidth you will be able to get is 40 MB per second. However, if your application requires the maximum Throughput/Bandwidth from P30 disk, and you use a larger IO size like 1024 KB, the resulting IOPS will be less, 200 IOPS. Therefore, tune the IO size such that it meets both your application's IOPS and Throughput/Bandwidth requirement. Table below summarizes the different IO sizes and their corresponding IOPS and Throughput for a P30 disk.
+Here is an example on how you can calculate the IOPS and Throughput/Bandwidth for your application. Consider an application using a P30 disk. The maximum IOPS and Throughput/Bandwidth a P30 disk can achieve is 5000 IOPS and 200 MB per second respectively. Now, if your application requires the maximum IOPS from the P30 disk and you use a smaller IO size like 8 KB, the resulting Bandwidth you will be able to get is 40 MB per second. However, if your application requires the maximum Throughput/Bandwidth from P30 disk, and you use a larger IO size like 1024 KB, the resulting IOPS will be less, 200 IOPS. Therefore, tune the IO size such that it meets both your application's IOPS and Throughput/Bandwidth requirement. The following table summarizes the different IO sizes and their corresponding IOPS and Throughput for a P30 disk.
 
 | Application Requirement | I/O size | IOPS | Throughput/Bandwidth |
 | --- | --- | --- | --- |
@@ -183,13 +161,13 @@ To get IOPS and Bandwidth higher than the maximum value of a single premium stor
 > [!NOTE]
 > As you increase either IOPS or Throughput the other also increases, make sure you do not hit throughput or IOPS limits of the disk or VM when increasing either one.
 
-To witness the effects of IO size on application performance, you can run benchmarking tools on your VM and disks. Create multiple test runs and use different IO size for each run to see the impact. Refer to the Benchmarking section at the end of this article for more details.
+To witness the effects of IO size on application performance, you can run benchmarking tools on your VM and disks. Create multiple test runs and use different IO size for each run to see the impact. Refer to the Benchmarking article, linked at the end, for more details.
 
 ## High scale VM sizes
 
-When you start designing an application, one of the first things to do is, choose a VM to host your application. Premium Storage comes with High Scale VM sizes that can run applications requiring higher compute power and a high local disk I/O performance. These VMs provide faster processors, a higher memory-to-core ratio, and a Solid-State Drive (SSD) for the local disk. Examples of High Scale VMs supporting Premium Storage are the DS, DSv2, and GS series VMs.
+When you start designing an application, one of the first things to do is, choose a VM to host your application. Premium Storage comes with High Scale VM sizes that can run applications requiring higher compute power and a high local disk I/O performance. These VMs provide faster processors, a higher memory-to-core ratio, and a Solid-State Drive (SSD) for the local disk. Examples of High Scale VMs supporting Premium Storage are the DS and GS series VMs.
 
-High Scale VMs are available in different sizes with a different number of CPU cores, memory, OS, and temporary disk size. Each VM size also has maximum number of data disks that you can attach to the VM. Therefore, the chosen VM size will affect how much processing, memory, and storage capacity is available for your application. It also affects the Compute and Storage cost. For example, below are the specifications of the largest VM size in a DS series, DSv2 series and a GS series:
+High Scale VMs are available in different sizes with a different number of CPU cores, memory, OS, and temporary disk size. Each VM size also has maximum number of data disks that you can attach to the VM. Therefore, the chosen VM size will affect how much processing, memory, and storage capacity is available for your application. It also affects the Compute and Storage cost. For example, below are the specifications of the largest VM size in a DS series and a GS series:
 
 | VM size | CPU cores | Memory | VM disk sizes | Max. data disks | Cache size | IOPS | Bandwidth Cache IO limits |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -226,13 +204,9 @@ When running Linux with Premium Storage, check the latest updates about required
 
 ## Premium storage disk sizes
 
-Azure Premium Storage offers eight GA disk sizes and three disk sizes that are in preview, currently. Each disk size has a different scale limit for IOPS, bandwidth, and storage. Choose the right Premium Storage Disk size depending on the application requirements and the high scale VM size. The table below shows the 11 disks sizes and their capabilities. P4, P6, P15, P60, P70, and P80 sizes are currently only supported for Managed Disks.
+Azure Premium Storage offers a variety of sizes so you can choose one that best suits your needs. Each disk size has a different scale limit for IOPS, bandwidth, and storage. Choose the right Premium Storage Disk size depending on the application requirements and the high scale VM size. The table below shows the disks sizes and their capabilities. P4, P6, P15, P60, P70, and P80 sizes are currently only supported for Managed Disks.
 
-| Premium Disks Type  | P4    | P6    | P10   | P15 | P20   | P30   | P40   | P50   | P60   | P70   | P80   |
-|---------------------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|
-| Disk size           | 32 GiB | 64 GiB | 128 GiB| 256 GiB| 512 GB            | 1,024 GiB (1 TiB)    | 2,048 GiB (2 TiB)    | 4,095 GiB (4 TiB)    | 8,192 GiB (8 TiB)    | 16,384 GiB (16 TiB)    | 32,767 GiB (32 GiB)    |
-| IOPS per disk       | 120   | 240   | 500   | 1100 | 2300              | 5000              | 7500              | 7500              | 12,500              | 15,000              | 20,000              |
-| Throughput per disk | 25 MiB per second  | 50 MiB per second  | 100 MiB per second |125 MiB per second | 150 MiB per second | 200 MiB per second | 250 MiB per second | 250 MiB per second | 480 MiB per second | 750 MiB per second | 750 MiB per second |
+[!INCLUDE [disk-storage-premium-ssd-sizes](disk-storage-premium-ssd-sizes.md)]
 
 How many disks you choose depends on the disk size chosen. You could use a single P50 disk or multiple P10 disks to meet your application requirement. Take into account considerations listed below when making the choice.
 
@@ -256,7 +230,8 @@ Remember, the Premium Storage disks have higher performance capabilities compare
 High Scale VMs that leverage Azure Premium Storage have a multi-tier caching technology called BlobCache. BlobCache uses a combination of the Virtual Machine RAM and local SSD for caching. This cache is available for the Premium Storage persistent disks and the VM local disks. By default, this cache setting is set to Read/Write for OS disks and ReadOnly for data disks hosted on Premium Storage. With disk caching enabled on the Premium Storage disks, the high scale VMs can achieve extremely high levels of performance that exceed the underlying disk performance.
 
 > [!WARNING]
-> Disk Caching is only supported for disk sizes up to 4 TiB.
+> Disk Caching is not supported for disks 4 TiB and larger. If multiple disks are attached to your VM, each disk that is smaller than 4 TiB will support caching.
+>
 > Changing the cache setting of an Azure disk detaches and re-attaches the target disk. If it is the operating system disk, the VM is restarted. Stop all applications/services that might be affected by this disruption before changing the disk cache setting.
 
 To learn more about how BlobCache works, refer to the Inside [Azure Premium Storage](https://azure.microsoft.com/blog/azure-premium-storage-now-generally-available-2/) blog post.
@@ -285,6 +260,9 @@ By configuring ReadOnly caching on Premium Storage data disks, you can achieve l
 *ReadWrite*  
 By default, the OS disks have ReadWrite caching enabled. We have recently added support for ReadWrite caching on data disks as well. If you are using ReadWrite caching, you must have a proper way to write the data from cache to persistent disks. For example, SQL Server handles writing cached data to the persistent storage disks on its own. Using ReadWrite cache with an application that does not handle persisting the required data can lead to data loss, if the VM crashes.
 
+*None*  
+Currently, **None** is only supported on data disks. It is not supported on OS disks. If you set **None** on an OS disk it will override this internally and set it to **ReadOnly**.
+
 As an example, you can apply these guidelines to SQL Server running on Premium Storage by doing the following,
 
 1. Configure "ReadOnly" cache on premium storage disks hosting data files.  
@@ -293,7 +271,7 @@ As an example, you can apply these guidelines to SQL Server running on Premium S
 1. Configure "None" cache on premium storage disks hosting the log files.  
    a.  Log files have primarily write-heavy operations. Therefore, they do not benefit from the ReadOnly cache.
 
-### Optimize performance on Linux VMs
+## Optimize performance on Linux VMs
 
 For all premium SSDs or ultra disks with cache set to **ReadOnly** or **None**, you must disable "barriers" when you mount the file system. You don't need barriers in this scenario because the writes to premium storage disks are durable for these cache settings. When the write request successfully finishes, data has been written to the persistent store. To disable "barriers," use one of the following methods. Choose the one for your file system:
   
@@ -303,35 +281,37 @@ For all premium SSDs or ultra disks with cache set to **ReadOnly** or **None**, 
 * For premium storage disks with cache set to **ReadWrite**, enable barriers for write durability.
 * For volume labels to persist after you restart the VM, you must update /etc/fstab with the universally unique identifier (UUID) references to the disks. For more information, see [Add a managed disk to a Linux VM](../articles/virtual-machines/linux/add-disk.md).
 
-The following Linux distributions have been validated for premium SSDs. For better performance and stability with premium SSDs, we recommend that you upgrade your VMs to one of these versions or later. 
+The following Linux distributions have been validated for premium SSDs. For better performance and stability with premium SSDs, we recommend that you upgrade your VMs to one of these versions or newer. 
 
 Some of the versions require the latest Linux Integration Services (LIS), v4.0, for Azure. To download and install a distribution, follow the link listed in the following table. We add images to the list as we complete validation. Our validations show that performance varies for each image. Performance depends on workload characteristics and your image settings. Different images are tuned for different kinds of workloads.
 
 | Distribution | Version | Supported kernel | Details |
 | --- | --- | --- | --- |
-| Ubuntu | 12.04 | 3.2.0-75.110+ | Ubuntu-12_04_5-LTS-amd64-server-20150119-en-us-30GB |
-| Ubuntu | 14.04 | 3.13.0-44.73+ | Ubuntu-14_04_1-LTS-amd64-server-20150123-en-us-30GB |
-| Debian | 7.x, 8.x | 3.16.7-ckt4-1+ | &nbsp; |
-| SUSE | SLES 12| 3.12.36-38.1+| suse-sles-12-priority-v20150213 <br> suse-sles-12-v20150213 |
-| SUSE | SLES 11 SP4 | 3.0.101-0.63.1+ | &nbsp; |
-| CoreOS | 584.0.0+| 3.18.4+ | CoreOS 584.0.0 |
-| CentOS | 6.5, 6.6, 6.7, 7.0 | &nbsp; | [LIS4 required](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br> *See note in the next section* |
-| CentOS | 7.1+ | 3.10.0-229.1.2.el7+ | [LIS4 recommended](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br> *See note in the next section* |
-| Red Hat Enterprise Linux (RHEL) | 6.8+, 7.2+ | &nbsp; | &nbsp; |
-| Oracle | 6.0+, 7.2+ | &nbsp; | UEK4 or RHCK |
-| Oracle | 7.0-7.1 | &nbsp; | UEK4 or RHCK w/[LIS 4.1+](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |
-| Oracle | 6.4-6.7 | &nbsp; | UEK4 or RHCK w/[LIS 4.1+](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |
+| Ubuntu | 12.04 or newer| 3.2.0-75.110+ | &nbsp; |
+| Ubuntu | 14.04 or newer| 3.13.0-44.73+  | &nbsp; |
+| Debian | 7.x, 8.x or newer| 3.16.7-ckt4-1+ | &nbsp; |
+| SUSE | SLES 12 or newer| 3.12.36-38.1+ | &nbsp; |
+| SUSE | SLES 11 SP4 or newer| 3.0.101-0.63.1+ | &nbsp; |
+| CoreOS | 584.0.0+ or newer| 3.18.4+ | &nbsp; |
+| CentOS | 6.5, 6.6, 6.7, 7.0, or newer| &nbsp; | [LIS4 required](https://www.microsoft.com/download/details.aspx?id=55106) <br> *See note in the next section* |
+| CentOS | 7.1+ or newer| 3.10.0-229.1.2.el7+ | [LIS4 recommended](https://www.microsoft.com/download/details.aspx?id=55106) <br> *See note in the next section* |
+| Red Hat Enterprise Linux (RHEL) | 6.8+, 7.2+, or newer | &nbsp; | &nbsp; |
+| Oracle | 6.0+, 7.2+, or newer | &nbsp; | UEK4 or RHCK |
+| Oracle | 7.0-7.1 or newer | &nbsp; | UEK4 or RHCK w/[LIS4](https://www.microsoft.com/download/details.aspx?id=55106) |
+| Oracle | 6.4-6.7 or newer | &nbsp; | UEK4 or RHCK w/[LIS4](https://www.microsoft.com/download/details.aspx?id=55106) |
 
-## LIS drivers for OpenLogic CentOS
+### LIS drivers for OpenLogic CentOS
 
 If you're running OpenLogic CentOS VMs, run the following command to install the latest drivers:
 
 ```
-sudo rpm -e hypervkvpd  ## (Might return an error if not installed. That's OK.)
+sudo yum remove hypervkvpd  ## (Might return an error if not installed. That's OK.)
 sudo yum install microsoft-hyper-v
+sudo reboot
 ```
 
-To activate the new drivers, restart the VM.
+In some cases the command above will upgrade the kernel as well. If a kernel update is required then you may need to run the above commands again after rebooting to fully install the microsoft-hyper-v package.
+
 
 ## Disk striping
 
@@ -348,7 +328,7 @@ An important configuration in disk striping is the stripe size. The stripe size 
 
 For example, if an IO request generated by your application is bigger than the disk stripe size, the storage system writes it across stripe unit boundaries on more than one disk. When it is time to access that data, it will have to seek across more than one stripe units to complete the request. The cumulative effect of such behavior can lead to substantial performance degradation. On the other hand, if the IO request size is smaller than stripe size, and if it is random in nature, the IO requests may add up on the same disk causing a bottleneck and ultimately degrading the IO performance.
 
-Depending on the type of workload your application is running, choose an appropriate stripe size. For random small IO requests, use a smaller stripe size. Whereas, for large sequential IO requests use a larger stripe size. Find out the stripe size recommendations for the application you will be running on Premium Storage. For SQL Server, configure stripe size of 64 KB for OLTP workloads and 256 KB for data warehousing workloads. See [Performance best practices for SQL Server on Azure VMs](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-performance.md#disks-guidance) to learn more.
+Depending on the type of workload your application is running, choose an appropriate stripe size. For random small IO requests, use a smaller stripe size. Whereas for large sequential IO requests use a larger stripe size. Find out the stripe size recommendations for the application you will be running on Premium Storage. For SQL Server, configure stripe size of 64 KB for OLTP workloads and 256 KB for data warehousing workloads. See [Performance best practices for SQL Server on Azure VMs](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-performance.md#disks-guidance) to learn more.
 
 > [!NOTE]
 > You can stripe together a maximum of 32 premium storage disks on a DS series VM and 64 premium storage disks on a GS series VM.
@@ -399,12 +379,3 @@ For a striped volume, maintain a high enough queue depth such that, every disk h
 Azure Premium Storage provisions specified number of IOPS and Throughput depending on the VM sizes and disk sizes you choose. Anytime your application tries to drive IOPS or Throughput above these limits of what the VM or disk can handle, Premium Storage will throttle it. This manifests in the form of degraded performance in your application. This can mean higher latency, lower Throughput, or lower IOPS. If Premium Storage does not throttle, your application could completely fail by exceeding what its resources are capable of achieving. So, to avoid performance issues due to throttling, always provision sufficient resources for your application. Take into consideration what we discussed in the VM sizes and Disk sizes sections above. Benchmarking is the best way to figure out what resources you will need to host your application.
 
 ## Next steps
-
-Learn more about the available disk types:
-
-* [Select a disk type](../articles/virtual-machines/windows/disks-types.md)  
-
-For SQL Server users, read articles on Performance Best Practices for SQL Server:
-
-* [Performance Best Practices for SQL Server in Azure Virtual Machines](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-performance.md)
-* [Azure Premium Storage provides highest performance for SQL Server in Azure VM](http://blogs.technet.com/b/dataplatforminsider/archive/2015/04/23/azure-premium-storage-provides-highest-performance-for-sql-server-in-azure-vm.aspx)

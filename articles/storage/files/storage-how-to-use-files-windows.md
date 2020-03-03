@@ -1,12 +1,11 @@
 ---
 title: Use an Azure file share with Windows | Microsoft Docs
 description: Learn how to use an Azure file share with Windows and Windows Server.
-services: storage
-author: RenaShahMSFT
+author: roygara
 ms.service: storage
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 06/07/2018
-ms.author: renash
+ms.author: rogarana
 ms.subservice: files
 ---
 
@@ -18,19 +17,20 @@ In order to use an Azure file share outside of the Azure region it is hosted in,
 You can use Azure file shares on a Windows installation that is running either in an Azure VM or on-premises. The following table illustrates which OS versions support accessing file shares in which environment:
 
 | Windows version        | SMB version | Mountable in Azure VM | Mountable On-Premises |
-|------------------------|-------------|-----------------------|----------------------|
-| Windows Server 2019    | SMB 3.0 | Yes | Yes |
+|------------------------|-------------|-----------------------|-----------------------|
+| Windows Server 2019 | SMB 3.0 | Yes | Yes |
 | Windows 10<sup>1</sup> | SMB 3.0 | Yes | Yes |
 | Windows Server semi-annual channel<sup>2</sup> | SMB 3.0 | Yes | Yes |
-| Windows Server 2016    | SMB 3.0     | Yes                   | Yes                  |
-| Windows 8.1            | SMB 3.0     | Yes                   | Yes                  |
-| Windows Server 2012 R2 | SMB 3.0     | Yes                   | Yes                  |
-| Windows Server 2012    | SMB 3.0     | Yes                   | Yes                  |
-| Windows 7              | SMB 2.1     | Yes                   | No                   |
-| Windows Server 2008 R2 | SMB 2.1     | Yes                   | No                   |
+| Windows Server 2016 | SMB 3.0 | Yes | Yes |
+| Windows 8.1 | SMB 3.0 | Yes | Yes |
+| Windows Server 2012 R2 | SMB 3.0 | Yes | Yes |
+| Windows Server 2012 | SMB 3.0 | Yes | Yes |
+| Windows 7<sup>3</sup> | SMB 2.1 | Yes | No |
+| Windows Server 2008 R2<sup>3</sup> | SMB 2.1 | Yes | No |
 
-<sup>1</sup>Windows 10, versions 1507, 1607, 1703, 1709, 1803, and 1809.  
-<sup>2</sup>Windows Server, version 1709 and 1803.
+<sup>1</sup>Windows 10, versions 1507, 1607, 1709, 1803, 1809, 1903, and 1909.  
+<sup>2</sup>Windows Server, versions 1809, 1903, and 1909.  
+<sup>3</sup>Regular Microsoft support for Windows 7 and Windows Server 2008 R2 has ended. It is possible to purchase additional support for security updates only through the [Extended Security Update (ESU) program](https://support.microsoft.com/help/4497181/lifecycle-faq-extended-security-updates). We strongly recommend migrating off of these operating systems.
 
 > [!Note]  
 > We always recommend taking the most recent KB for your version of Windows.
@@ -40,13 +40,15 @@ You can use Azure file shares on a Windows installation that is running either i
 
 * **Storage account key**: To mount an Azure file share, you will need the primary (or secondary) storage key. SAS keys are not currently supported for mounting.
 
-* **Ensure port 445 is open**: The SMB protocol requires TCP port 445 to be open; connections will fail if port 445 is blocked. You can check to see if your firewall is blocking port 445 with the `Test-NetConnection` cmdlet. The following PowerShell code assumes you have the AzureRM PowerShell module installed, see [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps) for more information. Remember to replace `<your-storage-account-name>` and `<your-resource-group-name>` with the relevant names for your storage account.
+* **Ensure port 445 is open**: The SMB protocol requires TCP port 445 to be open; connections will fail if port 445 is blocked. You can check to see if your firewall is blocking port 445 with the `Test-NetConnection` cmdlet. You can learn about [various ways to workaround blocked port 445 here](https://docs.microsoft.com/azure/storage/files/storage-troubleshoot-windows-file-connection-problems#cause-1-port-445-is-blocked).
 
-    ```PowerShell
+    The following PowerShell code assumes you have the Azure PowerShell module installed, see [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps) for more information. Remember to replace `<your-storage-account-name>` and `<your-resource-group-name>` with the relevant names for your storage account.
+
+    ```powershell
     $resourceGroupName = "<your-resource-group-name>"
     $storageAccountName = "<your-storage-account-name>"
 
-    # This command requires you to be logged into your Azure account, run Login-AzureRmAccount if you haven't
+    # This command requires you to be logged into your Azure account, run Login-AzAccount if you haven't
     # already logged in.
     $storageAccount = Get-AzStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName
 
@@ -73,14 +75,14 @@ You can use Azure file shares on a Windows installation that is running either i
 ## Using an Azure file share with Windows
 To use an Azure file share with Windows, you must either mount it, which means assigning it a drive letter or mount point path, or access it via its [UNC path](https://msdn.microsoft.com/library/windows/desktop/aa365247.aspx). 
 
-Unlike other SMB shares you may have interacted with, such as those hosted on a Windows Server, Linux Samba server, or NAS device, Azure file shares do not currently support Kerberos authentication with your Active Directory (AD) or Azure Active Directory (AAD) identity, although this is a feature we are [working on](https://feedback.azure.com/forums/217298-storage/suggestions/6078420-acl-s-for-azurefiles). Instead, you must access your Azure file share with the storage account key for the storage account containing your Azure file share. A storage account key is an administrator key for a storage account, including administrator permissions to all files and folders within the file share you're accessing, and for all file shares and other storage resources (blobs, queues, tables, etc) contained within your storage account. If this is not sufficient for your workload, [Azure File Sync](storage-files-planning.md#data-access-method) may address the lack of Kerberos authentication and ACL support in the interim until AAD-based Kerberos authentication and ACL support is publicly available.
+Unlike other SMB shares you may have interacted with, such as those hosted on a Windows Server, Linux Samba server, or NAS device, Azure file shares do not currently support Kerberos authentication with your Active Directory (AD) or Azure Active Directory (AAD) identity, although this is a feature we are [working on](https://feedback.azure.com/forums/217298-storage/suggestions/6078420-acl-s-for-azurefiles). Instead, you must access your Azure file share with the storage account key for the storage account containing your Azure file share. A storage account key is an administrator key for a storage account, including administrator permissions to all files and folders within the file share you're accessing, and for all file shares and other storage resources (blobs, queues, tables, etc.) contained within your storage account. If this is not sufficient for your workload, [Azure File Sync](storage-sync-files-planning.md) may address the lack of Kerberos authentication and ACL support in the interim until AAD-based Kerberos authentication and ACL support is publicly available.
 
 A common pattern for lifting and shifting line-of-business (LOB) applications that expect an SMB file share to Azure is to use an Azure file share as an alternative for running a dedicated Windows file server in an Azure VM. One important consideration for successfully migrating a line-of-business application to use an Azure file share is that many line-of-business applications run under the context of a dedicated service account with limited system permissions rather than the VM's administrative account. Therefore, you must ensure that you mount/save the credentials for the Azure file share from the context of the service account rather than your administrative account.
 
 ### Persisting Azure file share credentials in Windows  
 The [cmdkey](https://docs.microsoft.com/windows-server/administration/windows-commands/cmdkey) utility allows you to store your storage account credentials within Windows. This means that when you try to access an Azure file share via its UNC path or mount the Azure file share, you will not need to specify credentials. To save your storage account's credentials, run the following PowerShell commands, replacing `<your-storage-account-name>` and `<your-resource-group-name>` where appropriate.
 
-```PowerShell
+```powershell
 $resourceGroupName = "<your-resource-group-name>"
 $storageAccountName = "<your-storage-account-name>"
 
@@ -100,7 +102,7 @@ Invoke-Expression -Command ("cmdkey /add:$([System.Uri]::new($storageAccount.Con
 
 You can verify the cmdkey utility has stored the credential for the storage account by using the list parameter:
 
-```PowerShell
+```powershell
 cmdkey /list
 ```
 
@@ -121,7 +123,7 @@ There are two additional scenarios to consider with cmdkey: storing credentials 
 
 Storing the credentials for another user on the machine is very easy: when logged into your account, simply execute the following PowerShell command:
 
-```PowerShell
+```powershell
 $password = ConvertTo-SecureString -String "<service-account-password>" -AsPlainText -Force
 $credential = New-Object System.Management.Automation.PSCredential -ArgumentList "<service-account-username>", $password
 Start-Process -FilePath PowerShell.exe -Credential $credential -LoadUserProfile
@@ -134,7 +136,7 @@ Storing the credentials on a remote machine using PowerShell remoting is not how
 ### Mount the Azure file share with PowerShell
 Run the following commands from a regular (i.e. not an elevated) PowerShell session to mount the Azure file share. Remember to replace `<your-resource-group-name>`, `<your-storage-account-name>`, `<your-file-share-name>`, and `<desired-drive-letter>` with the proper information.
 
-```PowerShell
+```powershell
 $resourceGroupName = "<your-resource-group-name>"
 $storageAccountName = "<your-storage-account-name>"
 $fileShareName = "<your-file-share-name>"
@@ -165,7 +167,7 @@ New-PSDrive -Name <desired-drive-letter> -PSProvider FileSystem -Root "\\$($file
 
 If desired, you can dismount the Azure file share using the following PowerShell cmdlet.
 
-```PowerShell
+```powershell
 Remove-PSDrive -Name <desired-drive-letter>
 ```
 
@@ -198,7 +200,7 @@ Remove-PSDrive -Name <desired-drive-letter>
 7. When you are ready to dismount the Azure file share, you can do so by right-clicking on the entry for the share under the **Network locations** in File Explorer and selecting **Disconnect**.
 
 ### Accessing share snapshots from Windows
-If you have taken a share snapshot, either manually or automatically through a script or service like Azure Backup, you can view previous versions of a share, a directory, or a particular file from file share on Windows. You can take a share snapshot from the [Azure Portal](storage-how-to-use-files-portal.md), [Azure PowerShell](storage-how-to-use-files-powershell.md), and [Azure CLI](storage-how-to-use-files-cli.md).
+If you have taken a share snapshot, either manually or automatically through a script or service like Azure Backup, you can view previous versions of a share, a directory, or a particular file from file share on Windows. You can take a share snapshot from the [Azure portal](storage-how-to-use-files-portal.md), [Azure PowerShell](storage-how-to-use-files-powershell.md), and [Azure CLI](storage-how-to-use-files-cli.md).
 
 #### List previous versions
 Browse to the item or parent item that needs to be restored. Double-click to go to the desired directory. Right-click and select **Properties** from the menu.
@@ -224,7 +226,7 @@ The following table provides detailed information on the status of SMB 1 each ve
 
 | Windows version                           | SMB 1 default status | Disable/Remove method       | 
 |-------------------------------------------|----------------------|-----------------------------|
-| Windows Server 2019 (preview)             | Disabled             | Remove with Windows feature |
+| Windows Server 2019                       | Disabled             | Remove with Windows feature |
 | Windows Server, versions 1709+            | Disabled             | Remove with Windows feature |
 | Windows 10, versions 1709+                | Disabled             | Remove with Windows feature |
 | Windows Server 2016                       | Enabled              | Remove with Windows feature |
@@ -236,7 +238,7 @@ The following table provides detailed information on the status of SMB 1 each ve
 | Windows 7                                 | Enabled              | Disable with Registry       | 
 
 ### Auditing SMB 1 usage
-> Applies to Windows Server 2019 (preview), Windows Server semi-annual channel (versions 1709 and 1803), Windows Server 2016, Windows 10 (versions 1507, 1607, 1703, 1709, and 1803), Windows Server 2012 R2, and Windows 8.1
+> Applies to Windows Server 2019, Windows Server semi-annual channel (versions 1709 and 1803), Windows Server 2016, Windows 10 (versions 1507, 1607, 1703, 1709, and 1803), Windows Server 2012 R2, and Windows 8.1
 
 Before removing SMB 1 in your environment, you may wish to audit SMB 1 usage to see if any clients will be broken by the change. If any requests are made against SMB shares with SMB 1, an audit event will be logged in the event log under `Applications and Services Logs > Microsoft > Windows > SMBServer > Audit`. 
 
@@ -245,16 +247,16 @@ Before removing SMB 1 in your environment, you may wish to audit SMB 1 usage to 
 
 To enable auditing, execute the following cmdlet from an elevated PowerShell session:
 
-```PowerShell
+```powershell
 Set-SmbServerConfiguration –AuditSmb1Access $true
 ```
 
 ### Removing SMB 1 from Windows Server
-> Applies to Windows Server 2019 (preview), Windows Server semi-annual channel (versions 1709 and 1803), Windows Server 2016, Windows Server 2012 R2
+> Applies to Windows Server 2019, Windows Server semi-annual channel (versions 1709 and 1803), Windows Server 2016, Windows Server 2012 R2
 
 To remove SMB 1 from a Windows Server instance, execute the following cmdlet from an elevated PowerShell session:
 
-```PowerShell
+```powershell
 Remove-WindowsFeature -Name FS-SMB1
 ```
 
@@ -268,7 +270,7 @@ To complete the removal process, restart your server.
 
 To remove SMB 1 from your Windows client, execute the following cmdlet from an elevated PowerShell session:
 
-```PowerShell
+```powershell
 Disable-WindowsOptionalFeature -Online -FeatureName SMB1Protocol
 ```
 
@@ -281,7 +283,7 @@ SMB 1 cannot be completely removed on legacy versions of Windows/Windows Server,
 
 You can easily accomplish this with the following PowerShell cmdlet as well:
 
-```PowerShell
+```powershell
 Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters" SMB1 -Type DWORD -Value 0 –Force
 ```
 
@@ -296,5 +298,5 @@ After creating this registry key, you must restart your server to disable SMB 1.
 ## Next steps
 See these links for more information about Azure Files:
 - [Planning for an Azure Files deployment](storage-files-planning.md)
-* [FAQ](../storage-files-faq.md)
-* [Troubleshooting on Windows](storage-troubleshoot-windows-file-connection-problems.md)      
+- [FAQ](../storage-files-faq.md)
+- [Troubleshooting on Windows](storage-troubleshoot-windows-file-connection-problems.md)      

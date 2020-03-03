@@ -8,7 +8,8 @@ manager: daveba
 ms.reviewer: barbkess
 
 ms.assetid: 345b22be-d87e-45a4-b4c0-70a67eaf9bfd
-ms.service: Azure-Active-Directory
+ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -204,7 +205,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     a. In the **Name** field enter **BrittaSimon**.
   
-    b. In the **User name** field type **brittasimon@yourcompanydomain.extension**  
+    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
     For example, BrittaSimon@contoso.com
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
@@ -263,7 +264,7 @@ You need to register a domain before you can create users.
    
     ![Save](./media/mimecast-personal-portal-tutorial/ic795006.png "Save")
    
-    a. In the **Email Address** textbox, type **Email Address** of the user as **BrittaSimon@contoso.com**.
+    a. In the **Email Address** textbox, type **Email Address** of the user as **BrittaSimon\@contoso.com**.
 	
 	b. In the **Global Name** textbox, type the **username** as **BrittaSimon**.
 
@@ -286,5 +287,5 @@ When you click the Mimecast Personal Portal tile in the Access Panel, you should
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

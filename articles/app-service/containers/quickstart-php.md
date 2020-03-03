@@ -1,21 +1,10 @@
 ---
-title: Create PHP app on Linux - Azure App Service | Microsoft Docs
-description: Deploy your first PHP Hello World in App Service on Linux in minutes.
-services: app-service\web
-documentationcenter: ''
-author: syntaxc4
-manager: erikre
-editor: ''
-
+title: 'Quickstart: Create a PHP app on Linux'
+description: Get started with Linux apps on Azure App Service by deploying your first PHP app to a Linux container in App Service.
 ms.assetid: 6feac128-c728-4491-8b79-962da9a40788
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
-ms.date: 08/30/2017
-ms.author: cfowler
-ms.custom: mvc
+ms.date: 03/27/2019
+ms.custom: mvc, cli-validate
 ms.custom: seodec18
 ---
 # Create a PHP app in App Service on Linux
@@ -24,7 +13,7 @@ ms.custom: seodec18
 > This article deploys an app to App Service on Linux. To deploy to App Service on _Windows_, see [Create a PHP app in Azure](../app-service-web-get-started-php.md).
 >
 
-[App Service on Linux](app-service-linux-intro.md) provides a highly scalable, self-patching web hosting service using the Linux operating system. This quickstart tutorial shows how to deploy a PHP app to Azure App Service on Linux. You create the app with built-in image using the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) in Cloud Shell, and you use Git to deploy the PHP code to the App Service app.
+[App Service on Linux](app-service-linux-intro.md) provides a highly scalable, self-patching web hosting service using the Linux operating system. This quickstart tutorial shows how to deploy a PHP app to Azure App Service on Linux using the [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
 
 ![Sample app running in Azure](media/quickstart-php/hello-world-in-browser.png)
 
@@ -165,4 +154,7 @@ The left menu provides different pages for configuring your app.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [PHP with MySQL](tutorial-php-mysql-app.md)
+> [Tutorial: PHP app with MySQL](tutorial-php-mysql-app.md)
+
+> [!div class="nextstepaction"]
+> [Configure PHP app](configure-language-php.md)

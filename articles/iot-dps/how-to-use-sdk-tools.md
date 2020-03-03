@@ -1,13 +1,12 @@
 ---
-title: Use tools provided in the Azure IoT Hub Device Provisioning Service SDKs to simplify development
-description: This document reviews the tools provided in Azure IoT Hub Device Provisioning Service SDKs for development
-author: yzhong94
-ms.author: yizhon
+title: Use Azure IoT Hub Device Provisioning Service SDKs tools
+description: This document reviews the tools provided in Azure IoT Hub Device Provisioning Service (DPS) SDKs for development
+author: robinsh
+ms.author: robinsh
 ms.date: 04/09/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-manager: arjmands
 ---
 
 # How to use tools provided in the SDKs to simplify development for provisioning
@@ -18,9 +17,9 @@ The IoT Hub Device Provisioning Service simplifies the provisioning process with
 
 Steps for using the TPM simulator are:
 1. [Prepare the development environment](https://docs.microsoft.com/azure/iot-dps/quick-enroll-device-x509-java) and clone the GitHub repository:
-```
-git clone https://github.com/Azure/azure-iot-sdk-java.git
-```
+   ```
+   git clone https://github.com/Azure/azure-iot-sdk-java.git
+   ```
 2. Navigate to the TPM simulator folder under ```azure-iot-sdk-java/provisioning/provisioning-tool/tpm-simulator/```.
 3. Run Simulator.exe prior to running any client application for provisioning device.
 4. Let the simulator run in the background throughout the provisioning process to obtain registration ID and Endorsement Key.  Both values are only valid for one instance of the run.
@@ -42,18 +41,18 @@ Currently, while the DICE Emulator outputs a root certificate, an intermediate c
 
 To generate X.509 certificate using this generator:
 1. [Prepare the development environment](https://docs.microsoft.com/azure/iot-dps/quick-enroll-device-x509-java) and clone the GitHub repository:
-```
-git clone https://github.com/Azure/azure-iot-sdk-java.git
-```
+   ```
+   git clone https://github.com/Azure/azure-iot-sdk-java.git
+   ```
 2. Change the root to azure-iot-sdk-java.
 3. Run ```mvn install -DskipTests=true``` to download all required packages and compile the SDK
 4. Navigate to the root for X.509 Certificate Generator in ```azure-iot-sdk-java/provisioning/provisioning-tools/provisioning-x509-cert-generator```.
 5. Build with ```mvn clean install```
 6. Run the tool using the following commands:
-```
-cd target
-java -jar ./provisioning-x509-cert-generator-{version}-with-deps.jar
-```
+   ```
+   cd target
+   java -jar ./provisioning-x509-cert-generator-{version}-with-deps.jar
+   ```
 7. When prompted, you may optionally enter a _Common Name_ for your certificates.
 8. The tool locally generates a **Client Cert**, the **Client Cert Private Key**, **Intermediate Cert**, and the **Root Cert**.
 

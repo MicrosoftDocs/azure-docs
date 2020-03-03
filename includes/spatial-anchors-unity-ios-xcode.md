@@ -5,31 +5,36 @@ ms.topic: include
 ms.date: 1/29/2019
 ms.author: rgarcia
 ---
-Select **Build** to open a dialog. Then, select a folder to export the Xcode project.
+Select **Build**. In the dialog box that opens, select a folder to export the Xcode project to.
 
-When the export is complete, a folder will be displayed containing the exported Xcode project.
+When the export is complete, a folder that contains the exported Xcode project will appear.
 
-### Open the Xcode project
+> [!NOTE]
+> If a window asking you if you want to replace or append appears, we recommend that you select **Append** because it's faster. You should only need to select **Replace**
+> if you're changing assets in your scene. (For example, if you're adding, removing, or changing parent/child relationships, or if you're adding, removing, or changing properties.) If you're only
+> making source code changes, **Append** should be enough.
 
-In the exported Xcode project folder, run the following command to install the necessary CocoaPods for the project:
+### Convert the Xcode project to xcworkspace containing Azure Spatial Anchors references
+
+In the exported Xcode project folder, run this command in the Terminal to install the necessary CocoaPods for the project:
 
 ```bash
 pod install --repo-update
 ```
 
-Now your can open `Unity-iPhone.xcworkspace` to open the project in Xcode:
+Now you can open `Unity-iPhone.xcworkspace` to open the project in Xcode:
 
 ```bash
 open ./Unity-iPhone.xcworkspace
 ```
 
 > [!NOTE]
-> If you see a `library not found for -lPods-Unity-iPhone` error, you likely opened the `.xcodeproj` file instead of the
-> `.xcworkspace`. Open the `.xcworkspace` and try again.
+> See the troubleshooting steps [here](../articles/spatial-anchors/quickstarts/get-started-unity-ios.md#cocoapods-issues-on-macos-catalina-1015)
+> if you're having CocoaPod issues after upgrading to macOS Catalina (10.15).
 
-Select the root **Unity-iPhone** node to view the project settings and select the **General** tab.
+Select the root **Unity-iPhone** node to view the project settings, and then select the **General** tab.
 
-Under **Signing**, select **Automatically manage signing**. Select **Enable Automatic** in the dialog that appears to reset build settings.
+Under **Signing**, make sure **Automatically manage signing** is enabled. If it's not, enable it, and then select **Enable Automatic** in the dialog box that appears to reset the build settings.
 
 Under **Deployment Info**, make sure the **Deployment Target** is set to `11.0`.
 
@@ -42,3 +47,7 @@ Connect the iOS device to the Mac and set the **active scheme** to your iOS devi
 Select **Build and then run the current scheme**.
 
 ![Deploy and run](./media/spatial-anchors-unity/deploy-run.png)
+
+> [!NOTE]
+> If you see a `library not found for -lPods-Unity-iPhone` error, you probably opened the `.xcodeproj` file instead of the
+> `.xcworkspace` file.

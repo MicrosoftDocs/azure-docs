@@ -1,21 +1,12 @@
 ---
-title: Enable offline syncing with iOS mobile apps | Microsoft Docs
+title: Enable offline syncing (iOS)
 description: Learn how to use Azure App Service mobile apps to cache and sync offline data in iOS applications.
-documentationcenter: ios
-author: conceptdev
-manager: crdun
-editor: ''
-services: app-service\mobile
 
 ms.assetid: eb5b9520-0f39-4a09-940a-dadb6d940db8
-ms.service: app-service-mobile
-ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 10/01/2016
-ms.author: crdun
-
+ms.date: 06/25/2019
 ---
 # Enable offline syncing with iOS mobile apps
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
@@ -97,7 +88,7 @@ Now, let's perform the actual sync operation, and get data from the remote back 
 
           if error != nil {
               // A real application would handle various errors like network conditions,
-              // server conflicts, etc via the MSSyncContextDelegate
+              // server conflicts, etc. via the MSSyncContextDelegate
               print("Error: \(error!.description)")
 
               // We will discard our changes and keep the server's copy for simplicity

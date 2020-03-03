@@ -1,9 +1,9 @@
 ---
-title: Analyze Azure Active Directory activity logs using Azure Monitor logs (preview) | Microsoft Docs
-description: Learn how to analyze Azure Active Directory activity logs using Azure Monitor logs (preview)
+title: Analyze activity logs using Azure Monitor logs | Microsoft Docs
+description: Learn how to analyze Azure Active Directory activity logs using Azure Monitor logs
 services: active-directory
 documentationcenter: ''
-author: priyamohanram
+author: MarkusVi
 manager: daveba
 editor: ''
 
@@ -14,14 +14,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
-ms.author: priyamo
+ms.date: 04/18/2019
+ms.author: markvi
 ms.reviewer: dhanyahk
 
 ms.collection: M365-identity-device-management
 ---
 
-# Analyze Azure AD activity logs with Azure Monitor logs (preview)
+# Analyze Azure AD activity logs with Azure Monitor logs
 
 After you [integrate Azure AD activity logs with Azure Monitor logs](howto-integrate-activity-logs-with-log-analytics.md), you can use the power of Azure Monitor logs to gain insights into your environment. You can also install the [Log analytics views for Azure AD activity logs](howto-install-use-log-analytics-views.md) to get access to pre-built reports around audit and sign-in events in your environment.
 
@@ -35,7 +35,13 @@ To follow along, you need:
 
 * A Log Analytics workspace in your Azure subscription. Learn how to [create a Log Analytics workspace](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace).
 * First, complete the steps to [route the Azure AD activity logs to your Log Analytics workspace](howto-integrate-activity-logs-with-log-analytics.md).
-
+*  [Access](https://docs.microsoft.com/azure/azure-monitor/platform/manage-access#manage-access-using-workspace-permissions) to the log analytics workspace
+* The following roles in Azure Active Directory (if you are accessing Log Analytics through Azure Active Directory portal)
+    - Security Admin
+    - Security Reader
+    - Report Reader
+    - Global Admin
+    
 ## Navigate to the Log Analytics workspace
 
 1. Sign in to the [Azure portal](https://portal.azure.com). 

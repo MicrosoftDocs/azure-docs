@@ -1,13 +1,12 @@
 ---
 title: Azure Data Lake Storage Gen2 Introduction
 description: Provides an overview of Azure Data Lake Storage Gen2 
-services: storage
-author: jamesbak
-
+author: normesta
 ms.service: storage
-ms.topic: conceptual
-ms.date: 12/06/2018
-ms.author: jamesbak
+ms.topic: overview
+ms.date: 02/25/2020
+ms.author: normesta
+ms.reviewer: jamesbak
 ms.subservice: data-lake-storage-gen2
 ---
 
@@ -34,13 +33,13 @@ In the past, cloud-based analytics had to compromise in areas of performance, ma
 
 ## Key features of Data Lake Storage Gen2
 
--   **Hadoop compatible access**: Data Lake Storage Gen2 allows you to manage and access data just as you would with a [Hadoop Distributed File System (HDFS)](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). The new [ABFS driver](data-lake-storage-abfs-driver.md) is available within all Apache Hadoop environments, including [Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/index)*,* [Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/index), and [SQL Data Warehouse](https://docs.microsoft.com/azure/sql-data-warehouse/) to access data stored in Data Lake Storage Gen2.
+-   **Hadoop compatible access**: Data Lake Storage Gen2 allows you to manage and access data just as you would with a [Hadoop Distributed File System (HDFS)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). The new [ABFS driver](data-lake-storage-abfs-driver.md) is available within all Apache Hadoop environments, including [Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/index)*,* [Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/index), and [SQL Data Warehouse](https://docs.microsoft.com/azure/sql-data-warehouse/) to access data stored in Data Lake Storage Gen2.
 
 -   **A superset of POSIX permissions**: The security model for Data Lake Gen2 supports ACL and POSIX permissions along with some extra granularity specific to Data Lake Storage Gen2. Settings may be configured through Storage Explorer or through frameworks like Hive and Spark.
 
 -   **Cost effective**: Data Lake Storage Gen2 offers low-cost storage capacity and transactions. As data transitions through its complete lifecycle, billing rates change keeping costs to a minimum via built-in features such as [Azure Blob storage lifecycle](storage-lifecycle-management-concepts.md).
 
--   **Optimized driver**: The abfs driver is [optimized specifically](data-lake-storage-abfs-driver.md) for big data analytics. The corresponding REST APIs are surfaced through the dfs endpoint, dfs.core.windows.net.
+-   **Optimized driver**: The ABFS driver is [optimized specifically](data-lake-storage-abfs-driver.md) for big data analytics. The corresponding REST APIs are surfaced through the endpoint `dfs.core.windows.net`.
 
 ### Scalability
 
@@ -61,27 +60,25 @@ The following are the equivalent entities, as described by different concepts. U
 | Concept                                | Top Level Organization | Lower Level Organization                                            | Data Container |
 |----------------------------------------|------------------------|---------------------------------------------------------------------|----------------|
 | Blobs – General purpose object storage | Container              | Virtual directory (SDK only – does not provide atomic manipulation) | Blob           |
-| ADLS Gen2 – Analytics Storage          | Filesystem             | Directory                                                           | File           |
+| Azure Data Lake Storage Gen2 – Analytics Storage          | Container            | Directory                                                           | File           |
+
+## Supported Blob storage features
+
+Blob storage features such as [diagnostic logging](../common/storage-analytics-logging.md), [access tiers](storage-blob-storage-tiers.md), and [Blob Storage lifecycle management policies](storage-lifecycle-management-concepts.md) now work with accounts that have a hierarchical namespace. Therefore, you can enable hierarchical namespaces on your Blob storage accounts without losing access to these features. 
+
+For a list of supported Blob storage features, see [Blob Storage features available in Azure Data Lake Storage Gen2](data-lake-storage-supported-blob-storage-features.md).
+
+## Supported Azure service integrations
+
+Data Lake Storage gen2 supports several Azure services that you can use to ingest data, perform analytics, and create visual representations. For a list of supported Azure services, see [Azure services that support Azure Data Lake Storage Gen2](data-lake-storage-supported-azure-services.md).
 
 ## Supported open source platforms
 
-Several open source platforms support Data Lake Storage Gen2. Those platforms appear in the following table.
+Several open source platforms support Data Lake Storage Gen2. For a complete list, see [Open source platforms that support Azure Data Lake Storage Gen2](data-lake-storage-supported-open-source-platforms.md).
 
-> [!NOTE]
-> Only the versions that appear in this table are supported.
+## See also
 
-| Platform |  Supported Version(s) | More Information |
-| --- | --- | --- |
-| [HDInsight](https://azure.microsoft.com/services/hdinsight/) | 3.6+ | [What are the Apache Hadoop components and versions available with HDInsight?](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning?toc=%2Fen-us%2Fazure%2Fhdinsight%2Fstorm%2FTOC.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json)
-| [Hadoop](https://hadoop.apache.org/) | 3.2+ | [Apache Hadoop releases archive](https://hadoop.apache.org/release.html) |
-| [Cloudera](https://www.cloudera.com/) | 6.1+ | [Cloudera Enterprise 6.x release notes](https://www.cloudera.com/documentation/enterprise/6/release-notes/topics/rg_cdh_6_release_notes.html) |
-| [Azure Databricks](https://azure.microsoft.com/services/databricks/) | 5.1+ | [Databricks Runtime versions](https://docs.databricks.com/release-notes/runtime/databricks-runtime-ver.html) |
-|[Hortonworks](https://hortonworks.com/)| 3.1.x++ | [Configuring cloud data access](https://docs.hortonworks.com/HDPDocuments/Cloudbreak/Cloudbreak-2.9.0/cloud-data-access/content/cb_configuring-access-to-adls2.html) |
+- [Known issues with Azure Data Lake Storage Gen2](data-lake-storage-known-issues.md)
+- [Multi-protocol access on Azure Data Lake Storage](data-lake-storage-multi-protocol-access.md)
 
-## Next steps
 
-The following articles describe some of the main concepts of Data Lake Storage Gen2 and detail how to store, access, manage, and gain insights from your data:
-
--   [Hierarchical namespace](data-lake-storage-namespace.md)
--   [Create a storage account](data-lake-storage-quickstart-create-account.md)
--   [Use a Data Lake Storage Gen2 account in Azure Databricks](data-lake-storage-quickstart-create-databricks-account.md)

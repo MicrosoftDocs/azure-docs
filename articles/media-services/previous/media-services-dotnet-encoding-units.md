@@ -1,6 +1,6 @@
 ---
 title: Scale media processing by adding encoding units - Azure |  Microsoft Docs
-description: Learn how to how to add encoding units with .NET
+description: This article demonstrates how to add encoding units with Azure Media Services .NET.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -13,8 +13,9 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2019
-ms.author: juliako;milangada;
+ms.date: 03/18/2019
+ms.author: juliako
+ms.reviewer: milangada
 
 ---
 # How to scale encoding with .NET SDK

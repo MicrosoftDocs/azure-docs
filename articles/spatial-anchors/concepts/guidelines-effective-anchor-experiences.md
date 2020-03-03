@@ -1,6 +1,6 @@
 ---
-title: Guidelines for effective anchor experiences in Azure Spatial Anchors | Microsoft Docs
-description: Guidelines and considerations for creating and locating anchors effectively with Azure Spatial Anchors.
+title: Guidelines for effective anchor experiences
+description: Guidelines and considerations to create and locate anchors effectively by using Azure Spatial Anchors.
 author: mattwojo
 manager: jken
 services: azure-spatial-anchors
@@ -8,109 +8,104 @@ ms.author: mattwoj
 ms.date: 02/24/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-#Customer intent: Guidance for best practices when creating and locating Azure Spatial Anchors targeting mixed reality developers.
+#Customer intent: Guidance for creating and locating Azure Spatial Anchors. This guidance targets mixed-reality developers.
 ---
 
-# Guidelines for an effective anchor experience with Azure Spatial Anchors
+# Create an effective anchor experience by using Azure Spatial Anchors
 
-This article provides guidelines and considerations for creating and locating anchors effectively with Azure Spatial Anchors.
+This article provides guidelines and considerations to help you effectively create and locate anchors by using Spatial Anchors.
 
-## Creating anchors
+## Good anchors
 
-Creating good anchors is one of the most impactful aspects of working with Azure Spatial Anchors. It's important to invest the time in either educating or guiding users in your UX how to create good anchors. By investing in anchor creation up front, you enable end users to reliably locate anchors:
+Spatial Anchors helps you create good anchors. It's important to invest time in either educating or guiding users in your user experience (UX) to create good anchors. By investing in creating good anchors up front, you help end users to reliably find anchors:
 
-- Across different devices
-- At various times
-- At different lighting conditions
-- From the desired perspectives within the space
-- Etc.
-
-Below are considerations and guidelines to help you design your anchor creation and location experience.
+- Across different devices.
+- At various times.
+- In different lighting conditions.
+- From the desired perspectives within the space.
 
 ## Static and dynamic locations
 
-Part of designing the anchor experience will be choosing the locations that participate. Will the locations be static and defined by an administrator of the space? Or will they be dynamic and user-defined?
+Part of designing the anchor experience is choosing the locations. Will the locations be static and defined by an administrator of the space? Or will they be dynamic and defined by the user?
 
-A retail store manager may want a static in-store experience to entice users to visit. Whereas the developer of a mixed reality board game likely wants to let users choose where to play.
+A retail store manager might want a static in-store experience to entice users to visit. But the developer of a mixed-reality board game would likely want to let users choose where to play.
 
-For static locations, you can educate administrators to spend time curating the space with good anchors.
+For static locations, you can teach administrators to spend time curating the space with good anchors.
 
-For dynamic locations, you should think about how you educate or guide users in your UX to create good anchors.
+For dynamic locations, you should think about how you teach or guide users in your UX to create good anchors.
 
 ## Stable visual features
 
-Visual tracking systems used in mixed reality and augmented reality devices rely on visual features of the environment. To get the most reliable experience:  
+Visual tracking systems used on mixed-reality and augmented-reality devices rely on visual features of the environment. To get the most reliable experience:
 
-- DO create anchors in locations with stable visual features (that is, features that don't change often).
+- *Do* create anchors in locations that have stable visual features (that is, features that don't change often).
 
-- DON'T create anchors on large blank surfaces with no distinguishing characteristics.
+- *Don't* create anchors on large blank surfaces that have no distinguishing characteristics.
 
-- DON'T create anchors on highly reflective materials.
+- *Don't* create anchors on highly reflective materials.
 
-- DON'T create anchors on surfaces where the only pattern is repeating, such as carpet or wallpaper.
+- *Don't* create anchors on surfaces where the pattern repeats, such as carpet or wallpaper.
 
-![Example images representing a good and bad environment](./media/stable-visual.png)
+![Examples of a good environment for anchors and a bad environment for anchors](./media/stable-visual.png)
 
-## Consider various viewing perspectives
+## Various viewing perspectives
 
-When creating an anchor, think about the people that will visit later to locate the anchor.
+When creating an anchor, think about the people who will later try to locate the anchor.
 
-Consider, for example, an anchor in the middle of a room with two doors. You likely want to allow users that enter the room from either door to locate the anchor. When creating the anchor, you will need to scan its position from both doorways. This captures environment data around the anchor from both perspectives so that users can locate the anchor from either door.
+Consider, for example, an anchor in the middle of a room that has two doors. You likely want to allow users to enter the room from either door. When creating the anchor, you'll need to scan its position from both doorways. You change perspectives to capture environment data around the anchor so that users can locate the anchor from either door.
 
-In general, when creating an anchor, it should be scanned from the different places or perspectives you expect people to be standing when attempting to locate it.  
-
-If you are placing virtual content on an outdoor sculpture, it makes sense to walk around the sculpture, while looking at it, as you create the anchor.  
-
-On the other hand, if your anchor is in the corner of a room, there is only one direction to approach it from. When creating the anchor, it simply needs to be scanned from this perspective.
+In general, when creating an anchor, scan it from the perspectives of the people who will try to locate it. So if you're placing virtual content on an outdoor sculpture, it makes sense to walk around the sculpture, while scanning it, as you create the anchor. If your anchor is in the corner of a room, there's only one direction to approach it from. When creating this anchor, you can scan it just from this perspective.
 
 ## Multiple anchors
 
-Lighting can make a difference in the visual features that are detected. Anchors created in strong natural light might be hard to locate after dark under artificial lighting, and vice versa.  
+Lighting can make a difference in the visual features that an app detects. Anchors created in strong natural light might be hard to locate in artificial light, and vice versa.
 
-If you experience this issue, it can help to create two anchors – one in the daylight and another under artificial lighting – at the same spot. Your app can then query for both anchors. If either are located, the app will have a pose for the anchor. 
+If you have this issue, it can help to create two anchors. At the same spot, create one anchor in the daylight and another in artificial light. Your app can then query for both anchors. When either anchor is located, the app will have a pose for the anchor.
 
-Similarly, in environments where the visual features change because most objects move, multiple anchors can help. When an anchor becomes too difficult to locate due to significant changes in the environment, you can replace it with a new one. This might be the case, for example, in a retail store where the layout is refreshed every few months.
+Similarly, in environments where the visual features change because most objects move, multiple anchors can help. When an anchor becomes too difficult to find because of significant changes in the environment, you can replace the anchor with a new one. You might do this, for example, in a retail store where the layout is refreshed every few months.
 
 ## Targets and rooms
 
-In many cases, locating an anchor represents an entry-point to your app's unique experience. You'll want to get through this step quickly and reliably so users can enter your experience. Spending time on how users will find your anchors is an important design step. It's helpful to think about this in terms of two broad scenarios: **Targets** and **Rooms**.
+In many cases, an anchor is an entry point to your app's experience. You'll want to get through this step quickly and reliably so users can enter your experience. Spending time on how users will find your anchors is an important design step. It's helpful to think about finding anchors in terms of two broad scenarios: *targets* and *rooms*.
 
 ### Targets
 
-![Start Here Edit](./media/start-here-edit.png)
+In the target scenario, the location of an anchor is well known. For example, in a fictional mixed-reality painting app, one user places a virtual canvas on the wall. She instructs the other users in the room to point their devices at the same place on the wall to locate the anchor and begin the experience.
 
-In the target scenario, the location of an anchor is well known. For example, in a fictional MR painting app, one user places a virtual canvas on the wall. She instructs the other users in the room to point their devices at the same place on the wall to locate the anchor and begin the experience.  
+Another example of a target scenario might be a sign in a coffee shop that reads, “Scan for deals.” The coffee shop has placed an anchor here. As users scan the sign, they locate the anchor and enter the augmented-reality experience to find deals on coffee.
 
-Another example of a target scenario might be a sign stating “scan for deals” while waiting in line at a coffee shop. The coffee shop has previously placed an anchor here. As users scan the sign, they locate the anchor and enter the AR experience for deals on coffee.
+In the target scenario, photos can help. If you show users a photo of the intended target on their device, they can quickly identify what to scan in the real world. For example, you might help your users arrive within the general area of an intended target by using GPS. When the user arrives, your app shows a photo of the target. The user looks around the space, finds the target, and scans for the anchor.
 
-In the target scenario, photos can help. If you can show users a photo on their device of the intended target, they can quickly identify what to scan in the real world. For example, you might help your users arrive within the general vicinity of an intended target using GPS. Once the user arrives, your app shows a photo of the target. The user looks around the space, finds the target and proceeds to scan for the anchor.
+![Illustration of an anchor, showing a photo of the target on a user's mobile device](./media/start-here-edit.png)
 
 ### Rooms
 
-![Scan Room](./media/scan-room.png)
+In the room scenario, users enter a space simply knowing there's an anchor here somewhere. Users scan the space with their device and quickly locate the anchor.
 
-In the room scenario, users enter a space simply knowing there's an anchor here somewhere. Users scan the space with their device, and quickly locate the anchor.
+This experience typically requires you to create well-curated anchors, as discussed in Various viewing perspectives. If you scanned the room from many perspectives when you created the anchor, users can scan almost anywhere when they try to locate it.
 
-Achieving this experience typically requires creating well-curated anchors as discussed in [Consider various viewing perspectives](#consider-various-viewing-perspectives) earlier. If the room was scanned from many perspectives when creating the anchor, then users can scan almost anywhere when trying to locate it.
+![Illustration of how a user can scan a room to find an anchor](./media/scan-room.png)
 
-Essentially, the person creating the anchor spends more time scanning the space, so people that come later can scan and locate the anchor quickly. This is an important trade-off you will need to consider for your experience.
+Essentially, you spend more time scanning the space when you create the anchor so that later users can scan and locate the anchor quickly. As you create your experience, you'll need to consider this important trade-off.
 
-The MR painting app discussed earlier is an example that isn't well suited as a room scenario. Here, the user placing the anchor wants the others to join the experience quickly. The users do not want to wait until the room is well-scanned in order to start the experience. Since all users know exactly where to point their device to locate the anchors, this scenario is better treated as a target scenario.
+The example of the mixed-reality painting app that we discussed earlier doesn't work well as a room scenario. Here, the user who places the anchor wants others to join the experience quickly. The users don't want to wait to start the experience until the room is well scanned. Because all users know exactly where to point their device to locate the anchors, this example works better as a target scenario.
 
-## Effectively locating anchors
+## Anchor location
 
-Visual tracking systems rely on the visual features of an environment to function. The more visual features are part of a scan, the higher the likelihood of finding an anchor.
+Visual tracking systems rely on the visual features in an environment. The more visual features that a scan includes, the higher the likelihood of finding an anchor.
 
-There are some general guidelines you can follow to build a user experience that encourages a useful scan of the environment.
+Follow the general guidelines in this section to build a UX that encourages a useful scan of the environment.
 
-First, if the user doesn't locate an anchor within a few seconds, the app should encourage users to move the device so that more perspectives are captured.  The app can also encourage users themselves to move around the environment while scanning for the anchor from more perspectives. The more perspectives from which the device sees the same points the better.
+First, if the user doesn't locate an anchor within a few seconds, the app should encourage users to move the device to capture more perspectives. The app can also encourage users to move themselves around the environment to scan for the anchor from more perspectives. The more feature perspectives that the device sees, the better.
 
-For Target scenarios, ask the user to move around the target, all while viewing it from different perspectives. In other words, ask the user to move their feet to capture the target from new perspectives until the anchor is located.
+For target scenarios, ask the user to move around the target to view it from different perspectives. In other words, ask the user to capture the target from new perspectives until the anchor is located.
 
-For Room scenarios, ask the user to slowly scan the room. For example, ask the user to rotate to capture 180 or even 360 degrees of the room. Or ask the user to move to a new perspective in the room. The most meaningful means of scanning is to scan across the room. This captures more visual features of the environment than say scanning a nearby wall. Scanning a nearby wall does not capture as much useful visual features of the environment.
+For room scenarios, ask the user to slowly scan the room. For example, ask the user to turn to capture 180 degrees or even 360 degrees of the room. Or ask the user to view the room from a new perspective.
 
-It's not helpful to move the device side-to-side over and over when looking for an anchor. This would simply capture the same points from the same perspective.
+The most meaningful method is to scan across the room. A scan across the room captures more visual features of the environment than a scan of a nearby wall, for example. A scan of a nearby wall won't capture as many useful visual features of the environment.
 
-## Testing the experience
+It's not helpful to repeatedly move the device from side to side when looking for an anchor. This simply captures the same points from the same perspective.
 
-The above are general guidelines. With Azure Spatial Anchors, you are writing apps that interact with the real-world. As such, it's important to devote time to testing your app's anchor scenarios in real environments. This is especially true for environments that are representative of where you expect your users to use the app.
+## Experience tests
+
+In this article, we've discussed general guidelines. With Spatial Anchors, you're writing apps that interact with the real world. Because of that, you should devote time to testing your app's anchor scenarios in real environments. This is especially true for environments that represent where you expect your users to use the app.

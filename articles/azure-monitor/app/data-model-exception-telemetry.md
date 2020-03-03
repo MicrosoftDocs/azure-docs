@@ -1,18 +1,12 @@
 ---
-title: Azure Application Insights Telemetry Data Model - Exception Telemetry | Microsoft Docs
+title: Azure Application Insights Exception Telemetry Data model
 description: Application Insights data model for exception telemetry
-services: application-insights
-documentationcenter: .net
-author: mrbullwinkle
-manager: carmonm
-ms.service: application-insights
-ms.workload: TBD
-ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/25/2017
+
 ms.reviewer: sergkanz
-ms.author: mbullwin
 ---
+
 # Exception telemetry: Application Insights data model
 
 In [Application Insights](../../azure-monitor/app/app-insights-overview.md), an instance of Exception represents a handled or unhandled exception that occurred during execution of the monitored application.

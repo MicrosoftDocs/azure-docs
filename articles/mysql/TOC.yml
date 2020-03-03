@@ -4,6 +4,8 @@
   items:
   - name: What is Azure DB for MySQL?
     href: overview.md
+  - name: Which MySQL option should I choose?
+    href: select-right-deployment-type.md
 - name: Quickstarts
   expanded: true
   items:
@@ -11,13 +13,15 @@
     href: quickstart-create-mysql-server-database-using-azure-portal.md
   - name: Create DB - Azure CLI
     href: quickstart-create-mysql-server-database-using-azure-cli.md
+  - name: Create DB - Azure CLI up command
+    href: quickstart-create-server-up-azure-cli.md
   - name: Connect & query
     items:
     - name: PHP
       href: connect-php.md
     - name: Java
       href: connect-java.md
-    - name: .Net
+    - name: .NET
       href: connect-csharp.md    
     - name: Python
       href: connect-python.md
@@ -53,6 +57,8 @@
   items:
   - name: Azure CLI
     href: sample-scripts-azure-cli.md
+  - name: Java connection pooling
+    href: sample-scripts-java-connection-pooling.md
 - name: Concepts
   items:
   - name: DB & Servers
@@ -67,30 +73,51 @@
     items:
     - name: Pricing tiers
       href: concepts-pricing-tiers.md
+    - name: Prepay for reserved capacity
+      href: concept-reserved-pricing.md        
     - name: Limits
       href: concepts-limits.md
   - name: Data access & security
     items:
-    - name: Firewall rules
-      href: concepts-firewall-rules.md
+    - name: Security overview
+      href: concepts-security.md
     - name: Configuring SSL
       href: concepts-ssl-connection-security.md
+    - name: Connectivity architecture
+      href: concepts-connectivity-architecture.md
+    - name: Firewall rules
+      href: concepts-firewall-rules.md
+    - name: Virtual Network
+      href: concepts-data-access-and-security-vnet.md
     - name: Advanced Threat Protection
-      href: concepts-data-access-and-security-threat-protection.md
-    - name: VNet
-      href: concepts-data-access-and-security-vnet.md 
+      href: concepts-data-access-and-security-threat-protection.md   
+    - name: Private Link
+      href: concepts-data-access-security-private-link.md
+    - name: Data Encryption
+      href: concepts-data-encryption-mysql.md
+    - name: Azure AD authentication
+      href: concepts-azure-ad-authentication.md
   - name: Business continuity
     items:
-    - name: Overview
+    - name: Business continuity intro
+      displayName: backup, restore, backups, restores, georestore, geo-restore, outage
       href: concepts-business-continuity.md
     - name: Backup and restore
       href: concepts-backup.md
-  - name: Monitor
+  - name: Monitor and tune
     items:
-    - name: Monitor
+    - name: Monitor and tune
       href: concepts-monitoring.md
-    - name: Server logs
+    - name: Slow query logs
       href: concepts-server-logs.md
+    - name: Audit logs
+      href: concepts-audit-logs.md
+    - name: Query Store
+      href: concepts-query-store.md
+    - name: Query Performance Insight
+      href: concepts-query-performance-insight.md
+    - name: Performance Recommendations
+      href: concepts-performance-recommendations.md
   - name: Development
     items:
     - name: Drivers and tools compatibility
@@ -115,7 +142,7 @@
       href: concepts-read-replicas.md  
 - name: How-to guides
   items:
-  - name: Manage a Server
+  - name: Manage a server
     items:
     - name: Azure portal
       href: howto-create-manage-server-portal.md
@@ -155,12 +182,24 @@
       href: howto-server-parameters.md
     - name: Azure CLI
       href: howto-configure-server-parameters-using-cli.md
-  - name: Access server logs
+  - name: Auto grow storage
     items:
     - name: Azure portal
-      href: howto-configure-server-logs-in-portal.md
+      href: howto-auto-grow-storage-portal.md
     - name: Azure CLI
-      href: howto-configure-server-logs-in-cli.md
+      href: howto-auto-grow-storage-cli.md
+  - name: Access server logs
+    items:
+    - name: Slow query logs
+      items: 
+      - name: Azure portal
+        href: howto-configure-server-logs-in-portal.md
+      - name: Azure CLI
+        href: howto-configure-server-logs-in-cli.md
+    - name: Audit logs
+      items: 
+      - name: Azure portal
+        href: howto-configure-audit-logs-portal.md
   - name: Monitor
     items:
     - name: Create alerts on metrics
@@ -171,7 +210,7 @@
       href: howto-data-in-replication.md
     - name: Create read replicas Azure portal
       href: howto-read-replicas-portal.md
-    - name: Create read replicas Azure CLI
+    - name: Create read replicas Azure CLI, REST API
       href: howto-read-replicas-cli.md
   - name: Troubleshoot
     items:
@@ -181,6 +220,8 @@
       href: howto-troubleshoot-query-performance.md
     - name: How to use views in sys schema
       href: howto-troubleshoot-sys-schema.md
+    - name: Troubleshoot data encryption
+      href: howto-data-encryption-troubleshoot.md
   - name: Advanced Threat Protection
     items:
     - name: Azure portal
@@ -191,10 +232,26 @@
       href: howto-manage-vnet-using-portal.md
     - name: Azure CLI
       href: howto-manage-vnet-using-cli.md
+  - name: Private Link
+    items:
+    - name: Azure portal
+      href: howto-configure-privatelink-portal.md
+    - name: Azure CLI
+      href: howto-configure-privatelink-cli.md
+  - name: Data Encryption
+    items:
+    - name: Azure portal
+      href: howto-data-encryption-portal.md
+  - name: Azure AD Integration
+    items:
+    - name: Configure Azure AD integration
+      href: howto-configure-sign-in-azure-ad-authentication.md
   - name: Restart server
     items:
     - name: Azure portal
       href: howto-restart-server-portal.md
+    - name: Azure CLI
+      href: howto-restart-server-cli.md
 - name: Reference
   items:
   - name: Azure CLI
@@ -203,8 +260,8 @@
     href: /rest/api/mysql
   - name: Resource Manager template
     href: /azure/templates/microsoft.dbformysql/allversions
-  - name: Data-in replication stored procedures
-    href: reference-data-in-stored-procedures.md
+  - name: Management stored procedures
+    href: reference-stored-procedures.md
 - name: Resources
   items:
   - name: Deployment templates
@@ -214,7 +271,7 @@
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/mysql/
   - name: MSDN forum
-    href: https://social.msdn.microsoft.com/forums/security/en-US/home?forum=AzureDatabaseforMySQL
+    href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDatabaseforMySQL
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-database-mysql
   - name: Videos

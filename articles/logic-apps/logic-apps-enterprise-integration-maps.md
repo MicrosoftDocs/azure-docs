@@ -1,15 +1,12 @@
 ---
-title: Transform XML with XSLT maps - Azure Logic Apps | Microsoft Docs
+title: Transform XML with XSLT maps
 description: Add XSLT maps to transform XML in Azure Logic Apps with Enterprise Integration Pack
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: jonfan, estfan, LADocs
-manager: carmonm
+ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
-ms.assetid: 90f5cfc4-46b2-4ef7-8ac4-486bb0e3f289
 ms.date: 02/06/2019
 ---
 
@@ -17,7 +14,7 @@ ms.date: 02/06/2019
 
 To transfer XML data between formats for enterprise integration scenarios 
 in Azure Logic Apps, your logic app can use maps, or more specifically, 
-Extensible Stylesheet Language Transformations (XSLT) maps. A map is an XML 
+Extensible Style sheet Language Transformations (XSLT) maps. A map is an XML 
 document that describes how to convert data from an XML document into another format. 
 
 For example, suppose you regularly receive B2B orders or invoices from 
@@ -31,8 +28,7 @@ see [Limits and configuration information for Azure Logic Apps](../logic-apps/lo
 
 ## Prerequisites
 
-* An Azure subscription. If you don't have a subscription, 
-<a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>.
+* An Azure subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
 
 * An [integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) 
 where you store your maps and other artifacts for enterprise 
@@ -40,7 +36,7 @@ integration and business-to-business (B2B) solutions.
 
 * If your map references an external assembly, you have to upload 
 *both the assembly and the map* to your integration account. 
-Make sure you *upload your assembly first*, and then upload the 
+Make sure you [*upload your assembly first*](#add-assembly), and then upload the 
 map that references the assembly.
 
   If your assembly is 2 MB or smaller, you can add 
@@ -58,7 +54,7 @@ map that references the assembly.
 
     | Item | Description |
     |------|-------------|
-    | [Azure storage account](../storage/common/storage-account-overview.md) | In this account, create an Azure blob container for your assembly. Learn [how to create a storage account](../storage/common/storage-quickstart-create-account.md). |
+    | [Azure storage account](../storage/common/storage-account-overview.md) | In this account, create an Azure blob container for your assembly. Learn [how to create a storage account](../storage/common/storage-account-create.md). |
     | Blob container | In this container, you can upload your assembly. You also need this container's location when you add the assembly to your integration account. Learn how to [create a blob container](../storage/blobs/storage-quickstart-blobs-portal.md). |
     | [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) | This tool helps you more easily manage storage accounts and blob containers. To use Storage Explorer, either [download and install Azure Storage Explorer](https://www.storageexplorer.com/). Then, connect Storage Explorer to your storage account by following the steps in [Get started with Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md). To learn more, see [Quickstart: Create a blob in object storage with Azure Storage Explorer](../storage/blobs/storage-quickstart-blobs-storage-explorer.md). <p>Or, in the Azure portal, find and select your storage account. From your storage account menu, select **Storage Explorer**. |
     |||
@@ -71,9 +67,11 @@ an integration account where you store that map. Learn
 [how to link logic apps to integration accounts](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md#link-account). 
 If you don't have a logic app yet, learn [how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
+<a name="add-assembly"></a>
+
 ## Add referenced assemblies
 
-1. Sign in to the <a href="https://portal.azure.com" target="_blank">Azure portal</a> 
+1. Sign in to the [Azure portal](https://portal.azure.com) 
    with your Azure account credentials.
 
 1. To find and open your integration account, 
@@ -103,6 +101,9 @@ steps for uploading an assembly that's either
 [more than 2 MB but only up to 8 MB](#larger-assembly).
 For limits on assembly quantities in integration accounts, see 
 [Limits and configuration for Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits).
+
+> [!NOTE]
+> If you change your assembly, you must also update your map whether or not the map has changes.
 
 <a name="smaller-assembly"></a>
 
@@ -137,7 +138,7 @@ you're uploading, for example:
 
 To add larger assemblies, you can upload your assembly to 
 an Azure blob container in your Azure storage account. 
-Your steps for adding assemblies differs based whether 
+Your steps for adding assemblies differ based whether 
 your blob container has public read access. So first, 
 check whether or not your blob container has public 
 read access by following these steps: 
@@ -245,7 +246,7 @@ After you upload any assemblies that your map references,
 you can now upload your map.
 
 1. If you haven't signed in already, sign in to the 
-   <a href="https://portal.azure.com" target="_blank">Azure portal</a> 
+   [Azure portal](https://portal.azure.com) 
    with your Azure account credentials. 
 
 1. If your integration account isn't already open, 
@@ -398,7 +399,7 @@ To update an existing map, you have to upload a new
 map file that has the changes you want. However, 
 you can first download the existing map for editing.
 
-1. In the <a href="https://portal.azure.com" target="_blank">Azure portal</a>, 
+1. In the [Azure portal](https://portal.azure.com), 
 find and open your integration account, if not already open.
 
 1. On the main Azure menu, select **All services**. 
@@ -423,7 +424,7 @@ Select **Integration accounts**.
 
 ## Delete maps
 
-1. In the <a href="https://portal.azure.com" target="_blank">Azure portal</a>, 
+1. In the [Azure portal](https://portal.azure.com), 
    find and open your integration account, if not already open.
 
 1. On the main Azure menu, select **All services**. 

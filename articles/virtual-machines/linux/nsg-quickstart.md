@@ -1,10 +1,10 @@
 ---
-title: Open ports to a Linux VM with Azure CLI | Microsoft Docs
+title: Open ports to a Linux VM with Azure CLI 
 description: Learn how to open a port / create an endpoint to your Linux VM using the Azure resource manager deployment model and the Azure CLI
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 
 ms.assetid: eef9842b-495a-46cf-99a6-74e49807e74e
@@ -88,5 +88,5 @@ For highly available web applications, you should place your VMs behind an Azure
 ## Next steps
 In this example, you created a simple rule to allow HTTP traffic. You can find information on creating more detailed environments in the following articles:
 
-* [Azure Resource Manager overview](../../azure-resource-manager/resource-group-overview.md)
+* [Azure Resource Manager overview](../../azure-resource-manager/management/overview.md)
 * [What is a Network Security Group (NSG)?](../../virtual-network/security-overview.md)

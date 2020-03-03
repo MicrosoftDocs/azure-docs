@@ -1,17 +1,24 @@
 ---
-title: Migrate Azure compute resources from Azure Germany to global Azure
+title: Migrate Azure compute resource from Azure Germany to global Azure
 description: This article provides information about migrating your Azure compute resources from Azure Germany to global Azure.
 author: gitralf
 services: germany
 cloud: Azure Germany
 ms.author: ralfwi 
 ms.service: germany
-ms.date: 8/15/2018
+ms.date: 12/12/2019
 ms.topic: article
 ms.custom: bfmigrate
 ---
 
 # Migrate compute resources to global Azure
+
+> [!IMPORTANT]
+> Since [August 2018](https://news.microsoft.com/europe/2018/08/31/microsoft-to-deliver-cloud-services-from-new-datacentres-in-germany-in-2019-to-meet-evolving-customer-needs/), we have not been accepting new customers or deploying any new features and services into the original Microsoft Cloud Germany locations.
+>
+> Based on the evolution in customers’ needs, we recently [launched](https://azure.microsoft.com/blog/microsoft-azure-available-from-new-cloud-regions-in-germany/) two new datacenter regions in Germany, offering customer data residency, full connectivity to Microsoft’s global cloud network, as well as market competitive pricing. 
+>
+> Take advantage of the breadth of functionality, enterprise-grade security, and comprehensive features available in our new German datacenter regions by [migrating](germany-migration-main.md) today.
 
 This article has information that can help you migrate Azure compute resources from Azure Germany to global Azure.
 
@@ -33,9 +40,9 @@ Install a configuration/process server in your source environment to build the s
 1. Sign in to the Azure Germany portal.
 1. Compare the OS versions of the VMs you want to migrate against the [support matrix](../site-recovery/vmware-physical-secondary-support-matrix.md).
 1. Set up a new VM in your source Azure Virtual Network instance to act as the configuration server:
-  1. Select **DS4v3** or higher (4 to 8 cores, 16-GB memory).
-  1. Attach an additional disk that has at least 1 TB of available space (for the VM images).
-  1. Use Windows Server 2012 R2 or later.
+   1. Select **DS4v3** or higher (4 to 8 cores, 16-GB memory).
+   1. Attach an additional disk that has at least 1 TB of available space (for the VM images).
+   1. Use Windows Server 2012 R2 or later.
 1. Make sure that ports 443 and 9443 are open for the subnet in both directions.
 1. Sign in to the new VM (ConfigurationServer).
 1. In your remote desktop session, sign in to the global Azure portal by using your global Azure credentials.
@@ -68,11 +75,11 @@ A .zip file that has several files in it downloads. The PowerShell, Azure CLI, R
 
 For more information:
 
-- Refresh your knowledge by completing the [Site Recovery tutorials](https://docs.microsoft.com/azure/site-recovery/#step-by-step-tutorials).
-- Get information about how to [export Resource Manager templates](../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates) or read an overview of [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
+- Refresh your knowledge by completing the [Site Recovery tutorials](/azure/site-recovery/).
+- Get information about how to [export Resource Manager templates](../azure-resource-manager/templates/export-template-portal.md) or read an overview of [Azure Resource Manager](../azure-resource-manager/management/overview.md).
 - Learn more about [physical-to-Azure disaster recovery by using Site Recovery](../site-recovery/physical-azure-disaster-recovery.md).
 - Read the [overview of Azure locations](https://azure.microsoft.com/global-infrastructure/locations/).
-- Learn more about how to [redeploy a template](../azure-resource-manager/resource-group-template-deploy.md).
+- Learn more about how to [redeploy a template](../azure-resource-manager/templates/deploy-powershell.md).
 
 ## Cloud Services
 
@@ -119,7 +126,7 @@ To redeploy cloud services by using the REST API:
     https://management.core.windows.net/<subscription-id>/services/hostedservices
     ```
 
-1. Create a new deployment by using the [Create Deployment API](https://msdn.microsoft.com/library/azure/ee460813.aspx). To find your `.cspkg` and `.cscfg` definitions, you can call the [Get Package API](https://msdn.microsoft.com/library/azure/jj154121.aspx).
+1. Create a new deployment by using the [Create Deployment API](/previous-versions/azure/reference/ee460813(v=azure.100)). To find your `.cspkg` and `.cscfg` definitions, you can call the [Get Package API](/previous-versions/azure/reference/jj154121(v=azure.100)).
 
     ```http
     https://management.core.windows.net/<subscription-id>/services/hostedservices/<cloudservice-name>/deploymentslots/production
@@ -143,7 +150,7 @@ You can get information about your current Service Fabric environment by using P
 
 For more information:
 
-- Refresh your knowledge by completing the [Service Fabric tutorials](https://docs.microsoft.com/azure/service-fabric/#step-by-step-tutorials).
+- Refresh your knowledge by completing the [Service Fabric tutorials](https://docs.microsoft.com/azure/service-fabric/service-fabric-tutorial-create-dotnet-app).
 - Learn how to [create a new cluster](../service-fabric/service-fabric-cluster-creation-via-portal.md).
 - Review the [Service Fabric overview](../service-fabric/service-fabric-overview.md).
 
@@ -161,7 +168,7 @@ Redeploy your deployment scripts, templates, or code in the new region. Redeploy
 
 For more information:
 
-- Refresh your knowledge by completing the [Batch tutorials](https://docs.microsoft.com/azure/batch/#step-by-step-tutorials).
+- Refresh your knowledge by completing the [Batch tutorials](https://docs.microsoft.com/azure/batch/tutorial-parallel-dotnet).
 - Review the [Azure Batch overview](../batch/batch-technical-overview.md).
 
 ## Functions
@@ -169,15 +176,15 @@ For more information:
 Migrating Azure Functions resources from Azure Germany to global Azure isn't supported at this time. We recommend that you export the Resource Manager template, change the location, and then redeploy to the target region.
 
 > [!IMPORTANT]
-> Change location, Key Vault secrets, certificates, and other GUIDs to be consistent with the new region.
+> Change location, Key Vault secrets, certificates, App Settings, and other GUIDs to be consistent with the new region.
 
 For more information:
 
-- Refresh your knowledge by completing the [Functions tutorials](https://docs.microsoft.com/azure/azure-functions/#step-by-step-tutorials).
-- Learn how to [export Resource Manager templates](../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates) or read an overview of [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
+- Refresh your knowledge by completing the [Functions tutorials](https://docs.microsoft.com/azure/azure-functions).
+- Learn how to [export Resource Manager templates](../azure-resource-manager/templates/export-template-portal.md) or read an overview of [Azure Resource Manager](../azure-resource-manager/management/overview.md).
 - Review the [Azure Functions overview](../azure-functions/functions-overview.md).
 - Get an [overview of Azure locations](https://azure.microsoft.com/global-infrastructure/locations/).
-- Learn how to [redeploy a template](../azure-resource-manager/resource-group-template-deploy.md).
+- Learn how to [redeploy a template](../azure-resource-manager/templates/deploy-powershell.md).
 
 ## Virtual machine scale sets
 
@@ -189,11 +196,11 @@ To migrate virtual machine scale sets to global Azure, export the Resource Manag
 For more information:
 
 - Refresh your knowledge by completing the [virtual machine scale set tutorials](https://docs.microsoft.com/azure/virtual-machine-scale-sets/#step-by-step-tutorials).
-- Learn how to [export Azure Resource Manager templates](../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates).
-- Review the [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md).
+- Learn how to [export Azure Resource Manager templates](../azure-resource-manager/templates/export-template-portal.md).
+- Review the [Azure Resource Manager overview](../azure-resource-manager/management/overview.md).
 - Get an overview of [virtual machine scale sets](../virtual-machine-scale-sets/overview.md).
 - Read an [overview of Azure locations](https://azure.microsoft.com/global-infrastructure/locations/).
-- Learn how to [redeploy a template](../azure-resource-manager/resource-group-template-deploy.md).
+- Learn how to [redeploy a template](../azure-resource-manager/templates/deploy-powershell.md).
 
 ## Web Apps
 
@@ -205,10 +212,10 @@ Currently, apps that you created by using the Web Apps feature of Azure App Serv
 For more information:
 
 - Refresh your knowledge by completing the [App Service tutorials](https://docs.microsoft.com/azure/app-service/#step-by-step-tutorials).
-- Learn how to [export Resource Manager templates](../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates) or read an overview of [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
+- Learn how to [export Resource Manager templates](../azure-resource-manager/templates/export-template-portal.md) or read an overview of [Azure Resource Manager](../azure-resource-manager/management/overview.md).
 - Review the [App Service overview](../app-service/overview.md).
 - Read the [overview of Azure locations](https://azure.microsoft.com/global-infrastructure/locations/).
-- Learn how to [redeploy a template](../azure-resource-manager/resource-group-template-deploy.md).
+- Learn how to [redeploy a template](../azure-resource-manager/templates/deploy-powershell.md).
 
 ## Next steps
 

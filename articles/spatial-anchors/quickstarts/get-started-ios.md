@@ -1,16 +1,14 @@
 ---
-title: Quickstart - Create iOS app with Azure Spatial Anchors | Microsoft Docs
+title: 'Quickstart: Create an iOS app'
 description: In this quickstart, you learn how to build an iOS app using Spatial Anchors.
 author: craigktreasure
-manager: aliemami
+manager: vriveras
 services: azure-spatial-anchors
 
 ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-# ms.reviewer: MSFT-alias-of-reviewer
-#Customer intent: As a mixed reality developer, I want to learn how to use Azure Spatial Anchors in my iOS app (in either Swift or Objective-C) that can place and locate a 3D object that persists across devices and platforms.
 ---
 # Quickstart: Create an iOS app with Azure Spatial Anchors, in either Swift or Objective-C
 
@@ -29,12 +27,15 @@ You'll learn how to:
 
 To complete this quickstart, make sure you have:
 
-- A developer enabled macOS machine with <a href="https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12" target="_blank">Xcode 10+</a> and <a href="https://cocoapods.org" target="_blank">CocoaPods</a> installed.
+- A developer enabled macOS machine with the latest version of <a href="https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12" target="_blank">Xcode</a> and <a href="https://cocoapods.org" target="_blank">CocoaPods</a> installed.
+- Git installed via HomeBrew. Enter the following command into a single line of the Terminal: `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`. Then, run `brew install git` and `brew install git-lfs`.
 - A developer enabled <a href="https://developer.apple.com/documentation/arkit/verifying_device_support_and_user_permission" target="_blank">ARKit compatible</a> iOS device.
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
 
 ## Open the sample project
+
+Use the Terminal to perform the following actions.
 
 [!INCLUDE [Clone Sample Repo](../../../includes/spatial-anchors-clone-sample-repository.md)]
 
@@ -56,11 +57,15 @@ Navigate to `iOS/Objective-C/`.
 cd ./iOS/Objective-C/
 ```
 
-***
+---
 
 Run `pod install --repo-update` to install the CocoaPods for the project.
 
 Now open the `.xcworkspace` in Xcode.
+
+> [!NOTE]
+> See the troubleshooting steps [here](#cocoapods-issues-on-macos-catalina-1015) if you're having CocoaPod issues after
+> upgrading to macOS Catalina (10.15).
 
 # [Swift](#tab/openproject-swift)
 
@@ -74,29 +79,29 @@ open ./SampleSwift.xcworkspace
 open ./SampleObjC.xcworkspace
 ```
 
-***
+---
 
 ## Configure account identifier and key
 
-The next step is to use the account identifier and account key recorded previously when setting up the Spatial Anchors resource to configure the app.
+The next step is to configure the app to use your account identifier and account key. You copied them into a text editor when [setting up the Spatial Anchors resource](#create-a-spatial-anchors-resource).
 
 # [Swift](#tab/openproject-swift)
 
-Open `iOS/Swift/SampleSwift/ViewController.swift`.
+Open `iOS/Swift/SampleSwift/ViewControllers/BaseViewController.swift`.
 
-Locate the `SpatialAnchorsAccountKey` field and replace `Set me` with the account key.
+Locate the `spatialAnchorsAccountKey` field and replace `Set me` with the account key.
 
-Locate the `SpatialAnchorsAccountId` field and replace `Set me` with the account identifier.
+Locate the `spatialAnchorsAccountId` field and replace `Set me` with the account identifier.
 
 # [Objective-C](#tab/openproject-objc)
 
-Open `iOS/Objective-C/SampleObjC/ViewController.m`.
+Open `iOS/Objective-C/SampleObjC/BaseViewController.m`.
 
 Locate the `SpatialAnchorsAccountKey` field and replace `Set me` with the account key.
 
 Locate the `SpatialAnchorsAccountId` field and replace `Set me` with the account identifier.
 
-***
+---
 
 ## Deploy the app to your iOS device
 
@@ -113,6 +118,20 @@ Select **Build and then run the current scheme**.
 > `.xcworkspace`. Open the `.xcworkspace` and try again.
 
 In Xcode, stop the app by pressing **Stop**.
+
+## Troubleshooting
+
+### CocoaPods issues on macOS Catalina (10.15)
+
+If you recently updated to macOS Catalina (10.15) and had CocoaPods installed beforehand, CocoaPods may be in a broken
+state and fail to properly configure your pods and `.xcworkspace` project files. To resolve this issue, you'll need to
+reinstall CocoaPods by running the following commands:
+
+```shell
+brew update
+brew install cocoapods --build-from-source
+brew link --overwrite cocoapods
+```
 
 [!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
 

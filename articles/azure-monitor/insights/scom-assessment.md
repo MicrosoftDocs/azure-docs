@@ -1,18 +1,12 @@
 ---
 title: Optimize your System Center Operations Manager environment with Azure Log Analytics | Microsoft Docs
 description: You can use the System Center Operations Manager Health Check solution to assess the risk and health of your environments on a regular interval.
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: tysonn
-ms.assetid: 49aad8b1-3e05-4588-956c-6fdd7715cda1
-ms.service: log-analytics
+ms.subservice: logs
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
+author: bwren
+ms.author: bwren
 ms.date: 06/25/2018
-ms.author: magoedte
+
 ---
 
 # Optimize your environment with the System Center Operations Manager Health Check (Preview) solution
@@ -35,15 +29,15 @@ After you've added the solution and an assessment is performed, summary informat
 
 ## Installing and configuring the solution
 
-The solution works with Microsoft System Center 2012 Operations Manager Service Pack 1, Microsoft System Center 2012 R2 Operations Manager, Microsoft System Center 2016 Operations Manager, Microsoft System Center 2016 Operations Manager and Microsoft System Center Operations Manager 1807
+The solution works with Microsoft System Center 2012 Operations Manager Service Pack 1, Microsoft System Center 2012 R2 Operations Manager, Microsoft System Center 2016 Operations Manager, Microsoft System Center 2016 Operations Manager and Microsoft System Center Operations Manager 1807. A supported version of .NET Framework 4.6.2 must be installed on each management server.
 
 Use the following information to install and configure the solution.
 
- - Before you can use the Health Check solution in Log Analytics, you must have the solution installed. Install the solution from [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SCOMAssessmentOMS?tab=Overview).
+- Before you can use the Health Check solution in Log Analytics, you must have the solution installed. Install the solution from [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SCOMAssessmentOMS?tab=Overview).
 
- - After adding the solution to the workspace, the **System Center Operations Manager Health Check** tile on the dashboard displays an additional configuration required message. Click on the tile and follow the configuration steps mentioned in the page
+- After adding the solution to the workspace, the **System Center Operations Manager Health Check** tile on the dashboard displays an additional configuration required message. Click on the tile and follow the configuration steps mentioned in the page
 
- ![System Center Operations Manager dashboard tile](./media/scom-assessment/scom-configrequired-tile.png)
+  ![System Center Operations Manager dashboard tile](./media/scom-assessment/scom-configrequired-tile.png)
 
 > [!NOTE]
 > Configuration of System Center Operations Manager can be done using a script by following the steps mentioned in the configuration page of the solution in Log Analytics.
@@ -235,7 +229,7 @@ If you have recommendations that you want to ignore, you can create a text file 
     >
     > `SCOMAssessmentRecommendationRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
-    Here's a screen shot showing the Log Search query:<br><br> ![log search](./media/scom-assessment/scom-log-search.png)<br>
+    Here's a screenshot showing the Log Search query:<br><br> ![log search](./media/scom-assessment/scom-log-search.png)<br>
 
 3. Choose recommendations that you want to ignore. You'll use the values for RecommendationId in the next procedure.
 
@@ -292,7 +286,7 @@ If you have recommendations that you want to ignore, you can create a text file 
 
 *Why display only the top 10 recommendations?* Instead of giving you an exhaustive, overwhelming list of tasks, we recommend that you focus on addressing the prioritized recommendations first. After you address them, additional recommendations will become available. If you prefer to see the detailed list, you can view all recommendations using Log Search.
 
-*Is there a way to ignore a recommendation?* Yes, see the [Ignore recommendations](#Ignore-recommendations).
+*Is there a way to ignore a recommendation?* Yes, see the [Ignore recommendations](#ignore-recommendations).
 
 
 ## Next steps

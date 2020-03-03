@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Perform a web search with Java - Bing Web Search REST API"
+title: "Quickstart: Use Java to call the Bing Web Search REST API"
 titleSuffix: Azure Cognitive Services
 description: Use this quickstart to send requests to the Bing Web Search REST API using Java, and receive a JSON response
 services: cognitive-services
@@ -8,17 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 02/12/2019
+ms.date: 12/09/2019
 ms.author: aahi
-ms.custom: seodec2018
+ms.custom: seodec2018, seo-java-july2019, seo-java-august2019, seo-java-september2019
 #Customer intent: As a new developer, I want to make my first call to the Bing Web Search API and receive a response using Java.
 ---
 
-# Quickstart: Search the web using the Bing Web Search REST API and Java
+# Quickstart: Use Java to search the web with the Bing Web Search REST API, an Azure cognitive service
 
-Use this quickstart to make your first call to the Bing Web Search API and receive the JSON response. This Java application sends a search request to the API, and displays the response. While this application is written in Java, the API is a RESTful Web service compatible with most programming languages.
+In this quickstart, you'll use a Java application to make your first call to the Bing Web Search API and receive the JSON response. This Java application sends a search request to the API, and shows the response. While this application is written in Java, the API is a RESTful Web service compatible with most programming languages.
 
 ## Prerequisites
+
 Here are a few things that you'll need before running this quickstart:
 
 * [JDK 7 or 8](https://aka.ms/azure-jdks)
@@ -50,7 +51,7 @@ If you're using Maven, declare Gson in the `POM.xml`. Skip this step if you've i
 <dependency>
     <groupId>com.google.code.gson</groupId>
     <artifactId>gson</artifactId>
-    <version>2.8.1</version>
+    <version>2.8.5</version>
 </dependency>
 ```
 
@@ -68,7 +69,7 @@ public class BingWebSearch {
 
 ## Define variables
 
-This code sets the `subscriptionKey`, `host`, `path`, and `searchTerm`. Confirm that the endpoint is correct and replace the `subscriptionKey` value with a valid subscription key from your Azure account. Feel free to customize the search query by replacing the value for `searchTerm`.
+This code sets the `subscriptionKey`, `host`, `path`, and `searchTerm`. `host` can be the global endpoint below, or the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource. Replace the `subscriptionKey` value with a valid subscription key from your Azure account. Feel free to customize the search query by replacing the value for `searchTerm`. Remember to add this code to the `BingWebSearch` class as noted above.
 
 ```java
 // Enter a valid subscription key.
@@ -180,8 +181,8 @@ class SearchResults{
 The last step is to compile your code and run it! Here are the commands:
 
 ```powershell
-javac BingWebSearch.java -classpath ./gson-2.8.1.jar -encoding UTF-8
-java -cp ./gson-2.8.1.jar BingWebSearch
+javac BingWebSearch.java -classpath ./gson-2.8.5.jar -encoding UTF-8
+java -cp ./gson-2.8.5.jar BingWebSearch
 ```
 
 If you'd like to compare your code with ours, [sample code is available on GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingWebSearchv7.java).
@@ -208,9 +209,9 @@ Responses from the Bing Web Search API are returned as JSON. This sample respons
         "snippet": "Knock down barriers between you and your ideas. Enable natural and contextual interaction with tools that augment users' experiences via the power of machine-based AI. Plug them in and bring your ideas to life.",
         "deepLinks": [
           {
-            "name": "Face API",
+            "name": "Face",
             "url": "https://azure.microsoft.com/services/cognitive-services/face/",
-            "snippet": "Add facial recognition to your applications to detect, identify, and verify faces using a Face API from Microsoft Azure. ... Cognitive Services; Face API;"
+            "snippet": "Add facial recognition to your applications to detect, identify, and verify faces using a Face service from Microsoft Azure. ... Cognitive Services; Face service;"
           },
           {
             "name": "Text Analytics",

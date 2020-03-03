@@ -7,13 +7,13 @@ author: lichard
 manager: erikre
 editor: ''
 
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 5/04/2017
-ms.author: rli
+ms.author: ril
 
 ---
 

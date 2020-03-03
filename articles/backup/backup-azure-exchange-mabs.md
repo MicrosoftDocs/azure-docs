@@ -1,34 +1,34 @@
 ---
-title: Back up an Exchange server to Azure Backup with Azure Backup Server
+title: Back up Exchange server with Azure Backup Server
 description: Learn how to back up an Exchange server to Azure Backup using Azure Backup Server
-services: backup
-author: kasinh
-manager: vvithal
-ms.service: backup
+ms.reviewer: kasinh
 ms.topic: conceptual
 ms.date: 03/24/2017
-ms.author: kasinh
 ---
 # Back up an Exchange server to Azure with Azure Backup Server
+
 This article describes how to configure Microsoft Azure Backup Server (MABS) to back up a Microsoft Exchange server to Azure.  
 
 ## Prerequisites
+
 Before you continue, make sure that Azure Backup Server is [installed and prepared](backup-azure-microsoft-azure-backup.md).
 
 ## MABS protection agent
+
 To install the MABS protection agent on the Exchange server, follow these steps:
 
-1. Make sure that the firewalls are correctly configured. See [Configure firewall exceptions for the agent](https://technet.microsoft.com/library/Hh758204.aspx).
-2. Install the agent on the Exchange server by clicking **Management > Agents > Install** in MABS Administrator Console. See [Install the MABS protection agent](https://technet.microsoft.com/library/hh758186.aspx?f=255&MSPPError=-2147217396) for detailed steps.
+1. Make sure that the firewalls are correctly configured. See [Configure firewall exceptions for the agent](hhttps://docs.microsoft.com/system-center/dpm/configure-firewall-settings-for-dpm?view=sc-dpm-2019).
+2. Install the agent on the Exchange server by clicking **Management > Agents > Install** in MABS Administrator Console. See [Install the MABS protection agent](https://docs.microsoft.com/system-center/dpm/deploy-dpm-protection-agent?view=sc-dpm-2019) for detailed steps.
 
 ## Create a protection group for the Exchange server
+
 1. In the MABS Administrator Console, click **Protection**, and then click **New** on the tool ribbon to open the **Create New Protection Group** wizard.
-2. On the **Welcome** screen of the wizard click **Next**.
+2. On the **Welcome** screen of the wizard, click **Next**.
 3. On the **Select protection group type** screen, select **Servers** and click **Next**.
 4. Select the Exchange server database that you want to protect and click **Next**.
 
    > [!NOTE]
-   > If you are protecting Exchange 2013, check the [Exchange 2013 prerequisites](https://technet.microsoft.com/library/dn751029.aspx).
+   > If you are protecting Exchange 2013, check the [Exchange 2013 prerequisites](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/dn751029(v=sc.12)).
    >
    >
 
@@ -83,6 +83,7 @@ To install the MABS protection agent on the Exchange server, follow these steps:
 19. Click **Close**.
 
 ## Recover the Exchange database
+
 1. To recover an Exchange database, click **Recovery** in the MABS Administrator Console.
 2. Locate the Exchange database that you want to recover.
 3. Select an online recovery point from the *recovery time* drop-down list.
@@ -99,4 +100,5 @@ For online recovery points, there are five recovery types:
     ![Choose online replication](./media/backup-azure-backup-exchange-server/choose-online-replication.png)
 
 ## Next steps
+
 * [Azure Backup FAQ](backup-azure-backup-faq.md)

@@ -1,21 +1,20 @@
 ---
-title: Mount Azure File storage on Linux VMs using SMB | Microsoft Docs
+title: Mount Azure File storage on Linux VMs using SMB 
 description: How to mount Azure File storage on Linux VMs using SMB with the Azure CLI
 services: virtual-machines-linux
 documentationcenter: virtual-machines-linux
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 
 ms.assetid:
 ms.service: virtual-machines-linux
-ms.devlang: NA
+
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/28/2018
 ms.author: cynthn
-ms.subservice: files
 ---
 
 # Mount Azure File storage on Linux VMs using SMB
@@ -39,7 +38,7 @@ az group create --name myResourceGroup --location eastus
 
 ## Create a storage account
 
-Create a new storage account, within the resource group that you created, using [az storage account create](/cli/azure/storage/account). This example creates a storage account named *mySTORAGEACCT<random number>* and puts the name of that storage account in the variable **STORAGEACCT**. Storage account names must be unique, using `$RANDOM` appends a number to the end to make it unique.
+Create a new storage account, within the resource group that you created, using [az storage account create](/cli/azure/storage/account). This example creates a storage account named *mySTORAGEACCT\<random number>* and puts the name of that storage account in the variable **STORAGEACCT**. Storage account names must be unique, using `$RANDOM` appends a number to the end to make it unique.
 
 ```bash
 STORAGEACCT=$(az storage account create \
@@ -113,5 +112,5 @@ For increased security in production environments, you should store your credent
 
 - [Using cloud-init to customize a Linux VM during creation](using-cloud-init.md)
 - [Add a disk to a Linux VM](add-disk.md)
-- [Encrypt disks on a Linux VM by using the Azure CLI](encrypt-disks.md)
+- [Azure Disk Encryption for Linux VMs](disk-encryption-overview.md)
 

@@ -1,14 +1,12 @@
 ---
-title: Azure Application Insights Smart Detection – Upcoming change to the default notification recipients | Microsoft Docs
-description: Monitor application traces with Azure Application Insights for unusual patterns in trace telemetry.
-services: application-insights
-author: harelbr                            
-manager: carmonm
-ms.service: application-insights
+title: Smart Detection notification change - Azure Application Insights
+description: Change to the default notification recipients from Smart Detection. Smart Detection lets you monitor application traces with Azure Application Insights for unusual patterns in trace telemetry.
 ms.topic: conceptual
-ms.reviewer: mbullwin
-ms.date: 02/12/2019
+author: harelbr
 ms.author: harelbr
+ms.date: 03/13/2019
+
+ms.reviewer: mbullwin
 ---
 
 # Smart Detection e-mail notification change
@@ -29,7 +27,7 @@ This change will affect all Smart Detection rules, excluding the following ones:
 
 ## How to prepare for this change?
 
-To ensure that email notifications from Smart Detection are sent to the relevant users, those users must be assigned to the [Monitoring Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) and [Monitoring Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) roles. Assignment should be made at either the subscription level (affecting all Application Insights resources in the subscription), or at the Application Insights resource level (affecting only that specific resource).
+To ensure that email notifications from Smart Detection are sent to relevant users, those users must be assigned to the [Monitoring Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) or [Monitoring Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) roles of the subscription.
 
 To assign users to the Monitoring Reader or Monitoring Contributor roles via the Azure portal, follow the steps described in the [Add a role assignment](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal#add-a-role-assignment) article. Make sure to select the _Monitoring Reader_ or _Monitoring Contributor_ as the role to which users are assigned.
 

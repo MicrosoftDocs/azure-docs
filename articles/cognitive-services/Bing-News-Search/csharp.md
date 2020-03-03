@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Perform a news search with C# - Bing News Search REST API"
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Use this quickstart to send a request to the Bing News Search REST API using C#, and receive a JSON response.
 services: cognitive-services
 author: aahill
@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: quickstart
-ms.date: 1/10/2019
+ms.date: 12/12/2019
 ms.author: aahi
 ms.custom: seodec2018
 ---
@@ -21,13 +21,11 @@ While this application is written in C#, the API is a RESTful Web service compat
 
 ## Prerequisites
 
-* Any edition of [Visual Studio 2017](https://www.visualstudio.com/downloads/).
+* Any edition of [Visual Studio 2017 or later](https://www.visualstudio.com/downloads/).
 * The [Json.NET](https://www.newtonsoft.com/json) framework, available as a NuGet package.
-* If you are using Linux/MacOS, this application can be run using [Mono](http://www.mono-project.com/).
+* If you are using Linux/MacOS, this application can be run using [Mono](https://www.mono-project.com/).
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../includes/cognitive-services-bing-news-search-signup-requirements.md)]
-
-See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 ## Create and initialize a project
 
@@ -41,14 +39,14 @@ See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.
     using System.Collections.Generic;
     ```
 
-2. Create variables for the API endpoint, your subscription key, and search term.
+2. Create variables for the API endpoint, your subscription key, and search term. You can use the global endpoint below, or the [custom subdomain](../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 
     ```csharp
     const string accessKey = "enter key here";
     const string uriBase = "https://api.cognitive.microsoft.com/bing/v7.0/news/search";
     const string searchTerm = "Microsoft";
     ```
-## Create a struct to format the Bing News Search response
+   ## Create a struct to format the Bing News Search response
 
 1. Define a `SearchResult` struct to contain the image search results, and JSON header information.
 
@@ -80,25 +78,6 @@ Create a method named `BingNewsSearch` to perform the call to the API, and set t
     request.Headers["Ocp-Apim-Subscription-Key"] = subscriptionKey;
     HttpWebResponse response = (HttpWebResponse)request.GetResponseAsync().Result;
     string json = new StreamReader(response.GetResponseStream()).ReadToEnd();
-    ```
-
-3. Create the search result object, and extract the Bing HTTP headers. Then return `searchResult`.
-
-    ```csharp
-    // Create the result object for return
-    var searchResult = new SearchResult()
-    {
-        jsonResult = json,
-        relevantHeaders = new Dictionary<String, String>()
-    };
-
-    // Extract Bing HTTP headers
-    foreach (String header in response.Headers)
-    {
-        if (header.StartsWith("BingAPIs-") || header.StartsWith("X-MSEdge-"))
-            searchResult.relevantHeaders[header] = response.Headers[header];
-    }
-    return searchResult;
     ```
 
 3. Create the search result object, and extract the Bing HTTP headers. Then return `searchResult`.

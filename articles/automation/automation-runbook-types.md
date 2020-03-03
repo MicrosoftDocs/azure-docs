@@ -2,13 +2,9 @@
 title: Azure Automation Runbook Types
 description: 'Describes the different types of runbooks that you can use in Azure Automation and considerations that you should take into account when determining which type to use. '
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: georgewallace
-ms.author: gwallace
-ms.date: 09/11/2018
+ms.date: 03/05/2019
 ms.topic: conceptual
-manager: carmonm
 ---
 # Azure Automation runbook types
 
@@ -16,10 +12,10 @@ Azure Automation supports several types of runbooks that are  briefly described 
 
 | Type | Description |
 |:--- |:--- |
-| [Graphical](#graphical-runbooks) |Based on Windows PowerShell and created and edited completely in graphical editor in Azure portal. |
-| [Graphical PowerShell Workflow](#graphical-runbooks) |Based on Windows PowerShell Workflow and created and edited completely in the graphical editor in Azure portal. |
+| [Graphical](#graphical-runbooks)|Based on Windows PowerShell and created and edited completely in graphical editor in Azure portal. |
+| [Graphical PowerShell Workflow](#graphical-runbooks)|Based on Windows PowerShell Workflow and created and edited completely in the graphical editor in Azure portal. |
 | [PowerShell](#powershell-runbooks) |Text runbook based on Windows PowerShell script. |
-| [PowerShell Workflow](#powershell-workflow-runbooks) |Text runbook based on Windows PowerShell Workflow. |
+| [PowerShell Workflow](#powershell-workflow-runbooks)|Text runbook based on Windows PowerShell Workflow. |
 | [Python](#python-runbooks) |Text runbook based on Python. |
 
 ## Graphical runbooks
@@ -28,17 +24,18 @@ Azure Automation supports several types of runbooks that are  briefly described 
 
 ### Advantages
 
-* Visual insert-link-configure authoring model  
-* Focus on how data flows through the process  
-* Visually represent management processes  
-* Include other runbooks as child runbooks to create high-level workflows  
-* Encourages modular programming  
+* Visual insert-link-configure authoring model
+* Focus on how data flows through the process
+* Visually represent management processes
+* Include other runbooks as child runbooks to create high-level workflows
+* Encourages modular programming
 
 ### Limitations
 
 * Can't edit runbook outside of Azure portal.
 * May require a Code activity containing PowerShell code to execute complex logic.
 * Can't view or directly edit the PowerShell code that is created by the graphical workflow. You can view the code you create in any Code activities.
+* Can't be ran on a Linux Hybrid Runbook Worker
 
 ## PowerShell runbooks
 
@@ -48,6 +45,7 @@ PowerShell runbooks are based on Windows PowerShell.  You directly edit the code
 
 * Implement all complex logic with PowerShell code without the additional complexities of PowerShell Workflow.
 * Runbook starts faster than PowerShell Workflow runbooks since it doesn't need to be compiled before running.
+* Can be ran in Azure or on both Linux and Windows Hybrid Runbook Workers
 
 ### Limitations
 
@@ -82,6 +80,7 @@ PowerShell Workflow runbooks are text runbooks based on [Windows PowerShell Work
 * Runbook must deal with the additional complexity of PowerShell Workflow such as [deserialized objects](automation-powershell-workflow.md#code-changes).
 * Runbook takes longer to start than PowerShell runbooks since it needs to be compiled before running.
 * PowerShell runbooks can only be included as child runbooks by using the Start-AzureAutomationRunbook cmdlet, which creates a new job.
+* Can't be ran on a Linux Hybrid Runbook Worker
 
 ## Python runbooks
 
@@ -90,6 +89,7 @@ Python runbooks compile under Python 2.  You can directly edit the code of the r
 ### Advantages
 
 * Utilize the robust Python libraries.
+* Can be ran in Azure or on both Linux Hybrid Runbook Workers. Windows Hybrid Runbook Workers are supported with [python2.7](https://www.python.org/downloads/release/latest/python2) installed.
 
 ### Limitations
 
@@ -109,4 +109,4 @@ Take into account the following additional considerations when determining which
 * To learn more about Graphical runbook authoring, see [Graphical authoring in Azure Automation](automation-graphical-authoring-intro.md)
 * To understand the differences between PowerShell and PowerShell workflows for runbooks, see [Learning Windows PowerShell Workflow](automation-powershell-workflow.md)
 * For more information on how to create or import a Runbook, see [Creating or Importing a Runbook](manage-runbooks.md)
-
+* For more information on PowerShell, including language reference and learning modules, refer to the [PowerShell Docs](https://docs.microsoft.com/powershell/scripting/overview).

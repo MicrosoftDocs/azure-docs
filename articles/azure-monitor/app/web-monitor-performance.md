@@ -1,19 +1,12 @@
 ---
 title: Monitor your app's health and usage with Application Insights
 description: Get started with Application Insights. Analyze usage, availability and performance of your on-premises or Microsoft Azure applications.
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 40650472-e860-4c1b-a589-9956245df307
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/10/2018
+
 ms.reviewer: sdash
-ms.author: mbullwin
 ---
+
 # Monitor performance in web applications
 
 
@@ -106,7 +99,7 @@ Here are a few tips for finding and diagnosing performance issues:
 * Compare the Request count with other metrics to see if failures or slow response are related to load.
 * [Insert and search trace statements][diagnostic] in your code to help pinpoint problems.
 * Monitor your Web app in operation with [Live Metrics Stream][livestream].
-* Capture the state of your .Net application with [Snapshot Debugger][snapshot].
+* Capture the state of your .NET application with [Snapshot Debugger][snapshot].
 
 ## Find and fix performance bottlenecks with performance investigation experience
 

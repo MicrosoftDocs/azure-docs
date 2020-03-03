@@ -1,28 +1,26 @@
 ---
-title: Azure Data Factory - JSON Scripting Reference | Microsoft Docs
+title: Azure Data Factory - JSON Scripting Reference 
 description: Provides JSON schemas for Data Factory entities.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-editor:
-
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: shlo
-
-robots: noindex
 ---
+
 # Azure Data Factory - JSON Scripting Reference
 > [!NOTE]
 > This article applies to version 1 of Data Factory.
 
 
 This article provides JSON schemas and examples for defining Azure Data Factory entities (pipeline, activity, dataset, and linked service).
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## Pipeline
 The high-level structure for a pipeline definition is as follows:
@@ -47,7 +45,7 @@ Following table describes the properties within the pipeline JSON definition:
 | name | Name of the pipeline. Specify a name that represents the action that the activity or pipeline is configured to do<br/><ul><li>Maximum number of characters: 260</li><li>Must start with a letter number, or an underscore (\_)</li><li>Following characters are not allowed: “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\\”</li></ul> |Yes |
 | description |Text describing what the activity or pipeline is used for | No |
 | activities | Contains a list of activities. | Yes |
-| start |Start date-time for the pipeline. Must be in [ISO format](http://en.wikipedia.org/wiki/ISO_8601). For example: 2014-10-14T16:32:41. <br/><br/>It is possible to specify a local time, for example an EST time. Here is an example: `2016-02-27T06:00:00**-05:00`, which is 6 AM EST.<br/><br/>The start and end properties together specify active period for the pipeline. Output slices are only produced with in this active period. |No<br/><br/>If you specify a value for the end property, you must specify value for the start property.<br/><br/>The start and end times can both be empty to create a pipeline. You must specify both values to set an active period for the pipeline to run. If you do not specify start and end times when creating a pipeline, you can set them using the Set-AzureRmDataFactoryPipelineActivePeriod cmdlet later. |
+| start |Start date-time for the pipeline. Must be in [ISO format](https://en.wikipedia.org/wiki/ISO_8601). For example: 2014-10-14T16:32:41. <br/><br/>It is possible to specify a local time, for example an EST time. Here is an example: `2016-02-27T06:00:00**-05:00`, which is 6 AM EST.<br/><br/>The start and end properties together specify active period for the pipeline. Output slices are only produced with in this active period. |No<br/><br/>If you specify a value for the end property, you must specify value for the start property.<br/><br/>The start and end times can both be empty to create a pipeline. You must specify both values to set an active period for the pipeline to run. If you do not specify start and end times when creating a pipeline, you can set them using the Set-AzDataFactoryPipelineActivePeriod cmdlet later. |
 | end |End date-time for the pipeline. If specified must be in ISO format. For example: 2014-10-14T17:32:41 <br/><br/>It is possible to specify a local time, for example an EST time. Here is an example: `2016-02-27T06:00:00**-05:00`, which is 6 AM EST.<br/><br/>To run the pipeline indefinitely, specify 9999-09-09 as the value for the end property. |No <br/><br/>If you specify a value for the start property, you must specify value for the end property.<br/><br/>See notes for the **start** property. |
 | isPaused |If set to true the pipeline does not run. Default value = false. You can use this property to enable or disable. |No |
 | pipelineMode |The method for scheduling runs for the pipeline. Allowed values are: scheduled (default), onetime.<br/><br/>‘Scheduled’ indicates that the pipeline runs at a specified time interval according to its active period (start and end time). ‘Onetime’ indicates that the pipeline runs only once. Onetime pipelines once created cannot be modified/updated currently. See [Onetime pipeline](data-factory-create-pipelines.md#onetime-pipeline) for details about onetime setting. |No |
@@ -375,7 +373,7 @@ Click the link for the store you are interested in to see the JSON schemas for l
 | &nbsp; |[Azure Cosmos DB](#azure-cosmos-db) |
 | &nbsp; |[Azure SQL Database](#azure-sql-database) |
 | &nbsp; |[Azure SQL Data Warehouse](#azure-sql-data-warehouse) |
-| &nbsp; |[Azure Search](#azure-search) |
+| &nbsp; |[Azure Cognitive Search](#azure-cognitive-search) |
 | &nbsp; |[Azure Table storage](#azure-table-storage) |
 | **Databases** |[Amazon Redshift](#amazon-redshift) |
 | &nbsp; |[IBM DB2](#ibm-db2) |
@@ -455,7 +453,7 @@ To define an Azure Blob dataset, set the **type** of the dataset to **AzureBlob*
 | Property | Description | Required |
 | --- | --- | --- |
 | folderPath |Path to the container and folder in the blob storage. Example: myblobcontainer\myblobfolder\ |Yes |
-| fileName |Name of the blob. fileName is optional and case-sensitive.<br/><br/>If you specify a filename, the activity (including Copy) works on the specific Blob.<br/><br/>When fileName is not specified, Copy includes all Blobs in the folderPath for input dataset.<br/><br/>When fileName is not specified for an output dataset, the name of the generated file would be in the following this format: Data.<Guid>.txt (for example: : Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |No |
+| fileName |Name of the blob. fileName is optional and case-sensitive.<br/><br/>If you specify a filename, the activity (including Copy) works on the specific Blob.<br/><br/>When fileName is not specified, Copy includes all Blobs in the folderPath for input dataset.<br/><br/>When fileName is not specified for an output dataset, the name of the generated file would be in the following this format: `Data.<Guid>.txt` (for example: : Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |No |
 | partitionedBy |partitionedBy is an optional property. You can use it to specify a dynamic folderPath and filename for time series data. For example, folderPath can be parameterized for every hour of data. |No |
 | format | The following format types are supported: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Set the **type** property under format to one of these values. For more information, see [Text Format](data-factory-supported-file-and-compression-formats.md#text-format), [Json Format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro Format](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc Format](data-factory-supported-file-and-compression-formats.md#orc-format), and [Parquet Format](data-factory-supported-file-and-compression-formats.md#parquet-format) sections. <br><br> If you want to **copy files as-is** between file-based stores (binary copy), skip the format section in both input and output dataset definitions. |No |
 | compression | Specify the type and level of compression for the data. Supported types are: **GZip**, **Deflate**, **BZip2**, and **ZipDeflate**. Supported levels are: **Optimal** and **Fastest**. For more information, see [File and compression formats in Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |No |
@@ -589,13 +587,13 @@ To define an Azure Data Lake Store linked service, set the type of the linked se
 |:--- |:--- |:--- |
 | type | The type property must be set to: **AzureDataLakeStore** | Yes |
 | dataLakeStoreUri | Specify information about the Azure Data Lake Store account. It is in the following format: `https://[accountname].azuredatalakestore.net/webhdfs/v1` or `adl://[accountname].azuredatalakestore.net/`. | Yes |
-| subscriptionId | Azure subscription Id to which Data Lake Store belongs. | Required for sink |
+| subscriptionId | Azure subscription ID to which Data Lake Store belongs. | Required for sink |
 | resourceGroupName | Azure resource group name to which Data Lake Store belongs. | Required for sink |
 | servicePrincipalId | Specify the application's client ID. | Yes (for service principal authentication) |
 | servicePrincipalKey | Specify the application's key. | Yes (for service principal authentication) |
 | tenant | Specify the tenant information (domain name or tenant ID) under which your application resides. You can retrieve it by hovering the mouse in the top-right corner of the Azure portal. | Yes (for service principal authentication) |
 | authorization | Click **Authorize** button in the **Data Factory Editor** and enter your credential that assigns the auto-generated authorization URL to this property. | Yes (for user credential authentication)|
-| sessionId | OAuth session id from the OAuth authorization session. Each session id is unique and may only be used once. This setting is automatically generated when you use Data Factory Editor. | Yes (for user credential authentication) |
+| sessionId | OAuth session ID from the OAuth authorization session. Each session ID is unique and may only be used once. This setting is automatically generated when you use Data Factory Editor. | Yes (for user credential authentication) |
 
 #### Example: using service principal authentication
 ```json
@@ -638,7 +636,7 @@ To define an Azure Data Lake Store dataset, set the **type** of the dataset to *
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | folderPath |Path to the container and folder in the Azure Data Lake store. |Yes |
-| fileName |Name of the file in the Azure Data Lake store. fileName is optional and case-sensitive. <br/><br/>If you specify a filename, the activity (including Copy) works on the specific file.<br/><br/>When fileName is not specified, Copy includes all files in the folderPath for input dataset.<br/><br/>When fileName is not specified for an output dataset, the name of the generated file would be in the following this format: Data.<Guid>.txt (for example: : Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |No |
+| fileName |Name of the file in the Azure Data Lake store. fileName is optional and case-sensitive. <br/><br/>If you specify a filename, the activity (including Copy) works on the specific file.<br/><br/>When fileName is not specified, Copy includes all files in the folderPath for input dataset.<br/><br/>When fileName is not specified for an output dataset, the name of the generated file would be in the following this format: `Data.<Guid>.txt` (for example: : Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |No |
 | partitionedBy |partitionedBy is an optional property. You can use it to specify a dynamic folderPath and filename for time series data. For example, folderPath can be parameterized for every hour of data. |No |
 | format | The following format types are supported: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Set the **type** property under format to one of these values. For more information, see [Text Format](data-factory-supported-file-and-compression-formats.md#text-format), [Json Format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro Format](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc Format](data-factory-supported-file-and-compression-formats.md#orc-format), and [Parquet Format](data-factory-supported-file-and-compression-formats.md#parquet-format) sections. <br><br> If you want to **copy files as-is** between file-based stores (binary copy), skip the format section in both input and output dataset definitions. |No |
 | compression | Specify the type and level of compression for the data. Supported types are: **GZip**, **Deflate**, **BZip2**, and **ZipDeflate**. Supported levels are: **Optimal** and **Fastest**. For more information, see [File and compression formats in Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |No |
@@ -1276,15 +1274,15 @@ If you are copying data to Azure SQL Data Warehouse, set the **sink type** of th
 
 For more information, see [Azure SQL Data Warehouse connector](data-factory-azure-sql-data-warehouse-connector.md#copy-activity-properties) article.
 
-## Azure Search
+## Azure Cognitive Search
 
 ### Linked service
-To define an Azure Search linked service, set the **type** of the linked service to **AzureSearch**, and specify following properties in the **typeProperties** section:
+To define an Azure Cognitive Search linked service, set the **type** of the linked service to **AzureSearch**, and specify following properties in the **typeProperties** section:
 
 | Property | Description | Required |
 | -------- | ----------- | -------- |
-| url | URL for the Azure Search service. | Yes |
-| key | Admin key for the Azure Search service. | Yes |
+| url | URL for the search service. | Yes |
+| key | Admin key for the search service. | Yes |
 
 #### Example
 
@@ -1301,15 +1299,15 @@ To define an Azure Search linked service, set the **type** of the linked service
 }
 ```
 
-For more information, see [Azure Search connector](data-factory-azure-search-connector.md#linked-service-properties) article.
+For more information, see [Azure Cognitive Search connector](data-factory-azure-search-connector.md#linked-service-properties) article.
 
 ### Dataset
-To define an Azure Search dataset, set the **type** of the dataset to **AzureSearchIndex**, and specify the following properties in the **typeProperties** section:
+To define an Azure Cognitive Search dataset, set the **type** of the dataset to **AzureSearchIndex**, and specify the following properties in the **typeProperties** section:
 
 | Property | Description | Required |
 | -------- | ----------- | -------- |
 | type | The type property must be set to **AzureSearchIndex**.| Yes |
-| indexName | Name of the Azure Search index. Data Factory does not create the index. The index must exist in Azure Search. | Yes |
+| indexName | Name of the search index. Data Factory does not create the index. The index must exist in Azure Cognitive Search. | Yes |
 
 #### Example
 
@@ -1330,15 +1328,15 @@ To define an Azure Search dataset, set the **type** of the dataset to **AzureSea
 }
 ```
 
-For more information, see [Azure Search connector](data-factory-azure-search-connector.md#dataset-properties) article.
+For more information, see [Azure Cognitive Search connector](data-factory-azure-search-connector.md#dataset-properties) article.
 
-### Azure Search Index Sink in Copy Activity
-If you are copying data to an Azure Search index, set the **sink type** of the copy activity to **AzureSearchIndexSink**, and specify following properties in the **sink** section:
+### Azure Cognitive Search Index Sink in Copy Activity
+If you are copying data to a search index, set the **sink type** of the copy activity to **AzureSearchIndexSink**, and specify following properties in the **sink** section:
 
 | Property | Description | Allowed values | Required |
 | -------- | ----------- | -------------- | -------- |
 | WriteBehavior | Specifies whether to merge or replace when a document already exists in the index. | Merge (default)<br/>Upload| No |
-| WriteBatchSize | Uploads data into the Azure Search index when the buffer size reaches writeBatchSize. | 1 to 1,000. Default value is 1000. | No |
+| WriteBatchSize | Uploads data into the search index when the buffer size reaches writeBatchSize. | 1 to 1,000. Default value is 1000. | No |
 
 #### Example
 
@@ -1383,7 +1381,7 @@ If you are copying data to an Azure Search index, set the **sink type** of the c
 }
 ```
 
-For more information, see [Azure Search connector](data-factory-azure-search-connector.md#copy-activity-properties) article.
+For more information, see [Azure Cognitive Search connector](data-factory-azure-search-connector.md#copy-activity-properties) article.
 
 ## Azure Table Storage
 
@@ -1821,7 +1819,7 @@ To define a MySQL linked service, set the **type** of the linked service to **On
 | database |Name of the MySQL database. |Yes |
 | schema |Name of the schema in the database. |No |
 | authenticationType |Type of authentication used to connect to the MySQL database. Possible values are: `Basic`. |Yes |
-| username |Specify user name to connect to the MySQL database. |Yes |
+| userName |Specify user name to connect to the MySQL database. |Yes |
 | password |Specify password for the user account you specified. |Yes |
 | gatewayName |Name of the gateway that the Data Factory service should use to connect to the on-premises MySQL database. |Yes |
 
@@ -2455,7 +2453,7 @@ The following table provides description for JSON elements specific to SQL Serve
 | username |Specify user name if you are using Windows Authentication. Example: **domainname\\username**. |No |
 | password |Specify password for the user account you specified for the username. |No |
 
-You can encrypt credentials using the **New-AzureRmDataFactoryEncryptValue** cmdlet and use them in the connection string as shown in the following example (**EncryptedCredential** property):
+You can encrypt credentials using the **New-AzDataFactoryEncryptValue** cmdlet and use them in the connection string as shown in the following example (**EncryptedCredential** property):
 
 ```json
 "connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;EncryptedCredential=<encrypted credential>",
@@ -3308,7 +3306,7 @@ For more information, see [Amazon S3 connector article](data-factory-amazon-simp
 
 
 ### Linked service
-You can link an on-premises file system to an Azure data factory with the **On-Premises File Server** linked service. The following table provides descriptions for JSON elements that are specific to the On-Premises File Server linked service.
+You can link an on-premises file system to an Azure data factory with the **On-premises File Server** linked service. The following table provides descriptions for JSON elements that are specific to the On-premises File Server linked service.
 
 | Property | Description | Required |
 | --- | --- | --- |
@@ -3316,10 +3314,11 @@ You can link an on-premises file system to an Azure data factory with the **On-P
 | host |Specifies the root path of the folder that you want to copy. Use the escape character ‘ \ ’ for special characters in the string. See Sample linked service and dataset definitions for examples. |Yes |
 | userid |Specify the ID of the user who has access to the server. |No (if you choose encryptedCredential) |
 | password |Specify the password for the user (userid). |No (if you choose encryptedCredential |
-| encryptedCredential |Specify the encrypted credentials that you can get by running the New-AzureRmDataFactoryEncryptValue cmdlet. |No (if you choose to specify userid and password in plain text) |
+| encryptedCredential |Specify the encrypted credentials that you can get by running the New-AzDataFactoryEncryptValue cmdlet. |No (if you choose to specify userid and password in plain text) |
 | gatewayName |Specifies the name of the gateway that Data Factory should use to connect to the on-premises file server. |Yes |
 
 #### Sample folder path definitions
+
 | Scenario | Host in linked service definition | folderPath in dataset definition |
 | --- | --- | --- |
 | Local folder on Data Management Gateway machine: <br/><br/>Examples: D:\\\* or D:\folder\subfolder\\* |D:\\\\ (for Data Management Gateway 2.0 and later versions) <br/><br/> localhost (for earlier versions than Data Management Gateway 2.0) |.\\\\ or folder\\\\subfolder (for Data Management Gateway 2.0 and later versions) <br/><br/>D:\\\\ or D:\\\\folder\\\\subfolder (for gateway version below 2.0) |
@@ -3491,6 +3490,7 @@ If you are copying data to File System, set the **sink type** of the copy activi
 | Property | Description | Allowed values | Required |
 | --- | --- | --- | --- |
 | copyBehavior |Defines the copy behavior when the source is BlobSource or FileSystem. |**PreserveHierarchy:** Preserves the file hierarchy in the target folder. That is, the relative path of the source file to the source folder is the same as the relative path of the target file to the target folder.<br/><br/>**FlattenHierarchy:** All files from the source folder are created in the first level of target folder. The target files are created with an autogenerated name.<br/><br/>**MergeFiles:** Merges all files from the source folder to one file. If the file name/blob name is specified, the merged file name is the specified name. Otherwise, it is an auto-generated file name. |No |
+
 auto-
 
 #### Example
@@ -3729,7 +3729,7 @@ To define a HDFS linked service, set the **type** of the linked service to **Hdf
 | userName |Username for Windows authentication. |Yes (for Windows Authentication) |
 | password |Password for Windows authentication. |Yes (for Windows Authentication) |
 | gatewayName |Name of the gateway that the Data Factory service should use to connect to the HDFS. |Yes |
-| encryptedCredential |[New-AzureRMDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/azurerm.datafactories/new-azurermdatafactoryencryptvalue) output of the access credential. |No |
+| encryptedCredential |[New-AzDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/az.datafactory/new-azdatafactoryencryptvalue) output of the access credential. |No |
 
 #### Example: Using Anonymous authentication
 
@@ -3774,7 +3774,7 @@ To define a HDFS dataset, set the **type** of the dataset to **FileShare**, and 
 | Property | Description | Required |
 | --- | --- | --- |
 | folderPath |Path to the folder. Example: `myfolder`<br/><br/>Use escape character ‘ \ ’ for special characters in the string. For example: for folder\subfolder, specify folder\\\\subfolder and for d:\samplefolder, specify d:\\\\samplefolder.<br/><br/>You can combine this property with **partitionBy** to have folder paths based on slice start/end date-times. |Yes |
-| fileName |Specify the name of the file in the **folderPath** if you want the table to refer to a specific file in the folder. If you do not specify any value for this property, the table points to all files in the folder.<br/><br/>When fileName is not specified for an output dataset, the name of the generated file would be in the following this format: <br/><br/>Data.<Guid>.txt (for example: : Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |No |
+| fileName |Specify the name of the file in the **folderPath** if you want the table to refer to a specific file in the folder. If you do not specify any value for this property, the table points to all files in the folder.<br/><br/>When fileName is not specified for an output dataset, the name of the generated file would be in the following this format: <br/><br/>`Data.<Guid>.txt` (for example: : Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |No |
 | partitionedBy |partitionedBy can be used to specify a dynamic folderPath, filename for time series data. Example: folderPath parameterized for every hour of data. |No |
 | format | The following format types are supported: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Set the **type** property under format to one of these values. For more information, see [Text Format](data-factory-supported-file-and-compression-formats.md#text-format), [Json Format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro Format](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc Format](data-factory-supported-file-and-compression-formats.md#orc-format), and [Parquet Format](data-factory-supported-file-and-compression-formats.md#parquet-format) sections. <br><br> If you want to **copy files as-is** between file-based stores (binary copy), skip the format section in both input and output dataset definitions. |No |
 | compression | Specify the type and level of compression for the data. Supported types are: **GZip**, **Deflate**, **BZip2**, and **ZipDeflate**. Supported levels are: **Optimal** and **Fastest**. For more information, see [File and compression formats in Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |No |
@@ -3858,7 +3858,7 @@ For more information, see HDFS connector article.
 To define an SFTP linked service, set the **type** of the linked service to **Sftp**, and specify following properties in the **typeProperties** section:
 
 | Property | Description | Required |
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | host | Name or IP address of the SFTP server. |Yes |
 | port |Port on which the SFTP server is listening. The default value is: 21 |No |
 | authenticationType |Specify authentication type. Allowed values: **Basic**, **SshPublicKey**. <br><br> Refer to Using basic authentication and [Using SSH public key authentication](#using-ssh-public-key-authentication) sections on more properties and JSON samples respectively. |Yes |
@@ -3872,7 +3872,7 @@ To define an SFTP linked service, set the **type** of the linked service to **Sf
 To use basic authentication, set `authenticationType` as `Basic`, and specify the following properties besides the SFTP connector generic ones introduced in the last section:
 
 | Property | Description | Required |
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | username | User who has access to the SFTP server. |Yes |
 | password | Password for the user (username). | Yes |
 
@@ -3921,7 +3921,7 @@ To use basic authentication, set `authenticationType` as `Basic`, and specify th
 To use basic authentication, set `authenticationType` as `SshPublicKey`, and specify the following properties besides the SFTP connector generic ones introduced in the last section:
 
 | Property | Description | Required |
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | username |User who has access to the SFTP server |Yes |
 | privateKeyPath | Specify absolute path to the private key file that gateway can access. | Specify either the `privateKeyPath` or `privateKeyContent`. <br><br> Apply only when copying data from an on-premises SFTP server. |
 | privateKeyContent | A serialized string of the private key content. The Copy Wizard can read the private key file and extract the private key content automatically. If you are using any other tool/SDK, use the privateKeyPath property instead. | Specify either the `privateKeyPath` or `privateKeyContent`. |
@@ -4270,7 +4270,7 @@ To define an OData linked service, set the **type** of the linked service to **O
 | username |Specify user name if you are using Basic authentication. |Yes (only if you are using Basic authentication) |
 | password |Specify password for the user account you specified for the username. |Yes (only if you are using Basic authentication) |
 | authorizedCredential |If you are using OAuth, click **Authorize** button in the Data Factory Copy Wizard or Editor and enter your credential, then the value of this property will be auto-generated. |Yes (only if you are using OAuth authentication) |
-| gatewayName |Name of the gateway that the Data Factory service should use to connect to the on-premises OData service. Specify only if you are copying data from on-prem OData source. |No |
+| gatewayName |Name of the gateway that the Data Factory service should use to connect to the on-premises OData service. Specify only if you are copying data from on premises OData source. |No |
 
 #### Example - Using Basic authentication
 ```json
@@ -4279,7 +4279,7 @@ To define an OData linked service, set the **type** of the linked service to **O
     "properties": {
         "type": "OData",
         "typeProperties": {
-            "url": "http://services.odata.org/OData/OData.svc",
+            "url": "https://services.odata.org/OData/OData.svc",
             "authenticationType": "Basic",
             "username": "username",
             "password": "password"
@@ -4296,7 +4296,7 @@ To define an OData linked service, set the **type** of the linked service to **O
     "properties": {
         "type": "OData",
         "typeProperties": {
-            "url": "http://services.odata.org/OData/OData.svc",
+            "url": "https://services.odata.org/OData/OData.svc",
             "authenticationType": "Anonymous"
         }
     }
@@ -4460,7 +4460,7 @@ To define an ODBC linked service, set the **type** of the linked service to **On
 }
 ```
 #### Example - Using Basic authentication with encrypted credentials
-You can encrypt the credentials using the [New-AzureRMDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/azurerm.datafactories/new-azurermdatafactoryencryptvalue) (1.0 version of Azure PowerShell) cmdlet or [New-AzureDataFactoryEncryptValue](https://msdn.microsoft.com/library/dn834940.aspx) (0.9 or earlier version of the Azure PowerShell).
+You can encrypt the credentials using the [New-AzDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/az.datafactory/new-azdatafactoryencryptvalue) cmdlet.
 
 ```json
 {
@@ -4589,7 +4589,7 @@ To define a Salesforce linked service, set the **type** of the linked service to
 
 | Property | Description | Required |
 | --- | --- | --- |
-| environmentUrl | Specify the URL of Salesforce instance. <br><br> - Default is "https://login.salesforce.com". <br> - To copy data from sandbox, specify "https://test.salesforce.com". <br> - To copy data from custom domain, specify, for example, "https://[domain].my.salesforce.com". |No |
+| environmentUrl | Specify the URL of Salesforce instance. <br><br> - Default is "https:\//login.salesforce.com". <br> - To copy data from sandbox, specify "https://test.salesforce.com". <br> - To copy data from custom domain, specify, for example, "https://[domain].my.salesforce.com". |No |
 | username |Specify a user name for the user account. |Yes |
 | password |Specify a password for the user account. |Yes |
 | securityToken |Specify a security token for the user account. See [Get security token](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) for instructions on how to reset/get a security token. To learn about security tokens in general, see [Security and the API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm). |Yes |
@@ -4822,7 +4822,7 @@ The following table lists the compute environments supported by Data Factory and
 | [Azure Batch](#azure-batch) |[.NET custom activity](#net-custom-activity) |
 | [Azure Machine Learning](#azure-machine-learning) | [Machine Learning Batch Execution Activity](#machine-learning-batch-execution-activity), [Machine Learning Update Resource Activity](#machine-learning-update-resource-activity) |
 | [Azure Data Lake Analytics](#azure-data-lake-analytics) |[Data Lake Analytics U-SQL](#data-lake-analytics-u-sql-activity) |
-| [Azure SQL Database](#azure-sql-database-1), [Azure SQL Data Warehouse](#azure-sql-data-warehouse-1), [SQL Server](#sql-server-1) |[Stored Procedure](#stored-procedure-activity) |
+| [Azure SQL Database](#azure-sql-database), [Azure SQL Data Warehouse](#azure-sql-data-warehouse), [SQL Server](#sql-server-stored-procedure) |[Stored Procedure](#stored-procedure-activity) |
 
 ## On-demand Azure HDInsight cluster
 The Azure Data Factory service can automatically create a Windows/Linux-based on-demand HDInsight cluster to process data. The cluster is created in the same region as the storage account (linkedServiceName property in the JSON) associated with the cluster. You can run the following transformation activities on this linked service: [.NET custom activity](#net-custom-activity), [Hive activity](#hdinsight-hive-activity), [Pig activity](#hdinsight-pig-activity), [MapReduce activity](#hdinsight-mapreduce-activity), Hadoop streaming activity, [Spark activity](#hdinsight-spark-activity).
@@ -4967,9 +4967,9 @@ The following table provides descriptions for the properties used in the JSON de
 | accountName |Azure Data Lake Analytics Account Name. |Yes |
 | dataLakeAnalyticsUri |Azure Data Lake Analytics URI. |No |
 | authorization |Authorization code is automatically retrieved after clicking **Authorize** button in the Data Factory Editor and completing the OAuth login. |Yes |
-| subscriptionId |Azure subscription id |No (If not specified, subscription of the data factory is used). |
+| subscriptionId |Azure subscription ID |No (If not specified, subscription of the data factory is used). |
 | resourceGroupName |Azure resource group name |No (If not specified, resource group of the data factory is used). |
-| sessionId |session id from the OAuth authorization session. Each session id is unique and may only be used once. When you use the Data Factory Editor, this ID is auto-generated. |Yes |
+| sessionId |session ID from the OAuth authorization session. Each session ID is unique and may only be used once. When you use the Data Factory Editor, this ID is auto-generated. |Yes |
 
 
 #### JSON example
@@ -4992,59 +4992,8 @@ The following example provides JSON definition for an Azure Data Lake Analytics 
 }
 ```
 
-## Azure SQL Database
-You create an Azure SQL linked service and use it with the [Stored Procedure Activity](#stored-procedure-activity) to invoke a stored procedure from a Data Factory pipeline.
+## SQL Server Stored Procedure
 
-### Linked service
-To define an Azure SQL Database linked service, set the **type** of the linked service to **AzureSqlDatabase**, and specify following properties in the **typeProperties** section:
-
-| Property | Description | Required |
-| --- | --- | --- |
-| connectionString |Specify information needed to connect to the Azure SQL Database instance for the connectionString property. |Yes |
-
-#### JSON example
-
-```json
-{
-    "name": "AzureSqlLinkedService",
-    "properties": {
-        "type": "AzureSqlDatabase",
-        "typeProperties": {
-            "connectionString": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;User ID=<username>@<servername>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
-        }
-    }
-}
-```
-
-See [Azure SQL Connector](data-factory-azure-sql-connector.md#linked-service-properties) article for details about this linked service.
-
-## Azure SQL Data Warehouse
-You create an Azure SQL Data Warehouse linked service and use it with the [Stored Procedure Activity](data-factory-stored-proc-activity.md) to invoke a stored procedure from a Data Factory pipeline.
-
-### Linked service
-To define an Azure SQL Data Warehouse linked service, set the **type** of the linked service to **AzureSqlDW**, and specify following properties in the **typeProperties** section:
-
-| Property | Description | Required |
-| --- | --- | --- |
-| connectionString |Specify information needed to connect to the Azure SQL Data Warehouse instance for the connectionString property. |Yes |
-
-#### JSON example
-
-```json
-{
-    "name": "AzureSqlDWLinkedService",
-    "properties": {
-        "type": "AzureSqlDW",
-        "typeProperties": {
-            "connectionString": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;User ID=<username>@<servername>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
-        }
-    }
-}
-```
-
-For more information, see [Azure SQL Data Warehouse connector](data-factory-azure-sql-data-warehouse-connector.md#linked-service-properties) article.
-
-## SQL Server
 You create a SQL Server linked service and use it with the [Stored Procedure Activity](data-factory-stored-proc-activity.md) to invoke a stored procedure from a Data Factory pipeline.
 
 ### Linked service
@@ -5060,7 +5009,7 @@ The following table provides description for JSON elements specific to SQL Serve
 | username |Specify user name if you are using Windows Authentication. Example: **domainname\\username**. |No |
 | password |Specify password for the user account you specified for the username. |No |
 
-You can encrypt credentials using the **New-AzureRmDataFactoryEncryptValue** cmdlet and use them in the connection string as shown in the following example (**EncryptedCredential** property):
+You can encrypt credentials using the **New-AzDataFactoryEncryptValue** cmdlet and use them in the connection string as shown in the following example (**EncryptedCredential** property):
 
 ```JSON
 "connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;EncryptedCredential=<encrypted credential>",
@@ -5394,7 +5343,7 @@ Note the following points:
 For more information about the activity, see [Spark Activity](data-factory-spark.md) article.
 
 ## Machine Learning Batch Execution Activity
-You can specify the following properties in a Azure Machine Learning studio Batch Execution Activity JSON definition. The type property for the activity must be: **AzureMLBatchExecution**. You must create a Azure Machine Learning linked service first and specify the name of it as a value for the **linkedServiceName** property. The following properties are supported in the **typeProperties** section when you set the type of activity to AzureMLBatchExecution:
+You can specify the following properties in an Azure Machine Learning studio Batch Execution Activity JSON definition. The type property for the activity must be: **AzureMLBatchExecution**. You must create an Azure Machine Learning linked service first and specify the name of it as a value for the **linkedServiceName** property. The following properties are supported in the **typeProperties** section when you set the type of activity to AzureMLBatchExecution:
 
 Property | Description | Required
 -------- | ----------- | --------
@@ -5450,7 +5399,7 @@ In the JSON example, the deployed Azure Machine Learning Web service uses a read
 > Only inputs and outputs of the AzureMLBatchExecution activity can be passed as parameters to the Web service. For example, in the above JSON snippet, MLSqlInput is an input to the AzureMLBatchExecution activity, which is passed as an input to the Web service via webServiceInput parameter.
 
 ## Machine Learning Update Resource Activity
-You can specify the following properties in a Azure Machine Learning studio Update Resource Activity JSON definition. The type property for the activity must be: **AzureMLUpdateResource**. You must create a Azure Machine Learning linked service first and specify the name of it as a value for the **linkedServiceName** property. The following properties are supported in the **typeProperties** section when you set the type of activity to AzureMLUpdateResource:
+You can specify the following properties in an Azure Machine Learning studio Update Resource Activity JSON definition. The type property for the activity must be: **AzureMLUpdateResource**. You must create an Azure Machine Learning linked service first and specify the name of it as a value for the **linkedServiceName** property. The following properties are supported in the **typeProperties** section when you set the type of activity to AzureMLUpdateResource:
 
 Property | Description | Required
 -------- | ----------- | --------
@@ -5599,7 +5548,7 @@ The following properties are supported in the **typeProperties** section when yo
 
 If you do specify an input dataset, it must be available (in ‘Ready’ status) for the stored procedure activity to run. The input dataset cannot be consumed in the stored procedure as a parameter. It is only used to check the dependency before starting the stored procedure activity. You must specify an output dataset for a stored procedure activity.
 
-Output dataset specifies the **schedule** for the stored procedure activity (hourly, weekly, monthly, etc.). The output dataset must use a **linked service** that refers to an Azure SQL Database or an Azure SQL Data Warehouse or a SQL Server Database in which you want the stored procedure to run. The output dataset can serve as a way to pass the result of the stored procedure for subsequent processing by another activity ([chaining activities](data-factory-scheduling-and-execution.md##multiple-activities-in-a-pipeline)) in the pipeline. However, Data Factory does not automatically write the output of a stored procedure to this dataset. It is the stored procedure that writes to a SQL table that the output dataset points to. In some cases, the output dataset can be a **dummy dataset**, which is used only to specify the schedule for running the stored procedure activity.
+Output dataset specifies the **schedule** for the stored procedure activity (hourly, weekly, monthly, etc.). The output dataset must use a **linked service** that refers to an Azure SQL Database or an Azure SQL Data Warehouse or a SQL Server Database in which you want the stored procedure to run. The output dataset can serve as a way to pass the result of the stored procedure for subsequent processing by another activity ([chaining activities](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline)) in the pipeline. However, Data Factory does not automatically write the output of a stored procedure to this dataset. It is the stored procedure that writes to a SQL table that the output dataset points to. In some cases, the output dataset can be a **dummy dataset**, which is used only to specify the schedule for running the stored procedure activity.
 
 ### JSON example
 
@@ -5692,5 +5641,5 @@ For detailed information, see [Use custom activities in Data Factory](data-facto
 ## Next Steps
 See the following tutorials:
 
-- [Tutorial: create a pipeline with a copy activity](data-factory-copy-activity-tutorial-using-azure-portal.md)
-- [Tutorial: create a pipeline with a hive activity](data-factory-build-your-first-pipeline-using-editor.md)
+- [Tutorial: create a pipeline with a copy activity](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+- [Tutorial: create a pipeline with a hive activity](data-factory-build-your-first-pipeline.md)

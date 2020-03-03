@@ -4,7 +4,7 @@ description: Learn the best practices about data ingestion, date security, and p
 services: data-lake-store
 documentationcenter: ''
 author: sachinsbigdata
-manager: jhubbard
+manager: mtillman
 
 ms.service: data-lake-store
 ms.devlang: na
@@ -29,7 +29,7 @@ Assume you have a folder with 100,000 child objects. If you take the lower bound
 
 When working with big data in Data Lake Storage Gen1, most likely a service principal is used to allow services such as Azure HDInsight to work with the data. However, there might be cases where individual users need access to the data as well. In such cases, you must use Azure Active Directory [security groups](data-lake-store-secure-data.md#create-security-groups-in-azure-active-directory) instead of assigning individual users to folders and files.
 
-Once a security group is assigned permissions, adding or removing users from the group doesn’t require any updates to Data Lake Storage Gen1. This also helps ensure you don't exceed the limit of [32 Access and Default ACLs](../azure-subscription-service-limits.md#data-lake-store-limits) (this includes the four POSIX-style ACLs that are always associated with every file and folder: [the owning user](data-lake-store-access-control.md#the-owning-user), [the owning group](data-lake-store-access-control.md#the-owning-group), [the mask](data-lake-store-access-control.md#the-mask), and other).
+Once a security group is assigned permissions, adding or removing users from the group doesn’t require any updates to Data Lake Storage Gen1. This also helps ensure you don't exceed the limit of [32 Access and Default ACLs](../azure-resource-manager/management/azure-subscription-service-limits.md#data-lake-store-limits) (this includes the four POSIX-style ACLs that are always associated with every file and folder: [the owning user](data-lake-store-access-control.md#the-owning-user), [the owning group](data-lake-store-access-control.md#the-owning-group), [the mask](data-lake-store-access-control.md#the-mask), and other).
 
 ### Security for groups
 
@@ -136,7 +136,7 @@ If Data Lake Storage Gen1 log shipping is not turned on, Azure HDInsight also pr
 
     log4j.logger.com.microsoft.azure.datalake.store=DEBUG
 
-Once the property is set and the nodes are restarted, Data Lake Storage Gen1 diagnostics is written to the YARN logs on the nodes (/tmp/\<user\>/yarn.log), and important details like errors or throttling (HTTP 429 error code) can be monitored. This same information can also be monitored in Log Analytics or wherever logs are shipped to in the [Diagnostics](data-lake-store-diagnostic-logs.md) blade of the Data Lake Storage Gen1 account. It is recommended to at least have client-side logging turned on or utilize the log shipping option with Data Lake Storage Gen1 for operational visibility and easier debugging.
+Once the property is set and the nodes are restarted, Data Lake Storage Gen1 diagnostics is written to the YARN logs on the nodes (/tmp/\<user\>/yarn.log), and important details like errors or throttling (HTTP 429 error code) can be monitored. This same information can also be monitored in Azure Monitor logs or wherever logs are shipped to in the [Diagnostics](data-lake-store-diagnostic-logs.md) blade of the Data Lake Storage Gen1 account. It is recommended to at least have client-side logging turned on or utilize the log shipping option with Data Lake Storage Gen1 for operational visibility and easier debugging.
 
 ### Run synthetic transactions
 
@@ -183,5 +183,4 @@ In the common case of batch data being processed directly into databases such as
 * [Tuning Azure Data Lake Storage Gen1 for performance](data-lake-store-performance-tuning-guidance.md)
 * [Performance tuning guidance for using HDInsight Spark with Azure Data Lake Storage Gen1](data-lake-store-performance-tuning-spark.md)
 * [Performance tuning guidance for using HDInsight Hive with Azure Data Lake Storage Gen1](data-lake-store-performance-tuning-hive.md)
-* [Data Orchestration using Azure Data Factory for Azure Data Lake Storage Gen1](https://mix.office.com/watch/1oa7le7t2u4ka)
 * [Create HDInsight clusters with Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)

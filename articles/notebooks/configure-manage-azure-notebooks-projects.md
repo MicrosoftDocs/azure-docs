@@ -1,24 +1,17 @@
 ---
-title: Configure and manage Azure Notebook projects
-description: How to manage project metadata, project files, the project's environment and setup steps through both the Azure Notebooks UI and direct terminal access.
-services: app-service
-documentationcenter: ''
-author: kraigb
-manager: douge
-
-ms.assetid: 35dd6ff1-a14a-4a2e-b173-6d8467de3e89
-ms.service: notebooks
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 02/25/2019
-ms.author: kraigb
+title: Configure and manage Azure Notebooks Preview
+description: Learn how to manage project metadata, project files, the project's environment and setup steps through both the Azure Notebooks UI and direct terminal access.
+ms.topic: how-to
+ms.date: 02/28/2020
 ---
 
-# Manage and configure projects
+# <a id="manage-and-configure-projects" /> Manage and configure projects in Azure Notebooks Preview
 
-A project in Azure Notebooks is essentially a configuration of the underlying Linux virtual machine in which Jupyter notebooks run, along with a file folder and descriptive metadata. The project dashboard in Azure Notebooks allows you to manage files and otherwise configure the project's characteristics:
+A project in Azure Notebooks Preview is essentially a configuration of the underlying Linux virtual machine in which Jupyter notebooks run, along with a file folder and descriptive metadata. 
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
+
+The project dashboard in Azure Notebooks allows you to manage files and otherwise configure the project's characteristics:
 
 - The compute tier on which the project runs, which can be the free tier or an Azure virtual machine.
 - Project metadata, which includes a name, description, an identifier that's used when sharing the project, and whether the project is public or private.
@@ -33,38 +26,7 @@ Azure Notebooks starts the underlying virtual machine whenever you run a noteboo
 
 ## Compute tier
 
-The **Run** drop-down list on the project dashboard is where you select the compute tier on which the project runs. By default, projects run on the **Free Compute** tier, which is limited to 4GB of memory and 1GB of data to prevent abuse:
-
-![Compute tier drop-down list on the project dashboard](media/project-compute-tier-list.png)
-
-You can bypass these limitations by using a different virtual machine that you've provisioned in an Azure subscription. You must  install and run JupyterHub on that virtual machine. The Data Science Virtual Machine images (any operating system) are good choices because they include JupyterHub by default.
-
-Once you have a suitably configured Azure virtual machine, select the **Direct Compute** option in the drop-down list, which prompts you for a name (to show in the list), the VM's IP address and port (typically 8000, the default port to which JupyterHub listens), and the VM credentials:
-
-![Prompt to collect server information for the Direct Compute option](media/project-compute-tier-direct.png)
-
-If the following conditions are true, the drop-down list also shows [Data Science Virtual Machine (DSVM)](/azure/machine-learning/data-science-virtual-machine) instances. (If any of these conditions aren't met, you can still connect to the DSVM using the Direct Compute option and entering the values obtained from the Azure portal.)
-
-- You're signed into Azure Notebooks with an account that uses Azure Active Directory (AAD), such as a company account.
-- Your account is connected to an Azure subscription.
-- You have one or more virtual machines in that subscription, with at least Reader access, that use the Data Science Virtual Machine for Linux (Ubuntu) image.)
-
-![Data Science Virtual Machine instances in the drop-down list on the project dashboard](media/project-compute-tier-dsvm.png)
-
-When you select a DSVM instance, Azure Notebooks may prompt you for the specific machine credentials used when you created the VM.
-
-To create a new DSVM instance, follow the instructions on [Create an Ubuntu Data Science VM](/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro). Use the **Data Science Virtual Machine for Linux (Ubuntu)** image if you want the DSVM to appear in the drop-down list in Azure Notebooks.  If for other reasons you need to use the Windows or CentOS image, you can use the **Direct Compute** option to connect to the DSVM manually.
-
-> [!IMPORTANT]
-> When using Direct Compute or Data Science virtual machines, the notebooks you run on them must be entirely self-contained. At present, Azure Notebooks copies only the *.ipynb* file to the VM but doesn't copy any other files in the project. As a result, notebooks running on other VMs fail to find other project files.
->
-> You can work around this behavior in two ways:
->
-> 1. Copy project files manually to the VM.
->
-> 2. Embed the files within a setup notebook that you run first before the primary notebook. In the setup notebook, create a code cell for each file where the cell contains the file contents. Then at the top of each cell, insert the command `%%writefile <filename>`, where `<filename>` is the name of the file to receive the contents. When you run the notebook, it creates all those files on the VM. For an example, see the [setup.ipynb file in the Microsoft Pet Detector demo](https://github.com/Microsoft/connect-petdetector/blob/master/setup.ipynb) (GitHub).
->
->     ![Using a %%writefile command at the beginning of a code cell](media/setup-notebook-writefile-command.png)
+By default, projects run on the **Free Compute** tier, which is limited to 4GB of memory and 1GB of data to prevent abuse. You can bypass these limitations and increase compute power by using a different virtual machine that you've provisioned in an Azure subscription. For more information, see [How to use Data Science Virtual Machines](use-data-science-virtual-machine.md).
 
 ## Edit project metadata
 
@@ -164,6 +126,9 @@ The information you then project depends on the type of operation you chose:
 - **Shell script**: In the second drop-down list, select a bash shell script in the project (typically a file with the *.sh* extension) that contains any commands you wish to run to initialize the environment.
 
 - **Environment.yml**: In the second drop-down list, select an *environments.yml* file for Python projects using a conda environment.
+
+   > [!WARNING]
+   > As this is a preview service under development, there is currently a known issue where the `Environment.yml` setting does not get applied to your project as expected. The project and the Jupyter notebooks within do not load the specified environment file at present.
 
 When you're done adding steps, select **Save**.
 

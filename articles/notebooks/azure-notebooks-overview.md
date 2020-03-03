@@ -1,28 +1,19 @@
 ---
-title: Overview of Azure Notebooks
-description: Run Jupyter notebooks in the cloud using the free Azure Notebooks service, where no setup or configuration is required.
-services: app-service
-documentationcenter: ''
-author: kraigb
-manager: douge
-
-ms.assetid: 9cea5a8e-c52d-4bdc-9e4a-cecdc1ad02c1
-ms.service: notebooks
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+title: Overview of Azure Notebooks Preview
+description: Run Jupyter notebooks in the cloud using the free Azure Notebooks Preview service, where no setup or configuration is required.
 ms.topic: overview
-ms.date: 01/11/2019
-ms.author: kraigb
+ms.date: 04/05/2019
 ---
 
-# Overview of Azure Notebooks
+# Overview of Azure Notebooks Preview
 
 Azure Notebooks is a free hosted service to develop and run Jupyter notebooks in the cloud with no installation. [Jupyter](https://jupyter.org/) (formerly IPython) is an open-source project that lets you easily combine Markdown text, executable code, persistent data, graphics, and visualizations onto a single, sharable canvas, the *notebook* (image courtesy of jupyter.org):
 
 [![Examples of Jupyter notebooks](https://jupyter.org/assets/jupyterpreview.png)](https://jupyter.org/assets/jupyterpreview.png#lightbox)
 
 Because of this powerful combination of code, graphics, and explanatory text, Jupyter has become popular for many uses including data science instruction, data cleaning and transformation, numerical simulation, statistical modeling, and the development of machine learning models.
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 ## Hassle-free experience
 
@@ -54,6 +45,8 @@ In short, Azure Notebooks helps you accomplish your work more efficiently and th
 Azure Notebooks is a free service but each project is limited to 4GB memory and 1GB data to prevent abuse. Legitimate users that exceed these limits see a Captcha challenge to continue running notebooks.
 
 To release all limits, sign into Azure Notebooks with an account using Azure Active Directory (such as a corporate account). If that account is associated with an Azure subscription, you can connect to any Azure Data Science Virtual Machine instances within that subscription. For more information, see [Manage and configure projects - Compute tier](configure-manage-azure-notebooks-projects.md#compute-tier).
+
+Notebook servers are guaranteed to exist for at most 8 hours. In most cases, your container isn't subject to this limit and continues to run beyond this time, but long-lived sessions may occasionally be shut down for system stability.
 
 ## Available kernels and environments
 
@@ -113,4 +106,4 @@ To discuss your questions about Azure Notebooks, file an issue on the [GitHub re
   - [Present a slide show](present-jupyter-notebooks-slideshow.md)
   - [Work with data files](work-with-project-data-files.md)
   - [Access data resources](access-data-resources-jupyter-notebooks.md)
-  - [Use Azure Machine Learning Services](use-machine-learning-services-jupyter-notebooks.md)
+  - [Use Azure Machine Learning](use-machine-learning-services-jupyter-notebooks.md)

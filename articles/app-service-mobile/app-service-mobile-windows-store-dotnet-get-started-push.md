@@ -1,20 +1,12 @@
 ---
-title: Add push notifications to your Universal Windows Platform (UWP) app | Microsoft Docs
+title: Add push notifications to your UWP app
 description: Learn how to use Azure App Service Mobile Apps and Azure Notification Hubs to send push notifications to your Universal Windows Platform (UWP) app.
-services: app-service\mobile,notification-hubs
-documentationcenter: windows
-author: conceptdev
-manager: crdun 
-editor: ''
 
 ms.assetid: 6de1b9d4-bd28-43e4-8db4-94cd3b187aa3
-ms.service: app-service-mobile
-ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/12/2016
-ms.author: crdun 
+ms.date: 06/25/2019
 ---
 # Add push notifications to your Windows app
 
@@ -110,7 +102,7 @@ Use the procedure below that matches your backend project type&mdash;either [.NE
 4. Republish the server project.
 
 ### <a name="nodejs"></a>Node.js backend project
-1. If you haven't already done so, [download the quickstart project](app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart) or else use the [online editor in the Azure portal](app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor).
+1. Set up your backend project.
 2. Replace the existing code in the todoitem.js file with the following:
 
     ```javascript

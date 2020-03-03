@@ -1,13 +1,8 @@
 ---
-title: Quickstart - Send Azure Container Registry events to Event Grid
+title: Quickstart - Send events to Event Grid
 description: In this quickstart, you enable Event Grid events for your container registry, then send container image push and delete events to a sample application.
-services: container-registry
-author: dlepow
-
-ms.service: container-registry
 ms.topic: article
 ms.date: 08/23/2018
-ms.author: danlep
 ms.custom: seodec18
 # Customer intent: As a container registry owner, I want to send events to Event Grid
 # when container images are pushed to or deleted from my container registry so that
@@ -107,7 +102,7 @@ APP_ENDPOINT=https://$SITE_NAME.azurewebsites.net/api/updates
 
 az eventgrid event-subscription create \
     --name event-sub-acr \
-    --resource-id $ACR_REGISTRY_ID \
+    --source-resource-id $ACR_REGISTRY_ID \
     --endpoint $APP_ENDPOINT
 ```
 

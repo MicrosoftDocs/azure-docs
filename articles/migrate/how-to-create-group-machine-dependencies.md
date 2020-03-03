@@ -1,52 +1,66 @@
 ---
-title: Group machines using machine dependencies with Azure Migrate | Microsoft Docs
-description: Describes how to create an assessment using machine dependencies with the Azure Migrate service.
-author: rayne-wiselman
-ms.service: azure-migrate
+title: Set up dependency visualization in Azure Migrate
+description: Describes set up dependency visualization in Azure Migrate Server Assessment.
 ms.topic: article
-ms.date: 12/05/2018
-ms.author: raynew
+ms.date: 2/24/2020
 ---
 
+# Set up dependency visualization
 
-# Group machines using machine dependency mapping
+This article describes how to set up dependency visualization in Azure Migrate:Server Assessment. [Dependency visualization](concepts-dependency-visualization.md#what-is-dependency-visualization) helps you to identify and understand dependencies across machines you want to assess and migrate to Azure.
 
-This article describes how to create a group of machines for [Azure Migrate](migrate-overview.md) assessment by visualizing dependencies of machines. You typically use this method when you want to assess groups of VMs with higher levels of confidence by cross-checking machine dependencies, before you run an assessment. Dependency visualization can help you effectively plan your migration to Azure. It helps you ensure that nothing is left behind and surprise outages do not occur when you are migrating to Azure. You can discover all interdependent systems that need to migrate together and identify whether a running system is still serving users or is a candidate for decommissioning instead of migration.
+## Before you start
+
+- [Review](concepts-dependency-visualization.md) the requirements and costs associated with dependency visualization.
+- Make sure you've [created](how-to-add-tool-first-time.md) an Azure Migrate project.
+- If you've already created a project, make sure you've [added](how-to-assess.md) the Azure Migrate:Server Assessment tool.
+- Make sure you've set up an [Azure Migrate appliance](migrate-appliance.md) to discover your on-premises machines. Learn how to set up an appliance for [VMware](how-to-set-up-appliance-vmware.md) or [Hyper-V](how-to-set-up-appliance-hyper-v.md). The appliance discovers on-premises machines, and sends metadata and performance data to Azure Migrate:Server Assessment.
+- To use dependency visualization, you associate a [Log Analytics workspace](../azure-monitor/platform/manage-access.md) with an Azure Migrate project:
+    - Make sure you have a workspace in the subscription that contains the Azure Migrate project.
+    - The workspace must reside in the East US, Southeast Asia, or West Europe regions. Workspaces in other regions can't be associated with a project.
+    - The workspace must be in a region in which [Service Map is supported](../azure-monitor/insights/vminsights-enable-overview.md#prerequisites).
+    - You can associate a new or existing Log Analytics workspace with an Azure Migrate project.
+    - You attach the workspace the first time that you set up dependency visualization for a machine. The workspace for an Azure Migrate project can't be modified after it's added.
+    - In Log Analytics, the workspace associated with Azure Migrate is tagged with the Migration Project key, and the project name.
+
+- You can attach a workspace only after discovering machines in the Azure Migrate project. You can do this by setting up an Azure Migrate appliance for [VMware](how-to-set-up-appliance-vmware.md) or [Hyper-V](how-to-set-up-appliance-hyper-v.md). The appliance discovers on-premises machines, and sends metadata and performance data to Azure Migrate: Server Assessment. [Learn more](migrate-appliance.md).
+
+## Associate a workspace
+
+1. After you've discovered machines for assessment, in **Servers** > **Azure Migrate:Server Assessment**, click **Overview**.  
+2. In **Azure Migrate:Server Assessment**, click **Essentials**.
+3. In **OMS Workspace**, click **Requires configuration**.
+
+     ![Configure Log Analytics workspace](./media/how-to-create-group-machine-dependencies/oms-workspace-select.png)   
+
+4. In **Configure OMS workspace**, specify whether you want to create a new workspace, or use an existing one.
+    - You can select an existing workspace from all the workspaces in the migrate project subscription.
+    - You need Reader access to the workspace to associate it.
+5. If you create a new workspace, select a location for it.
+
+    ![Add a new workspace](./media/how-to-create-group-machine-dependencies/workspace.png)
+
+
+## Download and install the VM agents
+
+On each machine you want to analyze, install the agents.
 
 > [!NOTE]
-> The dependency visualization functionality is not available in Azure Government.
+    > For machines monitored by System Center Operations Manager 2012 R2 or later, you don't need to install the MMA agent. Service Map integrates with Operations Manager. [Follow this](https://docs.microsoft.com/azure/azure-monitor/insights/service-map-scom#prerequisites) integration guidance.
 
-## Prepare for dependency visualization
-Azure Migrate leverages Service Map solution in Log Analytics to enable dependency visualization of machines.
+1. In **Azure Migrate: Server Assessment**, click **Discovered servers**.
+2. For each machine you want to analyze with dependency visualization, in the **Dependencies** column, click **Requires agent installation**.
+3. In the **Dependencies** page, download the MMA and Dependency agent for Windows or Linux.
+4. Under **Configure MMA agent**, copy the workspace ID and key. You need these when you install the MMA agent.
 
-### Associate a Log Analytics workspace
-To leverage dependency visualization, you need to associate a Log Analytics workspace, either new or existing, with an Azure Migrate project. You can only create or attach a workspace in the same subscription where the migration project is created.
+    ![Install the agents](./media/how-to-create-group-machine-dependencies/dependencies-install.png)
 
-- To attach a Log Analytics workspace to a project, in **Overview**, go to **Essentials** section of the project click **Requires configuration**
 
-    ![Associate Log Analytics workspace](./media/concepts-dependency-visualization/associate-workspace.png)
+## Install the MMA
 
-- While associating a workspace, you will get the option to create a new workspace or attach an existing one:
-  - When you create a new workspace, you need to specify a name for the workspace. The workspace is then created in a region in the same [Azure geography](https://azure.microsoft.com/global-infrastructure/geographies/) as the migration project.
-  - When you attach an existing workspace, you can pick from all the available workspaces in the same subscription as the migration project. Note that only those workspaces are listed which were created in a region where [Service Map is supported](https://docs.microsoft.com/azure/azure-monitor/insights/service-map-configure#supported-azure-regions). To be able to attach a workspace, ensure that you have 'Reader' access to the workspace.
+Install the MMA on each Windows or Linux machine you want to analyze.
 
-> [!NOTE]
-> You cannot change the workspace associated to a migration project.
-
-### Download and install the VM agents
-Once you configure a workspace, you need to download and install agents on each on-premises machine that you want to evaluate. In addition, if you have machines with no internet connectivity, you need to download and install [Log Analytics gateway](../azure-monitor/platform/gateway.md) on them.
-
-1. In **Overview**, click **Manage** > **Machines**, and select the required machine.
-2. In the **Dependencies** column, click **Install agents**.
-3. On the **Dependencies** page, download and install the Microsoft Monitoring Agent (MMA), and the Dependency agent on each VM you want to evaluate.
-4. Copy the workspace ID and key. You need these when you install the MMA on the on-premises machine.
-
-> [!NOTE]
-> To automate the installation of agents you can use any deployment tool like System Center Configuration Manager or use our partner tool, [Intigua](https://www.intigua.com/getting-started-intigua-for-azure-migration), that has an agent deployment solution for Azure Migrate.
-
-### Install the MMA
-
-#### Install the agent on a Windows machine
+### Install MMA on a Windows machine
 
 To install the agent on a Windows machine:
 
@@ -56,81 +70,132 @@ To install the agent on a Windows machine:
 4. In **Agent Setup Options**, select **Azure Log Analytics** > **Next**.
 5. Click **Add** to add a new Log Analytics workspace. Paste in the workspace ID and key that you copied from the portal. Click **Next**.
 
-You can install the agent from the command line or using an automated method such as Azure Automation DSC, System Center Configuration Manager, or with an Azure Resource Manager template if you have deployed Microsoft Azure Stack in your datacenter. [Learn more](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#install-and-configure-agent) about using these methods to install the MMA agent.
+You can install the agent from the command line or using an automated method such as Configuration Manager or [Intigua](https://go.microsoft.com/fwlink/?linkid=2104196).
+- [Learn more](../azure-monitor/platform/log-analytics-agent.md#installation-and-configuration) about using these methods to install the MMA agent.
+- The MMA agent can also be installed using this [script](https://go.microsoft.com/fwlink/?linkid=2104394).
+- [Learn more](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#supported-windows-operating-systems) about the Windows operating systems supported by MMA.
 
-#### Install the agent on a Linux machine
+### Install MMA on a Linux machine
 
-To install the agent on a Linux machine:
+To install the MMA on a Linux machine:
 
 1. Transfer the appropriate bundle (x86 or x64) to your Linux computer using scp/sftp.
 2. Install the bundle by using the --install argument.
 
     ```sudo sh ./omsagent-<version>.universal.x64.sh --install -w <workspace id> -s <workspace key>```
 
-[Learn more](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-linux-operating-systems) about the list of Linux operating systems support by MMA.
+[Learn more](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#supported-linux-operating-systems) about the list of Linux operating systems support by MMA. 
 
-#### Install the agent on a machine monitored by SCOM
+## Install the Dependency agent
 
-For machines monitored by System Center Operations Manager 2012 R2 or later, there is no need to install the MMA agent. Service Map has an integration with SCOM that leverages the SCOM MMA to gather the necessary dependency data. You can enable the integration using the guidance [here](https://docs.microsoft.com/azure/azure-monitor/insights/service-map-scom#prerequisites). Note, however, that the dependency agent will need to installed on these machines.
-
-
-### Install the Dependency agent
 1. To install the Dependency agent on a Windows machine, double-click the setup file and follow the wizard.
 2. To install the Dependency agent on a Linux machine, install as root using the following command:
 
     ```sh InstallDependencyAgent-Linux64.bin```
 
-Learn more about the Dependency agent support for the [Windows](../azure-monitor/insights/service-map-configure.md#supported-windows-operating-systems) and [Linux](../azure-monitor/insights/service-map-configure.md#supported-linux-operating-systems) operating systems.
+- [Learn more](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-enable-hybrid-cloud#installation-script-examples) about how you can use scripts to install the Dependency agent.
+- [Learn more](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-enable-overview#supported-operating-systems) about the operating systems supported by the Dependency agent.
 
-[Learn more](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#installation-script-examples) about how you can use scripts to install the Dependency agent.
+
+## Create a group using dependency visualization
+
+Now create a group for assessment. 
 
 
-## Create a group
+> [!NOTE]
+> Groups for which you want to visualize dependencies shouldn't contain more than 10 machines. If you have more than 10 machines, split them into smaller groups.
 
-1. After you install the agents, go to the portal and click **Manage** > **Machines**.
-2. Search for the machine where you installed the agents.
-3. The **Dependencies** column for the machine should now show as **View Dependencies**. Click the column to view the dependencies of the machine.
-4. The dependency map for the machine shows the following details:
-    - Inbound (Clients) and outbound (Servers) TCP connections to/from the machine
-        - The dependent machines that do not have the MMA and dependency agent installed are grouped by port numbers
-        - The dependent machines that have the MMA and the dependency agent installed are shown as separate boxes
-    - Processes running inside the machine, you can expand each machine box to view the processes
-    - Properties like Fully Qualified Domain Name, Operating System, MAC Address etc. of each machine, you can click on each machine box to view these details
+1. In **Azure Migrate: Server Assessment**, click **Discovered servers**.
+2. In the **Dependencies** column, click **View dependencies** for each machine you want to review.
+3. On the dependency map, you can see the following:
+    - Inbound (clients) and outbound (servers) TCP connections, to and from the machine.
+    - Dependent machines that don't have the dependency agents installed are grouped by port numbers.
+    - Dependent machines with dependency agents installed are shown as separate boxes.
+    - Processes running inside the machine. Expand each machine box to view the processes.
+    - Machine properties (including FQDN, operating system, MAC address). Click on each machine box to view the details.
 
-      ![View machine dependencies](./media/how-to-create-group-machine-dependencies/machine-dependencies.png)
+4. You can look at dependencies for different time durations by clicking on the time duration in the time range label.
+    - By default the range is an hour. 
+    - You can modify the time range, or specify start and end dates, and duration.
+    - Time range can be up to an hour. If you need a longer range, use Azure Monitor to query dependent data for a longer period.
 
-4. You can look at dependencies for different time durations by clicking on the time duration in the time range label. By default the range is an hour. You can modify the time range, or specify start and end dates, and duration.
+5. After you've identified the dependent machines that you want to group together, use Ctrl+Click to select multiple machines on the map, and click **Group machines**.
+6. Specify a group name.
+7. Verify that the dependent machines are discovered by Azure Migrate.
 
-    > [!NOTE]
-      Currently, the dependency visualization UI does not support selection of a time range longer than an hour. Use Log Analytics to [query the dependency data](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies#query-dependency-data-from-log-analytics) over a longer duration.
+    - If a dependent machine isn't discovered by Azure Migrate: Server Assessment, you can't add it to the group.
+    - To add a machine, run discovery again, and verify that the machine is discovered.
 
-5. After you've identified dependent machines that you want to group together, use Ctrl+Click to select multiple machines on the map, and click **Group machines**.
-6. Specify a group name. Verify that the dependent machines are discovered by Azure Migrate.
-
-    > [!NOTE]
-    > If a dependent machine is not discovered by Azure Migrate, you cannot add it to the group. To add such machines to the group, you need to run the discovery process again with the right scope in vCenter Server and ensure that the machine is discovered by Azure Migrate.  
-
-7. If you want to create an assessment for this group, select the checkbox to create a new assessment for the group.
+8. If you want to create an assessment for this group, select the checkbox to create a new assessment for the group.
 8. Click **OK** to save the group.
 
-Once the group is created, it is recommended to install agents on all the machines of the group and refine the group by visualizing the dependency of the entire group.
+After creating the group, we recommend that you install agents on all the machines in the group, and then visualize dependencies for the entire group.
 
-## Query dependency data from Log Analytics
+## Query dependency data in Azure Monitor
 
-Dependency data captured by Service Map is available for querying in Log Analytics workspace associated with your Azure Migrate project. [Learn more](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records) about the Service Map data tables to query in Log Analytics. 
+You can query dependency data captured by Service Map in the Log Analytics workspace associated with the Azure Migrate project. Log Analytics is used to write and run Azure Monitor log queries.
 
-To run the Log Analytics queries:
+- [Learn how to](../azure-monitor/insights/service-map.md#log-analytics-records) search for Service Map data in Log Analytics.
+- [Get an overview](../azure-monitor/log-query/get-started-queries.md)  of writing log queries in [Log Analytics](../azure-monitor/log-query/get-started-portal.md).
+
+Run a query for dependency data as follows:
 
 1. After you install the agents, go to the portal and click **Overview**.
-2. In **Overview**, go to **Essentials** section of the project and click on workspace name provided next to **OMS Workspace**.
-3. On the Log Analytics workspace page, click **General** > **Logs**.
-4. Write your query to gather dependency data using Log Analytics. Sample queries to gather dependency data are available [here](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#sample-log-searches).
-5. Run your query by clicking on Run. 
+2. In **Azure Migrate: Server Assessment**, click **Overview**. Click the down arrow to expand **Essentials**.
+3. In **OMS Workspace**, click the workspace name.
+3. On the Log Analytics workspace page > **General**, click **Logs**.
+4. Write your query, and click **Run**.
 
-[Learn more](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal) about how to write Log Analytics queries. 
+### Sample queries
+
+Here are a few sample queries that you can use to extract dependency data.
+
+- You can modify the queries to extract your preferred data points.
+- [Review](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records) a complete list of dependency data records.
+- [Review](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#sample-log-searches) additional sample queries.
+
+#### Sample: Review inbound connections
+
+Review inbound connections for a set of VMs.
+
+- The records in the table for connection metrics (VMConnection) don't represent individual physical network connections.
+- Multiple physical network connections are grouped into a logical connection.
+- [Learn more](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#connections) about how physical network connection data is aggregated in VMConnection.
+
+```
+// the machines of interest
+let ips=materialize(ServiceMapComputer_CL
+| summarize ips=makeset(todynamic(Ipv4Addresses_s)) by MonitoredMachine=ResourceName_s
+| mvexpand ips to typeof(string));
+let StartDateTime = datetime(2019-03-25T00:00:00Z);
+let EndDateTime = datetime(2019-03-30T01:00:00Z);
+VMConnection
+| where Direction == 'inbound'
+| where TimeGenerated > StartDateTime and TimeGenerated  < EndDateTime
+| join kind=inner (ips) on $left.DestinationIp == $right.ips
+| summarize sum(LinksEstablished) by Computer, Direction, SourceIp, DestinationIp, DestinationPort
+```
+
+#### Sample: Summarize sent and received data
+
+This sample summarizes the volume of data sent and received on inbound connections between a set of machines.
+
+```
+// the machines of interest
+let ips=materialize(ServiceMapComputer_CL
+| summarize ips=makeset(todynamic(Ipv4Addresses_s)) by MonitoredMachine=ResourceName_s
+| mvexpand ips to typeof(string));
+let StartDateTime = datetime(2019-03-25T00:00:00Z);
+let EndDateTime = datetime(2019-03-30T01:00:00Z);
+VMConnection
+| where Direction == 'inbound'
+| where TimeGenerated > StartDateTime and TimeGenerated  < EndDateTime
+| join kind=inner (ips) on $left.DestinationIp == $right.ips
+| summarize sum(BytesSent), sum(BytesReceived) by Computer, Direction, SourceIp, DestinationIp, DestinationPort
+```
 
 ## Next steps
 
-- [Learn more](https://docs.microsoft.com/azure/migrate/resources-faq#dependency-visualization) about the FAQs on dependency visualization.
-- [Learn how](how-to-create-group-dependencies.md) to refine the group by visualizing group dependencies.
-- [Learn more](concepts-assessment-calculation.md) about how assessments are calculated.
+[Create an assessment](how-to-create-assessment.md) for a group.
+
+

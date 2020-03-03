@@ -1,20 +1,13 @@
 ---
-title: Create Azure application technical assets | Microsoft Docs
+title: Create Azure application technical assets  | Azure Marketplace
 description: Create the technical assets for an Azure application offer.
 services: Azure, Marketplace, Cloud Partner Portal, 
-documentationcenter:
 author: v-miclar
-manager: Patrick.Butler  
-editor:
-
-ms.assetid: 
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 12/13/2018
-ms.author: pbutlerm
+ms.author: pabutler
 ---
 
 # Prepare your Azure application technical assets
@@ -45,11 +38,11 @@ Review the following Azure application documentation, which provides Quickstarts
   - [Create definition files](https://docs.microsoft.com/azure/managed-applications/publish-service-catalog-app)
   - [Publish marketplace application](https://docs.microsoft.com/azure/managed-applications/publish-marketplace-app)
 
- - Samples:
+  - Samples:
 
-   - [Azure CLI](https://docs.microsoft.com/azure/managed-applications/cli-samples)
-   - [Azure PowerShell](https://docs.microsoft.com/azure/managed-applications/powershell-samples)
-   - [Managed application solutions](https://docs.microsoft.com/azure/managed-applications/sample-projects)
+    - [Azure CLI](https://docs.microsoft.com/azure/managed-applications/cli-samples)
+    - [Azure PowerShell](https://docs.microsoft.com/azure/managed-applications/powershell-samples)
+    - [Managed application solutions](https://docs.microsoft.com/azure/managed-applications/sample-projects)
 
 ## Fundamental technical knowledge
 

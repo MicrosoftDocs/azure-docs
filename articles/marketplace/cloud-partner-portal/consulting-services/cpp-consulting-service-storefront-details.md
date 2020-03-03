@@ -1,20 +1,13 @@
 ---
-title: Azure and Dynamics 365 consulting service offer - Enter storefront details | Microsoft Docs
-description: Guide for defining storefront details in an Azure or Dynamics 365 consulting service offer in the Cloud Partner Portal.
+title: Enter storefront details for consulting offer | Azure Marketplace 
+description: Define storefront details in an Azure or Dynamics 365 consulting service offer in the Cloud Partner Portal.
 services: Azure, Marketplace, Cloud Partner Portal, 
-documentationcenter:
 author: qianw211
-manager: Patrick.Butler  
-editor:
-
-ms.assetid: 
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 11/30/2018
-ms.author: pbutlerm
+ms.date: 04/23/2019
+ms.author: pabutler
 ---
 
 # Storefront Details tab
@@ -28,14 +21,16 @@ This article explains how to enter the details for your storefront. The **Storef
 
 ![Create a new consulting service offer - Storefront Details tab](media/consultingoffer-storefront-details.png)
 
+
 ## Offer details
 
 The **Offer Details** section contains the following boxes:
 
--   **Offer summary**
--   **Offer description**
+-   **Offer summary\***
+-   **Offer description\***
 
-### Offer summary
+
+### Offer summary\*
 
 The offer summary is a brief description of your offer that appears just below the offer name. Use plain text to enter the offer summary, without any line breaks. The following examples are good offer summaries together with their corresponding offer names.
 
@@ -72,13 +67,14 @@ The offer summary is a brief description of your offer that appears just below t
     solution designed for professional services firms and project-driven
     businesses.
 
-### Offer description
+
+### Offer description\*
 
 Enter the description of the consulting service offer in the **Offer description** box. A good offer description covers exact details of what the engagement looks like and the end deliverable to the customer. It should clearly help the customer understand what they get. Include how your offering relates to the Microsoft product for which you're offering consulting services.
 
 Don't include your email address or phone number in your offer description. A **Contact Me** button is included with your offer to upload leads to the lead management target that you identify for your offer.
 
-Enter the offer description in Markdown format. If you're not familiar with Markdown or formatting for HTML, see [Use Markdown for writing docs](https://docs.microsoft.com/contribute/how-to-write-use-markdown).
+Enter the offer description in Markdown format. If you're not familiar with Markdown or formatting for HTML, see [Use Markdown for writing docs](/contribute/markdown-reference).
 
 Use these formats to make sure that your offer is easy for your customers to read.
 
@@ -121,7 +117,7 @@ solutions in the Microsoft cloud.
 
 The following sample Markdown file is for the previous offer:
 
-    This 3-day workshop is for technical and business leaders and is held on-site at the client’s facility.
+    This 3-day workshop is for technical and business leaders and is held on-site at the client's facility.
 
       ### Agenda
 
@@ -158,6 +154,7 @@ Enter your new Partner Center ID, if you have one.
 Enter a secret key to preview your offer on AppSource before it goes live.
 This identifier isn't a password.
 
+
 ## Listing details
 
 **Consulting service type**
@@ -191,7 +188,7 @@ is available. A single offer can't be published in multiple countries
 or regions. A new offer must be created for each country or region.
 
 >[!Note]
->AppSource consulting services are currently live in the United States, the United Kingdom, and Canada. You can submit an offer for a country that isn't yet live, and it will be reviewed and prepared to go live. A minimum number of offers ready to go live are needed to open a new country, so offers for countries that aren't live are encouraged.
+>AppSource consulting services are currently live in the United States, the United Kingdom, and Canada. You can submit an offer for a country/region that isn't yet live, and it will be reviewed and prepared to go live. A minimum number of offers ready to go live are needed to open a new country/region, so offers for countries/regions that aren't live are encouraged.
 
 **Industries**
 
@@ -252,6 +249,7 @@ Upload up to five images that provide more information about your offer,
 its deliverables, or your company. A snippet of your
 marketing brochure, a relevant slide from a presentation, or an image
 that shows company momentum or expertise are some examples.
+
 
 ## Next steps
 

@@ -1,26 +1,27 @@
 ---
-title: SQL Server Availability Groups - Azure Virtual Machines - Tutorial | Microsoft Docs  
+title: "Tutorial: Configure availability group"
 description: "This tutorial shows how to create a SQL Server Always On Availability Group on Azure Virtual Machines."
 services: virtual-machines
 documentationCenter: na
-authors: MikeRayMSFT
+author: MikeRayMSFT
 manager: craigg
 editor: monicar
 tags: azure-service-management
 
 ms.assetid: 08a00342-fee2-4afe-8824-0db1ed4b8fca
 ms.service: virtual-machines-sql
-ms.devlang: na
+
 ms.custom: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/30/2018
 ms.author: mikeray
+ms.custom: "seo-lt-2019"
 
 ---
 
-# Configure Always On Availability Group in Azure VM manually
+# Tutorial: Configure availability group on Azure SQL Server VM manually
 
 This tutorial shows how to create a SQL Server Always On Availability Group on Azure Virtual Machines. The complete tutorial creates an Availability Group with a database replica on two SQL Servers.
 
@@ -79,6 +80,9 @@ After the prerequisites are completed, the first step is to create a Windows Ser
    | Confirmation |Use defaults unless you are using Storage Spaces. See the note following this table. |
 
 ### Set the Windows server failover cluster IP address
+
+  > [!NOTE]
+  > On Windows Server 2019, the cluster creates a **Distributed Server Name** instead of the **Cluster Network Name**. If you're using Windows Server 2019, skip any steps that refer to the cluster core name in this tutorial. You can create a cluster network name using [PowerShell](virtual-machines-windows-portal-sql-create-failover-cluster.md#windows-server-2019). Review the blog [Failover Cluster: Cluster Network Object](https://blogs.windows.com/windowsexperience/2018/08/14/announcing-windows-server-2019-insider-preview-build-17733/#W0YAxO8BfwBRbkzG.97) for more information. 
 
 1. In **Failover Cluster Manager**, scroll down to **Cluster Core Resources** and expand the cluster details. You should see both the **Name** and the **IP Address** resources in the **Failed** state. The IP address resource cannot be brought online because the cluster is assigned the same IP address as the machine itself, therefore it is a duplicate address.
 
@@ -343,7 +347,7 @@ At this point, you have an Availability Group with replicas on two instances of 
 
 On Azure virtual machines, a SQL Server Availability Group requires a load balancer. The load balancer holds the IP addresses for the Availability Group listeners and the Windows Server Failover Cluster. This section summarizes how to create the load balancer in the Azure portal.
 
-An Azure Load Balancer can be either a Standard Load Balancer or a Basic Load Balancer. Standard Load Balancer has more features than the Basic Load Balancer. For an availability group, the Standard Load Balancer is required if you use an Availability Zone (instead of an Availability Set). For details on the difference between the load balancer types, see [Load Balancer SKU comparison](../../../load-balancer/load-balancer-overview.md#skus).
+An Azure Load Balancer can be either a Standard Load Balancer or a Basic Load Balancer. Standard Load Balancer has more features than the Basic Load Balancer. For an availability group, the Standard Load Balancer is required if you use an Availability Zone (instead of an Availability Set). For details on the difference between the load balancer types, see [Load Balancer SKU comparison](../../../load-balancer/concepts-limitations.md#skus).
 
 1. In the Azure portal, go to the resource group where your SQL Servers are and click **+ Add**.
 1. Search for **Load Balancer**. Choose the load balancer published by Microsoft.
@@ -412,6 +416,7 @@ To configure the load balancer, you need to create a backend pool, a probe, and 
 1. Click the load balancer, click **Load balancing rules**, and click **+Add**.
 
 1. Set the listener load balancing rules as follows.
+
    | Setting | Description | Example
    | --- | --- |---
    | **Name** | Text | SQLAlwaysOnEndPointListener |
@@ -452,6 +457,7 @@ The WSFC IP address also needs to be on the load balancer.
 1. Set the load balancing rules. Click **Load balancing rules**, and click **+Add**.
 
 1. Set the cluster core IP address load balancing rules as follows.
+
    | Setting | Description | Example
    | --- | --- |---
    | **Name** | Text | WSFCEndPoint |
@@ -502,15 +508,15 @@ To test the connection:
 
 1. Use **sqlcmd** utility to test the connection. For example, the following script establishes a **sqlcmd** connection to the primary replica through the listener with Windows authentication:
 
-  ```cmd
-  sqlcmd -S <listenerName> -E
-  ```
+   ```cmd
+   sqlcmd -S <listenerName> -E
+   ```
 
-  If the listener is using a port other than the default port (1433), specify the port in the connection string. For example, the following sqlcmd command connects to a listener at port 1435:
+   If the listener is using a port other than the default port (1433), specify the port in the connection string. For example, the following sqlcmd command connects to a listener at port 1435:
 
-  ```cmd
-  sqlcmd -S <listenerName>,1435 -E
-  ```
+   ```cmd
+   sqlcmd -S <listenerName>,1435 -E
+   ```
 
 The SQLCMD connection automatically connects to whichever instance of SQL Server hosts the primary replica.
 

@@ -1,20 +1,13 @@
 ---
-title: Delete Marketplace Offers - Azure Marketplace | Microsoft Docs
+title: Delete marketplace offers | Azure Marketplace 
 description: Delete offers on the Azure and AppSource Marketplaces using the Cloud Partner Portal
 services: Azure, AppSource, Marketplace, Cloud Partner Portal, 
-documentationcenter:
 author: v-miclar
-manager: Patrick.Butler  
-editor:
-
-ms.assetid: 
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 01/09/2019
-ms.author: pbutlerm
+ms.author: pabutler
 ---
 
 # Delete Azure Marketplace and AppSource offers or SKUs
@@ -22,9 +15,10 @@ ms.author: pbutlerm
 For various reasons, you may decide to withdraw your offer from its Microsoft marketplace, which can take two forms:
 
 - *Offer removal* ensures that new customers may no longer purchase or deploy your offer, but has no impact on existing customers, whom you must support according to your license agreement and pertinent laws. 
-- *Offer termination* is the process of terminating the service and/or licensing agreement between you and your existing customers. Guidance
-and policies related to offer removal and termination are governed by [Microsoft Marketplace Publisher Agreement](https://go.microsoft.com/fwlink/?LinkID=699560) (Section 7) and the [Participation Policies](https://azure.microsoft.com/support/legal/marketplace/participation-policies/)
-(Section 6.2). 
+- *Offer termination* is the process of terminating the service and/or licensing agreement between you and your existing customers. 
+
+Guidance and policies related to offer removal and termination are governed by [Microsoft Marketplace Publisher Agreement](https://go.microsoft.com/fwlink/?LinkID=699560) and the [Participation Policies](https://azure.microsoft.com/support/legal/marketplace/participation-policies/)
+(section [Offering suspension and removal](https://docs.microsoft.com/legal/marketplace/participation-policy#offering-suspension-and-removal)). 
 
 This article talks about the different supported deletion scenarios and the steps required to perform each.  
 

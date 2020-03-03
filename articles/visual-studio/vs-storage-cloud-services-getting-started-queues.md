@@ -1,9 +1,9 @@
 ---
-title: Get started with queue storage and Visual Studio connected services (cloud services) | Microsoft Docs
+title: Get started with queue storage using Visual Studio (cloud services) 
 description: How to get started using Azure Queue storage in a cloud service project in Visual Studio after connecting to a storage account using Visual Studio connected services
 services: storage
 author: ghogen
-manager: douge
+manager: jillfra
 ms.assetid: da587aac-5e64-4e9a-8405-44cc1924881d
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
@@ -12,6 +12,7 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
+ROBOTS: NOINDEX,NOFOLLOW
 ---
 # Getting started with Azure Queue storage and Visual Studio connected services (cloud services projects)
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
@@ -26,7 +27,7 @@ The **Add Connected Services** operation installs the appropriate NuGet packages
 * See [Get started with Azure Queue storage using .NET](../storage/queues/storage-dotnet-how-to-use-queues.md) for more information on manipulating queues in code.
 * See [Storage documentation](https://azure.microsoft.com/documentation/services/storage/) for general information about Azure Storage.
 * See [Cloud Services documentation](https://azure.microsoft.com/documentation/services/cloud-services/) for general information about Azure cloud services.
-* See [ASP.NET](http://www.asp.net) for more information about programming ASP.NET applications.
+* See [ASP.NET](https://www.asp.net) for more information about programming ASP.NET applications.
 
 Azure Queue storage is a service for storing large numbers of messages that can be accessed from anywhere in the world via authenticated calls using HTTP or HTTPS. A single queue message can be up to 64 KB in size, and a queue can contain millions of messages, up to the total capacity limit of a storage account.
 

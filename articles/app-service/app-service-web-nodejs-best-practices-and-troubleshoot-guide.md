@@ -1,20 +1,13 @@
 ---
-title: Best practices and troubleshooting for Node.js - Azure App Service
-description: Learn the best practices and troubleshooting steps for node applications on Azure App Service.
-services: app-service\web
-documentationcenter: nodejs
-author: ranjithr
-manager: wadeh
-editor: ''
+title: Node.js best practices and troubleshooting
+description: Learn the best practices and troubleshooting steps for Node.js applications running in Azure App Service.
+author: msangapu-msft
 
 ms.assetid: 387ea217-7910-4468-8987-9a1022a99bef
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 11/09/2017
-ms.author: ranjithr
+ms.author: msangapu
 ms.custom: seodec18
 ---
 # Best practices and troubleshooting guide for node applications on Azure App Service Windows
@@ -93,7 +86,7 @@ The default value is false. If enabled, your node application can connect to a n
 
 ### idlePageOutTimePeriod
 
-The default value is 0, which means this feature is disabled. When set to some value greater than 0, iisnode will page out all its child processes every ‘idlePageOutTimePeriod’ in milliseconds. See [documentation](https://msdn.microsoft.com/library/windows/desktop/ms682606.aspx) to understand what page out means. This setting is useful for applications that consume a high amount of memory and want to page out memory to disk occasionally to free up RAM.
+The default value is 0, which means this feature is disabled. When set to some value greater than 0, iisnode will page out all its child processes every ‘idlePageOutTimePeriod’ in milliseconds. See [documentation](/windows/desktop/api/psapi/nf-psapi-emptyworkingset) to understand what page out means. This setting is useful for applications that consume a high amount of memory and want to page out memory to disk occasionally to free up RAM.
 
 > [!WARNING]
 > Use caution when enabling the following configuration settings on production applications. The recommendation is to not enable them on live production applications.
@@ -113,7 +106,7 @@ The default value is false. When set to true, iisnode displays the HTTP status c
 
 ### debuggingEnabled (do not enable on live production site)
 
-This setting controls debugging feature. Iisnode is integrated with node-inspector. By enabling this setting, you enable debugging of your node application. Upon enabling this setting, iisnode creates node-inspector files in ‘debuggerVirtualDir’ directory on the first debug request to your node application. You can load the node-inspector by sending a request to http://yoursite/server.js/debug. You can control the debug URL segment with ‘debuggerPathSegment’ setting. By default, debuggerPathSegment=’debug’. You can set `debuggerPathSegment` to a GUID, for example, so that it is more difficult to be discovered by others.
+This setting controls debugging feature. Iisnode is integrated with node-inspector. By enabling this setting, you enable debugging of your node application. Upon enabling this setting, iisnode creates node-inspector files in ‘debuggerVirtualDir’ directory on the first debug request to your node application. You can load the node-inspector by sending a request to `http://yoursite/server.js/debug`. You can control the debug URL segment with ‘debuggerPathSegment’ setting. By default, debuggerPathSegment=’debug’. You can set `debuggerPathSegment` to a GUID, for example, so that it is more difficult to be discovered by others.
 
 Read [Debug node.js applications on Windows](https://tomasz.janczuk.org/2011/11/debug-nodejs-applications-on-windows.html) for more details on debugging.
 
@@ -128,7 +121,7 @@ The agentkeepalive module ensures that sockets are reused on your Azure webapp V
 Example [agentKeepALive](https://www.npmjs.com/package/agentkeepalive) configuration:
 
 ```nodejs
-var keepaliveAgent = new Agent({
+let keepaliveAgent = new Agent({
     maxSockets: 40,
     maxFreeSockets: 10,
     timeout: 60000,
@@ -150,9 +143,9 @@ If you believe your application is consuming too much CPU and you cannot explain
 For example, let's say you have a hello world app that you want to profile as follows:
 
 ```nodejs
-var http = require('http');
+const http = require('http');
 function WriteConsoleLog() {
-    for(var i=0;i<99999;++i) {
+    for(let i=0;i<99999;++i) {
         console.log('hello world');
     }
 }
@@ -168,7 +161,7 @@ http.createServer(function (req, res) {
 }).listen(process.env.PORT);
 ```
 
-Go to the Debug Console site https://yoursite.scm.azurewebsites.net/DebugConsole
+Go to the Debug Console site `https://yoursite.scm.azurewebsites.net/DebugConsole`
 
 Go into your site/wwwroot directory. You see a command prompt as shown in the following example:
 
@@ -180,12 +173,12 @@ This command installs the v8-profiler under node\_modules directory and all of i
 Now, edit your server.js to profile your application.
 
 ```nodejs
-var http = require('http');
-var profiler = require('v8-profiler');
-var fs = require('fs');
+const http = require('http');
+const profiler = require('v8-profiler');
+const fs = require('fs');
 
 function WriteConsoleLog() {
-    for(var i=0;i<99999;++i) {
+    for(let i=0;i<99999;++i) {
         console.log('hello world');
     }
 }
@@ -276,7 +269,7 @@ NODE.exe has a setting called `NODE_PENDING_PIPE_INSTANCES`. On Azure App Servic
 Follow these links to learn more about node.js applications on Azure App Service.
 
 * [Get started with Node.js web apps in Azure App Service](app-service-web-get-started-nodejs.md)
-* [How to debug a Node.js web app in Azure App Service](app-service-web-tutorial-nodejs-mongodb-app.md)
+* [How to debug a Node.js web app in Azure App Service](https://blogs.msdn.microsoft.com/azureossds/2018/08/03/debugging-node-js-apps-on-azure-app-services/)
 * [Using Node.js Modules with Azure applications](../nodejs-use-node-modules-azure-apps.md)
 * [Azure App Service Web Apps: Node.js](https://blogs.msdn.microsoft.com/silverlining/2012/06/14/windows-azure-websites-node-js/)
 * [Node.js Developer Center](../nodejs-use-node-modules-azure-apps.md)

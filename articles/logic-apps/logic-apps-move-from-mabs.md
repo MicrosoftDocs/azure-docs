@@ -1,17 +1,16 @@
 ---
-title: Move apps from BizTalk Services to Azure Logic Apps | Microsoft Docs
-description: Migrate from Azure BizTalk Services (MABS) to Azure Logic Apps
+title: Migrate apps from BizTalk Services to Azure Logic Apps
+description: How to move your apps and solutions from Microsoft Azure BizTalk Services (MABS) to Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: jonfancey
 ms.author: jonfan
-ms.reviewer: estfan, LADocs
+ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 05/30/2017
 ---
 
-# Migrate from BizTalk Services to Azure Logic Apps
+# Migrate your apps and solutions from BizTalk Services to Azure Logic Apps
 
 Microsoft Azure BizTalk Services (MABS) is retiring. 
 To move your MABS integration solutions to 
@@ -60,7 +59,7 @@ BizTalk Services has several kinds of artifacts.
 
 BizTalk Services connectors help bridges send and receive data, 
 including two-way bridges that enable HTTP-based request/response interactions. 
-Logic Apps uses the same terminology and has 180+ connectors that serve the same 
+Logic Apps uses the same terminology and has hundreds of connectors that serve the same 
 purpose by connecting to a wide range of technologies and services. 
 For example, connectors are available for cloud SaaS and PaaS services, 
 such as OneDrive, Office365, Dynamics CRM, and more, 
@@ -226,8 +225,7 @@ and then process these files in a logic app.
 ## Manage and monitor
 
 In BizTalk Services, a dedicated portal provided tracking capabilities to monitor and troubleshoot issues. 
-Logic Apps provides richer tracking and monitoring capabilities through the 
-[Azure portal](../logic-apps/logic-apps-monitor-your-logic-apps.md), 
+Logic Apps provides richer tracking and monitoring capabilities to [monitor logic apps in the Azure portal](../logic-apps/monitor-logic-apps.md), 
 and includes a mobile app for keeping an eye on things when you're on the move.
 
 ## High availability

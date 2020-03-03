@@ -1,17 +1,16 @@
 ---
-title: Create a virtual network for Azure SQL Database Managed Instance | Microsoft Docs
+title: Create a virtual network for managed instance
 description: This article describes how to create a virtual network where you can deploy Azure SQL Database Managed Instance.
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
 ms.custom: 
 ms.devlang: 
-ms.topic: howto
+ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
-ms.reviewer: bonova, carlrab
-manager: craigg
-ms.date: 01/15/2019
+ms.reviewer: sstein, bonova, carlrab
+ms.date: 09/12/2019
 ---
 # Create a virtual network for Azure SQL Database Managed Instance
 
@@ -28,6 +27,9 @@ Azure SQL Database Managed Instance must be deployed within an Azure [virtual ne
 > You should [determine the size of the subnet for Managed Instance](sql-database-managed-instance-determine-size-vnet-subnet.md) before you deploy the first instance. You can't resize the subnet after you put the resources inside.
 >
 > If you plan to use an existing virtual network, you need to modify that network configuration to accommodate your Managed Instance. For more information, see [Modify an existing virtual network for Managed Instance](sql-database-managed-instance-configure-vnet-subnet.md).
+>
+> After a managed instance is created, moving the managed instance or VNet to another resource group or subscription is not supported.
+
 
 ## Create a virtual network
 
@@ -37,7 +39,7 @@ The easiest way to create and configure a virtual network is to use an Azure Res
 
 2. Select the **Deploy to Azure** button:
 
-   <a target="_blank" href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-sql-managed-instance-azure-environment%2Fazuredeploy.json" rel="noopener" data-linktype="external"> <img src="http://azuredeploy.net/deploybutton.png" data-linktype="external"> </a>
+   <a target="_blank" href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-sql-managed-instance-azure-environment%2Fazuredeploy.json" rel="noopener" data-linktype="external"> <img src="https://azuredeploy.net/deploybutton.png" data-linktype="external"> </a>
 
    This button opens a form that you can use to configure the network environment where you can deploy Managed Instance.
 

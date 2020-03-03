@@ -1,18 +1,12 @@
 ---
 title: DNS Analytics solution in Azure Monitor | Microsoft Docs
 description: Set up and use the DNS Analytics solution in Azure Monitor to gather insights into DNS infrastructure on security, performance, and operations.
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: f44a40c4-820a-406e-8c40-70bd8dc67ae7
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.subservice: logs
 ms.topic: conceptual
+author: bwren
+ms.author: bwren
 ms.date: 03/20/2018
-ms.author: magoedte
+
 ---
 
 # Gather insights about your DNS infrastructure with the DNS Analytics Preview solution
@@ -61,7 +55,7 @@ On the solution dashboard, click **Configuration** to open the DNS Analytics Con
 
 - **Whitelisted Domain Names**. The solution does not process all the lookup queries. It maintains a whitelist of domain name suffixes. The lookup queries that resolve to the domain names that match domain name suffixes in this whitelist are not processed by the solution. Not processing whitelisted domain names helps to optimize the data sent to Azure Monitor. The default whitelist includes popular public domain names, such as www.google.com and www.facebook.com. You can view the complete default list by scrolling.
 
- You can modify the list to add any domain name suffix that you want to view lookup insights for. You can also remove any domain name suffix that you don't want to view lookup insights for.
+  You can modify the list to add any domain name suffix that you want to view lookup insights for. You can also remove any domain name suffix that you don't want to view lookup insights for.
 
 - **Talkative Client Threshold**. DNS clients that exceed the threshold for the number of lookup requests are highlighted in the **DNS Clients** blade. The default threshold is 1,000. You can edit the threshold.
 
@@ -101,7 +95,7 @@ The solution dashboard shows the following blades:
 
 ![DNS Security blade](./media/dns-analytics/dns-security-blade.png)
 
-When you click a client IP in the list, Log Search opens and shows the lookup details of the respective query. In the following example, DNS Analytics detected that the communication was done with an [IRCbot](https://www.microsoft.com/wdsi/threats/threat-search?query=Win32/IRCbot):
+When you click a client IP in the list, Log Search opens and shows the lookup details of the respective query. In the following example, DNS Analytics detected that the communication was done with an [IRCbot](https://www.microsoft.com/en-us/wdsi/threats/malware-encyclopedia-description?Name=Backdoor:Win32/IRCbot&threatId=2621):
 
 ![Log search results showing ircbot](./media/dns-analytics/ircbot.png)
 
@@ -174,13 +168,16 @@ On the Log Search page, you can create a query. You can filter your search resul
 1. In the **search query box**, type `DnsInventory` to view all the DNS inventory-related data for the DNS servers managed by the solution. The results list the log data for DNS servers, DNS zones, and resource records.
 
     ![DnsInventory log search](./media/dns-analytics/log-search-dnsinventory.png)
+    
+## Troubleshooting
+
+Common troubleshooting steps:
+
+1. Missing DNS Lookups Data - To troubleshoot this issue, try resetting the config or just loading the configuration page once in portal. For resetting, just change a setting to another value, then change it back to to the original value, and save the config.
 
 ## Feedback
 
-There are two ways you can give feedback:
-
-- **UserVoice**. Post ideas for DNS Analytics features to work on. Visit the [Log Analytics UserVoice page](https://aka.ms/dnsanalyticsuservoice).
-- **Join our cohort**. We're always interested in having new customers join our cohorts to get early access to new features and help us improve DNS Analytics. If you are interested in joining our cohorts, fill out [this quick survey](https://aka.ms/dnsanalyticssurvey).
+To provide feedback, visit the [Log Analytics UserVoice page](https://aka.ms/dnsanalyticsuservoice) to post ideas for DNS Analytics features to work on. 
 
 ## Next steps
 

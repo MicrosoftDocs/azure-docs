@@ -1,5 +1,5 @@
 ---
-title: Enable automatic tuning for Azure SQL Database | Microsoft Docs
+title: Enable automatic tuning
 description: You can enable automatic tuning on your Azure SQL Database easily.
 services: sql-database
 ms.service: sql-database
@@ -10,14 +10,19 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
-manager: craigg
-ms.date: 01/25/2019
+ms.date: 12/03/2019
 ---
 # Enable automatic tuning to monitor queries and improve workload performance
 
 Azure SQL Database is an automatically managed data service that constantly monitors your queries and identifies the action that you can perform to improve performance of your workload. You can review recommendations and manually apply them, or let Azure SQL Database automatically apply corrective actions - this is known as **automatic tuning mode**.
 
-Automatic tuning can be enabled at the server or the database level through the [Azure portal](sql-database-automatic-tuning-enable.md#azure-portal), [REST API](sql-database-automatic-tuning-enable.md#rest-api) calls and [T-SQL](sql-database-automatic-tuning-enable.md#t-sql) commands.
+Automatic tuning can be enabled at the server or the database level through the [Azure portal](sql-database-automatic-tuning-enable.md#azure-portal), [REST API](sql-database-automatic-tuning-enable.md#rest-api) calls and [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) commands.
+
+> [!NOTE]
+> For Managed Instance, the supported option FORCE_LAST_GOOD_PLAN can be configured through [T-SQL](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management) only. Portal based configuration and automatic index tuning options described in this article do not apply to Managed Instance.
+
+> [!NOTE]
+> Configuring Automatic tuning options through ARM (Azure Resource Manager) template is not supported at this time.
 
 ## Enable automatic tuning on server
 
@@ -30,7 +35,7 @@ To enable automatic tuning on Azure SQL Database logical **server**, navigate to
 ![Server](./media/sql-database-automatic-tuning-enable/server.png)
 
 > [!NOTE]
-> Please note that **DROP_INDEX** option at this time is not compatible with applications using partition switching and index hints and should not be enabled in these cases.
+> Please note that **DROP_INDEX** option at this time is not compatible with applications using partition switching and index hints and should not be enabled in these cases. Dropping unused indexes is not supported for Premium and Business Critical service tiers.
 >
 
 Select the automatic tuning options you want to enable and select **Apply**.
@@ -45,7 +50,7 @@ Find out more about using REST API to enable Automatic tuning on a server, see [
 
 The Azure SQL Database enables you to individually specify the automatic tuning configuration for each database. On the database level you can choose to inherit automatic tuning configuration from the parent server, "Azure Defaults" or not to inherit the configuration. Azure Defaults are set to FORCE_LAST_GOOD_PLAN is enabled, CREATE_INDEX is enabled, and DROP_INDEX is disabled.
 
-> [!NOTE]
+> [!TIP]
 > The general recommendation is to manage the automatic tuning configuration at **server level** so the same configuration settings can be applied on every database automatically. Configure automatic tuning on an individual database only if you need that database to have different settings than others inheriting settings from the same server.
 >
 
@@ -81,7 +86,7 @@ To configure individual automatic tuning options via T-SQL, connect to the datab
 ALTER DATABASE current SET AUTOMATIC_TUNING (FORCE_LAST_GOOD_PLAN = ON, CREATE_INDEX = DEFAULT, DROP_INDEX = OFF)
 ```
 
-Setting the individual tuning option to ON, will override any setting that database inherited and enable the tuning option. Setting it to OFF, will also override any setting that database inherited and disable the tuning option. Automatic tuning option, for which DEFAULT is specified, will inherit the configuration from the database level automatic tuning setting.  
+Setting the individual tuning option to ON, will override any setting that database inherited and enable the tuning option. Setting it to OFF, will also override any setting that database inherited and disable the tuning option. Automatic tuning option, for which DEFAULT is specified, will inherit the automatic tuning configuration from the server level settings.  
 
 > [!IMPORTANT]
 > In case of [active geo-replication](sql-database-auto-failover-group.md), Automatic tuning needs to be configured on the primary database only. Automatically applied tuning actions, such are for example index create or delete will be automatically replicated to the read-only secondary. Attempting to enable Automatic tuning via T-SQL on the read-only secondary will result in a failure as having a different tuning configuration on the read-only secondary is unsupported.
@@ -93,9 +98,15 @@ Find our more abut T-SQL options to configure Automatic tuning, see [ALTER DATAB
 
 Automatic tuning is monitoring all the actions it takes on the database and in some cases it can determine that automatic tuning can't properly work on the database. In this situation, tuning option will be disabled by the system. In most cases this happens because Query Store is not enabled or it's in read-only state on a specific database.
 
+## Permissions
+
+As automatic tuning is Azure feature, to use it you will need to use Azure's built-in RBAC roles. Using SQL Authentication only will not be sufficient to use the feature from Azure portal.
+
+To use automatic tuning, the minimum required permission to grant to the user is Azure's built-in [SQL DB contributor](../role-based-access-control/built-in-roles.md#sql-db-contributor) role. You can also consider using higher privilege roles such are SQL Server Contributor, Contributor and Owner.
+
 ## Configure automatic tuning e-mail notifications
 
-See [Automatic tuning e-mail notifications](sql-database-automatic-tuning-email-notifications.md) guide.
+See [automatic tuning e-mail notifications](sql-database-automatic-tuning-email-notifications.md) guide.
 
 ## Next steps
 

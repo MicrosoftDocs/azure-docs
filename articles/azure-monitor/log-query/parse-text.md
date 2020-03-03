@@ -1,16 +1,12 @@
 ---
 title: Parse text data in Azure Monitor logs | Microsoft Docs
 description: Describes different options for parsing log data in Azure Monitor records when the data is ingested and when it's retrieved in a query, comparing the relative advantages for each.
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: tysonn
-ms.service: log-analytics
+ms.subservice: logs
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 12/04/2018
+author: bwren
 ms.author: bwren
+ms.date: 12/04/2018
+
 ---
 
 # Parse text data in Azure Monitor logs
@@ -50,7 +46,7 @@ Advantages to this method include the following:
  
 Disadvantages to this method include the following:
 
-- Requires more complex queries. This can be mitigated by using [functions to simulate a table](#Use-function-to-simulate-a-table).
+- Requires more complex queries. This can be mitigated by using [functions to simulate a table](#use-function-to-simulate-a-table).
 - Must replicate parsing logic in multiple queries. Can share some logic through functions.
 - Can create overhead when running complex logic against very large record sets (billions of records).
 

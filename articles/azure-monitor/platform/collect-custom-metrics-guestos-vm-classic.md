@@ -1,20 +1,22 @@
 ---
-title: Send Guest OS metrics to the Azure Monitor data store for a Windows virtual machine (classic)
+title: Send classic Windows VM metrics to Azure Monitor metrics database
 description: Send Guest OS metrics to the Azure Monitor data store for a Windows virtual machine (classic)
 author: anirudhcavale            
 services: azure-monitor
-ms.service: azure-monitor
+
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: ""
 ---
 
-# Send Guest OS metrics to the Azure Monitor data store for a Windows virtual machine (classic)
+# Send Guest OS metrics to the Azure Monitor metrics database for a Windows virtual machine (classic)
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 The Azure Monitor [Diagnostics extension](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) (known as "WAD" or "Diagnostics") allows you to collect metrics and logs from the guest operating system (Guest OS) running as part of a virtual machine, cloud service, or Service Fabric cluster. The extension can send telemetry to [many different locations.](https://docs.microsoft.com/azure/monitoring/monitoring-data-collection?toc=/azure/azure-monitor/toc.json)
 
-This article describes the process for sending Guest OS performance metrics for a Windows virtual machine (classic) to the Azure Monitor metric store. Starting with Diagnostics version 1.11, you can write metrics directly to the Azure Monitor metrics store, where standard platform metrics are already collected. 
+This article describes the process for sending Guest OS performance metrics for a Windows virtual machine (classic) to the Azure Monitor metric database. Starting with Diagnostics version 1.11, you can write metrics directly to the Azure Monitor metrics store, where standard platform metrics are already collected. 
 
 Storing them in this location allows you to access the same actions as you do for platform metrics. Actions include near-real time alerting, charting, routing, access from a REST API, and more. In the past, the Diagnostics extension wrote to Azure Storage, but not to the Azure Monitor data store. 
 
@@ -22,11 +24,13 @@ The process that's outlined in this article only works on classic virtual machin
 
 ## Prerequisites
 
-- You must be a [service administrator or co-administrator](../../billing/billing-add-change-azure-subscription-administrator.md) on your Azure subscription. 
+- You must be a [service administrator or co-administrator](../../cost-management-billing/manage/add-change-subscription-administrator.md) on your Azure subscription. 
 
 - Your subscription must be registered with [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services). 
 
-- You need to have either  [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.8.1) or [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) installed.
+- You need to have either [Azure PowerShell](/powershell/azure) or [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) installed.
+
+- Your VM resource must be in a [region that supports custom metrics](metrics-custom-overview.md#supported-regions).
 
 ## Create a classic virtual machine and storage account
 
@@ -140,7 +144,7 @@ Give this app “Monitoring Metrics Publisher” permissions to the resource tha
 1. Launch PowerShell and sign in.
 
     ```powershell
-    Login-AzureRmAccount
+    Login-AzAccount
     ```
 
 1. Start by setting the context for your classic VM.
@@ -152,7 +156,7 @@ Give this app “Monitoring Metrics Publisher” permissions to the resource tha
 1. Set the context of the classic storage account that was created with the VM.
 
     ```powershell
-    $StorageContext = New-AzureStorageContext -StorageAccountName <name of your storage account from earlier steps> -storageaccountkey "<storage account key from earlier steps>"
+    $StorageContext = New-AzStorageContext -StorageAccountName <name of your storage account from earlier steps> -storageaccountkey "<storage account key from earlier steps>"
     ```
 
 1.	Set the Diagnostics file path to a variable by using the following command:

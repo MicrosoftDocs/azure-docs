@@ -5,7 +5,7 @@
  author: spelluru
  ms.service: notification-hubs
  ms.topic: include
- ms.date: 04/04/2018
+ ms.date: 09/11/2019
  ms.author: spelluru
  ms.custom: include file
 ---
@@ -50,9 +50,11 @@ Create the new ASP.NET WebAPI backend by doing the following actions:
     * Select an app service plan that you've already created.
     * Select **Create a new app service plan**, and then create one.
 
-  You do not need a database for this tutorial. After you have selected your app service plan, select **OK** to create the project.
+   You do not need a database for this tutorial. After you have selected your app service plan, select **OK** to create the project.
 
     ![The Configure Microsoft Azure Web App window][B5]
+
+    If you don't see this page for configure app service plan, continue with the tutorial. You can configure it while publishing the app later. 
 
 ## Authenticate clients to the WebAPI backend
 
@@ -79,9 +81,9 @@ In this section, you create a new message-handler class named **AuthenticationTe
    * The request uses *basic* authentication.
    * The user name string and the password string are the same string.
 
-  Otherwise, the request is rejected. This authentication is not a true authentication and authorization approach. It is only a simple example for this tutorial.
+   Otherwise, the request is rejected. This authentication is not a true authentication and authorization approach. It is only a simple example for this tutorial.
 
-  If the request message is authenticated and authorized by `AuthenticationTestHandler`, the basic authentication user is attached to the current request on [HttpContext](https://msdn.microsoft.com/library/system.web.httpcontext.current.aspx). User information in HttpContext will be used by another controller (RegisterController) later to add a [tag](https://msdn.microsoft.com/library/azure/dn530749.aspx) to the notification registration request.
+   If the request message is authenticated and authorized by `AuthenticationTestHandler`, the basic authentication user is attached to the current request on [HttpContext](https://msdn.microsoft.com/library/system.web.httpcontext.current.aspx). User information in HttpContext will be used by another controller (RegisterController) later to add a [tag](https://msdn.microsoft.com/library/azure/dn530749.aspx) to the notification registration request.
 
     ```csharp
     public class AuthenticationTestHandler : DelegatingHandler
@@ -101,7 +103,7 @@ In this section, you create a new message-handler class named **AuthenticationTe
                 string user = authorizationUserAndPwd.Split(':')[0];
                 string password = authorizationUserAndPwd.Split(':')[1];
 
-                if (verifyUserAndPwd(user, password))
+                if (VerifyUserAndPwd(user, password))
                 {
                     // Attach the new principal object to the current HttpContext object
                     HttpContext.Current.User =
@@ -116,7 +118,7 @@ In this section, you create a new message-handler class named **AuthenticationTe
             return base.SendAsync(request, cancellationToken);
         }
 
-        private bool verifyUserAndPwd(string user, string password)
+        private bool VerifyUserAndPwd(string user, string password)
         {
             // This is not a real authentication scheme.
             return user == password;
@@ -151,7 +153,7 @@ In this section, you add a new controller to the WebAPI backend to handle reques
 
 3. In the results list, select **Microsoft Azure Notification Hubs**, and then select **Install**. Complete the installation, and then close the NuGet Package Manager window.
 
-    This action adds a reference to the Azure Notification Hubs SDK by using the [Microsoft.Azure.Notification Hubs NuGet package](http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
+    This action adds a reference to the Azure Notification Hubs SDK by using the [Microsoft.Azure.Notification Hubs NuGet package](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
 
 4. Create a new class file that represents the connection with the notification hub that's used to send notifications. In Solution Explorer, right-click the **Models** folder, select **Add**, and then select **Class**. Name the new class **Notifications.cs**, and then select **Add** to generate the class.
 
@@ -163,7 +165,7 @@ In this section, you add a new controller to the WebAPI backend to handle reques
     using Microsoft.Azure.NotificationHubs;
     ```
 
-6. Replace the `Notifications` class definition with the following code, and replace the two placeholders with the connection string (with full access) for your notification hub and the hub name (available at [Azure portal](http://portal.azure.com)):
+6. Replace the `Notifications` class definition with the following code, and replace the two placeholders with the connection string (with full access) for your notification hub and the hub name (available at [Azure portal](https://portal.azure.com)):
 
     ```csharp
     public class Notifications
@@ -178,6 +180,9 @@ In this section, you add a new controller to the WebAPI backend to handle reques
         }
     }
     ```
+    > [!IMPORTANT]
+    > Enter the **name** and the **DefaultFullSharedAccessSignature** of your hub before proceeding further. 
+    
 7. Next, create a new controller named **RegisterController**. In Solution Explorer, right-click the **Controllers** folder, select **Add**, and then select **Controller**.
 
 8. Select **Web API 2 Controller - Empty**, and then select **Add**.
@@ -260,8 +265,8 @@ In this section, you add a new controller to the WebAPI backend to handle reques
             case "apns":
                 registration = new AppleRegistrationDescription(deviceUpdate.Handle);
                 break;
-            case "gcm":
-                registration = new GcmRegistrationDescription(deviceUpdate.Handle);
+            case "fcm":
+                registration = new FcmRegistrationDescription(deviceUpdate.Handle);
                 break;
             default:
                 throw new HttpResponseException(HttpStatusCode.BadRequest);
@@ -349,10 +354,10 @@ In this section, you add a new controller that exposes a way for client devices 
                 var alert = "{\"aps\":{\"alert\":\"" + "From " + user + ": " + message + "\"}}";
                 outcome = await Notifications.Instance.Hub.SendAppleNativeNotificationAsync(alert, userTag);
                 break;
-            case "gcm":
+            case "fcm":
                 // Android
                 var notif = "{ \"data\" : {\"message\":\"" + "From " + user + ": " + message + "\"}}";
-                outcome = await Notifications.Instance.Hub.SendGcmNativeNotificationAsync(notif, userTag);
+                outcome = await Notifications.Instance.Hub.SendFcmNativeNotificationAsync(notif, userTag);
                 break;
         }
 

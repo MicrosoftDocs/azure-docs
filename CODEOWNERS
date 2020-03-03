@@ -1,0 +1,20 @@
+# Testing the new code owners feature in GitHub. Please contact Cory Fowler if you have questions.
+# Cognitive Services
+articles/cognitive-services/ @diberry @erhopf @aahill @ievangelist @patrickfarley @nitinme
+
+# DevOps
+articles/ansible/ @TomArcherMsft
+articles/chef/ @TomArcherMsft
+articles/jenkins/ @TomArcherMsft
+articles/terraform/ @TomArcherMsft
+
+# Requires Internal Review
+articles/best-practices-availability-paired-regions.md @jpconnock @arob98 @syntaxc4 @tysonn @snoviking
+
+# Governance
+articles/governance/ @DCtheGeek
+
+# Configuration
+*.json @SyntaxC4 @snoviking @arob98
+.acrolinx-config.edn @MonicaRush @arob98
+articles/zone-pivot-groups.yml @SyntaxC4 @snoviking @arob98

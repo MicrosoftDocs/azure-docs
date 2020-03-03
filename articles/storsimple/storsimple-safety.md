@@ -18,6 +18,9 @@ ms.author: alkohli
 
 ---
 # Safely install and operate your StorSimple device
+
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
+
 ![Warning Icon](./media/storsimple-safety/IC740879.png)
 ![Read Safety Notice Icon](./media/storsimple-safety/IC740885.png) **READ SAFETY AND HEALTH INFORMATION**
 
@@ -141,7 +144,7 @@ To reduce the risk of shorts, fire, explosion, injury, or death:
 
 ![Notice Icon](./media/storsimple-safety/IC740881.png) **NOTICE:**
 
-When shipping or otherwise transporting the batteries by air, follow the IATA Lithium Battery Guidance document available at [http://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx](http://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx)
+When shipping or otherwise transporting the batteries by air, follow the IATA Lithium Battery Guidance document available at [https://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx](https://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx)
 
 After you have reviewed these safety notices, the next steps are to unpack, rack and cable your device.
 

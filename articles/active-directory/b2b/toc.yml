@@ -1,4 +1,4 @@
-- name: Azure Active Directory B2B Documentation
+- name: Azure Active Directory B2B documentation
   href: index.yml
   items:
   - name: Overview
@@ -15,19 +15,21 @@
       href: b2b-quickstart-invite-powershell.md
   - name: Tutorials
     items:
-    - name: Bulk invite B2B guest users
-      href: b2b-tutorial-bulk-invite.md
+    - name: Bulk invite via PowerShell
+      href: bulk-invite-powershell.md
+    - name: Bulk invite via the portal (preview)
+      href: tutorial-bulk-invite.md
     - name: Enforce multi-factor authentication
       href: b2b-tutorial-require-mfa.md
   - name: Samples
     items:
-    - name: Self-service sign-up portal sample
-      href: self-service-portal.md
     - name: Code and Azure PowerShell samples
       href: code-samples.md
   - name: Concepts
     expanded: false
     items:
+    - name: B2B best practices
+      href: b2b-fundamentals.md
     - name: B2B licensing
       href: licensing-guidance.md
     - name: B2B and Office 365 external sharing
@@ -42,15 +44,19 @@
       href: claims-mapping.md
     - name: B2B user token
       href: user-token.md
-    - name: Conditional access for B2B
+    - name: Conditional Access for B2B
       href: conditional-access.md
     - name: B2B for hybrid organizations
       href: hybrid-organizations.md
+    - name: Self-service sign-up
+      href: self-service-portal.md
     - name: Current limitations
       href: current-limitations.md
   - name: How-to guides
     expanded: true
     items:
+    - name: Manage B2B sharing
+      href: delegate-invitations.md
     - name: Manage invitations
       items:
       - name: Admins adding B2B users
@@ -61,8 +67,10 @@
         href: google-federation.md
       - name: One-time passcode authentication
         href: one-time-passcode.md
-      - name: B2B sharing policies
-        href: delegate-invitations.md
+      - name: Direct federation
+        href: direct-federation.md
+      - name: Example of direct federation with AD FS
+        href: direct-federation-adfs.md
       - name: Allow or block invitations
         href: allow-deny-list.md
       - name: Add B2B users without an invitation

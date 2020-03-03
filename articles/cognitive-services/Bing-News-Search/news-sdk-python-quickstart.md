@@ -1,16 +1,16 @@
 ---
-title: "Quickstart: Perform a news search - Bing News Search SDK for Python"
+title: "Quickstart: Perform a news search using the SDK for Python - Bing News Search"
 titleSuffix: Azure Cognitive Services
 description: Use this quickstart to search for news using the Bing News Search SDK for Python, and process the response.
 services: cognitive-services
-author: mikedodaro
+author: aahill
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: quickstart
-ms.date: 01/10/2019
-ms.author: v-gedod
+ms.date: 12/12/2019
+ms.author: aahi
 ms.custom: seodec2018
 ---
 # Quickstart: Perform a news search with the Bing News Search SDK for Python
@@ -40,18 +40,19 @@ python -m pip install azure-cognitiveservices-search-newssearch
 1. Create a new Python file in your favorite IDE or editor, and import the following libraries. Create a variable for your subscription key, and your search term.
 
     ```python
-    from azure.cognitiveservices.search.newssearch import NewsSearchAPI
+    from azure.cognitiveservices.search.newssearch import NewsSearchClient
     from msrest.authentication import CognitiveServicesCredentials
     subscription_key = "YOUR-SUBSCRIPTION-KEY"
+    endpoint = "YOUR-ENDPOINT"
     search_term = "Quantum Computing"
     ```
 
 ## Initialize the client and send a request
 
-1. Create an instance of `CognitiveServicesCredentials`. Instantiate the client:
+1. Create an instance of `CognitiveServicesCredentials`.
     
     ```python
-    client = NewsSearchAPI(CognitiveServicesCredentials(subscription_key))
+    client = NewsSearchClient(endpoint=endpoint, credentials=CognitiveServicesCredentials(subscription_key))
     ```
 
 2. Send a search query to the News Search API, store the response.
@@ -67,7 +68,8 @@ If any search results are found, print the first webpage result:
 ```python
 if news_result.value:
     first_news_result = news_result.value[0]
-    print("Total estimated matches value: {}".format(news_result.total_estimated_matches))
+    print("Total estimated matches value: {}".format(
+        news_result.total_estimated_matches))
     print("News result count: {}".format(len(news_result.value)))
     print("First news name: {}".format(first_news_result.name))
     print("First news url: {}".format(first_news_result.url))
@@ -81,4 +83,4 @@ else:
 ## Next steps
 
 > [!div class="nextstepaction"]
-[Create a single-page web app](tutorial-bing-news-search-single-page-app.md)
+> [Create a single-page web app](tutorial-bing-news-search-single-page-app.md)

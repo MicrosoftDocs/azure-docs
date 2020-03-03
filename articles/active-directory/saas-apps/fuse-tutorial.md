@@ -8,7 +8,8 @@ manager: mtillman
 ms.reviewer: barbkess
 
 ms.assetid: 5ef34f58-863a-4b37-875c-e8efa3e18bb3
-ms.service: Azure-Active-Directory
+ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -101,7 +102,7 @@ To configure Azure AD single sign-on with Fuse, perform the following steps:
     ![Fuse Domain and URLs single sign-on information](common/sp-signonurl.png)
 
     In the **Sign-on URL** text box, type a URL using the following pattern:
-    `https://<tenant name>.fusionuniversal.com/`
+    `https://{tenantname}.fuseuniversal.com/`
 
 	> [!NOTE]
 	> The value is not real. Update the value with the actual Sign-On URL. Contact [Fuse Client support team](mailto:support@fusion-universal.com) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
@@ -142,7 +143,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     a. In the **Name** field enter **BrittaSimon**.
   
-    b. In the **User name** field type **brittasimon@yourcompanydomain.extension**  
+    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
     For example, BrittaSimon@contoso.com
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
@@ -191,5 +192,5 @@ When you click the Fuse tile in the Access Panel, you should be automatically si
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

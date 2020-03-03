@@ -1,14 +1,10 @@
 ---
-title: Deploy and call web APIs & REST APIs from Azure Logic Apps | Microsoft Docs
-description: Deploy and call web APIs & REST APIs for system integratio workflows in Azure Logic Apps
+title: Deploy and call web APIs & REST APIs from Azure Logic Apps
+description: Deploy and call web APIs & REST APIs for system integration workflows in Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, stepsic, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: article
-ms.assetid: f113005d-0ba6-496b-8230-c1eadbd6dbb9
 ms.date: 05/26/2017
 ---
 
@@ -26,7 +22,7 @@ a platform-as-a-service (PaaS) offering that provides highly scalable,
 easy API hosting.
 
 Although you can call any API from a logic app, 
-for the best experience, add [OpenAPI (previously Swagger) metadata](http://swagger.io/specification/) 
+for the best experience, add [OpenAPI (previously Swagger) metadata](https://swagger.io/specification/) 
 that describes your API's operations and parameters. 
 This OpenAPI file helps your API integrate more easily 
 and work better with logic apps.

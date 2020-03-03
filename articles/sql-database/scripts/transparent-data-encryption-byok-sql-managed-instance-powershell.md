@@ -1,5 +1,5 @@
 ---
-title: "PowerShell: Enable BYOK TDE - Azure SQL Database Managed Instance | Microsoft Docs"
+title: "PowerShell: Enable BYOK TDE - Azure SQL Database Managed Instance "
 description: "Learn how to configure an Azure SQL Managed Instance to start using BYOK Transparent Data Encryption (TDE) for encryption-at-rest using PowerShell."
 services: sql-database
 ms.service: sql-database
@@ -10,20 +10,25 @@ ms.topic: conceptual
 author: MladjoA
 ms.author: mlandzic
 ms.reviewer: vanto, carlrab
-manager: craigg
-ms.date: 01/17/2019
+ms.date: 11/05/2019
 ---
-
 # Manage Transparent Data Encryption in a Managed Instance using your own key from Azure Key Vault
 
-This PowerShell script example configures Transparent Data Encryption (TDE) in Bring Your Own Key scenario for Azure SQL Managed Instance, using a key from Azure Key Vault. To learn more about the TDE with Bring Your Own Key (BYOK) Support, see [TDE Bring Your Own Key to Azure SQL](../transparent-data-encryption-byok-azure-sql.md).
+This PowerShell script example configures Transparent Data Encryption (TDE) with customer-managed key for Azure SQL Managed Instance, using a key from Azure Key Vault. This is often referred to as a Bring Your Own Key scenario for TDE. To learn more about the TDE with customer-managed key, see [TDE Bring Your Own Key to Azure SQL](../transparent-data-encryption-byok-azure-sql.md).
+
+## Prerequisites
+
+- An existing Managed Instance. See [Use PowerShell to create an Azure SQL Database managed instance](sql-database-create-configure-managed-instance-powershell.md).
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
-[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the PowerShell locally, this tutorial requires the Azure PowerShell module version 5.7.0 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps). If you are running PowerShell locally, you also need to run `Connect-AzureRmAccount` to create a connection with Azure.
+Using both PowerShell locally or using Azure Cloud Shell requires AZ PowerShell 2.3.2 or a later version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps), or run the below sample script to install the module for the current user:
 
-If you choose to install and use the PowerShell locally, this tutorial also requires preview version of AzureRM.Sql PowerShell package *4.11.6-preview*. Run the following command to install it: `Install-Module -Name AzureRM.Sql -RequiredVersion 4.11.6-preview -AllowPrerelease`
+`Install-Module -Name Az -AllowClobber -Scope CurrentUser`
+
+If you are running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 
 ## Sample scripts
 

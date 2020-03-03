@@ -1,16 +1,12 @@
 ---
 title: Automate Azure Monitor log processes with Microsoft Flow
 description: Learn how you can use Microsoft Flow to quickly automate repeatable processes by using the Azure Log Analytics connector.
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-ms.service: log-analytics
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 09/29/2017
+author: bwren
 ms.author: bwren
+ms.date: 09/29/2017
+
 ---
 
 # Automate Azure Monitor log processes with the connector for Microsoft Flow
@@ -18,7 +14,7 @@ ms.author: bwren
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-For example, you can use Microsoft Flow to use LAzure Monitor log data in an email notification from Office 365, create a bug in Azure DevOps, or post a Slack message.  You can trigger a workflow by a simple schedule or from some action in a connected service such as when a mail or a tweet is received.  
+For example, you can use Microsoft Flow to use Azure Monitor log data in an email notification from Office 365, create a bug in Azure DevOps, or post a Slack message.  You can trigger a workflow by a simple schedule or from some action in a connected service such as when a mail or a tweet is received.  
 
 The tutorial in this article shows you how to create a flow that automatically sends the results of an Azure Monitor log query by email, just one example of how you can use the Log Analytics connector in Microsoft Flow. 
 
@@ -43,13 +39,13 @@ The tutorial in this article shows you how to create a flow that automatically s
 
 1. Specify the details for your workspace including the Subscription ID, Resource Group, and Workspace Name.
 2. Add the following log query to the **Query** window.  This is only a sample query, and you can replace with any other that returns data.
-```
+   ```
 	Event
 	| where EventLevelName == "Error" 
 	| where TimeGenerated > ago(1day)
 	| summarize count() by Computer
 	| sort by Computer
-```
+   ```
 
 2. Select **HTML Table** for the **Chart Type**.<br><br>![Log Analytics action](media/flow-tutorial/flow03.png)
 
@@ -76,6 +72,5 @@ The tutorial in this article shows you how to create a flow that automatically s
 
 - Learn more about [log queries in Azure Monitor](../log-query/log-query-overview.md).
 - Learn more about [Microsoft Flow](https://ms.flow.microsoft.com).
-
 
 

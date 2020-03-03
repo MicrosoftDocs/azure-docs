@@ -1,10 +1,10 @@
 ---
-title: Configure private IP addresses for VMs - Azure portal | Microsoft Docs
+title: Configure private IP addresses for VMs - Azure portal
 description: Learn how to configure private IP addresses for virtual machines using the Azure portal.
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: timlt
+author: KumudD
+manager: twooley
 editor: tysonn
 tags: azure-resource-manager
 
@@ -15,26 +15,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/04/2016
-ms.author: jdial
-ms.custom: H1Hack27Feb2017
+ms.author: kumud
 
 ---
 # Configure private IP addresses for a virtual machine using the Azure portal
 
-> [!div class="op_single_selector"]
-> * [Azure portal](virtual-networks-static-private-ip-arm-pportal.md)
-> * [PowerShell](virtual-networks-static-private-ip-arm-ps.md)
-> * [Azure CLI](virtual-networks-static-private-ip-arm-cli.md)
-> * [Azure portal (Classic)](virtual-networks-static-private-ip-classic-pportal.md)
-> * [PowerShell (Classic)](virtual-networks-static-private-ip-classic-ps.md)
-> * [Azure CLI (Classic)](virtual-networks-static-private-ip-classic-cli.md)
-
-
 [!INCLUDE [virtual-networks-static-private-ip-intro-include](../../includes/virtual-networks-static-private-ip-intro-include.md)]
-
-[!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
-
-This article covers the Resource Manager deployment model. You can also [manage static private IP address in the classic deployment model](virtual-networks-static-private-ip-classic-pportal.md).
 
 [!INCLUDE [virtual-networks-static-ip-scenario-include](../../includes/virtual-networks-static-ip-scenario-include.md)]
 
@@ -45,7 +31,7 @@ You cannot set a static private IP address during the creation of a VM in the Re
 
 To create a VM named *DNS01* in the *FrontEnd* subnet of a VNet named *TestVNet*, follow these steps:
 
-1. From a browser, navigate to http://portal.azure.com and, if necessary, sign in with your Azure account.
+1. From a browser, navigate to https://portal.azure.com and, if necessary, sign in with your Azure account.
 2. Click **Create a resource** > **Compute** > **Windows Server 2012 R2 Datacenter**, notice that the **Select a deployment model** list already shows **Resource Manager**, and then click **Create**, as seen in the following figure.
    
     ![Create VM in Azure portal](./media/virtual-networks-static-ip-arm-pportal/figure01.png)

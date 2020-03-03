@@ -3,12 +3,12 @@ title: Azure VM startup is stuck at Windows Update| Microsoft Docs
 description: Learn how to troubleshoot the issue when an Azure VM startup is stuck at Windows update.
 services: virtual-machines-windows
 documentationCenter: ''
-authors: genli
-manager: cshepard
+author: genlin
+manager: dcscontentpm
 editor: v-jesits
 
 ms.service: virtual-machines-windows
-ms.devlang: na
+
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
@@ -20,8 +20,6 @@ ms.author: genli
 
 This article helps resolve the issue when your Virtual Machine (VM) is stuck at the Windows Update stage during startup. 
 
-> [!NOTE] 
-> Azure has two different deployment models for creating and working with resources: [Resource Manager and classic](../../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the Resource Manager deployment model. We recommend that you use this model for new deployments instead of using the classic deployment model.
 
 ## Symptom
 

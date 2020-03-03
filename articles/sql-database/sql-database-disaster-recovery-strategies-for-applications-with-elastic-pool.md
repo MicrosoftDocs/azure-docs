@@ -1,16 +1,15 @@
 ---
-title: Design disaster recovery solutions - Azure SQL Database | Microsoft Docs
+title: Design disaster recovery solutions
 description: Learn how to design your cloud solution for disaster recovery by choosing the right failover pattern.
 services: sql-database
 ms.service: sql-database
-ms.subservice: elastic-poolss
+ms.subservice: elastic-pools
 ms.custom: 
 ms.devlang:
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 01/25/2019
 ---
 # Disaster recovery strategies for applications using SQL Database elastic pools

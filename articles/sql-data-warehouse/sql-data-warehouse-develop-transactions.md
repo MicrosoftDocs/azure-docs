@@ -1,15 +1,16 @@
 ---
-title: Using transactions in Azure SQL Data Warehouse | Microsoft Docs
+title: Using transactions
 description: Tips for implementing transactions in Azure SQL Data Warehouse for developing solutions.
 services: sql-data-warehouse
-author: ckarst
+author: XiaoyuMSFT 
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: implement
-ms.date: 02/10/2019
-ms.author: cakarst
+ms.subservice: development
+ms.date: 03/22/2019
+ms.author: xiaoyul
 ms.reviewer: igorstan
+ms.custom: seo-lt-2019
 ---
 
 # Using transactions in SQL Data Warehouse
@@ -19,7 +20,7 @@ Tips for implementing transactions in Azure SQL Data Warehouse for developing so
 As you would expect, SQL Data Warehouse supports transactions as part of the data warehouse workload. However, to ensure the performance of SQL Data Warehouse is maintained at scale some features are limited when compared to SQL Server. This article highlights the differences and lists the others. 
 
 ## Transaction isolation levels
-SQL Data Warehouse implements ACID transactions. However, the isolation level of the transactional support is limited to READ UNCOMMITTED; this level cannot be changed. If READ UNCOMMITTED is a concern, you can implement a number of coding methods to prevent dirty reads of data. The most popular methods use both CTAS and table partition switching (often known as the sliding window pattern) to prevent users from querying data that is still being prepared. Views that pre-filter the data are also a popular approach.  
+SQL Data Warehouse implements ACID transactions. The isolation level of the transactional support is default to READ UNCOMMITTED.  You can change it to READ COMMITTED SNAPSHOT ISOLATION by turning ON the READ_COMMITTED_SNAPSHOT database option for a user database when connected to the master database.  Once enabled, all transactions in this database are executed under READ COMMITTED SNAPSHOT ISOLATION and setting READ UNCOMMITTED on session level will not be honored. Check [ALTER DATABASE SET options (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azure-sqldw-latest) for details.
 
 ## Transaction size
 A single data modification transaction is limited in size. The limit is applied per distribution. Therefore, the total allocation can be calculated by multiplying the limit by the distribution count. To approximate the maximum number of rows in the transaction divide the distribution cap by the total size of each row. For variable length columns, consider taking an average column length rather than using the maximum size.
@@ -29,7 +30,30 @@ In the table below the following assumptions have been made:
 * An even distribution of data has occurred 
 * The average row length is 250 bytes
 
-| [DWU](sql-data-warehouse-overview-what-is.md) | Cap per distribution (GiB) | Number of Distributions | MAX transaction size (GiB) | # Rows per distribution | Max Rows per transaction |
+## Gen2
+
+| [DWU](sql-data-warehouse-overview-what-is.md) | Cap per distribution (GB) | Number of Distributions | MAX transaction size (GB) | # Rows per distribution | Max Rows per transaction |
+| --- | --- | --- | --- | --- | --- |
+| DW100c |1 |60 |60 |4,000,000 |240,000,000 |
+| DW200c |1.5 |60 |90 |6,000,000 |360,000,000 |
+| DW300c |2.25 |60 |135 |9,000,000 |540,000,000 |
+| DW400c |3 |60 |180 |12,000,000 |720,000,000 |
+| DW500c |3.75 |60 |225 |15,000,000 |900,000,000 |
+| DW1000c |7.5 |60 |450 |30,000,000 |1,800,000,000 |
+| DW1500c |11.25 |60 |675 |45,000,000 |2,700,000,000 |
+| DW2000c |15 |60 |900 |60,000,000 |3,600,000,000 |
+| DW2500c |18.75 |60 |1125 |75,000,000 |4,500,000,000 |
+| DW3000c |22.5 |60 |1,350 |90,000,000 |5,400,000,000 |
+| DW5000c |37.5 |60 |2,250 |150,000,000 |9,000,000,000 |
+| DW6000c |45 |60 |2,700 |180,000,000 |10,800,000,000 |
+| DW7500c |56.25 |60 |3,375 |225,000,000 |13,500,000,000 |
+| DW10000c |75 |60 |4,500 |300,000,000 |18,000,000,000 |
+| DW15000c |112.5 |60 |6,750 |450,000,000 |27,000,000,000 |
+| DW30000c |225 |60 |13,500 |900,000,000 |54,000,000,000 |
+
+## Gen1
+
+| [DWU](sql-data-warehouse-overview-what-is.md) | Cap per distribution (GB) | Number of Distributions | MAX transaction size (GB) | # Rows per distribution | Max Rows per transaction |
 | --- | --- | --- | --- | --- | --- |
 | DW100 |1 |60 |60 |4,000,000 |240,000,000 |
 | DW200 |1.5 |60 |90 |6,000,000 |360,000,000 |
@@ -123,8 +147,8 @@ BEGIN TRAN
 
         IF @@TRANCOUNT > 0
         BEGIN
-            PRINT 'ROLLBACK';
             ROLLBACK TRAN;
+            PRINT 'ROLLBACK';
         END
 
         SELECT  ERROR_NUMBER()    AS ErrNumber

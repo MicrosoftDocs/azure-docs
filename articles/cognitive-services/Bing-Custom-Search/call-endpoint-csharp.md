@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Call your Bing Custom Search endpoint using C# | Microsoft Docs"
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Use this quickstart to begin requesting search results from your Bing Custom Search instance in C#. 
 services: cognitive-services
 author: aahill
@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: quickstart
-ms.date: 05/07/2018
+ms.date: 12/09/2019
 ms.author: maheshb
 ---
 
@@ -20,11 +20,11 @@ Use this quickstart to begin requesting search results from your Bing Custom Sea
 ## Prerequisites
 
 - A Bing Custom Search instance. See [Quickstart: Create your first Bing Custom Search instance](quick-start.md) for more information.
-- Microsoft [.Net Core](https://www.microsoft.com/net/download/core)
-- Any edition of [Visual Studio 2017](https://www.visualstudio.com/downloads/)
-- If you are using Linux/MacOS, this application can be run using [Mono](http://www.mono-project.com/).
-- The [NuGet Custom Search](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.CustomSearch/1.2.0) package installed. 
-    - From the Solution Explorer in Visual Studio, right-click on your project and select `Manage NuGet Packages` from the menu. Install the `Microsoft.Azure.CognitiveServices.Search.CustomSearch` package. Installing the NuGet Custom Search package also installs the following assemblies:
+- Microsoft [.NET Core](https://www.microsoft.com/net/download/core)
+- Any edition of [Visual Studio 2019 or later](https://www.visualstudio.com/downloads/)
+- If you are using Linux/MacOS, this application can be run using [Mono](https://www.mono-project.com/).
+- The [Bing Custom Search](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.CustomSearch/1.2.0) NuGet package. 
+    - From **Solution Explorer** in Visual Studio, right-click your project and select **Manage NuGet Packages** from the menu. Install the `Microsoft.Azure.CognitiveServices.Search.CustomSearch` package. Installing the NuGet Custom Search package also installs the following assemblies:
         - Microsoft.Rest.ClientRuntime
         - Microsoft.Rest.ClientRuntime.Azure
         - Newtonsoft.Json
@@ -74,7 +74,7 @@ Use this quickstart to begin requesting search results from your Bing Custom Sea
     var searchTerm = args.Length > 0 ? args[0]:"microsoft";
     ```
 
-4. Construct the request URL by appending your search term to the `q=` query parameter, and your search instance's Custom Configuration ID to `customconfig=`. separate the parameters with a `&` character. 
+4. Construct the request URL by appending your search term to the `q=` query parameter, and your search instance's Custom Configuration ID to `customconfig=`. separate the parameters with a `&` character. `url` can be the global endpoint below, or the [custom subdomain](../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 
     ```csharp
     var url = "https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/search?" +
@@ -98,9 +98,9 @@ Use this quickstart to begin requesting search results from your Bing Custom Sea
     var responseContent = httpResponseMessage.Content.ReadAsStringAsync().Result;
     BingCustomSearchResponse response = JsonConvert.DeserializeObject<BingCustomSearchResponse>(responseContent);
     ```
-## Process and view the results
+   ## Process and view the results
 
-1. Iterate over the response object to display information about each search result, including its name, url, and the date the webpage was last crawled.
+3. Iterate over the response object to display information about each search result, including its name, url, and the date the webpage was last crawled.
 
     ```csharp
     for(int i = 0; i < response.webPages.value.Length; i++) {                

@@ -1,11 +1,7 @@
 ---
 title: Create a Jenkins server on Azure
 description: Install Jenkins on an Azure Linux virtual machine from the Jenkins solution template and build a sample Java application.
-ms.service: jenkins
 keywords: jenkins, azure, devops, portal, virtual machine, solution template
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
 ms.topic: quickstart
 ms.date: 6/7/2017
 ---
@@ -17,7 +13,7 @@ This quickstart shows how to install [Jenkins](https://jenkins.io) on an Ubuntu 
 ## Prerequisites
 
 * An Azure subscription
-* Access to SSH on your computer's command line (such as the Bash shell or [PuTTY](http://www.putty.org/))
+* Access to SSH on your computer's command line (such as the Bash shell or [PuTTY](https://www.putty.org/))
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -28,7 +24,7 @@ Jenkins supports a model where the Jenkins server delegates work to one or more 
 
 ## Connect to Jenkins
 
-Navigate to your virtual machine (for example, http://jenkins2517454.eastus.cloudapp.azure.com/) in  your web browser. The Jenkins console is inaccessible through unsecured HTTP so instructions are provided on the page to access the Jenkins console securely from your computer using an SSH tunnel.
+Navigate to your virtual machine (for example, `http://jenkins2517454.eastus.cloudapp.azure.com/`) in  your web browser. The Jenkins console is inaccessible through unsecured HTTP so instructions are provided on the page to access the Jenkins console securely from your computer using an SSH tunnel.
 
 ![Unlock jenkins](./media/install-jenkins-solution-template/jenkins-ssh-instructions.png)
 
@@ -38,7 +34,7 @@ Set up the tunnel using the `ssh` command on the page from the command line, rep
 ssh -L 127.0.0.1:8080:localhost:8080 jenkinsadmin@jenkins2517454.eastus.cloudapp.azure.com
 ```
 
-After you have started the tunnel, navigate to http://localhost:8080/ on your local machine. 
+After you have started the tunnel, navigate to `http://localhost:8080/` on your local machine. 
 
 Get the initial password by running the following command in the command line while connected through SSH to the Jenkins VM.
 

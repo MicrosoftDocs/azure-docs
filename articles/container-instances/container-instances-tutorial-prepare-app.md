@@ -1,13 +1,8 @@
 ---
-title: Tutorial - Prepare container image for Azure Container Instances
+title: Tutorial - Prepare container image for deployment
 description: Azure Container Instances tutorial part 1 of 3 - Prepare an app in a container image for deployment to Azure Container Instances
-services: container-instances
-author: dlepow
-
-ms.service: container-instances
 ms.topic: tutorial
 ms.date: 03/21/2018
-ms.author: danlep
 ms.custom: "seodec18, mvc"
 ---
 
@@ -112,7 +107,7 @@ $ docker run -d -p 8080:80 aci-tutorial-app
 a2e3e4435db58ab0c664ce521854c2e1a1bda88c9cf2fcff46aedf48df86cccf
 ```
 
-Now, navigate to http://localhost:8080 in your browser to confirm that the container is running. You should see a web page similar to the following:
+Now, navigate to `http://localhost:8080` in your browser to confirm that the container is running. You should see a web page similar to the following:
 
 ![Running the app locally in the browser][aci-tutorial-app-local]
 
@@ -148,7 +143,7 @@ Advance to the next tutorial in the series to learn about storing your container
 [docker-run]: https://docs.docker.com/engine/reference/commandline/run/
 [docker-tag]: https://docs.docker.com/engine/reference/commandline/tag/
 [docker-windows]: https://docs.docker.com/docker-for-windows/
-[nodejs]: http://nodejs.org
+[nodejs]: https://nodejs.org
 
 <!-- LINKS - Internal -->
 [azure-cli-install]: /cli/azure/install-azure-cli

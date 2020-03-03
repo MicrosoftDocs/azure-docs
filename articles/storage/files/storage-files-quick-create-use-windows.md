@@ -1,14 +1,13 @@
 ---
-title: Azure Quickstart - Create and use an Azure Files share on Windows VMs | Microsoft Docs
+title: Create and use an Azure Files share on Windows VMs
 description: In this quickstart, you setup an Azure Files share in the Azure portal and connect it to a Windows virtual machine. You connect to the Files share, upload a file to the Files share. Then you take a snapshot of the Files share, modify the file in the Files share, and restore a previous snapshot of the Files share.
-services: storage
 author: roygara
 ms.service: storage
 ms.topic: quickstart
 ms.date: 02/01/2019
 ms.author: rogarana
 ms.subservice: files
-#Customer intent: As a IT admin new to Azure Files, I want to try out Azure file share so I can determine whether I want to subscribe to the service.
+#Customer intent: As an IT admin new to Azure Files, I want to try out Azure file share so I can determine whether I want to subscribe to the service.
 ---
 
 # Quickstart: Create and manage Azure Files share with Windows virtual machines
@@ -43,7 +42,7 @@ Next, you create a file share.
 
     ![Select Files](./media/storage-files-quick-create-use-windows/click-files.png)
 
-1. Select **+ File Share**.
+1. Select **File Share**.
 
     ![Select the add file share button](./media/storage-files-quick-create-use-windows/create-file-share.png)
 
@@ -171,6 +170,7 @@ Just like with on-premises VSS snapshots, you can view the snapshots from your m
 1. Select **Restore**. This action copies the contents of the entire directory recursively to the original location at the time the share snapshot was created.
 
    ![Restore button in warning message](./media/storage-files-quick-create-use-windows/snapshot-windows-restore.png)
+   Note:If your file has not changed, you will not see a previous version for that file because that file is the same version as the snapshot. This is consistent with how this works on a Windows file server.
 
 ## Clean up resources
 

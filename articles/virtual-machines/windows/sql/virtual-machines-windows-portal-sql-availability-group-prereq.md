@@ -1,26 +1,27 @@
 ---
-title: SQL Server availability groups - Azure virtual machines - Prereqs | Microsoft Docs
+title: "Tutorial: Prerequisites for availability group"
 description: "This tutorial shows how to configure the prerequisites for creating a SQL Server Always On availability group on Azure VMs."
 services: virtual-machines
 documentationCenter: na
-authors: MikeRayMSFT
+author: MikeRayMSFT
 manager: craigg
 editor: monicar
 tags: azure-service-management
 
 ms.assetid: c492db4c-3faa-4645-849f-5a1a663be55a
 ms.service: virtual-machines-sql
-ms.devlang: na
+
 ms.custom: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/29/2018
 ms.author: mikeray
+ms.custom: "seo-lt-2019"
 
 ---
 
-# Complete the prerequisites for creating Always On availability groups on Azure virtual machines
+# Prerequisites for creating Always On availability groups on SQL Server on Azure virtual machines
 
 This tutorial shows how to complete the prerequisites for creating a [SQL Server Always On availability group on Azure virtual machines (VMs)](virtual-machines-windows-portal-sql-availability-group-tutorial.md). When you've finished the prerequisites, you have a domain controller, two SQL Server VMs, and a witness server in a single resource group.
 
@@ -39,7 +40,7 @@ This tutorial assumes that you have a basic understanding of SQL Server Always O
 You need an Azure account. You can [open a free Azure account](https://signup.azure.com/signup?offer=ms-azr-0044p&appId=102&ref=azureplat-generic&redirectURL=https:%2F%2Fazure.microsoft.com%2Fget-started%2Fwelcome-to-azure%2F&correlationId=24f9d452-1909-40d7-b609-2245aa7351a6&l=en-US) or [activate Visual Studio subscriber benefits](https://docs.microsoft.com/visualstudio/subscriptions/subscriber-benefits).
 
 ## Create a resource group
-1. Sign in to the [Azure portal](http://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Click **+** to create a new object in the portal.
 
    ![New object](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/01-portalplus.png)
@@ -150,7 +151,7 @@ Configure two availability sets according to the parameters in the following tab
 After you create the availability sets, return to the resource group in the Azure portal.
 
 ## Create domain controllers
-After you've created the network, subnets, availability sets, and an Internet-facing load balancer, you're ready to create the virtual machines for the domain controllers.
+After you've created the network, subnets, and availability sets, you're ready to create the virtual machines for the domain controllers.
 
 ### Create virtual machines for the domain controllers
 To create and configure the domain controllers, return to the **SQL-HA-RG** resource group.
@@ -289,14 +290,14 @@ After the primary domain controller reboots, you can configure the second domain
 15. Click the **More** link on the yellow warning bar.
 16. In the **Action** column of the **All Server Task Details** dialog, click **Promote this server to a domain controller**.
 17. Under **Deployment Configuration**, select **Add a domain controller to an existing domain**.
-   ![Deployment configuration](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/28-deploymentconfig.png)
+    ![Deployment configuration](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/28-deploymentconfig.png)
 18. Click **Select**.
 19. Connect by using the administrator account (**CORP.CONTOSO.COM\domainadmin**) and password (**Contoso!0000**).
 20. In **Select a domain from the forest**, click your domain, and then click **OK**.
 21. In **Domain Controller Options**, use the default values and set a DSRM password.
 
-   >[!NOTE]
-   >The **DNS Options** page might warn you that a delegation for this DNS server can't be created. You can ignore this warning in non-production environments.
+    >[!NOTE]
+    >The **DNS Options** page might warn you that a delegation for this DNS server can't be created. You can ignore this warning in non-production environments.
 22. Click **Next** until the dialog reaches the **Prerequisites** check. Then click **Install**.
 
 After the server finishes the configuration changes, restart the server.

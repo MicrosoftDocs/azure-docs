@@ -8,7 +8,8 @@ manager: mtillman
 ms.reviewer: barbkess
 
 ms.assetid: 1d702060-1b89-4e9d-9f01-ede4f1171c73
-ms.service: Azure-Active-Directory
+ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -121,19 +122,15 @@ To configure Azure AD single sign-on with &frankly, perform the following steps:
 
 	![The Certificate download link](common/metadataxml.png)
 
-7. On the **Set up &frankly** section, copy the appropriate URL(s) as per your requirement.
 
-	![Copy configuration URLs](common/copy-configuration-urls.png)
+### Configure &frankly single sign-on
 
-	a. Login URL
+To enable single sign-on in &frankly:
 
-	b. Azure Ad Identifier
-
-	c. Logout URL
-
-### Configure &frankly Single Sign-On
-
-To configure single sign-on on **&frankly** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [&frankly support team](mailto:help@andfrankly.com). They set this setting to have the SAML SSO connection set properly on both sides.
+1. Log in to &frankly. Go to **Account** > **User Management**.
+1. Change the authentication mechanism from the default to **Enterprise Sign-on (SAML)**.
+1. Upload the **Federation Metadata XML** that you downloaded in step 6 in the preceding section.
+1. Select **Save**.
 
 ### Create an Azure AD test user
 
@@ -153,7 +150,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     a. In the **Name** field enter **BrittaSimon**.
   
-    b. In the **User name** field type **brittasimon@yourcompanydomain.extension**  
+    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
     For example, BrittaSimon@contoso.com
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
@@ -202,4 +199,4 @@ When you click the &frankly tile in the Access Panel, you should be automaticall
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

@@ -1,11 +1,9 @@
 ---
 title: Integrate existing MongoDB application with Azure Cosmos DB API for MongoDB and Open Service Broker for Azure (OSBA)
 description: In this article, you learn how to integrate an existing Java and MongoDB application with the Azure Cosmos DB API for MongoDB using Open Service Broker for Azure (OSBA).
-services: azure-dev-spaces
 author: zr-msft
-manager: jeconnoc
 ms.service: azure-dev-spaces
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/25/2019
 ms.author: zarhoads
 ms.custom: mvc
@@ -78,7 +76,7 @@ Start your application and tell it to use the *mongodb* profile:
 java -jar -Dspring.profiles.active=mongodb build/libs/spring-music-1.0.jar
 ```
 
-Navigate to http://localhost:8080 in your browser.
+Navigate to `http://localhost:8080` in your browser.
 
 ![Spring Music app with default data](media/music-app.png)
 
@@ -181,16 +179,16 @@ java -jar -Dspring.profiles.active=mongodb build/libs/spring-music-1.0.jar
 
 Notice your application still uses the *mongodb* profile and a URI that begins with *mongodb://* to connect to the Cosmos DB database. The [Azure Cosmos DB API for MongoDB](../cosmos-db/mongodb-introduction.md) provides this compatibility. It allows your application to continue to operate as if it is using a MongoDB database, but it is actually using Cosmos DB.
 
-Navigate to http://localhost:8080 in your browser. Notice the default data has been restored. Interact with it by deleting a few existing albums and creating a few new ones. You can verify your changes are persisted by stopping your application, restarting it, and navigating back to it in your browser. Notice the changes you have made are still there. The changes are persisted to the Cosmos DB you created using Open Service Broker for Azure.
+Navigate to `http://localhost:8080` in your browser. Notice the default data has been restored. Interact with it by deleting a few existing albums and creating a few new ones. You can verify your changes are persisted by stopping your application, restarting it, and navigating back to it in your browser. Notice the changes you have made are still there. The changes are persisted to the Cosmos DB you created using Open Service Broker for Azure.
 
 
 ## Run your application on your AKS cluster
 
-You can use [Azure Dev Spaces](../dev-spaces/azure-dev-spaces.md) to deploy the application to your AKS cluster. Azure Dev Spaces helps you generate artifacts, such as Dockefiles and Helm charts, and deploy and run an application in AKS.
+You can use [Azure Dev Spaces](../dev-spaces/azure-dev-spaces.md) to deploy the application to your AKS cluster. Azure Dev Spaces helps you generate artifacts, such as Dockerfiles and Helm charts, and deploy and run an application in AKS.
 
 To enable Azure Dev Spaces in your AKS cluster:
 
-```cmd
+```azurecli
 az aks enable-addons --addons http_application_routing -g MyResourceGroup -n MyAKS
 az aks use-dev-spaces -g MyResourceGroup -n MyAKS
 ```
@@ -205,7 +203,7 @@ This command generates several artifacts, including a *charts/* folder, which is
 
 Create a file at the root of your project named *Dockerfile* with this content:
 
-```Dockerfile
+```dockerfile
 FROM openjdk:8-jdk-alpine
 EXPOSE 8080
 WORKDIR /app

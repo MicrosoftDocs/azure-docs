@@ -1,98 +1,101 @@
 ---
-title: Azure Data Factory Mapping Data Flow Source Transformation
-description: Azure Data Factory Mapping Data Flow Source Transformation
+title: Source transformation in mapping data flow
+description: Learn how to set up a source transformation in mapping data flow. 
 author: kromerm
 ms.author: makromer
-ms.reviewer: douglasl
+manager: anandsub
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 02/12/2019
+ms.custom: seo-lt-2019
+ms.date: 12/12/2019
 ---
 
-# Mapping Data Flow Source Transformation
+# Source transformation in mapping data flow 
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
+A source transformation configures your data source for the data flow. When designing data flows, your first step will always be configuring a source transformation. To add a source, click on the **Add Source** box in the data flow canvas.
 
-The Source transformation configures a data source that you wish to use to bring data into your data flow. You may have more than one Source transform in a single Data Flow. Always begin designing your Data Flows with a Source.
+Every data flow requires at least one source transformation, but you can add as many sources as necessary to complete your data transformations. You can join those sources together with a join, lookup, or a union transformation.
 
-> [!NOTE]
-> Every Data Flow requires at least one Source Transformation. Add as many additional Sources as you require to complete your data transformations. You can join those sources together with a Join or Union transformation.
+Each source transformation is associated with exactly one Data Factory dataset. The dataset defines the shape and location of the data you want to write to or read from. If using a file-based dataset, you can use wildcards and file lists in your source to work with more than one file at a time.
 
-![Source Transformation options](media/data-flow/source.png "source")
+## Supported source connectors in mapping data flow
 
-Each Data Flow source transformation must be associated with exactly one Data Factory Dataset, which defines the shape and location of your data to write to or read from. You may use wildcards and file lists in your source to work with more than one file at a time.
+Mapping Data Flow follows an extract, load, transform (ELT) approach and works with *staging* datasets that are all in Azure. Currently the following datasets can be used in a source transformation:
+    
+* [Azure Blob Storage](connector-azure-blob-storage.md#mapping-data-flow-properties) (JSON, Avro, Text, Parquet)
+* [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#mapping-data-flow-properties)  (JSON, Avro, Text, Parquet)
+* [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties)  (JSON, Avro, Text, Parquet)
+* [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md#mapping-data-flow-properties)
+* [Azure SQL Database](connector-azure-sql-database.md#mapping-data-flow-properties)
+* [Azure CosmosDB](connector-azure-cosmos-db.md#mapping-data-flow-properties)
 
-## Data Flow Staging Areas
+Settings specific to these connectors are located in the **Source options** tab. Information on these settings are located in the connector documentation. 
 
-Data Flow works with "staging" datasets that are all in Azure. These data flow datasets are used for data staging to perform your data transformations. Data Factory has access to nearly 80 different native connectors. To include data from those other sources into your Data Flow, first stage that data into one of those Data Flow dataset staging areas by using the Copy Activity.
+Azure Data Factory has access to over [90 native connectors](connector-overview.md). To include data from those other sources in your data flow, use the Copy Activity to load that data into one of the supported staging areas.
 
-## Options
+## Source settings
 
-### Allow schema drift
-Select Allow Schema Drift if the source columns will change often. This setting will allow all incoming fields from your source to flow through the transformations to the Sink.
+Once you have added a source, configure via the **Source Settings** tab. Here you can pick or create the dataset your source points at. You can also select schema and sampling options for your data.
 
-### Validate Schema
+![Source settings tab](media/data-flow/source1.png "Source settings tab")
 
-![Public Source](media/data-flow/source1.png "public source 1")
+**Test connection:** Test whether or not data flow's spark service can successfully connect to the linked service used in your source dataset. Debug mode must be on for this feature to be enabled.
 
-If the incoming version of the source data does not match the defined schema, then execution of the data flow will fail.
+**Schema drift:** [Schema Drift](concepts-data-flow-schema-drift.md) is data factory's ability to natively handle flexible schemas in your data flows without needing to explicitly define column changes.
 
-### Sampling
-Use Sampling to limit the number of rows from your Source.  This is useful when you need just a sample of your source data for testing and debugging purposes.
+* Check the **Allow schema drift** box if the source columns will change often. This setting allows all incoming source fields to flow through the transformations to the sink.
 
-## Define Schema
+* Choosing **Infer drifted column types** will instruct data factory to detect and define data types for each new column discovered. With this feature turned off, all drifted columns will be of type string.
 
-![Source Transformation](media/data-flow/source2.png "source 2")
+**Validate schema:** If validate schema is selected, the data flow will fail to run if the incoming source data doesn't match the defined schema of the dataset.
 
-For source file types that are not strongly typed (i.e. flat files as opposed to Parquet files) you should define the data types for each field here in the Source transformation. You can subsequently change the column names in a Select transformation and the data types in a Derived Column transformation. 
+**Skip line count:** The skip line count field specifies how many lines to ignore at the beginning of the dataset.
 
-![Source Transformation](media/data-flow/source003.png "data types")
+**Sampling:** Enable sampling to limit the number of rows from your source. Use this setting when you test or sample data from your source for debugging purposes.
 
-For strongly-typed sources, you can modify the data types in a subsequent Select transformation. 
+**Multiline rows:** Select multiline rows if your source text file contains string values that span multiple rows, i.e. newlines inside a value. This setting is only available in DelimitedText datasets.
 
-### Optimize
-
-![Source Partitions](media/data-flow/sourcepart.png "partitioning")
-
-On the Optimize tab for the Source Transformation, you will see an additional partitioning type called "Source". This will only light-up when you have selected Azure SQL DB as your source. This is because ADF will wish to parallelize connections to execute large queries against your Azure SQL DB source.
-
-Partitioning data on your SQL DB source is optional, but is useful for large queries. You have two options:
-
-### Column
-
-Select a column to partition on from your source table. You must also set the max number of connections.
-
-### Query Condition
-
-You can optionally choose to partition the connections based on a query. For this option, simply put in the contents of a WHERE predicate. I.e. year > 1980
-
-## Source file management
-![New Source Settings](media/data-flow/source2.png "New settings")
-
-* Wilcard path to pick a series of files from your source folder that match a pattern. This will override any file that you have set in your dataset defintion.
-* List of Files. Same as a file set. Point to a text file that you create with a list of relative path files to process.
-* Column to store file name will store the name of the file from the source in a column in your data. Enter a new name here to store the file name string.
-* After Completion (You can choose to do nothing with the source file after the data flow executes, delete the source file(s) or move the source files. The paths for move are relative paths.
-
-### SQL Datasets
-
-When you are using Azure SQL DB or Azure SQL DW as your source, you will have additional options.
-
-* Query: Enter a SQL query for your source. Setting a query will override any table that you've chosen in the dataset. Note that Order By clauses are not supported here.
-
-* Batch size: Enter a batch size to chunk large data into batch-sized reads.
+To validate your source is configured correctly, turn on debug mode and fetch a data preview. For more information, see [Debug mode](concepts-data-flow-debug-mode.md).
 
 > [!NOTE]
-> The file operation settings will only execute when the Data Flow is executed from a pipeline run (pipeline debug or execution run) using the Execute Data Flow activity in a pipeline. File operations do NOT execute in Data Flow debug mode.
+> When debug mode is turned on, the row limit configuration in debug settings will overwrite the sampling setting in the source during data preview.
 
-### Projection
+## Projection
 
-![Projection](media/data-flow/source3.png "Projection")
+Like schemas in datasets, the projection in a source defines the data columns, types, and formats from the source data. For most dataset types such as SQL and Parquet, the projection in a source is fixed to reflect the schema defined in a dataset. When your source files aren't strongly typed (for example, flat csv files rather than Parquet files), you can define the data types for each field in the source transformation.
 
-Similar to schemas in datasets, the Projection in Source defines the data columns, data types, and data formats from the source data. If you have a text file with no defined schema, click "Detect Data Type" to ask ADF to attempt to sample and infer the data types. You can set the default data formats for auto-detect using the "Define Default Format" button. You can modify the column data types in a subsequent Derived Column transformation. The column names can be modified using the Select transformation.
+![Settings on the Projection tab](media/data-flow/source3.png "Projection")
 
-![Default formats](media/data-flow/source2.png "Default formats")
+If your text file has no defined schema, select **Detect data type** so that Data Factory will sample and infer the data types. Select **Define default format** to autodetect the default data formats.
+
+**Reset schema** resets the projection to what is defined in the referenced dataset.
+
+You can modify the column data types in a down-stream derived-column transformation. Use a select transformation to modify the column names.
+
+### Import schema
+
+The **Import Schema** button on the **Projection** tab allows you to use an active debug cluster to create a schema projection. Available in every source type, importing the schema here will override the projection defined in the dataset. The dataset object will not be changed.
+
+This is useful in datasets like Avro and CosmosDB that support complex data structures do not require schema definitions to exist in the dataset.
+
+## Optimize the source transformation
+
+On the **Optimize** tab for the source transformation, you might see a **Source** partition type. This option is available only when your source is Azure SQL Database. This is because Data Factory tries to make connections parallel to run large queries against your SQL Database source.
+
+![Source partition settings](media/data-flow/sourcepart3.png "partitioning")
+
+You don't have to partition data on your SQL Database source, but partitions are useful for large queries. You can base your partition on a column or a query.
+
+### Use a column to partition data
+
+From your source table, select a column to partition on. Also set the number of partitions.
+
+### Use a query to partition data
+
+You can choose to partition the connections based on a query. Enter the contents of a WHERE predicate. For example, enter year > 1980.
+
+For more information on optimization within mapping data flow, see the [Optimize tab](concepts-data-flow-overview.md#optimize).
 
 ## Next steps
 
-Begin building your data transformation with [Derived Column](data-flow-derived-column.md) and [Select](data-flow-select.md).
+Begin building a [derived-column transformation](data-flow-derived-column.md) and a [select transformation](data-flow-select.md).

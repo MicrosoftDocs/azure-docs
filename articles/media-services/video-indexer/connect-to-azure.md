@@ -1,6 +1,6 @@
 ---
 title: Create a Video Indexer account in the Azure portal
-titlesuffix: Azure Media Services
+titleSuffix: Azure Media Services
 description: This article shows how to create a Video Indexer account in the Azure portal.
 services: media-services
 author: Juliako
@@ -9,7 +9,7 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 01/12/2019
+ms.date: 08/05/2019
 ms.author: juliako
 ---
 
@@ -29,7 +29,7 @@ This article shows how to create a Video Indexer account that's linked to an Azu
 
     If you don't have an Azure AD domain, create this domain with your Azure subscription. For more information, see [Managing custom domain names in your Azure Active Directory](../../active-directory/users-groups-roles/domains-manage.md)
 
-* A user and member in your Azure AD domain. You'll use this member when connecting your Video Indexer account to Azure.
+* A user in your Azure AD domain with an **Application administrator** role. You'll use this member when connecting your Video Indexer account to Azure.
 
     This user should be an Azure AD user with a work or school account, not a personal account, such as outlook.com, live.com, or hotmail.com.
 
@@ -55,9 +55,12 @@ Search for **Microsoft.Media** and **Microsoft.EventGrid**. If not in the "Regis
 
 ## Connect to Azure
 
+> [!NOTE]
+> If your Azure subscription uses certificate-based multi-factor authentication, it is crucial that you perform the following steps on a device that has the required certificates installed.
+
 1. Browse to the [Video Indexer](https://www.videoindexer.ai/) website and sign in.
 
-2. Click on the **Connect to Azure** button:
+2. Click on the **Create new account** button:
 
     ![connect to Azure](./media/create-account/connect-to-azure.png)
 
@@ -87,9 +90,7 @@ Search for **Microsoft.Media** and **Microsoft.EventGrid**. If not in the "Regis
 
     ![new account](./media/create-account/new-account.png)
 
-7. Browse to your new account:
-
-    ![Video Indexer account](./media/create-account/vi-account.png)
+7. Browse to your new account
 
 ## Connect to Azure manually (advanced option)
 
@@ -102,7 +103,7 @@ If the connection to Azure failed, you can attempt to troubleshoot the problem b
 
 1. Use the [Azure](https://portal.azure.com/) portal to create an Azure Media Services account, as described in [Create an account](../previous/media-services-portal-create-account.md).
 
-    When creating a storage account for your Media Services account, select **StorageV2** for account kind and **Geo-redundant (RGS)** for replication fields.
+    When creating a storage account for your Media Services account, select **StorageV2** for account kind and **Geo-redundant (GRS)** for replication fields.
 
     ![new AMS account](./media/create-account/create-ams-account1.png)
 

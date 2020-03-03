@@ -1,23 +1,23 @@
 ---
-title: Delete Activity in Azure Data Factory | Microsoft Docs
+title: Delete Activity in Azure Data Factory 
 description: Learn how to delete files in various file stores with the Delete Activity in Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: dearandyxu
 ms.author: yexu
 ms.reviewer: douglasl
-manager: craigg
+manager: anandsub
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
+
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/25/2019
+ms.date: 08/20/2019
 ---
 
 # Delete Activity in Azure Data Factory
 
-You can use the Delete Activity in Azure Data Factory to delete files or folders from on-premise storage stores or cloud storage stores. Use this activity to clean up or archive files when they are no longer needed.
+You can use the Delete Activity in Azure Data Factory to delete files or folders from on-premises storage stores or cloud storage stores. Use this activity to clean up or archive files when they are no longer needed.
 
 > [!WARNING]
 > Deleted files or folders cannot be restored. Be cautious when using the Delete activity to delete files or folders.
@@ -32,13 +32,14 @@ Here are some recommendations for using the Delete activity:
 
 -   Make sure you are not deleting files that are being written at the same time. 
 
--   If you want to delete files or folder from an on-premise system, make sure you are using a self-hosted integration runtime with a version greater than 3.14.
+-   If you want to delete files or folder from an on-premises system, make sure you are using a self-hosted integration runtime with a version greater than 3.14.
 
 ## Supported data stores
 
 -   [Azure Blob storage](connector-azure-blob-storage.md)
 -   [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md)
 -   [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md)
+-   [Azure File Storage](connector-azure-file-storage.md)
 
 ### File system data stores
 
@@ -46,6 +47,7 @@ Here are some recommendations for using the Delete activity:
 -   [FTP](connector-ftp.md)
 -   [SFTP](connector-sftp.md)
 -   [Amazon S3](connector-amazon-simple-storage-service.md)
+-   [Google Cloud Storage](connector-google-cloud-storage.md)
 
 ## Syntax
 
@@ -81,7 +83,7 @@ Here are some recommendations for using the Delete activity:
 | maxConcurrentConnections | The number of the connections to connect to storage store concurrently for deleting folder or files.   |  No. The default is `1`. |
 | enablelogging | Indicates whether you need to record the folder or file names that have been deleted. If true, you need to further provide a storage account to save the log file, so that you can track the behaviors of the Delete activity by reading the log file. | No |
 | logStorageSettings | Only applicable when enablelogging = true.<br/><br/>A group of storage properties that can be specified where you want to save the log file containing the folder or file names that have been deleted by the Delete activity. | No |
-| linkedServiceName | Only applicable when enablelogging = true.<br/><br/>The linked service of [Azure Storage](connector-azure-blob-storage.md#linked-service-properties), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#linked-service-properties), or [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) to store the log file that contains the folder or file names that have been deleted by the Delete activity. | No |
+| linkedServiceName | Only applicable when enablelogging = true.<br/><br/>The linked service of [Azure Storage](connector-azure-blob-storage.md#linked-service-properties), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#linked-service-properties), or [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) to store the log file that contains the folder or file names that have been deleted by the Delete activity. Be aware it must be configured with the same type of Integration Runtime from the one used by delete activity to delete files. | No |
 | path | Only applicable when enablelogging = true.<br/><br/>The path to save the log file in your storage account. If you do not provide a path, the service creates a container for you. | No |
 
 ## Monitoring
@@ -308,7 +310,7 @@ You can create a pipeline to clean up the old or expired files by leveraging fil
         },
         "type": "AzureBlob",
         "typeProperties": {
-            "fileName": "",
+            "fileName": "*",
             "folderPath": "mycontainer",
             "modifiedDatetimeEnd": "2018-01-01T00:00:00.000Z"
         }
@@ -558,6 +560,14 @@ Dataset for data destination used by copy activity.
     }
 }
 ```
+
+You can also get the template to move files from [here](solution-template-move-files.md).
+
+## Known limitation
+
+-   Delete activity does not support deleting list of folders described by wildcard.
+
+-   When using file attribute filter: modifiedDatetimeStart and modifiedDatetimeEnd to select files to be deleted, make sure to set "fileName": "*" in dataset.
 
 ## Next steps
 

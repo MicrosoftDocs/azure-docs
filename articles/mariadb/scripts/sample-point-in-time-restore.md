@@ -1,5 +1,5 @@
 ---
-title: Azure CLI script - Restore an Azure Database for MariaDB server
+title: CLI script - Restore server - Azure Database for MariaDB
 description: This sample Azure CLI script shows how to restore an Azure Database for MariaDB server and its databases to a previous point in time.
 author: ajlam
 ms.author: andrela
@@ -7,7 +7,7 @@ ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc
-ms.date: 11/28/2018
+ms.date: 12/02/2019
 ---
 
 # Restore an Azure Database for MariaDB server using Azure CLI

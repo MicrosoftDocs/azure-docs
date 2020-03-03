@@ -1,10 +1,10 @@
 ---
-title: Create VM from a specialized disk in Azure | Microsoft Docs
+title: Create VM from a specialized disk in Azure 
 description: Create a new VM by attaching a specialized unmanaged disk, in the Resource Manager deployment model.
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 
@@ -12,7 +12,7 @@ ms.assetid: 3b7d3cd5-e3d7-4041-a2a7-0290447458ea
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
+
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
@@ -27,7 +27,7 @@ You have two options:
 * [Upload a VHD](sa-create-vm-specialized.md#option-1-upload-a-specialized-vhd)
 * [Copy the VHD of an existing Azure VM](sa-create-vm-specialized.md#option-2-copy-the-vhd-from-an-existing-azure-vm)
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+ 
 
 
 ## Option 1: Upload a specialized VHD
@@ -208,10 +208,10 @@ Create the vNet and subNet of the [virtual network](../../virtual-network/virtua
     $vnet = New-AzVirtualNetwork -Name $vnetName -ResourceGroupName $rgName -Location $location `
         -AddressPrefix 10.0.0.0/16 -Subnet $singleSubnet
     ```    
-### Create the network security group and an RDP rule
-To be able to log in to your VM using RDP, you need to have an security rule that allows RDP access on port 3389. Because the VHD for the new VM was created from an existing specialized VM, after the VM is created you can use an existing account from the source virtual machine that had permission to log on using RDP.
-This needs to be completed prior to creating the network interface it will be associated with.  
-This example sets the NSG name to **myNsg** and the RDP rule name to **myRdpRule**.
+   ### Create the network security group and an RDP rule
+   To be able to log in to your VM using RDP, you need to have an security rule that allows RDP access on port 3389. Because the VHD for the new VM was created from an existing specialized VM, after the VM is created you can use an existing account from the source virtual machine that had permission to log on using RDP.
+   This needs to be completed prior to creating the network interface it will be associated with.  
+   This example sets the NSG name to **myNsg** and the RDP rule name to **myRdpRule**.
 
 ```powershell
 $nsgName = "myNsg"
@@ -243,7 +243,7 @@ To enable communication with the virtual machine in the virtual network, you nee
     $nicName = "myNicName"
     $nic = New-AzNetworkInterface -Name $nicName -ResourceGroupName $rgName `
 	-Location $location -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -NetworkSecurityGroupId $nsg.Id
-	```
+    ```
 
 ### Set the VM name and size
 
@@ -267,7 +267,7 @@ $vm = Add-AzVMNetworkInterface -VM $vmConfig -Id $nic.Id
     ```powershell
     $osDiskUri = "https://myStorageAccount.blob.core.windows.net/myContainer/myOsDisk.vhd"
     ```
-2. Add the OS disk. In this example, when the OS disk is created, the term "osDisk" is appened to the VM name to create the OS disk name. This example also specifies that this Windows-based VHD should be attached to the VM as the OS disk.
+2. Add the OS disk. In this example, when the OS disk is created, the term "osDisk" is appended to the VM name to create the OS disk name. This example also specifies that this Windows-based VHD should be attached to the VM as the OS disk.
     
 	```powershell
     $osDiskName = $vmName + "osDisk"

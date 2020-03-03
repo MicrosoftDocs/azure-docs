@@ -1,16 +1,16 @@
 ---
-title: Set up PostgreSQL on a Linux VM | Microsoft Docs
+title: Set up PostgreSQL on a Linux VM 
 description: Learn how to install and configure PostgreSQL on a Linux virtual machine in Azure
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager,azure-service-management
 
 ms.assetid: 1a747363-0cc5-4ba3-9be7-084dfeb04651
 ms.service: virtual-machines-linux
-ms.devlang: na
+
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
@@ -23,7 +23,6 @@ PostgreSQL is an advanced open-source database similar to Oracle and DB2. It inc
 
 In this article, you will learn how to install and configure PostgreSQL on an Azure virtual machine running Linux.
 
-[!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
 ## Install PostgreSQL
 > [!NOTE]
@@ -62,7 +61,7 @@ Connect to the Linux VM you created via PuTTY. If this is the first time you're 
         # cd postgresql-9.3.5
    
         # ./configure --prefix=/opt/postgresql-9.3.5
-5. If  you want to build everything that can be built, including the documentation (HTML and man pages) and additional modules (contrib), run the following command instead:
+5. If  you want to build everything that can be built, including the documentation (HTML and man pages) and additional modules (`contrib`), run the following command instead:
    
         # gmake install-world
    
@@ -229,11 +228,11 @@ This deletes all the information in the "John" row. The output is:
 ![image](./media/postgresql-install/no8.png)
 
 ### Update data in a table
-Use the following command to update data in a table. For this one, Sandy has confirmed that she is attending, so we will change her RSVP from "N" to "Y":
+Use the following command to update data in a table. For this one, Sandy has confirmed that they are attending, so we will change the RSVP from "N" to "Y":
 
      UPDATE potluck set confirmed = 'Y' WHERE name = 'Sandy';
 
 
 ## Get more information about PostgreSQL
-Now that you have completed the installation of PostgreSQL in an Azure Linux VM, you can enjoy using it in Azure. To learn more about PostgreSQL, visit the [PostgreSQL website](http://www.postgresql.org/).
+Now that you have completed the installation of PostgreSQL in an Azure Linux VM, you can enjoy using it in Azure. To learn more about PostgreSQL, visit the [PostgreSQL website](https://www.postgresql.org/).
 

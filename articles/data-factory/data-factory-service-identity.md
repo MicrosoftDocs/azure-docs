@@ -1,17 +1,16 @@
 ---
-title: Managed identity for Data Factory | Microsoft Docs
+title: Managed identity for Data Factory 
 description: Learn about managed identity for Azure Data Factory. 
 services: data-factory
 author: linda33wj
-manager: craigg
+manager: shwang
 editor: ''
 
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 02/20/2019
+ms.date: 01/16/2020
 ms.author: jingwang
 ---
 
@@ -19,9 +18,11 @@ ms.author: jingwang
 
 This article helps you understand what is managed identity for Data Factory (formerly known as Managed Service Identity/MSI) and how it works.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Overview
 
-When creating a data factory, a managed identity can be created along with factory creation. The managed identity is a managed application registered to Azure Activity Directory, and represents this specific data factory.
+When creating a data factory, a managed identity can be created along with factory creation. The managed identity is a managed application registered to Azure Active Directory, and represents this specific data factory.
 
 Managed identity for Data Factory benefits the following features:
 
@@ -41,7 +42,7 @@ If you find your data factory doesn't have a managed identity associated followi
 
 - [Generate managed identity using PowerShell](#generate-managed-identity-using-powershell)
 - [Generate managed identity using REST API](#generate-managed-identity-using-rest-api)
-- Generate managed identity using an Azure Resource Manager template
+- [Generate managed identity using an Azure Resource Manager template](#generate-managed-identity-using-an-azure-resource-manager-template)
 - [Generate managed identity using SDK](#generate-managed-identity-using-sdk)
 
 >[!NOTE]
@@ -51,10 +52,10 @@ If you find your data factory doesn't have a managed identity associated followi
 
 ### Generate managed identity using PowerShell
 
-Call **Set-AzureRmDataFactoryV2** command again, then you see "Identity" fields being newly generated:
+Call **Set-AzDataFactoryV2** command again, then you see "Identity" fields being newly generated:
 
 ```powershell
-PS C:\WINDOWS\system32> Set-AzureRmDataFactoryV2 -ResourceGroupName <resourceGroupName> -Name <dataFactoryName> -Location <region>
+PS C:\WINDOWS\system32> Set-AzDataFactoryV2 -ResourceGroupName <resourceGroupName> -Name <dataFactoryName> -Location <region>
 
 DataFactoryName   : ADFV2DemoFactory
 DataFactoryId     : /subscriptions/<subsID>/resourceGroups/<resourceGroupName>/providers/Microsoft.DataFactory/factories/ADFV2DemoFactory
@@ -116,7 +117,7 @@ PATCH https://management.azure.com/subscriptions/<subsID>/resourceGroups/<resour
 ```json
 {
     "contentVersion": "1.0.0.0",
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "resources": [{
         "name": "<dataFactoryName>",
         "apiVersion": "2018-06-01",
@@ -151,30 +152,32 @@ You can retrieve the managed identity from Azure portal or programmatically. The
 
 ### Retrieve managed identity using Azure portal
 
-You can find the managed identity information from Azure portal -> your data factory -> Settings -> Properties:
+You can find the managed identity information from Azure portal -> your data factory -> Properties.
 
-- SERVICE IDENTITY ID
-- SERVICE IDENTITY TENANT
-- **SERVICE IDENTITY APPLICATION ID** > copy this value
+- Managed Identity Object ID
+- Managed Identity Tenant
+- Managed Identity Application ID
 
-![Retrieve managed identity](media/data-factory-service-identity/retrieve-service-identity-portal.png)
+The managed identity information will also show up when you create linked service which supports managed identity authentication, like Azure Blob, Azure Data Lake Storage, Azure Key Vault, etc.
+
+When granting permission, use object ID or data factory name (as managed identity name) to find this identity.
 
 ### Retrieve managed identity using PowerShell
 
-The managed identity principal ID and tenant ID will be returned when you get a specific data factory as follows:
+The managed identity principal ID and tenant ID will be returned when you get a specific data factory as follows. Use the **PrincipalId** to grant access:
 
 ```powershell
-PS C:\WINDOWS\system32> (Get-AzureRmDataFactoryV2 -ResourceGroupName <resourceGroupName> -Name <dataFactoryName>).Identity
+PS C:\WINDOWS\system32> (Get-AzDataFactoryV2 -ResourceGroupName <resourceGroupName> -Name <dataFactoryName>).Identity
 
 PrincipalId                          TenantId
 -----------                          --------
 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc 72f988bf-XXXX-XXXX-XXXX-2d7cd011db47
 ```
 
-Copy the principal ID, then run below Azure Active Directory command with principal ID as parameter to get the **ApplicationId**, which you use to grant access:
+You can get the application ID by copying above principal ID, then running below Azure Active Directory command with principal ID as parameter.
 
 ```powershell
-PS C:\WINDOWS\system32> Get-AzureRmADServicePrincipal -ObjectId 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc
+PS C:\WINDOWS\system32> Get-AzADServicePrincipal -ObjectId 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc
 
 ServicePrincipalNames : {76f668b3-XXXX-XXXX-XXXX-1b3348c75e02, https://identity.azure.net/P86P8g6nt1QxfPJx22om8MOooMf/Ag0Qf/nnREppHkU=}
 ApplicationId         : 76f668b3-XXXX-XXXX-XXXX-1b3348c75e02

@@ -12,10 +12,10 @@ ms.assetid:
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
+
 ms.topic: article
 ms.date: 11/09/2018
-ms.author: njray
+ms.author: edprice
 
 ---
 
@@ -23,11 +23,11 @@ ms.author: njray
 
 This article describes how to deploy an [example architecture](ibm-db2-purescale-azure.md) that an enterprise customer recently used to migrate from its IBM DB2 environment running on z/OS to IBM DB2 pureScale on Azure.
 
-To follow the steps used for the migration, see the installation scripts in the [DB2onAzure](http://aka.ms/db2onazure) repository on GitHub. These scripts are based on the architecture for a typical, medium-sized online transaction processing (OLTP) workload.
+To follow the steps used for the migration, see the installation scripts in the [DB2onAzure](https://aka.ms/db2onazure) repository on GitHub. These scripts are based on the architecture for a typical, medium-sized online transaction processing (OLTP) workload.
 
 ## Get started
 
-To deploy this architecture, download and run the deploy.sh script found in the [DB2onAzure](http://aka.ms/db2onazure) repository on GitHub.
+To deploy this architecture, download and run the deploy.sh script found in the [DB2onAzure](https://aka.ms/db2onazure) repository on GitHub.
 
 The repository also has scripts for setting up a Grafana dashboard. You can use the dashboard to query Prometheus, the open-source monitoring and alerting system included with DB2.
 
@@ -38,33 +38,35 @@ The repository also has scripts for setting up a Grafana dashboard. You can use 
 
 The deploy.sh script creates and configures the Azure resources for this architecture. The script prompts you for the Azure subscription and virtual machines used in the target environment, and then performs the following operations:
 
--   Sets up the resource group, virtual network, and subnets on Azure for the installation
+-   Sets up the resource group, virtual network, and subnets on Azure for the installation.
 
--   Sets up the network security groups and SSH for the environment
+-   Sets up the network security groups and SSH for the environment.
 
--   Sets up NICs on both the GlusterFS and the DB2 pureScale virtual machines
+-   Sets up multiple NICs on both the shared storage and the DB2 pureScale virtual machines.
 
--   Creates the GlusterFS storage virtual machines
+-   Creates the shared storage virtual machines. If you use Storage Spaces Direct or another storage solution, see [Storage Spaces Direct overview](/windows-server/storage/storage-spaces/storage-spaces-direct-overview).
 
--   Creates the jumpbox virtual machine
+-   Creates the jumpbox virtual machine.
 
--   Creates the DB2 pureScale virtual machines
+-   Creates the DB2 pureScale virtual machines.
 
--   Creates the witness virtual machine that DB2 pureScale pings
+-   Creates the witness virtual machine that DB2 pureScale pings. Skip this part of the deployment if your version of Db2 pureScale does not require a witness.
 
--   Creates a Windows virtual machine to use for testing but doesn't install anything on it
+-   Creates a Windows virtual machine to use for testing but doesn't install anything on it.
 
-Next, the deployment scripts set up an iSCSI virtual storage area network (vSAN) for shared storage on Azure. In this example, iSCSI connects to GlusterFS. This solution also gives you the option to install the iSCSI targets as a single Windows node. iSCSI provides a shared block storage interface over TCP/IP that allows the DB2 pureScale setup procedure to use a device interface to connect to shared storage. For GlusterFS basics, see the [Architecture: Types of volumes](https://docs.gluster.org/en/latest/Quick-Start-Guide/Architecture/) topic in Gluster Docs.
+Next, the deployment scripts set up an iSCSI virtual storage area network (vSAN) for shared storage on Azure. In this example, iSCSI connects to the shared storage cluster. In the original customer solution, GlusterFS was used. However, IBM no longer supports this approach. To maintain your support from IBM, you need to use a supported iSCSI-compatible file system. Microsoft offers Storage Spaces Direct (S2D) as an option.
+
+This solution also gives you the option to install the iSCSI targets as a single Windows node. iSCSI provides a shared block storage interface over TCP/IP that allows the DB2 pureScale setup procedure to use a device interface to connect to shared storage.
 
 The deployment scripts run these general steps:
 
-1.  Use GlusterFS to set up a shared storage cluster on Azure. This step involves at least two Linux nodes. For setup details, see [Setting up Red Hat Gluster Storage in Microsoft Azure](https://access.redhat.com/documentation/en-us/red_hat_gluster_storage/3.1/html/deployment_guide_for_public_cloud/chap-documentation-deployment_guide_for_public_cloud-azure-setting_up_rhgs_azure) in the Red Hat Gluster documentation.
+1.  Set up a shared storage cluster on Azure. This step involves at least two Linux nodes.
 
-2.  Set up an iSCSI Direct interface on target Linux servers for GlusterFS. For setup details, see [GlusterFS iSCSI](https://docs.gluster.org/en/latest/Administrator%20Guide/GlusterFS%20iSCSI/) in the GlusterFS Administration Guide.
+2.  Set up an iSCSI Direct interface on target Linux servers for the shared storage cluster.
 
-3.  Set up the iSCSI initiator on the Linux virtual machines. The initiator will access the GlusterFS cluster by using an iSCSI target. For setup details, see [How To Configure An iSCSI Target And Initiator In Linux](https://www.rootusers.com/how-to-configure-an-iscsi-target-and-initiator-in-linux/) in the RootUsers documentation.
+3.  Set up the iSCSI initiator on the Linux virtual machines. The initiator will access the shared storage cluster by using an iSCSI target. For setup details, see [How To Configure An iSCSI Target And Initiator In Linux](https://www.rootusers.com/how-to-configure-an-iscsi-target-and-initiator-in-linux/) in the RootUsers documentation.
 
-4.  Install GlusterFS as the storage layer for the iSCSI interface.
+4.  Install the shared storage layer for the iSCSI interface.
 
 After the scripts create the iSCSI device, the final step is to install DB2 pureScale. As part of the DB2 pureScale setup, [IBM Spectrum Scale](https://www.ibm.com/support/knowledgecenter/SSEPGG_11.1.0/com.ibm.db2.luw.qb.server.doc/doc/t0057167.html) (formerly known as GPFS) is compiled and installed on the GlusterFS cluster. This clustered file system enables DB2 pureScale to share data among the virtual machines that run the DB2 pureScale engine. For more information, see the [IBM Spectrum Scale](https://www.ibm.com/support/knowledgecenter/en/STXKQY_4.2.0/ibmspectrumscale42_welcome.html) documentation on the IBM website.
 
@@ -73,7 +75,7 @@ After the scripts create the iSCSI device, the final step is to install DB2 pure
 The GitHub repository includes DB2server.rsp, a response (.rsp) file that enables you to generate an automated script for the DB2 pureScale installation. The following table lists the DB2 pureScale options that the response file uses for setup. You can customize the response file as needed for your environment.
 
 > [!NOTE]
-> A sample response file, DB2server.rsp, is included in the [DB2onAzure](http://aka.ms/db2onazure) repository on GitHub. If you use this file, you must edit it before it can work in your environment.
+> A sample response file, DB2server.rsp, is included in the [DB2onAzure](https://aka.ms/db2onazure) repository on GitHub. If you use this file, you must edit it before it can work in your environment.
 
 | Screen name               | Field                                        | Value                                                                                                 |
 |---------------------------|----------------------------------------------|-------------------------------------------------------------------------------------------------------|
@@ -135,20 +137,16 @@ The GitHub repo includes a knowledge base that the authors maintain. It lists po
 
 -   You're removing DB2 pureScale and IBM Spectrum Scale.
 
-For more information about these and other known problems, see the kb.md file in the [DB2onAzure](http://aka.ms/DB2onAzure) repo.
+For more information about these and other known problems, see the kb.md file in the [DB2onAzure](https://aka.ms/DB2onAzure) repo.
 
 ## Next steps
-
--   [GlusterFS iSCSI](https://docs.gluster.org/en/latest/Administrator%20Guide/GlusterFS%20iSCSI/)
 
 -   [Creating required users for a DB2 pureScale Feature installation](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.qb.server.doc/doc/t0055374.html?pos=2)
 
 -   [DB2icrt - Create instance command](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.admin.cmd.doc/doc/r0002057.html)
 
--   [DB2 pureScale Clusters Data Solution](http://www.ibmbigdatahub.com/blog/db2-purescale-clustered-database-solution-part-1)
+-   [DB2 pureScale Clusters Data Solution](https://www.ibmbigdatahub.com/blog/db2-purescale-clustered-database-solution-part-1)
 
 -   [IBM Data Studio](https://www.ibm.com/developerworks/downloads/im/data/index.html/)
-
--   [Platform Modernization Alliance: IBM DB2 on Azure](https://www.platformmodernization.org/pages/ibmdb2azure.aspx)
 
 -   [Azure Virtual Data Center Lift and Shift Guide](https://azure.microsoft.com/resources/azure-virtual-datacenter-lift-and-shift-guide/)

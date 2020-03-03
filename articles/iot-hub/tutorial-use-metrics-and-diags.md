@@ -1,12 +1,11 @@
 ---
-title: Set up and use metrics and diagnostic logs with an Azure IoT hub | Microsoft Docs
-description: Set up and use metrics and diagnostic logs with an Azure IoT hub 
+title: Set up and use metrics and diagnostic logs with an Azure IoT hub
+description: Learn how to set up and use metrics and diagnostic logs with an Azure IoT hub. This will provide data to analyze to help diagnose problems your hub may be having.
 author: robinsh
-manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: tutorial
-ms.date: 12/15/2018
+ms.date: 3/13/2019
 ms.author: robinsh
 ms.custom: mvc
 #Customer intent: As a developer, I want to know how to set up and check metrics and diagnostic logs, to help me troubleshoot when there is a problem with an Azure IoT hub. 
@@ -39,6 +38,9 @@ In this tutorial, you perform the following tasks:
 
 - An email account capable of receiving mail.
 
+- Make sure that port 8883 is open in your firewall. The device sample in this tutorial uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+
+
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## Set up resources
@@ -47,7 +49,7 @@ For this tutorial, you need an IoT hub, a storage account, and a simulated IoT d
 
 These are the required steps.
 
-1. Create a [resource group](../azure-resource-manager/resource-group-overview.md). 
+1. Create a [resource group](../azure-resource-manager/management/overview.md). 
 
 2. Create an IoT hub.
 
@@ -122,7 +124,7 @@ az iot hub device-identity show --device-id $iotDeviceName \
 
 ## Enable the diagnostic logs 
 
-[Diagnostic logs](../azure-monitor/platform/diagnostic-logs-overview.md) are disabled by default when you create a new IoT hub. In this section, enable the diagnostic logs for your hub.
+[Diagnostic logs](../azure-monitor/platform/platform-logs-overview.md) are disabled by default when you create a new IoT hub. In this section, enable the diagnostic logs for your hub.
 
 1. First, if you're not already on your hub in the portal, click **Resource groups** and click on the resource group Contoso-Resources. Select the hub from the list of resources displayed. 
 
@@ -270,7 +272,7 @@ IoT Hub has not been migrated to the [metrics in Azure Monitor](/azure/azure-mon
 
 Earlier in the script setup section, you set up a device to simulate using an IoT device. In this section, you download a .NET console app that simulates a device that sends device-to-cloud messages to an IoT hub.  
 
-Download the solution for the [IoT Device Simulation](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip). This link downloads a repo with several applications in it; the solution you are looking for is in iot-hub/Tutorials/Routing/SimulatedDevice/.
+Download the solution for the [IoT Device Simulation](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip). This link downloads a repo with several applications in it; the solution you are looking for is in iot-hub/Tutorials/Routing/.
 
 Double-click on the solution file (SimulatedDevice.sln) to open the code in Visual Studio, then open Program.cs. Substitute `{iot hub hostname}` with the IoT hub host name. The format of the IoT hub host name is **{iot-hub-name}.azure-devices.net**. For this tutorial, the hub host name is **ContosoTestHub.azure-devices.net**. Next, substitute `{device key}` with the device key you saved earlier when setting up the simulated device. 
 
@@ -294,7 +296,7 @@ Run the console application. Wait a few minutes (10-15). You can see the message
 
 ### See the metrics in the portal
 
-Open your metrics from the Dashboard. Change the time values to *Last 30 minutes* with a time granularity of *1 minute*. It shows the telemetry messages sent and the total number of messages used on the chart, with the most recent numbers at the bottom of the chart. 
+Open your metrics from the Dashboard. Change the time values to *Last 30 minutes* with a time granularity of *1 minute*. It shows the telemetry messages sent and the total number of messages used on the chart, with the most recent numbers at the bottom of the chart.
 
    ![Screenshot showing the metrics.](./media/tutorial-use-metrics-and-diags/13-metrics-populated.png)
 
@@ -381,4 +383,4 @@ In this tutorial, you learned how to use metrics and diagnostic logs by performi
 Advance to the next tutorial to learn how to manage the state of an IoT device. 
 
 > [!div class="nextstepaction"]
-[Configure your devices from a back-end service](tutorial-device-twins.md)
+> [Configure your devices from a back-end service](tutorial-device-twins.md)

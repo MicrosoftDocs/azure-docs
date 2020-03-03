@@ -1,10 +1,10 @@
 ---
-title: Reverse DNS for Azure services | Microsoft Docs
-description: Learn how to configure reverse DNS lookups for services hosted in Azure
+title: Reverse DNS for Azure services - Azure DNS
+description: With this learning path, get started configuring reverse DNS lookups for services hosted in Azure.
 services: dns
 documentationcenter: na
-author: vhorne
-manager: timlt
+author: rohinkoul
+manager: KumudD
 
 ms.service: dns
 ms.devlang: na
@@ -12,7 +12,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
-ms.author: victorh
+ms.author: rohink
 ---
 
 # Configure reverse DNS for services hosted in Azure
@@ -57,7 +57,7 @@ Azure currently supports reverse DNS only for IPv4 PublicIpAddress resources. It
 
 #### PowerShell
 
-To add reverse DNS to an existing PublicIpAddress:
+To update reverse DNS to an existing PublicIpAddress:
 
 ```powershell
 $pip = Get-AzPublicIpAddress -Name "PublicIp" -ResourceGroupName "MyResourceGroup"
@@ -248,7 +248,7 @@ The technical ability to send email directly from an Azure deployment depends on
 
 ## Next steps
 
-For more information on reverse DNS, see [reverse DNS lookup on Wikipedia](http://en.wikipedia.org/wiki/Reverse_DNS_lookup).
+For more information on reverse DNS, see [reverse DNS lookup on Wikipedia](https://en.wikipedia.org/wiki/Reverse_DNS_lookup).
 <br>
 Learn how to [host the reverse lookup zone for your ISP-assigned IP range in Azure DNS](dns-reverse-dns-for-azure-services.md).
 

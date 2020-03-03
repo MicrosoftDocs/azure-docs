@@ -1,11 +1,10 @@
 ---
-title: Manage Azure Data Explorer database permissions
+title: Manage database permissions in Azure Data Explorer
 description: This article describes role-based access controls for databases and tables in Azure Data Explorer.
 author: orspod
-ms.author: v-orspod
+ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
-services: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
 ---
@@ -69,6 +68,8 @@ Azure Data Explorer has the following roles:
     ```
 
     The output of the command shows the list of existing users and the roles they're assigned to in the database.
+    
+    For examples pertaining to Azure Active Directory and the Kusto authorization model, please see [Principles and Identity Providers](https://docs.microsoft.com/azure/kusto/management/access-control/principals-and-identity-providers)
 
 ## Next steps
 

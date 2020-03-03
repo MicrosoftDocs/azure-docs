@@ -1,15 +1,14 @@
 ---
-title: Machine learning example with Spark MLlib on HDInsight - Azure 
+title: Machine learning example with Spark MLlib on HDInsight - Azure
 description: Learn how to use Spark MLlib to create a machine learning app that analyzes a dataset using classification through logistic regression.
 keywords: spark machine learning, spark machine learning example
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 02/26/2019
+ms.date: 06/17/2019
 ms.author: hrasheed
 
 ---
@@ -196,16 +195,16 @@ Let's start to get a sense of what the dataset contains.
 
     To predict a food inspection outcome, you need to develop a model based on the violations. Because logistic regression is a binary classification method, it makes sense to group the result data into two categories: **Fail** and **Pass**:
 
-    - Pass
-        - Pass
-        - Pass w/ conditions
-    - Fail
-        - Fail
-    - Discard
-        - Business not located
-        - Out of Business
+   - Pass
+       - Pass
+       - Pass w/ conditions
+   - Fail
+       - Fail
+   - Discard
+       - Business not located
+       - Out of Business
 
-    Data with the other results ("Business Not Located" or "Out of Business") are not useful, and they make up a very small percentage of the results anyway.
+     Data with the other results ("Business Not Located" or "Out of Business") are not useful, and they make up a very small percentage of the results anyway.
 
 4. Run the following code to convert the existing dataframe(`df`) into a new dataframe where each inspection is represented as a label-violations pair. In this case, a label of `0.0` represents a failure, a label of `1.0` represents a success, and a label of `-1.0` represents some results besides those two. 
 

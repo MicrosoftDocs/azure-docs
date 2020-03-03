@@ -1,21 +1,18 @@
 ---
-title: ForEach activity in Azure Data Factory | Microsoft Docs
+title: ForEach activity in Azure Data Factory 
 description: The For Each Activity defines a repeating control flow in your pipeline. It is used for iterating over a collection and execute specified activities.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.reviewer: douglasl
-
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-
 ms.topic: conceptual
 ms.date: 01/23/2019
-ms.author: shlo
-
 ---
+
 # ForEach activity in Azure Data Factory
 The ForEach Activity defines a repeating control flow in your pipeline. This activity is used to iterate over a collection and executes specified activities in a loop. The loop implementation of this activity is similar to Foreach looping structure in programming languages.
 
@@ -471,7 +468,7 @@ It's possible to iterate over multiple activities (for example: copy and web act
 
 ## Aggregating outputs
 
-To aggregate outputs of __foreach__ activity, please utilize _Variable_s and _Append Variable_ activity.
+To aggregate outputs of __foreach__ activity, please utilize _Variables_ and _Append Variable_ activity.
 
 First, declare an `array` _variable_ in the pipeline. Then, invoke _Append Variable_ activity inside each __foreach__ loop. Subsequently, you can retrieve the aggregation from your array.
 

@@ -1,15 +1,15 @@
 ---
-title: Quickstart - Send a query to the Bing Local Business Search API in Python | Microsoft Docs
+title: Quickstart - Send a query to the API in Python - Bing Local Business Search
 titleSuffix: Azure Cognitive Services
-description: Use this article to start using the Bing Local Business Search API in Python.
+description: Use this quickstart to start using the Bing Local Business Search API in Python.
 services: cognitive-services
-author: mikedodaro
-manager: rosh
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-local-business
-ms.topic: article
-ms.date: 11/01/2018
-ms.author: rosh, v-gedod
+ms.topic: quickstart
+ms.date: 11/29/2019
+ms.author: aahi
 ---
 # Quickstart: Send a query to the Bing Local Business Search API in Python
 
@@ -35,15 +35,15 @@ The following code gets localized results. It is implemented in the following st
 
 The complete code for this demo follows:
 
-```
+```python
 import http.client, urllib.parse
 import json
 
 # Replace the subscriptionKey string value with your valid subscription key.
 subscriptionKey = 'YOUR-SUBSCRIPTION-KEY'
 
-host = 'api.cognitive.microsoft.com/bing'
-path = '/v7.0/localbusinesses/search'
+host = 'api.cognitive.microsoft.com'
+path = '/bing/v7.0/localbusinesses/search'
 
 query = 'restaurant in Bellevue'
 

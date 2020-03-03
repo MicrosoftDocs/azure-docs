@@ -1,19 +1,12 @@
 ---
 title: Pricing FAQ for Azure Network Performance Monitor | Microsoft Docs
 description: Frequently asked questions - Azure Network Performance Monitor
-services: monitoring-and-diagnostics
-documentationcenter: na
-author: agummadi
-manager: cherylmc
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 
-ms.service: log-analytics
+ms.subservice: logs
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
+author: agummadi
+ms.author: agummadi
 ms.date: 04/02/2018
-ms.author: ajaycode
+
 ---
 
 # Pricing changes for Azure Network Performance Monitor
@@ -34,7 +27,7 @@ The following sections explain the pricing changes for the NPM components.
 
 The billing for NPM was based on the usage and consumption of two components:
 * **Nodes**: All synthetic transactions originate and terminate at the nodes. Nodes are also referred to as agents or Microsoft Management Agents.
-* **Data**: The results of the various network tests are stored in the Azure Log Analytics repository.
+* **Data**: The results of the various network tests are stored in the Log Analytics workspace.
 
 Under the old model, the bill was computed based on the number of nodes and the volume of data generated. 
 
@@ -59,7 +52,7 @@ For the cost of monitoring a single subnet link for the entire month, see the [P
 
 **What are the charges for data that Performance Monitor generates?**
 
-The charge for ingestion (data upload to Log Analytics, processing, and indexing) is available on the [pricing page](https://azure.microsoft.com/pricing/details/log-analytics/) for Log Analytics, in the Data Ingestion section. The charge for data retention (that is, data retained at customer's option, beyond the first month) is also available on the [pricing page](https://azure.microsoft.com/pricing/details/log-analytics/), in the Data Retention section.
+The charge for ingestion (data upload to Log Analytics workspace in Azure Monitor, processing, and indexing) is available on the [pricing page](https://azure.microsoft.com/pricing/details/log-analytics/) for Log Analytics, in the Data Ingestion section. The charge for data retention (that is, data retained at customer's option, beyond the first month) is also available on the [pricing page](https://azure.microsoft.com/pricing/details/log-analytics/), in the Data Retention section.
 
 
 ## ExpressRoute Monitor

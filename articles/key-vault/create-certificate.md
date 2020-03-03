@@ -1,19 +1,16 @@
-﻿---
+---
 title: Certificate creation methods  
 description: Ways to create a certificate in Key Vault.
 services: key-vault
-documentationcenter:
-author: bryanla
-manager: barbkess
+author: msmbaldwin
+manager: rkarlin
 tags: azure-resource-manager
 
-ms.assetid: e17b4c9b-4ff3-472f-8c9d-d130eb443968
 ms.service: key-vault
-ms.workload: identity
-ms.tgt_pltfrm: na
+ms.subservice: certificates
 ms.topic: conceptual
 ms.date: 01/07/2019
-ms.author: bryanla
+ms.author: mbaldwin
 
 ---
 
@@ -32,7 +29,7 @@ The following descriptions correspond to the green lettered steps in the precedi
 1. In the diagram above, your application is creating a certificate which internally begins by creating a key in your key vault.
 2. Key Vault returns to your application a Certificate Signing Request (CSR)
 3. Your application passes the CSR to your chosen CA.
-4. Your chosen CA responds with a an X509 Certificate.
+4. Your chosen CA responds with an X509 Certificate.
 5. Your application completes the new certificate creation with a merger of the X509 Certificate from your CA.
 
 -   **Create a certificate with a known issuer provider:** This method requires you to do a one-time task of creating an issuer object. Once an issuer object is created in you key vault, its name can be referenced in the policy of the KV certificate. A request to create such a KV certificate will create a key pair in the vault and communicate with the issuer provider service using the information in the referenced issuer object to get an x509 certificate. The x509 certificate is retrieved from the issuer service and is merged with the key pair to complete the KV certificate creation.  
@@ -42,10 +39,10 @@ The following descriptions correspond to the green lettered steps in the precedi
 The following descriptions correspond to the green lettered steps in the preceding diagram.
 
 1. In the diagram above, your application is creating a certificate which internally begins by creating a key in your key vault.
-2. Key Vault sends and SSL Certificate Request to the CA.
+2. Key Vault sends an TLS/SSL Certificate Request to the CA.
 3. Your application polls, in a loop and wait process, for your Key Vault for certificate completion. The certificate creation is complete when Key Vault receives the CA’s response with x509 certificate.
-4. The CA responds to Key Vault's SSL Certificate Request with an X509 SSL Certificate.
-5. Your new certificate creation completes with the merger of the X509 Certificate for the CA.
+4. The CA responds to Key Vault's TLS/SSL Certificate Request with an TLS/SSL X.509 certificate.
+5. Your new certificate creation completes with the merger of the TLS/SSL X.509 certificate for the CA.
 
 ## Asynchronous process
 KV certificate creation is an asynchronous process. This operation will create a KV certificate request and return an http status code of 202 (Accepted). The status of the request can be tracked by polling the pending object created by this operation. The full URI of the pending object is returned in the LOCATION header.  
@@ -83,7 +80,7 @@ Certificate creation can be completed manually or using a “Self” issuer. Key
 |Provider|Certificate type|  
 |--------------|----------------------|  
 |DigiCert|Key Vault offers OV or EV SSL certificates with DigiCert|
-|GlobalCert|Key Vault offers OV or EV SSL certificates with GlobalSign|
+|GlobalSign|Key Vault offers OV or EV SSL certificates with GlobalSign|
 
  A certificate issuer is an entity represented in Azure Key Vault (KV) as a CertificateIssuer resource. It is used to provide information about the source of a KV certificate; issuer name, provider, credentials, and other administrative details.
 

@@ -1,5 +1,5 @@
 ---
-title: Using elastic database client library with Entity Framework | Microsoft Docs
+title: Using elastic database client library with Entity Framework
 description: Use Elastic Database client library and Entity Framework for coding databases
 services: sql-database
 ms.service: sql-database
@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer:
-manager: craigg
 ms.date: 01/04/2019
 ---
 # Elastic Database client library with Entity Framework
@@ -22,7 +21,7 @@ This document shows the changes in an Entity Framework application that are need
 To download the code for this article:
 
 * Visual Studio 2012 or later is required. 
-* Download the [Elastic DB Tools for Azure SQL - Entity Framework Integration sample](https://code.msdn.microsoft.com/windowsapps/Elastic-Scale-with-Azure-bae904ba) from MSDN. Unzip the sample to a location of your choosing.
+* Download the [Elastic DB Tools for Azure SQL - Entity Framework Integration sample](https://github.com/Azure/elastic-db-tools/). Unzip the sample to a location of your choosing.
 * Start Visual Studio. 
 * In Visual Studio, select File -> Open Project/Solution. 
 * In the **Open Project** dialog, navigate to the sample you downloaded and select **EntityFrameworkCodeFirst.sln** to open the sample. 

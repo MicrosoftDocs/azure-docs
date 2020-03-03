@@ -1,9 +1,9 @@
 ---
-title: How to use managed identities for Azure resources on an Azure VM for sign in
+title: Use managed identities on an Azure VM for sign in - Azure AD
 description: Step by step instructions and examples for using an Azure VM managed identities for Azure resources service principal for script client sign in and resource access.
 services: active-directory
 documentationcenter: 
-author: priyamohanram
+author: MarkusVi
 manager: daveba
 editor: 
 
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
-ms.author: priyamo
+ms.author: markvi
 ms.collection: M365-identity-device-management
 ---
 
@@ -38,7 +38,7 @@ If you plan to use the Azure PowerShell or Azure CLI examples in this article, b
 ## Overview
 
 Managed identities for Azure resources provides a [service principal object](../develop/developer-glossary.md#service-principal-object) 
-, which is [created upon enabling managed identities for Azure resources](overview.md#how-does-it-work) on the VM. The service principal can be given access to Azure resources, and used as an identity by script/command-line clients for sign in and resource access. Traditionally, in order to access secured resources under its own identity, a script client would need to:  
+, which is [created upon enabling managed identities for Azure resources](overview.md#how-does-the-managed-identities-for-azure-resources-work) on the VM. The service principal can be given access to Azure resources, and used as an identity by script/command-line clients for sign in and resource access. Traditionally, in order to access secured resources under its own identity, a script client would need to:  
 
    - be registered and consented with Azure AD as a confidential/web client application
    - sign in under its service principal, using the app's credentials (which are likely embedded in the script)
@@ -77,14 +77,14 @@ The following script demonstrates how to:
 
 ## Resource IDs for Azure services
 
-See [Azure services that support Azure AD authentication](services-support-msi.md#azure-services-that-support-azure-ad-authentication) for a list of resources that support Azure AD and have been tested with managed identities for Azure resources, and their respective resource IDs.
+See [Azure services that support Azure AD authentication](services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) for a list of resources that support Azure AD and have been tested with managed identities for Azure resources, and their respective resource IDs.
 
 ## Error handling guidance 
 
 Responses such as the following may indicate that the VM's managed identity for Azure resources has not been correctly configured:
 
 - PowerShell: *Invoke-WebRequest : Unable to connect to the remote server*
-- CLI: *MSI: Failed to retrieve a token from 'http://localhost:50342/oauth2/token' with an error of 'HTTPConnectionPool(host='localhost', port=50342)* 
+- CLI: *MSI: Failed to retrieve a token from `http://localhost:50342/oauth2/token` with an error of 'HTTPConnectionPool(host='localhost', port=50342)* 
 
 If you receive one of these errors, return to the Azure VM in the [Azure portal](https://portal.azure.com) and:
 

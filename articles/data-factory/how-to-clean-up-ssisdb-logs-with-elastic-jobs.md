@@ -1,19 +1,17 @@
 ---
-title: "Clean up SSISDB logs with Azure Elastic Database Jobs | Microsoft Docs"
+title: Clean up SSISDB logs with Azure Elastic Database Jobs
 description: "This article describes how to clean up SSISDB logs by using Azure Elastic Database jobs to trigger the stored procedure that exists for this purpose"
 services: data-factory
-documentationcenter: ""
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-
 ms.topic: conceptual
 ms.date: 08/13/2018
 author: swinarko
 ms.author: sawinark
+manager: mflasko
 ms.reviewer: douglasl
-manager: craigg
 ---
+
 # Clean up SSISDB logs with Azure Elastic Database Jobs
 
 This article describes how to use Azure Elastic Database Jobs to trigger the stored procedure that cleans up logs for the SQL Server Integration Services catalog database, `SSISDB`.
@@ -25,6 +23,8 @@ For more info, see [Manage groups of databases with Elastic Database Jobs](../sq
 The following sections describe how to trigger the stored procedure `[internal].[cleanup_server_retention_window_exclusive]`, which removes SSISDB logs that are outside the retention window set by the administrator.
 
 ## Clean up logs with Power Shell
+
+[!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
 
 The following sample PowerShell scripts create a new Elastic Job to trigger the stored procedure for SSISDB log cleanup. For more info, see [Create an Elastic Job agent using PowerShell](../sql-database/elastic-jobs-powershell.md).
 

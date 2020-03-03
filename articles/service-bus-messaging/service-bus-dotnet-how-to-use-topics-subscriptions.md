@@ -10,10 +10,10 @@ editor: spelluru
 ms.assetid: 
 ms.service: service-bus-messaging
 ms.devlang: tbd
-ms.topic: hero-article
+ms.topic: conceptual
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 01/23/2019
+ms.date: 11/27/2019
 ms.author: aschhab
 
 ---
@@ -23,24 +23,20 @@ ms.author: aschhab
 
 This tutorial covers the following steps:
 
-1. Create a Service Bus namespace, using the Azure portal.
-2. Create a Service Bus topic, using the Azure portal.
-3. Create a Service Bus subscription to that topic, using the Azure portal.
-4. Write a .NET Core console application to send a set of messages to the topic.
-5. Write a .NET Core console application to receive those messages from the subscription.
+1. Write a .NET Core console application to send a set of messages to the topic.
+2. Write a .NET Core console application to receive those messages from the subscription.
 
 ## Prerequisites
 
-1. [Visual Studio 2017 Update 3 (version 15.3, 26730.01)](https://www.visualstudio.com/vs) or later.
-2. [NET Core SDK](https://www.microsoft.com/net/download/windows), version 2.0 or later.
-2. An Azure subscription.
-
-[!INCLUDE [create-account-note](../../includes/create-account-note.md)]
-
-[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
-
-[!INCLUDE [service-bus-create-topics-subscriptions-portal](../../includes/service-bus-create-topics-subscriptions-portal.md)]
-
+1. An Azure subscription. To complete this tutorial, you need an Azure account. You can activate your [Visual Studio or MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) or sign-up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+2. Follow steps in the [Quickstart: Use the Azure portal to create a Service Bus topic and subscriptions to the topic](service-bus-quickstart-topics-subscriptions-portal.md) to do the following tasks:
+    1. Create a Service Bus **namespace**.
+    2. Get the **connection string**.
+    3. Create a **topic** in the namespace.
+    4. Create **one subscription** to the topic in the namespace.
+3. [Visual Studio 2017 Update 3 (version 15.3, 26730.01)](https://www.visualstudio.com/vs) or later.
+4. [NET Core SDK](https://www.microsoft.com/net/download/windows), version 2.0 or later.
+ 
 ## Send messages to the topic
 
 To send messages to the topic, write a C# console application using Visual Studio.
@@ -75,16 +71,10 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project.
     static ITopicClient topicClient;
     ``` 
 
-3. Replace the default contents of `Main()` with the following line of code:
+3. Replace the `Main()` method with the following **async** `Main` method that sends messages asynchronously using the SendMessagesAsync method that you will add in the next step. 
 
     ```csharp
-    MainAsync().GetAwaiter().GetResult();
-    ```
-   
-4. Directly after `Main()`, add the following asynchronous `MainAsync()` method that calls the send messages method:
-
-    ```csharp
-    static async Task MainAsync()
+    public static async Task Main(string[] args)
     {
         const int numberOfMessages = 10;
         topicClient = new TopicClient(ServiceBusConnectionString, TopicName);
@@ -101,8 +91,7 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project.
         await topicClient.CloseAsync();
     }
     ```
-
-5. Directly after the `MainAsync()` method, add the following `SendMessagesAsync()` method that performs the work of sending the number of messages specified by `numberOfMessagesToSend` (currently set to 10):
+5. Directly after the `Main` method, add the following `SendMessagesAsync()` method that performs the work of sending the number of messages specified by `numberOfMessagesToSend` (currently set to 10):
 
     ```csharp
     static async Task SendMessagesAsync(int numberOfMessagesToSend)
@@ -146,25 +135,20 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project.
             const string TopicName = "<your_topic_name>";
             static ITopicClient topicClient;
 
-            static void Main(string[] args)
-            {
-                MainAsync().GetAwaiter().GetResult();
-            }
-
-            static async Task MainAsync()
+            public static async Task Main(string[] args)
             {
                 const int numberOfMessages = 10;
                 topicClient = new TopicClient(ServiceBusConnectionString, TopicName);
-
+    
                 Console.WriteLine("======================================================");
                 Console.WriteLine("Press ENTER key to exit after sending all the messages.");
                 Console.WriteLine("======================================================");
-
+    
                 // Send messages.
                 await SendMessagesAsync(numberOfMessages);
-
+    
                 Console.ReadKey();
-
+    
                 await topicClient.CloseAsync();
             }
 
@@ -200,7 +184,7 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project.
 
 ## Receive messages from the subscription
 
-To receive the messages you just sent, create another .NET Core console application and install the **Microsoft.Azure.ServiceBus** NuGet package, similar to the previous sender application.
+To receive the messages you sent, create another .NET Core console application and install the **Microsoft.Azure.ServiceBus** NuGet package, similar to the previous sender application.
 
 ### Write code to receive messages from the subscription
 
@@ -222,17 +206,11 @@ To receive the messages you just sent, create another .NET Core console applicat
     static ISubscriptionClient subscriptionClient;
     ```
 
-3. Replace the default contents of `Main()` with the following line of code:
+3. Replace the `Main()` method with the following **async** `Main` method. It calls the `RegisterOnMessageHandlerAndReceiveMessages()` method that you will add in the next step. 
 
     ```csharp
-    MainAsync().GetAwaiter().GetResult();
-    ```
-
-4. Directly after `Main()`, add the following asynchronous `MainAsync()` method that calls the `RegisterOnMessageHandlerAndReceiveMessages()` method:
-
-    ```csharp
-    static async Task MainAsync()
-    {
+    public static async Task Main(string[] args)
+    {    
         subscriptionClient = new SubscriptionClient(ServiceBusConnectionString, TopicName, SubscriptionName);
 
         Console.WriteLine("======================================================");
@@ -244,11 +222,10 @@ To receive the messages you just sent, create another .NET Core console applicat
 
         Console.ReadKey();
 
-        await subscriptionClient.CloseAsync();
+        await subscriptionClient.CloseAsync();    
     }
-    ```
-
-5. Directly after the `MainAsync()` method, add the following method that registers the message handler and receives the messages sent by the sender application:
+   ```
+5. Directly after the `Main()` method, add the following method that registers the message handler and receives the messages sent by the sender application:
 
     ```csharp
     static void RegisterOnMessageHandlerAndReceiveMessages()
@@ -322,25 +299,20 @@ To receive the messages you just sent, create another .NET Core console applicat
             const string SubscriptionName = "<your_subscription_name>";
             static ISubscriptionClient subscriptionClient;
 
-            static void Main(string[] args)
-            {
-                MainAsync().GetAwaiter().GetResult();
-            }
-
-            static async Task MainAsync()
-            {
+            public static async Task Main(string[] args)
+            {    
                 subscriptionClient = new SubscriptionClient(ServiceBusConnectionString, TopicName, SubscriptionName);
-
+        
                 Console.WriteLine("======================================================");
                 Console.WriteLine("Press ENTER key to exit after receiving all the messages.");
                 Console.WriteLine("======================================================");
-
-                // Register subscription message handler and receive messages in a loop.
+        
+                // Register subscription message handler and receive messages in a loop
                 RegisterOnMessageHandlerAndReceiveMessages();
-
+        
                 Console.ReadKey();
-
-                await subscriptionClient.CloseAsync();
+        
+                await subscriptionClient.CloseAsync();    
             }
 
             static void RegisterOnMessageHandlerAndReceiveMessages()
@@ -393,6 +365,9 @@ To receive the messages you just sent, create another .NET Core console applicat
     ![Topic length][topic-message-receive]
 
 Congratulations! Using the .NET Standard library, you have now created a topic and subscription, sent 10 messages, and received those messages.
+
+> [!NOTE]
+> You can manage Service Bus resources with [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). The Service Bus Explorer allows users to connect to a Service Bus namespace and administer messaging entities in an easy manner. The tool provides advanced features like import/export functionality or the ability to test topic, queues, subscriptions, relay services, notification hubs and events hubs. 
 
 ## Next steps
 

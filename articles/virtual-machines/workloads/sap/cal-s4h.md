@@ -4,14 +4,14 @@ description: Deploy SAP S/4HANA or BW/4HANA on an Azure VM
 services: virtual-machines-linux
 documentationcenter: ''
 author: hermanndms
-manager: jeconnoc
+manager: juergent
 editor: ''
 tags: azure-resource-manager
 keywords: ''
 
 ms.assetid: 44bbd2b6-a376-4b5c-b824-e76917117fa9
 ms.service: virtual-machines-linux
-ms.devlang: na
+
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
@@ -23,10 +23,10 @@ ms.author: hermannd
 This article describes how to deploy S/4HANA on Azure by using the SAP Cloud Appliance Library (SAP CAL) 3.0. To deploy other SAP HANA-based solutions, such as BW/4HANA, follow the same steps.
 
 > [!NOTE]
-For more information about the SAP CAL, go to the [SAP Cloud Appliance Library](https://cal.sap.com/) website. SAP also has a blog about the [SAP Cloud Appliance Library 3.0](http://scn.sap.com/community/cloud-appliance-library/blog/2016/05/27/sap-cloud-appliance-library-30-came-with-a-new-user-experience).
-
+> For more information about the SAP CAL, go to the [SAP Cloud Appliance Library](https://cal.sap.com/) website. SAP also has a blog about the [SAP Cloud Appliance Library 3.0](https://scn.sap.com/community/cloud-appliance-library/blog/2016/05/27/sap-cloud-appliance-library-30-came-with-a-new-user-experience).
+> 
 > [!NOTE]
-As of May 29, 2017, you can use the Azure Resource Manager deployment model in addition to the less-preferred classic deployment model to deploy the SAP CAL. We recommend that you use the new Resource Manager deployment model and disregard the classic deployment model.
+> As of May 29, 2017, you can use the Azure Resource Manager deployment model in addition to the less-preferred classic deployment model to deploy the SAP CAL. We recommend that you use the new Resource Manager deployment model and disregard the classic deployment model.
 
 ## Step-by-step process to deploy the solution
 
@@ -45,8 +45,8 @@ The **Solutions** page shows some of the SAP CAL HANA-based solutions available 
 
     c. Give the SAP CAL permission to deploy into your Azure subscription.
 
-    > [!NOTE]
-    The next steps show how to create an SAP CAL account for Resource Manager deployments. If you already have an SAP CAL account that is linked to the classic deployment model, you *need* to follow these steps to create a new SAP CAL account. The new SAP CAL account needs to deploy in the Resource Manager model.
+   > [!NOTE]
+   >  The next steps show how to create an SAP CAL account for Resource Manager deployments. If you already have an SAP CAL account that is linked to the classic deployment model, you *need* to follow these steps to create a new SAP CAL account. The new SAP CAL account needs to deploy in the Resource Manager model.
 
 1. Create a new SAP CAL account. The **Accounts** page shows three choices for Azure: 
 
@@ -92,10 +92,10 @@ You successfully created an SAP CAL account that is able to:
 Now you can start to deploy S/4HANA into your user subscription in Azure.
 
 > [!NOTE]
-Before you continue, determine whether you have Azure vCPU quotas for Azure H-Series VMs. At the moment, the SAP CAL uses H-Series VMs of Azure to deploy some of the SAP HANA-based solutions. Your Azure subscription might not have any H-Series vCPU quotas for H-Series. If so, you might need to contact Azure support to get a quota of at least 16 H-Series vCPUs.
-
+> Before you continue, determine whether you have Azure vCPU quotas for Azure H-Series VMs. At the moment, the SAP CAL uses H-Series VMs of Azure to deploy some of the SAP HANA-based solutions. Your Azure subscription might not have any H-Series vCPU quotas for H-Series. If so, you might need to contact Azure support to get a quota of at least 16 H-Series vCPUs.
+> 
 > [!NOTE]
-When you deploy a solution on Azure in the SAP CAL, you might find that you can choose only one Azure region. To deploy into Azure regions other than the one suggested by the SAP CAL, you need to purchase a CAL subscription from SAP. You also might need to open a message with SAP to have your CAL account enabled to deliver into Azure regions other than the ones initially suggested.
+> When you deploy a solution on Azure in the SAP CAL, you might find that you can choose only one Azure region. To deploy into Azure regions other than the one suggested by the SAP CAL, you need to purchase a CAL subscription from SAP. You also might need to open a message with SAP to have your CAL account enabled to deliver into Azure regions other than the ones initially suggested.
 
 ### Deploy a solution
 

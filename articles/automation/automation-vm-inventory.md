@@ -2,18 +2,19 @@
 title: Manage an Azure virtual machine with inventory collection | Microsoft Docs
 description: Manage a virtual machine with inventory collection
 services: automation
-ms.service: automation
 ms.subservice: change-inventory-management
 keywords: inventory, automation, change, tracking
-author: jennyhunter-msft
-ms.author: jehunte
-ms.date: 02/06/2019
+ms.date: 01/28/2020
 ms.topic: conceptual
-manager: carmonm
 ---
 # Manage an Azure virtual machine with inventory collection
 
-You can enable inventory tracking for an Azure virtual machine from the virtual machine's resource page. You can collect and view inventory for software, files, Linux daemons, Windows Services, and Windows Registry keys on your computers. This method provides a browser-based user interface for setting up and configuring inventory collection.
+You can enable inventory tracking for an Azure virtual machine from the virtual machine's resource page. You can collect and view the following inventory information on your computers:
+
+- Windows software (Windows applications and Windows updates), services, files, and Registry keys
+- Linux software (packages) daemons, and files
+
+This method provides a browser-based user interface for setting up and configuring inventory collection.
 
 ## Before you begin
 
@@ -99,7 +100,7 @@ Selecting a machine group from the list opens the Machine groups page. This page
 
 Click the **+ Clone** button to clone the machine group. Here you must give the group a new name and alias for the group. The definition can be altered at this time. After changing the query press **Validate query** to preview the machines that would be selected. When you are happy with the group click **Create** to create the machine group
 
-If you want to create a new mchine group, select **+ Create a machine group**. This button opens the **Create a machine group page** where you can define your new group. Click **Create** to create the group.
+If you want to create a new machine group, select **+ Create a machine group**. This button opens the **Create a machine group page** where you can define your new group. Click **Create** to create the group.
 
 ![Create new machine group](./media/automation-vm-inventory/create-new-group.png)
 

@@ -1,15 +1,15 @@
 ---
-title: Date claims transformation examples for the Identity Experience Framework Schema of Azure Active Directory B2C  | Microsoft Docs
-description: Date claims transformation examples for the Identity Experience Framework Schema of Azure Active Directory B2C.
+title: Date claims transformation examples for custom policies
+description: Date claims transformation examples for the Identity Experience Framework (IEF) schema of Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
-manager: daveba
+author: msmimart
+manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
-ms.author: davidmu
+ms.date: 02/03/2020
+ms.author: mimart
 ms.subservice: B2C
 ---
 
@@ -17,7 +17,7 @@ ms.subservice: B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-This article provides examples for using the date claims transformations of the Identity Experience Framework  schema in Azure Active Directory (Azure AD) B2C. For more information, see [ClaimsTransformations](claimstransformations.md).
+This article provides examples for using the date claims transformations of the Identity Experience Framework  schema in Azure Active Directory B2C (Azure AD B2C). For more information, see [ClaimsTransformations](claimstransformations.md).
 
 ## AssertDateTimeIsGreaterThan
 
@@ -25,8 +25,8 @@ Checks that one date and time claim (string data type) is later than a second da
 
 | Item | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
-| inputClaim | leftOperand | string | First claim's type, which should be later than the second claim. |
-| inputClaim | rightOperand | string | Second claim's type, which should be earlier than the first claim. |
+| InputClaim | leftOperand | string | First claim's type, which should be later than the second claim. |
+| InputClaim | rightOperand | string | Second claim's type, which should be earlier than the first claim. |
 | InputParameter | AssertIfEqualTo | boolean | Specifies whether this assertion should pass if the left operand is equal to the right operand. |
 | InputParameter | AssertIfRightOperandIsNotPresent | boolean | Specifies whether this assertion should pass if the right operand is missing. |
 | InputParameter | TreatAsEqualIfWithinMillseconds | int | Specifies the number of milliseconds to allow between the two date times to consider the times equal (for example, to account for clock skew). |
@@ -109,6 +109,35 @@ The following example demonstrates the conversion of the claim `dateOfBirth` (da
     - **inputClaim**: 2019-06-01
 - Output claims:
     - **outputClaim**: 1559347200 (June 1, 2019 12:00:00 AM)
+
+## ConvertDateTimeToDateClaim
+
+Converts a **DateTime** ClaimType to a **Date** ClaimType. The claims transformation removes the time format from the date.
+
+| Item | TransformationClaimType | Data Type | Notes |
+| ---- | ----------------------- | --------- | ----- |
+| InputClaim | inputClaim | dateTime | The ClaimType to be converted. |
+| OutputClaim | outputClaim | date | The ClaimType that is produced after this ClaimsTransformation has been invoked. |
+
+The following example demonstrates the conversion of the claim `systemDateTime` (dateTime data type) to another claim `systemDate` (date data type).
+
+```XML
+<ClaimsTransformation Id="ConvertToDate" TransformationMethod="ConvertDateTimeToDateClaim">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="systemDateTime" TransformationClaimType="inputClaim" />
+  </InputClaims>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="systemDate" TransformationClaimType="outputClaim" />
+  </OutputClaims>
+</ClaimsTransformation>
+```
+
+### Example
+
+- Input claims:
+  - **inputClaim**: 1559347200 (June 1, 2019 12:00:00 AM)
+- Output claims:
+  - **outputClaim**: 2019-06-01
 
 ## GetCurrentDateTime
 

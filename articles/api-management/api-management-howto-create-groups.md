@@ -1,5 +1,6 @@
 ---
-title: Manage developer accounts using groups in Azure API Management | Microsoft Docs
+title: Manage developer accounts using groups in Azure API Management
+titleSuffix: Azure API Management
 description: Learn how to manage developer accounts using groups in Azure API Management
 services: api-management
 documentationcenter: ''
@@ -10,7 +11,6 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: apimpm

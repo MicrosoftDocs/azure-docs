@@ -1,19 +1,14 @@
 ---
-title: Azure Blockchain Workbench configuration reference
-description: Azure Blockchain Workbench application configuration overview.
-services: azure-blockchain
-keywords: 
-author: PatAltimore
-ms.author: patricka
-ms.date: 01/08/2019
+title: Azure Blockchain Workbench configuration metadata reference
+description: Azure Blockchain Workbench Preview application configuration metadata overview.
+ms.date: 12/09/2019
 ms.topic: article
-ms.service: azure-blockchain
 ms.reviewer: brendal
-manager: femila
+#Customer intent: As a developer, I want to understand application configuration metadata details used by Azure Blockchain Workbench.
 ---
 # Azure Blockchain Workbench configuration reference
 
- Azure Blockchain Workbench applications are multi-party workflows defined by configuration metadata and smart contract code. Configuration metadata defines the high-level workflows and interaction model of the blockchain application. Smart contracts define the business logic of the blockchain application. Workbench uses configuration and smart contract code to generate blockchain application user experiences.
+Azure Blockchain Workbench applications are multi-party workflows defined by configuration metadata and smart contract code. Configuration metadata defines the high-level workflows and interaction model of the blockchain application. Smart contracts define the business logic of the blockchain application. Workbench uses configuration and smart contract code to generate blockchain application user experiences.
 
 Configuration metadata specifies the following information for each blockchain application:
 
@@ -306,7 +301,7 @@ A collection of unique states within a workflow. Each state captures a step in t
     {
       "Name": "Terminated",
       "DisplayName": "Terminated",
-      "Description": "Asset transfer has been cancelled",
+      "Description": "Asset transfer has been canceled",
       "PercentComplete": 100,
       "Style": "Failure",
       "Transitions": []
@@ -391,6 +386,7 @@ Identifiers represent a collection of information used to describe workflow prop
 | Name | The unique name of the property or parameter. The corresponding smart contract must use the same **Name** for the applicable property or parameter. | Yes | 50 |
 | DisplayName | Friendly display name for the property or parameter. | Yes | 255 |
 | Description | Description of the property or parameter. | No | 255 |
+| Type | Property [data type](#type). | Yes |
 
 ### Identifiers example
 
@@ -983,7 +979,7 @@ The following configuration file is for the asset transfer sample:
         {
           "Name": "Terminated",
           "DisplayName": "Terminated",
-          "Description": "Asset transfer has been cancelled",
+          "Description": "Asset transfer has been canceled",
           "PercentComplete": 100,
           "Style": "Failure",
           "Transitions": []

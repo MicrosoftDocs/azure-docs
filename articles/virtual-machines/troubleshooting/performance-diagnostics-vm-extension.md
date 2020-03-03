@@ -4,14 +4,14 @@ description: Introduces Azure Performance Diagnostics VM Extension for Windows.
 services: virtual-machines-windows'
 documentationcenter: ''
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: na
 tags: ''
 
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
+
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
@@ -85,7 +85,7 @@ The following JSON shows the schema for Azure Performance Diagnostics VM Extensi
 
 Follow these instructions to install the extension on Windows virtual machines:
 
-1. Sign in to the [Azure portal](http://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Select the virtual machine where you want to install this extension.
 
     ![Screenshot of Azure portal, with Virtual machines highlighted](media/performance-diagnostics-vm-extension/select-the-virtual-machine.png)
@@ -95,7 +95,7 @@ Follow these instructions to install the extension on Windows virtual machines:
 4. Select **Azure Performance Diagnostics**, review the terms and conditions, and select **Create**.
 
     ![Screenshot of New resource screen, with Azure Performance Diagnostics highlighted](media/performance-diagnostics-vm-extension/create-azure-performance-diagnostics-extension.png)
-5. Provide the parameter values for the installation, and select **OK** to install the extension. For more information about supported scenarios, see [How to use PerfInsights](how-to-use-perfInsights.md#supported-troubleshooting-scenarios). 
+5. Provide the parameter values for the installation, and select **OK** to install the extension. For more information about supported scenarios, see [How to use PerfInsights](how-to-use-perfinsights.md#supported-troubleshooting-scenarios). 
 
     ![Screenshot of Install extension dialog box](media/performance-diagnostics-vm-extension/install-the-extension.png)
 6. When the installation is successful, you see a message indicating this status.
@@ -108,7 +108,7 @@ Follow these instructions to install the extension on Windows virtual machines:
 ## Remove the extension
 To remove the extension from a virtual machine, follow these steps:
 
-1. Sign in to the [Azure portal](http://portal.azure.com), select the virtual machine from which you want to remove this extension, and then select the **Extensions** blade. 
+1. Sign in to the [Azure portal](https://portal.azure.com), select the virtual machine from which you want to remove this extension, and then select the **Extensions** blade. 
 2. Select the (**…**) for the Performance Diagnostics Extension entry from the list, and select **Uninstall**.
 
     ![Screenshot of Extensions blade, with Uninstall highlighted](media/performance-diagnostics-vm-extension/uninstall-the-extension.png)
@@ -121,7 +121,7 @@ Azure virtual machine extensions can be deployed with Azure Resource Manager tem
 
 ```
 {
-  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "vmName": {

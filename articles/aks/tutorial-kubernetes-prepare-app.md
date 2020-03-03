@@ -2,12 +2,9 @@
 title: Kubernetes on Azure tutorial  - Prepare an application
 description: In this Azure Kubernetes Service (AKS) tutorial, you learn how to prepare and build a multi-container app with Docker Compose that you can then deploy to AKS.
 services: container-service
-author: iainfoulds
-
-ms.service: container-service
 ms.topic: tutorial
 ms.date: 12/19/2018
-ms.author: iainfou
+
 ms.custom: mvc
 
 #Customer intent: As a developer, I want to learn how to build a container-based application so that I can deploy the app to Azure Kubernetes Service.
@@ -87,7 +84,7 @@ b68fed4b66b6        redis             "docker-entrypoint..."   57 seconds ago   
 
 ## Test application locally
 
-To see the running application, enter http://localhost:8080 in a local web browser. The sample application loads, as shown in the following example:
+To see the running application, enter `http://localhost:8080` in a local web browser. The sample application loads, as shown in the following example:
 
 ![Image of Kubernetes cluster on Azure](./media/container-service-tutorial-kubernetes-prepare-app/azure-vote.png)
 
@@ -101,7 +98,7 @@ Stop and remove the container instances and resources with the [docker-compose d
 docker-compose down
 ```
 
-When the local application has been removed, you have a Docker image that contains the Azure Vote application, *azure-front-front*, for use with the next tutorial.
+When the local application has been removed, you have a Docker image that contains the Azure Vote application, *azure-vote-front*, for use with the next tutorial.
 
 ## Next steps
 

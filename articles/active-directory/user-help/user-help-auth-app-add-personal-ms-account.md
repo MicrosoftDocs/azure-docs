@@ -1,8 +1,8 @@
 ---
-title: Add your personal Microsoft accounts to the Microsoft Authenticator app - Azure Active Directory | Microsoft Docs
-description: How to add your personal Microsoft accounts, such as for Outlook.com or Xbox LIVE to the Microsoft Authenticator app for two-factor verification.
+title: Add a personal Microsoft account to the Microsoft Authenticator app - Azure AD
+description: Add personal Microsoft accounts, such as for Outlook.com or Xbox LIVE to the Microsoft Authenticator app to verify your identity while using two-factor verification.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 
 ms.service: active-directory
@@ -10,12 +10,12 @@ ms.workload: identity
 ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 01/24/2019
-ms.author: lizross
+ms.author: curtand
 ms.reviewer: olhaun
-ms.collection: M365-identity-device-management
 ---
 
-# Add your personal Microsoft accounts
+# Add personal Microsoft accounts to the Microsoft Authenticator app
+
 Add your personal Microsoft accounts, such as for Outlook.com and Xbox LIVE to the Microsoft Authenticator app for both the standard two-factor verification process and the passwordless phone sign-in method.
 
 - **Standard two-factor verification method.** Type your username and password into the device you're logging in to, and then choose whether the Microsoft Authenticator app sends a notification or if you'd prefer to copy the associated verification code from the **Accounts** screen of the Microsoft Authenticator app.
@@ -26,6 +26,7 @@ Add your personal Microsoft accounts, such as for Outlook.com and Xbox LIVE to t
 >Before you can add your account, you must download and install the Microsoft Authenticator app. If you haven't done that yet, follow the steps in the [Download and install the app](user-help-auth-app-download-install.md) article.
 
 ## Add your personal Microsoft account
+
 You can add your personal Microsoft account by first turning on two-factor verification, and then by adding the account to the app.
 
 >[!Note]
@@ -63,5 +64,7 @@ You can add your personal Microsoft account by first turning on two-factor verif
 ## Next steps
 
 - After you add your accounts to the app, you can sign in using the Authenticator app on your device. For more information, see [Sign in using the app](user-help-auth-app-sign-in.md).
+
+- If you're having trouble getting your verification code for your personal Microsoft account, see the **Troubleshooting verification code issues** section of the [Microsoft account security info & verification codes](https://support.microsoft.com/help/12428/microsoft-account-security-info-verification-codes) article.
 
 - For devices running iOS, you can also back up your account credentials and related app settings, such as the order of your accounts, to the cloud. For more information, see [Backup and recover with Microsoft Authenticator app](user-help-auth-app-backup-recovery.md).

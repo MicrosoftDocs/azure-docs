@@ -2,13 +2,9 @@
 title: Manage Python 2 packages in Azure Automation
 description: This article describes how to manage Python 2 packages in Azure Automation.
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: georgewallace
-ms.author: gwallace
 ms.date: 02/25/2019
 ms.topic: conceptual
-manager: carmonm
 ---
 # Manage Python 2 packages in Azure Automation
 
@@ -34,9 +30,9 @@ Azure automation doesn't resolve dependencies for python packages during the imp
 
 ### Manually download
 
-On a Windows 64-bit machine with [python2.7](https://www.python.org/downloads/release/latest/python2) and [pip](https://pip.pypa.io/stable/installing/) installed, run the following command to download a package and all its dependencies:
+On a Windows 64-bit machine with [python2.7](https://www.python.org/downloads/release/latest/python2) and [pip](https://pip.pypa.io/en/stable/) installed, run the following command to download a package and all its dependencies:
 
-```
+```cmd
 C:\Python27\Scripts\pip2.7.exe download -d <output dir> <package name>
 ```
 

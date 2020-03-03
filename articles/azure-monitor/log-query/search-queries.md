@@ -1,27 +1,15 @@
 ---
 title: Search queries in Azure Monitor logs | Microsoft Docs
 description: This article provides a tutorial for getting started using search in Azure Monitor log queries.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: 
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 08/06/2018
+author: bwren
 ms.author: bwren
+ms.date: 08/06/2018
+
 ---
 
 # Search queries in Azure Monitor logs
-
-> [!NOTE]
-> You should complete [Get started with Azure Monitor log queries](get-started-queries.md) before completing this lesson.
-
-[!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
-
 Azure Monitor log queries can start with either a table name or a search command. This tutorial covers search-based queries. There are advantages to each method.
 
 Table-based queries start by scoping the query and therefore tend to be more efficient than search queries. Search queries are less structured which makes them the better choice when searching for a specific value across columns or tables. **search** can scan all columns in a given table, or in all tables, for the specified value. The amount of data being processed could be enormous, which is 
@@ -52,7 +40,7 @@ search in (Event, SecurityEvent) "error"
 ```
 
 ### Table and column scoping
-By default, **search** will evaluate all columns in the data set. To search only a specific column, use this syntax:
+By default, **search** will evaluate all columns in the data set. To search only a specific column (named *Source* in the below example), use this syntax:
 
 ```Kusto
 search in (Event) Source:"error"
@@ -60,7 +48,7 @@ search in (Event) Source:"error"
 ```
 
 > [!TIP]
-> If you use `==` instead of `:`, the results would include records in which the *Source* column has the exact value "error", and in this exact case. Using ':' will not include records where *Source* has values such as "error code 404" or "Error".
+> If you use `==` instead of `:`, the results would include records in which the *Source* column has the exact value "error", and in this exact case. Using ':' will include records where *Source* has values such as "error code 404" or "Error".
 
 ## Case-sensitivity
 By default, term search is case-insensitive, so searching "dns" could yield results such as "DNS", "dns", or "Dns". To make the search case-sensitive, use the `kind` option:

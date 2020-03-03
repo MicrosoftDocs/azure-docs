@@ -1,16 +1,16 @@
 ---
 title: "Quickstart: Check spelling with the Bing Spell Check SDK for C#"
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Get started using the Bing Spell Check REST API to check spelling and grammar.
 services: cognitive-services
-author: mikedodaro
+author: aahill
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
-ms.date: 02/20/2019
-ms.author: v-gedod
+ms.date: 12/16/2019
+ms.author: aahi
 ---
 
 # Quickstart: Check spelling with the Bing Spell Check SDK for C#
@@ -19,10 +19,10 @@ Use this quickstart to begin spell checking with the Bing Spell Check SDK for C#
 
 ## Application dependencies
 
-* Any edition of [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/).
+* Any edition of [Visual Studio 2017 or later](https://visualstudio.microsoft.com/downloads/).
 * The Bing Spell Check [NuGet Package](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.SpellCheck)
 
-To add the Bing Spell Check SDK to your project, click `Manage NuGet Packages` from the Solution Explorer in Visual Studio. Add the `Microsoft.Azure.CognitiveServices.Language.SpellCheck` package. The package also installs the following dependencies:
+To add the Bing Spell Check SDK to your project, select **Manage NuGet Packages** from **Solution Explorer** in Visual Studio. Add the `Microsoft.Azure.CognitiveServices.Language.SpellCheck` package. The package also installs the following dependencies:
 
 * Microsoft.Rest.ClientRuntime
 * Microsoft.Rest.ClientRuntime.Azure
@@ -76,18 +76,22 @@ To add the Bing Spell Check SDK to your project, click `Manage NuGet Packages` f
     }
     ```
 
-3. Get the first suggested correction, if there is one.Print the suggestion score, and the suggested word. 
+3. Get the first suggested correction, if there is one. Print the suggestion score, and the suggested word. 
 
     ```csharp
-            var suggestions = firstspellCheckResult.Suggestions;
+    var suggestions = firstspellCheckResult.Suggestions;
 
-            if (suggestions?.Count > 0)
-            {
-                var firstSuggestion = suggestions.FirstOrDefault();
-                Console.WriteLine("First SpellCheck Suggestion Score: {0} ", firstSuggestion.Score);
-                Console.WriteLine("First SpellCheck Suggestion : {0} ", firstSuggestion.Suggestion);
-            }
-}
+    if (suggestions?.Count > 0)
+    {
+        var firstSuggestion = suggestions.FirstOrDefault();
+        Console.WriteLine("First SpellCheck Suggestion Score: {0} ", firstSuggestion.Score);
+        Console.WriteLine("First SpellCheck Suggestion : {0} ", firstSuggestion.Suggestion);
+    }
+    ```
+
+## Run the application
+
+Build and run your project. If you're using Visual Studio, press **F5** to debug the file.
 
 ## Next steps
 

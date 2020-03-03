@@ -1,13 +1,8 @@
 ---
 title: Azure Functions trigger and binding example
 description: Learn to configure Azure Function bindings 
-services: functions
-documentationcenter: na
 author: craigshoemaker
-manager: jeconnoc
 
-ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: reference
 ms.date: 02/18/2019
 ms.author: cshoe
@@ -131,7 +126,7 @@ public class Person
 }
 ```
 
-You now have a working function that is triggered by Azure Table storage which outputs data to a queue.
+You now have a working function that is triggered by an Azure Queue and outputs data to Azure Table storage.
 
 ## Next steps
 

@@ -1,6 +1,6 @@
 ---
-title: Overview of AMQP 1.0 in Azure Service Bus | Microsoft Docs
-description: Learn about using the Advanced Message Queuing Protocol (AMQP) 1.0 in Azure.
+title: Overview of AMQP 1.0 in Azure Service Bus
+description: Learn how Azure Service Bus supports Advanced Message Queuing Protocol (AMQP), an open standard protocol.
 services: service-bus-messaging
 documentationcenter: .net
 author: axisc
@@ -73,7 +73,7 @@ At this time the following client libraries are known to work with Service Bus:
 | C |Apache Qpid Proton-C |
 | PHP |Apache Qpid Proton-PHP |
 | Python |Apache Qpid Proton-Python |
-| C# |AMQP .Net Lite |
+| C# |AMQP .NET Lite |
 
 **Figure 2: Table of AMQP 1.0 client libraries**
 

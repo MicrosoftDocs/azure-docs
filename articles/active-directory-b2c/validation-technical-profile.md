@@ -1,15 +1,16 @@
 ---
-title: Define a validation technical profile in a custom policy in Azure Active Directory B2C | Microsoft Docs
-description: Define a Azure Active Directory technical profile in a custom policy in Azure Active Directory B2C.
+title: Define a validation technical profile in a custom policy
+titleSuffix: Azure AD B2C
+description: Validate claims by using a validation technical profile in a custom policy in Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
-manager: daveba
+author: msmimart
+manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: mimart
 ms.subservice: B2C
 ---
 
@@ -35,6 +36,9 @@ A validation technical profile can be conditionally executed based on preconditi
 
 A self-asserted technical profile may define a validation technical profile to be used for validating some or all of its output claims. All of the input claims of the referenced technical profile must appear in the output claims of the referencing validation technical profile.
 
+> [!NOTE]
+> Only self-asserted technical profiles can use validation technical profiles. If you need to validate the output claims from non-self-asserted technical profiles, consider using an additional orchestration step in your user journey to accommodate the technical profile in charge of the validation.
+
 ## ValidationTechnicalProfiles
 
 The **ValidationTechnicalProfiles** element contains the following elements:
@@ -48,7 +52,7 @@ The **ValidationTechnicalProfile** element contains the following attribute:
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
 | ReferenceId | Yes | An identifier of a technical profile already defined in the policy or parent policy. |
-|ContinueOnError|No| Indicating whether validation of any subsequent validation technical profiles should continue if this validaiton technical profile raises an error. Possible values: `true` or `false` (default, processing of further validation profiles will stop and an error returned). |
+|ContinueOnError|No| Indicating whether validation of any subsequent validation technical profiles should continue if this validation technical profile raises an error. Possible values: `true` or `false` (default, processing of further validation profiles will stop and an error returned). |
 |ContinueOnSuccess | No | Indicating whether validation of any subsequent validation profiles should continue if this validation technical profile succeeds. Possible values: `true` or `false`. The default is `true`, meaning that the processing of further validation profiles will continue. |
 
 The **ValidationTechnicalProfile** element contains the following element:
@@ -61,8 +65,8 @@ The **Precondition** element contains the following attribute:
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
-| Type | Yes | The type of check or query to perform for the precondition. Either `ClaimsExist` is specified to ensure that actions should be performed if the specified claims exist in the user's current claim set, or `ClaimEquals` is specified that the actions should be performed if the specified claim exists and its value is equal to the specified value. |
-| ExecuteActionsIf | Yes | Indicates whether the actions in the precondition should be performed if the test is true or false. |
+| `Type` | Yes | The type of check or query to perform for the precondition. Either `ClaimsExist` is specified to ensure that actions should be performed if the specified claims exist in the user's current claim set, or `ClaimEquals` is specified that the actions should be performed if the specified claim exists and its value is equal to the specified value. |
+| `ExecuteActionsIf` | Yes | Indicates whether the actions in the precondition should be performed if the test is true or false. |
 
 The **Precondition** element contains following elements:
 

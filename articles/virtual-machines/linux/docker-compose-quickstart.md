@@ -1,10 +1,10 @@
 ---
-title: Use Docker Compose on a Linux VM in Azure | Microsoft Docs
+title: Use Docker Compose on a Linux VM in Azure 
 description: How to install and use Docker and Compose on Linux virtual machines with the Azure CLI
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 
@@ -19,7 +19,7 @@ ms.author: cynthn
 
 ---
 # Get started with Docker and Compose to define and run a multi-container application in Azure
-With [Compose](http://github.com/docker/compose), you use a simple text file to define an application consisting of multiple Docker containers. You then spin up your application in a single command that does everything to deploy your defined environment. As an example, this article shows you how to quickly set up a WordPress blog with a backend MariaDB SQL database on an Ubuntu VM. You can also use Compose to set up more complex applications.
+With [Compose](https://github.com/docker/compose), you use a simple text file to define an application consisting of multiple Docker containers. You then spin up your application in a single command that does everything to deploy your defined environment. As an example, this article shows you how to quickly set up a WordPress blog with a backend MariaDB SQL database on an Ubuntu VM. You can also use Compose to set up more complex applications.
 
 This article was last tested on 2/14/2019 using the [Azure Cloud Shell](https://shell.azure.com/bash) and the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) version 2.0.58.
 
@@ -128,7 +128,7 @@ You can now connect to WordPress directly on the VM on port 80. Open a web brows
 ![WordPress start screen](./media/docker-compose-quickstart/wordpressstart.png)
 
 ## Next steps
-* Check out the [Compose command-line reference](http://docs.docker.com/compose/reference/) and [user guide](http://docs.docker.com/compose/) for more examples of building and deploying multi-container apps.
+* Check out the [Compose command-line reference](https://docs.docker.com/compose/reference/) and [user guide](https://docs.docker.com/compose/) for more examples of building and deploying multi-container apps.
 * Use an Azure Resource Manager template, either your own or one contributed from the [community](https://azure.microsoft.com/documentation/templates/), to deploy an Azure VM with Docker and an application set up with Compose. For example, the [Deploy a WordPress blog with Docker](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-wordpress-mysql) template uses Docker and Compose to quickly deploy WordPress with a MySQL backend on an Ubuntu VM.
 * Try integrating Docker Compose with a Docker Swarm cluster. See
   [Using Compose with Swarm](https://docs.docker.com/compose/swarm/) for scenarios.

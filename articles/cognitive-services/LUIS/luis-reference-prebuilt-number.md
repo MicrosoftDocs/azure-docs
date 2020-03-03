@@ -1,6 +1,6 @@
 ---
-title: Number Prebuilt entity
-titleSuffix: Azure
+title: Number Prebuilt entity - LUIS
+titleSuffix: Azure Cognitive Services
 description: This article contains number prebuilt entity information in Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
@@ -8,8 +8,8 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
-ms.date: 11/26/2018
+ms.topic: conceptual
+ms.date: 09/27/2019
 ms.author: diberry
 ---
 
@@ -36,43 +36,70 @@ Number is managed from the [Recognizers-text](https://github.com/Microsoft/Recog
 LUIS includes the recognized value of a **`builtin.number`** entity in the `resolution` field of the JSON response it returns.
 
 ## Resolution for prebuilt number
+
+The following entity objects are returned for the query:
+
+`order two dozen eggs`
+
+#### [V3 response](#tab/V3)
+
+The following JSON is with the `verbose` parameter set to `false`:
+
+```json
+"entities": {
+    "number": [
+        24
+    ]
+}
+```
+#### [V3 verbose response](#tab/V3-verbose)
+
+The following JSON is with the `verbose` parameter set to `true`:
+
+```json
+"entities": {
+    "number": [
+        24
+    ],
+    "$instance": {
+        "number": [
+            {
+                "type": "builtin.number",
+                "text": "two dozen",
+                "startIndex": 6,
+                "length": 9,
+                "modelTypeId": 2,
+                "modelType": "Prebuilt Entity Extractor",
+                "recognitionSources": [
+                    "model"
+                ]
+            }
+        ]
+    }
+}
+```
+#### [V2 response](#tab/V2)
+
 The following example shows a JSON response from LUIS, that includes the resolution of the value 24, for the utterance "two dozen".
 
 ```json
-{
-  "query": "order two dozen eggs",
-  "topScoringIntent": {
-    "intent": "OrderFood",
-    "score": 0.105443209
-  },
-  "intents": [
-    {
-      "intent": "None",
-      "score": 0.105443209
-    },
-    {
-      "intent": "OrderFood",
-      "score": 0.9468431361
-    },
-    {
-      "intent": "Help",
-      "score": 0.000399122015
-    },
-  ],
-  "entities": [
-    {
-      "entity": "two dozen",
-      "type": "builtin.number",
-      "startIndex": 6,
-      "endIndex": 14,
-      "resolution": {
-        "value": "24"
-      }
+"entities": [
+  {
+    "entity": "two dozen",
+    "type": "builtin.number",
+    "startIndex": 6,
+    "endIndex": 14,
+    "resolution": {
+      "subtype": "integer",
+      "value": "24"
     }
-  ]
-}
+  }
+]
 ```
+* * * 
 
 ## Next steps
+
+Learn more about the [V3 prediction endpoint](luis-migration-api-v3.md).
 
 Learn about the [currency](luis-reference-prebuilt-currency.md), [ordinal](luis-reference-prebuilt-ordinal.md), and [percentage](luis-reference-prebuilt-percentage.md). 

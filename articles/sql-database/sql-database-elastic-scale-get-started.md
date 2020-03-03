@@ -1,5 +1,5 @@
 ---
-title: Get started with Elastic Database Tools - Azure | Microsoft Docs
+title: Get started with Elastic Database Tools
 description: Basic explanation of the Elastic Database Tools feature of Azure SQL Database, including an easy-to-run sample app.
 services: sql-database
 ms.service: sql-database
@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: anumjs
 ms.author: anjangsh
 ms.reviewer: sstein
-manager: craigg
 ms.date: 01/25/2019
 ---
 # Get started with Elastic Database Tools
@@ -22,7 +21,7 @@ This document introduces you to the developer experience for the [elastic databa
 ### Prerequisites
 
 * A Java Developer Kit (JDK), version 1.8 or later
-* [Maven](http://maven.apache.org/download.cgi)
+* [Maven](https://maven.apache.org/download.cgi)
 * A SQL Database server in Azure or a local SQL Server instance
 
 ### Download and run the sample app
@@ -68,7 +67,7 @@ To add the client library to your own Maven project, add the following dependenc
 ### Prerequisites
 
 * Visual Studio 2012 or later with C#. Download a free version at [Visual Studio Downloads](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx).
-* NuGet 2.7 or later. To get the latest version, see [Installing NuGet](http://docs.nuget.org/docs/start-here/installing-nuget).
+* NuGet 2.7 or later. To get the latest version, see [Installing NuGet](https://docs.nuget.org/docs/start-here/installing-nuget).
 
 ### Download and run the sample app
 
@@ -76,7 +75,7 @@ To install the library, go to [Microsoft.Azure.SqlDatabase.ElasticScale.Client](
 
 To download and run the sample, follow these steps: 
 
-1. Download the [Elastic DB Tools for Azure SQL - Getting Started sample](https://code.msdn.microsoft.com/windowsapps/Elastic-Scale-with-Azure-a80d8dc6) from MSDN. Unzip the sample to a location that you choose.
+1. Download the [Elastic DB Tools for Azure SQL - Getting Started sample](https://github.com/Azure/elastic-db-tools). Unzip the sample to a location that you choose.
 
 2. To create a project, open the *ElasticScaleStarterKit.sln* solution from the *C#* directory.
 
@@ -122,11 +121,11 @@ For pricing information, see [SQL Database pricing details](https://azure.micros
 For more information about Elastic Database Tools, see the following articles:
 
 * Code samples: 
-  * Elastic Database Tools ([.NET](https://code.msdn.microsoft.com/Elastic-Scale-with-Azure-a80d8dc6?SRC=VSIDE), [Java](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-elasticdb-tools%22))
+  * Elastic Database Tools ([.NET](https://github.com/Azure/elastic-db-tools), [Java](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-elasticdb-tools%22))
   * [Elastic Database Tools for Azure SQL - Entity Framework Integration](https://code.msdn.microsoft.com/Elastic-Scale-with-Azure-bae904ba?SRC=VSIDE)
   * [Shard Elasticity on Script Center](https://gallery.technet.microsoft.com/scriptcenter/Elastic-Scale-Shard-c9530cbe)
-* Blog: [Elastic Scale announcement](https://azure.microsoft.com/blog/2014/10/02/introducing-elastic-scale-preview-for-azure-sql-database/)
-* Channel 9: [Elastic Scale overview video](http://channel9.msdn.com/Shows/Data-Exposed/Azure-SQL-Database-Elastic-Scale)
+* Blog: [Elastic Scale announcement](https://azure.microsoft.com/blog/20../../introducing-elastic-scale-preview-for-azure-sql-database/)
+* Channel 9: [Elastic Scale overview video](https://channel9.msdn.com/Shows/Data-Exposed/Azure-SQL-Database-Elastic-Scale)
 * Discussion forum: [Azure SQL Database forum](https://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted)
 * To measure performance: [Performance counters for shard map manager](sql-database-elastic-database-client-library.md)
 

@@ -1,21 +1,11 @@
 ---
-title: Configure your Azure Service Fabric standalone cluster | Microsoft Docs
+title: Configure your Azure Service Fabric standalone cluster 
 description: Learn how to configure your standalone or on-premises Azure Service Fabric cluster.
-services: service-fabric
-documentationcenter: .net
 author: dkkapur
-manager: timlt
-editor: ''
 
-ms.assetid: 0c5ec720-8f70-40bd-9f86-cd07b84a219d
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/12/2018
 ms.author: dekapur
-
 ---
 # Configuration settings for a standalone Windows cluster
 This article describes configuration settings of a standalone Azure Service Fabric cluster that can be set in the *ClusterConfig.json* file. You will use this file to specify information about the cluster's nodes, security configurations, as well as the network topology in terms of fault and upgrade domains.  After changing or adding configuration settings, you can either [create a standalone cluster](service-fabric-cluster-creation-for-windows-server.md) or [upgrade the configuration of a standalone cluster](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -118,7 +108,7 @@ The security section is necessary for a secure standalone Service Fabric cluster
 }
 ```
 
-The metadata is a description of your secure cluster and can be set according to your setup. The ClusterCredentialType and ServerCredentialType determine the type of security that the cluster and the nodes implement. They can be set to either *X509* for a certificate-based security or *Windows* for Azure Active Directory-based security. The rest of the security section is based on the type of security. For information on how to fill out the rest of the security section, see [Certificates-based security in a standalone cluster](service-fabric-windows-cluster-x509-security.md) or [Windows security in a standalone cluster](service-fabric-windows-cluster-windows-security.md).
+The metadata is a description of your secure cluster and can be set according to your setup. The ClusterCredentialType and ServerCredentialType determine the type of security that the cluster and the nodes implement. They can be set to either *X509* for a certificate-based security or *Windows* for Active Directory-based security. The rest of the security section is based on the type of security. For information on how to fill out the rest of the security section, see [Certificates-based security in a standalone cluster](service-fabric-windows-cluster-x509-security.md) or [Windows security in a standalone cluster](service-fabric-windows-cluster-windows-security.md).
 
 ### Node types
 The nodeTypes section describes the type of nodes that your cluster has. At least one node type must be specified for a cluster, as shown in the following snippet: 
@@ -198,6 +188,7 @@ To configure add-on features, configure the apiVersion as 04-2017 or higher, and
     ]
 }
 ```
+All available add-on features can be seen in the [Service Fabric REST API Reference](https://docs.microsoft.com/rest/api/servicefabric/sfrp-model-addonfeatures).
 
 ### Container support
 To enable container support for both Windows Server containers and Hyper-V containers for standalone clusters, the DnsService add-on feature must be enabled.

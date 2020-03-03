@@ -1,20 +1,21 @@
 ---
-title: "Quickstart: Scale out compute in Azure SQL Data Warehouse - T-SQL | Microsoft Docs"
-description: Scale compute in Azure SQL Data Warehouse using T-SQL and SQL Server Management Studio (SSMS). Scale out compute for better performance, or scale back compute to save costs. 
+title: Scale compute in Azure Synapse Analytics - T-SQL
+description: Scale compute in Azure Synapse Analytics using T-SQL and SQL Server Management Studio (SSMS). Scale out compute for better performance, or scale back compute to save costs.
 services: sql-data-warehouse
-author: kevinvngo
+author: Antvgski
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: quickstart
-ms.subservice: manage
+ms.subservice: implement
 ms.date: 04/17/2018
-ms.author: kevin
+ms.author: anvang
 ms.reviewer: igorstan
+ms.custom: seo-lt-2019, azure-synapse 
 ---
 
-# Quickstart: Scale compute in Azure SQL Data Warehouse using T-SQL
+# Quickstart: Scale compute in Azure Synapse Analytics using T-SQL
 
-Scale compute in Azure SQL Data Warehouse using T-SQL and SQL Server Management Studio (SSMS). [Scale out compute](sql-data-warehouse-manage-compute-overview.md) for better performance, or scale back compute to save costs. 
+Scale compute in Azure Synapse Analytics (formerly SQL DW) using T-SQL and SQL Server Management Studio (SSMS). [Scale out compute](sql-data-warehouse-manage-compute-overview.md) for better performance, or scale back compute to save costs. 
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
@@ -24,7 +25,7 @@ Download and install the newest version of [SQL Server Management Studio](/sql/s
  
 ## Create a data warehouse
 
-Use [Quickstart: create and Connect - portal](create-data-warehouse-portal.md) to create a data warehouse named **mySampleDataWarehouse**. Finish the quickstart to ensure you have a firewall rule and can connect to your data warehouse from within SQL Server Management Studio.
+Use [Quickstart: create and Connect - portal](create-data-warehouse-portal.md) to create a data warehouse named **mySampleDataWarehouse**. Complete the quickstart to ensure you have a firewall rule and can connect to your data warehouse from within SQL Server Management Studio.
 
 ## Connect to the server as server admin
 
@@ -37,25 +38,25 @@ This section uses [SQL Server Management Studio](/sql/ssms/download-sql-server-m
    | Setting       | Suggested value | Description | 
    | ------------ | ------------------ | ------------------------------------------------- | 
    | Server type | Database engine | This value is required |
-   | Server name | The fully qualified server name | Here's an example: **mynewserver-20171113.database.windows.net**. |
+   | Server name | The fully qualified server name | Here's an example: **mySampleDataWarehouseservername.database.windows.net**. |
    | Authentication | SQL Server Authentication | SQL Authentication is the only authentication type that is configured in this tutorial. |
    | Login | The server admin account | The account that you specified when you created the server. |
-   | Password | The password for your server admin account | This is the password that you specified when you created the server. |
+   | Password | The password for your server admin account | The password you specified when you created the server. |
 
-    ![connect to server](media/load-data-from-azure-blob-storage-using-polybase/connect-to-server.png)
+    ![Connect to server](media/quickstart-scale-compute-tsql/connect-to-server.png)
 
-4. Click **Connect**. The Object Explorer window opens in SSMS. 
+3. Click **Connect**. The Object Explorer window opens in SSMS.
 
-5. In Object Explorer, expand **Databases**. Then expand **mySampleDatabase** to view the objects in your new database.
+4. In Object Explorer, expand **Databases**. Then expand **mySampleDataWarehouse** to view the objects in your new database.
 
-    ![database objects](media/create-data-warehouse-portal/connected.png) 
+    ![Database objects](media/quickstart-scale-compute-tsql/connected.png)
 
 ## View service objective
 The service objective setting contains the number of data warehouse units for the data warehouse. 
 
 To view the current data warehouse units for your data warehouse:
 
-1. Under the connection to **mynewserver-20171113.database.windows.net**, expand **System Databases**.
+1. Under the connection to **mySampleDataWarehouseservername.database.windows.net**, expand **System Databases**.
 2. Right-click **master** and select **New Query**. A new query window opens.
 3. Run the following query to select from the sys.database_service_objectives dynamic management view. 
 
@@ -74,11 +75,10 @@ To view the current data warehouse units for your data warehouse:
 
 4. The following results show **mySampleDataWarehouse** has a service objective of DW400. 
 
-    ![View current DWUs](media/quickstart-scale-compute-tsql/view-current-dwu.png)
-
+    ![iew-current-dwu](media/quickstart-scale-compute-tsql/view-current-dwu.png)
 
 ## Scale compute
-In SQL Data Warehouse, you can increase or decrease compute resources by adjusting data warehouse units. The [Create and Connect - portal](create-data-warehouse-portal.md) created **mySampleDataWarehouse** and initialized it with 400 DWUs. The following steps adjust the DWUs for **mySampleDataWarehouse**.
+In Azure Synapse, you can increase or decrease compute resources by adjusting data warehouse units. The [Create and Connect - portal](create-data-warehouse-portal.md) created **mySampleDataWarehouse** and initialized it with 400 DWUs. The following steps adjust the DWUs for **mySampleDataWarehouse**.
 
 To change data warehouse units:
 
@@ -87,8 +87,7 @@ To change data warehouse units:
 
     ```Sql
     ALTER DATABASE mySampleDataWarehouse
-    MODIFY (SERVICE_OBJECTIVE = 'DW300')
-    ;
+    MODIFY (SERVICE_OBJECTIVE = 'DW300c');
     ```
 
 ## Monitor scale change request
@@ -107,7 +106,7 @@ To poll for the service object change status:
         WHERE 
             1=1
             AND resource_type_desc = 'Database'
-            AND major_resource_id = 'MySampleDataWarehouse'
+            AND major_resource_id = 'mySampleDataWarehouse'
             AND operation = 'ALTER DATABASE'
         ORDER BY
             start_time DESC
@@ -128,7 +127,7 @@ When a data warehouse is paused, you can't connect to it with T-SQL. To see the 
 
 ## Check operation status
 
-To return information about various management operations on your SQL Data Warehouse, run the following query on the [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) DMV. For example, it returns the operation and the  state of the operation, which is IN_PROGRESS or COMPLETED.
+To return information about various management operations on your Azure Synapse, run the following query on the [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) DMV. For example, it returns the operation and the  state of the operation, which is IN_PROGRESS or COMPLETED.
 
 ```sql
 SELECT *
@@ -137,12 +136,12 @@ FROM
 WHERE
 	resource_type_desc = 'Database'
 AND 
-	major_resource_id = 'MySampleDataWarehouse'
+	major_resource_id = 'mySampleDataWarehouse'
 ```
 
 
 ## Next steps
-You've now learned how to scale compute for your data warehouse. To learn more about Azure SQL Data Warehouse, continue to the tutorial for loading data.
+You've now learned how to scale compute for your data warehouse. To learn more about Azure Synapse, continue to the tutorial for loading data.
 
 > [!div class="nextstepaction"]
->[Load data into a SQL data warehouse](load-data-from-azure-blob-storage-using-polybase.md)
+>[Load data into a Azure Synapse Analytics](load-data-from-azure-blob-storage-using-polybase.md)

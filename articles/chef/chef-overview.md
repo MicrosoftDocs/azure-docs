@@ -1,22 +1,18 @@
 ---
 title: Using Chef with Azure
 description: Introduction to using Chef to configure and test your Azure infrastructure
-ms.service: virtual-machines-linux
 keywords:  azure, chef, devops, virtual machines, overview, automate
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
-ms.date: 05/15/2018
+ms.date: 02/22/2020
 ms.topic: article
 ---
 
 # Using Chef with Azure
-[Chef](http://www.chef.io) is a powerful automation platform that transforms virtual machine infrastructure on Azure into code. Chef automates how infrastructure is configured, deployed, and managed across your network, no matter its size.
+[Chef](https://www.chef.io) is a powerful automation platform that transforms virtual machine infrastructure on Azure into code. Chef automates how infrastructure is configured, deployed, and managed across your network, no matter its size.
 
 This article describes the benefits of using Chef to manage Azure infrastructure.
 
 ## Chef Extension on Azure
-Provision a virtual machine with Chef Client running as a background service with the [Chef Extension](https://docs.microsoft.com/azure/chef/chef-extension-portal) on the Azure Portal. Once provisioned, these virtual machines are ready to be managed by a Chef server.
+Provision a virtual machine with Chef Client running as a background service with the [Chef Extension](https://docs.microsoft.com/azure/chef/chef-extension-portal) on the [Azure portal](https://go.microsoft.com/fwlink/p/?LinkID=525040). Once provisioned, these virtual machines are ready to be managed by a Chef server.
 
 ## Chef Cloud Shell
 Use Chef Workstation directly in Azure Cloud Shell! Run all of your Chef utilities and InSpec right from Cloud Shell. You can utilize the Chef commands from:
@@ -26,7 +22,6 @@ Use Chef Workstation directly in Azure Cloud Shell! Run all of your Chef utiliti
 * [inspec](https://www.inspec.io/docs/reference/cli/)
 * [knife](https://docs.chef.io/knife.html)
 * [cookstyle](https://docs.chef.io/cookstyle.html)
-* [foodcritic](https://docs.chef.io/foodcritic.html)
 * [chef-run](https://www.chef.sh/docs/chef-workstation/getting-started/)
 
 Combine our command utilities with the other tools available in Cloud Shell, such as `git`, `az-cli`, and `terraform`, and write your infrastructure and compliance automation from the browser.
@@ -39,4 +34,4 @@ Supported by Chef, the [Chef Automate Azure Marketplace solution](https://azurem
 
 ## Next steps
 
-* [Create a Windows virtual machine on Azure using Chef](/azure/virtual-machines/windows/chef-automation)
+* [Create a Windows virtual machine on Azure using Chef](chef-automation.md)

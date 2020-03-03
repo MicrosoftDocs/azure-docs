@@ -1,6 +1,6 @@
 ---
 title: Service Bus dead-letter queues | Microsoft Docs
-description: Overview of Azure Service Bus dead-letter queues
+description: Describes dead-letter queues in Azure Service Bus. Service Bus queues and topic subscriptions provide a secondary sub-queue, called a dead-letter queue.
 services: service-bus-messaging
 documentationcenter: .net
 author: axisc
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/23/2019
+ms.date: 01/24/2020
 ms.author: aschhab
 
 ---
@@ -45,7 +45,7 @@ Applications can define their own codes for the `DeadLetterReason` property, but
 | !TopicDescription.<br />EnableFilteringMessagesBeforePublishing and SubscriptionDescription.<br />EnableDeadLetteringOnFilterEvaluationExceptions |exception.GetType().Name |exception.Message |
 | EnableDeadLetteringOnMessageExpiration |TTLExpiredException |The message expired and was dead lettered. |
 | SubscriptionDescription.RequiresSession |Session id is null. |Session enabled entity doesn't allow a message whose session identifier is null. |
-| !dead letter queue |MaxTransferHopCountExceeded |Null |
+| !dead letter queue | MaxTransferHopCountExceeded | The maximum number of allowed hops when forwarding between queues. Value is set to 4. |
 | Application explicit dead lettering |Specified by application |Specified by application |
 
 ## Exceeding MaxDeliveryCount
@@ -98,6 +98,17 @@ while(true)
     }
 }
 ```
+
+## Path to the dead-letter queue
+You can access the dead-letter queue by using the following syntax:
+
+```
+<queue path>/$deadletterqueue
+<topic path>/Subscriptions/<subscription path>/$deadletterqueue
+```
+
+If you are using the .NET SDK, you can get the path to the dead-letter queue by using the SubscriptionClient.FormatDeadLetterPath() method. This method takes the topic name/subscription name and suffixes with **/$DeadLetterQueue**.
+
 
 ## Next steps
 

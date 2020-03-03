@@ -10,7 +10,7 @@
   - name: Deploy and configure
     href: tutorial-firewall-deploy-portal.md
   - name: Deploy in hybrid network
-    href: tutorial-hybrid-ps.md
+    href: tutorial-hybrid-portal.md
   - name: Filter inbound traffic with DNAT
     href: tutorial-firewall-dnat.md
   - name: Monitor diagnostic logs
@@ -19,7 +19,7 @@
   items:
   - name: Azure PowerShell
     href: sample-powershell.md
-  - name: Log Analytics
+  - name: Azure Monitor logs
     href: log-analytics-samples.md
 - name: Concepts
   items:
@@ -29,20 +29,46 @@
       href: infrastructure-fqdns.md
     - name: Logs and metrics
       href: logs-and-metrics.md
+    - name: Threat intelligence
+      href: threat-intel.md
     - name: Rule processing logic
       href: rule-processing.md
     - name: Service tags
       href: service-tags.md
+    - name: IP Groups
+      href: ip-groups.md
+    - name: Forced tunneling
+      href: forced-tunneling.md
+    - name: Certifications
+      href: compliance-certifications.md
+    - name: Central management
+      href: central-management.md
 - name: How-to guides
   items:
+    - name: Deploy using Azure PowerShell
+      href: deploy-ps.md
+    - name: Deploy in hybrid network - PowerShell
+      href: tutorial-hybrid-ps.md
+    - name: Deploy using Azure CLI
+      href: deploy-cli.md
     - name: Deploy using a template
       href: deploy-template.md
+    - name: Deploy with multiple public IP
+      href: deploy-multi-public-ip-powershell.md
+    - name: Deploy with Availability Zones
+      href: deploy-availability-zone-powershell.md
     - name: Integrate with load balancer
       href: integrate-lb.md
+    - name: Application rules with SQL FQDNs
+      href: sql-fqdn-filtering.md
+    - name: SNAT private ranges
+      href: snat-private-range.md
+    - name: Create IP Groups
+      href: create-ip-group.md
 - name: Reference
   items:
   - name: Azure CLI
-    href: /cli/azure/network
+    href: /cli/azure/ext/azure-firewall/network/firewall
   - name: Azure PowerShell
     href: /powershell/module/az.network/new-azfirewall
   - name: .NET
@@ -56,13 +82,13 @@
   - name: REST
     href: /rest/api/firewall
   - name: Azure Resource Manager
-    href: ../azure-resource-manager/resource-group-overview.md
+    href: ../azure-resource-manager/management/overview.md
 - name: Resources
   items:
   - name: FAQ
     href: firewall-faq.md
   - name: Author templates
-    href: ../azure-resource-manager/resource-group-authoring-templates.md
+    href: ../azure-resource-manager/templates/template-syntax.md
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Community templates

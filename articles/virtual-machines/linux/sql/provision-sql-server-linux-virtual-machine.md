@@ -4,17 +4,17 @@ description: This tutorial shows how to create a Linux SQL Server 2017 virtual m
 services: virtual-machines-linux
 author: MashaMSFT 
 manager: craigg
-ms.date: 12/5/2018
+ms.date: 10/22/2019
 ms.topic: article
 tags: azure-service-management
-ms.devlang: na
-ms.topic: hero-article
+
+ms.topic: conceptual
 ms.service: virtual-machines-sql
 ms.workload: iaas-sql-server
-ms.technology: database-engine
 ms.author: mathoma
 ms.reviewer: jroth
 ---
+
 # Provision a Linux SQL Server virtual machine in the Azure portal
 
 > [!div class="op_single_selector"]
@@ -46,23 +46,19 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
    ![See all VM images](./media/provision-sql-server-linux-virtual-machine/azure-compute-blade.png)
 
-1. In the search box, type **SQL Server 2017**, and select **Enter** to start the search.
+1. In the search box, type **SQL Server 2019**, and select **Enter** to start the search.
 
-1. Limit the search results by selecting **Operating system** > **Redhat**. Then, under **Publisher**, choose **Microsoft**.
+1. Limit the search results by selecting **Operating system** > **Redhat**.
 
-    ![Search filter for SQL Server 2017 VM images](./media/provision-sql-server-linux-virtual-machine/searchfilter.png)
+    ![Search filter for SQL Server 2019 VM images](./media/provision-sql-server-linux-virtual-machine/searchfilter.png)
 
-1. Select a SQL Server 2017 Linux image from the search results. This tutorial uses **Free SQL Server License: SQL Server 2017 Developer on Red Hat Enterprise Linux 7.4**.
+1. Select a SQL Server 2019 Linux image from the search results. This tutorial uses **SQL Server 2019 on RHEL74**.
 
    > [!TIP]
    > The Developer edition lets you test or develop with the features of the Enterprise edition but no SQL Server licensing costs. You only pay for the cost of running the Linux VM.
 
-1. Under **Select a deployment model**, choose a deployment model that fits your workload needs.
+1. Select **Create**. 
 
-    > [!Note]
-    > For new  workloads, use **Resource Manager**. To connect to an existing virtual network, select the virtual network's deployment method for your workload. For more information about deployment models, see [Azure Resource Manager and classic deployment models](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model).
-
-1. Select **Create**.
 
 ### Set up your Linux VM
 
@@ -72,25 +68,25 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 1. In **Virtual machine name**, enter a name for your new Linux VM.
 1. Then, type or select the following values:
-    * **Region**: Select the Azure region that's right for you.
-    * **Availability options**: Choose the availability and redundancy option that's best for your apps and data.
-    * **Change size**: Select this option to pick a machine size and when done, choose **Select**. For more information about VM machine sizes, see [Linux VM sizes](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-sizes).
+   * **Region**: Select the Azure region that's right for you.
+   * **Availability options**: Choose the availability and redundancy option that's best for your apps and data.
+   * **Change size**: Select this option to pick a machine size and when done, choose **Select**. For more information about VM machine sizes, see [Linux VM sizes](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-sizes).
 
-    ![Choose a VM size](./media/provision-sql-server-linux-virtual-machine/vmsizes.png)
+     ![Choose a VM size](./media/provision-sql-server-linux-virtual-machine/vmsizes.png)
 
    > [!TIP]
    > For development and functional testing, use a VM size of **DS2** or higher. For performance testing, use **DS13** or higher.
 
-    * **Authentication type**: Select **SSH public key**.
+   * **Authentication type**: Select **SSH public key**.
 
-    > [!Note]
-    > You have the choice of using an SSH public key or a Password for authentication. SSH is more secure. For instructions on how to generate an SSH key, see [Create SSH keys on Linux and Mac for Linux VMs in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys).
+     > [!Note]
+     > You have the choice of using an SSH public key or a Password for authentication. SSH is more secure. For instructions on how to generate an SSH key, see [Create SSH keys on Linux and Mac for Linux VMs in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys).
 
-    * **Username**: Enter the Administrator name for the VM.
-    * **SSH public key**: Enter your RSA public key.
-    * **Public inbound ports**: Choose **Allow selected ports** and pick the **SSH (22)** port in the **Select public inbound ports** list. In this quickstart, this step is necessary to connect and complete the SQL Server configuration. If you want to remotely connect to SQL Server, also select **MS SQL (1433)** to open port 1433 for connections over the Internet.
+   * **Username**: Enter the Administrator name for the VM.
+   * **SSH public key**: Enter your RSA public key.
+   * **Public inbound ports**: Choose **Allow selected ports** and pick the **SSH (22)** port in the **Select public inbound ports** list. In this quickstart, this step is necessary to connect and complete the SQL Server configuration. If you want to remotely connect to SQL Server, you will need to manually allow traffic to the default port (1433) used by Microsoft SQL Server for connections over the Internet after the virtual machine is created.
 
-   ![Inbound ports](./media/provision-sql-server-linux-virtual-machine/port-settings.png)
+     ![Inbound ports](./media/provision-sql-server-linux-virtual-machine/port-settings.png)
 
 1. Make any changes you want to the settings in the following additional tabs or keep the default settings.
     * **Disks**
@@ -116,7 +112,7 @@ You can find the IP address of your VM in the Azure portal.
 
 If you're running on Windows and don't have a BASH shell, install an SSH client, such as PuTTY.
 
-1. [Download and install PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
+1. [Download and install PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
 1. Run PuTTY.
 

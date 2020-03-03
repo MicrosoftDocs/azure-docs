@@ -1,128 +1,220 @@
 ---
-title: 'Azure SQL Database service - vCore | Microsoft Docs'
-description: The vCore-based purchasing model enables you to independently scale compute and storage resources, match on-premises performance, and optimize price.  
+title: vCore model overview
+description: The vCore purchasing model lets you independently scale compute and storage resources, match on-premises performance, and optimize price.
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
-ms.custom:
-ms.devlang: 
 ms.topic: conceptual
-author: CarlRabeler
-ms.author: carlrab
-ms.reviewer: sashan, moslake
-manager: craigg
-ms.date: 02/07/2019
+author: stevestein
+ms.author: sstein
+ms.reviewer: sashan, moslake, carlrab
+ms.date: 11/27/2019
 ---
-# vCore service tiers, Azure Hybrid Benefit, and migration
+# vCore model overview
 
-The vCore-based purchasing model enables you to independently scale compute and storage resources, match on-premises performance, and optimize price. It also enables you to choose generation of hardware:
+The virtual core (vCore) model provides several benefits:
 
-- Gen4 - Up to 24 logical CPUs based on Intel E5-2673 v3 (Haswell) 2.4 GHz processors, vCore = 1 PP (physical core), 7 GB per core, attached SSD
-- Gen5 - Up to 80 logical CPUs based on Intel E5-2673 v4 (Broadwell) 2.3 GHz processors, vCore=1 LP (hyper-thread), 5.1 GB per core, fast eNVM SSD
+- Higher compute, memory, IO, and storage limits.
+- Control over the hardware generation to better match compute and memory requirements of the workload.
+- Pricing discounts for [Azure Hybrid Benefit (AHB)](sql-database-azure-hybrid-benefit.md) and [Reserved Instance (RI)](sql-database-reserved-capacity.md).
+- Greater transparency in the hardware details that power the compute; facilitates planning for migrations from on-premises deployments.
 
-Gen4 hardware offers substantially more memory per vCore. However, Gen5 hardware allows you to scale up compute resources much higher.
+## Service tiers
 
-> [!NOTE]
-> For information about DTU-based service tiers, see [DTU-based service tiers](sql-database-service-tiers-dtu.md). For information about differentiating DTU-based service tiers and vCore-based service tiers, see [Azure SQL Database purchasing models](sql-database-purchase-models.md).
+Service tier options in the vCore model include General Purpose, Business Critical, and Hyperscale. The service tier generally defines the storage architecture, space and IO limits, and business continuity options related to availability and disaster recovery.
 
-## Service tier characteristics
-
-The vCore model provides three service tiers General Purpose, Hyperscale and Business Critical. Service tiers are differentiated by a range of compute sizes, high availability design, fault isolation, types and size of storage and IO range. You must separately configure the required storage and retention period for backups. In the Azure portal, go to Server (not the database) > Managed Backups > Configure Policy > Point In Time Restore Configuration > 7 - 35 days.
-
-The following table helps you understand the differences between the three tiers:
-
-||**General Purpose**|**Business Critical**|**Hyperscale (preview)**|
+||**General purpose**|**Business critical**|**Hyperscale**|
 |---|---|---|---|
-|Best for|Most business workloads. Offers budget oriented balanced and scalable compute and storage options.|Business applications with high IO requirements. Offers highest resilience to failures using several isolated replicas.|Most business workloads with highly scalable storage and read-scale requirements|
-|Compute|Gen4: 1 to 24 vCore<br/>Gen5: 1 to 80 vCore|Gen4: 1 to 24 vCore<br/>Gen5: 1 to 80 vCore|Gen4: 1 to 24 vCore<br/>Gen5: 1 to 80 vCore|
-|Memory|Gen4: 7 GB per core<br>Gen5: 5.1 GB per core | Gen4: 7 GB per core<br>Gen5: 5.1 GB per core |Gen4: 7 GB per core<br>Gen5: 5.1 GB per core|
-|Storage|Uses remote storage:<br/>Single database: 5 GB – 4 TB<br/>Managed Instance: 32 GB - 8 TB |Uses local SSD storage:<br/>Single database: 5 GB – 4 TB<br/>Managed Instance: 32 GB - 4 TB |Flexible, autogrow of storage as needed. Supports up to 100 TB storage and beyond. Local SSD storage for local buffer pool cache and local data storage. Azure remote storage as final long-term data store. |
-|IO throughput (approximate)|Single database: 500 IOPS per vCore with 7000 maximum IOPS</br>Managed Instance: Depends on [size of file](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes)|5000 IOPS per core with 200,000 maximum IOPS|TBD|
-|Availability|1 replica, no read-scale|3 replicas, 1 [read-scale replica](sql-database-read-scale-out.md),<br/>zone redundant HA|?|
-|Backups|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35 days (7 days by default)|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35 days (7 days by default)|snapshot-based backup in Azure remote storage and restores use these snapshots for fast recovery. Backups are instantaneous and do not impact the IO performance of Compute. Restores are very fast and are not a size of data operation (taking minutes rather than hours or days).|
-|In-Memory|Not supported|Supported|Not supported|
+|Best for|Most business workloads. Offers budget-oriented, balanced, and scalable compute and storage options. |Offers business applications the highest resilience to failures by using several isolated replicas, and provides the highest I/O performance per database replica.|Most business workloads with highly scalable storage and read-scale requirements.  Offers higher resilience to failures by allowing configuration of more than one isolated database replica. |
+|Storage|Uses remote storage.<br/>**Single databases and elastic pools provisioned compute**:<br/>5 GB – 4 TB<br/>**Serverless compute**:<br/>5 GB - 3 TB<br/>**Managed Instance**: 32 GB - 8 TB |Uses local SSD storage.<br/>**Single databases and elastic pools provisioned compute**:<br/>5 GB – 4 TB<br/>**Managed Instance**:<br/>32 GB - 4 TB |Flexible autogrow of storage as needed. Supports up to 100 TB of storage. Uses local SSD storage for local buffer-pool cache and local data storage. Uses Azure remote storage as final long-term data store. |
+|IOPS and throughput (approximate)|**Single databases and elastic pools**: See resource limits for [single databases](../sql-database/sql-database-vcore-resource-limits-single-databases.md) and [elastic pools](../sql-database/sql-database-vcore-resource-limits-elastic-pools.md).<br/>**Managed Instance**: See [Overview Azure SQL Database managed instance resource limits](../sql-database/sql-database-managed-instance-resource-limits.md#service-tier-characteristics).|See resource limits for [single databases](../sql-database/sql-database-vcore-resource-limits-single-databases.md) and [elastic pools](../sql-database/sql-database-vcore-resource-limits-elastic-pools.md).|Hyperscale is a multi-tiered architecture with caching at multiple levels. Effective IOPS and throughput will depend on the workload.|
+|Availability|1 replica, no read-scale replicas|3 replicas, 1 [read-scale replica](sql-database-read-scale-out.md),<br/>zone-redundant high availability (HA)|1 read-write replica, plus 0-4 [read-scale replicas](sql-database-read-scale-out.md)|
+|Backups|[Read-access geo-redundant storage (RA-GRS)](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35 days (7 days by default)|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35 days (7 days by default)|Snapshot-based backups in Azure remote storage. Restores use these snapshots for fast recovery. Backups are instantaneous and don't impact compute I/O performance. Restores are fast and aren't a size-of-data operation (taking minutes rather than hours or days).|
+|In-memory|Not supported|Supported|Not supported|
 |||
 
-> [!NOTE]
-> You can get a free Azure SQL database at the Basic service tier in conjunction with a Azure free account to explore Azure. For information, see [Create a managed cloud database with your Azure free account](https://azure.microsoft.com/free/services/sql-database/).
 
-- For more information, see [vCore resource limits in single database](sql-database-vcore-resource-limits-single-databases.md) and [vCore resource limits in Managed Instance](sql-database-managed-instance.md#vcore-based-purchasing-model).
-- For more information about the General Purpose and Business Critical service tiers, see [General Purpose and Business Critical service tiers](sql-database-service-tiers-general-purpose-business-critical.md).
-- For details on the Hyperscale service tier in the vCore-based purchasing model, see [Hyperscale service tier](sql-database-service-tier-hyperscale.md).  
+### Choosing a service tier
 
-> [!IMPORTANT]
-> If you need less than one vCore of compute capacity, use the DTU-based purchasing model.
+For information on selecting a service tier for your particular workload, see the following articles:
 
-## Azure Hybrid Benefit
+- [When to choose the General purpose service tier](sql-database-service-tier-general-purpose.md#when-to-choose-this-service-tier)
+- [When to choose the Business Critical service tier](sql-database-service-tier-business-critical.md#when-to-choose-this-service-tier)
+- [When to choose the Hyperscale service tier](sql-database-service-tier-hyperscale.md#who-should-consider-the-hyperscale-service-tier)
 
-In the vCore-based purchasing model, you can exchange your existing licenses for discounted rates on SQL Database using the [Azure Hybrid Benefit for SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/). This Azure benefit allows you to use your on-premises SQL Server licenses to save up to 30% on Azure SQL Database using your on-premises SQL Server licenses with Software Assurance.
 
-![pricing](./media/sql-database-service-tiers/pricing.png)
+## Compute tiers
 
-With the Azure Hybrid Benefit, you can choose to only pay for the underlying Azure infrastructure using your existing SQL Server license for the SQL database engine itself (**BasePrice**) or pay for both the underlying infrastructure and the SQL Server license (**LicenseIncluded**). You can choose or change your licensing model using the Azure portal or using one of the following APIs.
+Compute tier options in the vCore model include the provisioned and serverless compute tiers.
 
-- To set or update the license type using PowerShell:
 
-  - [New-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabase):
-  - [Set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql)
-  - [New-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlinstance)
-  - [Set-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql)
+### Provisioned compute
 
-- To set or update the license type using Azure CLI:
+The provisioned compute tier provides a specific amount of compute resources that are continuously provisioned independent of workload activity, and bills for the amount of compute provisioned at a fixed price per hour.
 
-  - [az sql db create](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-create)
-  - [az sql db update](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-update)
-  - [az sql mi create](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-create)
-  - [az sql mi update](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-update)
 
-- To set or update the license type using the REST API:
+### Serverless compute
 
-  - [Databases - Create Or Update](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)
-  - [Databases - Update](https://docs.microsoft.com/rest/api/sql/databases/update)
-  - [Managed Instances - Create Or Update](https://docs.microsoft.com/rest/api/sql/managedinstances/createorupdate)
-  - [Managed Instances - Update](https://docs.microsoft.com/rest/api/sql/managedinstances/update)
+The [serverless compute tier](sql-database-serverless.md) auto-scales compute resources based on workload activity, and bills for the amount of compute used per second.
 
-## Migration from DTU model to vCore model
 
-### Migration of a database
 
-Migrating a database from the DTU-based purchasing model to the vCore-based purchasing model is similar to upgrading or downgrading between Standard and Premium databases in the DTU-based purchasing model.
+## Hardware generations
 
-### Migration of databases with geo-replication links
+Hardware generation options in the vCore model include Gen 4/5, M-series (preview), and Fsv2-series (preview). The hardware generation generally defines the compute and memory limits and other characteristics that impact the performance of the workload.
 
-Migrating from the DTU-based model to the vCore-based model is similar to upgrading or downgrading the geo-replication relationships between Standard and Premium databases. It does not require terminating geo-replication but the user must observe the sequencing rules. When upgrading, you must upgrade the secondary database first, and then upgrade the primary. When downgrading, reverse the order: you must downgrade the primary database first, and then downgrade the secondary.
+### Gen4/Gen5
 
-When using geo-replication between two elastic pools, it is recommended that you designate one pool as the primary and the other – as the secondary. In that case, migrating elastic pools should use the same guidance.  However, it is technically it is possible that an elastic pool contains both primary and secondary databases. In this case, to properly migrate you should treat the pool with the higher utilization as “primary” and follow the sequencing rules accordingly.  
+- Gen4/Gen5 hardware provides balanced compute and memory resources, and is suitable for most database workloads that do not have higher memory, higher vCore, or faster single vCore requirements as provided by Fsv2-series or M-series.
 
-The following table provides guidance for the specific migration scenarios:
+For regions where Gen4/Gen5 is available, see [Gen4/Gen5 availability](#gen4gen5-1).
 
-|Current service tier|Target service tier|Migration type|User actions|
-|---|---|---|---|
-|Standard|General purpose|Lateral|Can migrate in any order, but need to ensure an appropriate vCore sizing*|
-|Premium|Business Critical|Lateral|Can migrate in any order, but need to ensure appropriate vCore sizing*|
-|Standard|Business Critical|Upgrade|Must migrate secondary first|
-|Business Critical|Standard|Downgrade|Must migrate primary first|
-|Premium|General purpose|Downgrade|Must migrate primary first|
-|General purpose|Premium|Upgrade|Must migrate secondary first|
-|Business Critical|General purpose|Downgrade|Must migrate primary first|
-|General purpose|Business Critical|Upgrade|Must migrate secondary first|
-||||
+### Fsv2-series (preview)
 
-\* Each 100 DTU in Standard tier requires at least 1 vCore and each 125 DTU in Premium tier requires at least 1 vCore
+- Fsv2-series is a compute optimized hardware option delivering low CPU latency and high clock speed for the most CPU demanding workloads.
+- Depending on the workload, Fsv2-series can deliver more CPU performance per vCore than Gen5, and the 72 vCore size can provide more CPU performance for less cost than 80 vCores on Gen5. 
+- Fsv2 provides less memory and tempdb per vCore than other hardware so workloads sensitive to those limits may want to consider Gen5 or M-series instead.  
 
-### Migration of failover groups
+For regions where Fsv2-series is available, see [Fsv2-series availability](#fsv2-series).
 
-Migration of failover groups with multiple databases requires individual migration of the primary and secondary databases. During that process, the same considerations and sequencing rules apply. After the databases are converted to the vCore-based model, the failover group will remain in effect with the same policy settings.
 
-### Creation of a geo-replication secondary
+### M-series (preview)
 
-You can only create a geo-secondary using the same service tier as the primary. For database with high log generation rate, it is advised that the secondary is created with the same compute size as the primary. If you are creating a geo-secondary in the elastic pool for a single primary database, it is advised that the pool has the `maxVCore` setting that matches the primary database compute size. If you are creating a geo-secondary in the elastic pool for a primary in another elastic pool, it is advised that the pools have the same `maxVCore` settings
+- M-series is a memory optimized hardware option for workloads demanding more memory and higher compute limits than provided by Gen5.
+- M-series provides 29 GB per vCore and 128 vCores, which increases the memory limit relative to Gen5 by 8x to nearly 4 TB.
 
-### Using database copy to convert a DTU-based database to a vCore-based database
+To enable M-series hardware for a subscription and region, a support request must be opened. The subscription must be a paid offer type including Pay-As-You-Go or Enterprise Agreement (EA).  If the support request is approved, then the selection and provisioning experience of M-series follows the same pattern as for other hardware generations. For regions where M-series is available, see [M-series availability](#m-series).
 
-You can copy any database with a DTU-based compute size to a database with a vCore-based compute size without restrictions or special sequencing as long as the target compute size supports the maximum database size of the source database. The database copy creates a snapshot of data as of the starting time of the copy operation and does not perform data synchronization between the source and the target.
+
+### Compute and memory specifications
+
+
+|Hardware generation  |Compute  |Memory  |
+|:---------|:---------|:---------|
+|Gen4     |- Intel E5-2673 v3 (Haswell) 2.4 GHz processors<br>- Provision up to 24 vCores (1 vCore = 1 physical core)  |- 7 GB per vCore<br>- Provision up to 168 GB|
+|Gen5     |**Provisioned compute**<br>- Intel E5-2673 v4 (Broadwell) 2.3-GHz and Intel SP-8160 (Skylake)* processors<br>- Provision up to 80 vCores (1 vCore = 1 hyper-thread)<br><br>**Serverless compute**<br>- Intel E5-2673 v4 (Broadwell) 2.3-GHz and Intel SP-8160 (Skylake)* processors<br>- Auto-scale up to 16 vCores (1 vCore = 1 hyper-thread)|**Provisioned compute**<br>- 5.1 GB per vCore<br>- Provision up to 408 GB<br><br>**Serverless compute**<br>- Auto-scale up to 24 GB per vCore<br>- Auto-scale up to 48 GB max|
+|Fsv2-series     |- Intel Xeon Platinum 8168 (SkyLake) processors<br>- Featuring a sustained all core turbo clock speed of 3.4 GHz and a maximum single core turbo clock speed of 3.7 GHz.<br>- Provision 72 vCores (1 vCore = 1 hyper-thread)|- 1.9 GB per vCore<br>- Provision 136 GB|
+|M-series     |- Intel Xeon E7-8890 v3 2.5 GHz processors<br>- Provision 128 vCores (1 vCore = 1 hyper-thread)|- 29 GB per vCore<br>- Provision 3.7 TB|
+
+\* In the [sys.dm_user_db_resource_governance](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) dynamic management view, hardware generation for Gen5 databases using Intel SP-8160 (Skylake) processors appears as Gen6. Resource limits for all Gen5 databases are the same regardless of processor type (Broadwell or Skylake).
+
+For more information on resource limits, see [Resource limits for single databases (vCore)](sql-database-vcore-resource-limits-single-databases.md), or [Resource limits for elastic pools (vCore)](sql-database-vcore-resource-limits-elastic-pools.md).
+
+### Selecting a hardware generation
+
+In the Azure portal, you can select the hardware generation for a SQL database or pool at the time of creation, or you can change the hardware generation of an existing SQL database or pool.
+
+**To select a hardware generation when creating a SQL database or pool**
+
+For detailed information, see [Create a SQL database](sql-database-single-database-get-started.md).
+
+On the **Basics** tab, select the **Configure database** link in the **Compute + storage** section, and then select the **Change configuration** link:
+
+  ![configure database](media/sql-database-service-tiers-vcore/configure-sql-database.png)
+
+Select the desired hardware generation:
+
+  ![select hardware](media/sql-database-service-tiers-vcore/select-hardware.png)
+
+
+**To change the hardware generation of an existing SQL database or pool**
+
+For a database, on the Overview page, select the **Pricing tier** link:
+
+  ![change hardware](media/sql-database-service-tiers-vcore/change-hardware.png)
+
+For a pool, on the Overview page, select **Configure**.
+
+Follow the steps to change configuration, and select the hardware generation as described in the previous steps.
+
+**To select a hardware generation when creating a managed instance**
+
+For detailed information, see [Create a managed instance](sql-database-managed-instance-get-started.md).
+
+On the **Basics** tab, select the **Configure database** link in the **Compute + storage** section, and then select desired hardware generation:
+
+  ![configure managed instance](media/sql-database-service-tiers-vcore/configure-managed-instance.png)
+  
+**To change the hardware generation of an existing managed instance**
+
+# [Portal](#tab/azure-portal)
+
+From the managed instance page, select **Pricing tier** link placed under the Settings section
+
+![change managed instance hardware](media/sql-database-service-tiers-vcore/change-managed-instance-hardware.png)
+
+On the **Pricing tier** page you will be able to change hardware generation as described in the previous steps.
+
+# [PowerShell](#tab/azure-powershell)
+
+Use the following PowerShell script:
+
+```powershell-interactive
+Set-AzSqlInstance -Name "managedinstance1" -ResourceGroupName "ResourceGroup01" -ComputeGeneration Gen5
+```
+
+For more details check [Set-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstance) command.
+
+# [Azure CLI](#tab/azure-cli)
+
+Use the following CLI command:
+
+```azurecli-interactive
+az sql mi update -g mygroup -n myinstance --family Gen5
+```
+
+For more details check [az sql mi update](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-update) command.
+
+---
+
+### Hardware availability
+
+#### <a name="gen4gen5-1"></a> Gen4/Gen5
+
+Gen4 hardware is [being phased out](https://azure.microsoft.com/updates/gen-4-hardware-on-azure-sql-database-approaching-end-of-life-in-2020/) and is not available anymore for the new deployments. All new databases must be deployed on Gen5 hardware.
+
+Gen5 is available in most regions worldwide.
+
+#### Fsv2-series
+
+Fsv2-series is available in the following regions:
+Australia Central, Australia Central 2, Australia East, Australia Southeast, Brazil South, Canada Central, East Asia, East Us, France Central, India Central, India West, Korea Central, Korea South, North Europe, South Africa North, Southeast Asia, UK South, UK West, West Europe, West Us 2.
+
+
+#### M-series
+
+M-series is available in the following regions:
+East US, North Europe, West Europe, West US 2.
+M-series may also have limited availability in additional regions. You can request a different region than listed here, but fulfillment in a different region may not be possible.
+
+To enable M-series availability in a subscription, access must be requested by [filing a new support request](#create-a-support-request-to-enable-m-series).
+
+
+##### Create a support request to enable M-series: 
+
+1. Select **Help + support** in the portal.
+2. Select **New support request**.
+
+On the **Basics** page, provide the following:
+
+1. For **Issue type**, select **Service and subscription limits (quotas)**.
+2. For **Subscription** = select the subscription to enable M-series.
+3. For **Quota type**, select **SQL database**.
+4. Select **Next** to go to the **Details** page.
+
+On the **Details** page, provide the following:
+
+1. In the **PROBLEM DETAILS** section select the **Provide details** link. 
+2. For **SQL Database quota type** select **M-series**.
+3. For **Region**, select the region to enable M-series.
+    For regions where M-series is available, see [M-series availability](#m-series).
+
+Approved support requests are typically fulfilled within 5 business days.
+
 
 ## Next steps
 
-- For details on specific compute sizes and storage size choices available for single database, see [SQL Database vCore-based resource limits for single databases](sql-database-vcore-resource-limits-single-databases.md#general-purpose-service-tier-storage-sizes-and-compute-sizes)
-- For details on specific compute sizes and storage size choices available for elastic pools, see [SQL Database vCore-based resource limits for elastic pools](sql-database-vcore-resource-limits-elastic-pools.md#general-purpose-service-tier-storage-sizes-and-compute-sizes).
+- To create a SQL database, see [Creating a SQL database using the Azure portal](sql-database-single-database-get-started.md).
+- For the specific compute sizes and storage size choices available for single databases, see [SQL Database vCore-based resource limits for single databases](sql-database-vcore-resource-limits-single-databases.md).
+- For the specific compute sizes and storage size choices available for elastic pools, see [SQL Database vCore-based resource limits for elastic pools](sql-database-vcore-resource-limits-elastic-pools.md).
+- For pricing details, see the [Azure SQL Database pricing page](https://azure.microsoft.com/pricing/details/sql-database/single/).

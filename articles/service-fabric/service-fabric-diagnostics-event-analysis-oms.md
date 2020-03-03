@@ -1,38 +1,30 @@
 ---
-title: Azure Service Fabric Event Analysis with Log Analytics | Microsoft Docs
-description: Learn about visualizing and analyzing events using Log Analytics for monitoring and diagnostics of Azure Service Fabric clusters.
-services: service-fabric
-documentationcenter: .net
+title: Azure Service Fabric Event Analysis with Azure Monitor logs 
+description: Learn about visualizing and analyzing events using Azure Monitor logs for monitoring and diagnostics of Azure Service Fabric clusters.
 author: srrengar
-manager: timlt
-editor: ''
 
-ms.assetid:
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 02/21/2019
 ms.author: srrengar
-
 ---
 
-# Event analysis and visualization with Log Analytics
- Log Analytics collects and analyzes telemetry from applications and services hosted in the cloud and provides analysis tools to help you maximize their availability and performance. This article outlines how to run queries in Log Analytics to gain insights and troubleshoot what is happening in your cluster. The following common questions are addressed:
+# Event analysis and visualization with Azure Monitor logs
+ Azure Monitor logs collects and analyzes telemetry from applications and services hosted in the cloud and provides analysis tools to help you maximize their availability and performance. This article outlines how to run queries in Azure Monitor logs to gain insights and troubleshoot what is happening in your cluster. The following common questions are addressed:
 
 * How do I troubleshoot health events?
 * How do I know when a node goes down?
 * How do I know if my application's services have started or stopped?
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## Overview of the Log Analytics workspace
 
 >[!NOTE] 
 >While diagnostic storage is enabled by default at the cluster creation time, you must still set up the Log Analytics workspace to read from the diagnostic storage.
 
-Log Analytics collects data from managed resources, including an Azure storage table or an agent, and maintains it in a central repository. The data can then be used for analysis, alerting, and visualization, or further exporting. Log Analytics supports events, performance data, or any other custom data. Check out [steps to configure the diagnostics extension to aggregate events](service-fabric-diagnostics-event-aggregation-wad.md) and [steps to create a Log Analytics workspace to read from the events in storage](service-fabric-diagnostics-oms-setup.md) to make sure data is flowing into Log Analytics.
+Azure Monitor logs collects data from managed resources, including an Azure storage table or an agent, and maintains it in a central repository. The data can then be used for analysis, alerting, and visualization, or further exporting. Azure Monitor logs supports events, performance data, or any other custom data. Check out [steps to configure the diagnostics extension to aggregate events](service-fabric-diagnostics-event-aggregation-wad.md) and [steps to create a Log Analytics workspace to read from the events in storage](service-fabric-diagnostics-oms-setup.md) to make sure data is flowing into Azure Monitor logs.
 
-After data is received by Log Analytics, Azure has several *Management Solutions* that are prepackaged solutions or operational dashboards to monitor incoming data, customized to several scenarios. These include a *Service Fabric Analytics* solution and a *Containers* solution, which are the two most relevant ones to diagnostics and monitoring when using Service Fabric clusters. This article describes how to use the Service Fabric Analytics solution, which is created with the workspace.
+After data is received by Azure Monitor logs, Azure has several *Monitoring Solutions* that are prepackaged solutions or operational dashboards to monitor incoming data, customized to several scenarios. These include a *Service Fabric Analytics* solution and a *Containers* solution, which are the two most relevant ones to diagnostics and monitoring when using Service Fabric clusters. This article describes how to use the Service Fabric Analytics solution, which is created with the workspace.
 
 ## Access the Service Fabric Analytics solution
 
@@ -108,7 +100,7 @@ The Kusto query language is powerful. Another valuable query you can run is to f
 ## Next steps
 
 * To enable infrastructure monitoring i.e. performance counters, head over to [adding the Log Analytics agent](service-fabric-diagnostics-oms-agent.md). The agent collects performance counters and adds them to your existing workspace.
-* For on-premises clusters, Log Analytics offers a Gateway (HTTP Forward Proxy) that can be used to send data to Log Analytics. Read more about that in [Connecting computers without Internet access to Log Analytics using the Log Analytics gateway](../azure-monitor/platform/gateway.md).
+* For on-premises clusters, Azure Monitor logs offers a Gateway (HTTP Forward Proxy) that can be used to send data to Azure Monitor logs. Read more about that in [Connecting computers without Internet access to Azure Monitor logs using the Log Analytics gateway](../azure-monitor/platform/gateway.md).
 * Configure  [automated alerting](../log-analytics/log-analytics-alerts.md) to aid in detection and diagnostics.
-* Get familiarized with the [log search and querying](../log-analytics/log-analytics-log-searches.md) features offered as part of Log Analytics.
-* Get a more detailed overview of Log Analytics and what it offers, read [What is Log Analytics?](../operations-management-suite/operations-management-suite-overview.md).
+* Get familiarized with the [log search and querying](../log-analytics/log-analytics-log-searches.md) features offered as part of Azure Monitor logs.
+* Get a more detailed overview of Azure Monitor logs and what it offers, read [What is Azure Monitor logs?](../operations-management-suite/operations-management-suite-overview.md).

@@ -1,14 +1,12 @@
 ---
-title: X12 messages for B2B enterprise integration - Azure Logic Apps | Microsoft Docs
+title: X12 messages for B2B integration
 description: Exchange X12 messages in EDI format for B2B enterprise integration in Azure Logic Apps with Enterprise Integration Pack
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: jonfan, estfan, LADocs
+ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
-ms.assetid: 7422d2d5-b1c7-4a11-8c9b-0d8cfa463164
 ms.date: 01/31/2017
 ---
 
@@ -41,11 +39,11 @@ you can create an X12 agreement by following these steps.
 
 ## Create an X12 agreement
 
-1. Sign in to the [Azure portal](http://portal.azure.com "Azure portal"). 
+1. Sign in to the [Azure portal](https://portal.azure.com "Azure portal"). 
 
 2. From the main Azure menu, select **All services**. 
-In the search box, enter "integration", 
-and then select **Integration accounts**.  
+   In the search box, enter "integration", 
+   and then select **Integration accounts**.  
 
    ![Find your integration account](./media/logic-apps-enterprise-integration-x12/account-1.png)
 
@@ -54,24 +52,24 @@ and then select **Integration accounts**.
    > At the top of the collapsed menu, select **Show menu**.
 
 3. Under **Integration Accounts**, 
-select the integration account where you want to add the agreement.
+   select the integration account where you want to add the agreement.
 
    ![Select integration account where to create the agreement](./media/logic-apps-enterprise-integration-x12/account-3.png)
 
 4. Select **Overview**, then select the **Agreements** tile. 
-If you don't have an Agreements tile, add the tile first. 
+   If you don't have an Agreements tile, add the tile first. 
 
-   ![Choose "Agreements" tile](./media/logic-apps-enterprise-integration-as2/agreement-1.png)
+   ![Choose "Agreements" tile](./media/logic-apps-enterprise-integration-x12/agreement-1.png)
 
 5. Under **Agreements**, choose **Add**.
 
-   ![Choose "Add"](./media/logic-apps-enterprise-integration-as2/agreement-2.png)     
+   ![Choose "Add"](./media/logic-apps-enterprise-integration-x12/agreement-2.png)     
 
 6. Under **Add**, enter a **Name** for your agreement. 
-For the agreement type, select **X12**. 
-Select the **Host Partner**, **Host Identity**, 
-**Guest Partner**, and **Guest Identity** for your agreement. 
-For more property details, see the table in this step.
+   For the agreement type, select **X12**. 
+   Select the **Host Partner**, **Host Identity**, 
+   **Guest Partner**, and **Guest Identity** for your agreement. 
+   For more property details, see the table in this step.
 
 	![Provide agreement details](./media/logic-apps-enterprise-integration-x12/x12-1.png)  
 
@@ -86,10 +84,10 @@ For more property details, see the table in this step.
 	| Receive Settings |These properties apply to all messages received by an agreement. |
 	| Send Settings |These properties apply to all messages sent by an agreement. |  
 
-  > [!NOTE]
-  > Resolution of X12 agreement depends on matching the sender qualifier and identifier, 
-  > and the receiver qualifier and identifier defined in the partner and incoming message. 
-  > If these values change for your partner, update the agreement too.
+   > [!NOTE]
+   > Resolution of X12 agreement depends on matching the sender qualifier and identifier, 
+   > and the receiver qualifier and identifier defined in the partner and incoming message. 
+   > If these values change for your partner, update the agreement too.
 
 ## Configure how your agreement handles received messages
 
@@ -114,7 +112,7 @@ messages that conform to your selected settings.
 
 ### Identifiers
 
-![Set Identifier properties](./media/logic-apps-enterprise-integration-x12/x12-2.png)  
+![Set identifier properties](./media/logic-apps-enterprise-integration-x12/x12-2.png)  
 
 | Property | Description |
 | --- | --- |
@@ -125,7 +123,7 @@ messages that conform to your selected settings.
 
 ### Acknowledgment
 
-![Set Acknowledgement properties](./media/logic-apps-enterprise-integration-x12/x12-3.png) 
+![Set acknowledgement properties](./media/logic-apps-enterprise-integration-x12/x12-3.png) 
 
 | Property | Description |
 | --- | --- |
@@ -160,7 +158,7 @@ in the incoming message with the values you set here, and the schema of the inco
 | --- | --- |
 | ISA11 Usage |Specifies the separator to use in a transaction set: <p>Select **Standard identifier** to use a period (.) for decimal notation, rather than the decimal notation of the incoming document in the EDI receive pipeline. <p>Select **Repetition Separator** to specify the separator for repeated occurrences of a simple data element or a repeated data structure. For example, usually the carat (^) is used as the repetition separator. For HIPAA schemas, you can only use the carat. |
 
-### Control Numbers
+### Control numbers
 
 ![Select how to handle control number duplicates](./media/logic-apps-enterprise-integration-x12/x12-35.png) 
 
@@ -170,9 +168,9 @@ in the incoming message with the values you set here, and the schema of the inco
 | Disallow Group control number duplicates |Block interchanges with duplicate group control numbers. |
 | Disallow Transaction set control number duplicates |Block interchanges with duplicate transaction set control numbers. |
 
-### Validations
+### Validation
 
-![Set Validation properties for received messages](./media/logic-apps-enterprise-integration-x12/x12-36.png) 
+![Set validation properties for received messages](./media/logic-apps-enterprise-integration-x12/x12-36.png) 
 
 When you complete each validation row, another is automatically added. 
 If you don't specify any rules, then validation uses the "Default" row.
@@ -186,7 +184,7 @@ If you don't specify any rules, then validation uses the "Default" row.
 | Trim Leading/Trailing Zeroes |Remove leading or trailing zero and space characters. |
 | Trailing Separator Policy |Generate trailing separators. <p>Select **Not Allowed** to prohibit trailing delimiters and separators in the received interchange. If the interchange has trailing delimiters and separators, the interchange is declared not valid. <p>Select **Optional** to accept interchanges with or without trailing delimiters and separators. <p>Select **Mandatory** when the interchange must have trailing delimiters and separators. |
 
-### Internal Settings
+### Internal settings
 
 ![Select internal settings](./media/logic-apps-enterprise-integration-x12/x12-37.png) 
 
@@ -221,7 +219,7 @@ messages that conform to your selected settings.
 
 ### Identifiers
 
-![Set Identifier properties](./media/logic-apps-enterprise-integration-x12/x12-4.png)  
+![Set identifier properties](./media/logic-apps-enterprise-integration-x12/x12-4.png)  
 
 | Property | Description |
 | --- | --- |
@@ -232,7 +230,7 @@ messages that conform to your selected settings.
 
 ### Acknowledgment
 
-![Set Acknowledgement properties](./media/logic-apps-enterprise-integration-x12/x12-5.png)  
+![Set acknowledgement properties](./media/logic-apps-enterprise-integration-x12/x12-5.png)  
 
 | Property | Description |
 | --- | --- |
@@ -262,9 +260,9 @@ messages that conform to your selected settings.
 | --- | --- |
 | ISA11 Usage |Specifies the separator to use in a transaction set: <p>Select **Standard identifier** to use a period (.) for decimal notation, rather than the decimal notation of the incoming document in the EDI receive pipeline. <p>Select **Repetition Separator** to specify the separator for repeated occurrences of a simple data element or a repeated data structure. For example, usually the carat (^) is used as the repetition separator. For HIPAA schemas, you can only use the carat. |
 
-### Control Numbers
+### Control numbers
 
-![Specify Control Number properties](./media/logic-apps-enterprise-integration-x12/x12-8.png) 
+![Specify control number properties](./media/logic-apps-enterprise-integration-x12/x12-8.png) 
 
 | Property | Description |
 | --- | --- |
@@ -284,7 +282,7 @@ messages that conform to your selected settings.
 | Prefix |Optional, designated for the range of transaction set control numbers used in acknowledgment. Enter a numeric value for the middle two fields, and an alphanumeric value (if desired) for the prefix and suffix fields. The middle fields are required and contain the minimum and maximum values for the control number |
 | Suffix |Optional, designated for the range of transaction set control numbers used in an acknowledgment. Enter a numeric value for the middle two fields and an alphanumeric value (if desired) for the prefix and suffix fields. The middle fields are required and contain the minimum and maximum values for the control number |
 
-### Character Sets and Separators
+### Character sets and separators
 
 Other than the character set, you can enter a different set of delimiters for each message type. 
 If a character set isn't specified for a given message schema, then the default character set is used.
@@ -307,7 +305,7 @@ If a character set isn't specified for a given message schema, then the default 
 
 ### Validation
 
-![Set Validation properties for sending messages](./media/logic-apps-enterprise-integration-x12/x12-10.png) 
+![Set validation properties for sending messages](./media/logic-apps-enterprise-integration-x12/x12-10.png) 
 
 When you complete each validation row, another is automatically added. 
 If you don't specify any rules, then validation uses the "Default" row.
@@ -334,9 +332,14 @@ On your integration account menu, choose **Overview**, then select the **Agreeme
 
 	![Choose "Agreements" tile](./media/logic-apps-enterprise-integration-x12/x12-1-5.png)   
 
-## View the swagger
-See the [swagger details](/connectors/x12/). 
+## Connector reference
 
-## Learn more
-* [Learn more about the Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "Learn about Enterprise Integration Pack")  
+For more technical details about this connector, such as actions and limits as described by the connector's Swagger file, see the [connector's reference page](https://docs.microsoft.com/connectors/x12/). 
 
+> [!NOTE]
+> For logic apps in an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), 
+> this connector's ISE-labeled version uses the [ISE message limits](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) instead.
+
+## Next steps
+
+* Learn about other [Logic Apps connectors](../connectors/apis-list.md)

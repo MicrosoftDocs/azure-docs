@@ -1,5 +1,5 @@
 ---
-title: Azure Spatial Anchors overview | Microsoft Docs
+title: Azure Spatial Anchors overview
 description: Learn how Azure Spatial Anchors helps you develop cross-platform mixed reality experiences.
 author: craigktreasure
 manager: aliemami
@@ -29,7 +29,7 @@ Some example use cases enabled by Spatial Anchors include:
 
 - [Way-finding](concepts/anchor-relationships-way-finding.md). Developers can also connect Spatial Anchors together creating relationships between them. For example, an app may include an experience that has two or more points of interest that a user must interact with to complete a task. Those points of interest can be created in a connected fashion. Later, when the user is completing the multi-step task, the app can ask for anchors that are nearby the current one to direct the user towards the next step in the task.
 
-- [Persisting virtual content in the real-world](concepts/create-locate-anchors-unity.md#creating-a-cloud-spatial-anchor). An app can let a user place a virtual calendar on a conference room wall, that people can see using a phone app or a HoloLens device. In an industrial setting, a user could receive contextual information about a machine by pointing a supported device camera at it.
+- [Persisting virtual content in the real-world](how-tos/create-locate-anchors-unity.md#create-a-cloud-spatial-anchor). An app can let a user place a virtual calendar on a conference room wall, that people can see using a phone app or a HoloLens device. In an industrial setting, a user could receive contextual information about a machine by pointing a supported device camera at it.
 
 Azure Spatial Anchors is composed of a managed service and client SDKs for supported device platforms. The following
 sections provide information about getting started with building apps using Azure Spatial Anchors.
@@ -39,7 +39,13 @@ sections provide information about getting started with building apps using Azur
 Create your first app with Spatial Anchors.
 
 > [!div class="nextstepaction"]
-> [Unity](unity-overview.yml)
+> [Unity (HoloLens)](quickstarts/get-started-unity-hololens.md)
+
+> [!div class="nextstepaction"]
+> [Unity (iOS)](quickstarts/get-started-unity-ios.md)
+
+> [!div class="nextstepaction"]
+> [Unity (Android)](quickstarts/get-started-unity-android.md)
 
 > [!div class="nextstepaction"]
 > [iOS](quickstarts/get-started-ios.md)
@@ -49,3 +55,9 @@ Create your first app with Spatial Anchors.
 
 > [!div class="nextstepaction"]
 > [HoloLens](quickstarts/get-started-hololens.md)
+
+> [!div class="nextstepaction"]
+> [Xamarin (Android)](quickstarts/get-started-xamarin-android.md)
+
+> [!div class="nextstepaction"]
+> [Xamarin (iOS)](quickstarts/get-started-xamarin-ios.md)

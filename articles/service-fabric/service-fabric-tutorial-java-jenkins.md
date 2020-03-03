@@ -1,22 +1,12 @@
 ---
-title: Configure Jenkins for a Java app on Service Fabric in Azure | Microsoft Docs
+title: Configure Jenkins for a Java app on Service Fabric in Azure 
 description: In this tutorial, learn how to set up continuous integration using Jenkins to deploy a Java Service Fabric application.
-services: service-fabric
-documentationcenter: java
 author: suhuruli
-manager: msfussell
-editor: ''
 
-ms.assetid: 
-ms.service: service-fabric
-ms.devlang: java
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 08/27/2018
 ms.author: suhuruli
 ms.custom: mvc
-
 ---
 # Tutorial: Configure a Jenkins environment to enable CI/CD for a Java application on Service Fabric
 
@@ -68,15 +58,15 @@ You can set up Jenkins either inside or outside a Service Fabric cluster. The fo
     * After you sign in for the first time, you can create your own user account or use the admin account.
 
 1. Set up GitHub to work with Jenkins by using the steps mentioned in [Generating a new SSH key and adding it to the SSH agent](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/). Since the commands are run from the Docker container, follow the instructions for the Linux environment.
-    * Use the instructions provided by GitHub to generate the SSH key. Next, add the SSH key to the GitHub account that is hosting the repository.
-    * Run the commands mentioned in the preceding link in the Jenkins Docker shell (and not on your host).
-    * To sign in to the Jenkins shell from your host, use the following commands:
+   * Use the instructions provided by GitHub to generate the SSH key. Next, add the SSH key to the GitHub account that is hosting the repository.
+   * Run the commands mentioned in the preceding link in the Jenkins Docker shell (and not on your host).
+   * To sign in to the Jenkins shell from your host, use the following commands:
 
-    ```sh
-    docker exec -t -i [first-four-digits-of-container-ID] /bin/bash
-    ```
+     ```sh
+     docker exec -t -i [first-four-digits-of-container-ID] /bin/bash
+     ```
 
-    Ensure that the cluster or machine where the Jenkins container image is hosted has a public-facing IP. Having a public-facing IP enables the Jenkins instance to receive notifications from GitHub.
+     Ensure that the cluster or machine where the Jenkins container image is hosted has a public-facing IP. Having a public-facing IP enables the Jenkins instance to receive notifications from GitHub.
 
 ## Create and configure a Jenkins job
 
@@ -142,7 +132,7 @@ You can set up Jenkins either inside or outside a Service Fabric cluster. The fo
 
     ```xml
     <?xml version="1.0" encoding="utf-8" standalone="no"?>
-    <ApplicationManifest xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="VotingApplicationType" ApplicationTypeVersion="2.0.0">
+    <ApplicationManifest xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="VotingApplicationType" ApplicationTypeVersion="2.0.0">
       <Description>Voting Application</Description>
       <ServiceManifestImport>
         <ServiceManifestRef ServiceManifestName="VotingWebPkg" ServiceManifestVersion="2.0.0"/>

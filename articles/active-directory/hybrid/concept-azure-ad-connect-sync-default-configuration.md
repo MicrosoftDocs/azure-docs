@@ -67,7 +67,7 @@ The following attribute rules apply:
   2. Attributes that can be found in an Exchange GAL (Global Address List) are contributed from the forest with an Exchange Mailbox.
   3. If no mailbox can be found, then these attributes can come from any forest.
   4. Exchange related attributes (technical attributes not visible in the GAL) are contributed from the forest where `mailNickname ISNOTNULL`.
-  5. If there are multiple forests that would satisfy one of these rules, then the creation order (date/time) of the Connectors (forests) is used to determine which forest contributes the attributes.
+  5. If there are multiple forests that would satisfy one of these rules, then the creation order (date/time) of the Connectors (forests) is used to determine which forest contributes the attributes. The first forest connected will be the first forest to sync. 
 
 ### Contact out-of-box rules
 A contact object must satisfy the following to be synchronized:
@@ -169,7 +169,7 @@ The third section is used to configure how objects in the connector space relate
 
 ![Join rules tab in Sync rule editor](./media/concept-azure-ad-connect-sync-default-configuration/syncrulejoinrules.png)
 
-The content of the join rule depends on the matching option selected in the installation wizard. For an inbound rule, the evaluation starts with an object in the source connector space and each group in the join rules is evaluated in sequence. If a source object is evaluated to match exactly one object in the metaverse using one of the join rules, the objects are joined. If all rules have been evaluated and there is no match, then the Link Type on the description page is used. If this configuration is set to **Provision**, then a new object is created in the target, the metaverse. To provision a new object to the metaverse is also known as to **project** an object to the metaverse.
+The content of the join rule depends on the matching option selected in the installation wizard. For an inbound rule, the evaluation starts with an object in the source connector space and each group in the join rules is evaluated in sequence. If a source object is evaluated to match exactly one object in the metaverse using one of the join rules, the objects are joined. If all rules have been evaluated and there is no match, then the Link Type on the description page is used. If this configuration is set to **Provision**, then a new object is created in the target, the metaverse, if at least one attribute in the join criteria is present (has a value). To provision a new object to the metaverse is also known as to **project** an object to the metaverse.
 
 The join rules are only evaluated once. When a connector space object and a metaverse object are joined, they remain joined as long as the scope of the Synchronization Rule is still satisfied.
 
@@ -197,7 +197,7 @@ The expression language is VBA (Visual Basic for Applications), so people with e
 IIF(
 // (The evaluation for IIF) Is the attribute pwdLastSet present in AD?
 IsPresent([pwdLastSet]),
-// (The True part of IIF) If it is, then from right to left, convert the AD time format to a .Net datetime, change it to the time format used by Azure AD, and finally convert it to a string.
+// (The True part of IIF) If it is, then from right to left, convert the AD time format to a .NET datetime, change it to the time format used by Azure AD, and finally convert it to a string.
 CStr(FormatDateTime(DateFromNum([pwdLastSet]),"yyyyMMddHHmmss.0Z")),
 // (The False part of IIF) Nothing to contribute
 NULL

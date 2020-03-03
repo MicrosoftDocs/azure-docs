@@ -43,14 +43,14 @@ Next, we highlight the Pros of each approach.
 Often the approach of one subscription is not manageable in a large enterprise. However, limiting the number of subscriptions provides the following benefits:
 
 - **Forecasting** costs for enterprise.  Budgeting becomes much easier in a single subscription because all resources are in a single pool. This approach allows for simpler decision making on when to exercise cost control measures at any given time in a billing cycle.
-- **Manageability** of VMs, artifacts, formulas, network configuration, permissions, policies, etc is easier since all the updates are only required in one subscription as opposed to making updates across many subscriptions.
+- **Manageability** of VMs, artifacts, formulas, network configuration, permissions, policies, etc. is easier since all the updates are only required in one subscription as opposed to making updates across many subscriptions.
 - **Networking** effort is greatly simplified in a single subscription for enterprises where on-premises connectivity is a requirement. Connecting virtual networks across subscriptions (hub-spoke model) is required with additional subscriptions, which requires additional configuration, management, IP address spaces, etc.
 - **Team collaboration** is easier when everyone is working in the same subscription – for example, it’s easier to reassign a VM to a co-worker, share team resources, etc.
 
 ### Subscription per user
 A separate subscription per user provides equal opportunities to the alternative spectrum. The benefits of having many subscriptions include:
 
-- **Azure scaling quotas** are not going to impede adoption. For example, as of this writing Azure allows 200 storage accounts per subscription. There are operational quotas for most services in Azure (many can be customized, some cannot). In this model of a subscription per user, it’s highly unlikely that most quotas are reached. For more information on current Azure scaling quotas, see [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md).
+- **Azure scaling quotas** are not going to impede adoption. For example, as of this writing Azure allows 200 storage accounts per subscription. There are operational quotas for most services in Azure (many can be customized, some cannot). In this model of a subscription per user, it’s highly unlikely that most quotas are reached. For more information on current Azure scaling quotas, see [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md).
 - **Chargebacks** to groups or individual developers become much easier allowing organizations to account for costs using their current model.
 - **Ownership & permissions** of the DevTest Labs environments are simple. You give developers the subscription-level access and they are 100% responsible for everything including the networking configuration, lab policies, and VM management.
 

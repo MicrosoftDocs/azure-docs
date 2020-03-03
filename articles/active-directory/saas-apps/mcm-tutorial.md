@@ -8,7 +8,8 @@ manager: mtillman
 ms.reviewer: barbkess
 
 ms.assetid: 7f00799d-e3e9-4ba9-ae4a-fbca843ac5db
-ms.service: Azure-Active-Directory
+ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -107,7 +108,7 @@ To configure Azure AD single sign-on with MCM, perform the following steps:
     `https://myaba.co.uk/<companyname>`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [MCM Client support team](https://mcmtechnology.com/support/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [MCM Client support team](https://mcmtechnology.com/support) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 4. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 
@@ -125,7 +126,7 @@ To configure Azure AD single sign-on with MCM, perform the following steps:
 
 ### Configure MCM Single Sign-On
 
-To configure single sign-on on **MCM** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [MCM support team](https://mcmtechnology.com/support/). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **MCM** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [MCM support team](https://mcmtechnology.com/support). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create an Azure AD test user 
 
@@ -145,7 +146,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     a. In the **Name** field enter **BrittaSimon**.
   
-    b. In the **User name** field type **brittasimon@yourcompanydomain.extension**  
+    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
     For example, BrittaSimon@contoso.com
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
@@ -180,10 +181,10 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 ### Create MCM test user
 
-In this section, you create a user called Britta Simon in MCM. Work with [MCM support team](https://mcmtechnology.com/support/) to add the users in the MCM platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called Britta Simon in MCM. Work with [MCM support team](https://mcmtechnology.com/support) to add the users in the MCM platform. Users must be created and activated before you use single sign-on.
 
 >[!NOTE]
->You can use any other MCM user account creation tools or APIs provided by MCM to provision AAD user accounts.
+>You can use any other MCM user account creation tools or APIs provided by MCM to provision Azure AD user accounts.
 
 ### Test single sign-on 
 
@@ -193,9 +194,9 @@ When you click the MCM tile in the Access Panel, you should be automatically sig
 
 ## Additional Resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

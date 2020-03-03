@@ -1,22 +1,22 @@
 ---
-title: Cluster an SAP ASCS/SCS instance on a Windows failover cluster using a cluster shared disk in Azure | Microsoft Docs
+title: Cluster SAP ASCS/SCS instance on WSFC using shared disk in Azure | Microsoft Docs
 description: Learn how to cluster an SAP ASCS/SCS instance on a Windows failover cluster by using a cluster shared disk.
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
-author: goraco
-manager: jeconnoc
+author: rdeltcheva
+manager: juergent
 editor: ''
 tags: azure-resource-manager
 keywords: ''
 
 ms.assetid: f6fb85f8-c77a-4af1-bde8-1de7e4425d2e
 ms.service: virtual-machines-windows
-ms.devlang: NA
+
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/05/2017
-ms.author: rclaus
+ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -29,14 +29,14 @@ ms.custom: H1Hack27Feb2017
 
 [sap-installation-guides]:http://service.sap.com/instguides
 
-[azure-subscription-service-limits]:../../../azure-subscription-service-limits.md
-[azure-subscription-service-limits-subscription]:../../../azure-subscription-service-limits.md
+[azure-resource-manager/management/azure-subscription-service-limits]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
+[azure-resource-manager/management/azure-subscription-service-limits-subscription]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
 
 [dbms-guide]:../../virtual-machines-windows-sap-dbms-guide.md
 
 [deployment-guide]:deployment-guide.md
 
-[dr-guide-classic]:http://go.microsoft.com/fwlink/?LinkID=521971
+[dr-guide-classic]:https://go.microsoft.com/fwlink/?LinkID=521971
 
 [getting-started]:get-started.md
 [ha-guide]:sap-high-availability-guide.md
@@ -176,7 +176,7 @@ ms.custom: H1Hack27Feb2017
 [sap-templates-3-tier-multisid-apps-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-apps%2Fazuredeploy.json
 [sap-templates-3-tier-multisid-apps-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-apps-md%2Fazuredeploy.json
 
-[virtual-machines-azure-resource-manager-architecture-benefits-arm]:../../../azure-resource-manager/resource-group-overview.md#the-benefits-of-using-resource-manager
+[virtual-machines-azure-resource-manager-architecture-benefits-arm]:../../../azure-resource-manager/management/overview.md#the-benefits-of-using-resource-manager
 
 [virtual-machines-manage-availability]:../../virtual-machines-windows-manage-availability.md
 
@@ -217,15 +217,15 @@ In Windows, an SAP ASCS/SCS instance contains SAP central services, the SAP mess
 An SAP ASCS/SCS instance has the following components:
 
 * SAP central services:
-    * Two processes, a message and enqueue server, and an <ASCS/SCS virtual host name>, which is used to access these two processes.
+    * Two processes, a message and enqueue server, and an \<ASCS/SCS virtual host name>, which is used to access these two processes.
     * File structure: S:\usr\sap\\&lt;SID&gt;\ASCS/SCS\<instance number\>
 
 
 * SAP global host files:
-    * File structure: S:\usr\sap\\&lt;SID&gt;\SYS\...
-    * The sapmnt file share, which enables access to these global S:\usr\sap\\&lt;SID&gt;\SYS\... files by using the following UNC path:
+  * File structure: S:\usr\sap\\&lt;SID&gt;\SYS\...
+  * The sapmnt file share, which enables access to these global S:\usr\sap\\&lt;SID&gt;\SYS\... files by using the following UNC path:
 
-     \\\\<ASCS/SCS virtual host name>\sapmnt\\&lt;SID&gt;\SYS\...
+    \\\\<ASCS/SCS virtual host name\>\sapmnt\\&lt;SID&gt;\SYS\...
 
 
 ![Figure 2: Processes, file structure, and global host sapmnt file share of an SAP ASCS/SCS instance][sap-ha-guide-figure-8001]
@@ -240,7 +240,7 @@ _**Figure 3:** SAP ASCS/SCS HA architecture with shared disk_
 
 > [!IMPORTANT]
 > These two components run under the same SAP ASCS/SCS instance:
->* The same <ASCS/SCS virtual host name> is used to access the SAP message and enqueue server processes, and the SAP global host files via the sapmnt file share.
+>* The same \<ASCS/SCS virtual host name> is used to access the SAP message and enqueue server processes, and the SAP global host files via the sapmnt file share.
 >* The same cluster shared disk drive S is shared between them.
 >
 
@@ -261,7 +261,7 @@ To create a shared disk resource for a cluster:
 2. Run SIOS DataKeeper Cluster Edition on both virtual machine nodes.
 3. Configure SIOS DataKeeper Cluster Edition so that it mirrors the content of the additional disk attached volume from the source virtual machine to the additional disk attached volume of the target virtual machine. SIOS DataKeeper abstracts the source and target local volumes, and then presents them to Windows Server failover clustering as one shared disk.
 
-Get more information about [SIOS DataKeeper](http://us.sios.com/products/datakeeper-cluster/).
+Get more information about [SIOS DataKeeper](https://us.sios.com/products/datakeeper-cluster/).
 
 ![Figure 5: Windows Server failover clustering configuration in Azure with SIOS DataKeeper][sap-ha-guide-figure-1002]
 

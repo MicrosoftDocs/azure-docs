@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Detect faces in an image using the REST API and PHP"
 titleSuffix: Azure Cognitive Services
-description: In this quickstart, you detect faces from an image using the Face API with PHP.
+description: In this quickstart, you detect faces from an image using the Face REST API with PHP.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 02/07/2019
+ms.date: 12/05/2019
 ms.author: pafarley
 ---
 # Quickstart: Detect faces in an image using the REST API and PHP
@@ -18,8 +18,10 @@ In this quickstart, you will use the Azure Face REST API with PHP to detect huma
 
 ## Prerequisites
 
-- A Face API subscription key. You can get a free trial subscription key from [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Or, follow the instructions in [Create a Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) to subscribe to the Face API service and get your key.
-- A code editor such as [Visual Studio Code](https://code.visualstudio.com/download)
+- A Face subscription key. You can get a free trial subscription key from [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Or, follow the instructions in [Create a Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) to subscribe to the Face service and get your key.
+- A code editor such as [Visual Studio Code](https://code.visualstudio.com/download).
+- The PHP [HTTP_Request2](https://pear.php.net/package/HTTP_Request2) package.
+- A PHP-enabled web browser. If you have not set this up, you can do so by installing and setting up [XAMPP](https://www.apachefriends.org/) on your machine.
 
 ## Initialize the HTML file
 
@@ -36,23 +38,21 @@ Create a new HTML file, *detectFaces.html*, and add the following code.
 
 ## Write the PHP script
 
-Add the following code inside the `body` element of the document. This sets up a basic user interface with a URL field, an **Analyze face** button, a response pane, and an image display pane.
+Add the following code inside the `body` element of the document. This code sets up a basic user interface with a URL field, an **Analyze face** button, a response pane, and an image display pane.
 
 ```php
 <?php
 // Replace <Subscription Key> with a valid subscription key.
 $ocpApimSubscriptionKey = '<Subscription Key>';
 
-// You must use the same location in your REST call as you used to obtain
-// your subscription keys. For example, if you obtained your subscription keys
-// from westus, replace "westcentralus" in the URL below with "westus".
-$uriBase = 'https://westcentralus.api.cognitive.microsoft.com/face/v1.0/';
+// Replace <My Endpoint String> with the string in your endpoint URL.
+$uriBase = 'https:/<My Endpoint String>.com/face/v1.0/';
 
 $imageUrl =
     'https://upload.wikimedia.org/wikipedia/commons/3/37/Dagestani_man_and_woman.jpg';
 
 // This sample uses the PHP5 HTTP_Request2 package
-// (http://pear.php.net/package/HTTP_Request2).
+// (https://pear.php.net/package/HTTP_Request2).
 require_once 'HTTP/Request2.php';
 
 $request = new Http_Request2($uriBase . '/detect');
@@ -94,7 +94,9 @@ catch (HttpException $ex)
 ?>
 ```
 
-You'll need to update the `subscriptionKey` field with the value of your subscription key, and you may need to change the `uriBase` string so that it contains the correct region identifier (see the [Face API docs](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) for a list of all region endpoints). The `returnFaceAttributes` field specifies which face attributes to retrieve; you may wish to change this string depending on your intended use.
+You'll need to update the `subscriptionKey` field with the value of your subscription key, and you need to change the `uriBase` string so that it contains the correct endpoint string. The `returnFaceAttributes` field specifies which face attributes to retrieve; you may wish to change this string depending on your intended use.
+
+[!INCLUDE [subdomains-note](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 ## Run the script
 
@@ -281,7 +283,7 @@ Open the file in a PHP-enabled web browser. You should get a JSON string of Face
 
 ## Next steps
 
-Explore the Face APIs used to detect human faces in an image, demarcate the faces with rectangles, and return attributes such as age and gender.
+Explore the Face API used to detect human faces in an image, demarcate the faces with rectangles, and return attributes such as age and gender.
 
 > [!div class="nextstepaction"]
 > [Face APIs](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)

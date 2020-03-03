@@ -1,10 +1,10 @@
 ---
-title: Install MongoDB on a Linux VM with the Azure CLI | Microsoft Docs
+title: Install MongoDB on a Linux VM with the Azure CLI 
 description: Learn how to install and configure MongoDB on a Linux virtual machine iusing the Azure CLI
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 
 ms.assetid: 3f55b546-86df-4442-9ef4-8a25fae7b96e
@@ -19,7 +19,7 @@ ms.author: cynthn
 ---
 # How to install and configure MongoDB on a Linux VM
 
-[MongoDB](http://www.mongodb.org) is a popular open-source, high-performance NoSQL database. This article shows you how to install and configure MongoDB on a Linux VM with the Azure CLI. Examples are shown that detail how to:
+[MongoDB](https://www.mongodb.org) is a popular open-source, high-performance NoSQL database. This article shows you how to install and configure MongoDB on a Linux VM with the Azure CLI. Examples are shown that detail how to:
 
 * [Manually install and configure a basic MongoDB instance](#manually-install-and-configure-mongodb-on-a-vm)
 * [Create a basic MongoDB instance using a Resource Manager template](#create-basic-mongodb-instance-on-centos-using-a-template)
@@ -211,7 +211,7 @@ In these examples, you connect to the MongoDB instance locally from the VM. If y
 
 These examples deploy the core MongoDB environment for development purposes. Apply the required security configuration options for your environment. For more information, see the [MongoDB security docs](https://docs.mongodb.com/manual/security/).
 
-For more information about creating using templates, see the [Azure Resource Manager overview](../../azure-resource-manager/resource-group-overview.md).
+For more information about creating using templates, see the [Azure Resource Manager overview](../../azure-resource-manager/management/overview.md).
 
 The Azure Resource Manager templates use the Custom Script Extension to download and execute scripts on your VMs. For more information, see [Using the Azure Custom Script Extension with Linux Virtual Machines](extensions-customscript.md).
 

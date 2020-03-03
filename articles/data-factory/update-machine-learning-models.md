@@ -1,21 +1,18 @@
 ---
-title: Update machine learning models using Azure Data Factory | Microsoft Docs
+title: Update machine learning models using Azure Data Factory 
 description: Describes how to create create predictive pipelines using Azure Data Factory and machine learning
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.reviewer: douglasl
-
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-
 ms.topic: conceptual
 ms.date: 01/16/2018
-ms.author: shlo
-
 ---
+
 # Update Azure Machine Learning models by using Update Resource activity
 This article complements the main Azure Data Factory - Azure Machine Learning integration article: [Create predictive pipelines using Azure Machine Learning and Azure Data Factory](transform-data-using-machine-learning.md). If you haven't already done so, review the main article before reading through this article.
 
@@ -68,7 +65,7 @@ The following JSON snippet defines an Azure Machine Learning Batch Execution act
 
 The entire process of operationalizing retraining a model and update the predictive Web Services involves the following steps:
 
-- Invoke the **training Web Service** by using the **Batch Execution activity**. Invoking a training Web Service is the same as invoking a predictive Web Service described in [Create predictive pipelines using Azure Machine Learning and Data Factory Batch Execution activity](transform-data-using-machine-learning.md). The output of the training Web Service is a iLearner file that you can use to update the predictive Web Service.
+- Invoke the **training Web Service** by using the **Batch Execution activity**. Invoking a training Web Service is the same as invoking a predictive Web Service described in [Create predictive pipelines using Azure Machine Learning and Data Factory Batch Execution activity](transform-data-using-machine-learning.md). The output of the training Web Service is an iLearner file that you can use to update the predictive Web Service.
 - Invoke the **update resource endpoint** of the **predictive Web Service** by using the **Update Resource activity** to update the Web Service with the newly trained model.
 
 ## Azure Machine Learning linked service

@@ -1,23 +1,21 @@
 ---
-title: Support matrix for disaster recovery of Hyper-V VMs in VMM clouds to a secondary site with Azure Site Recovery | Microsoft Docs
+title: Support matrix-Hyper-V disaster recovery to a secondary VMM site with Azure Site Recovery
 description: Summarizes support for Hyper-V VM replication in VMM clouds to a secondary site with Azure Site Recovery.
-services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 12/27/2018
+ms.date: 11/06/2019
 ms.author: raynew
 ---
 
 # Support matrix for disaster recovery of Hyper-V VMs to a secondary site
 
-This article summarizes what's supported when you use the [Azure Site Recovery](site-recovery-overview.md) service to replicate Hyper-V VMs managed in System Center Virtual Machine Manager (VMM)clouds to a secondary site. If you want to replicate Hyper-V VMs to Azure, review [this support matrix](hyper-v-azure-support-matrix.md).
+This article summarizes what's supported when you use the [Azure Site Recovery](site-recovery-overview.md) service to replicate Hyper-V VMs managed in System Center Virtual Machine Manager (VMM) clouds to a secondary site. If you want to replicate Hyper-V VMs to Azure, review [this support matrix](hyper-v-azure-support-matrix.md).
 
 > [!NOTE]
 > You can only replicate to a secondary site when your Hyper-V hosts are managed in VMM clouds.
 
-  
 
 ## Host servers
 
@@ -104,7 +102,7 @@ Move storage, network, Azure VMs across resource groups (within or across subscr
 The Provider coordinates communications between VMM servers. 
 
 **Latest** | **Updates**
---- | --- | --- | --- | ---
+--- | --- 
 5.1.19 ([available from portal](https://aka.ms/downloaddra) | [Latest features and fixes](https://support.microsoft.com/kb/3155002)
 
 

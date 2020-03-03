@@ -8,7 +8,8 @@ manager: daveba
 ms.reviewer: barbkess
 
 ms.assetid: f9385723-8fe7-4340-8afb-1508dac3e92b
-ms.service: Azure-Active-Directory
+ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -126,7 +127,7 @@ To configure Azure AD single sign-on with Adobe Sign, perform the following step
 
 ### Configure Adobe Sign Single Sign-On
 
-7. Before configuration, contact the [Adobe Sign Client support team](https://helpx.adobe.com/in/contact/support.html) to whitelist your domain in the Adobe Sign. Here's how to add the domain:
+1. Before configuration, contact the [Adobe Sign Client support team](https://helpx.adobe.com/in/contact/support.html) to add your domain in the Adobe Sign allow list. Here's how to add the domain:
 
 	a. The [Adobe Sign Client support team](https://helpx.adobe.com/in/contact/support.html) sends you a randomly generated token. For your domain, the token will be like the following: **adobe-sign-verification= xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx**
 
@@ -145,33 +146,33 @@ To configure Azure AD single sign-on with Adobe Sign, perform the following step
 	* Add a TXT record with the full token value supplied by Adobe.
 	* Save your changes.
 
-8. In a different web browser window, sign in to your Adobe Sign company site as an administrator.
+1. In a different web browser window, sign in to your Adobe Sign company site as an administrator.
 
-9. In the SAML menu, select **Account Settings** > **SAML Settings**.
+1. In the SAML menu, select **Account Settings** > **SAML Settings**.
    
 	![Screenshot of Adobe Sign SAML Settings page](./media/adobe-echosign-tutorial/ic789520.png "Account")
 
-10. In the **SAML Settings** section, perform the following steps:
+1. In the **SAML Settings** section, perform the following steps:
   
-	![Screenshot of SAML Settings](./media/adobe-echosign-tutorial/ic789521.png "SAML Settings")
+   ![Screenshot of SAML Settings](./media/adobe-echosign-tutorial/ic789521.png "SAML Settings")
    
-	![Screenshot of SAML Settings](./media/adobe-echosign-tutorial/ic789522.png "SAML Settings")
+   ![Screenshot of SAML Settings](./media/adobe-echosign-tutorial/ic789522.png "SAML Settings")
 
-    a. Under **SAML Mode**, select **SAML Mandatory**.
+   a. Under **SAML Mode**, select **SAML Mandatory**.
    
-    b. Select **Allow Echosign Account Administrators to log in using their Echosign Credentials**.
+   b. Select **Allow Echosign Account Administrators to log in using their Echosign Credentials**.
    
-    c. Under **User Creation**, select **Automatically add users authenticated through SAML**.
+   c. Under **User Creation**, select **Automatically add users authenticated through SAML**.
 
-	d. Paste **Azure Ad Identifier**, which you have copied from the Azure portal into the **Idp Entity ID** text box.
+   d. Paste **Azure Ad Identifier**, which you have copied from the Azure portal into the **Idp Entity ID** text box.
    	
-	e. Paste **Login URL**, which you have copied from Azure portal into the **Idp Login URL** text box.
+   e. Paste **Login URL**, which you have copied from Azure portal into the **Idp Login URL** text box.
    
-    f. Paste **Logout URL**, which you have copied from the Azure portal into the **Idp Logout URL** text box.
+   f. Paste **Logout URL**, which you have copied from the Azure portal into the **Idp Logout URL** text box.
 
-	g. Open your downloaded **Certificate(Base64)** file in Notepad. Copy the content of it into your clipboard, and then paste it to the **IdP Certificate** text box.
+   g. Open your downloaded **Certificate(Base64)** file in Notepad. Copy the content of it into your clipboard, and then paste it to the **IdP Certificate** text box.
 
-	h. Select **Save Changes**.
+   h. Select **Save Changes**.
 
 ### Create an Azure AD test user 
 
@@ -191,7 +192,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     a. In the **Name** field enter **BrittaSimon**.
   
-    b. In the **User name** field type **brittasimon@yourcompanydomain.extension**  
+    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
     For example, BrittaSimon@contoso.com
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
@@ -260,5 +261,5 @@ When you click the Adobe Sign tile in the Access Panel, you should be automatica
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

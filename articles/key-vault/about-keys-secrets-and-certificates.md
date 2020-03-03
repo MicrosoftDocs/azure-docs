@@ -2,18 +2,15 @@
 title: About Azure Key Vault keys, secrets and certificates - Azure Key Vault
 description: Overview of Azure Key Vault REST interface and developer details for keys, secrets and certificates.
 services: key-vault
-documentationcenter:
-author: BryanLa
-manager: barbkess
+author: msmbaldwin
+manager: rkarlin
 tags: azure-resource-manager
 
-ms.assetid: abd1b743-1d58-413f-afc1-d08ebf93828a
 ms.service: key-vault
-ms.workload: identity
-ms.tgt_pltfrm: na
+ms.subservice: general
 ms.topic: conceptual
-ms.date: 01/07/2019
-ms.author: bryanla
+ms.date: 09/04/2019
+ms.author: mbaldwin
 ---
 
 # About keys, secrets, and certificates
@@ -25,7 +22,7 @@ Azure Key Vault enables Microsoft Azure applications and users to store and use 
 - Certificates: Supports certificates, which are built on top of keys and secrets and add an automated renewal feature.
 - Azure Storage: Can manage keys of an Azure Storage account for you. Internally, Key Vault can list (sync) keys with an Azure Storage Account, and regenerate (rotate) the keys periodically. 
 
-For more general information about Key Vault, see [What is Azure Key Vault?](/azure/key-vault/key-vault-whatis)
+For more general information about Key Vault, see [What is Azure Key Vault?](/azure/key-vault/key-vault-overview)
 
 ## Azure Key Vault
 
@@ -35,10 +32,10 @@ The following sections offer general information applicable across the implement
 
 The JavaScript Object Notation (JSON) and JavaScript Object Signing and Encryption (JOSE) specifications are important background information.  
 
--   [JSON Web Key (JWK)](http://tools.ietf.org/html/draft-ietf-jose-json-web-key)  
--   [JSON Web Encryption (JWE)](http://tools.ietf.org/html/draft-ietf-jose-json-web-encryption)  
--   [JSON Web Algorithms (JWA)](http://tools.ietf.org/html/draft-ietf-jose-json-web-algorithms)  
--   [JSON Web Signature (JWS)](http://tools.ietf.org/html/draft-ietf-jose-json-web-signature)  
+-   [JSON Web Key (JWK)](https://tools.ietf.org/html/draft-ietf-jose-json-web-key-41)  
+-   [JSON Web Encryption (JWE)](https://tools.ietf.org/html/draft-ietf-jose-json-web-encryption-40)  
+-   [JSON Web Algorithms (JWA)](https://tools.ietf.org/html/draft-ietf-jose-json-web-algorithms-40)  
+-   [JSON Web Signature (JWS)](https://tools.ietf.org/html/draft-ietf-jose-json-web-signature-41)  
 
 ### Data types
 
@@ -85,7 +82,7 @@ Where:
 Cryptographic keys in Key Vault are represented as JSON Web Key [JWK] objects. The base JWK/JWA specifications are also extended to enable key types unique to the Key Vault implementation. For example, importing keys using  HSM vendor-specific packaging, enables secure transportation of keys that may only be used in Key Vault HSMs.  
 
 - **"Soft" keys**: A key processed in software by Key Vault, but is encrypted at rest using a system key that is in an HSM. Clients may import an existing RSA or EC (Elliptic Curve) key, or request that Key Vault generate one.
-- **"Hard" keys**: A key processed in an HSM (Hardware Security Module). These keys are protected in one of the Key Vault HSM Security Worlds (there's one Security World per geography to maintain isolation). Clients may import an RSA or EC key, in soft form or by exporting from a compatible HSM device. Clients may also request Key Vault to generate a key. This key type adds the T attribute to the JWK obtain to carry the HSM key material.
+- **"Hard" keys**: A key processed in an HSM (Hardware Security Module). These keys are protected in one of the Key Vault HSM Security Worlds (there's one Security World per geography to maintain isolation). Clients may import an RSA or EC key, in soft form or by exporting from a compatible HSM device. Clients may also request Key Vault to generate a key. This key type adds the key_hsm attribute to the JWK obtain to carry the HSM key material.
 
      For more information on geographical boundaries, see [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/privacy/)  
 
@@ -108,7 +105,7 @@ The cryptographic modules that Key Vault uses, whether HSM or software, are FIPS
 #### Curve Types
 
 -   **P-256** - The NIST curve P-256, defined at [DSS FIPS PUB 186-4](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-4.pdf).
--   **P-256K** - The SEC curve SECP256K1, defined at [SEC 2: Recommended Elliptic Curve Domain Parameters](http://www.secg.org/sec2-v2.pdf).
+-   **P-256K** - The SEC curve SECP256K1, defined at [SEC 2: Recommended Elliptic Curve Domain Parameters](https://www.secg.org/sec2-v2.pdf).
 -   **P-384** - The NIST curve P-384, defined at [DSS FIPS PUB 186-4](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-4.pdf).
 -   **P-521** - The NIST curve P-521, defined at [DSS FIPS PUB 186-4](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-4.pdf).
 
@@ -163,7 +160,7 @@ Key Vault doesn't support EXPORT operations. Once a key is provisioned in the sy
 
 Users may restrict any of the cryptographic operations that Key Vault supports on a per-key basis using the key_ops property of the JWK object.  
 
-For more information on JWK objects, see [JSON Web Key (JWK)](http://tools.ietf.org/html/draft-ietf-jose-json-web-key).  
+For more information on JWK objects, see [JSON Web Key (JWK)](https://tools.ietf.org/html/draft-ietf-jose-json-web-key-41).  
 
 ###  Key attributes
 
@@ -186,7 +183,7 @@ Not-yet-valid and expired keys, outside the *nbf* / *exp* window, will work for 
 
 For more information on data types, see [Data types](#data-types).
 
-For more information on other possible attributes, see the [JSON Web Key (JWK)](http://tools.ietf.org/html/draft-ietf-jose-json-web-key).
+For more information on other possible attributes, see the [JSON Web Key (JWK)](https://tools.ietf.org/html/draft-ietf-jose-json-web-key-41).
 
 ### Key tags
 
@@ -197,9 +194,9 @@ You can specify additional application-specific metadata in the form of tags. Ke
 
 ###  Key access control
 
-Access control for keys managed by Key Vault is provided at the level of a Key Vault that acts as the container of keys. The access control policy for keys, is distinct from the access control policy for secrets in the same Key Vault. Users may create one or more vaults to hold keys, and are required to maintain scenario appropriate segmentation and management of keys. Access control for keys is independent of access control for secrets.  
+Access control for keys managed by Key Vault is provided at the level of a Key Vault that acts as the container of keys. The access control policy for keys is distinct from the access control policy for secrets in the same Key Vault. Users may create one or more vaults to hold keys, and are required to maintain scenario appropriate segmentation and management of keys. Access control for keys is independent of access control for secrets.  
 
-The following permissions can be granted, on a per user / service principal basis, in the keys access control entry on a vault. These permissions closely mirror the operations allowed on a key object:  
+The following permissions can be granted, on a per user / service principal basis, in the keys access control entry on a vault. These permissions closely mirror the operations allowed on a key object.  Granting access to an service principal in key vault is a onetime operation, and it will remain same for all Azure subscriptions. You can use it to deploy as many certificates as you want. 
 
 - Permissions for key management operations
   - *get*: Read the public part of a key, plus its attributes
@@ -377,7 +374,7 @@ The following table represents the mapping of x509 key usage policy to effective
 
 A Key Vault certificate object holds a configuration used to communicate with a selected certificate issuer provider to order x509 certificates.  
 
--   Key Vault partners with following certificate issuer providers for SSL certificates
+-   Key Vault partners with following certificate issuer providers for TLS/SSL certificates
 
 |**Provider Name**|**Locations**|
 |----------|--------|
@@ -390,7 +387,7 @@ Before a certificate issuer can be created in a Key Vault, following prerequisit
 
     -   An organization administrator must on-board their company (ex. Contoso) with at least one CA provider.  
 
-2. Admin creates requester credentials for Key Vault to enroll (and renew) SSL certificates  
+2. Admin creates requester credentials for Key Vault to enroll (and renew) TLS/SSL certificates  
 
     -   Provides the configuration to be used to create an issuer object of the provider in the key vault  
 
@@ -406,10 +403,10 @@ Certificate contacts contain contact information to send notifications triggered
 
 If a certificate's policy is set to auto renewal, then a notification is sent on the following events.  
 
--   Before certificate renewal
--   After certificate renewal, stating if the certificate was successfully renewed, or if there was an error, requiring manual renewal of the certificate.  
+- Before certificate renewal
+- After certificate renewal, stating if the certificate was successfully renewed, or if there was an error, requiring manual renewal of the certificate.  
 
- When a certificate policy that is set to be manually renewed (email only), a notification is sent when it’s time to renew the certificate.  
+  When a certificate policy that is set to be manually renewed (email only), a notification is sent when it’s time to renew the certificate.  
 
 ### Certificate Access Control
 
@@ -477,5 +474,4 @@ For more information, see the [Storage account operations in the Key Vault REST 
 ## See Also
 
 - [Authentication, requests, and responses](authentication-requests-and-responses.md)
-- [Key Vault versions](key-vault-versions.md)
 - [Key Vault Developer's Guide](/azure/key-vault/key-vault-developers-guide)

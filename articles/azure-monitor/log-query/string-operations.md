@@ -1,18 +1,12 @@
 ---
 title: Work with strings in Azure Monitor log queries | Microsoft Docs
-description: Describes how to edit, compare, search in and perform a variety of other operations on strings in Azure Monitor log queries. 
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: 
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+description: Describes how to edit, compare, search in and perform a variety of other operations on strings in Azure Monitor log queries.
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 08/16/2018
+author: bwren
 ms.author: bwren
+ms.date: 08/16/2018
+
 ---
 
 # Work with strings in Azure Monitor log queries
@@ -25,14 +19,18 @@ ms.author: bwren
 
 This article describes how to edit, compare, search in and perform a variety of other operations on strings.
 
-Each character in a string has an index number, according to its location. The first character is at index 0, the next character is 1, and so one. Different string functions use index numbers as shown in the following sections. Many of the following examples use the **print** command for to demonstrate string manipulation without using a specific data source.
+Each character in a string has an index number, according to its location. The first character is at index 0, the next character is 1, and so on. Different string functions use index numbers as shown in the following sections. Many of the following examples use the **print** command for to demonstrate string manipulation without using a specific data source.
 
 
 ## Strings and escaping them
-String values are wrapped with either with single or double quote characters. Backslash (\) is used to escape characters to the character following it, such as \t for tab, \n for newline, and \" the quote character itself.
+String values are wrapped with either with single or double quote characters. Backslash (\\) is used to escape characters to the character following it, such as \t for tab, \n for newline, and \" the quote character itself.
 
 ```Kusto
 print "this is a 'string' literal in double \" quotes"
+```
+
+```Kusto
+print 'this is a "string" literal in single \' quotes'
 ```
 
 To prevent "\\" from acting as an escape character, add "\@" as a prefix to the string:
@@ -59,9 +57,9 @@ Operator       |Description                         |Case-Sensitive|Example (yie
 `hasprefix_cs`    |Right-hand-side is a term prefix in left-hand-side         |Yes            |`"North America" hasprefix_cs "Ame"`
 `!hasprefix_cs`   |Right-hand-side isn't a term prefix in left-hand-side     |Yes            |`"North America" !hasprefix_cs "CA"` 
 `hassuffix`    |Right-hand-side is a term suffix in left-hand-side         |No            |`"North America" hassuffix "ica"`
-`!hassuffix`   |Right-hand-side isn't a term suffix in left-hand-side     |No            |`"North America" !hassuffix "americ"
+`!hassuffix`   |Right-hand-side isn't a term suffix in left-hand-side     |No            |`"North America" !hassuffix "americ"`
 `hassuffix_cs`    |Right-hand-side is a term suffix in left-hand-side         |Yes            |`"North America" hassuffix_cs "ica"`
-`!hassuffix_cs`   |Right-hand-side isn't a term suffix in left-hand-side     |Yes            |`"North America" !hassuffix_cs "icA"
+`!hassuffix_cs`   |Right-hand-side isn't a term suffix in left-hand-side     |Yes            |`"North America" !hassuffix_cs "icA"`
 `contains`     |Right-hand-side occurs as a subsequence of left-hand-side  |No            |`"FabriKam" contains "BRik"`
 `!contains`    |Right-hand-side doesn't occur in left-hand-side           |No            |`"Fabrikam" !contains "xyz"`
 `contains_cs`   |Right-hand-side occurs as a subsequence of left-hand-side  |Yes           |`"FabriKam" contains_cs "Kam"`
@@ -81,7 +79,7 @@ Operator       |Description                         |Case-Sensitive|Example (yie
 
 ## countof
 
-Counts occurrences of a substring in a string. Can match plain strings or use regex. Plain string matches may overlap while regex matches don't.
+Counts occurrences of a substring in a string. Can match plain strings or use regex. Plain string matches may overlap while regex matches do not.
 
 ### Syntax
 ```
@@ -120,7 +118,7 @@ print countof("abcabc", "a.c", "regex");  // result: 2
 
 ## extract
 
-Gets a match for a regular expression from a given string. Optionally also converts the extracted substring the specified type.
+Gets a match for a regular expression from a given string. Optionally also converts the extracted substring to the specified type.
 
 ### Syntax
 
@@ -254,6 +252,7 @@ SecurityEvent
 ```
 
 Can have the following results:
+
 Activity                                        |replaced
 ------------------------------------------------|----------------------------------------------------------
 4663 - An attempt was made to access an object  |Activity ID 4663: An attempt was made to access an object.

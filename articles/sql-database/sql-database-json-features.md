@@ -1,5 +1,5 @@
 ---
-title: Working with JSON data in Azure SQL Database | Microsoft Docs
+title: Working with JSON data
 description: Azure SQL Database enables you to parse, query, and format data in JavaScript Object Notation (JSON) notation.
 services: sql-database
 ms.service: sql-database
@@ -10,11 +10,10 @@ ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer:
-manager: craigg
 ms.date: 01/15/2019
 ---
 # Getting started with JSON features in Azure SQL Database
-Azure SQL Database lets you parse and query data represented in JavaScript Object Notation [(JSON)](http://www.json.org/) format, and export your relational data as JSON text. The following JSON scenarios are available in Azure SQL Database:
+Azure SQL Database lets you parse and query data represented in JavaScript Object Notation [(JSON)](https://www.json.org/) format, and export your relational data as JSON text. The following JSON scenarios are available in Azure SQL Database:
 - [Formatting relational data in JSON format](#formatting-relational-data-in-json-format) using `FOR JSON` clause.
 - [Working with JSON data](#working-with-json-data)
 - [Querying JSON data](#querying-json-data) using JSON scalar functions.
@@ -184,7 +183,7 @@ The collection of orders formatted as a JSON array and provided as a parameter t
 ## Next steps
 To learn how to integrate JSON into your application, check out these resources:
 
-* [TechNet Blog](https://blogs.technet.microsoft.com/dataplatforminsider/2016/01/05/json-in-sql-server-2016-part-1-of-4/)
+* [TechNet Blog](https://blogs.technet.microsoft.com/dataplatforminsider/20../../json-in-sql-server-2016-part-1-of-4/)
 * [MSDN documentation](https://msdn.microsoft.com/library/dn921897.aspx)
 * [Channel 9 video](https://channel9.msdn.com/Shows/Data-Exposed/SQL-Server-2016-and-JSON-Support)
 

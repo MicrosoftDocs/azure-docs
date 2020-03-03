@@ -1,5 +1,5 @@
 ---
-title: Rolling application upgrades - Azure SQL Database | Microsoft Docs
+title: Rolling application upgrades
 description: Learn how to use Azure SQL Database geo-replication to support online upgrades of your cloud application.
 services: sql-database
 ms.service: sql-database
@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-manager: craigg
 ms.date: 02/13/2019
 ---
 
@@ -98,7 +97,21 @@ To make it possible to roll back the upgrade, you must create a staging environm
 When the preparation steps are complete, the staging environment is ready for the upgrade. The next diagram illustrates these upgrade steps:
 
 1. Set the primary database in the production environment to read-only mode (10). This mode guarantees that the production database (V1) won't change during the upgrade, thus preventing the data divergence between the V1 and V2 database instances.
-2. Disconnect the secondary database in the same region by using the planned termination mode (11). This action creates an independent but fully synchronized copy of the production database. This database will be upgraded.
+
+```sql
+-- Set the production database to read-only mode
+ALTER DATABASE <Prod_DB>
+SET (ALLOW_CONNECTIONS = NO)
+```
+
+2. Terminate geo-replication by disconnecting the secondary (11). This action creates an independent but fully synchronized copy of the production database. This database will be upgraded. The following example uses Transact-SQL but [PowerShell](/powershell/module/az.sql/remove-azsqldatabasesecondary?view=azps-1.5.0) is also available. 
+
+```sql
+-- Disconnect the secondary, terminating geo-replication
+ALTER DATABASE <Prod_DB>
+REMOVE SECONDARY ON SERVER <Partner-Server>
+```
+
 3. Run the upgrade script against `contoso-1-staging.azurewebsites.net`, `contoso-dr-staging.azurewebsites.net`, and the staging primary database (12). The database changes will be replicated automatically to the staging secondary.
 
 ![SQL Database geo-replication configuration for cloud disaster recovery.](media/sql-database-manage-application-rolling-upgrade/option2-2.png)

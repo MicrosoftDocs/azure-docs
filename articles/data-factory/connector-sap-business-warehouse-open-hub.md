@@ -1,34 +1,32 @@
 ---
-title: Copy data from SAP Business Warehouse via Open Hub using Azure Data Factory | Microsoft Docs
+title: Copy data from SAP Business Warehouse via Open Hub
 description: Learn how to copy data from SAP Business Warehouse (BW) via Open Hub to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
 services: data-factory
 documentationcenter: ''
+ms.author: jingwang
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
-
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-
 ms.topic: conceptual
-ms.date: 02/25/2019
-ms.author: jingwang
-
+ms.custom: seo-lt-2019
+ms.date: 09/04/2019
 ---
+
 # Copy data from SAP Business Warehouse via Open Hub using Azure Data Factory
 
 This article outlines how to use the Copy Activity in Azure Data Factory to copy data from an SAP Business Warehouse (BW) via Open Hub. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
-## SAP BW Open Hub Integration 
-
-[SAP BW Open Hub Service](https://wiki.scn.sap.com/wiki/display/BI/Overview+of+Open+Hub+Service) is an efficient way to extract data from SAP BW. The following diagram shows one of the typical flows customers have in their SAP system, in which case data flows from SAP ECC -> PSA -> DSO -> Cube.
-
-SAP BW Open Hub Destination (OHD) defines the target to which the SAP data is relayed. Any objects supported by SAP Data Transfer Process (DTP) can be used as open hub data sources, for example, DSO, InfoCube, DataSource, etc. Open Hub Destination type - where the relayed data is stored - can be database tables (local or remote) and flat files. This SAP BW Open Hub connector support copying data from OHD local table in BW. In case you are using other types, you can directly connect to the database or file system using other connectors.
-
-![SAP BW Open Hub](./media/connector-sap-business-warehouse-open-hub/sap-bw-open-hub.png)
+>[!TIP]
+>To learn ADF's overall support on SAP data integration scenario, see [SAP data integration using Azure Data Factory whitepaper](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) with detailed introduction, comparsion and guidance.
 
 ## Supported capabilities
+
+This SAP Business Warehouse via Open Hub connector is supported for the following activities:
+
+- [Copy activity](copy-activity-overview.md) with [supported source/sink matrix](copy-activity-overview.md)
+- [Lookup activity](control-flow-lookup-activity.md)
 
 You can copy data from SAP Business Warehouse via Open Hub to any supported sink data store. For a list of data stores that are supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
@@ -38,6 +36,39 @@ Specifically, this SAP Business Warehouse Open Hub connector supports:
 - Copying data via Open Hub Destination local table which underneath can be DSO, InfoCube, MultiProvider, DataSource, etc.
 - Copying data using basic authentication.
 - Connecting to Application Server.
+
+## SAP BW Open Hub Integration 
+
+[SAP BW Open Hub Service](https://wiki.scn.sap.com/wiki/display/BI/Overview+of+Open+Hub+Service) is an efficient way to extract data from SAP BW. The following diagram shows one of the typical flows customers have in their SAP system, in which case data flows from SAP ECC -> PSA -> DSO -> Cube.
+
+SAP BW Open Hub Destination (OHD) defines the target to which the SAP data is relayed. Any objects supported by SAP Data Transfer Process (DTP) can be used as open hub data sources, for example, DSO, InfoCube, DataSource, etc. Open Hub Destination type - where the relayed data is stored - can be database tables (local or remote) and flat files. This SAP BW Open Hub connector support copying data from OHD local table in BW. In case you are using other types, you can directly connect to the database or file system using other connectors.
+
+![SAP BW Open Hub](./media/connector-sap-business-warehouse-open-hub/sap-bw-open-hub.png)
+
+## Delta extraction flow
+
+ADF SAP BW Open Hub Connector offers two optional properties: `excludeLastRequest` and `baseRequestId` which can be used to handle delta load from Open Hub. 
+
+- **excludeLastRequestId**: Whether to exclude the records of the last request. Default value is true. 
+- **baseRequestId**: The ID of request for delta loading. Once it is set, only data with requestId larger than the value of this property will be retrieved. 
+
+Overall, the extraction from SAP InfoProviders to Azure Data Factory (ADF) consists of 2 steps: 
+
+1. **SAP BW Data Transfer Process (DTP)** 
+   This step copies the data from an SAP BW InfoProvider to an SAP BW Open Hub table 
+
+1. **ADF data copy**
+   In this step, the Open Hub table is read by the ADF Connector 
+
+![Delta extraction flow](media/connector-sap-business-warehouse-open-hub/delta-extraction-flow.png)
+
+In the first step, a DTP is executed. Each execution creates a new SAP request ID. The request ID is stored in the Open Hub table and is then used by the ADF connector to identify the delta. The two steps run asynchronously: the DTP is triggered by SAP, and the ADF data copy is triggered through ADF. 
+
+By default, ADF is not reading the latest delta from the Open Hub table (option "exclude last request" is true). Hereby, the data in ADF is not 100% up-to-date with the data in the Open Hub table (the last delta is missing). In return, this procedure ensures that no rows get lost caused by the asynchronous extraction. It works fine even when ADF is reading the Open Hub table while the DTP is still writing into the same table. 
+
+You typically store the max copied request ID in the last run by ADF in a staging data store (such as Azure Blob in above diagram). Therefore, the same request is not read a second time by ADF in the subsequent run. Meanwhile, note the data is not automatically deleted from the Open Hub table.
+
+For proper delta handling it is not allowed to have request IDs from different DTPs in the same Open Hub table. Therefore, you must not create more than one DTP for each Open Hub Destination (OHD). When needing Full and Delta extraction from the same InfoProvider, you should create two OHDs for the same InfoProvider. 
 
 ## Prerequisites
 
@@ -57,6 +88,10 @@ To use this SAP Business Warehouse Open Hub connector, you need to:
 - Create SAP Open Hub Destination type as **Database Table** with "Technical Key" option checked.  It is also recommended to leave the Deleting Data from Table as unchecked although it is not required. Leverage the DTP (directly execute or integrate into existing process chain) to land data from source object (such as cube) you have chosen to the open hub destination table.
 
 ## Getting started
+
+> [!TIP]
+>
+> For a walkthrough of using SAP BW Open Hub connector, see [Load data from SAP Business Warehouse (BW) by using Azure Data Factory](load-sap-bw-data.md).
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -104,7 +139,7 @@ The following properties are supported for SAP Business Warehouse Open Hub linke
 
 ## Dataset properties
 
-For a full list of sections and properties available for defining datasets, see the [Datasets](concepts-datasets-linked-services.md) article. This section provides a list of properties supported by the Salesforce dataset.
+For a full list of sections and properties available for defining datasets, see the [Datasets](concepts-datasets-linked-services.md) article. This section provides a list of properties supported by the SAP BW Open Hub dataset.
 
 To copy data from and to SAP BW Open Hub, set the type property of the dataset to **SapOpenHubTable**. The following properties are supported.
 
@@ -112,11 +147,8 @@ To copy data from and to SAP BW Open Hub, set the type property of the dataset t
 |:--- |:--- |:--- |
 | type | The type property must be set to **SapOpenHubTable**.  | Yes |
 | openHubDestinationName | The name of the Open Hub Destination to copy data from. | Yes |
-| excludeLastRequest | Whether to exclude the records of the last request. | No (default is **true**) |
-| baseRequestId | The ID of request for delta loading. Once it is set, only data with requestId **larger than** the value of this property will be retrieved.  | No |
 
->[!TIP]
->If your Open Hub table only contains the data generated by single request ID, for example, you always do full load and overwrite the existing data in the table, or you only run the DTP once for test, remember to uncheck the "excludeLastRequest" option in order to copy the data out.
+If you were setting `excludeLastRequest` and `baseRequestId` in dataset, it is still supported as-is, while you are suggested to use the new model in activity source going forward.
 
 **Example:**
 
@@ -125,12 +157,13 @@ To copy data from and to SAP BW Open Hub, set the type property of the dataset t
     "name": "SAPBWOpenHubDataset",
     "properties": {
         "type": "SapOpenHubTable",
+        "typeProperties": {
+            "openHubDestinationName": "<open hub destination name>"
+        },
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<SAP BW Open Hub linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {
-            "openHubDestinationName": "<open hub destination name>"
         }
     }
 }
@@ -142,7 +175,18 @@ For a full list of sections and properties available for defining activities, se
 
 ### SAP BW Open Hub as source
 
-To copy data from SAP BW Open Hub, set the source type in the copy activity to **SapOpenHubSource**. While there are no additional type-specific properties needed in the copy activity **source** section.
+To copy data from SAP BW Open Hub, the following properties are supported in the copy activity **source** section:
+
+| Property | Description | Required |
+|:--- |:--- |:--- |
+| type | The **type** property of the copy activity source must be set to **SapOpenHubSource**. | Yes |
+| excludeLastRequest | Whether to exclude the records of the last request. | No (default is **true**) |
+| baseRequestId | The ID of request for delta loading. Once it is set, only data with requestId **larger than** the value of this property will be retrieved.  | No |
+
+>[!TIP]
+>If your Open Hub table only contains the data generated by single request ID, for example, you always do full load and overwrite the existing data in the table, or you only run the DTP once for test, remember to uncheck the "excludeLastRequest" option in order to copy the data out.
+
+To speed up the data loading, you can set [`parallelCopies`](copy-activity-performance.md#parallel-copy) on the copy activity to load data from SAP BW Open Hub in parallel. For example, if you set `parallelCopies` to four, Data Factory concurrently executes four RFC calls, and each RFC call retrieves a portion of data from your SAP BW Open Hub table partitioned by the DTP request ID and package ID. This applies when the number of unique DTP request ID + package ID is bigger than the value of `parallelCopies`. When copying data into file-based data store, it's also recommanded to write to a folder as multiple files (only specify folder name), in which case the performance is better than writing to a single file.
 
 **Example:**
 
@@ -165,11 +209,13 @@ To copy data from SAP BW Open Hub, set the source type in the copy activity to *
         ],
         "typeProperties": {
             "source": {
-                "type": "SapOpenHubSource"
+                "type": "SapOpenHubSource",
+                "excludeLastRequest": true
             },
             "sink": {
                 "type": "<sink type>"
-            }
+            },
+            "parallelCopies": 4
         }
     }
 ]
@@ -189,6 +235,11 @@ When copying data from SAP BW Open Hub, the following mappings are used from SAP
 | P (BCD Packed, Currency, Decimal, Qty) | Decimal |
 | N (Numc) | String |
 | X (Binary and Raw) | String |
+
+## Lookup activity properties
+
+To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
+
 
 ## Next steps
 For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
