@@ -64,7 +64,6 @@ Azure Files AD authentication is not available in:
 - West US 2
 - East US
 - East US 2
-- South Central US
 - West Europe
 - North Europe
 
