@@ -1,4 +1,14 @@
-
+---
+title:  Read and write spatial data | Microsoft Azure Maps
+description: Learn how to read and write data using the Spatial IO module, provided by Azure Maps Web SDK.
+author: farah-alyasari
+ms.author: v-faalya
+ms.date: 03/02/2020
+ms.topic: conceptual
+ms.service: azure-maps
+services: azure-maps
+manager: philmea
+---
 
 
 ## Add an OGC map layer
@@ -10,17 +20,28 @@ The following outlines the web mapping service features supported by the `OgcMap
 **Web Mapping Service (WMS)**
 
 - Supported versions: 1.0.0, 1.1.0, 1.1.1, 1.3.0
-- Supported operations: `GetCapabilities` (capabilities), `GetMap` (map), `GetFeatureInfo` (`feature_info`)
 - The service must support `EPSG:3857` or handle reprojections. 
 - GetFeatureInfo requires the service to support `EPSG:4326` or handle reprojections. 
+- Supported operations:
+
+| | |
+| :-- | :-- |
+| GetCapabilities | Retrieved the capabilities, such as: supported operations, parameters, available layers, and metadata |
+| GetMap | Retrieved a map image for a specified region|
+| GetFeatureInfo | Retrieves `feature_info` |
 
 **Web Mapping Tile Service (WMTS)**
 
 - Supported versions: 1.0.0
-- Supported operations: `GetCapabilities`, `GetTile`
-- Tiles must be square (`TileWidth == TileHeight`).
+- Tiles must be square, such that `TileWidth == TileHeight`.
 - CRS supported: `EPSG:3857` or `GoogleMapsCompatible` 
-- TileMatrix identifier must be an integer value that corrosponds to a zoom level on the map. `"00"` not supported.
+- TileMatrix identifier must be an integer value that corresponds to a zoom level on the map. `"00"` is not supported.
+- Supported operations: 
+
+| | |
+| :-- | :-- |
+| GetCapabilities | |
+| GetTile | |
 
 ## Overlay an OGC map layer
 
