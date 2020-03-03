@@ -1,8 +1,8 @@
 ---
 title: Troubleshooting Azure Monitor alerts and notifications
-description: List of metrics available for each resource type with Azure Monitor.
+description: Common issues with Azure Monitor alerts and possible solutions. 
 author: rboucher
-ms.author: robb
+ms.author: ofmanor
 ms.topic: reference
 ms.date: 03/02/2020
 ms.subservice: alerts
