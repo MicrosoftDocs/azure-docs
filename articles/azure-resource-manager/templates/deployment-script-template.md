@@ -224,7 +224,7 @@ Deployment script outputs must be saved in the AZ_SCRIPTS_OUTPUT_PATH location, 
 You can control how PowerShell responds to non-terminating errors by using the [**$ErrorActionPreference**](/powershell/module/microsoft.powershell.core/about/about_preference_variables?view=powershell-7#erroractionpreference
 ) variable in your deployment script. The deployment script engine doesn't set/change the value.  Despite the value you set for $ErrorActionPreference, deployment script sets the resource provisioning state to *Failed* when the script encounters an error.
 
-### Pass secure string to deployment script
+### Pass secured strings to deployment script
 
 Setting environment variables in your container instances allows you to provide dynamic configuration of the application or script run by the container. Deployment script handles non-secured and secured environment variables in the same way as Azure Container Instance. For more information, see [Set environment variables in container instances](../../container-instances/container-instances-environment-variables.md#secure-values).
 
