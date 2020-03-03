@@ -3,7 +3,7 @@ title: 'Create an Azure Data Explorer cluster and database by using an Azure Res
 description: Learn how to create an Azure Data Explorer cluster and database by using an Azure Resource Manager template
 author: orspod
 ms.author: orspodek 
-ms.reviewer: oflipman
+ms.reviewer: lugoldbe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/26/2019
@@ -17,11 +17,11 @@ ms.date: 09/26/2019
 > * [PowerShell](create-cluster-database-powershell.md)
 > * [C#](create-cluster-database-csharp.md)
 > * [Python](create-cluster-database-python.md)
-> * [ARM template](create-cluster-database-resource-manager.md)
+> * [Azure Resource Manager template](create-cluster-database-resource-manager.md)
 
 Azure Data Explorer is a fast and highly scalable data exploration service for log and telemetry data. To use Azure Data Explorer, you first create a cluster, and create one or more databases in that cluster. Then you ingest (load) data into a database so that you can run queries against it. 
 
-In this article, you create an Azure Data Explorer cluster and database by using an [Azure Resource Manager template](../azure-resource-manager/resource-group-overview.md). The article shows how to define which resources are deployed and how to define parameters that are specified when the deployment is executed. You can use this template for your own deployments, or customize it to meet your requirements. For information about creating templates, see [authoring Azure Resource Manager templates](/azure/azure-resource-manager/resource-group-authoring-templates). For the JSON syntax and properties to use in a template, see [Microsoft.Kusto resource types](/azure/templates/microsoft.kusto/allversions).
+In this article, you create an Azure Data Explorer cluster and database by using an [Azure Resource Manager template](../azure-resource-manager/management/overview.md). The article shows how to define which resources are deployed and how to define parameters that are specified when the deployment is executed. You can use this template for your own deployments, or customize it to meet your requirements. For information about creating templates, see [authoring Azure Resource Manager templates](/azure/azure-resource-manager/resource-group-authoring-templates). For the JSON syntax and properties to use in a template, see [Microsoft.Kusto resource types](/azure/templates/microsoft.kusto/allversions).
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
@@ -66,7 +66,7 @@ In this article, you use an [existing quickstart template](https://raw.githubuse
               "tier": "Standard",
               "capacity": 2
           },
-          "apiVersion": "2019-05-15",
+          "apiVersion": "2019-09-07",
           "location": "[parameters('location')]",
           "tags": {
             "Created By": "GitHub quickstart template"
@@ -75,7 +75,7 @@ In this article, you use an [existing quickstart template](https://raw.githubuse
       {
           "name": "[concat(parameters('clusters_kustocluster_name'), '/', parameters('databases_kustodb_name'))]",
           "type": "Microsoft.Kusto/clusters/databases",
-          "apiVersion": "2019-05-15",
+          "apiVersion": "2019-09-07",
           "location": "[parameters('location')]",
           "dependsOn": [
               "[resourceId('Microsoft.Kusto/clusters', parameters('clusters_kustocluster_name'))]"
@@ -150,26 +150,7 @@ Get-AzKustoCluster -ResourceGroupName $resourceGroupName -Name $clusterName
 Write-Host "Press [ENTER] to continue ..."
 ```
 
-## Clean up resources
-
-When the Azure resources are no longer needed, clean up the resources you deployed by deleting the resource group. 
-
-### Clean up resources using the Azure portal
-
-Delete the resources in the Azure portal by following the steps in [clean up resources](create-cluster-database-portal.md#clean-up-resources).
-
-### Clean up resources using PowerShell
-
-If the Cloud Shell is still open, you don't need to copy/run the first line (Read-Host).
-
-```azurepowershell-interactive
-$projectName = Read-Host -Prompt "Enter the same project name that you used in the last procedure"
-$resourceGroupName = "${projectName}rg"
-
-Remove-AzResourceGroup -ResourceGroupName $resourceGroupName
-
-Write-Host "Press [ENTER] to continue ..."
-```
+[!INCLUDE [data-explorer-clean-resources](../../includes/data-explorer-clean-resources.md)]
 
 ## Next steps
 

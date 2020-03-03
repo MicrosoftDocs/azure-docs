@@ -38,6 +38,9 @@ In this tutorial, you perform the following tasks:
 
 - An email account capable of receiving mail.
 
+- Make sure that port 8883 is open in your firewall. The device sample in this tutorial uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+
+
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## Set up resources
@@ -46,7 +49,7 @@ For this tutorial, you need an IoT hub, a storage account, and a simulated IoT d
 
 These are the required steps.
 
-1. Create a [resource group](../azure-resource-manager/resource-group-overview.md). 
+1. Create a [resource group](../azure-resource-manager/management/overview.md). 
 
 2. Create an IoT hub.
 
@@ -121,7 +124,7 @@ az iot hub device-identity show --device-id $iotDeviceName \
 
 ## Enable the diagnostic logs 
 
-[Diagnostic logs](../azure-monitor/platform/resource-logs-overview.md) are disabled by default when you create a new IoT hub. In this section, enable the diagnostic logs for your hub.
+[Diagnostic logs](../azure-monitor/platform/platform-logs-overview.md) are disabled by default when you create a new IoT hub. In this section, enable the diagnostic logs for your hub.
 
 1. First, if you're not already on your hub in the portal, click **Resource groups** and click on the resource group Contoso-Resources. Select the hub from the list of resources displayed. 
 

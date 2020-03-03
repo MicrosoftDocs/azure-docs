@@ -26,7 +26,7 @@ You can import a SQL Server database into a database in Azure SQL Database using
 
 Watch this video to see how to import from a BACPAC file in the Azure portal or continue reading below:
 
-> [!VIDEO hhttps://channel9.msdn.com/Shows/Data-Exposed/Its-just-SQL-Restoring-a-database-to-Azure-SQL-DB-from-backup/player?WT.mc_id=dataexposed-c9-niner]
+> [!VIDEO https://channel9.msdn.com/Shows/Data-Exposed/Its-just-SQL-Restoring-a-database-to-Azure-SQL-DB-from-backup/player?WT.mc_id=dataexposed-c9-niner]
 
 The [Azure portal](https://portal.azure.com) *only* supports creating a single database in Azure SQL Database and *only* from a BACPAC file stored in Azure Blob storage.
 
@@ -37,19 +37,19 @@ Migrating a database into a [managed instance](sql-database-managed-instance.md)
 
 1. To import from a BACPAC file into a new single database using the Azure portal, open the appropriate database server page and then, on the toolbar, select **Import database**.  
 
-   ![Database import1](./media/sql-database-import/import1.png)
+   ![Database import1](./media/sql-database-import/sql-server-import-database.png)
 
 1. Select the storage account and the container for the BACPAC file and then select the BACPAC file from which to import.
 
 1. Specify the new database size (usually the same as origin) and provide the destination SQL Server credentials. For a list of possible values for a new Azure SQL database, see [Create Database](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current).
 
-   ![Database import2](./media/sql-database-import/import2.png)
+   ![Database import2](./media/sql-database-import/sql-server-import-database-settings.png)
 
 1. Click **OK**.
 
 1. To monitor an import's progress, open the database's server page, and, under **Settings**, select **Import/Export history**. When successful, the import has a **Completed** status.
 
-   ![Database import status](./media/sql-database-import/import-status.png)
+   ![Database import status](./media/sql-database-import/sql-server-import-database-history.png)
 
 1. To verify the database is live on the database server, select **SQL databases** and verify the new database is **Online**.
 
@@ -121,14 +121,14 @@ $importStatus
 
 Use the [az-sql-db-import](/cli/azure/sql/db#az-sql-db-import) command to submit an import database request to the Azure SQL Database service. Depending on database size, the import may take some time to complete.
 
-```azure-cli
+```azurecli
 # get the storage account key
-az storage account keys list --resource-group "<resourceGroupName>" --account-name "<storageAccountName>"
+az storage account keys list --resource-group "<resourceGroup>" --account-name "<storageAccount>"
 
-az sql db import --resource-group "<resourceGroupName>" --server "<serverName>" --name "<databaseName>" `
+az sql db import --resource-group "<resourceGroup>" --server "<server>" --name "<database>" `
     --storage-key-type "StorageAccessKey" --storage-key "<storageAccountKey>" `
     --storage-uri "https://myStorageAccount.blob.core.windows.net/importsample/sample.bacpac" `
-    -u "<userId>" -p $(ConvertTo-SecureString -String "<password>" -AsPlainText -Force)
+    -u "<userId>" -p "<password>"
 ```
 
 * * *

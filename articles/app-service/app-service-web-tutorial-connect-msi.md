@@ -1,20 +1,11 @@
 ---
-title: Secure SQL Database connection with managed identity - Azure App Service | Microsoft Docs 
+title: 'Tutorial: Access data with managed identity'
 description: Learn how to make database connectivity more secure by using a managed identity, and also how to apply it to other Azure services.
-services: app-service\web
-documentationcenter: dotnet
-author: cephalin
-manager: syntaxc4
-editor: ''
 
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 11/18/2019
-ms.author: cephalin
-ms.custom: mvc
+ms.custom: mvc, cli-validate
 ---
 # Tutorial: Secure Azure SQL Database connection from App Service using a managed identity
 

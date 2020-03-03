@@ -178,7 +178,6 @@ If you plan to continue working with this event, don't clean up the resources cr
     ![Resource groups](./media/custom-event-to-function/delete-resource-groups.png)
 
     The other resource group you see in the image was created and used by the Cloud Shell window. Delete it if you don't plan to use the Cloud Shell window later. 
-```
 
 ## Next steps
 

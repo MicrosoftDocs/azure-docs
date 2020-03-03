@@ -27,7 +27,7 @@ ms.author: mikeray
 Before you begin, consider that you can now complete this task in Azure resource manager model. We recommend Azure resource manager model for new deployments. See [SQL Server Always On availability groups on Azure virtual machines](../sql/virtual-machines-windows-portal-sql-availability-group-overview.md).
 
 > [!IMPORTANT]
-> We recommend that most new deployments use the Resource Manager model. Azure has two different deployment models for creating and working with resources: [Resource Manager and classic](../../../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the classic deployment model.
+> We recommend that most new deployments use the Resource Manager model. Azure has two different deployment models for creating and working with resources: [Resource Manager and classic](../../../azure-resource-manager/management/deployment-models.md). This article covers using the classic deployment model.
 
 Azure virtual machines (VMs) can help database administrators to lower the cost of a high-availability SQL Server system. This tutorial shows you how to implement an availability group by using SQL Server Always On end-to-end inside an Azure environment. At the end of the tutorial, your SQL Server Always On solution in Azure will consist of the following elements:
 

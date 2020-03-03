@@ -1,13 +1,8 @@
 ---
-title: Configure Windows Java apps - Azure App Service | Microsoft Docs
-description: Learn how to configure Java apps to run on the default Windows instances in Azure App Service.
+title: Configure Windows Java apps
+description: Learn how to configure Java apps to run on the Windows VM instances in Azure App Service. This article shows the most common configuration tasks.
 keywords: azure app service, web app, windows, oss, java
-services: app-service
 author: jasonfreeberg
-manager: jeconnock
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
 ms.date: 04/12/2019
@@ -25,11 +20,12 @@ This guide provides key concepts and instructions for Java developers using in A
 
 ## Deploying your app
 
-You can use [Maven Plugin for Azure App Service](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme) to deploy your .war files. Deployment with popular IDEs is also supported with [Azure Toolkit for IntelliJ](/java/azure/intellij/azure-toolkit-for-intellij) or [Azure Toolkit for Eclipse](/java/azure/eclipse/azure-toolkit-for-eclipse).
+You can use [Azure Web App Plugin for Maven](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme) to deploy your .war files. Deployment with popular IDEs is also supported with [Azure Toolkit for IntelliJ](/java/azure/intellij/azure-toolkit-for-intellij) or [Azure Toolkit for Eclipse](/java/azure/eclipse/azure-toolkit-for-eclipse).
 
 Otherwise, your deployment method will depend on your archive type:
 
 - To deploy .war files to Tomcat, use the `/api/wardeploy/` endpoint to POST your archive file. For more information on this API, please see [this documentation](https://docs.microsoft.com/azure/app-service/deploy-zip#deploy-war-file).
+- To deploy .jar files to Java SE, use the `/api/zipdeploy/` endpoint of the Kudu site. For more information on this API, please see [this documentation](https://docs.microsoft.com/azure/app-service/deploy-zip#rest).
 
 Do not deploy your .war using FTP. The FTP tool is designed to upload startup scripts, dependencies, or other runtime files. It is not the optimal choice for deploying web apps.
 
@@ -129,9 +125,9 @@ Java applications running in App Service have the same set of [security best pra
 
 Set up app authentication in the Azure portal with the **Authentication and Authorization** option. From there, you can enable authentication using Azure Active Directory or social logins like Facebook, Google, or GitHub. Azure portal configuration only works when configuring a single authentication provider. For more information, see [Configure your App Service app to use Azure Active Directory login](configure-authentication-provider-aad.md) and the related articles for other identity providers. If you need to enable multiple sign-in providers, follow the instructions in the [customize App Service authentication](app-service-authentication-how-to.md) article.
 
-#### Tomcat and Wildfly
+#### Tomcat
 
-Your Tomcat or Wildfly application can access the user's claims directly from the servlet by casting the Principal object to a Map object. The Map object will map each claim type to a collection of the claims for that type. In the code below, `request` is an instance of `HttpServletRequest`.
+Your Tomcat application can access the user's claims directly from the servlet by casting the Principal object to a Map object. The Map object will map each claim type to a collection of the claims for that type. In the code below, `request` is an instance of `HttpServletRequest`.
 
 ```java
 Map<String, Collection<String>> map = (Map<String, Collection<String>>) request.getUserPrincipal();
@@ -288,6 +284,10 @@ To edit Tomcat's `server.xml` or other configuration files, first take a note of
 
 Finally, restart your App Service. Your deployments should go to `D:\home\site\wwwroot\webapps` just as before.
 
+## Configure Java SE
+
+When running a .JAR application on Java SE on Windows, `server.port` is passed as a command line option as your application starts. You can manually resolve the HTTP port from the environment variable, `HTTP_PLATFORM_PORT`. The value of this environment variable will be the HTTP port your application should listen on. 
+
 ## Java runtime statement of support
 
 ### JDK versions and maintenance
@@ -301,6 +301,8 @@ Supported JDKs are automatically patched on a quarterly basis in January, April,
 ### Security updates
 
 Patches and fixes for major security vulnerabilities will be released as soon as they become available from Azul Systems. A "major" vulnerability is defined by a base score of 9.0 or higher on the [NIST Common Vulnerability Scoring System, version 2](https://nvd.nist.gov/cvss.cfm).
+
+Tomcat 8.0 has reached [End of Life (EOL) as of September 30, 2018](https://tomcat.apache.org/tomcat-80-eol.html). While the runtime is still avialable on Azure App Service, Azure will not apply security updates to Tomcat 8.0. If possible, migrate your applications to Tomcat 8.5 or 9.0. Both Tomcat 8.5 and 9.0 are available on Azure App Service. See the [official Tomcat site](https://tomcat.apache.org/whichversion.html) for more information. 
 
 ### Deprecation and retirement
 
@@ -316,7 +318,7 @@ Product support for the [Azure-supported Azul Zulu JDK](https://www.azul.com/dow
 
 ### Runtime support
 
-Developers can [open an issue](/azure/azure-supportability/how-to-create-azure-support-request) with the Azul Zulu JDKs through Azure Support if they have a [qualified support plan](https://azure.microsoft.com/support/plans/).
+Developers can [open an issue](/azure/azure-portal/supportability/how-to-create-azure-support-request) with the Azul Zulu JDKs through Azure Support if they have a [qualified support plan](https://azure.microsoft.com/support/plans/).
 
 ## Next steps
 

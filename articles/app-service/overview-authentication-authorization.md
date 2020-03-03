@@ -1,19 +1,9 @@
 ---
-title: Authentication and authorization - Azure App Service | Microsoft Docs
-description: Conceptual reference and overview of the Authentication / Authorization feature for Azure App Service
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: gwallace
-editor: ''
-
+title: Authentication and authorization
+description: Find out about the built-in authentication and authorization support in Azure App Service, and how it can help secure your app against unauthorized access.
 ms.assetid: b7151b57-09e5-4c77-a10c-375a262f17e5
-ms.service: app-service
-ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/12/2019
-ms.author: cephalin
 ms.reviewer: mahender
 ms.custom: seodec18
 
@@ -28,8 +18,10 @@ Azure App Service provides built-in authentication and authorization support, so
 
 Secure authentication and authorization require deep understanding of security, including federation, encryption, [JSON web tokens (JWT)](https://wikipedia.org/wiki/JSON_Web_Token) management, [grant types](https://oauth.net/2/grant-types/), and so on. App Service provides these utilities so that you can spend more time and energy on providing business value to your customer.
 
-> [!NOTE]
-> You're not required to use App Service for authentication and authorization. Many web frameworks are bundled with security features, and you can use them if you like. If you need more flexibility than App Service provides, you can also write your own utilities.  
+> [!IMPORTANT]
+> You're not required to use App Service for AuthN/AuthO. You can use the bundled security features in your web framework of choice, or you can write your own utilities. However, keep in mind that [Chrome 80 is making breaking changes to its implementation of SameSite for cookies](https://www.chromestatus.com/feature/5088147346030592) (release date around March 2020), and custom remote authentication or other scenarios that rely on cross-site cookie posting may break when client Chrome browsers are updated. The workaround is complex because it needs to support different SameSite behaviors for different browsers. 
+>
+> The ASP.NET Core 2.1 and above versions hosted by App Service are already patched for this breaking change and handle Chrome 80 and older browsers appropriately. In addition, the same patch for ASP.NET Framework 4.7.2 is being deployed on the App Service instances throughout January 2020. For more information, including how to know if your app has received the patch, see [Azure App Service SameSite cookie update](https://azure.microsoft.com/updates/app-service-samesite-cookie-update/).
 >
 
 For information specific to native mobile apps, see [User authentication and authorization for mobile apps with Azure App Service](../app-service-mobile/app-service-mobile-auth.md).

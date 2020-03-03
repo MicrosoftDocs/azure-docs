@@ -1,16 +1,10 @@
 ---
-title: PHP (Laravel) with MySQL on Linux - Azure App Service | Microsoft Docs 
-description: Learn how to get a PHP app working in Azure App Service on Linux, with connection to a MySQL database in Azure. Laravel is used in the tutorial.
-services: app-service\web
-author: cephalin
-manager: jeconnoc
-ms.service: app-service-web
-ms.workload: web
+title: 'Tutorial: Linux PHP app with MySQL' 
+description: Learn how to get a Linux Node.js app working in Azure App Service, with connection to a MySQL database in Azure. Laravel is used in this tutorial.
 ms.devlang: php
 ms.topic: tutorial
 ms.date: 11/25/2019
-ms.author: cephalin
-ms.custom: mvc
+ms.custom: mvc, cli-validate
 ms.custom: seodec18
 ---
 # Build a PHP and MySQL app in Azure App Service on Linux
@@ -404,15 +398,15 @@ remote: Running deployment command...
 < Output has been truncated for readability >
 ```
 
-> [!NOTE]
+<!-- > [!NOTE]
 > You may notice that the deployment process installs [Composer](https://getcomposer.org/) packages at the end. App Service does not run these automations during default deployment, so this sample repository has three additional files in its root directory to enable it:
 >
 > - `.deployment` - This file tells App Service to run `bash deploy.sh` as the custom deployment script.
 > - `deploy.sh` - The custom deployment script. If you review the file, you will see that it runs `php composer.phar install` after `npm install`.
 > - `composer.phar` - The Composer package manager.
 >
-> You can use this approach to add any step to your Git-based deployment to App Service. For more information, see [Run Composer](configure-language-php.md#run-composer).
->
+> You can use this approach to add any step to your Git-based deployment to App Service. For more information, see [Run Composer](configure-language-php.md#run-composer). -->
+> 
 
 ### Browse to the Azure app
 

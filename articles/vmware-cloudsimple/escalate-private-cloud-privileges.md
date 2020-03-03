@@ -1,5 +1,6 @@
 --- 
-title: Escalate private cloud privileges - Azure VMware Solution by CloudSimple
+title: Escalate private cloud privileges
+titleSuffix: Azure VMware Solution by CloudSimple
 description: Describes how to escalate privileges on your private cloud for administrative functions in vCenter
 author: sharaths-cs
 ms.author: b-shsury
@@ -49,6 +50,9 @@ The privilege escalation begins and lasts until the end of the selected interval
 
 > [!IMPORTANT]
 > Only one user can have escalated privileges.  You must de-escalate the user's privileges before you can escalate another user's privileges.
+
+> [!CAUTION]
+> New users must be added only to *Cloud-Owner-Group*, *Cloud-Global-Cluster-Admin-Group*, *Cloud-Global-Storage-Admin-Group*, *Cloud-Global-Network-Admin-Group* or, *Cloud-Global-VM-Admin-Group*.  Users added to *Administrators* group will be removed automatically.  Only service accounts must be added to *Administrators* group and service accounts must not be used to sign in to vSphere web UI.
 
 ## Extend privilege escalation
 

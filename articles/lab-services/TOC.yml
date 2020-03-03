@@ -66,10 +66,12 @@
       href: enable-browser-connection-lab-virtual-machines.md        
     - name: Configure cost management
       href: devtest-lab-configure-cost-management.md
-    - name: Send autoshutdown notifications
-      href: devtest-lab-auto-shutdown.md
+    - name: Set auto startup for lab virtual machines
+      href: devtest-lab-auto-startup-vm.md      
     - name: Scale your lab
       href: devtest-lab-scale-lab.md
+    - name: Enable managed identities for lab VMs
+      href: enable-managed-identities-lab-vms.md
     - name: Manage virtual machine bases
       items:        
       - name: Configure Azure Marketplace images
@@ -120,8 +122,8 @@
       href: devtest-lab-resize-vm.md
     - name: Redeploy a VM
       href: devtest-lab-redeploy-vm.md
-    - name: Configure autoshutdown of a VM 
-      href: devtest-lab-auto-shutdown-vm.md
+    - name: Configure autoshutdown of compute and lab VMs 
+      href: devtest-lab-auto-shutdown.md
     - name: Create and manage claimable VMs
       href: devtest-lab-add-claimable-vm.md
     - name: Configure secrets
@@ -150,6 +152,8 @@
       href: deploy-nested-template-environments.md
     - name: Use Azure managed identities to deploy environments
       href: use-managed-identities-environments.md
+    - name: Security alerts for environments
+      href: environment-security-alerts.md
   - name: Manage reusable templates
     items: 
     - name: Custom images vs. formulas
@@ -193,6 +197,8 @@
       href: add-artifact-repository.md
     - name: Specify mandatory artifacts 
       href: devtest-lab-mandatory-artifacts.md
+    - name: Troubleshoot issues with applying artifacts
+      href: devtest-lab-troubleshoot-apply-artifacts.md
   - name: Integrate with CI/CD
     items:
     - name: Integrate labs into your Azure Pipelines CI/CD pipeline

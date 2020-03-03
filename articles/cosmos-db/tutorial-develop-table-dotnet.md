@@ -1,13 +1,13 @@
 ---
-title: Get started with Azure Cosmos DB Table API using .NET Standard SDK
-description: Store structured data in the cloud using the Azure Cosmos DB Table API.
-author: wmengmsft
-ms.author: wmeng
+title: Azure Cosmos DB Table API using .NET Standard SDK
+description: Learn how to store and query the structured data in Azure Cosmos DB Table API account
+author: sakash279
+ms.author: akshanka
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: sample
-ms.date: 05/20/2019
+ms.date: 12/03/2019
 ---
 # Get started with Azure Cosmos DB Table API and Azure Table storage using the .NET SDK
 
@@ -17,7 +17,7 @@ ms.date: 05/20/2019
 
 You can use the Azure Cosmos DB Table API or Azure Table storage to store structured NoSQL data in the cloud, providing a key/attribute store with a schema less design. Because Azure Cosmos DB Table API and Table storage are schema less, it's easy to adapt your data as the needs of your application evolve. You can use Azure Cosmos DB Table API or the Table storage to store flexible datasets such as user data for web applications, address books, device information, or other types of metadata your service requires. 
 
-This tutorial describes a sample that shows you how to use the [Microsoft Azure Cosmos DB Table Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table) with Azure Cosmo DB Table API and Azure Table storage scenarios. You must use the connection specific to the Azure service. These scenarios are explored using C# examples that illustrate how to create tables, insert/ update data, query data and delete the tables.
+This tutorial describes a sample that shows you how to use the [Microsoft Azure Cosmos DB Table Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table) with Azure Cosmos DB Table API and Azure Table storage scenarios. You must use the connection specific to the Azure service. These scenarios are explored using C# examples that illustrate how to create tables, insert/ update data, query data and delete the tables.
 
 ## Prerequisites
 
@@ -53,7 +53,7 @@ To obtain the NuGet package, follow these steps:
 
 1. Right-click your project in **Solution Explorer** and choose **Manage NuGet Packages**.
 
-1. Search online for `Microsoft.Azure.Cosmos.Table`, `Microsoft.Extensions.Configuration`, `Microsoft.Extensions.Configuration.Json`, `Microsoft.Extensions.Configuration.Binder` and select **Install** to install the Microsoft Azure Cosmos DB Table Library.
+1. Search online for [`Microsoft.Azure.Cosmos.Table`](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table), [`Microsoft.Extensions.Configuration`](https://www.nuget.org/packages/Microsoft.Extensions.Configuration), [`Microsoft.Extensions.Configuration.Json`](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Json), [`Microsoft.Extensions.Configuration.Binder`](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Binder) and select **Install** to install the Microsoft Azure Cosmos DB Table Library.
 
 ## Configure your storage connection string
 
@@ -172,6 +172,12 @@ public static async Task<CloudTable> CreateTableAsync(string tableName)
     Console.WriteLine();
     return table;
 }
+```
+
+If you get a "503 service unavailable exception" error, it's possible that the required ports for the connectivity mode are blocked by a firewall. To fix this issue, either open the required ports or use the gateway mode connectivity as shown in the following code:
+
+```csharp
+tableClient.TableClientConfiguration.UseRestExecutorForCosmosEndpoint = true;
 ```
 
 ## Define the entity 

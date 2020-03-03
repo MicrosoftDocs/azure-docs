@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: quickstart
-ms.date: 6/18/2019
+ms.date: 12/12/2019
 ms.author: aahi
 ms.custom: seodec2018
 ---
@@ -28,8 +28,6 @@ The source code for this sample is available on [GitHub](https://github.com/Azur
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../includes/cognitive-services-bing-news-search-signup-requirements.md)]
 
-See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
-
 ## Create and initialize the application
 
 1. Create a new JavaScript file in your favorite IDE or editor, and set the strictness and https requirements.
@@ -39,7 +37,8 @@ See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.
     let https = require('https');
     ```
 
-2. Create variables for the API endpoint, image API search path, your subscription key, and search term.
+2. Create variables for the API endpoint, image API search path, your subscription key, and search term. You can use the global endpoint below, or the [custom subdomain](../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource. 
+
     ```javascript
     let subscriptionKey = 'enter key here';
     let host = 'api.cognitive.microsoft.com';

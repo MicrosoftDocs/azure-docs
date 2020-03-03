@@ -3,7 +3,7 @@ title: "Introduction to Azure Dev Spaces"
 services: azure-dev-spaces
 ms.date: 05/07/2019
 ms.topic: "overview"
-description: "Introduction to Azure Dev Spaces"
+description: "Learn how Azure Dev Spaces provides a rapid, iterative Kubernetes development experience for teams in Azure Kubernetes Service clusters"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, kubectl, k8s"
 manager: gwallace
 ---
@@ -33,7 +33,7 @@ For more information on how Azure Dev Spaces works, see [How Azure Dev Spaces wo
 
 ## Supported regions and configurations
 
-Azure Dev Spaces is supported only by AKS clusters in the **East US**, **East US 2**, **Central US**, **South Central US**, **West US 2**, **North Europe**, **West Europe**, **UK South**, **East Asia**, **Southeast Asia**, **Australia East**, **Canada Central**, and **Canada East** regions. Azure Dev Spaces supports using the [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) or [Visual Studio Code](https://code.visualstudio.com/download) with the [Azure Dev Spaces extension](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds) installed on Linux, MacOS, or Windows 8 or greater to build and run your applications on AKS. It also supports using [Visual Studio](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs) installed on Windows 8 or greater. For Visual Studio 2019, you will need the Azure Development workload. For Visual Studio 2017, you will need the Web Development workload and [Visual Studio Tools for Kubernetes](https://aka.ms/get-vsk8stools).
+Azure Dev Spaces is supported only by AKS clusters in [some regions][supported-regions]. Azure Dev Spaces supports using the [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) or [Visual Studio Code](https://code.visualstudio.com/download) with the [Azure Dev Spaces extension](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds) installed on Linux, MacOS, or Windows 8 or greater to build and run your applications on AKS. It also supports using [Visual Studio](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs) installed on Windows 8 or greater. For Visual Studio 2019, you will need the Azure Development workload. For Visual Studio 2017, you will need the Web Development workload and [Visual Studio Tools for Kubernetes](https://aka.ms/get-vsk8stools).
 
 ## Next steps
 
@@ -44,4 +44,5 @@ Learn more about rapid, iterative development for teams with Azure Dev Spaces wi
 
 
 [how-dev-spaces-works]: how-dev-spaces-works.md
+[supported-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service
 [team-development-quickstart]: quickstart-team-development.md

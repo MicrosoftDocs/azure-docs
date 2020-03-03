@@ -1,19 +1,12 @@
 ---
-title: Azure CLI Script Sample - Connect an app to an Azure Cache for Redis | Microsoft Docs
-description: Azure CLI Script Sample - Connect an app to an Azure Cache for Redis
-services: appservice
-documentationcenter: appservice
-author: msangapu
-manager: jeconnoc
-editor: 
+title: 'CLI: Connect an app to Redis'
+description: Learn how to use the Azure CLI to automate deployment and management of your App Service app. This sample shows how to connect an app to an Azure Cache for Redis.
+author: msangapu-msft
 tags: azure-service-management
 
 ms.assetid: bc8345b2-8487-40c6-a91f-77414e8688e6
-ms.service: app-service
 ms.devlang: azurecli
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: web
 ms.date: 12/11/2017
 ms.author: msangapu
 ms.custom: mvc

@@ -77,17 +77,19 @@ Configure the following SKU settings. The fields appended with an asterisk are r
 
 ### Package Details for Solution Template
 
-   ![Package details for solution template](./media/azureapp-sku-pkgdetails-solutiontemplate.png)
+![Package details for solution template](./media/azureapp-sku-pkgdetails-solutiontemplate.png)
 
 Provide the following **Package Details** values.  The fields appended with an asterisk are required.
 
 - **Version\*** - The version of the package that you will upload. Version tags must be of the form X.Y.Z, where X, Y, and Z are integers.
 - **Package file (.zip)\*** - This package contains the following files, saved in a .zip file.
-  - MainTemplate.json - The deployment template file that's used to deploy the solution/application and create the resources defined for the solution. For more information, see [How to author deployment template files](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template).
-  - createUIDefinition.json - This file is used by the Azure portal to generate the user interface for provisioning this solution/application. For more information, see [Create Azure portal user interface for your managed application](https://docs.microsoft.com/azure/azure-resource-manager/managed-application-createuidefinition-overview).
+  - **mainTemplate.json\*** - The deployment template file that's used to deploy the solution/application and create the resources defined for the solution. For more information, see [How to author deployment template files](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template).
+  - **createUIDefinition.json\*** - This file is used by the Azure portal to generate the user interface for provisioning this solution/application. For more information, see [Create Azure portal user interface for your managed application](https://docs.microsoft.com/azure/azure-resource-manager/managed-application-createuidefinition-overview).
+  - Scripts (if required) - Any additional scripts that may be required when running the template, for example, `Microsoft.Compute/virtualMachines/extensions`.
+  - Nested templates (if required) - Any additional nested templates.
 
-  >[!IMPORTANT] 
-  >This package should contain any nested templates or scripts that are needed to provision this application. The MainTemplate.json file and createUIDefinition.json file must be in the root folder.
+  > [!IMPORTANT] 
+  > This package should contain any nested templates or scripts that are needed to provision this application. The mainTemplate.json file and createUIDefinition.json file must be in the root folder. For more information about deployment artifacts, see [Azure Resource Manager Templates - Best Practices Guide](https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md#deployment-artifacts-nested-templates-scripts).
 
 
 ### Package Details for Managed Application

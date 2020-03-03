@@ -1,17 +1,11 @@
 ---
-title: Configuration FAQs - Azure App Service | Microsoft Docs
-description: Get answers to frequently asked questions about configuration and management issues for the Web Apps feature of Azure App Service.
-services: app-service\web
-documentationcenter: ''
+title: Configuration FAQs
+description: Get answers to frequently asked questions about configuration and management issues for Azure App Service.
 author: genlin
 manager: dcscontentpm
-editor: ''
 tags: top-support-issue
 
 ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: ibiza
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
@@ -25,7 +19,7 @@ This article has answers to frequently asked questions (FAQs) about configuratio
 
 ## Are there limitations I should be aware of if I want to move App Service resources?
 
-If you plan to move App Service resources to a new resource group or subscription, there are a few limitations to be aware of. For more information, see [App Service limitations](../azure-resource-manager/move-limitations/app-service-move-limitations.md).
+If you plan to move App Service resources to a new resource group or subscription, there are a few limitations to be aware of. For more information, see [App Service limitations](../azure-resource-manager/management/move-limitations/app-service-move-limitations.md).
 
 ## How do I use a custom domain name for my web app?
 
@@ -51,11 +45,11 @@ To learn how to purchase and set up an SSL certificate for your App Service web 
 
 Currently, Azure Application Insights doesn't support the move operation. If your original resource group includes an Application Insights resource, you cannot move that resource. If you include the Application Insights resource when you try to move an App Service app, the entire move operation fails. However, Application Insights and the App Service plan do not need to be in the same resource group as the app for the app to function correctly.
 
-For more information, see [App Service limitations](../azure-resource-manager/move-limitations/app-service-move-limitations.md).
+For more information, see [App Service limitations](../azure-resource-manager/management/move-limitations/app-service-move-limitations.md).
 
 ## Where can I find a guidance checklist and learn more about resource move operations?
 
-[App Service limitations](../azure-resource-manager/move-limitations/app-service-move-limitations.md) shows you how to move resources to either a new subscription or to a new resource group in the same subscription. You can get information about the resource move checklist, learn which services support the move operation, and learn more about App Service limitations and other topics.
+[App Service limitations](../azure-resource-manager/management/move-limitations/app-service-move-limitations.md) shows you how to move resources to either a new subscription or to a new resource group in the same subscription. You can get information about the resource move checklist, learn which services support the move operation, and learn more about App Service limitations and other topics.
 
 ## How do I set the server time zone for my web app?
 
@@ -201,7 +195,7 @@ Currently, you cannot have point-to-site VPN connections to a virtual network th
 
 Currently, connecting an App Service web app to a virtual network that has a static routing (policy-based) gateway is not supported. If your target virtual network already exists, it must have point-to-site VPN enabled, with a dynamic routing gateway, before it can be connected to an app. If your gateway is set to static routing, you cannot enable a point-to-site VPN. 
 
-For more information, see [Integrate an app with an Azure virtual network](web-sites-integrate-with-vnet.md#getting-started).
+For more information, see [Integrate an app with an Azure virtual network](web-sites-integrate-with-vnet.md).
 
 ## In my App Service Environment, why can I create only one App Service plan, even though I have two workers available?
 
@@ -316,4 +310,4 @@ You also can specify the specific dynamic and static MIME types that you want to
 
 ## How do I migrate from an on-premises environment to App Service?
 
-To migrate sites from Windows and Linux web servers to App Service, you can use Azure App Service Migration Assistant. The migration tool creates web apps and databases in Azure as needed, and then publishes the content. For more information, see [Azure App Service Migration Assistant](https://www.migratetoazure.net/).
+To migrate sites from Windows and Linux web servers to App Service, you can use Azure App Service Migration Assistant. The migration tool creates web apps and databases in Azure as needed, and then publishes the content. For more information, see [Azure App Service Migration Assistant](https://appmigration.microsoft.com/).

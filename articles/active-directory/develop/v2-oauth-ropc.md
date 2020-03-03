@@ -1,6 +1,7 @@
 ---
-title: Use Microsoft identity platform to sign in users using resource owner password credential (ROPC) grant | Azure
-description: Support browser-less authentication flows using the resource owner password credential grant.
+title: Sign in with resource owner password credentials grant | Azure
+titleSuffix: Microsoft identity platform
+description: Support browser-less authentication flows using the resource owner password credential (ROPC) grant.
 services: active-directory
 documentationcenter: ''
 author: rwike77
@@ -17,10 +18,9 @@ ms.date: 11/19/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
 ---
 
-# Microsoft identity platform and the OAuth 2.0 Resource Owner Password Credentials
+# Microsoft identity platform and OAuth 2.0 Resource Owner Password Credentials
 
 Microsoft identity platform supports the [OAuth 2.0 Resource Owner Password Credentials (ROPC) grant](https://tools.ietf.org/html/rfc6749#section-4.3), which allows an application to sign in the user by directly handling their password.  This article describes how to program directly against the protocol in your application.  When possible, we recommend you use the supported Microsoft Authentication Libraries (MSAL) instead to [acquire tokens and call secured web APIs](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows).  Also take a look at the [sample apps that use MSAL](sample-v2-code.md).
 

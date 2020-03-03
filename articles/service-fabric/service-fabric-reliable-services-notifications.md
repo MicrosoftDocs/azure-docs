@@ -1,21 +1,11 @@
 ---
-title: Reliable Services notifications | Microsoft Docs
-description: Conceptual documentation for Service Fabric Reliable Services notifications
-services: service-fabric
-documentationcenter: .net
+title: Reliable Services notifications 
+description: Conceptual documentation for Service Fabric Reliable Services notifications for Reliable State Manager and Reliable Dictionary
 author: mcoskun
-manager: chackdan
-editor: masnider,vturecek
 
-ms.assetid: cdc918dd-5e81-49c8-a03d-7ddcd12a9a76
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 6/29/2017
 ms.author: mcoskun
-
 ---
 # Reliable Services notifications
 Notifications allow clients to track the changes that are being made to an object that they're interested in. 

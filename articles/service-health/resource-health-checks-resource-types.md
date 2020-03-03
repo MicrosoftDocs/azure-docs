@@ -1,11 +1,7 @@
 ---
 title: Supported Resource Types through Azure Resource Health | Microsoft Docs
 description: Supported Resource Types through Azure Resource health
-author: stephbaron
-ms.author: stbaron
 ms.topic: conceptual
-ms.service: service-health
-ms.topic: conceptual 
 ms.date: 01/29/2019
 ---
 
@@ -138,7 +134,7 @@ Below is a complete list of all the checks executed through resource health by r
 |---|
 |<ul><li>Is the VPN tunnel connected?</li><li>Are there configuration conflicts in the connection?</li><li>Are the pre-shared keys properly configured?</li><li>Is the VPN on-premises device reachable?</li><li>Are there mismatches in the IPSec/IKE security policy?</li><li>Is the S2S VPN connection properly provisioned or in a failed state?</li><li>Is the VNET-to-VNET connection properly provisioned or in a failed state?</li></ul>|
 
-## Microsoft.network/expressreoutecircuits
+## Microsoft.network/expressroutecircuits
 |Executed Checks|
 |---|
 |<ul><li>Is the ExpressRoute circuit healthy?</li></ul>|

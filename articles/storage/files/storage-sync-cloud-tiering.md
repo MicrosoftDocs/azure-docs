@@ -12,7 +12,7 @@ ms.subservice: files
 # Cloud Tiering Overview
 Cloud tiering is an optional feature of Azure File Sync in which frequently accessed files are cached locally on the server while all other files are tiered to Azure Files based on policy settings. When a file is tiered, the Azure File Sync file system filter (StorageSync.sys) replaces the file locally with a pointer, or reparse point. The reparse point represents a URL to the file in Azure Files. A tiered file has both the "offline" attribute and the FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS attribute set in NTFS so that third-party applications can securely identify tiered files.
  
-When a user opens a tiered file, Azure File Sync seamlessly recalls the file data from Azure Files without the user needing to know that the file is actually stored in Azure. 
+When a user opens a tiered file, Azure File Sync seamlessly recalls the file data from Azure Files without the user needing to know that the file is stored in Azure. 
  
  > [!Important]  
  > Cloud tiering is not supported for server endpoints on the Windows system volumes, and only files greater than 64 KiB in size can be tiered to Azure Files.
@@ -56,7 +56,7 @@ Keeping more data local means lower egress costs as fewer files will be recalled
 
 <a id="how-long-until-my-files-tier"></a>
 ### I’ve added a new server endpoint. How long until my files on this server tier?
-In versions 4.0 and above of the Azure File Sync agent, once your files have been uploaded to the Azure file share, they will be tiered according to your policies as soon as the next tiering session runs, which happens once an hour. On older agents, tiering can take up to 24 hours to happen.
+In versions 4.0 and above of the Azure File Sync agent, once your files have been uploaded to the Azure file share, they will be tiered according to your policies as soon as the next tiering session runs, which happen once an hour. On older agents, tiering can take up to 24 hours to happen.
 
 <a id="is-my-file-tiered"></a>
 ### How can I tell whether a file has been tiered?
@@ -68,7 +68,8 @@ There are several ways to check whether a file has been tiered to your Azure fil
         | Attribute letter | Attribute | Definition |
         |:----------------:|-----------|------------|
         | A | Archive | Indicates that the file should be backed up by backup software. This attribute is always set, regardless of whether the file is tiered or stored fully on disk. |
-        | P | Sparse file | Indicates that the file is a sparse file. A sparse file is a specialized type of file that NTFS offers for efficient use when the file on the disk stream is mostly empty. Azure File Sync uses sparse files because a file is either fully tiered or partially recalled. In a fully tiered file, the file stream is stored in the cloud. In a partially recalled file, that part of the file is already on disk. If a file is fully recalled to disk, Azure File Sync converts it from a sparse file to a regular file. |
+        | P | Sparse file | Indicates that the file is a sparse file. A sparse file is a specialized type of file that NTFS offers for efficient use when the file on the disk stream is mostly empty. Azure File Sync uses sparse files because a file is either fully tiered or partially recalled. In a fully tiered file, the file stream is stored in the cloud. In a partially recalled file, that part of the file is already on disk. If a file is fully recalled to disk, Azure File Sync converts it from a sparse file to a regular file. This attribute is only set on Windows Server 2016 and older.|
+        | M | Recall on data access | Indicates that the file’s data is not fully present on local storage. Reading the file will cause at least some of the file content to be fetched from an Azure file share to which the server endpoint is connected. This attribute is only set on Windows Server 2019. |
         | L | Reparse point | Indicates that the file has a reparse point. A reparse point is a special pointer for use by a file system filter. Azure File Sync uses reparse points to define to the Azure File Sync file system filter (StorageSync.sys) the cloud location where the file is stored. This supports seamless access. Users won't need to know that Azure File Sync is being used or how to get access to the file in your Azure file share. When a file is fully recalled, Azure File Sync removes the reparse point from the file. |
         | O | Offline | Indicates that some or all of the file's content is not stored on disk. When a file is fully recalled, Azure File Sync removes this attribute. |
 
@@ -97,11 +98,10 @@ You also can use PowerShell to force a file to be recalled. This option might be
     
 ```powershell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
-Invoke-StorageSyncFileRecall -Path <path-to-to-your-server-endpoint> -Order CloudTieringPolicy
+Invoke-StorageSyncFileRecall -Path <path-to-to-your-server-endpoint>
 ```
-
-Specifying `-Order CloudTieringPolicy` will recall the most recently modified files first.
-Other optional parameters:
+Optional parameters:
+* `-Order CloudTieringPolicy` will recall the most recently modified files first.  
 * `-ThreadCount` determines how many files can be recalled in parallel.
 * `-PerFileRetryCount`determines how often a recall will be attempted of a file that is currently blocked.
 * `-PerFileRetryDelaySeconds`determines the time in seconds between retry to recall attempts and should always be used in combination with the previous parameter.
@@ -121,6 +121,13 @@ When the cloud tiering feature is enabled, cloud tiering automatically tiers fil
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
 Invoke-StorageSyncCloudTiering -Path <file-or-directory-to-be-tiered>
 ```
+
+<a id="afs-image-thumbnail"></a>
+### Why are my tiered files not showing thumbnails or previews in Windows Explorer?
+For tiered files, thumbnails and previews won’t be visible at your server endpoint. This behavior is expected since the thumbnail cache feature in Windows intentionally skips reading files with the offline attribute. With Cloud Tiering enabled, reading through tiered files would cause them to be downloaded (recalled).
+
+This behavior is not specific to Azure File Sync, Windows Explorer displays a “grey X” for any files that have the offline attribute set. You will see the X icon when accessing files over SMB. For a detailed explanation of this behavior, refer to [https://blogs.msdn.microsoft.com/oldnewthing/20170503-00/?p=96105](https://blogs.msdn.microsoft.com/oldnewthing/20170503-00/?p=96105)
+
 
 ## Next Steps
 * [Planning for an Azure File Sync Deployment](storage-sync-files-planning.md)

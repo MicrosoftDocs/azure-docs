@@ -1,12 +1,8 @@
 ---
 title: Azure Application Insights for Console Applications | Microsoft Docs
 description: Monitor web applications for availability, performance and usage.
-ms.service:  azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
-ms.date: 11/19/2019
+ms.date: 12/02/2019
 
 ms.reviewer: lmolkova
 ---
@@ -23,7 +19,7 @@ You need a subscription with [Microsoft Azure](https://azure.com). Sign in with 
 ## Getting started
 
 * In the [Azure portal](https://portal.azure.com), [create an Application Insights resource](../../azure-monitor/app/create-new-resource.md). For application type, choose **General**.
-* Take a copy of the Instrumentation Key. Find the key in the **Essentials** drop-down of the new resource you created. 
+* Take a copy of the Instrumentation Key. Find the key in the **Essentials** drop-down of the new resource you created.
 * Install latest [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights) package.
 * Set the instrumentation key in your code before tracking any telemetry (or set APPINSIGHTS_INSTRUMENTATIONKEY environment variable). After that, you should be able to manually track telemetry and see it on the Azure portal
 
@@ -35,6 +31,10 @@ var telemetryClient = new TelemetryClient(configuration);
 telemetryClient.TrackTrace("Hello World!");
 ```
 
+> [!NOTE]
+> Telemetry is not sent instantly. Telemetry items are batched and sent by the ApplicationInsights SDK. In Console apps, which exits right after calling `Track()` methods, telemetry may not be sent unless `Flush()` and `Sleep` is done before the app exits as shown in [full example](#full-example) later in this article.
+
+
 * Install latest version of [Microsoft.ApplicationInsights.DependencyCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector) package - it automatically tracks HTTP, SQL, or some other external dependency calls.
 
 You may initialize and configure Application Insights from the code or using `ApplicationInsights.config` file. Make sure initialization happens as early as possible. 
@@ -43,6 +43,7 @@ You may initialize and configure Application Insights from the code or using `Ap
 > Instructions referring to **ApplicationInsights.config** are only applicable to apps that are targeting the .NET Framework, and do not apply to .NET Core applications.
 
 ### Using config file
+
 By default, Application Insights SDK looks for `ApplicationInsights.config` file in the working directory when `TelemetryConfiguration` is being created
 
 ```csharp
@@ -185,7 +186,7 @@ namespace ConsoleApp
             module.ExcludeComponentCorrelationHttpHeadersOnDomains.Add("127.0.0.1");
 
             // enable known dependency tracking, note that in future versions, we will extend this list. 
-            // please check default settings in https://github.com/Microsoft/ApplicationInsights-dotnet-server/blob/develop/Src/DependencyCollector/DependencyCollector/ApplicationInsights.config.install.xdt
+            // please check default settings in https://github.com/microsoft/ApplicationInsights-dotnet-server/blob/develop/WEB/Src/DependencyCollector/DependencyCollector/ApplicationInsights.config.install.xdt
 
             module.IncludeDiagnosticSourceActivities.Add("Microsoft.Azure.ServiceBus");
             module.IncludeDiagnosticSourceActivities.Add("Microsoft.Azure.EventHubs");

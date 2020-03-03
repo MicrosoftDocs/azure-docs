@@ -5,7 +5,7 @@ author: "lisaguthrie"
 ms.author: "lcozzens"
 ms.date: "01/28/2019"
 ms.topic: "conceptual"
-description: "Rapid Kubernetes development with containers and microservices on Azure"
+description: "Learn to use Azure Dev Spaces and Azure Kubernetes Services to provide business continuity and prepare for disaster recovery"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s "
 manager: gwallace
 ---
@@ -35,7 +35,7 @@ Repeat this process for each cluster.
 
 You can also enable Dev Spaces at the command line:
 
-```cmd
+```azurecli
 az aks use-dev-spaces -g <resource group name> -n <cluster name>
 ```
 
@@ -51,7 +51,7 @@ Once you've properly configured a backup cluster running your team's baseline, y
 
 Select a different cluster with the following CLI command:
 
-```cmd
+```azurecli
 az aks use-dev-spaces -g <new resource group name> -n <new cluster name>
 ```
 

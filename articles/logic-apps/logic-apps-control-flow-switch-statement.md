@@ -1,12 +1,9 @@
 ---
-title: Add switch statements to workflows - Azure Logic Apps | Microsoft Docs
+title: Add switch statements to workflows
 description: How to create switch statements that control workflow actions based on specific values in Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/08/2018
 ---

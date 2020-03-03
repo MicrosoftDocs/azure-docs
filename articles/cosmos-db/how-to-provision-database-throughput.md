@@ -1,6 +1,6 @@
 ---
 title: Provision database throughput in Azure Cosmos DB
-description: Learn how to provision throughput at the database level in Azure Cosmos DB
+description: Learn how to provision throughput at the database level in Azure Cosmos DB using Azure portal, CLI, PowerShell and various other SDKs. 
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -60,7 +60,7 @@ await client.CreateDatabaseIfNotExistsAsync(
 
 ### .Net V3 SDK
 
-[!code-csharp[](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos/tests/Microsoft.Azure.Cosmos.Tests/SampleCodeForDocs/DatabaseDocsSampleCode.cs?name=DatabaseCreateWithThroughput)]
+:::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos/tests/Microsoft.Azure.Cosmos.Tests/SampleCodeForDocs/DatabaseDocsSampleCode.cs" id="DatabaseCreateWithThroughput":::
 
 ### <a id="dotnet-cassandra"></a>Cassandra API
 Similar command can be executed through any CQL compliant driver. 

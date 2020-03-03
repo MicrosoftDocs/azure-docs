@@ -1,28 +1,15 @@
 ---
-title: Get Started with authentication for Mobile Apps in Xamarin Forms app | Microsoft Docs
-description: Learn how to use Mobile Apps to authenticate users of your Xamarin Forms app through a variety of identity providers, including AAD, Google, Facebook, Twitter, and Microsoft.
-services: app-service\mobile
-documentationcenter: xamarin
-author: elamalani
-manager: crdun
-editor: ''
+title: Get Started with authentication in Xamarin Forms app
+description: Learn how to use Mobile Apps to authenticate users of your Xamarin Forms app with identity providers like AAD, Google, Facebook, Twitter, and Microsoft.
 
 ms.assetid: 9c55e192-c761-4ff2-8d88-72260e9f6179
-ms.service: app-service-mobile
-ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/25/2019
-ms.author: emalani
 ---
 # Add authentication to your Xamarin Forms app
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
-
-> [!NOTE]
-> Visual Studio App Center supports end to end and integrated services central to mobile app development. Developers can use **Build**, **Test** and **Distribute** services to set up Continuous Integration and Delivery pipeline. Once the app is deployed, developers can monitor the status and usage of their app using the **Analytics** and **Diagnostics** services, and engage with users using the **Push** service. Developers can also leverage **Auth** to authenticate their users and **Data** service to persist and sync app data in the cloud.
->
-> If you are looking to integrate cloud services in your mobile application, sign up with [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) today.
 
 ## Overview
 This topic shows you how to authenticate users of an App Service Mobile App from your client application. In this tutorial, you add authentication to

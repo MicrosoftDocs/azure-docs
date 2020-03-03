@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Explore the Preview demo environment - Azure Time Series Insights | Microsoft Docs'
-description: Learn about Azure Time Series Insights Preview demo environments through a sample quickstart.
+description: Explore key features of the Azure Time Series Insights Preview demo environment.
 ms.service: time-series-insights 
 services: time-series-insights
 author: deepakpalled
@@ -9,7 +9,7 @@ manager: cshankar
 ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc seodec18
-ms.date: 10/24/2019
+ms.date: 02/07/2020
 ---
 
 # Quickstart: Explore the Azure Time Series Insights Preview demo environment
@@ -38,33 +38,33 @@ The Time Series Insights Preview explorer demonstrates historical data and root 
    1. Change the view range to **1/1/17 20:00:00.00 to 3/10/17 20:00:00.00 (UTC)**.
    1. To select a sensor, select **Contoso Plant 1** > **W7** > **Generator System** > **GeneratorSpeed**. Then, review the values that are shown.
 
-      [![W7 in Contoso Plant 1](media/v2-update-quickstart/quickstart-one.png)](media/v2-update-quickstart/quickstart-one.png#lightbox)
+      [![W7 in Contoso Plant 1](media/v2-update-quickstart/quick-start-generator-speed.png)](media/v2-update-quickstart/quick-start-generator-speed.png#lightbox)
 
-1. Recently, Contoso found a fire in wind turbine **W7**. Opinions vary about what caused the fire. In Time Series Insights, we can see that the fire alert sensor was activated during the fire.
+1. Recently, Contoso found a fire in wind turbine **W7**. Opinions vary about what caused the fire. In Time Series Insights, the fire alert sensor that was activated during the fire is displayed.
 
    1. Change the view range to **3/9/17 20:00:00.00 to 3/10/17 20:00:00.00 (UTC)**.
    1. Select **Safety System** > **FireAlert**.
 
-      [![Contoso found a fire in wind turbine W7](media/v2-update-quickstart/quickstart-two.png)](media/v2-update-quickstart/quickstart-two.png#lightbox)
+      [![Contoso found a fire in wind turbine W7](media/v2-update-quickstart/quick-start-fire-alert.png)](media/v2-update-quickstart/quick-start-fire-alert.png#lightbox)
 
 1. Review other events around the time of the fire to understand what occurred. Oil pressure and active warnings spiked just before the fire.
 
    1. Select **Pitch System** > **HydraulicOilPressure**.
    1. Select **Pitch System** > **ActiveWarning**.
 
-      [![Review other events around the same time](media/v2-update-quickstart/quickstart-three.png)](media/v2-update-quickstart/quickstart-three.png#lightbox)
+      [![Review other events around the same time](media/v2-update-quickstart/quick-start-active-warning.png)](media/v2-update-quickstart/quick-start-active-warning.png#lightbox)
 
-1. The oil pressure and active warning sensors spiked right before the fire. Expand the displayed time series to see other signs that were evident leading up to the fire. Both sensors fluctuated consistently over time. The fluctuations indicate a persistent and worrisome pattern.
+1. The oil pressure and active warning sensors spiked right before the fire. Expand the displayed time series to review other signs that were evident leading up to the fire. Both sensors fluctuated consistently over time. The fluctuations indicate a persistent and worrisome pattern.
 
     * Change the view range to **2/24/17 20:00:00.00 to 3/10/17 20:00:00.00 (UTC)**.
 
-      [![Oil pressure and active warning sensors also spiked](media/v2-update-quickstart/quickstart-four.png)](media/v2-update-quickstart/quickstart-four.png#lightbox)
+      [![Oil pressure and active warning sensors also spiked](media/v2-update-quickstart/quick-start-view-range.png)](media/v2-update-quickstart/quick-start-view-range.png#lightbox)
 
 1. Examining two years of historical data reveals another fire event that had the same sensor fluctuations.
 
     * Change the view range to **1/1/16 to 12/31/17** (all data).
 
-      [![Look for historical patterns](media/v2-update-quickstart/quickstart-five.png)](media/v2-update-quickstart/quickstart-five.png#lightbox)
+      [![Look for historical patterns](media/v2-update-quickstart/quick-start-expand-view-range.png)](media/v2-update-quickstart/quick-start-expand-view-range.png#lightbox)
 
 By using Time Series Insights and sensor telemetry, we've discovered a long-term trend hidden in the historical data. With these new insights, we can:
 
@@ -79,28 +79,28 @@ By using Time Series Insights and sensor telemetry, we've discovered a long-term
     1. Change the view range to **6/1/17 20:00:00.00 to 7/1/17 20:00:00.00 (UTC)**.
     1. Select **Contoso Plant 1** > **W6** > **Safety System** > **VoltageActuatorSwitchWarning**.
 
-       [![Change the view range and select W6](media/v2-update-quickstart/quickstart-six.png)](media/v2-update-quickstart/quickstart-six.png#lightbox)
+       [![Change the view range and select W6](media/v2-update-quickstart/quick-start-voltage-switch-warning.png)](media/v2-update-quickstart/quick-start-voltage-switch-warning.png#lightbox)
 
-1. The warning indicates an issue with the voltage from the generator. The overall power output of the generator is within normal parameters in the current interval. By increasing our interval, we see another pattern emerge. A drop-off is evident.
+1. The warning indicates an issue with the voltage from the generator. The overall power output of the generator is within normal parameters in the current interval. By increasing our interval, another pattern emerges. A drop-off is evident.
 
     1. Remove the **VoltageActuatorSwitchWarning** sensor.
     1. Select **Generator System** > **ActivePower**.
     1. Change the interval to **3d**.
 
-       [![Change the interval to 3d](media/v2-update-quickstart/quickstart-seven.png)](media/v2-update-quickstart/quickstart-seven.png#lightbox)
+       [![Change the interval to 3d](media/v2-update-quickstart/quick-start-interval-change.png)](media/v2-update-quickstart/quick-start-interval-change.png#lightbox)
 
 1. By expanding the time range, we can determine whether the issue has stopped or whether it continues.
 
     * Extend the time span to 60 days.
 
-      [![Extend the time span to 60 days](media/v2-update-quickstart/quickstart-eight.png)](media/v2-update-quickstart/quickstart-eight.png#lightbox)
+      [![Extend the time span to 60 days](media/v2-update-quickstart/quick-start-expand-interval-range.png)](media/v2-update-quickstart/quick-start-expand-interval-range.png#lightbox)
 
-1. Other sensor data points can be added to provide greater context. The more sensors we view, the fuller our understanding of the problem is. Let’s drop a marker to see the actual values. 
+1. Other sensor data points can be added to provide greater context. The more sensors we view, the fuller our understanding of the problem is. Let’s drop a marker to display the actual values. 
 
     1. Select **Generator System**, and then select three sensors: **GridVoltagePhase1**, **GridVoltagePhase2**, and **GridVoltagePhase3**.
     1. Drop a marker on the last data point in the visible area.
 
-       [![Drop a marker](media/v2-update-quickstart/quickstart-nine.png)](media/v2-update-quickstart/quickstart-nine.png#lightbox)
+       [![Drop a marker](media/v2-update-quickstart/quick-start-drop-marker.png)](media/v2-update-quickstart/quick-start-drop-marker.png#lightbox)
 
     Two of the voltage sensors are operating comparably and within normal parameters. It looks like the **GridVoltagePhase3** sensor is the culprit.
 
@@ -108,7 +108,7 @@ By using Time Series Insights and sensor telemetry, we've discovered a long-term
 
     * Change the display to overlay all **Generator System** sensors on the same chart scale.
 
-      [![Change the display to include everything](media/v2-update-quickstart/quickstart-ten.png)](media/v2-update-quickstart/quickstart-ten.png#lightbox)
+      [![Change the display to include everything](media/v2-update-quickstart/quick-start-generator-system.png)](media/v2-update-quickstart/quick-start-generator-system.png#lightbox)
 
 ## Clean up resources
 

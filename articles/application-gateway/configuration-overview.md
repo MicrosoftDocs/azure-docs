@@ -42,23 +42,23 @@ We recommend that you use a subnet size of at least /28. This size gives you 11 
 
 #### Network security groups on the Application Gateway subnet
 
-Network security groups (NSGs) are supported on Application Gateway. But there are several restrictions:
+Network security groups (NSGs) are supported on Application Gateway. But there are some restrictions:
 
-- You must allow incoming Internet traffic on TCP ports 65503-65534 for the Application Gateway v1 SKU, and TCP ports 65200-65535 for the v2 SKU with the destination subnet as *Any*. This port range is required for Azure infrastructure communication. These ports are protected (locked down) by Azure certificates. External entities, including the customers of those gateways, can't initiate changes on those endpoints without appropriate certificates in place.
+- You must allow incoming Internet traffic on TCP ports 65503-65534 for the Application Gateway v1 SKU, and TCP ports 65200-65535 for the v2 SKU with the destination subnet as **Any** and source as **GatewayManager** service tag. This port range is required for Azure infrastructure communication. These ports are protected (locked down) by Azure certificates. External entities, including the customers of those gateways, can't communicate on these endpoints.
 
 - Outbound internet connectivity can't be blocked. Default outbound rules in the NSG allow internet connectivity. We recommend that you:
 
   - Don't remove the default outbound rules.
-  - Don't create other outbound rules that deny outbound internet connectivity.
+  - Don't create other outbound rules that deny any outbound connectivity.
 
 - Traffic from the **AzureLoadBalancer** tag must be allowed.
 
-##### Allow Application Gateway access to a few source IPs
+#### Allow Application Gateway access to a few source IPs
 
 For this scenario, use NSGs on the Application Gateway subnet. Put the following restrictions on the subnet in this order of priority:
 
-1. Allow incoming traffic from a source IP or IP range and the destination as either the entire Application Gateway subnet, or to the specific configured private front-end IP. The NSG doesn't work on a public IP.
-2. Allow incoming requests from all sources to ports 65503-65534 for the Application Gateway v1 SKU, and ports 65200-65535 for v2 SKU for [back-end health communication](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics). This port range is required for Azure infrastructure communication. These ports are protected (locked down) by Azure certificates. Without appropriate certificates in place, external entities can't initiate changes on those endpoints.
+1. Allow incoming traffic from a source IP or IP range with the destination as the entire Application Gateway subnet address range and destination port as your inbound access port, for example, port 80 for HTTP access.
+2. Allow incoming requests from source as **GatewayManager** service tag and destination as **Any** and destination ports as 65503-65534 for the Application Gateway v1 SKU, and ports 65200-65535 for v2 SKU for [back-end health status communication](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics). This port range is required for Azure infrastructure communication. These ports are protected (locked down) by Azure certificates. Without appropriate certificates in place, external entities can't initiate changes on those endpoints.
 3. Allow incoming Azure Load Balancer probes (*AzureLoadBalancer* tag) and inbound virtual network traffic (*VirtualNetwork* tag) on the [network security group](https://docs.microsoft.com/azure/virtual-network/security-overview).
 4. Block all other incoming traffic by using a deny-all rule.
 5. Allow outbound traffic to the internet for all destinations.
@@ -70,10 +70,10 @@ For the v1 SKU, user-defined routes (UDRs) are supported on the Application Gate
 For the v2 SKU, UDRs are not supported on the Application Gateway subnet. For more information, see [Azure Application Gateway v2 SKU](application-gateway-autoscaling-zone-redundant.md#differences-with-v1-sku).
 
 > [!NOTE]
-> UDRs are not supported for the v2 SKU.  If you require UDRs you should continue to deploy v1 SKU.
+> UDRs are not supported for the v2 SKU as of now.
 
 > [!NOTE]
-> Using UDRs on the Application Gateway subnet causes the health status in the [back-end health view](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics#back-end-health) to appear as "Unknown." It also causes generation of Application Gateway logs and metrics to fail. We recommend that you don't use UDRs on the Application Gateway subnet so that you can view the back-end health, logs, and metrics.
+> Using UDRs on the Application Gateway subnet might cause the health status in the [back-end health view](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics#back-end-health) to appear as "Unknown." It also might cause generation of Application Gateway logs and metrics to fail. We recommend that you don't use UDRs on the Application Gateway subnet so that you can view the back-end health, logs, and metrics.
 
 ## Front-end IP
 
@@ -161,7 +161,7 @@ To configure a global custom error page, see [Azure PowerShell configuration](ht
 
 You can centralize SSL certificate management and reduce encryption-decryption overhead for a back-end server farm. Centralized SSL handling also lets you specify a central SSL policy that's suited to your security requirements. You can choose *default*, *predefined*, or *custom* SSL policy.
 
-You configure SSL policy to control SSL protocol versions. You can configure an application gateway to use a minumum protocol version for TLS handshakes from TLS1.0, TLS1.1, and TLS1.2. By default, SSL 2.0 and 3.0 are disabled and aren't configurable. For more information, see [Application Gateway SSL policy overview](https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview).
+You configure SSL policy to control SSL protocol versions. You can configure an application gateway to use a minimum protocol version for TLS handshakes from TLS1.0, TLS1.1, and TLS1.2. By default, SSL 2.0 and 3.0 are disabled and aren't configurable. For more information, see [Application Gateway SSL policy overview](https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview).
 
 After you create a listener, you associate it with a request-routing rule. That rule determines how requests that are received on the listener are routed to the back end.
 
@@ -206,7 +206,7 @@ For a path-based rule, add multiple back-end HTTP settings that correspond to ea
 
 If redirection is configured for a basic rule, all requests on the associated listener are redirected to the target. This is *global* redirection. If redirection is configured for a path-based rule, only requests in a specific site area are redirected. An example is a shopping cart area that's denoted by */cart/\**. This is *path-based* redirection.
 
-For more information about redirects, see [Application Gateway redirect overview](https://docs.microsoft.com/azure/application-gateway/redirect-overview).
+For more information about redirects, see [Application Gateway redirect overview](redirect-overview.md).
 
 #### Redirection type
 
@@ -223,24 +223,24 @@ Choose listener as the redirection target to redirect traffic from one listener 
 ![Application Gateway components dialog box](./media/configuration-overview/configure-redirection.png)
 
 For more information about HTTP-to-HTTPS redirection, see:
-- [HTTP-to-HTTPS redirection by using the Azure portal](https://docs.microsoft.com/azure/application-gateway/redirect-http-to-https-portal)
-- [HTTP-to-HTTPS redirection by using PowerShell](https://docs.microsoft.com/azure/application-gateway/redirect-http-to-https-powershell)
-- [HTTP-to-HTTPS redirection by using the Azure CLI](https://docs.microsoft.com/azure/application-gateway/redirect-http-to-https-cli)
+- [HTTP-to-HTTPS redirection by using the Azure portal](redirect-http-to-https-portal.md)
+- [HTTP-to-HTTPS redirection by using PowerShell](redirect-http-to-https-powershell.md)
+- [HTTP-to-HTTPS redirection by using the Azure CLI](redirect-http-to-https-cli.md)
 
 ##### External site
 
 Choose external site when you want to redirect the traffic on the listener that's associated with this rule to an external site. You can choose to include the query string from the original request in the request that's forwarded to the redirection target. You can't forward the path to the external site that was in the original request.
 
 For more information about redirection, see:
-- [Redirect traffic to an external site by using PowerShell](https://docs.microsoft.com/azure/application-gateway/redirect-external-site-powershell)
-- [Redirect traffic to an external site by using the CLI](https://docs.microsoft.com/azure/application-gateway/redirect-external-site-cli)
+- [Redirect traffic to an external site by using PowerShell](redirect-external-site-powershell.md)
+- [Redirect traffic to an external site by using the CLI](redirect-external-site-cli.md)
 
 #### Rewrite the HTTP header setting
 
 This setting adds, removes, or updates HTTP request and response headers while the request and response packets move between the client and back-end pools. For more information, see:
 
- - [Rewrite HTTP headers overview](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers)
- - [Configure HTTP header rewrite](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers-portal)
+ - [Rewrite HTTP headers overview](rewrite-http-headers.md)
+ - [Configure HTTP header rewrite](rewrite-http-headers-portal.md)
 
 ## HTTP settings
 
@@ -248,17 +248,29 @@ The application gateway routes traffic to the back-end servers by using the conf
 
 ### Cookie-based affinity
 
-This feature is useful when you want to keep a user session on the same server. Gateway-managed cookies let the application gateway direct subsequent traffic from a user session to the same server for processing. This is important when session state is saved locally on the server for a user session. If the application can't handle cookie-based affinity, you can't use this feature. To use it, make sure that the clients support cookies.
+Azure Application Gateway uses gateway managed cookies for maintaining user sessions. When a user sends the first request to Application Gateway, it sets an affinity cookie in the response with a hash value which contains the session details, so that the subsequent requests carrying the affinity cookie will be routed to the same backend server for maintaining stickiness. 
+
+This feature is useful when you want to keep a user session on the same server and when session state is saved locally on the server for a user session. If the application can't handle cookie-based affinity, you can't use this feature. To use it, make sure that the clients support cookies.
+
+The [Chromium browser](https://www.chromium.org/Home) [v80 update](https://chromiumdash.appspot.com/schedule) brought a mandate where HTTP cookies without [SameSite](https://tools.ietf.org/id/draft-ietf-httpbis-rfc6265bis-03.html#rfc.section.5.3.7) attribute has to be treated as SameSite=Lax. In the case of CORS (Cross-Origin Resource Sharing) requests, if the cookie has to be sent in a third-party context, it has to use *SameSite=None; Secure* attributes and it should be sent over HTTPS only. Otherwise, in a HTTP only scenario, the browser doesn't send the cookies in the third-party context. The goal of this update from Chrome is to enhance security and to avoid Cross-Site Request Forgery (CSRF) attacks. 
+
+To support this change, starting February 17th 2020, Application Gateway (all the SKU types) will inject another cookie called *ApplicationGatewayAffinityCORS* in addition to the existing *ApplicationGatewayAffinity* cookie. The *ApplicationGatewayAffinityCORS* cookie has two more attributes added to it (*"SameSite=None; Secure"*) so that sticky session are maintained even for cross-origin requests.
+
+Note that the default affinity cookie name is *ApplicationGatewayAffinity* and you can change it. In case you are using a custom affinity cookie name, an additional cookie is added with CORS as suffix. For example, *CustomCookieNameCORS*.
+
+> [!NOTE]
+> If the attribute *SameSite=None* is set, it is mandatory that the cookie also contains the *Secure* flag, and must be sent over HTTPS.  If session affinity is required over CORS, you must migrate your workload to HTTPS. 
+Please refer to SSL offload and End-to-End SSL documentation for Application Gateway here – [Overview](ssl-overview.md), [How-to configure SSL offload](create-ssl-portal.md), [How-to configure End-to-End SSL](end-to-end-ssl-portal.md).
 
 ### Connection draining
 
-Connection draining helps you gracefully remove back-end pool members during planned service updates. You can apply this setting to all members of a back-end pool during rule creation. It ensures that all de-registering instances of a back-end pool don't receive any new requests. Meanwhile, existing requests are allowed to complete within a configured time limit. Connection draining applies to back-end instances that are explicitly removed from the back-end pool.
+Connection draining helps you gracefully remove back-end pool members during planned service updates. You can apply this setting to all members of a back-end pool during rule creation. It ensures that all deregistering instances of a back-end pool continue to maintain existing connections and serve on-going requests for a configurable timeout and don't receive any new requests or connections. The only exception to this are requests bound for deregistering instances because of gateway-managed session affinity and will continue to be forwarded to the deregistering instances. Connection draining applies to back-end instances that are explicitly removed from the back-end pool.
 
 ### Protocol
 
 Application Gateway supports both HTTP and HTTPS for routing requests to the back-end servers. If you choose HTTP, traffic to the back-end servers is unencrypted. If unencrypted communication isn't acceptable, choose HTTPS.
 
-This setting combined with HTTPS in the listener supports [end-to-end SSL](https://docs.microsoft.com/azure/application-gateway/ssl-overview). This allows you to securely transmit sensitive data encrypted to the back end. Each back-end server in the back-end pool that has end-to-end SSL enabled must be configured with a certificate to allow secure communication.
+This setting combined with HTTPS in the listener supports [end-to-end SSL](ssl-overview.md). This allows you to securely transmit sensitive data encrypted to the back end. Each back-end server in the back-end pool that has end-to-end SSL enabled must be configured with a certificate to allow secure communication.
 
 ### Port
 
@@ -297,7 +309,7 @@ This is a UI only shortcut that selects the two required settings for the Azure 
 
 ### Use custom probe
 
-This setting associates a [custom probe](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview#custom-health-probe) with an HTTP setting. You can associate only one custom probe with an HTTP setting. If you don't explicitly associate a custom probe, the [default probe](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview#default-health-probe-settings) is used to monitor the health of the back end. We recommend that you create a custom probe for greater control over the health monitoring of your back ends.
+This setting associates a [custom probe](application-gateway-probe-overview.md#custom-health-probe) with an HTTP setting. You can associate only one custom probe with an HTTP setting. If you don't explicitly associate a custom probe, the [default probe](application-gateway-probe-overview.md#default-health-probe-settings) is used to monitor the health of the back end. We recommend that you create a custom probe for greater control over the health monitoring of your back ends.
 
 > [!NOTE]
 > The custom probe doesn't monitor the health of the back-end pool unless the corresponding HTTP setting is explicitly associated with a listener.
@@ -331,7 +343,7 @@ After you create a back-end pool, you must associate it with one or more request
 
 ## Health probes
 
-An application gateway monitors the health of all resources in its back end by default. But we strongly recommend that you create a custom probe for each back-end HTTP setting to get greater control over health monitoring. To learn how to configure a custom probe, see [Custom health probe settings](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview#custom-health-probe-settings).
+An application gateway monitors the health of all resources in its back end by default. But we strongly recommend that you create a custom probe for each back-end HTTP setting to get greater control over health monitoring. To learn how to configure a custom probe, see [Custom health probe settings](application-gateway-probe-overview.md#custom-health-probe-settings).
 
 > [!NOTE]
 > After you create a custom health probe, you need to associate it to a back-end HTTP setting. A custom probe won't monitor the health of the back-end pool unless the corresponding HTTP setting is explicitly associated with a listener using a rule.

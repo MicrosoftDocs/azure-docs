@@ -1,26 +1,17 @@
 ---
-title: Provision and deploy microservices predictably - Azure App Service
-description: Learn how to deploy an application composed of microservices in Azure App Service as a single unit and in a predictable manner using JSON resource group templates and PowerShell scripting.
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: erikre
-editor: jimbe
+title: Deploy apps predictably with ARM
+description: Learn how to deploy multiple Azure App Service apps as a single unit and in a predictable manner using Azure Resource Management templates and PowerShell scripting.
 
 ms.assetid: bb51e565-e462-4c60-929a-2ff90121f41d
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/06/2016
-ms.author: cephalin
 ms.custom: seodec18
 
 ---
 # Provision and deploy microservices predictably in Azure
 This tutorial shows how to provision and deploy an application composed of [microservices](https://en.wikipedia.org/wiki/Microservices) in [Azure App Service](https://azure.microsoft.com/services/app-service/) as a single unit and in a predictable manner using JSON resource group templates and PowerShell scripting. 
 
-When provisioning and deploying high-scale applications that are composed of highly decoupled microservices, repeatability and predictability are crucial to success. [Azure App Service](https://azure.microsoft.com/services/app-service/) enables you to create microservices that include web apps, mobile back ends, and API apps. [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) enables you to manage all the microservices as a unit, together with resource dependencies such as database and source control settings. Now, you can also deploy such an application using JSON templates and simple PowerShell scripting. 
+When provisioning and deploying high-scale applications that are composed of highly decoupled microservices, repeatability and predictability are crucial to success. [Azure App Service](https://azure.microsoft.com/services/app-service/) enables you to create microservices that include web apps, mobile back ends, and API apps. [Azure Resource Manager](../azure-resource-manager/management/overview.md) enables you to manage all the microservices as a unit, together with resource dependencies such as database and source control settings. Now, you can also deploy such an application using JSON templates and simple PowerShell scripting. 
 
 ## What you will do
 In the tutorial, you will deploy an application that includes:
@@ -34,7 +25,7 @@ In the tutorial, you will deploy an application that includes:
 In this tutorial, you will use the following tools. Since it’s not comprehensive discussion on tools, I’m going to stick to the end-to-end scenario and just give you a brief intro to each, and where you can find more information on it. 
 
 ### Azure Resource Manager templates (JSON)
-Every time you create an app in Azure App Service, for example, Azure Resource Manager uses a JSON template to create the entire resource group with the component resources. A complex template from the [Azure Marketplace](/azure/marketplace) can include the database, storage accounts, the App Service plan, the app itself, alert rules, app settings, autoscale settings, and more, and all these templates are available to you through PowerShell. For more information on the Azure Resource Manager templates, see [Authoring Azure Resource Manager Templates](../azure-resource-manager/resource-group-authoring-templates.md)
+Every time you create an app in Azure App Service, for example, Azure Resource Manager uses a JSON template to create the entire resource group with the component resources. A complex template from the [Azure Marketplace](/azure/marketplace) can include the database, storage accounts, the App Service plan, the app itself, alert rules, app settings, autoscale settings, and more, and all these templates are available to you through PowerShell. For more information on the Azure Resource Manager templates, see [Authoring Azure Resource Manager Templates](../azure-resource-manager/templates/template-syntax.md)
 
 ### Azure SDK 2.6 for Visual Studio
 The newest SDK contains improvements to the Resource Manager template support in the JSON editor. You can use this to quickly create a resource group template from scratch or open an existing JSON template (such as a downloaded gallery template) for modification, populate the parameters file, and even deploy the resource group directly from an Azure Resource Group solution.
@@ -122,7 +113,7 @@ Note the following about the highlighted JSON code:
 * The nested resources inside `“resources”: […]`, where the database and the firewall rules are defined, have a `dependsOn` element that specifies the resource ID of the root-level SQLServer resource. This tells Azure Resource Manager, “before you create this resource, that other resource must already exist; and if that other resource is defined in the template, then create that one first”.
   
   > [!NOTE]
-  > For detailed information on how to use the `resourceId()` function, see [Azure Resource Manager Template Functions](../azure-resource-manager/resource-group-template-functions-resource.md#resourceid).
+  > For detailed information on how to use the `resourceId()` function, see [Azure Resource Manager Template Functions](../azure-resource-manager/templates/template-functions-resource.md#resourceid).
   > 
   > 
 * The effect of the `dependsOn` element is that Azure Resource Manager can know which resources can be created in parallel and which resources must be created sequentially. 
@@ -256,12 +247,12 @@ In DevOps, repeatability and predictability are keys to any successful deploymen
 <a name="resources"></a>
 
 ## More resources
-* [Azure Resource Manager Template Language](../azure-resource-manager/resource-group-authoring-templates.md)
-* [Authoring Azure Resource Manager Templates](../azure-resource-manager/resource-group-authoring-templates.md)
-* [Azure Resource Manager Template Functions](../azure-resource-manager/resource-group-template-functions.md)
-* [Deploy an application with Azure Resource Manager template](../azure-resource-manager/resource-group-template-deploy.md)
+* [Azure Resource Manager Template Language](../azure-resource-manager/templates/template-syntax.md)
+* [Authoring Azure Resource Manager Templates](../azure-resource-manager/templates/template-syntax.md)
+* [Azure Resource Manager Template Functions](../azure-resource-manager/templates/template-functions.md)
+* [Deploy an application with Azure Resource Manager template](../azure-resource-manager/templates/deploy-powershell.md)
 * [Using Azure PowerShell with Azure Resource Manager](../azure-resource-manager/powershell-azure-resource-manager.md)
-* [Troubleshooting Resource Group Deployments in Azure](../azure-resource-manager/resource-manager-common-deployment-errors.md)
+* [Troubleshooting Resource Group Deployments in Azure](../azure-resource-manager/templates/common-deployment-errors.md)
 
 ## Next steps
 

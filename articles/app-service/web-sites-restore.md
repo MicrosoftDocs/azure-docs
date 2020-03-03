@@ -1,19 +1,10 @@
 ---
-title: Restore app - Azure App Service
-description: Learn how to restore your app from a backup.
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: erikre
-editor: jimbe
+title: Restore app from backup
+description: Learn how to restore your app from a backup. Certain linked databases can be restored along with the app in one operation.
 
 ms.assetid: 4444dbf7-363c-47e2-b24a-dbd45cb08491
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/06/2016
-ms.author: cephalin
 ms.custom: seodec18
 
 ---

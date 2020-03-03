@@ -1,7 +1,7 @@
 ---
 title: Embed Video Indexer widgets in your applications
 titleSuffix: Azure Media Services
-description: Learn how to embed Video Indexer widgets in your application.
+description: This article demonstrates how to embed Azure Media Services Video Indexer widgets in your application.
 services: media-services
 author: Juliako
 manager: femila
@@ -9,7 +9,7 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 07/29/2019
+ms.date: 02/03/2020
 ms.author: juliako
 ---
 
@@ -82,9 +82,9 @@ To embed a private video, you must pass an access token in the **src** attribute
     
 To get the Cognitive Insights widget content, use one of the following:<br/>
 - The [Get Insights Widget](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Insights-Widget?&pattern=widget) API.<br/>
-- The [Get Video Access Token](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Video-Access-Token?). Add it as a query parameter to the URL. Specify this URL as the **src** value for the iframe, as shown earlier.
+- The [Get Video Access Token](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Access-Token?). Add it as a query parameter to the URL. Specify this URL as the **src** value for the iframe, as shown earlier.
 
-To provide editing insights capabilities in your embedded widget, you must pass an access token that includes editing permissions. Use [Get Insights Widget](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Insights-Widget?&pattern=widget) or [Get Video Access Token](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Video-Access-Token?) with `&allowEdit=true`. 
+To provide editing insights capabilities in your embedded widget, you must pass an access token that includes editing permissions. Use [Get Insights Widget](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Insights-Widget?&pattern=widget) or [Get Video Access Token](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Access-Token?) with `&allowEdit=true`. 
 
 ## Widgets interaction
 
@@ -155,7 +155,8 @@ This section shows how to achieve interaction between a Cognitive Insights widge
 		    this.videobreakdown({
 			videoId: "c4c1ad4c9a",
 			syncTranscript: true,
-			syncLanguage: true
+			syncLanguage: true,
+			location: "trial" /* location option for paid accounts (default is trial) */
 		    });
 
 		    // Set the source dynamically.
@@ -259,6 +260,23 @@ If you want to disable captions, you can pass the `captions` parameter value as 
 
 #### AutoPlay
 By default, the player will start playing the video. you can choose not to by passing `&autoplay=false` to the preceding embed URL.
+
+## Code samples
+
+See the [code samples](https://github.com/Azure-Samples/media-services-video-indexer/tree/master/Widgets) repo that contains samples for Video Indexer API and Widgets:
+
+| File/folder                       | Description                                |
+|-----------------------------------|--------------------------------------------|
+| `azure-media-player`              | Load video indexer video in a custom Azure Media Player                        |
+| `azure-media-player-vi-insights`  | Embed VI Insights with a custom Azure Media Player                             |
+| `control-vi-embedded-player`      | Embed VI Player and control it from outside                                    |
+| `custom-index-location`           | Embed VI Insights from a custom external location (can be customer a blob)     |
+| `embed-both-insights`             | Basic usage of VI Insights both player and insights                            |
+| `embed-insights-with-AMP`         | Embed VI Insights widget with a custom Azure Media Player                      |
+| `customize-the-widgets`           | Embed VI widgets with a customized options                                     |
+| `embed-both-widgets`              | Embed VI Player and Insights and communicate between them                      |
+| `url-generator`                   | Generates widgets custom embed url based on user specified options             |
+| `html5-player`                    | Embed VI Insights with a default HTML5 Video player                            |
 
 ## Next steps
 

@@ -4,7 +4,7 @@ description: Describes how to use the Azure Analysis Services REST API to code a
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/28/2019
+ms.date: 01/14/2020
 ms.author: owend
 ms.reviewer: minewiskan
 
@@ -25,7 +25,7 @@ The base URL follows this format:
 https://<rollout>.asazure.windows.net/servers/<serverName>/models/<resource>/
 ```
 
-For example, consider a model named AdventureWorks on a server named myserver, located in the West US Azure region. The server name is:
+For example, consider a model named AdventureWorks on a server named `myserver`, located in the West US Azure region. The server name is:
 
 ```
 asazure://westus.asazure.windows.net/myserver 
@@ -105,9 +105,20 @@ CommitMode is equal to partialBatch. It's used when doing an initial load of lar
 > [!NOTE]
 > At time of writing, the batch size is the MaxParallelism value, but this value could change.
 
+### Status values
+
+|Status value  |Description  |
+|---------|---------|
+|`notStarted`    |   Operation not yet started.      |
+|`inProgress`     |   Operation in progress.      |
+|`timedOut`     |    Operation timed out based on user specified timeout.     |
+|`cancelled`     |   Operation canceled by user or system.      |
+|`failed`     |   Operation failed.      |
+|`succeeded`      |   Operation succeeded.      |
+
 ## GET /refreshes/\<refreshId>
 
-To check the status of a refresh operation, use the GET verb on the refresh ID. Here's an example of the response body. If the operation is in progress, **inProgress** is returned in status.
+To check the status of a refresh operation, use the GET verb on the refresh ID. Here's an example of the response body. If the operation is in progress, `inProgress` is returned in status.
 
 ```
 {

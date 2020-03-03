@@ -4,7 +4,7 @@ description: There are two major backup possibilities for SAP HANA on Azure virt
 services: virtual-machines-linux
 documentationcenter: 
 author: hermanndms
-manager: gwallace
+manager: juergent
 editor: 
 ms.service: virtual-machines-linux
 
@@ -12,7 +12,7 @@ ms.topic: article
 ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/05/2018
-ms.author: rclaus
+ms.author: hermannd
 
 ---
 
@@ -134,7 +134,7 @@ So it works, but performance wasn't good for the 230-GB backup test. It would lo
 
 ## Copy SAP HANA backup files to Azure Files
 
-It is possible to mount an Azure Files share inside an Azure Linux VM. The article [How to use Azure File storage with Linux](../../../storage/files/storage-how-to-use-files-linux.md) provides details on how to do it. Keep in mind that there is currently a 5-TB quota limit of one Azure file share, and a file size limit of 1 TB per file. See [Azure Storage Scalability and Performance Targets](../../../storage/common/storage-scalability-targets.md) for information on storage limits.
+It is possible to mount an Azure Files share inside an Azure Linux VM. The article [How to use Azure File storage with Linux](../../../storage/files/storage-how-to-use-files-linux.md) provides details on how to do it. Keep in mind that there is currently a 5-TB quota limit of one Azure file share, and a file size limit of 1 TB per file. For more information, see [Azure Files scalability and performance targets](../../../storage/files/storage-files-scale-targets.md).
 
 Tests have shown, however, that SAP HANA backup doesn&#39;t currently work directly with this kind of CIFS mount. It is also stated in [SAP Note 1820529](https://launchpad.support.sap.com/#/notes/1820529) that CIFS is not recommended.
 

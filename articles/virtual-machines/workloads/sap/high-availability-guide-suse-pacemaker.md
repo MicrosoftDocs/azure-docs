@@ -1,10 +1,10 @@
 ---
-title: Setting up Pacemaker on SUSE Linux Enterprise Server in Azure | Microsoft Docs
+title: Setting up Pacemaker on SLES in Azure | Microsoft Docs
 description: Setting up Pacemaker on SUSE Linux Enterprise Server in Azure
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
-author: mssedusch
-manager: gwallace
+author: rdeltcheva
+manager: juergent
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
-ms.author: sedusch
+ms.author: radeltch
 
 ---
 
@@ -58,6 +58,9 @@ Run the following commands on all **iSCSI target virtual machines**.
 
    <pre><code>sudo zypper update
    </code></pre>
+
+   > [!NOTE]
+   > You might need to reboot the OS after you upgrade or update the OS. 
 
 1. Remove packages
 
@@ -543,7 +546,8 @@ Use the following content for the input file. You need to adapt the content to y
   "Actions": [
     "Microsoft.Compute/*/read",
     "Microsoft.Compute/virtualMachines/deallocate/action",
-    "Microsoft.Compute/virtualMachines/start/action"
+    "Microsoft.Compute/virtualMachines/start/action", 
+    "Microsoft.Compute/virtualMachines/powerOff/action" 
   ],
   "NotActions": [
   ],

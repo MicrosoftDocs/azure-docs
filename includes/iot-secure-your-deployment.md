@@ -72,7 +72,7 @@ While establishing a secure TLS connection with IoT Hub, the IoT device authenti
 
 ## Securing the connection
 
-Internet connection between the IoT device and IoT Hub is secured using the Transport Layer Security (TLS) standard. Azure IoT supports [TLS 1.2](https://tools.ietf.org/html/rfc5246), TLS 1.1, and TLS 1.0, in this order. Support for TLS 1.0 is provided for backward compatibility only. If possible, use TLS 1.2 as it provides the most security.
+Internet connection between the IoT device and IoT Hub is secured using the Transport Layer Security (TLS) standard. Azure IoT supports [TLS 1.2](https://tools.ietf.org/html/rfc5246), TLS 1.1, and TLS 1.0, in this order. Support for TLS 1.0 is provided for backward compatibility only. Check [TLS support in IoT Hub](../articles/iot-hub/iot-hub-tls-support.md) to see how to configure your hub to use TLS 1.2, as it provides the most security.
 
 ## Securing the cloud
 

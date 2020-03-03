@@ -35,7 +35,7 @@ You configure the VPN gateway to use IKEv2 and certificate-based authentication 
 
 1. Install client certificates on the Windows 10 client, as shown in this [point-to-site VPN client](point-to-site-how-to-vpn-client-install-azure-cert.md) article. The certificate must be in the current user store.
 
-1. Configure the Always On VPN client through PowerShell, System Center Configuration Manager, or Intune by following the instructions in [Configure Windows 10 client Always On VPN connections](https://docs.microsoft.com/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/vpn-deploy-client-vpn-connections).
+1. Configure the Always On VPN client through PowerShell, Configuration Manager, or Intune by following the instructions in [Configure Windows 10 client Always On VPN connections](https://docs.microsoft.com/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/vpn-deploy-client-vpn-connections).
 
 ### Example configuration for the user tunnel
 
@@ -95,9 +95,10 @@ After you've configured the virtual network gateway and installed the client cer
    ```
 1. Copy the following text, and save it as *VPNProfile.xml* in the same folder as *usercert.ps1*. Edit the following text to match your environment:
 
-   * `<Servers>azuregateway-1234-56-78dc.cloudapp.net</Servers>`
-   * `<Address>192.168.3.5</Address>`
-   * `<Address>192.168.3.4</Address>`
+   * `<Servers>azuregateway-1234-56-78dc.cloudapp.net</Servers>  <= Can be found in the VpnSettings.xml in the downloaded profile zip file`
+   * `<Address>192.168.3.5</Address>  <= IP of resource in the vnet or the vnet address space`
+   * `<Address>192.168.3.4</Address>  <= IP of resource in the vnet or the vnet address space`
+   * `<PrefixSize>32</PrefixSize>     <= Subnet mask`
 
    ```
 	<VPNProfile>  

@@ -1,7 +1,7 @@
 ---
-title: Asynchronous Conversation Transcription (Preview) - Speech Service
+title: Asynchronous Conversation Transcription (Preview) - Speech service
 titleSuffix: Azure Cognitive Services
-description: Learn how to use asynchronous Conversation Transcription using the Speech Service. Available for Java only.
+description: Learn how to use asynchronous Conversation Transcription using the Speech service. Available for Java only.
 services: cognitive-services
 author: markamos
 manager: nitinme
@@ -46,7 +46,8 @@ speechConfig.setServiceProperty("transcriptionMode", "Async", ServicePropertyCha
 String conversationId = UUID.randomUUID().toString();
 
 // Create a Conversation
-Conversation conversation = new Conversation(speechConfig, conversationId);
+Future<Conversation> conversationFuture = Conversation.createConversationAsync(speechConfig, conversationId);
+Conversation conversation = conversationFuture.get();
 
 // Create an audio stream from a wav file or from the default microphone if you want to stream live audio from the supported devices
 // Replace with your own audio file name and Helper class which implements AudioConfig using PullAudioInputStreamCallback

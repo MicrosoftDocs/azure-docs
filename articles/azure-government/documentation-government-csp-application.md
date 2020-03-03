@@ -1,6 +1,7 @@
 ---
-title: How to become an Azure Government CSP (Cloud Solutions Provider) | Microsoft Docs
+title: How to become an Azure Government CSP (Cloud Solutions Provider)
 description: Provides an overview of the process to become an Azure Government CSP and re-sell Azure Government
+titleSuffix: Azure Government
 services: azure-government
 cloud: gov
 documentationcenter: ''

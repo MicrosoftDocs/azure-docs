@@ -1,6 +1,6 @@
 ---
 title: ARRAY_CONCAT in Azure Cosmos DB query language
-description: Learn about SQL system function ARRAY_CONCAT in Azure Cosmos DB.
+description: Learn about how the Array Concat SQL system function in Azure Cosmos DB returns an array that is the result of concatenating two or more array values
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual

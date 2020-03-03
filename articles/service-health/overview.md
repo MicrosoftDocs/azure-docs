@@ -1,11 +1,7 @@
 ---
 title: What is Azure Service Health?
 description: Personalized information about how your Azure apps are affected by current and future Azure service problems and maintenance. 
-author: stephbaron
-ms.author: stbaron
-services: service-health
-ms.service: service-health
-ms.topic: article
+ms.topic: overview
 ms.date: 05/10/2019
 ---
 # What is Azure Service Health?
@@ -25,3 +21,5 @@ Together, these experiences provide you with a comprehensive view into the healt
 **Watch an overview of the Azure Status page, Azure Service Health, and Azure Resource Health**
 
 >[!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2OgX6]
+
+[!INCLUDE [azure-lighthouse-supported-service](../../includes/azure-lighthouse-supported-service.md)]

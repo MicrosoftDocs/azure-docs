@@ -1,11 +1,11 @@
 ---
-title: Azure PowerShell script - Azure Cosmos DB Update RU/s for Cassandra API
-description: Azure PowerShell script - Azure Cosmos DB Update RU/s for Cassandra API
+title: PowerShell script to update RU/s in Azure Cosmos DB Cassandra API resources
+description: Learn how to use a PowerShell script to update the throughput for a keyspace or a table in Azure Cosmos DB Cassandra API
 author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: sample
-ms.date: 05/18/2019
+ms.date: 12/05/2019
 ms.author: mjbrown
 ---
 

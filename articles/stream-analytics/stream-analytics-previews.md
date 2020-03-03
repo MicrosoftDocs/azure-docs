@@ -1,13 +1,12 @@
 ---
 title: Azure Stream Analytics preview features
 description: This article lists the Azure Stream Analytics features that are currently in preview.
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 10/30/2019
+ms.date: 2/1/2020
 ---
 
 # Azure Stream Analytics preview features
@@ -48,11 +47,6 @@ You can test your queries against live data on your local machine before submitt
 ### Visual Studio Code for Azure Stream Analytics
 
 Azure Stream Analytics jobs can be authored in Visual Studio Code. See our [VS Code getting started tutorial](https://docs.microsoft.com/azure/stream-analytics/quick-create-vs-code).
-
-
-### Anomaly Detection
-
-Azure Stream Analytics introduces new machine learning models with support for *spike* and *dips* detection in addition to bi-directional, slow positive, and slow negative trends detection. For more information, visit [Anomaly detection in Azure Stream Analytics](stream-analytics-machine-learning-anomaly-detection.md).
 
 
 ### Integration with Azure Machine Learning

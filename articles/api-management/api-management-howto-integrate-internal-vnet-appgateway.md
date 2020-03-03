@@ -1,5 +1,6 @@
 ---
-title: How to use Azure API Management in Virtual Network with Application Gateway | Microsoft Docs
+title: How to use API Management in Virtual Network with Application Gateway
+titleSuffix: Azure API Management
 description: Learn how to setup and configure Azure API Management in Internal Virtual Network with Application Gateway (WAF) as FrontEnd
 services: api-management
 documentationcenter: ''
@@ -180,6 +181,9 @@ $apimService = New-AzApiManagement -ResourceGroupName $resGroupName -Location $l
 After the above command succeeds refer to [DNS Configuration required to access internal VNET API Management service](api-management-using-with-internal-vnet.md#apim-dns-configuration) to access it. This step may take more than half an hour.
 
 ## Set-up a custom domain name in API Management
+
+> [!IMPORTANT]
+> The [new developer portal](api-management-howto-developer-portal.md) also requires enabling connectivity to the API Management's management endpoint in addition to the steps below.
 
 ### Step 1
 

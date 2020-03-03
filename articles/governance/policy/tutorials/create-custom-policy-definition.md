@@ -79,7 +79,7 @@ to browse resources in your environment and see the Resource Manager properties 
 ### Resource Manager templates
 
 There are several ways to look at a [Resource Manager
-template](../../../azure-resource-manager/resource-manager-tutorial-create-encrypted-storage-accounts.md)
+template](../../../azure-resource-manager/templates/template-tutorial-create-encrypted-storage-accounts.md)
 that includes the property you're looking to manage.
 
 #### Existing resource in the portal
@@ -249,21 +249,22 @@ Like Azure CLI, the results show an alias supported by the storage accounts name
 
 ### Azure Resource Graph
 
-[Azure Resource Graph](../../resource-graph/overview.md) is a new service. It enables another method
+[Azure Resource Graph](../../resource-graph/overview.md) is a service that provides another method
 to find properties of Azure resources. Here is a sample query for looking at a single storage
 account with Resource Graph:
 
 ```kusto
-where type=~'microsoft.storage/storageaccounts'
+Resources
+| where type=~'microsoft.storage/storageaccounts'
 | limit 1
 ```
 
 ```azurecli-interactive
-az graph query -q "where type=~'microsoft.storage/storageaccounts' | limit 1"
+az graph query -q "Resources | where type=~'microsoft.storage/storageaccounts' | limit 1"
 ```
 
 ```azurepowershell-interactive
-Search-AzGraph -Query "where type=~'microsoft.storage/storageaccounts' | limit 1"
+Search-AzGraph -Query "Resources | where type=~'microsoft.storage/storageaccounts' | limit 1"
 ```
 
 The results look similar to what we see in the Resource Manager templates and through the Azure
@@ -271,17 +272,18 @@ Resource Explorer. However, Azure Resource Graph results can also include [alias
 details by _projecting_ the _aliases_ array:
 
 ```kusto
-where type=~'microsoft.storage/storageaccounts'
+Resources
+| where type=~'microsoft.storage/storageaccounts'
 | limit 1
 | project aliases
 ```
 
 ```azurecli-interactive
-az graph query -q "where type=~'microsoft.storage/storageaccounts' | limit 1 | project aliases"
+az graph query -q "Resources | where type=~'microsoft.storage/storageaccounts' | limit 1 | project aliases"
 ```
 
 ```azurepowershell-interactive
-Search-AzGraph -Query "where type=~'microsoft.storage/storageaccounts' | limit 1 | project aliases"
+Search-AzGraph -Query "Resources | where type=~'microsoft.storage/storageaccounts' | limit 1 | project aliases"
 ```
 
 Here is example output from a storage account for aliases:

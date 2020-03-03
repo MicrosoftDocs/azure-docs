@@ -1,10 +1,10 @@
 ---
-title: Troubleshoot MSAL for Objective-C issues 
+title: Troubleshoot SSL issues (MSAL iOS/macOS) | Azure
 titleSuffix: Microsoft identity platform
 description: Learn what to do about various problems using SSL certificates with the MSAL.Objective-C library.
 services: active-directory
 documentationcenter: ''
-author: TylerMSFT
+author: mmacy
 manager: CelesteDG
 editor: ''
 
@@ -15,10 +15,9 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/28/2019
-ms.author: twhitney
+ms.author: marsma
 ms.reviewer: ''
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
 ---
 
 # How to: Troubleshoot MSAL for iOS and macOS SSL issues

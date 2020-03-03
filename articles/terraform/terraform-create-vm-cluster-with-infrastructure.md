@@ -23,11 +23,11 @@ You'll learn how to do the following tasks:
 ## 1. Set up Azure authentication
 
 > [!NOTE]
-> If you [use Terraform environment variables](/azure/virtual-machines/linux/terraform-install-configure), or run this tutorial in the [Azure Cloud Shell](terraform-cloud-shell.md), skip this section.
+> If you [use Terraform environment variables](terraform-install-configure.md), or run this tutorial in the [Azure Cloud Shell](terraform-cloud-shell.md), skip this section.
 
 In this section, you generate an Azure service principal, and two Terraform configuration files containing the credentials from the security principal.
 
-1. [Set up an Azure AD service principal](/azure/virtual-machines/linux/terraform-install-configure#set-up-terraform-access-to-azure) to enable Terraform to provision resources into Azure. While creating the principal, Make note of the values for the subscription ID, tenant, appId, and password.
+1. [Set up an Azure AD service principal](terraform-install-configure.md#set-up-terraform-access-to-azure) to enable Terraform to provision resources into Azure. While creating the principal, Make note of the values for the subscription ID, tenant, appId, and password.
 
 2. Open a command prompt.
 
@@ -203,7 +203,7 @@ In this section, you create a file that contains resource definitions for your i
       disable_password_authentication = false
     }
 
-    tags {
+    tags = {
       environment = "staging"
     }
    }
@@ -255,10 +255,10 @@ By default Terraform tried to find your variables file as follows:
 - File named `terraform.tfvars`
 - File named with using the following pattern: `*.auto.tfvars`
 
-However, your variables file need not follow either of the two preceding conventions. In that case, specify your variables file name with the `-var-file` parameter. The following example illustrates this point:
+However, your variables file need not follow either of the two preceding conventions. In that case, specify your variables file name with the `-var-file` parameter where your variable file name does not carry an extension. The following example illustrates this point:
 
 ```hcl
-terraform plan -var-file <my-variables-file.tf>
+terraform plan -var-file <my-variables-file>
 ```
 
 Terraform determines the actions necessary to achieve the state specified in the configuration file.

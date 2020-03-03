@@ -3,7 +3,7 @@ title: "Debug and iterate on Kubernetes: Visual Studio Code & .NET Core"
 services: azure-dev-spaces
 ms.date: 07/08/2019
 ms.topic: quickstart
-description: "Rapid Kubernetes development with containers and microservices on Azure"
+description: "This quickstart shows you how to use Azure Dev Spaces and Visual Studio Code to debug and rapidly iterate a .NET Core application on Azure Kubernetes Service"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s"
 manager: gwallace
 ---
@@ -15,7 +15,7 @@ In this guide, you will learn how to:
 - Iteratively develop code in containers using Visual Studio Code.
 - Debug the code in your dev space from Visual Studio Code.
 
-Azure Dev Spaces also allows you debug and iterate using:
+Azure Dev Spaces also allows you to debug and iterate using:
 - [Java and Visual Studio Code](quickstart-java.md)
 - [Node.js and Visual Studio Code](quickstart-nodejs.md)
 - [.NET Core and Visual Studio](quickstart-netcore-visualstudio.md)
@@ -31,9 +31,9 @@ Azure Dev Spaces also allows you debug and iterate using:
 
 You need to create an AKS cluster in a [supported region][supported-regions]. The below commands create a resource group called *MyResourceGroup* and an AKS cluster called *MyAKS*.
 
-```cmd
+```azurecli
 az group create --name MyResourceGroup --location eastus
-az aks create -g MyResourceGroup -n MyAKS --location eastus --disable-rbac --generate-ssh-keys
+az aks create -g MyResourceGroup -n MyAKS --location eastus --generate-ssh-keys
 ```
 
 ## Enable Azure Dev Spaces on your AKS cluster
@@ -43,9 +43,11 @@ Use the `use-dev-spaces` command to enable Dev Spaces on your AKS cluster and fo
 > [!NOTE]
 > The `use-dev-spaces` command will also install the Azure Dev Spaces CLI if its not already installed. You cannot install the Azure Dev Spaces CLI in the Azure Cloud Shell.
 
-```cmd
-$ az aks use-dev-spaces -g MyResourceGroup -n MyAKS
+```azurecli
+az aks use-dev-spaces -g MyResourceGroup -n MyAKS
+```
 
+```output
 'An Azure Dev Spaces Controller' will be created that targets resource 'MyAKS' in resource group 'MyResourceGroup'. Continue? (y/N): y
 
 Creating and selecting Azure Dev Spaces Controller 'MyAKS' in resource group 'MyResourceGroup' that targets resource 'MyAKS' in resource group 'MyResourceGroup'...2m 24s
@@ -87,13 +89,16 @@ When Visual Studio Code also prompts you to configure your public endpoint, choo
 
 This command prepares your project to run in Azure Dev Spaces by generating a Dockerfile and Helm chart. It also generates a *.vscode* directory with debugging configuration at the root of your project.
 
-## Build and run code in Kubernetes from Visual Studio
+> [!TIP]
+> The [Dockerfile and Helm chart](how-dev-spaces-works.md#prepare-your-code) for your project is used by Azure Dev Spaces to build and run your code, but you can modify these files if you want to change how the project is built and ran.
+
+## Build and run code in Kubernetes from Visual Studio Code
 
 Click on the *Debug* icon on the left and click *.NET Core Launch (AZDS)* at the top.
 
 ![](media/get-started-netcore/debug-configuration.png)
 
-This command builds and runs your service in Azure Dev Spaces in debugging mode. The *Terminal* window at the bottom shows the build output and URLs for your service running Azure Dev Spaces. The *Debug Console* shows the log output.
+This command builds and runs your service in Azure Dev Spaces in debugging mode. The *Terminal* window at the bottom shows the build output and URLs for your service running in Azure Dev Spaces. The *Debug Console* shows the log output.
 
 > [!Note]
 > If you don't see any Azure Dev Spaces commands in the *Command Palette*, make sure you have installed the [Visual Studio Code extension for Azure Dev Spaces](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds). Also verify you opened the *dev-spaces/samples/dotnetcore/getting-started/webfrontend* directory in Visual Studio Code.
@@ -149,7 +154,7 @@ Instead of rebuilding and redeploying a new container image each time code edits
 
 ## Clean up your Azure resources
 
-```cmd
+```azurecli
 az group delete --name MyResourceGroup --yes --no-wait
 ```
 
@@ -161,4 +166,4 @@ Learn how Azure Dev Spaces helps you develop more complex applications across mu
 > [Working with multiple containers and team development](multi-service-netcore.md)
 
 
-[supported-regions]: about.md#supported-regions-and-configurations
+[supported-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service

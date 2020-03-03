@@ -1,16 +1,9 @@
 ---
-title: Create and use internal load balancer with App Service environment - Azure | Microsoft Docs
-description: Creating and using an ASE with an ILB
-services: app-service
-documentationcenter: ''
+title: Create an ILB ASE v1
+description: Creating and using an ASE with an ILB. This doc is provided only for customers who use the legacy v1 ASE.
 author: ccompy
-manager: stefsch
-editor: ''
 
 ms.assetid: ad9a1e00-d5e5-413e-be47-e21e5b285dbf
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy

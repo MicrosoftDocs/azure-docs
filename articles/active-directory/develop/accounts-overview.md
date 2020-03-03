@@ -1,22 +1,18 @@
 ---
-title: Microsoft identity platform accounts and tenant profiles (Android) | Azure
+title: Microsoft identity platform accounts & tenant profiles on Android | Azure
 description: An overview of Microsoft identity platform accounts for Android
 services: active-directory
-documentationcenter: ''
 author: shoatman
-manager: nadima
-editor: ''
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
+ms.devlang: java
 ms.date: 09/14/2019
 ms.author: shoatman
 ms.custom: aaddev
 ms.reviewer: shoatman
-ms.collection: M365-identity-device-management
 ---
 
 # Accounts & tenant profiles (Android)
@@ -27,10 +23,10 @@ The Microsoft Authentication Library (MSAL) API replaces the term *user* with th
 
 An account in the Microsoft identity platform consists of:
 
-  - A unique identifier.
-  - One or more credentials used to demonstrate ownership/control of the account.
-  - One or more profiles consisting of attributes such as:
-    - Picture, Given Name, Family Name, Title, Office Location
+- A unique identifier.  
+- One or more credentials used to demonstrate ownership/control of the account.
+- One or more profiles consisting of attributes such as:
+  - Picture, Given Name, Family Name, Title, Office Location
 - An account has a source of authority or system of record. This is the system where the account is created and where the credentials associated with that account are stored. In multi-tenant systems like the Microsoft identity platform, the system of record is the `tenant` where the account was created. This tenant is also referred as the `home tenant`.
 - Accounts in the Microsoft identity platform have the following systems of record:
   - Azure Active Directory, including Azure Active Directory B2C.
@@ -44,7 +40,6 @@ An account in the Microsoft identity platform consists of:
   - This local record, that is the representation of the account, is bound to the original account.
   - MSAL exposes this local record as a `Tenant Profile`.
   - Tenant Profile can have different attributes that are appropriate to the local context, such as Job Title, Office Location, Contact Information, etc.
- 
 - Because an account may be present in one or more tenants, an account may have more than one profile.
 
 > [!NOTE]
@@ -52,7 +47,7 @@ An account in the Microsoft identity platform consists of:
 
 ## Account overview diagram
 
-![Account Overview Diagram](./media/accounts-overview/accounts-overview.png)
+![Account Overview Diagram](./media/accounts-overview/accounts-overview.svg)
 
 In the above diagram:
 

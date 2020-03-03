@@ -1,21 +1,32 @@
 ---
-title: Set redirect URLs to b2clogin.com - Azure Active Directory B2C
+title: Migrate applications and APIs to b2clogin.com
+titleSuffix: Azure AD B2C
 description: Learn about using b2clogin.com in your redirect URLs for Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/17/2019
-ms.author: marsma
+ms.date: 12/04/2019
+ms.author: mimart
 ms.subservice: B2C
 ---
 
 # Set redirect URLs to b2clogin.com for Azure Active Directory B2C
 
 When you set up an identity provider for sign-up and sign-in in your Azure Active Directory B2C (Azure AD B2C) application, you need to specify a redirect URL. You should no longer reference *login.microsoftonline.com* in your applications and APIs. Instead, use *b2clogin.com* for all new applications, and migrate existing applications from *login.microsoftonline.com* to *b2clogin.com*.
+
+## Deprecation of login.microsoftonline.com
+
+On 04 December 2019, we announced the scheduled retirement of login.microsoftonline.com support in Azure AD B2C on **04 December 2020**:
+
+[Azure Active Directory B2C is deprecating login.microsoftonline.com](https://azure.microsoft.com/updates/b2c-deprecate-msol/)
+
+The deprecation of login.microsoftonline.com goes into effect for all Azure AD B2C tenants on 04 December 2020, providing existing tenants one (1) year to migrate to b2clogin.com. New tenants created after 04 December 2019 will not accept requests from login.microsoftonline.com. All functionality remains the same on the b2clogin.com endpoint.
+
+The deprecation of login.microsoftonline.com does not impact Azure Active Directory tenants. Only Azure Active Directory B2C tenants are affected by this change.
 
 ## Benefits of b2clogin.com
 
@@ -31,7 +42,7 @@ There are several modifications you might need to make to migrate your applicati
 
 * Change the redirect URL in your identity provider's applications to reference *b2clogin.com*.
 * Update your Azure AD B2C applications to use *b2clogin.com* in their user flow and token endpoint references.
-* Update any **Allowed Origins** that you've defined in the CORS settings for [user interface customization](active-directory-b2c-ui-customization-custom-dynamic.md).
+* Update any **Allowed Origins** that you've defined in the CORS settings for [user interface customization](custom-policy-ui-customization.md).
 
 ## Change identity provider redirect URLs
 
@@ -68,13 +79,17 @@ For example, the authority endpoint for Contoso's sign-up/sign-in policy would n
 https://contosob2c.b2clogin.com/00000000-0000-0000-0000-000000000000/B2C_1_signupsignin1
 ```
 
+For information about migrating OWIN-based web applications to b2clogin.com, see [Migrate an OWIN-based web API to b2clogin.com](multiple-token-endpoints.md).
+
+For migrating Azure API Management APIs protected by Azure AD B2C, see the [Migrate to b2clogin.com](secure-api-management.md#migrate-to-b2clogincom) section of [Secure an Azure API Management API with Azure AD B2C](secure-api-management.md).
+
 ## Microsoft Authentication Library (MSAL)
 
 ### ValidateAuthority property
 
 If you're using [MSAL.NET][msal-dotnet] v2 or earlier, set the **ValidateAuthority** property to `false` on client instantiation to allow redirects to *b2clogin.com*. This setting is not required for MSAL.NET v3 and above.
 
-```CSharp
+```csharp
 ConfidentialClientApplication client = new ConfidentialClientApplication(...); // Can also be PublicClientApplication
 client.ValidateAuthority = false; // MSAL.NET v2 and earlier **ONLY**
 ```
@@ -91,6 +106,12 @@ this.clientApplication = new UserAgentApplication(
   }
 );
 ```
+
+## Next steps
+
+For information about migrating OWIN-based web applications to b2clogin.com, see [Migrate an OWIN-based web API to b2clogin.com](multiple-token-endpoints.md).
+
+For migrating Azure API Management APIs protected by Azure AD B2C, see the [Migrate to b2clogin.com](secure-api-management.md#migrate-to-b2clogincom) section of [Secure an Azure API Management API with Azure AD B2C](secure-api-management.md).
 
 <!-- LINKS - External -->
 [msal-dotnet]: https://github.com/AzureAD/microsoft-authentication-library-for-dotnet

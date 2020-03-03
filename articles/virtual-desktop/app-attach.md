@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 11/21/2019
+ms.date: 12/14/2019
 ms.author: helohr
 ---
 # Set up MSIX app attach
@@ -34,9 +34,9 @@ First, you need to get the OS image you'll use for the MSIX app. To get the OS i
 1. Open the [Windows Insider portal](https://www.microsoft.com/software-download/windowsinsiderpreviewadvanced?wa=wsignin1.0) and sign in.
 
      >[!NOTE]
-     >You must be member of the Windows Insider program to access the Windows Insider portal. To learn more about the Windows Insider program, check out our [Windows Insider documentation](https://docs.microsoft.com/windows-insider/at-home/).
+     >You must be member of the Windows Insider program to access the Windows Insider portal. To learn more about the Windows Insider program, check out our [Windows Insider documentation](/windows-insider/at-home/).
 
-2. Scroll down to the **Select edition** section and select **Windows 10 Insider Preview Enterprise (FAST) – Build XXXXX**.
+2. Scroll down to the **Select edition** section and select **Windows 10 Insider Preview Enterprise (FAST) – Build 19035** or later.
 
 3. Select **Confirm**, then select the language you wish to use, and then select **Confirm** again.
     
@@ -75,7 +75,7 @@ Once you've uploaded the VHD to Azure, create a host pool that's based on this n
 
 ## Prepare the application for MSIX app attach 
 
-If you already have an MSIX package, skip ahead to [Configure Windows Virtual Desktop infrastructure](#configure-windows-virtual-desktop-infrastructure). If you want to test legacy applications, follow the instructions in [Create an MSIX package from a desktop installer on a VM](https://docs.microsoft.com/windows/msix/packaging-tool/create-app-package-msi-vm) to convert the legacy application to an MSIX package.
+If you already have an MSIX package, skip ahead to [Configure Windows Virtual Desktop infrastructure](#configure-windows-virtual-desktop-infrastructure). If you want to test legacy applications, follow the instructions in [Create an MSIX package from a desktop installer on a VM](/windows/msix/packaging-tool/create-app-package-msi-vm/) to convert the legacy application to an MSIX package.
 
 ## Generate a VHD or VHDX package for MSIX
 
@@ -168,8 +168,8 @@ In your Windows Virtual Desktop environment, create a network share and move the
 If your app uses a certificate that isn't public-trusted or was self-signed, here's how to install it:
 
 1. Right-click the package and select **Properties**.
-2. In the window that appears, select the **Digital signatures** tab. There should be only one item in the list on the tab, as shown in the following image. Select that item to highlight the item, then select **De
-3. When the digital signal details window appears, select the **General** tab, then select **Install certificate**.
+2. In the window that appears, select the **Digital signatures** tab. There should be only one item in the list on the tab, as shown in the following image. Select that item to highlight the item, then select **Details**.
+3. When the digital signature details window appears, select the **General** tab, then select **Install certificate**.
 4. When the installer opens, select **local machine** as your storage location, then select **Next**.
 5. If the installer asks you if you want to allow the app to make changes to your device, select **Yes**.
 6. Select **Place all certificates in the following store**, then select **Browse**.
@@ -195,12 +195,12 @@ Before you update the PowerShell scripts, make sure you have the volume GUID of 
 
 2.  Right-click the VHD and select **Mount**. This will mount the VHD to a drive letter.
 
-3.  After you mount the VHD, the **File Explorer** window will open. Capture the parent folder and update the **\$parentFolder** variable
+3.  After you mount the VHD, the **File Explorer** window will open. Capture the parent folder and update the **$parentFolder** variable
 
     >[!NOTE]
     >If you don't see a parent folder, that means the MSIX wasn't expanded properly. Redo the previous section and try again.
 
-4.  Open the parent folder. If correctly expanded, you'll see a folder with the same name as the package. Update the **\$packageName** variable to match the name of this folder.
+4.  Open the parent folder. If correctly expanded, you'll see a folder with the same name as the package. Update the **$packageName** variable to match the name of this folder.
 
     For example, `VSCodeUserSetup-x64-1.38.1_1.38.1.0_x64__8wekyb3d8bbwe`.
 
@@ -223,7 +223,7 @@ Before you update the PowerShell scripts, make sure you have the volume GUID of 
     ```
 
 
-6.  Update the **\$volumeGuid** variable with the volume GUID you just copied.
+6.  Update the **$volumeGuid** variable with the volume GUID you just copied.
 
 7. Open an Admin PowerShell prompt and update the following PowerShell script with the variables that apply to your environment.
 
@@ -252,9 +252,9 @@ Before you update the PowerShell scripts, make sure you have the volume GUID of 
 
     {
 
-    Mount-Diskimage -ImagePath \$vhdSrc -NoDriveLetter -Access ReadOnly
+    Mount-Diskimage -ImagePath $vhdSrc -NoDriveLetter -Access ReadOnly
 
-    Write-Host ("Mounting of " + \$vhdSrc + " was completed!") -BackgroundColor Green
+    Write-Host ("Mounting of " + $vhdSrc + " was completed!") -BackgroundColor Green
 
     }
 
@@ -262,7 +262,7 @@ Before you update the PowerShell scripts, make sure you have the volume GUID of 
 
     {
 
-    Write-Host ("Mounting of " + \$vhdSrc + " has failed!") -BackgroundColor Red
+    Write-Host ("Mounting of " + $vhdSrc + " has failed!") -BackgroundColor Red
 
     }
 
@@ -294,8 +294,8 @@ Before you update the PowerShell scripts, make sure you have the volume GUID of 
     Add-Type -AssemblyName System.Runtime.WindowsRuntime
 
     $asTask = ([System.WindowsRuntimeSystemExtensions].GetMethods() | Where {
-    $_.ToString() -eq 'System.Threading.Tasks.Task\`1[TResult]
-    AsTask[TResult,TProgress](Windows.Foundation.IAsyncOperationWithProgress\`2[TResult,TProgress])'})[0]
+    $_.ToString() -eq 'System.Threading.Tasks.Task`1[TResult]
+    AsTask[TResult,TProgress](Windows.Foundation.IAsyncOperationWithProgress`2[TResult,TProgress])'})[0]
 
     $asTaskAsyncOperation =
     $asTask.MakeGenericMethod([Windows.Management.Deployment.DeploymentResult],
@@ -333,14 +333,14 @@ $path = "C:\Program Files\WindowsApps\" + $packageName + "\AppxManifest.xml"
 
 #region register
 
-Add-AppxPackage -Path \$path -DisableDevelopmentMode -Register
+Add-AppxPackage -Path $path -DisableDevelopmentMode -Register
 
 #endregion
 ```
 
 ### Deregister PowerShell script
 
-For this script, replace the placeholder for **\$packageName** with the name of the package you're testing.
+For this script, replace the placeholder for **$packageName** with the name of the package you're testing.
 
 ```powershell
 #MSIX app attach deregistration sample
@@ -360,7 +360,7 @@ Remove-AppxPackage -PreserveRoamableApplicationData $packageName
 
 ### Destage PowerShell script
 
-For this script, replace the placeholder for **\$packageName** with the name of the package you're testing.
+For this script, replace the placeholder for **$packageName** with the name of the package you're testing.
 
 ```powershell
 #MSIX app attach de staging sample
@@ -386,7 +386,7 @@ rmdir $packageName -Force -Verbose
 
 ## Set up simulation scripts for the MSIX app attach agent
 
-After you create the scripts, users can manually run them or set them up to run automatically as startup, logon, logoff, and shutdown scripts. To learn more about these types of scripts, see [Using startup, shutdown, logon, and logoff scripts in Group Policy](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn789196(v=ws.11)).
+After you create the scripts, users can manually run them or set them up to run automatically as startup, logon, logoff, and shutdown scripts. To learn more about these types of scripts, see [Using startup, shutdown, logon, and logoff scripts in Group Policy](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn789196(v=ws.11)/).
 
 Each of these automatic scripts runs one phase of the app attach scripts:
 
@@ -403,7 +403,7 @@ To install the license files, you'll need to use a PowerShell script that calls 
 
 Here's how to set up the licenses for offline use: 
 
-1. Download the app package, licenses, and required frameworks from the Microsoft Store for Business. You need both the encoded and unencoded license files. Detailed download instructions can be found [here](https://docs.microsoft.com/microsoft-store/distribute-offline-apps#download-an-offline-licensed-app).
+1. Download the app package, licenses, and required frameworks from the Microsoft Store for Business. You need both the encoded and unencoded license files. Detailed download instructions can be found [here](/microsoft-store/distribute-offline-apps#download-an-offline-licensed-app).
 2. Update the following variables in the script for step 3:
       1. `$contentID` is the ContentID value from the Unencoded license file (.xml). You can open the license file in a text editor of your choice.
       2. `$licenseBlob` is the entire string for the license blob in the Encoded license file (.bin). You can open the encoded license file in a text editor of your choice. 

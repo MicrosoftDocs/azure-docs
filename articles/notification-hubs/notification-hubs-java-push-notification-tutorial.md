@@ -1,5 +1,5 @@
 ---
-title: How to use Notification Hubs with Java
+title: How to use Azure Notification Hubs with Java
 description: Learn how to use Azure Notification Hubs from a Java back-end.
 services: notification-hubs
 documentationcenter: ''

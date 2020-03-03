@@ -1,11 +1,7 @@
 ---
 title: Application Insights API for custom events and metrics | Microsoft Docs
 description: Insert a few lines of code in your device or desktop app, webpage, or service, to track usage and diagnose issues.
-ms.service:  azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 03/27/2019
 
 ---
@@ -26,7 +22,7 @@ The core API is uniform across all platforms, apart from a few variations like `
 | [`TrackMetric`](#trackmetric) |Performance measurements such as queue lengths not related to specific events. |
 | [`TrackException`](#trackexception) |Logging exceptions for diagnosis. Trace where they occur in relation to other events and examine stack traces. |
 | [`TrackRequest`](#trackrequest) |Logging the frequency and duration of server requests for performance analysis. |
-| [`TrackTrace`](#tracktrace) |Diagnostic log messages. You can also capture third-party logs. |
+| [`TrackTrace`](#tracktrace) |Resource Diagnostic log messages. You can also capture third-party logs. |
 | [`TrackDependency`](#trackdependency) |Logging the duration and frequency of calls to external components that your app depends on. |
 
 You can [attach properties and metrics](#properties) to most of these telemetry calls.
@@ -654,7 +650,7 @@ finally {
 }
 ```
 
-*JavaScript*
+*Node.js*
 
 ```javascript
 var success = false;

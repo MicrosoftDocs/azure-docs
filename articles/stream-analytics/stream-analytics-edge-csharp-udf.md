@@ -1,7 +1,6 @@
 ---
-title: Write C# user defined functions for Azure Stream Analytics jobs in Visual Studio (Preview)
-description: Learn how to write c# user defined functions for Stream Analytics jobs in Visual Studio.
-services: stream-analytics
+title: Tutorial - Write C# user defined functions for Azure Stream Analytics jobs in Visual Studio (Preview)
+description: This tutorial shows how to write c# user defined functions for Stream Analytics jobs in Visual Studio.
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
