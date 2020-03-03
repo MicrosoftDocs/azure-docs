@@ -64,9 +64,6 @@ Organizations must complete the following three steps in order to require the us
    1. Select **Done**.
 1. Under **Cloud apps or actions** > **Include**, select **Office 365 Exchange Online**.
 1. Under **Conditions**:
-   1. **Device platforms**:
-      1. Set **Configure** to **Yes**.
-      1. Include **Android** and **iOS**.
    1. **Client apps (preview)**:
       1. Set **Configure** to **Yes**.
       1. Select **Mobile apps and desktop clients** and **Exchange ActiveSync clients**.
@@ -114,9 +111,6 @@ Organizations must complete the following three steps in order to require the us
    1. Select **Done**.
 1. Under **Cloud apps or actions** > **Include**, select **Office 365 Exchange Online**.
 1. Under **Conditions**:
-   1. **Device platforms**:
-      1. Set **Configure** to **Yes**.
-      1. Include **Android** and **iOS**.
    1. **Client apps (preview)**:
       1. Set **Configure** to **Yes**.
       1. Select **Mobile apps and desktop clients** and **Exchange ActiveSync clients**.
