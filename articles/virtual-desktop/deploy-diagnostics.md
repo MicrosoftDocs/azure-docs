@@ -128,9 +128,6 @@ To make sure your app registration has API permissions:
 3. Go to **App registrations** and select **All Applications**.
 4. Look for your Azure AD app registration with the same app name you entered in step 5 of [Create an Azure Active Directory app registration](deploy-diagnostics.md#create-an-azure-active-directory-app-registration).
 
-      ![The API permissions page.](media/api-permissions-page.png)
-
-
 ### Review your Log Analytics workspace
 
 To make sure your Log Analytics workspace has the preconfigured Windows performance counters:
