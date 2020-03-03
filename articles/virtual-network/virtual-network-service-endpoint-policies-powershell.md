@@ -143,7 +143,7 @@ Set-AzVirtualNetworkSubnetConfig `
 $virtualNetwork | Set-AzVirtualNetwork
 ```
 
-## Restrict network access to Azure Storage resources
+## Restrict network access to Azure Storage accounts
 
 The steps necessary to restrict network access to resources created through Azure services enabled for service endpoints varies across services. See the documentation for individual services for specific steps for each service. The remainder of this article includes steps to restrict network access for an Azure Storage account, as an example.
 
@@ -248,7 +248,7 @@ Add-AzStorageAccountNetworkRule `
   -VirtualNetworkResourceId $privateSubnet.Id
 ```
 
-## Allow access to only the valid storage account via service endpoint policy
+## Apply policy to allow access to valid storage account
 
 To make sure the users in the virtual network can only access the Azure Storage accounts that are safe and allowed, you can create a Service endpoint policy with the list of allowed storage accounts in the definition. This policy is then applied to the virtual network subnet which is connected to storage via service endpoints.
 
@@ -293,7 +293,7 @@ Set-AzVirtualNetworkSubnetConfig -VirtualNetwork $VirtualNetwork `
 
 $virtualNetwork | Set-AzVirtualNetwork
 ```
-## Validate access restriction to Azure Storage accounts from the virtual network
+## Validate access restriction to Azure Storage accounts
 
 ### Deploy the virtual machine
 

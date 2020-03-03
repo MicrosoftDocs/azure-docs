@@ -144,7 +144,7 @@ az network nsg rule create \
   --destination-port-range "22"
 ```
 
-## Restrict network access to Azure Storage resources
+## Restrict network access to Azure Storage accounts
 
 This section lists steps to restrict network access for an Azure Storage account from the given subnet in a Virtual network via service endpoint.
 
@@ -200,12 +200,12 @@ Create a file share in the storage account with [az storage share create](/cli/a
 
 ```azurecli-interactive
 az storage share create \
-  --name my-file-share1 \
+  --name my-file-share \
   --quota 2048 \
   --connection-string $saConnectionString1 > /dev/null
 
 az storage share create \
-  --name my-file-share2 \
+  --name my-file-share \
   --quota 2048 \
   --connection-string $saConnectionString2 > /dev/null
 ```
@@ -244,7 +244,7 @@ az storage account network-rule add \
   --subnet Private
 ```
 
-## Allow access to only the valid storage account via service endpoint policy
+## Apply policy to allow access to valid storage account
 
 Azure Service Endpoint policies are only available for Azure Storage. So, we'll be enabling Service Endpoint for *Microsoft.Storage* on this subnet for this example setup.
 
@@ -287,7 +287,7 @@ az network vnet subnet update \
   --service-endpoint-policy mysepolicy
 ```
 
-## Validate access restriction to Azure Storage accounts from the virtual network
+## Validate access restriction to Azure Storage accounts
 
 ### Create the virtual machine
 
