@@ -32,7 +32,7 @@ Once a model is converted, it can be loaded from Azure blob storage into the run
 There are two distinct loading functions that differ by the way the asset is addressed in blob storage:
 
 * The model can be addressed by its SAS URI. Relevant loading function is `LoadModelFromSASAsync` with parameter `LoadModelFromSASParams`. Use this variant also when loading [built-in models](../samples/sample-model.md).
-* The model can be addressed by blob storage parameters directly, in case the [blob storage is linked to the account](../create-an-account.md#link-storage-accounts). Relevant loading function in this case is `LoadModelAsync` with parameter `LoadModelParams`.
+* The model can be addressed by blob storage parameters directly, in case the [blob storage is linked to the account](../how-tos/create-an-account.md#link-storage-accounts). Relevant loading function in this case is `LoadModelAsync` with parameter `LoadModelParams`.
 
 The following sample code shows how to load a model via its SAS URI - note that only the loading function/parameter differs for the other case:
 

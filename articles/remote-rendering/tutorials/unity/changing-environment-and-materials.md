@@ -320,7 +320,7 @@ When you run this code, objects that you hover of with the mouse get highlighted
 On the runtime side, you can address a texture asset in blob storage in two distinct ways:
 
 * Address texture by its SAS URI. For that, right-click on the uploaded file and select "**Get Shared Access Signature...**" from context menu. Use this SAS URI with the `LoadTextureFromSASAsync` function variant (see sample code below).
-* Address the texture by blob storage parameters directly, in case the [blob storage is linked to the account](../how-tos/create-an-account.md#link-storage-accounts). Relevant loading function in this case is `LoadTextureAsync`.
+* Address the texture by blob storage parameters directly, in case the [blob storage is linked to the account](../../how-tos/create-an-account.md#link-storage-accounts). Relevant loading function in this case is `LoadTextureAsync`.
 
 Now open the **RemoteModelEntity** script, add the following code, and remove duplicate functions:
 
