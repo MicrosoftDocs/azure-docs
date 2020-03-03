@@ -2,7 +2,7 @@
  title: NVv4-series - Azure Virtual Machines
  description: Specifications for the NVv4-series VMs.
  services: virtual-machines
- author: jonbeck7
+ author: vikancha
  ms.service: virtual-machines
  ms.topic: article
  ms.date: 02/03/2020
@@ -19,6 +19,10 @@ The NVv4-series virtual machines are powered by [AMD Radeon Instinct MI25](https
 Premium Storage:  Supported
 
 Premium Storage caching:  Supported
+
+Live Migration: Not Supported
+
+Memory Preserving Updates: Not Supported
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | GPU | GPU memory: GiB | Max data disks | Max NICs |
 | --- | --- | --- | --- | --- | --- | --- | --- |

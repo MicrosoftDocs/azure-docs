@@ -107,7 +107,7 @@ Further information on content related to this section is included in the articl
 - [ALTER TABLE](https://msdn.microsoft.com/library/ms190273.aspx) 
 
 ## Reduce query result sizes  
-Reducing query results sizes helps you avoid client-side issues caused by large query results.  You can edit your query to reduce the number of rows returned. Some query generation tools allow you to add “top N” syntax to each query.  You can also CETAS the query result to a temporary table and then use PolyBase export for the downlevel processing.
+Reducing query results sizes helps you avoid client-side issues caused by large query results.  You can edit your query to reduce the number of rows returned. Some query generation tools allow you to add "top N" syntax to each query.  You can also CETAS the query result to a temporary table and then use PolyBase export for the downlevel processing.
 
 ## Use the smallest possible column size
 When defining your DDL, use the smallest data type that will support your data as doing so will improve query performance.  This recommendation is particularly important for CHAR and VARCHAR columns.  If the longest value in a column is 25 characters, then define your column as VARCHAR(25).  Avoid defining all character columns to a large default length.  Additionally, define columns as VARCHAR when that is all that is needed rather than using NVARCHAR.
@@ -145,12 +145,12 @@ SQL pools use resource groups as a way to allocate memory to queries. Initially,
 
 Certain queries, like large joins or loads to clustered columnstore tables, will benefit from larger memory allocations.  Some queries, such as pure scans, will see no benefit. Utilizing larger resource classes impacts concurrency. So, you'll want to keep these facts in mind before moving all of your users to a large resource class.
 
-For additional information on resource classes, refer to the [Resource classes for workload management](workload-management-resource-classes.md) article.
+For additional information on resource classes, refer to the [Resource classes for workload management](../../sql-data-warehouse/resource-classes-for-workload-management.md) article.
 
 ## Use smaller resource class to increase concurrency
 If you notice a long delay in user queries, your users might be running in larger resource classes. This scenario promotes the consumption of concurrency slots, which can cause other queries to queue up.  To determine if users queries are queued, run `SELECT * FROM sys.dm_pdw_waits` to see if any rows are returned.
 
-The [Resource classes for workload management](workload-management-resource-classes.md) and [sys.dm_pdw_waits](https://msdn.microsoft.com/library/mt203893.aspx) articles will provide you with more information.
+The [Resource classes for workload management](../../sql-data-warehouse/resource-classes-for-workload-management.md) and [sys.dm_pdw_waits](https://msdn.microsoft.com/library/mt203893.aspx) articles will provide you with more information.
 
 ## Use DMVs to monitor and optimize your queries
 SQL pools have several DMVs that can be used to monitor query execution.  The monitoring article below walks you through step-by-step instructions on how to view details of an executing query.  To quickly find queries in these DMVs, using the LABEL option with your queries can help. For additional detailed information, please see the articles included in the list below: 
