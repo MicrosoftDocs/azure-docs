@@ -45,6 +45,8 @@
         href: nat-overview.md
       - name: Resource
         href: nat-gateway-resource.md
+      - name: Troubleshoot NAT
+        href: troubleshoot-nat.md
     - name: Backend Connectivity Interoperability
       items:
       - name: Preface and Test Setup
