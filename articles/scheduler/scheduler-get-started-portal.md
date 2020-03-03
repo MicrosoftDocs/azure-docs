@@ -1,18 +1,17 @@
 ---
-title: Create scheduled jobs with Azure Scheduler - Azure portal | Microsoft Docs
-description: Learn how to create, schedule, and run your first automated job with Azure Scheduler in the Azure portal
+title: Create scheduled jobs - Azure portal
+description: Create, schedule, and run your first automated job in the Azure portal by using Azure Scheduler
 services: scheduler
 ms.service: scheduler
 ms.suite: infrastructure-services
 author: derek1ee
-ms.author: deli
-ms.reviewer: klam
-ms.assetid: e69542ec-d10f-4f17-9b7a-2ee441ee7d68
+ms.author: estfan
+ms.reviewer: klam, estfan, logicappspm
 ms.topic: conceptual
-ms.date: 09/17/2018
+ms.date: 02/29/2020
 ---
 
-# Create and schedule your first job with Azure Scheduler - Azure portal
+# Create and schedule your first job by using Azure Scheduler - Azure portal
 
 > [!IMPORTANT]
 > [Azure Logic Apps](../logic-apps/logic-apps-overview.md) is replacing Azure Scheduler, which is 
@@ -20,19 +19,15 @@ ms.date: 09/17/2018
 > To continue working with the jobs that you set up in Scheduler, please 
 > [migrate to Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md) as soon as possible.
 
-This tutorial shows how easily you can create and schedule a job, 
-and then monitor and manage that job. 
+This tutorial shows how easily you can create and schedule a job, and then monitor and manage that job.
 
-If you don't have an Azure subscription, 
-<a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>.
+If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
 
 ## Create job
 
-1. Sign in to the [Azure portal](https://portal.azure.com/).  
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-1. On the main Azure menu, select **Create a resource**. 
-In the search box, enter "scheduler". From the results list, 
-select **Scheduler**, and then choose **Create**.
+1. In the Azure search box, enter `scheduler` as your filter. From the results list, select **Scheduler Job Collections**, and select **Create**.
 
    ![Create Scheduler resource](./media/scheduler-get-started-portal/scheduler-v2-portal-marketplace-create.png)
 

@@ -30,10 +30,6 @@ Here's what this tutorial covers:
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/).
 
-## Request access for Form Recognizer
-
-Form Recognizer is available in a limited-access preview. To get access to the preview, fill out and submit the [Form Recognizer access request](https://aka.ms/FormRecognizerRequestAccess) form. Once your request is approved by the Azure Cognitive Services team, you'll receive an email with instructions for accessing the service.
-
 ## Understand the invoice to be analyzed
 
 The sample data set that you'll use to train and test the model is available as a .zip file from [GitHub](https://go.microsoft.com/fwlink/?linkid=2090451). Download and extract the .zip file and open an invoice PDF file under the **/Train** folder. Notice that it has a table with the invoice number, invoice date, and so on. 

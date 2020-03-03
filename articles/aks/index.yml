@@ -7,7 +7,6 @@ metadata:
   services: container-service
   author: georgewallace
   manager: gwallace
-  ms.service: container-service
   ms.topic: landing-page
   ms.date: 07-21-2017
   ms.author: gwallace

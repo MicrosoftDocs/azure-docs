@@ -1,10 +1,10 @@
-﻿---
+---
 title: Migrate to Resource Manager with PowerShell 
 description: This article walks through the platform-supported migration of IaaS resources such as virtual machines (VMs), virtual networks, and storage accounts from classic to Azure Resource Manager by using Azure PowerShell commands
 services: virtual-machines-windows
 documentationcenter: ''
-author: singhkays
-manager: gwallace
+author: tanmaygore
+manager: vashan
 editor: ''
 tags: azure-resource-manager
 
@@ -14,11 +14,16 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 
 ms.topic: article
-ms.date: 03/30/2017
-ms.author: kasing
+ms.date: 02/06/2020
+ms.author: tagore
 
 ---
+
 # Migrate IaaS resources from classic to Azure Resource Manager by using PowerShell
+
+> [!IMPORTANT]
+> Today, about 90% of IaaS VMs are using [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/). As of February 28, 2020, classic VMs have been deprecated and will be fully retired on March 1, 2023. [Learn more]( https://aka.ms/classicvmretirement) about this deprecation and [how it affects you](https://docs.microsoft.com/azure/virtual-machines/classic-vm-deprecation#how-does-this-affect-me).
+
 These steps show you how to use Azure PowerShell commands to migrate infrastructure as a service (IaaS) resources from the classic deployment model to the Azure Resource Manager deployment model.
 
 If you want, you can also migrate resources by using the [Azure CLI](../linux/migration-classic-resource-manager-cli.md).
@@ -49,8 +54,6 @@ Here are a few best practices that we recommend as you evaluate whether to migra
 There are two main options to install Azure PowerShell: [PowerShell Gallery](https://www.powershellgallery.com/profiles/azure-sdk/) or [Web Platform Installer (WebPI)](https://aka.ms/webpi-azps). WebPI receives monthly updates. PowerShell Gallery receives updates on a continuous basis. This article is based on Azure PowerShell version 2.1.0.
 
 For installation instructions, see [How to install and configure Azure PowerShell](/powershell/azure/overview).
-
-<br>
 
 ## Step 3: Ensure that you're an administrator for the subscription
 To perform this migration, you must be added as a coadministrator for the subscription in the [Azure portal](https://portal.azure.com).
@@ -101,6 +104,14 @@ Wait five minutes for the registration to finish. Check the status of the approv
 
 Make sure that RegistrationState is `Registered` before you proceed.
 
+Before switching to the classic deployment model, make sure that you have enough Azure Resource Manager virtual machine vCPUs in the Azure region of your current deployment or virtual network. You can use the following PowerShell command to check the current number of vCPUs you have in Azure Resource Manager. To learn more about vCPU quotas, see [Limits and the Azure Resource Manager](../../azure-resource-manager/management/azure-subscription-service-limits.md#managing-limits).
+
+This example checks the availability in the **West US** region. Replace the example region name with your own.
+
+```powershell
+    Get-AzVMUsage -Location "West US"
+```
+
 Now, sign in to your account for the classic deployment model.
 
 ```powershell
@@ -119,27 +130,17 @@ Set your Azure subscription for the current session. This example sets the defau
     Select-AzureSubscription –SubscriptionName "My Azure Subscription"
 ```
 
-<br>
 
-## Step 5: Have enough Resource Manager VM vCPUs
-Make sure that you have enough Azure Resource Manager virtual machine vCPUs in the Azure region of your current deployment or virtual network. You can use the following PowerShell command to check the current number of vCPUs you have in Azure Resource Manager. To learn more about vCPU quotas, see [Limits and the Azure Resource Manager](../../azure-resource-manager/management/azure-subscription-service-limits.md#limits-and-azure-resource-manager).
-
-This example checks the availability in the **West US** region. Replace the example region name with your own.
-
-```powershell
-Get-AzVMUsage -Location "West US"
-```
-
-## Step 6: Run commands to migrate your IaaS resources
-* [Migrate VMs in a cloud service (not in a virtual network)](#step-61-option-1---migrate-virtual-machines-in-a-cloud-service-not-in-a-virtual-network)
-* [Migrate VMs in a virtual network](#step-61-option-2---migrate-virtual-machines-in-a-virtual-network)
-* [Migrate a storage account](#step-62-migrate-a-storage-account)
+## Step 5: Run commands to migrate your IaaS resources
+* [Migrate VMs in a cloud service (not in a virtual network)](#step-51-option-1---migrate-virtual-machines-in-a-cloud-service-not-in-a-virtual-network)
+* [Migrate VMs in a virtual network](#step-51-option-2---migrate-virtual-machines-in-a-virtual-network)
+* [Migrate a storage account](#step-52-migrate-a-storage-account)
 
 > [!NOTE]
 > All the operations described here are idempotent. If you have a problem other than an unsupported feature or a configuration error, we recommend that you retry the prepare, abort, or commit operation. The platform then tries the action again.
 
 
-### Step 6.1: Option 1 - Migrate virtual machines in a cloud service (not in a virtual network)
+### Step 5.1: Option 1 - Migrate virtual machines in a cloud service (not in a virtual network)
 Get the list of cloud services by using the following command. Then pick the cloud service that you want to migrate. If the VMs in the cloud service are in a virtual network or if they have web or worker roles, the command returns an error message.
 
 ```powershell
@@ -220,7 +221,7 @@ If the prepared configuration looks good, you can move forward and commit the re
     Move-AzureService -Commit -ServiceName $serviceName -DeploymentName $deploymentName
 ```
 
-### Step 6.1: Option 2 - Migrate virtual machines in a virtual network
+### Step 5.1: Option 2 - Migrate virtual machines in a virtual network
 
 To migrate virtual machines in a virtual network, you migrate the virtual network. The virtual machines automatically migrate with the virtual network. Pick the virtual network that you want to migrate.
 > [!NOTE]
@@ -263,7 +264,7 @@ If the prepared configuration looks good, you can move forward and commit the re
     Move-AzureVirtualNetwork -Commit -VirtualNetworkName $vnetName
 ```
 
-### Step 6.2: Migrate a storage account
+### Step 5.2: Migrate a storage account
 After you're done migrating the virtual machines, perform the following prerequisite checks before you migrate the storage accounts.
 
 > [!NOTE]

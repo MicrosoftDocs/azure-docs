@@ -3,14 +3,14 @@ title: TechnicalProfiles
 titleSuffix: Azure AD B2C
 description: Specify the TechnicalProfiles element of a custom policy in Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 12/10/2019
-ms.author: marsma
+ms.date: 02/17/2020
+ms.author: mimart
 ms.subservice: B2C
 ---
 
@@ -80,7 +80,7 @@ The **TechnicalProfile** contains the following elements:
 | Element | Occurrences | Description |
 | ------- | ----------- | ----------- |
 | Domain | 0:1 | The domain name for the technical profile. For example, if your technical profile specifies the Facebook identity provider, the domain name is Facebook.com. |
-| DisplayName | 0:1 | The name of the technical profile that can be displayed to users. |
+| DisplayName | 1:1 | The name of the technical profile that can be displayed to users. |
 | Description | 0:1 | The description of the technical profile that can be displayed to users. |
 | Protocol | 0:1 | The protocol used for the communication with the other party. |
 | Metadata | 0:1 | A collection of key/value pairs that are utilized by the protocol for communicating with the endpoint in the course of a transaction. |
@@ -107,7 +107,7 @@ The **Protocol** element contains the following attributes:
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
-| Name | Yes | The name of a valid protocol supported by Azure AD B2C that is used as part of the technical profile. Possible values: `OAuth1`, `OAuth2`, `SAML2`, `OpenIdConnect`, `Proprietary`, `session management`, `self-asserted`, or `None`. |
+| Name | Yes | The name of a valid protocol supported by Azure AD B2C that is used as part of the technical profile. Possible values: `OAuth1`, `OAuth2`, `SAML2`, `OpenIdConnect`, `Proprietary`, or `None`. |
 | Handler | No | When the protocol name is set to `Proprietary`, specify the fully-qualified name of the assembly that is used by Azure AD B2C to determine the protocol handler. |
 
 ## Metadata

@@ -210,7 +210,7 @@ In the cell, press **SHIFT + ENTER** to run the code.
 1. You can now load the sample json file as a data frame in Azure Databricks. Paste the following code in a new cell. Replace the placeholders shown in brackets with your values.
 
    ```scala
-   val df = spark.read.json("abfss://<file-system-name>@<storage-account-name>.dfs.core.windows.net/small_radio_json.json")
+   val df = spark.read.json("abfss://" + fileSystemName + "@" + storageAccountName + ".dfs.core.windows.net/small_radio_json.json")
    ```
 2. Press the **SHIFT + ENTER** keys to run the code in this block.
 
@@ -221,7 +221,7 @@ In the cell, press **SHIFT + ENTER** to run the code.
     ```
    You see an output similar to the following snippet:
 
-   ```bash
+   ```output
    +---------------------+---------+---------+------+-------------+----------+---------+-------+--------------------+------+--------+-------------+---------+--------------------+------+-------------+------+
    |               artist|     auth|firstName|gender|itemInSession|  lastName|   length|  level|            location|method|    page| registration|sessionId|                song|status|           ts|userId|
    +---------------------+---------+---------+------+-------------+----------+---------+-------+--------------------+------+--------+-------------+---------+--------------------+------+-------------+------+
@@ -247,7 +247,7 @@ The raw sample data **small_radio_json.json** file captures the audience for a r
 
    You receive output as shown in the following snippet:
 
-   ```bash
+   ```output
    +---------+----------+------+--------------------+-----+
    |firstname|  lastname|gender|            location|level|
    +---------+----------+------+--------------------+-----+
@@ -283,7 +283,7 @@ The raw sample data **small_radio_json.json** file captures the audience for a r
 
    You receive output as shown in the following snippet.
 
-   ```bash
+   ```output
    +---------+----------+------+--------------------+-----------------+
    |firstname|  lastname|gender|            location|subscription_type|
    +---------+----------+------+--------------------+-----------------+

@@ -84,7 +84,7 @@ The `#r` statement is explained [later in this article](#referencing-external-as
 
 ## Supported types for bindings
 
-Each binding has its own supported types; for instance, a blob trigger can be used with a string parameter, a POCO parameter, a `CloudBlockBlob` parameter, or any of several other supported types. The [binding reference article for blob bindings](functions-bindings-storage-blob.md#trigger---usage) lists all supported parameter types for blob triggers. For more information, see [Triggers and bindings](functions-triggers-bindings.md) and the [binding reference docs for each binding type](functions-triggers-bindings.md#next-steps).
+Each binding has its own supported types; for instance, a blob trigger can be used with a string parameter, a POCO parameter, a `CloudBlockBlob` parameter, or any of several other supported types. The [binding reference article for blob bindings](functions-bindings-storage-blob-trigger.md#usage) lists all supported parameter types for blob triggers. For more information, see [Triggers and bindings](functions-triggers-bindings.md) and the [binding reference docs for each binding type](functions-triggers-bindings.md#next-steps).
 
 [!INCLUDE [HTTP client best practices](../../includes/functions-http-client-best-practices.md)]
 
@@ -464,7 +464,7 @@ or [`IAsyncCollector<T>`](https://github.com/Azure/azure-webjobs-sdk/blob/master
 
 ### Single attribute example
 
-The following example code creates a [Storage blob output binding](functions-bindings-storage-blob.md#output)
+The following example code creates a [Storage blob output binding](functions-bindings-storage-blob-output.md)
 with blob path that's defined at run time, then writes a string to the blob.
 
 ```cs

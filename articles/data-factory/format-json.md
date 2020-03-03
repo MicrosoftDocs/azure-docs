@@ -8,7 +8,7 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 11/26/2019
+ms.date: 02/05/2020
 ms.author: jingwang
 
 ---
@@ -180,7 +180,148 @@ Copy activity can automatically detect and parse the following patterns of JSON 
 
 ## Mapping data flow properties
 
-Learn details from [source transformation](data-flow-source.md) and [sink transformation](data-flow-sink.md) in mapping data flow.
+JSON file types can be used as both a sink and a source in mapping data flow.
+
+### Creating JSON structures in a derived column
+
+You can add a complex column to your data flow via the derived column expression builder. In the derived column transformation, add a new column and open the expression builder by clicking on the blue box. To make a column complex, you can enter the JSON structure manually or use the UX to add subcolumns interactively.
+
+#### Using the expression builder UX
+
+In the output schema side pane, hover over a column and click the plus icon. Select **Add subcolumn** to make the column a complex type.
+
+![Add subcolumn](media/data-flow/addsubcolumn.png "Add Subcolumn")
+
+You can add additional columns and subcolumns in the same way. For each non-complex field, an expression can be added in the expression editor to the right.
+
+![Complex column](media/data-flow/complexcolumn.png "Complex column")
+
+#### Entering the JSON structure manually
+
+To manually add a JSON structure, add a new column and enter the expression in the editor. The expression follows the following general format:
+
+```
+@(
+	field1=0,
+	field2=@(
+		field1=0
+	)
+)
+```
+
+If this expression were entered for a column named "complexColumn", then it would be written to the sink as the following JSON:
+
+```
+{
+	"complexColumn": {
+		"field1": 0,
+		"field2": {
+			"field1": 0
+		}
+	}
+}
+```
+
+#### Sample manual script for complete hierarchical definition
+```
+@(
+	title=Title,
+	firstName=FirstName,
+	middleName=MiddleName,
+	lastName=LastName,
+	suffix=Suffix,
+	contactDetails=@(
+		email=EmailAddress,
+		phone=Phone
+	),
+	address=@(
+		line1=AddressLine1,
+		line2=AddressLine2,
+		city=City,
+		state=StateProvince,
+		country=CountryRegion,
+		postCode=PostalCode
+	),
+	ids=[
+		toString(CustomerID), toString(AddressID), rowguid
+	]
+)
+```
+
+### Source format options
+
+Using a JSON dataset as a source in your data flow allows you to set five additional settings. These settings can be found under the **JSON settings** accordion in the **Source Options** tab.  
+
+![JSON Settings](media/data-flow/json-settings.png "JSON Settings")
+
+#### Default
+
+By default, JSON data is read in the following format.
+
+```
+{ "json": "record 1" }
+{ "json": "record 2" }
+{ "json": "record 3" }
+```
+
+#### Single document
+
+If **Single document** is selected, mapping data flows read one JSON document from each file. 
+
+``` json
+File1.json
+{
+    "json": "record 1"
+}
+File2.json
+{
+    "json": "record 2"
+}
+File3.json
+{
+    "json": "record 3"
+}
+```
+
+#### Unquoted column names
+
+If **Unquoted column names** is selected, mapping data flows reads JSON columns that aren't surrounded by quotes. 
+
+```
+{ json: "record 1" }
+{ json: "record 2" }
+{ json: "record 3" }
+```
+
+#### Has comments
+
+Select **Has comments** if the JSON data has C or C++ style commenting.
+
+``` json
+{ "json": /** comment **/ "record 1" }
+{ "json": "record 2" }
+{ /** comment **/ "json": "record 3" }
+```
+
+#### Single quoted
+
+Select **Single quoted** if the JSON fields and values use single quotes instead of double quotes.
+
+```
+{ 'json': 'record 1' }
+{ 'json': 'record 2' }
+{ 'json': 'record 3' }
+```
+
+#### Backslash escaped
+
+Select **Single quoted** if backslashes are used to escape characters in the JSON data.
+
+```
+{ "json": "record 1" }
+{ "json": "\} \" \' \\ \n \\n record 2" }
+{ "json": "record 3" }
+```
 
 ## Next steps
 
