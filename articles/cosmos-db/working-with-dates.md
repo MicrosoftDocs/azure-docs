@@ -26,7 +26,7 @@ Most applications can use the default string representation for DateTime for the
 
 For example, the following snippet stores an `Order` object containing two DateTime properties - `ShipDate` and `OrderDate` as a document using the .NET SDK:
 
-```dotnet
+```csharp
     public class Order
     {
         [JsonProperty(PropertyName="id")]
@@ -63,7 +63,7 @@ Alternatively, you can store DateTimes as Unix timestamps, that is, as a number 
 
 The SQL .NET SDK automatically supports querying data stored in Azure Cosmos DB via LINQ. For example, the following snippet shows a LINQ query that filters orders that were shipped in the last three days:
 
-```dotnet
+```csharp
     IQueryable<Order> orders = container.GetItemLinqQueryable<Order>(allowSynchronousQueryExecution: true).Where(o => o.ShipDate >= DateTime.UtcNow.AddDays(-3));
 ```
 
