@@ -90,7 +90,7 @@ See the list of Media Encoder Standard [formats and codecs](media-encoder-standa
 
 ## Live streaming workflow
 
-A live event can be one of two types: pass-through or live encoding. 
+A live event can be set to either a *pass-through* (an on-premises live encoder sends a multiple bitrate stream) or *live encoding* (an on-premises live encoder sends a single bitrate stream). 
 
 Here's a common workflow for live streaming with Dynamic Packaging:
 

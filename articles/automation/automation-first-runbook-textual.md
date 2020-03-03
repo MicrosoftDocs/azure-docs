@@ -207,7 +207,7 @@ Your runbook currently starts the VM that you have hardcoded in the runbook. It 
 ## Next steps
 
 * For more information on PowerShell, including language reference and learning modules, refer to the [PowerShell Docs](https://docs.microsoft.com/powershell/scripting/overview).
-* To get started with Graphical runbooks, see [My first graphical runbook](automation-first-runbook-graphical.md).
+* To get started with graphical runbooks, see [My first graphical runbook](automation-first-runbook-graphical.md).
 * To get started with PowerShell runbooks, see [My first PowerShell runbook](automation-first-runbook-textual-powershell.md).
 * To learn more about runbook types and their advantages and limitations, see [Azure Automation runbook types](automation-runbook-types.md).
 * For more information on PowerShell script support features, see [Native PowerShell script support in Azure Automation](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/).
