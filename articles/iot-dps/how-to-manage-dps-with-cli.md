@@ -42,20 +42,20 @@ Complete the installation steps described previously before you begin. If you do
   
     az login
 
-![login][1]
+![login](./media/how-to-manage-dps-with-cli/login.jpg)
 
 ### 2. Create a resource group IoTHubBlogDemo in eastus
 
     az group create -l eastus -n IoTHubBlogDemo
 
-![Create resource group][2]
+![Create resource group](./media/how-to-manage-dps-with-cli/create-resource-group.jpg)
 
 
 ### 3. Create two Device Provisioning services
 
     az iot dps create --resource-group IoTHubBlogDemo --name demodps
 
-![Create Device Provisioning Service][3]
+![Create Device Provisioning Service](./media/how-to-manage-dps-with-cli/create-dps.jpg)
 
     az iot dps create --resource-group IoTHubBlogDemo --name demodps2
 
@@ -63,29 +63,20 @@ Complete the installation steps described previously before you begin. If you do
 
     az iot dps list --resource-group IoTHubBlogDemo
 
-![List Device Provisioning Services][4]
+![List Device Provisioning Services](./media/how-to-manage-dps-with-cli/list-dps.jpg)
 
 
 ### 5. Create an IoT Hub blogDemoHub under the newly created resource group
 
     az iot hub create --name blogDemoHub --resource-group IoTHubBlogDemo
 
-![Create IoT Hub][5]
+![Create IoT Hub](./media/how-to-manage-dps-with-cli/create-hub.jpg)
 
 ### 6. Link one existing IoT Hub to a Device Provisioning service
 
     az iot dps linked-hub create --resource-group IoTHubBlogDemo --dps-name demodps --connection-string <connection string> -l westus
 
-![Link Hub][5]
-
-<!-- Images -->
-[1]: ./media/how-to-manage-dps-with-cli/login.jpg
-[2]: ./media/how-to-manage-dps-with-cli/create-resource-group.jpg
-[3]: ./media/how-to-manage-dps-with-cli/create-dps.jpg
-[4]: ./media/how-to-manage-dps-with-cli/list-dps.jpg
-[5]: ./media/how-to-manage-dps-with-cli/create-hub.jpg
-[6]: ./media/how-to-manage-dps-with-cli/link-hub.jpg
-
+![Link Hub](./media/how-to-manage-dps-with-cli/create-hub.jpg)
 
 ## Next steps
 In this tutorial, you learned how to:
