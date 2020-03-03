@@ -13,7 +13,7 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 01/31/2020
+ms.date: 03/03/2020
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -157,6 +157,8 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 	a. Check the **Single-sign on(SSO)** option.
 	
 	b. Click on **+Add new SSO Provider**.
+    > [!NOTE]
+    > Make sure that you check the **Single-sign on(SSO)** checkbox otherwise sometimes, the SSO may appear to fail by redirecting them back to the login screen.
 
 1. Under **Authentication** tab, select **Single-Sign On (SSO)** and perform the following steps:
 
@@ -247,4 +249,3 @@ When you click the Workplace by Facebook tile in the Access Panel, you should be
 - [Try Workplace by Facebook with Azure AD](https://aad.portal.azure.com)
 
 - [What is session control in Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
-
