@@ -1,6 +1,6 @@
 ---
 title: Configure streaming export of metrics and resource logs
-description: Learn how to configure streaming export of metrics and resource logs from Azure SQL Database to the destination of your choice to store information about resource utilization and query execution statistics.
+description: Learn how to configure streaming export of metrics and resource logs, including intelligent diagnostic analysis from Azure SQL Database to the destination of your choice to store information about resource utilization and query execution statistics.
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
@@ -15,17 +15,27 @@ ms.date: 03/10/2020
 
 # Configure streaming export of Azure SQL Database diagnostic telemetry
 
-In this article, you will learn how to configure the streaming export of metrics and resource logs for Azure SQL databases through the Azure portal, PowerShell, Azure CLI, the REST API, and Azure Resource Manager template. You configure diagnostic settings to stream categories ofIntelligent Insights[resource logs](sql-database-intelligent-insights.md) for single databases, pooled databases, elastic pools, managed instances, and instance databases to one of the following Azure resources:
+In this article, you will learn how to configure the streaming export of metrics and resource logs for Azure SQL databases through the Azure portal, PowerShell, Azure CLI, the REST API, and Azure Resource Manager template. You configure diagnostic settings to export selected metrics and resource logs for single databases, pooled databases, elastic pools, managed instances, and instance databases.
 
-- [Log Analytics workspace in Azure Monitor](../azure-monitor/platform/resource-logs-collect-workspace.md): Data streamed here can be consumed by [SQL Analytics](../azure-monitor/insights/azure-sql.md), which is a cloud only monitoring solution that provides intelligent monitoring of your databases that includes performance reports, alerts, and mitigation recommendations. Data streamed to a Log Analytics workspace can be analyzed with other monitoring data collected and also enables you to leverage other Azure Monitor features such as alerts and visualizations
-- [Azure Event Hubs](../azure-monitor/platform/resource-logs-stream-event-hubs.md): Streaming diagnostic telemetry to event hubs to provide the following functionality:
+Most important among the resource logs that you can export is the Intelligent Insights (SQLInsights) log. [Intelligent Insights](sql-database-intelligent-insights.md) uses built-in intelligence to continuously monitor database usage through artificial intelligence and detect disruptive events that cause poor performance. Once detected, a detailed analysis is performed that generates a SQLInsights log with an intelligent assessment of the issue. This assessment consists of a root cause analysis of the database performance issue and, where possible, recommendations for performance improvements.
+
+These metrics and resource logs can be streamed to one of the following Azure resources for analysis.
+
+- **Log Analytics workspace**:
+
+  Data streamed to a [Log Analytics workspace](../azure-monitor/platform/resource-logs-collect-workspace.md) can be consumed by [SQL Analytics](../azure-monitor/insights/azure-sql.md). SQL Analytics is a cloud only monitoring solution that provides intelligent monitoring of your databases that includes performance reports, alerts, and mitigation recommendations. Data streamed to a Log Analytics workspace can be analyzed with other monitoring data collected and also enables you to leverage other Azure Monitor features such as alerts and visualizations
+- **Azure Event Hubs**:
+
+  Data streamed to an [Azure Event Hub](../azure-monitor/platform/resource-logs-stream-event-hubs.md)provides the following functionality:
 
   - **Stream logs to 3rd party logging and telemetry systems**: Stream all of your metrics and resource logs to a single event hub to pipe log data to a third-party SIEM or log analytics tool.
   - **Build a custom telemetry and logging platform**: The highly scalable publish-subscribe nature of event hubs allows you to flexibly ingest metrics and resource logs into a custom telemetry platform. See [Designing and Sizing a Global Scale Telemetry Platform on Azure Event Hubs](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/) for details.
   - **View service health by streaming data to Power BI**: Use Event Hubs, Stream Analytics, and Power BI to transform your diagnostics data into near real-time insights on your Azure services. See [Stream Analytics and Power BI: A real-time analytics dashboard for streaming data](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-power-bi-dashboard) for details on this solution.
-- [Azure Storage](../azure-monitor/platform/resource-logs-collect-storage.md): Use Azure storage to archive vast amounts of diagnostic telemetry for a fraction of the cost of the previous two streaming options.
+- **Azure Storage**:
 
-This diagnostic telemetry can be used to gauge resource utilization and query execution statistics for easier performance monitoring.
+  Data streamed to [Azure Storage](../azure-monitor/platform/resource-logs-collect-storage.md) enables you to archive vast amounts of diagnostic telemetry for a fraction of the cost of the previous two streaming options.
+
+This diagnostic telemetry streamed to one of these destinations can be used to gauge resource utilization and query execution statistics for easier performance monitoring.
 
 ![Architecture](./media/sql-database-metrics-diag-logging/architecture.png)
 
@@ -300,11 +310,9 @@ You can combine these parameters to enable multiple output options.
 
 ## Configure SQL Analytics to use consume diagnostic telemetry streamed into a Log Analytics workspace
 
-Azure SQL Analytics is a cloud solution that monitors the performance of single databases, elastic pools and pooled databases, and managed instances and instance databases at scale and across multiple subscriptions. It can help you collect and visualize Azure SQL Database performance metrics, and it has built-in intelligence for performance troubleshooting.
+SQL Database metrics and resource logs that are streamed into a Log Analytics workspace can be consumed by Azure SQL Analytics. Azure SQL Analytics is a cloud solution that monitors the performance of single databases, elastic pools and pooled databases, and managed instances and instance databases at scale and across multiple subscriptions. It can help you collect and visualize Azure SQL Database performance metrics, and it has built-in intelligence for performance troubleshooting.
 
 ![Azure SQL Analytics Overview](../azure-monitor/insights/media/azure-sql/azure-sql-sol-overview.png)
-
-SQL Database metrics and resource logs that are streamed into a Log Analytics workspace can be consumed by Azure SQL Analytics. You can configure the streaming export of this diagnostic telemetry by using the built-in **Send to Log Analytics** option in the diagnostics settings tab in the Azure portal. You can also enable streaming into a Log Analytics workspace by using diagnostics settings via PowerShell cmdlets, the Azure CLI, or the Azure Monitor REST API.
 
 ### Installation overview
 
@@ -314,7 +322,7 @@ You can monitor a collection of Azure SQL databases with Azure SQL Analytics by 
 2. Create a Log Analytics workspace in the solution.
 3. Configure databases to stream diagnostic telemetry into the workspace.
 
-If you're using elastic pools or managed instances, you also need to configure diagnostic telemetry streaming from these resources.
+You can configure the streaming export of this diagnostic telemetry by using the built-in **Send to Log Analytics** option in the diagnostics settings tab in the Azure portal. You can also enable streaming into a Log Analytics workspace by using diagnostics settings via [PowerShell cmdlets](sql-database-metrics-diag-logging.md?tabs=azure-powershell#configure-the-streaming-export-of-diagnostic-telemetry), the [Azure CLI](sql-database-metrics-diag-logging.md?tabs=azure-cli#configure-the-streaming-export-of-diagnostic-telemetry), the [Azure Monitor REST API](https://docs.microsoft.com/en-us/rest/api/monitor/diagnosticsettings), or [Resource Manager templates](../azure-monitor/platform/diagnostic-settings-template.md).
 
 ### Create an Azure SQL Analytics resource
 
@@ -330,9 +338,9 @@ If you're using elastic pools or managed instances, you also need to configure d
 
 4. Select **OK** to confirm, and then select **Create**.
 
-### Configure databases to record metrics and resource logs
+### Configure the resource to record metrics and resource logs
 
-The easiest way to configure where databases record metrics is by using the Azure portal. Go to your database resource in the Azure portal and select **Diagnostics settings**.
+You need to separately configure diagnostic telemetry streaming for single and pooled databases, elastic pools, managed instances, and instance databases. The easiest way to configure where a resource records metrics is by using the Azure portal. For detailed steps, see [Configure the streaming export of diagnostic telemetry](sql-database-metrics-diag-logging.md?tabs=azure-portal#configure-the-streaming-export-of-diagnostic-telemetry).
 
 ### Use Azure SQL Analytics for monitoring and alerting
 
