@@ -175,7 +175,6 @@ $cipherlist = @()
  
 # Set cipher suite order 
 $cipherlist += Get-BaseCipherSuitesWin10Above 
-#$cipherorder = [System.String]::Join(",", $cipherlist) 
 $CipherSuiteRegKey = "HKLM:\SOFTWARE\Policies\Microsoft\Cryptography\Configuration\SSL\00010002"  
  
 if (!(Test-Path -Path $CipherSuiteRegKey))  
