@@ -154,7 +154,7 @@ Refer to the following resources to learn more about optimizing hub throughput a
 
 When you create a Time Series Insights Preview *pay-as-you-go* (PAYG) SKU environment, you create two Azure resources:
 
-* An Azure Time Series Insights Preview environment that can be configured for warm storage.
+* An Azure Time Series Insights Preview environment that can be configured for warm data storage.
 * An Azure Storage general-purpose V1 blob account for cold data storage.
 
 Data in your warm store is available only via [Time Series Query](./time-series-insights-update-tsq.md) and the [Azure Time Series Insights Preview explorer](./time-series-insights-update-explorer.md). Your warm store will contain recent data within the [retention period](./time-series-insights-update-plan.md#the-preview-environment) selected when creating the Time Series Insights environment.
