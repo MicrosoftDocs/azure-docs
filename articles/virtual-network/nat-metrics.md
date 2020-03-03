@@ -1,6 +1,6 @@
 ---
 title: Metrics and alerts for Azure Virtual Network NAT 
-titleSuffix: Azure Monitor metrics and alerts for Azure Virtual Network NAT
+titleSuffix: Azure Virtual Network
 description: Understand Azure Monitor metrics and alerts available for Virtual Network NAT.
 services: virtual-network
 documentationcenter: na

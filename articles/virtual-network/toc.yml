@@ -45,6 +45,8 @@
         href: nat-overview.md
       - name: Resource
         href: nat-gateway-resource.md
+      - name: Metrics and alerts
+        href: nat-metrics.md
     - name: Backend Connectivity Interoperability
       items:
       - name: Preface and Test Setup
