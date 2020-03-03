@@ -6,7 +6,7 @@ author: MikeRys
 ms.service: sql-data-warehouse 
 ms.topic: overview
 ms.subservice: design
-ms.date: 01/16/2020
+ms.date: 02/24/2020
 ms.author: mrys 
 ms.reviewer: jrasnick
 ---
@@ -15,7 +15,7 @@ ms.reviewer: jrasnick
 
 Azure Synapse Analytics allows the different computational engines of a workspace to share databases and tables between its Apache Spark pools, SQL on-demand engine, and SQL pools.
 
-[!INCLUDE [synapse-analytics-preview-terms](../../includes/synapse-analytics-preview-terms.md)]
+[!INCLUDE [synapse-analytics-preview-terms](../../../includes/synapse-analytics-preview-terms.md)]
 
 Once a database has been created with a Spark job, that database will become visible as a database with that same name to all current and future Spark pools in the workspace as well as the SQL on-demand engine. 
 
@@ -27,25 +27,27 @@ Since the databases are synchronized to SQL on-demand and the SQL pools asynchro
 
 ## Manage a Spark created database
 
-[!INCLUDE [synapse-analytics-preview-features](../../includes/synapse-analytics-preview-features.md)]
+[!INCLUDE [synapse-analytics-preview-features](../../../includes/synapse-analytics-preview-features.md)]
 
 Use Spark to manage Spark created databases. For example, delete it through a Spark pool job, and create tables in it from Spark. 
 
 If you create objects in such a database from SQL on-demand or try to drop the database, the operation will succeed, but the original Spark database will not be changed.
 
-If you try to drop the synchronized schema in a SQL Pool, or try to create a table in it, Azure returns an error.
+If you try to drop the synchronized schema in a SQL pool, or try to create a table in it, Azure returns an error.
 
 ## Handling of name conflicts
 
-[!INCLUDE [synapse-analytics-preview-features](../../includes/synapse-analytics-preview-features.md)]
+[!INCLUDE [synapse-analytics-preview-features](../../../includes/synapse-analytics-preview-features.md)]
 
 If the name of a Spark database conflicts with the name of an existing SQL on-demand database, a suffix is appended in SQL on-demand to the Spark database. The suffix in SQL on-demand is `_<workspace name>-ondemand-DefaultSparkConnector`. 
 
 For example, if a Spark database called `mydb` gets created in the Azure Synapse workspace `myws` and a SQL on-demand database with that name already exists, then the Spark database in SQL on-demand will have to be referenced using the name `mydb_myws-ondemand-DefaultSparkConnector`.
 
+Caution: You should not take a dependency on this behavior.
+
 ## Security model
 
-[!INCLUDE [synapse-analytics-preview-features](../../includes/synapse-analytics-preview-features.md)]
+[!INCLUDE [synapse-analytics-preview-features](../../../includes/synapse-analytics-preview-features.md)]
 
 The Spark databases and tables, as well as their synchronized representations in the SQL engines will be secured at the underlying storage level. 
 
@@ -55,9 +57,9 @@ To give a security principal, such as a user or a security group, access to a da
 
 ## Examples
 
-### Creating a Spark database and seeing it in SQL on-demand
+### Create & connect to Spark database - SQL on-demand
 
-[!INCLUDE [synapse-analytics-preview-features](../../includes/synapse-analytics-preview-features.md)]
+[!INCLUDE [synapse-analytics-preview-features](../../../includes/synapse-analytics-preview-features.md)]
 
 First create a new Spark database named `mytestdb` using a Spark cluster you have already created in your workspace. You can achieve that for example using a Spark C# Notebook with the following .NET for Spark statement:
 
@@ -75,7 +77,7 @@ Verify that `mytestdb` is included in the results.
 
 ### Exposing a Spark database in a SQL pool
 
-[!INCLUDE [synapse-analytics-preview-features](../../includes/synapse-analytics-preview-features.md)]
+[!INCLUDE [synapse-analytics-preview-features](../../../includes/synapse-analytics-preview-features.md)]
 
 With the database created in the previous example, now create a SQL pool in your workspace named `mysqlpool` that enables metadata synchronization.
 
@@ -88,7 +90,7 @@ Run the following statement against the `mysqlpool` SQL pool:
 Verify the schema for the newly created database in the results.
 
 ## Next steps
-- [Learn more about Azure Synapse Analytics' shared metadata](metadata-overview.md)
-- [Learn more about Azure Synapse Analytics' shared metadata Tables](metadata-table.md)
-- [Learn more about the Synchronization with SQL Analytics on-demand](metadata-overview.md)
-- [Learn more about the Synchronization with SQL Analytics pools](metadata-overview.md)
+- [Learn more about Azure Synapse Analytics' shared metadata](overview.md)
+- [Learn more about Azure Synapse Analytics' shared metadata Tables](table.md)
+<!-- - [Learn more about the Synchronization with SQL Analytics on-demand](overview.md)
+- [Learn more about the Synchronization with SQL Analytics pools](overview.md)-->
