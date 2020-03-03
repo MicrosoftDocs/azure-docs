@@ -153,7 +153,7 @@ For Site Recovery replication to work, outbound connectivity to specific URLs is
 - **Possible cause** </br>
   - Connection cannot be established to site recovery endpoints due to DNS resolution failure.
   - This is more frequently seen during re-protection when you have failed over the virtual machine but the DNS server is not reachable from the DR region.
-  
+   
 - **Resolution**
    - If you're using custom DNS then make sure that the DNS server is accessible from the Disaster Recovery region. To check if you have a custom DNS go to the VM> Disaster Recovery network> DNS servers. Try accessing the DNS server from the virtual machine. If it is not accessible then make it accessible by either failing over the DNS server or creating the line of site between DR network and DNS.
   
