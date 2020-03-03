@@ -3,7 +3,7 @@ title: Quickstart - Explore Azure costs with cost analysis | Microsoft Docs
 description: This quickstart helps you use cost analysis to explore and analyze your Azure organizational costs.
 author: bandersmsft
 ms.author: banders
-ms.date: 02/11/2020
+ms.date: 03/02/2020
 ms.topic: quickstart
 ms.service: cost-management-billing
 ms.reviewer: micflan
@@ -27,6 +27,8 @@ In this quickstart, you learn how to:
 Cost analysis supports different kinds of Azure account types. To view the full list of supported account types, see [Understand Cost Management data](understand-cost-mgt-data.md). To view cost data, you need at least read access for your Azure account.
 
 For information about assigning access to Azure Cost Management data, see [Assign access to data](../../cost-management/assign-access-acm-data.md).
+
+If you have a new subscription, you can’t immediately use Cost Management features. It might take up to 48 hours before you can use all Cost Management features.
 
 ## Sign in to Azure
 
