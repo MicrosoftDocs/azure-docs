@@ -162,7 +162,7 @@ The second staging tasks that run on your Azure-SSIS IR are not be billed separa
 
 - Only data flow tasks with Open Database Connectivity (ODBC), OLEDB, or Flat File connection managers and ODBC, OLEDB, and Flat File sources or OLEDB destination are currently supported. 
 - Only Azure Blob storage-linked services that are configured with *Account key*, *Shared Access Signature (SAS) URI*, or *Service Principal* authentication are currently supported.
-- *ParameterMapping* of OLE DB Source has not been supported yet. As a workaround, please use *SQL Command From Variable* as *AccessMode*, then use *Expression* to concatenate your variable/parameters and SQL command. Here's a sample at: *https://ssisazurefileshare.blob.core.windows.net/publicpreview?sp=rl&st=2018-04-08T14%3A10%3A00Z&se=2020-04-10T14%3A10%3A00Z&sv=2017-04-17&sig=mFxBSnaYoIlMmWfxu9iMlgKIvydn85moOnOch6%2F%2BheE%3D&sr=c*. You can find the sample package *ParameterMappingSample.dtsx* under *SelfhostedIrProxy/Limitations*. You need [Azure Storage Explorer](https://storageexplorer.com/) to open the link. 
+- *ParameterMapping* in OLEDB Source is not supported yet. As a workaround, please use *SQL Command From Variable* as the *AccessMode* and use *Expression* to insert your variables/parameters in a SQL command. To illustrate this, you can find a sample package *(ParameterMappingSample.dtsx)* in *SelfhostedIrProxy/Limitations* folder of our public preview container by entering the following SAS URI on [Azure Storage Explorer](https://storageexplorer.com/): *https://ssisazurefileshare.blob.core.windows.net/publicpreview?sp=rl&st=2018-04-08T14%3A10%3A00Z&se=2020-04-10T14%3A10%3A00Z&sv=2017-04-17&sig=mFxBSnaYoIlMmWfxu9iMlgKIvydn85moOnOch6%2F%2BheE%3D&sr=c*.
 
 ## Next steps
 
