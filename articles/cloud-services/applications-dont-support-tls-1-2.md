@@ -195,10 +195,9 @@ shutdown.exe /r /t 5 /c "Crypto settings changed" /f /d p:2:4
 
 ## Step 2: Create a command file 
 
-Create a CMD file with the following information . 
+Create a CMD file called RunTLSSettings.cmd with the following:
 
-```
-RunTLSSettings.cmd
+```cmd
 PowerShell -ExecutionPolicy Unrestricted %~dp0TLSsettings.ps1
 REM This line is required to ensure the startup tasks does not block the role from starting in case of error.  DO NOT REMOVE!!!! 
 EXIT /B 0
