@@ -27,6 +27,13 @@ All textures given to ARR have to be in [DDS format](https://en.wikipedia.org/wi
 When loading a texture, you have to specify its expected type. If the type mismatches, the texture load fails.
 Loading a texture with the same URI twice will return the same texture object, as it is a [shared resource](../concepts/lifetime.md).
 
+Similar to loading models, there are two variants of addressing a texture asset in source storage:
+
+* The texture asset can be addressed by its SAS URI. Relevant loading function is `LoadTextureFromSASAsync` with parameter `LoadTextureFromSASParams`. Use this variant also when loading [built-in textures](../overview/features/sky.md#built-in-environment-maps).
+* The texture can be addressed by blob storage parameters directly, in case the [blob storage is linked to the account](../how-tos/create-an-account.md#link-storage-accounts). Relevant loading function in this case is `LoadTextureAsync` with parameter `LoadTextureParams`.
+
+The following sample code shows how to load a texture via its SAS URI (or built-in texture) - note that only the loading function/parameter differs for the other case:
+
 ``` cs
 LoadTextureAsync _textureLoad = null;
 void LoadMyTexture(AzureSession session, string textureUri)
@@ -48,7 +55,7 @@ void LoadMyTexture(AzureSession session, string textureUri)
 }
 ```
 
-The URI may point to a builtin or external file. Depending on what the texture is supposed to be used for, there may be restrictions for the texture type and content. For example, the roughness map of a [PBR material](../overview/features/pbr-materials.md) must be grayscale.
+Depending on what the texture is supposed to be used for, there may be restrictions for the texture type and content. For example, the roughness map of a [PBR material](../overview/features/pbr-materials.md) must be grayscale.
 
 > [!CAUTION]
 > All *Async* functions in ARR return asynchronous operation objects. You must store a reference to those objects until the operation is completed. Otherwise the C# garbage collector may delete the operation early and it can never finish. In the sample code above the member variable '_textureLoad' is used to hold a reference until the *Completed* event arrives.

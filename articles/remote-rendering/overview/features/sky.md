@@ -38,7 +38,7 @@ To change the environment map, all you need to do is [load a texture](../../conc
 LoadTextureAsync _skyTextureLoad = null;
 void ChangeEnvironmentMap(AzureSession session)
 {
-    _skyTextureLoad = session.Actions.LoadTextureAsync(new LoadTextureParams("builtin://VeniceSunset", TextureType.CubeMap));
+    _skyTextureLoad = session.Actions.LoadTextureFromSASAsync(new LoadTextureFromSASParams("builtin://VeniceSunset", TextureType.CubeMap));
 
     _skyTextureLoad.Completed += (LoadTextureAsync res) =>
         {
@@ -61,7 +61,7 @@ void ChangeEnvironmentMap(AzureSession session)
 }
 ```
 
-Here we use a *built-in* texture, but typically you would pass a SAS URI into `LoadTextureParams`, which points to your custom sky texture.
+Note that the `LoadTextureFromSASAsync` variant is used above because a built-in texture is loaded. In case of loading from [linked blob storages](../../how-tos/create-an-account.md#link-storage-accounts), use the `LoadTextureAsync` variant.
 
 ## Sky texture types
 
@@ -75,7 +75,7 @@ For reference, here is an unwrapped cubemap:
 
 ![An unwrapped cubemap](media/Cubemap-example.png)
 
-Use `AzureSession.Actions.LoadTextureAsync` with `TextureType.CubeMap` to load cubemap textures.
+Use `AzureSession.Actions.LoadTextureAsync`/ `LoadTextureFromSASAsync` with `TextureType.CubeMap` to load cubemap textures.
 
 ### Sphere environment maps
 
