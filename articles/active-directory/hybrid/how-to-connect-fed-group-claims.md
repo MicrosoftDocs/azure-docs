@@ -104,7 +104,7 @@ Groups assigned to the application will be included in the token.  Other groups 
 
 To change the groups assigned to the application, select the application from the **Enterprise Applications** list and then click **Users and Groups** from the application’s left-hand navigation menu.
 
-See the document [Methods for assigning users and groups to an app](../../active-directory/manage-apps/methods-for-assigning-users-and-groups#assign-groups) for details of managing group assignment to applications.
+See the document [Methods for assigning users and groups to an app](../../active-directory/manage-apps/methods-for-assigning-users-and-groups.md#assign-groups) for details of managing group assignment to applications.
 
 ### Advanced options
 
@@ -219,6 +219,6 @@ To emit group names to be returned in netbiosDomain\samAccountName format as the
 
 ## Next steps
 
-[Methods for assigning users and groups to an app](../../active-directory/manage-apps/methods-for-assigning-users-and-groups#assign-groups)
+[Methods for assigning users and groups to an app](../../active-directory/manage-apps/methods-for-assigning-users-and-groups.md#assign-groups)
 
-[Configure role claims](../../active-directory/develop/active-directory-enterprise-app-role-management)
+[Configure role claims](../../active-directory/develop/active-directory-enterprise-app-role-management.md)
