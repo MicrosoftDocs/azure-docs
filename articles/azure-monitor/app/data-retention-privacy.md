@@ -168,11 +168,11 @@ By default `%TEMP%/appInsights-node{INSTRUMENTATION KEY}` is used for persisting
 
 The folder prefix `appInsights-node` can be overridden by changing the runtime value of the static variable `Sender.TEMPDIR_PREFIX` found in [Sender.ts](https://github.com/Microsoft/ApplicationInsights-node.js/blob/7a1ecb91da5ea0febf5ceab13d6a4bf01a63933d/Library/Sender.ts#L384).
 
-### JavaScript (Browser)
+### JavaScript (browser)
 
 [HTML5 Session Storage](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage) is used to persist data. Two separate buffers are used: `AI_buffer` and `AI_sent_buffer`. Telemetry that is batched and waiting to be sent is stored in `AI_buffer`. Telemetry that was just sent is placed in `AI_sent_buffer` until the ingestion server responds that it was successfully received. When telemetry is successfully received, it's removed from all buffers. On transient failures (for example, a user loses network connectivity), telemetry remains in `AI_buffer` until it is successfully received or the ingestion server responds that the telemetry is invalid (bad schema or too old, for example).
 
-Telemetry buffers can be disabled by setting [`enableSessionStorageBuffer`](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/legacy/JavaScript/JavaScriptSDK.Interfaces/IConfig.ts#L31) to `false`. When turned off, a local array is instead used as persistent storage. Because the JavaScript SDK runs on a client device, the user has access to this storage location via their browser's developer tools.
+Telemetry buffers can be disabled by setting [`enableSessionStorageBuffer`](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/legacy/JavaScript/JavaScriptSDK.Interfaces/IConfig.ts#L31) to `false`. When session storage is turned off, a local array is instead used as persistent storage. Because the JavaScript SDK runs on a client device, the user has access to this storage location via their browser's developer tools.
 
 ### OpenCensus Python
 
