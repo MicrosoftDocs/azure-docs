@@ -79,10 +79,9 @@ For a backup operation to succeed on encrypted VMs, it must have permissions to 
 **Error code**: ExtensionSnapshotFailedNoNetwork<br>
 **Error message**: Snapshot operation failed due to no network connectivity on the virtual machine<br>
 
-After you register and schedule a VM for the Azure Backup service, Backup starts the job by communicating with the VM backup extension to take a point-in-time snapshot. Any of the following conditions might prevent the snapshot from being triggered. If the snapshot isn't triggered, a backup failure might occur. Complete the following troubleshooting steps in the order listed, and then retry your operation:
+After you register and schedule a VM for the Azure Backup service, Backup starts the job by communicating with the VM backup extension to take a point-in-time snapshot. Any of the following conditions might prevent the snapshot from being triggered. If the snapshot isn't triggered, a backup failure might occur. Complete the following troubleshooting step, and then retry your operation:
 
-**Cause 1: [The snapshot status can't be retrieved, or a snapshot can't be taken](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
-
+**[The snapshot status can't be retrieved, or a snapshot can't be taken](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
 
 ## <a name="ExtensionOperationFailed-vmsnapshot-extension-operation-failed"></a>ExtensionOperationFailedForManagedDisks - VMSnapshot extension operation failed
 
@@ -103,7 +102,7 @@ After you register and schedule a VM for the Azure Backup service, Backup initia
 **Cause 1: [The agent installed in the VM, but it's unresponsive (for Windows VMs)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
 **Cause 2: [The agent installed in the VM is out of date (for Linux VMs)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
 **Cause 3: [The snapshot status can't be retrieved, or a snapshot can't be taken](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
-**Cause 4: Backup service doesn't have permission to delete the old restore points because of a resource group lock** <br>
+**Cause 4: [Backup service doesn't have permission to delete the old restore points because of a resource group lock](#remove_lock_from_the_recovery_point_resource_group)**<br>
 
 ## UserErrorUnsupportedDiskSize - The configured disk size(s) is currently not supported by Azure Backup
 
