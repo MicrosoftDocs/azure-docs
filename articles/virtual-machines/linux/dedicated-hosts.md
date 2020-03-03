@@ -29,3 +29,5 @@ Azure Dedicated Host is a service that provides physical servers - able to host 
 - For more information, see the [Dedicated hosts](dedicated-hosts.md) overview.
 
 - There is sample template, found [here](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-dedicated-hosts/README.md), that uses both zones and fault domains for maximum resiliency in a region.
+
+- You can also save on costs with a [Reserved Instance of Azure Dedicated Hosts](../prepay-dedicated-hosts-reserved-instances.md).

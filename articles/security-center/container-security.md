@@ -29,7 +29,7 @@ This article describes how Security Center helps you improve, monitor, and maint
 
 For instructions on how to use these features, see [Monitoring the security of your containers](monitor-container-security.md).
 
-## Vulnerability management - scanning container images (Preview)
+## Vulnerability management - scanning container images
 To monitor your ARM-based Azure Container Registry, ensure you're on Security Center's standard tier (see [pricing](/azure/security-center/security-center-pricing)). Then enable the optional Container Registries bundle. When a new image is pushed, Security Center scans the image using a scanner from the industry-leading vulnerability scanning vendor, Qualys.
 
 When issues are found – by Qualys or Security Center – you’ll get notified in the Security Center dashboard. For every vulnerability, Security Center provides actionable recommendations, along with a severity classification, and guidance for how to remediate the issue. For details of Security Center's recommendations for containers, see the [reference list of recommendations](recommendations-reference.md#recs-containers).
@@ -57,9 +57,9 @@ AKS provides security controls and visibility into the security posture of your 
 
 For details of the relevant Security Center recommendations that might appear for this feature, see the [container section](recommendations-reference.md#recs-containers) of the recommendations reference table.
 
-## Run-time protection - Real-time threat detection
+## Run-time protection - Real-time threat protection
 
-Security Center provides real-time threat detection for your containerized environments and generates alerts for suspicious activities. You can use this information to quickly remediate security issues and improve the security of your containers.
+Security Center provides real-time threat protection for your containerized environments and generates alerts for suspicious activities. You can use this information to quickly remediate security issues and improve the security of your containers.
 
 We detect threats at the host and AKS cluster level. For full details, see [threat protection for Azure containers](threat-protection.md#azure-containers).
 

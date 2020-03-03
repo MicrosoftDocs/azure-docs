@@ -221,7 +221,7 @@ In the cell, press **SHIFT + ENTER** to run the code.
     ```
    You see an output similar to the following snippet:
 
-   ```bash
+   ```output
    +---------------------+---------+---------+------+-------------+----------+---------+-------+--------------------+------+--------+-------------+---------+--------------------+------+-------------+------+
    |               artist|     auth|firstName|gender|itemInSession|  lastName|   length|  level|            location|method|    page| registration|sessionId|                song|status|           ts|userId|
    +---------------------+---------+---------+------+-------------+----------+---------+-------+--------------------+------+--------+-------------+---------+--------------------+------+-------------+------+
@@ -247,7 +247,7 @@ The raw sample data **small_radio_json.json** file captures the audience for a r
 
    You receive output as shown in the following snippet:
 
-   ```bash
+   ```output
    +---------+----------+------+--------------------+-----+
    |firstname|  lastname|gender|            location|level|
    +---------+----------+------+--------------------+-----+
@@ -283,7 +283,7 @@ The raw sample data **small_radio_json.json** file captures the audience for a r
 
    You receive output as shown in the following snippet.
 
-   ```bash
+   ```output
    +---------+----------+------+--------------------+-----------------+
    |firstname|  lastname|gender|            location|subscription_type|
    +---------+----------+------+--------------------+-----------------+

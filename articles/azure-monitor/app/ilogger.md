@@ -1,11 +1,7 @@
 ---
 title: Explore .NET trace logs with ILogger - Azure Application Insights
 description: Samples of using the Azure Application Insights ILogger provider with ASP.NET Core and Console applications.
-ms.service:  azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 02/19/2019
 
 ms.reviewer: mbullwin
@@ -428,7 +424,7 @@ When you use the standalone package, `TelemetryClient` is not injected to the DI
 ```csharp
 public class MyController : ApiController
 {
-   // This telemtryclient can be used to track additional telemetry using TrackXXX() api.
+   // This telemetryclient can be used to track additional telemetry using TrackXXX() api.
    private readonly TelemetryClient _telemetryClient;
    private readonly ILogger _logger;
 
