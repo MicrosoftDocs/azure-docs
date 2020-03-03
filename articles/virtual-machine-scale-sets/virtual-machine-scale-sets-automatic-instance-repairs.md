@@ -101,10 +101,6 @@ The automatic instance repairs process works as follows:
 
 If an instance in a scale set is protected by applying one of the [protection policies](./virtual-machine-scale-sets-instance-protection.md), then automatic repairs are not performed on that instance. This applies to both the protection policies: *Protect from scale-in* and *Protect from scale-set actions*.
 
-## Terminate notification and automatic repairs
-
-If the [terminate notification](./virtual-machine-scale-sets-terminate-notification.md) feature is enabled on a scale set, then during automatic repair operation, the deletion of unhealthy instance follow the properties configured under this feature. A terminate notification is sent through Azure metadata service – scheduled events – and instance deletion is delayed for the duration of the predefined delay timeout, as configured under the terminate notification feature. However, the creation of a new instance to replace the unhealthy one does not wait for the delay timeout to complete. 
-
 ## Enabling automatic repairs policy when creating a new scale set
 
 For enabling automatic repairs policy while creating a new scale set, ensure that all the [requirements](#requirements-for-using-automatic-instance-repairs) for opting in to this feature are met. The application endpoint should be correctly configured for scale set instances to avoid triggering unintended repairs while the endpoint is getting configured. For newly created scale sets, any instance repairs are performed only after waiting for the duration of grace period. To enable the automatic instance repair in a scale set, use *automaticRepairsPolicy* object in the virtual machine scale set model.
