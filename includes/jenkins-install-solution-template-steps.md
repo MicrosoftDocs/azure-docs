@@ -1,3 +1,11 @@
+---
+author: tomarcher
+ms.service: jenkins
+ms.topic: include
+ms.date: 03/03/2020
+ms.author: tarcher
+---
+
 ## Prerequisites
 
 * An Azure subscription
