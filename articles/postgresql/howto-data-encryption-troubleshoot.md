@@ -54,4 +54,4 @@ Most issues that occur when you use data encryption with Azure Key Vault are cau
 
 ## Next steps
 
-[Set up data encryption with a customer-managed key for your Azure database for PostgreSQL by using the Azure portal](howto-data-encryption-portal.md).
+[Use the Azure portal to set up data encryption with a customer-managed key on Azure Database for PostgreSQL](howto-data-encryption-portal.md).

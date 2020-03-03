@@ -29,7 +29,7 @@ Most issues that occur when you use data encryption with Azure Key Vault are cau
 - You don't have permissions to access the key vault or the key doesn't exist:
   - The key expired or was accidentally deleted or disabled.
   - The Azure Database for MySQL instance-managed identity was accidentally deleted.
-  - Permissions granted to the Azure Database for MySQL server managed identity for the keys aren't sufficient. For example, the permissions don't include Get, Wrap, and Unwrap.
+  - Permissions granted to the Azure Database for MySQL server-managed identity for the keys aren't sufficient. For example, the permissions don't include Get, Wrap, and Unwrap.
   - Permissions for the Azure Database for MySQL server instance-managed identity were revoked.
 
 ## Identify and resolve common errors
@@ -39,12 +39,12 @@ Most issues that occur when you use data encryption with Azure Key Vault are cau
 #### Disabled key vault
 
 - `AzureKeyVaultKeyDisabledMessage`
-- **Explanation** : The operation could not be completed on server because the Azure Key Vault key is disabled.
+- **Explanation**: The operation couldn't be completed on server because the Azure Key Vault key is disabled.
 
 #### Missing key vault permissions
 
 - `AzureKeyVaultMissingPermissionsMessage`
-- The server does not have the required Get, Wrap, and Unwrap permissions to the Azure Key Vault permissions. Grant any missing permissions to the service principal with ID.
+- The server doesn't have the required Get, Wrap, and Unwrap permissions to the Azure Key Vault permissions. Grant any missing permissions to the service principal with ID.
 
 ### Mitigation
 
@@ -54,4 +54,4 @@ Most issues that occur when you use data encryption with Azure Key Vault are cau
 
 ## Next steps
 
-[Set up data encryption with a customer-managed key for your Azure database for MySQL by using the Azure portal](howto-data-encryption-portal.md).
+[Use the Azure portal to set up data encryption with a customer-managed key on Azure Database for MySQL](howto-data-encryption-portal.md).
