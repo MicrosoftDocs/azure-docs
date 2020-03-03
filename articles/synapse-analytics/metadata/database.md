@@ -90,7 +90,7 @@ Run the following statement against the `mysqlpool` SQL pool:
 Verify the schema for the newly created database in the results.
 
 ## Next steps
-- [Learn more about Azure Synapse Analytics' shared metadata](metadata-overview.md)
-- [Learn more about Azure Synapse Analytics' shared metadata Tables](metadata-table.md)
-<!-- - [Learn more about the Synchronization with SQL Analytics on-demand](metadata-overview.md)
-- [Learn more about the Synchronization with SQL Analytics pools](metadata-overview.md)-->
+- [Learn more about Azure Synapse Analytics' shared metadata](overview.md)
+- [Learn more about Azure Synapse Analytics' shared metadata Tables](table.md)
+<!-- - [Learn more about the Synchronization with SQL Analytics on-demand](overview.md)
+- [Learn more about the Synchronization with SQL Analytics pools](overview.md)-->

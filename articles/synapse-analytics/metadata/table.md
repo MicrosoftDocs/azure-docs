@@ -96,7 +96,7 @@ The security principal who creates a managed table, is considered the owner of t
 
 If you create a Spark external table or a SQL external table with authentication pass-through, the data is only secured at the folder and file level. If someone queries such an external table, the security identity of the query submitter is passed down to the file system which will check for access rights. 
 
-For more details on how to set permissions on the folders and files, see [Azure Synapse Analytics shared database](metadata-database.md).
+For more details on how to set permissions on the folders and files, see [Azure Synapse Analytics shared database](database.md).
 
 ## Examples
 
@@ -104,7 +104,7 @@ For more details on how to set permissions on the folders and files, see [Azure 
 
 [!INCLUDE [synapse-analytics-preview-features](../../../includes/synapse-analytics-preview-features.md)]
 
-In this scenario, you have a Spark database named `mytestdb`. See [Create & connect to Spark database - SQL on-demand](metadata-database.md#create--connect-to-spark-database---sql-on-demand).
+In this scenario, you have a Spark database named `mytestdb`. See [Create & connect to Spark database - SQL on-demand](database.md#create--connect-to-spark-database---sql-on-demand).
 
 Create a managed Spark table with SparkSQL by running the following command:
 
@@ -202,7 +202,7 @@ You should get the following row as result:
 
 [!INCLUDE [synapse-analytics-preview-features](../../../includes/synapse-analytics-preview-features.md)]
 
-With the tables created in the previous examples, now create a SQL pool in your workspace named `mysqlpool` that enables metadata synchronization (or use the already created pool from [Exposing a Spark database in a SQL pool](metadata-database.md#exposing-a-spark-database-in-a-sql-pool).
+With the tables created in the previous examples, now create a SQL pool in your workspace named `mysqlpool` that enables metadata synchronization (or use the already created pool from [Exposing a Spark database in a SQL pool](database.md#exposing-a-spark-database-in-a-sql-pool).
 
 Run the following statement against the `mysqlpool` SQL pool:
 
@@ -224,7 +224,7 @@ You should get the same results as with SQL on-demand above.
 <!-- TODO: Add examples for CSV backed external table and partitioned managed table as well as dropping the table -->
 
 ## Next steps
-- [Learn more about Azure Synapse Analytics' shared metadata](metadata-overview.md)
-- [Learn more about Azure Synapse Analytics' shared metadata Tables](metadata-table.md)
-<!--- [Learn more about the Synchronization with SQL Analytics on-demand](metadata-overview.md)
-- [Learn more about the Synchronization with SQL Analytics pools](metadata-overview.md)-->
+- [Learn more about Azure Synapse Analytics' shared metadata](overview.md)
+- [Learn more about Azure Synapse Analytics' shared metadata Tables](table.md)
+<!--- [Learn more about the Synchronization with SQL Analytics on-demand](overview.md)
+- [Learn more about the Synchronization with SQL Analytics pools](overview.md)-->

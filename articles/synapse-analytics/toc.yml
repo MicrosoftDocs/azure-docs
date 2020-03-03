@@ -88,16 +88,16 @@
     #     href: sql-analytics/sql-analytics-on-demand-workspace-overview.md
     #   - name: Spark pool 
     #     href: ./spark/apache-spark-overview.md
-    - name: Shared Metadata management
+    - name: Shared metadata management
       items:
       - name: Overview
-        href: metadata/metadata-overview.md
-      - name: Meta data objects
+        href: metadata/overview.md
+      - name: Metadata objects
         items:
-        - name: Shared Databases
-          href: metadata/metadata-database.md
-        - name: Shared Tables
-          href: metadata/metadata-table.md
+        - name: Shared databases
+          href: metadata/database.md
+        - name: Shared tables
+          href: metadata/table.md
       - name: Code artifacts
         items:
         - name: Apache Spark Notebooks
