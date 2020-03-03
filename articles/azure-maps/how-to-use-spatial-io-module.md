@@ -27,7 +27,7 @@ In this guide, we'll learn how to install the Spatial IO module. Then, we'll dem
 
 ## Prerequisites
 
-Before you can use the Spatial IO module, you'll need to [make an Azure Maps account](https://docs.microsoft.com/en-us/azure/azure-maps/quick-demo-map-app#create-an-account-with-azure-maps) and [get the primary subscription key for your account](https://docs.microsoft.com/en-us/azure/azure-maps/quick-demo-map-app#get-the-primary-key-for-your-account).
+Before you can use the Spatial IO module, you'll need to [make an Azure Maps account](https://docs.microsoft.com/azure/azure-maps/quick-demo-map-app#create-an-account-with-azure-maps) and [get the primary subscription key for your account](https://docs.microsoft.com/azure/azure-maps/quick-demo-map-app#get-the-primary-key-for-your-account).
 
 ## Installing the Spatial IO module
 
@@ -55,7 +55,7 @@ Then, add a reference to the JavaScript in the `<head>` element of the HTML docu
 
 1. Create a new HTML file.
 
-2. Load the Azure Maps Web SDK and initialize the map control. See the [Azure Maps map control](https://docs.microsoft.com/en-us/azure/azure-maps/how-to-use-map-control) guide for the details. Once you're done with this step, your HTML file should look like this:
+2. Load the Azure Maps Web SDK and initialize the map control. See the [Azure Maps map control](https://docs.microsoft.com/azure/azure-maps/how-to-use-map-control) guide for the details. Once you're done with this step, your HTML file should look like this:
 
 ```html
 <!DOCTYPE html>

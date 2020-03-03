@@ -28,8 +28,8 @@ By default the reader will use the comma character as the delimiter; however thi
 | | |
 | :-- | :-- |
 | Comma | `,` |
-| tab | `\t` |
-| pipe | `|` |
+| Tab | `\t` |
+| Pipe | `|` |
 
 This reader also supports text qualifiers that are used to handle cells that contain the delimiter character. The quote (`'"'`) character is the default text qualifier, but it can be changed to any single character.
 
@@ -44,7 +44,8 @@ To use this class, follow the steps below:
 - Call the `toString` function to retrieve the delimited string. 
 - Optionally call the `clear` method to make the writer reusable and reduce its resource allocation, or delete the writer instance to dispose it.
 
-> [!Note] The number of columns written will be constrained to the number of cells in the first row of data passed into the writer.
+> [!Note]
+> The number of columns written will be constrained to the number of cells in the first row of the data passed to the writer.
 
 ## Read XML files
 

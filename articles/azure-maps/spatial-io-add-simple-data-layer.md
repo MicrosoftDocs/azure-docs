@@ -125,14 +125,14 @@ Add your features to the data source and the simple data layer will figure out h
 
 ```json
 {
-	"type": "Feature",
-	"geometry": {
-		"type": "Point",
-		"coordinates": [0, 0]
-	},
-	"properties": {
-		"color": "red"
-	}
+    "type": "Feature",
+    "geometry": {
+        "type": "Point",
+        "coordinates": [0, 0]
+    },
+    "properties": {
+        "color": "red"
+    }
 }
 ```
 
@@ -156,7 +156,7 @@ The real power of the simple data layer comes when there are several different t
 Learn more about the classes and methods used in this article:
 
 > [!div class="nextstepaction"]
-> [SimpleDataLayer](https://docs.microsoft.com/en-us/javascript/api/azure-maps-spatial-io/atlas.layer.simpledatalayer)
+> [SimpleDataLayer](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.layer.simpledatalayer)
 
 > [!div class="nextstepaction"]
 > [SimpleDataLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.simpledatalayeroptions)

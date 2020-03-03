@@ -78,7 +78,7 @@ You may also specify the map settings to use a proxy service. With the proxy ser
 Learn more about the classes and methods used in this article:
 
 > [!div class="nextstepaction"]
-> [OgcMapLayer](https://docs.microsoft.com/en-us/javascript/api/azure-maps-spatial-io/atlas.layer.ogcmaplayer)
+> [OgcMapLayer](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.layer.ogcmaplayer)
 
 > [!div class="nextstepaction"]
 > [OgcMapLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.ogcmaplayeroptions)
