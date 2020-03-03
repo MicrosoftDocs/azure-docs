@@ -35,7 +35,7 @@ You use the Azure CLI to complete many of the steps in this quickstart, and Azur
 Add the Azure IoT extension to the cloud shell instance.
 
    ```azurecli-interactive
-   az extension add --name azure-cli-iot-ext
+   az extension add --name azure-iot
    ```
 
 ## Prerequisites

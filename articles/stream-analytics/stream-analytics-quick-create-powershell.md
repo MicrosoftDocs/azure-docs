@@ -24,7 +24,7 @@ The example job reads streaming data from an IoT Hub device. The input data is g
 
 * This quickstart requires the Azure PowerShell module. Run `Get-Module -ListAvailable Az` to find the version that is installed on your local machine. If you need to install or upgrade, see [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-Az-ps).
 
-* Some IoT Hub actions are not supported by Azure PowerShell and must be completed using Azure CLI version 2.0.24 or later and the IoT extension for Azure CLI. [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) and use `az extension add --name azure-cli-iot-ext` to install the IoT extension.
+* Some IoT Hub actions are not supported by Azure PowerShell and must be completed using Azure CLI version 2.0.24 or later and the IoT extension for Azure CLI. [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) and use `az extension add --name azure-iot` to install the IoT extension.
 
 
 ## Sign in to Azure

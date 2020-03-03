@@ -50,7 +50,7 @@ Microsoft Azure IoT Hub currently supports device streams as a [preview feature]
 Add the Azure IoT Extension for Azure CLI to your Cloud Shell instance by running the following command. The IoT Extension adds IoT Hub, IoT Edge, and IoT Device Provisioning Service (DPS)-specific commands to the Azure CLI.
 
 ```azurecli-interactive
-az extension add --name azure-cli-iot-ext
+az extension add --name azure-iot
 ```
 
 ## Create an IoT hub

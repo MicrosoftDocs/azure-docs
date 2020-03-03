@@ -46,7 +46,7 @@ Azure CLI requires you to be logged into your Azure account. All communication b
 1. Run the [az extension add](https://docs.microsoft.com/cli/azure/extension?view=azure-cli-latest#az-extension-add) command to add the Microsoft Azure IoT Extension for Azure CLI to your CLI shell. The IOT Extension adds IoT Hub, IoT Edge, and IoT Device Provisioning Service (DPS) specific commands to Azure CLI.
 
    ```azurecli
-   az extension add --name azure-cli-iot-ext
+   az extension add --name azure-iot
    ```
     After you install the Azure IOT extension, you don't need to install it again in any Cloud Shell session. 
 
