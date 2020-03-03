@@ -12,7 +12,7 @@ ms.author: jrasnick
 ms.reviewer: carlrab
 ms.date: 03/10/2020
 ---
-# Manual tune query performance in Azure SQL Database
+# Tune applications and databases for performance in Azure SQL Database
 
 Once you have identified a performance issue that you are facing with SQL Database, this article is designed to help you:
 

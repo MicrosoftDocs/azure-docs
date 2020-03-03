@@ -455,7 +455,7 @@ Refer to the following table for details about advanced metrics.
 
 ### Basic logs
 
-Details of telemetry available for all logs are documented in the following tables. See [supported diagnostic telemetry](#supported-diagnostic-telemetry-for-azure-sql-databases) to understand which logs are supported for a particular database flavor - Azure SQL single, pooled, or instance database.
+Details of telemetry available for all logs are documented in the following tables. See [supported diagnostic telemetry](#diagnostic-telemetry-for-export-for-azure-sql-database) to understand which logs are supported for a particular database flavor - Azure SQL single, pooled, or instance database.
 
 #### Resource usage stats for managed instances
 

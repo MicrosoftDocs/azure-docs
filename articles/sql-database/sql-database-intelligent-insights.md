@@ -103,7 +103,7 @@ To use Event Hubs to setup custom monitoring and alerting, see [What to do with 
 
 ### Set up with Azure Storage
 
-To use Intelligent Insights with Storage, configure Intelligent Insights log data to be streamed to Storage, see [Azure SQL Database metrics and diagnostics logging](sql-database-metrics-diag-logging.md) and [Stream into Azure Storage](sql-database-metrics-diag-logging.md#stream-diagnostic-telemetry-into-azure-storage).
+To use Intelligent Insights with Storage, configure Intelligent Insights log data to be streamed to Storage, see [Azure SQL Database metrics and diagnostics logging](sql-database-metrics-diag-logging.md) and [Stream into Azure Storage](sql-database-metrics-diag-logging.md#stream-into-azure-storage).
 
 ### Custom integrations of Intelligent Insights log
 

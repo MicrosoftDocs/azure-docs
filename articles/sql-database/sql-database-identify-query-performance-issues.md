@@ -91,7 +91,7 @@ Several workarounds can mitigate PSP problems. Each workaround has associated tr
 
 For more information about resolving PSP problems, see these blog posts:
 
-- [I smell a parameter](https://blogs.msdn.microsoft.com/queryoptteam/2006/03/31/i-smell-a-parameter/)
+- [I smell a parameter](https://docs.microsoft.com/archive/blogs/queryoptteam/i-smell-a-parameter)
 - [Conor vs. dynamic SQL vs. procedures vs. plan quality for parameterized queries](https://blogs.msdn.microsoft.com/conor_cunningham_msft/2009/06/03/conor-vs-dynamic-sql-vs-procedures-vs-plan-quality-for-parameterized-queries/)
 - [SQL query optimization techniques in SQL Server: Parameter sniffing](https://www.sqlshack.com/query-optimization-techniques-in-sql-server-parameter-sniffing/)
 
