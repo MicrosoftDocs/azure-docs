@@ -195,7 +195,7 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 |Compute generation|Gen4|Gen4|Gen4|Gen4|Gen4|
 |vCores|2|3|4|5|6|
 |Memory (GB)|14|21|28|35|42|
-|Max number DBs per pool|100|100|100|100|100|
+|Max number DBs per pool|50|100|100|100|100|
 |Columnstore support|Yes|Yes|Yes|Yes|Yes|
 |In-memory OLTP storage (GB)|2|3|4|5|6|
 |Storage type|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|
