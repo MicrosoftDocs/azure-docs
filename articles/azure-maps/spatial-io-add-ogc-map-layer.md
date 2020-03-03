@@ -49,7 +49,10 @@ The `url` can be the base URL for the service or a full URL with the query for g
 
 The following code shows how to overlay an OGC map layer on the map. 
 
-//TODO: codepen - OGC Map layer example
+<br/>
+
+<iframe height='500' scrolling='no' title='OGC Map layer example' src='/codepen.io/azuremaps/embed/xxGLZWB/?height=500&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/xxGLZWB/'>OGC Map layer example</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
+</iframe>
 
 ## OGC map layer options
 
