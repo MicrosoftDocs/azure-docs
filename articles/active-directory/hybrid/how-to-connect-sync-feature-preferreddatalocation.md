@@ -255,7 +255,6 @@ It is now time to verify the configuration and enable it for your users.
 3. Using Exchange Online PowerShell, verify that the mailbox region has been set correctly.  
 ![Screenshot of Exchange Online PowerShell](./media/how-to-connect-sync-feature-preferreddatalocation/preferreddatalocation-mailboxregion.png)  
 Assuming your tenant has been marked to be able to use this feature, the mailbox is moved to the correct geo. This can be verified by looking at the server name where the mailbox is located.
-4. To verify that this setting has been effective over many mailboxes, use the script in the [TechNet gallery](https://gallery.technet.microsoft.com/office/PowerShell-Script-to-a6bbfc2e). This script also has a list of the server prefixes of all Office 365 datacenters, and which geo it is located in. It can be used as a reference in the previous step to verify the location of the mailbox.
 
 ## Next steps
 
