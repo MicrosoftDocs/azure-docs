@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
-ms.date: 01/25/2019
+ms.date: 03/10/2020
 ---
 # Troubleshoot Azure SQL Database performance issues with Intelligent Insights
 

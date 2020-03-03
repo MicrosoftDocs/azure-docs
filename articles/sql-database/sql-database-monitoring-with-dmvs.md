@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
-ms.date: 12/19/2018
+ms.date: 03/10/2020
 ---
 # Monitoring performance Azure SQL Database using dynamic management views
 

@@ -257,7 +257,7 @@
       href: sql-database-monitoring-tuning-index.yml
     - name: Monitoring and performance overview
       href: sql-database-monitor-tune-overview.md
-    - name: Database Advisors and Query Performance Insight
+    - name: Database advisors and Query Performance Insight
       items:
       - name: Database advisor performance recommendations
         href: sql-database-advisor.md

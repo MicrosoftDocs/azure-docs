@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
-ms.date: 12/19/2018
+ms.date: 03/10/2020
 ---
 
 # Use the Intelligent Insights Azure SQL Database performance diagnostics log

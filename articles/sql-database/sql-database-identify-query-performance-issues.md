@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: jrasnick, carlrab
-ms.date: 01/25/2019
+ms.date: 03/10/2020
 ---
 
 # Identify query performance bottlenecks in Azure SQL Database

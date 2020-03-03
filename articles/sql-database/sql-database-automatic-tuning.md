@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
-ms.date: 03/06/2019
+ms.date: 03/10/2020
 ---
 # Automatic tuning in Azure SQL Database
 

@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
-ms.date: 02/28/2020
+ms.date: 03/10/2020
 ---
 # Database Advisor performance recommendations
 
