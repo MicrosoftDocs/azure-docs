@@ -22,6 +22,8 @@
       href: ../../cosmos-db/cosmos-db-reserved-capacity.md?toc=/azure/billing/TOC.json
     - name: Buy a SQL Database reservation
       href: ../../sql-database/sql-database-reserved-capacity.md?toc=/azure/billing/TOC.json
+    - name: Buy an Azure Cache for Redis reservation
+      href: ../../azure-cache-for-redis/cache-reserved-pricing.md?toc=/azure/billing/TOC.json
     - name: Buy an Azure Data Explorer reservation
       href: ../../data-explorer/pricing-reserved-capacity.md?toc=/azure/billing/TOC.json
     - name: Buy an Azure Databricks reservation
@@ -60,6 +62,8 @@
       href: understand-reservation-charges.md
     - name: SQL Data Warehouse discounts
       href: reservation-discount-azure-sql-dw.md
+    - name: Azure Cache for Redis discounts
+      href: understand-azure-cache-for-redis-reservation-charges.md
     - name: Azure Data Explorer discounts
       href: understand-azure-data-explorer-reservation-charges.md
     - name: Azure Databricks discounts
