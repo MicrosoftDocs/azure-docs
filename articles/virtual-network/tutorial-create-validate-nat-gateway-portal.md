@@ -42,7 +42,7 @@ In this section you'll need to replace the following parameters in the steps wit
 | **\<resource-group-name>**  | myResourceGroupNAT |
 | **\<virtual-network-name>** | myVNetsource          |
 | **\<region-name>**          | East US 2      |
-| **\<IPv4 address space>**   | 192.168.0.0\16          |
+| **\<IPv4-address-space>**   | 192.168.0.0\16          |
 | **\<subnet-name>**          | mySubnetsource        |
 | **\<subnet-address-range>** | 192.168.0.0\24          |
 
@@ -165,7 +165,7 @@ In this section you'll need to replace the following parameters in the steps wit
 | **\<resource-group-name>**  | myResourceGroupNAT |
 | **\<virtual-network-name>** | myVNetdestination          |
 | **\<region-name>**          | East US 2      |
-| **\<IPv4 address space>**   | 192.168.0.0\16          |
+| **\<IPv4-address-space>**   | 192.168.0.0\16          |
 | **\<subnet-name>**          | mySubnetdestination        |
 | **\<subnet-address-range>** | 192.168.0.0\24          |
 

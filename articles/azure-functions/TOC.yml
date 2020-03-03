@@ -425,10 +425,10 @@
       - name: Overview
         href: functions-bindings-signalr-service.md
         displayName: SignalR Service
-      - name: Overview
+      - name: Input
         href: functions-bindings-signalr-service-input.md
         displayName: SignalR Service
-      - name: Overview
+      - name: Output
         href: functions-bindings-signalr-service-output.md
         displayName: SignalR Service
     - name: Table storage
