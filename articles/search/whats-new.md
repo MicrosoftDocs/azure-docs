@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 01/30/2020
+ms.date: 03/03/2020
 ---
 # What's new in Azure Cognitive Search
 
@@ -34,7 +34,7 @@ Azure Search is now renamed to **Azure Cognitive Search** to reflect the expande
 
 + Private access to a search service is available through two mechanisms, both currently in preview:
 
-  + You can restrict access to specific IP addresses by using the Management REST API  `api-version=2019-10-01-Preview` to create the service. The preview API has new **IpRule** and **NetworkRuleSet** properties in [CreateOrUpdate API](https://docs.microsoft.com/rest/api/searchmanagement/services/createorupdate). This preview feature is available in selected regions. For more information, see [How to use the Management REST API](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api).
+  + You can restrict access to specific IP addresses by using the Management REST API  `api-version=2019-10-01-Preview` to create the service. The preview API has new **IpRule** and **NetworkRuleSet** properties in [CreateOrUpdate API](https://docs.microsoft.com/rest/api/searchmanagement/2019-10-01-preview/createorupdate-service). This preview feature is available in selected regions. For more information, see [How to use the Management REST API](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api).
 
   + Currently available through a limited-access preview, you can provision an Azure Search service that supports Azure Private Endpoint for connections from clients on the same virtual network. For more information, see [Create a Private Endpoint for a secure connection](service-create-private-endpoint.md).
 
