@@ -28,16 +28,19 @@ Use the Azure CLI IoT extension to see messages your devices are sending to IoT 
 Run the following command from your command line to install:
 
 ```cmd/sh
-az extension add --name azure-cli-iot-ext
+az extension add --name azure-iot
 ```
 
-Check the version of the extension by running 
+Check the version of the extension by running:
+
 ```cmd/sh
 az --version
 ```
-You should see the azure-cli-iot-ext extension is 0.8.1 or higher. If it is not, run
+
+You should see the azure-iot extension is 0.8.1 or higher. If it is not, run:
+
 ```cmd/sh
-az extension update --name azure-cli-iot-ext
+az extension update --name azure-iot
 ```
 
 ## Using the extension
