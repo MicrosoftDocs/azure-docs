@@ -589,7 +589,7 @@ ServerName : myserver.microsoft.com
 
 ### Choosing a backup point from which to restore
 
-You retrieve a list of backup points by executing the [Get-OBRecoverableItem](https://docs.microsoft.com/powershell/module/msonlinebackup/get-obrecoverableitem?view=winserver2012-ps) cmdlet with appropriate parameters. In our example, we’ll choose the latest backup point for the source volume *C:* and use it to recover a specific file.
+You retrieve a list of backup points by executing the [Get-OBRecoverableItem](https://docs.microsoft.com/powershell/module/msonlinebackup/get-obrecoverableitem?view=winserver2012-ps) cmdlet with appropriate parameters. In our example, we'll choose the latest backup point for the source volume *C:* and use it to recover a specific file.
 
 ```powershell
 $Rps = Get-OBRecoverableItem $Source[0]
@@ -734,4 +734,4 @@ Invoke-Command -Session $Session -Script { param($D, $A) Start-Process -FilePath
 For more information about Azure Backup for Windows Server/Client:
 
 * [Introduction to Azure Backup](backup-introduction-to-azure-backup.md)
-* [Back up Windows Servers](backup-configure-vault.md)
+* [Back up Windows Servers](backup-windows-with-mars-agent.md)

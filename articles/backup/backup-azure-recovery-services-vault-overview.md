@@ -71,4 +71,4 @@ The following sections contain links to articles that explain how to use a Recov
 Use the following articles to:</br>
 [Back up an IaaS VM](backup-azure-arm-vms-prepare.md)</br>
 [Back up an Azure Backup Server](backup-azure-microsoft-azure-backup.md)</br>
-[Back up a Windows Server](backup-configure-vault.md)
+[Back up a Windows Server](backup-windows-with-mars-agent.md)
