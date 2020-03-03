@@ -143,19 +143,19 @@ In the label beneath the input box, you can see the properties that have been se
 * **Azure Resource Manager cmdlets:** You can start an Automation runbook that was created in a resource group by using [Start-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/Az.Automation/Start-AzAutomationRunbook?view=azps-3.5.0
 ).
 
-```powershell
-  $params = @{"VMName"="WSVMClassic";"resourceGroupeName"="WSVMClassicSG"}
+   ```powershell
+     $params = @{"VMName"="WSVMClassic";"resourceGroupeName"="WSVMClassicSG"}
   
-  Start-AzAutomationRunbook -AutomationAccountName "TestAutomation" -Name "Get-AzureVMGraphical" –ResourceGroupName $resourceGroupName -Parameters $params
-```
+     Start-AzAutomationRunbook -AutomationAccountName "TestAutomation" -Name "Get-AzureVMGraphical" –ResourceGroupName $resourceGroupName -Parameters $params
+   ```
 
 * **Azure classic deployment model cmdlets:** You can start an automation runbook that was created in a default resource group by using [Start-AzureAutomationRunbook](/powershell/module/servicemanagement/azure/start-azureautomationrunbook).
   
-```powershell
-  $params = @{"VMName"="WSVMClassic"; "ServiceName"="WSVMClassicSG"}
+   ```powershell
+     $params = @{"VMName"="WSVMClassic"; "ServiceName"="WSVMClassicSG"}
   
-  Start-AzureAutomationRunbook -AutomationAccountName "TestAutomation" -Name "Get-AzureVMGraphical" -Parameters $params
-```
+     Start-AzureAutomationRunbook -AutomationAccountName "TestAutomation" -Name "Get-AzureVMGraphical" -Parameters $params
+   ```
 
 > [!NOTE]
 > When you start a runbook using PowerShell cmdlets, a default parameter, *MicrosoftApplicationManagementStartedBy*, is created with the value **PowerShell**. You can view this parameter on the Job details pane.  
@@ -164,7 +164,7 @@ In the label beneath the input box, you can see the properties that have been se
 
 * **Azure Resource Manager method:** You can start a runbook using the SDK of a programming language. Below is a C# code snippet for starting a runbook in your Automation account. You can view all the code at our [GitHub repository](https://github.com/Azure/azure-sdk-for-net/blob/master/src/ResourceManagement/Automation/Automation.Tests/TestSupport/AutomationTestBase.cs).  
 
-  ```csharp
+   ```csharp
    public Job StartRunbook(string runbookName, IDictionary<string, string> parameters = null)
       {
         var response = AutomationClient.Jobs.Create(resourceGroupName, automationAccount, new JobCreateParameters
@@ -180,11 +180,11 @@ In the label beneath the input box, you can see the properties that have been se
          });
       return response.Job;
       }
-  ```
+   ```
 
 * **Azure classic deployment model method:** You can start a runbook by using the SDK of a programming language. Below is a C# code snippet for starting a runbook in your Automation account. You can view all the code at our [GitHub repository](https://github.com/Azure/azure-sdk-for-net/blob/master/src/ServiceManagement/Automation/Automation.Tests/TestSupport/AutomationTestBase.cs).
 
-  ```csharp
+   ```csharp
   public Job StartRunbook(string runbookName, IDictionary<string, string> parameters = null)
     {
       var response = AutomationClient.Jobs.Create(automationAccount, new JobCreateParameters
@@ -200,20 +200,20 @@ In the label beneath the input box, you can see the properties that have been se
        });
       return response.Job;
     }
-  ```
+   ```
 
-  To start this method, create a dictionary to store the runbook parameters *VMName* and  *resourceGroupName* and their values. Then start the runbook. Below is the C# code snippet for calling the method that's defined above.
+   To start this method, create a dictionary to store the runbook parameters *VMName* and  *resourceGroupName* and their values. Then start the runbook. Below is the C# code snippet for calling the method that's defined above.
 
-  ```csharp
-  IDictionary<string, string> RunbookParameters = new Dictionary<string, string>();
+   ```csharp
+   IDictionary<string, string> RunbookParameters = new Dictionary<string, string>();
   
-  // Add parameters to the dictionary.
+   // Add parameters to the dictionary.
   RunbookParameters.Add("VMName", "WSVMClassic");
-  RunbookParameters.Add("resourceGroupName", "WSSC1");
+   RunbookParameters.Add("resourceGroupName", "WSSC1");
   
-  //Call the StartRunbook method with parameters
-  StartRunbook("Get-AzureVMGraphical", RunbookParameters);
-  ```
+   //Call the StartRunbook method with parameters
+   StartRunbook("Get-AzureVMGraphical", RunbookParameters);
+   ```
 
 #### Start a runbook using the REST API and assign parameters
 
@@ -234,7 +234,7 @@ To pass parameters to the runbook job, use the request body. It takes the follow
 
 If you want to start the **Get-AzureVMTextual** runbook created earlier with *VMName* and *resourceGroupName* as parameters, use the following JSON format for the request body.
 
-   ```json
+```json
     {
       "properties":{
         "runbook":{
@@ -244,7 +244,7 @@ If you want to start the **Get-AzureVMTextual** runbook created earlier with *VM
          "resourceGroupName":"ContosoSales"}
         }
     }
-   ```
+```
 
 An HTTP status code 201 is returned if the job is successfully created. For more information on response headers and the response body, see [create a runbook job by using the REST API](/rest/api/automation/job/create).
 
@@ -327,7 +327,7 @@ Now you can call the runbook from your local machine by using Azure PowerShell.
     >[!NOTE]
     >For PowerShell runbooks, **Add-AzAccount** and **Add-AzureRMAccount** are aliases for **Connect-AzAccount**. Note that these aliases are not available for graphical runbooks. A graphical runbook can only use **Connect-AzAccount** itself.
 
-2. Get the contents of the saved JSON file and convert it to a string. `JsonPath` is the path where you saved the JSON file.
+1. Get the contents of the saved JSON file and convert it to a string. `JsonPath` is the path where you saved the JSON file.
 
    ```powershell
    $json =  (Get-content -path 'JsonPath\test.json' -Raw) | Out-string
