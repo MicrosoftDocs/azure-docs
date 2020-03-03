@@ -1,5 +1,5 @@
 ---
-title: My Staff local administration (preview) - Azure AD | Microsoft Docs
+title: Delegate user management with My Staff - Azure AD | Microsoft Docs
 description: Using administrative units for more granular delegation of permissions in Azure Active Directory
 services: active-directory
 documentationcenter: ''
@@ -9,26 +9,27 @@ ms.topic: article
 ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
-ms.date: 02/19/2020
+ms.date: 03/3/2020
 ms.author: curtand
 ms.reviewer: sahenry
 ms.custom: oldportal;it-pro;
 
 ---
-# Administrative units management in Azure Active Directory (preview)
+# Delegate user management with My Staff
 
 My Staff enables firstline managers, such as a store manager, to ensure that their staff members are able to access their Azure AD accounts. Instead of relying on a central helpdesk, organizations can delegate common tasks such as resetting passwords or changing phone numbers to a firstline manager. With My Staff, a user who can’t access their account can re-gain access in just a couple of clicks – no helpdesk or IT staff required.
 
 Before you configure My Staff for your organization, we recommend that you review this documentation as well as the end user documentation to ensure you understand the functionality and impact of this feature. You can leverage the user documentation to train and prepare your users for the new experience and help to ensure a successful rollout.
 
-How to configure Administrative Units
+## How to configure administrative units
 
-My Staff is based on Administrative Units (AUs), which are a container of resources over which a user is given scoped administrative control. To learn more about AUs, read our documentation.
-For My Staff, AUs are used to define a set of users such as a store or department. A firstline manager is then assigned a role that is scoped to one or more AUs. To reset passwords and manage phone numbers in My Staff, firstline managers should be assigned roles that have permission to take those actions, such as Helpdesk (Password) Administrator and Authentication Administrator. 
+My Staff is based on administrative units (AUs), which are a container of resources over which a user can be given scoped administrative control. To learn more about AUs, see [Administrative units management](directory-administrative-units.md).
+
+For My Staff, administrative units define a set of users such as a store or department. A firstline manager is then assigned a role whose permissions are scoped to one or more AUs. To reset passwords and manage phone numbers in My Staff, firstline managers should be assigned roles that have permission to take those actions, such as Helpdesk (Password) Administrator and Authentication Administrator.
 
 Those permissions should then be scoped to a specific AU or AUs. To learn more about Azure AD administrator roles, read our documentation.
 
-AUs can be managed via UX and PowerShell. The UX for configuration AUs is in private preview and can be accessed at https://aka.ms/adminunits. For info on the AU UX private preview, read this documentation. Note: Only Helpdesk (Password) Administrator and User Administrator roles can be scoped to AUs through the UX. If you want to scope the Authentication Admin role, you will need to use PowerShell. 
+AUs can be managed in the Azure AD portal and using PowerShell. The portal experience for configuring AUs is in private preview and can be accessed at https://aka.ms/adminunits. For info on the private preview, read this documentation. Note: Only Helpdesk (Password) Administrator and User Administrator roles can be scoped to AUs through the UX. If you want to scope the Authentication Admin role, you will need to use PowerShell.
 
 You can also manage AUs through PowerShell, which is supported in public preview. The following are example scripts that you can use to configure Admin Units for testing My Staff:
 Setup script: Create users and managers for three Contoso locations: Seattle, Portland, and Denver. If you receive an error when running the last three commands for activating administrator roles, you can safely ignore them and proceed. The following accounts are created:
