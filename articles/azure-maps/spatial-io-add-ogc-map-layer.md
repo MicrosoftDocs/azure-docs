@@ -1,6 +1,6 @@
 ---
-title:  Read and write spatial data | Microsoft Azure Maps
-description: Learn how to read and write data using the Spatial IO module, provided by Azure Maps Web SDK.
+title:  Add an OGC map layer | Microsoft Azure Maps
+description: Learn how to overlay an OGC map layer on the map, and how to use the different options in the OgcMapLayer class.
 author: farah-alyasari
 ms.author: v-faalya
 ms.date: 03/02/2020
@@ -10,7 +10,7 @@ services: azure-maps
 manager: philmea
 ---
 
-## Add an OGC map layer
+# Add an OGC map layer
 
 The `atlas.layer.OgcMapLayer` class adds support for overlaying imagery from Web Mapping Services (WMS) and Web Mapping Tile Services (WMTS) on top of the map. 
 
@@ -55,7 +55,7 @@ The following code shows how to overlay an OGC map layer on the map.
 
 ## OGC map layer options
 
-The below sample demonstrates the different  OGC map layer options. You may click on the code pen button at the top right corner, to edit the code pen.
+The below sample demonstrates the different OGC map layer options. You may click on the code pen button at the top-right corner, to edit the code pen.
 
 <br/>
 
@@ -64,7 +64,7 @@ The below sample demonstrates the different  OGC map layer options. You may clic
 
 ## OGC Web Map Service explorer
 
-The following code sample is a tool for viewing Web Map Services (WMS) and Web Map Tile Services (WMTS) as layers on the map. You may select which layers in the service are rendered, and you may display the associated legends for these layers.
+The following tool is used for viewing Web Map Services (WMS) and Web Map Tile Services (WMTS) as layers on the map. You may select which layers in the service are rendered, and you may display the associated legends for these layers.
 
 <br/>
 
