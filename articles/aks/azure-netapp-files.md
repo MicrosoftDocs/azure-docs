@@ -39,7 +39,7 @@ The following limitations apply when you use Azure NetApp Files:
 
 Register the *Microsoft.NetApp* resource provider:
 
-```azure-cli
+```azurecli
 az provider register --namespace Microsoft.NetApp --wait
 ```
 
