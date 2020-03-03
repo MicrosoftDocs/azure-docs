@@ -39,7 +39,7 @@ Encryption extends throughout the entire indexing pipeline: from connections, th
 |----------------|-------------|
 | Encryption in transit <br>(HTTPS/SSL/TLS) | Azure Cognitive Search listens on HTTPS port 443. Across the platform, connections to Azure services are encrypted. <br/><br/>All client-to-service Azure Cognitive Search interactions are SSL/TLS 1.2 capable.  Be sure to use TLSv1.2 for SSL connections to your service.|
 | Encryption at rest <br>Microsoft managed keys | Encryption is fully internalized in the indexing process, with no measurable impact on indexing time-to-completion or index size. It occurs automatically on all indexing, including on incremental updates to an index that is not fully encrypted (created before January 2018).<br><br>Internally, encryption is based on [Azure Storage Service Encryption](https://docs.microsoft.com/azure/storage/common/storage-service-encryption), using 256-bit [AES encryption](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard).<br><br> Encryption is internal to Azure Cognitive Search, with certificates and encryption keys managed internally by Microsoft, and universally applied. You cannot turn encryption on or off, manage or substitute your own keys, or view encryption settings in the portal or programmatically.<br><br>Encryption at rest was announced in January 24, 2018 and applies to all service tiers, including the free tier, in all regions. For full encryption, indexes created prior to that date must be dropped and rebuilt in order for encryption to occur. Otherwise, only new data added after January 24 is encrypted.|
-| Encryption at rest <br>Customer managed keys | Encryption with customer managed keys is now generally available for search services created on or after January 2019. It is not supported on Free (shared) services.<br><br>Azure Cognitive Search indexes and synonym maps can now be encrypted at rest with customer keys managed keys in Azure Key Vault. To learn more, see [Manage encryption keys in Azure Cognitive Search](search-security-manage-encryption-keys.md).<br><br>This feature is not replacing the default encryption at rest, but rather applied in addition to it.<br><br>Enabling this feature will increase index size and degrade query performance. Based on observations to date, you can expect to see an increase of 30%-60% in query times, although actual performance will vary depending on the index definition and types of queries. Because of this performance impact, we recommend that you only enable this feature on indexes that really require it.
+| Encryption at rest <br>Customer managed keys | Encryption with customer managed keys is now generally available for search services created on or after January 2019. It is not supported on Free (shared) services.<br><br>Azure Cognitive Search indexes and synonym maps can now be encrypted at rest with customer managed keys in Azure Key Vault. To learn more, see [Manage encryption keys in Azure Cognitive Search](search-security-manage-encryption-keys.md).<br><br>This feature is not replacing the default encryption at rest, but rather applied in addition to it.<br><br>Enabling this feature will increase index size and degrade query performance. Based on observations to date, you can expect to see an increase of 30%-60% in query times, although actual performance will vary depending on the index definition and types of queries. Because of this performance impact, we recommend that you only enable this feature on indexes that really require it.
 
 ## Azure-wide user access controls
 
@@ -48,7 +48,7 @@ Several security mechanisms are available Azure-wide, and thus automatically ava
 + [Locks at the subscription or resource level to prevent deletion](../azure-resource-manager/management/lock-resources.md)
 + [Role-based Access Control (RBAC) to control access to information and administrative operations](../role-based-access-control/overview.md)
 
-All Azure services support role-based access controls (RBAC) for setting levels of access consistently across all services. For example, viewing sensitive data, such as the admin key, is restricted to the Owner and Contributor roles, whereas viewing service status is available to members of any role. RBAC provides Owner, Contributor, and Reader roles. By default, all service administrators are members of the Owner role.
+All Azure services support role-based access controls (RBAC) for setting levels of access consistently across all services. For example, viewing sensitive data, such as the admin key, is restricted to the Owner and Contributor roles. However, viewing service status is available to members of any role. RBAC provides Owner, Contributor, and Reader roles. By default, all service administrators are members of the Owner role.
 
 <a name="service-access-and-authentication"></a>
 
@@ -111,9 +111,9 @@ The following table summarizes the operations allowed in Azure Cognitive Search 
 | Operation | Permissions |
 |-----------|-------------------------|
 | Create a service | Azure subscription holder|
-| Scale a service | Admin key, RBAC Owner or Contributor on the resource  |
-| Delete a service | Admin key, RBAC Owner or Contributor on the resource |
-| Create, modify, delete objects on the service: <br>Indexes and component parts (including analyzer definitions, scoring profiles, CORS options), indexers, data sources, synonyms, suggesters. | Admin key, RBAC Owner or Contributor on the resource  |
+| Scale a service | Admin key, RBAC Owner, or Contributor on the resource  |
+| Delete a service | Admin key, RBAC Owner, or Contributor on the resource |
+| Create, modify, delete objects on the service: <br>Indexes and component parts (including analyzer definitions, scoring profiles, CORS options), indexers, data sources, synonyms, suggesters. | Admin key, RBAC Owner, or Contributor on the resource  |
 | Query an index | Admin or query key (RBAC not applicable) |
 | Query system information, such as returning statistics, counts, and lists of objects. | Admin key, RBAC on the resource (Owner, Contributor, Reader) |
 | Manage admin keys | Admin key, RBAC Owner or Contributor on the resource. |
