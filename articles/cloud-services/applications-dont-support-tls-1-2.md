@@ -3,7 +3,7 @@ title: Troubleshooting issues caused by applications that don’t support TLS 1.
 description: Troubleshooting issues caused by applications that don’t support TLS 1.2
 services: cloud-services
 documentationcenter: ''
-author: MicahMcKittrick-MSFT
+author: mimckitt
 manager: vashan
 editor: ''
 tags: top-support-issue

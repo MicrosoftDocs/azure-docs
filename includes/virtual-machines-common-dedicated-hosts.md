@@ -95,7 +95,7 @@ Software licensing, storage and network usage are billed separately from the hos
 
 For more information, see [Azure Dedicated Host pricing](https://aka.ms/ADHPricing).
 
-You can also save on costs with a [Reserved Instance of Azure Dedicated Hosts] (../articles/virtual-machines/prepay-dedicated-hosts-reserved-instances.md).
+You can also save on costs with a [Reserved Instance of Azure Dedicated Hosts](../articles/virtual-machines/prepay-dedicated-hosts-reserved-instances.md).
  
 ## VM families and Hardware generations
 

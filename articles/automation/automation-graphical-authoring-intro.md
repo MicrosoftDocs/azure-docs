@@ -8,18 +8,18 @@ ms.topic: conceptual
 ---
 # Graphical authoring in Azure Automation
 
-Graphical authoring allows you to create runbooks for Azure Automation without the complexities of the underlying Windows PowerShell or PowerShell Workflow code. You can add activities to the canvas from a library of cmdlets and runbooks, link them together, and configure them to form a workflow. If you have ever worked with System Center Orchestrator or Service Management Automation (SMA), graphical authoring should look familiar. This article provides an introduction to the concepts you need to get started creating a Graphical runbook.
+Graphical authoring allows you to create runbooks for Azure Automation without the complexities of the underlying Windows PowerShell or PowerShell Workflow code. You can add activities to the canvas from a library of cmdlets and runbooks, link them together, and configure them to form a workflow. If you have ever worked with System Center Orchestrator or Service Management Automation (SMA), graphical authoring should look familiar. This article provides an introduction to the concepts you need to get started creating a graphical runbook.
 
 >[!NOTE]
 >This article has been updated to use the new Azure PowerShell Az module. You can still use the AzureRM module, which will continue to receive bug fixes until at least December 2020. To learn more about the new Az module and AzureRM compatibility, see [Introducing the new Azure PowerShell Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). For Az module installation instructions on your Hybrid Runbook Worker, see [Install the Azure PowerShell Module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). For your Automation account, you can update your modules to the latest version using [How to update Azure PowerShell modules in Azure Automation](automation-update-azure-modules.md).
 
 ## Graphical runbooks
 
-All runbooks in Azure Automation are Windows PowerShell workflows. Graphical runbooks and Graphical PowerShell Workflow runbooks generate PowerShell code that the Automation workers run but that you cannot view or modify. You can convert a Graphical runbook to a Graphical PowerShell Workflow runbook and vice versa. However, you can't convert these runbooks to a textual runbook. Additionally, the Automation graphical editor can't import a textual runbook.
+All runbooks in Azure Automation are Windows PowerShell workflows. Graphical runbooks and graphical PowerShell Workflow runbooks generate PowerShell code that the Automation workers run but that you cannot view or modify. You can convert a graphical runbook to a graphical PowerShell Workflow runbook and vice versa. However, you can't convert these runbooks to a textual runbook. Additionally, the Automation graphical editor can't import a textual runbook.
 
 ## Overview of graphical editor
 
-You can open the graphical editor in the Azure portal by creating or editing a Graphical runbook.
+You can open the graphical editor in the Azure portal by creating or editing a graphical runbook.
 
 ![Graphical workspace](media/automation-graphical-authoring-intro/runbook-graphical-editor.png)
 
@@ -36,9 +36,9 @@ The Library control allows you to select [activities](#activities) to add to you
 | Section | Description |
 |:--- |:--- |
 | Cmdlets |All the cmdlets that can be used in your runbook. Cmdlets are organized by module. All the modules that you have installed in your Automation account are available. |
-| Runbooks |The runbooks in your Automation account. You can add these runbooks to the canvas to be used as child runbooks. Only runbooks of the same core type as the runbook being edited are shown. For Graphical runbooks, only PowerShell-based runbooks are shown. For Graphical PowerShell Workflow runbooks, only PowerShell Workflow-based runbooks are shown. |
+| Runbooks |The runbooks in your Automation account. You can add these runbooks to the canvas to be used as child runbooks. Only runbooks of the same core type as the runbook being edited are shown. For graphical runbooks, only PowerShell-based runbooks are shown. For graphical PowerShell Workflow runbooks, only PowerShell Workflow-based runbooks are shown. |
 | Assets |The [automation assets](/previous-versions/azure/dn939988(v=azure.100)) in your Automation account that you can use in your runbook. Adding an asset to a runbook adds a workflow activity that gets the selected asset. In the case of variable assets, you can select whether to add an activity to get the variable or set the variable. |
-| Runbook Control |Control activities that can be used in your current runbook. A Junction activity takes multiple inputs and waits until all have completed before continuing the workflow. A Code activity runs one or more lines of PowerShell or PowerShell Workflow code, depending on the Graphical runbook type. You can use this activity for custom code or for functionality that is difficult to achieve with other activities. |
+| Runbook Control |Control activities that can be used in your current runbook. A Junction activity takes multiple inputs and waits until all have completed before continuing the workflow. A Code activity runs one or more lines of PowerShell or PowerShell Workflow code, depending on the graphical runbook type. You can use this activity for custom code or for functionality that is difficult to achieve with other activities. |
 
 ### Configuration control
 
@@ -46,7 +46,7 @@ The Configuration control enables you to provide details for an object that is s
 
 ### Test control
 
-The Test control is not displayed when the graphical editor is first started. It is opened when you interactively test a Graphical runbook.
+The Test control is not displayed when the graphical editor is first started. It is opened when you interactively test a graphical runbook.
 
 ## Activities
 
@@ -128,7 +128,7 @@ After you configure a retry condition for an activity, the activity includes two
 
 ### Workflow Script control
 
-A workflow Script control is a special activity that accepts PowerShell or PowerShell Workflow script, depending on the type of Graphical runbook being authored. This control provides functionality that might not be available by other means. It cannot accept parameters, but it can use variables for activity output and runbook input parameters. Any output of the activity is added to the databus. An exception is output with no outgoing link, in which case the output is added to the output of the runbook.
+A workflow Script control is a special activity that accepts PowerShell or PowerShell Workflow script, depending on the type of graphical runbook being authored. This control provides functionality that might not be available by other means. It cannot accept parameters, but it can use variables for activity output and runbook input parameters. Any output of the activity is added to the databus. An exception is output with no outgoing link, in which case the output is added to the output of the runbook.
 
 For example, the following code performs date calculations using a runbook input variable named *NumberOfDays*. It then sends a calculated DateTime value as output to be used by subsequent activities in the runbook.
 
@@ -140,7 +140,7 @@ $DateTimeStart
 
 ## Links and workflow
 
-A link in a Graphical runbook connects two activities. It is displayed on the canvas as an arrow pointing from the source activity to the destination activity. The activities run in the direction of the arrow with the destination activity starting after the source activity completes.
+A link in a graphical runbook connects two activities. It is displayed on the canvas as an arrow pointing from the source activity to the destination activity. The activities run in the direction of the arrow with the destination activity starting after the source activity completes.
 
 ### Link creation
 
@@ -157,7 +157,7 @@ Select the link to configure its properties in the Configuration blade. Properti
 
 ### Start of activity
 
-A Graphical runbook starts with any activities that do not have an incoming link. There is often only one activity that acts as the starting activity for the runbook. If multiple activities do not have an incoming link, the runbook starts by running them in parallel. It follows the links to run other activities as each completes.
+A graphical runbook starts with any activities that do not have an incoming link. There is often only one activity that acts as the starting activity for the runbook. If multiple activities do not have an incoming link, the runbook starts by running them in parallel. It follows the links to run other activities as each completes.
 
 ### Link conditions
 
@@ -235,15 +235,15 @@ $ActivityOutput['Activity Label'].PropertyName
 
 ### Checkpoints
 
-You can set [checkpoints](automation-powershell-workflow.md#checkpoints) in a Graphical PowerShell Workflow runbook by selecting **Checkpoint runbook** on any activity. This causes a checkpoint to be set after the activity runs.
+You can set [checkpoints](automation-powershell-workflow.md#checkpoints) in a graphical PowerShell Workflow runbook by selecting **Checkpoint runbook** on any activity. This causes a checkpoint to be set after the activity runs.
 
 ![Checkpoint](media/automation-graphical-authoring-intro/set-checkpoint.png)
 
-Checkpoints are only enabled in Graphical PowerShell Workflow runbooks, and are not available in Graphical runbooks. If the runbook uses Azure cmdlets, it should follow any checkpointed activity with an **Connect-AzAccount** activity. The connect operation is used in case the runbook is suspended and must restart from this checkpoint on a different worker.
+Checkpoints are only enabled in graphical PowerShell Workflow runbooks, and are not available in graphical runbooks. If the runbook uses Azure cmdlets, it should follow any checkpointed activity with an **Connect-AzAccount** activity. The connect operation is used in case the runbook is suspended and must restart from this checkpoint on a different worker.
 
 ## Runbook input and output
 
-### <a name-"runbook-input"></a>Runbook input
+### Runbook input<a name="runbook-input"></a>
 
 A runbook requires input either from a user starting the runbook through the Azure portal or from another runbook, if the current one is used as a child. For example, for a runbook that creates a virtual machine, the user might need to provide such information as the name of the virtual machine and other properties each time the runbook starts.
 
@@ -261,7 +261,7 @@ Each input parameter is defined by the properties in the following table:
 | Description |Optional. Description of the purpose for the input parameter. |
 | Type | Optional. Data type expected for the parameter value. The Azure portal provides an appropriate control for the data type for each parameter when prompting for input. Supported parameter types are String, Int32, Int64, Decimal, Boolean, DateTime, and Object. If a data type is not selected, it defaults to String.|
 | Mandatory | Optional. Setting that specifies if a value must be provided for the parameter. If you choose **yes**, a value must be provided when the runbook is started. If you choose **no**, a value is not required when the runbook is started, and a default value can be used. The runbook cannot start if you do not provide a value for each mandatory parameter that does not have a default value defined. |
-| Default Value | Optional. The value used for a parameter if one is not passed in when the runbook is started. To set a default value, choose **Custom**. Select **None** if you don’t want to provide any default value. |
+| Default Value | Optional. The value used for a parameter if one is not passed in when the runbook is started. To set a default value, choose **Custom**. Select **None** if you don't want to provide any default value. |
 
 ### Runbook output
 
@@ -374,7 +374,7 @@ The following example uses output from an activity called **Get Twitter Connecti
 
 ## Authenticating to Azure resources
 
-Runbooks in Azure Automation that manage Azure resources require authentication to Azure. The [Run As account](automation-create-runas-account.md), also referred to as a service principal, is the default mechanism that an Automation runbook uses to access Azure Resource Manager resources in your subscription. You can add this functionality to a Graphical runbook by adding the **AzureRunAsConnection** connection asset, which uses the PowerShell [Get-AutomationConnection](https://technet.microsoft.com/library/dn919922%28v=sc.16%29.aspx) cmdlet, to the canvas. You can also add the [Connect-AzAccount](/powershell/module/az.profile/connect-azaccount) cmdlet. This scenario is illustrated in the following example.
+Runbooks in Azure Automation that manage Azure resources require authentication to Azure. The [Run As account](automation-create-runas-account.md), also referred to as a service principal, is the default mechanism that an Automation runbook uses to access Azure Resource Manager resources in your subscription. You can add this functionality to a graphical runbook by adding the **AzureRunAsConnection** connection asset, which uses the PowerShell [Get-AutomationConnection](https://technet.microsoft.com/library/dn919922%28v=sc.16%29.aspx) cmdlet, to the canvas. You can also add the [Connect-AzAccount](/powershell/module/az.profile/connect-azaccount) cmdlet. This scenario is illustrated in the following example.
 
 ![Run As Authentication Activities](media/automation-graphical-authoring-intro/authenticate-run-as-account.png)
 
@@ -387,13 +387,13 @@ The next activity, **Connect-AzAccount**, adds the authenticated Run As account 
 ![Connect-AzAccount Parameter Set](media/automation-graphical-authoring-intro/authenticate-conn-to-azure-parameter-set.png)
 
 >[!NOTE]
->For PowerShell runbooks, **Add-AzAccount** and **Add-AzureRMAccount** are aliases for **Connect-AzAccount**. Note that these aliases are not available for your Graphical runbooks. A Graphical runbook can only use **Connect-AzAccount** itself.
+>For PowerShell runbooks, **Add-AzAccount** and **Add-AzureRMAccount** are aliases for **Connect-AzAccount**. Note that these aliases are not available for your graphical runbooks. A graphical runbook can only use **Connect-AzAccount** itself.
 
 For the parameter fields, **APPLICATIONID**, **CERTIFICATETHUMBPRINT**, and **TENANTID**, specify the name of the property for the Field path, since the activity outputs an object with multiple properties. Otherwise, when the runbook executes, it fails while attempting to authenticate. This is what you need at a minimum to authenticate your runbook with the Run As account.
 
 Some subscribers create an Automation account using an [Azure AD user account](automation-create-aduser-account.md) to manage Azure classic deployment or for Azure Resource Manager resources. To maintain backward compatibility for these subscribers, the authentication mechanism to use in your runbook is the **Add-AzureAccount** cmdlet with a [credential asset](automation-credentials.md). The asset represents an Active Directory user with access to the Azure account.
 
-You can enable this functionality for your Graphical runbook by adding a credential asset to the canvas, followed by an **Add-AzureAccount** activity that uses the credential asset for its input. See the following example.
+You can enable this functionality for your graphical runbook by adding a credential asset to the canvas, followed by an **Add-AzureAccount** activity that uses the credential asset for its input. See the following example.
 
 ![Authentication activities](media/automation-graphical-authoring-intro/authentication-activities.png)
 
@@ -401,25 +401,25 @@ The runbook must authenticate at its start and after each checkpoint. Thus you m
 
 ![Activity output](media/automation-graphical-authoring-intro/authentication-activity-output.png)
 
-## Exporting and importing a Graphical runbook
+## Exporting and importing a graphical runbook
 
-You can only export the published version of a Graphical runbook. If the runbook has not yet been published, the **Export** button is disabled. When you click the **Export** button, the runbook downloads to your local computer. The name of the file matches the name of the runbook with a **.graphrunbook** extension.
+You can only export the published version of a graphical runbook. If the runbook has not yet been published, the **Export** button is disabled. When you click the **Export** button, the runbook downloads to your local computer. The name of the file matches the name of the runbook with a **.graphrunbook** extension.
 
-You can import a Graphical or Graphical PowerShell Workflow runbook file by selecting the **Import** option when adding a runbook. When you select the file to import, you can keep the same name or provide a new one. The **Runbook Type** field displays the type of runbook after it assesses the file selected. If you attempt to select a different type that is not correct, the graphical editor presents a message noting that there are potential conflicts and there might be syntax errors during conversion.
+You can import a graphical or graphical PowerShell Workflow runbook file by selecting the **Import** option when adding a runbook. When you select the file to import, you can keep the same name or provide a new one. The **Runbook Type** field displays the type of runbook after it assesses the file selected. If you attempt to select a different type that is not correct, the graphical editor presents a message noting that there are potential conflicts and there might be syntax errors during conversion.
 
 ![Import runbook](media/automation-graphical-authoring-intro/runbook-import-revised20165.png)
 
-## Testing a Graphical runbook
+## Testing a graphical runbook
 
-Each Graphical runbook in Azure Automation has a Draft version and a Published version. You can run only the Published version, while you can only edit the Draft version. The Published version is unaffected by any changes to the Draft version. When the Draft version is ready for use, you publish it, which overwrites the current Published version with your Draft version.
+Each graphical runbook in Azure Automation has a Draft version and a Published version. You can run only the Published version, while you can only edit the Draft version. The Published version is unaffected by any changes to the Draft version. When the Draft version is ready for use, you publish it, which overwrites the current Published version with your Draft version.
 
 You can test the Draft version of a runbook in the Azure portal while leaving the Published version unchanged. Alternatively, you can test a new runbook before it has been published so that you can verify that the runbook works correctly before any version replacements. Testing of a runbook executes the Draft version and ensures that any actions that it performs are completed. No job history is created, but the Test Output pane displays the output.
 
-Open the Test control for your Graphical runbook by opening the runbook for edit and then clicking **Test pane**. The Test control prompts for input parameters, and you can start the runbook by clicking **Start**.
+Open the Test control for your graphical runbook by opening the runbook for edit and then clicking **Test pane**. The Test control prompts for input parameters, and you can start the runbook by clicking **Start**.
 
-## Publishing a Graphical runbook
+## Publishing a graphical runbook
 
-Publish a Graphical runbook by opening the runbook for editing and then clicking **Publish**. Possible statuses for the runbook are:
+Publish a graphical runbook by opening the runbook for editing and then clicking **Publish**. Possible statuses for the runbook are:
 
 * New -- the runbook has not been published yet. 
 * Published -- the runbook has been published.
@@ -432,6 +432,6 @@ You have the option to revert to the Published version of a runbook. This operat
 ## Next Steps
 
 * To get started with PowerShell Workflow runbooks, see [My first PowerShell Workflow runbook](automation-first-runbook-textual.md).
-* To get started with Graphical runbooks, see [My first Graphical runbook](automation-first-runbook-graphical.md).
+* To get started with graphical runbooks, see [My first graphical runbook](automation-first-runbook-graphical.md).
 * To know more about runbook types and their advantages and limitations, see [Azure Automation runbook types](automation-runbook-types.md).
 * To understand how to authenticate using the Automation Run As account, see [Configure Azure Run As Account](automation-sec-configure-azure-runas-account.md).
