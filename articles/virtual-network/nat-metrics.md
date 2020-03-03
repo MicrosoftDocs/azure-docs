@@ -29,9 +29,9 @@ Azure Virtual Network NAT gateway resources provide multi-dimensional metrics. Y
 >[!NOTE] 
 >Virtual Network NAT is available as public preview at this time. Currently it's only available in a limited set of [regions](nat-overview.md#region-availability). This preview is provided without a service level agreement and isn't recommended for production workloads. Certain features may not be supported or may have constrained capabilities. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms) for details.
 
-## Available metrics
+## Metrics
 
-NAT gateway resources provide the following metrics in Azure Monitor:
+NAT gateway resources provide the following multi-dimensional metrics in Azure Monitor:
 
 | Metric | Description | Recommended Aggregation | Dimensions |
 |---|---|---|---|
@@ -40,6 +40,10 @@ NAT gateway resources provide the following metrics in Azure Monitor:
 | | | | |
 | | | | |
 | | | | |
+
+## Alerts
+
+Alerts for metrics can be configured in Azure Monitor for each of the preceeding [metrics](#metrics).
 
 ## Limitations
 
