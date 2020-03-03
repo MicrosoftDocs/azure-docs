@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # How To: Require approved client apps for cloud app access with Conditional Access 
 
-People regularly use their mobile devices for both personal and work tasks. While making sure staff can be productive, organizations also want to prevent data loss from unsecure applications. With Conditional Access, organizations can restrict access to approved (modern authentication capable) client apps.
+People regularly use their mobile devices for both personal and work tasks. While making sure staff can be productive, organizations also want to prevent data loss from potentially unsecure applications. With Conditional Access, organizations can restrict access to approved (modern authentication capable) client apps.
 
 This article presents two scenarios to configure Conditional Access policies for resources like Office 365, Exchange Online, and SharePoint Online.
 
