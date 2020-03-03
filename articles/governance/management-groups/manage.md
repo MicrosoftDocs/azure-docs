@@ -14,8 +14,8 @@ Management groups give you enterprise-grade management at a large scale no matte
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
 >[!IMPORTANT]
->Azure Resource Manager (ARM) user tokens and management group cache will last for 30 minutes before they are forced to refresh.  After doing any action like moving a management group or subscription, it might take up to 30 minutes to show.  
->To see the updates sooner you'll need to update your token by refreshing the browser, signing in / out, or requesting a new token.  
+>Azure Resource Manager (ARM) user tokens and management group cache lasts for 30 minutes before they are forced to refresh.  After doing any action like moving a management group or subscription, it might take up to 30 minutes to show.  
+>To see the updates sooner you need to update your token by refreshing the browser, signing in and out, or requesting a new token.  
 
 
 
