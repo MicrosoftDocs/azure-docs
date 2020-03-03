@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
-ms.date: 02/25/2020
+ms.date: 03/06/2020
 ---
 
 # Connectors for Azure Logic Apps
