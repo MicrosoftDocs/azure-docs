@@ -21,6 +21,7 @@ A regional pair consists of two regions within the same geography. Azure seriali
 
 ![AzureGeography](./media/best-practices-availability-paired-regions/GeoRegionDataCenter.png)
 
+<<<<<<< HEAD
 Some Azure services take further advantage of paired regions to ensure business continuity and to protect against data loss.  Azure provides several [storage solutions](/storage/common/storage-redundancy.md#redundancy-in-a-secondary-region) that take advantage of paired regions to ensure data availability. For example, [Azure Geo-redundant Storage](/storage/common/storage-redundancy.md#geo-redundant-storage) (GRS) replicates data to a secondary region automatically, ensuring that data is durable even in the event that the primary region isn't recoverable. 
 
 Note that not all Azure services automatically replicate data, nor do all Azure services automatically fall-back from a failed region to its pair.  In such cases, recovery and replication must be configured by the customer.
@@ -32,6 +33,12 @@ No. Some Azure services rely upon regional pairs, such as Azure's [redundant sto
 For example, you can use Azure services such as [AzCopy](./storage/common/storage-use-azcopy-v10.md) to schedule data backups to a Storage account in a different region.  Using [Azure DNS and Azure Traffic Manager](./networking/disaster-recovery-dns-traffic-manager.md), customers can design a resilient architecture for their applications that will survive the loss of the primary region.
 
 ## Am I limited to using services within my regional pairs?
+=======
+> [!NOTE]
+> Assigned Azure regional pairs cannot be modified.
+
+Figure 1 – Azure regional pairs
+>>>>>>> 36387d79a8eded15366f09b5bc1c542815b81693
 
 No. While a given Azure service may rely upon a regional pair, you can host your other services in any region that satisfies your business needs.  An Azure GRS storage solution may pair data in Canada Central with a peer in Canada East while using Compute resources located in East US.  
 
