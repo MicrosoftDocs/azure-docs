@@ -370,7 +370,7 @@ az ml model deploy -n myservice -m "mymodel:1" --ic inferenceConfig.yml --dc aci
 ```
 
 > [!NOTE]
-> You may receive a warning about "Failed to check LocalWebservice existence". You can safely ignore this, as you are not deploying a local web service.
+> You may receive a warning about "Failed to check LocalWebservice existence" or "Failed to create Docker client"zzzs. You can safely ignore this, as you are not deploying a local web service.
 
 This command deploys a new service named `myservice`, using version 1 of the model that you registered previously.
 
