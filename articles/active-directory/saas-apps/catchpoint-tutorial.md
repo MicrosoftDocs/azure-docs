@@ -78,7 +78,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. If you do not have **Service Provider metadata file** and wish to configure the application in **IDP** initiated mode, enter the values for the following fields:
+1. If you wish to configure the application in **IDP** initiated mode, enter the values for the following fields:
 
     a. In the **Identifier** text box, type the URL:
     `https://portal.catchpoint.com/SAML2`
