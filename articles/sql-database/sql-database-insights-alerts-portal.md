@@ -63,8 +63,6 @@ You can configure and get information about alert rules using
 
 Within 10 minutes, the alert is active and triggers as previously described.
 
-
 ## Next steps
 
 * Learn more about [configuring webhooks in alerts](../azure-monitor/platform/alerts-webhooks.md).
-
