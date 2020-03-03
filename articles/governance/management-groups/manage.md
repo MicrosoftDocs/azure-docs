@@ -14,7 +14,7 @@ Management groups give you enterprise-grade management at a large scale no matte
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
 >[!IMPORTANT]
->Azure Resource Manager (ARM) user tokens and management group cache lasts for 30 minutes before they are forced to refresh.  After doing any action like moving a management group or subscription, it might take up to 30 minutes to show.  
+>Azure Resource Manager user tokens and management group cache lasts for 30 minutes before they are forced to refresh.  After doing any action like moving a management group or subscription, it might take up to 30 minutes to show.  
 >To see the updates sooner you need to update your token by refreshing the browser, signing in and out, or requesting a new token.  
 
 
@@ -127,7 +127,7 @@ You can view any management group you have a direct or inherited RBAC role on.
 
 ### View in PowerShell
 
-You use the Get-AzManagementGroup command to retrieve all groups.  See [Az.Resources](/powershell/module/az.resources/Get-AzManagementGroup) modules for the full list of management group GET Powershell commands.  
+You use the Get-AzManagementGroup command to retrieve all groups.  See [Az.Resources](/powershell/module/az.resources/Get-AzManagementGroup) modules for the full list of management group GET PowerShell commands.  
 
 ```azurepowershell-interactive
 Get-AzManagementGroup
