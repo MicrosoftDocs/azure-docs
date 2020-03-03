@@ -14,7 +14,7 @@ ms.custom: seodec18
 ---
 
 # Release notes
-## Speech SDK 1.10.0: 2020-Feburary release
+## Speech SDK 1.10.0: 2020-February release
 
 **New features**
  - Added Python packages to support the new 3.8 release of Python.
