@@ -21,7 +21,7 @@ The sample datasets are available under **Datasets**-**Samples** category. You c
 ## Datasets
 
 
-| Dataset name| Dataset description |
+| Dataset&nbsp;name&nbsp;&nbsp;&nbsp;&nbsp;| Dataset description |
 |-------------|:--------------------|
 | Adult Census Income Binary Classification dataset | A subset of the 1994 Census database, using working adults over the age of 16 with an adjusted income index of > 100.<br/>**Usage**: Classify people using demographics to predict whether a person earns over 50K a year.<br/> **Related Research**: Kohavi, R., Becker, B., (1996). UCI Machine Learning Repository <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science|
 |Automobile price data (Raw)|Information about automobiles by make and model, including the price, features such as the number of cylinders and MPG, as well as an insurance risk score.<br/> The risk score is initially associated with auto price. It is then adjusted for actual risk in a process known to actuaries as symboling. A value of +3 indicates that the auto is risky, and a value of -3 that it is probably safe.<br/>**Usage**:</b> Predict the risk score by features, using regression or multivariate classification.<br/>**Related Research**:</b> Schlimmer, J.C. (1987). UCI Machine Learning Repository <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science. |
