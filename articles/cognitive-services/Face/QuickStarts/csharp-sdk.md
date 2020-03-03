@@ -280,7 +280,7 @@ At this point, your new **PersonGroup** object should have the same data as the 
 
 Run the application from your application directory with the `dotnet run` command.
 
-```console
+```dotnetcli
 dotnet run
 ```
 
