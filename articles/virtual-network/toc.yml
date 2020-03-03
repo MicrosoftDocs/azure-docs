@@ -45,7 +45,9 @@
         href: nat-overview.md
       - name: Resource
         href: nat-gateway-resource.md
-      - name: Troubleshoot NAT
+      - name: Metrics and alerts
+        href: nat-metrics.md
+      - name: Troubleshoot
         href: troubleshoot-nat.md
     - name: Backend Connectivity Interoperability
       items:
