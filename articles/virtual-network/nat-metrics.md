@@ -47,7 +47,7 @@ Alerts for metrics can be configured in Azure Monitor for each of the preceeding
 
 ## Limitations
 
-Resource Health is not supported.
+Resource Health isn't supported.
 
 ## Next steps
 
