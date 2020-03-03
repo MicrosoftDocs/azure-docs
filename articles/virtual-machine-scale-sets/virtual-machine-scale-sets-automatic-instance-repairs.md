@@ -22,9 +22,9 @@ Enabling automatic instance repairs for Azure virtual machine scale sets helps a
 
 ## Requirements for using automatic instance repairs
 
-**Opt-in for the automatic instance repairs preview**
+**Opt in for the automatic instance repairs preview**
 
-Use either the REST API or Azure PowerShell to opt-in for the automatic instance repairs preview. These steps will register your subscription for the preview feature. Note this is only a one-time set up required for using this feature. If your subscription is already registered for automatic instance repairs preview, then you do not need to register again. 
+Use either the REST API or Azure PowerShell to opt in for the automatic instance repairs preview. These steps will register your subscription for the preview feature. Note this is only a one-time setup required for using this feature. If your subscription is already registered for automatic instance repairs preview, then you do not need to register again. 
 
 REST API [Features - Register](/rest/api/resources/features/register) 
 
