@@ -32619,6 +32619,21 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/cognitive-services/Bing-Custom-Search/sdk-csharp-quick-start.md",
+      "redirect_url": "/azure/cognitive-services/bing-custom-search/quickstarts/client-libraries",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Custom-Search/sdk-java-quickstart.md",
+      "redirect_url": "/azure/cognitive-services/bing-custom-search/quickstarts/client-libraries",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Custom-Search/sdk-python-quickstart.md",
+      "redirect_url": "/azure/cognitive-services/bing-custom-search/quickstarts/client-libraries",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/Bing-Autosuggest/bing-autosuggest-supported-languages.md",
       "redirect_url": "/azure/cognitive-services/bing-autosuggest/language-support",
       "redirect_document_id": true
@@ -46673,6 +46688,11 @@
       "source_path": "articles/active-directory-domain-services/active-directory-ds-admin-guide-administer-dns.md",
       "redirect_url": "/azure/active-directory-domain-services/tutorial-create-instance#update-dns-settings-for-the-azure-virtual-network",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/authentication/howto-password-ban-bad-configure.md",
+      "redirect_url": "/azure/active-directory/authentication/tutorial-configure-custom-password-protection",
+      "redirect_document_id": true
     },
     {
       "source_path": "articles/media-services/previous/media-services-fmp4-live-ingest-overview.md",
