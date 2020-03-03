@@ -151,6 +151,16 @@ The API server endpoint has no public IP address. Consequently, you must create 
 1. Access the VM via Secure Shell (SSH).
 1. Install the Kubectl tool, and run the Kubectl commands.
 
+## Hub and Spoke with Custom DNS
+[Hub and spoke architectures](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) are commonly used for deploying networks in Azure. In many of these deployments, DNS settings in the spoke VNets are configured to reference a central DNS forwarder to allow for on premises and Azure based DNS resolution. When deploying an AKS cluster into  such a networking environment, there are some special considerations that must be taken into account.
+
+![Private cluster hub and spoke](media/private-clusters/aks-private-hub-spoke.png)
+
+1. By default, when a private cluster is provisioned, a private endpoint (1) and a private DNS zone (2) are created in the cluster managed resource group. The cluster uses a CNAME record in the private zone to resolve the IP of the private endpoint for communication to the API server.
+
+2. The private zone is linked only to the VNet that the cluster nodes are attached to (3). This means that the endpoint can only be resolved by hosts in that VNet. In scenarios where no custom DNS is configured on the VNet (default), this works without issue as hosts point at 168.63.129.16 for DNS which can resolve records in the private zone due to the link.
+
+3. In scenarios where the VNet containing your cluster has custom DNS settings (4), cluster deployment will fail unless the private zone is linked to the VNet containing the custom DNS resolvers (5). This link can be created manually once the private zone is created during cluster provisioning or via automation upon detection of creation of the zone using Azure Policy or other event based deployment mechanisms (EventGrid / Functions, etc.)
 
 ## Dependencies  
 * The Private Link service is supported on Standard Azure Load Balancer only. Basic Azure Load Balancer isn't supported.  
