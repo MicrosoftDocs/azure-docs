@@ -24,7 +24,7 @@ Connectors are available as built-in triggers and actions or as managed connecto
 
 <a name="built-in"></a>
 
-* [**Built-ins**](#built-ins): Built-in triggers and actions are "native" to Azure Logic Apps and help you perform these tasks for your logic apps:
+* [**Built-in**](#built-ins): Built-in triggers and actions are "native" to Azure Logic Apps and help you perform these tasks for your logic apps:
 
   * Run on custom and advanced schedules.
 
@@ -75,16 +75,25 @@ Logic apps that run in an ISE and their connectors, regardless where those conne
 
 <a name="built-ins"></a>
 
-## Built-ins
+## Built-in
 
 Logic Apps provides built-in triggers and actions so that you can create schedule-based workflows, help your logic apps communicate with other apps and services, control the workflow through your logic apps, and manage or manipulate data.
 
 |   |   |   |   |
 |---|---|---|---|
-| [![API icon][schedule-icon]<br>**Schedule**][recurrence-doc] | - Run your logic app on a specified schedule, ranging from basic to complex recurrences, with the **Recurrence** trigger. <p>- Pause your logic app for a specified duration with the **Delay** action. <p>- Pause your logic app until the specified date and time with the **Delay until** action. | [![API icon][http-icon]<br>**HTTP**][http-doc] | Communicate with any endpoint over HTTP with both triggers and actions for HTTP, HTTP + Swagger, and HTTP + Webhook. |
-| [![API icon][http-request-icon]<br>**Request**][http-request-doc] | - Make your logic app callable from other apps or services, trigger on Event Grid resource events, or trigger on responses to Azure Security Center alerts with the **Request** trigger. <p>- Send responses to an app or service with the **Response** action. | [![API icon][batch-icon]<br>**Batch**][batch-doc] | - Process messages in batches with the **Batch messages** trigger. <p>- Call logic apps that have existing batch triggers with the **Send messages to batch** action. |
-| [![API icon][azure-functions-icon]<br>**Azure Functions**][azure-functions-doc] | Call Azure functions that run custom code snippets (C# or Node.js) from your logic apps. | [![API icon][azure-api-management-icon]<br>**Azure API Management**][azure-api-management-doc] | Call triggers and actions defined by your own APIs that you manage and publish with Azure API Management. |
-| [![API icon][azure-app-services-icon]<br>**Azure App Services**][azure-app-services-doc] | Call Azure API Apps, or Web Apps, hosted on Azure App Service. The triggers and actions defined by these apps appear like any other first-class triggers and actions when Swagger is included. | [![API icon][azure-logic-apps-icon]<br>**Azure<br>Logic Apps**][nested-logic-app-doc] | Call other logic apps that start with a Request trigger. |
+| [![API icon][schedule-icon]<br>**Schedule**][schedule-doc] | - Run a logic app on a specified recurrence, ranging from basic to advanced schedules with the [**Recurrence** trigger][schedule-recurrence-doc]. <p>- Run a logic app that needs to handle data in continuous chunks with the [**Sliding Window** trigger][schedule-sliding-window-doc]. <p>- Pause your logic app for a specified duration with the [**Delay** action][schedule-delay-doc]. <p>- Pause your logic app until the specified date and time with the [**Delay until** action][schedule-delay-until-doc]. | [![API icon][batch-icon]<br>**Batch**][batch-doc] | - Process messages in batches with the **Batch messages** trigger. <p>- Call logic apps that have existing batch triggers with the **Send messages to batch** action. |
+| [![API icon][http-icon]<br>**HTTP**][http-doc] | Call HTTP or HTTPS endpoints with triggers and actions for HTTP. Other HTTP built-in triggers and actions include [HTTP + Swagger][http-swagger-doc] and [HTTP + Webhook][http-webhook-doc]. | [![API icon][http-request-icon]<br>**Request**][http-request-doc] | - Make your logic app callable from other apps or services, trigger on Event Grid resource events, or trigger on responses to Azure Security Center alerts with the **Request** trigger. <p>- Send responses to an app or service with the **Response** action. |
+| [![API icon][azure-api-management-icon]<br>**Azure API <br>Management**][azure-api-management-doc] | Call triggers and actions defined by your own APIs that you manage and publish with Azure API Management. | [![API icon][azure-app-services-icon]<br>**Azure App <br>Services**][azure-app-services-doc] | Call Azure API Apps, or Web Apps, hosted on Azure App Service. The triggers and actions defined by these apps appear like any other first-class triggers and actions when Swagger is included.|
+| [![API icon][azure-logic-apps-icon]<br>**Azure<br> Logic Apps**][nested-logic-app-doc] | Call other logic apps that start with the **Request** trigger. |
+|||||
+
+### Run code from logic apps
+
+Logic Apps provides built-in actions for running your own code in your logic app's workflow:
+
+|   |   |   |   |
+|---|---|---|---|
+| [![API icon][azure-functions-icon]<br>**Azure Functions**][azure-functions-doc] | Call Azure functions that run custom code snippets (C# or Node.js) from your logic apps. | [![API icon][inline-code-icon]<br>**Inline code**][azure-functions-doc] | Add and run JavaScript code snippets from your logic apps. |
 |||||
 
 ### Control workflow
@@ -133,8 +142,8 @@ Here are some commonly used Standard connectors that Logic Apps provides for acc
 
 |   |   |   |   |   |
 |---|---|---|---|---|
-| ![API icon][biztalk-server-icon]<br>**BizTalk**<br> **Server** | [![API icon][file-system-icon]<br>**File<br> System**][file-system-doc] | [![API icon][ibm-db2-icon]<br>**IBM DB2**][ibm-db2-doc] | [![API icon][ibm-informix-icon]<br>**IBM**<br> **Informix**][ibm-informix-doc] | ![API icon][mysql-icon]<br>**MySQL** |
-| [![API icon][oracle-db-icon]<br>**Oracle DB**][oracle-db-doc] | ![API icon][postgre-sql-icon]<br>**PostgreSQL** | [![API icon][sharepoint-server-icon]<br>**SharePoint<br> Server**][sharepoint-server-doc] | [![API icon][sql-server-icon]<br>**SQL<br> Server**][sql-server-doc] | ![API icon][teradata-icon]<br>**Teradata** |
+| [![API icon][biztalk-server-icon]<br>**BizTalk** <br>**Server**][biztalk-server-doc] | [![API icon][file-system-icon]<br>**File <br>System**][file-system-doc] | [![API icon][ibm-db2-icon]<br>**IBM DB2**][ibm-db2-doc] | [![API icon][ibm-informix-icon]<br>**IBM** <br>**Informix**][ibm-informix-doc] | [![API icon][mysql-icon]<br>**MySQL**][mysql-doc] |
+| [![API icon][oracle-db-icon]<br>**Oracle DB**][oracle-db-doc] | [![API icon][postgre-sql-icon]<br>**PostgreSQL**][postgre-sql-doc] | [![API icon][sharepoint-server-icon]<br>**SharePoint <br>Server**][sharepoint-server-doc] | [![API icon][sql-server-icon]<br>**SQL <br>Server**][sql-server-doc] | [![API icon][teradata-icon]<br>**Teradata**][teradata-doc] |
 |||||
 
 <a name="integration-account-connectors"></a>
@@ -145,9 +154,9 @@ Logic Apps provides Standard connectors for building business-to-business (B2B) 
 
 |   |   |   |   |
 |---|---|---|---|
-| [![API icon][as2-icon]<br>**AS2<br> decoding**][as2-doc] | [![API icon][as2-icon]<br>**AS2<br> encoding**][as2-doc] | [![API icon][edifact-icon]<br>**EDIFACT<br> decoding**][edifact-decode-doc] | [![API icon][edifact-icon]<br>**EDIFACT<br> encoding**][edifact-encode-doc] |
-| [![API icon][flat-file-decode-icon]<br>**Flat file<br> decoding**][flat-file-decode-doc] | [![API icon][flat-file-encode-icon]<br>**Flat file<br> encoding**][flat-file-encode-doc] | [![API icon][integration-account-icon]<br>**Integration<br>account**][integration-account-doc] | [![API icon][liquid-icon]<br>**Liquid**<br>**transforms**][json-liquid-transform-doc] |
-| [![API icon][x12-icon]<br>**X12<br> decoding**][x12-decode-doc] | [![API icon][x12-icon]<br>**X12<br> encoding**][x12-encode-doc] | [![API icon][xml-transform-icon]<br>**XML**<br>**transforms**][xml-transform-doc] | [![API icon][xml-validate-icon]<br>**XML <br>validation**][xml-validate-doc] |  
+| [![API icon][as2-icon]<br>**AS2 <br>decoding**][as2-doc] | [![API icon][as2-icon]<br>**AS2 <br>encoding**][as2-doc] | [![API icon][edifact-icon]<br>**EDIFACT <br>decoding**][edifact-decode-doc] | [![API icon][edifact-icon]<br>**EDIFACT <br>encoding**][edifact-encode-doc] |
+| [![API icon][flat-file-decode-icon]<br>**Flat file <br>decoding**][flat-file-decode-doc] | [![API icon][flat-file-encode-icon]<br>**Flat file <br>encoding**][flat-file-encode-doc] | [![API icon][integration-account-icon]<br>**Integration <br>account**][integration-account-doc] | [![API icon][liquid-icon]<br>**Liquid** <br>**transforms**][json-liquid-transform-doc] |
+| [![API icon][x12-icon]<br>**X12 <br>decoding**][x12-decode-doc] | [![API icon][x12-icon]<br>**X12 <br>encoding**][x12-encode-doc] | [![API icon][xml-transform-icon]<br>**XML** <br>**transforms**][xml-transform-doc] | [![API icon][xml-validate-icon]<br>**XML <br>validation**][xml-validate-doc] |  
 |||||
 
 <a name="enterprise-connectors"></a>
@@ -165,14 +174,14 @@ Logic Apps provides these Enterprise connectors for accessing enterprise systems
 
 ## ISE connectors
 
-For logic apps that you create and run an isolated [integration service environment (ISE)](#integration-service-environment), the Logic App Designer identifies built-in triggers and actions that run in your ISE by using the **CORE** label. Managed connectors that run in an ISE display the **ISE** label, while connectors that run in the global, multi-tenant Logic Apps service don't display either label. This list shows the connectors that have ISE versions:
+For logic apps that you create and run an isolated [integration service environment (ISE)](#integration-service-environment), the Logic App Designer identifies built-in triggers and actions that run in your ISE by using the **CORE** label. Managed connectors that run in an ISE display the **ISE** label, while connectors that run in the global, multi-tenant Logic Apps service don't display either label. This list shows connectors that have ISE versions:
 
 |   |   |   |   |   |
 |---|---|---|---|---|
-[![API icon][as2-icon]<br>**AS2**][as2-doc] | [![API icon][azure-blob-storage-icon]<br>**Azure Blob<br>Storage**][azure-blob-storage-doc] | [![API icon][azure-cosmos-db-icon]<br>**Azure Cosmos<br>DB**](https://docs.microsoft.com/connectors/documentdb/) | [![API icon][azure-event-hubs-icon]<br>**Azure Event <br>Hubs**][azure-event-hubs-doc] | [![API icon][azure-file-storage-icon]<br>**Azure File<br>Storage**](https://docs.microsoft.com/connectors/azurefile/) |
-| [![API icon][azure-service-bus-icon]<br>**Azure Service <br>Bus**][azure-service-bus-doc] | [![API icon][azure-sql-data-warehouse-icon]<br>**Azure SQL Data<br>Warehouse**](https://docs.microsoft.com/connectors/sqldw/) | [![API icon][azure-table-storage-icon]<br>**Azure Table <br>Storage**](https://docs.microsoft.com/connectors/azuretables/) | [![API icon][azure-queues-icon]<br>**Azure<br> Queues**](https://docs.microsoft.com/connectors/azurequeues/) | [![API icon][edifact-icon]<br>**EDIFACT**](../logic-apps/logic-apps-enterprise-integration-edifact.md) |
-| [![API icon][file-system-icon]<br>**File<br> System**][file-system-doc] | [![API icon][ftp-icon]<br>**FTP**][ftp-doc] | [![API icon][ibm-3270-icon]<br>**IBM 3270**][ibm-3270-doc] | [![API icon][ibm-db2-icon]<br>**IBM DB2**][ibm-db2-doc] | [![API icon][ibm-mq-icon]<br>**IBM MQ**][ibm-mq-doc] |
-| [![API icon][sap-icon]<br>**SAP**][sap-connector-doc] | [![API icon][sftp-ssh-icon]<br>**SFTP-SSH**][sftp-ssh-doc] | [![API icon][smtp-icon]<br>**SMTP**][smtp-doc] | [![API icon][sql-server-icon]<br>**SQL<br> Server**][sql-server-doc] | [![API icon][x12-icon]<br>**X12**](../logic-apps/logic-apps-enterprise-integration-x12.md) |
+[![API icon][as2-icon]<br>**AS2**][as2-doc] | [![API icon][azure-blob-storage-icon]<br>**Azure Blob<br>Storage**][azure-blob-storage-doc] | [![API icon][azure-cosmos-db-icon]<br>**Azure Cosmos <br> DB**][azure-cosmos-db-doc] | [![API icon][azure-event-hubs-icon]<br>**Azure Event <br>Hubs**][azure-event-hubs-doc] | [![API icon][azure-file-storage-icon]<br>**Azure File<br>Storage**][azure-file-storage-doc] |
+| [![API icon][azure-service-bus-icon]<br>**Azure Service <br>Bus**][azure-service-bus-doc] | [![API icon][azure-sql-data-warehouse-icon]<br>**Azure SQL Data <br>Warehouse**][azure-sql-data-warehouse-doc] | [![API icon][azure-table-storage-icon]<br>**Azure Table <br>Storage**][azure-table-storage-doc] | [![API icon][azure-queues-icon]<br>**Azure <br>Queues**][azure-queues-doc] | [![API icon][edifact-icon]<br>**EDIFACT**][edifact-doc] |
+| [![API icon][file-system-icon]<br>**File <br>System**][file-system-doc] | [![API icon][ftp-icon]<br>**FTP**][ftp-doc] | [![API icon][ibm-3270-icon]<br>**IBM 3270**][ibm-3270-doc] | [![API icon][ibm-db2-icon]<br>**IBM DB2**][ibm-db2-doc] | [![API icon][ibm-mq-icon]<br>**IBM MQ**][ibm-mq-doc] |
+| [![API icon][sap-icon]<br>**SAP**][sap-connector-doc] | [![API icon][sftp-ssh-icon]<br>**SFTP-SSH**][sftp-ssh-doc] | [![API icon][smtp-icon]<br>**SMTP**][smtp-doc] | [![API icon][sql-server-icon]<br>**SQL <br>Server**][sql-server-doc] | [![API icon][x12-icon]<br>**X12**][x12-doc] |
 ||||||
 
 For more information, see these topics:
@@ -235,23 +244,25 @@ To call APIs that run custom code or aren't available as connectors, you can ext
 <!--Misc doc links-->
 [gateway-doc]: ../logic-apps/logic-apps-gateway-connection.md "Connect to data sources on-premises from logic apps with on-premises data gateway"
 
-<!--Built-ins doc links-->
-[azure-functions-doc]: ../logic-apps/logic-apps-azure-functions.md "Integrate logic apps with Azure Functions"
+<!--Built-in doc links-->
 [azure-api-management-doc]: ../api-management/get-started-create-service-instance.md "Create an Azure API Management service instance for managing and publishing your APIs"
 [azure-app-services-doc]: ../logic-apps/logic-apps-custom-hosted-api.md "Integrate logic apps with App Service API Apps"
-[azure-service-bus-doc]: ./connectors-create-api-servicebus.md "Send messages from Service Bus Queues and Topics and receive messages from Service Bus Queues and Subscriptions"
+[azure-functions-doc]: ../logic-apps/logic-apps-azure-functions.md "Integrate logic apps with Azure Functions"
 [batch-doc]: ../logic-apps/logic-apps-batch-process-send-receive-messages.md "Process messages in groups, or as batches"
 [condition-doc]: ../logic-apps/logic-apps-control-flow-conditional-statement.md "Evaluate a condition and run different actions based on whether the condition is true or false"
-[delay-doc]: ./connectors-native-delay.md "Perform delayed actions"
 [for-each-doc]: ../logic-apps/logic-apps-control-flow-loops.md#foreach-loop "Perform the same actions on every item in an array"
-[http-doc]: ./connectors-native-http.md "Make HTTP calls with the HTTP connector"
-[http-request-doc]: ./connectors-native-reqres.md "Add actions for HTTP requests and responses to your logic apps"
-[http-response-doc]: ./connectors-native-reqres.md "Add actions for HTTP requests and responses to your logic apps"
-[http-swagger-doc]: ./connectors-native-http-swagger.md "Make HTTP calls with HTTP + Swagger connector"
-[http-webook-doc]: ./connectors-native-webhook.md "Add HTTP webhook actions and triggers to your logic apps"
+[http-doc]: ./connectors-native-http.md "Call HTTP or HTTPS endpoints from your logic apps"
+[http-request-doc]: ./connectors-native-reqres.md "Receive HTTP requests in your logic apps"
+[http-response-doc]: ./connectors-native-reqres.md "Respond to HTTP requests from your logic apps"
+[http-swagger-doc]: ./connectors-native-http-swagger.md "Call REST endpoints from your logic apps"
+[http-webhook-doc]: ./connectors-native-webhook.md "Wait for specific events from HTTP or HTTPS endpoints"
 [nested-logic-app-doc]: ../logic-apps/logic-apps-http-endpoint.md "Integrate logic apps with nested workflows"
 [query-doc]: ../logic-apps/logic-apps-perform-data-operations.md#filter-array-action "Select and filter arrays with the Query action"
-[recurrence-doc]:  ./connectors-native-recurrence.md "Trigger recurring actions for logic apps"
+[schedule-doc]: ../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md "Run logic apps based a schedule"
+[schedule-delay-doc]: ./connectors-native-delay.md "Delay running the next action"
+[schedule-delay-until-doc]: ./connectors-native-delay.md "Delay running the next action"
+[schedule-recurrence-doc]:  ./connectors-native-recurrence.md "Run logic apps on a recurring schedule"
+[schedule-sliding-window-doc]: ./connectors/connectors-native-sliding-window.md "Run logic apps that need to handle data in contiguous chunks"
 [scope-doc]: ../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md "Organize actions into groups, which get their own status after the actions in group finish running"
 [switch-doc]: ../logic-apps/logic-apps-control-flow-switch-statement.md "Organize actions into cases, which are assigned unique values. Run only the case whose value matches the result from an expression, object, or token. If no matches exist, run the default case"
 [terminate-doc]: ../logic-apps/logic-apps-workflow-actions-triggers.md#terminate-action "Stop or cancel an actively running workflow for your logic app"
@@ -261,8 +272,15 @@ To call APIs that run custom code or aren't available as connectors, you can ext
 
 <!--Managed connector doc links-->
 [azure-blob-storage-doc]: ./connectors-create-api-azureblobstorage.md "Manage files in your blob container with Azure blob storage connector"
-[azure-event-grid-doc]: ../event-grid/monitor-virtual-machine-changes-event-grid-logic-app.md " Monitor events published by an Event Grid, for example, when Azure resources or third-party resources change"
-[azure-event-hubs-doc]: ./connectors-create-api-azure-event-hubs.md "Connect to Azure Event Hubs. Receive and send events between logic apps and Event Hubs"
+[azure-cosmos-db-doc]: https://docs.microsoft.com/connectors/documentdb/ "Connect to Azure Cosmos DB so that you can access documents and stored procedures"
+[azure-event-grid-doc]: ../event-grid/monitor-virtual-machine-changes-event-grid-logic-app.md "Monitor events published by an Event Grid, for example, when Azure resources or third-party resources change"
+[azure-event-hubs-doc]: ./connectors-create-api-azure-event-hubs.md "Connect to Azure Event Hubs so that you can receive and send events between logic apps and Event Hubs"
+[azure-file-storage-doc]: https://docs.microsoft.com/connectors/azurefile/ "Connect to your Azure Storage account so that you can create, update, get, and delete files"
+[azure-queues-doc]: https://docs.microsoft.com/connectors/azurequeues/ "Connect to your Azure Storage account so that you can create and manage queues and messages"
+[azure-service-bus-doc]: ./connectors-create-api-servicebus.md "Send messages from Service Bus Queues and Topics and receive messages from Service Bus Queues and Subscriptions"
+[azure-sql-data-warehouse-doc]: https://docs.microsoft.com/connectors/sqldw/ "Connect to Azure SQL Data Warehouse so that you can view your data"
+[azure-table-storage-doc]: https://docs.microsoft.com/connectors/azuretables/ "Connect to your Azure Storage account so that you can create, update, and query tables and more"
+[biztalk-server-doc]: https://docs.microsoft.com/connectors/biztalk/ "Connect to your BizTalk Server so that you can run BizTalk-based applications side-by-side with Azure Logic Apps"
 [box-doc]: ./connectors-create-api-box.md "Connect to Box. Upload, get, delete, list your files, and more"
 [dropbox-doc]: ./connectors-create-api-dropbox.md "Connect to Dropbox. Upload, get, delete, list your files, and more"
 [dynamics-365-doc]: ./connectors-create-api-crmonline.md "Connect to Dynamics CRM Online so that you can work with CRM Online data"
@@ -270,7 +288,7 @@ To call APIs that run custom code or aren't available as connectors, you can ext
 [file-system-doc]: ../logic-apps/logic-apps-using-file-connector.md "Connect to an on-premises file system"
 [ftp-doc]: ./connectors-create-api-ftp.md "Connect to an FTP / FTPS server for FTP tasks, like uploading, getting, deleting files, and more"
 [github-doc]: ./connectors-create-api-github.md "Connect to GitHub and track issues"
-[google-calendar-doc]: ./connectors-create-api-googlecalendar.md "Connects to Google Calendar and can manage calendar."
+[google-calendar-doc]: ./connectors-create-api-googlecalendar.md "Connects to Google Calendar and can manage calendar"
 [google-drive-doc]: ./connectors-create-api-googledrive.md "Connect to GoogleDrive so that you can work with your data"
 [google-sheets-doc]: ./connectors-create-api-googlesheet.md "Connect to Google Sheets so that you can modify your sheets"
 [google-tasks-doc]: ./connectors-create-api-googletasks.md "Connects to Google Tasks so that you can manage your tasks"
@@ -282,15 +300,17 @@ To call APIs that run custom code or aren't available as connectors, you can ext
 [mailchimp-doc]: ./connectors-create-api-mailchimp.md "Connect to your MailChimp account. Manage and automate mails"
 [mandrill-doc]: ./connectors-create-api-mandrill.md "Connect to Mandrill for communication"
 [microsoft-translator-doc]: ./connectors-create-api-microsofttranslator.md "Connect to Microsoft Translator. Translate text, detect languages, and more"
-[office-365-outlook-doc]: ./connectors-create-api-office365-outlook.md "Connect to your Office 365 account. Send and receive emails, manage your calendar and contacts, and more"
+[mysql-doc]: https://docs.microsoft.com/connectors/mysql/ "Connect to your on-premises MySQL database so that you can read and write data"
+[office-365-outlook-doc]: ./connectors-create-api-office365-outlook.md "Connect to your Office 365 account so that you can send and receive emails, manage your calendar and contacts, and more"
 [office-365-users-doc]: ./connectors-create-api-office365-users.md
 [office-365-video-doc]: ./connectors-create-api-office365-video.md "Get video info, video lists and channels, and playback URLs for Office 365 videos"
-[onedrive-doc]: ./connectors-create-api-onedrive.md "Connect to your personal Microsoft OneDrive. Upload, delete, list files, and more"
-[onedrive-for-business-doc]: ./connectors-create-api-onedriveforbusiness.md "Connect to your business Microsoft OneDrive. Upload, delete, list your files, and more"
-[oracle-db-doc]: ./connectors-create-api-oracledatabase.md "Connect to an Oracle database to add, insert, delete rows, and more"
-[outlook.com-doc]: ./connectors-create-api-outlook.md "Connect to your Outlook mailbox. Manage your email, calendars, contacts, and more"
-[project-online-doc]: ./connectors-create-api-projectonline.md "Connect to Microsoft Project Online. Manage your projects, tasks, resources, and more"
-[rss-doc]: ./connectors-create-api-rss.md "Publish and retrieve feed items, trigger operations when a new item is published to an RSS feed."
+[onedrive-doc]: ./connectors-create-api-onedrive.md "Connect to your personal Microsoft OneDrive so that you can upload, delete, list files, and more"
+[onedrive-for-business-doc]: ./connectors-create-api-onedriveforbusiness.md "Connect to your business Microsoft OneDrive so that you can upload, delete, list your files, and more"
+[oracle-db-doc]: ./connectors-create-api-oracledatabase.md "Connect to an Oracle database so that you can add, insert, delete rows, and more"
+[outlook.com-doc]: ./connectors-create-api-outlook.md "Connect to your Outlook mailbox so that you can manage your email, calendars, contacts, and more"
+[postgre-sql-doc]: https://docs.microsoft.com/connectors/postgresql/ "Connect to your PostgreSQL dabatabase so that you can read data from tables"
+[project-online-doc]: ./connectors-create-api-projectonline.md "Connect to Microsoft Project Online so that you can manage your projects, tasks, resources, and more"
+[rss-doc]: ./connectors-create-api-rss.md "Publish and retrieve feed items, trigger operations when a new item is published to an RSS feed"
 [salesforce-doc]: ./connectors-create-api-salesforce.md "Connect to your Salesforce account. Manage accounts, leads, opportunities, and more"
 [sap-connector-doc]: ../logic-apps/logic-apps-using-sap-connector.md "Connect to an on-premises SAP system"
 [sendgrid-doc]: ./connectors-create-api-sendgrid.md "Connect to SendGrid. Send email and manage recipient lists"
@@ -300,7 +320,8 @@ To call APIs that run custom code or aren't available as connectors, you can ext
 [slack-doc]: ./connectors-create-api-slack.md "Connect to Slack and post messages to Slack channels"
 [smtp-doc]: ./connectors-create-api-smtp.md "Connect to an SMTP server and send email with attachments"
 [sparkpost-doc]: ./connectors-create-api-sparkpost.md "Connects to SparkPost for communication"
-[sql-server-doc]: ./connectors-create-api-sqlazure.md "Connect to Azure SQL Database or SQL Server. Create, update, get, and delete entries in a SQL database table."
+[sql-server-doc]: ./connectors-create-api-sqlazure.md "Connect to Azure SQL Database or SQL Server. Create, update, get, and delete entries in a SQL database table"
+[teradata-doc]: https://docs.microsoft.com/connectors/teradata/ "Connect to your Teradata database to read data from tables"
 [trello-doc]: ./connectors-create-api-trello.md "Connect to Trello. Manage your projects and organize anything with anyone"
 [twilio-doc]: ./connectors-create-api-twilio.md "Connect to Twilio. Send and get messages, get available numbers, manage incoming phone numbers, and more"
 [twitter-doc]: ./connectors-create-api-twitter.md "Connect to Twitter. Get timelines, post tweets, and more"
@@ -309,18 +330,19 @@ To call APIs that run custom code or aren't available as connectors, you can ext
 [youtube-doc]: ./connectors-create-api-youtube.md "Connect to YouTube. Manage your videos and channels"
 
 <!--Enterprise Intregation Pack doc links-->
-[as2-doc]: ../logic-apps/logic-apps-enterprise-integration-as2.md "Learn about enterprise integration AS2."
-[edifact-decode-doc]: ../logic-apps/logic-apps-enterprise-integration-EDIFACT-decode.md "Learn about enterprise integration EDIFACT decode"
-[edifact-encode-doc]: ../logic-apps/logic-apps-enterprise-integration-EDIFACT-encode.md "Learn about enterprise integration EDIFACT encode"
-[flat-file-decode-doc]:../logic-apps/logic-apps-enterprise-integration-flatfile.md "Learn about enterprise integration flat file."
-[flat-file-encode-doc]:../logic-apps/logic-apps-enterprise-integration-flatfile.md "Learn about enterprise integration flat file."
-[integration-account-doc]: ../logic-apps/logic-apps-enterprise-integration-metadata.md "Look up schemas, maps, partners, and more in your integration account"
-[json-liquid-transform-doc]: ../logic-apps/logic-apps-enterprise-integration-liquid-transform.md "Learn about JSON transformations with Liquid"
-[x12-doc]: ../logic-apps/logic-apps-enterprise-integration-x12.md "Learn about enterprise integration X12"
-[x12-decode-doc]: ../logic-apps/logic-apps-enterprise-integration-X12-decode.md "Learn about enterprise integration X12 decode"
-[x12-encode-doc]: ../logic-apps/logic-apps-enterprise-integration-X12-encode.md "Learn about enterprise integration X12 encode"
-[xml-transform-doc]: ../logic-apps/logic-apps-enterprise-integration-transform.md "Learn about enterprise integration transforms."
-[xml-validate-doc]: ../logic-apps/logic-apps-enterprise-integration-xml-validation.md "Learn about enterprise integration XML validation."
+[as2-doc]: ../logic-apps/logic-apps-enterprise-integration-as2.md "Encode and decode messages that use the AS2 protocol"
+[edifact-doc]: ../logic-apps/logic-apps-enterprise-integration-edifact.md "Encode and decode messages that use the EDIFACT protocol"
+[edifact-decode-doc]: ../logic-apps/logic-apps-enterprise-integration-EDIFACT-decode.md "Decode messages that use the EDIFACT protocol"
+[edifact-encode-doc]: ../logic-apps/logic-apps-enterprise-integration-EDIFACT-encode.md "Encode messages that use the EDIFACT protocol"
+[flat-file-decode-doc]:../logic-apps/logic-apps-enterprise-integration-flatfile.md "Learn about enterprise integration flat file"
+[flat-file-encode-doc]:../logic-apps/logic-apps-enterprise-integration-flatfile.md "Learn about enterprise integration flat file"
+[integration-account-doc]: ../logic-apps/logic-apps-enterprise-integration-metadata.md "Manage metadata for integration account artifacts"
+[json-liquid-transform-doc]: ../logic-apps/logic-apps-enterprise-integration-liquid-transform.md "Transform JSON with Liquid templates"
+[x12-doc]: ../logic-apps/logic-apps-enterprise-integration-x12.md "Encode and decode messages that use the X12 protocol"
+[x12-decode-doc]: ../logic-apps/logic-apps-enterprise-integration-X12-decode.md "Decode messages that use the X12 protocol"
+[x12-encode-doc]: ../logic-apps/logic-apps-enterprise-integration-X12-encode.md "Encode messages that use the X12 protocol"
+[xml-transform-doc]: ../logic-apps/logic-apps-enterprise-integration-transform.md "Transform XML messages"
+[xml-validate-doc]: ../logic-apps/logic-apps-enterprise-integration-xml-validation.md "Validate XML messages"
 
 <!-- Built-ins icons -->
 [azure-api-management-icon]: ./media/apis-list/azure-api-management.png
@@ -337,6 +359,7 @@ To call APIs that run custom code or aren't available as connectors, you can ext
 [http-response-icon]: ./media/apis-list/response.png
 [http-swagger-icon]: ./media/apis-list/http-swagger.png
 [http-webhook-icon]: ./media/apis-list/http-webhook.png
+[inline-code-icon]: ./media/apis-list/inline-code.png
 [schedule-icon]: ./media/apis-list/recurrence.png
 [scope-icon]: ./media/apis-list/scope.png
 [switch-icon]: ./media/apis-list/switch.png
