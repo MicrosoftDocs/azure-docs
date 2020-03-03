@@ -123,7 +123,7 @@ Create a container from the Ubuntu image.
 docker run ubuntu --name base-image
 ```
 
-Now capture the container into a new image. The image name needs to include the `loginServer` name of the container registrywith a format of `loginServer/imageName`.
+Now capture the container into a new image. The image name needs to include the `loginServer` name of the container registry with a format of `loginServer/imageName`.
 
 ```console
 docker -H tcp://localhost:2375 commit base-image mycontainerregistry30678.azurecr.io/dcos-demo
