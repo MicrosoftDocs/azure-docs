@@ -8,7 +8,7 @@ ms.author: ccompy
 1. The multi-tenant systems that support the full range of pricing plans except Isolated
 2. The App Service Environment (ASE), which deploys into your VNet and supports Isolated pricing plan apps
 
-This document goes through the VNet Integration feature, which is for use in the multi-tenant apps. If your app is in [App Service Environment][ASEintro], then it's already in a VNet and doesn't require use of the VNet Integration feature to reach resources in the same VNet. For details on all of the networking features, read [App Service networking features](networking-features.md)
+This document goes through the VNet Integration feature, which is for use in the multi-tenant apps. If your app is in [App Service Environment][ASEintro], then it's already in a VNet and doesn't require use of the VNet Integration feature to reach resources in the same VNet. For details on all of the networking features, read [App Service networking features](../app-service/networking-features.md)
 
 VNet Integration gives your app access to resources in your virtual network but doesn't grant inbound private access to your app from the VNet. Private site access refers to making app only accessible from a private network such as from within an Azure virtual network. VNet Integration is only for making outbound calls from your app into your VNet. The VNet Integration feature behaves differently when used with VNets in the same region and with VNets in other regions. The VNet Integration feature has two variations.
 
