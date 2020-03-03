@@ -113,7 +113,7 @@ Here's how to manually configure the recommended performance counters:
 Learn more about the performance counters at [Windows and Linux performance data sources in Azure Monitor](/azure/azure-monitor/platform/data-sources-performance-counters).
 
 >[!NOTE]
->Any additional counters you configure won’t show up in the diagnostics tool itself. To make it appear in the diagnostics tool, you need to configure the tool's config file. Instructions for how to do this with advanced administration will be available in GitHub at a later date.
+>Any additional counters you configure won't show up in the diagnostics tool itself. To make it appear in the diagnostics tool, you need to configure the tool's config file. Instructions for how to do this with advanced administration will be available in GitHub at a later date.
 
 ## Validate the script results in the Azure portal
 
@@ -138,7 +138,7 @@ To make sure your Log Analytics workspace has the preconfigured Windows performa
 4. Make sure the following counters are preconfigured:
 
    - LogicalDisk(\*)\\%Free Space: Displays the amount of free space of the total usable space on the disk as a percentage.
-   - LogicalDisk(C:)\\Avg. Disk Queue Length: The length of disk transfer request for your C drive. The value shouldn’t exceed 2 for more than a short period of time.
+   - LogicalDisk(C:)\\Avg. Disk Queue Length: The length of disk transfer request for your C drive. The value shouldn't exceed 2 for more than a short period of time.
    - Memory(\*)\\Available Mbytes: The available memory for the system in megabytes.
    - Processor Information(\*)\\Processor Time: the percentage of elapsed time that the processor spends to execute a non-Idle thread.
    - User Input Delay per Session(\*)\\Max Input Delay
