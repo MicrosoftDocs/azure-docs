@@ -14,4 +14,4 @@ ms.author: diberry
 ---
 
 
-When no longer needed, delete the LUIS app. To do so, select **My apps** from the top left menu. Select the app name in the app list, then select **Delete** from the context menu. On the pop-up dialog **Delete app?**, select **Ok**.
+When no longer needed, delete the LUIS app. To do so, select **My apps** from the menu at the top left. Select the app name in the app list, then select **Delete** from the context menu. On the pop-up dialog **Delete app**, select **Ok**.
