@@ -27,13 +27,13 @@ ms.custom:
 Virtual network service endpoint policies enable you to apply access control on Azure Storage accounts from within a virtual network over service endpoints. This is a key to securing your workloads, managing what storage accounts are allowed and where data exfiltration is allowed.
 In this article, you learn how to:
 
-* Create a virtual network
-* Add a subnet and enable service endpoint for Azure Storage
-* Create two Azure Storage accounts and allow network access to it from the subnet created above
-* Create a service endpoint policy to allow access only to one of the storage accounts
-* Deploy a virtual machine (VM) to the subnet
-* Confirm access to the allowed storage account from the subnet
-* Confirm access is denied to the non-allowed storage account from the subnet
+* Create a virtual network.
+* Add a subnet and enable service endpoint for Azure Storage.
+* Create two Azure Storage accounts and allow network access to it from the subnet created above.
+* Create a service endpoint policy to allow access only to one of the storage accounts.
+* Deploy a virtual machine (VM) to the subnet.
+* Confirm access to the allowed storage account from the subnet.
+* Confirm access is denied to the non-allowed storage account from the subnet.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
