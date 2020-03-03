@@ -120,6 +120,8 @@
       href: blob-output-managed-identity.md
     - name: Authenticate with managed identity - Power BI
       href: powerbi-output-managed-identity.md
+    - name: Encrypt your data
+      href: data-protection.md
   - name: Build solutions
     items:
     - name: Twitter sentiment analysis
