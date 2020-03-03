@@ -162,6 +162,8 @@
         href: storage-blobs-latency.md
       - name: Azure Storage reserved capacity
         href: storage-blob-reserved-capacity.md
+      - name: Plan and manage costs
+        href: ../common/storage-plan-manage-costs.md
     - name: Concurrency
       href: ../common/storage-concurrency.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Search and understand blob data
