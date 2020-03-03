@@ -55,17 +55,23 @@ Connectors are available as built-in triggers and actions or as managed connecto
 
 <a name="integration-service-environment"></a>
 
+### Connect from an integration service environment
+
 For logic apps that need direct access to resources in an Azure virtual network, you can create an isolated [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) where you can build, deploy, and run your logic apps on dedicated resources. In the Logic App Designer, when you browse the connectors that you want to use for logic apps in an ISE, a **CORE** label appears on built-in triggers and actions, while the **ISE** label appears on some connectors:
 
-* **CORE**: Built-in triggers and actions with this label run in the same ISE as your logic apps.
+* **CORE**: Built-in triggers and actions with this label run in the same ISE as your logic apps, for example:
 
-* **ISE**: Managed connectors with this label run in the same ISE as your logic apps.
+  ![Example ISE connector](./media/apis-list/example-core-connector.png)
 
-  If you have an on-premises system that's connected to an Azure virtual network, an ISE lets your logic apps directly access that system without the [on-premises data gateway](../logic-apps/logic-apps-gateway-connection.md). Instead, you can either use that system's **ISE** connector if available, an HTTP action, or a [custom connector](#custom). For on-premises systems that don't have **ISE** connectors, use on-premises data gateway.
+* **ISE**: Managed connectors with this label run in the same ISE as your logic apps, for example:
 
-  For some sample ISE connectors, see [ISE connectors](#ise-connectors).
+  ![Example ISE connector](./media/apis-list/example-ise-connector.png)
 
-* All other connectors without the **CORE** or **ISE** label run in the global, multi-tenant Logic Apps service.
+  If you have an on-premises system that's connected to an Azure virtual network, an ISE lets your logic apps directly access that system without the [on-premises data gateway](../logic-apps/logic-apps-gateway-connection.md). Instead, you can either use that system's **ISE** connector if available, an HTTP action, or a [custom connector](#custom). For on-premises systems that don't have **ISE** connectors, use on-premises data gateway. To review available ISE connectors, see [ISE connectors](#ise-connectors).
+
+* All other connectors without the **CORE** or **ISE** label, which you can continue to use, run in the global, multi-tenant Logic Apps service, for example:
+
+  ![Example multi-tenant connector](./media/apis-list/example-multi-tenant-connector.png)
 
 Logic apps that run in an ISE and their connectors, regardless where those connectors run, follow a fixed pricing plan versus the consumption-based pricing plan. For more information, see these pages:
 
