@@ -46,7 +46,7 @@ The server also comes with a limited set of cipher suites:
 
 ## Step 1: Create the PowerShell script to enable TLS 1.0 and TLS 1.1 
 
-Use the following code as an example to create a script that enables the older protocols and cipher suites. For the purposes of this documentation, this script will be named: TLSsettings.ps1. 
+Use the following code as an example to create a script that enables the older protocols and cipher suites. For the purposes of this documentation, this script will be named: **TLSsettings.ps1**. Store this script on your local desktop for easy access in later steps. 
 
 
 ```Powershell
@@ -195,7 +195,7 @@ shutdown.exe /r /t 5 /c "Crypto settings changed" /f /d p:2:4
 
 ## Step 2: Create a command file 
 
-Create a CMD file called RunTLSSettings.cmd with the following:
+Create a CMD file named **RunTLSSettings.cmd** using the below. Store this script on your local desktop for easy access in later steps. 
 
 ```cmd
 PowerShell -ExecutionPolicy Unrestricted %~dp0TLSsettings.ps1
@@ -205,11 +205,21 @@ EXIT /B 0
 
 ## Step 3: Add the startup task to the role’s service definition (csdef) 
 
+Add the following snippet to your exsisting service definition file. 
+
+
+```
+	<Startup> 
+		<Task executionContext="elevated" taskType="simple" commandLine="RunTLSSettings.cmd"> 
+		</Task> 
+	</Startup> 
+```
+
 Here is an example that shows both the worker role and web role. 
 
 ```
 <?xmlversion="1.0"encoding="utf-8"?> 
-<ServiceDefinitionname="NugetExampleCloudServices"xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition"schemaVersion="2015-04.2.6"> 
+<ServiceDefinitionname="CloudServiceName"xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition"schemaVersion="2015-04.2.6"> 
 	<WebRolename="WebRole1"vmsize="Standard_D1_v2"> 
 		<Sites> 
 			<Sitename="Web"> 
@@ -219,7 +229,7 @@ Here is an example that shows both the worker role and web role.
 			</Site> 
 		</Sites> 
 		<Startup> 
-			<TaskexecutionContext="elevated"taskType="simple"commandLine="RunTLSSettings.cmd"> 
+			<Taske xecutionContext="elevated" taskType="simple" commandLine="RunTLSSettings.cmd"> 
 			</Task> 
 		</Startup> 
 		<Endpoints> 
@@ -235,7 +245,26 @@ Here is an example that shows both the worker role and web role.
 </ServiceDefinition> 
 ```
 
-## Step 4: Validation 
+## Step 5: Add the scripts to your Cloud Service 
+
+1) In Visual Studio, right-click on your WebRole
+2) Select **Add**
+3) Select **Exsisting Item**
+4) In the file explorer, navigate to your desktop where you stored the **TLSsettings.ps1** and **RunTLSSettings.cmd** files 
+5) Select the two files to add them to your Cloud Services project
+
+## Step 6: Enable Copy to Output Directory
+
+To ensure the scripts are uploaded with every update pushed from Visual Studio, the setting *Copy to Output Directory* needs to be set to *Copy Always*
+
+1) Under your WebRole, right-click on RunTLSSettings.cmd
+2) Select **Properties**
+3) In the properties tab, change *Copy to Output Directory* to *Copy Always"*
+4) Repeat the steps for **TLSsettings.ps1**
+
+## Step 7: Publish & Validate
+
+Now that the above steps have been complete, publish the update to your exsisting Cloud Service. 
 
 You can use [SSLLabs](https://www.ssllabs.com/) to validate the TLS status of your endpoints 
 
