@@ -38,7 +38,7 @@ This section tells how to configure source control for your Automation account. 
 
 ### Configure source control -- Azure portal
 
-Use this procedure to configure source countrol using the Azure portal.
+Use this procedure to configure source control using the Azure portal.
 
 1. Within your Automation account, select **Source Control** and click **+ Add**.
 
@@ -53,7 +53,7 @@ Use this procedure to configure source countrol using the Azure portal.
     |Property  |Description  |
     |---------|---------|
     |Source control name     | A friendly name for the source control. This name must contain only letters and numbers.        |
-    |Source control type     | Type of source control mechansim. Available options are:</br> GitHub</br>Azure Repos (Git)</br> Azure Repos (TFVC)        |
+    |Source control type     | Type of source control mechanism. Available options are:</br> GitHub</br>Azure Repos (Git)</br> Azure Repos (TFVC)        |
     |Repository     | Name of the repository or project. The first 200 repositories are retrieved. To search for a repository, type the name in the field and click **Search on GitHub**.|
     |Branch     | Branch from which to pull the source files. Branch targeting isn't available for the TFVC source control type.          |
     |Folder path     | Folder that contains the runbooks to synchronize, for example, /Runbooks. Only runbooks in the specified folder are synchronized. Recursion isn't supported.        |
