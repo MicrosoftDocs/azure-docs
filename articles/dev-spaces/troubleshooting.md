@@ -453,6 +453,9 @@ To enable Azure Dev Spaces on an existing namespace in an AKS cluster, run `use-
 ```azurecli
 az aks get-credentials --resource-group MyResourceGroup --name MyAKS
 az aks use-dev-spaces -g MyResourceGroup -n MyAKS --space my-namespace --yes
+```
+
+```console
 kubectl -n my-namespace delete pod --all
 ```
 
