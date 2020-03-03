@@ -36880,8 +36880,8 @@
     },
     {
       "source_path": "articles/active-directory/manage-apps/application-provisioning-config-problem-no-users-provisioned.md",
-      "redirect_url": "azure/active-directory/app-provisioning/application-provisioning-config-problem-no-users-provisioned",
-      "redirect_document_id": false
+      "redirect_url":Â "azure/active-directory/app-provisioning/application-provisioning-config-problem-no-users-provisioned",
+      "redirect_document_id":Â false
     },
     {
       "source_path": "articles/active-directory/application-provisioning-config-problem-storage-limit.md",
@@ -49187,6 +49187,11 @@
     {
       "source_path": "articles/aks/acs-aks-migration.md",
       "redirect_url": "/azure/aks/aks-migration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/workloads/sap/sap-hana-backup-storage-snapshots.md",
+      "redirect_url": "articles/virtual-machines/workloads/sap/sap-hana-backup-guide",
       "redirect_document_id": false
     },
     {
