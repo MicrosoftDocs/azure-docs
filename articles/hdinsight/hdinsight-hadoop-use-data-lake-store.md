@@ -26,7 +26,7 @@ In this article, you learn how Data Lake Storage Gen1 works with HDInsight clust
 
 ## Availability for HDInsight clusters
 
-Apache Hadoop supports a notion of the default file system. The default file system implies a default scheme and authority. It can also be used to resolve relative paths. During the HDInsight cluster creation process, you can specify a blob container in Azure Storage as the default file system, or with HDInsight 3.5 and newer versions, you can select either Azure Storage or Azure Data Lake Storage Gen1 as the default files system with a few exceptions. Note that The cluster and the storage account must be hosted in the same region.
+Apache Hadoop supports a notion of the default file system. The default file system implies a default scheme and authority. It can also be used to resolve relative paths. During the HDInsight cluster creation process, you can specify a blob container in Azure Storage as the default file system, or with HDInsight 3.5 and newer versions, you can select either Azure Storage or Azure Data Lake Storage Gen1 as the default files system with a few exceptions. Note that the cluster and the storage account must be hosted in the same region.
 
 HDInsight clusters can use Data Lake Storage Gen1 in two ways:
 

@@ -3,7 +3,7 @@ title: SAP HANA Azure backup based on storage snapshots | Microsoft Docs
 description: There are two major backup possibilities for SAP HANA on Azure virtual machines, this article covers SAP HANA backup based on storage snapshots
 services: virtual-machines-linux
 documentationcenter: 
-author: hermanndms
+author: msjuergent
 manager: juergent
 editor: 
 ms.service: virtual-machines-linux
@@ -12,7 +12,7 @@ ms.topic: article
 ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/05/2018
-ms.author: hermannd
+ms.author: juergent
 
 ---
 

@@ -31,6 +31,38 @@ The following sections build on this article by describing the specific data gat
 
 ![Azure Monitor for Cosmos DB](media/monitor-cosmos-db/azure-monitor-cosmos-db.png)
 
+## View operation level metrics for Azure Cosmos DB
+
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+
+1. Select **Monitor** from the left-hand navigation bar, and select **Metrics**.
+
+   ![Metrics pane in Azure Monitor](./media/monitor-cosmos-db/monitor-metrics-blade.png)
+
+1. From the **Metrics** pane > **Select a resource** > choose the required **subscription**, and **resource group**. For the **Resource type**, select **Azure Cosmos DB accounts**, choose one of your existing Azure Cosmos accounts, and select **Apply**.
+
+   ![Choose a Cosmos DB account to view metrics](./media/monitor-cosmos-db/select-cosmosdb-account.png)
+
+1. Next you can select a metric from the list of available metrics. You can select metrics specific to request units, storage, latency, availability, Cassandra, and others. To learn in detail about all the available metrics in this list, see the [Metrics by category](monitor-cosmos-db-reference.md) article. In this example, let’s select **Request units** and **Avg** as the aggregation value.
+
+   In addition to these details, you can also select the **Time range** and **Time granularity** of the metrics. At max, you can view metrics for the past 30 days.  After you apply the filter, a chart is displayed based on your filter. You can see the average number of request units consumed per minute for the selected period.  
+
+   ![Choose a metric from the Azure portal](./media/monitor-cosmos-db/metric-types.png)
+
+### Add filters to metrics
+
+You can also filter metrics and the chart displayed by a specific **CollectionName**, **DatabaseName**, **OperationType**, **Region**, and **StatusCode**. To filter the metrics, select **Add filter** and choose the required property such as **OperationType** and select a value such as **Query**. The graph then displays the request units consumed for the query operation for the selected period. The operations executed via Stored procedure are not logged so they are not available under the OperationType metric.
+
+![Add a filter to select the metric granularity](./media/monitor-cosmos-db/add-metrics-filter.png)
+
+You can group metrics by using the **Apply splitting** option. For example, you can group the request units per operation type and view the graph for all the operations at once as shown in the following image:
+
+![Add apply splitting filter](./media/monitor-cosmos-db/apply-metrics-splitting.png)
+
+Here is another example to view the server-side latency metrics for a specific database, container, or an operation:
+
+![Server-side latency metrics](./media/monitor-cosmos-db/serverside-latency-metric.png)
+
 ## Monitoring data collected from Azure Cosmos DB
 
 Azure Cosmos DB collects the same kinds of monitoring data as other Azure resources which are described in [Monitoring data from Azure resources](../azure-monitor/insights/monitor-azure-resource.md#monitoring-data). See [Azure Cosmos DB monitoring data reference](monitor-cosmos-db-reference.md) for a detailed reference of the logs and metrics created by Azure Cosmos DB.
