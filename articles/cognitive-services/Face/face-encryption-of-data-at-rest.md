@@ -15,7 +15,7 @@ ms.author: egeaney
 
 # Encryption of data at rest for the Face service
 
-The Face service automatically encrypts your data when it is persisted it to the cloud. The Face service encryption protects your data and to help you to meet your organizational security and compliance commitments.
+The Face service automatically encrypts your data when persisted it to the cloud. The Face service encryption protects your data and to help you to meet your organizational security and compliance commitments.
 
 [!INCLUDE [cognitive-services-about-encryption](../../../includes/cognitive-services-about-encryption.md)]
 
