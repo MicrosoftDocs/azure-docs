@@ -16,7 +16,7 @@ This article describes how to identify and resolve common issues that can occur 
 
 When you configure data encryption to use a customer-managed key in Azure Key Vault, servers require continuous access to the key. If the server loses access to the customer-managed key in Azure Key Vault, it will deny all connections, return the appropriate error message, and change its state to ***Inaccessible*** in the Azure portal.
 
-If you no longer need an inaccessible Azure Database for PostgreSQL - single server, you can delete it to stop incurring costs. No other actions on the server are permitted until access to the Azure Key Vault has been restored and the server is available. It's also not possible to change the data encryption option from `Yes`(customer-managed) to `No` (service-managed) on an inaccessible server when it's encrypted with a customer-managed key. You'll have to revalidate the key manually before the server is accessible again. This action is necessary to protect the data from unauthorized access while permissions to the customer-managed key are revoked.
+If you no longer need an inaccessible Azure Database for PostgreSQL - Single server, you can delete it to stop incurring costs. No other actions on the server are permitted until access to the Azure Key Vault has been restored and the server is available. It's also not possible to change the data encryption option from `Yes`(customer-managed) to `No` (service-managed) on an inaccessible server when it's encrypted with a customer-managed key. You'll have to revalidate the key manually before the server is accessible again. This action is necessary to protect the data from unauthorized access while permissions to the customer-managed key are revoked.
 
 ## Common errors causing server to become inaccessible
 
@@ -30,7 +30,7 @@ Most issues that occur when you use data encryption with Azure Key Vault are cau
   - The key expired or was accidentally deleted or disabled.
 - The Azure Database for PostgreSQL - Single server instance-managed identity was accidentally deleted.
   - Permissions granted to the Azure Database for PostgreSQL managed identity for the keys aren't sufficient. For example, the permissions don't include Get, Wrap, and Unwrap.
-  - Permissions for the Azure Database for PostgreSQL - single server instance-managed identity were revoked or deleted.
+  - Permissions for the Azure Database for PostgreSQL - single-server instance-managed identity were revoked or deleted.
 
 ## Identify and resolve common errors
 
@@ -39,12 +39,12 @@ Most issues that occur when you use data encryption with Azure Key Vault are cau
 #### Disabled key vault
 
 - `AzureKeyVaultKeyDisabledMessage`
-- **Explanation** : The operation could not be completed on server because the Azure Key Vault key is disabled.
+- **Explanation**: The operation couldn't be completed on server because the Azure Key Vault key is disabled.
 
 #### Missing key vault permissions
 
 - `AzureKeyVaultMissingPermissionsMessage`
-- The server does not have the required Get, Wrap, and Unwrap permissions to the Azure Key Vault permissions. Grant any missing permissions to the service principal with ID.
+- The server doesn't have the required Get, Wrap, and Unwrap permissions to the Azure Key Vault permissions. Grant any missing permissions to the service principal with ID.
 
 ### Mitigation
 
