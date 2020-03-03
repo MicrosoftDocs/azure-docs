@@ -11,7 +11,7 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-ms.date: 06/25/2019
+ms.date: 03/03/2020
 ---
 # Overview of business continuity with Azure SQL Database
 
@@ -82,7 +82,7 @@ simplify the deployment and usage of geo-replication and adds the additional cap
 
 | Recovery method | RTO | RPO |
 | --- | --- | --- | 
-| Geo-restore from geo-replicated backups | 12 h | 1 h |
+| Geo-restore from geo-replicated backups | 12 h \* | 1 h |
 | Auto-failover groups | 1 h | 5 s |
 | Manual database failover | 30 s | 5 s |
 
@@ -90,6 +90,10 @@ simplify the deployment and usage of geo-replication and adds the additional cap
 > *Manual database failover* refers to failover of a single database to its geo-replicated secondary using the [unplanned mode](sql-database-active-geo-replication.md#active-geo-replication-terminology-and-capabilities).
 See the table earlier in this article for details of the auto-failover RTO and RPO.
 
+> [!IMPORTANT]
+> \* For [Hyperscale](sql-database-service-tier-hyperscale.md) databases, the time to complete a geo-restore operation is proportional to the size of data in the database. This is in contrast to the [point-in-time restore](sql-database-recovery-using-backups.md) of a Hyperscale database within the same region, where restore time does not depend on database size. For larger Hyperscale databases, geo-restore time may exceed 12-hour RTO.
+> 
+> Geo-restore time for Hyperscale databases will be shorter if the database is restored in an Azure region that is [paired](https://docs.microsoft.com/azure/best-practices-availability-paired-regions) with the region of the source database.
 
 Use auto-failover groups if your application meets any of these criteria:
 
