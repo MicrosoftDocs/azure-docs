@@ -17,7 +17,7 @@ Requirements for batch testing:
 * No duplicates.
 * Entity types allowed: only machined-learned entities.
 
-When using an app other than this tutorial, do *not* use the example utterances already added to an intent.
+When using an app other than this tutorial, do *not* use the example utterances already added to your app.
 
 **In this tutorial, you learn how to:**
 
@@ -27,23 +27,18 @@ When using an app other than this tutorial, do *not* use the example utterances 
 > * Create a batch test file
 > * Run a batch test
 > * Review test results
-> * Fix errors
-> * Retest the batch
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## Import example app
 
-Import an order that allows a customer to modify a pizza order.
+Import an app that takes a pizza order such as `1 pepperoni pizza on thin crust`.
 
 1.  Download and save [app JSON file](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/luis/apps/pizza-with-machine-learned-entity.json?raw=true).
 
+1. Use the [preview LUIS portal](https://preview.luis.ai/), import the JSON into a new app, name the app `Pizza app`.
 
-2. Use the [preview LUIS portal](https://preview.luis.ai/), import the JSON into a new app, name the app `Pizza app`.
-
-3. From the **Manage** section, on the **Versions** tab, clone the version, and name it `batchtest`. Cloning is a great way to play with various LUIS features without affecting the original version. Because the version name is used as part of the URL route, the name can't contain any characters that are not valid in a URL.
-
-4. Select **Train** in the top-right corner of the navigation to train the app.
+1. Select **Train** in the top-right corner of the navigation to train the app.
 
 ## What should the batch file utterances include
 
@@ -87,13 +82,13 @@ The example JSON includes one utterance with a labeled entity to illustrate what
 
 ## Review batch results for intents
 
-The test results show graphically how the test utterances were predicted against the active version. Focus on the failing test areas first.
+The test results show graphically how the test utterances were predicted against the active version.
 
 The batch chart displays four quadrants of results. To the right of the chart is a filter. The filter contains intents and entities. When you select a [section of the chart](luis-concept-batch-test.md#batch-test-results) or a point within the chart, the associated utterance(s) display below the chart.
 
 While hovering over the chart, a mouse wheel can enlarge or reduce the display in the chart. This is useful when there are many points on the chart clustered tightly together.
 
-The chart is in four quadrants, with two of the sections displayed in red. **These are the sections to focus on**.
+The chart is in four quadrants, with two of the sections displayed in red.
 
 1. Select the **ModifyOrder** intent in the filter list.
 
@@ -105,7 +100,7 @@ The chart is in four quadrants, with two of the sections displayed in red. **The
     > [!div class="mx-imgBorder"]
     > ![Utterance successfully matched its positive prediction](./media/luis-tutorial-batch-testing/intent-predicted-true-positive.png)
 
-    The green checkmarks in the filters list also indicate the success of the test for each intent. All the other intents are listed with a 1/1 positive score because the utterance was tested again each intent, as a negative test for any intents not listed in the batch test.
+    The green checkmarks in the filters list also indicate the success of the test for each intent. All the other intents are listed with a 1/1 positive score because the utterance was tested against each intent, as a negative test for any intents not listed in the batch test.
 
 1. Select the **Confirmation** intent. This intent isn't listed in the batch test so this is a negative test of the utterance that is listed in the batch test.
 
@@ -125,18 +120,13 @@ The ModifyOrder entity, as a machine entity with subentities, displays if the to
     > [!div class="mx-imgBorder"]
     > ![Entity parent successfully predicted in batch file](./media/luis-tutorial-batch-testing/labeled-entity-prediction.png)
 
-    Visually, this result means only the **ToppingList** is the only entity that was correctly predicted in the test.
-
-    > [!TIP]
-    > Use the keyboard, Ctrl + E, to switch to the label view to see the exact text of the user utterance.
-
 ## Finding errors with a batch test
 
 This tutorial showed you how to run a test and interpret results. It didn't cover test philosophy or how to respond to failing tests.
 
-* Make sure to cover both positive and negative utterances in your test, especially ambiguous utterances that represent real utterances.
+* Make sure to cover both positive and negative utterances in your test, including utterances that may be predicted for a different but related intent.
 * For failing utterances, perform the following tasks then run the tests again:
-    * Review current labeling for intents and entities in the example utterances of the active version
+    * Review current examples for intents and entities, validate the example utterances of the active version are correct both for intent and entity labeling.
     * Add features that help your app predict intents and entities
     * Add more positive example utterances
     * Review balance of example utterances across intents
