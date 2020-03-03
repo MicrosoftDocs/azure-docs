@@ -20,13 +20,9 @@ This article provides device-specific information for the Roobo Smart Audio Dev 
 ## Set up the development kit
 
 1. The development kit has two micro USB connectors. The left connector is to power the development kit and is highlighted as Power in the image below. The right one is to control it, and is marked Debug in the image. 
-
     ![Connecting the dev kit](media/speech-devices-sdk/roobo-v2-connections.png)
-
 1. Power the development kit by using a micro USB cable to connect the power port to a PC or power adapter. A green power indicator will light up under the top board.
-
 1. To control the development kit, connect the debug port to a computer by using a second micro USB cable. It is essential to use a high-quality cable to ensure reliable communications.
-
 1. Orient your development kit Circularly - Upright, with microphones facing the ceiling as shown above
 
 
@@ -40,7 +36,3 @@ DDK2 audio operations can be performed in the following ways：
 * Use ALSA Open-source libraries and their applications.
 * Use appmainprog interface to do application development. 
 DDK2 audio - related software framework uses standard ALSA framework, you can use libasound. So to develop software directly. So you can use ALSA's arecord and aplay directly to record and play audio.
-
-## Next steps
-
-Sample APP for Roobov2
