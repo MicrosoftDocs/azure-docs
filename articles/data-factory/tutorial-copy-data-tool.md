@@ -143,9 +143,9 @@ Prepare your Blob storage and your SQL Database for the tutorial by performing t
 
 1. On the **Table mapping** page, select the **[dbo].[emp]** table, and then select **Next**.
 
-1. On the **Schema mapping** page, notice that the second and the third columns in the input file are mapped to the **FirstName** and **LastName** columns of the **emp** table. Select **Next**.
+1. On the **Column mapping** page, notice that the second and the third columns in the input file are mapped to the **FirstName** and **LastName** columns of the **emp** table. Select **Next**.
 
-    ![Schema mapping page](./media/tutorial-copy-data-tool/schema-mapping.png)
+    ![Column mapping page](./media/tutorial-copy-data-tool/column-mapping.png)
 
 1. On the **Settings** page, select **Next**.
 1. On the **Summary** page, review the settings, and then select **Next**.
