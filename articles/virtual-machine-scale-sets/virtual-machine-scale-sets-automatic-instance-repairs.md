@@ -38,7 +38,7 @@ For instances marked as “Unhealthy”, automatic repairs are triggered by the 
 
 **Enable single placement group**
 
-This preview is currently available only for scale sets deployed as single placement group. The property *singlePlacementGroup* should be set to true for your scale set to use automatic instance repairs feature. This feature is currently not supported for scale sets with multi placement group. Learn more about [placement groups](./virtual-machine-scale-sets-placement-groups.md#placement-groups).
+This preview is currently available only for scale sets deployed as single placement group. The property *singlePlacementGroup* should be set to *true* for your scale set to use automatic instance repairs feature. This feature is currently not supported for scale sets with multi placement group. Learn more about [placement groups](./virtual-machine-scale-sets-placement-groups.md#placement-groups).
 
 **API version**
 
@@ -54,7 +54,7 @@ This preview feature is currently not supported for service fabric scale sets.
 
 ## How do automatic instance repairs work?
 
-Automatic instance repair feature relies on health monitoring of individual instances in a scale set. VM instances in a scale set can be configured to emit application health status using either the [Application Health extension](./virtual-machine-scale-sets-health-extension.md) or [Load balancer health probes](../load-balancer/load-balancer-custom-probe-overview.md). If an instance is found to be unhealthy, then the scale set performs repair action by deleting the unhealthy instance and creating a new one to replace it. The model of the old virtual machine is used for creating the new one to replace it. This feature can be enabled in the virtual machine scale set model by using the *automaticRepairsPolicy* object.
+Automatic instance repair feature relies on health monitoring of individual instances in a scale set. VM instances in a scale set can be configured to emit application health status using either the [Application Health extension](./virtual-machine-scale-sets-health-extension.md) or [Load balancer health probes](../load-balancer/load-balancer-custom-probe-overview.md). If an instance is found to be unhealthy, then the scale set performs repair action by deleting the unhealthy instance and creating a new one to replace it. This feature can be enabled in the virtual machine scale set model by using the *automaticRepairsPolicy* object.
 
 ### Batching
 
@@ -68,11 +68,9 @@ The automatic instance repairs process works as follows:
 
 1. [Application Health extension](./virtual-machine-scale-sets-health-extension.md) or [Load balancer health probes](../load-balancer/load-balancer-custom-probe-overview.md) ping the application endpoint inside each virtual machine in the scale set to get application health status for each instance.
 2. If the endpoint responds with a status 200 (OK), then the instance is marked as “Healthy”. In all the other cases (including if the endpoint is unreachable), the instance is marked “Unhealthy”.
-3. The scale set orchestrator reads the application health status of each instance using application health extension or load balancer health probe.
-4. When an instance is found to be unhealthy, the scale set triggers a repair action by deleting the unhealthy instance and creating a new one to replace it.
-5. At any given time, no more than 5% of the total instances in the scale set are repaired. If a scale set has fewer than 20 instances, the repairs are done for one unhealthy instance at a time.
-6. Once new instances are created for every batch of unhealthy instances, the scale set waits for the duration of grace period and checks whether all the newly created instances are reporting healthy, before moving on to the next batch of instances to be repaired.
-7. The above process continues until all unhealthy instance in the scale set are repaired.
+3. When an instance is found to be unhealthy, the scale set triggers a repair action by deleting the unhealthy instance and creating a new one to replace it.
+4. Instance repairs are performed in batches. At any given time, no more than 5% of the total instances in the scale set are repaired. If a scale set has fewer than 20 instances, the repairs are done for one unhealthy instance at a time.
+5. The above process continues until all unhealthy instance in the scale set are repaired.
 
 ## Instance protection and automatic repairs
 
@@ -136,7 +134,7 @@ PUT or PATCH on '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupNa
   "properties": {
     "automaticRepairsPolicy": {
             "enabled": "true",
-            "gracePeriod": "PT30M"
+            "gracePeriod": "PT40M"
         }
     }
 }
@@ -163,6 +161,10 @@ If you get a ‘BadRequest’ error with a message stating “Could not find mem
 **Instance not getting repaired even when policy is enabled**
 
 The instance could be in grace period. This is the amount of time to wait after any state change on the instance before performing repairs. This is to avoid any premature or accidental repairs. The repair action should happen once the grace period is completed for the instance.
+
+**Viewing application health status for scale set instances**
+
+You can use the [Get Instance View API](/rest/api/compute/virtualmachinescalesetvms/getinstanceview) for instances in a virtual machine scale set to view the application health status. This status is provided under the property *"vmHealth"*.
 
 ## Next steps
 
