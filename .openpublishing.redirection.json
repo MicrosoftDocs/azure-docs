@@ -49192,7 +49192,7 @@
     {
       "source_path": "articles/virtual-machines/workloads/sap/sap-hana-backup-storage-snapshots.md",
       "redirect_url": "articles/virtual-machines/workloads/sap/sap-hana-backup-guide",
-      "redirect_document_id": false
+      "redirect_document_id": true
     },
     {
       "source_path": "articles/service-fabric/service-fabric-cicd-your-linux-applications-with-jenkins.md",
