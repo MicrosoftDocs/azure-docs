@@ -2,7 +2,7 @@
 title: Quickstart - Create registry in portal
 description: Quickly learn to create a private Docker registry in Azure Container Registry with the Azure portal.
 ms.topic: quickstart
-ms.date: 02/13/2020
+ms.date: 03/03/2020
 ms.custom: "seodec18, mvc"
 ---
 # Quickstart: Create a private container registry using the Azure portal
@@ -23,12 +23,11 @@ Select **Create a resource** > **Containers** > **Container Registry**.
 
 ![Creating a container registry in the Azure portal][qs-portal-01]
 
-On the **Basics** screen, enter values for **Registry name** and **Resource group**. The registry name must be unique within Azure, and contain 5-50 alphanumeric characters. For this quickstart create a new resource group in the `West US` location named `myResourceGroup`, and for **SKU**, select 'Basic'. 
+In the **Basics** tab, enter values for **Resource group** and **Registry name**. The registry name must be unique within Azure, and contain 5-50 alphanumeric characters. For this quickstart create a new resource group in the `West US` location named `myResourceGroup`, and for **SKU**, select 'Basic'. 
 
 ![Create container registry in the Azure portal][qs-portal-03]
 
 Accept default values for the remaining settings. Then select **Review + create**. After reviewing the settings, select **Create**.
-
 
 In this quickstart you create a *Basic* registry, which is a cost-optimized option for developers learning about Azure Container Registry. For details on available service tiers, see [Container registry SKUs][container-registry-skus].
 
