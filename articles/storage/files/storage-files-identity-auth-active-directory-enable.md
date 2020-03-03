@@ -4,7 +4,7 @@ description: Learn how to enable identity-based authentication over SMB for Azur
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/23/2020
+ms.date: 03/03/2020
 ms.author: rogarana
 ---
 
@@ -57,8 +57,9 @@ Before you enable AD authentication for Azure file shares, make sure you have co
 
 ## Regional availability
 
-Azure Files AD authentication (preview) is available in [most public regions](https://azure.microsoft.com/global-infrastructure/regions/) except for:
+Azure Files AD authentication (preview) is available in [most public regions](https://azure.microsoft.com/global-infrastructure/regions/).
 
+Azure Files AD authentication is not available in:
 - West US
 - West US 2
 - East US
