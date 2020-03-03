@@ -8,7 +8,7 @@ ms.custom: mvc, devcenter, vs-azure
 ms.custom: seodec18
 
 ---
-# Create an ASP.NET Core web app in Azure
+# Quickstart: Create an ASP.NET Core web app in Azure
 
 > [!NOTE]
 > This article deploys an app to App Service on Windows. To deploy to App Service on _Linux_, see [Create a .NET Core web app in App Service on Linux](./containers/quickstart-dotnetcore.md).
@@ -33,15 +33,15 @@ In this quickstart, you'll create and deploy an ASP.NET Core web app to Azure Ap
 
 Create an ASP.NET Core web app by following these steps:
 
-1. Open Visual Studio and then select **Create a new project**.
+1. Open Visual Studio and select **Create a new project**.
 
-1. In **Create a new project**, find and choose **ASP.NET Core Web Application** for C#, then select **Next**.
+1. In **Create a new project**, find and choose **ASP.NET Core Web Application** and confirm that C# is listed in the languages for that choice, then select **Next**.
 
-1. In **Configure your new project**, name the application _myFirstAzureWebApp_, and then select **Create**.
+1. In **Configure your new project**, name the application *myFirstAzureWebApp*, and then select **Create**.
 
    ![Configure your web app project](./media/app-service-web-get-started-dotnet/configure-web-app-project.png)
 
-1. For this quickstart, choose the **Web Application** template. Make sure authentication is set to **No Authentication** and no other option is selected. Select **Create**.
+1. For this quickstart, choose the **Web Application** template. Make sure Authentication is set to **No Authentication** and no other option is selected. Select **Create**.
 
    ![Select ASP.NET Core Razor Pages for this tutorial](./media/app-service-web-get-started-dotnet/aspnet-razor-pages-app.png)
 
