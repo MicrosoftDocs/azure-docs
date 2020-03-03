@@ -47,7 +47,7 @@ This article describes how to deploy a Kubernetes cluster to Azure Government us
 
     Via Azure CLI:
 
-    ```bash
+    ```azurecli
     az cloud set --n AzureUSGovernment
     az login
     az account list

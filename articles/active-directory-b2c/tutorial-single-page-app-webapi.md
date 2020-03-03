@@ -3,10 +3,10 @@ title: "Tutorial: Grant access to an ASP.NET Core web API from a single-page app
 titleSuffix: Azure AD B2C
 description: In this tutorial, learn how to use Active Directory B2C to protect a .NET Core web API and call the API from a single-page Node.js application.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 
-ms.author: marsma
+ms.author: mimart
 ms.date: 07/24/2019
 ms.custom: mvc
 ms.topic: tutorial

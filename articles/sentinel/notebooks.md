@@ -2,8 +2,8 @@
 title: Use notebooks with Azure Sentinel for security hunting
 description: This article describes how to use notebooks with the Azure Sentinel hunting capabilities.
 services: sentinel
-author: rkarlin
-ms.author: rkarlin
+author: yelevin
+ms.author: yelevin
 ms.assetid: 1721d0da-c91e-4c96-82de-5c7458df566b
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel

@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 01/31/2020
+ms.date: 02/25/2020
 ms.author: dapine
 ms.custom: seodec18
 ---
@@ -32,8 +32,8 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
  Locale | Language | Supported | Customizations
 ------|------------|-----------|-------------
 `ar-AE` | Arabic (UAE) | Yes | No
-`ar-BH` | Arabic (Bahrain) | Yes | Language model
-`ar-EG` | Arabic (Egypt), modern standard | Yes | Language model
+`ar-BH` | Arabic (Bahrain), modern standard | Yes | Language model
+`ar-EG` | Arabic (Egypt) | Yes | Language model
 `ar-KW` | Arabic (Kuwait) | Yes | No
 `ar-QA` | Arabic (Qatar) | Yes | No
 `ar-SA` | Arabic (Saudi Arabia) | Yes | No
@@ -90,9 +90,10 @@ For more information about regional availability, see [regions](regions.md#stand
 Locale | Language | Gender | Full service name mapping | Short voice name
 --------|----------|--------|---------|------------
 `de-DE` | German (Germany) | Female | "Microsoft Server Speech Text to Speech Voice (de-DE, KatjaNeural)" | "de-DE-KatjaNeural"
-`en-US` | English (US) | Male | "Microsoft Server Speech Text to Speech Voice (en-US, GuyNeural)" | "en-US-GuyNeural"
 `en-US` | English (US) | Female | "Microsoft Server Speech Text to Speech Voice (en-US, JessaNeural)" | "en-US-JessaNeural"
+`en-US` | English (US) | Male | "Microsoft Server Speech Text to Speech Voice (en-US, GuyNeural)" | "en-US-GuyNeural"
 `it-IT` | Italian (Italy) | Female |"Microsoft Server Speech Text to Speech Voice (it-IT, ElsaNeural)" | "it-IT-ElsaNeural"
+`pt-BR` | Portuguese (Brazil) | Female | "Microsoft Server Speech Text to Speech Voice (pt-BR, FranciscaNeural)" | "pt-BR-FranciscaNeural"
 `zh-CN` | Chinese (Mainland) | Female | "Microsoft Server Speech Text to Speech Voice (zh-CN, XiaoxiaoNeural)" | "zh-CN-XiaoxiaoNeural"
 
 To learn how you can configure and adjust neural voices, see [Speech synthesis markup language](speech-synthesis-markup.md#adjust-speaking-styles).

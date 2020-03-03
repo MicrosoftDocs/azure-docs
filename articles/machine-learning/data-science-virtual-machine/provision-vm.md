@@ -1,5 +1,6 @@
 ---
-title: 'Quickstart: Create a Windows DSVM' 
+title: 'Quickstart: Create a Windows Data Science Virtual Machine'
+titleSuffix: Azure Data Science Virtual Machine 
 description: Configure and create a Data Science Virtual Machine on Azure for analytics and machine learning.
 ms.service: machine-learning
 ms.subservice: data-science-vm

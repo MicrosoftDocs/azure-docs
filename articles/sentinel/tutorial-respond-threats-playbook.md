@@ -3,7 +3,7 @@ title: 'Tutorial: Run a playbook in Azure Sentinel'
 description: 'Tutorial: This article describes how to run a playbook in Azure Sentinel.'
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: rkarlin
 editor: ''
 
@@ -16,7 +16,7 @@ ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/18/2019
-ms.author: rkarlin
+ms.author: yelevin
 ---
 
 # Tutorial: Set up automated threat responses in Azure Sentinel
