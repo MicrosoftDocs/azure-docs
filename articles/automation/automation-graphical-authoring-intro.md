@@ -243,7 +243,7 @@ Checkpoints are only enabled in graphical PowerShell Workflow runbooks, and are 
 
 ## Runbook input and output
 
-### <a name-"runbook-input"></a>Runbook input
+### Runbook input<a name="runbook-input"></a>
 
 A runbook requires input either from a user starting the runbook through the Azure portal or from another runbook, if the current one is used as a child. For example, for a runbook that creates a virtual machine, the user might need to provide such information as the name of the virtual machine and other properties each time the runbook starts.
 
@@ -261,7 +261,7 @@ Each input parameter is defined by the properties in the following table:
 | Description |Optional. Description of the purpose for the input parameter. |
 | Type | Optional. Data type expected for the parameter value. The Azure portal provides an appropriate control for the data type for each parameter when prompting for input. Supported parameter types are String, Int32, Int64, Decimal, Boolean, DateTime, and Object. If a data type is not selected, it defaults to String.|
 | Mandatory | Optional. Setting that specifies if a value must be provided for the parameter. If you choose **yes**, a value must be provided when the runbook is started. If you choose **no**, a value is not required when the runbook is started, and a default value can be used. The runbook cannot start if you do not provide a value for each mandatory parameter that does not have a default value defined. |
-| Default Value | Optional. The value used for a parameter if one is not passed in when the runbook is started. To set a default value, choose **Custom**. Select **None** if you don’t want to provide any default value. |
+| Default Value | Optional. The value used for a parameter if one is not passed in when the runbook is started. To set a default value, choose **Custom**. Select **None** if you don't want to provide any default value. |
 
 ### Runbook output
 
