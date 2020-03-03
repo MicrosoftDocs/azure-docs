@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/22/2019
+ms.date: 03/02/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
@@ -31,7 +31,7 @@ This article answers common questions about role-based access control (RBAC) for
 - If you need steps for how to create a custom role, see the custom role tutorials using [Azure PowerShell](tutorial-custom-role-powershell.md) or [Azure CLI](tutorial-custom-role-cli.md).
 - If you are unable to update an existing custom role, check that you are currently signed in with a user that is assigned a role that has the `Microsoft.Authorization/roleDefinition/write` permission such as [Owner](built-in-roles.md#owner) or [User Access Administrator](built-in-roles.md#user-access-administrator).
 - If you are unable to delete a custom role and get the error message "There are existing role assignments referencing role (code: RoleDefinitionHasAssignments)", then there are role assignments still using the custom role. Remove those role assignments and try to delete the custom role again.
-- If you get the error message "Role definition limit exceeded. No more role definitions can be created (code: RoleDefinitionLimitExceeded)" when you try to create a new custom role, delete any custom roles that aren't being used. Azure supports up to **5000** custom roles in a tenant. (For specialized clouds, such as Azure Government, Azure Germany, and Azure China 21Vianet, the limit is 2000 custom roles.)
+- If you get the error message "Role definition limit exceeded. No more role definitions can be created (code: RoleDefinitionLimitExceeded)" when you try to create a new custom role, delete any custom roles that aren't being used. Azure supports up to **5000** custom roles in a tenant. (For Azure Germany and Azure China 21Vianet, the limit is 2000 custom roles.)
 - If you get an error similar to "The client has permission to perform action 'Microsoft.Authorization/roleDefinitions/write' on scope '/subscriptions/{subscriptionid}', however the linked subscription was not found" when you try to update a custom role, check whether one or more [assignable scopes](role-definitions.md#assignablescopes) have been deleted in the tenant. If the scope was deleted, then create a support ticket as there is no self-service solution available at this time.
 
 ## Recover RBAC when subscriptions are moved across tenants
