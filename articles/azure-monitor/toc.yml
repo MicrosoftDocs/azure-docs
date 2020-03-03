@@ -976,7 +976,7 @@
     - name: Application alert rules
       items:
       - name: Troubleshoot alerts
-        href: platform/alert-troubleshoot.md
+        href: platform/alerts-troubleshoot.md
       - name: Availability
         href: app/monitor-web-app-availability.md
       - name: Metric alerts
