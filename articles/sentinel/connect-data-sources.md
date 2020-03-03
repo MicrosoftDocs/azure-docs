@@ -3,7 +3,7 @@ title: Connect data sources to Azure Sentinel | Microsoft Docs
 description: Learn how to connect data sources to Azure Sentinel.
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: angrobe
 editor: ''
 
@@ -15,7 +15,7 @@ ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
-ms.author: rkarlin
+ms.author: yelevin
 
 ---
 # Connect data sources

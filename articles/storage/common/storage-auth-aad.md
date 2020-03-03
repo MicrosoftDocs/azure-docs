@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/12/2019
+ms.date: 2/23/2020
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
@@ -23,7 +23,7 @@ Authorization with Azure AD is available for all general-purpose and Blob storag
 
 Blob storage additionally supports creating shared access signatures (SAS) that are signed with Azure AD credentials. For more information, see [Grant limited access to data with shared access signatures](storage-sas-overview.md).
 
-Azure Files supports authorization with Azure AD over SMB for domain-joined VMs only. To learn about using Azure AD over SMB for Azure Files, see [Overview of Azure Active Directory authorization over SMB for Azure Files](../files/storage-files-active-directory-overview.md).
+Azure Files supports authorization with AD (preview) or Azure AD DS (GA) over SMB for domain-joined VMs only. To learn about using AD (preview) or Azure AD DS (GA) over SMB for Azure Files, see [Overview of Azure Files identity-based authentication support for SMB access](../files/storage-files-active-directory-overview.md).
 
 Authorization with Azure AD is not supported for Azure Table storage. Use Shared Key to authorize requests to Table storage.
 

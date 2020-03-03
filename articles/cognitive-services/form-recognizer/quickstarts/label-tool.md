@@ -31,12 +31,19 @@ To complete this quickstart, you must have:
 ## Set up the sample labeling tool
 
 You'll use the Docker engine to run the sample labeling tool. Follow these steps to set up the Docker container. For a primer on Docker and container basics, see the [Docker overview](https://docs.docker.com/engine/docker-overview/).
-1. First, install Docker on a host computer. The host computer can be your local computer ([Windows](https://docs.docker.com/docker-for-windows/), [macOS](https://docs.docker.com/docker-for-mac/), or [Linux](https://docs.docker.com/install/)). Or, you can use a Docker hosting service in Azure, such as the [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/index), [Azure Container Instances](https://docs.microsoft.com/azure/container-instances/index), or a Kubernetes cluster [deployed to an Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-solution-template-kubernetes-deploy?view=azs-1910). The host computer must meet the following hardware requirements:
+1. First, install Docker on a host computer. This guide will show you how to use local computer as a host. If you want to use a Docker hosting service in Azure, see the [Deploy the sample labeling tool](../deploy-label-tool.md) how-to guide. 
+
+   The host computer must meet the following hardware requirements:
 
     | Container | Minimum | Recommended|
     |:--|:--|:--|
     |Sample labeling tool|2 core, 4-GB memory|4 core, 8-GB memory|
-    
+
+   Install Docker on your machine by following the appropriate instructions for your operating system: 
+   * [Windows](https://docs.docker.com/docker-for-windows/)
+   * [macOS](https://docs.docker.com/docker-for-mac/)
+   * [Linux](https://docs.docker.com/install/).
+
 1. Get the sample labeling tool container with the `docker pull` command.
     ```
     docker pull mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool
@@ -112,17 +119,23 @@ Click **Run OCR on all files** on the left pane to get the text layout informati
 
 ### Apply labels to text
 
-Next, you'll create labels and apply them to the text elements that you want the model to recognize.
+Next, you'll create tags (labels) and apply them to the text elements that you want the model to recognize.
 
-1. First, use the tags editor pane to create the tags (labels) you'd like to identify.
+1. First, use the tags editor pane to create the tags you'd like to identify.
+  1. Click **+** to create a new tag.
+  1. Enter the tag name.
+  1. Press Enter to save the tag.
 1. In the main editor, click and drag to select one or multiple words from the highlighted text elements.
+1. Click on the tag you want to apply, or press the corresponding keyboard key. The number keys are assigned as hotkeys for the first 10 tags. You can reorder your tags using the up and down arrow icons in the tag editor pane.
+    > [!Tip]
+    > Keep the following tips in mind when you're labeling your forms.
+    > * You can only apply one tag to each selected text element.
+    > * Each tag can only be applied once per page. If a value appears multiple times on the same form, create different tags for each instance. For example: "invoice# 1", "invoice# 2" and so on.
+    > * Tags cannot span across pages.
+    > * Label values as they appear on the form; don't try to split a value into two parts with two different tags. For example, an address field should be labeled with a single tag even if it spans multiple lines.
+    > * Don't include keys in your tagged fields&mdash;only the values.
+    > * Table data should be detected automatically and will be available in the final output JSON file. However, if the model fails to detect all of your table data, you can manually tag these fields as well. Tag each cell in the table with a different label. If your forms have tables with varying numbers of rows, make sure you tag at least one form with the largest possible table.
 
-    > [!NOTE]
-    > You cannot currently select text that spans across multiple pages.
-1. Click on the tag you want to apply, or press corresponding keyboard key. You can only apply one tag to each selected text element, and each tag can only be applied once per page.
-
-    > [!TIP]
-    > The number keys are assigned as hotkeys for the first ten tags. You can reorder your tags using the up and down arrow icons in the tag editor pane.
 
 Follow the above steps to label five of your forms, and then move on to the next step.
 

@@ -2,15 +2,16 @@
 title: SMS Alert behavior in Action Groups
 description: SMS message format and responding to SMS messages to unsubscribe, resubscribe or request help.
 author: dkamstra
+ms.author: dukek
 services: monitoring
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 02/16/2018
-ms.author: dukek
 ms.subservice: alerts
 ---
+
 # SMS Alert Behavior in Action Groups
-## Overview ##
+
+## Overview 
 Action groups enable you to configure a list of actions. These groups are used when defining alerts; ensuring that a particular action group is notified when the alert is triggered. One of the actions supported is SMS; SMS notifications support bi-directional communication. A user may respond to an SMS to:
 
 - **Unsubscribe from alerts:** A user may unsubscribe from all SMS alerts for all action groups, or a single action group.
