@@ -46,8 +46,6 @@ landingContent:
         url: ../../data-explorer/pricing-reserved-capacity.md?toc=/azure/cost-management-billing/toc.json
       - text: Azure Databricks
         url: prepay-databricks-reserved-capacity.md
-      - text: Azure Cache for Redis
-        url: ../../azure-cache-for-redis/cache-reserved-pricing.md?toc=/azure/cost-management-billing/toc.json
       - text: App Service
         url: prepay-app-service-isolated-stamp.md
       - text: Azure software plans
@@ -72,8 +70,6 @@ landingContent:
         url: understand-azure-data-explorer-reservation-charges.md
       - text: Azure Databricks
         url: reservation-discount-databricks.md
-      - text: Azure Cache for Redis
-        url: understand-azure-cache-for-redis-reservation-charges.md
       - text: App Service
         url: reservation-discount-app-service-isolated-stamp.md
       - text: Azure software charges
