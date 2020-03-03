@@ -49191,7 +49191,7 @@
     },
     {
       "source_path": "articles/virtual-machines/workloads/sap/sap-hana-backup-storage-snapshots.md",
-      "redirect_url": "articles/virtual-machines/workloads/sap/sap-hana-backup-guide",
+      "redirect_url": "sap-hana-backup-guide",
       "redirect_document_id": true
     },
     {
