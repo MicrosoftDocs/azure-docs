@@ -12,9 +12,8 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/06/2019
+ms.date: 03/03/2020
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -39,7 +38,11 @@ To get started, you need the following items:
 
 ## Scenario description
 
-In this tutorial, you configure and test Azure AD SSO in a test environment. Qlik Sense Enterprise supports **SP** initiated SSO.
+In this tutorial, you configure and test Azure AD SSO in a test environment. 
+* Qlik Sense Enterprise supports **SP** initiated SSO.
+* Qlik Sense Enterprise supports **just-in-time provisioning**
+
+* Once you configure Qlik Sense Enterprise you can enforce Session control, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session control extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 ## Adding Qlik Sense Enterprise from the gallery
 
@@ -247,7 +250,7 @@ In this section, you'll enable Britta Simon to use Azure single sign-on by grant
 
 ### Create Qlik Sense Enterprise test user
 
-In this section, you create a user called Britta Simon in Qlik Sense Enterprise. Work with [Qlik Sense Enterprise support team](https://www.qlik.com/us/services/support) to add the users in the Qlik Sense Enterprise platform. Users must be created and activated before you use single sign-on.
+Qlik Sense Enterprise supports **just-in-time provisioning**, Users will automatically be added to the 'USERS' repository of Qlik Sense as they use the SSO feature. In addition, clients can use the QMC and create a UDC (User Directory Connector) for pre-populating users in Qlik Sense from their LDAP of choice such as Active Directory, and others.
 
 ### Test SSO
 
@@ -260,6 +263,8 @@ When you select the Qlik Sense Enterprise tile in the Access Panel, you should b
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+
+- [What is session control in Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
 
 <!--Image references-->
 
