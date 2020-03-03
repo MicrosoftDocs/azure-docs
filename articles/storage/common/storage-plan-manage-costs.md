@@ -73,4 +73,4 @@ Learn more about managing costs with [cost analysis](../../cost-management-billi
 See the following articles to learn more on how pricing works with Azure Storage:
 
 - [Azure Storage Overview pricing](https://azure.microsoft.com/pricing/details/storage/)
-- [Optimize costs for Blob storage with reserved capacity](storage-blob-reserved-capacity.md)
+- [Optimize costs for Blob storage with reserved capacity](../blobs/storage-blob-reserved-capacity.md)
