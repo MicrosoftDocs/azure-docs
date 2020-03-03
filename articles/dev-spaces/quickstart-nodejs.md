@@ -24,7 +24,7 @@ In this quickstart, you set up Azure Dev Spaces with a managed Kubernetes cluste
 
 You need to create an AKS cluster in a [supported region][supported-regions]. The following commands create a resource group called *MyResourceGroup* and an AKS cluster called *MyAKS*.
 
-```cmd
+```azurecli
 az group create --name MyResourceGroup --location eastus
 az aks create -g MyResourceGroup -n MyAKS --location eastus --generate-ssh-keys
 ```
@@ -36,9 +36,11 @@ Use the `use-dev-spaces` command to enable Dev Spaces on your AKS cluster and fo
 > [!NOTE]
 > The `use-dev-spaces` command will also install the Azure Dev Spaces CLI if its not already installed. You can't install the Azure Dev Spaces CLI in the Azure Cloud Shell.
 
-```cmd
-$ az aks use-dev-spaces -g MyResourceGroup -n MyAKS
+```azurecli
+az aks use-dev-spaces -g MyResourceGroup -n MyAKS
+```
 
+```output
 'An Azure Dev Spaces Controller' will be created that targets resource 'MyAKS' in resource group 'MyResourceGroup'. Continue? (y/N): y
 
 Creating and selecting Azure Dev Spaces Controller 'MyAKS' in resource group 'MyResourceGroup' that targets resource 'MyAKS' in resource group 'MyResourceGroup'...2m 24s
@@ -149,7 +151,7 @@ While running *nodemon*, the Node process is automatically restarted as soon as 
 
 ## Clean up your Azure resources
 
-```cmd
+```azurecli
 az group delete --name MyResourceGroup --yes --no-wait
 ```
 

@@ -64,7 +64,7 @@ az vm list-skus --location southcentralus --size Standard_F --output table
 
 The command returns results like:
 
-```azurecli
+```output
 ResourceType     Locations       Name              Zones    Capabilities    Restrictions
 ---------------  --------------  ----------------  -------  --------------  --------------
 virtualMachines  southcentralus  Standard_F1                ...             None
