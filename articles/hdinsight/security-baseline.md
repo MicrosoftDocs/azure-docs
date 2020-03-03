@@ -784,7 +784,7 @@ Optionally, if you have a Rapid7, Qualys, or any other vulnerability management 
 
 How to Install Rapid7 Agent Manually:
 
-https://insightvm.help.rapid7.com/v1.0/docs/agent-installation-on-linux
+https://insightvm.help.rapid7.com/docs/azure-security-center
 
 
 How to install Qualys Agent Manually:
