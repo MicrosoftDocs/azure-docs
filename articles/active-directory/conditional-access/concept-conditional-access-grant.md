@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 02/21/2020
+ms.date: 02/26/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -52,7 +52,7 @@ Selecting this checkbox will require users to perform Azure Multi-Factor Authent
 
 Organizations who have deployed Microsoft Intune can use the information returned from their devices to identify devices that meet specific compliance requirements. This policy compliance information is forwarded from Intune to Azure AD where Conditional Access can make decisions to grant or block access to resources. For more information about compliance policies, see the article [Set rules on devices to allow access to resources in your organization using Intune](https://docs.microsoft.com/intune/protect/device-compliance-get-started).
 
-A device can be marked as compliant by Intune (for any device OS) or by third-party MDM system for Windows 10 devices. Third-party MDM systems for device OS types other than Windows 10 are not supported.
+A device can be marked as compliant by Intune (for any device OS) or by third-party MDM system for Windows 10 devices. Jamf pro is the only supported third-party MDM system. More information about integration can be found in the article, [Integrate Jamf Pro with Intune for compliance](/intune/protect/conditional-access-integrate-jamf).
 
 Devices must be registered in Azure AD before they can be marked as compliant. More information about device registration can be found in the article, [What is a device identity](../devices/overview.md).
 
@@ -64,35 +64,7 @@ Organizations can choose to use the device identity as part of their Conditional
 
 Organizations can require that an access attempt to the selected cloud apps needs to be made from an approved client app. These approved client apps support [Intune app protection policies](/intune/app-protection-policy) independent of any mobile-device management (MDM) solution.
 
-This setting applies to the following client apps:
-
-- Microsoft Azure Information Protection
-- Microsoft Bookings
-- Microsoft Cortana
-- Microsoft Dynamics 365
-- Microsoft Edge
-- Microsoft Excel
-- Microsoft Flow
-- Microsoft Intune Managed Browser
-- Microsoft Invoicing
-- Microsoft Kaizala
-- Microsoft Launcher
-- Microsoft OneDrive
-- Microsoft OneNote
-- Microsoft Outlook
-- Microsoft Planner
-- Microsoft PowerApps
-- Microsoft Power BI
-- Microsoft PowerPoint
-- Microsoft SharePoint
-- Microsoft Skype for Business
-- Microsoft StaffHub
-- Microsoft Stream
-- Microsoft Teams
-- Microsoft To-Do
-- Microsoft Visio
-- Microsoft Word
-- Microsoft Yammer
+Supported applications can be found in the article, [Microsoft Intune protected apps](/intune/apps/apps-supported-intune-apps).
 
 **Remarks**
 
@@ -105,12 +77,7 @@ This setting applies to the following client apps:
 
 In your Conditional Access policy, you can require an [Intune app protection policy](/intune/app-protection-policy) be present on the client app before access is available to the selected cloud apps. 
 
-This setting applies to the following client apps:
-
-- Microsoft Cortana
-- Microsoft OneDrive
-- Microsoft Outlook
-- Microsoft Planner
+Supported applications can be found in the article, [Microsoft Intune protected apps](/intune/apps/apps-supported-intune-apps).
 
 **Remarks**
 

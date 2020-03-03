@@ -55,7 +55,7 @@
       href: tutorial-jenkins-github-docker-cicd.md
       maintainContext: true
     - name: CI/CD to Service Fabric
-      href: /azure/service-fabric/service-fabric-cicd-your-linux-applications-with-jenkins
+      href: service-fabric-cicd-your-linux-applications-with-jenkins.md
       maintainContext: true
 - name: How-to
   items: 

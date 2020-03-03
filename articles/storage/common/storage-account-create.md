@@ -215,7 +215,10 @@ az group create --name $resourceGroupName --location "$location" &&
 az group deployment create --resource-group $resourceGroupName --template-file "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json"
 ```
 
-To learn how to create templates, see:
+> [!NOTE]
+> This template serves only as an example. There are many storage account settings that aren't configured as part of this template. For example, if you want to use [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/), you would modify this template by setting the `isHnsEnabledad` property of the `StorageAccountPropertiesCreateParameters` object to `true`. 
+
+To learn how to modify this template or create new ones, see:
 
 - [Azure Resource Manager documentation](/azure/azure-resource-manager/).
 - [Storage account template reference](/azure/templates/microsoft.storage/allversions).

@@ -2,7 +2,7 @@
  title: Eav4-series and Easv4-series - Azure Virtual Machines
  description: Specifications for the Eav4 and Easv4-series VMs.
  services: virtual-machines
- author: jonbeck7
+ author: migerdes
  ms.service: virtual-machines
  ms.topic: article
  ms.date: 02/03/2020
@@ -20,6 +20,10 @@ ACU: 230 - 260
 Premium Storage: Not Supported
 
 Premium Storage caching: Not Supported
+
+Live Migration: Supported
+
+Memory Preserving Updates: Supported
 
 Eav4-series sizes are based on the 2.35Ghz AMD EPYC<sup>TM</sup> 7452 processor that can achieve a boosted maximum frequency of 3.35GHz and use premium SSD. The Eav4-series sizes are ideal for memory-intensive enterprise applications. Data disk storage is billed separately from virtual machines. To use premium SSD, use the Easv4-series sizes. The pricing and billing meters for Easv4 sizes are the same as the Eav3-series.
 
@@ -44,6 +48,10 @@ ACU: 230 - 260
 Premium Storage: Supported
 
 Premium Storage caching: Supported
+
+Live Migration: Supported
+
+Memory Preserving Updates: Supported
 
 Easv4-series sizes are based on the 2.35Ghz AMD EPYC<sup>TM</sup> 7452 processor that can achieve a boosted maximum frequency of 3.35GHz and use premium SSD. The Easv4-series sizes are ideal for memory-intensive enterprise applications.
 
