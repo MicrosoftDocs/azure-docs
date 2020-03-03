@@ -36880,8 +36880,8 @@
     },
     {
       "source_path": "articles/active-directory/manage-apps/application-provisioning-config-problem-no-users-provisioned.md",
-      "redirect_url":Â "azure/active-directory/app-provisioning/application-provisioning-config-problem-no-users-provisioned",
-      "redirect_document_id":Â false
+      "redirect_url": "azure/active-directory/app-provisioning/application-provisioning-config-problem-no-users-provisioned",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/application-provisioning-config-problem-storage-limit.md",
