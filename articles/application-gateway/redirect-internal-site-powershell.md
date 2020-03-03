@@ -102,7 +102,7 @@ $poolSettings = New-AzApplicationGatewayBackendHttpSettings `
 
 ### Create the first listener and rule
 
-A listener is required to enable the application gateway to route traffic appropriately to the backend pool. In this tutorial, you create two listeners for your two domains. In this example, listeners are created for the domains of *www.contoso.com* and *www\.contoso.org*.
+A listener is required to enable the application gateway to route traffic appropriately to the backend pool. In this tutorial, you create two listeners for your two domains. In this example, listeners are created for the domains of *www\.contoso.com* and *www\.contoso.org*.
 
 Create the first listener named *contosoComListener* using [New-AzApplicationGatewayHttpListener](/powershell/module/az.network/new-azapplicationgatewayhttplistener) with the frontend configuration and frontend port that you previously created. A rule is required for the listener to know which backend pool to use for incoming traffic. Create a basic rule named *contosoComRule* using [New-AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/new-azapplicationgatewayrequestroutingrule).
 
@@ -291,7 +291,7 @@ Enter your domain name into the address bar of your browser. Such as, [https://w
 
 ![Test contoso site in application gateway](./media/redirect-internal-site-powershell/application-gateway-iistest.png)
 
-Change the address to your other domain, for example https://www.contoso.org and you should see that the traffic has been redirected back to the listener for `www.contoso.com`.
+Change the address to your other domain, for example https://www.contoso.org and you should see that the traffic has been redirected back to the listener for www\.contoso.com.
 
 ## Next steps
 
