@@ -311,7 +311,7 @@ public class RemoteModelEntity : MonoBehaviour
 When you run this code, objects that you hover of with the mouse get highlighted. The effect is similar to what we did in tutorial 2, but the way it is achieved is different. Here we get the list of materials on the picked object and then modify the first one to have a different albedo color.
 
 > [!IMPORTANT]
-> Please be aware that whether this method highlights the correct parts of a model, depends on how a model is authored. It will work perfectly, if every object uses exactly one material. However, if the model does not have a 1:1 relation between parts end materials, the naive code above will not do the right thing.
+> Please be aware that whether this method highlights the correct parts of a model, depends on how a model is authored. It will work perfectly, if every object uses exactly one material. However, if the model does not have a 1:1 relation between parts and materials, the naive code above will not do the right thing.
 
 ## Use a different texture
 
