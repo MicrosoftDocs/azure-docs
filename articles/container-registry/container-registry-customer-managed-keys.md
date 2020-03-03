@@ -2,7 +2,7 @@
 title: Encrypt with customer-managed key
 description: Learn about encryption of data stored in your Azure container registry, and how to encrypt the data with a customer-managed key
 ms.topic: article
-ms.date: 02/27/2020
+ms.date: 03/02/2020
 ms.custom: 
 ---
 
@@ -23,8 +23,7 @@ This feature is only available in a **Premium** container registry. For informat
 * You can currently enable this feature only on a newly created registry.
 * After enabling a customer-managed key on a registry, you can't disable it.
 * In a registry where a customer-managed key is enabled, logs for [ACR Tasks](container-registry-tasks-overview.md) are currently retained for only 24 hours. If you need to retain task logs for a longer period, export the logs to local files, or import log files to Azure Storage.
-* [CLI version minimum? Use Cloud Shell?]
-
+* [CLI version minimum?]
 
 ## About encryption key management
 
@@ -39,7 +38,7 @@ The following table compares registry encryption using Microsoft-managed keys or
 
 ## Customer-managed keys with Azure Key Vault
 
-Use Azure Key Vault to store your customer-managed keys. You can either create your own keys and store them in a key vault, or use the Azure Key Vault APIs to generate keys. The registry and the key vault must be in the same Azure Active Directory (Azure AD) tenant, but they can be in different subscriptions. For more information about Azure Key Vault, see [What is Azure Key Vault?](../key-vault/key-vault-overview.md).
+Use Azure Key Vault to store your customer-managed keys. Either create your own keys and store them in a key vault, or use the Azure Key Vault APIs to generate keys. The registry and the key vault must be in the same Azure Active Directory (Azure AD) tenant, but they can be in different regions or subscriptions. For more information about Azure Key Vault, see [What is Azure Key Vault?](../key-vault/key-vault-overview.md).
 
 ### How the customer-managed key works
 
@@ -49,68 +48,17 @@ The following diagram shows how Azure Container Registry uses Azure Active Direc
 
 Explanation of steps:
 
-1. An Azure Key Vault admin grants permissions to encryption keys to the managed identity that's associated with the container registry.
-1. An Azure Container Registry admin configures encryption with a customer-managed key for the registry.
+1. An Azure Key Vault admin grants permissions to encryption keys to a managed identity that's associated with the container registry.
+1. An Azure Container Registry admin enables encryption with a customer-managed key for the registry.
 1. Azure Container Registry uses a managed identity that's associated with the registry to authenticate access to Azure Key Vault via Azure Active Directory.
-1. Azure Container Registry wraps the data encryption key with the customer key in Azure Key Vault. Because the customer-managed key encrypts the registry's data encryption key, it's also called a *key encryption key*.
+1. Azure Container Registry wraps the data encryption key with the customer key in Azure Key Vault. Because the customer-managed key encrypts the registry's data encryption key, it's called a *key encryption key*.
 1. For read/write operations, Azure Container Registry sends requests to Azure Key Vault to wrap and unwrap the data encryption key to perform encryption and decryption operations.
 
 ### Additional information 
 
-* When Azure wraps the data encryption key with the customer-managed key, the registry is encrypted with the new key immediately, without any time delay.
-* Data encryption using a customer-managed key doesn't affect registry performance.
+* When Azure wraps the data encryption key with the customer-managed key, the registry is encrypted with the new key immediately, without time delay.
+* Data encryption and decryption using a customer-managed key don't affect registry performance.
 * If you modify the customer-managed key being used for registry, for example, by rotating the key, only the encryption of the root key changes. Data in your Azure container registry doesn't need to be re-encrypted.
-
-## Enable customer-managed key - portal
-
-### Create a managed identity
-
-Create a [user-assigned [managed identity for Azure resources](../active-directory/managed-identities-azure-resources/overview.md) in the Azure portal. For steps, see [Create a user-assigned identity](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity).
-
-Take note of the **Resource Name** of the managed identity. You need this name in later steps.
-
-### Create a key vault
-
-For steps to create a key vault, see [Quickstart: Set and retrieve a secret from Azure Key Vault using the Azure portal](../key-vault/quick-create-portal.md).
-
-### Enable soft delete and purge protection
-
-This key vault should have two key protection settings enabled: **Soft delete** and **Purge protection**.
-
-To enable the settings in the portal:
-
-1. Navigate to your key vault.
-1. Select **Settings** > **Properties**.
-1. In **Soft delete**, select **Enable**. Enter a retention period in days, or accept the default value.
-1. In **Purge protection**, select **Enable**. Click **Save**.
-
-### Configure key vault access policy
-
-Configure the access policy for the key vault so that the registry has permissions to access it.
-
-1. Navigate to your key vault.
-1. Select **Settings** > **Access policies >+Add new**.
-1. Select principal** and select the resource name of your user-assigned managed identity.
-1. Select **Key permissions** and select **Get**, **Recover**, **Wrap Key**, and **Unwrap Key**.
-
-### Create key and get key ID
-
-1. Navigate to your key vault.
-1. Select **Settings** > **Keys**.
-1. Select **+Generate/Import** and enter a unique name for the key.
-1. Accept the remaining default values and select **Create**.
-1. After creation, select the key and select the current key version.
-1. On the **Key Version** screen, copy the **Key Identifier**. You need this ID when you create your Azure container registry.
-
-### Create Azure container registry
-
-Follow the steps in [Quickstart: Create a private container registry in the Azure portal](container-registry-get-started-portal.md).
-
-1. Select **Create a resource** > **Containers** > **Container Registry**.
-1. For **SKU**, select 'Premium'.
-1. [More steps to come...] 
-1. Select **Create** to deploy the registry instance.
-
 
 ## Enable customer-managed key - CLI
 
@@ -151,15 +99,16 @@ In the command output, take note of the `principalId` of the identity. You need 
 
 ### Create a key vault
 
-Create a key vault with [az keyvault create][az-keyvault-create] to store customer-managed keys for registry encryption. To allow you to recover the key if you accidentally delete it, this key vault should have two key protection settings enabled: **Soft delete** and **Purge protection**. This following example includes parameters for these settings: 
+Create a key vault with [az keyvault create][az-keyvault-create] to store a customer-managed key for registry encryption. 
+
+To allow you to recover the key if you accidentally delete it, ensure that the key vault has two important protection settings enabled: **Soft delete** and **Purge protection**. The following example includes parameters for these settings: 
 
 ```azurecli
-az keyvault create \
-  –-name <key-vault-name> \
-  --resource-group <resource-group-name> \
+az keyvault create --name <key-vault-name> \
+  --resource group <resource-group-name> \
   --enable-soft-delete \
   --enable-purge-protection \
-  --location <location-name>
+  --location westus
 ```
 
 ### Configure key vault access policy
@@ -169,7 +118,7 @@ Configure the access policy for the key vault so that the registry has permissio
 ```azurecli
 az keyvault set-policy \
   --resource-group <resource-group-name> \
-  –-name <key-vault-name> \
+  --name <key-vault-name> \
   --object-id <managed-identity-principal-id> \
   --key-permissions get recover unwrapKey wrapKey 
 
@@ -179,10 +128,10 @@ az keyvault set-policy \
 Run the [az keyvault key create][az-keyvault-key-create] command to create a key in the key vault.
 
 ```azurecli
-az keyvault key create --name <key-name> --vault-name <key-vault-name> 
+az keyvault key create --name <key-name> --vault-name <key-vault-name>
 ```
 
-In the command output, take note of the key's `kid`. You use this ID in the next step:
+In the command output, take note of the key's ID, `kid`. You use this ID in the next step:
 
 ```JSON
 [...]
@@ -212,10 +161,11 @@ Run the [az acr create][az-acr-create] command to create a registry with the cus
 
 ```azurecli
 az acr create \
-  --resource-group <resource-group-name> \ 
+  --resource-group <resource-group-name> \
   --name <container-registry-name> \
-  --identity <managed-identity-principal-id> \ 
-  --kek <key-id>  
+  --identity <managed-identity-principal-id> \
+  --kek <key-id> \
+  --sku Premium
 ```
 
 ### Show encryption status
@@ -225,6 +175,61 @@ To show the status of registry encryption, run the [az acr encryption show-statu
 ```azurecli
 az acr encryption show-status --name <registry-name> 
 ```
+
+## Enable customer-managed key - portal
+
+### Create a managed identity
+
+Create a [user-assigned managed identity for Azure resources](../active-directory/managed-identities-azure-resources/overview.md) in the Azure portal. For steps, see [Create a user-assigned identity](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity).
+
+Take note of the **Resource Name** of the managed identity. You need this name in later steps.
+
+### Create a key vault
+
+For steps to create a key vault, see [Quickstart: Set and retrieve a secret from Azure Key Vault using the Azure portal](../key-vault/quick-create-portal.md).
+
+### Enable soft delete and purge protection
+
+ To allow you to recover the key if you accidentally delete it, ensure that the key vault has two important protection settings enabled: **Soft delete** and **Purge protection**. 
+
+To enable the settings in the portal:
+
+1. Navigate to your key vault.
+1. Select **Settings** > **Properties**.
+1. If not already enabled, in **Soft delete**, select **Enable**. Enter a retention period in days, or accept the default value.
+1. In **Purge protection**, select **Enable**. Click **Save**.
+
+### Configure key vault access policy
+
+Configure the access policy for the key vault so that the registry has permissions to access it.
+
+1. Navigate to your key vault.
+1. Select **Settings** > **Access policies > +Add new**.
+1. Select **Key permissions** and select **Get**, **Recover**, **Wrap Key**, and **Unwrap Key**.
+1. Select **Select principal** and select the resource name of your user-assigned managed identity.  
+1. Select **Add**, then select **Save**.
+
+### Create key and get key ID
+
+1. Navigate to your key vault.
+1. Select **Settings** > **Keys**.
+1. Select **+Generate/Import** and enter a unique name for the key.
+1. Accept the remaining default values and select **Create**.
+1. After creation, select the key and take note of the current key version.
+
+### Create Azure container registry
+
+Follow the steps in [Quickstart: Create a private container registry in the Azure portal](container-registry-get-started-portal.md).
+
+1. Select **Create a resource** > **Containers** > **Container Registry**.
+1. In the **Basics** tab, select a resource group, enter a registry name, and in **SKU**, select **Premium**.
+1. In the **Encryption** tab, in **Customer-managed key**, select **Enabled**.
+1. In **Identity**, select the managed identity you created.
+1. In **Encryption key**, select **Select from key vault**.
+1. In the **Select key from Azure Key Vault** window, select the key vault, key, and version you created in the preceding section.
+1. In the **Encryption** tab, select **Review + create**.
+1. [More steps to come...] 
+1. Select **Create** to deploy the registry instance.
 
 ## Enable customer-managed key - template
 
@@ -377,10 +382,10 @@ az keyvault key create –-name <new-key-name> --vault-name <key-vault-name>
 Then run the [az acr encryption rotatekey][az-acr-encryption-rotatekey] command, passing the name of the new key and the principal ID of the managed identity you previously configured:
 
 ```azurecli
-az acr encryption rotatekey \ 
+az acr encryption rotatekey \
   --name <registry-name> \
   --encryption-key-name <new-key-name> \
-  --identity <managed-identity-principal-id>\ 
+  --identity <managed-identity-principal-id>
 ```
 
 ## Revoke key
@@ -390,18 +395,17 @@ Revoke the customer-managed encryption key by changing the access policy on the 
 ```azurecli
 az keyvault delete-policy \
   --resource-group <resource-group-name> \
-  –-name <key-vault-name> \
-  --object-id <managed-identity-principal-id> \
+  --name <key-vault-name> \
+  --object-id <managed-identity-principal-id>
 ```
 
 Revoking the key effectively blocks access to all registry data, since the registry can't access the encryption key. If access to the key is enabled or the deleted key is restored, your registry will pick the key so you can again access the encrypted registry data.
 
-Learn more about access policies and securing your key vault: [Secure access to a key vault](../key-vault/key-vault-secure-your-key-vault.md).
 
 ## Next steps
 
 * Learn more about [encryption at rest in Azure](../security/fundamentals/encryption-atrest.md)
-
+* Learn more about access policies and how to [secure access to a key vault](../key-vault/key-vault-secure-your-key-vault.md).
 * To provide feedback on customer-managed keys for Azure Container Registry, visit the [ACR GitHub site](https://aka.ms/acr/issues)
 
 
