@@ -975,6 +975,8 @@
     items:
     - name: Application alert rules
       items:
+      - name: Troubleshoot alerts
+        href: platform/alert-troubleshoot.md
       - name: Availability
         href: app/monitor-web-app-availability.md
       - name: Metric alerts
@@ -997,7 +999,7 @@
         href: platform/alerts-log-query.md
       - name: Webhook actions
         href: platform/alerts-log-webhook.md
-      - name: Troubleshooting
+      - name: Troubleshoot log alerts
         href: platform/alert-log-troubleshoot.md
     - name:  Activity log alert rules
       items:
