@@ -25,7 +25,7 @@ Azure Active Directory can provide a users group membership information in token
 > There are a number of caveats to note for this preview functionality:
 >
 >- Support for use of sAMAccountName and security identifier (SID) attributes synced from on-premises is designed to enable moving existing applications from AD FS and other identity providers. Groups managed in Azure AD do not contain the attributes necessary to emit these claims.
->- In larger organizations the number of groups a user is a member of may exceed the limit that Azure Active Directory will add to a token. 150 groups for a SAML token, and 200 for a JWT. This can lead to unpredictable results. If this is a potential issue we recommend testing and if necessary waiting until we add enhancements to allow you to restrict the claims to the relevant groups for the application.  
+>- In larger organizations the number of groups a user is a member of may exceed the limit that Azure Active Directory will add to a token. 150 groups for a SAML token, and 200 for a JWT. This can lead to unpredictable results. If your users have large numbers of group memberships, we recommend using the option to restrict the groups emitted in claims to the relevant groups for the application.  
 >- For new application development, or in cases where the application can be configured for it, and where nested group support isn't required, we recommend that in-app authorization is based on application roles rather than groups.  This limits the amount of infomation that needs to go into the token, is more secure, and separates user assignment from app configuration.
 
 ## Group claims for applications migrating from AD FS and other identity providers
@@ -55,9 +55,11 @@ However, if an existing application already expects to consume group information
 - If using the on-premises group sAMAccountName for authorization, use domain qualified names;  there’s less chance of situations arising were names clash. sAMAccountName on its own may be unique within an Active Directory domain, but if more than one Active Directory domain is synchronized with an Azure Active Directory tenant there is a possibility for more than one group to have the same name.
 - Consider using [Application Roles](../../active-directory/develop/howto-add-app-roles-in-azure-ad-apps.md) to provide a layer of indirection between the group membership and the application.   The application then makes internal authorization decisions based on role clams in the token.
 - If the application is configured to get group attributes that are synced from Active Directory and a Group doesn't contain those attributes it won't be included in the claims.
-- Group claims in tokens include nested groups.   If a user is a member of GroupB and GroupB is a member of GroupA, then the group claims for the user will contain both GroupA and GroupB. For organizations with heavy usage of nested groups and users with large numbers of group memberships the number of groups listed in the token can grow the token size.   Azure Active Directory limits the number of groups it will emit in a token to 150 for SAML assertions, and 200 for JWT to prevent tokens getting too large.  If a user is a member of a larger number of groups than the limit, the groups are emitted along with a link to the Graph endpoint to obtain group information.
+- Group claims in tokens include nested groups except when usign the option to restrict group claims to those assigned to the application.   If a user is a member of GroupB and GroupB is a member of GroupA, then the group claims for the user will contain both GroupA and GroupB. For organizations with heavy usage of nested groups and users with large numbers of group memberships the number of groups listed in the token can grow the token size.   Azure Active Directory limits the number of groups it will emit in a token to 150 for SAML assertions, and 200 for JWT to prevent tokens getting too large.  If a user is a member of a larger number of groups than the limit, the groups are emitted along with a link to the Graph endpoint to obtain group information.
 
-> Prerequisites for using Group attributes synchronized from Active Directory:   The groups must be synchronized from Active Directory using Azure AD Connect.
+## Prerequisites for using Group attributes synchronized from Active Directory   
+
+Group membership claims can be emitted in tokens for any group if you use the ObjectId format. To use group claims in formats other then the group ObjectId, the groups must be synchronized from Active Directory using Azure AD Connect.
 
 There are two steps to configuring Azure Active Directory to emit group names for Active Directory Groups.
 
@@ -67,11 +69,11 @@ Before Azure Active Directory can emit the group names or on premises group SID 
 2. **Configure the application registration in Azure Active Directory to include group claims in tokens**
 Group claims can be configured either in the Enterprise Applications section of the portal for a Gallery or Non-Gallery SAML SSO application, or using the Application Manifest in the Application Registrations section.  To configure group claims in the application manifest see “Configuring the Azure Active Directory Application Registration for group attributes” below.
 
-## Configure group claims for SAML applications using SSO configuration
+## Add group claims to tokens for SAML applications using SSO configuration
 
-To configure Group Claims for a Gallery or Non-Gallery SAML application, open Enterprise Applications, click on the application in the list and select Single Sign On configuration.
+To configure Group Claims for a Gallery or Non-Gallery SAML application, open Enterprise Applications, click on the application in the list and select Single Sign On configuration, and then select User Attributes & claims.
 
-Select the edit icon next to "Groups returned in token"
+Select the edit icon next to "User attributes & Claims"
 
 ![claims UI](media/how-to-connect-fed-group-claims/group-claims-ui-1.png)
 
@@ -83,8 +85,8 @@ Use the radio buttons to select which groups should be included in the token
 |----------|-------------|
 | **All groups** | Emits security groups and distribution lists.   It also causes Directory Roles the user is assigned to be emitted in a 'wids' claim, and any application roles the user is assigned to be emitted in the roles claim. |
 | **Security groups** | Emits security groups the user is a member of in the groups claim |
-| **Distribution lists** | Emits distribution lists the user is a member of |
 | **Directory roles** | If the user is assigned directory roles they are emitted as a 'wids' claim (groups claim won't be emitted) |
+| **Groups assigned to the application** | Emits only the groups which are explicitly assigned to the application and the user is a member of |
 
 For example, to emit all the Security Groups the user is a member of, select Security Groups
 
@@ -93,6 +95,18 @@ For example, to emit all the Security Groups the user is a member of, select Sec
 To emit groups using Active Directory attributes synced from Active Directory instead of Azure AD objectIDs select the required format from the drop-down.  This replaces the object ID in the claims with string values containing group names.   Only groups synchronized from Active Directory will be included in the claims.
 
 ![claims UI](media/how-to-connect-fed-group-claims/group-claims-ui-4.png)
+
+To emit only groups assigned to the application, select **Groups Assigned to the application**
+
+![claims UI](media/how-to-connect-fed-group-claims/group-claims-ui-4-1.png)
+
+Only groups assigned to the application will be included in the token.  Other groups the user is a member of will be omitted.  With this option nested groups are not included. The user must be a direct member of the group assigned to the application. 
+
+To see, or change the groups assigned to the application, from the Enterprise Applications list, select the application and then click **Users and Groups** from the application’s left hand navigation menu.
+
+![claims UI](media/how-to-connect-fed-group-claims/group-claims-ui-4-2.png)
+
+See the document [Methods for assigning users and groups to an app](../../active-directory/manage-apps/methods-for-assigning-users-and-groups#assign-groups) for details of managing group assignment to applications.
 
 ### Advanced options
 
@@ -109,6 +123,12 @@ Some applications require the group membership information to appear in the 'rol
 > [!NOTE]
 > If the option to emit group data as roles is used, only groups will appear in the role claim.  Any Application Roles the user is assigned will not appear in the role claim.
 
+### Edit the group claims configuration
+
+Once a group claim configuration has been added to the User Attributes & Claims configuration under Additional claims, the option to add a group claim will be greyed out.  To change the group claim configuration click on the group claim in the **Additional claims** list.
+
+![claims UI](media/how-to-connect-fed-group-claims/group-claims-ui-7.png)
+
 ## Configure the Azure AD Application Registration for group attributes
 
 Group claims can also be configured in the [Optional Claims](../../active-directory/develop/active-directory-optional-claims.md) section of the [Application Manifest](../../active-directory/develop/reference-app-manifest.md).
@@ -121,8 +141,15 @@ Group claims can also be configured in the [Optional Claims](../../active-direct
 
    - "All"
    - "SecurityGroup"
-   - "DistributionList"
    - "DirectoryRole"
+   - "ApplicationGroup"
+
+   | Selection | Description |
+|----------|-------------|
+| **"All"** | Emits security groups and distribution lists.   It also causes Directory Roles the user is assigned to be emitted in a 'wids' claim, and any application roles the user is assigned to be emitted in the roles claim. |
+| **"SecurityGroup"** | Emits security groups the user is a member of in the groups claim |
+| **"DirectoryRole** | If the user is assigned directory roles they are emitted as a 'wids' claim (groups claim won't be emitted) |
+| **"ApplicationGroup** | Emits only the groups which are explicitly assigned to the application and the user is a member of |
 
    For example:
 
@@ -199,4 +226,6 @@ To emit group names to be returned in netbiosDomain\samAccountName format as the
 
 ## Next steps
 
-[What is hybrid identity?](whatis-hybrid-identity.md)
+[Methods for assigning users and groups to an app](../../active-directory/manage-apps/methods-for-assigning-users-and-groups#assign-groups)
+
+[Configure role claims](../../active-directory/develop/active-directory-enterprise-app-role-management)
