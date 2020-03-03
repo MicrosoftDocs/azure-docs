@@ -118,7 +118,7 @@ BMR/System state |Each individual copy of BMR or system state of the machine bei
 
 ### Is there a limit on the amount of data backed up using a Recovery Services vault?
 
-There is no limit on the amount of data you can back up using a Recovery Services vault.
+There is no limit on the total amount of data you can back up using a Recovery Services vault. The individual data sources (other than Azure VMs), can be a maximum of 54,400 GB in size. For more information about limits, see the [vault limits section in the support matrix](https://docs.microsoft.com/azure/backup/backup-support-matrix#vault-support).
 
 ### Why is the size of the data transferred to the Recovery Services vault smaller than the data selected for backup?
 

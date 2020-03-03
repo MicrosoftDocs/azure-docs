@@ -10,7 +10,7 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 12/10/2019
+ms.date: 03/02/2020
 ms.author: jingwang
 
 ---
@@ -35,6 +35,8 @@ Specifically, this FTP connector supports:
 
 - Copying files using **Basic** or **Anonymous** authentication.
 - Copying files as-is or parsing files with the [supported file formats and compression codecs](supported-file-formats-and-compression-codecs.md).
+
+The FTP connector support FTP server running in passive mode. Active mode is not supported.
 
 ## Prerequisites
 
