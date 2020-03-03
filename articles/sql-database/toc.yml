@@ -277,8 +277,10 @@
         href: sql-database-intelligent-insights-troubleshoot-performance.md
       - name: SQL Analytics
         href: https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql
-    - name: Monitor and tune database
+    - name: Manual monitoring and tuning
       items:
+      - name: Identify query performance issues
+        href: sql-database-identify-query-performance-issues.md
       - name: Manual tuning
         href: sql-database-performance-guidance.md
       - name: Use DMVs to monitor performance
