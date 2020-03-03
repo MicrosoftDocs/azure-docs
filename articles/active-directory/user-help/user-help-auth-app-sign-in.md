@@ -53,7 +53,7 @@ On an Android device:
 - **If you're already using the app for two-factor verification.** If you've already been using the app and two-factor verification, you can select the arrow next to the account name, and then select **Enable phone sign-in**.
 - **If you can't find your work or school account.** If you can't find your work or school account on the **Accounts** screen of the app, it means that you haven't added it to the app yet. Add your work or school account by following the steps in the [Add your work or school account](user-help-auth-app-add-work-school-account.md) article.
 
-On an IOS device:
+On an iOS device:
 
 - **When you tap on the account tile**, the account opens up into a full screen view of the account. If you see **Phone sign-in enabled** that means you are fully set up to sign in without your password. If you see **Enable phone sign-in**, tap it to turn on phone sign-in.
 - **If you’ve already been using the app for two-factor verification**, you can tap on the account tile, which then expands into a full screen view of the account. Then tap **Enable phone sign-in** to turn on phone sign-in.
@@ -92,7 +92,7 @@ On an Android device:
 - **If you've been using the app for two-factor verification.** If you've already been using the app and two-factor verification, you can select the arrow next to the account name, and then select **Enable phone sign-in**.
 - **If you can't find your work or school account.** If you can't find your account on the **Accounts** screen of the app, it means that you haven't added it to the app yet. Add your account by following the steps in the [Add personal Microsoft accounts](user-help-auth-app-add-personal-ms-account.md) article.
 
-On an IOS device:
+On an iOS device:
 
 - **When you tap on the account tile**, the account opens up into a full screen view of the account. If you see **Phone sign-in enabled** that means you are fully set up to sign in without your password. If you see **Enable phone sign-in**, tap it to turn on phone sign-in.
 - **If you’re already using the app for two-factor verification**, you can tap on the account tile, which then expands into a full screen view of the account. Then tap **Enable phone sign-in** to turn on phone sign-in.
