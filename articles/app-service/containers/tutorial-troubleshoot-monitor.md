@@ -4,10 +4,14 @@ description: Learn how Azure Monitor and Log Analytics helps you monitor your Ap
 author: msangapu-msft
 ms.author: msangapu
 ms.topic: tutorial
-ms.date: 1/29/2019
+ms.date: 2/28/2020
 
 ---
 # Tutorial: Troubleshoot an App Service app with Azure Monitor
+
+> [!NOTE]
+> Azure Monitor integration with App Service is in [preview](https://aka.ms/appsvcblog-azmon).
+>
 
 [App Service on Linux](app-service-linux-intro.md) provides a highly scalable, self-patching web hosting service using the Linux operating system. [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) maximizes the availability and performance of your applications and services by delivering a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments.
 
@@ -48,7 +52,7 @@ git remote add azure <url_from_previous_step>
 git push azure master
 ```
 
-## Configure Azure Monitor
+## Configure Azure Monitor (preview)
 
 ### Create a Log Analytics Workspace
 
