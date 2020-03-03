@@ -205,7 +205,7 @@ EXIT /B 0
 
 ## Step 3: Add the startup task to the role’s service definition (csdef) 
 
-Add the following snippet to your exsisting service definition file. 
+Add the following snippet to your existing service definition file. 
 
 
 ```
@@ -249,7 +249,7 @@ Here is an example that shows both the worker role and web role.
 
 1) In Visual Studio, right-click on your WebRole
 2) Select **Add**
-3) Select **Exsisting Item**
+3) Select **Existing Item**
 4) In the file explorer, navigate to your desktop where you stored the **TLSsettings.ps1** and **RunTLSSettings.cmd** files 
 5) Select the two files to add them to your Cloud Services project
 
@@ -264,7 +264,7 @@ To ensure the scripts are uploaded with every update pushed from Visual Studio, 
 
 ## Step 7: Publish & Validate
 
-Now that the above steps have been complete, publish the update to your exsisting Cloud Service. 
+Now that the above steps have been complete, publish the update to your existing Cloud Service. 
 
 You can use [SSLLabs](https://www.ssllabs.com/) to validate the TLS status of your endpoints 
 
