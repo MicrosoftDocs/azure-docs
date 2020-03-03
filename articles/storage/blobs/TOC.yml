@@ -694,6 +694,12 @@
       items:
       - name: Create a storage account for your Data Lake
         href: ../common/storage-account-create.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Migrate
+      items:
+      - name: Upgrade from Data Lake Storage Gen1
+        href: ../blobs/data-lake-storage-upgrade.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Migrate an on-premises HDFS store
+        href: ../blobs/data-lake-storage-migrate-on-premises-HDFS-cluster.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Secure
       items:
       - name: Authorize access to data
@@ -758,18 +764,6 @@
           href: ../common/storage-network-security.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Enable Transport Layer Security
           href: ../common/storage-security-tls.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Recover
-      items:
-      - name: Check the Last Sync Time property
-        href: ../common/last-sync-time-get.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Initiate account failover
-        href: ../common/storage-initiate-account-failover.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Emulate
-      items:
-      - name: Use the Azurite open-source emulator
-        href: ../common/storage-use-azurite.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Use the Azure Storage emulator
-        href: ../common/storage-use-emulator.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Manage
       items:
       - name: .NET
@@ -788,18 +782,6 @@
         href: data-lake-storage-explorer.md
       - name: Hadoop File System CLI
         href: ../blobs/data-lake-storage-use-hdfs-data-lake-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Optimize
-      items:
-      - name: Overview
-        href: ../blobs/data-lake-storage-performance-tuning-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Optimize Spark on HDInsight
-        href: ../blobs/data-lake-storage-performance-tuning-spark.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Optimize Hive on HDInsight
-        href: ../blobs/data-lake-storage-performance-tuning-hive.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Optimize MapReduce on HDInsight
-        href: ../blobs/data-lake-storage-performance-tuning-mapreduce.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Optimize Storm on HDInsight
-        href: ../blobs/data-lake-storage-performance-tuning-storm.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Transfer
       items:
       - name: AzCopy
@@ -814,12 +796,30 @@
         href: ../../data-factory/connector-azure-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Transfer data with the Data Movement library
         href: ../common/storage-use-data-movement-library.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Migrate
+    - name: Optimize
       items:
-      - name: Upgrade from Data Lake Storage Gen1
-        href: ../blobs/data-lake-storage-upgrade.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Migrate an on-premises HDFS store
-        href: ../blobs/data-lake-storage-migrate-on-premises-HDFS-cluster.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Overview
+        href: ../blobs/data-lake-storage-performance-tuning-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Optimize Spark on HDInsight
+        href: ../blobs/data-lake-storage-performance-tuning-spark.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Optimize Hive on HDInsight
+        href: ../blobs/data-lake-storage-performance-tuning-hive.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Optimize MapReduce on HDInsight
+        href: ../blobs/data-lake-storage-performance-tuning-mapreduce.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Optimize Storm on HDInsight
+        href: ../blobs/data-lake-storage-performance-tuning-storm.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Recover
+      items:
+      - name: Check the Last Sync Time property
+        href: ../common/last-sync-time-get.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Initiate account failover
+        href: ../common/storage-initiate-account-failover.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Emulate
+      items:
+      - name: Use the Azurite open-source emulator
+        href: ../common/storage-use-azurite.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Use the Azure Storage emulator
+        href: ../common/storage-use-emulator.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
   - name: Reference
     items:
     - name: .NET
