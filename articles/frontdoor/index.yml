@@ -36,6 +36,18 @@ landingContent:
             url: quickstart-create-front-door.md
 
   # Card
+  - title: Add a custom domain
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Add a custom domain to your Front Door
+            url: front-door-custom-domain.md
+      - linkListType: how-to-guide
+        links:
+          - text: Onboard a root or apex domain on your Front Door
+            url: front-door-how-to-onboard-apex-domain.md
+
+  # Card
   - title: Learn about geo-filtering
     linkLists:
       - linkListType: concept
