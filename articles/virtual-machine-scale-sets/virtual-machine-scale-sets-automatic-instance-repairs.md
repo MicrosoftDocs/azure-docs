@@ -26,7 +26,9 @@ Enabling automatic instance repairs for Azure virtual machine scale sets helps a
 
 Use either the REST API or Azure PowerShell to opt in for the automatic instance repairs preview. These steps will register your subscription for the preview feature. Note this is only a one-time setup required for using this feature. If your subscription is already registered for automatic instance repairs preview, then you do not need to register again. 
 
-REST API [Features - Register](/rest/api/resources/features/register) 
+Using REST API 
+
+1. Register for the feature using [Features - Register](/rest/api/resources/features/register) 
 
 ```
 POST on '/subscriptions/{subscriptionId}/providers/Microsoft.Features/providers/Microsoft.Compute/features/RepairVMScaleSetInstancesPreview/register?api-version=2015-12-01'
@@ -43,7 +45,7 @@ POST on '/subscriptions/{subscriptionId}/providers/Microsoft.Features/providers/
 }
 ```
 
-Wait for a few minutes for the *State* to change to *Registered*. You can use the following API to confirm this.
+2. Wait for a few minutes for the *State* to change to *Registered*. You can use the following API to confirm this.
 
 ```
 GET on '/subscriptions/{subscriptionId}/providers/Microsoft.Features/providers/Microsoft.Compute/features/RepairVMScaleSetInstancesPreview?api-version=2015-12-01'
@@ -60,7 +62,15 @@ GET on '/subscriptions/{subscriptionId}/providers/Microsoft.Features/providers/M
 }
 ```
 
-Azure PowerShell cmdlet [Register-AzureRmResourceProvider](/powershell/module/azurerm.resources/register-azurermresourceprovider) followed by [Register-AzureRmProviderFeature](/powershell/module/azurerm.resources/register-azurermproviderfeature)
+3. Once the *State* has changed to *Registered*, then run the following.
+
+```
+POST on '/subscriptions/{subscriptionId}/providers/Microsoft.Compute/register?api-version=2015-12-01'
+```
+
+Using Azure PowerShell
+
+1. Register for the feature using cmdlet [Register-AzureRmResourceProvider](/powershell/module/azurerm.resources/register-azurermresourceprovider) followed by [Register-AzureRmProviderFeature](/powershell/module/azurerm.resources/register-azurermproviderfeature)
 
 ```azurepowershell-interactive
 Register-AzureRmResourceProvider `
@@ -71,7 +81,7 @@ Register-AzureRmProviderFeature `
  -FeatureName RepairVMScaleSetInstancesPreview
 ```
 
-Wait for a few minutes for the *RegistrationState* to change to *Registered*. You can use the following cmdlet to confirm this.
+2. Wait for a few minutes for the *RegistrationState* to change to *Registered*. You can use the following cmdlet to confirm this.
 
 ```azurepowershell-interactive
 Get-AzureRmProviderFeature `
@@ -84,6 +94,13 @@ Get-AzureRmProviderFeature `
 | FeatureName                           | ProviderName            | RegistrationState       |
 |---------------------------------------|-------------------------|-------------------------|
 | RepairVMScaleSetInstancesPreview      | Microsoft.Compute       | Registered              |
+
+3. Once the *RegistrationState* to change to *Registered*, then run the following cmdlet.
+
+```azurepowershell-interactive
+Register-AzureRmResourceProvider `
+ -ProviderNamespace Microsoft.Compute
+```
 
 **Enable application health monitoring for scale set**
 
@@ -137,7 +154,7 @@ The automatic instance repairs process works as follows:
 
 ## Instance protection and automatic repairs
 
-If an instance in a scale set is protected by applying one of the [protection policies](./virtual-machine-scale-sets-instance-protection.md), then automatic repairs are not performed on that instance. This applies to both the protection policies: *Protect from scale-in* and *Protect from scale-set actions*.
+If an instance in a scale set is protected by applying the *[Protect from scale-set actions protection policy](./virtual-machine-scale-sets-instance-protection.md#protect-from-scale-set-actions)*, then automatic repairs are not performed on that instance.
 
 ## Enabling automatic repairs policy when creating a new scale set
 
