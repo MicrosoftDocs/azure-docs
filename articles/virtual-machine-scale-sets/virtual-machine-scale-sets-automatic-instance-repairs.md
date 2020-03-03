@@ -29,7 +29,7 @@ Use either of the following ways to opt-in to the preview for automatic instance
 REST API [Features - Register](/rest/api/resources/features/register) 
 
 ```
-POST on '/subscriptions/{subscriptionId}/providers/Microsoft.Features/providers/{resourceProviderNamespace}/features/{featureName}/register?api-version=2015-12-01'
+POST on '/subscriptions/{subscriptionId}/providers/Microsoft.Features/providers/Microsoft.Compute/features/RepairVMScaleSetInstancesPreview/register?api-version=2015-12-01'
 ```
 
 Azure PowerShell cmdlet [Register-AzureRmProviderFeature](/powershell/module/azurerm.resources/register-azurermproviderfeature)
