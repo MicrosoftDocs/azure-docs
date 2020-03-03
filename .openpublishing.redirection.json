@@ -3259,11 +3259,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/iot-edge/how-to-install-production-certificates.md",
-      "redirect_url": "/azure/iot-edge/how-to-manage-device-certificates",
-      "redirect_document_id": true
-    },
-    {
       "source_path": "articles/cognitive-services/cognitive-services-recommendations-quick-start.md",
       "redirect_url": "/azure/cognitive-services/recommendations/overview",
       "redirect_document_id": false
@@ -6771,6 +6766,11 @@
     {
       "source_path": "articles/logic-apps/logic-apps-using-sap-connector-old.md",
       "redirect_url": "/azure/logic-apps/logic-apps-using-sap-connector",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/connectors/connectors-create-api-googledrive.md",
+      "redirect_url": "https://docs.microsoft.com/connectors/googledrive/",
       "redirect_document_id": true
     },
     {
@@ -49173,6 +49173,6 @@
       "source_path": "articles/service-fabric/service-fabric-cicd-your-linux-applications-with-jenkins.md",
       "redirect_url": "/azure/jenkins/service-fabric-cicd-your-linux-applications-with-jenkins",
       "redirect_document_id": true
-    }
+    },
   ]
 }

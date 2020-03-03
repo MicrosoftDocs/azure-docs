@@ -221,8 +221,6 @@
         href: ../connectors/connectors-create-api-ftp.md
       - name: GitHub
         href: ../connectors/connectors-create-api-github.md
-      - name: Google Drive
-        href: ../connectors/connectors-create-api-googledrive.md
       - name: HTTP
         href: ../connectors/connectors-native-http.md
       - name: HTTP + Swagger
