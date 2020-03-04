@@ -97,7 +97,7 @@ This section provides details about the supported Linux distributions.
 Starting with versions released after August 2018, we are making the following changes to our support model:  
 
 * Only the server versions are supported, not client.  
-* New versions of [Azure Linux Endorsed distros](../../virtual-machines/linux/endorsed-distros.md) are always supported.  
+* Focus support on any of the [Azure Linux Endorsed distros](../../virtual-machines/linux/endorsed-distros.md). Note that there may be some delay between a new distro/version being Azure Linux Endorsed and it being supported for the Log Analytics Linux agent.
 * All minor releases are supported for each major version listed.
 * Versions that have passed their manufacturer's end-of-support date are not supported.  
 * New versions of AMI are not supported.  
