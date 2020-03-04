@@ -16,14 +16,14 @@ manager: philmea
 
 The Azure Maps Web SDK provides the **Spatial IO module**, which integrates spatial data with the Azure Maps web SDK using JavaScript or TypeScript. The robust features in this module allow developers to:
 
-- Read and write common spatial files. Supported file formats include: KML, KMZ, GPX, GeoRSS, GML, and CSV files containing columns with spatial information.
-- Connect to Open Geospatial Consortium (OGC) services and integrate with Azure Maps web SDK.
-- Overlay Web Mapping Services (WMS) and Web Map Tile Services (WMTS) as layers on the map.
-- Query data in a Web Feature Service (WFS).
-- Overlay complex data sets that contain style information and have them render automatically.
-- Leverage high-speed XML and delimited file reader and writer classes.
+- [Read and write data to common spatial files](spatial-io-read-write-spatial-data.md). Supported file formats include: KML, KMZ, GPX, GeoRSS, GML, and CSV files containing columns with spatial information.
+- [Connect to Open Geospatial Consortium (OGC) services and integrate with Azure Maps web SDK](spatial-io-add-ogc-map-layer.md).
+- [Overlay Web Mapping Services (WMS)](spatial-io-add-ogc-map-layer.md#Web-Mapping-Service-(WMS)) and [overlay Web Map Tile Services (WMTS)](spatial-io-add-ogc-map-layer.md#Web-Mapping-Tile-Service-(WMTS)) as layers on the map.
+- [Query data in a Web Feature Service (WFS)](spatial-io-connect-wfs-service.md).
+- [Overlay complex data sets that contain style information and have them render automatically](spatial-io-add-simple-data-layer.md).
+- [Leverage high-speed XML and delimited file reader and writer classes](spatial-io-core-operations.md).
 
-In this guide, we'll learn how to integrate and use the Spatial IO module in a web application. 
+In this guide, we'll learn how to integrate and use the Spatial IO module in a web application.
 
 ## Prerequisites
 
@@ -33,13 +33,13 @@ Before you can use the Spatial IO module, you'll need to [make an Azure Maps acc
 
 You can load the Azure Maps spatial IO module using one of the two options:
 
-a. The globally hosted Azure CDN of the Azure Maps spatial IO module. For this option, you add a reference to the JavaScript in the `<head>` element of the HTML file.
+a. The globally hosted Azure CDN for the Azure Maps spatial IO module. For this option, you add a reference to the JavaScript in the `<head>` element of the HTML file.
 
 ```html
 <script src="https://atlas.microsoft.com/sdk/javascript/spatial/0/atlas-spatial.js"></script>
 ```
 
-b. The  source code for [azure-maps-spatial-io](https://www.npmjs.com/package/azure-maps-spatial-io) can be loaded locally, and then hosted with your app. This package also includes TypeScript definitions. For this option, use the following command to install the package:
+b. The source code for [azure-maps-spatial-io](https://www.npmjs.com/package/azure-maps-spatial-io) can be loaded locally, and then hosted with your app. This package also includes TypeScript definitions. For this option, use the following command to install the package:
 
 ```sh
 npm install azure-maps-spatial-io
@@ -109,13 +109,13 @@ Then, add a reference to the JavaScript in the `<head>` element of the HTML docu
 </html>
 ```
 
-2. Load the Azure Maps spatial IO module. Use the globally hosted, Azure Content Delivery Network of the Azure Maps spatial IO module, for this exercise. Add a reference to the JavaScript file in the `<head>` element:
+2. Load the Azure Maps spatial IO module. For this exercise, use the CDN for the Azure Maps spatial IO module. Add the reference below to the the `<head>` element of your HTML file:
 
 ```html
 <script src="https://atlas.microsoft.com/sdk/javascript/spatial/0/atlas-spatial.js"></script>
 ```
 
-3. Initialize a `datasource`, and add the data source variable to the map. Initialize a `layer`, and add the data source to the map layer. Then, render both the data source and the layer. Before you scroll down to see the full code in the next step, think about the best places to put the data source and layer code snippets. Recall that, before we programmatically manipulate the map, we should wait until the map resource are ready. For readability, we define our variables near the top.
+3. Initialize a `datasource`, and add the data source to the map. Initialize a `layer`, and add the data source to the map layer. Then, render both the data source and the layer. Before you scroll down to see the full code in the next step, think about the best places to put the data source and layer code snippets. Recall that, before we programmatically manipulate the map, we should wait until the map resource are ready.
 
 ```javascript
 var datasource, layer;
@@ -133,7 +133,7 @@ layer = new atlas.layer.SimpleDataLayer(datasource);
 map.layers.add(layer);
 ```
 
-4. Putting it all together, your HTML file should look like the following code. This code demonstrates how to read an XML file from a URL. Then, load and display the file's feature data on the map. 
+4. Putting it all together, your HTML code should look like the following code. This sample demonstrates how to read an XML file from a URL. Then, load and display the file's feature data on the map. 
 
 ```html
 <!DOCTYPE html>
@@ -210,9 +210,13 @@ map.layers.add(layer);
 </html>
 ```
 
-5. Remember to replace `<Your Azure Maps Key>` with your primary key. Then, open your HTML file. You'll see results similar to the following image:
+5. Remember to replace `<Your Azure Maps Key>` with your primary key. Open your HTML file, and you'll see results similar to the following image:
+
+<center>
 
 ![Spatial Data Example](./media/how-to-use-spatial-io-module/spatial-data-example.png)
+
+</center>
 
 ## Next steps
 
