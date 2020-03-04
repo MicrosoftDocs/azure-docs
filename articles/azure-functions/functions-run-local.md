@@ -60,13 +60,13 @@ The following steps use npm to install Core Tools on Windows. You can also use [
 
     ##### v2.x
 
-    ```bash
+    ```cmd
     npm install -g azure-functions-core-tools
     ```
 
     ##### v3.x
 
-    ```bash
+    ```cmd
     npm install -g azure-functions-core-tools@3
     ```
 
@@ -158,33 +158,33 @@ Version 2.x requires you to select a default language for your project when it i
 
 In the terminal window or from a command prompt, run the following command to create the project and local Git repository:
 
-```bash
+```
 func init MyFunctionProj
 ```
 
 When you provide a project name, a new folder with that name is created and initialized. Otherwise, the current folder is initialized.  
 In version 2.x, when you run the command you must choose a runtime for your project. 
 
-```output
+<pre>
 Select a worker runtime:
 dotnet
 node
 python 
 powershell
-```
+</pre>
 
 Use the up/down arrow keys to choose a language, then press Enter. If you plan to develop JavaScript or TypeScript functions, choose **node**, and then select the language. TypeScript has [some additional requirements](functions-reference-node.md#typescript). 
 
 The output looks like the following example for a JavaScript project:
 
-```output
+<pre>
 Select a worker runtime: node
 Writing .gitignore
 Writing host.json
 Writing local.settings.json
 Writing C:\myfunctions\myMyFunctionProj\.vscode\extensions.json
 Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
-```
+</pre>
 
 `func init` supports the following options, which are version 2.x-only, unless otherwise noted:
 
@@ -242,12 +242,12 @@ Even when using the Microsoft Azure Storage Emulator for development, you may wa
 
   + Download all settings from an existing function app:
 
-    ```bash
+    ```
     func azure functionapp fetch-app-settings <FunctionAppName>
     ```
   + Get the Connection string for a specific storage account:
 
-    ```bash
+    ```
     func azure storage fetch-connection-string <StorageAccountName>
     ```
 
@@ -257,13 +257,13 @@ Even when using the Microsoft Azure Storage Emulator for development, you may wa
 
 To create a function, run the following command:
 
-```bash
+```
 func new
 ```
 
 In version 2.x, when you run `func new` you are prompted to choose a template in the default language of your function app, then you are also prompted to choose a name for your function. In version 1.x, you are also prompted to choose the language.
 
-```output
+<pre>
 Select a language: Select a template:
 Blob trigger
 Cosmos DB trigger
@@ -274,18 +274,18 @@ SendGrid
 Service Bus Queue trigger
 Service Bus Topic trigger
 Timer trigger
-```
+</pre>
 
 Function code is generated in a subfolder with the provided function name, as you can see in the following queue trigger output:
 
-```output
+<pre>
 Select a language: Select a template: Queue trigger
 Function name: [QueueTriggerJS] MyQueueTrigger
 Writing C:\myfunctions\myMyFunctionProj\MyQueueTrigger\index.js
 Writing C:\myfunctions\myMyFunctionProj\MyQueueTrigger\readme.md
 Writing C:\myfunctions\myMyFunctionProj\MyQueueTrigger\sample.dat
 Writing C:\myfunctions\myMyFunctionProj\MyQueueTrigger\function.json
-```
+</pre>
 
 You can also specify these options in the command using the following arguments:
 
@@ -298,13 +298,13 @@ You can also specify these options in the command using the following arguments:
 
 For example, to create a JavaScript HTTP trigger in a single command, run:
 
-```bash
+```
 func new --template "Http Trigger" --name MyHttpTrigger
 ```
 
 To create a queue-triggered function in a single command, run:
 
-```bash
+```
 func new --template "Queue Trigger" --name QueueTriggerJS
 ```
 
@@ -318,19 +318,19 @@ In version 2.x of the runtime, the start command varies, depending on your proje
 
 #### C\#
 
-```command
+```
 func start --build
 ```
 
 #### JavaScript
 
-```command
+```
 func start
 ```
 
 #### TypeScript
 
-```command
+```
 npm install
 npm start     
 ```
@@ -339,7 +339,7 @@ npm start
 
 Version 1.x of the Functions runtime requires the `host` command, as in the following example:
 
-```command
+```
 func host start
 ```
 
@@ -362,13 +362,13 @@ func host start
 
 When the Functions host starts, it outputs the URL of HTTP-triggered functions:
 
-```output
+<pre>
 Found the following functions:
 Host.Functions.MyHttpTrigger
 
 Job host started
 Http Function MyHttpTrigger: http://localhost:7071/api/MyHttpTrigger
-```
+</pre>
 
 >[!IMPORTANT]
 >When running locally, authorization isn't enforced for HTTP endpoints. This means that all local HTTP requests are handled as `authLevel = "anonymous"`. For more information, see the [HTTP binding article](functions-bindings-http-webhook-trigger.md#authorization-keys).
@@ -392,21 +392,29 @@ Make sure to use the same server name and port that the Functions host is listen
 
 The following cURL command triggers the `MyHttpTrigger` quickstart function from a GET request with the _name_ parameter passed in the query string.
 
-```bash
+```
 curl --get http://localhost:7071/api/MyHttpTrigger?name=Azure%20Rocks
 ```
 
 The following example is the same function called from a POST request passing _name_ in the request body:
 
+# [bash](#tab/bash)
 ```bash
 curl --request POST http://localhost:7071/api/MyHttpTrigger --data '{"name":"Azure Rocks"}'
 ```
+# [Cmd](#tab/cmd)
+curl --request POST http://localhost:7071/api/MyHttpTrigger --data "{'name':'Azure Rocks'}"
+---
 
 You can make GET requests from a browser passing data in the query string. For all other HTTP methods, you must use cURL, Fiddler, Postman, or a similar HTTP testing tool.
 
 #### Non-HTTP triggered functions
 
-For all kinds of functions other than HTTP triggers and webhooks, you can test your functions locally by calling an administration endpoint. Calling this endpoint with an HTTP POST request on the local server triggers the function. You can optionally pass test data to the execution in the body of the POST request. This functionality is similar to the **Test** tab in the Azure portal.
+For all kinds of functions other than HTTP triggers and webhooks and Event Grid triggers, you can test your functions locally by calling an administration endpoint. Calling this endpoint with an HTTP POST request on the local server triggers the function. 
+
+To test Event Grid triggered functions locally, see [Local testing with viewer web app](functions-bindings-event-grid-trigger.md#local-testing-with-viewer-web-app).
+
+You can optionally pass test data to the execution in the body of the POST request. This functionality is similar to the **Test** tab in the Azure portal.
 
 You call the following administrator endpoint to trigger non-HTTP functions:
 
@@ -422,9 +430,15 @@ To pass test data to the administrator endpoint of a function, you must supply t
 
 The `<trigger_input>` value contains data in a format expected by the function. The following cURL example is a POST to a `QueueTriggerJS` function. In this case, the input is a string that is equivalent to the message expected to be found in the queue.
 
+# [bash](#tab/bash)
 ```bash
-curl --request POST -H "Content-Type:application/json" --data '{"input":"sample queue data"}' http://localhost:7071/admin/functions/QueueTriggerJS
+curl --request POST -H "Content-Type:application/json" --data '{"input":"sample queue data"}' http://localhost:7071/admin/functions/QueueTrigger
 ```
+# [Cmd](#tab/cmd)
+```bash
+curl --request POST -H "Content-Type:application/json" --data "{'input':'sample queue data'}" http://localhost:7071/admin/functions/QueueTrigger
+```
+---
 
 #### Using the `func run` command in version 1.x
 
@@ -445,7 +459,7 @@ You can also invoke a function directly by using `func run <FunctionName>` and p
 
 For example, to call an HTTP-triggered function and pass content body, run the following command:
 
-```bash
+```
 func run MyHttpTrigger -c '{\"name\": \"Azure\"}'
 ```
 
@@ -462,7 +476,7 @@ A project folder may contain language-specific files and directories that should
 
 To publish your local code to a function app in Azure, use the `publish` command:
 
-```bash
+```
 func azure functionapp publish <FunctionAppName>
 ```
 
@@ -499,7 +513,7 @@ The following publish options are only supported in version 2.x:
 
 Azure Functions lets you deploy your function project in a [custom Docker container](functions-deployment-technologies.md#docker-container). For more information, see [Create a function on Linux using a custom image](functions-create-function-linux-custom-image.md). Custom containers must have a Dockerfile. To create an app with a Dockerfile, use the --dockerfile option on `func init`.
 
-```bash
+```
 func deploy
 ```
 
