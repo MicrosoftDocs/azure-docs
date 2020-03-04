@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Get started with log queries - Azure Monitor"
+title: "Tutorial: Get started with Log Analytics queries"
 description: Learn from this tutorial how to write and manage Azure Monitor log queries in a Log Analytics workspace in the Azure portal.
 ms.subservice: logs
 ms.topic: tutorial
@@ -22,12 +22,13 @@ The tutorial shows you how to use a Log Analytics workspace to:
 > * View, modify, and present visuals of query results
 > * Save, load, export, and share queries and results
 
-For more details about log queries, see [Overview of log queries in Azure Monitor](log-query-overview.md).
+For more information about log queries, see [Overview of log queries in Azure Monitor](log-query-overview.md).
 For a detailed tutorial on writing log queries, see [Get started with log queries in Azure Monitor](get-started-queries.md).
 
+## Open a Log Analytics workspace
 To complete this tutorial, you can use [this demo environment](https://portal.loganalytics.io/demo), which includes plenty of sample data.
 
-You can also use your own environment, if you're using Azure Monitor to collect log data for at least one Azure resource. To open the Log Analytics workspace, select **Logs** in your Azure Monitor left navigation. 
+You can also use your own environment, if you're using Azure Monitor to collect log data for at least one Azure resource. To open a Log Analytics workspace, select **Logs** in your Azure Monitor left navigation. 
 
 ## Understand the schema
 A data *schema* is a collection of tables grouped under logical categories on the **Tables** tab of the Log Analytics workspace. 
@@ -69,11 +70,13 @@ search in (Event) "error"
 
 In the second example, the **search** command searches only records in the **Events** table for the term **error**.
 
+### Run a query
 To run a query, place your cursor somewhere inside the query, and select **Run** in the top bar or press **Shift**+**Enter**. The query runs until it finds a blank line.
 
 Log Analytics limits results to a maximum of 10,000 records, and by default, limits queries to a time range of the past 24 hours. To set a different time range, you can add an explicit **TimeGenerated** filter to the query, or use the **Time range** control.
 
-To use the **Time range** control, select it in the top bar, and then select a value from the dropdown list, or select **Custom** to create a custom time range.
+### Use the Time range control
+To set the **Time range** control, select it in the top bar, and then select a value from the dropdown list, or select **Custom** to create a custom time range.
 
 ![Time picker](media/get-started-portal/time-picker.png)
 
@@ -83,6 +86,7 @@ To use the **Time range** control, select it in the top bar, and then select a v
 ## Filter results
 A general query like `Event` returns too many results to be useful. You can filter the query results either through retricting the table elements in the query, or by explicitly adding a filter to the results. Filtering through the table elements returns a new result set, while an explicit filter applies to the existing result set.
 
+### Filter by restricting table elements
 To filter `Event` query results to **Error** events by restricting the table elements in the query:
 
 1. In the query results, select the dropdown arrow to the left of any result that has **Error** in the **EventLevelName** column. 
@@ -100,6 +104,7 @@ To filter `Event` query results to **Error** events by restricting the table ele
    
 1. Select **Run** to run the new query.
 
+### Filter by explicitly filtering results
 To filter the `Event` query results to **Error** events by filtering the query results:
 
 1. In the query results, select the **Filter** icon next to the column heading **EventLevelName**. 
@@ -123,7 +128,7 @@ To add or remove columns that show in the results, select **Columns** above the 
 
 ![Select columns](media/get-started-portal/select-columns.png)
 
-## Charts
+## View and modify charts
 You can also see query results in visual formats. Enter the following query as an example:
 
 ```Kusto
@@ -145,44 +150,47 @@ You can change properties of the view, such as x and y axes, or grouping and spl
 
 You can also set the preferred view in the query itself, using the `render` operator.
 
-## Pin results to a shared dashboard
+## Pin results to a dashboard
 To pin a results chart or table from your Log Analytics workspace to a shared Azure dashboard, select **Pin to dashboard** on the top bar. 
 
 ![Pin to dashboard](media/get-started-portal/pin-dashboard.png)
 
-In the **Pin to another dashboard** pane, select the shared dashboard to pin the results to, or create a new one, and select **Apply**. 
+In the **Pin to another dashboard** pane, select the shared dashboard to pin the results to, or create a new one, and select **Apply**. The table or chart appears on the selected Azure dashboard.
 
 ![Chart pinned to dashboard](media/get-started-portal/pin-dashboard2.png)
 
-A chart or table that you pin to a shared dashboard updates with the latest data. The chart or table on the dashboard has the following simplifications: 
+A chart or table that you pin to a shared dashboard has the following simplifications: 
 
 - Data is limited to the past 14 days.
 - A table shows only up to four columns and the top seven rows.
 - Charts with many discrete categories automatically group less populated categories into a single **others** bin.
 
-## Save, load, export, or share queries
-Once you've created a useful query, you can save it or share with others. 
+## Save, load, or export queries
+Once you've created a useful query, you can save or share with others. 
 
+### Save queries
 To save a query:
 
 1. Select **Save** on the top bar.
    
-1. In the **Save** dialog, give the query a **Name**, using the characters a–z, A–Z, 0-9, space, hyphen -, underscore _, period ., parenthesis ( or ), or pipe |. 
+1. In the **Save** dialog, give the query a **Name**, using the characters a–z, A–Z, 0-9, space, hyphen, underscore, period, parenthesis, or pipe. 
    
 1. Select whether to save the query as a **Query** or a **Function**. Functions are queries that other queries can reference. 
    
    To save a query as a function, provide a function alias, which is a short name for other queries to use to call this query.
    
-1. Provide a **Category** name for the query to be saved under in **Query Explorer**.
+1. Provide a **Category** name to save the query under in **Query Explorer**.
    
 1. Select **Save**.
    
    ![Save function](media/get-started-portal/save-function.png)
 
-To load a saved query, select **Query Explorer** at top right. The **Query Explorer** pane opens, listing all saved queries by category. Expand the categories or enter a query name in the search bar, then select the query to load it in the **Query editor**. You can mark a query as a **Favorite** by selecting the star next to the query name, or select the **...** to rename or delete the query.
+### Load queries
+To load a saved query, select **Query Explorer** at top right. The **Query Explorer** pane opens, listing all queries by category. Expand the categories or enter a query name in the search bar, then select the query to load it into the **Query editor**. You can mark a query as a **Favorite** by selecting the star next to the query name.
 
 ![Query explorer](media/get-started-portal/query-explorer.png)
 
+## Export and share queries
 To export a query, select **Export** on the top bar, and then select **Export to CSV - all columns**, **Export to CSV - displayed columns**, or **Export to Power BI (M query)** from the dropdown list.
 To share a link to a query, select **Copy link** on the top bar, and then select **Copy link to query**, **Copy query text**, or **Copy query results** to copy to the clipboard. You can send the query link to others who have access to the same workspace.
 
@@ -190,4 +198,4 @@ To share a link to a query, select **Copy link** on the top bar, and then select
 
 In this tutorial, you learned to write and manage simple queries in a Log Analytics workspace in the Azure portal. Advance to the next tutorial to learn more about writing Azure Monitor log queries.
 > [!div class="nextstepaction"]
-> [Next steps button](get-started-queries.md)
+> [Write Azure Monitor log queries](get-started-queries.md)
