@@ -11,7 +11,7 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-ms.date: 03/03/2020
+ms.date: 06/25/2019
 ---
 # Overview of business continuity with Azure SQL Database
 
@@ -89,6 +89,7 @@ simplify the deployment and usage of geo-replication and adds the additional cap
 > [!NOTE]
 > *Manual database failover* refers to failover of a single database to its geo-replicated secondary using the [unplanned mode](sql-database-active-geo-replication.md#active-geo-replication-terminology-and-capabilities).
 See the table earlier in this article for details of the auto-failover RTO and RPO.
+
 
 Use auto-failover groups if your application meets any of these criteria:
 
