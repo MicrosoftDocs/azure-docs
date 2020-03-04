@@ -19,13 +19,15 @@ ms.collection: M365-identity-device-management
 ---
 # Tutorial: Configure hybrid Azure Active Directory join for managed domains
 
-In this tutorial, you learn how to configure hybrid Azure Active Directory (Azure AD) join for Active Directory domain-joined devices in a managed environment.
+In this tutorial, you learn how to configure hybrid Azure Active Directory (Azure AD) join for Active Directory domain-joined devices. This method supports a managed environment that includes both on-premises Active Directory and Azure AD.
 
 Like a user in your organization, a device is a core identity you want to protect. You can use a device's identity to protect your resources at any time and from any location. You can accomplish this goal by managing device identities in Azure AD. Use one of the following methods:
 
 - Azure AD join
 - Hybrid Azure AD join
 - Azure AD registration
+
+This article focuses on hybrid Azure AD join.
 
 Bringing your devices to Azure AD maximizes user productivity through single sign-on (SSO) across your cloud and on-premises resources. You can secure access to your cloud and on-premises resources with [Conditional Access](../active-directory-conditional-access-azure-portal.md) at the same time.
 
@@ -45,7 +47,7 @@ In this tutorial, you learn how to:
 - The credentials of a global administrator for your Azure AD tenant
 - The enterprise administrator credentials for each of the forests
 
-This tutorial assumes that you're familiar with these articles:
+Familiarize yourself with these articles:
 
 - [What is a device identity?](overview.md)
 - [How To: Plan your hybrid Azure Active Directory join implementation](hybrid-azuread-join-plan.md)
@@ -54,7 +56,7 @@ This tutorial assumes that you're familiar with these articles:
 > [!NOTE]
 > Azure AD doesn't support smartcards or certificates in managed domains.
 
-Verify that Azure AD Connect has synced the computer objects of the devices you want to be hybrid Azure AD joined to Azure AD. If the computer objects belong to specific organizational units (OUs), you must also configure the OUs to sync in Azure AD Connect. To learn more about how to sync computer objects by using Azure AD Connect, see [Organizational unit–based filtering](../hybrid/how-to-connect-sync-configure-filtering.md#organizational-unitbased-filtering).
+Verify that Azure AD Connect has synced the computer objects of the devices you want to be hybrid Azure AD joined to Azure AD. If the computer objects belong to specific organizational units (OUs), configure the OUs to sync in Azure AD Connect. To learn more about how to sync computer objects by using Azure AD Connect, see [Organizational unit–based filtering](../hybrid/how-to-connect-sync-configure-filtering.md#organizational-unitbased-filtering).
 
 Beginning with version 1.1.819.0, Azure AD Connect includes a wizard to configure hybrid Azure AD join. The wizard significantly simplifies the configuration process. The wizard configures the service connection points (SCPs) for device registration.
 
@@ -69,14 +71,14 @@ Hybrid Azure AD join requires devices to have access to the following Microsoft 
 
 If your organization requires access to the internet via an outbound proxy, we recommend [implementing Web Proxy Auto-Discovery (WPAD)](https://docs.microsoft.com/previous-versions/tn-archive/cc995261(v%3dtechnet.10)) to enable Windows 10 computers for device registration with Azure AD. To address issues configuring and managing WPAD, see [Troubleshooting Automatic Detection](https://docs.microsoft.com/previous-versions/tn-archive/cc302643(v=technet.10)).
 
-If you don't use WPAD and need to configure proxy settings on your computer, you can do so, beginning with Windows 10 1709. For more information, see [WinHTTP Proxy Settings deployed by GPO](https://blogs.technet.microsoft.com/netgeeks/2018/06/19/winhttp-proxy-settings-deployed-by-gpo/).
+If you don't use WPAD, you can configure proxy settings on your computer beginning with Windows 10 1709. For more information, see [WinHTTP Proxy Settings deployed by GPO](https://blogs.technet.microsoft.com/netgeeks/2018/06/19/winhttp-proxy-settings-deployed-by-gpo/).
 
 > [!NOTE]
 > If you configure proxy settings on your computer by using WinHTTP settings, any computers that can't connect to the configured proxy will fail to connect to the internet.
 
-If your organization requires access to the internet via an authenticated outbound proxy, you must make sure that your Windows 10 computers can successfully authenticate to the outbound proxy. Because Windows 10 computers run device registration by using machine context, you must configure outbound proxy authentication by using machine context. Follow up with your outbound proxy provider on the configuration requirements.
+If your organization requires access to the internet via an authenticated outbound proxy, make sure that your Windows 10 computers can successfully authenticate to the outbound proxy. Because Windows 10 computers run device registration by using machine context, configure outbound proxy authentication by using machine context. Follow up with your outbound proxy provider on the configuration requirements.
 
-To verify if the device can access the above Microsoft resources under the system account, you can use [Test Device Registration Connectivity](https://gallery.technet.microsoft.com/Test-Device-Registration-3dc944c0) script.
+Verify the device can access the above Microsoft resources under the system account by using the [Test Device Registration Connectivity](https://gallery.technet.microsoft.com/Test-Device-Registration-3dc944c0) script.
 
 ## Configure hybrid Azure AD join
 
@@ -102,7 +104,7 @@ To configure a hybrid Azure AD join by using Azure AD Connect:
 
    ![Device options](./media/hybrid-azuread-join-managed-domains/azure-ad-connect-device-options.png)
 
-1. In **SCP configuration**, for each forest where you want Azure AD Connect to configure the SCP, complete the following steps, and then select **Next**:
+1. In **SCP configuration**, for each forest where you want Azure AD Connect to configure the SCP, complete the following steps, and then select **Next**.
 
    1. Select the **Forest**.
    1. Select an **Authentication Service**.
@@ -156,7 +158,7 @@ The installer creates a scheduled task on the system that runs in the user conte
 
 ## Verify the registration
 
-To verify the device registration state in your Azure tenant, you can use the **[Get-MsolDevice](/powershell/msonline/v1/get-msoldevice)** cmdlet in the [Azure Active Directory PowerShell module](/powershell/azure/install-msonlinev1?view=azureadps-2.0).
+Verify the device registration state in your Azure tenant by using **[Get-MsolDevice](/powershell/msonline/v1/get-msoldevice)**. This cmdlet is in the [Azure Active Directory PowerShell module](/powershell/azure/install-msonlinev1?view=azureadps-2.0).
 
 When you use the **Get-MSolDevice** cmdlet to check the service details:
 
