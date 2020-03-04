@@ -2,7 +2,7 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 01/23/2019
+ms.date: 03/04/2020
 ms.author: glenga
 ---
 Now that you have created your first function, let's add an output binding to the function that writes a message to a Storage queue.

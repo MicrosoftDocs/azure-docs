@@ -3,14 +3,14 @@ title: "Quickstart: Create your first function in Azure using Visual Studio"
 description: In this quickstart, you learn how to create and publish an HTTP-triggered Azure Function by using Visual Studio.
 ms.assetid: 82db1177-2295-4e39-bd42-763f6082e796
 ms.topic: quickstart
-ms.date: 02/28/2020
+ms.date: 03/04/2020
 ms.custom: mvc, devcenter, vs-azure, 23113853-34f2-4f
 ---
 # Quickstart: Create your first function in Azure using Visual Studio
 
 Azure Functions lets you execute your code in a [serverless](https://azure.microsoft.com/solutions/serverless/) environment without having to first create a VM or publish a web application.
 
-In this quickstart, you learn how to use Visual Studio 2019 to locally create and test a "hello world" function, and then publish it to Azure. 
+In this quickstart, you learn how to use Visual Studio 2019 to locally create and test a "hello world" HTTP-triggered C# function app, which you then publish to Azure. 
 
 ![Function localhost response in the browser](./media/functions-create-your-first-function-visual-studio/functions-create-your-first-function-visual-studio-browser-local-final.png)
 
@@ -64,13 +64,7 @@ Before you can publish your project, you must have a function app in your Azure 
 
 ## Clean up resources
 
-If you don't expect to need these resources in the future, you can delete them by deleting the resource group:
-
-1. From the Azure portal menu or **Home** page, select or search for **Resource groups**. 
-
-2. On the **Resource groups** page, select the resource group you created for this quickstart.
-
-3. On the **Resource group** page for that resource group, select **Delete resource group**, enter the name of the resource group in the box, and then select **Delete**.
+[!INCLUDE [Clean-up resources](../../includes/functions-quickstart-cleanup.md)]
 
 ## Next steps
 
