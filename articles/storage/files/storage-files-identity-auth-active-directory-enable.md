@@ -4,7 +4,7 @@ description: Learn how to enable identity-based authentication over SMB for Azur
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/23/2020
+ms.date: 03/03/2020
 ms.author: rogarana
 ---
 
@@ -57,13 +57,13 @@ Before you enable AD authentication for Azure file shares, make sure you have co
 
 ## Regional availability
 
-Azure Files AD authentication is available in [most public regions](https://azure.microsoft.com/global-infrastructure/regions/), the subset of regions that it is not yet available in is:
+Azure Files AD authentication (preview) is available in [most public regions](https://azure.microsoft.com/global-infrastructure/regions/).
 
+Azure Files AD authentication is not available in:
 - West US
 - West US 2
 - East US
 - East US 2
-- South Central US
 - West Europe
 - North Europe
 
@@ -125,13 +125,13 @@ Connect-AzAccount
 Select-AzSubscription -SubscriptionId "<your-subscription-id-here>"
 
 #Register the target storage account with your active directory environment under the target OU
-join-AzStorageAccountForAuth -ResourceGroupName "<resource-group-name-here>" -Name "<storage-account-name-here>" -DomainAccountType "<ServiceLogonAccount|ComputerAccount>" -OrganizationUnitName "<ou-name-here>"
+join-AzStorageAccountForAuth -ResourceGroupName "<resource-group-name-here>" -Name "<storage-account-name-here>" -DomainAccountType "<ServiceLogonAccount|ComputerAccount>" -OrganizationalUnitName "<ou-name-here>"
 ```
 
 The following description summarizes all actions performed when the `join-AzStorageAccountForAuth` cmdlet gets executed. You may perform these steps manually, if you prefer not to use the command:
 
 > [!NOTE]
-> If you have already executed the join-AzStorageAccountForAuth script above successfuly, go to the next section "3. Confirm that the feature is enabled". You do not need to perform the operations below again.
+> If you have already executed the join-AzStorageAccountForAuth script above successfully, go to the next section "3. Confirm that the feature is enabled". You do not need to perform the operations below again.
 
 #### a. Checking environment
 

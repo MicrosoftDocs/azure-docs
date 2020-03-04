@@ -27,10 +27,10 @@ The following table describes the features of Recovery Services vaults:
 --- | ---
 **Vaults in subscription** | Up to 500 Recovery Services vaults in a single subscription.
 **Machines in a vault** | Up to 1,000 Azure VMs in a single vault.<br/><br/> Up to 50 MABS servers can be registered in a single vault.
-**Data sources in vault storage** | Maximum 54,400 GB. There's no limit for Azure VM backups.
+**Data sources** | Maximum size of an individual [data source](https://docs.microsoft.com/azure/backup/backup-azure-backup-faq#how-is-the-data-source-size-determined) is 54,400 GB. This limit does not apply to Azure VM backups. No limits apply to the total amount of data you can back up to the vault.
 **Backups to vault** | **Azure VMs:** Once a day.<br/><br/>**Machines protected by DPM/MABS:** Twice a day.<br/><br/> **Machines backed up directly by using the MARS agent:** Three times a day.
 **Backups between vaults** | Backup is within a region.<br/><br/> You need a vault in every Azure region that contains VMs you want to back up. You can't back up to a different region.
-**Move vaults** | You can [move vaults](https://review.docs.microsoft.com/azure/backup/backup-azure-move-recovery-services-vault) across subscriptions or between resource groups in the same subscription. However, moving vaults across regions isn’t supported.
+**Move vaults** | You can [move vaults](https://docs.microsoft.com/azure/backup/backup-azure-move-recovery-services-vault) across subscriptions or between resource groups in the same subscription. However, moving vaults across regions isn’t supported.
 **Move data between vaults** | Moving backed-up data between vaults isn't supported.
 **Modify vault storage type** | You can modify the storage replication type (either geo-redundant storage or locally redundant storage) for a vault before backups are stored. After backups begin in the vault, the replication type can't be modified.
 
@@ -150,8 +150,6 @@ Azure Backup has added the Cross Region Restore feature to strengthen data avail
 | MARS Agent/On premises | No                                                           | N/A               |
 | SQL /SAP HANA          | No                                                           | N/A               |
 | AFS                    | No                                                           | N/A               |
-
-
 
 ## Next steps
 

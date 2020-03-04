@@ -139,7 +139,7 @@ The following snippets are all taken from the _app.js_ file.
   ```
 
 > [!NOTE]
-> In both the "update" and "delete" methods, the item has to be selected from the database by calling `conatiner.item()`. The two parameters passed in are the id of the item and the item's partition key. In this case, the parition key is the value of the "category" field.
+> In both the "update" and "delete" methods, the item has to be selected from the database by calling `container.item()`. The two parameters passed in are the id of the item and the item's partition key. In this case, the parition key is the value of the "category" field.
 
 ## Update your connection string
 

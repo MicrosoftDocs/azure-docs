@@ -155,6 +155,7 @@ The resources currently supported in the second generation alerts experience are
 - Microsoft.Network/natGateways
 - Microsoft.Network/privateEndpoints
 - Microsoft.Network/privateLinkServices
+- Microsoft.Network/trafficManagerProfiles
 - Microsoft.OperationalInsights/workspaces
 - Microsoft.PowerBIDedicated/capacities
 - Microsoft.Relay/namespaces
