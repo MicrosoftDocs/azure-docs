@@ -35,6 +35,13 @@ Use the version identified to confirm which release has been applied to your SQL
 > SELECT SERVERPROPERTY('EngineEdition')
 > ```
 
+## February 2020
+
+| Service improvements | Details |
+| --- | --- |
+|**Database compatibility level (Preview)**| With this release, users can now set a database’s compatibility level to get the Transact-SQL language and query processing behaviors of a specific version of SQL Analytics engine. For more information, see [sys.database_scoped_configurations](/sql/relational-databases/system-catalog-views/sys-database-scoped-configurations-transact-sql?view=azure-sqldw-latest&branch=pr-en-us-13797) and [Alter Database Scoped Configuration](/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql?view=sql-server-ver15).|
+|**Sp_describe_undeclared_parameters (Preview)**| Allow users to see the metadata about undeclared parameters in a Transact-SQL batch. For more information, see [sp_describe_undeclared_parameters](/sql/relational-databases/system-stored-procedures/sp-describe-undeclared-parameters-transact-sql?view=sql-server-ver15).|
+
 ## January 2020
 
 | Service improvements | Details |
