@@ -3,15 +3,15 @@ title: "Tutorial: Get started with Log Analytics queries"
 description: Learn from this tutorial how to write and manage Azure Monitor log queries in a Log Analytics workspace in the Azure portal.
 ms.subservice: logs
 ms.topic: tutorial
-author: v-thepet
-ms.author: v-thepet
-ms.date: 03/02/2020
+author: bwren
+ms.author: bwren
+ms.date: 03/04/2020
 
 ---
 
 # Tutorial: Get started with Log Analytics queries
 
-This tutorial shows you how to use a Log Analytics workspace to write, execute, and manage Azure Monitor log queries in the Azure portal. You can use Log Analytics queries to search for terms, identify trends, analyze patterns, and provide many other insights based on your data. 
+This tutorial shows you how to use a Log Analytics workspace to write, execute, and manage Azure Monitor log queries in the Azure portal. You can use Log Analytics queries to search for terms, identify trends, analyze patterns, and provide many other insights from your data. 
 
 In this tutorial, you learn how to use a Log Analytics workspace to:
 
@@ -35,7 +35,7 @@ You can also use your own environment, if you're using Azure Monitor to collect 
 ## Understand the schema
 A *schema* is a collection of tables grouped under logical categories. The Demo schema has several categories from monitoring solutions. For example, the **LogManagement** category contains Windows and Syslog events, performance data, and agent heartbeats.
 
-The schema tables appear on the **Tables** tab of the Log Analytics workspace. Each table contains columns with different data types, shown by icons next to the column names. For example, the **Event** table contains columns such as **Computer**, which is text, and **EventCategory**, a number.
+The schema tables appear on the **Tables** tab of the Log Analytics workspace. Each table contains columns, each with its own data type, shown by the icon next to the column name. For example, the **Event** table contains columns such as **Computer**, which is text, and **EventCategory**, a number.
 
 ![Schema](media/get-started-portal/schema.png)
 
@@ -54,7 +54,7 @@ The following query retrieves all records from the **Event** table:
 Event
 ```
 
-The pipe (|) character separates commands, so the output of the first command serves as the input of the next command. You can add any number of commands to a single query. The following query retrieves the records from the **Event** table, and then searches them for the term **error** in any property:
+The pipe (|) character separates commands, so the output of the first command is the input of the next command. You can add any number of commands to a single query. The following query retrieves the records from the **Event** table, and then searches them for the term **error** in any property:
 
 ```Kusto
 Event 
@@ -71,24 +71,26 @@ search in (Event) "error"
 
 In the second example, the **search** command searches only records in the **Events** table for the term **error**.
 
-### Run a query
-To run a query, place your cursor somewhere inside the query, and select **Run** in the top bar or press **Shift**+**Enter**. The query runs until it finds a blank line.
-
-Log Analytics limits results to a maximum of 10,000 records, and by default, limits queries to a time range of the past 24 hours. To set a different time range, you can add an explicit **TimeGenerated** filter to the query, or use the **Time range** control.
+By default, Log Analytics limits queries to a time range of the past 24 hours. To set a different time range, you can add an explicit **TimeGenerated** filter to the query, or use the **Time range** control.
 
 ### Use the Time range control
-To set the **Time range** control, select it in the top bar, and then select a value from the dropdown list, or select **Custom** to create a custom time range.
+To use the **Time range** control, select it in the top bar, and then select a value from the dropdown list, or select **Custom** to create a custom time range.
 
 ![Time picker](media/get-started-portal/time-picker.png)
 
 - Time range values are in UTC, which could be different than your local time zone.
 - If the query explicitly sets a filter for **TimeGenerated**, the time picker control shows **Set in query**, and is disabled to prevent a conflict.
 
+### Run a query
+To run a query, place your cursor somewhere inside the query, and select **Run** in the top bar or press **Shift**+**Enter**. The query runs until it finds a blank line.
+
+Log Analytics limits results to a maximum of 10,000 records.
+
 ## Filter results
 A general query like `Event` returns too many results to be useful. You can filter the query results either through restricting the table elements in the query, or by explicitly adding a filter to the results. Filtering through the table elements returns a new result set, while an explicit filter applies to the existing result set.
 
 ### Filter by restricting table elements
-To filter `Event` query results to **Error** events by restricting the table elements in the query:
+To filter `Event` query results to **Error** events by restricting table elements in the query:
 
 1. In the query results, select the dropdown arrow to the left of any record that has **Error** in the **EventLevelName** column. 
    
@@ -110,14 +112,14 @@ To filter the `Event` query results to **Error** events by filtering the query r
 
 1. In the query results, select the **Filter** icon next to the column heading **EventLevelName**. 
    
-1. In the first field of the pop-up window, select **Is equal to**, and in the next field, type *error*. 
+1. In the first field of the pop-up window, select **Is equal to**, and in the next field, enter *error*. 
    
 1. Select **Filter**.
    
    ![Filter](media/get-started-portal/filter.png)
 
 ## Sort, group, and select columns
-To sort query results by a specific column, such as **TimeGenerated (UTC)**, select the column heading. Select again to toggle between ascending and descending order.
+To sort query results by a specific column, such as **TimeGenerated (UTC)**, select the column heading. Select the heading again to toggle between ascending and descending order.
 
 ![Sort column](media/get-started-portal/sort-column.png)
 
@@ -125,7 +127,7 @@ Another way to organize results is by groups. To group results by a specific col
 
 ![Groups](media/get-started-portal/groups.png)
 
-To hide or show columns in the results, select **Columns** above the table, and then select or deselect desired columns in the dropdown list.
+To hide or show columns in the results, select **Columns** above the table, and then select or deselect the columns you want in the dropdown list.
 
 ![Select columns](media/get-started-portal/select-columns.png)
 
@@ -149,25 +151,25 @@ The results appear in a stacked bar chart. Select other options like **Stacked C
 
 You can change properties of the view, such as x and y axes, or grouping and splitting preferences, manually from the control bar.
 
-You can also set the preferred view in the query itself, using the `render` operator.
+You can also set the preferred view in the query itself, using the [render](/azure/kusto/query/renderoperator) operator.
 
 ## Pin results to a dashboard
-To pin a results chart or table from your Log Analytics workspace to a shared Azure dashboard, select **Pin to dashboard** on the top bar. 
+To pin a results table or chart from your Log Analytics workspace to a shared Azure dashboard, select **Pin to dashboard** on the top bar. 
 
 ![Pin to dashboard](media/get-started-portal/pin-dashboard.png)
 
-In the **Pin to another dashboard** pane, select the shared dashboard to pin the results to, or create a new one, and select **Apply**. The table or chart appears on the selected Azure dashboard.
+In the **Pin to another dashboard** pane, select or create a shared dashboard to pin to, and select **Apply**. The table or chart appears on the selected Azure dashboard.
 
 ![Chart pinned to dashboard](media/get-started-portal/pin-dashboard2.png)
 
-A chart or table that you pin to a shared dashboard has the following simplifications: 
+A table or chart that you pin to a shared dashboard has the following simplifications: 
 
 - Data is limited to the past 14 days.
 - A table shows only up to four columns and the top seven rows.
 - Charts with many discrete categories automatically group less populated categories into a single **others** bin.
 
 ## Save, load, or export queries
-Once you've created a useful query, you can save or share with others. 
+Once you create a query, you can save or share the query or results with others. 
 
 ### Save queries
 To save a query:
@@ -178,16 +180,16 @@ To save a query:
    
 1. Select whether to save the query as a **Query** or a **Function**. Functions are queries that other queries can reference. 
    
-   To save a query as a function, provide a function alias, which is a short name for other queries to use to call this query.
+   To save a query as a function, provide a **Function Alias**, which is a short name for other queries to use to call this query.
    
-1. Provide a **Category** name to save the query under in **Query explorer**.
+1. Provide a **Category** name that **Query explorer** can use for the query.
    
 1. Select **Save**.
    
    ![Save function](media/get-started-portal/save-function.png)
 
 ### Load queries
-To load a saved query, select **Query explorer** at top right. The **Query explorer** pane opens, listing all queries by category. Expand the categories or enter a query name in the search bar, then select the query to load it into the **Query editor**. You can mark a query as a **Favorite** by selecting the star next to the query name.
+To load a saved query, select **Query explorer** at upper right. The **Query explorer** pane opens, listing all queries by category. Expand the categories or enter a query name in the search bar, then select the query to load it into the **Query editor**. You can mark a query as a **Favorite** by selecting the star next to the query name.
 
 ![Query explorer](media/get-started-portal/query-explorer.png)
 
@@ -198,6 +200,6 @@ To share a link to a query, select **Copy link** on the top bar, and then select
 
 ## Next steps
 
-In this tutorial, you learned to write and manage simple queries in a Log Analytics workspace in the Azure portal. Advance to the next tutorial to learn more about writing Azure Monitor log queries.
+Advance to the next tutorial to learn more about writing Azure Monitor log queries.
 > [!div class="nextstepaction"]
 > [Write Azure Monitor log queries](get-started-queries.md)
