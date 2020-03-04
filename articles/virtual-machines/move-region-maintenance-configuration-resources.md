@@ -40,36 +40,36 @@ Before you begin moving the resources associated with a Maintenance Control conf
 
 1. Before you start, define these variables. We've provided an example for each.
 
-    **Variable** | **Example**
+    **Variable** | **Details** | **Example**
     --- | ---
-    $subId |    "subscription-ID-number"
-    $rsrcGroupName | "TestResourceGroup"
-    $vmName | "DXT-text-02"
-    $adhRsrcGroupName | "IgniteDemo-RG"
-    $adh | "myHost"
-    $adhParentName | "myHostGroup"
-2. To retrieve the maintenance configurations using PowerShell:
+    $subId | ID for subscription containing the maintenance configurations | "our-subscription-ID"
+    $rsrcGroupName | Resource group name (Azure VM) | "VMResourceGroup"
+    $vmName | VM resource name |  "myVM"
+    $adhRsrcGroupName |  Resource group (Dedicated hosts) | "HostResourceGroup"
+    $adh | Dedicated host name | "myHost"
+    $adhParentName | Parent resource name | "HostGroup"
+    
+2. To retrieve the maintenance configurations using the PowerShell [Get-AZConfigurationAssignment](https://docs.microsoft.com/powershell/module/az.maintenance/Get-AzConfigurationAssignment?view=azps-3.5.0) command:
 
-    - For Azure Dedicated Hosts, run this command:
-
+    - For Azure Dedicated Hosts, run:
         ```
         Get-AzConfigurationAssignment -ResourceGroupName $adhRsrcGroupName -ResourceName $adh -ResourceType hosts -ProviderName Microsoft.Compute -ResourceParentName $adhParentName -ResourceParentType hostGroups | Format-Table Name
         ```
 
-    - For Azure VMs, run this command:
+    - For Azure VMs, run:
 
         ```
         Get-AzConfigurationAssignment -ResourceGroupName $rgName -ResourceName $vmName -ProviderName Microsoft.Compute -ResourceType virtualMachines | Format-Table Name
         ```
-3. To retrieve the maintenance configurations using CLI:
+3. To retrieve the maintenance configurations using the CLI [az maintenance assignment](https://docs.microsoft.com/cli/azure/ext/maintenance/maintenance/assignment?view=azure-cli-latest) command:
 
-    - For Azure Dedicated Hosts, run this command:
+    - For Azure Dedicated Hosts:
 
         ```
         az maintenance assignment list --subscription $subId --resource-group $adhRsrcGroupName --resource-name $adh --resource-type hosts --provider-name Microsoft.Compute --resource-parent-name $adhParentName --resource-parent-type hostGroups --query "[].{HostResourceGroup:resourceGroup,ConfigName:name}" --output table
         ```
 
-    - For Azure VMs, run this command:
+    - For Azure VMs:
 
         ```
         az maintenance assignment list --subscription $subId --provider-name Microsoft.Compute --resource-group $rsrcGroupName --resource-name $vmName --resource-type virtualMachines --query "[].{HostResourceGroup:resourceGroup, ConfigName:name}" --output table
