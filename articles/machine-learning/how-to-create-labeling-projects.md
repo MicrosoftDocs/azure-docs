@@ -1,7 +1,7 @@
 ---
 title: Create a data labeling project
 titleSuffix: Azure Machine Learning
-description: Learn how to create and run labeling projects to tag data for machine learning.  The tools include assisted ML, or human in the loop labeling to aid with the task.
+description: Learn how to create and run labeling projects to tag data for machine learning.  The tools include ml assisted labeling, or human in the loop labeling to aid with the task.
 author: sdgilley
 ms.author: sgilley
 ms.service: machine-learning
@@ -16,11 +16,11 @@ ms.date: 03/01/2020
 
 Labeling voluminous data in machine learning projects is often a headache. Projects that have a computer-vision component, such as image classification or object detection, generally require labels for thousands of images.
  
-[Azure Machine Learning](https://ml.azure.com/) gives you a central place to create, manage, and monitor labeling projects. Use it to coordinate data, labels, and team members to efficiently manage labeling tasks. Machine Learning supports image classification, either multi-label or multi-class, and object identification together with bounded boxes.
+[Azure Machine Learning](https://ml.azure.com/) gives you a central place to create, manage, and monitor labeling projects. Use it to coordinate data, labels, and team members to efficiently manage labeling tasks. Machine Learning supports image classification, either multi-label or multi-class, and object identification with bounded boxes.
 
 Machine Learning tracks progress and maintains the queue of incomplete labeling tasks. Labelers don't need an Azure account to participate. After they are authenticated with your Microsoft account or [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis), they can do as much labeling as their time allows.
 
-You start and stop the project, add and remove people and teams, and monitor progress. You can export labeled data in COCO format or as an Azure Machine Learning dataset.
+You start and stop the project, add and remove labelers and teams, and monitor the labeling progress. You can export labeled data in COCO format or as an Azure Machine Learning dataset.
 
 > [!Important]
 > Only image classification and object identification labeling projects are currently supported. Additionally, the data images must be available in an Azure blob datastore. (If you do not have an existing datastore, you may upload images during project creation.) 
@@ -121,6 +121,8 @@ For bounding boxes, important questions include:
 
 * How is the bounding box defined for this task? Should it be entirely on the interior of the object, or should it be on the exterior? Should it be cropped as closely as possible, or is some clearance acceptable?
 * What level of care and consistency do you expect the labelers to apply in defining bounding boxes?
+* How to label the object that is partially shown in the image? 
+* How to label the object that partially covered by other object?
 
 >[!NOTE]
 > Be sure to note that the labelers will be able to select the first 9 labels by using number keys 1-9.
@@ -131,17 +133,18 @@ For bounding boxes, important questions include:
 
 The **ML assisted labeling** page lets you trigger automatic machine learning models to accelerate the labeling task.  This feature is available for image classification (multi-class or multi-label) tasks.  
 
-Select *Enable ML assisted labeling* and specify a GPU to enable the two phases of assisted labeling:
+Select *Enable ML assisted labeling* and specify a GPU to enable assisted labeling, which consists of two phases:
 
-* **Clustering** - after a certain number of labels are submitted, the machine learning model starts to group together similar images.  These similar images are presented to the labelers on the same screen to speed up manual tagging. Clustering is most useful when the labeler is viewing multiple images.  
+* **Clustering** - after a certain number of labels are submitted, the machine learning model starts to group together similar images.  These similar images are presented to the labelers on the same screen to speed up manual tagging. Clustering is especially useful when the labeler is viewing a grid of 4, 6, or 9 images.  
 
 * **Prelabeling** - after more image labels are submitted, a classification model is used to predict image tags.  The labeler now sees pages that contain predicted labels already present on each image.  The task is then to review these labels and correct any mis-labeled images before submitting the page.  
 
-The exact number of labeled images necessary to start assisted labeling is not a fixed number. The first clustering model is  built once there are 350 labeled images, and the first classification model will build with 900 labeled images. But the models aren't used until an accuracy threshold is also met.  
+The exact number of labeled images necessary to start assisted labeling is not a fixed number.  The actual value depends on the number of label classes defined in your project. Labeling service will start to train a model when there are enough labels and use the model to produce either a clustered or prelabeled task.
 
 Since the final labels still rely on input from the labeler, this technology is sometimes called *human in the loop* labeling.
 
-This feature is available only in Enterprise edition workspaces.
+> [!NOTE]
+> ML assisted labeling is available **only** in Enterprise edition workspaces.
 
 ## Initialize the labeling project
 
@@ -169,7 +172,7 @@ To pause or restart the project, select the **Pause**/**Start** button. You can 
 
 You can label data directly from the **Project details** page by selecting **Label data**.
 
-## Add labels to a project
+## Add new label class to a project
 
 During the labeling process, you may find that additional labels are needed to classify your images.  For example, you may want to add an "Unknown" or "Other" label to indicate confusing images.
 
