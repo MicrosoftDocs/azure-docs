@@ -356,6 +356,34 @@
       href: move-across-regions-publicip-portal.md
     - name: Public IPs - PowerShell
       href: move-across-regions-publicip-powershell.md
+  - name: Troubleshoot
+    items:
+    - name: Troubleshoot virtual network peering issues
+      href: virtual-network-troubleshoot-peering-issues.md
+    - name: Configure and validate VNet or VPN connections
+      href: virtual-network-configure-vnet-connections.md
+    - name: Network security groups
+      href: diagnose-network-traffic-filter-problem.md
+    - name: Routes
+      href: diagnose-network-routing-problem.md
+    - name: Throughput testing
+      href: virtual-network-bandwidth-testing.md
+    - name: Test VM network latency
+      href: virtual-network-test-latency.md
+    - name: Cannot delete virtual networks
+      href: virtual-network-troubleshoot-cannot-delete-vnet.md
+    - name: VM to VM connectivity problems
+      href: virtual-network-troubleshoot-connectivity-problem-between-vms.md
+    - name: Configure PTR for SMTP Banner Check
+      href: create-ptr-for-smtp-service.md
+    - name: Troubleshooting checklist for virtual appliances
+      href: virtual-network-troubleshoot-nva.md
+    - name: Troubleshooting outbound SMTP connectivity
+      href: troubleshoot-outbound-smtp-connectivity.md
+    - name: About IP address 168.63.129.16
+      href: what-is-ip-address-168-63-129-16.md
+    - name: Troubleshoot Azure VM connectivity problems
+      href: troubleshoot-vm-connectivity.md
   - name: Classic deployment
     href: https://docs.microsoft.com/previous-versions/azure/virtual-network/create-virtual-network-classic
 - name: Reference
