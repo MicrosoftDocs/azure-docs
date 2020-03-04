@@ -39,6 +39,7 @@ You also need an active Azure subscription. [!INCLUDE [quickstarts-free-trial-no
 > The JAVA_HOME environment variable must be set to the install location of the JDK to complete this quickstart.
 
 ## Prepare a Functions project
+
 ::: zone pivot="java-build-tools-maven" 
 In an empty folder, run the following command to generate the Functions project from a [Maven archetype](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html).
 
