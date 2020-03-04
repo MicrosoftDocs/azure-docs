@@ -66,9 +66,10 @@ To add the Bing Spell Check SDK to your project, select **Manage NuGet Packages*
 2. Get the first spell check result, if there is one. Print the first misspelled word (token) returned, the token type, and the number of suggestions.
 
     ```csharp
-    if (firstspellCheckResult != null){
-        var firstspellCheckResult = result.Body.FlaggedTokens.FirstOrDefault();
+    var firstspellCheckResult = result.Body.FlaggedTokens.FirstOrDefault();
     
+    if (firstspellCheckResult != null)
+    {
         Console.WriteLine("SpellCheck Results#{0}", result.Body.FlaggedTokens.Count);
         Console.WriteLine("First SpellCheck Result token: {0} ", firstspellCheckResult.Token);
         Console.WriteLine("First SpellCheck Result Type: {0} ", firstspellCheckResult.Type);
