@@ -47,7 +47,7 @@ The examples in this article use the following values. You can use these values 
 * **Subnet:** FrontEnd: 10.1.0.0/24, BackEnd: 10.1.1.0/24 (optional for this exercise)
 * **Gateway subnet address range:** 10.1.255.0/27
 * **Virtual network gateway name:** VNet1GW
-* **Public IP address name:** VNet1GWIP
+* **Public IP address name:** VNet1GWpip
 * **VPN type:** Route-based
 * **Connection type:** Site-to-site (IPsec)
 * **Gateway type:** VPN
@@ -73,7 +73,7 @@ In this step, you create the virtual network gateway for your VNet. Creating a g
 * **Instance details > Gateway type:** VPN
 * **Instance details > VPN type:** Route-based
 * **Virtual Network > Gateway subnet address range:** 10.1.255.0/27
-* **Public IP address > Public IP address name:** VNet1GWIP
+* **Public IP address > Public IP address name:** VNet1GWpip
 
 [!INCLUDE [Create a vpn gateway](../../includes/vpn-gateway-add-gw-rm-portal-include.md)]
 
