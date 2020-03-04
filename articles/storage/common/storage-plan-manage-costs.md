@@ -5,9 +5,10 @@ services: storage
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/03/2020
+ms.date: 03/04/2020
 ms.author: normesta
 ms.subservice: common
+ms.custom: subject-cost-optimization
 ---
 
 # Plan and manage costs for Azure Storage
