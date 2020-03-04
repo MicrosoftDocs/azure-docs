@@ -124,14 +124,14 @@ Where *--enable-private-cluster* is a mandatory flag for a private cluster.
 
 ## Connect to the private cluster
 
-The API server endpoint has no public IP address. To manage the API server, you will need a machine or service that has access to the AKS cluter's Azure Virtual Network (VNet).
+The API server endpoint has no public IP address. To manage the API server, you will need a machine or service that has access to the AKS cluter's Azure Virtual Network (VNet).  There are several options for establishing network connectivity to the private cluster.
 
-* Use [Azure Bastion](Azure Bastion), a fully-managed PaaS service you can provision inside your AKS cluster's virtual network
+* Use [Azure Bastion](azure-bastion), a fully-managed PaaS service you can provision inside your AKS cluster's virtual network
 * Create a VM in the same Azure Virtual Network (VNet) as the AKS cluster
 * Use a VM in a separate network and set up [Virtual network peering](virtual-network-peering)
-* Use an [Express Route or a VPN](Express Route or a VPN) connection
+* Use an [Express Route or a VPN](express-route-or-vpn) connection
 
-There are some advantages and disadvantages to each option.  Azure Bastion provides the simplest solution, and you don't to create and manaage additional VMs.  Express Route and VPNs require more complex networking.  Virtual network peering requires you to plan your network CIDR ranges to ensure there are not overlapping ranges.
+There are some advantages and disadvantages to each option.  Azure Bastion provides the simplest solution, and you don't need to create and manaage additional VMs.  Express Route and VPNs require more complex networking.  Virtual network peering requires you to plan your network CIDR ranges to ensure there are not overlapping ranges.
 
 ## Dependencies  
 * The Private Link service is supported on Standard Azure Load Balancer only. Basic Azure Load Balancer isn't supported.  
@@ -158,6 +158,6 @@ There are some advantages and disadvantages to each option.  Azure Bastion provi
 [az-extension-update]: /cli/azure/extension#az-extension-update
 [private-link-service]: https://docs.microsoft.com/azure/private-link/private-link-service-overview
 [virtual-network-peering]: ../virtual-network/virtual-network-peering-overview.md
-[Azure Bastion]
-[Express Route] ../expressroute/expressroute-about-virtual-network-gateways
+[azure-bastion]  ../bastion/bastion-create-host-portal
+[express-route-or-vpn] ../expressroute/expressroute-about-virtual-network-gateways
 
