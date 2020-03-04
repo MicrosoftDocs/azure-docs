@@ -35,7 +35,7 @@ The following code queries a WFS service and renders the returned features on th
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Simple WFS example' src='//codepen.io/azuremaps/embed/MWwvVYY/?height=500&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/MWwvVYY/'>Simple WFS example</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
+<iframe height='700' scrolling='no' title='Simple WFS example' src='//codepen.io/azuremaps/embed/MWwvVYY/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/MWwvVYY/'>Simple WFS example</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## Supported filters
@@ -77,7 +77,7 @@ The following code demonstrates the use of different filters with the WFS client
 
 <br/>
 
-<iframe height='500' scrolling='no' title= 'WFS filter examples' src='//codepen.io/azuremaps/embed/NWqvYrV/?height=500&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/NWqvYrV/'>WFS filter examples</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
+<iframe height='850' scrolling='no' title= 'WFS filter examples' src='//codepen.io/azuremaps/embed/NWqvYrV/?height=500&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/NWqvYrV/'>WFS filter examples</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## WFS service explorer
@@ -86,7 +86,7 @@ The following code uses the WFS client to explore WFS services. Select a propert
 
 <br/>
 
-<iframe height='500' scrolling='no' title= 'WFS service explorer' src='//codepen.io/azuremaps/embed/bGdrvmG/?height=500&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/bGdrvmG/'>WFS service explorer</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
+<iframe height='700' scrolling='no' title= 'WFS service explorer' src='//codepen.io/azuremaps/embed/bGdrvmG/?height=500&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/bGdrvmG/'>WFS service explorer</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 You may also use a proxy service to load resource that is hosted on domains that aren't CORs enabled. You would first define a variable to hold the proxy service url and set the `proxyService` option for the WFS client. To render a proxy service option for the user, add a user input to the UI. Load the service url when the input is clicked. The following snippets show you how to use the proxy service.

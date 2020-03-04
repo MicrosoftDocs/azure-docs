@@ -23,7 +23,7 @@ The Azure Maps Web SDK provides a **Spatial IO module**. The  Spatial IO module 
 - Overlay complex data sets that contain style information and have them render automatically.
 - Leverage high-speed XML and delimited file reader and writer classes.
 
-In this guide, we'll learn how to install the Spatial IO module. Then, we'll demonstrate the use of the Spatial IO module in a web application.
+In this guide, we'll learn how to integrate and use the Spatial IO module in a web application.
 
 ## Prerequisites
 

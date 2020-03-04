@@ -103,7 +103,7 @@ landingContent:
           - text: Service module
             url: https://docs.microsoft.com/javascript/api/azure-maps-rest/?view=azure-maps-typescript-latest
           - text: Spatial IO module 
-            url: https://docs.microsoft.com/en-us/javascript/api/azure-maps-spatial-io/?view=azure-maps-typescript-latest
+            url: https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/?view=azure-maps-typescript-latest
   # Card
   - title: Developing with Android SDK
     linkLists:
