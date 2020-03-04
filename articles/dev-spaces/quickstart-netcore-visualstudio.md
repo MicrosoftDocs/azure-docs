@@ -118,7 +118,7 @@ Remove the breakpoint by putting your cursor on line 20 in `Controllers/HomeCont
 
 Navigate to your resource group in the Azure portal and click *Delete resource group*. Alternatively, you can use the [az aks delete](/cli/azure/aks#az-aks-delete) command:
 
-```cmd
+```azurecli
 az group delete --name MyResourceGroup --yes --no-wait
 ```
 
