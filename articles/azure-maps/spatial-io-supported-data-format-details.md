@@ -11,7 +11,7 @@ manager: philmea
 ---
 # Supported data format details
 
-This article provides specifics on the read and write support for all XML tags and Well Known Text geometry types. Details are provided on how delimited spatial data is parsed in the spatial IO module.
+This article provides specifics on the read and write support for all XML tags and Well Known Text geometry types. It also details the way delimited spatial data is parsed in the spatial IO module.
 
 ## Supported XML namespaces
 
@@ -33,7 +33,7 @@ The spatial IO module supports XML tags from the following namespaces.
 
 ## Supported XML elements
 
-The spatial IO module supports the following XML elements. Any XML tags that aren't supported will be converted into a JSON object and added to as a property in the `properties` field of the parent shape or layer.
+The spatial IO module supports the following XML elements. Any XML tags that aren't supported will be converted into a JSON object. Then, each tag will be added as a property in the `properties` field of the parent shape or layer.
 
 ### KML elements
 
@@ -59,7 +59,7 @@ The spatial IO module supports the following KML elements.
 | `east`               | yes     | yes     |                                                                                                                            |
 | `end`                | yes     | yes     |                                                                                                                            |
 | `ExtendedData`       | yes     | yes     | Supports untyped `Data`, `SimpleData` or `Schema`, and entity replacements of the form `$[dataName]`.                      |
-| `extrude`            | partial | partial | Only supported for polygons. MultiGeometry that have polygons of different heights will be broken out into individual features. Line styles aren't supported. Polygons with an altitude of 0 will be rendered as a flat polygon. When reading, the altitude of the first coordinate in the exterior ring will be added as a height property of the polygon. Then, the altitude of the first coordinate will be used to render the polygon accordingly on the map. |
+| `extrude`            | partial | partial | Only supported for polygons. MultiGeometry that have polygons of different heights will be broken out into individual features. Line styles aren't supported. Polygons with an altitude of 0 will be rendered as a flat polygon. When reading, the altitude of the first coordinate in the exterior ring will be added as a height property of the polygon. Then, the altitude of the first coordinate will be used to render the polygon on the map. |
 | `fill`               | yes     | yes     |                                                                                                                            |
 | `Folder`             | yes     | yes     |                                                                                                                            |
 | `GroundOverlay`      | yes     | yes     | `color` isn't supported                                                                                                   |
@@ -242,7 +242,7 @@ The spatial IO module supports the following GML elements.
 - Member elements will be searched for a geometry that may be buried within child elements. This search operation is necessary as many XML formats that extend from GML may not place a geometry as a direct child of a member element.
 - `srsName` is partially supported for WGS84 coordinates and the following codes:[EPSG:4326](https://epsg.io/4326)), and web mercator ([EPSG:3857](https://epsg.io/3857) or one of its alternative codes. Any other coordinate system will be parsed as WGS84 as-is.
 - Unless specified when reading an XML feed, the axis order is determined based on hints in the XML feed. A preference is given for the "latitude, longitude" axis order.
-- Unless a custom GML namespace is specified for the properties when writing to a GML file, additional property information will not be added to the GML file.
+- Unless a custom GML namespace is specified for the properties when writing to a GML file, additional property information will not be added.
 
 ### GPX elements
 
@@ -337,7 +337,7 @@ When writing;
 
 ## Delimited spatial data support
 
-Delimited spatial data, such as comma-separated value files (CSV), often have columns that contain spatial data. There could be columns that contain latitude and longitude information. In Well Known Text format, there could be a column that contains spatial geometry data.
+Delimited spatial data, such as comma-separated value files (CSV), often have columns that contain spatial data. For example, there could be columns that contain latitude and longitude information. In Well Known Text format, there could be a column that contains spatial geometry data.
 
 ### Spatial data column detection
 
