@@ -30,10 +30,10 @@ By leveraging repository namespaces, you can allow sharing a single registry acr
 
 For example, consider the following container image tags. Images that are used corporate-wide, like `aspnetcore`, are placed in the root namespace, while container images owned by the Products and Marketing groups each use their own namespaces.
 
-*contoso.azurecr.io/aspnetcore:2.0*
-*contoso.azurecr.io/products/widget/web:1*
-*contoso.azurecr.io/products/bettermousetrap/refundapi:12.3*
-*contoso.azurecr.io/marketing/2017-fall/concertpromotions/campaign:218.42*
+- *contoso.azurecr.io/aspnetcore:2.0*
+- *contoso.azurecr.io/products/widget/web:1*
+- *contoso.azurecr.io/products/bettermousetrap/refundapi:12.3*
+- *contoso.azurecr.io/marketing/2017-fall/concertpromotions/campaign:218.42*
 
 ## Dedicated resource group
 
