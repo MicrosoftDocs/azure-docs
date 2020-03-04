@@ -638,6 +638,8 @@ Patches and fixes for major security vulnerabilities will be released as soon as
 
 If a supported Java runtime will be retired, Azure developers using the affected runtime will be given a deprecation notice at least six months before the runtime is retired.
 
+[!INCLUDE [robots933456](../../../includes/app-service-web-configure-robots933456.md)]
+
 ## Next steps
 
 Visit the [Azure for Java Developers](/java/azure/) center to find Azure quickstarts, tutorials, and Java reference documentation.
