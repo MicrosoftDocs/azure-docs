@@ -67,99 +67,101 @@ How a client connects to Azure Cosmos DB has important performance implications,
 
      Direct mode supports connectivity through TCP protocol and is the default connectivity mode if you're using the [Microsoft.Azure.Cosmos/.NET V3 SDK](sql-api-sdk-dotnet-standard.md).
 
-     In gateway mode, Azure Cosmos DB uses port 443 and ports 10250, 10255, and 10256 when you're using the Azure Cosmos DB API for MongoDB. Port 10250 maps to a default MongoDB instance without geo-replication. Ports 10255 and 10256 map to the MongoDB instance that has geo-replication.
+In gateway mode, Azure Cosmos DB uses port 443 and ports 10250, 10255, and 10256 when you're using the Azure Cosmos DB API for MongoDB. Port 10250 maps to a default MongoDB instance without geo-replication. Ports 10255 and 10256 map to the MongoDB instance that has geo-replication.
      
-     When you use TCP in direct mode, in addition to the gateway ports, you need to ensure the port range between 10000 and 20000 is open because Azure Cosmos DB uses dynamic TCP ports. If these ports aren't open and you try to use TCP, you receive a 503 Service Unavailable error. This table shows the connectivity modes available for various APIs and the service ports used for each API:
+When you use TCP in direct mode, in addition to the gateway ports, you need to ensure the port range between 10000 and 20000 is open because Azure Cosmos DB uses dynamic TCP ports. If these ports aren't open and you try to use TCP, you receive a 503 Service Unavailable error. This table shows the connectivity modes available for various APIs and the service ports used for each API:
 
-     |Connection mode  |Supported protocol  |Supported SDKs  |API/Service port  |
-     |---------|---------|---------|---------|
-     |Gateway  |   HTTPS    |  All SDKs    |   SQL (443), Mongo (10250, 10255, 10256), Table (443), Cassandra (10350), Graph (443)    |
-     |Direct    |     TCP    |  .NET SDK    | Ports in the 10000-20000 range |
+|Connection mode  |Supported protocol  |Supported SDKs  |API/Service port  |
+|---------|---------|---------|---------|
+|Gateway  |   HTTPS    |  All SDKs    |   SQL (443), MongoDB (10250, 10255, 10256), Table (443), Cassandra (10350), Graph (443)    |
+|Direct    |     TCP    |  .NET SDK    | Ports in the 10000 through 20000 range |
 
-     Azure Cosmos DB offers a simple and open RESTful programming model over HTTPS. Additionally, it offers an efficient TCP protocol, which is also RESTful in its communication model and is available through the .NET client SDK. TCP protocol uses SSL for initial authentication and encrypting traffic. For best performance, use the TCP protocol when possible.
+Azure Cosmos DB offers a simple, open RESTful programming model over HTTPS. Additionally, it offers an efficient TCP protocol, which is also RESTful in its communication model and is available through the .NET client SDK. TCP protocol uses SSL for initial authentication and encrypting traffic. For best performance, use the TCP protocol when possible.
 
-     For SDK V3, the connectivity mode is configured while creating the CosmosClient instance, as part of the CosmosClientOptions, remember that Direct mode is the default.
+For SDK V3, you configure the connection mode when you create the `CosmosClient` instance, in `CosmosClientOptions`. Remember that direct mode is the default.
 
-     ```csharp
-     var serviceEndpoint = new Uri("https://contoso.documents.net");
-     var authKey = "your authKey from the Azure portal";
-     CosmosClient client = new CosmosClient(serviceEndpoint, authKey,
-     new CosmosClientOptions
-     {
-        ConnectionMode = ConnectionMode.Gateway // ConnectionMode.Direct is the default
-     });
-     ```
+```csharp
+var serviceEndpoint = new Uri("https://contoso.documents.net");
+var authKey = "your authKey from the Azure portal";
+CosmosClient client = new CosmosClient(serviceEndpoint, authKey,
+new CosmosClientOptions
+{
+    ConnectionMode = ConnectionMode.Gateway // ConnectionMode.Direct is the default
+});
+```
 
-     For the Microsoft.Azure.DocumentDB SDK, the connectivity mode is configured during the construction of the DocumentClient instance with the ConnectionPolicy parameter. If Direct Mode is used, the Protocol can also be set within the ConnectionPolicy parameter.
+For the Microsoft.Azure.DocumentDB SDK, you configure the connection mode during the construction of the `DocumentClient` instance by using the `ConnectionPolicy` parameter. If you use direct mode, you can also set the `Protocol` by using the `ConnectionPolicy` parameter.
 
-     ```csharp
-     var serviceEndpoint = new Uri("https://contoso.documents.net");
-     var authKey = "your authKey from the Azure portal";
-     DocumentClient client = new DocumentClient(serviceEndpoint, authKey,
-     new ConnectionPolicy
-     {
-        ConnectionMode = ConnectionMode.Direct, //ConnectionMode.Gateway is the default
-        ConnectionProtocol = Protocol.Tcp
-     });
-     ```
+```csharp
+var serviceEndpoint = new Uri("https://contoso.documents.net");
+var authKey = "your authKey from the Azure portal";
+DocumentClient client = new DocumentClient(serviceEndpoint, authKey,
+new ConnectionPolicy
+{
+   ConnectionMode = ConnectionMode.Direct, // ConnectionMode.Gateway is the default
+   ConnectionProtocol = Protocol.Tcp
+});
+```
 
-     Because TCP is only supported in Direct Mode, if gateway mode is used, then the HTTPS protocol is always used to communicate with the Gateway and the Protocol value in the ConnectionPolicy is ignored.
+Because TCP is supported only in direct mode, if you use gateway mode, the HTTPS protocol is always used to communicate with the gateway and the `Protocol` value in `ConnectionPolicy` is ignored.
 
-     ![Illustration of the Azure Cosmos DB connection policy](./media/performance-tips/connection-policy.png)
+![The Azure Cosmos DB connection policy](./media/performance-tips/connection-policy.png)
 
-2. **Call OpenAsync to avoid startup latency on first request**
+**Call OpenAsync to avoid startup latency on first request**
 
-    By default, the first request has a higher latency because it has to fetch the address routing table. When using the [SDK V2](sql-api-sdk-dotnet.md), to avoid this startup latency on the first request, you should call OpenAsync() once during initialization as follows.
+By default, the first request has higher latency because it needs to fetch the address routing table. When you use [SDK V2](sql-api-sdk-dotnet.md), call `OpenAsync()` once during initialization to avoid this startup latency on the first request:
 
-        await client.OpenAsync();
+    await client.OpenAsync();
 
-    > [!NOTE] 
-    > OpenAsync method will generate requests to obtain the address routing table for all the containers in the account. For accounts that have many containers but their application accesses a subset of them, it would generate an unnecessary amount of traffic that makes the initialization slow. So using OpenAsync method might not be useful in this scenario as it slows down application startup.
+> [!NOTE] 
+> `OpenAsync` will generate requests to obtain the address routing table for all the containers in the account. For accounts that have many containers but whose application accesses a subset of them, `OpenAsync` would generate an unnecessary amount of traffic, which would make the initialization slow. So using `OpenAsync` might not be useful in this scenario because it slows down application startup.
 
    <a id="same-region"></a>
-3. **Collocate clients in same Azure region for performance**
+**For performance, collocate clients in same Azure region**
 
-    When possible, place any applications calling Azure Cosmos DB in the same region as the Azure Cosmos database. For an approximate comparison, calls to Azure Cosmos DB within the same region complete within 1-2 ms, but the latency between the West and East coast of the US is >50 ms. This latency can likely vary from request to request depending on the route taken by the request as it passes from the client to the Azure datacenter boundary. The lowest possible latency is achieved by ensuring the calling application is located within the same Azure region as the provisioned Azure Cosmos DB endpoint. For a list of available regions, see [Azure Regions](https://azure.microsoft.com/regions/#services).
+When possible, place any applications that call Azure Cosmos DB in the same region as the Azure Cosmos DB database. Here's an approximate comparison: calls to Azure Cosmos DB within the same region complete within 1 to 2 ms, but the latency between the West and East coast of the US is more than 50 ms. This latency can vary from request to request, depending on the route taken by the request as it passes from the client to the Azure datacenter boundary. You can get the lowest possible latency ensuring the calling application is located within the same Azure region as the provisioned Azure Cosmos DB endpoint. For a list of available regions, see [Azure regions](https://azure.microsoft.com/regions/#services).
 
-    ![Illustration of the Azure Cosmos DB connection policy](./media/performance-tips/same-region.png)
+![The Azure Cosmos DB connection policy](./media/performance-tips/same-region.png)
    <a id="increase-threads"></a>
 
-4. **Increase number of threads/tasks**
+**Increase the number of threads/tasks**
 
-    Since calls to Azure Cosmos DB are made over the network, you may need to vary the degree of parallelism of your requests so that the client application spends very little time waiting between requests. For example, if you're using .NET's [Task Parallel Library](https://msdn.microsoft.com//library/dd460717.aspx), create in the order of 100s of Tasks reading or writing to Azure Cosmos DB.
+Because calls to Azure Cosmos DB are made over the network, you might need to vary the degree of parallelism of your requests so that the client application spends minimal time waiting between requests. For example, if you're using the .NET [Task Parallel Library](https://msdn.microsoft.com//library/dd460717.aspx), create on the order of hundreds of tasks reading from or writing to Azure Cosmos DB.
 
-5. **Enable accelerated networking**
+**Enable accelerated networking**
+ 
+ To reduce latency and CPU jitter, we recommend that accelerated networking is enabled on client virtual machines. See [Create a Windows virtual machine with accelerated networking](../virtual-network/create-vm-accelerated-networking-powershell.md) or [Create a Linux virtual machine with accelerated networking](../virtual-network/create-vm-accelerated-networking-cli.md) for information on how to enable accelerated networking.
 
-   In order to reduce latency and CPU jitter, we recommend that the client virtual machines are accelerated networking enabled. See the [Create a Windows virtual machine with Accelerated Networking](../virtual-network/create-vm-accelerated-networking-powershell.md) or [Create a Linux virtual machine with Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md) articles to enable accelerated networking.
+## SDK usage
+**Install the most recent SDK**
 
+The Azure Cosmos DB SDKs are constantly being improved to provide the best performance. See the [Azure Cosmos DB SDK](sql-api-sdk-dotnet-standard.md) pages to determine the most recent SDK and review improvements.
 
-## SDK Usage
-1. **Install the most recent SDK**
+**Use stream APIs**
 
-    The Azure Cosmos DB SDKs are constantly being improved to provide the best performance. See the [Azure Cosmos DB SDK](sql-api-sdk-dotnet-standard.md) pages to determine the most recent SDK and review improvements.
+[.NET SDK V3](sql-api-sdk-dotnet-standard.md) contains stream APIs that can receive and return data without serializing. 
 
-2. **Use Stream APIs**
+Middle-tier applications that don't consume responses directly from the SDK but relay them to other application tiers can benefit from the stream APIs. See the [item management](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/ItemManagement) samples for examples of stream handling.
 
-    The [.NET SDK V3](sql-api-sdk-dotnet-standard.md) contains stream APIs that can receive and return data without serializing. 
+**Use a singleton Azure Cosmos DB client for the lifetime of your application**
 
-    The middle-tier applications that don't consume the responses from the SDK directly but relay them to other application tiers can benefit from the stream APIs. See the [Item management](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/ItemManagement) samples for examples on stream handling.
-
-3. **Use a singleton Azure Cosmos DB client for the lifetime of your application**
-
-    Each DocumentClient and CosmosClient instance is thread-safe and performs efficient connection management and address caching when operating in direct mode. To allow efficient connection management and better performance by the SDK client, it is recommended to use a single instance per AppDomain for the lifetime of the application.
+Each `DocumentClient` and `CosmosClient` instance is thread-safe and performs efficient connection management and address caching when operating in direct mode. To allow efficient connection management and better SDK client performance, we recommend that you use a single instance per `AppDomain` for the lifetime of the application.
 
    <a id="max-connection"></a>
 
-4. **Increase System.Net MaxConnections per host when using Gateway mode**
+**Increase System.Net MaxConnections per host when using gateway mode**
 
-    Azure Cosmos DB requests are made over HTTPS/REST when using Gateway mode, and are subjected to the default connection limit per hostname or IP address. You may need to set the MaxConnections to a higher value (100-1000) so that the client library can utilize multiple simultaneous connections to Azure Cosmos DB. In the .NET SDK 1.8.0 and above, the default value for [ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit.aspx) is 50 and to change the value, you can set the [Documents.Client.ConnectionPolicy.MaxConnectionLimit](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.connectionpolicy.maxconnectionlimit.aspx) to a higher value.
+Azure Cosmos DB requests are made over HTTPS/REST when you use gateway mode, and they're subjected to the default connection limit per hostname or IP address. You might need to set `MaxConnections` to a higher value (100 to 1,000) so the client library can use multiple simultaneous connections to Azure Cosmos DB. In .NET SDK 1.8.0 and later, the default value for [ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit.aspx) is 50. To change the value, you can set [Documents.Client.ConnectionPolicy.MaxConnectionLimit](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.connectionpolicy.maxconnectionlimit.aspx) to a higher value.
 
-5. **Tuning parallel queries for partitioned collections**
+**Tune parallel queries for partitioned collections**
 
-     SQL .NET SDK version 1.9.0 and above support parallel queries, which enable you to query a partitioned collection in parallel. For more information, see [code samples](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs) related to working with the SDKs. Parallel queries are designed to improve query latency and throughput over their serial counterpart. Parallel queries provide two parameters that users can tune to custom-fit their requirements, (a) MaxDegreeOfParallelism: to control the maximum number of partitions then can be queried in parallel, and (b) MaxBufferedItemCount: to control the number of pre-fetched results.
+SQL .NET SDK 1.9.0 and later support parallel queries, which enable you to query a partitioned collection in parallel. For more information, see [code samples](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs) related to working with the SDKs. Parallel queries are designed to provide better query latency and throughput than their serial counterpart. Parallel queries provide two parameters that you can tune to fit your requirements: 
+- `MaxDegreeOfParallelism` controls the maximum number of partitions that can be queried in parallel. 
+- `MaxBufferedItemCount` controls the number of pre-fetched results.
 
-    (a) ***Tuning degree of parallelism\:***
-    Parallel query works by querying multiple partitions in parallel. However, data from an individual partition is fetched serially with respect to the query. Setting the `MaxDegreeOfParallelism` in [SDK V2](sql-api-sdk-dotnet.md) or `MaxConcurrency` in [SDK V3](sql-api-sdk-dotnet-standard.md) to the number of partitions has the maximum chance of achieving the most performant query, provided all other system conditions remain the same. If you don't know the number of partitions, you can set the degree of parallelism to a high number, and the system chooses the minimum (number of partitions, user provided input) as the degree of parallelism.
+***Tuning degree of parallelism***
+
+Parallel query works by querying multiple partitions in parallel. But data from an individual partition is fetched serially with respect to the query. Setting `MaxDegreeOfParallelism` in [SDK V2](sql-api-sdk-dotnet.md) or `MaxConcurrency` in [SDK V3](sql-api-sdk-dotnet-standard.md) to the number of partitions has the best chance of achieving the most performant query, provided all other system conditions remain the same. If you don't know the number of partitions, you can set the degree of parallelism to a high number and the system will choose the minimum (number of partitions, user provided input) as the degree of parallelism.
 
     It is important to note that parallel queries produce the best benefits if the data is evenly distributed across all partitions with respect to the query. If the partitioned collection is partitioned such a way that all or a majority of the data returned by a query is concentrated in a few partitions (one partition in worst case), then the performance of the query would be bottlenecked by those partitions.
 
