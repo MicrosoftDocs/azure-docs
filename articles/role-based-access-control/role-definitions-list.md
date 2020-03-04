@@ -310,7 +310,7 @@ az role definition list --name "Virtual Machine Contributor" --output json | jq 
 
 ## REST API
 
-## List role definitions
+### List role definitions
 
 To list role definitions, use the [Role Definitions - List](/rest/api/authorization/roledefinitions/list) REST API. To refine your results, you specify a scope and an optional filter.
 
@@ -338,17 +338,22 @@ To list role definitions, use the [Role Definitions - List](/rest/api/authorizat
     > | Filter | Description |
     > | --- | --- |
     > | `$filter=atScopeAndBelow()` | Lists role definitions for the specified scope and any subscopes. |
-    > | `$filter=Type+eq+'{type}'` | Lists role definitions of the specified type. Type of role can be `CustomRole` or `BuiltInRole`. |
+    > | `$filter=type+eq+'{type}'` | Lists role definitions of the specified type. Type of role can be `CustomRole` or `BuiltInRole`. |
 
 ### List a role definition
 
 To list the details of a specific role, use the [Role Definitions - Get](/rest/api/authorization/roledefinitions/get) or [Role Definitions - Get By Id](/rest/api/authorization/roledefinitions/getbyid) REST API.
 
-1. Start with one of the following requests:
+1. Start with the following request:
 
     ```http
     GET https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions/{roleDefinitionId}?api-version=2015-07-01
-    GET https://management.azure.com/{roleDefinitionId}?api-version=2015-07-01
+    ```
+
+    For a directory-level role definition, you can use this request:
+
+    ```http
+    GET https://management.azure.com/providers/Microsoft.Authorization/roleDefinitions/{roleDefinitionId}?api-version=2015-07-01
     ```
 
 1. Within the URI, replace *{scope}* with the scope for which you want to list the role definition.
@@ -360,8 +365,6 @@ To list the details of a specific role, use the [Role Definitions - Get](/rest/a
     > | `subscriptions/{subscriptionId1}` | Subscription |
     > | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | Resource group |
     > | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1` | Resource |
-
-    In the previous example, microsoft.web is a resource provider that refers to an App Service instance. Similarly, you can use any other resource providers and specify the scope. For more information, see [Azure Resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md) and supported [Azure Resource Manager resource provider operations](resource-provider-operations.md).  
      
 1. Replace *{roleDefinitionId}* with the role definition identifier.
 
