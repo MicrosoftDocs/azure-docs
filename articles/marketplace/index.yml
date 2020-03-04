@@ -23,7 +23,7 @@ landingContent:
       - text: Create a new account
         url: ./partner-center-portal/create-account.md
       - text: Publishing options and considerations
-        url: ./determine-your-listing-type
+        url: ./determine-your-listing-type.md
       - text: Microsoft commercial marketplace FAQs
         url: ./marketplace-faq-publisher-guide.md
       - text: Release notes
@@ -65,7 +65,7 @@ landingContent:
       - text: Downloads dashboard
         url: ./partner-center-portal/downloads-dashboard.md
       - text: Ratings and reviews dashboard
-        url: ./partner-center-portal/raintgs-reviews.md
+        url: ./partner-center-portal/ratings-reviews.md
 
   - title: Manage offers
     linkLists:
