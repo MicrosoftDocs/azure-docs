@@ -81,7 +81,7 @@ Additional resources and support:
 | Finland  | France | Germany  | India   |
 | Italy    | Japan  |  Mexico  |  Netherlands  |
 |  New Zealand  |  Norway  |  Poland  | South Africa |
-|  Spain  | Sweden  | Swizerland  |  United States  |
+|  Spain  | Sweden  | Switzerland  |  United States  |
 | United Kingdom  |
 
 
