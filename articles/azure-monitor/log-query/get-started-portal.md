@@ -19,23 +19,21 @@ The tutorial shows you how to use a Log Analytics workspace to:
 > * Understand Azure Monitor log data schema and tables
 > * Write and run simple queries, and modify the time range for queries
 > * Filter, sort, and group query results
-> * View, modify, and present visuals of query results
-> * Save, load, export, and share queries and results
+> * View, modify, and share visuals of query results
+> * Save, load, export, and copy queries and results
 
 For more information about log queries, see [Overview of log queries in Azure Monitor](log-query-overview.md).
 For a detailed tutorial on writing log queries, see [Get started with log queries in Azure Monitor](get-started-queries.md).
 
 ## Open a Log Analytics workspace
-To complete this tutorial, you can use [this demo environment](https://portal.loganalytics.io/demo), which includes plenty of sample data.
+To complete most of the steps in this tutorial, you can use [this demo environment](https://portal.loganalytics.io/demo), which includes plenty of sample data. You won't be able to save the demo queries or pin results to a dashboard.
 
 You can also use your own environment, if you're using Azure Monitor to collect log data for at least one Azure resource. To open a Log Analytics workspace, select **Logs** in your Azure Monitor left navigation. 
 
 ## Understand the schema
-A data *schema* is a collection of tables grouped under logical categories on the **Tables** tab of the Log Analytics workspace. 
+A *schema* is a collection of tables grouped under logical categories. The Demo schema has several categories from monitoring solutions. For example, the **LogManagement** category contains Windows and Syslog events, performance data, and agent heartbeats.
 
-The **Demo** schema has several monitoring categories. For example, the **LogManagement** category contains Windows and Syslog events, performance data, and agent heartbeats.
-
-Each table contains columns with different data types shown by icons next to the column names. For example, the **Event** table contains columns such as **Computer**, which is text, and **EventCategory**, a number.
+The schema tables appear on the **Tables** tab of the Log Analytics workspace. Each table contains columns with different data types, shown by icons next to the column names. For example, the **Event** table contains columns such as **Computer**, which is text, and **EventCategory**, a number.
 
 ![Schema](media/get-started-portal/schema.png)
 
@@ -89,7 +87,7 @@ A general query like `Event` returns too many results to be useful. You can filt
 ### Filter by restricting table elements
 To filter `Event` query results to **Error** events by restricting the table elements in the query:
 
-1. In the query results, select the dropdown arrow to the left of any result that has **Error** in the **EventLevelName** column. 
+1. In the query results, select the dropdown arrow to the left of any record that has **Error** in the **EventLevelName** column. 
    
 1. In the expanded details, hover over and select the **...** next to **EventLevelName**, and then select **Include "Error"**. 
    
@@ -115,7 +113,7 @@ To filter the `Event` query results to **Error** events by filtering the query r
    
    ![Filter](media/get-started-portal/filter.png)
 
-## Sort, group, and show columns
+## Sort, group, and select columns
 To sort query results by a specific column, such as **TimeGenerated (UTC)**, select the column heading. Select again to toggle between ascending and descending order.
 
 ![Sort column](media/get-started-portal/sort-column.png)
@@ -124,7 +122,7 @@ Another way to organize results is by groups. To group results by a specific col
 
 ![Groups](media/get-started-portal/groups.png)
 
-To add or remove columns that show in the results, select **Columns** above the table, and then select or deselect desired columns in the dropdown list.
+To hide or show columns in the results, select **Columns** above the table, and then select or deselect desired columns in the dropdown list.
 
 ![Select columns](media/get-started-portal/select-columns.png)
 
@@ -190,7 +188,7 @@ To load a saved query, select **Query Explorer** at top right. The **Query Explo
 
 ![Query explorer](media/get-started-portal/query-explorer.png)
 
-## Export and share queries
+### Export and share queries
 To export a query, select **Export** on the top bar, and then select **Export to CSV - all columns**, **Export to CSV - displayed columns**, or **Export to Power BI (M query)** from the dropdown list.
 To share a link to a query, select **Copy link** on the top bar, and then select **Copy link to query**, **Copy query text**, or **Copy query results** to copy to the clipboard. You can send the query link to others who have access to the same workspace.
 
