@@ -13,7 +13,7 @@ ms.workload: multiple
 ms.tgt_pltfrm: rest-api
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/10/2020
+ms.date: 03/04/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 
@@ -51,8 +51,9 @@ In RBAC, to list access, you list the role assignments. To list role assignments
     | Filter | Description |
     | --- | --- |
     | `$filter=atScope()` | Lists role assignments for only the specified scope, not including the role assignments at subscopes. |
+    | `$filter=assignedTo('{objectId}')` | Lists role assignments for a specified user or service principal.<br/>If the user is a member of a group that has a role assignment, that role assignment is also listed. This filter is transitive for groups which means that if the user is a member of a group and that group is a member of another group that has a role assignment, that role assignment is also listed.<br/>This filter only accepts an object ID for a user or a service principal. You cannot pass an object ID for a group. |
+    | `$filter=atScope()+and+assignedTo('{objectId}')` | Lists role assignments for the specified user or service principal and at the specified scope. |
     | `$filter=principalId%20eq%20'{objectId}'` | Lists role assignments for a specified user, group, or service principal. |
-    | `$filter=assignedTo('{objectId}')` | Lists role assignments for a specified user or service principal. If the user is a member of a group that has a role assignment, that role assignment is also listed. This filter is transitive for groups which means that if the user is a member of a group and that group is a member of another group that has a role assignment, that role assignment is also listed. This filter only accepts an object ID for a user or a service principal. You cannot pass an object ID for a group. |
 
 ## Next steps
 
