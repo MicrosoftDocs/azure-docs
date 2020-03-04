@@ -374,7 +374,7 @@ The following example uses output from an activity called **Get Twitter Connecti
 
 ## Authenticating to Azure resources
 
-Runbooks in Azure Automation that manage Azure resources require authentication to Azure. The [Run As account](automation-create-runas-account.md), also referred to as a service principal, is the default mechanism that an Automation runbook uses to access Azure Resource Manager resources in your subscription. You can add this functionality to a graphical runbook by adding the **AzureRunAsConnection** connection asset, which uses the PowerShell [Get-AutomationConnection](https://technet.microsoft.com/library/dn919922%28v=sc.16%29.aspx) cmdlet, to the canvas. You can also add the [Connect-AzAccount](/powershell/module/az.profile/connect-azaccount) cmdlet. This scenario is illustrated in the following example.
+Runbooks in Azure Automation that manage Azure resources require authentication to Azure. The [Run As account](automation-create-runas-account.md), also referred to as a service principal, is the default mechanism that an Automation runbook uses to access Azure Resource Manager resources in your subscription. You can add this functionality to a graphical runbook by adding the **AzureRunAsConnection** connection asset, which uses the PowerShell [Get-AutomationConnection](https://technet.microsoft.com/library/dn919922%28v=sc.16%29.aspx) cmdlet, to the canvas. You can also add the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet. This scenario is illustrated in the following example.
 
 ![Run As Authentication Activities](media/automation-graphical-authoring-intro/authenticate-run-as-account.png)
 
