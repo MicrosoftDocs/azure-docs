@@ -11,31 +11,28 @@ ms.author: lcozzens
 #Customer intent: As a developer using Azure App Configuration, I want to understand how to use private endpoints to enable secure communication with my App Configuration instance.
 ---
 # Using Private Endpoints for Azure App Configuration
-Azure App Configuration offers the use of private endpoints as a public preview. Public preview offerings allow customers to experiment with new features prior to their official release.  Public preview features and services are not meant for production use. As a preview service, we ask that you reach out to us so that we can add your subscription to our allow-list.  If you would like to explore the capabilities of Azure Spring Cloud, please [fill out this form](https://www.surveymonkey.com/r/VQVKMHH) so that we can add you to our allow-list.
 
-You can use [private endpoints](../private-link/private-endpoint-overview.md) for your Azure App Configuration service to allow clients on a virtual network (VNet) to securely access data over a [private link](../private-link/private-link-overview.md). The private endpoint uses an IP address from the VNet address space for your App Configuration service. Network traffic between the clients on the VNet and the App Configuration store account traverses over the VNet and a private link on the Microsoft backbone network, eliminating exposure from the public internet.
+You can use [private endpoints](../private-link/private-endpoint-overview.md) for Azure App Configuration to allow clients on a virtual network (VNet) to securely access data over a [private link](../private-link/private-link-overview.md). The private endpoint uses an IP address from the VNet address space for your App Configuration service. Network traffic between the clients on the VNet and the App Configuration store account traverses over the VNet and a private link on the Microsoft backbone network, eliminating exposure from the public internet.
 
 Using private endpoints for your App Configuration service enables you to:
-- Secure your application configuration details by configuring the firewall to block all connections on the public endpoint App Configuration service.
+- Secure your application configuration details by configuring the firewall to block all connections  to App Configuration on the public endpoint.
 - Increase security for the virtual network (VNet) ensuring data doesn't escape from the VNet.
 - Securely connect to the App Configuration service from on-premises networks that connect to the VNet using [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) or [ExpressRoutes](../expressroute/expressroute-locations.md) with private-peering.
 
+> [!NOTE]
+> Azure App Configuration offers the use of private endpoints as a public preview. Public preview offerings allow customers to experiment with new features prior to their official release.  Public preview features and services are not meant for production use. As a preview service, we ask that you reach out to us so that we can add your subscription to our allow-list.  If you would like to explore the capabilities of Azure App Configuration, please [fill out this form](https://www.surveymonkey.com/r/VQVKMHH) so that we can add you to our allow-list.
+
 ## Conceptual Overview
 
-A Private Endpoint is a special network interface for an Azure service in your [Virtual Network](../virtual-network/virtual-networks-overview.md) (VNet). When you create a private endpoint for your App Config store, it provides secure connectivity between clients on your VNet and your configuration store. The private endpoint is assigned an IP address from the IP address range of your VNet. The connection between the private endpoint and the configuration service uses a secure private link.
+A private endpoint is a special network interface for an Azure service in your [Virtual Network](../virtual-network/virtual-networks-overview.md) (VNet). When you create a private endpoint for your App Config store, it provides secure connectivity between clients on your VNet and your configuration store. The private endpoint is assigned an IP address from the IP address range of your VNet. The connection between the private endpoint and the configuration service uses a secure private link.
 
 Applications in the VNet can connect to the configuration service over the private endpoint **using the same connection strings and authorization mechanisms that they would use otherwise**. Private endpoints can be used with all protocols supported by the App Configuration store.
 
 While App Configuration doesn't support service endpoints, private endpoints can be created in subnets that use [Service Endpoints](../virtual-network/virtual-network-service-endpoints-overview.md). Clients in a subnet can connect securely to an App Configuration store using private endpoint while using service endpoints to access others.  
 
-When you create a private endpoint for a service in your VNet, a consent request is sent for approval to the  service account owner. If the user requesting the creation of the private endpoint is also an owner of the account, this consent request is automatically approved.
+When you create a private endpoint for a service in your VNet, a consent request is sent for approval to the service account owner. If the user requesting the creation of the private endpoint is also an owner of the account, this consent request is automatically approved.
 
 Service account owners can manage consent requests and private endpoints through the `Private Endpoints` tab of the config store in the [Azure portal](https://portal.azure.com).
-
-
----- /// Remove or update /// ----
-You can secure your storage account to only accept connections from your VNet, by [Configure Azure Storage firewalls and virtual networks](../storage/common/storage-network-security.md#change-the-default-network-access-rule) to deny access through its public endpoint by default. You don't need a firewall rule to allow traffic from a VNet that has a private endpoint, since the storage firewall only controls access through the public endpoint. Private endpoints instead rely on the consent flow for granting subnets access to the storage service.
----- /// /// ----
 
 ### Private Endpoints for App Configuration 
 
@@ -66,7 +63,7 @@ You can control access for clients outside the VNet through the public endpoint 
 
 This approach enables access to the store **using the same connection string** for clients on the VNet hosting the private endpoints as well as clients outside the VNet.
 
-If you are using a custom DNS server on your network, clients must be able to resolve the FQDN for the storage account endpoint to the private endpoint IP address. You should configure your DNS server to delegate your private link subdomain to the private DNS zone for the VNet, or configure the A records for `AppConfigInstanceA.privatelink.blob.core.windows.net` with the private endpoint IP address.
+If you are using a custom DNS server on your network, clients must be able to resolve the FQDN for the storage account endpoint to the private endpoint IP address. You should configure your DNS server to delegate your private link subdomain to the private DNS zone for the VNet, or configure the A records for `AppConfigInstanceA.privatelink.azconfig.io` with the private endpoint IP address.
 
 > [!TIP]
 > When using a custom or on-premises DNS server, you should configure your DNS server to resolve the store name in the `privatelink` subdomain to the private endpoint IP address. You can do this by delegating the `privatelink` subdomain to the private DNS zone of the VNet, or configuring the DNS zone on your DNS server and adding the DNS A records.
@@ -80,4 +77,4 @@ For more information on configuring your own DNS server to support private endpo
 
 ## Pricing
 
-For pricing details, see [Azure Private Link pricing](https://azure.microsoft.com/pricing/details/private-link).
+Enabling private endpoints requires a [Standard tier](https://azure.microsoft.com/pricing/details/app-configuration/) App Configuration store.  To learn about private link pricing details, see [Azure Private Link pricing](https://azure.microsoft.com/pricing/details/private-link).
