@@ -6,7 +6,7 @@ ms.suite: integration
 author: divyaswarnkar
 ms.reviewer: estfan, klam, logicappspm
 ms.topic: article
-ms.date: 03/5/2020
+ms.date: 03/7/2020
 tags: connectors
 ---
 
@@ -36,8 +36,8 @@ For differences between the SFTP-SSH connector and the SFTP connector, review th
 
   Chunk size is associated with a connection, which means that you can use the same connection for actions that support chunking and then for actions that don't support chunking. In this case, the chunk size for actions that don't support chunking ranges from 5 MB to 50 MB. This table shows which SFTP-SSH actions support chunking:
 
-  | Action | Chunking support | Override chunk size |
-  |--------|------------------|---------------------|
+  | Action | Chunking support | Override chunk size support |
+  |--------|------------------|-----------------------------|
   | **Copy file** | No | Not applicable |
   | **Create file** | Yes | Yes |
   | **Create folder** | Not applicable | Not applicable |
