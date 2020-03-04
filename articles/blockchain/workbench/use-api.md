@@ -41,7 +41,7 @@ You use two API calls to create a Blockchain Workbench application. This method 
 
 Use the [Applications POST API](https://docs.microsoft.com/en-us/rest/api/azure-blockchain-workbench/applications/applicationspost) to upload the application's JSON file and get an application ID.
 
-**Example request:**
+### Applications POST request
 
 Use the **appFile** parameter to send the configuration file as part of the request body.
 
@@ -53,7 +53,7 @@ Content-Disposition: form-data; name="appFile"; filename="/C:/smart-contract-sam
 Content-Type: application/json
 ```
 
-**Example response:**
+### Applications POST response
 
 ``` http
 Content-Type: "application/json"
@@ -65,13 +65,6 @@ The created application ID is returned in the response. You need the application
 ### Contract code request
 
 Use the [Applications contract code POST API](https://docs.microsoft.com/en-us/rest/api/azure-blockchain-workbench/applications/contractcodepost) by passing the application ID to upload the application's Solidity code file. The payload can be a single Solidity file or a zipped file containing Solidity files.
-
-
-
-applicationId = application ID from the first POST call,  
-ledgerId = Index of the ledger 1  
-
-**Example request:**
 
 Replace the following values:
 
@@ -87,7 +80,7 @@ Authorization : Bearer {access token}
 Content-Disposition: form-data; name="contractFile"; filename="/C:/smart-contract-samples/HelloWorld.sol"
 ```
 
-**Example response:**
+### Contract code response
 
 ``` http
 204 No Content
