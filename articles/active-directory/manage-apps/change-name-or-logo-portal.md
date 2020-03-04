@@ -38,6 +38,7 @@ It's easy to change the name or logo for a custom enterprise application in Azur
 
    > [!NOTE]
    > Azure requires the logo image to be a PNG file, and it applies limits on width, height, and file size.
+   >Custom logos must be exactly 215x215 px in size and be in the PNG format. We recommend that you use a solid color background with no transparency in your application logo so that it appears best to users.
 8. Select **Save**. If you chose a new logo, the **Logo** field's image changes to reflect the new logo file.
 
 ## Next steps
