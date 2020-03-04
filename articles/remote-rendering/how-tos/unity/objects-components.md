@@ -77,7 +77,7 @@ async void LoadModelWithAwait()
 }
 ```
 
-The code samples above used the model loading path via SAS because the built-in model is loaded. Addressing the model via blob containers (using `LoadModelAsync` and `LoadModelParams`) works fully analog.
+The code samples above used the model loading path via SAS because the built-in model is loaded. Addressing the model via blob containers (using `LoadModelAsync` and `LoadModelParams`) works fully analogously.
 
 ## RemoteEntitySyncObject
 

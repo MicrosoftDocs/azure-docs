@@ -27,7 +27,7 @@ All textures given to ARR have to be in [DDS format](https://en.wikipedia.org/wi
 When loading a texture, you have to specify its expected type. If the type mismatches, the texture load fails.
 Loading a texture with the same URI twice will return the same texture object, as it is a [shared resource](../concepts/lifetime.md).
 
-Similar to loading models, there are two variants of addressing a texture asset in source storage:
+Similar to loading models, there are two variants of addressing a texture asset in source blob storage:
 
 * The texture asset can be addressed by its SAS URI. Relevant loading function is `LoadTextureFromSASAsync` with parameter `LoadTextureFromSASParams`. Use this variant also when loading [built-in textures](../overview/features/sky.md#built-in-environment-maps).
 * The texture can be addressed by blob storage parameters directly, in case the [blob storage is linked to the account](../how-tos/create-an-account.md#link-storage-accounts). Relevant loading function in this case is `LoadTextureAsync` with parameter `LoadTextureParams`.
