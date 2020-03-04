@@ -316,24 +316,25 @@ To run a Functions project, run the Functions host. The host enables triggers fo
 
 In version 2.x of the runtime, the start command varies, depending on your project language.
 
-#### C\#
+# [C\#](#tab/csharp)
 
 ```
 func start --build
 ```
-
-#### JavaScript
+# [JavaScript](#tab/node)
 
 ```
 func start
 ```
 
-#### TypeScript
+# [TypeScript](#tab/ts)
 
 ```
 npm install
 npm start     
 ```
+
+---
 
 ### Version 1.x
 
@@ -398,12 +399,14 @@ curl --get http://localhost:7071/api/MyHttpTrigger?name=Azure%20Rocks
 
 The following example is the same function called from a POST request passing _name_ in the request body:
 
-# [bash](#tab/bash)
+# [Bash](#tab/bash)
 ```bash
 curl --request POST http://localhost:7071/api/MyHttpTrigger --data '{"name":"Azure Rocks"}'
 ```
 # [Cmd](#tab/cmd)
+```cmd
 curl --request POST http://localhost:7071/api/MyHttpTrigger --data "{'name':'Azure Rocks'}"
+```
 ---
 
 You can make GET requests from a browser passing data in the query string. For all other HTTP methods, you must use cURL, Fiddler, Postman, or a similar HTTP testing tool.
@@ -430,7 +433,7 @@ To pass test data to the administrator endpoint of a function, you must supply t
 
 The `<trigger_input>` value contains data in a format expected by the function. The following cURL example is a POST to a `QueueTriggerJS` function. In this case, the input is a string that is equivalent to the message expected to be found in the queue.
 
-# [bash](#tab/bash)
+# [Bash](#tab/bash)
 ```bash
 curl --request POST -H "Content-Type:application/json" --data '{"input":"sample queue data"}' http://localhost:7071/admin/functions/QueueTrigger
 ```
