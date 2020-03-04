@@ -73,13 +73,13 @@ To provide a higher level of security, you can restrict a number of Azure servic
 
 [Learn more about virtual network service endpoints.](../virtual-network/virtual-network-service-endpoints-overview.md)
 
-### Restricting your storage account to a virtual network
+## Restricting your storage account to a virtual network
 
 When you create a function app, you must create or link to a general-purpose Azure Storage account that supports Blob, Queue, and Table storage. You can't currently use any virtual network restrictions on this account. If you configure a virtual network service endpoint on the storage account you're using for your function app, that will break your app.
 
 [Learn more about storage account requirements.](./functions-create-function-app-portal.md#storage-account-requirements)
 
-### Using Key Vault references 
+## Using Key Vault references 
 
 Key Vault references allow you to use secrets from Azure Key Vault in your Azure Functions application without requiring any code changes. Azure Key Vault is a service that provides centralized secrets management, with full control over access policies and audit history.
 
@@ -135,9 +135,9 @@ To learn more, see the [App Service documentation for Hybrid Connections](../app
 
 ## Outbound IP restrictions
 
-Outbound IP restrictions are available only for functions deployed to an App Service Environment. You can configure outbound restrictions for the virtual network where your App Service Environment is deployed.
+Outbound IP restrictions are available in a Premium plan, App Service plan, or App Service Environment. You can configure outbound restrictions for the virtual network where your App Service Environment is deployed.
 
-When you integrate a function app in a Premium plan or an App Service plan with a virtual network, the app can still make outbound calls to the internet.
+When you integrate a function app in a Premium plan or an App Service plan with a virtual network, the app can still make outbound calls to the internet by default. You will need to set WEBSITE_VNET_ROUTE_ALL to 1, then all outbound traffic will be sent into your VNet where network security group rules can be used to restrict traffic.
 
 ## Troubleshooting 
 
