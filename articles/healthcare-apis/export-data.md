@@ -18,7 +18,7 @@ There are four steps involved in performing export in Azure API for FHIR:
 1. Enable Managed Identity on Azure API for FHIR Service
 2. Creating a storage account (if not done before) and assigning permission to Azure API for FHIR to the storage account
 3. Selecting the storage account in Azure API for FHIR as export storage account
-4. Performing the export by invoking $export command on Azure API for FHIR
+4. Executing the export by invoking $export command on Azure API for FHIR
 
 ## Enabling Managed Identity on Azure API for FHIR
 
@@ -34,7 +34,7 @@ Now we can move to next step and create a storage account and assign permission 
 
 Next step in export is to assign permission for Azure API for FHIR service to write to the storage account.
 
-After we have created a storage account, we need to navigate to Access Control (AIM) blade in Storage Account and select Add Role Assignments
+After we have created a storage account, navigate to Access Control (AIM) blade in Storage Account and select Add Role Assignments
 
 ![Enable Managed Identity](media/export-data/FHIR-Export-Role-Assignment.png)
 
@@ -46,7 +46,7 @@ Now we are ready for next step where we can select the storage account in Azure 
 
 ## Selecting the storage account for $export
 
-Final step before invoking $export command is to assign the storage account that Azure API for FHIR will use to export the data to. To do this navigate to Integration blade in Azure API for FHIR service in Azure portal and select the storage account 
+Final step before invoking $export command is to assign the storage account that Azure API for FHIR will use to export the data to. To do this, navigate to Integration blade in Azure API for FHIR service in Azure portal and select the storage account 
 
 ![Enable Managed Identity](media/export-data/FHIR-Export-Storage.png)
 
@@ -54,7 +54,7 @@ After that we are ready to export the data using $export command.
 
 ## Exporting the data using $export command
 
-After we have configured Azure API for FHIR for export, we can now go and use the $export command to export the data out of the service into the storage account we specified. In order to learn how to invoke $export command in FHIR server, please read documentation on $export specification at [https://hl7.org/Fhir/uv/bulkdata/export/index.html](https://hl7.org/Fhir/uv/bulkdata/export/index.html)
+After we have configured Azure API for FHIR for export, we can now go and use the $export command to export the data out of the service into the storage account we specified. To learn how to invoke $export command in FHIR server, please read documentation on $export specification at [https://hl7.org/Fhir/uv/bulkdata/export/index.html](https://hl7.org/Fhir/uv/bulkdata/export/index.html)
 
 > [!IMPORTANT]
 > Note that currently Azure API for FHIR only supports System Level Export as defined in Export specification at [https://hl7.org/Fhir/uv/bulkdata/export/index.html](https://hl7.org/Fhir/uv/bulkdata/export/index.html)
