@@ -13,6 +13,8 @@
     href: internaldevquickstart.md
   - name: Canonical Scenarios
     href: canonicalscenarios.md
+  - name: Automating Reference Docs
+    href: automatingreferencedocs.md
 - name: Overview
   items:
   - name: About Project Spool
