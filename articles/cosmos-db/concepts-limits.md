@@ -184,6 +184,7 @@ Try Cosmos DB supports global distribution in only the Central US, North Europe,
 
 ## Free tier account limits
 The following table lists the limits for [Azure Cosmos DB free tier accounts.](optimize-dev-test.md#azure-cosmos-db-free-tier)
+
 | Resource | Default limit |
 | --- | --- |
 | Number of free tier accounts per Azure subscription | 1 |
@@ -193,6 +194,7 @@ The following table lists the limits for [Azure Cosmos DB free tier accounts.](o
 | Maximum number of shared throughput databases | 5 |
 | Maximum number of containers in a shared throughput database | 25 |
 | Minimum RU/s per container in shared throughput database | 0 RU/s beyond 400 RU/s for first four containers |
+
  In addition to the above, the [Per-account limits](#per-account-limits) also apply to free tier accounts.
 
 ## Next steps
