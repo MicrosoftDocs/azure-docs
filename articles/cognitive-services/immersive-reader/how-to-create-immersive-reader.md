@@ -43,6 +43,11 @@ The script is designed to be flexible. It will first look for existing Immersive
         [Parameter(Mandatory=$true)] [String] $AADAppClientSecret
     )
     {
+        $unused = ''
+        if (-not [System.Uri]::TryCreate($AADAppIdentifierUri, [System.UriKind]::Absolute, [ref] $unused)) {
+            throw "Error: AADAppIdentifierUri must be a valid URI"
+        }
+
         Write-Host "Setting the active subscription to '$SubscriptionName'"
         $subscriptionExists = Get-AzSubscription -SubscriptionName $SubscriptionName
         if (-not $subscriptionExists) {
