@@ -69,17 +69,19 @@ There are two levels of access to your search service, enabled by two types of k
 
 Authentication is required on each request, where each request is composed of a mandatory key, an operation, and an object. When chained together, the two permission levels (full or read-only) plus the context (for example, a query operation on an index) are sufficient for providing full-spectrum security on service operations. For more information about keys, see [Create and manage api-keys](search-security-api-keys.md).
 
-### Restricted access
-
-When you have a publicly published service and you want to restrict the use of the service you can use the IP restriction rule in the REST API version: 2019-10-01-Preview, [IpRule](https://docs.microsoft.com/rest/api/searchmanagement/2019-10-01-preview/createorupdate-service#iprule-). IpRule allows you to restrict access to your service by identifying IP addresses, individually or in a range, that you want to grant access to your search service. 
-
-### Private access
-
 > [!Important]
-> Private Endpoint and virtual network support for Azure Cognitive Search is available [upon request](https://aka.ms/SearchPrivateLinkRequestAccess) as a limited-access preview. Preview features are provided without a service level agreement, and are not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
+> **Private Endpoint** and **virtual network** support features for Azure Cognitive Search are available [upon request](https://aka.ms/SearchPrivateLinkRequestAccess) as a limited-access preview. Preview features are provided without a service level agreement, and are not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 >
 > Once you are granted access to the preview, you'll be able to configure Private Endpoints for your service and create a virtual network using the Azure portal or the [Management REST API version 2019-10-06-Preview](https://docs.microsoft.com/rest/api/searchmanagement/).
->   
+
+The **IpRule** feature is in preview as well and can only be applied when using the [Management REST API version: 2019-10-01-Preview](https://docs.microsoft.com/rest/api/searchmanagement/index-2019-10-01-preview).
+>
+
+### Restricted access (preview)
+
+When you have a public service and you want to restrict the use of the service you can use the IP restriction rule in the Management REST API version: 2019-10-01-Preview, [IpRule](https://docs.microsoft.com/rest/api/searchmanagement/2019-10-01-preview/createorupdate-service#iprule-). IpRule allows you to restrict access to your service by identifying IP addresses, individually or in a range, that you want to grant access to your search service. 
+
+### Private access (preview)
 
 [Private Endpoints](https://docs.microsoft.com/azure/private-link/private-endpoint-overview) for Azure Cognitive Search allow a client on a virtual network to securely access data in a search index over a [Private Link](https://docs.microsoft.com/azure/private-link/private-link-overview). The private endpoint uses an IP address from the virtual network address space for your search service. Network traffic between the client and the search service traverses over the virtual network and a private link on the Microsoft backbone network, eliminating exposure from the public internet.
 
