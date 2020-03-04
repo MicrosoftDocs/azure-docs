@@ -2,25 +2,23 @@
 title: Set up private link
 description: Set up a private endpoint on a container registry and enable private access in a local virtual network
 ms.topic: article
-ms.date: 03/02/2020
+ms.date: 03/04/2020
 ---
 
-# Set up a private link to an Azure container registry 
+# Configure Azure Private Link for an Azure container registry 
 
-[Intro]
+You can set up a [private endpoint](../private-link/private-endpoint-overview.md) for your Azure container registry so that clients on an Azure virtual network securely access the registry over a [private link](../private-link/private-link-overview.md). The private endpoint uses an IP address from the virtual network address space for your registry. Network traffic between the clients on the virtual network and the registry traverses the virtual network and a private link on the Microsoft backbone network, eliminating exposure from the public internet.
 
-An Azure container registry by default accepts connections over the internet from hosts on any network. With a private link, you can ...
+Clients connecting over the private link in the virtual network can continue to access the registry using the registry's fully qualified domain name, such as *myregistry.azurecr.io*.
 
 > [!IMPORTANT]
 > This feature is currently in preview, and some [limitations apply](#preview-limitations). Previews are made available to you on the condition that you agree to the [supplemental terms of use][terms-of-use]. Some aspects of this feature may change prior to general availability (GA).
 >
 
-
 ## Preview limitations
 
 * Only a **Premium** container registry can be configured with a private endpoint. For information about registry service tiers, see [Azure Container Registry SKUs](container-registry-skus.md). 
-
-* Only an [Azure Kubernetes Service](../aks/intro-kubernetes.md) cluster or Azure [virtual machine](../virtual-machines/linux/overview.md) can be used as a host to access a container registry at a private endpoint
+* Only an [Azure Kubernetes Service](../aks/intro-kubernetes.md) cluster or Azure [virtual machine](../virtual-machines/linux/overview.md) can be used as a host to access a container registry at a private endpoint.
 
 
 ## Prerequisites
@@ -39,7 +37,7 @@ You may use the same resource group for your virtual machine and your container 
 az group create --name myResourceGroup --location westus
 ```
 
-Now deploy a default Ubuntu Azure virtual machine with [az vm create][az-vm-create]. The following example creates a VM named *myDockerVM*:
+Now deploy a default Ubuntu Azure virtual machine with [az vm create][az-vm-create]. The following example creates a VM named *myDockerVM*. This command and others in this article are formatted for the Bash shell. If you are using a different command shell, adjust for those shell's conventions.
 
 ```azurecli
 az vm create \
@@ -50,7 +48,7 @@ az vm create \
     --generate-ssh-keys
 ```
 
-It takes a few minutes for the VM to be created. When the command completes, take note of the `publicIpAddress` displayed by the Azure CLI. Use this address to make SSH connections to the VM, and optionally for later setup of firewall rules.
+It takes a few minutes for the VM to be created. When the command completes, take note of the `publicIpAddress` displayed by the Azure CLI. Use this address to make SSH connections to the VM.
 
 ### Install Docker on the VM
 
@@ -89,26 +87,27 @@ Exit the SSH connection.
 
 ## Set up private link - CLI
 
-### Disable subnet private endpoint policies
+### Get network and subnet names
+
+If you don't have them already, you'll need the virtual network and subnet names to set up a private link.
 
 When you create a VM, Azure by default creates a virtual network in the same resource group. The name of the virtual network is based on the name of the virtual machine. For example, if you name your virtual machine *myDockerVM*, the default virtual network name is *myDockerVMVNET*, with a subnet named *myDockerVMSubnet*. Verify this in the Azure portal or by using the [az network vnet list][az-network-vnet-list] command:
 
 ```azurecli
-az network vnet list --resource-group myResourceGroup --query "[].{Name: name, Subnet: subnets[0].name}"
+az network vnet list --resource-group myResourceGroup --query '[].{Name: name, Subnet: subnets[0].name}' --output table
 ```
 
-Output:
+Sample output:
 
-```json
-[
-  {
-    "Name": "myDockerVMVNET",
-    "Subnet": "myDockerVMSubnet"
-  }
-]
+```console
+Name            Subnet
+--------------  ----------------
+myDockerVMVNET  myDockerVMSubnet
 ```
 
-Create or update the subnet to disable private endpoint network policies. Update a subnet configuration named myDockerVMSubnet with [az network vnet subnet update][az-network-vnet-subnet-update]:
+### Disable subnet private endpoint policies
+
+Create or update the subnet to disable private endpoint network policies. Update your subnet configuration with [az network vnet subnet update][az-network-vnet-subnet-update]:
 
 ```azurecli
 az network vnet subnet update \
@@ -120,8 +119,7 @@ az network vnet subnet update \
 
 ### Configure the private DNS zone
 
-Create a private DNS zone for the Azure container registry domain. Run the following [az network private-dns zone create][az network-private-dns-zone-create] command:
-
+Create a private DNS zone for the Azure container registry domain. Run the following [az network private-dns zone create][az-network-private-dns-zone-create] command to create the private zone *privatelink.azurecr.io*:
 
 ```azurecli
 az network private-dns zone create \
@@ -131,7 +129,7 @@ az network private-dns zone create \
 
 ### Create an association link
 
-Run [az network private-dns link vnet create][az-network-private-dns-link-vnet-create] to create an association link with the virtual network.
+Run [az network private-dns link vnet create][az-network-private-dns-link-vnet-create] to associate your private zone with the virtual network.
 
 ```azurecli
 az network private-dns link vnet create --resource-group myResourceGroup \
@@ -141,7 +139,7 @@ az network private-dns link vnet create --resource-group myResourceGroup \
    --registration-enabled false
 ```
 
-### Create a private endpoint
+### Create a private registry endpoint
 
 First get the resource ID of your Azure container registry:
 
@@ -149,7 +147,7 @@ First get the resource ID of your Azure container registry:
 acrID=$(az acr show --name myregistry --resource-group myResourceGroup --query "id" --output tsv)
 ```
 
-Run the [az network private-endpoint create][az network-private-endpoint-create] command to create a private endpoint for the container registry in your virtual network:
+Run the [az network private-endpoint create][az-network-private-endpoint-create] command to create a private endpoint for the container registry in your virtual network. For a container registry resource, pass the value `registry` with the `--group-ids` parameter:
 
 ```azurecli
 az network private-endpoint create \
@@ -168,7 +166,7 @@ Run [az network private-endpoint show][az-network-private-endpoint-show] to quer
 networkInterfaceID=$(az network private-endpoint show --name myPrivateEndpoint --resource-group myResourceGroup --query 'networkInterfaces[0].id' --output tsv)
 ```
 
-Run the following [az resource show][az-resource-show] commands to get the private IP addresses for your container registry and its data endpoint:
+Run the following [az resource show][az-resource-show] commands to get the private IP addresses for your container registry and the registry's data endpoint:
 
 ```azurecli
 privateIP=$(az resource show --ids $networkInterfaceID --api-version 2019-04-01 --query 'properties.ipConfigurations[1].properties.privateIPAddress' --output tsv)
@@ -178,7 +176,9 @@ dataEndpointPrivateIP=$(az resource show --ids $networkInterfaceID --api-version
 
 ### Create DNS records in the private zone
 
-Run the following commands to create the DNS records in the private zone. First run [az network private-dns record-set a create][az-network-private-dns-record-set-a-create] to create empty A record sets for the registry and data endpoints:
+Run the following commands to create DNS records for the registry endpoints in the private zone: `myregistry.azurecr.io` and its data endpoint `myregistry.<location>.data.azurecr.io`. The data endpoint specifies the Azure region where the registry was created, such as *westeurope*.
+
+First run [az network private-dns record-set a create][az-network-private-dns-record-set-a-create] to create empty A record sets for the registry and data endpoints:
 
 ```azurecli
 az network private-dns record-set a create \
@@ -192,7 +192,6 @@ az network private-dns record-set a create \
   --name myregistry.<region>.data \
   --zone-name privatelink.azurecr.io \
   --resource-group myResourceGroup
-
 ```
 
 Run the [az network private-dns record-set a add-record][az-network-private-dns-record-set-a-add-record] command to create the A records for the registry and data endpoints:
@@ -210,20 +209,32 @@ az network private-dns record-set a add-record \
   --zone-name privatelink.azurecr.io \
   --resource-group myResourceGroup --ipv4-address $dataEndpointPrivateIP
 ```
- 
-Continue to [Access registry privately from the VM](#access-registry-privately-from-the-vm).
 
-## Manually approve private endpoint connection
+The private link is now configured and ready for use.
 
-f you want to create a private endpoint with manual approval, replace the create command with following: 
+### Manually approve private endpoint connection
 
-az network private-endpoint create -n pl -g $GROUP --vnet-name plvnet --subnet sub --private-connection-resource-id $ACR_RESOURCE_ID --group-ids registry --connection-name conn --manual-request 
+By default, the private endpoint is set up so that the registry automatically accepts connections over the private link. If you want to create a private endpoint that requires manual approval by the registry for connections, add the `--manual-request` parameter to the [az network private-endpoint create][az-network-private-endpoint-create] command: 
 
-Then, approve the connection with the [az acr private-endpoint-connection approve][az-acr-private-endpoint-connection-approve] command:
+```azurecli
+az network private-endpoint create \
+    --name myPrivateEndpoint \
+    --resource-group myResourceGroup \
+    --vnet-name myDockerVMVNET \
+    --subnet myDockerVMSubnet \
+    --private-connection-resource-id $acrID \
+    --group-ids registry \
+    --connection-name myConnection
+    --manual-request
+```
 
-CONN_NAME=$(az acr private-endpoint-connection approve -n pl -otsv --query "[0].name") 
+Then, to approve the connection, run the [az acr private-endpoint-connection approve][az-acr-private-endpoint-connection-approve] command:
 
-az acr private-endpoint-connection approve -n pl -p $CONN_NAME 
+```azurecli
+az acr private-endpoint-connection approve \
+  --name myPrivateEndpoint \
+  --connection-name myConnection 
+```
 
 ## Set up private link - portal
 
@@ -231,13 +242,13 @@ az acr private-endpoint-connection approve -n pl -p $CONN_NAME
 
 1. In the Azure portal, search for **Private Link Center (Preview)**.
 1. In **Private Link Center - Overview**, on the option to **Build a private connection to a service**, select **Start**.
-1. In **Create a private endpoint (Preview) - Basics**, enter or select the following information:
+1. In **Create a private endpoint (Preview), on the Basics** tab, enter or select the following information:
 
     | Setting | Value |
     | ------- | ----- |
     | **Project details** | |
     | Subscription | Select your subscription. |
-    | Resource group | Enter the name of of an existing group or create a new one.|
+    | Resource group | Enter the name of an existing group or create a new one.|
     | **Instance details** |  |
     | Name | Enter a unique name. |
     |Region|Select a region.|
@@ -251,7 +262,7 @@ az acr private-endpoint-connection approve -n pl -p $CONN_NAME
     | Subscription| Select your subscription. |
     | Resource type | Select **Microsoft.ContainerRegistry/registries**. |
     | Resource |Select the name of your registry|
-    |Target sub-resource |Select *registry*|
+    |Target subresource |Select *registry*|
     |||
 7. Select **Next: Configuration**.
 8. Enter or select this information:
@@ -259,76 +270,64 @@ az acr private-endpoint-connection approve -n pl -p $CONN_NAME
     | Setting | Value |
     | ------- | ----- |
     |**Networking**| |
-    | Virtual network| Select the virtual network where your virtual machine is deployed, such as *myDockerVMVNET*.. |
+    | Virtual network| Select the virtual network where your virtual machine is deployed, such as *myDockerVMVNET*. |
     | Subnet | Select the subnet where your virtual machine is deployed, such as *myDockerVMSubnet*. |
     |**Private DNS Integration**||
     |Integrate with private DNS zone |Select **Yes**. |
-    |Private DNS Zone |Select *(New)privatelink.azurecr.io* |
+    |Private DNS Zone |Select *(New) privatelink.azurecr.io* |
     |||
 
 1. Select **Review + create**. You're taken to the **Review + create** page where Azure validates your configuration. 
 2. When you see the **Validation passed** message, select **Create**.
 
 
-Continue to [Verify access to the registry](#verify-access-to-the-registry).
+Your private link is now configured and ready for use.
 
-## Verify access to the registry
+## Validate private link connection
 
-To verify that the private link is configured, first set the default registry action to deny access from all networks. Equivalent steps using the Azure CLI and Azure portal are provided.
+You should validate that the resources within the same subnet of the private endpoint are connecting to your registry over a private IP address, and that they have the correct private DNS zone integration.
 
-### Deny default registry access - CLI
+To validate the private link connection, SSH to the virtual machine you set up in the virtual network.
 
-Substitute the name of your registry in the following [az acr update][az-acr-update] command:
-```azurecli
-az acr update --name myregistry --default-action Deny
+Run the `nslookup` command to resolve the IP address of your registry over the private link:
+
+```bash
+nslookup myregistry.azurecr.io
 ```
 
-### Deny default registry access - portal
+Example output shows the registry's IP address in the address space of the subnet
 
+```console
+[...]
+myregistry.azurecr.io       canonical name = myregistry.privatelink.azurecr.io.
+Name:   myregistry.privatelink.azurecr.io
+Address: 10.0.0.6
+```
 
-1. In the portal, navigate to your container registry and select **Firewall and virtual networks**.
-1. Under **Allow access from**, select **Selected networks**. 
-1. Select **Save**.
+Compare this result with the public IP address in `nslookup` output for the same registry over a public endpoint:
+
+```console
+[...]
+Non-authoritative answer:
+Name:   xxxxxxxx.westeurope.cloudapp.azure.com
+Address: 40.78.103.41
+```
 
 ### Verify access over private link
 
-After waiting a few minutes for the configuration to update, verify that the VM can access the container registry. Make an SSH connection to your VM, and run the [az acr login][az-acr-login] command to login to your registry. 
+Also verify that you can perform registry operations from the virtual machine in the subnet. Make an SSH connection to your virtual machine, and run [az acr login][az-acr-login] to login to your registry. Depending on your VM configuration, you might need to prefix the following commands with `sudo`.
 
 ```bash
 az acr login --name myregistry
 ```
 
-You can perform registry operations such as run `docker pull` to pull a sample image from the registry. Substitute an image and tag value appropriate for your registry, prefixed with the registry login server name (all lowercase):
+Now perform registry operations such as `docker pull` to pull a sample image from the registry. Replace `hello-world:v1` with an image and tag appropriate for your registry, prefixed with the registry login server name (all lowercase):
 
 ```bash
 docker pull myregistry.azurecr.io/hello-world:v1
 ``` 
 
 Docker successfully pulls the image to the VM.
-
-This example demonstrates that you can access the private container registry through the private link. However, the registry can't be accessed from a different login host that doesn't have a private link configured. If you attempt to login from another host using the `az acr login` command or `docker login` command, output is similar to the following:
-
-```Console
-Error response from daemon: login attempt to https://xxxxxxx.azurecr.io/v2/ failed with status: 403 Forbidden
-```
-
-## Restore default registry access
-
-To restore the registry to allow access by default, set the default action to allow access from all networks. Equivalent steps using the Azure CLI and Azure portal are provided.
-
-### Restore default registry access - CLI
-
-Substitute the name of your registry in the following [az acr update][az-acr-update] command:
-```azurecli
-az acr update --name myregistry --default-action Allow
-```
-
-### Restore default registry access - portal
-
-
-1. In the portal, navigate to your container registry and select **Firewall and virtual networks**.
-1. Under **Allow access from**, select **All networks**. 
-1. Select **Save**.
 
 ## Clean up resources
 
@@ -342,17 +341,8 @@ To clean up your resources in the portal, navigate to the myResourceGroup resour
 
 ## Next steps
 
-Several virtual network resources and features were discussed in this article, though briefly. The Azure Virtual Network documentation covers these topics extensively:
-
-* [Virtual network](https://docs.microsoft.com/azure/virtual-network/manage-virtual-network)
-* [Subnet](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-subnet)
-* [Service endpoints](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview)
-
-<!-- IMAGES -->
-
-[acr-subnet-service-endpoint]: ./media/container-registry-vnet/acr-subnet-service-endpoint.png
-[acr-vnet-portal]: ./media/container-registry-vnet/acr-vnet-portal.png
-[acr-vnet-firewall-portal]: ./media/container-registry-vnet/acr-vnet-firewall-portal.png
+* To learn more about Private Link, see the [Azure Private Link](../private-link/private-link-overview.md) documentation.
+* An alternative to private link is to set up network access rules on your registry. To learn about network access rules, see [Restrict access to an Azure container registry using an Azure virtual network or firewall rules](container-registry-vnet.md).
 
 <!-- LINKS - External -->
 [aci-helloworld]: https://hub.docker.com/r/microsoft/aci-helloworld/
