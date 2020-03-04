@@ -1745,22 +1745,22 @@
     },
     {
       "source_path": "articles/cognitive-services/Bing-Web-Search/web-search-sdk-quickstart.md",
-      "redirect_url": "/azure/cognitive-services/bing-web-search/quickstarts/client-libraries",
+      "redirect_url": "/azure/cognitive-services/bing-web-search/quickstarts/client-libraries?pivots=programming-language-csharp",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/cognitive-services/Bing-Web-Search/web-sdk-java-quickstart.md",
-      "redirect_url": "/azure/cognitive-services/bing-web-search/quickstarts/client-libraries",
+      "redirect_url": "/azure/cognitive-services/bing-web-search/quickstarts/client-libraries?pivots=programming-language-java",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/cognitive-services/Bing-Web-Search/web-search-sdk-node-quickstart.md",
-      "redirect_url": "/azure/cognitive-services/bing-web-search/quickstarts/client-libraries",
+      "redirect_url": "/azure/cognitive-services/bing-web-search/quickstarts/client-libraries?pivots=programming-language-javascript",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/cognitive-services/Bing-Web-Search/web-sdk-python-quickstart.md",
-      "redirect_url": "/azure/cognitive-services/bing-web-search/quickstarts/client-libraries",
+      "redirect_url": "/azure/cognitive-services/bing-web-search/quickstarts/client-libraries?pivots=programming-language-python",
       "redirect_document_id": false
     },
     {
@@ -32619,6 +32619,21 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/cognitive-services/Bing-Custom-Search/sdk-csharp-quick-start.md",
+      "redirect_url": "/azure/cognitive-services/bing-custom-search/quickstarts/client-libraries?pivots=programming-language-csharp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Custom-Search/sdk-java-quickstart.md",
+      "redirect_url": "/azure/cognitive-services/bing-custom-search/quickstarts/client-libraries?pivots=programming-language-java",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Custom-Search/sdk-python-quickstart.md",
+      "redirect_url": "/azure/cognitive-services/bing-custom-search/quickstarts/client-libraries?pivots=programming-language-python",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/Bing-Autosuggest/bing-autosuggest-supported-languages.md",
       "redirect_url": "/azure/cognitive-services/bing-autosuggest/language-support",
       "redirect_document_id": true
@@ -46675,6 +46690,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/active-directory/authentication/howto-password-ban-bad-configure.md",
+      "redirect_url": "/azure/active-directory/authentication/tutorial-configure-custom-password-protection",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/media-services/previous/media-services-fmp4-live-ingest-overview.md",
       "redirect_url": "/azure/media-services/media-services-fmp4-live-ingest-overview",
       "redirect_document_id": false
@@ -49170,9 +49190,19 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/virtual-machines/workloads/sap/sap-hana-backup-storage-snapshots.md",
+      "redirect_url": "sap-hana-backup-guide",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/service-fabric/service-fabric-cicd-your-linux-applications-with-jenkins.md",
       "redirect_url": "/azure/jenkins/service-fabric-cicd-your-linux-applications-with-jenkins",
       "redirect_document_id": true
     },
+    {
+      "source_path": "articles/jenkins/install-jenkins-solution-template.md",
+      "redirect_url": "/azure/jenkins/install-solution-template-tutorial",
+      "redirect_document_id": true
+    }
   ]
 }

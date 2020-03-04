@@ -142,7 +142,6 @@ All features covered in the above list are available in the US Government cloud 
 
 The following Azure Active Directory Premium P1 features are currently not available in Azure Government:
 
-- Group-Based Licensing
 - Azure Active Directory Domain Services
 - Cloud App Security
 - B2B Collaboration is available in Azure US Government tenants created after June, 2019. Over time, more tenants will get access to this functionality. See [How can I tell if B2B collaboration is available in my Azure US Government tenant?](../active-directory/b2b/current-limitations.md#how-can-i-tell-if-b2b-collaboration-is-available-in-my-azure-us-government-tenant)
@@ -157,7 +156,7 @@ The following features have known limitations in Azure Government:
 
 - Limitations with the Azure Active Directory App Gallery:
   - Pre-integrated SAML and password SSO applications from the Azure AD Application Gallery are not yet available. Instead, use a custom application to support federated single sign-on with SAML or password SSO.
-  - Rich provisioning connectors for featured apps are not yet available. Instead, use SCIM for automated provisioning.
+  - Rich provisioning connectors for featured apps are not yet available. Instead, use SCIM for automated provisioning.'
 
 - Limitations with Multi-factor Authentication:
   - Hardware OATH tokens are not available in Azure Government.

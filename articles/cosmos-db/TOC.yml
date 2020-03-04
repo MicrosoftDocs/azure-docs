@@ -12,8 +12,8 @@
       items:
       - name: Azure portal
         href: create-cosmosdb-resources-portal.md
-      - name: Azure Resource Manager template
-        displayName: ARM
+      - name: ARM template
+        displayName: Resource Manager
         href: quick-create-template.md
       - name: .NET app - V4 SDK
         href: create-sql-api-dotnet-v4.md
@@ -136,7 +136,7 @@
         href: provision-throughput-autopilot.md
       - name: Autopilot FAQ
         href: autopilot-faq.md
-    - name: SQL query reference
+    - name: SQL query
       items:
       - name: Getting started
         displayName: sql query, query basics
@@ -437,6 +437,9 @@
         - name: Index geospatial data
           displayName: geospatial, spatial, index
           href: sql-query-geospatial-index.md
+      - name: DateTime
+        displayName: datetime, date, time
+        href: working-with-dates.md
       - name: Parameterized query
         displayName: parameterized query, parameterized, parameter, parameters
         href: sql-query-parameterized-queries.md
@@ -464,10 +467,6 @@
         - name: Indexing policies
           displayName: consistent, none
           href: index-policy.md
-      - name: Data types
-        items:
-        - name: DateTime
-          href: working-with-dates.md
       - name: Time to live
         displayName: delete, delete data, ttl
         href: time-to-live.md
