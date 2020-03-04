@@ -43,7 +43,7 @@ Consider the following points when you choose your protocol for device-side comm
 * **Payload size**. MQTT and AMQP are binary protocols, which result in more compact payloads than HTTPS.
 
 > [!WARNING]
-> When using HTTPS, each device should poll for cloud-to-device messages every 25 minutes or more. However, during development, it is acceptable to poll less frequently than every 25 minutes.
+> When using HTTPS, each device should poll for cloud-to-device messages at no more than a maximum frequency of every 25 minutes. You can poll less frequently if desired. During development, however, it is acceptable to poll more frequently than every 25 minutes.
 
 ## Port numbers
 
