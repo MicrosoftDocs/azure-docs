@@ -1,20 +1,16 @@
 ---
-title: "Quickstart: Search for images - Bing Image Search SDK for Python"
+title: Bing Image Search Python client library quickstart 
 titleSuffix: Azure Cognitive Services
-description: Use this quickstart to make your first image search using the Bing Image Search SDK, which is a wrapper for the API and contains the same features. This simple Python application sends an image search query, parses the JSON response, and displays the URL of the first image returned.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: bing-image-search
-ms.topic: quickstart
-ms.date: 12/06/2019
+ms.topic: include
+ms.date: 03/04/2020
 ms.author: aahi
-ms.custom: seodec2018
 ---
-# Quickstart: Search for images with the Bing Image Search SDK for Python
 
-Use this quickstart to make your first image search using the Bing Image Search SDK, which is a wrapper for the API and contains the same features. This simple Python application sends an image search query, parses the JSON response, and displays the URL of the first image returned.
+Use this quickstart to make your first image search using the Bing Image Search client library, which is a wrapper for the API and contains the same features. This simple Python application sends an image search query, parses the JSON response, and displays the URL of the first image returned.
 
 The source code for this sample is available [on GitHub](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/image-search-quickstart.py) with additional error handling and annotations.
 
@@ -22,10 +18,10 @@ The source code for this sample is available [on GitHub](https://github.com/Azur
 
 * [Python 2.7 or 3.4](https://www.python.org/) and higher.
 
-* The [Azure Image Search SDK](https://pypi.org/project/azure-cognitiveservices-search-imagesearch/) for Python
+* The [Azure Image Search client library](https://pypi.org/project/azure-cognitiveservices-search-imagesearch/) for Python
     * Install using `pip install azure-cognitiveservices-search-imagesearch`
 
-[!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
+[!INCLUDE [cognitive-services-bing-image-search-signup-requirements](~/includes/cognitive-services-bing-custom-search-signup-requirements.md)]
 
 ## Create and initialize the application
 

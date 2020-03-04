@@ -1,21 +1,16 @@
 ---
-title: "Quickstart: Search for images - Bing Image Search SDK for C#"
+title: Bing Image Search C# client library quickstart 
 titleSuffix: Azure Cognitive Services
-description: Use this quickstart to make your first image search using the Bing Image Search SDK, which is a wrapper for the API and contains the same features. This simple C# application sends an image search query, parses the JSON response, and displays the URL of the first image returned.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: bing-image-search
-ms.topic: quickstart
-ms.date: 12/06/2019
+ms.topic: include
+ms.date: 03/04/2020
 ms.author: aahi
-ms.custom: seodec2018
 ---
 
-# Quickstart: Search for images with the Bing Image Search SDK for C#
-
-Use this quickstart to make your first image search using the Bing Image Search SDK, which is a wrapper for the API and contains the same features. This simple C# application sends an image search query, parses the JSON response, and displays the URL of the first image returned.
+Use this quickstart to make your first image search using the Bing Image Search client library, which is a wrapper for the API and contains the same features. This simple C# application sends an image search query, parses the JSON response, and displays the URL of the first image returned.
 
 The source code for this sample is available [on GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingImageSearch) with additional error handling and annotations.
 
@@ -23,9 +18,9 @@ The source code for this sample is available [on GitHub](https://github.com/Azur
 * Any edition of [Visual Studio 2017 or later](https://visualstudio.microsoft.com/vs/whatsnew/).
 * The [Cognitive Image Search NuGet package](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.ImageSearch/1.2.0).
 
-To install the Bing Image Search SDK in Visual Studio, use the **Manage NuGet Packages** option from **Solution Explorer**.
+To install the Bing Image Search client library in Visual Studio, use the **Manage NuGet Packages** option from **Solution Explorer**.
 
-[!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
+[!INCLUDE [cognitive-services-bing-image-search-signup-requirements](~/includes/cognitive-services-bing-custom-search-signup-requirements.md)]
 
 See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
@@ -51,7 +46,7 @@ Images imageResults = null;
 string searchTerm = "canadian rockies";
 
 //initialize the client
-//NOTE: If you're using version 1.2.0 or below for the Bing Image Search SDK, 
+//NOTE: If you're using version 1.2.0 or below for the Bing Image Search client library, 
 // use ImageSearchAPI() instead of ImageSearchClient() to initialize your search client.
 
 var client = new ImageSearchClient(new ApiKeyServiceClientCredentials(subscriptionKey));

@@ -1,21 +1,16 @@
 ---
-title: "Quickstart: Search for images - Bing Image Search SDK for Java"
+title: Bing Image Search Java client library quickstart 
 titleSuffix: Azure Cognitive Services
-description: Use this quickstart to make your first image search using the Bing Image Search SDK, which is a wrapper for the API and contains the same features. This simple Java application sends an image search query, parses the JSON response, and displays the URL of the first image returned.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: bing-image-search
-ms.topic: quickstart
-ms.date: 12/06/2019
+ms.topic: include
+ms.date: 03/04/2020
 ms.author: aahi
-ms.custom: seodec2018
 ---
 
-# Quickstart: Search for images with the Bing Image Search SDK for Java
-
-Use this quickstart to make your first image search using the Bing Image Search SDK, which is a wrapper for the API and contains the same features. This simple Java application sends an image search query, parses the JSON response, and displays the URL of the first image returned.
+Use this quickstart to make your first image search using the Bing Image Search client library, which is a wrapper for the API and contains the same features. This simple Java application sends an image search query, parses the JSON response, and displays the URL of the first image returned.
 
 The source code for this sample is available [on GitHub](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingImageSearch/Quickstart) with additional error handling and annotations.
 
@@ -23,7 +18,7 @@ The source code for this sample is available [on GitHub](https://github.com/Azur
 
 The latest version of the [Java Development Kit](https://aka.ms/azure-jdks) (JDK)
 
-Install the Bing Image Search SDK dependencies by using Maven, Gradle, or another dependency management system. The Maven POM file requires the following declaration:
+Install the Bing Image Search client library dependencies by using Maven, Gradle, or another dependency management system. The Maven POM file requires the following declaration:
 
 ```xml
  <dependencies>
@@ -35,7 +30,7 @@ Install the Bing Image Search SDK dependencies by using Maven, Gradle, or anothe
  </dependencies>
 ```
 
-[!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
+[!INCLUDE [cognitive-services-bing-image-search-signup-requirements](~/includes/cognitive-services-bing-custom-search-signup-requirements.md)]
 
 ## Create and initialize the application
 

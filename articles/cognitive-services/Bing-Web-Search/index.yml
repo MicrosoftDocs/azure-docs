@@ -82,18 +82,18 @@ conceptualContent:
 
     - title: Bing Image Search
       links:      
-        - url: ../bing-image-search/image-search-sdk-quickstart.md
+        - text: Use C#
           itemType: quickstart
-          text: Use C#
-        - url: ../bing-image-search/image-sdk-java-quickstart.md
+          url: ../bing-image-search/quickstarts/client-library.md?pivots=programming-language-csharp
+        - text: Use Java
           itemType: quickstart
-          text: Use Java
-        - text: Use Node.js
+          url: ../bing-image-search/quickstarts/client-library.md?pivots=programming-language-java
+        - text: Use JavaScript
           itemType: quickstart
-          url: ../bing-image-search/image-search-sdk-node-quickstart.md
+          url: ../bing-image-search/quickstarts/client-library.md?pivots=programming-language-javascript
         - text: Use Python
           itemType: quickstart
-          url: ../bing-image-search/image-sdk-python-quickstart.md
+          url: ../bing-image-search/quickstarts/client-library.md?pivots=programming-language-python
         - text: Create a single page web-app
           itemType: tutorial
           url: ../bing-image-search/tutorial-bing-image-search-single-page-app.md
