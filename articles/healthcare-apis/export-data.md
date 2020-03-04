@@ -45,3 +45,16 @@ Here we then add role Storage Blob Data Contributor to our service name.
 Now we are ready for next step where we can select the storage account in Azure API for FHIR as a default storage account for $export.
 
 ## Selecting the storage account for $export
+
+Final step before invoking $export command is to assign the storage account that Azure API for FHIR will use to export the data to. To do this navigate to Integration blade in Azure API for FHIR service in Azure portal and select the storage account 
+
+![Enable Managed Identity](media/export-data/FHIR-Export-Storage.png)
+
+After that we are ready to export the data using $export command.
+
+## Exporting the data using $export command
+
+After we have configured Azure API for FHIR for export, we can now go and use the $export command to export the data out of the service into the storage account we specified. In order to learn how to invoke $export command in FHIR server, please read documentation on $export specification at [https://hl7.org/Fhir/uv/bulkdata/export/index.html](https://hl7.org/Fhir/uv/bulkdata/export/index.html)
+
+> [!IMPORTANT]
+> Note that currently Azure API for FHIR only supports System Level Export as defined in Export specification at [https://hl7.org/Fhir/uv/bulkdata/export/index.html](https://hl7.org/Fhir/uv/bulkdata/export/index.html)
