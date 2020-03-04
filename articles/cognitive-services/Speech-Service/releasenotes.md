@@ -20,7 +20,7 @@ ms.custom: seodec18
  - Added Python packages to support the new 3.8 release of Python.
  - Red Hat Enterprise Linux (RHEL)/CentOS 8 x64 support (C++, C#, Java, Python).
    > [!NOTE] 
-   > Customers must configure OpenSSL according to [these instructions](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-configure-openssl-linux)
+   > Customers must configure OpenSSL according to [these instructions](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-configure-openssl-linux).
  - Linux ARM32 support for Debian and Ubuntu.
  - DialogServiceConnector now supports an optional "bot ID" parameter on BotFrameworkConfig. This parameter allows the use of multiple Direct Line Speech bots with a single Azure speech resource. Without the parameter specified, the default bot (as determined by the Direct Line Speech channel configuration page) will be used.
  - DialogServiceConnector now has a SpeechActivityTemplate property. The contents of this JSON string will be used by Direct Line Speech to pre-populate a wide variety of supported fields in all activities that reach a Direct Line Speech bot, including activities automatically generated in response to events like speech recognition.
