@@ -1,7 +1,7 @@
 ---
-title: Phone Set Usage - Speech service
+title: Phonetic sets - Speech service
 titleSuffix: Azure Cognitive Services
-description: Learn  The detailed phone usage doc for SAPI.
+description: Learn how to the Speech API (SAPI) phonetic alphabet maps to the International Phonetic Alphabet (IPA), and when to use which.
 services: cognitive-services
 author: zhaoyunED
 manager: junwg
@@ -12,9 +12,9 @@ ms.date: 03/04/2020
 ms.author: jiajzhan
 ---
 
-# Speech Phonetic Sets
+# Speech phonetic sets
 
-Microsoft defines a Speech API (SAPI) phonetic alphabet (phone set for short), consisting of seven languages; `en-US`, `fr-FR`, `de-DE`, `es-ES`, `ja-JP`, `zh-CN`, and `zh-TW`. The SAPI phone set is relatively easy to use for a native speaker. For example, `ja-JP` uses kana as phone, `zh-CN` use PinYin as phone set. But sometimes it's not powerful enough, for example SAPI phone set of `fr-FR` couldn't represent french liaison. 
+Microsoft defines a Speech API (SAPI) phonetic alphabet (phone set for short), consisting of seven languages; `en-US`, `fr-FR`, `de-DE`, `es-ES`, `ja-JP`, `zh-CN`, and `zh-TW`. The SAPI phonetic sets typically map to the <a href="https://en.wikipedia.org/wiki/International_Phonetic_Alphabet" target="_blank">International Phonetic Alphabet (IPA) <span class="docon docon-navigate-external x-hidden-focus"></span></a>. In this article, you'll learn how these phone sets are mapped and when to use which phone set.
 
 # [en-US](#tab/en-US)
 
@@ -118,7 +118,7 @@ Microsoft defines a Speech API (SAPI) phonetic alphabet (phone set for short), c
 
 ### French suprasegmentals
 
-The SAPI phone set puts stress after the vowel of the stressed syllable, however; the `fr-FR` SAPI phone set doesn't support the IPA sub-stress 'ˌ'. If the IPA sub-stress is needed, you should use the IPA directly.
+The SAPI phone set puts stress after the vowel of the stressed syllable, however; the `fr-FR` SAPI phone set doesn't support the IPA substress 'ˌ'. If the IPA substress is needed, you should use the IPA directly.
 
 ### French vowels
 
@@ -190,10 +190,10 @@ The SAPI phone set puts stress after the vowel of the stressed syllable, however
 
 | SAPI | IPA       | Example 1                             | Example 2     | Example 3                          |
 |------|-----------|---------------------------------------|---------------|------------------------------------|
-| a :  | `a`ː      | **A**ber                              | Maßst**a**b   | Schem**a**                         |
+| a:   | `a`ː      | **A**ber                              | Maßst**a**b   | Schem**a**                         |
 | a    | `a`       | **A**bfall                            | B**a**ch      | Agath**a**                         |
 | oh   | `ɔ`       | **O**sten                             | Pf**o**sten   |                                    |
-| eh : | `ɛː`      | **Ä**hnlichkeit                       | B**ä**r       | [<sup>1</sup>](#de-v-1)Fasci**ae** |
+| eh:  | `ɛː`      | **Ä**hnlichkeit                       | B**ä**r       | [<sup>1</sup>](#de-v-1)Fasci**ae** |
 | eh   | `ɛ`       | **ä**ndern                            | Proz**e**nt   | Amygdal**ae**                      |
 | ax   | `ə`       | [<sup>2</sup>](#de-v-2)'v**e**rstauen | Aach**e**n    | Frag**e**                          |
 | iy   | `iː`      | **I**ran                              | abb**ie**gt   | Relativitätstheor**ie**            |
@@ -388,7 +388,7 @@ The SAPI phone set for `ja-JP` is based on the native phone <a href="https://en.
 | SAPI | IPA            |
 |------|----------------|
 | `ˈ`  | `ˈ` mainstress |
-| `+`  | `ˌ` sub-stress |
+| `+`  | `ˌ` substress |
 
 #### Example
 
