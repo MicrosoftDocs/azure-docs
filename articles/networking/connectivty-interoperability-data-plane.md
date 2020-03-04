@@ -37,7 +37,7 @@ Virtual network (VNet) peering emulates network bridge functionality between the
 The following figure shows the graphical connection view of the hub VNet and the spoke VNet from the perspective of Azure Network Watcher:
 
 
-[![1]][1]
+![1][1]
 
 ### Path to the branch VNet
 
@@ -57,11 +57,11 @@ In this traceroute, the first hop is the VPN gateway in Azure VPN Gateway of the
 
 The following figure shows the graphical connection view of the hub VNet and the branch VNet from the perspective of Network Watcher:
 
-[![2]][2]
+![2][2]
 
 For the same connection, the following figure shows the grid view in Network Watcher:
 
-[![3]][3]
+![3][3]
 
 ### Path to on-premises Location 1
 
@@ -168,14 +168,14 @@ In this traceroute, the first hop is the hub VNet’s ExpressRoute gateway tunne
 Traceroute output from the spoke VNet to a VM in on-premises Location 2 is shown here:
 
 
-	C:\Users\rb>tracert 10.2.30.10
+	C:\Users\rb>tracert 10.1.31.10
 
-	Tracing route to 10.2.30.10 over a maximum of 30 hops
+	Tracing route to 10.1.31.10 over a maximum of 30 hops
 
-	  1    24 ms     2 ms     3 ms  10.10.30.132
+	  1    76 ms    75 ms    76 ms  10.10.30.134
 	  2     *        *        *     Request timed out.
 	  3     *        *        *     Request timed out.
-	  4     3 ms     2 ms     2 ms  10.2.30.10
+	  4    75 ms    75 ms    75 ms  10.1.31.10
 
 	Trace complete.
 
@@ -299,7 +299,7 @@ Network Watcher provides only an Azure-centric view. For an on-premises perspect
 
 The following figure shows the topology view of the on-premises Location 1 VM connectivity to the VM on the hub VNet via ExpressRoute:
 
-[![4]][4]
+![4][4]
 
 As discussed earlier, the test setup uses a site-to-site VPN as backup connectivity for ExpressRoute between the on-premises Location 1 and the hub VNet. To test the backup data path, let’s induce an ExpressRoute link failure between the on-premises Location 1 primary CE router and the corresponding MSEE. To induce an ExpressRoute link failure, shut down the CE interface that faces the MSEE:
 
@@ -315,7 +315,7 @@ As discussed earlier, the test setup uses a site-to-site VPN as backup connectiv
 
 The following figure shows the topology view of the on-premises Location 1 VM connectivity to the VM on the hub VNet via site-to-site VPN connectivity when ExpressRoute connectivity is down:
 
-[![5]][5]
+![5][5]
 
 ### Path to the spoke VNet
 

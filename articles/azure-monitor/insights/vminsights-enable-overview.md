@@ -1,11 +1,10 @@
 ---
 title: Enable Azure Monitor for VMs (preview) overview | Microsoft Docs
 description: Learn how to deploy and configure Azure Monitor for VMs. Find out the system requirements.
-ms.service:  azure-monitor
 ms.subservice: 
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 11/14/2019
 
 ---

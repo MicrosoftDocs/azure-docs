@@ -1,16 +1,8 @@
 ---
-title: Limits and boundaries - QnA Maker 
-titleSuffix: Azure Cognitive Services
-description: QnA Maker has meta-limits for parts of the knowledge base and service. It is important to keep your knowledge base within those limits in order to test and publish. 
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: qna-maker
-ms.topic: article
-ms.date: 08/30/2019
-ms.author: diberry
-ms.custom: seodec18
+title: Limits and boundaries - QnA Maker
+description: QnA Maker has meta-limits for parts of the knowledge base and service. It is important to keep your knowledge base within those limits in order to test and publish.
+ms.topic: reference
+ms.date: 02/14/2020
 ---
 
 # QnA Maker knowledge base limits and boundaries
@@ -25,9 +17,28 @@ The maximum number of knowledge bases is based on [Azure Cognitive Search tier l
 |---|---|---|---|---|---|----|
 |Maximum number of published knowledge bases allowed|2|14|49|199|199|2,999|
 
- For example, if your tier has 15 allowed indexes, you can publish 14 knowledge bases (1 index per published knowledge base). The fifteenth index, `testkb`, is used for all the knowledge bases for authoring and testing. 
+ For example, if your tier has 15 allowed indexes, you can publish 14 knowledge bases (1 index per published knowledge base). The fifteenth index, `testkb`, is used for all the knowledge bases for authoring and testing.
 
 ## Extraction Limits
+
+### File naming constraints
+
+File names may not include the following characters:
+
+|Do not use character|
+|--|
+|Single quote `'`|
+|Double quote `"`|
+
+### Maximum file size
+
+|Format|Max file size (MB)|
+|--|--|
+|`.docx`|10|
+|`.pdf`|25|
+|`.tsv`|10|
+|`.txt`|10|
+|`.xlsx`|3|
 
 ### Maximum number of files
 
@@ -38,6 +49,8 @@ The maximum number of files that can be extracted and maximum file size is based
 The maximum number of deep-links that can be crawled for extraction of QnAs from a URL page is **20**.
 
 ## Metadata Limits
+
+Metadata is presented as a text-based key:value pair, such as `product:windows 10`. It is stored and compared in lower case.
 
 ### By Azure Cognitive Search pricing tier
 
@@ -53,8 +66,8 @@ The length and acceptable characters for metadata name and value are listed in t
 
 |Item|Allowed chars|Regex pattern match|Max chars|
 |--|--|--|--|
-|Name|Allows<br>alphanumeric (letters and digits)<br>`_` (underscore)|`^[a-zA-Z0-9_]+$`|100|
-|Value|Allows everything except<br>`:` (colon)<br>`|` (vertical pipe)|`^[^:|]+$`|500|
+|Name (key)|Allows<br>alphanumeric (letters and digits)<br>`_` (underscore)<br> Must not contain spaces.|`^[a-zA-Z0-9_]+$`|100|
+|Value|Allows everything except<br>`:` (colon)<br>`|` (vertical pipe)<br>Only one value allowed.|`^[^:|]+$`|500|
 |||||
 
 ## Knowledge Base content limits
@@ -62,12 +75,12 @@ Overall limits on the content in the knowledge base:
 * Length of answer text: 25,000
 * Length of question text: 1,000
 * Length of metadata key/value text: 100
-* Supported characters for metadata name: Alphabets, digits and `_`  
-* Supported characters for metadata value: All except `:` and `|` 
+* Supported characters for metadata name: Alphabets, digits and `_`
+* Supported characters for metadata value: All except `:` and `|`
 * Length of file name: 200
 * Supported file formats: ".tsv", ".pdf", ".txt", ".docx", ".xlsx".
 * Maximum number of alternate questions: 300
-* Maximum number of question-answer pairs: Depends on the **[Azure Cognitive Search tier](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity#document-limits)** chosen. A question and answer pair maps to a document on Azure Cognitive Search index. 
+* Maximum number of question-answer pairs: Depends on the **[Azure Cognitive Search tier](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity#document-limits)** chosen. A question and answer pair maps to a document on Azure Cognitive Search index.
 * URL/HTML page: 1 million characters
 
 ## Create Knowledge base call limits:
@@ -85,4 +98,4 @@ These represent the limits for each update action; that is, clicking *Save and t
 
 ## Next steps
 
-Learn when and how to change [service pricing tiers](How-To/set-up-qnamaker-service-azure.md#upgrade-qna-maker).
+Learn when and how to change [service pricing tiers](How-To/set-up-qnamaker-service-azure.md#upgrade-qna-maker-sku).

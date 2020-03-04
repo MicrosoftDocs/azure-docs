@@ -2,14 +2,14 @@
 title: TrustFrameworkPolicy - Azure Active Directory B2C | Microsoft Docs
 description: Specify the TrustFrameworkPolicy element of a custom policy in Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
-ms.author: marsma
+ms.date: 01/31/2020
+ms.author: mimart
 ms.subservice: B2C
 ---
 
@@ -41,8 +41,8 @@ The **TrustFrameworkPolicy** element contains the following attributes:
 | TenantId | Yes | The unique identifier of the tenant to which this policy belongs. |
 | PolicyId | Yes | The unique identifier for the policy. This identifier must be prefixed by *B2C_1A_* |
 | PublicPolicyUri | Yes | The URI for the policy, which is combination of the tenant ID and the policy ID. |
-| DeploymentMode | No | Possible values: `Production`, `Debugging`, or `Development`. `Production` is the default. Use this property to debug your policy. For more information, see [Collecting Logs](active-directory-b2c-troubleshoot-custom.md). |
-| UserJourneyRecorderEndpoint | No | The endpoint that is used when **DeploymentMode** is set to `Development`. The value must be `urn:journeyrecorder:applicationinsights`. For more information, see [Collecting Logs](active-directory-b2c-troubleshoot-custom.md). |
+| DeploymentMode | No | Possible values: `Production`, or `Development`. `Production` is the default. Use this property to debug your policy. For more information, see [Collecting Logs](troubleshoot-with-application-insights.md). |
+| UserJourneyRecorderEndpoint | No | The endpoint that is used when **DeploymentMode** is set to `Development`. The value must be `urn:journeyrecorder:applicationinsights`. For more information, see [Collecting Logs](troubleshoot-with-application-insights.md). |
 
 
 The following example shows how to specify the **TrustFrameworkPolicy** element:
@@ -76,7 +76,7 @@ The inheritance model is as follows:
 - The child policy at any level can inherit from the parent policy and extend it by adding new elements.
 - There is no limit on the number of levels.
 
-For more information, see [Get started with custom policies](active-directory-b2c-get-started-custom.md).
+For more information, see [Get started with custom policies](custom-policy-get-started.md).
 
 ## Base policy
 
@@ -134,7 +134,7 @@ B2C_1A_TrustFrameWorkBase or B2C_1A_TrustFrameworkExtensionPolicy:
 
 A user journey defines the business logic of what a user goes through. Each user journey is a set of orchestration steps that performs a series of actions, in sequence in terms of authentication and information collection.
 
-The **SocialAndLocalAccounts** policy file in the [starter pack](active-directory-b2c-get-started-custom.md#custom-policy-starter-pack) contains the SignUpOrSignIn, ProfileEdit, PasswordReset user journeys. You can add more user journeys for other scenarios, such as changing an email address or linking and unlinking a social account.
+The **SocialAndLocalAccounts** policy file in the [starter pack](custom-policy-get-started.md#custom-policy-starter-pack) contains the SignUpOrSignIn, ProfileEdit, PasswordReset user journeys. You can add more user journeys for other scenarios, such as changing an email address or linking and unlinking a social account.
 
 The orchestration steps may call a [Technical Profile](technicalprofiles.md). A technical profile provides a framework with a built-in mechanism to communicate with different types of parties. For example, a technical profile can perform these actions among others:
 

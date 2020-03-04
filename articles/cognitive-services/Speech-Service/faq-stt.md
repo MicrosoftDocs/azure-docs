@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 10/17/2019
+ms.date: 12/4/2019
 ms.author: panosper
 ---
 
@@ -60,11 +60,32 @@ The old dataset and the new dataset must be combined in a single .zip file (for 
 
 If you have adapted and deployed a model with baseline V1.0, that deployment will remain as is. Customers can decommission the deployed model, readapt using the newer version of the baseline and redeploy.
 
+**Q: Can I download my model and run it locally?**
+
+**A**: Models can't be downloaded and executed locally.
+
+**Q: Are my requests logged?**
+
+**A**: You have a choice when you create a deployment to switch off tracing. At that point, no audio or transcriptions will be logged. Otherwise, requests are typically logged in Azure in secure storage.
+
+**Q: Are my requests throttled?**
+
+**A**: The REST API limits requests to 25 per 5 seconds. Details can be found in our pages for [Speech to text](speech-to-text.md).
+
+**Q: How am I charged for dual channel audio?**
+
+**A**: If you submit each channel separately (each channel in its own file), you will be charged for the duration of each file. If you submit a single file with each channel multiplexed together, then you will be charged for the duration of the single file. For details on pricing please refer to the [Azure Cognitive Services pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
+
+> [!IMPORTANT]
+> If you have further privacy concerns that prohibit you from using the custom Speech service, contact one of the support channels.
+
+## Increasing concurrency
+
 **Q: What if I need higher concurrency for my deployed model than what is offered in the portal?**
 
 **A**: You can scale up your model in increments of 20 concurrent requests.
 
-Contact [Speech support](mailto:speechsupport@microsoft.com?subject=Request%20for%20higher%20concurrency%20for%20Speech-to-text) if you require a higher scale.
+With the required information, create a support request in the [Azure support portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). Do not post the information on any of the public channels  (GitHub, Stackoverflow, ...) mentioned on the [support page](support.md).
 
 To increase concurrency for a ***custom model***, we need the following information:
 
@@ -89,28 +110,9 @@ or
 - the Resource ID for your subscription:
   - Go to the [Azure portal](https://portal.azure.com),
   - select `Cognitive Services` in the search box,
-  - from the displayed services pick the speech service you want the concurrency increased for,
+  - from the displayed services pick the Speech service you want the concurrency increased for,
   - display the `Properties` for this service,
   - copy the complete `Resource ID`.
-
-**Q: Can I download my model and run it locally?**
-
-**A**: Models can't be downloaded and executed locally.
-
-**Q: Are my requests logged?**
-
-**A**: You have a choice when you create a deployment to switch off tracing. At that point, no audio or transcriptions will be logged. Otherwise, requests are typically logged in Azure in secure storage.
-
-**Q: Are my requests throttled?**
-
-**A**: The REST API limits requests to 25 per 5 seconds. Details can be found in our pages for [Speech to text](speech-to-text.md).
-
-**Q: How I am charged for dual channel audio?**
-
-**A**: If you submit each channel separately (each channel in its own file), you will be charged per duration of file. If you submit a single file with each channel multiplexed together, then you will be charged for the duration of the single file.
-
-> [!IMPORTANT]
-> If you have further privacy concerns that prohibit you from using the custom Speech service, contact one of the support channels.
 
 ## Importing data
 
@@ -185,9 +187,9 @@ which includes insertions, deletions, and substitutions, divided by the total nu
 
 **Q: What speech experiences are improved by the Tenant Model?**
 
-**A:** When the Tenant Model is enabled, created and published, it is used to improve recognition for any enterprise applications built using Speech Service; that also pass a user AAD token indicating membership to the enterprise.
+**A:** When the Tenant Model is enabled, created and published, it is used to improve recognition for any enterprise applications built using the Speech service; that also pass a user AAD token indicating membership to the enterprise.
 
-The speech experiences built into Office 365, such as Dictation and PowerPoint Captioning, aren't changed when you create a Tenant Model for your Speech Service applications.
+The speech experiences built into Office 365, such as Dictation and PowerPoint Captioning, aren't changed when you create a Tenant Model for your Speech service applications.
 
 ## Next steps
 

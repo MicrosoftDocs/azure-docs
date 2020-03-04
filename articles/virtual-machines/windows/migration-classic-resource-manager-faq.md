@@ -1,10 +1,10 @@
 ---
-title: Frequently asked questions about Classic to Azure Resource Manager migration 
-description: Frequently asked questions about Classic to Azure Resource Manager migration
+title: Frequently asked questions about classic to Azure Resource Manager migration 
+description: Frequently asked questions about classic to Azure Resource Manager migration
 services: virtual-machines-windows
 documentationcenter: ''
-author: singhkays
-manager: gwallace
+author: tanmaygore
+manager: vashan
 editor: ''
 tags: azure-resource-manager
 
@@ -14,12 +14,16 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 
 ms.topic: article
-ms.date: 04/01/2017
-ms.author: kasing
+ms.date: 02/06/2020
+ms.author: tagore
 
 ---
 
 # Frequently asked questions about classic to Azure Resource Manager migration
+
+> [!IMPORTANT]
+> Today, about 90% of IaaS VMs are using [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/). As of February 28, 2020, classic VMs have been deprecated and will be fully retired on March 1, 2023. [Learn more]( https://aka.ms/classicvmretirement) about this deprecation and [how it affects you](https://docs.microsoft.com/azure/virtual-machines/classic-vm-deprecation#how-does-this-affect-me).
+
 [!INCLUDE [virtual-machines-common-migration-faq](../../../includes/virtual-machines-common-classic-resource-manager-migration-faq.md)]
 
 ## Next steps

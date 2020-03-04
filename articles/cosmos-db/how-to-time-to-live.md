@@ -1,10 +1,10 @@
 ---
-title: Learn how to configure and manage Time to Live in Azure Cosmos DB
-description: Learn how to configure and manage time to live in Azure Cosmos DB
+title: Configure and manage Time to Live in Azure Cosmos DB
+description: Learn how to configure and manage time to live on a container and an item in Azure Cosmos DB
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/28/2019
+ms.date: 12/02/2019
 ms.author: mjbrown
 ---
 
@@ -81,7 +81,7 @@ To set the time to live on a container, you need to provide a non-zero positive 
 DocumentCollection collectionDefinition = new DocumentCollection();
 collectionDefinition.Id = "myContainer";
 collectionDefinition.PartitionKey.Paths.Add("/myPartitionKey");
-collectionDefinition.DefaultTimeToLive = 90 * 60 * 60 * 24; // expire all documents after 90 days
+collectionDefinition.DefaultTimeToLive = 90 * 60 * 60 * 24 // expire all documents after 90 days
 
 DocumentCollection ttlEnabledCollection = await client.CreateDocumentCollectionAsync(
     UriFactory.CreateDatabaseUri("myDatabaseName"),

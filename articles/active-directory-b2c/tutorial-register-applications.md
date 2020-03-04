@@ -1,21 +1,22 @@
 ---
-title: Tutorial - Register an application - Azure Active Directory B2C
+title: "Tutorial: Register an application"
+titleSuffix: Azure AD B2C
 description: Learn how to register a web application in Azure Active Directory B2C using the Azure portal.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 10/16/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
 ---
 
 # Tutorial: Register an application in Azure Active Directory B2C
 
-Before your [applications](active-directory-b2c-apps.md) can interact with Azure Active Directory B2C (Azure AD B2C), they must be registered in a tenant that you manage. This tutorial shows you how to register a web application using the Azure portal.
+Before your [applications](application-types.md) can interact with Azure Active Directory B2C (Azure AD B2C), they must be registered in a tenant that you manage. This tutorial shows you how to register a web application using the Azure portal.
 
 In this article, you learn how to:
 
@@ -35,8 +36,9 @@ To register an application in your Azure AD B2C tenant, you can use the current 
 
 #### [Applications](#tab/applications/)
 
-1. Make sure you're using the directory that contains your Azure AD B2C tenant by selecting the **Directory + subscription** filter in the top menu and choosing the directory that contains your tenant.
-1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Select the **Directory + Subscription** icon in the portal toolbar, and then select the directory that contains your Azure AD B2C tenant.
+1. In the Azure portal, search for and select **Azure AD B2C**.
 1. Select **Applications**, and then select **Add**.
 1. Enter a name for the application. For example, *webapp1*.
 1. For **Include web app/ web API** and **Allow implicit flow**, select **Yes**.
@@ -49,13 +51,13 @@ To register an application in your Azure AD B2C tenant, you can use the current 
     * The reply URL must begin with the scheme `https`.
     * The reply URL is case-sensitive. Its case must match the case of the URL path of your running application. For example, if your application includes as part of its path `.../abc/response-oidc`,  do not specify `.../ABC/response-oidc` in the reply URL. Because the web browser treats paths as case-sensitive, cookies associated with `.../abc/response-oidc` may be excluded if redirected to the case-mismatched `.../ABC/response-oidc` URL.
 
-1. Click **Create** to complete the application registration.
+1. Select **Create** to complete the application registration.
 
 #### [App registrations (Preview)](#tab/app-reg-preview/)
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Select the **Directory + subscription** filter in the top menu, and then select the directory that contains your Azure AD B2C tenant.
-1. In the left menu, select **Azure AD B2C**. Or, select **All services** and search for and select **Azure AD B2C**.
+1. Select the **Directory + Subscription** icon in the portal toolbar, and then select the directory that contains your Azure AD B2C tenant.
+1. In the Azure portal, search for and select **Azure AD B2C**.
 1. Select **App registrations (Preview)**, and then select **New registration**.
 1. Enter a **Name** for the application. For example, *webapp1*.
 1. Select **Accounts in any organizational directory or any identity provider**.
@@ -82,7 +84,7 @@ Once the application registration is complete, enable the implicit grant flow:
 
 ## Create a client secret
 
-If your application exchanges a code for a token, you need to create an application secret.
+If your application exchanges an authorization code for an access token, you need to create an application secret.
 
 #### [Applications](#tab/applications/)
 

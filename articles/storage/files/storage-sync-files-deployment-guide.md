@@ -16,9 +16,9 @@ We strongly recommend that you read [Planning for an Azure Files deployment](sto
 
 ## Prerequisites
 * An Azure file share in the same region that you want to deploy Azure File Sync. For more information, see:
-    - [Region availability](storage-sync-files-planning.md#region-availability) for Azure File Sync.
+    - [Region availability](storage-sync-files-planning.md#azure-file-sync-region-availability) for Azure File Sync.
     - [Create a file share](storage-how-to-create-file-share.md) for a step-by-step description of how to create a file share.
-* At least one supported instance of Windows Server or Windows Server cluster to sync with Azure File Sync. For more information about supported versions of Windows Server, see [Interoperability with Windows Server](storage-sync-files-planning.md#azure-file-sync-system-requirements-and-interoperability).
+* At least one supported instance of Windows Server or Windows Server cluster to sync with Azure File Sync. For more information about supported versions of Windows Server, see [Interoperability with Windows Server](storage-sync-files-planning.md#windows-file-server-considerations).
 * The Az PowerShell module may be used with either PowerShell 5.1 or PowerShell 6+. You may use the Az PowerShell module for Azure File Sync on any supported system, including non-Windows systems, however the server registration cmdlet must always be run on the Windows Server instance you are registering (this can be done directly or via PowerShell remoting). On Windows Server 2012 R2, you can verify that you are running at least PowerShell 5.1.\* by looking at the value of the **PSVersion** property of the **$PSVersionTable** object:
 
     ```powershell
@@ -104,7 +104,7 @@ On the pane that opens, enter the following information:
 When you are finished, select **Create** to deploy the Storage Sync Service.
 
 # [PowerShell](#tab/azure-powershell)
-Replace **<Az_Region>**, **<RG_Name>**, and **<my_storage_sync_service>** with your own values, then use the following cmds to create and deploy a Storage Sync Service:
+Replace `<Az_Region>`, `<RG_Name>`, and `<my_storage_sync_service>` with your own values, then use the following commands to create and deploy a Storage Sync Service:
 
 ```powershell
 $hostType = (Get-Host).Name
@@ -395,6 +395,10 @@ Currently, pre-seeding approach has a few limitations -
 - After the cloud endpoint is created, Azure File Sync runs a process to detect the files in the cloud before starting the initial sync. The time taken to complete this process varies depending on the various factors like network speed, available bandwidth, and number of files and folders. For the rough estimation in the preview release, detection process runs approximately at 10 files/sec.  Hence, even if pre-seeding runs fast, the overall time to get a fully running system may be significantly longer when data is pre-seeded in the cloud.
 
 ## Self-service restore through Previous Versions and VSS (Volume Shadow Copy Service)
+
+> [!IMPORTANT]
+> The following information can only be used with version 9 (or above) of the storage sync agent. Versions lower than 9 will not have the StorageSyncSelfService cmdlets.
+
 Previous Versions is a Windows feature that allows you to utilize server-side VSS snapshots of a volume to present restorable versions of a file to an SMB client.
 This enables a powerful scenario, commonly referred to as self-service restore, directly for information workers instead of depending on the restore from an IT admin.
 

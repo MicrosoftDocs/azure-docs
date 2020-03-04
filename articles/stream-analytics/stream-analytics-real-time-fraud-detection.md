@@ -1,10 +1,9 @@
 ---
 title: Real-time fraud detection using Azure Stream Analytics
 description: Learn how to create a real-time fraud detection solution with Stream Analytics. Use an event hub for real-time event processing. 
-services: stream-analytics 
 author: mamccrea
 ms.author: mamccrea
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics 
 ms.topic: conceptual 
 ms.date: 12/07/2018
@@ -50,26 +49,33 @@ To analyze a data stream, you *ingest* it into Azure. A typical way to ingest da
 ### Create a namespace and event hub
 In this procedure, you first create an event hub namespace, and then you add an event hub to that namespace. Event hub namespaces are used to logically group related event bus instances. 
 
-1. Log  in to the Azure portal and click **Create a resource** > **Internet of Things** > **Event Hub**. 
+1. Log in to the Azure portal, and click **Create a resource** at the top left of the screen.
 
-2. In the **Create namespace** pane, enter a namespace name such as `<yourname>-eh-ns-demo`. You can use any name for the namespace, but the name must be valid for a URL and it must be unique across Azure. 
+2. Select **All services** in the left menu, and select **star (`*`)** next to **Event Hubs** in the **Analytics** category. Confirm that **Event Hubs** is added to **FAVORITES** in the left navigational menu. 
+
+   ![Search for Event Hubs](./media/stream-analytics-real-time-fraud-detection/select-event-hubs-menu.png)
+
+3. Select **Event Hubs** under **FAVORITES** in the left navigational menu, and select **Add** on the toolbar.
+
+   ![Add button](./media/stream-analytics-real-time-fraud-detection/event-hubs-add-toolbar.png)
+
+4. In the **Create namespace** pane, enter a namespace name such as `<yourname>-eh-ns-demo`. You can use any name for the namespace, but the name must be valid for a URL and it must be unique across Azure. 
     
-3. Select a subscription and create or choose a resource group, then click **Create**.
+5. Select a subscription and create or choose a resource group, then click **Create**.
 
     <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-namespace-new-portal.png" alt="Create event hub namespace in Azure portal" width="300px"/>
 
-4. When the namespace has finished deploying, find the event hub namespace in your list of Azure resources. 
+6. When the namespace has finished deploying, find the event hub namespace in your list of Azure resources. 
 
-5. Click the new namespace, and in the namespace pane, click **Event Hub**.
+7. Click the new namespace, and in the namespace pane, click **Event Hub**.
 
    ![The Add Event Hub button for creating a new event hub](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-button-new-portal.png)    
  
-6. Name the new event hub `asa-eh-frauddetection-demo`. You can use a different name. If you do, make a note of it, because you need the name later. You don't need to set any other options for the event hub right now.
+8. Name the new event hub `asa-eh-frauddetection-demo`. You can use a different name. If you do, make a note of it, because you need the name later. You don't need to set any other options for the event hub right now.
 
     <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-new-portal.png" alt="Name event hub in Azure portal" width="400px"/>
     
- 
-7. Click **Create**.
+9. Click **Create**.
 
 ### Grant access to the event hub and get a connection string
 

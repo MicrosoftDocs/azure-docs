@@ -64,7 +64,7 @@
 - name: Concepts
   items:
   - name: Azure Resource Manager
-    href: ../azure-resource-manager/resource-group-overview.md
+    href: ../azure-resource-manager/management/overview.md
     maintainContext: true
   - name: Regions
     href: ../virtual-machines/windows/regions.md
@@ -231,8 +231,8 @@
       href: virtual-machine-scale-sets-placement-groups.md
     - name: Convert a scale set template to use managed disk
       href: virtual-machine-scale-sets-convert-template-to-md.md
-    - name: Use low-priority
-      href: virtual-machine-scale-sets-use-low-priority.md
+    - name: Use spot instance
+      href: use-spot.md
   - name: Manage
     items:
     - name: Common management tasks
@@ -247,11 +247,13 @@
       href: virtual-machine-scale-sets-networking.md
     - name: Automatic OS upgrades
       href: virtual-machine-scale-sets-automatic-upgrade.md
-    - name: Instance protection (Preview)
+    - name: Automatic instance repairs (preview)
+      href: virtual-machine-scale-sets-automatic-instance-repairs.md
+    - name: Instance protection
       href: virtual-machine-scale-sets-instance-protection.md
-    - name: Scale-In Policy (Preview)
+    - name: Scale-In Policy
       href: virtual-machine-scale-sets-scale-in-policy.md
-    - name: Terminate notification on delete (Preview)
+    - name: Terminate notification on delete
       href: virtual-machine-scale-sets-terminate-notification.md
     - name: Shared image galleries
       items:

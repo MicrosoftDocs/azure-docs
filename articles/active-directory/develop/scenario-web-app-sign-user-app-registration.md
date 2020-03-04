@@ -1,6 +1,6 @@
 ---
-title: Web app that signs in users (app registration) - Microsoft identity platform
-description: Learn how to build a web app that signs in users (app registration)
+title: Register a web app that signs in users - Microsoft identity platform | Azure
+description: Learn how to register a web app that signs in users
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -16,7 +16,6 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to know how to write a web app that signs in users by using the Microsoft identity platform for developers.
-ms.collection: M365-identity-device-management
 ---
 
 # Web app that signs in users: App registration
@@ -65,29 +64,29 @@ You can use these links to bootstrap the creation of your web application:
    1. In the **Name** section, enter a meaningful application name that will be displayed to users of the app. For example, enter **MailApp-openidconnect-v2**.
    1. In the **Redirect URI (optional)** section, select **Web** in the combo box and enter the following redirect URI: **https://localhost:44326/**.
 1. Select **Register** to create the application.
-1. Select the **Authentication** menu. 
+1. Select the **Authentication** menu.
 1. In the **Advanced settings** | **Implicit grant** section, select **ID tokens**. This sample requires the [implicit grant flow](v2-oauth2-implicit-grant-flow.md) to be enabled to sign in the user.
 1. Select **Save**.
 
 # [Java](#tab/java)
 
-1. When the **Register an application page** appears, enter a display name for the application. For example, enter **java-webapp**. 
+1. When the **Register an application page** appears, enter a display name for the application. For example, enter **java-webapp**.
 1. Select **Accounts in any organizational directory
 and personal Microsoft Accounts (e.g. Skype, Xbox, Outlook.com)**,
    and then select **Web app / API** for **Application Type**.
 1. Select **Register** to register the application.
-1. On the left menu, select **Authentication**. Under **Redirect URIs**, select **Web**. 
+1. On the left menu, select **Authentication**. Under **Redirect URIs**, select **Web**.
 
 1. Enter two redirect URIs: one for the sign-in page, and one for the graph page. For both, use the same host and port number, followed by **/msal4jsample/secure/aad** for the sign-in page and **msal4jsample/graph/me** for the user information page.
- 
+
    By default, the sample uses:
 
    - **http://localhost:8080/msal4jsample/secure/aad**
    - **http://localhost:8080/msal4jsample/graph/me**
 
-1. In the **Advanced settings** section, set **Logout URL** to **http://localhost:8080/msal4jsample/sign_out**. Then, select **Save**.
+  Then, select **Save**.
 
-1. Select **Certificates & secrets** from the menu. 
+1. Select **Certificates & secrets** from the menu.
 1. In the **Client secrets** section, select **New client secret**, and then:
 
    1. Enter a key description.
@@ -103,7 +102,6 @@ and personal Microsoft Accounts (e.g. Skype, Xbox, Outlook.com)**,
    1. In the **Redirect URI (optional)** section, select **Web** in the combo  box and enter the following redirect URI: **http://localhost:5000/getAToken**.
 1. Select **Register** to create the application.
 1. On the app's **Overview** page, find the **Application (client) ID** value and record it for later. You'll need it to configure the Visual Studio configuration file for this project.
-1. Select the **Authentication** section. In **Advanced settings**, set **Logout URL** to **http://localhost:5000/logout**. Then, select **Save**.
 1. On the left menu, select **Certificates & secrets**.
 1. In the **Client Secrets** section, select **New client secret**, and then:
 

@@ -1,11 +1,7 @@
 ---
-title: Smart Detection - Security Detection Pack with Azure Application Insights | Microsoft Docs
-description: Monitor application with Azure Application Insights for potential security issues.
-ms.service:  azure-monitor
-ms.subservice: application-insights
+title: Security Detection Pack with Azure Application Insights
+description: Monitor application with Azure Application Insights and Smart Detection for potential security issues.
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 12/12/2017
 
 ---

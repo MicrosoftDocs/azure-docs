@@ -1,11 +1,7 @@
 ---
-title: Track custom operations with Azure Application Insights .NET SDK | Microsoft Docs
+title: Track custom operations with Azure Application Insights .NET SDK 
 description: Tracking custom operations with Azure Application Insights .NET SDK
-ms.service:  azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 11/26/2019
 
 ms.reviewer: sergkanz
@@ -286,9 +282,9 @@ public async Task<MessagePayload> Dequeue(CloudQueue queue)
     }
     catch (StorageException e)
     {
-        telemetry.Properties.Add("AzureServiceRequestID", e.RequestInformation.ServiceRequestID);
-        telemetry.Success = false;
-        telemetry.ResultCode = e.RequestInformation.HttpStatusCode.ToString();
+        operation.telemetry.Properties.Add("AzureServiceRequestID", e.RequestInformation.ServiceRequestID);
+        operation.telemetry.Success = false;
+        operation.telemetry.ResultCode = e.RequestInformation.HttpStatusCode.ToString();
         telemetryClient.TrackException(e);
     }
     finally

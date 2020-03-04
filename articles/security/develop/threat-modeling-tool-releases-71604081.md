@@ -1,22 +1,13 @@
 ---
-title: Threat Modeling Tool Releases - Microsoft Threat Modeling Tool - Azure | Microsoft Docs
+title: Microsoft Threat Modeling Tool release 4/9/2019 
+titleSuffix: Azure
 description: Documenting the release notes for the threat modeling tool
-services: security
-documentationcenter: na
 author: jegeib
-manager: jegeib
-editor: jegeib
-
-ms.assetid: na
+ms.author: jegeib
 ms.service: security
 ms.subservice: security-develop
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 04/03/2019
-ms.author: jegeib
-
 ---
 
 # Threat Modeling Tool update release 7.1.60408.1 - 4/9/2019

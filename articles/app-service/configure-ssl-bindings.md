@@ -99,10 +99,11 @@ Your app's **Custom domain** page is updated with the new, dedicated IP address.
 
 ## Test HTTPS
 
-In various browsers, browse
-to `https://<your.custom.domain>` to verify that it serves up your app.
+In various browsers, browse to `https://<your.custom.domain>` to verify that it serves up your app.
 
 ![Portal navigation to Azure app](./media/configure-ssl-bindings/app-with-custom-ssl.png)
+
+Your application code can inspect the protocol via the "x-appservice-proto" header. The header will have a value of `http` or `https`. 
 
 > [!NOTE]
 > If your app gives you certificate validation errors, you're probably using a self-signed certificate.
@@ -140,6 +141,12 @@ In your app page, in the left navigation, select **SSL settings**. Then, in **TL
 ![Enforce TLS 1.1 or 1.2](./media/configure-ssl-bindings/enforce-tls1-2.png)
 
 When the operation is complete, your app rejects all connections with lower TLS versions.
+
+## Handle SSL termination
+
+In App Service, [SSL termination](https://wikipedia.org/wiki/TLS_termination_proxy) happens at the network load balancers, so all HTTPS requests reach your app as unencrypted HTTP requests. If your app logic needs to check if the user requests are encrypted or not, inspect the `X-Forwarded-Proto` header.
+
+Language specific configuration guides, such as the [Linux Node.js configuration](containers/configure-language-nodejs.md#detect-https-session) guide, shows you how to detect an HTTPS session in your application code.
 
 ## Automate with scripts
 

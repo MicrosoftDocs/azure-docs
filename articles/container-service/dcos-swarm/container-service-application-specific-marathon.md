@@ -1,12 +1,9 @@
 ---
 title: (DEPRECATED) Application or user-specific Marathon service
 description: Create an application or user-specific Marathon service
-services: container-service
 author: rgardler
-manager: jeconnoc
-
 ms.service: container-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/12/2016
 ms.author: rogardle
 ms.custom: mvc

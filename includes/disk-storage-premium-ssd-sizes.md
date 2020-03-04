@@ -5,7 +5,7 @@
  author: roygara
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 10/24/2019
+ ms.date: 01/07/2020
  ms.author: rogarana
  ms.custom: include file
 ---
@@ -18,7 +18,7 @@
 | Max burst IOPS per disk** | 3,500 | 3,500 | 3,500 | 3,500 | 3,500 | 3,500 | 3,500 | 3,500 |
 | Max burst throughput per disk** | 170 MiB/sec | 170 MiB/sec | 170 MiB/sec | 170 MiB/sec | 170 MiB/sec | 170 MiB/sec | 170 MiB/sec | 170 MiB/sec |
 | Max burst duration** | 30 min  | 30 min  | 30 min  | 30 min  | 30 min  | 30 min  | 30 min  | 30 min  |
+| Eligible for reservation | No  | No  | No  | No  | No  | No  | No  | No  | Yes, up to one year | Yes, up to one year | Yes, up to one year | Yes, up to one year | Yes, up to one year | Yes, up to one year |
 
-\*Denotes a disk size that is currently in preview, for regional availability information see [New disk sizes: Managed and unmanaged](https://docs.microsoft.com/azure/virtual-machines/linux/faq-for-disks#new-disk-sizes-managed-and-unmanaged).
-
-\**Denotes a feature that is currently in preview, see [Disk bursting](https://docs.microsoft.com/azure/virtual-machines/linux/disk-bursting#regional-availability) for more information.
+\*Denotes a disk size that is currently in preview, for regional availability information see [New disk sizes: Managed and unmanaged](https://docs.microsoft.com/azure/virtual-machines/linux/faq-for-disks#new-disk-sizes-managed-and-unmanaged).  
+\*\*Denotes a feature that is currently in preview, see [Disk bursting](https://docs.microsoft.com/azure/virtual-machines/linux/disk-bursting#regional-availability) for more information.

@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
-ms.date: 09/13/2019
+ms.date: 12/16/2019
 ms.author: aahi
 ---
 
@@ -66,9 +66,10 @@ To add the Bing Spell Check SDK to your project, select **Manage NuGet Packages*
 2. Get the first spell check result, if there is one. Print the first misspelled word (token) returned, the token type, and the number of suggestions.
 
     ```csharp
-    if (firstspellCheckResult != null){
-        var firstspellCheckResult = result.Body.FlaggedTokens.FirstOrDefault();
+    var firstspellCheckResult = result.Body.FlaggedTokens.FirstOrDefault();
     
+    if (firstspellCheckResult != null)
+    {
         Console.WriteLine("SpellCheck Results#{0}", result.Body.FlaggedTokens.Count);
         Console.WriteLine("First SpellCheck Result token: {0} ", firstspellCheckResult.Token);
         Console.WriteLine("First SpellCheck Result Type: {0} ", firstspellCheckResult.Type);
@@ -79,15 +80,19 @@ To add the Bing Spell Check SDK to your project, select **Manage NuGet Packages*
 3. Get the first suggested correction, if there is one. Print the suggestion score, and the suggested word. 
 
     ```csharp
-            var suggestions = firstspellCheckResult.Suggestions;
+    var suggestions = firstspellCheckResult.Suggestions;
 
-            if (suggestions?.Count > 0)
-            {
-                var firstSuggestion = suggestions.FirstOrDefault();
-                Console.WriteLine("First SpellCheck Suggestion Score: {0} ", firstSuggestion.Score);
-                Console.WriteLine("First SpellCheck Suggestion : {0} ", firstSuggestion.Suggestion);
-            }
-   }
+    if (suggestions?.Count > 0)
+    {
+        var firstSuggestion = suggestions.FirstOrDefault();
+        Console.WriteLine("First SpellCheck Suggestion Score: {0} ", firstSuggestion.Score);
+        Console.WriteLine("First SpellCheck Suggestion : {0} ", firstSuggestion.Suggestion);
+    }
+    ```
+
+## Run the application
+
+Build and run your project. If you're using Visual Studio, press **F5** to debug the file.
 
 ## Next steps
 

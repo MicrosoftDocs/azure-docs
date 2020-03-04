@@ -1,13 +1,11 @@
 ---
-title: Configure a Virtual Network for a Premium Azure Cache for Redis
+title: Configure a Virtual Network - Premium Azure Cache for Redis
 description: Learn how to create and manage Virtual Network support for your Premium tier Azure Cache for Redis instances
 author: yegu-ms
-
+ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 05/15/2017
-ms.author: yegu
-
 ---
 # How to configure Virtual Network Support for a Premium Azure Cache for Redis
 Azure Cache for Redis has different cache offerings, which provide flexibility in the choice of cache size and features, including Premium tier features such as clustering, persistence, and virtual network support. A VNet is a private network in the cloud. When an Azure Cache for Redis instance is configured with a VNet, it is not publicly addressable and can only be accessed from virtual machines and applications within the VNet. This article describes how to configure virtual network support for a premium Azure Cache for Redis instance.
@@ -33,7 +31,7 @@ To configure the VNet for your new cache, click **Virtual Network** on the **New
 
 ![Virtual network][redis-cache-vnet]
 
-Select the desired subnet from the **Subnet** drop-down list, and specify the desired **Static IP address**. If you are using a classic VNet the **Static IP address** field is optional, and if none is specified, one is chosen from the selected subnet.
+Select the desired subnet from the **Subnet** drop-down list.  If desired, specify a **Static IP address**. The **Static IP address** field is optional, and if none is specified, one is chosen from the selected subnet.
 
 > [!IMPORTANT]
 > When deploying an Azure Cache for Redis to a Resource Manager VNet, the cache must be in a dedicated subnet that contains no other resources except for Azure Cache for Redis instances. If an attempt is made to deploy an Azure Cache for Redis to a Resource Manager VNet to a subnet that contains other resources, the deployment fails.

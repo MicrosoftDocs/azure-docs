@@ -1,5 +1,5 @@
 ---
-title: Train a model for Custom Speech - Speech Service
+title: Train a model for Custom Speech - Speech service
 titleSuffix: Azure Cognitive Services
 description: Training a speech-to-text model can improve recognition accuracy for Microsoft's baseline model or a custom model. A model is trained using human-labeled transcriptions and related text.
 services: cognitive-services
@@ -15,7 +15,7 @@ ms.author: erhopf
 
 # Train a model for Custom Speech
 
-Training a speech-to-text model can improve recognition accuracy for Microsoft's baseline model or a custom model that you're planning to create. A model is trained using human-labeled transcriptions and related text. These datasets along with previously uploaded audio data, are used to refine and train the speech-to-text model to recognize words, phrases, acronyms, names, and other product-specific terms. The more in-domain datasets that you provide (data that is related to what users will say and what you expect to recognize), the more accurate your model will be, which results in improved recognition. Keep in mind, that by feeding unrelated data into your training, you can reduce or hurt the accuracy of your model.
+Training a speech-to-text model can improve recognition accuracy for Microsoft's baseline model. A model is trained using human-labeled transcriptions and related text. These datasets along with previously uploaded audio data, are used to refine and train the speech-to-text model to recognize words, phrases, acronyms, names, and other product-specific terms. The more in-domain datasets that you provide (data that is related to what users will say and what you expect to recognize), the more accurate your model will be, which results in improved recognition. Keep in mind, that by feeding unrelated data into your training, you can reduce or hurt the accuracy of your model.
 
 ## Use training to resolve accuracy issues
 

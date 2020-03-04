@@ -172,6 +172,12 @@ You can purchase more than one ExpressRoute circuit per geopolitical region. Hav
 | UK West | 12076:51025 | 12076:52025 | 12076:53025 | 12076:54025 |
 | France Central | 12076:51030 | 12076:52030 | 12076:53030 | 12076:54030 |
 | France South | 12076:51031 | 12076:52031 | 12076:53031 | 12076:54031 |
+| Switzerland North | 12076:51038 | 12076:52038 | 12076:53038 | 12076:54038 | 
+| Switzerland West | 12076:51039 | 12076:52039 | 12076:53039 | 12076:54039 | 
+| Germany North | 12076:51040 | 12076:52040 | 12076:53040 | 12076:54040 | 
+| Germany West Central | 12076:51041 | 12076:52041 | 12076:53041 | 12076:54041 | 
+| Norway East | 12076:51042 | 12076:52042 | 12076:53042 | 12076:54042 | 
+| Norway West | 12076:51043 | 12076:52043 | 12076:53043 | 12076:54043 | 
 | **Asia Pacific** | |
 | East Asia | 12076:51010 | 12076:52010 | 12076:53010 | 12076:54010 |
 | Southeast Asia | 12076:51011 | 12076:52011 | 12076:53011 | 12076:54011 |
@@ -214,13 +220,14 @@ In addition to the above, Microsoft will also tag prefixes based on the service 
 | Exchange Online** | 12076:5010 |
 | SharePoint Online** | 12076:5020 |
 | Skype For Business Online** | 12076:5030 |
-| CRM Online |12076:5040 |
+| CRM Online*** |12076:5040 |
 | Azure Global Services* | 12076:5050 |
 | Azure Active Directory |12076:5060 |
 | Other Office 365 Online services** | 12076:5100 |
 
-*Azure Global Services includes only Azure DevOps at this time.
-** Authorization required from Microsoft, refer [Configure route filters for Microsoft Peering](how-to-routefilter-portal.md) 
+*Azure Global Services includes only Azure DevOps at this time.\
+** Authorization required from Microsoft, refer [Configure route filters for Microsoft Peering](how-to-routefilter-portal.md)\
+*** CRM Online supports Dynamics v8.2 and below. For higher versions, select the regional community for your Dynamics deployments.
 
 > [!NOTE]
 > Microsoft does not honor any BGP community values that you set on the routes advertised to Microsoft.

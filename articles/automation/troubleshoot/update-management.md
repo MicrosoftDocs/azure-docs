@@ -1,10 +1,10 @@
 ---
-title: Troubleshoot errors with Update Management
-description: Learn how to troubleshoot issues with Update Management.
+title: Troubleshoot errors with Azure Update Management
+description: Learn how to troubleshoot and resolve issues with the Update Management solution in Azure.
 services: automation
-author: bobbytreed
-ms.author: robreed
-ms.date: 05/31/2019
+author: mgoedtel
+ms.author: magoedte
+ms.date: 03/02/2020
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
@@ -18,6 +18,36 @@ There's an agent troubleshooter for the Hybrid Worker agent to determine the und
 If you encounter issues while you're trying to onboard the solution on a virtual machine (VM), check the **Operations Manager** log under **Application and Services Logs** on the local machine for events with event ID 4502 and event details that contain **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent**.
 
 The following section highlights specific error messages and possible resolutions for each. For other onboarding issues see [Troubleshoot solution onboarding](onboarding.md).
+
+## Scenario: Superseded update indicated as missing in Update Management
+
+### Issue
+
+Old updates are appearing in Update Management in the Azure Account as missing even though they have been superseded. A superseded update is one that doesn't have to be installed because a later update that corrects the same vulnerability is available. Update Management ignores the superseded update and makes it not applicable in favor of the superseding update. For information about a related issue, see [Update is superseded](https://docs.microsoft.com/windows/deployment/update/windows-update-troubleshooting#the-update-is-not-applicable-to-your-computer).
+
+### Cause
+
+Superseded updates are not being correctly indicated as declined so that they can be considered not applicable.
+
+### Resolution
+
+When a superseded update becomes 100 percent not applicable, you should change the approval state of that update to **Declined**. To do this for all your updates:
+
+1. In the Automation Account, select **Update Management** to view machine status. See [View update assessments](../manage-update-multi.md#view-an-update-assessment).
+
+2. Check the superseded update to make sure that it is 100 percent not applicable. 
+
+3. Mark the update as declined unless you have a question about the update. 
+
+4. Select Computers and, in the Compliance column, force a rescan for compliance. See [Manage updates for multiple machines](../manage-update-multi.md).
+
+5. Repeat the steps above for other superseded updates.
+
+6. Run the cleanup wizard to delete files from the declined updates. 
+
+7. For WSUS, manually clean all superseded updates to refresh the infrastructure.
+
+8. Repeat this procedure regularly to correct the display issue and minimize the amount of disk space used for update management.
 
 ## <a name="nologs"></a>Scenario: Machines don't show up in the portal under Update Management
 
@@ -247,9 +277,13 @@ Unable to Register Machine for Patch Management, Registration Failed with Except
 The certificate presented by the service <wsid>.oms.opinsights.azure.com was not issued by a certificate authority used for Microsoft services. Contact your network administrator to see if they are running a proxy that intercepts TLS/SSL communication.
 ```
 
+```error
+Access is denied. (Exception form HRESULT: 0x80070005(E_ACCESSDENIED))
+```
+
 ### Cause
 
-A proxy, gateway, or firewall might be blocking network communication.
+A proxy, gateway, or firewall might be blocking network communication. 
 
 ### Resolution
 
@@ -319,9 +353,10 @@ If you see an HRESULT, double-click the exception displayed in red to see the en
 |`0x8024402C`     | If you're using a WSUS server, make sure the registry values for `WUServer` and `WUStatusServer` under the  `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate` registry key specify the correct WSUS server.        |
 |`0x80072EE2`|There's a network connectivity issue or an issue in talking to a configured WSUS server. Check WSUS settings and make sure the service is accessible from the client.|
 |`The service cannot be started, either because it is disabled or because it has no enabled devices associated with it. (Exception from HRESULT: 0x80070422)`     | Make sure the Windows Update service (wuauserv) is running and not disabled.        |
+|`0x80070005`| An access denied error can be caused by any one of the following:<br> Infected computer<br> Windows Update settings not configured correctly<br> File permission error with %WinDir%\SoftwareDistribution folder<br> Insufficient disk space on the system drive (C:).
 |Any other generic exception     | Run a search on the internet for  possible solutions, and work with your local IT support.         |
 
-Reviewing the Windowsupdate.log file can also help you determine possible causes. For more information about how to read the log, see [How to read the Windowsupdate.log file](https://support.microsoft.com/en-ca/help/902093/how-to-read-the-windowsupdate-log-file).
+Reviewing the %Windir%\Windowsupdate.log file can also help you determine possible causes. For more information about how to read the log, see [How to read the Windowsupdate.log file](https://support.microsoft.com/en-ca/help/902093/how-to-read-the-windowsupdate-log-file).
 
 You can also download and run the [Windows Update troubleshooter](https://support.microsoft.com/help/4027322/windows-update-troubleshooter) to check for any issues with Windows Update on the machine.
 
@@ -365,7 +400,7 @@ If you can't resolve a patching issue, make a copy of the following log file and
 
 ### I know updates are available, but they don't show as available on my machines
 
-* This often happens if machines are configured to get updates from WSUS or System Center Configuration Manager (SCCM) but WSUS and SCCM haven't approved the updates.
+* This often happens if machines are configured to get updates from WSUS or Microsoft Endpoint Configuration Manager but WSUS and Configuration Manager haven't approved the updates.
 * You can check whether the machines are configured for WSUS and SCCM by [cross-referencing the UseWUServer registry key to the registry keys in the "Configuring Automatic Updates by Editing the Registry" section of this article](https://support.microsoft.com/help/328010/how-to-configure-automatic-updates-by-using-group-policy-or-registry-s).
 * If updates aren't approved in WSUS, they won't be installed. You can check for unapproved updates in Log Analytics by running the following query:
 

@@ -1,5 +1,5 @@
 ---
-title: Use access reviews to manage users excluded from Conditional Access policies - Azure Active Directory | Microsoft Docs
+title: Manage users excluded from Conditional Access policies - Azure AD 
 description: Learn how to use Azure Active Directory (Azure AD) access reviews to manage users that have been excluded from Conditional Access policies
 services: active-directory
 documentationcenter: ''

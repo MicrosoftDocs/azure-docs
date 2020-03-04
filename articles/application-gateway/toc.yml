@@ -39,6 +39,8 @@
   items:
   - name: Basics
     items:
+    - name: Application Gateway features
+      href: features.md
     - name: How Application Gateway works
       href: how-application-gateway-works.md
     - name: Application Gateway components
@@ -247,7 +249,7 @@
     href: /rest/api/applicationgateway
   - name: Azure Resource Manager
     displayName: ARM
-    href: ../azure-resource-manager/resource-group-overview.md
+    href: ../azure-resource-manager/management/overview.md
   - name: Resource Manager template
     displayName: ARM
     href: https://docs.microsoft.com/azure/templates/microsoft.network/applicationgateways
@@ -255,7 +257,7 @@
   items:
   - name: Author templates
     displayName: ARM
-    href: ../azure-resource-manager/resource-group-authoring-templates.md
+    href: ../azure-resource-manager/templates/template-syntax.md
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Community templates

@@ -1,14 +1,13 @@
 ---
 title: Excel & Apache Hadoop with ODBC Driver - Azure HDInsight
 description: Learn how to set up and use the Microsoft Hive ODBC driver for Excel to query data in HDInsight clusters from Microsoft Excel.
-keywords: hadoop excel,hive excel,hive odbc
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 10/08/2019
+ms.custom: hdinsightactive,hdiseo17may2017
+ms.date: 03/02/2020
 ---
 
 # Connect Excel to Apache Hadoop in Azure HDInsight with the Microsoft Hive ODBC driver
@@ -47,7 +46,7 @@ The following steps show you how to create a Hive ODBC Data Source.
    | Property | Description |
    | --- | --- |
    |  Data Source Name |Give a name to your data source |
-   |  Host(s) |Enter `HDInsightClusterName.azurehdinsight.net`. For example, `myHDICluster.azurehdinsight.net` |
+   |  Host(s) |Enter `HDInsightClusterName.azurehdinsight.net`. For example, `myHDICluster.azurehdinsight.net`. Note: `HDInsightClusterName-int.azurehdinsight.net` is supported so long as the client VM is peered to the same virtual network. |
    |  Port |Use **443**. (This port has been changed from 563 to 443.) |
    |  Database |Use **default**. |
    |  Mechanism |Select **Windows Azure HDInsight Service** |

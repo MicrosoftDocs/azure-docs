@@ -13,10 +13,9 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/10/2019
+ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40 
-ms.collection: M365-identity-device-management
 ---
 
 # Call the Microsoft Graph API from a Windows Desktop app
@@ -102,9 +101,9 @@ To register your application and add your application registration information t
    - Select **Register** to create the application.
 1. In the list of pages for the app, select **Authentication**.
    1. In the **Redirect URIs** section, in the Redirect URIs list:
-   1. In the **TYPE** column select **Public client (mobile & desktop)**.
-   1. In the **REDIRECT URI** column, enter `urn:ietf:wg:oauth:2.0:oob`
-1. Select **Save**.
+   1. In the **TYPE** column select **Public client/native (mobile & desktop)**.
+   1. In the **REDIRECT URI** column, enter `https://login.microsoftonline.com/common/oauth2/nativeclient`
+1. Select **Register**.
 1. Go to Visual Studio, open the *App.xaml.cs* file, and then replace `Enter_the_Application_Id_here` in the code snippet below with the application ID that you just registered and copied.
 
     ```csharp

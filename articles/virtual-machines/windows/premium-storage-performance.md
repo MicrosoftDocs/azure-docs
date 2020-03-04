@@ -1,6 +1,6 @@
 ---
-title: 'Azure Premium Storage: Design for performance on Windows VMs '
-description: Design high-performance applications using Azure Premium Storage. Premium Storage offers high-performance, low-latency disk support for I/O-intensive workloads running on Azure Virtual Machines.
+title: 'Azure Premium Storage: Design for performance on Windows VMs | Microsoft Docs'
+description: Design high-performance applications using Azure premium SSD managed disks. Premium Storage offers high-performance, low-latency disk support for I/O-intensive workloads running on Azure Virtual Machines.
 author: roygara
 ms.service: virtual-machines-windows
 ms.topic: conceptual
@@ -19,7 +19,7 @@ ms.subservice: disks
 >
 > If your VM supports accelerated networking, you should make sure it is enabled. If it is not enabled, you can enable it on already deployed VMs on both [Windows](../../virtual-network/create-vm-accelerated-networking-powershell.md#enable-accelerated-networking-on-existing-vms) and [Linux](../../virtual-network/create-vm-accelerated-networking-cli.md#enable-accelerated-networking-on-existing-vms).
 
-Before you begin, if you are new to Premium Storage, first read the [Select an Azure disk type for IaaS VMs](disks-types.md) and [Azure Storage scalability and performance targets for storage accounts](../../storage/common/storage-scalability-targets.md).
+Before you begin, if you are new to Premium Storage, first read the [Select an Azure disk type for IaaS VMs](disks-types.md) and [Scalability targets for premium page blob storage accounts](../../storage/blobs/scalability-targets-premium-page-blobs.md).
 
 [!INCLUDE [virtual-machines-common-premium-storage-performance.md](../../../includes/virtual-machines-common-premium-storage-performance.md)]
 

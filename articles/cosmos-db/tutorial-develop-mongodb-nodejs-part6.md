@@ -1,6 +1,5 @@
 ---
-title: Create an Angular app with Azure Cosmos DB's API for MongoDB - Add CRUD functions to the app
-titleSuffix: Azure Cosmos DB
+title: Add CRUD functions to an Angular app with Azure Cosmos DB's API for MongoDB
 description: Part 6 of the tutorial series on creating a MongoDB app with Angular and Node on Azure Cosmos DB using the exact same APIs you use for MongoDB
 author: johnpapa
 ms.service: cosmos-db

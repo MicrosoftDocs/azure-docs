@@ -1,18 +1,19 @@
 ---
-title: Secure access to an application's data in the cloud with Azure Storage | Microsoft Docs 
+title: Secure access to application data
+titleSuffix: Azure Storage 
 description: Use SAS tokens, encryption and HTTPS to secure your application's data in the cloud.
 services: storage
 author: tamram
 
 ms.service: storage
 ms.topic: tutorial
-ms.date: 05/30/2018
+ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.custom: mvc
 ---
 
-# Secure access to an application's data in the cloud
+# Secure access to application data
 
 This tutorial is part three of a series. You learn how to secure access to the storage account. 
 
@@ -27,7 +28,7 @@ In part three of the series, you learn how to:
 
 ## Prerequisites
 
-To complete this tutorial you must have completed the previous Storage tutorial: [Automate resizing uploaded images using Event Grid][previous-tutorial]. 
+To complete this tutorial you must have completed the previous Storage tutorial: [Automate resizing uploaded images using Event Grid][previous-tutorial].
 
 ## Set container public access
 
@@ -39,8 +40,9 @@ blobStorageAccount=<blob_storage_account>
 blobStorageAccountKey=$(az storage account keys list -g myResourceGroup \
 -n $blobStorageAccount --query [0].value --output tsv) 
 
-az storage container set-permission \ --account-name $blobStorageAccount \ --account-key $blobStorageAccountKey \ --name thumbnails  \
---public-access off
+az storage container set-permission \ 
+--account-name $blobStorageAccount --account-key $blobStorageAccountKey \ 
+--name thumbnails --public-access off
 ``` 
 
 ## Configure SAS tokens for thumbnails

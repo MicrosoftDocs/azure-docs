@@ -1,11 +1,10 @@
 ---
 title: Azure Monitor for VMs (preview) known issues | Microsoft Docs
 description: This article covers known issues with Azure Monitor for VMs, a solution in Azure that combines health, application dependency discovery, and performance monitoring of the Azure VM operating system.
-ms.service:  azure-monitor
 ms.subservice: 
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 04/02/2019
 
 ---

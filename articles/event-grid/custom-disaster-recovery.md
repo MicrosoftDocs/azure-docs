@@ -1,12 +1,12 @@
 ---
 title: Disaster recovery for custom topics in Azure Event Grid
-description: Learn how to survive regional outages to keep Azure Event Grid connected.
+description: This tutorial will walk you through how to set up your eventing architecture to recover if the Event Grid service becomes unhealthy in a region.
 services: event-grid
 author: banisadr
 
 ms.service: event-grid
 ms.topic: tutorial
-ms.date: 10/22/2019
+ms.date: 01/21/2020
 ms.author: babanisa
 
 ---

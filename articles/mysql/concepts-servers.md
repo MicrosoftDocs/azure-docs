@@ -1,11 +1,11 @@
 ---
-title: Server concepts in Azure Database for MySQL
+title: Server concepts - Azure Database for MySQL
 description: This topic provides considerations and guidelines for working with Azure Database for MySQL servers.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 02/28/2018
+ms.date: 12/02/2019
 ---
 # Server concepts in Azure Database for MySQL
 

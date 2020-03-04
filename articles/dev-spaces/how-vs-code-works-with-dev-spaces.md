@@ -3,7 +3,7 @@ title: "How Visual Studio Code works with Azure Dev Spaces"
 services: azure-dev-spaces
 ms.date: 07/08/2019
 ms.topic: "conceptual"
-description: "How Visual Studio Code works with Azure Dev Spaces"
+description: "Learn how Visual Studio Code and Azure Dev Spaces help you debug and rapidly iterate your Kubernetes applications"
 keywords: "Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers"
 ---
 

@@ -2,23 +2,18 @@
 title: Microsoft identity platform iOS and macOS quickstart | Azure
 description: Learn how to sign in users and query Microsoft Graph in an iOS or macOS application.
 services: active-directory
-documentationcenter: dev-center-name
-author: TylerMSFT
+author: mmacy
 manager: CelesteDG
 
-ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/24/2019
-ms.author: twhitney
+ms.author: marsma
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:iOS
 #Customer intent: As an application developer, I want to learn how to sign in users and call Microsoft Graph from my iOS or macOS application.
-ms.collection: M365-identity-device-management
 ---
 
 # Quickstart: Sign in users and call the Microsoft Graph API from an iOS or macOS app
@@ -93,6 +88,14 @@ In a terminal window, navigate to the folder with the downloaded code sample and
 >    ```swift
 >    let kClientID = "Enter_the_Application_Id_Here"
 >    ```
+> 1. Edit **ViewController.swift** and replace the line starting with 'let kAuthority' with the following code snippet:
+>    ```swift
+>    let kAuthority = "Enter_the_Authority_Endpoint_Host_HereEnter_the_Tenant_Info_Here"
+>    ```
+> 1. Edit **ViewController.swift** and replace the line starting with 'let kGraphEndpoint' with the following code snippet:
+>    ```swift
+>    let kGraphEndpoint = "Enter_the_MS_Graph_Endpoint_Host_Here"
+>    ```
 > 1. Open the project settings. In the **Identity** section, enter the **Bundle Identifier** that you entered into the portal.
 > 1. For iOS only, right-click **Info.plist** and select **Open As** > **Source Code**.
 > 1. For iOS only, under the dict root node, replace `CFBundleURLSchemes` with the ***Bundle Id*** that you entered in the portal.
@@ -111,7 +114,7 @@ In a terminal window, navigate to the folder with the downloaded code sample and
 > 1. Build & run the app!
 > [!div class="sxs-lookup" renderon="portal"]
 > > [!NOTE]
-> > This quickstart supports Enter_the_Supported_Account_Info_Here.
+> > Enter_the_Supported_Account_Info_Here
 > [!div renderon="docs"]
 >
 > 1. Extract the zip file and open the project in XCode.
@@ -119,6 +122,16 @@ In a terminal window, navigate to the folder with the downloaded code sample and
 >    ```swift
 >    let kClientID = "Enter_the_Application_Id_Here"
 >    ```
+> 1. If you're building an app for [Azure AD national clouds](https://docs.microsoft.com/graph/deployments#app-registration-and-token-service-root-endpoints), replace the line starting with 'let kGraphEndpoint' and 'let kAuthority' with correct endpoints. For global access, use default values:
+>     ```objective-c
+>     let kGraphEndpoint = "https://graph.microsoft.com/"
+>     let kAuthority = "https://login.microsoftonline.com/common"
+>     ```
+> 1. Other endpoints are documented [here](https://docs.microsoft.com/graph/deployments#app-registration-and-token-service-root-endpoints). For example, to run the quickstart with Azure AD Germany, use following:
+>     ```objective-c
+>     let kGraphEndpoint = "https://graph.microsoft.de/"
+>     let kAuthority = "https://login.microsoftonline.de/common"
+>     ```
 > 1. Open the project settings. In the **Identity** section, enter the **Bundle Identifier** that you entered into the portal.
 > 1. For iOS only, right-click **Info.plist** and select **Open As** > **Source Code**.
 > 1. For iOS only, under the dict root node, replace `Enter_the_bundle_Id_Here` with the ***Bundle Id*** that you used in the portal.

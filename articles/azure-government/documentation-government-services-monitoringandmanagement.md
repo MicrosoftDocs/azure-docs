@@ -8,7 +8,7 @@ ms.assetid: 4b7720c1-699e-432b-9246-6e49fb77f497
 ms.service: azure-government
 ms.topic: article
 ms.workload: azure-government
-ms.date: 04/22/2019
+ms.date: 12/11/2019
 ms.author: gsacavdm
 
 ---
@@ -139,29 +139,40 @@ The first generation of metrics alerts is generally available in both Azure Gove
 
 The resources currently supported in the second generation alerts experience are:
 - Microsoft.ApiManagement/service
+- Microsoft.Cache/redis
 - Microsoft.Compute/virtualMachines
 - Microsoft.DBforMySQL/servers
 - Microsoft.DBforPostgreSQL/servers
 - Microsoft.DBforMariaDB/servers
-- Microsoft.EventGrid/topics
+- Microsoft.Devices/IotHubs
 - Microsoft.EventGrid/domains
+- Microsoft.EventGrid/topics
 - Microsoft.EventHub/clusters
 - Microsoft.EventHub/namespaces
 - Microsoft.Insights/components
-- Microsoft.Network/dnszones
+- Microsoft.Network/dnsZones
 - Microsoft.Network/loadBalancers
 - Microsoft.Network/natGateways
 - Microsoft.Network/privateEndpoints
 - Microsoft.Network/privateLinkServices
+- Microsoft.Network/trafficManagerProfiles
 - Microsoft.OperationalInsights/workspaces
 - Microsoft.PowerBIDedicated/capacities
 - Microsoft.Relay/namespaces
 - Microsoft.ServiceBus/namespaces
+- Microsoft.Sql/managedInstances
+- Microsoft.Sql/servers/databases
+- Microsoft.Sql/servers/elasticPools
 - Microsoft.Storage/storageAccounts
 - Microsoft.Storage/storageAccounts/blobServices
 - Microsoft.Storage/storageAccounts/fileServices
 - Microsoft.Storage/storageAccounts/queueServices
 - Microsoft.Storage/storageAccounts/tableServices
+- Microsoft.Web/hostingEnvironments/multiRolePools
+- Microsoft.Web/hostingEnvironments/workerPools
+- Microsoft.Web/serverfarms
+- Microsoft.Web/sites
+- Microsoft.Web/sites/slots
 
 You can still use [classic alerts](../azure-monitor/platform/alerts-classic.overview.md) for resources not yet available in the second generation of alerts. 
 
@@ -446,7 +457,7 @@ The following Azure Monitor logs features behave differently in Azure Government
     3. Import the management packs into Operations Manager. For information about how to import a management pack from a disk, see [How to Import an Operations Manager Management Pack](https://technet.microsoft.com/library/hh212691.aspx).
     4. To connect Operations Manager to Azure Monitor logs, follow the steps in [Connect Operations Manager to Azure Monitor logs](../azure-monitor/platform/om-agents.md).
 
-* To use [computer groups from System Center Configuration Manager 2016](../azure-monitor/platform/collect-sccm.md), you need to be using [Technical Preview 1701](https://docs.microsoft.com/sccm/core/get-started/technical-preview) or later.
+* For more information about using computer groups from Configuration Manager, see [Connect Configuration Manager to Azure Monitor](../azure-monitor/platform/collect-sccm.md).
 
 ### Frequently asked questions
 * Can I migrate data from Azure Monitor logs in Microsoft Azure to Azure Government?
@@ -463,7 +474,7 @@ For information on this service and how to use it, see [Azure Scheduler Document
 The Azure Government portal can be accessed [here](https://portal.azure.us).
 
 ## Azure Resource Manager
-For information on this service and how to use it, see [Azure Resource Manager Documentation](../azure-resource-manager/resource-group-overview.md).
+For information on this service and how to use it, see [Azure Resource Manager Documentation](../azure-resource-manager/management/overview.md).
 
 ## Next steps
 * Subscribe to the [Azure Government blog](https://blogs.msdn.microsoft.com/azuregov/)

@@ -28,7 +28,7 @@ Make sure you set up an Internet Analyzer resource and select the "Custom Endpoi
 ## Create Custom Endpoint
 
 1. Download a transparent one-pixel test image [here](https://fpc.msedge.net/apc/trans.gif). This one-pixel image is the asset the client JavaScript will fetch to measure performance.
-2. In your custom web application, deploy the test image in a publically accessible path. The path should work over HTTPS. 
+2. In your custom web application, deploy the test image in a publicly accessible path. The path should work over HTTPS. 
 3. Copy the full custom endpoint URL (e.g. https://contoso.com/test/trans.gif) into the custom endpoint field during your test creation.
 
 ## Next steps

@@ -1,10 +1,10 @@
 ---
 title: ARRAY_CONCAT in Azure Cosmos DB query language
-description: Learn about SQL system function ARRAY_CONCAT in Azure Cosmos DB.
+description: Learn about how the Array Concat SQL system function in Azure Cosmos DB returns an array that is the result of concatenating two or more array values
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
 ---
@@ -40,6 +40,9 @@ SELECT ARRAY_CONCAT(["apples", "strawberries"], ["bananas"]) AS arrayConcat
 [{"arrayConcat": ["apples", "strawberries", "bananas"]}]  
 ```  
   
+## Remarks
+
+This system function will not utilize the index.
 
 ## Next steps
 

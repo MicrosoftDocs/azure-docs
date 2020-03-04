@@ -1,7 +1,6 @@
 ---
 title: Azure Key Vault solution in Azure Monitor | Microsoft Docs
 description: You can use the Azure Key Vault solution in Azure Monitor to review Azure Key Vault logs.
-ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
@@ -47,7 +46,7 @@ Use the following instructions to install and configure the Azure Key Vault solu
 8. Click *Save* to enable the logging of diagnostics to Log Analytics workspace.
 
 ### Enable Key Vault diagnostics using PowerShell
-The following PowerShell script provides an example of how to use `Set-AzDiagnosticSetting` to enable diagnostic logging for Key Vault:
+The following PowerShell script provides an example of how to use `Set-AzDiagnosticSetting` to enable resource logging for Key Vault:
 ```
 $workspaceId = "/subscriptions/d2e37fee-1234-40b2-5678-0b2199de3b50/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/rollingbaskets"
 

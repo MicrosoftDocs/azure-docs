@@ -99,9 +99,9 @@ OpenShift communicates with Azure by using a username and password or a service 
 
 Create a service principal with [az ad sp create-for-rbac](/cli/azure/ad/sp) and output the credentials that OpenShift needs.
 
-The following example creates a service principal and assigns it contributor permissions to a resource group named openshiftrg.
+The following example creates a service principal and assigns it contributor permissions to a resource group named *openshiftrg*.
 
-First, create the resource group named openshiftrg:
+First, create the resource group named *openshiftrg*:
 
 ```azurecli
 az group create -l eastus -n openshiftrg

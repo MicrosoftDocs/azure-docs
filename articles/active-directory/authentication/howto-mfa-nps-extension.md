@@ -8,8 +8,8 @@ ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 11/21/2019
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 
@@ -190,6 +190,23 @@ If your previous computer certificate has expired, and a new certificate has bee
 > [!NOTE]
 > If you use your own certificates instead of generating certificates with the PowerShell script, make sure that they align to the NPS naming convention. The subject name must be **CN=\<TenantID\>,OU=Microsoft NPS Extension**. 
 
+### Microsoft Azure Government additional steps
+
+For customers that use Azure Government cloud, the following additional configuration steps are required on each NPS server:
+
+1. Open **Registry Editor** on the NPS server.
+1. Navigate to `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa`. Set the following key values:
+
+    | Registry key       | Value |
+    |--------------------|-----------------------------------|
+    | AZURE_MFA_HOSTNAME | adnotifications.windowsazure.us   |
+    | STS_URL            | https://login.microsoftonline.us/ |
+
+1. Repeat the previous two steps to set the registry key values for each NPS server.
+1. Restart the NPS service for each NPS server.
+
+    For minimal impact, take each NPS server out of the NLB rotation one at a time and wait for all connections to drain.
+
 ### Certificate rollover
 
 With release 1.0.1.32 of the NPS extension, reading multiple certificates is now supported. This capability will help facilitate rolling certificate updates prior to their expiration. If your organization is running a previous version of the NPS extension, you should upgrade to version 1.0.1.32 or higher.
@@ -270,7 +287,7 @@ Valid-From and Valid-Until timestamps, which are in human-readable form, can be 
 
 ---
 
-### Why cant I sign in?
+### Why cannot I sign in?
 
 Check that your password hasn't expired. The NPS Extension does not support changing passwords as part of the sign-in workflow. Contact your organization's IT Staff for further assistance.
 

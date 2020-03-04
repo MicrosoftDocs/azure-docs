@@ -97,6 +97,23 @@ Back up deduplicated disks | | | ![Partially][yellow]<br/><br/> For DPM/MABS ser
 
 ![Table key](./media/backup-architecture/table-key.png)
 
+## Backup policy essentials
+
+- A backup policy is created per vault.
+- A backup policy can be created for the backup of following workloads
+  - Azure VM
+  - SQL in Azure VM
+  - Azure File Share
+- A policy can be assigned to many resources. An Azure VM backup policy can be used to protect many Azure VMs.
+- A policy consists of two components
+  - Schedule: When to take the backup
+  - Retention: For how long each backup should be retained.
+- Schedule can be defined as "daily" or "weekly" with a specific point of time.
+- Retention can be defined for "daily", "weekly", "monthly", "yearly" backup points.
+- "weekly" refers to a backup on a certain day of the week, "monthly" means a backup on a certain day of the month and "yearly" refers to a backup on a certain day of the year.
+- Retention for "monthly", "yearly" backup points is referred to as "LongTermRetention".
+- When a vault is created, a policy for Azure VM backups called "DefaultPolicy" is also created and can be used to back up Azure VMs.
+
 ## Architecture: Built-in Azure VM Backup
 
 1. When you enable backup for an Azure VM, a backup runs according to the schedule you specify.
@@ -113,7 +130,7 @@ Back up deduplicated disks | | | ![Partially][yellow]<br/><br/> For DPM/MABS ser
     - Snapshot data might not be immediately copied to the vault. At peak times, the backup might take some hours. Total backup time for a VM will be less than 24 hours for daily backup policies.
 1. After the data is sent to the vault, a recovery point is created. By default, snapshots are retained for two days before they are deleted. This feature allows restore operation from these snapshots, thereby cutting down the restore times. It reduces the time that's required to transform and copy data back from the vault. See [Azure Backup Instant Restore Capability](https://docs.microsoft.com/azure/backup/backup-instant-restore-capability).
 
-Azure VMs need internet access for control commands. If you're backing up workloads inside the VM (for example, SQL Server database backups), the back-end data also needs internet access.
+You do not need to explicitly allow internet connectivity to back up your Azure VMs.
 
 ![Backup of Azure VMs](./media/backup-architecture/architecture-azure-vm.png)
 
@@ -169,7 +186,7 @@ For more information about disk storage and the available disk types for VMs, se
 You can back up Azure VMs by using premium storage with Azure Backup:
 
 - During the process of backing up VMs with premium storage, the Backup service creates a temporary staging location, named *AzureBackup-*, in the storage account. The size of the staging location equals the size of the recovery point snapshot.
-- Make sure that the premium storage account has adequate free space to accommodate the temporary staging location. [Learn more](../storage/common/storage-scalability-targets.md#premium-performance-storage-account-scale-limits). Don't modify the staging location.
+- Make sure that the premium storage account has adequate free space to accommodate the temporary staging location. For more information, see [Scalability targets for premium page blob storage accounts](../storage/blobs/scalability-targets-premium-page-blobs.md). Don't modify the staging location.
 - After the backup job finishes, the staging location is deleted.
 - The price of storage used for the staging location is consistent with [premium storage pricing](../virtual-machines/windows/disks-types.md#billing).
 

@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: quickstart
-ms.date: 6/18/2019
+ms.date: 12/12/2019
 ms.author: aahi
 ms.custom: seodec2018
 ---
@@ -28,11 +28,9 @@ The source code for this sample is also available on [GitHub](https://github.com
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../includes/cognitive-services-bing-news-search-signup-requirements.md)]
 
-See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
-
 ## Create and initialize the application
 
-1. Create a new Python file in your favorite IDE or editor, and import the request module. Create variables for your subscription key, endpoint and a search term. You can find your endpoint in the Azure dashboard.
+1. Create a new Python file in your favorite IDE or editor, and import the request module. Create variables for your subscription key, endpoint and a search term. You can use the global endpoint below, or the [custom subdomain](../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 
 ```python
 import requests

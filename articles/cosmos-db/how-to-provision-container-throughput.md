@@ -1,10 +1,10 @@
 ---
 title: Provision container throughput in Azure Cosmos DB
-description: Learn how to provision throughput at the container level in Azure Cosmos DB
+description: Learn how to provision throughput at the container level in Azure Cosmos DB using Azure portal, CLI, PowerShell and various other SDKs. 
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/28/2019
+ms.date: 12/13/2019
 ms.author: mjbrown
 ---
 
@@ -59,6 +59,7 @@ await client.CreateDocumentCollectionAsync(
 ```
 
 ### .Net V3 SDK
+
 [!code-csharp[](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos/tests/Microsoft.Azure.Cosmos.Tests/SampleCodeForDocs/ContainerDocsSampleCode.cs?name=ContainerCreateWithThroughput)]
 
 ## JavaScript SDK
@@ -72,7 +73,7 @@ const { database } = await client.databases.createIfNotExists({ id: "databaseId"
 
 // Create a container with the specified throughput
 const { resource } = await database.containers.createIfNotExists({
-id: "contaierId ",
+id: "containerId",
 throughput: 1000
 });
 

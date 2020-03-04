@@ -1,21 +1,11 @@
 ---
-title: Secure a cluster running on Windows by using Windows security | Microsoft Docs
+title: Secure a cluster running on Windows by using Windows security 
 description: Learn how to configure node-to-node and client-to-node security on a standalone cluster running on Windows by using Windows security.
-services: service-fabric
-documentationcenter: .net
 author: dkkapur
-manager: chackdan
-editor: ''
 
-ms.assetid: ce3bf686-ffc4-452f-b15a-3c812aa9e672
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 08/24/2017
 ms.author: dekapur
-
 ---
 # Secure a standalone cluster on Windows by using Windows security
 To prevent unauthorized access to a Service Fabric cluster, you must secure the cluster. Security is especially important when the cluster runs production workloads. This article describes how to configure node-to-node and client-to-node security by using Windows security in the *ClusterConfig.JSON* file.  The process corresponds to the configure security step of [Create a standalone cluster running on Windows](service-fabric-cluster-creation-for-windows-server.md). For more information about how Service Fabric uses Windows security, see [Cluster security scenarios](service-fabric-cluster-security.md).
@@ -57,7 +47,7 @@ The sample *ClusterConfig.gMSA.Windows.MultiMachine.JSON* configuration file dow
 | IsAdmin |Set to true to specify that the domain user has administrator client access or false for user client access. |
 
 > [!NOTE]
-> ClustergMSAIdentity value be in format "mysfgmsa@mydomain".
+> ClustergMSAIdentity value must be in format "mysfgmsa@mydomain".
 
 [Node to node security](service-fabric-cluster-security.md#node-to-node-security) is configured by setting **ClustergMSAIdentity** when service fabric needs to run under gMSA. In order to build trust relationships between nodes, they must be made aware of each other. This can be accomplished in two different ways: Specify the Group Managed Service Account that includes all nodes in the cluster or Specify the domain machine group that includes all nodes in the cluster. We strongly recommend using the [Group Managed Service Account (gMSA)](https://technet.microsoft.com/library/hh831782.aspx) approach, particularly for larger clusters (more than 10 nodes) or for clusters that are likely to grow or shrink.  
 This approach does not require the creation of a domain group for which cluster administrators have been granted access rights to add and remove members. These accounts are also useful for automatic password management. For more information, see [Getting Started with Group Managed Service Accounts](https://technet.microsoft.com/library/jj128431.aspx).  

@@ -1,13 +1,13 @@
 ---
 title: "Quickstart: Speech SDK for Python platform setup - Speech service"
 titleSuffix: Azure Cognitive Services
-description: Use this guide to set up your platform for using Python with the Speech Services SDK.
+description: Use this guide to set up your platform for using Python with the Speech service SDK.
 services: cognitive-services
 author: markamos
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
+ms.topic: include
 ms.date: 10/09/2019
 ms.author: erhopf
 ---
@@ -42,7 +42,7 @@ This guide shows how to install the [Speech SDK](~/articles/cognitive-services/s
         ```
 
 - On Windows, you need the [Microsoft Visual C++ Redistributable for Visual Studio 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) for your platform. Note that installing this for the first time may require you to restart Windows before continuing with this guide.
-- And finally, you'll need [Python 3.5 or later](https://www.python.org/downloads/). To check your installation, open a command prompt and type the command `python --version` and check the result. If it's installed properly, you'll get a response "Python 3.5.1" or similar.
+- And finally, you'll need [Python 3.5, 3.6 or 3.7](https://www.python.org/downloads/). To check your installation, open a command prompt and type the command `python --version` and check the result. If it's installed properly, you'll get a response "Python 3.5.1" or similar.
 
 ## Install the Speech SDK using Visual Studio Code
 

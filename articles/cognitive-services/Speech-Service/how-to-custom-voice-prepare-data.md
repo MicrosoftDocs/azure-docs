@@ -1,7 +1,7 @@
 ---
-title: "How to prepare data for Custom Voice - Speech Service"
+title: "How to prepare data for Custom Voice - Speech service"
 titleSuffix: Azure Cognitive Services
-description: "Create a custom voice for your brand with Speech Service. You provide studio recordings and the associated scripts, the service generates a unique voice model tuned to the recorded voice. Use this voice to synthesize speech in your products, tools, and applications."
+description: "Create a custom voice for your brand with the Speech service. You provide studio recordings and the associated scripts, the service generates a unique voice model tuned to the recorded voice. Use this voice to synthesize speech in your products, tools, and applications."
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -15,7 +15,7 @@ ms.author: erhopf
 
 # Prepare data to create a custom voice
 
-When you're ready to create a custom text-to-speech voice for your application, the first step is to gather audio recordings and associated scripts to start training the voice model. The service uses this data to create a unique voice tuned to match the voice in the recordings. After you've trained the voice, you can start synthesizing speech in your applications.
+When you're ready to create a custom text-to-speech voice for your application, the first step is to gather audio recordings and associated scripts to start training the voice model. The Speech service uses this data to create a unique voice tuned to match the voice in the recordings. After you've trained the voice, you can start synthesizing speech in your applications.
 
 You can start with a small amount of data to create a proof of concept. However, the more data that you provide, the more natural your custom voice will sound. Before you can train your own text-to-speech voice model, you'll need audio recordings and the associated text transcriptions. On this page, we'll review data types, how they are used, and how to manage each.
 

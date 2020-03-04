@@ -5,7 +5,7 @@ author: ccompy
 
 ms.assetid: 5c61eed1-1ad1-4191-9f71-906d610ee5b7
 ms.topic: article
-ms.date: 05/28/2019
+ms.date: 02/27/2019
 ms.author: ccompy
 ms.custom: seodec18
 
@@ -24,7 +24,7 @@ The Azure App Service is a distributed system. The roles that handle incoming HT
 |---------------------|-------------------|
 | App assigned address | Hybrid Connections |
 | Access Restrictions | Gateway required VNet Integration |
-| Service Endpoints | VNet Integration (preview) |
+| Service Endpoints | VNet Integration |
 
 Unless otherwise stated, all of the features can be used together. You can mix the features to solve your various problems.
 
@@ -42,7 +42,7 @@ For any given use case, there can be a few ways to solve the problem.  The right
 | Expose my app on a private IP in my VNet | ILB ASE </br> private IP for inbound on an Application Gateway with service endpoints |
 | Protect my app with a WAF | Application Gateway + ILB ASE </br> Application Gateway with service endpoints </br> Azure Front Door with Access Restrictions |
 | Load balance traffic to my apps in different regions | Azure Front Door with Access Restrictions | 
-| Load balance traffic in the same region | Application Gateway with service endpoints | 
+| Load balance traffic in the same region | [Application Gateway with service endpoints][appgwserviceendpoints] | 
 
 The following outbound use cases suggest how to use App Service networking features to solve outbound access needs for your app. 
 
@@ -52,7 +52,9 @@ The following outbound use cases suggest how to use App Service networking featu
 | Access resources in an Azure Virtual Network in a different region | Gateway required VNet Integration </br> ASE and VNet peering |
 | Access resources secured with service endpoints | VNet Integration </br> ASE |
 | Access resources in a private network not connected to Azure | Hybrid Connections |
-| Access resources across ExpressRoute circuits | VNet Integration (restricted to RFC 1918 addresses for now) </br> ASE | 
+| Access resources across ExpressRoute circuits | VNet Integration </br> ASE | 
+| Secure outbound traffic from your web app | VNet Integration and Network Security Groups </br> ASE | 
+| Route outbound traffic from your web app | VNet Integration and Route Tables </br> ASE | 
 
 
 ### Default networking behavior
@@ -147,10 +149,12 @@ The gateway required VNet Integration feature is very useful but still does not 
 * Accessing resources in Resource Manager VNets in the same region
 * Accessing resources that are secured with service endpoints 
 * Accessing resources that are accessible across ExpressRoute or VPN connections
+* Securing all outbound traffic 
+* Force tunneling all outbound traffic. 
 
 ![VNet Integration](media/networking-features/vnet-integration.png)
 
-This feature is in preview and should not be used for production workloads. To learn more about this feature, read the docs on [App Service VNet Integration][vnetintegration].
+To learn more about this feature, read the docs on [App Service VNet Integration][vnetintegration].
 
 ## App Service Environment 
 
@@ -218,3 +222,4 @@ You can have multiple front-end apps use the same API app by using VNet Integrat
 [vnetintegrationp2s]: https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet
 [vnetintegration]: https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet
 [networkinfo]: https://docs.microsoft.com/azure/app-service/environment/network-info
+[appgwserviceendpoints]: https://docs.microsoft.com/azure/app-service/networking/app-gateway-with-service-endpoints

@@ -1,33 +1,28 @@
 ---
-title: Transitioning from Application Registration Portal to the new App registrations experience in the Azure portal
+title: New Azure portal app registration experience
 titleSuffix: Microsoft identity platform
 description: An introduction to the new App registration experience in the Azure portal
 services: active-directory
-documentationcenter: ''
 author: archieag
 manager: CelesteDG
-editor: ''
 
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/8/2019
 ms.author: aragra
 ms.reviewer: lenalepa, alamaral
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
 ---
 
-# Transitioning from Application Registration Portal to the new App registrations experience in the Azure portal
+# The new Azure portal app registration experience
 
 There are many improvements in the new [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) experience in the Azure portal. If you're more familiar with the Application registration portal (apps.dev.microsoft.com) experience for registering or managing converged applications, referred to as the old experience, this training guide will get you started using the new experience.
 
 ## What's not changing?
 
--   Your applications and related configurations can be found as-is in the new experience. You do not need to register the applications again and users of your applications will not need to sign-in again.
+- Your applications and related configurations can be found as-is in the new experience. You do not need to register the applications again and users of your applications will not need to sign-in again.
 
     > [!NOTE]
     > You must sign-in with the account you used to register applications to find them in the Azure portal. We recommend you
@@ -42,7 +37,7 @@ There are many improvements in the new [App registrations](https://go.microsoft.
     you still believe your applications are missing, sign out and sign
     in with the right account.
 
--   Live SDK apps created using personal Microsoft accounts are not yet supported in the Azure portal and will continue to remain in the old experience in near future.
+- Live SDK apps created using personal Microsoft accounts are not yet supported in the Azure portal and will continue to remain in the old experience in near future.
 
 ## Key changes
 

@@ -1,5 +1,5 @@
 ---
-title: Configure usage settings in classroom labs of Azure Lab Services | Microsoft Docs
+title: Configure usage settings in classroom labs of Azure Lab Services
 description: Learn how to configure the number of users for the lab, get them registered with the lab, control the number of hours they can use the VM, and more. 
 services: lab-services
 documentationcenter: na
@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2019
+ms.date: 02/20/2020
 ms.author: spelluru
 
 ---
@@ -31,7 +31,7 @@ This article describes how to add users to the lab, get them registered with the
     ![Add user email addresses](../media/how-to-configure-student-usage/add-users-email-addresses.png)
 4. Select **Save**. You see the email addresses of users and their statuses (registered or not) in the list. 
 
-    ![Users list](../media/how-to-configure-student-usage/users-list-new.png)
+    ![Users list](../media/how-to-configure-student-usage/list-of-added-users.png)
 
     > [!NOTE]
     > You will see names of users in the list after they are registered to the lab. The name shown in the list is constructed by using first and last names of the user in the Azure Active Directory. 
@@ -97,11 +97,14 @@ You can also get the registration link from the portal and send it using your ow
 2. On the **User registration** dialog box, select **Done**. 
 4. Send the **registration link** to a student so that the student can register for the class. 
 
-## View users registered with the lab
+## View registered users
 
-Select **Users** on the left menu to see the list of users registered with the lab. 
+1. Navigate to [Azure Lab Services website](https://labs.azure.com). 
+2. Select **Sign in** and enter your credentials. Azure Lab Services supports organizational accounts and Microsoft accounts.
+3. On the **My labs** page, select the lab for which you want to track the usage. 
+4. Select **Users** on the left menu or **Users** tile. You see students who have registered with your lab.  
 
-![List of users registered with the lab](../media/how-to-configure-student-usage/students-registered.png)
+    ![Registered users](../media/tutorial-track-usage/registered-users.png)
 
 ## Set quotas for users
 You can set quotas per user by using the following steps: 
@@ -111,7 +114,7 @@ You can set quotas per user by using the following steps:
 3. On the **Quota per user** page, specify the number of hours you want to give to each user (student) outside the scheduled class time, and then select **Save**.
 
     ![Quota per user](../media/how-to-configure-student-usage/quota-per-user.png)    
-5. You see the changed values on the toolbar now: **Quota per user: \<number of hours>**. 
+5. You see the changed values on the toolbar now: **Quota per user: \<number of hours>** and also in the users list.
 
     ![Quota per user — after](../media/how-to-configure-student-usage/quot-per-user-after.png)
 

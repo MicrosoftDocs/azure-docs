@@ -181,7 +181,7 @@ The solution back end operates on the module twin using the following atomic ope
     moduleId | ID of the module |
     hubName | Name of IoT Hub |
     operationTimestamp | [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) timestamp of operation |
-    iothub-message-schema | deviceLifecycleNotification |
+    iothub-message-schema | twinChangeNotification |
     opType | "replaceTwin" or "updateTwin" |
 
     Message system properties are prefixed with the `$` symbol.

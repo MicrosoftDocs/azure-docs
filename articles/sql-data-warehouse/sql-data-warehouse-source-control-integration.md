@@ -1,6 +1,6 @@
 ---
 title: Source Control Integration
-description: Enterprise-class Database DevOps experience for SQL Data Warehouse with native source control integration using Azure Repos (Git and GitHub).
+description: Enterprise-class Database DevOps experience for SQL pool with native source control integration using Azure Repos (Git and GitHub).
 services: sql-data-warehouse
 author: kevinvngo 
 manager: craigg
@@ -11,9 +11,9 @@ ms.date: 08/23/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ---
-# Source Control Integration for Azure SQL Data Warehouse
+# Source Control Integration for SQL pool
 
-This tutorial outlines how to integrate your SQL Server Data tools (SSDT) database project with source control.  Source control integration is the first step in building your continuous integration and deployment pipeline with SQL Data Warehouse. 
+This tutorial outlines how to integrate your SQL Server Data tools (SSDT) database project with source control.  Source control integration is the first step in building your continuous integration and deployment pipeline with the SQL pool resource in Azure Synapse Analytics. 
 
 ## Before you begin
 
@@ -43,7 +43,7 @@ This tutorial outlines how to integrate your SQL Server Data tools (SSDT) databa
 
    ![Create new project](media/sql-data-warehouse-source-control-integration/5-create-new-project.png "Create new project")  
 
-2. Right-click on your empty sqlproject  and import your data warehouse into the database project
+2. Right-click on your empty sqlproject and import your data warehouse into the database project
 
    ![Import Project](media/sql-data-warehouse-source-control-integration/6-import-new-project.png "Import Project")  
 
@@ -75,14 +75,4 @@ This tutorial outlines how to integrate your SQL Server Data tools (SSDT) databa
 
 ## Next steps
 
-- [Developing for Azure SQL Data Warehouse](sql-data-warehouse-overview-develop.md)
-
-<!--Image references-->
-
-<!--Article references-->
-
-
-<!--MSDN references-->
-
-<!--Other Web references-->
-
+- [Developing for SQL pool](sql-data-warehouse-overview-develop.md)

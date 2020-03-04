@@ -1,6 +1,6 @@
 ---
 title: Manage formulas in Azure DevTest Labs to create VMs | Microsoft Docs
-description: Learn how to update and remove Azure DevTest Labs formulas
+description: This article illustrates how to create a formula from either a base (custom image, Marketplace image, or another formula) or an existing VM.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 01/24/2020
 ms.author: spelluru
 
 ---

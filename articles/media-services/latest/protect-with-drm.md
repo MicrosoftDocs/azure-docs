@@ -1,5 +1,5 @@
 ---
-title: Use DRM dynamic encryption and license delivery service
+title: Azure Media Services DRM encryption and license delivery service
 titleSuffix: Azure Media Services
 description: Learn how to use DRM dynamic encryption and license delivery service to deliver streams encrypted with Microsoft PlayReady, Google Widevine, or Apple FairPlay licenses.
 services: media-services
@@ -171,6 +171,10 @@ Execute the following CLI command:
 ```azurecli
 az group delete --name amsResourceGroup
 ```
+
+## Additional notes
+
+* Widevine is a service provided by Google Inc. and subject to the terms of service and Privacy Policy of Google, Inc.
 
 ## Ask questions, give feedback, get updates
 
