@@ -1,6 +1,6 @@
 ﻿---
 title:  Supported data format details | Microsoft Azure Maps
-description: Learn how to .
+description: Learn how delimited spatial data is parsed in the spatial IO module.
 author: farah-alyasari
 ms.author: v-faalya
 ms.date: 03/03/2020
@@ -33,7 +33,7 @@ The spatial IO module supports XML tags from the following namespaces.
 
 ## Supported XML elements
 
-The spatial IO module supports the following XML elements. Any XML tags that aren't supported will be converted into a JSON object and added to the `properties` property of the parent shape or layer.
+The spatial IO module supports the following XML elements. Any XML tags that aren't supported will be converted into a JSON object and added to as a property in the `properties` field of the parent shape or layer.
 
 ### KML elements
 
@@ -41,12 +41,12 @@ The spatial IO module supports the following KML elements.
 
 | Element Name         | Read    | Write   | Notes                                                                                                                      |
 |----------------------|---------|---------|----------------------------------------------------------------------------------------------------------------------------|
-| `address`            | partial | yes     | Object is parsed but is not used for positioning shape.                                                                    |
-| `AddressDetails`     | partial | no      | Object is parsed but is not used for positioning shape.                                                                    |
+| `address`            | partial | yes     | Object is parsed but isn't used for positioning shape.                                                                    |
+| `AddressDetails`     | partial | no      | Object is parsed but isn't used for positioning shape.                                                                    |
 | `atom:author`        | yes     | yes     |                                                                                                                            |
 | `atom:link`          | yes     | yes     |                                                                                                                            |
 | `atom:name`          | yes     | yes     |                                                                                                                            |
-| `BalloonStyle`       | partial | partial | `displayMode` is not supported. Converted to a `PopupTemplate`. To write, add a `popupTemplate` property as a property of the feature you want to write it for. |
+| `BalloonStyle`       | partial | partial | `displayMode` isn't supported. Converted to a `PopupTemplate`. To write, add a `popupTemplate` property as a property of the feature you want to write it for. |
 | `begin`              | yes     | yes     |                                                                                                                            |
 | `color`              | yes     | yes     | Includes `#AABBGGRR` and `#BBGGRR`. Parsed into a CSS color string                                                           |
 | `colorMode`          | yes     | no      |                                                                                                                            |
@@ -59,15 +59,15 @@ The spatial IO module supports the following KML elements.
 | `east`               | yes     | yes     |                                                                                                                            |
 | `end`                | yes     | yes     |                                                                                                                            |
 | `ExtendedData`       | yes     | yes     | Supports untyped `Data`, `SimpleData` or `Schema`, and entity replacements of the form `$[dataName]`.                      |
-| `extrude`            | partial | partial | Only supported for polygons. MultiGeometry that have polygons of different heights will be broken out into individual features. Line styles is not supported. Polygons with an altitude of 0 will be rendered as a flat polygon. When reading, the altitude of the first coordinate in the exterior ring will be added as a height property of the polygon. Then, the altitude of the first coordinate will be used to render the polygon accordingly on the map. |
+| `extrude`            | partial | partial | Only supported for polygons. MultiGeometry that have polygons of different heights will be broken out into individual features. Line styles aren't supported. Polygons with an altitude of 0 will be rendered as a flat polygon. When reading, the altitude of the first coordinate in the exterior ring will be added as a height property of the polygon. Then, the altitude of the first coordinate will be used to render the polygon accordingly on the map. |
 | `fill`               | yes     | yes     |                                                                                                                            |
 | `Folder`             | yes     | yes     |                                                                                                                            |
-| `GroundOverlay`      | yes     | yes     | `color` is not supported                                                                                                   |
+| `GroundOverlay`      | yes     | yes     | `color` isn't supported                                                                                                   |
 | `heading`            | partial | no      | Parsed but not rendered by `SimpleDataLayer`. Only writes if data is stored in the property of the shape.                 |
 | `hotSpot`            | yes     | partial | Only writes if data is stored in the property of the shape. Units are outputted as "pixels" only.                         |
 | `href`               | yes     | yes     |                                                                                                                            |
 | `Icon`               | partial | partial | Parsed but not rendered by `SimpleDataLayer`. Only writes the icon property of the shape if it contains a URI data. Only `href` is supported. |
-| `IconStyle`          | partial | partial | `icon`, `heading`, `colorMode`, and `hotspots` values are parsed, but they are not rendered by `SimpleDataLayer`         |
+| `IconStyle`          | partial | partial | `icon`, `heading`, `colorMode`, and `hotspots` values are parsed, but they aren't rendered by `SimpleDataLayer`         |
 | `innerBoundaryIs`    | yes     | yes     |                                                                                                                            |
 | `kml`                | yes     | yes     |                                                                                                                            |
 | `LabelStyle`         | no      | no      |                                                                                                                            |
@@ -75,7 +75,7 @@ The spatial IO module supports the following KML elements.
 | `gx:LatLonQuad`      | yes     | yes     |                                                                                                                            |
 | `LinearRing`         | yes     | yes     |                                                                                                                            |
 | `LineString`         | yes     | yes     |                                                                                                                            |
-| `LineStyle`          | yes     | yes     | `colorMode` is not supported.                                                                                         |
+| `LineStyle`          | yes     | yes     | `colorMode` isn't supported.                                                                                         |
 | `Link`               | yes     | no      | Only the `href` property is supported for network links.                                                                   |
 | `MultiGeometry`      | partial | partial | May be broken out into individual features when read.                                                                     |
 | `name`               | yes     | yes     |                                                                                                                            |
@@ -86,7 +86,7 @@ The spatial IO module supports the following KML elements.
 | `outerBoundaryIs`    | yes     | yes     |                                                                                                                            |
 | `outline`            | yes     | yes     |                                                                                                                            |
 | `overlayXY`          | no      | no      |                                                                                                                            |
-| `Pair`               | partial | no      | Only the `normal` style in a `StyleMap` is supported. `highlight` is not supported.                                   |
+| `Pair`               | partial | no      | Only the `normal` style in a `StyleMap` is supported. `highlight` isn't supported.                                   |
 | `phoneNumber`        | yes     | yes     |                                                                                                                            |
 | `PhotoOverlay`       | no      | no      |                                                                                                                            |
 | `Placemark`          | yes     | yes     |                                                                                                                            |
@@ -99,7 +99,7 @@ The spatial IO module supports the following KML elements.
 | `scale`              | no      | no      |                                                                                                                            |
 | `Schema`             | yes     | yes     |                                                                                                                            |
 | `SchemaData`         | yes     | yes     |                                                                                                                            |
-| `schemaUrl`          | partial | yes     | Does not support loading styles from external documents that are not included in a KMZ.                             |
+| `schemaUrl`          | partial | yes     | Doesn't support loading styles from external documents that aren't included in a KMZ.                             |
 | `ScreenOverlay`      | no      | no      |                                                                                                                            |
 | `screenXY`           | no      | no      |                                                                                                                            |
 | `SimpleData`         | yes     | yes     |                                                                                                                            |
@@ -109,8 +109,8 @@ The spatial IO module supports the following KML elements.
 | `south`              | yes     | yes     |                                                                                                                            |
 | `Style`              | yes     | yes     |                                                                                                                            |
 | `StyleMap`           | partial | no      | Only the normal style in a `StyleMap` is supported.                                                                        |
-| `styleUrl`           | partial | yes     | External style URLs are not supported.                                                                         |
-| `text`               | yes     | yes     | Replacement of `$[geDirections]` is not supported                                                                          |
+| `styleUrl`           | partial | yes     | External style URLs aren't supported.                                                                         |
+| `text`               | yes     | yes     | Replacement of `$[geDirections]` isn't supported                                                                          |
 | `textColor`          | yes     | yes     |                                                                                                                            |
 | `TimeSpan`           | yes     | yes     |                                                                                                                            |
 | `TimeStamp`          | yes     | yes     |                                                                                                                            |
@@ -164,7 +164,7 @@ The spatial IO module supports the following GeoRSS elements.
 | `georss:where`           | yes     | yes   |                                                                                                |
 | `geourl:latitude`        | yes     | no    | Written as a `georss:point`.                                                                   |
 | `geourl:longitude`       | yes     | no    | Written as a `georss:point`.                                                                   |
-| `position`               | yes     | no    | Some XML feeds will wrap GML with a position tag instead of wrapping it with a georss:where tag. Will read this, but will write using a georss:where tag. |
+| `position`               | yes     | no    | Some XML feeds will wrap GML with a position tag instead of wrapping it with a georss:where tag. Will read this tag, but will write using a georss:where tag. |
 | `rss`                    | yes     | no    | GeoRSS written in ATOM format.                                                                 |
 | `rss:author`             | yes     | partial | Written as an `atom:author`.                                                                 |
 | `rss:category`           | yes     | partial | Written as an `atom:category`.                                                               |
@@ -241,7 +241,7 @@ The spatial IO module supports the following GML elements.
 
 - Member elements will be searched for a geometry that may be buried within child elements. This search operation is necessary as many XML formats that extend from GML may not place a geometry as a direct child of a member element.
 - `srsName` is partially supported for WGS84 coordinates and the following codes:[EPSG:4326](https://epsg.io/4326)), and web mercator ([EPSG:3857](https://epsg.io/3857) or one of its alternative codes. Any other coordinate system will be parsed as WGS84 as-is.
-- Unless specified when reading an XML feed, the axis order is determined based on hints in the XML feed. A preference is given for the order of "latitude, longitude".
+- Unless specified when reading an XML feed, the axis order is determined based on hints in the XML feed. A preference is given for the "latitude, longitude" axis order.
 - Unless a custom GML namespace is specified for the properties when writing to a GML file, additional property information will not be added to the GML file.
 
 ### GPX elements
@@ -271,7 +271,7 @@ The spatial IO module supports the following GPX elements.
 | `gpx:rtept`              | yes     | yes     |                                                                                             |
 | `gpx:sat`                | yes     | yes     |                                                                                             |
 | `gpx:src`                | yes     | yes     |                                                                                             |
-| `gpx:sym`                | yes     | yes     | Value is captured, but it is not used to alter the pushpin icon.                               |
+| `gpx:sym`                | yes     | yes     | Value is captured, but it isn't used to alter the pushpin icon.                               |
 | `gpx:text`               | yes     | yes     |                                                                                             |
 | `gpx:time`               | yes     | yes     |                                                                                             |
 | `gpx:trk`                | yes     | yes     |                                                                                             |
@@ -333,7 +333,7 @@ When writing;
 
 \[1\] Only Z parameter is captured and added as a third value in the Position value.
 
-\[2\] M parameter is not captured.
+\[2\] M parameter isn't captured.
 
 ## Delimited spatial data support
 
@@ -383,8 +383,7 @@ The first row of data will be scanned for strings that are in Well Known Text fo
 
 ### Delimited data column types
 
-When scanning the header row, any type information that is in the column name will be extracted and used to cast the cells in that column. 
-Here is an example of a column name that has a type value "ColumnName (typeName)". The following case-insensitive type names are supported:
+When scanning the header row, any type information that is in the column name will be extracted and used to cast the cells in that column. Here is an example of a column name that has a type value: "ColumnName (typeName)". The following case-insensitive type names are supported:
 
 **Numbers**
 
