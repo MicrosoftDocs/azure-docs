@@ -26924,6 +26924,16 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/storage/common/storage-azure-cli.md",
+      "redirect_url": "/azure/storage/blobs/storage-quickstart-blobs-cli",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/storage/common/storage-azure-cli-nodejs.md",
+      "redirect_url": "/azure/storage/blobs/storage-quickstart-blobs-cli",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/storage/storage-backup-and-disaster-recovery-for-azure-iaas-disks.md",
       "redirect_url": "/azure/storage/common/storage-backup-and-disaster-recovery-for-azure-iaas-disks",
       "redirect_document_id": true
