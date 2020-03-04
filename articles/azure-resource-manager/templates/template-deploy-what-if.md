@@ -3,7 +3,7 @@ title: Template deployment what-if (Preview)
 description: Determine what changes will happen to your resources before deploying an Azure Resource Manager template.
 author: mumian
 ms.topic: conceptual
-ms.date: 02/28/2020
+ms.date: 03/04/2020
 ms.author: jgao
 ---
 # Resource Manager template deployment what-if operation (Preview)
@@ -17,7 +17,67 @@ You can use the what-if operation with the PowerShell commands or REST API opera
 
 In PowerShell, the output looks like:
 
+```powershell
+Resource and property changes are indicated with these symbols:
+  - Delete
+  + Create
+  ~ Modify
+
+The deployment will update the following scope:
+
+Scope: /subscriptions/3a4176e0-58d3-4bb8-8cc2-9b8776777f27/resourceGroups/ExampleGroup
+
+  ~ Microsoft.Network/virtualNetworks/vnet-001 [2018-10-01]
+    - tags.Owner: "Team A"
+    ~ properties.addressSpace.addressPrefixes: [
+      - 0: "10.0.0.0/16"
+      + 0: "10.0.0.0/15"
+      ]
+    ~ properties.subnets: [
+      - 0:
+
+          name:                     "subnet001"
+          properties.addressPrefix: "10.0.0.0/24"
+
+      ]
+
+Resource changes: 1 to modify.
+```
+
+The following image shows the color-coded results that are returned in PowerShell to help you see the different types of changes.
+
 ![Resource Manager template deployment what-if operation fullresourcepayload and change types](./media/template-deploy-what-if/resource-manager-deployment-whatif-change-types.png)
+
+## What-if commands
+
+You can use either Azure PowerShell or Azure REST API for the what-if operation.
+
+### Azure PowerShell
+
+To see a preview of the changes before deploying a template, add the `-Whatif` switch parameter to the deployment command.
+
+* `New-AzResourceGroupDeployment -Whatif` for resource group deployments
+* `New-AzSubscriptionDeployment -Whatif` and `New-AzDeployment -Whatif` for subscription level deployments
+
+Or, you can use the `-Confirm` switch parameter to preview the changes and get prompted to continue with the deployment.
+
+* `New-AzResourceGroupDeployment -Confirm` for resource group deployments
+* `New-AzSubscriptionDeployment -Confirm` and `New-AzDeployment -Confirm` for subscription level deployments
+
+The preceding commands return a text summary that you can manually inspect. To get an object that you can programmatically inspect for changes, use:
+
+* `$results = Get-AzResourceGroupDeploymentWhatIf` for resource group deployments
+* `$results = Get-AzSubscriptionDeploymentWhatIf` or `$results = Get-AzDeploymentWhatIf` for subscription level deployments
+
+> [!NOTE]
+> Prior to the release of version 2.0.1-alpha5, you used the `New-AzDeploymentWhatIf` command. This command has been replaced by the `Get-AzDeploymentWhatIf`, `Get-AzResourceGroupDeploymentWhatIf`, and `Get-AzSubscriptionDeploymentWhatIf` commands. If you've used an earlier version, you need to update that syntax. The `-ScopeType` parameter has been removed.
+
+### Azure REST API
+
+For REST API, use:
+
+* [Deployments - What If](/rest/api/resources/deployments/whatif) for resource group deployments
+* [Deployments - What If At Subscription Scope](/rest/api/resources/deployments/whatifatsubscriptionscope) for subscription level deployments
 
 ## Change types
 
@@ -35,40 +95,11 @@ The what-if operation lists six different types of changes:
 
 - **Deploy**: The resource exists, and is defined in the template. The resource will be redeployed. The properties of the resource may or may not change. The operation returns this change type when it doesn't have enough information to determine if any properties will change. You only see this condition when [ResultFormat](#result-format) is set to `ResourceIdOnly`.
 
-## What-if commands
-
-You can use either Azure PowerShell or Azure REST API for the what-if operation.
-
-### Azure PowerShell
-
-To preview changes, use:
-
-* `Get-AzResourceGroupDeploymentWhatIf` for resource group deployments
-* `Get-AzSubscriptionDeploymentWhatIf` or `Get-AzDeploymentWhatIf` for subscription level deployments
-
-Or, you can use the `-Whatif` switch parameter on the deployment command.
-
-* `New-AzResourceGroupDeployment -Whatif` for resource group deployments
-* `New-AzSubscriptionDeployment -Whatif` and `New-AzDeployment -Whatif` for subscription level deployments
-
-Or, you can preview the changes before being prompted to continue with the deployment.
-
-* `New-AzResourceGroupDeployment -Confirm` for resource group deployments
-* `New-AzSubscriptionDeployment -Confirm` and `New-AzDeployment -Confirm` for subscription level deployments
-
-> [!NOTE]
-> Prior to the release of version 2.0.1-alpha5, you used the `New-AzDeploymentWhatIf` command. This command has been replaced by the `Get-AzDeploymentWhatIf`, `Get-AzResourceGroupDeploymentWhatIf`, and `Get-AzSubscriptionDeploymentWhatIf` commands. If you've used an earlier version, you need to update that syntax. The `-ScopeType` parameter has been removed.
-
-### Azure REST API
-
-For REST API, use:
-
-* [Deployments - What If](/rest/api/resources/deployments/whatif) for resource group deployments
-* [Deployments - What If At Subscription Scope](/rest/api/resources/deployments/whatifatsubscriptionscope) for subscription level deployments
-
 ## Result format
 
-You can control the level of detail that is returned about the predicted changes. Set the **ResultFormat** parameter to **FullResourcePayloads** to get a list of resources what will change and details about the properties that will change. Set the **ResultFormat** parameter to **ResourceIdOnly** to get a list of resources that will change. The default value is `FullResourcePayloads`.  
+You can control the level of detail that is returned about the predicted changes. In the deployment commands (`New-Az*Deployment`), use the **-WhatIfResultFormat** parameter. In the programmatic object commands (`Get-Az*DeploymentWhatIf`), use the **ResultFormat** parameter.
+
+Set the format parameter to **FullResourcePayloads** to get a list of resources what will change and details about the properties that will change. Set the **ResultFormat** parameter to **ResourceIdOnly** to get a list of resources that will change. The default value is `FullResourcePayloads`.  
 
 The following results show the two different output formats:
 
@@ -77,17 +108,27 @@ The following results show the two different output formats:
   ```powershell
   Resource and property changes are indicated with these symbols:
     - Delete
+    + Create
     ~ Modify
 
   The deployment will update the following scope:
 
-  Scope: /subscriptions/./resourceGroups/ExampleGroup
+  Scope: /subscriptions/3a4176e0-58d3-4bb8-8cc2-9b8776777f27/resourceGroups/ExampleGroup
 
-    ~ Microsoft.Storage/storageAccounts/storez2wlfuvcm4awc [2019-04-01]
-      - properties.accessTier:               "Hot"
-      ~ properties.supportsHttpsTrafficOnly: true => "true"
-      ~ sku.name:                            "Standard_LRS" => "Standard_GRS"
-  
+    ~ Microsoft.Network/virtualNetworks/vnet-001 [2018-10-01]
+      - tags.Owner: "Team A"
+      ~ properties.addressSpace.addressPrefixes: [
+        - 0: "10.0.0.0/16"
+        + 0: "10.0.0.0/15"
+        ]
+      ~ properties.subnets: [
+        - 0:
+
+          name:                     "subnet001"
+          properties.addressPrefix: "10.0.0.0/24"
+
+        ]
+
   Resource changes: 1 to modify.
   ```
 
@@ -99,9 +140,9 @@ The following results show the two different output formats:
 
   The deployment will update the following scope:
 
-  Scope: /subscriptions/./resourceGroups/ExampleGroup
+  Scope: /subscriptions/3a4176e0-58d3-4bb8-8cc2-9b8776777f27/resourceGroups/ExampleGroup
 
-    ! Microsoft.Storage/storageAccounts/storez2wlfuvcm4awc
+    ! Microsoft.Network/virtualNetworks/vnet-001
 
   Resource changes: 1 to deploy.
   ```
