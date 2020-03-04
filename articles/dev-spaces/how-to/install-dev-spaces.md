@@ -1,5 +1,5 @@
 ---
-title: "Enable Azure Dev Spaces on an AKS cluster and install client-side tools"
+title: "Enable Azure Dev Spaces on AKS & install the client-side tools"
 services: azure-dev-spaces
 ms.date: "07/24/2019"
 ms.topic: "conceptual"
@@ -7,7 +7,7 @@ description: "Learn how to enable Azure Dev Spaces on an AKS cluster and install
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s"
 ---
 
-# Enable Azure Dev Spaces on an AKS cluster and install client-side tools
+# Enable Azure Dev Spaces on an AKS cluster and install the client-side tools
 
 This article shows you several ways to enable Azure Dev Spaces on an AKS cluster as well as install the client-side tools.
 
