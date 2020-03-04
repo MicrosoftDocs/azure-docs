@@ -7,7 +7,7 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 12/05/2019
+ms.date: 03/04/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -115,7 +115,7 @@ Same steps need to be followed for all object types (user, group and contact).
 
 ## Install the Azure AD Connect provisioning agent
 1. Sign in to the server you will use with enterprise admin permissions.  If you are using the  [Basic AD and Azure environment](tutorial-basic-ad-azure.md) tutorial it would be CP1.
-2. Download the Azure AD Connect cloud provisioning agent [here](https://go.microsoft.com/fwlink/?linkid=2109037).
+2. Download the Azure AD Connect cloud provisioning agent using the steps outlined [here](how-to-install.md#install-the-agent).
 3. Run the Azure AD Connect cloud provisioning (AADConnectProvisioningAgent.Installer)
 3. On the splash screen, **Accept** the licensing terms and click **Install**.</br>
 ![Welcome screen](media/how-to-install/install1.png)</br>
