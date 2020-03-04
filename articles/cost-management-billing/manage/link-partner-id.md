@@ -11,9 +11,9 @@ ms.topic: conceptual
 
 # Link a partner ID to your Azure accounts
 
-Microsoft partners provide services that help customers achieve business and mission objectives using Microsoft products. When acting on behalf of the customer managing, configuring, and supporting Azure services, the partner users will need access to the customer’s environment. Using Partner Admin Link, partners can associate their partner network ID with the credentials used for service delivery.
+Microsoft partners provide services that help customers achieve business and mission objectives using Microsoft products. When acting on behalf of the customer managing, configuring, and supporting Azure services, the partner users will need access to the customer’s environment. Using Partner Admin Link(PAL), partners can associate their partner network ID with the credentials used for service delivery.
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+PAL enables Microsoft to identify and recognize partners who drive Azure customer success.Microsoft can attribute influence and Azure consumed revenue to your organization based on the account's permissions (RBAC role) and scope (subscription, resource group, resource ).
 
 ## Get access from your customer
 
