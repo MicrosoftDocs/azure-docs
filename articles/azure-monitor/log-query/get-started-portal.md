@@ -9,7 +9,7 @@ ms.date: 03/02/2020
 
 ---
 
-# Tutorial: Get started with queries in a Log Analytics workspace
+# Tutorial: Get started with Log Analytics queries
 
 This tutorial shows you how to use a Log Analytics workspace to write, execute, and manage Azure Monitor log queries in the Azure portal. You can use Log Analytics queries to search for terms, identify trends, analyze patterns, and provide many other insights based on your data. 
 
@@ -45,6 +45,7 @@ A Log Analytics workspace opens with a new blank query in the **Query editor**.
 
 ![Log Analytics workspace](media/get-started-portal/homepage.png)
 
+### Write a query
 Azure Monitor log queries use a version of the Kusto query language. Queries can begin with either a table name or a [search](/azure/kusto/query/searchoperator) command. 
 
 The following query retrieves all records from the **Event** table:
@@ -84,7 +85,7 @@ To set the **Time range** control, select it in the top bar, and then select a v
 - If the query explicitly sets a filter for **TimeGenerated**, the time picker control shows **Set in query**, and is disabled to prevent a conflict.
 
 ## Filter results
-A general query like `Event` returns too many results to be useful. You can filter the query results either through retricting the table elements in the query, or by explicitly adding a filter to the results. Filtering through the table elements returns a new result set, while an explicit filter applies to the existing result set.
+A general query like `Event` returns too many results to be useful. You can filter the query results either through restricting the table elements in the query, or by explicitly adding a filter to the results. Filtering through the table elements returns a new result set, while an explicit filter applies to the existing result set.
 
 ### Filter by restricting table elements
 To filter `Event` query results to **Error** events by restricting the table elements in the query:
@@ -120,7 +121,7 @@ To sort query results by a specific column, such as **TimeGenerated (UTC)**, sel
 
 ![Sort column](media/get-started-portal/sort-column.png)
 
-Another way to organize results is by groups. To group results by a specific column, drag the column header up to the bar above the results table labeled **Drag a column header and drop it here to group by that column**. To create subgroups, drag other columns to the upper bar. You can rearrange the hierarchy and sorting of the groups and subgroups in the bar.
+Another way to organize results is by groups. To group results by a specific column, drag the column header to the bar above the results table labeled **Drag a column header and drop it here to group by that column**. To create subgroups, drag other columns to the upper bar. You can rearrange the hierarchy and sorting of the groups and subgroups in the bar.
 
 ![Groups](media/get-started-portal/groups.png)
 
@@ -179,14 +180,14 @@ To save a query:
    
    To save a query as a function, provide a function alias, which is a short name for other queries to use to call this query.
    
-1. Provide a **Category** name to save the query under in **Query Explorer**.
+1. Provide a **Category** name to save the query under in **Query explorer**.
    
 1. Select **Save**.
    
    ![Save function](media/get-started-portal/save-function.png)
 
 ### Load queries
-To load a saved query, select **Query Explorer** at top right. The **Query Explorer** pane opens, listing all queries by category. Expand the categories or enter a query name in the search bar, then select the query to load it into the **Query editor**. You can mark a query as a **Favorite** by selecting the star next to the query name.
+To load a saved query, select **Query explorer** at top right. The **Query explorer** pane opens, listing all queries by category. Expand the categories or enter a query name in the search bar, then select the query to load it into the **Query editor**. You can mark a query as a **Favorite** by selecting the star next to the query name.
 
 ![Query explorer](media/get-started-portal/query-explorer.png)
 
