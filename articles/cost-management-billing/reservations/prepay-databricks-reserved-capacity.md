@@ -2,7 +2,7 @@
 title: Optimize Azure Databricks costs with a pre-purchase
 description: Learn how you can prepay for Azure Databricks charges with reserved capacity to save money.
 author: yashesvi
-manager: yashar
+ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/12/2020

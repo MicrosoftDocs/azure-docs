@@ -23,8 +23,6 @@
       href: b2b-tutorial-require-mfa.md
   - name: Samples
     items:
-    - name: Self-service sign-up portal sample
-      href: self-service-portal.md
     - name: Code and Azure PowerShell samples
       href: code-samples.md
   - name: Concepts
@@ -50,6 +48,8 @@
       href: conditional-access.md
     - name: B2B for hybrid organizations
       href: hybrid-organizations.md
+    - name: Self-service sign-up
+      href: self-service-portal.md
     - name: Current limitations
       href: current-limitations.md
   - name: How-to guides

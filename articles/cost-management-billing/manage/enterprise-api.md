@@ -2,16 +2,17 @@
 title: Azure Billing Enterprise APIs | Microsoft Docs
 description: Learn about the Reporting APIs that enable Enterprise Azure customers to pull consumption data programmatically.
 author: mumami
-manager: mumami
 tags: billing
 ms.service: cost-management-billing
 ms.topic: reference
-ms.date: 02/12/2020
+ms.date: 02/14/2020
 ms.author: banders
 
 ---
 # Overview of Reporting APIs for Enterprise customers
 The Reporting APIs enable Enterprise Azure customers to programmatically pull consumption and billing data into preferred data analysis tools. Enterprise customers have signed an [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) with Azure to make negotiated monetary commitments and gain access to custom pricing for Azure resources.
+
+All date and time parameters required for APIs must be represented as combined Coordinated Universal Time (UTC) values. Values returned by APIs are shown in UTC format.
 
 ## Enabling data access to the API
 * **Generate or retrieve the API key** - Log in to the Enterprise portal, and navigate to Reports > Download Usage > API Access Key to generate or retrieve the API key.

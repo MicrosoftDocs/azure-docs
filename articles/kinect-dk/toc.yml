@@ -79,7 +79,7 @@
      href: system-requirements.md
    - name: Hardware specification
      href: hardware-specification.md
-   - name: Multi-camera synchronization
+   - name: Synchronize multiple devices
      href: multi-camera-sync.md   
    - name: Compare to Kinect for Windows
      href: windows-comparison.md
@@ -89,6 +89,10 @@
      href: support.md
    - name: Azure Kinect troubleshooting
      href: troubleshooting.md
+   - name: Warranties, extended service plans, and Terms & Conditions
+     href: https://support.microsoft.com/help/4493926/warranties-extended-service-plans-and-terms-conditions-for-your-device
+   - name: Safety information
+     href: https://support.microsoft.com/help/4023454/safety-information
 - name: References
   items:  
    - name: Sensor API

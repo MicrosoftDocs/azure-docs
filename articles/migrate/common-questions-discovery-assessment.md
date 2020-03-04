@@ -2,17 +2,18 @@
 title: Common questions - discovery, assessment, and dependency analysis in Azure Migrate
 description: Get answers to common questions about discovery, assessment, and dependency analysis in Azure Migrate.
 ms.topic: conceptual
-ms.date: 12/29/2019
+ms.date: 02/17/2020
 
 ---
 
 # Common questions about discovery, assessment, and dependency analysis
 
-This article answers common questions about discovery, assessment, and dependency analysis in Azure Migrate. If you have further queries after reading this article, post them on the [Azure Migrate forum](https://aka.ms/AzureMigrateForum). If you have other questions, review these articles:
+This article answers common questions about discovery, assessment, and dependency analysis in Azure Migrate. If you have other questions, review these articles:
 
 - [General questions](resources-faq.md) about Azure Migrate.
 - [Questions](common-questions-appliance.md) about the Azure Migrate appliance.
 - [Questions](common-questions-server-migration.md) about server migration.
+- Post questions on the [Azure Migrate forum](https://aka.ms/AzureMigrateForum)
 
 
 
@@ -87,7 +88,7 @@ You don't need these agents unless you're using dependency visualization.
 
 ## Can I use an existing workspace?
 
-Yes, you can attach an existing workspace to the migration project and use it for dependency visualization. [Learn more](concepts-dependency-visualization.md#how-does-it-work).
+Yes, you can attach an existing workspace to the migration project and use it for dependency visualization. 
 
 ## Can I export the dependency visualization report?
 
@@ -95,7 +96,7 @@ No, the dependency visualization can't be exported. However, Azure Migrate uses 
 
 ## Can I automate  MMA/Dependency agent installation?
 
-Use this [script to install the Dependency agent](../azure-monitor/insights/vminsights-enable-hybrid-cloud.md#installation-script-examples). Follow these [instructions to install MMA](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#install-and-configure-agent) by using the command line or automation. For
+Use this [script to install the Dependency agent](../azure-monitor/insights/vminsights-enable-hybrid-cloud.md#installation-script-examples). Follow these [instructions to install MMA](../azure-monitor/platform/log-analytics-agent.md#installation-and-configuration) by using the command line or automation. For
 MMA, use [this script](https://gallery.technet.microsoft.com/scriptcenter/Install-OMS-Agent-with-2c9c99ab).
 
 In addition to scripts, you can also use deployment tools like Microsoft Endpoint Configuration Manager and [Intigua](https://www.intigua.com/getting-started-intigua-for-azure-migration) to deploy the agents.

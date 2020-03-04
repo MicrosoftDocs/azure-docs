@@ -190,7 +190,7 @@ If you want to clean up and remove a Cognitive Services resource, you can delete
 To remove the resource group and its associated resources, use the az group delete command.
 
 ```azurecli-interactive
-az group delete --name storage-resource-group
+az group delete --name cognitive-services-resource-group
 ```
 
 ## See also
