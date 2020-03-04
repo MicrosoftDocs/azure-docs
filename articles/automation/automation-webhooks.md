@@ -52,7 +52,7 @@ There's no configuration of the webhook required to support the *WebhookData* pa
 
 If you specify a value for *WebhookData* at webhook creation, it is overridden when the webhook starts the runbook with the data from the client POST request. This happens even if the application does not include any data in the request body. 
 
-If you start a runbook that defines *WebhookData* using a mechanism other than a webhook, you can provide a value for *WebhookData* that the runbook recognizes. This value should be an object with the same [properties](#details-of-a-webhook) as the *WebhookData* parameter so that the runbook can work with it just as it works with actual *WebhookData* objects passed by a webhook.
+If you start a runbook that defines *WebhookData* using a mechanism other than a webhook, you can provide a value for *WebhookData* that the runbook recognizes. This value should be an object with the same [properties](#webhook-properties) as the *WebhookData* parameter so that the runbook can work with it just as it works with actual *WebhookData* objects passed by a webhook.
 
 For example, if you are starting the following runbook from the Azure portal and want to pass some sample webhook data for testing, you must pass the data in JSON in the user interface.
 
