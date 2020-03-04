@@ -1,7 +1,7 @@
 ---
-title: Store query results to the storage
-description: In this article, you'll learn how to store query results to the storage using SQL On-demand.
-services: sql-data-warehouse
+title: Store query results to storage
+description: In this article, you'll learn how to store query results to storage using SQL On-demand.
+services: synapse-analytics
 author: vvasic-msft
 ms.service: synapse-analytics
 ms.topic: overview

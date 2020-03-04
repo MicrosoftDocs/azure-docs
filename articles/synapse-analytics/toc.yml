@@ -561,9 +561,9 @@
         - name: Create and use views
           href: sql-analytics/create-use-views.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: Create and use external tables
-          href: sql-analytics/create-use-external-tables.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+          href: sql-analytics/create-use-external-tables.md
         - name: Store query results to storage
-          href: sql-analytics/create-external-table-as-select.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+          href: sql-analytics/create-external-table-as-select.md
 #         - name: Query Spark tables
 #           href: query-spark-tables.md
 #       - name: Best practices
