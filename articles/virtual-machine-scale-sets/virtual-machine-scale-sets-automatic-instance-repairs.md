@@ -9,7 +9,7 @@ ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm
 ms.topic: conceptual
-ms.date: 02/28/2019
+ms.date: 02/28/2020
 ms.author: avverma
 
 ---
