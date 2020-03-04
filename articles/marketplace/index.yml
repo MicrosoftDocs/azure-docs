@@ -1,0 +1,126 @@
+### YamlMime:Landing
+
+title: Welcome to Microsoft's commercial marketplace
+summary: Learn about Microsoft's commercial marketplace, an online applications and services marketplace that lets startups to enterprises offer solutions to customers around the world.
+
+metadata:
+  title: Welcome to Microsoft's commercial marketplace
+  description: Learn about Microsoft's commercial marketplace, an online applications and services marketplace that lets startups to enterprises offer solutions to customers around the world.
+  ms.service: marketplace 
+  ms.subservice: partnercenter-marketplace-publisher
+  ms.topic: landing-page
+  author: MaggiePucciEvans
+  ms.author: evansma
+  ms.date: 03/04/2020
+
+landingContent:
+  - title: Working in the Microsoft commercial marketplace
+    linkLists:
+    - linkListType: get-started
+      links:
+      - text: Policies and terms
+        url: ./policies-terms.md
+      - text: Create a new account
+        url: ./partner-center-portal/create-account.md
+      - text: Publishing options and considerations
+        url: ./determine-your-listing-type
+      - text: Microsoft commercial marketplace FAQs
+        url: ./marketplace-faq-publisher-guide.md
+      - text: Release notes
+        url: https://aka.ms/publicmarketplaceroadmap
+
+  - title: Top scenarios and tasks
+    linkLists:
+    - linkListType: overview
+      links:
+      - text: Marketing best practices
+        url: ./gtm-marketing-best-practices.md  
+      - text: Offer listing best practices
+        url: ./marketplace-saas-applications-technical-publishing-guide.md
+      - text: SaaS applications offer publishing guide
+        url: ./marketplace-saas-applications-technical-publishing-guide.md
+    - linkListType: get-started
+      - text: Join Azure Marketplace and AppSource community forum
+        url: https://aka.ms/MarketplaceCommunity
+      - text:Join webinars for discussion or watch on demand
+        url: https://aka.ms/allwebinars
+      - text: Office 365 solutions
+        url: https://docs.microsoft.com/office/dev/store/submit-to-appsource-via-partner-center
+
+  - title: Analyze your business data
+    linkLists:
+    - linkListType: how-to-guide
+      links:
+      - text: Summary dashboard
+        url: ./partner-center-portal/summary-dashboard.md
+      - text: Orders dashboard
+        url: ./partner-center-portal/orders-dashboard.md
+      - text: Customer dashboard
+        url: ./partner-center-portal/customer-dashboard.md
+      - text: Usage dashboard
+        url: ./partner-center-portal/usage-dashboard.md
+      - text: Marketplace Insights dashboard
+        url: ./partner-center-portal/insights-dashboard.md
+      - text: Downloads dashboard
+        url: ./partner-center-portal/downloads-dashboard.md
+      - text: Ratings and reviews dashboard
+        url: ./partner-center-portal/raintgs-reviews.md
+
+  - title: Manage offers
+    linkLists:
+    - linkListType: how-to-guide
+      links:
+      - text: Dynamics 365 for Customer Engagement & PowerApps offer
+        url: ./partner-center-portal/create-new-customer-engagement-offer.md
+      - text: SaaS offer
+        url: ./partner-center-portal/create-new-saas-offer.md
+      - text: Virtual machines
+        url: ./cloud-partner-portal/virtual-machine/cpp-virtual-machine-offer.md
+
+  - title: Get paid
+    linkLists:
+    - linkListType: concept
+      links:
+      - text: Set up your payout account and tax forms
+        url: ./partner-center-portal/set-up-your-payout-account-tax-forms.md
+      - text: Billing details
+        url: ./partner-center-portal/billing-details.md
+      - text: Payment thresholds, methods and timeframes
+        url: ./partner-center-portal/payment-thresholds-methods-timeframes.md
+      - text: Payout summary
+        url: ./partner-center-portal/payout-summary.md
+      - text: Tax details
+        url: ./partner-center-portal/tax-details-paid-transactions.md
+
+  - title: API reference
+    linkLists:
+    - linkListType: reference
+      links:
+      - text: Overview
+        url: ./cloud-partner-portal-orig/cloud-partner-portal-api-overview.md
+      - text: Prerequisites
+        url: ./cloud-partner-portal-orig/cloud-partner-portal-api-prerequisites.md
+      - text: Concurrency control
+        url: ./cloud-partner-portal-orig/cloud-partner-portal-api-concurrency-control.md
+      - text: Retrieve offers
+        url: .//cloud-partner-portal-orig/cloud-partner-portal-api-retrieve-offers.md
+      - text: Go live
+        url: ./cloud-partner-portal-orig/cloud-partner-portal-api-go-live.md
+      - text: Pricing for virtual machine offers
+        url: ./cloud-partner-portal-orig/cloud-partner-portal-api-setting-price.md
+
+  - title: Get and provide support
+    linkLists:
+    - linkListType: get-started
+      links:
+      - text: Support options
+        url: ./partner-center-portal/support.md
+      - text: Microsoft commercial marketplace FAQs
+        url: ./marketplace-faq-publisher-guide.md
+      - text: Geographic availability and currencies
+        url: ./marketplace-geo-availability-currencies.md
+      - text: Troubleshoot authentication errors
+        url: ./cloud-partner-portal-orig/cloud-partner-portal-api-troubleshooting-authentication-errors.md
+      - text: Support for Azure Marketplace and AppSource
+        url: ./support-azure-marketplace.md
+
