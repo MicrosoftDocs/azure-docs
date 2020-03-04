@@ -295,7 +295,7 @@ The Premium ISE base unit has fixed capacity, so if you need more throughput, yo
 
 1. When you're finished with your autoscale settings, save your changes.
 
-<a name="restart-ise"></a>
+<a name="restart-ISE"></a>
 
 ## Restart ISE
 
