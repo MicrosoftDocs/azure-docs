@@ -49190,9 +49190,19 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/virtual-machines/workloads/sap/sap-hana-backup-storage-snapshots.md",
+      "redirect_url": "sap-hana-backup-guide",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/service-fabric/service-fabric-cicd-your-linux-applications-with-jenkins.md",
       "redirect_url": "/azure/jenkins/service-fabric-cicd-your-linux-applications-with-jenkins",
       "redirect_document_id": true
     },
+    {
+      "source_path": "articles/jenkins/install-jenkins-solution-template.md",
+      "redirect_url": "/azure/jenkins/install-solution-template-tutorial",
+      "redirect_document_id": true
+    }
   ]
 }
