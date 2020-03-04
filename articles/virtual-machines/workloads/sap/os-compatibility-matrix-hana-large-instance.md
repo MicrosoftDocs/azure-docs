@@ -20,14 +20,14 @@ ms.custom: H1Hack27Feb2017
 # Operating System Compatibility Matrix for HANA Large Instances
 
 ## HANA Large Instance Type I     
-  |  Operating System       |
+  | Supported Operating Systems     |
   |-------------------------|
   | SLES 12 SP2|
   | SLES 12 SP3|
   | SLES 12 SP4|
   
 ## HANA Large Instance Type II     
-  |  Operating System       |
+  |  Supported Operating Systems       |
   |-------------------------|
   | SLES 12 SP2|
   | SLES 12 SP3|
