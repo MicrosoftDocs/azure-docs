@@ -13,7 +13,7 @@ ms.custom:
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
-In this quick start, a Docker CE cluster is deployed using the Azure CLI. A multi-container application consisting of web front-end and a Redis instance is then deployed and run on the cluster. Once completed, the application is accessible over the internet.
+In this quickstart, a Docker CE cluster is deployed using the Azure CLI. A multi-container application consisting of web front-end and a Redis instance is then deployed and run on the cluster. Once completed, the application is accessible over the internet.
 
 Docker CE on Azure Container Service is in preview and **should not be used for production workloads**.
 
@@ -62,7 +62,7 @@ After several minutes, the command completes and returns JSON-formatted informat
 
 ## Connect to the cluster
 
-Throughout this quick start, you need the FQDN of both the Docker Swarm master and the Docker agent pool. Run the following command to return both the master and agent FQDNs.
+Throughout this quickstart, you need the FQDN of both the Docker Swarm master and the Docker agent pool. Run the following command to return both the master and agent FQDNs.
 
 ```azurecli
 az acs list --resource-group myResourceGroup --query '[*].{Master:masterProfile.fqdn,Agent:agentPoolProfiles[0].fqdn}' -o table
@@ -154,13 +154,13 @@ az group delete --name myResourceGroup --yes --no-wait
 
 ## Get the code
 
-In this quick start, pre-created container images have been used to create a Docker service. The related application code, Dockerfile, and Compose file are available on GitHub.
+In this quickstart, pre-created container images have been used to create a Docker service. The related application code, Dockerfile, and Compose file are available on GitHub.
 
 [https://github.com/Azure-Samples/azure-voting-app-redis](https://github.com/Azure-Samples/azure-voting-app-redis.git)
 
 ## Next steps
 
-In this quick start, you deployed a Docker Swarm cluster and deployed a multi-container application to it.
+In this quickstart, you deployed a Docker Swarm cluster and deployed a multi-container application to it.
 
 To learn about integrating Docker swarm with Azure DevOps, continue to the CI/CD with Docker Swarm and Azure DevOps.
 
