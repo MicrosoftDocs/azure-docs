@@ -406,7 +406,7 @@ Sample NSG configuration for private IP only access:
 ![Application Gateway V2 NSG Configuration for private IP access only](./media/application-gateway-faq/appgw-privip-nsg.png)
 
 ### Does Application Gateway affinity cookie support SameSite attribute?
-Yes, the [Chromium browser](https://www.chromium.org/Home) [v80 update](https://chromiumdash.appspot.com/schedule) introduced a mandate on HTTP cookies without SameSite attribute to be treated as SameSite=Lax. This means that the Application Gateway affinity cookie won't be sent by the browser in a third-pary context. 
+Yes, the [Chromium browser](https://www.chromium.org/Home) [v80 update](https://chromiumdash.appspot.com/schedule) introduced a mandate on HTTP cookies without SameSite attribute to be treated as SameSite=Lax. This means that the Application Gateway affinity cookie won't be sent by the browser in a third-party context. 
 To support this scenario, Application Gateway injects another cookie called *ApplicationGatewayAffinityCORS* in addition to the existing *ApplicationGatewayAffinity* cookie.  These cookies are similar, but the *ApplicationGatewayAffinityCORS* cookie has two more attributes added to it: *SameSite=None; Secure*. These attributes maintain sticky sessions even for cross-origin requests. See the [cookie based affinity section](configuration-overview.md#cookie-based-affinity) for more information.
 
 ## Next steps
