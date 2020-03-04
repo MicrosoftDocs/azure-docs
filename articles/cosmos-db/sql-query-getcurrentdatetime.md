@@ -19,7 +19,7 @@ GetCurrentDateTime ()
   
 ## Return types
   
-  Returns the current UTC date and time ISO 8601 string value in the format `YYYY-MM-DDThh:mm:ss.sssZ` where:
+  Returns the current UTC date and time ISO 8601 string value in the format `YYYY-MM-DDThh:mm:ss.sssssssZ` where:
   
   |||
   |-|-|
@@ -30,7 +30,7 @@ GetCurrentDateTime ()
   |hh|two digit hour (00 through 23)|
   |mm|two digit minutes (00 through 59)|
   |ss|two digit seconds (00 through 59)|
-  |.sss|three digits of decimal fractions of a second|
+  |.sssssss|seven digits of decimal fractions of a second|
   |Z|UTC (Coordinated Universal Time) designator||
   
   For more information on the ISO 8601 format, see [ISO_8601](https://en.wikipedia.org/wiki/ISO_8601)
@@ -53,7 +53,7 @@ SELECT GetCurrentDateTime() AS currentUtcDateTime
   
 ```json
 [{
-  "currentUtcDateTime": "2019-05-03T20:36:17.784Z"
+  "currentUtcDateTime": "2019-05-03T20:36:17.7843054Z"
 }]  
 ```  
 
