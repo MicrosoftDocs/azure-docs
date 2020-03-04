@@ -55,11 +55,10 @@ This article shows you how to complete these tasks:
     **Address prefix**: 0.0.0.0/0<br>
     **Next hop**: Internet
 
-* If you want to use custom DNS servers for your Azure virtual network, [set up those servers by following these steps](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) before you deploy your ISE to your virtual network. Otherwise, each time you change your DNS server, you also have to restart your ISE.
+* If you want to use custom DNS servers for your Azure virtual network, [set up those servers by following these steps](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) before you deploy your ISE to your virtual network. For more information about managing DNS server settings, see [Create, change, or delete a virtual network](../virtual-network/manage-virtual-network.md#change-dns-servers).
 
-  If you change your DNS server settings after you create an ISE, make sure that you [restart your ISE](#restart-ISE).
-
-  For more information about managing DNS server settings, see [Create, change, or delete a virtual network](../virtual-network/manage-virtual-network.md#change-dns-servers).
+  > [!NOTE]
+  > If you change your DNS server or DNS server settings, you have to restart your ISE so that the ISE can pick up those changes. For more information, see [Restart your ISE](#restart-ISE).
 
 <a name="enable-access"></a>
 
@@ -298,6 +297,8 @@ The Premium ISE base unit has fixed capacity, so if you need more throughput, yo
 <a name="restart-ISE"></a>
 
 ## Restart ISE
+
+If you change your DNS server or DNS server settings, you have to restart your ISE so that the ISE can pick up those changes. Restarting a Premium SKU ISE doesn't result in downtime due to redundancy and components that restart one at a time during recycling. However, a Developer SKU ISE might experience downtime because no redundancy exists. For more information, see [ISE SKUs](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#ise-level).
 
 1. In the [Azure portal](https://portal.azure.com), go to your integration service environment.
 
