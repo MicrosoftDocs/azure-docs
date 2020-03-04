@@ -1,26 +1,14 @@
 ---
-title: Capture an image of a Linux VM in Azure using Azure CLI 
+title: Capture an image of a Linux VM using Azure CLI 
 description: Capture an image of an Azure VM to use for mass deployments by using the Azure CLI.
-services: virtual-machines-linux
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid: e608116f-f478-41be-b787-c2ad91b5a802
 ms.service: virtual-machines-linux
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
-ms.devlang: azurecli
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: cynthn
 
 ---
 # How to create an image of a virtual machine or VHD
-
-<!-- generalize, image - extended version of the tutorial-->
 
 To create multiple copies of a virtual machine (VM) for use in Azure, capture an image of the VM or of the OS VHD. To create an image for deployment, you'll need to remove personal account information. In the following steps, you deprovision an existing VM, deallocate it and create an image. You can use this image to create VMs across any resource group within your subscription.
 
