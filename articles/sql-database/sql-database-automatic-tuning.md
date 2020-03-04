@@ -76,8 +76,8 @@ Automatic tuning options can be independently enabled or disabled per database, 
 > [!IMPORTANT]
 > As of March, 2020 changes to Azure defaults for automatic tuning will take effect as follows:
 > - New Azure defaults will be FORCE_LAST_GOOD_PLAN = enabled, CREATE_INDEX = disabled, and DROP_INDEX = disabled.
-> - Existing servers with no automatic tuning preferences configured will be automatically configured with the new Azure defaults. This applies to all customers currently having automatic tuning in an undefined state.
-> - New servers created will automatically be configured with the new Azure defaults (unlike earlier when automatic tuning configuration was in an undefined state upon new server creation).
+> - Existing servers with no automatic tuning preferences configured will be automatically configured to INHERIT the new Azure defaults. This applies to all customers currently having server settings for automatic tuning in an undefined state.
+> - New servers created will automatically be configured to INHERIT the new Azure defaults (unlike earlier when automatic tuning configuration was in an undefined state upon new server creation).
 >
 
 Configuring Automatic tuning options on a server and inheriting settings for databases belonging to the parent server is a recommended method for configuring automatic tuning as it simplifies management of automatic tuning options for a large number of databases.

@@ -181,6 +181,8 @@
       href: display-feature-information-android.md
     - name: Add a tile layer
       href: how-to-add-tile-layer-android-map.md
+    - name: Show traffic data 
+      href: how-to-show-traffic-android.md
   - name: Provide data feedback
     href: how-to-use-feedback-tool.md
 - name: Reference

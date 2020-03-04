@@ -47,10 +47,13 @@ The following limits apply only for networking resources managed through **Azure
 #### <a name="publicip-address"></a>Public IP address limits
 | Resource | Default limit | Maximum limit |
 | --- | --- | --- |
-| Public IP addresses - dynamic | 1,000 for Basic. |Contact support. |
-| Public IP addresses - static | 1,000 for Basic. |Contact support. |
-| Public IP addresses - static | 1,000 for Standard.|Contact support. |
+| Public IP addresses<sup>1</sup> | 10 for Basic. | Contact support. |
+| Static Public IP addresses<sup>1</sup> | 10 for Basic. | Contact support. |
+| Standard Public IP addresses<sup>1</sup> | 10 | Contact support. |
+| Public IP Prefixes | limited by number of Standard Public IPs in a subscription | Contact support. |
 | Public IP prefix length | /28 | Contact support. |
+
+<sup>1</sup>Default limits for Public IP addresses vary by offer category type, such as Free Trial, Pay-As-You-Go, CSP. For example, the default for Enterprise Agreement subscriptions is 1000.
 
 #### <a name="load-balancer"></a>Load balancer limits
 The following limits apply only for networking resources managed through Azure Resource Manager per region per subscription. Learn how to [view your current resource usage against your subscription limits](../articles/networking/check-usage-against-limits.md).

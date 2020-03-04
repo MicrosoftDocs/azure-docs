@@ -65,7 +65,7 @@ A subnet must be delegated to Azure NetApp Files.
 
 * The Azure NetApp Files delegated subnet must be able to reach all Active Directory Domain Services (ADDS) domain controllers in the domain, including all local and remote domain controllers. Otherwise, service interruption can occur.  
 
-    If you have domain controllers that are unreachable via the Azure NetApp Files delegated subnet, you can submit an Azure support request to alter the scope from **global** (default) to **site**.  Azure NetApp Files needs to communicate only with domain controllers in the site where the Azure NetApp Files delegated subnet address space resides.
+    If you have domain controllers that are unreachable via the Azure NetApp Files delegated subnet, you can specify an Active Directory site during creation of the Active Directory connection.  Azure NetApp Files needs to communicate only with domain controllers in the site where the Azure NetApp Files delegated subnet address space resides.
 
     See [Designing the site topology](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/designing-the-site-topology) about AD sites and services. 
     
@@ -83,8 +83,10 @@ See Azure NetApp Files [SMB FAQs](https://docs.microsoft.com/azure/azure-netapp-
         This is the DNS that is required for the Active Directory domain join and SMB authentication operations. 
     * **Secondary DNS**   
         This is the secondary DNS server for ensuring redundant name services. 
-    * **Domain**  
+    * **AD DNS Domain Name**  
         This is the domain name of your Active Directory Domain Services that you want to join.
+    * **AD Site Name**  
+        This is the site name that the Domain Controller discovery will be limited to.
     * **SMB server (computer account) prefix**  
         This is the naming prefix for the machine account in Active Directory that Azure NetApp Files will use for creation of new accounts.
 
