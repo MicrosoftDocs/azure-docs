@@ -158,9 +158,9 @@ Use these steps to add one or more labels to a project:
 1. At the top of the list, select **+ Add Labels**
     ![Add a label](media/how-to-create-labeling-projects/add-label.png)
 1. In the form, add your new label and choose how to proceed.  Since you've changed the available labels for an image, you choose how to treat the already labeled data:
-    * Start over, removing all existing labels.  Choose this option if you want to wipe out all existing labels so that the full set can be used to tag all images.
-    * Start over, keeping all existing labels.  Choose this option to mark all data as unlabeled, but keep the existing labels as a default tag for images that had been labeled.
-    * Continue, keeping all existing labels. Choose this option to keep all data already labeled as is, and start using the new label for data not yet classified.
+    * Start over, removing all existing labels.  Choose this option if you want to start labeling from the beginning with the new full set of labels. 
+    * Start over, keeping all existing labels.  Choose this option to mark all data as unlabeled, but keep the existing labels as a default tag for images that were previously labeled.
+    * Continue, keeping all existing labels. Choose this option to keep all data already labeled as is, and start using the new label for data not yet labeled.
 1. Modify your instructions page as necessary for the new label(s).
 1. Once you have added all new labels, at the top of the page select **Start**  to restart the project.  
 

@@ -1,8 +1,9 @@
 ---
-title: Weather coverage in Azure Maps | Microsoft Docs
-description: Learn about Weather coverage in Azure Maps
-author: walsehgal
-ms.author: v-musehg
+title: Weather coverage | Microsoft Azure Maps
+description: In this article, you will learn about Weather coverage in Microsoft Azure Maps.
+author: farah-alyasari
+ms.author: v-faalya
+
 ms.date: 11/20/2019
 ms.topic: conceptual
 ms.service: azure-maps
@@ -12,7 +13,7 @@ manager: philmea
 
 # Azure Maps weather coverage
 
-This article provides coverage information for Azure Maps [Weather services](https://aka.ms/AzureMapsWeatherService). Azure Maps Weather data services can return details such as radar tiles, current weather conditions, weather forecasts and weather along a route.
+This article provides coverage information for Azure Maps [Weather services](https://aka.ms/AzureMapsWeatherService). Azure Maps Weather data services returns details such as radar tiles, current weather conditions, weather forecasts, and the weather along a route.
 
 Azure Maps does not have the same level of information and accuracy for all countries and regions.
 
@@ -46,7 +47,7 @@ The following table provides information about what kind of weather information 
 | Colombia                                 | ? |   |  ?| 
 | Costa Rica                               | ? |   |  ?| 
 | Cuba                                     | ? |   |  ?| 
-| Curaçao                                  | ? |   |  ?| 
+| Curaï¿½ao                                  | ? |   |  ?| 
 | Dominica                                 | ? |   |  ?| 
 | Dominican Republic                       | ? |   |  ?| 
 | Ecuador                                  | ? |   |  ?| 
@@ -69,7 +70,7 @@ The following table provides information about what kind of weather information 
 | Paraguay                                 | ? |   |  ?| 
 | Peru                                     | ? |   |  ?| 
 | Puerto Rico                              | ? |   |  ?| 
-| Saint Barthélemy                         | ? |   |  ?| 
+| Saint Barthï¿½lemy                         | ? |   |  ?| 
 | Saint Kitts and Nevis                    | ? |   |  ?| 
 | Saint Lucia                              | ? |   |  ?| 
 | Saint Martin                             | ? |   |  ?| 
@@ -106,7 +107,7 @@ The following table provides information about what kind of weather information 
 | Chad                        | ?               |                              |        ?| 
 | Comoros                     | ?               |                              |        ?| 
 | Congo (DRC)                 | ?               |                              |        ?|
-| Côte d’Ivoire               | ?               |                              |        ?| 
+| Cï¿½te dï¿½Ivoire               | ?               |                              |        ?| 
 | Djibouti                    | ?               |                              |        ?| 
 | Egypt                       | ?               |                              |        ?| 
 | Equatorial Guinea           | ?               |                              |        ?| 
@@ -143,10 +144,10 @@ The following table provides information about what kind of weather information 
 | Oman                        | ?               |                              |        ?| 
 | Palestinian Authority       | ?               |                              |        ?| 
 | Qatar                       | ?               |                              |        ?| 
-| Réunion                     | ?               |                              |        ?| 
+| Rï¿½union                     | ?               |                              |        ?| 
 | Rwanda                      | ?               |                              |        ?| 
 | St Helena, Ascension, Tristan da Cunha        | ?               |                              |        ?| 
-| São Tomé and Príncipe       | ?               |                              |        ?| 
+| Sï¿½o Tomï¿½ and Prï¿½ncipe       | ?               |                              |        ?| 
 | Saudi Arabia                | ?               |                              |        ?| 
 | Senegal                     | ?               |                              |        ?| 
 | Seychelles                  | ?               |                              |        ?| 

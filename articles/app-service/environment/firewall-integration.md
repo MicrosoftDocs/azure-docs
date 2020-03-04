@@ -4,7 +4,7 @@ description: Learn how to integrate with Azure Firewall to secure outbound traff
 author: ccompy
 ms.assetid: 955a4d84-94ca-418d-aa79-b57a5eb8cb85
 ms.topic: article
-ms.date: 01/14/2020
+ms.date: 01/24/2020
 ms.author: ccompy
 ms.custom: seodec18
 
@@ -37,9 +37,11 @@ The traffic to and from an ASE must abide by the following conventions
 
 ## Locking down inbound management traffic
 
-If your ASE subnet does not already have an NSG assigned to it, create one. Within the NSG set the first rule to allow traffic from the Service Tag named AppServiceManagement on ports 454, 455. This is all that is required from public IPs to manage your ASE. The addresses that are behind that Service Tag are only used to administer the Azure App Service. The management traffic that flows through these connections is encrypted and secured with authentication certificates. Typical traffic on this channel includes things like customer initiated commands and health probes. 
+If your ASE subnet does not already have an NSG assigned to it, create one. Within the NSG, set the first rule to allow traffic from the Service Tag named AppServiceManagement on ports 454, 455. The rule to allow access from the AppServiceManagement tag is the only thing that is required from public IPs to manage your ASE. The addresses that are behind that Service Tag are only used to administer the Azure App Service. The management traffic that flows through these connections is encrypted and secured with authentication certificates. Typical traffic on this channel includes things like customer initiated commands and health probes. 
 
 ASEs that are made through the portal with a new subnet are made with an NSG that contains the allow rule for the AppServiceManagement tag.  
+
+Your ASE must also allow inbound requests from the Load Balancer tag on port 16001. The requests from the Load Balancer on port 16001 are keep alive checks between the Load Balancer and the ASE front ends. If port 16001 is blocked, your ASE will go unhealthy.
 
 ## Configuring Azure Firewall with your ASE 
 
@@ -269,6 +271,21 @@ Linux is not available in US Gov regions and is thus not listed as an optional c
 | Azure SQL |
 | Azure Storage |
 | Azure Event Hub |
+
+#### IP Address dependencies
+
+| Endpoint | Details |
+|----------| ----- |
+| \*:123 | NTP clock check. Traffic is checked at multiple endpoints on port 123 |
+| \*:12000 | This port is used for some system monitoring. If blocked, then some issues will be harder to triage but your ASE will continue to operate |
+| 40.77.24.27:80 | Needed to monitor and alert on ASE problems |
+| 40.77.24.27:443 | Needed to monitor and alert on ASE problems |
+| 13.90.249.229:80 | Needed to monitor and alert on ASE problems |
+| 13.90.249.229:443 | Needed to monitor and alert on ASE problems |
+| 104.45.230.69:80 | Needed to monitor and alert on ASE problems |
+| 104.45.230.69:443 | Needed to monitor and alert on ASE problems |
+| 13.82.184.151:80 | Needed to monitor and alert on ASE problems |
+| 13.82.184.151:443 | Needed to monitor and alert on ASE problems |
 
 #### Dependencies ####
 

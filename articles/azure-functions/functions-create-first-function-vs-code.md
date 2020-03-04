@@ -88,7 +88,7 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
     + **Provide a namespace**: Type `My.Functions`. 
     ::: zone-end
 
-    + **Authorization level**: Choose `Anonymous`, which enables anyone to call your function endpoint. To learn about authorization level, see [Authorization keys](functions-bindings-http-webhook.md#authorization-keys).
+    + **Authorization level**: Choose `Anonymous`, which enables anyone to call your function endpoint. To learn about authorization level, see [Authorization keys](functions-bindings-http-webhook-trigger.md#authorization-keys).
 
     + **Select how you would like to open your project**: Choose `Add to workspace`.
 

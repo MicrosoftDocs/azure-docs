@@ -1,5 +1,6 @@
 ---
 title: What is the Azure Data Science Virtual Machine
+titleSuffix: Azure Data Science Virtual Machine 
 description: Key analytics scenarios and components for Windows and Linux Data Science Virtual Machines.
 keywords: data science tools, data science virtual machine, tools for data science, linux data science
 services: machine-learning

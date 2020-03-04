@@ -4,7 +4,7 @@ description: Learn how to create Azure Functions running on a custom Linux image
 ms.date: 01/15/2020
 ms.topic: tutorial
 ms.custom: mvc
-zone_pivot_groups: programming-languages-set-functions01
+zone_pivot_groups: programming-languages-set-functions
 ---
 
 # Create a function on Linux using a custom container
@@ -65,7 +65,7 @@ You can follow this tutorial on any computer running Windows, Mac OS, or Linux. 
 
 1. In a terminal or command prompt, create a folder for this tutorial in an appropriate location, then navigate into that folder.
 
-1. Follow the instructions on [Create and activate a virtual environment](functions-create-first-function-python.md#create-and-activate-a-virtual-environment) to create a virtual environment for use with this tutorial.
+1. Follow the instructions on [Create and activate a virtual environment](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-python#create-venv) to create a virtual environment for use with this tutorial.
 
 1. Run the following command for your chosen language to create a function app project in a folder named `LocalFunctionsProject`. The `--docker` option generates a `Dockerfile` for the project, which defines a suitable custom container for use with Azure Functions and the selected runtime.
 
@@ -251,7 +251,7 @@ You can follow this tutorial on any computer running Windows, Mac OS, or Linux. 
     docker run -p 8080:80 -it <docker_id>/azurefunctionsimage:v1.0.0
     ```
     
-1. Once the image is running in a local container, open a browser to `http://localhost:8080`, which should display the placeholder image shown below. The image appears at this point because your function is running in the local container, as it would in Azure, which means that it's protected by an access key as defined in *function.json* with the `"authLevel": "function"` property. The container hasn't yet been published to a function app in Azure, however, so the key isn't yet available. If you want to test locally, stop docker, change the authorization property to `"authLevel": "anonymous"`, rebuild the image, and restart docker. Then reset `"authLevel": "function"` in *function.json*. For more information, see [authorization keys](functions-bindings-http-webhook.md#authorization-keys).
+1. Once the image is running in a local container, open a browser to `http://localhost:8080`, which should display the placeholder image shown below. The image appears at this point because your function is running in the local container, as it would in Azure, which means that it's protected by an access key as defined in *function.json* with the `"authLevel": "function"` property. The container hasn't yet been published to a function app in Azure, however, so the key isn't yet available. If you want to test locally, stop docker, change the authorization property to `"authLevel": "anonymous"`, rebuild the image, and restart docker. Then reset `"authLevel": "function"` in *function.json*. For more information, see [authorization keys](functions-bindings-http-webhook-trigger.md#authorization-keys).
 
     ![Placeholder image indicating that the container is running locally](./media/functions-create-function-linux-custom-image/run-image-local-success.png)
 
@@ -914,7 +914,7 @@ You can view the queue in the [Azure portal](../storage/queues/storage-quickstar
     
     ---
 
-1. Use the [`az storage message peek`](/cli/azure/storage/message#az-storage-message-peek) command to view the messages in this queue, which should be the first name you used when testing the function earlier. The command retrieves the first message in the queue in [base64 encoding](functions-bindings-storage-queue.md#encoding), so you must also decode the message to view as text.
+1. Use the [`az storage message peek`](/cli/azure/storage/message#az-storage-message-peek) command to view the messages in this queue, which should be the first name you used when testing the function earlier. The command retrieves the first message in the queue in [base64 encoding](functions-bindings-storage-queue-trigger.md#encoding), so you must also decode the message to view as text.
 
     # [bash](#tab/bash)
     

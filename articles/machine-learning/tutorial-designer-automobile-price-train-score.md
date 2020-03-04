@@ -256,7 +256,7 @@ Use the **Evaluate Model** module to evaluate how well your model scored the tes
 
 ## Run the pipeline
 
-Now that your pipeline is all setup, you can submit a pipeline run.
+Now that your pipeline is all setup, you can submit a pipeline run to train your machine learning model. You can submit a pipeline run at any point while building pipelines in the designer. You can do this to check your work as you go and verify your pipeline functions as expected.
 
 1. At the top of the canvas, select **Run**.
 

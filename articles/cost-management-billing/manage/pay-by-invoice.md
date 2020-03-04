@@ -2,23 +2,20 @@
 title: Pay for Azure subscriptions by invoice
 description: Describes how to pay for Azure subscriptions by invoice.
 author: bandersmsft
-manager: jureid
+ms.reviewer: judupont
 tags: billing
 ms.service: cost-management-billing
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/23/2019
+ms.date: 02/13/2020
 ms.author: banders
-
 ---
+
 # Pay for your Azure subscription by invoice
 
 If you switch to pay by invoice, that means you pay your bill within 30 days of the invoice date by check/wire transfer. To become eligible to pay for your Azure subscription by invoice, submit a request to Azure support. Once your request is approved, you can switch to invoice pay (check/wire transfer) in the [Azure portal](https://portal.azure.com).
 
 > [!IMPORTANT]
-> * Invoice pay (check/wire transfer) is only available for business accounts.
+> * Invoice pay (check/wire transfer) is only available for customers using Azure on behalf of a company.
 > * Pay all outstanding charges before switching to invoice pay.
 > * Currently, invoice payment isn't supported for Global Azure in China.
 

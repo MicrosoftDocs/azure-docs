@@ -6,10 +6,10 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: sample
-author: xiaoharper
-ms.author: zhanxia
+author: likebupt
+ms.author: keli19
 ms.reviewer: peterlu
-ms.date: 11/04/2019
+ms.date: 02/11/2020
 ---
 # Build a classifier to predict company category using Azure Machine Learning designer.
 
@@ -58,7 +58,7 @@ Articles could not be found for some companies, so the number of records is less
 ## Pre-process the text data
 
 We use the **Preprocess Text** module to preprocess the text data, including detect the sentences, tokenize sentences and so on. You would found all supported options in the [**Preprocess Text**](algorithm-module-reference/preprocess-text.md) article. 
-After pre-processing tex data, we use the **Split Data** module to randomly divide the input data so that the training dataset contains 50% of the original data and the testing dataset contains 50% of the original data.
+After pre-processing text data, we use the **Split Data** module to randomly divide the input data so that the training dataset contains 50% of the original data and the testing dataset contains 50% of the original data.
 
 ## Feature Engineering
 In this sample, we will use two methods performing feature engineering.
@@ -74,7 +74,7 @@ In the sample pipeline, we set the number of hashing bits to 14 and set the numb
 
 An n-gram is a contiguous sequence of n terms from a given sequence of text. An n-gram of size 1 is referred to as a unigram; an n-gram of size 2 is a bigram; an n-gram of size 3 is a trigram. N-grams of larger sizes are sometimes referred to by the value of n, for instance, "four-gram", "five-gram", and so on.
 
-We used [**Extract N-Gram Feature from Text**](algorithm-module-reference/extract-n-gram-features-from-text.md)module as another solution for feature engineering. This module first extracts the set of n-grams, in addition to the n-grams, the number of documents where each n-gram appears in the text is counted(DF). In this sample, TF-IDF metric is used to calculate feature values. Then, it converts unstructured text data into equal-length numeric feature vectors where each feature represents the TF-IDF of an n-gram in a text instance.
+We used [**Extract N-Gram Feature from Text**](algorithm-module-reference/extract-n-gram-features-from-text.md) module as another solution for feature engineering. This module first extracts the set of n-grams, in addition to the n-grams, the number of documents where each n-gram appears in the text is counted(DF). In this sample, TF-IDF metric is used to calculate feature values. Then, it converts unstructured text data into equal-length numeric feature vectors where each feature represents the TF-IDF of an n-gram in a text instance.
 
 After converting text data into numeric feature vectors, A **Select Column** module is used to remove the text data from the dataset. 
 

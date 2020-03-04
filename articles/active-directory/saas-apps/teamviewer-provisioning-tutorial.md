@@ -36,7 +36,8 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 * [An Azure AD tenant](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) 
 * A user account in Azure AD with [permission](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) to configure provisioning (e.g. Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator). 
-* A TeamViewer account with admin permissions.
+* A valid [Tensor license](https://www.teamviewer.com/de/teamviewer-tensor/) for TeamViewer.
+* A valid custom identifier from the [Single Sign-On](https://community.teamviewer.com/t5/Knowledge-Base/Single-Sign-On-with-Azure-Active-Directory/ta-p/60209#toc-hId--473669723) configuration available.
 
 ## Step 1. Plan your provisioning deployment
 1. Learn about [how the provisioning service works](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
@@ -45,7 +46,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 ## Step 2. Configure TeamViewer to support provisioning with Azure AD
 
-1. Login to the Admin Console of TeamViewer app. Navigate to **Edit Profile**.
+1. Login to [TeamViewer Management Console](https://login.teamviewer.com). Navigate to **Edit Profile**.
 
  	![TeamViewer Admin Console](./media/teamviewer-provisioning-tutorial/admin.png)
 
@@ -96,7 +97,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Provisioning tab](common/provisioning-automatic.png)
 
-5. Under the **Admin Credentials** section, input your TeamViewer admin credentials and username. Click **Test Connection** to ensure Azure AD can connect to TeamViewer. If the connection fails, ensure your TeamViewer account has Admin permissions and try again.
+5. Under the **Admin Credentials** section, enter `ttps://webapi.teamviewer.com/scim/v2`  in the **Tentant URL** field and enter the script token created earlier in the **Secret Token**. Click **Test Connection** to ensure Azure AD can connect to TeamViewer. If the connection fails, ensure your TeamViewer account has Admin permissions and try again.
 
  	![provisioning](./media/teamViewer-provisioning-tutorial/provisioning.png)
 
