@@ -30,7 +30,7 @@ Use of this module requires intermediate or expert knowledge of Python. The modu
 
 This article will show how to use the **Create Python Model** with a simple pipeline. Below is the graph of the pipeline.
 
-![create-python-model](./media/module/aml-create-python-model.png)
+![create-python-model](./media/module/create-python-model.png)
 
 1.  Click **Create Python Model**, edit the script to implement your modeling or data management process. You can base the model on any learner that is included in a Python package in the Azure Machine Learning environment.
 
