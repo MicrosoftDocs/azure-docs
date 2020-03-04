@@ -41,17 +41,14 @@ To read from or write to a resource such as a user or an email message, you cons
 
 For more information about the elements of the constructed request, see [Use the Microsoft Graph API](https://docs.microsoft.com/graph/use-the-api)
 
-Quick start samples are available to show you how to access the power of the Microsoft Graph API. The samples that are available access two services with one authentication: Microsoft account and Outlook. Each quick start accesses information from Microsoft account users' profiles and displays events from their calendar.
-The quick starts involve four steps:
+Quickstart samples are available to show you how to access the power of the Microsoft Graph API. The samples that are available access two services with one authentication: Microsoft account and Outlook. Each quickstart accesses information from Microsoft account users' profiles and displays events from their calendar.
+The quickstarts involve four steps:
 - Select your platform
 - Get your app ID (client ID)
 - Build the sample
 - Sign in, and view events on your calendar
 
-
-
-
-When you complete the quick start, you have an app that's ready to run. For more information, see the [Microsoft Graph quick start FAQ](https://docs.microsoft.com/graph/quick-start-faq). To get started with the samples, see [Microsoft Graph Quick Start](https://developer.microsoft.com/en-us/graph/quick-start).
+When you complete the quickstart, you have an app that's ready to run. For more information, see the [Microsoft Graph quickstart FAQ](https://docs.microsoft.com/graph/quick-start-faq). To get started with the samples, see [Microsoft Graph QuickStart](https://developer.microsoft.com/graph/quick-start).
 
 ## Tools
 

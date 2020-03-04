@@ -162,7 +162,7 @@ To see a code sample that implements the steps, see the [admin-restricted scopes
 
 ### Request the permissions in the app registration portal
 
-Applications are able to note which permissions they require (both delegated and application) in the app registration portal.  This allows use of the `/.default` scope and the Azure Portal's "Grant admin consent" option.  In general, it's best practice to ensure that the permissions statically defined for a given application are a superset of the permissions that it will be requesting dynamically/incrementally.
+Applications are able to note which permissions they require (both delegated and application) in the app registration portal.  This allows use of the `/.default` scope and the Azure portal's "Grant admin consent" option.  In general, it's best practice to ensure that the permissions statically defined for a given application are a superset of the permissions that it will be requesting dynamically/incrementally.
 
 > [!NOTE]
 >Application permissions can only be requested through the use of [`/.default`](#the-default-scope) - so if your app needs application permissions, make sure they're listed in the app registration portal.
