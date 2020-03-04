@@ -1,5 +1,6 @@
 ---
-title: Threat Modeling Tool Releases - Microsoft Threat Modeling Tool - Azure | Microsoft Docs
+title: Microsoft Threat Modeling Tool release notes 
+titleSuffix: Azure
 description: Documenting the release notes for the threat modeling tool
 services: security
 documentationcenter: na
