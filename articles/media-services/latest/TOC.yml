@@ -307,6 +307,8 @@
     items:
     - name: Publish an asset - CLI
       href: cli-publish-asset.md
+    - name: Create a streaming locator and build URLs
+      href: create-streaming-locator-build-url.md
     - name: Download results
       href: download-results-howto.md
     - name: Signal descriptive audio
