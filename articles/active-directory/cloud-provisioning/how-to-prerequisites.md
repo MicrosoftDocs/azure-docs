@@ -37,7 +37,7 @@ The rest of the document provides step-by-step instructions for these prerequisi
 
 ### In your directory in Active Directory
 
-Run the IdFix tool to prepare the directory attributes for synchronization. Learn more: https://docs.microsoft.com/office365/enterprise/prepare-directory-attributes-for-synch-with-idfix
+Run the [IdFix tool](https://docs.microsoft.com/office365/enterprise/prepare-directory-attributes-for-synch-with-idfix) to prepare the directory attributes for synchronization.
 
 ### In your on-premises environment
 
