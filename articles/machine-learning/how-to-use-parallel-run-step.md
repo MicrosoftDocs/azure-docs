@@ -66,7 +66,7 @@ mnist_blob = Datastore.register_azure_blob_container(ws,
 
 Next, specify the workspace default datastore as the output datastore. You'll use it for inference output.
 
-When you create your workspace, [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) and [Blob storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction) are attached to the workspace by default. Azure Files is the default datastore for a workspace, but you can also use Blob storage as a datastore. For more information, see [Azure Storage options](https://docs.microsoft.com/azure/storage/common/storage-decide-blobs-files-disks).
+When you create your workspace, [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) and [Blob storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction) are attached to the workspace by default. Azure Files is the default datastore for a workspace, but you can also use Blob storage as a datastore. For more information, see [Azure storage options](https://docs.microsoft.com/azure/storage/common/storage-decide-blobs-files-disks).
 
 ```python
 def_data_store = ws.get_default_datastore()
@@ -316,7 +316,8 @@ parallelrun_step = ParallelRunStep(
     models=[model],
     parallel_run_config=parallel_run_config,
     inputs=[named_mnist_ds],
-    output=output_dir,    arguments=[],
+    output=output_dir,
+    arguments=[],
     allow_reuse=True
 )
 ```
