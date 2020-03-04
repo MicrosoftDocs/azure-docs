@@ -12,7 +12,7 @@ manager: philmea
 
 # Add a map layer from the Open Geospatial Consortium (OGC)
 
-The `atlas.layer.OgcMapLayer` class can overlay Web Mapping Services (WMS) and Web Mapping Tile Services (WMTS) imagery on the map. WMS is a standard protocol developed by OGC for serving georeferenced map images over the internet. Image georeferencing is the processes of associating an image to a geographical location. WMTS is also a standard protocol developed by OGC. It's designed for serving pre-rendered and georeferenced map tiles.
+The `atlas.layer.OgcMapLayer` class can overlay Web Mapping Services (WMS) imagery and Web Mapping Tile Services (WMTS) imagery on the map. WMS is a standard protocol developed by OGC for serving georeferenced map images over the internet. Image georeferencing is the processes of associating an image to a geographical location. WMTS is also a standard protocol developed by OGC. It's designed for serving pre-rendered and georeferenced map tiles.
 
 The following sections outline the Web Mapping Service features that are supported by the `OgcMapLayer` class.
 
