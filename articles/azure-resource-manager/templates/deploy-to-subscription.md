@@ -2,12 +2,18 @@
 title: Deploy resources to subscription
 description: Describes how to create a resource group in an Azure Resource Manager template. It also shows how to deploy resources at the Azure subscription scope.
 ms.topic: conceptual
-ms.date: 03/02/2020
+ms.date: 03/03/2020
 ---
 
 # Create resource groups and resources at the subscription level
 
-Typically, you deploy Azure resources to a resource group in your Azure subscription. However, you can also create resources at the subscription level. You use subscription level deployments to take actions that make sense at that level, such as creating resource groups, or assigning [role-based access control](../../role-based-access-control/overview.md).
+Typically, you deploy Azure resources to a resource group in your Azure subscription. However, you can also create resources at the:
+
+* subscription level (covered in this article)
+* [management group level](deploy-to-management-group.md)
+* [tenant level](deploy-to-tenant.md)
+
+You use subscription level deployments to take actions that make sense at that level, such as creating resource groups, or assigning [role-based access control](../../role-based-access-control/overview.md).
 
 To deploy templates at the subscription level, use Azure CLI, PowerShell, or REST API. The Azure portal doesn't support deployment in the subscription level.
 
@@ -16,7 +22,7 @@ To deploy templates at the subscription level, use Azure CLI, PowerShell, or RES
 You can deploy the following resource types at the subscription level:
 
 * [budgets](/azure/templates/microsoft.consumption/budgets)
-* [deployments](/azure/templates/microsoft.resources/deployments)
+* [deployments](/azure/templates/microsoft.resources/deployments) - for nesting templates that deploy to resource groups
 * [peerAsns](/azure/templates/microsoft.peering/peerasns)
 * [policyAssignments](/azure/templates/microsoft.authorization/policyassignments)
 * [policyDefinitions](/azure/templates/microsoft.authorization/policydefinitions)

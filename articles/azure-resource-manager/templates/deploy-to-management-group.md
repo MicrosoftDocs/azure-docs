@@ -7,13 +7,19 @@ ms.date: 03/02/2020
 
 # Create resources at the management group level
 
-Typically, you deploy Azure resources to a resource group in your Azure subscription. However, you can also create resources at the management group level. You use management group level deployments to take actions that make sense at that level, such as assigning [role-based access control](../../role-based-access-control/overview.md) or applying [policies](../../governance/policy/overview.md).
+Typically, you deploy Azure resources to a resource group in your Azure subscription. However, you can also create resources at the:
+
+* [subscription level](deploy-to-subscription.md)
+* management group level (covered in this article)
+* [tenant level](deploy-to-tenant.md) 
+
+You use management group level deployments to take actions that make sense at that level, such as assigning [role-based access control](../../role-based-access-control/overview.md) or applying [policies](../../governance/policy/overview.md).
 
 ## Supported resources
 
 You can deploy the following resource types at the management group level:
 
-* [deployments](/azure/templates/microsoft.resources/deployments)
+* [deployments](/azure/templates/microsoft.resources/deployments) - for nesting templates that deploy to subscriptions or resource groups
 * [policyAssignments](/azure/templates/microsoft.authorization/policyassignments)
 * [policyDefinitions](/azure/templates/microsoft.authorization/policydefinitions)
 * [policySetDefinitions](/azure/templates/microsoft.authorization/policysetdefinitions)
