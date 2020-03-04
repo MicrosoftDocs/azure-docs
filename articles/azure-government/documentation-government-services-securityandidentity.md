@@ -40,7 +40,7 @@ Windows Defender ATP installation on Windows VMs via Security Center and the ass
 ### Notifications
 
 - **Azure activity logs**  
-User activity in Security Center is not logged in Azure activity logs in Microsoft Azure Government. This means that there’s no trace or audit for user performed actions.
+User activity in Security Center is not logged in Azure activity logs in Microsoft Azure Government. This means that there's no trace or audit for user performed actions.
 
 ### Threat detection
 
@@ -145,7 +145,7 @@ The following Azure Active Directory Premium P1 features are currently not avail
 - Group-Based Licensing
 - Azure Active Directory Domain Services
 - Cloud App Security
-- B2B Collaboration is available in Azure US Government tenants created after June, 2019. Over time, more tenants will get access to this functionality. (See [How can I tell if B2B collaboration is available in my tenant?](https://docs.microsoft.com/azure/active-directory/b2b/current-limitations#how-can-I-tell-if-b2b-collaboration-is-available-in-my-tenant)) This feature is not available in other Azure Government tenants ([vote for this feature](https://feedback.azure.com/forums/558487-azure-government/suggestions/20588554-azure-ad-b2b-in-azure-government)).
+- B2B Collaboration is available in Azure US Government tenants created after June, 2019. Over time, more tenants will get access to this functionality. See [How can I tell if B2B collaboration is available in my Azure US Government tenant?](../active-directory/b2b/current-limitations.md#how-can-i-tell-if-b2b-collaboration-is-available-in-my-azure-us-government-tenant)
 
 The following features have known limitations in Azure Government:
 
@@ -161,7 +161,7 @@ The following features have known limitations in Azure Government:
 
 - Limitations with Multi-factor Authentication:
   - Hardware OATH tokens are not available in Azure Government.
-  - Trusted IPs are not supported in Azure Government. Instead, use Conditional Access policies with named locations to establish when Multi-Factor Authentication should and should not be required based off the user’s current IP address.
+  - Trusted IPs are not supported in Azure Government. Instead, use Conditional Access policies with named locations to establish when Multi-Factor Authentication should and should not be required based off the user's current IP address.
 
 - Limitations with Azure AD Join:
   - Enterprise State Roaming for Windows 10 devices is not available  
