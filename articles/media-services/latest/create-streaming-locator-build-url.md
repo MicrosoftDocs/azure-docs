@@ -158,9 +158,9 @@ See the full code sample: [EncodingWithMESPredefinedPreset](https://github.com/A
 
 ## See also
 
-[Create filters with .NET](filters-dynamic-manifest-dotnet-howto.md)
-[Create filters with REST](filters-dynamic-manifest-rest-howto.md)
-[Create filters with CLI](filters-dynamic-manifest-cli-howto.md)
+* [Create filters with .NET](filters-dynamic-manifest-dotnet-howto.md)
+* [Create filters with REST](filters-dynamic-manifest-rest-howto.md)
+* [Create filters with CLI](filters-dynamic-manifest-cli-howto.md)
 
 ## Next steps
 
