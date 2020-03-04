@@ -29,11 +29,11 @@ Choose the Log Analytics workspace and Automation account and click **Enable** t
 
 The Change Tracking and Inventory solution provides the ability to [track changes](automation-vm-change-tracking.md) and [inventory](automation-vm-inventory.md) on your virtual machines. In this step, you enable the solution on a virtual machine.
 
-When the change tracking and inventory solution onboarding notification completes, click on **Update management** under **Configuration Management**.
+When the change tracking and inventory solution onboarding notification completes, select **Update management** under **Update management**.
 
-The Update Management solution allows you to manage updates and patches for your Azure Windows VMs. You can assess the status of available updates, schedule installation of required updates, and review deployment results to verify updates were applied successfully to the VM. This action enabled the solution for your VM.
+The Update Management solution allows you to manage updates and patches for your Azure and hybrid VMs. You can assess the status of available updates, schedule installation of required updates, and review deployment results to verify updates were applied successfully to them.
 
-Select **Update management** under **Update management**. The Log Analytics workspace selected is the same workspace used in the preceding step. Click **Enable** to onboard the Update management solution. The solution takes up to 15 minutes to enable.
+On the enable solution page, the Log Analytics workspace selected is the same workspace used in the preceding step. Click **Enable** to onboard the Update Management solution. The solution takes up to 15 minutes to enable.
 
 ![Onboard update solution](media/automation-onboard-solutions-from-automation-account/onboardsolutions2.png)
 
