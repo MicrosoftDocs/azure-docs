@@ -87,6 +87,9 @@ The KEK must be:
 - Generated in the same key vault where you intend to import the target key
 - Created with allowed key operations set to `import`
 
+> [!NOTE]
+> The KEK must have 'import' as the only allowed key operation. 'import' is mutually exclusive with all other key operations.
+
 Use the [az keyvault key create](/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-create) command to create a KEK that has key operations set to `import`. Record the key identifier (`kid`) that's returned from the following command. (You will use the `kid` value in [Step 3](#step-3-generate-and-prepare-your-key-for-transfer).)
 
 ```azurecli
@@ -112,7 +115,7 @@ Transfer the BYOK file to your connected computer.
 > [!NOTE] 
 > Importing RSA 1,024-bit keys is not supported. Currently, importing an Elliptic Curve (EC) key is not supported.
 > 
-> **Known issue**: Importing an RSA 4K target key from SafeNet Luna HSMs fails. When the issue is resolved, this article will be updated.
+> **Known issue**: Importing an RSA 4K target key from SafeNet Luna HSMs is only supported with firmware 7.4.0 or newer.
 
 ### Step 4: Transfer your key to Azure Key Vault
 
