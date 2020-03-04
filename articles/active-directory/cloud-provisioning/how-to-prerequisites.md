@@ -35,9 +35,9 @@ The rest of the document provides step-by-step instructions for these prerequisi
 1. Create a cloud-only global administrator account on your Azure AD tenant. This way, you can manage the configuration of your tenant if your on-premises services fail or become unavailable. Learn about how to [add a cloud-only global administrator account](../active-directory-users-create-azure-portal.md). Finishing this step is critical to ensure that you don't get locked out of your tenant.
 1. Add one or more [custom domain names](../active-directory-domains-add-azure-portal.md) to your Azure AD tenant. Your users can sign in with one of these domain names.
 
-### In your Active Directory
+### In your directory in Active Directory
 
-1. Run the IdFix tool to prepare the directory attributes for synchronization. Learn more: https://docs.microsoft.com/en-us/office365/enterprise/prepare-directory-attributes-for-synch-with-idfix
+Run the IdFix tool to prepare the directory attributes for synchronization. Learn more: https://docs.microsoft.com/office365/enterprise/prepare-directory-attributes-for-synch-with-idfix
 
 ### In your on-premises environment
 
