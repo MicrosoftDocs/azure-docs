@@ -55,11 +55,11 @@ For code samples, see the "Manage environments" section of [Reuse environments f
 
 ## Environment building, caching, and reuse
 
-The environments within Azure Machine Learning service are managed by a microservice called Environment Management service. It is responsible for building environment definitions into Docker images and conda environments, and caching the environments so they can be reused in subsequent training runs and deployments.
+The Azure Machine Learning service builds environment definitions into Docker images and conda environments. It also caches the environments so they can be reused in subsequent training runs and service endpoint deployments.
 
 ### Building environments as Docker images
 
-Typically, when you first submit a run using an environment, the Environment Management service invokes an [ACR Build Task](https://docs.microsoft.com/azure/container-registry/container-registry-tasks-overview) on the Azure Container Registry (ACR) associated with the Workspace. The built Docker image is then cached on the Workspace ACR. At the start of the run execution, the image is retrieved by the compute target.
+Typically, when you first submit a run using an environment, the Azure Machine Learning service invokes an [ACR Build Task](https://docs.microsoft.com/azure/container-registry/container-registry-tasks-overview) on the Azure Container Registry (ACR) associated with the Workspace. The built Docker image is then cached on the Workspace ACR. At the start of the run execution, the image is retrieved by the compute target.
 
 The image build consists of two steps:
 
@@ -70,32 +70,24 @@ The second step is omitted if you specify [user-managed dependencies](https://do
 
 ### Image caching and reuse
 
-If you use the same environment definition for another run, the Environment Management service reuses the cached image from the Workspace ACR. 
+If you use the same environment definition for another run, the Azure Machine Learning service reuses the cached image from the Workspace ACR. 
 
 To view the details of a cached image, use [Environment.get_image_details](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#get-image-details-workspace-) method.
 
-To determine whether to reuse a cached image or build a new one, the Environment Management service computes [a hash value](https://en.wikipedia.org/wiki/Hash_table) from the environment definition and compares it to the hashes of existing environments. The hash is based on:
+To determine whether to reuse a cached image or build a new one, the service computes [a hash value](https://en.wikipedia.org/wiki/Hash_table) from the environment definition and compares it to the hashes of existing environments. The hash is based on:
  
  * Base image property value
  * Custom docker steps property value
  * List of Python packages in Conda definition
  * List of packages in Spark definition 
 
-The hash doesn't depend on environment name or version. See the following diagram that shows three environment definitions. Two of them have different name and version, but identical base image and Python packages. They have the same hash and therefore correspond to the same cached image. The third environment has different Python packages and versions, and therefore corresponds to a different cached image.
+The hash doesn't depend on environment name or version. Environment definition changes, such as adding or removing a Python package or changing the package version, causes the hash value to change and triggers an image rebuild. However, if you simply rename your environment or create a new environment with the exact properties and packages of an existing one, then the hash value remains the same and the cached image is used.
 
-![Diagram of environment caching as Docker images](./media/concept-environments/environment_caching.png)
+See the following diagram that shows three environment definitions. Two of them have different name and version, but identical base image and Python packages. They have the same hash and therefore correspond to the same cached image. The third environment has different Python packages and versions, and therefore corresponds to a different cached image.
 
-For example, following changes on environment definition will change the hash value, and result in an image rebuild:
+![Diagram of environment caching as Docker images](./media/concept-environments/environment-caching.png)
 
- * Adding or removing a Python package
- * Changing a pinned package version, for example ```numpy==0.15``` to ```numpy==0.16```.
-
-Following operations won't change the hash value, and will result in a cached image being used:
- 
- * Renaming an environment
- * Creating a new environment whose properties and Python package list exactly matches an existing environment.
-
-If you create an environment with unpinned package dependency, for example ```numpy```, that environment will keep using the package version installed at the time of environment creation. Also, any future environment with matching definition will keep using the old version. To update the package, specify a version number to force image rebuild. Note that new dependencies, including nested ones will be installed that might break a previously working scenario
+If you create an environment with unpinned package dependency, for example ```numpy```, that environment will keep using the package version installed at the time of environment creation. Also, any future environment with matching definition will keep using the old version. To update the package, specify a version number to force image rebuild, for example ```numpy==1.18.1```. Note that new dependencies, including nested ones will be installed that might break a previously working scenario
 
 > [!WARNING]
 >  The [Environment.build](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#build-workspace-) method will rebuild the cached image, with possible side-effect of updating unpinned packages and breaking reproducibility for all environment definitions corresponding to that cached image.
