@@ -84,16 +84,16 @@ conceptualContent:
       links:      
         - text: Use C#
           itemType: quickstart
-          url: ../bing-image-search/quickstarts/client-library.md?pivots=programming-language-csharp
+          url: ../bing-image-search/quickstarts/client-libraries.md?pivots=programming-language-csharp
         - text: Use Java
           itemType: quickstart
-          url: ../bing-image-search/quickstarts/client-library.md?pivots=programming-language-java
+          url: ../bing-image-search/quickstarts/client-libraries.md?pivots=programming-language-java
         - text: Use JavaScript
           itemType: quickstart
-          url: ../bing-image-search/quickstarts/client-library.md?pivots=programming-language-javascript
+          url: ../bing-image-search/quickstarts/client-libraries.md?pivots=programming-language-javascript
         - text: Use Python
           itemType: quickstart
-          url: ../bing-image-search/quickstarts/client-library.md?pivots=programming-language-python
+          url: ../bing-image-search/quickstarts/client-libraries.md?pivots=programming-language-python
         - text: Create a single page web-app
           itemType: tutorial
           url: ../bing-image-search/tutorial-bing-image-search-single-page-app.md
