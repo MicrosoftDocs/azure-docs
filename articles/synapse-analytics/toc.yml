@@ -1032,6 +1032,10 @@
     href: https://stackoverflow.com/questions/tagged/azure-sqldw/
   - name: Support
     href: ../sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+  - name: Customer Self-Help
+    items:
+    - name: SQL on-demand
+      href: /sql-analytics/resources-self-help-sql-on-demand.md
   - name: Videos
     href: ../sql-data-warehouse/sql-data-warehouse-videos.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
   - name: Partners
