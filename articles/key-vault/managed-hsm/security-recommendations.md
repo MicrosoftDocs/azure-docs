@@ -13,9 +13,9 @@ ms.custom: security-recommendations
 
 ---
 
-# Security recommendations for Azure Key Vault
+# Security recommendations for Managed HSM
 
-This article contains security recommendations for Azure Key Vault. Implementing these recommendations will help you fulfill your security obligations as described in our shared responsibility model. For more information on what Microsoft does to fulfill service provider responsibilities, read [Shared responsibilities for cloud computing](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91).
+This article contains security recommendations for Managed HSM. Implementing these recommendations will help you fulfill your security obligations as described in our shared responsibility model. For more information on what Microsoft does to fulfill service provider responsibilities, read [Shared responsibilities for cloud computing](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91).
 
 Some of the recommendations included in this article can be automatically monitored by Azure Security Center. Azure Security Center is the first line of defense in protecting your resources in Azure. It periodically analyzes the security state of your Azure resources to identify potential security vulnerabilities. It then provides you with recommendations on how to address them.
 
@@ -26,7 +26,7 @@ Some of the recommendations included in this article can be automatically monito
 
 | Recommendation | Comments | Security Center |
 |-|----|--|
-|Enable soft delete | [Soft delete](key-vault-ovw-soft-delete.md) allows you to recover deleted vaults and vault objects |  - |
+|Enable purge protection | Purge protection prevents permanent deletion of deleted keys |  - |
 | Limit access to vault data  | Follow the principle of least privilege and limit which members of your organization have access to vault data |  - |
 
 ## Identity and access management
