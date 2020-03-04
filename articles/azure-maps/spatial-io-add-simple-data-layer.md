@@ -42,7 +42,7 @@ If a feature is a `Point` or a `MultiPoint` and doesn't have an `image` property
 | `strokeColor` | `strokeColor`, `stroke` | `#FFFFFF` |
 
 1. The `size` and `scale` values are considered scalar values, and they'll be multiplied by `8`. 
-2. If `marker-size` option, that's used by GitHub, is specified, then the following values will be used for the radius.
+2. If the GitHub `marker-size` option is specified, then the following values will be used for the radius.
 
 | Marker size | Radius |
 |-------------|--------|
@@ -70,7 +70,7 @@ If a feature is a `Point` or a `MultiPoint` and has an `image` property that wou
 | `offset` | `offset` | `[0, 0]` |
 | `anchor` | `anchor` | `'bottom'` |
 
-1. If `marker-size` option, that's used by GitHub, is specified, then the following values will be used for the icon size option.
+1. If the GitHub `marker-size` option is specified, then the following values will be used for the icon size option.
 
 | Marker size | Symbol size |
 |-------------|-------------|
