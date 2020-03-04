@@ -1,6 +1,6 @@
 ---
 title: Connect to a Web Feature Service (WFS) service | Microsoft Azure Maps
-description: Learn how to connect to a WFS service, and query the WFS service using the Azure Maps web SDK and the Spatial IO module.
+description: Learn how to connect to a WFS service, then query the WFS service using the Azure Maps web SDK and the Spatial IO module.
 author: farah-alyasari
 ms.author: v-faalya
 ms.date: 03/03/2020
