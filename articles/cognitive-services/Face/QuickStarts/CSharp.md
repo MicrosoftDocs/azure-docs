@@ -18,7 +18,7 @@ ms.author: pafarley
 
 In this quickstart, you will use the Azure Face REST API with C# to detect human faces in an image.
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
 
@@ -27,7 +27,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Create the Visual Studio project
 
-1. In Visual Studio, create a new **Console app (.NET Framework)** project and name it **FaceDetection**. 
+1. In Visual Studio, create a new **Console app (.NET Framework)** project and name it **FaceDetection**.
 1. If there are other projects in your solution, select this one as the single startup project.
 
 ## Add face detection code
@@ -60,7 +60,7 @@ namespace DetectFace
 
         // Replace <Subscription Key> with your valid subscription key.
         const string subscriptionKey = "<Subscription Key>";
-        
+
         // replace <myresourcename> with the string found in your endpoint URL
         const string uriBase =
             "https://<myresourcename>.cognitive.microsoft.com/face/v1.0/detect";
@@ -73,6 +73,10 @@ Add the following code to the **Main** method of the **Program** class. This cod
 ```csharp
         static void Main(string[] args)
         {
+
+            // Explicitly set TLS 1.2. Ensures this code works on Windows 7
+            ServicePointManager.SecurityProtocol = ServicePointManager.SecurityProtocol |
+                SecurityProtocolType.Tls12;
 
             // Get the path and filename to process from the user.
             Console.WriteLine("Detect faces:");
