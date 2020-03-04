@@ -17,10 +17,17 @@ The notebooks(preview) feature will be shut down on April 13 2020. After shut do
 
 This article provides a step by step guidance on how to download Notebooks(preview) data.
 
-1. Go to Notebooks(preview) tab in Azure Machine Learning Studio(classic)
-![notebook-list](./media/download-notebooks/notebooks-list.png)
 
-2. Click a notebook you want to download. Let will open in Jupter. 
+1. Go to Notebooks(preview) tab in Azure Machine Learning Studio(classic)
+![notebook-list!](./media/download-notebooks/notebooks-list.png)
+
+
+
+2. Click a notebook you want to download. Let will open in Jupyter. 
 ![click a notebooks](./media/download-notebooks/click-notebook.png)
 
-3. Go to *Files* -> *Download...*, then select the files you want to download.
+3. Go to *Files* -> *Download...*. It may take about 1-2 minutes to show the download popup.
+![files download](./media/download-notebooks/file-option.png)
+
+4. Select the files you want to download in the popup.
+![pop up](./media/download-notebooks/download-popup.png)
