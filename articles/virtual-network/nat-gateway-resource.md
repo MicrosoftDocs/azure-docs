@@ -345,9 +345,9 @@ We want to know how we can improve the service. Share your [feedback on the Publ
 
 ## Next steps
 
-- Learn more about [virtual network NAT](nat-overview.md).
-- Learn more about [metrics and alerts for NAT gateway resources][nat-metrics.md].
-- Learn more about [troubleshooting NAT gateway resources](troubleshoot-nat.md).
+- Learn about [virtual network NAT](nat-overview.md).
+- Learn about [metrics and alerts for NAT gateway resources](nat-metrics.md).
+- Learn about [troubleshooting NAT gateway resources](troubleshoot-nat.md).
 - [Tell us what to build next in UserVoice](https://aka.ms/natuservoice).
 - [Provide feedback on the Public Preview](https://aka.ms/natfeedback).
 - Tutorial for validating NAT Gateway
@@ -358,11 +358,12 @@ We want to know how we can improve the service. Share your [feedback on the Publ
   * [Azure CLI](./quickstart-create-nat-gateway-cli.md),
   * [PowerShell](./quickstart-create-nat-gateway-powershell.md),
   * [Portal](./quickstart-create-nat-gateway-portal.md).
-- Learn more about [availability zones](../availability-zones/az-overview.md).
-- Learn more about [standard load balancer](../load-balancer/load-balancer-standard-overview.md).
-- Learn more about [availability zones and standard load balancer](../load-balancer/load-balancer-standard-availability-zones.md).
-- Learn more about NAT gateway resource API
+ - Learn about NAT gateway resource API
   * [REST API](https://docs.microsoft.com/rest/api/virtualnetwork/natgateways),
   * [Azure CLI](https://docs.microsoft.com/cli/azure/network/nat/gateway?view=azure-cli-latest),
   * [PowerShell](https://docs.microsoft.com/powershell/module/az.network/new-aznatgateway).
+- Learn about [availability zones](../availability-zones/az-overview.md).
+- Learn about [standard load balancer](../load-balancer/load-balancer-standard-overview.md).
+- Learn about [availability zones and standard load balancer](../load-balancer/load-balancer-standard-availability-zones.md).
+
 
