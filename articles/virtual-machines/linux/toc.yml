@@ -726,6 +726,10 @@
       href: ../../site-recovery/azure-to-azure-tutorial-migrate.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Move to an availability zone
       href: ../../site-recovery/move-azure-vms-avset-azone.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+    - name: Move Maintenance Control configurations to another region
+      href: ../move-region-maintenance-configuration.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+      name: Move Maintenance Control configuration resources to another region
+      href: ../move-region-maintenance-configuration-resources.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Migrate AWS and on-premises VMs
       href: ../windows/on-prem-to-azure.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
       items:
