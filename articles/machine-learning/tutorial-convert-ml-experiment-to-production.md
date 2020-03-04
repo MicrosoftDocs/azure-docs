@@ -389,28 +389,37 @@ class TestTrain:
 
 If you have been following the steps in this guide, you'll have a set of scripts that correlate to the train/score/test scripts available in the MLOpsPython repository.  According to the structure mentioned above, the following steps will walk through what is needed to use these files for your own machine learning project:
 
-1.	Follow the Getting Started Guide
-2.	Replace the Training Code
-3.	Replace the Score Code
-4.	Update the Evaluation Code
+1. Follow the MLOpsPython [Getting Started](https://github.com/microsoft/MLOpsPython/blob/master/docs/getting_started.md) guide
+2. Follow the MLOpsPython [bootstrap instructions](https://github.com/microsoft/MLOpsPython/blob/master/bootstrap/README.md) to create your project starting point
+3. Replace the Training Code
+4. Replace the Score Code
+5. Update the Evaluation Code
 
 ### Follow the Getting Started Guide
-Following the getting started guide is necessary to have the supporting infrastructure and pipelines to execute MLOpsPython.  We recommended deploying the MLOpsPython code as-is before putting in your own code to ensure the structure and pipeline is working properly.  It's also useful to familiarize yourself with the code structure of the repository.
+Following the [Getting Started](https://github.com/microsoft/MLOpsPython/blob/master/docs/getting_started.md) guide is necessary to have the supporting infrastructure and pipelines to execute MLOpsPython.
+
+### Follow the Bootstrap Instructions
+
+The [Bootstrap from MLOpsPython repository](https://github.com/microsoft/MLOpsPython/blob/master/bootstrap/README.md) guide will help you to quickly prepare the repository for your project.
+
+**Note:** Since the bootstrap script will rename the diabetes_regression folder to the project name of your choice, we'll refer to your project as `[project name]` when paths are involved.
 
 ### Replace Training Code
 
 Replacing the code used to train the model and removing or replacing corresponding unit tests is required for the solution to function with your own code. Follow these steps specifically:
 
-1. Replace `diabetes_regression\training\train.py`. This script trains your model locally or on the Azure ML compute.
-1. Remove or replace training unit tests found in `tests/unit/code_test.py`
+1. Replace `[project name]/training/train.py`. This script trains your model locally or on the Azure ML compute.
+1. Remove or replace training unit tests found in `[project name]/training/test_train.py`
 
 ### Replace Score Code
-For the model to provide real-time inference capabilities, the score code needs to be replaced. The MLOpsPython template uses the score code to deploy the model to do real-time scoring on ACI, AKS, or Web apps.  If you want to keep scoring, replace `diabetes_regression/scoring/score.py`.
+
+For the model to provide real-time inference capabilities, the score code needs to be replaced. The MLOpsPython template uses the score code to deploy the model to do real-time scoring on ACI, AKS, or Web apps. If you want to keep scoring, replace `[project name]/scoring/score.py`.
 
 ### Update Evaluation Code
-The MLOpsPython template uses the evaluate_model script to compare the performance of the newly trained model and the current production model based on Mean Squared Error. If the performance of the newly trained model is better than the current production model, then the pipelines continue. Otherwise, the pipelines are stopped. To keep evaluation, replace all instances of `mse` in `diabetes_regression/evaluate/evaluate_model.py` with the metric that you want. 
 
-To get rid of evaluation, set the DevOps pipeline variable `RUN_EVALUATION` in `.pipelines\diabetes_regression-variables` to `false`.
+The MLOpsPython template uses the evaluate_model script to compare the performance of the newly trained model and the current production model based on Mean Squared Error. If the performance of the newly trained model is better than the current production model, then the pipelines continue. Otherwise, the pipelines are canceled. To keep evaluation, replace all instances of `mse` in `[project name]/evaluate/evaluate_model.py` with the metric that you want.
+
+To get rid of evaluation, set the DevOps pipeline variable `RUN_EVALUATION` in `.pipelines/[project name]-variables-template.yml` to `false`.
 
 ## Next steps
 
