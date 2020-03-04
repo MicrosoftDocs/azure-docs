@@ -100,8 +100,8 @@ To get Streaming Locators based on the associated Asset name, use the following 
 * [Assets](assets-concept.md)
 * [Streaming Policies](streaming-policy-concept.md)
 * [Content Key Policies](content-key-policy-concept.md)
-* [How to build a streaming URL](build-streaming-url.md)
-
+* [How to create a streaming locator and build URLs](create-streaming-locator-build-url.md)
+     
 ## Next steps
 
 [Tutorial: Upload, encode, and stream videos using .NET](stream-files-tutorial-with-api.md)
