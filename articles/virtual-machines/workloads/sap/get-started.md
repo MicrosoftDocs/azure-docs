@@ -15,7 +15,7 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 02/27/2020
+ms.date: 03/03/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
@@ -116,6 +116,7 @@ For information on integration of Azure services into SAP components, see:
 
 
 ## Change Log
+- 03/03/2020: Change in [High availability for SAP NW on Azure VMs on SLES with ANF for SAP applications](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files) to change to more efficient ANF volume layout
 - 02/27/2020: Change in [High availability for SAP NW on Azure VMs on SLES for SAP applications](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse), [High availability for SAP NW on Azure VMs on SLES with ANF for SAP applications](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files) and [High availability for SAP NetWeaver on Azure VMs on SLES multi-SID guide](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-multi-sid) to adjust "on fail" cluster parameter
 - 02/26/2020: Change in [SAP HANA Azure virtual machine storage configurations](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage) to clarify file system choice for HANA on Azure
 - 02/26/2020: Change in [High availability architecture and scenarios for SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-architecture-scenarios) to include the link to the HA for SAP NetWeaver on Azure VMs on RHEL multi-SID guide

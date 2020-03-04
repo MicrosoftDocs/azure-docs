@@ -1,7 +1,7 @@
 ﻿---
 title: Troubleshooting - QnA Maker
 description: The curated list of the most frequently asked questions regarding the QnA Maker service will help you adopt the service faster and with better results.
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 02/21/2020
 ms.author: diberry
 ---
