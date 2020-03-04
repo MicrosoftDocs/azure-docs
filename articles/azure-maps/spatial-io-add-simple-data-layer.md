@@ -39,7 +39,7 @@ If a feature is a `Point` or a `MultiPoint` and doesn't have an `image` property
 |--------------|----------------------------|---------------|
 | `color` | `color`, `marker-color` | `'#1A73AA'` |
 | `radius` | `size`<sup>1</sup>, `marker-size`<sup>2</sup>, `scale`<sup>1</sup> | `8` |
-| `strokeColor` | `strokeColor`, `stroke` | `FFFFFF` |
+| `strokeColor` | `strokeColor`, `stroke` | `#FFFFFF` |
 
 1. The `size` and `scale` values are considered scalar values, and they'll be multiplied by `8`. 
 2. If `marker-size` option, that's used by GitHub, is specified, then the following values will be used for the radius.
