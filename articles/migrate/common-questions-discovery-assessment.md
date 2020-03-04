@@ -19,18 +19,18 @@ This article answers common questions about discovery, assessment, and dependenc
 
 ## How many VMs can I discover with an appliance?
 
-You can discover up to 10,000 VMware VMs, up to 5,000 Hyper-V VMs and up to 250 servers with a single appliance. If you have more machines in your on-premises environment, read about scaling [Hyper-V](scale-hyper-v-assessment.md), [VMware](scale-vmware-assessment.md) and [physical](scale-physical-assessment.md) assessment.
+You can discover up to 10,000 VMware VMs, up to 5,000 Hyper-V VMs, and up to 250 physical servers with a single appliance. If you have more machines, review articles about scaling [Hyper-V](scale-hyper-v-assessment.md), [VMware](scale-vmware-assessment.md), and [physical server](scale-physical-assessment.md) assessment.
 
 
 
 ## VM size changed. Can I run an assessment again?
 
-The Azure Migrate appliance continuously collects information about the on-premises environment. But an assessment is a point-in-time snapshot of on-premises VMs. If you change the settings on a VM that you want to assess, use the recalculate option to update the assessment with the latest changes.
+The Azure Migrate appliance continuously collects information about on-premises machines, and an assessment is a point-in-time snapshot. If you change the settings on a VM that you want to assess, use the recalculate option to update the assessment with the latest changes.
 
 ### How do I discover VMs in a multitenant environment?
 
-- For VMware, if your environment is shared across tenants, and you don't want to discover the VMs of one tenant in another tenant's subscription, create vCenter Server credentials that can access only the VMs you want to discover. Then, use those credentials when you start discovery in the Azure Migrate appliance.
-- For Hyper-V, discovery uses Hyper-V host credentials. If VMs share the same Hyper-V host, there's currently no way to separate the discovery.  
+- **VMware**: If an environment is shared across tenants, and you don't want to discover a tenant's VMs in another tenant's subscription, create vCenter Server credentials that can access only the VMs you want to discover. Then, use those credentials when you start discovery in the Azure Migrate appliance.
+- **Hyper-v**: Discovery uses Hyper-V host credentials. If VMs share the same Hyper-V host, there's currently no way to separate the discovery.  
 
 
 ### Do I need vCenter Server for VMWare VM discovery?
@@ -42,11 +42,11 @@ Yes, Azure Migrate needs vCenter Server to perform discovery in a VMware environ
 
 With as-on-premises sizing, Azure Migrate doesn't consider VM performance data for assessment. It assesses VM sizes based on the on-premises configuration. With performance-based sizing, sizing is based on utilization data.
 
-- For example, if an on-premises VM has 4 cores and 8 GB of memory at 50% CPU utilization and 50% memory utilization, the following will occur:
-    - As-on-premises sizing will recommend an Azure VM SKU that has 4 cores and 8 GB of memory.
-    - Performance-based sizing will recommend a VM SKU that has 2 cores and 4 GB of memory, because the utilization percentage is considered.
+- For example, if an on-premises VM has 4 cores and 8 GB of memory at 50% CPU utilization and 50% memory utilization:
+    - As-on-premises sizing will recommend an Azure VM SKU that has four cores and 8 GB of memory.
+    - Performance-based sizing will recommend a VM SKU that has two cores and 4 GB of memory, because the utilization percentage is considered.
 
-- Similarly, disk sizing depends on two assessment properties: sizing criteria and storage type.
+- Similarly, disk sizing depends on sizing criteria and storage type.
     - If the sizing criteria is performance-based and the storage type is automatic, Azure Migrate takes the IOPS and throughput values of the disk into account when it identifies the target disk type (standard or premium).
     - If the sizing criteria is performance-based and the storage type is premium, Azure Migrate recommends a premium disk SKU, based on the size of the on-premises disk. The same logic is applied to disk sizing, when the sizing is as-on-premises, and the storage type is standard or premium.
 
@@ -72,14 +72,30 @@ Use dependency visualization to assess groups of VMs for migration with greater 
 > [!NOTE]
 > Dependency visualization isn't available in Azure Government.
 
+## What's the difference between agent-based and agentless visualization?
+
+**Requirement** | **Agentless** | **Agent-based**
+--- | --- | ---
+Support | This option is currently in preview, and is only available for VMware VMs. [Review](migrate-support-matrix-vmware.md#agentless-dependency-visualization) supported operating systems. | In general availability (GA).
+Agent | No need to install agents on machines you want to cross-check. | Agents to be installed on each on-premises machine that you want to analyze: The [Microsoft Monitoring agent (MMA)](https://docs.microsoft.com/azure/log-analytics/log-analytics-agent-windows), and the [Dependency agent](https://docs.microsoft.com/azure/azure-monitor/platform/agents-overview#dependency-agent). 
+Prerequisites | [Review](concepts-dependency-visualization.md#agentless-visualization) the prerequisites and deployment requirements. | [Review](concepts-dependency-visualization.md#agent-based-visualization) the prerequisites and deployment requirements.
+Log Analytics | Not required. | Azure Migrate uses the [Service Map](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-service-map) solution in [Azure Monitor logs](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) for dependency visualization. [Learn more](concepts-dependency-visualization.md#agent-based-visualization).
+How it works | Captures TCP connection data on machines enabled for dependency visualization. After discovery, it gathers data at intervals of five minutes. | Service Map agents installed on a machine gather data about TCP processes and inbound/outbound connections for each process.
+Data | Source machine server name, process, application name.<br/><br/> Destination machine server name, process, application name, and port. | Source machine server name, process, application name.<br/><br/> Destination machine server name, process, application name, and port.<br/><br/> Number of connections, latency, and data transfer information are gathered and available for Log Analytics queries. 
+Visualization | Dependency map of single server can be viewed over a duration of one hour to 30 days. | Dependency map of a single server.<br/><br/> Map can be viewed over an hour only.<br/><br/> Dependency map of a group of servers.<br/><br/> Add and remove servers in a group from the map view.
+Data export | Can't currently be downloaded in tabular format. | Data can be queried with Log Analytics.
+
+
+
+
 ## Do I pay for dependency visualization?
 No. [Learn more](https://azure.microsoft.com/pricing/details/azure-migrate/) about Azure Migrate pricing.
 
-## What do I install for dependency visualization?
+## What do I install for agent-based dependency visualization?
 
 To use dependency visualization, you need to download and install agents on each on-premises machine that you want to evaluate.
 
-You need to install the following agents on each machine:
+Install the following agents on each machine:
 - [Microsoft Monitoring Agent (MMA)](https://docs.microsoft.com/azure/log-analytics/log-analytics-agent-windows).
 - [Dependency agent](../azure-monitor/platform/agents-overview.md#dependency-agent).
 - If you have machines with no internet connectivity, you need to download and install Log Analytics gateway on them.
