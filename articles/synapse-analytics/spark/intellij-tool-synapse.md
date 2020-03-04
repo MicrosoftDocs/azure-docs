@@ -53,7 +53,7 @@ In this tutorial, you learn how to:
    * **Maven** for Scala project-creation wizard support.
    * **SBT** for managing the dependencies and building for the Scala project.
 
-     ![IntelliJ IDEA New Project dialog box](./media/apache-spark-intellij-tool-synapse/create-synapse-application01.png)
+     ![IntelliJ IDEA New Project dialog box](./media/intellij-tool-synapse/create-synapse-application01.png)
 
 5. Select **Next**.
 
@@ -66,7 +66,7 @@ In this tutorial, you learn how to:
     |Project SDK| It might be blank on your first use of IDEA.  Select **New...** and navigate to your JDK.|
     |Spark Version|The creation wizard integrates the proper version for Spark SDK and Scala SDK. Synapse only supports **Spark 2.4.0**.|
 
-    ![Selecting the Apache Spark SDK](./media/apache-spark-intellij-tool-synapse/create-synapse-application02.png)
+    ![Selecting the Apache Spark SDK](./media/intellij-tool-synapse/create-synapse-application02.png)
 
 7. Select **Finish**.  It may take a few minutes before the project becomes available.
 
@@ -78,11 +78,11 @@ In this tutorial, you learn how to:
 
    c. Select **Cancel**  after viewing the artifact.
 
-      ![Artifact info in the dialog box](./media/apache-spark-intellij-tool-synapse/default-artifact-dialog.png)
+      ![Artifact info in the dialog box](./media/intellij-tool-synapse/default-artifact-dialog.png)
 
 9. Find **LogQuery** from **myApp** > **src** > **main** > **scala**> **sample**> **LogQuery**. This tutorial uses **LogQuery** to run.
 
-   ![Commands for creating a Scala class from Project](./media/apache-spark-intellij-tool-synapse/select-run-file.png)
+   ![Commands for creating a Scala class from Project](./media/intellij-tool-synapse/select-run-file.png)
 
 ## Connect to your Synapse Spark Pools
 
@@ -92,39 +92,39 @@ You can sign in to Azure subscription to connect to your Synapse Spark Pools.
 
 1. From the menu bar, navigate to **View** > **Tool Windows** > **Azure Explorer**.
 
-   ![IntelliJ IDEA shows azure explorer](./media/apache-spark-intellij-tool-synapse/show-azure-explorer1.png)
+   ![IntelliJ IDEA shows azure explorer](./media/intellij-tool-synapse/show-azure-explorer1.png)
 
 2. From Azure Explorer, right-click the **Azure** node, and then select **Sign In**.
 
-   ![IntelliJ IDEA explorer right-click azure](./media/apache-spark-intellij-tool-synapse/explorer-rightclick-azure.png)
+   ![IntelliJ IDEA explorer right-click azure](./media/intellij-tool-synapse/explorer-rightclick-azure.png)
 
 3. In the **Azure Sign In** dialog box, choose **Device Login**, and then select **Sign in**.
 
-    ![IntelliJ IDEA azure sign-in](./media/apache-spark-intellij-tool-synapse/intellij-view-explorer2.png)
+    ![IntelliJ IDEA azure sign-in](./media/intellij-tool-synapse/intellij-view-explorer2.png)
 
 4. In the **Azure Device Login** dialog box, click **Copy&Open**.
 
-   ![IntelliJ IDEA azure device login](./media/apache-spark-intellij-tool-synapse/intellij-view-explorer5.png)
+   ![IntelliJ IDEA azure device login](./media/intellij-tool-synapse/intellij-view-explorer5.png)
 
 5. In the browser interface, paste the code, and then click **Next**.
 
-   ![Microsoft enters code dialog for HDI](./media/apache-spark-intellij-tool-synapse/intellij-view-explorer6.png)
+   ![Microsoft enters code dialog for HDI](./media/intellij-tool-synapse/intellij-view-explorer6.png)
 
 6. Enter your Azure credentials, and then close the browser.
 
-   ![Microsoft enters e-mail dialog for HDI](./media/apache-spark-intellij-tool-synapse/intellij-view-explorer7.png)
+   ![Microsoft enters e-mail dialog for HDI](./media/intellij-tool-synapse/intellij-view-explorer7.png)
 
 7. After you're signed in, the **Select Subscriptions** dialog box lists all the Azure subscriptions that are associated with the credentials. Select your subscription and then select the **Select** button.
 
-    ![The Select Subscriptions dialog box](./media/apache-spark-intellij-tool-synapse/Select-Subscriptions.png)
+    ![The Select Subscriptions dialog box](./media/intellij-tool-synapse/Select-Subscriptions.png)
 
 8. From **Azure Explorer**, expand **Apache Spark on Synapse** to view the Workspaces that are in your subscriptions.
 
-    ![IntelliJ IDEA Azure Explorer main view](./media/apache-spark-intellij-tool-synapse/azure-explorer-workspace.png)
+    ![IntelliJ IDEA Azure Explorer main view](./media/intellij-tool-synapse/azure-explorer-workspace.png)
 
 9. To view the Spark Pools, you can further expand a workspace.
 
-    ![Azure Explorer storage accounts](./media/apache-spark-intellij-tool-synapse/azure-explorer-pool.png)
+    ![Azure Explorer storage accounts](./media/intellij-tool-synapse/azure-explorer-pool.png)
 
 ## Remote Run a Spark Scala application on a Synapse Spark Pool
 
@@ -132,11 +132,11 @@ After creating a Scala application, you can remote run it.
 
 1. Open **Run/Debug Configurations** window by clicking the icon.
 
-      ![The Submit Spark Application to HDInsight command](./media/apache-spark-intellij-tool-synapse/open-configuration-window.png)    
+      ![The Submit Spark Application to HDInsight command](./media/intellij-tool-synapse/open-configuration-window.png)    
 
 2. In the **Run/Debug Configurations** dialog window, click **+**, then select **Apache Spark on Synapse**.
 
-      ![The Submit Spark Application to HDInsight command](./media/apache-spark-intellij-tool-synapse/create-synapse-configuration02.png)   
+      ![The Submit Spark Application to HDInsight command](./media/intellij-tool-synapse/create-synapse-configuration02.png)   
 
 3. In the **Run/Debug Configurations** window, provide the following values, and then select **OK**:
 
@@ -154,13 +154,13 @@ After creating a Scala application, you can remote run it.
     |Storage Key|Enter your storage key.|
     |Storage Container|Select your storage container from the drop-down list once **Storage Account** and **Storage Key** has been entered.|
 
-    ![The Spark Submission dialog box](./media/apache-spark-intellij-tool-synapse/create-synapse-configuration03.png)
+    ![The Spark Submission dialog box](./media/intellij-tool-synapse/create-synapse-configuration03.png)
 
 4. Click **SparkJobRun** icon to submit your project to the selected Spark Pool. The **Remote Spark Job in Cluster** tab displays the job execution progress at the bottom. You can stop the application by clicking the red button.  
 
-    ![Apache Spark Submission window](./media/apache-spark-intellij-tool-synapse/remotely-run-synapse.png)
+    ![Apache Spark Submission window](./media/intellij-tool-synapse/remotely-run-synapse.png)
 
-    ![The Spark Submission dialog box](./media/apache-spark-intellij-tool-synapse/remotely-run-result.png)   
+    ![The Spark Submission dialog box](./media/intellij-tool-synapse/remotely-run-result.png)   
 
 ## Local Run/Debug Apache Spark applications 
 
@@ -170,7 +170,7 @@ You can follow the instructions below to set up your local run and local debug f
 
 1. Open the **Run/Debug Configurations** dialog, select the plus sign (**+**). Then select the **Apache Spark on Synapse** option. Enter information for **Name**, **Main class name** to save.
 
-    ![Intellij Run debug configurations local run](./media/apache-spark-intellij-tool-synapse/local-run-synapse.png)
+    ![Intellij Run debug configurations local run](./media/intellij-tool-synapse/local-run-synapse.png)
 
     - Environment variables and WinUtils.exe Location are only for windows users.
     - Environment variables: The system environment variable can be auto detected if you have set it before and no need to manually add.
@@ -178,18 +178,18 @@ You can follow the instructions below to set up your local run and local debug f
 
 2. Then click the local run button.
 
-    ![Intellij Run debug configurations local run](./media/apache-spark-intellij-tool-synapse/local-run-synapse01.png)
+    ![Intellij Run debug configurations local run](./media/intellij-tool-synapse/local-run-synapse01.png)
 
 3. Once local run completed, if script includes output, you can check the output file from **data** > **__default__**.
 
-    ![Intellij Project local run result](./media/apache-spark-intellij-tool-synapse/spark-local-run-result.png)
+    ![Intellij Project local run result](./media/intellij-tool-synapse/spark-local-run-result.png)
 
 ### Scenario 2: Do local debugging
 1. Open the **LogQuery** script, set breakpoints.
 
 2. Click **Local debug** icon to do local debugging.
 
-    ![Intellij Project local run result](./media/apache-spark-intellij-tool-synapse/local-debug-synapse.png)
+    ![Intellij Project local run result](./media/intellij-tool-synapse/local-debug-synapse.png)
 
 ## Access and manage Synapse Workspace
 
@@ -199,13 +199,13 @@ You can follow the instructions below to set up your local run and local debug f
 
 1. From Azure Explorer, navigate to **Apache Spark on Synapse**, then expand it.
 
-    ![IntelliJ IDEA Azure Explorer main view](./media/apache-spark-intellij-tool-synapse/azure-explorer-workspace.png)
+    ![IntelliJ IDEA Azure Explorer main view](./media/intellij-tool-synapse/azure-explorer-workspace.png)
 
 2. Right-click a workspace, then select **Launch workspace**, website will be opened.
 
-    ![Spark Job View Application details](./media/apache-spark-intellij-tool-synapse/launch-workspace-synapse.png)
+    ![Spark Job View Application details](./media/intellij-tool-synapse/launch-workspace-synapse.png)
 
-    ![Spark Job View Application details](./media/apache-spark-intellij-tool-synapse/launch-workspace-result.png)
+    ![Spark Job View Application details](./media/intellij-tool-synapse/launch-workspace-result.png)
 
 ## Spark Console
 
@@ -228,7 +228,7 @@ Ensure you've satisfied the WINUTILS.EXE prerequisite.
     |Environment variables|Ensure the value for HADOOP_HOME is correct.|
     |WINUTILS.exe location|Ensure the path is correct.|
 
-    ![Local Console Set Configuration](./media/apache-spark-intellij-tool-synapse/local-console-synapse01.png)
+    ![Local Console Set Configuration](./media/intellij-tool-synapse/local-console-synapse01.png)
 
 5. From Project, navigate to **myApp** > **src** > **main** > **scala** > **myApp**.  
 
@@ -236,13 +236,13 @@ Ensure you've satisfied the WINUTILS.EXE prerequisite.
 
 7. Then two dialogs may be displayed to ask you if you want to auto fix dependencies. If so, select **Auto Fix**.
 
-    ![IntelliJ IDEA Spark Auto Fix dialog1](./media/apache-spark-intellij-tool-synapse/intellij-console-autofix1.png)
+    ![IntelliJ IDEA Spark Auto Fix dialog1](./media/intellij-tool-synapse/intellij-console-autofix1.png)
 
-    ![IntelliJ IDEA Spark Auto Fix dialog2](./media/apache-spark-intellij-tool-synapse/intellij-console-autofix2.png)
+    ![IntelliJ IDEA Spark Auto Fix dialog2](./media/intellij-tool-synapse/intellij-console-autofix2.png)
 
 8. The console should look similar to the picture below. In the console window type `sc.appName`, and then press ctrl+Enter.  The result will be shown. You can stop the local console by clicking red button.
 
-    ![IntelliJ IDEA local console result](./media/apache-spark-intellij-tool-synapse/local-console-result.png)
+    ![IntelliJ IDEA local console result](./media/intellij-tool-synapse/local-console-result.png)
 
 ### Spark Livy Interactive Session Console(Scala)
 
@@ -261,7 +261,7 @@ It's only supported on IntelliJ 2018.2 and 2018.3.
     |Spark Pools|Select the Synapse Spark Pools on which you want to run your application.|
     ||
 
-    ![Interactive Console Set Configuration](./media/apache-spark-intellij-tool-synapse/interactive-console-configuration.png)
+    ![Interactive Console Set Configuration](./media/intellij-tool-synapse/interactive-console-configuration.png)
 
 5. From Project, navigate to **myApp** > **src** > **main** > **scala** > **myApp**.  
 
@@ -269,11 +269,11 @@ It's only supported on IntelliJ 2018.2 and 2018.3.
 
 7. The console should look similar to the picture below. In the console window type `sc.appName`, and then press ctrl+Enter.  The result will be shown. You can stop the local console by clicking red button.
 
-    ![IntelliJ IDEA Interactive Console Result](./media/apache-spark-intellij-tool-synapse/interactive-console-result.png)
+    ![IntelliJ IDEA Interactive Console Result](./media/intellij-tool-synapse/interactive-console-result.png)
 
 ### Send Selection to Spark Console
 
 It's convenient for you to foresee the script result by sending some code to the local console or Livy Interactive Session Console(Scala). You can highlight some code in the Scala file, then right-click **Send Selection To Spark Console**. The selected code will be sent to the console and be done. The result will be displayed after the code in the console. The console will check the errors if existing.  
 
-   ![Send Selection to Spark Console](./media/apache-spark-intellij-tool-synapse/send-selection-to-console.png)
+   ![Send Selection to Spark Console](./media/intellij-tool-synapse/send-selection-to-console.png)
 

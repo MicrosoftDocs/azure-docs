@@ -49,7 +49,7 @@
 - name: Tutorials
   items:
   - name: Run Apache Spark applications for Synapse Spark Pools
-    href: ./spark/apache-spark-intellij-tool-synapse.md  
+    href: ./spark/intellij-tool-synapse.md  
   - name: Power BI Professional
     href: ./sql-analytics/tutorial-connect-power-bi-desktop.md
   - name: Data Scientist
