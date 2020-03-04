@@ -17,8 +17,7 @@ Before you get started, make sure to:
 
 > [!div class="checklist"]
 > * [Create an Azure Speech resource](../../../../get-started.md)
-> * [Setup your development environment](../../../../quickstarts/setup-platform.md?tabs=dotnet)
-> * [Create an empty sample project](../../../../quickstarts/create-project.md?tabs=vs)
+> * [Setup your development environment and create an empty project](../../../../quickstarts/setup-platform.md?tabs=dotnet)
 
 [!INCLUDE [Audio input format](~/articles/cognitive-services/speech-service/includes/audio-input-format-chart.md)]
 

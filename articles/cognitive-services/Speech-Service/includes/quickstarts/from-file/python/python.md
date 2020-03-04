@@ -18,8 +18,7 @@ Before you get started, make sure to:
 > [!div class="checklist"]
 > * [Create an Azure Speech resource](../../../../get-started.md)
 > * [Create a LUIS application and get an endpoint key](../../../../quickstarts/create-luis.md)
-> * [Setup your development environment](../../../../quickstarts/setup-platform.md?pivots=programming-language-python)
-> * [Create an empty sample project](../../../../quickstarts/create-project.md?pivots=programming-language-python)
+> * [Setup your development environment and create an empty project](../../../../quickstarts/setup-platform.md?pivots=programming-language-python)
 
 [!INCLUDE [Audio input format](~/articles/cognitive-services/speech-service/includes/audio-input-format-chart.md)]
 
