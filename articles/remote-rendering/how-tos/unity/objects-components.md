@@ -25,7 +25,7 @@ When you load a model, you get a reference to the root object of the loaded mode
 LoadModelAsync _pendingLoadTask = null;
 void LoadModelWithTask()
 {
-    _pendingLoadTask = RemoteManagerUnity.CurrentSession.Actions.LoadModelAsync(new LoadModelParams("builtin://Engine"));
+    _pendingLoadTask = RemoteManagerUnity.CurrentSession.Actions.LoadModelFromSASAsync(new LoadModelFromSASParams("builtin://Engine"));
 
     _pendingLoadTask.Completed += (LoadModelAsync res) =>
     {
@@ -50,7 +50,7 @@ void LoadModelWithTask()
 ```cs
 IEnumerator LoadModelWithCoroutine()
 {
-    LoadModelAsync task = RemoteManagerUnity.CurrentSession.Actions.LoadModelAsync(new LoadModelParams("builtin://Engine"));
+    LoadModelAsync task = RemoteManagerUnity.CurrentSession.Actions.LoadModelFromSASAsync(new LoadModelFromSASParams("builtin://Engine"));
 
     while (!task.IsCompleted)
     {
@@ -72,10 +72,12 @@ IEnumerator LoadModelWithCoroutine()
 ```cs
 async void LoadModelWithAwait()
 {
-    var result = await RemoteManagerUnity.CurrentSession.Actions.LoadModelAsync(new LoadModelParams("builtin://Engine")).AsTask();
+    var result = await RemoteManagerUnity.CurrentSession.Actions.LoadModelFromSASAsync(new LoadModelFromSASParams("builtin://Engine")).AsTask();
     var gameObject = result.Root?.GetOrCreateGameObject(UnityCreationMode.DoNotCreateUnityComponents);
 }
 ```
+
+The code samples above used the model loading path via SAS because the built-in model is loaded. Addressing the model via blob containers (using `LoadModelAsync` and `LoadModelParams`) works fully analogously.
 
 ## RemoteEntitySyncObject
 

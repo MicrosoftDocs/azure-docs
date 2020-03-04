@@ -41,22 +41,22 @@ public class RemoteSky : MonoBehaviour
 {
     private int skyIndex = 0;
 
-    private LoadTextureParams[] builtIns =
+    private LoadTextureFromSASParams[] builtIns =
     {
-        new LoadTextureParams("builtin://Autoshop", TextureType.CubeMap),
-        new LoadTextureParams("builtin://BoilerRoom", TextureType.CubeMap),
-        new LoadTextureParams("builtin://ColorfulStudio", TextureType.CubeMap),
-        new LoadTextureParams("builtin://Hangar", TextureType.CubeMap),
-        new LoadTextureParams("builtin://IndustrialPipeAndValve", TextureType.CubeMap),
-        new LoadTextureParams("builtin://Lebombo", TextureType.CubeMap),
-        new LoadTextureParams("builtin://SataraNight", TextureType.CubeMap),
-        new LoadTextureParams("builtin://SunnyVondelpark", TextureType.CubeMap),
-        new LoadTextureParams("builtin://Syferfontein", TextureType.CubeMap),
-        new LoadTextureParams("builtin://TearsOfSteelBridge", TextureType.CubeMap),
-        new LoadTextureParams("builtin://VeniceSunset", TextureType.CubeMap),
-        new LoadTextureParams("builtin://WhippleCreekRegionalPark", TextureType.CubeMap),
-        new LoadTextureParams("builtin://WinterRiver", TextureType.CubeMap),
-        new LoadTextureParams("builtin://DefaultSky", TextureType.CubeMap)
+        new LoadTextureFromSASParams("builtin://Autoshop", TextureType.CubeMap),
+        new LoadTextureFromSASParams("builtin://BoilerRoom", TextureType.CubeMap),
+        new LoadTextureFromSASParams("builtin://ColorfulStudio", TextureType.CubeMap),
+        new LoadTextureFromSASParams("builtin://Hangar", TextureType.CubeMap),
+        new LoadTextureFromSASParams("builtin://IndustrialPipeAndValve", TextureType.CubeMap),
+        new LoadTextureFromSASParams("builtin://Lebombo", TextureType.CubeMap),
+        new LoadTextureFromSASParams("builtin://SataraNight", TextureType.CubeMap),
+        new LoadTextureFromSASParams("builtin://SunnyVondelpark", TextureType.CubeMap),
+        new LoadTextureFromSASParams("builtin://Syferfontein", TextureType.CubeMap),
+        new LoadTextureFromSASParams("builtin://TearsOfSteelBridge", TextureType.CubeMap),
+        new LoadTextureFromSASParams("builtin://VeniceSunset", TextureType.CubeMap),
+        new LoadTextureFromSASParams("builtin://WhippleCreekRegionalPark", TextureType.CubeMap),
+        new LoadTextureFromSASParams("builtin://WinterRiver", TextureType.CubeMap),
+        new LoadTextureFromSASParams("builtin://DefaultSky", TextureType.CubeMap)
     };
 
     public async void ToggleSky()
@@ -68,7 +68,7 @@ public class RemoteSky : MonoBehaviour
 
         skyIndex = (skyIndex + 1) % builtIns.Length;
 
-        var texture = await RemoteManagerUnity.CurrentSession.Actions.LoadTextureAsync(builtIns[skyIndex]).AsTask();
+        var texture = await RemoteManagerUnity.CurrentSession.Actions.LoadTextureFromSASAsync(builtIns[skyIndex]).AsTask();
 
         Debug.Log($"Switching sky to: {builtIns[skyIndex].TextureId}");
 
@@ -89,6 +89,8 @@ public class RemoteSky : MonoBehaviour
     }
 }
 ```
+
+Note that the `LoadTextureFromSASAsync` variant is used above because built-in textures are loaded. In case of loading from [linked blob storages](../../how-tos/create-an-account.md#link-storage-accounts), use the `LoadTextureAsync` variant.
 
 When you run the code and toggle through the sky maps, you will notice drastically different lighting on your model. However, the background will stay black and you cannot see the actual sky texture. This is intentional, as rendering a background would be distracting with an Augmented Reality device. In a proper application, you should use sky textures that are similar to your real world surroundings, as this will help make objects appear more real.
 
@@ -309,11 +311,16 @@ public class RemoteModelEntity : MonoBehaviour
 When you run this code, objects that you hover of with the mouse get highlighted. The effect is similar to what we did in tutorial 2, but the way it is achieved is different. Here we get the list of materials on the picked object and then modify the first one to have a different albedo color.
 
 > [!IMPORTANT]
-> Please be aware that whether this method highlights the correct parts of a model, depends on how a model is authored. It will work perfectly, if every object uses exactly one material. However, if the model contains objects which use multiple materials, the naive code above will not do the right thing.
+> Please be aware that whether this method highlights the correct parts of a model, depends on how a model is authored. It will work perfectly, if every object uses exactly one material. However, if the model does not have a 1:1 relation between parts and materials, the naive code above will not do the right thing.
 
 ## Use a different texture
 
-[Textures](../../concepts/textures.md) are typically part of a source model. During [model conversion](../../quickstarts/convert-model.md), all textures are converted to the necessary runtime format and packaged into the final model file. To replace a texture at runtime, you need to save it in [DDS file format](https://en.wikipedia.org/wiki/DirectDraw_Surface) and upload it to Azure blob storage. Consult [this quickstart guide](../../quickstarts/convert-model.md) for how to create an Azure blob container. Once you have a blob container, you can open it in Azure Storage Explorer and upload your file via drag and drop. Finally, right-click on the uploaded file and select **Get Shared Access Signature...**.
+[Textures](../../concepts/textures.md) are typically part of a source model. During [model conversion](../../quickstarts/convert-model.md), all textures are converted to the necessary runtime format and packaged into the final model file. To replace a texture at runtime, you need to save it in [DDS file format](https://en.wikipedia.org/wiki/DirectDraw_Surface) and upload it to Azure blob storage. Consult [this quickstart guide](../../quickstarts/convert-model.md) for how to create an Azure blob container. Once you have a blob container, you can open it in Azure Storage Explorer and upload your file via drag and drop.
+
+On the runtime side, you can address a texture asset in blob storage in two distinct ways:
+
+* Address texture by its SAS URI. For that, right-click on the uploaded file and select "**Get Shared Access Signature...**" from context menu. Use this SAS URI with the `LoadTextureFromSASAsync` function variant (see sample code below).
+* Address the texture by blob storage parameters directly, in case the [blob storage is linked to the account](../../how-tos/create-an-account.md#link-storage-accounts). Relevant loading function in this case is `LoadTextureAsync`.
 
 Now open the **RemoteModelEntity** script, add the following code, and remove duplicate functions:
 
@@ -338,9 +345,9 @@ Now open the **RemoteModelEntity** script, add the following code, and remove du
 
         if (on)
         {
-            var textureParams = new LoadTextureParams(textureFile, TextureType.Texture2D);
+            var textureParams = new LoadTextureFromSASParams(textureFile, TextureType.Texture2D);
 
-            newTexture = await RemoteManagerUnity.CurrentSession.Actions.LoadTextureAsync(textureParams).AsTask();
+            newTexture = await RemoteManagerUnity.CurrentSession.Actions.LoadTextureFromSASAsync(textureParams).AsTask();
         }
 
         if (materials[0].MaterialSubType == MaterialType.Color)

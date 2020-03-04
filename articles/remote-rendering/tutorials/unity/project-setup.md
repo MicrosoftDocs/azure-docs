@@ -290,7 +290,7 @@ At this point Azure is provisioning a server for you and starting up a remote re
 
 ![Session ready output](media/create-session-output-2.png)
 
-This is it! For the time being nothing more will happen. To prevent charges, you should always stop sessions when they are not needed anymore. In this sample you can either do this by clicking the **Stop Session** button or by stopping the Unity simulation. Due to the **Auto-Stop Session** property on the *ARRServiceUnity* component, which is on by default, the session will be stopped automatically for you. If everything fails, due to crashes or connection issues, your session may run for as long as your *MaxLeaseTime* before it is shut down by the server.
+This is it! For the time being nothing more will happen. To prevent charges, you should always stop sessions when they are not needed anymore. In this sample, you can either do this by clicking the **Stop Session** button or by stopping the Unity simulation. Due to the **Auto-Stop Session** property on the *ARRServiceUnity* component, which is on by default, the session will be stopped automatically for you. If everything fails, due to crashes or connection issues, your session may run for as long as your *MaxLeaseTime* before it is shut down by the server.
 
 > [!NOTE]
 > Stopping a session will take immediate effect and cannot be undone. Once stopped, you have to create a new session, with the same startup overhead.
@@ -573,8 +573,9 @@ Insert the following code into the *RemoteRendering* script and remove the old v
 #endif
 
         // load a model that will be parented to the entity
-        var loadModelParams = new LoadModelParams(ModelName, modelEntity);
-        var async = arrService.CurrentActiveSession.Actions.LoadModelAsync(loadModelParams);
+        // We are using the 'from SAS' flavor because that variant can load the built-in model
+        var loadModelParams = new LoadModelFromSASParams(ModelName, modelEntity);
+        var async = arrService.CurrentActiveSession.Actions.LoadModelFromSASAsync(loadModelParams);
         async.ProgressUpdated += (float progress) =>
         {
             Debug.Log($"Loading: {progress * 100.0f}%");
