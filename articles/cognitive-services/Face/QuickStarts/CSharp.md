@@ -74,7 +74,7 @@ Add the following code to the **Main** method of the **Program** class. This cod
         static void Main(string[] args)
         {
 
-            // Explicitly set TLS 1.2. Ensures this code works on Windows 7
+            // Explicitly set TLS 1.2. Ensures this code works on Windows 7.
             ServicePointManager.SecurityProtocol = ServicePointManager.SecurityProtocol |
                 SecurityProtocolType.Tls12;
 
