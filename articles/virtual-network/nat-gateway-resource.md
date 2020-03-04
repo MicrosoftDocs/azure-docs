@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/24/2020
+ms.date: 03/04/2020
 ms.author: allensu
 ---
 
@@ -346,6 +346,10 @@ We want to know how we can improve the service. Share your [feedback on the Publ
 ## Next steps
 
 - Learn more about [virtual network NAT](nat-overview.md).
+- Learn more about [metrics and alerts for NAT gateway resources][nat-metrics.md].
+- Learn more about [troubleshooting NAT gateway resources](troubleshoot-nat.md).
+- [Tell us what to build next in UserVoice](https://aka.ms/natuservoice).
+- [Provide feedback on the Public Preview](https://aka.ms/natfeedback).
 - Tutorial for validating NAT Gateway
   * [Azure CLI](tutorial-create-validate-nat-gateway-cli.md),
   * [PowerShell](tutorial-create-validate-nat-gateway-cli.md),
@@ -361,5 +365,4 @@ We want to know how we can improve the service. Share your [feedback on the Publ
   * [REST API](https://docs.microsoft.com/rest/api/virtualnetwork/natgateways),
   * [Azure CLI](https://docs.microsoft.com/cli/azure/network/nat/gateway?view=azure-cli-latest),
   * [PowerShell](https://docs.microsoft.com/powershell/module/az.network/new-aznatgateway).
-- [Tell us what to build next in UserVoice](https://aka.ms/natuservoice).
-- [Provide feedback on the Public Preview](https://aka.ms/natfeedback).
+
