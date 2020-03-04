@@ -6,7 +6,7 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.author: normesta
-ms.date: 05/28/2019
+ms.date: 03/04/2020
 ---
 
 # Host a static website in Azure Storage
@@ -15,9 +15,9 @@ You can serve static content (HTML, CSS, JavaScript, and image files) directly f
 
 This article shows you how to enable static website hosting by using the Azure portal, the Azure CLI, or PowerShell.
 
-For a step-by-step tutorial, see [Tutorial: Host a static website on Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website-host).
-
 ## Enable static website hosting
+
+Static website hosting is a feature that you have to enable on the storage account.
 
 ### [Portal](#tab/azure-portal)
 
@@ -42,6 +42,8 @@ For a step-by-step tutorial, see [Tutorial: Host a static website on Blob Storag
     ![Enable static website hosting for a storage account](media/storage-blob-static-website-host/enable-static-website-hosting.png)
 
 ### [Azure CLI](#tab/azure-cli)
+
+<a id="cli" />
 
 You can enable static website hosting by using the [Azure Command-Line Interface (CLI)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
 
@@ -68,6 +70,8 @@ You can enable static website hosting by using the [Azure Command-Line Interface
    * Replace the `<index-document-name>` placeholder with the name of the index document. This document is commonly "index.html".
 
 ### [PowerShell](#tab/azure-powershell)
+
+<a id="powershell" />
 
 You can enable static website hosting by using the Azure PowerShell module.
 
@@ -123,46 +127,61 @@ You can enable static website hosting by using the Azure PowerShell module.
 
 ### [Portal](#tab/azure-portal)
 
-Put something here.
+These instructions show you how to upload files by using the version of Storage Explorer that appears in the Azure portal. However, you can also use the version of [Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) that runs outside of the Azure portal. You could use [AzCopy](../common/common/storage-use-azcopy-v10.md), PowerShell, CLI, or any custom application that can upload files to the **$web** container of your account. For a step-by-step tutorial that uploads files by using Visual Studio code, see [Tutorial: Host a static website on Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website-host).
+
+1. Select **Storage Explorer (preview)**.
+
+2. Expand the **BLOB CONTAINERS** node, and then select the **$web** container.
+
+3. Choose the **Upload** button to upload files.
+
+   ![Upload files](media/storage-blob-static-website/storage-blob-static-website-upload.png)
+
+4. If you intend for the browser to display the contents of file, make sure that the content type of that file is set to `text/html`. 
+
+   ![Check content types](media/storage-blob-static-website/storage-blob-static-website-content-type.png)
+
+   >[!NOTE]
+   > Storage Explorer automatically sets this property to `text/html` for commonly recognized extensions such as `.html`. However, in some cases, you'll have to set this yourself. If you don't set this property to `text/html`, the browser will prompt users to download the file instead of rendering the contents. To set this property, right-click the file, and then click **Properties**.
 
 ### [Azure CLI](#tab/azure-cli)
 
-1. Upload objects to the *$web* container from a source directory.
+Upload objects to the *$web* container from a source directory.
 
-   > [!NOTE]
-   > If you're using Azure Cloud Shell, make sure to add an `\` escape character when referring to the `$web` container (For example: `\$web`). If you're using a local installation of the Azure CLI, then you won't have to use the escape character.
+> [!NOTE]
+> If you're using Azure Cloud Shell, make sure to add an `\` escape character when referring to the `$web` container (For example: `\$web`). If you're using a local installation of the Azure CLI, then you won't have to use the escape character.
 
-   This example assumes that you're running commands from Azure Cloud Shell session.
+This example assumes that you're running commands from Azure Cloud Shell session.
 
-   ```azurecli-interactive
-   az storage blob upload-batch -s <source-path> -d \$web --account-name <storage-account-name> --content-type 'text/html; charset=utf-8'
-   ```
+```azurecli-interactive
+az storage blob upload-batch -s <source-path> -d \$web --account-name <storage-account-name> --content-type 'text/html; charset=utf-8'
+```
 
-   * Replace the `<storage-account-name>` placeholder value with the name of your storage account.
+* Replace the `<storage-account-name>` placeholder value with the name of your storage account.
 
-   * Replace the `<source-path>` placeholder with a path to the location of the files that you want to upload.
+* Replace the `<source-path>` placeholder with a path to the location of the files that you want to upload.
 
-   > [!NOTE]
-   > If you're using a location installation of Azure CLI, then you can use the path to any location on your local computer (For example: `C:\myFolder`.
-   >
-   > If you're using Azure Cloud Shell, you'll have to reference a file share that is visible to the Cloud Shell. This location could be the file share of the Cloud share itself or an existing file share that you mount from the Cloud Shell. To learn how to do this, see [Persist files in Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/persisting-shell-storage).
+> [!NOTE]
+> If you're using a location installation of Azure CLI, then you can use the path to any location on your local computer (For example: `C:\myFolder`.
+>
+> If you're using Azure Cloud Shell, you'll have to reference a file share that is visible to the Cloud Shell. This location could be the file share of the Cloud share itself or an existing file share that you mount from the Cloud Shell. To learn how to do this, see [Persist files in Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/persisting-shell-storage).
 
 ### [PowerShell](#tab/azure-powershell)
 
-1. Upload objects to the *$web* container from a source directory.
+Upload objects to the *$web* container from a source directory.
 
-    ```powershell
-    # upload a file
-    set-AzStorageblobcontent -File "<path-to-file>" `
-    -Properties @{ ContentType = "text/html; charset=utf-8";} `
-    -Container `$web `
-    -Blob "<blob-name>" `
-    -Context $ctx
-     ```
+```powershell
+# upload a file
+set-AzStorageblobcontent -File "<path-to-file>" `
+-Properties @{ ContentType = "text/html; charset=utf-8";} `
+-Container `$web `
+-Blob "<blob-name>" `
+-Context $ctx
+```
 
-   * Replace the `<path-to-file>` placeholder value with the fully qualified path to the file that you want to upload (For example: `C:\temp\index.html`).
+* Replace the `<path-to-file>` placeholder value with the fully qualified path to the file that you want to upload (For example: `C:\temp\index.html`).
 
-   * Replace the `<blob-name>` placeholder value with the name that you want to give the resulting blob (For example: `index.html`).
+* Replace the `<blob-name>` placeholder value with the name that you want to give the resulting blob (For example: `index.html`).
 
 ---
 
@@ -172,11 +191,15 @@ You can view the pages of your site from a browser by using the public URL of th
 
 ### [Portal](#tab/azure-portal)
 
+<a id="portal-find-url" />
+
 In the pane that appears beside the account overview page of your storage account, select **Static Website**. The URL of your site appears in the **Primary endpoint** field.
 
 ![Azure Storage static websites metrics metric](./media/storage-blob-static-website/storage-blob-static-website-url.png)
 
 ### [Azure CLI](#tab/azure-cli)
+
+<a id="cli-find-url" />
 
 Find the public URL of your static website by using the following command:
 
@@ -189,6 +212,8 @@ az storage account show -n <storage-account-name> -g <resource-group-name> --que
 * Replace the `<resource-group-name>` placeholder value with the name of your resource group.
 
 ### [PowerShell](#tab/azure-powershell)
+
+<a id="powershell-find-url" />
 
 Find the public URL of your static website by using the public URL of the website.
 
