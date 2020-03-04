@@ -1,12 +1,10 @@
 ﻿---
 title: Deploy your first app to Cloud Foundry on Microsoft Azure 
 description: Deploy an application to Cloud Foundry on Azure
-services: virtual-machines-linux
 author: seanmck
 ms.service: virtual-machines-linux
 ms.subservice: workloads
 ms.topic: article
-ms.workload: infrastructure-services
 ms.date: 06/14/2017
 ms.author: seanmck
 ---

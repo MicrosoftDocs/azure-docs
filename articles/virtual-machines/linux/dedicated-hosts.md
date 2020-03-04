@@ -4,7 +4,6 @@ description: Learn more about how Azure Dedicated Hosts can be used for deployin
 author: cynthn
 ms.service: virtual-machines
 ms.topic: article
-ms.workload: infrastructure
 ms.date: 01/09/2020
 ms.author: cynthn
 

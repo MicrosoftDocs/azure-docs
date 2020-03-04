@@ -1,11 +1,9 @@
 ---
 title: Use Docker Compose 
 description: How to install and use Docker and Compose on Linux virtual machines with the Azure CLI.
-services: virtual-machines-linux
 author: cynthn
 ms.service: virtual-machines-linux
 ms.topic: article
-ms.workload: infrastructure-services
 ms.date: 02/14/2019
 ms.author: cynthn
 ---

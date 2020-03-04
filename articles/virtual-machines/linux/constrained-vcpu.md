@@ -4,7 +4,6 @@ description: Lists the Vm sizes that are capable of having a constrained vCPU co
 author: jonbeck7
 ms.service: virtual-machines
 ms.topic: article
-ms.workload: infrastructure-services
 ms.date: 03/09/2018
 ms.author: jonbeck
 ---
