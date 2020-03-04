@@ -100,6 +100,8 @@ Details of how traffic shall be migrated to new Gateways in specific regions are
 | Korea South          | 52.231.200.86      |
 | North Central US     | 23.96.178.199, 23.98.55.75, 52.162.104.33 |
 | North Europe         | 40.113.93.91, 191.235.193.75, 52.138.224.1 | 
+| Norway East          | 51.120.96.0        |
+| Norway West          | 51.120.216.0       |
 | South Africa North   | 102.133.152.0      |
 | South Africa West    | 102.133.24.0       |
 | South Central US     | 13.66.62.124, 23.98.162.75, 104.214.16.32   | 
