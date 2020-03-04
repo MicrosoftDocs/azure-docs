@@ -47,6 +47,7 @@ In an empty folder, run the following command to generate the Functions project 
 ```bash
 mvn archetype:generate -DarchetypeGroupId=com.microsoft.azure -DarchetypeArtifactId=azure-functions-archetype 
 ```
+
 > [!NOTE]
 > If you're using Powershell, remeber to add "" around parameters.
 
@@ -80,7 +81,9 @@ Use the following command to clone the sample project:
 git clone https://github.com/Azure-Samples/azure-functions-samples-java.git
 cd azure-functions-samples-java/
 ```
+
 Open `build.gradle` and change the `appName` in the following section to a unique name to avoid domain name conflict when deploying to Azure. 
+
 ```gradle
 azurefunctions {
     resourceGroup = 'java-functions-group'
@@ -110,6 +113,7 @@ mvn clean package
 mvn azure-functions:run
 ```
 ::: zone-end 
+
 ::: zone pivot="java-build-tools-gradle"  
 ```bash
 gradle jar --info
