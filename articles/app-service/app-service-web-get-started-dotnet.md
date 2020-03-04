@@ -35,18 +35,16 @@ Create an ASP.NET Core web app by following these steps:
 
 1. Open Visual Studio and select **Create a new project**.
 
-1. In **Create a new project**, find and choose **ASP.NET Core Web Application** and confirm that C# is listed in the languages for that choice, then select **Next**.
+1. In **Create a new project**, find and choose **ASP.NET Core Web Application** and confirm that **C#** is listed in the languages for that choice, then select **Next**.
 
-1. In **Configure your new project**, name the application *myFirstAzureWebApp*, and then select **Create**.
+1. In **Configure your new project**, name your web application project *myFirstAzureWebApp*, and select **Create**.
 
    ![Configure your web app project](./media/app-service-web-get-started-dotnet/configure-web-app-project.png)
 
-1. For this quickstart, choose the **Web Application** template. Make sure Authentication is set to **No Authentication** and no other option is selected. Select **Create**.
+1. For this quickstart, choose the **Web Application** template. You can deploy any type of ASP.NET Core web app to Azure. Make sure Authentication is set to **No Authentication** and no other option is selected. Select **Create**.
 
    ![Select ASP.NET Core Razor Pages for this tutorial](./media/app-service-web-get-started-dotnet/aspnet-razor-pages-app.png)
-
-    You can deploy any type of ASP.NET Core web app to Azure.
-
+   
 1. From the Visual Studio menu, select **Debug** > **Start Without Debugging** to run the web app locally.
 
    ![Run app locally](./media/app-service-web-get-started-dotnet/razor-web-app-running-locally.png)
@@ -55,7 +53,7 @@ Create an ASP.NET Core web app by following these steps:
 
 1. In **Solution Explorer**, right-click the **myFirstAzureWebApp** project and select **Publish**.
 
-1. Choose **App Service** and then select **Publish**.
+1. Choose **App Service** and then select **Create Profile**.
 
    ![Publish from project overview page](./media/app-service-web-get-started-dotnet/publish-app-vs2019.png)
 
@@ -110,7 +108,7 @@ The app name specified in the **App Service Create new** page is used as the URL
    ```HTML
    <div class="jumbotron">
        <h1>ASP.NET in Azure!</h1>
-       <p class="lead">This is a simple app that we’ve built that demonstrates how to deploy a .NET app to Azure App Service.</p>
+       <p class="lead">This is a simple app that we've built that demonstrates how to deploy a .NET app to Azure App Service.</p>
    </div>
    ```
 
