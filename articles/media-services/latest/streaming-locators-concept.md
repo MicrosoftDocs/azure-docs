@@ -11,7 +11,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 05/26/2019
+ms.date: 03/04/2020
 ms.author: juliako
 ---
 
@@ -95,11 +95,12 @@ To get Streaming Locators based on the associated Asset name, use the following 
 |Java|[AssetStreamingLocator](https://docs.microsoft.com/rest/api/media/assets/liststreaminglocators#assetstreaminglocator)|
 |Node.js|[listStreamingLocators](https://docs.microsoft.com/javascript/api/@azure/arm-mediaservices/assets#liststreaminglocators-string--string--string--msrest-requestoptionsbase-)|
 
-## Also see
+## See also
 
 * [Assets](assets-concept.md)
 * [Streaming Policies](streaming-policy-concept.md)
 * [Content Key Policies](content-key-policy-concept.md)
+* [How to build a streaming URL](build-streaming-url.md)
 
 ## Next steps
 
