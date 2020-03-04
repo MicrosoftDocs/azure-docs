@@ -31,7 +31,7 @@ You must have a function app to host the execution of your functions. A function
 
 Next, create a function in the new function app.
 
-## Create an HTTP-triggered function
+## <a name="create-function"></a>Create an HTTP-triggered function
 
 1. Expand your new function app, select the **+** button next to **Functions**, choose **In-portal**, and then select **Continue**.
 
