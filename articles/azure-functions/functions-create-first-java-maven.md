@@ -73,6 +73,7 @@ cd fabrikam-function
 ::: zone-end 
 ::: zone pivot="java-build-tools-gradle"
 Use the following command to clone the sample project:
+
 ```bash
 git clone https://github.com/Azure-Samples/azure-functions-samples-java.git
 cd azure-functions-samples-java/
