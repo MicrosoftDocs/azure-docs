@@ -157,7 +157,7 @@ There are some advantages and disadvantages to each option.  Azure Bastion provi
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
 [private-link-service]: /private-link/private-link-service-overview
-[virtual-network-peering]: /azure/virtual-network/virtual-network-peering-overview.md
-[azure-bastion]  /azure/bastion/bastion-create-host-portal
-[express-route-or-vpn] /azure/expressroute/expressroute-about-virtual-network-gateways
+[virtual-network-peering]: ../virtual-network/virtual-network-peering-overview.md
+[azure-bastion]  ../bastion/bastion-create-host-portal
+[express-route-or-vpn] ../expressroute/expressroute-about-virtual-network-gateways
 
