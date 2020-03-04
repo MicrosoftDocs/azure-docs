@@ -1,5 +1,5 @@
 ---
-title: Scale compute for Synapse SQL pool using the Azure portal
+title: Scale compute for Synapse SQL pool (Azure portal)
 description: You can scale compute for Synapse SQL pool (data warehouse) using the Azure portal.
 services: sql-data-warehouse
 author: Antvgski
@@ -13,7 +13,7 @@ ms.reviewer: jrasnick
 ms.custom: seo-lt-2019, azure-synapse
 ---
 
-# Quickstart: Scale compute for Synapse SQL pool using the Azure portal
+# Quickstart: Scale compute for Synapse SQL pool with the Azure portal
 
 You can scale compute for Synapse SQL pool (data warehouse) using the Azure portal. [Scale out compute](sql-data-warehouse-manage-compute-overview.md) for better performance, or scale back compute to save costs. 
 
@@ -25,7 +25,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 ## Before you begin
 
-You can scale a SQL pool that you already have or use [Quickstart: create and connect - portal](create-data-warehouse-portal.md) to create a SQL pool named **mySampleDataWarehouse**.  This quickstart scales **mySampleDataWarehouse**.
+You can scale a SQL pool that you already have or use [Quickstart: create and connect - portal](create-data-warehouse-portal.md) to create a SQL pool named **mySampleDataWarehouse**. This quickstart scales **mySampleDataWarehouse**.
 
 >[!IMPORTANT] 
 >Your SQL pool must be online to scale. 

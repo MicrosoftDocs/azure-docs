@@ -61,7 +61,7 @@ Follow these steps to create a SQL pool that contains the **AdventureWorksDW** s
 
    For more information about performance levels, see [Manage compute in Azure SQL Data Warehouse](sql-data-warehouse-manage-compute-overview.md).
 
-5. Now that you've completed the Basics tab of the Azure Synapse Analytics form, select **Review + Create** and then **Create** to create the data warehSQL pool. Provisioning takes a few minutes.
+5. Now that you've completed the Basics tab of the Azure Synapse Analytics form, select **Review + Create** and then **Create** to create the SQL pool. Provisioning takes a few minutes.
 
    ![select Review + Create](media/create-data-warehouse-portal/create-sql-pool-review-create.png)
 
