@@ -7,13 +7,13 @@ author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 03/02/2020
+ms.date: 03/04/2020
 ms.author: dapine
 ---
 
 # Azure Cognitive Services - Gating Process
 
-Cognitive Services extends artificial intelligence (AI) within reach to every developer, without requiring machine-learning expertise. All it takes is an API call to embed the ability to see, hear, speak, search, understand, and accelerate decision-making into your applications. This article will guide you through the application process for gated Cognitive Services offerings.
+As new Azure Cognitive Services are introduced they're fed through a gating process, where customers have to explicitly request access. This process is in place to help identify opportunities for improvement with the service offering. This article will guide you through the application process for gated Cognitive Services offerings.
 
 Currently, the services below are offered through the gating process:
 
@@ -26,13 +26,13 @@ Currently, the services below are offered through the gating process:
 
 ## Online Containers
 
-| Service                                        | Container(s)                                                                  |
-|------------------------------------------------|-------------------------------------------------------------------------------|
-| [Computer Vision][cv-containers]               | Read                                                                          |
-| [Face][fa-containers]                          | Face                                                                          |
-| [Form Recognizer][fr-containers]               | Form Recognizer                                                               |
-| [Speech Service API][sp-containers]            | Speech-to-text (Custom and Standard) and Text-to-speech (Custom and Standard) |
-| [Translator Text][tt-containers]               | Translator Text                                                               |
+| Service                             | Container(s)                                                                  |
+|-------------------------------------|-------------------------------------------------------------------------------|
+| [Computer Vision][cv-containers]    | Read                                                                          |
+| [Face][fa-containers]               | Face                                                                          |
+| [Form Recognizer][fr-containers]    | Form Recognizer                                                               |
+| [Speech Service API][sp-containers] | Speech-to-text (Custom and Standard) and Text-to-speech (Custom and Standard) |
+| [Translator Text][tt-containers]    | Translator Text                                                               |
 
 ## Offline containers
 
