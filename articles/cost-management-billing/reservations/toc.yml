@@ -26,6 +26,8 @@
       href: ../../data-explorer/pricing-reserved-capacity.md?toc=/azure/billing/TOC.json
     - name: Buy an Azure Databricks reservation
       href: prepay-databricks-reserved-capacity.md
+    - name: Buy an Azure Cache for Redis reservation
+      href: ../../azure-cache-for-redis/cache-reserved-pricing.md?toc=/azure/billing/TOC.json
     - name: Buy an App Service reservation
       href: prepay-app-service-isolated-stamp.md
     - name: Buy Azure software plan reservations
