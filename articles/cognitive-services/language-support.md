@@ -14,7 +14,12 @@ ms.custom: seodec18
 
 # Natural language support for Azure Cognitive Services
 
-Azure Cognitive Services enables you to build applications that see, hear, speak with, and understand your users. Between these services, more than three dozen languages are supported, allowing users to communicate with your application in natural ways. Language availability may vary by country/region and market.
+Azure Cognitive Services enable you to build applications that see, hear, speak with, and understand your users. Between these services, more than three dozen languages are supported, allowing users to communicate with your application in natural ways. Use the links below to view language availability by service.
+
+These Cognitive Services are language agnostic and don't have limitations based on language.
+
+* [Personalizer](https://docs.microsoft.com/azure/cognitive-services/personalizer/)
+* [Anomaly Detector (Preview)](https://docs.microsoft.com/azure/cognitive-services/anomaly-detector/overview)
 
 ## Vision
 
