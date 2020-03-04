@@ -74,7 +74,6 @@ Enter index to use:
 Define value for runtimeStack(Default: TOMCAT 8.5):
 1. TOMCAT 9.0
 2. TOMCAT 8.5 [*]
-3. WILDFLY 14
 Enter index to use:
 Please confirm webapp properties
 AppName : helloworld-1558400876966
@@ -135,7 +134,13 @@ This command may take a minute to run.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Tutorial: Java Enterprise app with PostgreSQL](tutorial-java-enterprise-postgresql-app.md)
+> [Connect to Azure SQL database with Java](/azure/sql-database/sql-database-connect-query-java?toc=%2Fazure%2Fjava%2Ftoc.json)
+
+> [!div class="nextstepaction"]
+> [Connect to Azure DB for MySQL with Java](/azure/mysql/connect-java?toc=/azure/java/toc.json)
+
+> [!div class="nextstepaction"]
+> [Connect to Azure DB for PostgreSQL with Java](/azure/postgresql/connect-java?toc=/azure/java/toc.json)
 
 > [!div class="nextstepaction"]
 > [Configure Java app](configure-custom-container.md)

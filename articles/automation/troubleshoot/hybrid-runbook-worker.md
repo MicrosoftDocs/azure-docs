@@ -48,7 +48,7 @@ Computers running the Hybrid Runbook Worker should meet the minimum hardware req
 
 Confirm that the computer to run the Hybrid Runbook Worker feature meets the minimum hardware requirements. If it does, monitor CPU and memory use to determine any correlation between the performance of Hybrid Runbook Worker processes and Windows. Any memory or CPU pressure can indicate the need to upgrade resources. You can also select a different compute resource that supports the minimum requirements and scale when workload demands indicate that an increase is necessary.
 
-Check the **Microsoft-SMA** event log for a corresponding event with description *Win32 Process Exited with code [4294967295]*. The cause of this error is that you haven't configured authentication in your runbooks or specified the Run As credentials for the Hybrid Worker group. Review [Runbook permissions](../automation-hrw-run-runbooks.md#runbook-permissions) to confirm that you have correctly configured authentication for your runbooks.
+Check the **Microsoft-SMA** event log for a corresponding event with description *Win32 Process Exited with code [4294967295]*. The cause of this error is that you haven't configured authentication in your runbooks or specified the Run As credentials for the Hybrid Runbook Worker group. Review runbook permissions in [Running runbooks on a Hybrid Runbook Worker](../automation-hrw-run-runbooks.md) to confirm that you have correctly configured authentication for your runbooks.
 
 ### <a name="no-cert-found"></a>Scenario: No certificate was found in the certificate store on Hybrid Runbook Worker
 
