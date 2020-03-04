@@ -240,7 +240,7 @@ The spatial IO module supports the following GML elements.
 **Additional notes**
 
 - Member elements will be searched for a geometry that may be buried within child elements. This search operation is necessary as many XML formats that extend from GML may not place a geometry as a direct child of a member element.
-- `srsName` is partially supported for WGS84 coordinates and the following codes:[EPSG:4326](https://epsg.io/4326)), and web mercator ([EPSG:3857](https://epsg.io/3857) or one of its alternative codes. Any other coordinate system will be parsed as WGS84 as-is.
+- `srsName` is partially supported for WGS84 coordinates and the following codes:[EPSG:4326](https://epsg.io/4326)), and web Mercator ([EPSG:3857](https://epsg.io/3857) or one of its alternative codes. Any other coordinate system will be parsed as WGS84 as-is.
 - Unless specified when reading an XML feed, the axis order is determined based on hints in the XML feed. A preference is given for the "latitude, longitude" axis order.
 - Unless a custom GML namespace is specified for the properties when writing to a GML file, additional property information will not be added.
 

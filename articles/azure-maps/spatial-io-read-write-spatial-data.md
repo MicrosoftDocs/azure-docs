@@ -133,7 +133,7 @@ function readData(data, fileName) {
 
 ## Read and write Well Known Text (WKT)
 
-[Well Known Text](https://en.wikipedia.org/wiki/Well-known_text_representation_of_geometry) (WKT) is an Open Geospatial Consortium (OGC) standard for representing spatial geometries as text. Many geospatial systems support WKT, such as Azure SQL and Azure PostgreSQL using the PostGIS plugin. Like most OGC standards, coordinates are formatted as "longitude latitude" to align with the "x y" convention. As an example, a point at longitude -110 and latitude 45 can be written as `POINT(-110 45)` using the WKT format. The following table provides details on the geometry types supported for reading and writing WKT.
+[Well Known Text](https://en.wikipedia.org/wiki/Well-known_text_representation_of_geometry) (WKT) is an Open Geospatial Consortium (OGC) standard for representing spatial geometries as text. Many geospatial systems support WKT, such as Azure SQL and Azure PostgreSQL using the PostGIS plugin. Like most OGC standards, coordinates are formatted as "longitude latitude" to align with the "x y" convention. As an example, a point at longitude -110 and latitude 45 can be written as `POINT(-110 45)` using the WKT format.
 
 Well-known text can be read using the `atlas.io.ogc.WKT.read` function, and written using the `atlas.io.ogc.WKT.write` function.
 
