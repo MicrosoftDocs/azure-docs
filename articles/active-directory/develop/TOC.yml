@@ -522,12 +522,13 @@
 - name: References
   items:
   - name: Authentication libraries
-    displayName: MSAL
+    displayName: MSAL, auth library, SDK
     href: reference-v2-libraries.md
   - name: Identity and access APIs in Microsoft Graph
     href: https://docs.microsoft.com/graph/api/resources/azure-ad-overview?view=graph-rest-beta
   - name: Application manifest
     href: reference-app-manifest.md
+    displayName: app manifest
   - name: Android MSAL configuration file
     href: msal-configuration.md
   - name: Authentication and authorization error codes

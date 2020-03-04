@@ -5,7 +5,7 @@ author: bandersmsft
 ms.reviewer: adwise
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 02/26/2020
+ms.date: 03/03/2020
 ms.author: banders
 ---
 # Understand Azure Enterprise Agreement administrative roles in Azure

@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/02/2020
+ms.date: 03/04/2020
 ms.author: allensu
 ---
 
@@ -39,7 +39,7 @@ A single [NAT gateway resource](nat-gateway-resource.md) supports from 64,000 up
 #### Steps:
 
 1. Investigate how your application is creating outbound connectivity (for example, code review or packet capture). 
-2. Determine if this activity is expected behavior or whether the application is misbehaving.  Use metrics in Azure Monitor to substantiate your findings.
+2. Determine if this activity is expected behavior or whether the application is misbehaving.  Use [metrics](nat-metrics.md) in Azure Monitor to substantiate your findings.
 3. Evaluate if appropriate patterns are followed.
 4. Evaluate if SNAT port exhaustion should be mitigated with additional IP addresses assigned to NAT gateway resource.
 
@@ -78,3 +78,4 @@ The following table can be used a starting point for which tools to use to start
 
 - Learn about [Virtual Network NAT](nat-overview.md)
 - Learn about [NAT gateway resource](nat-gateway-resource.md)
+- Learn about [metrics and alerts for NAT gateway resources](nat-metrics.md).
