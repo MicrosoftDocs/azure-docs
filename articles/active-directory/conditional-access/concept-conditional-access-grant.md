@@ -120,13 +120,11 @@ This setting applies to the following client apps:
 - The **Require app protection policy** requirements:
     - Only supports the iOS and Android for device platform condition.
 
-<<<<<<< HEAD
 See the article, [How to: Require app protection policy and an approved client app for cloud app access with Conditional Access](app-protection-based-conditional-access.md) for configuration examples.
-=======
+
 ### Terms of use
 
 If your organization has created terms of use, additional options may be visible under grant controls. These options allow administrators to require acknowledgment of terms of use as a condition of accessing the resources protected by the policy. More information about terms of use can be found in the article, [Azure Active Directory terms of use](terms-of-use.md).
->>>>>>> 336afe0b34fbf0390a21d8ac40e1bd7c6b148fd3
 
 ## Next steps
 
