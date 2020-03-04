@@ -14,7 +14,7 @@ ms.subservice: common
 
 This article describes how you plan and manage costs for Azure Storage. First, you use the Azure pricing calculator to help plan for storage costs before you add any resources. After you begin using Azure Storage resources, use cost management features to set budgets and monitor costs. You can also review forecasted costs and monitor spending trends to identify areas where you might want to act.
 
-Keep in mind that costs for Azure Storage are only a portion of the monthly costs in your Azure bill. Although this article explains how to plan for and manage costs for Azure Storage, you’re billed for all Azure services and resources used for your Azure subscription, including the third-party services. After you’re familiar with managing costs for Azure Storage, you can apply similar methods to manage costs for all the Azure services used in your subscription.
+Keep in mind that costs for Azure Storage are only a portion of the monthly costs in your Azure bill. Although this article explains how to plan for and manage costs for Azure Storage, you're billed for all Azure services and resources used for your Azure subscription, including the third-party services. After you're familiar with managing costs for Azure Storage, you can apply similar methods to manage costs for all the Azure services used in your subscription.
 
 ## Prerequisites
 
@@ -54,11 +54,9 @@ To view Azure Storage costs in cost analysis:
 
 2. Open the **Cost Management + Billing** window, select **Cost management** from the menu and then select **Cost analysis**. You can then change the scope for a specific subscription from the **Scope** dropdown.
 
-3. By default, cost for all services are shown in the first donut chart. Select the area in the chart labeled **storage**.
-
    ![Monitor costs with Cost Analysis pane](./media/storage-plan-manage-costs/cost-analysis-pane.png)
 
-4. To narrow costs for a single service such as Azure Storage, select **Add filter** and then select **Service name**. Then, choose **storage** from the list. 
+4. To view only costs for Azure Storage, select **Add filter** and then select **Service name**. Then, choose **storage** from the list. 
 
    Here's an example showing costs for just Azure Storage:
 
