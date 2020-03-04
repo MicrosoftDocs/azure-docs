@@ -34,7 +34,7 @@ The following sections outline the Web Mapping Service features that are support
 - Supported versions: `1.0.0`
 - Tiles must be square, such that `TileWidth == TileHeight`.
 - CRS supported: `EPSG:3857` or `GoogleMapsCompatible` 
-- TileMatrix identifier must be an integer value that corresponds to a zoom level on the map. `"00"` isn't supported.
+- TileMatrix identifier must be an integer value that corresponds to a zoom level on the map. On an azure map, the zoom level is a value between `"0"` and `"22"`. So, `"0"` is supported, but `"00"` isn't supported.
 - Supported operations:
 
 | | |

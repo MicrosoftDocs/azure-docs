@@ -82,7 +82,7 @@ The following code demonstrates the use of different filters with the WFS client
 
 ## WFS service explorer
 
-The following code uses the WFS client to explore WFS services.
+The following code uses the WFS client to explore WFS services. Select a property type layer within the service and see the associated legend.
 
 <br/>
 
