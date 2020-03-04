@@ -41,6 +41,7 @@ Add the following `using` statements to the top of your *Program.cs* file.
 ```csharp
 using System;
 using System.IO;
+using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
@@ -74,7 +75,7 @@ Add the following code to the **Main** method of the **Program** class. This cod
         static void Main(string[] args)
         {
 
-            // Explicitly set TLS 1.2. Ensures this code works on Windows 7.
+            // Explicitly set TLS 1.2.
             ServicePointManager.SecurityProtocol = ServicePointManager.SecurityProtocol |
                 SecurityProtocolType.Tls12;
 
