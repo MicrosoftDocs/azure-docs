@@ -14,7 +14,7 @@ ms.date: 10/11/2019
 
 [Git](https://git-scm.com/) is a popular version control system that allows you to share and collaborate on your projects. 
 
-Azure Machine Learning fully supports Git repositories for tracking work - you can clone repositories directly onto your shared workspace file system.
+Azure Machine Learning fully supports Git repositories for tracking work - you can clone repositories directly onto your shared workspace file system, use Git on your local workstation, or use Git from a CI/CD pipeline.
 
 When submitting a job to Azure Machine Learning, if source files are stored in a local git repository then information about the repo is tracked as part of the training process.
 
