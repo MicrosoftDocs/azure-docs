@@ -1,5 +1,6 @@
 ---
-title: Microsoft Threat Modeling Tool release 1/29/2019 - Azure
+title: Microsoft Threat Modeling Tool release 1/29/2019 
+titleSuffix: Azure
 description: Documenting the release notes for the threat modeling tool
 author: jegeib
 ms.author: jegeib

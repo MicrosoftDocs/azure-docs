@@ -659,6 +659,8 @@
         "articles/service-health/*.yml": "Azure Service Health",
         "articles/advisor/**/*.md": "Azure Advisor",
         "articles/advisor/*.yml": "Azure Advisor",
+        "articles/azure-monitor/**/*.yml" : "Azure Monitor",
+        "articles/azure-monitor/**/*.md" : "Azure Monitor",
         "articles/connectors/*.md": "Azure Logic Apps",
         "articles/logic-apps/*.md": "Azure Logic Apps",
         "articles/governance/blueprints/**/*.md": "Azure Blueprints",
@@ -712,8 +714,6 @@
         "articles/batch/*.yml": "Azure Batch",
         "articles/app-service-mobile/**/*.md": "Azure Mobile Apps",
         "articles/app-service-mobile/**/*.yml": "Azure Mobile Apps",
-        "articles/azure-monitor/**/*.yml" : "Azure Monitor",
-        "articles/azure-monitor/**/*.md" : "Azure Monitor",
         "articles/service-fabric/*.md": "Azure Service Fabric",
         "articles/service-fabric-mesh/*.md": "Azure Service Fabric Mesh",
         "articles/aks/**/*.md": "Azure Kubernetes Service"

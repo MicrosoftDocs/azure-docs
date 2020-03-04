@@ -9,8 +9,8 @@ metadata:
   description: Application Insights is part of the Azure Monitor service
   ms.service: application-insights
   ms.topic: hub-page
-  author: mrbullwinkle
-  ms.author: mbullwin
+  
+  
   manager: carmonm
   ms.date: 09/30/2019
 
