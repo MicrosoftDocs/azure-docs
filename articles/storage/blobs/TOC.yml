@@ -692,7 +692,7 @@
     items:
     - name: Create
       items:
-      - name: Create a storage account for your Data Lake
+      - name: Create a general purpose v2 storage account
         href: ../common/storage-account-create.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Migrate
       items:
@@ -798,7 +798,7 @@
         href: ../common/storage-use-data-movement-library.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Optimize
       items:
-      - name: Overview
+      - name: Optimize performance
         href: ../blobs/data-lake-storage-performance-tuning-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Optimize Spark on HDInsight
         href: ../blobs/data-lake-storage-performance-tuning-spark.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
