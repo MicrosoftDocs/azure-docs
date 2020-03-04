@@ -15,25 +15,33 @@ You can serve static content (HTML, CSS, JavaScript, and image files) directly f
 
 This article shows you how to enable static website hosting by using the Azure portal, the Azure CLI, or PowerShell.
 
-<a id="portal" />
-
-## [Portal](#tab/azure-portal)
-
 For a step-by-step tutorial, see [Tutorial: Host a static website on Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website-host).
 
-After you enable static website hosting, you can view the pages of your site from a browser by using the public URL of the website.
+## Enable static website hosting
 
-<a id="portal-find-url" />
+### [Portal](#tab/azure-portal)
 
-### Find the website URL by using the Azure portal
+1. Sign in to the [Azure portal](https://portal.azure.com/) to get started.
 
-In the pane that appears beside the account overview page of your storage account, select **Static Website**. The URL of your site appears in the **Primary endpoint** field.
+2. Locate your storage account and display the account overview.
 
-![Azure Storage static websites metrics metric](./media/storage-blob-static-website/storage-blob-static-website-url.png)
+3. Select **Static website** to display the configuration page for static websites.
 
-<a id="cli" />
+4. Select **Enabled** to enable static website hosting for the storage account.
 
-## [Azure CLI](#tab/azure-cli)
+5. In the **Index document name** field, specify a default index page (For example: *index.html*). 
+
+   The default index page is displayed when a user navigates to the root of your static website.  
+
+6. In the **Error document path** field, specify a default error page (For example: *404.html*). 
+
+   The default error page is displayed when a user attempts to navigate to a page that does not exist in your static website.
+
+7. Click **Save**. The Azure portal now displays your static website endpoint. 
+
+    ![Enable static website hosting for a storage account](media/storage-blob-static-website-host/enable-static-website-hosting.png)
+
+### [Azure CLI](#tab/azure-cli)
 
 You can enable static website hosting by using the [Azure Command-Line Interface (CLI)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
 
@@ -59,45 +67,7 @@ You can enable static website hosting by using the [Azure Command-Line Interface
 
    * Replace the `<index-document-name>` placeholder with the name of the index document. This document is commonly "index.html".
 
-4. Upload objects to the *$web* container from a source directory.
-
-   > [!NOTE]
-   > If you're using Azure Cloud Shell, make sure to add an `\` escape character when referring to the `$web` container (For example: `\$web`). If you're using a local installation of the Azure CLI, then you won't have to use the escape character.
-
-   This example assumes that you're running commands from Azure Cloud Shell session.
-
-   ```azurecli-interactive
-   az storage blob upload-batch -s <source-path> -d \$web --account-name <storage-account-name> --content-type 'text/html; charset=utf-8'
-   ```
-
-   * Replace the `<storage-account-name>` placeholder value with the name of your storage account.
-
-   * Replace the `<source-path>` placeholder with a path to the location of the files that you want to upload.
-
-   > [!NOTE]
-   > If you're using a location installation of Azure CLI, then you can use the path to any location on your local computer (For example: `C:\myFolder`.
-   >
-   > If you're using Azure Cloud Shell, you'll have to reference a file share that is visible to the Cloud Shell. This location could be the file share of the Cloud share itself or an existing file share that you mount from the Cloud Shell. To learn how to do this, see [Persist files in Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/persisting-shell-storage).
-
-<a id="cli-find-url" />
-
-### Find the website URL by using the Azure CLI
-
-You can view content from a browser by using the public URL of the website.
-
-Find the URL by using the following command:
-
-```azurecli-interactive
-az storage account show -n <storage-account-name> -g <resource-group-name> --query "primaryEndpoints.web" --output tsv
-```
-
-* Replace the `<storage-account-name>` placeholder value with the name of your storage account.
-
-* Replace the `<resource-group-name>` placeholder value with the name of your resource group.
-
-<a id="powershell" />
-
-## [PowerShell](#tab/azure-powershell)
+### [PowerShell](#tab/azure-powershell)
 
 You can enable static website hosting by using the Azure PowerShell module.
 
@@ -147,7 +117,39 @@ You can enable static website hosting by using the Azure PowerShell module.
 
    * Replace the `<index-document-name>` placeholder with the name of the index document. This document is commonly "index.html".
 
-7. Upload objects to the *$web* container from a source directory.
+---
+
+## Upload files 
+
+### [Portal](#tab/azure-portal)
+
+Put something here.
+
+### [Azure CLI](#tab/azure-cli)
+
+1. Upload objects to the *$web* container from a source directory.
+
+   > [!NOTE]
+   > If you're using Azure Cloud Shell, make sure to add an `\` escape character when referring to the `$web` container (For example: `\$web`). If you're using a local installation of the Azure CLI, then you won't have to use the escape character.
+
+   This example assumes that you're running commands from Azure Cloud Shell session.
+
+   ```azurecli-interactive
+   az storage blob upload-batch -s <source-path> -d \$web --account-name <storage-account-name> --content-type 'text/html; charset=utf-8'
+   ```
+
+   * Replace the `<storage-account-name>` placeholder value with the name of your storage account.
+
+   * Replace the `<source-path>` placeholder with a path to the location of the files that you want to upload.
+
+   > [!NOTE]
+   > If you're using a location installation of Azure CLI, then you can use the path to any location on your local computer (For example: `C:\myFolder`.
+   >
+   > If you're using Azure Cloud Shell, you'll have to reference a file share that is visible to the Cloud Shell. This location could be the file share of the Cloud share itself or an existing file share that you mount from the Cloud Shell. To learn how to do this, see [Persist files in Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/persisting-shell-storage).
+
+### [PowerShell](#tab/azure-powershell)
+
+1. Upload objects to the *$web* container from a source directory.
 
     ```powershell
     # upload a file
@@ -162,11 +164,33 @@ You can enable static website hosting by using the Azure PowerShell module.
 
    * Replace the `<blob-name>` placeholder value with the name that you want to give the resulting blob (For example: `index.html`).
 
-<a id="powershell-find-url" />
+---
 
-### Find the website URL by using PowerShell
+## Find the website URL by using the Azure portal
 
-You can view content from a browser by using the public URL of the website.
+You can view the pages of your site from a browser by using the public URL of the website.
+
+### [Portal](#tab/azure-portal)
+
+In the pane that appears beside the account overview page of your storage account, select **Static Website**. The URL of your site appears in the **Primary endpoint** field.
+
+![Azure Storage static websites metrics metric](./media/storage-blob-static-website/storage-blob-static-website-url.png)
+
+### [Azure CLI](#tab/azure-cli)
+
+Find the public URL of your static website by using the following command:
+
+```azurecli-interactive
+az storage account show -n <storage-account-name> -g <resource-group-name> --query "primaryEndpoints.web" --output tsv
+```
+
+* Replace the `<storage-account-name>` placeholder value with the name of your storage account.
+
+* Replace the `<resource-group-name>` placeholder value with the name of your resource group.
+
+### [PowerShell](#tab/azure-powershell)
+
+Find the public URL of your static website by using the public URL of the website.
 
 Find the URL by using the following command:
 
@@ -179,9 +203,9 @@ Write-Output $storageAccount.PrimaryEndpoints.Web
 
 * Replace the `<storage-account-name>` placeholder value with the name of your storage account.
 
-<a id="metrics" />
-
 ---
+
+<a id="metrics" />
 
 ## Enable metrics on static website pages
 
