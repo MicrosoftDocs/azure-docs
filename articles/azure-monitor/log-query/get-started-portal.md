@@ -119,7 +119,7 @@ To filter the `Event` query results to **Error** events by filtering the query r
    ![Filter](media/get-started-portal/filter.png)
 
 ## Sort, group, and select columns
-To sort query results by a specific column, such as **TimeGenerated (UTC)**, select the column heading. Select the heading again to toggle between ascending and descending order.
+To sort query results by a specific column, such as **TimeGenerated [UTC]**, select the column heading. Select the heading again to toggle between ascending and descending order.
 
 ![Sort column](media/get-started-portal/sort-column.png)
 
@@ -182,7 +182,7 @@ To save a query:
    
    To save a query as a function, provide a **Function Alias**, which is a short name for other queries to use to call this query.
    
-1. Provide a **Category** name that **Query explorer** can use for the query.
+1. Provide a **Category** for **Query explorer** to use for the query.
    
 1. Select **Save**.
    
