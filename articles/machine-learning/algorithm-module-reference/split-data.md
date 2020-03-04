@@ -105,24 +105,17 @@ The first result dataset contains all rows where the index column begins with on
   
 2. For **Splitting mode**, select **relative expression split**.
   
-3. In the **Relational expression** text box, type an expression that performs a comparison operation, on a single column:
+3. In the **Relational expression** text box, type an expression that performs a comparison operation on a single column:
 
-
- - Numeric column:
-    - The column contains numbers of any numeric data type, including date/time data types.
-
-    - The expression can reference a maximum of one column name.
-
-    - Use the ampersand character (&) for the AND operation and use the pipe character (|) for the OR operation.
-
-    - The following operators are supported: `<`, `>`, `<=`, `>=`, `==`, `!=`
-
-    - You cannot group operations by using `(` and `)`.
-
- - String column: 
-    - The following operators are supported: `==`, `!=`
-
-
+   For the **Numeric column**:
+   - The column contains numbers of any numeric data type, including date and time data types.
+   - The expression can reference a maximum of one column name.
+   - Use the ampersand character `&` for the AND operation. Use the pipe character `|` for the OR operation.
+   - The following operators are supported: `<`, `>`, `<=`, `>=`, `==`, `!=`.
+   - You cannot group operations by using `(` and `)`.
+   
+   For the **String column**:
+   - The following operators are supported: `==`, `!=`.
 
 4. Run the pipeline.
 
