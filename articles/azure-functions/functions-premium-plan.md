@@ -61,7 +61,7 @@ Additional compute instances are automatically added for your app using the same
 
 ### Longer run duration
 
-Azure Functions in a Consumption plan are limited to 10 minutes for a single execution.  In the Premium plan, the run duration defaults to 30 minutes to prevent runaway executions. However, you can [modify the host.json configuration](./functions-host-json.md#functiontimeout) to make this 60 minutes for Premium plan apps.
+Azure Functions in a Consumption plan are limited to 10 minutes for a single execution.  In the Premium plan, the run duration defaults to 30 minutes to prevent runaway executions. However, you can [modify the host.json configuration](./functions-host-json.md#functiontimeout) to make this unbounded for Premium plan apps (guaranteed 60 minutes).
 
 ## Plan and SKU settings
 
@@ -103,30 +103,32 @@ Below are the currently supported regions for each OS.
 |--| -- | -- |
 |Australia Central| ✔<sup>1</sup> | |
 |Australia Central 2| ✔<sup>1</sup> | |
-|Australia East| ✔ | |
+|Australia East| ✔ | ✔<sup>1</sup> |
 |Australia Southeast | ✔ | ✔<sup>1</sup> |
-|Brazil South| ✔<sup>2</sup> |  |
-|Canada Central| ✔ |  |
-|Central US| ✔ |  |
-|East Asia| ✔ |  |
+|Brazil South| ✔<sup>2</sup> | ✔<sup>1</sup> |
+|Canada Central| ✔ | ✔<sup>1</sup> |
+|Central US| ✔ | ✔<sup>1</sup> |
+|East Asia| ✔ | ✔<sup>1</sup> |
 |East US | ✔ | ✔<sup>1</sup> |
-|East US 2| ✔ |  |
-|France Central| ✔ |  |
+|East US 2| ✔ | ✔<sup>1</sup> |
+|France Central| ✔ | ✔<sup>1</sup> |
 |Germany West Central| ✔ | |
 |Japan East| ✔ | ✔<sup>1</sup> |
-|Japan West| ✔ | |
-|Korea Central| ✔ |  |
-|North Central US| ✔ |  |
+|Japan West| ✔ | ✔<sup>1</sup> |
+|Korea Central| ✔ | ✔<sup>1</sup> |
+|North Central US| ✔ | ✔<sup>1</sup> |
 |North Europe| ✔ | ✔<sup>1</sup> |
+|Norway East| ✔<sup>1</sup> | ✔<sup>1</sup> |
 |South Central US| ✔ | ✔<sup>1</sup> |
 |South India | ✔ | |
 |Southeast Asia| ✔ | ✔<sup>1</sup> |
-|UK South| ✔ | |
-|UK West| ✔ |  |
+|UK South| ✔ | ✔<sup>1</sup> |
+|UK West| ✔ | ✔<sup>1</sup> |
 |West Europe| ✔ | ✔<sup>1</sup> |
-|West India| ✔ |  |
+|West India| ✔ | ✔<sup>1</sup> |
+|West Central US| ✔<sup>1</sup> | ✔<sup>1</sup> |
 |West US| ✔ | ✔<sup>1</sup> |
-|West US 2| ✔ |  |
+|West US 2| ✔ | ✔<sup>1</sup> |
 
 <sup>1</sup>Maximum scale out limited to 20 instances.  
 <sup>2</sup>Maximum scale out limited to 60 instances.

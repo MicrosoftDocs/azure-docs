@@ -5,7 +5,11 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
+<<<<<<< HEAD
 ms.date: 03/05/2020
+=======
+ms.date: 02/28/2020
+>>>>>>> 1ab2b205075771b82bb44577e0e2a46c68776cb7
 ---
 
 # Connect to Azure virtual networks from Azure Logic Apps by using an integration service environment (ISE)

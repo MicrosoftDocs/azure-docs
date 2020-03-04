@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/24/2020
+ms.date: 03/04/2020
 ms.author: allensu
 ---
 
@@ -30,7 +30,7 @@ NAT gateway resources are part of [Virtual Network NAT](nat-overview.md) and pro
 
 
 >[!NOTE] 
->Virtual Network NAT is available as public preview at this time. Currently it's only available in a limited set of [regions](nat-overview.md#region-availability). This preview is provided without a service level agreement and isn't recommended for production workloads. Certain features may not be supported or may have constrained capabilities. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.comsupport/legal/preview-supplemental-terms) for details.
+>Virtual Network NAT is available as public preview at this time. Currently it's only available in a limited set of [regions](nat-overview.md#region-availability). This preview is provided without a service level agreement and isn't recommended for production workloads. Certain features may not be supported or may have constrained capabilities. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms) for details.
 
 ## How to deploy NAT
 
@@ -345,21 +345,25 @@ We want to know how we can improve the service. Share your [feedback on the Publ
 
 ## Next steps
 
-- Learn more about [virtual network NAT](nat-overview.md).
-- Tutorial for validating NAT Gateway
-  * [Azure CLI](tutorial-create-validate-nat-gateway-cli.md),
-  * [PowerShell](tutorial-create-validate-nat-gateway-cli.md),
-  * [Portal](tutorial-create-validate-nat-gateway-cli.md)
-- Quickstart for deploying a NAT gateway resource
-  * [Azure CLI](./quickstart-create-nat-gateway-cli.md),
-  * [PowerShell](./quickstart-create-nat-gateway-powershell.md),
-  * [Portal](./quickstart-create-nat-gateway-portal.md).
-- Learn more about [availability zones](../availability-zones/az-overview.md).
-- Learn more about [standard load balancer](../load-balancer/load-balancer-standard-overview.md).
-- Learn more about [availability zones and standard load balancer](../load-balancer/load-balancer-standard-availability-zones.md).
-- Learn more about NAT gateway resource API
-  * [REST API](https://docs.microsoft.com/rest/api/virtualnetwork/natgateways),
-  * [Azure CLI](https://docs.microsoft.com/cli/azure/network/nat/gateway?view=azure-cli-latest),
-  * [PowerShell](https://docs.microsoft.com/powershell/module/az.network/new-aznatgateway).
-- [Tell us what to build next in UserVoice](https://aka/natuservoice).
-- [Provide feedback on the Public Preview](https://aka.ms/natfeedback).
+* Learn about [virtual network NAT](nat-overview.md).
+* Learn about [metrics and alerts for NAT gateway resources](nat-metrics.md).
+* Learn about [troubleshooting NAT gateway resources](troubleshoot-nat.md).
+* [Tell us what to build next in UserVoice](https://aka.ms/natuservoice).
+* [Provide feedback on the Public Preview](https://aka.ms/natfeedback).
+* Tutorial for validating NAT Gateway
+  - [Azure CLI](tutorial-create-validate-nat-gateway-cli.md),
+  - [PowerShell](tutorial-create-validate-nat-gateway-cli.md),
+  - [Portal](tutorial-create-validate-nat-gateway-cli.md)
+* Quickstart for deploying a NAT gateway resource
+  - [Azure CLI](./quickstart-create-nat-gateway-cli.md),
+  - [PowerShell](./quickstart-create-nat-gateway-powershell.md),
+  - [Portal](./quickstart-create-nat-gateway-portal.md).
+* Learn about NAT gateway resource API
+  - [REST API](https://docs.microsoft.com/rest/api/virtualnetwork/natgateways),
+  - [Azure CLI](https://docs.microsoft.com/cli/azure/network/nat/gateway?view=azure-cli-latest),
+  - [PowerShell](https://docs.microsoft.com/powershell/module/az.network/new-aznatgateway).
+* Learn about [availability zones](../availability-zones/az-overview.md).
+* Learn about [standard load balancer](../load-balancer/load-balancer-standard-overview.md).
+* Learn about [availability zones and standard load balancer](../load-balancer/load-balancer-standard-availability-zones.md).
+
+

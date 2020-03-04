@@ -14,7 +14,7 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/10/2019
+ms.date: 02/13/2020
 ms.author: juergent
 
 ---
@@ -369,7 +369,7 @@ The following items are prefixed with either:
 - **[1]**: Applicable only to node 1 
 - **[2]**: Applicable only to node 2
 
-**[A]** Prerequisites for Pacemaker configuration:
+**[A]** Prerequisite for Pacemaker configuration:
 1. Shut down both database servers with user db2\<sid> with db2stop.
 1. Change the shell environment for db2\<sid> user to */bin/ksh*:
 <pre><code># Install korn shell:
@@ -442,6 +442,11 @@ Daemon Status:
 
 ### Configure Azure Load Balancer
 To configure Azure Load Balancer, we recommend that you use the [Azure Standard Load Balancer SKU](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview) and then do the following;
+
+> [!NOTE]
+> The Standard Load Balancer SKU has restrictions accessing public IP addresses from the nodes underneath the Load Balancer. The article [Public endpoint connectivity for Virtual Machines using Azure Standard Load Balancer in SAP high-availability scenarios](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections) is describing ways on how to enable those nodes to access public IP addresses
+
+
 
 1. Create a front-end IP pool:
 

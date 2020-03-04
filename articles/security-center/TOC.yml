@@ -6,8 +6,16 @@
     href: security-center-intro.md
   - name: Supported platforms
     href: security-center-os-coverage.md
-  - name: Supported features
-    href: security-center-services.md
+  - name: Security Center features
+    items:
+    - name: Feature coverage for VMs
+      href: security-center-services.md
+    - name: Feature coverage for Azure PaaS resources
+      href: features-paas.md
+  - name: Security recommendations
+    href: recommendations-reference.md
+  - name: Security alerts and the intent kill chain
+    href: alerts-reference.md    
 
 - name: Quickstarts
   expanded: true
@@ -52,7 +60,7 @@
       href: azure-container-registry-integration.md
     - name: Integration with Azure Kubernetes Service
       href: azure-kubernetes-service-integration.md
-  - name: Threat detection alerts and incidents
+  - name: Threat protection and security alerts
     items:
     - name: Security alerts overview
       href: security-center-alerts-overview.md      
@@ -62,16 +70,8 @@
       href: security-center-managing-and-responding-alerts.md
     - name: Manage security incidents
       href: security-center-incident.md
-    - name: Threat detection for VMs & servers
-      href: security-center-alerts-iaas.md
-    - name: Threat detection for cloud apps and containers
-      href: security-center-alerts-compute.md
-    - name: Threat detection for data services
-      href: security-center-alerts-data-services.md
-    - name: Threat detection for Azure service layers
-      href: security-center-alerts-service-layer.md   
-    - name: Threat detection alerts from Azure WAF & Azure DDoS Protection
-      href: security-center-alerts-integration.md
+    - name: Threat protection in Azure Security Center
+      href: threat-protection.md
     - name: Cloud Smart Alert correlation (incidents)
       href: security-center-alerts-cloud-smart.md
     - name: Security alerts map and threat intelligence
@@ -187,6 +187,20 @@
   items:
   - name: REST APIs
     href: https://docs.microsoft.com/rest/api/securitycenter/
+  - name: FAQ for Azure Security Center
+    items:
+    - name: General questions
+      href: faq-general.md
+    - name: Billing questions
+      href: faq-billing.md
+    - name: Permissions questions
+      href: faq-permissions.md
+    - name: Data collection and agent questions
+      href: faq-data-collection-agents.md
+    - name: Virtual Machines questions
+      href: faq-vms.md      
+    - name: Existing users of Azure Log Analytics
+      href: faq-azure-monitor-logs.md      
   - name: Release notes
     href: https://azure.microsoft.com/updates/?product=security-center
   - name: Features and API retirement (July 2019)
@@ -202,8 +216,6 @@
     href: security-center-privacy.md
   - name: Azure Security Center for IoT documentation
     href: https://docs.microsoft.com/azure/asc-for-iot/
-  - name: FAQ
-    href: security-center-faq.md
   - name: Azure security documentation
     href: /azure/security/
   - name: Azure updates
