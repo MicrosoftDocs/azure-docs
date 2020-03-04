@@ -38,7 +38,7 @@ Microsoft provides support for a wide variety of products and services. Finding 
 
 ## How to open a support ticket
 
-Now you're ready to open a support ticket at the **Help and Support** screen.
+Now you're ready to open a support ticket on the **Help and Support** screen.
 
 ![Help and support](./media/help-and-support.png)
 
