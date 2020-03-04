@@ -33,8 +33,8 @@ In Portal, when this setting is set to **Yes**  only connections via private end
 
 After setting Public Network Access, login attempts from clients using public endpoint shall fail with 
 
-**Error 18456**
-**Login failed due to client TLS version being less than minimum TLS version allowed by the server**
+Error 47073
+An instance-specific error occurred while establishing a connection to SQL Server. The public network interface on this server is not accessible. To connect to this server, use the Private Endpoint from inside your virtual network.
 
 
 ## Change Deny Public Network Access via PowerShell
@@ -42,16 +42,16 @@ After setting Public Network Access, login attempts from clients using public en
 > [!IMPORTANT]
 > The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical. The following script requires the [Azure PowerShell module](/powershell/azure/install-az-ps).
 
-The following PowerShell script shows how to 
-```powershell
-# Get SQL Server ID
-$sqlserverid=(Get-AzSqlServer -ServerName sql-server-name -ResourceGroupName sql-server-group).ResourceId
+The following PowerShell script shows how to Get and Set this property at the logical server level
 
-# Get current setting for Public Network Access
-(Get-AzResource -ResourceId $sqlserverid).Properties.PublicNetworkAccess
+```powershell
+#Get the Public Network Access property
+(Get-AzSqlServer -ServerName sql-server-name -ResourceGroupName sql-server-group).PublicNetworkAccess
 
 # Update Public Network Access to Disabled
-Set-AzResource -ResourceId $sqlserverid -Properties @{"PublicNetworkAccess" = "Disabled"} -f
+$SecureString = ConvertTo-SecureString "password" -AsPlainText -Force
+
+Set-AzSqlServer -ServerName sql-server-name -ResourceGroupName sql-server-group -SqlAdministratorPassword $SecureString -PublicNetworkAccess "Enabled" 
 ```
 
 ## Change Deny Public Network Access via CLI
@@ -152,8 +152,8 @@ We recommend setting Minimal TLS version to 1.2. For customers with applications
 
 
 After setting Minimal TLS version, login attempts from clients that using TLS version less than the Minimal TLS Version of the server shall fail with following error:
-**Error 47072**
-**Login failed due to client TLS version being less than minimum TLS version allowed by the server**
+Error 47072
+Login failed with invalid TLS version
 
 
 ## Set Minimal TLS Version via PowerShell
