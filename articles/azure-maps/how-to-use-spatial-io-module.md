@@ -210,12 +210,9 @@ map.layers.add(layer);
 </html>
 ```
 
-5. Remember to replace `<Your Azure Maps Key>` with your primary key. Then, open your HTML file. You'll see results similar to the following demo:
+5. Remember to replace `<Your Azure Maps Key>` with your primary key. Then, open your HTML file. You'll see results similar to the following image:
 
-<br/>
-
-<iframe height='500' scrolling='no' title='Spatial Data Example' src='//codepen.io/azuremaps/embed/MWwojKV/?height=500&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/MWwojKV/'>Spatial Data Example</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+![Spatial Data Example](./media/how-to-use-spatial-io-module/spatial-data-example.png)
 
 ## Next steps
 
