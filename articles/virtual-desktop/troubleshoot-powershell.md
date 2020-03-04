@@ -11,7 +11,7 @@ ms.author: helohr
 ---
 # Windows Virtual Desktop PowerShell
 
-Use this article to resolve errors and issues when using PowerShell with Windows Virtual Desktop. For more information on Remote Desktop Services PowerShell, see [Windows Virtual Desktop Powershell](https://docs.microsoft.com/powershell/module/windowsvirtualdesktop/).
+Use this article to resolve errors and issues when using PowerShell with Windows Virtual Desktop. For more information on Remote Desktop Services PowerShell, see [Windows Virtual Desktop Powershell](/powershell/module/windowsvirtualdesktop/).
 
 ## Provide feedback
 

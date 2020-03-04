@@ -1,24 +1,24 @@
 ---
 title: Limits - LUIS
 titleSuffix: Azure Cognitive Services
-description: This article contains the known limits of Azure Cognitive Services Language Understanding (LUIS). LUIS has several boundary areas. Model boundary controls intents, entities, and features in LUIS. Quota limits based on key type. Keyboard combination controls the LUIS website. 
+description: This article contains the known limits of Azure Cognitive Services Language Understanding (LUIS). LUIS has several boundary areas. Model boundary controls intents, entities, and features in LUIS. Quota limits based on key type. Keyboard combination controls the LUIS website.
 services: cognitive-services
 author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 11/07/2019
 ms.author: diberry
-ms.custom: seodec18 
+ms.custom: seodec18
 ---
 # Boundaries for your LUIS model and keys
-LUIS has several boundary areas. The first is the [model boundary](#model-boundaries), which controls intents, entities, and features in LUIS. The second area is [quota limits](#key-limits) based on key type. A third area of boundaries is the [keyboard combination](#keyboard-controls) for controlling the LUIS website. A fourth area is the [world region mapping](luis-reference-regions.md) between the LUIS authoring website and the LUIS [endpoint](luis-glossary.md#endpoint) APIs. 
+LUIS has several boundary areas. The first is the [model boundary](#model-boundaries), which controls intents, entities, and features in LUIS. The second area is [quota limits](#key-limits) based on key type. A third area of boundaries is the [keyboard combination](#keyboard-controls) for controlling the LUIS website. A fourth area is the [world region mapping](luis-reference-regions.md) between the LUIS authoring website and the LUIS [endpoint](luis-glossary.md#endpoint) APIs.
 
 
 ## Model boundaries
 
-If your app exceeds the LUIS model limits and boundaries, consider using a [LUIS dispatch](luis-concept-enterprise.md#dispatch-tool-and-model) app or using a [LUIS container](luis-container-howto.md). 
+If your app exceeds the LUIS model limits and boundaries, consider using a [LUIS dispatch](luis-concept-enterprise.md#dispatch-tool-and-model) app or using a [LUIS container](luis-container-howto.md).
 
 |Area|Limit|
 |--|:--|
@@ -43,7 +43,7 @@ If your app exceeds the LUIS model limits and boundaries, consider using a [LUIS
 | [Versions](luis-concept-version.md)| 100 versions per application |
 | [Version name][luis-how-to-manage-versions] | 10 characters restricted to alphanumeric and period (.) |
 
-*Default character max is 50 characters. 
+*Default character max is 50 characters.
 
 <a name="intent-and-entity-naming"></a>
 
@@ -60,7 +60,7 @@ The following must be unique within a LUIS app:
 
 The following must be unique within the scope applied:
 
-* phrase list 
+* phrase list
 
 ## Object naming
 
@@ -79,9 +79,9 @@ Language Understand has separate keys, one type for authoring, and one type for 
 
 ## Resource key limits
 
-The resource keys have different limits for authoring and endpoint. The LUIS prediction query endpoint key is only valid for endpoint queries. 
+The resource keys have different limits for authoring and endpoint. The LUIS prediction query endpoint key is only valid for endpoint queries.
 
-* 500 applications per Azure authoring resource 
+* 500 applications per Azure authoring resource
 
 |Key|Authoring|Endpoint|Purpose|
 |--|--|--|--|
@@ -96,7 +96,7 @@ The resource keys have different limits for authoring and endpoint. The LUIS pre
 
 ## Keyboard controls
 
-|Keyboard input | Description | 
+|Keyboard input | Description |
 |--|--|
 |Control+E|switches between tokens and entities on utterances list|
 

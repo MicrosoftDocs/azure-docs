@@ -189,6 +189,8 @@
         href: bitabiz-tutorial.md
       - name: Bitly
         href: bitly-tutorial.md
+      - name: Bizagi Studio for Digital Process Automation
+        href: bizagi-studio-for-digital-process-automation-tutorial.md
       - name: Blackboard Learn
         href: blackboard-learn-tutorial.md
       - name: Blackboard Learn - Shibboleth
@@ -227,6 +229,8 @@
         href: brightidea-tutorial.md
       - name: Brightspace by Desire2Learn
         href: brightspace-desire2learn-tutorial.md
+      - name: Britive
+        href: britive-tutorial.md      
       - name: Bugsnag
         href: bugsnag-tutorial.md
       - name: Bynder
@@ -237,6 +241,8 @@
         href: cappm-tutorial.md
       - name: CakeHR
         href: cakehr-tutorial.md
+      - name: Campus Café
+        href: campus-cafe-tutorial.md
       - name: Canvas Lms
         href: canvas-lms-tutorial.md
       - name: Capriza Platform
@@ -315,6 +321,8 @@
         href: cobalt-tutorial.md
       - name: Coda
         href: coda-tutorial.md
+      - name: Code42
+        href: code42-tutorial.md
       - name: Cognidox
         href: cognidox-tutorial.md
       - name: Collaborative Innovation
@@ -435,6 +443,8 @@
         href: ebsco-tutorial.md
       - name: eCornell
         href: ecornell-tutorial.md
+      - name: E-days
+        href: e-days-tutorial.md
       - name: Edcor
         href: edcor-tutorial.md
       - name: eDigitalResearch
@@ -485,6 +495,8 @@
         href: expensein-tutorial.md
       - name: Expensify
         href: expensify-tutorial.md
+      - name: Experience Cloud
+        href: experience-cloud-tutorial.md
       - name: Explanation-Based Auditing System
         href: explanation-based-auditing-system-tutorial.md
       - name: Expiration Reminder
@@ -590,6 +602,8 @@
         href: greenhouse-tutorial.md
       - name: GreenOrbit
         href: greenorbit-tutorial.md
+      - name: Grok Learning
+        href: grok-learning-tutorial.md
       - name: Grovo
         href: grovo-tutorial.md
       - name: GT Nexus Prod System
@@ -598,8 +612,6 @@
       items:
       - name: Hackerone
         href: hackerone-tutorial.md
-      - name: Halogen Software
-        href: halogen-software-tutorial.md
       - name: Halosys
         href: halosys-tutorial.md
       - name: HappyFox
@@ -652,6 +664,8 @@
         href: hype-tutorial.md
       - name: HyperAnna
         href: hyperanna-tutorial.md
+      - name: IamIP Patent Platform
+        href: iamip-patent-platform-tutorial.md
       - name: IBM Kenexa Survey Enterprise
         href: kenexasurvey-tutorial.md
       - name: IBM OpenPages
@@ -788,6 +802,8 @@
         href: kantegassoforjira-tutorial.md
       - name: Keeper Password Manager & Digital Vault
         href: keeperpasswordmanager-tutorial.md
+      - name: Khoros Care
+        href: khoros-care-tutorial.md
       - name: Kindling
         href: kindling-tutorial.md
       - name: Kintone
@@ -804,6 +820,8 @@
         href: knowledgeowl-tutorial.md
       - name: Kontiki
         href: kontiki-tutorial.md
+      - name: Korn Ferry 360
+        href: korn-ferry-360-tutorial.md
       - name: Korn Ferry ALP
         href: korn-ferry-alp-tutorial.md
       - name: Kronos
@@ -976,6 +994,8 @@
         href: nomadic-tutorial.md
       - name: Novatus
         href: novatus-tutorial.md
+      - name: NS1 SSO for Azure
+        href: ns1-sso-azure-tutorial.md
       - name: Nuclino
         href: nuclino-tutorial.md
       - name: O.C. Tanner - AppreciateHub
@@ -1178,6 +1198,8 @@
         href: runmyprocess-tutorial.md
     - name: S
       items:
+      - name: Saba TalentSpace
+        href: halogen-software-tutorial.md
       - name: SafeConnect
         href: safeconnect-tutorial.md
       - name: SafetyNet
@@ -1298,7 +1320,7 @@
         href: skyhighnetworks-tutorial.md
       - name: SKYSITE
         href: skysite-tutorial.md
-      - name: Skytap
+      - name: Single Sign-on for Skytap
         href: skytap-tutorial.md
       - name: Skyward Qmlativ
         href: skyward-qmlativ-tutorial.md
@@ -1332,6 +1354,8 @@
         href: spaceiq-tutorial.md
       - name: Spacio
         href: spacio-tutorial.md
+      - name: Splashtop
+        href: splashtop-tutorial.md
       - name: Splunk Enterprise and Splunk Cloud
         href: splunkenterpriseandsplunkcloud-tutorial.md
       - name: Spotinst
@@ -1446,6 +1470,8 @@
         href: tripactions-tutorial.md
       - name: Trisotech Digital Enterprise Server
         href: trisotechdigitalenterpriseserver-tutorial.md
+      - name: TruNarrative
+        href: trunarrative-tutorial.md
       - name: TurboRater
         href: turborater-tutorial.md
       - name: Uberflip
@@ -1518,6 +1544,8 @@
         href: whatfix-tutorial.md
       - name: Whitesource
         href: whitesource-tutorial.md
+      - name: WhosOffice
+        href: whosoffice-tutorial.md
       - name: Wikispaces
         href: wikispaces-tutorial.md
       - name: Wingspan eTMF

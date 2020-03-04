@@ -8,7 +8,7 @@ ms.date: 02/13/2020
 
 This article shows you how to create more than one value for a variable in your Azure Resource Manager template. By adding the **copy** element to the variables section of your template, you can dynamically set the number of items for a variable during deployment. You also avoid having to repeat template syntax.
 
-You can also use copy with [resources](copy-resources.md) and [properties in a resource](copy-properties.md).
+You can also use copy with [resources](copy-resources.md), [properties in a resource](copy-properties.md), and [outputs](copy-outputs.md).
 
 ## Variable iteration
 
@@ -307,7 +307,10 @@ The following examples show common scenarios for creating more than one value fo
 ## Next steps
 
 * To go through a tutorial, see [Tutorial: create multiple resource instances using Resource Manager templates](template-tutorial-create-multiple-instances.md).
-* For other uses of the copy element, see [Resource iteration in Azure Resource Manager templates](copy-resources.md) and [Property iteration in Azure Resource Manager templates](copy-properties.md).
+* For other uses of the copy element, see:
+  * [Resource iteration in Azure Resource Manager templates](copy-resources.md)
+  * [Property iteration in Azure Resource Manager templates](copy-properties.md)
+  * [Output iteration in Azure Resource Manager templates](copy-outputs.md)
 * If you want to learn about the sections of a template, see [Authoring Azure Resource Manager Templates](template-syntax.md).
 * To learn how to deploy your template, see [Deploy an application with Azure Resource Manager Template](deploy-powershell.md).
 

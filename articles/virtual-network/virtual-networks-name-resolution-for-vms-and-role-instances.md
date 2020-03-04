@@ -100,8 +100,7 @@ There are a number of different DNS caching packages available (such as dnsmasq)
 
 > [!NOTE]
 > The dnsmasq package is only one of many DNS caches available for Linux. Before using it, check its suitability for your particular needs, and check that no other cache is installed.
->
->
+
     
 ### Client-side retries
 
@@ -164,8 +163,7 @@ If forwarding queries to Azure doesn't suit your needs, you should provide your 
 * Be secured against access from the internet, to mitigate threats posed by external agents.
 
 > [!NOTE]
-> For best performance, when you are using Azure VMs as DNS servers, IPv6 should be disabled. A [public IP address](virtual-network-public-ip-address.md) should be assigned to each DNS server VM. For additional performance analysis and optimizations when you are using Windows Server as your DNS server, see [Name resolution performance of a recursive Windows DNS Server 2012 R2](https://blogs.technet.com/b/networking/archive/2015/08/19/name-resolution-performance-of-a-recursive-windows-dns-server-2012-r2.aspx).
-> 
+> For best performance, when you are using Azure VMs as DNS servers, IPv6 should be disabled. A [public IP address](virtual-network-public-ip-address.md) should be assigned to each DNS server VM. 
 > 
 
 ### Web apps

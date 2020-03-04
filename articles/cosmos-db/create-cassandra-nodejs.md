@@ -22,9 +22,11 @@ In this quickstart, you create an Azure Cosmos DB Cassandra API account, and use
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). Or [try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/) without an Azure subscription.
-- [Node.js 0.10.29+](https://nodejs.org/).
-- [Git](https://www.git-scm.com/downloads).
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] Alternatively, you can [Try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/) without an Azure subscription, free of charge and commitments.
+
+In addition, you need:
+* [Node.js](https://nodejs.org/dist/v0.10.29/x64/node-v0.10.29-x64.msi) version v0.10.29 or higher
+* [Git](https://git-scm.com/)
 
 ## Create a database account
 
@@ -104,42 +106,54 @@ This step is optional. If you're interested to learn how the code creates the da
 * Key/value entities are inserted.
 
     ```javascript
-    ...
-       {
-          query: 'INSERT INTO  uprofile.user  (user_id, user_name , user_bcity) VALUES (?,?,?)',
-          params: [5, 'IvanaV', 'Belgaum']
-        }
-    ];
-    client.batch(queries, { prepare: true}, next);
+        function insert(next) {
+            console.log("\insert");
+            const arr = ['INSERT INTO  uprofile.user (user_id, user_name , user_bcity) VALUES (1, \'AdrianaS\', \'Seattle\')',
+                        'INSERT INTO  uprofile.user (user_id, user_name , user_bcity) VALUES (2, \'JiriK\', \'Toronto\')',
+                        'INSERT INTO  uprofile.user (user_id, user_name , user_bcity) VALUES (3, \'IvanH\', \'Mumbai\')',
+                        'INSERT INTO  uprofile.user (user_id, user_name , user_bcity) VALUES (4, \'IvanH\', \'Seattle\')',
+                        'INSERT INTO  uprofile.user (user_id, user_name , user_bcity) VALUES (5, \'IvanaV\', \'Belgaum\')',
+                        'INSERT INTO  uprofile.user (user_id, user_name , user_bcity) VALUES (6, \'LiliyaB\', \'Seattle\')',
+                        'INSERT INTO  uprofile.user (user_id, user_name , user_bcity) VALUES (7, \'JindrichH\', \'Buenos Aires\')',
+                        'INSERT INTO  uprofile.user (user_id, user_name , user_bcity) VALUES (8, \'AdrianaS\', \'Seattle\')',
+                        'INSERT INTO  uprofile.user (user_id, user_name , user_bcity) VALUES (9, \'JozefM\', \'Seattle\')'];
+            arr.forEach(element => {
+            client.execute(element);
+            });
+            next();
+        },
     ```
 
 * Query to get all key values.
 
     ```javascript
-   var query = 'SELECT * FROM uprofile.user';
-    client.execute(query, { prepare: true}, function (err, result) {
-      if (err) return next(err);
-      result.rows.forEach(function(row) {
-        console.log('Obtained row: %d | %s | %s ',row.user_id, row.user_name, row.user_bcity);
-      }, this);
-      next();
-    });
+        function selectAll(next) {
+            console.log("\Select ALL");
+            var query = 'SELECT * FROM uprofile.user';
+            client.execute(query, function (err, result) {
+            if (err) return next(err);
+            result.rows.forEach(function(row) {
+                console.log('Obtained row: %d | %s | %s ',row.user_id, row.user_name, row.user_bcity);
+            }, this);
+            next();
+            });
+        },
     ```  
     
 * Query to get a key-value.
 
     ```javascript
-    function selectById(next) {
-    	console.log("\Getting by id");
-    	var query = 'SELECT * FROM uprofile.user where user_id=1';
-    	client.execute(query, { prepare: true}, function (err, result) {
-      	if (err) return next(err);
-      		result.rows.forEach(function(row) {
-        	console.log('Obtained row: %d | %s | %s ',row.user_id, row.user_name, row.user_bcity);
-      	}, this);
-      	next();
-    	});
-    }
+        function selectById(next) {
+            console.log("\Getting by id");
+            var query = 'SELECT * FROM uprofile.user where user_id=1';
+            client.execute(query, function (err, result) {
+            if (err) return next(err);
+            result.rows.forEach(function(row) {
+                console.log('Obtained row: %d | %s | %s ',row.user_id, row.user_name, row.user_bcity);
+            }, this);
+            next();
+            });
+        }
     ```  
 
 ## Update your connection string
@@ -184,19 +198,41 @@ Now go back to the Azure portal to get your connection string information and co
 
 3. Save `uprofile.js`.
 
+> [!NOTE]
+> If you experience a certificate related error in the later steps and are running on a Windows machine, ensure that you have followed the process for properly converting a .crt file into the Microsoft .cer format below.
+> 
+> Double-click on the .crt file to open it into the certificate display. 
+>
+> ![View and verify the output](./media/create-cassandra-nodejs/crtcer1.gif)
+>
+> Press Next on the Certificate Wizard. Select Base-64 encoded X.509 (.CER), then Next.
+>
+> ![View and verify the output](./media/create-cassandra-nodejs/crtcer2.gif)
+>
+> Select Browse (to locate a destination) and type in a filename.
+> Select Next then Finished.
+>
+> You should now have a properly formatted .cer file. Ensure that the path in `uprofile.js` points to this file.
+
 ## Run the Node.js app
 
-1. In the git terminal window, run `npm install` to install the required npm modules.
+1. In the git terminal window, ensure you are in the sample directory you cloned earlier:
 
-2. Run `node uprofile.js` to start your node application.
+    ```bash
+    cd azure-cosmos-db-cassandra-nodejs-getting-started
+    ```
 
-3. Verify the results as expected from the command line.
+2. Run `npm install` to install the required npm modules.
+
+3. Run `node uprofile.js` to start your node application.
+
+4. Verify the results as expected from the command line.
 
     ![View and verify the output](./media/create-cassandra-nodejs/output.png)
 
     Press CTRL+C to stop execution of the program and close the console window. 
 
-4. In the Azure portal, open **Data Explorer** to query, modify, and work with this new data. 
+5. In the Azure portal, open **Data Explorer** to query, modify, and work with this new data. 
 
     ![View the data in Data Explorer](./media/create-cassandra-nodejs/data-explorer.png) 
 
@@ -214,5 +250,3 @@ In this quickstart, you learned how to create an Azure Cosmos DB account with Ca
 
 > [!div class="nextstepaction"]
 > [Import Cassandra data into Azure Cosmos DB](cassandra-import-data.md)
-
-

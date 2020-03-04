@@ -23,7 +23,7 @@ Below is a complete list of all the checks executed through resource health by r
 |---|
 |<ul><li>Is the Batch account up and running?</li><li>Has the pool quota been exceeded for this batch account?</li></ul>|
 
-## Microsoft.CacheRedis/Redis
+## Microsoft.Cache/Redis
 |Executed Checks|
 |---|
 |<ul><li>Are all the Cache nodes up and running?</li><li>Can the Cache be reached from within the datacenter?</li><li>Has the Cache reached the maximum number of connections?</li><li> Has the cache exhausted its available memory? </li><li>Is the Cache experiencing a high number of page faults?</li><li>Is the Cache under heavy load?</li></ul>|

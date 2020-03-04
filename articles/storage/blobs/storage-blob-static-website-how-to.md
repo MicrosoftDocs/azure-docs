@@ -67,7 +67,7 @@ You can enable static website hosting by using the [Azure Command-Line Interface
    This example assumes that you're running commands from Azure Cloud Shell session.
 
    ```azurecli-interactive
-   az storage blob upload-batch -s <source-path> -d \$web --account-name <storage-account-name>
+   az storage blob upload-batch -s <source-path> -d \$web --account-name <storage-account-name> --content-type 'text/html; charset=utf-8'
    ```
 
    * Replace the `<storage-account-name>` placeholder value with the name of your storage account.
@@ -152,6 +152,7 @@ You can enable static website hosting by using the Azure PowerShell module.
     ```powershell
     # upload a file
     set-AzStorageblobcontent -File "<path-to-file>" `
+    -Properties @{ ContentType = "text/html; charset=utf-8";} `
     -Container `$web `
     -Blob "<blob-name>" `
     -Context $ctx

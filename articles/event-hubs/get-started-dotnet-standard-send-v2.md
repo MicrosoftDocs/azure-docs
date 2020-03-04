@@ -129,7 +129,7 @@ In this quickstart, you use Azure Storage as the checkpoint store. Follow these 
 
 1. In the Solution Explorer window, right-click the **EventHubQuickStart** solution, point to **Add**, and select **New Project**. 
 1. Select **Console App (.NET Core)**, and select **Next**. 
-1. Event **EventHubsReceiver** for the **Project name**, and select **Create**. 
+1. Enter **EventHubsReceiver** for the **Project name**, and select **Create**. 
 
 ### Add the Event Hubs NuGet package
 

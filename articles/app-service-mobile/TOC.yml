@@ -1,5 +1,5 @@
 - name: Mobile Apps Documentation
-  href: index.md
+  href: index.yml
 - name: Overview
   items:
   - name: What are Mobile Apps?

@@ -4,7 +4,7 @@ description: This tutorial helps plan and account for the costs of Azure service
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 02/10/2020
+ms.date: 03/02/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: adwise
@@ -29,13 +29,15 @@ In this tutorial, you learn how to:
 > [!div class="checklist"]
 > * Create a budget in the Azure portal
 > * Create and edit budgets with PowerShell
-> * Edit a budget
+> * Create a budget with an Azure Resource Manager template
 
 ## Prerequisites
 
 Budgets are supported for different kinds of Azure account types. To view the full list of supported account types, see [Understand Cost Management data](understand-cost-mgt-data.md). To view budgets, you need at least read access for your Azure account.
 
- For Azure EA subscriptions, you must have read access to view budgets. To create and manage budgets, you must have contributor permission. You can create individual budgets for EA subscriptions and resource groups. However, you can't create budgets for EA billing accounts.
+If you have a new subscription, you can’t immediately create a budget or use other Cost Management features. It might take up to 48 hours before you can use all Cost Management features.
+
+For Azure EA subscriptions, you must have read access to view budgets. To create and manage budgets, you must have contributor permission. You can create individual budgets for EA subscriptions and resource groups. However, you can't create budgets for EA billing accounts.
 
 The following Azure permissions, or scopes, are supported per subscription for budgets by user and group. For more information about scopes, see [Understand and work with scopes](understand-work-scopes.md).
 
@@ -155,6 +157,16 @@ $ActionGroupId = (Set-AzureRmActionGroup -ResourceGroupName YourResourceGroup -N
 
 New-AzureRmConsumptionBudget -Amount 100 -Name TestPSBudget -Category Cost -StartDate 2020-02-01 -TimeGrain Monthly -EndDate 2022-12-31 -ContactEmail test@test.com -NotificationKey Key1 -NotificationThreshold 0.8 -NotificationEnabled -ContactGroup $ActionGroupId
 ```
+## Create a budget with an Azure Resource Manager template
+
+You can create a budget using an Azure Resource Manager template. The template helps you create a budget under a resource group. The template supports enterprise agreement customers only.
+
+Select the following image to sign in to the Azure portal and open the template:
+
+[![Deploy the Create budget template to Azure](./media/tutorial-acm-create-budgets/deploy-to-azure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fcreate-budget%2fazuredeploy.json)
+
+To view a list of all the template parameters and their descriptions, see the [Create a budget](https://azure.microsoft.com/resources/templates/create-budget/) template.
+
 
 ## Next steps
 
@@ -163,7 +175,7 @@ In this tutorial, you learned how to:
 > [!div class="checklist"]
 > * Create a budget in the Azure portal
 > * Create and edit budgets with PowerShell
-> * Edit a budget
+> * Create a budget with an Azure Resource Manager template
 
 Advance to the next tutorial to create a recurring export for your cost management data.
 
