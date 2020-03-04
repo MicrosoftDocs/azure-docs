@@ -131,17 +131,29 @@ For bounding boxes, important questions include:
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
-The **ML assisted labeling** page lets you trigger automatic machine learning models to accelerate the labeling task.  This feature is available for image classification (multi-class or multi-label) tasks.  
+The **ML assisted labeling** page lets you trigger automatic machine learning models to accelerate the labeling task. At the beginning of your labeling project, the images are shuffled into a random order to reduce potential bias. However, any biases that are present in the dataset will be reflected in the trained model. For example, if 80% of your images are of a single class, then approximately 80% of the data used to train the model will be of that class. This training does not include active learning.
+
+This feature is available for image classification (multi-class or multi-label) tasks.  
 
 Select *Enable ML assisted labeling* and specify a GPU to enable assisted labeling, which consists of two phases:
+* Clustering
+* Prelabeling
 
-* **Clustering** - after a certain number of labels are submitted, the machine learning model starts to group together similar images.  These similar images are presented to the labelers on the same screen to speed up manual tagging. Clustering is especially useful when the labeler is viewing a grid of 4, 6, or 9 images.  
-
-* **Prelabeling** - after more image labels are submitted, a classification model is used to predict image tags.  The labeler now sees pages that contain predicted labels already present on each image.  The task is then to review these labels and correct any mis-labeled images before submitting the page.  
-
-The exact number of labeled images necessary to start assisted labeling is not a fixed number.  The actual value depends on the number of label classes defined in your project. Labeling service will start to train a model when there are enough labels and use the model to produce either a clustered or prelabeled task.
+The exact number of labeled images necessary to start assisted labeling is not a fixed number.  This can vary significantly from one labeling project to another. For some projects, is sometimes possible to see prelabel or cluster tasks after 300 images have been manually labeled. ML Assisted Labeling uses a technique called *Transfer Learning*, which uses a pre-trained model to jump-start the training process. If your dataset's classes are similar to those in the pre-trained model, pre-labels may be available after only a few hundred manually labeled images. If your dataset is significantly different from the data used to pre-train the model, it may take much longer.
 
 Since the final labels still rely on input from the labeler, this technology is sometimes called *human in the loop* labeling.
+
+### Clustering
+
+After a certain number of labels are submitted, the machine learning model starts to group together similar images.  These similar images are presented to the labelers on the same screen to speed up manual tagging. Clustering is especially useful when the labeler is viewing a grid of 4, 6, or 9 images. 
+
+Once a machine learning model has been trained on your manually labeled data, the model is truncated to its last fully-connected layer. Unlabeled images are then passed through the truncated model in a process commonly known as "embedding" or "featurization." This embeds each image in a high-dimensional space defined by this model layer. Images which are nearest neighbors in the space are used for clustering tasks. 
+
+### Prelabeling
+
+After more image labels are submitted, a classification model is used to predict image tags.  The labeler now sees pages that contain predicted labels already present on each image.  The task is then to review these labels and correct any mis-labeled images before submitting the page.  
+
+Once a machine learning model has been trained on your manually labeled data, the model is evaluated on a test set of manually labeled images to determine its accuracy at a variety of different confidence thresholds. This evaluation process is used to determine a confidence threshold above which the model is accurate enough to show pre-labels. The model is then evaluated against unlabeled data. Images with predictions more confident than this threshold are used for pre-labeling.
 
 > [!NOTE]
 > ML assisted labeling is available **only** in Enterprise edition workspaces.
