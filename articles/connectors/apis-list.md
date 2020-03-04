@@ -181,7 +181,7 @@ Logic Apps provides these Enterprise connectors for accessing enterprise systems
 
 ## ISE connectors
 
-For logic apps that you create and run an isolated [integration service environment (ISE)](#integration-service-environment), the Logic App Designer identifies built-in triggers and actions that run in your ISE by using the **CORE** label. Managed connectors that run in an ISE display the **ISE** label, while connectors that run in the global, multi-tenant Logic Apps service don't display either label. This list shows most of the connectors that have ISE versions:
+For logic apps that you create and run an isolated [integration service environment (ISE)](#integration-service-environment), the Logic App Designer identifies built-in triggers and actions that run in your ISE by using the **CORE** label. Managed connectors that run in an ISE display the **ISE** label, while connectors that run in the global, multi-tenant Logic Apps service don't display either label. This list shows the connectors that currently have ISE versions:
 
 |   |   |   |   |   |
 |---|---|---|---|---|
@@ -313,7 +313,7 @@ To call APIs that run custom code or aren't available as connectors, you can ext
 [onedrive-for-business-doc]: ./connectors-create-api-onedriveforbusiness.md "Connect to your business Microsoft OneDrive so that you can upload, delete, list your files, and more"
 [oracle-db-doc]: ./connectors-create-api-oracledatabase.md "Connect to an Oracle database so that you can add, insert, delete rows, and more"
 [outlook.com-doc]: ./connectors-create-api-outlook.md "Connect to your Outlook mailbox so that you can manage your email, calendars, contacts, and more"
-[postgre-sql-doc]: https://docs.microsoft.com/connectors/postgresql/ "Connect to your PostgreSQL dabatabase so that you can read data from tables"
+[postgre-sql-doc]: https://docs.microsoft.com/connectors/postgresql/ "Connect to your PostgreSQL database so that you can read data from tables"
 [project-online-doc]: ./connectors-create-api-projectonline.md "Connect to Microsoft Project Online so that you can manage your projects, tasks, resources, and more"
 [rss-doc]: ./connectors-create-api-rss.md "Publish and retrieve feed items, trigger operations when a new item is published to an RSS feed"
 [salesforce-doc]: ./connectors-create-api-salesforce.md "Connect to your Salesforce account. Manage accounts, leads, opportunities, and more"
