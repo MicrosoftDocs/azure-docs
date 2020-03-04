@@ -27,11 +27,8 @@ The following table describes the actions included with the Azure Monitor Logs c
 | [Run query and and list results](https://docs.microsoft.com/connectors/azuremonitorlogs/#run-query-and-list-results) | Returns each row as its own object. Use this action when you want to work with each row separately in the rest of the workflow. The action is typically followed by a [For each activity](../../logic-apps/logic-apps-control-flow-loops.md#foreach-loop). |
 | [Run query and and visualize results](https://docs.microsoft.com/connectors/azuremonitorlogs/#run-query-and-visualize-results) | Returns all rows in the result set as a single formatted object. Use this action when you want to use the result set together in the rest of the workflow, such as sending the results in a mail.  |
 
-
-
-## Walkthrough: Mail visualized results
-
-The following tutorial shows you how to create a logic app that automatically sends the results of an Azure Monitor log query by email. You can perform this same example with Microsoft Flow, the only difference being how to you create the initial flow and run it when complete. Configuration of the workflow and actions is the same between both. See [Create a flow from a template in Power Automate](https://docs.microsoft.com/power-automate/get-started-logic-template) to get started.
+## Walkthroughs
+The following tutorials illustrate the use of the Azure Monitor connectors in Azure Logic Apps. You can perform these same example with Microsoft Flow, the only difference being how to you create the initial flow and run it when complete. Configuration of the workflow and actions is the same between both. See [Create a flow from a template in Power Automate](https://docs.microsoft.com/power-automate/get-started-logic-template) to get started.
 
 
 ### Create a Logic App
@@ -48,6 +45,8 @@ Under **Start with a common trigger**, select **Recurrence**. This creates a log
 
 ![Recurrence action](media/logicapp-flow-connector/recurrence-action.png)
 
+## Walkthrough: Mail visualized results
+The following tutorial shows you how to create a logic app that sends the results of an Azure Monitor log query by email. 
 
 ### Add Azure Monitor Logs action
 Click **+ New step** to add an action that runs after the recurrence action. Under **Choose an action**, type **azure monitor** and then select **Azure Monitor Logs**.
@@ -107,6 +106,38 @@ Click **Save** and then **Run** to perform a test run of the logic app.
 When the logic app completes, check the mail of the recipient that you specified.  You should have received a mail with a body similar to the following:
 
 ![Sample email](media/logicapp-flow-connector/sample-mail.png)
+
+
+## Walkthrough: Store list of results
+The following tutorial shows you how to create a logic app that automatically sends the results of an Azure Monitor log query to an Excel spreadsheet stored on OneDrive. You can perform this same example with Microsoft Flow, the only difference being how to you create the initial flow and run it when complete. Configuration of the workflow and actions is the same between both. See [Create a flow from a template in Power Automate](https://docs.microsoft.com/power-automate/get-started-logic-template) to get started.
+
+### Add Azure Monitor Logs action
+Click **+ New step** to add an action that runs after the recurrence action. Under **Choose an action**, type **azure monitor** and then select **Azure Monitor Logs**.
+
+![Azure Monitor Logs action](media/logicapp-flow-connector/select-azure-monitor-connector.png)
+
+Click **Azure Log Analytics – Run query and list results**.
+
+![Run query and visualize results action](media/logicapp-flow-connector/select-query-action.png)
+
+
+### Add Azure Monitor Logs action
+
+Select the **Subscription** and **Resource Group** for your Log Analytics workspace. Select *Log Analytics Workspace* for the **Resource Type** and then select the workspace's name under **Resource Name**.
+
+Add the following log query to the **Query** window.  
+
+```Kusto
+Event
+| where EventLevelName == "Error" 
+| where TimeGenerated > ago(1day)
+| summarize TotalErrors=count() by Computer
+| sort by Computer asc   
+```
+
+### Add Initialize variable action
+The logic app will send the list values to a worksheet with a name of the current month and year. 
+
 
 
 ## Next steps
