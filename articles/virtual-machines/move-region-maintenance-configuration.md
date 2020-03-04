@@ -36,18 +36,19 @@ Before you begin moving a maintenance control configuration:
 
 ## Prepare and move 
 
-1. Retrieve all of the maintenance configurations in each subscription. Run this command to do this, replacing $subId with your subscription ID.
+1. Retrieve all of the maintenance configurations in each subscription. Run this CLI [az maintenance configuration list](https://docs.microsoft.com/cli/azure/ext/maintenance/maintenance/configuration?view=azure-cli-latest#ext-maintenance-az-maintenance-configuration-list) command to do this, replacing $subId with your subscription ID.
 
     ```
     az maintenance configuration list --subscription $subId --query "[*].{Name:name, Location:location, ResGroup:resourceGroup}" --output table
     ```
-2. Review the returned table list. Here's an example. Your list will contain values for your specific environment.
+2. Review the returned table list of configuration records within the subscription. Here's an example. Your list will contain values for your specific environment.
 
     **Name** | **Location** | **Resource group**
     --- | --- | ---
-    Skip Maintenance | eastus2 | IgniteDemo-RG
-    IgniteDemoConfig | eastus2 | IgniteDemo-RG
-    defaultMaintenanceConfiguration-eastus | eastus | TestShantS
+    Skip Maintenance | eastus2 | configuration-resource-group
+    IgniteDemoConfig | eastus2 | configuration-resource-group
+    defaultMaintenanceConfiguration-eastus | eastus | test-configuration
+    
 
 3. Save your list for reference. As you move the configurations, it helps you to verify that everything's been moved.
 4. As a reference, map each configuration/resource group to the new resource group in the new region.
