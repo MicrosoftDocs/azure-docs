@@ -705,7 +705,7 @@
       href: ../../site-recovery/move-azure-vms-avset-azone.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Move Maintenance Control configurations to another region
       href: ../move-region-maintenance-configuration.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
-      name: Move Maintenance Control configuration resources to another region
+    - name: Move Maintenance Control configuration resources to another region
       href: ../move-region-maintenance-configuration-resources.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Migrate AWS and on-premises VMs
       href: on-prem-to-azure.md
