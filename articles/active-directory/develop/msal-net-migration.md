@@ -163,7 +163,7 @@ OAuth2 permissions are permission scopes that a v1.0 web API (resource) applicat
 
 ### Scopes to request access to specific OAuth2 permissions of a v1.0 application
 
-If you want to acquire tokens for specific scopes of a v1.0 application (for instance the Microsoft Graph API, which is https://graph.microsoft.com), you'd need to create `scopes` by concatenating a desired resource identifier with a desired OAuth2 permission for that resource.
+If you want to acquire tokens for an application accepting v1.0 tokens (for instance the Microsoft Graph API, which is https://graph.microsoft.com), you'd need to create `scopes` by concatenating a desired resource identifier with a desired OAuth2 permission for that resource.
 
 For instance, to access in the name of the user a v1.0 Web API which App ID URI is `ResourceId`, you'd want to use:
 

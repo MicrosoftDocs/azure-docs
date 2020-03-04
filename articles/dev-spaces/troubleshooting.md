@@ -38,7 +38,7 @@ Use the Azure Dev Spaces CLI to delete a controller. It’s not possible to dele
 
 If you don't have the Azure Dev Spaces CLI installed, you can first install it using the following command then delete your controller:
 
-```cmd
+```azurecli
 az aks use-dev-spaces -g <resource group name> -n <cluster name>
 ```
 
@@ -74,8 +74,8 @@ To fix this issue, [update your taint configuration](../aks/operator-best-practi
 
 An update to the Azure Dev Spaces CLI changed its installation path. If you're using a version of the Azure CLI earlier than 2.0.63, you may see this error. To display your version of the Azure CLI, use `az --version`.
 
-```bash
-$ az --version
+```azurecli
+az --version
 azure-cli                         2.0.60 *
 ...
 ```
@@ -217,7 +217,7 @@ In Visual Studio:
 
 You receive a *Service cannot be started* error when attempting to rerun a service after you have removed and then recreated the Azure Dev Spaces controller associated with this cluster. In this situation, the verbose output contains the following text:
 
-```cmd
+```output
 Installing Helm chart...
 Release "azds-33d46b-default-webapp1" does not exist. Installing it now.
 Error: release azds-33d46b-default-webapp1 failed: services "webapp1" already exists
@@ -323,7 +323,7 @@ To fix this issue:
 1. Check the location %ProgramFiles%/Microsoft SDKs\Azure\Azure Dev Spaces CLI for `azds.exe`. If it's there, add that location to the PATH environment variable.
 2. If `azds.exe` isn't installed, run the following command:
 
-    ```cmd
+    ```azurecli
     az aks use-dev-spaces -n <cluster-name> -g <resource-group>
     ```
 
@@ -331,13 +331,13 @@ To fix this issue:
 
 You need *Owner* or *Contributor* access in your Azure subscription to manage Azure Dev Spaces. If you're trying to manage Dev Spaces and you don't have *Owner* or *Contributor* access to the associated Azure subscription, you may see an authorization error. For example:
 
-```console
+```output
 The client '<User email/Id>' with object id '<Guid>' does not have authorization to perform action 'Microsoft.DevSpaces/register/action' over scope '/subscriptions/<Subscription Id>'.
 ```
 
 To fix this issue, using an account with *Owner* or *Contributor* access to the Azure subscription, manually register the `Microsoft.DevSpaces` namespace:
 
-```console
+```azurecli
 az provider register --namespace Microsoft.DevSpaces
 ```
 
@@ -353,7 +353,7 @@ This issue can impact pods in *all namespaces* in the cluster including namespac
 
 To fix this issue, [update the Dev Spaces CLI to the latest version](./how-to/upgrade-tools.md#update-the-dev-spaces-cli-extension-and-command-line-tools) and then deleting the *azds InitializerConfiguration* from the Azure Dev Spaces controller:
 
-```bash
+```azurecli
 az aks get-credentials --resource-group <resource group name> --name <cluster name>
 kubectl delete InitializerConfiguration azds
 ```
@@ -416,9 +416,8 @@ You may see this error when trying to access your service. For example, when you
 To fix this issue:
 
 1. If the container is in the process of being built/deployed, you can wait 2-3 seconds and try accessing the service again. 
-1. Check your port configuration. The specified port numbers should be **identical** in all of the following assets:
-    * **Dockerfile:** Specified by the `EXPOSE` instruction.
-    * **[Helm chart](https://docs.helm.sh):** Specified by the `externalPort` and `internalPort` values for a service (often located in a `values.yml` file),
+1. Check your port configuration in following assets:
+    * **[Helm chart](https://docs.helm.sh):** Specified by the `service.port` and `deployment.containerPort` in values.yaml scaffolded by `azds prep` command.
     * Any ports being opened up in application code, for example in Node.js: `var server = app.listen(80, function () {...}`
 
 ### The type or namespace name "MyLibrary" couldn't be found
@@ -451,9 +450,12 @@ You may have an existing AKS cluster and namespace with running pods where you w
 
 To enable Azure Dev Spaces on an existing namespace in an AKS cluster, run `use-dev-spaces` and use `kubectl` to restart all pods in that namespace.
 
-```console
+```azurecli
 az aks get-credentials --resource-group MyResourceGroup --name MyAKS
 az aks use-dev-spaces -g MyResourceGroup -n MyAKS --space my-namespace --yes
+```
+
+```console
 kubectl -n my-namespace delete pod --all
 ```
 
@@ -478,3 +480,14 @@ To fix this issue:
 
 * Use `az aks use-dev-spaces -g <resource group name> -n <cluster name>` to update the current context. This command also enables Azure Dev Spaces on your AKS cluster if is not already enabled. Alternatively, you can use `kubectl config use-context <cluster name>` to update the current context.
 * Use `az account show` to show the current Azure subscription you are targeting and verify this is correct. You can change the subscription you are targeting using `az account set`.
+
+### Error using Dev Spaces after rotating AKS certificates
+
+After [rotating the certificates in your AKS cluster](../aks/certificate-rotation.md), certain operations, such as `azds space list` and `azds up` will fail. You also need to refresh the certificates on your Azure Dev Spaces controller after rotating the certificates on your cluster.
+
+To fix this issue, ensure your *kubeconfig* has the updated certificates using `az aks get-credentials` then run the `azds controller refresh-credentials` command. For example:
+
+```azurecli
+az aks get-credentials -g <resource group name> -n <cluster name>
+azds controller refresh-credentials -g <resource group name> -n <cluster name>
+```

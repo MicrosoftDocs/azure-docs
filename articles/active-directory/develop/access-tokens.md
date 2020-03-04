@@ -174,7 +174,7 @@ We provide libraries and code samples that show how to easily handle token valid
 
 A JWT contains three segments, which are separated by the `.` character. The first segment is known as the **header**, the second as the **body**, and the third as the **signature**. The signature segment can be used to validate the authenticity of the token so that it can be trusted by your app.
 
-Tokens issued by Azure AD are signed using industry standard asymmetric encryption algorithms, such as RSA 256. The header of the JWT contains information about the key and encryption method used to sign the token:
+Tokens issued by Azure AD are signed using industry standard asymmetric encryption algorithms, such as RS256. The header of the JWT contains information about the key and encryption method used to sign the token:
 
 ```json
 {

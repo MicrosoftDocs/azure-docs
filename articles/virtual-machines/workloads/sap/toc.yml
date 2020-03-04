@@ -112,8 +112,6 @@
     href: sap-hana-backup-guide.md
   - name: SAP HANA file level backup
     href: sap-hana-backup-file-level.md
-  - name: SAP HANA storage snapshot backups
-    href: sap-hana-backup-storage-snapshots.md
 - name: SAP NetWeaver and Business One on Azure Virtual Machines
   items:
   - name: SAP workload planning and deployment checklist
@@ -225,6 +223,8 @@
         href: sap-ascs-ha-multi-sid-wsfc-file-share.md
       - name: SLES with Pacemaker multi-SID for A(SCS) Instance
         href: high-availability-guide-suse-multi-sid.md
+      - name: RHEL with Pacemaker multi-SID for A(SCS) Instance
+        href: high-availability-guide-rhel-multi-sid.md
   - name: Azure Site Recovery for SAP Disaster Recovery
     href: ../../../site-recovery/site-recovery-workload.md#protect-sap
   - name: Azure Proximity Placement Groups for optimal network latency with SAP applications
