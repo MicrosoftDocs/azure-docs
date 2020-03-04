@@ -45,7 +45,9 @@ In the following example, replace <app_name> with a unique app name.
 
 ```bash
 cd html-docs-hello-world
+```
 
+```azurecli
 az webapp up --location westeurope --name <app_name> 
 ```
 
@@ -97,7 +99,7 @@ Save your changes and exit nano. Use the command `^O` to save and `^X` to exit.
 
 You'll now redeploy the app with the same `az webapp up` command.
 
-```bash
+```azurecli
 az webapp up --location westeurope --name <app_name> --html
 ```
 
@@ -125,7 +127,7 @@ The left menu provides different pages for configuring your app.
 
 In the preceding steps, you created Azure resources in a resource group. If you don't expect to need these resources in the future, delete the resource group by running the following command in the Cloud Shell. Remember that the resource group name was automatically generated for you in the [create a web app](#create-a-web-app) step.
 
-```bash
+```azurecli
 az group delete --name appsvc_rg_Windows_westeurope
 ```
 

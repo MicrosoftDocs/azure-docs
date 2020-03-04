@@ -59,7 +59,7 @@ Some of the query commands and functions are heavy in their CPU consumption. Thi
 
 These functions consume CPU in proportion to the number of rows they are processing. The most efficient optimization is to add where conditions early in the query that can filter out as many records as possible before the CPU intensive function is executed.
 
-For example, the following queries produce exactly the same result but the second one is by far the most efficient as the [where]() condition before parsing excludes many records:
+For example, the following queries produce exactly the same result but the second one is by far the most efficient as the [where](/azure/kusto/query/whereoperator) condition before parsing excludes many records:
 
 ```Kusto
 //less efficient
