@@ -269,7 +269,7 @@
           href: tutorial-restrict-network-access-to-resources-cli.md
       - name: Using service endpoint policies
         items:
-        - name: Azure Portal
+        - name: Azure portal
           href: virtual-network-service-endpoint-policies-portal.md
         - name: Azure PowerShell
           href: virtual-network-service-endpoint-policies-powershell.md
