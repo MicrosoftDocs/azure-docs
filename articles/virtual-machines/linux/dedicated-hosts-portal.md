@@ -1,11 +1,9 @@
 ---
 title: Deploy Azure dedicated hosts using the Azure portal 
 description: Deploy VMs to dedicated hosts using the Azure portal.
-services: virtual-machines-linux
 author: cynthn
 ms.service: virtual-machines-linux
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 01/09/2020
 ms.author: cynthn

@@ -1,11 +1,9 @@
 ---
-title: Deploy Azure dedicated hosts using the CLI 
+title: Deploy Linux VMs to dedicated hosts using the CLI 
 description: Deploy VMs to dedicated hosts using the Azure CLI.
-services: virtual-machines-linux
 author: cynthn
 ms.service: virtual-machines-linux
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 01/09/2020
 ms.author: cynthn

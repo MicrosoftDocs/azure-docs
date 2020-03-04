@@ -3,7 +3,7 @@ title: Create and encrypt a Linux VM with Azure Powershell
 description: In this quickstart, you learn how to use Azure Powershell to create and encrypt a Linux virtual machine
 author: msmbaldwin
 ms.author: mbaldwin
-ms.service: security
+ms.service: security,virtual-machines-linux
 ms.topic: quickstart
 ms.date: 05/17/2019
 ---
