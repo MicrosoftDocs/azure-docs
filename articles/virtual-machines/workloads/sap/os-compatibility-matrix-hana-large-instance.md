@@ -28,7 +28,7 @@ ms.custom: H1Hack27Feb2017
   
 ### Instances With Persistent Memory
   | Operating System     | SKUs |
-  |-------------------------|-----|
+  |-------------------------|----|
   | SLES 12 SP4 | S224 |
   
 ## HANA Large Instance Type II     
