@@ -6,16 +6,16 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: article
-ms.date: 03/03/2020
+ms.date: 03/04/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
-ms.reviewer: spunukol
+ms.reviewer: spunukol, rosssmi
 
 ms.collection: M365-identity-device-management
 ---
-# How to: Require approved client apps for cloud app access with Conditional Access 
+# How to: Require approved client apps for cloud app access with Conditional Access
 
 People regularly use their mobile devices for both personal and work tasks. While making sure staff can be productive, organizations also want to prevent data loss from potentially unsecure applications. With Conditional Access, organizations can restrict access to approved (modern authentication capable) client apps.
 
@@ -25,8 +25,6 @@ This article presents two scenarios to configure Conditional Access policies for
 - [Scenario 2: Exchange Online and SharePoint Online require an approved client app](#scenario-2-exchange-online-and-sharepoint-online-require-an-approved-client-app)
 
 In Conditional Access, this functionality is known as requiring an approved client app. For a list of approved client apps, see [approved client app requirement](concept-conditional-access-grant.md#require-approved-client-app).
-
-![Conditional Access require an approved client app setting](./media/app-based-conditional-access/require-approved-client-app.png)
 
 ## Scenario 1: Office 365 apps require an approved client app
 

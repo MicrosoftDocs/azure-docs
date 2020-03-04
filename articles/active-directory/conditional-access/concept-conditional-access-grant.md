@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 02/11/2020
+ms.date: 03/04/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -97,6 +97,8 @@ This setting applies to the following client apps:
    - Only supports the iOS and Android for device platform condition.
 - Conditional Access cannot consider Microsoft Edge in InPrivate mode an approved client app.
 
+See the article, [How to: Require approved client apps for cloud app access with Conditional Access](app-based-conditional-access.md) for configuration examples.
+
 ### Require app protection policy
 
 In your Conditional Access policy, you can require an app protection policy be present on the client app before access is available to the selected cloud apps. 
@@ -115,6 +117,8 @@ This setting applies to the following client apps:
 - Apps for app protection policy support the Intune mobile application management feature with policy protection.
 - The **Require app protection policy** requirements:
     - Only supports the iOS and Android for device platform condition.
+
+See the article, [How to: Require app protection policy and an approved client app for cloud app access with Conditional Access](app-protection-based-conditional-access.md) for configuration examples.
 
 ## Next steps
 

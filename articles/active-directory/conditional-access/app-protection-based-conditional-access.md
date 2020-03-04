@@ -6,18 +6,16 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: article
-ms.date: 03/03/2020
+ms.date: 03/04/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
-ms.reviewer: spunukol
-
-#Customer intent: As an IT admin, I want to know how to require an app protection policy for the access to certain resources to ensure that they're accessed only from applications that meet my standards for security and compliance.
+ms.reviewer: spunukol, rosssmi
 
 ms.collection: M365-identity-device-management
 ---
-# How to: Require approved client app and app protection policy for cloud app access with Conditional Access
+# How to: Require app protection policy and an approved client app for cloud app access with Conditional Access
 
 People regularly use their mobile devices for both personal and work tasks. While making sure staff can be productive, organizations also want to prevent data loss from potentially unsecure applications. With Conditional Access, organizations can restrict access to approved (modern authentication capable) client apps with Intune app protection policies applied to them.
 
@@ -26,30 +24,9 @@ This article presents two scenarios to configure Conditional Access policies for
 - [Scenario 1: Office 365 apps require approved apps with app protection policies](#scenario-1-office-365-apps-require-approved-apps-with-app-protection-policies)
 - [Scenario 2: Exchange Online and SharePoint Online require an approved client app and app protection policy](#scenario-2-exchange-online-and-sharepoint-online-require-an-approved-client-app-and-app-protection-policy)
 
-## Overview
-
-With [Azure AD Conditional Access](overview.md), you can fine-tune how authorized users can access your resources. For example, you can limit the access to your cloud apps to trusted devices.
-
-You can use [Intune app protection policies](https://docs.microsoft.com/intune/app-protection-policy) to help protect your company's data. Intune app protection policies don't require a mobile device management (MDM) solution. You can protect your company's data with or without enrolling devices in a device management solution.
-
-Azure Active Directory Conditional Access restricts access to your cloud apps to client applications that Intune has reported to Azure AD as receiving an app protection policy. For example, you can restrict access to Exchange Online to the Outlook app that has an Intune app protection policy.
-
-In the Conditional Access terminology, these client apps are known to be protected with an *app protection policy*.  
+In the Conditional Access, these client apps are known to be protected with an app protection policy. More information about app protection policies can be found in the article, [App protection policies overview](/intune/apps/app-protection-policy)
 
 For a list of eligible client apps, see [App protection policy requirement](concept-conditional-access-grant.md).
-
-You can combine app-protection-based Conditional Access policies with other policies, such as [device-based Conditional Access policies](require-managed-devices.md). This way, you can provide flexibility in how to protect data for both personal and corporate devices.
-
-
-## Benefits of app protection-based Conditional Access requirement
-
-Similar to compliance that's reported by Intune for iOS and Android for a managed device, Intune now reports to Azure AD if an app protection policy is applied. Conditional Access can use this policy as an access check. This new Conditional Access policy, the app protection policy, increases security. It protects against admin errors, such as:
-
-- Users who don't have an Intune license.
-- Users who can't receive an Intune app protection policy.
-- Intune app protection policy apps that aren't configured to receive a policy.
-
-Intune app protection policies must be in place on the application to access corporate data. Policies might prompt the user to restart the application or use an additional PIN. This is the case if the policies are configured for the application and platform.
 
 ## Scenario 1: Office 365 apps require approved apps with app protection policies
 
@@ -160,3 +137,4 @@ Review the article [How to create and assign app protection policies](/intune/ap
 [Conditional access components](concept-conditional-access-policies.md)
 
 [Common Conditional Access policies](concept-conditional-access-policy-common.md)
+
