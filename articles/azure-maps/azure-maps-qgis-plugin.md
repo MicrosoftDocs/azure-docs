@@ -13,6 +13,8 @@ ms.custom: mvc
 
 # Azure Maps plugin for QGIS
 
+The Quantum Geographic Information System [(QGIS)](https://qgis.org/) Software is a professional and a Free and Open Source Software (FOSS) application. The Azure Maps plug-in for QGIS is part of "Private Atlas - Private Preview", and it and provides you a way to visualize and QA Azure Maps Private Atlas data sets. It also lets you edits and apply changes to data sets. Azure Maps QGIS plug-in is currently classified under the experimentation label in the QGIS plug-in store. This article guides you through the installation process of Azure Maps QGIS plug-ins, and how to use the plugin to visualize and edit a chosen dataset.
+
 [QGIS](https://www.qgis.org/en/site/about/index.html) is a Free and Open Source Software (FOSS) professional GIS application available at https://qgis.org/. The Azure Maps plugin is part of Private Atlas - Private Preview and provides you a way to visualize and QA Azure Maps Private Atlas datasets as well as make edits and apply changes to datasets. The plugin is classified experimentation in the QGIS plugin store. This article guides you through how to install Azure Maps QGIS plugin and visualize and edit your dataset using it.
 
 
@@ -142,6 +144,6 @@ You might also face a scenario where you want to add, edit or delete project-spe
 
 Following are the limitations to Keep in mind when using the Azure Maps QGIS plugin to make edits to your dataset.
 
-1. No concurrent data editing supported at this stage. It’s recommended that a single user at the time performs edits and apply changes to a dataset.
+1. No concurrent data editing supported at this stage. Itï¿½s recommended that a single user at the time performs edits and apply changes to a dataset.
 
 2. Use an edit and save process for each floor you will be working on, changes done on a given floor will be lost when changing floor.
