@@ -14,14 +14,14 @@ manager: philmea
 
 In addition to providing tools to read spatial data files, the spatial IO module exposes core underlying libraries to read and write XML and delimited data fast and efficiently.
 
-The `atlas.io.core` namespace contains two low-level classes that can quickly read and write CSV and XML data. These base classes power the spatial data readers and writers in the Spatial IO module. Feel free to use these classes to add additional support for reading and writing CSV or XML files.
+The `atlas.io.core` namespace contains two low-level classes that can quickly read and write CSV and XML data. These base classes power the spatial data readers and writers in the Spatial IO module. Feel free to use them to add additional reading and writing support for CSV or XML files.
  
 ## Read delimited files
 
-The `atlas.io.core.CsvReader` class makes it easy to read strings that contain delimited data sets. This class provides two methods for reading data:
+The `atlas.io.core.CsvReader` class reads strings that contain delimited data sets. This class provides two methods for reading data:
 
 - The `read` function will read the full data set and return a 2-dimensional array of strings representing all cells of the delimited data set.
-- The `getNextRow` function reads each line of text in a delimited data set and returns an array of string representing all cells in that line of data set. This method can access the memory more efficiently. The user can processes the row and dispose any unneeded memory from that row before processing the next row.
+- The `getNextRow` function reads each line of text in a delimited data set and returns an array of string representing all cells in that line of data set. The user can processes the row and dispose any unneeded memory from that row before processing the next row. So, function is more memory efficient.
 
 By default, the reader will use the comma character as the delimiter. However, the delimiter can be changed to any single character or set to `'auto'`. When set to `'auto'`, the reader will analyze the first line of text in the string. Then, it will select the most common character from the table below to use as the delimiter.
 
@@ -35,7 +35,7 @@ This reader also supports text qualifiers that are used to handle cells that con
 
 ## Write delimited files
 
-The `atlas.io.core.CsvWriter` class makes it easy to efficiently write an array of objects as a delimited string. Any single character can be used as a delimiter or a text qualifier. The default delimiter is comma (`','`) and the default text qualifier is the quote (`'"'`) character.
+The `atlas.io.core.CsvWriter` writes an array of objects as a delimited string. Any single character can be used as a delimiter or a text qualifier. The default delimiter is comma (`','`) and the default text qualifier is the quote (`'"'`) character.
 
 To use this class, follow the steps below:
 
@@ -75,7 +75,7 @@ if (xmlDoc && xmlDoc.root && xmlDoc.root.tagName && xmlDoc.root.tagName === '<Yo
 
 ## Write XML files
 
-The `atlas.io.core.SimpleXmlWriter` class makes it easy to write well-formatted XML in a memory efficient way. 
+The `atlas.io.core.SimpleXmlWriter` class writes well-formatted XML in a memory efficient way.
 
 The following code demonstrates how to use the `SimpleXmlWriter` class to generate a well-formatted XML string.
 
