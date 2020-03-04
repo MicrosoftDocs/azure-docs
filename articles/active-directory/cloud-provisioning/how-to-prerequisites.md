@@ -21,7 +21,7 @@ This article provides guidance on how to choose and use Azure Active Directory (
 ## Cloud provisioning agent requirements
 You need the following to use Azure AD Connect cloud provisioning:
 	
-- A global administrator account for your Azure AD tenant.
+- A global administrator account for your Azure AD tenant that is not a guest user.
 - An on-premises server for the provisioning agent with Windows 2012 R2 or later.
 - On-premises firewall configurations.
 
@@ -34,6 +34,10 @@ The rest of the document provides step-by-step instructions for these prerequisi
 
 1. Create a cloud-only global administrator account on your Azure AD tenant. This way, you can manage the configuration of your tenant if your on-premises services fail or become unavailable. Learn about how to [add a cloud-only global administrator account](../active-directory-users-create-azure-portal.md). Finishing this step is critical to ensure that you don't get locked out of your tenant.
 1. Add one or more [custom domain names](../active-directory-domains-add-azure-portal.md) to your Azure AD tenant. Your users can sign in with one of these domain names.
+
+### In your directory in Active Directory
+
+Run the [IdFix tool](https://docs.microsoft.com/office365/enterprise/prepare-directory-attributes-for-synch-with-idfix) to prepare the directory attributes for synchronization.
 
 ### In your on-premises environment
 

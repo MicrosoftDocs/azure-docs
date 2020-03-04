@@ -1,8 +1,8 @@
-- name: Azure Resource Manager template documentation
+- name: ARM template documentation
   href: index.yml
 - name: Overview
   items:
-  - name: What are Azure Resource Manager templates?
+  - name: What are ARM templates?
     href: overview.md
 - name: Quickstarts
   items:
