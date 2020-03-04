@@ -280,7 +280,7 @@ if not (args.output_train is None):
 
 ### Configure ML pipeline
 
-To provide the Python packages needed to start PTVSD and get the run context, create an [environment]()
+To provide the Python packages needed to start PTVSD and get the run context, create an environment
 and set `pip_packages=['ptvsd', 'azureml-sdk==1.0.83']`. Change the SDK version to match the one you are using. The following code snippet demonstrates how to create an environment:
 
 ```python
