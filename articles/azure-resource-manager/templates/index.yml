@@ -1,10 +1,10 @@
 ### YamlMime:Landing
 
 title: Azure Resource Manager template documentation
-summary: Resource Manager template is a JavaScript Object Notation (JSON) file that defines the infrastructure and configuration for your project.
+summary: ARM templates are a JavaScript Object Notation (JSON) files that define the infrastructure and configuration for your project.
 
 metadata:
-  title: Azure Resource Manager documentation
+  title: ARM template documentation
   description: "Learn how to develop Azure Resource Manager templates and use them to deploy Azure resources"
   services: azure-resource-manager
   ms.service: azure-resource-manager
@@ -13,13 +13,13 @@ metadata:
   ms.collection: na
   author: mumian
   ms.author: jgao
-  ms.date: 12/19/2019
+  ms.date: 03/04/2020
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
 landingContent:
   # Card (optional)
-  - title: About Azure Resource Manager templates
+  - title: About ARM templates
     linkLists:
       - linkListType: overview
         links:
