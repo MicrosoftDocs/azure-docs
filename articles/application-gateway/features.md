@@ -21,7 +21,7 @@ Application Gateway includes the following features:
 - [Autoscaling](#autoscaling)
 - [Zone redundancy](#zone-redundancy)
 - [Static VIP](#static-vip)
-- [Web application firewall](#web-application-firewall)
+- [Web Application Firewall](#web-application-firewall)
 - [Ingress Controller for AKS](#ingress-controller-for-aks)
 - [URL-based routing](#url-based-routing)
 - [Multiple-site hosting](#multiple-site-hosting)
