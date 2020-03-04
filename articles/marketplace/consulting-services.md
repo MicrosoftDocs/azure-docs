@@ -36,7 +36,7 @@ Consulting Services and Managed Services offers that are based on Microsoft Azur
 > [!Note]
 > Consulting services in Azure Marketplace should leverage offerings geared towards a **technical audience with focuses on *Azure technical solutions and services.* **
 > Consulting services in AppSource should leverage offerings geared towards their expertise in delivering quality solutions for Dynamics 365, Power BI,
-> or PowerApps to list their consulting services offerings on AppSource
+> or Power Apps to list their consulting services offerings on AppSource
 > 
 > 
 > [!TIP]
@@ -64,7 +64,7 @@ Partners are required to have a **silver or gold competency** in the relevant ar
 | Dynamics 365 Customer Insights | Must have at least 1 successful in-production implementation of [Dynamics 365 Customer Insights](https://dynamics.microsoft.com/ai/customer-insights/) with at least 5 measures and 5 segments. |
 | Dynamics 365 Business Central | Must be Gold or Silver certified in [Enterprise Resource Planning competency](https://partner.microsoft.com/membership/enterprise-resource-planning-competency) and must be the cloud solution provider for at least 3 Business Central customers. <br> <br> OR <br> <br> Must have published a [Business Central application in AppSource](https://appsource.microsoft.com/) |
 | Power BI | Must be listed on the [Power BI partner showcase](https://powerbi.microsoft.com/partner-showcase/?term=&country=&industry=&department=).|
-|Power Apps | Must be eligible for Advanced Benefits in the [PowerApps Partnership Program](https://aka.ms/PowerAppsPartner). |
+|Power Apps | Must be eligible for Advanced Benefits in the [Power Apps Partnership Program](https://aka.ms/PowerAppsPartner). |
 
 Additional resources and support:
 
