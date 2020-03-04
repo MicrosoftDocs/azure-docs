@@ -5,6 +5,7 @@ author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 01/28/2020
 ms.service: key-vault
+ms.subservice: secrets
 ms.topic: quickstart
 
 ---
@@ -150,5 +151,4 @@ If the compliance results show up as "Not Started" it may be due to the followin
 ## Next Steps
 
 - Learn more about the [Azure Policy service](../governance/policy/overview.md)
-- See a sample: [Key Vault vaults with no virtual network endpoints](../governance/policy/samples/keyvault-no-vnet-rules.md)
-
+- See Key Vault samples: [Key Vault built-in policy definitions](../governance/policy/samples/built-in-policies.md#key-vault)

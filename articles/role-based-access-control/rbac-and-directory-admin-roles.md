@@ -1,5 +1,5 @@
 ---
-title: Classic subscription administrator roles, Azure RBAC roles, and Azure AD administrator roles | Microsoft Docs
+title: "Classic subscription administrator roles, Azure RBAC roles, and Azure AD roles"
 description: Describes the different roles in Azure - Classic subscription administrator roles, Azure role-based access control (RBAC) roles, and Azure Active Directory (Azure AD) administrator roles 
 services: active-directory
 documentationcenter: ''
@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 10/01/2019
+ms.date: 02/27/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro;
@@ -71,7 +71,7 @@ Azure RBAC is an authorization system built on [Azure Resource Manager](../azure
 | Azure RBAC role | Permissions | Notes |
 | --- | --- | --- |
 | [Owner](built-in-roles.md#owner) | <ul><li>Full access to all resources</li><li>Delegate access to others</li></ul> | The Service Administrator and Co-Administrators are assigned the Owner role at the subscription scope<br>Applies to all resource types. |
-| [Contributor](built-in-roles.md#contributor) | <ul><li>Create and manage all of types of Azure resources</li><li>Cannot grant access to others</li></ul> | Applies to all resource types. |
+| [Contributor](built-in-roles.md#contributor) | <ul><li>Create and manage all of types of Azure resources</li><li>Create a new tenant in Azure Active Directory</li><li>Cannot grant access to others</li></ul> | Applies to all resource types. |
 | [Reader](built-in-roles.md#reader) | <ul><li>View Azure resources</li></ul> | Applies to all resource types. |
 | [User Access Administrator](built-in-roles.md#user-access-administrator) | <ul><li>Manage user access to Azure resources</li></ul> |  |
 

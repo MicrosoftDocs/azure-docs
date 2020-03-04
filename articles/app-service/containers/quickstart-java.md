@@ -13,7 +13,7 @@ ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
 ---
 # Quickstart: Create a Java app on Azure App Service on Linux
 
-[App Service on Linux](app-service-linux-intro.md) provides a highly scalable, self-patching, web hosting service using the Linux operating system. This quickstart shows how to use the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) with the [Maven Plugin for Azure App Service](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin) to deploy a Java web archive (WAR) file on the Linux operating system.
+[App Service on Linux](app-service-linux-intro.md) provides a highly scalable, self-patching, web hosting service using the Linux operating system. This quickstart shows how to use the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) with the [Azure Web App Plugin for Maven](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin) to deploy a Java web archive (WAR) file on the Linux operating system.
 
 > [!NOTE]
 >
@@ -74,7 +74,6 @@ Enter index to use:
 Define value for runtimeStack(Default: TOMCAT 8.5):
 1. TOMCAT 9.0
 2. TOMCAT 8.5 [*]
-3. WILDFLY 14
 Enter index to use:
 Please confirm webapp properties
 AppName : helloworld-1558400876966
@@ -135,7 +134,13 @@ This command may take a minute to run.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Tutorial: Java Enterprise app with PostgreSQL](tutorial-java-enterprise-postgresql-app.md)
+> [Connect to Azure SQL database with Java](/azure/sql-database/sql-database-connect-query-java?toc=%2Fazure%2Fjava%2Ftoc.json)
+
+> [!div class="nextstepaction"]
+> [Connect to Azure DB for MySQL with Java](/azure/mysql/connect-java?toc=/azure/java/toc.json)
+
+> [!div class="nextstepaction"]
+> [Connect to Azure DB for PostgreSQL with Java](/azure/postgresql/connect-java?toc=/azure/java/toc.json)
 
 > [!div class="nextstepaction"]
 > [Configure Java app](configure-custom-container.md)

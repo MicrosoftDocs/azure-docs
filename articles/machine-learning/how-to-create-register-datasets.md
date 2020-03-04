@@ -10,7 +10,7 @@ ms.author: sihhu
 author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 11/04/2019
+ms.date: 02/10/2020
 
 # Customer intent: As an experienced data scientist, I need to package my data into a consumable and reusable object to train my machine learning models.
 
@@ -55,7 +55,7 @@ To learn more about upcoming API changes, see [Dataset API change notice](https:
 
 ## Create datasets
 
-By creating a dataset, you create a reference to the data source location, along with a copy of its metadata. Because the data remains in its existing location, you incur no extra storage cost. You can create both `TabularDataset` and `FileDataset` data sets by using the Python SDK or workspace landing page (preview).
+By creating a dataset, you create a reference to the data source location, along with a copy of its metadata. Because the data remains in its existing location, you incur no extra storage cost. You can create both `TabularDataset` and `FileDataset` data sets by using the Python SDK or https://ml.azure.com.
 
 For the data to be accessible by Azure Machine Learning, datasets must be created from paths in [Azure datastores](how-to-access-data.md) or public web URLs.
 
@@ -72,9 +72,7 @@ To create datasets from an [Azure datastore](how-to-access-data.md) by using the
 
 #### Create a TabularDataset
 
-You can create TabularDatasets through the SDK or by using Azure Machine Learning studio. 
-
-Use the [`from_delimited_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#from-delimited-files-path--validate-true--include-path-false--infer-column-types-true--set-column-types-none--separator------header-true--partition-format-none-) method on the `TabularDatasetFactory` class to read files in .csv or .tsv format, and to create an unregistered TabularDataset. If you're reading from multiple files, results will be aggregated into one tabular representation.
+Use the [`from_delimited_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#from-delimited-files-path--validate-true--include-path-false--infer-column-types-true--set-column-types-none--separator------header-true--partition-format-none-) method on the `TabularDatasetFactory` class to read files in .csv or .tsv format, and to create an unregistered TabularDataset. If you're reading from multiple files, results will be aggregated into one tabular representation. 
 
 ```Python
 from azureml.core import Workspace, Datastore, Dataset
@@ -94,7 +92,10 @@ datastore_paths = [(datastore, 'ather/2018/11.csv'),
 weather_ds = Dataset.Tabular.from_delimited_files(path=datastore_paths)
 ```
 
-By default, when you create a TabularDataset, column data types are inferred automatically. If the inferred types don't match your expectations, you can specify column types by using the following code. You can also [learn more about supported data types](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.datatype?view=azure-ml-py).
+By default, when you create a TabularDataset, column data types are inferred automatically. If the inferred types don't match your expectations, you can specify column types by using the following code. The parameter `infer_column_type` is only applicable for datasets created from delimited files.You can also [learn more about supported data types](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.datatype?view=azure-ml-py).
+
+> [!IMPORTANT] 
+> If your storage is behind a virtual network or firewall, only creation of a dataset via the SDK is supported. To create your dataset, be sure to include the parameters `validate=False` and `infer_column_types=False` in your `from_delimited_files()` method. This bypasses the initial validation check and ensures that you can create your dataset from these secure files. 
 
 ```Python
 from azureml.data.dataset_factory import DataType
@@ -112,6 +113,32 @@ titanic_ds.take(3).to_pandas_dataframe()
 0|1|False|3|Braund, Mr. Owen Harris|male|22.0|1|0|A/5 21171|7.2500||S
 1|2|True|1|Cumings, Mrs. John Bradley (Florence Briggs Th...|female|38.0|1|0|PC 17599|71.2833|C85|C
 2|3|True|3|Heikkinen, Miss. Laina|female|26.0|0|0|STON/O2. 3101282|7.9250||S
+
+
+To create a dataset from an in memory pandas dataframe, write the data to a local file, like a csv, and create your dataset from that file. The following code demonstrates this workflow.
+
+```python
+local_path = 'data/prepared.csv'
+dataframe.to_csv(local_path)
+upload the local file to a datastore on the cloud
+# azureml-core of version 1.0.72 or higher is required
+# azureml-dataprep[pandas] of version 1.1.34 or higher is required
+from azureml.core import Workspace, Dataset
+
+subscription_id = 'xxxxxxxxxxxxxxxxxxxxx'
+resource_group = 'xxxxxx'
+workspace_name = 'xxxxxxxxxxxxxxxx'
+
+workspace = Workspace(subscription_id, resource_group, workspace_name)
+
+# get the datastore to upload prepared data
+datastore = workspace.get_default_datastore()
+
+# upload the local file from src_dir to the target_path in datastore
+datastore.upload(src_dir='data', target_path='data')
+create a dataset referencing the cloud location
+dataset = Dataset.Tabular.from_delimited_files(datastore.path('data/prepared.csv'))
+```
 
 Use the [`from_sql_query()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#from-sql-query-query--validate-true--set-column-types-none-) method on the `TabularDatasetFactory` class to read from Azure SQL Database:
 
@@ -147,7 +174,7 @@ data_slice = dataset.time_recent(timedelta(weeks=1, days=1))
 
 #### Create a FileDataset
 
-Use the [`from_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?view=azure-ml-py#from-files-path--validate-true-) method on the `FileDatasetFactory` class to load files in any format and to create an unregistered FileDataset:
+Use the [`from_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?view=azure-ml-py#from-files-path--validate-true-) method on the `FileDatasetFactory` class to load files in any format and to create an unregistered FileDataset. If your storage is behind a a virtual network or firewall, set the parameter `validate =False` in your `from_files()` method. This bypasses the initial validation step, and ensures that you can create your dataset from these secure files.
 
 ```Python
 # create a FileDataset pointing to files in 'animals' folder and its subfolders recursively

@@ -11,7 +11,7 @@ This article explains how to disable a function in Azure Functions. To *disable*
 
 The recommended way to disable a function is by using an app setting in the format `AzureWebJobs.<FUNCTION_NAME>.Disabled`. You can create and modify this application setting in a number of ways, including by using the [Azure CLI](/cli/azure/) and from your function's **Manage** tab in the [Azure portal](https://portal.azure.com). 
 
-> [NOTE]  
+> [!NOTE]  
 > When you disable an HTTP triggered function by using the methods described in this article, the endpoint may still by accessible when running on your local computer.  
 
 ## Use the Azure CLI

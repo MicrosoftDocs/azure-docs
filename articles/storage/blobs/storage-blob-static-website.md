@@ -87,6 +87,12 @@ If the storage account is configured to [require secure transfer](../common/stor
 > [!TIP]
 > Consider hosting your domain on Azure. For more information, see [Host your domain in Azure DNS](../../dns/dns-delegate-domain-azure-dns.md).
 
+## Adding HTTP headers
+
+There's no way to configure headers as part of the static website feature. However, you can use Azure CDN to add headers and append (or overwrite) header values. See [Standard rules engine reference for Azure CDN](https://docs.microsoft.com/azure/cdn/cdn-standard-rules-engine-reference).
+
+If you want to use headers to control caching, see [Control Azure CDN caching behavior with caching rules](https://docs.microsoft.com/azure/cdn/cdn-caching-rules).
+
 ## Pricing
 
 You can enable static website hosting free of charge. You're billed only for the blob storage that your site utilizes and operations costs. For more details on prices for Azure Blob Storage, check out the [Azure Blob Storage Pricing Page](https://azure.microsoft.com/pricing/details/storage/blobs/).

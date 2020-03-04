@@ -1,7 +1,6 @@
 ---
 title: Sources of data in Azure Monitor | Microsoft Docs
 description: Describes the data available to monitor the health and performance of your Azure resources and the applications running on them.
-ms.service:  azure-monitor
 ms.subservice: 
 ms.topic: conceptual
 author: bwren
@@ -116,10 +115,11 @@ Enabling the Azure Diagnostics extension for Azure Virtual machines allows you t
 
 | Destination | Description | Reference |
 |:---|:---|:---|
-| Storage | When you enable the Diagnostics Extension, it will write to a storage account by default. | [Store and view diagnostic data in Azure Storage](diagnostics-extension-to-storage.md) |
+| Storage | Azure diagnostics extension always writes to an Azure Storage account. | [Install and configure Windows Azure diagnostics extension (WAD)](diagnostics-extension-windows-install.md)<br>[Use Linux Diagnostic Extension to monitor metrics and logs](../../virtual-machines/extensions/diagnostics-linux.md) |
 | Azure Monitor Metrics | When you configure the Diagnostics Extension to collect performance counters, they are written to the Azure Monitor metrics database. | [Send Guest OS metrics to the Azure Monitor metric store using a Resource Manager template for a Windows virtual machine](collect-custom-metrics-guestos-resource-manager-vm.md) |
+| Event Hubs | Configure the Diagnostics Extension to stream the data to other locations using Event Hubs.  | [Streaming Azure Diagnostics data by using Event Hubs](diagnostics-extension-stream-event-hubs.md)<br>[Use Linux Diagnostic Extension to monitor metrics and logs](../../virtual-machines/extensions/diagnostics-linux.md) |
 | Application Insights Logs | Collect logs and performance counters from the compute resource supporting your application to be analyzed with other application data. | [Send Cloud Service, Virtual Machine, or Service Fabric diagnostic data to Application Insights](diagnostics-extension-to-application-insights.md) |
-| Event Hubs | Configure the Diagnostics Extension to stream the data to other locations using Event Hubs.  | [Streaming Azure Diagnostics data in the hot path by using Event Hubs](diagnostics-extension-stream-event-hubs.md) |
+
 
 ### Log Analytics agent 
 Install the Log Analytics agent for comprehensive monitoring and management of your Windows or Linux virtual machines. The virtual machine can be running in Azure, another cloud, or on-premises.
