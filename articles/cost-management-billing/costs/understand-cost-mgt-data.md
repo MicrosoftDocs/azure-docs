@@ -5,7 +5,7 @@ description: This article helps you better understand data that's included in Az
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 02/20/2020
+ms.date: 03/02/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: micflan
@@ -17,6 +17,8 @@ ms.custom:
 This article helps you better understand Azure cost and usage data that's included in Azure Cost Management. It explains how frequently data is processed, collected, shown, and closed. You're billed for Azure usage monthly. Although billing cycles are monthly periods, cycle start and end dates vary by subscription type. How often Cost Management receives usage data varies based on different factors. Such factors include how long it takes to process the data and how frequently Azure services emit usage to the billing system.
 
 Cost Management includes all usage and purchases, including reservations and third-party offerings for Enterprise Agreement (EA) accounts. Microsoft Customer Agreement accounts and individual subscriptions with pay-as-you-go rates  only include usage from Azure and Marketplace services. Support and other costs aren't included. Costs are estimated until an invoice is generated and don't factor in credits.
+
+If you have a new subscription, you can’t immediately use Cost Management features. It might take up to 48 hours before you can use all Cost Management features.
 
 ## Supported Microsoft Azure offers
 
@@ -131,9 +133,9 @@ Here are a few tips for working with tags:
 - Use the Tags API in conjunction with either Query or UsageDetails to get all cost based on the current tags.
 
 
-**Free trial to pay-as-you-go upgrade**
+## Free trial to pay-as-you-go upgrade
 
-Customers with a Free Trial offer (044P) converting to the PAYG offer (003P) can see their usage during the Free trial period. However, they lose visibility to Free Trail usage after conversion. After conversion, only PAYG usage and costs are shown in Cost Management.
+For information about the availability of free tier services after you upgrade to pay-as-you-go pricing from a Free trial, see the [Azure free account FAQ](https://azure.microsoft.com/free/free-account-faq/).
 
 ## Rated usage data refresh schedule
 
