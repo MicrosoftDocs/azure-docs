@@ -40,6 +40,7 @@ landingContent:
       - text: SaaS applications offer publishing guide
         url: ./marketplace-saas-applications-technical-publishing-guide.md
     - linkListType: get-started
+      links:
       - text: Join Azure Marketplace and AppSource community forum
         url: https://aka.ms/MarketplaceCommunity
       - text:Join webinars for discussion or watch on demand
