@@ -24,13 +24,22 @@ ms.custom: H1Hack27Feb2017
   |-------------------------|-----|
   | SLES 12 SP2 | S72, S72m, S144, S144m, S192, S192m, S192xm, S96 |
   | SLES 12 SP3 | S72, S72m, S144, S144m, S192, S192m, S192xm, S96 |
-  | SLES 12 SP4 | S72, S72m, S144, S144m, S192, S192m, S192xm, S96, S224, S224m |
+  | SLES 12 SP4 | S72, S72m, S144, S144m, S192, S192m, S192xm, S96, S224m |
+  
+### Instances With Persistent Memory
+  | Operating System     | SKUs |
+  |-------------------------|-----|
+  | SLES 12 SP4 | S224 |
   
 ## HANA Large Instance Type II     
   |  Operating System       | SKUs |
   |-------------------------|----|
   | SLES 12 SP2| S384, S384m, S384xm, S384xxm, S576m, S576xm, S768m, S768xm, S960m |
   | SLES 12 SP3| S384, S384m, S384xm, S384xxm, S576m, S576xm, S768m, S768xm, S960m |
+  
+## Related Documents
+
+- To know more about [Available SKUs](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-available-skus)
   
 
   
