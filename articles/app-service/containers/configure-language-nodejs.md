@@ -268,6 +268,8 @@ When a working Node.js app behaves differently in App Service or has errors, try
     - Certain web frameworks may use custom startup scripts when running in production mode.
 - Run your app in App Service in development mode. For example, in [MEAN.js](https://meanjs.org/), you can set your app to development mode in runtime by [setting the `NODE_ENV` app setting](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings).
 
+[!INCLUDE [robots933456](../../../includes/app-service-web-configure-robots933456.md)]
+
 ## Next steps
 
 > [!div class="nextstepaction"]
