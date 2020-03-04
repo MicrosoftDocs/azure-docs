@@ -350,7 +350,7 @@ az group deployment create \
 
 The output from the preceding example is:
 
-```azurecli
+```output
 "outputs": {
   "defaultScopeRG": {
     "type": "String",

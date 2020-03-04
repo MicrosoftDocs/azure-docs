@@ -4,7 +4,7 @@ description: Learn how to troubleshoot and resolve issues with the Update Manage
 services: automation
 author: mgoedtel
 ms.author: magoedte
-ms.date: 05/31/2019
+ms.date: 03/02/2020
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
@@ -18,6 +18,36 @@ There's an agent troubleshooter for the Hybrid Worker agent to determine the und
 If you encounter issues while you're trying to onboard the solution on a virtual machine (VM), check the **Operations Manager** log under **Application and Services Logs** on the local machine for events with event ID 4502 and event details that contain **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent**.
 
 The following section highlights specific error messages and possible resolutions for each. For other onboarding issues see [Troubleshoot solution onboarding](onboarding.md).
+
+## Scenario: Superseded update indicated as missing in Update Management
+
+### Issue
+
+Old updates are appearing in Update Management in the Azure Account as missing even though they have been superseded. A superseded update is one that doesn't have to be installed because a later update that corrects the same vulnerability is available. Update Management ignores the superseded update and makes it not applicable in favor of the superseding update. For information about a related issue, see [Update is superseded](https://docs.microsoft.com/windows/deployment/update/windows-update-troubleshooting#the-update-is-not-applicable-to-your-computer).
+
+### Cause
+
+Superseded updates are not being correctly indicated as declined so that they can be considered not applicable.
+
+### Resolution
+
+When a superseded update becomes 100 percent not applicable, you should change the approval state of that update to **Declined**. To do this for all your updates:
+
+1. In the Automation Account, select **Update Management** to view machine status. See [View update assessments](../manage-update-multi.md#view-an-update-assessment).
+
+2. Check the superseded update to make sure that it is 100 percent not applicable. 
+
+3. Mark the update as declined unless you have a question about the update. 
+
+4. Select Computers and, in the Compliance column, force a rescan for compliance. See [Manage updates for multiple machines](../manage-update-multi.md).
+
+5. Repeat the steps above for other superseded updates.
+
+6. Run the cleanup wizard to delete files from the declined updates. 
+
+7. For WSUS, manually clean all superseded updates to refresh the infrastructure.
+
+8. Repeat this procedure regularly to correct the display issue and minimize the amount of disk space used for update management.
 
 ## <a name="nologs"></a>Scenario: Machines don't show up in the portal under Update Management
 
