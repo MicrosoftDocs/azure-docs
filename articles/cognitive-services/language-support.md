@@ -55,12 +55,6 @@ These Cognitive Services are language agnostic and don't have limitations based 
 
 * [Content Moderator: Text Filtering](https://docs.microsoft.com/azure/cognitive-services/content-moderator/text-moderation-api-languages)
 
-The following Cognitive Services are language agnostic and don't have limitations based on language.
-
-* [Personalizer](https://docs.microsoft.com/azure/cognitive-services/personalizer/)
-* [Anomaly Detector (Preview)](https://docs.microsoft.com/azure/cognitive-services/anomaly-detector/overview)
-
-
 ## See also
 
 * [What is Cognitive Services?](welcome.md)
