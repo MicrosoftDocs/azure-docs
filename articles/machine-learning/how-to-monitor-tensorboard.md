@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: conceptual
 author: maxluk
 ms.author: maxluk
-ms.date: 11/08/2019
+ms.date: 02/27/2020
 ---
 
 # Visualize experiment runs and metrics with TensorBoard and Azure Machine Learning
@@ -177,6 +177,10 @@ tb.start()
 # After your job completes, be sure to stop() the streaming otherwise it will continue to run. 
 tb.stop()
 ```
+
+>[!Note]
+ While this example used TensorFlow, TensorBoard can be used as easily with PyTorch or Chainer models. TensorFlow must be available on the machine running TensorBoard, but is not necessary on the machine doing PyTorch or Chainer computations. 
+
 
 <a name="export"></a>
 

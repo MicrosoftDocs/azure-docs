@@ -112,11 +112,11 @@ This step is optional. If you're interested in learning how the database resourc
 
 * `CosmosAsyncDatabase` creation.
 
-    [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/async/AsyncMain.java?name=CreateDatabaseIfNotExists)]
+    [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/sync/SyncMain.java?name=CreateDatabaseIfNotExists)]
 
 * `CosmosAsyncContainer` creation.
 
-    [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/async/AsyncMain.java?name=CreateContainerIfNotExists)]
+    [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/sync/SyncMain.java?name=CreateContainerIfNotExists)]
 
 * As with the sync API, item creation is accomplished using the `createItem` method. This example shows how to efficiently issue numerous async `createItem` requests by subscribing to a Reactive Stream which issues the requests and prints notifications. Since this simple example runs to completion and terminates, `CountDownLatch` instances are used to ensure the program does not terminate during item creation. **The proper asynchronous programming practice is not to block on async calls - in realistic use-cases requests are generated from a main() loop that executes indefinitely, eliminating the need to latch on async calls.**
 

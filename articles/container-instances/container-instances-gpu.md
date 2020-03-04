@@ -2,7 +2,7 @@
 title: Deploy GPU-enabled container instance 
 description: Learn how to deploy Azure container instances to run compute-intensive container apps using GPU resources.
 ms.topic: article
-ms.date: 04/17/2019
+ms.date: 02/19/2020
 ---
 
 # Deploy container instances that use GPU resources
@@ -27,6 +27,9 @@ Support will be added for additional regions over time.
 **Additional limitations**: GPU resources can't be used when deploying a container group into a [virtual network](container-instances-vnet.md).
 
 ## About GPU resources
+
+> [!IMPORTANT]
+> GPU resources are available only upon request. To request access to GPU resources, please submit an [Azure support request][azure-support].
 
 ### Count and SKU
 
@@ -225,6 +228,7 @@ az container delete --resource-group myResourceGroup --name gpucontainergrouprm 
 
 <!-- LINKS - External -->
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
+[azure-support]: https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest
 
 <!-- LINKS - Internal -->
 [az-container-create]: /cli/azure/container#az-container-create

@@ -10,7 +10,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/05/2020
+ms.date: 02/25/2020
 ms.author: memildin
 
 ---
@@ -29,7 +29,7 @@ Below the alerts tables is a table describing the Azure Security Center kill cha
 
 ## <a name="alerts-windows"></a>Alerts for Windows machines
 
-[Further details and notes](security-center-alerts-iaas.md#windows-)
+[Further details and notes](threat-protection.md#windows-machines)
 
 |Alert|Description|Intent ([Learn more](#intentions))|
 |----|----|:----:|
@@ -120,7 +120,7 @@ Below the alerts tables is a table describing the Azure Security Center kill cha
 
 ## <a name="alerts-linux"></a>Alerts for Linux machines
 
-[Further details and notes](security-center-alerts-iaas.md#linux-)
+[Further details and notes](threat-protection.md#linux-machines)
 
 |Alert|Description|Intent ([Learn more](#intentions))|
 |----|----|:----:|
@@ -209,7 +209,7 @@ Below the alerts tables is a table describing the Azure Security Center kill cha
 
 ## <a name="alerts-azureappserv"></a>Alerts for Azure App Service
 
-[Further details and notes](security-center-alerts-compute.md#azure-app-service-)
+[Further details and notes](threat-protection.md#app-services)
 
 |Alert|Description|Intent ([Learn more](#intentions))|
 |----|----|:----:|
@@ -217,9 +217,9 @@ Below the alerts tables is a table describing the Azure Security Center kill cha
 |**An IP that connected to your Azure App Service FTP Interface was found in Threat Intelligence**|App Service FTP logs analysis has detected a connection from a source address that was found in the threat intelligence feed. During this connection, a user accessed the pages listed.|-|
 |**Anomalous requests pattern detected**|The Azure App Service activity log indicates an anomalous HTTP activity to the App Service from %{Source IP}. This activity resembles a pattern of Fuzzing \ Brute force activity.|-|
 |**Attempt to run high privilege command detected**|Analysis of App Service processes has detected an attempt to run a command that requires high privileges. The command ran in the web application context. While this behavior can be legitimate, in web applications this behavior might indicate malicious activities.|-|
-|**Connection to web page from anomalous IP address detected**|The Azure App Service activity log indicates a connection to a sensitive web page from a source IP address (%{Source IP Address}) that never connect to it before. This might indicate that someone is attempting a brute force attack into your web app administration pages. It might also be the result of a new IP address being used by a legitimate user.|-|
+|**Connection to web page from anomalous IP address detected**|The Azure App Service activity log indicates a connection to a sensitive web page from a source IP address (%{Source IP Address}) that has never connected to it before. This might indicate that someone is attempting a brute force attack into your web app administration pages. It might also be the result of a new IP address being used by a legitimate user.|-|
 |**Raw data download detected**|Analysis of App Service processes detected an attempt to download code from raw-data websites such as Pastebin. This action was run by a PHP process. This behavior is associated with attempts to download web shells or other malicious components to the App Service.|-|
-|**Phishing content hosted on Azure Webapps**|URL used for phishing attack found on the Azure AppServices website. This URL was part of a phishing attack sent to O365 customers. The content typically lure visitors into entering their corporate credentials or financial information into a legitimate looking website.|Collection|
+|**Phishing content hosted on Azure Webapps**|URL used for phishing attack found on the Azure AppServices website. This URL was part of a phishing attack sent to O365 customers. The content typically lures visitors into entering their corporate credentials or financial information into a legitimate looking website.|Collection|
 |**PHP file in upload folder**|The Azure App Service activity log indicates an access to a suspicious PHP page located in the upload folder. This type of folder does not usually contain PHP files. The existence of this type of file might indicate an exploitation taking advantage of arbitrary file upload vulnerabilities.|-|
 |**Saving curl output to disk detected**|Analysis of App Service processes detected the running of a curl command in which the output was saved to the disk. While this behavior can be legitimate, in web applications this behavior is also observed in malicious activities such as attempts to infect websites with web shells.|-|
 |**Spam folder referrer detected**|Azure App Service activity log indicates web activity that was identified as originating from a web site associated with SPAM activity. This could occur if your web site is compromised and used for spam activity.|-|
@@ -234,7 +234,7 @@ Below the alerts tables is a table describing the Azure Security Center kill cha
 
 ## <a name="alerts-akscluster"></a>Alerts for containers - Azure Kubernetes Service clusters
 
-[Further details and notes](security-center-alerts-compute.md#azure-containers-)
+[Further details and notes](threat-protection.md#azure-containers)
 
 |Alert|Description|Intent ([Learn more](#intentions))|
 |----|----|:----:|
@@ -249,7 +249,7 @@ Below the alerts tables is a table describing the Azure Security Center kill cha
 
 ## <a name="alerts-containerhost"></a>Alerts for containers - host level
 
-[Further details and notes](security-center-alerts-compute.md#azure-containers-)
+[Further details and notes](threat-protection.md#azure-containers)
 
 |Alert|Description|Intent ([Learn more](#intentions))|
 |----|----|:----:|
@@ -265,7 +265,7 @@ Below the alerts tables is a table describing the Azure Security Center kill cha
 
 ## <a name="alerts-sql-db-and-warehouse"></a>Alerts for SQL Database and SQL Data Warehouse
 
-[Further details and notes](security-center-alerts-data-services.md#sql-database-and-sql-data-warehouse-)
+[Further details and notes](threat-protection.md#data-sql)
 
 |Alert|Description|Intent ([Learn more](#intentions))|
 |----|----|:----:|
@@ -283,7 +283,7 @@ Below the alerts tables is a table describing the Azure Security Center kill cha
 
 ## <a name="alerts-azurestorage"></a>Alerts for Azure Storage
 
-[Further details and notes](security-center-alerts-data-services.md#azure-storage-)
+[Further details and notes](threat-protection.md#azure-storage)
 
 |Alert|Description|Intent ([Learn more](#intentions))|
 |----|----|:----:|
@@ -304,7 +304,7 @@ Below the alerts tables is a table describing the Azure Security Center kill cha
 
 ## <a name="alerts-azurecosmos"></a>Alerts for Azure Cosmos DB (Preview)
 
-[Further details and notes](security-center-alerts-data-services.md#azure-cosmos-db)
+[Further details and notes](threat-protection.md#cosmos-db)
 
 |Alert|Description|Intent ([Learn more](#intentions))|
 |----|----|:----:|
@@ -315,7 +315,7 @@ Below the alerts tables is a table describing the Azure Security Center kill cha
 
 ## <a name="alerts-azurenetlayer"></a>Alerts for Azure network layer
 
-[Further details and notes](security-center-alerts-service-layer.md#azure-network-layer)
+[Further details and notes](threat-protection.md#network-layer)
 
 |Alert|Description|Intent ([Learn more](#intentions))|
 |----|----|:----:|
@@ -340,7 +340,7 @@ Below the alerts tables is a table describing the Azure Security Center kill cha
 
 ## <a name="alerts-azureresourceman"></a>Alerts for Azure Resource Manager (Preview)
 
-[Further details and notes](security-center-alerts-service-layer.md#azure-management-layer-azure-resource-manager-preview)
+[Further details and notes](threat-protection.md#management-layer)
 
 |Alert|Description|Intent ([Learn more](#intentions))|
 |----|----|:----:|
@@ -359,7 +359,7 @@ Below the alerts tables is a table describing the Azure Security Center kill cha
 
 ## <a name="alerts-azurekv"></a>Alerts for Azure Key Vault (Preview)
 
-[Further details and notes](security-center-alerts-service-layer.md#azure-keyvault)
+[Further details and notes](threat-protection.md#azure-keyvault)
 
 |Alert|Description|Intent ([Learn more](#intentions))|
 |----|----|:----:|
@@ -377,7 +377,7 @@ Below the alerts tables is a table describing the Azure Security Center kill cha
 
 ## <a name="alerts-azureddos"></a>Alerts for Azure DDoS Protection
 
-[Further details and notes](security-center-alerts-integration.md#azure-ddos)
+[Further details and notes](threat-protection.md#azure-ddos)
 
 |Alert|Description|Intent ([Learn more](#intentions))|
 |----|----|:----:|
@@ -395,8 +395,8 @@ Security Center's supported kill chain intents are based on the [MITRE ATT&CK™
 
 |Intent|Description|
 |------|-------|
-|**Probing**|Probing could be either an attempt to access a certain resource regardless of a malicious intent, or a failed attempt to gain access to a target system to gather information prior to exploitation. This step is usually detected as an attempt, originating from outside the network, to scan the target system and identify an entry point.|
-|**Exploitation**|Exploitation is the stage where an attacker manages to get a foothold on the attacked resource. This stage is relevant for compute hosts and resources such as user accounts, certificates etc. Threat actors will often be able to control the resource after this stage.|
+|**PreAttack**</br>(replaces Probing)|PreAttack could be either an attempt to access a certain resource regardless of a malicious intent, or a failed attempt to gain access to a target system to gather information prior to exploitation. This step is usually detected as an attempt, originating from outside the network, to scan the target system and identify an entry point.</br>Further details on the PreAttack stage can be read in [MITRE's page](https://attack.mitre.org/matrices/pre/).|
+|**InitialAccess**</br>(replaces Exploitation)|InitialAccess is the stage where an attacker manages to get a foothold on the attacked resource. This stage is relevant for compute hosts and resources such as user accounts, certificates etc. Threat actors will often be able to control the resource after this stage.|
 |**Persistence**|Persistence is any access, action, or configuration change to a system that gives a threat actor a persistent presence on that system. Threat actors will often need to maintain access to systems through interruptions such as system restarts, loss of credentials, or other failures that would require a remote access tool to restart or provide an alternate backdoor for them to regain access.|
 |**PrivilegeEscalation**|Privilege escalation is the result of actions that allow an adversary to obtain a higher level of permissions on a system or network. Certain tools or actions require a higher level of privilege to work and are likely necessary at many points throughout an operation. User accounts with permissions to access specific systems or perform specific functions necessary for adversaries to achieve their objective may also be considered an escalation of privilege.|
 |**DefenseEvasion**|Defense evasion consists of techniques an adversary may use to evade detection or avoid other defenses. Sometimes these actions are the same as (or variations of) techniques in other categories that have the added benefit of subverting a particular defense or mitigation.|
@@ -414,6 +414,7 @@ Security Center's supported kill chain intents are based on the [MITRE ATT&CK™
 ## Next steps
 To learn more about alerts, see the following:
 
+* [Threat protection in Azure Security Center](threat-protection.md)
 * [Security alerts in Azure Security Center](security-center-alerts-overview.md)
 * [Manage and respond to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md)
 * [Export security alerts and recommendations (Preview)](continuous-export.md)

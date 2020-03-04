@@ -66,17 +66,17 @@ When you create an Azure AD DS instance, you specify a DNS name. There are some 
 * **Non-routable domain suffixes:** We generally recommend that you avoid a non-routable domain name suffix, such as *contoso.local*. The *.local* suffix isn't routable and can cause issues with DNS resolution.
 
 > [!TIP]
-> If you create a custom domain name, take care with existing DNS namespaces. It's recommended to include a unique prefix for the domain name. For example, if your DNS root name is *contoso.com*, create an Azure AD DS managed domain with the custom domain name of *corp.contoso.com* or *ds.contoso.com*. In a hybrid environment with an on-premises AD DS environment, these prefixes may already be in use. Use a unique prefix for Azure AD DS.
+> If you create a custom domain name, take care with existing DNS namespaces. It's recommended to use a domain name separate from any existing Azure or on-premises DNS name space.
 >
-> You can use the root DNS name for your Azure AD DS managed domain, but you may need to create some additional DNS records for other services in your environment. For example, if you run a webserver that hosts a site using the root DNS name, there can be naming conflicts that require additional DNS entries.
+> For example, if you have an existing DNS name space of *contoso.com*, create an Azure AD DS managed domain with the custom domain name of *aaddscontoso.com*. If you need to use secure LDAP, you must register and own this custom domain name to generate the required certificates.
 >
-> In these tutorials and how-to articles, the custom domain of *aadds.contoso.com* is used as a short example. In all commands, specify your own domain name, which may include a unique prefix.
+> You may need to create some additional DNS records for other services in your environment, or conditional DNS forwarders between existing DNS name spaces in your environment. For example, if you run a webserver that hosts a site using the root DNS name, there can be naming conflicts that require additional DNS entries.
 >
-> For more information, see [Select a naming prefix for the domain][naming-prefix].
+> In these tutorials and how-to articles, the custom domain of *aaddscontoso.com* is used as a short example. In all commands, specify your own domain name.
 
 The following DNS name restrictions also apply:
 
-* **Domain prefix restrictions:** You can't create a managed domain with a prefix longer than 15 characters. The prefix of your specified domain name (such as *contoso* in the *contoso.com* domain name) must contain 15 or fewer characters.
+* **Domain prefix restrictions:** You can't create a managed domain with a prefix longer than 15 characters. The prefix of your specified domain name (such as *aaddscontoso* in the *aaddscontoso.com* domain name) must contain 15 or fewer characters.
 * **Network name conflicts:** The DNS domain name for your managed domain shouldn't already exist in the virtual network. Specifically, check for the following scenarios that would lead to a name conflict:
     * If you already have an Active Directory domain with the same DNS domain name on the Azure virtual network.
     * If the virtual network where you plan to enable the managed domain has a VPN connection with your on-premises network. In this scenario, ensure you don't have a domain with the same DNS domain name on your on-premises network.
@@ -118,7 +118,7 @@ On the **Summary** page of the wizard, review the configuration settings for the
     ![Notification in the Azure portal of the deployment in progress](./media/tutorial-create-instance/deployment-in-progress.png)
 
 1. The page will load with updates on the deployment process, including the creation of new resources in your directory.
-1. Select your resource group, such as *myResourceGroup*, then choose your Azure AD DS instance from the list of Azure resources, such as *aadds.contoso.com*. The **Overview** tab shows that the managed domain is currently *Deploying*. You can't configure the managed domain until it's fully provisioned.
+1. Select your resource group, such as *myResourceGroup*, then choose your Azure AD DS instance from the list of Azure resources, such as *aaddscontoso.com*. The **Overview** tab shows that the managed domain is currently *Deploying*. You can't configure the managed domain until it's fully provisioned.
 
     ![Domain Services status during the provisioning state](./media/tutorial-create-instance/provisioning-in-progress.png)
 
