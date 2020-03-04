@@ -13,7 +13,7 @@ ms.author: lcozzens
 # Using Private Endpoints for Azure App Configuration
 Azure App Configuration offers the use of private endpoints as a public preview. Public preview offerings allow customers to experiment with new features prior to their official release.  Public preview features and services are not meant for production use. As a preview service, we ask that you reach out to us so that we can add your subscription to our allow-list.  If you would like to explore the capabilities of Azure Spring Cloud, please [fill out this form](https://www.surveymonkey.com/r/VQVKMHH) so that we can add you to our allow-list.
 
-You can use [private endpoints](../private-link/private-endpoint-overview.md) for your Azure App Configuration service to allow clients on a virtual network (VNet) to securely access data over a [private link](../private-link/private-link-overview.md). The private endpoint uses an IP address from the VNet address space for your App Configuration service. Network traffic between the clients on the VNet and the App Configuration instance account traverses over the VNet and a private link on the Microsoft backbone network, eliminating exposure from the public internet.
+You can use [private endpoints](../private-link/private-endpoint-overview.md) for your Azure App Configuration service to allow clients on a virtual network (VNet) to securely access data over a [private link](../private-link/private-link-overview.md). The private endpoint uses an IP address from the VNet address space for your App Configuration service. Network traffic between the clients on the VNet and the App Configuration store account traverses over the VNet and a private link on the Microsoft backbone network, eliminating exposure from the public internet.
 
 Using private endpoints for your App Configuration service enables you to:
 - Secure your application configuration details by configuring the firewall to block all connections on the public endpoint App Configuration service.
@@ -24,7 +24,7 @@ Using private endpoints for your App Configuration service enables you to:
 
 A Private Endpoint is a special network interface for an Azure service in your [Virtual Network](../virtual-network/virtual-networks-overview.md) (VNet). When you create a private endpoint for your App Config store, it provides secure connectivity between clients on your VNet and your configuration store. The private endpoint is assigned an IP address from the IP address range of your VNet. The connection between the private endpoint and the configuration service uses a secure private link.
 
-Applications in the VNet can connect to the configuration service over the private endpoint **using the same connection strings and authorization mechanisms that they would use otherwise**. Private endpoints can be used with all protocols supported by the App Configuration instance.
+Applications in the VNet can connect to the configuration service over the private endpoint **using the same connection strings and authorization mechanisms that they would use otherwise**. Private endpoints can be used with all protocols supported by the App Configuration store.
 
 While App Configuration doesn't support service endpoints, private endpoints can be created in subnets that use [Service Endpoints](../virtual-network/virtual-network-service-endpoints-overview.md). Clients in a subnet can connect securely to an App Configuration store using private endpoint while using service endpoints to access others.  
 
@@ -43,7 +43,7 @@ When creating a private endpoint, you must specify the App Configuration store t
 
 #### Resources
 
-For more detailed information on creating a private endpoint for your App Configuration instance, refer to the following articles:
+For more detailed information on creating a private endpoint for your App Configuration store, refer to the following articles:
 
 - [Create a private endpoint using the Private Link Center in the Azure portal](../private-link/create-private-endpoint-portal.md)
 - [Create a private endpoint using Azure CLI](../private-link/create-private-endpoint-cli.md)
