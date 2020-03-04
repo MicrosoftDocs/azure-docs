@@ -310,11 +310,7 @@ func new --template "Queue Trigger" --name QueueTriggerJS
 
 ## <a name="start"></a>Run functions locally
 
-To run a Functions project, run the Functions host. The host enables triggers for all functions in the project. 
-
-### Version 2.x
-
-In version 2.x of the runtime, the start command varies, depending on your project language.
+To run a Functions project, run the Functions host. The host enables triggers for all functions in the project. In version 2.x of the runtime, the start command varies, depending on your project language.
 
 # [C\#](#tab/csharp)
 
@@ -336,13 +332,12 @@ npm start
 
 ---
 
-### Version 1.x
-
-Version 1.x of the Functions runtime requires the `host` command, as in the following example:
-
-```
-func host start
-```
+>[!NOTE]  
+> Version 1.x of the Functions runtime requires the `host` command, as in the following example:
+>
+> ```
+> func host start
+> ```
 
 `func start` supports the following options:
 
