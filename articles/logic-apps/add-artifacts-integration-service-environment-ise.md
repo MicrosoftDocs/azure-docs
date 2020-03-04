@@ -1,5 +1,5 @@
 ---
-title: Add artifacts to integration service environments
+title: Add resources to integration service environments
 description: Add logic apps, integration accounts, custom connectors, and managed connectors to your integration service environment (ISE)
 services: logic-apps
 ms.suite: integration
@@ -8,9 +8,9 @@ ms.topic: conceptual
 ms.date: 02/10/2020
 ---
 
-# Add artifacts to your integration service environment (ISE) in Azure Logic Apps
+# Add resources to your integration service environment (ISE) in Azure Logic Apps
 
-After you create an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), add artifacts such as logic apps, integration accounts, and connectors so that they can access the resources in your Azure virtual network. For example, managed ISE connectors that become available after you create your ISE don't automatically appear in the Logic App Designer. Before you can use these ISE connectors, you have to manually [add and deploy those connectors to your ISE](#add-ise-connectors-environment) so that they appear in the Logic App Designer.
+After you create an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), add resources such as logic apps, integration accounts, and connectors so that they can access the resources in your Azure virtual network. For example, managed ISE connectors that become available after you create your ISE don't automatically appear in the Logic App Designer. Before you can use these ISE connectors, you have to manually [add and deploy those connectors to your ISE](#add-ise-connectors-environment) so that they appear in the Logic App Designer.
 
 ## Prerequisites
 
@@ -44,7 +44,7 @@ To build logic apps that run in your integration service environment (ISE), foll
 
 1. Continue [creating your logic app in the usual way](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-   For differences in how triggers and actions work and how they're labeled when you use an ISE compared to the global Logic Apps service, see [Isolated versus global in the ISE overview](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#difference).
+   For differences in how triggers and actions work and how they're labeled when you use an ISE compared to the multi-tenant Logic Apps service, see [Isolated versus multi-tenant in the ISE overview](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#difference).
 
 1. To manage logic apps and API connections in your ISE, see [Manage your integration service environment](../logic-apps/ise-manage-integration-service-environment.md).
 

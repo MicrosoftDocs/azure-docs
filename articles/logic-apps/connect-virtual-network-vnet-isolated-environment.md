@@ -5,12 +5,12 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
-ms.date: 02/13/2020
+ms.date: 03/05/2020
 ---
 
 # Connect to Azure virtual networks from Azure Logic Apps by using an integration service environment (ISE)
 
-For scenarios where your logic apps and integration accounts need access to an [Azure virtual network](../virtual-network/virtual-networks-overview.md), create an [*integration service environment* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). An ISE is an isolated environment that uses dedicated storage and other resources that are kept separate from the public, "global", multi-tenant Logic Apps service. This separation also reduces any impact that other Azure tenants might have on your apps' performance. An ISE also provides you with your own static IP addresses. These IP addresses are separate from the static IP addresses that are shared by the logic apps in the public, multi-tenant service.
+For scenarios where your logic apps and integration accounts need access to an [Azure virtual network](../virtual-network/virtual-networks-overview.md), create an [*integration service environment* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). An ISE is an isolated environment that uses dedicated storage and other resources that are kept separate from the "global" multi-tenant Logic Apps service. This separation also reduces any impact that other Azure tenants might have on your apps' performance. An ISE also provides you with your own static IP addresses. These IP addresses are separate from the static IP addresses that are shared by the logic apps in the public, multi-tenant service.
 
 When you create an ISE, Azure *injects* that ISE into your Azure virtual network, which then deploys the Logic Apps service into your virtual network. When you create a logic app or integration account, select your ISE as their location. Your logic app or integration account can then directly access resources, such as virtual machines (VMs), servers, systems, and services, in your virtual network.
 
@@ -57,9 +57,9 @@ This article shows you how to complete these tasks:
 
 * If you want to use custom DNS servers for your Azure virtual network, [set up those servers by following these steps](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) before you deploy your ISE to your virtual network. Otherwise, each time you change your DNS server, you also have to restart your ISE.
 
-  > [!IMPORTANT]
-  > If you change your DNS server settings after you create an ISE, make sure that you restart your ISE. 
-  > For more information about managing DNS server settings, see [Create, change, or delete a virtual network](../virtual-network/manage-virtual-network.md#change-dns-servers).
+  If you change your DNS server settings after you create an ISE, make sure that you [restart your ISE](#restart-ISE).
+
+  For more information about managing DNS server settings, see [Create, change, or delete a virtual network](../virtual-network/manage-virtual-network.md#change-dns-servers).
 
 <a name="enable-access"></a>
 
@@ -294,6 +294,16 @@ The Premium ISE base unit has fixed capacity, so if you need more throughput, yo
 1. To add another condition, select **Add scale condition**.
 
 1. When you're finished with your autoscale settings, save your changes.
+
+<a name="restart-ise"></a>
+
+## Restart ISE
+
+1. In the [Azure portal](https://portal.azure.com), go to your integration service environment.
+
+1. On the ISE menu, select **Overview**. On the Overview toolbar, **Restart**.
+
+   ![Restart integration service environment](./media/connect-virtual-network-vnet-isolated-environment/restart-integration-service-environment.png)
 
 ## Delete ISE
 

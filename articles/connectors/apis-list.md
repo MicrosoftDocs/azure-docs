@@ -181,7 +181,7 @@ Logic Apps provides these Enterprise connectors for accessing enterprise systems
 
 ## ISE connectors
 
-For logic apps that you create and run an isolated [integration service environment (ISE)](#integration-service-environment), the Logic App Designer identifies built-in triggers and actions that run in your ISE by using the **CORE** label. Managed connectors that run in an ISE display the **ISE** label, while connectors that run in the global, multi-tenant Logic Apps service don't display either label. This list shows connectors that have ISE versions:
+For logic apps that you create and run an isolated [integration service environment (ISE)](#integration-service-environment), the Logic App Designer identifies built-in triggers and actions that run in your ISE by using the **CORE** label. Managed connectors that run in an ISE display the **ISE** label, while connectors that run in the global, multi-tenant Logic Apps service don't display either label. This list shows most of the connectors that have ISE versions:
 
 |   |   |   |   |   |
 |---|---|---|---|---|
