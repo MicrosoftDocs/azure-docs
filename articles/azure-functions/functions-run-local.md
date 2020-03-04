@@ -328,6 +328,7 @@ func start
 ```
 func start
 ```
+This command must be [run in a virtual environment](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-python#create-venv).
 
 # [TypeScript](#tab/ts)
 
