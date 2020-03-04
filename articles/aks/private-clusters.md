@@ -131,7 +131,7 @@ The API server endpoint has no public IP address. To manage the API server, you 
 * Use a VM in a separate network and set up [Virtual network peering](virtual-network-peering)
 * Use an [Express Route or a VPN](express-route-or-VPN) connection
 
-There are some advantages and disadvantages to each option.  Azure Bastion provides the simplest solution, and you don't need to create and manage additional VMs.  Express Route and VPNs require more complex networking.  Virtual network peering requires you to plan your network CIDR ranges to ensure there are no overlapping ranges.
+There are some advantages and disadvantages to each option.  Azure Bastion provides the simplest solution, and you don't need to create and manage additional VMs.  Express Route and VPNs add costs and require additional networking complexity.  Virtual network peering requires you to plan your network CIDR ranges to ensure there are no overlapping ranges.
 
 ## Dependencies  
 * The Private Link service is supported on Standard Azure Load Balancer only. Basic Azure Load Balancer isn't supported.  
@@ -156,8 +156,8 @@ There are some advantages and disadvantages to each option.  Azure Bastion provi
 [az-feature-list]: /cli/azure/feature?view=azure-cli-latest#az-feature-list
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
-[private-link-service]: https://docs.microsoft.com/azure/private-link/private-link-service-overview
-[virtual-network-peering]: ../virtual-network/virtual-network-peering-overview.md
-[azure-bastion]  ../bastion/bastion-create-host-portal
-[express-route-or-vpn] ../expressroute/expressroute-about-virtual-network-gateways
+[private-link-service]: /private-link/private-link-service-overview
+[virtual-network-peering]: /virtual-network/virtual-network-peering-overview.md
+[azure-bastion]  /bastion/bastion-create-host-portal
+[express-route-or-vpn] /expressroute/expressroute-about-virtual-network-gateways
 
