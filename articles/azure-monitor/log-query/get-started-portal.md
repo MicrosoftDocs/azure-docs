@@ -9,23 +9,25 @@ ms.date: 03/02/2020
 
 ---
 
-# Tutorial: Get started with Azure Monitor log queries in a Log Analytics workspace
+# Tutorial: Get started with queries in a Log Analytics workspace
 
-In this tutorial, you learn how to use a Log Analytics workspace to write, execute, and manage Azure Monitor log queries in the Azure portal. You can use Log Analytics queries to search for terms, identify trends, analyze patterns, and provide many other insights based on your data. 
+This tutorial shows you how to use a Log Analytics workspace to write, execute, and manage Azure Monitor log queries in the Azure portal. You can use Log Analytics queries to search for terms, identify trends, analyze patterns, and provide many other insights based on your data. 
 
-The tutorial shows you how to use a Log Analytics workspace to:
+In this tutorial, you learn how to use a Log Analytics workspace to:
 
 > [!div class="checklist"]
-> * Understand Azure Monitor log data schema and tables
+> * Understand the log data schema and tables
 > * Write and run simple queries, and modify the time range for queries
 > * Filter, sort, and group query results
 > * View, modify, and share visuals of query results
 > * Save, load, export, and copy queries and results
 
-For more information about log queries, see [Overview of log queries in Azure Monitor](log-query-overview.md).
+For more information about log queries, see [Overview of log queries in Azure Monitor](log-query-overview.md).<br/>
 For a detailed tutorial on writing log queries, see [Get started with log queries in Azure Monitor](get-started-queries.md).
 
 ## Open a Log Analytics workspace
+To use Azure Monitor or a Log Analytics workspace, you need an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
 To complete most of the steps in this tutorial, you can use [this demo environment](https://portal.loganalytics.io/demo), which includes plenty of sample data. You won't be able to save the demo queries or pin results to a dashboard.
 
 You can also use your own environment, if you're using Azure Monitor to collect log data for at least one Azure resource. To open a Log Analytics workspace, select **Logs** in your Azure Monitor left navigation. 
@@ -190,6 +192,7 @@ To load a saved query, select **Query Explorer** at top right. The **Query Explo
 
 ### Export and share queries
 To export a query, select **Export** on the top bar, and then select **Export to CSV - all columns**, **Export to CSV - displayed columns**, or **Export to Power BI (M query)** from the dropdown list.
+
 To share a link to a query, select **Copy link** on the top bar, and then select **Copy link to query**, **Copy query text**, or **Copy query results** to copy to the clipboard. You can send the query link to others who have access to the same workspace.
 
 ## Next steps
