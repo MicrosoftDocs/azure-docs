@@ -71,7 +71,7 @@ Border Gateway Protocol (BGP) routes will also affect your app traffic. If you h
 
 
 <!--Image references-->
-[4]: ../../includes/media/web-sites-integrate-with-vnet/vnetint-appsetting.png
+[4]: ../includes/media/web-sites-integrate-with-vnet/vnetint-appsetting.png
 
 <!--Links-->
 [VNETnsg]: https://docs.microsoft.com/azure/virtual-network/security-overview/
