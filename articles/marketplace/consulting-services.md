@@ -69,7 +69,7 @@ Partners are required to have a **silver or gold competency** in the relevant ar
 Additional resources and support:
 
 1. [Microsoft Cloud Enablement Desk](https://aka.ms/CEDnominate) <br> The Cloud Enablement Desk Guided Experience Partner Nomination Form is to help provide a Cloud Program Specialist to articulate MPN benefits, and serve as guide to competency attainment.  
-2. How to get listed on Power BI showcase? <br> Begin by submitting a request to get listed, see [become a partner](https://powerbi.microsoft.com/en-us/become-a-partner/).
+2. How to get listed on Power BI showcase? <br> Begin by submitting a request to get listed, see [become a partner](https://powerbi.microsoft.com/become-a-partner/).
 
 <b> For more information, see [competencies through Microsoft Partner Network](https://partner.microsoft.com/membership/competencies). </b>
 
