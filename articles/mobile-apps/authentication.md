@@ -16,7 +16,7 @@ Having a view of the user and their behavior across your application empowers de
 Use the following services to enable user authentication in your mobile apps.
 
 ## Visual Studio App Center
-[App Center Auth](/appcenter/auth/) is a cloud-based identity management service that developers can use to authenticate users and manage user identities. App Center Auth also integrates with other parts of Visual Studio App Center. Developers can use user identity to [view user data](/appcenter/data/index) in other services and even [send push notifications to users instead of individual devices](/appcenter/push/push-to-user#app-center-auth-set-identity). 
+[App Center Auth](/appcenter/auth/) is a cloud-based identity management service that developers can use to authenticate users and manage user identities. App Center Auth also integrates with other parts of Visual Studio App Center. Developers can use user identity to [view user data](/appcenter/data/index) in other services and even [send push notifications to users instead of individual devices](/appcenter/push/push-to-user#setting-user-identity). 
 
 **Key features**
 - Powered by Azure Active Directory B2C (Azure AD B2C). 
