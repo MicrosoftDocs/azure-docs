@@ -15,7 +15,7 @@ ms.reviewer: spunukol
 
 ms.collection: M365-identity-device-management
 ---
-# How To: Require approved client apps for cloud app access with Conditional Access 
+# How to: Require approved client apps for cloud app access with Conditional Access 
 
 People regularly use their mobile devices for both personal and work tasks. While making sure staff can be productive, organizations also want to prevent data loss from potentially unsecure applications. With Conditional Access, organizations can restrict access to approved (modern authentication capable) client apps.
 
@@ -54,7 +54,7 @@ Organizations must complete the following three steps in order to require the us
 1. Confirm your settings and set **Enable policy** to **On**.
 1. Select **Create** to create and enable your policy.
 
-**Step 2: Policy for Exchange ActiveSync clients requiring the use of an approved client app.**
+**Step 2: Configure an Azure AD Conditional Access policy for Exchange Online with ActiveSync (EAS)**
 
 1. Browse to **Azure Active Directory** > **Security** > **Conditional Access**.
 1. Select **New policy**.
