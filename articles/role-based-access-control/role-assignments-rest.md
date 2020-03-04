@@ -61,6 +61,8 @@ In RBAC, to grant access, you add a role assignment. To add a role assignment, u
     > | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | Resource group |
     > | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/providers/microsoft.web/sites/mysite1` | Resource |
 
+    In the previous example, microsoft.web is a resource provider that refers to an App Service instance. Similarly, you can use any other resource providers and specify the scope. For more information, see [Azure Resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md) and supported [Azure Resource Manager resource provider operations](resource-provider-operations.md).  
+
 1. Replace *{roleAssignmentName}* with the GUID identifier of the role assignment.
 
 1. Within the request body, replace *{scope}* with the scope for the role assignment.
