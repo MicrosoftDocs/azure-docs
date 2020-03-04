@@ -38,6 +38,9 @@ Unless otherwise noted, the examples in this article are for version 3.x.
 
 [Azure Functions Core Tools] includes a version of the same runtime that powers Azure Functions runtime that you can run on your local development computer. It also provides commands to create functions, connect to Azure, and deploy function projects.
 
+>[!IMPORTANT]
+>You must have the [Azure CLI](/cli/azure/install-azure-cli) installed locally to be able to publish to Azure from Azure Functions Core Tools.  
+
 ### <a name="v2"></a>Version 2.x and 3.x
 
 Version 2.x/3.x of the tools uses the Azure Functions runtime that is built on .NET Core. This version is supported on all platforms .NET Core supports, including [Windows](/azure/azure-functions/functions-run-local?tabs=windows#v2), [macOS](/azure/azure-functions/functions-run-local?tabs=macos#v2), and [Linux](/azure/azure-functions/functions-run-local?tabs=linux#v2). 
@@ -450,9 +453,12 @@ func run MyHttpTrigger -c '{\"name\": \"Azure\"}'
 
 The Azure Functions Core Tools supports two types of deployment: deploying function project files directly to your function app via [Zip Deploy](functions-deployment-technologies.md#zip-deploy) and [deploying a custom Docker container](functions-deployment-technologies.md#docker-container). You must have already [created a function app in your Azure subscription](functions-cli-samples.md#create), to which you'll deploy your code. Projects that require compilation should be built so that the binaries can be deployed.
 
+>[!IMPORTANT]
+>You must have the [Azure CLI](/cli/azure/install-azure-cli) installed locally to be able to publish to Azure from Core Tools.  
+
 A project folder may contain language-specific files and directories that shouldn't be published. Excluded items are listed in a .funcignore file in the root project folder.     
 
-### <a name="project-file-deployment"></a>Deployment (project files)
+### <a name="project-file-deployment"></a>Deploy project files
 
 To publish your local code to a function app in Azure, use the `publish` command:
 
@@ -489,7 +495,7 @@ The following publish options are only supported in version 2.x:
 | **`--no-build`** | Don't build .NET class library functions. |
 | **`--dotnet-cli-params`** | When publishing compiled C# (.csproj) functions, the core tools calls 'dotnet build --output bin/publish'. Any parameters passed to this will be appended to the command line. |
 
-### Deployment (custom container)
+### Deploy custom container
 
 Azure Functions lets you deploy your function project in a [custom Docker container](functions-deployment-technologies.md#docker-container). For more information, see [Create a function on Linux using a custom image](functions-create-function-linux-custom-image.md). Custom containers must have a Dockerfile. To create an app with a Dockerfile, use the --dockerfile option on `func init`.
 

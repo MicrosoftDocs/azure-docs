@@ -14,7 +14,7 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 02/13/2020
+ms.date: 02/26/2020
 ms.author: radeltch
 
 ---
@@ -95,9 +95,6 @@ Now it is possible to achieve SAP Netweaver HA by using shared storage, deployed
 ![SAP NetWeaver High Availability overview](./media/high-availability-guide-rhel/high-availability-guide-rhel-anf.png)
 
 SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS, and the SAP HANA database use virtual hostname and virtual IP addresses. On Azure, a load balancer is required to use a virtual IP address. We recommend using [Standard load balancer](https://docs.microsoft.com/azure/load-balancer/quickstart-load-balancer-standard-public-portal). The following list shows the configuration of the load balancer with separate front-end IPs for (A)SCS and ERS.
-
-> [!IMPORTANT]
-> Multi-SID clustering of SAP ASCS/ERS with Red Hat Linux as guest operating system in Azure VMs is **NOT supported**. Multi-SID clustering describes the installation of multiple SAP ASCS/ERS instances with different SIDs in one Pacemaker cluster.
 
 ### (A)SCS
 
@@ -689,6 +686,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
       
     sudo pcs constraint colocation add g-QAS_AERS with g-QAS_ASCS -5000
     sudo pcs constraint order g-QAS_ASCS then g-QAS_AERS kind=Optional symmetrical=false
+    sudo pcs constraint order start g-QAS_ASCS then stop g-QAS_AERS symmetrical=false
    
     sudo pcs node unstandby anftstsapcl1
     sudo pcs property set maintenance-mode=false
@@ -1258,6 +1256,7 @@ Follow these steps to install an SAP application server.
 
 ## Next steps
 
+* [HA for SAP NW on Azure VMs on RHEL for SAP applications multi-SID guide](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-multi-sid)
 * [Azure Virtual Machines planning and implementation for SAP][planning-guide]
 * [Azure Virtual Machines deployment for SAP][deployment-guide]
 * [Azure Virtual Machines DBMS deployment for SAP][dbms-guide]

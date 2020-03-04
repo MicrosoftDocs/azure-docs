@@ -11,8 +11,10 @@
     href: tutorial-enable-sspr.md
   - name: Enable Azure Multi-Factor Authentication
     href: tutorial-enable-azure-mfa.md
-  - name: Enable SSPR on-premises integration
-    href: tutorial-enable-writeback.md
+  - name: Enable password writeback to on-premises
+    href: tutorial-enable-sspr-writeback.md
+  - name: Configure custom banned password lists
+    href: tutorial-configure-custom-password-protection.md
   - name: Integrate Azure Identity Protection
     href: tutorial-risk-based-sspr-mfa.md
 - name: Concepts
@@ -68,8 +70,6 @@
       href: howto-sspr-deployment.md
     - name: Pre-register authentication data
       href: howto-sspr-authenticationdata.md
-    - name: Enable password writeback
-      href: howto-sspr-writeback.md
     - name: SSPR for Windows clients
       href: howto-sspr-windows.md
   - name: Cloud-based MFA
@@ -110,8 +110,6 @@
       href: howto-registration-mfa-sspr-combined-troubleshoot.md
   - name: Azure AD password protection
     items:
-    - name: Configure the banned password list
-      href: howto-password-ban-bad-configure.md
     - name: On-premises integration
       items:
       - name: Deploy Azure AD password protection
@@ -132,10 +130,14 @@
     items: 
       - name: Deploying passwordless
         href: howto-authentication-passwordless-deployment.md
-      - name: Passwordless security keys
-        href: howto-authentication-passwordless-security-key.md
-      - name: Passwordless Windows 10
-        href: howto-authentication-passwordless-security-key-windows.md
+      - name: Passwordless FIDO2 security keys
+        items:
+          - name: Enable FIDO2 security keys for your tenant
+            href: howto-authentication-passwordless-security-key.md
+          - name: Sign in to Windows 10 devices
+            href: howto-authentication-passwordless-security-key-windows.md
+          - name: SSO to on-premises resources
+            href: howto-authentication-passwordless-security-key-on-premises.md
       - name: Passwordless phone sign-in
         href: howto-authentication-passwordless-phone.md
       - name: Windows Hello for Business

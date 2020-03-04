@@ -7,7 +7,7 @@ manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 11/04/2019
 ---
 # Introduction to AI in Azure Cognitive Search
@@ -126,7 +126,7 @@ Indexes are generated from an index schema that defines the fields, attributes, 
 + [Tutorial (HTTP requests)](cognitive-search-tutorial-blob.md)
 + [Example: Creating a custom skill for AI enrichment (C#)](cognitive-search-create-custom-skill-example.md)
 
-We recommend the Free service for learning purposes, however the number of free transactions is limited to 20 documents per day. To run both the quickstart and tutorial in one day, use a smaller file set (10 documents) so that you can fit in both exercises, or delete the indexer you used in the quickstart or tutorial to rest the counter to zero.
+We recommend the Free service for learning purposes, however the number of free transactions is limited to 20 documents per day. To run lessons multiple times, delete and recreate the indexer to reset the counter to zero.
 
 **Step 3: Review the API**
 

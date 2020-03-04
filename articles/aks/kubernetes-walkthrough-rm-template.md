@@ -2,12 +2,9 @@
 title: Quickstart - Create an Azure Kubernetes Service (AKS) cluster
 description: Learn how to quickly create a Kubernetes cluster using an Azure Resource Manager template and deploy an application in Azure Kubernetes Service (AKS)
 services: container-service
-author: mlearned
-
-ms.service: container-service
 ms.topic: quickstart
 ms.date: 04/19/2019
-ms.author: mlearned
+
 ms.custom: mvc
 
 #Customer intent: As a developer or cluster operator, I want to quickly create an AKS cluster and deploy an application so that I can see how to run applications using the managed Kubernetes service in Azure.
@@ -35,9 +32,11 @@ To create an AKS cluster using a Resource Manager template, you provide an SSH p
 
 To access AKS nodes, you connect using an SSH key pair. Use the `ssh-keygen` command to generate SSH public and private key files. By default, these files are created in the *~/.ssh* directory. If an SSH key pair with the same name exists in the given location, those files are overwritten.
 
+Go to [https://shell.azure.com](https://shell.azure.com) to open Cloud Shell in your browser.
+
 The following command creates an SSH key pair using RSA encryption and a bit length of 2048:
 
-```azurecli-interactive
+```console
 ssh-keygen -t rsa -b 2048
 ```
 
@@ -110,13 +109,13 @@ az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 
 To verify the connection to your cluster, use the [kubectl get][kubectl-get] command to return a list of the cluster nodes.
 
-```azurecli-interactive
+```console
 kubectl get nodes
 ```
 
 The following example output shows the nodes created in the previous steps. Make sure that the status for all the nodes is *Ready*:
 
-```
+```output
 NAME                       STATUS   ROLES   AGE     VERSION
 aks-agentpool-41324942-0   Ready    agent   6m44s   v1.12.6
 aks-agentpool-41324942-1   Ready    agent   6m46s   v1.12.6
@@ -219,13 +218,13 @@ spec:
 
 Deploy the application using the [kubectl apply][kubectl-apply] command and specify the name of your YAML manifest:
 
-```azurecli-interactive
+```console
 kubectl apply -f azure-vote.yaml
 ```
 
 The following example output shows the Deployments and Services created successfully:
 
-```
+```output
 deployment "azure-vote-back" created
 service "azure-vote-back" created
 deployment "azure-vote-front" created
@@ -238,20 +237,20 @@ When the application runs, a Kubernetes service exposes the application front en
 
 To monitor progress, use the [kubectl get service][kubectl-get] command with the `--watch` argument.
 
-```azurecli-interactive
+```console
 kubectl get service azure-vote-front --watch
 ```
 
 Initially the *EXTERNAL-IP* for the *azure-vote-front* service is shown as *pending*.
 
-```
+```output
 NAME               TYPE           CLUSTER-IP   EXTERNAL-IP   PORT(S)        AGE
 azure-vote-front   LoadBalancer   10.0.37.27   <pending>     80:30572/TCP   6s
 ```
 
 When the *EXTERNAL-IP* address changes from *pending* to an actual public IP address, use `CTRL-C` to stop the `kubectl` watch process. The following example output shows a valid public IP address assigned to the service:
 
-```
+```output
 azure-vote-front   LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 ```
 

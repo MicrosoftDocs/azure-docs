@@ -29,6 +29,8 @@
     href: tutorial-r-doazureparallel.md
   - name: OCR with Batch and Functions
     href: tutorial-batch-functions.md
+  - name: Python scripts with Data Factory
+    href: tutorial-run-python-batch-azure-data-factory.md
 - name: Samples
   items:
   - name: Code samples
@@ -41,6 +43,10 @@
     href: cli-samples.md
 - name: Concepts
   items:
+  - name: Security
+    items:
+    - name: Security baseline
+      href: security-baseline.md
   - name: Developer features
     href: batch-api-basics.md
   - name: APIs and tools
@@ -55,6 +61,8 @@
     href: high-availability-disaster-recovery.md
   - name: Task runtime environment variables
     href: batch-compute-node-environment-variables.md
+  - name: Batch integration with Azure Policies
+    href: batch-integration-policies.md  
 - name: How-to guides
   items:
   - name: Manage Batch accounts
@@ -117,6 +125,8 @@
       href: large-number-tasks.md
     - name: Check for job and task errors
       href: batch-job-task-error-checking.md
+    - name: Detecting and handling Batch service errors
+      href: batch-retry-after-errors.md   
   - name: Create resource files
     href: resource-files.md
   - name: Persist job and task output

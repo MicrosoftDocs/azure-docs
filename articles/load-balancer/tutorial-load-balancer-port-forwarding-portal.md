@@ -63,19 +63,20 @@ First, create a public Standard load balancer that can balance traffic load over
 
 Create a virtual network with two virtual machines, and add the VMs to the back-end pool of your load balancer. 
 
-### Create a virtual network
+## Virtual network and parameters
 
-1. On the upper-left side of the portal, select **Create a resource** > **Networking** > **Virtual network**.
-   
-1. In the **Create virtual network** pane, type or select these values:
-   
-   - **Name**: Type *MyVNet*.
-   - **ResourceGroup**: Drop down **Select existing** and select **MyResourceGroupLB**. 
-   - **Subnet** > **Name**: Type *MyBackendSubnet*.
-   
-1. Select **Create**.
+In this section you'll need to replace the following parameters in the steps with the information below:
 
-   ![Create a virtual network](./media/tutorial-load-balancer-port-forwarding-portal/2-load-balancer-virtual-network.png)
+| Parameter                   | Value                |
+|-----------------------------|----------------------|
+| **\<resource-group-name>**  | myResourceGroupLB (Select existing resource group) |
+| **\<virtual-network-name>** | myVNet          |
+| **\<region-name>**          | West Europe      |
+| **\<IPv4-address-space>**   | 10.3.0.0\16          |
+| **\<subnet-name>**          | myBackendSubnet        |
+| **\<subnet-address-range>** | 10.3.0.0\24          |
+
+[!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
 ### Create VMs and add them to the load balancer back-end pool
 

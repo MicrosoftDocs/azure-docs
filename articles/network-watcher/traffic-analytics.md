@@ -197,7 +197,7 @@ You can also configure traffic analytics using the [Set-AzNetworkWatcherConfigFl
 
 ## View traffic analytics
 
-On the left-side of the portal, select **All services**, then enter *Monitor* in the **Filter** box. When **Monitor** appears in the search results, select it. To start exploring traffic analytics and its capabilities, select **Network watcher**, then **Traffic Analytics**.
+To view Traffic Analytics, search for **Network Watcher** in the portal search bar. Once inside Network Watcher, to explore traffic analytics and its capabilities, select **Traffic Analytics** from the left menu. 
 
 ![Accessing the Traffic Analytics dashboard](./media/traffic-analytics/accessing-the-traffic-analytics-dashboard.png)
 

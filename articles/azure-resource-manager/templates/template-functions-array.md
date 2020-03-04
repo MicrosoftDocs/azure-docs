@@ -1061,7 +1061,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 ## range
 
-`range(startingInteger, numberOfElements)`
+`range(startIndex, count)`
 
 Creates an array of integers from a starting integer and containing a number of items.
 
@@ -1069,8 +1069,8 @@ Creates an array of integers from a starting integer and containing a number of 
 
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
-| startingInteger |Yes |int |The first integer in the array. |
-| numberofElements |Yes |int |The number of integers in the array. |
+| startIndex |Yes |int |The first integer in the array. The sum of startIndex and count must be no greater than 2147483647. |
+| count |Yes |int |The number of integers in the array. Must be non-negative integer up to 10000. |
 
 ### Return value
 
