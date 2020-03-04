@@ -24,8 +24,7 @@ These Cognitive Services are language agnostic and don't have limitations based 
 ## Vision
 
 * [Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/faq)
-* [Video Indexer: Speech-to-Text](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview)
-* [Video Indexer: Speech Translation](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview)
+* [Video Indexer](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview)
 
 ## Speech
 
@@ -53,7 +52,7 @@ These Cognitive Services are language agnostic and don't have limitations based 
 
 ## Decision
 
-* [Content Moderator: Text Filtering](https://docs.microsoft.com/azure/cognitive-services/content-moderator/text-moderation-api-languages)
+* [Content Moderator](https://docs.microsoft.com/azure/cognitive-services/content-moderator/text-moderation-api-languages)
 
 ## See also
 
