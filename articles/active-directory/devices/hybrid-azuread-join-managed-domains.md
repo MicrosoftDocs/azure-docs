@@ -19,9 +19,9 @@ ms.collection: M365-identity-device-management
 ---
 # Tutorial: Configure hybrid Azure Active Directory join for managed domains
 
-In this tutorial, you learn how to configure hybrid Azure Active Directory (Azure AD) join for Active Directory domain-joined computers devices in a managed environment.
+In this tutorial, you learn how to configure hybrid Azure Active Directory (Azure AD) join for Active Directory domain-joined devices in a managed environment.
 
-Like a user in your organization, a device is a core identity you want to protect. You can use a device's identity to protect your resources at any time and from any location. You can accomplish this goal by bringing device identities and managing them in Azure AD by using one of the following methods:
+Like a user in your organization, a device is a core identity you want to protect. You can use a device's identity to protect your resources at any time and from any location. You can accomplish this goal by managing device identities in Azure AD. Use one of the following methods:
 
 - Azure AD join
 - Hybrid Azure AD join
@@ -41,6 +41,10 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
+- The [Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) (1.1.819.0 or later)
+- The credentials of a global administrator for your Azure AD tenant
+- The enterprise administrator credentials for each of the forests
+
 This tutorial assumes that you're familiar with these articles:
 
 - [What is a device identity?](overview.md)
@@ -50,11 +54,9 @@ This tutorial assumes that you're familiar with these articles:
 > [!NOTE]
 > Azure AD doesn't support smartcards or certificates in managed domains.
 
-To configure the scenario in this article, you need the [latest version of Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) (1.1.819.0 or later) installed.
-
 Verify that Azure AD Connect has synced the computer objects of the devices you want to be hybrid Azure AD joined to Azure AD. If the computer objects belong to specific organizational units (OUs), you must also configure the OUs to sync in Azure AD Connect. To learn more about how to sync computer objects by using Azure AD Connect, see [Organizational unit–based filtering](../hybrid/how-to-connect-sync-configure-filtering.md#organizational-unitbased-filtering).
 
-Beginning with version 1.1.819.0, Azure AD Connect includes a wizard that you can use to configure hybrid Azure AD join. The wizard significantly simplifies the configuration process. The wizard configures the service connection points (SCPs) for device registration.
+Beginning with version 1.1.819.0, Azure AD Connect includes a wizard to configure hybrid Azure AD join. The wizard significantly simplifies the configuration process. The wizard configures the service connection points (SCPs) for device registration.
 
 The configuration steps in this article are based on using the wizard in Azure AD Connect.
 
@@ -78,12 +80,7 @@ To verify if the device can access the above Microsoft resources under the syste
 
 ## Configure hybrid Azure AD join
 
-To configure a hybrid Azure AD join using Azure AD Connect, you need:
-
-- The credentials of a global administrator for your Azure AD tenant
-- The enterprise administrator credentials for each of the forests
-
-**To configure a hybrid Azure AD join by using Azure AD Connect:**
+To configure a hybrid Azure AD join by using Azure AD Connect:
 
 1. Start Azure AD Connect, and then select **Configure**.
 
@@ -121,39 +118,39 @@ To configure a hybrid Azure AD join using Azure AD Connect, you need:
 
    ![Ready to configure](./media/hybrid-azuread-join-managed-domains/azure-ad-connect-ready-to-configure.png)
 
-1. IN **Configuration complete**, select **Exit**.
+1. In **Configuration complete**, select **Exit**.
 
    ![Configuration complete](./media/hybrid-azuread-join-managed-domains/azure-ad-connect-configuration-complete.png)
 
-## Enable Windows downlevel devices
+## Enable Windows down-level devices
 
-If some of your domain-joined devices are Windows downlevel devices, you must:
+If some of your domain-joined devices are Windows down-level devices, you must:
 
 - Configure the local intranet settings for device registration
 - Configure seamless SSO
-- Install Microsoft Workplace Join for Windows downlevel computers
+- Install Microsoft Workplace Join for Windows down-level computers
 
 > [!NOTE]
 > Windows 7 support ended on January 14, 2020. For more information, see [Windows 7 support ended](https://support.microsoft.com/en-us/help/4057281/windows-7-support-ended-on-january-14-2020).
 
 ### Configure the local intranet settings for device registration
 
-To complete hybrid Azure AD join of your Windows downlevel devices and to avoid certificate prompts when devices authenticate to Azure AD, you can push a policy to your domain-joined devices to add the following URLs to the local intranet zone in Internet Explorer:
+To complete hybrid Azure AD join of your Windows down-level devices and to avoid certificate prompts when devices authenticate to Azure AD, you can push a policy to your domain-joined devices to add the following URLs to the local intranet zone in Internet Explorer:
 
 - `https://device.login.microsoftonline.com`
 - `https://autologon.microsoftazuread-sso.com`
 
-You also must enable **Allow updates to status bar via script** in the user’s local intranet zone.
+You also must enable **Allow updates to status bar via script** in the user's local intranet zone.
 
 ### Configure seamless SSO
 
-To complete hybrid Azure AD join of your Windows downlevel devices in a managed domain that uses [password hash sync](../hybrid/whatis-phs.md) or [pass-through authentication](../hybrid/how-to-connect-pta.md) as your Azure AD cloud authentication method, you must also [configure seamless SSO](../hybrid/how-to-connect-sso-quick-start.md#step-2-enable-the-feature).
+To complete hybrid Azure AD join of your Windows down-level devices in a managed domain that uses [password hash sync](../hybrid/whatis-phs.md) or [pass-through authentication](../hybrid/how-to-connect-pta.md) as your Azure AD cloud authentication method, you must also [configure seamless SSO](../hybrid/how-to-connect-sso-quick-start.md#step-2-enable-the-feature).
 
-### Install Microsoft Workplace Join for Windows downlevel computers
+### Install Microsoft Workplace Join for Windows down-level computers
 
-To register Windows downlevel devices, organizations must install [Microsoft Workplace Join for non-Windows 10 computers](https://www.microsoft.com/download/details.aspx?id=53554). Microsoft Workplace Join for non-Windows 10 computers is available in the Microsoft Download Center.
+To register Windows down-level devices, organizations must install [Microsoft Workplace Join for non-Windows 10 computers](https://www.microsoft.com/download/details.aspx?id=53554). Microsoft Workplace Join for non-Windows 10 computers is available in the Microsoft Download Center.
 
-You can deploy the package by using a software distribution system like [Microsoft Endpoint Configuration Manager](https://docs.microsoft.com/configmgr/). The package supports the standard silent installation options with the `quiet` parameter. The current branch of Configuration Manager offers benefits over earlier versions, like the ability to track completed registrations.
+You can deploy the package by using a software distribution system like [Microsoft Endpoint Configuration Manager](https://docs.microsoft.com/configmgr/). The package supports the standard silent installation options with the `quiet` parameter. The current version of Configuration Manager offers benefits over earlier versions, like the ability to track completed registrations.
 
 The installer creates a scheduled task on the system that runs in the user context. The task is triggered when the user signs in to Windows. The task silently joins the device with Azure AD by using the user credentials after it authenticates with Azure AD.
 
@@ -167,7 +164,7 @@ When you use the **Get-MSolDevice** cmdlet to check the service details:
 - The value for **DeviceTrustType** is **Domain Joined**. This setting is equivalent to the **Hybrid Azure AD joined** state on the **Devices** page in the Azure AD portal.
 - For devices that are used in Conditional Access, the value for **Enabled** is **True** and **DeviceTrustLevel** is **Managed**.
 
-**To check the service details**:
+To check the service details:
 
 1. Open Windows PowerShell as an administrator.
 1. Enter `Connect-MsolService` to connect to your Azure tenant.  
@@ -176,7 +173,7 @@ When you use the **Get-MSolDevice** cmdlet to check the service details:
 
 ## Troubleshoot your implementation
 
-If you experience issues with completing hybrid Azure AD join for domain-joined Windows devices, see:
+If you experience issues completing hybrid Azure AD join for domain-joined Windows devices, see:
 
 - [Troubleshooting hybrid Azure Active Directory joined devices](troubleshoot-hybrid-join-windows-current.md)
 - [Troubleshooting hybrid Azure Active Directory joined down-level devices](troubleshoot-hybrid-join-windows-legacy.md)
