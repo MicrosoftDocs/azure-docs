@@ -31,7 +31,6 @@ ms.custom: H1Hack27Feb2017
   |-------------------------|----|
   | SLES 12 SP2| S384, S384m, S384xm, S384xxm, S576m, S576xm, S768m, S768xm, S960m |
   | SLES 12 SP3| S384, S384m, S384xm, S384xxm, S576m, S576xm, S768m, S768xm, S960m |
-  | SLES 12 SP4| S384, S384m, S384xm, S384xxm, S576m, S576xm, S768m, S768xm, S960m |
   
 
   
