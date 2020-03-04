@@ -167,6 +167,8 @@
       href: https://github.com/Azure/azure-stream-analytics/tree/master/Samples/ASAOneClick
     - name: Using API for IoT Edge jobs
       href: stream-analytics-cicd-api.md
+    - name: Export and deploy with Azure Resource Manager
+      href: resource-manager-export.md
   - name: Visual Studio
     items:
     - name: Install tools
@@ -197,8 +199,6 @@
       href: visual-studio-code-explore-jobs.md
     - name: JobConfig.json fields
       href: job-config-json.md
-    - name: Export and deploy with Azure Resource Manager
-      href: resource-manager-export.md
   - name: Troubleshoot
     items:
     - name: Input
