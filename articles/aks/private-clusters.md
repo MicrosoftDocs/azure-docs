@@ -126,7 +126,7 @@ Where *--enable-private-cluster* is a mandatory flag for a private cluster.
 
 The API server endpoint has no public IP address. To manage the API server, you will need a machine or service that has access to the AKS cluster's Azure Virtual Network (VNet).  There are several options for establishing network connectivity to the private cluster.
 
-* Use [Azure Bastion](azure-bastion), a fully-managed PaaS service you can provision inside your AKS cluster's virtual network
+* Use [Azure Bastion](azure-bastion), a fully-managed PaaS service that you can provision inside your AKS cluster's virtual network
 * Create a VM in the same Azure Virtual Network (VNet) as the AKS cluster
 * Use a VM in a separate network and set up [Virtual network peering](virtual-network-peering)
 * Use an [Express Route or a VPN](express-route-or-VPN) connection
