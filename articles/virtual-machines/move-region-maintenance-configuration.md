@@ -53,8 +53,8 @@ Before you begin, verify the following:
 
 3. Save your list for reference. As you move the configurations, it helps you to verify that everything's been moved.
 4. For your reference, map each configuration/resource group to the new resource group in the new region.
-5. Create new maintenance configurations in the new region using [PowerShell](../virtual-machines/maintenance-control-powershell.md#create-a-maintenance-configuration), or [CLI](../virtual-machines/maintenance-control-cli.md#create-a-maintenance-configuration).
-6. Associate the configurations with the resources in the new region, using [PowerShell](../virtual-machines/maintenance-control-powershell.md#assign-the-configuration), or [CLI](../virtual-machines/maintenance-control-cli.md#assign-the-configuration).
+5. Create new maintenance configurations in the new region using [PowerShell](maintenance-control-powershell.md#create-a-maintenance-configuration), or [CLI](maintenance-control-cli.md#create-a-maintenance-configuration).
+6. Associate the configurations with the resources in the new region, using [PowerShell](maintenance-control-powershell.md#assign-the-configuration), or [CLI](maintenance-control-cli.md#assign-the-configuration).
 
 
 ## Verify the move
@@ -64,7 +64,7 @@ After moving the configurations, compare configurations and resources in the new
 
 ## Clean up source resources
 
-After the move, consider deleting the moved maintenance configurations in the source region, [PowerShell](../virtual-machines/maintenance-control-powershell.md#remove-a-maintenance-configuration), or [CLI](../virtual-machines/maintenance-control-cli.md#delete-a-maintenance-configuration).
+After the move, consider deleting the moved maintenance configurations in the source region, [PowerShell](maintenance-control-powershell.md#remove-a-maintenance-configuration), or [CLI](maintenance-control-cli.md#delete-a-maintenance-configuration).
 
 
 ## Next steps
