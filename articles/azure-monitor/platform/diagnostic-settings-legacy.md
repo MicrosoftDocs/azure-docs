@@ -28,7 +28,7 @@ Using diagnostic settings has the following advantages over the current methods:
 ### Considerations
 Consider the following details of Activity log collection using diagnostic settings before enabling this feature.
 
-- The retention setting for collecting the Activity log to Azure storage has been removed meaning that data will be stored indefinitely until you remove it.
+- The retention setting for collecting the Activity log to an Azure storage account has been removed meaning that data will be stored indefinitely until you remove it.
 - Currently, you can only create a subscription level diagnostic setting using the Azure portal. To use other methods such as PowerShell or CLI, you can create a Resource Manager template.
 
 
