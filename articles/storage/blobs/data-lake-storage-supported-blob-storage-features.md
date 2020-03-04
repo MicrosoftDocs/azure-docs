@@ -34,6 +34,7 @@ This table lists the Blob storage features that you can use with Azure Data Lake
 |Archive Access Tier|Preview|[Azure Blob storage: hot, cool, and archive access tiers](storage-blob-storage-tiers.md)|
 |Lifecycle management policies|Preview|[Manage the Azure Blob storage lifecycle](storage-lifecycle-management-concepts.md)|
 |Diagnostic logs|Preview|[Azure Storage analytics logging](../common/storage-analytics-logging.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
+|Premium block blobs|Preview|[Create a BlockBlobStorage account](storage-blob-create-account-block-blob.md)|
 |Change feed|Not yet supported|[Change feed support in Azure Blob storage](storage-blob-change-feed.md)|
 |Account failover|Not yet supported|[Disaster recovery and account failover](../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |Blob container ACL|Not yet supported|[Set Container ACL](https://docs.microsoft.com/rest/api/storageservices/set-container-acl)|
@@ -43,7 +44,7 @@ This table lists the Blob storage features that you can use with Azure Data Lake
 |Soft Delete|Not yet supported|[Soft delete for Azure Storage blobs](storage-blob-soft-delete.md)|
 |Static websites|Not yet supported|[Static website hosting in Azure Storage](storage-blob-static-website.md)|
 |Logging in Azure Monitor|Not yet supported|Not yet available|
-|Premium block blobs|Not yet supported|[Create a BlockBlobStorage account](storage-blob-create-account-block-blob.md)|
+
 
 ## See also
 
