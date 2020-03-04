@@ -370,7 +370,7 @@ Copies localized strings into claims.
 To use the GetLocalizedStringsTransformation claims transformation:
 
 1. Define a [localization string](localization.md) and associate it with a [self-asserted-technical-profile](self-asserted-technical-profile.md).
-1. The `ElementType` of the `LocalizedString` element must set to `GetLocalizedStringsTransformationClaimType`.
+1. The `ElementType` of the `LocalizedString` element must be set to `GetLocalizedStringsTransformationClaimType`.
 1. The `StringId` is a unique identifier that you define, and use it later in your claims transformation.
 1. In the claims transformation, specify the list of claims to be set with the localized string. The `ClaimTypeReferenceId` is a reference to a ClaimType already defined in the ClaimsSchema section in the policy. The `TransformationClaimType` is the name of the localized string as defined in the `StringId` of the `LocalizedString` element.
 1. In a [self-asserted technical profile](self-asserted-technical-profile.md), or a [display control](display-controls.md) input or output claims transformation, make a reference to your claims transformation.
