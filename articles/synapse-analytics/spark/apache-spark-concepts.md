@@ -6,7 +6,7 @@ author: euangMS
 ms.service: sql-data-warehouse 
 ms.topic: overview
 ms.subservice: design
-ms.date: 01/15/2019 
+ms.date: 01/15/2020 
 ms.author: euang 
 ms.reviewer: euang
 ---

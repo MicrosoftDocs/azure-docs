@@ -46,16 +46,6 @@ Upload the environment configuration file using the file selector in the **Packa
 
 ![Add Python libraries](./media/apache-spark-azure-portal-add-libraries/add-python-libraries.png "Add Python libraries")
 
-## Add or update .jar files (Java or Scala)
-
-The full list of .jar files that are preinstalled can be found at [Apache Spark version support](apache-spark-version-support.md). It is possible to use a job definition with a Spark job. One of the properties of a job definition is a list of reference file locations in Azure Data Lake Storage where all the *.jar* files are read from.
-
-### Add a Spark job definition
-
-To add a new Spark job definition, select **+** at the top of the **Develop** explorer view that shows notebooks and other development artifacts. List the storage URLs in the **Reference files** section.
-
-![Add .jar libraries](./media/apache-spark-azure-portal-add-libraries/add-jar-files.png "Add .jar libraries")
-
 ## Next steps
 
 * [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)
