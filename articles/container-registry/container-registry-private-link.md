@@ -1,6 +1,6 @@
 ---
-title: Set up private endpoint
-description: [add description]
+title: Set up private link
+description: Set up a private endpoint on a container registry and enable private access in a local virtual network
 ms.topic: article
 ms.date: 03/02/2020
 ---
@@ -25,8 +25,7 @@ An Azure container registry by default accepts connections over the internet fro
 
 ## Prerequisites
 
-* To use the Azure CLI steps in this article, Azure CLI version XXXX or later is required. If you need to install or upgrade, see [Install Azure CLI][azure-cli].
-
+* To use the Azure CLI steps in this article, Azure CLI version 2.1.1 or later is required. If you need to install or upgrade, see [Install Azure CLI][azure-cli].
 * If you don't already have a container registry, create one (Premium SKU required) and push a sample image such as `hello-world` from Docker Hub. For example, use the [Azure portal][quickstart-portal] or the [Azure CLI][quickstart-cli] to create a registry. 
 
 
@@ -168,23 +167,18 @@ Run [az network private-endpoint show][az-network-private-endpoint-show] to quer
 ```azurecli
 networkInterfaceID=$(az network private-endpoint show --name myPrivateEndpoint --resource-group myResourceGroup --query 'networkInterfaces[0].id' --output tsv)
 ```
-Run the following 
+
+Run the following [az resource show][az-resource-show] commands to get the private IP addresses for your container registry and its data endpoint:
 
 ```azurecli
-dataEndpointPrivateIP=$(az resource show --ids $NIC_RESOURCE_ID --api-version 2019-04-01 -o tsv --query 'properties.ipConfigurations[0].properties.privateIPAddress') 
-```
+privateIP=$(az resource show --ids $networkInterfaceID --api-version 2019-04-01 --query 'properties.ipConfigurations[1].properties.privateIPAddress' --output tsv)
 
-Run the following [az resource show][az-resource-show] commands to get the private IP address for your container registry and its data endpoint:
-
-```azurecli
-privateIP=$(az resource show --ids $networkInterfaceID --api-version 2019-04-01 --query "properties.ipConfigurations[1].properties.privateIPAddress" --output tsv)
-
-dataEndpointPrivateIP=$(az resource show --ids $networkInterfaceID --api-version 2019-04-01 -o tsv --query 'properties.ipConfigurations[0].properties.privateIPAddress') 
+dataEndpointPrivateIP=$(az resource show --ids $networkInterfaceID --api-version 2019-04-01 --query 'properties.ipConfigurations[0].properties.privateIPAddress' --output tsv) 
 ```
 
 ### Create DNS records in the private zone
 
-Run the following commands to create the DNS records in the private zone. First run [az network private-dns record-set a create][az-network-private-dns-record-set-a-create] to create empty A record sets for the registry endpoints:
+Run the following commands to create the DNS records in the private zone. First run [az network private-dns record-set a create][az-network-private-dns-record-set-a-create] to create empty A record sets for the registry and data endpoints:
 
 ```azurecli
 az network private-dns record-set a create \
@@ -192,7 +186,8 @@ az network private-dns record-set a create \
   --zone-name privatelink.azurecr.io \
   --resource-group myResourceGroup
 
-# Enter the Azure region for the registry in the following
+# Enter Azure region for the registry in the following command
+# Example: myregistry.westeurope.data
 az network private-dns record-set a create \
   --name myregistry.<region>.data \
   --zone-name privatelink.azurecr.io \
@@ -200,7 +195,7 @@ az network private-dns record-set a create \
 
 ```
 
-Run the [az network private-dns record-set a add-record][az network-private-dns-record-set-a-add-record] command to create the A records for the registry endpoints:
+Run the [az network private-dns record-set a add-record][az-network-private-dns-record-set-a-add-record] command to create the A records for the registry and data endpoints:
 
 ```azurecli
 az network private-dns record-set a add-record \
@@ -208,14 +203,14 @@ az network private-dns record-set a add-record \
   --zone-name privatelink.azurecr.io \
   --resource-group myResourceGroup --ipv4-address $privateIP
 
-# Enter the Azure region for the registry in the following
+# Enter the Azure region for the registry in the following command
+# Example: myregistry.westeurope.data
 az network private-dns record-set a add-record \
   --record-set-name myregistry.<region>.data \
   --zone-name privatelink.azurecr.io \
   --resource-group myResourceGroup --ipv4-address $dataEndpointPrivateIP
 ```
  
-
 Continue to [Access registry privately from the VM](#access-registry-privately-from-the-vm).
 
 ## Manually approve private endpoint connection
