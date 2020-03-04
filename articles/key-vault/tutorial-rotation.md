@@ -7,6 +7,7 @@ manager: rkarlin
 tags: 'rotation'
 
 ms.service: key-vault
+ms.subservice: general
 ms.topic: tutorial
 ms.date: 01/26/2020
 ms.author: mbaldwin
@@ -26,7 +27,8 @@ This tutorial demonstrates how to automate the periodic rotation of secrets for 
 1. The function App updates SQL with new password.
 
 > [!NOTE]
-> There could be a lag between step 3 and 4 and during that time secret in Key Vault would not be valid to authenticate to SQL. In case > of failure in any of the steps Event Grid retries for 2 hours.
+> There could be a lag between step 3 and 4 and during that time secret in Key Vault would not be valid to authenticate to SQL. 
+> In case of failure in any of the steps Event Grid retries for 2 hours.
 
 ## Setup
 
