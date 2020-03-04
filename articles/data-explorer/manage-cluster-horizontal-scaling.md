@@ -54,13 +54,14 @@ When your cluster approaches a state of over-utilization, scale out to maintain 
 * The number of cluster instances is below the maximum number of instances defined by the user.
 * The cache utilization is high for over an hour.
 * The CPU is high for over an hour.
+* The ingestion utilization is high for over an hour.
 
 > [!NOTE]
 > The scale out logic doesn't currently consider the ingestion utilization metric. If this metric is important for your use case, use [custom autoscale](#custom-autoscale).
 
 **Scale in**
 
-When your cluster approaches a state of under-utilization, scale in to lower costs but maintain performance. Multiple metrics are used to verify that it's safe to scale in the cluster. The following rules are evaluated daily for 7 days before scale in is performed:
+When your cluster approaches a state of under-utilization, scale in to lower costs but maintain performance. Multiple metrics are used to verify that it's safe to scale in the cluster. The following rules are evaluated hourly for 6 hours before scale in is performed:
 * The number of instances is above 2 and above the minimum number of instances defined.
 * To ensure that there's no overloading of resources, the following metrics must be verified before scale in is performed: 
     * Cache utilization isn't high
