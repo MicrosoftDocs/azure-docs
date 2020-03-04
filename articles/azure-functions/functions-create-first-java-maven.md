@@ -27,7 +27,8 @@ To develop functions using Java, you must have the following installed:
 - [Azure Functions Core Tools](./functions-run-local.md#v2) version 2.6.666 or above
 ::: zone pivot="java-build-tools-maven" 
 - [Apache Maven](https://maven.apache.org), version 3.0 or above
-::: zone-end 
+::: zone-end
+
 ::: zone pivot="java-build-tools-gradle"  
 - [Gradle](https://gradle.org/), version 4.10 and above
 ::: zone-end 
