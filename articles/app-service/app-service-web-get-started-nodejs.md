@@ -142,11 +142,12 @@ You can view log output (calls to `console.log`) from the app directly in the VS
 
     ![Enable Logging and Restart](containers/media/quickstart-nodejs/enable-restart.png)
 
-1. After a few seconds, the output window shows a message indicating that you're connected to the log-streaming service:. You can generate more output activity by refreshing the page in the browser.
+1. After a few seconds, the output window shows a message indicating that you're connected to the log-streaming service. You can generate more output activity by refreshing the page in the browser.
 
     <pre>
     Connecting to log stream...
-    2020-03-04T19:29:44  Welcome, you are now connected to log-streaming service. The default timeout is 2 hours. Change the timeout with the App Setting SCM_LOGSTREAM_TIMEOUT (in seconds).    
+    2020-03-04T19:29:44  Welcome, you are now connected to log-streaming service. The default timeout is 2 hours.
+    Change the timeout with the App Setting SCM_LOGSTREAM_TIMEOUT (in seconds).    
     </pre>
 
 > [!div class="nextstepaction"]
