@@ -122,7 +122,7 @@ My audit enables you to view your personal role activity.
 
 1. Select an audit log event to see the ticket number on the **Activity** tab of the **Details** pane.
   
-    [![Check the ticket number for the audit event](media/azure-pim-resource-rbac/audit-event-ticket-number.png"Check the ticket number for the audit event")](media/azure-pim-resource-rbac/audit-event-ticket-number.png)
+    [![Check the ticket number for the audit event](media/azure-pim-resource-rbac/audit-event-ticket-number.png "Check the ticket number for the audit event")](media/azure-pim-resource-rbac/audit-event-ticket-number.png)]
 
 1. You can view the requester (person activating the role) on the **Targets** tab of the **Details** pane for an audit event. There are three target types for Azure resource roles:
 
