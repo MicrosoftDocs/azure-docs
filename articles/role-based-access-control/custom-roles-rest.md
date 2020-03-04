@@ -34,9 +34,10 @@ To list all custom roles in a directory, use the [Role Definitions - List](/rest
 
 1. Replace *{filter}* with the role type.
 
-    | Filter | Description |
-    | --- | --- |
-    | `$filter=type%20eq%20'CustomRole'` | Filter based on the CustomRole type |
+    > [!div class="mx-tableFixed"]
+    > | Filter | Description |
+    > | --- | --- |
+    > | `$filter=type%20eq%20'CustomRole'` | Filter based on the CustomRole type |
 
 ## List custom roles at a scope
 
@@ -50,17 +51,19 @@ To list custom roles at a scope, use the [Role Definitions - List](/rest/api/aut
 
 1. Within the URI, replace *{scope}* with the scope for which you want to list the roles.
 
-    | Scope | Type |
-    | --- | --- |
-    | `subscriptions/{subscriptionId}` | Subscription |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resource group |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
+    > [!div class="mx-tableFixed"]
+    > | Scope | Type |
+    > | --- | --- |
+    > | `subscriptions/{subscriptionId}` | Subscription |
+    > | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resource group |
+    > | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1` | Resource |
 
 1. Replace *{filter}* with the role type.
 
-    | Filter | Description |
-    | --- | --- |
-    | `$filter=type%20eq%20'CustomRole'` | Filter based on the CustomRole type |
+    > [!div class="mx-tableFixed"]
+    > | Filter | Description |
+    > | --- | --- |
+    > | `$filter=type%20eq%20'CustomRole'` | Filter based on the CustomRole type |
 
 ## List a custom role definition by name
 
@@ -74,17 +77,19 @@ To get information about a custom role by its display name, use the [Role Defini
 
 1. Within the URI, replace *{scope}* with the scope for which you want to list the roles.
 
-    | Scope | Type |
-    | --- | --- |
-    | `subscriptions/{subscriptionId}` | Subscription |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resource group |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
+    > [!div class="mx-tableFixed"]
+    > | Scope | Type |
+    > | --- | --- |
+    > | `subscriptions/{subscriptionId}` | Subscription |
+    > | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resource group |
+    > | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1` | Resource |
 
 1. Replace *{filter}* with the display name for the role.
 
-    | Filter | Description |
-    | --- | --- |
-    | `$filter=roleName%20eq%20'{roleDisplayName}'` | Use the URL encoded form of the exact display name of the role. For instance, `$filter=roleName%20eq%20'Virtual%20Machine%20Contributor'` |
+    > [!div class="mx-tableFixed"]
+    > | Filter | Description |
+    > | --- | --- |
+    > | `$filter=roleName%20eq%20'{roleDisplayName}'` | Use the URL encoded form of the exact display name of the role. For instance, `$filter=roleName%20eq%20'Virtual%20Machine%20Contributor'` |
 
 ## List a custom role definition by ID
 
@@ -100,11 +105,12 @@ To get information about a custom role by its unique identifier, use the [Role D
 
 1. Within the URI, replace *{scope}* with the scope for which you want to list the roles.
 
-    | Scope | Type |
-    | --- | --- |
-    | `subscriptions/{subscriptionId}` | Subscription |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resource group |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
+    > [!div class="mx-tableFixed"]
+    > | Scope | Type |
+    > | --- | --- |
+    > | `subscriptions/{subscriptionId}` | Subscription |
+    > | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resource group |
+    > | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1` | Resource |
 
 1. Replace *{roleDefinitionId}* with the GUID identifier of the role definition.
 
@@ -148,11 +154,12 @@ To create a custom role, use the [Role Definitions - Create Or Update](/rest/api
 
 1. Within the URI, replace *{scope}* with the first `assignableScopes` of the custom role.
 
-    | Scope | Type |
-    | --- | --- |
-    | `subscriptions/{subscriptionId}` | Subscription |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resource group |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
+    > [!div class="mx-tableFixed"]
+    > | Scope | Type |
+    > | --- | --- |
+    > | `subscriptions/{subscriptionId}` | Subscription |
+    > | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resource group |
+    > | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1` | Resource |
 
 1. Replace *{roleDefinitionId}* with the GUID identifier of the custom role.
 
@@ -213,11 +220,12 @@ To update a custom role, use the [Role Definitions - Create Or Update](/rest/api
 
 1. Within the URI, replace *{scope}* with the first `assignableScopes` of the custom role.
 
-    | Scope | Type |
-    | --- | --- |
-    | `subscriptions/{subscriptionId}` | Subscription |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resource group |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
+    > [!div class="mx-tableFixed"]
+    > | Scope | Type |
+    > | --- | --- |
+    > | `subscriptions/{subscriptionId}` | Subscription |
+    > | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resource group |
+    > | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1` | Resource |
 
 1. Replace *{roleDefinitionId}* with the GUID identifier of the custom role.
 
@@ -297,11 +305,12 @@ To delete a custom role, use the [Role Definitions - Delete](/rest/api/authoriza
 
 1. Within the URI, replace *{scope}* with the scope that you want to delete the custom role.
 
-    | Scope | Type |
-    | --- | --- |
-    | `subscriptions/{subscriptionId}` | Subscription |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resource group |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
+    > [!div class="mx-tableFixed"]
+    > | Scope | Type |
+    > | --- | --- |
+    > | `subscriptions/{subscriptionId}` | Subscription |
+    > | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resource group |
+    > | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1` | Resource |
 
 1. Replace *{roleDefinitionId}* with the GUID identifier of the custom role.
 
