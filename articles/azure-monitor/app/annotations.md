@@ -1,11 +1,7 @@
 ---
 title: Release annotations for Application Insights | Microsoft Docs
 description: Add deployment or build markers to your metrics explorer charts in Application Insights.
-ms.service:  azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 07/01/2019
 
 ---

@@ -55,5 +55,6 @@
         "XML",
         "YAML"
     ],
-    "editor.fontSize": 18
-}
+    "cSpell.words": [
+        "auditd"
+    ]

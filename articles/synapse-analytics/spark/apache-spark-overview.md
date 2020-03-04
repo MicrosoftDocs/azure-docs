@@ -13,7 +13,7 @@ ms.reviewer: euang
 
 # What is Apache Spark in Azure Synapse Analytics?
 
-Apache Spark is a parallel processing framework that supports in-memory processing to boost the performance of big-data analytic applications. Spark in Azure Synapse Analytics is one of Microsoft's implementations of Spark in the cloud. Azure Synapse Analytics makes it easy to create and configure a Spark pool in Azure. Spark pools in Synapse Analytics are compatible with Azure Storage and Azure Data Lake Generation 2 Storage, so you can use Synapse Analytics Spark pools to process your data stored in Azure.
+Apache Spark is a parallel processing framework that supports in-memory processing to boost the performance of big-data analytic applications. Apache Spark in Azure Synapse Analytics is one of Microsoft's implementations of Apache Spark in the cloud. Azure Synapse makes it easy to create and configure a Spark pool in Azure. Spark pools in Azure Synapse are compatible with Azure Storage and Azure Data Lake Generation 2 Storage. So you can use Azure Synapse Spark pools to process your data stored in Azure.
 
 ![Spark: a unified framework](./media/apache-spark-overview/spark-overview.png)
 
@@ -23,22 +23,22 @@ Apache Spark provides primitives for in-memory cluster computing. A Spark job ca
 
 ![Traditional MapReduce vs. Spark](./media/apache-spark-overview/map-reduce-vs-spark.png)
 
-Spark pools in Synapse Analytics offer a fully managed Spark service. The benefits of creating a Spark pool in Synapse Analytics are listed in the table below.
+Spark pools in Azure Synapse offer a fully managed Spark service. The benefits of creating a Spark pool in Synapse Analytics are listed here.
 
 | Feature | Description |
 | --- | --- |
 | Speed and efficiency |Spark instances start in approximately 2 minutes for fewer than 60 nodes and approximately 5 minutes for more than 60 nodes. The instance shuts down, by default, 5 minutes after the last job executed unless it is kept alive by a notebook connection. |
-| Ease of creation |You can create a new Spark pool in Synapse Analytics in minutes using the Azure portal, Azure PowerShell, or the Synapse Analytics .NET SDK. See [Get started with Apache Spark pools in Synapse Analytics](apache-spark-notebook-create-spark-use-sql.md). |
+| Ease of creation |You can create a new Spark pool in Azure Synapse in minutes using the Azure portal, Azure PowerShell, or the Synapse Analytics .NET SDK. See [Get started with Apache Spark pools in Synapse Analytics](apache-spark-notebook-create-spark-use-sql.md). |
 | Ease of use |Synapse Analytics includes a custom notebook derived from [Nteract](https://nteract.io/). You can use these notebooks for interactive data processing and visualization.|
 | REST APIs |Spark in Synapse Analytics includes [Apache Livy](https://github.com/cloudera/hue/tree/master/apps/spark/java#welcome-to-livy-the-rest-spark-server), a REST API-based Spark job server to remotely submit and monitor jobs. |
-| Support for Azure Data Lake Storage Generation 2| Spark pools in Synapse Analytics can use Azure Data Lake Storage Generation 2 as well as BLOB storage. For more information on Data Lake Storage, see [Overview of Azure Data Lake Storage](../../data-lake-store/data-lake-store-overview.md). |
-| Integration with third-party IDEs | Synapse Analytics provides an IDE plugin for [Jetbrains' IntelliJ IDEA](https://www.jetbrains.com/idea/) that is useful to create and submit applications to a Synapse Analytics Spark pool. |
-| Pre-loaded Anaconda libraries |Spark pools in Synapse Analytics come with Anaconda libraries pre-installed. [Anaconda](https://docs.continuum.io/anaconda/) provides close to 200 libraries for machine learning, data analysis, visualization, etc. |
-| Scalability | Apache Spark in Synapse Analytics pools can have Auto-Scale enabled, so that pools scale up and down as needed. Also, Spark pools can be shut down with no loss of data since all the data is stored in Azure Storage or Data Lake Storage. |
+| Support for Azure Data Lake Storage Generation 2| Spark pools in Azure Synapse can use Azure Data Lake Storage Generation 2 as well as BLOB storage. For more information on Data Lake Storage, see [Overview of Azure Data Lake Storage](../../data-lake-store/data-lake-store-overview.md). |
+| Integration with third-party IDEs | Azure Synapse provides an IDE plugin for [Jetbrains' IntelliJ IDEA](https://www.jetbrains.com/idea/) that is useful to create and submit applications to aAzure Synapse Spark pool. |
+| Pre-loaded Anaconda libraries |Spark pools in Azure Synapse come with Anaconda libraries pre-installed. [Anaconda](https://docs.continuum.io/anaconda/) provides close to 200 libraries for machine learning, data analysis, visualization, etc. |
+| Scalability | Apache Spark in Azure Synapse pools can have Auto-Scale enabled, so that pools scale up and down as needed. Also, Spark pools can be shut down with no loss of data since all the data is stored in Azure Storage or Data Lake Storage. |
 
-Apache Spark pools in Synapse Analytics include the following components that are available on the pools by default:
+Apache Spark pools in Azure Synapse include the following components that are available on the pools by default.
 
-* [Spark Core](https://spark.apache.org/docs/latest/). Includes Spark Core, Spark SQL, Spark streaming APIs, GraphX, and MLlib.
+* [Spark Core](https://spark.apache.org/docs/latest/). Includes Spark Core, Spark SQL, GraphX, and MLlib.
 * [Anaconda](https://docs.continuum.io/anaconda/)
 * [Apache Livy](https://github.com/cloudera/hue/tree/master/apps/spark/java#welcome-to-livy-the-rest-spark-server)
 * [Nteract notebook](https://nteract.io/)
@@ -62,7 +62,7 @@ The SparkContext connects to the Spark pool and is responsible for converting an
 
 ## Apache Spark in Synapse Analytics use cases
 
-Spark instances in Synapse Analytics enable the following key scenarios:
+Spark pools in Synapse Analytics enable the following key scenarios:
 
 ### Data Engineering/Data Preparation
 
@@ -70,7 +70,7 @@ Apache Spark includes many language features to support preparation and processi
 
 ### Machine Learning
 
-Apache Spark comes with [MLlib](https://spark.apache.org/mllib/), a machine learning library built on top of Spark that you can use from a Spark pool in Synapse Analytics. Spark pools in Synapse Analytics also includes Anaconda, a Python distribution with a variety of packages for data science including machine learning. When combined with built-in support for notebooks, you have an environment for creating machine learning applications.
+Apache Spark comes with [MLlib](https://spark.apache.org/mllib/), a machine learning library built on top of Spark that you can use from a Spark pool in Synapse Analytics. Spark pools in Synapse Analytics also include Anaconda, a Python distribution with a variety of packages for data science including machine learning. When combined with built-in support for notebooks, you have an environment for creating machine learning applications.
 
 <!--- TODO: add this back in when streaming is enabled
 * Spark streaming and real-time data analysis
@@ -82,13 +82,18 @@ Apache Spark comes with [MLlib](https://spark.apache.org/mllib/), a machine lear
 
 Use the following articles to learn more about Apache Spark in Synapse Analytics:
 
-* [Quickstart: Create an Apache Spark cluster in HDInsight and run interactive query using Jupyter](./apache-spark-notebook-create-spark-use-sql.md)
+* [Quickstart: Create an Apache Spark pool in Azure Synapse](./apache-spark-notebook-create-spark-use-sql.md)
 <!---TODO: * [Tutorial: Run an Apache Spark job using Jupyter](./apache-spark-load-data-run-query.md)--->
 * [Tutorial: Machine learning using Apache Spark](./apache-spark-machine-learning-mllib-notebook.md)
 <!---TODO: * [Tutorial: Create a Scala Maven application using IntelliJ](./apache-spark-create-standalone-application.md)--->
 
+* [Apache Spark official documentation](https://spark.apache.org/docs/latest/)
+
+>[!NOTE]
+> Some of the official Apache Spark documentation relies on using the spark console, this is not available on Azure Synapse Spark, use the notebook or IntelliJ experiences instead
+
 ## Next steps
 
-In this overview, you get a basic understanding of Apache Spark in Azure Synapse Analytics. Advance to the next article to learn how to create an Apache Spark cluster in Azure Synapse Analytics:
+In this overview, you get a basic understanding of Apache Spark in Azure Synapse Analytics. Advance to the next article to learn how to create an Apache Spark pool in Azure Synapse Analytics:
 
-* [Create an Apache Spark cluster in Azure Synapse](./apache-spark-notebook-create-spark-use-sql.md)
+* [Create an Apache Spark pool in Azure Synapse](./apache-spark-notebook-create-spark-use-sql.md)

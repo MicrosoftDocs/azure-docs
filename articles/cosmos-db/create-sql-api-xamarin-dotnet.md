@@ -123,7 +123,7 @@ Now let's take a quick review of how the app communicates with Azure Cosmos DB.
 
 * When querying a container for documents, the `DocumentClient.CreateDocumentQuery<T>` method is used, as seen here in the `CosmosDBService.GetToDoItems` function:
 
-   [!code-csharp[](~/samples-cosmosdb-xamarin/src/ToDoItems.Core/Services/CosmosDBService.cs?name=GetToDoItems)] 
+   :::code language="csharp" source="~/samples-cosmosdb-xamarin/src/ToDoItems.Core/Services/CosmosDBService.cs" id="GetToDoItems"::: 
 
     The `CreateDocumentQuery<T>` takes a URI that points to the container created in the previous section. And you are also able to specify LINQ operators such as a `Where` clause. In this case only todo items that are not completed are returned.
 
@@ -136,13 +136,13 @@ Now let's take a quick review of how the app communicates with Azure Cosmos DB.
 
 * The `ComsmosDBService.InsertToDoItem` function demonstrates how to insert a new document:
 
-   [!code-csharp[](~/samples-cosmosdb-xamarin/src/ToDoItems.Core/Services/CosmosDBService.cs?name=InsertToDoItem)] 
+   :::code language="csharp" source="~/samples-cosmosdb-xamarin/src/ToDoItems.Core/Services/CosmosDBService.cs" id="InsertToDoItem"::: 
 
     The item URI is specified as well as the item to be inserted.
 
 * The `CosmosDBService.UpdateToDoItem` function demonstrates how to replace an existing document with a new one:
 
-   [!code-csharp[](~/samples-cosmosdb-xamarin/src/ToDoItems.Core/Services/CosmosDBService.cs?name=UpdateToDoItem)] 
+   :::code language="csharp" source="~/samples-cosmosdb-xamarin/src/ToDoItems.Core/Services/CosmosDBService.cs" id="UpdateToDoItem"::: 
 
     Here a new URI is needed to uniquely identify the document to replace and is obtained by using `UriFactory.CreateDocumentUri` and passing it the database and container names and the ID of the document.
 
@@ -150,7 +150,7 @@ Now let's take a quick review of how the app communicates with Azure Cosmos DB.
 
 * Deleting an item is demonstrated with the `CosmosDBService.DeleteToDoItem` function:
 
-   [!code-csharp[](~/samples-cosmosdb-xamarin/src/ToDoItems.Core/Services/CosmosDBService.cs?name=DeleteToDoItem)] 
+   :::code language="csharp" source="~/samples-cosmosdb-xamarin/src/ToDoItems.Core/Services/CosmosDBService.cs" id="DeleteToDoItem"::: 
 
     Again note the unique document URI being created and passed to the `DocumentClient.DeleteDocumentAsync` function.
 

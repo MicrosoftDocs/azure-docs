@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/08/2019
+ms.date: 02/27/2020
 ms.subservice: hybrid
 ms.author: billmath
 
@@ -81,8 +81,8 @@ To learn more, see:
 
 ### Accounts
 * An Azure AD Global Administrator account for the Azure AD tenant you wish to integrate with. This account must be a **school or organization account** and cannot be a **Microsoft account**.
-* If you use express settings or upgrade from DirSync, then you must have an Enterprise Administrator account for your on-premises Active Directory.
-* [Accounts in Active Directory](reference-connect-accounts-permissions.md) if you use the custom settings installation path or an Enterprise Administrator account for your on-premises Active Directory.
+* If you use [express settings](reference-connect-accounts-permissions.md#express-settings-installation) or upgrade from DirSync, then you must have an Enterprise Administrator account for your on-premises Active Directory.
+* If you use the custom settings installation path then you have more options see [Accounts in Active Directory](reference-connect-accounts-permissions.md#custom-installation-settings)
 
 ### Connectivity
 * The Azure AD Connect server needs DNS resolution for both intranet and internet. The DNS server must be able to resolve names both to your on-premises Active Directory and the Azure AD endpoints.

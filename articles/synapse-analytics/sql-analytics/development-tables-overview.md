@@ -301,6 +301,7 @@ LEFT OUTER JOIN (select * from sys.pdw_column_distribution_properties where dist
 LEFT OUTER JOIN sys.columns c
     ON cdp.[object_id] = c.[object_id]
     AND cdp.[column_id] = c.[column_id]
+WHERE pn.[type] = 'COMPUTE'
 )
 , size
 AS
@@ -431,4 +432,4 @@ ORDER BY    distribution_id
 ```
 
 ## Next steps
-After creating the tables for your data warehouse, the next step is to load data into the table.  For a loading tutorial, see [Loading data into SQL pool](../../sql-data-warehouse/load-data-wideworldimportersdw.md#load-the-data-into-your-data-warehouse).
+After creating the tables for your data warehouse, the next step is to load data into the table.  For a loading tutorial, see [Loading data into SQL pool](../../sql-data-warehouse/load-data-wideworldimportersdw.md#load-the-data-into-sql-pool).

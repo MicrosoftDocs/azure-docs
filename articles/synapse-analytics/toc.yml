@@ -48,7 +48,9 @@
       href: ./sql-analytics/get-started-azure-data-studio.md
 - name: Tutorials
   items:
-  - name: Connect to Power BI
+  - name: Run Apache Spark applications for Synapse Spark Pools
+    href: ./spark/intellij-tool-synapse.md  
+  - name: Power BI Professional
     href: ./sql-analytics/tutorial-connect-power-bi-desktop.md
   - name: Data Scientist
     items:
@@ -62,10 +64,14 @@
     #   href: article-template.md
     # - name: Use Torch for deep learning
     #   href: article-template.md
+  - name: Data Analyst
+    items:
+    - name: Use SQL on-demand to analyze and Synapse studio to visualize
+      href: ./sql-analytics/tutorial-data-analyst.md
   - name: Data Engineer
     items:
-    # - name: Data Preparation
-    #   href: article-template.md
+  # - name: Data Preparation
+  #   href: article-template.md
   # - name: Data Analyst
   #   href: article-template.md
   # - name: IT Administrator
@@ -84,28 +90,16 @@
     #     href: sql-analytics/sql-analytics-on-demand-workspace-overview.md
     #   - name: Spark pool 
     #     href: ./spark/apache-spark-overview.md
-    - name: Metadata management
+    - name: Shared metadata management
       items:
       - name: Overview
-        href: metadata-overview.md
-      - name: Storage objects
+        href: metadata/overview.md
+      - name: Metadata objects
         items:
-        # - name: Objects
-        #   href: azure-synapse-metadata-objects.md
-        - name: Databases
-          href: metadata-database.md
-        - name: Tables
-          href: metadata-table.md
-        # - name: Views
-        #   href: azure-synapse-metadata-views.md
-      # - name: Metadata sync
-      #   items:
-      #   - name: Overview
-      #     href: azure-synapse-metadata-sync-overview.md
-      #   - name: Sync with SQL Analytics on-demand
-      #     href: azure-synapse-metadata-sync-sql-analytics-on-demand.md
-      #   - name: Sync with SQL Analytics pool metadata
-      #     href: azure-synapse-metadata-sync-sql-analytics-pool.md
+        - name: Shared databases
+          href: metadata/database.md
+        - name: Shared tables
+          href: metadata/table.md
       - name: Code artifacts
         items:
         - name: Apache Spark Notebooks
@@ -216,12 +210,16 @@
     items:
     - name: Overview
       items:
-      - name: Apache Spark Overview
+      - name: Apache Spark overview
         href: ./spark/apache-spark-overview.md
+      - name: Apache Spark concepts
+        href: ./spark/apache-spark-concepts.md
       - name: Runtime language and library support
         href: ./spark/apache-spark-version-support.md
       - name: What is Delta Lake
-        href: ./spark/apache-spark-what-is-delta-lake.md        
+        href: ./spark/apache-spark-what-is-delta-lake.md
+      - name: Apache Spark performance
+        href: ./spark/apache-spark-performance.md        
       # - name: Apache Spark pool sizes
       #   href: article-template.md
       # - name: Cheat sheet
@@ -288,6 +286,8 @@
         href: sql-analytics/best-practices-sql-on-demand.md
       - name: Best practices SQL pools
         href: sql-analytics/best-practices-sql-pool.md
+      # - name: FAQ
+      #   href: sql-analytics/sql-analytics-faq.md
     - name: Data loading
       items:
       - name: Overview
@@ -374,14 +374,14 @@
           href: sql-analytics/development-storage-files-spark-tables.md
     - name: Workload management
       items:
-      - name: Resource classes & workload management
-        href: sql-analytics/workload-management-resource-classes.md
-      - name: Workload classification
-        href: sql-analytics/workload-management-classification.md
-      - name: Workload importance
-        href: sql-analytics/workload-management-importance.md
-      - name: Memory & concurrency limits
-        href: sql-analytics/workload-management-memory-and-concurrency-limits.md
+      # - name: Resource classes & workload management
+      #   href: sql-analytics/workload-management-resource-classes.md
+      # - name: Workload classification
+      #   href: sql-analytics/workload-management-classification.md
+      # - name: Workload importance
+      #   href: sql-analytics/workload-management-importance.md
+      # - name: Memory & concurrency limits
+      #   href: sql-analytics/workload-management-memory-and-concurrency-limits.md
   # - name: Disaster recovery
   #   href: article-template.md 
   # - name: CI/CD
@@ -390,8 +390,10 @@
     items:
     # - name: Working with Synapse Analytics Studio
     #   href: article-template.md
-    - name: Troubleshooting Synapse Analytics Studio
-      href: troubleshooting/troubleshooting-synapse-studio.md
+    - name: Troubleshoot Synapse Analytics Studio
+      href: troubleshoot/troubleshoot-synapse-studio.md
+    - name: Troubleshoot Synapse Analytics Studio with PowerShell
+      href: troubleshoot/troubleshoot-synapse-studio-powershell.md
     # - name: Integrate with AML
     #   href: article-template.md
     - name: Integrate with Power BI
@@ -504,6 +506,10 @@
       #   href: article-template.md
       # - name: Best practices
       #   href: article-template.md
+      - name: Spark
+        items:
+        - name: Import and export data with Apache Spark
+          href: ./spark/synapse-spark-sql-pool-import-export.md
     - name: Into the Data Lake
       items:
        - name: With the copy activity
@@ -979,7 +985,7 @@
   # - name: .Net SDK
   #   href: article-template.md
   - name: Database collation types
-    href: ../sql-data-warehouse/sql-data-warehouse-reference-collation-types.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+    href: sql-analytics/reference-collation-types.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
   - name: PowerShell cmdlets
     href: ../sql-data-warehouse/sql-data-warehouse-reference-powershell-cmdlets.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
   - name: REST APIs
@@ -987,14 +993,14 @@
   # - name: Spark Connector
   #   href: article-template.md
   - name: System views
-    href: ../sql-data-warehouse/sql-data-warehouse-reference-tsql-system-views.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+    href: sql-analytics/reference-tsql-system-views.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
   - name: T-SQL
     items:
     - name: Full reference
       href: /sql/t-sql/language-reference/
-    - name: SQL pool language elements
+    - name: SQL Analytics language elements
       href: ../sql-data-warehouse/sql-data-warehouse-reference-tsql-language-elements.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-    - name: SQL pool statements
+    - name: SQL Analytics statements
       href: ../sql-data-warehouse/sql-data-warehouse-reference-tsql-statements.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
 - name: Resources
   items: 

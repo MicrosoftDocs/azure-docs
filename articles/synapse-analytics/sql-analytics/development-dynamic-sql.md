@@ -1,5 +1,5 @@
 ---
-title: Using dynamic SQL in SQL Analytics 
+title: Use dynamic SQL in SQL Analytics 
 description: Tips for using dynamic SQL in SQL Analytics.
 services: synapse-analytics
 author: filippopovic
@@ -14,14 +14,14 @@ ms.custom:
 ---
 
 # Dynamic SQL in SQL Analytics
-Tips for using dynamic SQL for developing solutions using SQL Analytics.
+In this article, you'll find tips for using dynamic SQL and developing solutions using SQL Analytics.
 
 ## Dynamic SQL Example
 
-When developing application code, you may need to use dynamic sql to help deliver flexible, generic, and modular solutions. 
+When developing application code, you may need to use dynamic SQL to help deliver flexible, generic, and modular solutions. 
 
 > [!NOTE]
-> SQL Analytics pool does not support blob data types at this time. Not supporting blob data types might limit the size of your strings since blob data types include both varchar(max) and nvarchar(max) types. If you have used these types in your application code to build large strings, you need to break the code into chunks and use the EXEC statement instead.
+> SQL pool does not support blob data types at this time. Not supporting blob data types might limit the size of your strings since blob data types include both varchar(max) and nvarchar(max) types. If you have used these types in your application code to build large strings, you need to break the code into chunks and use the EXEC statement instead.
 
 A simple example:
 
@@ -33,10 +33,10 @@ DECLARE @sql_fragment1 VARCHAR(8000)=' SELECT name '
 EXEC( @sql_fragment1 + @sql_fragment2 + @sql_fragment3);
 ```
 
-If the string is short, you can use [sp_executesql](/sql/relational-databases/system-stored-procedures/sp-executesql-transact-sql) as normal.
+If the string is short, you can use [sp_executesql](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-executesql-transact-sql?view=sql-server-ver15) as normal.
 
 > [!NOTE]
-> Statements executed as dynamic SQL will still be subject to all TSQL validation rules.
+> Statements executed as dynamic SQL will still be subject to all T-SQL validation rules.
 
 ## Next steps
 For more development tips, see [development overview](development-overview.md).

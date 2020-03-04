@@ -6,7 +6,7 @@ author: euangMS
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: design
-ms.date: 11/25/2019
+ms.date: 2/21/2020
 ms.author: euang
 ms.reviewer: euang
 ---
@@ -58,5 +58,5 @@ To add a new Spark job definition, select **+** at the top of the **Develop** ex
 
 ## Next steps
 
-* [.NET for Apache Spark documentation](https://docs.microsoft.com/dotnet/spark)
 * [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)
+* [Apache Spark Documentation](https://spark.apache.org/docs/2.4.4/)

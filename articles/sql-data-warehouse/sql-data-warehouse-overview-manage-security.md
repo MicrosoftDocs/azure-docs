@@ -11,9 +11,10 @@ ms.date: 04/17/2018
 ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
+tags: azure-synapse
 ---
 
-# Secure a database in SQL Data Warehouse
+# Secure a database in Azure Synapse
 > [!div class="op_single_selector"]
 > * [Security Overview](sql-data-warehouse-overview-manage-security.md)
 > * [Authentication](sql-data-warehouse-authentication.md)
@@ -42,7 +43,7 @@ When you created the logical server for your database, you specified a "server a
 
 However, as a best practice, your organization’s users should use a different account to authenticate. This way you can limit the permissions granted to the application and reduce the risks of malicious activity in case your application code is vulnerable to a SQL injection attack. 
 
-To create a SQL Server Authenticated user, connect to the **master** database on your server with your server admin login and create a new server login.  It's a good idea to also create a user in the master database Azure Synapse users. Creating a user in master allows a user to log in using tools like SSMS without specifying a database name.  It also allows them to use the object explorer to view all databases on a SQL server.
+To create a SQL Server Authenticated user, connect to the **master** database on your server with your server admin login and create a new server login.  It's a good idea to also create a user in the master database. Creating a user in master allows a user to log in using tools like SSMS without specifying a database name.  It also allows them to use the object explorer to view all databases on a SQL server.
 
 ```sql
 -- Connect to master database and create a login
@@ -53,7 +54,7 @@ CREATE USER ApplicationUser FOR LOGIN ApplicationLogin;
 Then, connect to your **SQL pool database** with your server admin login and create a database user based on the server login you created.
 
 ```sql
--- Connect to SQL DW database and create a database user
+-- Connect to the database and create a database user
 CREATE USER ApplicationUser FOR LOGIN ApplicationLogin;
 ```
 
@@ -71,7 +72,7 @@ EXEC sp_addrolemember 'db_datawriter', 'ApplicationUser'; -- allows ApplicationU
 
 The server admin account you are connecting with is a member of db_owner, which has authority to do anything within the database. Save this account for deploying schema upgrades and other management operations. Use the "ApplicationUser" account with more limited permissions to connect from your application to the database with the least privileges needed by your application.
 
-There are ways to further limit what a user can do within a data warehouse:
+There are ways to further limit what a user can do within the database:
 
 * Granular [Permissions](https://docs.microsoft.com/sql/relational-databases/security/permissions-database-engine?view=sql-server-ver15) let you control which operations you can do on individual columns, tables, views, schemas, procedures, and other objects in the database. Use granular permissions to have the most control and grant the minimum permissions necessary. 
 * [Database roles](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/database-level-roles?view=sql-server-ver15) other than db_datareader and db_datawriter can be used to create more powerful application user accounts or less powerful management accounts. The built-in fixed database roles provide an easy way to grant permissions, but can result in granting more permissions than are necessary.
