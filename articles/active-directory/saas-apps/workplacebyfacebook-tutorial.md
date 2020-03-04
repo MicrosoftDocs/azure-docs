@@ -158,7 +158,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 	
 	b. Click on **+Add new SSO Provider**.
     > [!NOTE]
-    > Make sure that you check the **Single-sign on(SSO)** checkbox otherwise sometimes, the SSO may appear to fail by redirecting them back to the login screen.
+    > Make sure you check the Password login checkbox too. Admins may need this option for login while doing the certificate rollover in order to stop themselves getting locked out.
 
 1. Under **Authentication** tab, select **Single-Sign On (SSO)** and perform the following steps:
 
