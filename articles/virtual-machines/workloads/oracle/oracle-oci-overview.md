@@ -44,9 +44,13 @@ The following diagram is a high-level overview of the connected solution. For si
 
 ![Azure OCI solution overview](media/oracle-oci-overview/crosscloud.png)
 
-## Preview limitations
+## Region Availability 
 
-* Cross-cloud connectivity in preview is limited to the Azure East US (eastus), UK South (uksouth), and Canada Central (canadacentral) regions and the OCI Ashburn (US East), London (UK South), and Toronto (Canada Southeast) regions. For UK South, please use Availability Domain 1 (AD 1) in OCI when deploying the inter-connect for lower latencies.
+Cross-cloud connectivity is limited to the following regions:
+* Azure East US (eastus) & OCI Ashburn (US East)
+* Azure UK South (uksouth) & OCI London (UK South)
+* Azure Canada Central (canadacentral) & OCI Toronto (Canada Southeast)
+* Azure West Europe (westeurope) & OCI Amsterdam (Netherlands Northwest)
 
 ## Networking
 
