@@ -624,19 +624,82 @@
       href: microsoft-graph-intro.md
   - name: References
     items:
-    - name: Authentication libraries
-      displayName: MSAL
-      href: reference-v2-libraries.md
-    - name: Microsoft Graph API
-      href: microsoft-graph-intro.md
-    - name: Application manifest
-      href: reference-app-manifest.md
-    - name: Android MSAL configuration file
-      href: msal-configuration.md
-    - name: Authentication and authorization error codes
-      href: reference-aadsts-error-codes.md
-    - name: Breaking changes
-      href: reference-breaking-changes.md
+      - name: MSAL.NET
+        items:
+          - name: Acquire a token from the cache
+            href: msal-net-acquire-token-silently.md
+          - name: Token cache serialization
+            href: msal-net-token-cache-serialization.md
+          - name: Clear the token cache
+            href: msal-net-clear-token-cache.md
+          - name: Instantiate a public client app
+            href: msal-net-instantiate-public-client-config-options.md
+          - name: Instantiate a confidential client with options
+            href: msal-net-instantiate-confidential-client-config-options.md
+          - name: Get consent for several resources
+            href: msal-net-user-gets-consent-for-multiple-resources.md
+          - name: Provide your own HttpClient
+            href: msal-net-provide-httpclient.md
+      - name: MSAL.js
+        items:
+          - name: Avoid page reloads
+            href: msal-js-avoid-page-reloads.md
+          - name: Pass custom state in authentication requests
+            href: msal-js-pass-custom-state-authentication-request.md
+          - name: Prompt behavior
+            href: msal-js-prompt-behavior.md 
+      - name: MSAL for iOS and macOS
+        items:
+          - name: MSAL for iOS and macOS differences
+            href: msal-differences-ios-macos.md
+          - name: Configure keychain
+            href: howto-v2-keychain-objc.md
+          - name: Customize browsers and WebViews
+            href: customize-webviews.md
+          - name: Request custom claims
+            href: request-custom-claims.md
+          - name: Redirect URI configuration
+            href: redirect-uris-ios.md
+      - name: MSAL for Python
+        items:
+          - name: Custom token cache serialization
+            href: msal-python-token-cache-serialization.md
+      - name: MSAL for Java
+        items:
+          - name: Custom token cache serialization
+            href: msal-java-token-cache-serialization.md
+          - name: Get and remove accounts from the token cache
+            href: msal-java-get-remove-accounts-token-cache.md
+  - name: Work with Visual Studio
+    items:
+    - name: Use the Active Directory connected service
+      href: vs-active-directory-add-connected-service.md
+    - name: Get started with .NET MVC projects
+      href: vs-active-directory-dotnet-getting-started.md
+    - name: What happened to my .NET MVC project?
+      href: vs-active-directory-dotnet-what-happened.md
+    - name: Get started with WebAPI projects
+      href: vs-active-directory-webapi-getting-started.md
+    - name: What happened to my WebAPI project?
+      href: vs-active-directory-webapi-what-happened.md
+    - name: Diagnose errors during authentication
+      href: vs-active-directory-error.md
+- name: References
+  items:
+  - name: Authentication libraries
+    displayName: MSAL, auth library, SDK
+    href: reference-v2-libraries.md
+  - name: Identity and access APIs in Microsoft Graph
+    href: https://docs.microsoft.com/graph/api/resources/azure-ad-overview?view=graph-rest-beta
+  - name: Application manifest
+    href: reference-app-manifest.md
+    displayName: app manifest
+  - name: Android MSAL configuration file
+    href: msal-configuration.md
+  - name: Authentication and authorization error codes
+    href: reference-aadsts-error-codes.md
+  - name: Breaking changes
+    href: reference-breaking-changes.md
 - name: Resources
   items:
   - name: Glossary
