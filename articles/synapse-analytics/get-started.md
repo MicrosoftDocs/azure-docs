@@ -54,6 +54,7 @@ For the rest of that tutorial, we assume that you have created a Data Lake Stora
 
 ## Bring data to the lake
 <!--- Arnaud --->
+I need to work on that
 
 ## Explore
 <!--- Arnaud --->
