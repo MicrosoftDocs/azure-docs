@@ -17,17 +17,17 @@ The spatial IO module provides a `SimpleDataLayer` class. This class makes it ea
 
 In addition to styling features, the `SimpleDataLayer` provides a built-in popup feature with a popup template. The popup displays when a feature is clicked. The default popup feature can be disabled, if desired. This layer also supports clustered data. When a cluster is clicked, the map will zoom into the cluster and expand it into individual points and subclusters.
 
-The `SimpleDataLayer` class is intended to be used on large data sets with many geometry types and many styles applied on the features. When used, this class adds an overhead of six layers containing style expressions. So, there are cases when it's more efficient to use of the core rendering layers. For example, to render a couple of geometry types or render a few styles on a feature, use one of the core layers.
+The `SimpleDataLayer` class is intended to be used on large data sets with many geometry types and many styles applied on the features. When used, this class adds an overhead of six layers containing style expressions. So, there are cases when it's more efficient to use the core rendering layers. For example, use a core layer to render a couple of geometry types and a few styles on a feature
 
 ## Default supported style properties
 
-As mentioned earlier, the simple data layer wraps several of the core rendering layers: bubble, symbol, line, polygon, and extruded polygon. It uses expressions to search for valid style properties on individual features. Most property names, for the different layer options, are supported as style properties of features in the simple data layer. Expressions have been added to some layer options to support additional style property names that are commonly used by GitHub. GitHub has a set of style properties that it looks for on GeoJSON files as a way to support styling of GeoJSON files that are stored and rendered within GitHub. These property names are defined by [GitHub's GeoJSON map support](https://help.github.com/en/github/managing-files-in-a-repository/mapping-geojson-files-on-github). All styling properties are supported, except the `marker-symbol` styling properties.
+As mentioned earlier, the simple data layer wraps several of the core rendering layers: bubble, symbol, line, polygon, and extruded polygon. It then uses expressions to search for valid style properties on individual features.
 
-Although GitHub and Azure Maps properties are the two main supported property names, the reader will convert uncommon style properties it encounters to the Azure Maps style properties.
+Azure Maps and GitHub style properties are the two main sets of supported property names. Most property names of the different azure maps layer options are supported as style properties of features in the simple data layer. Expressions have been added to some layer options to support style property names that are commonly used by GitHub. These property names are defined by [GitHub's GeoJSON map support](https://help.github.com/en/github/managing-files-in-a-repository/mapping-geojson-files-on-github), and they're used to style GeoJSON files that are stored and rendered within the platform. All of GitHub's styling properties are supported in the simple data layer, except the `marker-symbol` styling properties.
 
-The default style expressions can be overridden by using the `getLayers` function of the simple data layer and updating the options on any of the layers.
+If the reader encounters a less common style property, it will convert it to the closest Azure Maps style property. Additionally, the default style expressions can be overridden by using the `getLayers` function of the simple data layer and updating the options on any of the layers.
 
-The next section provides details on the default style properties that are supported by the simple data layer. The order of the supported property names is also the priority of the property. If two style properties are defined for the same layer option, then the first one in the list has higher precedence.
+The next section provides details on the default style properties that are supported by the simple data layer. The order of the supported property name is also the priority of the property. If two style properties are defined for the same layer option, then the first one in the list has higher precedence.
 
 ## Simple data layer options
 
