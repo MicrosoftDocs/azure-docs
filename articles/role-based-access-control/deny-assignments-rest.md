@@ -82,7 +82,7 @@ To get information about a deny assignment, you must have:
     > | `$filter=atScope()` | Lists deny assignments for only the specified scope and above. Does not include the deny assignments at subscopes. |
     > | `$filter=assignedTo('{objectId}')` | Lists deny assignments for the specified user or service principal.<br/>If the user is a member of a group that has a deny assignment, that deny assignment is also listed. This filter is transitive for groups which means that if the user is a member of a group and that group is a member of another group that has a deny assignment, that deny assignment is also listed.<br/>This filter only accepts an object id for a user or a service principal. You cannot pass an object id for a group. |
     > | `$filter=atScope()+and+assignedTo('{objectId}')` | Lists deny assignments for the specified user or service principal and at the specified scope. |
-    > | `$filter=denyAssignmentName%20eq%20'{deny-assignment-name}'` | Lists deny assignments with the specified name. |
+    > | `$filter=denyAssignmentName+eq+'{deny-assignment-name}'` | Lists deny assignments with the specified name. |
     > | `$filter=principalId+eq+'{objectId}'` | Lists deny assignments for the specified user, group, or service principal. |
 
 ## List deny assignments at the root scope (/)
@@ -101,7 +101,7 @@ To get information about a deny assignment, you must have:
     > | Filter | Description |
     > | --- | --- |
     > | `$filter=atScope()` | List deny assignments for only the root scope. Does not include the deny assignments at subscopes. |
-    > | `$filter=denyAssignmentName%20eq%20'{deny-assignment-name}'` | List deny assignments with the specified name. |
+    > | `$filter=denyAssignmentName+eq+'{deny-assignment-name}'` | List deny assignments with the specified name. |
 
 1. Remove elevated access.
 

@@ -37,7 +37,7 @@ To list all custom roles in a directory, use the [Role Definitions - List](/rest
     > [!div class="mx-tableFixed"]
     > | Filter | Description |
     > | --- | --- |
-    > | `$filter=type%20eq%20'CustomRole'` | Filter based on the CustomRole type |
+    > | `$filter=type+eq+'CustomRole'` | Filter based on the CustomRole type |
 
 ## List custom roles at a scope
 
@@ -63,7 +63,7 @@ To list custom roles at a scope, use the [Role Definitions - List](/rest/api/aut
     > [!div class="mx-tableFixed"]
     > | Filter | Description |
     > | --- | --- |
-    > | `$filter=type%20eq%20'CustomRole'` | Filter based on the CustomRole type |
+    > | `$filter=type+eq+'CustomRole'` | Filter based on the CustomRole type |
 
 ## List a custom role definition by name
 
@@ -89,7 +89,7 @@ To get information about a custom role by its display name, use the [Role Defini
     > [!div class="mx-tableFixed"]
     > | Filter | Description |
     > | --- | --- |
-    > | `$filter=roleName%20eq%20'{roleDisplayName}'` | Use the URL encoded form of the exact display name of the role. For instance, `$filter=roleName%20eq%20'Virtual%20Machine%20Contributor'` |
+    > | `$filter=roleName+eq+'{roleDisplayName}'` | Use the URL encoded form of the exact display name of the role. For instance, `$filter=roleName+eq+'Virtual%20Machine%20Contributor'` |
 
 ## List a custom role definition by ID
 
