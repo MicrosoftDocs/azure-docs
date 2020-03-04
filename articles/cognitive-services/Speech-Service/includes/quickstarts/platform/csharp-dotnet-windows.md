@@ -72,7 +72,7 @@ To build and run the console application, create a platform configuration matchi
 
 1. From the menu bar, select **Build** > **Configuration Manager**. The **Configuration Manager** dialog box appears.
 
-   ![Configuration Manager dialog box](../articles/cognitive-services/speech-service/media/sdk/vs-configuration-manager-dialog-box.png)
+   ![Configuration Manager dialog box](~/articles/cognitive-services/speech-service/media/sdk/vs-configuration-manager-dialog-box.png)
 
 1. In the **Active solution platform** drop-down box, select **New**. The **New Solution Platform** dialog box appears.
 
