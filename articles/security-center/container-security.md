@@ -32,7 +32,7 @@ For instructions on how to use these features, see [Monitoring the security of y
 ## Vulnerability management - scanning container images
 To monitor your ARM-based Azure Container Registry, ensure you're on Security Center's standard tier (see [pricing](/azure/security-center/security-center-pricing)). Then, enable the optional Container Registries bundle. When a new image is pushed, Security Center scans the image using a scanner from the industry-leading vulnerability scanning vendor, Qualys.
 
-When issues are found – by Qualys or Security Center – you’ll get notified in the Security Center dashboard. For every vulnerability, Security Center provides actionable recommendations, along with a severity classification, and guidance for how to remediate the issue. For details of Security Center's recommendations for containers, see the [reference list of recommendations](recommendations-reference.md#recs-containers).
+When issues are found – by Qualys or Security Center – you'll get notified in the Security Center dashboard. For every vulnerability, Security Center provides actionable recommendations, along with a severity classification, and guidance for how to remediate the issue. For details of Security Center's recommendations for containers, see the [reference list of recommendations](recommendations-reference.md#recs-containers).
 
 Security Center filters and classifies findings from the scanner. When an image is healthy, Security Center marks it as such. Security Center generates security recommendations only for images that have issues to be resolved. By only notifying when there are problems, Security Center reduces the potential for unwanted informational alerts.
 
@@ -51,7 +51,7 @@ When you're exploring the security issues of a VM, Security Center provides addi
 > These CIS benchmark checks will not run on AKS-managed instances or Databricks-managed VMs.
 
 ### Continuous monitoring of your Kubernetes clusters (Preview)
-Security Center works together with Azure Kubernetes Service (AKS), Microsoft’s managed container orchestration service for developing, deploying, and managing containerized applications.
+Security Center works together with Azure Kubernetes Service (AKS), Microsoft's managed container orchestration service for developing, deploying, and managing containerized applications.
 
 AKS provides security controls and visibility into the security posture of your clusters. Security Center uses these features to:
 * Constantly monitor the configuration of your AKS clusters
@@ -74,7 +74,7 @@ Security Center scans Linux OS based images that provide shell access.
 The Qualys scanner doesn't support super minimalist images such as [Docker scratch](https://hub.docker.com/_/scratch/) images, or "Distroless" images that only contain your application and its runtime dependencies without a package manager, shell, or OS.
 
 ### How does Azure Security Center scan an image?
-The image is extracted from the registry. It's then run in an isolated sandbox with the Qualys scanner that extracts a list of known vulnerabilities.
+The image is pulled from the registry. It's then run in an isolated sandbox with the Qualys scanner that extracts a list of known vulnerabilities.
 
 Security Center filters and classifies findings from the scanner. When an image is healthy, Security Center marks it as such. Security Center generates security recommendations only for images that have issues to be resolved. By only notifying when there are problems, Security Center reduces the potential for unwanted informational alerts.
 
