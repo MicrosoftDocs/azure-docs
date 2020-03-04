@@ -5,7 +5,6 @@ services: synapse-analytics
 author: matt1883
 ms.service: synapse-analytics
 ms.topic: how-to
-ms.subservice: design
 ms.date: 01/01/2020
 ms.author: mahi
 ms.reviewer: mahi
@@ -24,7 +23,7 @@ To see the list of pipeline runs in your workspace, first [open the Azure Synaps
   [!div class="mx-imgBorder"]
   ![Log in to workspace](./media/common/login-workspace.png)
 
-Once you’ve opened your workspace, select the **Monitor** section on the left.
+Once you've opened your workspace, select the **Monitor** section on the left.
 
   [!div class="mx-imgBorder"]
   ![Select Monitor hub](./media/common/left-nav.png)
@@ -32,19 +31,19 @@ Once you’ve opened your workspace, select the **Monitor** section on the left.
 Select **Pipeline runs** to view the list of pipeline runs.
 
   [!div class="mx-imgBorder"]
-  ![Select pipeline runs](./media/howto-monitor-pipeline-runs/monitorhub-nav-pipelineruns.png)
+  ![Select pipeline runs](./media/how-to-monitor-pipeline-runs/monitor-hub-nav-pipelineruns.png)
 
 ## Filtering your pipeline runs
 
-You can filter the list of pipeline runs to the ones you’re interested in. The filters at the top of the screen allow you to specify a field on which you’d like to filter.
+You can filter the list of pipeline runs to the ones you're interested in. The filters at the top of the screen allow you to specify a field on which you'd like to filter.
 
-For example, you can filter the view to see only the pipeline runs for the pipeline named “holiday”:
+For example, you can filter the view to see only the pipeline runs for the pipeline named "holiday":
 
   [!div class="mx-imgBorder"]
   ![Filter button](./media/common/filter-button.png)
 
   [!div class="mx-imgBorder"]
-  ![Sample filter](./media/howto-monitor-pipeline-runs/filter-example.png)
+  ![Sample filter](./media/how-to-monitor-pipeline-runs/filter-example.png)
 
 ## Viewing details about a specific pipeline run
 

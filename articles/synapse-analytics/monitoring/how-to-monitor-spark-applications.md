@@ -24,7 +24,7 @@ To see the list of Spark applications in your workspace, first [open the Azure S
   [!div class="mx-imgBorder"]
   ![Log in to workspace](./media/common/login-workspace.png)
 
-Once you’ve opened your workspace, select the **Monitor** section on the left.
+Once you've opened your workspace, select the **Monitor** section on the left.
 
   [!div class="mx-imgBorder"]
   ![Select Monitor hub](./media/common/left-nav.png)
@@ -32,11 +32,11 @@ Once you’ve opened your workspace, select the **Monitor** section on the left.
 Select **Spark applications** to view the list of Spark applications.
 
   [!div class="mx-imgBorder"]
-  ![Select Spark applications](./media/howto-monitor-spark-applications/monitor-hub-nav-sparkapplications.png)
+  ![Select Spark applications](./media/how-to-monitor-spark-applications/monitor-hub-nav-sparkapplications.png)
 
 ## Filtering your Spark applications
 
-You can filter the list of Spark applications to the ones you’re interested in. The filters at the top of the screen allow you to specify a field on which you’d like to filter.
+You can filter the list of Spark applications to the ones you're interested in. The filters at the top of the screen allow you to specify a field on which you'd like to filter.
 
 For example, you can filter the view to see only the Spark applications that contain the name "sales":
 
@@ -44,7 +44,7 @@ For example, you can filter the view to see only the Spark applications that con
   ![Filter button](./media/common/filter-button.png)
 
   [!div class="mx-imgBorder"]
-  ![Sample filter](./media/howto-monitor-spark-applications/filter-example.png)
+  ![Sample filter](./media/how-to-monitor-spark-applications/filter-example.png)
 
 ## Viewing details about a specific Spark application
 

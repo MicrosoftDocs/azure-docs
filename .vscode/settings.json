@@ -54,5 +54,6 @@
         "XAML",
         "XML",
         "YAML"
-    ]
+    ],
+    "editor.fontSize": 18
 }
