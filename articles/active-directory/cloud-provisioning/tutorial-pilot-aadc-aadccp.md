@@ -27,7 +27,7 @@ Before you try this tutorial, consider the following items:
 3. Ensure that the objects in the pilot scope have ms-ds-consistencyGUID populated so cloud provisioning hard matches the objects. 
 
    > [!NOTE]
-   > Azure AD Connect sync does not populate *ms-ds-consistencyGUID* by default for group objects. Follow the steps documented in [this blog post](https://blogs.technet.microsoft.com/markrenoden/2017/10/13/choosing-a-sourceanchor-for-groups-in-multi-forest-sync-with-aad-connect/) to populate *ms-ds-consistencyGUID* for group objects.
+   > Azure AD Connect sync does not populate *ms-ds-consistencyGUID* by default for group objects.
 
 4. This is an advanced scenario. Ensure that you follow the steps documented in this tutorial precisely.
 
