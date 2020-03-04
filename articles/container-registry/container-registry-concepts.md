@@ -29,7 +29,7 @@ The address of an artifact in an Azure container registry includes the following
 
 For example, the full name of an image in an Azure container registry might look like:
 
-`myregistry.azurecr.io/marketing/campaign10-18/email-sender:v2`
+*myregistry.azurecr.io/marketing/campaign10-18/email-sender:v2*
 
 See the following sections for details about these elements.
 
@@ -38,17 +38,17 @@ See the following sections for details about these elements.
 Container registries manage *repositories*, collections of container images or other artifacts with the same name, but different tags. For example, the following three images are in the "acr-helloworld" repository:
 
 
-`acr-helloworld:latest`
-`acr-helloworld:v1`
-`acr-helloworld:v2`
+*acr-helloworld:latest*
+*acr-helloworld:v1*
+*acr-helloworld:v2*
 
 Repository names can also include [namespaces](container-registry-best-practices.md#repository-namespaces). Namespaces allow you to group images using forward slash-delimited repository names, for example:
 
-`marketing/campaign10-18/web:v2`
-`marketing/campaign10-18/api:v3`
-`marketing/campaign10-18/email-sender:v2`
-`product-returns/web-submission:20180604`
-`product-returns/legacy-integrator:20180715`
+*marketing/campaign10-18/web:v2*
+*marketing/campaign10-18/api:v3*
+*marketing/campaign10-18/email-sender:v2*
+*product-returns/web-submission:20180604*
+*product-returns/legacy-integrator:20180715*
 
 ## Image
 
