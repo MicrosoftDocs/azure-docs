@@ -181,7 +181,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     ![InVision Configuration](./media/invision-tutorial/user2.png)
 
-1. Verify the email address once click **Invite**.
+1. Once verify the email address and then click **Invite**.
 
     ![InVision Configuration](./media/invision-tutorial/user3.png)
 
@@ -200,3 +200,7 @@ When you click the InVision tile in the Access Panel, you should be automaticall
 - [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Try InVision with Azure AD](https://aad.portal.azure.com/)
+
+- [What is session control in Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+
+- [How to protect InVision with advanced visibility and controls](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
