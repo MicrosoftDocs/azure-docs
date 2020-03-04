@@ -32,10 +32,10 @@ Only RSA keys of size 2048 are supported with Azure Storage encryption. For more
 
 To enable customer-managed keys in the Azure portal, follow these steps:
 
-1. Navigate to your storage account.
-1. On the **Settings** blade for your Cognitive Services resource, click **Encryption**. Select the **Use your own key** option, as shown in the following figure.
+1. Navigate to your Cognitive Services resource.
+1. On the **Settings** blade for your Cognitive Services resource, click **Encryption**. Select the **Customer Managed Keys** option, as shown in the following figure.
 
-<TODO: Add screenshot>
+    ![Screenshot showing how to select Customer Managed Keys](../media/cognitive-services-encryption-keys-portal/selectcmk.png)
   
 ## Specify a key
 
