@@ -55,12 +55,13 @@ Content-Type: application/json
 
 ### Applications POST response
 
+The created application ID is returned in the response. You need the application ID to associate the configuration file with the code file when you call the next API.
+
 ``` http
 Content-Type: "application/json"
 "1"
 ```
 
-The created application ID is returned in the response. You need the application ID to associate the configuration file with the code file when you call the next API.
 
 ### Contract code request
 
@@ -81,6 +82,8 @@ Content-Disposition: form-data; name="contractFile"; filename="/C:/smart-contrac
 ```
 
 ### Contract code response
+
+If successful, contract code API returns a **204 No Content** response.
 
 ``` http
 204 No Content
@@ -133,6 +136,10 @@ Content-type: application/json
     ]
 }
 ```
+
+## Assign roles to users
+
+/api/v1/applications/{createdApplicationId}/roleAssignments 
 
 ## List workflows for an application
 
