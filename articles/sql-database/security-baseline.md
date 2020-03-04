@@ -252,7 +252,7 @@ https://docs.microsoft.com/azure/sql-database/sql-database-metrics-diag-logging
 
 How to stream diagnostics into Azure SQL Analytics:
 
-https://docs.microsoft.com/azure/sql-database/sql-database-metrics-diag-logging#stream-into-azure-sql-analytics
+https://docs.microsoft.com/azure/sql-database/sql-database-metrics-diag-logging#stream-diagnostic-telemetry-into-sql-analytics
 
 **Azure Security Center monitoring**: Yes
 
