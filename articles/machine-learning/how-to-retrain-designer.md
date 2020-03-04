@@ -114,7 +114,7 @@ Use the following steps to submit a pipeline endpoint run from the designer:
 
 1. Select the pipeline you want to run.
 
-1. Select **Run**.
+1. Select **Submit**.
 
 1. In the setup dialog, you can specify a new input data path value, which points to your new dataset.
 
@@ -122,7 +122,9 @@ Use the following steps to submit a pipeline endpoint run from the designer:
 
 ### Submit runs with code
 
-There are multiple ways to access your REST endpoint programatically depending on your development environment. You can find code samples that show you how to submit pipeline runs with parameters in the **Consume** tab of your pipeline.
+You can find the REST endpoint of a published pipeline in the overview panel. By calling the endpoint, you can retrain the published pipeline.
+
+To make a REST call, you will need an OAuth 2.0 bearer-type authentication header. See the following [tutorial section](tutorial-pipeline-batch-scoring-classification.md#publish-and-run-from-a-rest-endpoint) for more detail on setting up authentication to your workspace and making a parameterized REST call.
 
 ## Next steps
 

@@ -11,8 +11,8 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 07/05/2018
-ms.author: hermannd
+ms.date: 03/01/2020
+ms.author: juergent
 
 ---
 
