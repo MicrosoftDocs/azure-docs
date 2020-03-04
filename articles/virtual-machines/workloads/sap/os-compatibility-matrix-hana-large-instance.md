@@ -39,7 +39,7 @@ ms.custom: H1Hack27Feb2017
   
 ## Related Documents
 
-- To know more about [Available SKUs](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-available-skus)
+- To know more about [Available SKUs](hana-available-skus.md)
   
 
   
