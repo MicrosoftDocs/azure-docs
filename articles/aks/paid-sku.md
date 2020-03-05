@@ -67,9 +67,9 @@ In a service-level agreement (SLA), the provider agrees to reimburse the custome
 
 It is important to recognize the distinction between AKS service availability which refers to uptime of the Kubernetes control plane and the availability of your specific workload which is running on Azure Virtual Machines. Although the control plane may be unavailable if the control plane is not ready, your cluster workloads running on Azure VMs can still function. Given Azure VMs are paid resources they are backed by a financial SLA. Read [here for more details](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/) on the Azure VM SLA and how to increase that availability with features like [Availability Zones][availability-zones].
 
-## Billing details
+## Billing and refunds
 
-The Paid SKU reimbursements will be performed on a monthly basis.  TODO legal?
+The Paid SKU reimbursements will be performed on a monthly basis. The billing unit is calculated TODO per cluster/hour. TODO legal?
 
 ## Next steps
 
