@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: lazzeri
 author: FrancescaLazzeri
-ms.date: 11/04/2019
+ms.date: 03/05/2020
 ---
 
 # Deep learning vs. machine learning
