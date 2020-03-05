@@ -10,3 +10,5 @@
   href: override-materials.md
 - name: Material conversion
   href: material-conversion.md
+- name: Get information about a converted model
+  href: get-information.md
