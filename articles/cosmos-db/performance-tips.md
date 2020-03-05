@@ -163,38 +163,40 @@ SQL .NET SDK 1.9.0 and later support parallel queries, which enable you to query
 
 Parallel query works by querying multiple partitions in parallel. But data from an individual partition is fetched serially with respect to the query. Setting `MaxDegreeOfParallelism` in [SDK V2](sql-api-sdk-dotnet.md) or `MaxConcurrency` in [SDK V3](sql-api-sdk-dotnet-standard.md) to the number of partitions has the best chance of achieving the most performant query, provided all other system conditions remain the same. If you don't know the number of partitions, you can set the degree of parallelism to a high number and the system will choose the minimum (number of partitions, user provided input) as the degree of parallelism.
 
-    It is important to note that parallel queries produce the best benefits if the data is evenly distributed across all partitions with respect to the query. If the partitioned collection is partitioned such a way that all or a majority of the data returned by a query is concentrated in a few partitions (one partition in worst case), then the performance of the query would be bottlenecked by those partitions.
+It's important to note that parallel queries produce the most benefit if the data is evenly distributed across all partitions with respect to the query. If the partitioned collection is partitioned so that all or a majority of the data returned by a query is concentrated in a few partitions (one partition is the worst case), the performance of the query will be bottlenecked by those partitions.
 
-    (b) ***Tuning MaxBufferedItemCount\:***
-    Parallel query is designed to pre-fetch results while the current batch of results is being processed by the client. The pre-fetching helps in overall latency improvement of a query. MaxBufferedItemCount is the parameter to limit the number of pre-fetched results. Setting MaxBufferedItemCount to the expected number of results returned (or a higher number) allows the query to receive maximum benefit from pre-fetching.
-
-    Pre-fetching works the same way irrespective of the degree of parallelism, and there is a single buffer for the data from all partitions.  
-
-6. **Implement backoff at RetryAfter intervals**
-
-    During performance testing, you should increase load until a small rate of requests get throttled. If throttled, the client application should backoff on throttle for the server-specified retry interval. Respecting the backoff ensures that you spend minimal amount of time waiting between retries. Retry policy support is included in Version 1.8.0 and above of the SQL [.NET](sql-api-sdk-dotnet.md) and [Java](sql-api-sdk-java.md), version 1.9.0 and above of the [Node.js](sql-api-sdk-node.md) and [Python](sql-api-sdk-python.md), and all supported versions of the [.NET Core](sql-api-sdk-dotnet-core.md) SDKs. For more information, [RetryAfter](https://msdn.microsoft.com/library/microsoft.azure.documents.documentclientexception.retryafter.aspx).
+***Tuning MaxBufferedItemCount***
     
-    With version 1.19 and later of the .NET SDK, there is a mechanism to log additional diagnostic information and troubleshoot latency issues as shown in the following sample. You can log the diagnostic string for requests that have a higher read latency. The captured diagnostic string will help you understand the number of times you observed 429s for a given request.
-    ```csharp
-    ResourceResponse<Document> readDocument = await this.readClient.ReadDocumentAsync(oldDocuments[i].SelfLink);
-    readDocument.RequestDiagnosticsString 
-    ```
+Parallel query is designed to pre-fetch results while the current batch of results is being processed by the client. This pre-fetching helps improve the overall latency of a query. The `MaxBufferedItemCount` parameter limits the number of pre-fetched results. Set `MaxBufferedItemCount` to the expected number of results returned (or a higher number) to allow the query to receive the maximum benefit from pre-fetching.
 
-7. **Cache document URIs for lower read latency**
+Pre-fetching works the same way regardless of the degree of parallelism, and there's a single buffer for the data from all partitions.  
 
-    Cache document URIs whenever possible for the best read performance. You have to define logic to cache the resource ID when you create the resource. Resource ID based lookups are faster than name based lookups, so caching these values improves the performance. 
+**Implement backoff at RetryAfter intervals**
+
+During performance testing, you should increase load until a small rate of requests are throttled. If requests are throttled, the client application should back off on throttle for the server-specified retry interval. Respecting the backoff ensures that you spend a minimal amount of time waiting between retries. Retry policy support is included in version 1.8.0 and later of the [.NET SDK for SQL](sql-api-sdk-dotnet.md) and [Java SDK for SQL](sql-api-sdk-java.md), version 1.9.0 and later of the [Node.js SDK for SQL](sql-api-sdk-node.md) and [Python SDK for SQL](sql-api-sdk-python.md), and all supported versions of the [.NET Core](sql-api-sdk-dotnet-core.md) SDKs. For more information, see [RetryAfter](https://msdn.microsoft.com/library/microsoft.azure.documents.documentclientexception.retryafter.aspx).
+    
+In version 1.19 and later of the .NET SDK, there's a mechanism to log additional diagnostic information and troubleshoot latency issues, as shown in the following sample. You can log the diagnostic string for requests that have a higher read latency. The captured diagnostic string will help you understand how many number of times you received 429 errors for a given request.
+
+```csharp
+ResourceResponse<Document> readDocument = await this.readClient.ReadDocumentAsync(oldDocuments[i].SelfLink);
+readDocument.RequestDiagnosticsString 
+```
+
+**Cache document URIs for lower read latency**
+
+Cache document URIs whenever possible for the best read performance. You need to define logic to cache the resource ID when you create a resource. Lookups based on resource IDs are faster than name-based lookups, so caching these values improves performance.
 
    <a id="tune-page-size"></a>
-8. **Tune the page size for queries/read feeds for better performance**
+**Tune the page size for queries/read feeds for better performance**
 
-   When performing a bulk read of documents using read feed functionality (for example, ReadDocumentFeedAsync) or when issuing a SQL query, the results are returned in a segmented fashion if the result set is too large. By default, results are returned in chunks of 100 items or 1 MB, whichever limit is hit first.
+When you perform a bulk read of documents by using read feed functionality (for example, `ReadDocumentFeedAsync`) or when you issue a SQL query, the results are returned in a segmented fashion if the result set is too large. By default, results are returned in chunks of 100 items or 1 MB, whichever limit is hit first.
 
-   To reduce the number of network round trips required to retrieve all applicable results, you can increase the page size using [x-ms-max-item-count](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) request header to up to 1000. In cases where you need to display only a few results, for example, if your user interface or application API returns only 10 results a time, you can also decrease the page size to 10 to reduce the throughput consumed for reads and queries.
+To reduce the number of network round trips required to retrieve all applicable results, you can increase the page size by using [x-ms-max-item-count](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) to request as many as 1,000 headers. When you need to display only a few results, for example, if your user interface or application API returns only 10 results at a time, you can also decrease the page size to 10 to reduce the throughput consumed for reads and queries.
 
-   > [!NOTE] 
-   > The maxItemCount property shouldn't be used just for pagination purpose. It's main usage it to improve the performance of queries by reducing the maximum number of items returned in a single page.  
+> [!NOTE] 
+> The `maxItemCount` property shouldn't be used just for pagination. It's main use is to improve the performance of queries by reducing the maximum number of items returned in a single page.  
 
-   You can also set the page size using the available Azure Cosmos DB SDKs. The [MaxItemCount](/dotnet/api/microsoft.azure.documents.client.feedoptions.maxitemcount?view=azure-dotnet) property in FeedOptions allows you to set the maximum number of items to be returned in the enumeration operation. When `maxItemCount` is set to -1, the SDK automatically finds the most optimal value depending on the document size. For example:
+You can also set the page size using the available Azure Cosmos DB SDKs. The [MaxItemCount](/dotnet/api/microsoft.azure.documents.client.feedoptions.maxitemcount?view=azure-dotnet) property in FeedOptions allows you to set the maximum number of items to be returned in the enumeration operation. When `maxItemCount` is set to -1, the SDK automatically finds the most optimal value depending on the document size. For example:
     
    ```csharp
     IQueryable<dynamic> authorResults = client.CreateDocumentQuery(documentCollection.SelfLink, "SELECT p.Author FROM Pages p WHERE p.Title = 'About Seattle'", new FeedOptions { MaxItemCount = 1000 });
