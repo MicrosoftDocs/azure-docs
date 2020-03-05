@@ -6,7 +6,7 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 02/27/2020
+ms.date: 03/05/2020
 ms.author: aahi
 ---
 
@@ -30,7 +30,7 @@ Use the Bing Custom Search client library for C# to:
         - Microsoft.Rest.ClientRuntime.Azure
         - Newtonsoft.Json
 
-[!INCLUDE [cognitive-services-bing-custom-search-prerequisites](~/includes/cognitive-services-bing-custom-search-signup-requirements.md)]
+[!INCLUDE [cognitive-services-bing-custom-search-prerequisites](../../../../../includes/cognitive-services-bing-custom-search-signup-requirements.md)]
 
 
 ## Create and initialize the application

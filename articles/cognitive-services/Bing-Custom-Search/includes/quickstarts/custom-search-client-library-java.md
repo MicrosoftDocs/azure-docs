@@ -6,7 +6,7 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 02/27/2020
+ms.date: 03/05/2020
 ms.author: aahi
 ---
 
@@ -25,7 +25,7 @@ Use the Bing Custom Search client library for Java to:
 * The [Gradle build tool](https://gradle.org/install/), or another dependency manager.
 * A Bing Custom Search instance. See [Quickstart: Create your first Bing Custom Search instance](../../quick-start.md) for more information.
 
-[!INCLUDE [cognitive-services-bing-custom-search-prerequisites](~/includes/cognitive-services-bing-custom-search-signup-requirements.md)]
+[!INCLUDE [cognitive-services-bing-custom-search-prerequisites](../../../../../includes/cognitive-services-bing-custom-search-signup-requirements.md)]
 
 After you get a key from your trial subscription or resource, [create an environment variable](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for the key, named `AZURE_BING_CUSTOM_SEARCH_API_KEY`.
 
