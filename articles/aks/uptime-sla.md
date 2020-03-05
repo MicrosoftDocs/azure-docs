@@ -1,12 +1,12 @@
 ---
 title: High Availability for Azure Kubernetes Service (AKS) API server with Uptime SLA
-description: Learn about the high availability SLA offering for the Azure Kubernetes Service (AKS) API Server.
+description: Learn about the high availability Uptime SLA offering for the Azure Kubernetes Service (AKS) API Server.
 services: container-service
 ms.topic: conceptual
 ms.date: 03/05/2020
 ---
 
-# Azure Kubernetes Service (AKS) Uptime SLA offering
+# Azure Kubernetes Service (AKS) Uptime SLA
 
 When used with Availability Zones, this offering allows you to achieve 99.95% availability for the AKS cluster API server. If you do not use Availability Zones, you can achieve 99.9% availability. AKS uses master node replicas across update and fault domains to ensure SLA requirements are met.
 
