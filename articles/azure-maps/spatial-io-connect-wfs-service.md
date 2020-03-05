@@ -12,7 +12,7 @@ manager: philmea
 
 # Connect to a WFS service
 
-A Web Feature Service (WFS) is a web service for querying spatial data that has a standardized API, which has been defined by the Open Geospatial Consortium (OGC). The `WfsClient` class in the spatial IO module lets developers connect to a WFS service and query data from the service.
+A Web Feature Service (WFS) is a web service for querying spatial data that has a standardized API that is defined by the Open Geospatial Consortium (OGC). The `WfsClient` class in the spatial IO module lets developers connect to a WFS service and query data from the service.
 
 The following features are supported by the `WfsClient` class:
 
@@ -89,7 +89,7 @@ The following code uses the WFS client to explore WFS services. Select a propert
 <iframe height='700' scrolling='no' title= 'WFS service explorer' src='//codepen.io/azuremaps/embed/bGdrvmG/?height=700&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/bGdrvmG/'>WFS service explorer</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-To access WFS services hosted on non-CORs enabled enpoints, a CORs enabled proxy service can be passed into the `proxyService` option of the WFS client as shown below. 
+To access WFS services hosted on non-CORS enabled endpoints, a CORS enabled proxy service can be passed into the `proxyService` option of the WFS client as shown below. 
 
 ```JavaScript
 //Create the WFS client to access the service and use the proxy service settings
