@@ -5,7 +5,7 @@ services: synapse-analytics
 author: malvenko 
 ms.service: synapse-analytics 
 ms.topic: quickstart  
-ms.subservice: design 
+ms.subservice: 
 ms.date: 10/10/2019
 ms.author: josels
 ms.reviewer: jrasnick

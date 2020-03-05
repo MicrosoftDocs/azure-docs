@@ -20,9 +20,9 @@ The following file types are supported: JSON, CSV, Apache Parquet
 
 Choose a SQL client of your choice to issue queries:
 
-- [Azure Synapse Studio](../quickstart-synapse-studio.md) is a web tool that you can use to browse files in storage and create SQL query.
-- [Azure Data Studio](get-started-azure-data-studio.md) is a client tool that enables you to run SQL queries and notebooks on your On-demand database.
-- [SQL Server Management Studio](get-started-ssms.md) is a client tool that enables you to run SQL queries on your On-demand database.
+- [Azure Synapse Studio](quickstart-synapse-studio.md) is a web tool that you can use to browse files in storage and create SQL query.
+- [Azure Data Studio](./sql-analytics/get-started-azure-data-studio.md) is a client tool that enables you to run SQL queries and notebooks on your On-demand database.
+- [SQL Server Management Studio](./sql-analytics/get-started-ssms.md) is a client tool that enables you to run SQL queries on your On-demand database.
 
 Parameters for this Quickstart:
 
@@ -131,7 +131,7 @@ The demo data provided for this Quickstart contains following data sets:
 
 The following image is a preview of the file to be queried:
 
-![First 10 rows of the CSV file without header, Windows style new line.](./media/querying-single-csv-file/population.png)
+![First 10 rows of the CSV file without header, Windows style new line.](./sql-analytics/media/querying-single-csv-file/population.png)
 
 The following query shows how to read a CSV file that does not contain a header row, with Windows-style new line, and comma-delimited columns:
 
@@ -156,7 +156,7 @@ WHERE
 ```
 
 You can specify schema at query compilation time.
-For more examples, see how to [query CSV file](query-single-csv-file.md).
+For more examples, see how to [query CSV file](./sql-analytics/query-single-csv-file.md).
 
 ## Querying parquet files without specifying schema
 
@@ -174,7 +174,7 @@ FROM OPENROWSET
   ) AS nyc
 ```
 
-Find more information about [querying parquet files](query-parquet-files.md)].
+Find more information about [querying parquet files](./sql-analytics/query-parquet-files.md)].
 
 ## Querying JSON files
 
@@ -228,14 +228,14 @@ WHERE
 
 Now you are ready to start with following Quickstarts:
 
-- [Query single CSV file](query-single-csv-file.md)
-- [Query folders and multiple CSV files](query-folders-multiple-csv-files.md)
-- [Query specific files](query-specific-files.md)
-- [Query Parquet files](query-parquet-files.md)
-- [Query Parquet nested types](query-parquet-nested-types.md)
-- [Query JSON files](query-json-files.md)
-- [Creating and using views](create-use-views.md)
+- [Query single CSV file](./sql-analytics/query-single-csv-file.md)
+- [Query folders and multiple CSV files](./sql-analytics/query-folders-multiple-csv-files.md)
+- [Query specific files](./sql-analytics/query-specific-files.md)
+- [Query Parquet files](./sql-analytics/query-parquet-files.md)
+- [Query Parquet nested types](./sql-analytics/query-parquet-nested-types.md)
+- [Query JSON files](./sql-analytics/query-json-files.md)
+- [Creating and using views](./sql-analytics/create-use-views.md)
 
 Advance to the next article to learn how to query single CSV file.
 > [!div class="nextstepaction"]
-> [Query single CSV file](query-single-csv-file.md)
+> [Query single CSV file](./sql-analytics/query-single-csv-file.md)

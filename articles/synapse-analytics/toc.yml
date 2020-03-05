@@ -2,10 +2,10 @@
   href: index.md
 - name: Overview
   items:
-  - name: What is Azure Synapse
-    href: overview-what-is.md
-  - name: Who can benefit from Azure Synapse
-    href: overview-who-can-benefit-azure-synapse-analytics.md
+  # - name: What is Azure Synapse
+  #   href: overview-what-is.md
+  # - name: Who can benefit
+  #   href: overview-who-can-benefit-azure-synapse-analytics
   - name: Cheat sheet 
     href: overview-cheat-sheet.md
   - name: FAQ
@@ -30,24 +30,18 @@
       href: quickstart-create-sql-pool.md
   - name: Use SQL on-demand
     href: quickstart-sql-on-demand.md
-    # - name: Ingest data into Data Lake
-  #   href: article-template.md
-  # - name: Ingest data into SQL pool
-  #   href: article-template.md
-  - name: Browse data using workspace
-    href: quickstart-browse-data-workspace.md
-  - name: Analyze and Visualize data
-    items:
-    # - name: Spark
-    #   href: article-template.md
-    # - name: SQL pool
-    #   href: article-template.md
-    - name: Synapse studio
-      href: quickstart-synapse-studio.md
-    - name: SQL on-demand
-      href: ./sql-analytics/quickstart-sql-on-demand.md
-    - name: Query SQL on-demand using Azure Data Studio
-      href: ./sql-analytics/get-started-azure-data-studio.md
+  # - name: Analyze and Visualize data
+  #   items:
+  #   - name: Spark
+  #     href: article-template.md
+  #   - name: SQL pool
+  #     href: article-template.md
+  #   - name: Synapse studio
+  #     href: quickstart-synapse-studio.md
+  #   - name: SQL on-demand
+  #     href: ./sql-analytics/quickstart-sql-on-demand.md
+  #   - name: Query SQL on-demand using Azure Data Studio
+  #     href: ./sql-analytics/get-started-azure-data-studio.md
   - name: Getting started experience 
     href: get-started.md
 - name: Tutorials
@@ -72,34 +66,24 @@
     items:
     - name: Use SQL on-demand to analyze and Synapse Studio to visualize
       href: ./sql-analytics/tutorial-data-analyst.md
-  - name: Data Engineer
-    items:
-  # - name: Data Preparation
-  #   href: article-template.md
+  # - name: Data Engineer
+  #   items:
+  #   - name: Data Preparation
+  #     href: article-template.md
   # - name: IT Administrator
   #   href: article-template.md
 - name: Concepts
   items:
-  - name: Workspace
-    items:
+  # - name: Workspace
+  #   items:
     # - name: Overview
     #   href: article-template.md
-    # - name: Analytics resources
-    #   items:
-    #   - name: SQL pool
-    #     href: article-template.md
-    #   - name: SQL on-demand
-    #     href: sql-analytics/sql-analytics-on-demand-workspace-overview.md
-    #   - name: Spark pool 
-    #     href: ./spark/apache-spark-overview.md
     - name: Shared metadata management
       items:
       - name: Overview
         href: metadata/overview.md
       - name: Metadata objects
         items:
-        # - name: Objects
-        #   href: metadata/database.md
         - name: Shared databases
           href: metadata/database.md
         - name: Shared tables
@@ -120,16 +104,16 @@
       href: ../sql-data-warehouse/backup-and-restore.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
   - name: Monitoring 
     items:
-    - name: Standard monitoring
-      items:
+    # - name: Standard monitoring
+    #   items:
       # - name: Azure Monitor Integration
       #   href: article-template.md
       # - name: Resource health
       #   href: article-template.md
       # - name: Azure Advisor Recommendation
       #   href: article-template.md
-    - name: Activity monitoring
-      items:
+    # - name: Activity monitoring
+    #   items:
       # - name: SQL request monitoring (OD + Pool)
       #   href: article-template.md
       # - name: Spark application monitoring
@@ -226,8 +210,6 @@
         href: ./spark/apache-spark-what-is-delta-lake.md
       - name: Apache Spark performance
         href: ./spark/apache-spark-performance.md        
-      # - name: Apache Spark pool sizes
-      #   href: article-template.md
       # - name: Cheat sheet
       #   href: article-template.md
     - name: Development
@@ -236,13 +218,7 @@
         href: ../hdinsight/spark/azure-synapse-analytics-job-definition.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Azure Synapse studio notebooks
         href: ./spark/apache-spark-development-using-notebooks.md
-      #  items:
-        
-      #   - name: Tips and tricks
-      #     href: article-template.md
-      #   - name: Session management
-      #     href: article-template.md
-      # - name: Using IntelliJ
+      # - name: Tips and tricks
       #   href: article-template.md
       - name: .NET for Apache Spark
         href: spark-dotnet.md
