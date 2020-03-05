@@ -45,9 +45,6 @@ The following example creates a resource group named *myResourceGroup* in the *e
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
-
-## Create an AKS cluster with Paid SKU SLA 
-
 Use the [az aks create][az-aks-create] command to create an AKS cluster. The following example creates a cluster named *myAKSCluster* with one node. Azure Monitor for containers is also enabled using the *--enable-addons monitoring* parameter.  This will take several minutes to complete.
 
 > [!NOTE]
