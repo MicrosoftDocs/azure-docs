@@ -10,83 +10,21 @@ ms.date: 03/03/2020
 
 This article explains how to back up Windows machines by using the [Azure Backup](backup-overview.md) service and the Microsoft Azure Recovery Services (MARS) agent. MARS is also known as the Azure Backup agent.
 
-In this article, you learn how to:
+In this article, you will learn how to:
 
 > [!div class="checklist"]
 >
-> * Verify the prerequisites and create a Recovery Services vault.
+> * Verify the prerequisites
 > * Create a backup policy and schedule.
 > * Perform an on-demand backup.
-
-## About the MARS agent
-
-Azure Backup uses the MARS agent to back up files, folders, and system state from on-premises machines and Azure VMs. Those backups are stored in a Recovery Services vault in Azure. You can run the agent:
-
-* Directly on on-premises Windows machines. These machines can back up directly to a Recovery Services vault in Azure.
-* On Azure VMs that run Windows side by side with the Azure VM backup extension. The agent backs up specific files and folders on the VM.
-* On a Microsoft Azure Backup Server (MABS) instance or a System Center Data Protection Manager (DPM) server. In this scenario, machines and workloads back up to MABS or Data Protection Manager. Then MABS or Data Protection Manager uses the MARS agent to back up to a vault in Azure.
-
-The data that's available for backup depends on where the agent is installed.
-
-> [!NOTE]
-> Generally, you back up an Azure VM by using an Azure Backup extension on the VM. This method backs up the entire VM. If you want to back up specific files and folders on the VM, install and use the MARS agent alongside the extension. For more information, see [Architecture of a built-in Azure VM backup](backup-architecture.md#architecture-built-in-azure-vm-backup).
-
-![Backup process steps](./media/backup-configure-vault/initial-backup-process.png)
 
 ## Before you start
 
 * Learn how [Azure Backup uses the MARS agent to back up Windows machines](backup-architecture.md#architecture-direct-backup-of-on-premises-windows-server-machines-or-azure-vm-files-or-folders).
 * Learn about the [backup architecture](backup-architecture.md#architecture-back-up-to-dpmmabs) that runs the MARS agent on a secondary MABS or Data Protection Manager server.
 * Review [what's supported and what you can back up](backup-support-matrix-mars-agent.md) by the MARS agent.
-* Make sure that you have an Azure account if you need to back up a server or client to Azure. If you don't have an account, you can create a [free one](https://azure.microsoft.com/free/) in just a few minutes.
 * [Verify internet access](install-mars-agent.md#verify-internet-access) on the machines that you want to back up.
 * If the MARS agent is not installed, learn how to install it [here](install-mars-agent.md).
-
-## Create a Recovery Services vault
-
-A Recovery Services vault stores all the backups and recovery points that you create over time. It also contains the backup policy for the backed-up machines.
-
-To create a vault:
-
-1. Sign in to the [Azure portal](https://portal.azure.com/) by using your Azure subscription.
-
-1. Search for and select **Recovery Services vaults**.
-
-    ![Select Recovery Services vaults](./media/backup-configure-vault/open-recovery-services-vaults.png)
-
-1. On the **Recovery Services vaults** menu, select **Add**.
-
-    ![Add a Recovery Services vault](./media/backup-try-azure-backup-in-10-mins/rs-vault-menu.png)
-
-1. For **Name**, enter a friendly name to identify the vault.
-
-   * The name needs to be unique for the Azure subscription.
-   * It can contain 2 to 50 characters.
-   * It must start with a letter.
-   * It can contain only letters, numbers, and hyphens.
-
-1. Select the Azure subscription, resource group, and geographic region in which the vault should be created. Backup data is sent to the vault. Select **Create**.
-
-    ![Add identifying info for the Recovery Services vault](./media/backup-try-azure-backup-in-10-mins/rs-vault-step-3.png)
-
-    The system might take a while to create the vault. Monitor the status notifications in the upper-right area of the portal. If you don't see the vault after several minutes, select **Refresh**.
-
-    ![Select the Refresh button](./media/backup-try-azure-backup-in-10-mins/refresh-button.png)
-
-### Set storage redundancy
-
-Azure Backup automatically handles storage for the vault. You specify how to replicate that storage.
-
-1. Under **Recovery Services vaults**, select the new vault. Under **Settings**, select  **Properties**.
-1. In **Properties**, under **Backup Configuration**, select **Update**.
-
-1. Select the storage replication type, and select **Save**.
-
-      ![Set the storage configuration for a new vault](./media/backup-try-azure-backup-in-10-mins/recovery-services-vault-backup-configuration.png)
-
-We recommend that if you use Azure as a primary backup storage endpoint, continue to use the default **Geo-redundant** setting. If you don't use Azure as a primary backup storage endpoint, select **Locally redundant** to reduce the Azure storage costs.
-
-For more information, see [Geo-redundancy](../storage/common/storage-redundancy.md#geo-redundant-storage) and [Local redundancy](../storage/common/storage-redundancy.md#locally-redundant-storage).
 
 ## Create a backup policy
 

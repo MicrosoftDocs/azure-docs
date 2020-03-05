@@ -142,7 +142,7 @@
     items:
     - name: Overview
       href: backup-azure-about-mars.md
-    - name: Install or Upgrade
+    - name: Install or upgrade
       items:
       - name: Install MARS agent
         href: install-mars-agent.md

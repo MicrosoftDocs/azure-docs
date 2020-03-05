@@ -8,12 +8,12 @@ ms.date: 03/03/2020
 
 # Upgrade the Microsoft Azure Recovery Services (MARS) agent
 
-This article describes how to use the Azure portal to identify servers with older versions of the Azure Backup agent that connect to Azure with the retired ACS authentication mechanisms. Once you've identified the older versions, you can update them. The article has two sections that help you achieve the following tasks:
+In this article you'll learn how to:
 
-* Identify servers with earlier versions of the Azure backup agent
-* Update Azure Backup installations on those servers
+* Identify servers with earlier versions of the MARS agent
+* Update MARS installations on those servers
 
-## Identify servers with earlier versions of the Azure backup agent
+## Identify servers with earlier versions of the MARS agent
 
 For Installations of Azure Backup agent and Azure backup server:
 
@@ -31,7 +31,7 @@ For Installations of Azure Backup agent and Azure backup server:
 
 1. The previous step will give you the list of servers with Azure Backup agents that have versions lower than 2.0.9083.0 or agent versions listed as blanks. These are the servers where Azure Backup agents need to be updated.
 
-## Update the Azure Backup agent installation on the server
+## Update the MARS agent installation on the server
 
 Once you've identified the servers that need an Azure Backup agent update, perform the following steps for each identified server (using Azure backup server or the MARS Agent). [Download the latest version of the Azure backup agent](https://aka.ms/azurebackup_agent) before following the steps below.
 

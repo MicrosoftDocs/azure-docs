@@ -33,6 +33,29 @@ The data that's available for backup depends on where the agent is installed.
 * Make sure that you have an Azure account if you need to back up a server or client to Azure. If you don't have an account, you can create a [free one](https://azure.microsoft.com/free/) in just a few minutes.
 * Verify internet access on the machines that you want to back up.
 
+[!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
+
+## Modify storage replication
+
+By default, vaults use [geo-redundant storage (GRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs).
+
+* If the vault is your primary backup mechanism, we recommend that you use GRS.
+* You can use [locally redundant storage (LRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) to reduce Azure storage costs.
+
+To modify the storage replication type:
+
+1. In the new vault, select **Properties** under the **Settings** section.
+
+1. On the **Properties** page, under **Backup Configuration**, select **Update**.
+
+1. Select the storage replication type, and select **Save**.
+
+    ![Update Backup Configuration](./media/backup-afs/backup-configuration.png)
+
+> [!NOTE]
+> You can't modify the storage replication type after the vault is set up and contains backup items. If you want to do this, you need to re-create the vault.
+>
+
 ### Verify internet access
 
 If your machine has limited internet access, ensure that firewall settings on the machine or proxy allow the following URLs and IP addresses:
