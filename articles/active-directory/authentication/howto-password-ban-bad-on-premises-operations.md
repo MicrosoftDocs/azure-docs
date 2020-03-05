@@ -1,12 +1,12 @@
 ---
-title: Password protection operations and reports - Azure Active Directory
-description: Azure AD Password Protection post-deployment operations and reporting
+title: Enable on-premises Azure AD password protection
+description: Learn how to enable Azure AD password protection for an on-premises Active Directory Domain Services environment
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: article
-ms.date: 11/21/2019
+ms.date: 03/05/2020
 
 ms.author: iainfou
 author: iainfoulds
@@ -15,50 +15,47 @@ ms.reviewer: jsimmons
 
 ms.collection: M365-identity-device-management
 ---
-# Azure AD Password Protection operational procedures
+# Enable on-premises Azure Active password protection
 
 After you have completed the [installation of Azure AD Password Protection](howto-password-ban-bad-on-premises-deploy.md) on-premises, there are a couple items that must be configured in the Azure portal.
 
-## Configure the custom banned password list
-
-Follow the guidance in the article [Configuring the custom banned password list](howto-password-ban-bad-configure.md) for steps to customize the banned password list for your organization.
-
-## Enable Password Protection
+## Enable on-premises password protection
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and browse to **Azure Active Directory** > **Security** > **Authentication methods** > **Password Protection**.
-1. Set **Enable Password Protection on Windows Server Active Directory** to **Yes**
-1. As mentioned in the [Deployment guide](howto-password-ban-bad-on-premises-deploy.md#deployment-strategy), it is recommended to initially set the **Mode** to **Audit**
-   * After you are comfortable with the feature, you can switch the **Mode** to **Enforced**
-1. Click **Save**
+1. Set the option for **Enable Password Protection on Windows Server Active Directory** to *Yes*.
 
-![Enabling Azure AD Password Protection components in the Azure portal](./media/howto-password-ban-bad-on-premises-operations/authentication-methods-password-protection-on-prem.png)
+    When this setting is set to *No*, all deployed Azure AD password protection DC agents go into a quiescent mode where all passwords are accepted as-is. No validation activities are performed, and audit events aren't generated.
 
-## Audit Mode
+1. It's recommended to initially set the **Mode** to *Audit*. After you're comfortable with the feature and the impact on users in your organization, you can switch the **Mode** to *Enforced*. For more information, see the following section on [modes of operation](#modes-of-operation).
+1. When ready, select **Save**.
 
-Audit mode is intended as a way to run the software in a “what if” mode. Each DC agent service evaluates an incoming password according to the currently active policy. If the current policy is configured to be in Audit mode, “bad” passwords result in event log messages but are accepted. This is the only difference between Audit and Enforce mode; all other operations run the same.
+    [![](media/howto-password-ban-bad-on-premises-operations/enable-configure-custom-banned-passwords-cropped.png "Enable on-premises password protection under Authentication Methods in the Azure portal")](media/howto-password-ban-bad-on-premises-operations/enable-configure-custom-banned-passwords.png#lightbox)
+
+## Modes of operation
+
+When you enable on-premises Azure AD password protection, you can use either *audit* mode or *enforce* mode. We recommend that initial deployment and testing always start out in audit mode. Entries in the event log should then be monitored to anticipate whether any existing operational processes would be disturbed once *Enforce* mode is enabled.
+
+### Audit mode
+
+Audit mode is intended as a way to run the software in a "what if" mode. Each Azure AD password protection DC agent service evaluates an incoming password according to the currently active policy. If the current policy is configured to be in audit mode, "bad" passwords result in event log messages but are processed and updated. This behavior is the only difference between audit and enforce mode. All other operations run the same.
+
+### Enforce Mode
+
+Enforce mode is intended as the final configuration. Like when in audit mode, each Azure AD password protection DC agent service evaluates incoming passwords according to the currently active policy. When enforce mode is enabled though, a password that's considered insecure according to the policy is rejected.
+
+When a password is rejected in enforce mode by the Azure AD password protection DC agent, an end user sees a similar error like they would see if their password was rejected by traditional on-premises password complexity enforcement. For example, a user might see the following traditional error message at the Windows logon or change password screen:
+
+*"Unable to update the password. The value provided for the new password does not meet the length, complexity, or history requirements of the domain."*
+
+This message is only one example of several possible outcomes. The specific error message can vary depending on the actual software or scenario that is attempting to set an insecure password.
+
+Affected end users may need to work with their IT staff to understand the new requirements and to choose secure passwords.
 
 > [!NOTE]
-> Microsoft recommends that initial deployment and testing always start out in Audit mode. Events in the event log should then be monitored to try to anticipate whether any existing operational processes would be disturbed once Enforce mode is enabled.
-
-## Enforce Mode
-
-Enforce mode is intended as the final configuration. As in Audit mode above, each DC agent service evaluates incoming passwords according to the currently active policy. If Enforce mode is enabled though, a password that is considered unsecure according to the policy is rejected.
-
-When a password is rejected in Enforce mode by the Azure AD Password Protection DC Agent, the visible impact seen by an end user is identical to what they would see if their password was rejected by traditional on-premises password complexity enforcement. For example, a user might see the following traditional error message at the Windows logon\change password screen:
-
-`Unable to update the password. The value provided for the new password does not meet the length, complexity, or history requirements of the domain.`
-
-This message is only one example of several possible outcomes. The specific error message can vary depending on the actual software or scenario that is attempting to set an unsecure password.
-
-Affected end users may need to work with their IT staff to understand the new requirements and be more able to choose secure passwords.
-
-> [!NOTE]
-> Azure AD Password Protection has no control over the specific error message displayed by the client machine when a weak password is rejected.
-
-## Enable Mode
-
-This setting should be left in its default enabled (Yes) state. Configuring this setting to disabled (No) will cause all deployed Azure AD Password Protection DC agents to go into a quiescent mode where all passwords are accepted as-is, and no validation activities will be executed whatsoever (for example, not even audit events will be emitted).
+> Azure AD password protection has no control over the specific error message displayed by the client machine when a weak password is rejected.
 
 ## Next steps
 
-[Monitoring for Azure AD Password Protection](howto-password-ban-bad-on-premises-monitor.md)
+To customize the banned password list for your organization, see [Configure the Azure AD password protection custom banned password list](tutorial-configure-custom-password-protection.md).
+
+To monitor on-prem events, see [Monitoring on-prem Azure AD password protection](howto-password-ban-bad-on-premises-monitor.md).
