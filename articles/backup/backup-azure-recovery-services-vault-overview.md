@@ -24,7 +24,7 @@ Recovery Services vaults are based on the Azure Resource Manager model of Azure,
 
 - **Protect all configurations of Azure Virtual Machines**: Recovery Services vaults protect Resource Manager-based VMs including Premium Disks, Managed Disks, and Encrypted VMs. Upgrading a Backup vault to a Recovery Services vault gives you the opportunity to upgrade your Service Manager-based VMs to Resource Manager-based VMs. While upgrading the vault, you can retain your Service Manager-based VM recovery points and configure protection for the upgraded (Resource Manager-enabled) VMs. [Learn more](https://azure.microsoft.com/blog/azure-backup-recovery-services-vault-ga)
 
-- **Instant restore for IaaS VMs**: Using Recovery Services vaults, you can restore files and folders from an IaaS VM without restoring the entire VM, which enables faster restore times. Instant restore for IaaS VMs is available for both Windows and Linux VMs. [Learn more](https://azure.microsoft.com/blog/instant-file-recovery-from-azure-linux-vm-backup-using-azure-backup-preview)
+- **Instant restore for IaaS VMs**: Using Recovery Services vaults, you can restore files and folders from an IaaS VM without restoring the entire VM, which enables faster restore times. Instant restore for IaaS VMs is available for both Windows and Linux VMs. [Learn more](backup-instant-restore-capability.md)
 
 ## Managing your Recovery Services vaults in the portal
 
@@ -71,4 +71,4 @@ The following sections contain links to articles that explain how to use a Recov
 Use the following articles to:</br>
 [Back up an IaaS VM](backup-azure-arm-vms-prepare.md)</br>
 [Back up an Azure Backup Server](backup-azure-microsoft-azure-backup.md)</br>
-[Back up a Windows Server](backup-configure-vault.md)
+[Back up a Windows Server](backup-windows-with-mars-agent.md)
