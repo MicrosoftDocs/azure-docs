@@ -2,12 +2,9 @@
 title: Limitations for Windows Server node pools in Azure Kubernetes Service (AKS)
 description: Learn about the known limitations when you run Windows Server node pools and application workloads in Azure Kubernetes Service (AKS)
 services: container-service
-author: mlearned
-
-ms.service: container-service
 ms.topic: article
 ms.date: 05/31/2019
-ms.author: mlearned
+
 
 #Customer intent: As a cluster operator, I want to understand the current limitations when running Windows node pools and application workloads.
 ---
@@ -52,9 +49,9 @@ The master nodes (the control plane) in an AKS cluster are hosted by AKS the ser
 
 AKS clusters with Windows node pools must use the Azure CNI (advanced) networking model. Kubenet (basic) networking is not supported. For more information on the differences in network models, see [Network concepts for applications in AKS][azure-network-models]. - The Azure CNI network model requires additional planning and considerations for IP address management. For more information on how to plan and implement Azure CNI, see [Configure Azure CNI networking in AKS][configure-azure-cni].
 
-## Can I change the min. # of pods per node?
+## Can I change the max. # of pods per node?
 
-It is currently a requirement to be set to a minimum of 30 pods to ensure the reliability of your clusters.
+It is currently a requirement to be set to a maximum of 30 pods to ensure the reliability of your clusters.
 
 ## How do patch my Windows nodes?
 
@@ -70,7 +67,7 @@ During preview, Windows node pools do not support service principal rotation as 
 
 ## How many node pools can I create?
 
-The AKS cluster can have a maximum of eight (8) node pools. You can have a maximum of 400 nodes across those node pools. [Node pool limitations][nodepool-limitations].
+The AKS cluster can have a maximum of 10 node pools. You can have a maximum of 1000 nodes across those node pools. [Node pool limitations][nodepool-limitations].
 
 ## What can I name my Windows node pools?
 

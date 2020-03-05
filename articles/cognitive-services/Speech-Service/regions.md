@@ -34,13 +34,13 @@ The Speech service is available in these regions for **speech recognition**, **t
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-region-identifier.md)]
 
-If you use the [Speech SDK](speech-sdk.md), regions are specified by the **Region Identifier** (for example, as a parameter to `SpeechConfig.FromSubscription`). Make sure the region is matching the region of your subscription.
+If you use the [Speech SDK](speech-sdk.md), regions are specified by the **Region identifier** (for example, as a parameter to `SpeechConfig.FromSubscription`). Make sure the region is matching the region of your subscription.
 
 ### Intent recognition
 
 Available regions for **intent recognition** via the Speech SDK are the following:
 
-| Global region | Region           | Speech SDK Parameter |
+| Global region | Region           | Region identifier |
 | ------------- | ---------------- | -------------------- |
 | Asia          | East Asia        | `eastasia`           |
 | Asia          | Southeast Asia   | `southeastasia`      |
@@ -61,7 +61,7 @@ This is a subset of the publishing regions supported by the [Language Understand
 
 The [Speech SDK](speech-sdk.md) supports **voice assistant** capabilities in these regions:
 
-| Region         | Speech SDK Parameter |
+| Region         | Region identifier |
 | -------------- | -------------------- |
 | West US        | `westus`             |
 | West US 2      | `westus2`            |

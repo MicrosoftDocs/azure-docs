@@ -1,24 +1,24 @@
 ---
 title: Granting access
-description: Learn about granting access to Microsoft Azure SQL Database and SQL Data Warehouse.
+description: Learn about granting access to Microsoft Azure SQL Database and Azure Synapse.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-titleSuffix: Azure SQL Database and SQL Data Warehouse
+titleSuffix: Azure SQL Database and Azure Synapse
 ms.custom: sql-data-warehouse, seo-lt-2019
 ms.devlang: 
 ms.topic: conceptual
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
-ms.date: 05/08/2019
+ms.date: 02/06/2020
 ---
-# Azure SQL Database and SQL Data Warehouse access control
+# Azure SQL Database and Azure Synapse access control
 
-To provide security, Azure [SQL Database](sql-database-technical-overview.md) and [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) control access with firewall rules limiting connectivity by IP address, authentication mechanisms requiring users to prove their identity, and authorization mechanisms limiting users to specific actions and data. 
+To provide security, Azure [SQL Database](sql-database-technical-overview.md) and [Azure Synapse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) control access with firewall rules limiting connectivity by IP address, authentication mechanisms requiring users to prove their identity, and authorization mechanisms limiting users to specific actions and data. 
 
 > [!IMPORTANT]
-> For an overview of the SQL Database security features, see [SQL security overview](sql-database-security-overview.md). For a tutorial, see [Secure your Azure SQL Database](sql-database-security-tutorial.md). For an overview of SQL Data Warehouse security features, see [SQL Data Warehouse security overview](../sql-data-warehouse/sql-data-warehouse-overview-manage-security.md)
+> For an overview of the SQL Database security features, see [SQL security overview](sql-database-security-overview.md). For a tutorial, see [Secure your Azure SQL Database](sql-database-security-tutorial.md). For an overview of SQL Analytics security features in Azure Synapse, see [Azure Synapse security overview](../sql-data-warehouse/sql-data-warehouse-overview-manage-security.md)
 
 ## Firewall and firewall rules
 

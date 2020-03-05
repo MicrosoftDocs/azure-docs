@@ -2,14 +2,14 @@
 title: Date claims transformation examples for custom policies
 description: Date claims transformation examples for the Identity Experience Framework (IEF) schema of Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 02/03/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
 ---
 
@@ -110,7 +110,7 @@ The following example demonstrates the conversion of the claim `dateOfBirth` (da
 - Output claims:
     - **outputClaim**: 1559347200 (June 1, 2019 12:00:00 AM)
 
-## ConvertDateTimeToDateClaim 
+## ConvertDateTimeToDateClaim
 
 Converts a **DateTime** ClaimType to a **Date** ClaimType. The claims transformation removes the time format from the date.
 

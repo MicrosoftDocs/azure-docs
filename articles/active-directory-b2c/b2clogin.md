@@ -3,14 +3,14 @@ title: Migrate applications and APIs to b2clogin.com
 titleSuffix: Azure AD B2C
 description: Learn about using b2clogin.com in your redirect URLs for Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 12/04/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
 ---
 
@@ -42,7 +42,7 @@ There are several modifications you might need to make to migrate your applicati
 
 * Change the redirect URL in your identity provider's applications to reference *b2clogin.com*.
 * Update your Azure AD B2C applications to use *b2clogin.com* in their user flow and token endpoint references.
-* Update any **Allowed Origins** that you've defined in the CORS settings for [user interface customization](custom-policy-ui-customization-dynamic.md).
+* Update any **Allowed Origins** that you've defined in the CORS settings for [user interface customization](custom-policy-ui-customization.md).
 
 ## Change identity provider redirect URLs
 

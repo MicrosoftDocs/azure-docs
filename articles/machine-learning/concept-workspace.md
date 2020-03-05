@@ -75,6 +75,9 @@ You can also perform the following workspace management tasks:
 | Create and manage compute resources    | **&check;**   | **&check;** | **&check;** |  **&check;**   |
 | Create a Notebook VM |   | **&check;** | |     |
 
+> [!WARNING]
+> Moving your Azure Machine Learning workspace to a different subscription, or moving the owning subscription to a new tenant, is not supported. Doing so may cause errors.
+
 ## <a name='create-workspace'></a> Create a workspace
 
 When you create a workspace, you decide whether to create it with [Basic or Enterprise edition](overview-what-is-azure-ml.md#sku). The edition determines the features available in the workspace. Among other features, Enterprise edition gives you access to [Azure Machine Learning designer](concept-designer.md) and the studio version of building [automated machine learning experiments](tutorial-first-experiment-automated-ml.md).  For more details and pricing information, see [Azure Machine Learning pricing](https://azure.microsoft.com/pricing/details/machine-learning/).
