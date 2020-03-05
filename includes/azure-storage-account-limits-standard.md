@@ -26,13 +26,13 @@ The following table describes default limits for Azure general-purpose v1 (GPv1)
 | Maximum number of virtual network rules per storage account | 200 |
 | Maximum number of IP address rules per storage account | 200 |
 
-<sup>1</sup>Azure Storage standard accounts support higher capacity limits and higher limits for ingress by request. To request an increase in account limits, contact [Azure Support](https://azure.microsoft.com/support/faq/).
+<sup>1</sup> Azure Storage standard accounts support higher capacity limits and higher limits for ingress by request. To request an increase in account limits, contact [Azure Support](https://azure.microsoft.com/support/faq/).
 
 <sup>2</sup> If your storage account has read-access enabled with geo-redundant storage (RA-GRS) or geo-zone-redundant storage (RA-GZRS), then the egress targets for the secondary location are identical to those of the primary location. [Azure Storage replication](https://docs.microsoft.com/azure/storage/common/storage-redundancy) options include:
 
 [!INCLUDE [azure-storage-redundancy](azure-storage-redundancy.md)]
 
-<sup>3</sup>[Azure Data Lake Storage Gen2](../articles/storage/blobs/data-lake-storage-introduction.md) is a set of capabilities dedicated to big data analytics, built on Azure Blob storage. Azure Storage and blob storage limitations apply to Data lake Gen2.
+<sup>3</sup> [Azure Data Lake Storage Gen2](../articles/storage/blobs/data-lake-storage-introduction.md) is a set of capabilities dedicated to big data analytics, built on Azure Blob storage. Azure Storage and blob storage limitations apply to Data lake Gen2.
 
 > [!NOTE]
 > Microsoft recommends that you use a general-purpose v2 storage account for most scenarios. You can easily upgrade a general-purpose v1 or an Azure Blob storage account to a general-purpose v2 account with no downtime and without the need to copy data. For more information, see [Upgrade to a general-purpose v2 storage account](../articles/storage/common/storage-account-upgrade.md).
