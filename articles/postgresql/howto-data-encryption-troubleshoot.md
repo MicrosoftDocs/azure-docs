@@ -1,6 +1,6 @@
 ---
-title: Troubleshoot data encryption in Azure Database for PostgreSQL (single-server deployment) 
-description: Learn how to troubleshoot the data encryption on your Azure Database for PostgreSQL (single-server deployment)
+title: Troubleshoot data encryption in Azure Database for PostgreSQL - Single Server 
+description: Learn how to troubleshoot the data encryption on your Azure Database for PostgreSQL - Single Server
 author: kummanish
 ms.author: manishku
 ms.service: postgresql
@@ -8,9 +8,9 @@ ms.topic: conceptual
 ms.date: 02/13/2020
 ---
 
-# Troubleshoot data encryption in Azure Database for PostgreSQL (single-server deployment)
+# Troubleshoot data encryption in Azure Database for PostgreSQL - Single Server
 
-This article describes how to identify and resolve common issues that can occur in Azure Database for PostgreSQL (single-server deployment) when configured with data encryption using a customer-managed key.
+This article describes how to identify and resolve common issues that can occur in the single-server deployment of Azure Database for PostgreSQL when configured with data encryption using a customer-managed key.
 
 ## Introduction
 
