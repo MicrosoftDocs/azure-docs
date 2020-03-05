@@ -14,7 +14,7 @@ ms.workload: web
 # Connect privately to a Web App using Azure Private Endpoint (Preview)
 
 Azure Private Endpoint is the fundamental building block for Private Link in Azure. It allows you to connect privately to your Web App.
-In this Quickstart, you will learn how to create an Azure Virtual Network and a Subnet, a VM within the subnet and a Web App with a Private Endpoint using the Azure portal.
+In this Quickstart, you will learn how deploy a Web App with Private Endpoint and connect to this Web App from a Virtual Machine.
 
 ## Sign in to Azure
 
@@ -58,7 +58,7 @@ In this section, you'll create a virtual network and subnet.
 
 Keep default settings.
 
-1. Select **"Next : Networking"**, select these information:
+1. Select **"Next : Networking"**, select this information:
 
 ![Networking ][5]
 
@@ -92,7 +92,7 @@ In this section, you will create a private Web App using a Private Endpoint to i
 
 ![Web App Private Endpoint][8]
 
-1. Fill the subscription, Vnet and Subnet information and click **"OK"**
+1. Fill the subscription, Vnet, and Subnet information and click **"OK"**
 
 ![Web App Networking][9]
 
@@ -128,9 +128,9 @@ In this section, you will create a private Web App using a Private Endpoint to i
 
 ## Access Web App privately from the VM
 
-In this section, you will connect privately to the storage account using the Private Endpoint.
+In this section, you will connect privately to the Web App using the Private Endpoint.
 
-1. Get the private IP of your Private Endpoint, in the search bar type **Private Link** and select Private Link
+1. Get the private IP of your Private Endpoint, in the search bar type **Private Link**, and select Private Link
 
 ![Private Link][14]
 
@@ -144,7 +144,7 @@ In this section, you will connect privately to the storage account using the Pri
 
 1. Copy the Private IP of your Private Endpoint and the FQDN of your Web App, in our case webappdemope.azurewebsites.net 10.10.2.4
 
-1. In the myVM, verify that the Web App is not accessible through the public IP, open a browser and copy the Web App name, you must have a 403 forbidden error page
+1. In the myVM, verify that the Web App is not accessible through the public IP. Open a browser and copy the Web App name, you must have a 403 forbidden error page
 
 ![Forbidden][17]
 
@@ -177,7 +177,7 @@ When you're done using the Private Endpoint, Web App and the VM, delete the reso
 
 ## Next steps
 
-In this Quickstart, you created a VM on a virtual network, a Web App and a Private Endpoint. You connected to one VM from the internet and securely communicated to the Web App using Private Link. To learn more about Private Endpoint, see [What is Azure Private Endpoint][privateendpoint].
+In this Quickstart, you created a VM on a virtual network, a Web App, and a Private Endpoint. You connected to a VM from the Internet and securely communicated to the Web App using Private Link. To learn more about Private Endpoint, see [What is Azure Private Endpoint][privateendpoint].
 
 <!--Image references-->
 [1]: ./media/create-private-endpoint-webapp-portal/createnetwork.png
