@@ -14,9 +14,6 @@ ms.custom: fasttrack-edit
 # Add a service principal to the server administrator role 
 
  To automate unattended PowerShell tasks, a service principal must have **server administrator** privileges on the Analysis Services server being managed. This article describes how to add a service principal to the server administrators role on an Azure AS server. You can do this using SQL Server Management Studio or a Resource Manager template.
- 
-> [!NOTE]
-> For server operations using Azure PowerShell cmdlets, the service principal must also belong to the **Owner** role for the resource in [Azure Role-Based Access Control (RBAC)](../role-based-access-control/overview.md). 
 
 ## Before you begin
 Before completing this task, you must have a service principal registered in Azure Active Directory.
