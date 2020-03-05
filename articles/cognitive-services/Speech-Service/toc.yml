@@ -193,7 +193,7 @@
       items:
       - name: Text-to-speech REST API
         href: rest-text-to-speech.md
-    - name: Speech service SSML phonetic sets
+    - name: SSML phonetic sets
       href: speech-ssml-phonetic-sets.md
   - name: Resources
     items:
