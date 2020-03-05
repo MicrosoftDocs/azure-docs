@@ -1,7 +1,7 @@
 ---
-title: "Azure portal: Query using Query Editor"
+title: Query a SQL Database using the query editor in the Azure portal
 description: Learn how to connect to SQL Database in the Azure portal by using the SQL Query Editor. Then, run Transact-SQL (T-SQL) statements to query and edit data.
-keywords: connect to sql database,azure portal, portal, query editor
+keywords: connect to sql database,query sql database, azure portal, portal, query editor
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -13,25 +13,18 @@ ms.author: ninarn
 ms.reviewer: carlrab
 ms.date: 03/05/2020
 ---
-# Quickstart: Use the Azure portal's SQL Database Query Editor to query a SQL database
+# Quickstart: Use the Azure portal's query editor to query a SQL database
 
 The query editor is a tool in the Azure portal for executing SQL queries against your Azure SQL Database or Azure SQL Data Warehouse. In this quickstart, you'll use the query editor to run Transact-SQL (T-SQL) statements to query, insert, update, and delete data.
 
 ## Prerequisites
 
-To complete this tutorial, you need:
+To complete this tutorial you need the AdventureWorksLT sample SQL Database. If you don't have a working copy of the AdventureWorksLT SQL Database, use the following quickstart to quickly create one:
 
-- The AdventureWorksLT sample SQL Database. If you don't have the AdventureWorksLT SQL Database, use one of the following quickstarts to quickly create it:
-
-  || Single database |
-  |:--- |:--- |
-  | Create| [Portal](sql-database-single-database-get-started.md) |
-  || [CLI](scripts/sql-database-create-and-configure-database-cli.md) |
-  || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) |
-  |||
+- [Quickstart: Create a single database in Azure SQL Database using the Azure portal, PowerShell, and Azure CLI](sql-database-single-database-get-started.md) 
 
 > [!NOTE]
-> The query editor uses ports 443 and 1443 to communicate.  Please ensure you have enabled outbound HTTPS traffic on these ports. You will also need to add your outbound IP address to the server's allowed firewall rules to access your databases and data warehouses.
+> The query editor uses ports 443 and 1443 to communicate.  Please ensure you have enabled outbound HTTPS traffic on these ports. You also need to add your outbound IP address to the server's allowed firewall rules to access your databases and data warehouses.
 
 ## Open the SQL Database Query Editor
 
