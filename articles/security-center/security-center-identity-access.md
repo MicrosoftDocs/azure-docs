@@ -14,16 +14,12 @@ ms.workload: na
 ms.date: 12/19/2019
 ms.author: memildin
 ---
-# Monitor identity and access (preview)
+# Monitor identity and access
 When Security Center identifies potential security vulnerabilities, it creates recommendations that guide you through the process of configuring the needed controls to harden and protect your resources.
 
 This article explains the **Identity and Access** page of the resource security section of Azure Security Center.
 
 For a full list of the recommendations you might see on this page, see [Identity and Access recommendations](recommendations-reference.md#recs-identity).
-
-> [!NOTE]
-> Monitoring identity and access is in preview and available only on the Standard tier of Security Center. See [Pricing](security-center-pricing.md) to learn more about Security Center's pricing tiers.
->
 
 Identity should be the control plane for your enterprise, and protecting identities should be your top priority. The security perimeter has evolved from a network perimeter to an identity perimeter. Security becomes less about defending your network and more about defending your data, as well as managing the security of your apps and users. Nowadays, with more data and more apps moving to the cloud, identity becomes the new perimeter.
 
@@ -34,7 +30,7 @@ By monitoring identity activities, you can take proactive actions before an inci
 - Remove privileged external accounts from your subscription
 
 > [!NOTE]
-> If your subscription has more than 600 accounts, Security Center is unable to run the Identity recommendations against your subscription. Recommendations that are not run are listed under “unavailable assessments” below.
+> If your subscription has more than 600 accounts, Security Center is unable to run the Identity recommendations against your subscription. Recommendations that are not run are listed under "unavailable assessments" below.
 Security Center is unable to run the Identity recommendations against a Cloud Solution Provider (CSP) partner's admin agents.
 >
 
