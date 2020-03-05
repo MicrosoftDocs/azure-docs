@@ -66,39 +66,37 @@
     - name: Manage resources
       href: How-To/set-up-qnamaker-service-azure.md
       displayName: azure, resource, key, upgrade, pricing, tier,
-    - name: Get analytics
-      href: How-To/get-analytics-knowledge-base.md
     - name: Create a business continuity plan
       href: How-To/business-continuity-plan.md
   - name: Manage knowledge base
     items:
-    - name: Create bot with QnA Maker and LUIS
-      href: Tutorials/integrate-qnamaker-luis.md
+    - name: Create knowledge base
+      href: Quickstarts/create-publish-knowledge-base.md
     - name: Language selection
       href: How-To/language-knowledge-base.md
-    - name: Migrate a knowledge base
-      href: Tutorials/migrate-knowledge-base.md
-      displayName: metadata, pair
-    - name: Collaborate on a knowledge base
-      href: How-To/collaborate-knowledge-base.md
-    - name: Test a knowledge base
-      href: How-To/test-knowledge-base.md
-    - name: Use active learning to improve knowledge base
-      href: How-to/improve-knowledge-base.md
-      displayName: active learning, suggestion, dialog prompt, train api, feedback loop, autolearn, auto-learn, user setting, service setting, services setting, accept, reject, filter by suggestion, filter active learning, clusterHead, totalAutoSuggestedCount, totalUserSuggestedCount, autoSuggestedCount, userSuggestedCount
-    - name: Edit a knowledge base
+    - name: Edit knowledge base
       href: How-To/edit-knowledge-base.md
-    - name: Create multi-turn conversations with follow-up prompts
-      href: How-To/multiturn-conversation.md
-      displayName: multi-turn dialogs, parent question, child question, filtering, metadata, state, context, prompt, follow-up, followup, flow, conversation, previous question
     - name: Add chit-chat
       href: How-to/chit-chat-knowledge-base.md
-    - name: Add a secured SharePoint file
+    - name: Add follow-up prompts
+      href: How-To/multiturn-conversation.md
+      displayName: multi-turn dialogs, parent question, child question, filtering, metadata, state, context, prompt, follow-up, followup, flow, conversation, previous question
+    - name: Migrate to new knowledge base
+      href: Tutorials/migrate-knowledge-base.md
+      displayName: metadata, pair
+    - name: Collaborate
+      href: How-To/collaborate-knowledge-base.md
+    - name: Test
+      href: How-To/test-knowledge-base.md
+    - name: Get suggested alternate questions
+      href: How-to/improve-knowledge-base.md
+      displayName: active learning, suggestion, dialog prompt, train api, feedback loop, autolearn, auto-learn, user setting, service setting, services setting, accept, reject, filter by suggestion, filter active learning, clusterHead, totalAutoSuggestedCount, totalUserSuggestedCount, autoSuggestedCount, userSuggestedCount
+    - name: Add secured SharePoint files
       href: How-To/add-sharepoint-datasources.md
       displayName: Sharepoint, secure, AAD, azure directory, admin, permission, authorization, file, authentication
-    - name: Query knowledge base
-      href: How-To/metadata-generateanswer-usage.md
-      displayName: isTest, test, route, request, http, post, body, header, json, metadata, top, strictFilters, GenerateAnswer, API, answer, RankerType, id, text, question, context, 200, 2xx, 400, 401, 403, 404
+  - name: Query knowledge base
+    href: How-To/metadata-generateanswer-usage.md
+    displayName: isTest, test, route, request, http, post, body, header, json, metadata, top, strictFilters, GenerateAnswer, API, answer, RankerType, id, text, question, context, 200, 2xx, 400, 401, 403, 404
   - name: Use with a client application
     items:
     - name: LUIS and QnA Maker
