@@ -2,7 +2,8 @@
 title: Azure Disk Encryption with Azure AD App Linux IaaS VMs (previous release)
 description: This article provides instructions on enabling Microsoft Azure Disk Encryption for Linux IaaS VMs.
 author: msmbaldwin
-ms.service: security,virtual-machines-linux
+ms.service: virtual-machines-linux
+ms.subservice: security
 ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/15/2019
