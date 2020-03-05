@@ -1,7 +1,7 @@
 ---
 title: Using SQL on-demand
 description: In this quickstart, you will see and learn how easy is to query various types of files using SQL on-demand.
-services: synapse analytics
+services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: quickstart

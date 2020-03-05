@@ -1,9 +1,9 @@
 ---
 title: Quickstart - create a workspace 
 description: Create an Azure Synapse Analytics workspace by following the steps in this guide. 
-services: sql-data-warehouse 
+services: synapse-analytics  
 author: malvenko 
-ms.service: sql-data-warehouse
+ms.service: synapse-analytics 
 ms.topic: quickstart  
 ms.subservice: design 
 ms.date: 10/10/2019

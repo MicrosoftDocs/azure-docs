@@ -28,7 +28,9 @@
       href: quickstart-create-apache-spark-pool.md
     - name: Create SQL pool
       href: quickstart-create-sql-pool.md
-  # - name: Ingest data into Data Lake
+  - name: Use SQL on-demand
+    href: quickstart-sql-on-demand.md
+    # - name: Ingest data into Data Lake
   #   href: article-template.md
   # - name: Ingest data into SQL pool
   #   href: article-template.md
@@ -46,8 +48,8 @@
       href: ./sql-analytics/quickstart-sql-on-demand.md
     - name: Query SQL on-demand using Azure Data Studio
       href: ./sql-analytics/get-started-azure-data-studio.md
-  # - name: Getting started experience 
-  #   href: article-template.md
+  - name: Getting started experience 
+    href: get-started.md
 - name: Tutorials
   items:
   - name: Run Apache Spark applications for Synapse Spark Pools
@@ -230,8 +232,6 @@
       #   href: article-template.md
     - name: Development
       items:
-      # - name: Overview, using tools to interact with Apache Spark
-      #  href: article-template.md
       - name: Spark Job definitions
         href: ../hdinsight/spark/azure-synapse-analytics-job-definition.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Azure Synapse studio notebooks

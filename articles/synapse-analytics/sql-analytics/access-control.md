@@ -1,7 +1,7 @@
 ---
 title: Manage access to workspaces, data, and pipelines
 description: Learn how to manage access control to workspaces, data, and pipelines in an Azure Synapse Analytics workspace.
-services: sql-analytics
+services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: overview

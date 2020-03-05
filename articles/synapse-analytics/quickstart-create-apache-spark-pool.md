@@ -1,5 +1,5 @@
 ---
-title: Quickstart create an Apache Spark pool #Required; update as needed page title displayed in search results. Include the brand.
+title: Quickstart create an Apache Spark pool 
 description: Create a new Apache Spark pool for an Azure Synapse Analytics workspace by following the steps in this guide. 
 services: synapse-analytics 
 author: malvenko 

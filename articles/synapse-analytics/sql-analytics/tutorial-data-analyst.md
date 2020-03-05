@@ -1,7 +1,7 @@
 ---
 title: "Data Analyst tutorial - Use SQL on-demand to analyze Azure Open Datasets and visualize the results in Azure Synapse Studio"
 description: In this tutorial, you will learn how to easily perform exploratory data analysis combining different Azure Open Datasets using SQL on-demand and visualize the results in Azure Synapse Studio.
-services: synapse analytics
+services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: tutorial
@@ -45,7 +45,7 @@ GO
 
 Since data is stored in Parquet file format, automatic schema inference is available, so one can easily query the data without a need to list the data types of all columns in the files. Furthermore, one can utilize virtual column mechanism and filepath function to filter out a certain subset of files.
 
-Let’s first familiarize with the NYC Taxi data:
+Let's first familiarize with the NYC Taxi data:
 
 ```sql
 SELECT TOP 100 * FROM
@@ -109,7 +109,7 @@ ORDER BY 1 ASC
 
 ![result snippet 4](./media/tutorial-data-analyst/4.png)
 
-The data can be visualized in Synapse Studio by switching from Table to Chart view. You can choose among different chart types (Area, Bar, Column, Line, Pie, and Scatter). In this case, we will plot Column chart with Category column “current_year”:
+The data can be visualized in Synapse Studio by switching from Table to Chart view. You can choose among different chart types (Area, Bar, Column, Line, Pie, and Scatter). In this case, we will plot Column chart with Category column "current_year":
 
 ![result visualization 5](./media/tutorial-data-analyst/5.png)
 
@@ -131,15 +131,15 @@ GROUP BY CAST([tpepPickupDateTime] AS DATE)
 ORDER BY 1 ASC
 ```
 
-Below is the results’ snippet:
+Below is the results' snippet:
 
 ![result snippet 6](./media/tutorial-data-analyst/6.png)
 
-Again, we can easily visualize data by plotting Column chart with Category column “current_day” and Legend (series) column “rides_per_day”.
+Again, we can easily visualize data by plotting Column chart with Category column "current_day" and Legend (series) column "rides_per_day".
 
 ![result visualization 7](./media/tutorial-data-analyst/7.png)
 
-From the plot, it can be observed that there is a weekly pattern, with the Saturday’s peak. During summer months, there are fewer taxi rides due to vacation period. However, there are also some significant drops in number of taxi rides without a clear pattern when and why they occur.  
+From the plot, it can be observed that there is a weekly pattern, with the Saturday's peak. During summer months, there are fewer taxi rides due to vacation period. However, there are also some significant drops in number of taxi rides without a clear pattern when and why they occur.  
 
 Next, we will see if those drops are potentially correlated with public holidays by joining NYC taxi rides with the public holidays dataset: 
 
@@ -178,11 +178,11 @@ ORDER BY current_day ASC
 
 ![result visualization 8](./media/tutorial-data-analyst/8.png)
 
-This time, we want to highlight number of taxi rides during public holidays. For that purpose, we will choose “none” for Category column and “rides_per_day”, and “holiday” as Legend (series) columns.
+This time, we want to highlight number of taxi rides during public holidays. For that purpose, we will choose "none" for Category column and "rides_per_day", and "holiday" as Legend (series) columns.
 
 ![result visualization 9](./media/tutorial-data-analyst/9.png)
 
-From the plot, it can be clearly seen that during public holidays a number of taxi rides is lower. However, there is still one unexplained huge drop on January 23. Let’s check the weather in NYC on that day by querying the weather dataset:   
+From the plot, it can be clearly seen that during public holidays a number of taxi rides is lower. However, there is still one unexplained huge drop on January 23. Let's check the weather in NYC on that day by querying the weather dataset:   
 
 ```sql
 SELECT 
