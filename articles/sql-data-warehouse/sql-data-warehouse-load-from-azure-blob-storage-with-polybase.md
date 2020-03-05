@@ -1,6 +1,6 @@
 ---
-title: Load Contoso Retail data
-description: Use PolyBase and T-SQL commands to load two tables from the Contoso Retail data into Azure SQL Analytics.
+title: Load Contoso retail data to a SQL Analytics data warehouse
+description: Use PolyBase and T-SQL commands to load two tables from the Contoso retail data into Azure SQL Analytics.
 services: sql-data-warehouse
 author: kevinvngo 
 manager: craigg
@@ -13,9 +13,9 @@ ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ---
 
-# Load Contoso Retail data to a SQL Analytics data warehouse
+# Load Contoso retail data to a SQL Analytics data warehouse
 
-In this tutorial, you learn to use PolyBase and T-SQL commands to load two tables from the Contoso Retail data into a SQL Analytics data warehouse. 
+In this tutorial, you learn to use PolyBase and T-SQL commands to load two tables from the Contoso retail data into a SQL Analytics data warehouse. 
 
 In this tutorial you will:
 
@@ -24,12 +24,15 @@ In this tutorial you will:
 3. Perform optimizations after the load is finished.
 
 ## Before you begin
+
 To run this tutorial, you need an Azure account that already has a SQL Analytics data warehouse. If you don't have a data warehouse provisioned, see [Create a data warehouse and set server-level firewall rule](create-data-warehouse-portal.md).
 
-## 1. Configure the data source
+## Configure the data source
+
 PolyBase uses T-SQL external objects to define the location and attributes of the external data. The external object definitions are stored in your SQL Analytics data warehouse. The data is stored externally.
 
-### 1.1. Create a credential
+## Create a credential
+
 **Skip this step** if you're loading the Contoso public data. You don't need secure access to the public data since it's already accessible to anyone.
 
 **Don't skip this step** if you're using this tutorial as a template for loading your own data. To access data through a credential, use the following script to create a database-scoped credential. Then use it when defining the location of the data source.
@@ -67,7 +70,8 @@ WITH (
 );
 ```
 
-### 1.2. Create the external data source
+## Create the external data source
+
 Use this [CREATE EXTERNAL DATA SOURCE](https://docs.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql?view=sql-server-ver15) command to store the location of the data, and the data type. 
 
 ```sql
@@ -82,9 +86,9 @@ WITH
 > [!IMPORTANT]
 > If you choose to make your azure blob storage containers public, remember that as the data owner you will be charged for data egress charges when data leaves the data center. 
 > 
-> 
 
-## 2. Configure data format
+## Configure the data format
+
 The data is stored in text files in Azure blob storage, and each field is separated with a delimiter. In SSMS, run the following CREATE EXTERNAL FILE FORMAT command to specify the format of the data in the text files. The Contoso data is uncompressed and pipe delimited.
 
 ```sql
@@ -99,10 +103,10 @@ WITH
 );
 ``` 
 
-## 3. Create the external tables
+## Create the external tables
 Now that you've specified the data source and file format, you're ready to create the external tables. 
 
-### 3.1. Create a schema for the data.
+## Create a schema for the data
 To create a place to store the Contoso data in your database, create a schema.
 
 ```sql
@@ -110,7 +114,8 @@ CREATE SCHEMA [asb]
 GO
 ```
 
-### 3.2. Create the external tables.
+## Create the external tables
+
 Run the following script to create the DimProduct and FactOnlineSales external tables. All you're doing here is defining column names and data types, and binding them to the location and format of the Azure blob storage files. The definition is stored in the SQL Analytics data warehouse and the data is still in the Azure Storage Blob.
 
 The  **LOCATION** parameter is the folder under the root folder in the Azure Storage Blob. Each table is in a different folder.
@@ -197,10 +202,11 @@ WITH
 ;
 ```
 
-## 4. Load the data
+## Load the data
 There are different ways to access external data.  You can query data directly from the external tables, load the data into new tables in the data warehouse, or add external data to existing data warehouse tables.  
 
-### 4.1. Create a new schema
+###  Create a new schema
+
 CTAS creates a new table that contains data.  First, create a schema for the contoso data.
 
 ```sql
@@ -208,7 +214,8 @@ CREATE SCHEMA [cso]
 GO
 ```
 
-### 4.2. Load the data into new tables
+### Load the data into new tables
+
 To load data from Azure blob storage into the data warehouse table, use the [CREATE TABLE AS SELECT (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?view=aps-pdw-2016-au7) statement. Loading with [CTAS](sql-data-warehouse-develop-ctas.md) leverages the strongly typed external tables you've created. To load the data into new tables, use one CTAS statement per table. 
  
 CTAS creates a new table and populates it with the results of a select statement. CTAS defines the new table to have the same columns and data types as the results of the select statement. If you select all the columns from an external table, the new table will be a replica of the columns and data types in the external table.
@@ -223,7 +230,8 @@ CREATE TABLE [cso].[DimProduct]            WITH (DISTRIBUTION = HASH([ProductKey
 CREATE TABLE [cso].[FactOnlineSales]       WITH (DISTRIBUTION = HASH([ProductKey]  ) ) AS SELECT * FROM [asb].[FactOnlineSales]        OPTION (LABEL = 'CTAS : Load [cso].[FactOnlineSales]        ');
 ```
 
-### 4.3 Track the load progress
+### Track the load progress
+
 You can track the progress of your load using dynamic management views (DMVs). 
 
 ```sql
@@ -259,7 +267,8 @@ ORDER BY
     gb_processed desc;
 ```
 
-## 5. Optimize columnstore compression
+## Optimize columnstore compression
+
 By default, the SQL Analytics data warehouse stores the table as a clustered columnstore index. After a load completes, some of the data rows might not be compressed into the columnstore.  There are different reasons why this can happen. To learn more, see [manage columnstore indexes](sql-data-warehouse-tables-index.md).
 
 To optimize query performance and columnstore compression after a load, rebuild the table to force the columnstore index to compress all the rows. 
@@ -274,7 +283,8 @@ ALTER INDEX ALL ON [cso].[FactOnlineSales]          REBUILD;
 
 For more information on maintaining columnstore indexes, see the [manage columnstore indexes](sql-data-warehouse-tables-index.md) article.
 
-## 6. Optimize statistics
+## Optimize statistics
+
 It's best to create single-column statistics immediately after a load. If you know certain columns aren't going to be in query predicates, you can skip creating statistics on those columns. If you create single-column statistics on every column, it might take a long time to rebuild all the statistics. 
 
 If you decide to create single-column statistics on every column of every table, you can use the stored procedure code sample `prc_sqldw_create_stats` in the [statistics](sql-data-warehouse-tables-statistics.md) article.
@@ -324,7 +334,7 @@ CREATE STATISTICS [stat_cso_FactOnlineSales_StoreKey] ON [cso].[FactOnlineSales]
 ```
 
 ## Achievement unlocked!
-You have successfully loaded public data into a SQL Analytics data warehouse. Great job!
+You have successfully loaded public data into your data warehouse. Great job!
 
 You can now start querying the tables to explore your data. Run the following query to find out total sales per brand:
 
@@ -337,5 +347,5 @@ GROUP BY p.[BrandName]
 ```
 
 ## Next steps
-To load the full data set, run the example [load the full Contoso Retail Data Warehouse](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/contoso-data-warehouse/readme.md) from the Microsoft SQL Server Samples repository.
+To load the full data set, run the example [load the full Contoso retail data warehouse](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/contoso-data-warehouse/readme.md) from the Microsoft SQL Server samples repository.
 For more development tips, see [Design decisions and coding techniques for data warehouses](sql-data-warehouse-overview-develop.md).

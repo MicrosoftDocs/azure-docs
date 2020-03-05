@@ -1,7 +1,6 @@
 ---
 title: Azure Monitor log query examples | Microsoft Docs
 description: Examples of log queries in Azure Monitor using the Kusto query language.
-ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren

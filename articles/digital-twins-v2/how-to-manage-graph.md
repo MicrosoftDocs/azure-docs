@@ -29,20 +29,20 @@ For illustration purposes, here is an example code snippet, using the Azure Digi
 ```csharp
 var client = new DigitalTwinsClient("...Authentication Info...");
         // Create a twin for the hospital
-        client.CreateTwin("HospitalId", "dtmi:com:example:Hospital;1");
+        client.CreateTwin("HospitalId", "urn:contosocom:example:Hospital:1");
         // Create some wards
-        client.CreateTwin("PediatricWard", "dtmi:com:example:Ward;1");
-        client.CreateTwin("OphthalmologyWard", "dtmi:com:example:Ward;1");
-        client.CreateTwin("OncologyWard", "dtmi:com:example:Ward;1");
+        client.CreateTwin("PediatricWard", "urn:contosocom:example:Ward:1");
+        client.CreateTwin("OphthalmologyWard", "urn:contosocom:example:Ward:1");
+        client.CreateTwin("OncologyWard", "urn:contosocom:example:Ward:1");
         // Create relationships
         client.CreateRelationship("Hospital", "contains", "PediatricWard");
         // ... and so on
-        client.CreateTwin("RoomPed01", "dtmi:com:example:PatientRoom;1");
+        client.CreateTwin("RoomPed01", "urn:contosocom:example:PatientRoom:1");
         client.Relationship("PediatricWard", "contains", "RoomPed01");
         // Create proxies for devices... these will automatically connect to devices
         // once discovered via an attached IoTHub
-        client.CreateProxyTwin("MotionSensorP01", "dtmi:com:example:devices:MotionSensor");
-        client.CreateProxyTwin("SoapDispenserP01", "dtmi:com:example::SoapDispenser");
+        client.CreateProxyTwin("MotionSensorP01", "urn:contosocom:example:devices:MotionSensor");
+        client.CreateProxyTwin("SoapDispenserP01", "urn:contosocom:example:SoapDispenser");
         // And connect...
         client.Relationship("RoomPed01", "hasDevice", "MotionSensorP01");
         client.Relationship("RoomPed01", "hasDevice", "SoapDispenserP01");
@@ -56,13 +56,12 @@ The following code shows a minimal example for instance graph creation:
 
 ```csharp
 DigitalTwinsClient client = new DigitalTwinsClient("...");  
-Response rPlanet = client.CreateTwin("dtmi:example:Planet;1", "idMyPlanet01", planetData);
-Response rMoon = client.CreateTwin("dtmi:example:Moon;1", "idMyMoon01", moonData);
-Response rR = client.CreateRelationship("idMyPlanet01", "IsCircledBy", "idMyMoon01", 
-                                        “idRel01");
+Response rPlanet = client.CreateTwin("urn:contosocom:example:Planet:1", "idMyPlanet01", planetData);
+Response rMoon = client.CreateTwin("urn:contosocom:example:Moon:1", "idMyMoon01", moonData);
+Response rR = client.CreateRelationship("idMyPlanet01", "IsCircledBy", "idMyMoon01", "idRel01");
 ```
 
-This code creates two instances of twins, one using model type *Planet*, the other using model type *Moon*. In addition to the model type ID (`dtmi:Planet` and `dtmi:Moon`), you need to pass in a unique ID, and data to initialize the twin instance during creation. The sample also creates a relationship between the two instances, connecting them to each other.
+This code creates two instances of twins, one using model type *Planet*, the other using model type *Moon*. In addition to the model type ID (`urn:contosocom:example:Planet` and `urn:contosocom:example:Moon`), you need to pass in a unique ID, and data to initialize the twin instance during creation. The sample also creates a relationship between the two instances, connecting them to each other.
 
 ## Initialize properties
 
@@ -117,8 +116,7 @@ DigitalTwinsClient client = new DigitalTwinsClient("...");
 // Connect to MSFT graph and open spreadsheet from OnDrive
 // ...
 // Read excel spreadsheet using MSFT graph APIs
-var range = msftGraphClient.Me.Drive.Items["BuildingsWorkbook"]
-                           .Workbook.Worksheets["Building"].usedRange;
+var range = msftGraphClient.Me.Drive.Items["BuildingsWorkbook"].Workbook.Worksheets["Building"].usedRange;
 JsonDocument data = JsonDocument.Parse(range.values);
 List<RelationshipRecord> RelationshipRecordList = new List<RelationshipRecord>();
 foreach (JsonElement row in data.RootElement.EnumerateArray())
@@ -135,15 +133,14 @@ foreach (JsonElement row in data.RootElement.EnumerateArray())
 
     switch (type)
     {
-         case "room": client.CreateTwin("dtmi:Room", id, initData);
-                      break;
-         case "floor": client.CreateTwin("urn:Floor", id, initData);
-                       break;
+         case "room": client.CreateTwin("urn:contosocom:example:Room", id, initData);
+            break;
+         case "floor": client.CreateTwin("urn:contosocom:example:Floor", id, initData);
+            break;
     }
     foreach (RelationshipRecord rec in RelationshipRecordList)
     {
-         client.CreateRelationship(rec.src, rec.relName, rec.target, 
-                                   Guid.NewGuid().ToString());
+         client.CreateRelationship(rec.src, rec.relName, rec.target, Guid.NewGuid().ToString());
     }
 }
 With RelationshipRecord defined as:

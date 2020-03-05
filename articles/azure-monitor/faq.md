@@ -53,7 +53,7 @@ Azure Monitor collects data from a variety of sources including logs and metrics
 Azure Monitor collects data from a variety of sources into [logs](platform/data-platform-logs.md) or [metrics](platform/data-platform-metrics.md). Each type of data has its own relative advantages, and each supports a particular set of features in Azure Monitor. There is a single metrics database for each Azure subscription, while you can create multiple Log Analytics workspaces to collect logs depending on your requirements. See [Azure Monitor data platform](platform/data-platform.md).
 
 ### Is there a maximum amount of data that I can collect in Azure Monitor?
-There is no limit to the amount of metric data you can collect, but this data is stored for a maximum of 93 days. See [Retention of Metrics](platform/data-platform-metrics.md#retention-of-metrics). There is no limit on the amount of log data that you can collected, but it may be affected by the pricing tier you choose for the Log Analytics workspace. See [pricing details](https://azure.microsoft.com/pricing/details/monitor/).
+There is no limit to the amount of metric data you can collect, but this data is stored for a maximum of 93 days. See [Retention of Metrics](platform/data-platform-metrics.md#retention-of-metrics). There is no limit on the amount of log data that you can collect, but it may be affected by the pricing tier you choose for the Log Analytics workspace. See [pricing details](https://azure.microsoft.com/pricing/details/monitor/).
 
 ### How do I access data collected by Azure Monitor?
 Insights and solutions provide a custom experience for working with data stored in Azure Monitor. You can work directly with log data using a log query written in Kusto Query Language (KQL). In the Azure portal, you can write and run queries and interactively analyze data using Log Analytics. Analyze metrics in the Azure portal with the Metrics Explorer. See [Analyze log data in Azure Monitor](log-query/log-query-overview.md) and [Getting started with Azure Metrics Explorer](platform/metrics-getting-started.md).
@@ -694,7 +694,10 @@ Thresholds for the following Linux health criteria aren’t modifiable, because 
 Alert rules that are defined for each health criterion aren't displayed in the Azure portal. You can enable or disable a health alert rule only in the [Workload Monitor API](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/components). Also, you can't assign an [Azure Monitor action group](platform/action-groups.md) for health alerts in the Azure portal. You can only use the notification setting API to configure an action group to be triggered whenever a health alert is fired. Currently, you can assign action groups against a VM so that all *health alerts* fired against the VM trigger the same action groups. Unlike traditional Azure alerts, there's no concept of a separate action group for each health alert rule. Additionally, only action groups that are configured to provide email or SMS notifications are supported when health alerts are triggered. 
 
 ### I don’t see some or any data in the performance charts for my VM
+Our performance charts have been updated to use data stored in the *InsightsMetrics* table.  To see data in these charts you will need to upgrade to use the new VM Insights solution.  Please refer to our [GA FAQ](insights/vminsights-ga-release-faq.md) for additional information.
+
 If you don’t see performance data in the disk table or in some of the performance charts then your performance counters may not be configured in the workspace. To resolve, run the following [PowerShell script](insights/vminsights-enable-at-scale-powershell.md#enable-with-powershell).
+
 
 ### How is Azure Monitor for VMs Map feature different from Service Map?
 The Azure Monitor for VMs Map feature is based on Service Map, but has the following differences:

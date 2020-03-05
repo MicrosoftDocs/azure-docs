@@ -42,8 +42,7 @@ ms.author: erhopf
                // Replace below with your own subscription key
                String speechSubscriptionKey = "YourSubscriptionKey";
 
-               // Replace below with your own service region (e.g., "westus", use the one of SpeechSDKParameters
-               // from here: https://aka.ms/speech/sdkregion).               
+               // Replace below with your own region identifier from here: https://aka.ms/speech/sdkregion
                String serviceRegion = "YourServiceRegion";
 
                // Replace below with your own filename.

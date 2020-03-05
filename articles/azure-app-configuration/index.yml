@@ -1,8 +1,8 @@
 ### YamlMime:Landing
-title: Azure App Configuration preview documentation
+title: Azure App Configuration documentation
 summary: Learn how to use Azure App Configuration, a managed service that helps developers centralize their application and feature settings simply and securely.
 metadata:
-  title: Azure App Configuration preview documentation
+  title: Azure App Configuration documentation
   description: Learn how to use Azure App Configuration, a managed service that helps developers centralize their application and feature settings simply and securely.
   author: lisaguthrie
   ms.author: lcozzens
@@ -118,7 +118,7 @@ landingContent:
       - linkListType: reference
         links:
         - text: Azure CLI
-          url: https://docs.microsoft.com/cli/azure/ext/appconfig/appconfig?view=azure-cli-latest
+          url: https://docs.microsoft.com/cli/azure/appconfig?view=azure-cli-latest
         - text: .NET Core provider
           url: https://go.microsoft.com/fwlink/?linkid=2074664
         - text: .NET Framework builder

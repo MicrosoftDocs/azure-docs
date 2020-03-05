@@ -11,7 +11,7 @@ ms.author: sawinark
 manager: mflasko
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
-ms.date: 02/01/2020
+ms.date: 02/14/2020
 ---
 
 # Customize the setup for an Azure-SSIS Integration Runtime
@@ -116,8 +116,12 @@ To customize your Azure-SSIS IR, you need the following items:
 
      * If you select the **oh22's HEDDA.IO** component, you can install the [HEDDA.IO](https://hedda.io/ssis-component/) data quality/cleansing component from oh22 on your Azure-SSIS IR after purchasing their service. The current integrated version is **1.0.13**.
 
-	  * If you select the **oh22's SQLPhonetics.NET** component, you can install the [SQLPhonetics.NET](https://sqlphonetics.oh22.is/sqlphonetics-net-for-microsoft-ssis/) data quality/matching component from oh22 on your Azure-SSIS IR by entering the product license key that you purchased from them in the **License key** box. The current integrated version is **1.0.43**.
-   
+     * If you select the **oh22's SQLPhonetics.NET** component, you can install the [SQLPhonetics.NET](https://sqlphonetics.oh22.is/sqlphonetics-net-for-microsoft-ssis/) data quality/matching component from oh22 on your Azure-SSIS IR by entering the product license key that you purchased from them in the **License key** box. The current integrated version is **1.0.43**.
+
+     * If you select the **KingswaySoft's SSIS Integration Toolkit** component, you can install the [SSIS Integration Toolkit](https://www.kingswaysoft.com/products/ssis-integration-toolkit-for-microsoft-dynamics-365) suite of connectors for CRM/ERP/marketing/collaboration apps, such as Microsoft Dynamics/SharePoint/Project Server, Oracle/Salesforce Marketing Cloud, etc. from KingswaySoft on your Azure-SSIS IR by entering the product license key that you purchased from them in the **License key** box. The current integrated version is **2019.2**.
+
+     * If you select the **KingswaySoft's SSIS Productivity Pack** component, you can install the [SSIS Productivity Pack](https://www.kingswaysoft.com/products/ssis-productivity-pack) suite of components from KingswaySoft on your Azure-SSIS IR by entering the product license key that you purchased from them in the **License key** box. The current integrated version is **10.0**.
+
    Your added express custom setups will appear in the **Advanced Settings** section. To remove them, select their check boxes, and then select **Delete**.
 
    ![Advanced settings with custom setups](./media/tutorial-create-azure-ssis-runtime-portal/advanced-settings-custom.png)

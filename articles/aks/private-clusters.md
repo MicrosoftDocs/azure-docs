@@ -2,12 +2,9 @@
 title: Create a private Azure Kubernetes Service cluster
 description: Learn how to create a private Azure Kubernetes Service (AKS) cluster
 services: container-service
-author: mlearned
-
-ms.service: container-service
 ms.topic: article
-ms.date: 1/24/2020
-ms.author: mlearned
+ms.date: 2/21/2020
+
 ---
 
 # Create a private Azure Kubernetes Service cluster (preview)
@@ -27,13 +24,45 @@ The control plane or API server is in an Azure Kubernetes Service (AKS)-managed 
 * The Azure CLI version 2.0.77 or later, and the Azure CLI AKS Preview extension version 0.4.18
 
 ## Currently supported regions
+
+* Australia East
+* Australia Southeast
+* Brazil South
+* Canada Central
+* Canada East
+* Cenral US
+* East Asia
+* East US
+* East US 2
+* East US 2 EUAP
+* France Central
+* Germany North
+* Japan East
+* Japan West
+* Korea Central
+* Korea South
+* North Central US
+* North Europe
+* North Europe
+* South Central US
+* UK South
+* West Europe
 * West US
 * West US 2
 * East US 2
-* Canada Central
+
+## Currently Supported Availability Zones
+
+* Central US
+* East US
+* East US 2
+* France Central
+* Japan East
 * North Europe
+* Southeast Asia
+* UK South
 * West Europe
-* Australia East
+* West US 2
 
 ## Install the latest Azure CLI AKS Preview extension
 
@@ -94,6 +123,7 @@ Where *--enable-private-cluster* is a mandatory flag for a private cluster.
 > If the Docker bridge address CIDR (172.17.0.1/16) clashes with the subnet CIDR, change the Docker bridge address appropriately.
 
 ## Connect to the private cluster
+
 The API server endpoint has no public IP address. Consequently, you must create an Azure virtual machine (VM) in a virtual network and connect to the API server. To do so, do the following:
 
 1. Get credentials to connect to the cluster.
@@ -127,7 +157,8 @@ The API server endpoint has no public IP address. Consequently, you must create 
 * To use a custom DNS server, deploy an AD server with DNS to forward to this IP 168.63.129.16
 
 ## Limitations 
-* Availability Zones are currently only supported for East US 2 and West US 2 regions
+* IP authorized ranges cannot be applied to the private api server endpoint, they only apply to the public API server
+* Availability Zones are currently supported for certain regions, see the beginning of this document 
 * [Azure Private Link service limitations][private-link-service] apply to private clusters, Azure private endpoints, and virtual network service endpoints, which aren't currently supported in the same virtual network.
 * No support for virtual nodes in a private cluster to spin private Azure Container Instances (ACI) in a private Azure virtual network
 * No support for Azure DevOps integration out of the box with private clusters
