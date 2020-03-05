@@ -7,6 +7,7 @@ ms.author: ambapat
 manager: rkarlin
 ms.date: 01/02/2019
 ms.service: key-vault
+ms.subservice: general
 ms.topic: conceptual
 ---
 # Virtual network service endpoints for Azure Key Vault
