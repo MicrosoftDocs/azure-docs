@@ -75,9 +75,9 @@ Once you've identified the servers that need an Azure Backup agent update, perfo
 
 1. The final confirmation screen indicates that the Azure Backup agent has been successfully updated.
 
-## For customers of System Center Data Protection manager (SC DPM)
+## For System Center Data Protection Manager (SC DPM) customers
 
-If you have installed Azure backup agents on the SC DPM servers, then you need to follow the steps below to identify whether your DPM servers need an Azure backup agent update:
+If you have installed Azure backup agents on the System Center Data Protection Manager (SC DPM) servers, then you need to follow the steps below to identify whether your DPM servers need an Azure backup agent update:
 
 1. Sign in to your SC DPM server as an Administrator.
 2. Open the DPM Console.
