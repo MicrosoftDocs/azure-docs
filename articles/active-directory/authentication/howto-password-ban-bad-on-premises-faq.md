@@ -1,11 +1,11 @@
 ---
-title: On-premises password protection FAQ - Azure Active Directory
-description: On-premises Azure AD Password Protection FAQ
+title: On-premises Azure AD password protection FAQ
+description: Review frequently asked questions for Azure AD password protection in an on-premises Active Directory Domain Services environment
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: troubleshooting
+ms.topic: conceptual
 ms.date: 11/21/2019
 
 ms.author: iainfou
