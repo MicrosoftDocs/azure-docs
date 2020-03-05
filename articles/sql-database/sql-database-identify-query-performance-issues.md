@@ -149,9 +149,8 @@ Slow query performance not related to suboptimal query plans and missing indexes
 
   - The [sys.dm_db_resource_stats](sql-database-monitoring-with-dmvs.md#monitor-resource-use) DMV returns CPU, I/O, and memory consumption for an SQL database. One row exists for every 15-second interval, even if there's no activity in the database. Historical data is maintained for one hour.
   - The [sys.resource_stats](sql-database-monitoring-with-dmvs.md#monitor-resource-use) DMV returns CPU usage and storage data for Azure SQL Database. The data is collected and aggregated in five-minute intervals.
-
-  > [!IMPORTANT]
-  > To troubleshoot CPU usage problems for T-SQL queries that use the sys.dm_db_resource_stats and sys.resource_stats DMVs, see [Identify CPU performance issues](sql-database-monitoring-with-dmvs.md#identify-cpu-performance-issues).
+  - [Many individual queries that cumulatively consume high CPU](sql-database-monitoring-with-dmvs.md#many-individual-queries-that-cumulatively-consume-high-cpu)
+  - 
 
 If you identify the problem as insufficient resource, you can upgrade resources to increase the capacity of your SQL database to absorb the CPU requirements. For more information, see [Scale single database resources in Azure SQL Database](sql-database-single-database-scale.md) and [Scale elastic pool resources in Azure SQL Database](sql-database-elastic-pool-scale.md). For information about scaling a managed instance, see [Service-tier resource limits](sql-database-managed-instance-resource-limits.md#service-tier-characteristics).
 
@@ -160,7 +159,7 @@ If you identify the problem as insufficient resource, you can upgrade resources 
 An increase in application traffic and workload volume can cause increased CPU usage. But you must be careful to properly diagnose this problem. When you see a high-CPU problem, answer these questions to determine whether the increase is caused by changes to the workload volume:
 
 - Are the queries from the application the cause of the high-CPU problem?
-- For the top CPU-consuming queries that you can identify:
+- For the [top CPU-consuming queries that you can identify](sql-database-monitoring-with-dmvs.md#the-cpu-issue-occurred-in-the-past):
 
   - Were multiple execution plans associated with the same query? If so, why?
   - For queries with the same execution plan, were the execution times consistent? Did the execution count increase? If so, the workload increase is likely causing performance problems.
@@ -186,17 +185,13 @@ Once you have eliminated a suboptimal plan and *Waiting-related* problems that a
   One query might hold the lock on objects in the database while others try to access the same objects. You can identify blocking queries by using [DMVs](sql-database-monitoring-with-dmvs.md#monitoring-blocked-queries) or [Intelligent Insights](sql-database-intelligent-insights-troubleshoot-performance.md#locking).
 - **IO problems**
 
-  Queries might be waiting for the pages to be written to the data or log files. In this case, check the `INSTANCE_LOG_RATE_GOVERNOR`, `WRITE_LOG`, or `PAGEIOLATCH_*` wait statistics in the DMV.
+  Queries might be waiting for the pages to be written to the data or log files. In this case, check the `INSTANCE_LOG_RATE_GOVERNOR`, `WRITE_LOG`, or `PAGEIOLATCH_*` wait statistics in the DMV. See using DMVs to [identify IO performance issues](sql-database-monitoring-with-dmvs?branch=master#identify-io-performance-issues).
 - **TempDB problems**
 
-  If the workload uses temporary tables or there are TempDB spills in the plans, the queries might have a problem with TempDB throughput.
+  If the workload uses temporary tables or there are TempDB spills in the plans, the queries might have a problem with TempDB throughput. See using DMVs to [identity TempDB issues](sql-database-monitoring-with-dmvs.md#identify-tempdb-performance-issues).
 - **Memory-related problems**
 
-  If the workload doesn't have enough memory, the page life expectancy might drop, or the queries might get less memory than they need. In some cases, built-in intelligence in Query Optimizer will fix memory-related problems.
-
-The following sections explain how to identify and troubleshoot some types of problems.
-
-If you're sure that your performance problem isn't related to high CPU usage or to running, your problem is related to waiting. Namely, your CPU resources aren't being used efficiently because the CPU is waiting on some other resource. In this case, identify what your CPU resources are waiting on.
+  If the workload doesn't have enough memory, the page life expectancy might drop, or the queries might get less memory than they need. In some cases, built-in intelligence in Query Optimizer will fix memory-related problems. See using DMVs to [identify memory grant issues](sql-database-monitoring-with-dmvs.md#identify-memory-grant-wait-performance-issues).
 
 ### Methods to show top wait categories
 
@@ -214,14 +209,11 @@ In high-CPU scenarios, Query Store and wait statistics might not reflect CPU usa
 
 DMVs that track Query Store and wait statistics show results for only successfully completed and timed-out queries. They don't show data for currently executing statements until the statements finish. Use the dynamic management view [sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) to track currently executing queries and the associated worker time.
 
-### DMVS to troubleshoot waiting-related problems
-
-For a set of T-SQL queries that use DMVs to troubleshoot waiting-related problems, see:
-
-- [Identify I/O performance issues](sql-database-monitoring-with-dmvs.md#identify-io-performance-issues)
-- [Identify memory grant waits](sql-database-monitoring-with-dmvs.md#identify-memory-grant-wait-performance-issues)
-- [TigerToolbox waits and latches](https://github.com/Microsoft/tigertoolbox/tree/master/Waits-and-Latches)
-- [TigerToolbox usp_whatsup](https://github.com/Microsoft/tigertoolbox/tree/master/usp_WhatsUp)
+> [!TIP]
+> Additional tools:
+>
+> - [TigerToolbox waits and latches](https://github.com/Microsoft/tigertoolbox/tree/master/Waits-and-Latches)
+> - [TigerToolbox usp_whatsup](https://github.com/Microsoft/tigertoolbox/tree/master/usp_WhatsUp)
 
 ## Next steps
 
