@@ -26,8 +26,6 @@ This guide covers the following topics:
 
 This guide contains both technical and business information about the steps you need to take before you list your applications and services. Use the table of contents to go to different sections of the guide and to go directly to key topics.
 
-For questions about the Azure Marketplace and AppSource, send us a message under **Problem Type** > **Marketplace Onboarding**.  Our Marketplace Publisher Onboarding Team will be happy to help! 
-
 ## Benefits of participating in the Marketplace 
 
 The Marketplace is the launch pad for joint go-to-market activities with Microsoft that can help accelerate your business growth. By using launch promotion, demand generation, and joint sales and marketing, your Marketplace offers can be the centerpiece of your cloud business engine. There are no fees for participating in the Marketplace.
