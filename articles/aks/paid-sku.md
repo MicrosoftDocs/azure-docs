@@ -28,6 +28,14 @@ Paid SKU SLA is available in the following regions:
 
 * The Azure CLI version TODO or later.
 
+## Non Paid SKU vs. Paid SKU SLA
+
+In a service-level agreement (SLA), the provider agrees to reimburse the customer for the cost of the service if the published service level isn't met. Since AKS is free, no cost is available to reimburse for clusters not using Paid SKU SLA, so AKS has no formal SLA. However, AKS seeks to maintain availability of at least 99.5 percent for the Kubernetes API server.
+
+It is important to recognize the distinction between AKS service availability which refers to uptime of the Kubernetes control plane and the availability of your specific workload which is running on Azure Virtual Machines. Although the control plane may be unavailable if the control plane is not ready, your cluster workloads running on Azure VMs can still function. Given Azure VMs are paid resources they are backed by a financial SLA. Read [here for more details](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/) on the Azure VM SLA and how to increase that availability with features like [Availability Zones][availability-zones].
+
+With Paid SKU SLA you can achieve greater availablity for critical workloads.
+
 ## Creating a cluster with Paid SKU SLA
 
 To create a new cluster with the Paid SKU SLA, you use the Azure CLI.
@@ -50,7 +58,6 @@ az aks create --resource-group myResourceGroup --name myAKSCluster --node-count 
 ```
 After a few minutes, the command completes and returns JSON-formatted information about the cluster.
 
-
 ## Removing Paid SKU SLA from a cluster
 
 If you wish to remove the Paid SKU SLA from your cluster, you will need to follow these steps:
@@ -60,12 +67,6 @@ TODO
 ## Existing clusters
 
 Currently there is no way to add Paid SKU SLA to an existing AKS cluster.
-
-## AKS service-level agreement for non Paid SKU SLA
-
-In a service-level agreement (SLA), the provider agrees to reimburse the customer for the cost of the service if the published service level isn't met. Since AKS is free, no cost is available to reimburse, so AKS has no formal SLA. However, AKS seeks to maintain availability of at least 99.5 percent for the Kubernetes API server.
-
-It is important to recognize the distinction between AKS service availability which refers to uptime of the Kubernetes control plane and the availability of your specific workload which is running on Azure Virtual Machines. Although the control plane may be unavailable if the control plane is not ready, your cluster workloads running on Azure VMs can still function. Given Azure VMs are paid resources they are backed by a financial SLA. Read [here for more details](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/) on the Azure VM SLA and how to increase that availability with features like [Availability Zones][availability-zones].
 
 ## Billing and refunds
 
