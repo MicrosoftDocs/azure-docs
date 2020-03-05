@@ -51,7 +51,6 @@ You need the following prerequisites:
 
 [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
-
 The preview of device streams is currently supported only for IoT hubs that are created in the following regions:
 
   * Central US

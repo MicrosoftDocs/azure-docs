@@ -27,6 +27,7 @@ Regardless whether you run the CLI locally or in the Cloud Shell, keep the porta
 In this section, you launch an instance of the Azure Cloud Shell. If you use the CLI locally, skip to the section [Prepare two CLI sessions](#prepare-two-cli-sessions).
 
 To launch the Cloud Shell:
+
 1. Select the **Cloud Shell** button on the top-right menu bar in the Azure portal. 
 
     ![Azure portal Cloud Shell button](media/quickstart-send-telemetry-cli/cloud-shell-button.png)
@@ -34,7 +35,7 @@ To launch the Cloud Shell:
     > [!NOTE]
     > If this is the first time you've used the Cloud Shell, it prompts you to create storage, which is required to use the Cloud Shell.  Select a subscription to create a storage account and Microsoft Azure Files share. 
 
-1. Select your preferred CLI environment in the **Select environment** dropdown. This quickstart uses the **Bash** environment. All the following CLI commands work in the Powershell environment too. 
+2. Select your preferred CLI environment in the **Select environment** dropdown. This quickstart uses the **Bash** environment. All the following CLI commands work in the Powershell environment too. 
 
     ![Select CLI environment](media/quickstart-send-telemetry-cli/cloud-shell-environment.png)
 

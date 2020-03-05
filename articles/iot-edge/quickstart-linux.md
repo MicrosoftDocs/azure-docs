@@ -32,13 +32,13 @@ If you don't have an active Azure subscription, create a [free account](https://
 
 You use the Azure CLI to complete many of the steps in this quickstart, and Azure IoT has an extension to enable additional functionality.
 
-[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
-
 Add the Azure IoT extension to the cloud shell instance.
 
    ```azurecli-interactive
    az extension add --name azure-iot
    ```
+   
+[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
 ## Prerequisites
 

@@ -43,12 +43,6 @@ Run the following command to add the Microsoft Azure IoT Extension for Azure CLI
 az extension add --name azure-iot
 ```
 
-Run the following command to add the Microsoft Azure IoT Extension for Azure CLI to your Cloud Shell instance. The IOT Extension adds IoT Hub, IoT Edge, and IoT Device Provisioning Service (DPS) specific commands to Azure CLI.
-
-```azurecli-interactive
-az extension add --name azure-iot
-```
-
 [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
 ## Create an IoT hub
