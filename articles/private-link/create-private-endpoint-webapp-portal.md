@@ -38,7 +38,7 @@ In this section, you'll create a virtual network and subnet.
 
 ![Configure IP Addresses][2]
 
-1. In the subnet section, click **"+ Add Subnet"** and enter the following information and click **"Add"**:
+1. In the subnet section, click **"+ Add Subnet"** and enter the following information and click **"Add"**
 
 ![Add Subnet][3]
 
@@ -48,17 +48,17 @@ In this section, you'll create a virtual network and subnet.
 
 ### Create virtual machine
 
-1. On the upper-left side of the screen in the Azure portal, select **Create a resource** > **Compute** > **Virtual machine**.
+1. On the upper-left side of the screen in the Azure portal, select **Create a resource** > **Compute** > **Virtual machine**
 
 1. In Create a virtual machine - Basics, enter or select this information:
 
 ![Virtual Machine basic ][4]
 
-1. Select **"Next : Disks"**
+1. Select **"Next: Disks"**
 
 Keep default settings.
 
-1. Select **"Next : Networking"**, select this information:
+1. Select **"Next: Networking"**, select this information:
 
 ![Networking ][5]
 
@@ -103,12 +103,12 @@ In this section, you will create a private Web App using a Private Endpoint to i
 
 ## Connect to a VM from the internet
 
-1. In the portal's search bar, enter **myVm**.
-1. Select the **Connect button**. After selecting the Connect button, Connect to virtual machine opens, select **RDP**.
+1. In the portal's search bar, enter **myVm**
+1. Select the **Connect button**. After selecting the Connect button, Connect to virtual machine opens, select **RDP**
 
 ![RDP button][12]
 
-1. Azure creates a Remote Desktop Protocol (.rdp) file and downloads it to your computer after you click on **Download RDP file**.
+1. Azure creates a Remote Desktop Protocol (.rdp) file and downloads it to your computer after you click on **Download RDP file**
 
 ![Download RDP file][13]
 
