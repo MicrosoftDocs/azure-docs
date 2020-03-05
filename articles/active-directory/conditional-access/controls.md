@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # Custom controls (preview)
 
-Custom controls are a capability of the Azure Active Directory Premium P1 edition. When using custom controls, your users are redirected to a compatible service to satisfy further requirements outside of Azure Active Directory. To satisfy this control, a user’s browser is redirected to the external service, performs any required authentication or validation activities, and is then redirected back to Azure Active Directory. Azure Active Directory verifies the response and, if the user was successfully authenticated or validated, the user continues in the Conditional Access flow.
+Custom controls are a capability of the Azure Active Directory Premium P1 edition. When using custom controls, your users are redirected to a compatible service to satisfy further requirements outside of Azure Active Directory. To satisfy this control, a user's browser is redirected to the external service, performs any required authentication or validation activities, and is then redirected back to Azure Active Directory. Azure Active Directory verifies the response and, if the user was successfully authenticated or validated, the user continues in the Conditional Access flow.
 
 These controls allow the use of certain external or custom services as Conditional Access controls, and generally extend the capabilities of Conditional Access.
 
@@ -42,7 +42,7 @@ To create a custom control, you should first contact the provider that you wish 
 
 Custom controls cannot be used with Identity Protection's automation requiring multi-factor authentication or to elevate roles in Privileged Identity Manager (PIM).
 
-Copy the JSON data and then paste it into the related textbox. Do not make any changes to the JSON unless you explicitly understand the change you’re making. Making any change could break the connection between the provider and Microsoft and potentially lock you and your users out of your accounts.
+Copy the JSON data and then paste it into the related textbox. Do not make any changes to the JSON unless you explicitly understand the change you're making. Making any change could break the connection between the provider and Microsoft and potentially lock you and your users out of your accounts.
 
 The option to create a custom control is in the **Manage** section of the **Conditional Access** page.
 
@@ -54,7 +54,7 @@ Clicking **New custom control**, opens a blade with a textbox for the JSON data 
 
 ## Deleting custom controls
 
-To delete a custom control, you must first ensure that it isn’t being used in any Conditional Access policy. Once complete:
+To delete a custom control, you must first ensure that it isn't being used in any Conditional Access policy. Once complete:
 
 1. Go to the Custom controls list
 1. Click …  
