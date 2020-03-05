@@ -38,7 +38,7 @@
     items:
     # - name: Spark
     #   href: article-template.md
-    # - name: SQL Analytics pool
+    # - name: SQL pool
     #   href: article-template.md
     - name: Synapse studio
       href: quickstart-synapse-studio.md
@@ -46,6 +46,8 @@
       href: ./sql-analytics/quickstart-sql-on-demand.md
     - name: Query SQL on-demand using Azure Data Studio
       href: ./sql-analytics/get-started-azure-data-studio.md
+  # - name: Getting started experience 
+  #   href: article-template.md
 - name: Tutorials
   items:
   - name: Run Apache Spark applications for Synapse Spark Pools
@@ -66,13 +68,11 @@
     #   href: article-template.md
   - name: Data Analyst
     items:
-    - name: Use SQL on-demand to analyze and Synapse studio to visualize
+    - name: Use SQL on-demand to analyze and Synapse Studio to visualize
       href: ./sql-analytics/tutorial-data-analyst.md
   - name: Data Engineer
     items:
   # - name: Data Preparation
-  #   href: article-template.md
-  # - name: Data Analyst
   #   href: article-template.md
   # - name: IT Administrator
   #   href: article-template.md
@@ -96,10 +96,14 @@
         href: metadata/overview.md
       - name: Metadata objects
         items:
+        # - name: Objects
+        #   href: metadata/database.md
         - name: Shared databases
           href: metadata/database.md
         - name: Shared tables
           href: metadata/table.md
+        # - name: Views
+        #   href: metadata/database.md
       - name: Code artifacts
         items:
         - name: Apache Spark Notebooks
@@ -138,7 +142,7 @@
           href: ../sql-data-warehouse/sql-data-warehouse-overview-manageability-monitoring.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: Resource utilization & query activity 
           href: ../sql-data-warehouse/sql-data-warehouse-concept-resource-utilization-query-activity.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json 
-      - name: Spark pool History server
+      - name: Spark pool history server
         href: ./spark/apache-spark-history-server.md
   - name: Security
     items:
@@ -258,8 +262,6 @@
         #   href: article-template.md
       - name: Apache Spark machine learning
         items:
-      #   - name: Machine Learning overview
-      #     href: article-template.md
         - name: Create an Apache Spark machine learning pipeline
           href: ./spark/apache-spark-machine-learning-mllib-notebook.md
       # - name: Querying
@@ -492,16 +494,14 @@
           items:
           - name: SQL pool
             href: /sql/integration-services/load-data-to-sql-data-warehouse
-      #     - name: SQL on demand
+      #     - name: SQL on-demand
       #       href: article-template.md
         - name: Load WideWorldImporters
           href: ../sql-data-warehouse/load-data-wideworldimportersdw.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-      #   - name: with the copy activity 
-      #     href: article-template.md
+        - name: With the copy activity 
+          href: data-integration/data-integration-sql-pool.md
       #   - name: with T-SQL
       #     href: article-template.md
-      - name: With the copy activity
-        href: data-integration/data-integration-sql-pool.md
       # - name: Spark
       #   href: article-template.md
       # - name: Best practices
