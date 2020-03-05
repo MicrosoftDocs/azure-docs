@@ -267,10 +267,10 @@
       href: sql-database-automatic-tuning.md
     - name: Intelligent Insights and SQL Analytics
       items:
-      - name: Diagnostic telemetry logging
-        href: sql-database-metrics-diag-logging.md
       - name: Intelligent insights into performance
         href: sql-database-intelligent-insights.md
+      - name: Diagnostic telemetry logging
+        href: sql-database-metrics-diag-logging.md
       - name: Use Intelligent Insights diagnostics log
         href: sql-database-intelligent-insights-use-diagnostics-log.md
       - name: Troubleshoot performance with Intelligent Insights
