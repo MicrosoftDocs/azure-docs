@@ -53,6 +53,7 @@ Private site access refers to making your app accessible only from a private net
 ## Virtual network integration
 
 Virtual network integration allows your function app to access resources inside a virtual network. 
+The Function App Service has two variations.
 
 [!INCLUDE [app-service-web-vnet-types](../../includes/app-service-web-vnet-types.md)]
 
@@ -61,7 +62,7 @@ Virtual network integration in Azure Functions uses shared infrastructure with A
 * [Regional virtual network Integration](../app-service/web-sites-integrate-with-vnet.md#regional-vnet-integration)
 * [Gateway required virtual network integration](../app-service/web-sites-integrate-with-vnet.md#gateway-required-vnet-integration)
 
-To learn more about using virtual network integration, see [Integrate a function app with an Azure virtual network](functions-create-vnet.md).
+To learn how to set up virtual network integration, see [Integrate a function app with an Azure virtual network](functions-create-vnet.md).
 
 ## Regional Virtual Network Integration
 
