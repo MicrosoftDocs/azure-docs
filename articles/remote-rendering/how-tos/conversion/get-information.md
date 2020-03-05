@@ -13,12 +13,14 @@ ms.service: azure-remote-rendering
 
 # Get information about a converted model
 
-## The "info" file
+The arrAsset file produced by the conversion service is solely intended for consumption by the rendering service.
+There may be times, however, when you want to access information about a model without starting a rendering session.
+To support this, the conversion service places a JSON file recording information about the model and the conversion beside the arrAsset file in the output container. 
+For example, if a file `buggy.gltf` is converted, the output container will contain an info file called `buggy.info.json` beside the converted asset `buggy.arrAsset`.
 
-When the conversion service converts a model, a file recording information about the conversion is placed beside the arrAsset file in the output container. 
-For example, if a file `buggy.gltf` is converted, the output container will contain the converted asset `buggy.arrAsset` as well as a file called `buggy.info.json`.
+## An example "info" file
 
-Here's an example "info" file:
+Here's an example "info" file produced by converting a file called `buggy.gltf`:
 
 ```JSON
 {
@@ -83,21 +85,21 @@ This records information about the filenames provided.
 
 ### The "conversionSettings" section
 
-This holds a copy of the ConversionSettings specified when the model was converted. See the section on [Configuring conversion](configure-model-conversion.md).
+This section holds a copy of the ConversionSettings specified when the model was converted. See the section on [Configuring conversion](configure-model-conversion.md#settings-file).
 
 ### The "inputInfo" section
 
-This records information about the source file format.
+This section records information about the source file format.
 * "sourceAssetExtension": The file extension of the source file.
 * "sourceAssetFormat": A description of the source file format.
 * "sourceAssetFormatVersion": The version of the source file format.
-* "sourceAssetGenerator": The name of the tool which generated the source file, if the source file carries that information.
+* "sourceAssetGenerator": The name of the tool that generated the source file, if the source file carries that information.
 
 ### The "inputStatistics" section
 
-This carries information about the source scene.
-Note that there will usually be some discrepancies between the values in this section and those equivalent values which exist in the tool which created the source model. 
-This is expected, because the model will have undergone structural modification during export to the source format and import to the conversion service.
+This section carries information about the source scene.
+Note that there will usually be some discrepancies between the values in this section and the equivalent values in the tool that created the source model.
+The difference arises because the model will have undergone structural modification during export, to the source format, and again during import, to the conversion service.
 * "numMeshes": The number of parts of the mesh, where each part can reference a single material.
 * "numFaces": The total number of _triangles_ in the whole model (note that the mesh is triangulated during conversion)
 * "numVertices": The total number of vertices in the whole model
@@ -111,17 +113,17 @@ This is expected, because the model will have undergone structural modification 
 ### The "outputInfo" section
 
 This section records general information about the generated output.
-* "conversionToolVersion": This is an internal value corresponding to the version of the software which converted the model. 
+* "conversionToolVersion": This is an internal value corresponding to the version of the software that converted the model. 
 This value should be treated as opaque, and will not appear in any other context.
 However, it may be useful in understanding the relationship between arrAsset files converted at different times.
 * "conversionHash": This is a hash of the data within the arrAsset file that can contribute to rendering.
-This value can be used to understand whether the whether conversion has produced different results when run on the same file, independent of other factors (such as the conversionToolVersion).
+This value can be used to understand whether the conversion has produced different results when run on the same file, independent of other factors (such as the conversionToolVersion).
 
 ### The "outputStatistics" section
 
-This records information calculated from the converted asset.
+This section records information calculated from the converted asset.
 * "numMeshPartsCreated": The number of meshes in the arrAsset. This can differ from the "numMeshes" value in the "inputStatistics" section, because instancing is affected by the conversion process.
-* "numMeshPartsInstanced": The number of meshes which are reused in the arrAsset.
+* "numMeshPartsInstanced": The number of meshes that are reused in the arrAsset.
 * "recenteringOffset": This is a non-zero vector when the "recenterToOrigin" option in the [ConversionSettings](configure-model-conversion.md) is set to true.
 This is a vector in the coordinate system of the arrAsset, and carries the offset at which the converted model would need to be placed, to move it back to its original position.
 * "boundingBox": This records the bounds of the model, in the coordinate system of the arrAsset.
