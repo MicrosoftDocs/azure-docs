@@ -1439,7 +1439,7 @@ tools:
       url: https://docs.microsoft.com/azure/python/
     # Card
     - title: .NET
-      imageSrc: ./media/index/net_logo.svg
+      imageSrc: ./media/index/net-logo.svg
       url: https://docs.microsoft.com/dotnet/azure/
     # Card
     - title: Node.js
