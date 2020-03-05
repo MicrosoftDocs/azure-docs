@@ -62,7 +62,6 @@ Content-Type: "application/json"
 "1"
 ```
 
-
 ### Contract code request
 
 Use the [Applications contract code POST API](https://docs.microsoft.com/en-us/rest/api/azure-blockchain-workbench/applications/contractcodepost) by passing the application ID to upload the application's Solidity code file. The payload can be a single Solidity file or a zipped file containing Solidity files.
@@ -70,9 +69,9 @@ Use the [Applications contract code POST API](https://docs.microsoft.com/en-us/r
 Replace the following values:
 
 | Parameter | Value |
-|---------|---------|
+|-----------|-------|
 | {applicationId} |Return value from the Applications POST API. |
-| {ledgerId} | Index of the ledger. Usually the value is 1. You can also check the ledger table for the value. |
+| {ledgerId} | Index of the ledger. The value is usually 1. You can also check the [Ledger table in the Blockchain Workbench database](data-sql-management-studio.md) for the value. |
 
 ``` http
 POST /api/v1/applications/{applicationId}/contractCode?ledgerId={ledgerId}
@@ -84,6 +83,39 @@ Content-Disposition: form-data; name="contractFile"; filename="/C:/smart-contrac
 ### Contract code response
 
 If successful, contract code API returns a **204 No Content** response.
+
+``` http
+204 No Content
+```
+
+## Assign roles to users
+
+Use the [Applications role assignments POST API](https://docs.microsoft.com/en-us/rest/api/azure-blockchain-workbench/applications/roleassignmentspost) by passing the application ID, user ID, and application role id to create a user-to-role mapping in the specified blockchain application. This method can only be performed by users who are Workbench administrators.
+
+### Role assignments request
+
+Replace the following values:
+
+| Parameter | Value |
+|-----------|-------|
+| {applicationId} | Return value from the Applications POST API. |
+| {userId} | User ID value from the [User table in the Blockchain Workbench database](data-sql-management-studio.md). |
+| {applicationRoleId} | Application role ID value associated to the application ID from the [ApplicationRole table in the Blockchain Workbench database](data-sql-management-studio.md). |
+
+``` http
+POST /api/v1/applications/{applicationId}/roleAssignments
+Content-Type: application/json;
+Authorization : Bearer {access token}
+
+{
+  "userId": 1,
+  "applicationRoleId": 4
+}
+```
+
+# Role assignments response
+
+If successful, role assignments API returns a **204 No Content** response.
 
 ``` http
 204 No Content
