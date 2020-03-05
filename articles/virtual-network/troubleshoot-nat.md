@@ -38,28 +38,29 @@ To resolve these problems, follow the steps in the following section.
 
 A single [NAT gateway resource](nat-gateway-resource.md) supports from 64,000 up to 1 million concurrent flows.  Each IP address provides 64,000 SNAT ports to the available inventory. You can use up to 16 IP addresses per NAT gateway resource.  The SNAT mechanism is described [here](nat-gateway-resource.md#source-network-address-translation) in more detail.
 
-#### Steps:
+Frequently the root cause of SNAT exhaustion is an anti-pattern for how outbound connectivity is established and managed.  Review this section carefully.
+
+#### Steps
 
 1. Investigate how your application is creating outbound connectivity (for example, code review or packet capture). 
 2. Determine if this activity is expected behavior or whether the application is misbehaving.  Use [metrics](nat-metrics.md) in Azure Monitor to substantiate your findings.
 3. Evaluate if appropriate patterns are followed.
 4. Evaluate if SNAT port exhaustion should be mitigated with additional IP addresses assigned to NAT gateway resource.
 
-#### Design pattern:
-
+#### Design pattern
 
 Always take advantage of connection reuse and connection pooling whenever possible.  This pattern will avoid resource exhaustion problems outright and result in predictable behavior. Primitives for these patterns can be found in many development libraries and frameworks.
 
-*Solution:* Use appropriate patterns
+_**Solution:**_ Use appropriate patterns
 
 - Consider [asynchronous polling patterns](https://docs.microsoft.com/azure/architecture/patterns/async-request-reply) for long-running operations to free up connection resources for other operations.
 - Long-lived flows (for example reused TCP connections) should use TCP keepalives or application layer keepalives to avoid intermediate systems timing out.
 - Graceful [retry patterns](https://docs.microsoft.com/azure/architecture/patterns/retry) should be used to avoid aggressive retries/bursts during transient failure or failure recovery.
 Creating a new TCP connection for every HTTP operation (also known as "atomic connections") is an anti-pattern.  Atomic connections will prevent your application from scaling well and waste resources.  Always pipeline multiple operations into the same connection.  Your application will benefit in transaction speed and resource costs.  When your application uses transport layer encryption (for example TLS), there's a significant cost associated with the processing of new connections.  Review [Azure Cloud Design Patterns](https://docs.microsoft.com/azure/architecture/patterns/) for additional best practice patterns.
 
-#### Mitigations
+#### Possible mitigations
 
-*Solution:* You can scale outbound connectivity as follows:
+_**Solution**_ You can scale outbound connectivity as follows:
 
 | Scenario | Mitigation |
 |---|---|
@@ -73,7 +74,7 @@ Creating a new TCP connection for every HTTP operation (also known as "atomic co
 
 [Virtual Network NAT](nat-overview.md) supports IPv4 UDP and TCP protocols. ICMP isn't supported and expected to fail.  
 
-*Solution:* Instead, use TCP connection tests (for example "TCP ping") and UDP-specific application layer tests to validate end to end connectivity.
+_**Solution:**_ Instead, use TCP connection tests (for example "TCP ping") and UDP-specific application layer tests to validate end to end connectivity.
 
 The following table can be used a starting point for which tools to use to start tests.
 
@@ -84,9 +85,9 @@ The following table can be used a starting point for which tools to use to start
 
 ### Connectivity failures
 
-Connectivity issues with [Virtual Network NAT] can be due to several different issues:
+Connectivity issues with [Virtual Network NAT](nat-overview.md) can be due to several different issues:
 
-* [SNAT exhaustion] of the NAT gateway,
+* [SNAT exhaustion](#snat-exhaustion of the NAT gateway,
 * transient failures in the Azure infrastructure, 
 * transient failures in the path between Azure and the public Internet destination, 
 * transient or persistent failures at the public Internet destination.
@@ -102,7 +103,7 @@ Use tools like the following to validation connectivity. [ICMP ping is not suppo
 
 [Virtual Network NAT](nat-overview.md) supports IPv4 UDP and TCP protocols and deployment on a [subnet with IPv6 prefix is not supported](nat-overview.md#limitations).
 
-*Solution:* Deploy NAT gateway on a subnet without IPv6 prefix.
+_**Solution:**_ Deploy NAT gateway on a subnet without IPv6 prefix.
 
 You can indicate interest in additional capabilities through [Virtual Network NAT UserVoice](https://aka.ms/natuservoice).
 
