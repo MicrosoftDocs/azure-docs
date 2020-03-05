@@ -353,6 +353,7 @@
       href: v2-app-types.md      
     - name: OAuth 2.0 and OpenID Connect protocols
       href: active-directory-v2-protocols.md
+      items:
       - name: OpenID Connect
         href: v2-protocols-oidc.md
       - name: OAuth 2.0 implicit grant flow
