@@ -11,11 +11,11 @@ author: likebupt
 ms.author: keli19
 ms.date: 11/19/2019
 ---
-# Create Python Model
+# Create Python Model module
 
 This article describes a module in Azure Machine Learning designer (preview).
 
-Learn how to use the Create Python Model module to create an untrained model from a Python script. You can base the model on any learner that is included in a Python package in the Azure Machine Learning designer environment. 
+Learn how to use the Create Python Model module to create an untrained model from a Python script. You can base the model on any learner that's included in a Python package in the Azure Machine Learning designer environment. 
 
 After you create the model, you can use [Train Model](train-model.md) to train the model on a dataset, like any other learner in Azure Machine Learning. The trained model can be passed to [Score Model](score-model.md) to make predictions. You can then save the trained model and publish the scoring workflow as a web service.
 

@@ -17,7 +17,7 @@ This article describes a module in Azure Machine Learning designer (preview).
 
 Use the Split Data module to divide a dataset into two distinct sets.
 
-This module is particularly useful when you need to separate data into training and testing sets. You can also customize the way that data is divided. Some options support randomization of data. Others are tailored for a certain data type or model type.
+This module is useful when you need to separate data into training and testing sets. You can also customize the way that data is divided. Some options support randomization of data. Others are tailored for a certain data type or model type.
 
 ## Configure the module
 
@@ -37,7 +37,7 @@ This module is particularly useful when you need to separate data into training 
 
      For example, if you're analyzing sentiment, you can check for the presence of a particular product name in a text field. You can then divide the dataset into rows with the target product name and rows  without the target product name.
 
-   - **Relative expression split**: Use this option whenever you want to apply a condition to a number column. The number can be a date/time field, a column that contains age or dollar amounts, or even a percentage. For example, you might want to divide your dataset depending on the cost of the items, group people by age ranges, or separate data by a calendar date.
+   - **Relative expression split**: Use this option whenever you want to apply a condition to a number column. The number can be a date/time field, a column that contains age or dollar amounts, or even a percentage. For example, you might want to divide your dataset based on the cost of the items, group people by age ranges, or separate data by a calendar date.
 
 ### Split rows
 
@@ -45,17 +45,17 @@ This module is particularly useful when you need to separate data into training 
   
 1. For **Splitting mode**, select **Split rows**. 
 
-1. **Fraction of rows in the first output dataset**: Use this option to determine how many rows will go into the first (left side) output. All other rows will go to the second (right side) output.
+1. **Fraction of rows in the first output dataset**: Use this option to determine how many rows will go into the first (left side) output. All other rows will go into the second (right side) output.
 
    The ratio represents the percentage of rows sent to the first output dataset, so you must enter a decimal number between 0 and 1.
      
-   For example, if you enter 0.75 as the value, the dataset will be split 75/25. In this split, 75 percent of the rows will be sent to the first output dataset. The remaining 25 percent will be sent to the second output dataset.
+   For example, if you enter **0.75** as the value, the dataset will be split 75/25. In this split, 75 percent of the rows will be sent to the first output dataset. The remaining 25 percent will be sent to the second output dataset.
   
 1. Select the **Randomized split** option if you want to randomize selection of data into the two groups. This is the preferred option when you're creating training and test datasets.
 
 1. **Random Seed**: Enter a non-negative integer value to start the pseudorandom sequence of instances to be used. This default seed is used in all modules that generate random numbers. 
 
-   Specifying a seed makes the results generally reproducible. If you need to repeat the results of a split operation, you should specify a seed for the random number generator. Otherwise the random seed is set by default to **0**, which means the initial seed value is obtained from the system clock. As a result, the distribution of data might be slightly different each time you perform a split. 
+   Specifying a seed makes the results reproducible. If you need to repeat the results of a split operation, you should specify a seed for the random number generator. Otherwise the random seed is set by default to **0**, which means the initial seed value is obtained from the system clock. As a result, the distribution of data might be slightly different each time you perform a split. 
 
 1. **Stratified split**: Set this option to **True** to ensure that the two output datasets contain a representative sample of the values in the *strata column* or *stratification key column*. 
 
@@ -111,7 +111,7 @@ The first result dataset contains all rows where the index column begins with on
    - The expression can reference a maximum of one column name.
    - Use the ampersand character, `&`, for the AND operation. Use the pipe character, `|`, for the OR operation.
    - The following operators are supported: `<`, `>`, `<=`, `>=`, `==`, `!=`.
-   - You cannot group operations by using `(` and `)`.
+   - You can't group operations by using `(` and `)`.
    
    For **String column**:
    - The following operators are supported: `==`, `!=`.

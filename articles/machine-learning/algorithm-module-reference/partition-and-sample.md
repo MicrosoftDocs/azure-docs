@@ -113,7 +113,7 @@ Use this option when you want to divide the dataset into subsets of the data. Th
 
 1. **Specify the partitioner method**: Indicate how you want data to be apportioned to each partition, by using these options:
 
-   - **Partition evenly**: Use this option to place an equal number of rows in each partition. To specify the number of output partitions, type a whole number in the **Specify number of folds to split evenly into** box.
+   - **Partition evenly**: Use this option to place an equal number of rows in each partition. To specify the number of output partitions, enter a whole number in the **Specify number of folds to split evenly into** box.
 
    - **Partition with customized proportions**: Use this option to specify the size of each partition as a comma-separated list.
 
