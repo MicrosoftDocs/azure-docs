@@ -35,13 +35,10 @@ This tutorial covers the following tasks:
 > * Run anomaly detection on tweets
 
 > [!Note]
-> This tutorial introduces an approach to implementing the recommended [solution architecture](https://azure.microsoft.com/solutions/architecture/anomaly-detector-process/) for the Anomaly Detector API.
+> * This tutorial introduces an approach to implementing the recommended [solution architecture](https://azure.microsoft.com/solutions/architecture/anomaly-detector-process/) for the Anomaly Detector API.
+> * This tutorial cannot be completed with a free trial for the Anomaly Detector API, or Azure Databricks. 
 
 Create an [Azure subscription](https://azure.microsoft.com/free/) if you don't have one.
-
-> [!Note]
-> This tutorial cannot be completed with a free trial key for the Anomaly Detector API. 
-> To use a free account to create the Azure Databricks cluster, before creating the cluster, go to your profile and change your subscription to **pay-as-you-go**. For more information, see [Azure free account](https://azure.microsoft.com/free/).
 
 ## Prerequisites
 
