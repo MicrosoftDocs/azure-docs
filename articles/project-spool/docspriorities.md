@@ -25,7 +25,7 @@
 ### Cold Backlog
 
 - Determine how to auto-generate SDK API Reference Docs [Robert Outlaw gave me some pointers here].
-   - > Our SDK generation is base off shipped packages such as NuGet or npm modules.  It’s more or less as easy as you telling us what packages you have shipped, and we can generate docs for them. - R. Outlaw
+   - > Our SDK generation is base off shipped packages such as NuGet or npm modules.  It's more or less as easy as you telling us what packages you have shipped, and we can generate docs for them. - R. Outlaw
 - Determine how to auto-generate REST API Reference Docs [[instructions acquired](https://github.com/Azure/adx-documentation-pr/wiki)].
 
 
@@ -44,7 +44,12 @@
 
 #### 3/5: 
 
+- **Done**
+  - Documented the process supporting [auto-generated reference documentation](https://review.docs.microsoft.com/en-us/azure/project-spool/automatingreferencedocs?branch=pr-en-us-104477). 
+  - Fetched / built latest Spool samples per Scott Le
 
+- **Planned**
+  - Work on our first canonical scenario targeted at our canonical early adopter
 
 
 #### 2/27: 
