@@ -18,20 +18,20 @@ ms.author: alsin
 ---
 
 # Overview of Red Hat Enterprise Linux images
-This article describes available Red Hat Enterprise Linux (RHEL) images in the Azure Marketplace along with policies around their naming and retention.
+This article describes available Red Hat Enterprise Linux (RHEL) images in the Azure Marketplace and policies around their naming and retention.
 
-Information on Red Hat support policies for all versions of RHEL can be found on the [Red Hat Enterprise Linux Life Cycle](https://access.redhat.com/support/policy/updates/errata) page. For pricing details, visit the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
+For information on Red Hat support policies for all versions of RHEL, see [Red Hat Enterprise Linux Life Cycle](https://access.redhat.com/support/policy/updates/errata) page. For pricing details, see the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
 
 >[!IMPORTANT]
-> RHEL images currently available in the Azure marketplace support either Bring-Your-Own-Subscription (BYOS) or Pay-As-You-Go (PAYG) licensing models. The [Azure Hybrid Use Benefit](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing) and dynamic switching between BYOS and PAYG is not supported. Switching licensing mode requires redeploying the VM from the corresponding image.
+> RHEL images currently available in the Azure Marketplace support either bring-your-own-subscription (BYOS) or pay-as-you-go licensing models. The [Azure Hybrid Use Benefit](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing) and dynamic switching between BYOS and pay-as-you-go isn't supported. To switch licensing mode, you must redeploy the VM from the corresponding image.
 
 >[!NOTE]
-> For any issue related to RHEL images in the Azure marketplace please file a support ticket with Microsoft.
+> For any problem related to RHEL images in the Azure Marketplace, file a support ticket with Microsoft.
 
-## Viewing images available in Azure
-When you search for “Red Hat” in the Marketplace or when you create a resource in Azure portal UI, you'll see only a subset of all available RHEL images. You can always obtain the full set of available VM images using the Azure CLI/PowerShell/API.
+## View images available in Azure
+When you search for "Red Hat" in Azure Marketplace or when you create a resource in the Azure portal UI, you'll see only a subset of all available RHEL images. You can always obtain the full set of available VM images by using the Azure CLI/PowerShell/API.
 
-To see the full set of available Red Hat images in Azure, run the following command
+To see the full set of available Red Hat images in Azure, run the following command:
 
 ```azurecli-interactive
 az vm image list --publisher RedHat --all
@@ -42,13 +42,13 @@ VM images in Azure are organized by Publisher, Offer, SKU, and Version. The comb
 
 For example, `RedHat:RHEL:7-LVM:7.6.2018103108` refers to a RHEL 7.6 LVM-partitioned image built on October 31, 2018.
 
-A sample of how to create a RHEL 7.6 VM is shown below.
+A sample of how to create a RHEL 7.6 VM is shown here.
 ```azurecli-interactive
 az vm create --name RhelVM --resource-group TestRG --image RedHat:RHEL:7-LVM:7.6.2018103108 --no-wait
 ```
 
 ### The "latest" moniker
-The Azure REST API allows use of moniker "latest" for version instead of the specific version. Using "latest" will provision the latest available image for the given Publisher, Offer, and SKU.
+The Azure REST API allows use of the moniker "latest" for version instead of the specific version. Using "latest" provisions the latest available image for the given Publisher, Offer, and SKU.
 
 For example, `RedHat:RHEL:7-LVM:latest` refers to the latest RHEL 7 family LVM-partitioned image available.
 
@@ -58,44 +58,44 @@ az vm create --name RhelVM --resource-group TestRG --image RedHat:RHEL:7-LVM:lat
 
 >[!NOTE]
 > In general, the comparison of versions to determine the latest follows the rules of the [CompareTo method](https://msdn.microsoft.com/library/a5ts8tb6.aspx).
-This image version comparison is done by comparing the values as a [Version](https://docs.microsoft.com/dotnet/api/system.version.-ctor?view=netframework-4.8) object - not as a string.
+This image version comparison is done by comparing the values as a [Version](https://docs.microsoft.com/dotnet/api/system.version.-ctor?view=netframework-4.8) object, not as a string.
 
 ## RHEL 6 image types
-For RHEL 6.x images, the image types are as follows:
+For RHEL 6.x images, the image types are shown in the following table.
 
 |Publisher | Offer | SKU value | Version | Details
 |----------|-------|-----------|---------|--------
-|RedHat | RHEL | Minor version (e.g. 6.9) | Concatenated values of the RHEL minor version and the date published (e.g. 6.9.2018010506) | All standard RHEL 6.x images follow this convention
-|RedHat | rhel-byos | rhel-raw69 | Concatenated values of the RHEL minor version and the date published (e.g. 6.9.20181023) | This image is a RHEL 6.9 BYOS image.
-|RedHat | RHEL | RHEL-SAP-APPS | Concatenated values of the RHEL minor version and the date published (e.g. 6.8.2017053118) | This is a RHEL 6.8 for SAP Applications image. It is entitled to access SAP Applications repositories as well as base RHEL repositories.
-|RedHat | RHEL | RHEL-SAP-HANA | Concatenated values of the RHEL minor version and the date published (e.g. 6.7.2017053121) | This is a RHEL 6.7 for SAP HANA image. It is entitled to access SAP HANA repositories as well as base RHEL repositories.
+|RedHat | RHEL | Minor version (for example, 6.9) | Concatenated values of the RHEL minor version and the date published (for example, 6.9.2018010506) | All standard RHEL 6.x images follow this convention.
+|RedHat | rhel-byos | rhel-raw69 | Concatenated values of the RHEL minor version and the date published (for example, 6.9.20181023) | This image is a RHEL 6.9 BYOS image.
+|RedHat | RHEL | RHEL-SAP-APPS | Concatenated values of the RHEL minor version and the date published (for example, 6.8.2017053118) | This is a RHEL 6.8 for SAP Applications image. It's entitled to access SAP Applications repositories and base RHEL repositories.
+|RedHat | RHEL | RHEL-SAP-HANA | Concatenated values of the RHEL minor version and the date published (for example, 6.7.2017053121) | This is a RHEL 6.7 for SAP HANA image. It's entitled to access SAP HANA repositories and base RHEL repositories.
 
 ## RHEL 7 image types
 For RHEL 7.x images, there are a few different image types. The following table shows the different sets of images we offer. A full list can be viewed with the Az CLI command `az vm image list --publisher redhat --all`.
 
 >[!NOTE]
-> Unless otherwise indicated, all images are LVM-partitioned and will connect to regular RHEL repositories (i.e. not EUS, not E4S). Going forward, we are moving to publishing only LVM-partitioned images but are open to feedback on this decision. Details on Extended Update Support and Update Services for SAP are available at the [Red Hat Enterprise Linux Life Cycle page](https://access.redhat.com/support/policy/updates/errata).
+> Unless otherwise indicated, all images are LVM-partitioned and will connect to regular RHEL repositories (that is, not EUS, not E4S). Going forward, we're moving to publishing only LVM-partitioned images but are open to feedback on this decision. For more information on Extended Update Support and Update Services for SAP, see the [Red Hat Enterprise Linux Life Cycle](https://access.redhat.com/support/policy/updates/errata) page.
 
 |Publisher | Offer | SKU value | Version | Details
 |----------|-------|------------|---------|--------
-|RedHat | RHEL | Minor version (e.g. 7.6) | Concatenated values of the RHEL minor version and the date published (e.g. 7.6.2019102813) | Images published before April 2019 will be attached to standard RHEL repositories. Images published after April 2019 will be attached to Red Hat's Extended Update Support (EUS) repositories to allow version-locking of a specific minor version. Customers wanting regular repositories should use the images containing 7-LVM or 7-RAW in the SKU value (details below). RHEL 7.7 and later images will be LVM-partitioned. All other images in this category are raw-partitioned.
-|RedHat | RHEL | 7-RAW | Concatenated values of the RHEL minor version and the date published (e.g. 7.6.2019102813) | These images are raw-partitioned (i.e. no logical volumes have been added).
-|RedHat | RHEL | 7-RAW-CI | Concatenated values of the RHEL minor version and the date published (e.g. 7.6.2019072418) | These images are raw-partitioned (i.e. no logical volumes have been added), and will use cloud-init for provisioning.
-|RedHat | RHEL | 7-LVM | Concatenated values of the RHEL minor version and the date published (e.g. 7.6.2019062414) | These images are LVM-partitioned.
-|RedHat | rhel-byos | rhel-{lvm,raw} | Concatenated values of the RHEL minor version and the date published (e.g. 7.7.20190819) | These images are the RHEL 7 BYOS images. THey are not attached to any repositories and will not charge the RHEL premium fee. If you are interested in the RHEL BYOS images, [request access](https://aka.ms/rhel-byos). SKU values end with the minor version and denote whether the image is raw or LVM-partitioned. For example, a SKU value of rhel-lvm77 indicates an LVM-partitioned RHEL 7.7 image.
-|RedHat | RHEL | RHEL-SAP | Concatenated values of the RHEL minor version and the date published (e.g. 7.6.2019071300) | These images are RHEL for SAP images. They are entitled to access the SAP HANA and Applications repositories as well as RHEL E4S repositories. Billing includes the RHEL premium and the SAP premium on top of the base compute fee.
-|RedHat | RHEL | RHEL-SAP-HA | Concatenated values of the RHEL minor version and the date published (e.g. 7.6.2019062320) | These images are RHEL for SAP with High Availability and Update Services images. They are entitled to access the SAP HANA and Applications repositories and the High Availability repositories as well as RHEL E4S repositories. Billing includes the RHEL premium, SAP premium, and HA premium on top of the base compute fee.
-|RedHat | RHEL | RHEL-HA | Concatenated values of the RHEL minor version and the date published (e.g. 7.6.2019062019) | These are RHEL images that are also entitled to access the High Availability add-on. They will charge slightly extra on top of the RHEL and base compute fee due to the HA add-on premium.
-|RedHat | RHEL | RHEL-SAP-APPS | Concatenated values of the RHEL minor version and the date published (e.g. 7.3.2017053118) | These images are out of date as the SAP Applications and SAP HANA repositories have been combined into the SAP repositories. These are RHEL for SAP Applications images. They are entitled to access SAP Applications repositories as well as base RHEL repositories.
-|RedHat | RHEL | RHEL-SAP-HANA | Concatenated values of the RHEL minor version and the date published (e.g. 7.3.2018051421) | These images are out of date as the SAP Applications and SAP HANA repositories have been combined into the SAP repositories. These are RHEL for SAP HANA images. They are entitled to access SAP HANA repositories as well as base RHEL repositories.
+|RedHat | RHEL | Minor version (for example, 7.6) | Concatenated values of the RHEL minor version and the date published (for example, 7.6.2019102813) | Images published before April 2019 will be attached to standard RHEL repositories. Images published after April 2019 will be attached to Red Hat's Extended Update Support (EUS) repositories to allow version-locking of a specific minor version. Customers wanting regular repositories should use the images containing 7-LVM or 7-RAW in the SKU value (details below). RHEL 7.7 and later images will be LVM-partitioned. All other images in this category are raw-partitioned.
+|RedHat | RHEL | 7-RAW | Concatenated values of the RHEL minor version and the date published (for example, 7.6.2019102813) | These images are raw-partitioned (i.e. no logical volumes have been added).
+|RedHat | RHEL | 7-RAW-CI | Concatenated values of the RHEL minor version and the date published (for example, 7.6.2019072418) | These images are raw-partitioned (i.e. no logical volumes have been added), and will use cloud-init for provisioning.
+|RedHat | RHEL | 7-LVM | Concatenated values of the RHEL minor version and the date published (for example, 7.6.2019062414) | These images are LVM-partitioned.
+|RedHat | rhel-byos | rhel-{lvm,raw} | Concatenated values of the RHEL minor version and the date published (for example, 7.7.20190819) | These images are the RHEL 7 BYOS images. THey are not attached to any repositories and will not charge the RHEL premium fee. If you are interested in the RHEL BYOS images, [request access](https://aka.ms/rhel-byos). SKU values end with the minor version and denote whether the image is raw or LVM-partitioned. For example, a SKU value of rhel-lvm77 indicates an LVM-partitioned RHEL 7.7 image.
+|RedHat | RHEL | RHEL-SAP | Concatenated values of the RHEL minor version and the date published (for example, 7.6.2019071300) | These images are RHEL for SAP images. They are entitled to access the SAP HANA and Applications repositories as well as RHEL E4S repositories. Billing includes the RHEL premium and the SAP premium on top of the base compute fee.
+|RedHat | RHEL | RHEL-SAP-HA | Concatenated values of the RHEL minor version and the date published (for example, 7.6.2019062320) | These images are RHEL for SAP with High Availability and Update Services images. They are entitled to access the SAP HANA and Applications repositories and the High Availability repositories as well as RHEL E4S repositories. Billing includes the RHEL premium, SAP premium, and HA premium on top of the base compute fee.
+|RedHat | RHEL | RHEL-HA | Concatenated values of the RHEL minor version and the date published (for example, 7.6.2019062019) | These are RHEL images that are also entitled to access the High Availability add-on. They will charge slightly extra on top of the RHEL and base compute fee due to the HA add-on premium.
+|RedHat | RHEL | RHEL-SAP-APPS | Concatenated values of the RHEL minor version and the date published (for example, 7.3.2017053118) | These images are out of date as the SAP Applications and SAP HANA repositories have been combined into the SAP repositories. These are RHEL for SAP Applications images. They are entitled to access SAP Applications repositories as well as base RHEL repositories.
+|RedHat | RHEL | RHEL-SAP-HANA | Concatenated values of the RHEL minor version and the date published (for example, 7.3.2018051421) | These images are out of date as the SAP Applications and SAP HANA repositories have been combined into the SAP repositories. These are RHEL for SAP HANA images. They are entitled to access SAP HANA repositories as well as base RHEL repositories.
 
 ## RHEL 8 image types
 Details for RHEL 8 image types are below.
 
 |Publisher | Offer | SKU value | Version | Details
 |----------|-------|------------|---------|--------
-|RedHat | RHEL | 8 | Concatenated values of the RHEL minor version and the date published (e.g. 8.0.20191023) | These images are RHEL 8.0 LVM-partitioned images connected to standard Red Hat repositories.
-|RedHat | RHEL | 8-gen2 | Concatenated values of the RHEL minor version and the date published (e.g. 8.0.20191024) | These images are Hyper-V Generation 2 RHEL 8.0 LVM-partitioned images connected to standard Red Hat repositories. More information about Generation 2 VMs in Azure is available [here](https://docs.microsoft.com/azure/virtual-machines/linux/generation-2).
+|RedHat | RHEL | 8 | Concatenated values of the RHEL minor version and the date published (for example, 8.0.20191023) | These images are RHEL 8.0 LVM-partitioned images connected to standard Red Hat repositories.
+|RedHat | RHEL | 8-gen2 | Concatenated values of the RHEL minor version and the date published (for example, 8.0.20191024) | These images are Hyper-V Generation 2 RHEL 8.0 LVM-partitioned images connected to standard Red Hat repositories. More information about Generation 2 VMs in Azure is available [here](https://docs.microsoft.com/azure/virtual-machines/linux/generation-2).
 
 ## RHEL Longer Support Add-Ons
 
