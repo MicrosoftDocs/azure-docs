@@ -318,8 +318,9 @@ Content-type: application/json
 For Application Insights CMK configuration, follow the Appendix content for this step.
 
 You need to have ‘write’ permissions on both your workspace and *Cluster* resource to perform this operation, which include these actions:
-In workspace: Microsoft.OperationalInsights/workspaces/write
-In *Cluster* resource: Microsoft.OperationalInsights/clusters/write
+
+- In workspace: Microsoft.OperationalInsights/workspaces/write
+- In *Cluster* resource: Microsoft.OperationalInsights/clusters/write
 
 ```rst
 PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>/linkedservices/cluster?api-version=2019-08-01-preview 
@@ -606,8 +607,9 @@ Identity is assigned to the *Cluster* resource at creation time.
 ### Associate a component to a *Cluster* resource using [Components - Create Or Update](https://docs.microsoft.com/rest/api/application-insights/components/createorupdate) API
 
 You need to have ‘write’ permissions on both your component and *Cluster* resource to perform this operation, which include these actions:
-In component: Microsoft.Insights/component/write
-In *Cluster* resource: Microsoft.OperationalInsights/clusters/write
+
+- In component: Microsoft.Insights/component/write
+- In *Cluster* resource: Microsoft.OperationalInsights/clusters/write
 
 ```rst
 PUT https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Insights/components/<component-name>?api-version=2015-05-01
