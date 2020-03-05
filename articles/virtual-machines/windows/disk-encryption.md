@@ -3,7 +3,7 @@ title: Server-side encryption of Azure Managed Disks - PowerShell
 description: Azure Storage protects your data by encrypting it at rest before persisting it to Storage clusters. You can rely on Microsoft-managed keys for the encryption of your managed disks, or you can use customer-managed keys to manage encryption with your own keys.
 author: roygara
 
-ms.date: 01/10/2020
+ms.date: 03/05/2020
 ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines-windows
@@ -54,13 +54,19 @@ To revoke access to customer-managed keys, see [Azure Key Vault PowerShell](http
 
 Only the following regions are currently supported:
 
-- Available as a GA offering in the East US, West US 2, South Central US, UK South regions.
-- Available as a public preview in the West Central US, East US 2, Canada Central, and North Europe regions.
+- East US
+- East US 2
+- West US 2
+- South Central US
+- Canada Central
+- UK South
+- North Europe
 
 ### Restrictions
 
 For now, customer-managed keys have the following restrictions:
 
+- Ultra disks are in preview, all other disk types are in GA.
 - Only ["soft" and "hard" RSA keys](../../key-vault/about-keys-secrets-and-certificates.md#keys-and-key-types) of size 2080 are supported, no other keys or sizes.
 - Disks created from custom images that are encrypted using server-side encryption and customer-managed keys must be encrypted using the same customer-managed keys and must be in the same subscription.
 - Snapshots created from disks that are encrypted with server-side encryption and customer-managed keys must be encrypted with the same customer-managed keys.
@@ -92,7 +98,7 @@ For now, customer-managed keys have the following restrictions:
     $key = Add-AzKeyVaultKey -VaultName $keyVaultName -Name $keyName -Destination $keyDestination  
     ```
 
-1.	Create an instance of a DiskEncryptionSet. 
+1.    Create an instance of a DiskEncryptionSet. 
     
     ```powershell
     $desConfig=New-AzDiskEncryptionSetConfig -Location $LocationName -SourceVaultId $keyVault.ResourceId -KeyUrl $key.Key.Kid -IdentityType SystemAssigned
@@ -100,7 +106,7 @@ For now, customer-managed keys have the following restrictions:
     $des=New-AzDiskEncryptionSet -Name $diskEncryptionSetName -ResourceGroupName $ResourceGroupName -InputObject $desConfig 
     ```
 
-1.	Grant the DiskEncryptionSet resource access to the key vault.
+1.    Grant the DiskEncryptionSet resource access to the key vault.
 
     > [!NOTE]
     > It may take few minutes for Azure to create the identity of your DiskEncryptionSet in your Azure Active Directory. If you get an error like "Cannot find the Active Directory object" when running the following command, wait a few minutes and try again.
