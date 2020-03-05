@@ -135,7 +135,7 @@ The following instructions were created on Ubuntu 18.0.4. Ubuntu 16.0.10 does no
    ```
    sudo apt install network-manager-strongswan
    ```
-2. Select **Settings, then select **Network**.
+2. Select **Settings**, then select **Network**.
 
    ![edit connections](./media/point-to-site-vpn-client-configuration-azure-cert/editconnections.png)
 3. Click the **+** button to create a new connection.
