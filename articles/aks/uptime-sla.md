@@ -11,7 +11,7 @@ ms.date: 03/05/2020
 When used with Availability Zones, this offering allows you to achieve 99.95% availability for the AKS cluster API server. If you do not use Availability Zones, you can achieve 99.9% availability. AKS uses master node replicas across update and fault domains to ensure SLA requirements are met.
 
 > [!Important]
-> The SLA Agreement is for the API server endpoint availability, and is not related to AKS API server availability or it's performance.
+> The SLA Agreement is for the API server endpoint availability, and is not related to AKS control plane availability or it's performance.
 
 ## Region Availability
 
