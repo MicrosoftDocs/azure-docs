@@ -28,7 +28,7 @@ Paid SKU SLA is available in the following regions:
 
 * The Azure CLI version TODO or later.
 
-## Non Paid SKU vs. Paid SKU SLA
+## AKS service-level-agreement
 
 In a service-level agreement (SLA), the provider agrees to reimburse the customer for the cost of the service if the published service level isn't met. Since AKS is free, no cost is available to reimburse for clusters not using Paid SKU SLA, so AKS has no formal SLA. However, AKS seeks to maintain availability of at least 99.5 percent for the Kubernetes API server.
 
