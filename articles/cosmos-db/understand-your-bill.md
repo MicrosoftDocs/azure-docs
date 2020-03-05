@@ -218,17 +218,13 @@ The 400 RU/s applies to any type of RU/s - provisioned throughput, autopilot (pr
 - The monthly cost for RU/s would be: 32 units * $0.008 * 24 hours * 31 days = $190.46. The monthly cost for storage would be: 25 GB * 0.25 / GB = $6.25. The total cost would be $190.46 + $6.25 = $196.71.
 - Note: if the unit price for RU/s or storage differs in the regions, the free tier 400 RU/s and 5 GB will reflect the rates of the account the region was created in.
 
-### Billing example - multi-region, multi-master (multiple write region) account with multi-master promotion
-- Let's suppose in a free tier account, we create a database or container with 1200 RU/s and 10 GB of storage. We replicate the account to 3 regions, and we have a multi-master (multiple write-region) account. 
-- In total, without free tier, and with the multi-master promotion, we would be billed for 3 * 1200 RU/s = 3600 RU/s and 3 * 10 GB = 30 GB of storage.
+### Billing example - multi-region, multi-master (multiple write region) account
+
+This example reflects [multi-master pricing](https://azure.microsoft.com/pricing/details/cosmos-db/) for accounts created after December 1, 2019. 
+- Let's suppose in a free tier account, we create a database or container with 1200 RU/s and 10 GB of storage. We replicate the account to 3 regions, and we have a multi-master (multiple write region) account. 
+- In total, without free tier, we would be billed for 3 * 1200 RU/s = 3600 RU/s and 3 * 10 GB = 30 GB of storage.
 - With the free tier discount, after removing 400 RU/s and 5 GB of storage, we will be billed for an effective 3200 RU/s (32 units) of provisioned throughput at the multiple write region rate and 25 GB of storage.
 - The monthly cost for RU/s would be: 32 units * $0.016 * 24 hours * 31 days = $380.93. The monthly cost for storage would be: 25 GB * 0.25 / GB = $6.25. The total cost would be $380.93 + $6.25 = $387.18.
-
-### Billing example - multi-region, multi-master (multiple write region) account without multi-master promotion
-- Let's suppose in a free tier account, we create a database or container with 1200 RU/s and 10 GB of storage. We replicate the account to 3 regions, and we have a multi-master (multiple write-region) account. 
-- In total, without free tier, and without the multi-master promotion, we would be billed for (3 + 1) * 1200 RU/s = 4800 RU/s and 3 * 10 GB = 30 GB of storage.
-- With the free tier discount, after removing 400 RU/s and 5 GB of storage, we will be billed for an effective 4400 RU/s (44 units) of provisioned throughput at the multiple write region rate and 25 GB of storage.
-- The monthly cost for RU/s would be: 44 units * $0.016 * 24 hours * 31 days = $523.78. The monthly cost for storage would be: 25 GB * 0.25 / GB = $6.25. The total cost would be $285.70 + $6.25 = $530.03.
 
 ## Proactively estimating your monthly bill  
 
