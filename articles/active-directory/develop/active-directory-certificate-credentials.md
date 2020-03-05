@@ -64,7 +64,7 @@ The signature is computed applying the certificate as described in the [JSON Web
   "exp": 1484593341,
   "iss": "97e0a5b7-d745-40b6-94fe-5f77d35c6e05",
   "jti": "22b3bb26-e046-42df-9c96-65dbd72c1c81",
-  "nbf": 1484592741,  
+  "nbf": 1484592741,
   "sub": "97e0a5b7-d745-40b6-94fe-5f77d35c6e05"
 }
 .
@@ -91,10 +91,10 @@ You can associate the certificate credential with the client application in Micr
 ### Uploading the certificate file
 
 In the Azure app registration for the client application:
-1. Select **Certificates & secrets**. 
+1. Select **Certificates & secrets**.
 2. Click on **Upload certificate** and select the certificate file to upload.
 3. Click **Add**.
-  Once the certificate is uploaded, the thumbprint, start date, and expiration values are displayed. 
+  Once the certificate is uploaded, the thumbprint, start date, and expiration values are displayed.
 
 ### Updating the application manifest
 
@@ -120,13 +120,13 @@ In the Azure app registration for the client application:
        }
    ]
    ```
-3. Save the edits to the application manifest and then upload the manifest to Microsoft identity platform. 
+3. Save the edits to the application manifest and then upload the manifest to Microsoft identity platform.
 
    The `keyCredentials` property is multi-valued, so you may upload multiple certificates for richer key management.
-   
+
 ## Code sample
 
 > [!NOTE]
-> You must calculate the X5T header by converting it to a base 64 string using the certificate's hash. The code to perform this in C# is : `System.Convert.ToBase64String(cert.GetCertHash());`
+> You must calculate the X5T header by converting it to a base 64 string using the certificate's hash. The code to perform this in C# is `System.Convert.ToBase64String(cert.GetCertHash());`.
 
-The code sample on [Authenticating to Microsoft identity platform in daemon apps with certificates](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential) shows how an application uses its own credentials for authentication. It also shows how you can [create a self-signed certificate](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential#create-a-self-signed-certificate) using the `New-SelfSignedCertificate` Powershell command. You can also take advantage and use the [app creation scripts](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential/blob/master/AppCreationScripts/AppCreationScripts.md) to create the certificates, compute the thumbprint, and so on.
+The code sample [.NET Core daemon console application using Microsoft identity platform](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) shows how an application uses its own credentials for authentication. It also shows how you can [create a self-signed certificate](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/tree/master/1-Call-MSGraph#optional-use-the-automation-script) using the `New-SelfSignedCertificate` Powershell command. You can also take advantage and use the [app creation scripts](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/master/1-Call-MSGraph/AppCreationScripts-withCert/AppCreationScripts.md) to create the certificates, compute the thumbprint, and so on.
