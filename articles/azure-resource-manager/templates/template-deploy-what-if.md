@@ -3,7 +3,7 @@ title: Template deployment what-if (Preview)
 description: Determine what changes will happen to your resources before deploying an Azure Resource Manager template.
 author: mumian
 ms.topic: conceptual
-ms.date: 03/04/2020
+ms.date: 03/05/2020
 ms.author: jgao
 ---
 # Resource Manager template deployment what-if operation (Preview)
@@ -15,7 +15,11 @@ Before deploying a template, you might want to preview the changes that will hap
 
 You can use the what-if operation with the PowerShell commands or REST API operations.
 
-In PowerShell, the output looks like:
+In PowerShell, the output includes color-coded results that help you see the different types of changes.
+
+![Resource Manager template deployment what-if operation fullresourcepayload and change types](./media/template-deploy-what-if/resource-manager-deployment-whatif-change-types.png)
+
+The text ouptput is:
 
 ```powershell
 Resource and property changes are indicated with these symbols:
@@ -25,7 +29,7 @@ Resource and property changes are indicated with these symbols:
 
 The deployment will update the following scope:
 
-Scope: /subscriptions/3a4176e0-58d3-4bb8-8cc2-9b8776777f27/resourceGroups/ExampleGroup
+Scope: /subscriptions/./resourceGroups/ExampleGroup
 
   ~ Microsoft.Network/virtualNetworks/vnet-001 [2018-10-01]
     - tags.Owner: "Team A"
@@ -43,10 +47,6 @@ Scope: /subscriptions/3a4176e0-58d3-4bb8-8cc2-9b8776777f27/resourceGroups/Exampl
 
 Resource changes: 1 to modify.
 ```
-
-The following image shows the color-coded results that are returned in PowerShell to help you see the different types of changes.
-
-![Resource Manager template deployment what-if operation fullresourcepayload and change types](./media/template-deploy-what-if/resource-manager-deployment-whatif-change-types.png)
 
 ## What-if commands
 
@@ -113,7 +113,7 @@ The following results show the two different output formats:
 
   The deployment will update the following scope:
 
-  Scope: /subscriptions/3a4176e0-58d3-4bb8-8cc2-9b8776777f27/resourceGroups/ExampleGroup
+  Scope: /subscriptions/./resourceGroups/ExampleGroup
 
     ~ Microsoft.Network/virtualNetworks/vnet-001 [2018-10-01]
       - tags.Owner: "Team A"
@@ -140,7 +140,7 @@ The following results show the two different output formats:
 
   The deployment will update the following scope:
 
-  Scope: /subscriptions/3a4176e0-58d3-4bb8-8cc2-9b8776777f27/resourceGroups/ExampleGroup
+  Scope: /subscriptions/./resourceGroups/ExampleGroup
 
     ! Microsoft.Network/virtualNetworks/vnet-001
 
@@ -164,7 +164,7 @@ New-AzResourceGroupDeployment `
 
 ### Test modification
 
-After the deployment completes, you're ready to test the what-if operation. This time deploy a template for the same virtual network but it has a few changes. It is missing one the original tags, a subnet has been removed, and the address prefix has changed.
+After the deployment completes, you're ready to test the what-if operation. This time deploy a [template that changes the virtual network](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/what-if/what-if-after.json). It is missing one the original tags, a subnet has been removed, and the address prefix has changed.
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
@@ -187,7 +187,7 @@ Resource and property changes are indicated with these symbols:
 
 The deployment will update the following scope:
 
-Scope: /subscriptions/3a4176e0-58d3-4bb8-8cc2-9b8776777f27/resourceGroups/ExampleGroup
+Scope: /subscriptions/./resourceGroups/ExampleGroup
 
   ~ Microsoft.Network/virtualNetworks/vnet-001 [2018-10-01]
     - tags.Owner: "Team A"
@@ -231,11 +231,11 @@ foreach ($change in $results.Changes)
 }
 ```
 
-### Test deletion
+## Confirm deletion
 
 The what-if operation supports using [deployment mode](deployment-modes.md). When set to complete mode, resources not in the template are deleted. The following example deploys a [template that has no resources defined](https://github.com/Azure/azure-docs-json-samples/blob/master/empty-template/azuredeploy.json) in complete mode.
 
-For this example, you'll use the confirm parameter to verify that you want to continue with the deployment.
+To preview changes before deploying a template, use the `-Confirm` switch parameter with the deployment command. If the changes are as you expected, confirm that you want the deployment to complete.
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
@@ -245,7 +245,7 @@ New-AzResourceGroupDeployment `
   -Mode Complete
 ```
 
-Because no resources are defined in the template and the deployment mode is set to complete, the storage account will be deleted.
+Because no resources are defined in the template and the deployment mode is set to complete, the virtual network will be deleted.
 
 ![Resource Manager template deployment what-if operation output deployment mode complete](./media/template-deploy-what-if/resource-manager-deployment-whatif-output-mode-complete.png)
 
@@ -257,12 +257,12 @@ Resource and property changes are indicated with this symbol:
 
 The deployment will update the following scope:
 
-Scope: /subscriptions/3a4176e0-58d3-4bb8-8cc2-9b8776777f27/resourceGroups/ExampleGroup
+Scope: /subscriptions/./resourceGroups/ExampleGroup
 
   - Microsoft.Network/virtualNetworks/vnet-001
 
       id:
-"/subscriptions/3a4176e0-58d3-4bb8-8cc2-9b8776777f27/resourceGroups/ExampleGroup/providers/Microsoft.Network/virtualNet
+"/subscriptions/./resourceGroups/ExampleGroup/providers/Microsoft.Network/virtualNet
 works/vnet-001"
       location:        "centralus"
       name:            "vnet-001"
@@ -276,51 +276,10 @@ Are you sure you want to execute the deployment?
 [Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "Y"):
 ```
 
-## Confirm before deployment
-
-To preview changes before deploying a template, use the `-Confirm` switch parameter with the deployment command. If the changes are as you expected, confirm that you want the deployment to complete. The following command allows you to preview changes before the template is deployed.
-
-```azurepowershell
-New-AzResourceGroupDeployment `
-  -ResourceGroupName ExampleGroup `
-  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/empty-template/azuredeploy.json" `
-  -Mode Complete `
-  -Confirm
-```
-
 You see the expected changes and can confirm that you want the deployment to run.
-
-```powershell
-Resource and property changes are indicated with this symbol:
-  - Delete
-
-The deployment will update the following scope:
-
-Scope: /subscriptions/./resourceGroups/ExampleGroup
-
-  - Microsoft.Storage/storageAccounts/storez2wlfuvcm4awc
-
-      id:
-"/subscriptions/./resourceGroups/ExampleGroup/providers/Microsoft.Storage/storageAcc
-ounts/storez2wlfuvcm4awc"
-      kind:     "StorageV2"
-      location: "centralus"
-      name:     "storez2wlfuvcm4awc"
-      sku.name: "Standard_LRS"
-      sku.tier: "Standard"
-      type:     "Microsoft.Storage/storageAccounts"
-
-Resource changes: 1 to delete.
-
-Are you sure you want to execute the deployment?
-[Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "Y"):
-```
-
-
 
 ## Next steps
 
 - If you notice incorrect results from the preview release of what-if, please report the issues at [https://aka.ms/whatifissues](https://aka.ms/whatifissues).
 - To deploy templates with Azure PowerShell, see [Deploy resources with Resource Manager templates and Azure PowerShell](deploy-powershell.md).
 - To deploy templates with REST, see [Deploy resources with Resource Manager templates and Resource Manager REST API](deploy-rest.md).
-- To roll back to a successful deployment when you get an error, see [Rollback on error to successful deployment](rollback-on-error.md).
