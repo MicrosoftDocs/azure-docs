@@ -96,8 +96,8 @@ You can indicate interest in additional capabilities through [Virtual Network NA
 
 ## Next steps
 
-- Learn about [Virtual Network NAT](nat-overview.md)
-- Learn about [NAT gateway resource](nat-gateway-resource.md)
-- Learn about [metrics and alerts for NAT gateway resources](nat-metrics.md).
-- [Tell us what to build next in UserVoice](https://aka.ms/natuservoice).
+* Learn about [Virtual Network NAT](nat-overview.md)
+* Learn about [NAT gateway resource](nat-gateway-resource.md)
+* Learn about [metrics and alerts for NAT gateway resources](nat-metrics.md).
+* [Tell us what to build next for Virtual Network NAT in UserVoice](https://aka.ms/natuservoice).
 
