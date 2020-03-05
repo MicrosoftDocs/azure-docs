@@ -1,5 +1,5 @@
 ---
-title: Source Map Support for JavaScript Applications
+title: Source map support for JavaScript applications
 description: 
 ms.topic: conceptual
 author: markwolff
@@ -8,7 +8,7 @@ ms.date: 03/04/2020
 
 ---
 
-# Source Map Support for JavaScript Applications
+# Source map support for JavaScript applications
 
 Application Insights supports the uploading of source maps to your own Storage Account Blob Container.
 Source maps can be used to unminify call stacks found on the End to End Transaction Details page. Any exception sent by the [JavaScript SDK][ApplicationInsights-JS] or the [Node.js SDK][ApplicationInsights-Node.js] can be unminified with source maps.

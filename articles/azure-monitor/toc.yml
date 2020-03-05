@@ -272,7 +272,7 @@
     - name: Application Map
       displayname: appmap, app map, dependency map, dependencies, hotspots, cloud role name, cloudrolename, cloud_rolename, cloud.rolename, cloud role instance, node
       href: app/app-map.md
-    - name: Source Map for JavaScript
+    - name: Source map for JavaScript
       href: app/source-map-support.md
     - name: Transaction diagnostics
       href: app/transaction-diagnostics.md
