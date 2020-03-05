@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: tutorial
-ms.date: 03/05/2020
+ms.date: 03/05/2019
 ms.author: aahi
 ---
 
@@ -30,10 +30,8 @@ The tasks covered are:
 
 ## Prerequisites
 
-- [Visual Studio 2017 or later](https://www.visualstudio.com/downloads/).
-- To follow along with the tutorial, you need a subscription key for the Bing Custom Search API.  
-
-[!INCLUDE [cognitive-services-bing-custom-search-prerequisites](../../../../includes/cognitive-services-bing-custom-search-signup-requirements.md)]
+- To follow along with the tutorial, you need a subscription key for the Bing Custom Search API.  To get a key, [Create a Bing Custom Search resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingCustomSearch) in the Azure portal. you can also use a [trial key](https://azure.microsoft.com/try/cognitive-services).
+- If you don't already have Visual Studio 2017 or later installed, you can download and use the **free** [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/).
 
 ## Create a custom search instance
 
@@ -58,11 +56,11 @@ To create a Bing Custom Search instance:
 
 To include results from specific websites or URLs, add them to the **Active** tab.
 
-1.    On the **Configuration** page, click the **Active** tab and enter the URL of one or more websites you want to include in your search.
+1.       On the **Configuration** page, click the **Active** tab and enter the URL of one or more websites you want to include in your search.
 
     ![Screenshot of the Definition Editor active tab](../media/customSrchEditor.png)
 
-2.    To confirm that your instance returns results, enter a query in the preview pane on the right. Bing returns only results for public websites that it has indexed.
+2.       To confirm that your instance returns results, enter a query in the preview pane on the right. Bing returns only results for public websites that it has indexed.
 
 ## Add blocked entries
 
