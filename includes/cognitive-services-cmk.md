@@ -17,11 +17,9 @@ You must use Azure Key Vault to store your customer-managed keys. You can either
 
 A new Cognitive Services resource is always encrypted using Microsoft-managed keys. It's not possible to enable customer-managed keys at the time that the resource is created. Customer-managed keys are stored in Azure Key Vault, and the key vault must be provisioned with access policies that grant key permissions to the managed identity that is associated with the Cognitive Services resource. The managed identity is available only after the resource is created using the Pricing Tier for CMK.
 
-To learn how to use customer-managed keys with Azure Key Vault for Cognitive Services encryption, see one of these articles:
+To learn how to use customer-managed keys with Azure Key Vault for Cognitive Services encryption, see:
 
 - [Configure customer-managed keys with Key Vault for Cognitive Services encryption from the Azure portal](..\articles\cognitive-services\Encryption\cognitive-services-encryption-keys-portal.md)
-- [Configure customer-managed keys with Key Vault for Cognitive Services encryption from PowerShell](..\articles\cognitive-services\Encryption\cognitive-services-encryption-keys-powershell.md)
-- [Configure customer-managed keys with Key Vault for Cognitive Services encryption from Azure CLI](..\articles\cognitive-services\Encryption\cognitive-services-encryption-keys-cli.md)
 
 Enabling customer managed keys will also enable a system assigned managed identity, a feature of Azure AD. Once the system assigned managed identity is enabled, this resource will be registered with Azure Active Directory. After being registered, the managed identity will be given access to the Key Vault selected during customer managed key setup. You can learn more about [Managed Identities](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
 
