@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/13/2020
+ms.date: 03/05/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -24,8 +24,8 @@ Azure Active Directory B2C (Azure AD B2C) provides support for the Azure Active 
 
 The **Name** attribute of the **Protocol** element needs to be set to `Proprietary`. The **handler** attribute must contain the fully qualified name of the protocol handler assembly `Web.TPEngine.Providers.AzureActiveDirectoryProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`.
 
-All Azure AD technical profiles include the **AAD-Common** technical profile. The following technical profiles don't specify the protocol because the protocol is configured in the **AAD-Common** technical profile:
-
+Following [custom policy starter pack](custom-policy-get-started.md#custom-policy-starter-pack) Azure AD technical profiles include the **AAD-Common** technical profile. The Azure AD technical profiles don't specify the protocol because the protocol is configured in the **AAD-Common** technical profile:
+ 
 - **AAD-UserReadUsingAlternativeSecurityId** and **AAD-UserReadUsingAlternativeSecurityId-NoError** - Look up a social account in the directory.
 - **AAD-UserWriteUsingAlternativeSecurityId** - Create a new social account.
 - **AAD-UserReadUsingEmailAddress** - Look up a local account in the directory.
