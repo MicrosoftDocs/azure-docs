@@ -28,7 +28,7 @@ Uptime SLA is available in the following regions:
 
 * The Azure CLI version TODO or later.
 
-## AKS service-level-agreement
+## AKS clusters with no Uptime SLA
 
 In a service-level agreement (SLA), the provider agrees to reimburse the customer for the cost of the service if the published service level isn't met. Since AKS is free, no cost is available to reimburse for clusters not using Uptime SLA, so AKS has no formal SLA. However, AKS seeks to maintain availability of at least 99.5 percent for the Kubernetes API server.
 
