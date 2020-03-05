@@ -43,6 +43,8 @@ For basic specs, storage capacities, and disk details, see [GPU Windows VM sizes
 
 4. Download and install the latest driver.
 
+5. Reboot the VM.
+
 ## Verify driver installation
 
 You can verify driver installation in Device Manager. The following example shows successful configuration of the Radeon Instinct MI25 card on an Azure NVv4 VM.

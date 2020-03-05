@@ -120,8 +120,8 @@ If the connection to Azure failed, you can attempt to troubleshoot the problem b
 4. For Video Indexer to authenticate with Media Services API, an AD application needs to be created. The following steps guide you through the Azure AD authentication process described in [Get started with Azure AD authentication by using the Azure portal](../previous/media-services-portal-get-started-with-aad.md):
 
     1. In the new Media Services account, select **API access**.
-    2. Select [Service principal authentication method](../previous/media-services-portal-get-started-with-aad.md#service-principal-authentication).
-    3. Get the client ID and client secret, as described in the [Get the client ID and client secret](../previous/media-services-portal-get-started-with-aad.md#get-the-client-id-and-client-secret) section.
+    2. Select [Service principal authentication method](../previous/media-services-portal-get-started-with-aad.md).
+    3. Get the client ID and client secret
 
         After you select **Settings**->**Keys**, add **Description**, press **Save**, the key value gets populated.
 

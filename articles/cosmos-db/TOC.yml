@@ -12,8 +12,8 @@
       items:
       - name: Azure portal
         href: create-cosmosdb-resources-portal.md
-      - name: Azure Resource Manager template
-        displayName: ARM
+      - name: ARM template
+        displayName: Resource Manager
         href: quick-create-template.md
       - name: .NET app - V4 SDK
         href: create-sql-api-dotnet-v4.md
@@ -136,7 +136,7 @@
         href: provision-throughput-autopilot.md
       - name: Autopilot FAQ
         href: autopilot-faq.md
-    - name: SQL query reference
+    - name: SQL query
       items:
       - name: Getting started
         displayName: sql query, query basics
@@ -437,6 +437,9 @@
         - name: Index geospatial data
           displayName: geospatial, spatial, index
           href: sql-query-geospatial-index.md
+      - name: DateTime
+        displayName: datetime, date, time
+        href: working-with-dates.md
       - name: Parameterized query
         displayName: parameterized query, parameterized, parameter, parameters
         href: sql-query-parameterized-queries.md
@@ -464,10 +467,6 @@
         - name: Indexing policies
           displayName: consistent, none
           href: index-policy.md
-      - name: Data types
-        items:
-        - name: DateTime
-          href: working-with-dates.md
       - name: Time to live
         displayName: delete, delete data, ttl
         href: time-to-live.md
@@ -541,7 +540,10 @@
         - name: IP firewall
           href: firewall-support.md
         - name: Access from virtual networks
+          displayName: service endpoint
           href: vnet-service-endpoint.md
+        - name: Service tags
+          href: ../virtual-network/service-tags-overview.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Role-based access control
           displayName: rbac
           href: role-based-access-control.md
@@ -984,6 +986,7 @@
       - name: Configure IP firewall
         href: how-to-configure-firewall.md
       - name: Configure access from virtual networks
+        displayName: service endpoints
         href: how-to-configure-vnet-service-endpoint.md
       - name: Configure access from private endpoints
         href: how-to-configure-private-endpoints.md
