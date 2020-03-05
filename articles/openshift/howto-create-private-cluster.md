@@ -1,8 +1,8 @@
 ---
 title: Create a private cluster with Azure Red Hat OpenShift 3.11 | Microsoft Docs
 description: Create a private cluster with Azure Red Hat OpenShift 3.11
-author: suvetriv 
-ms.author: suvetriv, klamenzo@redhat.com
+author: sakthi-vetrivel
+ms.author: suvetriv
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 03/02/2020
