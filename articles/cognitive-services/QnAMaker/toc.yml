@@ -74,13 +74,8 @@
       href: Quickstarts/create-publish-knowledge-base.md
     - name: Language selection
       href: How-To/language-knowledge-base.md
-    - name: Edit knowledge base
-      href: How-To/edit-knowledge-base.md
     - name: Add chit-chat
       href: How-to/chit-chat-knowledge-base.md
-    - name: Add follow-up prompts
-      href: How-To/multiturn-conversation.md
-      displayName: multi-turn dialogs, parent question, child question, filtering, metadata, state, context, prompt, follow-up, followup, flow, conversation, previous question
     - name: Migrate to new knowledge base
       href: Tutorials/migrate-knowledge-base.md
       displayName: metadata, pair
@@ -88,6 +83,13 @@
       href: How-To/collaborate-knowledge-base.md
     - name: Test
       href: How-To/test-knowledge-base.md
+  - name: Manage QnA sets
+    items:
+    - name: Edit knowledge base
+      href: How-To/edit-knowledge-base.md
+    - name: Add follow-up prompts
+      href: How-To/multiturn-conversation.md
+      displayName: multi-turn dialogs, parent question, child question, filtering, metadata, state, context, prompt, follow-up, followup, flow, conversation, previous question
     - name: Get suggested alternate questions
       href: How-to/improve-knowledge-base.md
       displayName: active learning, suggestion, dialog prompt, train api, feedback loop, autolearn, auto-learn, user setting, service setting, services setting, accept, reject, filter by suggestion, filter active learning, clusterHead, totalAutoSuggestedCount, totalUserSuggestedCount, autoSuggestedCount, userSuggestedCount
