@@ -222,6 +222,6 @@ If you have questions, or if there is any feature that you would like to see inc
 
 ## Next steps
 
-* Get more details about [backing up Windows machines](backup-configure-vault.md).
+* Get more details about [backing up Windows machines](backup-windows-with-mars-agent.md).
 * Now that you've backed up your Windows Server System State, you can [manage your vaults and servers](backup-azure-manage-windows-server.md).
 * If you need to restore a backup, use this article to [restore files to a Windows machine](backup-azure-restore-windows-server.md).
