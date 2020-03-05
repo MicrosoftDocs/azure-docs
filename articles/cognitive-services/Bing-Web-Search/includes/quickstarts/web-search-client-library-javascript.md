@@ -6,7 +6,7 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 02/24/2020
+ms.date: 03/05/2020
 ms.author: aahi
 ---
 
@@ -20,7 +20,7 @@ Here are a few things that you'll need before running this quickstart:
 * [Node.js 6](https://nodejs.org/en/download/) or later
 * A subscription key  
 
-[!INCLUDE [bing-web-search-quickstart-signup](~/includes/bing-web-search-quickstart-signup.md)]
+[!INCLUDE [bing-web-search-quickstart-signup](../../../../../includes/bing-web-search-quickstart-signup.md)]
 
 
 ## Set up your development environment
