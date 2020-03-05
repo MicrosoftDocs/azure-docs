@@ -5,7 +5,7 @@
  author: roygara
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 02/13/2020
+ ms.date: 02/18/2020
  ms.author: rogarana
  ms.custom: include file
 ---
@@ -50,7 +50,7 @@ Linux clusters can leverage cluster managers such as [Pacemaker](https://wiki.cl
 
 The following diagram illustrates a sample 2-node clustered database application that leverages SCSI PR to enable failover from one node to the other.
 
-![shared-disk-updated-two-node-cluster-diagram.png](media/virtual-machines-disks-shared-disks/shared-disk-updated-two-node-cluster-diagram.png)
+![Two node cluster. An application running on the cluster is handling access to the disk](media/virtual-machines-disks-shared-disks/shared-disk-updated-two-node-cluster-diagram.png)
 
 The flow is as follows:
 
@@ -63,7 +63,7 @@ The flow is as follows:
 
 The following diagram illustrates another common clustered workload consisting of multiple nodes reading data from the disk for running parallel processes, such as training of machine learning models.
 
-![shared-disk-updated-machine-learning-trainer-model.png](media/virtual-machines-disks-shared-disks/shared-disk-updated-machine-learning-trainer-model.png)
+![Four node VM cluster, each node registers intent to write, application takes exclusive reservation to properly handle write results](media/virtual-machines-disks-shared-disks/shared-disk-updated-machine-learning-trainer-model.png)
 
 The flow is as follows:
 

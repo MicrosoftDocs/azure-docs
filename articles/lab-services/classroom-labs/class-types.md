@@ -11,7 +11,7 @@ ms.service: lab-services
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: overview
+ms.topic: article
 ms.date: 09/30/2019
 ms.author: spelluru
 

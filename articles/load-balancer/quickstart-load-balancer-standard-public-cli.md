@@ -52,7 +52,10 @@ To create a zonal Public IP address in zone 1 use:
   az network public-ip create --resource-group myResourceGroupSLB --name myPublicIP --sku standard --zone 1
 ```
 
- Use ```--sku basic``` to create a Basic Public IP. Basic does not support Availability zones. Microsoft recommends Standard SKU for production workloads.
+Use ```-SKU Basic``` to create a Basic Public IP. Basic Public IPs are not compatible with **Standard** load balancer. Microsoft recommends using **Standard** for production workloads.
+
+> [!IMPORTANT]
+> The rest of this quickstart assumes that **Standard** SKU is chosen during the SKU selection process above.
 
 ## Create Azure Load balancer
 
@@ -75,6 +78,9 @@ Create a public Azure Load Balancer with [az network lb create](https://docs.mic
     --frontend-ip-name myFrontEnd \
     --backend-pool-name myBackEndPool       
   ```
+
+> [!IMPORTANT]
+> The rest of this quickstart assumes that **Standard** SKU is chosen during the SKU selection process above.
 
 ### Create the health probe
 

@@ -844,7 +844,3 @@ The following sample shows how to schedule a mid-roll overlay ad.
 
 ## Provide feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
-
-## See Also
-[Develop video player applications](media-services-develop-video-players.md)
-

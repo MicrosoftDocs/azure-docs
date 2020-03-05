@@ -94,7 +94,7 @@ For detailed information about how to create a diagnostic setting by using the A
    | summarize count = count()  by OperationName, requestResourceType_s, bin(TimeGenerated, 1h) 
    ```
 
-1. What is the maximum throughput that a partition provides?
+1. What is the maximum throughput that a partition has consumed?
 
    ```Kusto
    AzureDiagnostics

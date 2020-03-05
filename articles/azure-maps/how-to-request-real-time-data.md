@@ -1,8 +1,8 @@
 ---
 title: Request real-time transit data | Microsoft Azure Maps
 description: Request real-time data using the Microsoft Azure Maps Mobility Service.
-author: Philmea
-ms.author: philmea
+author: farah-alyasari
+ms.author: v-faalya
 ms.date: 09/06/2019
 ms.topic: conceptual
 ms.service: azure-maps

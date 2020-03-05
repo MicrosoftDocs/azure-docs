@@ -160,6 +160,8 @@
     items:
     - name: From the Azure portal
       items:
+      - name: Overview
+        href: azure-file-share-backup-overview.md
       - name: Backup
         href: backup-afs.md
       - name: Restore
@@ -182,6 +184,14 @@
         href: restore-afs-powershell.md
       - name: Manage
         href: manage-afs-powershell.md
+    - name: With REST API
+      items:
+      - name: Backup
+        href: backup-azure-file-share-rest-api.md
+      - name: Restore
+        href: restore-azure-file-share-rest-api.md
+      - name: Manage
+        href: manage-azure-file-share-rest-api.md
   - name: SAP HANA database on Azure VM backup
     items:
     - name: Overview
@@ -273,23 +283,23 @@
     - name: Configure Azure Backup reports
       items:
       - name: Configure Azure Backup reports
-        href: backup-azure-configure-reports.md
-      - name: Data model for Azure Backup reports
-        href: backup-azure-reports-data-model.md
-      - name: Log Analytics data model for Azure Backup
-        href: backup-azure-log-analytics-data-model.md
+        href: configure-reports.md
     - name: Configure Diagnostics Events for Recovery Services Vaults
       items:
       - name: Using Diagnostics Settings for Recovery Services Vaults
         href: backup-azure-diagnostic-events.md
       - name: Log Analytics Data Model for Resource Specific Diagnostics Events
-        href: backup-azure-log-analytics-new-data-model.md
+        href: backup-azure-reports-data-model.md
+      - name: Log Analytics Data Model for Azure Backup (Azure Diagnostics mode)
+        href: backup-azure-diagnostics-mode-data-model.md
   - name: Automation
     items:
     - name: Built-in Azure Policy for Azure Backup
       items:
       - name: Auto-Enable Backup on VM Creation using Azure Policy
         href: backup-azure-auto-enable-backup.md
+      - name: Configure vault diagnostics settings at scale
+        href: azure-policy-configure-diagnostics.md
     - name: PowerShell
       items:
       - name: Azure VMs in the Azure portal

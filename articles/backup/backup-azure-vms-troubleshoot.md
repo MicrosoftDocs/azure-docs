@@ -120,7 +120,7 @@ If you see permissions in the **MachineKeys** directory that are different than 
    * Read permissions
 2. Delete all certificates where **Issued To** is the classic deployment model or **Windows Azure CRP Certificate Generator**:
 
-   * [Open certificates on a local computer console](https://msdn.microsoft.com/library/ms788967(v=vs.110).aspx).
+   * [Open certificates on a local computer console](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in).
    * Under **Personal** > **Certificates**, delete all certificates where **Issued To** is the classic deployment model or **Windows Azure CRP Certificate Generator**.
 3. Trigger a VM backup job.
 
@@ -274,6 +274,6 @@ VM backup relies on issuing snapshot commands to underlying storage. Not having 
 DHCP must be enabled inside the guest for IaaS VM backup to work. If you need a static private IP, configure it through the Azure portal or PowerShell. Make sure the DHCP option inside the VM is enabled.
 Get more information on how to set up a static IP through PowerShell:
 
-* [How to add a static internal IP to an existing VM](/previous-versions/azure/virtual-network/virtual-networks-reserved-private-ip#how-to-add-a-static-internal-ip-to-an-existing-vm)
+* [How to add a static internal IP to an existing VM](https://docs.microsoft.com/powershell/module/az.network/set-aznetworkinterfaceipconfig?view=azps-3.5.0#description)
 * [Change the allocation method for a private IP address assigned to a network interface](../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface)
 

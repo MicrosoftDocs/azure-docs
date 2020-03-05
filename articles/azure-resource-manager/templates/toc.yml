@@ -1,8 +1,8 @@
-- name: Azure Resource Manager template documentation
+- name: ARM template documentation
   href: index.yml
 - name: Overview
   items:
-  - name: What are Azure Resource Manager templates?
+  - name: What are ARM templates?
     href: overview.md
 - name: Quickstarts
   items:
@@ -142,6 +142,9 @@
       - name: Variables
         displayName: iteration,copy
         href: copy-variables.md
+      - name: Outputs
+        displayName: iteration,copy
+        href: copy-outputs.md
     - name: Subscription level resources
       href: deploy-to-subscription.md
     - name: Management group level resources
