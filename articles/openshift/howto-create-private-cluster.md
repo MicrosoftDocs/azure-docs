@@ -143,4 +143,4 @@ cat private-cluster.json | envsubst | curl -v -X PUT \
 
 ## Next Steps
 
-Now that you've set up your private Azure Red Hat OpenShift cluster, learn about how to access the OpenShift console [here](https://docs.openshift.com/container-platform/3.11/getting_started/developers_console.html)
+To learn about how to access the OpenShift console, see [Web Console Walkthrough](https://docs.openshift.com/container-platform/3.11/getting_started/developers_console.html)
