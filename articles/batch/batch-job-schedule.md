@@ -78,7 +78,7 @@ To manage a job using the Azure CLI, see [az batch job-schedule](https://docs.mi
 
 
 
-[1]: ./media/batch-job-schedule/addjobschedule-02.png
-[2]: ./media/batch-job-schedule/addjobschedule-03.png
+[1]: ./media/batch-job-schedule/add_job_schedule-02.png
+[2]: ./media/batch-job-schedule/add_job_schedule-03.png
 
 
