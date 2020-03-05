@@ -7,7 +7,7 @@ author: priestlg
 ms.service: storsimple
 ms.topic: article
 ms.date: 03/05/2020
-ms.author: alkohli
+ms.author: v-grpr
 ---
 
 # StorSimple Virtual Array Update 1.3 release notes
@@ -34,9 +34,9 @@ This update contains the following improvements:
 To download this update, go to the [Microsoft Update Catalog](https://www.catalog.update.microsoft.com/Home.aspx) server, and download the KBxxxxxx package. This package contains the following packages:
 
  - **KB4537819** that contains cumulative Windows Updates for 2012 R2 up to March 2020. For more information on what is included in this rollup, go to [February monthly security rollup](https://support.microsoft.com/help/4537819).
- - **KBxxxxxxx** which is a Microsoft Update Standalone Package file WindowsTH-KB3011067-x64. This file is used to update the device software.
+ - **KB4539946** which is a Microsoft Update Standalone Package file WindowsTH-KB3011067-x64. This file is used to update the device software.
 
-Download KBxxxxxxx and follow these instructions to [Apply the update via local web UI](storsimple-virtual-array-install-update-11.md#use-the-local-web-ui).
+Download KB4539946 and follow these instructions to [Apply the update via local web UI](storsimple-virtual-array-install-update-11.md#use-the-local-web-ui).
 
 ## Known issues in Update 1.3
 
@@ -44,7 +44,7 @@ No new issues were release-noted in Update 1.2. All the release-noted issues are
 
 ## Next steps
 
-Download KBxxxxxxx and [Apply the update via local web UI](storsimple-virtual-array-install-update-11.md#use-the-local-web-ui).
+Download KB4539946 and [Apply the update via local web UI](storsimple-virtual-array-install-update-11.md#use-the-local-web-ui).
 
 ## References
 
