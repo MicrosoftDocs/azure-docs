@@ -196,5 +196,5 @@ We want to know how we can improve the service. Share your [feedback on the Publ
 ## Next steps
 
 - Learn about [NAT gateway resource](./nat-gateway-resource.md).
-- [Tell us what to build next in UserVoice](https://aka.ms/natuservoice).
+* [Tell us what to build next for Virtual Network NAT in UserVoice](https://aka.ms/natuservoice).
 - [Provide feedback on the Public Preview](https://aka.ms/natfeedback).
