@@ -64,7 +64,7 @@ An unlocked time-based retention policy is recommended only for feature testing 
 The following limits apply to retention policies:
 
 - For a storage account, the maximum number of containers with locked time-based immutable policies is 10,000.
-- The minimum retention interval is one day. The maximum is 146,000 days (400 years).
+- The minimum retention interval is 1 day. The maximum is 146,000 days (400 years).
 - For a container, the maximum number of edits to extend a retention interval for locked time-based immutable policies is 5.
 - For a container, a maximum of seven time-based retention policy audit logs are retained for a locked policy.
 
@@ -80,7 +80,7 @@ For example, suppose that a user creates a time-based retention policy with `all
 
 Unlocked time-based retention policies allow the `allowProtectedAppendWrites` setting to be enabled and disabled at any time. Once the time-based retention policy is locked, the `allowProtectedAppendWrites` setting cannot be changed.
 
-Legal hold policies cannot enable `allowProtectedAppendWrites` and do not allow for new blocks to be appended to append blobs. If a legal hold is applied to a time-based retention policy with `allowProtectedAppendWrites` enabled, the *AppendBlock* API will fail until the legal hold is lifted.
+Legal hold policies cannot enable `allowProtectedAppendWrites` and any legal holds will nullify the 'allowProtectedAppendWrites' property. If a legal hold is applied to a time-based retention policy with `allowProtectedAppendWrites` enabled, the *AppendBlock* API will fail until the legal hold is lifted.
 
 ## Legal holds
 
@@ -129,7 +129,7 @@ No, you can use immutable storage with any existing or newly created general-pur
 
 **Can I apply both a legal hold and time-based retention policy?**
 
-Yes, a container can have both a legal hold and a time-based retention policy at the same time. All blobs in that container stay in the immutable state until all legal holds are cleared, even if their effective retention period has expired. Conversely, a blob stays in an immutable state until the effective retention period expires, even though all legal holds have been cleared.
+Yes, a container can have both a legal hold and a time-based retention policy at the same time; however, the 'allowProtectedAppendWrites' setting will not apply until the legal hold is cleared. All blobs in that container stay in the immutable state until all legal holds are cleared, even if their effective retention period has expired. Conversely, a blob stays in an immutable state until the effective retention period expires, even though all legal holds have been cleared. 
 
 **Are legal hold policies only for legal proceedings or are there other use scenarios?**
 
