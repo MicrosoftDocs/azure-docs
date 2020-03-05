@@ -129,5 +129,4 @@ To learn about [samples](https://github.com/microsoftgraph/msgraph-community-sam
 ## See also
 
 - [Azure Active Directory (v1.0) developer's guide](../azuread-dev/v1-overview.md)
-- [Azure AD Graph API conceptual and reference](https://msdn.microsoft.com/library/azure/hh974476.aspx)
-- [Azure AD Graph API Helper Library](https://www.nuget.org/packages/Microsoft.Azure.ActiveDirectory.GraphClient)
+- [Microsoft Graph API conceptual and reference](https://docs.microsoft.com/graph/use-the-api?context=graph%2Fapi%2Fbeta&view=graph-rest-beta)
