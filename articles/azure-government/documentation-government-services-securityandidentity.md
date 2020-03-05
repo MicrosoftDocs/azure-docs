@@ -40,7 +40,7 @@ Windows Defender ATP installation on Windows VMs via Security Center and the ass
 ### Notifications
 
 - **Azure activity logs**  
-User activity in Security Center is not logged in Azure activity logs in Microsoft Azure Government. This means that there’s no trace or audit for user performed actions.
+User activity in Security Center is not logged in Azure activity logs in Microsoft Azure Government. This means that there's no trace or audit for user performed actions.
 
 ### Threat detection
 
@@ -142,19 +142,25 @@ All features covered in the above list are available in the US Government cloud 
 
 The following Azure Active Directory Premium P1 features are currently not available in Azure Government:
 
-- B2B Collaboration ([vote for this feature](https://feedback.azure.com/forums/558487-azure-government/suggestions/20588554-azure-ad-b2b-in-azure-government))
 - Azure Active Directory Domain Services
 - Cloud App Security
+- B2B Collaboration is available in Azure US Government tenants created after June, 2019. Over time, more tenants will get access to this functionality. See [How can I tell if B2B collaboration is available in my Azure US Government tenant?](../active-directory/b2b/current-limitations.md#how-can-i-tell-if-b2b-collaboration-is-available-in-my-azure-us-government-tenant)
 
 The following features have known limitations in Azure Government:
 
+- Limitations with B2B Collaboration in supported Azure US Government tenants:
+  - B2B collaboration is currently only supported between tenants that are both within Azure US Government cloud and that both support B2B collaboration. If you invite a user in a tenant that isn't part of the Azure US Government cloud or that doesn't yet support B2B collaboration, the invitation will fail or the user will be unable to redeem the invitation.
+  - B2B collaboration via Power BI is not supported. When you invite a guest user from within Power BI, the B2B flow is not used and the guest user won't appear in the tenant's user list. If a guest user is invited through other means, they'll appear in the Power BI user list, but any sharing request to the user will fail and display a 403 Forbidden error. 
+  - Office 365 Groups are not supported for B2B users and can't be enabled.
+  - Some SQL tools such as SSMS require you to set the appropriate cloud parameter. In the tool's Azure Service setup options, set the cloud parameter to Azure US Government.
+
 - Limitations with the Azure Active Directory App Gallery:
   - Pre-integrated SAML and password SSO applications from the Azure AD Application Gallery are not yet available. Instead, use a custom application to support federated single sign-on with SAML or password SSO.
-  - Rich provisioning connectors for featured apps are not yet available. Instead, use SCIM for automated provisioning.
+  - Rich provisioning connectors for featured apps are not yet available. Instead, use SCIM for automated provisioning.'
 
 - Limitations with Multi-factor Authentication:
   - Hardware OATH tokens are not available in Azure Government.
-  - Trusted IPs are not supported in Azure Government. Instead, use Conditional Access policies with named locations to establish when Multi-Factor Authentication should and should not be required based off the user’s current IP address.
+  - Trusted IPs are not supported in Azure Government. Instead, use Conditional Access policies with named locations to establish when Multi-Factor Authentication should and should not be required based off the user's current IP address.
 
 - Limitations with Azure AD Join:
   - Enterprise State Roaming for Windows 10 devices is not available  

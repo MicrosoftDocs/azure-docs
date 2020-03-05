@@ -317,6 +317,11 @@ Content-type: application/json
 
 For Application Insights CMK configuration, follow the Appendix content for this step.
 
+You need to have ‘write’ permissions on both your workspace and *Cluster* resource to perform this operation, which include these actions:
+
+- In workspace: Microsoft.OperationalInsights/workspaces/write
+- In *Cluster* resource: Microsoft.OperationalInsights/clusters/write
+
 ```rst
 PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>/linkedservices/cluster?api-version=2019-08-01-preview 
 Authorization: Bearer <token>
@@ -324,18 +329,17 @@ Content-type: application/json
 
 {
   "properties": {
-    "WriteAccessResourceId": "subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/clusters/<cluster-name>"
+    "WriteAccessResourceId": "/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/clusters/<cluster-name>"
     }
 }
 ```
-The *clusterDefinitionId* is the *clusterId* value provided in the response from the previous step.
 
 **Response**
 
 ```json
 {
   "properties": {
-    "WriteAccessResourceId": "subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/clusters/<cluster-name>"
+    "WriteAccessResourceId": "/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/clusters/<cluster-name>"
     },
   "id": "/subscriptions/subscription-id/resourcegroups/resource-group-name/providers/microsoft.operationalinsights/workspaces/workspace-name/linkedservices/cluster",
   "name": "workspace-name/cluster",
@@ -544,7 +548,6 @@ apply to your Application Insights data.
 The configuration of Application Insights CMK is identical to the process illustrated in this article, including constraints and troubleshooting except these steps:
 
 - Create a *Cluster* resource
-
 - Associate a component to a *Cluster* resource
 
 When configuring CMK for Application Insights, use these steps instead
@@ -601,6 +604,11 @@ Identity is assigned to the *Cluster* resource at creation time.
 > Copy and keep the "principle-id" value since you will need it in next steps.
 
 ### Associate a component to a *Cluster* resource using [Components - Create Or Update](https://docs.microsoft.com/rest/api/application-insights/components/createorupdate) API
+
+You need to have ‘write’ permissions on both your component and *Cluster* resource to perform this operation, which include these actions:
+
+- In component: Microsoft.Insights/component/write
+- In *Cluster* resource: Microsoft.OperationalInsights/clusters/write
 
 ```rst
 PUT https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Insights/components/<component-name>?api-version=2015-05-01
