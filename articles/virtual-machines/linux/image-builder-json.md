@@ -6,6 +6,7 @@ ms.author: danis
 ms.date: 01/23/2020
 ms.topic: article
 ms.service: virtual-machines-linux
+ms.subservice: imaging
 manager: gwallace
 ---
 # Preview: Create an Azure Image Builder template 
