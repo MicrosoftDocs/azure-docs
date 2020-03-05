@@ -26,7 +26,7 @@ First step in configuring Azure API for FHIR for export is to enable system wide
 
 To do so, navigate to Azure API for FHIR service and select Identity blade. Changing the status to On will enable managed identity in Azure API for FHIR Service.
 
-![Enable Managed Identity](media/export-data/FHIR-MI-Enabled.png)
+![Enable Managed Identity](media/export-data/fhir-mi-enabled.png)
 
 Now we can move to next step and create a storage account and assign permission to our service.
 
@@ -34,13 +34,13 @@ Now we can move to next step and create a storage account and assign permission 
 
 Next step in export is to assign permission for Azure API for FHIR service to write to the storage account.
 
-After we have created a storage account, navigate to Access Control (AIM) blade in Storage Account and select Add Role Assignments
+After we have created a storage account, navigate to Access Control (IAM) blade in Storage Account and select Add Role Assignments
 
-![Enable Managed Identity](media/export-data/FHIR-Export-Role-Assignment.png)
+![Enable Managed Identity](media/export-data/fhir-export-role-assignment.png)
 
 Here we then add role Storage Blob Data Contributor to our service name.
 
-![Enable Managed Identity](media/export-data/FHIR-Export-Role-Add.png)
+![Enable Managed Identity](media/export-data/fhir-export-role-add.png)
 
 Now we are ready for next step where we can select the storage account in Azure API for FHIR as a default storage account for $export.
 
@@ -48,7 +48,7 @@ Now we are ready for next step where we can select the storage account in Azure 
 
 Final step before invoking $export command is to assign the storage account that Azure API for FHIR will use to export the data to. To do this, navigate to Integration blade in Azure API for FHIR service in Azure portal and select the storage account 
 
-![Enable Managed Identity](media/export-data/FHIR-Export-Storage.png)
+![Enable Managed Identity](media/export-data/fhir-export-storage.png)
 
 After that we are ready to export the data using $export command.
 
@@ -58,3 +58,6 @@ After we have configured Azure API for FHIR for export, we can now go and use th
 
 > [!IMPORTANT]
 > Note that currently Azure API for FHIR only supports System Level Export as defined in Export specification at [https://hl7.org/Fhir/uv/bulkdata/export/index.html](https://hl7.org/Fhir/uv/bulkdata/export/index.html)
+
+>[!div class="nextstepaction"]
+>[Additional Settings](azure-api-for-fhir-additional-settings.md)
