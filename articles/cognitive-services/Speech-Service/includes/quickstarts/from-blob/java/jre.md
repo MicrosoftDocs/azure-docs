@@ -27,7 +27,8 @@ The first step is to make sure that you have your project open in Eclipse.
 ## Add a reference to Gson
 We'll be using an external JSON serializer / deserializer in this quickstart. For Java we've chosen [Gson](https://github.com/google/gson).
 
-Open your pom.xml and add the following reference:
+Open your pom.xml and add the following reference.
+
 [!code-xml[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/from-blob/pom.xml?range=19-25)]
 
 ## Start with some boilerplate code

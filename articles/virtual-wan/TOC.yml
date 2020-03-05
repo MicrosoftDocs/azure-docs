@@ -34,24 +34,36 @@
     href: connect-virtual-network-gateway-vwan.md
   - name: Configure Global VNet peering
     href: global-peering-vnet.md
-  - name: Configure ExpressRoute encryption
-    href: vpn-over-expressroute.md
   - name: Upgrade a virtual WAN SKU
     href: upgrade-virtual-wan.md
   - name: Configure custom IPsec policy
     href: virtual-wan-custom-ipsec-portal.md
-  - name: Configure certificates for User VPN (point-to-site)
-    href: certificates-point-to-site.md
-  - name: Configure Azure AD tenant for User VPN
-    href: openvpn-azure-ad-tenant.md
-  - name: Enable Multi-Factor Authentication(MFA) for User VPN
-    href: openvpn-azure-ad-mfa.md   
-  - name: Configure Azure AD authentication for User VPN
-    href: virtual-wan-point-to-site-azure-ad.md
-  - name: Configure Multi-application Azure AD authentication for User VPN
-    href: openvpn-azure-ad-tenant-multi-app.md  
-  - name: Download global and hub-based VPN profiles
-    href: global-hub-profile.md
+  - name: ExpressRoute
+    items:
+    - name: Create an ExpressRoute connection
+      href: virtual-wan-expressroute-portal.md
+    - name: Configure ExpressRoute encryption
+      href: vpn-over-expressroute.md
+  - name: Site-to-site
+    items:
+    - name: Create a site-to-site connection
+      href: virtual-wan-site-to-site-portal.md
+  - name: User VPN (point-to-site)
+    items:
+    - name: Create User VPN (point-to-site) connections
+      href: virtual-wan-point-to-site-portal.md
+    - name: Configure certificates for User VPN
+      href: certificates-point-to-site.md
+    - name: Configure Azure AD tenant for User VPN
+      href: openvpn-azure-ad-tenant.md
+    - name: Enable Multi-Factor Authentication(MFA) for User VPN
+      href: openvpn-azure-ad-mfa.md   
+    - name: Configure Azure AD authentication for User VPN
+      href: virtual-wan-point-to-site-azure-ad.md
+    - name: Configure Multi-application Azure AD authentication for User VPN
+      href: openvpn-azure-ad-tenant-multi-app.md  
+    - name: Download global and hub-based User VPN profiles
+      href: global-hub-profile.md
   - name: Configure routing
     items:
     - name: Route traffic from a virtual hub to an NVA
