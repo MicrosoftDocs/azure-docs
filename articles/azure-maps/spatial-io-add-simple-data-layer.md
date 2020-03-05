@@ -75,7 +75,7 @@ As mentioned earlier, the simple data layer wraps several of the core rendering 
 
 Azure Maps and GitHub style properties are the two main sets of supported property names. Most property names of the different azure maps layer options are supported as style properties of features in the simple data layer. Expressions have been added to some layer options to support style property names that are commonly used by GitHub. These property names are defined by [GitHub's GeoJSON map support](https://help.github.com/en/github/managing-files-in-a-repository/mapping-geojson-files-on-github), and they're used to style GeoJSON files that are stored and rendered within the platform. All of GitHub's styling properties are supported in the simple data layer, except the `marker-symbol` styling properties.
 
-If the reader encounters a less common style property, it will convert it to the closest Azure Maps style property. Additionally, the default style expressions can be overridden by using the `getLayers` function of the simple data layer and updating the options on any of the layers.
+If the reader comes across a less common style property, it will convert it to the closest Azure Maps style property. Additionally, the default style expressions can be overridden by using the `getLayers` function of the simple data layer and updating the options on any of the layers.
 
 The following sections provide details on the default style properties that are supported by the simple data layer. The order of the supported property name is also the priority of the property. If two style properties are defined for the same layer option, then the first one in the list has higher precedence.
 

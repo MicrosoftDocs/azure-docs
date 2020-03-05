@@ -107,7 +107,7 @@ You can load the Azure Maps spatial IO module using one of the two options:
     </html>
     ```
 
-2. Load the Azure Maps spatial IO module. For this exercise, use the CDN for the Azure Maps spatial IO module. Add the reference below to the the `<head>` element of your HTML file:
+2. Load the Azure Maps spatial IO module. For this exercise, use the CDN for the Azure Maps spatial IO module. Add the reference below to the `<head>` element of your HTML file:
 
     ```html
     <script src="https://atlas.microsoft.com/sdk/javascript/spatial/0/atlas-spatial.js"></script>
