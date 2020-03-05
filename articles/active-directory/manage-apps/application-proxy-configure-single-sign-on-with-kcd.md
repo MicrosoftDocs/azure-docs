@@ -65,25 +65,25 @@ The Active Directory configuration varies, depending on whether your Application
 1. For a list of prerequisites for working with KCD across domains, see [Kerberos Constrained Delegation across domains](https://technet.microsoft.com/library/hh831477.aspx).
 2. Use the `principalsallowedtodelegateto` property of the service account (computer or dedicated domain user account) of the web application to enable Kerberos authentication delegation from the Application Proxy (connector). The application server is running in the context of `webserviceaccount` and the delegating server is `connectorcomputeraccount`. Run the commands below on a Domain Controller (running Windows Server 2012 R2 or later) in the domain of `webserviceaccount`. Use flat names (non UPN) for both accounts.
 
-If the `webserviceaccount` is a computer account, use these commands:
+   If the `webserviceaccount` is a computer account, use these commands:
 
-```powershell
-$connector= Get-ADComputer -Identity connectorcomputeraccount -server dc.connectordomain.com
+   ```powershell
+   $connector= Get-ADComputer -Identity connectorcomputeraccount -server dc.connectordomain.com
 
-Set-ADComputer -Identity webserviceaccount -PrincipalsAllowedToDelegateToAccount $connector
+   Set-ADComputer -Identity webserviceaccount -PrincipalsAllowedToDelegateToAccount $connector
 
-Get-ADComputer webserviceaccount -Properties PrincipalsAllowedToDelegateToAccount
-```
+   Get-ADComputer webserviceaccount -Properties PrincipalsAllowedToDelegateToAccount
+   ```
 
-If the `webserviceaccount` is a user account, use these commands:
+   If the `webserviceaccount` is a user account, use these commands:
 
-```powershell
-$connector= Get-ADComputer -Identity connectorcomputeraccount -server dc.connectordomain.com
+   ```powershell
+   $connector= Get-ADComputer -Identity connectorcomputeraccount -server dc.connectordomain.com
 
-Set-ADUser -Identity webserviceaccount -PrincipalsAllowedToDelegateToAccount $connector
+   Set-ADUser -Identity webserviceaccount -PrincipalsAllowedToDelegateToAccount $connector
 
-Get-ADUser webserviceaccount -Properties PrincipalsAllowedToDelegateToAccount
-```
+   Get-ADUser webserviceaccount -Properties PrincipalsAllowedToDelegateToAccount
+   ```
 
 ## Configure single sign-on 
 1. Publish your application according to the instructions described in [Publish applications with Application Proxy](application-proxy-add-on-premises-application.md). Make sure to select **Azure Active Directory** as the **Preauthentication Method**.
