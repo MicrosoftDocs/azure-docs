@@ -43,11 +43,11 @@ A comprehensive set of templates is available for use with Batch Explorer that m
 
 Templates are provided that cater for all the applications present on the Marketplace rendering VM images.  For each application multiple templates exist, including pool templates to cater for CPU and GPU pools, Windows and Linux pools; job templates include full frame or tiled Blender rendering and V-Ray distributed rendering. The set of supplied templates will be expanded over time to cater for other Batch capabilities, such as pool auto-scaling.
 
-It's also possible for custom templates to be produced, from scratch or by modifying the supplied templates. Custom templates can be used by selecting the ‘Local templates’ item in the ‘Gallery’ section of Batch Explorer.
+It's also possible for custom templates to be produced, from scratch or by modifying the supplied templates. Custom templates can be used by selecting the 'Local templates' item in the 'Gallery' section of Batch Explorer.
 
 ### File system and data movement
 
-The ‘Data’ section in Batch Explorer allows files to be copied between a local file system and Azure Storage accounts.
+The 'Data' section in Batch Explorer allows files to be copied between a local file system and Azure Storage accounts.
 
 ## Client application plug-ins
 
