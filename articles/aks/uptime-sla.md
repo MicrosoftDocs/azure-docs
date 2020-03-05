@@ -1,12 +1,12 @@
 ---
-title: High Availability for Azure Kubernetes Service (AKS) control plane with Paid SKU SLA
+title: High Availability for Azure Kubernetes Service (AKS) control plane with Uptime SLA
 description: Learn about the high availability SLA offering for the Azure Kubernetes Service (AKS) API Server.
 services: container-service
 ms.topic: conceptual
 ms.date: 03/05/2020
 ---
 
-# Azure Kubernetes Service (AKS) Paid SKU SLA offering
+# Azure Kubernetes Service (AKS) Uptime SLA offering
 
 When used with Availability Zones, this offering allows you to achieve 99.95% availability for the AKS cluster API server. If you do not use Availability Zones, you can achieve 99.9% availability. AKS uses master node replicas across update and fault domains to ensure SLA requirements are met.
 
@@ -15,7 +15,7 @@ When used with Availability Zones, this offering allows you to achieve 99.95% av
 
 ## Region Availability
 
-Paid SKU SLA is available in the following regions:
+Uptime SLA is available in the following regions:
 
 * Australia East
 * Canada Central
@@ -30,15 +30,15 @@ Paid SKU SLA is available in the following regions:
 
 ## AKS service-level-agreement
 
-In a service-level agreement (SLA), the provider agrees to reimburse the customer for the cost of the service if the published service level isn't met. Since AKS is free, no cost is available to reimburse for clusters not using Paid SKU SLA, so AKS has no formal SLA. However, AKS seeks to maintain availability of at least 99.5 percent for the Kubernetes API server.
+In a service-level agreement (SLA), the provider agrees to reimburse the customer for the cost of the service if the published service level isn't met. Since AKS is free, no cost is available to reimburse for clusters not using Uptime SLA, so AKS has no formal SLA. However, AKS seeks to maintain availability of at least 99.5 percent for the Kubernetes API server.
 
 It is important to recognize the distinction between AKS service availability which refers to uptime of the Kubernetes control plane and the availability of your specific workload which is running on Azure Virtual Machines. Although the control plane may be unavailable if the control plane is not ready, your cluster workloads running on Azure VMs can still function. Given Azure VMs are paid resources they are backed by a [financial SLA for VMs](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/). You can increase the VM availability with features like [Availability Zones][availability-zones].
 
-For mission-critical workloads, use Paid SKU SLA and Availability Zones to increase availability for the control plane of your AKS clusters.
+For mission-critical workloads, use Uptime SLA and Availability Zones to increase availability for the control plane of your AKS clusters.
 
-## Creating a cluster with Paid SKU SLA
+## Creating a cluster with Uptime SLA
 
-To create a new cluster with the Paid SKU SLA, you use the Azure CLI.
+To create a new cluster with the Uptime SLA, you use the Azure CLI.
 
 The following example creates a resource group named *myResourceGroup* in the *eastus* location.
 
@@ -55,19 +55,19 @@ az aks create --resource-group myResourceGroup --name myAKSCluster --node-count 
 ```
 After a few minutes, the command completes and returns JSON-formatted information about the cluster.
 
-## Add Paid SKU to existing clusters
+## Add Uptime SLA to existing clusters
 
-You can update existing AKS clusters to use the Paid SKU SLA. TODO
+You can't currently add Uptime SLA to existing clusters.
 
-## Removing Paid SKU SLA from a cluster
+## Removing Uptime SLA from a cluster
 
-Currently there is no way to remove Paid SKU SLA from an AKS cluster.
+Currently there is no way to remove Uptime SLA from an AKS cluster.
 
 TODO
 
 ## Billing and refunds
 
-The Paid SKU reimbursements will be performed on a monthly basis. The billing unit is calculated TODO per cluster/hour. TODO legal?
+The Uptime SLA reimbursements will be performed on a monthly basis. The billing unit is calculated TODO per cluster/hour. TODO legal?
 
 ## Next steps
 

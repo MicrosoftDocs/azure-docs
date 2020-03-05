@@ -105,7 +105,7 @@ Windows Server support for node pool includes some limitations that are part of 
 
 ## Does AKS offer a service-level agreement?
 
-AKS provides the ability to achieve 99.95% availability for the API server with [Paid SKU SLA](paid-sku-sla).
+AKS provides the ability to achieve 99.95% availability for the API server with [Uptime SLA](uptime-sla).
 
 In a service-level agreement (SLA), the provider agrees to reimburse the customer for the cost of the service if the published service level isn't met. Since AKS is free, no cost is available to reimburse, so AKS has no formal SLA. However, AKS seeks to maintain availability of at least 99.5 percent for the Kubernetes API server.
 
@@ -200,7 +200,7 @@ No AKS is a managed service, and manipulation of the IaaS resources is not suppo
 [api-server-authorized-ip-ranges]: ./api-server-authorized-ip-ranges.md
 [multi-node-pools]: ./use-multiple-node-pools.md
 [availability-zones]: ./availability-zones.md
-[paid-sku-sla] ./paid-sku.md
+[uptime-sla] ./uptime-sku.md
 
 <!-- LINKS - external -->
 [aks-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service

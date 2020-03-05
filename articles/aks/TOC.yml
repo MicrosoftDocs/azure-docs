@@ -60,8 +60,8 @@
     href: tutorial-kubernetes-upgrade-cluster.md
 - name: Concepts
   items:
-  - name: High Availability SLA
-    href: paid-sku.md
+  - name: Uptime SLA
+    href: uptime-sla.md
   - name: Clusters and workloads
     href: concepts-clusters-workloads.md
   - name: Access and identity
