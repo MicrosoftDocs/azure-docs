@@ -60,17 +60,17 @@ var sdkInstance="appInsightsSDK";window[sdkInstance]="appInsights";var aiName=wi
 By default the Application Insights JavaScript SDK autocollects a number of telemetry items that are helpful in determining the health of your application and the underlying user experience. These include:
 
 - **Uncaught exceptions** in your app, including information on
-	- Stack trace
-	- Exception details and message accompanying the error
-	- Line & column number of error
-	- URL where error was raised
+    - Stack trace
+    - Exception details and message accompanying the error
+    - Line & column number of error
+    - URL where error was raised
 - **Network Dependency Requests** made by your app **XHR** and **Fetch** (fetch collection is disabled by default) requests, include information on
-	- Url of dependency source
-	- Command & Method used to request the dependency
-	- Duration of the request
-	- Result code and success status of the request
-	- ID (if any) of user making the request
-	- Correlation context (if any) where request is made
+    - Url of dependency source
+    - Command & Method used to request the dependency
+    - Duration of the request
+    - Result code and success status of the request
+    - ID (if any) of user making the request
+    - Correlation context (if any) where request is made
 - **User information** (for example, Location, network, IP)
 - **Device information** (for example, Browser, OS, version, language, resolution, model)
 - **Session information**
@@ -151,7 +151,7 @@ Currently, we offer a separate [React plugin](#react-extensions) which you can i
 
 ## Explore browser/client-side data
 
-Browser/client-side data can be viewed by going to **Metrics** and adding individual metrics you are interested in: 
+Browser/client-side data can be viewed by going to **Metrics** and adding individual metrics you are interested in:
 
 ![](./media/javascript/page-view-load-time.png)
 
@@ -161,7 +161,7 @@ Select **Browser** and then choose **Failures** or **Performance**.
 
 ![](./media/javascript/browser.png)
 
-### Performance 
+### Performance
 
 ![](./media/javascript/performance-operations.png)
 
@@ -169,7 +169,7 @@ Select **Browser** and then choose **Failures** or **Performance**.
 
 ![](./media/javascript/performance-dependencies.png)
 
-### Analytics 
+### Analytics
 
 To query your telemetry collected by the JavaScript SDK, select the **View in Logs (Analytics)** button. By adding a `where` statement of `client_Type == "Browser"`, you will only see data from the JavaScript SDK and any server-side telemetry collected by other SDKs will be excluded.
  
@@ -190,7 +190,14 @@ dataset
 
 ### Source Map Support
 
-The minified callstack of your exception telemetry can be unminified in the Azure portal. All existing integrations on the Exception Details panel will work with the newly unminified callstack. Drag and drop source map unminifying supports all existing and future JS SDKs (+Node.JS), so you do not need to upgrade your SDK version. To view your unminified callstack,
+The minified callstack of your exception telemetry can be unminified in the Azure portal. All existing integrations on the Exception Details panel will work with the newly unminified callstack.
+
+#### Link to Blob Storage Account
+
+You can link your Application Insights resource to your own Azure Blob Storage container to automatically unminify call stacks. To get started, see [automatic source map support](./source-map-support.md).
+
+### Drag and drop
+
 1. Select an Exception Telemetry item in the Azure portal to view its "End-to-end transaction details"
 2. Identify which source maps correspond to this call stack. The source map must match a stack frame's source file, but suffixed with `.map`
 3. Drag and drop the source maps onto the call stack in the Azure portal
