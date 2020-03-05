@@ -1,18 +1,19 @@
-﻿---
+---
 title: Single User/Password Rotation Tutorial
-description: Use this how-to guide to help you set up key rotation and monitor key vault logs.
+description: Use this tutorial for automating rotation of single user/password
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
-tags: ''
+tags: 'rotation'
 
 ms.service: key-vault
-ms.topic: conceptual
+ms.subservice: general
+ms.topic: tutorial
 ms.date: 01/26/2020
 ms.author: mbaldwin
 
 ---
-# Automate the rotation of a single user/password secret
+# Automate the rotation of a secret for resources with single user/password authentication
 
 Although the best way to authenticate to Azure services is by using an [managed identity](managed-identity.md), there are some scenarios where this is not an option. In these cases, access keys or secrets are used. Access keys or secrets should be periodically rotated.
 
@@ -25,7 +26,9 @@ This tutorial demonstrates how to automate the periodic rotation of secrets for 
 1. The function App receives secret information, generates new random password, and create a new version for the secret with a new password in Key Vault.
 1. The function App updates SQL with new password.
 
-Note: There could be a lag between step 3 and 4 and during that time secret in Key Vault would not be valid to authenticate to SQL. In case of failure in any of the steps Event Grid retries for 2 hours.
+> [!NOTE]
+> There could be a lag between step 3 and 4 and during that time secret in Key Vault would not be valid to authenticate to SQL. 
+> In case of failure in any of the steps Event Grid retries for 2 hours.
 
 ## Setup
 
@@ -35,7 +38,8 @@ Before we begin, we must create a Key Vault, create a SQL Server and database, a
 
 This tutorial uses a pre-created Azure Resource Manager template to create components. You can find entire code here: [Basic Secret Rotation Template Sample](https://github.com/jlichwa/azure-keyvault-basicrotation-tutorial/tree/master/arm-templates).
 
-1. Use the Azure Resource Manager template to create components by selecting this link: [Deploy](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2Fazure-keyvault-basicrotation-tutorial%2Fmaster%2Farm-templates%2Finitial-setup%2Fazuredeploy.json)
+1. Click Azure template deployment link: 
+<br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2Fazure-keyvault-basicrotation-tutorial%2Fmaster%2Farm-templates%2Finitial-setup%2Fazuredeploy.json" target="_blank"> <img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png"/></a>
 1. For "Resource Group", select "Create New" and give it the name "simplerotation".
 1. Select "Purchase".
 
@@ -59,14 +63,15 @@ simplerotation-sql/master     simplerotation             eastus      Microsoft.S
 
 ## Create Function App
 
-You must now create a Function App with a with system managed identity, as well as the additional required components: 
+Create a Function App with a with system managed identity, as well as the additional required components: 
 
 Function app requires below components and configuration:
 - App Service Plan
 - Storage Account
 - Access policy to access secrets in Key Vault using Function App Managed Identity
 
-1. Use the Azure Resource Manager template to create components by selecting this link: [Deploy](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2Fazure-keyvault-basicrotation-tutorial%2Fmaster%2Farm-templates%2Ffunction-app%2Fazuredeploy.json)
+1. Click Azure template deployment link: 
+<br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2Fazure-keyvault-basicrotation-tutorial%2Fmaster%2Farm-templates%2Ffunction-app%2Fazuredeploy.json" target="_blank"><img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png"/></a>
 1. For "Resource Group", select "simplerotation".
 1. Select "Purchase".
 
@@ -79,6 +84,8 @@ az resource list -o table
 ```
 
 The results will look something this:
+
+```console
 Name                     ResourceGroup         Location    Type                               Status
 -----------------------  --------------------  ----------  ---------------------------------  --------
 simplerotation-kv             simplerotation             eastus      Microsoft.KeyVault/vaults
@@ -87,12 +94,16 @@ simplerotation-sql/master     simplerotation             eastus      Microsoft.S
 simplerotationstrg            simplerotation             eastus      Microsoft.Storage/storageAccounts
 simplerotation-plan           simplerotation             eastus      Microsoft.Web/serverFarms
 simplerotation-fn             simplerotation             eastus      Microsoft.Web/sites
+```
 
 For information how to create Function App and using Managed Identity to access Key Vault, see [Create a function app from the Azure portal](../azure-functions/functions-create-function-app-portal.md) and [Provide Key Vault authentication with a managed identity](managed-identity.md)
 
 ### Rotation function and deployment
+Function is using event as trigger and perform rotation of a secret updating Key Vault and SQL database.
 
-Create a rotation function that retrieves the secret  and executes rotation, using event grid as a trigger:
+#### Function Event Trigger Handler
+
+Below Function reads event data and executes rotation logic
 
 ```csharp
 public static class SimpleRotationEventHandler
@@ -113,6 +124,7 @@ public static class SimpleRotationEventHandler
 }
 ```
 
+#### Secret Rotation Logic
 This rotation method reads database information from the secret, create a new version of the secret, and updates the database with a new secret.
 
 ```csharp
@@ -124,9 +136,9 @@ public class SecretRotator
 
     public static void RotateSecret(ILogger log, string secretName, string secretVersion, string keyVaultName)
     {
-    //Retrieve Current Secret
+           //Retrieve Current Secret
            var kvUri = "https://" + keyVaultName + ".vault.azure.net";
-           	var client = new SecretClient(new Uri(kvUri), new DefaultAzureCredential());
+           var client = new SecretClient(new Uri(kvUri), new DefaultAzureCredential());
            KeyVaultSecret secret = client.GetSecret(secretName, secretVersion);
            log.LogInformation("Secret Info Retrieved");
     	
@@ -150,39 +162,41 @@ public class SecretRotator
            CreateNewSecretVersion(client, secret, randomPassword);
            log.LogInformation("New Secret Version Generated");
     	
-                  //Update db password
+           //Update db password
            UpdateServicePassword(secret, randomPassword);
            log.LogInformation("Password Changed");
            log.LogInformation($"Secret Rotated Succesffuly");
     }
 }
 ```
-
 You can find entire code here:
 https://github.com/jlichwa/azure-keyvault-basicrotation-tutorial/tree/master/rotation-function
 
-Download function app zip file:
+#### Function deployment
+
+1. Download function app zip file:
 https://github.com/jlichwa/azure-keyvault-basicrotation-tutorial/raw/master/simplerotationsample-fn.zip
 
-Upload file simplerotationsample-fn.zip to Cloud Shell.
+1. Upload file simplerotationsample-fn.zip to Cloud Shell.
  
-Use below CLI command to deploy zip file to function app:
+1. Use below CLI command to deploy zip file to function app:
 
 ```azurecli
 az functionapp deployment source config-zip -g simplerotation -n simplerotation-fn --src /home/{firstname e.g jack}/simplerotationsample-fn.zip
 ```
+![Purchase screen](./media/rotate4.png)
 
 After deployment you should notice two functions under simplerotation-fn:
 
-![Purchase screen](./media/rotate4.png)
+![Cloud Shell](./media/rotate5.png)
 
 ### Add event subscription for “SecretNearExpiry” event
 
 Copy the function app eventgrid_extension key.
 
-![Cloud Shell](./media/rotate5.png)
-
 ![Cloud Shell](./media/rotate6.png)
+
+![Test and verify](./media/rotate7.png)
 
 Use the copied eventgrid extension key and your subscription id in below command to create an event grid subscription for SecretNearExpiry events.
 
@@ -211,11 +225,11 @@ After few minutes, sqluser secret should automatically rotate.
 
 To verify secret rotation verification, go to Key Vault > Secrets
 
-  ![Test and verify](./media/rotate7.png)
+![Test and verify](./media/rotate8.png)
 
 Open the "sqluser" secret and view the original and rotated version
 
-   ![Test and verify](./media/rotate8.png)
+![Test and verify](./media/rotate9.png)
 
 ## Create Web App
 
@@ -225,13 +239,15 @@ The web app requires below components and configuration:
 - Web App with System Managed Identity
 - Access policy to access secrets in Key Vault using Web App Managed Identity
 
-1. Use the Azure Resource Manager template to create components by selecting this link: [Deploy](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2Fazure-keyvault-basicrotation-tutorial%2Fmaster%2Farm-templates%2Fweb-app%2Fazuredeploy.json)
+1. Click Azure template deployment link: 
+<br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2Fazure-keyvault-basicrotation-tutorial%2Fmaster%2Farm-templates%2Fweb-app%2Fazuredeploy.json" target="_blank"> <img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png"/></a>
 1. Select ‘simplerotation’ resource group
 1. Click Purchase
 
 ### Deploy Web App
 
-Source code for the web app is at https://github.com/jlichwa/azure-keyvault-basicrotation-tutorial/tree/master/test-webapp.To deploy the web app, do the following:
+Source code for the web app you can find at https://github.com/jlichwa/azure-keyvault-basicrotation-tutorial/tree/master/test-webapp 
+For deployment of the web app, do the following:
 
 1. Download the function app zip file from 
 https://github.com/jlichwa/azure-keyvault-basicrotation-tutorial/raw/master/simplerotationsample-app.zip
@@ -252,8 +268,8 @@ The Generated Secret Value should be shown with Database Connected as true.
 
 ![Test and verify](./media/rotate11.png)
 
-## Next Steps
+## Learn more:
 
-- Learn more about [Azure Key Vault with key rotation and auditing](key-vault-key-rotation-log-monitoring.md)
-- Learn more about [Azure Functions](../azure-functions/functions-overview.md)
-- Learn more about [Azure SQL Database](../sql-database/sql-database-technical-overview.md)
+- Overview: [Monitoring Key Vault with Azure Event Grid (preview)](event-grid-overview.md)
+- How to: [Receive email when a key vault secret changes](event-grid-logicapps.md)
+- [Azure Event Grid event schema for Azure Key Vault (preview)](../event-grid/event-schema-key-vault.md)
