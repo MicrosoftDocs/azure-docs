@@ -1,6 +1,6 @@
 ---
 title: Azure Active Directory Reports FAQ | Microsoft Docs
-description: Frequently asked quesitons around Azure Active Directory reports.
+description: Frequently asked questions around Azure Active Directory reports.
 services: active-directory
 documentationcenter: ''
 author: cawrites
