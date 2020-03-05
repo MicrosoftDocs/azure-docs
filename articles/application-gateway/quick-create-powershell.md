@@ -32,7 +32,7 @@ You can also complete this quickstart using [Azure CLI](quick-create-cli.md) or 
 
 To connect with Azure, run `Connect-AzAccount`.
 
-## Create a Resource group
+## Create a resource group
 
 In Azure, you allocate related resources to a resource group. You can either use an existing resource group or create a new one.
 
