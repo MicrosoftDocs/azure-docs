@@ -40,11 +40,12 @@ To launch the Cloud Shell:
     ![Select CLI environment](media/quickstart-send-telemetry-cli/cloud-shell-environment.png)
 
 ## Prepare two CLI sessions
+
 In this section, you prepare two Azure CLI sessions. If you're using the Cloud Shell, you will run the two sessions in separate browser tabs. If using a local CLI client, you will run two separate CLI instances. You'll use the first session as a simulated device, and the second session to monitor and send messages. To run a command, select **Copy** to copy a block of code in this quickstart, paste it into your shell session, and run it.
 
 Azure CLI requires you to be logged into your Azure account. All communication between your Azure CLI shell session and your IoT hub is authenticated and encrypted. As a result, this quickstart does not need additional authentication that you'd use with a real device, such as a connection string.
 
-1. Run the [az extension add](https://docs.microsoft.com/cli/azure/extension?view=azure-cli-latest#az-extension-add) command to add the Microsoft Azure IoT Extension for Azure CLI to your CLI shell. The IOT Extension adds IoT Hub, IoT Edge, and IoT Device Provisioning Service (DPS) specific commands to Azure CLI.
+*  Run the [az extension add](https://docs.microsoft.com/cli/azure/extension?view=azure-cli-latest#az-extension-add) command to add the Microsoft Azure IoT Extension for Azure CLI to your CLI shell. The IOT Extension adds IoT Hub, IoT Edge, and IoT Device Provisioning Service (DPS) specific commands to Azure CLI.
 
    ```azurecli
    az extension add --name azure-iot
@@ -52,11 +53,11 @@ Azure CLI requires you to be logged into your Azure account. All communication b
    
    After you install the Azure IOT extension, you don't need to install it again in any Cloud Shell session. 
 
-[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
+   [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
-1. Open a second CLI session.  If you're using the Cloud Shell, select **Open new session**. If you're using the CLI locally, open a second instance. 
+*  Open a second CLI session.  If you're using the Cloud Shell, select **Open new session**. If you're using the CLI locally, open a second instance. 
 
-    ![Open new Cloud Shell session](media/quickstart-send-telemetry-cli/cloud-shell-new-session.png)
+   ![Open new Cloud Shell session](media/quickstart-send-telemetry-cli/cloud-shell-new-session.png)
 
 ## Create an IoT Hub
 In this section, you use the Azure CLI to create a resource group and an IoT Hub.  An Azure resource group is a logical container into which Azure resources are deployed and managed. An IoT Hub acts as a central message hub for bi-directional communication between your IoT application and the devices. 
