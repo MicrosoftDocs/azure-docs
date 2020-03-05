@@ -17,15 +17,15 @@ This article provides lists Azure Monitor articles that are either new or have b
 ### Agents
 Multiple updates as part of initial rewrite of diagnostics extension.
 
-- [Overview of the Azure monitoring agents](platform/agents-overview) - Restructured tables to better clarify unique features of each agent.
-- [Azure Diagnostics extension overview](platform/diagnostics-extension-overview) - Complete rewrite.
-- [Use blob storage for IIS and table storage for events in Azure Monitor](platform/diagnostics-extension-logs) - General rewrite for update and clarity.
-- [Install and configure Windows Azure diagnostics extension (WAD)](platform/diagnostics-extension-windows-install) - New article. 
-- [Windows diagnostics extension schema](platform/diagnostics-extension-schema-windows) - Reorganized.
-- [Send data from Windows Azure diagnostics extension to Azure Event Hubs](platform/diagnostics-extension-stream-event-hubs) - Completely rewritten and updated.
-- [Store and view diagnostic data in Azure Storage](platform/diagnostics-extension-to-storage) - Completely rewritten and updated.
-- [Log Analytics virtual machine extension for Windows](../virtual-machines/extensions/oms-windows) - Better clarifies relationship with Log Analytics agent.
-- [Azure Monitor virtual machine extension for Linux](../virtual-machines/extensions/oms-linux) - Better clarifies relationship with Log Analytics agent.
+- [Overview of the Azure monitoring agents](platform/agents-overview.md) - Restructured tables to better clarify unique features of each agent.
+- [Azure Diagnostics extension overview](platform/diagnostics-extension-overview.md) - Complete rewrite.
+- [Use blob storage for IIS and table storage for events in Azure Monitor](platform/diagnostics-extension-logs.md) - General rewrite for update and clarity.
+- [Install and configure Windows Azure diagnostics extension (WAD)](platform/diagnostics-extension-windows-install.md) - New article. 
+- [Windows diagnostics extension schema](platform/diagnostics-extension-schema-windows.md) - Reorganized.
+- [Send data from Windows Azure diagnostics extension to Azure Event Hubs](platform/diagnostics-extension-stream-event-hubs.md) - Completely rewritten and updated.
+- [Store and view diagnostic data in Azure Storage](platform/diagnostics-extension-to-storage.md) - Completely rewritten and updated.
+- [Log Analytics virtual machine extension for Windows](../virtual-machines/extensions/oms-windows.md) - Better clarifies relationship with Log Analytics agent.
+- [Azure Monitor virtual machine extension for Linux](../virtual-machines/extensions/oms-linux.md) - Better clarifies relationship with Log Analytics agent.
 
 
 
@@ -93,14 +93,14 @@ Multiple new articles for view designer to workbooks conversion guide.
 ### Insights and solutions
 
 #### Azure Monitor for Containers
-- [Configure Azure Monitor for containers agent data collection](insights/container-insights-agent-config) - Added details for upgrading agent on Azure Red Hat OpenShift, and added additional information to distinguish the methods for upgrading agent.
-- [Create performance alerts for Azure Monitor for containers](insights/container-insights-alerts) - Revised information and updated steps for creating an alert on performance data stored in workspace using workspace-context alerts.
-- [Kubernetes monitoring with Azure Monitor for containers](insights/container-insights-analyze) - Updated both the overview article and the analyze article regarding support of Windows Kubernetes clusters.
-- [Configure Azure Red Hat OpenShift clusters with Azure Monitor for containers](insights/container-insights-azure-redhat-setup) - Added details for upgrading agent on Azure Red Hat OpenShift, and added additional information to distinguish the methods for upgrading agent.
-- [Configure Hybrid Kubernetes clusters with Azure Monitor for containers](insights/container-insights-hybrid-setup) - Updated to reflect added support for secure port:10250 with the Kubelet's cAdvisor.
-- [How to manage the Azure Monitor for containers agent](insights/container-insights-manage-agent) - Updated details related to behavior and config of metric scraping with Azure Red Hat OpenShift compared to other types of Kubernetes clusters.
-- [Configure Azure Monitor for containers Prometheus Integration](insights/container-insights-prometheus-integration) - Updated details related to behavior and config of metric scraping with Azure Red Hat OpenShift compared to other types of Kubernetes clusters.
-- [How to update Azure Monitor for containers for metrics](insights/container-insights-update-metrics) - Updated details related to behavior and config of metric scraping with Azure Red Hat OpenShift compared to other types of Kubernetes clusters.
+- [Configure Azure Monitor for containers agent data collection](insights/container-insights-agent-config.md) - Added details for upgrading agent on Azure Red Hat OpenShift, and added additional information to distinguish the methods for upgrading agent.
+- [Create performance alerts for Azure Monitor for containers](insights/container-insights-alerts.md) - Revised information and updated steps for creating an alert on performance data stored in workspace using workspace-context alerts.
+- [Kubernetes monitoring with Azure Monitor for containers](insights/container-insights-analyze.md) - Updated both the overview article and the analyze article regarding support of Windows Kubernetes clusters.
+- [Configure Azure Red Hat OpenShift clusters with Azure Monitor for containers](insights/container-insights-azure-redhat-setup.md) - Added details for upgrading agent on Azure Red Hat OpenShift, and added additional information to distinguish the methods for upgrading agent.
+- [Configure Hybrid Kubernetes clusters with Azure Monitor for containers](insights/container-insights-hybrid-setup.md) - Updated to reflect added support for secure port:10250 with the Kubelet's cAdvisor.
+- [How to manage the Azure Monitor for containers agent](insights/container-insights-manage-agent.md) - Updated details related to behavior and config of metric scraping with Azure Red Hat OpenShift compared to other types of Kubernetes clusters.
+- [Configure Azure Monitor for containers Prometheus Integration](insights/container-insights-prometheus-integration.md) - Updated details related to behavior and config of metric scraping with Azure Red Hat OpenShift compared to other types of Kubernetes clusters.
+- [How to update Azure Monitor for containers for metrics](insights/container-insights-update-metrics.md) - Updated details related to behavior and config of metric scraping with Azure Red Hat OpenShift compared to other types of Kubernetes clusters.
 
 
 #### Azure Monitor for VMs
