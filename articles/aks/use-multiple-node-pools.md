@@ -377,7 +377,7 @@ It takes a few minutes for the *gpunodepool* to be successfully created.
 You now have two node pools in your cluster - the default node pool initially created, and the GPU-based node pool. Use the [kubectl get nodes][kubectl-get] command to view the nodes in your cluster. The following example output shows the nodes:
 
 ```console
-$ kubectl get nodes
+kubectl get nodes
 ```
 
 ```output
