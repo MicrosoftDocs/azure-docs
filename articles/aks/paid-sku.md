@@ -58,15 +58,15 @@ az aks create --resource-group myResourceGroup --name myAKSCluster --node-count 
 ```
 After a few minutes, the command completes and returns JSON-formatted information about the cluster.
 
+## Add Paid SKU to existing clusters
+
+You can update existing AKS clusters to use the Paid SKU SLA. TODO
+
 ## Removing Paid SKU SLA from a cluster
 
-If you wish to remove the Paid SKU SLA from your cluster, you will need to follow these steps:
+Currently there is no way to remove Paid SKU SLA from an AKS cluster.
 
 TODO
-
-## Existing clusters
-
-Currently there is no way to add Paid SKU SLA to an existing AKS cluster.
 
 ## Billing and refunds
 
