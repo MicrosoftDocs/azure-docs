@@ -248,7 +248,7 @@ Authorization : Bearer {access token}
 }
 ```
 
-# Contracts POST response
+### Contracts POST response
 
 If successful, role assignments API returns the ContractActionID from the [ContractActionParameter table](data-sql-management-studio.md).
 
