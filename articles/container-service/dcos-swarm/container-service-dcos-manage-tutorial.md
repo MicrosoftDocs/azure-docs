@@ -13,7 +13,7 @@ ms.custom: mvc
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
-DC/OS provides a distributed platform for running modern and containerized applications. With Azure Container Service, provisioning of a production ready DC/OS cluster is simple and quick. This quick start details basic steps needed to deploy a DC/OS cluster and run basic workload.
+DC/OS provides a distributed platform for running modern and containerized applications. With Azure Container Service, provisioning of a production ready DC/OS cluster is simple and quick. This quickstart details basic steps needed to deploy a DC/OS cluster and run basic workload.
 
 > [!div class="checklist"]
 > * Create an ACS DC/OS cluster
