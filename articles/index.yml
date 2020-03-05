@@ -1493,7 +1493,7 @@ additionalContent:
         # Card
         - title: Azure Germany
           summary: A dedicated cloud that adheres to German data-handling regulations.
-          url: germany/index.md
+          url: germany/index.yml
         # Card
         - title: Azure China 21Vianet
           summary: A dedicated cloud located in China and operated by 21Vianet.
