@@ -138,7 +138,7 @@ To learn more, see the [App Service documentation for Hybrid Connections](../app
 
 Outbound IP restrictions are available in a Premium plan, App Service plan, or App Service Environment. You can configure outbound restrictions for the virtual network where your App Service Environment is deployed.
 
-When you integrate a function app in a Premium plan or an App Service plan with a virtual network, the app can still make outbound calls to the internet by default. By adding an application setting `WEBSITE_VNET_ROUTE_ALL=1`, you force all outbound traffic tobe sent into your virtual network, where network security group rules can be used to restrict traffic.
+When you integrate a function app in a Premium plan or an App Service plan with a virtual network, the app can still make outbound calls to the internet by default. By adding an application setting `WEBSITE_VNET_ROUTE_ALL=1`, you force all outbound traffic to be sent into your virtual network, where network security group rules can be used to restrict traffic.
 
 ## Troubleshooting 
 
