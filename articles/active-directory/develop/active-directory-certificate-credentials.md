@@ -52,7 +52,7 @@ The signature is computed applying the certificate as described in the [JSON Web
 
 ## Example of a decoded JWT assertion
 
-```
+```JSON
 {
   "alg": "RS256",
   "typ": "JWT",
@@ -69,7 +69,6 @@ The signature is computed applying the certificate as described in the [JSON Web
 }
 .
 "Gh95kHCOEGq5E_ArMBbDXhwKR577scxYaoJ1P{a lot of characters here}KKJDEg"
-
 ```
 
 ## Example of an encoded JWT assertion
@@ -109,7 +108,7 @@ In the Azure app registration for the client application:
 1. Select **Manifest** to open the application manifest.
 2. Replace the *keyCredentials* property with your new certificate information using the following schema.
 
-   ```
+   ```JSON
    "keyCredentials": [
        {
            "customKeyIdentifier": "$base64Thumbprint",

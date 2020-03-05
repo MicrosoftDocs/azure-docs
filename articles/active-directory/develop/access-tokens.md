@@ -107,28 +107,28 @@ Claims are present only if a value exists to fill it. So, your app shouldn't tak
 | `rh` | Opaque String | An internal claim used by Azure to revalidate tokens. Resources should not use this claim. |
 | `ver` | String, either `1.0` or `2.0` | Indicates the version of the access token. |
 
+**Groups overage claim**
 
-> [!NOTE]
-> **Groups overage claim**
->
-> To ensure that the token size doesn't exceed HTTP header size limits, Azure AD limits the number of object Ids that it includes in the groups claim. If a user is member of more groups than the overage limit (150 for SAML tokens, 200 for JWT tokens), then Azure AD does not emit the groups claim in the token. Instead, it includes an overage claim in the token that indicates to the application to query the Microsoft Graph API to retrieve the user's group membership.
-  ```csharp
-  {
-    ...
-    "_claim_names": {
-     "groups": "src1"
-      },
-      {
-    "_claim_sources": {
-      "src1": {
-          "endpoint":"[Url to get this user's group membership from]"
-          }
-         }
+To ensure that the token size doesn't exceed HTTP header size limits, Azure AD limits the number of object Ids that it includes in the groups claim. If a user is member of more groups than the overage limit (150 for SAML tokens, 200 for JWT tokens), then Azure AD does not emit the groups claim in the token. Instead, it includes an overage claim in the token that indicates to the application to query the Microsoft Graph API to retrieve the user's group membership.
+
+```JSON
+{
+  ...
+  "_claim_names": {
+   "groups": "src1"
+    },
+    {
+  "_claim_sources": {
+    "src1": {
+        "endpoint":"[Url to get this user's group membership from]"
+        }
        }
-    ...
-   }
-   ```
-> You can use the `BulkCreateGroups.ps1` provided in the [App Creation Scripts](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/5-WebApp-AuthZ/5-2-Groups/AppCreationScripts) folder to help test overage scenarios.
+     }
+  ...
+ }
+ ```
+
+You can use the `BulkCreateGroups.ps1` provided in the [App Creation Scripts](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/5-WebApp-AuthZ/5-2-Groups/AppCreationScripts) folder to help test overage scenarios.
 
 #### v1.0 basic claims
 
