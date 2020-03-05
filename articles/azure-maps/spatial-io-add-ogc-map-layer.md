@@ -23,11 +23,11 @@ The following sections outline the Web Mapping Service features that are support
 - GetFeatureInfo requires the service to support `EPSG:4326` or handle reprojections. 
 - Supported operations:
 
-| | |
-| :-- | :-- |
-| GetCapabilities | Retrieves metadata about the service with the supported capabilities |
-| GetMap | Retrieves a map image for a specified region |
-| GetFeatureInfo | Retrieves `feature_info`, which contains underlying data about the feature |
+    | | |
+    | :-- | :-- |
+    | GetCapabilities | Retrieves metadata about the service with the supported capabilities |
+    | GetMap | Retrieves a map image for a specified region |
+    | GetFeatureInfo | Retrieves `feature_info`, which contains underlying data about the feature |
 
 **Web Mapping Tile Service (WMTS)**
 
@@ -37,10 +37,10 @@ The following sections outline the Web Mapping Service features that are support
 - TileMatrix identifier must be an integer value that corresponds to a zoom level on the map. On an azure map, the zoom level is a value between `"0"` and `"22"`. So, `"0"` is supported, but `"00"` isn't supported.
 - Supported operations:
 
-| | |
-| :-- | :-- |
-| GetCapabilities | Retrieves the supported operations and features |
-| GetTile | Retrieves imagery for a particular tile |
+    | | |
+    | :-- | :-- |
+    | GetCapabilities | Retrieves the supported operations and features |
+    | GetTile | Retrieves imagery for a particular tile |
 
 ## Overlay an OGC map layer
 

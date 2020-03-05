@@ -11,7 +11,6 @@ manager: philmea
 #Customer intent: As an Azure Maps web sdk user, I want to install and use the spatial io module so that I can integrate spatial data with the Azure Maps web sdk.
 ---
 
-
 # How to use the Azure Maps Spatial IO module
 
 The Azure Maps Web SDK provides the **Spatial IO module**, which integrates spatial data with the Azure Maps web SDK using JavaScript or TypeScript. The robust features in this module allow developers to:
@@ -32,23 +31,23 @@ Before you can use the Spatial IO module, you'll need to [make an Azure Maps acc
 
 You can load the Azure Maps spatial IO module using one of the two options:
 
-a. The globally hosted Azure CDN for the Azure Maps spatial IO module. For this option, you add a reference to the JavaScript in the `<head>` element of the HTML file.
+* The globally hosted Azure CDN for the Azure Maps spatial IO module. For this option, you add a reference to the JavaScript in the `<head>` element of the HTML file.
 
-```html
-<script src="https://atlas.microsoft.com/sdk/javascript/spatial/0/atlas-spatial.js"></script>
-```
+    ```html
+    <script src="https://atlas.microsoft.com/sdk/javascript/spatial/0/atlas-spatial.js"></script>
+    ```
 
-b. The source code for [azure-maps-spatial-io](https://www.npmjs.com/package/azure-maps-spatial-io) can be loaded locally, and then hosted with your app. This package also includes TypeScript definitions. For this option, use the following command to install the package:
+* The source code for [azure-maps-spatial-io](https://www.npmjs.com/package/azure-maps-spatial-io) can be loaded locally, and then hosted with your app. This package also includes TypeScript definitions. For this option, use the following command to install the package:
 
-```sh
-npm install azure-maps-spatial-io
-```
+    ```sh
+    npm install azure-maps-spatial-io
+    ```
 
-Then, add a reference to the JavaScript in the `<head>` element of the HTML document:
+    Then, add a reference to the JavaScript in the `<head>` element of the HTML document:
 
-```html
-<script src="node_modules/azure-maps-spatial-io/dist/atlas-spatial.min.js"></script>
-```
+    ```html
+    <script src="node_modules/azure-maps-spatial-io/dist/atlas-spatial.min.js"></script>
+    ```
 
 ## Using the Spatial IO module
 
@@ -56,166 +55,166 @@ Then, add a reference to the JavaScript in the `<head>` element of the HTML docu
 
 2. Load the Azure Maps Web SDK and initialize the map control. See the [Azure Maps map control](https://docs.microsoft.com/azure/azure-maps/how-to-use-map-control) guide for the details. Once you're done with this step, your HTML file should look like this:
 
-```html
-<!DOCTYPE html>
-<html>
+    ```html
+    <!DOCTYPE html>
+    <html>
 
-<head>
-    <title></title>
+    <head>
+        <title></title>
 
-    <meta charset="utf-8">
+        <meta charset="utf-8">
 
-    <!-- Ensures that IE and Edge uses the latest version and doesn't emulate an older version -->
-    <meta http-equiv="x-ua-compatible" content="IE=Edge">
+        <!-- Ensures that IE and Edge uses the latest version and doesn't emulate an older version -->
+        <meta http-equiv="x-ua-compatible" content="IE=Edge">
 
-    <!-- Ensures the web page looks good on all screen sizes. -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- Ensures the web page looks good on all screen sizes. -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Add references to the Azure Maps Map control JavaScript and CSS files. -->
-    <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css" />
-    <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.js"></script>
+        <!-- Add references to the Azure Maps Map control JavaScript and CSS files. -->
+        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css" />
+        <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.js"></script>
 
-    <script type='text/javascript'>
+        <script type='text/javascript'>
 
-        var map;
-  
-        function GetMap() {
-            //Initialize a map instance.
-            map = new atlas.Map('myMap', {
-                view: 'Auto',
+            var map;
 
-                //Add your Azure Maps subscription key to the map SDK. Get an Azure Maps key at https://azure.com/maps
-                authOptions: {
-                    authType: 'subscriptionKey',
-                    subscriptionKey: '<Your Azure Maps Key>'
-                }
-            });
+            function GetMap() {
+                //Initialize a map instance.
+                map = new atlas.Map('myMap', {
+                    view: 'Auto',
 
-            //Wait until the map resources are ready.
-            map.events.add('ready', function() {
+                    //Add your Azure Maps subscription key to the map SDK. Get an Azure Maps key at https://azure.com/maps
+                    authOptions: {
+                        authType: 'subscriptionKey',
+                        subscriptionKey: '<Your Azure Maps Key>'
+                    }
+                });
 
-                // Write your code here to make sure it runs once the map resources are ready
+                //Wait until the map resources are ready.
+                map.events.add('ready', function() {
 
-            });
-        }
-    </script>
-</head>
+                    // Write your code here to make sure it runs once the map resources are ready
 
-<body onload="GetMap()">
-    <div id="myMap"></div>
-</body>
+                });
+            }
+        </script>
+    </head>
 
-</html>
-```
+    <body onload="GetMap()">
+        <div id="myMap"></div>
+    </body>
+
+    </html>
+    ```
 
 2. Load the Azure Maps spatial IO module. For this exercise, use the CDN for the Azure Maps spatial IO module. Add the reference below to the the `<head>` element of your HTML file:
 
-```html
-<script src="https://atlas.microsoft.com/sdk/javascript/spatial/0/atlas-spatial.js"></script>
-```
+    ```html
+    <script src="https://atlas.microsoft.com/sdk/javascript/spatial/0/atlas-spatial.js"></script>
+    ```
 
 3. Initialize a `datasource`, and add the data source to the map. Initialize a `layer`, and add the data source to the map layer. Then, render both the data source and the layer. Before you scroll down to see the full code in the next step, think about the best places to put the data source and layer code snippets. Recall that, before we programmatically manipulate the map, we should wait until the map resource are ready.
 
-```javascript
-var datasource, layer;
-```
+    ```javascript
+    var datasource, layer;
+    ```
 
-and
+    and
 
-```javascript
-//Create a data source and add it to the map.
-datasource = new atlas.source.DataSource();
-map.sources.add(datasource);
-
-//Add a simple data layer for rendering the data.
-layer = new atlas.layer.SimpleDataLayer(datasource);
-map.layers.add(layer);
-```
+    ```javascript
+    //Create a data source and add it to the map.
+    datasource = new atlas.source.DataSource();
+    map.sources.add(datasource);
+    
+    //Add a simple data layer for rendering the data.
+    layer = new atlas.layer.SimpleDataLayer(datasource);
+    map.layers.add(layer);
+    ```
 
 4. Putting it all together, your HTML code should look like the following code. This sample demonstrates how to read an XML file from a URL. Then, load and display the file's feature data on the map. 
 
-```html
-<!DOCTYPE html>
-<html>
+    ```html
+    <!DOCTYPE html>
+    <html>
 
-<head>
-    <title>Spatial IO Module Example</title>
+    <head>
+        <title>Spatial IO Module Example</title>
 
-    <meta charset="utf-8">
+        <meta charset="utf-8">
 
-    <!-- Ensures that IE and Edge uses the latest version and doesn't emulate an older version -->
-    <meta http-equiv="x-ua-compatible" content="IE=Edge">
+        <!-- Ensures that IE and Edge uses the latest version and doesn't emulate an older version -->
+        <meta http-equiv="x-ua-compatible" content="IE=Edge">
 
-    <!-- Ensures the web page looks good on all screen sizes. -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- Ensures the web page looks good on all screen sizes. -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Add references to the Azure Maps Map control JavaScript and CSS files. -->
-    <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css" />
-    <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.js"></script>
+        <!-- Add references to the Azure Maps Map control JavaScript and CSS files. -->
+        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css" />
+        <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.js"></script>
 
-    <!-- Add reference to the Azure Maps Spatial IO module. -->
-    <script src="https://atlas.microsoft.com/sdk/javascript/spatial/0/atlas-spatial.js"></script>
+        <!-- Add reference to the Azure Maps Spatial IO module. -->
+        <script src="https://atlas.microsoft.com/sdk/javascript/spatial/0/atlas-spatial.js"></script>
 
-    <script type='text/javascript'>
-        var map, datasource, layer;
+        <script type='text/javascript'>
+            var map, datasource, layer;
 
-        function GetMap() {
-            //Initialize a map instance.
-            map = new atlas.Map('myMap', {
-                view: 'Auto',
+            function GetMap() {
+                //Initialize a map instance.
+                map = new atlas.Map('myMap', {
+                    view: 'Auto',
 
-                //Add your Azure Maps subscription key to the map SDK. Get an Azure Maps key at https://azure.com/maps
-                authOptions: {
-                    authType: 'subscriptionKey',
-                    subscriptionKey: '<Your Azure Maps Key>'
-                }
-            });
-
-            //Wait until the map resources are ready.
-            map.events.add('ready', function() {
-
-                //Create a data source and add it to the map.
-                datasource = new atlas.source.DataSource();
-                map.sources.add(datasource);
-
-                //Add a simple data layer for rendering the data.
-                layer = new atlas.layer.SimpleDataLayer(datasource);
-                map.layers.add(layer);
-
-                //Read an XML file from a URL or pass in a raw XML string.
-                atlas.io.read('superCoolKmlFile.xml').then(r => {
-                    if (r) {
-                        //Add the feature data to the data source.
-                        datasource.add(r);
-
-                        //If bounding box information is known for data, set the map view to it.
-                        if (r.bbox) {
-                            map.setCamera({
-                                bounds: r.bbox,
-                                padding: 50
-                            });
-                        }
+                    //Add your Azure Maps subscription key to the map SDK. Get an Azure Maps key at https://azure.com/maps
+                    authOptions: {
+                        authType: 'subscriptionKey',
+                        subscriptionKey: '<Your Azure Maps Key>'
                     }
                 });
-            });
-        }
-    </script>
-</head>
 
-<body onload="GetMap()">
-    <div id="myMap"></div>
-</body>
+                //Wait until the map resources are ready.
+                map.events.add('ready', function() {
 
-</html>
-```
+                    //Create a data source and add it to the map.
+                    datasource = new atlas.source.DataSource();
+                    map.sources.add(datasource);
+
+                    //Add a simple data layer for rendering the data.
+                    layer = new atlas.layer.SimpleDataLayer(datasource);
+                    map.layers.add(layer);
+
+                    //Read an XML file from a URL or pass in a raw XML string.
+                    atlas.io.read('superCoolKmlFile.xml').then(r => {
+                        if (r) {
+                            //Add the feature data to the data source.
+                            datasource.add(r);
+
+                            //If bounding box information is known for data, set the map view to it.
+                            if (r.bbox) {
+                                map.setCamera({
+                                    bounds: r.bbox,
+                                    padding: 50
+                                });
+                            }
+                        }
+                    });
+                });
+            }
+        </script>
+    </head>
+
+    <body onload="GetMap()">
+        <div id="myMap"></div>
+    </body>
+
+    </html>
+    ```
 
 5. Remember to replace `<Your Azure Maps Key>` with your primary key. Open your HTML file, and you'll see results similar to the following image:
 
-<center>
+    <center>
 
-![Spatial Data Example](./media/how-to-use-spatial-io-module/spatial-data-example.png)
+    ![Spatial Data Example](./media/how-to-use-spatial-io-module/spatial-data-example.png)
 
-</center>
+    </center>
 
 ## Next steps
 

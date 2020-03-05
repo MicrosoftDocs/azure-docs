@@ -33,16 +33,17 @@ The next section provides details on the default style properties that are suppo
 
 ### Bubble layer style properties
 
-If a feature is a `Point` or a `MultiPoint` and doesn't have an `image` property that would be used as a custom icon to render the point as a symbol, then the feature will be rendered with a `BubbleLayer`.
+If a feature is a `Point` or a `MultiPoint`, and the feature doesn't have an `image` property that would be used as a custom icon to render the point as a symbol, then the feature will be rendered with a `BubbleLayer`.
 
 | Layer option | Supported property name(s) | Default value |
 |--------------|----------------------------|---------------|
 | `color` | `color`, `marker-color` | `'#1A73AA'` |
 | `radius` | `size`<sup>1</sup>, `marker-size`<sup>2</sup>, `scale`<sup>1</sup> | `8` |
-| `strokeColor` | `strokeColor`, `stroke` | `#FFFFFF` |
+| `strokeColor` | `strokeColor`, `stroke` | `'#FFFFFF'` |
 
-1. The `size` and `scale` values are considered scalar values, and they'll be multiplied by `8`. 
-2. If the GitHub `marker-size` option is specified, then the following values will be used for the radius.
+\[1\] The `size` and `scale` values are considered scalar values, and they'll be multiplied by `8`
+
+\[2\] If the GitHub `marker-size` option is specified, then the following values will be used for the radius.
 
 | Marker size | Radius |
 |-------------|--------|
@@ -60,7 +61,7 @@ Clusters are also rendered using the bubble layer. By default the radius of a cl
 
 ### Symbol style properties
 
-If a feature is a `Point` or a `MultiPoint` and has an `image` property that would be used as a custom icon to render the point as a symbol, the feature will be rendered with a `SymbolLayer`.
+If a feature is a `Point` or a `MultiPoint`, and the feature and has an `image` property that would be used as a custom icon to render the point as a symbol, then the feature will be rendered with a `SymbolLayer`.
 
 | Layer option | Supported property name(s) | Default value |
 |--------------|----------------------------|---------------|
@@ -70,7 +71,7 @@ If a feature is a `Point` or a `MultiPoint` and has an `image` property that wou
 | `offset` | `offset` | `[0, 0]` |
 | `anchor` | `anchor` | `'bottom'` |
 
-1. If the GitHub `marker-size` option is specified, then the following values will be used for the icon size option.
+\[1\] If the GitHub `marker-size` option is specified, then the following values will be used for the icon size option.
 
 | Marker size | Symbol size |
 |-------------|-------------|
@@ -111,7 +112,7 @@ If the feature is a `Polygon` or a `MultiPolygon`, and has a `height` property w
 
 ## Use a simple data layer
 
-The `SimpleDataLayer` class is used in a similar way as other rendering layers are used. The code below shows how to use a simple data layer in a map:
+The `SimpleDataLayer` class is used like the other rendering layers are used. The code below shows how to use a simple data layer in a map:
 
 ```javascript
 //Create a data source and add it to the map.

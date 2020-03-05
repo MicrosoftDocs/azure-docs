@@ -21,11 +21,11 @@ The following features are supported by the `WfsClient` class:
 - Requests are made using `HTTP GET` only.
 - Supported operations:
 
-| | |
-| :-- | :-- |
-| GetCapabilities | Generates a metadata document with valid WFS operations and parameters |
-| GetFeature | Returns a selection of features from a data source |
-| DescribeFeatureType | Returns the supported feature types |
+    | | |
+    | :-- | :-- |
+    | GetCapabilities | Generates a metadata document with valid WFS operations and parameters |
+    | GetFeature | Returns a selection of features from a data source |
+    | DescribeFeatureType | Returns the supported feature types |
 
 ## Using the WFS client
 
@@ -91,7 +91,7 @@ The following code uses the WFS client to explore WFS services. Select a propert
 
 You may also use a proxy service to load resources that are hosted on domains that aren't CORs enabled. You would first define a variable to hold the proxy service url and set the `proxyService` option for the WFS client. To render a proxy service option for the user, add a user input to the UI. Load the service url when the input is clicked. The following snippets show you how to use the proxy service.
 
-```javascript
+```JavaScript
 
 //A variable to hold the URL of the proxy service
 var proxyServiceUrl = window.location.origin + 'CorsEnabledProxyService.ashx?url=';
@@ -110,7 +110,7 @@ function proxyOptionChanged() {
 
 ```
 
-The HTML code snippet below corresponds to the above javascript code:
+The HTML code snippet below corresponds to the above JavaScript code:
 
 ```html
 <!-- use the proxy service -->
@@ -122,10 +122,10 @@ The HTML code snippet below corresponds to the above javascript code:
 Learn more about the classes and methods used in this article:
 
 > [!div class="nextstepaction"]
-> [WfsClient](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.io.ogc.wfsclient)
+> [WfsClient](https://docs.microsoft.com/JavaScript/api/azure-maps-spatial-io/atlas.io.ogc.wfsclient)
 
 > [!div class="nextstepaction"]
-> [WfsServiceOptions](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.wfsserviceoptions)
+> [WfsServiceOptions](https://docs.microsoft.com/JavaScript/api/azure-maps-spatial-io/atlas.wfsserviceoptions)
 
 See the following articles for more code samples to add to your maps:
 

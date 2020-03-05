@@ -237,7 +237,7 @@ The spatial IO module supports the following GML elements.
 | `gml:posList`           | yes  | yes   |                                                                                        |
 | `gml:surfaceMember`     | yes  | yes   |                                                                                        |
 
-**Additional notes**
+#### additional notes
 
 - Member elements will be searched for a geometry that may be buried within child elements. This search operation is necessary as many XML formats that extend from GML may not place a geometry as a direct child of a member element.
 - `srsName` is partially supported for WGS84 coordinates and the following codes:[EPSG:4326](https://epsg.io/4326)), and web Mercator ([EPSG:3857](https://epsg.io/3857) or one of its alternative codes. Any other coordinate system will be parsed as WGS84 as-is.
@@ -291,7 +291,7 @@ The spatial IO module supports the following GPX elements.
 | `gpx:keywords`           | yes     | yes     |                                                                                             |
 | `gpx:fix`                | yes     | yes     |                                                                                             |
 
-**Additional notes**
+#### additional notes
 
 When writing;
 
@@ -343,41 +343,41 @@ Delimited spatial data, such as comma-separated value files (CSV), often have co
 
 When reading a delimited file that contains spatial data, the header will be analyzed to determine which columns contain location fields. If the header contains type information, it will be used to cast the cell values to the appropriate type. If no header is specified, the first row will be analyzed and used to generate a header. When analyzing the first row, a check is executed to match column names with the following names in a case-insensitive way. The order of the names is the priority, in case two or more names exist in a file.
 
-**Latitude**
+#### Latitude
 
-    - `latitude`
-    - `lat`
-    - `latdd`
-    - `lat_dd`
-    - `latitude83`
-    - `latdecdeg`
-    - `y`
-    - `ycenter`
-    - `point-y`
+- `latitude`
+- `lat`
+- `latdd`
+- `lat_dd`
+- `latitude83`
+- `latdecdeg`
+- `y`
+- `ycenter`
+- `point-y`
 
-**Longitude**
+#### Longitude
 
-    - `longitude`
-    - `lon`
-    - `lng`
-    - `long`
-    - `longdd`
-    - `long_dd`
-    - `longitude83`
-    - `longdecdeg`
-    - `x`
-    - `xcenter`
-    - `point-x`
+- `longitude`
+- `lon`
+- `lng`
+- `long`
+- `longdd`
+- `long_dd`
+- `longitude83`
+- `longdecdeg`
+- `x`
+- `xcenter`
+- `point-x`
 
-**Elevation**
+#### Elevation
 
-    - `elevation`
-    - `elv`
-    - `altitude`
-    - `alt`
-    - `z`
+- `elevation`
+- `elv`
+- `altitude`
+- `alt`
+- `z`
 
-**Geography**
+#### Geography
 
 The first row of data will be scanned for strings that are in Well Known Text format. 
 
@@ -419,7 +419,7 @@ When scanning the header row, any type information that is in the column name wi
     - text
     - case 'string
 
-If no type information can be extracted from the header, and the dynamic typing option is enabled when reading, then each cell will be individually analyzed to determine what data type it is best suited to be casted as.
+If no type information can be extracted from the header, and the dynamic typing option is enabled when reading, then each cell will be individually analyzed to determine what data type it is best suited to be cast as.
 
 ## Next steps
 
