@@ -27,6 +27,8 @@ This article helps administrators diagnose and resolve connectivity problems whe
 
 - [SNAT exhaustion](#snat-exhaustion).
 - [ICMP ping is failing](#icmp-ping-is-failing).
+- [Connectivity failures](#connectivity-failures).
+- [IPv6 coexistence](#ipv6-coexistence).
 
 To resolve these problems, follow the steps in the following section.
 
@@ -45,7 +47,11 @@ A single [NAT gateway resource](nat-gateway-resource.md) supports from 64,000 up
 
 #### Design pattern:
 
+
 Always take advantage of connection reuse and connection pooling whenever possible.  This pattern will avoid resource exhaustion problems outright and result in predictable behavior. Primitives for these patterns can be found in many development libraries and frameworks.
+
+*Solution:* Use appropriate patterns
+
 - Consider [asynchronous polling patterns](https://docs.microsoft.com/azure/architecture/patterns/async-request-reply) for long-running operations to free up connection resources for other operations.
 - Long-lived flows (for example reused TCP connections) should use TCP keepalives or application layer keepalives to avoid intermediate systems timing out.
 - Graceful [retry patterns](https://docs.microsoft.com/azure/architecture/patterns/retry) should be used to avoid aggressive retries/bursts during transient failure or failure recovery.
@@ -53,7 +59,7 @@ Creating a new TCP connection for every HTTP operation (also known as "atomic co
 
 #### Mitigations
 
-You can scale outbound connectivity as follows:
+*Solution:* You can scale outbound connectivity as follows:
 
 | Scenario | Mitigation |
 |---|---|
@@ -65,7 +71,9 @@ You can scale outbound connectivity as follows:
 
 ### ICMP ping is failing
 
-[Virtual Network NAT](nat-overview.md) supports IPv4 UDP and TCP protocols. ICMP isn't supported and expected to fail.  Instead, use TCP connection tests (for example "TCP ping") and UDP-specific application layer tests to validate end to end connectivity.
+[Virtual Network NAT](nat-overview.md) supports IPv4 UDP and TCP protocols. ICMP isn't supported and expected to fail.  
+
+*Solution:* Instead, use TCP connection tests (for example "TCP ping") and UDP-specific application layer tests to validate end to end connectivity.
 
 The following table can be used a starting point for which tools to use to start tests.
 
@@ -74,8 +82,22 @@ The following table can be used a starting point for which tools to use to start
 | Linux | nc (generic connection test) | curl (TCP application layer test) | application specific |
 | Windows | [PsPing](https://docs.microsoft.com/sysinternals/downloads/psping) | PowerShell [Invoke-WebRequest](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/invoke-webrequest) | application specific |
 
+### Connectivity failures
+
+Connectivity issues with [Virtual Network NAT] can be due to [SNAT exhaustion], transient failures in the Azure infrastructure, transient failures in the path between Azure and the public Internet destination, and transient or persistent failures at the public Internet destination.
+
+### IPv6 Coexistence
+
+[Virtual Network NAT](nat-overview.md) supports IPv4 UDP and TCP protocols and deployment on a [subnet with IPv6 prefix is not supported](nat-overview.md#limitations).
+
+*Solution:* Deploy NAT gateway on a subnet without IPv6 prefix.
+
+You can indicate interest in additional capabilities through [Virtual Network NAT UserVoice](https://aka.ms/natuservoice).
+
 ## Next steps
 
 - Learn about [Virtual Network NAT](nat-overview.md)
 - Learn about [NAT gateway resource](nat-gateway-resource.md)
 - Learn about [metrics and alerts for NAT gateway resources](nat-metrics.md).
+- [Tell us what to build next in UserVoice](https://aka.ms/natuservoice).
+
