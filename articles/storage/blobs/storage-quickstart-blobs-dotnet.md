@@ -25,7 +25,7 @@ Use the Azure Blob storage client library v12 for .NET to:
 * Download the blob to your local computer
 * Delete a container
 
-[API reference documentation](/dotnet/api/azure.storage.blobs) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs) | [Package (NuGet)](https://www.nuget.org/packages/Azure.Storage.Blobs) | [Samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs/samples)
+[API reference documentation](/dotnet/api/azure.storage.blobs) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs) | [Package (NuGet)](https://www.nuget.org/packages/Azure.Storage.Blobs) | [Samples](https://docs.microsoft.com/azure/storage/common/storage-samples-dotnet?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
@@ -110,7 +110,7 @@ Azure Blob storage is optimized for storing massive amounts of unstructured data
 
 The following diagram shows the relationship between these resources.
 
-![Diagram of Blob storage architecture](./media/storage-blob-introduction/blob1.png)
+![Diagram of Blob storage architecture](./media/storage-blobs-introduction/blob1.png)
 
 Use the following .NET classes to interact with these resources:
 

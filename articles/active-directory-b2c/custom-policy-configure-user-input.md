@@ -3,14 +3,14 @@ title: Add claims and customize user input in custom policies
 titleSuffix: Azure AD B2C
 description: Learn how to customize user input and add claims to the sign-up or sign-in journey in Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/07/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
 ---
 #  Add claims and customize user input using custom policies in Azure Active Directory B2C
@@ -259,7 +259,7 @@ The following elements are used to define the claim:
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Make sure you're using the directory that contains your Azure AD tenant by selecting the **Directory + subscription** filter in the top menu and choosing the directory that contains your Azure AD tenant.
 3. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **App registrations**.
-4. Select **Identity Experience Framework (Preview)**.
+4. Select **Identity Experience Framework**.
 5. Select **Upload Custom Policy**, and then upload the two policy files that you changed.
 2. Select the sign-up or sign-in policy that you uploaded, and click the **Run now** button.
 3. You should be able to sign up using an email address.

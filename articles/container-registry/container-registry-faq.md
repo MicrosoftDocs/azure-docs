@@ -110,13 +110,13 @@ ACR supports Docker Registry HTTP API V2. The APIs can be accessed at
 
 If you are on bash:
 
-```bash
+```azurecli
 az acr repository show-manifests -n myRegistry --repository myRepository --query "[?tags[0]==null].digest" -o tsv  | xargs -I% az acr repository delete -n myRegistry -t myRepository@%
 ```
 
 For Powershell:
 
-```powershell
+```azurecli
 az acr repository show-manifests -n myRegistry --repository myRepository --query "[?tags[0]==null].digest" -o tsv | %{ az acr repository delete -n myRegistry -t myRepository@$_ }
 ```
 
@@ -147,13 +147,13 @@ docker push myregistry.azurecr.io/1gb:latest
 
 You should be able to see that the storage usage has increased in the Azure portal, or you can query usage using the CLI.
 
-```bash
+```azurecli
 az acr show-usage -n myregistry
 ```
 
 Delete the image using the Azure CLI or portal and check the updated usage in a few minutes.
 
-```bash
+```azurecli
 az acr repository delete -n myregistry --image 1gb
 ```
 
@@ -212,12 +212,12 @@ ACR supports [custom roles](container-registry-roles.md) that provide different 
   Then you can assign the `AcrPull` or `AcrPush` role to a user (the following example uses `AcrPull`):
 
   ```azurecli
-    az role assignment create --scope resource_id --role AcrPull --assignee user@example.com
-    ```
+  az role assignment create --scope resource_id --role AcrPull --assignee user@example.com
+  ```
 
   Or, assign the role to a service principle identified by its application ID:
 
-  ```
+  ```azurecli
   az role assignment create --scope resource_id --role AcrPull --assignee 00000000-0000-0000-0000-000000000000
   ```
 
@@ -235,9 +235,9 @@ The assignee is then able to authenticate and access images in the registry.
   az acr repository list -n myRegistry
   ```
 
- To pull an image:
-    
-  ```azurecli
+* To pull an image:
+
+  ```bash
   docker pull myregistry.azurecr.io/hello-world
   ```
 
@@ -271,9 +271,10 @@ To troubleshoot common environment and registry issues, see [Check the health of
  - If `docker pull` fails continuously, then there could be a problem with the Docker daemon. The problem can generally be mitigated by restarting the Docker daemon. 
  - If you continue to see this issue after restarting Docker daemon, then the problem could be some network connectivity issues with the machine. To check if general network on the machine is healthy, run the following command to test endpoint connectivity. The minimum `az acr` version that contains this connectivity check command is 2.2.9. Upgrade your Azure CLI if you are using an older version.
  
-   ```azurecli
-    az acr check-health -n myRegistry
-    ```
+  ```azurecli
+  az acr check-health -n myRegistry
+  ```
+
  - You should always have a retry mechanism on all Docker client operations.
 
 ### Docker pull is slow
@@ -292,28 +293,25 @@ grep OPTIONS /etc/sysconfig/docker
 
 For instance, Fedora 28 Server has the following docker daemon options:
 
-```
-OPTIONS='--selinux-enabled --log-driver=journald --live-restore'
-```
+`OPTIONS='--selinux-enabled --log-driver=journald --live-restore'`
 
 With `--signature-verification=false` missing, `docker pull` fails with an error similar to:
 
-```bash
+```output
 Trying to pull repository myregistry.azurecr.io/myimage ...
 unauthorized: authentication required
 ```
 
 To resolve the error:
 1. Add the option `--signature-verification=false` to the Docker daemon configuration file `/etc/sysconfig/docker`. For example:
-
-  ```
-  OPTIONS='--selinux-enabled --log-driver=journald --live-restore --signature-verification=false'
-  ```
+   
+   `OPTIONS='--selinux-enabled --log-driver=journald --live-restore --signature-verification=false'`
+   
 2. Restart the Docker daemon service by running the following command:
-
-  ```bash
-  sudo systemctl restart docker.service
-  ```
+   
+   ```bash
+   sudo systemctl restart docker.service
+   ```
 
 Details of `--signature-verification` can be found by running `man dockerd`.
 
@@ -473,9 +471,7 @@ az acr task list-runs -r $myregistry --run-status Running --query '[].runId' -o 
 
 If you pass a local source folder to the `az acr build` command, the `.git` folder is excluded from the uploaded package by default. You can create a `.dockerignore` file with the following setting. It tells the command to restore all files under `.git` in the uploaded package. 
 
-```sh
-!.git/**
-```
+`!.git/**`
 
 This setting also applies to the `az acr run` command.
 

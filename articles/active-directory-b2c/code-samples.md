@@ -1,11 +1,11 @@
 ---
-title: Azure Active Directory B2C code samples | Microsoft Docs 
-description: Code samples for Azure Active Directory B2C mobile, desktop, web, and single-page applications. 
+title: Azure Active Directory B2C code samples | Microsoft Docs
+description: Code samples for Azure Active Directory B2C mobile, desktop, web, and single-page applications.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 
-ms.author: marsma
+ms.author: mimart
 ms.date: 01/29/2020
 ms.custom: mvc
 ms.topic: sample
@@ -25,7 +25,7 @@ The following tables provide links to samples for applications including iOS, An
 | [android-native-msal](https://github.com/Azure-Samples/active-directory-b2c-android-native-msal) | A simple Android app showcasing how to use MSAL to authenticate users via Azure Active Directory B2C, and access a Web API with the resulting tokens. |
 | [ios-native-appauth](https://github.com/Azure-Samples/active-directory-b2c-ios-native-appauth) | A sample that shows how you can use a third party library to build an iOS application in Objective-C that authenticates Microsoft identity users to our Azure AD B2C identity service. |
 | [android-native-appauth](https://github.com/Azure-Samples/active-directory-b2c-android-native-appauth) | A sample that shows how you can use a third party library to build an Android application that authenticates Microsoft identity users to our B2C identity service and calls a web API using OAuth 2.0 access tokens. |
-| [dotnet-desktop](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop) | A sample that shows how a Windows Desktop .NET (WPF) application can sign in a user using Azure AD B2C, get an access token using MSAL.NET and call an API. | 
+| [dotnet-desktop](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop) | A sample that shows how a Windows Desktop .NET (WPF) application can sign in a user using Azure AD B2C, get an access token using MSAL.NET and call an API. |
 | [xamarin-native](https://github.com/Azure-Samples/active-directory-b2c-xamarin-native) | A simple Xamarin Forms app showcasing how to use MSAL to authenticate users via Azure Active Directory B2C, and access a Web API with the resulting tokens. |
 
 ## Web apps and APIs
@@ -42,5 +42,4 @@ The following tables provide links to samples for applications including iOS, An
 
 | Sample | Description |
 |--------| ----------- |
-| [javascript-msal-singlepageapp](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp) | A single page application (SPA) calling a Web API. Authentication is done with Azure AD B2C by leveraging MSAL.js. | 
-| [javascript-hellojs-singlepageapp](https://github.com/Azure-Samples/active-directory-b2c-javascript-hellojs-singlepageapp) | A single page app, implemented with an ASP.NET Web API backend, that signs up & signs in users using Azure AD B2C and calls the web API using OAuth 2.0 access tokens. |
+| [javascript-msal-singlepageapp](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp) | A single page application (SPA) calling a Web API. Authentication is done with Azure AD B2C by using MSAL.js. |

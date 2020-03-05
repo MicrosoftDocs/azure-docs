@@ -2,14 +2,14 @@
 title: RelyingParty - Azure Active Directory B2C | Microsoft Docs
 description: Specify the RelyingParty element of a custom policy in Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 02/24/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
 ---
 
