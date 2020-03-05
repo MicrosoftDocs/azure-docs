@@ -2,7 +2,7 @@
   tocHref: /azure/
   topicHref: /azure/index
   items:
-  - name: Azure Cosmos DB
+  - name: Cosmos DB
     tocHref: /azure/data-factory/
     topicHref: /azure/cosmos-db/index
 
@@ -10,7 +10,7 @@
   tocHref: /azure/
   topicHref: /azure/index
   items:
-  - name: Azure Cosmos DB
+  - name: Cosmos DB
     tocHref: /azure/search/
     topicHref: /azure/cosmos-db/index
 
@@ -18,7 +18,7 @@
   tocHref: /azure/
   topicHref: /azure/index
   items:
-  - name: Azure Cosmos DB
+  - name: Cosmos DB
     tocHref: /azure/azure-functions/
     topicHref: /azure/cosmos-db/index
 
@@ -26,7 +26,7 @@
   tocHref: /azure/
   topicHref: /azure/index
   items:
-  - name: Azure Cosmos DB
+  - name: Cosmos DB
     tocHref: /azure/dms/
     topicHref: /azure/cosmos-db/index
 
@@ -34,7 +34,7 @@
   tocHref: /azure/
   topicHref: /azure/index
   items:
-  - name: Azure Cosmos DB
+  - name: Cosmos DB
     tocHref: /azure/hdinsight/
     topicHref: /azure/cosmos-db/index
 
@@ -42,7 +42,7 @@
   tocHref: /azure/
   topicHref: /azure/index
   items:
-  - name: Azure Cosmos DB
+  - name: Cosmos DB
     tocHref: /azure/private-link/
     topicHref: /azure/cosmos-db/index
 
@@ -50,7 +50,7 @@
   tocHref: /azure/
   topicHref: /azure/index
   items:
-  - name: Azure Cosmos DB
+  - name: Cosmos DB
     tocHref: /azure/logic-apps/
     topicHref: /azure/cosmos-db/index
 
@@ -58,18 +58,35 @@
   tocHref: /azure/
   topicHref: /azure/index
   items:
-  - name: Azure Cosmos DB
+  - name: Cosmos DB
     tocHref: /azure/stream-analytics/
+    topicHref: /azure/cosmos-db/index
+
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:
+  - name: Cosmos DB
+    tocHref: /azure/virtual-network/
     topicHref: /azure/cosmos-db/index
 
 - name: Azure
   tocHref: /java/
   topicHref: /azure/index
   items:
-  - name: Azure Cosmos DB
+  - name: Cosmos DB
     tocHref: /java/azure/
     topicHref: /azure/cosmos-db/index
     items:
-    - name: Spring
+    - name: Cosmos DB
       tocHref: /java/azure/spring-framework/
       topicHref: /azure/cosmos-db/index
+
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:
+  - name: Cosmos DB
+    tocHref: /azure/azure-monitor/insights
+    topicHref: /azure/cosmos-db/index
+

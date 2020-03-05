@@ -28,7 +28,7 @@ helm repo update
 Navigate to your project's directory and run `azds prep`.
 
 ```cmd
-azds prep --public
+azds prep --enable-ingress
 ```
 
 > [!TIP]

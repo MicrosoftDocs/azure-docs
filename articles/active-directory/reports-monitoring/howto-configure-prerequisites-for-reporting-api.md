@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 08/30/2019
+ms.date: 03/04/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 
@@ -185,12 +185,19 @@ You need these values when configuring calls to the reporting API.
 
 ## Troubleshoot errors in the reporting API
 
-This section lists the common error messages you may run into while accessing activity reports using the MS Graph API and steps for their resolution.
+This section lists the common error messages you may run into while accessing activity reports using the Microsoft Graph API and steps for their resolution.
 
-### 500 HTTP internal server error while accessing Microsoft Graph V2 endpoint
+### Error: Failed to get user roles from Microsoft Graph
 
-We do not currently support the Microsoft Graph v2 endpoint - make sure to access the activity logs using the Microsoft Graph v1 endpoint.
+ Sign into your account using both sign-in buttons in the Graph Explorer UI to avoid getting an error when trying to sign in using Graph Explorer. 
 
+![Graph Explorer](./media/troubleshoot-graph-api/graph-explorer.png)
+
+### Error: Failed to do premium license check from Microsoft Graph 
+
+If you run into this error message while trying to access sign-ins using Graph Explorer, choose **Modify Permissions** underneath your account on the left nav, and select **Tasks.ReadWrite** and **Directory.Read.All**. 
+
+![Modify permissions UI](./media/troubleshoot-graph-api/modify-permissions.png)
 
 ### Error: Tenant is not B2C or tenant doesn't have premium license
 

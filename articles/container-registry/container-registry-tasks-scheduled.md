@@ -50,8 +50,11 @@ az acr task create \
 
 Run the [az acr task show][az-acr-task-show] command to see that the timer trigger is configured. By default, the base image update trigger is also enabled.
 
-```console
-$ az acr task show --name mytask --registry registry --output table
+```azurecli
+az acr task show --name mytask --registry registry --output table
+```
+
+```output
 NAME      PLATFORM    STATUS    SOURCE REPOSITORY       TRIGGERS
 --------  ----------  --------  -------------------     -----------------
 mytask    linux       Enabled                           BASE_IMAGE, TIMER
@@ -65,7 +68,7 @@ az acr task run --name mytask --registry myregistry
 
 If the container runs successfully, the output is similar to the following:
 
-```console
+```output
 Queued a run with ID: cf2a
 Waiting for an agent...
 2019/06/28 21:03:36 Using acb_vol_2ca23c46-a9ac-4224-b0c6-9fde44eb42d2 as the home volume
@@ -86,7 +89,7 @@ az acr task list-runs --name mytask --registry myregistry --output table
 
 When the timer is successful, output is similar to the following:
 
-```console
+```output
 RUN ID    TASK     PLATFORM    STATUS     TRIGGER    STARTED               DURATION
 --------  -------- ----------  ---------  ---------  --------------------  ----------
 [...]
@@ -191,6 +194,14 @@ Each field can have one of the following types of values:
 |`"30 9 * * 1-5"`|at 9:30 UTC every weekday|
 |`"30 9 * Jan Mon"`|at 9:30 UTC every Monday in January|
 
+## Clean up resources
+
+To remove all resources you've created in this tutorial series, including the container registry or registries, container instance, key vault, and service principal, issue the following commands:
+
+```azurecli
+az group delete --resource-group $RES_GROUP
+az ad sp delete --id http://$ACR_NAME-pull
+```
 
 ## Next steps
 

@@ -5,7 +5,7 @@ description: Learn how to make database connectivity more secure by using a mana
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 11/18/2019
-ms.custom: mvc
+ms.custom: mvc, cli-validate
 ---
 # Tutorial: Secure Azure SQL Database connection from App Service using a managed identity
 
@@ -235,6 +235,9 @@ GO
 *\<identity-name>* is the name of the managed identity in Azure AD. Since it's system-assigned, it's always the same as the name of your App Service app. To grant permissions for an Azure AD group, use the group's display name instead (for example, *myAzureSQLDBAccessGroup*).
 
 Type `EXIT` to return to the Cloud Shell prompt.
+
+> [!NOTE]
+> The back-end services of managed identities also [maintains a token cache](overview-managed-identity.md#obtain-tokens-for-azure-resources) that updates the token for a target resource only when it expires. If you make a mistake configuring your SQL Database permissions and try to modify the permissions *after* trying to get a token with your app, you don't actually get a new token with the updated permissions until the cached token expires.
 
 ### Modify connection string
 

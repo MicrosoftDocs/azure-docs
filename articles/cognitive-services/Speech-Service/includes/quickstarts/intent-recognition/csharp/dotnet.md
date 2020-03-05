@@ -41,7 +41,7 @@ Before you can initialize an `IntentRecognizer` object, you need to create a con
 Insert this code in the `RecognizeIntentAsync()` method. Make sure you update these values:
 
 * Replace `"YourLanguageUnderstandingSubscriptionKey"` with your LUIS prediction key.
-* Replace `"YourLanguageUnderstandingServiceRegion"` with your LUIS location. Use "Speech SDK Parameter" from [region](https://aka.ms/speech/sdkregion).
+* Replace `"YourLanguageUnderstandingServiceRegion"` with your LUIS location. Use **Region identifier** from [region](https://aka.ms/speech/sdkregion).
 
 >[!TIP]
 > If you need help finding these values, see [Create a LUIS app for intent recognition](#create-a-luis-app-for-intent-recognition).
@@ -71,7 +71,8 @@ You need to associate a `LanguageUnderstandingModel` with the intent recognizer,
 
 From the `IntentRecognizer` object, you're going to call the `RecognizeOnceAsync()` method. This method lets the Speech service know that you're sending a single phrase for recognition, and that once the phrase is identified to stop recognizing speech.
 
-Inside the using statement, add this code below your model:
+Inside the using statement, add this code below your model.
+
 [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/intent-recognition/helloworld/Program.cs?range=46)]
 
 ## Display recognition results (or errors)

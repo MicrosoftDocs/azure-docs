@@ -52,8 +52,7 @@ Or you can download this quickstart tutorial as a [Jupyter](https://jupyter.org)
 import azure.cognitiveservices.speech as speechsdk
 
 # Creates an instance of a speech config with specified subscription key and service region.
-# Replace with your own subscription key and service region (e.g., "westus", use the one of SpeechSDKParameters
-# from here: https://aka.ms/speech/sdkregion).
+# Replace with your own subscription key and region identifier from here: https://aka.ms/speech/sdkregion
 speech_key, service_region = "YourSubscriptionKey", "YourServiceRegion"
 speech_config = speechsdk.SpeechConfig(subscription=speech_key, region=service_region)
 
@@ -89,7 +88,7 @@ elif result.reason == speechsdk.ResultReason.Canceled:
 
 ### Install and use the Speech SDK with Visual Studio Code
 
-1. Download and install a 64-bit version of [Python](https://www.python.org/downloads/), 3.5 or later, on your computer.
+1. Download and install a 64-bit version of [Python](https://www.python.org/downloads/), 3.5 to 3.8, on your computer.
 1. Download and install [Visual Studio Code](https://code.visualstudio.com/Download).
 1. Open Visual Studio Code and install the Python extension. Select **File** > **Preferences** > **Extensions** from the menu. Search for **Python**.
 

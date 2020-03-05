@@ -5,7 +5,7 @@
  author: roygara
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 02/13/2020
+ ms.date: 02/18/2020
  ms.author: rogarana
  ms.custom: include file
 ---
@@ -21,4 +21,4 @@ While in preview, managed disks that have shared disks enabled are subject to th
 - Availability sets and virtual machine scale sets can only be used with `FaultDomainCount` set to 1.
 - Azure Backup and Azure Site Recovery support is not yet available.
 
-If you're interested in trying shared disks then [sign up for our preview](https://aka.ms/shareddisksignup).
+If you're interested in trying shared disks then [sign up for our preview](https://aka.ms/AzureSharedDiskPreviewSignUp).

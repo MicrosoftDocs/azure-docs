@@ -37,13 +37,15 @@ This page answers frequently asked questions about Azure Active Directory Domain
 No. You can only create a single managed domain serviced by Azure AD Domain Services for a single Azure AD directory.
 
 ### Can I enable Azure AD Domain Services in a Classic virtual network?
-Classic virtual networks aren't supported for new deployments. Existing managed domains deployed in Classic virtual networks continue to be supported. You can also [migrate Azure AD Domain Services from the Classic virtual network model to Resource Manager (preview)](migrate-from-classic-vnet.md).
+Classic virtual networks aren't supported for new deployments. Existing managed domains deployed in Classic virtual networks continue to be supported until they're retired on March 1, 2023. For existing deployments, you can [migrate Azure AD Domain Services from the Classic virtual network model to Resource Manager](migrate-from-classic-vnet.md).
+
+For more information, see the [official deprecation notice](https://azure.microsoft.com/updates/we-are-retiring-azure-ad-domain-services-classic-vnet-support-on-march-1-2023/).
 
 ### Can I enable Azure AD Domain Services in an Azure Resource Manager virtual network?
 Yes. Azure AD Domain Services can be enabled in an Azure Resource Manager virtual network. Classic Azure virtual networks are no longer available when you create a managed domain.
 
 ### Can I migrate my existing managed domain from a Classic virtual network to a Resource Manager virtual network?
-Yes, this feature is in preview. For more information, see [Migrate Azure AD Domain Services from the Classic virtual network model to Resource Manager (preview)](migrate-from-classic-vnet.md).
+Yes. For more information, see [Migrate Azure AD Domain Services from the Classic virtual network model to Resource Manager](migrate-from-classic-vnet.md).
 
 ### Can I enable Azure AD Domain Services in an Azure CSP (Cloud Solution Provider) subscription?
 Yes. For more information, see [how to enable Azure AD Domain Services in Azure CSP subscriptions](csp.md).
@@ -85,7 +87,7 @@ No. After you create an Azure AD Domain Services managed domain, you can't then 
 No. You don't have permissions to connect to domain controllers for the managed domain using Remote Desktop. Members of the *AAD DC Administrators* group can administer the managed domain using AD administration tools such as the Active Directory Administration Center (ADAC) or AD PowerShell. These tools are installed using the *Remote Server Administration Tools* feature on a Windows server joined to the managed domain. For more information, see [Create a management VM to configure and administer an Azure AD Domain Services managed domain](tutorial-create-management-vm.md).
 
 ### I've enabled Azure AD Domain Services. What user account do I use to domain join machines to this domain?
-Members of the administrative group *AAD DC Administrators* can domain-join machines. Additionally, members of this group are granted remote desktop access to machines that have been joined to the domain.
+Any user account that's part of the Azure AD DS managed domain can join a VM. Members of the *AAD DC Administrators* group are granted remote desktop access to machines that have been joined to the managed domain.
 
 ### Do I have domain administrator privileges for the managed domain provided by Azure AD Domain Services?
 No. You aren't granted administrative privileges on the managed domain. *Domain Administrator* and *Enterprise Administrator* privileges aren't available for you to use within the domain. Members of the domain administrator or enterprise administrator groups in your on-premises Active Directory are also not granted domain / enterprise administrator privileges on the managed domain.

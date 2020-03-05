@@ -36,8 +36,8 @@ Before you can initialize an `IntentRecognizer` object, you need to create a con
 
 Insert this code in `quickstart.py`. Make sure you update these values:
 
-* Replace `"YourLanguageUnderstandingSubscriptionKey"` with your LUIS prediction key. 
-* Replace `"YourLanguageUnderstandingServiceRegion"` with your LUIS location. Use "Speech SDK Parameter" from [region](https://aka.ms/speech/sdkregion)
+* Replace `"YourLanguageUnderstandingSubscriptionKey"` with your LUIS prediction key.
+* Replace `"YourLanguageUnderstandingServiceRegion"` with your LUIS location. Use **Region identifier** from [region](https://aka.ms/speech/sdkregion)
 
 >[!TIP]
 > If you need help finding these values, see [Create a LUIS app for intent recognition](#create-a-luis-app-for-intent-recognition).
@@ -69,7 +69,7 @@ Insert this code below your `IntentRecognizer`. Make sure that you replace `"You
 
 From the `IntentRecognizer` object, you're going to call the `recognize_once()` method. This method lets the Speech service know that you're sending a single phrase for recognition, and that once the phrase is identified to stop recognizing speech.
 
-Insert this code below your model:
+Insert this code below your model.
 
 [!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/intent-recognition/quickstart.py?range=35)]
 
@@ -77,12 +77,13 @@ Insert this code below your model:
 
 When the recognition result is returned by the Speech service, you'll want to do something with it. We're going to keep it simple and print the result to console.
 
-Below your call to `recognize_once()`, add this code:
+Below your call to `recognize_once()`, add this code.
+
 [!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/intent-recognition/quickstart.py?range=38-47)]
 
 ## Check your code
 
-At this point, your code should look like this:
+At this point, your code should look like this.
 
 > [!NOTE]
 > We've added some comments to this version.

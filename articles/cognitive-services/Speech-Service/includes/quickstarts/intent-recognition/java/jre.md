@@ -37,7 +37,7 @@ Before you can initialize an `IntentRecognizer` object, you need to create a con
 Insert this code in the try / catch block in `main()`. Make sure you update these values:
 
 * Replace `"YourLanguageUnderstandingSubscriptionKey"` with your LUIS prediction key.
-* Replace `"YourLanguageUnderstandingServiceRegion"` with your LUIS location. Use "Speech SDK Parameter" from [region](https://aka.ms/speech/sdkregion)
+* Replace `"YourLanguageUnderstandingServiceRegion"` with your LUIS location. Use **Region identifier** from [region](https://aka.ms/speech/sdkregion)
 
 >[!TIP]
 > If you need help finding these values, see [Create a LUIS app for intent recognition](#create-a-luis-app-for-intent-recognition).
@@ -77,7 +77,8 @@ Insert this code below your model:
 
 When the recognition result is returned by the Speech service, you'll want to do something with it. We're going to keep it simple and print the result to console.
 
-Insert this code below your call to `recognizeOnceAsync()`:
+Insert this code below your call to `recognizeOnceAsync()`.
+
 [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/intent-recognition/src/speechsdk/quickstart/Main.java?range=43-64)]
 
 ## Release Resources

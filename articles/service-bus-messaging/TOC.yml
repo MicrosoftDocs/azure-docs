@@ -28,11 +28,7 @@
       - name: Java
         href: service-bus-java-how-to-use-queues.md
       - name: Node.js
-        items:
-        - name: azure/service-bus package
-          href: service-bus-nodejs-how-to-use-queues-new-package.md          
-        - name: azure-sb package
-          href: service-bus-nodejs-how-to-use-queues.md
+        href: service-bus-nodejs-how-to-use-queues-new-package.md          
       - name: PHP
         href: service-bus-php-how-to-use-queues.md
       - name: Python
@@ -54,11 +50,7 @@
       - name: Java
         href: service-bus-java-how-to-use-topics-subscriptions.md
       - name: Node.js
-        items:
-        - name: azure/service-bus package
-          href: service-bus-nodejs-how-to-use-topics-subscriptions-new-package.md
-        - name: azure-sb package
-          href: service-bus-nodejs-how-to-use-topics-subscriptions.md
+        href: service-bus-nodejs-how-to-use-topics-subscriptions-new-package.md
       - name: PHP
         href: service-bus-php-how-to-use-topics-subscriptions.md
       - name: Python
@@ -114,6 +106,8 @@
       href: service-bus-messaging-security-controls.md
 - name: How-to guides
   items:
+  - name: Migrate from Azure Service Manager (classic) APIs to Resource Manager APIs
+    href: deprecate-service-bus-management.md
   - name: Create a namespace
     href: service-bus-create-namespace-portal.md  
   - name: Develop
@@ -182,6 +176,10 @@
       href: service-bus-end-to-end-tracing.md
     - name: Build a multi-tier Service Bus application
       href: service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
+    - name: Send and receive messages from queues (legacy azure-sb)
+      href: service-bus-nodejs-how-to-use-queues.md
+    - name: Publish and subscribe for messages (legacy azure-sb)
+      href: service-bus-nodejs-how-to-use-topics-subscriptions.md
   - name: Manage
     items:
     - name: Use Azure PowerShell to provision entities

@@ -3,10 +3,10 @@ title: "Tutorial: Enable authentication in a single-page app"
 titleSuffix: Azure AD B2C
 description: In this tutorial, learn how to use Azure Active Directory B2C to provide user login for a JavaScript-based single-page application (SPA).
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 
-ms.author: marsma
+ms.author: mimart
 ms.date: 10/14/2019
 ms.custom: mvc, seo-javascript-september2019
 ms.topic: tutorial
