@@ -127,7 +127,7 @@ You can enable static website hosting by using the Azure PowerShell module.
 
 ### [Portal](#tab/azure-portal)
 
-These instructions show you how to upload files by using the version of Storage Explorer that appears in the Azure portal. However, you can also use the version of [Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) that runs outside of the Azure portal. You could use [AzCopy](../common/common/storage-use-azcopy-v10.md), PowerShell, CLI, or any custom application that can upload files to the **$web** container of your account. For a step-by-step tutorial that uploads files by using Visual Studio code, see [Tutorial: Host a static website on Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website-host).
+These instructions show you how to upload files by using the version of Storage Explorer that appears in the Azure portal. However, you can also use the version of [Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) that runs outside of the Azure portal. You could use [AzCopy](../common/storage-use-azcopy-v10.md), PowerShell, CLI, or any custom application that can upload files to the **$web** container of your account. For a step-by-step tutorial that uploads files by using Visual Studio code, see [Tutorial: Host a static website on Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website-host).
 
 1. Select **Storage Explorer (preview)**.
 
@@ -215,9 +215,7 @@ az storage account show -n <storage-account-name> -g <resource-group-name> --que
 
 <a id="powershell-find-url" />
 
-Find the public URL of your static website by using the public URL of the website.
-
-Find the URL by using the following command:
+Find the public URL of your static website by using by using the following command:
 
 ```powershell
  $storageAccount = Get-AzStorageAccount -ResourceGroupName "<resource-group-name>" -Name "<storage-account-name>"
