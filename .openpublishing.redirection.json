@@ -15284,6 +15284,16 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/machine-learning/algorithm-module-reference/pca-based-anomaly-detection.md",
+      "redirect_url": "/azure/machine-learning/algorithm-module-reference/module-reference.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/algorithm-module-reference/train-anomaly-detection-model.md",
+      "redirect_url": "/azure/machine-learning/algorithm-module-reference/module-reference.md",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/machine-learning/how-to-ui-sample-regression-predict-automobile-price-basic.md",
       "redirect_url": "/azure/machine-learning/how-to-designer-sample-regression-automobile-price-basic",
       "redirect_document_id": false
