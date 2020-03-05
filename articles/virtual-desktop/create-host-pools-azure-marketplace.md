@@ -51,16 +51,17 @@ After that, follow the instructions in the next section to enter the information
 Here's what you do for the **Basics** tab:
 
 1. Select a **Subscription**.
-1. For Resource group, select **Create new** and provide a name for the new resource group.
+1. For **Resource group**, select **Create new** and provide a name for the new resource group.
 1. Select a **Region**.
 1. Enter a name for the host pool that's unique within the Windows Virtual Desktop tenant.
 1. Select **Desktop type**. If you select **Personal**, each user that connects to this host pool is permanently assigned to a virtual machine.
 1. Enter users who can sign in to the Windows Virtual Desktop clients and access a desktop. Use a comma-separated list. For example, if you want to assign user1@contoso.com and user2@contoso.com access, enter *`user1@contoso.com,user2@contoso.com`*
 1. For **Service metadata location**, select the same location as the virtual network that has connectivity to the Active Directory server.
-1. Select **Next: Configure virtual machines**.
 
->[!IMPORTANT]
->If you're using a pure Azure Active Directory Domain Services (Azure AD DS) and Azure Active Directory (Azure AD) solution, make sure to deploy your host pool in the same region as your Azure AD DS to avoid domain-join and credential errors.
+   >[!IMPORTANT]
+   >If you're using a pure Azure Active Directory Domain Services (Azure AD DS) and Azure Active Directory (Azure AD) solution, make sure to deploy your host pool in the same region as your Azure AD DS to avoid domain-join and credential errors.
+
+1. Select **Next: Configure virtual machines**.
 
 ### Configure virtual machines
 
@@ -78,15 +79,16 @@ For the **Configure virtual machines** tab:
 
 For the **Virtual machine settings** tab:
 
->[!NOTE]
-> If you're joining your virtual machines to an Azure AD DS environment, ensure that your domain join user is a member of the [AAD DC Administrators group](../active-directory-domain-services/tutorial-create-instance-advanced.md#configure-an-administrative-group).
->
-> The account must also be part of the Azure AD DS managed domain or Azure AD tenant. Accounts from external directories associated with your Azure AD tenant can't correctly authenticate during the domain-join process.
-
 1. For **Image source**, select the source and enter the appropriate information for how to find it and how to store it. Your options differ for Blob storage, Managed image, and Gallery.
 
    If you choose not to use managed disks, select the storage account that contains the *.vhd* file.
 1. Enter the user principal name and password. This account must be the domain account that will join the virtual machines to the Active Directory domain. This same username and password will be created on the virtual machines as a local account. You can reset these local accounts later.
+
+   >[!NOTE]
+   > If you're joining your virtual machines to an Azure AD DS environment, ensure that your domain join user is a member of the [AAD DC Administrators group](../active-directory-domain-services/tutorial-create-instance-advanced.md#configure-an-administrative-group).
+   >
+   > The account must also be part of the Azure AD DS managed domain or Azure AD tenant. Accounts from external directories associated with your Azure AD tenant can't correctly authenticate during the domain-join process.
+
 1. Select the **Virtual network** that has connectivity to the Active Directory server, and then choose a subnet to host the virtual machines.
 1. Select **Next: Windows Virtual Desktop information**.
 
@@ -109,25 +111,32 @@ In **Review and Create**, review the setup information. If you need to change so
 
 Depending on how many virtual machines you're creating, this process can take 30 minutes or more to complete.
 
+>[!IMPORTANT]
+> To help secure your Windows Virtual Desktop environment in Azure, we recommend you don't open inbound port 3389 on your virtual machines. Windows Virtual Desktop doesn't require an open inbound port 3389 for users to access the host pool's virtual machines.
+>
+> If you must open port 3389 for troubleshooting purposes, we recommend you use just-in-time access. For more information, see [Secure your management ports with just-in-time access](../security-center/security-center-just-in-time.md).
+
 ## (Optional) Assign additional users to the desktop application group
 
-After the Azure Marketplace offering finishes, you can assign more users to the desktop application group. If you don't want to add more, you can skip this section.
+After Azure Marketplace finishes creating the pool, you can assign more users to the desktop application group. If you don't want to add more, skip this section.
 
-To assign users to the desktop application group, you must first open a PowerShell window. After that, you'll need to enter the following two cmdlets.
+To assign users to the desktop application group:
 
-Run the following cmdlet to sign in to the Windows Virtual Desktop environment:
+1. Open a PowerShell window.
 
-```powershell
-Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
-```
+1. Run the following command to sign in to the Windows Virtual Desktop environment:
 
-Add users to the desktop application group by using this cmdlet:
+   ```powershell
+   Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
+   ```
 
-```powershell
-Add-RdsAppGroupUser <tenantname> <hostpoolname> "Desktop Application Group" -UserPrincipalName <userupn>
-```
+1. Add users to the desktop application group by using this command:
 
-The user's UPN should match the user's identity in Azure AD, for example, *user1@contoso.com*. If you want to add multiple users, run this cmdlet for each user.
+   ```powershell
+   Add-RdsAppGroupUser <tenantname> <hostpoolname> "Desktop Application Group" -UserPrincipalName <userupn>
+   ```
+
+   The user's UPN should match the user's identity in Azure AD, for example, *user1@contoso.com*. If you want to add multiple users, run the command for each user.
 
 Users you add to the desktop application group can sign in to Windows Virtual Desktop with supported Remote Desktop clients and see a resource for a session desktop.
 
@@ -135,9 +144,6 @@ Here are the current supported clients:
 
 * [Remote Desktop client for Windows 7 and Windows 10](connect-windows-7-and-10.md)
 * [Windows Virtual Desktop web client](connect-web.md)
-
->[!IMPORTANT]
->To help secure your Windows Virtual Desktop environment in Azure, we recommend you don't open inbound port 3389 on your virtual machines. Windows Virtual Desktop doesn't require an open inbound port 3389 for users to access the host pool's virtual machines. If you must open port 3389 for troubleshooting purposes, we recommend you use just-in-time access. For more information, see [Secure your management ports with just-in-time access](../security-center/security-center-just-in-time.md).
 
 ## Next steps
 
