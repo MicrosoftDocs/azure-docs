@@ -13,11 +13,11 @@ ms.custom: mvc
 
 # Azure Maps plugin for QGIS
 
-The Quantum Geographic Information System [(QGIS)](https://qgis.org/) Software is a professional and a Free and Open Source Software (FOSS) application. The Azure Maps plug-in for QGIS is part of "Private Atlas - Private Preview", and it provides users a way to visualize and QA Azure Maps Private Atlas data sets. It also lets users edits and apply changes to the data sets. Azure Maps QGIS plug-in is currently classified under the experimentation label in the QGIS plug-in store. This article guides you through the installation process of Azure Maps QGIS plug-ins, and how to use the plugin to visualize and edit a chosen set of data.
+The Quantum Geographic Information System [(QGIS)](https://qgis.org/) Software is a professional and a Free and Open Source Software (FOSS) application. The Azure Maps plug-in for QGIS is part of "Private Atlas - Private Preview", and it provides users a way to visualize and QA Azure Maps Private Atlas data sets. It also lets users edits and apply changes to the data sets. Azure Maps QGIS plug-in is currently classified under the experimentation label in the QGIS plug-in store. This article guides you through the installation process of the Azure Maps QGIS plug-ins, and how to use the plugin to visualize and edit a dataset.
 
 ## Prerequisites
 
-Before you can use the the Azure Maps QGIS plugin, you need to [make an Azure Account](quick-demo-map-app.md#create-an-account-with-azure-maps) and [obtain a subscription key](). Then, you need to [download the QGIS Desktop application](https://www.qgis.org/en/site/forusers/download.html), with a version of 3.8.* or higher.
+Before you can use the the Azure Maps QGIS plugin, you need to [make an Azure Account](quick-demo-map-app.md#create-an-account-with-azure-maps) and [obtain a subscription key](quick-demo-map-app.md#get-the-primary-key-for-your-account). Then, you need to [download the QGIS Desktop application](https://www.qgis.org/en/site/forusers/download.html), with a version of 3.8.* or higher.
 
 ## Install the Azure Maps QGIS plug-in
 
@@ -27,16 +27,16 @@ Follow the steps below to install the Azure Maps QGIS plugin for the QGIS Deskto
     
    ![Qgis application](./media/azure-maps-qgis-plugin/qgis.png)
 
-2. Click on **plugins**, and select **Manage and Install Plugins**.
+2. Click on **Plugins**, and select **Manage and Install Plugins**.
 
    ![Plugins menu](./media/azure-maps-qgis-plugin/plugin-menu.png)
 
-3. In the plugins window, select the **settings** tab. Enable the **Show also experimental plugins** option.
+3. In the **Plugins** window, select the **settings** tab. Enable the **Show also experimental plugins** option.
 
    ![Settings](./media/azure-maps-qgis-plugin/enable-experimental-plugins.png)
 
 
-4. In the same **plugins** window, select the **All** tab. Type "Azure Maps" in the search bar to find the Azure Maps plug-in. The Azure Maps plugin should be listed in the result, click on the **Install Plugin** button. Once the plug-in is installed, you can upgrade to a newer version if available. Or, you may uninstall and reinstall the plug-in at any time. For more information on how to work with plugins in QGIS, visit the [QGIS plugin documentation](https://docs.qgis.org/3.4/en/docs/user_manual/plugins/plugins.html) page.
+4. In the same **Plugins** window, select the **All** tab. Type "Azure Maps" in the search bar to find the Azure Maps plug-in. The Azure Maps plugin should be listed in the result, click on the **Install Plugin** button. Once the plug-in is installed, you can upgrade to a newer version, if available. Or, you may uninstall and reinstall the plug-in at any time. For more information on how to work with plugins in QGIS, visit the [QGIS plugin documentation](https://docs.qgis.org/3.4/en/docs/user_manual/plugins/plugins.html) page.
 
    ![Install plugin](./media/azure-maps-qgis-plugin/install-plugin.png)
 
@@ -46,9 +46,9 @@ After installing the Azure Maps plugin, this Azure Maps tool will be accessible 
 
    ![Plugin icon](./media/azure-maps-qgis-plugin/plugin-icon.png)
 
-Click on the plugin button to access the toolbar. The toolbar contains three tabs. You need to provide your dataset ID in the **Private Atlas** tab. You also need to provide your Azure Maps account primary subscription key in the **Authentication** tab. Providing the dataset ID and the account primary subscription key lets you access and save the private atlas dataset. 
+Click on the Azure Maps QGIS plugin button to open the **Azure Maps** window. You need to provide your **DataSet Id** in the **Private Atlas** tab. You also need to provide your Azure Maps account primary subscription key in the **Authentication** tab. Providing the **DataSet Id** and the account primary subscription key lets you access and save the private atlas dataset.
 
-The plugin also lets users set the spatial extent for which features are needed. Press the **get features** button in the **Private Atlas** tab. Once this request completes processing, you'll see a layer table of content. This table should rreflect the content in your DWG package. For example, you will find a Units layer and a Level layer, those layers reflect what you configured in the process of converting the DWG packages.
+In the **Private Atlas** tab, the plugin provides users with the option to set the spatial extent for which features are needed. Press the **get features** button corner of the **Private Atlas** tab. Once this request completes processing, you'll see a layer table of content. This table should rreflect the content in your DWG package. For example, you will find a Units layer and a Level layer, those layers reflect what you configured in the process of converting the DWG packages.
 
    ![Private Atlas tab](./media/azure-maps-qgis-plugin/private-atlas-tab.png) ![Authentication tab](./media/azure-maps-qgis-plugin/authentication-tab.png) ![Floor picker](./media/azure-maps-qgis-plugin/floor-picker.png)
 
@@ -153,4 +153,14 @@ The following are limitations to keep in mind when using the Azure Maps QGIS plu
 
 1. Azure Maps QGIS plug-in doesn't currently support concurrent editing. It's recommended that only a single user at a time performs edits and apply changes to a dataset.
 
-2. Before changing floors, make sure you save your edits for the current floor you're working on. Changes done on a given floor will be lost if you don't save before changing the floor. 
+2. Before changing floors, make sure you save your edits for the current floor you're working on. Changes done on a given floor will be lost if you don't save before changing the floor.
+
+## Next steps
+
+Learn more about Indoor Maps from Azure Maps by reading the following articles:
+
+> [!div class="nextstepaction"]
+> [Indoor Maps data management](indoor-data-management.md)
+
+> [!div class="nextstepaction"]
+> [Indoor Maps dynamic styling](indoor-map-dynamic-styling.md)
