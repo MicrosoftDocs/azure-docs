@@ -61,27 +61,27 @@ After successful onboarding, navigate to https://aka.ms/azmon-containers-hybrid 
 
 ### Health of Monitored Clusters
 
-![](media/howto-azure-monitor-v4/health-of-monitored-clusters.jpg)
+![](media/howto-azure-monitor-v4/Health_of_Monitored_Clusters.PNG)
 
 ### Cluster Health view (CPU, Memory, Node, and Pods)
 
-![](media/howto-azure-monitor-v4/cluster-health.jpg)
+![](media/howto-azure-monitor-v4/Cluster_Health_view.PNG)
 
 ### Nodes view
 
-![](media/howto-azure-monitor-v4/nodes.jpg)
+![](media/howto-azure-monitor-v4/Nodes_view.PNG)
 
 ### Controllers view
 
-![](media/howto-azure-monitor-v4/controllers.jpg)
+![](media/howto-azure-monitor-v4/Controllers_view.PNG)
 
 ### Containers view
 
-![](media/howto-azure-monitor-v4/containers.jpg)
+![](media/howto-azure-monitor-v4/Containers_view.PNG)
 
 ### Container {stdout; stderr} Log view
 
-![](media/howto-azure-monitor-v4/log.jpg)
+![](media/howto-azure-monitor-v4/Containers_logs_view.PNG)
 
 ## Disable Monitoring
 
