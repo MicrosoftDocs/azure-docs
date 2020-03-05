@@ -5,12 +5,53 @@ ms.subservice:
 ms.topic: overview
 author: bwren
 ms.author: bwren
-ms.date: 02/05/2020
+ms.date: 03/05/2020
 
 ---
 
 # What's new in Azure Monitor documentation?
 This article provides lists Azure Monitor articles that are either new or have been significantly updated. It will be refreshed the first week of each month to include article updates from the previous month.
+
+## March 2020
+
+### Agents
+- [Log Analytics agent overview](articles/azure-monitor/platform/log-analytics-agent.md ) - Removed OMS*.azure.com from network firewall table.
+
+
+### Application Insights
+- [Connection strings in Azure Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/sdk-connection-string) - New article.
+
+### Insights and solutions
+
+#### Azure Monitor for Containers
+- [Integrate Azure Active Directory with Azure Kubernetes Service](articles/aks/azure-ad-integration.md ) - Added note for creating a client application to support RBAC-enabled cluster to support Azure Monitor for containers.
+
+#### Azure Monitor for VMs
+- [Azure Monitor for VMs (GA) frequently asked questions](articles/azure-monitor/insights/vminsights-ga-release-faq.md ) - Change to how performance data is stored.
+
+#### Office 365
+- [Office 365 management solution in Azure](articles/azure-monitor/insights/solution-office-365.md ) - Updated deprecation date.
+
+
+### Logs
+- [Manage usage and costs for Azure Monitor Logs](articles/azure-monitor/platform/manage-cost-storage.md ) - Improved sample queries to help understand your usage.
+
+### Metrics
+- [Azure Monitor platform metrics exportable via Diagnostic Settings](articles/azure-monitor/platform/metrics-supported-export-diagnostic-settings.md ) - Added section on change to behavior for nulls and zero values.
+
+
+### Visualizations
+Multiple new articles for view designer to workbooks conversion guide.
+
+- [Azure Monitor view designer to workbooks conversion options](https://docs.microsoft.com/azure/azure-monitor/platform/view-designer-conversion-options) - New article.
+- [Azure Monitor view designer to workbooks tile conversions](https://docs.microsoft.com/azure/azure-monitor/platform/view-designer-conversion-tiles) - New article.
+- [Azure Monitor view designer to workbooks conversion summary and access](https://docs.microsoft.com/azure/azure-monitor/platform/view-designer-conversion-access) - New article.
+- [Azure Monitor view designer to workbooks conversion common tasks](https://docs.microsoft.com/azure/azure-monitor/platform/view-designer-conversion-tasks) - New article.
+- [Azure Monitor view designer to workbooks transition guide](https://docs.microsoft.com/azure/azure-monitor/platform/view-designer-conversion-overview) - New article.
+- [Azure Monitor view designer to workbooks conversion examples](https://docs.microsoft.com/azure/azure-monitor/platform/view-designer-conversion-examples) - New article.
+- [Optimize log queries in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/query-optimization) - New article.
+
+
 
 ## January 2020
 
