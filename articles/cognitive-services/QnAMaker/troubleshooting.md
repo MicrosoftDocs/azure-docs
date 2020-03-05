@@ -239,7 +239,7 @@ No, you do not need to use the [Bot Framework](https://github.com/Microsoft/botb
 <summary><b>How can I create a new bot with QnA Maker?</b></summary>
 
 **Answer**:
-Follow the instructions in [this](./Tutorials/create-qna-bot.md) documentation to create your Bot with Azure Bot Service.
+Follow the instructions in [this](./Quickstarts/create-publish-knowledge-base.md) documentation to create your Bot with Azure Bot Service.
 
 </details>
 
@@ -273,7 +273,7 @@ Yes, the knowledge base can be queried from any number of clients. If the respon
 **Answer**:
 Follow these steps to embed the QnA Maker service as a web-chat control in your website:
 
-1. Create your FAQ bot by following the instructions [here](./Tutorials/create-qna-bot.md).
+1. Create your FAQ bot by following the instructions [here](./Quickstarts/create-publish-knowledge-base.md).
 2. Enable the web chat by following the steps [here](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-webchat)
 
 </details>
