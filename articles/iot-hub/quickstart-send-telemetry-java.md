@@ -53,6 +53,8 @@ Run the following command to add the Microsoft Azure IoT Extension for Azure CLI
 az extension add --name azure-iot
 ```
 
+[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
+
 ## Create an IoT hub
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]

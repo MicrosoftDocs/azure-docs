@@ -53,6 +53,8 @@ Add the Azure IoT Extension for Azure CLI to your Cloud Shell instance by runnin
 az extension add --name azure-iot
 ```
 
+[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
+
 ## Create an IoT hub
 
 If you completed the previous [Quickstart: Send telemetry from a device to an IoT hub](quickstart-send-telemetry-node.md), you can skip this step.

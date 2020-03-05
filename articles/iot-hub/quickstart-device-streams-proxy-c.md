@@ -63,6 +63,8 @@ If you don’t have an Azure subscription, create a [free account](https://azure
    az extension add --name azure-iot
    ```
 
+[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
+
 ## Prepare the development environment
 
 For this quickstart, you use the [Azure IoT device SDK for C](iot-hub-device-sdk-c-intro.md). You prepare a development environment used to clone and build the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) from GitHub. The SDK on GitHub includes the sample code that's used in this quickstart.

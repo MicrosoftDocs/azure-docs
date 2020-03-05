@@ -67,6 +67,11 @@ If you don’t have an Azure subscription, create a [free account](https://azure
    az extension add --name azure-iot
    ```
 
+   ```azurecli-interactive
+   az extension add --name azure-iot
+   ```
+[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
+
 * [Download the Azure IoT C# samples](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip), and extract the ZIP archive.
 
 * A valid user account and credential on the device (Windows or Linux) used to authenticate the user.
