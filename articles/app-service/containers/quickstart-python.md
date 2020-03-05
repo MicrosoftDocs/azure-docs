@@ -101,7 +101,7 @@ In the *python-docs-hello-world* folder that contains the sample code, run the f
 az webapp up --sku F1 -n <app-name> -l <location-name>
 ```
 
-This command may take a few minutes complete run. While running, it displays information similar to the following example:
+This command may take a few minutes to completely run. While running, it displays information similar to the following example:
 
 ```output
 The behavior of this command has been altered by the following extension: webapp
