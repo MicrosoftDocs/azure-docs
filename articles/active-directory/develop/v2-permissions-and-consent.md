@@ -34,11 +34,10 @@ The Microsoft identity platform implements the [OAuth 2.0](active-directory-v2-p
 
 * Microsoft Graph: `https://graph.microsoft.com`
 * Office 365 Mail API: `https://outlook.office.com`
-* Azure AD Graph: `https://graph.windows.net`
 * Azure Key Vault: `https://vault.azure.net`
 
 > [!NOTE]
-> We strongly recommend that you use Microsoft Graph instead of Azure AD Graph, Office 365 Mail API, etc.
+> We strongly recommend that you use Microsoft Graph instead of Office 365 Mail API, etc.
 
 The same is true for any third-party resources that have integrated with the Microsoft identity platform. Any of these resources also can define a set of permissions that can be used to divide the functionality of that resource into smaller chunks. As an example, [Microsoft Graph](https://graph.microsoft.com) has defined permissions to do the following tasks, among others:
 
@@ -120,7 +119,7 @@ The `scope` parameter is a space-separated list of delegated permissions that th
 After the user enters their credentials, the Microsoft identity platform endpoint checks for a matching record of *user consent*. If the user has not consented to any of the requested permissions in the past, nor has an administrator consented to these permissions on behalf of the entire organization, the Microsoft identity platform endpoint asks the user to grant the requested permissions.
 
 > [!NOTE]
-> At this time, the `offline_access` ("Maintain access to data you have given it access to") and `user.read` ("Sign you in and read your profile") permissions are automatically included in the initial consent to an application.  These permissions are generally required for proper app functionality - `offline_access` gives the app access to refresh tokens, critical for native and web apps, while `user.read` gives access to the `sub` claim, allowing the client or app to correctly identify the user over time and access rudimentary user information.  
+>At this time, the `offline_access` ("Maintain access to data you have given it access to") and `user.read` ("Sign you in and read your profile") permissions are automatically included in the initial consent to an application.  These permissions are generally required for proper app functionality - `offline_access` gives the app access to refresh tokens, critical for native and web apps, while `user.read` gives access to the `sub` claim, allowing the client or app to correctly identify the user over time and access rudimentary user information.  
 
 ![Example screenshot that shows work account consent](./media/v2-permissions-and-consent/work_account_consent.png)
 
@@ -163,16 +162,16 @@ To see a code sample that implements the steps, see the [admin-restricted scopes
 
 ### Request the permissions in the app registration portal
 
-Applications are able to note which permissions they require (both delegated and application) in the app registration portal.  This allows use of the `/.default` scope and the Azure Portal's "Grant admin consent" option.  In general, it's best practice to ensure that the permissions statically defined for a given application are a superset of the permissions that it will be requesting dynamically/incrementally.
+Applications are able to note which permissions they require (both delegated and application) in the app registration portal.  This allows use of the `/.default` scope and the Azure portal's "Grant admin consent" option.  In general, it's best practice to ensure that the permissions statically defined for a given application are a superset of the permissions that it will be requesting dynamically/incrementally.
 
 > [!NOTE]
-Application permissions can only be requested through the use of [`/.default`](#the-default-scope) - so if your app needs application permissions, make sure they're listed in the app registration portal.  
+>Application permissions can only be requested through the use of [`/.default`](#the-default-scope) - so if your app needs application permissions, make sure they're listed in the app registration portal.
 
 #### To configure the list of statically requested permissions for an application
 
 1. Go to your application in the [Azure portal – App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) experience, or [create an app](quickstart-register-app.md) if you haven't already.
 2. Locate the **API Permissions** section, and within the API permissions click Add a permission.
-3. Select your preferred resource (e.g. **Microsoft Graph**) from the list of available APIs and then add the permissions that your app requires.
+3. Select **Microsoft Graph** from the list of available APIs and then add the permissions that your app requires.
 3. **Save** the app registration.
 
 ### Recommended: Sign the user into your app
@@ -262,7 +261,7 @@ For more information about the OAuth 2.0 protocol and how to get access tokens, 
 
 ## The /.default scope
 
-You can use the `/.default` scope to help migrate your apps from the v1.0 endpoint to the Microsoft identity platform endpoint. This is a built-in scope for every application that refers to the static list of permissions configured on the application registration. A `scope` value of `https://graph.microsoft.com/.default` is functionally the same as the v1.0 endpoints `resource=https://graph.microsoft.com` - namely, it requests a token with the scopes on Microsoft Graph that the application has registered for in the Azure portal.  It is constructed using the resource URI + `/.default` (e.g. if the resource URI is `https://contosoApp.com`, then the scope requested would be `https://contosoApp.com/.default`).  See the [section on trailing slashes](#trailing-slash-and-default) for cases where you must include a second slash to correctly request the token.  
+You can use the `/.default` scope to help migrate your apps from the v1.0 endpoint to the Microsoft identity platform endpoint. This is a built-in scope for every application that refers to the static list of permissions configured on the application registration. A `scope` value of `https://graph.microsoft.com/.default` is functionally the same as the v1.0 endpoints `resource=https://graph.microsoft.com` - namely, it requests a token with the scopes on Microsoft Graph that the application has registered for in the Azure portal.  It is constructed using the resource URI + `/.default` (e.g. if the resource URI is `https://contosoApp.com`, then the scope requested would be `https://contosoApp.com/.default`).  See the [section on trailing slashes](#trailing-slash-and-default) for cases where you must include a second slash to correctly request the token.
 
 The /.default scope can be used in any OAuth 2.0 flow, but is necessary in the [On-Behalf-Of flow](v2-oauth2-on-behalf-of-flow.md) and [client credentials flow](v2-oauth2-client-creds-grant-flow.md), as well as when using the v2 admin consent endpoint to request application permissions.  
 
@@ -283,7 +282,7 @@ In this example, the user (or a tenant administrator) has granted the client the
 
 #### Example 2: The user hasn't granted permissions between the client and the resource
 
-In this example, no consent for the user exists between the client and Microsoft Graph. The client has registered for the `user.read` and `contacts.read` permissions, as well as the Azure Key Vault scope `https://vault.azure.net/user_impersonation`. When the client requests a token for `scope=https://graph.microsoft.com/.default`, the user will see a consent screen for the `user.read`, `contacts.read`, and the Key Vault `user_impersonation` scopes. The token returned will have just the `user.read` and `contacts.read` scopes in it and only be usable against Microsoft Graph. 
+In this example, no consent for the user exists between the client and Microsoft Graph. The client has registered for the `user.read` and `contacts.read` permissions, as well as the Azure Key Vault scope `https://vault.azure.net/user_impersonation`. When the client requests a token for `scope=https://graph.microsoft.com/.default`, the user will see a consent screen for the `user.read`, `contacts.read`, and the Key Vault `user_impersonation` scopes. The token returned will have just the `user.read` and `contacts.read` scopes in it and only be usable against Microsoft Graph.
 
 #### Example 3: The user has consented and the client requests additional scopes
 
@@ -310,7 +309,7 @@ This produces a consent screen for all registered permissions (if applicable bas
 
 Some resource URIs have a trailing slash (`https://contoso.com/` as opposed to `https://contoso.com`), which can cause problems with token validation.  This can occur primarily when requesting a token for Azure Resource Management (`https://management.azure.com/`), which has a trailing slash on their resource URI and requires it to be present when the token is requested.  Thus, when requesting a token for `https://management.azure.com/` and using `/.default`, you must request `https://management.azure.com//.default` - note the double slash! 
 
-In general - if you've validated that the token is being issued, and the token is being rejected by the API that should accept it, consider adding a second slash and trying again. This happens because the login server emits a token with the audience matching the URIs in the `scope` parameter - with `/.default` removed from the end.  If this removes the trailing slash, the login server still processes the request and validates it against the resource URI, even though they no longer match - this is non-standard and should not be relied on by your application. 
+In general - if you've validated that the token is being issued, and the token is being rejected by the API that should accept it, consider adding a second slash and trying again. This happens because the login server emits a token with the audience matching the URIs in the `scope` parameter - with `/.default` removed from the end.  If this removes the trailing slash, the login server still processes the request and validates it against the resource URI, even though they no longer match - this is non-standard and should not be relied on by your application.  
 
 ## Troubleshooting permissions and consent
 

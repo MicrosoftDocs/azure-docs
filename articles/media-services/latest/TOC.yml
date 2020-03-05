@@ -121,6 +121,7 @@
     - name: Dynamic manifests
       href: filters-dynamic-manifest-overview.md 
     - name: Filters
+      displayName: manifest, dynamic manifest, filter, hls, dash, m3u8, mpd,	content delivery
       href: filters-concept.md   
     - name: Streaming Endpoints 
       displayName: origin, packager, cdn
