@@ -417,7 +417,7 @@ When scanning the header row, any type information that is in the column name wi
     - edm.string
     - varchar
     - text
-    - case 'string
+    - string
 
 If no type information can be extracted from the header, and the dynamic typing option is enabled when reading, then each cell will be individually analyzed to determine what data type it is best suited to be cast as.
 
