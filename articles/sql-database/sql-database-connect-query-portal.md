@@ -19,12 +19,17 @@ The query editor is a tool in the Azure portal for executing SQL queries against
 
 ## Prerequisites
 
-To complete this tutorial you need the AdventureWorksLT sample SQL Database. If you don't have a working copy of the AdventureWorksLT SQL Database, use the following quickstart to quickly create one:
+To complete this quickstart you need the AdventureWorksLT SQL Database. If you don't have a working copy of the AdventureWorksLT SQL Database, use the following quickstart to quickly create one:
 
-- [Quickstart: Create a single database in Azure SQL Database using the Azure portal, PowerShell, and Azure CLI](sql-database-single-database-get-started.md) 
+- [Quickstart: Create a single database in Azure SQL Database using the Azure portal, PowerShell, or Azure CLI](sql-database-single-database-get-started.md) 
 
-> [!NOTE]
-> The query editor uses ports 443 and 1443 to communicate.  Please ensure you have enabled outbound HTTPS traffic on these ports. You also need to add your outbound IP address to the server's allowed firewall rules to access your databases and data warehouses.
+### Configure network settings
+
+If you get an error in the query editor saying: *Your local network settings might be preventing the Query Editor from issuing queries. Please click here for instructions on how to configure your network settings*. The following important information should help get past this:
+
+> [!IMPORTANT]
+> The query editor uses ports 443 and 1443 to communicate. Ensure you have enabled outbound HTTPS traffic on these ports. You also need to [add your outbound IP address to the server's allowed firewall rules](sql-database-server-level-firewall-rule.md) to access your databases and data warehouses.
+
 
 ## Open the SQL Database Query Editor
 
@@ -71,7 +76,7 @@ Configuring an Azure Active Directory (Azure AD) administrator enables you to us
 
 7. In the **SQL database** menu, select **Query editor (preview)**. In the **Login** page, under the **Active Directory authentication** label, a message appears saying you have been signed in if you're an Azure AD admin. Then select the **Continue as** *\<your user or group ID>* button. If the page indicates that you have not successfully logged in, you may need to refresh the page.
 
-## Run a query to view data
+## Run a Select query
 
 1. Paste the following query into the query editor:
 
@@ -86,9 +91,11 @@ Configuring an Azure Active Directory (Azure AD) administrator enables you to us
 
    ![query editor results](./media/sql-database-connect-query-portal/query-editor-results.png)
 
-## Run a query to insert data
+3. Optionally, you can save the query as a .sql file, or export the returned data as a .json, .csv, or .xml file.
 
-Run the following [INSERT](/sql/t-sql/statements/insert-transact-sql/) Transact-SQL statement to add a new product in the `SalesLT.Product` table.
+## Run an Insert query
+
+Run the following [INSERT](/sql/t-sql/statements/insert-transact-sql/) T-SQL statement to add a new product in the `SalesLT.Product` table.
 
 1. Replace the previous query with this one.
 
@@ -116,9 +123,9 @@ Run the following [INSERT](/sql/t-sql/statements/insert-transact-sql/) Transact-
 2. Select **Run**  to insert a new row in the `Product` table. The **Messages** pane displays **Query succeeded: Affected rows: 1**.
 
 
-## Run a query to update data
+## Run an Update query
 
-Run the following [UPDATE](/sql/t-sql/queries/update-transact-sql/) Transact-SQL statement to modify your new product.
+Run the following [UPDATE](/sql/t-sql/queries/update-transact-sql/) T-SQL statement to modify your new product.
 
 1. Replace the previous query with this one.
 
@@ -130,9 +137,9 @@ Run the following [UPDATE](/sql/t-sql/queries/update-transact-sql/) Transact-SQL
 
 2. Select **Run** to update the specified row in the `Product` table. The **Messages** pane displays **Query succeeded: Affected rows: 1**.
 
-## Run a query to delete data
+## Run a Delete query
 
-Run the following [DELETE](/sql/t-sql/statements/delete-transact-sql/) Transact-SQL statement to remove your new product.
+Run the following [DELETE](/sql/t-sql/statements/delete-transact-sql/) T-SQL statement to remove your new product.
 
 1. Replace the previous query with this one:
 
