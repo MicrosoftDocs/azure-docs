@@ -46,7 +46,7 @@ To build logic apps that run in your integration service environment (ISE), foll
 
 1. Continue [creating your logic app in the usual way](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-   For differences in how triggers and actions work and how they're labeled when you use an ISE compared to the global Logic Apps service, see [Isolated versus global in the ISE overview](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#difference).
+   For differences in how triggers and actions work and how they're labeled when you use an ISE compared to the multi-tenant Logic Apps service, see [Isolated versus multi-tenant in the ISE overview](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#difference).
 
 1. To manage logic apps and API connections in your ISE, see [Manage your integration service environment](../logic-apps/ise-manage-integration-service-environment.md).
 
