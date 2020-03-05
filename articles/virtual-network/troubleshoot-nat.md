@@ -148,10 +148,10 @@ TCP Resets are not generated on the public side of NAT gateway resources. If you
 
 _**Solution:**_
 
-* Review [design patterns] (#design-patterns) recommendations.  
+* Review [design patterns](#design-patterns) recommendations.  
 * Open a support case for further troubleshooting if necessary.
 
-### IPv6 Coexistence
+### IPv6 coexistence
 
 [Virtual Network NAT](nat-overview.md) supports IPv4 UDP and TCP protocols and deployment on a [subnet with IPv6 prefix is not supported](nat-overview.md#limitations).
 
