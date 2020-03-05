@@ -25,10 +25,10 @@ This article helps administrators diagnose and resolve connectivity problems whe
 
 ## Problems
 
-- [SNAT exhaustion](#snat-exhaustion).
-- [ICMP ping is failing](#icmp-ping-is-failing).
-- [Connectivity failures](#connectivity-failures).
-- [IPv6 coexistence](#ipv6-coexistence).
+- [SNAT exhaustion](#snat-exhaustion)
+- [ICMP ping is failing](#icmp-ping-is-failing)
+- [Connectivity failures](#connectivity-failures)
+- [IPv6 coexistence](#ipv6-coexistence)
 
 To resolve these problems, follow the steps in the following section.
 
