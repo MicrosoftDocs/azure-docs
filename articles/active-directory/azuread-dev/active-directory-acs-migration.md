@@ -64,13 +64,13 @@ Follow the steps in this section to find out which of your apps will be impacted
 ### Download and install ACS PowerShell
 
 1. Go to the PowerShell Gallery and download [Acs.Namespaces](https://www.powershellgallery.com/packages/Acs.Namespaces/1.0.2).
-1. Install the module by running
+2. Install the module by running
 
     ```powershell
     Install-Module -Name Acs.Namespaces
     ```
 
-1. Get a list of all possible commands by running
+3. Get a list of all possible commands by running
 
     ```powershell
     Get-Command -Module Acs.Namespaces
@@ -90,8 +90,8 @@ Follow the steps in this section to find out which of your apps will be impacted
   
     You may need to run `Set-ExecutionPolicy -ExecutionPolicy Bypass` before you can execute commands and be the admin of those subscriptions in order to execute the commands.
 
-1. List your available Azure subscriptions using the **Get-AcsSubscription** cmdlet.
-1. List your ACS namespaces using the **Get-AcsNamespace** cmdlet.
+2. List your available Azure subscriptions using the **Get-AcsSubscription** cmdlet.
+3. List your ACS namespaces using the **Get-AcsNamespace** cmdlet.
 
 ### Check which applications will be impacted
 
@@ -99,8 +99,8 @@ Follow the steps in this section to find out which of your apps will be impacted
 
     For example, if one of the namespaces is contoso-test, go to `https://contoso-test.accesscontrol.windows.net`
 
-1. Under **Trust relationships**, select **Relying party applications** to see the list of apps that will be impacted by ACS retirement.
-1. Repeat steps 1-2 for any other ACS namespace(s) that you have.
+2. Under **Trust relationships**, select **Relying party applications** to see the list of apps that will be impacted by ACS retirement.
+3. Repeat steps 1-2 for any other ACS namespace(s) that you have.
 
 ## Retirement schedule
 
