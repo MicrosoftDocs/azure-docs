@@ -43,11 +43,11 @@ Frequently the root cause of SNAT exhaustion is an anti-pattern for how outbound
 #### Steps
 
 1. Investigate how your application is creating outbound connectivity (for example, code review or packet capture). 
-2. Determine if this activity is expected behavior or whether the application is misbehaving.  Use [metrics](nat-metrics.md) in Azure Monitor to substantiate your findings.
+2. Determine if this activity is expected behavior or whether the application is misbehaving.  Use [metrics](nat-metrics.md) in Azure Monitor to substantiate your findings. Use "Failed" category for SNAT Connections metric.
 3. Evaluate if appropriate patterns are followed.
 4. Evaluate if SNAT port exhaustion should be mitigated with additional IP addresses assigned to NAT gateway resource.
 
-#### Design pattern
+#### Design patterns
 
 Always take advantage of connection reuse and connection pooling whenever possible.  This pattern will avoid resource exhaustion problems outright and result in predictable behavior. Primitives for these patterns can be found in many development libraries and frameworks.
 
@@ -65,7 +65,7 @@ _**Solution**_ You can scale outbound connectivity as follows:
 | Scenario | Mitigation |
 |---|---|
 | You're experiencing contention for SNAT ports and SNAT port exhaustion during periods of high usage. | Determine if you can add additional public IP address resources or public IP prefix resources. This addition will allow for up to 16 IP addresses in total to your NAT gateway. This addition will provide more inventory for available SNAT ports (64,000 per IP address) and allow you to scale your scenario further.|
-| You've already given 16 IP addresses and still are experiencing SNAT port exhaustion. | Distribute your application environment across multiple subnets and provide a NAT gateway resource for each subnet. |
+| You've already given 16 IP addresses and still are experiencing SNAT port exhaustion. | Distribute your application environment across multiple subnets and provide a NAT gateway resource for each subnet.  Reevaluate your design pattern(s) to optimize based on preceeding [guidance](#design-patterns). |
 
 >[!NOTE]
 >It is important to understand why SNAT exhaustion occurs. Make sure you are using the right patterns for scalable and reliable scenarios.  Adding more SNAT ports to a scenario without understanding the cause of the demand should be a last resort. If you do not understand why your scenario is applying pressure on SNAT port inventory, adding more SNAT ports to the inventory by adding more IP addresses will only delay the same exhaustion failure as your application scales.  You may be masking other inefficiencies and anti-patterns.
@@ -87,7 +87,7 @@ The following table can be used a starting point for which tools to use to start
 
 Connectivity issues with [Virtual Network NAT](nat-overview.md) can be due to several different issues:
 
-* [SNAT exhaustion](#snat-exhaustion of the NAT gateway,
+* transient or persistent [SNAT exhaustion](#snat-exhaustion) of the NAT gateway,
 * transient failures in the Azure infrastructure, 
 * transient failures in the path between Azure and the public Internet destination, 
 * transient or persistent failures at the public Internet destination.
@@ -98,6 +98,42 @@ Use tools like the following to validation connectivity. [ICMP ping is not suppo
 |---|---|---|---|
 | Linux | nc (generic connection test) | curl (TCP application layer test) | application specific |
 | Windows | [PsPing](https://docs.microsoft.com/sysinternals/downloads/psping) | PowerShell [Invoke-WebRequest](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/invoke-webrequest) | application specific |
+
+#### SNAT exhaustion
+
+Review section on [SNAT exhaustion](#snat-exhaustion) in this article.
+
+#### Azure infrastructure
+
+Even though Azure monitors and operates its infrastructure with great care, transient failures can occur as there is no guarantee that transmissions are lossless.  Use design patterns which allow for SYN retransmissions for TCP applications. Use connection timeouts large enough to permit TCP SYN retransmission to reduce transient impacts caused by a lost SYN packet.
+
+The configuration parameter in a TCP stack is known as [Retransmission Time-Out (RTO)](https://tools.ietf.org/html/rfc793). The RTO value is adjustable but generally larger than 1 second.  If your time-out is too short, you may see sporadic connection timeouts.  If you observe longer, unexpected timeouts with default application behaviors, open a support case for further troubleshooting.
+
+We do not recommend artificially reducing the TCP connection timeout or tuning the RTO parameter.
+
+#### public Internet transit
+
+The probability of transient failures increases with a longer path to the destination and more intermediate systems. It is expected that transient failures can increase in frequency over [Azure infrastructure](#azure-infrastructure). 
+
+Follow the same guidance as preceeding [Azure infrastructure](#azure-infrastructure) section.
+
+#### Internet endpoint
+
+The preceeding sections apply in addition to considerations related to the Internet endpoint your communication is established with. Other factors that can impact connectivity success are:
+
+* traffic management on destination side, including
+- API rate limiting imposed by the destination side
+- Volumetric DDoS mitigations or transport layer traffic shaping
+* firewall or other components at the destination 
+
+Usually this requires packet captures at the source as well as destination (if available) to determine what is taking place.
+
+_*Solution:*_.
+
+Check for [SNAT exhaustion](#snat-exhaustion. 
+If you're creating high volume or transaction rate testing, explore if reducing the rate reduces the occurance of failures.  Validate connectivity to an endpoint in the same region or elsewhere for comparison.  If your investigation is inconclusive, open a support case for further troubleshooting.
+
+If you observe TCP Resets received on the source VM, these can be generated by the NAT gateway on the private side for flows that are not recognized as in progress.  One possible reason is the TCP connection has idle timed out.  You can adjust the idle timeout from 4 minutes to up to 120 minutes.  Review [design patterns] (#design-patterns) recommendations.
 
 ### IPv6 Coexistence
 
