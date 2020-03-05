@@ -42,7 +42,7 @@ The cluster virtual network will have been created with permissions so that you 
 
 If you change the DNS nameservers on the cluster virtual network, then you will need to issue an update on the cluster with the `properties.RefreshCluster` property set to `true` so that the VMs can be reimaged. This update will allow them to pick up the new nameservers.
 
-## Sample Configuration Scripts
+## Sample configuration scripts
 
 Use the sample scripts in this section to set up and deploy your private cluster.
 
@@ -141,6 +141,6 @@ cat private-cluster.json | envsubst | curl -v -X PUT \
  https://management.azure.com/subscriptions/$SUBID/resourceGroups/$CLUSTER_NAME/providers/Microsoft.ContainerService/openShiftManagedClusters/$CLUSTER_NAME?api-version=2019-10-27-preview
 ```
 
-## Next Steps
+## Next steps
 
-To learn about how to access the OpenShift console, see [Web Console Walkthrough](https://docs.openshift.com/container-platform/3.11/getting_started/developers_console.html)
+To learn about how to access the OpenShift console, see [Web Console Walkthrough](https://docs.openshift.com/container-platform/3.11/getting_started/developers_console.html).
