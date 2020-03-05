@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/10/2020
+ms.date: 03/05/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -128,13 +128,14 @@ The **OutputClaimsTransformations** element may contain a collection of **Output
 
 ### Metadata
 
-The following settings can be used to configure the error message displayed upon code verification failure:
+The following settings can be used to configure the error message displayed upon code verification failure. The metadata should be configured in the [self-asserted](self-asserted-technical-profile.md) technical profile.
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
 | UserMessageIfSessionDoesNotExist | No | The message to display to the user if the code verification session has expired. It is either the code has expired or the code has never been generated for a given identifier. |
 | UserMessageIfMaxRetryAttempted | No | The message to display to the user if they've exceeded the maximum allowed verification attempts. |
 | UserMessageIfInvalidCode | No | The message to display to the user if they've provided an invalid code. |
+|UserMessageIfSessionConflict|No| The message to display to the user if the code cannot verified.|
 
 ### Returning error message
 
@@ -154,9 +155,6 @@ The following example `TechnicalProfile` is used for verifying a code:
     <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.OneTimePasswordProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
     <Metadata>
         <Item Key="Operation">VerifyCode</Item>
-        <Item Key="UserMessageIfInvalidCode">Wrong code has been entered.</Item>
-        <Item Key="UserMessageIfSessionDoesNotExist">Code has expired.</Item>
-        <Item Key="UserMessageIfMaxRetryAttempted">You've tried too many times.</Item>
     </Metadata>
     <InputClaims>
         <InputClaim ClaimTypeReferenceId="identifier" PartnerClaimType="identifier" />
