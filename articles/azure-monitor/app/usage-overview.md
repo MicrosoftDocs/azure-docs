@@ -127,7 +127,7 @@ To do this, [set up a telemetry initializer](../../azure-monitor/app/api-filteri
     {
         public void Initialize (ITelemetry telemetry)
         {
-            telemetry.Properties["AppVersion"] = "v2.1";
+            telemetry.Context.Properties["AppVersion"] = "v2.1";
         }
     }
 ```
