@@ -24,7 +24,7 @@ When you create an Azure API Management service instance, Azure assigns it a sub
 > API Management accepts only requests with [host header](https://tools.ietf.org/html/rfc2616#section-14.23) values matching the default domain name or any of the configured custom domain names.
 
 > [!WARNING]
-> Customers who wish to use certificate pinning to improve the security of their applications must use a custom domain name > and certificate which they manage, not the default certificate. Customers that pin the default certificate instead will be taking a hard dependency on the properties of the certificate they don't control, which is not a recommended practice.
+> Customers who wish to use certificate pinning to improve the security of their applications must use a custom domain name and certificate which they manage, not the default certificate. Customers that pin the default certificate instead will be taking a hard dependency on the properties of the certificate they don't control, which is not a recommended practice.
 
 ## Prerequisites
 
@@ -49,10 +49,11 @@ To perform the steps described in this article, you must have:
     - **Gateway** (default is: `<apim-service-name>.azure-api.net`),
     - **Portal** (default is: `<apim-service-name>.portal.azure-api.net`),
     - **Management** (default is: `<apim-service-name>.management.azure-api.net`),
-    - **SCM** (default is: `<apim-service-name>.scm.azure-api.net`).
+    - **SCM** (default is: `<apim-service-name>.scm.azure-api.net`),
+    - **NewPortal** (default is: `<apim-service-name>.developer.azure-api.net`).
 
     > [!NOTE]
-    > Only the **Gateway** endpoint in available for configuration in the Consumption tier.
+    > Only the **Gateway** endpoint is available for configuration in the Consumption tier.
     > You can update all of the endpoints or some of them. Commonly, customers update **Gateway** (this URL is used to call the API exposed through API Management) and **Portal** (the developer portal URL).
     > **Management** and **SCM** endpoints are used internally by the API Management instance owners only and thus are less frequently assigned a custom domain name.
     > The **Premium** tier supports setting multiple host names for the **Gateway** endpoint.
@@ -70,7 +71,7 @@ To perform the steps described in this article, you must have:
     > We recommend using Azure Key Vault for managing certificates and setting them to autorotate.
     > If you use Azure Key Vault to manage the custom domain SSL certificate, make sure the certificate is inserted into Key Vault [as a _certificate_](https://docs.microsoft.com/rest/api/keyvault/CreateCertificate/CreateCertificate), not a _secret_.
     >
-    > To fetch an SSL certificate, API Management must have the list an get secrets permissions on the Azure Key Vault containing the certificate. When using Azure portal all the necessary configuration steps will be completed automatically. When using command line tools or management API, these permissions must be granted manually. This is done in two steps. First, use Managed identities page on your API Management instance to make sure that Managed Identity is enabled and make a note of the principal id shown on that page. Second, give permission list and get secrets permissions to this principal id on the Azure Key Vault containing the certificate.
+    > To fetch an SSL certificate, API Management must have the list and get secrets permissions on the Azure Key Vault containing the certificate. When using Azure portal all the necessary configuration steps will be completed automatically. When using command line tools or management API, these permissions must be granted manually. This is done in two steps. First, use Managed identities page on your API Management instance to make sure that Managed Identity is enabled and make a note of the principal id shown on that page. Second, give permission list and get secrets permissions to this principal id on the Azure Key Vault containing the certificate.
     >
     > If the certificate is set to autorotate, API Management will pick up the latest version automatically without any downtime to the service (if your API Management tier has SLA - i. e. in all tiers except the Developer tier).
 

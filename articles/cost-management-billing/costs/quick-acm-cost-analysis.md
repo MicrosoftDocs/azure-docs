@@ -1,14 +1,12 @@
 ---
 title: Quickstart - Explore Azure costs with cost analysis | Microsoft Docs
 description: This quickstart helps you use cost analysis to explore and analyze your Azure organizational costs.
-services: cost-management
-keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 02/11/2020
+ms.date: 03/02/2020
 ms.topic: quickstart
 ms.service: cost-management-billing
-manager: micflan
+ms.reviewer: micflan
 ms.custom: seodec18
 ---
 # Quickstart: Explore and analyze costs with cost analysis
@@ -30,6 +28,8 @@ Cost analysis supports different kinds of Azure account types. To view the full 
 
 For information about assigning access to Azure Cost Management data, see [Assign access to data](../../cost-management/assign-access-acm-data.md).
 
+If you have a new subscription, you can’t immediately use Cost Management features. It might take up to 48 hours before you can use all Cost Management features.
+
 ## Sign in to Azure
 
 - Sign in to the Azure portal at https://portal.azure.com.
@@ -46,7 +46,7 @@ The initial cost analysis view includes the following areas.
 
 **Actual cost**: Shows the total usage and purchase costs for the current month, as they're accrued and will show on your bill.
 
-**Forecast**: Shows the total forecasted costs for time period you choose. (Forecast is in preview.)
+**Forecast**: Shows the total forecasted costs for time period you choose.
 
 **Budget**: Shows the planned spending limit for the selected scope, if available.
 
@@ -58,9 +58,9 @@ The initial cost analysis view includes the following areas.
 
 ### Understand forecast
 
-Cost forecast shows a projection of your estimated costs for the selected time period. The model is based on a time series regression model. It requires at least 10 days of recent cost and usage data to accurately forecast costs. For a given time period, the forecast model requires equal parts of training data for the forecast period. For example, a projection of three months requires at least three months of recent cost and usage data. 
+Cost forecast shows a projection of your estimated costs for the selected time period. The model is based on a time series regression model. It requires at least 10 days of recent cost and usage data to accurately forecast costs. For a given time period, the forecast model requires equal parts of training data for the forecast period. For example, a projection of three months requires at least three months of recent cost and usage data.
 
-The model uses a maximum of six months of training data to project costs for a year. At a minimum, it needs seven days of training data to change its prediction. The prediction is based on dramatic changes, such as spikes and dips, in cost and usage patterns. Forecast doesn't generate individual projections for each item in **Group by** properties. It only provides a forecast for total accumulated costs. If you use multiple currencies, the model provides forecast for costs only in USD. 
+The model uses a maximum of six months of training data to project costs for a year. At a minimum, it needs seven days of training data to change its prediction. The prediction is based on dramatic changes, such as spikes and dips, in cost and usage patterns. Forecast doesn't generate individual projections for each item in **Group by** properties. It only provides a forecast for total accumulated costs. If you use multiple currencies, the model provides forecast for costs only in USD.
 
 
 ## Customize cost views

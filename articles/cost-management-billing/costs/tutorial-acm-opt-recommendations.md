@@ -1,14 +1,12 @@
 ---
 title: Tutorial - Reduce Azure costs with recommendations
 description: This tutorial helps you reduce Azure costs when you act on optimization recommendations.
-services: cost-management
-keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 10/24/2019
+ms.date: 03/02/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
-manager: dougeby
+ms.reviewer: adwise
 ms.custom: seodec18
 ---
 
@@ -29,7 +27,7 @@ Recommendations are available for a variety of scopes and Azure account types. T
 - Subscription
 - Resource group
 
-You must have active virtual machines with at least 14 days of activity.
+If you have a new subscription, you can’t immediately use Cost Management features. It might take up to 48 hours before you can use all Cost Management features. Also, you must have active virtual machines with at least 14 days of activity.
 
 ## Sign in to Azure
 Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com/).

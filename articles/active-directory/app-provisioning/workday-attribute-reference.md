@@ -7,7 +7,7 @@ documentationcenter: na
 manager: jodadzie
 ms.assetid: afb77f2d-5ddd-4c2e-a840-09021b0efef1
 ms.service: active-directory
-ms.subservice: app-mgmt
+ms.subservice: app-provisioning
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na

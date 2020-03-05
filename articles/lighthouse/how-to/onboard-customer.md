@@ -11,7 +11,7 @@ This article explains how you, as a service provider, can onboard a customer to 
 
 You can repeat this process if you are managing resources for multiple customers. Then, when an authorized user signs in to your tenant, that user can be authorized across customer tenancy scopes to perform management operations without having to sign in to every individual customer tenant.
 
-To track your impact across customer engagements and receive recognition, associate your Microsoft Partner Network (MPN) ID with your onboarded subscriptions. For more info, see [Link a partner ID to your Azure accounts](../../billing/billing-partner-admin-link-started.md). Note that you'll need to perform this association in your service provider tenant.
+To track your impact across customer engagements and receive recognition, associate your Microsoft Partner Network (MPN) ID with at least one user account that has access to each of your onboarded subscriptions. Note that you'll need to perform this association in your service provider tenant. For simplicity, we recommend creating a service principal account in your tenant that is associated your MPN ID, and granting it Reader access to every customer you onboard. For more info, see  [Link a partner ID to your Azure accounts](../../billing/billing-partner-admin-link-started.md). 
 
 > [!NOTE]
 > Customers can also be onboarded when they purchase a managed services offer (public or private) that you published to Azure Marketplace. For more info, see [Publish Managed Services offers to Azure Marketplace](publish-managed-services-offers.md). You can also use the onboarding process described here along with an offer published to Azure Marketplace.
@@ -115,10 +115,7 @@ To onboard your customer, you'll need to create an [Azure Resource Manager](../.
 |**managedByTenantId**     |Your tenant ID.          |
 |**authorizations**     |The **principalId** values for the users/groups/SPNs from your tenant, each with a **principalIdDisplayName** to help your customer understand the purpose of the authorization, and mapped to a built-in **roleDefinitionId** value to specify the level of access.      |
 
-> [!TIP]
-> Be sure that your **managedByTenantID**, **principalIdDisplayName**, and **roleDefinitionId** entries are identical to the values used by Azure. Do not use any capital letters in these values.
-
-The onboarding process requires an Azure Resource Manager template (provided in our [samples repo](https://github.com/Azure/Azure-Lighthouse-samples/) and a corresponding parameters file that you modify to match your configuration and define your authorizations.
+The onboarding process requires an Azure Resource Manager template (provided in our [samples repo](https://github.com/Azure/Azure-Lighthouse-samples/)) and a corresponding parameters file that you modify to match your configuration and define your authorizations.
 
 The template you choose will depend on whether you are onboarding an entire subscription, a resource group, or multiple resource groups within a subscription. We also provide a template that can be used for customers who purchased a managed service offer that you published to Azure Marketplace, if you prefer to onboard their subscription(s) this way.
 

@@ -6,7 +6,7 @@ author: bandersmsft
 ms.reviewer: yashesvi
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/12/2020
+ms.date: 02/18/2020
 ms.author: banders
 ---
 # Manage Reservations for Azure resources
@@ -20,7 +20,7 @@ If you bought Azure Reserved Virtual Machine Instances, you may change the optim
 
 ## Reservation Order and Reservation
 
-When you purchase of a reservation, two objects are created: **Reservation Order** and **Reservation**.
+When you purchase a reservation, two objects are created: **Reservation Order** and **Reservation**.
 
 At the time of purchase, a Reservation Order has one Reservation under it. Actions such as split, merge, partial refund, or exchange create new reservations under the **Reservation Order**.
 
@@ -115,8 +115,10 @@ To update the optimize setting for the reservation:
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Select **All Services** > **Reservations**.
 3. Select the reservation.
-4. Select **Settings** > **Configuration**.
-5. Change the **Optimize for** setting.
+4. Select **Settings** > **Configuration**.  
+  ![Example showing the Configuration item](./media/manage-reserved-vm-instance/add-product03.png)
+5. Change the **Optimize for** setting.  
+  ![Example showing the Optimize for setting](./media/manage-reserved-vm-instance/instance-size-flexibility-option.png)
 
 ## Optimize reservation use
 

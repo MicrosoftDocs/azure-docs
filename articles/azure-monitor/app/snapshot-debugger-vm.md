@@ -1,8 +1,6 @@
 ---
 title: Enable Snapshot Debugger for .NET apps in Azure Service Fabric, Cloud Service, and Virtual Machines | Microsoft Docs
 description: Enable Snapshot Debugger for .NET apps in Azure Service Fabric, Cloud Service, and Virtual Machines
-ms.service:  azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: brahmnes
 ms.author: bfung

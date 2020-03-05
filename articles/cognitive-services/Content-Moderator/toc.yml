@@ -1,6 +1,7 @@
 - name: Content Moderator Documentation
   href: index.yml
 - name: Overview
+  expanded: true
   items:
   - name: What is Content Moderator?
     href: overview.md

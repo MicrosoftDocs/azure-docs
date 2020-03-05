@@ -18,6 +18,8 @@
     href: concepts-use-apis.md
   - name: Query the ADT graph
     href: concepts-query-graph.md
+  - name: Deploy Azure Digital Twins
+    href: concepts-deployment.md
   - name: Secure digital twin solutions
     href: concepts-security.md
 - name: How-to guides

@@ -109,7 +109,7 @@ For this quickstart, you use the [Azure IoT device SDK for C](iot-hub-device-sdk
 
 ## Create an IoT hub
 
-[!INCLUDE [iot-hub-include-create-hub-device-streams](../../includes/iot-hub-include-create-hub-device-streams.md)]
+[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
 ## Register a device
 
