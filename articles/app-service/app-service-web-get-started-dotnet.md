@@ -59,15 +59,15 @@ Create an ASP.NET Core web app by following these steps:
 
 1. In **App Service Create new**, your options depend on whether you're signed in to Azure already and whether you have a Visual Studio account linked to an Azure account. Select either **Add an account** or **Sign in** to sign in to your Azure subscription. If you're already signed in, select the account you want.
 
-   > [!NOTE]
-   > If you're already signed in, don't select **Create** yet.
-   >
-
    ![Sign in to Azure](./media/app-service-web-get-started-dotnet/sign-in-azure-vs2019.png)
 
-   [!INCLUDE [resource group intro text](../../includes/resource-group.md)]
+Before creating the service, Configure the fields in the **App Service Create new** dialog. 
+
+1. For **Name**, either accept the automatically generated unique name, or enter your own unique app name that includes only the valid characters `a-z`, `A-Z`, `0-9`, and `-`. The URL of the web app will be `http://<app_name>.azurewebsites.net`, where `<app_name>` is your app name.
 
 1. For **Resource group**, select **New**.
+
+   [!INCLUDE [resource group intro text](../../includes/resource-group.md)]
 
 1. In **New resource group name**, enter *myResourceGroup* and select **OK**.
 
@@ -85,13 +85,15 @@ Create an ASP.NET Core web app by following these steps:
 
    ![Create App Service plan](./media/app-service-web-get-started-dotnet/app-service-plan-vs2019.png)
 
-1. In **Name**, enter a unique app name that includes only the valid characters are `a-z`, `A-Z`, `0-9`, and `-`. You can accept the automatically generated unique name. The URL of the web app is `http://<app_name>.azurewebsites.net`, where `<app_name>` is your app name.
+
 
    ![Configure app name](./media/app-service-web-get-started-dotnet/web-app-name-vs2019.png)
 
-1. Select **Create** to start creating the Azure resources.
+1. Select **Create** to start creating the Azure resources. Once the wizard completes, deploy your web app by selecting **Publish**.
 
-Once the wizard completes, it publishes the ASP.NET Core web app to Azure, and then launches the app in the default browser.
+   ![Deploy web app to Azure](./media/app-service-web-get-started-dotnet/deploy-web-app.png)
+
+This publishes the ASP.NET Core web app to Azure, and then launches the app in the default browser.
 
 ![Published ASP.NET web app in Azure](./media/app-service-web-get-started-dotnet/web-app-running-live.png)
 
