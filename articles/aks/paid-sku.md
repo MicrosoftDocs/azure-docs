@@ -74,7 +74,7 @@ The Paid SKU reimbursements will be performed on a monthly basis. The billing un
 
 ## Next steps
 
-Use [availability zones](availability-zones) to increase high availability with your AKS cluster workloads.
+Use [Availability Zones](availability-zones) to increase high availability with your AKS cluster workloads.
 
 <!-- LINKS - External -->
 [azure-support]: https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest
