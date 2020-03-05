@@ -80,7 +80,7 @@ Use *Azure CNI* when:
 
 - You have available IP address space.
 - Most of the pod communication is to resources outside of the cluster.
-- You don’t want to manage the UDRs.
+- You don't want to manage the UDRs.
 - You need AKS advanced features such as virtual nodes or Azure Network Policy.  Use [Calico network policies][calico-network-policies].
 
 For more information to help you decide which network model to use, see [Compare network models and their support scope][network-comparisons].
@@ -114,9 +114,11 @@ az ad sp create-for-rbac --skip-assignment
 
 The following example output shows the application ID and password for your service principal. These values are used in additional steps to assign a role to the service principal and then create the AKS cluster:
 
-```console
-$ az ad sp create-for-rbac --skip-assignment
+```azurecli
+az ad sp create-for-rbac --skip-assignment
+```
 
+```output
 {
   "appId": "476b3636-5eda-4c0e-9751-849e70b5cfad",
   "displayName": "azure-cli-2019-01-09-22-29-24",
