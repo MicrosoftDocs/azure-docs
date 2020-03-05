@@ -97,4 +97,4 @@ When you disable customer-managed keys, your Cognitive Services resource is then
 
 * [What is Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)?
 * [Cognitive Services Customer-Managed Key Request Form](https://aka.ms/cogsvc-cmk)
-* [Encryption of data at rest for the Face service](..\Face\face-encryption-of-data-at-rest.md)
+* [Encryption of data at rest for the Face service](../Face/face-encryption-of-data-at-rest.md)
