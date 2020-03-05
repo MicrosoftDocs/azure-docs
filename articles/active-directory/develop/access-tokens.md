@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/22/2019
+ms.date: 3/2/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
@@ -237,6 +237,8 @@ Refresh tokens can be invalidated or revoked at any time, for different reasons.
 
 ### Token timeouts
 
+Using [token lifetime configuration](active-directory-configurable-token-lifetimes.md), the lifetime of refresh tokens can be altered.  It is normal and expected for some tokens to go without use (e.g. the user does not open the app for 3 months) and therefore expire.  Apps will encounter scenarios where the login server rejects a refresh token due to its age. 
+
 * MaxInactiveTime: If the refresh token hasn't been used within the time dictated by the MaxInactiveTime, the Refresh Token will no longer be valid.
 * MaxSessionAge: If MaxAgeSessionMultiFactor or MaxAgeSessionSingleFactor have been set to something other than their default (Until-revoked), then reauthentication will be required after the time set in the MaxAgeSession* elapses.
 * Examples:
@@ -244,6 +246,8 @@ Refresh tokens can be invalidated or revoked at any time, for different reasons.
   * A sensitive application has a MaxAgeSessionSingleFactor of one day. If a user logs in on Monday, and on Tuesday (after 25 hours have elapsed), they'll be required to reauthenticate.
 
 ### Revocation
+
+Refresh tokens can be revoked by the server due to a change in credentials, or due to use or admin action.  Refresh tokens fall into two classes - those issued to confidential clients (the rightmost column) and those issued to public clients (all other columns).   
 
 |   | Password-based cookie | Password-based token | Non-password-based cookie | Non-password-based token | Confidential client token |
 |---|-----------------------|----------------------|---------------------------|--------------------------|---------------------------|
@@ -260,7 +264,7 @@ Refresh tokens can be invalidated or revoked at any time, for different reasons.
 >
 > Primary Refresh Tokens (PRT) on Windows 10 are segregated based on the credential. For example, Windows Hello and password have their respective PRTs, isolated from one another. When a user signs-in with a Hello credential (PIN or biometrics) and then changes the password, the password based PRT obtained previously will be revoked. Signing back in with a password invalidates the old PRT and requests a new one.
 >
-> Refresh tokens aren't invalidated or revoked when used to fetch a new access token and refresh token.
+> Refresh tokens aren't invalidated or revoked when used to fetch a new access token and refresh token.  However, your app should discard the old one as soon as it's used and replace it with the new one, as the new token has a new expiration time in it. 
 
 ## Next steps
 
