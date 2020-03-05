@@ -8,7 +8,7 @@ author: Blackmist
 ms.author: larryfr
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 09/18/2019
+ms.date: 03/05/2020
 ---
 
 # Train models with Azure Machine Learning
@@ -83,6 +83,15 @@ Machine learning pipelines can use the previously mentioned training methods (ru
 * [Examples: Jupyter Notebook examples for machine learning pipelines](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/machine-learning-pipelines)
 * [Examples: Pipeline with automated machine learning](https://aka.ms/pl-automl)
 * [Examples: Pipeline with estimators](https://aka.ms/pl-estimator)
+
+## R SDK
+
+The R SDK enables you to use the R language with Azure Machine Learning. The SDK uses the retticulate package to bind to Azure Machine Learning's Python SDK. This allows you access to core objects and methods implemented in the Python SDK from any R environment.
+
+For more information, see the following articles:
+
+* [Tutorial: Create a logistic regression model](tutorial-1st-r-experiment.md)
+* [Azure Machine Learning SDK for R reference](https://azure.github.io/azureml-sdk-for-r/index.html)
 
 ## Azure Machine Learning designer
 
