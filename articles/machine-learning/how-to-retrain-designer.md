@@ -1,5 +1,5 @@
 ---
-title: Retrain models using Azure Machine Learning designer (preview)
+title: Retrain models by using Azure Machine Learning designer (preview)
 titleSuffix: Azure Machine Learning
 description: Learn how to retrain models with published pipelines in Azure Machine Learning designer (preview).
 services: machine-learning
@@ -14,9 +14,9 @@ ms.date: 02/24/2020
 # Retrain models with Azure Machine Learning designer (preview)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
-In this how-to, you learn how to use Azure Machine Learning designer to retrain a machine learning model. Find out how to use published pipelines to automate machine learning workflows for retraining.
+In this how-to article, you learn how to use Azure Machine Learning designer to retrain a machine learning model. Find out how to use published pipelines to automate machine learning workflows for retraining.
 
-In this article you learn how to:
+In this article, you learn how to:
 
 > [!div class="checklist"]
 > * Train a machine learning model.
@@ -30,7 +30,7 @@ In this article you learn how to:
 
 * An Azure Machine Learning workspace with the Enterprise SKU.
 
-This how-to assumes you have basic knowledge of building pipelines in the designer. For a guided introduction to the designer, complete the [tutorial](tutorial-designer-automobile-price-train-score.md). 
+This article assumes that you have basic knowledge of building pipelines in the designer. For a guided introduction to the designer, complete the [tutorial](tutorial-designer-automobile-price-train-score.md). 
 
 ### Sample pipeline
 
