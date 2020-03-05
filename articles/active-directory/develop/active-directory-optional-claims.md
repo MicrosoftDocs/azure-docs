@@ -118,7 +118,7 @@ This OptionalClaims object causes the ID token returned to the client to include
 ## Configuring optional claims
 
 > [!IMPORTANT]
-> Access tokens are **always** generated using the manifest of the resource, not the client.  So in the request `...scope=https://graph.microsoft.com/user.read...` the resource is Graph.  Thus, the access token is created using the Graph manifest, not the client's manifest.  Changing the manifest for your application will never cause tokens for Graph to look different.  In order to validate that your `accessToken` changes are in effect, request a token for your application, not another app.  
+> Access tokens are **always** generated using the manifest of the resource, not the client.  So in the request `...scope=https://graph.microsoft.com/user.read...` the resource is the Microsoft Graph API.  Thus, the access token is created using the Microsoft Graph API manifest, not the client's manifest.  Changing the manifest for your application will never cause tokens for the Microsoft Graph API to look different.  In order to validate that your `accessToken` changes are in effect, request a token for your application, not another app.  
 
 You can configure optional claims for your application through the UI or application manifest.
 
@@ -345,7 +345,7 @@ In this section, you can walk through a scenario to see how you can use the opti
 There are multiple options available for updating the properties on an application’s identity configuration to enable and configure optional claims:
 -    You can use the **Token configuration (preview)** UI (see example below)
 -    You can use the **Manifest** (see example below). Read the [Understanding the Azure AD application manifest document](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-manifest) first for an introduction to the manifest.
--	It's also possible to write an application that uses the [Graph API](https://docs.microsoft.com/azure/active-directory/develop/active-directory-graph-api) to update your application. The [OptionalClaims](https://docs.microsoft.com/graph/api/resources/optionalclaims?view=graph-rest-1.0) type in the Graph API reference guide can help you with configuring the optional claims.
+-	It's also possible to write an application that uses the [Microsoft Graph API](https://docs.microsoft.com/graph/use-the-api?context=graph%2Fapi%2F1.0&view=graph-rest-1.0) to update your application. The [OptionalClaims](https://docs.microsoft.com/graph/api/resources/optionalclaims?view=graph-rest-1.0) type in the Microsoft Graph API reference guide can help you with configuring the optional claims.
 
 **Example:** 
 In the example below, you will use the **Token configuration (preview)** UI and **Manifest** to add optional claims to the access, ID, and SAML tokens intended for your application. Different optional claims will be added to each type of token that the application can receive:
