@@ -28,7 +28,7 @@ You can also complete this quickstart using [Azure PowerShell](quick-create-powe
 
 ## Create resource group
 
-In Azure, you allocate related resources to a resource group. Create a resource group by using [az group create](/cli/azure/group#az-group-create). 
+In Azure, you allocate related resources to a resource group. Create a resource group by using `az group create`. 
 
 The following example creates a resource group named *myResourceGroupAG* in the *eastus* location.
 
