@@ -49223,6 +49223,11 @@
       "source_path": "articles/jenkins/install-jenkins-solution-template.md",
       "redirect_url": "/azure/jenkins/install-solution-template-tutorial",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/sapi-phoneset-usage.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/speech-ssml-phonetic-sets",
+      "redirect_document_id": false
     }
   ]
 }
