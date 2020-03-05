@@ -159,7 +159,7 @@ To do this, you'll:
 
 In this example, you install IIS on the virtual machines only to verify Azure created the application gateway successfully.
 
-1. Open [Azure PowerShell](https://docs.microsoft.com/azure/cloud-shell/quickstart-powershell). To do so, select **Cloud Shell** from the top navigation bar of the Azure portal and then select **PowerShell** from the drop-down list. 
+1. Open Azure PowerShell. Select **Cloud Shell** from the top navigation bar of the Azure portal and then select **PowerShell** from the drop-down list. 
 
     ![Install custom extension](./media/application-gateway-create-gateway-portal/application-gateway-extension.png)
 
