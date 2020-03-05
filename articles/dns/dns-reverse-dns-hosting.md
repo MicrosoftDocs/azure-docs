@@ -208,7 +208,7 @@ Get-AzDnsRecordSet -ZoneName 2.0.192.in-addr.arpa -ResourceGroupName MyResourceG
 #### Azure CLI
 
 ```azurecli
-	azure network dns record-set list -g MyResourceGroup -z 2.0.192.in-addr.arpa
+	az network dns record-set list -g MyResourceGroup -z 2.0.192.in-addr.arpa
 ```
 
 ### IPv6
@@ -234,7 +234,7 @@ Get-AzDnsRecordSet -ZoneName 0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2.ip6.arpa -ResourceG
 #### Azure CLI
 
 ```azurecli
-	azure network dns record-set list -g MyResourceGroup -z 0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2.ip6.arpa
+	az network dns record-set list -g MyResourceGroup -z 0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2.ip6.arpa
 ```
 
 ## FAQ
