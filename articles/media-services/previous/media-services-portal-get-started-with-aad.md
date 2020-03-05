@@ -41,17 +41,23 @@ When you use Azure AD authentication with Azure Media Services, you have two aut
 
 ## Service principal authentication  (recommended)
 
-Authenticates a service using an Azure Active Directory app and secret. This is recommended for any middle-tier services calling to the Media Services API. Examples are Web Apps, Functions, Logic Apps, APIs, and microservices. This is the recommended authentication method.
+Authenticates a service using an Azure Active Directory (Azure AD) app and secret. This is recommended for any middle-tier services calling to the Media Services API. Examples are Web Apps, Functions, Logic Apps, APIs, and microservices. This is the recommended authentication method.
 
-The **Manage your AAD app and secret** section lets you select or create a new AAD app and generate a secret. For security purposes, the secret cannot be shown after the blade is closed. The application uses the application id and secret for authentication to obtain a valid token for media services.
+### Manage your Azure AD app and secret
+
+The **Manage your AAD app and secret** section lets you select or create a new Azure AD app and generate a secret. For security purposes, the secret cannot be shown after the blade is closed. The application uses the application id and secret for authentication to obtain a valid token for media services.
 
 Make sure that you have sufficient permissions to register an application with your Azure AD tenant and to assign the application to a role in your Azure subscription. For more information, see [Required permissions](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions).
+
+### Connect to Media Services API
 
 The **Connect to Media Services API** provides you with values that you use to connect your service principal application. You can get text values or copy the JSON or XML blocks.
 
 ## User authentication
 
 This option could be used to authenticate an employee or member of an Azure Active Directory who is using an app to interact with Media Services resources. The interactive application should first prompt the user for the user's credentials. This authentication method should only be used for Management applications.
+
+### Connect to Media Services API
 
 Copy your credentials to connect your user application from the **Connect to Media Services API** section. You can get text values or copy the JSON or XML blocks.
 
