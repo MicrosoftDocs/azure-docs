@@ -101,7 +101,7 @@
     items:
     - name: Map control
       items:
-      - name: Getting started with web map control
+      - name: Use the Azure Maps map control
         href: how-to-use-map-control.md
       - name: Create a map
         href: map-create.md
