@@ -1,8 +1,8 @@
 ---
 title: Create a private cluster with Azure Red Hat OpenShift 3.11 | Microsoft Docs
 description: Create a private cluster with Azure Red Hat OpenShift 3.11
-author: klamenzo 
-ms.author: suvetriv
+author: suvetriv 
+ms.author: suvetriv, klamenzo@redhat.com
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 03/02/2020
@@ -13,7 +13,7 @@ keywords: aro, openshift, private cluster, red hat
 # Create a private cluster with Azure Red Hat OpenShift 3.11
 
 > [!IMPORTANT]
-> ARO private clusters are currently only available in private preview in East US 2. Private preview acceptance is by invitation only. Please be sure to register your subscription before attempting to enable this feature.
+> Azure Red Hat OpenShift (ARO) private clusters are currently only available in private preview in East US 2. Private preview acceptance is by invitation only. Please be sure to register your subscription before attempting to enable this feature.
 
 Private clusters provide the following benefits:
 
@@ -27,7 +27,7 @@ Private clusters provide the following benefits:
 
 The fields in the following configuration snippet are new and must be included in your cluster configuration. `managementSubnetCidr` must be within the cluster virtual network and is used by Azure to manage the cluster.
 
-```
+```json
 properties:
  networkProfile:
    managementSubnetCidr: 10.0.1.0/24
@@ -35,6 +35,7 @@ properties:
    apiProperties:
      privateApiServer: true
 ```
+
 A private cluster can be deployed using the sample scripts provided below. Once the cluster is deployed, execute the `cluster get` command and view the `properties.FQDN` property to determine the private IP address of the OpenShift API server.
 
 The cluster virtual network will have been created with permissions so that you can modify it. You can then set up networking to access the virtual network (ExpressRoute, VPN, virtual network peering) as required for your needs.
@@ -50,9 +51,9 @@ Use the sample scripts in this section to set up and deploy your private cluster
 Fill in the environment variables below as using your own values.
 
 > [!NOTE]
-> The locatin must be set to `eastus2` as this is currently the only supported location for private clusters.
+> The location must be set to `eastus2` as this is currently the only supported location for private clusters.
 
-```
+``` bash
 export CLUSTER_NAME=
 export LOCATION=eastus2
 export TOKEN=$(az account get-access-token --query 'accessToken' -o tsv)
@@ -64,9 +65,10 @@ export SECRET=
 ```
 
 ### private-cluster.json
+
 Using the environment variables defined above, here is a sample cluster configuration with private cluster enabled.
 
-```
+```json
 {
    "location": "$LOCATION",
    "name": "$CLUSTER_NAME",
@@ -131,21 +133,14 @@ Using the environment variables defined above, here is a sample cluster configur
 
 After configuring your private cluster with the sample scripts above, run the following command to deploy your private cluster.
 
-```
+``` bash
 az group create --name $CLUSTER_NAME --location $LOCATION
- 
 cat private-cluster.json | envsubst | curl -v -X PUT \
 -H 'Content-Type: application/json; charset=utf-8' \
 -H 'Authorization: Bearer '$TOKEN'' -d @- \
  https://management.azure.com/subscriptions/$SUBID/resourceGroups/$CLUSTER_NAME/providers/Microsoft.ContainerService/openShiftManagedClusters/$CLUSTER_NAME?api-version=2019-10-27-preview
 ```
 
-## Diagrams
+## Next Steps
 
-### Private Cluster Architecture
-
-![](diagrams/private-cluster-diagram.png)
-
-### Data Flow
-
-![](diagrams/private-cluster-data-flow.png))
+Now that you've set up your private Azure Red Hat OpenShift cluster, learn about how to access the OpenShift console [here](https://docs.openshift.com/container-platform/3.11/getting_started/developers_console.html)
