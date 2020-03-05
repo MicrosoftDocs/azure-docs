@@ -15,7 +15,19 @@ This article provides lists Azure Monitor articles that are either new or have b
 ## March 2020
 
 ### Agents
-- [Log Analytics agent overview](platform/log-analytics-agent.md) - Removed OMS*.azure.com from network firewall table.
+Multiple updates as part of initial rewrite of diagnostics extension.
+
+- [Overview of the Azure monitoring agents](platform/agents-overview) - Restructured tables to better clarify unique features of each agent.
+- [Azure Diagnostics extension overview](platform/diagnostics-extension-overview) - Complete rewrite.
+- [Use blob storage for IIS and table storage for events in Azure Monitor](platform/diagnostics-extension-logs) - General rewrite for update and clarity.
+- [Install and configure Windows Azure diagnostics extension (WAD)](platform/diagnostics-extension-windows-install) - New article. 
+- [Windows diagnostics extension schema](platform/diagnostics-extension-schema-windows) - Reorganized.
+- [Send data from Windows Azure diagnostics extension to Azure Event Hubs](platform/diagnostics-extension-stream-event-hubs) - Completely rewritten and updated.
+- [Store and view diagnostic data in Azure Storage](platform/diagnostics-extension-to-storage) - Completely rewritten and updated.
+- [Log Analytics virtual machine extension for Windows](../virtual-machines/extensions/oms-windows) - Better clarifies relationship with Log Analytics agent.
+- [Azure Monitor virtual machine extension for Linux](../virtual-machines/extensions/oms-linux) - Better clarifies relationship with Log Analytics agent.
+
+
 
 
 ### Application Insights
@@ -34,6 +46,7 @@ This article provides lists Azure Monitor articles that are either new or have b
 
 
 ### Logs
+- [Optimize log queries in Azure Monitor](log-query/query-optimization.md) - New article.
 - [Manage usage and costs for Azure Monitor Logs](platform/manage-cost-storage.md) - Improved sample queries to help understand your usage.
 
 ### Metrics
@@ -43,13 +56,13 @@ This article provides lists Azure Monitor articles that are either new or have b
 ### Visualizations
 Multiple new articles for view designer to workbooks conversion guide.
 
+- [Azure Monitor view designer to workbooks transition guide](platform/view-designer-conversion-overview.md) - New article.
 - [Azure Monitor view designer to workbooks conversion options](platform/view-designer-conversion-options.md) - New article.
 - [Azure Monitor view designer to workbooks tile conversions](platform/view-designer-conversion-tiles.md) - New article.
 - [Azure Monitor view designer to workbooks conversion summary and access](platform/view-designer-conversion-access.md) - New article.
 - [Azure Monitor view designer to workbooks conversion common tasks](platform/view-designer-conversion-tasks.md) - New article.
-- [Azure Monitor view designer to workbooks transition guide](platform/view-designer-conversion-overview.md) - New article.
 - [Azure Monitor view designer to workbooks conversion examples](platform/view-designer-conversion-examples.md) - New article.
-- [Optimize log queries in Azure Monitor](log-query/query-optimization.md) - New article.
+
 
 
 
