@@ -55,9 +55,17 @@ To learn more about upcoming API changes, see [Dataset API change notice](https:
 
 ## Create datasets
 
-By creating a dataset, you create a reference to the data source location, along with a copy of its metadata. Because the data remains in its existing location, you incur no extra storage cost. You can create both `TabularDataset` and `FileDataset` data sets by using the Python SDK or workspace landing page (preview).
+By creating a dataset, you create a reference to the data source location, along with a copy of its metadata. Because the data remains in its existing location, you incur no extra storage cost. You can create both `TabularDataset` and `FileDataset` data sets by using the Python SDK or at https://ml.azure.com.
 
-For the data to be accessible by Azure Machine Learning, datasets must be created from paths in [Azure datastores](how-to-access-data.md) or public web URLs.
+For the data to be accessible by Azure Machine Learning, datasets must be created from paths in [Azure datastores](how-to-access-data.md) or public web URLs. 
+
+Be sure to check how large the dataset is in-memory (usually as a dataframe) - you typically want a machine with ~2x this size of RAM so you  
+
+If you're using Pandas, there's no reason to have more than 1 vCPU since that's all it will use. You can easily parallelize to many vCPUs on a single AMLS compute instance/node via Modin and Dask/Ray (and scale out to a large cluster if needed) by simply changing `import pandas as pd` to `import modin.pandas as pd`. 
+
+If you can't get a big enough VM for the data, you have two options: use a framework like Spark or Dask to perform the processing on the data 'out of memory', i.e. the dataframe is loaded into RAM partition by partition and processed, with the final result being gathered at the end. If this is too slow, Spark or Dask allow you to scale out to a cluster which can still be used interactively. 
+
+Note: the size of your data in storage (i.e. 1 GB CSV file) is not the same as the size of data in a dataframe. This can be computed by (rows) x (columns) x (bytes/dtype). For CSV files, the data usually expands ~2-10x in a dataframe, so the 1 GB CSV file becomes 2-10 GB. If your data is compressed, it can expand further - 20 GB of relatively sparse data stored in compressed parquet format can expand to ~800 GB in memory. Since Parquet stores data in a columnar format, if you only need 1/2 of the columns then you only need to load ~400 GB in memory. 
 
 ### Use the SDK
 
@@ -68,7 +76,6 @@ To create datasets from an [Azure datastore](how-to-access-data.md) by using the
 2. Create the dataset by referencing paths in the datastore.
 > [!Note]
 > You can create a dataset from multiple paths in multiple datastores. There is no hard limit on the number of files or data size that you can create a dataset from. However, for each data path, a few requests will be sent to the storage service to check whether it points to a file or a folder. This overhead may lead to degraded performance or failure. A dataset referencing one folder with 1000 files inside is considered referencing one data path. We'd recommend creating dataset referencing less than 100 paths in datastores for optimal performance.
-
 
 #### Create a TabularDataset
 
