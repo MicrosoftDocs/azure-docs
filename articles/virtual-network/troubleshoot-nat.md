@@ -25,10 +25,10 @@ This article helps administrators diagnose and resolve connectivity problems whe
 
 ## Problems
 
-- [SNAT exhaustion](#snat-exhaustion)
-- [ICMP ping is failing](#icmp-ping-is-failing)
-- [Connectivity failures](#connectivity-failures)
-- [IPv6 coexistence](#ipv6-coexistence)
+* [SNAT exhaustion](#snat-exhaustion)
+* [ICMP ping is failing](#icmp-ping-is-failing)
+* [Connectivity failures](#connectivity-failures)
+* [IPv6 coexistence](#ipv6-coexistence)
 
 To resolve these problems, follow the steps in the following section.
 
@@ -49,7 +49,7 @@ Frequently the root cause of SNAT exhaustion is an anti-pattern for how outbound
 
 #### Design patterns
 
-Always take advantage of connection reuse and connection pooling whenever possible.  This pattern will avoid resource exhaustion problems outright and result in predictable behavior. Primitives for these patterns can be found in many development libraries and frameworks.
+Always take advantage of connection reuse and connection pooling whenever possible.  These patterns will avoid resource exhaustion problems outright and result in predictable, reliable, and scalable behavior. Primitives for these patterns can be found in many development libraries and frameworks.
 
 _**Solution:**_ Use appropriate patterns
 
@@ -60,12 +60,12 @@ Creating a new TCP connection for every HTTP operation (also known as "atomic co
 
 #### Possible mitigations
 
-_**Solution**_ You can scale outbound connectivity as follows:
+_**Solution:**_ Scale outbound connectivity as follows:
 
-| Scenario | Mitigation |
-|---|---|
-| You're experiencing contention for SNAT ports and SNAT port exhaustion during periods of high usage. | Determine if you can add additional public IP address resources or public IP prefix resources. This addition will allow for up to 16 IP addresses in total to your NAT gateway. This addition will provide more inventory for available SNAT ports (64,000 per IP address) and allow you to scale your scenario further.|
-| You've already given 16 IP addresses and still are experiencing SNAT port exhaustion. | Distribute your application environment across multiple subnets and provide a NAT gateway resource for each subnet.  Reevaluate your design pattern(s) to optimize based on preceding [guidance](#design-patterns). |
+| Scenario | Evidence |Mitigation |
+|---|---|---|
+| You're experiencing contention for SNAT ports and SNAT port exhaustion during periods of high usage. | "Failed" category for SNAT Connections [metric](nat-metrics.md) in Azure Monitor shows transient or persistent failures over time and high connection volume.  | Determine if you can add additional public IP address resources or public IP prefix resources. This addition will allow for up to 16 IP addresses in total to your NAT gateway. This addition will provide more inventory for available SNAT ports (64,000 per IP address) and allow you to scale your scenario further.|
+| You've already given 16 IP addresses and still are experiencing SNAT port exhaustion. | Attempt to add additional IP address fails. Total number of IP addresses from public IP address resources or public IP prefix resources exceeds a total of 16. | Distribute your application environment across multiple subnets and provide a NAT gateway resource for each subnet.  Reevaluate your design pattern(s) to optimize based on preceding [guidance](#design-patterns). |
 
 >[!NOTE]
 >It is important to understand why SNAT exhaustion occurs. Make sure you are using the right patterns for scalable and reliable scenarios.  Adding more SNAT ports to a scenario without understanding the cause of the demand should be a last resort. If you do not understand why your scenario is applying pressure on SNAT port inventory, adding more SNAT ports to the inventory by adding more IP addresses will only delay the same exhaustion failure as your application scales.  You may be masking other inefficiencies and anti-patterns.
