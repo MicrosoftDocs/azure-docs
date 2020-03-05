@@ -379,7 +379,7 @@ Recommended settings:
 | 1.12.0 - 1.12.1 | 0755 |
 | 1.12.2 and later | 0777 |
 
-If using a cluster with Kuberetes version 1.8.5 or greater and dynamically creating the persistent volume with a storage class, mount options can be specified on the storage class object. The following example sets *0777*:
+If using a cluster with Kubernetes version 1.8.5 or greater and dynamically creating the persistent volume with a storage class, mount options can be specified on the storage class object. The following example sets *0777*:
 
 ```yaml
 kind: StorageClass
