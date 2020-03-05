@@ -25,7 +25,7 @@ In this tutorial, you learn how to:
 
 To complete this tutorial, you need:
 
-* The [Update Management](automation-update-management.md) solution is enabled for one or more of your VMs 
+* The [Update Management](automation-update-management.md) solution enabled for one or more of your VMs.
 * A [virtual machine](../virtual-machines/windows/quick-create-portal.md) to onboard.
 
 ## Sign in to Azure
