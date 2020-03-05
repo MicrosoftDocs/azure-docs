@@ -19,7 +19,7 @@ ms.author: markvi
 ms.collection: M365-identity-device-management
 ---
 
-# What is managed identities for Azure resources?
+# What are managed identities for Azure resources?
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
@@ -137,6 +137,7 @@ Learn how to use a managed identity with other Azure services:
 * [Azure Kubernetes Service](/azure/aks/use-managed-identity)
 * [Azure Logic Apps](/azure/logic-apps/create-managed-service-identity)
 * [Azure Service Bus](../../service-bus-messaging/service-bus-managed-service-identity.md)
+* [Azure Data Factory](../../data-factory/data-factory-service-identity.md)
 
 
 ## What Azure services support the feature?<a name="which-azure-services-support-managed-identity"></a>

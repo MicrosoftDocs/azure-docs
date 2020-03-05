@@ -100,7 +100,7 @@ az group deployment create --resource-group <ResourceGroupName> --template-file 
 
 The configuration change can take a few minutes to complete. When it's completed, a message similar to the following that includes the result is returned:
 
-```azurecli
+```output
 ProvisioningState       : Succeeded
 ```
 
@@ -118,7 +118,7 @@ New-AzResourceGroupDeployment -Name opt-out -ResourceGroupName <ResourceGroupNam
 
 The configuration change can take a few minutes to complete. When it's completed, a message similar to the following that includes the result is returned:
 
-```powershell
+```output
 ProvisioningState       : Succeeded
 ```
 

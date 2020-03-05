@@ -4,7 +4,7 @@ description: Learn how to determine the public IP address and port number range 
 author: emaher
 
 ms.author: enewman
-ms.date: 12/12/2019
+ms.date: 02/14/2020
 ms.topic: article
 ms.service: lab-services
 ---
@@ -19,10 +19,10 @@ Each lab uses single public IP address and multiple ports.  All VMs, both the te
 
 ## Find public IP for a lab
 
-The public IP addresses for each lab are listed in the **All labs** blade of the Lab Services lab account.  For directions how to find the **All labs** blade, see [how to manage labs in a lab account](how-to-manage-lab-accounts.md#view-and-manage-labs-in-the-lab-account).  
+The public IP addresses for each lab are listed in the **All labs** page of the Lab Services lab account.  For directions how to find the **All labs** page, see [how to manage labs in a lab account](how-to-manage-lab-accounts.md#view-and-manage-labs-in-the-lab-account).  
 
 > [!div class="mx-imgBorder"]
-> ![All labs blade](../media/how-to-configure-firewall-settings/all-labs-properties.png)
+> ![All labs page](../media/how-to-configure-firewall-settings/all-labs-properties.png)
 
 >[!NOTE]
 >You won’t see the public IP address if the template machine for your lab isn’t published yet.
@@ -30,3 +30,13 @@ The public IP addresses for each lab are listed in the **All labs** blade of the
 ## Conclusion
 
 Now we know the public IP address for the lab.  Inbound and outbound rules can be created for the organization's firewall for the public ip address and the port range  49152-65535.  Once the rules are updated, students can access their VMs without the network firewall blocking access.
+
+## Next steps
+See the following articles:
+
+- [Allow lab creator to pick lab location](allow-lab-creator-pick-lab-location.md)
+- [Connect your lab's network with a peer virtual network](how-to-connect-peer-virtual-network.md)
+- [Attach a shared image gallery to a lab](how-to-attach-detach-shared-image-gallery.md)
+- [Add a user as a lab owner](how-to-add-user-lab-owner.md)
+- [View firewall settings for a lab](how-to-configure-firewall-settings.md)
+- [Configure other settings for a lab](how-to-configure-lab-accounts.md)

@@ -56,7 +56,7 @@ To learn how to enable these properties on an existing Azure Key Vault instance,
 
    ![Selecting the right permissions](./media/how-to-setup-cmk/portal-akv-add-ap-perm2.png)
 
-1. Under **Select principal**, select **None selected**. Then, search for **Azure Cosmos DB** principal and select it. Finally, choose **Select** at the bottom. If the **Azure Cosmos DB** principal isn't in the list, you might need to re-register the **Microsoft.DocumentDB** resource provider as described in the [Register the resource provider](#register-resource-provider) section of this article.
+1. Under **Select principal**, select **None selected**. Then, search for **Azure Cosmos DB** principal and select it (to make it easier to find, you can also search by principal ID: `a232010e-820c-4083-83bb-3ace5fc29d0b` for any Azure region except Azure Government regions where the principal ID is `57506a73-e302-42a9-b869-6f12d9ec29e9`). Finally, choose **Select** at the bottom. If the **Azure Cosmos DB** principal isn't in the list, you might need to re-register the **Microsoft.DocumentDB** resource provider as described in the [Register the resource provider](#register-resource-provider) section of this article.
 
    ![Select the Azure Cosmos DB principal](./media/how-to-setup-cmk/portal-akv-add-ap.png)
 

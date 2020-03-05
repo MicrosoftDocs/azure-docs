@@ -20,7 +20,7 @@ Learn how to use the Azure portal to set up and manage data encryption for your 
   * [Soft delete](../key-vault/key-vault-ovw-soft-delete.md)
 
     ```azurecli-interactive
-    az resource update --id $(az keyvault show --name \ <key_vault_name> -test -o tsv | awk '{print $1}') --set \ properties.enableSoftDelete=true
+    az resource update --id $(az keyvault show --name \ <key_vault_name> -o tsv | awk '{print $1}') --set \ properties.enableSoftDelete=true
     ```
 
   * [Purge protected](../key-vault/key-vault-ovw-soft-delete.md#purge-protection)

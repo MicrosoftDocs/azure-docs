@@ -149,6 +149,5 @@ For more information:
 
 * [Markdown format in answers](../reference-markdown-format.md)
 * QnA Maker [data sources](../concepts/knowledge-base.md).
-* [Bot resource configuration settings](../tutorials/create-qna-bot.md).
 
 
