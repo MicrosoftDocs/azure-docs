@@ -2,11 +2,11 @@
 # Mandatory fields.
 title: Use the Azure Digital Twins APIs
 titleSuffix: Azure Digital Twins
-description: See details about using the Azure Digital Twins API surface
+description: Understand details of the Azure Digital Twins API surface
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 2/21/2020
-ms.topic: conceptual
+ms.date: 3/5/2020
+ms.topic: how-to
 ms.service: digital-twins
 
 # Optional fields. Don't forget to remove # if you need a field.

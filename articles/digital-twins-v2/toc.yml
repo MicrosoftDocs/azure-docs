@@ -14,8 +14,6 @@
     href: concepts-devices.md
   - name: Route events
     href: concepts-route-events.md
-  - name: Use the APIs
-    href: concepts-use-apis.md
   - name: Query the ADT graph
     href: concepts-query-graph.md
   - name: Deploy Azure Digital Twins
@@ -24,6 +22,8 @@
     href: concepts-security.md
 - name: How-to guides
   items:
+  - name: Use the APIs
+    href: how-to-use-apis.md
   - name: Manage an object model
     href: how-to-manage-model.md
   - name: Manage a twin
