@@ -39,7 +39,7 @@ If you want to test or experiment with Workbench APIs, you can use [Postman](htt
 
 You use two API calls to create a Blockchain Workbench application. This method can only be performed by users who are Workbench administrators.
 
-Use the [Applications POST API](https://docs.microsoft.com/en-us/rest/api/azure-blockchain-workbench/applications/applicationspost) to upload the application's JSON file and get an application ID.
+Use the [Applications POST API](https://docs.microsoft.com/rest/api/azure-blockchain-workbench/applications/applicationspost) to upload the application's JSON file and get an application ID.
 
 ### Applications POST request
 
@@ -65,7 +65,7 @@ Content-Type: "application/json"
 
 ### Contract code POST request
 
-Use the [Applications contract code POST API](https://docs.microsoft.com/en-us/rest/api/azure-blockchain-workbench/applications/contractcodepost) by passing the application ID to upload the application's Solidity code file. The payload can be a single Solidity file or a zipped file containing Solidity files.
+Use the [Applications contract code POST API](https://docs.microsoft.com/rest/api/azure-blockchain-workbench/applications/contractcodepost) by passing the application ID to upload the application's Solidity code file. The payload can be a single Solidity file or a zipped file containing Solidity files.
 
 Replace the following values:
 
@@ -93,7 +93,7 @@ Content-Type: "application/json"
 
 ## Assign roles to users
 
-Use the [Applications role assignments POST API](https://docs.microsoft.com/en-us/rest/api/azure-blockchain-workbench/applications/roleassignmentspost) by passing the application ID, user ID, and application role id to create a user-to-role mapping in the specified blockchain application. This method can only be performed by users who are Workbench administrators.
+Use the [Applications role assignments POST API](https://docs.microsoft.com/rest/api/azure-blockchain-workbench/applications/roleassignmentspost) by passing the application ID, user ID, and application role id to create a user-to-role mapping in the specified blockchain application. This method can only be performed by users who are Workbench administrators.
 
 ### Role assignments POST request
 
@@ -209,7 +209,7 @@ Content-type: application/json
 
 ## Create a contract instance
 
-Use [Contracts V2 POST API](https://docs.microsoft.com/en-us/rest/api/azure-blockchain-workbench/contractsv2/contractpost) to create a new smart contract instance for a workflow. Users are only able to create a new smart contract instance if the user is associated with an application role, which can initiate a smart contract instance for the workflow.
+Use [Contracts V2 POST API](https://docs.microsoft.com/rest/api/azure-blockchain-workbench/contractsv2/contractpost) to create a new smart contract instance for a workflow. Users are only able to create a new smart contract instance if the user is associated with an application role, which can initiate a smart contract instance for the workflow.
 
 > [!NOTE]
 > In this example, version 2 of the API is used. Version 2 contract APIs provide more granularity for the associated ProvisioningStatus fields.
