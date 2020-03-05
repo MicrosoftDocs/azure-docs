@@ -48,7 +48,7 @@ az identity create \
   --name <managed-identity-name> 
 ```
 
-In the command output, take note of the `id` `principalId` of the identity. You need these values in later steps to configure registry access to the key vault.
+In the command output, take note of the following values: `id` and `principalId`. You need these values in later steps to configure registry access to the key vault.
 
 ```JSON
 {
@@ -77,7 +77,7 @@ identityPrincipalID=$(az identity show --resource-group <resource-group-name> --
 
 Create a key vault with [az keyvault create][az-keyvault-create] to store a customer-managed key for registry encryption. 
 
-To use the key vault for a customer-managed key, you must enable the following settings : **Soft delete** and **Purge protection**. The following example includes parameters for these settings: 
+To use the key vault for a customer-managed key, you must enable the following settings: **Soft delete** and **Purge protection**. The following example includes parameters for these settings: 
 
 ```azurecli
 az keyvault create --name <key-vault-name> \
