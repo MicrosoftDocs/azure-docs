@@ -10,9 +10,9 @@ ms.date: 02/27/2020
 
 # Create an Azure Kubernetes Service (AKS) cluster that uses availability zones
 
-An Azure Kubernetes Service (AKS) cluster distributes resources such as nodes and storage across logical sections of underlying Azure infrastructure. This deployment model when using availability zones, ensures nodes run across separate update and fault domains in a single Azure datacenter. AKS clusters deployed with this behavior provide a higher level of availability to protect against a hardware failure or a planned maintenance event.
+An Azure Kubernetes Service (AKS) cluster distributes resources such as nodes and storage across logical sections of underlying Azure infrastructure. This deployment model when using availability zones, ensures nodes in a given availability zone are physically separated from those defined in another availability zone. AKS clusters deployed with multiple availability zones configured across a cluster provide a higher level of availability to protect against a hardware failure or a planned maintenance event.
 
-Availability zones are physically separate datacenters within a given region. When a cluster's node pool is distributed across multiple zones, your workload hosted by the node pool is able to tolerate a failure in a single zone. Your applications and management operations continue to be available even if one entire datacenter has a problem.
+When a cluster's defines node pools across multiple zones, your workload hosted by nodes are able to tolerate a failure in a single zone. Your applications continue to be available even if there is a physical failure in a single datacenter.
 
 This article shows you how to create an AKS cluster and distribute the node components across availability zones.
 
@@ -41,17 +41,16 @@ The following limitations apply when you create an AKS cluster using availabilit
 * Availability zone settings can't be updated after the cluster is created. You also can't update an existing, non-availability zone cluster to use availability zones.
 * The chosen node size (VM SKU) selected must be available across all availability zones selected.
 * Clusters with availability zones enabled require use of Azure Standard Load Balancers for distribution across zones. This load balancer type can only be defined at cluster create time. For more information and the limitations of the standard load balancer, see [Azure load balancer standard SKU limitations][standard-lb-limitations].
-* You must use Kubernetes version 1.13.5 or greater in order to deploy Standard Load Balancers.
 
 ### Azure disks limitations
 
-Volumes that use Azure managed disks are currently not zonal resources. Pods rescheduled in a different zone from their original zone can't reattach their previous disk(s).
+Volumes that use Azure managed disks are currently not zone-redundant resources. Volumes cannot be attached across zones and must be co-located in the same zone as a given node hosting a the target pod.
 
-If you must run stateful workloads, use taints and tolerations in your pod specs to group pod scheduling in the same zone as your disks. Alternatively, use network-based storage such as Azure Files that can attach to pods as they're scheduled between zones.
+If you must run stateful workloads, use node pool taints and tolerations in  pod specs to group pod scheduling in the same zone as your disks. Alternatively, use network-based storage such as Azure Files that can attach to pods as they're scheduled between zones.
 
 ## Overview of availability zones for AKS clusters
 
-Availability zones are a high-availability offering that protects your applications and data from datacenter failures. Zones are unique physical locations within an Azure region. Each zone is made up of one or more datacenters equipped with independent power, cooling, and networking. To ensure resiliency, there’s a minimum of three separate zones in all enabled regions. The physical separation of availability zones within a region protects applications and data from datacenter failures. Zone-redundant services replicate your applications and data across availability zones to protect from single-points-of-failure.
+Availability zones are a high-availability offering that protects your applications and data from datacenter failures. Zones are unique physical locations within an Azure region. Each zone is made up of one or more datacenters equipped with independent power, cooling, and networking. To ensure resiliency, there’s a minimum of three separate zones in all zone enabled regions. The physical separation of availability zones within a region protects applications and data from datacenter failures.
 
 For more information, see [What are availability zones in Azure?][az-overview].
 
@@ -59,7 +58,7 @@ AKS clusters that are deployed using availability zones can distribute nodes acr
 
 ![AKS node distribution across availability zones](media/availability-zones/aks-availability-zones.png)
 
-If a single zone becomes unavailable, your applications continue to run.
+If a single zone becomes unavailable, your applications continue to run if the cluster is spread across multiple zones.
 
 ## Create an AKS cluster across availability zones
 
@@ -143,13 +142,13 @@ Name:       aks-nodepool1-28993262-vmss000004
             failure-domain.beta.kubernetes.io/zone=eastus2-2
 ```
 
-As you can see, we now have two additional nodes in zones 1 and 2. You can deploy an application consisting of three replicas. We will use NGINX as example:
+We now have two additional nodes in zones 1 and 2. You can deploy an application consisting of three replicas. We will use NGINX as an example:
 
 ```console
 kubectl run nginx --image=nginx --replicas=3
 ```
 
-If you verify that nodes where your pods are running, you will see that the pods are running on the pods corresponding to three different availability zones. For example with the command `kubectl describe pod | grep -e "^Name:" -e "^Node:"` you would get an output similar to this:
+By viewing nodes where your pods are running, you see pods are running on the nodes corresponding to three different availability zones. For example, with the command `kubectl describe pod | grep -e "^Name:" -e "^Node:"` you would get an output similar to this:
 
 ```console
 Name:         nginx-6db489d4b7-ktdwg
