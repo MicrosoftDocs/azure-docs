@@ -83,8 +83,6 @@
       href: credential-access-key-vault.md
   - name: Copy files and applications to pool nodes
     items: 
-    - name: Copying applications and data to pool nodes
-      href: batch-applications-to-pool-nodes.md 
     - name: Using application packages
       href: batch-application-packages.md
     - name: Create resource files
