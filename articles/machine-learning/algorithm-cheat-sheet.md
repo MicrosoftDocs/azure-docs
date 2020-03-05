@@ -9,7 +9,7 @@ ms.topic: conceptual
 
 author: FrancescaLazzeri
 ms.author: lazzeri
-ms.date: 11/04/2019
+ms.date: 03/05/2020
 ---
 # Machine Learning Algorithm Cheat Sheet for Azure Machine Learning designer
 

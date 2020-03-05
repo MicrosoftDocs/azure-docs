@@ -84,11 +84,9 @@ This module can be helpful in scenarios such as these:
         |0.00016|0.004|0.999961|0.00784|1|  
         |0|0.004|0.999955|0.008615|1|  
   
-4.  Press ENTER after each row, to start a new line.  
-  
-     **Be sure to press ENTER after the final row.** 
+4.  Press ENTER after each row, to start a new line.      
      
-     If you press ENTER multiple times to add multiple empty trailing rows, the final empty row is removed trimmed, but other empty rows are treated as missing values.  
+     If you press ENTER multiple times to add multiple empty trailing rows, the empty rows will be removed trimmed.  
   
      If you create rows with missing values, you can always filter them out later.  
   

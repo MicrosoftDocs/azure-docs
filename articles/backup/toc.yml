@@ -166,6 +166,8 @@
     items:
     - name: From the Azure portal
       items:
+      - name: Overview
+        href: azure-file-share-backup-overview.md
       - name: Backup
         href: backup-afs.md
       - name: Restore

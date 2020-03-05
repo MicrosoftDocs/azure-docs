@@ -78,7 +78,7 @@ Backup for Azure File shares is currently in Preview and is available only in th
 - NWW (Norway West)
 - SZN (Switzerland North)
 
-Write to [AskAzureBackupTeam@microsoft.com](email:askazurebackupteam@microsoft.com) if you need to use it in a specific geo that is not listed above.
+Write to [AskAzureBackupTeam@microsoft.com](mailto:askazurebackupteam@microsoft.com) if you need to use it in a specific geo that is not listed above.
 
 ### How many Azure file shares can I protect in a Vault?
 

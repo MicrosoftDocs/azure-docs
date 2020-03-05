@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 02/26/2020
+ms.date: 03/04/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -64,7 +64,35 @@ Organizations can choose to use the device identity as part of their Conditional
 
 Organizations can require that an access attempt to the selected cloud apps needs to be made from an approved client app. These approved client apps support [Intune app protection policies](/intune/app-protection-policy) independent of any mobile-device management (MDM) solution.
 
-Supported applications can be found in the article, [Microsoft Intune protected apps](/intune/apps/apps-supported-intune-apps).
+This setting applies to the following client apps:
+
+- Microsoft Azure Information Protection
+- Microsoft Bookings
+- Microsoft Cortana
+- Microsoft Dynamics 365
+- Microsoft Edge
+- Microsoft Excel
+- Microsoft Flow
+- Microsoft Intune Managed Browser
+- Microsoft Invoicing
+- Microsoft Kaizala
+- Microsoft Launcher
+- Microsoft OneDrive
+- Microsoft OneNote
+- Microsoft Outlook
+- Microsoft Planner
+- Microsoft PowerApps
+- Microsoft Power BI
+- Microsoft PowerPoint
+- Microsoft SharePoint
+- Microsoft Skype for Business
+- Microsoft StaffHub
+- Microsoft Stream
+- Microsoft Teams
+- Microsoft To-Do
+- Microsoft Visio
+- Microsoft Word
+- Microsoft Yammer
 
 **Remarks**
 
@@ -73,17 +101,26 @@ Supported applications can be found in the article, [Microsoft Intune protected 
    - Only supports the iOS and Android for device platform condition.
 - Conditional Access cannot consider Microsoft Edge in InPrivate mode an approved client app.
 
+See the article, [How to: Require approved client apps for cloud app access with Conditional Access](app-based-conditional-access.md) for configuration examples.
+
 ### Require app protection policy
 
 In your Conditional Access policy, you can require an [Intune app protection policy](/intune/app-protection-policy) be present on the client app before access is available to the selected cloud apps. 
 
-Supported applications can be found in the article, [Microsoft Intune protected apps](/intune/apps/apps-supported-intune-apps).
+This setting applies to the following client apps:
+
+- Microsoft Cortana
+- Microsoft OneDrive
+- Microsoft Outlook
+- Microsoft Planner
 
 **Remarks**
 
 - Apps for app protection policy support the Intune mobile application management feature with policy protection.
 - The **Require app protection policy** requirements:
     - Only supports the iOS and Android for device platform condition.
+
+See the article, [How to: Require app protection policy and an approved client app for cloud app access with Conditional Access](app-protection-based-conditional-access.md) for configuration examples.
 
 ### Terms of use
 

@@ -4,8 +4,8 @@ description: Use Azure Event Grid to subscribe to Blob storage events. Send the 
 author: normesta
 ms.author: normesta
 ms.reviewer: cbrooks
-ms.date: 12/06/2018
-ms.topic: quickstart
+ms.date: 03/05/2020
+ms.topic: how-to
 ms.service: storage
 ms.subservice: blobs
 ---
