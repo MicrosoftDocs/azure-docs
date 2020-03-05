@@ -99,7 +99,7 @@ The what-if operation lists six different types of changes:
 
 You can control the level of detail that is returned about the predicted changes. In the deployment commands (`New-Az*Deployment`), use the **-WhatIfResultFormat** parameter. In the programmatic object commands (`Get-Az*DeploymentWhatIf`), use the **ResultFormat** parameter.
 
-Set the format parameter to **FullResourcePayloads** to get a list of resources what will change and details about the properties that will change. Set the **ResultFormat** parameter to **ResourceIdOnly** to get a list of resources that will change. The default value is `FullResourcePayloads`.  
+Set the format parameter to **FullResourcePayloads** to get a list of resources that will change and details about the properties that will change. Set the format parameter to **ResourceIdOnly** to get a list of resources that will change. The default value is **FullResourcePayloads**.  
 
 The following results show the two different output formats:
 
@@ -151,7 +151,7 @@ The following results show the two different output formats:
 
 ### Set up environment
 
-To see how what-if works, let's runs some tests. First, deploy a template from [Azure Quickstart templates that creates a storage account](https://github.com/Azure/azure-quickstart-templates/blob/master/101-storage-account-create/azuredeploy.json). The default storage account type is `Standard_LRS`. You'll use this storage account to test how changes are reported by what-if.
+To see how what-if works, let's runs some tests. First, deploy a [template that creates a virtual network](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/what-if/what-if-before.json). You'll use this virtual network to test how changes are reported by what-if.
 
 ```azurepowershell
 New-AzResourceGroup `
@@ -159,55 +159,87 @@ New-AzResourceGroup `
   -Location centralus
 New-AzResourceGroupDeployment `
   -ResourceGroupName ExampleGroup `
-  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json"
+  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/what-if/what-if-before.json"
 ```
 
 ### Test modification
 
-After the deployment completes, you're ready to test the what-if operation. Run the what-if command but change the storage account type to `Standard_GRS`.
+After the deployment completes, you're ready to test the what-if operation. This time deploy a template for the same virtual network but it has a few changes. It is missing one the original tags, a subnet has been removed, and the address prefix has changed.
 
 ```azurepowershell
-Get-AzResourceGroupDeploymentWhatIf `
+New-AzResourceGroupDeployment `
+  -Whatif `
   -ResourceGroupName ExampleGroup `
-  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json" `
-  -storageAccountType Standard_GRS
+  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/what-if/what-if-after.json"
 ```
 
 The what-if output appears similar to:
 
-![Resource Manager template deployment what-if operation output](./media/template-deploy-what-if/resource-manager-deployment-whatif-output.png)
+![Resource Manager template deployment what-if operation output](./media/template-deploy-what-if/resource-manager-deployment-whatif-change-types.png)
 
 The text output is:
 
 ```powershell
 Resource and property changes are indicated with these symbols:
   - Delete
+  + Create
   ~ Modify
 
 The deployment will update the following scope:
 
-Scope: /subscriptions/./resourceGroups/ExampleGroup
+Scope: /subscriptions/3a4176e0-58d3-4bb8-8cc2-9b8776777f27/resourceGroups/ExampleGroup
 
-  ~ Microsoft.Storage/storageAccounts/storez2wlfuvcm4awc [2019-04-01]
-    - properties.accessTier:               "Hot"
-    ~ properties.supportsHttpsTrafficOnly: true => "true"
-    ~ sku.name:                            "Standard_LRS" => "Standard_GRS"
+  ~ Microsoft.Network/virtualNetworks/vnet-001 [2018-10-01]
+    - tags.Owner: "Team A"
+    ~ properties.addressSpace.addressPrefixes: [
+      - 0: "10.0.0.0/16"
+      + 0: "10.0.0.0/15"
+      ]
+    ~ properties.subnets: [
+      - 0:
+
+        name:                     "subnet001"
+        properties.addressPrefix: "10.0.0.0/24"
+
+      ]
 
 Resource changes: 1 to modify.
 ```
 
 Notice at the top of the output that colors are defined to indicate the type of changes.
 
-At the bottom of the output, it shows the sku name (storage account type) will be changed from **Standard_LRS** to **Standard_GRS**.
+At the bottom of the output, it shows the tag Owner was deleted. The address prefix changed from 10.0.0.0/16 to 10.0.0.0/15. The subnet named subnet001 was deleted. Remember this changes weren't actually deployed. You see a preview of the changes that will happen if you deploy the template.
 
-Some of the properties that are listed as deleted won't actually change. In the preceding image, the accessTier property is listed as being deleted. Properties can be incorrectly reported as deleted when they aren't in the template, but are automatically set during deployment as default values. This result is considered "noise" in the what-if response. The final deployed resource will have the values set for the properties. As the what-if operation matures, these properties will be filtered out of the result.
+Some of the properties that are listed as deleted won't actually change. Properties can be incorrectly reported as deleted when they aren't in the template, but are automatically set during deployment as default values. This result is considered "noise" in the what-if response. The final deployed resource will have the values set for the properties. As the what-if operation matures, these properties will be filtered out of the result.
+
+## Programmatically evaluate what-if results
+
+Now, let's programmatically evaluate the what-if results by setting the command to a variable.
+
+```azurepowershell
+$results = Get-AzResourceGroupDeploymentWhatIf `
+  -ResourceGroupName ExampleGroup `
+  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/what-if/what-if-after.json"
+```
+
+You can see a summary of each change.
+
+```azurepowershell
+foreach ($change in $results.Changes)
+{
+  $change.Delta
+}
+```
 
 ### Test deletion
 
 The what-if operation supports using [deployment mode](deployment-modes.md). When set to complete mode, resources not in the template are deleted. The following example deploys a [template that has no resources defined](https://github.com/Azure/azure-docs-json-samples/blob/master/empty-template/azuredeploy.json) in complete mode.
 
+For this example, you'll use the confirm parameter to verify that you want to continue with the deployment.
+
 ```azurepowershell
-Get-AzResourceGroupDeploymentWhatIf `
+New-AzResourceGroupDeployment `
+  -Confirm `
   -ResourceGroupName ExampleGroup `
   -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/empty-template/azuredeploy.json" `
   -Mode Complete
@@ -225,23 +257,24 @@ Resource and property changes are indicated with this symbol:
 
 The deployment will update the following scope:
 
-Scope: /subscriptions/./resourceGroups/ExampleGroup
+Scope: /subscriptions/3a4176e0-58d3-4bb8-8cc2-9b8776777f27/resourceGroups/ExampleGroup
 
-  - Microsoft.Storage/storageAccounts/storez2wlfuvcm4awc
+  - Microsoft.Network/virtualNetworks/vnet-001
 
-      id:       "/subscriptions/./resourceGroups/ExampleGroup/providers/Microsoft.St
-orage/storageAccounts/storez2wlfuvcm4awc"
-      kind:     "StorageV2"
-      location: "centralus"
-      name:     "storez2wlfuvcm4awc"
-      sku.name: "Standard_LRS"
-      sku.tier: "Standard"
-      type:     "Microsoft.Storage/storageAccounts"
+      id:
+"/subscriptions/3a4176e0-58d3-4bb8-8cc2-9b8776777f27/resourceGroups/ExampleGroup/providers/Microsoft.Network/virtualNet
+works/vnet-001"
+      location:        "centralus"
+      name:            "vnet-001"
+      tags.CostCenter: "12345"
+      tags.Owner:      "Team A"
+      type:            "Microsoft.Network/virtualNetworks"
 
 Resource changes: 1 to delete.
-```
 
-It's important to remember what-if makes no actual changes. The storage account still exists in your resource group.
+Are you sure you want to execute the deployment?
+[Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "Y"):
+```
 
 ## Confirm before deployment
 
@@ -283,25 +316,7 @@ Are you sure you want to execute the deployment?
 [Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "Y"):
 ```
 
-## Programmatically evaluate what-if results
 
-You can programmatically evaluate the what-if results by setting the command to a variable.
-
-```azurepowershell
-$results = Get-AzResourceGroupDeploymentWhatIf `
-  -ResourceGroupName ExampleGroup `
-  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json" `
-  -storageAccountType Standard_GRS
-```
-
-You can see a summary of each change.
-
-```azurepowershell
-foreach ($change in $results.Changes)
-{
-  $change.Delta
-}
-```
 
 ## Next steps
 
