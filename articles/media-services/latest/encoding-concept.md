@@ -25,7 +25,7 @@ The term encoding in Media Services applies to the process of converting files c
 Videos are typically delivered to devices and apps by [progressive download](https://en.wikipedia.org/wiki/Progressive_download) or through [adaptive bitrate streaming](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming).
 
 > [!IMPORTANT]
-> Media Servicies does not bill for cancelled or errored jobs. For example, a job that has reached 50% progress and is canceled is not billed at 50% of the job minutes. You are only charged for finished jobs.
+> Media Services does not bill for cancelled or errored jobs. For example, a job that has reached 50% progress and is cancelled is not billed at 50% of the job minutes. You are only charged for finished jobs.
 
 * To deliver by progressive download, you can use Azure Media Services to convert a digital media file (mezzanine) into an [MP4](https://en.wikipedia.org/wiki/MPEG-4_Part_14) file, which contains video that's been encoded with the [H.264](https://en.wikipedia.org/wiki/H.264/MPEG-4_AVC) codec, and audio that's been encoded with the [AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding) codec. This MP4 file is written to an Asset in your storage account. You can use the Azure Storage APIs or SDKs  (for example, [Storage REST API](../../storage/common/storage-rest-api-auth.md) or [.NET SDK](../../storage/blobs/storage-quickstart-blobs-dotnet.md)) to download the file directly. If you created the output Asset with a specific container name in storage, use that location. Otherwise, you can use Media Services to [list the asset container URLs](https://docs.microsoft.com/rest/api/media/assets/listcontainersas). 
 * To prepare content for delivery by adaptive bitrate streaming, the mezzanine file needs to be encoded at multiple bitrates (high to low). To ensure graceful transition of quality, the resolution of the video is lowered as the bitrate is lowered. This results in a so-called encoding ladder–a table of resolutions and bitrates (see [auto-generated adaptive bitrate ladder](autogen-bitrate-ladder.md)). You can use Media Services to encode your mezzanine files at multiple bitrates. In doing so, you'll get a set of MP4 files and associated streaming configuration files written to an Asset in your storage account. You can then use the [Dynamic Packaging](dynamic-packaging-overview.md) capability in Media Services to deliver the video via streaming protocols like [MPEG-DASH](https://en.wikipedia.org/wiki/Dynamic_Adaptive_Streaming_over_HTTP) and [HLS](https://en.wikipedia.org/wiki/HTTP_Live_Streaming). This requires you to create a [Streaming Locator](streaming-locators-concept.md) and build streaming URLs corresponding to the supported protocols, which can then be handed off to devices/apps based on their capabilities.
@@ -139,7 +139,7 @@ To scale media processing, see [Scale with CLI](media-reserved-units-cli-how-to.
 
 ## Billing
 
-Media Servicies does not bill for cancelled or errored jobs. For example, a job that has reached 50% progress and is canceled is not billed at 50% of the job minutes. You are only charged for finished jobs.
+Media Services does not bill for cancelled or errored jobs. For example, a job that has reached 50% progress and is cancelled is not billed at 50% of the job minutes. You are only charged for finished jobs.
 
 For more information, see [pricing](https://azure.microsoft.com/pricing/details/media-services/).
 
