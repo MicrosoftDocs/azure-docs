@@ -6,7 +6,7 @@ ms.date: 03/02/2020
 ms.custom: 
 ---
 
-# Encryption-at-rest of an Azure container registry using a customer-managed key in Azure Key Vault
+# Encryption using customer-managed keys
 
 When you store images and other artifacts in an Azure container registry, Azure automatically encrypts the registry content at rest with [service-managed keys](../security/fundamentals/encryption-atrest.md#data-encryption-models). You can supplement default encryption with an additional encryption layer using a key that you create and manage in Azure Key Vault. This article walks you through the steps using the Azure CLI and the Azure portal.
 
@@ -153,10 +153,10 @@ az acr create \
 
 ### Show encryption status
 
-To show whether registry encryption with a customer-managed key is enabled, run the [az acr encryption show-status][az-acr-encryption-show-status] command:
+To show whether registry encryption with a customer-managed key is enabled, run the [az acr encryption show][az-acr-encryption-show] command:
 
 ```azurecli
-az acr encryption show-status --name <registry-name> 
+az acr encryption show --name <registry-name> 
 ```
 
 ## Enable customer-managed key - portal
@@ -406,4 +406,4 @@ Revoking the key effectively blocks access to all registry data, since the regis
 [az-acr-create]: /cli/azure/acr#az-acr-create
 [az-acr-show]: /cli/azure/acr#az-acr-show
 [az-acr-encryption-rotate-key]: /cli/azure/acr/encryption#az-acr-encryption-rotate-key
-[az-acr-encryption-show-status]: /cli/azure/acr/encryption#az-acr-encryption-show-status
+[az-acr-encryption-show]: /cli/azure/acr/encryption#az-acr-encryption-show
