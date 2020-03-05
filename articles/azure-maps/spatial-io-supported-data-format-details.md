@@ -385,39 +385,39 @@ The first row of data will be scanned for strings that are in Well-Known Text fo
 
 When scanning the header row, any type information that is in the column name will be extracted and used to cast the cells in that column. Here is an example of a column name that has a type value: "ColumnName (typeName)". The following case-insensitive type names are supported:
 
-**Numbers**
+#### Numbers
 
-    - edm.int64
-    - int
-    - long
-    - edm.double
-    - float
-    - double
-    - number
+- edm.int64
+- int
+- long
+- edm.double
+- float
+- double
+- number
 
-**Booleans**
+#### Booleans
 
-    - edm.boolean
-    - bool
-    - boolean
+- edm.boolean
+- bool
+- boolean
 
-**Dates**
+#### Dates
 
-    - edm.datetime
-    - date
-    - datetime
+- edm.datetime
+- date
+- datetime
 
-**Geography**
+#### Geography
 
-    - edm.geography
-    - geography
+- edm.geography
+- geography
 
-**Strings**
+#### Strings
 
-    - edm.string
-    - varchar
-    - text
-    - string
+- edm.string
+- varchar
+- text
+- string
 
 If no type information can be extracted from the header, and the dynamic typing option is enabled when reading, then each cell will be individually analyzed to determine what data type it is best suited to be cast as.
 
