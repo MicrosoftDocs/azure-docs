@@ -75,7 +75,7 @@ Set-ADComputer -Identity webserviceaccount -PrincipalsAllowedToDelegateToAccount
 Get-ADComputer webserviceaccount -Properties PrincipalsAllowedToDelegateToAccount
 ```
 
-If the `webserviceaccount` is a user account, please use these commands:
+If the `webserviceaccount` is a user account, use these commands:
 
 ```powershell
 $connector= Get-ADComputer -Identity connectorcomputeraccount -server dc.connectordomain.com
