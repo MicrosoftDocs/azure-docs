@@ -28,7 +28,7 @@ You must first create a key vault using the method of your choice:
 - [Set and retrieve a secret from Azure Key Vault using Azure portal](quick-create-portal.md)
 
 
-## Store a 
+## Store a secret
 
 To enable an application to retrieve a secret from Key Vault, you must first create the secret and upload it to your vault.
 
