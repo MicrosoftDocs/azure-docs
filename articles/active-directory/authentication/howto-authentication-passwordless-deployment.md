@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 # Plan a passwordless authentication deployment in Azure Active Directory
 
 > [!NOTE]
-To create an offline version of this deployment plan, use your browser's Print to PDF functionality.
+> To create an offline version of this deployment plan, use your browser's Print to PDF functionality.
 
 Most cyber attacks begin with a compromised user name and password. Organizations try to counter the threat by requiring users to use one of the following approaches:
 
