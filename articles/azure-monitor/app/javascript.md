@@ -91,6 +91,7 @@ appInsights.trackTrace({message: 'This message will use a telemetry initializer'
 appInsights.addTelemetryInitializer(() => false); // Nothing is sent after this is executed
 appInsights.trackTrace({message: 'this message will not be sent'}); // Not sent
 ```
+
 ## Configuration
 Most configuration fields are named such that they can be defaulted to false. All fields are optional except for `instrumentationKey`.
 
@@ -192,7 +193,7 @@ dataset
 
 The minified callstack of your exception telemetry can be unminified in the Azure portal. All existing integrations on the Exception Details panel will work with the newly unminified callstack.
 
-#### Link to Blob Storage Account
+#### Link to Blob storage account
 
 You can link your Application Insights resource to your own Azure Blob Storage container to automatically unminify call stacks. To get started, see [automatic source map support](./source-map-support.md).
 
@@ -215,7 +216,7 @@ This version comes with the bare minimum number of features and functionalities 
 
 For runnable examples, see [Application Insights JavaScript SDK Samples](https://github.com/topics/applicationinsights-js-demo)
 
-## Upgrading from the old Version of Application Insights
+## Upgrading from the old version of Application Insights
 
 Breaking changes in the SDK V2 version:
 - To allow for better API signatures, some of the API calls, such as trackPageView and trackException, have been updated. Running in Internet Explorer 8 and earlier versions of the browser is not supported.

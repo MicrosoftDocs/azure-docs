@@ -25,11 +25,11 @@ Source maps can be used to unminify call stacks found on the End to End Transact
 
 ## Push your Source Maps to your Blob container
 
-Your should integrate your continuous deployment pipeline with your storage account by configuring it to automatically upload your source maps to the configured blob container. You should not upload your source maps to a subfolder in the Blob Container -- currently the source map will only be fetched from the root folder.
+You should integrate your continuous deployment pipeline with your storage account by configuring it to automatically upload your source maps to the configured blob container. You should not upload your source maps to a subfolder in the Blob Container -- currently the source map will only be fetched from the root folder.
 
 ### Upload Source Maps via Azure Pipelines (recommended)
 
-If you are using Azure Pipelines to continuously build and deploy your application, simply add an [Azure File Copy][azure file copy] task to your pipeline to automatically upload your source maps.
+If you are using Azure Pipelines to continuously build and deploy your application, add an [Azure File Copy][azure file copy] task to your pipeline to automatically upload your source maps.
 
 ![Add an Azure File Copy task to your Pipeline to upload your source maps to Azure Blob Storage](./media/source-map-support/azure_file_copy.png )
 
@@ -65,8 +65,8 @@ Any user on the Portal using this feature must be at least assigned as a [Storag
 
 1. Verify that the corresponding source map is uploaded to the correct blob container
 2. Verify that the source map file is named after the JavaScript file it maps to, suffixed with `.map`.
-    - e.g. `/static/js/main.4e2ca5fa.chunk.js` will search for the blob named `main.4e2ca5fa.chunk.js.map`
-3. Check your browser's console to see if any errors are being logged. Please include this in any support ticket.
+    - For example, `/static/js/main.4e2ca5fa.chunk.js` will search for the blob named `main.4e2ca5fa.chunk.js.map`
+3. Check your browser's console to see if any errors are being logged. Include this in any support ticket.
 
 ## Next Steps
 
