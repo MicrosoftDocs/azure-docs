@@ -1,7 +1,7 @@
 ---
 title: Cross-tenant management experiences
 description: Azure delegated resource management enables a cross-tenant management experience.
-ms.date: 02/14/2020
+ms.date: 03/05/2020
 ms.topic: conceptual
 ---
 
