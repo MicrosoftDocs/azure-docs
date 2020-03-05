@@ -36756,7 +36756,7 @@
     {
       "source_path": "articles/active-directory/manage-apps/methods-for-assigning-users-and-groups.md",
       "redirect_url": "/azure/active-directory/manage-apps/assign-user-or-group-access-portal",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/application-access-assignment-how-to-remove-assignment.md",
