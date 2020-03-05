@@ -28,14 +28,14 @@ For a detailed tutorial on writing log queries, see [Get started with log querie
 ## Open a Log Analytics workspace
 To use Azure Monitor or a Log Analytics workspace, you need an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-To complete most of the steps in this tutorial, you can use [this demo environment](https://portal.loganalytics.io/demo), which includes plenty of sample data. You won't be able to save the demo queries or pin results to a dashboard.
+To complete most of the steps in this tutorial, you can use [this demo environment](https://portal.loganalytics.io/demo), which includes plenty of sample data. With the demo environment, you won't be able to save queries or pin results to a dashboard.
 
-You can also use your own environment, if you're using Azure Monitor to collect log data for at least one Azure resource. To open a Log Analytics workspace, select **Logs** in your Azure Monitor left navigation. 
+You can also use your own environment, if you're using Azure Monitor to collect log data for at least one Azure resource. To open a Log Analytics workspace, in your Azure Monitor left navigation, select **Logs**. 
 
 ## Understand the schema
 A *schema* is a collection of tables grouped under logical categories. The Demo schema has several categories from monitoring solutions. For example, the **LogManagement** category contains Windows and Syslog events, performance data, and agent heartbeats.
 
-The schema tables appear on the **Tables** tab of the Log Analytics workspace. Each table contains columns, each with its own data type, shown by the icon next to the column name. For example, the **Event** table contains columns such as **Computer**, which is text, and **EventCategory**, a number.
+The schema tables appear on the **Tables** tab of the Log Analytics workspace. The tables contain columns, each with a data type shown by the icon next to the column name. For example, the **Event** table contains text columns like **Computer** and numerical columns like **EventCategory**.
 
 ![Schema](media/get-started-portal/schema.png)
 
@@ -84,15 +84,13 @@ To use the **Time range** control, select it in the top bar, and then select a v
 ### Run a query
 To run a query, place your cursor somewhere inside the query, and select **Run** in the top bar or press **Shift**+**Enter**. The query runs until it finds a blank line.
 
-Log Analytics limits results to a maximum of 10,000 records.
-
 ## Filter results
-A general query like `Event` returns too many results to be useful. You can filter the query results either through restricting the table elements in the query, or by explicitly adding a filter to the results. Filtering through the table elements returns a new result set, while an explicit filter applies to the existing result set.
+Log Analytics limits results to a maximum of 10,000 records. A general query like `Event` returns too many results to be useful. You can filter query results either through restricting the table elements in the query, or by explicitly adding a filter to the results. Filtering through the table elements returns a new result set, while an explicit filter applies to the existing result set.
 
 ### Filter by restricting table elements
 To filter `Event` query results to **Error** events by restricting table elements in the query:
 
-1. In the query results, select the dropdown arrow to the left of any record that has **Error** in the **EventLevelName** column. 
+1. In the query results, select the dropdown arrow next to any record that has **Error** in the **EventLevelName** column. 
    
 1. In the expanded details, hover over and select the **...** next to **EventLevelName**, and then select **Include "Error"**. 
    
@@ -127,7 +125,7 @@ Another way to organize results is by groups. To group results by a specific col
 
 ![Groups](media/get-started-portal/groups.png)
 
-To hide or show columns in the results, select **Columns** above the table, and then select or deselect the columns you want in the dropdown list.
+To hide or show columns in the results, select **Columns** above the table, and then select or deselect the columns you want from the dropdown list.
 
 ![Select columns](media/get-started-portal/select-columns.png)
 
@@ -189,7 +187,7 @@ To save a query:
    ![Save function](media/get-started-portal/save-function.png)
 
 ### Load queries
-To load a saved query, select **Query explorer** at upper right. The **Query explorer** pane opens, listing all queries by category. Expand the categories or enter a query name in the search bar, then select the query to load it into the **Query editor**. You can mark a query as a **Favorite** by selecting the star next to the query name.
+To load a saved query, select **Query explorer** at upper right. The **Query explorer** pane opens, listing all queries by category. Expand the categories or enter a query name in the search bar, then select a query to load it into the **Query editor**. You can mark a query as a **Favorite** by selecting the star next to the query name.
 
 ![Query explorer](media/get-started-portal/query-explorer.png)
 
