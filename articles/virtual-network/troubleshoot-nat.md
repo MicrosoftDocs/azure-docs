@@ -65,7 +65,7 @@ _**Solution**_ You can scale outbound connectivity as follows:
 | Scenario | Mitigation |
 |---|---|
 | You're experiencing contention for SNAT ports and SNAT port exhaustion during periods of high usage. | Determine if you can add additional public IP address resources or public IP prefix resources. This addition will allow for up to 16 IP addresses in total to your NAT gateway. This addition will provide more inventory for available SNAT ports (64,000 per IP address) and allow you to scale your scenario further.|
-| You've already given 16 IP addresses and still are experiencing SNAT port exhaustion. | Distribute your application environment across multiple subnets and provide a NAT gateway resource for each subnet.  Reevaluate your design pattern(s) to optimize based on preceeding [guidance](#design-patterns). |
+| You've already given 16 IP addresses and still are experiencing SNAT port exhaustion. | Distribute your application environment across multiple subnets and provide a NAT gateway resource for each subnet.  Reevaluate your design pattern(s) to optimize based on preceding [guidance](#design-patterns). |
 
 >[!NOTE]
 >It is important to understand why SNAT exhaustion occurs. Make sure you are using the right patterns for scalable and reliable scenarios.  Adding more SNAT ports to a scenario without understanding the cause of the demand should be a last resort. If you do not understand why your scenario is applying pressure on SNAT port inventory, adding more SNAT ports to the inventory by adding more IP addresses will only delay the same exhaustion failure as your application scales.  You may be masking other inefficiencies and anti-patterns.
@@ -105,9 +105,13 @@ Review section on [SNAT exhaustion](#snat-exhaustion) in this article.
 
 #### Azure infrastructure
 
-Even though Azure monitors and operates its infrastructure with great care, transient failures can occur as there is no guarantee that transmissions are lossless.  Use design patterns which allow for SYN retransmissions for TCP applications. Use connection timeouts large enough to permit TCP SYN retransmission to reduce transient impacts caused by a lost SYN packet.
+Even though Azure monitors and operates its infrastructure with great care, transient failures can occur as there is no guarantee that transmissions are lossless.  Use design patterns that allow for SYN retransmissions for TCP applications. Use connection timeouts large enough to permit TCP SYN retransmission to reduce transient impacts caused by a lost SYN packet.
 
-The configuration parameter in a TCP stack is known as [Retransmission Time-Out (RTO)](https://tools.ietf.org/html/rfc793). The RTO value is adjustable but generally larger than 1 second.  If your time-out is too short, you may see sporadic connection timeouts.  If you observe longer, unexpected timeouts with default application behaviors, open a support case for further troubleshooting.
+_**Solution:**_
+
+* Check for [SNAT exhaustion](#snat-exhaustion).
+* The configuration parameter in a TCP stack which controls the SYN retransmission behavior is called RTO ([Retransmission Time-Out](https://tools.ietf.org/html/rfc793)). The RTO value is adjustable but typically 1 second or higher by default.  If your application's connection time-out is too short (for example 1 second), you may see sporadic connection timeouts.  Increase the application connection time-out.
+* If you observe longer, unexpected timeouts with default application behaviors, open a support case for further troubleshooting.
 
 We do not recommend artificially reducing the TCP connection timeout or tuning the RTO parameter.
 
@@ -115,11 +119,11 @@ We do not recommend artificially reducing the TCP connection timeout or tuning t
 
 The probability of transient failures increases with a longer path to the destination and more intermediate systems. It is expected that transient failures can increase in frequency over [Azure infrastructure](#azure-infrastructure). 
 
-Follow the same guidance as preceeding [Azure infrastructure](#azure-infrastructure) section.
+Follow the same guidance as preceding [Azure infrastructure](#azure-infrastructure) section.
 
 #### Internet endpoint
 
-The preceeding sections apply in addition to considerations related to the Internet endpoint your communication is established with. Other factors that can impact connectivity success are:
+The preceding sections apply in addition to considerations related to the Internet endpoint your communication is established with. Other factors that can impact connectivity success are:
 
 * traffic management on destination side, including
 - API rate limiting imposed by the destination side
@@ -128,12 +132,24 @@ The preceeding sections apply in addition to considerations related to the Inter
 
 Usually this requires packet captures at the source as well as destination (if available) to determine what is taking place.
 
-_*Solution:*_.
+_**Solution:**_
 
-Check for [SNAT exhaustion](#snat-exhaustion. 
-If you're creating high volume or transaction rate testing, explore if reducing the rate reduces the occurance of failures.  Validate connectivity to an endpoint in the same region or elsewhere for comparison.  If your investigation is inconclusive, open a support case for further troubleshooting.
+* Check for [SNAT exhaustion](#snat-exhaustion). 
+* Validate connectivity to an endpoint in the same region or elsewhere for comparison.  
+* If you're creating high volume or transaction rate testing, explore if reducing the rate reduces the occurence of failures.
+* If changing rate impacts the rate of failures, check if API rate limits or other constraints on the destination side might have been reached.
+* If your investigation is inconclusive, open a support case for further troubleshooting.
 
-If you observe TCP Resets received on the source VM, these can be generated by the NAT gateway on the private side for flows that are not recognized as in progress.  One possible reason is the TCP connection has idle timed out.  You can adjust the idle timeout from 4 minutes to up to 120 minutes.  Review [design patterns] (#design-patterns) recommendations.
+#### TCP Resets received
+
+If you observe TCP Resets (TCP RST packets) received on the source VM, these can be generated by the NAT gateway on the private side for flows that are not recognized as in progress.  One possible reason is the TCP connection has idle timed out.  You can adjust the idle timeout from 4 minutes to up to 120 minutes.
+
+TCP Resets are not generated on the public side of NAT gateway resources. If you receive TCP Resets on the destination side, these are generated by the source VM's stack.
+
+_**Solution:**_
+
+* Review [design patterns] (#design-patterns) recommendations.  
+* Open a support case for further troubleshooting if necessary.
 
 ### IPv6 Coexistence
 
