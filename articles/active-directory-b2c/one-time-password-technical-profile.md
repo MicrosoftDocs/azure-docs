@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/05/2020
+ms.date: 03/06/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -135,7 +135,7 @@ The following settings can be used to configure the error message displayed upon
 | UserMessageIfSessionDoesNotExist | No | The message to display to the user if the code verification session has expired. It is either the code has expired or the code has never been generated for a given identifier. |
 | UserMessageIfMaxRetryAttempted | No | The message to display to the user if they've exceeded the maximum allowed verification attempts. |
 | UserMessageIfInvalidCode | No | The message to display to the user if they've provided an invalid code. |
-|UserMessageIfSessionConflict|No| The message to display to the user if the code cannot verified.|
+|UserMessageIfSessionConflict|No| The message to display to the user if the code cannot be verified.|
 
 ### Returning error message
 
@@ -165,7 +165,7 @@ The following example `TechnicalProfile` is used for verifying a code:
 
 ## Next steps
 
-See the following article for example of using one-time password technial profile with custom email verification:
+See the following article for example of using one-time password technical profile with custom email verification:
 
 - [Custom email verification in Azure Active Directory B2C](custom-email.md)
 
