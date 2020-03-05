@@ -18,11 +18,11 @@ Currently, moving a search service to another region is not supported, in that t
 
 In the portal, the **Export template** command produces a basic definition of a service (name, location, tier, replica, and partition count), but does not recognize the content of your service, nor does it carry over keys, roles, or logs.
 
-Moving a search service should follow a pattern similar to the steps below:
+If you need to move a search service to different region, your approach should look similar to the steps below:
 
-1. Identify related services to understand the full impact of moving a service. You might be using Azure Storage for logging, knowledge store, or as an external data source. You might be using Cognitive Services for AI enrichment. Accessing services in other regions is common, but comes with additional bandwidth charges. Cognitive Services and Azure Cognitive Search are required to be in the same region if you are using AI enrichment.
+1. Identify related services to understand the full impact of relocating a service. You might be using Azure Storage for logging, knowledge store, or as an external data source. You might be using Cognitive Services for AI enrichment. Accessing services in other regions is common, but comes with additional bandwidth charges. Cognitive Services and Azure Cognitive Search are required to be in the same region if you are using AI enrichment.
 
-1. Inventory your existing service for a full list of objects on the service. If you enabled logging, create and archive reports you might need for a historical record.
+1. Inventory your existing service for a full list of objects on the service. If you enabled logging, create and archive any reports you might need for a historical record.
 
 1. Check pricing and availability in the new region to ensure availability of Azure Cognitive Search plus any related services that you might want to create in the same region. Check for feature parity. Some preview features have restricted availability.
 
