@@ -53,7 +53,7 @@ Once you have found the topic of your choice, select **Review Solutions**.
 
 ![Next step](./media/next-step.png)
 
-The following options will be come available:
+The following options will become available:
 
 * To select a different issue, go back to topic search.
 * Review the description for this issue, if available.  It is the text shown above the **recommended steps**.
