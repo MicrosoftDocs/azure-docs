@@ -6,7 +6,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: overview
-ms.date: 11/04/2019
+ms.date: 03/04/2020
 ms.author: tamram
 ms.subservice: blobs
 ---
@@ -19,13 +19,13 @@ ms.subservice: blobs
 
 Blob storage offers three types of resources:
 
-- The **storage account**. 
+- The **storage account**
 - A **container** in the storage account
-- A **blob** in a container 
+- A **blob** in a container
 
 The following diagram shows the relationship between these resources.
 
-![relationship between Account Blob and Container resource](./media/storage-blob-introduction/blob1.png)
+![relationship between Account Blob and Container resource](./media/storage-blobs-introduction/blob1.png)
 
 ### Storage accounts
 
@@ -50,9 +50,9 @@ A container organizes a set of blobs, similar to a directory in a file system. A
  
 Azure Storage supports three types of blobs:
 
-* **Block blobs** store text and binary data, up to about 4.7 TB. Block blobs are made up of blocks of data that can be managed individually.
-* **Append blobs** are made up of blocks like block blobs, but are optimized for append operations. Append blobs are ideal for scenarios such as logging data from virtual machines.
-* **Page blobs** store random access files up to 8 TB in size. Page blobs store virtual hard drive (VHD) files and serve as disks for Azure virtual machines. For more information about page blobs, see [Overview of Azure page blobs](storage-blob-pageblob-overview.md)
+- **Block blobs** store text and binary data, up to about 4.7 TB. Block blobs are made up of blocks of data that can be managed individually.
+- **Append blobs** are made up of blocks like block blobs, but are optimized for append operations. Append blobs are ideal for scenarios such as logging data from virtual machines.
+- **Page blobs** store random access files up to 8 TB in size. Page blobs store virtual hard drive (VHD) files and serve as disks for Azure virtual machines. For more information about page blobs, see [Overview of Azure page blobs](storage-blob-pageblob-overview.md)
 
 For more information about the different types of blobs, see [Understanding Block Blobs, Append Blobs, and Page Blobs](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
 

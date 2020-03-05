@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 10/21/2019
+ms.date: 03/04/2020
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019"
@@ -53,7 +53,7 @@ The following lists details for restore point retention periods:
 2. Snapshots are not taken when a SQL pool is paused.
 3. The age of a restore point is measured by the absolute calendar days from the time the restore point is taken including when the SQL pool is paused.
 4. At any point in time, a SQL pool is guaranteed to be able to store up to 42 user-defined restore points and 42 automatic restore points as long as these restore points have not reached the 7-day retention period
-5. If a snapshot is taken, the SQL pool is then paused for greater than 7 days, and then resumes, it is possible for restore point to persist until there are 42 total restore points (including both user-defined and automatic)
+5. If a snapshot is taken, the SQL pool is then paused for greater than 7 days, and then resumes, the restore point will persist until there are 42 total restore points (including both user-defined and automatic)
 
 ### Snapshot retention when a SQL pool is dropped
 

@@ -22,7 +22,7 @@ OAuth2 permissions are permission scopes that a Azure Active Directory (Azure AD
 
 ## Scopes to request access to specific OAuth2 permissions of a v1.0 application
 
-To acquire tokens for specific scopes of a v1.0 application (for example the Azure AD graph, which is https://graph.windows.net), create scopes by concatenating a desired resource identifier with a desired OAuth2 permission for that resource.
+To acquire tokens for specific scopes of a v1.0 application (for example the Microsoft Graph API, which is https://graph.microsoft.com), create scopes by concatenating a desired resource identifier with a desired OAuth2 permission for that resource.
 
 For example, to access on behalf of the user a v1.0 web API where the app ID URI is `ResourceId`:
 
@@ -34,15 +34,15 @@ var scopes = new [] {  ResourceId+"/user_impersonation"};
 var scopes = [ ResourceId + "/user_impersonation"];
 ```
 
-To read and write with MSAL.NET Azure AD using the Azure AD Graph API (https:\//graph.windows.net/), you need to create a list of scopes as shown in the following examples:
+To read and write with MSAL.NET Azure AD using the Microsoft Graph API (https:\//graph.microsoft.com/), you need to create a list of scopes as shown in the following examples:
 
 ```csharp
-string ResourceId = "https://graph.windows.net/";
+string ResourceId = "https://graph.microsoft.com/";
 var scopes = new [] { ResourceId + "Directory.Read", ResourceID + "Directory.Write"}
 ```
 
 ```javascript
-var ResourceId = "https://graph.windows.net/";
+var ResourceId = "https://graph.microsoft.com/";
 var scopes = [ ResourceId + "Directory.Read", ResourceID + "Directory.Write"];
 ```
 
