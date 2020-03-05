@@ -310,7 +310,7 @@ func new --template "Queue Trigger" --name QueueTriggerJS
 
 ## <a name="start"></a>Run functions locally
 
-To run a Functions project, run the Functions host. The host enables triggers for all functions in the project. In version 2.x of the runtime, the start command varies, depending on your project language.
+To run a Functions project, run the Functions host. The host enables triggers for all functions in the project. The start command varies, depending on your project language.
 
 # [C\#](#tab/csharp)
 
@@ -350,13 +350,13 @@ npm start
 
 | Option     | Description                            |
 | ------------ | -------------------------------------- |
-| **`--no-build`** | Do no build current project before running. For dotnet projects only. Default is set to false. Version 2.x only. |
-| **`--cert`** | The path to a .pfx file that contains a private key. Only used with `--useHttps`. Version 2.x only. |
-| **`--cors-credentials`** | Allow cross-origin authenticated requests (i.e. cookies and the Authentication header) Version 2.x only. |
+| **`--no-build`** | Do no build current project before running. For dotnet projects only. Default is set to false. Not supported for version 1.x. |
+| **`--cert`** | The path to a .pfx file that contains a private key. Only used with `--useHttps`. Not supported for version 1.x. |
+| **`--cors-credentials`** | Allow cross-origin authenticated requests (i.e. cookies and the Authentication header) Not supported for version 1.x. |
 | **`--cors`** | A comma-separated list of CORS origins, with no spaces. |
-| **`--language-worker`** | Arguments to configure the language worker. For example, you may enable debugging for language worker by providing [debug port and other required arguments](https://github.com/Azure/azure-functions-core-tools/wiki/Enable-Debugging-for-language-workers). Version 2.x only. |
+| **`--language-worker`** | Arguments to configure the language worker. For example, you may enable debugging for language worker by providing [debug port and other required arguments](https://github.com/Azure/azure-functions-core-tools/wiki/Enable-Debugging-for-language-workers). Not supported for version 1.x. |
 | **`--nodeDebugPort`**, **`-n`** | The port for the Node.js debugger to use. Default: A value from launch.json or 5858. Version 1.x only. |
-| **`--password`** | Either the password or a file that contains the password for a .pfx file. Only used with `--cert`. Version 2.x only. |
+| **`--password`** | Either the password or a file that contains the password for a .pfx file. Only used with `--cert`. Not supported for version 1.x. |
 | **`--port`**, **`-p`** | The local port to listen on. Default value: 7071. |
 | **`--pause-on-error`** | Pause for additional input before exiting the process. Used only when launching Core Tools from an integrated development environment (IDE).|
 | **`--script-root`**, **`--prefix`** | Used to specify the path to the root of the function app that is to be run or deployed. This is used for compiled projects that generate project files into a subfolder. For example, when you build a C# class library project, the host.json, local.settings.json, and function.json files are generated in a *root* subfolder with a path like `MyProject/bin/Debug/netstandard2.0`. In this case, set the prefix as `--script-root MyProject/bin/Debug/netstandard2.0`. This is the root of the function app when running in Azure. |
@@ -445,12 +445,12 @@ curl --request POST -H "Content-Type:application/json" --data "{'input':'sample 
 ```
 ---
 
-#### Using the `func run` command in version 1.x
+#### Using the `func run` command (version 1.x only)
 
 >[!IMPORTANT]
-> The `func run` command is not supported in version 2.x of the tools. For more information, see the topic [How to target Azure Functions runtime versions](set-runtime-version.md).
+> The `func run` command is only supported in version 1.x of the tools. For more information, see the topic [How to target Azure Functions runtime versions](set-runtime-version.md).
 
-You can also invoke a function directly by using `func run <FunctionName>` and provide input data for the function. This command is similar to running a function using the **Test** tab in the Azure portal.
+In version 1.x, you can also invoke a function directly by using `func run <FunctionName>` and provide input data for the function. This command is similar to running a function using the **Test** tab in the Azure portal.
 
 `func run` supports the following options:
 
