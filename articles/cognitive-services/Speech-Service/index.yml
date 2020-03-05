@@ -42,8 +42,8 @@ conceptualContent:
         - itemType: quickstart
           text: Recognize speech in batch mode
           url: batch-transcription.md
-        - itemType: quickstart
-          text: Customize speech for your application
+        - itemType: how-to-guide
+          text: Customize speech recognition for your apps
           url: how-to-custom-speech.md
       footerLink:
         text: See more
@@ -57,8 +57,8 @@ conceptualContent:
           text: Synthesize speech into an audio file
           url: quickstarts/text-to-speech-audio-file.md
         - itemType: quickstart
-          text: Synthesize speech with long-form audio
-          url: quickstarts/text-to-speech/async-synthesis-long-form-audio.md
+          text: Customize speech synthesis for your apps
+          url: how-to-custom-voice.md
       footerLink:
         text: See more
         url: index-text-to-speech.yml
