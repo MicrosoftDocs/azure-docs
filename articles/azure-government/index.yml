@@ -36,12 +36,6 @@ landingContent:
         links:
           - text: Connect using portal
             url: documentation-government-get-started-connect-with-portal.md
-      - linkListType: linkListType
-        links:
-          - text: linktext1
-            url: file1.md
-          - text: linktext2
-            url: file2.md
 
   # Card
   - title: Deploy and manage
