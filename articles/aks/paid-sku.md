@@ -85,4 +85,5 @@ Use [Availability Zones](availability-zones) to increase high availability with 
 [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
 [faq]: ./faq.md
 [availability-zones]: ./availability-zones.md
+[az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az-aks-create
 
