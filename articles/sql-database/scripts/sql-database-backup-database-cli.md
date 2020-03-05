@@ -3,7 +3,6 @@ title: CLI example-backup-Azure SQL database
 description: Azure CLI example script to backup an Azure SQL single database to an Azure storage container
 services: sql-database
 ms.service: sql-database
-ms.subservice: backup
 ms.custom: 
 ms.devlang: azurecli
 ms.topic: sample
@@ -53,7 +52,7 @@ This script uses the following commands. Each command in the table links to comm
 | [az sql db show](/cli/azure/sql/db#az-sql-db-show) | Gets a SQL standalone or pooled database. |
 | [az sql db restore](/cli/azure/sql/db#az-sql-db-restore) | Restores a SQL standalone or pooled database. |
 | [az sql db delete](/cli/azure/sql/db#az-sql-db-delete) | Removes an Azure SQL standalone or pooled database. |
-| [az group delete](h/cli/azure/vm/extension#az-vm-extension-set) | Deletes a resource group including all nested resources. |
+| [az group delete](/cli/azure/vm/extension#az-vm-extension-set) | Deletes a resource group including all nested resources. |
 
 ## Next steps
 
