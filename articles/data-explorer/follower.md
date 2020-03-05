@@ -133,14 +133,7 @@ In this section, you learn to attach a database to an existing cluser by using a
 			"type": "string",
 			"defaultValue": "",
 			"metadata": {
-				"description": "Name of the cluster to which the database will be attached."
-			}
-		},
-		"attachedDatabaseConfigurationsName": {
-			"type": "string",
-			"defaultValue": "",
-			"metadata": {
-				"description": "Name of the attached database configurations to create."
+				"description": "Name of the cluster to which the database will be attached. Example myfollowercluster"
 			}
 		},
 		"databaseName": {
@@ -154,12 +147,12 @@ In this section, you learn to attach a database to an existing cluser by using a
 			"type": "string",
 			"defaultValue": "",
 			"metadata": {
-				"description": "The resource ID of the leader cluster."
+				"description": "The resource ID of the leader cluster. Cluster --> Settings --> Properties--> Resource ID "
 			}
 		},
 		"defaultPrincipalsModificationKind": {
 			"type": "string",
-			"defaultValue": "",
+			"defaultValue": "Union",
 			"metadata": {
 				"description": "The default principal modification kind."
 			}
@@ -168,14 +161,48 @@ In this section, you learn to attach a database to an existing cluser by using a
 			"type": "string",
 			"defaultValue": "",
 			"metadata": {
-				"description": "Location for all resources."
+				"description": "Location of Lead and follower clusters should be same."
+			}
+		},
+		"followerSKU": {
+			"type": "string",
+			"allowedValues": [
+				"Dev(No SLA)_Standard_D11_v2",
+				"Standard_D11_v2",
+				"Standard_D12_v2",
+				"Standard_D13_v2",
+				"Standard_DS13_v2+1TB_PS",
+				"Standard_DS13_v2+2TB_PS",
+				"Standard_D14_v2",
+				"Standard_DS14_v2+3TB_PS",
+				"Standard_DS14_v2+4TB_PS"
+			],
+			"metadata": {
+				"description": "SKU of existing follower cluster."
+			}
+		},
+		"followerCapacity": {
+			"type": "int",
+			"metadata": {
+				"description": "Number of nodes on the follower."
 			}
 		}
 	},
 	"variables": {},
 	"resources": [
 		{
-			"name": "[parameters('attachedDatabaseConfigurationsName')]",
+			"type": "Microsoft.Kusto/clusters",
+			"apiVersion": "2019-09-07",
+			"name": "[parameters('followerClusterName')]",
+			"location": "[parameters('location')]",
+			"sku": {
+				"name": "[parameters('followerSKU')]",
+				"tier": "Standard",
+				"capacity": "[parameters('followerCapacity')]"
+			}
+		},
+		{
+			"name": "[concat(parameters('followerClusterName'), '/', parameters('databaseName'))]",
 			"type": "Microsoft.Kusto/clusters/attachedDatabaseConfigurations",
 			"apiVersion": "2019-09-07",
 			"location": "[parameters('location')]",
