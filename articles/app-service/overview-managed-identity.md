@@ -1,10 +1,10 @@
 ---
 title: Managed identities
-description: Learn how managed identities work in Azure App Service and Azure Functions, how to configure a managed identity and generate a token for a back end resource.
+description: Learn how managed identities work in Azure App Service and Azure Functions, how to configure a managed identity and generate a token for a back-end resource.
 author: mattchenderson
 
 ms.topic: article
-ms.date: 10/30/2019
+ms.date: 03/04/2020
 ms.author: mahender
 ms.reviewer: yevbronsh
 
@@ -19,7 +19,7 @@ This topic shows you how to create a managed identity for App Service and Azure 
 
 Your application can be granted two types of identities: 
 - A **system-assigned identity** is tied to your application and is deleted if your app is deleted. An app can only have one system-assigned identity.
-- A **user-assigned identity** is a standalone Azure resource which can be assigned to your app. An app can have multiple user-assigned identities.
+- A **user-assigned identity** is a standalone Azure resource that can be assigned to your app. An app can have multiple user-assigned identities.
 
 ## Add a system-assigned identity
 
@@ -44,12 +44,12 @@ To set up a managed identity in the portal, you will first create an application
 To set up a managed identity using the Azure CLI, you will need to use the `az webapp identity assign` command against an existing application. You have three options for running the examples in this section:
 
 - Use [Azure Cloud Shell](../cloud-shell/overview.md) from the Azure portal.
-- Use the embedded Azure Cloud Shell via the "Try It" button, located in the top right corner of each code block below.
+- Use the embedded Azure Cloud Shell via the "Try It" button, located in the top-right corner of each code block below.
 - [Install the latest version of Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.31 or later) if you prefer to use a local CLI console. 
 
 The following steps will walk you through creating a web app and assigning it an identity using the CLI:
 
-1. If you're using the Azure CLI in a local console, first sign in to Azure using [az login](/cli/azure/reference-index#az-login). Use an account that is associated with the Azure subscription under which you would like to deploy the application:
+1. If you're using the Azure CLI in a local console, first sign in to Azure using [az login](/cli/azure/reference-index#az-login). Use an account that's associated with the Azure subscription under which you would like to deploy the application:
 
     ```azurecli-interactive
     az login
@@ -143,7 +143,7 @@ When the site is created, it has the following additional properties:
 }
 ```
 
-Where `<TENANTID>` and `<PRINCIPALID>` are replaced with GUIDs. The tenantId property identifies what AAD tenant the identity belongs to. The principalId is a unique identifier for the application's new identity. Within AAD, the service principal has the same name that you gave to your App Service or Azure Functions instance.
+The tenantId property identifies what AAD tenant the identity belongs to. The principalId is a unique identifier for the application's new identity. Within AAD, the service principal has the same name that you gave to your App Service or Azure Functions instance.
 
 
 ## Add a user-assigned identity
@@ -227,7 +227,7 @@ When the site is created, it has the following additional properties:
 }
 ```
 
-Where `<PRINCIPALID>` and `<CLIENTID>` are replaced with GUIDs. The principalId is a unique identifier for the identity which is used for AAD administration. The clientId is a unique identifier for the application's new identity that is used for specifying which identity to use during runtime calls.
+The principalId is a unique identifier for the identity that's used for AAD administration. The clientId is a unique identifier for the application's new identity that's used for specifying which identity to use during runtime calls.
 
 
 ## Obtain tokens for Azure resources
@@ -412,7 +412,7 @@ For Java applications and functions, the simplest way to work with a managed ide
 
 ## <a name="remove"></a>Remove an identity
 
-A system-assigned identity can be removed by disabling the feature using the portal, PowerShell, or CLI in the same way that it was created. User-assigned identities can be removed individually. To remove all identities, in the REST/ARM template protocol, this is done by setting the type to "None":
+A system-assigned identity can be removed by disabling the feature using the portal, PowerShell, or CLI in the same way that it was created. User-assigned identities can be removed individually. To remove all identities, set the type to "None" in the [ARM template](#using-an-azure-resource-manager-template):
 
 ```json
 "identity": {
