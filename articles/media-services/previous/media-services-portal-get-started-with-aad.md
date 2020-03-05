@@ -33,7 +33,9 @@ When you use Azure AD authentication with Azure Media Services, you have two aut
 - **Service principal authentication**. Authenticate a service. Applications that commonly use this authentication method are apps that run daemon services, middle-tier services, or scheduled jobs: web apps, function apps, logic apps, APIs, or a microservice.
 - **User authentication**. Authenticate a person who is using the app to interact with Media Services resources. The interactive application should first prompt the user for credentials. An example is a management console app used by authorized users to monitor encoding jobs or live streaming. 
 
-## Select the authentication method
+## Access the Media Services API
+
+This page lets you select the authentication method you want to use to connect to the API. The page also provides the values you need to connect to the API.
 
 1. In the [Azure portal](https://portal.azure.com/), select your Media Services account.
 2. Select how to connect to the Media Services API.
