@@ -132,11 +132,13 @@ Where *--enable-private-cluster* is a mandatory flag for a private cluster.
 
 ## Options for connecting to the private cluster
 
-The API server endpoint has no public IP address. To manage the API server, you will need a VM that has access to the AKS cluster's Azure Virtual Network (VNet).  There are several options for establishing network connectivity to the private cluster. Creating a VM in the same VNET as the AKS cluster is the easiest option.  Express Route and VPNs add costs and require additional networking complexity.  Virtual network peering requires you to plan your network CIDR ranges to ensure there are no overlapping ranges.
+The API server endpoint has no public IP address. To manage the API server, you will need a VM that has access to the AKS cluster's Azure Virtual Network (VNet).  There are several options for establishing network connectivity to the private cluster.
 
 * Create a VM in the same Azure Virtual Network (VNet) as the AKS cluster.
-* Use a VM in a separate network and set up [Virtual network peering](virtual-network-peering).
+* Use a VM in a separate network and set up [Virtual network peering](virtual-network-peering).  See the section below for more information on this option.
 * Use an [Express Route or a VPN](express-route-or-VPN) connection.
+
+Creating a VM in the same VNET as the AKS cluster is the easiest option.  Express Route and VPNs add costs and require additional networking complexity.  Virtual network peering requires you to plan your network CIDR ranges to ensure there are no overlapping ranges.
 
 ## Virtual network peering
 
@@ -151,9 +153,6 @@ As mentioned, VNet peering is one way to access your private cluster. To use VNe
 7. In the left pane, select **Peerings**.  
 8. Select **Add**, add the virtual network of the VM, and then create the peering.  
 9. Go to the virtual network where you have the VM, select **Peerings**, select the AKS virtual network, and then create the peering. If the address ranges on the AKS virtual network and the VM's virtual network clash, peering fails. For more information, see  [Virtual network peering][virtual-network-peering].
-
-
-
 
 ## Dependencies  
 * The Private Link service is supported on Standard Azure Load Balancer only. Basic Azure Load Balancer isn't supported.  
