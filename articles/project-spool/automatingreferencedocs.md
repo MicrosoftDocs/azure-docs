@@ -2,7 +2,7 @@
 
 *Pending review and approval by Robert Outlaw*
 
---
+-- 
 
 Robert Outlaw's (routlaw) team maintains reference document architecture across the board, from Office and Windows to .NET and Azure.  He works with vendors that generate **reference docs** from **SDKs and Swagger specs** prepared by **product teams**.
 
