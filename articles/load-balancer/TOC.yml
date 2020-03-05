@@ -12,7 +12,8 @@
     href: quickstart-load-balancer-standard-public-cli.md
   - name: Create Load Balancer - PowerShell
     href: quickstart-create-standard-load-balancer-powershell.md
-  - name: Create Load Balancer - Template
+  - name: Create Load Balancer - ARM template
+    displayName: Resource Manager
     href: quickstart-load-balancer-standard-public-template.md
   expanded: true
 - name: Tutorials

@@ -85,7 +85,7 @@ When creating a Live Event, you can specify the following options:
 * Max live event name is 32 characters.
 * The name should follow this [regex](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference) pattern: `^[a-zA-Z0-9]+(-*[a-zA-Z0-9])*$`.
 
-Also see, [Streaming Endpoints naming conventions](streaming-endpoint-concept.md#naming-convention).
+Also see [Streaming Endpoints naming conventions](streaming-endpoint-concept.md#naming-convention).
 
 > [!TIP]
 > To guarantee uniqueness of your live event name, you can generate a GUID then remove all the hyphens and curly brackets (if any). The string will be unique across all live events and its length is guaranteed to be 32.
@@ -103,7 +103,7 @@ You can either use non-vanity URLs or vanity URLs.
 
     Non-vanity URL is the default mode in Media Services v3. You potentially get the Live Event quickly but ingest URL is known only when the live event is started. The URL will change if you do stop/start the Live Event. <br/>Non-Vanity is useful in scenarios when an end user wants to stream using an app where the app wants to get a live event ASAP and having a dynamic ingest URL isn't a problem.
 
-    If a client app doesn’t need to pre-generate an ingest URL before the Live Event is created, let Media Services autogenerate the Access Token for the live event.
+    If a client app doesn't need to pre-generate an ingest URL before the Live Event is created, let Media Services autogenerate the Access Token for the live event.
 
 * Vanity URL
 
@@ -125,7 +125,7 @@ You can either use non-vanity URLs or vanity URLs.
 
 * The *random* string below is a 128-bit hex number (which is composed of 32 characters of 0-9 a-f).
 * *your access token*: The valid GUID string you set when using the vanity mode. For example, `"1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"`.
-* *stream name*: Indicates the stream name for a specific connection. The stream name value is usually added by the live encoder you use. You can configure the live encoder to use any name to describe the connection, for example: “video1_audio1”, “video2_audio1”, “stream”.
+* *stream name*: Indicates the stream name for a specific connection. The stream name value is usually added by the live encoder you use. You can configure the live encoder to use any name to describe the connection, for example: "video1_audio1", "video2_audio1", "stream".
 
 #### Non-vanity URL
 
