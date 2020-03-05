@@ -43,7 +43,7 @@ Now you're ready to open a support ticket on the **Help and Support** screen.
 ![Help and support](./media/help-and-support.png)
 
 >[!Note]
->If you are logged in the Partner Center, you will receive better experience with support.
+>If you are logged in Partner Center, you will receive better experience with support.
 
 **Option 1:** Enter keywords such as: Marketplace, Azure app, SaaS offer, account management, lead management, deployment issue, payout, etc.
 
