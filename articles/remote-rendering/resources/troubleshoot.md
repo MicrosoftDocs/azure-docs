@@ -19,6 +19,12 @@ Make sure that your firewalls (on device, inside routers, etc.) don't block the 
 * **8266 (TCP+UDP)** - required for data transfer
 * **5000 (TCP)**, **5433 (TCP)**, **8443 (TCP)** - required for [ArrInspector](tools/arr-inspector.md)
 
+## Error "Disconnected: VideoFormatNotAvailable"
+
+Check that your GPU supports hardware video decoding. See [Development PC](../overview/system-requirements.md#development-pc).
+
+If you are working on a laptop with two GPUs, it is possible that the GPU you are running on by default, does not provide hardware video decoding functionality. If so, try to force your app to use the other GPU. This is often possible in the GPU driver settings.
+
 ## H265 codec not available
 
 There are two reasons why the server might refuse to connect with a **codec not available** error.
