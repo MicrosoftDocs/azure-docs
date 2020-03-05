@@ -27,7 +27,6 @@ Learn how to use the Azure portal to access Azure Active Directory (Azure AD) au
 
 - An Azure account. If you don't have an account, start with an [Azure free trial](https://azure.microsoft.com/pricing/free-trial/). 
 - A Media Services account. For more information, see [Create an Azure Media Services account by using the Azure portal](media-services-portal-create-account.md).
-- Make sure you review the [Accessing Azure Media Services API with Azure AD authentication overview](media-services-use-aad-auth-to-access-ams-api.md). 
 
 When you use Azure AD authentication with Azure Media Services, you have two authentication options:
 
