@@ -29,7 +29,7 @@ The following misconfigurations cause most issues with data encryption that use 
 - You don't have permissions to access the key vault or the key doesn't exist:
   - The key expired or was accidentally deleted or disabled.
   - The managed identity of the Azure Database for MySQL instance was accidentally deleted.
-  - Insufficient key permissions are granted to the managed identity of Azure Database for MySQL instance. For example, the permissions don't include Get, Wrap, and Unwrap.
+  - The managed identity of the Azure Database for MySQL instance has insufficient key permissions. For example, the permissions don't include Get, Wrap, and Unwrap.
   - The managed identity permissions to the Azure Database for MySQL instance were revoked or deleted.
 
 ## Identify and resolve common errors

@@ -10,7 +10,7 @@ ms.date: 02/13/2020
 
 # Troubleshoot data encryption in Azure Database for PostgreSQL - Single Server
 
-This article describes how to identify and resolve common issues that can occur in the single-server deployment of Azure Database for PostgreSQL when configured with data encryption using a customer-managed key.
+This article helps you identify and resolve common issues that can occur in the single-server deployment of Azure Database for PostgreSQL when configured with data encryption using a customer-managed key.
 
 ## Introduction
 
@@ -29,7 +29,7 @@ The following misconfigurations cause most issues with data encryption that use 
 - You don't have permissions to access the key vault or the key doesn't exist:
   - The key expired or was accidentally deleted or disabled.
 - The managed identity of the Azure Database for PostgreSQL instance was accidentally deleted.
-  - Insufficient key permissions are granted to the managed identity of the Azure Database for PostgreSQL instance. For example, the permissions don't include Get, Wrap, and Unwrap.
+  - The managed identity of the Azure Database for PostgreSQL instance has insufficient key permissions. For example, the permissions don't include Get, Wrap, and Unwrap.
   - The managed identity permissions to the Azure Database for PostgreSQL instance were revoked or deleted.
 
 ## Identify and resolve common errors
