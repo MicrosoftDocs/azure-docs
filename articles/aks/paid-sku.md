@@ -1,6 +1,6 @@
 ---
 title: High Availability for Azure Kubernetes Service (AKS) control plane with Paid SKU SLA
-description: Learn about the high availability SLA offering for the Azure Kubernetes Service (AKS) control plane.
+description: Learn about the high availability SLA offering for the Azure Kubernetes Service (AKS) API Server.
 services: container-service
 ms.topic: conceptual
 ms.date: 03/05/2020
@@ -82,6 +82,6 @@ Use [availability zones](availability-zones) to increase high availability with 
 <!-- LINKS - Internal -->
 [vm-skus]: ../virtual-machines/linux/sizes.md
 [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
-[fag]: ./faq.md
+[faq]: ./faq.md
 [availability-zones]: ./availability-zones.md
 
