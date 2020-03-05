@@ -74,6 +74,10 @@ After you select **Save**, if you go to **Job schedules** in the left navigation
 
 To manage a job using the Azure CLI, see [az batch job-schedule](https://docs.microsoft.com/cli/azure/batch/job-schedule?view=azure-cli-latest).
 
+## Next steps
+
+[Create task dependencies to run tasks that depend on other tasks](batch-task-dependencies.md).
+
 
 
 
