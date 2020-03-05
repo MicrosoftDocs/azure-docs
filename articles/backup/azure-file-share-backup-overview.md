@@ -9,7 +9,7 @@ ms.date: 03/05/2020
 
 Azure file share backup is a native, cloud based backup solution that protects your data in the cloud and eliminates additional maintenance overheads involved in on-premises backup solutions. The Azure Backup service smoothly integrates with Azure file sync, and allows you to centralize your file share data as well as your backups. This simple, reliable, and secure solution enables you to configure protection for your enterprise file shares in few simple steps with an assurance that you can recover your data in case of any disaster scenario.
 
-## Key Benefits of Azure file share backup
+## Key benefits of Azure file share backup
 
 * Zero infrastructure: No deployment is needed to configure protection for your file shares.
 * Built in management capabilities: You can schedule backups and specify the desired retention period without the additional overhead of data pruning.
