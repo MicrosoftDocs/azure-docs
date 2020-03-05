@@ -22,7 +22,7 @@ In this article, you learn how to use Python, PyTorch, and Azure Functions to lo
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- [Python 3.7.4](https://www.python.org/downloads/release/python-374/). (Python 3.7.4 and Python 3.6.x are verified with Azure Functions; Python 3.8 and later versions are not yet supported.)
+- [Python 3.7.4 or above](https://www.python.org/downloads/release/python-374/). (Python 3.8.x and Python 3.6.x are also verified with Azure Functions.)
 - The [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools)
 - A code editor such as [Visual Studio Code](https://code.visualstudio.com/)
 
@@ -42,7 +42,7 @@ In this article, you learn how to use Python, PyTorch, and Azure Functions to lo
 1. Navigate into the folder and examine its contents.
 
     ```
-    cd functions-pytorch
+    cd functions-python-pytorch-tutorial
     ```
 
     - *start* is your working folder for the tutorial.
@@ -52,20 +52,14 @@ In this article, you learn how to use Python, PyTorch, and Azure Functions to lo
 
 ## Create and activate a Python virtual environment
 
-Navigate to the *start* folder and run the following commands to create and activate a virtual environment named `.venv`. Be sure to use Python 3.7, which is supported by Azure Functions.
+Navigate to the *start* folder and run the following commands to create and activate a virtual environment named `.venv`.
 
 
 # [bash](#tab/bash)
 
 ```bash
 cd start
-```
-
-```bash
 python -m venv .venv
-```
-
-```bash
 source .venv/bin/activate
 ```
 
@@ -79,13 +73,7 @@ sudo apt-get install python3-venv
 
 ```powershell
 cd start
-```
-
-```powershell
 py -m venv .venv
-```
-
-```powershell
 .venv\scripts\activate
 ```
 
@@ -93,13 +81,7 @@ py -m venv .venv
 
 ```cmd
 cd start
-```
-
-```cmd
 py -m venv .venv
-```
-
-```cmd
 .venv\scripts\activate
 ```
 
@@ -226,10 +208,10 @@ Installation may take a few minutes, during which time you can proceed with modi
     func start
     ```
 
-1. In a browser, open the following URL to invoke the function with the URL of a cat image and confirm that the returned JSON classifies the image as a cat.
+1. In a browser, open the following URL to invoke the function with the URL of a Bernese Mountain Dog image and confirm that the returned JSON classifies the image as a Bernese Mountain Dog.
 
     ```
-    http://localhost:7071/api/classify?img=http://localhost:7071/api/classify?img=https://raw.githubusercontent.com/Azure-Samples/functions-python-pytorch-tutorial/master/resources/assets/Bernese-Mountain-Dog-Temperament-long.jpg
+    http://localhost:7071/api/classify?img=https://raw.githubusercontent.com/Azure-Samples/functions-python-pytorch-tutorial/master/resources/assets/Bernese-Mountain-Dog-Temperament-long.jpg
     ```
 
 1. Keep the host running because you use it in the next step.
@@ -270,7 +252,7 @@ To test invoking the function endpoint from another web app, there's a simple ap
 
 1. Select **Submit** to invoke the function endpoint to classify the image.
 
-    ![Screenshot of finished project](media/functions-machine-learning-pytorch/screenshot.png)
+    ![Screenshot of finished project](media/machine-learning-pytorch/screenshot.png)
 
     If the browser reports an error when you submit the image URL, check the terminal in which you're running the function app. If you see an error like "No module found 'PIL'", you may have started the function app in the *start* folder without first activating the virtual environment you created earlier. If you still see errors, run `pip install -r requirements.txt` again with the virtual environment activated and look for errors.
 
