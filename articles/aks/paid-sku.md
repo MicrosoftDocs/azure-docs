@@ -1,17 +1,17 @@
 ---
 title: High Availability for Azure Kubernetes Service (AKS) control plane with Paid SKU SLA
-description: Learn about high availability SLA of the Azure Kubernetes Service (AKS) control plane.
+description: Learn about the high availability SLA offering for the Azure Kubernetes Service (AKS) control plane.
 services: container-service
 ms.topic: conceptual
 ms.date: 03/05/2020
 ---
 
-# AKS Paid SKU SLA
+# AKS Paid SKU SLA offering
 
-When used with Availability Zones, this offering allows you to achieve 99.95 % availablity for the AKS cluster API server. If you do not use Availability Zones, you can achieve 99.9 % availablity.
+When used with Availability Zones, this offering allows you to achieve 99.95 % availablity for the AKS cluster API server. If you do not use Availability Zones, you can achieve 99.9 % availablity. AKS uses master node replicas across update and fault domains to ensure SLA requirements are met.
 
 > [!Important]
-> The SLA Agreement is for the API server endpoint availability, and not related to AKS control plane availability or performance.
+> The SLA Agreement is for the API server endpoint availability, and is not related to AKS control plane availability or it's performance.
 
 ## Region Availability
 
@@ -53,6 +53,8 @@ After a few minutes, the command completes and returns JSON-formatted informatio
 
 ## Removing Paid SKU SLA from a cluster
 
+If you wish to remove the Paid SKU SLA from your cluster, you will need to follow these steps:
+
 TODO
 
 ## Existing clusters
@@ -67,7 +69,7 @@ It is important to recognize the distinction between AKS service availability wh
 
 ## Billing details
 
-The Paid SKU reimbursements will be performed on a monthly basis.  
+The Paid SKU reimbursements will be performed on a monthly basis.  TODO legal?
 
 ## Next steps
 
