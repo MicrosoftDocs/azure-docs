@@ -286,6 +286,10 @@ The following steps assume you already have a virtual network and subnet set up 
 1. Select **Review + create**. You're taken to the **Review + create** page where Azure validates your configuration. 
 2. When you see the **Validation passed** message, select **Create**.
 
+After the private endpoint is created, DNS settings in the private zone appear on the endpoint's **Overview** page.
+
+![Endpoint DNS settings][./media/container-registry-private-link/private-endpoint-overview.png]
+
 Your private link is now configured and ready for use.
 
 ## Validate private link connection
