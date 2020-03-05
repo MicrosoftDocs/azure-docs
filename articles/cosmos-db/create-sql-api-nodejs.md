@@ -27,9 +27,17 @@ In this quickstart, you create and manage an Azure Cosmos DB SQL API account fro
 - [Node.js 6.0.0+](https://nodejs.org/).
 - [Git](https://www.git-scm.com/downloads).
 
-## Create a database
+## Create an Azure Cosmos account
 
-[!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
+For this quickstart purpose, you can use the [try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/) option to create an Azure Cosmos account.
+
+1. Navigate to the [try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/) page.
+
+1. Choose the **SQL** API account and select **Create**. Sign-in using your Microsoft account such as outlook.
+
+1. After the sign-in is successful, your Azure Cosmos account should be ready. Select **Open in the Azure portal** to open the newly created account.
+
+The "try Azure Cosmos DB for free" option doesn't require an Azure subscription and it offers you an Azure Cosmos account for a limited period of 30 days. If you want to use the Azure Cosmos account for a longer period, you should instead [create the account](create-cosmosdb-resources-portal.md#create-an-azure-cosmos-db-account) within your Azure subscription.
 
 ## Add a container
 
@@ -139,7 +147,7 @@ The following snippets are all taken from the _app.js_ file.
   ```
 
 > [!NOTE]
-> In both the "update" and "delete" methods, the item has to be selected from the database by calling `conatiner.item()`. The two parameters passed in are the id of the item and the item's partition key. In this case, the parition key is the value of the "category" field.
+> In both the "update" and "delete" methods, the item has to be selected from the database by calling `container.item()`. The two parameters passed in are the id of the item and the item's partition key. In this case, the parition key is the value of the "category" field.
 
 ## Update your connection string
 
@@ -170,10 +178,6 @@ You can now go back to Data Explorer, modify, and work with this new data.
 ## Review SLAs in the Azure portal
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
-
-## Clean up resources
-
-[!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
 ## Next steps
 
