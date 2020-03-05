@@ -84,6 +84,7 @@ Set-ADUser -Identity webserviceaccount -PrincipalsAllowedToDelegateToAccount $co
 
 Get-ADUser webserviceaccount -Properties PrincipalsAllowedToDelegateToAccount
 ```
+
 ## Configure single sign-on 
 1. Publish your application according to the instructions described in [Publish applications with Application Proxy](application-proxy-add-on-premises-application.md). Make sure to select **Azure Active Directory** as the **Preauthentication Method**.
 2. After your application appears in the list of enterprise applications, select it and click **Single sign-on**.
