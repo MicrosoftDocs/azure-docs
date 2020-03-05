@@ -13,7 +13,7 @@ ms.workload: web
 
 # Using Private Endpoints for Azure Web App (Preview)
 
-You can use Private Endpoint for your Azure Web App to allow clients located in your private network to securely access to the app over Private Link. The Private Endpoint uses an IP address from the Azure VNet address space. Network traffic between client on your private network and the Web App traverses over the Vnet and a Private Link on the Microsoft backbone network, eliminating exposure from the public Internet, like Service Endpoint, but with Private Endpoint you can disable any outgoing network flow eliminating the data leakage risk.
+You can use Private Endpoint for your Azure Web App to allow clients located in your private network to securely access to the app over Private Link. The Private Endpoint uses an IP address from the Azure VNet address space. Network traffic between client on your private network and the Web App traverses over the Vnet and a Private Link on the Microsoft backbone network, eliminating exposure from the public Internet. With Private Endpoint you can disable outgoing network flows from the subnet with NSG and eliminate the data leakage risk.
 
 Using private endpoints for your Web App enables you to:
 
@@ -37,28 +37,30 @@ The Subnet where you plug the Private Endpoint can have other resources in it, y
 
 From the security perspective:
 
-- When you enable Service Endpoint to your Web App you disable all public access. But you can enable multiple Private Endpoints in others Vnets and Subnets.
-- The NIC of the Private Endpoint cannot have a NSG associated, the Subnet that hosts the Private endpoint can have a NSG associated, but you must disable the network policies enforcement for the Private Endpoint see [this article] [disablesecuritype]. As a result, you cannot filter by any NSG the access to your Private Endpoint.
+- When you enable Service Endpoint to your Web App, you disable all public access. But you can enable multiple Private Endpoints in others Vnets and Subnets.
+- The NIC of the Private Endpoint cannot have an NSG associated.
+- The Subnet that hosts the Private endpoint can have an NSG associated, but you must disable the network policies enforcement for the Private Endpoint see [this article] [disablesecuritype]. As a result, you cannot filter by any NSG the access to your Private Endpoint.
 - When you enable Private Endpoint to your Web App, the [access restrictions][accessrestrictions] configuration of the Web App is not evaluated.
 
-Private Endpoint for Web App is available for tier Standard, PremiumV2 and Isolated with an external ASE.
+Private Endpoint for Web App is available for tier Standard, PremiumV2, and Isolated with an external ASE.
 
-In the web http logs of your web app you will discover than we are aware of the source IP of the client, this is possible because we implemented the TCP Proxy protocol, forwarding up to the web app the client IP. Refer to [this article][tcpproxy] for more details.
+In the Web http logs of your web app, you will discover that we are aware of the source IP of the client. We implemented the TCP Proxy protocol, forwarding up to the web app the client IP. For more information, see [this article][tcpproxy].
 
 ![Global overview][1]
 
 
 ## DNS
 
-As this feature is in preview, we don't change the DNS entry today, you need to manage yourself the DNS entry in your private DNS server or Azure DNS private zone. If you need to use a custom DNS name you must add the custom name in your web app. During the preview, the custom name must be validated like any custom name, using public DNS resolution. [custom DNS validation technical reference][dnsvalidation]
+As this feature is in preview, we don't change the DNS entry today, you need to manage yourself the DNS entry in your private DNS server or Azure DNS private zone. 
+If you need to use a custom DNS name, you must add the custom name in your web app. During the preview, the custom name must be validated like any custom name, using public DNS resolution. [custom DNS validation technical reference][dnsvalidation]
 
 ## Pricing
 
-During the preview this feature will be free of charge
+During the preview, this feature will be free of charge
 
 ## Limitations
 
-We are improving Private Link feature and Private Endpoint regularly, check [this article][pllimitations] for up to date information about limitations.
+We are improving Private Link feature and Private Endpoint regularly, check [this article][pllimitations] for up-to-date information about limitations.
 
 
 <!--Image references-->
