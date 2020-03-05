@@ -18,17 +18,28 @@ Currently, moving a search service to another region is not supported, in that t
 
 In the portal, the **Export template** command produces a basic definition of a service (name, location, tier, replica, and partition count), but does not recognize the content of your service, nor does it carry over keys, roles, or logs.
 
-When moving search from one region to another, we recommend the following approach:
+Moving a search service should follow a pattern similar to the steps below:
 
-1. Inventory your existing service for a full list of objects on the service. If you enabled logging, create and archive reports you might need for future comparison.
+1. Identify related services to understand the full impact of moving a service. You might be using Azure Storage for logging, knowledge store, or as an external data source. You might be using Cognitive Services for AI enrichment. Accessing services in other regions is common, but comes with additional bandwidth charges. Cognitive Services and Azure Cognitive Search are required to be in the same region if you are using AI enrichment.
 
-1. Create a service in the new region and republish from source code any existing indexes, indexers, data sources, skillsets, and synonym maps. Service names must be unique so you cannot reuse the existing name.
+1. Inventory your existing service for a full list of objects on the service. If you enabled logging, create and archive reports you might need for a historical record.
+
+1. Check pricing and availability in the new region to ensure availability of Azure Cognitive Search plus any related services that you might want to create in the same region. Check for feature parity. Some preview features have restricted availability.
+
+1. Create a service in the new region and republish from source code any existing indexes, indexers, data sources, skillsets, knowledge stores, and synonym maps. Service names must be unique so you cannot reuse the existing name.
 
 1. Enable logging, and if you are using them, re-create security roles.
 
 1. Update client applications and test suites to use the new service name and API keys, and test all applications.
 
-1. Delete the old service once the new service is fully operational.
+1. Delete the old service once the new service is fully tested and operational.
+
+## Next steps
+
++ [Choose a tier](search-sku-tier.md)
++ [Create a search service](search-create-service-portal.md)
++ [Enable logging](search-monitor-logs.md)
+
 
 <!-- To move your Azure Cognitive Service account from one region to another, you will create an export template to move your subscription(s). After moving your subscription, you will need to move your data and recreate your service.
 
