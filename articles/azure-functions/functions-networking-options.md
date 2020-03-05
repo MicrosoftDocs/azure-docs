@@ -53,7 +53,7 @@ Private site access refers to making your app accessible only from a private net
 ## Virtual network integration
 
 Virtual network integration allows your function app to access resources inside a virtual network. 
-The Function App Service has two variations.
+Azure Functions supports two kinds of virtual network integration:
 
 [!INCLUDE [app-service-web-vnet-types](../../includes/app-service-web-vnet-types.md)]
 
@@ -138,7 +138,7 @@ To learn more, see the [App Service documentation for Hybrid Connections](../app
 
 Outbound IP restrictions are available in a Premium plan, App Service plan, or App Service Environment. You can configure outbound restrictions for the virtual network where your App Service Environment is deployed.
 
-When you integrate a function app in a Premium plan or an App Service plan with a virtual network, the app can still make outbound calls to the internet by default. You will need to set WEBSITE_VNET_ROUTE_ALL to 1, then all outbound traffic will be sent into your VNet where network security group rules can be used to restrict traffic.
+When you integrate a function app in a Premium plan or an App Service plan with a virtual network, the app can still make outbound calls to the internet by default. By adding an application setting `WEBSITE_VNET_ROUTE_ALL=1`, you force all outbound traffic tobe sent into your virtual network, where network security group rules can be used to restrict traffic.
 
 ## Troubleshooting 
 
