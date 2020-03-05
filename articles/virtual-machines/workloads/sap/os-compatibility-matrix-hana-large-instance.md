@@ -24,12 +24,12 @@ ms.custom: H1Hack27Feb2017
   |-------------------------|-----|
   | SLES 12 SP2 | S72, S72m, S144, S144m, S192, S192m, S192xm, S96 |
   | SLES 12 SP3 | S72, S72m, S144, S144m, S192, S192m, S192xm, S96 |
-  | SLES 12 SP4 | S72, S72m, S144, S144m, S192, S192m, S192xm, S96, S224m |
+  | SLES 12 SP4 | S72, S72m, S144, S144m, S192, S192m, S192xm, S96, S224, S224m |
   
 ### Instances With Persistent Memory
   | Operating System     | SKUs |
   |-------------------------|----|
-  | SLES 12 SP4 | S224 |
+  | SLES 12 SP4 | S224oo, S224om, S224ooo, S224oom |
   
 ## HANA Large Instance Type II     
   |  Operating System       | SKUs |
