@@ -17,14 +17,7 @@ The IoT extension enriches Azure CLI with features such as device management and
 
 In this tutorial, you first complete the steps to setup Azure CLI and the IoT extension. Then you learn how to run CLI commands to perform basic Device Provisioning Service operations. 
 
-> [!NOTE]
-> This article uses the newest version of the Azure IoT extension, called `azure-iot`. The legacy version is called `azure-iot-cli-ext`.You should only have one version installed at a time. You can use the command `az extension list` to validate the currently installed extensions.
->
-> Use `az extension remove azure-iot-cli-ext` to remove the legacy version of the extension.
-> Use `az extension add -name azure-iot` to add the new version of the extension. 
->
-> To see what extensions you hve installed, use `az extension show `.
->
+[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
 ## Installation 
 
