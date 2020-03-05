@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/04/2020
+ms.date: 03/05/2020
 ms.author: allensu
 ---
 
@@ -84,7 +84,19 @@ The following table can be used a starting point for which tools to use to start
 
 ### Connectivity failures
 
-Connectivity issues with [Virtual Network NAT] can be due to [SNAT exhaustion], transient failures in the Azure infrastructure, transient failures in the path between Azure and the public Internet destination, and transient or persistent failures at the public Internet destination.
+Connectivity issues with [Virtual Network NAT] can be due to several different issues:
+
+* [SNAT exhaustion] of the NAT gateway,
+* transient failures in the Azure infrastructure, 
+* transient failures in the path between Azure and the public Internet destination, 
+* transient or persistent failures at the public Internet destination.
+
+Use tools like the following to validation connectivity. [ICMP ping is not supported](#icmp-ping-is-failing).
+
+| Operating system | Generic TCP connection test | TCP application layer test | UDP |
+|---|---|---|---|
+| Linux | nc (generic connection test) | curl (TCP application layer test) | application specific |
+| Windows | [PsPing](https://docs.microsoft.com/sysinternals/downloads/psping) | PowerShell [Invoke-WebRequest](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/invoke-webrequest) | application specific |
 
 ### IPv6 Coexistence
 
