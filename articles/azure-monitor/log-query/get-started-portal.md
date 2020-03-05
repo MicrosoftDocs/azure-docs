@@ -26,11 +26,11 @@ For more information about log queries, see [Overview of log queries in Azure Mo
 For a detailed tutorial on writing log queries, see [Get started with log queries in Azure Monitor](get-started-queries.md).
 
 ## Open a Log Analytics workspace
-To use Azure Monitor or a Log Analytics workspace, you need an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+To use Azure Monitor or a Log Analytics workspace, you need to be signed in to an Azure account. If you don't have an Azure account, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 To complete most of the steps in this tutorial, you can use [this demo environment](https://portal.loganalytics.io/demo), which includes plenty of sample data. With the demo environment, you won't be able to save queries or pin results to a dashboard.
 
-You can also use your own environment, if you're using Azure Monitor to collect log data for at least one Azure resource. To open a Log Analytics workspace, in your Azure Monitor left navigation, select **Logs**. 
+You can also use your own environment, if you're using Azure Monitor to collect log data on at least one Azure resource. To open a Log Analytics workspace, in your Azure Monitor left navigation, select **Logs**. 
 
 ## Understand the schema
 A *schema* is a collection of tables grouped under logical categories. The Demo schema has several categories from monitoring solutions. For example, the **LogManagement** category contains Windows and Syslog events, performance data, and agent heartbeats.
