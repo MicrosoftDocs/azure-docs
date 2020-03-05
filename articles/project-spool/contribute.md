@@ -16,7 +16,7 @@ We have three paths available for contributors:
 
 ## The Happy Path
 
-The simple way to contribute changes to our docs is to visit our staging site and click "edit":
+The simple way to contribute changes to our docs is to click "edit" on any page within our repo (you're viewing our repo now!):
 
 ![Edit File](./media/edit-click.png)
 
