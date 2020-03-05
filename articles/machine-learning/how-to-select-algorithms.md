@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: FrancescaLazzeri
 ms.author: lazzeri
 ms.reviewer: cgronlun
-ms.date: 01/21/2020
+ms.date: 03/05/2020
 ---
 # How to select algorithms for Azure Machine Learning
 

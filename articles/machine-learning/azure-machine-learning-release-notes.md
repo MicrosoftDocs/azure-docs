@@ -8,8 +8,7 @@ ms.subservice: core
 ms.topic: reference
 ms.author: jmartens
 author: j-martens
-ms.date: 01/21/2020
-ms.custom: seodec18
+ms.date: 03/10/2020
 ---
 
 # Azure Machine Learning release notes
