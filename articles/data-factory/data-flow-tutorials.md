@@ -5,7 +5,7 @@ author: djpmsft
 ms.author: daperlov
 ms.service: data-factory
 ms.topic: tutorial
-ms.date: 02/16/2020
+ms.date: 03/04/2020
 ---
 
 # Mapping data flow video tutorials
@@ -139,3 +139,5 @@ As updates are constantly made to the product, some features have added or diffe
 [Date/Time expressions](https://www.youtube.com/watch?v=uboyCZ25r_E&feature=youtu.be&hd=1)
 
 [Splitting Arrays and Case Statement](https://www.youtube.com/watch?v=DHNH8ZO7YjI)
+
+[Fun with string interpolation and parameters](https://youtu.be/hb3-cn2CMgM)

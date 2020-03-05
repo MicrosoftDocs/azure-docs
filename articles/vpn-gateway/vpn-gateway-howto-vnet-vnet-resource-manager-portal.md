@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 02/26/2020
+ms.date: 03/05/2020
 ms.author: cherylmc
 
 ---
@@ -71,16 +71,16 @@ This article shows you how to connect VNets by using the VNet-to-VNet connection
 
 - **Virtual network settings**
     - **Name**: VNet1
-    - **Address space**: 10.11.0.0/16
+    - **Address space**: 10.1.0.0/16
     - **Subscription**: Select the subscription you want to use.
     - **Resource group**: TestRG1
     - **Location**: East US
     - **Subnet**
         - **Name**: FrontEnd
-        - **Address range**: 10.11.0.0/24
+        - **Address range**: 10.1.0.0/24
     - **Gateway subnet**:
         - **Name**: *GatewaySubnet* is autofilled
-        - **Address range**: 10.11.255.0/27
+        - **Address range**: 10.1.255.0/27
 
 - **Virtual network gateway settings**
     - **Name**: VNet1GW
@@ -122,11 +122,6 @@ If you already have a VNet, verify that the settings are compatible with your VP
 
 ### To create a virtual network
 [!INCLUDE [vpn-gateway-basic-vnet-rm-portal](../../includes/vpn-gateway-basic-vnet-rm-portal-include.md)]
-
-## Add additional address space and create subnets
-You can add additional address space and create subnets once your VNet has been created.
-
-[!INCLUDE [vpn-gateway-additional-address-space](../../includes/vpn-gateway-additional-address-space-include.md)]
 
 ## Create a virtual network gateway
 In this step, you create the virtual network gateway for your VNet. Creating a gateway can often take 45 minutes or more, depending on the selected gateway SKU. If you're creating this configuration as an exercise, see the [Example settings](#example-settings).
