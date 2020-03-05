@@ -43,8 +43,6 @@ The steps in this section show how to create an AMS account.
 
 1. Sign in at the [Azure portal](https://portal.azure.com/).
 2. Click **+Create a resource** > **Media** > **Media Services**.
-   
-    ![Media Services Create](./media/media-services-create-account/media-services-new1.png)
 3. In **CREATE MEDIA SERVICES ACCOUNT** enter required values.
 
    1. In **Account Name**, enter the name of the new AMS account. A Media Services account name is all lowercase letters or numbers with no spaces, and is 3 to 24 characters in length.
