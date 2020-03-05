@@ -13,137 +13,144 @@ ms.custom: mvc
 
 # Azure Maps plugin for QGIS
 
-The Quantum Geographic Information System [(QGIS)](https://qgis.org/) Software is a professional and a Free and Open Source Software (FOSS) application. The Azure Maps plug-in for QGIS is part of "Private Atlas - Private Preview", and it and provides you a way to visualize and QA Azure Maps Private Atlas data sets. It also lets you edits and apply changes to data sets. Azure Maps QGIS plug-in is currently classified under the experimentation label in the QGIS plug-in store. This article guides you through the installation process of Azure Maps QGIS plug-ins, and how to use the plugin to visualize and edit a chosen dataset.
+The Quantum Geographic Information System [(QGIS)](https://qgis.org/) Software is a professional and a Free and Open Source Software (FOSS) application. The Azure Maps plug-in for QGIS is part of "Private Atlas - Private Preview", and it provides users a way to visualize and QA Azure Maps Private Atlas data sets. It also lets users edits and apply changes to the data sets. Azure Maps QGIS plug-in is currently classified under the experimentation label in the QGIS plug-in store. This article guides you through the installation process of Azure Maps QGIS plug-ins, and how to use the plugin to visualize and edit a chosen set of data.
 
-[QGIS](https://www.qgis.org/en/site/about/index.html) is a Free and Open Source Software (FOSS) professional GIS application available at https://qgis.org/. The Azure Maps plugin is part of Private Atlas - Private Preview and provides you a way to visualize and QA Azure Maps Private Atlas datasets as well as make edits and apply changes to datasets. The plugin is classified experimentation in the QGIS plugin store. This article guides you through how to install Azure Maps QGIS plugin and visualize and edit your dataset using it.
+## Prerequisites
 
+Before you can use the the Azure Maps QGIS plugin, you need to [make an Azure Account](quick-demo-map-app.md#create-an-account-with-azure-maps) and [obtain a subscription key](). Then, you need to [download the QGIS Desktop application](https://www.qgis.org/en/site/forusers/download.html), with a version of 3.8.* or higher.
 
-## System requirements and Installation steps
+## Install the Azure Maps QGIS plug-in
 
-The Azure Maps plugin requires an installation of QGIS Desktop version 3.8.* or newer versions. 
+Follow the steps below to install the Azure Maps QGIS plugin for the QGIS Desktop application.
 
-In order to install the plug-in, follow the steps below.
-
-1. Launch QGIS application.
+1. Launch the QGIS application.
     
    ![Qgis application](./media/azure-maps-qgis-plugin/qgis.png)
 
-2. Click on **plugins**, and select **Manage and Install Plugins...**.
+2. Click on **plugins**, and select **Manage and Install Plugins**.
 
    ![Plugins menu](./media/azure-maps-qgis-plugin/plugin-menu.png)
 
-3. In the plugins window, select **settings** tab and enable **Show also experimental plugins**.
+3. In the plugins window, select the **settings** tab. Enable the **Show also experimental plugins** option.
 
-   ![Settings](./media/azure-maps-qgis-plugin/enable-experimental-plugins.png)    
+   ![Settings](./media/azure-maps-qgis-plugin/enable-experimental-plugins.png)
 
 
-4. Select the **All** tab and search for the Azure Maps plugin by typing "Azure Maps" in the search bar. The Azure Maps plugin should be listed in the result, click on **Install Plugin** button to install the plugin. Once installed you can upgrade to a newer version if available or uninstall and reinstall as well. For more information on how to work with plugins in QGIS, visit the [QGIS plugin documentation page](https://docs.qgis.org/3.4/en/docs/user_manual/plugins/plugins.html).
+4. In the same **plugins** window, select the **All** tab. Type "Azure Maps" in the search bar to find the Azure Maps plug-in. The Azure Maps plugin should be listed in the result, click on the **Install Plugin** button. Once the plug-in is installed, you can upgrade to a newer version if available. Or, you may uninstall and reinstall the plug-in at any time. For more information on how to work with plugins in QGIS, visit the [QGIS plugin documentation](https://docs.qgis.org/3.4/en/docs/user_manual/plugins/plugins.html) page.
 
    ![Install plugin](./media/azure-maps-qgis-plugin/install-plugin.png)
-    
-## Azure Maps Plugin
 
-After installing the Azure Maps plugin, a new Azure Maps tool will be accessible via the QGIS plugin toolbar.
+## Use the Azure Maps QGIS Plugin
+
+After installing the Azure Maps plugin, this Azure Maps tool will be accessible via the QGIS plug-in toolbar.
 
    ![Plugin icon](./media/azure-maps-qgis-plugin/plugin-icon.png)
 
-To access the plugin toolbar, click on the plugin button. The toolbar contains three tabs. In order to access and eventually save the private atlas dataset, you need to provide your dataset ID in the **Private Atlas** tab and provide your Azure Maps account key in the **Authentication** tab. Optionally the plugin allows you to set the spatial extent for which features are needed. Press **get features** button in the **Private Atlas** tab and what you will get, at the end of the process, is a layer table of content that should reflect familiar concepts. You will find, for example, a Units layer and a Level layer, which reflect what you configured through the process of converting DWG packages. The **Floor Picker** tab allows you to select the floor number and visualize it.
+Click on the plugin button to access the toolbar. The toolbar contains three tabs. You need to provide your dataset ID in the **Private Atlas** tab. You also need to provide your Azure Maps account primary subscription key in the **Authentication** tab. Providing the dataset ID and the account primary subscription key lets you access and save the private atlas dataset. 
+
+The plugin also lets users set the spatial extent for which features are needed. Press the **get features** button in the **Private Atlas** tab. Once this request completes processing, you'll see a layer table of content. This table should rreflect the content in your DWG package. For example, you will find a Units layer and a Level layer, those layers reflect what you configured in the process of converting the DWG packages.
 
    ![Private Atlas tab](./media/azure-maps-qgis-plugin/private-atlas-tab.png) ![Authentication tab](./media/azure-maps-qgis-plugin/authentication-tab.png) ![Floor picker](./media/azure-maps-qgis-plugin/floor-picker.png)
 
-After getting the features, you should be able to see the list of feature collections in the **Layers** Panel of the QGIS application. You can zoom into or edit a layer by doing a right click on the layer and choosing **Zoom to Layer** or **Open Attribute Table** respectively.
+After getting the features, a new **Floor Picker** tab appears. This tab provides options to select the floor number and visualize the selected floor.
+
+You should also be able to see the list of feature collections in the **Layers** Panel of the QGIS application. You can zoom into a layer or edit a layer by right clicking on the layer and choosing **Zoom to Layer** or **Open Attribute Table**,respectively.
 
    ![Layers panel](./media/azure-maps-qgis-plugin/layers-panel.png)
 
 
-The list of feature collections is also documented and exposed via the WFS API. The full list of feature collections is as follows:
+The list of feature collections is also documented and exposed via a WFS API. The full list of feature collections is as follows:
 
 | Feature collection ID | Description |
 |---------|-------------|
-| category | Category names. For example,  \"room.conference\". The is_routable attribute puts a feature with that category on the routing graph. The route_through_behavior attribute determines whether a feature can be used for through traffic or not.
+| category | Category names. For example,  \"room.conference\". The _is_routable_ attribute puts a feature with that category on the routing graph. The _route_through_behavior_ attribute determines whether a feature can be used for through traffic or not.
 | directory_info | Name, address, phone number, website, and hours of operation for a unit, facility, or an occupant of a unit or facility. |
 | vertical_penetration | An area that, when used in a set, represents a method of navigating vertically between levels. It can be used to model stairs, elevators etc. Geometry can overlap units and other vertical penetration features. |
 | zone | A virtual area. ex, wifi zone, emergency assembly area. Zones can be used as destinations but not meant for through traffic.|
 | opening | A usually traversable boundary between two units, or a unit and vertical_penetration.|
-| unit | A physical and non-overlapping area that might be occupied and traversed by a navigating agent. Can be a hallway, a room, a courtyard, etc. It is surrounded by physical obstruction (wall), unless the is_open_area attribute is equal to true, and one must add openings where the obstruction shouldn't be there. If is_open_area attribute is equal to true, all the sides are assumed open to the surroundings and walls are to be added where needed. Walls for open areas are represented as a line_element or area_element with is_obstruction equal to true. |
+| unit | A physical and non-overlapping area that might be occupied and traversed by a navigating agent. It can be a hallway, a room, a courtyard, etc. It is surrounded by physical obstruction, such as a wall, unless the _is_open_area_ attribute is equal to true. The user must add openings where the obstruction shouldn't be there. If _is_open_area_ attribute is equal to true, all the sides are assumed open to the surroundings and walls are to be added where needed. Walls for open areas are represented as a _line_element_ or an _area_element_ with _is_obstruction_ set to true. |
 | level | An indication of the extent and vertical position of a set of features.|
-| facility | Area of the site, building footprint etc.|
+| facility | An area of the site, such as a building footprint.|
 | point_element | A point feature in a unit, such as a printer or a device. |
-| line_element | A line feature in a unit, such as a dividing wall, window.|
+| line_element | A line feature in a unit, such as a dividing wall or window.|
 | area_element | A polygon feature in a unit, such as an area open to below, an obstruction like an island in a unit.|
 
 
-### Editing datasets
+### Edit a datasets
 
-Once you get the features, you might want to edit your dataset for minor changes or additions. Below we discuss some scenarios you might want to accomplish.
+Once you view the features, you might want to make minor modification or soft touches to keep your data fresh. Although the QGIS application lets you make geometry changes, add features, or delete features, we recommend that you use the application only to edit the properties of the features. In this section, we discuss common edits you'll likely perform on your dataset.
 
-> [!Note]
-> While the application allows you to, but we recommend you to limit your editing to property changes only i.e no geometry changes and adding or deleting features.
+#### Update a feature collection
 
-There may be a scenario where you might want to make some soft touches to keep your data up to date. This applies to any feature collection that was imported via **DWG convert API**, which includes all the features listed in the table above except point/line/area_element. Lets take an example where we want to change unit name because the space has been repurposed. Follow the steps below to make this change.
+You may update any feature collection imported via the **DWG convert API**. This includes all the features listed in the "Feature collection ID" table, except the _point_, _line_, and _area_element_ feature. Follow the steps below to change unit name, assuming a scenario where the building space has been repurposed. 
 
-1. In the Azure Maps plugin, select the **Floor Picker** tab and choose the floor where the unit to be edited is mapped.
+1. In the Azure Maps plugin, select the **Floor Picker** tab. Choose the floor where the unit to be edited is mapped.
     
-2. In the **Layers** panel in the QGIS application, right-click on the **unit** layer (make sure it is checked/selected) and select **Open Attribute Table** from the menu.
+2. In the **Layers** panel in the QGIS application, make sure the **unit** layer is selected. Right-click on the **unit** layer, and select **Open Attribute Table** from the menu.
 
    ![Unit menu](./media/azure-maps-qgis-plugin/unit-menu.png)
 
-3. In the attribute table window, click on the edit button on the top left of the window and then double-click the name of the unit that you want to rename, rename it and click the save button in the toolbar menu.
+3. In the attribute table, click on the **edit** button near the top-left of the window. Double-click the name of the unit that you want to rename, and rename it. Click the **save** button in the toolbar menu.
     
    ![Unit attribute table](./media/azure-maps-qgis-plugin/attribute-table.png)
 
-If the changes made to the dataset are successfull, you will see a success message like the one below. In case your changes were not successful, you will get a failure message.
+If the changes made to the dataset were successful, you will see a success message like the one below. In case your changes were not successful, you will see a failure message.
 
 
 <center>
 
 ![Success message](./media/azure-maps-qgis-plugin/success.png)</center>
 
+#### Update project-specific features
 
-You might also face a scenario where you want to add, edit or delete project-specific features, such as furniture and other point and line of interest. Lets take an example where you want to add a desk to your map, if the desk category doesn't currently exists in your categories, you might want to first add a category to the list of categories. In case you want to add an object type that is already in your category list, use the existing category ID assigned to it. Below we explain how to add a new category to your dataset and ultimately add a desk.
+You might also face a scenario where you want to add, edit or delete project-specific features, such as furniture and other point and line of interest. If you want to add an object to your map, then you need to first add a category for this object to your list of categories. But, if you already have a category for this object in your list of categories, then use the existing category ID assigned to it. The example below explain how to add a desk to your map. It's assumed that you don't have a desk category in your dataset, so the steps show you how to add a new category and obtain its category ID.
 
-1. In order to add a desk to the dataset we will add an area element, and to do so we add a new category to the list of categories. The following steps show you how to add a new category:
+1. Add a new Category and obtain its ID
 
-   1. Right click on **category** layer in **Layers** panel, and click on the edit button in the toolbar. Click the **Add Record** button in the toolbar next to the edit button.
-    
+   1. Right click on the **category** layer in the **Layers** panel. Click on the **edit** button in the toolbar. Then, click the **Add Record** button in the toolbar, it's next to the **edit** button.
+
       ![Add category](./media/azure-maps-qgis-plugin/add-category.png)
-        
-   2. In the feature attribute window, define the attributes for the category. The list of supported categories can be found [here](https://aka.ms/pa-indoor-spacecategories), for example below we are adding furniture.desk that will be then used when creating area_element features for desks
+
+   2. In the feature attribute window, define the attributes for the category. The list of supported categories can be found [here](https://aka.ms/pa-indoor-spacecategories). In the example below we are adding the **furniture.desk** category, which will then used be when creating an _area_element_ feature for the desk.
 
       ![Category features](./media/azure-maps-qgis-plugin/category-feature-attributes.png)
 
-   3. Click the **Save Layer Edits** button next to the **Add Record** button to save the category to the dataset. Upon a successful save you will get a success message.
+   3. Click the **Save Layer Edits** button, next to the **Add Record** button, to save the new category to the dataset. Upon a successful save you will see a success message.
 
-   4. To see the assigned category Id, reload the dataset by clicking the **Get Features** button of the **Private Atlas** tab of the plugin. 
-          
-   5. Right click on **category** layer in **Layers** panel and click on **Show Attributes Table**, you should be able to see the new category in the list along with the unique category ID.
+   4. To see the assigned category Id, reload the dataset by clicking the **Get Features** button in the **Private Atlas** tab of the plugin window. 
+
+   5. Right click on the **category** layer in **Layers** panel. Click on **Show Attributes Table**, and you should be able to see the new category in the list along with its unique category ID. Copy the category ID.
 
       ![Category table](./media/azure-maps-qgis-plugin/categories-table.png)
 
 
-2. Next, we will get the unit Id of the unit we want to add the desk to. To get the unit Id, right click on **unit** layer in **Layers** panel and click on **OpenAttribute Table**. From the table, copy the unit Id of the unit you want to add the desk to. 
+2. Next, we will acquire the unit Id of the unit we want to add the desk to. Right click on the **unit** layer in the **Layers** panel to obtain the unit Id. Click on **OpenAttribute Table**. From the table, copy the unit Id of the unit you want to add the desk to.
+
     ![Unit table](./media/azure-maps-qgis-plugin/unit-table.png)
 
-3. To add a desk to the unit, choose **area_element** in **Layers** panel and then click on the **Add Polygon Feature** button in the toolbar. On the map, draw a polygon representing the desk in the unit you want the desk to be in and right-click to open the Feature Attributes window. In the Feature Attributes window provide the following required information and click **OK**:
-        * **original_id**: You can provide an original ID of your choice.
-        * **category_id**: Provide category ID for the desk category we created earlier.
-        * **unit_id**: Provide use the unit ID copied from the unit table.
-        * **name**: Enter a name for the element.
-    
+3. To add a desk to the unit, choose **area_element** in the **Layers** panel. Click on the **Add Polygon Feature** button in the toolbar. On the map, draw a polygon representing the desk in the unit you want the desk to be in, and right-click to open the Feature Attributes window. In the Feature Attributes window provide the following required information and click **OK**:
+
+        | | |
+        | :-- | :-- |
+        | **original_id** | Give an original ID of your choice |
+        | **category_id** | Provide the category ID for the desk category |
+        | **unit_id** | Provide the unit ID to add the desk to this unit |
+        | **name** | Give a name for the element |
+
     ![Element features attributes](./media/azure-maps-qgis-plugin/feature-attributes.png)
 
-4. Once you provide the required information, you should be able to see te element on the map. Click the **Save Layer Edits** button in the toolbar to save changes to your dataset.
+4. Once you provide the required information, you should be able to see the element on the map. Click the **Save Layer Edits** button in the toolbar to save changes to your dataset.
 
     ![Element map](./media/azure-maps-qgis-plugin/element-map.png)
 
-5. Reload the dataset and choose the floor where you added the element. Right click on **area_element** layer in **Layers** panel and click on **Show Attributes Table**, you should be able to see the new category in the list along with the unique category ID.
-    
+5. Reload the dataset and choose the floor where you added the element. Right click on **area_element** layer in the **Layers** panel. Click on **Show Attributes Table**, you should be able to see the new category in the list along with the unique category ID.
+
     ![Element table](./media/azure-maps-qgis-plugin/element-table.png)
 
 ## Known limitations
 
-Following are the limitations to Keep in mind when using the Azure Maps QGIS plugin to make edits to your dataset.
+The following are limitations to keep in mind when using the Azure Maps QGIS plug-in to make edits to your dataset.
 
-1. No concurrent data editing supported at this stage. It�s recommended that a single user at the time performs edits and apply changes to a dataset.
+1. Azure Maps QGIS plug-in doesn't currently support concurrent editing. It's recommended that only a single user at a time performs edits and apply changes to a dataset.
 
-2. Use an edit and save process for each floor you will be working on, changes done on a given floor will be lost when changing floor.
+2. Before changing floors, make sure you save your edits for the current floor you're working on. Changes done on a given floor will be lost if you don't save before changing the floor. 
