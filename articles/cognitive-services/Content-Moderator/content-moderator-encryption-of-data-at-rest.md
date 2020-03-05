@@ -26,5 +26,5 @@ Content Moderator automatically encrypts your data when it is persisted to the c
 
 ## Next steps
 
-* [Content Customer-Managed Key Request Form](https://aka.ms/cogsvc-cmk)
+* [Content Moderator Customer-Managed Key Request Form](https://aka.ms/cogsvc-cmk)
 * [Learn more about Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)
