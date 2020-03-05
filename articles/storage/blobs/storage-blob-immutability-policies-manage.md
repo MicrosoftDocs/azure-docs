@@ -113,10 +113,10 @@ Remove-AzRmStorageContainerLegalHold -ResourceGroupName $resourceGroup `
     -StorageAccountName $storageAccount -Name $container -Tag <tag3>
 ```
 
-Create or update immutability policies:
+Create or update time-based immutability policies:
 
 ```powershell
-# Create an immutablity policy
+# Create a time-based immutablity policy
 Set-AzRmStorageContainerImmutabilityPolicy -ResourceGroupName $resourceGroup `
     -StorageAccountName $storageAccount -ContainerName $container -ImmutabilityPeriod 10
 ```
@@ -165,7 +165,24 @@ Remove-AzRmStorageContainerImmutabilityPolicy -ImmutabilityPolicy $policy
 
 ## Enabling allow protected append blobs writes
 
+### [Portal](#tab/azure-portal)
+
 ![Allow additional append writes](media/storage-blob-immutability-policies-manage/immutable-allow-additional-append-writes.png)
+
+### [Azure CLI](#tab/azure-cli)
+
+The feature is included in the following command groups:
+`az storage container immutability-policy`  and `az storage container legal-hold`. Run `-h` on them to see the commands.
+
+### [PowerShell](#tab/azure-powershell)
+
+```powershell
+# Create an immutablity policy with appends allowed
+Set-AzRmStorageContainerImmutabilityPolicy -ResourceGroupName $resourceGroup `
+    -StorageAccountName $storageAccount -ContainerName $container -ImmutabilityPeriod 10 -AllowProtectedAppendWrite $true
+```
+
+---
 
 ## Next steps
 
