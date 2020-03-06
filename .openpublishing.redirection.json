@@ -857,78 +857,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/cognitive-services/QnaMaker/quickstarts/create-new-kb-csharp.md",
-      "redirect_url": "/azure/cognitive-services/QnaMaker/quickstarts/quickstart-rest-curl",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/cognitive-services/QnaMaker/quickstarts/create-new-kb-go.md",
-      "redirect_url": "/azure/cognitive-services/QnaMaker/quickstarts/quickstart-rest-curl",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/cognitive-services/QnaMaker/quickstarts/create-new-kb-java.md",
-      "redirect_url": "/azure/cognitive-services/QnaMaker/quickstarts/quickstart-rest-curl",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/cognitive-services/QnaMaker/quickstarts/create-new-kb-python.md",
-      "redirect_url": "/azure/cognitive-services/QnaMaker/quickstarts/quickstart-rest-curl",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/cognitive-services/QnaMaker/quickstarts/get-answer-from-knowledge-base-csharp.md",
-      "redirect_url": "/azure/cognitive-services/QnaMaker/quickstarts/quickstart-rest-curl",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/cognitive-services/QnaMaker/quickstarts/get-answer-from-knowledge-base-go.md",
-      "redirect_url": "/azure/cognitive-services/QnaMaker/quickstarts/quickstart-rest-curl",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/cognitive-services/QnaMaker/quickstarts/get-answer-from-knowledge-base-java.md",
-      "redirect_url": "/azure/cognitive-services/QnaMaker/quickstarts/quickstart-rest-curl",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/cognitive-services/QnaMaker/quickstarts/get-answer-from-knowledge-base-python.md",
-      "redirect_url": "/azure/cognitive-services/QnaMaker/quickstarts/quickstart-rest-curl",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/cognitive-services/QnaMaker/quickstarts/get-answer-from-knowledge-base-nodejs.md",
-      "redirect_url": "/azure/cognitive-services/QnaMaker/quickstarts/quickstart-rest-curl",
-      "redirect_document_id": false
-    },
-
-    {
-      "source_path": "articles/cognitive-services/QnaMaker/quickstarts/publish-kb-csharp.md",
-      "redirect_url": "/azure/cognitive-services/QnaMaker/quickstarts/quickstart-rest-curl",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/cognitive-services/QnaMaker/quickstarts/publish-kb-go.md",
-      "redirect_url": "/azure/cognitive-services/QnaMaker/quickstarts/quickstart-rest-curl",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/cognitive-services/QnaMaker/quickstarts/publish-kb-java.md",
-      "redirect_url": "/azure/cognitive-services/QnaMaker/quickstarts/quickstart-rest-curl",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/cognitive-services/QnaMaker/quickstarts/publish-kb-python.md",
-      "redirect_url": "/azure/cognitive-services/QnaMaker/quickstarts/quickstart-rest-curl",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/cognitive-services/QnaMaker/quickstarts/publish-kb-nodejs.md",
-      "redirect_url": "/azure/cognitive-services/QnaMaker/quickstarts/quickstart-rest-curl",
-      "redirect_document_id": false
-    },
-
-    {
       "source_path": "articles/cognitive-services/LUIS/luis-tutorial-bot-csharp-appinsights.md",
       "redirect_url": "/azure/cognitive-services/LUIS/luis-csharp-tutorial-bf-v4",
       "redirect_document_id": false
@@ -14989,6 +14917,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/machine-learning/designer-sample-datasets.md",
+      "redirect_url": "/azure/machine-learning/sample-designer-datasets",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/machine-learning/service/how-to-enable-app-insights.md",
       "redirect_url": "/azure/machine-learning/how-to-enable-app-insights",
       "redirect_document_id": true
@@ -15292,6 +15225,16 @@
       "source_path": "articles/machine-learning/service/tutorial-train-models-with-aml.md",
       "redirect_url": "/azure/machine-learning/tutorial-train-models-with-aml",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/machine-learning/algorithm-module-reference/pca-based-anomaly-detection.md",
+      "redirect_url": "/azure/machine-learning/algorithm-module-reference/module-reference",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/algorithm-module-reference/train-anomaly-detection-model.md",
+      "redirect_url": "/azure/machine-learning/algorithm-module-reference/module-reference",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/machine-learning/how-to-ui-sample-regression-predict-automobile-price-basic.md",
@@ -18626,6 +18569,11 @@
     {
       "source_path": "articles/backup/backup-azure-backup-ibiza-faq.md",
       "redirect_url": "/azure/backup/backup-azure-backup-faq",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/backup/backup-configure-vault.md",
+      "redirect_url": "/azure/backup/backup-windows-with-mars-agent",
       "redirect_document_id": false
     },
     {
@@ -31120,7 +31068,7 @@
     },
     {
       "source_path": "articles/backup/backup-configure-vault-classic.md",
-      "redirect_url": "/azure/backup/backup-configure-vault",
+      "redirect_url": "/azure/backup/backup-windows-with-mars-agent",
       "redirect_document_id": false
     },
     {
@@ -31130,7 +31078,7 @@
     },
     {
       "source_path": "articles/backup/backup-try-azure-backup-in-10-mins.md",
-      "redirect_url": "/azure/backup/backup-configure-vault",
+      "redirect_url": "/azure/backup/backup-windows-with-mars-agent",
       "redirect_document_id": false
     },
     {
@@ -49223,6 +49171,11 @@
       "source_path": "articles/jenkins/install-jenkins-solution-template.md",
       "redirect_url": "/azure/jenkins/install-solution-template-tutorial",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/sapi-phoneset-usage.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/speech-ssml-phonetic-sets",
+      "redirect_document_id": false
     }
   ]
 }
