@@ -211,6 +211,14 @@ groups:
     title: JavaScript
   - id: programming-language-python
     title: Python
+- id: java-build-tools-set
+  title: Build tools
+  prompt: Choose a build tool
+  pivots:
+  - id: java-build-tools-maven
+    title: Maven
+  - id: java-build-tools-gradle
+    title: Gradle
 - id: platforms-set-of-three
   title: Platforms
   prompt: Choose a platform

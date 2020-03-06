@@ -6,7 +6,7 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 02/24/2020
+ms.date: 03/05/2020
 ms.author: aahi
 ---
 
@@ -22,7 +22,7 @@ The Bing Web Search SDK is compatible with Python 2.7, 3.3, 3.4, 3.5, and 3.6. W
 * [virtualenv](https://docs.python.org/3/tutorial/venv.html) for Python 2.7
 * [venv](https://pypi.python.org/pypi/virtualenv) for Python 3.x
 
-[!INCLUDE [bing-web-search-quickstart-signup](~/includes/bing-web-search-quickstart-signup.md)]
+[!INCLUDE [bing-web-search-quickstart-signup](../../../../../includes/bing-web-search-quickstart-signup.md)]
 
 ## Create and configure your virtual environment
 

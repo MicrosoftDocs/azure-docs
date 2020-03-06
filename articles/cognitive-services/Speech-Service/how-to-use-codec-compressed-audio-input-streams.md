@@ -17,8 +17,8 @@ ms.author: amishu
 The Speech SDK's **Compressed Audio Input Stream** API provides a way to stream compressed audio to the Speech service using PullStream or PushStream.
 
 > [!IMPORTANT]
-> Streaming compressed input audio is currently supported for C++, C#, and Java on Linux (Ubuntu 16.04, Ubuntu 18.04, Debian 9). It is also supported for [Java in Android](how-to-use-codec-compressed-audio-input-streams-android.md) and [Objective-C in iOS](how-to-use-codec-compressed-audio-input-streams-ios.md) platform.
-> Speech SDK version 1.7.0 or higher is required.
+> Streaming compressed input audio is currently supported for C++, C#, and Java on Linux (Ubuntu 16.04, Ubuntu 18.04, Debian 9, RHEL 8, CentOS 8). It is also supported for [Java in Android](how-to-use-codec-compressed-audio-input-streams-android.md) and [Objective-C in iOS](how-to-use-codec-compressed-audio-input-streams-ios.md) platform.
+> Speech SDK version 1.7.0 or higher is required (version 1.10.0 or higher for RHEL 8, CentOS 8).
 
 For wav/PCM see the mainline speech documentation.  Outside of wav/PCM, the following codec compressed input formats are supported:
 
@@ -35,6 +35,15 @@ Handling compressed audio is implemented using [GStreamer](https://gstreamer.fre
 ```sh
 sudo apt install libgstreamer1.0-0 gstreamer1.0-plugins-base gstreamer1.0-plugins-good gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly
 ```
+
+On RHEL/CentOS 8:
+
+```sh
+sudo yum install gstreamer1 gstreamer1-plugins-base gstreamer1-plugins-good gstreamer1-plugins-bad-free gstreamer1-plugins-ugly-free
+```
+
+> [!NOTE]
+> On RHEL/CentOS 8, follow the instructions on [how to configure OpenSSL for Linux](~/articles/cognitive-services/speech-service/how-to-configure-openssl-linux.md).
 
 ## Example code using codec compressed audio input
 
