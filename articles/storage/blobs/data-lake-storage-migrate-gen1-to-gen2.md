@@ -128,10 +128,12 @@ This is the simplest pattern.
 
 ![lift and shift pattern](./media/data-lake-storage-migrate-gen1-to-gen2/lift-and-shift.png)
 
-Considerations for using this pattern:
+#### Considerations for using this pattern:
 
 - Cutover from Gen1 to Gen2 for all workloads at the same time.
+
 - Expect downtime during the migration and the cutover period.
+
 - Ideal for pipelines that can afford downtime and all apps can be upgraded at one time.
 
 > [!TIP]
@@ -149,10 +151,12 @@ Considerations for using this pattern:
 
 ![Incremental copy pattern](./media/data-lake-storage-migrate-gen1-to-gen2/incremental-copy.png)
 
-Considerations for using this pattern:
+#### Considerations for using this pattern:
 
 - Cutover from Gen1 to Gen2 for all workloads at the same time.
+
 - Expect downtime during cutover period only.
+
 - Ideal for pipelines where all apps upgraded at one time, but the data copy requires more time.
 
 > [!TIP]
@@ -170,10 +174,12 @@ Considerations for using this pattern:
 
 ![Dual pipeline pattern](./media/data-lake-storage-migrate-gen1-to-gen2/dual-pipeline.png)
 
-Considerations for using this pattern:
+#### Considerations for using this pattern:
 
 - Gen1 and Gen2 pipelines run side-by-side.
+
 - Supports zero downtime.
+
 - Ideal in situations where your workloads and applications can't afford any downtime, and you can ingest into both storage accounts.
 
 > [!TIP]
@@ -193,9 +199,10 @@ This pattern is similar to the *dual pipeline* pattern, but it's more ideally su
 
 ![Bidirectional pattern](./media/data-lake-storage-migrate-gen1-to-gen2/bidirectional-sync.png)
 
-Considerations for using this pattern:
+#### Considerations for using this pattern:
 
 - Ideal for complex scenarios that involve a large number of pipelines and dependencies where a phased approach might make more sense.  
+
 - Migration effort is high, but it provides side-by-side support for Gen1 and Gen2.
 
 > [!TIP]
