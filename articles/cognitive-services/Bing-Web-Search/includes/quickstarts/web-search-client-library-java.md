@@ -6,7 +6,7 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 02/24/2020
+ms.date: 03/05/2020
 ms.author: aahi
 ---
 
@@ -22,7 +22,7 @@ Here are a few things that you'll need before running this quickstart:
 * [Apache Maven](https://maven.apache.org/download.cgi) or your favorite build automation tool
 * A subscription key
 
-[!INCLUDE [bing-web-search-quickstart-signup](~/includes/bing-web-search-quickstart-signup.md)]
+[!INCLUDE [bing-web-search-quickstart-signup](../../../../../includes/bing-web-search-quickstart-signup.md)]
 
 ## Create a project and set up your POM file
 
