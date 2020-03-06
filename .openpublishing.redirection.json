@@ -15247,6 +15247,41 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/machine-learning/how-to-designer-sample-classification-churn.md",
+      "redirect_url": "/azure/machine-learning/samples-designer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/how-to-designer-sample-classification-credit-risk-cost-sensitive.md",
+      "redirect_url": "/azure/machine-learning/samples-designer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/how-to-designer-sample-classification-flight-delay.md",
+      "redirect_url": "/azure/machine-learning/samples-designer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/how-to-designer-sample-classification-predict-income.md",
+      "redirect_url": "/azure/machine-learning/samples-designer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/how-to-designer-sample-regression-automobile-price-basic.md",
+      "redirect_url": "/azure/machine-learning/samples-designer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/how-to-designer-sample-regression-automobile-price-compare-algorithms.md",
+      "redirect_url": "/azure/machine-learning/samples-designer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/how-to-designer-sample-text-classification.md",
+      "redirect_url": "/azure/machine-learning/samples-designer",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/log-analytics/log-analytics-add-solutions.md",
       "redirect_url": "/azure/monitoring/monitoring-solutions",
       "redirect_document_id": false
