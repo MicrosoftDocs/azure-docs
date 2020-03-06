@@ -85,10 +85,10 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
   + **azureml-defaults**
     + `azureml-dataprep` will now be installed as part of `azureml-defaults`
   + **azureml-interpret**
-    + update azureml-interpret to interpret-community 0.6.*
+    + Updated azureml-interpret to interpret-community 0.6.*
     + Updated azureml-interpret to depend on interpret-community 0.5.0
-    + added azureml-style exceptions to azureml-interpret
-    + fixed DeepScoringExplainer serialization for keras models
+    + Added azureml-style exceptions to azureml-interpret
+    + Fixed DeepScoringExplainer serialization for keras models
   + **azureml-mlflow**
     + Add support for sovereign clouds to azureml.mlflow
   + **azureml-pipeline-core**
