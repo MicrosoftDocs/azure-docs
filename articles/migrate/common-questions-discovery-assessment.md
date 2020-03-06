@@ -1,12 +1,12 @@
 ---
-title: Common questions - Discovery, assessment, and dependency analysis in Azure Migrate
+title: Discovery, assessment, and dependency analysis FAQ
 description: Get answers to common questions about discovery, assessment, and dependency analysis in Azure Migrate.
 ms.topic: conceptual
 ms.date: 02/17/2020
 
 ---
 
-# Common questions about discovery, assessment, and dependency analysis
+# Discovery, assessment, and dependency analysis FAQ
 
 This article answers common questions about discovery, assessment, and dependency analysis in Azure Migrate. If you have other questions, check these resources:
 
@@ -26,7 +26,7 @@ The Azure Migrate appliance continuously collects information about the on-premi
 ## How do I discover VMs in a multitenant environment?
 
 - **VMware**: If an environment is shared across tenants and you don't want to discover a tenant's VMs in another tenant's subscription, create VMware vCenter Server credentials that can access only the VMs you want to discover. Then, use those credentials when you start discovery in the Azure Migrate appliance.
-- **Hyper-v**: Discovery uses Hyper-V host credentials. If VMs share the same Hyper-V host, there's currently no way to separate the discovery.  
+- **Hyper-V**: Discovery uses Hyper-V host credentials. If VMs share the same Hyper-V host, there's currently no way to separate the discovery.  
 
 ## Do I need vCenter Server?
 
