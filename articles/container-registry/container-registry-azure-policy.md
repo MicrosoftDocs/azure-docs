@@ -64,14 +64,14 @@ Name                                                                            
 [Preview]: Container Registries should be encrypted with a Customer-Managed Key (CMK)  /subscriptions/<subscriptionID>/providers/Microsoft.Authorization/policyAssignments/cce1ed4f38a147ad994ab60a
 ```
 
-Then run [az policy state list](/cli/azure/policy/state#az-policy-assignment-list) to return the JSON-formatted compliance state for all resources under a specific policy ID:
+Then run [az policy state list](/cli/azure/policy/state#az-policy-state-list) to return the JSON-formatted compliance state for all resources under a specific policy ID:
 
 ```azurecli
 az policy state list \
   --resource <policyID>
 ```
 
-Or run [az policy state list](/cli/azure/policy/state#az-policy-assignment-list) to return the JSON-formatted compliance state of a specific registry resource, such as *myregistry*:
+Or run [az policy state list](/cli/azure/policy/state#az-policy-state-list) to return the JSON-formatted compliance state of a specific registry resource, such as *myregistry*:
 
 ```azurecli
 az policy state list \
