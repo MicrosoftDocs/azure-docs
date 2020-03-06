@@ -93,7 +93,7 @@ Content-Type: "application/json"
 
 ## Assign roles to users
 
-Use the [Applications role assignments POST API](https://docs.microsoft.com/rest/api/azure-blockchain-workbench/applications/roleassignmentspost) by passing the application ID, user ID, and application role id to create a user-to-role mapping in the specified blockchain application. This method can only be performed by users who are Workbench administrators.
+Use the [Applications role assignments POST API](https://docs.microsoft.com/rest/api/azure-blockchain-workbench/applications/roleassignmentspost) by passing the application ID, user ID, and application role ID to create a user-to-role mapping in the specified blockchain application. This method can only be performed by users who are Workbench administrators.
 
 ### Role assignments POST request
 
@@ -129,8 +129,8 @@ HTTP/1.1 200
 
 Use the [Applications GET API](https://docs.microsoft.com/rest/api/azure-blockchain-workbench/applications/applicationsget) to retrieve all Blockchain Workbench applications for the user. In this example, the signed-in user has access to two applications:
 
-1. [Asset transfer](https://github.com/Azure-Samples/blockchain/blob/master/blockchain-workbench/application-and-smart-contract-samples/asset-transfer/readme.md)
-2. [Refrigerated transportation](https://github.com/Azure-Samples/blockchain/blob/master/blockchain-workbench/application-and-smart-contract-samples/refrigerated-transportation/readme.md)
+- [Asset transfer](https://github.com/Azure-Samples/blockchain/blob/master/blockchain-workbench/application-and-smart-contract-samples/asset-transfer/readme.md)
+- [Refrigerated transportation](https://github.com/Azure-Samples/blockchain/blob/master/blockchain-workbench/application-and-smart-contract-samples/refrigerated-transportation/readme.md)
 
 ### Applications GET request
 
