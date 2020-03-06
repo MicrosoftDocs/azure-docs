@@ -62,4 +62,4 @@ When _Vision AI Dev Kit_ is selected the _Generic_, _Landmarks_, and _Retail_ bu
 >[!IMPORTANT]
 >There is no guarantee that the exported models give the exactly same result as the prediction API on the cloud. Slight difference in the running platform or the preprocessing implementation can cause larger difference in the model outputs. For the detail of the preprocessing logic, please see [this document](python-tutorial.md).
 
-[^1]: Intel Xeon E5-2690 CPU and NVIDIA Tesla M60
+\[1\] Intel Xeon E5-2690 CPU and NVIDIA Tesla M60
