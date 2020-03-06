@@ -3,7 +3,7 @@ title: Server-side encryption of Azure Managed Disks - Azure CLI
 description: Azure Storage protects your data by encrypting it at rest before persisting it to Storage clusters. You can rely on Microsoft-managed keys for the encryption of your managed disks, or you can use customer-managed keys to manage encryption with your own keys.
 author: roygara
 
-ms.date: 01/13/2020
+ms.date: 03/06/2020
 ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines-linux
@@ -54,13 +54,21 @@ To revoke access to customer-managed keys, see [Azure Key Vault PowerShell](http
 
 Only the following regions are currently supported:
 
-- Available as a GA offering in the East US, West US 2, and South Central US regions.
-- Available as a public preview in the West Central US, East US 2, Canada Central, and North Europe regions.
+- East US
+- East US 2
+- West US 2
+- South Central US
+- Canada Central
+- UK South
+- North Europe
 
 ### Restrictions
 
 For now, customer-managed keys have the following restrictions:
 
+- Ultra disk support for this feature is in preview, all other disk types are in GA.
+- If this feature is enabled for your disk, you cannot disable it.
+    If you need to work around this, you must [copy all the data](disks-upload-vhd-to-managed-disk-cli.md#copy-a-managed-disk) to an entirely different managed disk that isn't using customer-managed keys.
 - Only ["soft" and "hard" RSA keys](../../key-vault/about-keys-secrets-and-certificates.md#keys-and-key-types) of size 2080 are supported, no other keys or sizes.
 - Disks created from custom images that are encrypted using server-side encryption and customer-managed keys must be encrypted using the same customer-managed keys and must be in the same subscription.
 - Snapshots created from disks that are encrypted with server-side encryption and customer-managed keys must be encrypted with the same customer-managed keys.
@@ -95,7 +103,7 @@ For now, customer-managed keys have the following restrictions:
     az keyvault key create --vault-name $keyVaultName -n $keyName --protection software
     ```
 
-1.	Create an instance of a DiskEncryptionSet. 
+1.    Create an instance of a DiskEncryptionSet. 
     
     ```azurecli
     keyVaultId=$(az keyvault show --name $keyVaultName --query [id] -o tsv)
@@ -105,7 +113,7 @@ For now, customer-managed keys have the following restrictions:
     az disk-encryption-set create -n $diskEncryptionSetName -l $location -g $rgName --source-vault $keyVaultId --key-url $keyVaultKeyUrl
     ```
 
-1.	Grant the DiskEncryptionSet resource access to the key vault. 
+1.    Grant the DiskEncryptionSet resource access to the key vault. 
 
     > [!NOTE]
     > It may take few minutes for Azure to create the identity of your DiskEncryptionSet in your Azure Active Directory. If you get an error like "Cannot find the Active Directory object" when running the following command, wait a few minutes and try again.
