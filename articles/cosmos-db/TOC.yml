@@ -89,7 +89,7 @@
       href: relational-nosql.md
     - name: Global distribution
       items:
-      - name: Overview
+      - name: Global distribution Overview
         displayName: replication, replicate, geo distribution
         href: distribute-data-globally.md
       - name: Consistency levels
@@ -118,7 +118,7 @@
         href: globally-distributed-transactional-analytical-storage.md
     - name: Partitioning
       items:
-      - name: Overview
+      - name: Partitioning overview
         href: partitioning-overview.md
       - name: Partitioning and horizontal scaling
         href: partition-data.md
@@ -461,7 +461,7 @@
         href: modeling-data.md
       - name: Indexing
         items:
-        - name: Overview
+        - name: Indexing overview
           displayName: range, spatial
           href: index-overview.md
         - name: Indexing policies
@@ -476,7 +476,7 @@
         href: database-transactions-optimistic-concurrency.md
     - name: Change feed
       items:
-      - name: Overview
+      - name: Change feed overview
         href: change-feed.md
       - name: Reading change feed
         href: read-change-feed.md
@@ -530,7 +530,7 @@
           href: cosmos-db-reserved-capacity.md
     - name: Security
       items:
-        - name: Overview
+        - name: Security overview
           href: database-security.md
         - name: Data encryption
           href: database-encryption-at-rest.md
@@ -564,12 +564,14 @@
     items:
     - name: Cassandra API
       items:
-      - name: Introduction
-        href: cassandra-introduction.md
-      - name: Wire protocol support
-        href: cassandra-support.md
-      - name: Elastic scale
-        href: manage-scale-cassandra.md
+      - name: Overview
+        items:
+        - name: What is Cassandra API in Cosmos DB?
+          href: cassandra-introduction.md
+        - name: Wire protocol support
+          href: cassandra-support.md
+        - name: Elastic scale
+          href: manage-scale-cassandra.md
       - name: Quickstarts
         items:
         - name: .NET
@@ -628,12 +630,14 @@
           href: cli-samples-cassandra.md
     - name: MongoDB API
       items:
-      - name: Introduction
-        href: mongodb-introduction.md
-      - name: Wire protocol support (3.2)
-        href: mongodb-feature-support.md
-      - name: Wire protocol support (3.6)
-        href: mongodb-feature-support-36.md
+      - name: Overview
+        items:
+        - name: What is MongoDB API in Cosmos DB?
+          href: mongodb-introduction.md
+        - name: Wire protocol support (3.2)
+          href: mongodb-feature-support.md
+        - name: Wire protocol support (3.6)
+          href: mongodb-feature-support-36.md
       - name: Quickstarts
         items:
         - name: .NET
@@ -719,10 +723,12 @@
     - name: Gremlin API
       displayName: graph, graph database
       items:
-      - name: Introduction
-        href: graph-introduction.md
-      - name: Wire protocol support
-        href: gremlin-support.md
+      - name: Overview
+        items:
+        - name: What is Germlin API in Cosmos DB?
+          href: graph-introduction.md
+        - name: Wire protocol support
+          href: gremlin-support.md
       - name: Quickstarts
         items:
         - name: Gremlin console
@@ -778,8 +784,10 @@
           href: cli-samples-gremlin.md
     - name: Table API
       items:
-      - name: Introduction
-        href: table-introduction.md
+      - name: Overview
+        items:
+        - name: What is Table API in Cosmos DB?
+          href: table-introduction.md
       - name: Quickstarts
         items:
         - name: .NET
@@ -849,10 +857,14 @@
             href: /rest/api/storageservices/table-service-rest-api
     - name: Etcd API
       items:
-      - name: Introduction
-        href: etcd-api-introduction.md
-      - name: Azure Kubernetes with Azure Cosmos DB
-        href: bootstrap-kubernetes-cluster.md
+      - name: Overview
+        items:
+        - name: Introduction
+          href: etcd-api-introduction.md
+      - name: How-to guides
+        items:
+        - name: Azure Kubernetes with Azure Cosmos DB
+          href: bootstrap-kubernetes-cluster.md
   - name: How-to guides
     items:
     - name: Work with Azure Cosmos account
