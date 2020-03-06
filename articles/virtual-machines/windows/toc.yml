@@ -481,6 +481,8 @@
       href: mitigate-se.md
     - name: Monitor metadata
       href: instance-metadata-service.md
+    - name: Get usage metrics with REST
+      href: ../linux/metrics-vm-usage-rest.md
     - name: Enable nested virtualization
       href: nested-virtualization.md
   - name: Platform maintenance
