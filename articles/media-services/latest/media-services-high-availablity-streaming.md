@@ -24,7 +24,7 @@ By following the guidelines and best-practices described in the article, you wil
 
 ## Prerequisites
 
-Check out [How to build a cross-regional encoding system](media-services-high-availablity-encoding.md)
+Check out [How to build a cross-regional encoding system](media-services-high-availability-encoding.md)
 
 ## How to build video-on-demand cross region streaming 
 

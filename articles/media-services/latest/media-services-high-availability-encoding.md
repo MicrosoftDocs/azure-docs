@@ -27,7 +27,7 @@ By following the guidelines and best-practices described in the article, you wil
 * [Create](create-account-cli-how-to.md) two (or more) Azure Media Services accounts.
 
     The two accounts need to be in different regions.
-* Upload your media to the same region from which you are planning to submit the [job](transforms-jobs-concept.md). For more information about how to start encoding, see [Create a job input from an HTTPS URL](job-input-from-http-how-to.md) or [Create a job input from a local file](job-input-from-local-file-how-to).
+* Upload your media to the same region from which you are planning to submit the [job](transforms-jobs-concept.md). For more information about how to start encoding, see [Create a job input from an HTTPS URL](job-input-from-http-how-to.md) or [Create a job input from a local file](job-input-from-local-file-how-to.md).
 
     If you then need to resubmit the job to another region, you can use JobInputHttp or have storage copy the data from one storage account to another.
 * Subscribe for **JobStateChange** messages in each account.
@@ -59,5 +59,5 @@ If you find the MRU count is thrashing up and down a lot, move the decrement log
 
 ## Next steps
 
-* [Build video-on-demand cross region streaming](media-services-high-availablity-streaming.md)
+* [Build video-on-demand cross region streaming](media-services-high-availability-streaming.md)
 * Check out [code samples](https://docs.microsoft.com/samples/browse/?products=azure-media-services)
