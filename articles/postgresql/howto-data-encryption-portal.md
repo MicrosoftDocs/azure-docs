@@ -89,8 +89,19 @@ After Azure Database for PostgreSQL Single server is encrypted with a customer's
 
    ![Screenshot of Azure Database for PostgreSQL, showing restored functionality](media/concepts-data-access-and-security-data-encryption/restore-successful.png)
 
-## Using an Azure Resource Manager template to enable data encryption on an existing server
-You can use ARM templates to enable data encryption on your existing Azure database for PostgreSQL Single servers.
+## Using an Azure Resource Manager template to enable data encryption
+
+Apart from Portal you can also enable data encryption on your Azure Database for PostgreSQL single server using Azure Resource Manager templates both for a new server as well as an existing server.
+
+### For a new server
+
+We have also created deployable ARM Templates to provision the server with data encryption enabled:
+[Example with Data encryption](https://github.com/Azure/azure-postgresql/tree/master/arm-templates/ExampleWithDataEncryption)
+
+This ARM template creates a Azure Database for PostgreSQL Single server and uses the **KeyVault** and **Key** passed as parameters to enable data encryption on the server.
+
+### For an existing server
+Additionally, you can use ARM templates to enable data encryption on your existing Azure database for PostgreSQL Single servers.
 
 * Pass the URI of the Azure Key Vault key that you copied earlier under the keyVaultKeyUri property in the properties object.
 
