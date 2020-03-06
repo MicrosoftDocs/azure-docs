@@ -73,6 +73,6 @@ To protect your Assets at rest, the assets should be encrypted by the storage si
 
 [Manage assets in Media Services](manage-asset-concept.md)
 
-## Also see
+## See also
 
 [Differences between Media Services v2 and v3](migrate-from-v2-to-v3.md)

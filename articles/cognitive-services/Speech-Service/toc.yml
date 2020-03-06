@@ -193,6 +193,8 @@
       items:
       - name: Text-to-speech REST API
         href: rest-text-to-speech.md
+    - name: SSML phonetic sets
+      href: speech-ssml-phonetic-sets.md
   - name: Resources
     items:
     - name: Text-to-speech FAQ
@@ -443,8 +445,6 @@
       href: ship-application.md
   - name: Quickstart
     items:
-    - name: Create a project
-      href: quickstarts/create-project.md
     - name: Setup Speech SDK
       href: quickstarts/setup-platform.md
       displayName: install the speech sdk, install the speech sdk java, install the speech sdk C#, install the speech sdk python, install the speech sdk C++, setup speech sdk, install, install C#, install C++, install Python, install Java, install Javascript
@@ -494,8 +494,10 @@
     items:
     - name: Microphone array recommendations
       href: speech-devices-sdk-microphone.md
-    - name: Roobo v1 kit
+    - name: Roobo v1 details
       href: speech-devices-sdk-roobo-v1.md
+    - name: Roobo v2 details
+      href: speech-devices-sdk-roobo-v2.md
   - name: Quickstart
     items:
     - name: Use Speech Devices SDK

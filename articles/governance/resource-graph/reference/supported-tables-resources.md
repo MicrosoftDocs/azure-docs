@@ -1,7 +1,7 @@
 ---
 title: Supported Resource Manager resource types
 description: Provide a list of the Resource Manager resource types supported by Azure Resource Graph and Change History.
-ms.date: 02/25/2020
+ms.date: 03/05/2020
 ms.topic: reference
 ---
 # Azure Resource Graph table and resource type reference
@@ -206,6 +206,7 @@ part of a **table** in Resource Graph.
 - microsoft.insights/metricalerts
 - microsoft.insights/notificationgroups
 - microsoft.insights/notificationrules
+- microsoft.insights/privatelinkscopes
 - microsoft.insights/scheduledqueryrules
 - microsoft.insights/webtests
 - microsoft.insights/workbooks
@@ -343,6 +344,7 @@ part of a **table** in Resource Graph.
 - microsoft.search/searchservices
 - microsoft.security/automations
 - microsoft.security/iotsecuritysolutions
+- microsoft.securitydetonation/chambers
 - microsoft.servicebus/namespaces
 - microsoft.servicefabric/clusters
 - microsoft.servicefabric/containergroupsets

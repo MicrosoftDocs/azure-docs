@@ -146,11 +146,11 @@ Start-AzAutomationRunbook `
 
 This section describes some ways to handle exceptions or intermittent issues in your runbooks.
 
-#### $ErrorActionPreference
+#### ErrorActionPreference
 
-The [$ErrorActionPreference](/powershell/module/microsoft.powershell.core/about/about_preference_variables#erroractionpreference) variable determines how PowerShell responds to a non-terminating error. Terminating errors always terminate and are not affected by *$ErrorActionPreference*.
+The [ErrorActionPreference](/powershell/module/microsoft.powershell.core/about/about_preference_variables#erroractionpreference) variable determines how PowerShell responds to a non-terminating error. Terminating errors always terminate and are not affected by *ErrorActionPreference*.
 
-When the runbook uses *$ErrorActionPreference*, a normally non-terminating error such as **PathNotFound** from the **Get-ChildItem** cmdlet stops the runbook from completing. The following example shows the use of *$ErrorActionPreference*. The final **Write-Output** command never executes, as the script stops.
+When the runbook uses *ErrorActionPreference*, a normally non-terminating error such as **PathNotFound** from the **Get-ChildItem** cmdlet stops the runbook from completing. The following example shows the use of *ErrorActionPreference*. The final **Write-Output** command never executes, as the script stops.
 
 ```powershell-interactive
 $ErrorActionPreference = 'Stop'

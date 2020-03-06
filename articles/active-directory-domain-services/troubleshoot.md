@@ -134,7 +134,7 @@ If one or more users in your Azure AD tenant can't sign in to the Azure AD DS ma
       * You've deployed, or updated to, the [latest recommended release of Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594).
       * You've configured Azure AD Connect to [perform a full synchronization][hybrid-phs].
       * Depending on the size of your directory, it may take a while for user accounts and credential hashes to be available in Azure AD DS. Make sure you wait long enough before trying to authenticate against the managed domain.
-      * If the issue persists after verifying the previous steps, try restarting the *Microsoft Azure AD Sync Service*. From your [management VM][management-vm], open a command prompt and run the following commands:
+      * If the issue persists after verifying the previous steps, try restarting the *Microsoft Azure AD Sync Service*. From your Azure AD Connect server, open a command prompt and run the following commands:
     
         ```console
         net stop 'Microsoft Azure AD Sync'

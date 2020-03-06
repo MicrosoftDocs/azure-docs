@@ -160,7 +160,7 @@ To finish preparing the Run As account:
 
 1. Save the **Export-RunAsCertificateToHybridWorker** runbook to your computer with a **.ps1** extension.
 2. Import it into your Automation account.
-3. Edit the runbook, changing the value of the variable *$Password* to your own password. 
+3. Edit the runbook, changing the value of the *Password* variable o your own password. 
 4. Publish the runbook.
 5. Run the runbook, targeting the Hybrid Runbook Worker group that runs and authenticates runbooks using the Run As account. 
 6. Examine the job stream to see that it reports the attempt to import the certificate into the local machine store, and follows with multiple lines. This behavior depends on how many Automation accounts you define in your subscription and the degree of success of the authentication.
