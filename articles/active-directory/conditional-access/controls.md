@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # Custom controls (preview)
 
-Custom controls are a capability of the Azure Active Directory Premium P1 edition. When using custom controls, your users are redirected to a compatible service to satisfy further requirements outside of Azure Active Directory. To satisfy this control, a user’s browser is redirected to the external service, performs any required authentication or validation activities, and is then redirected back to Azure Active Directory. Azure Active Directory verifies the response and, if the user was successfully authenticated or validated, the user continues in the Conditional Access flow.
+Custom controls are a capability of the Azure Active Directory Premium P1 edition. When using custom controls, your users are redirected to a compatible service to satisfy further requirements outside of Azure Active Directory. To satisfy this control, a user's browser is redirected to the external service, performs any required authentication or validation activities, and is then redirected back to Azure Active Directory. Azure Active Directory verifies the response and, if the user was successfully authenticated or validated, the user continues in the Conditional Access flow.
 
 These controls allow the use of certain external or custom services as Conditional Access controls, and generally extend the capabilities of Conditional Access.
 
@@ -42,7 +42,7 @@ To create a custom control, you should first contact the provider that you wish 
 
 Custom controls cannot be used with Identity Protection's automation requiring multi-factor authentication or to elevate roles in Privileged Identity Manager (PIM).
 
-Copy the JSON data and then paste it into the related textbox. Do not make any changes to the JSON unless you explicitly understand the change you’re making. Making any change could break the connection between the provider and Microsoft and potentially lock you and your users out of your accounts.
+Copy the JSON data and then paste it into the related textbox. Do not make any changes to the JSON unless you explicitly understand the change you're making. Making any change could break the connection between the provider and Microsoft and potentially lock you and your users out of your accounts.
 
 The option to create a custom control is in the **Manage** section of the **Conditional Access** page.
 
@@ -54,7 +54,7 @@ Clicking **New custom control**, opens a blade with a textbox for the JSON data 
 
 ## Deleting custom controls
 
-To delete a custom control, you must first ensure that it isn’t being used in any Conditional Access policy. Once complete:
+To delete a custom control, you must first ensure that it isn't being used in any Conditional Access policy. Once complete:
 
 1. Go to the Custom controls list
 1. Click …  
@@ -64,22 +64,10 @@ To delete a custom control, you must first ensure that it isn’t being used in 
 
 To edit a custom control, you must delete the current control and create a new control with the updated information.
 
-## Session controls
-
-Session controls enable limited experience within a cloud app. The session controls are enforced by cloud apps and rely on additional information provided by Azure AD to the app about the session.
-
-![Control](./media/controls/31.png)
-
-### Use app enforced restrictions
-
-You can use this control to require Azure AD to pass device information to the selected cloud apps. The device information enables the cloud apps to know whether a connection is initiated from a compliant or domain-joined device. This control only supports SharePoint Online and Exchange Online as selected cloud apps. When selected, the cloud app uses the device information to provide users, depending on the device state, with a limited or full experience.
-
-To learn more, see:
-
-- [Enabling limited access with SharePoint Online](https://aka.ms/spolimitedaccessdocs)
-- [Enabling limited access with Exchange Online](https://aka.ms/owalimitedaccess)
-
 ## Next steps
 
-- If you want to know how to configure a Conditional Access policy, see [Require MFA for specific apps with Azure Active Directory Conditional Access](app-based-mfa.md).
-- If you are ready to configure Conditional Access policies for your environment, see the [best practices for Conditional Access in Azure Active Directory](best-practices.md).
+- [Conditional Access common policies](concept-conditional-access-policy-common.md)
+
+- [Report-only mode](concept-conditional-access-report-only.md)
+
+- [Simulate sign in behavior using the Conditional Access What If tool](troubleshoot-conditional-access-what-if.md)
