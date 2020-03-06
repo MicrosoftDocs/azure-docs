@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.author: mnark
 author: MrudulaN
 ms.reviewer: larryfr
-ms.date: 10/25/2019
+ms.date: 03/05/2020
 ---
 
 # Deploy a model to Azure Machine Learning compute instances

@@ -16,7 +16,7 @@ ms.topic: conceptual
 > * [Python](automation-first-runbook-textual-python2.md)
 > 
 
-This tutorial walks you through the creation of a [Graphical runbook](automation-runbook-types.md#graphical-runbooks) in Azure Automation. Start with a simple runbook that tests and publishes, while learning how to track the status of the runbook job. Then modify the runbook to actually manage Azure resources, in this case starting an Azure virtual machine. Complete the tutorial to make the runbook more robust by adding runbook parameters and conditional links.
+This tutorial walks you through the creation of a [graphical runbook](automation-runbook-types.md#graphical-runbooks) in Azure Automation. Start with a simple runbook that you can test and publish, while learning how to track the status of the runbook job. Then modify the runbook to actually manage Azure resources, in this case starting an Azure virtual machine. Complete the tutorial to make the runbook more robust by adding runbook parameters and conditional links.
 
 >[!NOTE]
 >This article has been updated to use the new Azure PowerShell Az module. You can still use the AzureRM module, which will continue to receive bug fixes until at least December 2020. To learn more about the new Az module and AzureRM compatibility, see [Introducing the new Azure PowerShell Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). For Az module installation instructions on your Hybrid Runbook Worker, see [Install the Azure PowerShell Module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). For your Automation account, you can update your modules to the latest version using [How to update Azure PowerShell modules in Azure Automation](automation-update-azure-modules.md).
@@ -31,7 +31,7 @@ To complete this tutorial, you need the following:
 
 ## Step 1 - Create runbook
 
-Start by creating a simple runbook that outputs the text "Hello World".
+Start by creating a simple runbook that outputs the text **Hello World**.
 
 1. In the Azure portal, open your Automation account. 
 
@@ -39,7 +39,7 @@ Start by creating a simple runbook that outputs the text "Hello World".
 2. Select **Runbooks** under **Process Automation** to open the list of runbooks.
 3. Create a new runbook by selecting **Create a runbook**.
 4. Give the runbook the name **MyFirstRunbook-Graphical**.
-5. In this case, you're going to create a [Graphical runbook](automation-graphical-authoring-intro.md). Select **Graphical** for **Runbook type**.<br> ![New runbook](media/automation-first-runbook-graphical/create-new-runbook.png)<br>
+5. In this case, you're going to create a [graphical runbook](automation-graphical-authoring-intro.md). Select **Graphical** for **Runbook type**.<br> ![New runbook](media/automation-first-runbook-graphical/create-new-runbook.png)<br>
 6. Click **Create** to create the runbook and open the graphical editor.
 
 ## Step 2 - Add activities
@@ -72,7 +72,7 @@ Before you publish the runbook to make it available in production, you should te
 
    The job status starts as **Queued**, indicating that the job is waiting for a runbook worker in the cloud to become available. The status changes to **Starting** when a worker claims the job. Finally, the status becomes **Running** when the runbook actually starts to run.
 
-1. When the runbook job completes, the Test page displays its output. In this case, you see **Hello World**.<br> ![Hello World](media/automation-first-runbook-graphical/runbook-test-results.png)
+1. When the runbook job completes, the Test pane displays its output. In this case, you see **Hello World**.<br> ![Hello World](media/automation-first-runbook-graphical/runbook-test-results.png)
 1. Close the Test pane to return to the canvas.
 
 ## Step 4 - Publish and start the runbook
@@ -91,8 +91,8 @@ The runbook that you have created is still in Draft mode. It needs to be publish
 1. Close the Output page.
 1. Click **All Logs** to open the Streams pane for the runbook job. You should only see **Hello World** in the output stream. 
 
-    Note that the Streams pane can show other streams for a runbook job, such as verbose and error streams, if the runbook writes to them.
-1. Close the Streams pane and the Job pane to return to the **MyFirstRunbook-Graphical** page.
+    Note that the Streams pane can show other streams for a runbook job, such as Verbose and Error streams, if the runbook writes to them.
+1. Close the Streams pane and the Job pane to return to the  **MyFirstRunbook-Graphical**  page.
 1. To view all the jobs for the runbook, select **Jobs** under **Resources**. The Jobs page lists all the jobs created by your runbook. You should see only one job listed, since you have only run the job once.
 1. Click the job name to open the same Job pane that you viewed when you started the runbook. Use this pane to view the details of any job created for the runbook.
 
