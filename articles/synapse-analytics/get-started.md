@@ -36,7 +36,7 @@ The first step to use Synapse Analytics is to provision a workspace. Here is an 
 The workspace provisioning process will kick off; notifications will indicate the progress and result from the Synapse workspace deployment.
 
 ### Create a Synapse workspace using other methods
-Follow the steps in [Quickstart: Creating a new Synapse workspace](quickstart-create-new-synapse-workspace.md)
+Follow the steps in [Quickstart: Creating a new Synapse workspace](quickstart-create-workspace.md)
 
 ## Create analytics pools
 Once the Synapse workspace is deployed, SQL pools and Apache Spark pools can be provisioned to use SQL or open-source analytics on your data. Here are the steps to provision them from the Azure Portal:
@@ -79,8 +79,8 @@ Once the deployment completes successfully, the Apache Spark pool will be availa
 
 Follow the steps in our quickstarts:
 
-- [Quickstart: Creating a new SQL pool](quickstart-create-a-sqlpool.md)
-- [Quickstart: Creating a new Apache Spark pool](quickstart-create-an-apachesparkpool.md)
+- [Quickstart: Creating a new SQL pool](quickstart-create-a-sql-pool.md)
+- [Quickstart: Creating a new Apache Spark pool](/quickstart-create-an-apache-spark-pool.md)
 
 ## Add users into the workspace
 <!--- Optional Saveen --->
