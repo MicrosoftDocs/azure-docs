@@ -118,15 +118,18 @@ Let's take a closer look at each pattern.
 
 This is the simplest pattern.
 
-:one: &nbsp;&nbsp; Stop all writes to Gen1.
+1. Stop all writes to Gen1.
 
-:two: &nbsp;&nbsp; Move data from Gen1 to Gen2.
+2. Move data from Gen1 to Gen2.
 
-:three: &nbsp;&nbsp; Point ingest operations and workloads to Gen2.
+3. Point ingest operations and workloads to Gen2.
 
-:four: &nbsp;&nbsp; Decommission Gen1.
+4. Decommission Gen1.
 
 ![lift and shift pattern](./media/data-lake-storage-migrate-gen1-to-gen2/lift-and-shift.png)
+
+> [!TIP]
+> For data transfer, we recommend [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage). ACLs copy with the data.
 
 #### Considerations for using this pattern:
 
@@ -135,9 +138,6 @@ This is the simplest pattern.
 - Expect downtime during the migration and the cutover period.
 
 - Ideal for pipelines that can afford downtime and all apps can be upgraded at one time.
-
-> [!TIP]
-> For data transfer, we recommend [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage). ACLs copy with the data.
 
 ### Incremental copy pattern
 
@@ -151,6 +151,9 @@ This is the simplest pattern.
 
 ![Incremental copy pattern](./media/data-lake-storage-migrate-gen1-to-gen2/incremental-copy.png)
 
+> [!TIP]
+> For data transfer, we recommend [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage). ACLs copy with the data.
+
 #### Considerations for using this pattern:
 
 - Cutover from Gen1 to Gen2 for all workloads at the same time.
@@ -158,9 +161,6 @@ This is the simplest pattern.
 - Expect downtime during cutover period only.
 
 - Ideal for pipelines where all apps upgraded at one time, but the data copy requires more time.
-
-> [!TIP]
-> For data transfer, we recommend [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage). ACLs copy with the data.
 
 ### Dual pipeline pattern
 
@@ -174,6 +174,9 @@ This is the simplest pattern.
 
 ![Dual pipeline pattern](./media/data-lake-storage-migrate-gen1-to-gen2/dual-pipeline.png)
 
+> [!TIP]
+> For data transfer, we recommend [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage). ACLs copy with the data.
+
 #### Considerations for using this pattern:
 
 - Gen1 and Gen2 pipelines run side-by-side.
@@ -181,9 +184,6 @@ This is the simplest pattern.
 - Supports zero downtime.
 
 - Ideal in situations where your workloads and applications can't afford any downtime, and you can ingest into both storage accounts.
-
-> [!TIP]
-> For data transfer, we recommend [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage). ACLs copy with the data.
 
 ### Bi-directional sync pattern
 
@@ -199,14 +199,14 @@ This pattern is similar to the *dual pipeline* pattern, but it's more ideally su
 
 ![Bidirectional pattern](./media/data-lake-storage-migrate-gen1-to-gen2/bidirectional-sync.png)
 
+> [!TIP]
+> For bidirectional data transfer, we recommend [WanDisco](https://docs.wandisco.com/bigdata/wdfusion/adls/). It offers a repair feature for existing data.
+
 #### Considerations for using this pattern:
 
 - Ideal for complex scenarios that involve a large number of pipelines and dependencies where a phased approach might make more sense.  
 
 - Migration effort is high, but it provides side-by-side support for Gen1 and Gen2.
-
-> [!TIP]
-> For bidirectional data transfer, we recommend [WanDisco](https://docs.wandisco.com/bigdata/wdfusion/adls/). It offers a repair feature for existing data.
 
 ## Next steps
 
