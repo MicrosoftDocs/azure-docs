@@ -6,7 +6,12 @@
     href: media-services-overview.md
   - name: What's new in Media Services
     displayName: release notes
-    href: release-notes.md    
+    href: release-notes.md
+- name: Quickstarts
+  items:
+  - name: Live event with portal and Wirecast
+    displayName: live, event, portal, wirecast
+    href: live-events-wirecast-quickstart.md
 - name: Tutorials
   expanded: true
   items:
@@ -186,9 +191,14 @@
         href: live-event-error-codes.md
       - name: Job error codes
         href: job-error-codes.md
-  - name: High availability guidance
-    displayName: failover, bcdr
-    href: media-services-high-availability-guidance.md
+  - name: High availability
+    items:
+    - name: Encoding
+      displayName: failover, bcdr
+      href: media-services-high-availability-encoding.md
+    - name: Streaming
+      displayName: failover, bcdr
+      href: media-services-high-availability-streaming.md
   - name: Migration guidance from v2 to v3
     href: migrate-from-v2-to-v3.md 
     displayName: naming

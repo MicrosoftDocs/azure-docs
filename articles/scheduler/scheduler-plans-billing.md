@@ -1,12 +1,11 @@
 ---
-title: Plans and billing - Azure Scheduler
+title: Plans and billing
 description: Learn about plans and billing for Azure Scheduler
 services: scheduler
 ms.service: scheduler
 author: derek1ee
 ms.author: deli
-ms.reviewer: klam
-ms.assetid: 13a2be8c-dc14-46cc-ab7d-5075bfd4d724
+ms.reviewer: klam, estfan
 ms.topic: article
 ms.date: 08/18/2016
 ---
@@ -17,13 +16,15 @@ ms.date: 08/18/2016
 > [Azure Logic Apps](../logic-apps/logic-apps-overview.md) is replacing Azure Scheduler, which is 
 > [being retired](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date). 
 > To continue working with the jobs that you set up in Scheduler, please 
-> [migrate to Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md) as soon as possible.
+> [migrate to Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md) as soon as possible. 
+>
+> Scheduler is no longer available in the Azure portal, but the [REST API](/rest/api/scheduler) 
+> and [Azure Scheduler PowerShell cmdlets](scheduler-powershell-reference.md) remain available 
+> at this time so that you can manage your jobs and job collections.
 
 ## Job collection plans
 
-In Azure Scheduler, a job collection contains a specific number of jobs. 
-The job collection is the billable entity and comes in Standard, P10 Premium, 
-and P20 Premium plans, which are described here: 
+In Azure Scheduler, a job collection contains a specific number of jobs. The job collection is the billable entity and comes in Standard, P10 Premium, and P20 Premium plans, which are described here: 
 
 | Job collection plan | Max jobs per collection | Max recurrence | Max job collections per subscription | Limits | 
 |:--- |:--- |:--- |:--- |:--- |
@@ -111,8 +112,7 @@ then you're billed for one standard billing unit *and* one premium billing unit.
   The Scheduler service bills based on the number of active 
   job collections that are either standard or premium.
 
-## See also
+## Next steps
 
-* [What is Azure Scheduler?](scheduler-intro.md)
 * [Azure Scheduler concepts, terminology, and entity hierarchy](scheduler-concepts-terms.md)
 * [Azure Scheduler limits, defaults, and error codes](scheduler-limits-defaults-errors.md)
