@@ -125,7 +125,7 @@ The script uses multiple Azure Resource Manager cmdlets to create resources. For
 
 Save the script on your computer using the filename **New-RunAsAccount.ps1**.
 
-    ```powershell
+```powershell
     #Requires -RunAsAdministrator
     Param (
         [Parameter(Mandatory = $true)]
@@ -302,7 +302,7 @@ Save the script on your computer using the filename **New-RunAsAccount.ps1**.
 
         Write-Host -ForegroundColor red       $UploadMessage
     }
-    ```
+```
 
 >[!NOTE]
 >**Add-AzAccount** and **Add-AzureRMAccount** are aliases for [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-3.5.0). You can use these cmdlets or you can [update your modules](automation-update-azure-modules.md) in your Automation account to the latest versions. You might need to update your modules even if you have just created a new Automation account.
@@ -318,29 +318,29 @@ After the script has executed, you will be prompted to authenticate with Azure. 
 
 #### Create a Run As account by using a self-signed certificate
 
-    ```powershell
+```powershell
     .\New-RunAsAccount.ps1 -ResourceGroup <ResourceGroupName> -AutomationAccountName <NameofAutomationAccount> -SubscriptionId <SubscriptionId> -ApplicationDisplayName <DisplayNameofAADApplication> -SelfSignedCertPlainPassword <StrongPassword> -CreateClassicRunAsAccount $false
-    ```
+```
 
 #### Create a Run As account and a Classic Run As account by using a self-signed certificate
 
-    ```powershell
+```powershell
     .\New-RunAsAccount.ps1 -ResourceGroup <ResourceGroupName> -AutomationAccountName <NameofAutomationAccount> -SubscriptionId <SubscriptionId> -ApplicationDisplayName <DisplayNameofAADApplication> -SelfSignedCertPlainPassword <StrongPassword> -CreateClassicRunAsAccount $true
-    ```
+```
 
 #### Create a Run As account and a Classic Run As account by using an enterprise certificate
 
-    ```powershell
+```powershell
     .\New-RunAsAccount.ps1 -ResourceGroup <ResourceGroupName> -AutomationAccountName <NameofAutomationAccount> -SubscriptionId <SubscriptionId> -ApplicationDisplayName <DisplayNameofAADApplication>  -SelfSignedCertPlainPassword <StrongPassword> -CreateClassicRunAsAccount $true -EnterpriseCertPathForRunAsAccount <EnterpriseCertPfxPathForRunAsAccount> -EnterpriseCertPlainPasswordForRunAsAccount <StrongPassword> -EnterpriseCertPathForClassicRunAsAccount <EnterpriseCertPfxPathForClassicRunAsAccount> -EnterpriseCertPlainPasswordForClassicRunAsAccount <StrongPassword>
-    ```
+```
 
- If you have created a Classic Run As account with an enterprise public certificate (.cer file), use this certificate. Follow the instructions for [uploading a management API certificate to the Azure portal](../azure-api-management-certs.md).
+If you have created a Classic Run As account with an enterprise public certificate (.cer file), use this certificate. Follow the instructions for [uploading a management API certificate to the Azure portal](../azure-api-management-certs.md).
 
 #### Create a Run As account and a Classic Run As account by using a self-signed certificate in the Azure Government cloud
 
-    ```powershell
+```powershell
     .\New-RunAsAccount.ps1 -ResourceGroup <ResourceGroupName> -AutomationAccountName <NameofAutomationAccount> -SubscriptionId <SubscriptionId> -ApplicationDisplayName <DisplayNameofAADApplication> -SelfSignedCertPlainPassword <StrongPassword> -CreateClassicRunAsAccount $true  -EnvironmentName AzureUSGovernment
-    ```
+```
 
 If you have created a Classic Run As account with a self-signed public certificate (.cer file), the script creates and saves it to the temporary files folder on your computer. It can be found in the user profile **%USERPROFILE%\AppData\Local\Temp**, which you used to execute the PowerShell session.
 
