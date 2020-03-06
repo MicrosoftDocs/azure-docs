@@ -37,4 +37,4 @@ For more information on software requirements and installing the Azure AD module
 
 ## Next steps
 
-[Azure Active Directory editions](../fundamentals/active-directory-whatis.md)
+[Azure Active Directory license plans](../fundamentals/active-directory-whatis.md)
