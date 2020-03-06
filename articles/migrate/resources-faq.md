@@ -1,5 +1,5 @@
 ---
-title: Common questions about Azure Migrate
+title: Azure Migrate FAQ
 description: Get answers to common questions about the Azure Migrate service.
 author: snehaamicrosoft
 ms.service: azure-migrate
@@ -8,7 +8,7 @@ ms.date: 11/21/2019
 ms.author: snehaa
 ---
 
-# Azure Migrate: Common questions
+# Azure Migrate FAQ
 
 This article answers common questions about Azure Migrate. If you have questions after you read this article, you can post them in the [Azure Migrate forum](https://aka.ms/AzureMigrateForum). You also can review these articles:
 
