@@ -23,8 +23,8 @@ Azure Automation uses two types of Run As accounts:
 * Azure Run As account
 * Azure Classic Run As account
 
->[!NOTE]Azure Cloud Solution Provider (CSP) subscriptions
-> support only the Azure Resource Manager model. Non-Azure Resource Manager services are not available in the program. When you are using a CSP subscription, the Azure Classic Run As account is not created, but the Azure Run As account is created. To learn more about CSP subscriptions, see [Available services in CSP subscriptions](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services).
+>[!NOTE]
+>Azure Cloud Solution Provider (CSP) subscriptions support only the Azure Resource Manager model. Non-Azure Resource Manager services are not available in the program. When you are using a CSP subscription, the Azure Classic Run As account is not created, but the Azure Run As account is created. To learn more about CSP subscriptions, see [Available services in CSP subscriptions](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services).
 
 ### Run As account
 
@@ -304,8 +304,8 @@ Save the script on your computer using the filename **New-RunAsAccount.ps1**.
     }
     ```
 
-> [!NOTE]
-> **Add-AzAccount** and **Add-AzureRMAccount** are aliases for [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-3.5.0). You can use these cmdlets or you can [update your modules](automation-update-azure-modules.md) in your Automation account to the latest versions. You might need to update your modules even if you have just created a new Automation account.
+>[!NOTE]
+>**Add-AzAccount** and **Add-AzureRMAccount** are aliases for [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-3.5.0). You can use these cmdlets or you can [update your modules](automation-update-azure-modules.md) in your Automation account to the latest versions. You might need to update your modules even if you have just created a new Automation account.
 
 ### Execute the PowerShell script
 
@@ -370,10 +370,11 @@ The self-signed certificate that you have created for the Run As account expires
 
 When you renew the self-signed certificate, the current valid certificate is retained to ensure that any runbooks that are queued up or actively running, and that authenticate with the Run As account, aren't negatively affected. The certificate remains valid until its expiration date.
 
-> [!NOTE] If you think that the Run As account has been compromised, > you can delete and re-create the self-signed certificate.
+>[!NOTE]
+>If you think that the Run As account has been compromised, you can delete and re-create the self-signed certificate.
 
-> [!NOTE]
-> If you have configured your Run As account to use a certificate issued by your enterprise certificate authority and you use the option to renew a self-signed certificate option, the enterprise certificate is replaced by a self-signed certificate.
+>[!NOTE]
+>If you have configured your Run As account to use a certificate issued by your enterprise certificate authority and you use the option to renew a self-signed certificate option, the enterprise certificate is replaced by a self-signed certificate.
 
 Use the following steps to renew the self-signed certificate.
 
@@ -396,8 +397,8 @@ Use the following steps to renew the self-signed certificate.
 To renew certificates automatically, you can use an automation runbook. This script on [GitHub](https://github.com/ikanni/PowerShellScripts/blob/master/AzureAutomation/RunAsAccount/GrantPermissionToRunAsAccountAADApplication-ToRenewCertificateItself-CreateSchedule.ps1) enables this functionality in your
 Automation account.
 
-> [!NOTE]
-> You need to be a Global Administrator or Company Administrator in Azure AD to execute the script.
+>[!NOTE]
+>You must be a Global Administrator or Company Administrator in Azure AD to execute the script.
 
 This script creates a weekly schedule to renew Run As account certificates. It adds an **Update-AutomationRunAsCredential** runbook to your Automation account. You can view the runbook code on GitHub, in the script [Update-AutomationRunAsCredential.ps1](https://github.com/azureautomation/runbooks/blob/master/Utility/ARM/Update-AutomationRunAsCredential.ps1). You can use the PowerShell code in the file to renew certificates manually, as needed.
 
@@ -431,8 +432,8 @@ Use the following steps to test the renewal process immediately.
 
 To control the targeting of Automation against resources in Azure, you can run the [Update-AutomationRunAsAccountRoleAssignments.ps1](https://aka.ms/AA5hug8) script. This script changes your existing Run As account service principal to create and use a custom role definition. The role has permissions for all resources except [Key Vault](https://docs.microsoft.com/azure/key-vault/).
 
-> [!IMPORTANT]
-> After you run the **Update-AutomationRunAsAccountRoleAssignments.ps1** script, runbooks that access Key Vault through the use of Run As accounts no longer work. Before running the script, you should review runbooks in your account for calls to Azure Key Vault. To enable access to Key Vault from Azure Automation runbooks, you must [add the Run As account to Key Vault's permissions](#add-permissions-to-key-vault).
+>[!IMPORTANT]
+>After you run the **Update-AutomationRunAsAccountRoleAssignments.ps1** script, runbooks that access Key Vault through the use of Run As accounts no longer work. Before running the script, you should review runbooks in your account for calls to Azure Key Vault. To enable access to Key Vault from Azure Automation runbooks, you must [add the Run As account to Key Vault's permissions](#add-permissions-to-key-vault).
 
 If you need to restrict further what the Run As service principal can do, you can add other resource types to the **NotActions** element of the custom role definition. The following example restricts access to `Microsoft.Compute/*`. If you add this resource type to **NotActions** for the role definition, the role will not be able to access any Compute resource. To learn more about role definitions, see [Understand role definitions for Azure resources](../role-based-access-control/role-definitions.md).
 
