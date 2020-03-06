@@ -1,5 +1,5 @@
 ---
-title:  Create a Azure Media Services Live stream with the portal and Wirecast
+title:  Create an Azure Media Services Live stream with the portal and Wirecast
 description: Learn how to create an Azure Media Service Live stream
 services: media-services
 ms.service: media-services
@@ -15,7 +15,7 @@ This Getting Started Guide assumes that you have an Azure subscription and have 
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
-## Log in to the Azure portal\
+## Log in to the Azure portal
 
 Open your web browser, and navigate to the [Microsoft Azure portal](https://portal.azure.com/). Enter your credentials to sign in to the portal. The default view is your service dashboard.
 
@@ -115,7 +115,7 @@ When you think you have streamed enough content, stop the broadcast.
 1. In the portal, click on **Stop**. You will get a warning message that the live stream stop but the output will now become an on-demand asset.
 1. Click on **Stop** in the warning message. The Azure Media Player will also now show an error as the live stream is no longer available.
 
-## Play the on-demand output with the Azure Media Player.
+## Play the on-demand output with the Azure Media Player
 
 The output you created is now available for on-demand streaming as long as your streaming endpoint is running.
 
