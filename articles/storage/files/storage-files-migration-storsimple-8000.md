@@ -11,7 +11,16 @@ ms.subservice: files
 
 # StorSimple 8100 and 8600 migration to Azure File Sync
 
-The StorSimple 8000 series represents two separate SKUs and it is possible to migrate the data from either of these SKUs to an Azure File Sync environment. This article covers migrating both appliances to Azure File Sync and provides the necessary background knowledge and migrations steps to make your migration to Azure File Sync a success.
+The StorSimple 8000 series is represented by either the 8100 or the 8600 physical, on-premises appliance and their cloud service components. It is possible to migrate the data from either of these appliances to an Azure File Sync environment. This article provides the necessary background knowledge and migrations steps for a successful migration to Azure File Sync.
+
+## StorSimple
+
+StorSimple is a discontinued Microsoft product. Extended support for this product and its cloud service expires on December 31 2022. It is important to start planning for a migration off of StorSimple right away.
+
+Azure File Sync is the default and strategic long-term Azure service that StorSimple appliances can be migrated to.
+
+> [!IMPORTANT]
+> Microsoft is committed to assist customers in their migration. Email AzureFilesMigration@microsoft .com for a customized migration plan as well as assistance during the migration.
 
 ## Azure File Sync
 

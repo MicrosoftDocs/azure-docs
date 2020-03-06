@@ -105,6 +105,9 @@ This command builds and runs your service in Azure Dev Spaces in debugging mode.
 
 You can see the service running by opening the public URL.
 
+> [!Note]
+> Initially, the public URL may show a *Bad Gateway* error. Wait a few seconds before refreshing the webpage, and you should see your service running.
+
 Click *Debug* then *Stop Debugging* to stop the debugger.
 
 ## Update code
