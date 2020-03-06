@@ -29,7 +29,7 @@ on versioning:
 ARM template example
 --------------------
 
-Use this template to [deploy a storage account from customer template](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-template-deploy-portal#deploy-resources-from-custom-template) with versioning property enabled.
+Use this template to [deploy a storage account from customer template](../../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template) with versioning property enabled.
 
 -   In the Azure portal, choose **Create a resource**.
 

@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/10/2020
+ms.date: 03/06/2020
 ms.author: tamram
 ms.subservice: blobs
 ---
@@ -104,7 +104,9 @@ When blob versioning is enabled, you cannot overwrite a blob of one type with an
 
 ### Access tiers
 
-You can move any version of a blob, including the current version, to a different blob access tier by calling the [Set Blob Tier](/rest/api/storageservices/set-blob-tier) operation. You can take advantage of lower capacity pricing by moving older versions of a blob to the cool or archive tier. You can automate this process using blob life cycle management. For more information on life cycle management, see [Manage the Azure Blob storage lifecycle](storage-lifecycle-management-concepts.md).
+You can move any version of a blob, including the current version, to a different blob access tier by calling the [Set Blob Tier](/rest/api/storageservices/set-blob-tier) operation. You can take advantage of lower capacity pricing by moving older versions of a blob to the cool or archive tier.
+
+To automate the process of moving blobs to the appropriate tier, use blob life cycle management. For more information on life cycle management, see [Manage the Azure Blob storage lifecycle](storage-lifecycle-management-concepts.md).
 
 ## Authorize operations on blob versions
 
@@ -143,38 +145,47 @@ You can continue read or delete versions using the version ID after versioning i
 
 ![](media/versioning-overview/d6b2520cd36f91a2791eef5c60cb92d6.png)
 
-
-## Versioning and soft delete
+## Blob versioning and soft delete
 
 Blob versioning and blob soft delete work together to provide you with optimal data protection. When both blob versioning and blob soft delete are enabled, modifying or deleting a blob creates a version instead of a soft-deleted snapshot. For more information about blob soft delete, see [Soft delete for Azure Storage blobs](storage-blob-soft-delete.md).
 
-In addition, soft delete offers version delete retention. Any deleted version remains in the system and can be undeleted within the soft delete retention period.
+When you enable soft delete, you specify the retention period for soft-deleted data. Any deleted version remains in the system and can be undeleted within the soft delete retention period.
 
 ![](media/versioning-overview/0fcfdf4accb302e356d9ec09b5869077.png)
 
-The soft deleted version can be recovered by undelete operation during the soft delete retention period. Once the retention is up, the version is hard deleted and can no longer be restored.
+You can restore a soft-deleted blob version by calling the [Undelete Blob](/rest/api/storageservices/undelete-blob) operation during the soft delete retention period. Once the retention period has elapsed, the blob version is permanently deleted.
 
-Note: when both versioning and soft delete are turned on, deleting base blob turns the blob into a previous version. This previous version is not in the soft deleted state. It doesn't expire. To expire a previous version, it must be deleted. Once a previous version is deleted, it becomes a soft deleted version. Soft deleted versions expire based on the soft delete retention period.
+> [!NOTE]
+> When both blob versioning and soft delete are enabled, deleting a base blob triggers Azure Storage to save the blob as a historical version. This historical version is not in the soft-deleted state, so it is not subject to the retention period for soft-deleted data and is not deleted permanently when the retention period elapses.
+>
+> To remove this historical version, you must explicitly delete it (using the version ID???). When a historical version is deleted, it then becomes a soft-deleted version. Soft-deleted versions are permanently deleted after the soft delete retention period has expired.
 
-## Version & snapshot 
+## Blob versioning and blob snapshots
 
-Similar to a version, a blob snapshot is a read-only copy of a blob that's taken at a point in time. Different from a version which is created automatically when you enable versioning on your storage account, snapshot is created manually by you or your applications.
+A blob snapshot is a read-only copy of a blob that's taken at a specific point in time. Blob snapshots and blob versions are similar, but a snapshot is created manually by you or your application, while a blob version is created automatically on a write or delete operation when blob versioning is enabled for your storage account.
 
-If versioning is turned on in your storage account, all block blob changes and deletes are captured and preserved by versions. There is no need for manual snapshots of block blob. We recommend you not taking any snapshots either manually or through your application for your block blobs.
+If versioning is enabled for your storage account, all block (and append???) blob updates and deletions are captured and preserved by versions. Taking snapshots does not offer any additional protections to your block blob data if blob versioning is enabled. Microsoft recommends that after you enable blob versioning, you also update your application to stop taking snapshots of block blobs.
 
-## Snapshot a blob when versioning is on 
+For a page blob, a version is not created for a **Put Page** operation. For an append blob, a version is not created for an **Append Block** operation. You can take a manual snapshot to capture changes from those operations. ???are only block blobs supported???
 
-When you snapshot a versioned blob, a snapshot is created to capture the state of the blob. In addition, the state is captured as a previous version, and a new current version is created.
+### Snapshot a blob when versioning is on
+
+Although it is not recommended, a blob can have multiple snapshots and versions. With versioning, each update and delete is captured with a new version.
+
+If you take a snapshot of a versioned blob, then a snapshot is created to capture the state of the blob. In addition, the state is captured as a previous version, and a new current version is created.???
 
 ![](media/versioning-overview/ba50a55ba1d79f47cf87caf2945837c3.png)
 
-## Manage version lifecycle 
-
-You can set up [lifecycle management policy](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-lifecycle-management-concepts) to delete or tier down old versions to save your total storage spend. [TODO] insert sample rule
-
 ## About the preview
 
+Blob versioning is available in preview in the following regions:
+
+- West US 2
+- West Central US
+
 The preview is intended for non-production use only.
+
+Version 2019-10-19 of the Azure Storage REST API supports blob versioning.
 
 ### Storage account support
 
@@ -187,13 +198,6 @@ Blob versioning is available for the following types of storage accounts:
 If your storage account is a general-purpose v1 account, use the Azure portal to upgrade to a general-purpose v2 account. For more information about storage accounts, see [Azure storage account overview](../common/storage-account-overview.md).
 
 Storage accounts with a hierarchical namespace enabled for use with Azure Data Lake Storage Gen2 are not currently supported.
-
-### Supported regions
-
-The following regions are currently supported for the preview:
-
-- West US 2
-- West Central US
 
 ### Register for the preview
 
@@ -247,25 +251,11 @@ az feature show --namespace Microsoft.Storage \
 
 Versions, like snapshots, are billed at the same rate as active data. You only pay for the additional unique blocks or pages if versions and base blobs share common blocks or pages. For more information about how blob versions are billed, see [Understanding how snapshots accrue charges](storage-blob-snapshots.md).
 
+> [!NOTE]
+> Enabling versioning for data that is frequently overwritten may result in increased storage capacity charges and increased latency during listing operations. To mitigate these concerns, store frequently overwritten data in a separate storage account with versioning disabled.
 
+## See also
 
-## FAQ
-
-**Should I take manual snapshots if versioning is enabled?**
-
-Like versions, a snapshot is a read-only state of a blob taken manually at a point in time. A blob can have multiple snapshots and versions. With versioning, each update and delete is captured with a new version. Manual snapshotting does not offer additional protection to your block blob data. We recommend updating your application to stop taking manual snapshots of block blobs once you enable versioning.
-
-For a page blob, a version is not created for a **Put Page** operation. For an append blob, a version is not created for an **Append Block** operation. You can take a manual snapshot to capture changes from those operations.
-
-**Is there any special consideration on enabling versioning?**
-
-Enabling versioning for frequently overwritten data may result in increased storage capacity charges and increased latency when listing blobs. You can mitigate this by storing the frequently overwritten data in a separate storage account with versioning disabled.
-
-## API update
-
-Version 2019-10-19 of the Azure Storage REST API supports blob versioning. Insert link to the updated api doc
-
-## See also 
-
+- [Enable blob versioning](versioning-enable.md)
 - [Creating a snapshot of a blob](/rest/api/storageservices/creating-a-snapshot-of-a-blob)
 - [Soft delete for Azure Storage Blobs](storage-blob-soft-delete.md)
