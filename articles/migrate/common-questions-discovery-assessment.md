@@ -17,7 +17,7 @@ This article answers common questions about discovery, assessment, and dependenc
 
 ## How many VMs can I discover with an appliance?
 
-You can discover up to 10,000 VMware VMs, up to 5,000 Hyper-V VMs, and up to 250 physical servers with a single appliance. If you have more machines, read about [scaling a Hyper-V assessment](scale-hyper-v-assessment.md), [scaling a VMware assessment](scale-vmware-assessment.md), and [scaling a physical server assessment](scale-physical-assessment.md).
+You can discover up to 10,000 VMware VMs, up to 5,000 Hyper-V VMs, and up to 250 physical servers by using a single appliance. If you have more machines, read about [scaling a Hyper-V assessment](scale-hyper-v-assessment.md), [scaling a VMware assessment](scale-vmware-assessment.md), or [scaling a physical server assessment](scale-physical-assessment.md).
 
 ## The size of my VM changed. Can I run an assessment again?
 
@@ -25,34 +25,39 @@ The Azure Migrate appliance continuously collects information about the on-premi
 
 ## How do I discover VMs in a multitenant environment?
 
-- **VMware**: If an environment is shared across tenants, and you don't want to discover a tenant's VMs in another tenant's subscription, create vCenter Server credentials that can access only the VMs you want to discover. Then, use those credentials when you start discovery in the Azure Migrate appliance.
+- **VMware**: If an environment is shared across tenants and you don't want to discover a tenant's VMs in another tenant's subscription, create VMware vCenter Server credentials that can access only the VMs you want to discover. Then, use those credentials when you start discovery in the Azure Migrate appliance.
 - **Hyper-v**: Discovery uses Hyper-V host credentials. If VMs share the same Hyper-V host, there's currently no way to separate the discovery.  
 
 ## Do I need vCenter Server?
 
-Yes, Azure Migrate needs vCenter Server to perform discovery in a VMware environment. It doesn't support discovery of ESXi hosts that aren't managed by vCenter Server.
+Yes, Azure Migrate requires vCenter Server in a VMware environment to perform discovery. Azure Migrate doesn't support discovery of ESXi hosts that aren't managed by vCenter Server.
 
-## What's are the sizing options?
+## What are the sizing options?
 
-With *performance-based* sizing, sizing is based on utilization data.
+With as-on-premises sizing, Azure Migrate doesn't consider VM performance data for assessment. Azure Migrate assesses VM sizes based on the on-premises configuration. With performance-based sizing, sizing is based on utilization data.
 
-If an on-premises VM has four cores and 8 GB of memory at 50% CPU utilization and 50% memory utilization:
+For example, if an on-premises VM has four cores and 8 GB of memory at 50% CPU utilization and 50% memory utilization:
 - As-on-premises sizing will recommend an Azure VM SKU that has four cores and 8 GB of memory.
 - Performance-based sizing will recommend a VM SKU that has two cores and 4 GB of memory because the utilization percentage is considered.
 
-Disk sizing depends on sizing criteria and storage type.
+Similarly, disk sizing depends on sizing criteria and storage type:
 - If the sizing criteria is performance-based and the storage type is automatic, Azure Migrate takes the IOPS and throughput values of the disk into account when it identifies the target disk type (Standard or Premium).
 - If the sizing criteria is performance-based and the storage type is Premium, Azure Migrate recommends a Premium disk SKU based on the size of the on-premises disk. The same logic is applied to disk sizing when the sizing is as-on-premises and the storage type is Standard or Premium.
 
 ## Does performance history and utilization affect sizing?
 
-These properties are only applicable for performance-based sizing.
+Yes.
 
-1. Azure Migrate collects the performance history of on-premises machines and uses it to recommend the VM size and disk type in Azure.
+### Performance history
+
+For performance-based sizing only, Azure Migrate collects the performance history of on-premises machines, and then uses it to recommend the VM size and disk type in Azure:
+
 1. The appliance continuously profiles the on-premises environment to gather real-time utilization data every 20 seconds.
-1. The appliance rolls up the 20-second samples and creates a single data point every 15 minutes.
+1. The appliance rolls up the collected 20-second samples and uses them to create a single data point every 15 minutes.
 1. To create the data point, the appliance selects the peak value from all 20-second samples.
 1. The appliance sends the data point to Azure.
+
+### Utilization
 
 When you create an assessment in Azure, depending on performance duration and the performance history percentile value that is set, Azure Migrate calculates the effective utilization value, and then uses it for sizing.
 
