@@ -145,7 +145,7 @@ The cache folder and the metadata VHD don't have the necessary attributes for th
 
 ### Is there a way to adjust the amount of bandwidth used for backup?
 
-Yes, you can use the **Change Properties** option in the MARS agent to adjust the bandwidth and timing. [Learn more](backup-configure-vault.md#enable-network-throttling).
+Yes, you can use the **Change Properties** option in the MARS agent to adjust the bandwidth and timing. [Learn more](backup-windows-with-mars-agent.md#enable-network-throttling).
 
 ## Restore
 
