@@ -1,91 +1,81 @@
 ---
-title: using `az aro` | Microsoft Docs
-description: Create a private cluster with Azure Red Hat OpenShift 3.11
+title: Create an Azure Red Hat OpenShift 4.3 Cluster | Microsoft Docs
+description: Create a cluster with Azure Red Hat OpenShift 3.11
 author: klamenzo 
-ms.author: b-lejaku
+ms.author: suvetriv
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 03/02/2020
+ms.date: 03/06/2020
 keywords: aro, openshift, az aro, red hat, cli
 #Customer intent: As a customer, I want to create an ARO custer using the command line.
 ---
 
-# Using `az aro`
+# Create an Azure Red Hat OpenShift 4.3 Cluster
 
-The `az aro` extension allows you to create, access, and delete Azure Red Hat OpenShift clusters directly from the command line using the Azure CLI.
+> [!IMPORTANT]
+> Azure Red Hat OpenShift (ARO) 4.3 is offered in preview. Preview features are self-service and are provided as is and as available and are excluded from the service-level agreement (SLA) and limited warranty. Therefore, the features aren't meant for production use. To provide feedback, please use: https://aka.ms/openshift/feedback
 
-The `az aro` extension can be used with a whitelisted subscription against the pre-GA Azure Red Hat OpenShift v4 service, or it can be used against a development resource provider running at https://localhost:8443/ by setting `RP_MODE=development`.
+## Prerequisites
 
-## Installing the extension
+You'll need the following to create an Azure Red Hat OpenShift 4.3 cluster:
 
-1. Install the [`az`](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) client, if you have not already. You will need `az` version 2.0.72 or greater, as this version includes the `az network vnet subnet update --disable-private-link-service-network-policies` flag.
+- Azure CLI version 2.0.72 or greater
+  
+- The 'az aro' extension
 
-2. Log in to Azure.
+- A virtual network containing two empty subnets, each with no network security group attached.  Your cluster will be deployed into these subnets.
 
-```
+- A cluster AAD application (client ID and secret) and service principal, or sufficient AAD permissions for `az aro create` to create an AAD application and service principal for you automatically.
+
+- The RP service principal and cluster service principal must each have the Contributor role on the cluster virtual network.  If you have the "User Access Administrator" role on the virtual network, `az aro create` will set up the role assignments for you automatically.
+
+## Installing the 'az aro' extension
+The `az aro` extension allows you to create, access, and delete Azure Red Hat OpenShift (ARO) clusters directly from the command line using the Azure CLI. The `az aro` extension can be used with a subscription  registered with the preview Azure Red Hat OpenShift 4.3 service.
+
+1. Log in to Azure.
+
+```bash
 az login
 ```
 
-3. Run the following command to install the `az aro` extension.
+2. Run the following command to install the `az aro` extension.
 
-```
+```bash
 az extension add --source https://arosvc.blob.core.windows.net/az-preview/aro-0.1.0-py2.py3-none-any.whl
 ```
 
-4. Add the ARO extension path to your `az` configuration.
+3. Add the ARO extension path to your `az` configuration.
 
-```
+```bash
 cat >>~/.azure/config <<EOF
 [extension]
 dev_sources = $PWD/python
 EOF
 ```
 
-5. Verify the ARO extension is registered.
+4. Verify the ARO extension is registered.
 
-```
+```console
 az -v
-...
+
 Extensions:
 aro                                0.1.0 (dev) /path/to/rp/python/az/aro
-...
 Development extension sources:
     /path/to/rp/python
-...
 ```
 
+5. To opt into the preview of Azure Red Hat OpenShift v4, register the
+`Microsoft.RedHatOpenShift` resource provider.
 
-## Registering the resource provider
-
-If using the pre-GA Azure Red Hat OpenShift v4 service, ensure that the
-`Microsoft.RedHatOpenShift` resource provider is registered.
-
-```
+```console
 az provider register -n Microsoft.RedHatOpenShift --wait
 ```
-
-
-## Prerequisites to create an Azure Red Hat OpenShift v4 cluster
-
-You will need the following in order to create an Azure Red Hat OpenShift v4
-cluster:
-
-- A vnet containing two empty subnets, each with no network security group attached.  Your cluster will be deployed into these subnets.
-
-- A cluster AAD application (client ID and secret) and service principal, or sufficient AAD permissions for `az aro create` to create these for you automatically.
-
-- The RP service principal and cluster service principal must each have the Contributor role on the cluster vnet.  If you have the "User Access Administrator" role on the vnet, `az aro create` will set up the role assignments for you automatically.
-
-
-## Using the extension
-
-After installing the `az aro` extension you can use it to create, access and delete clusters.
  
-### Create a cluster:
+## Create a cluster
 
-Run the following command to create a cluster.
+With your extension installed, run the following command to create a cluster.
 
-```
+```console
 az aro create \
   -g "$RESOURCEGROUP" \
   -n "$CLUSTER" \
@@ -97,25 +87,25 @@ az aro create \
 >[!NOTE]
 > It normally takes about 35 minutes to create a cluster.
 
-### Access the cluster console
+## Access the cluster console
 
-You can find the cluster console URL (of the form `https://console-openshift-console.apps.<random>.<location>.aroapp.io/`) in the Azure Red Hat OpenShift v4 cluster resource. Run the following command to view the resource:
+You can find the cluster console URL (of the form `https://console-openshift-console.apps.<random>.<location>.aroapp.io/`) under the Azure Red Hat OpenShift 4.3 cluster resource. Run the following command to view the resource:
 
-```
+```console
 az aro list -o table
 ```
-   
+
 You can log into the cluster using the `kubeadmin` user.  Run the following command to find the password for the `kubeadmin` user:
 
-```
+``` console
 az aro list-credentials -g "$RESOURCEGROUP" -n "$CLUSTER"
 ```
 
-### Delete a cluster
+## Delete a cluster
 
 Run the following command to delete a cluster.
 
-```
+```console
 az aro delete -g "$RESOURCEGROUP" -n "$CLUSTER"
 
 # (optional)
