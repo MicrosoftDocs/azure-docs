@@ -42,7 +42,7 @@ landingContent:
   # Card
   - title: Connect to Windows Virtual Desktop
     linkLists:
-      - linkListType: how-to-guides
+      - linkListType: how-to-guide
         links:
           - text: Windows Desktop client
             url: connect-windows-7-and-10.md
