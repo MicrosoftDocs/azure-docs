@@ -4,7 +4,7 @@ description: This Python REST-based quickstart walks you through creating a samp
 ms.date: 12/16/2019
 ROBOTS: NOINDEX,NOFOLLOW
 ms.custom: RESTCURL2020FEB27
-ms.topic: concept
+ms.topic: conceptual
 ---
 
 # Quickstart: Create a knowledge base in QnA Maker using Python
