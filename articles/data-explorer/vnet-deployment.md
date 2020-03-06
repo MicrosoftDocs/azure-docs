@@ -271,7 +271,7 @@ If you have an issue while accessing cluster using the public (cluster.region.ku
 
 The first step includes checking TCP connectivity using Windows or Linux OS.
 
-**Check using Windows OS**
+Check using Windows OS
 
    1. Download [TCping](https://www.elifulkerson.com/projects/tcping.php) to the machine connecting to the cluster.
    2. Ping the destination from the source machine by using the following command:
@@ -284,7 +284,7 @@ The first step includes checking TCP connectivity using Windows or Linux OS.
      Probing 1.2.3.4:443/tcp - Port is open - time=100.00ms
      ```
 
-**Check using Linux OS**
+Check using Linux OS
 
    1. Install *netcat* in the machine connecting to the cluster
 
@@ -326,7 +326,7 @@ If the metrics indicate that no events were processed from the data source (*Eve
 
 Make sure cluster's subnet has NSG, UDR, and firewall rules are properly configured. In addition, test network connectivity for all dependent endpoints. 
 
-## Cluster creation and operations issues
+### Cluster creation and operations issues
 
 If you're experiencing cluster creation or operation issues and you suspect it's related to virtual network setup, follow these steps to troubleshoot the issue.
 
