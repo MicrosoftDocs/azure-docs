@@ -8,7 +8,7 @@ ms.date: 11/21/2019
 ms.author: snehaa
 ---
 
-# Azure Migrate FAQ
+# Azure Migrate: Common questions
 
 This article answers common questions about Azure Migrate. If you have questions after you read this article, you can post them in the [Azure Migrate forum](https://aka.ms/AzureMigrateForum). You also can review these articles:
 
