@@ -5,7 +5,7 @@ services: sql-data-warehouse
 author: kevinvngo 
 manager: craigg
 ms.service: sql-data-warehouse
-ms.topic: howto
+ms.topic: how-to
 ms.subservice: integration
 ms.date: 02/04/2020
 ms.author: kevin
