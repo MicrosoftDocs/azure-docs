@@ -1,7 +1,7 @@
 ---
-title: Encryption of data at rest for the Face service
+title: Face service encryption of data at rest
 titleSuffix: Azure Cognitive Services
-description: Encryption of data at rest for the Face service.
+description: Face service encryption of data at rest.
 author: erindormier
 manager: venkyv
 
@@ -13,7 +13,7 @@ ms.author: egeaney
 #Customer intent: As a user of the Face service, I want to learn how encryption at rest works.
 ---
 
-# Encryption of data at rest for the Face service
+# Face service encryption of data at rest
 
 The Face service automatically encrypts your data when persisted it to the cloud. The Face service encryption protects your data and to help you to meet your organizational security and compliance commitments.
 

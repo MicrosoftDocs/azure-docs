@@ -1,7 +1,7 @@
 ---
-title: Encryption of data at rest for the QnA Maker service
+title: QnA Maker encryption of data at rest 
 titleSuffix: Azure Cognitive Services
-description: Encryption of data at rest for the QnA Maker service.
+description: QnA Maker encryption of data at rest .
 author: erindormier
 manager: venkyv
 
@@ -13,7 +13,7 @@ ms.author: egeaney
 #Customer intent: As a user of the QnA Maker service, I want to learn how encryption at rest works.
 ---
 
-# Encryption of data at rest for the QnA Maker
+# QnA Maker encryption of data at rest 
 
 QnA Maker automatically encrypts your data when it is persisted to the cloud, helping to meet your organizational security and compliance goals.
 

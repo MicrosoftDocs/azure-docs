@@ -1,7 +1,7 @@
 ---
-title: Encryption of data at rest for the Language Understanding service
+title: Language Understanding service encryption of data at rest
 titleSuffix: Azure Cognitive Services
-description: Encryption of data at rest for the LUIS service.
+description: Language Understanding service encryption of data at rest.
 author: erindormier
 manager: venkyv
 
@@ -13,7 +13,7 @@ ms.author: egeaney
 #Customer intent: As a user of the Language Understanding (LUIS) service, I want to learn how encryption at rest works.
 ---
 
-# Encryption of data at rest for the Language Understanding service
+# Language Understanding service encryption of data at rest
 
 The Language Understanding service automatically encrypts your data when it is persisted to the cloud. The Language Understanding service encryption protects your data and helps you meet your organizational security and compliance commitments.
 

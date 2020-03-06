@@ -1,7 +1,7 @@
 ---
-title: Encryption of data at rest for the Content Moderator service
+title: Content Moderator encryption of data at rest
 titleSuffix: Azure Cognitive Services
-description: Encryption of data at rest for the Content Moderator service.
+description: Content Moderator encryption of data at rest.
 author: erindormier
 manager: venkyv
 
@@ -13,7 +13,7 @@ ms.author: egeaney
 #Customer intent: As a user of the Content Moderator service, I want to learn how encryption at rest works.
 ---
 
-# Encryption of data at rest for the Content Moderator
+# Content Moderator encryption of data at rest
 
 Content Moderator automatically encrypts your data when it is persisted to the cloud, helping to meet your organizational security and compliance goals.
 
