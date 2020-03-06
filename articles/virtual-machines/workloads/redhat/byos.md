@@ -177,7 +177,7 @@ The following script is an example. Replace the resource group, location, VM nam
     New-AzureRmVM -ResourceGroupName $resourceGroup -Location $location -VM $vmConfig
 ```
 
-## Encrypt Red Hat Enterprise Linux BYOS Gold Images
+## Encrypt Red Hat Enterprise Linux bring-your-own-subscription Gold Images
 
 Red Hat Enterprise Linux BYOS Gold Images can be secured through the use of [Azure Disk Encryption](../../linux/disk-encryption-overview.md). The subscription *must* be registered before you can enable encryption. For more information on how to register a RHEL BYOS Gold Image, see [How to register and subscribe a system to the Red Hat Customer Portal using Red Hat Subscription-Manager](https://access.redhat.com/solutions/253273). If you have an active Red Hat subscription, you can also read [Creating Red Hat Customer Portal Activation Keys](https://access.redhat.com/articles/1378093).
 
@@ -206,7 +206,7 @@ For steps to apply Azure Disk Encryption, see [Azure Disk Encryption scenarios o
 
     Note the plan parameters in the final line.
 
-    [Azure Disk Encryption](#encrypt-red-hat-enterprise-linux-BYOS-gold-images) isn't supported on custom images.
+    [Azure Disk Encryption](#encrypt-red-hat-enterprise-linux-bring-your-own-subscription-gold-images) isn't supported on custom images.
 
 - If you use automation to provision VMs from the RHEL BYOS images, you must provide plan parameters similar to what was shown in the sample commands. For example, if you use Terraform, you provide the plan information in a [plan block](https://www.terraform.io/docs/providers/azurerm/r/virtual_machine.html#plan).
 
