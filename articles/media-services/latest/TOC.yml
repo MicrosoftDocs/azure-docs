@@ -6,7 +6,12 @@
     href: media-services-overview.md
   - name: What's new in Media Services
     displayName: release notes
-    href: release-notes.md    
+    href: release-notes.md
+- name: Quickstarts
+  items:
+  - name: Live event with portal and Wirecast
+    displayName: live, event, portal, wirecast
+    href: live-events-wirecast-quickstart.md
 - name: Tutorials
   expanded: true
   items:
