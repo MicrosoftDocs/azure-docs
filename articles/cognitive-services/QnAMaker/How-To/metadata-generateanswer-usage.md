@@ -59,7 +59,7 @@ You call GenerateAnswer with an HTTP POST request. For sample code that shows ho
 The POST request uses:
 
 * Required [URI parameters](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/train#uri-parameters)
-* Required [header property](https://docs.microsoft.com/azure/cognitive-services/QnaMaker/quickstarts/quickstart-rest-curl), `Authorization`, for security
+* Required header property, `Authorization`, for security
 * Required [body properties](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/train#feedbackrecorddto).
 
 The GenerateAnswer URL has the following format:
