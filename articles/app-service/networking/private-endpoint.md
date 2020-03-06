@@ -56,7 +56,7 @@ If you need to use a custom DNS name, you must add the custom name in your web a
 
 ## Pricing
 
-During the preview, this feature will be free of charge
+For pricing details, see [Azure Private Link pricing][pricing].
 
 ## Limitations
 
@@ -75,3 +75,4 @@ We are improving Private Link feature and Private Endpoint regularly, check [thi
 [tcpproxy]: https://docs.microsoft.com/azure/private-link/rivate-link-service-overview#getting-connection-information-using-tcp-proxy-v2
 [dnsvalidation]: https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-domain
 [pllimitations]: https://docs.microsoft.com/azure/private-link/private-endpoint-overview#limitations
+[pricing]: https://azure.microsoft.com/pricing/details/private-link/
