@@ -74,8 +74,8 @@
   #   href: article-template.md
 - name: Concepts
   items:
-  # - name: Workspace
-  #   items:
+  - name: Workspace
+    items:
     # - name: Overview
     #   href: article-template.md
     - name: Shared metadata management
