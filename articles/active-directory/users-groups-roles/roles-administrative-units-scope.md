@@ -34,7 +34,7 @@ Outside this document, please refer to the following:
 - Working with Admin Units: How to work with administrative units using PowerShell
 - Administrative Unit Graph support: Detail documentation on Graph APIs available for administrative units. 
 
-# Roles available
+## Roles available
 
 Role  |  Description
 ----- |  -----------
