@@ -130,8 +130,8 @@ You can get the value of these service-defined variables to make adjustments tha
 | $SucceededTasks |The number of tasks that finished successfully. |
 | $FailedTasks |The number of tasks that failed. |
 | $CurrentDedicatedNodes |The current number of dedicated compute nodes. |
-| $CurrentLowPriorityNodes |The current number of low-priority compute nodes, including any nodes that have been pre-empted. |
-| $PreemptedNodeCount | The number of nodes in the pool that are in a pre-empted state. |
+| $CurrentLowPriorityNodes |The current number of low-priority compute nodes, including any nodes that have been preempted. |
+| $PreemptedNodeCount | The number of nodes in the pool that are in a preempted state. |
 
 > [!TIP]
 > The read-only, service-defined variables that are shown in the previous table are *objects* that provide various methods to access data associated with each. For more information, see [Obtain sample data](#getsampledata) later in this article.
