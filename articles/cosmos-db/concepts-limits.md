@@ -182,6 +182,20 @@ The following table lists the limits for the [Try Azure Cosmos DB for Free](http
 
 Try Cosmos DB supports global distribution in only the Central US, North Europe, and Southeast Asia regions. Azure support tickets can't be created for Try Azure Cosmos DB accounts. However, support is provided for subscribers with existing support plans.
 
+## Free tier account limits
+The following table lists the limits for [Azure Cosmos DB free tier accounts.](optimize-dev-test.md#azure-cosmos-db-free-tier)
+
+| Resource | Default limit |
+| --- | --- |
+| Number of free tier accounts per Azure subscription | 1 |
+| Duration of free-tier discount | Lifetime of the account. Must opt-in during account creation. |
+| Maximum RU/s for free | 400 RU/s |
+| Maximum storage for free | 5 GB |
+| Maximum number of shared throughput databases | 5 |
+| Maximum number of containers in a shared throughput database | 25 <br>In free tier accounts, the minimum RU/s for a shared throughput database with up to 25 containers is 400 RU/s. |
+
+  In addition to the above, the [Per-account limits](#per-account-limits) also apply to free tier accounts.
+
 ## Next steps
 
 Read more about Cosmos DB's core concepts [global distribution](distribute-data-globally.md) and [partitioning](partitioning-overview.md) and [provisioned throughput](request-units.md).

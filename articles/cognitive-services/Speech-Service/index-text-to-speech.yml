@@ -75,6 +75,8 @@ landingContent:
           url: language-support.md#text-to-speech
         - text: Pricing
           url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services
+        - text: SSML phonetic sets
+          url: speech-ssml-phonetic-sets.md
         - text: Code of conduct
           url: https://aka.ms/custom-neural-code-of-conduct
         - text: Disclosure for voice talent
