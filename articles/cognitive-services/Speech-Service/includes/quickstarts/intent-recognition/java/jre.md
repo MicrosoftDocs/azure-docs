@@ -77,7 +77,8 @@ Insert this code below your model:
 
 When the recognition result is returned by the Speech service, you'll want to do something with it. We're going to keep it simple and print the result to console.
 
-Insert this code below your call to `recognizeOnceAsync()`:
+Insert this code below your call to `recognizeOnceAsync()`.
+
 [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/intent-recognition/src/speechsdk/quickstart/Main.java?range=43-64)]
 
 ## Release Resources
