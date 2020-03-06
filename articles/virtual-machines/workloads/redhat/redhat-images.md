@@ -81,7 +81,7 @@ For RHEL 6.x images, the image types are shown in the following table.
 For RHEL 7.x images, there are a few different image types. The following table shows the different sets of images we offer. To see a full list, use the Azure CLI command `az vm image list --publisher redhat --all`.
 
 >[!NOTE]
-> Unless otherwise indicated, all images are LVM partitioned and connect to regular RHEL repositories (that is, not Extended Update Support [EUS] and not E4S). Going forward, we're moving to publishing only LVM-partitioned images but are open to feedback on this decision. For more information on Extended Update Support and Update Services for SAP, see [Red Hat Enterprise Linux life cycle](https://access.redhat.com/support/policy/updates/errata).
+> Unless otherwise indicated, all images are LVM partitioned and connect to regular RHEL repositories. That is, the repositories aren't Extended Update Support (EUS) and aren't Update Services for SAP (E4S). Going forward, we're moving to publishing only LVM-partitioned images but are open to feedback on this decision. For more information on Extended Update Support and Update Services for SAP, see [Red Hat Enterprise Linux life cycle](https://access.redhat.com/support/policy/updates/errata).
 
 |Publisher | Offer | SKU value | Version | Details
 |----------|-------|------------|---------|--------
@@ -103,7 +103,7 @@ Details for RHEL 8 image types are below.
 |Publisher | Offer | SKU value | Version | Details
 |----------|-------|------------|---------|--------
 |RedHat | RHEL | 8 | Concatenated values of the RHEL minor version and the date published (for example, 8.0.20191023) | These images are RHEL 8.0 LVM-partitioned images connected to standard Red Hat repositories.
-|RedHat | RHEL | 8-gen2 | Concatenated values of the RHEL minor version and the date published (for example, 8.0.20191024) | These images are Hyper-V generation 2 RHEL 8.0 LVM-partitioned images connected to standard Red Hat repositories. For more information about generation 2 VMs in Azure, see [Support for generation 2 VMs on Azure](https://docs.microsoft.com/azure/virtual-machines/linux/generation-2).
+|RedHat | RHEL | 8-gen2 | Concatenated values of the RHEL minor version and the date published (for example, 8.0.20191024) | These images are Hyper-V Generation 2 RHEL 8.0 LVM-partitioned images connected to standard Red Hat repositories. For more information about Generation 2 VMs in Azure, see [Support for Generation 2 VMs on Azure](https://docs.microsoft.com/azure/virtual-machines/linux/generation-2).
 
 ## RHEL longer support add-ons
 
@@ -127,7 +127,7 @@ RedHat:RHEL:7-LVM:7.6.2019062414
 RedHat:RHEL:7.6:7.6.2019102813
 ```
 
-In this case, `RedHat:RHEL:7.6:7.6.2019102813` is attached to EUS repositories by default (SKU value of 7.4). And `RedHat:RHEL:7-LVM:7.6.2019062414` is attached to non-EUS repositories by default (SKU value of 7-LVM).
+In this case, `RedHat:RHEL:7.6:7.6.2019102813` is attached to EUS repositories by default. The SKU value is 7.4). And `RedHat:RHEL:7-LVM:7.6.2019062414` is attached to non-EUS repositories by default The SKU value is 7-LVM.
 
 To use regular (non-EUS) repositories, use an image that doesn't contain a minor version number in the SKU.
 
@@ -147,7 +147,7 @@ RHEL 7.5      |RedHat:RHEL:7.5:7.5.2019060305 | Images published June 2019 and l
 RHEL 7.6      |RedHat:RHEL:7.6:7.6.2019052206 | Images published May 2019 and later are EUS by default. |
 RHEL 8.0      |N/A                            | No EUS is available from Red Hat.                               |
 
-### Update Services for SAP (E4S)
+### Update Services for SAP
 
 The latest RHEL for SAP images will be connected to the Update Services for SAP Solutions subscriptions (E4S). For more information about E4S, see the Red Hat [documentation](https://access.redhat.com/support/policy/updates/errata#Update_Services_for_SAP_Solutions).
 
@@ -160,7 +160,7 @@ Images from the following offers created after December 2019 are connected to E4
 
 ## Other available offers and SKUs
 
-The full list of available offers and SKUs might include additional images beyond what is listed in the previous table. An example is `RedHat:rhel-ocp-marketplace:rhel74:7.4.1`. These offers might be used to provide support for specific marketplace solutions. Or, they could be published for previews and testing purposes. They might be changed or removed at any time without warning. Don't use them unless their presence is publicly documented by either Microsoft or Red Hat.
+The full list of available offers and SKUs might include additional images beyond what is listed in the previous table. An example is `RedHat:rhel-ocp-marketplace:rhel74:7.4.1`. These offers might be used to provide support for specific marketplace solutions. Or they could be published for previews and testing purposes. They might be changed or removed at any time without warning. Don't use them unless their presence is publicly documented by either Microsoft or Red Hat.
 
 ## Publishing policy
 
