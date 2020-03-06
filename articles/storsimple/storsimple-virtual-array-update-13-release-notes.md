@@ -40,11 +40,11 @@ Download KB4539946 and follow these instructions to [Apply the update via local 
 
 ## Known issues in Update 1.3
 
-No new issues were release-noted in Update 1.2. All the release-noted issues are carried over from previous releases. To see the summary of known issues included from the previous releases, go to [Known issues in Update 1.1](storsimple-virtual-array-update-11-release-notes.md#known-issues-in-update-11).
+No new issues were release-noted in Update 1.3. All the release-noted issues are carried over from previous releases. To see the summary of known issues included from the previous releases, go to [Known issues in Update 1.2](storsimple-virtual-array-update-12-release-notes.md#known-issues-in-update-12).
 
 ## Next steps
 
-Download KB4539946 and [Apply the update via local web UI](storsimple-virtual-array-install-update-11.md#use-the-local-web-ui).
+Download KB4539946 and [Apply the update via local web UI](storsimple-virtual-array-install-update-13.md#use-the-local-web-ui).
 
 ## References
 
