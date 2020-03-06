@@ -2,212 +2,227 @@
 title: Speech service
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
-author: erhopf
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-ms.date: 03/03/2020
-ms.author: erhopf
+ms.date: 03/06/2020
+ms.author: dapine
 ---
 
 ## Prerequisites
 
-This article assumes:
+This article assumes that you have an Azure account and Speech service subscription. If you don't have an account and subscription, [try the Speech service for free](../../../get-started.md).
 
-* You have an Azure account and Speech service subscription. If you don't have and account and subscription -- [Try the Speech service for free](get-started.md).
+## Install the Speech SDK
 
-## Install and import the Speech SDK
+Before you can do anything, you'll need to install the Speech SDK. Depending on your platform, use the following instructions:
 
-Before you can do anything, you'll need to install the Speech SDK. Open Visual Studio, then right-click the **Solution Explorer** and select **Manage NuGet Packages**. n the package manager that opens select **Browse** and search for `Microsoft.CognitiveServices.Speech`. Select the latest version available. 
-
-### Choose a target architecture 
-
-In order to build your project, you'll need to create a platform configuration that matches your computer's architecture. The steps below cover setup for .NET Core. If you're targeting a different environment, such as Unity, UWP, or Xamarin, see [Quickstart: Create a project](../../quickstarts/create-project).
-
-1. From the menu bar, select **Build** > **Configuration Manager**. The **Configuration Manager** dialog box appears.
-
-   ![Configuration Manager dialog box](../../media/sdk/vs-configuration-manager-dialog-box.png)
-
-1. In the **Active solution platform** drop-down box, select **New**. The **New Solution Platform** dialog box appears.
-
-1. In the **Type or select the new platform** drop-down box:
-   - If you're running 64-bit Windows, select **x64**.
-   - If you're running 32-bit Windows, select **x86**.
-
-1. Select **OK** and then **Close**.
-
+* <a href="../../../quickstarts/setup-platform.md?tabs=dotnet&pivots=programming-language-csharp" target="_blank">.NET Framework <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+* <a href="../../../quickstarts/setup-platform.md?tabs=dotnetcore&pivots=programming-language-csharp" target="_blank">.NET Core <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+* <a href="../../../quickstarts/setup-platform.md?tabs=unity&pivots=programming-language-csharp" target="_blank">Unity <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+* <a href="../../../quickstarts/setup-platform.md?tabs=uwps&pivots=programming-language-csharp" target="_blank">UWP <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+* <a href="../../../quickstarts/setup-platform.md?tabs=xaml&pivots=programming-language-csharp" target="_blank">Xamarin <span class="docon docon-navigate-external x-hidden-focus"></span></a>
 
 ## Create a speech configuration
 
-To call the Speech service using the Speech SDK, you need to create a [`SpeechConfig`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python). This class includes information about your subscription, like your key and associated region, endpoint, host, or authorization token.
+To call the Speech service using the Speech SDK, you need to create a [`SpeechConfig`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet). This class includes information about your subscription, like your key and associated region, endpoint, host, or authorization token.
 
 > [!NOTE]
 > Regardless of whether you're performing speech recognition, speech synthesis, translation, or intent recognition, you'll always create a configuration.
 
-There are a few ways that you can initialize a [`SpeechConfig`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python):
+There are a few ways that you can initialize a [`SpeechConfig`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet):
 
 * With a subscription: pass in a key and the associated region.
 * With an endpoint: pass in a Speech service endpoint. A key or authorization token is optional.
 * With a host: pass in a host address. A key or authorization token is optional.
 * With an authorization token: pass in an authorization token and the associated region.
 
-Let's take a look at how a [`SpeechConfig`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python) is created using a key and region.
+Let's take a look at how a [`SpeechConfig`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet) is created using a key and region.
 
-```Python
-speech_key, service_region = "YourSubscriptionKey", "YourServiceRegion"
-speech_config = speechsdk.SpeechConfig(subscription=speech_key, region=service_region)
+```csharp
+var speechConfig = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
 ```
 
 ## Initialize a recognizer
 
-After you've created a [`SpeechConfig`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python), the next step is to initialize a [`SpeechRecognizer`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechrecognizer?view=azure-python). When you initialize a [`SpeechRecognizer`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechrecognizer?view=azure-python), you'll need to pass it your `speech_config`. This ensures that the credentials that the service requires to validate your request are provided.
+After you've created a [`SpeechConfig`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet), the next step is to initialize a [`SpeechRecognizer`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechrecognizer?view=azure-dotnet). When you initialize a [`SpeechRecognizer`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechrecognizer?view=azure-dotnet), you'll need to pass it your `speechConfig`. This ensures that the credentials that the service requires to validate your request are provided.
 
-If you're recognizing speech using your device's default microphone, here's what the [`SpeechRecognizer`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechrecognizer?view=azure-python) should look like:
+If you're recognizing speech using your device's default microphone, here's what the [`SpeechRecognizer`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechrecognizer?view=azure-dotnet) should look like:
 
-```Python
-speech_recognizer = speechsdk.SpeechRecognizer(speech_config=speech_config)
+```csharp
+using var recognizer = new SpeechRecognizer(speechConfig);
 ```
 
-If you want to specify the audio input device, then you'll need to create an [`AudioConfig`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.audio.audioconfig?view=azure-python) and  provide the `audio_config` parameter when initializing your [`SpeechRecognizer`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechrecognizer?view=azure-python).
+If you want to specify the audio input device, then you'll need to create an [`AudioConfig`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.audio.audioconfig?view=azure-dotnet) and provide the `audioConfig` parameter when initializing your [`SpeechRecognizer`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechrecognizer?view=azure-dotnet).
 
 > [!TIP]
-> [Learn how to get the device ID for your audio input device](how-to-select-audio-input-devices.md).
+> [Learn how to get the device ID for your audio input device](../../../how-to-select-audio-input-devices.md).
 
-```Python
-audio_config = AudioConfig(device_name="<device id>");
-speech_recognizer = speechsdk.SpeechRecognizer(speech_config=speech_config, audio_config=audio_config)
+First, add the following `using` statement.
+
+```csharp
+using Microsoft.CognitiveServices.Speech.Audio;
 ```
 
-If you don't want to use a microphone, and want to provide an audio file, you'll still need to provide an `audio_config`. However, when you create an [`AudioConfig`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.audio.audioconfig?view=azure-python), instead of providing the `device_name`, you'll use the `filename` parameter.
+Next, you'll be able to reference the `AudioConfig` object as follows:
 
-```Python
-audio_filename = "whatstheweatherlike.wav"
-audio_input = speechsdk.AudioConfig(filename=audio_filename)
-speech_recognizer = speechsdk.SpeechRecognizer(speech_config=speech_config, audio_config=audio_input)
+```csharp
+using var audioConfig = AudioConfig.FromDefaultMicrophoneInput();
+using var recognizer = new SpeechRecognizer(speechConfig, audioConfig);
+```
+
+If you don't want to use a microphone, and want to provide an audio file, you'll still need to provide an `audioConfig`. However, when you create an [`AudioConfig`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.audio.audioconfig?view=azure-dotnet), instead of calling `FromDefaultMicrophoneInput`, you'll call `FromWavFileOutput` and pass the `filename` parameter.
+
+
+```csharp
+using var audioConfig = AudioConfig.FromWavFileInput("YourAudioFile.wav");
+using var recognizer = new SpeechRecognizer(speechConfig, audioConfig);
 ```
 
 ## Recognize speech
 
-The [Recognizer class](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.recognizer?view=azure-python) for the Speech SDK for Python exposes a few methods that you can use for speech recognition.
+The [Recognizer class](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechrecognizer?view=azure-dotne) for the Speech SDK for C# exposes a few methods that you can use for speech recognition.
 
-* Single-shot recognition (sync) - Performs recognition in a blocking (synchronous) mode. Returns after a single utterance is recognized. The end of a single utterance is determined by listening for silence at the end or until a maximum of 15 seconds of audio is processed. The task returns the recognition text as result.
 * Single-shot recognition (async) - Performs recognition in a non-blocking (asynchronous) mode. This will recognize a single utterance. The end of a single utterance is determined by listening for silence at the end or until a maximum of 15 seconds of audio is processed.
-* Continuous recognition (sync) - Synchronously initiates continuous recognition. The client must connect to `EventSignal` to receive recognition results. To stop recognition, call [stop_continuous_recognition()](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.recognizer?view=azure-python#stop-continuous-recognition--).
-* Continuous recognition (async) - Asynchronously initiates continuous recognition operation. User has to connect to EventSignal to receive recognition results. To stop asynchronous continuous recognition, call [stop_continuous_recognition()](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.recognizer?view=azure-python#stop-continuous-recognition-async--).
+* Continuous recognition (async) - Asynchronously initiates continuous recognition operation. The user has to connect to handle event to receive recognition results. To stop asynchronous continuous recognition, call [`StopContinuousRecognitionAsync`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechrecognizer.stopcontinuousrecognitionasync?view=azure-dotnet).
 
 > [!NOTE]
-> Learn more about how to [choose a speech recognition mode](how-to-choose-recognition-mode.md).
+> Learn more about how to [choose a speech recognition mode](../../../how-to-choose-recognition-mode.md).
 
 ### Single-shot recognition
 
-Here's an example of synchronous single-shot recognition using [`recognize_once()`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.recognizer?view=azure-python#recognize-once):
+Here's an example of asynchronous single-shot recognition using [`RecognizeOnceAsync`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechrecognizer.recognizeonceasync?view=azure-dotnet):
 
-```Python
-result = speech_recognizer.recognize_once()
+```csharp
+var result = await recognizer.RecognizeOnceAsync();
 ```
 
-Here's an example of synchronous single-shot recognition using [`recognize_once_async()`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.recognizer?view=azure-python#recognize-once-async------azure-cognitiveservices-speech-resultfuture):
+You'll need to write some code to handle the result. This sample does a few things with the [`result.Reason`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.recognitionresult.reason?view=azure-dotnet):
 
-```Python
-result = speech_recognizer.recognize_once_async()
-```
+* Prints the recognition result: `ResultReason.RecognizedSpeech`
+* If there is no recognition match, inform the user: `ResultReason.NoMatch`
+* If an error is encountered, print the error message: `ResultReason.Canceled`
 
-Regardless of whether you've used the synchronous or asynchronous method, you'll need to write some code to iterate through the result. This sample does a few things with the [`result.reason`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.resultreason?view=azure-python):
+```csharp
+switch (result.Reason)
+{
+    case ResultReason.RecognizedSpeech:
+        Console.WriteLine($"RECOGNIZED: Text={result.Text}");
+        Console.WriteLine($"    Intent not recognized.");
+        break;
+    case ResultReason.NoMatch:
+        Console.WriteLine($"NOMATCH: Speech could not be recognized.");
+        break;
+    case ResultReason.Canceled:
+        var cancellation = CancellationDetails.FromResult(result);
+        Console.WriteLine($"CANCELED: Reason={cancellation.Reason}");
 
-* Prints the recognition result: `speechsdk.ResultReason.RecognizedSpeech`
-* If there is no recognition match, inform the user: `speechsdk.ResultReason.NoMatch `
-* If an error is encountered, print the error message: `speechsdk.ResultReason.Canceled`
-
-```Python
-if result.reason == speechsdk.ResultReason.RecognizedSpeech:
-    print("Recognized: {}".format(result.text))
-elif result.reason == speechsdk.ResultReason.NoMatch:
-    print("No speech could be recognized: {}".format(result.no_match_details))
-elif result.reason == speechsdk.ResultReason.Canceled:
-    cancellation_details = result.cancellation_details
-    print("Speech Recognition canceled: {}".format(cancellation_details.reason))
-    if cancellation_details.reason == speechsdk.CancellationReason.Error:
-        print("Error details: {}".format(cancellation_details.error_details))
+        if (cancellation.Reason == CancellationReason.Error)
+        {
+            Console.WriteLine($"CANCELED: ErrorCode={cancellation.ErrorCode}");
+            Console.WriteLine($"CANCELED: ErrorDetails={cancellation.ErrorDetails}");
+            Console.WriteLine($"CANCELED: Did you update the subscription info?");
+        }
+        break;
+}
 ```
 
 ### Continuous recognition
 
-Continuous recognition is a bit more involved than single-shot recognition. It requires you to connect to the `EventSignal` to get the recognition results, and in to stop recognition, you must call [stop_continuous_recognition()](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.recognizer?view=azure-python#stop-continuous-recognition--) or [stop_continuous_recognition()](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.recognizer?view=azure-python#stop-continuous-recognition-async--). Here's an example of how continuous recognition is performed on an audio input file.
+Continuous recognition is a bit more involved than single-shot recognition. It requires you to subscribe to the `Recognizing`, `Recognized`, and `Canceled` events to get the recognition results. To stop recognition, you must call [`StopContinuousRecognitionAsync`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechrecognizer.stopcontinuousrecognitionasync?view=azure-dotnet). Here's an example of how continuous recognition is performed on an audio input file.
 
-Let's start by defining the input and initializing a [`SpeechRecognizer`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechrecognizer?view=azure-python):
+Let's start by defining the input and initializing a [`SpeechRecognizer`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechrecognizer?view=azure-dotnet):
 
-```Python
-audio_config = speechsdk.audio.AudioConfig(filename=weatherfilename)
-speech_recognizer = speechsdk.SpeechRecognizer(speech_config=speech_config, audio_config=audio_config)
+```csharp
+using var audioConfig = AudioConfig.FromWavFileInput("YourAudioFile.wav");
+using var recognizer = new SpeechRecognizer(speechConfig, audioConfig);
+```
+Next, let's create a variable to manage the state of speech recognition. To start, we'll declare a `TaskCompletionSource<int>` after the previous declarations.
+
+```csharp
+var stopRecognition = new TaskCompletionSource<int>();
 ```
 
-Next, let's create a variable to manage the state of speech recognition. To start, we'll set this to `False`, since at the start of recognition we can safely assume that it's not finished.
+We'll subscribe to the events sent from the [`SpeechRecognizer`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechrecognizer?view=azure-dotnet).
 
-```Python
-done = False
+* [`Recognizing`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechrecognizer.recognizing?view=azure-dotnet): Signal for events containing intermediate recognition results.
+* [`Recognized`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechrecognizer.recognized?view=azure-dotnet): Signal for events containing final recognition results (indicating a successful recognition attempt).
+* [`SessionStopped`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.recognizer.sessionstopped?view=azure-dotnet): Signal for events indicating the end of a recognition session (operation).
+* [`Canceled`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechrecognizer.canceled?view=azure-dotnet): Signal for events containing canceled recognition results (indicating a recognition attempt that was canceled as a result or a direct cancellation request or, alternatively, a transport or protocol failure).
+
+```csharp
+recognizer.Recognizing += (s, e) =>
+{
+    Console.WriteLine($"RECOGNIZING: Text={e.Result.Text}");
+};
+
+recognizer.Recognized += (s, e) =>
+{
+    if (e.Result.Reason == ResultReason.RecognizedSpeech)
+    {
+        Console.WriteLine($"RECOGNIZED: Text={e.Result.Text}");
+    }
+    else if (e.Result.Reason == ResultReason.NoMatch)
+    {
+        Console.WriteLine($"NOMATCH: Speech could not be recognized.");
+    }
+};
+
+recognizer.Canceled += (s, e) =>
+{
+    Console.WriteLine($"CANCELED: Reason={e.Reason}");
+
+    if (e.Reason == CancellationReason.Error)
+    {
+        Console.WriteLine($"CANCELED: ErrorCode={e.ErrorCode}");
+        Console.WriteLine($"CANCELED: ErrorDetails={e.ErrorDetails}");
+        Console.WriteLine($"CANCELED: Did you update the subscription info?");
+    }
+
+    stopRecognition.TrySetResult(0);
+};
+
+recognizer.SessionStopped += (s, e) =>
+{
+    Console.WriteLine("\n    Session stopped event.");
+    stopRecognition.TrySetResult(0);
+};
 ```
 
-Now, we're going to create a callback to stop continuous recognition when an `evt` is received. There's a few things to keep in mind.
+With everything set up, we can call [`StopContinuousRecognitionAsync`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechrecognizer.stopcontinuousrecognitionasync?view=azure-dotnet).
 
-* When an `evt` is received, the `evt` message is printed.
-* After an `evt` is received, [stop_continuous_recognition()](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.recognizer?view=azure-python#stop-continuous-recognition--) is called to stop recognition.
-* The recognition state is changed to `True`.
+```csharp
+// Starts continuous recognition. Uses StopContinuousRecognitionAsync() to stop recognition.
+await recognizer.StartContinuousRecognitionAsync();
 
-```Python
-def stop_cb(evt):
-    print('CLOSING on {}'.format(evt))
-    speech_recognizer.stop_continuous_recognition()
-    nonlocal done
-    done = True
-```
+// Waits for completion. Use Task.WaitAny to keep the task rooted.
+Task.WaitAny(new[] { stopRecognition.Task });
 
-This code sample shows how to connect callbacks to events sent from the [`SpeechRecognizer`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.recognizer?view=azure-python#start-continuous-recognition--).
-
-* [`recognizing`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.recognizer?view=azure-python#recognizing): Signal for events containing intermediate recognition results.
-* [`recognized`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.recognizer?view=azure-python#recognized): Signal for events containing final recognition results (indicating a successful recognition attempt).
-* [`session_started`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.recognizer?view=azure-python#session-started): Signal for events indicating the start of a recognition session (operation).
-* [`session_stopped`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.recognizer?view=azure-python#session-stopped): Signal for events indicating the end of a recognition session (operation).
-* [`canceled`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.recognizer?view=azure-python#canceled): Signal for events containing canceled recognition results (indicating a recognition attempt that was canceled as a result or a direct cancellation request or, alternatively, a transport or protocol failure).
-
-```Python
-speech_recognizer.recognizing.connect(lambda evt: print('RECOGNIZING: {}'.format(evt)))
-speech_recognizer.recognized.connect(lambda evt: print('RECOGNIZED: {}'.format(evt)))
-speech_recognizer.session_started.connect(lambda evt: print('SESSION STARTED: {}'.format(evt)))
-speech_recognizer.session_stopped.connect(lambda evt: print('SESSION STOPPED {}'.format(evt)))
-speech_recognizer.canceled.connect(lambda evt: print('CANCELED {}'.format(evt)))
-
-speech_recognizer.session_stopped.connect(stop_cb)
-speech_recognizer.canceled.connect(stop_cb)
-```
-
-With everything set up, we can call [start_continuous_recognition()](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.recognizer?view=azure-python#session-stopped).
-
-```Python
-speech_recognizer.start_continuous_recognition()
-while not done:
-    time.sleep(.5)
+// Stops recognition.
+await recognizer.StopContinuousRecognitionAsync();
 ```
 
 ### Dictation mode
 
 When using continuous recognition, you can enable dictation processing by using the corresponding "enable dictation" function. This mode will cause the speech config instance to interpret word descriptions of sentence structures such as punctuation. For example, the utterance "Do you live in town question mark" would be interpreted as the text "Do you live in town?".
 
-To enable dictation mode, use the [`enable_dictation()`](https://docs.microsoft.com/en-us/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python#enable-dictation--) method on your [`SpeechConfig`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python).
+To enable dictation mode, use the [`EnableDictation`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.enabledictation?view=azure-dotnet) method on your [`SpeechConfig`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet).
 
-```Python 
-SpeechConfig.enable_dictation()
+```csharp
+speechConfig.EnableDictation();
 ```
 
 ## Change source language
 
-A common task for speech recognition is specifying the input (or source) language. Let's take a look at how you would change the input language to German. In your code, find your SpeechConfig, then add this line directly below it.
+A common task for speech recognition is specifying the input (or source) language. Let's take a look at how you would change the input language to German. In your code, find your [`SpeechConfig`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet), then add this line directly below it.
 
-```Python
-speech_config.speech_recognition_language="de-DE"
+```csharp
+speechConfig.SpeechRecognitionLanguage = "fr-FR";
 ```
 
-[`speech_recognition_language`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python#speech-recognition-language) is a parameter that takes a string as an argument. You can provide any value in the list of supported [locales/languages](language-support.md).
+The [`SpeechRecognitionLanguage`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.speechrecognitionlanguage?view=azure-dotnet) property expects a BCP-47 format string. You can provide any value in the list of supported [locales/languages](../../../language-support.md).
 
 ## Improve recognition accuracy
 
@@ -216,24 +231,24 @@ There are a few ways to improve recognition accuracy with the Speech SDK. Let's 
 > [!IMPORTANT]
 > The Phrase List feature is only available in English.
 
-To use a phrase list, first create a [`PhraseListGrammar`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.phraselistgrammar?view=azure-python) object, then add specific words and phrases with [`addPhrase`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.phraselistgrammar?view=azure-python#addphrase-phrase--str-).
+To use a phrase list, first create a [`PhraseListGrammar`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.phraselistgrammar?view=azure-dotnet) object, then add specific words and phrases with [`AddPhrase`](https://docs.microsoft.com//dotnet/api/microsoft.cognitiveservices.speech.phraselistgrammar.addphrase?view=azure-dotnet).
 
-Any changes to [`PhraseListGrammar`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.phraselistgrammar?view=azure-python) take effect on the next recognition or after a reconnection to the Speech service.
+Any changes to [`PhraseListGrammar`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.phraselistgrammar?view=azure-dotnet) take effect on the next recognition or after a reconnection to the Speech service.
 
-```Python
-phrase_list_grammar = speechsdk.PhraseListGrammar.from_recognizer(reco)
-phrase_list_grammar.addPhrase("Supercalifragilisticexpialidocious")
+```csharp
+var phraseList = PhraseListGrammar.FromRecognizer(recognizer);
+phraseList.AddPhrase("Supercalifragilisticexpialidocious");
 ```
 
 If you need to clear your phrase list: 
 
-```Python
-phrase_list_grammar.clear()
+```csharp
+phraseList.Clear();
 ```
 
 ### Other options to improve recognition accuracy
 
 Phrase lists are only one option to improve recognition accuracy. You can also: 
 
-* [Improve accuracy with Custom Speech](how-to-custom-speech.md)
-* [Improve accuracy with tenant models](tutorial-tenant-model.md)
+* [Improve accuracy with Custom Speech](../../../how-to-custom-speech.md)
+* [Improve accuracy with tenant models](../../../tutorial-tenant-model.md)
