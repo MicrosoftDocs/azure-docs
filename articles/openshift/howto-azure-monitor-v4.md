@@ -54,17 +54,17 @@ For Example:
 
 ## Configure agent data collection
 
-By default, Monitoring Agent collects the {stdout; stderr} container logs of all the containers running in all the namespaces except kube-system.  If you want to configure the container log collection specific to particular namespace(s), you can  refer to https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-agent-config. Here, you can configure Monitoring agent with desired data collection settings using config map.
+By default, Monitoring Agent collects the {stdout; stderr} container logs of all the containers running in all the namespaces except kube-system.  If you want to configure the container log collection specific to particular namespace or namespaces, you can  refer to [Container Insights agent configuration](../azure-monitor/insights/container-insights-agent-config). Here, you can configure Monitoring agent with desired data collection settings using config map.
 
 ## Configure scraping of Prometheus metrics
 
-Azure Monitor for containers scrapes the Prometheus metrics and ingest to the Azure Monitor backend. Refer to https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-prometheus-integration for the instructions how to configure Prometheus scraping.
+Azure Monitor for containers scrapes the Prometheus metrics and ingest to the Azure Monitor backend. Refer to [Container Insights Prometheus configuration](../azure-monitor/insights/container-insights-prometheus-integration) for the instructions how to configure Prometheus scraping.
 
 After successful onboarding, navigate to https://aka.ms/azmon-containers-hybrid  and select Environment as **"All"** to view your newly onboarded OpenShift v4 cluster.
 
 ## Disable monitoring
 
-If you would like to disable monitoring, you can delete the Azure Monitor for Containers Helm chart using the below command to stop collecting and ingesting monitoring data to Azure Monitor for containers backend.
+If you would like to disable monitoring, you can delete the Azure Monitor for Containers Helm chart using the following command to stop collecting and ingesting monitoring data to Azure Monitor for containers backend.
 
 ``` bash
 helm del azmon-containers-release-1
@@ -72,20 +72,21 @@ helm del azmon-containers-release-1
 
 ## Update monitoring
 
-Rerun the onboarding script as in Onboarding section with the same parameter to get updated to latest Helm chart.
+Rerun the onboarding script as described in the [Onboarding](#onboarding) section with the same parameter to get updated to latest Helm chart.
 
 ## After successful onboarding
 
-Navigate to https://aka.ms/azmon-containers-hybrid and you should be able to see your newly enabled OpenShift/ARO v4 cluster with Health status in the Monitored Clusters Tab  and you can get into deeper insights such as metrics, inventory, and logs etc. by clicking the Cluster column.
+Navigate to [Hybrid Monitoring](https://aka.ms/azmon-containers-hybrid) and you should be able to see your newly enabled OpenShift/ARO v4 cluster with health status in the **Monitored Clusters** tab  and you can get into deeper insights such as metrics, inventory, and logs and more by clicking the **Cluster** column.
 
 ## Supported features
 
-For more information, see https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview for more details on the supported features and functionality.
+For more information, see [Container Insights overview](../azure-monitor/insights/container-insights-overview) for more details on the supported features and functionality.
 
 Contact us via askcoin@microsoft.com  the feedback and questions.
 
-## References
+## Next steps
 
-https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview
+To learn more about monitoring, see:
+../azure/azure-monitor/insights/container-insights-overview
 
-https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview
+../azure/azure-monitor/log-query/log-query-overview
