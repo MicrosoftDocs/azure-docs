@@ -99,6 +99,8 @@ For example, a JavaScript function app is constrained by the default memory limi
 
 Below are the currently supported maximum scale out values for a single plan in each region and OS configuration. To request an increase please open a support ticket.
 
+See the complete regional availability of Functions here: [Azure.com](https://azure.microsoft.com/global-infrastructure/services/?products=functions)
+
 |Region| Windows | Linux |
 |--| -- | -- |
 |Australia Central| 20 | Not Available |
