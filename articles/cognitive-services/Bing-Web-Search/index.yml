@@ -106,16 +106,16 @@ conceptualContent:
       links:
         - text: Use C#
           itemType: quickstart
-          url: ../bing-entity-search/quickstarts/client-libraries.md?pivots=programming-language-csharp
+          url: ../bing-entities-search/quickstarts/client-libraries.md?pivots=programming-language-csharp
         - text: Use Java
           itemType: quickstart
-          url: ../bing-entity-search/quickstarts/client-libraries.md?pivots=programming-language-java
+          url: ../bing-entities-search/quickstarts/client-libraries.md?pivots=programming-language-java
         - text: Use JavaScript
           itemType: quickstart
-          url: ../bing-entity-search/quickstarts/client-libraries.md?pivots=programming-language-javascript
+          url: ../bing-entities-search/quickstarts/client-libraries.md?pivots=programming-language-javascript
         - text: Use Python
           itemType: quickstart
-          url: ../bing-entity-search/quickstarts/client-libraries.md?pivots=programming-language-python
+          url: ../bing-entities-search/quickstarts/client-libraries.md?pivots=programming-language-python
         - text: Create a single page web-app
           itemType: tutorial
           url: ../bing-entities-search/tutorial-bing-entities-search-single-page-app.md

@@ -73,6 +73,6 @@ python -m pip install azure-cognitiveservices-search-entitysearch
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create a single-page web app](../tutorial-bing-entities-search-single-page-app.md)
+> [Create a single-page web app](../../tutorial-bing-entities-search-single-page-app.md)
 
-* [What is the Bing Entity Search API?](../overview.md )
+* [What is the Bing Entity Search API?](../../overview.md )

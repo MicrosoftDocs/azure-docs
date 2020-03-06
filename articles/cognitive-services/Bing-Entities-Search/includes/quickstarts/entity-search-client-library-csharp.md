@@ -72,6 +72,6 @@ To add the Bing Entity Search client library to your Visual Studio project, use 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create a single-page web app](../tutorial-bing-entities-search-single-page-app.md)
+> [Create a single-page web app](../../tutorial-bing-entities-search-single-page-app.md)
 
-* [What is the Bing Entity Search API?](../overview.md )
+* [What is the Bing Entity Search API?](../../overview.md )
