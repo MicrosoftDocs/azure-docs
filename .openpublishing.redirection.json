@@ -6707,6 +6707,10 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/scheduler/get-started-portal.md",
+      "redirect_url": "/azure/scheduler/migrate-from-scheduler-to-logic-apps",
+    },
+    {
       "source_path": "articles/connectors/connectors-create-api-googledrive.md",
       "redirect_url": "https://docs.microsoft.com/connectors/googledrive/",
       "redirect_document_id": true
