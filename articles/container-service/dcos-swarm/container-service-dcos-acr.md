@@ -97,7 +97,7 @@ Run the following command to login to the Azure Container Registry. Replace the 
 
 This command stores the authentication values locally under the `~/.docker` path.
 
-```azurecli-interactive
+```console
 docker -H tcp://localhost:2375 login --username=myContainerRegistry23489 --password=//=ls++q/m+w+pQDb/xCi0OhD=2c/hST mycontainerregistry.azurecr.io
 ```
 

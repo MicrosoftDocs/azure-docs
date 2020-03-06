@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/13/2020
+ms.date: 03/05/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -73,9 +73,11 @@ The technical profile also returns claims that aren't returned by the identity p
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
 | client_id | Yes | The application identifier of the identity provider. |
-| IdTokenAudience | No | The audience of the id_token. If specified, Azure AD B2C checks whether the token is in a claim returned by the identity provider and is equal to the one specified. |
-| METADATA | Yes | A URL that points to a JSON configuration document formatted according to the OpenID Connect Discovery specification, which is also known as a well-known openid configuration endpoint. |
-| ProviderName | No | The name of the identity provider. |
+| IdTokenAudience | No | The audience of the id_token. If specified, Azure AD B2C checks whether the `aud` claim in a token returned by the identity provider is equal to the one specified in the IdTokenAudience metadata.  |
+| METADATA | Yes | A URL that points to an OpenID Connect identity provider configuration document, which is also known as OpenID well-known configuration endpoint. The URL can contain the `{tenant}` expression, which is replaced with the tenant name.  |
+| authorization_endpoint | No | A URL that points to an OpenID Connect identity provider configuration authorization endpoint. The value of authorization_endpoint metadata takes precedence over the `authorization_endpoint` specified in the OpenID well-known configuration endpoint. The URL can contain the `{tenant}` expression, which is replaced with the tenant name. |
+| issuer | No | The unique identifier of an OpenID Connect identity provider. The value of issuer metadata takes precedence over the `issuer` specified in the OpenID well-known configuration endpoint.  If specified, Azure AD B2C checks whether the `iss` claim in a token returned by the identity provider is equal to the one specified in the issuer metadata. |
+| ProviderName | No | The name of the identity provider.  |
 | response_types | No | The response type according to the OpenID Connect Core 1.0 specification. Possible values: `id_token`, `code`, or `token`. |
 | response_mode | No | The method that the identity provider uses to send the result back to Azure AD B2C. Possible values: `query`, `form_post` (default), or `fragment`. |
 | scope | No | The scope of the request that is defined according to the OpenID Connect Core 1.0 specification. Such as `openid`, `profile`, and `email`. |
