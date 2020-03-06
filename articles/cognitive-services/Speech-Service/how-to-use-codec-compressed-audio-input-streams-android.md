@@ -18,7 +18,7 @@ ms.author: amishu
 The Speech SDK's **Compressed Audio Input Stream** API provides a way to stream compressed audio to the Speech service using PullStream or PushStream.
 
 > [!IMPORTANT]
-> Streaming compressed input audio is currently supported for [C++, C#, and Java on Linux (Ubuntu 16.04, Ubuntu 18.04, Debian 9)](how-to-use-codec-compressed-audio-input-streams.md). It is also supported for Java in Android and [Objective-C in iOS](how-to-use-codec-compressed-audio-input-streams-ios.md) platform.
+> Streaming compressed input audio is currently supported for [C++, C#, and Java on Linux (Ubuntu 16.04, Ubuntu 18.04, Debian 9, RHEL 8, CentOS 8)](how-to-use-codec-compressed-audio-input-streams.md). It is also supported for Java in Android and [Objective-C in iOS](how-to-use-codec-compressed-audio-input-streams-ios.md) platform.
 > Speech SDK version 1.7.0 or higher is required.
 
 For wav/PCM see the mainline speech documentation. Outside of wav/PCM, the following codec compressed input formats are supported:

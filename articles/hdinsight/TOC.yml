@@ -596,8 +596,6 @@
         href: ./kafka/apache-kafka-mirroring.md
       - name: Analyze Apache Kafka logs
         href: ./kafka/apache-kafka-log-analytics-operations-management.md
-      - name: Bring your own key
-        href: ./kafka/apache-kafka-byok.md
       - name: SSL Encryption and Authentication
         href: ./kafka/apache-kafka-ssl-encryption-authentication.md
     - name: Troubleshoot

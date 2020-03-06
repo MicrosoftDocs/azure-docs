@@ -31,7 +31,7 @@ In this tutorial, you complete the following tasks:
 > * Build, run, and publish a pipeline
 > * Enable a REST endpoint for the pipeline
 
-If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today.
+If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today.
 
 ## Prerequisites
 
@@ -346,7 +346,7 @@ import pandas as pd
 
 batch_run = next(pipeline_run.get_children())
 batch_output = batch_run.get_output_data("scores")
-batch_output.download(local_path="inception_result")
+batch_output.download(local_path="inception_results")
 
 for root, dirs, files in os.walk("inception_results"):
     for file in files:
