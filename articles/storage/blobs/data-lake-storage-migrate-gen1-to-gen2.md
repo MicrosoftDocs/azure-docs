@@ -133,21 +133,21 @@ This is the simplest pattern.
 
 #### Considerations for using this pattern:
 
-- Cutover from Gen1 to Gen2 for all workloads at the same time.
+:heavy_check_mark: Cutover from Gen1 to Gen2 for all workloads at the same time.
 
-- Expect downtime during the migration and the cutover period.
+:heavy_check_mark: Expect downtime during the migration and the cutover period.
 
-- Ideal for pipelines that can afford downtime and all apps can be upgraded at one time.
+:heavy_check_mark: Ideal for pipelines that can afford downtime and all apps can be upgraded at one time.
 
 ### Incremental copy pattern
 
-:one: &nbsp;&nbsp; Start moving data from Gen1 to Gen2.
+1. Start moving data from Gen1 to Gen2.
 
-:two: &nbsp;&nbsp; Incrementally copy new data from Gen1.
+2. Incrementally copy new data from Gen1.
 
-:three: &nbsp;&nbsp; After all data is copied, stop all writes to Gen1, and point workloads to Gen2.
+3. After all data is copied, stop all writes to Gen1, and point workloads to Gen2.
 
-:four: &nbsp;&nbsp; Decommission Gen1.
+4. Decommission Gen1.
 
 ![Incremental copy pattern](./media/data-lake-storage-migrate-gen1-to-gen2/incremental-copy.png)
 
@@ -156,21 +156,21 @@ This is the simplest pattern.
 
 #### Considerations for using this pattern:
 
-- Cutover from Gen1 to Gen2 for all workloads at the same time.
+:heavy_check_mark: Cutover from Gen1 to Gen2 for all workloads at the same time.
 
-- Expect downtime during cutover period only.
+:heavy_check_mark: Expect downtime during cutover period only.
 
-- Ideal for pipelines where all apps upgraded at one time, but the data copy requires more time.
+:heavy_check_mark: Ideal for pipelines where all apps upgraded at one time, but the data copy requires more time.
 
 ### Dual pipeline pattern
 
-:one: &nbsp;&nbsp; Move data from Gen1 to Gen2.
+1. Move data from Gen1 to Gen2.
 
-:two: &nbsp;&nbsp; Ingest new data to both Gen1 and Gen2.
+2. Ingest new data to both Gen1 and Gen2.
 
-:three: &nbsp;&nbsp; Point workloads to Gen2.
+3. Point workloads to Gen2.
 
-:four: &nbsp;&nbsp; Stop all writes to Gen1 and then decommission Gen1.
+4. Stop all writes to Gen1 and then decommission Gen1.
 
 ![Dual pipeline pattern](./media/data-lake-storage-migrate-gen1-to-gen2/dual-pipeline.png)
 
@@ -179,23 +179,23 @@ This is the simplest pattern.
 
 #### Considerations for using this pattern:
 
-- Gen1 and Gen2 pipelines run side-by-side.
+:heavy_check_mark: Gen1 and Gen2 pipelines run side-by-side.
 
-- Supports zero downtime.
+:heavy_check_mark: Supports zero downtime.
 
-- Ideal in situations where your workloads and applications can't afford any downtime, and you can ingest into both storage accounts.
+:heavy_check_mark: Ideal in situations where your workloads and applications can't afford any downtime, and you can ingest into both storage accounts.
 
 ### Bi-directional sync pattern
 
 This pattern is similar to the *dual pipeline* pattern, but it's more ideally suited for complicated pipelines that require Gen1 and Gen2 side-by-side support during migration.
 
-:one: &nbsp;&nbsp; Set up bidirectional replication between Gen1 and Gen2.
+1. Set up bidirectional replication between Gen1 and Gen2.
 
-:two: &nbsp;&nbsp; Incrementally move ingest and compute workloads to Gen2.
+2. Incrementally move ingest and compute workloads to Gen2.
 
-:three: &nbsp;&nbsp; When all moves are complete, stop all writes to Gen1 and turn off bidirectional replication.
+3. When all moves are complete, stop all writes to Gen1 and turn off bidirectional replication.
 
-:four: &nbsp;&nbsp; Decommission Gen1.
+4. Decommission Gen1.
 
 ![Bidirectional pattern](./media/data-lake-storage-migrate-gen1-to-gen2/bidirectional-sync.png)
 
@@ -204,9 +204,9 @@ This pattern is similar to the *dual pipeline* pattern, but it's more ideally su
 
 #### Considerations for using this pattern:
 
-- Ideal for complex scenarios that involve a large number of pipelines and dependencies where a phased approach might make more sense.  
+:heavy_check_mark: Ideal for complex scenarios that involve a large number of pipelines and dependencies where a phased approach might make more sense.  
 
-- Migration effort is high, but it provides side-by-side support for Gen1 and Gen2.
+:heavy_check_mark: Migration effort is high, but it provides side-by-side support for Gen1 and Gen2.
 
 ## Next steps
 
