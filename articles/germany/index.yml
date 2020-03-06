@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
 title: Azure Germany documentation
-summary: Azure Germany is a physically isolated instance of Microsoft Azure. It uses world-class security and compliance services that are critical to German data privacy regulations.
+summary: Azure Germany is a physically isolated instance of Microsoft Azure that uses world-class security and compliance services that are critical to German data privacy regulations. Since August 2018, we have not been accepting new customers or deploying any new features and services into the original Microsoft Cloud Germany locations. Based on the evolution in customers' needs, we recently launched two new datacenter regions in Germany, offering customer data residency, full connectivity to Microsoft's global cloud network, as well as market competitive pricing.
 
 metadata:
   title: Azure Germany documentation
-  description: Azure Germany is a physically isolated instance of Microsoft Azure. It uses world-class security and compliance services that are critical to German data privacy regulations
+  description: Azure Germany is a physically isolated instance of Microsoft Azure that uses world-class security and compliance services that are critical to German data privacy regulations
   ms.service: germany
   ms.topic: landing-page
   author: rolyon
