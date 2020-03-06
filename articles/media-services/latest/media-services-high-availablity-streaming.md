@@ -22,7 +22,7 @@ Azure Media Services encoding service is a regional batch processing platform an
 
 By following the guidelines and best-practices described in the article, you will lower risk of encoding failures, delays, and minimize recovery time if an outage occurs in a single region.
 
-## Prerequisits
+## Prerequisites
 
 Check out [How to build a cross-regional encoding system](media-services-high-availablity-encoding.md)
 
