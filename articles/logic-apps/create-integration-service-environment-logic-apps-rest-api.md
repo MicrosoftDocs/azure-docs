@@ -14,9 +14,16 @@ This article shows how to create an [*integration service environment* (ISE)](..
 
 To create an ISE by using the Azure portal instead, see [Connect to Azure virtual networks from Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment.md).
 
+> [!IMPORTANT]
+> Logic apps, built-in triggers, built-in actions, and connectors that run in 
+> your ISE use a pricing plan different from the consumption-based pricing plan. 
+> To learn how pricing and billing work for ISEs, see the 
+> [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md#fixed-pricing). 
+> For pricing rates, see [Logic Apps pricing](../logic-apps/logic-apps-pricing.md).
+
 ## Prerequisites
 
-* An Azure subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
+* The same [prerequisites](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#prerequisites) as when you create an ISE in the Azure portal
 
 * A tool that you can use to create your ISE by calling the Logic Apps REST API with an HTTPS PUT request. For example, you can use [Postman](https://www.getpostman.com/downloads/), or you can build a logic app that performs this task.
 
@@ -25,6 +32,8 @@ To create an ISE by using the Azure portal instead, see [Connect to Azure virtua
 To create your ISE by calling the Logic Apps REST API, make this HTTPS PUT request:
 
 `PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/integrationServiceEnvironments/{integrationServiceEnvironmentName}?api-version=2019-05-01`
+
+Deployment usually takes within two hours to finish. Occasionally, deployment might take up to four hours. To check deployment status, in the [Azure portal](https://portal.azure.com), on your Azure toolbar, select the notifications icon, which opens the notifications pane.
 
 > [!IMPORTANT]
 > The Logic Apps REST API 2019-05-01 version requires that you make your own HTTP PUT request for ISE connectors.

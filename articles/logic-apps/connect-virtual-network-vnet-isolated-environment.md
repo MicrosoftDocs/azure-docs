@@ -17,8 +17,7 @@ When you create an ISE, Azure *injects* that ISE into your Azure virtual network
 ![Select integration service environment](./media/connect-virtual-network-vnet-isolated-environment/select-logic-app-integration-service-environment.png)
 
 > [!IMPORTANT]
-> For logic apps and integration accounts to work together in an ISE, 
-> both must use the *same ISE* as their location.
+> For logic apps and integration accounts to work together in an ISE, both must use the *same ISE* as their location.
 
 An ISE has increased limits on run duration, storage retention, throughput, HTTP request and response timeouts, message sizes, and custom connector requests. For more information, see [Limits and configuration for Azure Logic Apps](logic-apps-limits-and-config.md). To learn more about ISEs, see [Access to Azure Virtual Network resources from Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md).
 
@@ -28,16 +27,15 @@ This article shows you how to complete these tasks by using the Azure portal:
 * Create your ISE.
 * Add extra capacity to your ISE.
 
-> [!IMPORTANT]
-> Logic apps, built-in triggers, built-in actions, and connectors that run in 
-> your ISE use a pricing plan different from the consumption-based pricing plan. 
-> To learn how pricing and billing work for ISEs, see the 
-> [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md#fixed-pricing). 
-> For pricing rates, see [Logic Apps pricing](../logic-apps/logic-apps-pricing.md).
-
 ## Prerequisites
 
 * An Azure subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
+
+  > [!IMPORTANT]
+  > Logic apps, built-in triggers, built-in actions, and connectors that run in your ISE use a pricing plan 
+  > different from the consumption-based pricing plan. To learn how pricing and billing work for ISEs, see the 
+  > [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md#fixed-pricing). 
+  > For pricing rates, see [Logic Apps pricing](../logic-apps/logic-apps-pricing.md).
 
 * An [Azure virtual network](../virtual-network/virtual-networks-overview.md). If you don't have a virtual network, learn how to [create an Azure virtual network](../virtual-network/quick-create-portal.md).
 

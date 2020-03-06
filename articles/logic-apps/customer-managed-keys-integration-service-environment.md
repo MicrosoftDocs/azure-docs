@@ -14,7 +14,7 @@ Azure Logic Apps relies on Azure Storage to store and automatically [encrypt dat
 
 When you create an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) for hosting your logic apps, and you want more control over the encryption keys used by Azure Storage, you can set up, use, and manage your own key by using [Azure Key Vault](../key-vault/key-vault-overview.md). This capability is also known as "Bring Your Own Key" (BYOK), and your key is called a "customer-managed key".
 
-This topic shows how to set up and specify your own encryption key to use when you create your ISE. 
+This topic shows how to set up and specify your own encryption key to use when you create your ISE by using the Logic Apps REST API. For the general steps to create an ISE through Logic Apps REST API, see [Create an integration service environment (ISE) by using the Logic Apps REST API](../logic-apps/create-integration-service-environment-logic-apps-rest-api.md).
 
 ## Considerations
 
@@ -30,7 +30,7 @@ This topic shows how to set up and specify your own encryption key to use when y
 
 ## Prerequisites
 
-* An Azure subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
+* The same [prerequisites](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#prerequisites) as when you create an ISE in the Azure portal
 
 * An Azure key vault that has the **Soft Delete** and **Do Not Purge** properties enabled
 
@@ -58,6 +58,8 @@ This topic shows how to set up and specify your own encryption key to use when y
 To create your ISE by calling the Logic Apps REST API, make this HTTPS PUT request:
 
 `PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/integrationServiceEnvironments/{integrationServiceEnvironmentName}?api-version=2019-05-01`
+
+Deployment usually takes within two hours to finish. Occasionally, deployment might take up to four hours. To check deployment status, in the [Azure portal](https://portal.azure.com), on your Azure toolbar, select the notifications icon, which opens the notifications pane.
 
 > [!IMPORTANT]
 > The Logic Apps REST API 2019-05-01 version requires that you make your own HTTP PUT request for ISE connectors.
