@@ -770,7 +770,7 @@
         items:
         - name: MI pub to MI sub
           href: replication-with-sql-database-managed-instance.md
-        - name: MI pub, MI dist, SQL Sub
+        - name: MI pub, MI dist, SQL sub
           href: sql-database-managed-instance-configure-replication-tutorial.md 
 
   - name: Concepts

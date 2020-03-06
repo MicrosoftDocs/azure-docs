@@ -35,7 +35,7 @@ Performance recommendation options available for single and pooled databases in 
 | :----------------------------- | ----- | ----- |
 | **Create index recommendations** - Recommends creation of indexes that may improve performance of your workload. | Yes | No |
 | **Drop index recommendations** - Recommends removal of redundant and duplicate indexes daily, except for unique indexes, and indexes that were not used for a long time (>90 days). Please note that this option is not compatible with applications using partition switching and index hints. Dropping unused indexes is not supported for Premium and Business Critical service tiers. | Yes | No |
-| **Parameterize queries recommendations (preview)** - Recommends forced parametrization in cases when you have one or more queries that are constantly being recompiled but end up with the same query execution plan. | Yes | No |
+| **Parameterize queries recommendations (preview)** - Recommends forced parameterization in cases when you have one or more queries that are constantly being recompiled but end up with the same query execution plan. | Yes | No |
 | **Fix schema issues recommendations (preview)** - Recommendations for schema correction appear when the SQL Database service notices an anomaly in the number of schema-related SQL errors that are happening on your SQL database. Microsoft is currently deprecating "Fix schema issue" recommendations. | Yes | No |
 
 ![Performance recommendations for Azure SQL Database](./media/sql-database-performance/performance-recommendations-annotated.png)

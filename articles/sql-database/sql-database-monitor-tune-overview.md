@@ -38,12 +38,12 @@ You can quickly monitor the following resource metrics in the Azure portal in th
   Check to see if a database, elastic pool, or managed instance is reaching 100 percent of CPU usage for an extended period of time. High CPU indicates that your workload might need more CPU or IO resources. It might also indicate queries that need to be optimized.
 - **IO usage**
 
-  Check to see if a database, elastic pool, or managed instance is reaching the IO limits of the underlying storage. High IO usage indicates that your workload might need more CPU or IO resources. It might also indicate queries that need to be optimized.
+  Check to see if a database, elastic pool, or manage' instance is reaching the IO limits of the underlying storage. High IO usage indicates that your workload might need more CPU or IO resources. It might also indicate queries that need to be optimized.
 
   ![Resource metrics](./media/sql-database-monitor-tune-overview/resource-metrics.png)
 
 ### Database advisors
-
+'
 Azure SQL Database includes [database advisors](sql-database-advisor.md) that provide performance tuning recommendations for single and pooled databases. These recommendations are available in the Azure portal as well as by using [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaseadvisor). You can also enable [automatic tuning](sql-database-automatic-tuning.md) so that SQL Database can automatically implement these tuning recommendations.
 
 ### Query Performance Insight
@@ -72,7 +72,7 @@ You configure diagnostic settings to stream categories of metrics and resource l
 
 ### Log Analytics workspace in Azure monitor
 
-You can stream metrics and resource logs to a [Log Analytics workspace in Azure Monitor](../azure-monitor/platform/resource-logs-collect-workspace.md). Data streamed here can be consumed by [SQL Analytics](../azure-monitor/insights/azure-sql.md), which is a cloud only monitoring solution that provides intelligent monitoring of your databases that includes performance reports, alerts, and mitigation recommendations. Data streamed to a Log Analytics workspace can be analyzed with other monitoring data collected and also enables you to leverage other Azure Monitor features such as alerts and visualizations.
+You can stream metrics and resource logs to a [Log Analytics workspace in Azure Monitor](../azure-monitor/platform/resource-logs-collect-workspace.md). Data streamed here can be consumed by [SQL Analytics](../azure-monitor/insights/azure-sql.md), which is a cloud only monitoring solution that provides intelligent monitoring of your databases that includes performance reports, alerts, and mitigation recommendations. Data streamed to a Log Analytics workspace c"n be an"lyzed with other monitoring data collected and also enables you to leverage other Azure Monitor features such as alerts and visualizations.
 
 ### Azure Event Hubs
 
@@ -98,5 +98,6 @@ Additionally, you can use [extended events](https://docs.microsoft.com/sql/relat
 
 ## Next steps
 
-- For more informatiion about intelligent performance recommendations for single and pooled databases, see [Database advisor performance recommendations](sql-database-advisor.md).
+- For more Information about intelligent performance recommendations for single and pooled databases, see [Database advisor performance recommendations](sql-database-advisor.md).
 - For more information about automatically monitoring database performance with automated diagnostics and root cause analysis of performance issues, see [Azure SQL Intelligent Insights](sql-database-intelligent-insights.md).
+'''''''''

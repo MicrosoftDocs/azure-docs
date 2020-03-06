@@ -53,7 +53,7 @@ You can configure and get information about alert rules using
   ![Define condition](media/sql-database-insights-alerts-portal/create-rule.png)
 5. In the **Configure signal logic** page, select a signal.
   ![Select signal](media/sql-database-insights-alerts-portal/select-signal.png).
-6. After selecting a signal, such as **CPU percentage**, the **Condigure signal logic** page appears.
+6. After selecting a signal, such as **CPU percentage**, the **Configure signal logic** page appears.
   ![Configure signal logic](media/sql-database-insights-alerts-portal/configure-signal-logic.png)
 7. On this page, configure that threshold type, operator, aggregation type, threshold value, aggregation granularity, and frequency of evaluation. Then click **Done**.
 8. On the **Create rule**, select an existing **Action group** or create a new group. An action group enables you to define the action to be taken when an alert condition occurs.
