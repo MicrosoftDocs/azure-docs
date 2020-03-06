@@ -9,7 +9,6 @@ ms.topic: quickstart
 ms.date: 02/26/2020
 ms.author: dech
 ---
-
 # Quickstart: Use Node.js to connect and query data from Azure Cosmos DB SQL API account
 
 > [!div class="op_single_selector"]
