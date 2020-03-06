@@ -422,13 +422,14 @@ For more detailed information about how to use queries and logs, see [Logs in Az
 
 * [OpenCensus Python on GitHub](https://github.com/census-instrumentation/opencensus-python)
 * [Customization](https://github.com/census-instrumentation/opencensus-python/blob/master/README.rst#customization)
-* [Flask integration](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-flask)
-* [Django integration](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-django)
-* [MySQL integration](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-mysql)
-* [PostgreSQL](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-postgresql)
+* [Azure Monitor Exporters on GitHub](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-azure)
+* [OpenCensus Integrations](https://github.com/census-instrumentation/opencensus-python#extensions)
+* [Azure Monitor Sample Applications](https://github.com/Azure-Samples/azure-monitor-opencensus-python)
 
 ## Next steps
 
+* [Tracking Incoming requests](./../../azure-monitor/app/opencensus-python-dependency.md)
+* [Tracking Out-going requests](./../../azure-monitor/app/opencensus-python-request.md)
 * [Application map](./../../azure-monitor/app/app-map.md)
 * [End-to-end performance monitoring](./../../azure-monitor/learn/tutorial-performance.md)
 
