@@ -44,9 +44,9 @@ Perform the following steps to update your device to [Update 5.1](storsimple-upd
 
 > [!NOTE]
 > Microsoft pulls additional diagnostic information from the device. As a result, when our operations team identifies devices that are having problems, we are better equipped to collect information from the device and diagnose issues.
-
+<!--
 [!INCLUDE [storsimple-8000-install-update4-via-portal](../../includes/storsimple-8000-install-update5-via-portal.md)]
-
+-->
 Verify that your device is running **StorSimple 8000 Series Update 5.1 (6.3.9600.xxxxx)**. The **Last updated date** should be modified.
 <!-- 5.1 - KB 4542887-->
 
