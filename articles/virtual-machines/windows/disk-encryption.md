@@ -3,7 +3,7 @@ title: Server-side encryption of Azure Managed Disks - PowerShell
 description: Azure Storage protects your data by encrypting it at rest before persisting it to Storage clusters. You can rely on Microsoft-managed keys for the encryption of your managed disks, or you can use customer-managed keys to manage encryption with your own keys.
 author: roygara
 
-ms.date: 03/05/2020
+ms.date: 03/06/2020
 ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines-windows
@@ -37,7 +37,7 @@ The following diagram shows how managed disks use Azure Active Directory and Azu
 ![Managed disk and customer-managed keys workflow. An admin creates an Azure Key Vault, then creates a disk encryption set, and sets up the disk encryption set. The Set is associated to a VM which allows the disk to make use of Azure AD to authenticate](media/disk-storage-encryption/customer-managed-keys-sse-managed-disks-workflow.png)
 
 
-The following list explains the diagram in even more detail:
+The following list explains the diagram in more detail:
 
 1. An Azure Key Vault administrator creates key vault resources.
 1. The key vault admin either imports their RSA keys to Key Vault or generate new RSA keys in Key Vault.
@@ -66,7 +66,8 @@ Only the following regions are currently supported:
 
 For now, customer-managed keys have the following restrictions:
 
-- Ultra disks are in preview, all other disk types are in GA.
+- Ultra disk support for this feature is in preview, all other disk types are in GA.
+- If this feature is enabled for your disk, you cannot disable it.
 - Only ["soft" and "hard" RSA keys](../../key-vault/about-keys-secrets-and-certificates.md#keys-and-key-types) of size 2080 are supported, no other keys or sizes.
 - Disks created from custom images that are encrypted using server-side encryption and customer-managed keys must be encrypted using the same customer-managed keys and must be in the same subscription.
 - Snapshots created from disks that are encrypted with server-side encryption and customer-managed keys must be encrypted with the same customer-managed keys.
