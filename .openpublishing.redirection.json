@@ -1702,6 +1702,26 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/Bing-Image-Search/image-search-sdk-quickstart.md",
+      "redirect_url": "/azure/cognitive-services/bing-image-search/quickstarts/client-libraries?pivots=programming-language-csharp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Image-Search/image-sdk-java-quickstart.md",
+      "redirect_url": "/azure/cognitive-services/bing-image-search/quickstarts/client-libraries?pivots=programming-language-java",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Image-Search/image-search-sdk-node-quickstart.md",
+      "redirect_url": "/azure/cognitive-services/bing-image-search/quickstarts/client-libraries?pivots=programming-language-javascript",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Image-Search/image-sdk-python-quickstart.md",
+      "redirect_url": "/azure/cognitive-services/bing-image-search/quickstarts/client-libraries?pivots=programming-language-python",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/linux/classic/rdma-cluster.md",
       "redirect_url": "/azure/virtual-machines/linux/sizes-hpc#rdma-capable-instances",
       "redirect_document_id": false
@@ -6705,6 +6725,10 @@
       "source_path": "articles/logic-apps/logic-apps-using-sap-connector-old.md",
       "redirect_url": "/azure/logic-apps/logic-apps-using-sap-connector",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/scheduler/get-started-portal.md",
+      "redirect_url": "/azure/scheduler/migrate-from-scheduler-to-logic-apps",
     },
     {
       "source_path": "articles/connectors/connectors-create-api-googledrive.md",
