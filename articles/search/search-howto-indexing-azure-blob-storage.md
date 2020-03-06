@@ -10,6 +10,7 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
+ms.custom: fasttrack-edit
 ---
 
 # How to index documents in Azure Blob Storage with Azure Cognitive Search
@@ -135,7 +136,7 @@ Depending on the [indexer configuration](#PartsOfBlobToIndex), the blob indexer 
 > [!NOTE]
 > Azure Cognitive Search limits how much text it extracts depending on the pricing tier: 32,000 characters for Free tier, 64,000 for Basic, 4 million for Standard, 8 million for Standard S2, and 16 million for Standard S3. A warning is included in the indexer status response for truncated documents.  
 
-* User-specified metadata properties present on the blob, if any, are extracted verbatim.
+* User-specified metadata properties present on the blob, if any, are extracted verbatim. Note that this requires a field to be defined in the index with the same name as the metadata key of the blob. For example, if your blob has a metadata key of `Sensitivity` with value `High`, you should define a field named `Sensitivity` in your search index and it will be populated with the value `High`.
 * Standard blob metadata properties are extracted into the following fields:
 
   * **metadata\_storage\_name** (Edm.String) - the file name of the blob. For example, if you have a blob /my-container/my-folder/subfolder/resume.pdf, the value of this field is `resume.pdf`.

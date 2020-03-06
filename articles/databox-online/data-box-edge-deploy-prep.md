@@ -61,7 +61,7 @@ Before you begin, make sure that:
 Before you deploy a physical device, make sure that:
 
 - You've reviewed the safety information that was included in the shipment package.
-- You have a 1U slot available in a standard 19” rack in your datacenter for rack mounting the device.
+- You have a 1U slot available in a standard 19" rack in your datacenter for rack mounting the device.
 - You have access to a flat, stable, and level work surface where the device can rest safely.
 - The site where you intend to set up the device has standard AC power from an independent source or a rack power distribution unit (PDU) with an uninterruptible power supply (UPS).
 - You have access to a physical device.
@@ -90,9 +90,9 @@ To create a Data Box Edge resource, take the following steps in the Azure portal
     - Or, the Azure Government portal at this URL: [https://portal.azure.us](https://portal.azure.us). For more details, go to [Connect to Azure Government using the portal](https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-portal).
 
 2. In the left-pane, select **+ Create a resource**. Search for **Data Box Edge / Data Box Gateway**. Select **Data Box Edge / Data Box Gateway**. Select **Create**.
-3. Pick the subscription that you want to use for the Data Box Edge device. Select the region where you want to deploy the Data Box Edge resource. For this release, East US, South East Asia, and West Europe are available. 
+3. Pick the subscription that you want to use for the Data Box Edge device. Select the region where you want to deploy the Data Box Edge resource. For a list of all the regions where the Azure Stack Edge resource is available, see [Azure products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all).
 
-    Choose a location closest to the geographical region where you want to deploy your device. The region stores only the metadata for device management. The actual data can be stored in any storage account. 
+    Choose a location closest to the geographical region where you want to deploy your device. The region stores only the metadata for device management. The actual data can be stored in any storage account.
     
     In the **Data Box Edge** option, select **Create**.
 
@@ -110,7 +110,7 @@ To create a Data Box Edge resource, take the following steps in the Azure portal
     |Setting  |Value  |
     |---------|---------|
     |Name   | A friendly name to identify the resource.<br>The name has between 2 and 50 characters containing letter, numbers, and hyphens.<br> Name starts and ends with a letter or a number.        |
-    |Region     |For this release, East US, South East Asia, and West Europe are available to deploy your resource. If using Azure Government, all the government regions are available as shown in the [Azure regions](https://azure.microsoft.com/global-infrastructure/regions/).<br> Choose a location closest to the geographical region where you want to deploy your device.|
+    |Region     |For a list of all the regions where the Azure Stack Edge resource is available, see [Azure products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). If using Azure Government, all the government regions are available as shown in the [Azure regions](https://azure.microsoft.com/global-infrastructure/regions/).<br> Choose a location closest to the geographical region where you want to deploy your device.|
 
     ![Project and instance details](media/data-box-edge-deploy-prep/data-box-edge-resource.png)
 

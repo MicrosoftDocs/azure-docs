@@ -5,7 +5,7 @@ author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 02/14/2020
 ---
 
 # Compatibility level for Azure Stream Analytics jobs
@@ -22,7 +22,7 @@ Azure Stream Analytics currently supports three compatibility levels:
 
 * 1.0 - Previous behavior
 * 1.1 - Default behavior
-* 1.2 (preview) - newest behavior with most recent improvements in evaluation
+* 1.2 - Newest behavior with most recent improvements
 
 The original 1.0 compatibility level was introduced during general availability of Azure Stream Analytics several years ago.
 
@@ -42,11 +42,15 @@ To update the compatibility level of the job in the Azure portal:
 
 ![Stream Analytics compatibility level in Azure portal](media/stream-analytics-compatibility-level/stream-analytics-compatibility.png)
 
-When you update the compatibility level, the T-SQL compiler validates the job with the syntax that corresponds to the selected compatibility level.
+When you update the compatibility level, the T-compiler validates the job with the syntax that corresponds to the selected compatibility level.
 
-## Compatibility level 1.2 (Preview)
+## Compatibility level 1.2
 
 The following major changes are introduced in compatibility level 1.2:
+
+###  AMQP messaging protocol
+
+**1.2 level**: Azure Stream Analytics uses [Advanced Message Queueing Protocol (AMQP)](../service-bus-messaging/service-bus-amqp-overview.md) messaging protocol to write to Service Bus Queues and Topics. AMQP enables you to build cross-platform, hybrid applications using an open standard protocol.
 
 ### Geospatial functions
 

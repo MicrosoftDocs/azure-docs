@@ -2,14 +2,14 @@
 title: User flows in Azure Active Directory B2C | Microsoft Docs
 description: Learn more about the extensible policy framework of Azure Active Directory B2C and how to create various user flows.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/30/2018
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
 ---
 
@@ -77,10 +77,8 @@ An email address can be required as part of a user flow. If the user authenticat
 
 The email address isn't guaranteed to be verified in any of these cases. A tenant administrator can disable email verification in the basic policies for local accounts. Even if email address verification is enabled, addresses aren't verified if they come from a social identity provider and they haven't been changed.
 
-Only the **otherMails** and **signInNames** properties are exposed through the Active Directory Graph API. The email address in the strong authentication detail property is not available.
+Only the **otherMails** and **signInNames** properties are exposed through the Microsoft Graph API. The email address in the strong authentication detail property is not available.
 
 ## Next steps
 
 To create the recommended user flows, follow the instructions in [Tutorial: Create a user flow](tutorial-create-user-flows.md).
-
-

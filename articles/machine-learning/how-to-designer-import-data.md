@@ -41,7 +41,7 @@ Your registered datasets can be found in the module palette, under **Datasets** 
 
 ![Screenshot showing location of saved datasets in the designer palette](media/how-to-designer-import-data/use-datasets-designer.png)
 
-Any [file dataset](how-to-create-register-datasets.md#dataset-types) registered to your machine learning workspace will appear in the module palette. You aren't limited to using datasets created in the designer.
+
 
 > [!NOTE]
 > The designer currently only supports processing [tabular datasets](how-to-create-register-datasets.md#dataset-types). If you want to use [file datasets](how-to-create-register-datasets.md#dataset-types), use the Azure Machine Learning SDK available for Python and R.

@@ -1,14 +1,13 @@
 ---
 title: Optimize your cloud investment with Azure Cost Management | Microsoft Docs
 description: This article helps get the most value out of your cloud investments, reduce your costs, and evaluate where your money is being spent.
-services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 05/21/2019
+ms.date: 02/12/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
-manager: vitavor
+ms.reviewer: adwise
 ms.custom: seodec18
 ---
 

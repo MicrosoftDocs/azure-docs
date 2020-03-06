@@ -20,7 +20,7 @@ ms.author: juliako
 # Embedding an MPEG-DASH Adaptive Streaming Video in an HTML5 Application with DASH.js  
 
 ## Overview
-MPEG-DASH is an ISO standard for the adaptive streaming of video content, which offers significant benefits for developers wanting to deliver high-quality, adaptive video streaming output. With MPEG-DASH, the video stream adjusts automatically to a lower definition when the network becomes congested. This reduces the likelihood of the viewer seeing a "paused" video while the player downloads the next few seconds to play (aka buffering). As network congestion reduces, the video player will in turn return to a higher-quality stream. This ability to adapt the bandwidth required also results in a faster start time for video. That means that the first few seconds can be played in a fast-to-download lower quality segment and then step up to a higher quality once sufficient content has been buffered.
+MPEG-DASH is an ISO standard for the adaptive streaming of video content, which offers significant benefits for developers wanting to deliver high-quality, adaptive video streaming output. With MPEG-DASH, the video stream adjusts automatically to a lower definition when the network becomes congested. This reduces the likelihood of the viewer seeing a "paused" video while the player downloads the next few seconds to play (that is, it reduces the likelihood of buffering). As network congestion reduces, the video player will in turn return to a higher-quality stream. This ability to adapt the bandwidth required also results in a faster start time for video. That means that the first few seconds can be played in a fast-to-download lower quality segment and then step up to a higher quality once sufficient content has been buffered.
 
 Dash.js is an open-source MPEG-DASH video player written in JavaScript. Its goal is to provide a robust, cross-platform player that can be freely reused in applications that require video playback. It provides MPEG-DASH playback in any browser that supports the W3C Media Source Extensions (MSE), today that is Chrome, Microsoft Edge, and IE11 (other browsers have indicated their intent to support MSE). For more information about DASH.js, js see the GitHub dash.js repository.
 
@@ -109,7 +109,6 @@ To play a video, point your browser at the basicPlayback.html file and click pla
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## See Also
-[Develop video player applications](media-services-develop-video-players.md)
 
 [GitHub dash.js repository](https://github.com/Dash-Industry-Forum/dash.js) 
 

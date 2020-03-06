@@ -9,7 +9,7 @@ ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
 ms.date: 07/09/2019
-ms.author: gregman
+ms.author: philmea
 ---
 # Run Azure IoT Edge on Ubuntu Virtual Machines
 

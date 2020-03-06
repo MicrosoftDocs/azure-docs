@@ -29,7 +29,7 @@ The following steps will help create a Conditional Access policy to block legacy
 1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.
 1. Under **Assignments**, select **Users and groups**
    1. Under **Include**, select **All users**.
-   1. Under **Exclude**, select **Users and groups** and choose any accounts that must maintain the ability to use legacy authentication. 
+   1. Under **Exclude**, select **Users and groups** and choose any accounts that must maintain the ability to use legacy authentication. You must exclude at least one account to prevent yourself from being locked out. If you do not exclude any account, you will not be able to create this policy.
    1. Select **Done**.
 1. Under **Cloud apps or actions** select **All cloud apps**.
    1. Select **Done**.
