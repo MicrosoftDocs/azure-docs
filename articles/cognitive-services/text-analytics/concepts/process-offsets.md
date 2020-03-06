@@ -31,7 +31,7 @@ Whenever offsets are returned the API response, such as [Named Entity Recognitio
 
 ## Extracting substrings using Grapheme offsets
 
-These offsets can cause problems when using character-based substring methods, for example the [.NET substring() method](https://docs.microsoft.com/dotnet/api/system.string.substring?view=netframework-4.8). For example, an offset may cause a substring method to end in the middle of a multi-character grapheme encoding.
+These offsets can cause problems when using character-based substring methods, for example the .NET [substring()](https://docs.microsoft.com/dotnet/api/system.string.substring?view=netframework-4.8) method. One problem is that an offset may cause a substring method to end in the middle of a multi-character grapheme encoding instead of the end.
 
 In .NET consider using the [StringInfo](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo?view=netframework-4.8) class which enables you to work with a string as a series of textual elements, rather than individual character objects. You can also look for grapheme splitter libraries in your preferred software environment. 
 
