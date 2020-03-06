@@ -37,7 +37,7 @@ To request the ability to use customer-managed keys, fill out and submit the [
 
 E0 resources are only available for Authoring service and that the E0 tier will initially only be supported in West US Region.
 
-![LUIS subscription image](..\articles\cognitive-services\media\cognitive-services-encryption\luis-subscription.png)
+![LUIS subscription image](../media/cognitive-services-encryption/luis-subscription.png)
 
 ### Limitations
 
