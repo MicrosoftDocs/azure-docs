@@ -13,10 +13,7 @@ ms.subservice: data-lake-storage-gen2
 
 You can migrate your data, workloads, and applications from Data Lake Storage Gen1 to Data Lake Storage Gen2.
 
-‎Azure Data Lake Storage Gen2 is a set of capabilities dedicated to big data analytics that is built on [Azure Blob
-storage](storage-blobs-introduction.md). Data Lake Storage Gen2 converges the capabilities of Azure Blob storage and Azure Data Lake Storage Gen1. 
-
-[Data Lake Storage Gen2](https://azure.microsoft.com/services/storage/data-lake-storage/) combines features from [Azure Data Lake Storage Gen1](https://docs.microsoft.com/azure/data-lake-store/index), such as file system semantics, directory, and file level security and scale with low-cost, tiered storage, high availability/disaster recovery capabilities from [Azure Blob storage](storage-blobs-introduction.md).
+‎Azure Data Lake Storage Gen2 is built on [Azure Blob storage](storage-blobs-introduction.md) and provides a set of capabilities dedicated to big data analytics. [Data Lake Storage Gen2](https://azure.microsoft.com/services/storage/data-lake-storage/) combines features from [Azure Data Lake Storage Gen1](https://docs.microsoft.com/azure/data-lake-store/index), such as file system semantics, directory, and file level security and scale with low-cost, tiered storage, high availability/disaster recovery capabilities from [Azure Blob storage](storage-blobs-introduction.md).
 
 > [!NOTE]
 > For easier reading, this article uses the term *Gen1* to refer to Azure Data Lake Storage Gen1, and the term *Gen2* to refer to Azure Data Lake Storage Gen2.
@@ -100,7 +97,7 @@ This table compares the capabilities of Gen1 to that of Gen2.
 |VNET Support|[VNET Integration](../../data-lake-store/data-lake-store-network-security.md)|[Service Endpoints](../common/storage-network-security.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |Developer experience|[REST](../../data-lake-store/data-lake-store-data-operations-rest-api.md), [.NET](../../data-lake-store/data-lake-store-data-operations-net-sdk.md), [Java](../../data-lake-store/data-lake-store-get-started-java-sdk.md), [Python](../../data-lake-store/data-lake-store-data-operations-python.md), [PowerShell](../../data-lake-store/data-lake-store-get-started-powershell.md), [Azure CLI](../../data-lake-store/data-lake-store-get-started-cli-2.0.md)|[REST](https://review.docs.microsoft.com/rest/api/storageservices/data-lake-storage-gen2), [.NET](/data-lake-storage-directory-file-acl-dotnet.md), [Java](data-lake-storage-directory-file-acl-java.md), [Python](data-lake-storage-directory-file-acl-python.md), [JavaScript](data-lake-storage-directory-file-acl-javascript.md), [PowerShell](data-lake-storage-directory-file-acl-powershell.md), [Azure CLI](data-lake-storage-directory-file-acl-cli.md) (In public preview)|
 |Diagnostic logs|Classic logs<br>[Azure Monitor integrated](../../data-lake-store/data-lake-store-diagnostic-logs.md)|[Classic logs](../common/storage-analytics-logging.md) (In public preview)<br>Azure monitor integration – timeline TBD|
-|Ecosystem|[HDInsight (3.6)](./../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md), [Azure Databricks (3.1 and above)](https://docs.databricks.com/data/data-sources/azure/azure-datalake.html), [SQL DW](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-load-from-azure-data-lake-store), [ADF](../../data-factory/load-azure-data-lake-store.md)|[HDInsight (3.6, 4.0)](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md), [Azure Databricks (5.1 and above)](../../databricks/data/data-sources/azure/azure-datalake-gen2.md), [SQL DW](../../sql-database/sql-database-vnet-service-endpoint-rule-overview.md), [ADF](../../data-factory/load-azure-data-lake-storage-gen2.md)|
+|Ecosystem|[HDInsight (3.6)](../../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md), [Azure Databricks (3.1 and above)](https://docs.databricks.com/data/data-sources/azure/azure-datalake.html), [SQL DW](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-load-from-azure-data-lake-store), [ADF](../../data-factory/load-azure-data-lake-store.md)|[HDInsight (3.6, 4.0)](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md), [Azure Databricks (5.1 and above)](https://docs.microsoft.com/azure/databricks/data/data-sources/azure/azure-datalake-gen2), [SQL DW](../../sql-database/sql-database-vnet-service-endpoint-rule-overview.md), [ADF](../../data-factory/load-azure-data-lake-storage-gen2.md)|
 
 <a id="migration-patterns" />
 
@@ -121,13 +118,13 @@ Let's take a closer look at each pattern.
 
 This is the simplest pattern.
 
-1. Stop all writes to Gen1.
+:one: &nbsp;&nbspStop all writes to Gen1.
 
-2. Move data from Gen1 to Gen2.
+:two: &nbsp;&nbsp Move data from Gen1 to Gen2.
 
-3. Point ingest operations and workloads to Gen2.
+:three: &nbsp;&nbsp Point ingest operations and workloads to Gen2.
 
-4. Decommission Gen1.
+:four: &nbsp;&nbsp Decommission Gen1.
 
 ![lift and shift pattern](./media/data-lake-storage-migrate-gen1-to-gen2/lift-and-shift.png)
 
@@ -142,13 +139,13 @@ Considerations for using this pattern:
 
 ### Incremental copy pattern
 
-1. Start moving data from Gen1 to Gen2.
+:one: &nbsp;&nbsp Start moving data from Gen1 to Gen2.
 
-2. Incrementally copy new data from Gen1.
+:two: &nbsp;&nbsp Incrementally copy new data from Gen1.
 
-3. After all data is copied, stop all writes to Gen1, and point workloads to Gen2.
+:three: &nbsp;&nbsp After all data is copied, stop all writes to Gen1, and point workloads to Gen2.
 
-4. Decommission Gen1.
+:four: &nbsp;&nbsp Decommission Gen1.
 
 ![Incremental copy pattern](./media/data-lake-storage-migrate-gen1-to-gen2/incremental-copy.png)
 
@@ -163,13 +160,13 @@ Considerations for using this pattern:
 
 ### Dual pipeline pattern
 
-1. Move data from Gen1 to Gen2.
+:one: &nbsp;&nbspMove data from Gen1 to Gen2.
 
-2. Ingest new data to both Gen1 and Gen2.
+:two: &nbsp;&nbspIngest new data to both Gen1 and Gen2.
 
-3. Point workloads to Gen2.
+:three: &nbsp;&nbspPoint workloads to Gen2.
 
-4. Stop all writes to Gen1 and then decommission Gen1.
+:four: &nbsp;&nbspStop all writes to Gen1 and then decommission Gen1.
 
 ![Dual pipeline pattern](./media/data-lake-storage-migrate-gen1-to-gen2/dual-pipeline.png)
 
@@ -186,13 +183,13 @@ Considerations for using this pattern:
 
 This pattern is similar to the *dual pipeline* pattern, but it's more ideally suited for complicated pipelines that require Gen1 and Gen2 side-by-side support during migration.
 
-1. Set up bidirectional replication between Gen1 and Gen2.
+:one: &nbsp;&nbspSet up bidirectional replication between Gen1 and Gen2.
 
-2. Incrementally move ingest and compute workloads to Gen2.
+:two: &nbsp;&nbspIncrementally move ingest and compute workloads to Gen2.
 
-3. When all moves are complete, stop all writes to Gen1 and turn off bidirectional replication.
+:three: &nbsp;&nbspWhen all moves are complete, stop all writes to Gen1 and turn off bidirectional replication.
 
-4. Decommission Gen1.
+:four: &nbsp;&nbspDecommission Gen1.
 
 ![Bidirectional pattern](./media/data-lake-storage-migrate-gen1-to-gen2/bidirectional-sync.png)
 
