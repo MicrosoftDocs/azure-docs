@@ -10,7 +10,7 @@ zone_pivot_groups: programming-languages-set-ten
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 02/21/2020
+ms.date: 03/05/2020
 ms.author: aahi
 ---
 # Quickstart: Use a Bing Web Search client library

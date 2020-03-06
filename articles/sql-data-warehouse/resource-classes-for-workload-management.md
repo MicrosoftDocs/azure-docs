@@ -68,7 +68,7 @@ The memory allocation for each resource class is as follows.
 | DW200c         | 12.5%             | 12.5%                  | 22%                    | 70%                    |
 | DW300c         | 8%                | 10%                    | 22%                    | 70%                    |
 | DW400c         | 6.25%             | 10%                    | 22%                    | 70%                    |
-| DW500c         | 20%               | 10%                    | 22%                    | 70%                    |
+| DW500c         | 5%                | 10%                    | 22%                    | 70%                    |
 | DW1000c to<br> DW30000c | 3%       | 10%                    | 22%                    | 70%                    |
 
 

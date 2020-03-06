@@ -18629,6 +18629,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/backup/backup-configure-vault.md",
+      "redirect_url": "/azure/backup/backup-windows-with-mars-agent",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/backup/backup-upgrade-backup-vault.md",
       "redirect_url": "/azure/backup/backup-azure-backup-faq",
       "redirect_document_id": false
@@ -31120,7 +31125,7 @@
     },
     {
       "source_path": "articles/backup/backup-configure-vault-classic.md",
-      "redirect_url": "/azure/backup/backup-configure-vault",
+      "redirect_url": "/azure/backup/backup-windows-with-mars-agent",
       "redirect_document_id": false
     },
     {
@@ -31130,7 +31135,7 @@
     },
     {
       "source_path": "articles/backup/backup-try-azure-backup-in-10-mins.md",
-      "redirect_url": "/azure/backup/backup-configure-vault",
+      "redirect_url": "/azure/backup/backup-windows-with-mars-agent",
       "redirect_document_id": false
     },
     {
@@ -49218,6 +49223,11 @@
       "source_path": "articles/jenkins/install-jenkins-solution-template.md",
       "redirect_url": "/azure/jenkins/install-solution-template-tutorial",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/sapi-phoneset-usage.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/speech-ssml-phonetic-sets",
+      "redirect_document_id": false
     }
   ]
 }
