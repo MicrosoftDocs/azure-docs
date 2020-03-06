@@ -185,7 +185,7 @@ Once you have eliminated a suboptimal plan and *Waiting-related* problems that a
   One query might hold the lock on objects in the database while others try to access the same objects. You can identify blocking queries by using [DMVs](sql-database-monitoring-with-dmvs.md#monitoring-blocked-queries) or [Intelligent Insights](sql-database-intelligent-insights-troubleshoot-performance.md#locking).
 - **IO problems**
 
-  Queries might be waiting for the pages to be written to the data or log files. In this case, check the `INSTANCE_LOG_RATE_GOVERNOR`, `WRITE_LOG`, or `PAGEIOLATCH_*` wait statistics in the DMV. See using DMVs to [identify IO performance issues](sql-database-monitoring-with-dmvs?branch=master#identify-io-performance-issues).
+  Queries might be waiting for the pages to be written to the data or log files. In this case, check the `INSTANCE_LOG_RATE_GOVERNOR`, `WRITE_LOG`, or `PAGEIOLATCH_*` wait statistics in the DMV. See using DMVs to [identify IO performance issues](sql-database-monitoring-with-dmvs.md#identify-io-performance-issues).
 - **TempDB problems**
 
   If the workload uses temporary tables or there are TempDB spills in the plans, the queries might have a problem with TempDB throughput. See using DMVs to [identity TempDB issues](sql-database-monitoring-with-dmvs.md#identify-tempdb-performance-issues).
