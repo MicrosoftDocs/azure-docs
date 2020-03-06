@@ -5,7 +5,7 @@ author: ancav
 services: azure-monitor
 
 ms.topic: conceptual
-ms.date: 09/09/2019
+ms.date: 03/06/2020
 ms.author: ancav
 ms.subservice: metrics
 ---
@@ -176,6 +176,7 @@ During the public preview, the ability to publish custom metrics is available on
 |Central US      | https:\//centralus.monitoring.azure.com |
 |Canada Central | https:\//canadacentral.monitoring.azure.comc
 |East US| https:\//eastus.monitoring.azure.com/ |
+|East US 2 | https:\//eastus2.monitoring.azure.com/
 | **Europe** | |
 |North Europe    | https:\//northeurope.monitoring.azure.com/ |
 |West Europe     | https:\//westeurope.monitoring.azure.com/ |
