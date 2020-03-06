@@ -38,7 +38,7 @@ Using Postman, do a `GET` request to `https://fhir-server-url/metadata`:
 
 ![Postman Metadata Capability Statement](media/tutorial-postman/postman-metadata.png)
 
-The metadata URL for Azure API for FHIR is `https://MYACCOUNT.azurehealthcareapis.com`. In this example, the FHIR server URL is `https://fhirdocsmsft.azurewebsites.net` and the capability statement of the server is available at `https://fhirdocsmsft.azurewebsites.net/metadata`. That endpoint should be accessible without authentication.
+The metadata URL for Azure API for FHIR is `https://MYACCOUNT.azurehealthcareapis.com/metadata`. In this example, the FHIR server URL is `https://fhirdocsmsft.azurewebsites.net` and the capability statement of the server is available at `https://fhirdocsmsft.azurewebsites.net/metadata`. That endpoint should be accessible without authentication.
 
 If you attempt to access restricted resources, you should get an "Authentication failed" response:
 
