@@ -70,7 +70,9 @@ Take these steps to tune the performance of your Azure Data Factory service with
 
    Start with default values for [Data Integration Units (DIU)](#data-integration-units) and [parallel copy](#parallel-copy) settings.  Perform a performance test run, and take a note of the performance achieved as well as the actual values used for DIUs and parallel copies.  
 
-   Refer to [copy activity monitoring](copy-activity-monitoring,md) on how to collect run results and performance settings used.
+   [Troubleshoot copy activity performance](copy-activity-performance-troubleshooting.md)
+
+   Refer to [copy activity monitoring](copy-activity-monitoring.md) on how to collect run results and performance settings used.
 
    Now conduct additional performance test runs, each time doubling the value for DIU setting.  Alternatively, if you think the performance achieved using the default setting is far below your expectation, you can increase the DIU setting more drastically in the subsequent test run.
 
@@ -96,266 +98,32 @@ Take these steps to tune the performance of your Azure Data Factory service with
 
    Now that you have maximized the performance of a single copy activity, if you have not yet achieved the throughput upper limits of your environment – network, source data store, and destination data store - you can run multiple copy activities in parallel using ADF control flow constructs such as [For Each loop](control-flow-for-each-activity.md).
 
-4. **Performance tuning tips and optimization features.** In some cases, when you run a copy activity in Azure Data Factory, you see a "Performance tuning tips" message on top of the [copy activity monitoring](copy-activity-monitoring.md), as shown in the following example. The message tells you the bottleneck that was identified for the given copy run. It also guides you on what to change to boost copy throughput. The performance tuning tips currently provide suggestions like:
-
-   - Use PolyBase when you copy data into Azure SQL Data Warehouse.
-   - Increase Azure Cosmos DB Request Units or Azure SQL Database DTUs (Database Throughput Units) when the resource on the data store side is the bottleneck.
-   - Remove the unnecessary staged copy.
-
-   The performance tuning rules will be gradually enriched as well.
-
-   **Example: Copy into Azure SQL Database with performance tuning tips**
-
-   In this sample, during a copy run, Azure Data Factory notices the sink Azure SQL Database reaches high DTU utilization, which slows down the write operations. The suggestion is to increase the Azure SQL Database tier with more DTUs. 
-
-   ![Copy monitoring with performance tuning tips](media/copy-activity-overview/copy-monitoring-with-performance-tuning-tips.png)
-
-   In addition, the following are some performance optimization features you should be aware of:
-
-   - [Parallel copy](#parallel-copy)
-   - [Data Integration Units](#data-integration-units)
-   - [Staged copy](#staged-copy)
-   - [Self-hosted integration runtime scalability](concepts-integration-runtime.md#self-hosted-integration-runtime)
-
 5. **Expand the configuration to your entire dataset.** When you're satisfied with the execution results and performance, you can expand the definition and pipeline to cover your entire dataset.
 
 ## Troubleshoot copy activity performance
 
-You can collect copy activity run result and performance statistics in [copy activity monitoring](copy-activity-monitoring,md) view. The following is an example.
 
-![Monitor copy activity run details](./media/copy-activity-overview/monitor-copy-activity-run-details.png)
-
-In some scenarios, when you run a Copy activity in Data Factory, you'll see **Performance tuning tips** at the top as shown in the above example. The tips tell you the bottleneck identified by ADF for the specific copy run, along with information on what to change to boost copy throughput. Currently, the performance tuning tips provide suggestions for the following cases:
-
-| Case                                                         | Performance tuning tip example                               |
-| ------------------------------------------------------------ | ------------------------------------------------------------ |
-| Polybase is not used when loading data into Azure SQL Data Warehouse | Sink Azure SQL Data Warehouse: PolyBase has not been used during the copy activity run. To achieve better  performance, you are suggested to use the built-in PolyBase with staging. |
-| Staged copy is configured but not necessary for the given pair | Staged Copy: To achieve best performance and reduce cost for this specific copy pair, you are suggested to remove interim staging blob storage to directly copy from source to sink. |
-| A number of read/write operations are throttled by the data store during copy | 908 write operations were throttled by the sink data store. To achieve better performance, you are suggested to check and increase the allowed  request rate for Azure Data Lake Storage Gen2, or reduce the number of concurrent copy runs and other data access, or reduce the DIU or parallel copy. |
-| Azure SQL Database DTU is highly utilized and become the bottleneck | Sink Azure SQL Database: The DTU utilization was high during the copy  activity run. To achieve better performance, you are suggested to scale the  database to a higher tier than the current 100 DTUs. |
-| Azure Cosmos DB RU was highly utlized and become the bottleneck | Sink Azure Cosmos DB: The RU utilization was high during the copy  activity run. To achieve better performance, you are suggested to scale the database to a higher tier than the current 3000 RUs. |
-| Incompatible rows are skipped and result in slow performance | Writing to sink is slow, as 2 rows are found incompatible with source format and skipped. To achieve better performance, you are suggested to make sure that source and sink have compatible format. |
-| Copy activity waits long in the queue until Self-hosted IR has available resource to execute | The copy activity run spent 4395 seconds in the queue waiting for available capacity on Self-hosted IR [IR name]. To achieve better performance, you are suggested to scale out or up your Self-hosted IR to  reduce the queueing duration. |
-| Writing data to sink being slow due to not optimal Azure IR region | Writing to sink was slow. The copy activity run was executed on Azure IR in region Southeast Asia, which is different from the sink data store region East Asia. To achieve better performance, you are suggested to set Azure-IR  or create another IR in sink region East Asia. |
-| Copy activity is resumed from last failure point and but the new DIU setting doesn't take effect | The copy activity is resumed from the last failed run, but the specified Data Integration Units (DIU) is different from the original. Please note that resumed copy activity still uses the original DIU setting. If you do want to apply different DIU, please trigger a new run. |
-| When copying data from Amazon Redshift, UNLOAD is not used to ingest data from Amazon Redshift | Source Amazon Redshift: To achieve best performance when copying large  amounts of data from Redshift, you are suggested to use the built-in Redshift  UNLOAD through Amazon S3. |
-
-The bottom execution details and working durations describes the key steps your copy activity goes through, which is especially useful for troubleshooting the copy performance. The bottleneck of your copy run is the one with the longest duration. To understand for what each stage represents:
-
-| Stage           | Description                                                  |
-| --------------- | ------------------------------------------------------------ |
-| Queue           | The elapsed time until the copy activity actually starts on the integration runtime. |
-| Pre-copy script | The elapsed time between copy activity starting on IR and copy activity finishing executing the pre-copy script in sink data store. Apply when you configure the pre-copy script for database sinks, e.g. when writing data into Azure SQL Database do clean up before copy new data. |
-| Transfer        | The elapsed time between the end of the previous step and the IR transferring all the data from source to sink. **Sub-steps under "Transfer" runs in parallel.**<br><br>- **Time to first byte:** The time elapsed between the end of the previous step and the time when the IR receives the first byte from the source data store. Applies to non-file-based sources.<br>- **Listing source:** The amount of time spent on enumerating source files or data partitions. The latter applies when you configure partition options for database sources e.g. when copy data from databases like Oracle/SAP HANA/Teradata/Netezza/etc.<br/>-**Reading from source:** The amount of time spent on retrieving data from source data store.<br/>- **Writing to sink:** The amount of time spent on writing data to sink data store. |
-
-Next, see how to [Troubleshoot copy activity on Azure IR](#troubleshoot-copy-activity-on-azure-ir) and [Troubleshoot copy activity on Self-hosted IR](#troubleshoot-copy-activity-on-self-hosted-ir).
-
-### Troubleshoot copy activity on Azure IR
-
-When the copy performance doesn't meet your expectation, to troubleshoot copy activity running on Azure Integration Runtime, if you see **[performance tuning tips](copy-activity-monitoring.md#performance-tuning-tips)** shown up in the copy monitoring view, apply the suggestion and try again. Otherwise, check which stage has the **longest** duration, and apply the guidance below to boost copy performance:
-
-- **"Pre-copy script" experienced long duration:** it means the pre-copy scrpit running on sink database takes long to finish. Tune the specified pre-copy script logic to enhance the performance. If need further help on improving the script, contact your database team.
-
-- **"Transfer - Time to first byte" experienced long working duration**: it means your source query takes long to return any data. Check and optimize the query or server. If need further help, contact your data store team.
-
-- **"Transfer - Listing source" experienced long working duration**: it means enumerating source files or source database data partitions is slow.
-  - If you use **wildcard filter** on folder path or file name (`wildcardFolderPath` or `wildcardFileName`), or use **file last modified time filter** (`modifiedDatetimeStart` or`modifiedDatetimeEnd`), note such filter would result in copy activity listing all the files under the specified folder to client side then apply the filter, such file enumeration could become the bottleneck especially when only small set of files met the filter rule.
-    - Check whether you can can [copy files based on time partitioned file path or name](tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md). Such way doesn't bring burden on listing source side.
-    - Check if you can use data store's native filter instead, such as **prefix** for Amazon S3 and Azure Blob. Prefix filter is a server side filter and would have much better performance.
-    - Consider to split single large data set into several smaller data sets, and let those copy jobs       run concurrently to tackle portion of data. You can do this with Lookup/GetMetadata + ForEach + Copy. Refer to [Copy files from multiple containers with Azure Data Factory](solution-template-copy-files-multiple-containers.md) or [Migrate data from Amazon S3 to Azure Data Lake Storage Gen2](solution-template-migration-s3-azure.md) solution template as examples.
-  - Check if any throttling error on source is reported by ADF or your data store is in high utilization state. If so, either reduce your workloads on the data store to avoid throttling, or try contacting your data store administrator to increase the throttling limit.
-  - Use Azure IR in the same region or close to your source or sink data store location.
-  
-- **"Transfer - reading from source" experienced long working duration**: 
-  
-  - Check if any throttling error is reported by ADF or your data store is in high utilization state. If so, either reduce your workloads on the data store to avoid throttling, or reach your data store team to see if they can increase the throttling limit.
-  - If your copy pattern supports larger than 4 [Data Integration Units (DIU)](https://docs.microsoft.com/en-us/azure/data-factory/copy-activity-performance#data-integration-units), generally you can try increasing DIUs to have better performance. 
-  - Adopt connector specific data loading best practice if applies. For example, when copying data from Amazon Redshit, configure to use Redshift UNLOAD.
-  - Use Azure IR in the same region or close to your source data store location.
-  
-- **"Transfer -  writing to sink" experienced long working duration**:
-  
-  - Adopt connector specific data loading best practice if applies. For example, when copying data into Azure Synapse Analytics (formerly SQL DW), use PolyBase or COPY statement. 
-  - Check if any throttling error is reported by ADF or your data store is in high utilization state. If so, either reduce your workloads on the data store to avoid throttling, or reach your data store team to see if they can increase the throttling limit.
-  - If your copy pattern supports larger than 4 [Data Integration Units (DIU)](https://docs.microsoft.com/en-us/azure/data-factory/copy-activity-performance#data-integration-units), generally you can try increasing DIUs to have better performance.
-  - Use Azure IR in the same region or close to your sink data store location.
 
 ## Copy performance optimization features
 
 Azure Data Factory provides the following performance optimization features:
 
-- [Parallel copy](#parallel-copy)
 - [Data Integration Units](#data-integration-units)
+- [Parallel copy](#parallel-copy)
 - [Staged copy](#staged-copy)
-- [Self-hosted integration runtime scalability](concepts-integration-runtime.md#self-hosted-integration-runtime)
+- [Self-hosted integration runtime scalability](create-self-hosted-integration-runtime.md#high-availability-and-scalability)
 
 ### Data Integration Units
 
-A Data Integration Unit is a measure that represents the power (a combination of CPU, memory, and network resource allocation) of a single unit in Azure Data Factory. Data Integration Unit only applies to [Azure integration runtime](concepts-integration-runtime.md#azure-integration-runtime), but not [self-hosted integration runtime](concepts-integration-runtime.md#self-hosted-integration-runtime).
-
-You will be charged **# of used DIUs \* copy duration \* unit price/DIU-hour**. See the current prices [here](https://azure.microsoft.com/pricing/details/data-factory/data-pipeline/). Local currency and separate discounting may apply per subscription type.
-
-The allowed DIUs to empower a copy activity run is **between 2 and 256**. If not specified or you choose “Auto” on the UI, Data Factory dynamically apply the optimal DIU setting based on your source-sink pair and data pattern. 
-
-> [!NOTE]
-> Setting and effectiveness of DIUs **larger than four** currently applies to the following scenarios:
->
-> - Copy **multiple files** from cloud file-based stores e.g. Azure Blob/ADLS Gen1/ADLS Gen2/Amazon S3/Google Cloud Storage/cloud FTP/cloud SFTP, without merge-file configured in sink.
-> - Copy data from partition-option-enabled cloud relational data store (including [Oracle](connector-oracle.md#oracle-as-source)/[Netezza](connector-netezza.md#netezza-as-source)/[Teradata](connector-teradata.md#teradata-as-source)) to any other cloud data stores, and for file-based sink write to multiple files instead of one single file.
-
-The following table lists the default DIUs used in different copy scenarios:
-
-| Copy scenario | Default DIUs determined by service |
-|:--- |:--- |
-| Copy data between file-based stores | Between 4 and 32 depending on the number and size of the files |
-| Copy data to Azure SQL Database or Azure Cosmos DB |Between 4 and 16 depending on the sink Azure SQL Database's or Cosmos DB's tier (number of DTUs/RUs) |
-| All the other copy scenarios | 4 |
-
-To override this default, specify a value for the `dataIntegrationUnits` property as follows. The *actual number of DIUs* that the copy operation uses at run time is equal to or less than the configured value, depending on your data pattern.
-
-You can see the DIUs used for each copy run in the copy activity output when you monitor an activity run. For more information, see [Copy activity monitoring](copy-activity-monitoring.md).
-
-**Example:**
-
-```json
-"activities":[
-    {
-        "name": "Sample copy activity",
-        "type": "Copy",
-        "inputs": [...],
-        "outputs": [...],
-        "typeProperties": {
-            "source": {
-                "type": "BlobSource",
-            },
-            "sink": {
-                "type": "AzureDataLakeStoreSink"
-            },
-            "dataIntegrationUnits": 128
-        }
-    }
-]
-```
+A Data Integration Unit is a measure that represents the power (a combination of CPU, memory, and network resource allocation) of a single unit in Azure Data Factory. Data Integration Unit only applies to [Azure integration runtime](concepts-integration-runtime.md#azure-integration-runtime), but not [self-hosted integration runtime](concepts-integration-runtime.md#self-hosted-integration-runtime). [Learn more](copy-activity-performance-features.md#data-integration-units).
 
 ### Parallel copy
 
-You can use the **parallelCopies** property to indicate the parallelism that you want the copy activity to use. You can think of this property as the maximum number of threads within the copy activity that can read from your source or write to your sink data stores in parallel.
-
-For each copy activity run, Azure Data Factory determines the number of parallel copies to use to copy data from the source data store and to the destination data store. Points to note:
-
-- The `parallelCopies` property is orthogonal to Data Integration Units. The former is counted across all the Data Integration Units.
-- When you copy data from/to file-based stores:
-  - `parallelCopies` determines the parallelism **at the file level**. The chunking within each file happens underneath automatically and transparently. It's designed to use the best suitable chunk size for a given data store type to load data in parallel. 
-  - The actual number of parallel copies copy activity uses at run time is no more than the number of files you have. If the copy behavior is **mergeFile**, the copy activity can't take advantage of file-level parallelism.
-- When you copy data from stores that are not file-based:
-  - For [Oracle](connector-oracle.md#oracle-as-source), [Netezza](connector-netezza.md#netezza-as-source), [Teradata](connector-teradata.md#teradata-as-source), [SAP HANA](connector-sap-hana.md#sap-hana-as-source), [SAP Table](connector-sap-table.md#sap-table-as-source), and [SAP Open Hub](connector-sap-business-warehouse-open-hub.md#sap-bw-open-hub-as-source) as source, `parallelCopies` applies when the data partition option is enabled. The actual number of parallel copies copy activity uses at run time is no more than the number of data partitions you have.
-  - For others data store as source, copy activity use one thread to read the data. `parallelCopies` only applies to write in this case.
-- When you specify a value for the `parallelCopies` property, take the load increase on your source and sink data stores into account. Also consider the load increase to the self-hosted integration runtime if the copy activity is empowered by it. This load increase happens especially when you have multiple activities or concurrent runs of the same activities that run against the same data store. If you notice that either the data store or the self-hosted integration runtime is overwhelmed with the load, decrease the `parallelCopies` value to relieve the load.
-
-The default number of parallel copies that it uses depends on the type of source and sink that you use:
-
-| Copy scenario | Default parallel copy count determined by service |
-| --- | --- |
-| Copy data between file-based stores |Depends on the size of the files and the number of DIUs used to copy data between two cloud data stores, or the physical configuration of the self-hosted integration runtime machine. |
-| Copy from relational data store with partition option enabled (including [Oracle](connector-oracle.md#oracle-as-source), [Netezza](connector-netezza.md#netezza-as-source), [Teradata](connector-teradata.md#teradata-as-source), [SAP HANA](connector-sap-hana.md#sap-hana-as-source), [SAP Table](connector-sap-table.md#sap-table-as-source), and [SAP Open Hub](connector-sap-business-warehouse-open-hub.md#sap-bw-open-hub-as-source)) |4 |
-| Copy data from any source store to Azure Table storage |4 |
-| All other copy scenarios |1 |
-
-> [!TIP]
-> When you copy data between file-based stores, the default behavior usually gives you the best throughput. The default behavior is auto-determined based on your source file pattern.
-
-To control the load on machines that host your data stores, or to tune copy performance, you can override the default value and specify a value for the `parallelCopies` property. The value must be an integer greater than or equal to 1. At run time, for the best performance, the copy activity uses a value that is less than or equal to the value that you set.
-
-**Example:**
-
-```json
-"activities":[
-    {
-        "name": "Sample copy activity",
-        "type": "Copy",
-        "inputs": [...],
-        "outputs": [...],
-        "typeProperties": {
-            "source": {
-                "type": "BlobSource",
-            },
-            "sink": {
-                "type": "AzureDataLakeStoreSink"
-            },
-            "parallelCopies": 32
-        }
-    }
-]
-```
+You can use set parallel copy to indicate the parallelism that you want the copy activity to use. You can think of this property as the maximum number of threads within the copy activity that can read from your source or write to your sink data stores in parallel. [Learn more](copy-activity-performance-features.md#parallel-copy).
 
 ### Staged copy
 
-When you copy data from a source data store to a sink data store, you might choose to use Blob storage as an interim staging store. Staging is especially useful in the following cases:
-
-- **You want to ingest data from various data stores into SQL Data Warehouse via PolyBase.** SQL Data Warehouse uses PolyBase as a high-throughput mechanism to load a large amount of data into SQL Data Warehouse. The source data must be in Blob storage or Azure Data Lake Store, and it must meet additional criteria. When you load data from a data store other than Blob storage or Azure Data Lake Store, you can activate data copying via interim staging Blob storage. In that case, Azure Data Factory performs the required data transformations to ensure that it meets the requirements of PolyBase. Then it uses PolyBase to load data into SQL Data Warehouse efficiently. For more information, see [Use PolyBase to load data into Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-sql-data-warehouse).
-- **Sometimes it takes a while to perform a hybrid data movement (that is, to copy from an on-premises data store to a cloud data store) over a slow network connection.** To improve performance, you can use staged copy to compress the data on-premises so that it takes less time to move data to the staging data store in the cloud. Then you can decompress the data in the staging store before you load into the destination data store.
-- **You don't want to open ports other than port 80 and port 443 in your firewall because of corporate IT policies.** For example, when you copy data from an on-premises data store to an Azure SQL Database sink or an Azure SQL Data Warehouse sink, you need to activate outbound TCP communication on port 1433 for both the Windows firewall and your corporate firewall. In this scenario, staged copy can take advantage of the self-hosted integration runtime to first copy data to a Blob storage staging instance over HTTP or HTTPS on port 443. Then it can load the data into SQL Database or SQL Data Warehouse from Blob storage staging. In this flow, you don't need to enable port 1433.
-
-#### How staged copy works
-
-When you activate the staging feature, first the data is copied from the source data store to the staging Blob storage (bring your own). Next, the data is copied from the staging data store to the sink data store. Azure Data Factory automatically manages the two-stage flow for you. Azure Data Factory also cleans up temporary data from the staging storage after the data movement is complete.
-
-![Staged copy](media/copy-activity-performance/staged-copy.png)
-
-When you activate data movement by using a staging store, you can specify whether you want the data to be compressed before you move data from the source data store to an interim or staging data store and then decompressed before you move data from an interim or staging data store to the sink data store.
-
-Currently, you can't copy data between two data stores that are connected via different Self-hosted IRs, neither with nor without staged copy. For such scenario, you can configure two explicitly chained copy activity to copy from source to staging then from staging to sink.
-
-#### Configuration
-
-Configure the **enableStaging** setting in the copy activity to specify whether you want the data to be staged in Blob storage before you load it into a destination data store. When you set **enableStaging** to `TRUE`, specify the additional properties listed in the following table. You also need to create an Azure Storage or Storage shared access signature-linked service for staging if you don’t have one.
-
-| Property | Description | Default value | Required |
-| --- | --- | --- | --- |
-| enableStaging |Specify whether you want to copy data via an interim staging store. |False |No |
-| linkedServiceName |Specify the name of an [AzureStorage](connector-azure-blob-storage.md#linked-service-properties) linked service, which refers to the instance of Storage that you use as an interim staging store. <br/><br/> You can't use Storage with a shared access signature to load data into SQL Data Warehouse via PolyBase. You can use it in all other scenarios. |N/A |Yes, when **enableStaging** is set to TRUE |
-| path |Specify the Blob storage path that you want to contain the staged data. If you don't provide a path, the service creates a container to store temporary data. <br/><br/> Specify a path only if you use Storage with a shared access signature, or you require temporary data to be in a specific location. |N/A |No |
-| enableCompression |Specifies whether data should be compressed before it's copied to the destination. This setting reduces the volume of data being transferred. |False |No |
-
->[!NOTE]
-> If you use staged copy with compression enabled, the service principal or MSI authentication for staging blob linked service isn't supported.
-
-Here's a sample definition of a copy activity with the properties that are described in the preceding table:
-
-```json
-"activities":[
-    {
-        "name": "Sample copy activity",
-        "type": "Copy",
-        "inputs": [...],
-        "outputs": [...],
-        "typeProperties": {
-            "source": {
-                "type": "SqlSource",
-            },
-            "sink": {
-                "type": "SqlSink"
-            },
-            "enableStaging": true,
-            "stagingSettings": {
-                "linkedServiceName": {
-                    "referenceName": "MyStagingBlob",
-                    "type": "LinkedServiceReference"
-                },
-                "path": "stagingcontainer/path",
-                "enableCompression": true
-            }
-        }
-    }
-]
-```
-
-#### Staged copy billing impact
-
-You're charged based on two steps: copy duration and copy type.
-
-* When you use staging during a cloud copy, which is copying data from a cloud data store to another cloud data store, both stages empowered by Azure integration runtime, you're charged the [sum of copy duration for step 1 and step 2] x [cloud copy unit price].
-* When you use staging during a hybrid copy, which is copying data from an on-premises data store to a cloud data store, one stage empowered by a self-hosted integration runtime, you're charged for [hybrid copy duration] x [hybrid copy unit price] + [cloud copy duration] x [cloud copy unit price].
+When you copy data from a source data store to a sink data store, you might choose to use Blob storage as an interim staging store.  [Learn more](copy-activity-performance-features.md#staged-copy).
 
 ## References
 

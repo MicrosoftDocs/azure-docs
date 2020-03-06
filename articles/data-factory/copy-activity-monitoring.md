@@ -16,7 +16,7 @@ ms.author: jingwang
 ---
 # Monitor copy activity
 
-This article outlines how to monitor the copy activity execution in Azure Data Factory. It builds on the [copy activity overview](https://docs.microsoft.com/en-us/azure/data-factory/copy-activity-overview) article that presents a general overview of copy activity.
+This article outlines how to monitor the copy activity execution in Azure Data Factory. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
 ## Monitor visually
 
@@ -30,19 +30,15 @@ At this level, you can see links to copy activity input, output, and errors (if 
 
 ![Monitor copy activity run](./media/copy-activity-overview/monitor-copy-activity-run.png)
 
-### Copy activity execution details
-
 In this graphical monitoring view, Azure Data Factory presents you the copy activity execution information, including data read/written volume, number of files/rows of data copied from source to sink, throughput, the configurations applied for your copy scenario, steps the copy activity goes through with corresponding durations and details, and more. Refer to [this table](#monitor-programmatically) on each possible metric and its detailed description. 
 
-The bottom execution details and working durations describes the key steps your copy activity goes through, which is especially useful for troubleshooting the copy performance. The bottleneck of your copy run is the one with the longest duration. Refer to [Troubleshoot copy activity performance](copy-activity-performance.md#troubleshoot-copy-activity-performance) on for what each stage represents and the detailed troubleshooting guidance.
+In some scenarios, when you run a Copy activity in Data Factory, you'll see **"Performance tuning tips"**  at the top of the copy activity monitoring view as shown in the example. The tips tell you the bottleneck identified by ADF for the specific copy run, along with suggestion on what to change to boost copy throughput. Learn more about [auto performance tuning tips](copy-activity-performance-troubleshooting.md#performance-tuning-tips).
+
+The bottom **execution details and durations** describes the key steps your copy activity goes through, which is especially useful for troubleshooting the copy performance. The bottleneck of your copy run is the one with the longest duration. Refer to [Troubleshoot copy activity performance](copy-activity-performance-troubleshooting.md) on for what each stage represents and the detailed troubleshooting guidance.
 
 **Example: Copy from Amazon S3 to Azure Data Lake Storage Gen2**
 
 ![Monitor copy activity run details](./media/copy-activity-overview/monitor-copy-activity-run-details.png)
-
-### Performance tuning tips
-
-In some scenarios, when you run a Copy activity in Data Factory, you'll see **Performance tuning tips** at the top of the copy activity monitoring view as shown in the above example. The tips tell you the bottleneck identified by ADF for the specific copy run, along with information on what to change to boost copy throughput. Learn more about [auto performance tuning tips](copy-activity-performance.md#performance-tuning-tips). 
 
 ## Monitor programmatically
 
@@ -69,7 +65,7 @@ Copy activity execution details and performance characteristics are also returne
 | effectiveIntegrationRuntime | The integration runtime (IR) or runtimes used to power the activity run, in the format `<IR name> (<region if it's Azure IR>)`. | Text (string) |
 | usedDataIntegrationUnits | The effective Data Integration Units during copy. | Int32 value |
 | usedParallelCopies | The effective parallelCopies during copy. | Int32 value |
-| redirectRowPath | Path to the log of skipped incompatible rows in the blob storage you configure in the `redirectIncompatibleRowSettings` property. See [Fault tolerance](#fault-tolerance) later in this article. | Text (string) |
+| redirectRowPath | Path to the log of skipped incompatible rows in the blob storage you configure in the `redirectIncompatibleRowSettings` property. See [Fault tolerance](copy-activity-overview.md#fault-tolerance). | Text (string) |
 | executionDetails | More details on the stages the Copy activity goes through and the corresponding steps, durations, configurations, and so on. We don't recommend that you parse this section because it might change. To better understand how it helps you understand and troubleshoot copy performance, refer to [Monitor visually](#monitor-visually) section. | Array |
 | perfRecommendation | Copy performance tuning tips. See [Performance tuning tips](#performance-tuning-tips) for details. | Array |
 
