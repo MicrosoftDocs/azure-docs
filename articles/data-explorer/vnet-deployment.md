@@ -299,6 +299,7 @@ The first step includes checking TCP connectivity using Windows or Linux OS.
     
      Connection to yourcluster.kusto.windows.net 443 port [tcp/https] succeeded!
      ```
+---
 
 If the test isn't successful, proceed with the following steps. If the test is successful, the issue isn't due to a TCP connectivity issue. Go to [operational issues](#cluster-creation-and-operations-issues) to troubleshoot further.
 
