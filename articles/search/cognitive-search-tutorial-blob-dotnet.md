@@ -212,7 +212,7 @@ private static SearchServiceClient CreateSearchServiceClient(IConfigurationRoot 
 
 ### Add function to exit the program during failure
 
-This tutorial is meant to help you understand each step of the indexing pipeline. If there is a critical issue that prevents the program from creating the data source, creating the index, or creating the indexer, the program will output the error message and exit so that the issue can be understood and addressed.
+This tutorial is meant to help you understand each step of the indexing pipeline. If there is a critical issue that prevents the program from creating the data source, skillset, index, or indexer the program will output the error message and exit so that the issue can be understood and addressed.
 
 Add `ExitProgram` to `Main` to handle issues that require the program to exit.
 
