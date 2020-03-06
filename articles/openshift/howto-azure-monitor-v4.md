@@ -87,6 +87,6 @@ Contact us via askcoin@microsoft.com for feedback and questions.
 ## Next steps
 
 To learn more about monitoring, see:
-- [Container Insights overview](../azure/azure-monitor/insights/container-insights-overview.md)
+- [Container Insights overview](../azure-monitor/insights/container-insights-overview.md)
 
-- [Log Query overview](../azure/azure-monitor/log-query/log-query-overview.md)
+- [Log Query overview](../azure-monitor/log-query/log-query-overview.md)
