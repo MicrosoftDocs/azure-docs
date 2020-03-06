@@ -118,13 +118,13 @@ Let's take a closer look at each pattern.
 
 This is the simplest pattern.
 
-:one: &nbsp;&nbspStop all writes to Gen1.
+:one: &nbsp;&nbsp; Stop all writes to Gen1.
 
-:two: &nbsp;&nbsp Move data from Gen1 to Gen2.
+:two: &nbsp;&nbsp; Move data from Gen1 to Gen2.
 
-:three: &nbsp;&nbsp Point ingest operations and workloads to Gen2.
+:three: &nbsp;&nbsp; Point ingest operations and workloads to Gen2.
 
-:four: &nbsp;&nbsp Decommission Gen1.
+:four: &nbsp;&nbsp; Decommission Gen1.
 
 ![lift and shift pattern](./media/data-lake-storage-migrate-gen1-to-gen2/lift-and-shift.png)
 
@@ -139,13 +139,13 @@ Considerations for using this pattern:
 
 ### Incremental copy pattern
 
-:one: &nbsp;&nbsp Start moving data from Gen1 to Gen2.
+:one: &nbsp;&nbsp; Start moving data from Gen1 to Gen2.
 
-:two: &nbsp;&nbsp Incrementally copy new data from Gen1.
+:two: &nbsp;&nbsp; Incrementally copy new data from Gen1.
 
-:three: &nbsp;&nbsp After all data is copied, stop all writes to Gen1, and point workloads to Gen2.
+:three: &nbsp;&nbsp; After all data is copied, stop all writes to Gen1, and point workloads to Gen2.
 
-:four: &nbsp;&nbsp Decommission Gen1.
+:four: &nbsp;&nbsp; Decommission Gen1.
 
 ![Incremental copy pattern](./media/data-lake-storage-migrate-gen1-to-gen2/incremental-copy.png)
 
@@ -160,13 +160,13 @@ Considerations for using this pattern:
 
 ### Dual pipeline pattern
 
-:one: &nbsp;&nbspMove data from Gen1 to Gen2.
+:one: &nbsp;&nbsp; Move data from Gen1 to Gen2.
 
-:two: &nbsp;&nbspIngest new data to both Gen1 and Gen2.
+:two: &nbsp;&nbsp; Ingest new data to both Gen1 and Gen2.
 
-:three: &nbsp;&nbspPoint workloads to Gen2.
+:three: &nbsp;&nbsp; Point workloads to Gen2.
 
-:four: &nbsp;&nbspStop all writes to Gen1 and then decommission Gen1.
+:four: &nbsp;&nbsp; Stop all writes to Gen1 and then decommission Gen1.
 
 ![Dual pipeline pattern](./media/data-lake-storage-migrate-gen1-to-gen2/dual-pipeline.png)
 
@@ -183,13 +183,13 @@ Considerations for using this pattern:
 
 This pattern is similar to the *dual pipeline* pattern, but it's more ideally suited for complicated pipelines that require Gen1 and Gen2 side-by-side support during migration.
 
-:one: &nbsp;&nbspSet up bidirectional replication between Gen1 and Gen2.
+:one: &nbsp;&nbsp; Set up bidirectional replication between Gen1 and Gen2.
 
-:two: &nbsp;&nbspIncrementally move ingest and compute workloads to Gen2.
+:two: &nbsp;&nbsp; Incrementally move ingest and compute workloads to Gen2.
 
-:three: &nbsp;&nbspWhen all moves are complete, stop all writes to Gen1 and turn off bidirectional replication.
+:three: &nbsp;&nbsp; When all moves are complete, stop all writes to Gen1 and turn off bidirectional replication.
 
-:four: &nbsp;&nbspDecommission Gen1.
+:four: &nbsp;&nbsp; Decommission Gen1.
 
 ![Bidirectional pattern](./media/data-lake-storage-migrate-gen1-to-gen2/bidirectional-sync.png)
 
