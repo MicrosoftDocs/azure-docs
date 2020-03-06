@@ -35,7 +35,7 @@ Alternatively, you can launch Synapse Studio by clicking [Azure Synapse Analytic
 
 ## Browse storage accounts
 
-Once you open Synapse Studio, browse to **Data** and then expand **Storage accounts** to viewthe storage account in the workspace.
+Once you open Synapse Studio, browse to **Data** and then expand **Storage accounts** to view the storage account in the workspace.
 
 ![Browse files on storage](./media/quickstart-synapse-studio/browse-files-on-storage.png)
 
