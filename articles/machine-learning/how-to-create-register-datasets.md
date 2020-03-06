@@ -34,7 +34,7 @@ With Azure Machine Learning datasets, you can:
 
 To create and work with datasets, you need:
 
-* An Azure subscription. If you don’t have one, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree).
+* An Azure subscription. If you don't have one, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree).
 
 * An [Azure Machine Learning workspace](how-to-manage-workspace.md).
 
@@ -42,6 +42,18 @@ To create and work with datasets, you need:
 
 > [!NOTE]
 > Some dataset classes have dependencies on the [azureml-dataprep](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py) package. For Linux users, these classes are supported only on the following distributions:  Red Hat Enterprise Linux, Ubuntu, Fedora, and CentOS.
+
+## Compute size guidance
+
+COmpute processing power and data size  
+The size of your data in storage is not the same as the size of data in a dataframe. For example, data in CSV files can expand up to 10x in a dataframe, so a 1 GB CSV file can become 10 GB in a dataframe. 
+
+The main factor is how large the dataset is in-memory, i.e. as a dataframe. We recommend your compute size and processing power contain 2x the size of RAM. So if your dataframe is 10GB, you want a compute target with 20+ GB of RAM so the dataframe can comfortable fit in memory and be processed. 
+If your data is compressed, it can expand further; 20 GB of relatively sparse data stored in compressed parquet format can expand to ~800 GB in memory. Since Parquet stores data in a columnar format, if you only need half of the columns then you only need to load ~400 GB in memory.
+ 
+If you're using Pandas, there's no reason to have more than 1 vCPU since that's all it will use. You can easily parallelize to many vCPUs on a single Azure Machine Learning compute instance/node via Modin and Dask/Ray, and scale out to a large cluster if needed, by simply changing `import pandas as pd` to `import modin.pandas as pd`. 
+ 
+If you can't get a big enough VM for the data, you have two options: use a framework like Spark or Dask to perform the processing on the data 'out of memory', i.e. the dataframe is loaded into RAM partition by partition and processed, with the final result being gathered at the end. If this is too slow, Spark or Dask allow you to scale out to a cluster which can still be used interactively. 
 
 ## Dataset types
 
@@ -58,14 +70,6 @@ To learn more about upcoming API changes, see [Dataset API change notice](https:
 By creating a dataset, you create a reference to the data source location, along with a copy of its metadata. Because the data remains in its existing location, you incur no extra storage cost. You can create both `TabularDataset` and `FileDataset` data sets by using the Python SDK or at https://ml.azure.com.
 
 For the data to be accessible by Azure Machine Learning, datasets must be created from paths in [Azure datastores](how-to-access-data.md) or public web URLs. 
-
-Be sure to check how large the dataset is in-memory (usually as a dataframe) - you typically want a machine with ~2x this size of RAM so you  
-
-If you're using Pandas, there's no reason to have more than 1 vCPU since that's all it will use. You can easily parallelize to many vCPUs on a single AMLS compute instance/node via Modin and Dask/Ray (and scale out to a large cluster if needed) by simply changing `import pandas as pd` to `import modin.pandas as pd`. 
-
-If you can't get a big enough VM for the data, you have two options: use a framework like Spark or Dask to perform the processing on the data 'out of memory', i.e. the dataframe is loaded into RAM partition by partition and processed, with the final result being gathered at the end. If this is too slow, Spark or Dask allow you to scale out to a cluster which can still be used interactively. 
-
-Note: the size of your data in storage (i.e. 1 GB CSV file) is not the same as the size of data in a dataframe. This can be computed by (rows) x (columns) x (bytes/dtype). For CSV files, the data usually expands ~2-10x in a dataframe, so the 1 GB CSV file becomes 2-10 GB. If your data is compressed, it can expand further - 20 GB of relatively sparse data stored in compressed parquet format can expand to ~800 GB in memory. Since Parquet stores data in a columnar format, if you only need 1/2 of the columns then you only need to load ~400 GB in memory. 
 
 ### Use the SDK
 
