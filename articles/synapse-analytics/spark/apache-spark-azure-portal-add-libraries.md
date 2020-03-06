@@ -1,11 +1,11 @@
 ---
 title: Add and manage libraries for Apache Spark in Azure Synapse Analytics
 description: Learn how to add and manage libraries used by Apache Spark in Azure Synapse Analytics.
-services: sql-data-warehouse
+services: synapse-analytics
 author: euangMS
-ms.service: sql-data-warehouse
+ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: design
+ms.subservice:
 ms.date: 2/21/2020
 ms.author: euang
 ms.reviewer: euang

@@ -1,6 +1,6 @@
 ---
-title: Quickstart - Create a SQL pool 
-description: Create a new SQL pool for an Azure Synapse Analytics Synapse Workspace by following the steps in this guide. 
+title: Quickstart - Create a Synapse SQL pool 
+description: Create a new Synapse SQL pool for an Azure Synapse Analytics Synapse Workspace by following the steps in this guide. 
 services: synapse-analytics 
 author: malvenko 
 ms.service: synapse-analytics 
@@ -11,7 +11,7 @@ ms.author: josels
 ms.reviewer: jrasnick
 ---
 
-# Quickstart: Create a SQL pool 
+# Quickstart: Create a Synapse SQL pool 
 
 Azure Synapse Analytics offers various analytics engines to help you ingest, transform, model, analyze, and serve your data. A SQL pool offers T-SQL based compute and storage capabilities. After creating a SQL pool in your Synapse Workspace, data can be loaded, modeled, processed, and served to obtain insights.  
 
