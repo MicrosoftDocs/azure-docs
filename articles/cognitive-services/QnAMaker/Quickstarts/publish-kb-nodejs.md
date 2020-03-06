@@ -83,7 +83,7 @@ Create variables for your resource's Azure endpoint and key. If you created the 
 
 Set the following environment values:
 
-* `QNAMAKER_RESOURCE_KEY` - The **key** is a 32 character string and is available in the Azure portal, on the QnA Maker resource, on the Quick start page. This is not the same as the prediction endpoint key.
+* `QNAMAKER_RESOURCE_KEY` - The **key** is a 32 character string and is available in the Azure portal, on the QnA Maker resource, on the **Quick start** page. This is not the same as the prediction endpoint key.
 * `QNAMAKER_AUTHORING_ENDPOINT` - Your authoring endpoint, in the format of `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com`, includes your **resource name**. This is not the same URL used to query the prediction endpoint.
 
 [!code-javascript[Add Azure resources from environment variables](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/rest-api/rest-api.js?name=authorization)]
