@@ -77,7 +77,7 @@ Create and populate three security groups for your workspace.
 
 The synapse workspace needs access to STG1 and CNT1 so it can run pipelines and perform system tasks.
 
-- Open the Azure Portal
+- Open the Azure portal
 - Locate STG1
 - Navigate to CNT1
 - Ensure that the MSI for WS1 is assigned to the **Azure Blob Data Contributor** role on CNT1
