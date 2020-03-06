@@ -51,7 +51,7 @@ After the feature has been running in audit mode for a reasonable period, you ca
 
 There are no additional requirements to deploy Azure AD Password Protection across multiple forests.
 
-Each forest is independently configured, as described in the following [Deploy on-prem Azure AD Password Protection](#deploy-on-prem-password-protection) section. Each Azure AD Password Protection proxy can only support domain controllers from the forest that it's joined to.
+Each forest is independently configured, as described in the following section to [deploy on-prem Azure AD Password Protection](#download-required-software). Each Azure AD Password Protection proxy can only support domain controllers from the forest that it's joined to.
 
 The Azure AD Password Protection software in any forest is unaware of password protection software that's deployed in other forests, regardless of Active Directory trust configurations.
 
@@ -150,10 +150,10 @@ In the next section, you install the Azure AD Password Protection DC agents on d
 
 Choose one or more servers to host the Azure AD Password Protection proxy service. The following considerations apply for the server(s):
 
-    * Each such service can only provide password policies for a single forest. The host machine must be joined to a domain in that forest. Root and child domains are both supported. You need network connectivity between at least one DC in each domain of the forest and the password protection machine.
-    * You can run the Azure AD Password Protection proxy service on a domain controller for testing, but that domain controller then requires internet connectivity. This connectivity can be a security concern. We recommend this configuration for testing only.
-    * We recommend at least two Azure AD Password Protection proxy servers for redundancy, as noted in the previous section on [high availability considerations](#high-availability-considerations).
-    * It's not supported to run the Azure AD Password Protection proxy service on a read-only domain controller.
+* Each such service can only provide password policies for a single forest. The host machine must be joined to a domain in that forest. Root and child domains are both supported. You need network connectivity between at least one DC in each domain of the forest and the password protection machine.
+* You can run the Azure AD Password Protection proxy service on a domain controller for testing, but that domain controller then requires internet connectivity. This connectivity can be a security concern. We recommend this configuration for testing only.
+* We recommend at least two Azure AD Password Protection proxy servers for redundancy, as noted in the previous section on [high availability considerations](#high-availability-considerations).
+* It's not supported to run the Azure AD Password Protection proxy service on a read-only domain controller.
 
 To install the Azure AD Password Protection proxy service, complete the following steps:
 
