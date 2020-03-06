@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.date: 02/17/2020
 ---
 
-# Azure Migrate Server Migration FAQ
+# Azure Migrate Server Migration: Common questions
 
 This article answers common questions about the Azure Migrate: Server Migration tool. If you have other questions, check these resources:
 
