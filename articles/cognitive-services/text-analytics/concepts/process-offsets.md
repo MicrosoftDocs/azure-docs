@@ -15,7 +15,7 @@ ms.reviewer: jdesousa
 
 # How to process text offsets in the output of the Text Analytics API
 
-Multilingual and emoji support has led to Unicode character encodings that may use more than one [code point](https://wikipedia.org/wiki/Code_point) to represent a single rendered unit of text, called a grapheme. For example, emojis like 🌷 and 👍 may use several characters to compose the shape, with additional characters for visual attributes, such as skin tone. Similarly, the Hindi word `अनुच्छेद` is encoded as 5 letters and 3 combining marks:
+Multilingual and emoji support has led to Unicode encodings that use more than one [code point](https://wikipedia.org/wiki/Code_point) to represent a single displayed character, called a grapheme. For example, emojis like 🌷 and 👍 may use several characters to compose the shape with additional characters for visual attributes, such as skin tone. Similarly, the Hindi word `अनुच्छेद` is encoded as 5 letters and 3 combining marks:
 
 `अ` + `न` +` ु` + `च` +` ्` + `छ` + ` े` + `द`
 
@@ -33,7 +33,7 @@ Whenever offsets are returned the API response, such as [Named Entity Recognitio
 
 These offsets can cause problems when using character-based substring methods, for example the [.NET substring() method](https://docs.microsoft.com/dotnet/api/system.string.substring?view=netframework-4.8). For example, an offset may cause a substring method to end in the middle of a multi-character grapheme encoding.
 
-In .NET consider using the [StringInfo](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo?view=netframework-4.8) class to work with text elements. You can also may look for grapheme splitter libraries in your preferred software environment.
+In .NET consider using the [StringInfo](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo?view=netframework-4.8) class which enables you to work with a string as a series of textual elements, rather than individual character objects. You can also may look for grapheme splitter libraries in your preferred software environment. The API also returns the detected text segments as well, for convenience, .
 
 ## See also
 
