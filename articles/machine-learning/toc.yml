@@ -221,30 +221,6 @@
       href: how-to-cicd-data-ingestion.md
   - name: Train models
     items:
-    - name: Use the designer
-      displayName: sample designer experiments
-      items:
-      - name: "Predict price"
-        displayName: regression, studio
-        href:  how-to-designer-sample-regression-automobile-price-basic.md
-      - name: "Predict price (advanced)"
-        displayName: regression, studio
-        href: how-to-designer-sample-regression-automobile-price-compare-algorithms.md
-      - name: "Predict income"
-        displayName: classification, studio
-        href:  how-to-designer-sample-classification-predict-income.md
-      - name: "Predict credit risk (advanced)"
-        displayName: classification, studio
-        href: how-to-designer-sample-classification-credit-risk-cost-sensitive.md
-      - name: "Predict churn"
-        displayName: classification, studio
-        href:  how-to-designer-sample-classification-churn.md
-      - name: "Predict flight delays"
-        displayName: classification, studio
-        href:  how-to-designer-sample-classification-flight-delay.md
-      - name: "Text classification"
-        displayName: classification, studio
-        href:  how-to-designer-sample-text-classification.md
     - name: Use estimators for ML
       items:
       - name: Create estimators in training
