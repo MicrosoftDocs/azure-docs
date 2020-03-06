@@ -216,10 +216,10 @@ speechConfig.EnableDictation();
 
 ## Change source language
 
-A common task for speech recognition is specifying the input (or source) language. Let's take a look at how you would change the input language to German. In your code, find your [`SpeechConfig`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet), then add this line directly below it.
+A common task for speech recognition is specifying the input (or source) language. Let's take a look at how you would change the input language to Italian. In your code, find your [`SpeechConfig`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet), then add this line directly below it.
 
 ```csharp
-speechConfig.SpeechRecognitionLanguage = "fr-FR";
+speechConfig.SpeechRecognitionLanguage = "it-IT";
 ```
 
 The [`SpeechRecognitionLanguage`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.speechrecognitionlanguage?view=azure-dotnet) property expects a BCP-47 format string. You can provide any value in the list of supported [locales/languages](../../../language-support.md).
