@@ -120,10 +120,7 @@ This is the simplest pattern.
 
 1. Stop all writes to Gen1.
 
-2. Move data from Gen1 to Gen2.
-
-   > [!TIP]
-   > For data transfer, we recommend [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage). ACLs copy with the data.
+2. Move data from Gen1 to Gen2. We recommend [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage). ACLs copy with the data.
 
 3. Point ingest operations and workloads to Gen2.
 
@@ -141,10 +138,7 @@ This is the simplest pattern.
 
 ### Incremental copy pattern
 
-1. Start moving data from Gen1 to Gen2.
-
-   > [!TIP]
-   > For data transfer, we recommend [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage). ACLs copy with the data.
+1. Start moving data from Gen1 to Gen2. We recommend [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage). ACLs copy with the data.
 
 2. Incrementally copy new data from Gen1.
 
@@ -164,10 +158,7 @@ This is the simplest pattern.
 
 ### Dual pipeline pattern
 
-1. Move data from Gen1 to Gen2.
-
-   > [!TIP]
-   > For data transfer, we recommend [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage). ACLs copy with the data.
+1. Move data from Gen1 to Gen2. We recommend [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage). ACLs copy with the data.
 
 2. Ingest new data to both Gen1 and Gen2.
 
@@ -187,14 +178,7 @@ This is the simplest pattern.
 
 ### Bi-directional sync pattern
 
-This pattern is similar to the *dual pipeline* pattern, but it's more ideally suited for complicated pipelines that require Gen1 and Gen2 side-by-side support during migration.
-
-1. Set up bidirectional replication between Gen1 and Gen2.
-
-   > [!TIP]
-   > For bidirectional data transfer, we recommend [WanDisco](https://docs.wandisco.com/bigdata/wdfusion/adls/). It offers a repair feature for existing data.
-
-2. Incrementally move ingest and compute workloads to Gen2.
+1. Set up bidirectional replication between Gen1 and Gen2. We recommend [WanDisco](https://docs.wandisco.com/bigdata/wdfusion/adls/). It offers a repair feature for existing data.
 
 3. When all moves are complete, stop all writes to Gen1 and turn off bidirectional replication.
 
