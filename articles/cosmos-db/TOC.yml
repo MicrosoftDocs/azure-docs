@@ -570,8 +570,6 @@
           href: cassandra-introduction.md
         - name: Wire protocol support
           href: cassandra-support.md
-        - name: Elastic scale
-          href: manage-scale-cassandra.md
       - name: Quickstarts
         items:
         - name: .NET
@@ -593,6 +591,10 @@
         - name: 4 - Migrate data
           displayName: import
           href: cassandra-import-data.md
+      - name: Concepts
+        items:
+        - name: Elastic scale
+          href: manage-scale-cassandra.md
       - name: How-to guides
         items:
         - name: Change feed
