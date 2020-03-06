@@ -35,7 +35,7 @@ Red Hat Enterprise Linux (RHEL) images are available in Azure via a pay-as-you-g
 - It's currently not possible to dynamically switch between BYOS and pay-as-you-go billing models for Linux images. To switch the billing model, you must redeploy the VM from the respective image.
 
 >[!NOTE]
-> Generation 2 RHEL BYOS images aren't currently available through the marketplace offer. If you require a Gen 2 RHEL BYOS image, visit the Cloud Access dashboard in Red Hat subscription management. For more information, see the [Red Hat documentation](https://access.redhat.com/articles/4847681).
+> Generation 2 RHEL BYOS images aren't currently available through the marketplace offer. If you require a generation 2 RHEL BYOS image, visit the Cloud Access dashboard in Red Hat subscription management. For more information, see the [Red Hat documentation](https://access.redhat.com/articles/4847681).
 
 ## Requirements and conditions to access the Red Hat Gold Images
 
@@ -72,16 +72,19 @@ The following instructions walk you through the initial deployment process for a
 >Make sure you use all lowercase letters in the publisher, offer, plan, and image references for all the following commands.
 
 1. Check that you're in your desired subscription.
+
     ```azurecli
     az account show -o=json
     ```
 
 1. Create a resource group for your Red Hat Gold Image VM.
+
     ```azurecli
     az group create --name <name> --location <location>
     ```
 
 1. Accept the image terms.
+
     ```azurecli
     az vm image terms accept --publisher redhat --offer rhel-byos --plan <SKU value here> -o=jsonc
 
@@ -92,10 +95,12 @@ The following instructions walk you through the initial deployment process for a
 
     az vm image terms accept --urn RedHat:rhel-byos:rhel-lvm8:8.0.20190620
     ```
+
     >[!NOTE]
     >These terms need to be accepted *once per Azure subscription, per image SKU*.
 
 1. (Optional) Validate your VM deployment with the following command:
+
     ```azurecli
     az vm create -n <VM name> -g <resource group name> --image <image urn> --validate
 
@@ -104,6 +109,7 @@ The following instructions walk you through the initial deployment process for a
     ```
 
 1. Provision your VM by running the same command as shown in the previous example without the `--validate` argument.
+
     ```azurecli
     az vm create -n <VM name> -g <resource group name> --image <image urn> --validate
     ```
@@ -112,7 +118,6 @@ The following instructions walk you through the initial deployment process for a
 
 >[!NOTE]
 >On RHEL 8, `dnf` and `yum` are interchangeable. For more information, see the [RHEL 8 admin guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_basic_system_settings/installing-software-with-yum_configuring-basic-system-settings).
-
 
 ## Use the Red Hat Gold Images from PowerShell
 
@@ -197,6 +202,7 @@ For steps to apply Azure Disk Encryption, see [Azure Disk Encryption scenarios o
     -g AnotherGroupName --location EastUS2 -n VMName \
     --plan-publisher redhat --plan-product rhel-byos --plan-name rhel-lvm75
     ```
+
     Note the plan parameters in the final line.
 
     [Azure Disk Encryption](#encrypt-red-hat-enterprise-linux-bring-your-own-subscription-gold-images) isn't supported on custom images.
