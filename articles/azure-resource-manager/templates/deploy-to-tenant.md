@@ -2,7 +2,7 @@
 title: Deploy resources to tenant
 description: Describes how to deploy resources at the tenant scope in an Azure Resource Manager template.
 ms.topic: conceptual
-ms.date: 03/02/2020
+ms.date: 03/06/2020
 ---
 
 # Create resources at the tenant level
@@ -19,7 +19,7 @@ You use tenant level deployments to take actions that make sense at that level, 
 
 You can deploy the following resource types at the tenant level:
 
-* [deployments](/azure/templates/microsoft.resources/deployments)
+* [deployments](/azure/templates/microsoft.resources/deployments) - for nested templates that deploy to management groups or subscriptions.
 * [policyAssignments](/azure/templates/microsoft.authorization/policyassignments)
 * [policyDefinitions](/azure/templates/microsoft.authorization/policydefinitions)
 * [policySetDefinitions](/azure/templates/microsoft.authorization/policysetdefinitions)
@@ -42,16 +42,36 @@ For parameter files, use:
 https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentParameters.json#
 ```
 
+## Required access
+
+The principal deploying the template must have permissions to create resources at the tenant scope. The principal must have permission to execute the deployment actions (`Microsoft.Resources/deployments/*`) and to create the resources defined in the template. For example, to create a management group, the principal must have Contributor permission at the tenant scope. To create role assignments, the principal must have Owner permission.
+
+The Global Administrator for the Azure Active Directory doesn't automatically have permission to assign roles. To enable template deployments at the tenant scope, the Global Administrator must do the following steps:
+
+1. Elevate account access so the Global Administrator can assign roles. For more information, see [Elevate access to manage all Azure subscriptions and management Groups](../../role-based-access-control/elevate-access-global-admin.md).
+
+1. Assign Owner or Contributor to the principal that needs to deploy the templates.
+
+  ```azurepowershell-interactive
+  New-AzRoleAssignment -SignInName "[userId]" -Scope "/" -RoleDefinitionName "Owner"
+  ```
+
+  ```azurecli-interactive
+  az role assignment create --assignee "[userId]" --scope "/" --role "Owner"
+  ```
+
+The principal now has the required permissions to deploy the template.
+
 ## Deployment commands
 
 The commands for tenant deployments are different than the commands for resource group deployments.
 
-For Azure PowerShell, use [New-AzTenantDeployment](/powershell/module/az.resources/new-aztenantdeployment). 
+For Azure PowerShell, use [New-AzTenantDeployment](/powershell/module/az.resources/new-aztenantdeployment).
 
 ```azurepowershell-interactive
 New-AzTenantDeployment `
   -Location "West US" `
-  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/management-level-deployment/azuredeploy.json
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/tenant-level-deployments/new-mg/azuredeploy.json
 ```
 
 For REST API, use [Deployments - Create Or Update At Tenant Scope](/rest/api/resources/deployments/createorupdateattenantscope).
@@ -71,12 +91,12 @@ For tenant deployments, there are some important considerations when using templ
 * The [resourceGroup()](template-functions-resource.md#resourcegroup) function is **not** supported.
 * The [subscription()](template-functions-resource.md#subscription) function is **not** supported.
 * The [reference()](template-functions-resource.md#reference) and [list()](template-functions-resource.md#list) functions are supported.
-* The [resourceId()](template-functions-resource.md#resourceid) function is supported. Use it to get the resource ID for resources that are used at tenant level deployments. Don't provide a value for the resource group parameter.
+* Use the [tenantResourceId()](template-functions-resource.md#tenantresourceid) function to get the resource ID for resources that are deployed at tenant level.
 
   For example, to get the resource ID for a policy definition, use:
   
   ```json
-  resourceId('Microsoft.Authorization/policyDefinitions/', parameters('policyDefinition'))
+  tenantResourceId('Microsoft.Authorization/policyDefinitions/', parameters('policyDefinition'))
   ```
   
   The returned resource ID has the following format:
@@ -85,83 +105,76 @@ For tenant deployments, there are some important considerations when using templ
   /providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
   ```
 
-## Create policies
+## Create management group
 
-### Define policy
-
-The following example shows how to [define](../../governance/policy/concepts/definition-structure.md) a policy at the management group level.
+The [following template](https://github.com/Azure/azure-quickstart-templates/tree/master/tenant-level-deployments/new-mg) creates a management group.
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {},
-  "variables": {},
-  "resources": [
-    {
-      "type": "Microsoft.Authorization/policyDefinitions",
-      "apiVersion": "2018-05-01",
-      "name": "locationpolicy",
-      "properties": {
-        "policyType": "Custom",
-        "parameters": {},
-        "policyRule": {
-          "if": {
-            "field": "location",
-            "equals": "northeurope"
-          },
-          "then": {
-            "effect": "deny"
-          }
-        }
-      }
-    }
-  ]
-}
-```
-
-### Assign policy
-
-The following example assigns an existing policy definition to the tenant. If the policy takes parameters, provide them as an object. If the policy doesn't take parameters, use the default empty object.
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
-    "policyDefinitionID": {
-      "type": "string"
-    },
-    "policyName": {
-      "type": "string"
-    },
-    "policyParameters": {
-      "type": "object",
-      "defaultValue": {}
+    "mgName": {
+      "type": "string",
+      "defaultValue": "[concat('mg-', uniqueString(newGuid()))]"
     }
   },
-  "variables": {},
   "resources": [
     {
-      "type": "Microsoft.Authorization/policyAssignments",
-      "apiVersion": "2018-03-01",
-      "name": "[parameters('policyName')]",
+      "type": "Microsoft.Management/managementGroups",
+      "apiVersion": "2019-11-01",
+      "name": "[parameters('mgName')]",
       "properties": {
-        "policyDefinitionId": "[parameters('policyDefinitionID')]",
-        "parameters": "[parameters('policyParameters')]"
       }
     }
   ]
 }
 ```
 
-## Template sample
+## Assign role
 
-* [Create a resource group, a policy and a policy assignment](https://github.com/Azure/azure-docs-json-samples/blob/master/management-level-deployment/azuredeploy.json).
+The [following template](https://github.com/Azure/azure-quickstart-templates/tree/master/tenant-level-deployments/tenant-role-assignment) assigns a role at the tenant scope.
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "principalId": {
+      "type": "string",
+      "metadata": {
+        "description": "principalId if the user that will be given contributor access to the resourceGroup"
+      }
+    },
+    "roleDefinitionId": {
+      "type": "string",
+      "defaultValue": "8e3af657-a8ff-443c-a75c-2fe8c4bcb635",
+      "metadata": {
+        "description": "roleDefinition for the assignment - default is owner"
+      }
+    }
+  },
+  "variables": {
+    // This creates an idempotent guid for the role assignment
+    "roleAssignmentName": "[guid('/', parameters('principalId'), parameters('roleDefinitionId'))]"
+  },
+  "resources": [
+    {
+      "name": "[variables('roleAssignmentName')]",
+      "type": "Microsoft.Authorization/roleAssignments",
+      "apiVersion": "2019-04-01-preview",
+      "properties": {
+        "roleDefinitionId": "[tenantResourceId('Microsoft.Authorization/roleDefinitions', parameters('roleDefinitionId'))]",
+        "principalId": "[parameters('principalId')]",
+        "scope": "/"
+      }
+    }
+  ]
+}
+```
 
 ## Next steps
 
 * To learn about assigning roles, see [Manage access to Azure resources using RBAC and Azure Resource Manager templates](../../role-based-access-control/role-assignments-template.md).
-* For an example of deploying workspace settings for Azure Security Center, see [deployASCwithWorkspaceSettings.json](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/deployASCwithWorkspaceSettings.json).
 * To learn about creating Azure Resource Manager templates, see [Authoring templates](template-syntax.md).
 * For a list of the available functions in a template, see [Template functions](template-functions.md).

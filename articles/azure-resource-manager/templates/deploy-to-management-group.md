@@ -2,7 +2,7 @@
 title: Deploy resources to management group
 description: Describes how to deploy resources at the management group scope in an Azure Resource Manager template.
 ms.topic: conceptual
-ms.date: 03/02/2020
+ms.date: 03/06/2020
 ---
 
 # Create resources at the management group level
@@ -11,7 +11,7 @@ Typically, you deploy Azure resources to a resource group in your Azure subscrip
 
 * [subscription level](deploy-to-subscription.md)
 * management group level (covered in this article)
-* [tenant level](deploy-to-tenant.md) 
+* [tenant level](deploy-to-tenant.md)
 
 You use management group level deployments to take actions that make sense at that level, such as assigning [role-based access control](../../role-based-access-control/overview.md) or applying [policies](../../governance/policy/overview.md).
 
@@ -19,7 +19,7 @@ You use management group level deployments to take actions that make sense at th
 
 You can deploy the following resource types at the management group level:
 
-* [deployments](/azure/templates/microsoft.resources/deployments) - for nesting templates that deploy to subscriptions or resource groups
+* [deployments](/azure/templates/microsoft.resources/deployments) - for nested templates that deploy to subscriptions or resource groups.
 * [policyAssignments](/azure/templates/microsoft.authorization/policyassignments)
 * [policyDefinitions](/azure/templates/microsoft.authorization/policydefinitions)
 * [policySetDefinitions](/azure/templates/microsoft.authorization/policysetdefinitions)

@@ -2,7 +2,7 @@
 title: Deploy resources to subscription
 description: Describes how to create a resource group in an Azure Resource Manager template. It also shows how to deploy resources at the Azure subscription scope.
 ms.topic: conceptual
-ms.date: 03/03/2020
+ms.date: 03/06/2020
 ---
 
 # Create resource groups and resources at the subscription level
@@ -22,7 +22,7 @@ To deploy templates at the subscription level, use Azure CLI, PowerShell, or RES
 You can deploy the following resource types at the subscription level:
 
 * [budgets](/azure/templates/microsoft.consumption/budgets)
-* [deployments](/azure/templates/microsoft.resources/deployments) - for nesting templates that deploy to resource groups
+* [deployments](/azure/templates/microsoft.resources/deployments) - for nested templates that deploy to resource groups.
 * [peerAsns](/azure/templates/microsoft.peering/peerasns)
 * [policyAssignments](/azure/templates/microsoft.authorization/policyassignments)
 * [policyDefinitions](/azure/templates/microsoft.authorization/policydefinitions)
@@ -89,12 +89,12 @@ For subscription-level deployments, there are some important considerations when
 
 * The [resourceGroup()](template-functions-resource.md#resourcegroup) function is **not** supported.
 * The [reference()](template-functions-resource.md#reference) and [list()](template-functions-resource.md#list) functions are supported.
-* The [resourceId()](template-functions-resource.md#resourceid) function is supported. Use it to get the resource ID for resources that are used at subscription level deployments. Don't provide a value for the resource group parameter.
+* Use the [subscriptionResourceId()](template-functions-resource.md#subscriptionresourceid) function to get the resource ID for resources that are deployed at subscription level.
 
   For example, to get the resource ID for a policy definition, use:
   
   ```json
-  resourceId('Microsoft.Authorization/roleDefinitions/', parameters('roleDefinition'))
+  subscriptionResourceId('Microsoft.Authorization/roleDefinitions/', parameters('roleDefinition'))
   ```
   
   The returned resource ID has the following format:
@@ -102,8 +102,6 @@ For subscription-level deployments, there are some important considerations when
   ```json
   /subscriptions/{subscriptionId}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
   ```
-
-  Or, use the [subscriptionResourceId()](template-functions-resource.md#subscriptionresourceid) function to get the resource ID for a subscription level resource.
 
 ## Create resource groups
 
