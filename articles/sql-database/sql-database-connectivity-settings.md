@@ -36,6 +36,43 @@ After setting Public Network Access, login attempts from clients using public en
 Error 47073
 An instance-specific error occurred while establishing a connection to SQL Server. The public network interface on this server is not accessible. To connect to this server, use the Private Endpoint from inside your virtual network.
 
+## Change Public Network Access via PowerShell
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical. The following script requires the [Azure PowerShell module](/powershell/azure/install-az-ps).
+
+The following PowerShell script shows how to Get and Set this property at the logical server level
+
+```powershell
+#Get the Public Network Access property
+(Get-AzSqlServer -ServerName sql-server-name -ResourceGroupName sql-server-group).PublicNetworkAccess
+
+# Update Public Network Access to Disabled
+$SecureString = ConvertTo-SecureString "password" -AsPlainText -Force
+
+Set-AzSqlServer -ServerName sql-server-name -ResourceGroupName sql-server-group -SqlAdministratorPassword $SecureString -PublicNetworkAccess "Enabled" 
+```
+
+## Change Public Network Access via CLI
+> [!IMPORTANT]
+> All scripts in this section requires [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+
+### Azure CLI in a bash shell
+The following CLI script shows how to change the connection policy in a bash shell.
+
+```azurecli-interactive
+
+# Get current setting for Public Network Access
+az sql server show -n sql-server-name -g sql-server-group --query "publicNetworkAccess"
+
+# Update setting for Public Network Access
+az sql server update -n sql-server-name -g sql-server-group --set publicNetworkAccess="Disabled"
+
+```
+
+
+
+
 ## Minimal TLS Version 
 Minimal TLS Version allows customer to control the version of  [Transport Layer Security](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server) for their Azure SQL Server.
 
@@ -46,6 +83,38 @@ After setting Minimal TLS version, login attempts from clients that using TLS ve
 Error 47072
 Login failed with invalid TLS version
 
+## Set Minimal TLS Version via PowerShell
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical. The following script requires the [Azure PowerShell module](/powershell/azure/install-az-ps).
+
+The following PowerShell script shows how to Get and Set this property at the logical server level
+
+```powershell
+#Get the Public Network Access property
+(Get-AzSqlServer -ServerName sql-server-name -ResourceGroupName sql-server-group).PublicNetworkAccess
+
+# Update Public Network Access to Disabled
+$SecureString = ConvertTo-SecureString "password" -AsPlainText -Force
+
+Set-AzSqlServer -ServerName sql-server-name -ResourceGroupName sql-server-group -SqlAdministratorPassword $SecureString  -MinimalTlsVersion "1.2"
+```
+
+
+## Set Minimal TLS Version via Azure CLI
+> [!IMPORTANT]
+> All scripts in this section requires [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+
+### Azure CLI in a bash shell
+The following CLI script shows how to change the connection policy in a bash shell.
+
+```azurecli-interactive
+# Get current setting for Minimal TLS Version
+az sql server show -n sql-server-name -g sql-server-group --query "minimalTlsVersion"
+
+# Update setting for Minimal TLS Version
+az sql server update -n sql-server-name -g sql-server-group --set minimalTlsVersion="1.2"
+```
 
 ## Connection policy
 [Connection policy](sql-database-connectivity-architecture.md#connection-policy) determines how clients connect to Azure SQL Server. 
