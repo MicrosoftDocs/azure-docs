@@ -40,6 +40,7 @@ By following the guidelines and best-practices described in the article, you wil
        * [Microsoft.Azure.EventGrid SDK](https://www.nuget.org/packages/Microsoft.Azure.EventGrid/) (which supports Media Services events natively). 
        
         You can also consume Event Grid events via Azure Functions.
+    * In Media Services v2, this is done via [NotificationEndpoints](../previous/media-services-dotnet-check-job-progress-with-webhooks.md).        
 * When you [create a job](transforms-jobs-concept.md):
 
     * Randomly select an account from the list of currently used accounts (this list will normally contain both accounts but if issues are detected it may only contain one account). If the list is empty, raise an alert so an operator can investigate.
