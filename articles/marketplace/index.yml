@@ -128,8 +128,6 @@ landingContent:
       links:
       - text: Support options
         url: ./partner-center-portal/support.md
-      - text: Microsoft commercial marketplace FAQs
-        url: ./marketplace-faq-publisher-guide.md
       - text: Geographic availability and currencies
         url: ./marketplace-geo-availability-currencies.md
       - text: Troubleshoot authentication errors
