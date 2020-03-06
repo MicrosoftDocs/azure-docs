@@ -15,7 +15,7 @@ This article provides lists Azure Monitor articles that are either new or have b
 ## March 2020
 
 ### Agents
-Multiple updates as part of initial rewrite of diagnostics extension.
+Multiple updates as part of rewrite of diagnostics extension content.
 
 - [Overview of the Azure monitoring agents](platform/agents-overview.md) - Restructured tables to better clarify unique features of each agent.
 - [Azure Diagnostics extension overview](platform/diagnostics-extension-overview.md) - Complete rewrite.
