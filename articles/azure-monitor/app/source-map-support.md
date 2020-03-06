@@ -1,5 +1,5 @@
 ---
-title: Source map support for JavaScript applications
+title: Source map support for JavaScript applications - Application Insights
 description: 
 ms.topic: conceptual
 author: markwolff
