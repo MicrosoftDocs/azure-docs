@@ -101,7 +101,8 @@ Example value:
 ### Key, Value type: `objectId`, String 
 The unique identifier for the app in the directory. <br><br> This is available only in the **App registrations (Legacy)** experience. Replaced by `id` in the [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) experience. 
 
-Example value: `"f7f9acfc-ae0c-4d6c-b489-0a81dc1652dd"` 
+Example value: 
+`"f7f9acfc-ae0c-4d6c-b489-0a81dc1652dd"` 
 
 ### Key, Value type: `optionalClaims`, String 
 The optional claims returned in the token by the security token service for this specific app.<br>At this time, apps that support both personal accounts and Azure AD (registered through the app registration portal) cannot use optional claims. However, apps registered for just Azure AD using the v2.0 endpoint can get the optional claims they requested in the manifest. For more info, see [optional claims](active-directory-optional-claims.md). 
@@ -201,7 +202,9 @@ Example value:
 <code>[<br>&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;"appId": "abcdefg2-000a-1111-a0e5-812ed8dd72e8",<br>&nbsp;&nbsp;&nbsp;&nbsp;"permissionIds": [<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"8748f7db-21fe-4c83-8ab5-53033933c8f1"<br>&nbsp;&nbsp;&nbsp;&nbsp;]<br>&nbsp;&nbsp;}<br>]</code> 
 
 ### Key, Value type: `publicClient`, Boolean 
-Specifies whether this application is a public client (such as an installed application running on a mobile device). <br><br> _Note: This property is available only in the **App registrations (Legacy)** experience. Replaced by `allowPublicClient` in the [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) experience._ 
+Specifies whether this application is a public client (such as an installed application running on a mobile device). 
+
+This property is available only in the **App registrations (Legacy)** experience. Replaced by `allowPublicClient` in the [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) experience. 
 
 ### Key, Value type: `publisherDomain`, String 
 The verified publisher domain for the application. Read-only. 
@@ -238,7 +241,10 @@ Example value:
 `https://MyRegisteredApp` 
 
 ### Key, Value type: `signInAudience`, String 
-Specifies what Microsoft accounts are supported for the current application. Supported values are:<ul><li>**AzureADMyOrg** - Users with a Microsoft work or school account in my organization's Azure AD tenant (for example, single tenant)</li><li>**AzureADMultipleOrgs** - Users with a Microsoft work or school account in any organization's Azure AD tenant (for example, multi-tenant)</li> <li>**AzureADandPersonalMicrosoftAccount** - Users with a personal Microsoft account, or a work or school account in any organization's Azure AD tenant</li></ul> 
+Specifies what Microsoft accounts are supported for the current application. Supported values are:
+- **AzureADMyOrg** - Users with a Microsoft work or school account in my organization's Azure AD tenant (for example, single tenant)
+- **AzureADMultipleOrgs** - Users with a Microsoft work or school account in any organization's Azure AD tenant (for example, multi-tenant)
+- **AzureADandPersonalMicrosoftAccount** - Users with a personal Microsoft account, or a work or school account in any organization's Azure AD tenant 
 
 Example value:  
 `AzureADandPersonalMicrosoftAccount` 
@@ -247,7 +253,7 @@ Example value:
 Custom strings that can be used to categorize and identify the application. 
 
 Example value: 
-<code>[<br>&nbsp;&nbsp;"ProductionApp"<br>]</code> 
+`[<br>&nbsp;&nbsp;"ProductionApp"<br>]`
 
 ## Common issues
 
