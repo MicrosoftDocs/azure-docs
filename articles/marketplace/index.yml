@@ -36,7 +36,7 @@ landingContent:
       - text: Marketing best practices
         url: ./gtm-marketing-best-practices.md  
       - text: Offer listing best practices
-        url: ./marketplace-saas-applications-technical-publishing-guide.md
+        url: ./gtm-offer-listing-best-practices.md
       - text: SaaS applications offer publishing guide
         url: ./marketplace-saas-applications-technical-publishing-guide.md
     - linkListType: get-started
