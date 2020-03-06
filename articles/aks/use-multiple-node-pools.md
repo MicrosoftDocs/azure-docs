@@ -142,7 +142,7 @@ az aks nodepool upgrade \
 
 List the status of your node pools again using the [az aks node pool list][az-aks-nodepool-list] command. The following example shows that *mynodepool* is in the *Upgrading* state to *1.15.7*:
 
-```console
+```azurecli
 az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
 ```
 
