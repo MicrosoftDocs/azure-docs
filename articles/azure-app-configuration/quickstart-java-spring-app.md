@@ -124,7 +124,7 @@ Use the [Spring Initializr](https://start.spring.io/) to create a new Spring Boo
 
 6. Create a new file named `bootstrap.properties` under the resources directory of your app, and add the following lines to the file. Replace the sample values with the appropriate properties for your App Configuration store.
 
-    ```CLI
+    ```
     spring.cloud.azure.appconfiguration.stores[0].connection-string=[your-connection-string]
     ```
 
@@ -132,14 +132,14 @@ Use the [Spring Initializr](https://start.spring.io/) to create a new Spring Boo
 
 1. Build your Spring Boot application with Maven and run it, for example:
 
-    ```CLI
+    ```cmd
     mvn clean package
     mvn spring-boot:run
     ```
 
 2. After your application is running, use *curl* to test your application, for example:
 
-      ```CLI
+      ```cmd
       curl -X GET http://localhost:8080/
       ```
 
