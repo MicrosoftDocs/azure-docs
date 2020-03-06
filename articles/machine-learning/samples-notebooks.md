@@ -10,9 +10,9 @@ ms.topic: sample
 author: sdgilley
 ms.author: sgilley
 ms.reviewer: sgilley
-ms.date: 11/04/2019
+ms.date: 03/05/2020
 ms.custom: seodec18
-#Customer intent: As a professional data scientist, I can build an image classification model with Azure Machine Learning using Python in a Jupyter notebook.
+#Customer intent: As a professional data scientist, I find and run example Jupyter notebooks for Azure Machine Learning.
 ---
 
 # Explore Azure Machine Learning with Jupyter notebooks
