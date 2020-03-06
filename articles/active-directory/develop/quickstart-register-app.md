@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 03/02/2020
+ms.date: 03/09/2020
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: aragra, lenalepa, sureshja
@@ -20,12 +20,9 @@ ms.reviewer: aragra, lenalepa, sureshja
 
 In this quickstart, you register an application using the **App registrations** experience in the Azure portal. Your app is integrated with the Microsoft identity platform. Enterprise developers and software-as-a-service (SaaS) providers can develop commercial cloud services or line-of-business applications that can be integrated with Microsoft identity platform. Integration provides secure sign-in and authorization for such services.
 
-To learn more about the new features and improvements in the new app registrations experience, see [New App registrations experience now in public preview](https://developer.microsoft.com/graph/blogs/new-app-registration/).
-
 ## Prerequisites
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-* An app to register. To build an app, see the quickstarts in [Microsoft identity platform](https://docs.microsoft.com/azure/active-directory/develop).
 
 ## Register a new application using the Azure portal
 
