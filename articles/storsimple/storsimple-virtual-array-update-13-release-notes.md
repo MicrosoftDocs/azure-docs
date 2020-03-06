@@ -44,7 +44,7 @@ No new issues were release-noted in Update 1.3. All the release-noted issues are
 
 ## Next steps
 
-Download KB4539946 and [Apply the update via local web UI](storsimple-virtual-array-install-update-13.md#use-the-local-web-ui).
+Download KB4539946 and [Apply the update via local web UI](storsimple-virtual-array-install-update-11.md#use-the-local-web-ui).
 
 ## References
 
