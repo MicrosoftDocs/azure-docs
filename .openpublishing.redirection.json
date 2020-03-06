@@ -14989,6 +14989,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/machine-learning/designer-sample-datasets.md",
+      "redirect_url": "/azure/machine-learning/sample-designer-datasets",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/machine-learning/service/how-to-enable-app-insights.md",
       "redirect_url": "/azure/machine-learning/how-to-enable-app-insights",
       "redirect_document_id": true
