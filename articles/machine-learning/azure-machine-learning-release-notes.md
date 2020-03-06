@@ -96,8 +96,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + Fixed a bug where PythonScriptStep results could be incorrectly reused despite changing the arguments list
     + Added the ability to set columns' type when calling the parse_* methods on `PipelineOutputFileDataset`
   + **azureml-pipeline-steps**
-    + Moved the `AutoMLStep` to the `azureml-pipeline-steps package`. Deprecated the `AutoMLStep` within `azureml-train-automl-runtime`.
-    + Moved the `AutoMLStep` in the `azureml-pipeline-steps` package. Deprecated the `AutoMLStep` within `azureml-train-automl-runtime`.
+    + Moved the `AutoMLStep` to the `azureml-pipeline-steps` package. Deprecated the `AutoMLStep` within `azureml-train-automl-runtime`.
     + Added documentation example for dataset as PythonScriptStep input
   + **azureml-tensorboard**
     + updated azureml-tensorboard to support tensorflow 2.0
@@ -107,7 +106,6 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + fixed FeaturizationConfig overriding issue that filters custom featurization config.
   + **azureml-train-automl-runtime**
     + Fixed the issue with frequency detection in the remote runs
-    + Moved the `AutoMLStep` to the `azureml-pipeline-steps package`. Deprecated the `AutoMLStep` within `azureml-train-automl-runtime`.
     + Moved the `AutoMLStep` in the `azureml-pipeline-steps` package. Deprecated the `AutoMLStep` within `azureml-train-automl-runtime`.
   + **azureml-train-core**
     + Moved the `AutoMLStep` to the `azureml-pipeline-steps package`. Deprecated the `AutoMLStep` within `azureml-train-automl-runtime`.
