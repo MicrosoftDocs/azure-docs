@@ -38,7 +38,7 @@
     - name: Azure Red Hat OpenShift 4.3 (preview)
       items:
         - name: Create an Azure Red Hat OpenShift 4.3 cluster
-          href:
+          href: howto-using-azure-redhat-openshift.md
         - name: Set up Azure Monitor for Azure Red Hat OpenShift 4.3
           href: howto-azure-monitor-v4.md
     - name: Deploy a standalone prometheus in an Azure Red Hat OpenShift cluster

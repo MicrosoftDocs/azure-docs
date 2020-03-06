@@ -13,7 +13,7 @@ keywords: aro, openshift, az aro, red hat, cli
 # Create an Azure Red Hat OpenShift 4.3 Cluster
 
 > [!IMPORTANT]
-> Azure Red Hat OpenShift (ARO) 4.3 is offered in preview. Preview features are self-service and are provided as is and as available and are excluded from the service-level agreement (SLA) and limited warranty. Therefore, the features aren't meant for production use. To provide feedback, please use: https://aka.ms/openshift/feedback
+> Azure Red Hat OpenShift (ARO) 4.3 is offered in preview. Preview features are self-service and are provided as is and as available and are excluded from the service-level agreement (SLA) and limited warranty. Therefore, the features aren't meant for production use.
 
 ## Prerequisites
 

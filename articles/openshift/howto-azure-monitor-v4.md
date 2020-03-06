@@ -11,7 +11,7 @@ ms.date: 03/06/2020
 # Azure Monitor integration for Azure Red Hat OpenShift 4.3
 
 > [!IMPORTANT]
-> Azure Red Hat OpenShift 4.3 is offered in preview. Preview features are self-service and are provided as is and as available and are excluded from the service-level agreement (SLA) and limited warranty. Therefore, the features aren't meant for production use. To provide feedback, please use: https://aka.ms/openshift/feedback
+> Azure Red Hat OpenShift 4.3 is offered in preview. Preview features are self-service and are provided as is and as available and are excluded from the service-level agreement (SLA) and limited warranty. Therefore, the features aren't meant for production use. 
 
 This article describes how to enable the private preview of Azure Monitor for containers for OpenShift 4.3 clusters hosted on-prem or in any cloud environment. The same instructions also apply to enable monitoring for Azure Red Hat OpenShift (ARO) 4.3 clusters.  
 
@@ -34,7 +34,7 @@ This article describes how to enable the private preview of Azure Monitor for co
 > [!TIP]
 > The script uses bash 4 features, so make sure your bash is up to date. You can check your current version with `bash --version`.
 
-### Download the Onboarding script
+### Download the onboarding script
 
 ```bash
 curl -LO  https://raw.githubusercontent.com/microsoft/OMS-docker/ci_feature/docs/openshiftV4/onboarding_azuremonitor_for_containers.sh
@@ -62,31 +62,31 @@ Azure Monitor for containers scrapes the Prometheus metrics and ingest to the Az
 
 After successful onboarding, navigate to https://aka.ms/azmon-containers-hybrid  and select Environment as **"All"** to view your newly onboarded OpenShift v4 cluster.
 
-### Health of Monitored Clusters
+### Health of monitored clusters
 
-![](media/howto-azure-monitor-v4/Health_of_Monitored_Clusters.PNG)
+![](media/howto-azure-monitor-v4/health_of_monitored_clusters.png)
 
-### Cluster Health view (CPU, Memory, Node, and Pods)
+### Cluster health view (CPU, memory, nodes, and pods)
 
-![](media/howto-azure-monitor-v4/Cluster_Health_view.PNG)
+![](media/howto-azure-monitor-v4/cluster_health_view.png)
 
 ### Nodes view
 
-![](media/howto-azure-monitor-v4/Nodes_view.PNG)
+![](media/howto-azure-monitor-v4/nodes_view.png)
 
 ### Controllers view
 
-![](media/howto-azure-monitor-v4/Controllers_view.PNG)
+![](media/howto-azure-monitor-v4/controllers_view.png)
 
 ### Containers view
 
-![](media/howto-azure-monitor-v4/Containers_view.PNG)
+![](media/howto-azure-monitor-v4/containers_view.png)
 
-### Container {stdout; stderr} Log view
+### Container {stdout; stderr} log view
 
-![](media/howto-azure-monitor-v4/Containers_logs_view.PNG)
+![](media/howto-azure-monitor-v4/containers_logs_view.png)
 
-## Disable Monitoring
+## Disable monitoring
 
 If you would like to disable monitoring, you can delete the Azure Monitor for Containers Helm chart using the below command to stop collecting and ingesting monitoring data to Azure Monitor for containers backend.
 
@@ -94,15 +94,15 @@ If you would like to disable monitoring, you can delete the Azure Monitor for Co
 helm del azmon-containers-release-1
 ```
 
-## Update Monitoring
+## Update monitoring
 
 Rerun the onboarding script as in Onboarding section with the same parameter to get updated to latest Helm chart.
 
-## After Successful Onboarding
+## After successful onboarding
 
 Navigate to https://aka.ms/azmon-containers-hybrid and you should be able to see your newly enabled OpenShift/ARO v4 cluster with Health status in the Monitored Clusters Tab  and you can get into deeper insights such as metrics, inventory, and logs etc. by clicking the Cluster column.
 
-## Supported Features
+## Supported features
 
 For more information, see https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview for more details on the supported features and functionality.
 
