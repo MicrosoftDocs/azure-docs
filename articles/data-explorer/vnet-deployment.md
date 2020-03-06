@@ -271,7 +271,7 @@ If you have an issue while accessing cluster using the public (cluster.region.ku
 
 The first step includes checking TCP connectivity using Windows or Linux OS.
 
-Check using Windows OS
+# [Windows](#tab/windows)
 
    1. Download [TCping](https://www.elifulkerson.com/projects/tcping.php) to the machine connecting to the cluster.
    2. Ping the destination from the source machine by using the following command:
@@ -284,7 +284,7 @@ Check using Windows OS
      Probing 1.2.3.4:443/tcp - Port is open - time=100.00ms
      ```
 
-Check using Linux OS
+# [Linux](#tab/linux)
 
    1. Install *netcat* in the machine connecting to the cluster
 
@@ -330,7 +330,7 @@ Make sure cluster's subnet has NSG, UDR, and firewall rules are properly configu
 
 If you're experiencing cluster creation or operation issues and you suspect it's related to virtual network setup, follow these steps to troubleshoot the issue.
 
-#### Diagnose the virtual network with the REST API.
+#### Diagnose the virtual network with the REST API
 
 The [ARMClient](https://chocolatey.org/packages/ARMClient) is used to call the REST API using PowerShell. 
 
