@@ -10,6 +10,9 @@ ms.date: 03/06/2020
 
 # Azure Monitor integration for Azure Red Hat OpenShift 4.3
 
+> [!IMPORTANT]
+> Azure Red Hat OpenShift 4.3 is offered in preview. Preview features are self-service and are provided as is and as available and are excluded from the service-level agreement (SLA) and limited warranty. Therefore, the features aren't meant for production use. To provide feedback, please use: https://aka.ms/openshift/feedback
+
 This article describes how to enable the private preview of Azure Monitor for containers for OpenShift 4.3 clusters hosted on-prem or in any cloud environment. The same instructions also apply to enable monitoring for Azure Red Hat OpenShift (ARO) 4.3 clusters.  
 
 ## Prerequisites
