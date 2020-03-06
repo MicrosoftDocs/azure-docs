@@ -58,7 +58,7 @@ Namespaces are a way to categorize or group similar metrics together. By using n
 **Name** is the name of the metric that's being reported. Usually, the name is descriptive enough to help identify what's measured. An example is a metric that measures the number of memory bytes used on a given VM. It might have a metric name like **Memory Bytes In Use**.
 
 ### Dimension keys
-A dimension is a key or value pair that helps describe additional characteristics about the metric being collected. By using the additional characteristics, you can collect more information about the metric, which allows for deeper insights. For example, the **Memory Bytes In Use** metric might have a dimension key called **Process** that captures how many bytes of memory each process on a VM consumes. By using this key, you can filter the metric to see how much memory specific processes use or to identify the top five processes by memory usage.
+A dimension is a key or value pair that helps describe additional characteristics about the metric being collected. By using the additional characteristics, you can collect more information about the metric, which allows for deeper insights. For example, the **Memory Bytes In Use** metric might have a dimension key called **Process** that captures how many bytes of memory each process on a VM consumes. By using this key, you can filter the metric to see how much memory-specific processes use or to identify the top five processes by memory usage.
 Dimensions are optional, not all metrics may have dimensions. A custom metric can have up to 10 dimensions.
 
 ### Dimension values
@@ -79,7 +79,7 @@ Azure Monitor stores all metrics at one-minute granularity intervals. We underst
 * **Sum**: The summation of all the observed values from all the samples and measurements during the minute.
 * **Count**: The number of samples and measurements taken during the minute.
 
-For example, if there were 4 sign-in transactions to your app during a given a minute, the resulting measured latencies for each might be as follows:
+For example, if there were four sign-in transactions to your app during a given a minute, the resulting measured latencies for each might be as follows:
 
 |Transaction 1|Transaction 2|Transaction 3|Transaction 4|
 |---|---|---|---|
