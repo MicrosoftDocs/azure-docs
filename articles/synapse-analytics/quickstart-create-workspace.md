@@ -6,9 +6,9 @@ author: malvenko
 ms.service: synapse-analytics 
 ms.topic: quickstart  
 ms.subservice: 
-ms.date: 10/10/2019
+ms.date: 03/15/2020
 ms.author: josels
-ms.reviewer: jrasnick
+ms.reviewer: jrasnick, carlrab
 ---
 
 # Quickstart: Create an Azure Synapse Analytics workspace 
