@@ -1,9 +1,9 @@
 ---
 title: Indoor map data management in Azure Maps.| Microsoft Docs 
 description: Learn about data management for indoor Maps in Azure Maps
-author: walsehgal
-ms.author: v-musehg
-ms.date: 10/18/2019
+author: farah-alyasari
+ms.author: v-faalya
+ms.date: 03/06/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -48,7 +48,7 @@ Datasets can be queried using a Web Feature Service (WFS) API that follows the O
 
 The **Tileset API** provides a means to generate grided vector tiles out of a given dataset which are optimized for map rendering. The **Get Map Tile API** can be used to access the tileset using, for example, the Web SDK Indoor module.
 
-The **Feature State API** lets user store and retrieve dynamic properties/states of features in the dataset. These states get stored outside the dataset to enable users to store different versions if needed. The **Feature State API** supports dynamic styling scenarios in which the tileset features are expected to be rendered according to their state which is defined at runtime. The feature states stored in the stored feature stateset can be used to dynamically render the features in the tileset using the **Get Map State Tile API**. For example, meeting rooms in a facility can store “occupied” state and use it to decide the color of the room on the map control. A detailed description of how to make use of dynamic styling is available in **Implement dynamic styling for Private Atlas Indoor Maps**.
+The **Feature State API** lets user store and retrieve dynamic properties/states of features in the dataset. These states get stored outside the dataset to enable users to store different versions if needed. The **Feature State API** supports dynamic styling scenarios in which the tileset features are expected to be rendered according to their state which is defined at runtime. The feature states stored in the stored feature stateset can be used to dynamically render the features in the tileset using the **Get Map State Tile API**. For example, meeting rooms in a facility can store ï¿½occupiedï¿½ state and use it to decide the color of the room on the map control. A detailed description of how to make use of dynamic styling is available in **Implement dynamic styling for Private Atlas Indoor Maps**.
 
 
 ## Indoor web SDK module

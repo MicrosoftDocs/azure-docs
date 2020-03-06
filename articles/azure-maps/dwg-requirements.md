@@ -1,9 +1,9 @@
 ---
 title: DWG package requirements in Azure Maps | Microsoft Docs
 description: Learn about DWG to GeoJSON data format conversion in Azure Maps 
-author: walsehgal
-ms.author: v-musehg
-ms.date: 10/18/2019
+author: farah-alyasari
+ms.author: v-faalya
+ms.date: 03/05/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -12,40 +12,45 @@ manager: philMea
 
 # DWG package requirements
 
-The Azure Maps DWG Conversion API allows you to convert a DWG design of a single facility into a map dataset. This article helps you understand the DWG package requirements to use the DWG Conversion API.
+The Indoor Maps module, from Azure Maps, provides the DWG Conversion API. The API allows you to convert a DWG design of a single facility into a map data set. This article helps you understand the DWG package requirements for the DWG Conversion API.
 
 Before we explain the details for the DWG package, familiarize yourself with the terms below:
 
 | Term  | Definition |
 |:-------|:------------|
 | Layer | An AutoCAD DWG layer|
-| Level | An area of a building at a set elevation. Levels are not necessarily contiguous. For example, buildings with multiple towers have levels at different heights |
+| Level | An area of a building at a set elevation. Levels aren't necessarily contiguous. For example, buildings with multiple towers have levels at different heights |
 | Xref  | A DWG package attached to the primary drawing as an external reference |
 
-Files that define a single building must be packaged in a single zip folder. The zip folder must contain DWG files and a manifest file. The next sections outline the requirements of the DWG files and manifest file, as well as the required format of the content inside these files.
+Files that define a single building must be packaged in a single zip folder. The zip folder must contain DWG files and a manifest file. The next sections outline the requirements for the DWG files, manifest file, and the format of the content inside these files.
+
+## Prerequisites
+
+This article discusses the DWG package requirements for using the DWG Conversion API. A DWG package is a file format for storing two-dimensional design data or three-dimensional design data, and the metadata for the design. You may choose any CAD software to produce your DWG package.
 
 ## DWG file requirements
 
-The DWG files may be organized in any way inside the zip folder, but the content of the DWG files must meet the following requirements.
+The DWG files may be organized in any way inside the zip folder, but the content of the DWG files must adhere to the following rules:
 
 * Each building level must be stored in one, and only one, DWG file
-* Each building level must define the following layers: Exterior, and Unit
+* Each building level must define the following layers: Exterior and Unit
 * If a drawing of a level contains external references, then the drawing can be merged with these references using the bind command
-* Text objects in the DWG layers will not be rendered on the map, but they can be exposed via a query layer. Text objects located in the optional _UnitLabel_ and _ZoneLabel_ will be attached as attributes to a unit geometry and zone geometry, respectively. A text object in the _UnitLabel_ or _ZoneLabel_ layer must fall inside the bounds of the unit or zone that it applies to. and then, the text can be exposed via a query layer.
 * The origins of drawings for multiple levels must align to the same latitude and longitude
 * Each level must have the same orientation as all the other levels
 * All latitude and longitude coordinates must use the WGS84 reference coordinate system
 * Geometry outside the building level outline will be ignored
 
-Additionally, it's recommenced that each building level defines the following layers: Wall, Door, UnitLable, Zone, and ZoneLabel.
+In addition to the required layers, it's recommenced that each building level defines the following layers: _Wall_, _Door_, _UnitLable_, _Zone_, and _ZoneLabel_.
+
+Text objects, in any layer, won't render on the map. However, text objects that are placed inside the feature geometry will be attached as attributes to the geometry, and then they'll be exposed via a query layer.
 
 ### Exterior layer
 
-The DWG file for each level should contain a layer that defines that level's perimeter, it's commonly referred to as the exterior layer or the outline layer. The following are the requirements to build the exterior layer:
+The DWG file for each level should contain a layer that defines that level's perimeter. It's commonly known as the exterior layer or the outline layer, and the following requirements apply for the exterior layer:
 
 * The exterior layer must contain a single closed polyline, which defines the exterior perimeter of the building at that level
-* The exterior layer should not contain any self-intersecting geometry.
-* The exterior layer should not contain multiple overlapping geometries. If the exterior layer happens to contain multiple overlapping geometries, then a union operation will be performed on all geometries in the layer.
+* The exterior layer shouldn't contain any self-intersecting geometry.
+* The exterior layer shouldn't contain multiple overlapping geometries. If the exterior layer happens to contain multiple overlapping geometries, then a union operation will be performed on all geometries in the layer.
 
 ### Units layer
 
@@ -53,12 +58,12 @@ The DWG file for each level should define a layer containing units. A unit is a 
 
 * Units should be drawn as closed polylines
 * Units must not overlap
-* Units should not contain any self-intersecting geometry
+* Units shouldn't contain any self-intersecting geometry
 * Units should fall inside the bounds of the building outline for a given layer
 
 ### Walls layer
 
-The DWG file for each level may contain a layer that defines the physical extents of walls and other building structure. Walls and structure may be spread across multiple layers, but layers containing walls and structure should not contain any other geometry. DWG files containing wall layers should adhere to the following conditions:
+The DWG file for each level may contain a layer that defines the physical extents of walls and other building structure. Walls and structure may be spread across multiple layers, but layers containing walls and structure shouldn't contain any other geometry. DWG files containing wall layers should adhere to the following conditions:
 
 * Walls should be drawn as closed polylines
 * The wall layer(s) should only contain geometry that's interpreted as building structure
@@ -74,7 +79,7 @@ A DWG layer containing doors may be included in the package. To create a DWG lay
 * Each door must overlap the edge of a unit from the unit layer
 * Doors may be drawn using any 2D primitives, such as a line, polyline, or arc
 
-Doors will not be rendered on the resulting indoor map, but the doors layer will be used to give information to the **Indoor WayFinding** algorithm.
+Doors won't be rendered on the indoor map, but the doors layer will be used to give information to the **Indoor WayFinding** algorithm.
 
 ### Zones layer
 
@@ -86,9 +91,9 @@ The DWG file for each level may contain a zone layer that defines the physical e
 
 ## Manifest file requirements
 
-The zip folder must contain a manifest file at the root level of the directory, and the file must be named as **manifest.json**. As indicated by the name, the manifest file is a JSON text file. It defines DWG file names, georeferencing information, building details, and DWG layer names. The DWG file names must match the layer names. The file paths, in the **building_levels** object of the manifest file, must be relative to the root of the zip file. Only the files identified by the manifest will be ingested by the Conversion API. Files that are not properly listed in the manifest will be ignored.
+The zip folder must contain a manifest file at the root level of the directory, and the file must be named as **manifest.json**. As indicated by the name, the manifest file is a JSON text file. It defines DWG file names, georeferencing information, building details, and DWG layer names. The DWG file names must match the layer names. The file paths, in the **building_levels** object of the manifest file, must be relative to the root of the zip file. Only the files identified by the manifest will be ingested by the Conversion API. Files that aren't properly listed in the manifest will be ignored.
 
-The next section define the objects of the manifest file and the properties of these objects. Properties marked as required must be defined in the manifest file. Properties marked as not required are optional, but it's recommend to define these properties to add details and clarity to the map.
+The next sections define the objects of the manifest file and the properties of these objects. Properties marked as required must be defined in the manifest file. Properties marked as not required are optional, but it's recommended to define these properties to add details and clarity to the map.
 
 ### The directoryInfo object
 
@@ -97,13 +102,13 @@ The next section define the objects of the manifest file and the properties of t
 | name      | string | true   |  Name of building |
 | streetAddress|    string |    false    | Address of building |
 |unit     | string    |  false    |  Unit in building |
-| locality |    string |    false |    Name of an area, neighborhood, or region. Locality is not part of the mailing address. For example, "Overlake" or "Central District". |
+| locality |    string |    false |    Name of an area, neighborhood, or region. Locality isn't part of the mailing address. For example, "Overlake" or "Central District". |
 | adminDivisions |    JSON Array of string |    false     | An array containing address designations (Country, State, City) or (Country, Prefecture, City, Town). Use ISO 3166 country codes and ISO 3166-2 state/territory codes. |
 | postalCode |    string    | false    | Mail sorting code |
 | hoursOfOperation |    string |     false | Adheres to the [OSM Opening Hours](https://wiki.openstreetmap.org/wiki/Key:opening_hours/specification) format |
 | phone    | string |    false |    Phone number associated with the building, and it must include country code |
 | website    | string |    false    | Website associated with the building, and it must begin with http or https |
-| nonPublic |    bool    | false | Flag specifying whether or not the building is open to the public. |
+| nonPublic |    bool    | false | Flag specifying if the building is open to the public. |
 | pushpinLocation |    {Lat,Lon} |    false | Location to use when representing the building as a point on the map|
 
 ### The buildingLevels object
@@ -112,10 +117,10 @@ The `buildingLevels` object contains a JSON array of buildings levels.
 
 | Property  | Type | Required | Description |
 |-----------|------|----------|-------------|
-|level_name    |string    |true |    Descriptive level name. For example: Floor 1, Lobby, Blue Parking, SubSubBasement, and so on.|
-|ordinal | integer |    true |    A signed integer. Zero is nominally ground level, but this is not strictly enforced. Ordinal is used to determine the vertical order of levels. |
+|level_name    |string    |true |    Descriptive level name. For example: Floor 1, Lobby, Blue Parking, Basement, and so on.|
+|ordinal | integer |    true |    A signed integer. Zero is nominally ground level, but this format isn't strictly enforced. Ordinal is used to determine the vertical order of levels. |
 |heightAboveGround |    null or numeric |    false |    Level height above ground in meters |
-|filename |    string |    true |    File system path of the CAD drawing for a level relative to the root of the building's zip folder |
+|filename |    string |    true |    File system path of the CAD drawing for a building level. It must be relative to the root of the building's zip folder. |
 
 ### The georeference object
 
@@ -123,7 +128,7 @@ The `buildingLevels` object contains a JSON array of buildings levels.
 |-----------|------|----------|-------------|
 |lat    | numeric |    true |    Decimal representation of degrees latitude at the building origin to six or more digits of precision |
 |lon    |numeric|    true|    Decimal representation of degrees longitude at the building origin to six or more digits of precision |
-|angle|    numeric|    true|    The angle, measured clockwise in degrees, from the desired orientation of the building on a map to the orientation of the building in the DWG file |
+|angle|    numeric|    true|    The angle from the desired orientation of the building on a map to the orientation of the building in the DWG file. It's measured clockwise in degrees. |
 
 ### The dwgLayers object
 
@@ -145,7 +150,7 @@ The `unitProperties` object contains a JSON array of unit properties.
 |-----------|------|----------|-------------|
 |unitName    |string    |true    |Name of unit to associate with `unitProperty` record. This functionality is only supported when a `unitLabel` layer is used to assign names to units.|
 |categoryName|    string|    false    |Category Name. For a complete list of categories, refer to [space categories](https://aka.ms/pa-indoor-spacecategories). |
-|navigableBy|    string|    false    |Indicates the types of navigating agents that can traverse the unit. For e.g. "pedestrian". This will inform the wayfinding capabilities. Currently this property is not utilized by Private Atlas.|
+|navigableBy|    string|    false    |Indicates the types of navigating agents that can traverse the unit. For example, "pedestrian". This object will inform the wayfinding capabilities. Currently this property isn't utilized by Private Atlas.|
 |routeThroughBehavior|    string|    false    |The route through behavior for the unit. The following are the allowed values for the `navigable_by` subtype: `disallowed`, `allowed`, and `preferred`.|
 |occupants    |directoryInfo[]|false    |List of occupants for the unit |
 |nameAlt|    string|    false|    Alternate Name |
@@ -244,7 +249,7 @@ The `zoneProperties` object contains a JSON array of zone properties.
 
 ## Next steps
 
-Once you use the Conversion API to convert a DWG file to a map dataset, you can use the dataset to generate an indoor map. Azure Maps provides the Indoor Maps QGIS plug-in, so you can generate an indoor map from your data, learn more by reading the following articles:
+Once your DWG package meets the outlined requirements, you may use the Conversion API to convert the DWG file to a map data set. Then, you can use the data set to generate an indoor map using the Indoor Maps module. Learn more about using the Indoor Maps module by reading the following articles:
 
 > [!div class="nextstepaction"]
 > [Azure Maps QGIS plug-in](azure-maps-qgis-plugin.md)
