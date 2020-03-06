@@ -52,13 +52,13 @@ The Global Administrator for the Azure Active Directory doesn't automatically ha
 
 1. Assign Owner or Contributor to the principal that needs to deploy the templates.
 
-  ```azurepowershell-interactive
-  New-AzRoleAssignment -SignInName "[userId]" -Scope "/" -RoleDefinitionName "Owner"
-  ```
+   ```azurepowershell-interactive
+   New-AzRoleAssignment -SignInName "[userId]" -Scope "/" -RoleDefinitionName "Owner"
+   ```
 
-  ```azurecli-interactive
-  az role assignment create --assignee "[userId]" --scope "/" --role "Owner"
-  ```
+   ```azurecli-interactive
+   az role assignment create --assignee "[userId]" --scope "/" --role "Owner"
+   ```
 
 The principal now has the required permissions to deploy the template.
 

@@ -180,13 +180,13 @@
       href: secure-template-with-sas-token.md
   - name: Scoped deployments
     items:
-    - name: Subscription level
+    - name: Subscription
       href: deploy-to-subscription.md
-    - name: Management group level
+    - name: Management group
       href: deploy-to-management-group.md
-    - name: Tenant level
+    - name: Tenant
       href: deploy-to-tenant.md
-    - name: Deploy to multiple resource groups or subscriptions
+    - name: Multiple resource groups or subscriptions
       href: cross-resource-group-deployment.md
   - name: Provide parameters
     items:
