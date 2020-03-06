@@ -19,7 +19,7 @@ Multilingual and emoji support has led to Unicode encodings that use more than o
 
 `अ` + `न` +` ु` + `च` +` ्` + `छ` + ` े` + `द`
 
-Because of the different lengths of possible multilingual and emoji encodings, the unifying approach is to return grapheme offsets.
+Because of the different lengths of possible multilingual and emoji encodings, the Text Analytics API returns grapheme offsets.
 
 ## Offsets in the API response. 
 
