@@ -86,23 +86,14 @@ This built-in trigger calls the subscribe endpoint on the target service and reg
    | **Subscribe - Body** | No | Any message body to include in the subscribe request. This example includes the callback URL that uniquely identifies the subscriber, which is your logic app, by using the `@listCallbackUrl()` expression to retrieve your logic app's callback URL. |
    | **Unsubscribe - Method** | No | The method to use when unsubscribing from the target endpoint |
    | **Unsubscribe - URI** | No | The URL to use for unsubscribing from the target endpoint |
+   | **Unsubscribe - Body** | No | An optional message body to include in the unsubscribe request <p><p>**Note**: This property doesn't support using the `listCallbackUrl()` function. However, the trigger automatically includes and sends the headers, `x-ms-client-tracking-id` and `x-ms-workflow-operation-name`, which the target service can use to uniquely identify the subscriber. |
    ||||
 
-   > [!NOTE]
-   > The **Unsubscribe - Body** property specifies any message body to include in the unsubscribe request. 
-   > However, the Webhook trigger's unsubscribe operation doesn't support using the `listCallback()` 
-   > function in the unsubscribe request's body. Instead, add the **Unsubscribe - Headers** property 
-   > by continuing to the next step.
+1. To add other trigger properties, open the **Add new parameter** list.
 
-1. In the trigger, open the **Add new parameter** list, and select the **Unsubscribe - Headers** property.
+   ![Add more trigger properties](./media/connectors-native-webhook/http-webhook-trigger-add-properties.png)
 
-   ![Add HTTP Webhook trigger headers](./media/connectors-native-webhook/http-webhook-trigger-add-headers-property.png)
-
-1. Add the headers, `x-ms-client-tracking-id` and `x-ms-workflow-operation-name`, and the values that you want to use for uniquely identifying the subscriber.
-
-   ![Add HTTP Webhook trigger header values](./media/connectors-native-webhook/http-webhook-trigger-add-headers-values.png)
-
-   You can add other properties, for example, if you need to use authentication, you can add the **Subscribe - Authentication** and **Unsubscribe - Authentication** properties. For more information about authentication types available for HTTP Webhook, see [Add authentication to outbound calls](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
+   For example, if you need to use authentication, you can add the **Subscribe - Authentication** and **Unsubscribe - Authentication** properties. For more information about authentication types available for HTTP Webhook, see [Add authentication to outbound calls](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
 
 1. Continue building your logic app's workflow with actions that run when the trigger fires.
 
@@ -141,23 +132,14 @@ This built-in action calls the subscribe endpoint on the target service and regi
    | **Subscribe - Body** | No | Any message body to include in the subscribe request. This example includes the callback URL that uniquely identifies the subscriber, which is your logic app, by using the `@listCallbackUrl()` expression to retrieve your logic app's callback URL. |
    | **Unsubscribe - Method** | No | The method to use when unsubscribing from the target endpoint |
    | **Unsubscribe - URI** | No | The URL to use for unsubscribing from the target endpoint |
+   | **Unsubscribe - Body** | No | An optional message body to include in the unsubscribe request <p><p>**Note**: This property doesn't support using the `listCallbackUrl()` function. However, the action automatically includes and sends the headers, `x-ms-client-tracking-id` and `x-ms-workflow-operation-name`, which the target service can use to uniquely identify the subscriber. |
    ||||
 
-   > [!NOTE]
-   > The **Unsubscribe - Body** property specifies any message body to include in the unsubscribe request. 
-   > However, the Webhook action's unsubscribe operation doesn't support using the `listCallback()` 
-   > function in the unsubscribe request's body. Instead, add the **Unsubscribe - Headers** property 
-   > by continuing to the next step.
+1. To add other action properties, open the **Add new parameter** list.
 
-1. In the action, open the **Add new parameter** list, and select the **Unsubscribe - Headers** property.
+   ![Add more action properties](./media/connectors-native-webhook/http-webhook-action-add-properties.png)
 
-   ![Add HTTP Webhook action headers](./media/connectors-native-webhook/http-webhook-action-add-headers-property.png)
-
-1. Add the headers, `x-ms-client-tracking-id` and `x-ms-workflow-operation-name`, and the values that you want to use for uniquely identifying the subscriber.
-
-   ![Add HTTP Webhook action header values](./media/connectors-native-webhook/http-webhook-action-add-headers-values.png)
-
-   You can add other properties, for example, if you need to use authentication, you can add the **Subscribe - Authentication** and **Unsubscribe - Authentication** properties. For more information about authentication types available for HTTP Webhook, see [Add authentication to outbound calls](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
+   For example, if you need to use authentication, you can add the **Subscribe - Authentication** and **Unsubscribe - Authentication** properties. For more information about authentication types available for HTTP Webhook, see [Add authentication to outbound calls](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
 
 1. When you're finished, remember to save your logic app. On the designer toolbar, select **Save**.
 
