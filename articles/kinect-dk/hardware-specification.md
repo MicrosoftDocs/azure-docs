@@ -145,7 +145,7 @@ Azure Kinect DK embeds a high-quality, seven microphone circular array that iden
 
 Azure Kinect DK is a USB3 composite device that exposes the following hardware endpoints to the operating system:
 
-Vendor ID is 0x045E (Microsoft), Product ID table below:
+Vendor ID is 0x045E (Microsoft). Product ID table is shown below:
 
 |    USB Interface        |    PNP IP    |     Notes            |
 |-------------------------|--------------|----------------------|
