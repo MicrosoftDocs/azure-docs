@@ -35,7 +35,7 @@ To enable customer-managed keys in the Azure portal, follow these steps:
 1. Navigate to your Cognitive Services resource.
 1. On the **Settings** blade for your Cognitive Services resource, click **Encryption**. Select the **Customer Managed Keys** option, as shown in the following figure.
 
-    ![Screenshot showing how to select Customer Managed Keys](../media/cognitive-services-encryption-keys-portal/selectcmk.png)
+    ![Screenshot showing how to select Customer Managed Keys](../media/cognitive-services-encryption/selectcmk.png)
   
 ## Specify a key
 
