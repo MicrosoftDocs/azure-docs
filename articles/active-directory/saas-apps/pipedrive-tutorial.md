@@ -154,7 +154,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     ![Pipedrive Configuration](./media/pipedrive-tutorial/configure2.png)
 
-1. On the **SAML configuration for pipedrive** section, perfoem the following steps:
+1. On the **SAML configuration for pipedrive** section, perform the following steps:
 
     ![Pipedrive Configuration](./media/pipedrive-tutorial/configure3.png)
 
