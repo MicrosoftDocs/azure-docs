@@ -61,13 +61,9 @@ Create an ASP.NET Core web app by following these steps:
 
    ![Sign in to Azure](./media/app-service-web-get-started-dotnet/sign-in-azure-vs2019.png)
 
-Before creating the service, Configure the fields in the **App Service Create new** dialog. 
-
-1. For **Name**, either accept the automatically generated unique name, or enter your own unique app name that includes only the valid characters `a-z`, `A-Z`, `0-9`, and `-`. The URL of the web app will be `http://<app_name>.azurewebsites.net`, where `<app_name>` is your app name.
-
 1. For **Resource group**, select **New**.
 
-   [!INCLUDE [resource group intro text](../../includes/resource-group.md)]
+    [!INCLUDE [resource group intro text](../../includes/resource-group.md)]
 
 1. In **New resource group name**, enter *myResourceGroup* and select **OK**.
 
@@ -75,17 +71,17 @@ Before creating the service, Configure the fields in the **App Service Create ne
 
 1. For the **Hosting Plan**, select **New**.
 
-1. In the **Configure Hosting Plan** dialog, enter the values from the following table, and then select **OK**.
+1. In the **Hosting Plan Create new** dialog, enter the values from the following table, and then select **OK**.
 
    | Setting | Suggested Value | Description |
    |-|-|-|
-   |App Service Plan| myAppServicePlan | Name of the App Service plan. |
+   |Hosting Plan| myFirstAzureWebAppPlan | Name of the App Service plan. |
    | Location | West Europe | The datacenter where the web app is hosted. |
    | Size | Free | [Pricing tier](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) determines hosting features. |
 
    ![Create App Service plan](./media/app-service-web-get-started-dotnet/app-service-plan-vs2019.png)
 
-
+1. For **Name**, either accept the automatically generated unique name, or enter your own unique app name that includes only the valid characters `a-z`, `A-Z`, `0-9`, and `-`. The URL of your web app will be `http://<app_name>.azurewebsites.net`, where `<app_name>` is the name that you set in this field.
 
    ![Configure app name](./media/app-service-web-get-started-dotnet/web-app-name-vs2019.png)
 
