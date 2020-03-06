@@ -20,7 +20,7 @@ Translator automatically encrypts your data when it is persisted to the cloud, h
 [!INCLUDE [cognitive-services-about-encryption](../../../includes/cognitive-services-about-encryption.md)]
 
 > [!IMPORTANT]
-> Customer-managed keys are only available on all pricing tiers for the Translator service. 
+> Customer-managed keys are available for all pricing tiers for the Translator service. 
 
 Follow these steps to enable customer-managed keys for Translator:
 
