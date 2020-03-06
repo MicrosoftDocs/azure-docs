@@ -1,6 +1,6 @@
 ---
 title: Azure Media Services high availability streaming
-description: Learn how to failover to a secondary Media Services account if a regional datacenter outage or failure occurs.
+description: Learn how to fail over to a secondary Media Services account if a regional datacenter outage or failure occurs.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -18,7 +18,7 @@ ms.author: juliako
 
 # Media Services high availability streaming guidance
 
-Azure Media Services encoding service is a regional batch processing platform and not currently designed for high availability within a single region. The encoding service currently does not provide instant failover of the service if there is a regional datacenter outage or failure of underlying component or dependent services (such as storage, SQL, etc.)  This article explains how to deploy Media Services to maintain a high-availability architecture with failover and ensure optimal availability for your applications. 
+Azure Media Services encoding service is a regional batch processing platform and not currently designed for high availability within a single region. The encoding service currently does not provide instant failover of the service if there is a regional datacenter outage or failure of underlying component or dependent services (such as storage, SQL)  This article explains how to deploy Media Services to maintain a high-availability architecture with failover and ensure optimal availability for your applications. 
 
 By following the guidelines and best-practices described in the article, you will lower risk of encoding failures, delays, and minimize recovery time if an outage occurs in a single region.
 
@@ -30,7 +30,7 @@ Review [How to build a cross-regional encoding system](media-services-high-avail
 
 * Video-on-demand cross region streaming involves duplicating [Assets](assets-concept.md), [Content Key Policies](content-key-policy-concept.md) (if used), [Streaming Policies](streaming-policy-concept.md), and [Streaming Locators](streaming-locators-concept.md). 
 * You will have to create the policies in both regions and keep them up to date. 
-* When you create the streaming locators, you will want to use the same Locator Id value, ContentKey Id value, and ContentKey value.  
+* When you create the streaming locators, you will want to use the same Locator ID value, ContentKey ID value, and ContentKey value.  
 * If you are encoding the content, it is advised to encode the content in region A and publish it, then copy the encoded content to region B and publish it using the same values as from region A.
 * You can use Traffic Manager on the host names for the origin and the key delivery service (in Media Services configuration this will look like a custom key server URL).
 
