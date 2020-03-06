@@ -16,11 +16,11 @@ The source code for this sample is available [on GitHub](https://github.com/Azur
 
 ## Prerequisites
 * Any edition of [Visual Studio 2017 or later](https://visualstudio.microsoft.com/vs/whatsnew/).
-* The [Cognitive Image Search NuGet package](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.ImageSearch/1.2.0).
+* The [Cognitive Image Search NuGet package](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.ImageSearch/).
 
 To install the Bing Image Search client library in Visual Studio, use the **Manage NuGet Packages** option from **Solution Explorer**.
 
-[!INCLUDE [cognitive-services-bing-image-search-signup-requirements](~/includes/cognitive-services-bing-custom-search-signup-requirements.md)]
+[!INCLUDE [cognitive-services-bing-image-search-signup-requirements](~/includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
 See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
