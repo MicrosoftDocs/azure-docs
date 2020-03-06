@@ -1058,7 +1058,7 @@ New-AzDisk -ResourceGroupName <resource group name> -DiskName <disk name> -Disk 
 
 ##### Azure CLI
 
-You can use Azure CLI to copy a VHD as shown in [this article][storage-azure-cli-copy-blobs]. To create a new Managed Disk, use *az disk create* as shown in the following example.
+You can use Azure CLI to copy a VHD. To create a new Managed Disk, use *az disk create* as shown in the following example.
 
 ```
 az disk create --source "/subscriptions/<subscription id>/resourceGroups/<resource group>/providers/Microsoft.Compute/disks/<disk name>" --name <disk name> --resource-group <resource group name> --location <location>
@@ -1159,8 +1159,6 @@ az storage blob show --name <target blob name> --container <target container nam
 ```
 
 * Attach the new VHD to a virtual machine as described above.
-
-For examples see [this article][storage-azure-cli-copy-blobs].
 
 ### Disk Handling
 

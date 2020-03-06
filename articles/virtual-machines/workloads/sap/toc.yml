@@ -112,8 +112,6 @@
     href: sap-hana-backup-guide.md
   - name: SAP HANA file level backup
     href: sap-hana-backup-file-level.md
-  - name: SAP HANA storage snapshot backups
-    href: sap-hana-backup-storage-snapshots.md
 - name: SAP NetWeaver and Business One on Azure Virtual Machines
   items:
   - name: SAP workload planning and deployment checklist

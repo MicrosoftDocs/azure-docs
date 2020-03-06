@@ -1,6 +1,6 @@
 ---
-title: Metrics and alerts for Azure Virtual Network NAT 
-titleSuffix: Azure Monitor metrics and alerts for Azure Virtual Network NAT
+title: Metrics and alerts for Azure Virtual Network NAT
+titleSuffix: Azure Virtual Network
 description: Understand Azure Monitor metrics and alerts available for Virtual Network NAT.
 services: virtual-network
 documentationcenter: na
@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/03/2020
+ms.date: 03/04/2020
 ms.author: allensu
 ---
 
@@ -52,6 +52,10 @@ Resource Health isn't supported.
 
 ## Next steps
 
-- Learn about [Virtual Network NAT](nat-overview.md)
-- Learn about [NAT gateway resource](nat-gateway-resource.md)
-- Learn about [Azure Monitor](../azure-monitor/overview.md)
+* Learn about [Virtual Network NAT](nat-overview.md)
+* Learn about [NAT gateway resource](nat-gateway-resource.md)
+* Learn about [Azure Monitor](../azure-monitor/overview.md)
+* Learn about [troubleshooting NAT gateway resources](troubleshoot-nat.md).
+* [Tell us what to build next for Virtual Network NAT in UserVoice](https://aka.ms/natuservoice).
+
+

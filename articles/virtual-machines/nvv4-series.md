@@ -9,11 +9,10 @@
  ms.author: lahugh
 ---
 
-# NVv4-series (Preview)
+# NVv4-series 
 
 The NVv4-series virtual machines are powered by [AMD Radeon Instinct MI25](https://www.amd.com/en/products/professional-graphics/instinct-mi25) GPUs and AMD EPYC 7V12(Rome) CPUs. With NVv4-series Azure is introducing virtual machines with partial GPUs. Pick the right sized virtual machine for GPU accelerated graphics applications and virtual desktops starting at 1/8th of a GPU with 2 GiB frame buffer to a full GPU with 16 GiB frame buffer. NVv4 virtual machines currently support only Windows guest operating system.
 
-[Sign-up and get access to these machines during preview](https://aka.ms/nvv4signup).
 <br>
 
 Premium Storage:  Supported
@@ -37,11 +36,7 @@ Memory Preserving Updates: Not Supported
 
 ## Supported operating systems and drivers
 
-To take advantage of the GPU capabilities of Azure N-series VMs running Windows, NVIDIA or AMD GPU drivers must be installed.
-
-The [NVIDIA GPU Driver Extension](./extensions/hpccompute-gpu-windows.md) installs appropriate NVIDIA CUDA or GRID drivers on a Windows N-series VM. Install or manage the extension using the Azure portal or tools such as Azure PowerShell or Azure Resource Manager templates. See the [NVIDIA GPU Driver Extension documentation](./extensions/hpccompute-gpu-windows.md) for supported operating systems and deployment steps. For general information about VM extensions, see [Azure virtual machine extensions and features](./extensions/overview.md).
-
-If you choose to install NVIDIA GPU drivers manually, see [N-series GPU driver setup for Windows](./windows/n-series-driver-setup.md) for supported operating systems, drivers, installation, and verification steps.
+To take advantage of the GPU capabilities of Azure NVv4-series VMs running Windows, AMD GPU drivers must be installed.
 
 To install AMD GPU drivers manually, see [N-series AMD GPU driver setup for Windows](./windows/n-series-amd-driver-setup.md) for supported operating systems, drivers, installation, and verification steps.
 

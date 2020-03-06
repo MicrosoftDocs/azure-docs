@@ -48,7 +48,7 @@ Check the IOPS activity of your environment and verify that premium file shares 
 
 Many workloads have bursting IO, so it's a good idea to check during heavy usage periods and note both the maximum IOPS and the average IOPS. Premium file shares provide IOPS based on the size of the share. Premium file shares also provide complimentary bursting that allows you to burst your IO to triple the baseline amount for up to one hour.
 
-For more information about premium file share performance, see [File share performance tiers](https://docs.microsoft.com/azure/storage/files/storage-files-planning#file-share-performance-tiers).
+For more information about premium file share performance, see [File share performance tiers](https://docs.microsoft.com/azure/storage/files/storage-files-planning#storage-tiers).
 
 ### Licensing and pricing
 
