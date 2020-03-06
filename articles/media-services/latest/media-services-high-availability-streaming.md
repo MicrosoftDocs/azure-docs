@@ -32,7 +32,7 @@ Review [How to build a cross-regional encoding system](media-services-high-avail
 * You will have to create the policies in both regions and keep them up to date. 
 * When you create the streaming locators, you will want to use the same Locator Id value, ContentKey Id value, and ContentKey value.  
 * If you are encoding the content, it is advised to encode the content in region A and publish it, then copy the encoded content to region B and publish it using the same values as from region A.
-* You can use traffic manager on the host names for the origin and the key delivery service (in Media Services configuration this will look like a custom key server URL).
+* You can use Traffic Manager on the host names for the origin and the key delivery service (in Media Services configuration this will look like a custom key server URL).
 
 ## Next steps
 
