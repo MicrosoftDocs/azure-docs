@@ -69,6 +69,14 @@ For example when parsing XML data feeds, you may not know the exact styles and g
 </iframe>
 
 
+> [!NOTE]
+> This simple data layer uses the [popup template](map-add-popup.md#add-popup-templates-to-the-map) class to display KML balloons or feature properties as a table. By default, all content rendered in the popup will be sandboxed inside of an iframe as a security feature. However, there are limitations:
+>
+> - All scripts, forms, pointer lock and top navigation functionality is disabled. Links are allowed to open up in a new tab when clicked. 
+> - Older browsers that don't support the `srcdoc` parameter on iframes will be limited to rendering a small amount of content.
+> 
+> If you trust the data being loaded into the popups and potentially want these scripts loaded into popups be able to access your application, you can disable this by setting the popup templates `sandboxContent` option to false. 
+
 ## Default supported style properties
 
 As mentioned earlier, the simple data layer wraps several of the core rendering layers: bubble, symbol, line, polygon, and extruded polygon. It then uses expressions to search for valid style properties on individual features.

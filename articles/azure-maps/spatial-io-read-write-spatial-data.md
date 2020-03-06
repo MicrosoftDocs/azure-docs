@@ -77,7 +77,7 @@ atlas.io.read('https://nonCorsDomain.example.com/mySuperCoolData.xml', {
 
 ```
 
-The last demo below shows how to read a delimited file and render it on the map. In this case, the code uses a CSV file that has spatial data columns.
+The demo below shows how to read a delimited file and render it on the map. In this case, the code uses a CSV file that has spatial data columns.
 
 <br/>
 

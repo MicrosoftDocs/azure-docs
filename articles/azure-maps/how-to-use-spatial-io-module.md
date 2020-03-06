@@ -23,6 +23,9 @@ The Azure Maps Web SDK provides the **Spatial IO module**, which integrates spat
 
 In this guide, we'll learn how to integrate and use the Spatial IO module in a web application.
 
+> [!WARNING]
+> Only use data and services that are from a source you trust, especially if referencing it from another domain. The spatial IO module does take steps to minimize risk, however the safest approach is too not allow any danagerous data into your application to begin with. 
+
 ## Prerequisites
 
 Before you can use the Spatial IO module, you'll need to [make an Azure Maps account](https://docs.microsoft.com/azure/azure-maps/quick-demo-map-app#create-an-account-with-azure-maps) and [get the primary subscription key for your account](https://docs.microsoft.com/azure/azure-maps/quick-demo-map-app#get-the-primary-key-for-your-account).
