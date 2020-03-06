@@ -267,7 +267,7 @@ In this section you learn how to troubleshoot connectivity, operational, and clu
 
 If you have an issue while accessing cluster using the public (cluster.region.kusto.windows.net) or private (private-cluster.region.kusto.windows.net) endpoint and you suspect it's related to virtual network setup, perform the following steps to troubleshoot the issue.
 
-1. Check TCP connectivity
+#### Check TCP connectivity
 
 The first step includes checking TCP connectivity using Windows or Linux OS.
 
@@ -302,11 +302,11 @@ The first step includes checking TCP connectivity using Windows or Linux OS.
 
 If the test isn't successful, proceed with the following steps. If the test is successful, the issue isn't due to a TCP connectivity issue. Go to [operational issues](#cluster-creation-and-operations-issues) to troubleshoot further.
 
-2. Check the Network Security Group (NSG)
+#### Check the Network Security Group (NSG)
 
    Check that the [Network Security Group](/azure/virtual-network/security-overview) (NSG) attached to the cluster's subnet, has an inbound rule that allows access from the client machine's IP for port 443.
 
-3. Check route table
+#### Check route table
 
    If the cluster's subnet has force-tunneling setup to firewall (subnet with a [route table](/azure/virtual-network/virtual-networks-udr-overview) that contains the default route '0.0.0.0/0'), make sure that the machine IP address has a route with [next hop type](/azure/virtual-network/virtual-networks-udr-overview) to VirtualNetwork/Internet. This is required to prevent asymmetric route issues.
 
@@ -314,33 +314,33 @@ If the test isn't successful, proceed with the following steps. If the test is s
 
 If you're experiencing ingestion issues and you suspect it's related to virtual network setup, perform the following steps.
 
-1. Check ingestion health
+#### Check ingestion health
 
     Check that the [cluster ingestion metrics](/azure/data-explorer/using-metrics#ingestion-health-and-performance-metrics) indicate a healthy state.
 
-2. Check security rules on data source resources
+#### Check security rules on data source resources
 
-    If the metrics indicate that no events were processed from the data source (*Events processed* (for Event/IoT Hubs) metric), make sure that the data source resources (Event Hub or Storage) allow access from cluster's subnet in the firewall rules or service endpoints.
+If the metrics indicate that no events were processed from the data source (*Events processed* (for Event/IoT Hubs) metric), make sure that the data source resources (Event Hub or Storage) allow access from cluster's subnet in the firewall rules or service endpoints.
 
-3. Check security rules configured on cluster's subnet
+#### Check security rules configured on cluster's subnet
 
-Make sure cluster's subnet has NSG, UDR and firewall rules are properly configured. In addition, test network connectivity for all dependent endpoints. 
+Make sure cluster's subnet has NSG, UDR, and firewall rules are properly configured. In addition, test network connectivity for all dependent endpoints. 
 
 ## Cluster creation and operations issues
 
 If you're experiencing cluster creation or operation issues and you suspect it's related to virtual network setup, follow these steps to troubleshoot the issue.
 
-1. Diagnose the virtual network with the REST API.
+#### Diagnose the virtual network with the REST API.
 
 The [ARMClient](https://chocolatey.org/packages/ARMClient) is used to call the REST API using PowerShell. 
 
-   1. Log in with ARMClient
+1. Log in with ARMClient
 
    ```powerShell
    armclient login
    ```
 
-   1. Invoke diagnose operation
+1. Invoke diagnose operation
 
     ```powershell
     $subscriptionId = '<subscription id>'
@@ -351,7 +351,7 @@ The [ARMClient](https://chocolatey.org/packages/ARMClient) is used to call the R
     armclient post "https://management.azure.com/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Kusto/clusters/$clusterName/diagnoseVirtualNetwork?api-version=$apiversion" -verbose
     ```
 
-   1. Check the response
+1. Check the response
 
     ```powershell
     HTTP/1.1 202 Accepted
@@ -360,7 +360,7 @@ The [ARMClient](https://chocolatey.org/packages/ARMClient) is used to call the R
     ...
     ```
 
-   1. Wait for operation completion
+1. Wait for operation completion
 
     ```powershell
     armclient get https://management.azure.com/subscriptions/$subscriptionId/providers/Microsoft.Kusto/locations/{location}/operationResults/{operation-id}?api-version=2019-11-09
@@ -390,16 +390,16 @@ The [ARMClient](https://chocolatey.org/packages/ARMClient) is used to call the R
     }
     ```
 
-If the *Findings* property shows an empty result, it means that all network tests passed and no connections are broken. If it shows an error as follows *Outbound dependency '{dependencyName}:{port}' might be not satisfied (Outbound)*, the cluster can't reach the dependent service endpoints. Proceed with the following steps to troubleshoot.
+If the *Findings* property shows an empty result, it means that all network tests passed and no connections are broken. If it shows an error as follows: *Outbound dependency '{dependencyName}:{port}' might be not satisfied (Outbound)*, the cluster can't reach the dependent service endpoints. Proceed with the following steps to troubleshoot.
 
-2. Check Network Security Group (NSG)
+#### Check Network Security Group (NSG)
 
-Make sure that the [Network Security Group](/azure/virtual-network/security-overview) is configured properly per the instuctions in [Dependencies for VNet deployment](/azure/data-explorer/vnet-deployment#dependencies-for-vnet-deployment)
+Make sure that the [Network Security Group](/azure/virtual-network/security-overview) is configured properly per the instructions in [Dependencies for VNet deployment](/azure/data-explorer/vnet-deployment#dependencies-for-vnet-deployment)
 
-3. Check route table
+#### Check route table
 
-If the cluster's subnet has force-tunneling setup to firewall (subnet with a [route table](/azure/virtual-network/virtual-networks-udr-overview) that contains the default route '0.0.0.0/0') make sure that the [management IP addresses](#azure-data-explorer-management-ip-addresses) and [health monitoring IP addresses](#health-monitoring-addresses) have a route with [next hop type](/azure/virtual-network/virtual-networks-udr-overview##next-hop-types-across-azure-tools) *Internet*, and [source address prefix](/azure/virtual-network/virtual-networks-udr-overview#how-azure-selects-a-route) to *'management-ip/32'* and *'health-monitoring-ip/32'*. This is required to prevent asymmetric route issues.
+If the cluster's subnet has force-tunneling set up to firewall (subnet with a [route table](/azure/virtual-network/virtual-networks-udr-overview) that contains the default route '0.0.0.0/0') make sure that the [management IP addresses](#azure-data-explorer-management-ip-addresses) and [health monitoring IP addresses](#health-monitoring-addresses) have a route with [next hop type](/azure/virtual-network/virtual-networks-udr-overview##next-hop-types-across-azure-tools) *Internet*, and [source address prefix](/azure/virtual-network/virtual-networks-udr-overview#how-azure-selects-a-route) to *'management-ip/32'* and *'health-monitoring-ip/32'*. This is required to prevent asymmetric route issues.
 
-4. Check firewall rules
+#### Check firewall rules
 
-If you force tunnel subnet outbound traffic to a firewall, make sure all dependencies FQDN (e.g. **.blob.core.windows.net*) are allowed in the firewall configuration as described in [securing outbound traffic with firewall](/azure/data-explorer/vnet-deployment#securing-outbound-traffic-with-firewall).
+If you force tunnel subnet outbound traffic to a firewall, make sure all dependencies FQDN (for example, *.blob.core.windows.net*) are allowed in the firewall configuration as described in [securing outbound traffic with firewall](/azure/data-explorer/vnet-deployment#securing-outbound-traffic-with-firewall).
