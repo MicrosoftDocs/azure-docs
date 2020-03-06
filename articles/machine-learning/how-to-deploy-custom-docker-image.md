@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 08/22/2019
+ms.date: 03/05/2020
 ---
 
 # Deploy a model using a custom Docker base image
