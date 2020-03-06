@@ -67,7 +67,7 @@ We are improving Private Link feature and Private Endpoint regularly, check [thi
 ## Next steps
 
 To deploy Private endpoint for your Web App through the portal see [How to connect privately to a Web App][howtoguide]
-We will release soon more how to guides for PowerShell and ARM templates deployement.
+We will release soon more how to guides for PowerShell and ARM templates deployment.
 
 <!--Image references-->
 [1]: ./media/private-endpoint/schemaglobaloverview.png
