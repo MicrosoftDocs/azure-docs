@@ -55,7 +55,7 @@ Here's what you do for the **Basics** tab:
 1. Select a **Region**.
 1. Enter a name for the host pool that's unique within the Windows Virtual Desktop tenant.
 1. Select **Desktop type**. If you select **Personal**, each user that connects to this host pool is permanently assigned to a virtual machine.
-1. Enter users who can sign in to the Windows Virtual Desktop clients and access a desktop. Use a comma-separated list. For example, if you want to assign user1@contoso.com and user2@contoso.com access, enter *`user1@contoso.com,user2@contoso.com`*
+1. Enter users who can sign in to the Windows Virtual Desktop clients and access a desktop. Use a comma-separated list. For example, if you want to assign `user1@contoso.com` and `user2@contoso.com` access, enter *`user1@contoso.com,user2@contoso.com`*
 1. For **Service metadata location**, select the same location as the virtual network that has connectivity to the Active Directory server.
 
    >[!IMPORTANT]
