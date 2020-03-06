@@ -137,9 +137,9 @@ You can view the queue in the [Azure portal](../storage/queues/storage-quickstar
     $env:AZURE_STORAGE_CONNECTION_STRING = "<MY_CONNECTION_STRING>"
     ```
     
-    # [Cmd](#tab/cmd)
+    # [Azure CLI](#tab/cmd)
     
-    ```cmd
+    ```azurecli
     set AZURE_STORAGE_CONNECTION_STRING="<MY_CONNECTION_STRING>"
     ```
     
