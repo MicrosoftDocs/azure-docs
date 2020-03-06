@@ -134,7 +134,7 @@ https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 Azure Policy Samples:
 
-https://docs.microsoft.com/azure/governance/policy/samples/#networ
+https://docs.microsoft.com/azure/governance/policy/samples
 
 Quickstart: Define and assign a blueprint in the portal:
 

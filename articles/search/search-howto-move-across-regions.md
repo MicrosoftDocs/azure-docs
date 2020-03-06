@@ -9,12 +9,28 @@ ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: how-to
 ms.custom: subject-moving-resources
-ms.date: 02/18/2020
+ms.date: 03/05/2020
 ---
 
 # Move your Azure Cognitive Search service to another Azure region
 
-To move your Azure Cognitive Service account from one region to another, you will create an export template to move your subscription(s). After moving your subscription, you will need to move your data and recreate your service.
+Currently, moving a search service to another region is not supported, in that there is no automation or tooling to help you with the task end-to-end.
+
+In the portal, the **Export template** command produces a basic definition of a service (name, location, tier, replica, and partition count), but does not recognize the content of your service, nor does it carry over keys, roles, or logs.
+
+When moving search from one region to another, we recommend the following approach:
+
+1. Inventory your existing service for a full list of objects on the service. If you enabled logging, create and archive reports you might need for future comparison.
+
+1. Create a service in the new region and republish from source code any existing indexes, indexers, data sources, skillsets, and synonym maps. Service names must be unique so you cannot reuse the existing name.
+
+1. Enable logging, and if you are using them, re-create security roles.
+
+1. Update client applications and test suites to use the new service name and API keys, and test all applications.
+
+1. Delete the old service once the new service is fully operational.
+
+<!-- To move your Azure Cognitive Service account from one region to another, you will create an export template to move your subscription(s). After moving your subscription, you will need to move your data and recreate your service.
 
 In this article, you'll learn how to:
 
@@ -139,5 +155,4 @@ To commit the changes and complete the move of your service account, delete the 
 
 [Create a skillset](https://docs.microsoft.com/azure/search/cognitive-search-quickstart-blob)
 
-[Create a knowledge store](https://docs.microsoft.com/azure/search/knowledge-store-create-portal)
-
+[Create a knowledge store](https://docs.microsoft.com/azure/search/knowledge-store-create-portal) -->

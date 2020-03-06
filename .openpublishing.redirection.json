@@ -802,6 +802,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/QnAMaker/Tutorials/create-publish-query-in-portal.md",
+      "redirect_url": "/azure/cognitive-services/QnAMaker/Quickstarts/create-publish-knowledge-base",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/QnAMaker/Tutorials/create-qna-bot.md",
+      "redirect_url": "/azure/cognitive-services/QnAMaker/Quickstarts/create-publish-knowledge-base#create-a-bot",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/QnAMaker/concepts/data-sources-supported.md",
       "redirect_url": "/azure/cognitive-services/QnAMaker/Quickstarts/reference-document-format-guidelines",
       "redirect_document_id": false
@@ -7297,7 +7307,7 @@
       "source_path": "articles/azure-functions/functions-create-first-azure-function-azure-cli-linux.md",
       "redirect_url": "/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-python",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path": "articles/azure-functions/functions-add-output-binding-storage-queue-python.md",
       "redirect_url": "/azure/azure-functions/functions-add-output-binding-storage-queue-cli.md?pivots=programming-language-python",
@@ -13512,7 +13522,7 @@
       "source_path": "articles/event-hubs/event-hubs-authentication-and-security-model-overview.md",
       "redirect_url": "/azure/event-hubs/authenticate-shared-access-signature",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path": "articles/event-hubs/event-hubs-c-ephcs-getstarted.md",
       "redirect_url": "/azure/event-hubs/event-hubs-c-getstarted-send",
@@ -14999,6 +15009,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/machine-learning/designer-sample-datasets.md",
+      "redirect_url": "/azure/machine-learning/sample-designer-datasets",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/machine-learning/service/how-to-enable-app-insights.md",
       "redirect_url": "/azure/machine-learning/how-to-enable-app-insights",
       "redirect_document_id": true
@@ -15302,6 +15317,16 @@
       "source_path": "articles/machine-learning/service/tutorial-train-models-with-aml.md",
       "redirect_url": "/azure/machine-learning/tutorial-train-models-with-aml",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/machine-learning/algorithm-module-reference/pca-based-anomaly-detection.md",
+      "redirect_url": "/azure/machine-learning/algorithm-module-reference/module-reference",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/algorithm-module-reference/train-anomaly-detection-model.md",
+      "redirect_url": "/azure/machine-learning/algorithm-module-reference/module-reference",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/machine-learning/how-to-ui-sample-regression-predict-automobile-price-basic.md",
@@ -18636,6 +18661,11 @@
     {
       "source_path": "articles/backup/backup-azure-backup-ibiza-faq.md",
       "redirect_url": "/azure/backup/backup-azure-backup-faq",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/backup/backup-configure-vault.md",
+      "redirect_url": "/azure/backup/backup-windows-with-mars-agent",
       "redirect_document_id": false
     },
     {
@@ -26934,6 +26964,16 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/storage/common/storage-azure-cli.md",
+      "redirect_url": "/azure/storage/blobs/storage-quickstart-blobs-cli",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/storage/common/storage-azure-cli-nodejs.md",
+      "redirect_url": "/azure/storage/blobs/storage-quickstart-blobs-cli",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/storage/storage-backup-and-disaster-recovery-for-azure-iaas-disks.md",
       "redirect_url": "/azure/storage/common/storage-backup-and-disaster-recovery-for-azure-iaas-disks",
       "redirect_document_id": true
@@ -31120,7 +31160,7 @@
     },
     {
       "source_path": "articles/backup/backup-configure-vault-classic.md",
-      "redirect_url": "/azure/backup/backup-configure-vault",
+      "redirect_url": "/azure/backup/backup-windows-with-mars-agent",
       "redirect_document_id": false
     },
     {
@@ -31130,7 +31170,7 @@
     },
     {
       "source_path": "articles/backup/backup-try-azure-backup-in-10-mins.md",
-      "redirect_url": "/azure/backup/backup-configure-vault",
+      "redirect_url": "/azure/backup/backup-windows-with-mars-agent",
       "redirect_document_id": false
     },
     {
@@ -49223,6 +49263,11 @@
       "source_path": "articles/jenkins/install-jenkins-solution-template.md",
       "redirect_url": "/azure/jenkins/install-solution-template-tutorial",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/sapi-phoneset-usage.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/speech-ssml-phonetic-sets",
+      "redirect_document_id": false
     }
   ]
 }

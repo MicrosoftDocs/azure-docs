@@ -67,4 +67,5 @@ In the following diagram, the Azure Machine Learning pipeline consists of two st
 
 ## Next steps
 
+* Learn how to build a data ingestion pipeline for Machine Learning with [Azure Data Factory](how-to-data-ingest-adf.md)
 * Learn how to automate and manage the development life cycles of your data ingestion pipelines with [Azure Pipelines](how-to-cicd-data-ingestion.md).

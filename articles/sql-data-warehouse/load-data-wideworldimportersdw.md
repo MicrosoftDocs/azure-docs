@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Load data using Azure portal & SSMS'
-description: Tutorial uses Azure portal and SQL Server Management Studio to load the WideWorldImportersDW data warehouse from a global Azure blob to an Azure Synapse Analytics Sql pool.
+description: Tutorial uses Azure portal and SQL Server Management Studio to load the WideWorldImportersDW data warehouse from a global Azure blob to an Azure Synapse Analytics SQL pool.
 services: sql-data-warehouse
 author: kevinvngo 
 manager: craigg
@@ -13,7 +13,7 @@ ms.reviewer: igorstan
 ms.custom: seo-lt-2019, synapse-analytics
 ---
 
-# Tutorial: Load data to  Azure Synapse Analytics Sql pool
+# Tutorial: Load data to  Azure Synapse Analytics SQL pool
 
 This tutorial uses PolyBase to load the WideWorldImportersDW data warehouse from Azure Blob storage to your data warehouse in Azure Synapse Analytics SQL pool. The tutorial uses the [Azure portal](https://portal.azure.com) and [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) to:
 
@@ -40,7 +40,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 ## Create a blank data warehouse in SQL pool
 
-An Sql pool is created with a defined set of [compute resources](memory-concurrency-limits.md). The SQL pool is created within an [Azure resource group](../azure-resource-manager/management/overview.md) and in an [Azure SQL logical server](../sql-database/sql-database-features.md). 
+A SQL pool is created with a defined set of [compute resources](memory-concurrency-limits.md). The SQL pool is created within an [Azure resource group](../azure-resource-manager/management/overview.md) and in an [Azure SQL logical server](../sql-database/sql-database-features.md). 
 
 Follow these steps to create a blank SQL pool. 
 
@@ -95,7 +95,7 @@ The Azure Synapse Analytics service creates a firewall at the server-level that 
 1. Select the server name. 
     ![server name](media/load-data-wideworldimportersdw/find-server-name.png) 
 
-1. Select **Show firewall settings**. The **Firewall settings** page for the Sql pool server opens. 
+1. Select **Show firewall settings**. The **Firewall settings** page for the SQL pool server opens. 
 
     ![server settings](media/load-data-wideworldimportersdw/server-settings.png) 
 

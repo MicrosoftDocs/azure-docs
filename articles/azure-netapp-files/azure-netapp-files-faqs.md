@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/05/2020
+ms.date: 03/04/2020
 ms.author: b-juche
 ---
 # FAQs About Azure NetApp Files
@@ -143,6 +143,10 @@ Azure NetApp Files supports Windows Server 2008r2SP1-2019 versions of Active Dir
 ### Why does the available space on my SMB client not show the provisioned size?
 
 The volume size reported by the SMB client is the maximum size the Azure NetApp Files volume can grow to. The size of the Azure NetApp Files volume as shown on the SMB client is not reflective of the quota or size of the volume. You can get the Azure NetApp Files volume size or quota through the Azure portal or the API.
+
+### Does Azure NetApp Files support LDAP signing? 
+
+Yes, Azure NetApp Files supports LDAP signing by default. This functionality enables secure LDAP lookups between the Azure NetApp Files service and the user-specified [Active Directory Domain Services domain controllers](https://docs.microsoft.com/windows/win32/ad/active-directory-domain-services). For more information, see [ADV190023 | Microsoft Guidance for Enabling LDAP Channel Binding and LDAP Signing](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV190023).
 
 ## Capacity management FAQs
 

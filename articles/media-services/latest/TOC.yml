@@ -72,7 +72,7 @@
     items:
     - name: Overview
       href: encoding-concept.md   
-      displayName: encoding, presets, jobs, adaptive, bitrate
+      displayName: encoding, presets, jobs, adaptive, bitrate, billing 
     - name: Standard Encoder formats
       displayName: containers, codecs    
       href: media-encoder-standard-formats.md
@@ -121,6 +121,7 @@
     - name: Dynamic manifests
       href: filters-dynamic-manifest-overview.md 
     - name: Filters
+      displayName: manifest, dynamic manifest, filter, hls, dash, m3u8, mpd,	content delivery
       href: filters-concept.md   
     - name: Streaming Endpoints 
       displayName: origin, packager, cdn
@@ -307,6 +308,8 @@
     items:
     - name: Publish an asset - CLI
       href: cli-publish-asset.md
+    - name: Create a streaming locator and build URLs
+      href: create-streaming-locator-build-url.md
     - name: Download results
       href: download-results-howto.md
     - name: Signal descriptive audio
