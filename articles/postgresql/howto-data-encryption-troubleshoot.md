@@ -44,7 +44,7 @@ The following misconfigurations cause most issues with data encryption that use 
 #### Missing key vault permissions
 
 - `AzureKeyVaultMissingPermissionsMessage`
-- **Explanation**: The server doesn't have the required Get, Wrap, and Unwrap permissions to the Azure Key Vault. Grant any missing permissions to the service principal with ID.
+- **Explanation**: The server doesn't have the required Get, Wrap, and Unwrap permissions to Azure Key Vault. Grant any missing permissions to the service principal with ID.
 
 ### Mitigation
 
@@ -54,4 +54,4 @@ The following misconfigurations cause most issues with data encryption that use 
 
 ## Next steps
 
-[Use the Azure portal to set up data encryption with a customer-managed key on Azure Database for PostgreSQL](howto-data-encryption-portal.md).
+[Use the Azure portal to set up data encryption with a customer-managed key on Azure Database for PostgreSQL](howto-data-encryption-portal.md)
