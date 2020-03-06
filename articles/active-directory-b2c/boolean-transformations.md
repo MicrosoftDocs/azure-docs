@@ -3,14 +3,14 @@ title: Boolean claims transformation examples for custom policies
 titleSuffix: Azure AD B2C
 description: Boolean claims transformation examples for the Identity Experience Framework (IEF) schema of Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/03/2020
-ms.author: marsma
+ms.date: 03/03/2020
+ms.author: mimart
 ms.subservice: B2C
 ---
 
@@ -112,7 +112,7 @@ The self-asserted technical profile calls the validation **login-NonInteractive*
 
 ## CompareBooleanClaimToValue
 
-Checks that boolean value of a claims is equal to `true` or `false`, and return the result of the compression. 
+Checks that boolean value of a claim is equal to `true` or `false`, and return the result of the compression.
 
 | Item | TransformationClaimType  | Data Type  | Notes |
 | ---- | ------------------------ | ---------- | ----- |
@@ -144,7 +144,7 @@ The following claims transformation demonstrates how to check the value of a boo
 - Input parameters:
     - **valueToCompareTo**: true
 - Output claims:
-    - **compareResult**: false 
+    - **compareResult**: false
 
 
 

@@ -8,13 +8,13 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 09/27/2019
 ms.author: diberry
 ---
 
 # keyPhrase prebuilt entity for a LUIS app
-The keyPhrase entity extracts a variety of key phrases from an utterance. You don't need to add example utterances containing keyPhrase to the application. The keyPhrase entity is supported in [many cultures](luis-language-support.md#languages-supported) as part of the [text analytics](../text-analytics/overview.md) features. 
+The keyPhrase entity extracts a variety of key phrases from an utterance. You don't need to add example utterances containing keyPhrase to the application. The keyPhrase entity is supported in [many cultures](luis-language-support.md#languages-supported) as part of the [text analytics](../text-analytics/overview.md) features.
 
 ## Resolution for prebuilt keyPhrase entity
 
@@ -91,7 +91,7 @@ The following example shows the resolution of the **builtin.keyPhrase** entity.
     }
 ]
 ```
-* * * 
+* * *
 
 ## Next steps
 

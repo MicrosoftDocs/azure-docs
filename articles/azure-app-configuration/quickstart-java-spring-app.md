@@ -61,7 +61,7 @@ Use the [Spring Initializr](https://start.spring.io/) to create a new Spring Boo
     ```xml
     <dependency>
         <groupId>com.microsoft.azure</groupId>
-        <artifactId>spring-cloud-azure-feature-management</artifactId>
+        <artifactId>spring-cloud-azure-appconfiguration-config</artifactId>
         <version>1.1.2</version>
     </dependency>
     ```
@@ -71,7 +71,7 @@ Use the [Spring Initializr](https://start.spring.io/) to create a new Spring Boo
     ```xml
     <dependency>
         <groupId>com.microsoft.azure</groupId>
-        <artifactId>spring-cloud-azure-feature-management</artifactId>
+        <artifactId>spring-cloud-azure-appconfiguration-config</artifactId>
         <version>1.2.2</version>
     </dependency>
     ```

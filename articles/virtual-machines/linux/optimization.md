@@ -132,5 +132,4 @@ Remember, as with all optimization discussions, you need to perform tests before
 Some useful links to additional resources:
 
 * [Azure Linux Agent User Guide](../extensions/agent-linux.md)
-* [Optimizing MySQL Performance on Azure Linux VMs](classic/optimize-mysql.md)
 * [Configure Software RAID on Linux](configure-raid.md)
