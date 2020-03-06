@@ -155,7 +155,9 @@ Perform the following steps to download and install the hotfixes.
 
 [!INCLUDE [storsimple-install-update5-hotfix](../../includes/storsimple-install-update5-hotfix.md)]
 -->
+<!--
 [!INCLUDE [storsimple-8000-install-troubleshooting](../../includes/storsimple-8000-install-troubleshooting.md)]
+-->
 
 ## Next steps
 
