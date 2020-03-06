@@ -40,13 +40,13 @@ This article describes how to enable the private preview of Azure Monitor for co
 curl -LO  https://raw.githubusercontent.com/microsoft/OMS-docker/ci_feature/docs/openshiftV4/onboarding_azuremonitor_for_containers.sh
 ```
 
-Execute below script with azureSubscriptionId, workspace Region, clusterName, and context of the Kubernetes cluster.
+Execute the following script with azureSubscriptionId, workspace Region, clusterName, and context of the Kubernetes cluster.
 
 ```bash
 bash onboarding_azuremonitor_for_containers.sh <azureSubscriptionId> <azureRegionforLogAnalyticsWorkspace> <clusterName> <kubeconfigContextNameOftheCluster>
 ```
 
-For Example:
+For example:
 
 ```bash
  bash onboarding_azuremonitor_for_containers.sh 27ac26cf-a9f0-4908-b300-9a4e9a0fb205 eastus myocp42 admin 
@@ -54,13 +54,13 @@ For Example:
 
 ## Configure agent data collection
 
-By default, Monitoring Agent collects the {stdout; stderr} container logs of all the containers running in all the namespaces except kube-system.  If you want to configure the container log collection specific to particular namespace or namespaces, you can  refer to [Container Insights agent configuration](../azure-monitor/insights/container-insights-agent-config). Here, you can configure Monitoring agent with desired data collection settings using config map.
+By default, Monitoring Agent collects the {stdout; stderr} container logs of all the containers running in all the namespaces except kube-system.  If you want to configure the container log collection specific to particular namespace or namespaces, you can  refer to [Container Insights agent configuration](../azure-monitor/insights/container-insights-agent-config.md). Here, you can configure Monitoring agent with desired data collection settings using config map.
 
 ## Configure scraping of Prometheus metrics
 
-Azure Monitor for containers scrapes the Prometheus metrics and ingest to the Azure Monitor backend. Refer to [Container Insights Prometheus configuration](../azure-monitor/insights/container-insights-prometheus-integration) for the instructions how to configure Prometheus scraping.
+Azure Monitor for containers scrapes the Prometheus metrics and ingest to the Azure Monitor backend. Refer to [Container Insights Prometheus configuration](../azure-monitor/insights/container-insights-prometheus-integration.md) for the instructions how to configure Prometheus scraping.
 
-After successful onboarding, navigate to https://aka.ms/azmon-containers-hybrid  and select Environment as **"All"** to view your newly onboarded OpenShift v4 cluster.
+After successful onboarding, navigate to [Hybrid Monitoring](https://aka.ms/azmon-containers-hybrid) and select Environment as **"All"** to view your newly onboarded OpenShift v4 cluster.
 
 ## Disable monitoring
 
@@ -72,21 +72,21 @@ helm del azmon-containers-release-1
 
 ## Update monitoring
 
-Rerun the onboarding script as described in the [Onboarding](#onboarding) section with the same parameter to get updated to latest Helm chart.
+Rerun the onboarding script as described in the [Onboarding](#onboarding) section with the same parameter to update to latest Helm chart.
 
 ## After successful onboarding
 
-Navigate to [Hybrid Monitoring](https://aka.ms/azmon-containers-hybrid) and you should be able to see your newly enabled OpenShift/ARO v4 cluster with health status in the **Monitored Clusters** tab  and you can get into deeper insights such as metrics, inventory, and logs and more by clicking the **Cluster** column.
+Navigate to [Hybrid Monitoring](https://aka.ms/azmon-containers-hybrid), and you can see your newly enabled OpenShift/ARO v4 cluster with health status in the **Monitored Clusters** tab. There, you can get into deeper insights such as metrics, inventory, and logs by clicking the **Cluster** column.
 
 ## Supported features
 
-For more information, see [Container Insights overview](../azure-monitor/insights/container-insights-overview) for more details on the supported features and functionality.
+For more on the supported features and functionality, see [Container Insights overview](../azure-monitor/insights/container-insights-overview.md).
 
-Contact us via askcoin@microsoft.com  the feedback and questions.
+Contact us via askcoin@microsoft.com for feedback and questions.
 
 ## Next steps
 
 To learn more about monitoring, see:
-../azure/azure-monitor/insights/container-insights-overview
+- [Container Insights overview](../azure/azure-monitor/insights/container-insights-overview.md)
 
-../azure/azure-monitor/log-query/log-query-overview
+- [Log Query overview](../azure/azure-monitor/log-query/log-query-overview.md)
