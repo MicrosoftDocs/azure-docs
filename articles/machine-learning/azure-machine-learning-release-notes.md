@@ -33,7 +33,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
 
 + **Bug fixes and improvements**
   + **azure-cli-ml**
-    + This PR changes the endpoint CLI command name from 'az ml endpoint aks' to 'az ml endpoint realtime' to match the pm spec.
+    + Change the endpoint CLI command name from 'az ml endpoint aks' to 'az ml endpoint realtime' for consistency.
     + update CLI installation instructions for stable and experimental branch CLI
     + Single instance profiling was fixed to produce a recommendation and was made available in core sdk.
   + **azureml-automl-core**
