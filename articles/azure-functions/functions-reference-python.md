@@ -362,12 +362,14 @@ For local development, application settings are [maintained in the local.setting
 
 ## Python version 
 
-Azure Functions supports the following version of Python (official CPython distributions):
+Azure Functions supports the following Python versions:
 
-| Functions version | Python version |
+| Functions version | Python<sup>*</sup> versions |
 | ----- | ----- |
 | 3.x | 3.8<br/>3.7<br/>3.6 |
 | 2.x | 3.7<br/>3.6 |
+
+<sup>*</sup>Official CPython distributions
 
 To request a specific Python version when you create your function app in Azure, use the `--runtime-version` option of the [`az functionapp create`](/cli/azure/functionapp#az-functionapp-create) command. The Functions runtime version is set by the `--functions-version` option. The Python version is set when the function app is created and can't be changed.  
 
