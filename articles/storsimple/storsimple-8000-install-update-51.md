@@ -44,10 +44,51 @@ Perform the following steps to update your device to [Update 5.1](storsimple-upd
 
 > [!NOTE]
 > Microsoft pulls additional diagnostic information from the device. As a result, when our operations team identifies devices that are having problems, we are better equipped to collect information from the device and diagnose issues.
-<!--
-[!INCLUDE [storsimple-8000-install-update4-via-portal](../../includes/storsimple-8000-install-update5-via-portal.md)]
--->
-Verify that your device is running **StorSimple 8000 Series Update 5.1 (6.3.9600.xxxxx)**. The **Last updated date** should be modified.
+
+#### To install an update from the Azure portal
+
+1. On the StorSimple service page, select your device.
+
+    ![Select device](./media/storsimple-8000-install-update-51/update1.png)
+
+2. Navigate to **Device settings** > **Device updates**.
+
+    ![Click Device updates](./media/storsimple-8000-install-update-51/update2.png)
+
+3. A notification appears if new updates are available. Alternatively, in the **Device updates** blade, click **Scan Updates**. A job is created to scan for available updates. You are notified when the job completes successfully.
+
+    ![Click Device updates](./media/storsimple-8000-install-update-51/update3.png)
+
+4. We recommend that you review the release notes before you apply an update on your device. To apply updates, click **Install updates**. In the **Confirm regular updates** blade, review the prerequisites to complete before you apply updates. Select the checkbox to indicate that you are ready to update the device and then click **Install**.
+
+    ![Click Device updates](./media/storsimple-8000-install-update-51/update4.png)
+
+5. A set of prerequisite checks starts. These checks include:
+   
+   * **Controller health checks** to verify that both the device controllers are healthy and online.
+   * **Hardware component health checks** to verify that all the hardware components on your StorSimple device are healthy.
+   * **DATA 0 checks** to verify that DATA 0 is enabled on your device. If this interface is not enabled, you must enable it and then retry.
+
+     The update is downloaded and installed only if all the checks are successfully completed. You are notified when the checks are in progress. If the prechecks fail, then you will be provided with the reasons for failure. Address those issues and then retry the operation. You may need to contact Microsoft Support if you cannot address these issues by yourself.
+
+7. After the prechecks are successfully completed, an update job is created. You are notified when the update job is successfully created.
+   
+    ![Update job creation](./media/storsimple-8000-install-update-51/update6.png)
+   
+    The update is then applied on your device.
+
+9. The update takes a few hours to complete. Select the update job and click **Details** to view the details of the job at any time.
+
+    ![Update job creation](./media/storsimple-8000-install-update-51/update8.png)
+
+     You can also monitor the progress of the update job from **Device settings > Jobs**. On the **Jobs** blade, you can see the update progress.
+
+     ![Update job creation](./media/storsimple-8000-install-update-51/update7.png)
+
+10. After the job is complete, navigate to the **Device settings > Device updates**. The software version should now be updated.
+
+
+Verify that your device is running **StorSimple 8000 Series Update 5.1 (6.3.9600.17885)**. The **Last updated date** should be modified.
 <!-- 5.1 - KB 4542887-->
 
 <!--You will now see that the Maintenance mode updates are available (this message might continue to be displayed for up to 24 hours after you install the updates). The steps to install maintenance mode update are detailed in the next section.

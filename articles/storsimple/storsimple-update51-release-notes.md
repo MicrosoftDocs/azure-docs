@@ -15,7 +15,7 @@ ms.author: v-grpr
 
 The following release notes describe the new features and identify the critical open issues for StorSimple 8000 Series Update 5.1. They also contain a list of the StorSimple software updates included in this release.
 
-Update 5.1 can be applied to any StorSimple device running Update 5. If you are using an version lower than 5, apply update 5 first, then apply 5.1. The device version associated with Update 5.1 is 6.3.9600.xxxxx.
+Update 5.1 can be applied to any StorSimple device running Update 5. If you are using an version lower than 5, apply update 5 first, then apply 5.1. The device version associated with Update 5.1 is 6.3.9600.17885.
 
 Review the information contained in the release notes before you deploy the update in your StorSimple solution.
 
