@@ -1,7 +1,7 @@
 ---
 title: Connect privately to a Web App and secure data exfiltration using Azure Private Endpoint
 description: Connect privately to a Web App and secure data exfiltration using Azure Private Endpoint
-author: ericg
+author: ericgre
 ms.assetid: 2dceac28-1ba6-4904-a15d-9e91d5ee162c
 ms.topic: article
 ms.date: 03/12/2020
