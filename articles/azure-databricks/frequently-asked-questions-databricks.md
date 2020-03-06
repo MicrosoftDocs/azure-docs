@@ -86,7 +86,7 @@ If you did not create the workspace, and you are added as a user, contact the pe
 
 #### Background
 
-Databricks clusters use one public IP address per node (including the driver node). Azure subscriptions have [public IP address limits](../azure-resource-manager/management/azure-subscription-service-limits#publicip-address) per region. Thus, cluster creation and scale-up operations may fail if they would cause the number of public IP addresses allocated to that subscription in that region to exceed the limit. This limit also includes public IP addresses allocated for non-Databricks usage, such as custom user-defined VMs.
+Databricks clusters use one public IP address per node (including the driver node). Azure subscriptions have [public IP address limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#publicip-address) per region. Thus, cluster creation and scale-up operations may fail if they would cause the number of public IP addresses allocated to that subscription in that region to exceed the limit. This limit also includes public IP addresses allocated for non-Databricks usage, such as custom user-defined VMs.
 
 In general, clusters only consume public IP addresses while they are active. However, `PublicIPCountLimitReached` errors may continue to occur for a short period of time even after other clusters are terminated. This is because Databricks temporarily caches Azure resources when a cluster is terminated. Resource caching is by design, since it significantly reduces the latency of cluster startup and autoscaling in many common scenarios.
 
