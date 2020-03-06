@@ -196,64 +196,65 @@ To reduce the number of network round trips required to retrieve all applicable 
 > [!NOTE] 
 > The `maxItemCount` property shouldn't be used just for pagination. It's main use is to improve the performance of queries by reducing the maximum number of items returned in a single page.  
 
-You can also set the page size using the available Azure Cosmos DB SDKs. The [MaxItemCount](/dotnet/api/microsoft.azure.documents.client.feedoptions.maxitemcount?view=azure-dotnet) property in FeedOptions allows you to set the maximum number of items to be returned in the enumeration operation. When `maxItemCount` is set to -1, the SDK automatically finds the most optimal value depending on the document size. For example:
+You can also set the page size by using the available Azure Cosmos DB SDKs. The [MaxItemCount](/dotnet/api/microsoft.azure.documents.client.feedoptions.maxitemcount?view=azure-dotnet) property in `FeedOptions` allows you to set the maximum number of items to be returned in the enumeration operation. When `maxItemCount` is set to -1, the SDK automatically finds the optimal value, depending on the document size. For example:
     
-   ```csharp
-    IQueryable<dynamic> authorResults = client.CreateDocumentQuery(documentCollection.SelfLink, "SELECT p.Author FROM Pages p WHERE p.Title = 'About Seattle'", new FeedOptions { MaxItemCount = 1000 });
-   ```
+```csharp
+IQueryable<dynamic> authorResults = client.CreateDocumentQuery(documentCollection.SelfLink, "SELECT p.Author FROM Pages p WHERE p.Title = 'About Seattle'", new FeedOptions { MaxItemCount = 1000 });
+```
     
-   When a query is executed, the resulting data is sent within a TCP packet. If you specify too low value for `maxItemCount`, the number of trips required to send the data within the TCP packet are high, which impacts the performance. So if you are not sure what value to set for `maxItemCount` property, it's best to set it to -1 and let the SDK choose the default value. 
+When a query is executed, the resulting data is sent within a TCP packet. If you specify too low a value for `maxItemCount`, the number of trips required to send the data within the TCP packet is high, which affects performance. So if you're not sure what value to set for the `maxItemCount` property, it's best to set it to -1 and let the SDK choose the default value.
 
-9. **Increase number of threads/tasks**
+**Increase the number of threads/tasks**
 
-    See [Increase number of threads/tasks](#increase-threads) in the Networking section.
+See [Increase the number of threads/tasks](#increase-threads) in the Networking section of this article.
 
-## Indexing Policy
+## Indexing policy
  
-1. **Exclude unused paths from indexing for faster writes**
+**Exclude unused paths from indexing for faster writes**
 
-    Cosmos DB’s indexing policy also allows you to specify which document paths to include or exclude from indexing by leveraging Indexing Paths (IndexingPolicy.IncludedPaths and IndexingPolicy.ExcludedPaths). The use of indexing paths can offer improved write performance and lower index storage for scenarios in which the query patterns are known beforehand, as indexing costs are directly correlated to the number of unique paths indexed.  For example, the following code shows how to exclude an entire section of the documents (a subtree) from indexing using the "*" wildcard.
+The Azure Cosmos DB indexing policy also allows you to specify which document paths to include in or exclude from indexing by using indexing paths (IndexingPolicy.IncludedPaths and IndexingPolicy.ExcludedPaths). Indexing paths can improve write performance and lower index storage for scenarios in which the query patterns are known beforehand, because indexing costs are directly correlated to the number of unique paths indexed. For example, this code shows how to exclude an entire section of the documents (a subtree) from indexing by using the "*" wildcard:
 
-    ```csharp
-    var collection = new DocumentCollection { Id = "excludedPathCollection" };
-    collection.IndexingPolicy.IncludedPaths.Add(new IncludedPath { Path = "/*" });
-    collection.IndexingPolicy.ExcludedPaths.Add(new ExcludedPath { Path = "/nonIndexedContent/*");
-    collection = await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("db"), excluded);
-    ```
+```csharp
+var collection = new DocumentCollection { Id = "excludedPathCollection" };
+collection.IndexingPolicy.IncludedPaths.Add(new IncludedPath { Path = "/*" });
+collection.IndexingPolicy.ExcludedPaths.Add(new ExcludedPath { Path = "/nonIndexedContent/*");
+collection = await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("db"), excluded);
+```
 
-    For more information, see [Azure Cosmos DB indexing policies](index-policy.md).
+For more information, see [Azure Cosmos DB indexing policies](index-policy.md).
 
 ## Throughput
 <a id="measure-rus"></a>
 
-1. **Measure and tune for lower request units/second usage**
+**Measure and tune for lower request units/second usage**
 
-    Azure Cosmos DB offers a rich set of database operations including relational and hierarchical queries with UDFs, stored procedures, and triggers – all operating on the documents within a database collection. The cost associated with each of these operations varies based on the CPU, IO, and memory required to complete the operation. Instead of thinking about and managing hardware resources, you can think of a request unit (RU) as a single measure for the resources required to perform various database operations and service an application request.
+Azure Cosmos DB offers a rich set of database operations, including relational and hierarchical queries with UDFs, stored procedures, and triggers, all operating on the documents within a database collection. The cost associated with each of these operations varies depending on the CPU, IO, and memory required to complete the operation. Instead of thinking about and managing hardware resources, you can think of a request unit (RU) as a single measure for the resources required to perform various database operations and service an application request.
 
-    Throughput is provisioned based on the number of [request units](request-units.md) set for each container. Request unit consumption is evaluated as a rate per second. Applications that exceed the provisioned request unit rate for their container are limited until the rate drops below the provisioned level for the container. If your application requires a higher level of throughput, you can increase your throughput by provisioning additional request units. 
+Throughput is provisioned based on the number of [Request Units](request-units.md) set for each container. Request Unit consumption is evaluated as a rate per second. Applications that exceed the provisioned Request Unit rate for their container are limited until the rate drops below the provisioned level for the container. If your application requires a higher level of throughput, you can increase your throughput by provisioning additional Request Units.
 
-    The complexity of a query impacts how many Request Units are consumed for an operation. The number of predicates, nature of the predicates, number of UDFs, and the size of the source data set all influence the cost of query operations.
+The complexity of a query affects how many Request Units are consumed for an operation. The number of predicates, the nature of the predicates, the number of UDFs, and the size of the source dataset all influence the cost of query operations.
 
-    To measure the overhead of any operation (create, update, or delete), inspect the [x-ms-request-charge](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) header (or the equivalent RequestCharge property in ResourceResponse\<T> or FeedResponse\<T> in the .NET SDK) to measure the number of request units consumed by these operations.
+To measure the overhead of any operation (create, update, or delete), inspect the [x-ms-request-charge](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) header (or the equivalent `RequestCharge` property in `ResourceResponse\<T>` or `FeedResponse\<T>` in the .NET SDK) to measure the number of Request Units consumed by the operations:
 
-    ```csharp
-    // Measure the performance (request units) of writes
-    ResourceResponse<Document> response = await client.CreateDocumentAsync(collectionSelfLink, myDocument);
-    Console.WriteLine("Insert of document consumed {0} request units", response.RequestCharge);
-    // Measure the performance (request units) of queries
-    IDocumentQuery<dynamic> queryable = client.CreateDocumentQuery(collectionSelfLink, queryString).AsDocumentQuery();
-    while (queryable.HasMoreResults)
-         {
-              FeedResponse<dynamic> queryResponse = await queryable.ExecuteNextAsync<dynamic>();
-              Console.WriteLine("Query batch consumed {0} request units", queryResponse.RequestCharge);
-         }
-    ```             
+```csharp
+// Measure the performance (Request Units) of writes
+ResourceResponse<Document> response = await client.CreateDocumentAsync(collectionSelfLink, myDocument);
+Console.WriteLine("Insert of document consumed {0} request units", response.RequestCharge);
+// Measure the performance (Request Units) of queries
+IDocumentQuery<dynamic> queryable = client.CreateDocumentQuery(collectionSelfLink, queryString).AsDocumentQuery();
+while (queryable.HasMoreResults)
+    {
+        FeedResponse<dynamic> queryResponse = await queryable.ExecuteNextAsync<dynamic>();
+        Console.WriteLine("Query batch consumed {0} request units", queryResponse.RequestCharge);
+    }
+```             
 
-    The request charge returned in this header is a fraction of your provisioned throughput (i.e., 2000 RUs / second). For example, if the preceding query returns 1000 1KB-documents, the cost of the operation is 1000. As such, within one second, the server honors only two such requests before rate limiting subsequent requests. For more information, see [Request units](request-units.md) and the [request unit calculator](https://www.documentdb.com/capacityplanner).
+The request charge returned in this header is a fraction of your provisioned throughput (that is, 2,000 RUs / second). For example, if the preceding query returns 1,000 1-KB documents, the cost of the operation is 1,000. So, within one second, the server honors only two such requests before rate limiting subsequent requests. For more information, see [Request Units](request-units.md) and the [Request Unit calculator](https://www.documentdb.com/capacityplanner).
 <a id="429"></a>
-2. **Handle rate limiting/request rate too large**
 
-    When a client attempts to exceed the reserved throughput for an account, there is no performance degradation at the server and no use of throughput capacity beyond the reserved level. The server will preemptively end the request with RequestRateTooLarge (HTTP status code 429) and return the [x-ms-retry-after-ms](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) header indicating the amount of time, in milliseconds, that the user must wait before reattempting the request.
+**Handle rate limiting/request rate too large**
+
+When a client attempts to exceed the reserved throughput for an account, there's no performance degradation at the server and no use of throughput capacity beyond the reserved level. The server will preemptively end the request with RequestRateTooLarge (HTTP status code 429) and return the [x-ms-retry-after-ms](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) header indicating the amount of time, in milliseconds, that the user must wait before reattempting the request.
 
         HTTP Status 429,
         Status Line: RequestRateTooLarge
