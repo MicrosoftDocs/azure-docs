@@ -115,8 +115,6 @@ landingContent:
         url: ./partner-center-portal/marketplace-metering-service-apis-faq.md
       - text: Create or modify an offer
         url: ./cloud-partner-portal-orig/cloud-partner-portal-api-creating-offer.md
-      - text: Concurrency control
-        url: ./cloud-partner-portal-orig/cloud-partner-portal-api-concurrency-control.md
       - text: Retrieve offers
         url: .//cloud-partner-portal-orig/cloud-partner-portal-api-retrieve-offers.md
       - text: Go live
