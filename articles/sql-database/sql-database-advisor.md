@@ -12,24 +12,24 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 03/10/2020
 ---
-# Database Advisor performance recommendations
+# Database Advisor performance recommendations for single and pooled databases
 
-Azure SQL Database learns and adapts with your application. SQL Database has a number of database advisors that provide customized recommendations that enable you to maximize the performance of single and pooled databases in Azure SQL databases. These database advisors continuously assess and analyze the usage history and provide recommendations based on workload patterns that help improve performance.
+Azure SQL Database learns and adapts with your application. For single and pooled databases, SQL Database has a number of database advisors that provide customized recommendations that enable you to maximize performance. These database advisors continuously assess and analyze the usage history and provide recommendations based on workload patterns that help improve performance.
 
 ## Performance overview
 
-The Performance overview view provides a summary of your database performance, and helps you with performance tuning and troubleshooting.
+Performance overview provides a summary of your database performance, and helps you with performance tuning and troubleshooting.
 
 ![Performance overview for Azure SQL Database](./media/sql-database-performance/performance-overview-annotated.png)
 
-- The **Recommendations** tile provides a breakdown of tuning recommendations for your database (top three recommendations are shown if there are more). Clicking this tile takes you to **[Performance recommendations](#performance-recommendations-options)**.
+- The **Recommendations** tile provides a breakdown of tuning recommendations for your database (top three recommendations are shown if there are more). Clicking this tile takes you to **[Performance recommendation options](sql-database-advisor-portal.md#viewing-recommendations)**.
 - The **Tuning activity** tile provides a summary of the ongoing and completed tuning actions for your database, giving you a quick view into the history of tuning activity. Clicking this tile takes you to the full tuning history view for your database.
-- The **Auto-tuning** tile shows the [auto-tuning configuration](sql-database-automatic-tuning-enable.md) for your database (tuning options that are automatically applied to your database). Clicking this tile opens the automation configuration dialog.
+- The **Auto-tuning** tile shows the **[auto-tuning configuration](sql-database-automatic-tuning-enable.md)** for your database (tuning options that are automatically applied to your database). Clicking this tile opens the automation configuration dialog.
 - The **Database queries** tile shows the summary of the query performance for your database (overall DTU usage and top resource consuming queries). Clicking this tile takes you to **[Query Performance Insight](sql-database-query-performance.md)**.
 
-## Performance recommendations options
+## Performance recommendation options
 
-Performance recommendation options available Azure SQL Database are:
+Performance recommendation options available for single and pooled databases in Azure SQL Database are:
 
 | Performance recommendation | Single database and pooled database support | Instance database support |
 | :----------------------------- | ----- | ----- |
@@ -40,7 +40,7 @@ Performance recommendation options available Azure SQL Database are:
 
 ![Performance recommendations for Azure SQL Database](./media/sql-database-performance/performance-recommendations-annotated.png)
 
-Learn how to find an apply performance recommendations in [Find and apply performance recommendations](sql-database-advisor-portal.md) article.
+To apply performance recommendations, see [applying recommendations](sql-database-advisor-portal.md#applying-recommendations). To view the status of recommendations, see [Monitoring operations](sql-database-advisor-portal.md#monitoring-operations).
 
 You can also find complete history of tuning actions that were applied in the past.
 
@@ -50,15 +50,15 @@ SQL Database continuously monitors the queries that are running and identifies t
 
 Azure SQL Database builds confidence by estimating the performance gain the index would bring through time. Depending on the estimated performance gain, recommendations are categorized as high, medium, or low.
 
-Indexes that are created by using recommendations are always flagged as auto-created indexes. You can see which indexes are auto-created by looking at the sys.indexes view. Auto-created indexes don’t block ALTER/RENAME commands.
+Indexes that are created by using recommendations are always flagged as auto-created indexes. You can see which indexes are auto-created by looking at the [sys.indexes view](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-indexes-transact-sql). Auto-created indexes don't block ALTER/RENAME commands.
 
 If you try to drop the column that has an auto-created index over it, the command passes. The auto-created index is dropped with the command as well. Regular indexes block the ALTER/RENAME command on columns that are indexed.
 
-After the create index recommendation is applied, Azure SQL Database compares the performance of the queries with the baseline performance. If the new index improved performance, the recommendation is flagged as successful and the impact report is available. If the index didn’t improve performance, it's automatically reverted. SQL Database uses this process to ensure that recommendations improve database performance.
+After the create index recommendation is applied, Azure SQL Database compares the performance of the queries with the baseline performance. If the new index improved performance, the recommendation is flagged as successful and the impact report is available. If the index didn't improve performance, it's automatically reverted. SQL Database uses this process to ensure that recommendations improve database performance.
 
 Any **create index** recommendation has a back-off policy that doesn't allow applying the recommendation if the resource usage of a database or pool is high. The back-off policy takes into account CPU, Data IO, Log IO, and available storage.
 
-If CPU, Data IO, or Log IO is higher than 80% in the previous 30 minutes, the create index recommendation is postponed. If the available storage will be below 10% after the index is created, the recommendation goes into an error state. If, after a couple of days, automatic tuning still believes that the index would be beneficial, the process starts again.
+If CPU, data IO, or log IO is higher than 80% in the previous 30 minutes, the create index recommendation is postponed. If the available storage will be below 10% after the index is created, the recommendation goes into an error state. If, after a couple of days, automatic tuning still believes that the index would be beneficial, the process starts again.
 
 This process repeats until there's enough available storage to create an index, or until the index isn't seen as beneficial anymore.
 
@@ -92,9 +92,9 @@ After you apply this recommendation, it enables forced parameterization within m
 
 **Fix schema issues** recommendations appear when the SQL Database service notices an anomaly in the number of schema-related SQL errors that are happening on your SQL database. This recommendation typically appears when your database encounters multiple schema-related errors (invalid column name, invalid object name, and so on) within an hour.
 
-“Schema issues” are a class of syntax errors in SQL Server. They occur when the definition of the SQL query and the definition of the database schema aren't aligned. For example, one of the columns that's expected by the query might be missing in the target table or vice-versa.
+"Schema issues" are a class of syntax errors in SQL Server. They occur when the definition of the SQL query and the definition of the database schema aren't aligned. For example, one of the columns that's expected by the query might be missing in the target table or vice-versa.
 
-The “Fix schema issue” recommendation appears when the Azure SQL Database service notices an anomaly in the number of schema-related SQL errors that are happening on your SQL database. The following table shows the errors that are related to schema issues:
+The "Fix schema issue" recommendation appears when the Azure SQL Database service notices an anomaly in the number of schema-related SQL errors that are happening on your SQL database. The following table shows the errors that are related to schema issues:
 
 | SQL error code | Message |
 | --- | --- |
@@ -113,5 +113,4 @@ Developers might consider developing custom applications using performance recom
 
 - For more information about automatic tuning of database indexes and query execution plans, see [Azure SQL Database automatic tuning](sql-database-automatic-tuning.md).
 - For more information about automatically monitoring database performance with automated diagnostics and root cause analysis of performance issues, see [Azure SQL Intelligent Insights](sql-database-intelligent-insights.md).
-- For more information about how to use performance recommendations in the Azure portal, see [Performance recommendations in the Azure portal](sql-database-advisor-portal.md).
 - See [Query Performance Insights](sql-database-query-performance.md) to learn about and view the performance impact of your top queries.

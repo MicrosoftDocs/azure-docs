@@ -16,10 +16,10 @@ ms.date: 03/10/2020
 
 Query Performance Insight provides intelligent query analysis for single and pooled databases. It helps identify the top resource consuming and long-running queries in your workload. This helps you find the queries to optimize to improve overall workload performance and efficiently use the resource that you are paying for. Query Performance Insight helps you spend less time troubleshooting database performance by providing:
 
-* Deeper insight into your databases resource (DTU) consumption.
-* Details on top database queries by CPU, duration, and execution count (potential tuning candidates for performance improvements).
-* The ability to drill down into details of a query, to view the query text and history of resource utilization.
-* Annotations that show performance recommendations from [SQL Database Advisor](sql-database-advisor.md).
+* Deeper insight into your databases resource (DTU) consumption
+* Details on top database queries by CPU, duration, and execution count (potential tuning candidates for performance improvements)
+* The ability to drill down into details of a query, to view the query text and history of resource utilization
+* Annotations that show performance recommendations from [database advisors](sql-database-advisor.md)
 
 ![Query Performance Insight](./media/sql-database-query-performance/opening-title.png)
 
@@ -187,7 +187,7 @@ In some cases, a high execution count can lead to more network round trips. Roun
 
 For example, many data-driven websites heavily access the database for every user request. Although connection pooling helps, the increased network traffic and processing load on the database server can slow performance. In general, keep round trips to a minimum.
 
-To identify frequently executed (“chatty”) queries:
+To identify frequently executed ("chatty") queries:
 
 1. Open the **Custom** tab in Query Performance Insight for the selected database.
 2. Change the metrics to **execution count**.

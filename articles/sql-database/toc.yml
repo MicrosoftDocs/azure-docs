@@ -281,12 +281,16 @@
       items:
       - name: Identify query performance issues
         href: sql-database-identify-query-performance-issues.md
-      - name: Manual tuning
+      - name: Application and database tuning guidance
         href: sql-database-performance-guidance.md
       - name: Use DMVs to monitor performance
         href: sql-database-monitoring-with-dmvs.md
       - name: Monitor In-memory OLTP space
         href: sql-database-in-memory-oltp-monitoring.md
+      - name: Hyperscale performance diagnostics
+        href: sql-database-hyperscale-performance-diagnostics.md
+      - name: Resource management in dense elastic pools
+        href: sql-database-elastic-pool-resource-management.md
       - name: Extended events
         items:
         - name: Extended events
@@ -295,10 +299,6 @@
           href: sql-database-xevent-code-event-file.md
         - name: Extended events - ring buffer
           href: sql-database-xevent-code-ring-buffer.md
-    - name: Hyperscale performance diagnostics
-      href: sql-database-hyperscale-performance-diagnostics.md
-    - name: Resource management in dense elastic pools
-      href: sql-database-elastic-pool-resource-management.md
 
   - name: Scalability
     items:

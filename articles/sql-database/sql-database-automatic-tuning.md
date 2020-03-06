@@ -16,7 +16,7 @@ ms.date: 03/10/2020
 
 Azure SQL Database automatic tuning provides peak performance and stable workloads through continuous performance tuning based on AI and machine learning.
 
-Automatic tuning is a fully managed intelligent performance service that uses built-in intelligence to continuously monitor queries executed on a database, and it automatically improves their performance. This is achieved through dynamically adapting database to the changing workloads and applying tuning recommendations. Automatic tuning learns horizontally from all databases on Azure through AI and it dynamically improves its tuning actions. The longer an Azure SQL Database runs with automatic tuning on, the better it performs.
+Automatic tuning is a fully managed intelligent performance service that uses built-in intelligence to continuously monitor queries executed on a database, and it automatically improves their performance. This is achieved through dynamically adapting database to the changing workloads and applying tuning recommendations. Automatic tuning learns horizontally from all databases on Azure through AI and it dynamically improves its tuning actions. The longer a database runs with automatic tuning on, the better it performs.
 
 Azure SQL Database automatic tuning might be one of the most important features that you can enable to provide stable and peak performing database workloads.
 
@@ -33,7 +33,7 @@ Azure SQL Database automatic tuning might be one of the most important features 
 
 ## Safe, Reliable, and Proven
 
-Tuning operations applied to Azure SQL databases are fully safe for the performance of your most intense workloads. The system has been designed with care not to interfere with the user workloads. Automated tuning recommendations are applied only at the times of a low utilization. The system can also temporarily disable automatic tuning operations to protect the workload performance. In such case, “Disabled by the system” message will be shown in Azure portal. Automatic tuning regards workloads with the highest resource priority.
+Tuning operations applied to databases in Azure SQL Database are fully safe for the performance of your most intense workloads. The system has been designed with care not to interfere with the user workloads. Automated tuning recommendations are applied only at the times of a low utilization. The system can also temporarily disable automatic tuning operations to protect the workload performance. In such case, "Disabled by the system" message will be shown in Azure portal. Automatic tuning regards workloads with the highest resource priority.
 
 Automatic tuning mechanisms are mature and have been perfected on several million databases running on Azure. Automated tuning operations applied are verified automatically to ensure there is a positive improvement to the workload performance. Regressed performance recommendations are dynamically detected and promptly reverted. Through the tuning history recorded, there exists a clear trace of tuning improvements made to each Azure SQL Database.
 
@@ -47,7 +47,7 @@ For an overview of how automatic tuning works and for typical usage scenarios, s
 
 ## Enable automatic tuning
 
-You can [enable automatic tuning for single and pooled databases in the Azure portal](sql-database-automatic-tuning-enable.md) or using the [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) T-SQL statement. You enable automatic tuning for instance databases using the [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-mi-current) T-SQL statement.
+You can [enable automatic tuning for single and pooled databases in the Azure portal](sql-database-automatic-tuning-enable.md) or using the [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) T-SQL statement. You enable automatic tuning for instance databases in a managed instance deployment using the [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-mi-current) T-SQL statement.
 
 ## Automatic tuning options
 
