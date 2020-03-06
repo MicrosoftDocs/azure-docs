@@ -412,8 +412,8 @@
     items:
     - name: Manage access control 
       items:
-    #   - name: Configure users and groups
-    #     href: article-template.md
+      - name: Set up access control
+        href: security/how-to-set-up-access-control.md
     #   - name: Implement RBAC policies
     #     href: article-template.md
     # - name: Manage network policies
