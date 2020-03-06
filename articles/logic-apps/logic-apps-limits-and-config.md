@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
-ms.date: 02/28/2020
+ms.date: 03/11/2020
 ---
 
 # Limits and configuration information for Azure Logic Apps
@@ -356,6 +356,12 @@ The IP addresses that Azure Logic Apps uses for incoming and outgoing calls depe
 
 ### Outbound IP addresses - Logic Apps service & managed connectors
 
+For Azure Government, see [Managed connector outbound IP addresses - Azure Government](#azure-government).
+
+<a name="multi-tenant"></a>
+
+#### Multi-tenant Azure
+
 | Region | Logic Apps IP | Managed connectors IP |
 |--------|---------------|-----------------------|
 | Australia East | 13.75.149.4, 104.210.91.55, 104.210.90.241, 52.187.227.245, 52.187.226.96, 52.187.231.184, 52.187.229.130, 52.187.226.139 | 13.70.72.192 - 13.70.72.207, 13.72.243.10, 40.126.251.213, 52.237.214.72 |
@@ -388,6 +394,19 @@ The IP addresses that Azure Logic Apps uses for incoming and outgoing calls depe
 | West India | 104.211.164.80, 104.211.162.205, 104.211.164.136, 104.211.158.127, 104.211.156.153, 104.211.158.123, 104.211.154.59, 104.211.154.7 | 104.211.146.224 - 104.211.146.239, 104.211.161.203, 104.211.189.218, 104.211.189.124 |
 | West US | 52.160.92.112, 40.118.244.241, 40.118.241.243, 157.56.162.53, 157.56.167.147, 104.42.49.145, 40.83.164.80, 104.42.38.32 | 40.112.243.160 - 40.112.243.175, 104.40.51.248, 104.42.122.49, 40.112.195.87, 13.93.148.62 |
 | West US 2 | 13.66.210.167, 52.183.30.169, 52.183.29.132, 13.66.210.167, 13.66.201.169, 13.77.149.159, 52.175.198.132, 13.66.246.219 | 13.66.140.128 - 13.66.140.143, 13.66.218.78, 13.66.219.14, 13.66.220.135, 13.66.221.19, 13.66.225.219, 52.183.78.157, 52.191.164.250 |
+||||
+
+<a name="azure-government"></a>
+
+#### Managed connector outbound IP addresses - Azure Government
+
+| Region | Logic Apps IP | Managed connectors IP |
+|--------|---------------|-----------------------|
+| US Gov Arizona |||
+| US Gov Texas |||
+| US Gov Virginia |||
+| US DoD Central |||
+| US DoD Central |||
 ||||
 
 ## Next steps
