@@ -31,10 +31,10 @@ This update contains the following improvements:
 
 ## Download Update 1.3
 
-To download this update, go to the [Microsoft Update Catalog](https://www.catalog.update.microsoft.com/Home.aspx) server, and download the KBxxxxxx package. This package contains the following packages:
+To download this update, go to the [Microsoft Update Catalog](https://www.catalog.update.microsoft.com/Home.aspx) server, and download the KB4539946 package. This package contains the following packages:
 
  - **KB4537819** that contains cumulative Windows Updates for 2012 R2 up to March 2020. For more information on what is included in this rollup, go to [February monthly security rollup](https://support.microsoft.com/help/4537819).
- - **KB4539946** which is a Microsoft Update Standalone Package file WindowsTH-KB3011067-x64. This file is used to update the device software.
+ - **KB4539946** which is a Microsoft Update Standalone Package file WindowsTH-KB4539946-x64. This file is used to update the device software.
 
 Download KB4539946 and follow these instructions to [Apply the update via local web UI](storsimple-virtual-array-install-update-11.md#use-the-local-web-ui).
 
