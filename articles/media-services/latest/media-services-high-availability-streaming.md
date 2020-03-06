@@ -16,7 +16,7 @@ ms.date: 02/24/2020
 ms.author: juliako
 ---
 
-# Media Services high availability streaming guidance
+# Media Services high availability streaming
 
 Azure Media Services encoding service is a regional batch processing platform and not currently designed for high availability within a single region. The encoding service currently does not provide instant failover of the service if there is a regional datacenter outage or failure of underlying component or dependent services (such as storage, SQL)  This article explains how to deploy Media Services to maintain a high-availability architecture with failover and ensure optimal availability for your applications. 
 

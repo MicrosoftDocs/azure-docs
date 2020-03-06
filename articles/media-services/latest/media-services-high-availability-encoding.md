@@ -16,7 +16,7 @@ ms.date: 02/24/2020
 ms.author: juliako
 ---
 
-# Media Services high availability encoding guidance 
+# Media Services high availability encoding 
 
 Azure Media Services encoding service is a regional batch processing platform and not currently designed for high availability within a single region. The encoding service currently does not provide instant failover of the service if there is a regional datacenter outage or failure of underlying component or dependent services (such as storage, SQL, etc.) This article explains how to deploy Media Services to maintain a high-availability architecture with failover and ensure optimal availability for your applications.
 By following the guidelines and best-practices described in the article, you will lower risk of encoding failures, delays, and minimize recovery time if an outage occurs in a single region.
@@ -50,7 +50,7 @@ By following the guidelines and best-practices described in the article, you wil
 * Have a separate process that periodically looks at your records of the jobs
     
     * If you have jobs in the scheduled state that haven't advanced to the processing state in a reasonable amount of time for a given region, remove that region from your list of currently used accounts.  Depending on your business requirements, you could decide to cancel those jobs right away and resubmit them to the other region. Or, you could give them some more time to move to the next state.
-    * Depending on the number of Media Reserved Units configured on the account and the submission rate, there also may be jobs in the queued state the the system has not picked up for processing yet.  If the list of jobs in the queued state grows beyond an acceptable limit in a region, those jobs can be cancelled and submitted to the other region.  However, this may be a symptom of not having enough Media Reserved Units configured on the account for the current load.  You can request a higher Media Reserved Unit quota through Azure Support if necessary.
+    * Depending on the number of Media Reserved Units configured on the account and the submission rate, there also may be jobs in the queued state the the system has not picked up for processing yet.  If the list of jobs in the queued state grows beyond an acceptable limit in a region, those jobs can be canceled and submitted to the other region.  However, this may be a symptom of not having enough Media Reserved Units configured on the account for the current load.  You can request a higher Media Reserved Unit quota through Azure Support if necessary.
     * If a region was removed from the account list, monitor it for recovery before adding it back to the list.  The regional health can be monitored via the existing jobs on the region (if they weren't canceled and resubmitted), by adding the account back to the list after a period of time, and by operators monitoring Azure communications about outages that may be affecting Azure Media Services.
     
 If you find the MRU count is thrashing up and down a lot, move the decrement logic to the periodic task. Have the pre-job submit logic compare inflight count to the current MRU count to see if it needs to update the MRUs.
