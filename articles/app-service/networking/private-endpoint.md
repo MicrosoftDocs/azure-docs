@@ -13,7 +13,7 @@ ms.workload: web
 
 # Using Private Endpoints for Azure Web App (Preview)
 
-You can use Private Endpoint for your Azure Web App to allow clients located in your private network to securely access to the app over Private Link. The Private Endpoint uses an IP address from the Azure VNet address space. Network traffic between client on your private network and the Web App traverses over the Vnet and a Private Link on the Microsoft backbone network, eliminating exposure from the public Internet. With Private Endpoint you can disable outgoing network flows from the subnet with NSG and eliminate the data leakage risk.
+You can use Private Endpoint for your Azure Web App to allow clients located in your private network to securely access to the app over Private Link. The Private Endpoint uses an IP address from the Azure VNet address space. Network traffic between client on your private network and the Web App traverses over the Vnet and a Private Link on the Microsoft backbone network, eliminating exposure from the public Internet. With Private Endpoint, you can disable outgoing network flows from the subnet with NSG and eliminate the data leakage risk.
 
 Using private endpoints for your Web App enables you to:
 
