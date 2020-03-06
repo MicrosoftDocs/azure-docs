@@ -21,11 +21,11 @@ ms.author: vinigam
 The [Traffic Analytics Log schema](https://docs.microsoft.com/azure/network-watcher/traffic-analytics-schema) has been updated to include the following new fields: **SrcPublicIPs_s** , **DestPublicIPs_s**, **NSGRule_s**. In the next few months, the following older fields will be deprecated: **VMIP_s**, **Subscription_g**, **Region_s**, **NSGRules_s**, **Subnet_s**, **VM_s**, **NIC_s**, **PublicIPs_s**, **FlowCount_d**.
 The new fields provide information about source and destination IPs and simplify queries.
 
-Below are 3 example showing how to replace old fields with new ones.
+Below are three examples showing how to replace the old fields with new ones.
 
 ## Example 1 - VMIP_s, Subscription_g, Region_s, Subnet_s, VM_s, NIC_s, PublicIPs_s
 
-We don’t have to infer Source and destination cases for Azure and External public flows from FlowDirection_s field for AzurePublic and ExternalPublic flows specifically. In case of NVA the FlowDirection_s field can be inappropriate to be used as well.
+We don’t have to infer Source and destination cases for Azure and External public flows from FlowDirection_s field for AzurePublic and ExternalPublic flows specifically. In case of an NVA (Network Virtual Appliance), the FlowDirection_s field can be inappropriate to be used as well.
 
 ```Old Kusto query
 AzureNetworkAnalytics_CL
@@ -72,7 +72,7 @@ DestPublicIPsAggregated = iif(isnotempty(DestPublicIPs_s), DestPublicIPs_s, "N/A
 
 Earlier field was of format: <Index value 0)>|<NSG_RULENAME>|<Flow Direction>|<Flow Status>|<FlowCount ProcessedByRule>
 
-Earlier we used to aggregate data across NSG and NSGRules. Now we do not aggregate. So NSGList_s contains only 1 NSG and NSGRules_s also used to contain only 1 rule. So we have removed the complicated formatting here and the same can be found in other fields as mentioned below:
+Earlier we used to aggregate data across NSG and NSGRules. Now we do not aggregate. So NSGList_s contains only one NSG and NSGRules_s also used to contain only one rule. So we have removed the complicated formatting here and the same can be found in other fields as mentioned below:
 
 ```Old Kusto query
 AzureNetworkAnalytics_CL
@@ -100,12 +100,12 @@ FlowCountProcessedByRule = AllowedInFlows_d + DeniedInFlows_d + AllowedOutFlows_
 ## Example 3 - FlowCount_d
 
 Since we do not club data across NSG, the FlowCount_d is simply AllowedInFlows_d + DeniedInFlows_d + AllowedOutFlows_d + DeniedOutFlows_d.
-Only 1 of the above 4 will be non-zero and rest three will be 0. And it would indicate that in the NIC where the flow was captured, what was the status and count of that.
+Only 1 of the above 4 will be non-zero and rest three will be 0. And it would indicate the status and count in the NIC where the flow was captured.
 
-If flow was allowed one of the “Allowed” prefixed field will be populated. Else “Denied” prefixed one.
-If Flow was inbound one of the “InFlows_d” suffixed field will be populated. Else “OutFlows_d” suffixed one.
+If the flow was allowed, one of the fields prefixed with “Allowed” will be populated. Else one fields prefixed with “Denied” will be populated.
+If the flow was inbound, one of the fields suffixed with "\_d" like “InFlows_d” suffixed field will be populated. Else “OutFlows_d” will be populated.
 
-Depending on above 2 conditions we know which one out of the 4 will be populated.
+Depending on above 2 conditions, we know which one out of the 4 will be populated.
 
 
 ## Next Steps
