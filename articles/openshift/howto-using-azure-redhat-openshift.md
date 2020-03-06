@@ -36,25 +36,25 @@ The `az aro` extension allows you to create, access, and delete Azure Red Hat Op
 > The `az aro` extension is currenty in preview. It may be changed or removed in a future release.
 > To opt-in for the `az aro` extension preview you need to register the `Microsoft.RedHatOpenShift` resource provider.
 > 
->    ```
+>    ```console
 >    az provider register -n Microsoft.RedHatOpenShift --wait
 >    ```
 
 1. Log in to Azure.
 
-   ```
+   ```console
    az login
    ```
 
 2. Run the following command to install the `az aro` extension:
 
-   ```
+   ```console
    az extension add --source https://arosvc.blob.core.windows.net/az-preview/aro-0.1.0-py2.py3-none-any.whl
    ```
 
 3. Verify the ARO extension is registered.
 
-   ```
+   ```console
    az -v
    ...
    Extensions:
@@ -68,7 +68,7 @@ Follow these steps to create a virtual network containing two empty subnets.
 
 1. Set the following variables.
 
-   ```
+   ```console
    LOCATION=eastus        #the location of your cluster
    RESOURCEGROUP="v4-$LOCATION"    #the name of the resource group where you want to create your cluster
    CLUSTER=cluster        #the name of your cluster
@@ -76,13 +76,13 @@ Follow these steps to create a virtual network containing two empty subnets.
 
 2. Create a resource group for your cluster.
 
-   ```
+   ```console
    az group create -g "$RESOURCEGROUP" -l $LOCATION
    ```
 
 3. Create the virtual network.
 
-   ```
+   ```console
    az network vnet create \
      -g "$RESOURCEGROUP" \
      -n vnet \
@@ -92,7 +92,7 @@ Follow these steps to create a virtual network containing two empty subnets.
 
 4. Add two empty subnets to your virtual network.
 
-   ```
+   ```console
     for subnet in "$CLUSTER-master" "$CLUSTER-worker"; do
      az network vnet subnet create \
        -g "$RESOURCEGROUP" \
@@ -106,7 +106,7 @@ Follow these steps to create a virtual network containing two empty subnets.
 
 5. Disable network policies for Private Link Service on your virtual network and subnets. This is a requirement for the ARO service to access and manage the cluster.
 
-   ```
+   ```console
    az network vnet subnet update \
      -g "$RESOURCEGROUP" \
      --vnet-name vnet \
@@ -119,7 +119,7 @@ Follow these steps to create a virtual network containing two empty subnets.
 
 Run the following command to create a cluster.
 
-```
+```console
 az aro create \
   -g "$RESOURCEGROUP" \
   -n "$CLUSTER" \
