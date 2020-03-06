@@ -17,7 +17,7 @@ ms.author: sasarava
 ms.custom: H1Hack27Feb2017
 
 ---
-# Operating System Compatibility Matrix for HANA Large Instances
+# Compatible Operating Systems for HANA Large Instances
 
 ## HANA Large Instance Type I     
   | Operating System     | SKUs |
@@ -26,7 +26,7 @@ ms.custom: H1Hack27Feb2017
   | SLES 12 SP3 | S72, S72m, S144, S144m, S192, S192m, S192xm, S96 |
   | SLES 12 SP4 | S72, S72m, S144, S144m, S192, S192m, S192xm, S96, S224, S224m |
   
-### Instances With Persistent Memory
+### Persistent Memory SKUs
   | Operating System     | SKUs |
   |-------------------------|----|
   | SLES 12 SP4 | S224oo, S224om, S224ooo, S224oom |
@@ -40,6 +40,7 @@ ms.custom: H1Hack27Feb2017
 ## Related Documents
 
 - To know more about [Available SKUs](hana-available-skus.md)
+- To know about [Upgrading the Operating System](os-upgrade-hana-large-instance.md)
   
 
   
