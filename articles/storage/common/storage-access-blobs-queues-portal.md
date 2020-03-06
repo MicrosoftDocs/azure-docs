@@ -36,6 +36,9 @@ When you attempt to access blob or queue data in the Azure portal, the portal fi
 
 ### Azure AD account
 
+> [!NOTE]
+> The following does not apply to the in-portal Storage Explorer. You must be either [Owner](../../role-based-access-control/built-in-roles.md#owner) or [Contributor](../../role-based-access-control/built-in-roles.md#contributor). This restriction does not apply to the [Storage Explorer desktop application](https://azure.microsoft.com/en-us/features/storage-explorer/).
+
 To access blob or queue data from the Azure portal using your Azure AD account, both of the following statements must be true for you:
 
 - You have been assigned the Azure Resource Manager [Reader](../../role-based-access-control/built-in-roles.md#reader) role, at a minimum, scoped to the level of the storage account or higher. The **Reader** role grants the most restricted permissions, but another Azure Resource Manager role that grants access to storage account management resources is also acceptable.
