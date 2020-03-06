@@ -413,12 +413,12 @@ Details on supported SAP components on Azure, supported Azure infrastructure uni
 
 
 ## <a name="be80d1b9-a463-4845-bd35-f4cebdb5424a"></a>Azure Regions
-Microsoft's Azure services are usually collected in Azure regions. An Azure region is a one or a collection out of datacenters that contain the hardware  and infrastructure that runs the different Azure services. This infrastructure includes a large number of nodes that function as compute nodes or storage nodes, or run network functionality. 
+Microsoft's Azure services are collected in Azure regions. An Azure region is a one or a collection out of datacenters that contain the hardware  and infrastructure that runs the different Azure services. This infrastructure includes a large number of nodes that function as compute nodes or storage nodes, or run network functionality. 
 
-For a list of the different Azure regions, check the article [Azure geographies](https://azure.microsoft.com/global-infrastructure/geographies/). Not all the Azure regions offer the same services. Dependent on the SAP product you want to run, and the operating system and DBMS related to it, you can end up in a situation that a certain region does not offer the VM types you require. This is especially true for running SAP HANA, where you usually need VMs of the M/Mv2 VM-series. These VM families are deployed only in a subset of the regions. You can find out what exact VM, types, Azure storage types or other Azure Services are available in which of the regions with the help of the site [Products available by region](https://azure.microsoft.com/global-infrastructure/services/). As you start your planning and have certain regions in mind as primary region and eventually secondary region, you need to investigate first whether the necessary services are available in those regions. 
+For a list of the different Azure regions, check the article [Azure geographies](https://azure.microsoft.com/global-infrastructure/geographies/). Not all the Azure regions offer the same services. Dependent on the SAP product you want to run, and the operating system and DBMS related to it, you can end up in a situation that a certain region does not offer the VM types you require. This is especially true for running SAP HANA, where you usually need VMs of the M/Mv2 VM-series. These VM families are deployed only in a subset of the regions. You can find out what exact VM, types, Azure storage types or, other Azure Services are available in which of the regions with the help of the site [Products available by region](https://azure.microsoft.com/global-infrastructure/services/). As you start your planning and have certain regions in mind as primary region and eventually secondary region, you need to investigate first whether the necessary services are available in those regions. 
 
 ### Availability Zones
-Several of the Azure regions implemented a concepts called Availability Zones. Availability Zones are physically separate locations within an Azure region. Each Availability Zone is made up of one or more datacenters equipped with independent power, cooling, and networking. Deploying e.g. two VMs across two Availability Zones of Azure, and implementing a high-availability framework for your SAP DBMS system or the SAP Central Services gives you the best SLA in Azure. For this particular virtual machine SLA in Azure, check the latest version of [Virtual Machine SLAs](https://azure.microsoft.com/support/legal/sla/virtual-machines/). Since Azure regions developed and extended very rapidly over the last years, the topology of the Azure regions, the number of physical datacenters, the distance among those datacenters, and the distance between Azure Availability Zones can be different. And with that the network latency.
+Several of the Azure regions implemented a concept called Availability Zones. Availability Zones are physically separate locations within an Azure region. Each Availability Zone is made up of one or more datacenters equipped with independent power, cooling, and networking. For example, deploying two VMs across two Availability Zones of Azure, and implementing a high-availability framework for your SAP DBMS system or the SAP Central Services gives you the best SLA in Azure. For this particular virtual machine SLA in Azure, check the latest version of [Virtual Machine SLAs](https://azure.microsoft.com/support/legal/sla/virtual-machines/). Since Azure regions developed and extended rapidly over the last years, the topology of the Azure regions, the number of physical datacenters, the distance among those datacenters, and the distance between Azure Availability Zones can be different. And with that the network latency.
 
 The principle of Availability Zones does not apply to the HANA specific service of [HANA Large Instances](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-architecture). Service Level agreements for HANA Large Instances can be found in the article [SLA for SAP HANA on Azure Large Instances](https://azure.microsoft.com/en-us/support/legal/sla/sap-hana-large/) 
 
@@ -438,9 +438,9 @@ Azure Virtual Machines within one Azure availability set are distributed by the 
 
 To understand the concept of Azure availability sets and the way availability sets relate to Fault and Upgrade Domains, read [this article][virtual-machines-manage-availability]. 
 
-As you define availability sets and try to mix very different VM types within one availability set, you may encounter problems that prevent you to include a certain VM type into such an availability set. The reason is that the availability set is bound to scale unit that contains a certain type of compute hosts. And a certain type of compute host can only run a certain types of VM families. For example, if you create an availability set and deploy the first VM into the availability set and you choose a VM type of the Esv3 family and then you try to deploy as second VM a VM of the M family, you will be rejected in the second allocation. Reason is that the Esv3 family VMs are not running on the same host hardware as the virtual machines of the M family do. The same problem can occur, when you try to resize VMs and try to move a VM out of the Esv3 family to a VM type of the M family. In the case of resizing to a VM family that can't be hosted on the same host hardware, you need to shutdown all VMs in your availability set and resize them to be able to run on the other host machine type. For SLAs of VMs that are deployed within availability set, check the article [Virtual Machine SLAs](https://azure.microsoft.com/support/legal/sla/virtual-machines/). 
+As you define availability sets and try to mix various VMs of different VM families within one availability set, you may encounter problems that prevent you to include a certain VM type into such an availability set. The reason is that the availability set is bound to scale unit that contains a certain type of compute hosts. And a certain type of compute host can only run certain types of VM families. For example, if you create an availability set and deploy the first VM into the availability set and you choose a VM type of the Esv3 family and then you try to deploy as second VM a VM of the M family, you will be rejected in the second allocation. Reason is that the Esv3 family VMs are not running on the same host hardware as the virtual machines of the M family do. The same problem can occur, when you try to resize VMs and try to move a VM out of the Esv3 family to a VM type of the M family. In the case of resizing to a VM family that can't be hosted on the same host hardware, you need to shut down all VMs in your availability set and resize them to be able to run on the other host machine type. For SLAs of VMs that are deployed within availability set, check the article [Virtual Machine SLAs](https://azure.microsoft.com/support/legal/sla/virtual-machines/). 
 
-The principle of availability set and releated update and fault domain does not apply to the HANA specific service of [HANA Large Instances](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-architecture). Service Level agreements for HANA Large Instances can be found in the article [SLA for SAP HANA on Azure Large Instances](https://azure.microsoft.com/en-us/support/legal/sla/sap-hana-large/). 
+The principle of availability set and related update and fault domain does not apply to the HANA specific service of [HANA Large Instances](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture). Service Level agreements for HANA Large Instances can be found in the article [SLA for SAP HANA on Azure Large Instances](https://azure.microsoft.com/support/legal/sla/sap-hana-large/). 
 
 > [!IMPORTANT]
 > The concepts of Azure Availability Zones and Azure availability sets are mutually exclusive. That means, you can either deploy a pair or multiple VMs into a specific Availability Zone or an Azure availability set. But not both.
@@ -459,7 +459,7 @@ The Microsoft Azure platform is a multi-tenant platform. As a result storage, ne
 
 ### Azure virtual machines for SAP workload
 
-For SAP workload, we narrowed down the selection to different VM families that are suitable for SAP workload and SAP HANA workload more specifically. The way how you find the correct VM type and its capability to work through SAP workload is described in the document [What SAP software is supported for Azure deployments](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/sap-supported-product-on-azure). 
+For SAP workload, we narrowed down the selection to different VM families that are suitable for SAP workload and SAP HANA workload more specifically. The way how you find the correct VM type and its capability to work through SAP workload is described in the document [What SAP software is supported for Azure deployments](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-supported-product-on-azure). 
 
 > [!NOTE]
 > The VM types that are certified for SAP workload, there is no over-provisioning of CPU and memory resources.
@@ -478,18 +478,18 @@ As pricing model you have several different pricing options that list like:
 
 - Pay as you go
 - One year reserved
-- Three year reserved
+- Three years reserved
 - Spot pricing
 
-The pricing of each of the different offers with different service offers around operating systems and different regions is available on the site [Linux Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) and [Windows Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/windows/). For details and flexibility of one year and three year reserved instances, check these article:
+The pricing of each of the different offers with different service offers around operating systems and different regions is available on the site [Linux Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) and [Windows Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/windows/). For details and flexibility of one year and three year reserved instances, check these articles:
 
 - [What are Azure Reservations?](https://docs.microsoft.com/azure/cost-management-billing/reservations/save-compute-costs-reservations)
-- [Virtual machine size flexibility with Reserved VM Instances](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/reserved-vm-instance-size-flexibility)
+- [Virtual machine size flexibility with Reserved VM Instances](https://docs.microsoft.com/azure/virtual-machines/windows/reserved-vm-instance-size-flexibility)
 - [How the Azure reservation discount is applied to virtual machines](https://docs.microsoft.com/azure/cost-management-billing/manage/understand-vm-reservation-charges) 
 
-For more information on spot pricing, read the article [Azure Spot Virtual Machines](https://azure.microsoft.com/en-us/pricing/spot/). Pricing of the same VM type can also be different between different Azure regions. For some customers it was worth to deploy into a less expensive Azure region.
+For more information on spot pricing, read the article [Azure Spot Virtual Machines](https://azure.microsoft.com/pricing/spot/). Pricing of the same VM type can also be different between different Azure regions. For some customers, it was worth to deploy into a less expensive Azure region.
 
-Additionally, Azure offers the concepts of a dedicated host. The dedicated host concepts gives you more control on patching cycles that are done by Azure. You can time the patching according to your own schedules. This concepts is specifically targeting customers with workload that might not follow the normal cycle of workload. To read up on the concepts of Azure dedicated host offers, read the article [Azure Dedicated Host](https://docs.microsoft.com/azure/virtual-machines/windows/dedicated-hosts). Using this offer is supported for SAP workload and is used by several SAP customers who want to have more control on patching of infrastructure and eventual maintenance plans of Microsoft. For more information on how Microsoft maintains and patches the Azure infrastructure that hosts virtual machines, read the article [Maintenance for virtual machines in Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/maintenance-and-updates).
+Additionally, Azure offers the concepts of a dedicated host. The dedicated host concept gives you more control on patching cycles that are done by Azure. You can time the patching according to your own schedules. This offer is specifically targeting customers with workload that might not follow the normal cycle of workload. To read up on the concepts of Azure dedicated host offers, read the article [Azure Dedicated Host](https://docs.microsoft.com/azure/virtual-machines/windows/dedicated-hosts). Using this offer is supported for SAP workload and is used by several SAP customers who want to have more control on patching of infrastructure and eventual maintenance plans of Microsoft. For more information on how Microsoft maintains and patches the Azure infrastructure that hosts virtual machines, read the article [Maintenance for virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/maintenance-and-updates).
 
 
  
@@ -794,7 +794,7 @@ For a general list of Azure-related PowerShell commands check here: <https://doc
 
 ### Management via Microsoft Azure CLI commands
 
-For customers who use Linux and want to manage Azure resources Powershell might not be an option. Microsoft offers Azure CLI as an alternative.
+For customers who use Linux and want to manage Azure resources PowerShell might not be an option. Microsoft offers Azure CLI as an alternative.
 The Azure CLI provides a set of open source, cross-platform commands for working with the Azure Platform. The Azure CLI provides much of
 the same functionality found in the Azure portal.
 
@@ -810,7 +810,7 @@ Also read chapter [Azure CLI for Linux VMs][deployment-guide-4.5.2] in the [Depl
 ## First steps planning a deployment
 The first step in deployment planning is NOT to check for VMs available to run SAP. The first step can be one that is time consuming, but most important, is to work with compliance and security teams in your company on what the boundary conditions are for deploying which type of SAP workload or business process into public cloud. If your company deployed other software before into Azure, the process can be easy. If your company is more at the beginning of the journey, there might be larger discussions necessary in order to figure out the boundary conditions, security conditions, that allow certain SAP data and SAP business processes to be hosted in public cloud.
 
-As useful help you can point to [Microsoft compliance offerings](https://docs.microsoft.com/microsoft-365/compliance/offering-home) for a list of compliance offers Microsoft can provide. 
+As useful help, you can point to [Microsoft compliance offerings](https://docs.microsoft.com/microsoft-365/compliance/offering-home) for a list of compliance offers Microsoft can provide. 
 
 Other areas of concerns like data encryption for data at rest or other encryption in Azure service is documented in [Azure encryption overview](https://docs.microsoft.com/azure/security/fundamentals/encryption-overview).
 
@@ -942,7 +942,7 @@ Such a VM does NOT need to be generalized and can be uploaded in the state and s
 ##### Uploading a VHD and making it an Azure Disk
 In this case we want to upload a VHD, either with or without an OS in it, and mount it to a VM as a data disk or use it as OS disk. This is a multi-step process
 
-**Powershell**
+**PowerShell**
 
 * Sign in to your subscription with *Connect-AzAccount*
 * Set the subscription of your context with *Set-AzContext* and parameter SubscriptionId or SubscriptionName - see <https://docs.microsoft.com/powershell/module/az.accounts/set-Azcontext>
@@ -963,8 +963,8 @@ In this case we want to upload a VHD, either with or without an OS in it, and mo
 
 **Template**
 
-* Upload the VHD with Powershell or Azure CLI
-* (Optional) Create a Managed Disk from the VHD with Powershell, Azure CLI, or the Azure portal
+* Upload the VHD with PowerShell or Azure CLI
+* (Optional) Create a Managed Disk from the VHD with PowerShell, Azure CLI, or the Azure portal
 * Deploy the VM with a JSON template referencing the VHD as shown in [this example JSON template](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-specialized-vhd-new-or-existing-vnet/azuredeploy.json) or using Managed Disks as shown in [this example JSON template](https://github.com/Azure/azure-quickstart-templates/blob/master/sap-2-tier-user-image-md/azuredeploy.json).
 
 #### Deployment of a VM Image
@@ -992,16 +992,16 @@ To upload an existing VM or VHD from the on-premises network, in order to use it
 **Template**
 
 * Use *sysprep* on Windows or *waagent -deprovision* on Linux to generalize your VM - see [Sysprep Technical Reference](https://technet.microsoft.com/library/cc766049.aspx) for Windows or [How to capture a Linux virtual machine to use as a Resource Manager template][capture-image-linux-step-2-create-vm-image] for Linux
-* Upload the VHD with Powershell or Azure CLI
-* (Optional) Create a Managed Disk Image from the VHD with Powershell, Azure CLI, or the Azure portal
+* Upload the VHD with PowerShell or Azure CLI
+* (Optional) Create a Managed Disk Image from the VHD with PowerShell, Azure CLI, or the Azure portal
 * Deploy the VM with a JSON template referencing the image VHD as shown in [this example JSON template](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-specialized-vhd-new-or-existing-vnet/azuredeploy.json) or using the Managed Disk Image as shown in [this example JSON template](https://github.com/Azure/azure-quickstart-templates/blob/master/sap-2-tier-user-image-md/azuredeploy.json).
 
 #### Downloading VHDs or Managed Disks to on-premises
 Azure Infrastructure as a Service is not a one-way street of only being able to upload VHDs and SAP systems. You can move SAP systems from Azure back into the on-premises world as well.
 
-During the time of the download the VHDs or Managed Disks can't be active. Even when downloading disks, which are mounted to VMs, the VM needs to be shut down and deallocated. If you only want to download the database content which, then should be used to set up a new system on-premises and if it is acceptable that during the time of the download and the setup of the new system that the system in Azure can still be operational, you could avoid a long downtime by performing a compressed database backup into a disk and just download that disk instead of also downloading the OS base VM.
+During the time of the download the VHDs or Managed Disks can't be active. Even when downloading disks, which are mounted to VMs, the VM needs to be shut down and deallocated. If you only want to download the database content, which, then should be used to set up a new system on-premises and if it is acceptable that during the time of the download and the setup of the new system that the system in Azure can still be operational, you could avoid a long downtime by performing a compressed database backup into a disk and just download that disk instead of also downloading the OS base VM.
 
-#### Powershell
+#### PowerShell
 
 * Downloading a Managed Disk  
   You first need to get access to the underlying blob of the Managed Disk. Then you can copy the underlying blob to a new storage account and download the blob from this storage account.
@@ -1061,7 +1061,7 @@ Data disks can be stored as VHD files in an Azure Storage Account and can be dir
 
 Data disks can also be Managed Disks. In this case, the Managed Disk is used to create a new Managed Disk before being attached to the virtual machine. The name of the Managed Disk must be unique within a resource group.
 
-##### Powershell
+##### PowerShell
 
 You can use Azure PowerShell cmdlets to copy a VHD as shown in [this article][storage-powershell-guide-full-copy-vhd]. To create a new Managed Disk, use New-AzDiskConfig and New-AzDisk as shown in the following example.
 
@@ -1090,7 +1090,7 @@ Professional editions of Azure Storage Explorers can be found here:
 The copy of a VHD itself within a storage account is a process, which takes only a few seconds (similar to SAN hardware creating snapshots with lazy copy and
 copy on write). After you have a copy of the VHD file, you can attach it to a virtual machine or use it as an image to attach copies of the VHD to virtual machines.
 
-##### Powershell
+##### PowerShell
 
 ```powershell
 # attach a vhd to a vm
@@ -1136,7 +1136,7 @@ az vm disk attach --disk <new disk name or managed disk id> --resource-group <re
 #### <a name="9789b076-2011-4afa-b2fe-b07a8aba58a1"></a>Copying disks between Azure Storage Accounts
 This task cannot be performed on the Azure portal. You can use Azure PowerShell cmdlets, Azure CLI, or a third-party storage browser. The PowerShell cmdlets or CLI commands can create and manage blobs, which include the ability to asynchronously copy blobs across Storage Accounts and across regions within the Azure subscription.
 
-##### Powershell
+##### PowerShell
 You can also copy VHDs between subscriptions. For more information, read [this article][storage-powershell-guide-full-copy-vhd].
 
 The basic flow of the PS cmdlet logic looks like this:
@@ -1382,7 +1382,7 @@ The assumption is that you created a VM Image as described in some sections of c
 
 The sequence of events to implement the scenario looks like this:
 
-##### Powershell
+##### PowerShell
 
 * Create a new resource group for every training/demo landscape
 
@@ -1652,9 +1652,7 @@ With this document, you should be able to open dedicated ports in the VPN device
 
 Other security measures when deploying VMs in such a scenario could be to create a [Network Security Group][virtual-networks-nsg] to define access rules.
 
-### Dealing with different Virtual Machine Series
 
-Microsoft added many more VM types that differ either in number of vCPUs, memory or more important on hardware it is running on. Not all those VMs are supported with SAP (see supported VM types in SAP Note [1928533]). Some of those VMs run on different host hardware generations. These host hardware generations are getting deployed in the granularity of an Azure Scale-Unit. Cases may arise where the different VM types you chose can't be run on the same Scale-Unit. An availability set is limited in the ability to span Scale-Units based of different hardware.  For example, if you are running the SAP DBMS layer on an E64s_v3, VM which is in an availability set together with the VM running the secondary DBMS instance in an HA configuration, you can't simply stop and restart the secondary VM as M-Series VM because you might want to upgrade the VM. Reason is that M-Series VMs and Ev3-Series VMs are running on different hardware and with that in different Scale-Units. You would need to create a new availability set, delete the secondary Ev3-Series VM, without deleting the storage, and redeploy the VM as M-Series VM into the new availability set.
 
 #### Printing on a local network printer from SAP instance in Azure
 
@@ -2033,7 +2031,7 @@ Besides the shutdown using the Azure portal one can also do it via Powershell or
 <https://azure.microsoft.com/documentation/articles/virtual-machines-deploy-rmtemplates-powershell/>
 
 A restore of that state would consist of deleting the base VM as well as the original disks of the base VM and mounted disks, copying back the saved disks to the original Storage Account or resource group for managed disks and then redeploying the system.
-This article shows an example how to script this process in Powershell:
+This article shows an example how to script this process in PowerShell:
 <http://www.westerndevs.com/azure-snapshots/>
 
 Please make sure to install a new SAP license since restoring a VM backup as described above creates a new hardware key.
