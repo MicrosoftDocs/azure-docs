@@ -109,7 +109,6 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + Fixed the issue with frequency detection in the remote runs
     + Moved the `AutoMLStep` in the `azureml-pipeline-steps` package. Deprecated the `AutoMLStep` within `azureml-train-automl-runtime`.
   + **azureml-train-core**
-    + Moved the `AutoMLStep` to the `azureml-pipeline-steps package`. Deprecated the `AutoMLStep` within `azureml-train-automl-runtime`.
     + Supporting PyTorch version 1.4 in the PyTorch Estimator
   
 ## 2020-03-02
