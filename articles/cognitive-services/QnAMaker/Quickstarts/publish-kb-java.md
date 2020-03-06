@@ -3,7 +3,7 @@ title: "Quickstart: Publish knowledge base, REST, Java - QnA Maker"
 description: This Java REST-based quickstart publishes your knowledge base and creates an endpoint that can be called in your application or chat bot.
 ms.date: 02/08/2020
 ROBOTS: NOINDEX,NOFOLLOW
-ms.custom: RESTCURL
+ms.custom: RESTCURL2020FEB27
 ms.topic: concept
 
 ---
