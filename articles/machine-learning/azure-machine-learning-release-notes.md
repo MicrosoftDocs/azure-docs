@@ -8,8 +8,7 @@ ms.subservice: core
 ms.topic: reference
 ms.author: jmartens
 author: j-martens
-ms.date: 01/21/2020
-ms.custom: seodec18
+ms.date: 03/10/2020
 ---
 
 # Azure Machine Learning release notes
@@ -17,6 +16,44 @@ ms.custom: seodec18
 In this article, learn about Azure Machine Learning releases.  For the full SDK reference content,  visit the Azure Machine Learning's [**main SDK for Python**](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) reference page.
 
 See [the list of known issues](resource-known-issues.md) to learn about known bugs and workarounds.
+
+## 2020-03-02
+
+### Azure Machine Learning SDK for Python v1.1.2rc0
+
++ **Bug fixes and improvements**
+  + **azureml-automl-core**
+    + Enabled the Batch mode inference (taking multiple rows once) for automl ONNX models
+    + Improved the detection of frequency on the data sets, lacking data or containing irregular data points
+    + Added the ability to remove data points not complying with the dominant frequrncy.
+  + **azureml-automl-runtime**
+    + Fixed the issue with the error thrown if the grain which was not present in the training set appeared in the test set
+    + Removed the y_query requirement during scoring on forecasting service
+  + **azureml-contrib-mir**
+    + Adds functionality in the MirWebservice class to retrieve the Access Token
+  + **azureml-core**
+    + Deployed AzureML Webservices will now default to `INFO` logging. This can be controlled by setting the `AZUREML_LOG_LEVEL` environment variable in the deployed service.
+    + Fix iterating on `Dataset.get_all` to return all datasets registered with the workspace.
+    + Improve error message when invalid type is passed to `path` argument of dataset creation APIs.
+    + Python sdk uses discovery service to use 'api' endpoint instead of 'pipelines'.
+    + Swap to the new routes in all SDK calls
+    + Changes routing of calls to the ModelManagementService to a new unified structure
+      + Made workspace update method publicly available.
+      + Added image_build_compute parameter in workspace update method to allow user updating the compute for image build
+    +  Added deprecation messages to the old profiling workflow. Fixed profiling cpu and memory limits
+  + **azureml-interpret**
+    + update azureml-interpret to interpret-community 0.6.*
+  + **azureml-mlflow**
+    + Add support for sovereign clouds to azureml.mlflow
+  + **azureml-pipeline-steps**
+    + Moved the `AutoMLStep` to the `azureml-pipeline-steps package`. Deprecated the `AutoMLStep` within `azureml-train-automl-runtime`.
+  + **azureml-train-automl-client**
+    + Fixed an issue where certain packages may be installed at incorrect versions on remote runs.
+  + **azureml-train-automl-runtime**
+    + Fixed the issue with frequency detection in the remote runs
+    + Moved the `AutoMLStep` to the `azureml-pipeline-steps package`. Deprecated the `AutoMLStep` within `azureml-train-automl-runtime`.
+  + **azureml-train-core**
+    + Moved the `AutoMLStep` to the `azureml-pipeline-steps package`. Deprecated the `AutoMLStep` within `azureml-train-automl-runtime`.
 
 ## 2020-02-18
 

@@ -1,12 +1,10 @@
 ---
 title: Clone app with PowerShell
 description: Learn how to clone your App Service app to a new app using PowerShell. A variety of cloning scenarios are covered, including Traffic Manager integration.
-author: georgewallace
 
 ms.assetid: f9a5cfa1-fbb0-41e6-95d1-75d457347a35
 ms.topic: article
 ms.date: 01/14/2016
-ms.author: gwallace
 ms.custom: seodec18
 
 ---

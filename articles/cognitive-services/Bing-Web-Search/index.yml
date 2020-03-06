@@ -66,13 +66,13 @@ conceptualContent:
           url: ../bing-custom-search/quick-start.md
         - text: Use C#
           itemType: quickstart
-          url: ../bing-custom-search/sdk-csharp-quick-start.md
+          url: ../bing-custom-search/quickstarts/client-libraries.md?pivots=programming-language-csharp
         - text: Use Java
           itemType: quickstart
-          url: ../bing-custom-search/sdk-java-quickstart.md
+          url: ../bing-custom-search/quickstarts/client-libraries.md?pivots=programming-language-java
         - text: Use Python
           itemType: quickstart
-          url: ../bing-custom-search/sdk-python-quickstart.md
+          url: ../bing-custom-search/quickstarts/client-libraries.md?pivots=programming-language-python
         - text: Create a single page web-app
           itemType: tutorial
           url: ../bing-custom-search/tutorials/custom-search-web-page.md

@@ -66,7 +66,6 @@ az container show --resource-group myResourceGroup --name aci-tutorial-app --que
 ```
 
 For example:
-
 ```output
 "aci-demo.eastus.azurecontainer.io"
 ```

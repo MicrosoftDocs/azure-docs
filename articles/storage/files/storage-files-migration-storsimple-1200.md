@@ -4,20 +4,23 @@ description: Learn how to migrate a StorSimple 1200 series virtual appliance to 
 author: fauhse
 ms.service: storage
 ms.topic: conceptual
-ms.date: 2/14/2020
+ms.date: 03/02/2020
 ms.author: fauhse
 ms.subservice: files
 ---
 
 # StorSimple 1200 migration to Azure File Sync
 
-StorSimple 1200 series is a virtual appliance that is run in an on-premises data center.
-With the announced end-of-service-life of the StorSimple product line on December 31 2022, the cloud service this virtual appliance is connected to will stop working.
+StorSimple 1200 series is a virtual appliance that is run in an on-premises data center. It is possible to migrate the data from this appliance to an Azure File Sync environment. This article provides the necessary background knowledge and migrations steps for a successful migration to Azure File Sync.
 
-It is imperative to migrate off of any StorSimple device with ample time to spare.
-Azure File Sync is the natural successor technology, with more features and more flexibility than StorSimple offers.
+## StorSimple
 
-This article provides the necessary background knowledge and migrations steps for a successful migration to Azure File Sync.
+StorSimple is a discontinued Microsoft product. Extended support for this product and its cloud service expires on December 31 2022. It is important to start planning for a migration off of StorSimple right away.
+
+Azure File Sync is the default and strategic long-term Azure service that StorSimple appliances can be migrated to.
+
+> [!IMPORTANT]
+> Microsoft is committed to assist customers in their migration. Email AzureFilesMigration@microsoft .com for a customized migration plan as well as assistance during the migration.
 
 ## Azure File Sync
 
