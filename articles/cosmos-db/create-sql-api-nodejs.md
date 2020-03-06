@@ -12,7 +12,6 @@ ms.author: dech
 # Quickstart: Use Node.js to connect and query data from Azure Cosmos DB SQL API account
 
 > [!div class="op_single_selector"]
->
 > - [.NET V3](create-sql-api-dotnet.md)
 > - [.NET V4](create-sql-api-dotnet-V4.md)
 > - [Java](create-sql-api-java.md)
