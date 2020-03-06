@@ -6,14 +6,14 @@ author: jovanpop-msft
 ms.service: synapse-analytics
 ms.topic: quickstart
 ms.subservice:
-ms.date: 02/02/2020
+ms.date: 03/15/2020
 ms.author: jovanpop
-ms.reviewer: jrasnick
+ms.reviewer: jrasnick, carlrab
 ---
 
 # Quickstart: Using Synapse Studio
 
-In this quickstart, you'll learn how easy it is to query files using Synapse Studio.
+In this quickstart, you'll learn how to query files using Synapse Studio.
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
@@ -27,44 +27,39 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 ## Launch Synapse Studio
 
-Find your Azure Synapse workspace and use the "Launch Synapse Studio" link to open the studio.
+In your Azure Synapse workspace in the Azure portal, click **Launch Synapse Studio**.
 
 ![Launch Synapse Studio](./media/quickstart-synapse-studio/launch-synapse-workspace.png)
 
-As an alternative, access [Azure Synapse Analytics](https://web.azuresynapse.net) and select tenant, subscription, and workspace.
+Alternatively, you can launch Synapse Studio by clicking [Azure Synapse Analytics](https://web.azuresynapse.net) and providing the appropriate tenant, subscription, and workspace values.
 
 ## Browse storage accounts
 
-Once you open Synapse Studio, go to the data section. There should be at least one storage account that was created with the workspace.
+Once you open Synapse Studio, browse to **Data** and then expand **Storage accounts** to viewthe storage account in the workspace.
 
 ![Browse files on storage](./media/quickstart-synapse-studio/browse-files-on-storage.png)
 
-Create new folders and upload files using the links in toolbar to organize your files.
+You can create new folders and upload files using the links in toolbar to organize your files.
 
 ## Query files on storage account
 
 > [!IMPORTANT]
-> Make sure that you have `Storage Blob Reader` role on the underlying storage in order to be able to query the files. Learn how to [assign **Storage Blob Data Reader** or **Storage Blob Data Contributor** RBAC permissions on Azure Storage](../storage/common/storage-auth-aad-rbac-portal.md#assign-a-built-in-rbac-role).
+> You need to be a member of the `Storage Blob Reader` role on the underlying storage in order to be able to query the files. Learn how to [assign **Storage Blob Data Reader** or **Storage Blob Data Contributor** RBAC permissions on Azure Storage](../storage/common/storage-auth-aad-rbac-portal.md#assign-a-built-in-rbac-role).
 
-Upload some `PARQUET` files and create a SQL script or a Spark notebook to see the content of the files.
+1. Upload some `PARQUET` files.
+2. Select one or more files and then create a new SQL script or a Spark notebook to see the content of the files. If you want to create a notebook, you would need to create [Spark pool in the workspace](spark/apache-spark-notebook-create-spark-use-sql.md).
 
-![Query files on storage](./media/quickstart-synapse-studio/query-files-on-storage.png)
+   ![Query files on storage](./media/quickstart-synapse-studio/query-files-on-storage.png)
 
-Run the generated query or notebook to see the content of the file:
+3. Run the generated query or notebook to see the content of the file:
 
-![See the content of file](./media/quickstart-synapse-studio/query-files-on-storage-result.png)
+   ![See the content of file](./media/quickstart-synapse-studio/query-files-on-storage-result.png)
 
-You can change the query to filter and sort results. Find language features that are available in SQL on-demand in [SQL features overview](sql-analytics/overview-features.md).
-
-> [!WARNING]
-> If you want to create a notebook, you would need to create [Spark pool in the workspace](spark/apache-spark-notebook-create-spark-use-sql.md).
-
-> [!NOTE]
-> If you select multiple files you can generate the SQL query that reads from the selected files.
+4. You can change the query to filter and sort results. Find language features that are available in SQL on-demand in [SQL features overview](sql-analytics/overview-features.md).
 
 ## Next steps
 
-- Enable AAD users to query files [by assigning **Storage Blob Data Reader** or **Storage Blob Data Contributor** RBAC permissions on Azure Storage](../storage/common/storage-auth-aad-rbac-portal.md#assign-a-built-in-rbac-role) 
+- Enable AAD users to query files [by assigning **Storage Blob Data Reader** or **Storage Blob Data Contributor** RBAC permissions on Azure Storage](../storage/common/storage-auth-aad-rbac-portal.md#assign-a-built-in-rbac-role)
 - [Query files on Azure Storage using SQL On-Demand](quickstart-sql-on-demand.md)
 - [Create Spark pool](spark/apache-spark-notebook-create-spark-use-sql.md)
 - [Create Power BI report on files stored on Azure Storage](sql-analytics/tutorial-connect-power-bi-desktop.md)
