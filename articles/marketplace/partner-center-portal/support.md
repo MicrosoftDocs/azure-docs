@@ -24,11 +24,13 @@ Microsoft provides support for a wide variety of products and services. Finding 
 
 1. In the upper menu on the right side of the page, select the **Support** icon. 
  
-   ![Support icon](./media/commercial-marketplace-support.png)
-
-1. The **Help and support** pane will appear from the right-hand side of the page. There will be a dropdown for each program in Partner Center that your account is registered for. Select the **Commercial Marketplace** dropdown menu. 
+1. The **Help and support** pane will appear from the right-hand side of the page. 
  
    ![Support drop-down menu](./media/commercial-marketplace-support-pane.png)
+
+    Or go to the **Home page** pane and select **Help and support**.
+
+   ![Help and support from Home page](./media/homepage-help-support.png)
 
 1. Select **[Documentation](../index.md)** to review comprehensive answers to questions and resources. 
 
@@ -55,7 +57,7 @@ Once you have found the topic of your choice, select **Review Solutions**.
 
 The following options will become available:
 
-* To select a different issue, go back to topic search.
+* To select a different topic, select a different topic link under **selected issue**.
 * Review the description for this issue, if available.  It is the text shown above the **recommended steps**.
 * Review **recommended steps**, if available.
 * Review **recommended documents**, if available.
@@ -63,8 +65,6 @@ The following options will become available:
 ![Recommended solutions](./media/recommended-solutions.png)
 
 In case you cannot find your answer in **recommended solutions**, click on **provide issue details**.  Fill in the form and all required fields to help speed up the resolution process.  Then click **submit**.
-
-![Create a support ticket](./media/create-support-ticket.png)
 
 >[!Note]
 >If you have not logged in Partner Center and the topic requires authentication, you will be requested to log in before you can proceed.  For public topics, authentication is not required.
