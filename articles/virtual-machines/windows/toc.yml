@@ -12,7 +12,7 @@
   - name: Create VM - PowerShell
     href: quick-create-powershell.md
   - name: Create VM - Azure CLI
-    href: quick-create-cli.mdusa
+    href: quick-create-cli.md
 - name: Tutorials
   items:
   - name: 1 - Create / manage a VM
