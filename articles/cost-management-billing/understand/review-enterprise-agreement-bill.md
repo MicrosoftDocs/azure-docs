@@ -6,7 +6,7 @@ ms.reviewer: amberb
 tags: billing
 ms.service: cost-management-billing
 ms.topic: tutorial
-ms.date: 02/24/2020
+ms.date: 03/03/2020
 ms.author: banders
 
 ---

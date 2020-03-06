@@ -51,19 +51,22 @@ Now, let's create a `SpeechRecognizer`. This object is created inside of a using
 
 From the `SpeechRecognizer` object, you're going to call the `RecognizeOnceAsync()` method. This method lets the Speech service know that you're sending a single phrase for recognition, and that once the phrase is identified to stop recognizing speech.
 
-Inside the using statement, add this code:
+Inside the using statement, add this code.
+
 [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/from-microphone/helloworld/Program.cs?range=20)]
 
 ## Display the recognition results (or errors)
 
 When the recognition result is returned by the Speech service, you'll want to do something with it. We're going to keep it simple and print the result to console.
 
-Inside the using statement, below `RecognizeOnceAsync()`, add this code:
+Inside the using statement, below `RecognizeOnceAsync()`, add this code.
+
 [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/from-microphone/helloworld/Program.cs?range=22-41)]
 
 ## Check your code
 
-At this point, your code should look like this:
+At this point, your code should look like this.
+
 [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/from-microphone/helloworld/Program.cs)]
 
 ## Build and run your app

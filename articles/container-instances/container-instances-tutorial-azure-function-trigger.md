@@ -37,7 +37,7 @@ This article assumes you publish the project using the name *myfunctionapp*, in 
 
 ## Enable an Azure-managed identity in the function app
 
-Now enable a system-assigned [managed identity](../app-service/overview-managed-identity.md?toc=/azure/azure-functions/toc.json#adding-a-system-assigned-identity) in your function app. The PowerShell host running the app can automatically authenticate using this identity, enabling functions to take actions on Azure services to which the identity has been granted access. In this tutorial, you grant the managed identity permissions to create resources in the function app's resource group. 
+Now enable a system-assigned [managed identity](../app-service/overview-managed-identity.md?toc=/azure/azure-functions/toc.json#add-a-system-assigned-identity) in your function app. The PowerShell host running the app can automatically authenticate using this identity, enabling functions to take actions on Azure services to which the identity has been granted access. In this tutorial, you grant the managed identity permissions to create resources in the function app's resource group. 
 
 First use the [az group show][az-group-show] command to get the ID of the function app's resource group and store it in an environment variable. This example assumes you run the command in a Bash shell.
 

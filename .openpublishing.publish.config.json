@@ -153,6 +153,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "functions-pytorch",
+      "url": "https://github.com/Azure-Samples/functions-python-pytorch-tutorial",
+      "branch": "master",
+      "branch_mapping": {}
+    },   
+    {
       "path_to_root": "functions-quickstart-templates",
       "url": "https://github.com/Azure/azure-functions-templates",
       "branch": "dev"
@@ -346,6 +352,26 @@
       "url": "https://github.com/Azure-Samples/azure-sdk-for-go-samples",
       "branch": "master"
     },
+    {
+      "path_to_root": "azure-sdk-for-java-event-hubs",
+      "url": "https://github.com/Azure/azure-sdk-for-java/",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "azure-sdk-for-java-script-event-hubs",
+      "url": "https://github.com/Azure/azure-sdk-for-js/",
+      "branch": "master"
+    },        
+    {
+      "path_to_root": "azure-sdk-for-net-event-hubs",
+      "url": "https://github.com/Azure/azure-sdk-for-net/",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "azure-sdk-for-python-event-hubs",
+      "url": "https://github.com/Azure/azure-sdk-for-python/",
+      "branch": "master"
+    },      
     {
       "path_to_root": "cosmos-dotnet-getting-started",
       "url": "https://github.com/Azure-Samples/cosmos-dotnet-getting-started",

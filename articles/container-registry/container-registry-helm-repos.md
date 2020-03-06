@@ -113,7 +113,7 @@ helm chart push mycontainerregistry.azurecr.io/helm/wordpress:latest
 
 After a successful push, output is similar to:
 
-```console
+```output
 The push refers to repository [mycontainerregistry.azurecr.io/helm/wordpress]
 ref:     mycontainerregistry.azurecr.io/helm/wordpress:latest
 digest:  5899db028dcf96aeaabdadfa5899db025899db025899db025899db025899db02
@@ -136,7 +136,7 @@ az acr repository show \
 
 Output is similar to:
 
-```console
+```output
 {
   "changeableAttributes": {
     "deleteEnabled": true,
@@ -163,7 +163,7 @@ az acr repository show-manifests \
 
 Output, abbreviated in this example, shows a `configMediaType` of `application/vnd.cncf.helm.config.v1+json`:
 
-```console
+```output
 [
   {
     [...]
@@ -211,7 +211,7 @@ helm inspect chart wordpress
 
 When no version number is provided, the *latest* version is used. Helm returns detailed information about your chart, as shown in the following condensed output:
 
-```
+```output
 apiVersion: v1
 appVersion: 5.3.2
 dependencies:
@@ -251,7 +251,7 @@ helm install wordpress --generate-name
 
 As the installation proceeds, follow the instructions in the command output to see the WorPress URLs and credentials. You can also run the `kubectl get pods` command to see the Kubernetes resources deployed through the Helm chart:
 
-```console
+```output
 NAME                                    READY   STATUS    RESTARTS   AGE
 wordpress-1598530621-67c77b6d86-7ldv4   1/1     Running   0          2m48s
 wordpress-1598530621-mariadb-0          1/1     Running   0          2m48s
@@ -306,7 +306,7 @@ helm fetch stable/wordpress
 
 Type `ls` to list the downloaded chart, and note the Wordpress version included in the filename. The `helm fetch stable/wordpress` command didn't specify a particular version, so the *latest* version was fetched. In the following example output, the Wordpress chart is version *8.1.0*:
 
-```
+```output
 wordpress-8.1.0.tgz
 ```
 
@@ -318,7 +318,7 @@ az acr helm push --name mycontainerregistry wordpress-8.1.0.tgz
 
 After a few moments, the Azure CLI reports that your chart is saved, as shown in the following example output:
 
-```
+```output
 {
   "saved": true
 }
@@ -340,7 +340,7 @@ helm search mycontainerregistry
 
 The Wordpress chart pushed in the previous step is listed, as shown in the following example output:
 
-```
+```output
 NAME              	CHART VERSION	APP VERSION	DESCRIPTION
 helmdocs/wordpress	8.1.0       	5.3.2      	Web publishing platform for building blogs and websites.
 ```
@@ -361,7 +361,7 @@ helm inspect mycontainerregistry/wordpress
 
 When no version number is provided, the *latest* version is used. Helm returns detailed information about your chart, as shown in the following condensed example output:
 
-```
+```output
 apiVersion: v1
 appVersion: 5.3.2
 description: Web publishing platform for building blogs and websites.
@@ -411,7 +411,7 @@ The following steps are completed during the install process:
 
 As the installation proceeds, follow the instructions in the command output to see the WorPress URLs and credentials. You can also run the `kubectl get pods` command to see the Kubernetes resources deployed through the Helm chart:
 
-```
+```output
 NAME                                    READY   STATUS    RESTARTS   AGE
 wordpress-1598530621-67c77b6d86-7ldv4   1/1     Running   0          2m48s
 wordpress-1598530621-mariadb-0          1/1     Running   0          2m48s

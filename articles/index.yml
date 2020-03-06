@@ -1439,7 +1439,7 @@ tools:
       url: https://docs.microsoft.com/azure/python/
     # Card
     - title: .NET
-      imageSrc: https://docs.microsoft.com/media/logos/logo_NET.svg
+      imageSrc: ./media/index/net-logo.svg
       url: https://docs.microsoft.com/dotnet/azure/
     # Card
     - title: Node.js
@@ -1493,7 +1493,7 @@ additionalContent:
         # Card
         - title: Azure Germany
           summary: A dedicated cloud that adheres to German data-handling regulations.
-          url: germany/index.md
+          url: germany/index.yml
         # Card
         - title: Azure China 21Vianet
           summary: A dedicated cloud located in China and operated by 21Vianet.
