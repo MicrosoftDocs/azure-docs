@@ -46,7 +46,7 @@ Similarly, disk sizing depends on sizing criteria and storage type:
 
 ## Does performance history and utilization affect sizing?
 
-Yes.
+Yes, performance history and utilization affect sizing in Azure Migrate.
 
 ### Performance history
 
