@@ -1,11 +1,11 @@
 ---
-title: Common questions about Azure Migrate Server Migration
+title: Azure Migrate Server Migration FAQ
 description: Get answers to common questions about using Azure Migrate Server Migration to migrate machines.
 ms.topic: conceptual
 ms.date: 02/17/2020
 ---
 
-# Azure Migrate Server Migration: Common questions
+# Azure Migrate Server Migration FAQ
 
 This article answers common questions about the Azure Migrate: Server Migration tool. If you have other questions, check these resources:
 
