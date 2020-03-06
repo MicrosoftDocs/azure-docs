@@ -25,9 +25,9 @@ Because of the different lengths of possible multilingual and emoji encodings, t
 
 Whenever offsets are returned the API response, such as [Named Entity Recognition](text-analytics-how-to-entity-linking) or [Sentiment Analysis](text-analytics-how-to-sentiment-analysis), remember the following:
 
-* Elements in the response may be specific to the endpoint being called. 
-* HTTP POST/GET payloads are encoded in [UTF-8](https://www.w3schools.com/charsets/ref_html_utf8.asp), which may or may not be the default character encoding on your client-side compiler/operating system.
-* Offsets refer to grapheme counts, not character counts.
+* Elements in the response may be specific to the endpoint that was called. 
+* HTTP POST/GET payloads are encoded in [UTF-8](https://www.w3schools.com/charsets/ref_html_utf8.asp), which may or may not be the default character encoding on your client-side compiler or operating system.
+* Offsets refer to grapheme counts based on the [Unicode 8.0.0](https://unicode.org/versions/Unicode8.0.0) standard, not character counts.
 
 ## Extracting substrings using Grapheme offsets
 
