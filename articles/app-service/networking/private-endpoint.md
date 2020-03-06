@@ -13,15 +13,16 @@ ms.workload: web
 
 # Using Private Endpoints for Azure Web App (Preview)
 
-You can use Private Endpoint for your Azure Web App to allow clients located in your private network to securely access to the app over Private Link. The Private Endpoint uses an IP address from the Azure VNet address space. Network traffic between client on your private network and the Web App traverses over the Vnet and a Private Link on the Microsoft backbone network, eliminating exposure from the public Internet. With Private Endpoint, you can disable outgoing network flows from the subnet with NSG and eliminate the data leakage risk.
+You can use Private Endpoint for your Azure Web App to allow clients located in your private network to securely access to the app over Private Link. The Private Endpoint uses an IP address from your Azure VNet address space. Network traffic between client on your private network and the Web App traverses over the Vnet and a Private Link on the Microsoft backbone network, eliminating exposure from the public Internet. With Private Endpoint, you can disable outgoing network flows from the subnet with NSG and eliminate the data leakage risk.
 
-Using private endpoints for your Web App enables you to:
+Using Private Endpoint for your Web App enables you to:
 
 - Secure your Web App by configuring the Service Endpoint, eliminating public exposure
 - Increase security for the Vnet by enabling you to block data exfiltration from the Vnet
 - Securely connect to Web App from on-premises networks that connect to the Vnet using a VPN or ExpressRoute private peering.
 
-If you just need a secure connection between your Vnet and your Web App, Service Endpoint is the simplest solution. If you need to protect against data exfiltration or route access from on-premises Private Endpoint is the solution.
+If you just need a secure connection between your Vnet and your Web App, Service Endpoint is the simplest solution. 
+If you need to protect against data exfiltration or route access from on-premises, Private Endpoint is the solution.
 
 For more information about [Service Endpoint][serviceendpoint]
 
@@ -29,7 +30,7 @@ For more information about [Service Endpoint][serviceendpoint]
 
 A Private Endpoint is a special network interface (nic) for your Azure Web App in your Subnet in your Virtual Network (Vnet).
 When you create a Private Endpoint for your Web App, it provides a secure connectivity between clients on your private network and your Web App. The private Endpoint is assigned an IP Address from the IP address range of your Vnet.
-The connection between the Private Endpoint and the Web App uses a secure [Private Link][privatelink]. Private endpoint is only used for incoming flows to your Web App, outgoing flows will not use this Private Endpoint, but you can inject outgoing flows to your network in a different subnet through the [Vnet integration feature][vnetintegrationfeature].
+The connection between the Private Endpoint and the Web App uses a secure [Private Link][privatelink]. Private endpoint is only used for incoming flows to your Web App. Outgoing flows will not use this Private Endpoint, but you can inject outgoing flows to your network in a different subnet through the [Vnet integration feature][vnetintegrationfeature].
 
 The Subnet where you plug the Private Endpoint can have other resources in it, you don't need a dedicated empty Subnet.
 > [!Note]
@@ -37,22 +38,23 @@ The Subnet where you plug the Private Endpoint can have other resources in it, y
 
 From the security perspective:
 
-- When you enable Service Endpoint to your Web App, you disable all public access. But you can enable multiple Private Endpoints in others Vnets and Subnets.
-- The NIC of the Private Endpoint cannot have an NSG associated.
-- The Subnet that hosts the Private endpoint can have an NSG associated, but you must disable the network policies enforcement for the Private Endpoint see [this article] [disablesecuritype]. As a result, you cannot filter by any NSG the access to your Private Endpoint.
+- When you enable Service Endpoint to your Web App, you disable all public access
+- You can enable multiple Private Endpoints in others Vnets and Subnets
+- The NIC of the Private Endpoint cannot have an NSG associated
+- The Subnet that hosts the Private Endpoint can have an NSG associated, but you must disable the network policies enforcement for the Private Endpoint see [this article] [disablesecuritype]. As a result, you cannot filter by any NSG the access to your Private Endpoint.
 - When you enable Private Endpoint to your Web App, the [access restrictions][accessrestrictions] configuration of the Web App is not evaluated.
 
 Private Endpoint for Web App is available for tier Standard, PremiumV2, and Isolated with an external ASE.
 
-In the Web http logs of your web app, you will discover that we are aware of the source IP of the client. We implemented the TCP Proxy protocol, forwarding up to the web app the client IP. For more information, see [this article][tcpproxy].
+In the Web http logs of your Web App, you will discover that we are aware of the client source IP. We implemented the TCP Proxy protocol, forwarding up to the Web App the client IP. For more information, see [this article][tcpproxy].
 
 ![Global overview][1]
 
 
 ## DNS
 
-As this feature is in preview, we don't change the DNS entry today, you need to manage yourself the DNS entry in your private DNS server or Azure DNS private zone. 
-If you need to use a custom DNS name, you must add the custom name in your web app. During the preview, the custom name must be validated like any custom name, using public DNS resolution. [custom DNS validation technical reference][dnsvalidation]
+As this feature is in preview, we don't change the DNS entry during the preview. You need to manage yourself the DNS entry in your private DNS server or Azure DNS private zone. 
+If you need to use a custom DNS name, you must add the custom name in your Web App. During the preview, the custom name must be validated like any custom name, using public DNS resolution. [custom DNS validation technical reference][dnsvalidation]
 
 ## Pricing
 
@@ -64,8 +66,8 @@ We are improving Private Link feature and Private Endpoint regularly, check [thi
 
 ## Next steps
 
-To deploy Private endpoint for your Web App see [How to connect privately to a Web App][howtoguide]
-
+To deploy Private endpoint for your Web App through the portal see [How to connect privately to a Web App][howtoguide]
+We will release soon more how to guides for PowerShell and ARM templates deployement.
 
 <!--Image references-->
 [1]: ./media/private-endpoint/schemaglobaloverview.png
