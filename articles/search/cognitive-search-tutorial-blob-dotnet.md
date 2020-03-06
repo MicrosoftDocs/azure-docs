@@ -210,11 +210,11 @@ private static SearchServiceClient CreateSearchServiceClient(IConfigurationRoot 
 > The `SearchServiceClient` class manages connections to your search service. In order to avoid opening too many connections, you should try to share a single instance of `SearchServiceClient` in your application if possible. Its methods are thread-safe to enable such sharing.
 > 
 
-### Add exit program function
+### Add function to exit the program during failure
 
-When the program recognizes that there is a critical error that will prevent the full indexing pipeline from working properly it will call `ExitProgram` to stop program execution.
+This tutorial is meant to help you understand each step of the indexing pipeline. If there is a critical issue that prevents the program from creating the data source, creating the index, or creating the indexer, the program will output the error message and exit so that the issue can be understood and addressed.
 
-Add `ExitProgram` to `Main`.
+Add `ExitProgram` to `Main` to handle issues that require the program to exit.
 
 ```csharp
 private static void ExitProgram(string message)
