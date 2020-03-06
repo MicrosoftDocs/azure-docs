@@ -15285,12 +15285,12 @@
     },
     {
       "source_path": "articles/machine-learning/algorithm-module-reference/pca-based-anomaly-detection.md",
-      "redirect_url": "/azure/machine-learning/algorithm-module-reference/module-reference.md",
+      "redirect_url": "/azure/machine-learning/algorithm-module-reference/module-reference",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/machine-learning/algorithm-module-reference/train-anomaly-detection-model.md",
-      "redirect_url": "/azure/machine-learning/algorithm-module-reference/module-reference.md",
+      "redirect_url": "/azure/machine-learning/algorithm-module-reference/module-reference",
       "redirect_document_id": false
     },
     {
