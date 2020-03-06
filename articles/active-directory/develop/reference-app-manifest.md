@@ -253,7 +253,7 @@ Example value:
 Custom strings that can be used to categorize and identify the application. 
 
 Example value: 
-`[<br>&nbsp;&nbsp;"ProductionApp"<br>]`
+<code>[<br>&nbsp;&nbsp;"ProductionApp"<br>]</code>
 
 ## Common issues
 
