@@ -23,7 +23,7 @@ Because of the different lengths of possible multilingual and emoji encodings, t
 
 ## Offsets in the API response. 
 
-Whenever offsets are returned the API response, such as [Named Entity Recognition](text-analytics-how-to-entity-linking) or [Sentiment Analysis](text-analytics-how-to-sentiment-analysis), remember the following:
+Whenever offsets are returned the API response, such as [Named Entity Recognition](../text-analytics-how-to-entity-linking) or [Sentiment Analysis](../text-analytics-how-to-sentiment-analysis), remember the following:
 
 * Elements in the response may be specific to the endpoint that was called. 
 * HTTP POST/GET payloads are encoded in [UTF-8](https://www.w3schools.com/charsets/ref_html_utf8.asp), which may or may not be the default character encoding on your client-side compiler or operating system.
@@ -33,7 +33,9 @@ Whenever offsets are returned the API response, such as [Named Entity Recognitio
 
 These offsets can cause problems when using character-based substring methods, for example the [.NET substring() method](https://docs.microsoft.com/dotnet/api/system.string.substring?view=netframework-4.8). For example, an offset may cause a substring method to end in the middle of a multi-character grapheme encoding.
 
-In .NET consider using the [StringInfo](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo?view=netframework-4.8) class which enables you to work with a string as a series of textual elements, rather than individual character objects. You can also may look for grapheme splitter libraries in your preferred software environment. The API also returns the detected text segments as well, for convenience, .
+In .NET consider using the [StringInfo](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo?view=netframework-4.8) class which enables you to work with a string as a series of textual elements, rather than individual character objects. You can also look for grapheme splitter libraries in your preferred software environment. 
+
+The Text Analytics API returns these textual elements as well, for convenience.
 
 ## See also
 
