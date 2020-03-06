@@ -82,7 +82,7 @@ To verify that the situation producing the error message has been remedied:
 
 To configure or renew Classic Run As accounts, you must have the Co-administrator role at the subscription level. To learn more about classic subscription permissions, see [Azure classic subscription administrators](../role-based-access-control/classic-administrators.md#add-a-co-administrator).
 
-## Creating a Run As account in Azure Portal
+## Creating a Run As account in Azure portal
 
 Perform the following steps to update your Azure Automation account in the Azure portal. You must create the Run As and Classic Run As accounts individually. If you don't need to manage classic resources, you can just create the Azure Run As account.
 
