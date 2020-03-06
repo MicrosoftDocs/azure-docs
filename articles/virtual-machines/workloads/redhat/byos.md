@@ -206,7 +206,7 @@ For steps to apply Azure Disk Encryption, see [Azure Disk Encryption scenarios o
 
     Note the plan parameters in the final line.
 
-    [Azure Disk Encryption](#encrypt-red-hat-enterprise-linux-bring-your-own-subscription-gold-images) isn't supported on custom images.
+    [Azure Disk Encryption](#encrypt-red-hat-enterprise-linux-BYOS-gold-images) isn't supported on custom images.
 
 - If you use automation to provision VMs from the RHEL BYOS images, you must provide plan parameters similar to what was shown in the sample commands. For example, if you use Terraform, you provide the plan information in a [plan block](https://www.terraform.io/docs/providers/azurerm/r/virtual_machine.html#plan).
 
