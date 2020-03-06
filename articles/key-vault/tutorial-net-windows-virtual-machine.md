@@ -32,7 +32,7 @@ The tutorial shows you how to:
 
 Before you begin, read [Key Vault basic concepts](basic-concepts.md). 
 
-If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## Prerequisites
 
@@ -115,7 +115,7 @@ az vm identity assign --name <NameOfYourVirtualMachine> --resource-group <YourRe
 
 Note the system-assigned identity that's displayed in the following code. The output of the preceding command would be: 
 
-```azurecli
+```output
 {
   "systemAssignedIdentity": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
   "userAssignedIdentities": {}
@@ -155,9 +155,9 @@ dotnet run
 
 ### Install the packages
 
- From the console window, install the .NET packages required for this quickstart:
+From the console window, install the .NET packages required for this quickstart:
 
- ```console
+```console
 dotnet add package System.IO;
 dotnet add package System.Net;
 dotnet add package System.Text;
