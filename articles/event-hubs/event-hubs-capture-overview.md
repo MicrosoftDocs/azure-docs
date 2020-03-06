@@ -95,7 +95,7 @@ A full end-to-end sample is available in the Streaming at Scale repository:
 
 - [HDInsight: Address files in Azure storage][HDInsight: Address files in Azure storage]
 - [Azure Databricks: Azure Blob storage][Azure Databricks: Azure Blob Storage]
-- [Azure Kubernetes Service](https://docs.microsoft.com/en-us/azure/aks/spark-job) 
+- [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/spark-job) 
 
 ### Use Avro Tools
 
