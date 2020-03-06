@@ -161,4 +161,4 @@ Synapse Studio will behave differently based on what roles a user is in. Some it
 
 ## Next steps
 
-Create a [Synapse Workspace](../quickstart-create-workspace)
+Create a [Synapse Workspace](../quickstart-create-workspace.md)
