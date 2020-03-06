@@ -10,7 +10,7 @@ ms.date: 03/01/2020
 This Azure Functions sample script creates a function app and creates a share in Azure Files. It them mounts the share so that the data can be accessed by your functions.  
 
 >[!NOTE]
->The function app created runs on Python version 3.7. Azure Functions also [supports Python versions 3.6 and 3.8](functions-reference-python.md#python-version).
+>The function app created runs on Python version 3.7. Azure Functions also [supports Python versions 3.6 and 3.8](../functions-reference-python.md#python-version).
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
