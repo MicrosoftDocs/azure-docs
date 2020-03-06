@@ -1,6 +1,6 @@
 ---
-title: Troubleshoot on-premises Azure AD password protection
-description: Learn how to troubleshoot Azure AD password protection for an on-premises Active Directory Domain Services environment
+title: Troubleshoot on-premises Azure AD Password Protection
+description: Learn how to troubleshoot Azure AD Password Protection for an on-premises Active Directory Domain Services environment
 
 services: active-directory
 ms.service: active-directory
@@ -15,7 +15,7 @@ ms.reviewer: jsimmons
 
 ms.collection: M365-identity-device-management
 ---
-# Troubleshoot: On-premises Azure AD password protection
+# Troubleshoot: On-premises Azure AD Password Protection
 
 After the deployment of Azure AD Password Protection, troubleshooting may be required. This article goes into detail to help you understand some common troubleshooting steps.
 
@@ -79,9 +79,9 @@ This problem may have several causes.
 
 1. Your DC agent(s) cannot download a policy or is unable to decrypt existing policies. Check for possible causes in the above topics.
 
-1. The password policy Enforce mode is still set to Audit. If this configuration is in effect, reconfigure it to Enforce using the Azure AD Password Protection portal. See [Enable Password protection](howto-password-ban-bad-on-premises-operations.md#enable-password-protection).
+1. The password policy Enforce mode is still set to Audit. If this configuration is in effect, reconfigure it to Enforce using the Azure AD Password Protection portal. See [Enable Password protection](howto-password-ban-bad-on-premises-operations.md#deploy-on-prem-password-protection).
 
-1. The password policy has been disabled. If this configuration is in effect, reconfigure it to enabled using the Azure AD Password Protection portal. See [Enable Password protection](howto-password-ban-bad-on-premises-operations.md#enable-password-protection).
+1. The password policy has been disabled. If this configuration is in effect, reconfigure it to enabled using the Azure AD Password Protection portal. See [Enable Password protection](howto-password-ban-bad-on-premises-operations.md#deploy-on-prem-password-protection).
 
 1. You have not installed the DC agent software on all domain controllers in the domain. In this situation, it is difficult to ensure that remote Windows clients target a particular domain controller during a password change operation. If you think you have successfully targeted a particular DC where the DC agent software is installed, you can verify by double-checking the DC agent admin event log: regardless of outcome, there will be at least one event to document the outcome of the password validation. If there is no event present for the user whose password is changed, then the password change was likely processed by a different domain controller.
 
@@ -186,7 +186,7 @@ PS C:\> Get-AzureADPasswordProtectionDCAgent | Where-Object {$_.SoftwareVersion 
 
 The Azure AD Password Protection Proxy software is not time-limited in any version. Microsoft still recommends that both DC and proxy agents be upgraded to the latest versions as they are released. The `Get-AzureADPasswordProtectionProxy` cmdlet may be used to find Proxy agents that require upgrades, similar to the example above for DC agents.
 
-Refer to [Upgrading the DC agent](howto-password-ban-bad-on-premises-deploy.md#upgrading-the-dc-agent) and [Upgrading the Proxy agent](howto-password-ban-bad-on-premises-deploy.md#upgrading-the-proxy-agent) for more details on specific upgrade procedures.
+Refer to [Upgrading the DC agent](howto-password-ban-bad-on-premises-deploy.md#upgrading-the-dc-agent) and [Upgrading the Proxy service](howto-password-ban-bad-on-premises-deploy.md#upgrading-the-proxy-service) for more details on specific upgrade procedures.
 
 ## Emergency remediation
 
