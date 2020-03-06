@@ -33,7 +33,7 @@ Once you're created the DSVM, select the **Run** drop-down list on the Azure Not
 
 When you select a DSVM instance, Azure Notebooks may prompt you for the specific machine credentials used when you created the VM.
 
-> ![IMPORTANT]
+> ![Important]
 > The username must be lowercase to use it with JupyterHub.
 
 If any of the conditions aren't met, you can still connect to the DSVM. On the drop-down list, select the **Direct Compute** option,
