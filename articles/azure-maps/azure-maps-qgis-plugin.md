@@ -17,7 +17,7 @@ The Quantum Geographic Information System [(QGIS)](https://qgis.org/) Software i
 
 ## Prerequisites
 
-Before you can use the the Azure Maps QGIS plugin, you need to [make an Azure Account](quick-demo-map-app.md#create-an-account-with-azure-maps) and [obtain a subscription key](quick-demo-map-app.md#get-the-primary-key-for-your-account). Then, you need to [download the QGIS Desktop application](https://www.qgis.org/en/site/forusers/download.html), with a version of 3.8.* or higher.
+Before you can use the the Azure Maps QGIS plugin, you need to [make an Azure Account](quick-demo-map-app.md#create-an-account-with-azure-maps) and [obtain a primary subscription key](quick-demo-map-app.md#get-the-primary-key-for-your-account). Then, you need to [download the QGIS Desktop application](https://www.qgis.org/en/site/forusers/download.html), with a version of 3.8.* or higher.
 
 ## Install the Azure Maps QGIS plug-in
 
