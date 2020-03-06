@@ -2,7 +2,7 @@
 title: Encryption-at-rest with customer-managed keys
 description: Learn about encryption-at-rest of your Azure container registry, and how to encrypt your registry with a customer-managed key stored in Azure Key Vault
 ms.topic: article
-ms.date: 03/02/2020
+ms.date: 03/06/2020
 ms.custom: 
 ---
 
@@ -10,7 +10,7 @@ ms.custom:
 
 When you store images and other artifacts in an Azure container registry, Azure automatically encrypts the registry content at rest with [service-managed keys](../security/fundamentals/encryption-atrest.md#data-encryption-models). You can supplement default encryption with an additional encryption layer using a key that you create and manage in Azure Key Vault. This article walks you through the steps using the Azure CLI and the Azure portal.
 
-Server-side encryption with customer-managed keys is supported through integration with [Azure Key Vault](../key-vault/key-vault-overview.md). You can create your own encryption keys and store them in a key vault, or you can use Azure Key Vault's APIs to generate encryption keys. Enabling registry encryption with a customer-managed key in Azure Key Vault doesn't affect registry performance.
+Server-side encryption with customer-managed keys is supported through integration with [Azure Key Vault](../key-vault/key-vault-overview.md). You can create your own encryption keys and store them in a key vault, or you can use Azure Key Vault's APIs to generate encryption keys. With Azure Key Vault, you can also audit key usage.
 
 This feature is only available in a **Premium** container registry. For information about registry service tiers and limits, see [Azure Container Registry SKUs](container-registry-skus.md).
 
@@ -77,7 +77,7 @@ identityPrincipalID=$(az identity show --resource-group <resource-group-name> --
 
 Create a key vault with [az keyvault create][az-keyvault-create] to store a customer-managed key for registry encryption. 
 
-To use the key vault for a customer-managed key, you must enable the following settings: **Soft delete** and **Purge protection**. The following example includes parameters for these settings: 
+To prevent data loss caused by accidental key or key vault deletions, you must enable the following settings: **Soft delete** and **Purge protection**. The following example includes parameters for these settings: 
 
 ```azurecli
 az keyvault create --name <key-vault-name> \
@@ -173,7 +173,7 @@ Take note of the **Resource Name** of the managed identity. You need this name i
 
 For steps to create a key vault, see [Quickstart: Set and retrieve a secret from Azure Key Vault using the Azure portal](../key-vault/quick-create-portal.md).
 
-When creating a key vault for a customer-managed key, in the **Basics** tab, you must enable the following protection settings: **Soft delete** and **Purge protection**. 
+When creating a key vault for a customer-managed key, in the **Basics** tab, you must enable the following protection settings: **Soft delete** and **Purge protection**. These settings help prevent data loss caused by accidental key or key vault deletions.
 
 ![Create key vault in the Azure portal](./media/container-registry-customer-managed-keys/create-key-vault.png)
 
@@ -209,6 +209,8 @@ Configure a policy for the key vault so that the identity can access it.
 1. Select **Create** to deploy the registry instance.
 
 ![Create container registry in the Azure portal](./media/container-registry-customer-managed-keys/create-encrypted-registry.png)
+
+To see the encryption status of your registry in the portal, navigate to your registry. Under **Settings**, select  **Encryption (Preview)**.
 
 ## Enable customer-managed key - template
 
@@ -249,7 +251,7 @@ The following template creates a new container registry and a user-assigned mana
         "tier": "Premium"
       },
       "identity": {
-        "type": "SystemAssigned,UserAssigned",
+        "type": "UserAssigned",
         "userAssignedIdentities": {
           "[resourceID('Microsoft.ManagedIdentity/userAssignedIdentities', parameters('identity_name'))]": {}
         }
@@ -352,7 +354,9 @@ After you enable a registry to encrypt data using a customer-managed key, you ca
 
 ## Rotate key
 
-You can rotate a customer-managed key in Azure Key Vault according to your compliance policies. Create a new key, and then update the registry to encrypt data using the new key. For example, run the [az keyvault key create][az-keyvault-key-create] command to create a new key:
+You can rotate a customer-managed key in Azure Key Vault according to your compliance policies. Create a new key, and then update the registry to encrypt data using the new key. You can perform these steps using the Azure CLI or in the portal.
+
+For example, run the [az keyvault key create][az-keyvault-key-create] command to create a new key:
 
 ```azurecli
 az keyvault key create –-name <new-key-name> --vault-name <key-vault-name> 
