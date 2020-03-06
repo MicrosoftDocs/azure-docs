@@ -19,7 +19,7 @@ If you don't have an Azure subscription, [create a free account before you begin
 
 ## Prerequisites
 
-- [Azure Data Lake Storage Gen2 storage account](../storage/blobs/data-lake-storage-quickstart-create-account.md)
+- [Azure Data Lake Storage Gen2 storage account](../storage/common/storage-account-create.md)
 
 ## Sign in to the Azure portal
 
