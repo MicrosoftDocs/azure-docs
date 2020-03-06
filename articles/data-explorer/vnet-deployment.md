@@ -300,7 +300,7 @@ The first step includes checking TCP connectivity using Windows or Linux OS.
      Connection to yourcluster.kusto.windows.net 443 port [tcp/https] succeeded!
      ```
 
-If the test isn't successful, proceed with the following steps. If the test is successful, the issue isn't due to a TCP connectivity issue. Go to [operational issues](#operational-issues) to troubleshoot further.
+If the test isn't successful, proceed with the following steps. If the test is successful, the issue isn't due to a TCP connectivity issue. Go to [operational issues](#cluster-creation-and-operations-issues) to troubleshoot further.
 
 2. Check the Network Security Group (NSG)
 
@@ -324,7 +324,7 @@ If you're experiencing ingestion issues and you suspect it's related to virtual 
 
 3. Check security rules configured on cluster's subnet
 
-Make sure cluster's subnet has NSG, UDR and firewall rules are properly configured. In addition, [test network connectivity for all dependent endpoints](#diagnose-virtual-network-with-the-rest-api). 
+Make sure cluster's subnet has NSG, UDR and firewall rules are properly configured. In addition, test network connectivity for all dependent endpoints. 
 
 ## Cluster creation and operations issues
 
@@ -398,7 +398,7 @@ Make sure that the [Network Security Group](/azure/virtual-network/security-over
 
 3. Check route table
 
-If the cluster's subnet has force-tunneling setup to firewall (subnet with a [route table](/azure/virtual-network/virtual-networks-udr-overview) that contains the default route '0.0.0.0/0') make sure that the [management IP addresses](#azure-data-explorer-management-ip-addresses) and [health monitoring IP addresses](#health-monitoring-ip-addresses) have a route with [next hop type](/azure/virtual-network/virtual-networks-udr-overview##next-hop-types-across-azure-tools) *Internet*, and [source address prefix](/azure/virtual-network/virtual-networks-udr-overview#how-azure-selects-a-route) to *'management-ip/32'* and *'health-monitoring-ip/32'*. This is required to prevent asymmetric route issues.
+If the cluster's subnet has force-tunneling setup to firewall (subnet with a [route table](/azure/virtual-network/virtual-networks-udr-overview) that contains the default route '0.0.0.0/0') make sure that the [management IP addresses](#azure-data-explorer-management-ip-addresses) and [health monitoring IP addresses](#health-monitoring-addresses) have a route with [next hop type](/azure/virtual-network/virtual-networks-udr-overview##next-hop-types-across-azure-tools) *Internet*, and [source address prefix](/azure/virtual-network/virtual-networks-udr-overview#how-azure-selects-a-route) to *'management-ip/32'* and *'health-monitoring-ip/32'*. This is required to prevent asymmetric route issues.
 
 4. Check firewall rules
 
