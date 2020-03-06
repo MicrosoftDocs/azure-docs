@@ -25,24 +25,51 @@ The first step is to make sure that you have your project open in Visual Studio.
 ## Add a reference to Newtonsoft.Json
 
 1. In the Solution Explorer, right-click the **helloworld** project, and then select **Manage NuGet Packages** to show the NuGet Package Manager.
-
 1. In the upper-right corner, find the **Package Source** drop-down box, and make sure that **`nuget.org`** is selected.
-
 1. In the upper-left corner, select **Browse**.
-
 1. In the search box, type *newtonsoft.json* and select **Enter**.
-
 1. From the search results, select the [**Newtonsoft.Json**](https://www.nuget.org/packages/Newtonsoft.Json) package, and then select **Install** to install the latest stable version.
-
 1. Accept all agreements and licenses to start the installation.
-
    After the package is installed, a confirmation appears in the **Package Manager Console** window.
 
 ## Start with some boilerplate code
 
 Let's add some code that works as a skeleton for our project.
 
-[!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/from-blob/program.cs?range=6-43,138,277)]
+```csharp
+class Program
+{
+    // Replace with your subscription key
+    const string SubscriptionKey = "YourSubscriptionKey";
+
+    // Update with your service region
+    const string Region = "YourServiceRegion";
+    const int Port = 443;
+ 
+    // Recordings and locale
+    const string Locale = "en-US";
+    const string RecordingsBlobUri = "YourFileUrl";
+ 
+    // Name and description
+    const string Name = "Simple transcription";
+    const string Description = "Simple transcription description";
+ 
+    const string SpeechToTextBasePath = "api/speechtotext/v2.0/";
+ 
+    static async Task Main()
+    {
+        // For non-Windows 10 users.
+        ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+ 
+        await TranscribeAsync();
+    }
+ 
+    static async Task TranscribeAsync()
+    {
+        Console.WriteLine("Starting transcriptions client...");
+    }
+}
+```
 
 [!INCLUDE [placeholder-replacements](../placeholder-replacement.md)]
 
