@@ -92,19 +92,19 @@ After Azure Database for MySQL is encrypted with a customer's managed key stored
 
 ## Using an Azure Resource Manager template to enable data encryption
 
-Apart from Portal you can also enable data encryption on your Azure Database for PostgreSQL single server using Azure Resource Manager templates both for a new server as well as an existing server.
+Apart from the Azure portal, you can also enable data encryption on your Azure Database for MySQL server using Azure Resource Manager templates for new and existing servers.
 
 ### For a new server
 
-We have also created deployable ARM Templates to provision the server with data encryption enabled:
+Use one of the pre-created ARM templates to provision the server with data encryption enabled:
 [Example with Data encryption](https://github.com/Azure/azure-mysql/tree/master/arm-templates/ExampleWithDataEncryption)
 
 This ARM template creates a Azure Database for MySQL server and uses the **KeyVault** and **Key** passed as parameters to enable data encryption on the server.
 
 ### For an existing server
-Additionally, you can use ARM templates to enable data encryption on your existing Azure database for MySQL servers.
+Additionally, you can use ARM templates to enable data encryption on your existing Azure Database for MySQL servers.
 
-* Pass the URI of the Azure Key Vault key that you copied earlier under the keyVaultKeyUri property in the properties object.
+* Pass the URI of the Azure Key Vault key that you copied earlier under the `keyVaultKeyUri` property in the properties object.
 
 * Use *2020-01-01-preview* as the API version.
 
