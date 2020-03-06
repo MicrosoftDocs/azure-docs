@@ -6,7 +6,7 @@ ms.date: 02/17/2020
 
 ---
 
-# Discovery, assessment, and dependency analysis FAQ
+# Discovery, assessment, and dependency analysis - Common questions
 
 This article answers common questions about discovery, assessment, and dependency analysis in Azure Migrate. If you have other questions, check these resources:
 
