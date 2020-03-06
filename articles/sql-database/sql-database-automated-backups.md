@@ -115,7 +115,7 @@ There's no additional charge for backup storage for databases and elastic databa
 
 ### vCore model
 
-For single databases, a minimum backup storage amount equal to 100 percent of the database size is provided at no extra charge. For elastic database pools and managed instances, a minimum backup storage amount equal to 100 percent of the allocated data storage for the pool or instance size, respectively, is provided at no extra charge. Additional consumption of backup storage will be charged in GB/month. This additional consumption will depend on the workload and the size of the individual databases.
+For single databases, a minimum backup storage amount equal to 100 percent of the database size is provided at no extra charge. For elastic database pools and managed instances, a minimum backup storage amount equal to 100 percent of the allocated data storage for the pool or instance size, respectively, is provided at no extra charge. Additional consumption of backup storage will be charged in GB/month. This additional consumption will depend on the workload and size of the individual databases.
 
 Azure SQL Database will compute your total in-retention backup storage as a cumulative value. Every hour, this value is reported to the Azure billing pipeline, which is responsible for aggregating this hourly usage to get your consumption at the end of each month. After the database is dropped, Microsoft decreases the consumption as the backups age. After backups become older than the retention period, billing stops. Because all log backups and differential backups are retained for the full retention period, heavily modified databases will have higher backup charges.
 
@@ -140,7 +140,7 @@ If you delete a database, SQL Database will keep the backups in the same way it 
 If you need to keep the backups for longer than the maximum retention period, you can modify the backup properties to add one or more long-term retention periods to your database. For more information, see [Long-term retention](sql-database-long-term-retention.md).
 
 > [!IMPORTANT]
-> If you delete the SQL Database server that hosts SQL databases, all elastic database pools and databases that belong to the server are also deleted. They can't be recovered. You can't restore a deleted server. But if you configured long-term retention, the backups for the databases with LTR won't be deleted, and these databases can be restored.
+> If you delete the Azure SQL server that hosts SQL databases, all elastic database pools and databases that belong to the server are also deleted. They can't be recovered. You can't restore a deleted server. But if you configured long-term retention, the backups for the databases with LTR won't be deleted, and these databases can be restored.
 
 ## Encrypted backups
 
@@ -182,7 +182,7 @@ Changes to PITR backup retention for single Azure SQL databases are done at the 
 
 #### [Managed instance](#tab/managed-instance)
 
-Changes to PITR backup retention for SQL Database managed instance are done at an individual database level. To change PITR backup retention for an instance database from the Azure portal, go to the individual database overview blade. Then select **Configure backup retention** at the top of the screen:
+Changes to PITR backup retention for SQL Database managed instances are done at an individual database level. To change PITR backup retention for an instance database from the Azure portal, go to the individual database overview blade. Then select **Configure backup retention** at the top of the screen:
 
 ![Change PITR retention, managed instance](./media/sql-database-automated-backup/configure-backup-retention-sqlmi.png)
 
