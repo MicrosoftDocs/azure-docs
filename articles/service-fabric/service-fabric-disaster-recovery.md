@@ -10,7 +10,7 @@ ms.author: masnider
 # Disaster recovery in Azure Service Fabric
 A critical part of delivering high availability is ensuring that services can survive all different types of failures. This is especially important for failures that are unplanned and outside your control. 
 
-This article describes some common failure modes that might be disasters if not modeled and managed correctly. It also discuss mitigations and actions to take if a disaster happens anyway. The goal is to limit or eliminate the risk of downtime or data loss when failures, planned or otherwise, occur.
+This article describes some common failure modes that might be disasters if not modeled and managed correctly. It also discusses mitigations and actions to take if a disaster happens anyway. The goal is to limit or eliminate the risk of downtime or data loss when failures, planned or otherwise, occur.
 
 ## Avoiding disaster
 The main goal of Azure Service Fabric is to help you model both your environment and your services in such a way that common failure types are not disasters. 
