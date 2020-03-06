@@ -1,7 +1,7 @@
 ---
 title: Onboard a customer to Azure delegated resource management
 description: Learn how to onboard a customer to Azure delegated resource management, allowing their resources to be accessed and managed through your own tenant.
-ms.date: 01/20/2020
+ms.date: 01/28/2020
 ms.topic: conceptual
 ---
 
@@ -17,9 +17,6 @@ To track your impact across customer engagements and receive recognition, associ
 > Customers can also be onboarded when they purchase a managed services offer (public or private) that you published to Azure Marketplace. For more info, see [Publish Managed Services offers to Azure Marketplace](publish-managed-services-offers.md). You can also use the onboarding process described here along with an offer published to Azure Marketplace.
 
 The onboarding process requires actions to be taken from within both the service provider's tenant and from the customer's tenant. All of these steps are described in this article.
-
-> [!IMPORTANT]
-> Currently, you can’t onboard a subscription (or resource group within a subscription) for Azure delegated resource management if the subscription uses Azure Databricks. Similarly, if a subscription has been registered for onboarding with the **Microsoft.ManagedServices** resource provider, you won’t be able to create a Databricks workspace for that subscription at this time.
 
 ## Gather tenant and subscription details
 

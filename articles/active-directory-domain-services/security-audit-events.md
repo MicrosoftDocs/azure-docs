@@ -189,7 +189,7 @@ AADDomainServicesAccountManagement
 
 ### Sample query 2
 
-View all the account lockout events (*4740*) between February 3, 2020 at 9 a.m. and February 10, 2019 midnight, sorted ascending by the date and time:
+View all the account lockout events (*4740*) between February 3, 2020 at 9 a.m. and February 10, 2020 midnight, sorted ascending by the date and time:
 
 ```Kusto
 AADDomainServicesAccountManagement
