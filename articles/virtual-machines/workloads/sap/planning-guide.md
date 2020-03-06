@@ -16,7 +16,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/13/2020
-ms.author: sedusch
+ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ---
 # Azure Virtual Machines planning and implementation for SAP NetWeaver
@@ -413,14 +413,14 @@ Details on supported SAP components on Azure, supported Azure infrastructure uni
 
 
 ## <a name="be80d1b9-a463-4845-bd35-f4cebdb5424a"></a>Azure Regions
-Microsoft's Azure services are collected in Azure regions. An Azure region is a one or a collection out of datacenters that contain the hardware  and infrastructure that runs the different Azure services. This infrastructure includes a large number of nodes that function as compute nodes or storage nodes, or run network functionality. 
+Microsoft's Azure services are collected in Azure regions. An Azure region is a one or a collection out of datacenters that contain the hardware and infrastructure that runs and hosts the different Azure services. This infrastructure includes a large number of nodes that function as compute nodes or storage nodes, or run network functionality. 
 
 For a list of the different Azure regions, check the article [Azure geographies](https://azure.microsoft.com/global-infrastructure/geographies/). Not all the Azure regions offer the same services. Dependent on the SAP product you want to run, and the operating system and DBMS related to it, you can end up in a situation that a certain region does not offer the VM types you require. This is especially true for running SAP HANA, where you usually need VMs of the M/Mv2 VM-series. These VM families are deployed only in a subset of the regions. You can find out what exact VM, types, Azure storage types or, other Azure Services are available in which of the regions with the help of the site [Products available by region](https://azure.microsoft.com/global-infrastructure/services/). As you start your planning and have certain regions in mind as primary region and eventually secondary region, you need to investigate first whether the necessary services are available in those regions. 
 
 ### Availability Zones
 Several of the Azure regions implemented a concept called Availability Zones. Availability Zones are physically separate locations within an Azure region. Each Availability Zone is made up of one or more datacenters equipped with independent power, cooling, and networking. For example, deploying two VMs across two Availability Zones of Azure, and implementing a high-availability framework for your SAP DBMS system or the SAP Central Services gives you the best SLA in Azure. For this particular virtual machine SLA in Azure, check the latest version of [Virtual Machine SLAs](https://azure.microsoft.com/support/legal/sla/virtual-machines/). Since Azure regions developed and extended rapidly over the last years, the topology of the Azure regions, the number of physical datacenters, the distance among those datacenters, and the distance between Azure Availability Zones can be different. And with that the network latency.
 
-The principle of Availability Zones does not apply to the HANA specific service of [HANA Large Instances](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-architecture). Service Level agreements for HANA Large Instances can be found in the article [SLA for SAP HANA on Azure Large Instances](https://azure.microsoft.com/en-us/support/legal/sla/sap-hana-large/) 
+The principle of Availability Zones does not apply to the HANA specific service of [HANA Large Instances](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture). Service Level agreements for HANA Large Instances can be found in the article [SLA for SAP HANA on Azure Large Instances](https://azure.microsoft.com/support/legal/sla/sap-hana-large/) 
 
 
 ### <a name="df49dc09-141b-4f34-a4a2-990913b30358"></a>Fault Domains
