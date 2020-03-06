@@ -1,11 +1,11 @@
 ---
-title: Common questions about the Azure Migrate appliance
-description: Get answers to common questions about the Azure Migrate appliance
+title: Azure Migrate appliance FAQ
+description: Get answers to common questions about the Azure Migrate appliance.
 ms.topic: conceptual
 ms.date: 02/17/2020
 ---
 
-# Azure Migrate appliance: Common questions
+# Azure Migrate appliance FAQ
 
 This article answers common questions about the Azure Migrate appliance. If you have other questions, check these resources:
 
