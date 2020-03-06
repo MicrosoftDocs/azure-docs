@@ -62,30 +62,6 @@ Azure Monitor for containers scrapes the Prometheus metrics and ingest to the Az
 
 After successful onboarding, navigate to https://aka.ms/azmon-containers-hybrid  and select Environment as **"All"** to view your newly onboarded OpenShift v4 cluster.
 
-### Health of monitored clusters
-
-![](media/howto-azure-monitor-v4/health_of_monitored_clusters.png)
-
-### Cluster health view (CPU, memory, nodes, and pods)
-
-![](media/howto-azure-monitor-v4/cluster_health_view.png)
-
-### Nodes view
-
-![](media/howto-azure-monitor-v4/nodes_view.png)
-
-### Controllers view
-
-![](media/howto-azure-monitor-v4/controllers_view.png)
-
-### Containers view
-
-![](media/howto-azure-monitor-v4/containers_view.png)
-
-### Container {stdout; stderr} log view
-
-![](media/howto-azure-monitor-v4/containers_logs_view.png)
-
 ## Disable monitoring
 
 If you would like to disable monitoring, you can delete the Azure Monitor for Containers Helm chart using the below command to stop collecting and ingesting monitoring data to Azure Monitor for containers backend.
