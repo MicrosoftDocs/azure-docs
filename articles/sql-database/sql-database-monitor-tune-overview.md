@@ -44,7 +44,7 @@ You can quickly monitor the following resource metrics in the Azure portal in th
 
 ### Database advisors
 
-Azure SQL Database includes [database advisors](sql-database-advisor.md) that provide performance tuning recommendations for single and pooled databases. These recommendations are available in the Azure portal as well as by using [PowerShell](https://docs.microsoft.com/en-us/powershell/module/az.sql/get-azsqldatabaseadvisor). You can also enable [automatic tuning](sql-database-automatic-tuning.md) so that SQL Database can automatically implement these tuning recommendations.
+Azure SQL Database includes [database advisors](sql-database-advisor.md) that provide performance tuning recommendations for single and pooled databases. These recommendations are available in the Azure portal as well as by using [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaseadvisor). You can also enable [automatic tuning](sql-database-automatic-tuning.md) so that SQL Database can automatically implement these tuning recommendations.
 
 ### Query Performance Insight
 
