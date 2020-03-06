@@ -1,19 +1,15 @@
 ---
 title: Configure the model conversion
 description: Description of all model conversion parameters
-author: FlorianBorn71
-manager: jlyons
-services: azure-remote-rendering
-titleSuffix: Azure Remote Rendering
+author: florianborn71
 ms.author: flborn
-ms.date: 12/11/2019
-ms.topic: conceptual
-ms.service: azure-remote-rendering
+ms.date: 03/06/2020
+ms.topic: how-to
 ---
 
 # Configure the model conversion
 
-This chapter documents the user-facing options in the configuration file for the model conversion.
+This chapter documents the options for the model conversion.
 
 ## Settings file
 
@@ -72,7 +68,7 @@ The final scaling factor is applied to the geometry vertices and the local trans
 Centering is important if the source model is displaced far from the origin, since in that case floating point precision issues may cause rendering artifacts.
 
 * `opaqueMaterialDefaultSidedness` - The rendering engine assumes that opaque materials are double-sided.
-If that is not the intended behavior, this parameter should be set to "SingleSided". See [single sided rendering](../../overview/features/single-sided-rendering.md) for additional information.
+If that is not the intended behavior, this parameter should be set to "SingleSided". For more information, see [single sided rendering](../../overview/features/single-sided-rendering.md).
 
 ### Material overrides
 
@@ -87,49 +83,50 @@ If a model is defined using gamma space, then these options should be set to tru
 * `gammaToLinearVertex` - Convert vertex colors from gamma space to linear space
 
 > [!NOTE]
-> If the input file is an fbx, these settings are true by default. Otherwise they are false by default.
+> For FBX files these settings are set to `true` by default. For all other file types, the default is `false`.
 
 ### Scene parameters
 
-* `sceneGraphMode` - Defines the mode that the scene graph is converted to and whether the scene graph can be accessed via the API. There are three distinct modes:
-  * `dynamic` (default) : All objects in the graph are exposed in the API and can be transformed independently
-  * `static` : All objects in the graph are exposed in the API but cannot be transformed independently.
-  * `none` : The full scene graph is collapsed into one object
+* `sceneGraphMode` - Defines how the scene graph in the source file is converted:
+  * `dynamic` (default): All objects in the file are exposed as [entities](../../concepts/entities.md) in the API and can be transformed independently. The node hierarchy at runtime is identical to the structure in the source file.
+  * `static`: All objects are exposed in the API but cannot be transformed independently.
+  * `none`: The scene graph is collapsed into one object.
 
-Naturally, each of the mode comes with specific runtime performance cost. The `dynamic` case implies significant runtime performance overhead, esp. for large amounts of scene graph objects. This mode should only be used when moving parts individually is mandatory for the application, for example for an 'explosion view' animation. This mode has a high baseline performance overhead, even when no part is moved.
+Each mode has different runtime performance. In `dynamic` mode, the performance cost scales linearly with the number of [entities](../../concepts/entities.md) in the graph, even when no part is moved. It should only be used when moving parts individually is necessary for the application, for example for an 'explosion view' animation.
 
-The `static` mode exports the full scene graph, but parts inside this graph have a constant transform relative to its root part. The root node of the object however can still be moved, rotated, or scaled at no significant performance cost. Furthermore, individual parts are returned through ray cast hits or can be modified individually through state overrides (hidden state, selected, color tint etc.). The runtime cost of this mode is negligible compared to the dynamic case. Accordingly, this mode is ideal for large scenes that still need per-object inspection but no per-object transform changes.
+The `static` mode exports the full scene graph, but parts inside this graph have a constant transform relative to its root part. The root node of the object, however, can still be moved, rotated, or scaled at no significant performance cost. Furthermore, [spatial queries](../../overview/features/spatial-queries.md) will return individual parts and each part can be modified through [state overrides](../../overview/features/override-hierarchical-state.md). With this mode, the runtime overhead per object is negligible. It is ideal for large scenes where you still need per-object inspection but no per-object transform changes.
 
-The `none` mode has the least runtime overhead and also slightly better loading times. Inspection or transform of single objects is not possible in this mode. Use cases for this mode could be photogrammetry models that do not have a meaningful scene graph in the first place.
+The `none` mode has the least runtime overhead and also slightly better loading times. Inspection or transform of single objects is not possible in this mode. Use cases are, for example, photogrammetry models that do not have a meaningful scene graph in the first place.
+
+> [!TIP]
+> Many applications will load multiple models. You should optimize the conversion parameters for each model depending on how it will be used. For example, if you want to display the model of a car for the user to take apart and inspect in detail, you need to convert it with `dynamic` mode. However, if you additionally want to place the car in a show room environment, that model can be converted with `sceneGraphMode` set to `static` or even `none`.
 
 ### Physics parameters
 
-* `generateCollisionMesh` - To provide support fast ray casts, conversion creates a collision mesh.
-If enabled, time is added to the conversion process and implies a performance penalty at runtime.
-This parameter can be set to false when ray-cast support is not required.
+* `generateCollisionMesh` - If you need support for [spatial queries](../../overview/features/spatial-queries.md) on a model, this option has to be enabled. In the worst case, the creation of a collision mesh can double the conversion time. Models with collision meshes take longer to load and when using a `dynamic` scene graph, they also have a higher runtime performance overhead. For overall optimal performance, you should disable this option on all models on which you don't need spatial queries.
 
 ### Unlit materials
 
-* `unlitMaterials` - To override all materials in the scene to work as a constantly shaded surface that is independent of lighting. That is, all materials are created as [color materials](../../overview/features/color-materials.md) as opposed to [PBR materials](../../overview/features/pbr-materials.md).
+* `unlitMaterials` - By default the conversion will prefer to create [PBR materials](../../overview/features/pbr-materials.md). This option tells the converter to treat all materials as [color materials](../../overview/features/color-materials.md) instead. If you have data that already incorporates lighting, such as models created through photogrammetry, this option allows you to quickly enforce the correct conversion for all materials, without the need to [override each material](override-materials.md) individually.
 
 ### Converting from older FBX formats, with a Phong material model
 
-* `fbxAssumeMetallic` - Older versions of the FBX format define their materials using a Phong material model. The conversion process has to infer how these materials map to the renderer's [PBR model](../../concepts/materials.md#pbr-material), and usually this works well. However, an ambiguity can arise when a material has no textures, high specular values, and a colorful (i.e. non-grey) albedo color. In this circumstance, the conversion has to choose between prioritizing the high specular values, defining a highly reflective, metallic material where the albedo color dissolves away, or prioritizing the albedo color, defining something like a shiny colorful plastic. By default, the conversion process assumes that highly specular values imply a metallic material in cases where ambiguity applies. This parameter can be set to false to make the opposite assumption.
+* `fbxAssumeMetallic` - Older versions of the FBX format define their materials using a Phong material model. The conversion process has to infer how these materials map to the renderer's [PBR model](../../concepts/materials.md#pbr-material). Usually this works well, but an ambiguity can arise when a material has no textures, high specular values, and a non-grey albedo color. In this circumstance, the conversion has to choose between prioritizing the high specular values, defining a highly reflective, metallic material where the albedo color dissolves away, or prioritizing the albedo color, defining something like a shiny colorful plastic. By default, the conversion process assumes that highly specular values imply a metallic material in cases where ambiguity applies. This parameter can be set to `false` to switch to the opposite.
 
 ### Coordinate system overriding
 
-* `axis` - To override coordinate system unit-vectors. Default values are `["+x", "+y", "+z"]`, where sign means direction of a vector. In theory, the FBX format has a header where those vectors are defined and conversion uses that information to transform the scene, and the glTF format defines a fixed coordinate system with Y-axis up. In practice, some assets have wrong header or saved with wrong Up-axis and it could be overridden by this option. For example: `"axis" : ["+x", "+z", "-y"]` will exchange the Z-axis and the Y-axis and keep coordinate system handed-ness by inverting  the Y-axis to the opposite direction.
+* `axis` - To override coordinate system unit-vectors. Default values are `["+x", "+y", "+z"]`. In theory, the FBX format has a header where those vectors are defined and the conversion uses that information to transform the scene. The glTF format also defines a fixed coordinate system. In practice, some assets either have incorrect information in their header or were saved with a different coordinate system convention. This option allows you to override the coordinate system, to compensate. For example: `"axis" : ["+x", "+z", "-y"]` will exchange the Z-axis and the Y-axis and keep coordinate system handedness by inverting the Y-axis direction.
 
 ### Vertex format
 
-This paragraph is for advanced use cases, where changing the vertex format is necessary to meet memory constraints. While there is some potential to save valuable GPU memory by tweaking the vertex format, there is a high risk to degrade the visual quality or even compromise stability of the server when the format is not appropriate.
+It is possible to adjust the vertex format for a mesh, to trade precision for memory savings. A lower memory footprint allows you to load larger models or achieve better performance. However, depending on your data, the wrong format can significantly impact rendering quality.
 
-The config file allows for modifying the output vertex structure:
+These adjustments are possible:
 
-* specific input data streams can be explicitly included or excluded
-* the floating point accuracy of vertex components can be decreased to reduce the memory footprint
+* Specific data streams can be explicitly included or excluded.
+* The accuracy of data streams can be decreased to reduce the memory footprint.
 
-The following `vertex` section in the `.json` file is optional. For each portion that is not explicitly specified, the conversion service falls back to default, or `NONE` respectively, if not present in source model.
+The following `vertex` section in the `.json` file is optional. For each portion that is not explicitly specified, the conversion service falls back to its default setting.
 
 ```json
 {
@@ -151,9 +148,9 @@ By forcing a component to `NONE`, it is guaranteed that the output mesh does not
 
 #### Component formats per vertex stream
 
-The following formats are supported per vertex input component:
+These formats are allowed for the respective components:
 
-| Vertex component | supported formats (default format is bold) |
+| Vertex component | Supported formats (bold = default) |
 |:-----------------|:------------------|
 |position| **32_32_32_FLOAT**, 16_16_16_16_FLOAT |
 |color0| **8_8_8_8_UNSIGNED_NORMALIZED**, NONE |
@@ -166,63 +163,67 @@ The following formats are supported per vertex input component:
 
 #### Supported component formats
 
-The respective memory footprints of the distinct formats are as follows:
+The memory footprints of the formats are as follows:
 
-| Format | description | memory (Bytes) |
+| Format | Description | Bytes per vertex |
 |:-------|:------------|:---------------|
 |32_32_FLOAT|two-component full floating point precision|8
 |16_16_FLOAT|two-component half floating point precision|4
 |32_32_32_FLOAT|three-component full floating point precision|12
 |16_16_16_16_FLOAT|four-component half floating point precision|8
-|8_8_8_8_UNSIGNED_NORMALIZED|four-component byte, normalized to 0..1 range|4
-|8_8_8_8_SIGNED_NORMALIZED|four-component byte, normalized to -1..1 range|4
+|8_8_8_8_UNSIGNED_NORMALIZED|four-component byte, normalized to `[0; 1]` range|4
+|8_8_8_8_SIGNED_NORMALIZED|four-component byte, normalized to `[-1; 1]` range|4
 
-Here are some notes regarding best practices for component format changes:
+#### Best practices for component format changes
 
-* `position` : There are rare cases where reduced floating point accuracy is sufficient. **16_16_16_16_FLOAT** introduces noticeable quantization of the position, even for small models. Position format should always be left to **32_32_32_FLOAT**.
-* `normal`, `tangent`, `binormal` : Typically these values are changed together. Unless there are noticeable lighting artifacts that result from normal quantization, there is no reason to use increased accuracy through format **16_16_16_16_FLOAT**. There are many use cases where these components can be set to **NONE**:
-  * A normal, tangent, and binormal vector is only required when the material is lit. That is, when any material in the mesh is using [PBR materials](../../overview/features/pbr-materials.md).
-  * tangent and binormal are only needed when any of the lit materials uses a normal map texture.
-  * [Color materials](../../overview/features/color-materials.md) do not need normals, tangents, or binormals
-  * the mentioned material criteria also apply for materials that are assigned during runtime.
-* `texcoord0`, `texcoord1` : Texture coordinates can use reduced accuracy (**16_16_FLOAT**) when texture coordinates stay in small range (0..1) and if the textures are not too large. With only 11 bits of mantissa, a 16-bit float component can only address textures up to size 2048 per-pixel accurate. When using the half precision on texture coordinates when not appropriate, the texture mapping might be off.
+* `position`: It is rare that reduced accuracy is sufficient. **16_16_16_16_FLOAT** introduces noticeable quantization artifacts, even for small models.
+* `normal`, `tangent`, `binormal`: Typically these values are changed together. Unless there are noticeable lighting artifacts that result from normal quantization, there is no reason to increase their accuracy. In some cases, though, these components can be set to **NONE**:
+  * `normal`, `tangent`, and `binormal` are only needed when at least one material in the model should be lit. In ARR this is the case when a [PBR material](../../overview/features/pbr-materials.md) is used on the model at any time.
+  * `tangent` and `binormal` are only needed when any of the lit materials uses a normal map texture.
+* `texcoord0`, `texcoord1` : Texture coordinates can use reduced accuracy (**16_16_FLOAT**) when their values stay in the `[0; 1]` range and when the addressed textures have a maximum size of 2048 x 2048 pixels. If those limits are exceeded, the quality of texture mapping will suffer.
 
 #### Example
 
-Here is some example how removing components can save memory:
+Assume you have a photogrammetry model, which has lighting baked into the textures. All that is needed to render the model are vertex positions and texture coordinates.
 
-Assume you have a source photogrammetry model with **100M vertices**. The source model provides `position`, `normal`, `tangent`, `binormal`, and `texcoord0`. Using the default format, the memory footprint of a vertex is **32 Bytes**, or **3.2 GB** of memory for all mesh vertices. Photogrammetry typically has the lighting baked into the textures and thus does not require dynamic lighting. Accordingly, `normal`, `tangent`, and `binormal` can be removed altogether. Furthermore, if texture coordinates stay in normalized (0..1) range, half precision (`16_16_FLOAT`) might be sufficient. With these optimizations, memory footprint goes down to **16 Bytes** or **1.6 GB** for all vertices.
+By default the converter has to assume that you may want to use PBR materials on a model at some time, so it will generate `normal`, `tangent`, and `binormal` data for you. Consequently, the per vertex memory usage is `position` (12 bytes) + `texcoord0` (8 bytes) + `normal` (4 bytes) + `tangent` (4 bytes) + `binormal` (4 byte) = 32 bytes. Larger models of this type can easily have many millions of vertices resulting in models that can take up multiple gigabytes of memory. Such large amounts of data will affect performance and you may even run out of memory.
+
+Knowing that you never need dynamic lighting on the model, and knowing that all texture coordinates are in `[0; 1]` range, you can set `normal`, `tangent`, and `binormal` to `NONE` and `texcoord0` to half precision (`16_16_FLOAT`), resulting in only 16 bytes per vertex. Cutting the mesh data in half enables you to load larger models and potentially improves performance.
 
 ## Typical use cases
 
-Finding good import settings for given use case can be a tedious and time consuming process. On the other hand, conversion settings may have a significant impact on runtime performance of the converted mesh. Better runtime performance means either more detailed models can be rendered at a stable framerate or VMs with lower specs (and thus cheaper VMs) can be allocated.  
-There are certain classes of use cases that qualify for specific optimizations. Exemplary use cases and some considerations on their settings are discussed here:
+Finding good import settings for a given use case can be a tedious process. On the other hand, conversion settings may have a significant impact on runtime performance.
+
+There are certain classes of use cases that qualify for specific optimizations. Some examples are given below.
 
 ### Use case: Architectural visualization / large outdoor maps
 
-* These types of scenes tend to be static as in they don't need movable/addressable parts. Accordingly, the `sceneGraphMode` can be set to `static`, which improves runtime performance. The scene's root node can still be moved, rotated, and scaled, for example to dynamically switch between 1:1 scale (for first person view) and table top view.
-* Using movable parts often come in pair with ray casting to identify parts. Accordingly, if ray casts are not needed, the generation of the physics representation can be turned off via the `generateCollisionMesh` flag. Turning off collisions has significant impact on conversion times, runtime loading times, and also runtime per-frame update costs.
-* If the application does not use [cut planes](../../overview/features/cut-planes.md), the `opaqueMaterialDefaultSidedness` flag should be turned off. The performance gain is typically 20%-30%. Cut planes can still be used, but there won't be back-faces when looking into the inner parts of objects, which looks counter-intuitive. See [single sided rendering](../../overview/features/single-sided-rendering.md) for additional information.
+* These types of scenes tend to be static, meaning they don't need movable parts. Accordingly, the `sceneGraphMode` can be set to `static` or even `none`, which improves runtime performance. With `static` mode, the scene's root node can still be moved, rotated, and scaled, for example to dynamically switch between 1:1 scale (for first person view) and a table top view.
+
+* When you need to move parts around, that typically also means that you need support for raycasts or other [spatial queries](../../overview/features/spatial-queries.md), so that you can pick those parts in the first place. On the other hand, if you don't intend to move something around, chances are high that you also don't need it to participate in spatial queries and therefore can turn off the `generateCollisionMesh` flag. This switch has significant impact on conversion times, loading times, and also runtime per-frame update costs.
+
+* If the application does not use [cut planes](../../overview/features/cut-planes.md), the `opaqueMaterialDefaultSidedness` flag should be turned off. The performance gain is typically 20%-30%. Cut planes can still be used, but there won't be back-faces when looking into the inner parts of objects, which looks counter-intuitive. For more information, see [single sided rendering](../../overview/features/single-sided-rendering.md).
 
 ### Use case: Photogrammetry models
 
-Models that originate from photogrammetry data typically do not come with a dedicated scene graph. Accordingly, the `sceneGraphMode` can be set to `none`. The impact is insignificant though, since the scene graph is not complex in the first place.
+When rendering photogrammetry models there is typically no need for a scene graph, so you could set the `sceneGraphMode` to `none`. Since those models rarely contain a complex scene graph to begin with, the impact of this option should be insignificant, though.
 
-Due to the nature of photogrammetry data, materials do not need to go through a dynamic lighting pipeline in the renderer since the lighting is already baked into the textures. This fact can be utilized to gain slightly better performance and also a better memory footprint:
+Because lighting is already baked into the textures, no dynamic lighting is needed. Therefore:
 
-* The `unlitMaterials` flag turns all materials into unlit [color materials](../../overview/features/color-materials.md) at conversion time
-* The mesh data does not require normal-, tangent- or binormal vectors, which result in a more efficient vertex format and thus lower memory footprint. See [example](#example) above.
+* Set the `unlitMaterials` flag to `true` to turn all materials into unlit [color materials](../../overview/features/color-materials.md).
+* Remove unneeded data from the vertex format. See the [example](#example) above.
 
-### Use case: Visualization of compact machines, etc
+### Use case: Visualization of compact machines, etc.
 
-These types of use cases are typically characterized by much detail compacted to a small spatial extent. The renderer can handle compacted volumes well since significant detail can be automatically discarded without any visual difference (for example triangles occluded by others or triangles that are too small to contribute to visible pixels). However, most of the optimizations mentioned in the previous use case do not apply here:
+In these use cases, the models often have very high detail within a small volume. The renderer is heavily optimized to handle such cases well. However, most of the optimizations mentioned in the previous use case do not apply here:
 
-* Individual parts should be selectable and movable, so the `sceneGraphMode` must be left to default `dynamic`.
-* Accurate ray casts are typically an integral part of the application, so collision meshes must be generated.
+* Individual parts should be selectable and movable, so the `sceneGraphMode` must be left to `dynamic`.
+* Ray casts are typically an integral part of the application, so collision meshes must be generated.
 * Cut planes look better with the `opaqueMaterialDefaultSidedness` flag enabled.
 
 ## Next steps
 
+* [Model conversion](model-conversion.md)
 * [Color materials](../../overview/features/color-materials.md)
 * [PBR materials](../../overview/features/pbr-materials.md)
-* [Customized material overrides](override-materials.md)
+* [Override materials during model conversion](override-materials.md)
