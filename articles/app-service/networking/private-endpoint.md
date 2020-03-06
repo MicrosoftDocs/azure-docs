@@ -62,6 +62,10 @@ For pricing details, see [Azure Private Link pricing][pricing].
 
 We are improving Private Link feature and Private Endpoint regularly, check [this article][pllimitations] for up-to-date information about limitations.
 
+## Next steps
+
+To deploy Private endpoint for your Web App see [How to connect privately to a Web App][howtoguide]
+
 
 <!--Image references-->
 [1]: ./media/private-endpoint/schemaglobaloverview.png
@@ -76,3 +80,4 @@ We are improving Private Link feature and Private Endpoint regularly, check [thi
 [dnsvalidation]: https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-domain
 [pllimitations]: https://docs.microsoft.com/azure/private-link/private-endpoint-overview#limitations
 [pricing]: https://azure.microsoft.com/pricing/details/private-link/
+[howtoguide]: https://docs.microsoft.com/azure/private-link/create-private-endpoint-webapp-portal
