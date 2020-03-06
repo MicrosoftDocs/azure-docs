@@ -12,21 +12,17 @@ manager: philMea
 
 # DWG package requirements
 
-The Indoor Maps module, from Azure Maps, provides the DWG Conversion API. The API allows you to convert a DWG design of a single facility into a map data set. This article helps you understand the DWG package requirements for the DWG Conversion API.
+Files that define a single building must be packaged in a single zip folder, also known as the DWG package. The zip folder must contain DWG files and a manifest file. The next sections outline the requirements for the DWG files, manifest file, and the format of the content inside these files. Once your DWG package meets the requirements, you can use the DWG Conversion API to convert your DWG design into a map data set. The DWG Conversion API is provided by the Indoor Maps module from Azure Maps.
 
-Before we explain the details for the DWG package, familiarize yourself with the terms below:
+## Prerequisites
+
+The DWG package is used to store two-dimensional design data or three-dimensional design data, and the metadata for the design. You may choose any CAD software to produce your DWG package. It's also recommended that you familiarize yourself with the following terms:
 
 | Term  | Definition |
 |:-------|:------------|
 | Layer | An AutoCAD DWG layer|
 | Level | An area of a building at a set elevation. Levels aren't necessarily contiguous. For example, buildings with multiple towers have levels at different heights |
 | Xref  | A DWG package attached to the primary drawing as an external reference |
-
-Files that define a single building must be packaged in a single zip folder. The zip folder must contain DWG files and a manifest file. The next sections outline the requirements for the DWG files, manifest file, and the format of the content inside these files.
-
-## Prerequisites
-
-This article discusses the DWG package requirements for using the DWG Conversion API. A DWG package is a file format for storing two-dimensional design data or three-dimensional design data, and the metadata for the design. You may choose any CAD software to produce your DWG package.
 
 ## DWG file requirements
 
