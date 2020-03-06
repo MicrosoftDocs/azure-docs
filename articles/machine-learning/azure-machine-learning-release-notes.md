@@ -61,6 +61,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
   + **azureml-contrib-mir**
     + Adds functionality in the MirWebservice class to retrieve the Access Token
     + Use token auth for MirWebservice by default during MirWebservice.run() call - Only refresh if call fails
+    + Mir webservice deployment now requires proper Skus [Standard_DS2_v2, Standard_F16, Standard_A2_v2] instead of [Ds2v2, A2v2, and F16] respectively.
   + **azureml-contrib-pipeline-steps**
     + Optional parameter side_inputs added to ParallelRunStep. This parameter can be used to mount folder on the container. Currently supported types are DataReference and PipelineData.
     + Parameters passed in ParallelRunConfig can be overwritten by passing pipeline parameters now. New pipeline parameters supported aml_mini_batch_size, aml_error_threshold, aml_logging_level, aml_run_invocation_timeout (aml_node_count and aml_process_count_per_node are already part of earlier release).
