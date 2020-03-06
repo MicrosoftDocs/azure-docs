@@ -4,19 +4,22 @@ titleSuffix: Azure Cognitive Search
 description: This article will show you how to move your Azure Cognitive Search resources from one region to another in the Azure cloud.
 
 manager: nitinme
-author: tchristiani
-ms.author: terrychr
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
 ms.custom: subject-moving-resources
-ms.date: 03/05/2020
+ms.date: 03/06/2020
 ---
 
 # Move your Azure Cognitive Search service to another Azure region
 
-Currently, moving a search service to another region is not supported, in that there is no automation or tooling to help you with the task end-to-end.
+Occasionally, customers inquire about moving an existing search service to another region. Currently, there are no built-in mechanisms or tooling to help you with that task. It remains a manual process, outlined below in this article.
 
-In the portal, the **Export template** command produces a basic definition of a service (name, location, tier, replica, and partition count), but does not recognize the content of your service, nor does it carry over keys, roles, or logs.
+> [!NOTE]
+> In the Azure portal, all services have an **Export template** command. In the case of Azure Cognitive Search, this command produces a basic definition of a service (name, location, tier, replica, and partition count), but does not recognize the content of your service, nor does it carry over keys, roles, or logs. Although the command exists, we don't recommend using it for moving a search service.
+
+## Steps for moving a service
 
 If you need to move a search service to different region, your approach should look similar to the steps below:
 
@@ -28,6 +31,8 @@ If you need to move a search service to different region, your approach should l
 
 1. Create a service in the new region and republish from source code any existing indexes, indexers, data sources, skillsets, knowledge stores, and synonym maps. Service names must be unique so you cannot reuse the existing name.
 
+1. Reload indexes and knowledge stores, if applicable. You'll either use application code to push JSON data into an index, or rerun indexers to pull documents in from external sources. 
+
 1. Enable logging, and if you are using them, re-create security roles.
 
 1. Update client applications and test suites to use the new service name and API keys, and test all applications.
@@ -38,6 +43,7 @@ If you need to move a search service to different region, your approach should l
 
 + [Choose a tier](search-sku-tier.md)
 + [Create a search service](search-create-service-portal.md)
++ [Load search documents](search-what-is-data-import.md)
 + [Enable logging](search-monitor-logs.md)
 
 
