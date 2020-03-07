@@ -25,7 +25,7 @@ landingContent:
         url: custom-commands.md
       - text: About Direct Line Speech
         url: direct-line-speech.md
-    - linkListType: Custom Keyword
+    - linkListType: learn
       links:
       - text: Custom keyword naming guidelines
         url: speech-devices-sdk-kws-guidelines.md
