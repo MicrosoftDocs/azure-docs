@@ -11,7 +11,7 @@ keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers,
 
 This article shows you several ways to enable Azure Dev Spaces on an AKS cluster as well as install the client-side tools.
 
-## Enable Azure Dev Spaces using the CLI
+## Enable or remove Azure Dev Spaces using the CLI
 
 Before you can enable Dev Spaces using the CLI, you need:
 * An Azure subscription. If you don't have an Azure subscription, you can create a [free account][az-portal-create-account].
@@ -44,7 +44,18 @@ Managed Kubernetes cluster 'myAKSCluster' in resource group 'myResourceGroup' is
 
 The `use-dev-spaces` command also installs the Azure Dev Spaces CLI.
 
-## Enable Azure Dev Spaces using the Azure portal
+To remove Azure Dev Spaces from your AKS cluster, use the `azds remove` command. For example:
+
+```azurecli
+$ azds remove -g MyResourceGroup -n MyAKS
+Azure Dev Spaces Controller 'MyAKS' in resource group 'MyResourceGroup' that targets resource 'MyAKS' in resource group 'MyResourceGroup' will be deleted. This will remove Azure Dev Spaces instrumentation from the target resource for new workloads. Continue? (y/N): y
+
+Deleting Azure Dev Spaces Controller 'MyAKS' in resource group 'MyResourceGroup' that targets resource 'MyAks' in resource group 'MyResourceGroup' (takes a few minutes)...
+```
+
+The above command removes Azure Dev Spaces from the *MyAKS* cluster in *MyResourceGroup*. Any namespaces you created with Azure Dev Spaces will remain along with their workloads, but new workloads in those namespaces will not be instrumented with Azure Dev Spaces. In addition, if you restart any existing pods instrumented with Azure Dev Spaces, you may see errors. Those pods must be redeployed without Azure Dev Spaces tooling. To fully remove Azure Dev Spaces from your cluster, delete all pods in all namespaces where Azure Dev Spaces was enabled.
+
+## Enable or remove Azure Dev Spaces using the Azure portal
 
 Before you can enable Dev Spaces using the Azure portal, you need:
 * An Azure subscription. If you don't have an Azure subscription, you can create a [free account][az-portal-create-account].
@@ -59,6 +70,8 @@ To enable Azure Dev Spaces using the Azure portal:
 ![Enable Dev Spaces in the Azure portal](../media/how-to-setup-dev-spaces/enable-dev-spaces-portal.png)
 
 Enabling Azure Dev Spaces using the Azure portal **does not** install any client-side tools for Azure Dev Spaces.
+
+To remove Azure Dev Spaces from your AKS cluster, change *Enable Dev Spaces* to *No* and click *Save*. Any namespaces you created with Azure Dev Spaces will remain along with their workloads, but new workloads in those namespaces will not be instrumented with Azure Dev Spaces. In addition, if you restart any existing pods instrumented with Azure Dev Spaces, you may see errors. Those pods must be redeployed without Azure Dev Spaces tooling. To fully remove Azure Dev Spaces from your cluster, delete all pods in all namespaces where Azure Dev Spaces was enabled.
 
 ## Install the client-side tools
 
