@@ -9,11 +9,9 @@ ms.topic: quickstart
 ms.date: 02/26/2020
 ms.author: dech
 ---
-
 # Quickstart: Use Node.js to connect and query data from Azure Cosmos DB SQL API account
 
 > [!div class="op_single_selector"]
->
 > - [.NET V3](create-sql-api-dotnet.md)
 > - [.NET V4](create-sql-api-dotnet-V4.md)
 > - [Java](create-sql-api-java.md)
@@ -195,4 +193,5 @@ You can continue to experiment with this sample application or go back to Data E
 
 In this quickstart, you've learned how to create an Azure Cosmos DB account, create a container using the Data Explorer, and run a Node.js app. You can now import additional data to your Azure Cosmos DB account.
 
-> [!div class="nextstepaction"][import data into azure cosmos db](import-data.md)
+> [!div class="nextstepaction"]
+> [import data into azure cosmos db](import-data.md)
