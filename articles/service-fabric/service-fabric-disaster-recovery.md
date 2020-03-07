@@ -24,9 +24,9 @@ Hardware and software faults are unpredictable. The easiest way to survive fault
 
 For example, if your service is running on only one machine, the failure of that one machine is a disaster for that service. The simple way to avoid this disaster is to ensure that the service is running on multiple machines. Testing is also necessary to ensure that the failure of one machine doesn't disrupt the running service. Capacity planning ensures that a replacement instance can be created elsewhere and that reduction in capacity doesn't overload the remaining services. 
 
-The same pattern works regardless of what you're trying to avoid the failure of. For example, if you're concerned about the failure of a SAN, you run across multiple SANs. If you're concerned about the loss of a rack of servers, you run across multiple racks. If you're worried about the loss of datacenters, your service should run across multiple Azure regions or datacenters. 
+The same pattern works regardless of what you're trying to avoid the failure of. For example, if you're concerned about the failure of a SAN, you run across multiple SANs. If you're concerned about the loss of a rack of servers, you run across multiple racks. If you're worried about the loss of datacenters, your service should run across multiple Azure regions, across multiple Azure Availability Zones, or across your own datacenters. 
 
-When a service is running in this type of spanned mode, you're still subject to some types of simultaneous failures. But single and even multiple failures of a particular type (for example, a single virtual machine or network link failing) are automatically handled and so are no longer a "disaster." 
+When a service is spanned across multiple physical instances (machines, racks, datacenters, regions), you're still subject to some types of simultaneous failures. But single and even multiple failures of a particular type (for example, a single virtual machine or network link failing) are automatically handled and so are no longer a "disaster." 
 
 Service Fabric provides mechanisms for expanding the cluster and handles bringing failed nodes and services back. Service Fabric also allows running many instances of your services to prevent unplanned failures from turning into real disasters.
 
@@ -45,26 +45,26 @@ The best ways to avoid these types of operational faults are to:
 - Impose automation, prevent manual or out-of-band changes, and validate specific changes against the environment before enacting them.
 - Ensure that destructive operations are "soft." Soft operations don't take effect immediately or can be undone within a time window.
 
-Service Fabric provides mechanisms to prevent operational faults, such as providing [role-based](service-fabric-cluster-security-roles.md) access control for cluster operations. However, most of these operational faults require organizational efforts and other systems. Service Fabric does provide mechanisms for surviving operational faults, most notably backup and restore for stateful services.
+Service Fabric provides mechanisms to prevent operational faults, such as providing [role-based](service-fabric-cluster-security-roles.md) access control for cluster operations. However, most of these operational faults require organizational efforts and other systems. Service Fabric does provide mechanisms for surviving operational faults, most notably [backup and restore for stateful services](service-fabric-backuprestoreservice-quickstart-azurecluster.md).
 
 ## Managing failures
-The goal of Service Fabric is almost always automatic management of failures. But to handle some types of failures, services must have additional code. Other types of failures should _not_ be automatically addressed for safety and business continuity reasons. 
+The goal of Service Fabric is automatic management of failures. But to handle some types of failures, services must have additional code. Other types of failures should _not_ be automatically addressed for safety and business continuity reasons. 
 
 ### Handling single failures
 Single machines can fail for all sorts of reasons. Sometimes it's hardware causes, like power supplies and network hardware failures. Other failures are in software. These include failures of the operating system and the service itself. Service Fabric automatically detects these types of failures, including cases where the machine becomes isolated from other machines because of network problems.
 
 Regardless of the type of service, running a single instance results in downtime for that service if that single copy of the code fails for any reason. 
 
-To handle any single failure, the simplest thing you can do is ensure that your services run on more than one node by default. For stateless services, make sure that `InstanceCount` is greater than 1. For stateful services, the minimum recommendation is always a `TargetReplicaSetSize` and `MinReplicaSetSize` value of at least 3. Running more copies of your service code ensures that your service can handle any single failure automatically. 
+To handle any single failure, the simplest thing you can do is ensure that your services run on more than one node by default. For stateless services, make sure that `InstanceCount` is greater than 1. For stateful services, the minimum recommendation is that `TargetReplicaSetSize` and `MinReplicaSetSize` are both set to 3. Running more copies of your service code ensures that your service can handle any single failure automatically. 
 
 ### Handling coordinated failures
 Coordinated failures in a cluster can be due to either planned or unplanned infrastructure failures and changes, or planned software changes. Service Fabric models infrastructure zones that experience coordinated failures as *fault domains*. Areas that will experience coordinated software changes are modeled as *upgrade domains*. For more information about fault domains, upgrade domains, and cluster topology, see [Describe a Service Fabric cluster by using Cluster Resource Manager](service-fabric-cluster-resource-manager-cluster-description.md).
 
 By default, Service Fabric considers fault and upgrade domains when planning where your services should run. By default, Service Fabric tries to ensure that your services run across several fault and upgrade domains so that if planned or unplanned changes happen, your services remain available. 
 
-For example, let's say that failure of a power source causes all the machines on a rack to fail simultaneously. With multiple copies of the service running, the loss of many machines in fault domain failure turns into just another example of a single failure for a service. This is why managing fault domains is critical to ensuring high availability of your services. 
+For example, let's say that failure of a power source causes all the machines on a rack to fail simultaneously. With multiple copies of the service running, the loss of many machines in fault domain failure turns into just another example of a single failure for a service. This is why managing fault and upgrade domains is critical to ensuring high availability of your services. 
 
-When you're running Service Fabric in Azure, fault domains are managed automatically. In other environments, they might not be. If you're building your own clusters on-premises, be sure to map and plan your fault domain layout correctly.
+When you're running Service Fabric in Azure, fault domains and upgrade domains are managed automatically. In other environments, they might not be. If you're building your own clusters on-premises, be sure to map and plan your fault domain layout correctly.
 
 Upgrade domains are useful for modeling areas where software will be upgraded at the same time. Because of this, upgrade domains also often define the boundaries where software is taken down during planned upgrades. Upgrades of both Service Fabric and your services follow the same model. For more information on rolling upgrades, upgrade domains, and the Service Fabric health model that helps prevent unintended changes from affecting the cluster and your service, see:
 
@@ -86,13 +86,13 @@ You can visualize the layout of your cluster by using the cluster map provided i
 ### Handling simultaneous hardware or software failures
 We've been talking about single failures. As you can see, they're easy to handle for both stateless and stateful services just by keeping more copies of the code (and state) running across fault and upgrade domains. 
 
-Multiple simultaneous random failures can also happen. These are more likely to lead to an actual disaster.
+Multiple simultaneous random failures can also happen. These are more likely to lead to downtime or an actual disaster.
 
 
 #### Stateless services
-`InstanceCount` for the service indicates the desired number of instances that need to be running. When any (or all) of the instances fail, Service Fabric responds by automatically creating replacement instances on other nodes. Service Fabric continues to create replacements until the service is back to its desired instance count.
+The instance count for a stateless service indicates the desired number of instances that need to be running. When any (or all) of the instances fail, Service Fabric responds by automatically creating replacement instances on other nodes. Service Fabric continues to create replacements until the service is back to its desired instance count.
 
-In another example, assume that the stateless service has an `InstanceCount` value of -1. This value means that one instance should be running on each node in the cluster. If some of those instances fail, Service Fabric will detect that service is not in its desired state and will try to create the instances on the nodes where they're missing.
+For example, assume that the stateless service has an `InstanceCount` value of -1. This value means that one instance should be running on each node in the cluster. If some of those instances fail, Service Fabric will detect that service is not in its desired state and will try to create the instances on the nodes where they're missing.
 
 #### Stateful services
 There are two types of stateful services:
@@ -103,7 +103,7 @@ Recovery from failure of a stateful service depends on the type of the stateful 
 
 In a stateful service, incoming data is replicated between replicas (primary and active secondary). If a majority of the replicas receive the data, data is considered *quorum* committed. (For five replicas, three will be a quorum.) This means that at any point, there will be at least a quorum of replicas with the latest data. If replicas fail (say two out of five), we can use the quorum value to calculate if we can recover. (Because the remaining three out of five replicas are still up, it's guaranteed that at least one replica will have complete data.)
 
-When a quorum of replicas fail, the partition is declared to be in a *quorum loss* state. Say a partition has five replicas, which means that at least three are guaranteed to have complete data. If a quorum (three out five) of replicas fail, Service Fabric can't determine if the remaining replicas (two out five) have enough data to restore the partition.
+When a quorum of replicas fail, the partition is declared to be in a *quorum loss* state. Say a partition has five replicas, which means that at least three are guaranteed to have complete data. If a quorum (three out five) of replicas fail, Service Fabric can't determine if the remaining replicas (two out five) have enough data to restore the partition. In cases where Service Fabric detects quorum loss, its default behavior is to prevent additional writes to the partition, declare quorum loss, and wait for a quorum of replicas to be restored.
 
 Determining whether a disaster occurred for a stateful service and then managing it follows three stages:
 
@@ -112,20 +112,20 @@ Determining whether a disaster occurred for a stateful service and then managing
    Quorum loss is declared when a majority of the replicas of a stateful service are down at the same time.
 1. Determining if the quorum loss is permanent or not.
    
-   Most of the time, failures are transient. Processes are restarted, nodes are restarted, virtual machines are relaunched, and network partitions heal. Sometimes, though, failures are permanent. It depends on whether the services are stateful: 
+   Most of the time, failures are transient. Processes are restarted, nodes are restarted, virtual machines are relaunched, and network partitions heal. Sometimes, though, failures are permanent. Whether failures are permanent or not depends on whether the stateful service persists its state or whether it keeps it only in memory: 
    
    - For services without persisted state, a failure of a quorum or more of replicas results _immediately_ in permanent quorum loss. When Service Fabric detects quorum loss in a stateful non-persistent service, it immediately proceeds to step 3 by declaring (potential) data loss. Proceeding to data loss makes sense because Service Fabric knows that there's no point in waiting for the replicas to come back. Even if they recover, the data will be lost because of the non-persisted nature of the service.
-   - For stateful persistent services, a failure of a quorum or more of replicas causes Service Fabric to wait for the replicas to come back and restore the quorum. This results in a service outage for any _writes_ to the affected partition (or "replica set") of the service. However, reads might still be possible with reduced consistency guarantees. The default amount of time that Service Fabric waits for the quorum to be restored is infinite, because proceeding is a (potential) data-loss event and carries other risks.
+   - For stateful persistent services, a failure of a quorum or more of replicas causes Service Fabric to wait for the replicas to come back and restore the quorum. This results in a service outage for any _writes_ to the affected partition (or "replica set") of the service. However, reads might still be possible with reduced consistency guarantees. The default amount of time that Service Fabric waits for the quorum to be restored is *infinite*, because proceeding is a (potential) data-loss event and carries other risks. This means that Service Fabric will not proceed to the next step unless an administrator takes action to declare data loss.
 1. Determining if data is lost, and restoring from backups.
+
+   If quorum loss has been declared (either automatically or through administrative action), Service Fabric and the services move on to determining if data was actually lost. At this point, Service Fabric also knows that the other replicas aren't coming back. That was the decision made when we stopped waiting for the quorum loss to resolve itself. The best course of action for the service is usually to freeze and wait for specific administrative intervention.
    
    When Service Fabric calls the `OnDataLossAsync` method, it's always because of _suspected_ data loss. Service Fabric ensures that this call is delivered to the _best_ remaining replica. This is whichever replica has made the most progress. 
    
-   The reason we always say _suspected_ data loss is that it's possible that the remaining replica has all the same state as the primary did when it went down. However, without that state to compare it to, there's no good way for Service Fabric or operators to know for sure. 
-   
-   At this point, Service Fabric also knows that the other replicas aren't coming back. That was the decision made when we stopped waiting for the quorum loss to resolve itself. The best course of action for the service is usually to freeze and wait for specific administrative intervention. 
+   The reason we always say _suspected_ data loss is that it's possible that the remaining replica has all the same state as the primary did when quorum was lost. However, without that state to compare it to, there's no good way for Service Fabric or operators to know for sure.     
    
    So what does a typical implementation of the `OnDataLossAsync` method do?
-   1. The implementation logs that `OnDataLossAsync` has been triggered. And it fires off any necessary administrative alerts.
+   1. The implementation logs that `OnDataLossAsync` has been triggered, and it fires off any necessary administrative alerts.
    1. Usually, the implementation pauses and waits for further decisions and manual actions to be taken. This is because even if backups are available, they might need to be prepared. 
    
       For example, if two different services coordinate information, those backups might need to be modified to ensure that after the restore happens, the information that those two services care about is consistent. 
@@ -166,7 +166,7 @@ The following actions might result in data loss. Check before you follow them.
 > It's _never_ safe to use these methods other than in a targeted way against specific partitions. 
 >
 
-- Use the `Repair-ServiceFabricPartition -PartitionId` or `System.Fabric.FabricClient.ClusterManagementClient.RecoverPartitionAsync(Guid partitionId)` API. This API allows specifying the ID of the partition to recover from the quorum loss with potential data loss.
+- Use the `Repair-ServiceFabricPartition -PartitionId` or `System.Fabric.FabricClient.ClusterManagementClient.RecoverPartitionAsync(Guid partitionId)` API. This API allows specifying the ID of the partition to move out of quorum loss and into potential data loss.
 - If your cluster encounters frequent failures that cause services to go into a quorum-loss state and potential _data loss is acceptable_, specifying an appropriate [QuorumLossWaitDuration](https://docs.microsoft.com/powershell/module/servicefabric/update-servicefabricservice?view=azureservicefabricps) value can help your service automatically recover. Service Fabric will wait for the provided `QuorumLossWaitDuration` value (default is infinite) before performing recovery. We *don't* recommend this method because it can cause unexpected data losses.
 
 ## Availability of the Service Fabric cluster
@@ -193,7 +193,7 @@ There are two different strategies for surviving the permanent or sustained fail
 ### Random failures that lead to cluster failures
 Service Fabric has the concept of *seed nodes*. These are nodes that maintain the availability of the underlying cluster. 
 
-Seed nodes help to ensure that the cluster stays up by establishing leases with other nodes and serving as tiebreakers during certain kinds of network failures. If random failures remove a majority of the seed nodes in the cluster and they're not brought back, then your cluster federation ring collapses because you've lost seed node quorum. The cluster then fails. 
+Seed nodes help to ensure that the cluster stays up by establishing leases with other nodes and serving as tiebreakers during certain kinds of failures. If random failures remove a majority of the seed nodes in the cluster and they're not brought back quickly, your cluster automatically shuts down. The cluster then fails. 
 
 In Azure, Service Fabric Resource Provider manages Service Fabric cluster configurations. By default, Resource Provider distributes seed nodes across fault and upgrade domains for the *primary node type*. If the primary node type is marked as Silver or Gold durability, when you remove a seed node (either by scaling in your primary node type or by manually removing it), the cluster will try to promote another non-seed node from the primary node type's available capacity. This attempt will fail if you have less available capacity than your cluster reliability level requires for your primary node type.
 
