@@ -19,13 +19,18 @@ When you create an ISE, Azure *injects* that ISE into your Azure virtual network
 > [!IMPORTANT]
 > For logic apps and integration accounts to work together in an ISE, both must use the *same ISE* as their location.
 
-An ISE has increased limits on run duration, storage retention, throughput, HTTP request and response timeouts, message sizes, and custom connector requests. For more information, see [Limits and configuration for Azure Logic Apps](logic-apps-limits-and-config.md). To learn more about ISEs, see [Access to Azure Virtual Network resources from Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md).
+An ISE has increased limits on run duration, storage retention, throughput, HTTP request and response timeouts, message sizes, and custom connector requests. For more information, see [Limits and configuration for Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md). To learn more about ISEs, see [Access to Azure Virtual Network resources from Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md).
 
 This article shows you how to complete these tasks by using the Azure portal:
 
 * Enable access for your ISE.
 * Create your ISE.
 * Add extra capacity to your ISE.
+
+You can also create an ISE by using the Logic Apps REST API, including setting up customer-managed keys:
+
+* [Create an integration service environment (ISE) by using the Logic Apps REST API](../logic-apps/create-integration-service-environment-logic-apps-rest-api.md)
+* [Set up customer-managed keys to encrypt data at rest for ISEs](../logic-apps/customer-managed-keys-integration-service-environment.md)
 
 ## Prerequisites
 
