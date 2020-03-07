@@ -12,19 +12,17 @@ ms.date: 03/11/2020
 
 Sometimes, your logic apps and integration accounts need access to secured resources, such as virtual machines (VMs) and other systems or services, that are inside an [Azure virtual network](../virtual-network/virtual-networks-overview.md). To set up this access, you can [create an *integration service environment* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment.md). An ISE is an isolated instance of the Logic Apps service that uses dedicated resources and runs separately from the "global" multi-tenant Logic Apps service.
 
-> [!NOTE]
-> Some Azure virtual networks use private endpoints ([Azure Private Link](../private-link/private-link-overview.md)) 
-> for providing access to Azure PaaS services, such as Azure Storage, Azure Cosmos DB, or Azure SQL Database, 
-> partner services, or customer services that are hosted on Azure. If your logic apps need access to virtual 
-> networks that use private endpoints, you must create, deploy, and run those logic apps inside an ISE.
-
-For more information about creating an ISE, see [Connect to Azure virtual networks from Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment.md).
-
 Running logic apps in your own separate isolated instance helps reduce the impact that other Azure tenants might have on your apps' performance, also known as the ["noisy neighbors" effect](https://en.wikipedia.org/wiki/Cloud_computing_issues#Performance_interference_and_noisy_neighbors). An ISE also provides these benefits:
 
 * Your own static IP addresses, which are separate from the static IP addresses that are shared by the logic apps in the multi-tenant service. You can also set up a single public, static, and predictable outbound IP address to communicate with destination systems. That way, you don't have to set up additional firewall openings at those destination systems for each ISE.
 
 * Increased limits on run duration, storage retention, throughput, HTTP request and response timeouts, message sizes, and custom connector requests. For more information, see [Limits and configuration for Azure Logic Apps](logic-apps-limits-and-config.md).
+
+> [!NOTE]
+> Some Azure virtual networks use private endpoints ([Azure Private Link](../private-link/private-link-overview.md)) 
+> for providing access to Azure PaaS services, such as Azure Storage, Azure Cosmos DB, or Azure SQL Database, 
+> partner services, or customer services that are hosted on Azure. If your logic apps need access to virtual 
+> networks that use private endpoints, you must create, deploy, and run those logic apps inside an ISE.
 
 When you create an ISE, Azure *injects* or deploys that ISE into your Azure virtual network. You can then use this ISE as the location for the logic apps and integration accounts that need access.
 
