@@ -264,13 +264,13 @@ If your organization is using a proxy server, you will need to add the HTTS_PROX
 
 1. Navigate to your Iot hub in the Azure portal and select **Iot Edge** from the left pane menu.
 
-1. Select your device 1. Click on the ID of the target device from the list of devices.
+1. Select from the list of devices.
 
 1. Select **Set Modules**.
 
 1. In the **IoT Edge Modules** section of the page, select **Runtime Settings**.
 
-1. On the **Runtime Settings** page, scroll to or expand the **Edge Hub** section.
+1. On the **Runtime Settings** page, expand the **Edge Hub** section.
 
 1. Scroll to the **Environmental Variables** section and add "HTTPS_PROXY" for the **Name** and your proxy URL for the **Value**. The proxy URL must be specified in the following format: protocol://proxy_host:proxy_port. For example, `https://proxy.com:3128`.
 
@@ -280,7 +280,7 @@ If your organization is using a proxy server, you will need to add the HTTS_PROX
 
 1. Select **Review + Create**.
 
-1. Note that the proxy is added to the module in the deployment manifest and select **Create**.
+1. Note that the proxy is added to the module in the deployment manifest. Select **Create**.
 
 1. Back on the details page for the device, select **Set Modules**.
 
@@ -294,9 +294,9 @@ If your organization is using a proxy server, you will need to add the HTTS_PROX
 
 1. Note that the proxy is added to the module in deployment manifest and select **Create**.
 
-1. Repeat the previous six steps for each module than needs the proxy specification, starting with selecting **Set Modules**.
+1. Repeat steps 11 through 16 for each module than needs the proxy specification.
 
-1. Verify the settings by selecting the module from the device details page and on the **IoT Edge Modules Details** page you should see the proxy setting on the **Environmental Variables** tab for that page.
+1. Verify the settings by selecting the module from the device details page and on the **IoT Edge Modules Details** page, verify the proxy setting on the **Environmental Variables** tab.
 
 For more information, including how to specify the HTTPS_PROXY environmental variable using PowerShell or bash, see [How to configure proxy support](how-to-configure-proxy-support.md).
 
