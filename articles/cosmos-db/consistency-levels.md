@@ -35,6 +35,10 @@ The semantics of the five consistency levels are described here:
 
 - **Strong**: Strong consistency offers a linearizability guarantee. Linearizability refers to serving requests concurrently. The reads are guaranteed to return the most recent committed version of an item. A client never sees an uncommitted or partial write. Users are always guaranteed to read the latest committed write.
 
+   The following graphic illustrates the strong consistency with musical notes. After the data is written to the “East US” region, when you read the data from other regions, you get the most recent value:
+
+   ![video](media/consistency-levels/strong-consistency.gif)
+
 - **Bounded staleness**: The reads are guaranteed to honor the consistent-prefix guarantee. The reads might lag behind writes by at most *"K"* versions (i.e., "updates") of an item or by *"T"* time interval. In other words, when you choose bounded staleness, the "staleness" can be configured in two ways: 
 
   * The number of versions (*K*) of the item
@@ -47,25 +51,6 @@ The semantics of the five consistency levels are described here:
 - **Consistent prefix**: Updates that are returned contain some prefix of all the updates, with no gaps. Consistent prefix consistency level guarantees that reads never see out-of-order writes.
 
 - **Eventual**: There's no ordering guarantee for reads. In the absence of any further writes, the replicas eventually converge.
-
-## Consistency levels explained through baseball
-
-Let's take a baseball game scenario as an example. Imagine a sequence of writes that represent the score from a baseball game. The inning-by-inning line score is described in the [Replicated data consistency through baseball](https://www.microsoft.com/en-us/research/wp-content/uploads/2011/10/ConsistencyAndBaseballReport.pdf) paper. This hypothetical baseball game is currently in the middle of the seventh inning. It's the seventh-inning stretch. The visitors are behind with a score of 2 to 5 as shown below:
-
-| | **1** | **2** | **3** | **4** | **5** | **6** | **7** | **8** | **9** | **Runs** |
-| - | - | - | - | - | - | - | - | - | - | - |
-| **Visitors** | 0 | 0 | 1 | 0 | 1 | 0 | 0 |  |  | 2 |
-| **Home** | 1 | 0 | 1 | 1 | 0 | 2 |  |  |  | 5 |
-
-An Azure Cosmos container holds the run totals for the visitors and home teams. While the game is in progress, different read guarantees might result in clients reading different scores. The following table lists the complete set of scores that might be returned by reading the visitors' and home scores with each of the five consistency guarantees. The visitors' score is listed first. Different possible return values are separated by commas.
-
-| **Consistency level** | **Scores (Visitors, Home)** |
-| - | - |
-| **Strong** | 2-5 |
-| **Bounded staleness** | Scores that are at most one inning out of date: 2-3, 2-4, 2-5 |
-| **Session** | <ul><li>For the writer: 2-5</li><li> For anyone other than the writer: 0-0, 0-1, 0-2, 0-3, 0-4, 0-5, 1-0, 1-1, 1-2, 1-3, 1-4, 1-5, 2-0, 2-1, 2-2, 2-3, 2-4, 2-5</li><li>After reading 1-3: 1-3, 1-4, 1-5, 2-3, 2-4, 2-5</li> |
-| **Consistent prefix** | 0-0, 0-1, 1-1, 1-2, 1-3, 2-3, 2-4, 2-5 |
-| **Eventual** | 0-0, 0-1, 0-2, 0-3, 0-4, 0-5, 1-0, 1-1, 1-2, 1-3, 1-4, 1-5, 2-0, 2-1, 2-2, 2-3, 2-4, 2-5 |
 
 ## Additional reading
 
