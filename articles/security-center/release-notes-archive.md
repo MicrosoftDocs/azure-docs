@@ -733,7 +733,7 @@ Security Center now supports cross-tenant management scenarios as part of Azure 
 
 Azure Security Center (ASC) has launched new networking recommendations and improved some existing ones. Now, using Security Center ensures even greater networking protection for your resources. 
 
-[Learn more about network recommendations](recommendations-reference.md#recs-network).
+[Learn more about network recommendations](recommendations-reference.md#recs-networking).
 
 
 ## June 2019

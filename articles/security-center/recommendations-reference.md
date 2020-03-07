@@ -1,10 +1,7 @@
 ---
 title: Reference table for all Azure Security Center recommendations 
 description: This article lists Azure Security Center's security recommendations that help you protect your resources.
-services: security-center
-documentationcenter: na
 author: memildin
-manager: rkarlin
 ms.service: security-center
 ms.devlang: na
 ms.topic: overview
@@ -12,23 +9,32 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/21/2020
 ms.author: memildin
-
+ms.custom: generated
 ---
-
 # Security recommendations - a reference guide
 
-This article lists the recommendations you might see in Azure Security Center. The recommendations shown in your environment depend on the resources you're protecting and your customized configuration.
+This article lists the recommendations you might see in Azure Security Center. The recommendations
+shown in your environment depend on the resources you're protecting and your customized
+configuration.
 
 Security Center's recommendations are based on best practices. Some are aligned with the **Azure Security Benchmark**, the Microsoft-authored, Azure-specific guidelines for security and compliance best practices based on common compliance frameworks. [Learn more about Azure Security Benchmark](../security/benchmarks/introduction.md).
 
-To learn about how to respond to these recommendations, see [Remediate recommendations in Azure Security Center](security-center-remediate-recommendations.md).
+To learn about how to respond to these recommendations, see
+[Remediate recommendations in Azure Security Center](security-center-remediate-recommendations.md).
 
-Your Secure Score is based on the number of Security Center recommendations you've completed. To decide which  recommendations to resolve first, look at the severity of each one and its potential impact on your Secure Score.
+Your Secure Score is based on the number of Security Center recommendations you've completed. To
+decide which recommendations to resolve first, look at the severity of each one and its potential
+impact on your Secure Score.
 
->[!TIP]
-> If a recommendation's description says "No related policy", it's usually because that recommendation is dependent on a different recommendation and *its* policy. For example, the recommendation "Endpoint protection health failures should be remediated...", relies on the recommendation that checks whether an endpoint protection solution is even *installed* ("Endpoint protection solution should be installed..."). The underlying recommendation *does* have a policy. Limiting the policies to only the foundational recommendation simplifies policy management.
+> [!TIP]
+> If a recommendation's description says "No related policy", it's usually because that
+> recommendation is dependent on a different recommendation and _its_ policy. For example, the
+> recommendation "Endpoint protection health failures should be remediated...", relies on the
+> recommendation that checks whether an endpoint protection solution is even _installed_ ("Endpoint
+> protection solution should be installed..."). The underlying recommendation _does_ have a policy.
+> Limiting the policies to only the foundational recommendation simplifies policy management.
 
-## <a name="recs-network"></a>Network recommendations
+## <a name='recs-compute'></a>Compute recommendations
 
 | Recommendation                                                                                           | Description & related policy                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | Severity     | Quick fix enabled?([Learn more](security-center-remediate-recommendations.md#quick-fix-remediation)) | Resource type   |
 |----------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------|------------------------------------------------------------------------------------------------------|-----------------|
@@ -167,6 +173,7 @@ Your Secure Score is based on the number of Security Center recommendations you'
 | **Vulnerabilities in security configuration on your virtual machine scale sets should be remediated** | Remediate vulnerabilities in security configuration on your virtual machine scale sets to protect them from attacks. <br>(Related policy: Vulnerabilities in security configuration on your virtual machine scale sets should be remediated)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | High     | N                                                                                                    | Virtual machine scale set |
 |                                                                                                       |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |          |                                                                                                      |                           |
 
+## <a name='recs-identityandaccess'></a>IdentityAndAccess recommendations
 
 ## <a name="recs-datastorage"></a>Data and storage recommendations
 
@@ -226,7 +233,9 @@ Your Secure Score is based on the number of Security Center recommendations you'
 |                                                                                                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |          |                                                                                                      |               |
 
 
+## <a name='recs-networking'></a>Networking recommendations
 
+[!INCLUDE [asc-recs-networking](../../includes/asc-recs-networking.md)]
 
 ## Deprecated recommendations
 
@@ -240,6 +249,7 @@ Your Secure Score is based on the number of Security Center recommendations you'
 
 
 ## Next steps
+
 To learn more about recommendations, see the following:
 
 * [Security recommendations in Azure Security Center](security-center-recommendations.md)
