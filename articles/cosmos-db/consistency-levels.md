@@ -35,9 +35,9 @@ The semantics of the five consistency levels are described here:
 
 - **Strong**: Strong consistency offers a linearizability guarantee. Linearizability refers to serving requests concurrently. The reads are guaranteed to return the most recent committed version of an item. A client never sees an uncommitted or partial write. Users are always guaranteed to read the latest committed write.
 
-   The following graphic illustrates the strong consistency with musical notes. After the data is written to the “East US” region, when you read the data from other regions, you get the most recent value:
+  The following graphic illustrates the strong consistency with musical notes. After the data is written to the "East US" region, when you read the data from other regions, you get the most recent value:
 
-   ![video](media/consistency-levels/strong-consistency.gif)
+  ![video](media/consistency-levels/strong-consistency.gif)
 
 - **Bounded staleness**: The reads are guaranteed to honor the consistent-prefix guarantee. The reads might lag behind writes by at most *"K"* versions (i.e., "updates") of an item or by *"T"* time interval. In other words, when you choose bounded staleness, the "staleness" can be configured in two ways: 
 
@@ -46,11 +46,26 @@ The semantics of the five consistency levels are described here:
 
   Bounded staleness offers total global order except within the "staleness window." The monotonic read guarantees exist within a region both inside and outside the staleness window. Strong consistency has the same semantics as the one offered by bounded staleness. The staleness window is equal to zero. Bounded staleness is also referred to as time-delayed linearizability. When a client performs read operations within a region that accepts writes, the guarantees provided by bounded staleness consistency are identical to those guarantees by the strong consistency.
 
-- **Session**:  Within a single client session reads are guaranteed to honor the consistent-prefix (assuming a single “writer” session), monotonic reads, monotonic writes, read-your-writes, and write-follows-reads guarantees. Clients outside of the session performing writes will see eventual consistency.
+  Bounded staleness is frequently chosen by globally distributed applications that expect low write latencies but require total global order guarantee. Bounded staleness is great for applications featuring group collaboration and sharing, stock ticker, publish-subscribe/queueing etc. The following graphic illustrates the bounded staleness consistency with musical notes. After the data is written to the "East US" region, the "West US" and "Australia East" regions read the written value based on the configured maximum lag time or the maximum operations:
+
+  ![video](media/consistency-levels/bounded-staleness-consistency.gif)
+
+- **Session**:  Within a single client session reads are guaranteed to honor the consistent-prefix (assuming a single "writer" session), monotonic reads, monotonic writes, read-your-writes, and write-follows-reads guarantees. Clients outside of the session performing writes will see eventual consistency.
+
+  Session consistency is the widely used consistency level for both single region as well as globally distributed applications. It provides write latencies, availability, and read throughput comparable to that of eventual consistency but also provides the consistency guarantees that suit the needs of applications written to operate in the context of a user. The following graphic illustrates the session consistency with musical notes. The "West US" region and the "East US" regions are using the same session (Session A) so they both read the data at the same time. Whereas the "Australia East" region is using "Session B" so it receives data a later but in the same order as the writes.
+
+  ![video](media/consistency-levels/session-consistency.gif)
 
 - **Consistent prefix**: Updates that are returned contain some prefix of all the updates, with no gaps. Consistent prefix consistency level guarantees that reads never see out-of-order writes.
 
-- **Eventual**: There's no ordering guarantee for reads. In the absence of any further writes, the replicas eventually converge.
+  If writes were performed in the order `A, B, C`, then a client sees either `A`, `A,B`, or `A,B,C`, but never out of order like `A,C` or `B,A,C`. Consistent Prefix provides write latencies, availability and read throughput comparable to that of eventual consistency, but also provides the order guarantees that suit the needs of scenarios where order is important. The following graphic illustrates the consistency prefix consistency with musical notes. In all the regions, the reads never see out of order writes:
+
+  ![video](media/consistency-levels/consistent-prefix.gif)
+
+- **Eventual**: There's no ordering guarantee for reads. In the absence of any further writes, the replicas eventually converge.  
+Eventual consistency is the weakest form of consistency because a client may read the values which are older than the ones it had read before. Eventual consistency is ideal where the application does not require any ordering guarantees. Examples include count of Retweets, Likes or non-threaded comments. The following graphic illustrates the eventual consistency with musical notes.
+
+  ![video](media/consistency-levels/eventual-consistency.gif)
 
 ## Additional reading
 
