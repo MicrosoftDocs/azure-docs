@@ -11,33 +11,38 @@ ms.reviewer: sngun
 ---
 # Troubleshoot query issues when using Azure Cosmos DB
 
-This article walks through a general recommended approach for troubleshooting queries in Azure Cosmos DB. While the steps outlined in this document should not be considered a “catch all” for potential query issues, we have included the most common performance tips here. You should use this document as a starting place for troubleshooting slow or expensive queries in Azure Cosmos DB’s core (SQL) API. You can also use [diagnostics logs](cosmosdb-monitor-resource-logs.md) to identify queries that are slow or consume significant amounts of throughput.
+This article walks through a general recommended approach for troubleshooting queries in Azure Cosmos DB. Although you shouldn’t consider the steps outlined in this article a complete defense against potential query issues, we have included the most common performance tips here. You should use this article as a starting place for troubleshooting slow or expensive queries in the Azure Cosmos DB core (SQL) API. You can also use [diagnostics logs](cosmosdb-monitor-resource-logs.md) to identify queries that are slow or that consume significant amounts of throughput.
 
-You can broadly categorize query optimizations in Azure Cosmos DB: Optimizations that reduce the Request Unit (RU) charge of the query and optimizations that just reduce latency. By reducing the RU charge of a query, you will almost certainly decrease latency as well.
+You can broadly categorize query optimizations in Azure Cosmos DB: 
 
-This document will use examples that can be recreated using the [nutrition](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json) dataset.
+- Optimizations that reduce the Request Unit (RU) charge of the query
+- Optimizations that just reduce latency
+
+If you reduce the RU charge of a query, you will almost certainly decrease latency as well.
+
+This article provides examples that you can re-create by using the [nutrition](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json) dataset.
 
 ## Important
 
-- For the best performance please follow the [Performance Tips](performance-tips.md).
-    > [!NOTE] 
-    > Windows 64-bit host processing is recommended for improved performance. The SQL SDK includes a native ServiceInterop.dll to parse and optimize queries locally, and is only supported on the Windows x64 platform. For linux and other unsupported platforms where the ServiceInterop.dll is not available it will do an additional network call to the gateway to get the optimized query. 
-- Cosmos DB query does not support a minimum item count.
-    - Code should handle any page size from 0 to max item count
-    - The number of items in a page can and will change without any notice.
-- Empty pages are expected for queries, and can appear at any time. 
-    - The reason empty pages are exposed in the SDKs is it allows more opportunities to cancel the query. It also makes it clear that the SDK is doing multiple network calls.
-    - Empty pages can show up in existing workloads because a physical partition is split in Cosmos DB. First partition now has 0 results, which causes the empty page.
-    - Empty pages are caused by the backend preempting the query because the query is taking more than some fixed amount of time on the backend to retrieve the documents. If Cosmos DB preempts a query it will return a continuation token which will allow the query to continue. 
-- Make sure to drain the query completely. Look at the SDK samples and use a while loop on the `FeedIterator.HasMoreResults` to drain the entire query.
+- For best performance, follow the [Performance tips](performance-tips.md).
+    > [!NOTE]
+    > For improved performance, we recommend Windows 64-bit host processing. The SQL SDK includes a native ServiceInterop.dll to parse and optimize queries locally. ServiceInterop.dll is supported only on the Windows x64 platform. For linux and other unsupported platforms where ServiceInterop.dll isn't available, an additional network call will be made to the gateway to get the optimized query.
+- Azure Cosmos DB queries don't support a minimum item count.
+    - Code should handle any page size, from zero to the maximum item count.
+    - The number of items in a page can and will change without notice.
+- Empty pages are expected for queries, and can appear at any time.
+    - Empty pages are exposed in the SDKs because that exposure allows more opportunities to cancel a query. It also makes it clear that the SDK is doing multiple network calls.
+    - Empty pages can appear in existing workloads because a physical partition is split in Azure Cosmos DB. The first partition now has zero results, which causes the empty page.
+    - Empty pages are caused by the backend preempting a query because the query is taking more than some fixed amount of time on the backend to retrieve the documents. If Azure Cosmos DB preempts a query, it will return a continuation token that will allow the query to continue.
+- Be sure to drain the query completely. Look at the SDK samples, and use a `while` loop on `FeedIterator.HasMoreResults` to drain the entire query.
 
-### Obtaining query metrics:
+### Get query metrics
 
-When optimizing a query in Azure Cosmos DB, the first step is always to [obtain the query metrics](profile-sql-api-query.md) for your query. These are also available through the Azure portal as shown below:
+When you optimize a query in Azure Cosmos DB, the first step is always to [get the query metrics](profile-sql-api-query.md) for your query. These metrics are also available through the Azure portal:
 
-[ ![Obtaining query metrics](./media/troubleshoot-query-performance/obtain-query-metrics.png) ](./media/troubleshoot-query-performance/obtain-query-metrics.png#lightbox)
+[ ![Getting query metrics](./media/troubleshoot-query-performance/obtain-query-metrics.png) ](./media/troubleshoot-query-performance/obtain-query-metrics.png#lightbox)
 
-After obtaining query metrics, compare the Retrieved Document Count with the Output Document Count for your query. Use this comparison to identify the relevant sections to reference below.
+After you get the query metrics, compare the Retrieved Document Count with the Output Document Count for your query. Use this comparison to identify the relevant sections to reference below.
 
 The Retrieved Document Count is the number of documents that the query needed to load. The Output Document Count is the number of documents that were needed for the results of the query. If the Retrieved Document Count is significantly higher than the Output Document Count, then there was at least one part of your query that was unable to utilize the index and needed to do a scan.
 
