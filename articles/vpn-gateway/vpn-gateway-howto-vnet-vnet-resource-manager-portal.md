@@ -123,7 +123,7 @@ If you already have a VNet, verify that the settings are compatible with your VP
 ### To create a virtual network
 [!INCLUDE [vpn-gateway-basic-vnet-rm-portal](../../includes/vpn-gateway-basic-vnet-rm-portal-include.md)]
 
-## Create a virtual network gateway
+## Create the VNet1 gateway
 In this step, you create the virtual network gateway for your VNet. Creating a gateway can often take 45 minutes or more, depending on the selected gateway SKU. If you're creating this configuration as an exercise, see the [Example settings](#example-settings).
 
 [!INCLUDE [About gateway subnets](../../includes/vpn-gateway-about-gwsubnet-portal-include.md)]
@@ -134,7 +134,7 @@ In this step, you create the virtual network gateway for your VNet. Creating a g
 [!INCLUDE [vpn-gateway-no-nsg](../../includes/vpn-gateway-no-nsg-include.md)]
 
 ## Create and configure VNet4
-After you've configured VNet1, create VNet4 by repeating the previous steps and replacing the values with VNet4 values. You don't need to wait until the virtual network gateway for VNet1 has finished creating before you configure VNet4. If you're using your own values, make sure the address spaces don't overlap with any of the VNets to which you want to connect.
+After you've configured VNet1, create VNet4 and the VNet4 gateway by repeating the previous steps and replacing the values with VNet4 values. You don't need to wait until the virtual network gateway for VNet1 has finished creating before you configure VNet4. If you're using your own values, make sure the address spaces don't overlap with any of the VNets to which you want to connect.
 
 ## Configure the VNet1 gateway connection
 When the virtual network gateways for both VNet1 and VNet4 have completed, you can create your virtual network gateway connections. In this section, you create a connection from VNet1 to VNet4. These steps work only for VNets in the same subscription. If your VNets are in different subscriptions, you must use [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md) to make the connection. However, if your VNets are in different resource groups in the same subscription, you can connect them by using the portal.
@@ -144,7 +144,7 @@ When the virtual network gateways for both VNet1 and VNet4 have completed, you c
    ![Connections page](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/connections.png "Connections page")
 2. Select **+Add** to open the **Add connection** page.
 
-   ![Add connection](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/vnet1-to-vnet4.png "Add a connection")
+   ![Add connection](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/vnet1-vnet4-connection.png "Add a connection")
 3. On the **Add connection** page, fill in the values for your connection:
 
    - **Name**: Enter a name for your connection. For example, *VNet1toVNet4*.
