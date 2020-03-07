@@ -30,7 +30,7 @@ SCIM is a standardized definition of two endpoints: a /Users endpoint and a /Gro
 
 The standard user object schema and rest APIs for management defined in SCIM 2.0 (RFC [7642](https://tools.ietf.org/html/rfc7642), [7643](https://tools.ietf.org/html/rfc7643), [7644](https://tools.ietf.org/html/rfc7644)) allow identity providers and apps to more easily integrate with each other. Application developers that build a SCIM endpoint can integrate with any SCIM-compliant client without having to do custom work.
 
-Automating provisioning to an application requires building and integrating a SCIM endpoint with the Azure AD SCIM compliant. Perform the following steps to start provisioning users and groups into your application. 
+Automating provisioning to an application requires building and integrating a SCIM endpoint with the Azure AD SCIM client. Perform the following steps to start provisioning users and groups into your application. 
     
   * **[Step 1: Design your user and group schema.](#step-1-design-your-user-and-group-schema)** Identify the objects and attributes your application needs, and determine how they map to the user and group schema supported by the Azure AD SCIM implementation.
 
