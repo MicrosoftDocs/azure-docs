@@ -630,7 +630,7 @@ Ensure HTTPS is required for accessing the Storage Account containing your Azure
 
 Understand Azure Storage Account Encryption in Transit:
 
-https://docs.microsoft.com/azure/storage/common/storage-security-guide#encryption-in-transit
+https://docs.microsoft.com/azure/storage/blobs/security-recommendations
 
 **Azure Security Center monitoring**: Yes
 

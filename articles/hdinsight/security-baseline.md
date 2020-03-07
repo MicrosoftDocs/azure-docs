@@ -662,7 +662,7 @@ https://docs.microsoft.com/azure/data-lake-store/data-lake-store-security-overvi
 
 Understand Azure Storage Account encryption in transit:
 
-https://docs.microsoft.com/azure/storage/common/storage-security-guide#encryption-in-transit
+https://docs.microsoft.com/azure/storage/blobs/security-recommendations
 
 **Azure Security Center monitoring**: Yes
 
