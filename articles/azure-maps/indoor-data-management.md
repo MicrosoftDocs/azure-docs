@@ -98,25 +98,56 @@ keep the Postman application open. Now that your DWG package is uploaded, we'll 
 
 ## Data Curation
 
-In the data curation stage, the map data is maintained and managed based on your application goals. There three set of APIs that will regularly be used, along with the Azure Maps plug-in for the QGIS application. These three set of APIs are the data set APIs, tile set APIs, and state set APIs. 
+In the data curation stage, the map data is maintained and managed per your application goals. There are three set of APIs that will regularly be used, at this stage, along with the [Azure Maps plug-in for the QGIS application](azure-maps-qgis-plugin.md). These three set of APIs are the data set APIs, tile set APIs, and state set APIs. A data set is the primary resource for compiling one or more facility data. A tile set is a set of grided vector tiles. And, a state set contains state information for the dynamic map styles. The til set and the state set use data from the data set. Thus, you would first generate a data set, and then use the data set to generate tile and state sets. The tile and the state sets are used for various uses cases, such as, indoor map rendering.
 
-The [Dataset Create API]() takes a conversion id of a DWG package, and produces one or more data sets. The data set is the primary resource for compiling one or more facility data. It's a collection of map data entities, and there are numerous ways to use it. It can be manipulated using the indoor maps plug-in, or by making data set API calls.
+Before you delete a set of either data, tiles, or states, consider the cascading dependencies impact at runtime. For instance, if you delete a tile set that's used for indoor map rendering, then the vector tiles won't render in the application.
 
+The next sections detail the processes to generate each of the three described sets. Although the sections overview only a few APIs, for each set of APIs, the general concept apply to all APIs. You can also use the Azure Maps QGIS plug-in to manipulate the sets, but you would still need to obtain the set ids by making API calls.
+
+------------------------temp start
 A common use case involve generating tile sets from data sets. The [Tileset Create API]() takes the data set id and generates a tile set. It would also assign an id for the generated tile set. The tile set contains grided vector tiles for the indoor map of the DWG design. The [Get Map Tile API]() fetches tile sets, and those tile sets can be used in many scenarios, such as indoor map rendering. The [Tileset Delete API]() accesses an existing tile set and removes it. 
 
 Similar to the tile set, the state set can apply to various use cases. The [Create Stateset API]() produces a state set, which stores the styling state for the dynamic map features. It would also generate a state set id for a newly created state set. You can delete, get, and update the state set using the [Delete Stateset API](), [Get Stateset API](), [Update States API](), respectively.
 
 Essentially, you would maintain your data using the data set APIs. You would use the tile set APIs and the feature set APIs to develop the use cases of your application. You can use the indoor maps QGIS plug-in to make modification to your data set, tile set, and feature set. However, you need the id of the set to make the necessary modification. The next sections outline how to general process to access and manipulate each of these sets.
 
+------------------------temp end
+
 ### Data set
 
-The data set is generated from the map data of the DWG package. To make a new data set, you'll need the conversion id of the DWG package.
+The [Dataset Create API]() takes a conversion id of a DWG package, and produces one or more data sets. Then, it assigns a unique data set Id for the newly generated set. Recall, that the data set is a collection of map data entities. Map data entities can be buildings, and developers may want to merge one or more buildings' data in one application. As a result, the [Dataset Create API]() lets developers append duplicates of validated blobs into a data set.
 
-1. In the Postman application, make a **POST** request to the [Dataset Create API](). The URL of the request should look similar to the one below:
+Let's make a new data set using the [Dataset Create API]() and the conversion id of our DWG package.
+
+1. Open the Postman application, and make a **POST** request to the [Dataset Create API]() to create a new data set. The URL of the request should have a format like the one below:
 
     ```http
-    https://atlas.microsoft.com/dataset/create?api-version=1.0&conversionId=<>=facility&subscription-key=TiZ3a_OjcwOE471HGCzoPGa-6996WZQKUEuWu_BLRBg
+    https://atlas.microsoft.com/dataset/create?api-version=1.0&conversionId=<your-dwg-package-conversion-id>=facility&subscription-key=<Azure-Maps-Primary-Subscription-key>
     ```
+
+2. Obtain the URL in the **Location** key of the response **Headers** tab. 
+
+    <center>
+
+    ![data-management](./media/indoor-data-management/dataset-udid.png)
+
+    </center>
+
+3. Make a **GET** request at the URL to Obtain the id of the data set at that URL. As usually, append your Azure Maps primary subscription key.
+
+    ```http
+    https://atlas.microsoft.com/dataset/<a-unique-alphanumeric-value>/status?api-version=1.0&subscription-key=<Azure-Maps-Primary-Subscription-key>
+    ```
+
+4. The request call returns the `datasetId` in the response body. Copy the data set id.
+
+    <center>
+
+    ![data-management](./media/indoor-data-management/dataset-id.png)
+
+    </center>
+
+Now that you've obtained the data set id, you may edit the data set [using the Azure Maps QGIS plug-in](azure-maps-qgis-plugin.md). You may also use the data set to generate a tile set and state set. At any time in the development phase, you may use the [Dataset List API]() to the details of the data sets you generated. When you're done using a set, you can remove its resources using the [Dataset Delete API]().
 
 ### Tile set
 
