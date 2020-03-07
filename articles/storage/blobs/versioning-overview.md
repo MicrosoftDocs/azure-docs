@@ -20,8 +20,6 @@ You can list and access both the current blob and previous versions using versio
 
 > [!IMPORTANT]
 > Blob versioning cannot prevent accidental deletion of the storage account or of a container. To prevent accidental deletion of the storage account, configure a **CannotDelete** lock on the storage account resource. For more information on locking Azure resources, see [Lock resources to prevent unexpected changes](../../azure-resource-manager/management/lock-resources.md).
->
-> To protect against accidental deletion of a container, enable soft delete for the container (preview). ???
 
 ## How blob versioning works
 
@@ -33,7 +31,9 @@ The base blob represents the current version of the blob. A historical version p
 
 ### Version ID
 
-Each blob version is identified by a version ID. The value of the version ID is the timestamp at which the blob was written or updated. You can specify the version ID on read or delete operations to perform the operation on a given version. An operation on a blob that omits the version ID acts on the base blob.
+Each blob version is identified by a version ID. The value of the version ID is the timestamp at which the blob was written or updated. The version ID is assigned at the time that the version is created.
+
+You can specify the version ID on read or delete operations to perform the operation on a given version. An operation on a blob that omits the version ID acts on the base blob.
 
 When you call a write operation to create or modify a blob, Azure Storage returns the *x-ms-version-id* header in the response. This header contains the version ID for the current version after the write operation. The current version is the updated base blob.
 
@@ -101,6 +101,10 @@ Writing new data to the base blob re-creates the base blob. The existing version
 
 ### Blob types
 
+When blob versioning is enabled for a storage account, all write and delete operations on block blobs trigger the creation of a historical version.
+
+For page blobs and append blobs, only a subset of write and delete operations trigger the creation of a historical version. These operations include the [Put Blob](/rest/api/storageservices/put-blob), [Put Block List](/rest/api/storageservices/put-block-list), [Delete Blob](/rest/api/storageservices/delete-blob), [Set Blob Metadata](/rest/api/storageservices/set-blob-metadata), and [Copy Blob](/rest/api/storageservices/copy-blob) operations. A historical version is not created by a [Put Page](/rest/api/storageservices/put-page) operation on a page blob or by an [Append Block](/rest/api/storageservices/append-block) operation on an append blob. To capture changes from those operations, take a manual snapshot.
+
 All versions of a blob must be of the same blob type. For more information on blob types, see [Understanding block blobs, append blobs, and page blobs](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
 
 When blob versioning is enabled, you cannot overwrite a blob of one type with another type unless you first delete the blob and all its versions.
@@ -110,6 +114,48 @@ When blob versioning is enabled, you cannot overwrite a blob of one type with an
 You can move any version of a blob, including the current version, to a different blob access tier by calling the [Set Blob Tier](/rest/api/storageservices/set-blob-tier) operation. You can take advantage of lower capacity pricing by moving older versions of a blob to the cool or archive tier.
 
 To automate the process of moving blobs to the appropriate tier, use blob life cycle management. For more information on life cycle management, see [Manage the Azure Blob storage lifecycle](storage-lifecycle-management-concepts.md).
+
+## Disable blob versioning
+
+When you turn off blob versioning, any existing versions remain in your storage account and are accessible. No new versions are subsequently created.
+
+If a base blob was created or modified after versioning was enabled on the storage account, then overwriting the base blob creates a new historical version. The updated base blob is no longer a version and does not have a version ID. All subsequent updates to the base blob will overwrite its data.
+
+You can read or delete versions using the version ID after versioning is disabled. You can also list a blob's versions after versioning is disabled.
+
+The following diagram shows how modifying the base blob after versioning is disabled creates a blob that is not versioned. Any existing versions associated with the blob persist.
+
+![](media/versioning-overview/d6b2520cd36f91a2791eef5c60cb92d6.png)
+
+## Blob versioning and soft delete
+
+Blob versioning and blob soft delete work together to provide you with optimal data protection. For more information about blob soft delete, see [Soft delete for Azure Storage blobs](storage-blob-soft-delete.md).
+
+When you enable soft delete, you specify the retention period for soft-deleted data. Any deleted version remains in the system and can be undeleted within the soft delete retention period.
+
+When both blob versioning and blob soft delete are enabled, modifying or deleting a blob creates a new historical version instead of a soft-deleted snapshot. This historical version is not in the soft-deleted state, so it is not subject to the retention period for soft-deleted data and is not deleted permanently when the retention period elapses.
+
+To remove this historical version, you must explicitly delete it using the version ID. When a historical version is deleted, it then becomes a soft-deleted version. Soft-deleted versions are permanently deleted after the soft delete retention period has expired.
+
+![](media/versioning-overview/0fcfdf4accb302e356d9ec09b5869077.png)
+
+You can restore a soft-deleted blob version by calling the [Undelete Blob](/rest/api/storageservices/undelete-blob) operation during the soft delete retention period. Once the retention period has elapsed, the blob version is permanently deleted.
+
+## Blob versioning and blob snapshots
+
+A blob snapshot is a read-only copy of a blob that's taken at a specific point in time. Blob snapshots and blob versions are similar, but a snapshot is created manually by you or your application, while a blob version is created automatically on a write or delete operation when blob versioning is enabled for your storage account.
+
+If versioning is enabled for your storage account, all block blob updates and deletions are captured and preserved by versions. Taking snapshots does not offer any additional protections to your block blob data if blob versioning is enabled, and may increase costs and application complexity. Microsoft recommends that after you enable blob versioning, you also update your application to stop taking snapshots of block blobs.
+
+### Snapshot a blob when versioning is enabled
+
+Although it is not recommended, you can take a snapshot of a blob that is also versioned. If you cannot update your application to stop taking snapshots of block blobs when you enable versioning, your application can support both snapshots and versions.
+
+When you take a snapshot of a versioned blob, a new historical version is created at the same time that the snapshot is created. A new current version is also created when a snapshot is taken.
+
+The following diagram shows what happens when you take a snapshot of a versioned blob. In the diagram, blob versions and snapshots with version ID 1 and 3 contain identical data.
+
+![](media/versioning-overview/ba50a55ba1d79f47cf87caf2945837c3.png)
 
 ## Authorize operations on blob versions
 
@@ -138,54 +184,6 @@ The following table shows the permission required on a SAS to delete a blob vers
 |----------------|----------------|------------------------|
 | Delete         | x              | Delete a blob version. |
 
-## Disable blob versioning
-
-When you turn off blob versioning, any existing versions remain in your storage account and are accessible. No new versions are subsequently created.
-
-If a base blob is also a current version, overwriting the base blob creates a new historical version.??? The updated base blob is no longer a version and does not have a version ID. All subsequent updates to the base blob will overwrite its data.
-
-You can continue read or delete versions using the version ID after versioning is disabled.
-
-The following diagram shows how modifying the base blob after versioning is disabled creates a blob that is not versioned, although any existing versions persist.
-
-???how can you list the historical versions to delete them???
-
-![](media/versioning-overview/d6b2520cd36f91a2791eef5c60cb92d6.png)
-
-## Blob versioning and soft delete
-
-Blob versioning and blob soft delete work together to provide you with optimal data protection. For more information about blob soft delete, see [Soft delete for Azure Storage blobs](storage-blob-soft-delete.md).
-
-When you enable soft delete, you specify the retention period for soft-deleted data. Any deleted version remains in the system and can be undeleted within the soft delete retention period.
-
-When both blob versioning and blob soft delete are enabled, modifying or deleting a blob creates a new historical version instead of a soft-deleted snapshot. This historical version is not in the soft-deleted state, so it is not subject to the retention period for soft-deleted data and is not deleted permanently when the retention period elapses.
-
-To remove this historical version, you must explicitly delete it (using the version ID???). When a historical version is deleted, it then becomes a soft-deleted version. Soft-deleted versions are permanently deleted after the soft delete retention period has expired.
-
-![](media/versioning-overview/0fcfdf4accb302e356d9ec09b5869077.png)
-
-You can restore a soft-deleted blob version by calling the [Undelete Blob](/rest/api/storageservices/undelete-blob) operation during the soft delete retention period. Once the retention period has elapsed, the blob version is permanently deleted.
-
-## Blob versioning and blob snapshots
-
-A blob snapshot is a read-only copy of a blob that's taken at a specific point in time. Blob snapshots and blob versions are similar, but a snapshot is created manually by you or your application, while a blob version is created automatically on a write or delete operation when blob versioning is enabled for your storage account.
-
-If versioning is enabled for your storage account, all block (and append???) blob updates and deletions are captured and preserved by versions. Taking snapshots does not offer any additional protections to your block blob data if blob versioning is enabled. Microsoft recommends that after you enable blob versioning, you also update your application to stop taking snapshots of block blobs.
-
-For a page blob, a version is not created for a **Put Page** operation. For an append blob, a version is not created for an **Append Block** operation. You can take a manual snapshot to capture changes from those operations. ???are only block blobs supported???
-
-### Snapshot a blob when versioning is enabled
-
-???but we just recommended against this???
-
-Although it is not recommended, a blob can have multiple snapshots and versions. With versioning, each update and delete is captured with a new version.
-
-If you take a snapshot of a versioned blob, then a snapshot is created to capture the state of the blob. In addition, the state is captured as a previous version, and a new current version is created.???
-
-The following diagram shows what happens when you take a snapshot of a versioned blob. (???does the historical version include the snapshot???)
-
-![](media/versioning-overview/ba50a55ba1d79f47cf87caf2945837c3.png)
-
 ## About the preview
 
 Blob versioning is available in preview in the following regions:
@@ -202,8 +200,8 @@ Version 2019-10-19 of the Azure Storage REST API supports blob versioning.
 Blob versioning is available for the following types of storage accounts:
 
 - General-purpose v2 storage accounts
-- Blob storage accounts???
-- Premium block blob storage accounts???
+- Block blob storage accounts
+- Blob storage accounts
 
 If your storage account is a general-purpose v1 account, use the Azure portal to upgrade to a general-purpose v2 account. For more information about storage accounts, see [Azure storage account overview](../common/storage-account-overview.md).
 
