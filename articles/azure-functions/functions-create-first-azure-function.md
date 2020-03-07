@@ -3,13 +3,13 @@ title: Create your first function in the Azure portal
 description: Learn how to create your first Azure Function for serverless execution using the Azure portal.
 ms.assetid: 96cf87b9-8db6-41a8-863a-abb828e3d06d
 ms.topic: quickstart
-ms.date: 03/04/2020
+ms.date: 03/06/2020
 ms.custom: mvc, devcenter, cc996988-fb4f-47
 ---
 
 # Create your first function in the Azure portal
 
-Azure Functions lets you execute your code in a [serverless](https://azure.microsoft.com/solutions/serverless/) environment without having to first create a virtual machine (VM) or publish a web application. In this article, you learn how to use Azure Functions to create a "hello world" HTTP-triggered function in the Azure portal.
+Azure Functions lets you run your code in a [serverless](https://azure.microsoft.com/solutions/serverless/) environment without having to first create a virtual machine (VM) or publish a web application. In this article, you learn how to use Azure Functions to create a "hello world" HTTP-triggered function in the Azure portal.
 
 For more information about HTTP triggers, see [Azure Functions HTTP triggers and bindings overview](functions-bindings-http-webhook.md).
 
@@ -53,7 +53,7 @@ Now, you can run the new function by sending an HTTP request.
 
     ![Copy the function URL from the Azure portal](./media/functions-create-first-azure-function/function-app-develop-tab-testing.png)
 
-1. Paste the function URL into your browser's address bar. Add the query string value `&name=<yourname>` to the end of this URL and press the **Enter** key on your keyboard to execute the request. 
+1. Paste the function URL into your browser's address bar. Add the query string value `&name=<yourname>` to the end of this URL and press Enter to run the request. 
 
     The following example shows the response in the browser:
 

@@ -3,12 +3,12 @@ title: "Quickstart: Create your first function in Azure using Visual Studio"
 description: In this quickstart, you learn how to create and publish an HTTP-triggered Azure Function by using Visual Studio.
 ms.assetid: 82db1177-2295-4e39-bd42-763f6082e796
 ms.topic: quickstart
-ms.date: 03/04/2020
+ms.date: 03/06/2020
 ms.custom: mvc, devcenter, vs-azure, 23113853-34f2-4f
 ---
 # Quickstart: Create your first function in Azure using Visual Studio
 
-Azure Functions lets you execute your code in a [serverless](https://azure.microsoft.com/solutions/serverless/) environment without having to first create a VM or publish a web application.
+Azure Functions lets you run your code in a [serverless](https://azure.microsoft.com/solutions/serverless/) environment without having to first create a VM or publish a web application.
 
 In this quickstart, you learn how to use Visual Studio 2019 to locally create and test a "hello world" HTTP-triggered C# function app, which you then publish to Azure. 
 
@@ -52,7 +52,7 @@ Before you can publish your project, you must have a function app in your Azure 
 
 ## Test your function in Azure
 
-1. Copy the base URL of the function app from the **Publish** profile page. Replace the `localhost:port` portion of the URL you used to test the function locally with the new base URL. Append the query string `?name=<YOUR_NAME>` to this URL and execute the request.
+1. Copy the base URL of the function app from the **Publish** profile page. Replace the `localhost:port` portion of the URL you used to test the function locally with the new base URL. Append the query string `?name=<YOUR_NAME>` to this URL and run the request.
 
     The URL that calls your HTTP triggered function is in the following format:
 

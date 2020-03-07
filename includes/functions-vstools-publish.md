@@ -5,14 +5,14 @@ services: functions
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 02/28/2020
+ms.date: 03/06/2020
 ms.author: glenga
 ms.custom: include file
 ---
 
 1. In **Solution Explorer**, right-click the project and select **Publish**.
 
-2. In the **Pick a publish target** dialog box, use the publish options specified in the following table: 
+2. In **Pick a publish target**, use the publish options specified in the following table: 
 
     | Option      | Description                                |
     | ------------ |  -------------------------------------------------- |
@@ -25,7 +25,7 @@ ms.custom: include file
 
 3. Select **Publish**. If you haven't already signed-in to your Azure account from Visual Studio, select **Sign-in**. You can also create a free Azure account.
 
-4. In the **Azure App Service: Create new** dialog, use the values specified in the following table:
+4. In **Azure App Service: Create new**, use the values specified in the following table:
 
     | Setting      | Value  | Description                                |
     | ------------ |  ------- | -------------------------------------------------- |
