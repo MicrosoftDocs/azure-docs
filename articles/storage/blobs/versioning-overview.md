@@ -12,7 +12,6 @@ ms.author: tamram
 ms.subservice: blobs
 ---
 
-
 # Blob versions (preview)
 
 Applications may create, update, and delete data in Azure Blob storage continuously. A common requirement is the ability to access and manage both current and previous versions of the data. Blob storage versioning (preview) automatically maintains previous versions of an object.
@@ -44,7 +43,9 @@ When blob versioning is turned on, each write operation creates a new version. W
 
 If the write operation creates a new blob, then that blob, the base blob, is the current version. If the write operation modifies an existing blob, then the new data is captured in the updated blob, which is the base blob, and a historical version is created that represents the blob's previous state.
 
-For simplicity, all examples below show the version ID as a simple integer value. In reality, the version ID is a timestamp.
+For simplicity, the diagrams shown in this article display the version ID as a simple integer value. In reality, the version ID is a timestamp. The current blob version (that is, the base blob) is shown in blue, and historical versions are shown in gray.
+
+The following diagram shows how write operations affect blob versions. When a blob is created, the base blob is the current version. When the same blob is modified, a historical version is created, and the updated base blob is the current version.
 
 ![](media/versioning-overview/c697ba78ac1b42552ea96ce12d5a637b.png)
 
@@ -90,9 +91,11 @@ A **Delete Blob** operation acts on the base blob (that is, the current version)
 
 You can also delete a specific historical version of the blob by specifying its version ID. However, you cannot delete the base blob using its version ID.
 
+The following diagram shows the effect of a Delete Blob operation on a versioned base blob. The base blob is deleted, but the versions persist.
+
 ![](media/versioning-overview/f41c04ca67328884c4e9bd7ad40b1977.png)
 
-Writing new data to the base blob re-creates the base blob. The existing versions are unaffected.
+Writing new data to the base blob re-creates the base blob. The existing versions are unaffected, as shown in the following diagram.
 
 ![](media/versioning-overview/706e93eca804a7a3b2c952e15d131b00.png)
 
@@ -143,22 +146,25 @@ If a base blob is also a current version, overwriting the base blob creates a ne
 
 You can continue read or delete versions using the version ID after versioning is disabled.
 
+The following diagram shows how modifying the base blob after versioning is disabled creates a blob that is not versioned, although any existing versions persist.
+
+???how can you list the historical versions to delete them???
+
 ![](media/versioning-overview/d6b2520cd36f91a2791eef5c60cb92d6.png)
 
 ## Blob versioning and soft delete
 
-Blob versioning and blob soft delete work together to provide you with optimal data protection. When both blob versioning and blob soft delete are enabled, modifying or deleting a blob creates a version instead of a soft-deleted snapshot. For more information about blob soft delete, see [Soft delete for Azure Storage blobs](storage-blob-soft-delete.md).
+Blob versioning and blob soft delete work together to provide you with optimal data protection. For more information about blob soft delete, see [Soft delete for Azure Storage blobs](storage-blob-soft-delete.md).
 
 When you enable soft delete, you specify the retention period for soft-deleted data. Any deleted version remains in the system and can be undeleted within the soft delete retention period.
+
+When both blob versioning and blob soft delete are enabled, modifying or deleting a blob creates a new historical version instead of a soft-deleted snapshot. This historical version is not in the soft-deleted state, so it is not subject to the retention period for soft-deleted data and is not deleted permanently when the retention period elapses.
+
+To remove this historical version, you must explicitly delete it (using the version ID???). When a historical version is deleted, it then becomes a soft-deleted version. Soft-deleted versions are permanently deleted after the soft delete retention period has expired.
 
 ![](media/versioning-overview/0fcfdf4accb302e356d9ec09b5869077.png)
 
 You can restore a soft-deleted blob version by calling the [Undelete Blob](/rest/api/storageservices/undelete-blob) operation during the soft delete retention period. Once the retention period has elapsed, the blob version is permanently deleted.
-
-> [!NOTE]
-> When both blob versioning and soft delete are enabled, deleting a base blob triggers Azure Storage to save the blob as a historical version. This historical version is not in the soft-deleted state, so it is not subject to the retention period for soft-deleted data and is not deleted permanently when the retention period elapses.
->
-> To remove this historical version, you must explicitly delete it (using the version ID???). When a historical version is deleted, it then becomes a soft-deleted version. Soft-deleted versions are permanently deleted after the soft delete retention period has expired.
 
 ## Blob versioning and blob snapshots
 
@@ -168,11 +174,15 @@ If versioning is enabled for your storage account, all block (and append???) blo
 
 For a page blob, a version is not created for a **Put Page** operation. For an append blob, a version is not created for an **Append Block** operation. You can take a manual snapshot to capture changes from those operations. ???are only block blobs supported???
 
-### Snapshot a blob when versioning is on
+### Snapshot a blob when versioning is enabled
+
+???but we just recommended against this???
 
 Although it is not recommended, a blob can have multiple snapshots and versions. With versioning, each update and delete is captured with a new version.
 
 If you take a snapshot of a versioned blob, then a snapshot is created to capture the state of the blob. In addition, the state is captured as a previous version, and a new current version is created.???
+
+The following diagram shows what happens when you take a snapshot of a versioned blob. (???does the historical version include the snapshot???)
 
 ![](media/versioning-overview/ba50a55ba1d79f47cf87caf2945837c3.png)
 
@@ -256,6 +266,6 @@ Versions, like snapshots, are billed at the same rate as active data. You only p
 
 ## See also
 
-- [Enable blob versioning](versioning-enable.md)
+- [Enable blob versioning](versioning-enable.md)    
 - [Creating a snapshot of a blob](/rest/api/storageservices/creating-a-snapshot-of-a-blob)
 - [Soft delete for Azure Storage Blobs](storage-blob-soft-delete.md)
