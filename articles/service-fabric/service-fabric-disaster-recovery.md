@@ -110,13 +110,13 @@ Determining whether a disaster occurred for a stateful service and then managing
 1. Determining if there has been quorum loss or not.
    
    Quorum loss is declared when a majority of the replicas of a stateful service are down at the same time.
-1. Determining if the quorum loss is permanent or not.
+2. Determining if the quorum loss is permanent or not.
    
    Most of the time, failures are transient. Processes are restarted, nodes are restarted, virtual machines are relaunched, and network partitions heal. Sometimes, though, failures are permanent. Whether failures are permanent or not depends on whether the stateful service persists its state or whether it keeps it only in memory: 
    
    - For services without persisted state, a failure of a quorum or more of replicas results _immediately_ in permanent quorum loss. When Service Fabric detects quorum loss in a stateful non-persistent service, it immediately proceeds to step 3 by declaring (potential) data loss. Proceeding to data loss makes sense because Service Fabric knows that there's no point in waiting for the replicas to come back. Even if they recover, the data will be lost because of the non-persisted nature of the service.
    - For stateful persistent services, a failure of a quorum or more of replicas causes Service Fabric to wait for the replicas to come back and restore the quorum. This results in a service outage for any _writes_ to the affected partition (or "replica set") of the service. However, reads might still be possible with reduced consistency guarantees. The default amount of time that Service Fabric waits for the quorum to be restored is *infinite*, because proceeding is a (potential) data-loss event and carries other risks. This means that Service Fabric will not proceed to the next step unless an administrator takes action to declare data loss.
-1. Determining if data is lost, and restoring from backups.
+3. Determining if data is lost, and restoring from backups.
 
    If quorum loss has been declared (either automatically or through administrative action), Service Fabric and the services move on to determining if data was actually lost. At this point, Service Fabric also knows that the other replicas aren't coming back. That was the decision made when we stopped waiting for the quorum loss to resolve itself. The best course of action for the service is usually to freeze and wait for specific administrative intervention.
    
