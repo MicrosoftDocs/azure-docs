@@ -68,7 +68,7 @@ The simplest way to authenticate an cloud-based application is with a managed id
 Create a service principle using the Azure CLI [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) command:
 
 ```azurecli
-az ad sp create-for-rbac -n "http://mySP" --sdk-auth
+az ad sp create-for-rbac -n "http://<your-service-principle>" --sdk-auth
 ```
 
 This operation will return a series of key / value pairs. 
