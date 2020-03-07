@@ -15,11 +15,11 @@ This feature is available in the **Premium** container registry service tier. Fo
 
 ## Limitations
 
-* Currently, you can't set up private link with private endpoints on a [geo-replicated registry](container-registry-geo-replication.md). 
+* Currently, you can't set up a private link with a private endpoint on a [geo-replicated registry](container-registry-geo-replication.md). 
 
 ## Prerequisites
 
-* To use the Azure CLI steps in this article, Azure CLI version 2.1.1 or later is recommended. If you need to install or upgrade, see [Install Azure CLI][azure-cli]. Or run in [Azure Cloud Shell](azure-cli-cloud-shell)
+* To use the Azure CLI steps in this article, Azure CLI version 2.1.1 or later is recommended. If you need to install or upgrade, see [Install Azure CLI][azure-cli]. Or run in [Azure Cloud Shell](../cloud-shell/quickstart.md).
 * If you don't already have a container registry, create one (Premium tier required) and push a sample image such as `hello-world` from Docker Hub. For example, use the [Azure portal][quickstart-portal] or the [Azure CLI][quickstart-cli] to create a registry. 
 
 The Azure CLI examples in this article use the following environment variables. Substitute values appropriate for your environment. All examples are formatted for the Bash shell:
@@ -109,6 +109,7 @@ networkName=$(az network vnet list \
 subnetName=$(az network vnet list \
   --resource-group $resourceGroup \
   --query '[].{Subnet: subnets[0].name}' --output tsv)
+
 echo networkName=$networkName
 echo subnetName=$subnetName
 ```
@@ -377,7 +378,6 @@ To clean up your resources in the portal, navigate to your resource group. Once 
 
 <!-- LINKS - Internal -->
 [azure-cli]: /cli/azure/install-azure-cli
-[azure-cli-cloud-shell]: /cli/azure/cloud-shell/quickstart
 [az-acr-create]: /cli/azure/acr#az-acr-create
 [az-acr-show]: /cli/azure/acr#az-acr-show
 [az-acr-repository-show]: /cli/azure/acr/repository#az-acr-repository-show
