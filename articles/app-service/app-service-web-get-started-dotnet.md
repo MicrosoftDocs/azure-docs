@@ -53,37 +53,23 @@ Create an ASP.NET Core web app by following these steps:
 
 1. In **Solution Explorer**, right-click the **myFirstAzureWebApp** project and select **Publish**.
 
-1. Choose **App Service** and then select **Create Profile**.
+1. In the **Pick a publish target** dialog box, choose **App Service** and then select **Create New**.
 
    ![Publish from project overview page](./media/app-service-web-get-started-dotnet/publish-app-vs2019.png)
 
-1. In **App Service Create new**, your options depend on whether you're signed in to Azure already and whether you have a Visual Studio account linked to an Azure account. Select either **Add an account** or **Sign in** to sign in to your Azure subscription. If you're already signed in, select the account you want.
+1. Select **Create Profile**. If you haven't already signed-in to your Azure account from Visual Studio, select either **Add an account** or **Sign in**. You can also create a free Azure account.
 
-   ![Sign in to Azure](./media/app-service-web-get-started-dotnet/sign-in-azure-vs2019.png)
+1. In the **App Service: Create new** dialog, use the values specified in the following table:
 
-1. For **Resource group**, select **New**.
+| Setting             | Value                     | Description                                                          |
+| ------------------- | ------------------------- | ---------------------------------------------------------------------|
+| **Name**            | Globally unique name      | A Name that uniquely identifies your new app. Accept this name or enter a new name. Valid characters are: `a-z`, `A-Z`, `0-9`, and `-`.                                                                                      |
+| **Subscription**    | Your subscription         | The Azure subscription to use. Accept this subscription or select a new one from the drop-down list.                                                                                                |
+| **[Resource Group](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/overview#terminology)**  | *myResourceGroup* | Select **New**. In **New resource group name**, enter *myResourceGroup* and select **OK**.  |
+| **[Hosting Plan](https://docs.microsoft.com/en-us/azure/app-service/overview-hosting-plans)**  | *myFirstAzureWebAppPlan* | Select **New**. In **Hosting Plan: Create new**, enter a **Hosting Plan** of *myFirstAzureWebAppPlan*, a **Location** of *West Europe*, and a **Size** of *Free*.                                                                               |
+| **Application Insights**   | None  |  Additional information about your web app.                                         |
 
-    [!INCLUDE [resource group intro text](../../includes/resource-group.md)]
-
-1. In **New resource group name**, enter *myResourceGroup* and select **OK**.
-
-   [!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
-
-1. For the **Hosting Plan**, select **New**.
-
-1. In the **Hosting Plan Create new** dialog, enter the values from the following table, and then select **OK**.
-
-   | Setting | Suggested Value | Description |
-   |-|-|-|
-   |Hosting Plan| myFirstAzureWebAppPlan | Name of the App Service plan. |
-   | Location | West Europe | The datacenter where the web app is hosted. |
-   | Size | Free | [Pricing tier](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) determines hosting features. |
-
-   ![Create App Service plan](./media/app-service-web-get-started-dotnet/app-service-plan-vs2019.png)
-
-1. For **Name**, either accept the automatically generated unique name, or enter your own unique app name that includes only the valid characters `a-z`, `A-Z`, `0-9`, and `-`. The URL of your web app will be `http://<app_name>.azurewebsites.net`, where `<app_name>` is the name that you set in this field.
-
-   ![Configure app name](./media/app-service-web-get-started-dotnet/web-app-name-vs2019.png)
+![Configure app name](./media/app-service-web-get-started-dotnet/web-app-name-vs2019.png)
 
 1. Select **Create** to start creating the Azure resources. Once the wizard completes, deploy your web app by selecting **Publish**.
 
@@ -130,11 +116,11 @@ On the **App Services** page, select the name of your web app.
 
 ![Portal navigation to Azure app](./media/app-service-web-get-started-dotnet/access-portal-vs2019.png)
 
-You see your web app's Overview page. Here, you can do basic management like browse, stop, start, restart, and delete.
+This opens your web app's **Overview** page, containing options for basic management like browse, stop, start, restart, and delete. The left menu provides further pages for configuring your app.
 
 ![App Service in Azure portal](./media/app-service-web-get-started-dotnet/web-app-general-vs2019.png)
 
-The left menu provides different pages for configuring your app.
+
 
 [!INCLUDE [Clean-up section](../../includes/clean-up-section-portal.md)]
 
