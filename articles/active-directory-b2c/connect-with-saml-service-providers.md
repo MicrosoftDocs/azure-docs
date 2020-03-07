@@ -3,14 +3,14 @@ title: Configure Azure AD B2C as a SAML IdP to your applications
 title-suffix: Azure AD B2C
 description: How to configure Azure AD B2C to provide SAML protocol assertions to your applications (service providers). Azure AD B2C will act as the single identity provider (IdP) to your SAML application.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 02/27/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
 ---
@@ -59,7 +59,7 @@ If you don't yet have a SAML service provider and an associated metadata endpoin
 
 ## 1. Set up certificates
 
-To build a trust relationship between your service provider and Azure AD B2C, you need to provide X509 certificates and their private keys.
+To build a trust relationship between your service provider and Azure AD B2C, you need to provide the web app X509 certificates.
 
 * **Service provider certificates**
   * Certificate with a private key stored in your Web App. This certificate is used by your service provider to sign the SAML request sent to Azure AD B2C. Azure AD B2C reads the public key from the service provider metadata to validate the signature.

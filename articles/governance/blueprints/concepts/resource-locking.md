@@ -98,6 +98,11 @@ The key difference in this request body and one being assigned to a subscription
 blueprint assignment applies to. The subscription must be a direct child of the management group
 hierarchy where the blueprint assignment is stored.
 
+> [!NOTE]
+> A blueprint assigned to management group scope still operates as a subscription level blueprint
+> assignment. The only difference is where the blueprint assignment is stored to prevent
+> subscription owners from removing the assignment and associated locks.
+
 ## Removing locking states
 
 If it becomes necessary to modify or delete a resource protected by an assignment, there are two

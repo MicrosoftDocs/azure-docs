@@ -193,6 +193,14 @@ The Azure Machine Learning SDK widget isn't supported in a Databricks notebook b
 displayHTML("<a href={} target='_blank'>Azure Portal: {}</a>".format(local_run.get_portal_url(), local_run.id))
 ```
 
+### Import error: cannot import name 'Timedelta' from 'pandas._libs.tslibs'
+
+If you see this error when you use automated machine learning, run the two following lines in your notebook:
+```
+%sh rm -rf /databricks/python/lib/python3.7/site-packages/pandas-0.23.4.dist-info /databricks/python/lib/python3.7/site-packages/pandas
+%sh /databricks/python/bin/pip install pandas==0.23.4
+```
+
 ### Import error: No module named 'pandas.core.indexes'
 
 If you see this error when you use automated machine learning:

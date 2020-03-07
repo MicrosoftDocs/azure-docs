@@ -26,7 +26,7 @@ You can also:
 
 This article assumes that you have an existing AKS cluster. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
 
-This article uses Helm to install the NGINX ingress controller, cert-manager, and a sample web app. You need to have Helm initialized within your AKS cluster and using a service account for Tiller. Make sure that you are using the latest release of Helm 3. For upgrade instructions, see the [Helm install docs][helm-install]. For more information on configuring and using Helm, see [Install applications with Helm in Azure Kubernetes Service (AKS)][use-helm].
+This article uses Helm to install the NGINX ingress controller, cert-manager, and a sample web app. Make sure that you are using the latest release of Helm. For upgrade instructions, see the [Helm install docs][helm-install]. For more information on configuring and using Helm, see [Install applications with Helm in Azure Kubernetes Service (AKS)][use-helm].
 
 This article also requires that you are running the Azure CLI version 2.0.64 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
 
@@ -114,13 +114,10 @@ To install the cert-manager controller in an RBAC-enabled cluster, use the follo
 
 ```console
 # Install the CustomResourceDefinition resources separately
-kubectl apply --validate=false -f https://raw.githubusercontent.com/jetstack/cert-manager/release-0.12/deploy/manifests/00-crds.yaml
-
-# Create the namespace for cert-manager
-kubectl create namespace cert-manager
+kubectl apply --validate=false -f https://raw.githubusercontent.com/jetstack/cert-manager/release-0.13/deploy/manifests/00-crds.yaml
 
 # Label the cert-manager namespace to disable resource validation
-kubectl label namespace cert-manager cert-manager.io/disable-validation=true
+kubectl label namespace ingress-basic cert-manager.io/disable-validation=true
 
 # Add the Jetstack Helm repository
 helm repo add jetstack https://charts.jetstack.io
@@ -131,8 +128,8 @@ helm repo update
 # Install the cert-manager Helm chart
 helm install \
   cert-manager \
-  --namespace cert-manager \
-  --version v0.12.0 \
+  --namespace ingress-basic \
+  --version v0.13.0 \
   jetstack/cert-manager
 ```
 
@@ -149,7 +146,6 @@ apiVersion: cert-manager.io/v1alpha2
 kind: ClusterIssuer
 metadata:
   name: letsencrypt-staging
-  namespace: ingress-basic
 spec:
   acme:
     server: https://acme-staging-v02.api.letsencrypt.org/directory
@@ -165,7 +161,7 @@ spec:
 To create the issuer, use the `kubectl apply -f cluster-issuer.yaml` command.
 
 ```
-$ kubectl apply -f cluster-issuer.yaml
+$ kubectl apply -f cluster-issuer.yaml --namespace ingress-basic
 
 clusterissuer.cert-manager.io/letsencrypt-staging created
 ```
@@ -345,20 +341,17 @@ NAME                    NAMESPACE       REVISION        UPDATED                 
 aks-helloworld          ingress-basic   1               2020-01-11 15:02:21.51172346   deployed        aks-helloworld-0.1.0
 aks-helloworld-2        ingress-basic   1               2020-01-11 15:03:10.533465598  deployed        aks-helloworld-0.1.0
 nginx-ingress           ingress-basic   1               2020-01-11 14:51:03.454165006  deployed        nginx-ingress-1.28.2    0.26.2
-cert-manager            cert-manager    1               2020-01-06 21:19:03.866212286  deployed        cert-manager-v0.12.0            v0.12.0
+cert-manager            ingress-basic    1               2020-01-06 21:19:03.866212286  deployed        cert-manager-v0.13.0    v0.13.0
 ```
 
 Delete the releases with the `helm uninstall` command. The following example deletes the NGINX ingress deployment, certificate manager, and the two sample AKS hello world apps.
 
 ```
-$ helm uninstall aks-helloworld aks-helloworld-2 nginx-ingress -n ingress-basic
+$ helm uninstall aks-helloworld aks-helloworld-2 nginx-ingress cert-manager -n ingress-basic
 
 release "aks-helloworld" deleted
 release "aks-helloworld-2" deleted
 release "nginx-ingress" deleted
-
-$ helm uninstall cert-manager -n cert-manager
-
 release "cert-manager" deleted
 ```
 

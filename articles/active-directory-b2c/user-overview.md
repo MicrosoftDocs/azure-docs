@@ -2,14 +2,14 @@
 title: Overview of user accounts in Azure Active Directory B2C
 description: Learn about the types of user accounts that can be used in Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/05/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
 ---
 

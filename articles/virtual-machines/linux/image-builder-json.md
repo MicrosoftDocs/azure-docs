@@ -298,7 +298,7 @@ The Restart customizer allows you to restart a Windows VM and wait for it come b
 
             {
                 "type": "WindowsRestart",
-                "restartCommand": "shutdown /r /f /t 0 /c", 
+                "restartCommand": "shutdown /r /f /t 0", 
                 "restartCheckCommand": "echo Azure-Image-Builder-Restarted-the-VM  > c:\\buildArtifacts\\azureImageBuilderRestart.txt",
                 "restartTimeout": "5m"
             }

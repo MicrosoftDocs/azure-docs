@@ -140,10 +140,16 @@ To set up a managed identity in the portal, you first create an application and 
                     .ConfigureAppConfiguration((hostingContext, config) =>
                     {
                         var settings = config.Build();
-                        AzureServiceTokenProvider azureServiceTokenProvider = new AzureServiceTokenProvider();
-                        KeyVaultClient kvClient = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider.KeyVaultTokenCallback));
-                        
-                        config.AddAzureAppConfiguration(options => options.Connect(new Uri(settings["AppConfig:Endpoint"]), new ManagedIdentityCredential()).UseAzureKeyVault(kvClient));
+                        var credentials = new ManagedIdentityCredential();
+
+                        config.AddAzureAppConfiguration(options =>
+                        {
+                            options.Connect(new Uri(settings["AppConfig:Endpoint"]), credentials)
+                                    .ConfigureKeyVault(kv =>
+                                    {
+                                        kv.SetCredential(credentials);
+                                    });
+                        });
                     })
                     .UseStartup<Startup>();
     ```
@@ -155,12 +161,18 @@ To set up a managed identity in the portal, you first create an application and 
             Host.CreateDefaultBuilder(args)
             .ConfigureWebHostDefaults(webBuilder =>
             webBuilder.ConfigureAppConfiguration((hostingContext, config) =>
-            {
-                var settings = config.Build();
-                        AzureServiceTokenProvider azureServiceTokenProvider = new AzureServiceTokenProvider();
-                        KeyVaultClient kvClient = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider.KeyVaultTokenCallback));
-                        
-                        config.AddAzureAppConfiguration(options => options.Connect(new Uri(settings["AppConfig:Endpoint"]), new ManagedIdentityCredential()).UseAzureKeyVault(kvClient));
+                    {
+                        var settings = config.Build();
+                        var credentials = new ManagedIdentityCredential();
+
+                        config.AddAzureAppConfiguration(options =>
+                        {
+                            options.Connect(new Uri(settings["AppConfig:Endpoint"]), credentials)
+                                    .ConfigureKeyVault(kv =>
+                                    {
+                                        kv.SetCredential(credentials);
+                                    });
+                        });
                     })
                     .UseStartup<Startup>());
     ```
