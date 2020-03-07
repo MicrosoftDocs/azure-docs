@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, rarayudu, logicappspm
 ms.topic: conceptual
-ms.date: 01/14/2020
+ms.date: 03/11/2020
 ---
 
 # Set up customer-managed keys to encrypt data at rest for integration service environments (ISEs) in Azure Logic Apps
@@ -30,7 +30,7 @@ This topic shows how to set up and specify your own encryption key to use when y
 
 ## Prerequisites
 
-* The same [prerequisites](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#prerequisites) as when you create an ISE in the Azure portal
+* The same [prerequisites](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#prerequisites) and [requirements to enable access for your ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#enable-access) as when you create an ISE in the Azure portal
 
 * An Azure key vault that has the **Soft Delete** and **Do Not Purge** properties enabled
 
@@ -59,10 +59,20 @@ To create your ISE by calling the Logic Apps REST API, make this HTTPS PUT reque
 
 `PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/integrationServiceEnvironments/{integrationServiceEnvironmentName}?api-version=2019-05-01`
 
-Deployment usually takes within two hours to finish. Occasionally, deployment might take up to four hours. To check deployment status, in the [Azure portal](https://portal.azure.com), on your Azure toolbar, select the notifications icon, which opens the notifications pane.
-
 > [!IMPORTANT]
 > The Logic Apps REST API 2019-05-01 version requires that you make your own HTTP PUT request for ISE connectors.
+
+Deployment usually takes within two hours to finish. Occasionally, deployment might take up to four hours. To check deployment status, in the [Azure portal](https://portal.azure.com), on your Azure toolbar, select the notifications icon, which opens the notifications pane.
+
+> [!NOTE]
+> If deployment fails or you delete your ISE, Azure might take up to an hour 
+> before releasing your subnets. This delay means means you might have to wait 
+> before reusing those subnets in another ISE.
+>
+> If you delete your virtual network, Azure generally takes up to two hours 
+> before releasing up your subnets, but this operation might take longer. 
+> When deleting virtual networks, make sure that no resources are still connected. 
+> See [Delete virtual network](../virtual-network/manage-virtual-network.md#delete-a-virtual-network).
 
 ### Request header
 
