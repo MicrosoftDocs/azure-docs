@@ -26,7 +26,7 @@ Before you begin, you must have the following:
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
-+ [Python 3.7](https://www.python.org/downloads/release/python-375/) or [Python 3.6](https://www.python.org/downloads/release/python-368/), which are supported by Azure Functions. Python 3.8 and later versions aren't yet supported. 
++ [Python 3.8](https://www.python.org/downloads/release/python-382/), [Python 3.7](https://www.python.org/downloads/release/python-375/), [Python 3.6](https://www.python.org/downloads/release/python-368/), which are supported by Azure Functions. 
 ::: zone-end
 ::: zone pivot="programming-language-powershell"
 + [PowerShell Core](/powershell/scripting/install/installing-powershell-core-on-windows)
@@ -46,11 +46,11 @@ Before you begin, you must have the following:
 + Run `node --version` to check your Node.js version reports 8.x or 10.x.
 ::: zone-end
 ::: zone pivot="programming-language-python"
-+ Run `python --version` (Linux/MacOS) or `py --version` (Windows) to check your Python version reports 3.7.x or 3.6.x.
++ Run `python --version` (Linux/MacOS) or `py --version` (Windows) to check your Python version reports 3.8.x, 3.7.x or 3.6.x.
 
 ## <a name="create-venv"></a>Create and activate a virtual environment
 
-In a suitable folder, run the following commands to create and activate a virtual environment named `.venv`. Be sure to use Python 3.7 or 3.6, which are supported by Azure Functions.
+In a suitable folder, run the following commands to create and activate a virtual environment named `.venv`. Be sure to use Python 3.8, 3.7 or 3.6, which are supported by Azure Functions.
 
 
 # [bash](#tab/bash)
@@ -266,7 +266,9 @@ Use the following Azure CLI commands to create these items. Each command provide
 1. Create the Functions app using the [az functionapp create](/cli/azure/functionapp#az-functionapp-create) command. In the following example, replace `<STORAGE_NAME>` with the name of the account you used in the previous step, and replace `<APP_NAME>` with a globally unique name appropriate to you. The `<APP_NAME>` is also the default DNS domain for the function app. 
 
     ::: zone pivot="programming-language-python"  
-    If you are using Python 3.6, also change `--runtime-version` to `3.6`.
+    If you are using Python 3.8, change `--runtime-version` to `3.8` and `--functions_version` to `3`
+    
+    If you are using Python 3.6, change `--runtime-version` to `3.6`.
 
     ```azurecli
     az functionapp create --resource-group AzureFunctionsQuickstart-rg --os-type Linux --consumption-plan-location westeurope --runtime python --runtime-version 3.7 --functions_version 2 --name <APP_NAME> --storage-account <STORAGE_NAME>
