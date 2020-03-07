@@ -223,6 +223,9 @@
     href: stream-analytics-scale-with-machine-learning-functions.md
 - name: Stream Analytics Query Language
   items:
+    - name: Stream Analytics Query Language overview
+      href: /stream-analytics-query/stream-analytics-query-language-reference
+      maintainContext: true
     - name: Built-in Functions
       items:
         - name: Built-in Functions Overview
