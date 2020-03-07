@@ -1,5 +1,5 @@
 ---
-title: Manage the scope of roles with administrative units (preview) - Azure AD | Microsoft Docs
+title: Administrative unit scope for roles (preview) - Azure Active Directory | Microsoft Docs
 description: Using administrative units for more granular delegation of permissions in Azure Active Directory
 services: active-directory
 documentationcenter: ''
@@ -15,7 +15,7 @@ ms.reviewer: elkuzmen
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
 ---
-# Manage the scope of roles with administrative units in Azure Active Directory (preview)
+# Administrative unit scope for roles in Azure Active Directory (preview)
 
 Administrative units can be useful in organizations with independent divisions. Consider the example of a large university that is made up of many autonomous schools (School of Business, School of Engineering, and so on) that each has their own IT administrators who control access, manage users, and set policies for their school. A central administrator could create an administrative unit for the School of Business and populate it with only the business school students and staff. Then the central administrator can add the Business school IT staff to a scoped role that grants administrative permissions over only Azure AD users in the business school administrative unit.
 

@@ -176,6 +176,8 @@
         href: directory-emergency-access.md
     - name: Administrative units    
       href: directory-administrative-units.md
+    - name: Set role scope with AUs
+      href: roles-administrative-units-scope.md
   - name: Manage sign-in
     items:    
     - name: Customize company branding    
