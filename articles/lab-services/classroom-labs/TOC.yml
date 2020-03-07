@@ -90,6 +90,8 @@
       href: how-to-enable-nested-virtualization-template-vm.md
     - name: Prepare a Windows template VM
       href: how-to-prepare-windows-template.md
+    - name: Export list of users and virtual machines to CSV files
+      href: how-to-export-users-virtual-machines-csv.md
   - name: Connect to VMs in classroom labs (student)
     items:        
     - name: Access classroom labs
