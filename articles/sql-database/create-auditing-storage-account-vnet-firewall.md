@@ -65,7 +65,7 @@ Sample Request
    PUT https://management.azure.com/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/sqlcrudtest-7398/providers/Microsoft.Sql/servers/sqlcrudtest-4645?api-version=2015-05-01-preview
    ```
 
-Sample Request
+Request Body
 
    ```javascript
    {
@@ -94,7 +94,7 @@ Sample Request
    PUT https://management.azure.com/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/blobauditingtest-4799/providers/Microsoft.Sql/servers/blobauditingtest-6440/auditingSettings/default?api-version=2017-03-01-preview
    ```
 
-Sample Request
+Request Body
 
    ```javascript
    {
