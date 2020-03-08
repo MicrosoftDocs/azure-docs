@@ -23,7 +23,7 @@
     href: stream-analytics-manage-job.md
   - name: 2 - Run Azure Functions
     href: stream-analytics-with-azure-functions.md
-  - name: 3 - Run a Javascript UDF
+  - name: 3 - Run a JavaScript UDF
     href: stream-analytics-javascript-user-defined-functions.md
   - name: 4 - Deploy with CI/CD in Azure Pipelines
     href: stream-analytics-tools-visual-studio-cicd-vsts.md
