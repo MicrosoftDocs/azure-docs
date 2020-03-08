@@ -138,6 +138,8 @@
         href: power-bi-imported-query.md
       - name: SQL query
         href: power-bi-sql-query.md
+      - name: K2Bridge connector
+      - href: k2bridge.md
     - name: Excel
       items:
       - name: connector
