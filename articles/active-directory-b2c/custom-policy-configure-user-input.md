@@ -17,71 +17,38 @@ ms.subservice: B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-In this article, you add a new user provided entry (a claim) to your sign-up user journey in Azure Active Directory B2C (Azure AD B2C).  You configure the entry as a dropdown and define whether it's required.
+In this article, you add a new user provided entry (a claim) to your sign-up or sign-in policy in Azure Active Directory B2C (Azure AD B2C).  You configure a city entry as a dropdown, and define whether it's required.
+
+Gathering initial data from your users is achieved using the sign-up or sign-in user journey. Additional claims can be gathered later by using a profile edit user journey. Anytime Azure AD B2C gathers information directly from the user interactively, the Identity Experience Framework uses its [self-asserted technical profile](self-asserted-technical-profile.md). In this sample you:
+
+1. Define a city claim.
+1. Ask the user for their city.
+1. Persist the city to the user profile in Azure AD directory
+1. Read the city claim from the user profile.
+1. Add the city claim to the returning access token.  
 
 ## Prerequisites
 
-Complete the steps in the article [Getting Started with Custom Policies](custom-policy-get-started.md). Test the sign-up or sign-in user journey to sign up a new local account before proceeding.
+Complete the steps in [Get started with custom policies](custom-policy-get-started.md). You should have a working custom policy for sign-up and sign-in with local accounts.
 
-## Defin a claim
+## Define a claim
 
-Gathering initial data from your users is achieved using the sign-up or sign-in user journey. Additional claims can be gathered later by using a profile edit user journey. Anytime Azure AD B2C gathers information directly from the user interactively, the Identity Experience Framework uses its self-asserted provider. In this sample, you ask the user for their city. 
-
-```xml
-<ClaimType Id="city">
-  <DisplayName>city</DisplayName>
-  <DataType>string</DataType>
-  <UserHelpText>Your city</UserHelpText>
-  <UserInputType>TextBox</UserInputType>
-</ClaimType>
-```
-
-The following elements are used to define the claim:
+A claim provides a temporary storage of data during an Azure AD B2C policy execution. The [claims schema](claimsschema.md) is the place where you declare your claims. The following elements are used to define the claim:
 
 - **DisplayName** - A string that defines the user-facing label.
 - [DataType](claimsschema.md#datatype) - The type of the claim.
 - **UserHelpText** - Helps the user understand what is required.
 - [UserInputType](claimsschema.md#userinputtype) - The type of input control, such as textbox, radio selection, drop-down list, or multiple selection.
 
+Open the extensions file of your policy. For example, <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em>. This extensions file is one of the policy files included in the custom policy starter pack, which you should have obtained in the prerequisite, [Get started with custom policies](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-get-started-custom).
 
-1. Open the extensions file of your policy. For example, <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em>. This extensions file is one of the policy files included in the custom policy starter pack, which you should have obtained in the prerequisite, [Get started with custom policies](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-get-started-custom).
 1. Search for the [BuildingBlocks](buildingblocks.md) element. If the element doesn't exist, add it.
 1. Locate the [ClaimsSchema](claimsschema.md) element. If the element doesn't exist, add it.
-1. Add the city claim to the **ClaimsSchema** element. You can choose one of the followoing user input types. 
-
-#### TextBox
+1. Add the city claim to the **ClaimsSchema** element.  
 
 ```xml
 <ClaimType Id="city">
-  <DisplayName>city where you work</DisplayName>
-  <DataType>string</DataType>
-  <UserHelpText>Your city</UserHelpText>
-  <UserInputType>TextBox</UserInputType>
-</ClaimType>
-```
-
-#### RadioSingleSelect
-
-```xml
-<ClaimType Id="city">
-  <DisplayName>city where you work</DisplayName>
-  <DataType>string</DataType>
-  <UserInputType>RadioSingleSelect</UserInputType>
-  <Restriction>
-    <Enumeration Text="Bellevue" Value="bellevue" SelectByDefault="false" />
-    <Enumeration Text="Redmond" Value="redmond" SelectByDefault="false" />
-    <Enumeration Text="Kirkland" Value="kirkland" SelectByDefault="false" />
-  </Restriction>
-</ClaimType>
-```
-
-#### DropdownSingleSelect
-
-![Single-select dropdown control showing several options](./media/custom-policy-configure-user-input/dropdown-menu-example.png)
-
-```xml
-<ClaimType Id="city">
-  <DisplayName>city where you work</DisplayName>
+  <DisplayName>City where you work</DisplayName>
   <DataType>string</DataType>
   <UserInputType>DropdownSingleSelect</UserInputType>
   <Restriction>
@@ -92,36 +59,20 @@ The following elements are used to define the claim:
 </ClaimType>
 ```
 
-#### CheckboxMultiSelect
-
-![Multi-select checkbox control showing several options](./media/custom-policy-configure-user-input/multiselect-menu-example.png)
-
-```xml
-<ClaimType Id="city">
-  <DisplayName>Receive updates from which cities?</DisplayName>
-  <DataType>string</DataType>
-  <UserInputType>CheckboxMultiSelect</UserInputType>
-  <Restriction>
-    <Enumeration Text="Bellevue" Value="bellevue" SelectByDefault="false" />
-    <Enumeration Text="Redmond" Value="redmond" SelectByDefault="false" />
-    <Enumeration Text="Kirkland" Value="kirkland" SelectByDefault="false" />
-  </Restriction>
-</ClaimType>
-```
-
 ## Add city to the user interface
 
-Find the **ClaimsProviders** element. Add a new ClaimsProvider as follows:
+The sign-up or sign-up user journey use the **LocalAccountSignUpWithLogonEmail** to interact with the user during the local account sign-up flow. The **SelfAsserted-Social** is used to interact with a federated account during first-time user sign-in. Both technical profiles are [self-asserted](self-asserted-technical-profile.md), where a user is expected to provide input. 
 
-1. Add the claim as an `<OutputClaim ClaimTypeReferenceId="city"/>` to the **LocalAccountSignUpWithLogonEmail** technical profile found in the TrustFrameworkBase policy file. This technical profile uses the [self-asserted](self-asserted-technical-profile.md), where a user is expected to provide input.
+To add the city claim as an `<OutputClaim ClaimTypeReferenceId="city"/>` to the **LocalAccountSignUpWithLogonEmail** and **SelfAsserted-Social** technical profiles, you overwride them in the extension policy. You specify the entire list of the output claims, to control the order the cliams are presented on the screen.  Find the **ClaimsProviders** element. Add a new ClaimsProviders as follows:
 
 ```xml
 <ClaimsProvider>
   <DisplayName>Local Account</DisplayName>
   <TechnicalProfiles>
+    <!--Local account sign-up page-->
     <TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">
       <OutputClaims>
-        <OutputClaim ClaimTypeReferenceId="objectId" />
+       <OutputClaim ClaimTypeReferenceId="objectId" />
        <OutputClaim ClaimTypeReferenceId="email" PartnerClaimType="Verified.Email" Required="true" />
        <OutputClaim ClaimTypeReferenceId="newPassword" Required="true" />
        <OutputClaim ClaimTypeReferenceId="reenterPassword" Required="true" />
@@ -136,13 +87,32 @@ Find the **ClaimsProviders** element. Add a new ClaimsProvider as follows:
    </TechnicalProfile>
   </TechnicalProfiles>
 </ClaimsProvider>
+<ClaimsProviders>
+  <ClaimsProvider>
+    <DisplayName>Self Asserted</DisplayName>
+    <TechnicalProfiles>
+      <!--Federated account first-time sign-in page-->
+      <TechnicalProfile Id="SelfAsserted-Social">
+        <OutputClaims>
+            <OutputClaim ClaimTypeReferenceId="objectId"/>
+            <OutputClaim ClaimTypeReferenceId="newUser"/>
+            <OutputClaim ClaimTypeReferenceId="executed-SelfAsserted-Input" DefaultValue="true"/>
+            <OutputClaim ClaimTypeReferenceId="displayName"/>
+            <OutputClaim ClaimTypeReferenceId="givenName"/>
+            <OutputClaim ClaimTypeReferenceId="surname"/>
+            <OutputClaim ClaimTypeReferenceId="city"/>
+          </OutputClaims>
+        </TechnicalProfile>
+      </TechnicalProfiles>
+    </ClaimsProvider>
+  </ClaimsProviders>
 ```
 
 ## Read and write the city 
-The [Active Directory technical profile](active-directory-technical-profile.md) allows your to intercat with the user profile. In this step you add `PersistedClaim` to persist the city claim to the Azure AD directory. Use `OutputClaim` to read the city claim from the directory. 
 
+The [Active Directory technical profile](active-directory-technical-profile.md) allows you to interact with the user profile. In this step you add `PersistedClaim` to persist the city claim to the Azure AD directory. Use `OutputClaim` to read the city claim from the directory. 
 
-Add the claim to the **AAD-UserWriteUsingLogonEmail** technical profile as a `<PersistedClaim ClaimTypeReferenceId="city" />`.  This technical profile is called by the **LocalAccountSignUpWithLogonEmail** technical profile, after collecting it from the user. For more information, see   You may skip this step if you prefer not to persist the claim in the directory for future use.
+To add the city claim as an `<PersistedClaim ClaimTypeReferenceId="city"/>` to the relevat technical profiles, you override them in the extension policy. Find the **ClaimsProviders** element. Add a new ClaimsProviders as follows:
 
 ```xml
 <ClaimsProviders>
@@ -184,7 +154,7 @@ Add the claim to the **AAD-UserWriteUsingLogonEmail** technical profile as a `<P
 
 ## Include the city in the token 
 
-To return the city claim back to the relaying party application, add the `<OutputClaim ClaimTypeReferenceId="city" />` claim to the SignUporSignIn.xml file so that this claim is sent to the application in the token after a successful user journey.
+To return the city claim back to the relaying party application, add the `<OutputClaim ClaimTypeReferenceId="city" />` claim to the SignUpOrSignIn.xml file so that this claim is sent to the application in the token after a successful user journey.
 
 
 To include the city claim in the returning access token, so that this claim is sent to the application in the token after a successful user journey, edit your SignUpOrSignIn.xml relying party policy. Modify the `TechnicalProfile Id="PolicyProfile"` element to add the following: `<OutputClaim ClaimTypeReferenceId="city" />`.
