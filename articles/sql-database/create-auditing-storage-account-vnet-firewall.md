@@ -45,14 +45,44 @@ To learn more about how to create a virtual network, see [Quickstart: Create a v
 
 #### Others
 
-You can also configure your Auditing to write database events on a storage account under Virtual Network and Firewall via Rest API:
+You can also configure your Auditing to write database events on a storage account under Virtual Network and Firewall:
 
-1. In PowerShell, **register your Azure SQL Server** hosting your Azure SQL Data Warehouse instance with Azure Active Directory (AAD):
+1. **register your Azure SQL Server** hosting your Azure SQL Data Warehouse instance with Azure Active Directory (AAD):
+
+In PowerShell
 
    ```powershell
    Connect-AzAccount
    Select-AzSubscription -SubscriptionId <subscriptionId>
    Set-AzSqlServer -ResourceGroupName your-database-server-resourceGroup -ServerName your-SQL-servername -AssignIdentity
+   ```
+   
+In [REST API](https://docs.microsoft.com/rest/api/sql/servers/createorupdate):
+
+Sample Request
+
+   ```html
+   PUT https://management.azure.com/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/sqlcrudtest-7398/providers/Microsoft.Sql/servers/sqlcrudtest-4645?api-version=2015-05-01-preview
+   ```
+
+Sample Request
+
+   ```json
+   {
+   "tags": {
+    "tagKey1": "TagValue1"
+  },
+  "location": "Japan East",
+  "identity": {
+             "type": "SystemAssigned",
+             },
+  "properties": {
+    "fullyQualifiedDomainName": "sqlcrudtest-4645.database.windows.net",
+    "administratorLogin": "dummylogin",
+    "administratorLoginPassword": "Un53cuRE!",
+    "version": "12.0",
+    "state": "Ready"
+  }
    ```
 
 1. Under your storage account, navigate to **Access Control (IAM)**, and click **Add role assignment**. Assign **Storage Blob Data Contributor** RBAC role to your Azure SQL Server hosting your Azure SQL Data Warehouse which you've registered with Azure Active Directory (AAD) as in step#1.
