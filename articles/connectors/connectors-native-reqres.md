@@ -1,15 +1,15 @@
 ---
-title: Receive and respond to HTTPS calls
-description: Handle HTTPS requests and events in real time by using Azure Logic Apps
+title: Receive and respond to calls by using HTTPS
+description: Handle inbound HTTPS requests from external services by using Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewers: klam, logicappspm
 ms.topic: conceptual
-ms.date: 01/14/2020
+ms.date: 03/10/2020
 tags: connectors
 ---
 
-# Receive and respond to incoming HTTPS calls by using Azure Logic Apps
+# Receive and respond to inbound HTTPS requests in Azure Logic Apps
 
 With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the built-in Request trigger or Response action, you can create automated tasks and workflows that receive and respond to incoming HTTPS requests. For example, you can have your logic app:
 
@@ -198,6 +198,14 @@ Here's more information about the outputs from the Request trigger:
 You can use the Response action to respond with a payload (data) to an incoming HTTPS request but only in a logic app that's triggered by an HTTPS request. You can add the Response action at any point in your workflow. For more information about the underlying JSON definition for this trigger, see the [Response action type](../logic-apps/logic-apps-workflow-actions-triggers.md#response-action).
 
 Your logic app keeps the incoming request open only for one minute. Assuming that your logic app workflow includes a Response action, if the logic app doesn't return a response after this time passes, your logic app returns a `504 GATEWAY TIMEOUT` to the caller. Otherwise, if your logic app doesn't include a Response action, your logic app immediately returns a `202 ACCEPTED` response to the caller.
+
+> ![NOTE]
+> If the Response action sends a `GET` request or a request that doesn't have a request body, 
+> Logic Apps removes most `Content-*` headers from these requests without warning or error. 
+> This behavior doesn't happen to the headers `Content-Type`, `Content-Encoding`, and `Content-Disposition`. 
+> Logic Apps also won't stop you from saving logic apps where a Response action sends `GET` requests that 
+> have the unsupported `Content-*` headers, which are ignored, or requests that don't have request bodies. 
+> This behavior doesn't happen to any other requests, such as `PUT` and `POST`, that have `Content-*` headers.
 
 1. In the Logic App Designer, under the step where you want to add a Response action, select **New step**.
 

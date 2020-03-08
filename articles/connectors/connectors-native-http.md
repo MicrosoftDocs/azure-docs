@@ -1,21 +1,21 @@
 ---
-title: Call HTTP and HTTPS endpoints
-description: Send outbound requests to HTTP and HTTPS endpoints by using Azure Logic Apps
+title: Call service endpoints by using HTTP or HTTPS
+description: Send outbound HTTP or HTTPS requests to service endpoints from Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
-ms.date: 03/06/2020
+ms.date: 03/10/2020
 tags: connectors
 ---
 
-# Send outbound calls to HTTP or HTTPS endpoints by using Azure Logic Apps
+# Call service endpoints over HTTP or HTTPS from Azure Logic Apps
 
-With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the built-in HTTP trigger or action, you can create automated tasks and workflows that regularly send requests to any HTTP or HTTPS endpoint. For example, you can monitor the service endpoint for your website by checking that endpoint on a specified schedule. When a specific event happens at that endpoint, such as your website going down, the event triggers your logic app's workflow and runs the specified actions. If you want to receive and respond to inbound HTTPS calls instead, use the built-in [Request trigger or Response action](../connectors/connectors-native-reqres.md).
+With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the built-in HTTP trigger or action, you can create automated tasks and workflows that send requests to service endpoints over HTTP or HTTPS. For example, you can monitor the service endpoint for your website by checking that endpoint on a specific schedule. When the specified event happens at that endpoint, such as your website going down, the event triggers your logic app's workflow and runs the actions in that workflow. If you want to receive and respond to inbound HTTPS calls instead, use the built-in [Request trigger or Response action](../connectors/connectors-native-reqres.md).
 
-To check or *poll* an endpoint on a recurring schedule, add the HTTP trigger as the first step in your workflow. On each check, the trigger sends a call or *request* to the endpoint. The endpoint's response determines whether your logic app's workflow runs. The trigger passes along any content from the response to the actions in your logic app.
+To check or *poll* an endpoint on a recurring schedule, [add the HTTP trigger](#http-trigger) as the first step in your workflow. Each time that the trigger checks the endpoint, the trigger calls or sends a *request* to the endpoint. The endpoint's response determines whether your logic app's workflow runs. The trigger passes any content from the endpoint's response to the actions in your logic app.
 
-To call an endpoint from anywhere in your workflow, add the HTTP action. The endpoint's response determines how your workflow's remaining actions run.
+To call an endpoint from anywhere else in your workflow, [add the HTTP action](#http-action). The endpoint's response determines how your workflow's remaining actions run.
 
 > [!NOTE]
 > Based the target endpoint's capability, the HTTP connector supports Transport Layer Security (TLS) 
@@ -23,9 +23,11 @@ To call an endpoint from anywhere in your workflow, add the HTTP action. The end
 > version possible. So, for example, if the endpoint supports 1.2, the connector uses 1.2 first. 
 > Otherwise, the connector uses the next highest supported version.
 >
-> When sending `GET` requests with the HTTP action, Logic Apps removes any `Content-*` headers 
-> from outbound requests without notification and doesn't prevent you from saving logic apps 
-> that include these headers, which are later removed.
+> If the HTTP trigger or action sends a `GET` request or a request that doesn't have a request body, 
+> Logic Apps removes any `Content-*` headers from these requests without warning or error. Logic Apps 
+> also won't stop you from saving logic apps where an HTTP trigger or action sends `GET` requests that 
+> have these headers, which are ignored, or requests that don't have request bodies. This behavior 
+> doesn't happen to any other requests, such as `PUT` and `POST`, that have `Content-*` headers.
 
 This article shows how to add an HTTP trigger or action to your logic app's workflow.
 
@@ -38,6 +40,8 @@ This article shows how to add an HTTP trigger or action to your logic app's work
 * Basic knowledge about [how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md). If you're new to logic apps, review [What is Azure Logic Apps](../logic-apps/logic-apps-overview.md)?
 
 * The logic app from where you want to call the target endpoint. To start with the HTTP trigger, [create a blank logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). To use the HTTP action, start your logic app with any trigger that you want. This example uses the HTTP trigger as the first step.
+
+<a name="http-trigger"></a>
 
 ## Add an HTTP trigger
 
@@ -65,6 +69,8 @@ This built-in trigger makes an HTTP call to the specified URL for an endpoint an
 1. Continue building your logic app's workflow with actions that run when the trigger fires.
 
 1. When you're done, remember to save your logic app. On the designer toolbar, select **Save**.
+
+<a name="http-action"></a>
 
 ## Add an HTTP action
 
