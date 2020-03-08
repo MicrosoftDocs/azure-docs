@@ -26,13 +26,13 @@ az group deployment delete --resource-group exampleGroup --name deploymentName
 To delete all deployments older than five days, use:
 
 ```azurecli-interactive
-startdate=$(date +%F -d "-5days")
-deployments=$(az group deployment list --resource-group exampleGroup --query "[?properties.timestamp<'$startdate'].name" --output tsv)
+$startdate=$(date +%F -d "-5days")
+$deployments=$(az group deployment list --resource-group exampleGroup --query "[?properties.timestamp<'$startdate'].name" --output tsv)
 
-for deployment in $deployments
-do
+foreach ($deployment in $deployments)
+{
   az group deployment delete --resource-group exampleGroup --name $deployment
-done
+}
 ```
 
 You can get the current count in the deployment history with the following command:
