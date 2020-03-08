@@ -119,13 +119,13 @@ Finally, add the following `handleTap()` method, that will tie everything togeth
 
 ## Attach a local Azure Spatial Anchor
 
-Modify `Gradle Scripts\build.gradle (Module: app)` to include the following entry. This code will ensure that your app targets Azure Spatial Anchors version 1.3.0. That said, referencing any recent version of Azure Spatial Anchors should work.
+Modify `Gradle Scripts\build.gradle (Module: app)` to include the following entry. This code will ensure that your app targets Azure Spatial Anchors version 2.2.0. That said, referencing any recent version of Azure Spatial Anchors should work. You can find the release notes [here.](https://github.com/Azure/azure-spatial-anchors-samples/releases)
 
 ```
 dependencies {
     ...
-    implementation "com.microsoft.azure.spatialanchors:spatialanchors_jni:[1.3.0]"
-    implementation "com.microsoft.azure.spatialanchors:spatialanchors_java:[1.3.0]"
+    implementation "com.microsoft.azure.spatialanchors:spatialanchors_jni:[2.2.0]"
+    implementation "com.microsoft.azure.spatialanchors:spatialanchors_java:[2.2.0]"
     ...
 }
 ```

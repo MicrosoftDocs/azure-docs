@@ -3,7 +3,7 @@ title: Archive Azure resource logs to storage account | Microsoft Docs
 description: Learn how to archive your Azure resource logs for long-term retention in a storage account.
 author: bwren
 services: azure-monitor
-ms.service: azure-monitor
+
 ms.topic: conceptual
 ms.date: 12/15/2019
 ms.author: bwren

@@ -117,6 +117,9 @@ az network private-dns record-set a create --name mydemoserver --zone-name priva
 az network private-dns record-set a add-record --record-set-name mydemoserver --zone-name privatelink.mariadb.database.windows.net --resource-group myResourceGroup -a <Private IP Address>
 ```
 
+> [!NOTE] 
+> The FQDN in the customer DNS setting does not resolve to the private IP configured. You will have to setup a DNS zone for the configured FQDN as shown [here](../dns/dns-operations-recordsets-portal.md).
+
 ## Connect to a VM from the internet
 
 Connect to the VM *myVm* from the internet as follows:

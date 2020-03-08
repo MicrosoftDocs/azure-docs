@@ -20,7 +20,7 @@ Create Azure Cosmos DB resources using an Azure Resource Manager template. This 
 > Account names must be lowercase and 44 or fewer characters.
 > To update RU/s, resubmit the template with updated throughput property values.
 
-[!code-json[create-cosmos-table](~/quickstart-templates/101-cosmosdb-table/azuredeploy.json)]
+:::code language="json" source="~/quickstart-templates/101-cosmosdb-table/azuredeploy.json":::
 
 ### Deploy via PowerShell
 

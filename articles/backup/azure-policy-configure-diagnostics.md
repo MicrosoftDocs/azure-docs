@@ -6,13 +6,13 @@ ms.date: 02/14/2020
 ---
 # Configure Vault Diagnostics settings at scale
 
-The reporting solution provided by Azure Backup leverages Log Analytics (LA). For the data of any given vault to be sent to LA, a [diagnostics setting](https://aka.ms/AzureBackupDiagnosticsDocs) needs to be created for that vault.
+The reporting solution provided by Azure Backup leverages Log Analytics (LA). For the data of any given vault to be sent to LA, a [diagnostics setting](https://docs.microsoft.com/azure/backup/backup-azure-diagnostic-events) needs to be created for that vault.
 
 Often, adding a diagnostics setting manually per vault can be a cumbersome task. In addition, any new vault created also needs to have diagnostics settings enabled in order to be able to view reports for this vault. 
 
 To simplify the creation of diagnostics settings at scale (with LA as the destination), Azure Backup provides a built-in [Azure Policy](https://docs.microsoft.com/azure/governance/policy/). This policy adds an LA diagnostics setting to all vaults in a given subscription or resource group. The following sections provide instructions on how to use this policy.
 
-## Supported Scenarios 
+## Supported Scenarios
 
 * The policy can be applied at one time to all Recovery Services vaults in a particular subscription (or to a resource group within the subscription). The user assigning the policy needs to have 'Owner' access to the subscription to which the policy is assigned.
 
@@ -43,6 +43,7 @@ To assign the policy for vaults in the required scope, follow the steps below:
 ![Policy Assignment Basics](./media/backup-azure-policy-configure-diagnostics/policy-assignment-basics.png)
 
 7. Under **Parameters**, enter the following information:
+
 * **Profile Name** - The name that will be assigned to the diagnostics settings created by the policy.
 * **Log Analytics Workspace** - The Log Analytics Workspace to which the diagnostics setting should be associated. Diagnostics data of all vaults in the scope of the Policy assignment will be pushed to the specified LA Workspace.
 
@@ -63,7 +64,7 @@ The remediation task is applied to vaults that are non-compliant according to th
 * No diagnostics setting is present for the vault.
 * Diagnostic settings are present for the vault but neither of the settings has **all of** the Resource specific events enabled with LA as destination, and **Resource specific** selected in the toggle. 
 
-So even if a user has a vault with the AzureBackupReport event enabled in AzureDiagnostics mode (which is supported by Backup Reports), the remediation task will still apply to this vault, since the Resource specific mode is the recommended way of creating diagnostics settings, [going forward](https://aka.ms/AzureBackupDiagnosticsDocs#legacy-event). 
+So even if a user has a vault with the AzureBackupReport event enabled in AzureDiagnostics mode (which is supported by Backup Reports), the remediation task will still apply to this vault, since the Resource specific mode is the recommended way of creating diagnostics settings, [going forward](https://docs.microsoft.com/azure/backup/backup-azure-diagnostic-events#legacy-event).
 
 Further, if a user has a vault with only a subset of the six Resource specific events enabled, the remediation task will apply for this vault, since Backup Reports will work as expected only if all of the six Resource specific events are enabled.
 
@@ -76,6 +77,7 @@ Further, if a user has a vault with only a subset of the six Resource specific e
 > Note that the remediation task will **not** fail if the existing diagnostics setting as only AzureBackupReport enabled with Workspace X as the destination, since in this case, there will be no overlap between the events enabled by the existing setting and the events enabled by the setting created by the remediation task.
 
 ## Next Steps
-- [Learn how to use Backup Reports](https://aka.ms/AzureBackupReportDocs)
-- [Learn more about Azure Policy](https://docs.microsoft.com/azure/governance/policy/)
-- [Use Azure Policy to auto-enable backup for all VMs in a give scope](https://docs.microsoft.com/azure/backup/backup-azure-auto-enable-backup)
+
+* [Learn how to use Backup Reports](https://docs.microsoft.com/azure/backup/configure-reports)
+* [Learn more about Azure Policy](https://docs.microsoft.com/azure/governance/policy/)
+* [Use Azure Policy to auto-enable backup for all VMs in a give scope](https://docs.microsoft.com/azure/backup/backup-azure-auto-enable-backup)

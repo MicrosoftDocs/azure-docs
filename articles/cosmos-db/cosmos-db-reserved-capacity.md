@@ -4,7 +4,7 @@ description: Learn how to buy Azure Cosmos DB reserved capacity to save on your 
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 02/14/2020
+ms.date: 02/18/2020
 ms.author: tisande
 ms.reviewer: sngun
 ---
@@ -25,7 +25,9 @@ You can buy Azure Cosmos DB reserved capacity from the [Azure portal](https://po
 
 ## Determine the required throughput before purchase
 
-The size of the reservation should be based on the total amount of throughput that the existing or soon-to-be-deployed Azure Cosmos DB resources will use. You can view recommended reservation sizes in the Azure portal using the following steps:
+The size of the reserved capacity purchase should be based on the total amount of throughput that the existing or soon-to-be-deployed Azure Cosmos DB resources will use on an hourly basis. For example: Purchase 30,000 RU/s reserved capacity if that's your consistent hourly usage pattern. In this example, any provisioned throughput above 30,000 RU/s will be billed using your Pay-as-you-go rate. If provisioned throughput is below 30,000 RU/s in an hour, then the extra reserved capacity for that hour will be wasted.
+
+We calculate purchase recommendations based on your hourly usage pattern. Usage over last 7, 30 and 60 days is analyzed, and reserved capacity purchase that maximizes your savings is recommended. You can view recommended reservation sizes in the Azure portal using the following steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).  
 
@@ -41,7 +43,7 @@ You can filter recommendations by the following attributes:
 - **Billing frequency** (Monthly or Upfront)
 - **Throughput Type** (RU's vs Multi-master RU's)
 
-Additionally, you can scope recommendations to be within a single resource group, single subscription, or your entire Azure enrollment. You can show recommendations based on usage over the last 7 days, 30 days, or 60 days.
+Additionally, you can scope recommendations to be within a single resource group, single subscription, or your entire Azure enrollment. 
 
 Here's an example recommendation:
 

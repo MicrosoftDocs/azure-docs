@@ -127,6 +127,8 @@ The **Execute R Script** modules can return multiple outputs, but they must be p
 
 Standard messages and errors from R are returned to the module's log.
 
+If you need to print results in the R script, You can find the printed results in the **70_driver_log** under **Outputs+logs** tab in the right panel of the module.
+
 ## Sample scripts
 
 There are many ways that you can extend your pipeline by using custom R script.  This section provides sample code for common tasks.

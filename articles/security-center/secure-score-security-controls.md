@@ -1,6 +1,6 @@
 ---
-title: Enhanced secure score in Azure Security Center
-description: Description of Azure Security Center's enhanced secure score and its security controls 
+title: Secure score in Azure Security Center
+description: Description of Azure Security Center's secure score and its security controls 
 services: security-center
 documentationcenter: na
 author: memildin

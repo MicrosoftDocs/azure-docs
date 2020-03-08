@@ -6,13 +6,13 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.author: peterlu
-author: peterclu
-ms.date: 12/15/2019
+ms.author: keli19
+author: likebupt
+ms.date: 02/24/2020
 ---
 
 # Retrain models with Azure Machine Learning designer (preview)
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
 In this how-to, you learn how to use Azure Machine Learning designer to retrain a machine learning model. Find out how to use published pipelines to automate machine learning workflows for retraining.
 
@@ -64,11 +64,11 @@ The designer saves all pipeline outputs, including trained models, to the defaul
 
 1. Select the **Train Model** module.
 
-1. In the settings pane, select **Outputs**.
+1. In the settings pane, select **Outputs+logs**.
 
-1. Select **Trained_model** to download the model.
+1. Click on **View output** icon, and follow the instruction in the pop-up window to locate the trained model.
 
-![Screenshot showing how to download the trained model](./media/how-to-retrain-designer/download-model.png)
+![Screenshot showing how to download the trained model](./media/how-to-retrain-designer/trained-model-view-output.png)
 
 ## Create a pipeline parameter
 
@@ -114,7 +114,7 @@ Use the following steps to submit a pipeline endpoint run from the designer:
 
 1. Select the pipeline you want to run.
 
-1. Select **Run**.
+1. Select **Submit**.
 
 1. In the setup dialog, you can specify a new input data path value, which points to your new dataset.
 
@@ -122,7 +122,9 @@ Use the following steps to submit a pipeline endpoint run from the designer:
 
 ### Submit runs with code
 
-There are multiple ways to access your REST endpoint programatically depending on your development environment. You can find code samples that show you how to submit pipeline runs with parameters in the **Consume** tab of your pipeline.
+You can find the REST endpoint of a published pipeline in the overview panel. By calling the endpoint, you can retrain the published pipeline.
+
+To make a REST call, you will need an OAuth 2.0 bearer-type authentication header. See the following [tutorial section](tutorial-pipeline-batch-scoring-classification.md#publish-and-run-from-a-rest-endpoint) for more detail on setting up authentication to your workspace and making a parameterized REST call.
 
 ## Next steps
 

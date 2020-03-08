@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 01/18/2020
+ms.date: 02/21/2020
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
 ---
@@ -174,9 +174,10 @@ First, add a network rule to allow web traffic.
 6. For **Action**, select **Allow**.
 6. Under **Rules**, for **Name**, type **AllowWeb**.
 7. For **Protocol**, select **TCP**.
-8. For **Source Addresses**, type **192.168.1.0/24**.
-9. For Destination address, type **10.6.0.0/16**
-10. For **Destination Ports**, type **80**.
+8. For **Source type**, select **IP address**.
+9. For **Source**, type **192.168.1.0/24**.
+10. For **Destination address**, type **10.6.0.0/16**
+11. For **Destination Ports**, type **80**.
 
 Now add a rule to allow RDP traffic.
 
@@ -184,10 +185,11 @@ On the second rule row, type the following information:
 
 1. **Name**, type **AllowRDP**.
 2. For **Protocol**, select **TCP**.
-3. For **Source Addresses**, type **192.168.1.0/24**.
-4. For Destination address, type **10.6.0.0/16**
-5. For **Destination Ports**, type **3389**.
-6. Select **Add**.
+3. For **Source type**, select **IP address**.
+4. For **Source**, type **192.168.1.0/24**.
+5. For **Destination address**, type **10.6.0.0/16**
+6. For **Destination Ports**, type **3389**.
+7. Select **Add**.
 
 ## Create and connect the VPN gateways
 

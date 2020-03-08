@@ -14,15 +14,13 @@ Azure File Sync allows you to centralize your organization's file shares in Azur
 
 The following article illustrates how to register and manage a server with a Storage Sync Service. See [How to deploy Azure File Sync](storage-sync-files-deployment-guide.md) for information on how to deploy Azure File Sync end-to-end.
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-
 ## Register/unregister a server with Storage Sync Service
 Registering a server with Azure File Sync establishes a trust relationship between Windows Server and Azure. This relationship can then be used to create *server endpoints* on the server, which represent specific folders that should be synced with an Azure file share (also known as a *cloud endpoint*). 
 
 ### Prerequisites
 To register a server with a Storage Sync Service, you must first prepare your server with the necessary prerequisites:
 
-* Your server must be running a supported version of Windows Server. For more information, see [Azure File Sync system requirements and interoperability](storage-sync-files-planning.md#azure-file-sync-system-requirements-and-interoperability).
+* Your server must be running a supported version of Windows Server. For more information, see [Azure File Sync system requirements and interoperability](storage-sync-files-planning.md#windows-file-server-considerations).
 * Ensure that a Storage Sync Service has been deployed. For more information on how to deploy a Storage Sync Service, see [How to deploy Azure File Sync](storage-sync-files-deployment-guide.md).
 * Ensure that the server is connected to the internet and that Azure is accessible.
 * Disable the IE Enhanced Security Configuration for administrators with the Server Manager UI.

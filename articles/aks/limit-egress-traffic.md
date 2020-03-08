@@ -2,12 +2,9 @@
 title: Restrict egress traffic in Azure Kubernetes Service (AKS)
 description: Learn what ports and addresses are required to control egress traffic in Azure Kubernetes Service (AKS)
 services: container-service
-author: mlearned
-
-ms.service: container-service
 ms.topic: article
 ms.date: 01/21/2020
-ms.author: mlearned
+
 
 #Customer intent: As an cluster operator, I want to restrict egress traffic for nodes to only access defined ports and addresses and improve cluster security.
 ---
@@ -144,7 +141,7 @@ The following FQDN / application rules are required for AKS clusters that have t
 | cloudflare.docker.com | HTTPS:443 | This address is used to pull linux alpine and other Azure Dev Spaces images |
 | gcr.io | HTTP:443 | This address is used to pull helm/tiller images |
 | storage.googleapis.com | HTTP:443 | This address is used to pull helm/tiller images |
-| azds-<guid>.<location>.azds.io | HTTPS:443 | To communicate with Azure Dev Spaces backend services for your controller. The exact FQDN can be found in the "dataplaneFqdn" in %USERPROFILE%\.azds\settings.json |
+| azds-\<guid\>.\<location\>.azds.io | HTTPS:443 | To communicate with Azure Dev Spaces backend services for your controller. The exact FQDN can be found in the "dataplaneFqdn" in %USERPROFILE%\.azds\settings.json |
 
 ## Required addresses and ports for AKS clusters with Azure Policy (in public preview) enabled
 
@@ -157,7 +154,7 @@ The following FQDN / application rules are required for AKS clusters that have t
 |-----------------------------------------|-----------|----------|
 | gov-prod-policy-data.trafficmanager.net | HTTPS:443 | This address is used for correct operation of Azure Policy. (currently in preview in AKS) |
 | raw.githubusercontent.com | HTTPS:443 | This address is used to pull the built-in policies from GitHub to ensure correct operation of Azure Policy. (currently in preview in AKS) |
-| *.gk.<location>.azmk8s.io | HTTPS:443	| Azure policy add-on that talks to Gatekeeper audit endpoint running in master server to get the audit results. |
+| *.gk.\<location\>.azmk8s.io | HTTPS:443	| Azure policy add-on that talks to Gatekeeper audit endpoint running in master server to get the audit results. |
 | dc.services.visualstudio.com | HTTPS:443 | Azure policy add-on that sends telemetry data to applications insights endpoint. |
 
 ## Required by Windows Server based nodes (in public preview) enabled
