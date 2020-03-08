@@ -137,7 +137,7 @@ The following settings can be used to code verification mode:
 
 ### Error messages
 
-The following settings can be used to configure the error message displayed upon code verification failure. The metadata should be configured in the [self-asserted](self-asserted-technical-profile.md) technical profile. The error messsages can be [localized](localization-string-ids.md#one-time-password-error-messages).
+The following settings can be used to configure the error messages displayed upon code verification failure. The metadata should be configured in the [self-asserted](self-asserted-technical-profile.md) technical profile. The error messages can be [localized](localization-string-ids.md#one-time-password-error-messages).
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
