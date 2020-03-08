@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 title: Azure Data Explorer documentation
-summary: Azure Data Explorer is a fast, fully managed data analytics service for real-time analysis on large volumes of data streaming from applications, websites, IoT devices, and more. You can use Azure Data Explorer to collect, store, and analyze diverse data to improve products, enhance customer experiences, monitor devices, and boost operations.</p><p>Learn how to use Azure Data Explorer with our quickstarts, tutorials, and reference content.
+summary: Azure Data Explorer is a fast, fully managed data analytics service for real-time analysis on large volumes of data streaming from applications, websites, IoT devices, and more. You can use Azure Data Explorer to collect, store, and analyze diverse data to improve products, enhance customer experiences, monitor devices, and boost operations.
 
 metadata:
   title: Azure Data Explorer documentation
