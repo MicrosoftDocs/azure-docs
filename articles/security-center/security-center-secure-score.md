@@ -16,14 +16,14 @@ ms.author: memildin
 
 ---
 
-# Improve your Secure Score in Azure Security Center
+# Improve your secure score in Azure Security Center
 
 > [!NOTE]
-> There is an enhanced Secure Score available in preview. The enhanced Secure Score will eventually replace the existing Secure Score, but for a while they will be running side-by-side to ease the transition.
+> This article is about the previous version of the secure score. This secure score experience is still available from the UI but will be phased out over time. 
+> The two secure score experiences are running side-by-side to enable a smoother transition.
 >
-> For details of the benefits of the enhanced Secure Score, see [here](secure-score-security-controls.md).
+> For details of the newer secure score, see [here](secure-score-security-controls.md).
 >
-> To take part in the preview, open Azure Portal, launch Azure Security Center, and select Secure Score. From there, you will see a banner at the top of the page offering the new Secure Score experience. Alternatively, click [here](https://aka.ms/ascnewscore).
 
 With so many services offering security benefits, it's often hard to know what steps to take first to secure and harden your workload. The Azure secure score reviews your security recommendations and prioritizes them for you, so you know which recommendations to perform first. This helps you find the most serious security vulnerabilities so you can prioritize investigation. Secure score is a tool that helps you assess your workload security posture.
 
@@ -72,11 +72,6 @@ The **Recommendation impact** lets you know how much your secure score improves 
 The recommendation shows which threats your workload is exposed to if the remediation steps are not taken.
 
 ![individual recommendation secure score](./media/security-center-secure-score/indiv-recommendation-secure-score.png)
-
-
-
-
-
 
 
 ## Next steps
