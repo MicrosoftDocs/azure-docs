@@ -1,6 +1,6 @@
 ---
 title: Visualize data from Azure Data Explorer using Kibana
-description: In this article, you learn to set up Azure Data Explorer as a data source for Kibana
+description: In this article, you learn how to set up Azure Data Explorer as a data source for Kibana
 author: yossi-karp
 ms.author: guregini
 ms.reviewer: v-yokarp
