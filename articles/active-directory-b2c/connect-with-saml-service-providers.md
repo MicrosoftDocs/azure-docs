@@ -109,7 +109,7 @@ Next, upload the SAML assertion and response signing certificate to Azure AD B2C
 
 ### 2.1 Create the SAML token issuer
 
-Now, add the capability for your tenant to issue SAML tokens.
+Now, add the capability for your tenant to issue SAML tokens, using SAML token issuer technical profile and [SAML session provider](custom-policy-reference-sso.md#samlssosessionprovider).
 
 Open `SocialAndLocalAccounts\`**`TrustFrameworkExtensions.xml`** in the custom policy starter pack.
 
