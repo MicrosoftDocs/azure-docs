@@ -1,15 +1,13 @@
 ---
 title: Common cost analysis uses in Azure Cost Management
 description: This article explains how you can get results for common cost analysis tasks in Azure Cost Management.
-services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 12/04/2019
+ms.date: 02/21/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
-manager: adwise
-ms.custom:
+ms.reviewer: adwise
 ---
 
 # Common cost analysis uses
@@ -80,6 +78,9 @@ Your usage details report file, in CSV format, provides a breakdown of all the c
 ## View monthly EA cost breakdown
 
 Your EA enrollment accrues costs for your entire organization. Understanding how costs accrue and are invoiced over time helps you to engage the appropriate stakeholders to ensure that costs are managed responsibly.
+
+Costs are only shown for your active enrollment. If you transferred an enrollment (inactive) to a new one (active), costs for the previous enrollment aren't shown in Cost Management.
+
 
 1. In the Azure portal, navigate to **Cost Management + Billing** > **Overview**.
 1. Click **Breakdown** for the current month and view your monetary commitment burn down.  

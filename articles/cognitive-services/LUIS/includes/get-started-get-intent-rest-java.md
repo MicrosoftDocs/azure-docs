@@ -19,7 +19,7 @@ ms.author: diberry
 
 1. Sign into the [Azure portal](https://portal.azure.com)
 1. Click [Create **Language Understanding**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne)
-1. Enter all required settings for Runtime key:
+1. Enter all required settings for **Runtime** key:
 
     |Setting|Value|
     |--|--|
@@ -67,7 +67,7 @@ Use Java to query the [prediction endpoint](https://aka.ms/luis-apim-v3-predicti
                 // The ID of a public sample LUIS app that recognizes intents for turning on and off lights
                 String AppId = "df67dcdb-c37d-46af-88e1-8b97951ca1c2";
 
-                // Add your endpoint key
+                // Add your prediction Runtime key
                 String Key = "YOUR-KEY";
 
                 // Add your endpoint, example is your-resource-name.api.cognitive.microsoft.com
@@ -111,11 +111,11 @@ Use Java to query the [prediction endpoint](https://aka.ms/luis-apim-v3-predicti
     }
     ```
 
-1. Replace the `YOUR-KEY` and `YOUR-ENDPOINT` values with your own prediction key and endpoint.
+1. Replace the `YOUR-KEY` and `YOUR-ENDPOINT` values with your own prediction **Runtime** key and endpoint.
 
     |Information|Purpose|
     |--|--|
-    |`YOUR-KEY`|Your 32 character prediction key.|
+    |`YOUR-KEY`|Your 32 character prediction **Runtime** key.|
     |`YOUR-ENDPOINT`| Your prediction URL endpoint. For example, `replace-with-your-resource-name.api.cognitive.microsoft.com`.|
 
 

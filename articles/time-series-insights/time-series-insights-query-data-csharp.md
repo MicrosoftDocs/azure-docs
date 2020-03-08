@@ -9,7 +9,7 @@ manager: cshankar
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 01/31/2020
+ms.date: 02/03/2020
 ms.custom: seodec18
 ---
 
@@ -45,13 +45,9 @@ The sample code below demonstrates the following features:
 Complete the following steps before you compile and run the sample code:
 
 1. [Provision a GA Azure Time Series Insights](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-get-started) environment.
-
 1. Configure your Azure Time Series Insights environment for Azure Active Directory as described in [Authentication and authorization](time-series-insights-authentication-and-authorization.md). 
-
 1. Install the required project dependencies.
-
 1. Edit the sample code below by replacing each **#DUMMY#** with the appropriate environment identifier.
-
 1. Execute the code inside Visual Studio.
 
 ## Project dependencies
@@ -65,7 +61,9 @@ The sample code has two required dependencies:
 * [Microsoft.IdentityModel.Clients.ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/) -  3.13.9 package.
 * [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json) - 9.0.1 package.
 
-Add the packages using [NuGet 2.12+](https://www.nuget.org/):
+Download the packages in Visual Studio 2019 by selecting the **Build** > **Build Solution** option.
+
+Alternatively, add the packages using [NuGet 2.12+](https://www.nuget.org/):
 
 * `dotnet add package Newtonsoft.Json --version 9.0.1`
 * `dotnet add package Microsoft.IdentityModel.Clients.ActiveDirectory --version 3.13.9`

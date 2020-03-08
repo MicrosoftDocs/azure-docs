@@ -2,14 +2,14 @@
 title: Localization string IDs - Azure Active Directory B2C | Microsoft Docs
 description: Specify the IDs for a content definition with an Id of api.signuporsignin in a custom policy in Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 01/31/2020
-ms.author: marsma
+ms.date: 02/03/2020
+ms.author: mimart
 ms.subservice: B2C
 ---
 
@@ -212,7 +212,8 @@ The following are the IDs for a [Verification display control](display-control-v
 |verification_control_but_send_new_code |Send New Code |
 |verification_control_but_verify_code |Verify Code |
 
-### Verification display control error messages
+## One time password error messages
+The following are the IDs for a [one time password technical profile](one-time-password-technical-profile.md) error messages
 
 | ID | Default value |
 | -- | ------------- |

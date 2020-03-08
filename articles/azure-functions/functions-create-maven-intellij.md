@@ -76,8 +76,6 @@ Maven creates the project files in a new folder with the same name as the _Artif
 1. Complete the _Name_ and _Settings_ fields, and then select **OK** to save the configuration.
 1. After setup, select **Debug < Remote Configuration Name >** or press Shift+F9 on your keyboard to start debugging.
 
-   ![Debug functions in IntelliJ](media/functions-create-first-java-intellij/debug-configuration-intellij.png)
-
 1. When you're finished, stop the debugger and the running process. Only one function host can be active and running locally at a time.
 
 ## Deploy the function to Azure

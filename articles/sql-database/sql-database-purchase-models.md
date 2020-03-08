@@ -71,7 +71,7 @@ The vCore-based purchasing model lets you independently choose compute and stora
 
 > [!IMPORTANT]
 > Compute resources, I/O, and data and log storage are charged per database or elastic pool. Backup storage is charged per each database. For more information about managed instance charges, see [managed instances](sql-database-managed-instance.md).
-> **Region limitations:** For the current list of supported regions, see [products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=sql-database&regions=all). To create a managed instance in a region that currently isn't supported, [send a support request via the Azure portal](sql-database-managed-instance-resource-limits.md#obtaining-a-larger-quota-for-sql-managed-instance).
+> **Region limitations:** For the current list of supported regions, see [products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=sql-database&regions=all). To create a managed instance in a region that currently isn't supported, [send a support request via the Azure portal](quota-increase-request.md).
 
 If your single database or elastic pool consumes more than 300 DTUs, converting to the vCore-based purchasing model might reduce your costs. You can convert by using your API of choice or by using the Azure portal, with no downtime. However, conversion isn't required and isn't done automatically. If the DTU-based purchasing model meets your performance and business requirements, you should continue using it.
 
@@ -136,6 +136,20 @@ The input values for this formula can be obtained from [sys.dm_db_resource_stats
 ### Workloads that benefit from an elastic pool of resources
 
 Pools are well-suited for databases with a low resource-utilization average and relatively infrequent utilization spikes. For more information, see [When should you consider a SQL Database elastic pool?](sql-database-elastic-pool.md).
+
+### Hardware generations in the DTU-based purchasing model
+
+In the DTU-based purchasing model, customers cannot choose the hardware generation used for their databases. While a given database usually stays on a specific hardware generation for a long time (commonly for multiple months), there are certain events that can cause a database to be moved to another hardware generation.
+
+For example, a database can be moved to a different hardware generation if it is scaled up or down to a different service objective, or if the current infrastructure in a data center is approaching its capacity limits, or if the currently used hardware is being decommissioned due to its end of life.
+
+If a database is moved to different hardware, workload performance can change. The DTU model guarantees that the throughput and response time of the [DTU benchmark](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers-dtu#dtu-benchmark) workload will remain substantially identical as the database moves to a different hardware generation, as long as its service objective (the number of DTUs) stays the same. 
+
+However, across the wide spectrum of customer workloads running in Azure SQL Database, the impact of using different hardware for the same service objective can be more pronounced. Different workloads will benefit from different hardware configuration and features. Therefore, for workloads other than the DTU benchmark, it is possible to see performance differences if the database moves from one hardware generation to another.
+
+For example, an application that is sensitive to network latency can see better performance on Gen5 hardware vs. Gen4 due to the use of Accelerated Networking in Gen5, but an application using intensive read IO can see better performance on Gen4 hardware vs. Gen5 due to higher memory per core ratio on Gen4.
+
+Customers with workloads that are sensitive to hardware changes, or customers who wish to control the choice of hardware generation for their database can use the [vCore](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers-vcore) model to choose their preferred hardware generation during database creation and scaling. In the vCore model, resource limits of each service objective on each hardware generation are documented, for both [single databases](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-single-databases) and [elastic pools](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-elastic-pools). For more information about hardware generations in the vCore model, see [Hardware Generations](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers-vcore#hardware-generations).
 
 ## Frequently asked questions (FAQs)
 

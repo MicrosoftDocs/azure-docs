@@ -42,9 +42,9 @@ In the Azure portal, you can configure your app to be single-tenant or multi-ten
 
 Building great multi-tenant apps can be challenging because of the number of different policies that IT administrators can set in their tenants. If you choose to build a multi-tenant app, follow these best practices:
 
-* Test your app in a tenant that has configured [Conditional Access policies](conditional-access-dev-guide.md).
+* Test your app in a tenant that has configured [Conditional Access policies](../azuread-dev/conditional-access-dev-guide.md).
 * Follow the principle of least user access to ensure that your app only requests permissions it actually needs. Avoid requesting permissions that require admin consent as this may prevent users from acquiring your app at all in some organizations. 
-* Provide appropriate names and descriptions for any permissions you expose as part of your app. This helps users and admins know what they are agreeing to when they attempt to use your app's APIs. For more information, see the best practices section in the [permissions guide](v1-permissions-and-consent.md).
+* Provide appropriate names and descriptions for any permissions you expose as part of your app. This helps users and admins know what they are agreeing to when they attempt to use your app's APIs. For more information, see the best practices section in the [permissions guide](v2-permissions-and-consent.md).
 
 ## Next steps
 

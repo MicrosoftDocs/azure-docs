@@ -76,7 +76,7 @@ The ETL model is typically used when you want to:
 
 * Load stream data or large volumes of semi-structured or unstructured data from external sources into an existing database or information system.
 * Clean, transform, and validate the data before loading it, perhaps by using more than one transformation pass through the cluster.
-* Generate reports and visualizations that are regularly updated.  For example, if the report takes too long to generate during the day,  you can schedule the report to run at night.  You can use Azure Scheduler and PowerShell to automatically run a Hive query.
+* Generate reports and visualizations that are regularly updated. For example, if the report takes too long to generate during the day,  you can schedule the report to run at night. To automatically run a Hive query, you can use [Azure Logic Apps](../../logic-apps/logic-apps-overview.md) and PowerShell.
 
 If the target for the data isn't a database, you can generate a file in the appropriate format within the query, for example a CSV. This file can then be imported into Excel or Power BI.
 

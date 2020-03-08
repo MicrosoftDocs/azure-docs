@@ -95,7 +95,7 @@ You can't apply Azure Disk Encryption on your custom Linux image. Only the galle
 
 ## Can I apply updates to a Linux Red Hat VM that uses the yum update?
 
-Yes, you can perform a yum update on a Red Hat Linux VM.  For more information, see [Linux package management behind a firewall](disk-encryption-troubleshooting.md#linux-package-management-behind-a-firewall).
+Yes, you can perform a yum update on a Red Hat Linux VM.  For more information, see [Azure Disk Encryption on an isolated network](disk-encryption-isolated-network.md).
 
 ## What is the recommended Azure disk encryption workflow for Linux?
 

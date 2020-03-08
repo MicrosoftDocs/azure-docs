@@ -81,12 +81,18 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
 1. On the **Basic SAML Configuration** section, enter the values for the following fields:
-
+    In the **Identifier (Entity ID)** text box, enter exactly the following value:
+    `https://impl.bouncer.eab.com`
+    
+    In the **Reply URL (Assertion Consumer Service URL)** text box, enter both the following values as separate rows:
+    `https://impl.bouncer.eab.com/sso/saml2/acs`
+    `https://impl.bouncer.eab.com/sso/saml2/acs/`
+    
     In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://<SUBDOMAIN>.navigate.impl.eab.com/`
 
 	> [!NOTE]
-	> The value is not real. Update the value with the actual Sign-On URL. Contact [EAB Navigate IMPL Client support team](mailto:jmahoney@eab.com) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> The value is not real. Update the value with the actual Sign-On URL. Contact [EAB Navigate IMPL Client support team](mailto:EABTechSupport@eab.com) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. On the **Set up single sign-on with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 
@@ -124,11 +130,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure EAB Navigate IMPL SSO
 
-To configure single sign-on on **EAB Navigate IMPL** side, you need to send the **App Federation Metadata Url** to [EAB Navigate IMPL support team](mailto:jmahoney@eab.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **EAB Navigate IMPL** side, you need to send the **App Federation Metadata Url** to [EAB Navigate IMPL support team](mailto:EABTechSupport@eab.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create EAB Navigate IMPL test user
 
-In this section, you create a user called B.Simon in EAB Navigate IMPL. Work with [EAB Navigate IMPL support team](mailto:jmahoney@eab.com) to add the users in the EAB Navigate IMPL platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called B.Simon in EAB Navigate IMPL. Work with [EAB Navigate IMPL support team](mailto:EABTechSupport@eab.com) to add the users in the EAB Navigate IMPL platform. Users must be created and activated before you use single sign-on.
 
 ## Test SSO
 

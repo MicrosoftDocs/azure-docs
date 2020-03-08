@@ -388,7 +388,7 @@
               href: iot-hub-troubleshoot-error-403006-devicemaximumactivefileuploadlimitexceeded.md
             - name: 404001 DeviceNotFound
               href: iot-hub-troubleshoot-error-404001-devicenotfound.md
-            - name: 404003 DeviceNotOnline
+            - name: 404103 DeviceNotOnline
               href: iot-hub-troubleshoot-error-404103-devicenotonline.md
             - name: 404104 DeviceConnectionClosedRemotely
               href: iot-hub-troubleshoot-error-404104-deviceconnectionclosedremotely.md

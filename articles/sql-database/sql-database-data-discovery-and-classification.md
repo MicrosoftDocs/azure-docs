@@ -5,15 +5,16 @@ services: sql-database
 ms.service: sql-database
 ms.subservice: security
 ms.custom: 
-titleSuffix: Azure SQL Database and SQL Data Warehouse
+titleSuffix: Azure SQL Database and Azure Synapse
 ms.devlang: 
 ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 08/22/2019
+ms.date: 02/05/2020
+tags: azure-synapse
 ---
-# Azure SQL Database and SQL Data Warehouse data discovery & classification
+# Azure SQL Database and Azure Synapse Analytics data discovery & classification
 
 Data discovery & classification provides advanced capabilities built into Azure SQL Database for **discovering**, **classifying**, **labeling** & **reporting** the sensitive data in your databases.
 
@@ -26,7 +27,7 @@ Discovering and classifying your most sensitive data (business, financial, healt
 Data discovery & classification is part of the [Advanced Data Security](sql-database-advanced-data-security.md) (ADS) offering, which is a unified package for advanced SQL security capabilities. data discovery & classification can be accessed and managed via the central SQL ADS portal.
 
 > [!NOTE]
-> This document relates to Azure SQL Database and Azure SQL Data Warehouse. For simplicity, SQL Database is used when referring to both SQL Database and SQL Data Warehouse. For SQL Server (on premises), see [SQL Data Discovery and Classification](https://go.microsoft.com/fwlink/?linkid=866999).
+> This document relates to Azure SQL Database and Azure Synapse. For simplicity, SQL Database is used when referring to both SQL Database and Azure Synapse. For SQL Server (on premises), see [SQL Data Discovery and Classification](https://go.microsoft.com/fwlink/?linkid=866999).
 
 ## <a id="subheading-1"></a>What is data discovery & classification
 

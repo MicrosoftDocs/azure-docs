@@ -5,7 +5,7 @@ summary: Learn how Language Understanding enables your applications to understan
 
 metadata:
   ms.topic: landing-page
-  ms.date: 11/22/2019
+  ms.date: 02/11/2020
   ms.author: nitinme
   author: nitinme
   ms.service: cognitive-services
@@ -39,8 +39,8 @@ landingContent:
             url: whats-new.md
       - linkListType: video
         links:
-          - text: "AI Roadshow: LUIS"
-            url: https://azure.microsoft.com/resources/videos/whats-new-with-language-understanding-service-luis
+          - text: "Ignite 2019: Advanced Natural Language Understanding (NLU) models using LUIS"
+            url: https://www.youtube.com/watch?v=JdJEV2jV0_Y
 
   - title: Create intents, entities, and features
     linkLists:

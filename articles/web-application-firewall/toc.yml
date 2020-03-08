@@ -44,10 +44,14 @@
       href: ./ag/application-gateway-waf-configuration.md
     - name: WAF Policy overview
       href: ./ag/policy-overview.md
+    - name: Bot protection overview
+      href: ./ag/bot-protection-overview.md
   - name: Front Door
     items:
     - name: Custom rules
       href: ./afds/waf-front-door-custom-rules.md
+    - name: Exclusion lists
+      href: ./afds/waf-front-door-exclusion.md
     - name: Policy settings
       href: ./afds/waf-front-door-policy-settings.md
     - name: Geo-filtering
@@ -66,6 +70,8 @@
          href: ./ag/tutorial-restrict-web-traffic-powershell.md
        - name: Azure CLI
          href: ./ag/tutorial-restrict-web-traffic-cli.md
+     - name: Per-site policies
+       href: ./ag/per-site-policies.md
      - name: Migrate WAF policy
        href: ./ag/migrate-policy.md
      - name: Customize WAF rules
