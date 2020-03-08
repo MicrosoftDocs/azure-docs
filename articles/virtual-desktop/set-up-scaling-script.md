@@ -79,8 +79,8 @@ First, you'll need an Azure Automation account to run the PowerShell runbook. He
 
      ```powershell
      Set-Location -Path "c:\temp"
-$uri = "https://raw.githubusercontent.com/Azure/RDS-Templates/master/wvd-templates/wvd-scaling-script/createazureautomationaccount.ps1"
-Invoke-WebRequest -Uri $uri -OutFile ".\createazureautomationaccount.ps1"
+     $uri = "https://raw.githubusercontent.com/Azure/RDS-Templates/master/wvd-templates/wvd-scaling-script/createazureautomationaccount.ps1"
+     Invoke-WebRequest -Uri $uri -OutFile ".\createazureautomationaccount.ps1"
      ```
 
 4. Run the following cmdlet to execute the script and create the Azure Automation account:
