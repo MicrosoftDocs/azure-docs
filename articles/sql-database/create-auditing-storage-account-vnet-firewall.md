@@ -34,14 +34,14 @@ To learn more about how to create a virtual network, see [Quickstart: Create a v
 
 1. Click on **Auditing** under the Security heading in your SQL database/server pane.
 
-1. Select **Storage** and open **Storage details**. Select the Azure storage account where logs will be saved.
+2. Select **Storage** and open **Storage details**. Select the Azure storage account where logs will be saved.
 
 > [!NOTE]
 > If the selected Storage account is under VNet, you will see the following message: *You have selected a storage account that is behind a firewall or in a virtual network. Using this storage: requires an Active Directory admin on the server; enables 'Allow trusted Microsoft services to access this storage account' on the storage account; and creates a server managed identity with 'storage blob data contributor' RBAC.*. If you do not see this message, then your Storage account is not under VNet.
 
-1. Select the retention period. Then click **OK**. Logs older than the retention period are deleted.
+3. Select the retention period. Then click **OK**. Logs older than the retention period are deleted.
 
-1. Select **Save** on your auditing seetings blade.
+4. Select **Save** on your auditing seetings blade.
 
 #### Others
 
