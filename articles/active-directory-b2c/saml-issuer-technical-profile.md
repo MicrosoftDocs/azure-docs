@@ -32,7 +32,7 @@ The following example shows a technical profile for `Saml2AssertionIssuer`:
   <Protocol Name="None"/>
   <OutputTokenFormat>SAML2</OutputTokenFormat>
   <Metadata>
-      <Item Key="IssuerUri">https://tenant-name.b2clogin.com/tenant-name.onmicrosoft.com/B2C_1A_signup_signin_SAML</Item>
+    <Item Key="IssuerUri">https://tenant-name.b2clogin.com/tenant-name.onmicrosoft.com/B2C_1A_signup_signin_SAML</Item>
   </Metadata>
   <CryptographicKeys>
     <Key Id="MetadataSigning" StorageReferenceId="B2C_1A_SamlIdpCert"/>
