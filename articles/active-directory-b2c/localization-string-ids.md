@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/03/2020
+ms.date: 03/09/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -211,6 +211,7 @@ The following are the IDs for a [Verification display control](display-control-v
 |verification_control_but_send_code |Send Code |
 |verification_control_but_send_new_code |Send New Code |
 |verification_control_but_verify_code |Verify Code |
+|verification_control_code_sent| Verification code has been sent. Please copy it to the input box below. |
 
 ## One time password error messages
 The following are the IDs for a [one time password technical profile](one-time-password-technical-profile.md) error messages
