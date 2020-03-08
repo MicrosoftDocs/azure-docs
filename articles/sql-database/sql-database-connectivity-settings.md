@@ -21,7 +21,7 @@ ms.date: 02/11/2020
 This article introduces settings that control connectivity to Azure SQL Database at the server level. These settings apply to **all** SQL Database and SQL Data Warehouse databases associated with the server.
 
 > [!NOTE]
-Once these settings are applied the **take effect immediately** and may result in connection loss for your clients if they do not meet the requirements for each setting.
+>Once these settings are applied the **take effect immediately** and may result in connection loss for your clients if they do not meet the requirements for each setting.
 
 The connectivity settings are accessible from the **Firewalls and virtual networks** tabs as shown in the screenshot below
 
