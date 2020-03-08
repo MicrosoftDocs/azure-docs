@@ -59,7 +59,7 @@ Open the extensions file of your policy. For example, <em>`SocialAndLocalAccount
 </ClaimType>
 ```
 
-## Add city to the user interface
+## Add a claim to the user interface
 
 Following technical profiles are [self-asserted](self-asserted-technical-profile.md), where a user is expected to provide input:
 
@@ -112,7 +112,7 @@ To add the city claim as an `<OutputClaim ClaimTypeReferenceId="city"/>` to the 
 </ClaimsProvider>
 ```
 
-## Read and write the city
+## Read and write a claim
 
 To persist the city to the user profile in the directory, you add `<PersistedClaim ClaimTypeReferenceId="city"/>` to the relevant technical profiles. To read the city from the user profile in the directory, you add `<OutputClaim ClaimTypeReferenceId="city"/>`.  
 
@@ -156,7 +156,7 @@ The following technical profiles are [Active Directory technical profile](active
 </ClaimsProvider>
 ```
 
-## Include the city in the token 
+## Include a claim in the token 
 
 To return the city claim back to the relaying party application, add the `<OutputClaim ClaimTypeReferenceId="city" />` claim to the SignUpOrSignIn.xml file so that this claim is sent to the application in the token after a successful user journey. Modify the `TechnicalProfile Id="PolicyProfile"` element to add the city output claim as `<OutputClaim ClaimTypeReferenceId="city" />`.
 
