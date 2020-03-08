@@ -94,6 +94,6 @@ Sample Request
 
 ## Next steps
 
-- [Use PowerShell to create a virtual network service endpoint, and then a virtual network rule for Azure SQL Database.][sql-db-vnet-service-endpoint-rule-powershell-md-52d]
-- [Virtual Network Rules: Operations][rest-api-virtual-network-rules-operations-862r] with REST APIs
+- [Use PowerShell to create a virtual network service endpoint, and then a virtual network rule for Azure SQL Database.](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-powershell)
+- [Virtual Network Rules: Operations](https://docs.microsoft.com/rest/api/sql/virtualnetworkrules) with REST APIs
 - [Use virtual network service endpoints and rules for database servers](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview)
