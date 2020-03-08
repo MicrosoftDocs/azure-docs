@@ -49,7 +49,7 @@ You can also configure your Auditing to write database events on a storage accou
 
 1. **register your Azure SQL Server** hosting your Azure SQL Data Warehouse instance with Azure Active Directory (AAD):
 
-In PowerShell
+- In PowerShell
 
    ```powershell
    Connect-AzAccount
@@ -57,7 +57,7 @@ In PowerShell
    Set-AzSqlServer -ResourceGroupName your-database-server-resourceGroup -ServerName your-SQL-servername -AssignIdentity
    ```
    
-In [REST API](https://docs.microsoft.com/rest/api/sql/servers/createorupdate):
+- In [REST API](https://docs.microsoft.com/rest/api/sql/servers/createorupdate):
 
 Sample Request
 
@@ -85,12 +85,12 @@ Sample Request
   }
    ```
 
-1. Under your storage account, navigate to **Access Control (IAM)**, and click **Add role assignment**. Assign **Storage Blob Data Contributor** RBAC role to your Azure SQL Server hosting your Azure SQL Data Warehouse which you've registered with Azure Active Directory (AAD) as in step#1.
+2. Under your storage account, navigate to **Access Control (IAM)**, and click **Add role assignment**. Assign **Storage Blob Data Contributor** RBAC role to your Azure SQL Server hosting your Azure SQL Data Warehouse which you've registered with Azure Active Directory (AAD) as in step#1.
 
    > [!NOTE]
    > Only members with Owner privilege can perform this step. For various built-in roles for Azure resources, refer to this [guide](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
 
-1. 
+3. 
 
 ## Next steps
 
