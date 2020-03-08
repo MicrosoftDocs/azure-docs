@@ -61,9 +61,13 @@ Open the extensions file of your policy. For example, <em>`SocialAndLocalAccount
 
 ## Add city to the user interface
 
-The sign-up or sign-up user journey uses the **LocalAccountSignUpWithLogonEmail** to interact with the user during the local account sign-up flow. The **SelfAsserted-Social** is used to interact with a federated account during first-time user sign-in. Both technical profiles are [self-asserted](self-asserted-technical-profile.md), where a user is expected to provide input. 
+Following technical profiles are [self-asserted](self-asserted-technical-profile.md), where a user is expected to provide input:
 
-To add the city claim as an `<OutputClaim ClaimTypeReferenceId="city"/>` to the **LocalAccountSignUpWithLogonEmail** and **SelfAsserted-Social** technical profiles, you override them in the extension policy. You specify the entire list of the output claims, to control the order the claims are presented on the screen.  Find the **ClaimsProviders** element. Add a new ClaimsProviders as follows:
+- **LocalAccountSignUpWithLogonEmail** - Local account sign-up flow.
+- **SelfAsserted-Social** - Federated account first-time user sign-in.
+- **SelfAsserted-ProfileUpdate** - Edit profile flow.
+
+To add the city claim as an `<OutputClaim ClaimTypeReferenceId="city"/>` to the technical profiles, you override them in the extension policy. You specify the entire list of the output claims, to control the order the claims are presented on the screen.  Find the **ClaimsProviders** element. Add a new ClaimsProviders as follows:
 
 ```xml
 <ClaimsProvider>
@@ -83,66 +87,73 @@ To add the city claim as an `<OutputClaim ClaimTypeReferenceId="city"/>` to the 
    </TechnicalProfile>
   </TechnicalProfiles>
 </ClaimsProvider>
-<ClaimsProviders>
-  <ClaimsProvider>
-    <DisplayName>Self Asserted</DisplayName>
-    <TechnicalProfiles>
-      <!--Federated account first-time sign-in page-->
-      <TechnicalProfile Id="SelfAsserted-Social">
-        <OutputClaims>
-          <OutputClaim ClaimTypeReferenceId="displayName"/>
-          <OutputClaim ClaimTypeReferenceId="givenName"/>
-          <OutputClaim ClaimTypeReferenceId="surname"/>
-          <OutputClaim ClaimTypeReferenceId="city"/>
-        </OutputClaims>
-      </TechnicalProfile>
-    </TechnicalProfiles>
-  </ClaimsProvider>
-</ClaimsProviders>
+<ClaimsProvider>
+  <DisplayName>Self Asserted</DisplayName>
+  <TechnicalProfiles>
+    <!--Federated account first-time sign-in page-->
+    <TechnicalProfile Id="SelfAsserted-Social">
+      <OutputClaims>
+        <OutputClaim ClaimTypeReferenceId="displayName"/>
+        <OutputClaim ClaimTypeReferenceId="givenName"/>
+        <OutputClaim ClaimTypeReferenceId="surname"/>
+        <OutputClaim ClaimTypeReferenceId="city"/>
+      </OutputClaims>
+    </TechnicalProfile>
+    <!--Edit profile page-->
+    <TechnicalProfile Id="SelfAsserted-ProfileUpdate">
+      <OutputClaims>
+        <OutputClaim ClaimTypeReferenceId="displayName"/>
+        <OutputClaim ClaimTypeReferenceId="givenName" />
+        <OutputClaim ClaimTypeReferenceId="surname" />
+        <OutputClaim ClaimTypeReferenceId="city"/>
+      </OutputClaims>
+    </TechnicalProfile>
+  </TechnicalProfiles>
+</ClaimsProvider>
 ```
 
-## Read and write the city 
+## Read and write the city
 
-To persist the city to the user profile in the directory, you add `<PersistedClaim ClaimTypeReferenceId="city"/>` to the relevant technical profiles. To read the city from the user profile in the directory, you add `<OutputClaim ClaimTypeReferenceId="city"/>` to the relevant technical profiles.  
+To persist the city to the user profile in the directory, you add `<PersistedClaim ClaimTypeReferenceId="city"/>` to the relevant technical profiles. To read the city from the user profile in the directory, you add `<OutputClaim ClaimTypeReferenceId="city"/>`.  
 
-The following technical profiles are [Active Directory technical profile](active-directory-technical-profile.md), which allows you to read and write data to the Azure Active Directory.  Find the **ClaimsProviders** element.  Add a new ClaimsProviders as follows:
+The following technical profiles are [Active Directory technical profile](active-directory-technical-profile.md), which read and write data to the Azure Active Directory. Find the **ClaimsProviders** element.  Add a new ClaimsProviders as follows:
 
 ```xml
-<ClaimsProviders>
-  <ClaimsProvider>
-    <DisplayName>Azure Active Directory</DisplayName>
-    <TechnicalProfiles>
-      
-      <!-- Write data during a local account sign-up. -->
-      <TechnicalProfile Id="AAD-UserWriteUsingLogonEmail">
-        <PersistedClaims>
-          <PersistedClaim ClaimTypeReferenceId="city"/>
-        </PersistedClaims>
-      </TechnicalProfile>
-      
-      <!-- Write data during a federated account first-time sign-in. -->
-      <TechnicalProfile Id="AAD-UserWriteUsingAlternativeSecurityId">
-        <PersistedClaims>
-          <PersistedClaim ClaimTypeReferenceId="city"/>
-        </PersistedClaims>
-      </TechnicalProfile>
-      
-      <!-- Read data after user authenticates with a local account. -->
-      <TechnicalProfile Id="AAD-UserReadUsingEmailAddress">
-        <OutputClaims>  
-          <OutputClaim ClaimTypeReferenceId="city" />
-        </OutputClaims>
-      </TechnicalProfile>
-      
-      <!-- Read data after user authenticates with a federated account. -->
-      <TechnicalProfile Id="AAD-UserReadUsingObjectId">
-        <OutputClaims>  
-          <OutputClaim ClaimTypeReferenceId="city" />
-        </OutputClaims>
-      </TechnicalProfile>
-    </TechnicalProfiles>
-  </ClaimsProvider>
-</ClaimsProviders>
+<ClaimsProvider>
+  <DisplayName>Azure Active Directory</DisplayName>
+  <TechnicalProfiles>
+    <!-- Write data during a local account sign-up flow. -->
+    <TechnicalProfile Id="AAD-UserWriteUsingLogonEmail">
+      <PersistedClaims>
+        <PersistedClaim ClaimTypeReferenceId="city"/>
+      </PersistedClaims>
+    </TechnicalProfile>
+    <!-- Write data during a federated account first-time sign-in flow. -->
+    <TechnicalProfile Id="AAD-UserWriteUsingAlternativeSecurityId">
+      <PersistedClaims>
+        <PersistedClaim ClaimTypeReferenceId="city"/>
+      </PersistedClaims>
+    </TechnicalProfile>
+    <!-- Write data during edit profile flow. -->
+    <TechnicalProfile Id="AAD-UserWriteProfileUsingObjectId">
+      <PersistedClaims>
+        <PersistedClaim ClaimTypeReferenceId="city"/>
+      </PersistedClaims>
+    </TechnicalProfile>
+    <!-- Read data after user authenticates with a local account. -->
+    <TechnicalProfile Id="AAD-UserReadUsingEmailAddress">
+      <OutputClaims>  
+        <OutputClaim ClaimTypeReferenceId="city" />
+      </OutputClaims>
+    </TechnicalProfile>
+    <!-- Read data after user authenticates with a federated account. -->
+    <TechnicalProfile Id="AAD-UserReadUsingObjectId">
+      <OutputClaims>  
+        <OutputClaim ClaimTypeReferenceId="city" />
+      </OutputClaims>
+    </TechnicalProfile>
+  </TechnicalProfiles>
+</ClaimsProvider>
 ```
 
 ## Include the city in the token 
