@@ -15,7 +15,7 @@ K2Bridge (Kibana-Kusto Bridge), an open-source project, enables you to use Azure
 
 Kibana is an open-source data exploration tool. K2Bridge translates Kibana queries to Kusto Query Language (KQL) and sends the Azure Data Explorer results back to Kibana. 
 
-   ![chart](media/k2bridge/chart.png)
+   ![chart](media/k2bridge/k2bridge-chart.png)
 
 K2Bridge supports Kibana’s "Discover" tab, where you can:
 * Search and explore the data
@@ -26,7 +26,7 @@ K2Bridge supports Kibana’s "Discover" tab, where you can:
 
 The image below shows a Kibana instance bound to Azure Data Explorer by K2Bridge. The search experience is in Kibana, and the overall look and feel is as usual.
 
-   ![Kibana Page](media/k2bridge/kibana-page.png)
+   ![Kibana Page](media/k2bridge/k2bridge-kibana-page.png)
 
 The K2Bridge connector source code is on [GitHub](https://github.com/microsoft/K2Bridge).
 
@@ -144,19 +144,19 @@ When Azure Data Explorer is configured as a data source for Kibana, you can use 
 
 1. From the left drop-down list select an index pattern (in this case, an Azure Data Explorer table), which defines the data source you want to explore. 
 
-    ![select an index pattern](media/k2bridge/select-an-index-pattern.png)
+    ![select an index pattern](media/k2bridge/k2bridge-select-an-index-pattern.png)
 
 1. If your data has a time-filter field, you can specify the time range. At the upper-right of the page, set a **time filter**. By default, Discover shows data for the last 15 minutes.
 
-    ![time filter](media/k2bridge/time-filter.png)
+    ![time filter](media/k2bridge/k2bridge-time-filter.png)
 
 1. The results table shows the first 500 records. You can **expand a document** to examine its field data in either JSON or table formats.
 
-    ![expand a record](media/k2bridge/expand-record.png)
+    ![expand a record](media/k2bridge/k2bridge-expand-record.png)
 
 1. By default, the results table includes columns for the document _source and the time field (if it exists). You can **choose specific columns** to be added to the results table by selecting **add** next to the field name in the left sidebar.
 
-    ![specific columns](media/k2bridge/specific-columns.png)
+    ![specific columns](media/k2bridge/k2bridge-specific-columns.png)
 
 1. In the query bar, you can **search the data** by:
     * Entering a search term
@@ -169,7 +169,7 @@ When Azure Data Explorer is configured as a data source for Kibana, you can use 
     Example:
         * The query `"destination_city: L*"` will match records where the destination city value starts with "l".
 
-    ![Run query](media/k2bridge/run-query.png)
+    ![Run query](media/k2bridge/k2bridge-run-query.png)
 
 1. To filter your search results, use the **field list** on the right sidebar of the page. 
     The field list is where you can see:
@@ -181,12 +181,12 @@ When Azure Data Explorer is configured as a data source for Kibana, you can use 
     > Use the (+) magnifier icon to find all records that have a specific value.
     > 
 
-    ![Field list](media/k2bridge/field-list.png)
+    ![Field list](media/k2bridge/k2bridge-field-list.png)
 
     You can also filter the results by using the (+) magnifier icon in the results table format view of each record in the results table.
     
-    ![table list](media/k2bridge/table-list.png)
+    ![table list](media/k2bridge/k2bridge-table-list.png)
 
 1. To **save** and **share** your search, on the top menu bar, select either **Save** or **Share**.
 
-    ![save-search](media/k2bridge/save-search.png)
+    ![save-search](media/k2bridge/k2bridge-save-search.png)
