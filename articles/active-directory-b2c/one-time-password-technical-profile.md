@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/06/2020
+ms.date: 03/09/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -65,7 +65,7 @@ The **OutputClaimsTransformations** element may contain a collection of **Output
 
 ### Metadata
 
-The following settings can be used to configure code generation and maintenance:
+The following settings can be used to configure code generation mode:
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
@@ -73,7 +73,7 @@ The following settings can be used to configure code generation and maintenance:
 | CodeLength | No | Length of the code. The default value is `6`. |
 | CharacterSet | No | The character set for the code, formatted for use in a regular expression. For example, `a-z0-9A-Z`. The default value is `0-9`. The character set must include a minimum of 10 different characters in the set specified. |
 | NumRetryAttempts | No | The number of verification attempts before the code is considered invalid. The default value is `5`. |
-| Operation | Yes | The operation to be performed. Possible values: `GenerateCode`, or `VerifyCode`. |
+| Operation | Yes | The operation to be performed. Possible value: `GenerateCode`. |
 | ReuseSameCode | No | Whether a duplicate code should be given rather than generating a new code when given code has not expired and is still valid. The default value is `false`. |
 
 ### Returning error message
@@ -86,22 +86,22 @@ The following example `TechnicalProfile` is used for generating a code:
 
 ```XML
 <TechnicalProfile Id="GenerateCode">
-    <DisplayName>Generate Code</DisplayName>
-    <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.OneTimePasswordProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
-    <Metadata>
-        <Item Key="Operation">GenerateCode</Item>
-        <Item Key="CodeExpirationInSeconds">600</Item>
-        <Item Key="CodeLength">6</Item>
-        <Item Key="CharacterSet">0-9</Item>
-        <Item Key="NumRetryAttempts">5</Item>
-        <Item Key="ReuseSameCode">false</Item>
-    </Metadata>
-    <InputClaims>
-        <InputClaim ClaimTypeReferenceId="identifier" PartnerClaimType="identifier" />
-    </InputClaims>
-    <OutputClaims>
-        <OutputClaim ClaimTypeReferenceId="otpGenerated" PartnerClaimType="otpGenerated" />
-    </OutputClaims>
+  <DisplayName>Generate Code</DisplayName>
+  <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.OneTimePasswordProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+  <Metadata>
+    <Item Key="Operation">GenerateCode</Item>
+    <Item Key="CodeExpirationInSeconds">600</Item>
+    <Item Key="CodeLength">6</Item>
+    <Item Key="CharacterSet">0-9</Item>
+    <Item Key="NumRetryAttempts">5</Item>
+    <Item Key="ReuseSameCode">false</Item>
+  </Metadata>
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="identifier" PartnerClaimType="identifier" />
+  </InputClaims>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="otpGenerated" PartnerClaimType="otpGenerated" />
+  </OutputClaims>
 </TechnicalProfile>
 ```
 
@@ -128,7 +128,16 @@ The **OutputClaimsTransformations** element may contain a collection of **Output
 
 ### Metadata
 
-The following settings can be used to configure the error message displayed upon code verification failure. The metadata should be configured in the [self-asserted](self-asserted-technical-profile.md) technical profile.
+The following settings can be used to code verification mode:
+
+| Attribute | Required | Description |
+| --------- | -------- | ----------- |
+| Operation | Yes | The operation to be performed. Possible value: `VerifyCode`. |
+
+
+### Error messages
+
+The following settings can be used to configure the error message displayed upon code verification failure. The metadata should be configured in the [self-asserted](self-asserted-technical-profile.md) technical profile. The error messsages can be [localized](localization-string-ids.md#one-time-password-error-messages).
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
@@ -137,29 +146,21 @@ The following settings can be used to configure the error message displayed upon
 | UserMessageIfInvalidCode | No | The message to display to the user if they've provided an invalid code. |
 |UserMessageIfSessionConflict|No| The message to display to the user if the code cannot be verified.|
 
-### Returning error message
-
-As described in [Metadata](#metadata), you can customize error message shown to the user for different error cases. You can further localize those messages by prefixing the locale, for example:
-
-```XML
-<Item Key="en.UserMessageIfInvalidCode">Wrong code has been entered.</Item>
-```
-
 ### Example
 
 The following example `TechnicalProfile` is used for verifying a code:
 
 ```XML
 <TechnicalProfile Id="VerifyCode">
-    <DisplayName>Verify Code</DisplayName>
-    <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.OneTimePasswordProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
-    <Metadata>
-        <Item Key="Operation">VerifyCode</Item>
-    </Metadata>
-    <InputClaims>
-        <InputClaim ClaimTypeReferenceId="identifier" PartnerClaimType="identifier" />
-        <InputClaim ClaimTypeReferenceId="otpGenerated" PartnerClaimType="otpToVerify" />
-    </InputClaims>
+  <DisplayName>Verify Code</DisplayName>
+  <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.OneTimePasswordProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+  <Metadata>
+    <Item Key="Operation">VerifyCode</Item>
+  </Metadata>
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="identifier" PartnerClaimType="identifier" />
+    <InputClaim ClaimTypeReferenceId="otpGenerated" PartnerClaimType="otpToVerify" />
+  </InputClaims>
 </TechnicalProfile>
 ```
 
