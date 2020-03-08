@@ -40,7 +40,7 @@
 
 - name: Concepts
   items:
-  - name: Secure Score
+  - name: Secure score
     href: secure-score-security-controls.md
   - name: Permissions
     href: security-center-permissions.md

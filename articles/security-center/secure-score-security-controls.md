@@ -16,13 +16,13 @@ ms.author: memildin
 
 ---
 
-# Introduction to secure score
+# Secure score in Azure Security Center
+
+## Introduction to secure score
 
 Azure Security Center has two main goals: to help you understand your current security situation, and to help you efficiently and effectively improve your security. The central aspect of Security Center that enables you to achieve those goals is secure score.
 
 Security Center continually assesses your resources, subscriptions, and organization for security issues. It then aggregates all the findings into a single score so that you can tell, at a glance, your current security situation: the higher the score, the lower the identified risk level. Use the score to track security efforts and projects in your organization. 
-
-Secure score is **attack surface focused** and is the best measure of your overall security posture. 
 
 The secure score page of Security Center includes:
 
@@ -30,10 +30,11 @@ The secure score page of Security Center includes:
 
     [![The enhanced secure score now includes a percentage](media/secure-score-security-controls/secure-score-with-percentage.png)](media/secure-score-security-controls/secure-score-with-percentage.png#lightbox)
 
+- **Security controls** - Each control is a logical group of related security recommendations, and reflects your vulnerable attack surfaces. A control is a set of security recommendations, with instructions that help you implement those recommendations. Your score only improves when you remediate *all* of the recommendations for a single resource within a control.
 
-- **Security controls** - Related security recommendations are grouped into logical sets to reflect your vulnerable attack surfaces. A control is a set of security recommendations, with instructions that help you implement those recommendations. Controls are logical groupings of related recommendations. Points are no longer awarded at the recommendation level. Instead, your score only improves when you remediate *all* of the recommendations for a single resource within a control.
-By showing the score per security control, the secure score page becomes the place where you can get a granular view of how well your organization is securing each individual attack surface.
-For more information, see [How the secure score is calculated](secure-score-security-controls.md#how-the-secure-score-is-calculated) below. 
+    To immediately see how well your organization is securing each individual attack surface, review the scores for each security control.
+
+    For more information, see [How the secure score is calculated](secure-score-security-controls.md#how-the-secure-score-is-calculated) below. 
 
 
 >[!TIP]
