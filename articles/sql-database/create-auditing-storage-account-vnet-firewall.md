@@ -67,7 +67,7 @@ Sample Request
 
 Sample Request
 
-   ```json
+   ```javascript
    {
    "tags": {
     "tagKey1": "TagValue1"
