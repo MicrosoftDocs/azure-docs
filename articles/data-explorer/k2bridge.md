@@ -149,19 +149,20 @@ When Azure Data Explorer is configured as a data source for Kibana, you can use 
 1. In Kibana, on the left menu, select the **Discover** tab.
 
 1. From the left drop-down list select an index pattern (in this case, an Azure Data Explorer table), which defines the data source you want to explore. 
-
-    [<img src=media/k2bridge/k2bridge-select-an-index-pattern.png width="350"/>](k2bridge-select-an-index-pattern.png)
+    
+    ![Select an index pattern](media/k2bridge/k2bridge-select-an-index-pattern.png)
 
 1. If your data has a time-filter field, you can specify the time range. At the upper-right of the page, set a **time filter**. By default, Discover shows data for the last 15 minutes.
 
-    [<img src=media/k2bridge/k2bridge-time-filter.png width="350"/>](k2bridge-time-filter.png)
+    ![Time filter](media/k2bridge/k2bridge-time-filter.png)
     
 1. The results table shows the first 500 records. You can **expand a document** to examine its field data in either JSON or table formats.
 
-    ![expand a record](media/k2bridge/k2bridge-expand-record.png)
+    ![Expand a record](media/k2bridge/k2bridge-expand-record.png)
 
 1. By default, the results table includes columns for the document _source and the time field (if it exists). You can **choose specific columns** to be added to the results table by selecting **add** next to the field name in the left sidebar.
-    [<img src=media/k2bridge/k2bridge-specific-columns.png width="450"/>](k2bridge-field-list.png)
+
+    ![Specific columns](media/k2bridge/k2bridge-specific-columns.png)
     
 1. In the query bar, you can **search the data** by:
     * Entering a search term
@@ -174,7 +175,7 @@ When Azure Data Explorer is configured as a data source for Kibana, you can use 
     Example:
         * The query `"destination_city: L*"` will match records where the destination city value starts with "l" (K2Bridge is not case-sensitive).
 
-    [<img src=media/k2bridge/k2bridge-run-query.png width="350"/>](k2bridge-run-query.png)
+    ![Run query](media/k2bridge/k2bridge-run-query.png)
     
     > [!Tip]
     > You can find more search rules and logic [here](https://github.com/microsoft/K2Bridge/blob/master/docs/searching.md).
@@ -188,12 +189,12 @@ When Azure Data Explorer is configured as a data source for Kibana, you can use 
     >[!Tip]
     > Use the (+) magnifier icon to find all records that have a specific value.
     
-    [<img src=media/k2bridge/k2bridge-field-list.png width="350"/>](k2bridge-field-list.png)
+    ![Field list](media/k2bridge/k2bridge-field-list.png)
    
     You can also filter the results by using the (+) magnifier icon in the results table format view of each record in the results table.
     
-     [<img src=media/k2bridge/k2bridge-table-list.png width="450"/>](k2bridge-table-list.png)
-
+     ![Table list](media/k2bridge/k2bridge-table-list.png)
+    
 1. To **save** and **share** your search, on the top menu bar, select either **Save** or **Share**.
 
-     [<img src=media/k2bridge/k2bridge-save-search.png width="450"/>](k2bridge-save-search.png)
+     ![Save search](media/k2bridge/k2bridge-save-search.png)
