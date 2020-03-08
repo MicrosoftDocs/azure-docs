@@ -199,7 +199,7 @@ You can use the Response action to respond with a payload (data) to an incoming 
 
 Your logic app keeps the incoming request open only for one minute. Assuming that your logic app workflow includes a Response action, if the logic app doesn't return a response after this time passes, your logic app returns a `504 GATEWAY TIMEOUT` to the caller. Otherwise, if your logic app doesn't include a Response action, your logic app immediately returns a `202 ACCEPTED` response to the caller.
 
-> ![NOTE]
+> [!NOTE]
 > If the Response action sends a `GET` request or a request that doesn't have a request body, 
 > Logic Apps removes most `Content-*` headers from these requests without warning or error. 
 > This behavior doesn't happen to the headers `Content-Type`, `Content-Encoding`, and `Content-Disposition`. 
