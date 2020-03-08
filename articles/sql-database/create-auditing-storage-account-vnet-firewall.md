@@ -47,7 +47,7 @@ To learn more about how to create a virtual network, see [Quickstart: Create a v
 
 You can also configure your Auditing to write database events on a storage account under Virtual Network and Firewall:
 
-1. **register your Azure SQL Server** hosting your Azure SQL Data Warehouse instance with Azure Active Directory (AAD):
+1. Register your Azure SQL Server hosting your Azure SQL Data Warehouse instance with Azure Active Directory (AAD):
 
 - In PowerShell
 
@@ -69,10 +69,6 @@ Sample Request
 
    ```javascript
    {
-   "tags": {
-    "tagKey1": "TagValue1"
-  },
-  "location": "Japan East",
   "identity": {
              "type": "SystemAssigned",
              },
@@ -90,7 +86,24 @@ Sample Request
    > [!NOTE]
    > Only members with Owner privilege can perform this step. For various built-in roles for Azure resources, refer to this [guide](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
 
-3. 
+3. Configure your [Azure SQL server's blob auditing policy](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/createorupdate), without specify *storageAccountAccessKey*:
+
+Sample Request
+
+   ```html
+   PUT https://management.azure.com/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/blobauditingtest-4799/providers/Microsoft.Sql/servers/blobauditingtest-6440/auditingSettings/default?api-version=2017-03-01-preview
+   ```
+
+Sample Request
+
+   ```javascript
+   {
+     "properties": {
+      "state": "Enabled",
+      "storageEndpoint": "https://mystorage.blob.core.windows.net"
+     }
+   }
+   ```
 
 ## Next steps
 
