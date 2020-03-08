@@ -857,78 +857,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/cognitive-services/QnaMaker/quickstarts/create-new-kb-csharp.md",
-      "redirect_url": "/azure/cognitive-services/QnaMaker/quickstarts/quickstart-rest-curl",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/cognitive-services/QnaMaker/quickstarts/create-new-kb-go.md",
-      "redirect_url": "/azure/cognitive-services/QnaMaker/quickstarts/quickstart-rest-curl",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/cognitive-services/QnaMaker/quickstarts/create-new-kb-java.md",
-      "redirect_url": "/azure/cognitive-services/QnaMaker/quickstarts/quickstart-rest-curl",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/cognitive-services/QnaMaker/quickstarts/create-new-kb-python.md",
-      "redirect_url": "/azure/cognitive-services/QnaMaker/quickstarts/quickstart-rest-curl",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/cognitive-services/QnaMaker/quickstarts/get-answer-from-knowledge-base-csharp.md",
-      "redirect_url": "/azure/cognitive-services/QnaMaker/quickstarts/quickstart-rest-curl",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/cognitive-services/QnaMaker/quickstarts/get-answer-from-knowledge-base-go.md",
-      "redirect_url": "/azure/cognitive-services/QnaMaker/quickstarts/quickstart-rest-curl",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/cognitive-services/QnaMaker/quickstarts/get-answer-from-knowledge-base-java.md",
-      "redirect_url": "/azure/cognitive-services/QnaMaker/quickstarts/quickstart-rest-curl",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/cognitive-services/QnaMaker/quickstarts/get-answer-from-knowledge-base-python.md",
-      "redirect_url": "/azure/cognitive-services/QnaMaker/quickstarts/quickstart-rest-curl",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/cognitive-services/QnaMaker/quickstarts/get-answer-from-knowledge-base-nodejs.md",
-      "redirect_url": "/azure/cognitive-services/QnaMaker/quickstarts/quickstart-rest-curl",
-      "redirect_document_id": false
-    },
-
-    {
-      "source_path": "articles/cognitive-services/QnaMaker/quickstarts/publish-kb-csharp.md",
-      "redirect_url": "/azure/cognitive-services/QnaMaker/quickstarts/quickstart-rest-curl",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/cognitive-services/QnaMaker/quickstarts/publish-kb-go.md",
-      "redirect_url": "/azure/cognitive-services/QnaMaker/quickstarts/quickstart-rest-curl",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/cognitive-services/QnaMaker/quickstarts/publish-kb-java.md",
-      "redirect_url": "/azure/cognitive-services/QnaMaker/quickstarts/quickstart-rest-curl",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/cognitive-services/QnaMaker/quickstarts/publish-kb-python.md",
-      "redirect_url": "/azure/cognitive-services/QnaMaker/quickstarts/quickstart-rest-curl",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/cognitive-services/QnaMaker/quickstarts/publish-kb-nodejs.md",
-      "redirect_url": "/azure/cognitive-services/QnaMaker/quickstarts/quickstart-rest-curl",
-      "redirect_document_id": false
-    },
-
-    {
       "source_path": "articles/cognitive-services/LUIS/luis-tutorial-bot-csharp-appinsights.md",
       "redirect_url": "/azure/cognitive-services/LUIS/luis-csharp-tutorial-bf-v4",
       "redirect_document_id": false
@@ -1771,6 +1699,26 @@
     {
       "source_path": "articles/cognitive-services/Bing-Web-Search/web-sdk-python-quickstart.md",
       "redirect_url": "/azure/cognitive-services/bing-web-search/quickstarts/client-libraries?pivots=programming-language-python",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Image-Search/image-search-sdk-quickstart.md",
+      "redirect_url": "/azure/cognitive-services/bing-image-search/quickstarts/client-libraries?pivots=programming-language-csharp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Image-Search/image-sdk-java-quickstart.md",
+      "redirect_url": "/azure/cognitive-services/bing-image-search/quickstarts/client-libraries?pivots=programming-language-java",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Image-Search/image-search-sdk-node-quickstart.md",
+      "redirect_url": "/azure/cognitive-services/bing-image-search/quickstarts/client-libraries?pivots=programming-language-javascript",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Image-Search/image-sdk-python-quickstart.md",
+      "redirect_url": "/azure/cognitive-services/bing-image-search/quickstarts/client-libraries?pivots=programming-language-python",
       "redirect_document_id": false
     },
     {
@@ -6777,6 +6725,10 @@
       "source_path": "articles/logic-apps/logic-apps-using-sap-connector-old.md",
       "redirect_url": "/azure/logic-apps/logic-apps-using-sap-connector",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/scheduler/get-started-portal.md",
+      "redirect_url": "/azure/scheduler/migrate-from-scheduler-to-logic-apps",
     },
     {
       "source_path": "articles/connectors/connectors-create-api-googledrive.md",
