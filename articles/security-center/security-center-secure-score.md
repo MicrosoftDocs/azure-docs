@@ -79,5 +79,3 @@ This article showed you how to improve your security posture using **Secure scor
 
 * [Azure Security Center FAQ](security-center-faq.md)--Find frequently asked questions about using the service.
 * [Security health monitoring in Azure Security Center](security-center-monitoring.md)--Learn how to monitor the health of your Azure resources.
-
-
