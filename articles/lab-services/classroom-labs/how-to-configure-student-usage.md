@@ -140,7 +140,7 @@ To do so, follow these steps:
 ## Student accounts
 To add students to a classroom lab, you use their email accounts. The following types of email accounts might be used:
 
-- A student email account that's provided by your university's Office 365 Azure Active Directory (AAD). 
+- A student email account that's provided by your university's Office 365 Azure Active Directory. 
 - A Microsoft email account, such as `@outlook.com`, `@hotmail.com`, `@msn.com`, or `@live.com`.
 - A non-Microsoft email account, such as one provided by Yahoo or Google. However, these types of accounts must be linked with a Microsoft account.
 - A GitHub account. This account must be linked with a Microsoft account.
