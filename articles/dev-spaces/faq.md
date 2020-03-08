@@ -64,6 +64,10 @@ Yes, you can use Azure Dev Spaces on AKS clusters with [restricted egress traffi
 
 Yes, you can use Azure Dev Spaces on AKS clusters with or without RBAC enabled.
 
+## What happens when I enable ingress for project in Visual Studio?
+
+When using Visual Studio to prepare your project, you have the option of enabling ingress for your service. Enabling ingress creates a public endpoint to access your service when running on your AKS cluster, which is optional. If you do not enable ingress, your service is only accessible from within your AKS cluster.
+
 [aks-auth-range]: ../aks/api-server-authorized-ip-ranges.md
 [aks-auth-range-create]: ../aks/api-server-authorized-ip-ranges.md#create-an-aks-cluster-with-api-server-authorized-ip-ranges-enabled
 [aks-auth-range-ranges]: https://github.com/Azure/dev-spaces/tree/master/public-ips

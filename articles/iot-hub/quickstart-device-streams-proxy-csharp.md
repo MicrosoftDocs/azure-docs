@@ -64,8 +64,13 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 * Run the following command to add the Azure IoT Extension for Azure CLI to your Cloud Shell instance. The IOT Extension adds IoT Hub, IoT Edge, and IoT Device Provisioning Service (DPS)-specific commands to the Azure CLI.
 
    ```azurecli-interactive
-   az extension add --name azure-cli-iot-ext
+   az extension add --name azure-iot
    ```
+
+   ```azurecli-interactive
+   az extension add --name azure-iot
+   ```
+[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
 * [Download the Azure IoT C# samples](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip), and extract the ZIP archive.
 

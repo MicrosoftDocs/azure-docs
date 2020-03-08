@@ -37,6 +37,7 @@ Service plans:
 - **Azure Database for PostgreSQL** - Only the compute costs are included with a reservation. A reservation doesn't cover software, networking, or storage charges associated with the PostgreSQL Database servers.
 - **Azure Database for MariaDB** - Only the compute costs are included with a reservation. A reservation doesn't cover software, networking, or storage charges associated with the MariaDB Database server.
 - **Azure Data Explorer** - A reservation covers the markup charges. A reservation doesn't cover compute, networking, or storage charges associated with the clusters.
+- **Azure Cache for Redis** - Only the compute costs are included with a reservation. A reservation doesn't cover networking or storage charges associated with the Redis cache instances.
 - **Premium SSD Managed Disks** - A reservation is made for a specified disk SKU. 
 
 Software plans:
