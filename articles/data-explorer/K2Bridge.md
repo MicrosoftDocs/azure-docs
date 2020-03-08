@@ -35,7 +35,7 @@ The K2Bridge connector source code is on [GitHub](https://github.com/microsoft/K
 Before you can visualize data from Azure Data Explorer in Kibana, have the following ready:
 
 * [Helm V3](https://github.com/helm/helm#install), the Kubernetes package manager
-* Azure Kubernetes Service (AKS) cluster, or any other Kubernetes cluster (version 1.14 to version 1.16 have been tested and verified). If you need an AKS cluster, see the AKS Quick-start Guide [using the Azure CLI](https://docs.microsoft.com/en-us/azure/aks/kubernetes-walkthrough) or [using the Azure portal](https://docs.microsoft.com/en-us/azure/aks/kubernetes-walkthrough-portal)
+* Azure Kubernetes Service (AKS) cluster, or any other Kubernetes cluster (version 1.14 to version 1.16 have been tested and verified). If you need an AKS cluster, see the AKS Quick-start Guide [using the Azure CLI](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough) or [using the Azure portal](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough-portal)
 * An Azure Data Explorer cluster, including:
     * The Azure Data Explorer cluster's URL 
     * The database name
@@ -48,8 +48,8 @@ Before you can visualize data from Azure Data Explorer in Kibana, have the follo
     > [!Note]
     > A service principal with 'Viewer' permission is recommended. It is discouraged to use higher permissions.
 
-    For more information about the Azure AD service principal, see [Create an Azure AD service principal](https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal#create-an-azure-active-directory-application).
-* [Set the cluster's view permissions for the Azure AD service principal](https://docs.microsoft.com/en-us/azure/data-explorer/manage-database-permissions#manage-permissions-in-the-azure-portal).
+    For more information about the Azure AD service principal, see [Create an Azure AD service principal](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#create-an-azure-active-directory-application).
+* [Set the cluster's view permissions for the Azure AD service principal](https://docs.microsoft.com/azure/data-explorer/manage-database-permissions#manage-permissions-in-the-azure-portal).
 
 ## Run K2Bridge on Azure Kubernetes Service (AKS)
 
@@ -89,7 +89,7 @@ By default, K2Bridges's Helm chart references a publicly available image located
         ```
 
     1. (Optional) Enable Azure Application Insights telemetry. 
-        If this is the first time you're using Azure Application Insights, you should first [create an Application Insights resource](https://docs.microsoft.com/en-us/azure/azure-monitor/app/create-new-resource). You will need to [copy the instrumentation key](https://docs.microsoft.com/en-us/azure/azure-monitor/app/create-new-resource#copy-the-instrumentation-key) to a variable: 
+        If this is the first time you're using Azure Application Insights, you should first [create an Application Insights resource](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource). You will need to [copy the instrumentation key](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource#copy-the-instrumentation-key) to a variable: 
 
         ```bash
         APPLICATION_INSIGHTS_KEY=[INSTRUMENTATION_KEY]
@@ -102,7 +102,7 @@ By default, K2Bridges's Helm chart references a publicly available image located
         helm install k2bridge charts/k2bridge -n k2bridge --set image.repository=$REPOSITORY_NAME/$CONTAINER_NAME --set settings.adxClusterUrl="$ADX_URL" --set settings.adxDefaultDatabaseName="$ADX_DATABASE" --set settings.aadClientId="$ADX_CLIENT_ID" --set settings.aadClientSecret="$ADX_CLIENT_SECRET" --set settings.aadTenantId="$ADX_TENANT_ID" [--set image.tag=latest] [--set privateRegistry="$IMAGE_PULL_SECRET_NAME"] [--set settings.collectTelemetry=$COLLECT_TELEMETRY]
         ```
 
-        The complete set of configuration options is [here](./configuration.md).
+        The complete set of configuration options is [here](../blockchain/workbench/configuration.md).
 
     1. The command output will suggest the next Helm command to run to deploy Kibana. Optionally, run:
 
