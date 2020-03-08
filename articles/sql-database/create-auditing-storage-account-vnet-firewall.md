@@ -30,7 +30,20 @@ To learn more about how to create a virtual network, see [Quickstart: Create a v
 > You must have the 'Microsoft.Authorization/roleAssignments/write' permission on the selected storage account. For various built-in roles for Azure resources, refer to this [guide](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
 > If you have a general-purpose v1 or blob storage account, you must first upgrade to general-purpose v2 using this [guide](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
 
-#### Via PowerShell
+#### Azure Portal
+
+1. Click on **Auditing** under the Security heading in your SQL database/server pane.
+
+1. Select **Storage** and open **Storage details**. Select the Azure storage account where logs will be saved.
+
+> [!NOTE]
+> If the selected Storage account is under VNet, you will see the following message: *You have selected a storage account that is behind a firewall or in a virtual network. Using this storage: requires an Active Directory admin on the server; enables 'Allow trusted Microsoft services to access this storage account' on the storage account; and creates a server managed identity with 'storage blob data contributor' RBAC.*. If you do not see this message, then your Storage account is not under VNet.
+
+1. Select the retention period. Then click **OK**. Logs older than the retention period are deleted.
+
+1. Select **Save** on your auditing seetings blade.
+
+#### Steps
 
 1. In PowerShell, **register your Azure SQL Server** hosting your Azure SQL Data Warehouse instance with Azure Active Directory (AAD):
 
