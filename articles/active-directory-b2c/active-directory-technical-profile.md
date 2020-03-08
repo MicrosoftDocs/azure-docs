@@ -52,7 +52,7 @@ The following example shows the **AAD-Common** technical profile:
 </TechnicalProfile>
 ```
 
-## Input claims
+## InputClaims
 
 The following technical profiles include **InputClaims** for social and local accounts:
 
@@ -62,7 +62,7 @@ The following technical profiles include **InputClaims** for social and local ac
 
 The **InputClaimsTransformations** element may contain a collection of **InputClaimsTransformation** elements that are used to modify the input claims or generate new ones.
 
-## Output claims
+## OutputClaims
 
 The **OutputClaims** element contains a list of claims returned by the Azure AD technical profile. You may need to map the name of the claim defined in your policy to the name defined in Azure Active Directory. You can also include claims that aren't returned by the Azure Active Directory, as long as you set the `DefaultValue` attribute.
 
