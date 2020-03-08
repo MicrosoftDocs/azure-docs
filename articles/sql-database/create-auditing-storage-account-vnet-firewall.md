@@ -15,13 +15,13 @@ ms.custom: azure-synapse
 
 Auditing for [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-technical-overview) and [Azure Synapse Analytics](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-overview-what-is) now support writing database events to an [Azure Storage account](https://docs.microsoft.com/azure/storage/common/storage-account-overview) behind a virtual network and firewall. This article explains how to configure Azure SQL Server and Azure storage account to support this option.
 
-## <a id="what-is-virtual-network"></a>What is virtual network
+## What is virtual network
 
 Azure Virtual Network (VNet) is the fundamental building block for your private network in Azure. VNet enables many types of Azure resources, such as Azure Virtual Machines (VM), to securely communicate with each other, the internet, and on-premises networks. VNet is similar to a traditional network that you'd operate in your own data center, but brings with it additional benefits of Azure's infrastructure such as scale, availability, and isolation.
 
 To learn more about the VNet concepts, Best practices and many more, see [What is Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview).
 
-## <a id="create-virtual-network"></a>How to create a virtual network
+## How to create a virtual network
 
 To learn more about how to create a virtual network, see [Quickstart: Create a virtual network using the Azure portal](https://docs.microsoft.com/azure/virtual-network/quick-create-portal).
 
@@ -45,4 +45,10 @@ To learn more about how to create a virtual network, see [Quickstart: Create a v
    > [!NOTE]
    > Only members with Owner privilege can perform this step. For various built-in roles for Azure resources, refer to this [guide](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
 
+1. 
 
+## Next steps
+
+- [Use PowerShell to create a virtual network service endpoint, and then a virtual network rule for Azure SQL Database.][sql-db-vnet-service-endpoint-rule-powershell-md-52d]
+- [Virtual Network Rules: Operations][rest-api-virtual-network-rules-operations-862r] with REST APIs
+- [Use virtual network service endpoints and rules for database servers](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview)
