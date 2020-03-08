@@ -43,7 +43,9 @@ To learn more about how to create a virtual network, see [Quickstart: Create a v
 
 1. Select **Save** on your auditing seetings blade.
 
-#### Steps
+#### Others
+
+You can also configure your Auditing to write database events on a storage account under Virtual Network and Firewall via Rest API:
 
 1. In PowerShell, **register your Azure SQL Server** hosting your Azure SQL Data Warehouse instance with Azure Active Directory (AAD):
 
