@@ -59,7 +59,7 @@ The following FQDN / application rules are required:
 > ***.blob.core.windows.net and aksrepos.azurecr.io** are no longer required FQDN rules for egress lockdown.  For existing clusters, [perform a cluster upgrade operation][aks-upgrade] using the `az aks upgrade` command to remove these rules.
 
 > [!IMPORTANT]
-> *.cdn.mscr.io has been replaced by a *.data.mcr.microsoft.com for the Azure public cloud regions. Please upgdate you existing firewall rules for the changes to take effect.
+> *.cdn.mscr.io has been replaced by a *.data.mcr.microsoft.com for the Azure public cloud regions. Please upgdate your existing firewall rules for the changes to take effect.
 
 - Azure Global
 
