@@ -50,7 +50,7 @@ Click **Apply**.
 
 ## Create Traffic Manager endpoint
 
-Following the steps at [Add or Delete Endpoints](..ß/traffic-manager/traffic-manager-endpoints.md), add your App Service app as an endpoint in your Traffic Manager profile.
+Following the steps at [Add or Delete Endpoints](../traffic-manager/traffic-manager-endpoints.md), add your App Service app as an endpoint in your Traffic Manager profile.
 
 Once your App Service app is in a supported pricing tier, it shows up in the list of available App Service targets when you add the endpoint. If your app isn't listed, [verify the pricing tier of your app](#prepare-the-app).
 
