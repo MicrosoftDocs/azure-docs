@@ -69,6 +69,10 @@ To learn more about your data volumes, selecting **Metrics** for your Applicatio
 
 ### Queries to understand data volume details
 
+There are two approaches to investigating data volumes for Application Insights. The first uses aggregated information in the `systemEvents` table, and the second uses the `_BilledSize` property, which is available on each ingested event. 
+
+#### Using aggregated data volume information
+
 For instance, you can use the `systemEvents` table to see the data volume ingested in the last 24 hours with the query:
 
 ```kusto
@@ -93,22 +97,27 @@ systemEvents
 
 Note that this query can be used in an [Azure Log Alert](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log) to set up alerting on data volumes.  
 
-To learn more about your telemetry data changes, let's check the count of events by type using the query:
+To learn more about your telemetry data changes, we can get the count of events by type using the query:
 
 ```kusto
 systemEvents 
 | where timestamp >= startofday(ago(30d))
 | where type == "Billing" 
 | extend BillingTelemetryType = tostring(dimensions["BillingTelemetryType"])
-| summarize count() by BillingTelemetryType, bin(timestamp, 1d) | render barchart  
+| summarize count() by BillingTelemetryType, bin(timestamp, 1d) 
+| render barchart  
 ```
 
-If a similar changes are seen in the counts as is seen in the volume in bytes, then we can focus on the data types of events, which show increased counts.  For instance, if it is observed that the number of dependencies increased, here's a query to understand which operations are responsible for the increase:
+#### Using data size per event information
+
+To learn more details about the source of your data volumes, you can use the `_BilledSize` property that is present on each ingested event. 
+
+For example, to look at which operations generate the most data volume in the last 30 days, we can sum `_BilledSize` for all dependency events:
 
 ```kusto
 dependencies 
 | where timestamp >= startofday(ago(30d))
-| summarize count() by operation_Name, bin(timestamp, 1d)  
+| summarize sum(_BilledSize) by operation_Name 
 | render barchart  
 ```
 
@@ -136,13 +145,13 @@ The volume of data you send can be managed using the following techniques:
 * **Daily cap**: When you create an Application Insights resource in the Azure portal, the daily cap is set to 100 GB/day. When you create an Application Insights resource in Visual Studio, the default is small (only 32.3 MB/day). The daily cap default is set to facilitate testing. It's intended that the user will raise the daily cap before deploying the app into production. 
 
     The maximum cap is 1,000 GB/day unless you request a higher maximum for a high-traffic application. 
-	
-	Warning emails about the daily cap are sent to account that are members of these roles for your Application Insights resource: "ServiceAdmin", "AccountAdmin", "CoAdmin", "Owner".
+    
+    Warning emails about the daily cap are sent to account that are members of these roles for your Application Insights resource: "ServiceAdmin", "AccountAdmin", "CoAdmin", "Owner".
 
     Use care when you set the daily cap. Your intent should be to *never hit the daily cap*. If you hit the daily cap, you lose data for the remainder of the day, and you can't monitor your application. To change the daily cap, use the **Daily volume cap** option. You can access this option in the **Usage and estimated costs** pane (this is described in more detail later in the article).
-	
+    
     We've removed the restriction on some subscription types that have credit that couldn't be used for Application Insights. Previously, if the subscription has a spending limit, the daily cap dialog has instructions to remove the spending limit and enable the daily cap to be raised beyond 32.3 MB/day.
-	
+    
 * **Throttling**: Throttling limits the data rate to 32,000 events per second, averaged over 1 minute per instrumentation key. The volume of data that your app sends is assessed every minute. If it exceeds the per-second rate averaged over the minute, the server refuses some requests. The SDK buffers the data and then tries to resend it. It spreads out a surge over several minutes. If your app consistently sends data at more than the throttling rate, some data will be dropped. (The ASP.NET, Java, and JavaScript SDKs try to resend data this way; other SDKs might simply drop throttled data.) If throttling occurs, a notification warning alerts you that this has occurred.
 
 ## Manage your maximum daily data volume
@@ -153,7 +162,7 @@ Instead of using the daily volume cap, use [sampling](../../azure-monitor/app/sa
 
 ### Identify what daily data limit to define
 
-Review Application Insights Usage and estimated costs to understand the data ingestion trend and what is the daily volume cap to define. It should be considered with care, since you won’t be able to monitor your resources after the limit is reached. 
+Review Application Insights Usage and estimated costs to understand the data ingestion trend and what is the daily volume cap to define. It should be considered with care, since you won�t be able to monitor your resources after the limit is reached. 
 
 ### Set the Daily Cap
 
