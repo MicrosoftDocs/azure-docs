@@ -42,51 +42,51 @@ When you optimize a query in Azure Cosmos DB, the first step is always to [get t
 
 [ ![Getting query metrics](./media/troubleshoot-query-performance/obtain-query-metrics.png) ](./media/troubleshoot-query-performance/obtain-query-metrics.png#lightbox)
 
-After you get the query metrics, compare the Retrieved Document Count with the Output Document Count for your query. Use this comparison to identify the relevant sections to reference below.
+After you get the query metrics, compare the Retrieved Document Count with the Output Document Count for your query. Use this comparison to identify the relevant sections to reference in this article.
 
-The Retrieved Document Count is the number of documents that the query needed to load. The Output Document Count is the number of documents that were needed for the results of the query. If the Retrieved Document Count is significantly higher than the Output Document Count, then there was at least one part of your query that was unable to utilize the index and needed to do a scan.
+The Retrieved Document Count is the number of documents that the query needed to load. The Output Document Count is the number of documents that were needed for the results of the query. If the Retrieved Document Count is significantly higher than the Output Document Count, there was at least one part of your query that was unable to use the index and needed to do a scan.
 
-You can reference the below section to understand the relevant query optimizations for your scenario:
+Refer to the following sections to understand the relevant query optimizations for your scenario.
 
 ### Query's RU charge is too high
 
-#### Retrieved Document Count is significantly greater than Output Document Count
+#### Retrieved Document Count is significantly higher than Output Document Count
 
-- [Include necessary paths in the indexing policy](#include-necessary-paths-in-the-indexing-policy)
+- [Include necessary paths in the indexing policy.](#include-necessary-paths-in-the-indexing-policy)
 
-- [Understand which system functions utilize the index](#understand-which-system-functions-utilize-the-index)
+- [Understand which system functions use the index.](#understand-which-system-functions-utilize-the-index)
 
-- [Queries with both a filter and an ORDER BY clause](#queries-with-both-a-filter-and-an-order-by-clause)
+- [Modify queries that have both a filter and an ORDER BY clause.](#queries-with-both-a-filter-and-an-order-by-clause)
 
-- [Optimize JOIN expressions by using a subquery](#optimize-join-expressions-by-using-a-subquery)
+- [Optimize JOIN expressions by using a subquery.](#optimize-join-expressions-by-using-a-subquery)
 
 <br>
 
 #### Retrieved Document Count is approximately equal to Output Document Count
 
-- [Avoid cross partition queries](#avoid-cross-partition-queries)
+- [Avoid cross partition queries.](#avoid-cross-partition-queries)
 
-- [Filters on multiple properties](#filters-on-multiple-properties)
+- [Optimize queries that have filters on multiple properties.](#filters-on-multiple-properties)
 
-- [Queries with both a filter and an ORDER BY clause](#queries-with-both-a-filter-and-an-order-by-clause)
+- [Modify queries that have both a filter and an ORDER BY clause.](#queries-with-both-a-filter-and-an-order-by-clause)
 
 <br>
 
 ### Query's RU charge is acceptable but latency is still too high
 
-- [Improve proximity](#improve-proximity)
+- [Improve proximity.](#improve-proximity)
 
-- [Increase provisioned throughput](#increase-provisioned-throughput)
+- [Increase provisioned throughput.](#increase-provisioned-throughput)
 
-- [Increase MaxConcurrency](#increase-maxconcurrency)
+- [Increase MaxConcurrency.](#increase-maxconcurrency)
 
-- [Increase MaxBufferedItemCount](#increase-maxbuffereditemcount)
+- [Increase MaxBufferedItemCount.](#increase-maxbuffereditemcount)
 
 ## Queries where Retrieved Document Count exceeds Output Document Count
 
- The Retrieved Document Count is the number of documents that the query needed to load. The Output Document Count is the number of documents that were needed for the results of the query. If the Retrieved Document Count is significantly higher than the Output Document Count, then there was at least one part of your query that was unable to utilize the index and needed to do a scan.
+ The Retrieved Document Count is the number of documents that the query needed to load. The Output Document Count is the number of documents that were needed for the results of the query. If the Retrieved Document Count is significantly higher than the Output Document Count, there was at least one part of your query that was unable to use the index and needed to do a scan.
 
- Below is an example of scan query that wasn't entirely served by the index.
+Here's an example of scan query that wasn't entirely served by the index.
 
 Query:
 
@@ -96,7 +96,7 @@ FROM c
 WHERE UPPER(c.description) = "BABYFOOD, DESSERT, FRUIT DESSERT, WITHOUT ASCORBIC ACID, JUNIOR"
  ```
 
-Query Metrics:
+Query metrics:
 
 ```
 Retrieved Document Count                 :          60,951
@@ -122,13 +122,13 @@ Client Side Metrics
   Request Charge                         :        4,059.95 RUs
 ```
 
-Retrieved Document Count (60,951) is significantly greater than Output Document Count (7) so this query needed to do a scan. In this case, the system function [UPPER()](sql-query-upper.md) does not utilize the index.
+The Retrieved Document Count (60,951) is significantly higher than the Output Document Count (7), so this query needed to do a scan. In this case, the system function [UPPER()](sql-query-upper.md) doesn't use the index.
 
 ## Include necessary paths in the indexing policy
 
-Your indexing policy should cover any properties included in `WHERE` clauses, `ORDER BY` clauses, `JOIN`, and most System Functions. The path specified in the index policy should match (case-sensitive) the property in the JSON documents.
+Your indexing policy should cover any properties included in `WHERE` clauses, `ORDER BY` clauses, `JOIN`, and most system functions. The path specified in the index policy should match (case-sensitive) the property in the JSON documents.
 
-If we run a simple query on the [nutrition](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json) dataset, we observe a much lower RU charge when the property in the `WHERE` clause is indexed.
+If you run a simple query on the [nutrition](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json) dataset, you observe a much lower RU charge when the property in the `WHERE` clause is indexed.
 
 ### Original
 
@@ -157,7 +157,7 @@ Indexing policy:
 }
 ```
 
-**RU Charge:** 409.51 RUs
+**RU charge:** 409.51 RUs
 
 ### Optimized
 
@@ -176,9 +176,9 @@ Updated indexing policy:
 }
 ```
 
-**RU Charge:** 2.98 RUs
+**RU charge:** 2.98 RUs
 
-You can add additional properties to the indexing policy at any time, with no impact to write availability or performance. If you add a new property to the index, queries that use this property will immediately utilize the new available index. The query will utilize the new index while it is being built. As a result, query results may be inconsistent as the index rebuild is in progress. If a new property is indexed, queries that only utilize existing indexes will not be affected during the index rebuild. You can [track index transformation progress](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-indexing-policy#use-the-net-sdk-v3).
+You can add properties to the indexing policy at any time, with no impact to write availability or performance. If you add a new property to the index, queries that use this property will immediately use the new available index. The query will utilize the new index while it is being built. As a result, query results may be inconsistent as the index rebuild is in progress. If a new property is indexed, queries that only utilize existing indexes will not be affected during the index rebuild. You can [track index transformation progress](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-indexing-policy#use-the-net-sdk-v3).
 
 ## Understand which system functions utilize the index
 
