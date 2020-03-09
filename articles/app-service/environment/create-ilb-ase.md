@@ -72,9 +72,8 @@ You create an app in an ILB ASE in the same way that you create an app in an ASE
 
 1. In the Azure portal, select **Create a resource** > **Web** > **Web App**.
 
-1. Enter the name of the app.
-
-1. Select the subscription.
+2. Enter the name of the app.
+3. Select the subscription.
 
 1. Select or create a resource group.
 
