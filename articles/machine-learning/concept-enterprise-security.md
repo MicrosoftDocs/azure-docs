@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 01/09/2020
+ms.date: 03/09/2020
 ---
 
 # Enterprise security for Azure Machine Learning
@@ -170,7 +170,7 @@ For an example of creating a workspace using an existing Azure Container Registr
 
 #### Azure Container Instance
 
-Azure Container Instance does not support disk encryption. If you need disk encryption, we recommend [deploying to an Azure Kubernetes Service instance](how-to-deploy-azure-kubernetes-service.md) instead. In this case, you may also want to use Azure Machine Learning’s support for role-based access controls to prevent deployments to an Azure Container Instance in your subscription.
+You may encrypt a deployed Azure Container Instance resource using customer-managed keys. For more information, see [Encrypt data with a customer-managed key](../container-instances/container-instances-encrypt-data.md#encrypt-data-with-a-customer-managed-key).
 
 #### Azure Kubernetes Service
 
@@ -213,7 +213,7 @@ Each workspace has an associated system-assigned managed identity that has the s
 
 ### Microsoft collected data
 
-Microsoft may collect non-user identifying information like resource names (for example the dataset name, or the machine learning experiment name), or job environment variables for diagnostic purposes. All such data is stored using Microsoft-managed keys in storage hosted in Microsoft owned subscriptions and follows [Microsoft’s standard Privacy policy and data handling standards](https://privacy.microsoft.com/privacystatement).
+Microsoft may collect non-user identifying information like resource names (for example the dataset name, or the machine learning experiment name), or job environment variables for diagnostic purposes. All such data is stored using Microsoft-managed keys in storage hosted in Microsoft owned subscriptions and follows [Microsoft's standard Privacy policy and data handling standards](https://privacy.microsoft.com/privacystatement).
 
 Microsoft also recommends not storing sensitive information (such as account key secrets) in environment variables. Environment variables are logged, encrypted, and stored by us. Similarly when naming [runid](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py), avoid including sensitive information such as user names or secret project names. This information may appear in telemetry logs accessible to Microsoft Support engineers.
 
@@ -326,7 +326,7 @@ Here are the details:
 * The user creates an image by using a model, a score file, and other model dependencies.
 * The Docker image is created and stored in Azure Container Registry.
 * The web service is deployed to the compute target (Container Instances/AKS) using the image created in the previous step.
-* Scoring request details are stored in Application Insights, which is in the user’s subscription.
+* Scoring request details are stored in Application Insights, which is in the user's subscription.
 * Telemetry is also pushed to the Microsoft/Azure subscription.
 
 [![Inference workflow](media/concept-enterprise-security/inferencing.png)](media/concept-enterprise-security/inferencing-expanded.png#lightbox)
