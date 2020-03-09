@@ -195,6 +195,36 @@ You can also delete the entire resource group in a single command using [Remove-
 Remove-AzResourceGroup -Name $rgName
 ```
 
+	
+##Add an existing VM to Azure Dedicated host
+
+#Prerequisite
+
+1. We need to make sure that the VM SKU is compatible with the host configuration i.e. if you’re using a DSv3_Type host , then the VM should be of the Same SKU .
+1. The VM and the Host should be in the same Region
+1. The VM should be stopped and Deallocated 
+1. The VM Should not be part of a Placement group
+1. The VM Should not be part of an Availability Set/zone
+1. We can achieve this via the Portal
+
+##Powershell Commands
+
+$subId = "Subscription ID"
+$vmRGName = "Resource Group of VM"
+$vmName = "VM Name"
+$dhRGName = "Resource Group of Dedicated Host"
+$dhgName = "Dedicated Host Group Name"
+$dhName = "Dedicated Host Name"
+
+$myVM = Get-AzVM -ResourceGroupName $vmRGName -Name $vmName
+
+$myVM.Host = New-Object Microsoft.Azure.Management.Compute.Models.SubResource
+
+$myVM.Host.Id = "/subscriptions/$subId/resourceGroups/$dhRGName/providers/Microsoft.Compute/hostGroups/$dhgName/hosts/$dhName"
+
+Update-AzVM -ResourceGroupName $vmRGName -VM $myVM -Debug
+
+
 
 ## Next steps
 
