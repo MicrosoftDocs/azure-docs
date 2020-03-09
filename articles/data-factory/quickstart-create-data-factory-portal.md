@@ -64,7 +64,8 @@ Watching this video helps you understand the Data Factory UI:
    ![Home page for the data factory, with the "Author & Monitor" tile](./media/doc-common-process/data-factory-home-page.png)
    
    > [!NOTE]
-   > If you see that the web browser is stuck at "Authorizing...", clear the **Block third-party cookies and site data** check box--or keep it selected, create an exception for **login.microsoftonline.com**, and then try to open the app again.
+   > If you see that the web browser is stuck at "Authorizing", clear the **Block third-party cookies and site data** check box. Or keep it selected, create an exception for **login.microsoftonline.com**, and then try to open the app again.
+   
 1. On the **Let's get started** page, switch to the **Author** tab in the left panel. 
 
     !["Let's get started" page](./media/doc-common-process/get-started-page-author-button.png)
