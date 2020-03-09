@@ -20,7 +20,7 @@
       href: quickstart-create-nat-gateway-powershell.md
     - name: Create NAT gateway - CLI
       href: quickstart-create-nat-gateway-cli.md
-    - name: Create NAT gateway - ARM
+    - name: Create NAT gateway - ARM template
       displayname: Resource Manager
       href: quickstart-create-nat-gateway-template.md
   expanded: true
