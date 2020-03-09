@@ -254,11 +254,11 @@ Example: msauth://com.microsoft.xforms.testApp/hgbUYHVBYUTvuvT&Y6tr554365466=
 ```
 
 The last part of the URI, `hgbUYHVBYUTvuvT&Y6tr554365466=`, is the signature that the APK is signed with, base64 encoded.
-However, during the development phase of your application using Visual Studio, if you're debugging your code without signing the apk with a specific certificate, Visual Studio will sign the apk for you for debugging purposes, giving the APK a unique signature for the machine that it's built on. Thus, each time you build your app on a different machine, you'll need to update the redirect URI in the application's code and the application's registration in the azure portal in order to authenticate with MSAL. 
+However, during the development phase of your application using Visual Studio, if you're debugging your code without signing the apk with a specific certificate, Visual Studio will sign the apk for you for debugging purposes, giving the APK a unique signature for the machine that it's built on. Thus, each time you build your app on a different machine, you'll need to update the redirect URI in the application's code and the application's registration in the Azure portal in order to authenticate with MSAL. 
 
 While debugging, you may encounter an MSAL exception (or log message) stating the redirect URI provided is incorrect. **This exception will also provide you with the redirect URI that you should be using** with the current machine you are debugging on. You can use this redirect URI to continue developing for the time being.
 
-Once you are ready to finalize your code, be sure to update the redirect URI in the code and on the application's registration in the azure portal to use the signature of the certificate you will be signing the APK with.
+Once you are ready to finalize your code, be sure to update the redirect URI in the code and on the application's registration in the Azure portal to use the signature of the certificate you will be signing the APK with.
 
 In practice, this means that you have to register a redirect URI for each member of the team, plus a redirect URI for the production signed version of the APK.
 
