@@ -27,9 +27,9 @@ Security alerts can be seen in Azure Security Center's Threat Protection pages. 
 
 - [Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/) using Security Center's [continuous export feature](continuous-export.md)
 
-- [The REST API](../../rest/api/securitycenter/) - If you're using the REST API to access alerts, see the [online Alerts API documentation](../../rest/api/securitycenter/alerts)
+- [The REST API](../rest/api/securitycenter/) - If you're using the REST API to access alerts, see the [online Alerts API documentation](../rest/api/securitycenter/alerts)
 
-- [Log Analytics workspaces](https://docs.microsoft.com/en-us/azure/azure-monitor/learn/quick-create-workspace)
+- [Log Analytics workspaces](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace)
 
 If you're using any programmatic methods to consume the alerts, you'll need the correct schema to find the fields that are relevant to you. In addition, when exporting to an Event Hub or when triggering Workflow Automation with generic HTTP connectors, you could use the schemas to properly parse the JSON objects.
 
@@ -223,6 +223,6 @@ You can easily view the security alerts events in Activity log by searching for 
 
 Microsoft Graph is the gateway to data and intelligence in Microsoft 365. It provides a unified programmability model that you can use to access the tremendous amount of data in Office 365, Windows 10, and Enterprise Mobility + Security. Use the wealth of data in Microsoft Graph to build apps for organizations and consumers that interact with millions of users.
 
-The schema and a JSON representation for security alerts sent to MS Graph, are available in [the Microsoft Graph documentation](../../graph/api/resources/alert?view=graph-rest-1.0).
+The schema and a JSON representation for security alerts sent to MS Graph, are available in [the Microsoft Graph documentation](../../graph/api/resources/alert.md?view=graph-rest-1.0).
 
 --- 
