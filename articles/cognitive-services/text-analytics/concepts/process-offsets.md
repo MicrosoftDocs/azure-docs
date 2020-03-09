@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 03/05/2020
+ms.date: 03/09/2020
 ms.author: aahi
 ms.reviewer: jdesousa
 ---
@@ -23,7 +23,7 @@ Because of the different lengths of possible multilingual and emoji encodings, t
 
 ## Offsets in the API response. 
 
-Whenever offsets are returned the API response, such as [Named Entity Recognition](../text-analytics-how-to-entity-linking) or [Sentiment Analysis](../text-analytics-how-to-sentiment-analysis), remember the following:
+Whenever offsets are returned the API response, such as [Named Entity Recognition](../how-tos/text-analytics-how-to-entity-linking.md) or [Sentiment Analysis](../how-tos/text-analytics-how-to-sentiment-analysis.md), remember the following:
 
 * Elements in the response may be specific to the endpoint that was called. 
 * HTTP POST/GET payloads are encoded in [UTF-8](https://www.w3schools.com/charsets/ref_html_utf8.asp), which may or may not be the default character encoding on your client-side compiler or operating system.
