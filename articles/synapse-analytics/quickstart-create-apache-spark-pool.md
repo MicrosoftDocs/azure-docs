@@ -15,7 +15,10 @@ ms.reviewer: jrasnick, carlrab
 
 Synapse Analytics offers various analytics engines to help you ingest, transform, model, analyze,  and serve your data. An Apache Spark pool offers open-source big data compute capabilities. After creating an Apache Spark pool in your Synapse workspace, data can be loaded, modeled, processed, and served to obtain insights.  
 
-This quickstart describes the steps to create an Apache Spark pool in a Synapse workspace by using the Azure portal.
+In this Quickstart, you learn how to use the Azure portal to create an Apache Spark pool in a Synapse workspace.
+
+> [!IMPORTANT]  
+> Billing for Spark instances is prorated per minute, whether you are using them or not. Be sure to shutdown your Spark instance after you have finished using it, or set a short timeout. For more information, see the **Clean up resources** section of this article.
 
 If you don't have an Azure subscription, [create a free account before you begin](https:/azure.microsoft.com/free/).
 
@@ -30,7 +33,7 @@ Sign in to the [Azure portal](https:/portal.azure.com/)
 
 ## Create new Apache Spark pool
 
-1. In the Synapse workspace where the Apache Spark pool, click **New Apache Spark pool**.
+1. In the Synapse workspace where you want to create the Apache Spark pool, click **New Apache Spark pool**.
 ![Overview of Synapse workspace with a red box around the command to create a new Apache Spark pool](media/quickstart-create-apache-spark-pool/quickstart-create-spark-pool-01.png).
 2. Enter the following details in the **Basics** tab:
 
