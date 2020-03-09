@@ -57,7 +57,8 @@ Azure CLI requires you to be logged into your Azure account. All communication b
 
 *  Open a second CLI session.  If you're using the Cloud Shell, select **Open new session**. If you're using the CLI locally, open a second instance. 
 
-   ![Open new Cloud Shell session](media/quickstart-send-telemetry-cli/cloud-shell-new-session.png)
+    >[!div class="mx-imgBorder"]
+    >![Open new Cloud Shell session](media/quickstart-send-telemetry-cli/cloud-shell-new-session.png)
 
 ## Create an IoT Hub
 In this section, you use the Azure CLI to create a resource group and an IoT Hub.  An Azure resource group is a logical container into which Azure resources are deployed and managed. An IoT Hub acts as a central message hub for bi-directional communication between your IoT application and the devices. 

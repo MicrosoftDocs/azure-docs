@@ -49,7 +49,7 @@ For more information about assigning permission to Cost Management data, see [As
 
 ## Sign in to Azure
 
-- Sign in to the Azure portal at https://portal.azure.com.
+- Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
 
 ## Create a budget in the Azure portal
 
