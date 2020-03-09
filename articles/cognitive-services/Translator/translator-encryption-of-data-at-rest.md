@@ -25,7 +25,7 @@ Data is encrypted and decrypted using [FIPS 140-2](https://en.wikipedia.org/wiki
 
 By default, your subscription uses Microsoft-managed encryption keys. If you are using a pricing tier that supports Customer-managed keys, you can see the encryption settings for your resource in the **Encryption** section of the [Azure portal](https://portal.azure.com), as shown in the following image.
 
-![View Encryption settings](../articles/cognitive-services/media/cognitive-services-encryption/encryptionblade.png)
+![View Encryption settings](../media/cognitive-services-encryption/encryptionblade.png)
 
 For subscriptions that only support Microsoft-managed encryption keys, you will not have an **Encryption** section.
 
@@ -50,7 +50,7 @@ A new Cognitive Services resource is always encrypted using Microsoft-managed ke
 
 To learn how to use customer-managed keys with Azure Key Vault for Cognitive Services encryption, see:
 
-- [Configure customer-managed keys with Key Vault for Cognitive Services encryption from the Azure portal](..\articles\cognitive-services\Encryption\cognitive-services-encryption-keys-portal.md)
+- [Configure customer-managed keys with Key Vault for Cognitive Services encryption from the Azure portal](../Encryption/cognitive-services-encryption-keys-portal.md)
 
 Enabling customer managed keys will also enable a system assigned managed identity, a feature of Azure AD. Once the system assigned managed identity is enabled, this resource will be registered with Azure Active Directory. After being registered, the managed identity will be given access to the Key Vault selected during customer managed key setup. You can learn more about [Managed Identities](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
 
@@ -71,7 +71,7 @@ Only RSA keys of size 2048 are supported with Cognitive Services encryption. For
 
 ### Rotate customer-managed keys
 
-You can rotate a customer-managed key in Azure Key Vault according to your compliance policies. When the key is rotated, you must update the Cognitive Services resource to use the new key URI. To learn how to update the resource to use a new version of the key in the Azure portal, see the section titled **Update the key version** in [Configure customer-managed keys for Cognitive Services by using the Azure portal](..\articles\cognitive-services\Encryption\cognitive-services-encryption-keys-portal.md).
+You can rotate a customer-managed key in Azure Key Vault according to your compliance policies. When the key is rotated, you must update the Cognitive Services resource to use the new key URI. To learn how to update the resource to use a new version of the key in the Azure portal, see the section titled **Update the key version** in [Configure customer-managed keys for Cognitive Services by using the Azure portal](../Encryption/cognitive-services-encryption-keys-portal.md).
 
 Rotating the key does not trigger re-encryption of data in the resource. There is no further action required from the user.
 
