@@ -1,5 +1,5 @@
 ---
-title: Azure Event Grid - configure network security
+title: Azure Event Grid configure network security
 description: This article describes how to configure network security settings for Event Grid artifacts. For example: IP firewall and private endpoints. 
 services: event-grid
 author: spelluru
