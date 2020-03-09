@@ -40,7 +40,7 @@ Azure Data Explorer provides the capability to connect to [Microsoft Excel](http
 
 ## Kibana
 
-Azure Data Explorer provides the capability to connect to [Kibana (the Discover page)](https://www.elastic.co/guide/en/kibana/6.8/discover.html) using K2Bridge, an open source connector. You [set up Azure Data Explorer as a data source for Kibana, and then visualize the data](/azure/data-explorer/K2Bridge). 
+Azure Data Explorer provides the capability to connect to [Kibana (the Discover page)](https://www.elastic.co/guide/en/kibana/6.8/discover.html) using K2Bridge, an open source connector. You [set up Azure Data Explorer as a data source for Kibana, and then visualize the data](/azure/data-explorer/k2bridge).
 
 ## ODBC connector
 

@@ -26,7 +26,7 @@ K2Bridge supports Kibana’s "Discover" tab, where you can:
 
 The image below shows a Kibana instance bound to Azure Data Explorer by K2Bridge. The search experience is in Kibana, and the overall look and feel is as usual.
 
-   ![Kibana Page](media/k2bridge/k2bridge-kibana-page.png)
+   [![Kibana Page](media/k2bridge/k2bridge-kibana-page.png)](media/k2bridge/k2bridge-kibana-page.png#lightbox)
 
 The K2Bridge connector source code is on [GitHub](https://github.com/microsoft/K2Bridge).
 
@@ -35,7 +35,7 @@ The K2Bridge connector source code is on [GitHub](https://github.com/microsoft/K
 Before you can visualize data from Azure Data Explorer in Kibana, have the following ready:
 
 * [Helm V3](https://github.com/helm/helm#install), the Kubernetes package manager
-* Azure Kubernetes Service (AKS) cluster, or any other Kubernetes cluster (version 1.14 to version 1.16 have been tested and verified). If you need an AKS cluster, see the AKS Quick-start Guide [using the Azure CLI](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough) or [using the Azure portal](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough-portal)
+* Azure Kubernetes Service (AKS) cluster, or any other Kubernetes cluster (version 1.14 to version 1.16 have been tested and verified). If you need an AKS cluster, see the AKS Quickstart guide [using the Azure CLI](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough) or [using the Azure portal](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough-portal)
 * An Azure Data Explorer cluster, including:
     * The Azure Data Explorer cluster's URL 
     * The database name
@@ -48,9 +48,9 @@ Before you can visualize data from Azure Data Explorer in Kibana, have the follo
     > [!Note]
     > A service principal with 'Viewer' permission is recommended. It is discouraged to use higher permissions.
 
-    For more information about the Azure AD service principal, see [Create an Azure AD service principal](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#create-an-azure-active-directory-application).
     * [Set the cluster's view permissions for the Azure AD service principal](https://docs.microsoft.com/azure/data-explorer/manage-database-permissions#manage-permissions-in-the-azure-portal).
 
+    For more information about the Azure AD service principal, see [Create an Azure AD service principal](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#create-an-azure-active-directory-application).
 ## Run K2Bridge on Azure Kubernetes Service (AKS)
 
 By default, K2Bridges's Helm chart references a publicly available image located on Microsoft's Container Registry (MCR). MCR doesn't require any credentials, and works out-of-the-box.
@@ -115,7 +115,7 @@ By default, K2Bridges's Helm chart references a publicly available image located
         kubectl port-forward service/kibana-kibana 5601 --namespace k2bridge
         ```
     1. Connect to Kibana by browsing to http://127.0.0.1:5601.
-    
+
     1. Expose Kibana to the end users. There are multiple methods to do so. The method you use largely depends on your use case.
 
         Example:
@@ -137,8 +137,8 @@ By default, K2Bridges's Helm chart references a publicly available image located
         ```
         You can then use the generated EXTERNAL-IP that appears, and use it to access Kibana by opening a browser to: `\<EXTERNAL-IP>:5601`.
 
-1. Configure index patterns:  
-In a new Kibana instance, configure the index patterns to access your data:
+1. Configure index patterns to access your data:  
+In a new Kibana instance:
      1. Open Kibana.
      1. Navigate to Management.
      1. Select **Index Patterns**. 
