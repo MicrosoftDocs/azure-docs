@@ -5,24 +5,21 @@ ms.topic: article
 ms.date: 03/06/2020
 ---
 
-## Core components
+# Encryption at rest using customer-managed keys
 
-Encrypting your Webapp's application data at rest requires the use of an Azure Storage Account and Azure Key Vault.
+Encrypting your Webapp's application data at rest requires an Azure Storage Account and an Azure Key Vault. These services will be used in conjunction with Run From Package.
 
-  - [Azure Storage provides Encryption at Rest](https://docs.microsoft.com/azure/storage/common/storage-service-encryption). You can use system-provided keys your customer managed keys. This is where your application data will be stored when it is not running in an Azure Webapp.
-  - [Run From Package]((https://docs.microsoft.com/azure/app-service/deploy-run-package)) is a deployment feature of App Service. It allows you to deploy your site content from an Azure Storage Account
-      - This requires an application setting with your Azure Storage Account URI and SAS key
-  - [Key Vault References]() are a security feature of App Service. It allows you to import secrets at runtime. This will be used to encrypt the SAS-encoded URI of your Azure Storage Account.
+  - [Azure Storage provides Encryption at Rest](https://docs.microsoft.com/azure/storage/common/storage-service-encryption). You can use system-provided keys or your own, customer-managed keys. This is where your application data will be stored when it is not running in an Azure Webapp.
+  - [Run From Package]((https://docs.microsoft.com/azure/app-service/deploy-run-package)) is a deployment feature of App Service. It allows you to deploy your site content from an Azure Storage Account using a Shared Access Signature (SAS) URL.
+  - [Key Vault References](https://docs.microsoft.com/azure/app-service/app-service-key-vault-reference) are a security feature of App Service. It allows you to import secrets at runtime as app settings. This will be used to encrypt the SAS URL of your Azure Storage Account.
 
-## Configure Encryption at Rest
-
-### Create an Azure Storage account
+## Create an Azure Storage account
   
 First, follow [these instructions](https://docs.microsoft.com/azure/storage/common/storage-service-encryption#customer-managed-keys-with-azure-key-vault) to create an Azure Storage Account and encrypt it with Customer Managed Keys. Once the Storage Account is created, use the [Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer) to upload package files. 
 
 Next, use the Storage Explorer to [generate a Shared Access Signature](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows#generate-a-sas-in-storage-explorer) (SAS). Save this SAS URL, this will later be used to enable the App Service runtime to access the package securely.
 
-### Configure Run From Package with your storage account
+## Configure Run From Package with your storage account
   
 Once you upload your file to Blob storage and have an SAS URL for the file, set the `WEBSITE_RUN_FROM_PACKAGE` app setting to the SAS URL. The following example does it by using Azure CLI:
 
@@ -32,7 +29,7 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 
 Adding this app setting will cause your Webapp to restart. Once the Webapp has restarted, browse to it to ensure the application has correctly started with the package in the Storage Account. If the application does not start correctly, see the [Run From Package troubleshooting guide](https://docs.microsoft.com/azure/app-service/deploy-run-package#troubleshooting).
 
-### Encrypt the application setting using Key Vault References
+## Encrypt the application setting using Key Vault References
 
 Now we will replace the value for `WEBSITE_RUN_FROM_PACKAGE` with a Key Vault reference to the SAS-encoded URL. This will keep the SAS URL encrypted in Key Vault, providing an extra layer of security.
 
