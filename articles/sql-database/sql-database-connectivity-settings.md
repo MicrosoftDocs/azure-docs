@@ -145,7 +145,7 @@ Set-AzResource -ResourceId $id -Properties @{"connectionType" = "Proxy"} -f
 > All scripts in this section requires [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 ### Azure CLI in a bash shell
-The following CLI script shows how to change the connection policy in a bash shell:
+The following CLI script shows how to change the connection policy in a bash shell: 
 
 ```azurecli-interactive
 # Get SQL Server ID
