@@ -160,12 +160,12 @@ You can assign users to administrative units in two ways.
 
     1. You can go to Azure AD in the portal and select Administrative units in the left pane and then select the administrative unit in which the users need to be assigned. Select All users on the left pane and then select Add member. You can then go ahead and select one or more users to be assigned to the administrative unit from the right pane.
 
-      ![select and administrative unit and then select Add member](./media/roles-administrative-units-scope/assign-to-admin-unit.png)
+        ![select an administrative unit and then select Add member](./media/roles-administrative-units-scope/assign-to-admin-unit.png)
 
 1. Bulk assignment
     Go to Azure AD in the portal and select Administrative units. Select the administrative unit in which users need to be added. Proceed by clicking on All users -> Add members from .csv file. You can then download the CSV template and edit the file. The format is simple and needs a single UPN to be added in each line. Once the file is ready, save it at an appropriate location and then upload it in step 3 as highlighted in the snapshot.
 
-    ![bulk assign users to an administrative unit](./media/roles-administrative-units-scope/bulk-assign-to-admin-unit.png)
+        ![bulk assign users to an administrative unit](./media/roles-administrative-units-scope/bulk-assign-to-admin-unit.png)
 
 ### PowerShell
 
@@ -175,7 +175,7 @@ You can assign users to administrative units in two ways.
 
 In the above example, the cmdlet Add-AzureADAdministrativeUnitMember is used to add the user to the administrative unit. The object ID of the Administrative Unit to which user is to be added and the object ID of the user which needs to be added are taken as argument. The highlighted section may be changed as required for the specific environment.
 
-#### The Microsoft Graph
+### The Microsoft Graph
 
     Http request
     POST /administrativeUnits/{Admin Unit id}/members/$ref
@@ -199,10 +199,14 @@ In the preview, you can assign groups only individually to an administrative uni
 1. From the **Azure AD > Groups** page
 
     Open the Groups overview page in Azure AD and select the group that needs to be assigned to the administrative unit. On the left side, select **Administrative units** to list out the administrative units the group is assigned to. On the top you will find the option Assign to administrative unit and clicking on it will give a panel on right side to choose the administrative unit.
-  
+
+    ![assign a group individually to an administrative unit](./media/roles-administrative-units-scope/assign-to-group-1.png)
+
 1. From the **Azure AD > Administrative units > All Groups** page
 
     Open the All Groups blade in Azure AD > Administrative Units. If there are groups already assigned to the administrative unit, they will be displayed on the right side. Select **Add** on the top and a right panel will slide in listing the groups available in your Azure AD organization. Select one or more groups to be assigned to the administrative units.
+
+    ![select and administrative unit and then select Add member](./media/roles-administrative-units-scope/assign-to-admin-unit.png)
 
 ### PowerShell
 
