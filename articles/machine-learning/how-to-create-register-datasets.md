@@ -31,7 +31,7 @@ With Azure Machine Learning datasets, you can:
 * Share data and collaborate with other users.
 
 ## Prerequisites
-
+'
 To create and work with datasets, you need:
 
 * An Azure subscription. If you don't have one, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree).
@@ -45,15 +45,15 @@ To create and work with datasets, you need:
 
 ## Compute size guidance
 
-COmpute processing power and data size  
+When creating a dataset review your compute processing power and the size of your data in memory. 
 The size of your data in storage is not the same as the size of data in a dataframe. For example, data in CSV files can expand up to 10x in a dataframe, so a 1 GB CSV file can become 10 GB in a dataframe. 
 
-The main factor is how large the dataset is in-memory, i.e. as a dataframe. We recommend your compute size and processing power contain 2x the size of RAM. So if your dataframe is 10GB, you want a compute target with 20+ GB of RAM so the dataframe can comfortable fit in memory and be processed. 
-If your data is compressed, it can expand further; 20 GB of relatively sparse data stored in compressed parquet format can expand to ~800 GB in memory. Since Parquet stores data in a columnar format, if you only need half of the columns then you only need to load ~400 GB in memory.
+The main factor is how large the dataset is in-memory, i.e. as a dataframe. We recommend your compute size and processing power contain 2x the size of RAM. So if your dataframe is 10GB, you want a compute target with 20+ GB of RAM to ensure that the dataframe can comfortable fit in memory and be processed. 
+If your data is compressed, it can expand further; 20 GB of relatively sparse data stored in compressed parquet format can expand to ~800 GB in memory. Since Parquet files store data in a columnar format, if you only need half of the columns, then you only need to load ~400 GB in memory.
  
 If you're using Pandas, there's no reason to have more than 1 vCPU since that's all it will use. You can easily parallelize to many vCPUs on a single Azure Machine Learning compute instance/node via Modin and Dask/Ray, and scale out to a large cluster if needed, by simply changing `import pandas as pd` to `import modin.pandas as pd`. 
  
-If you can't get a big enough VM for the data, you have two options: use a framework like Spark or Dask to perform the processing on the data 'out of memory', i.e. the dataframe is loaded into RAM partition by partition and processed, with the final result being gathered at the end. If this is too slow, Spark or Dask allow you to scale out to a cluster which can still be used interactively. 
+If you can't get a big enough virtual for the data, you have two options: use a framework like Spark or Dask to perform the processing on the data 'out of memory', i.e. the dataframe is loaded into RAM partition by partition and processed, with the final result being gathered at the end. If this is too slow, Spark or Dask allow you to scale out to a cluster which can still be used interactively. 
 
 ## Dataset types
 
