@@ -23,6 +23,10 @@
     href: tutorial-restrict-network-access-to-resources.md
   - name: Connect virtual networks
     href: tutorial-connect-virtual-networks-portal.md
+  - name: NAT
+    items:
+    - name: Create and validate NAT gateway - Portal
+      href: tutorial-create-validate-nat-gateway-portal.md
 - name: Samples
   items:
   - name: Azure CLI
@@ -131,8 +135,6 @@
         href: quickstart-create-nat-gateway-powershell.md
       - name: Create NAT gateway - CLI
         href: quickstart-create-nat-gateway-cli.md
-      - name: Create and validate NAT gateway - Portal
-        href: tutorial-create-validate-nat-gateway-portal.md
       - name: Create and validate NAT gateway - PowerShell
         href: tutorial-create-validate-nat-gateway-powershell.md
       - name: Create and validate NAT gateway - CLI
