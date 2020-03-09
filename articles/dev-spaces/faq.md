@@ -15,6 +15,10 @@ This addresses frequently asked questions about Azure Dev Spaces.
 
 See [supported regions][supported-regions] for a complete list of available regions.
 
+## Can I migrate my AKS cluster with Azure Dev Spaces to another region?
+
+Yes, if you want to move your AKS cluster with Azure Dev Spaces to another [supported region][supported-regions], we recommend that you create a new cluster in the other region then install and configure Azure Dev Spaces and deploy your resources and applications to your new cluster. For more information on migrating AKS, see [Migrate to Azure Kubernetes Service (AKS)][aks-migration].
+
 ## Can I use Azure Dev Spaces with existing Dockerfiles or Helm charts?
 
 Yes, if your project already has a Dockerfile or a Helm chart, you can use those files with Azure Dev Spaces. When you run `azds prep`, use the `--chart` parameter and specify the location of the chart. Azure Dev Spaces will still generate an *azds.yaml* and *Dockerfile.develop* file, but it will not replace or modify an existing Dockerfile or a Helm chart. You may need to modify the *azds.yaml* and *Dockerfile.develop* files in order for everything to work correctly with your existing application when running `azds up`.
@@ -72,6 +76,7 @@ When using Visual Studio to prepare your project, you have the option of enablin
 [aks-auth-range-create]: ../aks/api-server-authorized-ip-ranges.md#create-an-aks-cluster-with-api-server-authorized-ip-ranges-enabled
 [aks-auth-range-ranges]: https://github.com/Azure/dev-spaces/tree/master/public-ips
 [aks-auth-range-update]: ../aks/api-server-authorized-ip-ranges.md#update-a-clusters-api-server-authorized-ip-ranges
+[aks-migration]: ../aks/aks-migration.md
 [aks-restrict-egress-traffic]: ../aks/limit-egress-traffic.md
 [dev-spaces-prep]: how-dev-spaces-works.md#prepare-your-code
 [dev-spaces-routing]: how-dev-spaces-works.md#how-routing-works
