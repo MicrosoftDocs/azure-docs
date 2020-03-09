@@ -244,7 +244,7 @@ result = await app.AcquireTokenInteractive(scopes)
 
 ### Step 4: Register your RedirectUri in the application portal
 
-MSAL uses URLs to invoke the broker and then return back to your app. To complete that round trip, you need to register a URL scheme for your app. This Redirect URI needs to be registered on the Azure AAD app registration portal as a valid redirect URI for your application.
+MSAL uses URLs to invoke the broker and then return back to your app. To complete that round trip, you need to register a URL scheme for your app. This Redirect URI needs to be registered on the Azure AD app registration portal as a valid redirect URI for your application.
 
 
 The redirect URI needed for your application is dependent on the certificate used to sign the APK.
