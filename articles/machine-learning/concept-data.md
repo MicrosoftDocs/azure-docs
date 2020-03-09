@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.reviewer: nibaccam
 author: nibaccam
 ms.author: nibaccam
-ms.date: 12/09/2019
+ms.date: 03/09/2020
 
 ---
 
@@ -40,7 +40,7 @@ To access your data in your storage account, Azure Machine Learning offers datas
 
 Datasets answer the question: how do I get specific data files in my datastore? Datasets point to the specific file or files in your underlying storage that you want to use for your machine learning experiment. Together, datastores and datasets offer a secure, scalable, and reproducible data delivery workflow for your machine learning tasks.
 
-### Datastores
+## Datastores
 
 An Azure Machine Learning datastore is a storage abstraction over your Azure storage services. [Register and create a datastore](how-to-access-data.md) to easily connect to your Azure storage account, and access the data in your underlying Azure storage services.
 
@@ -54,7 +54,7 @@ Supported Azure storage services that can be registered as datastores:
 + Databricks File System
 + Azure Database for MySQL
 
-### Datasets
+## Datasets
 
 [Create an Azure Machine Learning dataset](how-to-create-register-datasets.md) to interact with data in your datastores and package your data into a consumable object for machine learning tasks. Register the dataset to your workspace to share and reuse it across different experiments without data ingestion complexities.
 
@@ -81,13 +81,14 @@ With datasets, you can accomplish a number of machine learning tasks through sea
 + Consume datasets in 
      + [automated ML experiments](how-to-create-portal-experiments.md)
      + the [designer](tutorial-designer-automobile-price-train-score.md#import-data) 
+     + [Azure Machine Learning pipelines](how-to-create-your-first-pipeline.md)
 + Access datasets for scoring with batch inference in [machine learning pipelines](how-to-create-your-first-pipeline.md).
 + Create a [data labeling project](#label).
 + Set up a dataset monitor for [data drift](#drift) detection.
 
 <a name="open"></a>
 
-## Azure Open Datasets
+### Azure Open Datasets
 
 [Azure Open Datasets](how-to-create-register-datasets.md#create-datasets-with-azure-open-datasets) are curated public datasets that you can use to add scenario-specific features to machine learning solutions for more accurate models. Open Datasets are in the cloud on Microsoft Azure and are integrated into Azure Machine Learning. You can also access the datasets through APIs and use them in other products, such as Power BI and Azure Data Factory.
 
