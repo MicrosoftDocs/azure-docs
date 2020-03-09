@@ -7,7 +7,7 @@ titleSuffix: Azure SQL Database and SQL Data Warehouse
 ms.service: sql-database
 ms.topic: overview 
 ms.reviewer: vanto
-ms.date: 09/17/2019
+ms.date: 03/09/2020
 ---
 
 # Private Link for Azure SQL Database and Data Warehouse
@@ -141,10 +141,7 @@ The result shows that one IP address is up; which corresponds to the IP address 
 
 ### Check Connectivity using SQL Server Management Studio (SSMS)
 > [!NOTE]
->Use the **Fully Qualified Domain Name(FQDN)** of the server in connection strings for your clients. Any login attempts made directly to the IP address shall fail.This behavior is by design since private endpoint routes traffic to SQL Gateway in the region and FQDN needs to be specified for login to succeed.
-
-
-
+> Use the **Fully Qualified Domain Name (FQDN)** of the server in connection strings for your clients. Any login attempts made directly to the IP address shall fail. This behavior is by design, since private endpoint routes traffic to the SQL Gateway in the region and the FQDN needs to be specified for logins to succeed.
 
 Follow the steps here to use [SSMS to connect to the SQL Database](sql-database-connect-query-ssms.md). After you connect to the SQL Database using SSMS, verify that you're connecting from the private IP address of the Azure VM by running the following query:
 
