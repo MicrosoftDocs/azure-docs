@@ -8472,7 +8472,12 @@
     },
     {
       "source_path": "articles/app-service-web/web-sites-traffic-manager-custom-domain-name.md",
-      "redirect_url": "/azure/app-service/web-sites-traffic-manager-custom-domain-name",
+      "redirect_url": "/azure/app-service/configure-domain-traffic-manager",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service/web-sites-traffic-manager-custom-domain-name.md",
+      "redirect_url": "/azure/app-service/configure-domain-traffic-manager",
       "redirect_document_id": false
     },
     {
