@@ -31,7 +31,7 @@ landingContent:
             url: tutorial-1st-experiment-sdk-setup.md
           - text: Start with RStudio
             url: tutorial-1st-r-experiment.md
-          - text: Start with the drag & drop designer
+          - text: Start with the designer (drag & drop)
             url: tutorial-designer-automobile-price-train-score.md
           - text: Start with automated ML
             url: tutorial-first-experiment-automated-ml.md
@@ -83,7 +83,7 @@ landingContent:
       links:
       - text: What are ML pipelines?
         url: concept-ml-pipelines.md   
-      - text: The 'drag-n-drop' designer
+      - text: The 'drag-&-drop' designer
         url: concept-designer.md   
       
     - linkListType: how-to-guide
