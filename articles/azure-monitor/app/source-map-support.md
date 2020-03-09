@@ -75,7 +75,7 @@ Any user on the Portal using this feature must be at least assigned as a [Storag
 
 ## Next Steps
 
-* [Azure File Copy task](https://docs.microsoft.com/en-us/azure/devops/pipelines/tasks/deploy/azure-file-copy?view=azure-devops)
+* [Azure File Copy task](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-file-copy?view=azure-devops)
 
 
 <!-- Remote URLs -->
