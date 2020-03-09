@@ -5,7 +5,7 @@ author: kgremban
 manager: philmea
 ms.author: kgremban
 ms.reviewer: kevindaw
-ms.date: 03/02/2020
+ms.date: 03/06/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -27,7 +27,6 @@ Using X.509 certificates as an attestation mechanism is an excellent way to scal
 
 * An active IoT Hub.
 * A physical or virtual device to be the IoT Edge device.
-  * Currently, group enrollment for IoT Edge is only supported for Linux devices.
 * The latest version of [Git](https://git-scm.com/download/) installed.
 * An instance of the IoT Hub Device Provisioning Service in Azure, linked to your IoT hub.
   * If you don't have a Device Provisioning Service instance, follow the instructions in [Set up the IoT Hub DPS](../iot-dps/quick-setup-auto-provision.md).
@@ -107,9 +106,6 @@ Now that an enrollment exists for this device, the IoT Edge runtime can automati
 ## Create a DPS group enrollment
 
 Use your generated certificates and keys to create a group enrollment in DPS for multiple IoT Edge devices. Group enrollments use an intermediate or root CA certificate from the certificate chain of trust used to generate the individual device identity certificates.
-
->[!NOTE]
->Currently, group enrollment is only supported for IoT Edge on Linux devices.
 
 If you're looking to provision a single IoT Edge device instead, follow the steps in the previous section, [Create a DPS individual enrollment](#create-a-dps-individual-enrollment).
 
