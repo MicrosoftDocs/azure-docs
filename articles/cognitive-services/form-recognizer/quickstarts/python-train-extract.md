@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 10/03/2019
+ms.date: 01/27/2020
 ms.author: pafarley
 #Customer intent: As a developer or data scientist familiar with Python, I want to learn how to use Form Recognizer to extract my form data.
 ---
@@ -19,13 +19,9 @@ In this quickstart, you'll use the Azure Form Recognizer REST API with Python to
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-> [!IMPORTANT]
-> This quickstart uses the Form Recognizer v2.0 API. If your subscription is not in the `West US 2` or `West Europe` region, you need to use the v1.0 API. Follow the [v1.0 quickstart](./python-train-extract-v1.md) instead.
-
 ## Prerequisites
 
 To complete this quickstart, you must have:
-- Access to the Form Recognizer limited-access preview. To get access to the preview, fill out and submit the [Form Recognizer access request](https://aka.ms/FormRecognizerRequestAccess) form.
 - [Python](https://www.python.org/downloads/) installed (if you want to run the sample locally).
 - A set of at least five forms of the same type. You will use this data to train the model. Your forms can be of different file types but must be the same type of document. You can use a [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451) for this quickstart. Upload the training files to the root of a blob storage container in an Azure Storage account.
 

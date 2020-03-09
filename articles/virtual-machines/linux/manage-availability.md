@@ -24,8 +24,6 @@ ms.custom: H1Hack27Feb2017
 
 Learn ways to set up and manage multiple virtual machines to ensure high availability for your Linux application in Azure. You can also [manage the availability of Windows virtual machines](../windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-For instructions on creating an availability set using CLI in the Resource Manager deployment model, see [azure availset: commands to manage your availability sets](../azure-cli-arm-commands.md#azure-availset-commands-to-manage-your-availability-sets).
-
 [!INCLUDE [virtual-machines-common-manage-availability](../../../includes/virtual-machines-common-manage-availability.md)]
 
 ## Next steps

@@ -1,12 +1,11 @@
 ---
 title: Azure Monitor for VMs (GA) frequently asked questions | Microsoft Docs
 description: Azure Monitor for VMs is a solution in Azure that combines health and performance monitoring of the Azure VM operating system, as well as automatically discovering application components and dependencies with other resources and maps the communication between them. This article answers common questions about the GA release.
-ms.service:  azure-monitor
 ms.subservice: 
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 12/05/2019
+ms.date: 01/31/2020
 
 ---
 
@@ -16,19 +15,32 @@ This General Availability FAQ covers changes that are happening in Azure Monitor
 
 ## Updates for Azure Monitor for VMs
 
-We are planning to release a new version of Azure Monitor for VMs in January 2020. Customers enabling Azure Monitors for VMs after this release automatically receive the new version, but existing customers already using Azure Monitor for VMs will be prompted to upgrade. This FAQ and our documentation offers guidance to perform an upgrade at scale if you have large deployments across multiple workspaces.
+We have released a new version of Azure Monitor for VMs. Customers enabling Azure Monitors for VMs will now receive the new version, but existing customers already using Azure Monitor for VMs will be prompted to upgrade. This FAQ and our documentation offers guidance to perform an upgrade at scale if you have large deployments across multiple workspaces.
 
-With this upgrade, Azure Monitor for VMs performance data are stored in the same `InsightsMetrics` table as [Azure Monitor for containers](container-insights-overview.md), and makes it easier for you to query the two data sets. Also, you are able to store more diverse data sets that we could not store in the table previously used. Our performance views will also be updated to use this new table.
+With this upgrade, Azure Monitor for VMs performance data are stored in the same *InsightsMetrics* table as [Azure Monitor for containers](container-insights-overview.md), which makes it easier for you to query the two data sets. Also, you are able to store more diverse data sets that we could not store in the table previously used. 
 
-We are moving to new data types for our connection data sets. This change will be happening in December 2019 and will be announced in an Azure update blog. Data presently stored in `ServiceMapComputer_CL` and `ServiceMapProcess_CL`, which are custom log tables, will move to dedicated data types named `VMComputer` and `VMProcess`. By moving to dedicated data types, they receive priority for data ingestion and the table schema will be standardized across all customers.
+Our performance views are now using the data we store in the *InsightsMetrics* table.  If you have not yet upgraded to use the latest VMInsights solution on your workspace, your charts will no longer display information.  You can upgrade from our **Get Started** page as described below.
 
 We realize that asking existing customers to upgrade causes disruption to their workflow, which is why we have chosen to do this now while in Public Preview rather than later after GA.
 
+
 ## What is changing?
 
-Currently when you complete the onboarding process for Azure Monitor for VMs, you enable the Service Map solution in the workspace you selected to store your monitoring data, and then configure performance counters for the data we collect from your VMs. We will be releasing a new solution, named **VMInsights**, that includes additional capabilities for data collection along with a new location for storing this data in your Log Analytics workspace.
+We have released a new solution, named VMInsights, that includes additional capabilities for data collection along with a new location for storing this data in your Log Analytics workspace. 
 
-Our current process of using performance counters in your Log Analytics workspace sends the data to the `Perf` table. This new solution sends the data to a table named `InsightsMetrics` that is also used by Azure Monitor for containers. This table schema allows us to store additional metrics and service data sets that are not compatible with the Perf table format.
+In the past, we enabled the ServiceMap solution on your workspace and setup performance counters in your Log Analytics workspace to send the data to the *Perf* table. This new solution sends the data to a table named *InsightsMetrics* that is also used by Azure Monitor for containers. This table schema allows us to store additional metrics and service data sets that are not compatible with the *Perf* table format.
+
+We have updated our Performance charts to use the data we store in the *InsightsMetrics* table. You can upgrade to use the *InsightsMetrics* table from our **Get Started** page as described below.
+
+
+## How do I upgrade?
+When a Log Analytics workspace is upgraded to the latest version of Azure Monitor to VMs, it will upgrade the dependency agent on each of the VMs attached to that workspace. Each VM requiring upgrade will be identified in the **Get Started** tab in Azure Monitor for VMs in the Azure portal. When you choose to upgrade a VM, it will upgrade the workspace for that VM along with any other VMs attached to that workspace. You can select a single VM or multiple VMs, resource groups, or subscriptions. 
+
+Use the following command to upgrade a workspace using PowerShell:
+
+```PowerShell
+Set-AzureRmOperationalInsightsIntelligencePack -ResourceGroupName <resource-group-name> -WorkspaceName <workspace-name> -IntelligencePackName "VMInsights" -Enabled $True
+```
 
 ## What should I do about the Performance counters in my workspace if I install the VMInsights solution?
 

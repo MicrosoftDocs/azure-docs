@@ -1,18 +1,9 @@
-﻿---
-title: Tutorial - Install applications in a scale set with Azure PowerShell | Microsoft Docs
+---
+title: Tutorial - Install applications in a scale set with Azure PowerShell
 description: Learn how to use Azure PowerShell to install applications into virtual machine scale sets with the Custom Script Extension
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: cynthn
-manager: jeconnoc
-editor: ''
 tags: azure-resource-manager
-
-ms.assetid: 
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/08/2018
 ms.author: cynthn
@@ -28,7 +19,7 @@ To run applications on virtual machine (VM) instances in a scale set, you first 
 > * Use the Azure Custom Script Extension
 > * Update a running application on a scale set
 
-If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 [!INCLUDE [updated-for-az.md](../../includes/updated-for-az.md)]
 

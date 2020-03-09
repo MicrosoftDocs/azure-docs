@@ -36,7 +36,7 @@ The following metrics can be added to a run while training an experiment. To vie
 |Lists|Function:<br>`run.log_list(name, value, description='')`<br><br>Example:<br>run.log_list("accuracies", [0.6, 0.7, 0.87]) | Log a list of values to the run with the given name.|
 |Row|Function:<br>`run.log_row(name, description=None, **kwargs)`<br>Example:<br>run.log_row("Y over X", x=1, y=0.4) | Using *log_row* creates a metric with multiple columns as described in kwargs. Each named parameter generates a column with the value specified.  *log_row* can be called once to log an arbitrary tuple, or multiple times in a loop to generate a complete table.|
 |Table|Function:<br>`run.log_table(name, value, description='')`<br><br>Example:<br>run.log_table("Y over X", {"x":[1, 2, 3], "y":[0.6, 0.7, 0.89]}) | Log a dictionary object to the run with the given name. |
-|Images|Function:<br>`run.log_image(name, path=None, plot=None)`<br><br>Example:<br>`run.log_image("ROC", plt)` | Log an image to the run record. Use log_image to log an image file or a matplotlib plot to the run.  These images will be visible and comparable in the run record.|
+|Images|Function:<br>`run.log_image(name, path=None, plot=None)`<br><br>Example:<br>`run.log_image("ROC", plot=plt)` | Log an image to the run record. Use log_image to log an image file or a matplotlib plot to the run.  These images will be visible and comparable in the run record.|
 |Tag a run|Function:<br>`run.tag(key, value=None)`<br><br>Example:<br>run.tag("selected", "yes") | Tag the run with a string key and optional string value.|
 |Upload file or directory|Function:<br>`run.upload_file(name, path_or_stream)`<br> <br> Example:<br>run.upload_file("best_model.pkl", "./model.pkl") | Upload a file to the run record. Runs automatically capture file in the specified output directory, which defaults to "./outputs" for most run types.  Use upload_file only when additional files need to be uploaded or an output directory is not specified. We suggest adding `outputs` to the name so that it gets uploaded to the outputs directory. You can list all of the files that are associated with this run record by called `run.get_file_names()`|
 
@@ -65,7 +65,7 @@ Before adding logging and submitting an experiment, you must set up the workspac
 
 **start_logging** creates an interactive run for use in scenarios such as notebooks. Any metrics that are logged during the session are added to the run record in the experiment.
 
-The following example trains a simple sklearn Ridge model locally in a local Jupyter notebook. To learn more about submitting experiments to different environments, see [Set up compute targets for model training with Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/how-to-set-up-training-targets).
+The following example trains a simple sklearn Ridge model locally in a local Jupyter notebook. To learn more about submitting experiments to different environments, see [Set up compute targets for model training with Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-set-up-training-targets).
 
 1. Create a training script in a local Jupyter notebook. 
 
@@ -319,7 +319,7 @@ There are various ways to use the logging APIs to record different types of metr
 The following notebooks demonstrate concepts in this article:
 * [how-to-use-azureml/training/train-within-notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook)
 * [how-to-use-azureml/training/train-on-local](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-local)
-* [how-to-use-azureml/training/logging-api/logging-api.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/logging-api)
+* [how-to-use-azureml/track-and-monitor-experiments/logging-api](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/track-and-monitor-experiments/logging-api)
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-clone-for-examples.md)]
 

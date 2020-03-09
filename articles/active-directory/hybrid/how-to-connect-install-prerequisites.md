@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/08/2019
+ms.date: 02/27/2020
 ms.subservice: hybrid
 ms.author: billmath
 
@@ -75,14 +75,14 @@ To learn more, see:
 ### SQL Server used by Azure AD Connect
 * Azure AD Connect requires a SQL Server database to store identity data. By default a SQL Server 2012 Express LocalDB (a light version of SQL Server Express) is installed. SQL Server Express has a 10GB size limit that enables you to manage approximately 100,000 objects. If you need to manage a higher volume of directory objects, you need to point the installation wizard to a different installation of SQL Server. The type of SQL Server installation can impact the [performance of Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/plan-connect-performance-factors#sql-database-factors).
 * If you use a different installation of SQL Server, then these requirements apply:
-  * Azure AD Connect supports all versions of Microsoft SQL Server from 2008 R2 (with latest Service Pack) to SQL Server 2019. Microsoft Azure SQL Database is **not supported** as a database.
+  * Azure AD Connect supports all versions of Microsoft SQL Server from 2012 (with latest Service Pack) to SQL Server 2019. Microsoft Azure SQL Database is **not supported** as a database.
   * You must use a case-insensitive SQL collation. These collations are identified with a \_CI_ in their name. It is **not supported** to use a case-sensitive collation, identified by \_CS_ in their name.
   * You can only have one sync engine per SQL instance. It is **not supported** to share a SQL instance with FIM/MIM Sync, DirSync, or Azure AD Sync.
 
 ### Accounts
 * An Azure AD Global Administrator account for the Azure AD tenant you wish to integrate with. This account must be a **school or organization account** and cannot be a **Microsoft account**.
-* If you use express settings or upgrade from DirSync, then you must have an Enterprise Administrator account for your on-premises Active Directory.
-* [Accounts in Active Directory](reference-connect-accounts-permissions.md) if you use the custom settings installation path or an Enterprise Administrator account for your on-premises Active Directory.
+* If you use [express settings](reference-connect-accounts-permissions.md#express-settings-installation) or upgrade from DirSync, then you must have an Enterprise Administrator account for your on-premises Active Directory.
+* If you use the custom settings installation path then you have more options see [Accounts in Active Directory](reference-connect-accounts-permissions.md#custom-installation-settings)
 
 ### Connectivity
 * The Azure AD Connect server needs DNS resolution for both intranet and internet. The DNS server must be able to resolve names both to your on-premises Active Directory and the Azure AD endpoints.

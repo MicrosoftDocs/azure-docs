@@ -614,4 +614,4 @@ To learn details about the properties, check [Lookup activity](control-flow-look
 To learn details about the properties, check [GetMetadata activity](control-flow-get-metadata-activity.md) 
 
 ## Next steps
-For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [Supported data stores](copy-activity-overview.md##supported-data-stores-and-formats).
+For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

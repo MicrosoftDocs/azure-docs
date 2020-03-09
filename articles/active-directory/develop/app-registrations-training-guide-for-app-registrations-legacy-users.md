@@ -13,7 +13,6 @@ ms.date: 10/25/2019
 ms.author: aragra
 ms.reviewer: lenalepa, keyam
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
 ---
 
 # New Azure portal app registration training guide

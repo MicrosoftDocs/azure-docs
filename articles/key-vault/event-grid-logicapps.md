@@ -7,6 +7,7 @@ manager: rkarlin
 tags: azure-resource-manager
 
 ms.service: key-vault
+ms.subservice: general
 ms.topic: tutorial
 ms.date: 11/11/2019
 ms.author: mbaldwin
@@ -30,7 +31,6 @@ First, create Logic App with event grid handler and subscribe to Azure Key Vault
 
 To create an Azure Event Grid subscription, follow these steps:
 
-1. Open the Azure portal using the following link: https://portal.azure.com/?Microsoft_Azure_KeyVault_ShowEvents=true&Microsoft_Azure_EventGrid_publisherPreview=true 
 1. In the Azure portal, go to your key vault, select **Events > Get Started** and click **Logic Apps**
 
     

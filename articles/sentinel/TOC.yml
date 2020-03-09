@@ -54,6 +54,8 @@
         href: connect-azure-atp.md
       - name: Azure Security Center
         href: connect-azure-security-center.md
+      - name: Azure Security Center for IoT
+        href: connect-asc-iot.md
       - name: Domain name server
         href: connect-dns.md
       - name: Microsoft web application firewall
@@ -65,17 +67,23 @@
     - name: Connect external solutions
       items:
       - name: Barracuda
-        href: connect-barracuda.md
-      - name: F5 BIG-IP
-        href: connect-f5-big-ip.md
-      - name: Syslog
-        href: connect-syslog.md
-      - name: Symantec ICDX
-        href: connect-symantec.md
+        href: connect-barracuda.md 
       - name: Barracuda CloudGen Firewall
         href: connect-barracuda-cloudgen-firewall.md
       - name: Citrix Analytics (Security)
         href: connect-citrix-analytics.md
+      - name: F5 BIG-IP
+        href: connect-f5-big-ip.md
+      - name: Forcepoint DLP
+        href: connect-forcepoint-dlp.md 
+      - name: Squadra Technologies secRMM
+        href: connect-squadra-secrmm.md
+      - name: Symantec ICDX
+        href: connect-symantec.md
+      - name: Syslog
+        href: connect-syslog.md
+      - name: Zimperium Mobile Threat Defense
+        href: connect-zimperium-mtd.md
       - name: CEF-based solutions
         href: connect-common-event-format.md
         items:  
@@ -92,6 +100,8 @@
             href: connect-extrahop.md
           - name: F5 
             href: connect-f5.md  
+          - name: Forcepoint products
+            href: connect-forcepoint-casb-ngfw.md
           - name: Fortinet
             href: connect-fortinet.md
           - name: One Identity Safeguard
@@ -110,6 +120,8 @@
       href: connect-azure-stack.md  
   - name: Multiple tenants (MSSP)
     href: multiple-tenants-service-providers.md
+  - name: Set up customer-managed keys (CMK)
+    href: customer-managed-keys.md
   - name: Create incidents from alerts
     href: create-incidents-from-alerts.md
   - name: Hunting

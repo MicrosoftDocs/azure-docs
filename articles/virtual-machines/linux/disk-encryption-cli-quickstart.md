@@ -14,8 +14,6 @@ The Azure CLI is used to create and manage Azure resources from the command line
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
-
 If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.30 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
 
 ## Create a resource group

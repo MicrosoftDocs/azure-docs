@@ -22,4 +22,4 @@ ms.subservice: common
 ## See also
 
 - [Scalability and performance targets for standard storage accounts](scalability-targets-standard-account.md)
-- [Scalability targets for premium block blob storage accounts](../blobs/scalability-targets-premium-block-blobs.md)
+- [Azure subscription limits and quotas](../../azure-resource-manager/management/azure-subscription-service-limits.md)

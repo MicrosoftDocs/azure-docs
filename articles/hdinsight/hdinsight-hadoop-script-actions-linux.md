@@ -317,10 +317,7 @@ For more information on using each method, see [How to use script action](hdinsi
 
 ## <a name="sampleScripts"></a>Custom script samples
 
-Microsoft provides sample scripts to install components on an HDInsight cluster. See the following links for more example script actions.
-
-* [Install and use Hue on HDInsight clusters](hdinsight-hadoop-hue-linux.md)
-* [Install and use Apache Giraph on HDInsight clusters](hdinsight-hadoop-giraph-install-linux.md)
+Microsoft provides sample scripts to install components on an HDInsight cluster. See [Install and use Hue on HDInsight clusters](hdinsight-hadoop-hue-linux.md) as an example script action.
 
 ## Troubleshooting
 

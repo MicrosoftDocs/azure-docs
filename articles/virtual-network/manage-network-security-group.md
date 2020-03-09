@@ -62,10 +62,10 @@ In the search box at the top of the portal, enter *network security groups*. Whe
 1. In the search box at the top of the portal, enter *network security groups*. When **network security groups** appear in the search results, select it.
 2. Select the network security group in the list that you want to view details for. Under **SETTINGS** you can view the **Inbound security rules** and **Outbound security rules**, the **Network interfaces** and **Subnets** the network security group is associated to. You can also enable or disable **Diagnostic logs** and view **Effective security rules**. To learn more, see [Diagnostic logs](virtual-network-nsg-manage-log.md) and [View effective security rules](diagnose-network-traffic-filter-problem.md).
 3. To learn more about the common Azure settings listed, see the following articles:
-	*	[Activity log](../azure-monitor/platform/activity-logs-overview.md)
+	*	[Activity log](../azure-monitor/platform/platform-logs-overview.md)
 	*	[Access control (IAM)](../role-based-access-control/overview.md)
-	*	[Tags](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-	*	[Locks](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+	*	[Tags](../azure-resource-manager/management/tag-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+	*	[Locks](../azure-resource-manager/management/lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 	*	[Automation script](../azure-resource-manager/templates/export-template-portal.md)
 
 **Commands**

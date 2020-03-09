@@ -3,7 +3,7 @@ title: Advanced features of Azure Metrics Explorer
 description: Learn about advanced features of Azure Monitor Metrics Explorer
 author: vgorbenko
 services: azure-monitor
-ms.service: azure-monitor
+
 ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg

@@ -1,12 +1,8 @@
 ---
 title: Assess Hyper-V VMs for migration to Azure with Azure Migrate | Microsoft Docs
 description: Describes how to assess on-premises Hyper-V VMs for migration to Azure using Azure Migrate.
-author: rayne-wiselman
-manager: carmonm
-ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 11/18/2019
-ms.author: raynew
+ms.date: 01/23/2020
 ms.custom: mvc
 ---
 
@@ -38,7 +34,8 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 - [Complete](tutorial-prepare-hyper-v.md) the first tutorial in this series. If you don't, the instructions in this tutorial won't work.
 - Here's what you should have done in the first tutorial:
     - [Set up Azure permissions](tutorial-prepare-hyper-v.md#prepare-azure) for Azure Migrate.
-    - [Prepare Hyper-V](tutorial-prepare-hyper-v.md#prepare-for-hyper-v-assessment) clusters, hosts, and VMs for assessment.
+    - [Prepare Hyper-V](tutorial-prepare-hyper-v.md#prepare-hyper-v-for-assessment) clusters, hosts, and VMs for assessment.
+    - [Prepare for deployment](tutorial-prepare-hyper-v.md#prepare-for-appliance-deployment) of the Azure Migrate appliance, used for Hyper-V VM discovery and assessment.
 
 ## Set up an Azure Migrate project
 
@@ -136,14 +133,14 @@ Import the downloaded file, and create the VM.
 2. In **Choose Import Type**, click **Copy the virtual machine (create a new unique ID)**. Then click **Next**.
 3. In **Choose Destination**, leave the default setting. Click **Next**.
 4. In **Storage Folders**, leave the default setting. Click **Next**.
-5. In **Choose Network**, specify the virtual switch that the VM will use. The switch needs internet connectivity to send data to Azure.
+5. In **Choose Network**, specify the virtual switch that the VM will use. The switch needs internet connectivity to send data to Azure. [Learn](https://docs.microsoft.com/windows-server/virtualization/hyper-v/get-started/create-a-virtual-switch-for-hyper-v-virtual-machines) about creating a virtual switch.
 6. In **Summary**, review the settings. Then click **Finish**.
 7. In Hyper-V Manager > **Virtual Machines**, start the VM.
 
 
 ### Verify appliance access to Azure
 
-Make sure that the appliance VM can connect to [Azure URLs](migrate-support-matrix-hyper-v.md#assessment-appliance-url-access).
+Make sure that the appliance VM can connect to [Azure URLs](migrate-appliance.md#url-access).
 
 ### Configure the appliance
 
@@ -179,7 +176,7 @@ Set up the appliance for the first time.
 
 If you're running VHDs on SMBs, you must enable delegation of credentials from the appliance to the Hyper-V hosts. This requires the following:
 
-- You enable each host to act as a delegate for the appliance. You should have done this in the previous tutorial, when you prepared Hyper-V for assessment and migration. You should have either set up CredSSP for the hosts [manually](tutorial-prepare-hyper-v.md#enable-credssp-on-hosts), or by [running the Hyper-V Prerequisites Configuration script](tutorial-prepare-hyper-v.md#hyper-v-prerequisites-configuration-script).
+- You enable each host to act as a delegate for the appliance. If you followed the tutorials in order, you did this in the previous tutorial, when you prepared Hyper-V for assessment and migration. You should have either set up CredSSP for the hosts [manually](tutorial-prepare-hyper-v.md#enable-credssp-on-hosts), or by [running a script](tutorial-prepare-hyper-v.md#prepare-with-a-script) that does this.
 - Enable CredSSP delegation so that the Azure Migrate appliance can act as the client, delegating credentials to a host.
 
 Enable on the appliance as follows:

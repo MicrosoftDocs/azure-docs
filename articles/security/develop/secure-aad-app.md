@@ -1,10 +1,10 @@
 ---
-title: Develop a secure an Azure AD Web application | Microsoft Docs
+title: Develop a secure Azure AD Web application | Microsoft Docs
 description: This simple sample app implements security best practices that improve your application and your organization's security posture when you develop on Azure.
 keywords: na
 services: security
 documentationcenter: na
-author: fehase
+author: TerryLanfear
 manager: alclabo
 editor: ''
 
@@ -15,7 +15,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/12/2019
-ms.author: v-fehase
+ms.author: terrylan
 ---
 # Develop secure app for an Azure AD app
 ## Overview
@@ -182,7 +182,7 @@ $gwSubnet = New-AzVirtualNetworkSubnetConfig -Name 'appgwsubnet' -AddressPrefix 
 
 #Assign an address range to be used for the back-end address pool.
 
-$nicSubnet = New-AzVirtualNetworkSubnetConfig  -Name 'appsubnet' -AddressPrefix 10.0.0.0/24
+$nicSubnet = New-AzVirtualNetworkSubnetConfig  -Name 'appsubnet' -AddressPrefix 10.0.2.0/24
 
 #Create a virtual network with the subnets defined in the preceding steps.
 
@@ -209,7 +209,7 @@ $fipconfig = New-AzApplicationGatewayFrontendIPConfig -Name 'fip01' -PublicIPAdd
 
 #Configure the back-end IP address pool with the IP addresses of the back-end web servers
 
-$pool = New-AzApplicationGatewayBackendAddressPool -Name 'pool01' -BackendIPAddresses 10.0.0.0
+$pool = New-AzApplicationGatewayBackendAddressPool -Name 'pool01' -BackendIPAddresses 10.0.3.11
 
 #Configure the front-end IP port for the public IP endpoint
 
@@ -219,6 +219,7 @@ $fp = New-AzApplicationGatewayFrontendPort -Name 'port01'  -Port 443
 
 $passwd = ConvertTo-SecureString  "P@ssword!1" -AsPlainText -Force 
 $cert = New-AzApplicationGatewaySSLCertificate -Name cert01 -CertificateFile "C:\AAD\Securities\Certificates\sslcert.com.cer" -Password $passwd 
+
 
 #Create the HTTP listener for the application gateway
 

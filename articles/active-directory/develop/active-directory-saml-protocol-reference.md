@@ -14,7 +14,6 @@ ms.date: 10/05/2018
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: hirsin
-ms.collection: M365-identity-device-management
 ---
 
 # How Azure AD uses the SAML protocol
@@ -34,4 +33,4 @@ Azure Active Directory exposes tenant-specific and common (tenant-independent) s
 * The tenant-independent endpoint is located at
   `https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml`. In this endpoint address, **common** appears instead of a tenant domain name or ID.
 
-For information about the federation metadata documents that Azure AD publishes, see [Federation Metadata](azure-ad-federation-metadata.md).
+For information about the federation metadata documents that Azure AD publishes, see [Federation Metadata](../azuread-dev/azure-ad-federation-metadata.md).

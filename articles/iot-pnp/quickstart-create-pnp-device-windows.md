@@ -82,9 +82,9 @@ In this quickstart, you use the [Vcpkg](https://github.com/microsoft/vcpkg) libr
 
 In this quickstart, you use an existing sample device capability model and associated interfaces.
 
-1. Create a `pnp_app` directory in your local drive. You use this folder for the device model files and device code stub.
+1. Create a `pnp_app` folder in your local drive. You use this folder for the device model files and device code stub.
 
-1. Download the [device capability model and interface sample files](https://github.com/Azure/IoTPlugandPlay/blob/master/samples/SampleDevice.capabilitymodel.json) and [interface sample](https://github.com/Azure/IoTPlugandPlay/blob/master/samples/EnvironmentalSensor.interface.json) and save files into `pnp_app` folder.
+1. Download the [device capability model and interface sample files](https://github.com/Azure/IoTPlugandPlay/blob/master/samples/SampleDevice.capabilitymodel.json) and [interface sample](https://github.com/Azure/IoTPlugandPlay/blob/master/samples/EnvironmentalSensor.interface.json) and save the files into the `pnp_app` folder.
 
     > [!TIP]
     > To download a file from GitHub, navigate to the file, right-click on **Raw**, and then select **Save link as**.
@@ -106,7 +106,7 @@ Now that you have a DCM and its associated interfaces, you can generate the devi
 
 1. Choose the **SampleDevice.capabilitymodel.json** file to use for generating the device code stub.
 
-1. Enter the project name **sample_device**. This will be the name of your device application.
+1. Enter the project name **sample_device**. This is the name of your device application.
 
 1. Choose **ANSI C** as your language.
 
@@ -121,7 +121,7 @@ Now that you have a DCM and its associated interfaces, you can generate the devi
 
 ## Build and run the code
 
-You use the device SDK source code to build the generated device code stub. The application you build simulates a device that connects to an IoT hub. The application sends telemetry and properties and receives commands.
+You use the Vcpkg package to build the generated device code stub. The application you build simulates a device that connects to an IoT hub. The application sends telemetry and properties and receives commands.
 
 1. Create a `cmake` subdirectory in the `sample_device` folder, and navigate to that folder:
 

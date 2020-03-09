@@ -1,6 +1,6 @@
 ---
 title: Connect to Dropbox
-description: Upload and manage files with Dropbox REST APIs and Azure Logic Apps
+description: Automate tasks and workflows that upload and manage files in Dropbox by using Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
@@ -85,7 +85,7 @@ create a new file in Dropbox.
 ## Connector reference
 
 For technical details, such as triggers, actions, and limits, 
-as described by the connector's OpenAPI (formerly Swagger) file, 
+as described by the connector's Swagger file, 
 see the [connector's reference page](/connectors/dropbox/).
 
 ## Next steps

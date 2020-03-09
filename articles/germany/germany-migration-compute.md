@@ -200,7 +200,7 @@ For more information:
 - Review the [Azure Resource Manager overview](../azure-resource-manager/management/overview.md).
 - Get an overview of [virtual machine scale sets](../virtual-machine-scale-sets/overview.md).
 - Read an [overview of Azure locations](https://azure.microsoft.com/global-infrastructure/locations/).
-- Learn how to [redeploy a template](../azure-resource-manager/resource-group-template-deploy.md).
+- Learn how to [redeploy a template](../azure-resource-manager/templates/deploy-powershell.md).
 
 ## Web Apps
 
@@ -211,7 +211,7 @@ Currently, apps that you created by using the Web Apps feature of Azure App Serv
 
 For more information:
 
-- Refresh your knowledge by completing the [App Service tutorials](https://docs.microsoft.com/azure/app-service/#step-by-step-tutorials).
+- Refresh your knowledge by completing the [App Service tutorials](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-dotnetcore-sqldb).
 - Learn how to [export Resource Manager templates](../azure-resource-manager/templates/export-template-portal.md) or read an overview of [Azure Resource Manager](../azure-resource-manager/management/overview.md).
 - Review the [App Service overview](../app-service/overview.md).
 - Read the [overview of Azure locations](https://azure.microsoft.com/global-infrastructure/locations/).

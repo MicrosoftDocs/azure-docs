@@ -226,7 +226,7 @@ In the preceding steps, you created Azure resources in a server group. If you do
 
 ## Next steps
 
-In this tutorial, you learned how to provision a Hyperscale (Citus) server group. You connected to it with psql, created a schema, and distributed data. You learned to query data both in the raw form, regularly aggregate that data, query the aggregated tables, and expire old data.
+In this tutorial, you learned how to provision a Hyperscale (Citus) server group. You connected to it with psql, created a schema, and distributed data. You learned to query data in the raw form, regularly aggregate that data, query the aggregated tables, and expire old data.
 
 Next, learn about the concepts of hyperscale.
 > [!div class="nextstepaction"]

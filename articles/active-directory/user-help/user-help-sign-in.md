@@ -2,7 +2,7 @@
 title: Sign-in using your identity authentication info - Azure AD
 description: Learn about how to sign-in using the various identity verification methods in security info.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 ms.reviewer: librown
 
@@ -11,9 +11,8 @@ ms.workload: identity
 ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 07/18/2019
-ms.author: lizross
+ms.author: curtand
 ms.custom: user-help
-ms.collection: M365-identity-device-management
 ---
 
 # Sign in using two-step verification or security info

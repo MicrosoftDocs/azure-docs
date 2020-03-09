@@ -239,4 +239,4 @@ The following tables show the virtual tables that represent the original arrays 
 | 2222 |1 |2 |
 
 ## Next steps
-For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md##supported-data-stores-and-formats).
+For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

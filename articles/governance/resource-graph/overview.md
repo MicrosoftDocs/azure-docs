@@ -1,7 +1,7 @@
 ---
 title: Overview of Azure Resource Graph
 description: Understand how the Azure Resource Graph service enables complex querying of resources at scale across subscriptions and tenants.
-ms.date: 10/21/2019
+ms.date: 03/02/2020
 ms.topic: overview
 ---
 # What is Azure Resource Graph?
@@ -23,7 +23,7 @@ In this documentation, you'll go over each feature in detail.
 > and Azure Policy's [Change history](../policy/how-to/determine-non-compliance.md#change-history-preview)
 > _visual diff_. It's designed to help customers manage large-scale environments.
 
-[!INCLUDE [service-provider-management-toolkit](../../../includes/azure-lighthouse-supported-service.md)]
+[!INCLUDE [azure-lighthouse-supported-service](../../../includes/azure-lighthouse-supported-service.md)]
 
 ## How does Resource Graph complement Azure Resource Manager
 
@@ -33,11 +33,8 @@ facilities for calling individual resource providers for detailed properties one
 
 With Azure Resource Graph, you can access these properties the resource providers return without
 needing to make individual calls to each resource provider. For a list of supported resource types,
-look for a **Yes** in the
-[Resources for complete mode deployments](../../azure-resource-manager/complete-mode-deletion.md)
-table. Additional resource types are found in the related
-[Resource Graph tables](./concepts/query-language.md#resource-graph-tables). An alternative way to
-see supported resource types is through the
+review the [table and resource type reference](./reference/supported-tables-resources.md). An
+alternative way to see supported resource types is through the
 [Azure Resource Graph Explorer Schema browser](./first-query-portal.md#schema-browser).
 
 With Azure Resource Graph, you can:

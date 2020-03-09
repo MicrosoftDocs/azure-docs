@@ -25,7 +25,7 @@ Learn how to create a Linux virtual machine (VM) by using an Azure Resource Mana
 
 ## Templates overview
 
-Azure Resource Manager templates are JSON files that define the infrastructure and configuration of your Azure solution. By using a template, you can repeatedly deploy your solution throughout its lifecycle and have confidence your resources are deployed in a consistent state. To learn more about the format of the template and how you construct it, see [Quickstart: Create and deploy Azure Resource Manager templates by using the Azure portal](../../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md). To view the JSON syntax for resources types, see [Define resources in Azure Resource Manager templates](/azure/templates/microsoft.compute/allversions).
+Azure Resource Manager templates are JSON files that define the infrastructure and configuration of your Azure solution. By using a template, you can repeatedly deploy your solution throughout its lifecycle and have confidence your resources are deployed in a consistent state. To learn more about the format of the template and how you construct it, see [Quickstart: Create and deploy Azure Resource Manager templates by using the Azure portal](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md). To view the JSON syntax for resources types, see [Define resources in Azure Resource Manager templates](/azure/templates/microsoft.compute/allversions).
 
 ## Create a virtual machine
 

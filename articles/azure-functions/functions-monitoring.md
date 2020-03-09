@@ -27,7 +27,7 @@ For a function app to send data to Application Insights, it needs to know the in
 
 ### New function app in the portal
 
-When you [create your function app in the Azure portal](functions-create-first-azure-function.md), Application Insights integration is enabled by default. The Application Insights resource has the same name as your function app, and it's created either in the same region or in nearest region.
+When you [create your function app in the Azure portal](functions-create-first-azure-function.md), Application Insights integration is enabled by default. The Application Insights resource has the same name as your function app, and it's created either in the same region or in the nearest region.
 
 To review the Application Insights resource being created, select it to expand the **Application Insights** window. You can change the **New resource name** or choose a different **Location** in an [Azure geography](https://azure.microsoft.com/global-infrastructure/geographies/) where you want to store your data.
 
@@ -70,7 +70,7 @@ You can see that both pages have a **Run in Application Insights** link to the A
 
 ![Run in Application Insights](media/functions-monitoring/run-in-ai.png)
 
-The following query is displayed. You can see that the invocation list is limited to the last 30 days. The list shows no more than 20 rows (`where timestamp > ago(30d) | take 20`). The invocation details list is for the last 30 days with no limit.
+The following query is displayed. You can see that the query results are limited to the last 30 days (`where timestamp > ago(30d)`). In addition, the results show no more than 20 rows (`take 20`). In contrast, the invocation details list for your function is for the last 30 days with no limit.
 
 ![Application Insights Analytics invocation list](media/functions-monitoring/ai-analytics-invocation-list.png)
 
@@ -94,7 +94,7 @@ The following areas of Application Insights can be helpful when evaluating the b
 | **[Performance](../azure-monitor/app/performance-counters.md)** | Analyze performance issues. |
 | **Servers** | View resource utilization and throughput per server. This data can be useful for debugging scenarios where functions are bogging down your underlying resources. Servers are referred to as **Cloud role instances**. |
 | **[Metrics](../azure-monitor/app/metrics-explorer.md)** | Create charts and alerts that are based on metrics. Metrics include the number of function invocations, execution time, and success rates. |
-| **[Live Metrics Stream](../azure-monitor/app/live-stream.md)** | View metrics data as it's created in real time. |
+| **[Live Metrics Stream](../azure-monitor/app/live-stream.md)** | View metrics data as it's created in near real-time. |
 
 ## Query telemetry data
 
@@ -333,7 +333,7 @@ You can write logs in your function code that appear as traces in Application In
 
 Use an [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger) parameter in your functions instead of a `TraceWriter` parameter. Logs created by using `TraceWriter` go to Application Insights, but `ILogger` lets you do [structured logging](https://softwareengineering.stackexchange.com/questions/312197/benefits-of-structured-logging-vs-basic-logging).
 
-With an `ILogger` object, you call `Log<level>` [extension methods on ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.loggerextensions#methods) to create logs. The following code writes `Information` logs with category "Function."
+With an `ILogger` object, you call `Log<level>` [extension methods on ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.loggerextensions#methods) to create logs. The following code writes `Information` logs with category "Function.<YOUR_FUNCTION_NAME>.User."
 
 ```cs
 public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, ILogger logger)
@@ -557,7 +557,7 @@ namespace functionapp0915
 
 Don't call `TrackRequest` or `StartOperation<RequestTelemetry>` because you'll see duplicate requests for a function invocation.  The Functions runtime automatically tracks requests.
 
-Don't set `telemetryClient.Context.Operation.Id`. This global setting causes incorrect correlation when many functions are running simultaneously. Instead, create a new telemetry instance (`DependencyTelemetry`, `EventTelemetry`) and modify its `Context` property. Then pass in the telemetry instance to the corresponding `Track` method on `TelemetryClient` (`TrackDependency()`, `TrackEvent()`). This method ensures that the telemetry has the correct correlation details for the current function invocation.
+Don't set `telemetryClient.Context.Operation.Id`. This global setting causes incorrect correlation when many functions are running simultaneously. Instead, create a new telemetry instance (`DependencyTelemetry`, `EventTelemetry`) and modify its `Context` property. Then pass in the telemetry instance to the corresponding `Track` method on `TelemetryClient` (`TrackDependency()`, `TrackEvent()`, `TrackMetric()`). This method ensures that the telemetry has the correct correlation details for the current function invocation.
 
 ## Log custom telemetry in JavaScript functions
 
@@ -586,7 +586,7 @@ The `tagOverrides` parameter sets the `operation_Id` to the function's invocatio
 
 ## Dependencies
 
-Functions v2 automatically collects dependencies for HTTP requests, ServiceBus, and SQL.
+Functions v2 automatically collects dependencies for HTTP requests, ServiceBus, EventHub, and SQL.
 
 You can write custom code to show the dependencies. For examples, see the sample code in the [C# custom telemetry section](#log-custom-telemetry-in-c-functions). The sample code results in an *application map* in Application Insights that looks like the following image:
 
@@ -598,13 +598,13 @@ To report an issue with Application Insights integration in Functions, or to mak
 
 ## Streaming Logs
 
-While developing an application, you often want to see what's being written to the logs in near-real time when running in Azure.
+While developing an application, you often want to see what's being written to the logs in near real-time when running in Azure.
 
 There are two ways to view a stream of log files being generated by your function executions.
 
 * **Built-in log streaming**: the App Service platform lets you view a stream of your application log files. This is equivalent to the output seen when you debug your functions during [local development](functions-develop-local.md) and when you use the **Test** tab in the portal. All log-based information is displayed. For more information, see [Stream logs](../app-service/troubleshoot-diagnostic-logs.md#stream-logs). This streaming method supports only a single instance, and can't be used with an app running on Linux in a Consumption plan.
 
-* **Live Metrics Stream**: when your function app is [connected to Application Insights](#enable-application-insights-integration), you can view log data and other metrics in near-real time in the Azure portal using [Live Metrics Stream](../azure-monitor/app/live-stream.md). Use this method when monitoring functions running on multiple-instances or on Linux in a Consumption plan. This method uses [sampled data](#configure-sampling).
+* **Live Metrics Stream**: when your function app is [connected to Application Insights](#enable-application-insights-integration), you can view log data and other metrics in near real-time in the Azure portal using [Live Metrics Stream](../azure-monitor/app/live-stream.md). Use this method when monitoring functions running on multiple-instances or on Linux in a Consumption plan. This method uses [sampled data](#configure-sampling).
 
 Log streams can be viewed both in the portal and in most local development environments. 
 

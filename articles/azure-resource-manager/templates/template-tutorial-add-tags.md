@@ -21,7 +21,7 @@ You must have Visual Studio Code with the Resource Manager Tools extension, and 
 
 Your previous template deployed a storage account, App Service plan, and web app.
 
-[!code-json[](~/resourcemanager-templates/get-started-with-templates/quickstart-template/azuredeploy.json)]
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/quickstart-template/azuredeploy.json":::
 
 After deploying these resources, you might need to track costs and find resources that belong to a category. You can add tags to help solve these issues.
 
@@ -31,7 +31,7 @@ You tag resources to add values that help you identify their use. For example, y
 
 The following example highlights the changes to the template. Copy the whole file and replace your template with its contents.
 
-[!code-json[](~/resourcemanager-templates/get-started-with-templates/add-tags/azuredeploy.json?range=1-118&highlight=46-52,64,78,100)]
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-tags/azuredeploy.json" range="1-118" highlight="46-52,64,78,102":::
 
 ## Deploy template
 

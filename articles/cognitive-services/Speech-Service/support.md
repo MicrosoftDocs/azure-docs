@@ -54,17 +54,6 @@ Azure customers can create and manage support requests in the Azure portal.
 * [Azure portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
 * [Azure portal for the United States government](https://portal.azure.us)
 
-## Post a question to Stack Overflow
-
-Stack Overflow is the preferred channel for development-related questions. It's where members of the community and Microsoft team members are directly involved in helping you solve your problems.
-
-If you can't find an answer to your problem via search, submit a new question to Stack Overflow by using tags [\[microsoft-cognitive\]\[speech\]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+speech).
-
-> [!TIP]
-> The following posts from Stack Overflow contain tips on how to form questions and add source code. Following these guidelines might help increase the chances that community members assess and respond to your question quickly:  
-> * [How do I ask a good question?](https://stackoverflow.com/help/how-to-ask)
-> * [How to create a Minimal, Complete, and Verifiable example](https://stackoverflow.com/help/mcve)
-
 ## Create a GitHub issue
 
 Samples are often posted as open source. For questions and issues, create an *issue* in the respective GitHub repository. You can submit a pull request, too. The following list contains links to the sample repositories:
@@ -104,6 +93,16 @@ Which version of the SDK are you using.
  - If you report an error for a specific service interaction, report the SessionId and time (incl. timezone) of the reported incidents. The SessionId is reported in all call-backs/events you receive.
  - Any other additional information
 
+## Post a question to Stack Overflow
+
+Stack Overflow is the preferred channel for development-related questions. It's where members of the community and Microsoft team members are directly involved in helping you solve your problems.
+
+If you can't find an answer to your problem via search, submit a new question to Stack Overflow by using tags [\[microsoft-cognitive\]\[speech\]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+speech).
+
+> [!TIP]
+> The following posts from Stack Overflow contain tips on how to form questions and add source code. Following these guidelines might help increase the chances that community members assess and respond to your question quickly:  
+> * [How do I ask a good question?](https://stackoverflow.com/help/how-to-ask)
+> * [How to create a Minimal, Complete, and Verifiable example](https://stackoverflow.com/help/mcve)
 
 ## UserVoice forum
 

@@ -36,3 +36,7 @@ In a browser, navigate to the [Windows Virtual Desktop web client](https://rdweb
 >If you've already signed in with a different Azure Active Directory account than the one you want to use for Windows Virtual Desktop, you should either sign out or use a private browser window.
 
 After signing in, you should now see a list of resources. You can launch resources by selecting them like you would a normal app in the **All Resources** tab.
+
+## Next steps
+
+To learn more about how to use the web client, check out [Get started with the Web client](https://go.microsoft.com/fwlink/?linkid=2120256).

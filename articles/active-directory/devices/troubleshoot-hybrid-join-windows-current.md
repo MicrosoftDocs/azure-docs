@@ -101,7 +101,7 @@ This field indicates whether the device is registered with Azure AD as a persona
 
 #### AzureAdJoined : YES  
 
-This field indicates whether the device is joined with Azure AD. 
+This field indicates whether the device is joined. The value will be **YES** if the device is either an Azure AD joined device or a hybrid Azure AD joined device.
 If the value is **NO**, the join to Azure AD has not completed yet. 
 
 Proceed to next steps for further troubleshooting.
@@ -244,7 +244,7 @@ Applicable only for federated domain accounts.
 Reasons for failure:
 
 - Unable to get an Access token silently for DRS resource.
-   - Windows 10 devices acquire auth token from the federation service using Integrated Windows Authentication to an active WS-Trust endpoint. Details: [Federation Service Configuration](hybrid-azuread-join-manual.md##set-up-issuance-of-claims)
+   - Windows 10 devices acquire auth token from the federation service using Integrated Windows Authentication to an active WS-Trust endpoint. Details: [Federation Service Configuration](hybrid-azuread-join-manual.md#set-up-issuance-of-claims)
 
 **Common error codes:**
 
@@ -355,7 +355,7 @@ Use Event Viewer logs to locate the phase and errorcode for the join failures.
    - Resolution: Disable TPM on devices with this error. Windows 1809 automatically detects TPM failures and completes hybrid Azure AD join without using the TPM.
 - **NTE_AUTHENTICATION_IGNORED** (0x80090031/-2146893775)
    - Reason: TPM locked out.
-   - Resolution: Transient error. Wait for the cooldown period. Join attempt after some time should succeed. More Information can be found in the article [TPM fundamentals](https://docs.microsoft.com/windows/security/information-protection/tpm/tpm-fundamentals#anti-hammering)
+   - Resolution: Transient error. Wait for the cooldown period. Join attempt after some time should succeed. More Information can be found in the article [TPM fundamentals](/windows/security/information-protection/tpm/tpm-fundamentals#anti-hammering)
 
 ##### Network Errors
 

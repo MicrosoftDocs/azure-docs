@@ -1,6 +1,6 @@
 ---
 title: Stages of a blueprint deployment
-description: Learn the security and artifact related steps the Azure Blueprint services goes through while creating a blueprint assignment.
+description: Learn the security and artifact related steps the Azure Blueprints services goes through while creating a blueprint assignment.
 ms.date: 11/13/2019
 ms.topic: conceptual
 ---
@@ -32,7 +32,7 @@ principal doesn't get and doesn't need owner rights on the subscription.
 
 The rights are granted automatically if the assignment is done through the portal. However, if the
 assignment is done through the REST API, granting the rights needs to be done with a separate API
-call. The Azure Blueprint AppId is `f71766dc-90d9-4b7d-bd9d-4499c4331c3f`, but the service principal
+call. The Azure Blueprints AppId is `f71766dc-90d9-4b7d-bd9d-4499c4331c3f`, but the service principal
 varies by tenant. Use
 [Azure Active Directory Graph API](../../../active-directory/develop/active-directory-graph-api.md)
 and REST endpoint [servicePrincipals](/graph/api/resources/serviceprincipal) to get the service

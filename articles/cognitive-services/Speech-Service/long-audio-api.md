@@ -1,15 +1,15 @@
 ---
 title: Long Audio API (Preview) - Speech service
 titleSuffix: Azure Cognitive Services
-description:
+description: Learn how the Long Audio API is designed for asynchronous synthesis of long-form text to speech.
 services: cognitive-services
-author: erhopf
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 10/26/2019
-ms.author: erhopf
+ms.date: 01/30/2020
+ms.author: dapine
 ---
 
 # Long Audio API (Preview)

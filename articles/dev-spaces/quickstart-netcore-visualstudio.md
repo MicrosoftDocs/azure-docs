@@ -118,7 +118,7 @@ Remove the breakpoint by putting your cursor on line 20 in `Controllers/HomeCont
 
 Navigate to your resource group in the Azure portal and click *Delete resource group*. Alternatively, you can use the [az aks delete](/cli/azure/aks#az-aks-delete) command:
 
-```cmd
+```azurecli
 az group delete --name MyResourceGroup --yes --no-wait
 ```
 
@@ -128,4 +128,4 @@ az group delete --name MyResourceGroup --yes --no-wait
 > [Working with multiple containers and team development](multi-service-netcore-visualstudio.md)
 
 [ingress-update]: how-dev-spaces-works.md#how-running-your-code-is-configured
-[supported-regions]: about.md#supported-regions-and-configurations
+[supported-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service

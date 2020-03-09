@@ -225,6 +225,8 @@
       href: sql-data-warehouse-workload-importance.md
     - name: Workload isolation
       href: sql-data-warehouse-workload-isolation.md
+    - name: Workload management monitoring
+      href: sql-data-warehouse-workload-management-portal-monitor.md
     - name: Memory & concurrency limits
       href: memory-concurrency-limits.md
     - name: Resource classes

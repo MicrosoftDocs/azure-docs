@@ -24,7 +24,7 @@ When you try to start a stopped Azure Virtual Machine (VM), or resize an existin
 ## Collect activity logs
 To start troubleshooting, collect the activity logs to identify the error associated with the issue. The following links contain detailed information on the process:
 
-[View deployment operations](../../azure-resource-manager/resource-manager-deployment-operations.md)
+[View deployment operations](../../azure-resource-manager/templates/deployment-history.md)
 
 [View activity logs to manage Azure resources](../../resource-group-audit.md)
 

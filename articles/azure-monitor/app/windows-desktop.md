@@ -1,11 +1,7 @@
 ---
 title: Monitoring usage and performance for Windows desktop apps
 description: Analyze usage and performance of your Windows desktop app with Application Insights.
-ms.service:  azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 10/29/2019
 
 ---

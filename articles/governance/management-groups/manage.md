@@ -13,6 +13,12 @@ Management groups give you enterprise-grade management at a large scale no matte
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
+>[!IMPORTANT]
+>Azure Resource Manager user tokens and management group cache lasts for 30 minutes before they are forced to refresh.  After doing any action like moving a management group or subscription, it might take up to 30 minutes to show.  
+>To see the updates sooner you need to update your token by refreshing the browser, signing in and out, or requesting a new token.  
+
+
+
 ## Change the name of a management group
 
 You can change the name of the management group by using the portal, PowerShell, or Azure CLI.
@@ -121,7 +127,7 @@ You can view any management group you have a direct or inherited RBAC role on.
 
 ### View in PowerShell
 
-You use the Get-AzManagementGroup command to retrieve all groups.  See [Az.Resources](/powershell/module/az.resources/Get-AzManagementGroup) modules for the full list of management group GET Powershell commands.  
+You use the Get-AzManagementGroup command to retrieve all groups.  See [Az.Resources](/powershell/module/az.resources/Get-AzManagementGroup) modules for the full list of management group GET PowerShell commands.  
 
 ```azurepowershell-interactive
 Get-AzManagementGroup
@@ -319,7 +325,7 @@ az account management-group update --name 'Contoso' --parent ContosoIT
 
 ## Audit management groups using activity logs
 
-Management groups are supported within [Azure Activity Log](../../azure-monitor/platform/activity-logs-overview.md). You can query all events that happen to a management group in the same central location as other Azure resources.  For example, you can see all Role Assignments or Policy Assignment changes made to a particular management group.
+Management groups are supported within [Azure Activity Log](../../azure-monitor/platform/platform-logs-overview.md). You can query all events that happen to a management group in the same central location as other Azure resources.  For example, you can see all Role Assignments or Policy Assignment changes made to a particular management group.
 
 ![Activity Logs with management groups](media/al-mg.png)
 

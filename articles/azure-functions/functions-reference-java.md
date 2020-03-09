@@ -353,7 +353,7 @@ public class Function {
     }
 }
 ```
-In the preceding example, the `queryValue` is bound to the query string parameter `name` in the http request URL, `http://{example.host}/api/metadata?name=test`. Here's another example, showing how to bind to `Id` from queue trigger metadata.
+In the preceding example, the `queryValue` is bound to the query string parameter `name` in the HTTP request URL, `http://{example.host}/api/metadata?name=test`. Here's another example, showing how to bind to `Id` from queue trigger metadata.
 
 ```java
  @FunctionName("QueueTriggerMetadata")

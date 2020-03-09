@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 10/05/2019
+ms.date: 01/27/2020
 ms.author: pafarley
 ms.custom: seodec18
 ---
@@ -21,8 +21,8 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-- You must have [Go](https://golang.org/dl/) installed.
-- You must have a subscription key for Computer Vision. You can get a free trial key from [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Or, follow the instructions in [Create a Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) to subscribe to Computer Vision and get your key. Then, [create environment variables](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for the key and service endpoint string, named `COMPUTER_VISION_SUBSCRIPTION_KEY` and `COMPUTER_VISION_ENDPOINT`, respectively.
+* The latest version of [Go](https://golang.org/dl/)
+* A Computer Vision subscription key. You can get a free trial key from [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Or, follow the instructions in [Create a Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) to subscribe to Computer Vision and get your key. Then, [create environment variables](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for the key and service endpoint string, named `COMPUTER_VISION_SUBSCRIPTION_KEY` and `COMPUTER_VISION_ENDPOINT`, respectively.
 
 ## Create and run the sample
 

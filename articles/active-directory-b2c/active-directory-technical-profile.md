@@ -3,14 +3,14 @@ title: Define an Azure AD technical profile in a custom policy
 titleSuffix: Azure AD B2C
 description: Define an Azure Active Directory technical profile in a custom policy in Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
-ms.author: marsma
+ms.date: 03/09/2020
+ms.author: mimart
 ms.subservice: B2C
 ---
 
@@ -24,8 +24,8 @@ Azure Active Directory B2C (Azure AD B2C) provides support for the Azure Active 
 
 The **Name** attribute of the **Protocol** element needs to be set to `Proprietary`. The **handler** attribute must contain the fully qualified name of the protocol handler assembly `Web.TPEngine.Providers.AzureActiveDirectoryProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`.
 
-All Azure AD technical profiles include the **AAD-Common** technical profile. The following technical profiles don't specify the protocol because the protocol is configured in the **AAD-Common** technical profile:
-
+Following [custom policy starter pack](custom-policy-get-started.md#custom-policy-starter-pack) Azure AD technical profiles include the **AAD-Common** technical profile. The Azure AD technical profiles don't specify the protocol because the protocol is configured in the **AAD-Common** technical profile:
+ 
 - **AAD-UserReadUsingAlternativeSecurityId** and **AAD-UserReadUsingAlternativeSecurityId-NoError** - Look up a social account in the directory.
 - **AAD-UserWriteUsingAlternativeSecurityId** - Create a new social account.
 - **AAD-UserReadUsingEmailAddress** - Look up a local account in the directory.
@@ -54,13 +54,13 @@ The following example shows the **AAD-Common** technical profile:
 
 ## Input claims
 
-The following technical profiles include **InputClaims** for social and local accounts:
+The InputClaims element contains a claim, which is used to look up an account in the directory, or create a new one. There must be exactly one InputClaim element in the input claims collection for all Azure AD technical profiles. You may need to map the name of the claim defined in your policy to the name defined in Azure Active Directory.
 
-- The social account technical profiles **AAD-UserReadUsingAlternativeSecurityId** and **AAD-UserWriteUsingAlternativeSecurityId** includes the **AlternativeSecurityId** claim. This claim contains the social account user identifier.
-- The local account technical profiles **AAD-UserReadUsingEmailAddress** and **AAD-UserWriteUsingLogonEmail** includes the **email** claim. This claim contains the sign-in name of the local account.
-- The unified (local and social) technical profiles **AAD-UserReadUsingObjectId**, **AAD-UserWritePasswordUsingObjectId**, **AAD-UserWriteProfileUsingObjectId**, and **AAD-UserWritePhoneNumberUsingObjectId** includes the **objectId** claim. The unique identifier of an account.
+To read, update, or delete an existing user account, the input claim is a key that uniquely identifies the account in Azure AD directory. For example, **objectId**, **userPrincipalName**, **signInNames.emailAddress**, **signInNames.userName**, or **alternativeSecurityId**. 
 
-The **InputClaimsTransformations** element may contain a collection of **InputClaimsTransformation** elements that are used to modify the input claims or generate new ones.
+To create a new user account, the input claim is a key that uniquely identifies a local or federated account. For example, local account: **signInNames.emailAddress**, or **signInNames.userName**. For a federated account: the **alternativeSecurityId**.
+
+The InputClaimsTransformations element may contain a collection of input claims transformation elements that are used to modify the input claim or generate new one.
 
 ## Output claims
 
@@ -256,8 +256,9 @@ The following technical profile deletes a social user account using **alternativ
 | UserMessageIfClaimsPrincipalDoesNotExist | No | If an error is to be raised (see the RaiseErrorIfClaimsPrincipalDoesNotExist attribute description), specify the message to show to the user if user object does not exist. The value can be [localized](localization.md).|
 | RaiseErrorIfClaimsPrincipalAlreadyExists | No | Raise an error if the user object already exists. Possible values: `true` or `false`.|
 | UserMessageIfClaimsPrincipalAlreadyExists | No | If an error is to be raised (see RaiseErrorIfClaimsPrincipalAlreadyExists attribute description), specify the message to show to the user if user object already exists. The value can be [localized](localization.md).|
-| ApplicationObjectId | No | The application object identifier for extension attributes. Value: ObjectId of an application. For more information, see [Use custom attributes in a custom profile edit policy](active-directory-b2c-create-custom-attributes-profile-edit-custom.md). |
-| ClientId | No | The client identifier for accessing the tenant as a third party. For more information, see [Use custom attributes in a custom profile edit policy](active-directory-b2c-create-custom-attributes-profile-edit-custom.md) |
+| ApplicationObjectId | No | The application object identifier for extension attributes. Value: ObjectId of an application. For more information, see [Use custom attributes in a custom profile edit policy](custom-policy-custom-attributes.md). |
+| ClientId | No | The client identifier for accessing the tenant as a third party. For more information, see [Use custom attributes in a custom profile edit policy](custom-policy-custom-attributes.md) |
+| IncludeClaimResolvingInClaimsHandling  | No | For input and output claims, specifies whether [claims resolution](claim-resolver-overview.md) is included in the technical profile. Possible values: `true`, or `false` (default). If you want to use a claims resolver in the technical profile, set this to `true`. |
 
 
 

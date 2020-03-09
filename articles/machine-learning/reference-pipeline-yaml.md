@@ -435,4 +435,4 @@ Schedule:
 
 ## Next steps
 
-Learn how to [use the CLI extension for Azure Machine Learning](service/reference-azure-machine-learning-cli.md).
+Learn how to [use the CLI extension for Azure Machine Learning](reference-azure-machine-learning-cli.md).

@@ -26,6 +26,7 @@ Local git is configured with url of 'https://<username>@<app-name>.scm.azurewebs
   "availabilityState": "Normal",
   "clientAffinityEnabled": true,
   "clientCertEnabled": false,
+  "clientCertExclusionPaths": null,
   "cloningInfo": null,
   "containerSize": 0,
   "dailyMemoryTimeQuota": 0,

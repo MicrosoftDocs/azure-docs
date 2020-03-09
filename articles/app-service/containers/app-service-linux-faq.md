@@ -27,8 +27,8 @@ You can find all Docker files on [GitHub](https://github.com/azure-app-service).
 
 | Stack           | Expected Value                                                                         |
 |-----------------|----------------------------------------------------------------------------------------|
-| Java SE         | the command to start your JAR app (for example, `java -jar my-app.jar --server.port=80`) |
-| Tomcat, Wildfly | the location of a script to perform any necessary configurations (for example, `/home/site/deployments/tools/startup_script.sh`)          |
+| Java SE         | the command to start your JAR app (for example, `java -jar /home/site/wwwroot/app.jar --server.port=80`) |
+| Tomcat          | the location of a script to perform any necessary configurations (for example, `/home/site/deployments/tools/startup_script.sh`)          |
 | Node.js         | the PM2 configuration file or your script file                                |
 | .Net Core       | the compiled DLL name as `dotnet <myapp>.dll`                                 |
 | Ruby            | the Ruby script that you want to initialize your app with                     |

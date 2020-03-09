@@ -1,8 +1,6 @@
 ---
 title: Azure Application Insights | Microsoft Docs
 description: 
-ms.service:  azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: eternovsky
 ms.author: evternov

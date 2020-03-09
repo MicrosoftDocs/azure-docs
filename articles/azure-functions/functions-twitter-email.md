@@ -125,7 +125,7 @@ Now you have a function that categorizes sentiment scores. Next, you create a lo
 
 ## Create a logic app   
 
-1. In the Azure portal, click the **New** button found on the upper left-hand corner of the Azure portal.
+1. In the Azure portal, click the **Create a resource** button found on the upper left-hand corner of the Azure portal.
 
 2. Click **Web** > **Logic App**.
  

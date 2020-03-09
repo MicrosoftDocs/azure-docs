@@ -9,7 +9,7 @@ ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.author: dapine
+ms.author: pafarley
 ms.custom: seodec18
 ---
 
@@ -17,7 +17,7 @@ ms.custom: seodec18
 
 Containers enable you to run the Computer Vision APIs in your own environment. Containers are great for specific security and data governance requirements. In this article you'll learn how to download, install, and run a Computer Vision container.
 
-A single Docker container, *Read*, is available for Computer Vision. The *Read* container allows you to detect and extract *printed text* from images of various objects with different surfaces and backgrounds, such as receipts, posters, and business cards. Additionally, the *Read* container detects *handwritten text* in images and provides PDF, TIFF, and multi-page file support. For more information, see the [Read API](concept-recognizing-text.md#read-api) documentation.
+A single Docker container, *Read*, is available for Computer Vision. The *Read* container allows you to detect and extract *printed text* from images of various objects with different surfaces and backgrounds, such as receipts, posters, and business cards. Additionally, the *Read* container detects *handwritten text* in images and provides PDF, TIFF, and multi-page file support. For more information, see the [Read](concept-recognizing-text.md#read-api) API documentation.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -40,6 +40,16 @@ You must meet the following prerequisites before using the containers:
 ### The host computer
 
 [!INCLUDE [Host Computer requirements](../../../includes/cognitive-services-containers-host-computer.md)]
+
+### Advanced Vector Extension support
+
+The **host** computer is the computer that runs the docker container. The host *must support* [Advanced Vector Extensions](https://en.wikipedia.org/wiki/Advanced_Vector_Extensions#CPUs_with_AVX2) (AVX2). You can check for AVX2 support on Linux hosts with the following command:
+
+```console
+grep -q avx2 /proc/cpuinfo && echo AVX2 supported || echo No AVX2 support detected
+```
+> [!WARNING]
+> The host computer is *required* to support AVX2. The container *will not* function correctly without AVX2 support.
 
 ### Container requirements and recommendations
 

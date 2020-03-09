@@ -50,7 +50,7 @@ Deployment of a cloud service may fail if the resources that are required to be 
 
 You could also track the current usage/quota for your subscription at the portal: Azure portal => Subscriptions => \<appropriate subscription> => “Usage + quota”.
 
-Resource usage/consumption-related information can also be retrieved via the Azure Billing APIs. See [Azure Resource Usage API (Preview)](../billing/billing-usage-rate-card-overview.md#azure-resource-usage-api-preview).
+Resource usage/consumption-related information can also be retrieved via the Azure Billing APIs. See [Azure Resource Usage API (Preview)](../cost-management-billing/manage/usage-rate-card-overview.md#azure-resource-usage-api-preview).
 
 ## How can I change the size of a deployed cloud service VM without redeploying it?
 You cannot change the VM size of a deployed cloud service without redeploying it. The VM size is built into the CSDEF, which can only be updated with a redeploy.
@@ -60,17 +60,17 @@ For more information, see [How to update a cloud service](cloud-services-update-
 ## Why am I not able to deploy Cloud Services through Service Management APIs or PowerShell when using Azure Resource Manager Storage account? 
 
 Since the Cloud Service is a Classic resource that is not directly compatible with the Azure Resource Manager model, you can't associate it with the Azure Resource Manager Storage accounts. Here are few options: 
- 
+
 - Deploying through REST API.
 
     When you deploy through Service Management REST API, you could get around the limitation by specifying a SAS URL to the blob storage, which will work with both Classic and Azure Resource Manager Storage account. Read more about the 'PackageUrl' property [here](/previous-versions/azure/reference/ee460813(v=azure.100)).
-  
+
 - Deploying through [Azure portal](https://portal.azure.com).
 
     This will work from the [Azure portal](https://portal.azure.com) as the call goes through a proxy/shim that allows communication between Azure Resource Manager and Classic resources. 
- 
-## Why does Azure portal require me to provide a storage account for deployment? 
 
-In the classic portal, the package was uploaded to the management API layer directly, and then the API layer would temporarily put the package into an internal storage account.  This process causes performance and scalability problems because the API layer was not designed to be a file upload service.  In the Azure portal (Resource Manager deployment model), we have bypassed the interim step of first uploading to the API layer, resulting in faster and more reliable deployments. 
+## Why does Azure portal require me to provide a storage account for deployment?
 
-As for the cost, it is very small and you can reuse the same storage account across all deployments. You can use the [storage cost calculator](https://azure.microsoft.com/pricing/calculator/#storage1) to determine the cost to upload the service package (CSPKG), download the CSPKG, then delete the CSPKG. 
+In the classic portal, the package was uploaded to the management API layer directly, and then the API layer would temporarily put the package into an internal storage account.  This process causes performance and scalability problems because the API layer was not designed to be a file upload service.  In the Azure portal (Resource Manager deployment model), we have bypassed the interim step of first uploading to the API layer, resulting in faster and more reliable deployments.
+
+As for the cost, it is very small and you can reuse the same storage account across all deployments. You can use the [storage cost calculator](https://azure.microsoft.com/pricing/calculator/#storage1) to determine the cost to upload the service package (CSPKG), download the CSPKG, then delete the CSPKG.

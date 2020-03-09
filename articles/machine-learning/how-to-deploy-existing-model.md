@@ -24,7 +24,7 @@ If you have a machine learning model that was trained outside Azure Machine Lear
 >
 > For more information on the concepts and terms used here, see [Manage, deploy, and monitor machine learning models](concept-model-management-and-deployment.md).
 >
-> For general information on the deployment process, see [Deploy models with Azure Machine Learning](service/how-to-deploy-and-where.md).
+> For general information on the deployment process, see [Deploy models with Azure Machine Learning](how-to-deploy-and-where.md).
 
 ## Prerequisites
 
@@ -95,6 +95,7 @@ conda_dep.add_conda_package("scikit-learn")
 # You must list azureml-defaults as a pip dependency
 conda_dep.add_pip_package("azureml-defaults")
 conda_dep.add_pip_package("keras")
+conda_dep.add_pip_package("gensim")
 
 # Adds dependencies to PythonSection of myenv
 myenv.python.conda_dependencies=conda_dep
@@ -131,9 +132,10 @@ dependencies:
 - pip:
     - azureml-defaults
     - keras
+    - gensim
 ```
 
-For more information on inference configuration, see [Deploy models with Azure Machine Learning](service/how-to-deploy-and-where.md).
+For more information on inference configuration, see [Deploy models with Azure Machine Learning](how-to-deploy-and-where.md).
 
 ### Entry script
 
@@ -218,7 +220,7 @@ def predict(text, include_neutral=True):
        "elapsed_time": time.time()-start_at}  
 ```
 
-For more information on entry scripts, see [Deploy models with Azure Machine Learning](service/how-to-deploy-and-where.md).
+For more information on entry scripts, see [Deploy models with Azure Machine Learning](how-to-deploy-and-where.md).
 
 ## Define deployment
 
@@ -245,7 +247,7 @@ The CLI loads the deployment configuration from a YAML file:
 }
 ```
 
-Deploying to a different compute target, such as Azure Kubernetes Service in the Azure cloud, is as easy as changing the deployment configuration. For more information, see [How and where to deploy models](service/how-to-deploy-and-where.md).
+Deploying to a different compute target, such as Azure Kubernetes Service in the Azure cloud, is as easy as changing the deployment configuration. For more information, see [How and where to deploy models](how-to-deploy-and-where.md).
 
 ## Deploy the model
 
@@ -272,7 +274,7 @@ az ml model deploy -n myservice -m sentiment:1 --ic inferenceConfig.json --dc de
 
 For more information, see the [az ml model deploy](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-deploy) reference.
 
-For more information on deployment, see [How and where to deploy models](service/how-to-deploy-and-where.md).
+For more information on deployment, see [How and where to deploy models](how-to-deploy-and-where.md).
 
 ## Request-response consumption
 
@@ -299,5 +301,5 @@ For more information on how to consume the deployed service, see [Create a clien
 
 * [Monitor your Azure Machine Learning models with Application Insights](how-to-enable-app-insights.md)
 * [Collect data for models in production](how-to-enable-data-collection.md)
-* [How and where to deploy models](service/how-to-deploy-and-where.md)
+* [How and where to deploy models](how-to-deploy-and-where.md)
 * [How to create a client for a deployed model](how-to-consume-web-service.md)

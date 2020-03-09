@@ -20,7 +20,7 @@ In this tutorial, you learn how to do the following tasks:
 
 - **Azure subscription**: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 
-- **Configure Terraform**: Follow the directions in the article, [Terraform and configure access to Azure](/azure/virtual-machines/linux/terraform-install-configure)
+- **Configure Terraform**: Follow the directions in the article, [Terraform and configure access to Azure](terraform-install-configure.md)
 
 - **Azure service principal**: Follow the directions in the section of the **Create the service principal** section in the article, [Create an Azure service principal with Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest). Take note of the values for the appId, displayName, password, and tenant.
 
@@ -135,10 +135,8 @@ Create the Terraform configuration file that declares the resources for the Kube
 
         default_node_pool {
             name            = "agentpool"
-            count           = var.agent_count
+            node_count      = var.agent_count
             vm_size         = "Standard_DS1_v2"
-            os_type         = "Linux"
-            os_disk_size_gb = 30
         }
 
         service_principal {
