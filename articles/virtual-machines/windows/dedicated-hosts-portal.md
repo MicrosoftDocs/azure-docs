@@ -1,16 +1,12 @@
 ---
-title: Deploy Azure dedicated hosts using the Azure portal 
-description: Deploy VMs to dedicated hosts using the Azure portal.
-services: virtual-machines-windows
+title: Deploy Azure dedicated hosts using the portal 
+description: Deploy VMs to dedicated hosts using the portal.
 author: cynthn
-manager: gwallace
-editor: tysonn
-tags: azure-resource-manager
 ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 07/26/2019
+ms.date: 03/09/2020
 ms.author: cynthn
 
 #Customer intent: As an IT administrator, I want to learn about more about using a dedicated host for my Azure virtual machines
@@ -49,7 +45,7 @@ You can add an exiting VM to a dedicated host, but the VM must first be Stop\Dea
 
 Move the VM to a dedicated host using the [portal](https://portal.azure.com).
 
-1. Once these prerequisite are met browse to the VM.
+1. Open the page for the VM.
 1. Find the configuration tab on the VM Blade.
 1. Select host group and the host.
 1. Click Save.
