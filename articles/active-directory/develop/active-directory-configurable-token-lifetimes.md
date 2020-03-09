@@ -261,7 +261,7 @@ In this example, you create a policy that lets your users' sign in less frequent
 
 > [!NOTE]
 
-if the syntax has any leading white space. it wont throw error currently and to trim the error. Please replace below command.
+if the syntax has any leading white space. it wont throw error currently and to trim the space. Please replace below command.
 
 Get-AzureADPolicy -id <TLP-ID> | set-azureadpolicy -Definition @($((Get-AzureADPolicy -id <TLP-ID>).Replace(" ","")))
 
