@@ -173,7 +173,7 @@ The deployment can take a few minutes to complete. When it finishes, you see a m
 The following template sample illustrates how to:
 
 1. Add solutions to the workspace
-2. Create saved searches -- To assure that deployments don’t override saved searches accidently, an eTag property should be added in "savedSearches" resource for override and idempotency of save searches
+2. Create saved searches -- To assure that deployments don’t override saved searches accidently, an eTag property should be added in "savedSearches" resource to override and maintain idempotency of saves searches
 3. Create a computer group
 4. Enable collection of IIS logs from computers with the Windows agent installed
 5. Collect Logical Disk perf counters from Linux computers (% Used Inodes; Free Megabytes; % Used Space; Disk Transfers/sec; Disk Reads/sec; Disk Writes/sec)
