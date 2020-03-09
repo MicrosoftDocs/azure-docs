@@ -37,6 +37,23 @@ This article guides you through how to create an Azure [dedicated host](dedicate
 1. Leave the remaining defaults and then select the **Review + create** button at the bottom of the page.
 1. When you see the message that validation has passed, select **Create**.
 
+###Add an existing VM to Azure Dedicated host
+
+#Prerequisite
+
+1. We need to make sure that the VM SKU is compatible with the host configuration i.e. if you’re using a DSv3_Type host , then the VM should be of the Same SKU .
+1. The VM and the Host should be in the same Region
+1. The VM should be stopped and Deallocated 
+1. The VM Should not be part of a Placement group
+1. The VM Should not be part of an Availability Set/zone
+1. We can achieve this via the Portal
+
+Portal
+
+1. Once these prerequisite are met browse to the VM.
+1. Find the configuration tab on the VM Blade.
+1. Select host group and the host.
+1. Click Save.
 
 ## Next steps
 
