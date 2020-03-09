@@ -13,7 +13,7 @@ ms.date: 03/04/2020
 Application Insights supports the uploading of source maps to your own Storage Account Blob Container.
 Source maps can be used to unminify call stacks found on the end to end transaction details page. Any exception sent by the [JavaScript SDK][ApplicationInsights-JS] or the [Node.js SDK][ApplicationInsights-Node.js] can be unminified with source maps.
 
-![Unminify a Call Stack by linking with a Storage Account](./media/source-map-support/details_unminify.gif)
+![Unminify a Call Stack by linking with a Storage Account](./media/source-map-support/details-unminify.gif)
 
 ## Create a new storage account and Blob container
 
@@ -23,7 +23,7 @@ If you already have an existing storage account or blob container, you can skip 
 2. [Create a blob container][create blob container] inside your storage account. Be sure to set the "Public access level" to `Private`, to ensure that your source maps are not publicly accessible.
 
 > [!div class="mx-imgBorder"]
->![Your container access level must be set to Private](./media/source-map-support/container_access_level.png)
+>![Your container access level must be set to Private](./media/source-map-support/container-access-level.png)
 
 ## Push your source maps to your Blob container
 
@@ -34,7 +34,7 @@ You should integrate your continuous deployment pipeline with your storage accou
 If you are using Azure Pipelines to continuously build and deploy your application, add an [Azure File Copy][azure file copy] task to your pipeline to automatically upload your source maps.
 
 > [!div class="mx-imgBorder"]
-> ![Add an Azure File Copy task to your Pipeline to upload your source maps to Azure Blob Storage](./media/source-map-support/azure_file_copy.png)
+> ![Add an Azure File Copy task to your Pipeline to upload your source maps to Azure Blob Storage](./media/source-map-support/azure-file-copy.png)
 
 ## Configure your Application Insights resource with a Source Map storage account
 
