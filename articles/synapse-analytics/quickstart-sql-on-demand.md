@@ -139,7 +139,7 @@ The following query shows how to read a CSV file that does not contain a header 
 SELECT *
 FROM OPENROWSET
   (
-      BULK 'https://sqlondemandstorage.blob.core.windows.net/csv'
+      BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/population/*.csv'
     , FORMAT = 'CSV'
     , FIELDTERMINATOR =','
     , ROWTERMINATOR = '\n'
