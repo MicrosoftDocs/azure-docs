@@ -30,7 +30,7 @@ When developing a new application, it's important to know the differences betwee
 * The Microsoft identity platform endpoint allows work and school accounts from Azure AD and personal Microsoft accounts (MSA), such as hotmail.com, outlook.com, and msn.com, to sign in.
 * Both endpoints also accept sign-ins of *[guest users](https://docs.microsoft.com/azure/active-directory/b2b/what-is-b2b)* of an Azure AD directory for applications configured as *[single-tenant](../develop/single-and-multi-tenant-apps.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)* or for *multi-tenant* applications configured to point to the tenant-specific endpoint (`https://login.microsoftonline.com/{TenantId_or_Name}`).
 
-The Microsoft identity platform endpoint allows you to write apps that accept sign-ins from personal Microsoft accounts, and work and school accounts. This gives you the ability to write your app completely account-agnostic. For example, if your app calls the [Microsoft Graph](https://graph.microsoft.io), some additional functionality and data will be available to work accounts, such as their SharePoint sites or directory data. But for many actions, such as [Reading a user's mail](https://developer.microsoft.com/graph/docs/api-reference/v1.0/api/user_list_messages), the same code can access the email for both personal and work and school accounts.
+The Microsoft identity platform endpoint allows you to write apps that accept sign-ins from personal Microsoft accounts, and work and school accounts. This gives you the ability to write your app completely account-agnostic. For example, if your app calls the [Microsoft Graph](https://graph.microsoft.io), some additional functionality and data will be available to work accounts, such as their SharePoint sites or directory data. But for many actions, such as [Reading a user's mail](https://docs.microsoft.com/graph/api/user-list-messages?view=graph-rest-1.0), the same code can access the email for both personal and work and school accounts.
 
 For Microsoft identity platform endpoint, you can use the Microsoft Authentication Library (MSAL) to gain access to the consumer, educational, and enterprise worlds. The Azure AD v1.0 endpoint accepts sign-ins from work and school accounts only.
 
@@ -66,7 +66,7 @@ For the v1.0 endpoint, an OAuth 2.0 authorize request to Azure AD might have loo
 ```text
 GET https://login.microsoftonline.com/common/oauth2/authorize?
 client_id=2d4d11a2-f814-46a7-890a-274a72a7309e
-&resource=https://graph.windows.net/
+&resource=https://graph.microsoft.com/
 ...
 ```
 
@@ -77,7 +77,7 @@ For applications using the Microsoft identity platform endpoint, the same OAuth 
 ```text
 GET https://login.microsoftonline.com/common/oauth2/v2.0/authorize?
 client_id=2d4d11a2-f814-46a7-890a-274a72a7309e
-&scope=https://graph.windows.net/directory.read%20https://graph.windows.net/directory.write
+&scope=https://graph.microsoft.com/directory.read%20https://graph.microsoft.com/directory.write
 ...
 ```
 

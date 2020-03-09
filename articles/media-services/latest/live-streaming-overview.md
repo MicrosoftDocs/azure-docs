@@ -48,7 +48,7 @@ Dynamic filtering is used to control the number of tracks, formats, bitrates, an
 
 ## Live Event types
 
-[Live Events](https://docs.microsoft.com/rest/api/media/liveevents) are responsible for ingesting and processing the live video feeds. A Live Event can be one of two types: pass-through and live encoding. For details about live streaming in Media Services v3, see [Live Events and Live Outputs](live-events-outputs-concept.md).
+[Live Events](https://docs.microsoft.com/rest/api/media/liveevents) are responsible for ingesting and processing the live video feeds. A live event can be set to either a *pass-through* (an on-premises live encoder sends a multiple bitrate stream) or *live encoding* (an on-premises live encoder sends a single bitrate stream). For details about live streaming in Media Services v3, see [Live Events and Live Outputs](live-events-outputs-concept.md).
 
 ### Pass-through
 

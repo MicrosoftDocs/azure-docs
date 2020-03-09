@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 02/18/2020
+ms.date: 03/05/2020
 ms.author: dapine
 ---
 
@@ -190,6 +190,7 @@ By default, the text-to-speech service synthesizes text using a neutral speaking
 
 Currently, speaking style adjustments are supported for these neural voices:
 * `en-US-JessaNeural`
+* `pt-BR-FranciscaNeural`
 * `zh-CN-XiaoxiaoNeural`
 
 Changes are applied at the sentence level, and style vary by voice. If a style isn't supported, the service will return speech in the default neutral speaking style.
@@ -215,6 +216,7 @@ Use this table to determine which speaking styles are supported for each neural 
 | | `type="chat"` | Speak in a casual, relaxed tone |
 | | `type="newscast"` | Expresses a formal tone, similar to news broadcasts |
 | | `type="customerservice"` | Speak in a friendly and patient way as customer service |
+| `pt-BR-FranciscaNeural` | `type="cheerful"` | Expresses an emotion that is positive and happy |
 | `zh-CN-XiaoxiaoNeural` | `type="newscast"` | Expresses a formal tone, similar to news broadcasts |
 | | `type="sentiment"` | Conveys a touching message or a story |
 
@@ -322,7 +324,7 @@ Phonetic alphabets are composed of phones, which are made up of letters, numbers
 
 | Attribute | Description | Required / Optional |
 |-----------|-------------|---------------------|
-| `alphabet` | Specifies the phonetic alphabet to use when synthesizing the pronunciation of the string in the `ph` attribute. The string specifying the alphabet must be specified in lowercase letters. The following are the possible alphabets that you may specify.<ul><li>ipa &ndash; International Phonetic Alphabet</li><li>sapi &ndash; Speech API Phone Set</li><li>ups &ndash; Universal Phone Set</li></ul>The alphabet applies only to the phoneme in the element. For more information, see [Phonetic Alphabet Reference](https://msdn.microsoft.com/library/hh362879(v=office.14).aspx). | Optional |
+| `alphabet` | Specifies the phonetic alphabet to use when synthesizing the pronunciation of the string in the `ph` attribute. The string specifying the alphabet must be specified in lowercase letters. The following are the possible alphabets that you may specify.<ul><li>`ipa` &ndash; International Phonetic Alphabet</li><li>`sapi` &ndash; Speech service phonetic alphabet</li><li>`ups` &ndash; Universal Phone Set</li></ul><br>The alphabet applies only to the `phoneme` in the element. For more information, see [Phonetic Alphabet Reference](https://en.wikipedia.org/wiki/International_Phonetic_Alphabet). | Optional |
 | `ph` | A string containing phones that specify the pronunciation of the word in the `phoneme` element. If the specified string contains unrecognized phones, the text-to-speech (TTS) service rejects the entire SSML document and produces none of the speech output specified in the document. | Required if using phonemes. |
 
 **Examples**
@@ -342,6 +344,101 @@ Phonetic alphabets are composed of phones, which are made up of letters, numbers
     </voice>
 </speak>
 ```
+
+## Use custom lexicon to improve pronunciation
+
+Sometimes TTS cannot accurately pronounce a word, for example, a company or foreign name. Developers can define the reading of these entities in SSML using `phoneme` and `sub` tag, or define the reading of multiple entities by referring to a custom lexicon file using `lexicon` tag.
+
+**Syntax**
+
+```XML
+<lexicon uri="string"/>
+```
+
+**Attributes**
+
+| Attribute | Description | Required / Optional |
+|-----------|-------------|---------------------|
+| `uri` | The address of the external PLS document. | Required. |
+
+**Usage**
+
+Step 1: Define custom lexicon 
+
+You can define the reading of entities by a list of custom lexicon items, stored as an .xml or .pls file.
+
+**Example**
+
+```xml
+<?xml version="1.0" encoding="UTF-16"?>
+<lexicon version="1.0" 
+      xmlns="http://www.w3.org/2005/01/pronunciation-lexicon"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+      xsi:schemaLocation="http://www.w3.org/2005/01/pronunciation-lexicon 
+        http://www.w3.org/TR/2007/CR-pronunciation-lexicon-20071212/pls.xsd"
+      alphabet="ipa" xml:lang="en-US">
+  <lexeme>
+    <grapheme>BTW</grapheme> 
+    <alias>By the way</alias> 
+  </lexeme>
+  <lexeme>
+    <grapheme> Benigni </grapheme> 
+    <phoneme> bɛˈniːnji</phoneme>
+  </lexeme>
+</lexicon>
+```
+
+Each `lexeme` element is a lexicon item. `grapheme` contains text describing the orthograph of `lexeme`. Readout form can be provided as `alias`. Phone string could be provided in `phoneme` element.
+
+The `lexicon` element contains at least one `lexeme` element. Each `lexeme` element contains at least one `grapheme` element and one or more `grapheme`, `alais`, and `phoneme` elements. The `grapheme` element contains text describing the <a href="https://www.w3.org/TR/pronunciation-lexicon/#term-Orthography" target="_blank">orthography <span class="docon docon-navigate-external x-hidden-focus"></span></a>. The `alias` elements are used to indicate the pronunciation of an acronym or an abbreviated term. The `phoneme` element provides text describing how the `lexeme` is pronounced.
+
+For more information about custom lexicon file, see [Pronunciation Lexicon Specification (PLS) Version 1.0](https://www.w3.org/TR/pronunciation-lexicon/) on the W3C website.
+
+Step 2: Upload custom lexicon file created in step 1 online, you could store it anywhere, and we suggest you to store it in Microsoft Azure, for example [Azure Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal).
+
+Step 3: Refer to custom lexicon file in SSML
+
+```xml
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" 
+          xmlns:mstts="http://www.w3.org/2001/mstts" 
+          xml:lang="en-US">
+<lexicon uri="http://www.example.com/customlexicon.xml"/>
+BTW, we will be there probably 8:00 tomorrow morning.
+Could you help leave a message to Robert Benigni for me?
+</speak>
+```
+"BTW" will be read as "By the way". "Benigni" will be read with provided IPA "bɛˈniːnji".  
+
+**Limitation**
+- File size: custom lexicon file size maximum limit is 100KB, if beyond this size, synthesis request will fail.
+- Lexicon cache refresh: custom lexicon will be cached with URI as key on TTS Service when it's first loaded. Lexicon with same URI won't be reloaded within 15 mins, so custom lexicon change needs to wait at most 15 mins to take effect.
+
+**Speech service phonetic sets**
+
+In the sample above, we're using the International Phonetic Alphabet, also known as the IPA phone set. We suggest developers use the IPA, because it is the international standard. Considering that the IPA is not easy to remember, the Speech service defines a phonetic set for seven languages (`en-US`, `fr-FR`, `de-DE`, `es-ES`, `ja-JP`, `zh-CN`, and `zh-TW`).
+
+You can use the `sapi` as the vale for the `alphabet` attribute with custom lexicons as demonstrated below:
+
+```xml
+<?xml version="1.0" encoding="UTF-16"?>
+<lexicon version="1.0" 
+      xmlns="http://www.w3.org/2005/01/pronunciation-lexicon"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+      xsi:schemaLocation="http://www.w3.org/2005/01/pronunciation-lexicon 
+        http://www.w3.org/TR/2007/CR-pronunciation-lexicon-20071212/pls.xsd"
+      alphabet="sapi" xml:lang="en-US">
+  <lexeme>
+    <grapheme>BTW</grapheme> 
+    <alias> By the way </alias> 
+  </lexeme>
+  <lexeme>
+    <grapheme> Benigni </grapheme>
+    <phoneme> b eh 1 - n iy - n y iy </phoneme>
+  </lexeme>
+</lexicon>
+```
+
+For more information on the detailed Speech service phonetic alphabet, see the [Speech service phonetic sets](speech-ssml-phonetic-sets.md).
 
 ## Adjust prosody
 
