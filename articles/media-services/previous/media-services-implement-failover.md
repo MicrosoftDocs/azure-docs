@@ -59,7 +59,7 @@ In this section, you create and set up a C# Console Application project.
 
 1. Use Visual Studio to create a new solution that contains the C# Console Application project. Enter **HandleRedundancyForOnDemandStreaming** for the name, and then click **OK**.
 2. Create the **SupportFiles** folder on the same level as the **HandleRedundancyForOnDemandStreaming.csproj** project file. Under the **SupportFiles** folder, create the **OutputFiles** and **MP4Files** folders. Copy an .mp4 file into the **MP4Files** folder. (In this example, the **ignite.mp4** file is used.) 
-3. Use **Nuget** to add references to DLLs related to Media Services. In **Visual Studio Main Menu**, select **TOOLS** > **NuGet Package Manager** > **Package Manager Console**. In the console window, type **Install-Package windowsazure.mediaservices**, and press Enter.
+3. Use **NuGet** to add references to DLLs related to Media Services. In **Visual Studio Main Menu**, select **TOOLS** > **NuGet Package Manager** > **Package Manager Console**. In the console window, type **Install-Package windowsazure.mediaservices**, and press Enter.
 4. Add other references that are required for this project: System.Runtime.Serialization, and System.Web.
 5. Replace **using** statements that were added to the **Programs.cs** file by default with the following ones:
 
