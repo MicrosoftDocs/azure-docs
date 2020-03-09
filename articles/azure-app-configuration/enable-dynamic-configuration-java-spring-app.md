@@ -1,5 +1,6 @@
 ---
 title: Use dynamic configuration in a Spring Boot app | Microsoft Docs
+titleSuffix: Azure App Configuration
 description: Learn how to dynamically update configuration data for Spring Boot apps
 services: azure-app-configuration
 author: lisaguthrie
@@ -24,23 +25,23 @@ Then, open the *pom.xml* file in a text editor, and add a `<dependency>` for `sp
 
 **Spring Cloud 1.1.x**
 
-    ```xml
-    <dependency>
-        <groupId>com.microsoft.azure</groupId>
-        <artifactId>spring-cloud-azure-appconfiguration-config-web</artifactId>
-        <version>1.1.2</version>
-    </dependency>
-    ```
+```xml
+<dependency>
+    <groupId>com.microsoft.azure</groupId>
+    <artifactId>spring-cloud-azure-appconfiguration-config-web</artifactId>
+    <version>1.1.2</version>
+</dependency>
+```
 
 **Spring Cloud 1.2.x**
 
-    ```xml
-    <dependency>
-        <groupId>com.microsoft.azure</groupId>
-        <artifactId>spring-cloud-azure-appconfiguration-config-web</artifactId>
-        <version>1.2.2</version>
-    </dependency>
-    ```
+```xml
+<dependency>
+    <groupId>com.microsoft.azure</groupId>
+    <artifactId>spring-cloud-azure-appconfiguration-config-web</artifactId>
+    <version>1.2.2</version>
+</dependency>
+```
 
 Save the file, then build and run your application as usual.
 
