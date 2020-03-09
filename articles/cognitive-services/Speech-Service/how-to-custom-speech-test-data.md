@@ -50,15 +50,15 @@ Audio data is optimal for testing the accuracy of Microsoft's baseline speech-to
 
 Use this table to ensure that your audio files are formatted correctly for use with Custom Speech:
 
-| Property | Value |
-|----------|-------|
-| File format | RIFF (WAV) |
-| Sample rate | 8,000 Hz or 16,000 Hz |
-| Channels | 1 (mono) |
-| Maximum length per audio | 2 hours |
-| Sample format | PCM, 16-bit |
-| Archive format | .zip |
-| Maximum archive size | 2 GB |
+| Property                 | Value                 |
+|--------------------------|-----------------------|
+| File format              | RIFF (WAV)            |
+| Sample rate              | 8,000 Hz or 16,000 Hz |
+| Channels                 | 1 (mono)              |
+| Maximum length per audio | 2 hours               |
+| Sample format            | PCM, 16-bit           |
+| Archive format           | .zip                  |
+| Maximum archive size     | 2 GB                  |
 
 [!INCLUDE [supported-audio-formats](includes/supported-audio-formats.md)]
 
@@ -76,15 +76,15 @@ Use <a href="http://sox.sourceforge.net" target="_blank" rel="noopener">SoX <spa
 
 To measure the accuracy of Microsoft's speech-to-text accuracy when processing your audio files, you must provide human-labeled transcriptions (word-by-word) for comparison. While human-labeled transcription is often time consuming, it's necessary to evaluate accuracy and to train the model for your use cases. Keep in mind, the improvements in recognition will only be as good as the data provided. For that reason, it's important that only high-quality transcripts are uploaded.
 
-| Property | Value |
-|----------|-------|
-| File format | RIFF (WAV) |
-| Sample rate | 8,000 Hz or 16,000 Hz |
-| Channels | 1 (mono) |
+| Property                 | Value                               |
+|--------------------------|-------------------------------------|
+| File format              | RIFF (WAV)                          |
+| Sample rate              | 8,000 Hz or 16,000 Hz               |
+| Channels                 | 1 (mono)                            |
 | Maximum length per audio | 2 hours (testing) / 60 s (training) |
-| Sample format | PCM, 16-bit |
-| Archive format | .zip |
-| Maximum zip size | 2 GB |
+| Sample format            | PCM, 16-bit                         |
+| Archive format           | .zip                                |
+| Maximum zip size         | 2 GB                                |
 
 [!INCLUDE [supported-audio-formats](includes/supported-audio-formats.md)]
 
