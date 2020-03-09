@@ -67,6 +67,7 @@ The following FQDN / application rules are required:
 |----------------------------|-----------|----------|
 | *.hcp.\<location\>.azmk8s.io | HTTPS:443, TCP:22, TCP:9000, UDP:1194 | This address is required for Node <-> API server communication. Replace *\<location\>* with the region where your AKS cluster is deployed. |
 | *.tun.\<location\>.azmk8s.io | HTTPS:443, TCP:22, TCP:9000, UDP:1194 | This address is required for Node <-> API server communication. Replace *\<location\>* with the region where your AKS cluster is deployed. |
+| *.cdn.mscr.io       | HTTPS:443 | This address is required for MCR storage backed by the Azure Content Delivery Network (CDN). |
 | mcr.microsoft.com          | HTTPS:443 | This address is required to access images in Microsoft Container Registry (MCR). This registry contains first-party images/charts(for example, moby, etc.) required for the functioning of the cluster during upgrade and scale of the cluster |
 | *.data.mcr.microsoft.com             | HTTPS:443 | This address is required for MCR storage backed by the Azure content delivery network (CDN). |
 | management.azure.com       | HTTPS:443 | This address is required for Kubernetes GET/PUT operations. |
