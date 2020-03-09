@@ -286,7 +286,7 @@ Try downloading and installing the latest version of the Azure Dev Spaces CLI:
 
 You may see this error when running the Visual Studio Code debugger. You might not have the VS Code extension for C# installed on your development machine. The C# extension includes debugging support for .NET Core (CoreCLR).
 
-To fix this issue, install the [VS Code extension for C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp).
+To fix this issue, install the [VS Code extension for C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp).
 
 ### Error "Configured debug type 'coreclr' is not supported"
 
