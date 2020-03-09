@@ -29,7 +29,7 @@ The connectivity settings are accessible from the **Firewalls and virtual networ
 
 
 ## Deny public network access
-In the Azure Portal, when the **Deny public network access** setting is set to **Yes**, only connections via private endpoints are allowed. When this setting is set to **No**, clients can connect using the private or public endpoint.
+In the Azure portal, when the **Deny public network access** setting is set to **Yes**, only connections via private endpoints are allowed. When this setting is set to **No**, clients can connect using the private or public endpoint.
 
 After setting **Deny public network access** to **Yes**, login attempts from clients using public endpoint will fail with the following error:
 
