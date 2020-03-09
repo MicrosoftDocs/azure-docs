@@ -6,7 +6,7 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: luywang
-ms.subservice: disks,recovery
+ms.subservice: disks
 ---
 # Migrate to Premium Storage by using Azure Site Recovery
 
