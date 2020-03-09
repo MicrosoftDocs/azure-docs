@@ -8,6 +8,8 @@
     href: overview.md
   - name: Compare messaging services
     href: compare-messaging-services.md
+  - name: Premium vs. basic tiers
+    href: premium-basic-tiers.md
 - name: Quickstarts
   expanded: true
   items:
