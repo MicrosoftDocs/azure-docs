@@ -25,18 +25,22 @@ landingContent:
         url: custom-commands.md
       - text: About Direct Line Speech
         url: direct-line-speech.md
-    - linkListType: learn
-      links:
-      - text: Custom keyword naming guidelines
-        url: speech-devices-sdk-kws-guidelines.md
-      - text: Custom keyword spotting
-        url: speech-devices-sdk-create-kws.md        
     - linkListType: reference
       links:
         - text: Pricing
           url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services
         - text: Voice assistants FAQ
           url: faq-voice-assistants.md
+- title: Custom keyword
+  linkLists:          
+    - linkListType: overview
+      links:
+        - text: Custom keyword spotting
+          url: speech-devices-sdk-create-kws.md
+    - linkListType: reference
+      links:
+        - text: Custom keyword naming guidelines
+          url: speech-devices-sdk-kws-guidelines.md
 - title: Custom Commands
   linkLists:          
     - linkListType: quickstart
