@@ -38,9 +38,9 @@ In advanced Hive-log4j configurations, the parameter *log4j.appender.RFA.MaxBack
 
 2. Go to the `Advanced hive-log4j` section within Advanced settings.
 
-3. Set `log4j.appender.RFA` parameter as RollingFileAppender 
+3. Set `log4j.appender.RFA` parameter as RollingFileAppender. 
 
-4. Set `log4j.appender.RFA.MaxFileSize` and `log4j.appender.RFA.MaxBackupIndex` as follows
+4. Set `log4j.appender.RFA.MaxFileSize` and `log4j.appender.RFA.MaxBackupIndex` as follows.
 
 ```
 log4jhive.log.maxfilesize=1024MB
