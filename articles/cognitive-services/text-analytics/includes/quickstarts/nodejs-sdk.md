@@ -156,14 +156,14 @@ async function sentimentAnalysis(client){
         console.log(`ID: ${document.id}`);
         console.log(`\tDocument Sentiment: ${document.sentiment}`);
         console.log(`\tDocument Scores:`);
-        console.log(`\t\tPositive: ${document.sentimentScores.positive.toFixed(2)} \tNegative: ${document.sentimentScores.negative.toFixed(2)} \tNeutral: ${document.sentimentScores.neutral.toFixed(2)}`);
+        console.log(`\t\tPositive: ${document.confidenceScores.positive.toFixed(2)} \tNegative: ${document.confidenceScores.negative.toFixed(2)} \tNeutral: ${document.confidenceScores.neutral.toFixed(2)}`);
         console.log(`\tSentences Sentiment(${document.sentences.length}):`);
         document.sentences.forEach(sentence => {
             console.log(`\t\tSentence sentiment: ${sentence.sentiment}`)
             console.log(`\t\tSentences Scores:`);
-            console.log(`\t\tPositive: ${sentence.sentimentScores.positive.toFixed(2)} \tNegative: ${sentence.sentimentScores.negative.toFixed(2)} \tNeutral: ${sentence.sentimentScores.neutral.toFixed(2)}`);
-            console.log(`\t\tLength: ${sentence.length}, Offset: ${sentence.offset}`);
-        })
+            console.log(`\t\tPositive: ${sentence.confidenceScores.positive.toFixed(2)} \tNegative: ${sentence.confidenceScores.negative.toFixed(2)} \tNeutral: ${sentence.confidenceScores.neutral.toFixed(2)}`);
+            console.log(`\t\tLength: ${sentence.graphemeLength}, Offset: ${sentence.graphemeOffset}`);
+        });
     });
 }
 sentimentAnalysis(textAnalyticsClient)
@@ -281,7 +281,7 @@ async function entityRecognition(client){
         console.log(`Document ID: ${document.id}`);
         document.entities.forEach(entity => {
             console.log(`\tName: ${entity.text} \tCategory: ${entity.category} \tSubcategory: ${entity.subCategory ? entity.subCategory : "N/A"}`);
-            console.log(`\tOffset: ${entity.offset}, Length: ${entity.length} \tScore: ${entity.score}`);
+            console.log(`\tOffset: ${entity.graphemeOffset}, Length: ${entity.graphemeLength} \tScore: ${entity.score}`);
         });
     });
 }
@@ -314,6 +314,7 @@ Document ID: 1
         Name: 21        Category: Quantity      Subcategory: Number
         Offset: 71, Length: 2   Score: 0.8
         Name: Seattle   Category: Location      Subcategory: GPE
+        Offset: 88, Length: 7   Score: 0.31
 ```
 
 ## Using NER to detect personal information
@@ -333,7 +334,7 @@ async function entityPiiRecognition(client){
         console.log(`Document ID: ${document.id}`);
         document.entities.forEach(entity => {
             console.log(`\tName: ${entity.text} \tCategory: ${entity.category} \tSubcategory: ${entity.subCategory ? entity.subCategory : "N/A"}`);
-            console.log(`\tOffset: ${entity.offset}, Length: ${entity.length} \tScore: ${entity.score}`);
+            console.log(`\tOffset: ${entity.graphemeOffset}, Length: ${entity.graphemeLength} \tScore: ${entity.score}`);
         });
     });
 }
@@ -365,11 +366,11 @@ async function linkedEntityRecognition(client){
     entityResults.forEach(document => {
         console.log(`Document ID: ${document.id}`);
         document.entities.forEach(entity => {
-            console.log(`\tName: ${entity.name} \tID: ${entity.id} \tURL: ${entity.url} \tData Source: ${entity.dataSource}`);
+            console.log(`\tName: ${entity.name} \tID: ${entity.dataSourceEntityId} \tURL: ${entity.url} \tData Source: ${entity.dataSource}`);
             console.log(`\tMatches:`)
             entity.matches.forEach(match => {
                 console.log(`\t\tText: ${match.text}`);
-                console.log(`\t\tOffset: ${match.offset}, Length: ${match.length} \tScore: ${match.score.toFixed(3)}`);
+                console.log(`\t\tOffset: ${match.graphemeOffset}, Length: ${match.graphemeLength} \tScore: ${match.score.toFixed(2)}`);
             });
         });
     });
@@ -386,31 +387,31 @@ Document ID: 0
         Name: Altair 8800       ID: Altair 8800         URL: https://en.wikipedia.org/wiki/Altair_8800  Data Source: Wikipedia
         Matches:
                 Text: Altair 8800
-                Offset: 116, Length: 11         Score: 0.777
+                Offset: 116, Length: 11         Score: 0.78
         Name: Bill Gates        ID: Bill Gates  URL: https://en.wikipedia.org/wiki/Bill_Gates   Data Source: Wikipedia
         Matches:
                 Text: Bill Gates
-                Offset: 25, Length: 10  Score: 0.555
+                Offset: 25, Length: 10  Score: 0.55
                 Text: Gates
-                Offset: 161, Length: 5  Score: 0.555
+                Offset: 161, Length: 5  Score: 0.55
         Name: Paul Allen        ID: Paul Allen  URL: https://en.wikipedia.org/wiki/Paul_Allen   Data Source: Wikipedia
         Matches:
                 Text: Paul Allen
-                Offset: 40, Length: 10  Score: 0.533
+                Offset: 40, Length: 10  Score: 0.53
         Name: Microsoft         ID: Microsoft   URL: https://en.wikipedia.org/wiki/Microsoft    Data Source: Wikipedia
         Matches:
                 Text: Microsoft
-                Offset: 0, Length: 9    Score: 0.469
+                Offset: 0, Length: 9    Score: 0.47
                 Text: Microsoft
-                Offset: 150, Length: 9  Score: 0.469
+                Offset: 150, Length: 9  Score: 0.47
         Name: April 4   ID: April 4     URL: https://en.wikipedia.org/wiki/April_4      Data Source: Wikipedia
         Matches:
                 Text: April 4
-                Offset: 54, Length: 7   Score: 0.248
+                Offset: 54, Length: 7   Score: 0.25
         Name: BASIC     ID: BASIC       URL: https://en.wikipedia.org/wiki/BASIC        Data Source: Wikipedia
         Matches:
                 Text: BASIC
-                Offset: 89, Length: 5   Score: 0.281
+                Offset: 89, Length: 5   Score: 0.28
 ```
 
 #### [Version 2.1](#tab/version-2)
