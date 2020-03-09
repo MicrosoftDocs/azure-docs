@@ -52,11 +52,11 @@ Before you can publish your project, you must have a function app in your Azure 
 
 ## Test your function in Azure
 
-1. Copy the base URL of the function app from the **Publish** profile page. Replace the `localhost:port` portion of the URL you used to test the function locally with the new base URL. Append the query string `?name=<YOUR_NAME>` to this URL and run the request.
+1. Copy the base URL of the function app from the **Publish** profile page. Replace the *localhost:port* portion of the URL you used to test the function locally with the new base URL. Append the query string *?name=&lt;YOUR_NAME&gt;* to this URL and run the request.
 
     The URL that calls your HTTP triggered function is in the following format:
 
-        http://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>?name=<YOUR_NAME> 
+    *http://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>?name=<YOUR_NAME>*
 
 2. Paste this new URL for the HTTP request into your browser's address bar. The following image shows the response in the browser to the remote GET request returned by the function:
 
