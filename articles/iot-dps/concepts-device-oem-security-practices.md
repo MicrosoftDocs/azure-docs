@@ -207,4 +207,4 @@ Making the right choice for your devices
 You have to evaluate your specific risks and benefits to make your IoT authentication decision. This blog post is too short to cover everything, but Azure IoT offers the Security Program for Azure IoT if you need help making this decision. You can also read our whitepaper about evaluating your IoT security to learn more about your options.
 
 ## Next steps
-For information about machine learning, see [IoT Hub Device reprovisioning concepts](concepts-device-reprovision.md).
+To learn how several manufacturers have implemented security practices into their process for Azure IoT devices, see the case studies at [IoT Hub Device reprovisioning concepts](concepts-device-reprovision.md).
