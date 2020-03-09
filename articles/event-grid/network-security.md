@@ -2,7 +2,7 @@
 title: Azure Event Grid private endpoints
 description: This article describes how to configure access from private endpoints
 services: event-grid
-author: Vidya Kukke
+author: VidyaKukke
 
 ms.service: event-grid
 ms.topic: conceptual
@@ -51,7 +51,7 @@ For the illustrated example above, the DNS resource records for the topic 'topic
 | `topicA.westus.eventgrid.azure.net`             | CNAME     | `topicA.westus.privatelink.eventgrid.azure.net` |
 | `topicA.westus.privatelink.eventgrid.azure.net` | CNAME     | \<azure traffic manager profile\>
 
-You can deny or control access for a client outside the VNet through the public endpoint using the [IP firewall](ip-firewall.md). The DNS resolution for a topic when resolved by a client in the VNet hosting the private endpoint will be:
+You can deny or control access for a client outside the VNet through the public endpoint using the [IP firewall](#ip-firewall). The DNS resolution for a topic when resolved by a client in the VNet hosting the private endpoint will be:
 
 For the illustrated example above, the DNS resource records for the topic 'topicA', when resolved from outside the VNet hosting the private endpoint, will be:
 
