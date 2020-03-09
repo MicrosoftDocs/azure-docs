@@ -58,6 +58,9 @@ The following FQDN / application rules are required:
 > [!IMPORTANT]
 > ***.blob.core.windows.net and aksrepos.azurecr.io** are no longer required FQDN rules for egress lockdown.  For existing clusters, [perform a cluster upgrade operation][aks-upgrade] using the `az aks upgrade` command to remove these rules.
 
+> [!IMPORTANT]
+> *.cdn.mscr.io has been replaced by a *.data.mcr.microsoft.com for the Azure public cloud regions. Please upgdate your existing firewall rules for the changes to take effect.
+
 - Azure Global
 
 | FQDN                       | Port      | Use      |
@@ -65,7 +68,7 @@ The following FQDN / application rules are required:
 | *.hcp.\<location\>.azmk8s.io | HTTPS:443, TCP:22, TCP:9000 | This address is the API server endpoint. Replace *\<location\>* with the region where your AKS cluster is deployed. |
 | *.tun.\<location\>.azmk8s.io | HTTPS:443, TCP:22, TCP:9000 | This address is the API server endpoint. Replace *\<location\>* with the region where your AKS cluster is deployed. |
 | mcr.microsoft.com          | HTTPS:443 | This address is required to access images in Microsoft Container Registry (MCR). This registry contains first-party images/charts(for example, moby, etc.) required for the functioning of the cluster during upgrade and scale of the cluster |
-| *.cdn.mscr.io              | HTTPS:443 | This address is required for MCR storage backed by the Azure content delivery network (CDN). |
+| *.data.mcr.microsoft.com             | HTTPS:443 | This address is required for MCR storage backed by the Azure content delivery network (CDN). |
 | management.azure.com       | HTTPS:443 | This address is required for Kubernetes GET/PUT operations. |
 | login.microsoftonline.com  | HTTPS:443 | This address is required for Azure Active Directory authentication. |
 | ntp.ubuntu.com             | UDP:123   | This address is required for NTP time synchronization on Linux nodes. |
@@ -80,7 +83,7 @@ The following FQDN / application rules are required:
 | *.tun.\<location\>.cx.prod.service.azk8s.cn | HTTPS:443, TCP:22, TCP:9000 | This address is the API server endpoint. Replace *\<location\>* with the region where your AKS cluster is deployed. |
 | *.azk8s.cn        | HTTPS:443 | This address is required to download required binaries and images|
 | mcr.microsoft.com          | HTTPS:443 | This address is required to access images in Microsoft Container Registry (MCR). This registry contains first-party images/charts(for example, moby, etc.) required for the functioning of the cluster during upgrade and scale of the cluster |
-| *.cdn.mscr.io              | HTTPS:443 | This address is required for MCR storage backed by the Azure Content Delivery Network (CDN). |
+| *.cdn.mscr.io       | HTTPS:443 | This address is required for MCR storage backed by the Azure Content Delivery Network (CDN). |
 | management.chinacloudapi.cn       | HTTPS:443 | This address is required for Kubernetes GET/PUT operations. |
 | login.chinacloudapi.cn  | HTTPS:443 | This address is required for Azure Active Directory authentication. |
 | ntp.ubuntu.com             | UDP:123   | This address is required for NTP time synchronization on Linux nodes. |
@@ -93,7 +96,7 @@ The following FQDN / application rules are required:
 | *.hcp.\<location\>.cx.aks.containerservice.azure.us | HTTPS:443, TCP:22, TCP:9000 | This address is the API server endpoint. Replace *\<location\>* with the region where your AKS cluster is deployed. |
 | *.tun.\<location\>.cx.aks.containerservice.azure.us | HTTPS:443, TCP:22, TCP:9000 | This address is the API server endpoint. Replace *\<location\>* with the region where your AKS cluster is deployed. |
 | mcr.microsoft.com          | HTTPS:443 | This address is required to access images in Microsoft Container Registry (MCR). This registry contains first-party images/charts(for example, moby, etc.) required for the functioning of the cluster during upgrade and scale of the cluster |
-| *.cdn.mscr.io              | HTTPS:443 | This address is required for MCR storage backed by the Azure Content Delivery Network (CDN). |
+|*.cdn.mscr.io              | HTTPS:443 | This address is required for MCR storage backed by the Azure Content Delivery Network (CDN). |
 | management.usgovcloudapi.net       | HTTPS:443 | This address is required for Kubernetes GET/PUT operations. |
 | login.microsoftonline.us  | HTTPS:443 | This address is required for Azure Active Directory authentication. |
 | ntp.ubuntu.com             | UDP:123   | This address is required for NTP time synchronization on Linux nodes. |
