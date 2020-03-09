@@ -45,10 +45,6 @@
       href: how-to-automatic-language-detection.md
     - name: Use compressed audio input formats
       href: how-to-use-codec-compressed-audio-input-streams.md
-    - name: Use compressed audio input formats (iOS)
-      href: how-to-use-codec-compressed-audio-input-streams-ios.md
-    - name: Use compressed audio input formats (Android)
-      href: how-to-use-codec-compressed-audio-input-streams-android.md
   - name: Customization
     items:
     - name: Prepare data

@@ -68,7 +68,8 @@ For detailed reference docs, see [azcopy copy](storage-ref-azcopy-copy.md).
 You can also upload a file by using a wildcard symbol (*) anywhere in the file path or file name. For example: `'C:\myDirectory\*.txt'`, or `C:\my*\*.txt`.
 
 > [!NOTE]
-> AzCopy by default uploads data into block blobs. To upload files as Append Blobs, or Page Blobs use the flag `--blob-type=[BlockBlob|PageBlob|AppendBlob]`.
+> AzCopy by default uploads data as block blobs. To upload files as Append Blobs or Page Blobs, use the flag `--blob-type=[BlockBlob|PageBlob|AppendBlob]`.
+> AzCopy by default uploads your data to inherit the account access tier. To upload files to a specific [access tier](../blobs/storage-blob-storage-tiers.md), use the flag `--block-blob-tier=[Hot|Cool|Archive]`.
 
 ### Upload a directory
 
