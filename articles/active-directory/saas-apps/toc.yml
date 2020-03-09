@@ -251,6 +251,8 @@
         href: carbonite-endpoint-backup-tutorial.md
       - name: Carlson Wagonlit Travel
         href: carlsonwagonlit-tutorial.md
+      - name: Catchpoint
+        href: catchpoint-tutorial.md
       - name: CBRE ServiceInsight
         href: cbre-serviceinsight-tutorial.md
       - name: Central Desktop
