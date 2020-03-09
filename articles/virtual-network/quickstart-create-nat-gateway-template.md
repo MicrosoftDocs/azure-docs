@@ -19,7 +19,7 @@ ms.custom: subject-armqs
 
 # Quickstart: Create a NAT gateway - Resource Manager Template
 
-Get started with Virtual Network NAT by using a Azure Resource Manager Template to deploy a virtual network, a NAT gateway, and Ubuntu virtual machine to the virtual network subnet associated with the NAT gateway resource.
+Get started with Virtual Network NAT by using an Azure Resource Manager Template.  This template deploys a virtual network, a NAT gateway, and Ubuntu virtual machine. The Ubuntu virtual machine is deployed to a subnet that is associated with the NAT gateway.
 
 >[!NOTE] 
 >Azure Virtual Network NAT is available as public preview at this time and available in a limited set of [regions](https://azure.microsoft.com/global-infrastructure/regions/). This preview is provided without a service level agreement and isn't recommended for production workloads. Certain features may not be supported or may have constrained capabilities. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms) for details.
@@ -30,7 +30,13 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Create a NAT gateway resource, virtual network, and Ubuntu virtual machine
 
-This template is configured to create a virtual network, a NAT gateway resource, and a Ubuntu virtual machine.  The Ubuntu VM is deployed to a subnet that is associated with the NAT gateway resource.
+This template is configured to create a 
+
+* Virtual network 
+* NAT gateway resource
+* Ubuntu virtual machine
+
+The Ubuntu VM is deployed to a subnet that is associated with the NAT gateway resource.
 
 ### Review the template
 
@@ -38,7 +44,7 @@ The template used in this quickstart is from [Azure Quickstart templates](https:
 
 :::code language="json" source="~/quickstart-templates/101-nat-gateway-1-vm/azuredeploy.json" range="1-335" highlight="256-282":::
 
-Nine Azure resources are defined in the template.:
+Nine Azure resources are defined in the template:
 
 **Microsoft.Network**
 
@@ -84,7 +90,7 @@ az group deployment create \
 
 ```azurepowershell-interactive
 $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
-$templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master101-nat-gateway-1-vm/azuredeploy.json"
+$templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-nat-gateway-1-vm/azuredeploy.json"
 
 $resourceGroupName = "myResourceGroupNAT"
 
@@ -133,7 +139,15 @@ When no longer needed, delete the resource group, NAT gateway, and all related r
 
 ## Next Steps
 
-In this quickstart, you created a NAT gateway resource, virtual network, and a Ubuntu virtual machine associated with the subnet that the NAT gateway is applied to. To learn more about Virtual Network NAT and Azure Resource Manager, continue to the articles below.
+In this quickstart, you created a:
+
+* NAT gateway resource
+* Virtual network
+* Ubuntu virtual machine
+
+The virtual machine is deployed to a virtual network subnet associated with the NAT gateway. 
+
+To learn more about Virtual Network NAT and Azure Resource Manager, continue to the articles below.
 
 * Read an [Overview of Virtual Network NAT](nat-overview.md)
 * Read about the [NAT Gateway resource](nat-gateway-resource.md)
