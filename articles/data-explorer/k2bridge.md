@@ -49,7 +49,7 @@ Before you can visualize data from Azure Data Explorer in Kibana, have the follo
     > A service principal with 'Viewer' permission is recommended. It is discouraged to use higher permissions.
 
     For more information about the Azure AD service principal, see [Create an Azure AD service principal](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#create-an-azure-active-directory-application).
-* [Set the cluster's view permissions for the Azure AD service principal](https://docs.microsoft.com/azure/data-explorer/manage-database-permissions#manage-permissions-in-the-azure-portal).
+    * [Set the cluster's view permissions for the Azure AD service principal](https://docs.microsoft.com/azure/data-explorer/manage-database-permissions#manage-permissions-in-the-azure-portal).
 
 ## Run K2Bridge on Azure Kubernetes Service (AKS)
 
@@ -81,7 +81,7 @@ By default, K2Bridges's Helm chart references a publicly available image located
     1. Set the variables with the correct values for your environment:
 
         ```bash
-        ADX_URL=[YOUR_ADX_CLUSTER_URL #For example, https://mycluster.westeurope.kusto.windows.net]
+        ADX_URL=[YOUR_ADX_CLUSTER_URL] #For example, https://mycluster.westeurope.kusto.windows.net
         ADX_DATABASE=[YOUR_ADX_DATABASE_NAME]
         ADX_CLIENT_ID=[SERVICE_PRINCIPAL_CLIENT_ID]
         ADX_CLIENT_SECRET=[SERVICE_PRINCIPAL_CLIENT_SECRET]
@@ -102,19 +102,25 @@ By default, K2Bridges's Helm chart references a publicly available image located
         helm install k2bridge charts/k2bridge -n k2bridge --set image.repository=$REPOSITORY_NAME/$CONTAINER_NAME --set settings.adxClusterUrl="$ADX_URL" --set settings.adxDefaultDatabaseName="$ADX_DATABASE" --set settings.aadClientId="$ADX_CLIENT_ID" --set settings.aadClientSecret="$ADX_CLIENT_SECRET" --set settings.aadTenantId="$ADX_TENANT_ID" [--set image.tag=latest] [--set privateRegistry="$IMAGE_PULL_SECRET_NAME"] [--set settings.collectTelemetry=$COLLECT_TELEMETRY]
         ```
 
-        The complete set of configuration options is [here](../blockchain/workbench/configuration.md).
+        The complete set of configuration options is [here](https://github.com/microsoft/K2Bridge/blob/master/docs/configuration.md).
 
     1. The command output will suggest the next Helm command to run to deploy Kibana. Optionally, run:
 
         ```bash
         helm install kibana elastic/kibana -n k2bridge --set image=docker.elastic.co/kibana/kibana-oss --set imageTag=6.8.5 --set elasticsearchHosts=http://k2bridge:8080
         ```
+    1. Use port forwarding to access Kibana on localhost: 
 
+        ```bash
+        kubectl port-forward service/kibana-kibana 5601 --namespace k2bridge
+        ```
+    1. Connect to Kibana by browsing to http://127.0.0.1:5601.
+    
     1. Expose Kibana to the end users. There are multiple methods to do so. The method you use largely depends on your use case.
 
         Example:
 
-        Expose the service as a LoadBalancer service. To do so, add the following parameter to the Helm install command([above](#install-k2bridge-chart)):
+        Expose the service as a LoadBalancer service. To do so, add the following parameter to the K2Bridge Helm install command ([above](#install-k2bridge-chart)):
 
 	    `--set service.type=LoadBalancer`
 	
