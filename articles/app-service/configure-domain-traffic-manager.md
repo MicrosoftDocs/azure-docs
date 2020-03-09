@@ -7,7 +7,7 @@ ms.date: 03/05/2020
 ms.custom: seodec18
 
 ---
-# Configuring a custom domain name in Azure App Service with Traffic Manager integration
+# Configure a custom domain name in Azure App Service with Traffic Manager integration
 
 [!INCLUDE [web-selector](../../includes/websites-custom-domain-selector.md)]
 
@@ -17,7 +17,7 @@ ms.custom: seodec18
 
 When you use [Azure Traffic Manager](/azure/traffic-manager/) to load balance traffic to [Azure App Service](overview.md), the App Service app can be accessed using **\<traffic-manager-endpoint>.trafficmanager.net**. You can assign a custom domain name, such as www\.contoso.com, with your App Service app in order to provide a more recognizable domain name for your users.
 
-This article provides generic instructions for using a custom domain name with an App Service app that is integrated with [Traffic Manager](../traffic-manager/traffic-manager-overview.md) for load balancing.
+This article shows you how to configure a custom domain name with an App Service app that's integrated with [Traffic Manager](../traffic-manager/traffic-manager-overview.md).
 
 > [!NOTE]
 > Only [CNAME](https://en.wikipedia.org/wiki/CNAME_record) records are supported when you configure a domain name using the Traffic Manager endpoint. Because A records are not supported, a root domain mapping, such as contoso.com is also not supported.
@@ -57,7 +57,7 @@ Once your App Service app is in a supported pricing tier, it shows up in the lis
 
 ## Create the CNAME mapping
 > [!NOTE]
-> If you have purchased an App Service domain, skip this section and go to [Enable custom domain](#enable-custom-domain).
+> To configure an [App Service domain that you purchased](manage-custom-dns-buy-domain.md), skip this section and go to [Enable custom domain](#enable-custom-domain).
 > 
 
 [!INCLUDE [Access DNS records with domain provider](../../includes/app-service-web-access-dns-records-no-h.md)]
