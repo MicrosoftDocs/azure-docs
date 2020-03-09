@@ -20,7 +20,7 @@ You may experience an issue or error when you try to update the payment informat
 
 To resolve your issue, select the topic below which most closely resembles your error.
 
-## Troubleshoot a declined card at Azure sign-up
+## My credit card was declined when I tried to sign up for Azure
 
 To troubleshoot issues regarding a declined card, see [Troubleshoot a declined card at Azure sign-up](troubleshoot-declined-card.md).
 
