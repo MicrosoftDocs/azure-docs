@@ -69,7 +69,7 @@ Hybrid Azure AD join requires devices to have access to the following Microsoft 
 - `https://device.login.microsoftonline.com`
 - `https://autologon.microsoftazuread-sso.com` (If you use or plan to use seamless SSO)
 
-If your organization requires access to the internet via an outbound proxy, we recommend [implementing Web Proxy Auto-Discovery (WPAD)](https://docs.microsoft.com/previous-versions/tn-archive/cc995261(v%3dtechnet.10)) to enable Windows 10 computers for device registration with Azure AD. To address issues configuring and managing WPAD, see [Troubleshooting Automatic Detection](https://docs.microsoft.com/previous-versions/tn-archive/cc302643(v=technet.10)).
+If your organization requires access to the internet via an outbound proxy, we recommend [implementing Web Proxy Auto-Discovery (WPAD)](https://docs.microsoft.com/previous-versions/tn-archive/cc995261(v%3dtechnet.10)) to enable Windows 10 computers for device registration with Azure AD. To address issues configuring and managing WPAD, see [Troubleshooting Automatic Detection](/previous-versions/tn-archive/cc302643(v=technet.10)).
 
 If you don't use WPAD, you can configure proxy settings on your computer beginning with Windows 10 1709. For more information, see [WinHTTP Proxy Settings deployed by GPO](https://blogs.technet.microsoft.com/netgeeks/2018/06/19/winhttp-proxy-settings-deployed-by-gpo/).
 
@@ -152,7 +152,7 @@ To complete hybrid Azure AD join of your Windows down-level devices in a managed
 
 To register Windows down-level devices, organizations must install [Microsoft Workplace Join for non-Windows 10 computers](https://www.microsoft.com/download/details.aspx?id=53554). Microsoft Workplace Join for non-Windows 10 computers is available in the Microsoft Download Center.
 
-You can deploy the package by using a software distribution system like [Microsoft Endpoint Configuration Manager](https://docs.microsoft.com/configmgr/). The package supports the standard silent installation options with the `quiet` parameter. The current version of Configuration Manager offers benefits over earlier versions, like the ability to track completed registrations.
+You can deploy the package by using a software distribution system like [Microsoft Endpoint Configuration Manager](/configmgr/). The package supports the standard silent installation options with the `quiet` parameter. The current version of Configuration Manager offers benefits over earlier versions, like the ability to track completed registrations.
 
 The installer creates a scheduled task on the system that runs in the user context. The task is triggered when the user signs in to Windows. The task silently joins the device with Azure AD by using the user credentials after it authenticates with Azure AD.
 

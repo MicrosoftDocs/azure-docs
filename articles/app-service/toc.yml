@@ -33,7 +33,7 @@
     items:
     - name: .NET Core with SQL DB
       href: app-service-web-tutorial-dotnetcore-sqldb.md
-    - name: .NET with SQL DB
+    - name: .NET Framework with SQL DB
       href: app-service-web-tutorial-dotnet-sqldatabase.md
     - name: PHP with MySQL
       href: app-service-web-tutorial-php-mysql.md 
