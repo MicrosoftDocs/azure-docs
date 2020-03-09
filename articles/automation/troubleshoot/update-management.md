@@ -33,7 +33,7 @@ Superseded updates are not being correctly indicated as declined so that they ca
 
 When a superseded update becomes 100 percent not applicable, you should change the approval state of that update to **Declined**. To do this for all your updates:
 
-1. In the Automation Account, select **Update Management** to view machine status. See [View update assessments](../manage-update-multi.md#view-an-update-assessment).
+1. In the Automation account, select **Update Management** to view machine status. See [View update assessments](../manage-update-multi.md#view-an-update-assessment).
 
 2. Check the superseded update to make sure that it is 100 percent not applicable. 
 
@@ -203,7 +203,7 @@ Failed to start the runbook. Check the parameters passed. RunbookName Patch-Micr
 
 This error can occur for one of the following reasons:
 
-* The machine doesn’t exist anymore.
+* The machine doesn't exist anymore.
 * The machine is turned off and unreachable.
 * The machine has a network connectivity issue, and therefore the hybrid worker on the machine is unreachable.
 * There was an update to the MMA that changed the SourceComputerId.
@@ -213,14 +213,17 @@ This error can occur for one of the following reasons:
 
 When applicable, use [dynamic groups](../automation-update-management-groups.md) for your update deployments. Additionally:
 
-* Verify that the machine still exists and is reachable. If it doesn't exist, edit your deployment and remove the machine.
+* Verify that the machine still exists and is reachable. 
+* If the machine doesn't exist, edit your deployment and remove the machine.
 * See the [network planning](../automation-update-management.md#ports) section for a list of ports and addresses that are required for Update Management, and then verify that your machine meets these requirements.
-* Run the following query in Log Analytics to find machines in your environment whose `SourceComputerId` has changed. Look for computers that have the same `Computer` value but a different `SourceComputerId` value. 
+* Verify connectivity to the Hybrid Runbook Worker using the Hybrid Runbook Worker agent troubleshooter. To learn more about the troubleshooter, see [Troubleshoot update agent issues](update-agent-issues.md).
+* Run the following query in Log Analytics to find machines in your environment for which `SourceComputerId` has changed. Look for computers that have the same `Computer` value but a different `SourceComputerId` value.
 
    ```loganalytics
    Heartbeat | where TimeGenerated > ago(30d) | distinct SourceComputerId, Computer, ComputerIP
    ```
-   After you find affected machines, edit the update deployments that target those machines, and then remove and re-add them so that `SourceComputerId` reflects the correct value.
+
+* After you find affected machines, edit the update deployments that target those machines, and then remove and re-add them so that `SourceComputerId` reflects the correct value.
 
 ## <a name="updates-nodeployment"></a>Scenario: Updates are installed without a deployment
 
