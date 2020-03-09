@@ -180,10 +180,6 @@ All POST requests return a JSON formatted response with the IDs and detected ent
 
 Output is returned immediately. You can stream the results to an application that accepts JSON or save the output to a file on the local system, and then import it into an application that allows you to sort, search, and manipulate the data. Due to multilingual and emoji support, the response may contain text offsets. See [how to process offsets in API output](../concepts/process-offsets.md) for more information.
 
-
- Because of multilingual and emoji support, see also [how to process offsets in API output](text-analytics-how-to-process-offsets)
-
-
 #### [Version 3.0-preview)](#tab/version-3)
 
 ### Example v3 responses
