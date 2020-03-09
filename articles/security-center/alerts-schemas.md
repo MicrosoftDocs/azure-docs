@@ -10,18 +10,26 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/23/2020
+ms.date: 03/10/2020
 ms.author: memildin
 
 ---
 
 # Security alerts schemas
 
-Azure Security Center's advanced threat detection mechanisms generate security alerts when they detect threats to your resources.
+Azure Security Center's advanced threat protection mechanisms generate security alerts when they detect threats to your resources.
 
 These alerts are only available to users of the standard tier.  
 
-Security alerts can be seen in Azure Security Center's Threat Protection pages. They can also be exported to Azure Sentinel (or any other SIEM) through Azure Event Hubs, accessed via the REST API, or exported to a Log Analytics workspace. If you're using any programmatic methods to consume the alerts, you'll need the correct schema to find the fields that are relevant to you. In addition, when exporting to an Event Hub or when triggering Workflow Automation with generic HTTP connectors, you could use the schemas to properly parse the JSON objects.
+Security alerts can be seen in Azure Security Center's Threat Protection pages. They can also be exported to:
+
+- [Azure Sentinel](https://docs.microsoft.com/azure/sentinel/) (or any other SIEM)
+
+- [Azure Event Hubs]() using Security Center's [continuous export feature](continuous-export.md)
+
+
+
+ - through , accessed via the REST API, or exported to a Log Analytics workspace. If you're using any programmatic methods to consume the alerts, you'll need the correct schema to find the fields that are relevant to you. In addition, when exporting to an Event Hub or when triggering Workflow Automation with generic HTTP connectors, you could use the schemas to properly parse the JSON objects.
 
 If you're using the REST API to access alerts, see the [online Alerts API documentation](../../rest/api/securitycenter/alerts).
 
@@ -33,77 +41,44 @@ If you're using the REST API to access alerts, see the [online Alerts API docume
 ## The schemas 
 
 
-### [Workflow, Event Hub, Azure Sentinel, 3rd-party SIEMs](#tab/schema-sentinel)
+### [Workflow automation](#tab/schema-workflowautomation)
+
+### Sample JSON for alerts sent to Workflow Automation, Event Hub, or 3rd-party other SIEMs
+
+This is the schema of the alert events passed to Logic App instances that were configured in Security Center's workflow automation. For more information about the workflow automation feature see [Automate responses to alerts and recommendations](workflow-automation.md).
+
+[!INCLUDE [Workflow schema](includes\security-center-alerts-schema-workflowautomation.md)]
+
+
+
+
+
+
+### [Continuous export to Event Hub](#tab/schema-continuousexport)
+
+### Sample JSON for alerts sent with continuous export to Event Hub'
+
+This is the schema of the alert events passed to an Event Hub using the Security Center's continuous export feature. For more information about continuous export, see [Export alerts and recommendations](continuous-export.md).
+
+[!INCLUDE [Workflow schema](includes\security-center-alerts-schema-workflowautomation.md)]
+
+
+
+
+
+
+
+
+### [Azure Sentinel](#tab/schema-sentinel)
+
+This is the schema for alerts sent to Azure Sentinel. 
+
+For more information about Azure Sentinel, see [the documentation](https://docs.microsoft.com/azure/sentinel/).
 
 ### Sample JSON for alerts sent to Workflow Automation, Event Hub, Azure Sentinel or other SIEMs
 
+[!INCLUDE [Workflow schema](includes\security-center-alerts-schema-workflowautomation.md)]
 
-```json
-{
-  "VendorName": "Microsoft",
-  "AlertType": "SUSPECT_SVCHOST",
-  "StartTimeUtc": "2016-12-20T13:38:00.000Z",
-  "EndTimeUtc": "2019-12-20T13:40:01.733Z",
-  "ProcessingEndTime": "2019-09-16T12:10:19.5673533Z",
-  "TimeGenerated": "2016-12-20T13:38:03.000Z",
-  "IsIncident": false,
-  "Severity": "High",
-  "Status": "New",
-  "ProductName": "Azure Security Center",
-  "SystemAlertId": "2342409243234234_F2BFED55-5997-4FEA-95BD-BB7C6DDCD061",
-  "CompromisedEntity": "WebSrv1",
-  "Intent": "Execution",
-  "AlertDisplayName": "Suspicious process detected",
-  "Description": "Suspicious process named ‘SVCHOST.EXE’ was running from path: %{Process Path}",
-  "RemediationSteps": ["contact your security information team"],
-  "ExtendedProperties": {
-    "Process Path": "c:\\temp\\svchost.exe",
-    "Account": "Contoso\\administrator",
-    "PID": 944,
-    "ActionTaken": "Detected"
-  },
-  "Entities": [],
-  "ResourceIdentifiers": [
-		{
-			Type: "AzureResource",
-			AzureResourceId: "/subscriptions/86057C9F-3CDD-484E-83B1-7BF1C17A9FF8/resourceGroups/backend-srv/providers/Microsoft.Compute/WebSrv1"
-		},
-		{
-			Type: "LogAnalytics",
-			WorkspaceId: "077BA6B7-8759-4F41-9F97-017EB7D3E0A8",
-			WorkspaceSubscriptionId: "86057C9F-3CDD-484E-83B1-7BF1C17A9FF8",
-			WorkspaceResourceGroup: "omsrg",
-			AgentId: "5A651129-98E6-4E6C-B2CE-AB89BD815616",
-		}
-  ]
-}
-```
-
-
-### The data model of the schema
-
-|Field|Data type|Description|
-|----|----|----|
-|**VendorName**|String|The name of the vendor that raises the alert.|
-|**AlertType**|String|The type of alert. Alerts of the same type should have the same value. This field is a keyed string representing the type of alert and not of an alert instance. All alert instances from the same detection logic/analytic should have the same value for alert type.|
-|**StartTimeUtc**|DateTime|The time of the first event or activity included in the alert. The field should be a string that conforms to the ISO8601 format, including UTC timezone information.|
-|**EndTimeUtc**|DateTime|The time of the last event or activity included in the alert.  The field should be a string that conforms to the ISO8601 format, including UTC timezone information.|
-|**ProcessingEndTime**|DateTime|The time the alert was accessible to the end user in the original product holding the alert.|
-|**TimeGenerated**|DateTime|The time the alert was generated by the alert provider. If not reported by internal alert providers, a product can choose to assign the time it was received for processing by the product.  The field should be a string that conforms to the ISO8601 format, including UTC timezone information.|
-|**IsIncident**|Bool|This field determines whether the alert is an incident (a compound grouping of several alerts) or a single alert. Default value for the field is ‘false’ (meaning it's a single alert).|
-|**Severity**|Enum|The severity of the alert as reported by the provider. Possible Values: Informational, Low, Medium, and High.|
-|**Status**|Enum|The life cycle status of the alert.<br/>Supported statuses are: New, InProgress, Resolved, Dismissed, Unknown.<br/>An alert which specifies a value other than the supported options is assigned the status 'Unknown'.<br/>An alert which doesn't specify a value is assigned the status 'New'.|
-|**ProductName**|String|The name of the product which published this alert (Azure Security Center, Azure ATP, Microsoft Defender ATP, O365 ATP, MCAS, and so on).|
-|**SystemAlertId**|String|The alert identifier.|
-|**CompromisedEntity**|String|The display name of the resource most related to this alert.|
-|**Intent**|Enum|The kill chain related intent behind the alert. For list of supported values, and explanations of Azure Security Center's supported kill chain intents, see [Intentions](alerts-reference.md#intentions).<br/>This field might have multiple values (separated by comma).|
-|**AlertDisplayName**|String|The display name of the alert.|
-|**Description**|String|Description of the alert.|
-|**RemediationSteps**|List<String>|Manual action items to take to remediate the alert.|
-|**ExtendedProperties**|Dictionary (String,String)|Providers might (optionally) include custom fields here.|
-|**Entities**|IEnumerable (IEntity)|A list of entities related to the alert. This list can hold a mixture of entities of diverse types. The entities type can be any of the types defined in the Entities section. Entities which are not in the list below can also be sent, however it is not guaranteed that they will be processed (the alert will not fail validation with new types of entities).|
-|**ResourceIdentifiers**|List (Resource Identifiers)|The resource identifiers for this alert which can be used to direct the alert to the right product exposure group (tenant, workspace, subscription etc.). There can be multiple identifiers of different type per alert.|
-|||
 
 
 
@@ -205,6 +180,7 @@ You can easily view the security alerts events in Activity log by searching for 
 |||
 
 
+
 ### [Workspace](#tab/schema-workspace)
 
 ### The data model of the schema
@@ -241,6 +217,7 @@ You can easily view the security alerts events in Activity log by searching for 
 |**WorkspaceResourceGroup**|in case the alert is generated on a VM, Server, Virtual Machine Scale Set or App Service instance that reports to a workspace, contains that workspace resource group name|
 |**WorkspaceSubscriptionId**|in case the alert is generated on a VM, Server, Virtual Machine Scale Set or App Service instance that reports to a workspace, contains that workspace subscriptionId|
 |||
+
 
 
 
