@@ -13,7 +13,7 @@ ms.custom: mvc
 
 # Azure Maps plugin for QGIS
 
-The Quantum Geographic Information System [(QGIS)](https://qgis.org/) Software is a professional and a Free and Open Source Software (FOSS) application. The Azure Maps plug-in for QGIS is part of "Private Atlas - Private Preview", and it provides users a way to visualize and QA Azure Maps Private Atlas data sets. It also lets users edits and apply changes to the data sets. Azure Maps QGIS plug-in is currently classified under the experimentation label in the QGIS plug-in store. This article guides you through the installation process of the Azure Maps QGIS plug-ins, and how to use the plugin to visualize and edit a dataset.
+The Quantum Geographic Information System [(QGIS)](https://qgis.org/) Software is a professional and a Free and Open Source Software (FOSS) application. The Azure Maps plug-in for QGIS is part of "Private Atlas - Private Preview", and it provIDes users a way to visualize and QA Azure Maps Private Atlas data sets. It also lets users edits and apply changes to the data sets. Azure Maps QGIS plug-in is currently classified under the experimentation label in the QGIS plug-in store. This article guIDes you through the installation process of the Azure Maps QGIS plug-ins, and how to use the plugin to visualize and edit a dataset.
 
 ## Prerequisites
 
@@ -65,7 +65,7 @@ After the installation is complete, the Azure Maps plugin will be accessible via
 
    </center>
 
-Click on the Azure Maps QGIS plugin icon to open the **Azure Maps** window. The **Private Atlas** tab provides the options to set the spatial extent for which features are needed. You also need to provide your **DataSet Id** in the this tab. And, you need to provide your Azure Maps account **primary subscription key** in the **Authentication** tab. Providing the **DataSet Id** and the account **primary subscription key** lets you access and save the private atlas data set.
+Click on the Azure Maps QGIS plugin icon to open the **Azure Maps** window. The **Private Atlas** tab provIDes the options to set the spatial extent for which features are needed. You also need to provIDe your **DataSet ID** in the this tab. And, you need to provIDe your Azure Maps account **primary subscription key** in the **Authentication** tab. ProvIDing the **DataSet ID** and the account **primary subscription key** lets you access and save the private atlas data set.
 
    <center>
 
@@ -74,7 +74,7 @@ Click on the Azure Maps QGIS plugin icon to open the **Azure Maps** window. The 
 
    </center>
 
-The **Floor Picker** tab provides options to select the floor number and visualize the selected floor. Before you can select the floor number, you'll need to load your data set.
+The **Floor Picker** tab provIDes options to select the floor number and visualize the selected floor. Before you can select the floor number, you'll need to load your data set.
 
    <center>
 
@@ -83,7 +83,7 @@ The **Floor Picker** tab provides options to select the floor number and visuali
 
    </center>
 
- To load your data set, provide **DataSet Id**, and **primary subscription key**, then Press the **get features** button. Once this request completes processing, in the **Layers** panel, you'll see layers with the features of you data set. The layers reflect the content in your DWG package. For example, you will find a _unit_ layer and a _level_ layer. You can zoom into a layer or edit the layer by right clicking on the layer and choosing **Zoom to Layer** or **Open Attribute Table**, respectively. The **Layers** panel supports more features, see the [full list of collection features](#Full-list-of-feature-collections)
+ To load your data set, provIDe **DataSet ID**, and **primary subscription key**, then Press the **get features** button. Once this request completes processing, in the **Layers** panel, you'll see layers with the features of you data set. The layers reflect the content in your DWG package. For example, you will find a _unit_ layer and a _level_ layer. You can zoom into a layer or edit the layer by right clicking on the layer and choosing **Zoom to Layer** or **Open Attribute Table**, respectively. The **Layers** panel supports more features, see the [full list of collection features](#Full-list-of-feature-collections)
 
    <center>
 
@@ -155,9 +155,9 @@ You might want to add, edit or delete project-specific features, such as furnitu
 
       </center>
 
-   4. To see the assigned category Id, reload the data set by clicking the **Get Features** button in the **Private Atlas** tab. If you to closed the **Azure Maps** window, that's okay, you can open the window again and click **Get Features**.
+   4. To see the assigned category ID, reload the data set by clicking the **Get Features** button in the **Private Atlas** tab. If you to closed the **Azure Maps** window, that's okay, you can open the window again and click **Get Features**.
 
-   5. Right click on the **category** layer in **Layers** panel. Click on **Open Attributes Table**, and you should be able to see the new category in the list along with its unique category ID. Copy the **id** for the category, you may right click and select **Copy Cell Content**.
+   5. Right click on the **category** layer in **Layers** panel. Click on **Open Attributes Table**, and you should be able to see the new category in the list along with its unique category ID. Copy the **ID** for the category, you may right click and select **Copy Cell Content**.
 
       <center>
 
@@ -165,7 +165,7 @@ You might want to add, edit or delete project-specific features, such as furnitu
 
       </center>
 
-2. Next, we will acquire the unit Id, and we'll add the desk to this unit. Right click on the **unit** layer in the **Layers** panel. Click on **OpenAttribute Table**. Copy the **id** of the desired unit.
+2. Next, we will acquire the unit ID, and we'll add the desk to this unit. Right click on the **unit** layer in the **Layers** panel. Click on **OpenAttribute Table**. Copy the **ID** of the desired unit.
 
       <center>
 
@@ -173,13 +173,13 @@ You might want to add, edit or delete project-specific features, such as furnitu
 
       </center>
 
-3. To add a desk to the unit, choose **area_element** in the **Layers** panel. Click the **edit** icon, then click on the **Add Polygon Feature** button in the toolbar. On the map, draw a polygon representing the desk in the unit you, and click **save** right-click to open the **Feature Attributes** window. In the **Feature Attributes** window, provide the following required information and click **OK**:
+3. To add a desk to the unit, choose **area_element** in the **Layers** panel. Click the **edit** icon, then click on the **Add Polygon Feature** button in the toolbar. On the map, draw a polygon representing the desk in the unit you, and click **save** right-click to open the **Feature Attributes** window. In the **Feature Attributes** window, provIDe the following required information and click **OK**:
 
       | | |
       | :-- | :-- |
-      | **original_id** | Give an original ID of your choice |
-      | **category_id** | Provide the category ID for the desk category |
-      | **unit_id** | Provide the unit ID to add the desk to this unit |
+      | **original_ID** | Give an original ID of your choice |
+      | **category_ID** | ProvIDe the category ID for the desk category |
+      | **unit_ID** | ProvIDe the unit ID to add the desk to this unit |
       | **name** | Give a name for the element |
 
 The information in the image below are possible options that you could choose.
@@ -190,7 +190,7 @@ The information in the image below are possible options that you could choose.
 
    </center>
 
-4. Once you provide the required information, you should be able to see the element on the map. Click the **Save Layer Edits** button in the toolbar to save changes to your data set.
+4. Once you provIDe the required information, you should be able to see the element on the map. Click the **Save Layer Edits** button in the toolbar to save changes to your data set.
 
    <center>
 
@@ -219,11 +219,11 @@ The feature collections is documented and exposed via the WFS API. The table bel
 | vertical_penetration | An area that, when used in a set, represents a method of navigating vertically between levels. It can be used to model stairs, elevators etc. Geometry can overlap units and other vertical penetration features. |
 | zone | A virtual area. ex, wifi zone, emergency assembly area. Zones can be used as destinations but not meant for through traffic.|
 | opening | A usually traversable boundary between two units, or a unit and vertical_penetration.|
-| unit | A physical and non-overlapping area that might be occupied and traversed by a navigating agent. It can be a hallway, a room, a courtyard, etc. It is surrounded by physical obstruction, such as a wall, unless the _is_open_area_ attribute is equal to true. The user must add openings where the obstruction shouldn't be there. If _is_open_area_ attribute is equal to true, all the sides are assumed open to the surroundings and walls are to be added where needed. Walls for open areas are represented as a _line_element_ or an _area_element_ with _is_obstruction_ set to true. |
+| unit | A physical and non-overlapping area that might be occupied and traversed by a navigating agent. It can be a hallway, a room, a courtyard, etc. It is surrounded by physical obstruction, such as a wall, unless the _is_open_area_ attribute is equal to true. The user must add openings where the obstruction shouldn't be there. If _is_open_area_ attribute is equal to true, all the sIDes are assumed open to the surroundings and walls are to be added where needed. Walls for open areas are represented as a _line_element_ or an _area_element_ with _is_obstruction_ set to true. |
 | level | An indication of the extent and vertical position of a set of features.|
 | facility | An area of the site, such as a building footprint.|
 | point_element | A point feature in a unit, such as a printer or a device. |
-| line_element | A line feature in a unit, such as a dividing wall or window.|
+| line_element | A line feature in a unit, such as a divIDing wall or window.|
 | area_element | A polygon feature in a unit, such as an area open to below, an obstruction like an island in a unit.|
 
 ## Known limitations
