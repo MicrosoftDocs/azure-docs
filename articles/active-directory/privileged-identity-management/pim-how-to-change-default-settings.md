@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 02/07/2020
+ms.date: 02/28/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
@@ -102,7 +102,7 @@ You can require that users enter a business justification when they activate. To
 
 ## Require approval to activate
 
-If you want to require approval to activate a role, follow these steps.
+If setting multiple approvers, approval completes as soon as one of them approves or denies. You can't require approval from at least two users. To require approval to activate a role, follow these steps.
 
 1. Check the **Require approval to activate** check box.
 

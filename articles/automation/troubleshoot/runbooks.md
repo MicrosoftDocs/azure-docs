@@ -466,17 +466,17 @@ Your runbook shows in a **Stopped** state after running for 3 hours. You may als
 The job was evicted and subsequently reached a Stopped state. The job cannot continue running
 ```
 
-This behavior is by design in Azure sandboxes because of the "Fair Share" monitoring of processes within Azure Automation. If it executes longer than three hours, Fair Share automatically stops a runbook. The status of a runbook that goes past the fair-share time limit differs by runbook type. PowerShell and Python runbooks are set to a **Stopped** status. PowerShell Workflow runbooks are set to **Failed**.
+This behavior is by design in Azure sandboxes because of the [fair share](../automation-runbook-execution.md#fair-share) monitoring of processes within Azure Automation. If it executes longer than three hours, fair share automatically stops a runbook. The status of a runbook that goes past the fair share time limit differs by runbook type. PowerShell and Python runbooks are set to a **Stopped** status. PowerShell Workflow runbooks are set to **Failed**.
 
 ### Cause
 
-The runbook ran over the 3-hour limit allowed by Fair Share in an Azure Sandbox.
+The runbook ran over the 3-hour limit allowed by fair share in an Azure sandbox.
 
 ### Resolution
 
 One recommended solution is to run the runbook on a [Hybrid Runbook Worker](../automation-hrw-run-runbooks.md).
 
-Hybrid Workers aren't limited by the [Fair Share](../automation-runbook-execution.md#fair-share) 3-hour runbook limit that Azure sandboxes have. Runbooks run on Hybrid Runbook Workers should be developed to support restart behaviors if there are unexpected local infrastructure issues.
+Hybrid Workers aren't limited by the 3-hour fair share runbook limit that Azure sandboxes have. Runbooks run on Hybrid Runbook Workers should be developed to support restart behaviors if there are unexpected local infrastructure issues.
 
 Another option is to optimize the runbook by creating [child runbooks](../automation-child-runbooks.md). If your runbook loops through the same function on several resources, such as a database operation on several databases, you can move that function to a child runbook. Each of these child runbooks executes in parallel in separate processes. This behavior decreases the total amount of time for the parent runbook to complete.
 

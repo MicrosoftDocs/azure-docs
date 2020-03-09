@@ -3,14 +3,14 @@ title: Configure Azure AD B2C as a SAML IdP to your applications
 title-suffix: Azure AD B2C
 description: How to configure Azure AD B2C to provide SAML protocol assertions to your applications (service providers). Azure AD B2C will act as the single identity provider (IdP) to your SAML application.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/24/2020
-ms.author: marsma
+ms.date: 02/27/2020
+ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
 ---
@@ -59,7 +59,7 @@ If you don't yet have a SAML service provider and an associated metadata endpoin
 
 ## 1. Set up certificates
 
-To build a trust relationship between your service provider and Azure AD B2C, you need to provide X509 certificates and their private keys.
+To build a trust relationship between your service provider and Azure AD B2C, you need to provide the web app X509 certificates.
 
 * **Service provider certificates**
   * Certificate with a private key stored in your Web App. This certificate is used by your service provider to sign the SAML request sent to Azure AD B2C. Azure AD B2C reads the public key from the service provider metadata to validate the signature.
@@ -109,7 +109,7 @@ Next, upload the SAML assertion and response signing certificate to Azure AD B2C
 
 ### 2.1 Create the SAML token issuer
 
-Now, add the capability for your tenant to issue SAML tokens.
+Now, add the capability for your tenant to issue SAML tokens, using [SAML token issuer](saml-issuer-technical-profile.md) and [SAML session provider](custom-policy-reference-sso.md#samlssosessionprovider) technical profiles.
 
 Open `SocialAndLocalAccounts\`**`TrustFrameworkExtensions.xml`** in the custom policy starter pack.
 
@@ -138,11 +138,11 @@ You can change the value of the `IssuerUri` metadata. This is the issuer URI tha
       </CryptographicKeys>
       <InputClaims/>
       <OutputClaims/>
-      <UseTechnicalProfileForSessionManagement ReferenceId="SM-Saml"/>
+      <UseTechnicalProfileForSessionManagement ReferenceId="SM-Saml-sp"/>
     </TechnicalProfile>
 
     <!-- Session management technical profile for SAML based tokens -->
-    <TechnicalProfile Id="SM-Saml">
+    <TechnicalProfile Id="SM-Saml-sp">
       <DisplayName>Session Management Provider</DisplayName>
       <Protocol Name="Proprietary" Handler="Web.TPEngine.SSO.SamlSSOSessionProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"/>
     </TechnicalProfile>
@@ -293,7 +293,7 @@ The metadata is information used in the SAML protocol to expose the configuratio
 
 If there are properties specified in *both* the SAML metadata URL and in the application registration's manifest, they are **merged**. The properties specified in the metadata URL are processed first and take precedence.
 
-For this tutorial which uses the SAML test application, use the following value for `samlMetadataUrl`:
+For this tutorial, which uses the SAML test application, use the following value for `samlMetadataUrl`:
 
 ```JSON
 "samlMetadataUrl":"https://samltestapp2.azurewebsites.net/Metadata",
@@ -320,7 +320,7 @@ For this tutorial, in which you use the SAML test application, set the `url` pro
 
 This optional property represents the `Logout` URL (`SingleLogoutService` URL in the relying party metadata), and the `BindingType` for this is assumed to be `Http-Redirect`.
 
-For this tutorial which uses the SAML test application, leave `logoutUrl` set to `https://samltestapp2.azurewebsites.net/logout`:
+For this tutorial, which uses the SAML test application, leave `logoutUrl` set to `https://samltestapp2.azurewebsites.net/logout`:
 
 ```JSON
 "logoutUrl": "https://samltestapp2.azurewebsites.net/logout",

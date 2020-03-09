@@ -23,8 +23,8 @@
     href: quick-create-net.md
   - name: .NET (SDK v3)
     href: quick-create-net-v3.md
-  - name: Resource Manager template
-    displayName: ARM
+  - name: ARM template
+    displayName: Resource Manager
     href: quick-create-template.md
 - name: Tutorials
   items:

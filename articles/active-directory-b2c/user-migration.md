@@ -3,14 +3,14 @@ title: User migration approaches
 titleSuffix: Azure AD B2C
 description: Migrate user accounts from another identity provider to Azure AD B2C by using the bulk import or seamless migration methods.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/14/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
 ---
 # Migrate users to Azure AD B2C

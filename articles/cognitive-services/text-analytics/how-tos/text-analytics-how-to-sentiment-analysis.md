@@ -71,7 +71,7 @@ Sentiment Analysis v3 can return scores and labels at a sentence and document le
 
 ### Example C# code
 
-You can find an example C# application that calls this version of Sentiment Analysis on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/dotnet/Language/SentimentV3.cs).
+You can find an example C# application that calls this version of Sentiment Analysis on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/dotnet/Language/TextAnalyticsSentiment.cs).
 
 
 #### [Version 2.1](#tab/version-2)

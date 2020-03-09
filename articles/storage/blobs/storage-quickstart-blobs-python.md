@@ -14,7 +14,7 @@ ms.topic: quickstart
 
 In this quickstart, you learn to manage blobs by using Python. Blobs are objects that can hold large amounts of text or binary data, including images, documents, streaming media, and archive data. You'll upload, download, and list blobs, and you'll create and delete containers.
 
-[API reference documentation](/python/api/azure-storage-blob) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-blob) | [Package (Python Package Index)](https://pypi.org/project/azure-storage-blob/) | [Samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-blob/samples)
+[API reference documentation](/python/api/azure-storage-blob) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-blob) | [Package (Python Package Index)](https://pypi.org/project/azure-storage-blob/) | [Samples](https://docs.microsoft.com/azure/storage/common/storage-samples-python?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
 
 ## Prerequisites
 
@@ -99,7 +99,7 @@ Azure Blob storage is optimized for storing massive amounts of unstructured data
 
 The following diagram shows the relationship between these resources.
 
-![Diagram of Blob storage architecture](./media/storage-blob-introduction/blob1.png)
+![Diagram of Blob storage architecture](./media/storage-blobs-introduction/blob1.png)
 
 Use the following Python classes to interact with these resources:
 

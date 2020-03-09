@@ -84,23 +84,6 @@ Use NSG service tags | Easier to manage as range changes are automatically merge
 Use Azure Firewall FQDN tags | Easier to manage as the required FQDNs are automatically managed | Can be used with Azure Firewall only
 Use an HTTP proxy | Granular control in the proxy over the storage URLs is allowed <br/><br/> Single point of internet access to VMs <br/><br/> Not subject to Azure IP address changes | Additional costs to run a VM with the proxy software
 
-## Onboard to the public preview
-
-Onboard to the public preview as follows:
-
-* In the portal, register your subscription ID to the Recovery Services service provider by [following this article](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-register-provider-errors#solution-3---azure-portal).
-* For 'Az' module in PowerShell, run this cmdlet . It should complete as "Registered".
-
-    ```powershell
-    Register-AzProviderFeature -FeatureName "HanaBackup" –ProviderNamespace Microsoft.RecoveryServices
-    ```
-* If you are using 'AzureRM' module in PowerShell, run this cmdlet. It should complete as "Registered".
-
-    ```powershell
-    Register-AzureRmProviderFeature -FeatureName "HanaBackup" –ProviderNamespace Microsoft.RecoveryServices
-    ```
-    
-
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
 ## Discover the databases
