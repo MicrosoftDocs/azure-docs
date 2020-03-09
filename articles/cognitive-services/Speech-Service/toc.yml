@@ -193,6 +193,10 @@
       items:
       - name: Text-to-speech REST API
         href: rest-text-to-speech.md
+    - name: Phone Set Usage
+      items:
+      - name: Speech API (SAPI) Phone Set Usage
+        href: sapi-phoneset-usage.md
   - name: Resources
     items:
     - name: Text-to-speech FAQ

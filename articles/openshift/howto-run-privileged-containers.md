@@ -118,12 +118,17 @@ Set the following fields when deploying enforcers:
 
 The base instructions we're going to modify can be found in the [Prisma Cloud deployment documentation](https://docs.paloaltonetworks.com/prisma/prisma-cloud/19-11/prisma-cloud-compute-edition-admin/install/install_openshift.html)
 
-Start by creating a new OpenShift project
+Start by installing the `twistcli` tool as described in the "Install Prisma Cloud" and "Download the Prisma Cloud software" sections.
+
+Create a new OpenShift project
 ```
 oc new-project twistlock
 ```
 
-You can follow the documentation until the "Install Console" section, use the Prisma Cloud container registry instead of creating an internal one.
+Skip the optional section "Push the Prisma Cloud images to a private registry". It won't work on Azure Red Hat Openshift. Use the online registry instead.
+
+You can follow the official documentation while applying the corrections described below.
+Start with the "Install Console" section.
 
 ### Install Console
 

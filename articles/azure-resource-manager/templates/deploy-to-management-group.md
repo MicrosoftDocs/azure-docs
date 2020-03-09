@@ -2,14 +2,12 @@
 title: Deploy resources to management group
 description: Describes how to deploy resources at the management group scope in an Azure Resource Manager template.
 ms.topic: conceptual
-ms.date: 02/10/2020
+ms.date: 03/02/2020
 ---
 
 # Create resources at the management group level
 
 Typically, you deploy Azure resources to a resource group in your Azure subscription. However, you can also create resources at the management group level. You use management group level deployments to take actions that make sense at that level, such as assigning [role-based access control](../../role-based-access-control/overview.md) or applying [policies](../../governance/policy/overview.md).
-
-Currently, to deploy templates at the management group level, you must use the REST API.
 
 ## Supported resources
 
@@ -40,7 +38,16 @@ https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeployment
 
 ## Deployment commands
 
-The command for management group deployments is different than the command for resource group deployments.
+The commands for management group deployments are different than the commands for resource group deployments.
+
+For Azure PowerShell, use [New-AzManagementGroupDeployment](/powershell/module/az.resources/new-azmanagementgroupdeployment). 
+
+```azurepowershell-interactive
+New-AzManagementGroupDeployment `
+  -ManagementGroupId "myMG" `
+  -Location "West US" `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/management-level-deployment/azuredeploy.json
+```
 
 For REST API, use [Deployments - Create At Management Group Scope](/rest/api/resources/deployments/createorupdateatmanagementgroupscope).
 
@@ -145,7 +152,7 @@ The following example assigns an existing policy definition to the management gr
 
 ## Template sample
 
-* Create a resource group, a policy and a policy assignment.  See [here](https://github.com/Azure/azure-docs-json-samples/blob/master/management-level-deployment/azuredeploy.json).
+* [Create a resource group, a policy and a policy assignment](https://github.com/Azure/azure-docs-json-samples/blob/master/management-level-deployment/azuredeploy.json).
 
 ## Next steps
 

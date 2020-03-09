@@ -18,7 +18,7 @@ This article shows you how to configure Azure Dev Spaces to use a custom NGINX i
 * [Azure Kubernetes Service (AKS) cluster with Azure Dev Spaces enabled][qs-cli].
 * [kubectl][kubectl] installed.
 * [Helm 3 installed][helm-installed].
-* [A custom domain][custom-domain] with a [DNS Zone][dns-zone] in the same resource group as your AKS cluster.
+* [A custom domain][custom-domain] with a [DNS Zone][dns-zone].  This article assumes the custom domain and DNS Zone are in the same resource group as your AKS cluster, but it is possible to use a custom domain and DNS Zone in a different resource group.
 
 ## Configure a custom NGINX ingress controller
 

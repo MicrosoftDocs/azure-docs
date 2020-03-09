@@ -760,7 +760,7 @@ When no longer needed, delete the resources created in this article.
 
 Replace the placeholder with the appropriate value. All resources within the specified resource group will be deleted.
 
-```bash
+```azurecli
 az group delete -n <resource-group>
 ```
 

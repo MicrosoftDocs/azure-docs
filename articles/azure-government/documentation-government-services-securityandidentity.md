@@ -143,7 +143,6 @@ All features covered in the above list are available in the US Government cloud 
 The following Azure Active Directory Premium P1 features are currently not available in Azure Government:
 
 - B2B Collaboration ([vote for this feature](https://feedback.azure.com/forums/558487-azure-government/suggestions/20588554-azure-ad-b2b-in-azure-government))
-- Group-Based Licensing
 - Azure Active Directory Domain Services
 - Cloud App Security
 

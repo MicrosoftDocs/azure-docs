@@ -51,7 +51,7 @@ These steps and the following diagram illustrate Azure Data Factory's data inges
 
 ## Use the Python SDK 
 
-With the [Python SDK](https://docs.microsoft.com/python/api/overview/azureml-sdk/?view=azure-ml-py), you can incorporate data ingestion tasks into an [Azure Machine Learning pipeline](how-to-create-your-first-pipeline.md) step.
+With the [Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml), you can incorporate data ingestion tasks into an [Azure Machine Learning pipeline](how-to-create-your-first-pipeline.md) step.
 
 The following table summarizes the pros and con for using the SDK and an ML pipelines step for data ingestion tasks.
 

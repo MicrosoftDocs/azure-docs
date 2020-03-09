@@ -181,15 +181,14 @@ See the [forecasting sample notebooks](https://github.com/Azure/MachineLearningN
 ### Configure a DNN enable Forecasting experiment
 
 > [!NOTE]
-> DNN support for forecasting in Automated Machine Learning is in Preview.
+> DNN support for forecasting in Automated Machine Learning is in Preview and not supported for local runs.
 
 In order to leverage DNNs for forecasting, you will need to set the `enable_dnn` parameter in the AutoMLConfig to true. 
 
-In order to use DNNs, we recommend using an AML Compute cluster with GPU SKUs and at least two nodes as the compute target. 
-For more information, see the [AML Compute documentation](how-to-set-up-training-targets.md#amlcompute). 
-See [GPU optimized virtual machine sizes](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu) for more information on the VM sizes that include GPUs.
+We recommend using an AML Compute cluster with GPU SKUs and at least two nodes as the compute target. To allow sufficient time for the DNN training to complete, we recommend setting the experiment timeout to a minimum of a couple of hours.
+For more information on AML compute and VM sizes that include GPU's, see the [AML Compute documentation](how-to-set-up-training-targets.md#amlcompute) and [GPU optimized virtual machine sizes documentation](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu).
 
-To allow sufficient time for the DNN training to complete, we recommend setting the experiment timeout to at least a couple of hours.
+View the [Beverage Production Forecasting notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-beer-remote/auto-ml-forecasting-beer-remote.ipynb) for a detailed code example leveraging DNNs.
 
 ### View feature engineering summary
 
