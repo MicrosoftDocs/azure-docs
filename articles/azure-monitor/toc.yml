@@ -213,6 +213,8 @@
         items:
         - name: Client-side JavaScript
           href: app/javascript.md
+        - name: Source map for JavaScript
+          href: app/source-map-support.md
       - name: Application Insights API summary
         displayname: SDK, API, custom events, custom metrics, trackevent,trackmetric, getmetric, trackrequest, trackexception, tracktrace, trackdependency
         href: app/api-custom-events-metrics.md
