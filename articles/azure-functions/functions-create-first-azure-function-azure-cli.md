@@ -3,7 +3,7 @@ title: Create a function in Azure that responds to HTTP requests
 description: Learn how to create a function from the command line, then publish the local project to serverless hosting in Azure Functions.
 ms.date: 01/28/2020
 ms.topic: quickstart
-zone_pivot_groups: programming-languages-set-functions
+
 ---
 
 # Quickstart: Create a function in Azure that responds to HTTP requests
@@ -18,7 +18,12 @@ Before you begin, you must have the following:
 
 + An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
+::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell"  
 + The [Azure Functions Core Tools](./functions-run-local.md#v2) version 2.7.1846 or a later 2.x version.
+::: zone-end  
+::: zone pivot="programming-language-python"
++ Python 3.6 amd 3.7 requires [Azure Functions Core Tools](./functions-run-local.md#v2) version 2.7.1846 or a later 2.x version. Python 3.8 requires [version 3.x](./functions-run-local.md#v2) of the Core Tools.
+::: zone-end
 
 + The [Azure CLI](/cli/azure/install-azure-cli) version 2.0.76 or later. 
 ::: zone pivot="programming-language-javascript,programming-language-typescript"
@@ -263,10 +268,10 @@ Use the following Azure CLI commands to create these items. Each command provide
     
     The storage account incurs only a few cents (USD) for this quickstart.
     
-1. Create the Functions app using the [az functionapp create](/cli/azure/functionapp#az-functionapp-create) command. In the following example, replace `<STORAGE_NAME>` with the name of the account you used in the previous step, and replace `<APP_NAME>` with a globally unique name appropriate to you. The `<APP_NAME>` is also the default DNS domain for the function app. 
+1. Create the function app using the [az functionapp create](/cli/azure/functionapp#az-functionapp-create) command. In the following example, replace `<STORAGE_NAME>` with the name of the account you used in the previous step, and replace `<APP_NAME>` with a globally unique name appropriate to you. The `<APP_NAME>` is also the default DNS domain for the function app. 
 
     ::: zone pivot="programming-language-python"  
-    If you are using Python 3.8, change `--runtime-version` to `3.8` and `--functions_version` to `3`
+    If you are using Python 3.8, change `--runtime-version` to `3.8` and `--functions_version` to `3`.
     
     If you are using Python 3.6, change `--runtime-version` to `3.6`.
 
