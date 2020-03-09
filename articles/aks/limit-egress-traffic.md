@@ -48,7 +48,7 @@ The following outbound ports / network rules are required for an AKS cluster:
 
 * TCP port *443*
 * TCP [IPAddrOfYourAPIServer]:443 is required if you have an app that needs to talk to the API server.  This change can be set after the cluster is created.
-* TCP port *9000*, TCP port *22* and UPD port *1194* for the tunnel front pod to communicate with the tunnel end on the API server.
+* TCP port *9000*, TCP port *22* and UDP port *1194* for the tunnel front pod to communicate with the tunnel end on the API server.
     * To get more specific, see the **.hcp.\<location\>.azmk8s.io* and **.tun.\<location\>.azmk8s.io* addresses in the following table.
 * UDP port *123* for Network Time Protocol (NTP) time synchronization (Linux nodes).
 * UDP port *53* for DNS is also required if you have pods directly accessing the API server.
@@ -79,8 +79,8 @@ The following FQDN / application rules are required:
 
 | FQDN                       | Port      | Use      |
 |----------------------------|-----------|----------|
-| *.hcp.\<location\>.cx.prod.service.azk8s.cn | HTTPS:443, TCP:22, TCP:9000 | This address is the API server endpoint. Replace *\<location\>* with the region where your AKS cluster is deployed. |
-| *.tun.\<location\>.cx.prod.service.azk8s.cn | HTTPS:443, TCP:22, TCP:9000 | This address is the API server endpoint. Replace *\<location\>* with the region where your AKS cluster is deployed. |
+| *.hcp.\<location\>.cx.prod.service.azk8s.cn | HTTPS:443, TCP:22, TCP:9000, UDP:1194 | This address is required for Node <-> API server communication. Replace *\<location\>* with the region where your AKS cluster is deployed. |
+| *.tun.\<location\>.cx.prod.service.azk8s.cn | HTTPS:443, TCP:22, TCP:9000, UDP:1194 | This address is required for Node <-> API server communication. Replace *\<location\>* with the region where your AKS cluster is deployed. |
 | *.azk8s.cn        | HTTPS:443 | This address is required to download required binaries and images|
 | mcr.microsoft.com          | HTTPS:443 | This address is required to access images in Microsoft Container Registry (MCR). This registry contains first-party images/charts(for example, moby, etc.) required for the functioning of the cluster during upgrade and scale of the cluster |
 | *.cdn.mscr.io       | HTTPS:443 | This address is required for MCR storage backed by the Azure Content Delivery Network (CDN). |
@@ -94,8 +94,8 @@ The following FQDN / application rules are required:
 
 | FQDN                       | Port      | Use      |
 |----------------------------|-----------|----------|
-| *.hcp.\<location\>.cx.aks.containerservice.azure.us | HTTPS:443, TCP:22, TCP:9000 | This address is the API server endpoint. Replace *\<location\>* with the region where your AKS cluster is deployed. |
-| *.tun.\<location\>.cx.aks.containerservice.azure.us | HTTPS:443, TCP:22, TCP:9000 | This address is the API server endpoint. Replace *\<location\>* with the region where your AKS cluster is deployed. |
+| *.hcp.\<location\>.cx.aks.containerservice.azure.us | HTTPS:443, TCP:22, TCP:9000, UDP:1194 | This address is required for Node <-> API server communication. Replace *\<location\>* with the region where your AKS cluster is deployed. |
+| *.tun.\<location\>.cx.aks.containerservice.azure.us | HTTPS:443, TCP:22, TCP:9000, UDP:1194 | This address is required for Node <-> API server communication. Replace *\<location\>* with the region where your AKS cluster is deployed. |
 | mcr.microsoft.com          | HTTPS:443 | This address is required to access images in Microsoft Container Registry (MCR). This registry contains first-party images/charts(for example, moby, etc.) required for the functioning of the cluster during upgrade and scale of the cluster |
 |*.cdn.mscr.io              | HTTPS:443 | This address is required for MCR storage backed by the Azure Content Delivery Network (CDN). |
 | *.data.mcr.microsoft.com             | HTTPS:443 | This address is required for MCR storage backed by the Azure content delivery network (CDN). |
