@@ -11,6 +11,8 @@ ms.author: spelluru
 ---
 
 # Configure private endpoints for Event Grid topics or domains
+You can use [private endpoints](../private-link/private-endpoint-overview.md) to allow ingress of events directly from your virtual network to your topics and domains securely over a [private link](../private-link/private-link-overview.md) without going through the public internet. The private endpoint uses an IP address from the VNet address space for your topic or domain. For more information, see [Network security](network-security.md).
+
 This article describes how to configure private endpoints for Event Grid topics or domains.
 
 ## Use Azure portal 

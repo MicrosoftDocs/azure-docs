@@ -104,7 +104,7 @@
       href: security-authentication.md
     - name: Authorization 
       href: security-authorization.md
-    - name: Network security
+    - name: Network security (preview)
       href: network-security.md
   - name: Delivery and retry
     href: delivery-and-retry.md
@@ -122,9 +122,9 @@
     href: geo-disaster-recovery.md
 - name: How-to guides
   items:
-  - name: Configure private endpoints
+  - name: Configure private endpoints (preview)
     href: configure-private-endpoints.md
-  - name: Configure firewall
+  - name: Configure firewall (preview)
     href: configure-firewall.md
   - name: Post to custom topic
     href: post-to-custom-topic.md
