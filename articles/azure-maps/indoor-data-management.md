@@ -24,7 +24,7 @@ Before you start ingesting data into Azure Maps resources, make sure that your D
 
 ## Data Ingestion
 
-The first step is to upload your DWG package using the [Data Upload API](). The [Data Upload API]() consumes a DWG package, and it returns a URI pointing to the uploaded package. Once the package is uploaded, you can use the URI to accesses and download the package. The URI also contains the `udID` of the uploaded package. Use the package `udID` as inputs to the [Conversion API](). This API accesses the uploaded DWG package and valIDates it against the [DWG package requirements](dwg-requirements.md). If the package meets the requirements, it's converted from design data to map data. Then, a resource URI is returned. The URI contains the conversion `udID`. concludes the ingestion phase. The map data can be accessed using the conversion ID. The data can then be accesses and modified by other APIs. 
+The first step is to upload your DWG package using the [Data Upload API](). The [Data Upload API]() consumes a DWG package, and it returns a URI pointing to the uploaded package. Once the package is uploaded, you can use the URI to accesses and download the package. The URI also contains the `udid` of the uploaded package. Use the package `udid` as inputs to the [Conversion API](). This API accesses the uploaded DWG package and valIDates it against the [DWG package requirements](dwg-requirements.md). If the package meets the requirements, it's converted from design data to map data. Then, a resource URI is returned. The URI contains the conversion `udid`. concludes the ingestion phase. The map data can be accessed using the conversion ID. The data can then be accesses and modified by other APIs. 
 
 The [Conversion API]() will return error codes in the response body if the DWG package doesn't meet the requirements. If you come across errors, then see [Conversion API error codes]() for details.
 
@@ -56,30 +56,30 @@ Follow the processes below to upload your DWG design package:
     https://atlas.microsoft.com/mapData/<unique-alphanumeric-value>/status?api-version=1.0
     ```
 
-6. Obtain the package ID, or the package `udID`, by making a **GET** HTTP request at the **Location** URL. You'll need to append your primary subscription key to the URL, as seen below:
+6. Obtain the package ID, or the package `udid`, by making a **GET** HTTP request at the **Location** URL. You'll need to append your primary subscription key to the URL, as seen below:
 
     ```http
     https://atlas.microsoft.com/mapData/<unique-alphanumeric-value>/status?api-version=1.0&subscription-key=<Azure-Maps-Primary-Subscription-key>
     ```
 
-7. When the **GET** HTTP request completes successfully, the response header will contain the `udID` of the uploaded DWG package. Copy the `udID`, it's highlighted in this image. 
+7. When the **GET** HTTP request completes successfully, the response header will contain the `udid` of the uploaded DWG package. Copy the `udid`, it's highlighted in this image. 
 
     <center>
 
-    ![data-management](./media/indoor-data-management/upload-data-udID.png)
+    ![data-management](./media/indoor-data-management/upload-data-udid.png)
 
     </center>
 
 ### Data conversion process
 
-keep the Postman application open. Now that your DWG package is uploaded, we'll use the package `udID`, from the previous section, to convert the DWG package into map data.
+keep the Postman application open. Now that your DWG package is uploaded, we'll use the package `udid`, from the previous section, to convert the DWG package into map data.
 
 1. Select **New** again. In the **Create New** window, select **Request**. Enter a **Request name**, and select a collection. Click **Save**.
 
-2. Select the **POST** HTTP method in the builder tab and enter the following URL to convert your uploaded DWG package into map data. Use the `udID` of the uploaded DWG package.
+2. Select the **POST** HTTP method in the builder tab and enter the following URL to convert your uploaded DWG package into map data. Use the `udid` of the uploaded DWG package.
 
     ```http
-    https://atlas.microsoft.com/conversion/convert?subscription-key=<Azure-Maps-Primary-Subscription-key>&api-version=1.0&udID=<alphanumeric-value-upload-udID>&inputType=DWG
+    https://atlas.microsoft.com/conversion/convert?subscription-key=<Azure-Maps-Primary-Subscription-key>&api-version=1.0&udid=<alphanumeric-value-upload-udid>&inputType=DWG
     ```
 
 3. When the request completes, you'll receive a response header containing a **Location** key. The **Location** key returned by the conversion API holds the URL of the converted map data. Copy the location URL, it would have a similar format as the URL below:
@@ -94,11 +94,11 @@ keep the Postman application open. Now that your DWG package is uploaded, we'll 
     https://atlas.microsoft.com/conversion/<unique-alphanumeric-value>/status?api-version=1.0&subscription-key=<Azure-Maps-Primary-Subscription-key>
     ```
 
-5. Once the request completes successfully, you'll see a success status message in the response body. Copy the `udID` of the converted map data from the "resourceLocation". Or, copy it from the **Headers** response tab. We'll refer to this `udID` as the conversion ID for short, and use we'll it in the data curation stage.
+5. Once the request completes successfully, you'll see a success status message in the response body. Copy the `udid` of the converted map data from the "resourceLocation". Or, copy it from the **Headers** response tab. We'll refer to this `udid` as the conversion ID for short, and use we'll it in the data curation stage.
 
     <center>
 
-    ![data-management](./media/indoor-data-management/conversion-data-udID-response.png)
+    ![data-management](./media/indoor-data-management/conversion-data-udid-response.png)
 
     </center>
 
@@ -129,7 +129,7 @@ Let's now make a new data set using the [Dataset Create API]() and the conversio
 
     <center>
 
-    ![data-management](./media/indoor-data-management/dataset-udID.png)
+    ![data-management](./media/indoor-data-management/dataset-udid.png)
 
     </center>
 
@@ -171,11 +171,11 @@ To create a tile set, follow the steps below:
     https://atlas.microsoft.com/tileset/operations/<alphanumeric-value-status-URI>?api-version=1.0&subscription-key=<Azure-Maps-Primary-Subscription-key>
     ```
 
-4. Upon a successful request, you'll receive the tile set `udID` in the response body. For short, this `udID` is later referred to as the tile set ID.
+4. Upon a successful request, you'll receive the tile set `udid` in the response body. For short, this `udid` is later referred to as the tile set ID.
 
     <center>
 
-    ![data-management](./media/indoor-data-management/tileset-udID.png)
+    ![data-management](./media/indoor-data-management/tileset-udid.png)
 
     </center>
 
