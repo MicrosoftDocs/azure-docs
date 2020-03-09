@@ -95,6 +95,27 @@ This feature is available in both basic and premium tiers of Event Grid.
 
 We allow up to 16 IP Firewall rules to be created per topic or domain.
 
+## Service tags
+A service tag represents a group of IP address prefixes from a given Azure service. Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change, minimizing the complexity of frequent updates to network security rules.
+
+You can use service tags to define network access controls on [network security groups](../virtual-network/security-overview.md#security-rules) or [Azure Firewall](../firewall/service-tags.md). Use service tags in place of specific IP addresses when you create security rules. By specifying the service tag name (for example, **ApiManagement**) in the appropriate *source* or *destination* field of a rule, you can allow or deny the traffic for the corresponding service.
+
+You can use service tags to achieve network isolation and protect your Azure resources from the general Internet while accessing Azure services that have public endpoints. Create inbound/outbound network security group rules to deny traffic to/from **Internet** and allow traffic to/from **AzureCloud** or other available service tags. 
+
+For a list of available service tags, see [tags list](../virtual-network/service-tags-overview.md#available-service-tags) of specific Azure services. One of them is **AzureEventGrid**. 
+
+| Tag | Purpose | Can use inbound or outbound? | Can be regional? | Can use with Azure Firewall? |
+| --- | -------- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| **AzureEventGrid** | Azure Event Grid. <br/><br/>*Note:* This tag covers Azure Event Grid endpoints in US South Central, US East, US East 2, US West 2, and US Central only. | Both | No | No |
+
+The columns indicate whether the tag:
+
+- Is suitable for rules that cover inbound or outbound traffic.
+- Supports [regional](https://azure.microsoft.com/regions) scope.
+- Is usable in [Azure Firewall](https://docs.microsoft.com/azure/firewall/service-tags) rules.
+
+For more information, see [Service tags overview](../virtual-network/service-tags-overview.md).
+
 ## Next steps
 You can configure IP firewall for your Event Grid resource to restrict access over the public internet from only a select set of IP Addresses or IP Address ranges. For step-by-step instructions, see [Configure firewall](configure-firewall.md).
 
