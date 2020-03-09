@@ -21,17 +21,19 @@ Azure Security Center's advanced threat protection mechanisms generate security 
 
 These alerts are only available to users of the standard tier.  
 
-Security alerts can be seen in Azure Security Center's Threat Protection pages. They can also be exported to:
+Security alerts can be seen in Azure Security Center's Threat Protection pages. They can also be accessed from:
 
 - [Azure Sentinel](https://docs.microsoft.com/azure/sentinel/) (or any other SIEM)
 
-- [Azure Event Hubs]() using Security Center's [continuous export feature](continuous-export.md)
+- [Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/) using Security Center's [continuous export feature](continuous-export.md)
+
+- [The REST API](../../rest/api/securitycenter/) - If you're using the REST API to access alerts, see the [online Alerts API documentation](../../rest/api/securitycenter/alerts)
+
+- [Log Analytics workspaces]()
+
+If you're using any programmatic methods to consume the alerts, you'll need the correct schema to find the fields that are relevant to you. In addition, when exporting to an Event Hub or when triggering Workflow Automation with generic HTTP connectors, you could use the schemas to properly parse the JSON objects.
 
 
-
- - through , accessed via the REST API, or exported to a Log Analytics workspace. If you're using any programmatic methods to consume the alerts, you'll need the correct schema to find the fields that are relevant to you. In addition, when exporting to an Event Hub or when triggering Workflow Automation with generic HTTP connectors, you could use the schemas to properly parse the JSON objects.
-
-If you're using the REST API to access alerts, see the [online Alerts API documentation](../../rest/api/securitycenter/alerts).
 
 
 >[!IMPORTANT]
