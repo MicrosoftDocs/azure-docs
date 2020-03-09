@@ -29,7 +29,7 @@ By default, the flatten transformation unrolls an array to the top of the hierar
 
 ### Flatten mapping
 
-Similar to the select transformation, choose the projection of the new structure from incoming fields and the denormalized array. If a denormalized array is mapped, the output column will be the same data type as the array. If the unroll by array is an array of complex objects that contains subarrys, mapping an item of that subarry will output an array.
+Similar to the select transformation, choose the projection of the new structure from incoming fields and the denormalized array. If a denormalized array is mapped, the output column will be the same data type as the array. If the unroll by array is an array of complex objects that contains subarrays, mapping an item of that subarry will output an array.
 
 Refer to the inspect tab and data preview to verify your mapping output.
 
