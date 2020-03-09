@@ -1,6 +1,6 @@
 ---
 title: Use dynamic configuration in a Spring Boot app | Microsoft Docs
-description: In this tutorial, you learn how to dynamically update the configuration data for Spring Boot apps
+description: Learn how to dynamically update configuration data for Spring Boot apps
 services: azure-app-configuration
 author: lisaguthrie
 ms.service: azure-app-configuration
