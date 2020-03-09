@@ -8,7 +8,7 @@ ms.topic: conceptual
 author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: carlrab, vanto
-ms.date: 02/11/2020
+ms.date: 03/09/2020
 ---
 
 # Azure SQL Connectivity Settings
