@@ -151,6 +151,7 @@ Scaling can vary on a number of factors, and scale differently based on the trig
 * A single function app only scales out to a maximum of 200 instances. A single instance may process more than one message or request at a time though, so there isn't a set limit on number of concurrent executions.
 * For HTTP triggers, new instances will only be allocated at most once every 1 second.
 * For non-HTTP triggers, new instances will only be allocated at most once every 30 seconds.
+* For Service Bus triggers, the connection string referencing the [Shared Access Authorization Policy](../service-bus-messaging/service-bus-sas#shared-access-authorization-policies) for Service Bus must have the "Manage" access rule enabled in order for Azure Functions to view the queue or topic length and scale appropriately.
 
 Different triggers may also have different scaling limits as well as documented below:
 
