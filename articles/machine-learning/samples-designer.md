@@ -71,7 +71,7 @@ Learn more about the built-in recommender samples.
 
 ## Utility samples
 
-Learn more about the samples that show off additional machine learning utilities and features.
+Learn more about the samples that demonstrate machine learning utilities and features.
 
 | Sample title | Description | 
 | --- | --- |
@@ -83,3 +83,7 @@ Learn more about the samples that show off additional machine learning utilities
 ## Clean up resources
 
 [!INCLUDE [aml-ui-cleanup](../../includes/aml-ui-cleanup.md)]
+
+## Next steps
+
+
