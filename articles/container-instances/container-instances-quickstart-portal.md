@@ -30,12 +30,12 @@ On the **Basics** page, enter the following values in the **Resource group**, **
 
 * Resource group: **Create new** > `myresourcegroup`
 * Container name: `mycontainer`
-* Image source: Quickstart images
+* Image source: **Quickstart images**
 * Container image: `mcr.microsoft.com/azuredocs/aci-helloworld` (Linux)
 
 ![Configuring basic settings for a new container instance in the Azure portal][aci-portal-03]
 
-For this quickstart, you use default settings to deploy the public Microsoft `aci-helloworld` image. This Linux image packages a small web app written in Node.js that serves a static HTML page. You can also bring your own container images store in Azure Container Registry, Docker Hub, or other registries.
+For this quickstart, you use default settings to deploy the public Microsoft `aci-helloworld` image. This sample Linux image packages a small web app written in Node.js that serves a static HTML page. You can also bring your own container images stored in Azure Container Registry, Docker Hub, or other registries.
 
 On the **Networking** page, specify a **DNS name label** for your container. The name must be unique within the Azure region where you create the container instance. Your container will be publicly reachable at `<dns-name-label>.<region>.azurecontainer.io`. If you receive a "DNS name label not available" error message, try a different DNS name label.
 
@@ -47,7 +47,7 @@ When the validation completes, you're shown a summary of the container's setting
 
 ![Settings summary for a new container instance in the Azure portal][aci-portal-05]
 
-When deployment starts, a notification appears indicating the deployment is in progress. Another notification is displayed when the container group has been deployed.
+When deployment starts, a notification appears to indicate the deployment is in progress. Another notification is displayed when the container group has been deployed.
 
 Open the overview for the container group by navigating to **Resource Groups** > **myresourcegroup** > **mycontainer**. Take note of the **FQDN** (the fully qualified domain name) of the container instance, as well its **Status**.
 
