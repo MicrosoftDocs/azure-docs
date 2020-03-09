@@ -67,7 +67,7 @@ ms.custom: include file
 |**ProductName**|String|The name of the product which published this alert (Azure Security Center, Azure ATP, Microsoft Defender ATP, O365 ATP, MCAS, and so on).|
 |**SystemAlertId**|String|The alert identifier.|
 |**CompromisedEntity**|String|The display name of the resource most related to this alert.|
-|**Intent**|Enum|The kill chain related intent behind the alert. For list of supported values, and explanations of Azure Security Center's supported kill chain intents, see [Intentions](alerts-reference.md#intentions).<br/>This field might have multiple values (separated by comma).|
+|**Intent**|Enum|The kill chain related intent behind the alert. For list of supported values, and explanations of Azure Security Center's supported kill chain intents, see [Intentions](/articles/security-center/alerts-reference.md#intentions).<br/>This field might have multiple values (separated by comma).|
 |**AlertDisplayName**|String|The display name of the alert.|
 |**Description**|String|Description of the alert.|
 |**RemediationSteps**|List<String>|Manual action items to take to remediate the alert.|

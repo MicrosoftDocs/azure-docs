@@ -27,7 +27,7 @@ Security alerts can be seen in Azure Security Center's Threat Protection pages. 
 
 - [Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/) using Security Center's [continuous export feature](continuous-export.md)
 
-- [The REST API](../rest/api/securitycenter/) - If you're using the REST API to access alerts, see the [online Alerts API documentation](../rest/api/securitycenter/alerts)
+- [The REST API](https://docs.microsoft.com/rest/api/securitycenter/) - If you're using the REST API to access alerts, see the [online Alerts API documentation](https://docs.microsoft.com/rest/api/securitycenter/alerts)
 
 - [Log Analytics workspaces](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace)
 
@@ -42,7 +42,7 @@ If you're using any programmatic methods to consume the alerts, you'll need the 
 
 ### [Workflow automation](#tab/schema-workflowautomation)
 
-### Sample JSON for alerts sent to Workflow Automation, Event Hub, or 3rd-party other SIEMs
+### Sample JSON for alerts sent to Workflow automation or a 3rd-party SIEM
 
 This is the schema of the alert events passed to Logic App instances that were configured in Security Center's workflow automation. For more information about the workflow automation feature see [Automate responses to alerts and recommendations](workflow-automation.md).
 
@@ -54,7 +54,7 @@ This is the schema of the alert events passed to Logic App instances that were c
 
 ### [Continuous export to Event Hub](#tab/schema-continuousexport)
 
-### Sample JSON for alerts sent with continuous export to Event Hub'
+### Sample JSON for alerts sent with continuous export to Event Hub
 
 This is the schema of the alert events passed to an Event Hub using the Security Center's continuous export feature. For more information about continuous export, see [Export alerts and recommendations](continuous-export.md).
 
