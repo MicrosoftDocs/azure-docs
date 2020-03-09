@@ -81,7 +81,7 @@
       href: container-instances-managed-identity.md
     - name: Use GPU resources (preview)
       href: container-instances-gpu.md
-    - name: Enable SSL endpoint
+    - name: Enable SSL endpoint in sidecar
       href: container-instances-container-group-ssl.md     
   - name: Mount data volumes
     items:

@@ -19,19 +19,13 @@ ms.author: sngun
 > * [Python](create-table-python.md)
 > 
 
-This quickstart shows how to use Node.js and the Azure Cosmos DB [Table API](table-introduction.md) to build an app by cloning an example from GitHub. This quickstart also shows you how to create an Azure Cosmos DB account and how to use Data Explorer to create tables and entities in the web-based Azure portal.
-
-Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, wide-column, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
+In this quickstart, you create an Azure Cosmos DB Table API account, and use Data Explorer and a Node.js app cloned from GitHub to create tables and entities. Azure Cosmos DB is a multi-model database service that lets you quickly create and query document, table, key-value, and graph databases with global distribution and horizontal scale capabilities.
 
 ## Prerequisites
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-[!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
-
-In addition:
-
-* [Node.js](https://nodejs.org/en/) version v0.10.29 or higher
-* [Git](https://git-scm.com/)
+- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). Or [try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/) without an Azure subscription. You can also use the [Azure Cosmos DB Emulator](https://aka.ms/cosmosdb-emulator) with a URI of `https://localhost:8081` and the key `C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==`.
+- [Node.js 0.10.29+](https://nodejs.org/) .
+- [Git](https://git-scm.com/downloads).
 
 ## Create a database account
 
@@ -75,19 +69,19 @@ Now let's clone a Table app from GitHub, set the connection string, and run it. 
 
 Now go back to the Azure portal to get your connection string information and copy it into the app. This enables your app to communicate with your hosted database. 
 
-1. In the [Azure portal](https://portal.azure.com/), click **Connection String**. 
+1. In your Azure Cosmos DB account in the [Azure portal](https://portal.azure.com/), select **Connection String**. 
 
     ![View and copy the required connection string information from the in the Connection String pane](./media/create-table-nodejs/connection-string.png)
 
-2. Copy the PRIMARY CONNECTION STRING using the copy button on the right-side.
+2. Copy the PRIMARY CONNECTION STRING using the copy button on the right side.
 
-3. Open the app.config file, and paste the value into the connectionString on line three. 
+3. Open the *app.config* file, and paste the value into the connectionString on line three. 
 
     > [!IMPORTANT]
     > If your Endpoint uses documents.azure.com, that means you have a preview account, and you need to create a [new Table API account](#create-a-database-account) to work with the generally available Table API SDK.
     >
 
-3. Save the app.config file.
+3. Save the *app.config* file.
 
 You've now updated your app with all the info it needs to communicate with Azure Cosmos DB. 
 
@@ -99,13 +93,13 @@ You've now updated your app with all the info it needs to communicate with Azure
     cd "C:\git-samples\storage-table-node-getting-started"
     ```
 
-2. Run the following command to install the [azure], [node-uuid], [nconf] and [async] modules locally as well as to save an entry for them to the package.json file
+2. Run the following command to install the [azure], [node-uuid], [nconf] and [async] modules locally as well as to save an entry for them to the *package.json* file.
 
    ```
    npm install azure-storage node-uuid async nconf --save
    ```
 
-2. In the git terminal window, run the following commands to run start the Node application.
+2. In the git terminal window, run the following commands to run the Node.js application.
 
     ```
     node ./tableSample.js 
@@ -113,7 +107,7 @@ You've now updated your app with all the info it needs to communicate with Azure
 
     The console window displays the table data being added to the new table database in Azure Cosmos DB.
 
-    You can now go back to Data Explorer and see query, modify, and work with this new data. 
+    You can now go back to Data Explorer and see, query, modify, and work with this new data. 
 
 ## Review SLAs in the Azure portal
 
@@ -125,7 +119,7 @@ You've now updated your app with all the info it needs to communicate with Azure
 
 ## Next steps
 
-In this quickstart, you've learned how to create an Azure Cosmos DB account, create a table using the Data Explorer, and run an app.  Now you can query your data using the Table API.  
+In this quickstart, you learned how to create an Azure Cosmos DB account, create a table using the Data Explorer, and run a Node.js app to add table data.  Now you can query your data using the Table API.  
 
 > [!div class="nextstepaction"]
 > [Import table data to the Table API](table-import.md)

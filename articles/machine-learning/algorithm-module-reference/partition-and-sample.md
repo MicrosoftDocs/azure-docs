@@ -7,8 +7,8 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 
-author: xiaoharper
-ms.author: zhanxia
+author: likebupt
+ms.author: keli19
 ms.date: 10/22/2019
 ---
 # Partition and Sample module
@@ -149,9 +149,9 @@ This option is used when you have divided a dataset into multiple partitions and
 
 5. If you are working with multiple partitions, you must add additional instances of the **Partition and Sample** module to handle each partition.
 
-    For example, let's say previously partitioned patients into four folds using age. To work with each individual fold, you need four copies of the **Partition and Sample** module, and in each, you select a different fold, as shown below. It's not correct to use the **Assign to Folds** output directly.  
+    For example, the **Partition and Sample** module in the second row is set to **Assign to Folds**, and the modules in the third row is set to **Pick Fold**.   
 
-    [![Partition and sample](./media/partition-and-sample/partition-and-sample.png)](./media/partition-and-sample/partition-and-sample-lg.png#lightbox)
+    ![Partition and sample](./media/module/partition-and-sample.png)
 
 5. Run the pipeline.
 

@@ -4,7 +4,7 @@ description: Simplify complex reporting with prebuilt and custom parameterized A
 services: azure-monitor
 author: mrbullwinkle
 manager: carmonm
-ms.service: azure-monitor
+
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual

@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 10/25/2019
+ms.date: 02/11/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -38,12 +38,15 @@ To view the result of a report-only policy for a particular sign-in:
 1. Select a sign-in or add filters to narrow results.
 1. In the **Details** drawer, select the **Report-only (Preview)** tab to view the policies evaluated during sign-in.
 
+> [!NOTE]
+> When downloading the Sign-ins logs, choose JSON format to include Conditional Access report-only result data.
+
 ## Set up Azure Monitor integration with Azure AD
 
-In order to view the aggregate impact of Conditional Access policies using the new Conditional Access Insights workbook, you must integrate Azure Monitor with Azure AD and export the sign-in logs. There are two steps to set this integration up: 
+In order to view the aggregate impact of Conditional Access policies using the new Conditional Access Insights workbook, you must integrate Azure Monitor with Azure AD and export the sign-in logs. There are two steps to set up this integration: 
 
-1. [Sign up for an Azure Monitor subscription and create a workspace](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).
-1. [Export the Sign-in logs from Azure AD to Azure Monitor](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics).
+1. [Sign up for an Azure Monitor subscription and create a workspace](/azure/azure-monitor/learn/quick-create-workspace).
+1. [Export the Sign-in logs from Azure AD to Azure Monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics).
 
 More information about Azure Monitor pricing can be found on the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/). Resources to estimate costs, set a daily cap, or customize the data retention period, can be found in the article, [Manage usage and costs with Azure Monitor Logs](../../azure-monitor/platform/manage-cost-storage.md#estimating-the-costs-to-manage-your-environment).
 

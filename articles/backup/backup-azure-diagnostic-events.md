@@ -16,14 +16,15 @@ You can configure diagnostics settings for a Recovery Services Vault via the Azu
 ## Diagnostics Events Available for Azure Backup Users
 
 Azure Backup provides the following diagnostic events, each of which provides detailed data on a specific set of backup-related artifacts:
+
 * CoreAzureBackup
 * AddonAzureBackupAlerts
 * AddonAzureBackupProtectedInstance
 * AddonAzureBackupJobs
 * AddonAzureBackupPolicy
-* AddonAzureBackupStorage 
+* AddonAzureBackupStorage
 
-[Data Model for Azure Backup Diagnostics Events](https://aka.ms/diagnosticsdatamodel)
+[Data Model for Azure Backup Diagnostics Events](https://docs.microsoft.com/azure/backup/backup-azure-reports-data-model)
 
 Data for these events can be sent to either a storage account, LA workspace, or an Event Hub. If you are sending this data to an LA Workspace, you need to select the **Resource Specific** toggle in the **Diagnostics Setting** screen (see more information in the sections below).
 
@@ -32,6 +33,7 @@ Data for these events can be sent to either a storage account, LA workspace, or 
 Aligning with the Azure Log Analytics roadmap, Azure Backup now allows you to send vault diagnostics data to dedicated LA tables for Backup. These are referred to as [Resource Specific tables](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-collect-workspace#resource-specific).
 
 To send your vault diagnostics data to LA:
+
 1.	Navigate to your vault and click on **Diagnostic Settings**. Click **+ Add Diagnostic Setting**.
 2.	Give a name to the Diagnostics setting.
 3.	Check the box **Send to Log Analytics** and select a Log Analytics Workspace.
@@ -79,4 +81,4 @@ The below image shows an example of a user having three diagnostic settings for 
 
 ## Next steps
 
-[Learn the Log Analytics Data Model for the Diagnostics Events](https://aka.ms/diagnosticsdatamodel)
+[Learn the Log Analytics Data Model for the Diagnostics Events](https://docs.microsoft.com/azure/backup/backup-azure-reports-data-model)

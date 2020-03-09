@@ -31,8 +31,8 @@ ST_DISTANCE (<spatial_expr>, <spatial_expr>)
   The following example shows how to return all family documents that are within 30 km of the specified location using the `ST_DISTANCE` built-in function. .  
   
 ```sql
-SELECT f.id   
-FROM Families f   
+SELECT f.id
+FROM Families f
 WHERE ST_DISTANCE(f.location, {'type': 'Point', 'coordinates':[31.9, -4.8]}) < 30000  
 ```  
   
@@ -42,7 +42,11 @@ WHERE ST_DISTANCE(f.location, {'type': 'Point', 'coordinates':[31.9, -4.8]}) < 3
 [{  
   "id": "WakefieldFamily"  
 }]  
-```  
+```
+
+## Remarks
+
+This system function will benefit from a [geospatial index](index-policy.md#spatial-indexes).
 
 ## Next steps
 

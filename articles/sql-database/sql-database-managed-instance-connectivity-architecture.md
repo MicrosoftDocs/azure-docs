@@ -272,7 +272,7 @@ Deploy a managed instance in a dedicated subnet inside the virtual network. The 
 |mi-216-220-208-20-nexthop-internet|216.220.208.0/20|Internet|
 ||||
 
-\* MI SUBNET refers to the IP address range for the subnet in the form 10.x.x.x/y. You can find this information in the Azure portal, in subnet properties.
+\* MI SUBNET refers to the IP address range for the subnet in the form x.x.x.x/y. You can find this information in the Azure portal, in subnet properties.
 
 In addition, you can add entries to the route table to route traffic that has on-premises private IP ranges as a destination through the virtual network gateway or virtual network appliance (NVA).
 
@@ -309,7 +309,7 @@ Deploy a managed instance in a dedicated subnet inside the virtual network. The 
 > [!IMPORTANT]
 > Ensure there is only one inbound rule for ports 9000, 9003, 1438, 1440, 1452 and one outbound rule for ports 443, 12000. Managed Instance provisioning through Azure Resource Manager deployments will fail if inbound and outbound rules are configured separately for each port. If these ports are in separate rules, the deployment will fail with error code `VnetSubnetConflictWithIntendedPolicy`
 
-\* MI SUBNET refers to the IP address range for the subnet in the form 10.x.x.x/y. You can find this information in the Azure portal, in subnet properties.
+\* MI SUBNET refers to the IP address range for the subnet in the form x.x.x.x/y. You can find this information in the Azure portal, in subnet properties.
 
 > [!IMPORTANT]
 > Although required inbound security rules allow traffic from _any_ source on ports 9000, 9003, 1438, 1440, and 1452, these ports are protected by a built-in firewall. For more information, see [Determine the management endpoint address](sql-database-managed-instance-find-management-endpoint-ip-address.md).

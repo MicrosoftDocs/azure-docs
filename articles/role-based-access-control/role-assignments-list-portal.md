@@ -112,7 +112,7 @@ To list access for a user, group, service principal, or managed identity, you li
 
 ## List role assignments for a user-assigned managed identity
 
-1. In the Azure portal, open a system-assigned managed identity.
+1. In the Azure portal, open a user-assigned managed identity.
 
 1. Click **Azure resources**.
 

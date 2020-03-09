@@ -1,7 +1,6 @@
 ---
 title: Visualizing data from Azure Monitor | Microsoft Docs
 description: Provides a summary of the available methods to visualize metric and log data stored in Azure Monitor.
-ms.service:  azure-monitor
 ms.subservice: 
 ms.topic: conceptual
 author: bwren

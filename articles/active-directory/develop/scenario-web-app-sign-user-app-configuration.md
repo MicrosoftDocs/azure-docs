@@ -90,7 +90,7 @@ In ASP.NET Core, these settings are located in the [appsettings.json](https://gi
     // - "organizations" to sign in users in any work or school account
     // - "common" to sign in users with any work or school account or Microsoft personal account
     // - "consumers" to sign in users with a Microsoft personal account only
-    "TenantId": "[Enter the tenantId here]]",
+    "TenantId": "[Enter the tenantId here]",
 
     // Client ID (application ID) obtained from the Azure portal
     "ClientId": "[Enter the Client Id]",
