@@ -29,12 +29,9 @@ Security alerts can be seen in Azure Security Center's Threat Protection pages. 
 
 - [The REST API](../../rest/api/securitycenter/) - If you're using the REST API to access alerts, see the [online Alerts API documentation](../../rest/api/securitycenter/alerts)
 
-- [Log Analytics workspaces]()
+- [Log Analytics workspaces](https://docs.microsoft.com/en-us/azure/azure-monitor/learn/quick-create-workspace)
 
 If you're using any programmatic methods to consume the alerts, you'll need the correct schema to find the fields that are relevant to you. In addition, when exporting to an Event Hub or when triggering Workflow Automation with generic HTTP connectors, you could use the schemas to properly parse the JSON objects.
-
-
-
 
 >[!IMPORTANT]
 > The schema is slightly different for each of these scenarios, so make sure you select the relevant tab below.
@@ -50,7 +47,6 @@ If you're using any programmatic methods to consume the alerts, you'll need the 
 This is the schema of the alert events passed to Logic App instances that were configured in Security Center's workflow automation. For more information about the workflow automation feature see [Automate responses to alerts and recommendations](workflow-automation.md).
 
 [!INCLUDE [Workflow schema](includes\security-center-alerts-schema-workflowautomation.md)]
-
 
 
 
