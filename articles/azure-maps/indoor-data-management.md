@@ -179,7 +179,7 @@ To create a tile set, follow the steps below:
 
     </center>
 
-Use the tile set Id to render tiles for indoor maps for the map data that was originally obtained from the DWG package. For example, you may render indoor maps using the [Get Map Tile API]() and the Web SDK Indoor module. You may use the [Tileset Delete API]() to delete tiles. If you delete an inuse tile set, then those tiles won't render on the map at the application runtime.
+Use the tile set Id to render tiles for indoor maps for the map data that was originally obtained from the DWG package. For example, you may render indoor maps using the [Get Map Tile API]() and the Web SDK Indoor module. You may use the [Tileset Delete API]() to delete tiles. If you delete an in use tile set, then those tiles won't render on the map at the application runtime.
 
 You can also fetch a list of all the tile sets, including the tile sets that aren't used in your application, using the [Tileset List API]().
 
