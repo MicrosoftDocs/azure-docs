@@ -52,7 +52,7 @@ The following example shows the **AAD-Common** technical profile:
 </TechnicalProfile>
 ```
 
-## Input claims
+## InputClaims
 
 The InputClaims element contains a claim, which is used to look up an account in the directory, or create a new one. There must be exactly one InputClaim element in the input claims collection for all Azure AD technical profiles. You may need to map the name of the claim defined in your policy to the name defined in Azure Active Directory.
 
@@ -62,7 +62,7 @@ To create a new user account, the input claim is a key that uniquely identifies 
 
 The InputClaimsTransformations element may contain a collection of input claims transformation elements that are used to modify the input claim or generate new one.
 
-## Output claims
+## OutputClaims
 
 The **OutputClaims** element contains a list of claims returned by the Azure AD technical profile. You may need to map the name of the claim defined in your policy to the name defined in Azure Active Directory. You can also include claims that aren't returned by the Azure Active Directory, as long as you set the `DefaultValue` attribute.
 
