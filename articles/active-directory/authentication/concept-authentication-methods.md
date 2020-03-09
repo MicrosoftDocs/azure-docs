@@ -153,7 +153,7 @@ Users may have a combination of up to five OATH hardware tokens or authenticator
 
 ## OATH hardware tokens (public preview)
 
-OATH is an open standard that specifies how one-time password (OTP) codes are generated. Azure AD will support the use of OATH-TOTP SHA-1 tokens of the 30-second or 60-second variety. Customers can procure these tokens from the vendor of their choice. Secret keys are limited to 128 characters, which may not be compatible with all tokens. The secret key can only contain the characters *a-z* or *A-Z*, and digits *1-7*. The secret keys must be encoded in Base32.
+OATH is an open standard that specifies how one-time password (OTP) codes are generated. Azure AD will support the use of OATH-TOTP SHA-1 tokens of the 30-second or 60-second variety. Customers can procure these tokens from the vendor of their choice. Secret keys are limited to 128 characters, which may not be compatible with all tokens. The secret key can only contain the characters *a-z* or *A-Z* and digits *1-7*, and must be encoded in Base32.
 
 ![Uploading OATH tokens to the MFA OATH tokens blade](media/concept-authentication-methods/mfa-server-oath-tokens-azure-ad.png)
 
@@ -167,9 +167,9 @@ Helga@contoso.com,1234567,1234567abcdef1234567abcdef,60,Contoso,HardwareKey
 ```
 
 > [!NOTE]
-> Make sure you include the header row in your CSV file as shown above.
+> Make sure you include the header row in your CSV file.
 
-Once properly formatted as a CSV file, an administrator can then sign in to the Azure portal, navigate to **Azure Active Directory**, **Security**, **MFA**, **OATH tokens**, and upload the resulting CSV file.
+Once properly formatted as a CSV file, an administrator can then sign in to the Azure portal, navigate to **Azure Active Directory** > **Security** > **MFA** > **OATH tokens**, and upload the resulting CSV file.
 
 Depending on the size of the CSV file, it may take a few minutes to process. Click the **Refresh** button to get the current status. If there are any errors in the file, you will have the option to download a CSV file listing any errors for you to resolve. The field names in the downloaded CSV file are different than the uploaded version.
 
