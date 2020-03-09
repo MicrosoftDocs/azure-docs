@@ -105,11 +105,11 @@ The term "portal" is used here to refer to [the Administrative units page in Azu
 
     1. Go to Azure AD in the portal, and then in the applications select Graph Explorer and provide admin consent to Graph Explorer.
 
-        ![select Graph Explorer and provide admin consent on this page](./media/role-administrative-units-scope/selct-graph-explorer.png)
+        ![select Graph Explorer and provide admin consent on this page](./media/roles-administrative-units-scope/selct-graph-explorer.png)
 
     1. In the Graph Explorer, ensure that you have selected the beta version.
 
-        ![provide a name and description for a custom role on the Basics tab](./media/role-administrative-units-scope/select-beta-version.png)
+        ![provide a name and description for a custom role on the Basics tab](./media/roles-administrative-units-scope/select-beta-version.png)
 
 
 1. Please use the preview version of Azure AD PowerShell. Detailed instructions are here.
