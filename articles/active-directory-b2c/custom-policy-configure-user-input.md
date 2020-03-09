@@ -24,7 +24,7 @@ Gathering initial data from your users is achieved using the sign-up or sign-in 
 1. Define a 'city' claim.
 1. Ask the user for their city.
 1. Persist the city to the user profile in Azure AD B2C directory.
-1. Read the city claim from the user profile on each sign in.
+1. Read the city claim from the user profile on each sign-in.
 1. Return the city to your relying party application after sign in or sign up.  
 
 ## Prerequisites
@@ -67,7 +67,7 @@ The following technical profiles are [self-asserted](self-asserted-technical-pro
 - **SelfAsserted-Social** - Federated account first-time user sign-in.
 - **SelfAsserted-ProfileUpdate** - Edit profile flow.
 
-To collect the City claim during Sign Up, it must be added as an output claim to the `LocalAccountSignUpWithLogonEmail` technical profile. Override this technical profile in the extension file. Specify the entire list of output claims to control the order the claims are presented on the screen. Find the **ClaimsProviders** element. Add a new ClaimsProviders as follows:
+To collect the City claim during sign-up, it must be added as an output claim to the `LocalAccountSignUpWithLogonEmail` technical profile. Override this technical profile in the extension file. Specify the entire list of output claims to control the order the claims are presented on the screen. Find the **ClaimsProviders** element. Add a new ClaimsProviders as follows:
 
 ```xml
 <ClaimsProvider>
@@ -163,11 +163,9 @@ Find the **ClaimsProviders** element.  Add a new ClaimsProviders as follows:
 
 ## Include a claim in the token 
 
-To return the city claim back to the relying party application, add an output claim to the <em>`SocialAndLocalAccounts/`**`SignUpOrSignIn.xml`**</em> file. This will issue the claim into the token after a successful user journey, and will be sent to the application. Modify the technical profile element within the relying party section to add the city as an output claim.
-
-Your final relying party should look like the following:
+To return the city claim back to the relying party application, add an output claim to the <em>`SocialAndLocalAccounts/`**`SignUpOrSignIn.xml`**</em> file. The output claim will be added into the token after a successful user journey, and will be sent to the application. Modify the technical profile element within the relying party section to add the city as an output claim.
  
- ```xml
+```xml
 <RelyingParty>
   <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
   <TechnicalProfile Id="PolicyProfile">
@@ -186,7 +184,7 @@ Your final relying party should look like the following:
     <SubjectNamingInfo ClaimType="sub" />
   </TechnicalProfile>
 </RelyingParty>
- ```
+```
 
 ## Test the custom policy
 
@@ -198,7 +196,7 @@ Your final relying party should look like the following:
 2. Select the sign-up or sign-in policy that you uploaded, and click the **Run now** button.
 3. You should be able to sign up using an email address.
 
-The sign-up screen should look similar to this:
+The sign-up screen should look similar to the following screenshot:
 
 ![Screenshot of modified sign-up option](./media/custom-policy-configure-user-input/signup-with-city-claim-dropdown-example.png)
 
