@@ -5,7 +5,7 @@ summary: Azure Machine Learning offers graphical interfaces & SDKs so you can qu
 
 metadata:
   title: Azure Machine Learning documentation
-  description: Azure Machine Learning offers you graphical interfaces & SDKs to quickly train and deploy your machine learning models and pipelines at scale. Use these capabilities with open-source Python frameworks, such as PyTorch, TensorFlow, and scikit-learn. 
+  description: Use SDKs and graphical interfaces to quickly train and deploy your machine learning models and pipelines at scale. Use these capabilities with open-source Python frameworks, such as PyTorch, TensorFlow, and scikit-learn. 
  
   services: machine-learning
   ms.service: machine-learning
