@@ -105,13 +105,13 @@ landingContent:
   - title: Scoped deployments
     linkLists:
       - linkListType: how-to-guide
-      links:
-        - text: Subscription
-          url: deploy-to-subscription.md
-        - text: Management group
-          url: deploy-to-management-group.md
-        - text: Tenant
-          url: deploy-to-tenant.md
+        links:
+          - text: Subscription
+            url: deploy-to-subscription.md
+          - text: Management group
+            url: deploy-to-management-group.md
+          - text: Tenant
+            url: deploy-to-tenant.md
 
   # Card
   - title: Explore reference content
