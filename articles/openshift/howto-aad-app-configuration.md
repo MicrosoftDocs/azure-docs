@@ -88,8 +88,7 @@ For details on creating a new Azure AD application, see [Register an app with th
 
 ## Add API permissions
 
-1. In the **Manage** section click **API permissions**.
-2. Select **API Permissions**, and then click **+Add a permission**. 
+1. In the **Manage** section click **API permissions**, and then click **+Add a permission**. 
 3. In the **Request API Permissions** pane, select the **Microsoft APIs** tab, and then select the **Microsoft Graph** tile. Select **Application permissions**.
 4. Search for **User** and enable the **User.Read** permission. Search for **Directory** and enable **Directory.Read.All**.
 5. Click **Add permissions** to accept the changes.
