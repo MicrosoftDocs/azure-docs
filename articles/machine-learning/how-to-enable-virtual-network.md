@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
-ms.date: 01/13/2020
+ms.date: 03/13/2020
 ---
 
 # Secure Azure ML experimentation and inference jobs within an Azure Virtual Network
@@ -442,7 +442,7 @@ except:
     prov_config.docker_bridge_cidr = "172.17.0.1/16"
 
     # Create compute target
-    aks_target = ComputeTarget.create(workspace = ws, name = “myaks”, provisioning_configuration = prov_config)
+    aks_target = ComputeTarget.create(workspace = ws, name = "myaks", provisioning_configuration = prov_config)
     # Wait for the operation to complete
     aks_target.wait_for_completion(show_output = True)
     
@@ -463,16 +463,16 @@ The contents of the `body.json` file referenced by the command are similar to th
 
 ```json
 { 
-    "location": “<region>”, 
+    "location": "<region>", 
     "properties": { 
-    	"resourceId": "/subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/Microsoft.ContainerService/managedClusters/<aks-resource-id>", 
+        "resourceId": "/subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/Microsoft.ContainerService/managedClusters/<aks-resource-id>", 
         "computeType": "AKS", 
         "provisioningState": "Succeeded", 
         "properties": { 
             "loadBalancerType": "InternalLoadBalancer", 
-    	    "agentCount": <agent-count>, 
-    	    "agentVmSize": "vm-size", 
-    	    "clusterFqdn": "<cluster-fqdn>" 
+            "agentCount": <agent-count>, 
+            "agentVmSize": "vm-size", 
+            "clusterFqdn": "<cluster-fqdn>" 
         } 
     } 
 } 
@@ -501,7 +501,29 @@ For more information on configuring a network rule, see [Deploy and configure Az
 
 ## Use Azure Container Registry
 
-When using a virtual network with Azure Machine Learning, __do not__ put the Azure Container Registry for the workspace in the virtual network. This configuration is not supported.
+Azure Container Registry can be put inside a virtual network, however only the premium version supports this functionality. To use Azure Container Registry in the virtual network, use these steps:
+
+1. Upgrade your Azure Container Registry to the __Premium__ SKU. For more information, see [Changing SKUs](/azure/container-registry/container-registry-skus#changing-skus).
+
+    To find the name of the Azure Container Registry for your workspace, use one of the following methods:
+
+    __Azure Portal__
+
+    From the overview section of your workspace, the __Registry__ value links to the Azure Container Registry.
+
+    ![Azure Container Registry for the workspace](./media/how-to-enable-virtual-network/azure-machine-learning-container-registry.png)
+
+    __Azure CLI__
+
+    If you have [installed the Machine Learning extension for Azure CLI](reference-azure-machine-learning-cli.md), you can use the `az ml workspace show` command to show the workspace information.
+
+    ```azurecli-interactive
+    az ml workspace show -w yourworkspacename -g resourcegroupname --query 'containerRegistry'
+    ```
+
+    This command returns a value similar to `"/subscriptions/{GUID}/resourceGroups/{resourcegroupname}/providers/Microsoft.ContainerRegistry/registries/{ACRname}"`. The last part of the string is the name of the Azure Container Registry for the workspace.
+
+2. ???? 
 
 ## Next steps
 
