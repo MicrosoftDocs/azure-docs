@@ -318,7 +318,7 @@ The IP addresses that Azure Logic Apps uses for incoming and outgoing calls depe
 
 ### Inbound IP addresses
 
-This section lists the inbound IP addresses for the Logic Apps service only. For Azure Government, see [Inbound IP addresses - Azure Government](#azure-government-inbound).
+This section lists the inbound IP addresses for the Logic Apps service only. For Azure Government, see [Azure Government - Inbound IP addresses](#azure-government-inbound).
 
 <a name="multi-tenant-inbound"></a>
 
@@ -375,7 +375,7 @@ This section lists the inbound IP addresses for the Logic Apps service only. For
 
 ### Outbound IP addresses
 
-This section lists the outbound IP addresses for the Logic Apps service and managed connectors. For Azure Government, see [Outbound IP addresses - Azure Government](#azure-government-outbound).
+This section lists the outbound IP addresses for the Logic Apps service and managed connectors. For Azure Government, see [Azure Government - Outbound IP addresses](#azure-government-outbound).
 
 <a name="multi-tenant-outbound"></a>
 
