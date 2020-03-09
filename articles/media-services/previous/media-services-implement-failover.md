@@ -741,8 +741,13 @@ In this section, you create the ability to handle redundancy.
 	    return request;
 	}
 	```
+	
+## See also
+
+[Use Azure Webhooks to monitor Media Services job notifications](media-services-dotnet-check-job-progress-with-webhooks.md)
 
 ## Next steps
+
 You can now use a traffic manager to route requests between the two datacenters, and thus fail over in case of any outages.
 
 ## Media Services learning paths
