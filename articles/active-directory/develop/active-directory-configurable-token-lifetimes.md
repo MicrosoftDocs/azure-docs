@@ -258,6 +258,14 @@ In this example, you create a policy that lets your users' sign in less frequent
 
     ```powershell
     Set-AzureADPolicy -Id $policy.Id -DisplayName $policy.DisplayName -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxAgeSingleFactor":"2.00:00:00"}}')
+
+> [!NOTE]
+
+if the syntax has any leading white space. it wont throw error currently and to trim the error. Please replace below command.
+
+Get-AzureADPolicy -id <TLP-ID> | set-azureadpolicy -Definition @($((Get-AzureADPolicy -id <TLP-ID>).Replace(" ","")))
+
+TLP-ID --> is the policy id 
     ```
 
 ### Example: Create a policy for web sign-in
