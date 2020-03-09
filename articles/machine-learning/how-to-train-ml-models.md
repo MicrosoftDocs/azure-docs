@@ -34,7 +34,7 @@ This article focuses on steps 4-5. For steps 1-3, refer to the [train a model tu
 
 ### Single-node training
 
-Use an `Estimator` for a single-node training run on remote compute in Azure for a scikit-learn model. You should have already created your [compute target](how-to-set-up-training-targets.md#amlcompute) object `compute_target` and your [FileDataset](how-to-create-register-dataset.md) object `ds`.
+Use an `Estimator` for a single-node training run on remote compute in Azure for a scikit-learn model. You should have already created your [compute target](how-to-set-up-training-targets.md#amlcompute) object `compute_target` and your [FileDataset](how-to-create-register-datasets.md) object `ds`.
 
 ```Python
 from azureml.train.estimator import Estimator
