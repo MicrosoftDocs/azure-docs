@@ -9,9 +9,9 @@ ms.date: 03/09/2020
 
 Starting with agent version *ciprod03022019*, Azure monitor for containers integrated agent now supports monitoring GPU (graphical processing units) usage on GPU-aware Kubernetes cluster nodes, and monitor pods/containers requesting and using GPU resources.
 
-## Supported GPU Vendors 
+## Supported GPU vendors
 
-Azure Monitor for Containers supports monitoring GPU clusters from following GPU vendors: 
+Azure Monitor for Containers supports monitoring GPU clusters from following GPU vendors:
 
 - [NVIDIA](https://developer.nvidia.com/kubernetes-gpu)
 
