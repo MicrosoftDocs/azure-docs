@@ -316,10 +316,16 @@ The IP addresses that Azure Logic Apps uses for incoming and outgoing calls depe
 
 <a name="inbound"></a>
 
-### Inbound IP addresses - Logic Apps service only
+### Inbound IP addresses
 
-| Region | IP |
-|--------|----|
+This section lists the inbound IP addresses for the Logic Apps service only. For Azure Government, see [Inbound IP addresses - Azure Government](#azure-government-inbound).
+
+<a name="multi-tenant-inbound"></a>
+
+#### Multi-tenant Azure - Inbound IP addresses
+
+| Multi-tenant region | IP |
+|---------------------|----|
 | Australia East | 13.75.153.66, 104.210.89.222, 104.210.89.244, 52.187.231.161 |
 | Australia Southeast | 13.73.115.153, 40.115.78.70, 40.115.78.237, 52.189.216.28 |
 | Brazil South | 191.235.86.199, 191.235.95.229, 191.235.94.220, 191.234.166.198 |
@@ -352,15 +358,28 @@ The IP addresses that Azure Logic Apps uses for incoming and outgoing calls depe
 | West US 2 | 13.66.224.169, 52.183.30.10, 52.183.39.67, 13.66.128.68 |
 |||
 
+<a name="azure-government-inbound"></a>
+
+#### Azure Government - Inbound IP addresses
+
+| Azure Government region | IP |
+|-------------------------|----|
+| US Gov Arizona | 52.244.67.164, 52.244.67.64, 52.244.66.82 |
+| US Gov Texas | 52.238.119.104, 52.238.112.96, 52.238.119.145 |
+| US Gov Virginia | 52.227.159.157, 52.227.152.90, 23.97.4.36 |
+| US DoD Central | 52.182.49.204, 52.182.52.106 |
+| US DoD East | Currently unavailable |
+|||
+
 <a name="outbound"></a>
 
-### Outbound IP addresses - Logic Apps service & managed connectors
+### Outbound IP addresses
 
-For Azure Government, see [Managed connector outbound IP addresses - Azure Government](#azure-government).
+This section lists the outbound IP addresses for the Logic Apps service and managed connectors. For Azure Government, see [Outbound IP addresses - Azure Government](#azure-government-outbound).
 
-<a name="multi-tenant"></a>
+<a name="multi-tenant-outbound"></a>
 
-#### Multi-tenant Azure
+#### Multi-tenant Azure - Outbound IP addresses
 
 | Region | Logic Apps IP | Managed connectors IP |
 |--------|---------------|-----------------------|
@@ -396,9 +415,9 @@ For Azure Government, see [Managed connector outbound IP addresses - Azure Gover
 | West US 2 | 13.66.210.167, 52.183.30.169, 52.183.29.132, 13.66.210.167, 13.66.201.169, 13.77.149.159, 52.175.198.132, 13.66.246.219 | 13.66.140.128 - 13.66.140.143, 52.183.78.157, 52.191.164.250 |
 ||||
 
-<a name="azure-government"></a>
+<a name="azure-government-outbound"></a>
 
-#### Managed connector outbound IP addresses - Azure Government
+#### Azure Government - Outbound IP addresses
 
 | Region | Logic Apps IP | Managed connectors IP |
 |--------|---------------|-----------------------|
