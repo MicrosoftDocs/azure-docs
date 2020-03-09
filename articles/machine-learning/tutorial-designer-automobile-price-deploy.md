@@ -35,7 +35,7 @@ To deploy your pipeline, you must first convert the training pipeline into a rea
 
 1. Above the pipeline canvas, select **Create inference pipeline** > **Real-time inference pipeline**.
 
-    ![Screenshot showing where to find the create pipeline button](./media/tutorial-designer-automobile-price-deploy/create-inference-pipeline.png)
+    ![Screenshot showing where to find the create pipeline button](./media/tutorial-designer-automobile-price-deploy/tutorial2-create-inference-pipeline.png)
 
     Your pipeline should now look like this: 
 
@@ -52,7 +52,7 @@ To deploy your pipeline, you must first convert the training pipeline into a rea
     > By default, the **Web Service Input** will expect the same data schema as the training data used to create the predictive pipeline. In this scenario, price is included in the schema. However, price isn't used as a factor during prediction.
     >
 
-1. Select **Run**, and use the same compute target and experiment that you used in part one.
+1. Select **Submit**, and use the same compute target and experiment that you used in part one.
 
 1. Select **Deploy**.
 
