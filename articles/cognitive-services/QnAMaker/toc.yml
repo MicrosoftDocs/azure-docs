@@ -103,6 +103,8 @@
     items:
     - name: LUIS and QnA Maker
       href: Tutorials/integrate-qnamaker-luis.md
+    - name: Integrate with Power Virtual Assistant
+      href: How-To/integrate-with-power-virtual-assistant-fallback-topic.md
   - name: Analytics and telemetry
     href: How-To/get-analytics-knowledge-base.md
   - name: Using REST APIs
