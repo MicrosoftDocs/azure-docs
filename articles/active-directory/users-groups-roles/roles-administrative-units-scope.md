@@ -59,74 +59,71 @@ Global administrators or Privileged Role Administrators can use the Azure AD por
 Additionally, groups can be added as members of administrative unit, administrative unit scoped groups administrator can manage them using PowerShell, the Microsoft Graph, and the Azure AD portal.
 
 The below table describes current support for administrative unit scenarios.
-     MS Graph API/PowerShell 
-Azure AD Portal     M365 Admin Center
 
 ### Administrative unit management
 
-    Creating and deleting administrative units     Supported     Supported     No plan to support 
-    Adding and removing administrative unit members individually     Supported     Supported     No plan to support 
-    Bulk adding and removing administrative unit members using .csv file     Not supported     Supported     No plan to support 
-    Assigning administrative unit-scoped administrators     Supported     Supported     No plan to support 
-    Adding and removing administrative unit members dynamically based on attributes     Future improvement     Future improvement     No plan to support 
+Permissions | MS Graph API/PowerShell | Azure AD Portal | M365 Admin Center
+----------- | ----------------------- | --------------- | -----------------
+Creating and deleting administrative units   |    Supported    |   Supported   |    No plan to support
+Adding and removing administrative unit members individually    |   Supported    |   Supported   |    No plan to support
+Bulk adding and removing administrative unit members using .csv file   |    Not supported     |  Supported   |    No plan to support
+Assigning administrative unit-scoped administrators  |     Supported    |   Supported    |   No plan to support
+Adding and removing administrative unit members dynamically based on attributes   |    Future improvement     |  Future improvement    |   No plan to support
 
 ### User management
 
-    administrative unit-scoped management of user properties, passwords, licenses     Supported     Supported    Supported 
-    administrative unit-scoped blocking and unblocking of user sign-ins     Supported     Supported     Supported 
-    administrative unit-scoped management of user MFA credentials     Supported    Supported    Future improvement 
-    administrative unit-scoped viewing of user sign-in reports     Future improvement    Future improvement    Future improvement 
-    administrative unit-scoped creating and deleting users     Future improvement     Future improvement     Future improvement 
+Permissions | MS Graph API/PowerShell | Azure AD Portal | M365 Admin Center
+----------- | ----------------------- | --------------- | -----------------
+administrative unit-scoped management of user properties, passwords, licenses   |    Supported     |  Supported   |   Supported
+administrative unit-scoped blocking and unblocking of user sign-ins    |   Supported   |    Supported   |    Supported
+administrative unit-scoped management of user MFA credentials   |    Supported   |   Supported   |   Future improvement
+administrative unit-scoped viewing of user sign-in reports    |   Future improvement   |   Future improvement   |   Future improvement
+administrative unit-scoped creating and deleting users    |   Future improvement   |    Future improvement    |   Future improvement
 
 ### Group management
 
-    administrative unit-scoped management of group properties and members     Supported     Supported    Future improvement 
-    administrative unit-scoped management of group licensing     Supported    Supported    Future improvement 
-    administrative unit-scoped creating and deleting groups     Future improvement     Future improvement     Future improvement 
+Permissions | MS Graph API/PowerShell | Azure AD Portal | M365 Admin Center
+----------- | ----------------------- | --------------- | -----------------
+administrative unit-scoped management of group properties and members     |  Supported   |    Supported    |  Future improvement
+administrative unit-scoped management of group licensing   |    Supported  |    Supported   |   Future improvement
+administrative unit-scoped creating and deleting groups    |   Future improvement    |   Future improvement   |    Future improvement
 
 ### Additional areas
 
-    administrative unit-scoped device management     Future improvement     Future improvement     Future improvement 
-    administrative unit-scoped application management     Future improvement     Future improvement     Future improvement 
+Permissions | MS Graph API/PowerShell | Azure AD Portal | M365 Admin Center
+----------- | ----------------------- | --------------- | -----------------
+administrative unit-scoped device management   |    Future improvement    |   Future improvement   |    Future improvement
+administrative unit-scoped application management   |    Future improvement    |   Future improvement   |    Future improvement
 
-administrative units are only for scoping management permissions. They do not prevent members or administrators from browsing other users, groups, or resources outside of the Administrative Unit. In the Office 365 portal, users outside of an administrative unit-scoped admin's administrative units are filtered out for convenience. They are still able to browse other users in the Azure AD portal, PowerShell, and other Microsoft services. These permissions are part of the [default user permissions](../fundamentals/users-default-permissions.md).
+Administrative units apply scope only to management permissions. They do not prevent members or administrators from using their [default user permissions](../fundamentals/users-default-permissions.md) to browse other users, groups, or resources outside of the administrative unit. In the Office 365 portal, users outside of an administrative unit-scoped admin's administrative units are filtered out, but you can browse other users in the Azure AD portal, PowerShell, and other Microsoft services.
 
 ## Getting started
 
-### Planning your Administrative Units
+The term "portal" is used here to refer to [the Administrative units page in Azure AD in the Azure portal](https://ms.portal.azure.com/?microsoft_aad_iam_adminunitprivatepreview=true&microsoft_aad_iam_rbacv2=true#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/AdminUnit)
 
-Administrative Units can be used to logically group resources that belong together. For example, for an organization whose IT department is scattered globally, it might make sense to create administrative units that define those geographical boundaries. In another scenario where a multi-national organization has different "sub-organizations", that are semi-autonomous in operations, each sub-organization may be represented by an administrative unit.
-
-The criteria on which administrative units are created will be guided by the unique requirements of an organization. Key point to consider is that the criteria should make sense across M365 services. You can get maximum value out of administrative units when you can associate related groups across M365 under an administrative unit.
-
-You can expect the creation of administrative units in the organization to go through the following stages:
-
-1. Initial Adoption: Your organization will start creating administrative units based on initial criteria and #of administrative units will increase as the criteria is refined.
-    Pruning: Once the criteria is well defined, certain administrative units that are no longer required will be deleted.
-1. Stabilization: In this stage you can expect that your organizational structure is well defined and the #of administrative units is not going to increase / decrease significantly in short amount of time.
-
-## How-to references
-
-Note:
-
-1. Portal refers to (https://ms.portal.azure.com/?microsoft_aad_iam_adminunitprivatepreview=true&microsoft_aad_iam_rbacv2=true#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/AdminUnit) 
-1. To run queries given below via Graph Explorer, please ensure the following:
+1. To run queries from the following instructions via [Graph Explorer](https://aka.ms/ge), please ensure the following:
 
     1. Go to Azure AD in the portal, and then in the applications select Graph Explorer and provide admin consent to Graph Explorer.
-    1. In the Graph Explorer (https://aka.ms/ge), ensure that you have selected the beta version.
 
-1.    Please use the preview version of Azure AD PowerShell. Detailed instructions are here.
+        ![select Graph Explorer and provide admin consent on this page](./media/role-administrative-units-scope/selct-graph-explorer.png)
 
-### Create an Administrative Unit
+    1. In the Graph Explorer, ensure that you have selected the beta version.
 
-#### Azure portal
+        ![provide a name and description for a custom role on the Basics tab](./media/role-administrative-units-scope/select-beta-version.png)
+
+
+1. Please use the preview version of Azure AD PowerShell. Detailed instructions are here.
+
+## Create an AU
+
+### Azure portal
 
 1. Go to Active Directory in the portal and select Administrative Units in the left panel
 
 1. Select Add and a right pane will slide where you can provide the name of the administrative unit and optionally can write the description for the administrative unit
 1. Select Add to finalize the create step.
 
-#### PowerShell
+### PowerShell
 
 Please install Azure AD PowerShell (preview version) before trying to perform the actions below:
 
@@ -145,9 +142,9 @@ The Microsoft Graph
         "description": "North America Operations administration"
     }
 
-### Adding users to administrative units
+## Adding users to AUs
 
-#### Azure portal
+### Azure portal
 
 You can assign users to administrative units in two ways.
 
@@ -193,6 +190,7 @@ In the preview, you can assign groups only individually to an administrative uni
     Open the Groups overview page in Azure AD and select the group that needs to be assigned to the administrative unit. On the left side, select **Administrative units** to list out the administrative units the group is assigned to. On the top you will find the option Assign to administrative unit and clicking on it will give a panel on right side to choose the administrative unit.
   
 1. From the **Azure AD > Administrative units > All Groups** page
+
     Open the All Groups blade in Azure AD > Administrative Units. If there are groups already assigned to the administrative unit, they will be displayed on the right side. Select **Add** on the top and a right panel will slide in listing the groups available in your Azure AD organization. Select one or more groups to be assigned to the administrative units.
 
 #### PowerShell

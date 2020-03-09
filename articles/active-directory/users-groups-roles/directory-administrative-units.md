@@ -35,6 +35,18 @@ In this preview release, the only way you can create and manage administrative u
 
 For more information on software requirements and installing the Azure AD module, and for reference information on the Azure AD Module cmdlets for managing administrative units, including syntax, parameter descriptions, and examples, see [Azure Active Directory PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview?view=azureadps-2.0).
 
+### Planning your Administrative Units
+
+Administrative Units can be used to logically group Azure AD resources. For example, for an organization whose IT department is scattered globally, it might make sense to create administrative units that define those geographical boundaries. In another scenario where a multi-national organization has different "sub-organizations", that are semi-autonomous in operations, each sub-organization may be represented by an administrative unit.
+
+The criteria on which administrative units are created will be guided by the unique requirements of an organization. Key point to consider is that the criteria should make sense across M365 services. You can get maximum value out of administrative units when you can associate related groups across M365 under an administrative unit.
+
+You can expect the creation of administrative units in the organization to go through the following stages:
+
+1. Initial Adoption: Your organization will start creating administrative units based on initial criteria and the number of administrative units will increase as the criteria is refined.
+1. Pruning: Once the criteria is well defined, administrative units that are no longer required will be deleted.
+1. Stabilization: Your organizational structure is well defined and the number of administrative units is not going to change significantly over short durations.
+
 ## Next steps
 
 [Azure Active Directory license plans](../fundamentals/active-directory-whatis.md)
