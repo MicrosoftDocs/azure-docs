@@ -22,7 +22,7 @@ Before you begin, you must have the following:
 + The [Azure Functions Core Tools](./functions-run-local.md#v2) version 2.7.1846 or a later 2.x version.
 ::: zone-end  
 ::: zone pivot="programming-language-python"
-+ Python 3.6 amd 3.7 requires [Azure Functions Core Tools](./functions-run-local.md#v2) version 2.7.1846 or a later 2.x version. Python 3.8 requires [version 3.x](./functions-run-local.md#v2) of the Core Tools.
++ Python 3.6 and 3.7 require [Azure Functions Core Tools](./functions-run-local.md#v2) version 2.7.1846 or a later 2.x version. Python 3.8 requires [version 3.x](./functions-run-local.md#v2) of the Core Tools.
 ::: zone-end
 
 + The [Azure CLI](/cli/azure/install-azure-cli) version 2.0.76 or later. 
