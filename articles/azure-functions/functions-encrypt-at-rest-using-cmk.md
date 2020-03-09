@@ -16,24 +16,53 @@ Encrypting your Webapp's application data at rest requires the use of an Azure S
 
 ## Configure Encryption at Rest
 
-### Create an Azure Storage account. 
+### Create an Azure Storage account
   
-  - Follow these instructions to create an Azure Storage Account and encrypt it with Customer Managed Keys.
-  - https://docs.microsoft.com/en-us/azure/storage/common/storage-service-encryption#customer-managed-keys-with-azure-key-vault
+First, follow [these instructions](https://docs.microsoft.com/azure/storage/common/storage-service-encryption#customer-managed-keys-with-azure-key-vault) to create an Azure Storage Account and encrypt it with Customer Managed Keys. Once the Storage Account is created, use the [Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer) to upload package files. 
+
+Next, use the Storage Explorer to [generate a Shared Access Signature](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows#generate-a-sas-in-storage-explorer) (SAS). Save this SAS URL, this will later be used to enable the App Service runtime to access the package securely.
 
 ### Configure Run From Package with your storage account
   
-  -  Add the App Setting as shown here: https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package#run-from-external-url-instead
-  - Test that this deploys correctly
+Once you upload your file to Blob storage and have an SAS URL for the file, set the `WEBSITE_RUN_FROM_PACKAGE` app setting to the SAS URL. The following example does it by using Azure CLI:
+
+```
+az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings WEBSITE_RUN_FROM_PACKAGE="<your-SAS-URL>"
+```
+
+Adding this app setting will cause your Webapp to restart. Once the Webapp has restarted, browse to it to ensure the application has correctly started with the package in the Storage Account. If the application does not start correctly, see the [Run From Package troubleshooting guide](https://docs.microsoft.com/azure/app-service/deploy-run-package#troubleshooting).
 
 ### Encrypt the application setting using Key Vault References
-  - Now we will replace the App Setting with a Key Vault reference to secure the SAS-encoded URI 
-  - https://docs.microsoft.com/en-us/azure/app-service/app-service-key-vault-references
+
+Now we will replace the value for `WEBSITE_RUN_FROM_PACKAGE` with a Key Vault reference to the SAS-encoded URL. This will keep the SAS URL encrypted in Key Vault, providing an extra layer of security.
+
+1. Create an Azure Key Vault.    
+
+    ```azurecli    
+    az keyvault create --name "Contoso-Vault" --resource-group <group-name> --location eastus    
+    ```    
+
+1. Follow these instructions to [grant your app access](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#granting-your-app-access-to-key-vault) to Key Vault.
+
+1. Add your external URL as a secret in Key Vault.    
+
+    ```azurecli    
+    az keyvault secret set --vault-name "Contoso-Vault" --name "external-url" --value "<SAS-URL>"    
+    ```    
+
+1. Create the `WEBSITE_RUN_FROM_PACKAGE` app setting and set the value as a Key Vault Reference to the external URL.
+
+    ```azurecli    
+    az webapp config appsettings set --settings WEBSITE_RUN_FROM_PACKAGE="@Microsoft.KeyVault(SecretUri=https://Contoso-Vault.vault.azure.net/secrets/external-url/<secret-version>"    
+    ```
+
+Updating this app setting will cause your Webapp to restart. Once the webapp has restarted, browse to it to ensure it has started correctly with the Key Vault reference.
 
 ## Summary
 
-  - Overview of what we accomplished
-  - If you want to revoke access to your data, you can either revoke access to the Key Vault or rotate storage account keys (which would invalidate SAS URI)
+Your application files are now encrypted at rest in Azure Storage. When your Webapp starts, it wil retrieve the SAS URL from Azure Key Vault. Finally, the Webapp will load the application files from Azure Storage. 
+
+If you want to revoke the Webapp's access to your data, you can either revoke access to the Key Vault or rotate the storage account keys, which will invalidate SAS URL.
 
 ## Frequently Asked Questions
 
