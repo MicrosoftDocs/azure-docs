@@ -88,7 +88,7 @@ az extension add --name spring-cloud
 
 Update your config-server with the location of the git repository for our project:
 
-```git
+```azurecli
 az spring-cloud config-server git set -n <service instance name> --uri https://github.com/Azure-Samples/piggymetrics-config
 ```
 
