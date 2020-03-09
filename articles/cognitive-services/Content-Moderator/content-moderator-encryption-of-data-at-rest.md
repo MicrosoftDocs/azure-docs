@@ -26,7 +26,7 @@ Content Moderator automatically encrypts your data when it is persisted to the c
 
 ## Enable data encryption for your Content Moderator Team
  
-To enable data encryption for your Content Moderator Review Team, see the [Quickstart: Try Content Moderator on the web](quick-start.md).  
+To enable data encryption for your Content Moderator Review Team, see the [Quickstart: Try Content Moderator on the web](quick-start.md#create-a-review-team).  
 
 > [!NOTE]
 > You'll need to provide a _Resource ID_ with the Content Moderator E0 pricing tier.
