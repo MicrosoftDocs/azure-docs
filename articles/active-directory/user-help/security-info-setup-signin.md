@@ -2,7 +2,7 @@
 title: Set up your Security info (preview) from a sign-in prompt - Azure AD
 description: How to set up your Security info (preview) for your work or school account, after you're prompted from your organization's sign-in page.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 ms.reviewer: sahenry
 
@@ -11,8 +11,7 @@ ms.workload: identity
 ms.subservice: user-help
 ms.topic: overview
 ms.date: 08/05/2019
-ms.author: lizross
-ms.collection: M365-identity-device-management
+ms.author: curtand
 ---
 
 # Set up your Security info (preview) from a sign-in prompt

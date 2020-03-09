@@ -252,7 +252,7 @@ const moment = require("moment");
 
 module.exports = df.orchestrator(function*(context) {
     const jobId = context.df.getInput();
-    const pollingInternal = getPollingInterval();
+    const pollingInterval = getPollingInterval();
     const expiryTime = getExpiryTime();
 
     while (moment.utc(context.df.currentUtcDateTime).isBefore(expiryTime)) {

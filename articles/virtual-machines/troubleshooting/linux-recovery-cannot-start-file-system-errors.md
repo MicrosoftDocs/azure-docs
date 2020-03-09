@@ -107,20 +107,20 @@ To resolve this problem, boot the VM into emergency mode by using the [serial co
 
    ```
    mkdir /temp
-   mount /dev/sda2 /temp
+   mount /dev/sda1 /temp
    ```
 
 8. If the disk fails to mount, run the xfs_repair command with the -L option (force log zeroing):
 
    ```
-   xfs_repair /dev/sda2 -L
+   xfs_repair /dev/sda1 -L
    ```
 
 9. Next, try to mount the file system. If the disk is mounted successfully, you will receive the following output:
  
    ```
-   XFS (sda2): Mounting V1 Filesystem
-   XFS (sda2): Ending clean mount
+   XFS (sda1): Mounting V1 Filesystem
+   XFS (sda1): Ending clean mount
    ```
 
 10. Restart the VM, and then check if the problem is resolved.

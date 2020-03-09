@@ -31,7 +31,7 @@ For information about choosing between .NET Core and the .NET Framework, see [Ch
 ### Linux
 
 - Install [.NET Core for Linux](https://www.microsoft.com/net/download/linux)
-- Optionally install [Visual Studio Code](https://www.visualstudio.com/) and the [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp&dotnetid=963890049.1518206068)
+- Optionally install [Visual Studio Code](https://www.visualstudio.com/) and the [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
 
 ### macOS
 

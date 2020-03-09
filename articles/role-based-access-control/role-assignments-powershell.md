@@ -1,5 +1,5 @@
 ---
-title: Add or remove role assignments using Azure RBAC and Azure PowerShell
+title: Add or remove role assignments with RBAC and Azure PowerShell
 description: Learn how to grant access to Azure resources for users, groups, service principals, or managed identities using Azure role-based access control (RBAC) and Azure PowerShell.
 services: active-directory
 documentationcenter: ''

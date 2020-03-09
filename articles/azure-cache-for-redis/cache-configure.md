@@ -36,8 +36,8 @@ You can view and configure the following settings using the **Resource Menu**.
 	* [Advanced settings](#advanced-settings)
 	* [Azure Cache for Redis Advisor](#azure-cache-for-redis-advisor)
 	* [Scale](#scale)
-	* [Redis cluster size](#cluster-size)
-	* [Redis data persistence](#redis-data-persistence)
+	* [Cluster size](#cluster-size)
+	* [Data persistence](#redis-data-persistence)
 	* [Schedule updates](#schedule-updates)
 	* [Geo-replication](#geo-replication)
 	* [Virtual Network](#virtual-network)
@@ -88,8 +88,8 @@ The **Settings** section allows you to access and configure the following settin
 * [Advanced settings](#advanced-settings)
 * [Azure Cache for Redis Advisor](#azure-cache-for-redis-advisor)
 * [Scale](#scale)
-* [Redis cluster size](#cluster-size)
-* [Redis data persistence](#redis-data-persistence)
+* [Cluster size](#cluster-size)
+* [Data persistence](#redis-data-persistence)
 * [Schedule updates](#schedule-updates)
 * [Geo-replication](#geo-replication)
 * [Virtual Network](#virtual-network)
@@ -197,14 +197,9 @@ Click **Scale** to view or change the pricing tier for your cache. For more info
 <a name="cluster-size"></a>
 
 ### Redis Cluster Size
-Click **(PREVIEW) Redis Cluster Size** to change the cluster size for a running premium cache with clustering enabled.
+Click **Cluster Size** to change the cluster size for a running premium cache with clustering enabled.
 
-> [!NOTE]
-> Note that while the Azure Cache for Redis Premium tier has been released to General Availability, the Redis Cluster Size feature is currently in preview.
->
->
-
-![Redis cluster size](./media/cache-configure/redis-cache-redis-cluster-size.png)
+![Cluster size](./media/cache-configure/redis-cache-redis-cluster-size.png)
 
 To change the cluster size, use the slider or type a number between 1 and 10 in the **Shard count** text box and click **OK** to save.
 
@@ -215,7 +210,7 @@ To change the cluster size, use the slider or type a number between 1 and 10 in 
 
 
 ### Redis data persistence
-Click **Redis data persistence** to enable, disable, or configure data persistence for your premium cache. Azure Cache for Redis offers Redis persistence using either [RDB persistence](cache-how-to-premium-persistence.md#configure-rdb-persistence) or [AOF persistence](cache-how-to-premium-persistence.md#configure-aof-persistence).
+Click **Data persistence** to enable, disable, or configure data persistence for your premium cache. Azure Cache for Redis offers Redis persistence using either [RDB persistence](cache-how-to-premium-persistence.md#configure-rdb-persistence) or [AOF persistence](cache-how-to-premium-persistence.md#configure-aof-persistence).
 
 For more information, see [How to configure persistence for a Premium Azure Cache for Redis](cache-how-to-premium-persistence.md).
 

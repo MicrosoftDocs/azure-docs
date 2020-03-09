@@ -1,9 +1,9 @@
 ---
 title: 'Ingest Azure Blobs into Azure Data Explorer'
 description: In this article, you learn how to send storage account data to Azure Data Explorer using an Event Grid subscription.
-author: radennis
-ms.author: radennis
-ms.reviewer: orspodek
+author: orspod
+ms.author: orspodek
+ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
@@ -154,6 +154,11 @@ Save the data into a file and upload it with this script:
 
     echo "Done"
 ```
+
+> [!NOTE]
+> Azure Data Explorer won't delete the blobs post ingestion.
+> Retain the blobs for thrre to five days.
+> Use [Azure Blob storage lifecycle](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts?tabs=azure-portal) to manage blob deletion. 
 
 ## Review the data flow
 

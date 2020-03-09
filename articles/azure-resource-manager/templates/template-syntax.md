@@ -2,7 +2,7 @@
 title: Template structure and syntax
 description: Describes the structure and properties of Azure Resource Manager templates using declarative JSON syntax.
 ms.topic: conceptual
-ms.date: 11/12/2019
+ms.date: 02/25/2020
 ---
 
 # Understand the structure and syntax of Azure Resource Manager templates
@@ -121,7 +121,7 @@ The following example shows the available options for defining a variable:
 }
 ```
 
-For information about using `copy` to create several values for a variable, see [Variable iteration](create-multiple-instances.md#variable-iteration).
+For information about using `copy` to create several values for a variable, see [Variable iteration](copy-variables.md).
 
 For examples of how to use variables, see [Variables in Azure Resource Manager template](template-variables.md).
 
@@ -242,7 +242,7 @@ You define resources with the following structure:
 | tags |No |Tags that are associated with the resource. Apply tags to logically organize resources across your subscription. |
 | sku | No | Some resources allow values that define the SKU to deploy. For example, you can specify the type of redundancy for a storage account. |
 | kind | No | Some resources allow a value that defines the type of resource you deploy. For example, you can specify the type of Cosmos DB to create. |
-| copy |No |If more than one instance is needed, the number of resources to create. The default mode is parallel. Specify serial mode when you don't want all or the resources to deploy at the same time. For more information, see [Create several instances of resources in Azure Resource Manager](create-multiple-instances.md). |
+| copy |No |If more than one instance is needed, the number of resources to create. The default mode is parallel. Specify serial mode when you don't want all or the resources to deploy at the same time. For more information, see [Create several instances of resources in Azure Resource Manager](copy-resources.md). |
 | plan | No | Some resources allow values that define the plan to deploy. For example, you can specify the marketplace image for a virtual machine. |
 | properties |No |Resource-specific configuration settings. The values for the properties are the same as the values you provide in the request body for the REST API operation (PUT method) to create the resource. You can also specify a copy array to create several instances of a property. To determine available values, see [template reference](/azure/templates/). |
 | resources |No |Child resources that depend on the resource being defined. Only provide resource types that are permitted by the schema of the parent resource. Dependency on the parent resource isn't implied. You must explicitly define that dependency. See [Set name and type for child resources](child-resource-name-type.md). |
@@ -255,10 +255,14 @@ The following example shows the structure of an output definition:
 
 ```json
 "outputs": {
-  "<output-name>" : {
+  "<output-name>": {
     "condition": "<boolean-value-whether-to-output-value>",
-    "type" : "<type-of-output-value>",
-    "value": "<output-value-expression>"
+    "type": "<type-of-output-value>",
+    "value": "<output-value-expression>",
+    "copy": {
+      "count": <number-of-iterations>,
+      "input": <values-for-the-variable>
+    }
   }
 }
 ```
@@ -268,7 +272,8 @@ The following example shows the structure of an output definition:
 | output-name |Yes |Name of the output value. Must be a valid JavaScript identifier. |
 | condition |No | Boolean value that indicates whether this output value is returned. When `true`, the value is included in the output for the deployment. When `false`, the output value is skipped for this deployment. When not specified, the default value is `true`. |
 | type |Yes |Type of the output value. Output values support the same types as template input parameters. If you specify **securestring** for the output type, the value isn't displayed in the deployment history and can't be retrieved from another template. To use a secret value in more than one template, store the secret in a Key Vault and reference the secret in the parameter file. For more information, see [Use Azure Key Vault to pass secure parameter value during deployment](key-vault-parameter.md). |
-| value |Yes |Template language expression that is evaluated and returned as output value. |
+| value |No |Template language expression that is evaluated and returned as output value. Specify either **value** or **copy**. |
+| copy |No | Used to return more than one value for an output. Specify **value** or **copy**. For more information, see [Output iteration in Azure Resource Manager templates](copy-outputs.md). |
 
 For examples of how to use outputs, see [Outputs in Azure Resource Manager template](template-outputs.md).
 
@@ -297,7 +302,7 @@ For inline comments, you can use either `//` or `/* ... */` but this syntax does
   ],
 ```
 
-In Visual Studio Code, the [Azure Resource Manager Tools extension](use-vs-code-to-create-template.md#install-resource-manager-tools-extension) can automatically detect Resource Manager template and change the language mode accordingly. If you see **Azure Resource Manager Template** at the bottom right corner of VS Code, you can use the inline comments. The inline comments are no longer marked as invalid.
+In Visual Studio Code, the [Azure Resource Manager Tools extension](use-vs-code-to-create-template.md#install-resource-manager-tools-extension) can automatically detect Resource Manager template and change the language mode accordingly. If you see **Azure Resource Manager Template** at the bottom-right corner of VS Code, you can use the inline comments. The inline comments are no longer marked as invalid.
 
 ![Visual Studio Code Azure Resource Manager template mode](./media/template-syntax/resource-manager-template-editor-mode.png)
 
@@ -374,7 +379,7 @@ You can't add a metadata object to user-defined functions.
 
 ## Multi-line strings
 
-You can break a string into multiple lines. For example the location property and one of the comments in the following JSON example.
+You can break a string into multiple lines. For example, see the location property and one of the comments in the following JSON example.
 
 ```json
 {

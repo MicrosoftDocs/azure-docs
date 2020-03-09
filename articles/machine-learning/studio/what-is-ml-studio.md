@@ -4,8 +4,8 @@ titleSuffix: Azure
 description: Azure Machine Learning Studio (classic)  is a drag-and-drop tool for quickly building models from a ready-to-use library of algorithms and modules.
 
 services: machine-learning
-author: xiaoharper
-ms.author: amlstudiodocs
+author: likebupt
+ms.author: keli19
 ms.custom: seodec18
 ms.assetid: e65c8fe1-7991-4a2a-86ef-fd80a7a06269
 ms.service: machine-learning
@@ -33,13 +33,13 @@ There is no programming required, visually connect datasets and modules to const
 <a name="compare"></a>
 ## How does Machine Learning Studio (classic) differ from Azure Machine Learning?
 
-[Azure Machine Learning](../overview-what-is-azure-ml.md) provides both SDKs **-and-** the Azure Machine Learning designer, to quickly prep data, train and deploy machine learning models. The designer provides a similar drag-and-drop experience to Studio (classic). However, unlike the proprietary compute platform of Studio (classic), the designer uses your own compute resources and is fully integrated into Azure Machine Learning.
+[Azure Machine Learning](../overview-what-is-azure-ml.md) provides both SDKs **-and-** the Azure Machine Learning designer (preview), to quickly prep data, train and deploy machine learning models. The designer provides a similar drag-and-drop experience to Studio (classic). However, unlike the proprietary compute platform of Studio (classic), the designer uses your own compute resources and is fully integrated into Azure Machine Learning.
 
 Here is a quick comparison:
 
 || Machine Learning Studio (classic) | Azure Machine Learning |
 |---| --- | --- |
-| Drag and drop interface | Yes | Yes - [Azure Machine Learning designer](../concept-designer.md) |
+| Drag and drop interface | Yes | Yes - [Azure Machine Learning designer (preview)](../concept-designer.md) |
 | Experiment | Scalable (10-GB training data limit) | Scale with compute target |
 | Modules for drag-and-drop interface | Many | Initial set of popular [modules](../algorithm-module-reference/module-reference.md)|
 |Training compute targets| Proprietary compute target, CPU support only| Supports Azure Machine Learning compute (GPU or CPU) and Notebook VMs.<br/>([Other computes supported in SDK](../concept-compute-target.md#train))|

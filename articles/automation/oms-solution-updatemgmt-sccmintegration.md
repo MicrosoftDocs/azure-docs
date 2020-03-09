@@ -3,7 +3,9 @@ title: Use Azure Update Management with Configuration Manager clients
 description: This article is intended to help you configure Microsoft Endpoint Configuration Manager with this solution to deploy software updates to ConfigMgr clients.
 services: automation
 ms.subservice: update-management
-ms.date: 03/19/2018
+author: mgoedtel
+ms.author: magoedte
+ms.date: 12/11/2019
 ms.topic: conceptual
 ---
 
@@ -20,7 +22,7 @@ You can report and update managed Windows servers by creating and pre-staging so
 * This feature is enabled in Configuration Manager current branch version 1606 and higher. To integrate your Configuration Manager central administration site or a stand-alone primary site with Azure Monitor logs and import collections, review [Connect Configuration Manager to Azure Monitor logs](../azure-monitor/platform/collect-sccm.md).  
 * Windows agents must either be configured to communicate with a Windows Server Update Services (WSUS) server or have access to Microsoft Update if they don't receive security updates from Configuration Manager.   
 
-How you manage clients hosted in Azure IaaS with your existing Configuration Manager environment primarily depends on the connection you have between Azure datacenters and your infrastructure. This connection affects any design changes you may need to make to your Configuration Manager infrastructure and related cost to support those necessary changes. To understand what planning considerations you need to evaluate before proceeding, review [Configuration Manager on Azure - Frequently Asked Questions](/sccm/core/understand/configuration-manager-on-azure#networking).
+How you manage clients hosted in Azure IaaS with your existing Configuration Manager environment primarily depends on the connection you have between Azure datacenters and your infrastructure. This connection affects any design changes you may need to make to your Configuration Manager infrastructure and related cost to support those necessary changes. To understand what planning considerations you need to evaluate before proceeding, review [Configuration Manager on Azure - Frequently Asked Questions](https://docs.microsoft.com/configmgr/core/understand/configuration-manager-on-azure#networking).
 
 ## Configuration
 
@@ -28,7 +30,7 @@ How you manage clients hosted in Azure IaaS with your existing Configuration Man
 
 Perform the following steps if you are going to continue managing update deployments from Configuration Manager. Azure Automation connects to Configuration Manager to apply updates to the client computers connected to your Log Analytics workspace. Update content is available from the client computer cache as if the deployment were managed by Configuration Manager.
 
-1. Create a software update deployment from the top-level site in your Configuration Manager hierarchy using the process described in [deploy software update process](/sccm/sum/deploy-use/deploy-software-updates). The only setting that must be configured differently from a standard deployment is the option **Do not install software updates** to control the download behavior of the deployment package. This behavior is managed by the Update Management solution by creating a scheduled update deployment in the next step.
+1. Create a software update deployment from the top-level site in your Configuration Manager hierarchy using the process described in [Deploy software updates](https://docs.microsoft.com/configmgr/sum/deploy-use/deploy-software-updates). The only setting that must be configured differently from a standard deployment is the option **Do not install software updates** to control the download behavior of the deployment package. This behavior is managed by the Update Management solution by creating a scheduled update deployment in the next step.
 
 1. In Azure Automation, select **Update Management**. Create a new deployment following the steps described in [Creating an Update Deployment](automation-tutorial-update-management.md#schedule-an-update-deployment) and select **Imported groups** on the **Type** drop-down to select the appropriate Configuration Manager collection. Keep in mind the following important points:
     a. If a maintenance window is defined on the selected Configuration Manager device collection, members of the collection honor it instead of the **Duration** setting defined in the scheduled deployment.
@@ -38,7 +40,7 @@ After completing the update deployment through Azure Automation, the target comp
 
 ### Manage software updates from Azure Automation
 
-To manage updates for Windows Server VMs that are Configuration Manager clients, you need to configure client policy to disable the Software Update Management feature for all clients managed by this solution. By default, client settings target all devices in the hierarchy. For more information about this policy setting and how to configure it, review [how to configure client settings in System Center Configuration Manager](/sccm/core/clients/deploy/configure-client-settings).
+To manage updates for Windows Server VMs that are Configuration Manager clients, you need to configure client policy to disable the Software Update Management feature for all clients managed by this solution. By default, client settings target all devices in the hierarchy. For more information about this policy setting and how to configure it, review [How to configure client settings in Configuration Manager](https://docs.microsoft.com/configmgr/core/clients/deploy/configure-client-settings).
 
 After performing this configuration change, you create a new deployment following the steps described in [Creating an Update Deployment](automation-tutorial-update-management.md#schedule-an-update-deployment) and select **Imported groups** on the **Type** drop-down to select the appropriate Configuration Manager collection.
 

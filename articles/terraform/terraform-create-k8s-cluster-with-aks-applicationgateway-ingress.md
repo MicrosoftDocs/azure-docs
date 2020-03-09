@@ -24,7 +24,7 @@ In this tutorial, you learn how to do the following tasks:
 
 - **Azure subscription**: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 
-- **Configure Terraform**: Follow the directions in the article, [Terraform and configure access to Azure](/azure/virtual-machines/linux/terraform-install-configure)
+- **Configure Terraform**: Follow the directions in the article, [Terraform and configure access to Azure](terraform-install-configure.md)
 
 - **Azure resource group**: If you don't have an Azure resource group to use for the demo, [create an Azure resource group](/azure/azure-resource-manager/manage-resource-groups-portal#create-resource-groups). Take note of the resource group name and location as those values are used in the demo.
 
@@ -46,7 +46,7 @@ The first step is to create the directory that holds your Terraform configuratio
     cd clouddrive
     ```
 
-1. Create a directory named `terraform-aks-k8s`.
+1. Create a directory named `terraform-aks-appgw-ingress`.
 
     ```bash
     mkdir terraform-aks-appgw-ingress
@@ -726,8 +726,8 @@ The code in this section uses [Helm](/azure/aks/kubernetes-helm) - Kubernetes pa
     - `armAuth.secretJSON`: Only needed when Service Principal Secret type is chosen (when `armAuth.type` has been set to `servicePrincipal`).
 
     Key notes:
-    - The `identityResourceID`  value is created in the terraform script and can be found by running: `echo "$(terraform output identity_client_id)"`.
-    - The `identityClientID` value is created in the terraform script and can be found by running: `echo "$(terraform output identity_resource_id)"`.
+    - The `identityResourceID`  value is created in the terraform script and can be found by running: `echo "$(terraform output identity_resource_id)"`.
+    - The `identityClientID` value is created in the terraform script and can be found by running: `echo "$(terraform output identity_client_id)"`.
     - The `<resource-group>` value is the resource group of your App Gateway.
     - The `<identity-name>` value is the name of the created identity.
     - All identities for a given subscription can be listed using: `az identity list`.
@@ -760,7 +760,7 @@ When no longer needed, delete the resources created in this article.
 
 Replace the placeholder with the appropriate value. All resources within the specified resource group will be deleted.
 
-```bash
+```azurecli
 az group delete -n <resource-group>
 ```
 

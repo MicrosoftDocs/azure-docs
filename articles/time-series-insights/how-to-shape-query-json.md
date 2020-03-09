@@ -7,7 +7,7 @@ ms.author: dpalled
 manager: cshankar
 ms.service: time-series-insights
 ms.topic: article
-ms.date: 12/05/2019
+ms.date: 02/03/2020
 ms.custom: seodec18
 
 # Customer intent: As a developer, I want to learn about best practices for shaping JSON so that I can create efficient Time Series Insights queries when I use APIs.

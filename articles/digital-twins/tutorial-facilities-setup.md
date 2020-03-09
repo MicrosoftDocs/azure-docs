@@ -48,7 +48,7 @@ Use the steps in this section to create a new instance of the Azure Digital Twin
 
 ## Grant permissions to your app
 
-Digital Twins uses [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) (Azure AD) to control [read/write access](../active-directory/develop/v1-permissions-and-consent.md) to the service. Any application that needs to connect with your Digital Twins instance must be registered with Azure AD. The steps in this section show how to register your sample app.
+Digital Twins uses [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) (Azure AD) to control [read/write access](../active-directory/develop/v2-permissions-and-consent.md) to the service. Any application that needs to connect with your Digital Twins instance must be registered with Azure AD. The steps in this section show how to register your sample app.
 
 If you already have an app registration, you can reuse it for your sample. However, browse through this section to make sure your app registration is configured correctly.
 

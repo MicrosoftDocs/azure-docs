@@ -4,7 +4,7 @@ description: Learn about customer data request features in Azure Time Series Ins
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
-ms.date: 12/23/2019
+ms.date: 02/14/2020
 ms.topic: conceptual
 ms.service: time-series-insights
 services: time-series-insights

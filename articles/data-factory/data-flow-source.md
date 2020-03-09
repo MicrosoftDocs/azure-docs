@@ -39,6 +39,8 @@ Once you have added a source, configure via the **Source Settings** tab. Here yo
 
 ![Source settings tab](media/data-flow/source1.png "Source settings tab")
 
+**Test connection:** Test whether or not data flow's spark service can successfully connect to the linked service used in your source dataset. Debug mode must be on for this feature to be enabled.
+
 **Schema drift:** [Schema Drift](concepts-data-flow-schema-drift.md) is data factory's ability to natively handle flexible schemas in your data flows without needing to explicitly define column changes.
 
 * Check the **Allow schema drift** box if the source columns will change often. This setting allows all incoming source fields to flow through the transformations to the sink.
@@ -64,13 +66,17 @@ Like schemas in datasets, the projection in a source defines the data columns, t
 
 ![Settings on the Projection tab](media/data-flow/source3.png "Projection")
 
-If your text file has no defined schema, select **Detect data type** so that Data Factory will sample and infer the data types. Select **Define default format** to autodetect the default data formats. 
+If your text file has no defined schema, select **Detect data type** so that Data Factory will sample and infer the data types. Select **Define default format** to autodetect the default data formats.
+
+**Reset schema** resets the projection to what is defined in the referenced dataset.
 
 You can modify the column data types in a down-stream derived-column transformation. Use a select transformation to modify the column names.
 
 ### Import schema
 
-Datasets like Avro and CosmosDB that support complex data structures do not require schema definitions to exist in the dataset. Therefore, you will be able to click the **Import Schema** button on the **Projection** tab for these types of sources.
+The **Import Schema** button on the **Projection** tab allows you to use an active debug cluster to create a schema projection. Available in every source type, importing the schema here will override the projection defined in the dataset. The dataset object will not be changed.
+
+This is useful in datasets like Avro and CosmosDB that support complex data structures do not require schema definitions to exist in the dataset.
 
 ## Optimize the source transformation
 

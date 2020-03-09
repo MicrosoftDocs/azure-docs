@@ -166,6 +166,9 @@ In this section, you will create a PostgreSQL server and add a private endpoint 
 
     ![Private Link created](media/concepts-data-access-and-security-private-link/show-postgres-private-link.png)
 
+    > [!NOTE] 
+    > The FQDN in the customer DNS setting does not resolve to the private IP configured. You will have to setup a DNS zone for the configured FQDN as shown [here](../dns/dns-operations-recordsets-portal.md).
+
 ## Connect to a VM using Remote Desktop (RDP)
 
 
@@ -205,6 +208,7 @@ After you've created **myVm**, connect to it from the internet as follows:
     Non-authoritative answer:
     Name:    mydemopostgresserver.privatelink.postgres.database.azure.com
     Address:  10.1.3.4
+    ```
 
 3. Test the private link connection for the PostgreSQL server using any available client. In the example below I have used [Azure Data studio](https://docs.microsoft.com/sql/azure-data-studio/download?view=sql-server-ver15) to do the operation.
 
