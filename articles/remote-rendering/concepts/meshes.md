@@ -1,7 +1,7 @@
 ---
 title: Meshes
 description: Definition of meshes in the scope of Azure Remote Rendering
-author: FlorianBorn71
+author: florianborn71
 ms.author: flborn
 ms.date: 02/05/2020
 ms.topic: conceptual

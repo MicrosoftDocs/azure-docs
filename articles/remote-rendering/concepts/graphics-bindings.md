@@ -1,7 +1,7 @@
 ---
 title: Graphics binding
 description: Setup of graphics bindings and use cases
-author: FlorianBorn71
+author: florianborn71
 manager: jlyons
 services: azure-remote-rendering
 titleSuffix: Azure Remote Rendering

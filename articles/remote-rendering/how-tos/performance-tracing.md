@@ -1,7 +1,7 @@
 ---
 title: Create client-side performance traces
 description: Best practices for client-side performance profiling using WPF
-author: FlorianBorn71
+author: florianborn71
 ms.author: flborn
 ms.date: 12/11/2019
 ms.topic: conceptual

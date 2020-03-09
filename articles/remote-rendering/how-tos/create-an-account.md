@@ -1,7 +1,7 @@
 ---
 title: Create an Azure Remote Rendering account
 description: Describes the steps to create an account for Azure Remote Rendering
-author: FlorianBorn71
+author: florianborn71
 ms.author: flborn
 ms.date: 02/11/2020
 ms.topic: how-to

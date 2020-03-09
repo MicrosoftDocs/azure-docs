@@ -1,7 +1,7 @@
 ---
 title: The asset conversion REST API
 description: Describes how to convert an asset via the REST API
-author: FlorianBorn71
+author: florianborn71
 ms.author: flborn
 ms.date: 02/04/2020
 ms.topic: how-to

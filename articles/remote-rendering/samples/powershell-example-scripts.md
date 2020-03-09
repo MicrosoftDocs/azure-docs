@@ -1,10 +1,10 @@
 ---
 title: Example PowerShell scripts
 description: Examples that show how to use the front end via PowerShell scripts
-author: FlorianBorn71
+author: florianborn71
 ms.author: flborn
 ms.date: 02/12/2020
-ms.topic: article
+ms.topic: sample
 ---
 
 # Example PowerShell scripts

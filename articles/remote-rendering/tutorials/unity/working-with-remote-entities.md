@@ -1,7 +1,7 @@
 ---
 title: Working with remote entities in Unity
 description: Tutorial that shows how to work with ARR entities.
-author: FlorianBorn71
+author: florianborn71
 ms.author: flborn
 ms.date: 02/01/2020
 ms.topic: tutorial

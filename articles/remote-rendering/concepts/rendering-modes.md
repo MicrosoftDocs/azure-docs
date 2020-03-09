@@ -1,7 +1,7 @@
 ---
 title: Rendering modes
 description: Describes the different server side rendering modes
-author: FlorianBorn71
+author: florianborn71
 ms.author: flborn
 ms.date: 02/03/2020
 ms.topic: conceptual

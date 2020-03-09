@@ -1,7 +1,7 @@
 ---
 title: About
 description: Introduction into Azure Remote Rendering
-author: FlorianBorn71
+author: florianborn71
 ms.author: flborn
 ms.date: 02/05/2020
 ms.topic: overview

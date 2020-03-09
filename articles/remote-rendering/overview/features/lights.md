@@ -1,7 +1,7 @@
 ---
 title: Lights
 description: Light source description and properties
-author: FlorianBorn71
+author: florianborn71
 ms.author: flborn
 ms.date: 02/10/2020
 ms.topic: article

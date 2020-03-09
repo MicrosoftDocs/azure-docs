@@ -1,10 +1,10 @@
 ---
-title: Welcome page
+title: Azure Remote Rendering Documentation
 description: Azure Remote Rendering welcome page
 author: jakrams
 ms.author: jakras
-ms.topic: overview
 ms.date: 01/24/2020
+ms.topic: landing-page
 ---
 
 # Azure Remote Rendering Documentation

@@ -1,7 +1,7 @@
 ---
 title: Install the Remote Rendering package for Unity
 description: Explains how to install the Remote Rendering client DLLs for Unity
-author: FlorianBorn71
+author: florianborn71
 ms.author: flborn
 ms.date: 02/26/2020
 ms.topic: how-to

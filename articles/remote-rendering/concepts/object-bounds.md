@@ -1,7 +1,7 @@
 ---
 title: Object bounds
 description: Explains how spatial object bounds can be queried
-author: FlorianBorn71
+author: florianborn71
 ms.author: flborn
 ms.date: 02/03/2020
 ms.topic: conceptual

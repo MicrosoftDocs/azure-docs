@@ -1,7 +1,7 @@
 ---
 title: Sample models
 description: Lists sources for sample models.
-author: FlorianBorn71
+author: florianborn71
 ms.author: flborn
 ms.date: 01/29/2020
 ms.topic: sample

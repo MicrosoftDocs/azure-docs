@@ -1,7 +1,7 @@
 ---
 title: Server-side performance queries
 description: How to do server-side performance queries via API calls
-author: FlorianBorn71
+author: florianborn71
 ms.author: flborn
 ms.date: 02/10/2020
 ms.topic: article

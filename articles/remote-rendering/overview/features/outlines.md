@@ -1,10 +1,10 @@
 ---
 title: Outline rendering
 description: Explains how to do selection outline rendering
-author: FlorianBorn71
+author: florianborn71
 ms.author: flborn
 ms.date: 02/11/2020
-ms.topic: conceptual
+ms.topic: article
 ---
 
 # Outline rendering

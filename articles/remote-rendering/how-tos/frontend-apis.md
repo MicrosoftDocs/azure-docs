@@ -1,7 +1,7 @@
 ---
 title: Azure Frontend APIs for authentication
 description: Explains how to use the C# frontend API for authentication
-author: FlorianBorn71
+author: florianborn71
 ms.author: flborn
 ms.date: 02/12/2010
 ms.topic: how-to
