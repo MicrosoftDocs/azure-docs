@@ -17,7 +17,8 @@ Source maps can be used to unminify call stacks found on the end to end transact
 
 ## Create a new storage account and Blob container
 
-> *Note:* If you already have an existing storage account or blob container, you can skip this step.
+If you already have an existing storage account or blob container, you can skip this step.
+
 1. [Create a new storage account][create storage account]
 2. [Create a blob container][create blob container] inside your storage account. Be sure to set the "Public access level" to `Private`, to ensure that your source maps are not publicly accessible.
 
@@ -33,7 +34,7 @@ You should integrate your continuous deployment pipeline with your storage accou
 If you are using Azure Pipelines to continuously build and deploy your application, add an [Azure File Copy][azure file copy] task to your pipeline to automatically upload your source maps.
 
 > [!div class="mx-imgBorder"]
-> ![Add an Azure File Copy task to your Pipeline to upload your source maps to Azure Blob Storage](./media/source-map-support/azure_file_copy.png )
+> ![Add an Azure File Copy task to your Pipeline to upload your source maps to Azure Blob Storage](./media/source-map-support/azure_file_copy.png)
 
 ## Configure your Application Insights resource with a Source Map storage account
 
