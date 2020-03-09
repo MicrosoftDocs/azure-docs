@@ -4,6 +4,7 @@ title: Azure Spatial Anchors Documentation
 metadata:
   title: Azure Spatial Anchors Documentation
   meta.description: Learn how to use Azure Spatial Anchors to build apps with durable spatial anchors.
+  description: Use Azure Spatial Anchors for apps with durable spatial anchors. Learn about authentication, way-finding, experience, logging, and coarse relocalization.
   services: azure-spatial-anchors
   author: craigktreasure
   manager: aliemami
