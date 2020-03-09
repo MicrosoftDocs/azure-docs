@@ -16,6 +16,13 @@
     items:
     - name: Create NAT gateway - Portal
       href: quickstart-create-nat-gateway-portal.md
+    - name: Create NAT gateway - PowerShell
+      href: quickstart-create-nat-gateway-powershell.md
+    - name: Create NAT gateway - CLI
+      href: quickstart-create-nat-gateway-cli.md
+    - name: Create NAT gateway - ARM
+      displayname: Resource Manager
+      href: quickstart-create-nat-gateway-template.md
   expanded: true
 - name: Tutorials
   items:
@@ -133,10 +140,6 @@
     items:
     - name: NAT
       items:
-      - name: Create NAT gateway - PowerShell
-        href: quickstart-create-nat-gateway-powershell.md
-      - name: Create NAT gateway - CLI
-        href: quickstart-create-nat-gateway-cli.md
       - name: Create and validate NAT gateway - PowerShell
         href: tutorial-create-validate-nat-gateway-powershell.md
       - name: Create and validate NAT gateway - CLI
