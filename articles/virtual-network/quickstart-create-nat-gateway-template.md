@@ -17,7 +17,7 @@ ms.author: allensu
 ms.custom: subject-armqs
 ---
 
-# Quickstart: Create a NAT gateway - Resource Manager Template
+# Quickstart: Create a NAT gateway - Resource Manager template
 
 Get started with Virtual Network NAT by using an Azure Resource Manager Template.  This template deploys a virtual network, a NAT gateway, and Ubuntu virtual machine. The Ubuntu virtual machine is deployed to a subnet that is associated with the NAT gateway.
 
@@ -28,7 +28,7 @@ Get started with Virtual Network NAT by using an Azure Resource Manager Template
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-## Create a NAT gateway resource, virtual network, and Ubuntu virtual machine
+## Create a NAT gateway and supporting resources
 
 This template is configured to create a 
 
@@ -50,7 +50,7 @@ Nine Azure resources are defined in the template:
 
 * **[Microsoft.Network/natGateways](https://docs.microsoft.com/azure/templates/microsoft.network/natgateways)**: Creates a NAT gateway resource.
 
-* **[Microsoft.Network/networkSecurityGroups](https://docs.microsoft.com/azure/templates/microsoft.network/networksecuritygroups)**: Create a network security group.
+* **[Microsoft.Network/networkSecurityGroups](https://docs.microsoft.com/azure/templates/microsoft.network/networksecuritygroups)**: Creates a network security group.
 
     * **[Microsoft.Network/networkSecurityGroups/securityRules](https://docs.microsoft.com/azure/templates/microsoft.network/networksecuritygroups/securityrules)**: Creates a security rule.
 
@@ -137,7 +137,7 @@ Remove-AzResourceGroup -Name myResourceGroupNAT
 
 When no longer needed, delete the resource group, NAT gateway, and all related resources. Select the resource group **myResourceGroupNAT** that contains the NAT gateway, and then select **Delete**.
 
-## Next Steps
+## Next steps
 
 In this quickstart, you created a:
 
