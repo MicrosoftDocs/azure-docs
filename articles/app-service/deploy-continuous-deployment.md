@@ -87,7 +87,7 @@ You can use the built-in Kudu App Service build server to continuously deploy fr
 
 If your account has the necessary permissions, you can set up Azure Pipelines to continuously deploy from GitHub or Azure Repos repositories. For more information about deploying through Azure Pipelines, see [Deploy a web app to Azure App Services](/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps).
 
-For Azure App Service to create continuous delivery using Azure Pipelines, your Azure DevOps organization should hvae the following permissions: 
+For Azure App Service to create continuous delivery using Azure Pipelines, your Azure DevOps organization should have the following permissions: 
 
 - Your Azure account must have permissions to write to Azure Active Directory and create a service. 
   
