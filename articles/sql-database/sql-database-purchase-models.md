@@ -83,7 +83,7 @@ To convert from the DTU-based purchasing model to the vCore-based purchasing mod
 > [!NOTE]
 > The DTU to vCore sizing guidelines are approximate, and are provided to help in the initial estimation of the target database service objective. The optimal configuration of the target database is workload-dependent. 
 > 
-> Achieving the optimal price/performance ratio may require leveraging the flexibility of the vCore model to adjust the number of vCores, the [hardware generation](sql-database-service-tiers-vcore.md#hardware-generations), the [service](sql-database-service-tiers-vcore#service-tiers) and [compute](sql-database-service-tiers-vcore#compute-tiers) tiers, as well as tuning of other database configuration parameters, such as [maximum degree of parallelism](https://docs.microsoft.com/sql/relational-databases/query-processing-architecture-guide#parallel-query-processing).
+> Achieving the optimal price/performance ratio may require leveraging the flexibility of the vCore model to adjust the number of vCores, the [hardware generation](sql-database-service-tiers-vcore.md#hardware-generations), the [service](sql-database-service-tiers-vcore.md#service-tiers) and [compute](sql-database-service-tiers-vcore.md#compute-tiers) tiers, as well as tuning of other database configuration parameters, such as [maximum degree of parallelism](https://docs.microsoft.com/sql/relational-databases/query-processing-architecture-guide#parallel-query-processing).
 
 ## DTU-based purchasing model
 
