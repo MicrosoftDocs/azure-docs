@@ -32,7 +32,8 @@ To troubleshoot this issue, see [No subscriptions found sign-in error for Azure 
 
 ## Unable to use a virtual or prepaid credit or debit card as a payment method.
 
-Virtual or prepaid credit or debit cards aren't accepted as payment for Azure subscriptions.
+*	Virtual or prepaid credit cards aren't accepted as payment for Azure subscriptions.
+*	Debit cards aren't accepted as payment for Azure subscriptions.
 
 For more information, see [Troubleshoot a declined card at Azure sign-up](troubleshoot-declined-card.md).
 
