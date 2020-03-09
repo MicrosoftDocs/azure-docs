@@ -38,7 +38,7 @@ To complete this article, you need the following resources and privileges:
 * A user account that's a member of the *Azure AD DC administrators* group in your Azure AD tenant.
 
 > [!NOTE]
-> You can use Group Policy Administrative Templates by copying the new templates to the management workstation. Copy the *.admx* files into `%SYSTEMROOT%\PolicyDefinitions` and copy the locale-specific *.adml* files to `%SYSTEMROOT%\PolicyDefinitions\[Language-CountryRegion]]`, where `Language-CountryRegion` matches the language and region of the *.adml* files.
+> You can use Group Policy Administrative Templates by copying the new templates to the management workstation. Copy the *.admx* files into `%SYSTEMROOT%\PolicyDefinitions` and copy the locale-specific *.adml* files to `%SYSTEMROOT%\PolicyDefinitions\[Language-CountryRegion]`, where `Language-CountryRegion` matches the language and region of the *.adml* files.
 >
 > For example, copy the English, United States version of the *.adml* files into the `\en-us` folder.
 >
