@@ -11,6 +11,12 @@ ms.author: vkukke
 ---
 
 # Azure Event Grid - network security
+This article describes how to use the following security features with Azure Event Grid: 
+
+*	Private endpoints for ingress
+*	IP Firewall rules for ingress
+*	Service tags for egress
+
 
 ## Private endpoints
 
