@@ -78,31 +78,6 @@ SECRET = 'sv=2018-03-28&ss=bf&srt=sco&sp=rl&st=2019-10-14T12%3A10%3A25Z&se=2061-
 GO
 ```
 
-## Provided demo data
-
-The demo data provided for quickstart contains following data sets:
-
-- NYC Taxi - Yellow Taxi Trip Records - part of public NYC data set
-  - CSV format
-  - Parquet format
-- Population data set
-  - CSV format
-- Sample Parquet files with nested columns
-  - Parquet format
-- Books JSON
-  - JSON format
-
-| Folder path                                                  | Description                                                  |
-| ------------------------------------------------------------ | ------------------------------------------------------------ |
-| /csv/                                                        | Parent folder for data in CSV format                         |
-| /csv/population/<br />/csv/population-unix/<br />/csv/population-unix-hdr/<br />/csv/population-unix-hdr-escape<br />/csv/population-unix-hdr-quoted | Folders with Population data files in different CSV formats. |
-| /csv/taxi/                                                   | Folder with NYC public data files in CSV format              |
-| /parquet/                                                    | Parent folder for data in Parquet format                     |
-| /parquet/taxi                                                | NYC public data files in Parquet format, partitioned by year, and month using Hive/Hadoop partitioning scheme. |
-| /parquet/nested/                                             | Sample Parquet files with nested columns                     |
-| /json/                                                       | Parent folder for data in JSON format                        |
-| /json/books/                                                 | JSON files with books data                                   |
-
 ## Querying a CSV file
 
 The following image is a preview of the file to be queried:
