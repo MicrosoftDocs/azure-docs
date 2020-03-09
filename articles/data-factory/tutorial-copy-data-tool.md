@@ -127,7 +127,7 @@ Prepare your Blob storage and your SQL Database for the tutorial by performing t
 
     b. Click **Next** to move to next step.
 
-1. On the **File format settings** page, Enable the checkbox for *First row as header*. Notice that the tool automatically detects the column and row delimiters. Select **Next**. You can also preview data and view the schema of the input data on this page.
+1. On the **File format settings** page, enable the checkbox for *First row as header*. Notice that the tool automatically detects the column and row delimiters. Select **Next**. You can also preview data and view the schema of the input data on this page.
 
     ![File format settings](./media/tutorial-copy-data-tool/file-format-settings-page.png)
 1. On the **Destination data store** page, completes the following steps:
