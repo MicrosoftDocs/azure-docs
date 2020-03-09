@@ -83,8 +83,6 @@
       href: credential-access-key-vault.md
   - name: Copy files and applications to pool nodes
     items: 
-    - name: Copying applications and data to pool nodes
-      href: batch-applications-to-pool-nodes.md 
     - name: Using application packages
       href: batch-application-packages.md
     - name: Create resource files
@@ -130,6 +128,8 @@
       href: batch-user-accounts.md
     - name: Submit a large number of tasks
       href: large-number-tasks.md
+    - name: Schedule jobs for efficiency
+      href: batch-job-schedule.md
     - name: Check for job and task errors
       href: batch-job-task-error-checking.md
     - name: Detecting and handling Batch service errors

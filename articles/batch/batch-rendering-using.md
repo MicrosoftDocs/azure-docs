@@ -5,7 +5,7 @@ services: batch
 ms.service: batch
 author: mscurrell
 ms.author: markscu
-ms.date: 08/02/2018
+ms.date: 03/05/2020
 ms.topic: conceptual
 ---
 
@@ -53,7 +53,8 @@ The 'Data' section in Batch Explorer allows files to be copied between a local f
 
 Plug-ins are available for some of the client applications.  The plug-ins allow pools and jobs to be created directly from the application or invoke Batch Explorer.
 
-* [Blender](https://github.com/Azure/azure-batch-rendering/tree/master/plugins/blender)
+* [Blender 2.79](https://github.com/Azure/azure-batch-rendering/tree/master/plugins/blender)
+* [Blender 2.8+](https://github.com/Azure/azure-batch-rendering/tree/master/plugins/blender28)
 * [Autodesk 3ds Max](https://github.com/Azure/azure-batch-rendering/tree/master/plugins/3ds-max)
 * [Autodesk Maya](https://github.com/Azure/azure-batch-maya)
 
