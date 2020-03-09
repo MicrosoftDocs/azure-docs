@@ -33,7 +33,7 @@ landingContent:
           url: faq-voice-assistants.md
 - title: Custom keyword
   linkLists:          
-    - linkListType: overview
+    - linkListType: how-to-guide
       links:
         - text: Custom keyword spotting
           url: speech-devices-sdk-create-kws.md
