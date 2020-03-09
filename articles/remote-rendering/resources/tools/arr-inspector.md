@@ -2,120 +2,118 @@
 title: The ArrInspector inspection tool
 description: User manual of the ArrInspector tool
 author: florianborn71
-manager: jlyons
-services: azure-remote-rendering
-titleSuffix: Azure Remote Rendering
 ms.author: flborn
-ms.date: 12/11/2019
-ms.topic: conceptual
-ms.service: azure-remote-rendering
+ms.date: 03/09/2020
+ms.topic: article
 ---
 
 # The ArrInspector inspection tool
 
-The ArrInspector is a web-based tool used to inspect a running Azure Remote Rendering session. It is meant to be used for debugging purposes, to inspect the structure of the scene being rendered, show the log messages and monitor the live performance on the server side.
+The ArrInspector is a web-based tool used to inspect a running Azure Remote Rendering session. It is meant to be used for debugging purposes, to inspect the structure of the scene being rendered, show the log messages, and monitor the live performance on the server.
 
 ![ArrInspector](./media/arr-inspector.png)
 
 ## Connecting to the ArrInspector
 
-Once you obtain the hostname (ending in "mixedreality.azure.com") of your ARR server, connect using the [ConnectToArrInspectorAsync](../../how-tos/frontend-apis.md) API. The tool is compatible with Edge, Firefox and Chrome.
+Once you obtain the hostname (ending in `mixedreality.azure.com`) of your ARR server, connect using [ConnectToArrInspectorAsync](../../how-tos/frontend-apis.md#connect-to-arr-inspector). This function creates a `StartArrInspector.html` on the device on which the application is running. To launch ArrInspector, open that file with a browser (Edge, Firefox, or Chrome) on a PC. The file is only valid for 24 hours.
 
-If you want to browse ArrInspector on the PC you can:
+If the app that calls `ConnectToArrInspectorAsync` is already running on a PC:
 
-1. Call ConnectToArrInspectorAsync on the PC
-2. Call ConnectToArrInspectorAsync on the device. This will create a 'StartArrInspector.html' file, which you can download to the PC and open:
-   * Point the Windows Device Portal to your HoloLens
-   * Go to System/File Explorer
-   * Navigate to 'User Folders\LocalAppData\\[your_app]\AC\Temp\'
-   * Save 'StartArrInspector.html'
-   * Open 'StartArrInspector.html' - this will load the sessions' ArrInspector. This file is only valid for 24 hours after the ConnectToArrInspectorAsync API call
+* If you are using the Unity integration, it may get launched automatically for you.
+* Otherwise, you will find the file in *User Folders\\LocalAppData\\[your_app]\\AC\\Temp*.
 
-## The Performance Panel
+If the app is running on a HoloLens:
+
+1. Access the HoloLens using the [Windows Device Portal](https://docs.microsoft.com/windows/mixed-reality/using-the-windows-device-portal).
+1. Go to *System > File Explorer*.
+1. Navigate to *User Folders\\LocalAppData\\[your_app]\\AC\\Temp*.
+1. Save *StartArrInspector.html* to your PC.
+1. Open *StartArrInspector.html* to load the session's ArrInspector.
+
+## The Performance panel
 
 ![The Performance Panel](./media/performance-panel.png)
 
-This panel can show graphs of any per-frame performance value exposed by the server. The values currently include the frame time and FPS, cpu and memory usage, memory stats like overall RAM usage, object counts etc.
+This panel shows graphs of all per-frame performance values exposed by the server. The values currently include the frame time, FPS, CPU and memory usage, memory stats like overall RAM usage, object counts, etc.
 
-To visualize one of these parameters, click on the **Add New** button and select one of the available values shown in the dialog. This action will add a new scrolling chart to the panel, tracing the values in real time. You can add as many charts as you want, and remove them with the **X** button on the top right corner.
+To visualize one of these parameters, click the **Add New** button and select one of the available values shown in the dialog. This action adds a new scrolling chart to the panel, tracing the values in real time. On its right you can see the *minimum*, *maximum* and *current* value.
 
-On the right side you can see the minimum and maximum values (associated to the top and bottom of the chart), and the current value, in the middle.
+You can pan the graph, by dragging its content with the mouse, however, panning horizontally is only possible when ArrInspector is in the paused state.
 
-The graphs can be resized vertically by dragging the lower right corner.
+Holding CTRL while dragging, allows you to zoom. Horizontal zoom can also be controlled with the slider at the bottom.
 
-The user can freely pan the graph, by dragging its content with the mouse. By dragging while pressing CTRL, the user can also zoom vertically and horizontally. The graph can be panned horizontally only when it's in a paused state, otherwise it will be always aligned to show the current time on the right end.
-
-Horizontal zoom can also be controlled with the slider at the bottom of the panel.
-
-The vertical range is by default computed based on the values currently displayed, and min and max values are shown in the text-boxes on the right. Whenever the values are changed by the user, either by typing them directly in the text-box, or by panning/zooming, the graph will use the user-defined mix/max. To restore the automatic vertical framing, click on the icon on the top-right corner.
+The vertical range is by default computed based on the values currently displayed, and min and max values are shown in the text-boxes on the right. When the values are set manually, either by typing them directly into the textbox, or by panning/zooming, the graph will use those values. To restore the automatic vertical framing, click  the icon in the top-right corner.
 
 ![vertical range](./media/vertical-range.png)
 
-## The Log Panel
+## The Log panel
 
 ![Log Panel](./media/log-panel.png)
 
 The log panel shows a list of log messages generated on the server side. On connection it will show up to 200 previous log messages, and will print new ones as they happen.
 
-You can filter the list based on the log type \[Error/Warning/Info/Debug\] by clicking on the toggle buttons on the top.
+You can filter the list based on the log type `[Error/Warning/Info/Debug]` using the buttons at the top.
 ![Log Filter Buttons](./media/log-filter.png)
 
-## The Timing Data Capture Panel
+## The Timing Data Capture panel
 
 ![Timing Data Capture](./media/timing-data-capture.png)
 
-This panel is used to capture timing information from the server and download it. The format of the downloaded file is the [Chrome Tracing JSON format](https://docs.google.com/document/d/1CvAClvFfyA5R-PhYUmn5OOQtYMH4h6I0nSsKchNAySU/edit). To inspect the data, you can open Chrome on the URL Chrome://tracing and drag-and-drop the downloaded file on the page.
-The timing data is a dump of the fixed-size buffers continuously collecting timing information in the engine, so it refers to a capture in the immediate past.
+This panel is used to capture timing information from the server and download it. The file uses the [Chrome Tracing JSON format](https://docs.google.com/document/d/1CvAClvFfyA5R-PhYUmn5OOQtYMH4h6I0nSsKchNAySU/edit). To inspect the data, open Chrome on the URL `Chrome://tracing` and drag-and-drop the downloaded file into the page. The timing data is continuously collected in a fixed-size ring-buffer. When written out, the capture only includes information about the immediate past, meaning a couple of seconds to few minutes.
 
-## The Scene Inspection Panel
+## The Scene Inspection panel
 
 ![Scene Inspection Panel](./media/scene-inspection-panel.png)
 
-This panel shows the structure of the rendered scene. On the left you can see the object hierarchy, as an expandable tree. When selecting one of the objects, On the right side you can see the content of the object (for example the transform matrix and the values in its components). The panel is read-only and it is updated in real time.
+This panel shows the structure of the rendered scene. The object hierarchy is on the left, the content of the selected object is on the right. The panel is read-only and is updated in real time.
 
-## The VM Debug Information Panel
+## The VM Debug Information panel
 
 ![VM Debug Information Panel](./media/state-debugger-panel.png)
 
 This panel offers some debug functionality.
 
-The **Restart Service** button restarts the runtime on the virtual machine that arrInspector is connected to. An attached client will be automatically disconnected and the arrInspector page will need to be reloaded to connect to the restarted service.
+### Restart service
 
-Upon clicking the **Collect Debug Information for VM** button, a dialog will open.
+The **Restart Service** button restarts the runtime on the virtual machine that arrInspector is connected to. Any attached client will get disconnected and the arrInspector page must be reloaded to connect to the restarted service.
+
+### Collect debug information
+
+The **Collect Debug Information for VM** button opens a dialog that allows you to trigger the ARR instance to collect debug information on the VM:
 
 ![VM Debug Information Dialog](./media/state-debugger-dialog.png)
 
-This allows you to trigger the ARR instance to collect debug information on the VM. Debug information helps us analyze any issues that occur in a running ARR instance.
-The dialog has a text field where you can optionally provide data you want to add to the debug information. This could include a short description of what happened and steps to reproduce, for example.
+Debug information helps the Azure Remote Rendering team to analyze any issues that occur in a running ARR instance. The dialog has a text field to provide additional details, for example steps to reproduce an issue.
+
+After clicking the **Start Collecting** button, the dialog will close and the collection process begins. Collecting the information on the VM can take a few minutes.
 
 ![VM Debug Information collection in progress](./media/state-debugger-panel-in-progress.png)
 
-After clicking the **Start Collecting** button, the dialog will close and the collection process will begin. Collecting all system and process information on the VM can take a few minutes.
+Once the collection is finished, you will receive a notification in the ArrInspector window. This notification contains an ID that identifies this particular collection. Be sure to save this ID to pass it on to the Azure Remote Rendering team.
 
 ![VM Debug Information collection success](./media/state-debugger-snackbar-success.png)
 
-Once the collection is finished, you will receive a notification in the Inspector window. This notification contains an ID that identifies this particular collection uniquely. Be sure to save it so you can later refer us to this specific collection of debug information.
+> [!IMPORTANT]
+> You can't download or otherwise access VM debug information. Only the Azure Remote Rendering team has access to the collected data. You need to contact us and send the collection ID along, for us to investigate the issue you are seeing.
 
-## Pause Mode
+## Pause mode
+
+In the top-right corner, a switch allows you to pause live update of the panels. This mode can be useful to carefully inspect a specific state.
 
 ![Pause Mode](./media/pause-mode.png)
 
-On the top-right corner, a small switch will allow you to pause the live update of the panels. This can be useful to carefully inspect a specific state. In this state, you can still change the min/max range in the profiling graphs.
-
-When restoring the live update, all of the panels are reset.
+When re-enabling live update, all panels are reset.
 
 ## Host configuration
 
+By default the tool connects to the ARR server that is running on the same host serving the ArrInspector. However, you can configure it to inspect another server, assuming it's running an ARR instance with the tooling port open.
+
+To do so, access the main menu on the left of the header bar and select *Host configuration*. Click **Add new host**, and enter the name and hostname. For *hostname* only use the hostname ending in `.mixedreality.azure.com`, don't include `http://` or a port.
+
 ![Host Configuration](./media/host-configuration.png)
 
-By default the tool connects to the local ARR server (running on the same host that serves the ArrInspector), but you can configure it to inspect another server, assuming it's running an ARR instance with a tooling port activated. To do this you can access the main menu on the left of the header bar and click on host configuration.
-
-You can add new hosts by clicking on **Add new host**, and entering name and hostname (just the hostname ending in "mixedreality.azure.com", no http:// or port), or remove them by clicking on the bin icon on the right side.
-
-To connect to one of the hosts, just select the entry in the list and press OK.
+To quickly switch from one host to another, use the drop-down at the top right.
 
 ![Host Combo](./media/host-switch-combo.png)
-
-To quickly switch from one host to another, you can use a combo box, located on the right side of the main header bar.
 
 The host list is stored in the browser local storage, so it will be preserved when reopening the same browser.
