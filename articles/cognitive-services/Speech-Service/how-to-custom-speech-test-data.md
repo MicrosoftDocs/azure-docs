@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/17/2019
+ms.date: 03/09/2020
 ms.author: erhopf
 ---
 
@@ -60,6 +60,8 @@ Use this table to ensure that your audio files are formatted correctly for use w
 | Archive format | .zip |
 | Maximum archive size | 2 GB |
 
+[!INCLUDE [supported-audio-formats](includes/supported-audio-formats.md)]
+
 > [!TIP]
 > When uploading training and testing data, the .zip file size cannot exceed 2 GB. If you require more data for training, divide it into several .zip files and upload them separately. Later, you can choose to train from *multiple* datasets. However, you can only test from a *single* dataset.
 
@@ -84,8 +86,10 @@ To measure the accuracy of Microsoft's speech-to-text accuracy when processing y
 | Archive format | .zip |
 | Maximum zip size | 2 GB |
 
+[!INCLUDE [supported-audio-formats](includes/supported-audio-formats.md)]
+
 > [!NOTE]
-> When uploading training and testing data, the .zip file size cannot exceed 2 GB. Uou can only test from a *single* dataset, be sure to keep it within the appropriate file size.
+> When uploading training and testing data, the .zip file size cannot exceed 2 GB. You can only test from a *single* dataset, be sure to keep it within the appropriate file size. Additionally, each training file cannot exceed 60 seconds otherwise it will error out.
 
 To address issues like word deletion or substitution, a significant amount of data is required to improve recognition. Generally, it's recommended to provide word-by-word transcriptions for roughly 10 to 1,000 hours of audio. The transcriptions for all WAV files should be contained in a single plain-text file. Each line of the transcription file should contain the name of one of the audio files, followed by the corresponding transcription. The file name and transcription should be separated by a tab (\t).
 
