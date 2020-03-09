@@ -13,6 +13,10 @@
   - name: Create virtual network - Azure CLI
     href: quick-create-cli.md
   expanded: true
+  - name: NAT
+    items:
+    - name: Create NAT gateway - Portal
+      href: quickstart-create-nat-gateway-portal.md
 - name: Tutorials
   items:
   - name: Filter network traffic
@@ -129,8 +133,6 @@
     items:
     - name: NAT
       items:
-      - name: Create NAT gateway - Portal
-        href: quickstart-create-nat-gateway-portal.md
       - name: Create NAT gateway - PowerShell
         href: quickstart-create-nat-gateway-powershell.md
       - name: Create NAT gateway - CLI
