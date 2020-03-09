@@ -176,6 +176,10 @@ You are charged the normal Azure App Service pricing for the number of hours tha
 
 ## Other questions
 
+**What does "Requested feature is not available in resource group" mean?**
+
+You may see this message when creating web app using Azure Resource Manager (ARM). Based on a current limitation, for the same resource group, you cannot mix Windows and Linux apps in the same region.
+
 **What are the supported characters in application settings names?**
 
 You can use only letters (A-Z, a-z), numbers (0-9), and the underscore character (_) for application settings.
