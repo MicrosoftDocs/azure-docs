@@ -5,7 +5,7 @@ services: storage
 author: tamram
 
 ms.service: storage
-ms.date: 02/05/2020
+ms.date: 03/09/2020
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: cbrooks
@@ -109,6 +109,29 @@ Rotating the key does not trigger re-encryption of data in the storage account. 
 ### Revoke access to customer-managed keys
 
 To revoke access to customer-managed keys, use PowerShell or Azure CLI. For more information, see [Azure Key Vault PowerShell](/powershell/module/az.keyvault//) or [Azure Key Vault CLI](/cli/azure/keyvault). Revoking access effectively blocks access to all data in the storage account, as the encryption key is inaccessible by Azure Storage.
+
+After access to customer-managed keys is revoked, operations that read from or write to a blob or its metadata are not permitted. The specific operations that are not permitted are:
+
+- [List Blobs](rest/api/storageservices/list-blobs) (with metadata)
+- [Get Blob](rest/api/storageservices/get-blob)
+- [Get Blob Properties](rest/api/storageservices/get-blob-properties)
+- [Get Blob Metadata](rest/api/storageservices/get-blob-metadata)
+- [Set Blob Metadata](rest/api/storageservices/set-blob-metadata)
+- [Snapshot Blob](rest/api/storageservices/snapshot-blob) (with metadata)
+- [Copy Blob](rest/api/storageservices/copy-blob)
+- [Copy Blob From URL](rest/api/storageservices/copy-blob-from-url)
+- Incremental Copy Blob???
+- [Set Blob Tier](rest/api/storageservices/set-blob-tier)
+- Query Blob Contents (Quick Query)???
+- [Put Block](rest/api/storageservices/put-block)
+- [Put Block From URL](rest/api/storageservices/put-block-from-url)
+- [Append Block](rest/api/storageservices/append-block)
+- [Append Block From URL](rest/api/storageservices/append-block-from-url)
+- [Put Blob](rest/api/storageservices/put-blob)
+- [Put Page](rest/api/storageservices/put-page)
+- [Put Page From URL](rest/api/storageservices/put-page-from-url)
+
+After customer-managed keys are revoked for the storage account, any of these operations will fail with error code 403 (Forbidden).
 
 ### Customer-managed keys for Azure managed disks (preview)
 
