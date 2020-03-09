@@ -11,14 +11,14 @@ ms.author: babanisa
 ---
 
 # Azure Event Grid premium and basic tiers
-Azure Event Grid has two tiers: **Premium** and **Basic**. The basic tier uses consumption, or pay-as-you-go pricing. It gives you all of the standard pub/sub tools you need to use Event Grid for event-driven programming models. The premium tier takes this one step further with security features aimed at the enterprise. The premium SKU is in early **public preview** with many of its features still under development.
+Azure Event Grid has two tiers: **Premium** and **Basic**. The basic tier uses consumption, or pay-as-you-go pricing. It gives you all of the basic pub/sub tools you need to use Event Grid for event-driven programming models. The premium tier takes this one step further with security features aimed at the enterprise. The premium tier is in early **public preview** with many of its features still under development.
 
 ## Overview
-All custom topics and event domains in Event Grid are either Basic tier or Premium tier. All topics and domains created with API versions before `03-13-2020-preview` default to basic tier. The premium tier has all the features of the basic tier and more such as virtual network (VNet) integration via private endpoints. It's priced on an hourly basis as opposed to consumption pricing of standard tier.
+All custom topics and event domains in Event Grid are either Basic tier or Premium tier. All topics and domains created with API versions before `03-13-2020-preview` default to basic tier. The premium tier has all the features of the basic tier and more such as virtual network (VNet) integration via private endpoints. It's priced on an hourly basis as opposed to consumption pricing of the basic tier.
 
 ## Capabilities and features
 
-The following table describes the security, performance, and SLA differences between the SKUs:
+The following table describes the security, performance, and SLA differences between the tiers:
 
 |       &nbsp;                                           | Basic           | Premium        |
 | ------------------------------------------------------ | --------------- | -------------- |
@@ -32,7 +32,7 @@ The following table describes the security, performance, and SLA differences bet
 | Private endpoints VNET integration on ingress          | Not Available   | Public Preview |
 
 ## Pricing and quotas
-See [Event Grid pricing](https://azure.microsoft.com/pricing/details/event-grid/) for the pricing details of using the standard tier. The Premium SKU pricing isn't yet announced and is free until pricing is available.
+See [Event Grid pricing](https://azure.microsoft.com/pricing/details/event-grid/) for the pricing details of using the basic tier. The Premium tier pricing isn't yet announced and is free until pricing is available.
 
 The existing quotas on topic and domain count, and throughput apply to both premium and basic tier resources until premium tier pricing is announced.
 
