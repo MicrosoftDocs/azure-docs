@@ -2,12 +2,9 @@
 title: Restrict egress traffic in Azure Kubernetes Service (AKS)
 description: Learn what ports and addresses are required to control egress traffic in Azure Kubernetes Service (AKS)
 services: container-service
-author: mlearned
-
-ms.service: container-service
 ms.topic: article
 ms.date: 01/21/2020
-ms.author: mlearned
+
 
 #Customer intent: As an cluster operator, I want to restrict egress traffic for nodes to only access defined ports and addresses and improve cluster security.
 ---
@@ -61,6 +58,9 @@ The following FQDN / application rules are required:
 > [!IMPORTANT]
 > ***.blob.core.windows.net and aksrepos.azurecr.io** are no longer required FQDN rules for egress lockdown.  For existing clusters, [perform a cluster upgrade operation][aks-upgrade] using the `az aks upgrade` command to remove these rules.
 
+> [!IMPORTANT]
+> *.cdn.mscr.io has been replaced by a *.data.mcr.microsoft.com for the Azure public cloud regions. Please upgdate your existing firewall rules for the changes to take effect.
+
 - Azure Global
 
 | FQDN                       | Port      | Use      |
@@ -68,7 +68,7 @@ The following FQDN / application rules are required:
 | *.hcp.\<location\>.azmk8s.io | HTTPS:443, TCP:22, TCP:9000 | This address is the API server endpoint. Replace *\<location\>* with the region where your AKS cluster is deployed. |
 | *.tun.\<location\>.azmk8s.io | HTTPS:443, TCP:22, TCP:9000 | This address is the API server endpoint. Replace *\<location\>* with the region where your AKS cluster is deployed. |
 | mcr.microsoft.com          | HTTPS:443 | This address is required to access images in Microsoft Container Registry (MCR). This registry contains first-party images/charts(for example, moby, etc.) required for the functioning of the cluster during upgrade and scale of the cluster |
-| *.cdn.mscr.io              | HTTPS:443 | This address is required for MCR storage backed by the Azure content delivery network (CDN). |
+| *.data.mcr.microsoft.com             | HTTPS:443 | This address is required for MCR storage backed by the Azure content delivery network (CDN). |
 | management.azure.com       | HTTPS:443 | This address is required for Kubernetes GET/PUT operations. |
 | login.microsoftonline.com  | HTTPS:443 | This address is required for Azure Active Directory authentication. |
 | ntp.ubuntu.com             | UDP:123   | This address is required for NTP time synchronization on Linux nodes. |
@@ -83,7 +83,7 @@ The following FQDN / application rules are required:
 | *.tun.\<location\>.cx.prod.service.azk8s.cn | HTTPS:443, TCP:22, TCP:9000 | This address is the API server endpoint. Replace *\<location\>* with the region where your AKS cluster is deployed. |
 | *.azk8s.cn        | HTTPS:443 | This address is required to download required binaries and images|
 | mcr.microsoft.com          | HTTPS:443 | This address is required to access images in Microsoft Container Registry (MCR). This registry contains first-party images/charts(for example, moby, etc.) required for the functioning of the cluster during upgrade and scale of the cluster |
-| *.cdn.mscr.io              | HTTPS:443 | This address is required for MCR storage backed by the Azure Content Delivery Network (CDN). |
+| *.cdn.mscr.io       | HTTPS:443 | This address is required for MCR storage backed by the Azure Content Delivery Network (CDN). |
 | management.chinacloudapi.cn       | HTTPS:443 | This address is required for Kubernetes GET/PUT operations. |
 | login.chinacloudapi.cn  | HTTPS:443 | This address is required for Azure Active Directory authentication. |
 | ntp.ubuntu.com             | UDP:123   | This address is required for NTP time synchronization on Linux nodes. |
@@ -96,7 +96,7 @@ The following FQDN / application rules are required:
 | *.hcp.\<location\>.cx.aks.containerservice.azure.us | HTTPS:443, TCP:22, TCP:9000 | This address is the API server endpoint. Replace *\<location\>* with the region where your AKS cluster is deployed. |
 | *.tun.\<location\>.cx.aks.containerservice.azure.us | HTTPS:443, TCP:22, TCP:9000 | This address is the API server endpoint. Replace *\<location\>* with the region where your AKS cluster is deployed. |
 | mcr.microsoft.com          | HTTPS:443 | This address is required to access images in Microsoft Container Registry (MCR). This registry contains first-party images/charts(for example, moby, etc.) required for the functioning of the cluster during upgrade and scale of the cluster |
-| *.cdn.mscr.io              | HTTPS:443 | This address is required for MCR storage backed by the Azure Content Delivery Network (CDN). |
+|*.cdn.mscr.io              | HTTPS:443 | This address is required for MCR storage backed by the Azure Content Delivery Network (CDN). |
 | management.usgovcloudapi.net       | HTTPS:443 | This address is required for Kubernetes GET/PUT operations. |
 | login.microsoftonline.us  | HTTPS:443 | This address is required for Azure Active Directory authentication. |
 | ntp.ubuntu.com             | UDP:123   | This address is required for NTP time synchronization on Linux nodes. |
@@ -144,7 +144,7 @@ The following FQDN / application rules are required for AKS clusters that have t
 | cloudflare.docker.com | HTTPS:443 | This address is used to pull linux alpine and other Azure Dev Spaces images |
 | gcr.io | HTTP:443 | This address is used to pull helm/tiller images |
 | storage.googleapis.com | HTTP:443 | This address is used to pull helm/tiller images |
-| azds-<guid>.<location>.azds.io | HTTPS:443 | To communicate with Azure Dev Spaces backend services for your controller. The exact FQDN can be found in the "dataplaneFqdn" in %USERPROFILE%\.azds\settings.json |
+| azds-\<guid\>.\<location\>.azds.io | HTTPS:443 | To communicate with Azure Dev Spaces backend services for your controller. The exact FQDN can be found in the "dataplaneFqdn" in %USERPROFILE%\.azds\settings.json |
 
 ## Required addresses and ports for AKS clusters with Azure Policy (in public preview) enabled
 
@@ -157,7 +157,7 @@ The following FQDN / application rules are required for AKS clusters that have t
 |-----------------------------------------|-----------|----------|
 | gov-prod-policy-data.trafficmanager.net | HTTPS:443 | This address is used for correct operation of Azure Policy. (currently in preview in AKS) |
 | raw.githubusercontent.com | HTTPS:443 | This address is used to pull the built-in policies from GitHub to ensure correct operation of Azure Policy. (currently in preview in AKS) |
-| *.gk.<location>.azmk8s.io | HTTPS:443	| Azure policy add-on that talks to Gatekeeper audit endpoint running in master server to get the audit results. |
+| *.gk.\<location\>.azmk8s.io | HTTPS:443	| Azure policy add-on that talks to Gatekeeper audit endpoint running in master server to get the audit results. |
 | dc.services.visualstudio.com | HTTPS:443 | Azure policy add-on that sends telemetry data to applications insights endpoint. |
 
 ## Required by Windows Server based nodes (in public preview) enabled

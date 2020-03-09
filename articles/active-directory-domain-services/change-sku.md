@@ -44,7 +44,7 @@ For more information on these limits, see [Azure AD DS SKU features and limits][
 
 To change the SKU for an Azure AD DS managed domain using the Azure portal, complete the following steps:
 
-1. At the top of the Azure portal, search for and select **Azure AD Domain Services**. Choose your managed domain from the list, such as *aadds.contoso.com*.
+1. At the top of the Azure portal, search for and select **Azure AD Domain Services**. Choose your managed domain from the list, such as *aaddscontoso.com*.
 1. In the menu on the left-hand side of the Azure AD DS page, select **Settings > SKU**.
 
     ![Select the SKU menu option for your Azure AD DS managed domain in the Azure portal](media/change-sku/overview-change-sku.png)

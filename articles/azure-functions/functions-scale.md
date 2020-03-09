@@ -59,7 +59,7 @@ When you're using the Premium plan, instances of the Azure Functions host are ad
 
 * Perpetually warm instances to avoid any cold start
 * VNet connectivity
-* Unlimited execution duration
+* Unlimited execution duration (60 minutes guaranteed)
 * Premium instance sizes (one core, two core, and four core instances)
 * More predictable pricing
 * High-density app allocation for plans with multiple function apps
@@ -154,7 +154,7 @@ Scaling can vary on a number of factors, and scale differently based on the trig
 
 Different triggers may also have different scaling limits as well as documented below:
 
-* [Event Hub](functions-bindings-event-hubs.md#trigger---scaling)
+* [Event Hub](functions-bindings-event-hubs-trigger.md#scaling)
 
 ### Best practices and patterns for scalable apps
 

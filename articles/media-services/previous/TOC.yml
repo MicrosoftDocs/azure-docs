@@ -397,8 +397,6 @@
     items:
     - name: Playback media with existing players
       href: media-services-playback-content-with-existing-players.md
-    - name: Playback media with Media Player
-      href: media-services-develop-video-players.md
     - name: Other playback options
       items:
       - name: Smooth streaming Windows Store application

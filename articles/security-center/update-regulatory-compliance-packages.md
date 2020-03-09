@@ -72,4 +72,3 @@ For other related material, see the following articles:
 - [Security center regulatory compliance dashboard](security-center-compliance-dashboard.md)
 - [Working with security policies](tutorial-security-policy.md)
 - [Managing security recommendations in Azure Security Center](security-center-recommendations.md) - Learn how to use recommendations in Azure Security Center to help protect your Azure resources.
-- [Azure Security Center FAQs](security-center-faq.md) - Get answers to frequently asked questions about using Security Center.

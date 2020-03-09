@@ -6,7 +6,7 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 02/12/2019
+ms.date: 03/08/2020
 ---
 
 # Mapping data flow select transformation
@@ -50,6 +50,11 @@ However, if you wish to add custom rules, then you will click "Add mapping". Fie
 When you choose rule-based mapping, you are instructing ADF to evaluate your matching expression to match incoming pattern rules and define the outgoing field names. You may add any combination of both field and rule-based mappings. Field names are then generated at runtime by ADF based on incoming metadata from the source. You can view the names of the generated fields during debug and using the data preview pane.
 
 More details on pattern matching is available at the [Column Pattern documentation](concepts-data-flow-column-pattern.md).
+
+### Use rule-based mapping to parameterize the Select transformation
+You can parameterize field mapping in the Select transformation by using rule-based mapping. Use the keyword ```name``` to check the incoming column names against a parameter. For example, if you have a data flow parameter called ```mycolumn``` you can create a single Select transformation rule that always maps whatever column name you set ```mycolumn``` to a field name this way:
+
+```name == $mycolumn```
 
 ## Next steps
 * After using Select to rename, reorder, and alias columns, use the [Sink transformation](data-flow-sink.md) to land your data into a data store.

@@ -13,7 +13,7 @@ Use the Log Analytics data model to create custom alerts from Log Analytics.
 > [!NOTE]
 >
 > This data model is in reference to the Azure Diagnostics Mode of sending diagnostic
-> events to Log Analytics (LA). To learn the data model for the new Resource Specific Mode, you can refer to the following article: [Data Model for Azure Backup Diagnostic Events](https://aka.ms/diagnosticsdatamodel)
+> events to Log Analytics (LA). To learn the data model for the new Resource Specific Mode, you can refer to the following article: [Data Model for Azure Backup Diagnostic Events](https://docs.microsoft.com/azure/backup/backup-azure-reports-data-model)
 
 ## Using Azure Backup data model
 

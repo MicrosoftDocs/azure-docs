@@ -64,5 +64,5 @@ The `install-updates-schedule-reboots` script accepts two numeric parameters, as
 
 For specific steps on using script actions, see the following sections in [Customize Linux-based HDInsight clusters using script action](hdinsight-hadoop-customize-cluster-linux.md):
 
-- [Use a script action during cluster creation](hdinsight-hadoop-customize-cluster-linux.md#use-a-script-action-during-cluster-creation)
-- [Apply a script action to a running cluster](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster)
+- [Use a script action during cluster creation](hdinsight-hadoop-customize-cluster-linux.md#script-action-during-cluster-creation)
+- [Apply a script action to a running cluster](hdinsight-hadoop-customize-cluster-linux.md#script-action-to-a-running-cluster)

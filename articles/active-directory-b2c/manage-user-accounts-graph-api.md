@@ -3,14 +3,14 @@ title: Manage users with the Microsoft Graph API
 titleSuffix: Azure AD B2C
 description: How to manage users in an Azure AD B2C tenant by calling the Microsoft Graph API and using an application identity to automate the process.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/14/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
 ---
 # Manage Azure AD B2C user accounts with Microsoft Graph
@@ -175,7 +175,7 @@ public static async Task ListUsers(GraphServiceClient graphClient)
 }
 ```
 
-[Make API calls using the Microsoft Graph SDKs](https://docs.microsoft.comgraph/sdks/create-requests) includes information on how to read and write information from Microsoft Graph, use `$select` to control the properties returned, provide custom query parameters, and use the `$filter` and `$orderBy` query parameters.
+[Make API calls using the Microsoft Graph SDKs](https://docs.microsoft.com/graph/sdks/create-requests) includes information on how to read and write information from Microsoft Graph, use `$select` to control the properties returned, provide custom query parameters, and use the `$filter` and `$orderBy` query parameters.
 
 ## Next steps
 

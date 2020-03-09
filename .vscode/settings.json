@@ -55,5 +55,7 @@
         "XML",
         "YAML"
     ],
-    "git.ignoreLimitWarning": true
+    "cSpell.words": [
+        "auditd"
+    ]
 }
