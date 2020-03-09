@@ -1,5 +1,5 @@
 ---
-title: Connectivity Settings for Azure SQL Database and Data Warehouse
+title: Connectivity settings for Azure SQL Database and Data Warehouse
 description: This document explains TLS version choice and Proxy vs. Redirect setting for Azure SQL 
 services: sql-database
 ms.service: sql-database
@@ -28,7 +28,7 @@ The connectivity settings are accessible from the **Firewalls and virtual networ
  ![Screenshot of connectivity settings][1]
 
 
-## Deny Public Network Access
+## Deny public network access
 In the Azure Portal, when the **Deny public network access** setting is set to **Yes**, only connections via private endpoints are allowed. When this setting is set to **No**, clients can connect using the private or public endpoint.
 
 After setting **Deny public network access** to **Yes**, login attempts from clients using public endpoint will fail with the following error:
@@ -75,7 +75,7 @@ az sql server update -n sql-server-name -g sql-server-group --set publicNetworkA
 ## Minimal TLS Version 
 Minimal TLS Version allows customer to control the version of  [Transport Layer Security](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server) for their Azure SQL Server.
 
-We recommend setting Minimal TLS version to 1.2. For customers with applications that rely on older version of TLS, we recommend setting the Minimal TLS version per the requirements of your applications. For customers that rely on applications to connect using an unencrypted connection, we reccomend not setting any Minimal TLS Version. For additional information, refer to [TLS considerations for SQL Database connectivity](sql-database-connect-query.md#tls-considerations-for-sql-database-connectivity).
+We recommend setting Minimal TLS version to 1.2. For customers with applications that rely on older version of TLS, we recommend setting the Minimal TLS version per the requirements of your applications. For customers that rely on applications to connect using an unencrypted connection, we recommend not setting any Minimal TLS Version. For additional information, refer to [TLS considerations for SQL Database connectivity](sql-database-connect-query.md#tls-considerations-for-sql-database-connectivity).
 
 After setting Minimal TLS version, login attempts from clients that are using a TLS version less than the Minimal TLS version of the server will fail with following error:
 
