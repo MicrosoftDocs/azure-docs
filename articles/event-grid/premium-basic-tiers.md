@@ -35,8 +35,6 @@ See [Event Grid pricing](https://azure.microsoft.com/pricing/details/event-grid/
 
 The existing quotas on topic and domain count, and throughput apply to both premium and basic tier resources until premium tier pricing is announced.
 
-# Next steps
-You can configure [IP firewall for your Event Grid resource](how-to-configure-ip-firewall.md) to restrict access over the public internet from only a select set of IP Addresses or IP Address ranges. And, you can configure [private endpoints](how-to-configure-private-endpoint.md) to restrict access from only VNets.
-
-See [Configure network security](configure-network-security.md) for information on how to configure private endpoints and IP firewall for Event Grid resources. 
+## Next steps
+You can configure IP firewall for your Event Grid resource to restrict access over the public internet from only a select set of IP Addresses or IP Address ranges. You can configure private endpoints to restrict access from only VNets. See [Configure network security](configure-network-security.md) for information on how to configure private endpoints and IP firewall for Event Grid resources. 
 
