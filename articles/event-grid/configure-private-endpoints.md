@@ -1,5 +1,5 @@
 ---
-title: Configure private endpoints for Event Grid topics/domains
+title: Configure private endpoints for Event Grid topics or domains
 description: This article describes how to configure private endpoints for Event Grid topics or domain. 
 services: event-grid
 author: spelluru

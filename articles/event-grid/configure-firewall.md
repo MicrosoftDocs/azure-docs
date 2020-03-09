@@ -1,5 +1,5 @@
 ---
-title: Configure firewall for Event Grid topics/domains
+title: Configure firewall for Event Grid topics or domains
 description: This article describes how to configure firewall settings for Event Grid topics or domains. 
 services: event-grid
 author: spelluru
