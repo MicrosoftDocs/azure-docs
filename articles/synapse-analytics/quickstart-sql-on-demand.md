@@ -62,41 +62,17 @@ To run queries using SQL on-demand, create credentials for SQL on-demand to use 
 > [!NOTE]
 > Note that you need to create credential for access to the storage account. Although SQL on-demand can access storages from different regions, having storage and Azure Synapse workspace in same region will provide better performance experience.
 
-Modify the following code snippet to create credentials for CSV, JSON and Parquet containers:
+Modify the following code snippet to create credential for CSV, JSON and Parquet containers:
 
 ```sql
--- create credentials for CSV container in our demo storage account
+-- create credentials for containers in our demo storage account
 IF EXISTS
    (SELECT * FROM sys.credentials
-   WHERE name = 'https://sqlondemandstorage.blob.core.windows.net/csv')
-   DROP CREDENTIAL [https://sqlondemandstorage.blob.core.windows.net/csv]
+   WHERE name = 'https://sqlondemandstorage.blob.core.windows.net')
+   DROP CREDENTIAL [https://sqlondemandstorage.blob.core.windows.net]
 GO
 
-CREATE CREDENTIAL [https://sqlondemandstorage.blob.core.windows.net/csv]
-WITH IDENTITY='SHARED ACCESS SIGNATURE',  
-SECRET = 'sv=2018-03-28&ss=bf&srt=sco&sp=rl&st=2019-10-14T12%3A10%3A25Z&se=2061-12-31T12%3A10%3A00Z&sig=KlSU2ullCscyTS0An0nozEpo4tO5JAgGBvw%2FJX2lguw%3D'
-GO
-
--- create credentials for JSON container in our demo storage account
-IF EXISTS 
-   (SELECT * FROM sys.credentials
-   WHERE name = 'https://sqlondemandstorage.blob.core.windows.net/json')
-   DROP CREDENTIAL [https://sqlondemandstorage.blob.core.windows.net/json]
-GO
-
-CREATE CREDENTIAL [https://sqlondemandstorage.blob.core.windows.net/json]
-WITH IDENTITY='SHARED ACCESS SIGNATURE',  
-SECRET = 'sv=2018-03-28&ss=bf&srt=sco&sp=rl&st=2019-10-14T12%3A10%3A25Z&se=2061-12-31T12%3A10%3A00Z&sig=KlSU2ullCscyTS0An0nozEpo4tO5JAgGBvw%2FJX2lguw%3D'
-GO
-
--- create credentials for PARQUET container in our demo storage account
-IF EXISTS
-   (SELECT * FROM sys.credentials 
-   WHERE name = 'https://sqlondemandstorage.blob.core.windows.net/parquet')
-   DROP CREDENTIAL [https://sqlondemandstorage.blob.core.windows.net/parquet]
-GO
-
-CREATE CREDENTIAL [https://sqlondemandstorage.blob.core.windows.net/parquet]
+CREATE CREDENTIAL [https://sqlondemandstorage.blob.core.windows.net]
 WITH IDENTITY='SHARED ACCESS SIGNATURE',  
 SECRET = 'sv=2018-03-28&ss=bf&srt=sco&sp=rl&st=2019-10-14T12%3A10%3A25Z&se=2061-12-31T12%3A10%3A00Z&sig=KlSU2ullCscyTS0An0nozEpo4tO5JAgGBvw%2FJX2lguw%3D'
 GO
