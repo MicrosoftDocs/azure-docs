@@ -110,7 +110,7 @@ az vm extension set \
     --vm-name myVM
 ```
 
-The *provisioningState* of *Succeeded* is shown once the extension is successfully installed on the VM.
+The *provisioningState* of *Succeeded* is shown once the extension is successfully installed on the VM. The VM needs a running VM Agent to install the extension. Read more on [VM Agent Overview](https://docs.microsoft.com/en-us/azure/virtual-machines/extensions/agent-windows)
 
 ## Configure role assignments for the VM
 
