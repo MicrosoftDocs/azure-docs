@@ -6,7 +6,7 @@ author: VidyaKukke
 
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 03/06/2020
+ms.date: 03/09/2020
 ms.author: vkukke
 ---
 
@@ -91,9 +91,11 @@ By default, topic and domain are accessible from internet as long as the request
 
 ### Pricing and Quotas
 
-This feature is available in 'Basic' SKU of Event Grid.
+This feature is available in both basic and premium tiers of Event Grid.
 
 We allow up to 16 IP Firewall rules to be created per topic or domain.
 
 ## Next steps
-You can configure IP firewall for your Event Grid resource to restrict access over the public internet from only a select set of IP Addresses or IP Address ranges. You can configure private endpoints to restrict access from only VNets. See [Configure network security](configure-network-security.md) for information on how to configure private endpoints and IP firewall for Event Grid resources. 
+You can configure IP firewall for your Event Grid resource to restrict access over the public internet from only a select set of IP Addresses or IP Address ranges. For step-by-step instructions, see [Configure firewall](configure-firewall.md).
+
+You can configure private endpoints to restrict access from only from selected virtual networks. For step-by-step instructions, see [Configure private endpoints](configure-private-endpoints.md).
