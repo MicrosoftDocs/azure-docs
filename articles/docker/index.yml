@@ -22,7 +22,7 @@ landingContent:
       - linkListType: overview
         links:
           - text: Deploy Docker on Ubuntu Quickstart template
-            url: https://azure.microsoft.com/en-us/resources/templates/docker-simple-on-ubuntu/
+            url: https://azure.microsoft.com/resources/templates/docker-simple-on-ubuntu/
 
   # Card
   - title: Get started
