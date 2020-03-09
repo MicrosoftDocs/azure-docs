@@ -55,10 +55,6 @@ landingContent:
           url: how-to-custom-voice-create-voice.md
         - text: Record voice samples
           url: record-custom-voice-samples.md
-        - text: Custom keyword naming guidelines
-          url: speech-devices-sdk-kws-guidelines.md
-        - text: Custom keyword spotting
-          url: speech-devices-sdk-create-kws.md
         - text: Gating of Custom Voice
           url: concepts-gating-overview.md
         - text: Deployment of synthetic technology
