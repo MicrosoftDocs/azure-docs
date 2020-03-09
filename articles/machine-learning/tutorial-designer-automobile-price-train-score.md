@@ -9,7 +9,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 01/30/2020
+ms.date: 03/04/2020
 ---
 
 # Tutorial: Predict automobile price with the designer (preview)
@@ -258,16 +258,16 @@ Use the **Evaluate Model** module to evaluate how well your model scored the tes
 
 Now that your pipeline is all setup, you can submit a pipeline run to train your machine learning model. You can submit a pipeline run at any point while building pipelines in the designer. You can do this to check your work as you go and verify your pipeline functions as expected.
 
-1. At the top of the canvas, select **Run**.
+1. At the top of the canvas, select **Submit**.
 
-1. In the **Set up pipeline run** dialog box, select **+ New experiment** for the **Experiment**.
+1. In the **Set up pipeline run** dialog box, select **Create new**.
 
     > [!NOTE]
     > Experiments group similar pipeline runs together. If you run a pipeline multiple times, you can select the same experiment for successive runs.
 
-    1. Enter a descriptive name for **Experiment Name**.
+    1. Enter a descriptive name for **New experiment Name**.
 
-    1. Select **Run**.
+    1. Select **Submit**.
     
     You can view run status and details at the top right of the canvas.
 

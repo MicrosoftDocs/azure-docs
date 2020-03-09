@@ -90,7 +90,7 @@ In order to define authorizations, you'll need to know the ID values for each us
 az ad group list --query "[?displayName == '<yourGroupName>'].objectId" --output tsv
 
 # To retrieve the objectId for an Azure AD user
-az ad user show --upn-or-object-id "<yourUPN>" –-query "objectId" --output tsv
+az ad user show --id "<yourUPN>" --query "objectId" --output tsv
 
 # To retrieve the objectId for an SPN
 az ad sp list --query "[?displayName == '<spDisplayName>'].objectId" --output tsv
