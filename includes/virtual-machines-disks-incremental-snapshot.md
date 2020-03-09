@@ -20,8 +20,7 @@ Incremental snapshots also offer a differential capability, which is uniquely av
 
 Only the following regions are currently supported:
 
-- Available as a GA offering in the West Central US, Canada East, Canada Central regions.
-- Available as a public preview in the East US, East US 2, Central US, North Europe, South East Asia regions.
+- Available as a GA offering in the West Central US, East US, East US 2, Central US, Canada East, Canada Central, North Europe, South East Asia regions.
 
 ## Restrictions
 - Incremental snapshots currently cannot be created after you've changed the size of a disk (during preview only).
