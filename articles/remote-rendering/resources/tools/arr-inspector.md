@@ -1,7 +1,7 @@
 ---
 title: The ArrInspector inspection tool
 description: User manual of the ArrInspector tool
-author: FlorianBorn71
+author: florianborn71
 manager: jlyons
 services: azure-remote-rendering
 titleSuffix: Azure Remote Rendering

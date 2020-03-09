@@ -1,7 +1,7 @@
 ---
 title: Single-sided rendering
 description: Describes single-sided rendering settings and use cases
-author: FlorianBorn71
+author: florianborn71
 ms.author: flborn
 ms.date: 02/06/2020
 ms.topic: article

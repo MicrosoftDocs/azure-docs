@@ -1,7 +1,7 @@
 ---
 title: Render a model with Unity
 description: Quickstart that guides the user through the steps to render a model
-author: FlorianBorn71
+author: florianborn71
 ms.author: flborn
 ms.date: 01/23/2020
 ms.topic: quickstart

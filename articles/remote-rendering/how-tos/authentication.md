@@ -1,10 +1,10 @@
 ---
 title: Authentication
 description: Explains how authentication works
-author: FlorianBorn71
+author: florianborn71
 ms.author: flborn
 ms.date: 02/12/2019
-ms.topic: conceptual
+ms.topic: how-to
 ---
 
 # Authentication

@@ -1,7 +1,7 @@
 ---
 title: Z-fighting mitigation
 description: Describes techniques to mitigate z-fighting artifacts
-author: FlorianBorn71
+author: florianborn71
 ms.author: flborn
 ms.date: 02/06/2020
 ms.topic: article

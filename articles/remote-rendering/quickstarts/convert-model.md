@@ -1,7 +1,7 @@
 ---
 title: Convert a model
 description: Quickstart that shows the conversion steps for a custom model.
-author: FlorianBorn71
+author: florianborn71
 ms.author: flborn
 ms.date: 01/23/2020
 ms.topic: quickstart

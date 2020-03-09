@@ -1,7 +1,7 @@
 ---
 title: Network requirements
 description: Network requirements and best network practices for optimal experience
-author: FlorianBorn71
+author: florianborn71
 ms.author: flborn
 ms.date: 02/13/2020
 ms.topic: reference

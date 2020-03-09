@@ -1,7 +1,7 @@
 ---
 title: The session management REST API
 description: Describes how to manage sessions
-author: FlorianBorn71
+author: florianborn71
 ms.author: flborn
 ms.date: 02/11/2020
 ms.topic: article

@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot
 description: Troubleshooting information for Azure Remote Rendering
-author: FlorianBorn71
+author: florianborn71
 ms.author: flborn
 ms.date: 02/25/2020
 ms.topic: troubleshooting

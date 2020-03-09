@@ -1,7 +1,7 @@
 ---
 title: Get service access tokens
 description: Describes how to create tokens for accessing the ARR REST APIs
-author: FlorianBorn71
+author: florianborn71
 ms.author: flborn
 ms.date: 02/11/2020
 ms.topic: how-to

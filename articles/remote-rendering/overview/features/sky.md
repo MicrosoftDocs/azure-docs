@@ -1,7 +1,7 @@
 ---
 title: Sky reflections
 description: Describes how to set up environment maps for sky reflections
-author: FlorianBorn71
+author: florianborn71
 ms.author: flborn
 ms.date: 02/07/2020
 ms.topic: article

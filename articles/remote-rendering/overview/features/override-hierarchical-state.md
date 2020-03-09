@@ -1,7 +1,7 @@
 ---
 title: Hierarchical state override
 description: Explains the concept of hierarchical state override components.
-author: FlorianBorn71
+author: florianborn71
 ms.author: flborn
 ms.date: 02/10/2020
 ms.topic: article

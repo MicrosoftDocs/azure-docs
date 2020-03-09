@@ -4,7 +4,7 @@ description: Code limitations for SDK features
 author: erscorms
 ms.author: erscor
 ms.date: 02/11/2020
-ms.topic: conceptual
+ms.topic: reference
 ---
 
 # Limits

@@ -1,7 +1,7 @@
 ---
 title: Components
 description: Definition of components in the scope of Azure Remote Rendering
-author: FlorianBorn71
+author: florianborn71
 ms.author: flborn
 ms.date: 02/04/2020
 ms.topic: conceptual

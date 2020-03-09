@@ -1,7 +1,7 @@
 ---
 title: Get information about a converted model
 description: Description of all model conversion parameters
-author: MalcolmTyrrell
+author: malcolmtyrrell
 ms.author: matyrr
 ms.date: 03/05/2020
 ms.topic: how-to
