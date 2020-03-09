@@ -61,8 +61,35 @@ lokm; 0    The **Trigger Phrases*:K9/666/666938383/689, with the unrecognized us
 
     ![Add a text input and name the variable `InputText` with a description of `UserQuestion`](../media/how-to-integrate-power-virtual-agent/power-automate-configure-input-variable-name-and-description.png)
 
+1. Select the **+** connector under the input variable box to insert a new step in the flow, then select **Add an action**.
 
-Step 5: Click on 'create a flow'. This will take you to Power Automate authoring screen with an already added step. Give a name to input 1 and a value as UserQuestion
+1. Search for `Qna` to find the **QnA Maker** actions, then select **Generate answer**.
+
+    ![Search for `Qna` to find the **QnA Maker** actions, then select **Generate answer**](../media/how-to-integrate-power-virtual-agent/generate-answer-action-selected.png)
+
+    The connections settings for QnA Maker appear in the action.
+
+    ![The connections settings for QnA Maker appear in the action.](../media/how-to-integrate-power-virtual-agent/generate-answer-knowledge-base-settings.png)
+
+1. Enter your published knowledge base settings found on the **Settings** page in the [QnA Maker](https://www.qnamaker.ai/) portal.
+
+    ![Enter your published knowledge base settings found on the **Settings** page in the [QnA Maker](https://www.qnamaker.ai/) portal.](../media/how-to-integrate-power-virtual-agent/published-knowledge-base-settings.png)
+
+   Select the input text for the question.
+
+1. Select the **+** connector under the **Generate answer** action box to insert a new step in the flow, then select **Add an action**.
+
+1. Enter the text `initialize variable` then select it from the actions list.
+
+1. Set the name of the variable to `QnAAnswer`, and select the type as **String**.
+
+    ![Set the name of the variable to `QnAAnswer`, and select the type as **String**](../media/how-to-integrate-power-virtual-agent/initialize-output-variable-for-qna-answer.png)
+
+1. Select the initial value box. A pop-up box appears with your choices. Select **Answers answer**.
+
+    ![Select the initial value box. A pop-up box appears with your choices.](../media/how-to-integrate-power-virtual-agent/select-answers-answer-return-text.png)
+
+1. Select **Edit** for the **Return value(s) to Power Virtual Agents** action then add an output.
 
 
 
