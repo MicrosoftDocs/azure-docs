@@ -122,6 +122,8 @@
     href: geo-disaster-recovery.md
 - name: How-to guides
   items:
+  - name: Configure private endpoints and IP firewall
+    href: configure-network-security.md
   - name: Post to custom topic
     href: post-to-custom-topic.md
   - name: Receive events at HTTP endpoint
