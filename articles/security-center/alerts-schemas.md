@@ -223,6 +223,6 @@ You can easily view the security alerts events in Activity log by searching for 
 
 Microsoft Graph is the gateway to data and intelligence in Microsoft 365. It provides a unified programmability model that you can use to access the tremendous amount of data in Office 365, Windows 10, and Enterprise Mobility + Security. Use the wealth of data in Microsoft Graph to build apps for organizations and consumers that interact with millions of users.
 
-The schema and a JSON representation for security alerts sent to MS Graph, are available in [the Microsoft Graph documentation](../../graph/api/resources/alert.md?view=graph-rest-1.0).
+The schema and a JSON representation for security alerts sent to MS Graph, are available in [the Microsoft Graph documentation](https://docs.microsoft.com/graph/api/resources/alert?view=graph-rest-1.0).
 
 --- 
