@@ -28,7 +28,7 @@ Users can be read-only or full privilege. As the names indicate, the read-only u
  - **Full privilege user** - A local user with full access.
  - **Read-only user** - A local user with read-only access. These users are associated with shares that allow read-only operations.
 
-The user permissions are first defined when the user is created during share creation.
+The user permissions are first defined when the user is created during share creation. Modification of share-level permissions is currently not supported.
 
 ## Add a user
 
