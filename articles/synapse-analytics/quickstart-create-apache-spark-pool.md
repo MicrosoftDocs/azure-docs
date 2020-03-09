@@ -15,7 +15,7 @@ ms.reviewer: jrasnick, carlrab
 
 Synapse Analytics offers various analytics engines to help you ingest, transform, model, analyze,  and serve your data. An Apache Spark pool offers open-source big data compute capabilities. After creating an Apache Spark pool in your Synapse workspace, data can be loaded, modeled, processed, and served to obtain insights.  
 
-In this Quickstart, you learn how to use the Azure portal to create an Apache Spark pool in a Synapse workspace.
+In this quickstart, you learn how to use the Azure portal to create an Apache Spark pool in a Synapse workspace.
 
 > [!IMPORTANT]  
 > Billing for Spark instances is prorated per minute, whether you are using them or not. Be sure to shutdown your Spark instance after you have finished using it, or set a short timeout. For more information, see the **Clean up resources** section of this article.
@@ -52,7 +52,7 @@ Sign in to the [Azure portal](https:/portal.azure.com/)
 3. Click **Next: additional settings** and review the default settings. Do not modify any default settings.
 ![Apache Spark pool create flow - additional settings tab.](media/quickstart-create-apache-spark-pool/quickstart-create-spark-pool-03.png)
 
-4.  Click **Next: tags**. Do not add any tags.
+4. Click **Next: tags**. Do not add any tags.
 ![Apache Spark pool create flow - additional settings tab.](media/quickstart-create-apache-spark-pool/quickstart-create-spark-pool-03-tags.png)
 
 5. Click **Review + create**.
@@ -88,5 +88,5 @@ Once the SQL pool is created, it is available in the workspace for loading data,
 
 ## Next steps
 
-- See [Quickstart: Create an Apache Spark pool in Synapse Analytics using web tools](spark/apache-spark-notebook-create-spark-use-sql.md).
-- See [Quickstart: Create a Synapse SQL pool](quickstart-create-sql-pool.md).
+- See [Quickstart: Create an Apache Spark pool in Synapse Studio using web tools](spark/apache-spark-notebook-create-spark-use-sql.md).
+- See [Quickstart: Create a Synapse SQL pool using the Azure portal](quickstart-create-sql-pool.md).
