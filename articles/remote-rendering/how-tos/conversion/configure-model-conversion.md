@@ -111,7 +111,7 @@ The `none` mode has the least runtime overhead and also slightly better loading 
 
 ### Converting from older FBX formats, with a Phong material model
 
-* `fbxAssumeMetallic` - Older versions of the FBX format define their materials using a Phong material model. The conversion process has to infer how these materials map to the renderer's [PBR model](../../concepts/materials.md#pbr-material). Usually this works well, but an ambiguity can arise when a material has no textures, high specular values, and a non-grey albedo color. In this circumstance, the conversion has to choose between prioritizing the high specular values, defining a highly reflective, metallic material where the albedo color dissolves away, or prioritizing the albedo color, defining something like a shiny colorful plastic. By default, the conversion process assumes that highly specular values imply a metallic material in cases where ambiguity applies. This parameter can be set to `false` to switch to the opposite.
+* `fbxAssumeMetallic` - Older versions of the FBX format define their materials using a Phong material model. The conversion process has to infer how these materials map to the renderer's [PBR model](../../overview/features/pbr-materials.md). Usually this works well, but an ambiguity can arise when a material has no textures, high specular values, and a non-grey albedo color. In this circumstance, the conversion has to choose between prioritizing the high specular values, defining a highly reflective, metallic material where the albedo color dissolves away, or prioritizing the albedo color, defining something like a shiny colorful plastic. By default, the conversion process assumes that highly specular values imply a metallic material in cases where ambiguity applies. This parameter can be set to `false` to switch to the opposite.
 
 ### Coordinate system overriding
 
@@ -120,6 +120,9 @@ The `none` mode has the least runtime overhead and also slightly better loading 
 ### Vertex format
 
 It is possible to adjust the vertex format for a mesh, to trade precision for memory savings. A lower memory footprint allows you to load larger models or achieve better performance. However, depending on your data, the wrong format can significantly impact rendering quality.
+
+> [!CAUTION]
+> Changing the vertex format should be a last resort when models don't fit into memory anymore, or when optimizing for the best possible performance. Changes can easily introduce rendering artifacts, both obvious ones and subtle ones. Unless you know what to look out for, you should not change the default.
 
 These adjustments are possible:
 
