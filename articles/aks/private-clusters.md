@@ -178,7 +178,7 @@ As mentioned, VNet peering is one way to access your private cluster. To use VNe
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
 [private-link-service]: /private-link/private-link-service-overview
-[virtual-network-peering]: /virtual-network/virtual-network-peering-overview
-[azure-bastion]: /bastion/bastion-create-host-portal
-[express-route-or-vpn]: /expressroute/expressroute-about-virtual-network-gateways
+[virtual-network-peering]: ../virtual-network/virtual-network-peering-overview
+[azure-bastion]: ../bastion/bastion-create-host-portal
+[express-route-or-vpn]: ../expressroute/expressroute-about-virtual-network-gateways
 
