@@ -6,7 +6,7 @@ services: azure-monitor
 
 ms.subservice: metrics
 ms.topic: tutorial
-ms.date: 12/16/2019
+ms.date: 03/09/2020
 ms.author: bwren
 ---
 
@@ -19,6 +19,10 @@ In this tutorial, you learn how to:
 > * Select a metric for which you want to plot a chart
 > * Perform different aggregations of metric values
 > * Modify the time range and granularity for the chart
+
+Following is a video that shows a more extensive scenario than the procedure outlined in this article. If you are new to metrics, we suggest you read through this article first and then view the video to see more specifics. 
+
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4qO59]
 
 ## Prerequisites
 
