@@ -52,7 +52,7 @@ When you choose rule-based mapping, you are instructing ADF to evaluate your mat
 More details on pattern matching is available at the [Column Pattern documentation](concepts-data-flow-column-pattern.md).
 
 ### Use rule-based mapping to parameterize the Select transformation
-You can parameterize field maping in the Select transformation by using rule-based mapping. Use the keyword ```name``` to check the incoming column names against a parameter. For example, if you have a data flow parameter called ```mycolumn``` you can create a single Select transformation rule that always maps whatever column name you set ```mycolumn``` to a field name this way:
+You can parameterize field mapping in the Select transformation by using rule-based mapping. Use the keyword ```name``` to check the incoming column names against a parameter. For example, if you have a data flow parameter called ```mycolumn``` you can create a single Select transformation rule that always maps whatever column name you set ```mycolumn``` to a field name this way:
 
 ```name == $mycolumn```
 
