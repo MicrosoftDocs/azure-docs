@@ -20,6 +20,7 @@ Incremental snapshots also offer a differential capability, which is uniquely av
 
 Only the following regions are currently supported:
 
+<<<<<<< HEAD
 - West Central US
 - Central US
 - East US
@@ -28,6 +29,9 @@ Only the following regions are currently supported:
 - Canada Central
 - North Europe
 - South East Asia
+=======
+- Available as a GA offering in the West Central US, East US, East US 2, Central US, Canada East, Canada Central, North Europe, South East Asia regions.
+>>>>>>> 109aed40e7e02bd5536ab15c4fceff2d35721366
 
 ## Restrictions
 - Incremental snapshots currently cannot be moved between subscriptions.
