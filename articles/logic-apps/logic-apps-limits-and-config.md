@@ -368,7 +368,6 @@ This section lists the inbound IP addresses for the Logic Apps service only. For
 | US Gov Texas | 52.238.119.104, 52.238.112.96, 52.238.119.145 |
 | US Gov Virginia | 52.227.159.157, 52.227.152.90, 23.97.4.36 |
 | US DoD Central | 52.182.49.204, 52.182.52.106 |
-| US DoD East | Currently unavailable |
 |||
 
 <a name="outbound"></a>
@@ -425,7 +424,6 @@ This section lists the outbound IP addresses for the Logic Apps service and mana
 | US Gov Texas | 52.238.114.217, 52.238.115.245, 52.238.117.119 | 52.127.34.160 - 52.127.34.175, 40.112.40.25, 52.238.161.225 |
 | US Gov Virginia | 13.72.54.205, 52.227.138.30, 52.227.152.44 | 52.127.42.128 - 52.127.42.143, 52.227.143.61, 52.227.162.91 |
 | US DoD Central | 52.182.48.215, 52.182.92.143 | 52.127.58.160 - 52.127.58.175, 52.182.54.8, 52.182.48.136 |
-| US DoD East | 52.238.114.217, 52.238.115.245, 52.238.117.119 | 52.126.202.80 - 52.126.202.95, 52.181.178.59, 52.181.180.34 |
 ||||
 
 ## Next steps
