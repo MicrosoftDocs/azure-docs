@@ -72,7 +72,10 @@ Create the Terraform configuration file that declares the Azure provider.
 
     ```hcl
     provider "azurerm" {
-        version = "~>1.18"
+      # The "feature" block is required for AzureRM provider 2.x. 
+      # If you are using version 1.x, the "features" block is not allowed.
+      version = "~>2.0"
+      features {}
     }
 
     terraform {
@@ -437,11 +440,10 @@ Create Terraform configuration file that creates all the resources.
         }
       }
 
-      agent_pool_profile {
+      default_node_pool {
         name            = "agentpool"
-        count           = var.aks_agent_count
+        node_count      = var.aks_agent_count
         vm_size         = var.aks_agent_vm_size
-        os_type         = "Linux"
         os_disk_size_gb = var.aks_agent_os_disk_size
         vnet_subnet_id  = data.azurerm_subnet.kubesubnet.id
       }

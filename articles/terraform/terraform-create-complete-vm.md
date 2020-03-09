@@ -39,6 +39,11 @@ The `provider` section tells Terraform to use an Azure provider. To get values f
 
 ```hcl
 provider "azurerm" {
+    # The "feature" block is required for AzureRM provider 2.x. 
+    # If you are using version 1.x, the "features" block is not allowed.
+    version = "~>2.0"
+    features {}
+    
     subscription_id = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
     client_id       = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
     client_secret   = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
@@ -142,7 +147,6 @@ resource "azurerm_network_interface" "myterraformnic" {
     name                        = "myNIC"
     location                    = "eastus"
     resource_group_name         = azurerm_resource_group.myterraformgroup.name
-    network_security_group_id   = azurerm_network_security_group.myterraformnsg.id
 
     ip_configuration {
         name                          = "myNicConfiguration"
@@ -154,6 +158,12 @@ resource "azurerm_network_interface" "myterraformnic" {
     tags = {
         environment = "Terraform Demo"
     }
+}
+
+# Connect the security group to the network interface
+resource "azurerm_network_interface_security_group_association" "example" {
+    network_interface_id      = azurerm_network_interface.myterraformnic.id
+    network_security_group_id = azurerm_network_security_group.myterraformnsg.id
 }
 ```
 
@@ -196,18 +206,17 @@ The final step is to create a VM and use all the resources created. The followin
  SSH key data is provided in the *ssh_keys* section. Provide a valid public SSH key in the *key_data* field.
 
 ```hcl
-resource "azurerm_virtual_machine" "myterraformvm" {
+resource "azurerm_linux_virtual_machine" "myterraformvm" {
     name                  = "myVM"
     location              = "eastus"
     resource_group_name   = azurerm_resource_group.myterraformgroup.name
     network_interface_ids = [azurerm_network_interface.myterraformnic.id]
-    vm_size               = "Standard_DS1_v2"
+    size                  = "Standard_DS1_v2"
 
-    storage_os_disk {
+    os_disk {
         name              = "myOsDisk"
         caching           = "ReadWrite"
-        create_option     = "FromImage"
-        managed_disk_type = "Premium_LRS"
+        storage_account_type = "Premium_LRS"
     }
 
     storage_image_reference {
@@ -217,22 +226,17 @@ resource "azurerm_virtual_machine" "myterraformvm" {
         version   = "latest"
     }
 
-    os_profile {
-        computer_name  = "myvm"
-        admin_username = "azureuser"
-    }
-
-    os_profile_linux_config {
-        disable_password_authentication = true
-        ssh_keys {
-            path     = "/home/azureuser/.ssh/authorized_keys"
-            key_data = "ssh-rsa AAAAB3Nz{snip}hwhqT9h"
-        }
+    computer_name  = "myvm"
+    admin_username = "azureuser"
+    disable_password_authentication = true
+        
+    admin_ssh_key {
+        username       = "azureuser"
+        public_key     = file("/home/azureuser/.ssh/authorized_keys")
     }
 
     boot_diagnostics {
-        enabled     = "true"
-        storage_uri = azurerm_storage_account.mystorageaccount.primary_blob_endpoint
+        storage_account_uri = azurerm_storage_account.mystorageaccount.primary_blob_endpoint
     }
 
     tags = {
@@ -248,6 +252,11 @@ To bring all these sections together and see Terraform in action, create a file 
 ```hcl
 # Configure the Microsoft Azure Provider
 provider "azurerm" {
+    # The "feature" block is required for AzureRM provider 2.x. 
+    # If you are using version 1.x, the "features" block is not allowed.
+    version = "~>2.0"
+    features {}
+
     subscription_id = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
     client_id       = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
     client_secret   = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
@@ -324,7 +333,6 @@ resource "azurerm_network_interface" "myterraformnic" {
     name                      = "myNIC"
     location                  = "eastus"
     resource_group_name       = azurerm_resource_group.myterraformgroup.name
-    network_security_group_id = azurerm_network_security_group.myterraformnsg.id
 
     ip_configuration {
         name                          = "myNicConfiguration"
@@ -336,6 +344,12 @@ resource "azurerm_network_interface" "myterraformnic" {
     tags = {
         environment = "Terraform Demo"
     }
+}
+
+# Connect the security group to the network interface
+resource "azurerm_network_interface_security_group_association" "example" {
+    network_interface_id      = azurerm_network_interface.myterraformnic.id
+    network_security_group_id = azurerm_network_security_group.myterraformnsg.id
 }
 
 # Generate random text for a unique storage account name
@@ -362,43 +376,37 @@ resource "azurerm_storage_account" "mystorageaccount" {
 }
 
 # Create virtual machine
-resource "azurerm_virtual_machine" "myterraformvm" {
+resource "azurerm_linux_virtual_machine" "myterraformvm" {
     name                  = "myVM"
     location              = "eastus"
     resource_group_name   = azurerm_resource_group.myterraformgroup.name
     network_interface_ids = [azurerm_network_interface.myterraformnic.id]
-    vm_size               = "Standard_DS1_v2"
+    size                  = "Standard_DS1_v2"
 
-    storage_os_disk {
+    os_disk {
         name              = "myOsDisk"
         caching           = "ReadWrite"
-        create_option     = "FromImage"
-        managed_disk_type = "Premium_LRS"
+        storage_account_type = "Premium_LRS"
     }
 
-    storage_image_reference {
+    source_image_reference {
         publisher = "Canonical"
         offer     = "UbuntuServer"
         sku       = "16.04.0-LTS"
         version   = "latest"
     }
 
-    os_profile {
-        computer_name  = "myvm"
-        admin_username = "azureuser"
-    }
-
-    os_profile_linux_config {
-        disable_password_authentication = true
-        ssh_keys {
-            path     = "/home/azureuser/.ssh/authorized_keys"
-            key_data = "ssh-rsa AAAAB3Nz{snip}hwhqT9h"
-        }
+    computer_name  = "myvm"
+    admin_username = "azureuser"
+    disable_password_authentication = true
+        
+    admin_ssh_key {
+        username       = "azureuser"
+        public_key     = file("/home/azureuser/.ssh/authorized_keys")
     }
 
     boot_diagnostics {
-        enabled = "true"
-        storage_uri = azurerm_storage_account.mystorageaccount.primary_blob_endpoint
+        storage_account_uri = azurerm_storage_account.mystorageaccount.primary_blob_endpoint
     }
 
     tags = {
