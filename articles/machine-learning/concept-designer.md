@@ -131,5 +131,5 @@ You can convert existing visual interface experiments and web services to pipeli
 ## Next steps
 
 * Learn the basics of predictive analytics and machine learning with [Tutorial: Predict automobile price with the designer](tutorial-designer-automobile-price-train-score.md)
-* Learn how to use one of the [samples](samples-designer.md)) and modify it to suit your needs.
+* Learn how to modify existing [designer samples](samples-designer.md) to adapt them to your needs.
 
