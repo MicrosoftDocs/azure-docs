@@ -25,15 +25,17 @@ Select an array to unroll. The output data will have one row per item in each ar
 
 ### Unroll root
 
-By default, the flatten transformation unrolls an array to the top of the hierarchy it exists in. You can optionally select an array as your unroll root. The unroll root must be an array of complex objects that either is or contains the unroll by array. If an unroll root is selected, the output data will contain at least one row per items in the unroll root. If the input row does not have any items in the unroll root, it will be dropped from the output data. Choosing an unroll root will always output a less than or equal number of rows than the default behavior.
+By default, the flatten transformation unrolls an array to the top of the hierarchy it exists in. You can optionally select an array as your unroll root. The unroll root must be an array of complex objects that either is or contains the unroll by array. If an unroll root is selected, the output data will contain at least one row per items in the unroll root. If the input row doesn't have any items in the unroll root, it will be dropped from the output data. Choosing an unroll root will always output a less than or equal number of rows than the default behavior.
 
 ### Flatten mapping
 
-Similar to the select transformation, choose the projection of the new structure from incoming fields and the denormalized array. If mapping a denormalized array is mapped, the output column will be the same data type as the array. If the unroll by array is an array of complex objects that contains sub-arrays, mapping an item of that sub-array will output an array.
+Similar to the select transformation, choose the projection of the new structure from incoming fields and the denormalized array. If a denormalized array is mapped, the output column will be the same data type as the array. If the unroll by array is an array of complex objects that contains subarrys, mapping an item of that subarry will output an array.
+
+Refer to the inspect tab and data preview to verify your mapping output.
 
 ## Examples
 
-Please refer to the following JSON object for the below examples of the flatten transformation
+Refer to the following JSON object for the below examples of the flatten transformation
 
 ``` json
 {
