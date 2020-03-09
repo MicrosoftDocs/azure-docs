@@ -43,8 +43,7 @@ Azure Cosmos DB explorer is a standalone web-based interface that allows you to 
 
 Currently the **Open Full Screen** experience that allows you to share temporary read-write or read access is not yet supported for Azure Cosmos DB Gremlin and Table API accounts. You can still view your Gremlin and Table API accounts by passing the connection string to Azure Cosmos DB Explorer. 
 
-Currently UUID standard is not supported in data explorer. Users who want to use UUID standard will need to use other Mongo tools.
-This should not cause a problem loading collections. Only individual documents with this kind of property or queries that include those documents. Users should continue to use the tool that was used to insert those documents to manage these documents.
+Currently, viewing documents that contain a UUID is not supported in Data Explorer. This does not affect loading collections, only viewing individual documents or queries that include these documents. To view and manage these documents, users should continue to use the tool originally used to create these documents. 
 
 
 ## Next steps
