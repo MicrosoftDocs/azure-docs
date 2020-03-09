@@ -86,4 +86,4 @@ Learn more about the samples that demonstrate machine learning utilities and fea
 
 ## Next steps
 
-
+Learn how to build and deploy machine learning models with [Tutorial: Predict automobile price with the designer](tutorial-designer-automobile-price-train-score.md)
