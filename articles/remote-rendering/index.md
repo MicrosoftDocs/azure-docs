@@ -1,5 +1,5 @@
 ---
-title: Azure Remote Rendering Documentation
+title: Azure Remote Rendering documentation
 description: Azure Remote Rendering welcome page
 author: jakrams
 ms.author: jakras
@@ -7,7 +7,7 @@ ms.date: 01/24/2020
 ms.topic: landing-page
 ---
 
-# Azure Remote Rendering Documentation
+# Azure Remote Rendering documentation
 
 ![Engine model rendered with Azure Remote Rendering](media/arr-engine.png)
 
@@ -24,7 +24,7 @@ Learn key concepts to get started with Azure Remote Rendering:
 * [Models](concepts/models.md)
 * [Model conversion](how-tos/conversion/model-conversion.md)
 
-## Quickstart Guides
+## Quickstart guides
 
 Use our demo project to see Azure Remote Rendering in action:
 
