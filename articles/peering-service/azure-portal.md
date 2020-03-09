@@ -88,6 +88,8 @@ From a browser, go to the Azure portal and sign in with your Azure account.
  
 3.    Select **Create new prefix** at the bottom of the **Prefixes** section, and text boxes appear. Now, enter the name of the prefix resource and the prefixes that are associated with the service provider.
 
+4.    Select **Prefix Key** and add the Prefix Key that has been given to you by your provider (ISP or IXP). This key allows MS to validate the prefix and provider who have allocated your IP prefix.
+
     > [!div class="mx-imgBorder"]
     > ![Register Peering Service configuration tab](./media/peering-service-portal/peering-serviceconfiguration.png)
 
