@@ -37,18 +37,17 @@ This article guides you through how to create an Azure [dedicated host](dedicate
 1. Leave the remaining defaults and then select the **Review + create** button at the bottom of the page.
 1. When you see the message that validation has passed, select **Create**.
 
-###Add an existing VM to Azure Dedicated host
+## Add an existing VM 
 
-#Prerequisite
+You can add an exiting VM to a dedicated host, but the VM must first be Stop\Deallocated. Before you move a VM to a dedicated host, make sure that the VM configuration is supported:
 
-1. We need to make sure that the VM SKU is compatible with the host configuration i.e. if you’re using a DSv3_Type host , then the VM should be of the Same SKU .
-1. The VM and the Host should be in the same Region
-1. The VM should be stopped and Deallocated 
-1. The VM Should not be part of a Placement group
-1. The VM Should not be part of an Availability Set/zone
-1. We can achieve this via the Portal
+- The VM size must be in the same size family as the dedicated host. For example, if your dedicated host is DSv3, then the VM size could be Standard_D4s_v3, but it could not be a Standard_A4_v2. 
+- The VM needs to be located in same region as the dedicated host.
+- The VM can't be part of a proximity placement group. Remove the VM from the proximity placement group before moving it to a dedicated host. For more information, see [Move a VM out of a proximity placement group](https://docs.microsoft.com/azure/virtual-machines/windows/proximity-placement-groups#move-an-existing-vm-out-of-a-proximity-placement-group)
+- The VM can't be in an availability set.
+- The VM can't be in an availability zone.
 
-Portal
+Move the VM to a dedicated host using the [portal](https://portal.azure.com).
 
 1. Once these prerequisite are met browse to the VM.
 1. Find the configuration tab on the VM Blade.
