@@ -182,7 +182,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     ![Pipedrive Configuration](./media/pipedrive-tutorial/user3.png)
 
-    a. In the **Email** textbox, enter the email address of the user like **B.Simon@contoso.com**.
+    a. In the **Email** textbox, enter the email address of the user like `B.Simon@contoso.com`.
 
     b. In the **First name** textbox, enter the first name of user.
 
