@@ -742,6 +742,12 @@ In this section, you create the ability to handle redundancy.
 	}
 	```
 	
+## Content protection
+
+The example in this topic shows clear streaming. If you want to do protected streaming, there are a few other things you need to setup, you need to use the same **AssetDeliveryPolicy**, the same **ContentKeyAuthorizationPolicy** or external key server URL, and you need to duplicate the content keys with the same identifier.]
+
+For an example that shows content protection, see [Use AES-128 dynamic encryption and the key delivery service](media-services-protect-with-aes128.md).
+
 ## See also
 
 [Use Azure Webhooks to monitor Media Services job notifications](media-services-dotnet-check-job-progress-with-webhooks.md)
