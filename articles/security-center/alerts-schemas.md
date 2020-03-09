@@ -46,7 +46,7 @@ If you're using any programmatic methods to consume the alerts, you'll need the 
 
 This is the schema of the alert events passed to Logic App instances that were configured in Security Center's workflow automation. For more information about the workflow automation feature see [Automate responses to alerts and recommendations](workflow-automation.md).
 
-[!INCLUDE [Workflow schema](../includes/security-center-alerts-schema-workflowautomation.md)]
+[!INCLUDE [Workflow schema](../../includes/security-center-alerts-schema-workflowautomation.md)]
 
 
 
@@ -58,7 +58,7 @@ This is the schema of the alert events passed to Logic App instances that were c
 
 This is the schema of the alert events passed to an Event Hub using the Security Center's continuous export feature. For more information about continuous export, see [Export alerts and recommendations](continuous-export.md).
 
-[!INCLUDE [Workflow schema](../includes/security-center-alerts-schema-workflowautomation.md)]
+[!INCLUDE [Workflow schema](../../includes/security-center-alerts-schema-workflowautomation.md)]
 
 
 
@@ -75,7 +75,7 @@ For more information about Azure Sentinel, see [the documentation](https://docs.
 
 ### Sample JSON for alerts sent to Workflow Automation, Event Hub, Azure Sentinel or other SIEMs
 
-[!INCLUDE [Workflow schema](../includes/security-center-alerts-schema-workflowautomation.md)]
+[!INCLUDE [Workflow schema](../../includes/security-center-alerts-schema-workflowautomation.md)]
 
 
 
