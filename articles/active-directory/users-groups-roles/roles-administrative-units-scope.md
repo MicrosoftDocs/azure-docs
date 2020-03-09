@@ -107,10 +107,9 @@ The term "portal" is used here to refer to [the Administrative units page in Azu
 
         ![select Graph Explorer and provide admin consent on this page](./media/roles-administrative-units-scope/select-graph-explorer.png)
 
-    1. In the Graph Explorer, ensure that you have selected the beta version.
+    1. In the Graph Explorer, ensure that you select the beta version.
 
-        ![provide a name and description for a custom role on the Basics tab](./media/roles-administrative-units-scope/select-beta-version.png)
-
+        ![select the beta version before the POST operation](./media/roles-administrative-units-scope/select-beta-version.png)
 
 1. Please use the preview version of Azure AD PowerShell. Detailed instructions are here.
 
@@ -120,19 +119,24 @@ The term "portal" is used here to refer to [the Administrative units page in Azu
 
 1. Go to Active Directory in the portal and select Administrative Units in the left panel
 
-1. Select Add and a right pane will slide where you can provide the name of the administrative unit and optionally can write the description for the administrative unit
-1. Select Add to finalize the create step.
+    ![navigate to Administrative units in Azure Active Directory](./media/roles-administrative-units-scope/nav-to-admin-units.png)
+
+1. Select **Add*** and provide the name of the administrative unit and optionally can add a description for the administrative unit.
+
+    ![select Add and then enter a name for the administrative unit](./media/roles-administrative-units-scope/add-new-admin-unit.png)
+
+1. Select **Add** to finalize the administrative unit.
 
 ### PowerShell
 
-Please install Azure AD PowerShell (preview version) before trying to perform the actions below:
+Install Azure AD PowerShell (preview version) before trying to perform the actions below:
 
     Connect-AzureAD
     New-AzureADAdministrativeUnit -Description "West Coast region" -DisplayName "West Coast"
 
-The values highlighted above can be modified as required as required.
+The values highlighted above can be modified as required.
 
-The Microsoft Graph
+### The Microsoft Graph
 
     Http Request
     POST /administrativeUnits
@@ -151,12 +155,19 @@ You can assign users to administrative units in two ways.
 1. Individual assignment
 
     1. You can go to the Azure AD in the portal and select Users and select the user to be assigned to an administrative unit. You can then select Administrative units in the left panel. The user can be assigned to one or more administrative units by clicking on Assign to administrative unit and selecting the administrative units to which the user needs to be assigned.
+
+      ![select Add and then enter a name for the administrative unit](./media/roles-administrative-units-scope/assign-users-individually.png)
+
     1. You can go to Azure AD in the portal and select Administrative units in the left pane and then select the administrative unit in which the users need to be assigned. Select All users on the left pane and then select Add member. You can then go ahead and select one or more users to be assigned to the administrative unit from the right pane.
+
+      ![select and administrative unit and then select Add member](./media/roles-administrative-units-scope/assign-to-admin-unit.png)
 
 1. Bulk assignment
     Go to Azure AD in the portal and select Administrative units. Select the administrative unit in which users need to be added. Proceed by clicking on All users -> Add members from .csv file. You can then download the CSV template and edit the file. The format is simple and needs a single UPN to be added in each line. Once the file is ready, save it at an appropriate location and then upload it in step 3 as highlighted in the snapshot.
 
-#### PowerShell
+    ![bulk assign users to an administrative unit](./media/roles-administrative-units-scope/bulk-assign-to-admin-unit.png)
+
+### PowerShell
 
     $administrative unitObj = Get-AzureADAdministrativeUnit -Filter "displayname eq 'Test administrative unit 2'"
     $UserObj = Get-AzureADUser -Filter "UserPrincipalName eq 'billjohn@fabidentity.onmicrosoft.com'"
@@ -164,7 +175,7 @@ You can assign users to administrative units in two ways.
 
 In the above example, the cmdlet Add-AzureADAdministrativeUnitMember is used to add the user to the administrative unit. The object ID of the Administrative Unit to which user is to be added and the object ID of the user which needs to be added are taken as argument. The highlighted section may be changed as required for the specific environment.
 
-#### Graph API
+#### The Microsoft Graph
 
     Http request
     POST /administrativeUnits/{Admin Unit id}/members/$ref
@@ -179,9 +190,9 @@ Example:
       "@odata.id":"https://graph.microsoft.com/beta/users/johndoe@fabidentity.com"
     }
 
-### Adding groups to administrative units
+## Adding groups to AUs
 
-#### Azure portal
+### Azure portal
 
 In the preview, you can assign groups only individually to an administrative unit. There is no option of bulk assignment of groups to an administrative unit. You can assign a group to an administrative unit in one of the two ways in portal:
 
@@ -193,7 +204,7 @@ In the preview, you can assign groups only individually to an administrative uni
 
     Open the All Groups blade in Azure AD > Administrative Units. If there are groups already assigned to the administrative unit, they will be displayed on the right side. Select **Add** on the top and a right panel will slide in listing the groups available in your Azure AD organization. Select one or more groups to be assigned to the administrative units.
 
-#### PowerShell
+### PowerShell
 
     $administrative unitObj = Get-AzureADAdministrativeUnit -Filter "displayname eq 'Test administrative unit 2'"
     $GroupObj = Get-AzureADGroup -Filter "displayname eq 'TestGroup'"
@@ -201,7 +212,7 @@ In the preview, you can assign groups only individually to an administrative uni
 
 In this example, the cmdlet Add-AzureADAdministrativeUnitMember is used to add the group to the administrative unit. The object ID of the Administrative Unit to which user is to be added and the object ID of the group which needs to be added are taken as argument. The highlighted section may be changed as required for the specific environment.
 
-#### Graph API
+### Graph API
 
     Http request
     POST /administrativeUnits/{Admin Unit id}/members/$ref
