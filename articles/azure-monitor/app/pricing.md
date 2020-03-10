@@ -172,7 +172,7 @@ To [change the daily cap via Azure Resource Manager](../../azure-monitor/app/pow
 
 ### Create alerts for the Daily Cap
 
-The Application Insights Daily Cap creates an event in the Azure activity kog when the ingested data volumes hits the warning level or the daily cap level.  You can [create an alert based on these activity log events](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/alerts-activity-log#create-with-the-azure-portal). The signal names for these events are:
+The Application Insights Daily Cap creates an event in the Azure activity kog when the ingested data volumes hits the warning level or the daily cap level.  You can [create an alert based on these activity log events](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log#create-with-the-azure-portal). The signal names for these events are:
 
 * Application Insights component daily cap warning threshold reached
 
