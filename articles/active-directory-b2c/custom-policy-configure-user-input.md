@@ -24,7 +24,7 @@ You can gather initial data from your users by using the sign-up or sign-in user
 1. Define a "city" claim.
 1. Ask the user for their city.
 1. Persist the city to the user profile in the Azure AD B2C directory.
-1. Read the city claim from the user profile on each sign-in.
+1. Read the city claim from the Azure AD B2C directory on each sign-in.
 1. Return the city to your relying party application after sign-in or sign-up.  
 
 ## Prerequisites
@@ -90,7 +90,7 @@ To collect the city claim during sign-up, it must be added as an output claim to
 <ClaimsProvider>
 ```
 
-To collect the city claim after initial sign-in with a social account, it must be added as an output claim to the `SelfAsserted-Social` technical profile. For social account users to be able to edit their profile data later, add the output claim to the `SelfAsserted-ProfileUpdate` technical profile. Override these technical profiles in the extension file. Specify the entire list of the output claims to control the order the claims are presented on the screen. Find the **ClaimsProviders** element. Add a new ClaimsProviders as follows:
+To collect the city claim after initial sign-in with a federated account, it must be added as an output claim to the `SelfAsserted-Social` technical profile. For local and federated account users to be able to edit their profile data later, add the output claim to the `SelfAsserted-ProfileUpdate` technical profile. Override these technical profiles in the extension file. Specify the entire list of the output claims to control the order the claims are presented on the screen. Find the **ClaimsProviders** element. Add a new ClaimsProviders as follows:
 
 ```xml
   <DisplayName>Self Asserted</DisplayName>
@@ -122,7 +122,7 @@ To collect the city claim after initial sign-in with a social account, it must b
 The following technical profiles are [Active Directory technical profiles](active-directory-technical-profile.md), which read and write data to Azure Active Directory.  
 Use `PersistedClaims` to write data to the user profile and `OutputClaims` to read data from the user profile within the respective Active Directory technical profiles.
 
-Find the **ClaimsProviders** element.  Add a new ClaimsProviders as follows:
+Override these technical profiles in the extension file. Find the **ClaimsProviders** element.  Add a new ClaimsProviders as follows:
 
 ```xml
 <ClaimsProvider>
