@@ -136,9 +136,9 @@ If the temporary disk runs out of space (or is very close to running out of spac
 
 ### What to do when a disk is full
 
-Determine why the disk is full: If you are not sure what exactly is taking up space on the node, it is recommended to remote to the node and investigate manually where the space has gone. You can also make use of the [Batch List Files API](https://docs.microsoft.com/rest/api/batchservice/file/listfromcomputenode) to examine files in Batch managed folders (for example, task outputs). Note that this API only lists files in the Batch managed directories and if your tasks created files elsewhere you will not see them.
+Determine why the disk is full: If you're not sure what is taking up space on the node, it is recommended to remote to the node and investigate manually where the space has gone. You can also make use of the [Batch List Files API](https://docs.microsoft.com/rest/api/batchservice/file/listfromcomputenode) to examine files in Batch managed folders (for example, task outputs). Note that this API only lists files in the Batch managed directories and if your tasks created files elsewhere you will not see them.
 
-Make sure that any data you need has been retrieved from the node or uploaded to a durable store. All mitigations of the disk full issue involve deleting data to free up space.
+Make sure that any data you need has been retrieved from the node or uploaded to a durable store. All mitigation of the disk-full issue involve deleting data to free up space.
 
 ### Recovering the node
 
