@@ -20,28 +20,14 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: TODO
-    href: unity-overview.yml
-    expanded: true
-    items:
-    - name: TODO
-      href: quickstarts/get-started-unity-hololens.md
-    - name: TODO
-      href: quickstarts/get-started-unity-android.md
-    - name: TODO
-      href: quickstarts/get-started-unity-ios.md
-  - name: TODO
-    href: quickstarts/get-started-hololens.md
-  - name: TODO
-    href: quickstarts/get-started-android.md
-  - name: TODO
-    href: quickstarts/get-started-ios.md
-  - name: TODO
-    items:
-    - name: TODO
-      href: quickstarts/get-started-xamarin-android.md
-    - name: TODO
-      href: quickstarts/get-started-xamarin-ios.md
+  - name: Provision Spool Resources
+    href: quickstarts/provision-spool-resources.md
+  - name: Create And Connect To A Spool Session
+    href: quickstarts/create-and-connect-to-a-session.md
+  - name: Add Video To Your App
+    href: quickstarts/add-video-to-your-app.md
+  - name: Add Voice To Your App
+    href: quickstarts/add-voice-to-your-app.md
 - name: Tutorials
   items:
   - name: TODO
