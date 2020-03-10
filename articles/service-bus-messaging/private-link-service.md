@@ -58,7 +58,7 @@ After configuring the namespace basics, select the **Networking** tab and follow
     You can see the configured private endpoint now. You now have the option to delete and edit this private endpoint. 
 8. Select the **Review + Create** button and create the namespace. It will take 5-10 minutes for the deployment to complete. 
 
-### Establish a private link connection to an existing Service Bus namespace
+### Establish a private link connection to a namespace
 
 If you already have an existing namespace, you can create a private link connection by following these steps:
 
