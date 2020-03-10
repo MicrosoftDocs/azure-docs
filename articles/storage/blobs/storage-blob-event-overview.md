@@ -91,12 +91,8 @@ Applications that handle Blob storage events should follow a few recommended pra
 > [!div class="checklist"]
 > * As multiple subscriptions can be configured to route events to the same event handler, it is important not to assume events are from a particular source, but to check the topic of the message to ensure that it comes from the storage account you are expecting.
 > * Similarly, check that the eventType is one you are prepared to process, and do not assume that all events you receive will be the types you expect.
-> * As messages can arrive after some delay, use the etag fields to understand if your information about objects is still up-to-date.  
->
->   For more information about the etag field along with an example of how to use it, see [Managing concurrency in Blob storage](https://docs.microsoft.com/azure/storage/common/storage-concurrency?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#managing-concurrency-in-blob-storage). 
-> * As messages can arrive out of order, use the sequencer fields to understand the order of events on any particular object.
->
->   The sequencer field is a string value that represents the logical sequence of events for any particular blob name. You can use standard string comparison to understand the relative sequence of two events on the same blob name.
+> * As messages can arrive after some delay, use the etag fields to understand if your information about objects is still up-to-date. To learn how to use the etag field, see [Managing concurrency in Blob storage](https://docs.microsoft.com/azure/storage/common/storage-concurrency?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#managing-concurrency-in-blob-storage). 
+> * As messages can arrive out of order, use the sequencer fields to understand the order of events on any particular object. The sequencer field is a string value that represents the logical sequence of events for any particular blob name. You can use standard string comparison to understand the relative sequence of two events on the same blob name.
 > * Use the blobType field to understand what type of operations are allowed on the blob, and which client library types you should use to access the blob. Valid values are either `BlockBlob` or `PageBlob`. 
 > * Use the url field with the `CloudBlockBlob` and `CloudAppendBlob` constructors to access the blob.
 > * Ignore fields you don't understand. This practice will help keep you resilient to new features that might be added in the future.
