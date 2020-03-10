@@ -2,7 +2,7 @@
 title: Encryption-at-rest with customer-managed keys
 description: Learn about encryption-at-rest of your Azure container registry, and how to encrypt your registry with a customer-managed key stored in Azure Key Vault
 ms.topic: article
-ms.date: 03/06/2020
+ms.date: 03/10/2020
 ms.custom: 
 ---
 
@@ -12,7 +12,7 @@ When you store images and other artifacts in an Azure container registry, Azure 
 
 Server-side encryption with customer-managed keys is supported through integration with [Azure Key Vault](../key-vault/key-vault-overview.md). You can create your own encryption keys and store them in a key vault, or you can use Azure Key Vault's APIs to generate encryption keys. With Azure Key Vault, you can also audit key usage.
 
-This feature is only available in a **Premium** container registry. For information about registry service tiers and limits, see [Azure Container Registry SKUs](container-registry-skus.md).
+This feature is available in the **Premium** container registry service tier. For information about registry service tiers and limits, see [Azure Container Registry SKUs](container-registry-skus.md).
 
 > [!IMPORTANT]
 > This feature is currently in preview, and some [limitations](#preview-limitations) apply. Previews are made available to you on the condition that you agree to the [supplemental terms of use][terms-of-use]. Some aspects of this feature may change prior to general availability (GA).
@@ -22,11 +22,11 @@ This feature is only available in a **Premium** container registry. For informat
 
 * You can currently enable this feature only when you create a registry.
 * After enabling a customer-managed key on a registry, you can't disable it.
-* In a registry encrypted with a customer-managed key, logs for [ACR Tasks](container-registry-tasks-overview.md) are currently retained for only 24 hours. If you need to retain task logs for a longer period, export the logs to local files, or import log files to Azure Storage.
+* In a registry encrypted with a customer-managed key, run logs for [ACR Tasks](container-registry-tasks-overview.md) are currently retained for only 24 hours. If you need to retain logs for a longer period, see guidance to [export and save task run logs](container-registry-tasks-logs.md#alternative-storage-methods).
 
 ## Prerequisites
 
-To use the Azure CLI steps in this article, you need Azure CLI version 2.1.1 or later. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
+To use the Azure CLI steps in this article, you need Azure CLI version 2.2.0 or later. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
 ## Enable customer-managed key - CLI
 
@@ -83,8 +83,7 @@ To prevent data loss caused by accidental key or key vault deletions, you must e
 az keyvault create --name <key-vault-name> \
   --resource-group <resource-group-name> \
   --enable-soft-delete \
-  --enable-purge-protection \
-  --location westus
+  --enable-purge-protection
 ```
 
 ### Add key vault access policy
