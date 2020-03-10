@@ -183,7 +183,7 @@ When using the delta query, [temporal tables in Azure SQL Database](../sql-datab
    
    ![Click SQL Server icon and click add connection](./media/sql-reference-data/Add-SQL-Connection.png)
 
-4. Fill in connection information.
+4. Fill in the connection information.
    
    ![Stream Analytics input configuration in Visual Studio](./media/sql-reference-data/Fill-Connection-Information.png)
 
