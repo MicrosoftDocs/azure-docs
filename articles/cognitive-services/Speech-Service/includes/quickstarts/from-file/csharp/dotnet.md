@@ -1,13 +1,8 @@
 ---
-title: "Quickstart: Recognize speech from an audio file, C# (.NET) - Speech service"
-titleSuffix: Azure Cognitive Services
-services: cognitive-services
 author: IEvangelist
-manager: nitinme
 ms.service: cognitive-services
-ms.subservice: speech-service
 ms.topic: include
-ms.date: 01/14/2020
+ms.date: 03/10/2020
 ms.author: dapine
 ---
 
