@@ -206,7 +206,7 @@ In the preview, you can assign groups only individually to an administrative uni
 
     Open the All Groups blade in Azure AD > Administrative Units. If there are groups already assigned to the administrative unit, they will be displayed on the right side. Select **Add** on the top and a right panel will slide in listing the groups available in your Azure AD organization. Select one or more groups to be assigned to the administrative units.
 
-    ![select and administrative unit and then select Add member](./media/roles-administrative-units-scope/assign-to-admin-unit.png)
+    ![select an administrative unit and then select Add member](./media/roles-administrative-units-scope/assign-to-admin-unit.png)
 
 ### PowerShell
 
@@ -232,15 +232,19 @@ Example:
       "@odata.id":"https://graph.microsoft.com/beta/users/ 871d21ab-6b4e-4d56-b257-ba27827628f3"
     }
 
-### Scoping administrators on Administrative Units
+## Scoping administrators on Administrative Units
 
-#### Azure portal
+### Azure portal
 
 Go to **Azure AD > Administrative** units in the portal. Select the administrative unit over which you want to assign the role to a user. On the left pane, select Roles and administrators to list all the available roles.
 
+![Select an administrative unit to change role scope](./media/roles-administrative-units-scope/select-role-to-scope.png)
+
 Select the role to be assigned and then select **Add assignments**. This will slide open a panel on the right where you can select one or more users to be assigned to the role.
 
-#### PowerShell
+![Select the role to scope and then select Add assignments](./media/roles-administrative-units-scope/select-add-assignment.png)
+
+### PowerShell
 
     $administrative unitObj = Get-AzureADAdministrativeUnit -Filter "displayname eq 'Test administrative unit 2'"
     $AdminUser = Get-AzureADUser -ObjectId 'janedoe@fabidentity.onmicrosoft.com'
@@ -249,43 +253,49 @@ Select the role to be assigned and then select **Add assignments**. This will sl
 
 The highlighted section may be changed as required for the specific environment.
 
-#### Graph API
+### Graph API
 
 <add info>
 
-### Deleting an administrative unit
+## Deleting an administrative unit
 
-#### Azure portal
+### Azure portal
 
 Go to **Azure AD > Administrative units** in the portal. Select the administrative unit to be deleted and then select **Delete**. After confirming **Yes**, the administrative unit will be deleted.
 
-#### PowerShell
+![Select an administrative unit to delete](./media/roles-administrative-units-scope/select-admin-unit-to-delete.png)
+
+### PowerShell
 
     $delau = Get-AzureADAdministrativeUnit -Filter "displayname eq 'DeleteMe Admin Unit'"
     Remove-AzureADAdministrativeUnit -ObjectId $delau.ObjectId
 
 The highlighted section may be changed as required for the specific environment.
 
-#### Graph API
+### Graph API
 
     HTTP request
     DELETE /administrativeUnits/{Admin id}
     Request body
     {}
 
-### Listing users in an administrative unit
+## Listing users in an administrative unit
 
-#### Azure portal
+### Azure portal
 
 In the portal, there are two ways to list the users in an administrative unit:
 
-1. Users blade in Azure AD
+1. Users overview page in Azure AD
     Go to **Azure AD > Users** blade. On the right side, you would find a (makeshift) option to select an administrative unit. Select **Choose an administrative unit** and a panel will slide on right. You can now select an administrative unit and the user list will be filtered down to the members of the selected administrative unit.
+
+    ![List users in an administrative unit from a user profile](./media/roles-administrative-units-scope/list-users-from-profile.png)
 
 1. Administrative units blade in Azure AD
     Go to **Azure AD > Administrative units** in the portal. Select the administrative unit for which you want to list the users. By default, **All users** is selected already on the left panel and on the right you will find the list of users who are member of the selected administrative unit.
 
-#### PowerShell
+    ![List users in an administrative unit from the administrative units page](./media/roles-administrative-units-scope/list-users-from-admin-units.png)
+
+### PowerShell
 
     $administrative unitObj = Get-AzureADAdministrativeUnit -Filter "displayname eq 'Test administrative unit 2'"
     Get-AzureADAdministrativeUnitMember -ObjectId $administrative unitObj.ObjectId
@@ -300,20 +310,22 @@ This will help you get all the members of the administrative unit. If you want t
     }
     }
 
-#### Graph API
+### Graph API
 
     HTTP request
     GET /administrativeUnits/{Admin id}/members/$/microsoft.graph.user
     Request body
     {}
 
-### Listing groups in an administrative unit
+## Listing groups in an administrative unit
 
-#### Azure portal
+### Azure portal
 
 Go to **Azure AD > Administrative units** in the portal. Select the administrative unit for which you want to list the users. By default, **All users** is selected already on the left panel. Select **All groups** and on the right you will find the list of groups which are member of the selected administrative unit.
 
-#### PowerShell
+![Select an administrative unit to delete](./media/roles-administrative-units-scope/list-groups-in-admin-units.png)
+
+### PowerShell
 
     $administrative unitObj = Get-AzureADAdministrativeUnit -Filter "displayname eq 'Test administrative unit 2'"
     Get-AzureADAdministrativeUnitMember -ObjectId $administrative unitObj.ObjectId
@@ -328,27 +340,27 @@ This will help you get all the members of the administrative unit. If you want t
     }
     }
 
-#### Graph API
+### Graph API
 
     HTTP request
     GET /administrativeUnits/{Admin id}/members/$/microsoft.graph.group
     Request body
     {}
 
-### Listing the scoped administrators in an administrative unit
+## Listing the scoped administrators in an administrative unit
 
-#### Azure portal
+### Azure portal
 
 All the role assignments done on an administrative unit level can be viewed in the Administrative units section in Azure AD. Go to **Azure AD > Administrative units** in the portal. Select the administrative unit for which you want to list the role assignments. Select the **Roles and administrators**
 
-#### PowerShell
+### PowerShell
 
     $administrative unitObj = Get-AzureADAdministrativeUnit -Filter "displayname eq 'Test administrative unit 2'"
     Get-AzureADScopedRoleMembership -ObjectId $administrative unitObj.ObjectId | fl *
 
 The highlighted section may be changed as required for the specific environment.
 
-#### Graph API
+### Graph API
 
     Http request
     GET /administrativeUnits/{id}/scopedRoleMembers
