@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/09/2020
+ms.date: 03/10/2020
 ms.author: dapine
 ---
 
@@ -188,7 +188,7 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-text-to-spe
 ```
 
 > [!IMPORTANT]
-> The `latest` tag pulls the `en-US` locale and `jessarus` voice. For additional locales see [Text-to-speech locales](#text-to-speech-locales).
+> The `latest` tag pulls the `en-US` locale and `Ariarus` voice. For additional locales see [Text-to-speech locales](#text-to-speech-locales).
 
 #### Text-to-speech locales
 
@@ -201,13 +201,13 @@ All tags, except for `latest` are in the following format and are case-sensitive
 The following tag is an example of the format:
 
 ```
-1.3.0-amd64-en-us-jessarus-preview
+1.3.0-amd64-en-us-Ariarus-preview
 ```
 
 For all of the supported locales and corresponding voices of the **text-to-speech** container, please see [Text-to-speech image tags](../containers/container-image-tags.md#text-to-speech).
 
 > [!IMPORTANT]
-> When constructing a *Standard Text-to-speech* HTTP POST, the [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md) message requires a `voice` element with a `name` attribute. The value is the corresponding container locale and voice, also known as the ["short name"](language-support.md#standard-voices). For example, the `latest` tag would have a voice name of `en-US-JessaRUS`.
+> When constructing a *Standard Text-to-speech* HTTP POST, the [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md) message requires a `voice` element with a `name` attribute. The value is the corresponding container locale and voice, also known as the ["short name"](language-support.md#standard-voices). For example, the `latest` tag would have a voice name of `en-US-AriaRUS`.
 
 # [Custom Text-to-speech](#tab/ctts)
 

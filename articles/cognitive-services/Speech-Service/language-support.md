@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/09/2020
+ms.date: 03/10/2020
 ms.author: dapine
 ms.custom: seodec18
 ---
@@ -90,7 +90,7 @@ For more information about regional availability, see [regions](regions.md#stand
 | Locale  | Language            | Gender | Full service name mapping                                               | Short voice name        |
 |---------|---------------------|--------|-------------------------------------------------------------------------|-------------------------|
 | `de-DE` | German (Germany)    | Female | "Microsoft Server Speech Text to Speech Voice (de-DE, KatjaNeural)"     | "de-DE-KatjaNeural"     |
-| `en-US` | English (US)        | Female | "Microsoft Server Speech Text to Speech Voice (en-US, JessaNeural)"     | "en-US-JessaNeural"     |
+| `en-US` | English (US)        | Female | "Microsoft Server Speech Text to Speech Voice (en-US, AriaNeural)"      | "en-US-AriaNeural"      |
 | `en-US` | English (US)        | Male   | "Microsoft Server Speech Text to Speech Voice (en-US, GuyNeural)"       | "en-US-GuyNeural"       |
 | `it-IT` | Italian (Italy)     | Female | "Microsoft Server Speech Text to Speech Voice (it-IT, ElsaNeural)"      | "it-IT-ElsaNeural"      |
 | `pt-BR` | Portuguese (Brazil) | Female | "Microsoft Server Speech Text to Speech Voice (pt-BR, FranciscaNeural)" | "pt-BR-FranciscaNeural" |
@@ -131,9 +131,9 @@ More than 75 standard voices are available in over 45 languages and locales, whi
 |  |  | Female | "Microsoft Server Speech Text to Speech Voice (en-IN, PriyaRUS)" | "en-IN-PriyaRUS" |
 |  |  | Male | "Microsoft Server Speech Text to Speech Voice (en-IN, Ravi, Apollo)" | "en-IN-Ravi-Apollo" |
 | `en-US` | English (US) | Female | "Microsoft Server Speech Text to Speech Voice (en-US, ZiraRUS)" | "en-US-ZiraRUS" |
-|  |  | Female | "Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)" | "en-US-JessaRUS" |
+|  |  | Female | "Microsoft Server Speech Text to Speech Voice (en-US, AriaRUS)" | "en-US-AriaRUS" |
 |  |  | Male | "Microsoft Server Speech Text to Speech Voice (en-US, BenjaminRUS)" | "en-US-BenjaminRUS" |
-|  |  | Female | "Microsoft Server Speech Text to Speech Voice (en-US, Jessa24kRUS)" | "en-US-Jessa24kRUS" |
+|  |  | Female | "Microsoft Server Speech Text to Speech Voice (en-US, Aria24kRUS)" | "en-US-Aria24kRUS" |
 |  |  | Male | "Microsoft Server Speech Text to Speech Voice (en-US, Guy24kRUS)" | "en-US-Guy24kRUS" |
 | `es-ES` | Spanish (Spain) | Female | "Microsoft Server Speech Text to Speech Voice (es-ES, Laura, Apollo)" | "es-ES-Laura-Apollo" |
 |  |  | Female | "Microsoft Server Speech Text to Speech Voice (es-ES, HelenaRUS)" | "es-ES-HelenaRUS" |
