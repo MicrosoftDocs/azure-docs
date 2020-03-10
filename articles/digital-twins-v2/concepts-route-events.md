@@ -17,9 +17,9 @@ ms.service: digital-twins
 
 # Event routes (preview)
 
-It is often useful for data from Azure Digital Twins to be sent to downstream data services for additional storage or processing. For example, a hospital may want to send Azure Digital Twins event data to [Time Series Insights](../time-series-insights/time-series-insights-update-overview.md), to record time series data of handwashing-related events for bulk analytics.
+It is often useful for data from Azure Digital Twins to be sent to downstream data services for additional storage or processing. For example, a hospital may want to send Azure Digital Twins event data to [Time Series Insights (TSI)](../time-series-insights/time-series-insights-update-overview.md), to record time series data of handwashing-related events for bulk analytics.
 
-Data egress is handled using **event routes**. An event route lets you send event data from nodes in Azure Digital Twins to custom-defined endpoints in your subscriptions. Some example endpoints are an [Event Hub](../event-hubs/event-hubs-about.md), an [Event Grid](../event-grid/overview.md), or a [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md). 
+Data egress is handled using **event routes**. An event route lets you send event data from nodes in Azure Digital Twins to custom-defined endpoints in your subscriptions. Three Azure services are currently supported for endpoints: [Event Hub](../event-hubs/event-hubs-about.md), [Event Grid](../event-grid/overview.md), and [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md). Each of these Azure services can be connected to other services and acts as the middleman, sending data along to final destinations such as TSI or Azure Maps for whatever processing you desire.
 
 These are the event types emitted by Azure Digital Twins that are available for routing:
 * Digital twin change notification
@@ -32,7 +32,7 @@ The following diagram illustrates the flow of event data through a larger IoT so
 
 ## Uses for event routes
 
-Event routes are designed for sending data to external resources. They excel at sending bulk event data from Azure Digital Twins to downstream resources such as Time Series Insights, storage, and analytics solutions.
+Event routes are designed for sending data to external resources. They excel at sending bulk event data from Azure Digital Twins to downstream resources such as TSI, Azure Maps, storage, and analytics solutions.
 
 During the current preview release, they are also used to handle events within the digital twin graph and send data from twin to twin. You can use event routes to affect Azure Digital Twins resources by connecting routes to compute resources such as [Azure Functions](../azure-functions/functions-overview.md). Note that events sent via routes come without context. As a result, a compute resource that wants to modify the Azure Digital Twins graph in response to an event passed via event route must either:
 * know the twin it wants to modify in advance, or
@@ -43,13 +43,13 @@ It also needs to establish security and access permissions independently.
 ## Create a route endpoint
 
 To define an event route, developers first must define endpoints. An **endpoint** is a destination outside of Azure Digital Twins that supports a route connection. Supported destinations in current preview release are:
-* EventGrid custom topics
-* EventHub
+* Event Grid custom topics
+* Event Hub
 * Service Bus
 
-Endpoints are set up using control plane APIs, or via the portal. An endpoint definition gives:
+Endpoints are set up using control plane APIs (supported by the [Azure Digital Twins CLI](https://github.com/Azure/azure-digital-twins/tree/private-preview/CLI)), or via the portal. An endpoint definition gives:
 * The endpoint's ID (or friendly name)
-* The endpoint type, such as Event Grid, Event Hub or other
+* The endpoint type (Event Grid, Event Hub, or Service Bus)
 * The primary connection string and secondary connection string to authenticate 
 * The topic path of the endpoint, such as *your-topic.westus.eventgrid.azure.net*
 
@@ -58,7 +58,6 @@ The endpoint APIs that are available in control plane are:
 * Get list of endpoints
 * Get endpoint by ID (similar to above, but pass in endpointID)
 * Delete endpoint by ID
-* Get endpoint health (this function is similar to the IoT Hub API's [`GetEndpointHealth`](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth))
 
 ## Create a route
  
