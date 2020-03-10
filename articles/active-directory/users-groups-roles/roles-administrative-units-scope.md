@@ -19,14 +19,14 @@ ms.collection: M365-identity-device-management
 
 This article tells you about what's available in Administrative Units public preview in Azure Active Directory (Azure AD). We cover the basic tasks for setting up and using administrative units to restrict the scope of Azure AD role assignments.
 
-Outside this document, please refer to the following:
-
-- [Working with Admin Units](https://docs.microsoft.com/powershell/azure/active-directory/working-with-administrative-units?view=azureadps-2.0): How to work with administrative units using PowerShell
-- [Administrative Unit Graph support](https://docs.microsoft.com/graph/api/resources/administrativeunit?view=graph-rest-beta): Detail documentation on Graph APIs available for administrative units.
-
 Administrative units allow you to grant admin permissions that are restricted to a department, region, or other segment of your organization that you define. For example, delegating to regional support specialists the [Helpdesk Administrator](directory-assign-admin-roles.md#helpdesk-administrator) role restricted to managing just the users in the region they support.
 
 Restricting administrative scope via administrative units can be useful in organizations with independent divisions. Consider the example of a large university that is made up of many autonomous schools (School of Business, School of Engineering, and so on) that each has their own IT administrators who control access, manage users, and set policies for their school. A central administrator could create an administrative unit for the School of Business and populate it with only the business school students and staff. Then the central administrator can add the Business school IT staff to a scoped role that grants administrative permissions over only Azure AD users in the business school administrative unit.
+
+In addition to this article, you can also refer to the following:
+
+- [Working with Admin Units](https://docs.microsoft.com/powershell/azure/active-directory/working-with-administrative-units?view=azureadps-2.0): How to work with administrative units using PowerShell
+- [Administrative Unit Graph support](https://docs.microsoft.com/graph/api/resources/administrativeunit?view=graph-rest-beta): Detailed documentation on Graph APIs available for administrative units.
 
 Creating and managing administrative units themselves is available at no additional charge as part of Azure Active Directory (Azure AD). Using administrative units to restrict the scope of Azure AD role assignments requires Azure AD Premium 1 licenses for administrators and Azure Active Directory Basic licenses for administrative unit members.
 
@@ -45,7 +45,7 @@ User Administrator  |  Can manage all aspects of users and groups, including res
 
 Global administrators or Privileged Role Administrators can use the Azure AD portal to create administrative units, add users as members of administrative units, and then assign IT staff to administrative unit-scoped administrator roles. The administrative unit-scoped admins can then use the Office 365 portal for basic management of users in their administrative units.
 
-Additionally, groups can be added as members of administrative unit, administrative unit scoped groups administrator can manage them using PowerShell, the Microsoft Graph, and the Azure AD portal.
+Additionally, groups can be added as members of administrative unit, and an admin unit-scoped group administrator can manage them using PowerShell, the Microsoft Graph, and the Azure AD portal.
 
 The below table describes current support for administrative unit scenarios.
 
