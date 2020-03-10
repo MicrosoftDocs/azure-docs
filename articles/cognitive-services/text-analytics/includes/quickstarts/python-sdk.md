@@ -128,18 +128,18 @@ def sentiment_analysis_example(client):
     document = ["I had the best day of my life. I wish you were there with me."]
     response = client.analyze_sentiment(inputs=document)[0]
     print("Document Sentiment: {}".format(response.sentiment))
-    print("Overall scores: positive={0:.3f}; neutral={1:.3f}; negative={2:.3f} \n".format(
-        response.sentiment_scores.positive,
-        response.sentiment_scores.neutral,
-        response.sentiment_scores.negative,
+    print("Overall scores: positive={0:.2f}; neutral={1:.2f}; negative={2:.2f} \n".format(
+        response.confidence_scores.positive,
+        response.confidence_scores.neutral,
+        response.confidence_scores.negative,
     ))
     for idx, sentence in enumerate(response.sentences):
-        print("[Offset: {}, Length: {}]".format(sentence.offset, sentence.length))
+        print("[Offset: {}, Length: {}]".format(sentence.grapheme_offset, sentence.grapheme_length))
         print("Sentence {} sentiment: {}".format(idx+1, sentence.sentiment))
-        print("Sentence score:\nPositive={0:.3f}\nNeutral={1:.3f}\nNegative={2:.3f}\n".format(
-            sentence.sentiment_scores.positive,
-            sentence.sentiment_scores.neutral,
-            sentence.sentiment_scores.negative,
+        print("Sentence score:\nPositive={0:.2f}\nNeutral={1:.2f}\nNegative={2:.2f}\n".format(
+            sentence.confidence_scores.positive,
+            sentence.confidence_scores.neutral,
+            sentence.confidence_scores.negative,
         ))
 
             
@@ -150,21 +150,21 @@ sentiment_analysis_example(client)
 
 ```console
 Document Sentiment: positive
-Overall scores: positive=1.000; neutral=0.000; negative=0.000 
+Overall scores: positive=1.00; neutral=0.00; negative=0.00
 
 [Offset: 0, Length: 30]
 Sentence 1 sentiment: positive
 Sentence score:
-Positive=1.000
-Neutral=0.000
-Negative=0.000
+Positive=1.00
+Neutral=0.00
+Negative=0.00
 
 [Offset: 31, Length: 30]
 Sentence 2 sentiment: neutral
 Sentence score:
-Positive=0.210
-Neutral=0.770
-Negative=0.020
+Positive=0.21
+Neutral=0.77
+Negative=0.02
 ```
 
 #### [Version 2.1](#tab/version-2)
@@ -250,8 +250,8 @@ def entity_recognition_example(client):
         print("Named Entities:\n")
         for entity in result.entities:
                 print("\tText: \t", entity.text, "\tCategory: \t", entity.category, "\tSubCategory: \t", entity.subcategory,
-                      "\n\tOffset: \t", entity.offset, "\tLength: \t", entity.offset, 
-                      "\tConfidence Score: \t", round(entity.score, 3), "\n")
+                      "\n\tOffset: \t", entity.grapheme_offset, "\tLength: \t", entity.grapheme_offset, 
+                      "\tConfidence Score: \t", round(entity.score, 2), "\n")
 
     except Exception as err:
         print("Encountered exception. {}".format(err))
@@ -285,7 +285,7 @@ def entity_pii_example(client):
         print("Personally Identifiable Information Entities: ")
         for entity in result.entities:
             print("\tText: ",entity.text,"\tCategory: ", entity.category,"\tSubCategory: ", entity.subcategory)
-            print("\t\tOffset: ", entity.offset, "\tLength: ", entity.length, "\tScore: {0:.3f}".format(entity.score), "\n")
+            print("\t\tOffset: ", entity.grapheme_offset, "\tLength: ", entity.grapheme_length, "\tScore: {0:.2f}".format(entity.score), "\n")
         
 entity_pii_example(client)
 ```
@@ -295,7 +295,7 @@ entity_pii_example(client)
 ```console
 Personally Identifiable Information Entities: 
     Text:  123-12-1234  Category:  U.S. Social Security Number (SSN)    SubCategory:  None
-        Offset:  33     Length:  11     Score: 0.850 
+        Offset:  33     Length:  11     Score: 0.85
 ```
 
 
@@ -316,13 +316,13 @@ def entity_linking_example(client):
 
         print("Linked Entities:\n")
         for entity in result.entities:
-            print("\tName: ", entity.name, "\tId: ", entity.id, "\tUrl: ", entity.url,
+            print("\tName: ", entity.name, "\tId: ", entity.data_source_entity_id, "\tUrl: ", entity.url,
             "\n\tData Source: ", entity.data_source)
             print("\tMatches:")
             for match in entity.matches:
                 print("\t\tText:", match.text)
-                print("\t\tScore: {0:.3f}".format(match.score), "\tOffset: ", match.offset, 
-                      "\tLength: {}\n".format(match.length))
+                print("\t\tScore: {0:.2f}".format(match.score), "\tOffset: ", match.grapheme_offset, 
+                      "\tLength: {}\n".format(match.grapheme_length))
             
     except Exception as err:
         print("Encountered exception. {}".format(err))
@@ -338,43 +338,43 @@ Linked Entities:
     Data Source:  Wikipedia
     Matches:
         Text: Altair 8800
-        Score: 0.777    Offset:  125    Length: 11
+        Score: 0.78     Offset:  125    Length: 11
 
     Name:  Bill Gates   Id:  Bill Gates     Url:  https://en.wikipedia.org/wiki/Bill_Gates 
     Data Source:  Wikipedia
     Matches:
         Text: Bill Gates
-        Score: 0.555    Offset:  25     Length: 10
+        Score: 0.55     Offset:  25     Length: 10
 
         Text: Gates
-        Score: 0.555    Offset:  179    Length: 5
+        Score: 0.55     Offset:  179    Length: 5
 
     Name:  Paul Allen   Id:  Paul Allen     Url:  https://en.wikipedia.org/wiki/Paul_Allen 
     Data Source:  Wikipedia
     Matches:
         Text: Paul Allen
-        Score: 0.533    Offset:  40     Length: 10
+        Score: 0.53     Offset:  40     Length: 10
 
     Name:  Microsoft    Id:  Microsoft  Url:  https://en.wikipedia.org/wiki/Microsoft 
     Data Source:  Wikipedia
     Matches:
         Text: Microsoft
-        Score: 0.469    Offset:  0  Length: 9
+        Score: 0.47     Offset:  0  Length: 9
 
         Text: Microsoft
-        Score: 0.469    Offset:  168    Length: 9
+        Score: 0.47     Offset:  168    Length: 9
 
     Name:  April 4  Id:  April 4    Url:  https://en.wikipedia.org/wiki/April_4 
     Data Source:  Wikipedia
     Matches:
         Text: April 4
-        Score: 0.248    Offset:  54     Length: 7
+        Score: 0.25     Offset:  54     Length: 7
 
     Name:  BASIC    Id:  BASIC  Url:  https://en.wikipedia.org/wiki/BASIC 
     Data Source:  Wikipedia
     Matches:
         Text: BASIC
-        Score: 0.281    Offset:  98     Length: 5
+        Score: 0.28     Offset:  98     Length: 5
 
 ```
 
