@@ -1,13 +1,13 @@
 ---
 title: Create a Commercial Marketplace account in Partner Center
 description: Learn how to create a Commercial Marketplace account in Partner Center.
-author: ChJenk
+author: qianw211
 manager: evansma
-ms.author: v-chjen
+ms.author: evansma
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: guide
-ms.date: 09/26/2019
+ms.date: 03/10/2020
 ---
 
 # Create a Commercial Marketplace account in Partner Center
@@ -45,7 +45,7 @@ Use this method if you're new to Partner Center and are not enrolled in the Micr
 
 ### Register on the Partner Center enrollment page
 
-Review the information on the [**Welcome to Microsoft Partner Center**](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) enrollment page and then register for an account.
+Review the information on the [**Welcome to Microsoft Partner Center**](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) enrollment page and then register for an account.
 
 ### Sign in with a work account
 
