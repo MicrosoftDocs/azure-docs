@@ -19,7 +19,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 ## Create an Apache Hadoop cluster
 
-See [Create Apache Hadoop clusters using the Azure portal](../hdinsight-hadoop-create-linux-clusters-portal.md). For **Cluster type**, select **Spark**,**Kafka**, **HBase**, or **Interactive Query**.
+See [Create Apache Hadoop clusters using the Azure portal](../hdinsight-hadoop-create-linux-clusters-portal.md). For **Cluster type**, select **Spark**, **Kafka**, **HBase**, or **Interactive Query**.
 
 ## Access the Grafana dashboard
 
