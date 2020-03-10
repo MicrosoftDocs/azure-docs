@@ -25,8 +25,8 @@ The Azure Enterprise portal automatically generates a default purchase order (PO
 1. Select an **Invoice Period** from the date ranges drop-down menu.
 
    You can edit a PO number during a seven-day period after you get an invoice notification, but before you've paid the invoice.
-1. Enter a new PO number in the **PO Number** field.
-1. Select **Save** to submit your change.
+1. Enter a new PO number in the **PO Number** field.
+1. Select **Save** to submit your change.
 
 ### To update the Azure Marketplace purchase order number:
 
@@ -36,8 +36,8 @@ The Azure Enterprise portal automatically generates a default purchase order (PO
 1. Select an **Invoice Period** from the date ranges drop-down menu.
 
    You can edit a PO number during a seven-day period after you get an invoice notification, but before you've paid the invoice.
-1. Enter a new PO number in the **PO Number** field.
-1. Select **Save** to submit your change.
+1. Enter a new PO number in the **PO Number** field.
+1. Select **Save** to submit your change.
 
 ## Cadence of Azure Enterprise billing
 
