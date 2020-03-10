@@ -46,11 +46,11 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + Fixed the issue with the error thrown if the grain which was not present in the training set appeared in the test set
     + Removed the y_query requirement during scoring on forecasting service
     + Fixed the issue with forecasting when the data set contains short grains with long time gaps.
-    + Fixed the issue when the auto max horizon is turned on and the date column contains dates in form of strings. We added proper conversion and sensible error if conversion to date is not possible
+    + Fixed the issue when the auto max horizon is turned on and the date column contains dates in form of strings. Proper conversion and error messages were added for when conversion to date is not possible
     + Using native NumPy and SciPy for serializing and deserializing intermediate data for FileCacheStore (used for local AutoML runs)
     + Fixed a bug where failed child runs could get stuck in Running state.
     + Increased speed of featurization.
-    + Fixed the frequency check during scoring, now in the forecasting tasks we do not require strict frequency equivalence between train and test set.
+    + Fixed the frequency check during scoring, now the forecasting tasks do not require strict frequency equivalence between train and test set.
     + Changed the input of the constructor to take a list of options to apply the imputation options for corresponding columns.
     + Fixed errors related to lag type selection.
     + Fixed the unclassified error raised on the data sets, having grains with the single row
