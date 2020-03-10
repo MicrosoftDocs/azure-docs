@@ -19,7 +19,7 @@ The tables below are a listing of the available container images offered by Azur
 
 #### Public "Ungated" (container registry: `mcr.microsoft.com`)
 
-The Microsoft Container Registry (MCR) syndicates all of the publicly available "ungated" containers for Cognitive Services. The containers are also available directly from the [Docker h'b](https://hub.docker.com/_/microsoft-azure-cognitive-services).
+The Microsoft Container Registry (MCR) syndicates all of the publicly available "ungated" containers for Cognitive Services. The containers are also available directly from the [Docker hub](https://hub.docker.com/_/microsoft-azure-cognitive-services).
 
 | Service | Container | Container Registry / Repository / Image Name |
 |--|--|--|
