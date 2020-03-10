@@ -703,6 +703,9 @@
     - name: RStudio on Azure Databricks
       href: /azure/databricks/spark/latest/sparkr/rstudio
       maintainContext: true 
+    - name: Shiny on Azure Databricks 
+      href: /azure/databricks/spark/latest/sparkr/shiny
+      maintainContext: true
   - name: Machine learning
     items:
     - name: Machine learning overview
@@ -1356,6 +1359,9 @@
       - name: Ensure idempotency
         href: /azure/databricks/kb/jobs/jobs-idempotency
         maintainContext: true
+      - name: Long jobs fail with credential passthrough
+        href: /azure/databricks/kb/jobs/azure-long-job-failed-auth
+        maintainContext: true
     - name: Libraries
       items:
       - name: Can't uninstall library from UI
@@ -1465,6 +1471,12 @@
         maintainContext: true
       - name: Run SQL queries
         href: /azure/databricks/kb/python/sql-in-python
+        maintainContext: true
+      - name: Use the HDFS API to read files in Python 
+        href: /azure/databricks/kb/python/hdfs-to-read-files
+        maintainContext: true
+      - name: Python 2 sunset status 
+        href: /azure/databricks/kb/python/python-2-eol
         maintainContext: true
     - name: R with Spark
       items:
@@ -1645,10 +1657,10 @@
       href: /azure/databricks/getting-started/spark/next
       maintainContext: true
   - name: Training and FAQ
-    href: getting-started/training-faq
+    href: /azure/databricks/getting-started/training-faq
     maintainContext: true
   - name: Supported browsers
-    href: getting-started/supported-browsers
+    href: /azure/databricks/getting-started/supported-browsers
     maintainContext: true
   - name: Release notes
     items:
