@@ -155,12 +155,15 @@ The create collection extension command creates a new MongoDB collection. The da
 
 The following table describes the parameters within the command:
 
-|**Field**|**Type** |**Description** |
+| **Field** | **Type** | **Required** | **Description** |
 |---------|---------|---------|
-| customAction    | string | Name of the custom command. Must be "CreateCollection"     |
-| collection      | string | Name of the collection                                   |
-| offerThroughput | int    | Provisioned Throughput to set on the database. It's an Optional parameter |
-| shardKey        | string | Shard Key path to create a sharded collection. It's an Optional parameter |
+| customAction | string | Required | Name of the custom command. Must be "CreateCollection".     |
+| collection | string | Required | Name of the collection. No special characters are allowed.                                   |
+| offerThroughput | int | Optional* | Provisioned Throughput to set on the database. If it isn't provided, it will default to the minimum, 400 RU/s. * To specify throughput beyong 10,000 RU/s, the `shardKey` parameter will be required. |
+| shardKey | string | Optional | Shard Key path to create a sharded collection. If it is specified, all documents inserted will require this value. |
+| autopilotTier | int | Optional* | The tier of Autopilot RU/s. Accepted values are 1 through 4, which map to each one of the [Autopilot tiers](https://docs.microsoft.com/azure/cosmos-db/provision-throughput-autopilot#autopilot-limits) respectively.  Can't be specified alongside the `offerThroughput` parameter. Any value greater than 1 will require the `shardKey` parameter. |
+| autopilotAutoUpgrade | boolean | Optional* |  Ability to automatically increase the Autopilot tier. *It requires `autopilotTier` to be specified, as well as the `shardKey` parameter. |
+
 
 ### Output
 
@@ -179,11 +182,36 @@ db.runCommand({customAction: "CreateCollection", collection: "testCollection", o
 
 **Create a sharded collection**
 
-To create a sharded collection with name "testCollection" and provisioned throughput of 1000 RUs, use the following command:
+To create a sharded collection with name "testCollection" and provisioned throughput of 1000 RUs, and a shardkey property "a.b", use the following command:
 
 ```shell
 use test
 db.runCommand({customAction: "CreateCollection", collection: "testCollection", offerThroughput: 1000, shardKey: "a.b" });
+```
+
+**Create an unsharded Autopilot collection**
+
+To create an unsharded Autopilot collection with name "testCollection" and with Autopilot Tier 1, which maps to 4,000 RUs, use the following command:
+
+```shell
+use test
+db.runCommand({customAction: "CreateCollection", collection: "testCollection", autopilotTier: 1 });
+```
+
+**Create a sharded Autopilot collection**
+
+To create a sharded Autopilot collection with name "testCollection" and with Autopilot Tier 3, which maps to 100,000 RUs, and a shardKey property "a.b", use the following command:
+
+```shell
+use test
+db.runCommand({customAction: "CreateCollection", collection: "testCollection", autopilotTier: 3, shardKey: "a.b" });
+```
+
+To create a sharded Autopilot collection with name "testCollection" and with Autopilot Tier 2, which maps to 20,000 RUs, a shardKey property "a.b", and the ability to auto increase the tier when needed, use the following command:
+
+```shell
+use test
+db.runCommand({customAction: "CreateCollection", collection: "testCollection", autopilotTier: 2, autopilotAutoUpgrade: true, shardKey: "a.b" });
 ```
 
 ## <a id="update-collection"></a> Update collection
