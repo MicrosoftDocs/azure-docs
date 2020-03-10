@@ -7,11 +7,13 @@ ms.date: 03/09/2020
 
 # View and manage task run logs
 
-Each task run in [Azure Container Registry tasks](container-registry-tasks-overview.md) generates log output that you can inspect to determine whether the task steps ran successfully. This article explains how to view and manage these run logs.
+Each task run in [Azure Container Registry tasks](container-registry-tasks-overview.md) generates log output that you can inspect to determine whether the task steps ran successfully. 
+
+This article explains how to view and manage task run logs.
 
 ## View streamed logs
 
-When you trigger a task manually, log output is streamed directly to the console. For example, when you trigger a task manually by using the [az acr build](/cli/azure/acr#az-acr-build), [az acr run](/cli/azure/acr#az-acr-run), or [az acr task run](/cli/azure/acr/task#az-acr-task-run) command, log output is streamed to the console. 
+When you trigger a task manually, log output is streamed directly to the console. For example, when you trigger a task manually by using the [az acr build](/cli/azure/acr#az-acr-build), [az acr run](/cli/azure/acr#az-acr-run), or [az acr task run](/cli/azure/acr/task#az-acr-task-run) command, you see log output streamed to the console. 
 
 The following sample [az acr run](/cli/azure/acr#az-acr-run) command manually triggers a task that runs a container pulled from the same registry:
 
