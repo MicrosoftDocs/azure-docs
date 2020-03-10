@@ -1,51 +1,52 @@
 ---
-title: Azure Spatial Anchors overview
-description: Learn how Azure Spatial Anchors helps you develop cross-platform mixed reality experiences.
-author: craigktreasure
-manager: aliemami
-services: azure-spatial-anchors
+title: Project Spool Overview
+description: Learn how Project Spool helps you develop rich user experiences with real-time communications.
+author: mikben    
+manager: jken
+services: azure-project-spool
 
-ms.author: crtreasu
-ms.date: 02/24/2019
+ms.author: mikben
+ms.date: 03/10/2020
 ms.topic: overview
-ms.service: azure-spatial-anchors
-# ms.reviewer: MSFT-alias-of-reviewer
+ms.service: azure-project-spool
+
 ---
-# Azure Spatial Anchors overview
+# Project Spool overview
 
-Welcome to Azure Spatial Anchors. Azure Spatial Anchors empowers developers with essential capabilities to build spatially aware
-mixed reality applications. These applications may support Microsoft HoloLens, iOS-based devices supporting ARKit, and
-Android-based devices supporting ARCore. Azure Spatial Anchors enables developers to work with mixed reality platforms to
-perceive spaces, designate precise points of interest, and to recall those points of interest from supported devices.
-These precise points of interest are referred to as Spatial Anchors.
+Project Spool allows you to easily add calling and messaging to your apps without worrying about real-time communications infrastructure. 
 
-![Cross Platform](./media/cross-platform.png)
+When you use Spool, you're building on top of the same infrastructure that powers Skype and Teams. This gives you the option to seamlessly scale and integrate your communications with other Azure services like Cognitive Services, Bot Framework, and Machine Learning.
+
+The Spool SDK is used to create cross-platform "sessions" that clients then connect to. These sessions facilitate real-time messaging, voice, and video communications between clients and networks.
+
 
 ## Examples
 
-Some example use cases enabled by Spatial Anchors include:
+Some example use cases enabled by Project Spool include:
 
-- [Multi-user experiences](tutorials/tutorial-share-anchors-across-devices.md). Spatial Anchors makes it easy for people in the same place to participate in multi-user mixed reality applications. For example, two people can start a game of mixed reality chess by placing a virtual chess board on a table. Then, by pointing their device at the table, they can view and interact with the virtual chess board together.
+- **E-Learning**: Connect students to teachers so that they can review material together with real-time video chat and white-boarding.
+- **Call Centers**: Reserve a phone number via Spool and connect your customers to your staff.
+- **Home Security**: Build an app that live-streams webcam footage to all of your devices while storing media whenever motion is detected.
+- **Group Chat**: Build an internal Skype clone that integrates with your organization's ecosystem.
+- **Telehealth**: Easily connect healthcare providers to their patients.
+- **Disaster response**: Build an app that connects first responders to remote emergency response teams.
+- **Tech Support**: Allow your customers to share their screens with your staff for a seamless customer support experience.
 
-- [Way-finding](concepts/anchor-relationships-way-finding.md). Developers can also connect Spatial Anchors together creating relationships between them. For example, an app may include an experience that has two or more points of interest that a user must interact with to complete a task. Those points of interest can be created in a connected fashion. Later, when the user is completing the multi-step task, the app can ask for anchors that are nearby the current one to direct the user towards the next step in the task.
 
-- [Persisting virtual content in the real-world](how-tos/create-locate-anchors-unity.md#create-a-cloud-spatial-anchor). An app can let a user place a virtual calendar on a conference room wall, that people can see using a phone app or a HoloLens device. In an industrial setting, a user could receive contextual information about a machine by pointing a supported device camera at it.
-
-Azure Spatial Anchors is composed of a managed service and client SDKs for supported device platforms. The following
-sections provide information about getting started with building apps using Azure Spatial Anchors.
+Project Spool is composed of a managed service, server SDKs, and client SDKs for supported device platforms. 
 
 ## Next steps
 
-Create your first app with Spatial Anchors.
+Create your first app with Project Spool.
 
 > [!div class="nextstepaction"]
-> [Unity](unity-overview.yml)
+> [TODO](unity-overview.yml)
 
 > [!div class="nextstepaction"]
-> [iOS](quickstarts/get-started-ios.md)
+> [TODO](quickstarts/get-started-ios.md)
 
 > [!div class="nextstepaction"]
-> [Android](quickstarts/get-started-android.md)
+> [TODO](quickstarts/get-started-android.md)
 
 > [!div class="nextstepaction"]
-> [HoloLens](quickstarts/get-started-hololens.md)
+> [TODO](quickstarts/get-started-hololens.md)
