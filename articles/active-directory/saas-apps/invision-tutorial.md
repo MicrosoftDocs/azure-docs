@@ -147,7 +147,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     ![InVision Configuration](./media/invision-tutorial/config4.png)
 
-    a. Change **Require SSO for every member of Microsoft Testing1** to **On**.
+    a. Change **Require SSO for every member of < account name >** to **On**.
 
     b. In the **name** textbox, enter the name for example like `azureadsso`.
 
