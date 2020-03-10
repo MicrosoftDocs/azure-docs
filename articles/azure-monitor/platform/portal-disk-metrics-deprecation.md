@@ -35,7 +35,8 @@ Here is a table of the old metrics that are being removed and their correspondin
 
 1. In the portal search bar, search for Alerts like shown and select Alerts in the services section:
 
-   ![Image description](./media/portal-disk-metrics-deprecation/tempImage.png)
+   > [!div class="mx-imgBorder"]
+   > ![Image description](./media/portal-disk-metrics-deprecation/tempImage.png)
 
 2. Click on the Manage Alert Rules Icon near the top left corner
 
