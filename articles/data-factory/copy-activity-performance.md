@@ -11,7 +11,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/05/2020
+ms.date: 03/09/2020
 ---
 
 # Copy activity performance and scalability guide
@@ -44,7 +44,7 @@ ADF offers a serverless architecture that allows parallelism at different levels
 | **100 GB**                  | 4.6 hrs    | 2.3 hrs   | 0.5 hrs   | 0.2 hrs  | 0.05 hrs | 0.02 hrs | 0.0 hrs   |
 | **1 TB**                    | 46.6 hrs   | 23.3 hrs  | 4.7 hrs   | 2.3 hrs  | 0.5 hrs  | 0.2 hrs  | 0.05 hrs  |
 | **10 TB**                   | 19.4 days  | 9.7 days  | 1.9 days  | 0.9 days | 0.2 days | 0.1 days | 0.02 days |
-| **100 TB**                  | 194.2 days | 97.1 days | 19.4 days | 9.7 days | 1.9 days | 1 days   | 0.2 days  |
+| **100 TB**                  | 194.2 days | 97.1 days | 19.4 days | 9.7 days | 1.9 days | 1 day    | 0.2 days  |
 | **1 PB**                    | 64.7 mo    | 32.4 mo   | 6.5 mo    | 3.2 mo   | 0.6 mo   | 0.3 mo   | 0.06 mo   |
 | **10 PB**                   | 647.3 mo   | 323.6 mo  | 64.7 mo   | 31.6 mo  | 6.5 mo   | 3.2 mo   | 0.6 mo    |
 
@@ -60,39 +60,20 @@ ADF copy is scalable at different levels:
 
 Take these steps to tune the performance of your Azure Data Factory service with the copy activity.
 
-1. **Pick up a test dataset and establish a baseline.** During the development phase, test your pipeline by using the copy activity against a representative data sample. The dataset you choose should represent your typical data patterns (folder structure, file pattern, data schema, etc.), and is big enough to evaluate copy performance, for example it takes 10 minutes or beyond for copy activity to complete. Collect execution details and performance characteristics following [copy activity monitoring](copy-activity-monitoring.md).
+1. **Pick up a test dataset and establish a baseline.** During the development phase, test your pipeline by using the copy activity against a representative data sample. The dataset you choose should represent your typical data patterns (folder structure, file pattern, data schema, and so on), and is big enough to evaluate copy performance, for example it takes 10 minutes or beyond for copy activity to complete. Collect execution details and performance characteristics following [copy activity monitoring](copy-activity-monitoring.md).
 
 2. **How to maximize performance of a single copy activity**:
 
    To start with, we recommend you to first maximize performance using a single copy activity.
 
-   **If the copy activity is being executed on an Azure Integration Runtime:**
+   - **If the copy activity is being executed on an Azure Integration Runtime:** start with default values for [Data Integration Units (DIU)](#data-integration-units) and [parallel copy](#parallel-copy) settings. 
 
-   Start with default values for [Data Integration Units (DIU)](#data-integration-units) and [parallel copy](#parallel-copy) settings.  Perform a performance test run, and take a note of the performance achieved as well as the actual values used for DIUs and parallel copies.  
+   - **If the copy activity is being executed on a self-hosted Integration Runtime:** we recommend that you use a dedicated machine separate from the server hosting the data store to host integration runtime. Start with default values for [parallel copy](#parallel-copy) setting and using a single node for the self-hosted IR.  
 
-   [Troubleshoot copy activity performance](copy-activity-performance-troubleshooting.md)
+   Perform a performance test run, and take a note of the performance achieved as well as the actual values used like DIUs and parallel copies. Refer to [copy activity monitoring](copy-activity-monitoring.md) on how to collect run results and performance settings used, and learn how to [Troubleshoot copy activity performance](copy-activity-performance-troubleshooting.md) to identify and resolve the bottleneck. 
 
-   Refer to [copy activity monitoring](copy-activity-monitoring.md) on how to collect run results and performance settings used.
+   Iterate to conduct additional performance test runs following the troubleshooting and tuning guidance. Once single copy activity run cannot achieve better throughput, consider to maximize aggregate throughput by running multiple copies concurrently referring to step 3.
 
-   Now conduct additional performance test runs, each time doubling the value for DIU setting.  Alternatively, if you think the performance achieved using the default setting is far below your expectation, you can increase the DIU setting more drastically in the subsequent test run.
-
-   Copy activity should scale almost perfectly linearly as you increase the DIU setting.  If by doubling the DIU setting you are not seeing the throughput double, two things could be happening:
-
-   - The specific copy pattern you are running does not benefit from adding more DIUs.  Even though you had specified a larger DIU value, the actual DIU used remained the same, and therefore you are getting the same throughput as before.  If this is the case, maximize aggregate throughput by running multiple copies concurrently referring step 3.
-   - By adding more DIUs (more horsepower) and thereby driving higher rate of data extraction, transfer, and loading, either the source data store, the network in between, or the destination data store has reached its bottleneck and possibly being throttled.  If this is the case, try contacting your data store administrator or your network administrator to raise the upper limit, or alternatively, reduce the DIU setting until throttling stops occurring.
-
-   **If the copy activity is being executed on a self-hosted Integration Runtime:**
-
-   We recommend that you use a dedicated machine separate from the server hosting the data store to host integration runtime.
-
-   Start with default values for [parallel copy](#parallel-copy) setting and using a single node for the self-hosted IR.  Perform a performance test run and take a note of the performance achieved.
-
-   If you would like to achieve higher throughput, you can either scale up or scale out the self-hosted IR:
-
-   - If the CPU and available memory on the self-hosted IR node are not fully utilized, but the execution of concurrent jobs is reaching the limit, you should scale up by increasing the number of concurrent jobs that can run on a node.  See [here](create-self-hosted-integration-runtime.md#scale-up) for instructions.
-   - If, on the other hand, the CPU is high on the self-hosted IR node or available memory is low, you can add a new node to help scale out the load across the multiple nodes.  See [here](create-self-hosted-integration-runtime.md#high-availability-and-scalability) for instructions.
-
-   As you scale up or scale out the capacity of the self-hosted IR, repeat the performance test run to see if you are getting increasingly better throughput.  If throughput stops improving, most likely either the source data store, the network in between, or the destination data store has reached its bottleneck and is starting to get throttled. If this is the case, try contacting your data store administrator or your network administrator to raise the upper limit, or alternatively, go back to your previous scaling setting for the self-hosted IR. 
 
 3. **How to maximize aggregate throughput by running multiple copies concurrently:**
 
@@ -102,40 +83,34 @@ Take these steps to tune the performance of your Azure Data Factory service with
 
 ## Troubleshoot copy activity performance
 
-
+Follow the [Performance tuning steps](#performance-tuning-steps) to plan and conduct performance test for your scenario. And learn how to troubleshoot each copy activity run's performance issue in Azure Data Factory from [Troubleshoot copy activity performance](troubleshoot-copy-activity-performance.md).
 
 ## Copy performance optimization features
 
 Azure Data Factory provides the following performance optimization features:
 
 - [Data Integration Units](#data-integration-units)
+- [Self-hosted integration runtime scalability](#self-hosted-integration-runtime-scalability)
 - [Parallel copy](#parallel-copy)
 - [Staged copy](#staged-copy)
-- [Self-hosted integration runtime scalability](create-self-hosted-integration-runtime.md#high-availability-and-scalability)
 
 ### Data Integration Units
 
 A Data Integration Unit is a measure that represents the power (a combination of CPU, memory, and network resource allocation) of a single unit in Azure Data Factory. Data Integration Unit only applies to [Azure integration runtime](concepts-integration-runtime.md#azure-integration-runtime), but not [self-hosted integration runtime](concepts-integration-runtime.md#self-hosted-integration-runtime). [Learn more](copy-activity-performance-features.md#data-integration-units).
 
+### Self-hosted integration runtime scalability
+
+To host increasing concurrent workload or to achieve higher performance, you can either scale up or scale out the Self-hosted Integration Runtime. [Learn more](copy-activity-performance-features.md#self-hosted-integration-runtime-scalability).
+
 ### Parallel copy
 
-You can use set parallel copy to indicate the parallelism that you want the copy activity to use. You can think of this property as the maximum number of threads within the copy activity that can read from your source or write to your sink data stores in parallel. [Learn more](copy-activity-performance-features.md#parallel-copy).
+You can set parallel copy to indicate the parallelism that you want the copy activity to use. You can think of this property as the maximum number of threads within the copy activity that read from your source or write to your sink data stores in parallel. [Learn more](copy-activity-performance-features.md#parallel-copy).
 
 ### Staged copy
 
-When you copy data from a source data store to a sink data store, you might choose to use Blob storage as an interim staging store.  [Learn more](copy-activity-performance-features.md#staged-copy).
+When you copy data from a source data store to a sink data store, you might choose to use Blob storage as an interim staging store. [Learn more](copy-activity-performance-features.md#staged-copy).
 
-## References
 
-Here are performance monitoring and tuning references for some of the supported data stores:
-
-* Azure Blob storage: [Scalability and performance targets for Blob storage](../storage/blobs/scalability-targets.md) and [Performance and scalability checklist for Blob storage](../storage/blobs/storage-performance-checklist.md).
-* Azure Table storage: [Scalability and performance targets for Table storage](../storage/tables/scalability-targets.md) and [Performance and scalability checklist for Table storage](../storage/tables/storage-performance-checklist.md).
-* Azure SQL Database: You can [monitor the performance](../sql-database/sql-database-single-database-monitor.md) and check the Database Transaction Unit (DTU) percentage.
-* Azure SQL Data Warehouse: Its capability is measured in Data Warehouse Units (DWUs). See [Manage compute power in Azure SQL Data Warehouse (Overview)](../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md).
-* Azure Cosmos DB: [Performance levels in Azure Cosmos DB](../cosmos-db/performance-levels.md).
-* On-premises SQL Server: [Monitor and tune for performance](https://msdn.microsoft.com/library/ms189081.aspx).
-* On-premises file server: [Performance tuning for file servers](https://msdn.microsoft.com/library/dn567661.aspx).
 
 ## Next steps
 See the other copy activity articles:

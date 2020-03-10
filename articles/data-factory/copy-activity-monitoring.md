@@ -10,7 +10,7 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 03/05/2020
+ms.date: 03/09/2020
 ms.author: jingwang
 
 ---
@@ -67,7 +67,7 @@ Copy activity execution details and performance characteristics are also returne
 | usedParallelCopies | The effective parallelCopies during copy. | Int32 value |
 | redirectRowPath | Path to the log of skipped incompatible rows in the blob storage you configure in the `redirectIncompatibleRowSettings` property. See [Fault tolerance](copy-activity-overview.md#fault-tolerance). | Text (string) |
 | executionDetails | More details on the stages the Copy activity goes through and the corresponding steps, durations, configurations, and so on. We don't recommend that you parse this section because it might change. To better understand how it helps you understand and troubleshoot copy performance, refer to [Monitor visually](#monitor-visually) section. | Array |
-| perfRecommendation | Copy performance tuning tips. See [Performance tuning tips](#performance-tuning-tips) for details. | Array |
+| perfRecommendation | Copy performance tuning tips. See [Performance tuning tips](copy-activity-performance-troubleshooting.md#performance-tuning-tips) for details. | Array |
 
 **Example:**
 

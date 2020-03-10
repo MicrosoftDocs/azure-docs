@@ -11,7 +11,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/05/2020
+ms.date: 03/09/2020
 ---
 
 # Troubleshoot copy activity performance
@@ -31,17 +31,17 @@ Learn more about:
 
 ## Performance tuning tips
 
-In some scenarios, when you run a copy activity in Data Factory, you'll see **"Performance tuning tips"** at the top as shown in the above example. The tips tell you the bottleneck identified by ADF for this particular copy run, along with suggestion on how to boost copy throughput. Try making the recommanded change , then run the copy again.
+In some scenarios, when you run a copy activity in Data Factory, you'll see **"Performance tuning tips"** at the top as shown in the above example. The tips tell you the bottleneck identified by ADF for this particular copy run, along with suggestion on how to boost copy throughput. Try making the recommanded change, then run the copy again.
 
 As a reference, currently the performance tuning tips provide suggestions for the following cases:
 
 - When loading data into Azure Synpase Analytics (formerly SQL DW), suggest to use PolyBase or COPY statement if it's not used.
-- When copying data from/to Azure SQL Database and DTU is under high untilization, suggest to upgrade to higher tier.
+- When copying data from/to Azure SQL Database and DTU is under high utilization, suggest to upgrade to higher tier.
 - When copying data from/to Azure Cosmos DB and RU is under high utilization, suggest to upgrade to larger RU.
 - When ingesting data from Amazon Redshift, suggest to use UNLOAD if it's not used.
 - If a number of read/write operations are throttled by the data store during copy, suggest to check and increase the allowed request rate for the data store, or reduce the concurrent workload.
 - If you use a Self-hosted Integration Runtime (IR) and copy activity waits long in the queue until the IR has available resource to execute, suggest to scale out/up your IR.
-- If you use an Azure IR that is in a not optimal region resulting in slow read/write, sugguest to configure to use an IR in another region.
+- If you use an Azure IR that is in a not optimal region resulting in slow read/write, suggest to configure to use an IR in another region.
 - If you configure fault tolerance and skipping incompatible rows result in slow performance, suggest to ensure source and sink data are compatible.
 - If staged copy is configured but not helpful for your source-sink pair, suggest to remove it.
 - When copy activity is resumed from last failure point but you happen to change the DIU setting after the original run, note the new DIU setting doesn't take effect.
@@ -58,7 +58,7 @@ The execution details and durations at the bottom of the copy activity monitorin
 
 ## Troubleshoot copy activity on Azure IR
 
-When the copy performance doesn't meet your expectation, to troubleshoot copy activity running on Azure Integration Runtime, if you see **[performance tuning tips](copy-activity-monitoring.md#performance-tuning-tips)** shown up in the copy monitoring view, apply the suggestion and try again. Otherwise, **[understand copy activity execution details](#understand-copy-activity-execution-details)**, check which stage has the **longest** duration, and apply the guidance below to boost copy performance:
+When the copy performance doesn't meet your expectation, to troubleshoot copy activity running on Azure Integration Runtime, if you see **[performance tuning tips](#performance-tuning-tips)** shown up in the copy monitoring view, apply the suggestion and try again. Otherwise, **[understand copy activity execution details](#understand-copy-activity-execution-details)**, check which stage has the **longest** duration, and apply the guidance below to boost copy performance:
 
 - **"Pre-copy script" experienced long duration:** it means the pre-copy script running on sink database takes long to finish. Tune the specified pre-copy script logic to enhance the performance. If you need further help on improving the script, contact your database team.
 
@@ -74,7 +74,8 @@ When the copy performance doesn't meet your expectation, to troubleshoot copy ac
   
 - **"Transfer - reading from source" experienced long working duration**: 
   - Check if ADF report any throttling error on source or your data store is under high utilization. If so, either reduce your workloads on the data store, or try contacting your data store administrator to increase the throttling limit or available resource.
-  - If your copy pattern supports larger than 4 [Data Integration Units (DIU)](copy-activity-performance.md#data-integration-units), generally you can try increasing DIUs to get better performance.
+  - If your copy pattern supports larger than 4 [Data Integration Units (DIU)](copy-activity-performance.md#data-integration-units), generally you can try increasing DIUs to get better performance. 
+  
   - Adopt connector specific data loading best practice if applies. For example, when copying data from Amazon Redshift, configure to use Redshift UNLOAD.
   - Use Azure IR in the same or close to your source data store region.
   
@@ -86,7 +87,7 @@ When the copy performance doesn't meet your expectation, to troubleshoot copy ac
 
 ## Troubleshoot copy activity on Self-hosted IR
 
-When the copy performance doesn't meet your expectation, to troubleshoot copy activity running on Azure Integration Runtime, if you see **[performance tuning tips](copy-activity-monitoring.md#performance-tuning-tips)** shown up in the copy monitoring view, apply the suggestion and try again. Otherwise, **[understand copy activity execution details](#understand-copy-activity-execution-details)**, check which stage has the **longest** duration, and apply the guidance below to boost copy performance:
+When the copy performance doesn't meet your expectation, to troubleshoot copy activity running on Azure Integration Runtime, if you see **[performance tuning tips](#performance-tuning-tips)** shown up in the copy monitoring view, apply the suggestion and try again. Otherwise, **[understand copy activity execution details](#understand-copy-activity-execution-details)**, check which stage has the **longest** duration, and apply the guidance below to boost copy performance:
 
 - **"Queue" experienced long duration:** it means the copy activity waits long in the queue until your Self-hosted IR has resource to execute. Check the IR capacity and usage, and [scale up or out](create-self-hosted-integration-runtime.md#high-availability-and-scalability) according to your workload.
 - **"Transfer - Time to first byte" experienced long working duration**: it means your source query takes long to return any data. Check and optimize the query or server. If you need further help, contact your data store team.
@@ -100,8 +101,8 @@ When the copy performance doesn't meet your expectation, to troubleshoot copy ac
 - **"Transfer - reading from source" experienced long working duration**: 
 
   - Check if the Self-hosted IR machine has low latency connecting to source data store. If your source is in Azure, you can use [this tool](http://www.azurespeed.com/Azure/Latency) to check the latency from the Self-hosted IR machine to the Azure regions, the less the better.
-  - Check if the Self-hosted IR machine has enough inbound bandwidth. If your source data store is in Azure, you can use [this tool](https://www.azurespeed.com/Azure/Download) to check the download speed.
-  - Check the Self-hosted IR's CPU and memory usage trend in Azure portal -> your data factory -> overview page. Consider to scaling up/out IR if the CPU usage is high or available memory is low.
+  - Check if the Self-hosted IR machine has enough inbound bandwidth to read and transfer the data efficiently. If your source data store is in Azure, you can use [this tool](https://www.azurespeed.com/Azure/Download) to check the download speed.
+  - Check the Self-hosted IR's CPU and memory usage trend in Azure portal -> your data factory -> overview page. Consider to [scale up/out IR](create-self-hosted-integration-runtime.md#high-availability-and-scalability) if the CPU usage is high or available memory is low.
   - Adopt connector specific data loading best practice if applies. For example:
     - When copying data from Oracle/Teradata/Netezza/SAP HANA/SAP Table/SAP Open Hub, enable data partition options to copy data in parallel.
     - When copying data from HDFS, configure to use DistCp.
@@ -110,8 +111,8 @@ When the copy performance doesn't meet your expectation, to troubleshoot copy ac
 
 - **"Transfer -  writing to sink" experienced long working duration**:
   - Check if the Self-hosted IR machine has low latency connecting to sink data store. If your sink is in Azure, you can use [this tool](http://www.azurespeed.com/Azure/Latency) to check the latency from the Self-hosted IR machine to the Azure region, the less the better.
-  - Check if the Self-hosted IR machine has enough outbound bandwidth. If your sink data store is in Azure, you can use [this tool](https://www.azurespeed.com/Azure/UploadLargeFile) to check the upload speed.
-  - Check if the Self-hosted IR's CPU and memory usage trend in Azure portal -> your data factory -> overview page. Consider to scaling up/out IR if the CPU usage is high or available memory is low.
+  - Check if the Self-hosted IR machine has enough outbound bandwidth to transfer and write the data efficiently. If your sink data store is in Azure, you can use [this tool](https://www.azurespeed.com/Azure/UploadLargeFile) to check the upload speed.
+  - Check if the Self-hosted IR's CPU and memory usage trend in Azure portal -> your data factory -> overview page. Consider to [scale up/out IR](create-self-hosted-integration-runtime.md#high-availability-and-scalability) if the CPU usage is high or available memory is low.
   - Adopt connector specific data loading best practice if applies. For example, when copying data into Azure Synapse Analytics (formerly SQL DW), use PolyBase or COPY statement. 
   - Check if ADF reports any throttling error on sink or if your data store is under high utilization. If so, either reduce your workloads on the data store, or try contacting your data store administrator to increase the throttling limit or available resource.
 
@@ -132,6 +133,6 @@ See the other copy activity articles:
 
 - [Copy activity overview](copy-activity-overview.md)
 - [Copy activity performance and scalability guide](copy-activity-performance.md)
-- [Copy activity performance optimization features](copy-activity-performance-optimization-features.md)
+- [Copy activity performance optimization features](copy-activity-performance-features.md)
 - [Use Azure Data Factory to migrate data from your data lake or data warehouse to Azure](data-migration-guidance-overview.md)
 - [Migrate data from Amazon S3 to Azure Storage](data-migration-guidance-s3-azure-storage.md)

@@ -11,7 +11,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/05/2020
+ms.date: 03/09/2020
 ---
 
 # Copy activity performance optimization features
@@ -19,9 +19,9 @@ ms.date: 03/05/2020
 Azure Data Factory provides the following performance optimization features:
 
 - [Data Integration Units](#data-integration-units)
+- [Self-hosted integration runtime scalability](#self-hosted-integration-runtime-scalability)
 - [Parallel copy](#parallel-copy)
 - [Staged copy](#staged-copy)
-- [Self-hosted integration runtime scalability](create-self-hosted-integration-runtime.md#high-availability-and-scalability)
 
 ## Data Integration Units
 
@@ -29,12 +29,12 @@ A Data Integration Unit is a measure that represents the power (a combination of
 
 The allowed DIUs to empower a copy activity run is **between 2 and 256**. If not specified or you choose “Auto” on the UI, Data Factory dynamically apply the optimal DIU setting based on your source-sink pair and data pattern. The following table lists the default DIUs and max supported DIUs in different copy scenarios:
 
-| Copy scenario | Default DIUs determined by service | Max supported DIUs |
+| Copy scenario | Supported DIU range | Default DIUs determined by service |
 |:--- |:--- |---- |
-| Copy data between file-based stores | Between 4 and 32 depending on the number and size of the files. | 256<br>Per file either on source or sink can use up to 4 DIUs. |
-| Copy data from partition-option-enabled cloud relational data store (including [Oracle](connector-oracle.md#oracle-as-source)/[Netezza](connector-netezza.md#netezza-as-source)/[Teradata](connector-teradata.md#teradata-as-source)) to any other cloud data stores | 4 | 256<br/>Per source data partition can use up to 4 DIUs.<br>For file-based sink, DIUs beyond 4 applies when writing to a folder instead of one single file. |
-| Copy data to Azure SQL Database or Azure Cosmos DB |Between 4 and 16 depending on the sink Azure SQL Database's or Cosmos DB's tier (number of DTUs/RUs) and source data pattern. |256<br>Per source file or database partition can use up to 4 DIUs. |
-| All the other copy scenarios | 4 | 4 |
+| Copy data between file-based stores |Each file can leverage up to 4 DIUs. <br>For example, if you copy data from a folder with 4 files and choose to preserve hierarchy, the max effective DIU is 16; when you choose to merge file, the max effective DIU is 4. |Between 4 and 32 depending on the number and size of the files. |
+| Copy data from file-based store to non-file-based store |Each file can leverage up to 4 DIUs. <br>For example, if you copy data from a folder with 4 files, the max effective DIU is 16. |- For copy into Azure SQL Database or Azure Cosmos DB, default DIU is between 4 and 16 depending on the sink Azure SQL Database's or Cosmos DB's tier (number of DTUs/RUs) and source file pattern.<br>- For copy into Azure Synapse Analytics using PolyBase or COPY statement, default DIU is 2.<br>- For other scenario, default DIU is 4. |
+| Copy data from non-file-based store to file-based stores |DIU beyond 4 applies when copying data from partition-option-enabled cloud relational data store (including [Oracle](connector-oracle.md#oracle-as-source)/[Netezza](connector-netezza.md#netezza-as-source)/[Teradata](connector-teradata.md#teradata-as-source)) and writing to a folder instead of one single file. Note per source data partition can use up to 4 DIUs. |- For copy from REST or HTTP, default DIU is 1.<br/>- For copy from Amazon Redshift using UNLOAD, default DIU is 2.<br>- For other scenario, default DIU is 4. |
+| Copy data between non-file-based stores |DIU beyond 4 applies when copying data from partition-option-enabled cloud relational data store (including [Oracle](connector-oracle.md#oracle-as-source)/[Netezza](connector-netezza.md#netezza-as-source)/[Teradata](connector-teradata.md#teradata-as-source)). Note per source data partition can use up to 4 DIUs. |- For copy from REST or HTTP, default DIU is 1.<br>- For other scenario, default DIU is 4. |
 
 You can see the DIUs used for each copy run in the copy activity monitoring view or activity output. For more information, see [Copy activity monitoring](copy-activity-monitoring.md). To override this default, specify a value for the `dataIntegrationUnits` property as follows. The *actual number of DIUs* that the copy operation uses at run time is equal to or less than the configured value, depending on your data pattern.
 
@@ -62,24 +62,35 @@ You will be charged **# of used DIUs \* copy duration \* unit price/DIU-hour**. 
 ]
 ```
 
+## Self-hosted integration runtime scalability
+
+If you would like to achieve higher throughput, you can either scale up or scale out the Self-hosted IR:
+
+- If the CPU and available memory on the Self-hosted IR node are not fully utilized, but the execution of concurrent jobs is reaching the limit, you should scale up by increasing the number of concurrent jobs that can run on a node.  See [here](create-self-hosted-integration-runtime.md#scale-up) for instructions.
+- If, on the other hand, the CPU is high on the Self-hosted IR node or available memory is low, you can add a new node to help scale out the load across the multiple nodes.  See [here](create-self-hosted-integration-runtime.md#high-availability-and-scalability) for instructions.
+
+Note in the following scenarios, single copy activity execution can leverage multiple Self-hosted IR nodes:
+
+- Copy data from file-based stores, depending on the number and size of the files.
+- Copy data from partition-option-enabled relational data store (including [Oracle](connector-oracle.md#oracle-as-source), [Netezza](connector-netezza.md#netezza-as-source), [Teradata](connector-teradata.md#teradata-as-source), [SAP HANA](connector-sap-hana.md#sap-hana-as-source), [SAP Table](connector-sap-table.md#sap-table-as-source), and [SAP Open Hub](connector-sap-business-warehouse-open-hub.md#sap-bw-open-hub-as-source)), depending on the number of data partitions.
+
 ## Parallel copy
 
-You can set parallel copy (`parallelCopies` property) on copy activity to indicate the parallelism that you want the copy activity to use. You can think of this property as the maximum number of threads within the copy activity that can read from your source or write to your sink data stores in parallel.
+You can set parallel copy (`parallelCopies` property) on copy activity to indicate the parallelism that you want the copy activity to use. You can think of this property as the maximum number of threads within the copy activity that read from your source or write to your sink data stores in parallel.
 
-The paralle copy is orthogonal to Data Integration Units or Self-hosted IR nodes. The former is counted across all the DIUs or Self-hosted IR nodes.
+The parallel copy is orthogonal to [Data Integration Units](#data-integration-units) or [Self-hosted IR nodes](#self-hosted-integration-runtime-scalability). It is counted across all the DIUs or Self-hosted IR nodes.
 
-For each copy activity run, by default Azure Data Factory dynamically apply the optimal parallel copy setting based on your source-sink pair and data pattern. The following table lists the default number of parallel copies:
+For each copy activity run, by default Azure Data Factory dynamically apply the optimal parallel copy setting based on your source-sink pair and data pattern. The following table lists the parallel copy behavior:
 
 > [!TIP]
 > When you copy data between file-based stores, the default behavior which is auto-determined based on your source file pattern usually gives you the best throughput.
 
-| Copy scenario | Default parallel copy count determined by service |
+| Copy scenario | Pararallel copy behavior |
 | --- | --- |
-| Copy data from file-based stores |Depends on the size of the files and the number of DIUs used to copy data between two cloud data stores, or the self-hosted integration runtime's CPU/memory and node count.<br/><br>`parallelCopies` determines the parallelism **at the file level**. The chunking within each file happens underneath automatically and transparently. It's designed to use the best suitable chunk size for a given data store type to load data in parallel. <br/><br>The actual number of parallel copies copy activity uses at run time is no more than the number of files you have. If the copy behavior is **mergeFile** into file sink, the copy activity can't take advantage of file-level parallelism. |
-| Copy from relational data store with partition option enabled (including [Oracle](connector-oracle.md#oracle-as-source), [Netezza](connector-netezza.md#netezza-as-source), [Teradata](connector-teradata.md#teradata-as-source), [SAP HANA](connector-sap-hana.md#sap-hana-as-source), [SAP Table](connector-sap-table.md#sap-table-as-source), and [SAP Open Hub](connector-sap-business-warehouse-open-hub.md#sap-bw-open-hub-as-source)) |4<br><br>Applies when the data partition option is enabled. The actual number of parallel copies copy activity uses at run time is no more than the number of data partitions you have.<br><br>When use Self-hosted Integration Runtime and copy to Azure Blob/ADLS Gen2, note the max effective parallel copy is 4 or 5 per IR node. |
-| Copy data to Azure SQL Database or Azure Cosmos DB |Between 1 and 4 depending on the sink Azure SQL Database's or Cosmos DB's tier (number of DTUs/RUs) |
-| Copy data from any source store to Azure Table storage |4 |
-| All other copy scenarios |1 |
+| Copy data between file-based stores | The default number of parallel copies depends on the size of the files as well as the number of DIUs or the Self-hosted IR's CPU/memory/node count.<br/><br/>`parallelCopies` determines the parallelism **at the file level**. The chunking within each file happens underneath automatically and transparently. It's designed to use the best suitable chunk size for a given data store type to load data in parallel. <br/><br/>The actual number of parallel copies copy activity uses at run time is no more than the number of files you have. If the copy behavior is **mergeFile** into file sink, the copy activity can't take advantage of file-level parallelism. |
+| Copy data from file-based store to non-file-based store | - When copying data into Azure SQL Database or Azure Cosmos DB, default parallel copy is between 1 and 4 depending on the sink Azure SQL Database's or Cosmos DB's tier (number of DTUs/RUs).<br>- When copying data into Azure Table, default parallel copy is 4. |
+| Copy data from non-file-based store to file-based store | - When copying data from partition-option-enabled data store (including [Oracle](connector-oracle.md#oracle-as-source), [Netezza](connector-netezza.md#netezza-as-source), [Teradata](connector-teradata.md#teradata-as-source), [SAP HANA](connector-sap-hana.md#sap-hana-as-source), [SAP Table](connector-sap-table.md#sap-table-as-source), and [SAP Open Hub](connector-sap-business-warehouse-open-hub.md#sap-bw-open-hub-as-source)), default parallel copy is 4. The actual number of parallel copies copy activity uses at run time is no more than the number of data partitions you have. When use Self-hosted Integration Runtime and copy to Azure Blob/ADLS Gen2, note the max effective parallel copy is 4 or 5 per IR node.<br>- For other scenarios, parallel copy doesn't take effect. Even if parallelism is specified, it's not applied. |
+| Copy data between non-file-based stores | - When copying data into Azure SQL Database or Azure Cosmos DB, default parallel copy is between 1 and 4 depending on the sink Azure SQL Database's or Cosmos DB's tier (number of DTUs/RUs).<br/>- When copying data into Azure Table, default parallel copy is 4. |
 
 To control the load on machines that host your data stores, or to tune copy performance, you can override the default value and specify a value for the `parallelCopies` property. The value must be an integer greater than or equal to 1. At run time, for the best performance, the copy activity uses a value that is less than or equal to the value that you set.
 
