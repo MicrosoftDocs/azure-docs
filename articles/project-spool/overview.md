@@ -33,7 +33,7 @@ Some example use cases enabled by Project Spool include:
 - **Tech Support**: Allow your customers to share their screens with your staff for a seamless customer support experience.
 
 
-Project Spool is composed of a managed service, server SDKs, and client SDKs for supported device platforms. 
+Project Spool is a managed Azure service that you build upon by using the Spool server-side and client-side SDKs.
 
 ## Next steps
 
