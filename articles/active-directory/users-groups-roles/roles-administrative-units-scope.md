@@ -17,22 +17,18 @@ ms.collection: M365-identity-device-management
 ---
 # Administrative unit scope for roles in Azure Active Directory (preview)
 
-Administrative units can be useful in organizations with independent divisions. Consider the example of a large university that is made up of many autonomous schools (School of Business, School of Engineering, and so on) that each has their own IT administrators who control access, manage users, and set policies for their school. A central administrator could create an administrative unit for the School of Business and populate it with only the business school students and staff. Then the central administrator can add the Business school IT staff to a scoped role that grants administrative permissions over only Azure AD users in the business school administrative unit.
+This document is reference to the functionality available in Administrative Units public preview in Azure Active Directory (Azure AD). This article covers the basic tasks for setting up and adding administrative unit scope to Azure AD role assignments.
 
-Before administrative units (AUs), all Azure AD admin roles had to be assigned organization-wide. Someone in the Helpdesk Administrator role, for example, could reset passwords for any (non-admin) user in the Azure AD organization.
+Outside this document, please refer to the following:
+
+- [Working with Admin Units](https://docs.microsoft.com/powershell/azure/active-directory/working-with-administrative-units?view=azureadps-2.0): How to work with administrative units using PowerShell
+- [Administrative Unit Graph support](https://docs.microsoft.com/graph/api/resources/administrativeunit?view=graph-rest-beta): Detail documentation on Graph APIs available for administrative units.
 
 Administrative units allow you to grant admin permissions that are restricted to a department, region, or other segment of your organization that you define. For example, delegating to regional support specialists the [Helpdesk Administrator](directory-assign-admin-roles.md#helpdesk-administrator) role restricted to managing just the users in the region they support.
 
+Restricting administrative scope via administrative units can be useful in organizations with independent divisions. Consider the example of a large university that is made up of many autonomous schools (School of Business, School of Engineering, and so on) that each has their own IT administrators who control access, manage users, and set policies for their school. A central administrator could create an administrative unit for the School of Business and populate it with only the business school students and staff. Then the central administrator can add the Business school IT staff to a scoped role that grants administrative permissions over only Azure AD users in the business school administrative unit.
 
-Creating and managing administrative units themselves is available at no additional charge. Using administrative units to scope directory role assignments requires Azure Active Directory Premium 1 licenses for administrators and Azure Active Directory Basic licenses for administrative unit members.
-
-## Scope of document
-
-This document is intended to be a quick reference to the functionality available in Administrative Units private preview. The document does not cover the detailed steps of how generic tasks like resetting a password, assigning a license etc. are done. Refer to the official Azure AD documentation for detailed information on general tasks.
-Outside this document, please refer to the following:
-
-- Working with Admin Units: How to work with administrative units using PowerShell
-- Administrative Unit Graph support: Detail documentation on Graph APIs available for administrative units. 
+Creating and managing administrative units themselves is available at no additional charge as part of Azure Active Directory (Azure AD). Using administrative units to restrict the scope of Azure AD role assignments requires Azure AD Premium 1 licenses for administrators and Azure Active Directory Basic licenses for administrative unit members.
 
 ## Roles available
 
@@ -44,13 +40,6 @@ Helpdesk Administrator  |  Can reset passwords for non-administrators and Helpde
 License Administrator  |  Can assign, remove and update license assignments within the administrative unit only.
 Password Administrator  |  Can reset passwords for non-administrators and Password Administrators within the assigned administrative unit only.
 User Administrator  |  Can manage all aspects of users and groups, including resetting passwords for limited admins within the assigned administrative unit only.
-
-- Authentication Administrator
-- Groups Administrator
-- Helpdesk Administrator
-- License Administrator
-- Password Administrator
-- User Administrator
 
 ## Currently supported functions
 
