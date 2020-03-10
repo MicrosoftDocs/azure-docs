@@ -185,9 +185,9 @@
     - name: Create and train models
       items:
       - name: Choose algorithms
-        href: /azure/machine-learning/studio/algorithm-choice?context=azure/machine-learning/team-data-science-process/context/ml-context
+        href: /azure/machine-learning/how-to-select-algorithms?context=azure/machine-learning/team-data-science-process/context/ml-context
       - name: Algorithm cheat sheet
-        href: /azure/machine-learning/studio/algorithm-cheat-sheet?context=azure/machine-learning/team-data-science-process/context/ml-context
+        href: /azure/machine-learning/algorithm-cheat-sheet?context=azure/machine-learning/team-data-science-process/context/ml-context
   - name: Deploy models in production
     href: deploy-models-in-production.md
 - name: Related
@@ -201,11 +201,11 @@
   - name: Predictive maintenance
     items:
     - name: Overview
-      href: cortana-analytics-playbook-predictive-maintenance.md
+      href: predictive-maintenance-playbook.md
     - name: Architecture
-      href: cortana-analytics-architecture-predictive-maintenance.md
+      href: predictive-maintenance-architecture.md
     - name: Technical guide
-      href: cortana-analytics-technical-guide-predictive-maintenance.md
+      href: predictive-maintenance-technical-guide.md
 - name: Resources
   items:
   - name: Organizations using TDSP
