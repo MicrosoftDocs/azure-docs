@@ -49,7 +49,7 @@ Here are some things you might use event data routing for:
 * Computing properties on a twin from sensor input (such as aggregating data from temperature, humidity, and noise sensors into a *comfort* property on a "room" twin)
 * Propagating state through the Azure Digital Twins graph (such as calculating an average *comfort* for a floor in a building, when the *comfort* property of any of the rooms on the floor changes)
 * Applying complex external simulation or machine learning processors (such as calculating the energy efficiency of a wind turbine based on current operational parameters)
-* Routing data to downstream destinations (such as storing it for long-term bulk analytics, or triggering workflow integrations)
+* Sending data to downstream destinations (such as storing it for long-term bulk analytics or triggering workflow integrations). This type of routing requires cooperation with one of three other Azure services: Event Grid, Event Hub, or Service Bus.
 
 ### Query the model of your environment to answer business questions
 
