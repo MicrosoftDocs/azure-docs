@@ -1,17 +1,8 @@
 ---
 title: Prepare Azure VM image for use with cloud-init 
 description: How to prepare an pre-existing Azure VM image for deployment with cloud-init
-services: virtual-machines-linux
-documentationcenter: ''
 author: danis
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-
 ms.service: virtual-machines-linux
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
-ms.devlang: azurecli
 ms.topic: article
 ms.date: 06/24/2019
 ms.author: danis
