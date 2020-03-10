@@ -1,6 +1,6 @@
 ---
 title: Data protection in Azure Stream Analytics
-description: This article explains 
+description: This article explains how to encrypt your private data used by an Azure Stream Analytics job.
 author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
@@ -57,7 +57,11 @@ Any private data that is required to be persisted by Stream Analytics is stored 
 
 Connection details of your resources, which are used by your Stream Analytics job, are also stored. Encrypt your storage account to secure all of your data. 
 
-To help you meet your compliance obligations in any regulated industry or environment, you can read more about [Microsoft ' compliance offerings](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942). 
+To help you meet your compliance obligations in any regulated industry or environment, you can read more about [Microsoft's compliance offerings](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942). 
 
 ## Next steps
 
+* [Create an Azure Storage account](../storage/common/storage-account-create.md)
+* [Understand inputs for Azure Stream Analytics](stream-analytics-add-inputs.md)
+* [Checkpoint and replay concepts in Azure Stream Analytics jobs](stream-analytics-concepts-checkpoint-replay.md)
+* [Using reference data for lookups in Stream Analytics](stream-analytics-use-reference-data.md)
