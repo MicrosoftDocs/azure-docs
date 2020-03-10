@@ -133,7 +133,7 @@ If some of your domain-joined devices are Windows down-level devices, you must:
 - Install Microsoft Workplace Join for Windows down-level computers
 
 > [!NOTE]
-> Windows 7 support ended on January 14, 2020. For more information, see [Windows 7 support ended](https://support.microsoft.com/en-us/help/4057281/windows-7-support-ended-on-january-14-2020).
+> Windows 7 support ended on January 14, 2020. For more information, see [Windows 7 support ended](https://support.microsoft.com/help/4057281/windows-7-support-ended-on-january-14-2020).
 
 ### Configure the local intranet settings for device registration
 
