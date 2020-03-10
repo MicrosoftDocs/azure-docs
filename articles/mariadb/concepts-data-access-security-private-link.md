@@ -55,9 +55,6 @@ Private Endpoints are required to enable Private Link. This can be done using th
 
 Once the network admin creates the Private Endpoint (PE), the admin can manage the Private Endpoint Connection (PEC) to Azure Database for MariaDB.
 
-> [!NOTE]
-> Currently, Azure Database for MariaDB only supports auto-approval for the private endpoint.
-
 * Navigate to the Azure Database for MariaDB server resource in the Azure portal. 
     * Select the Private endpoint connections in the left pane
     * Shows a list of all Private Endpoint Connections (PECs)

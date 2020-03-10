@@ -54,9 +54,6 @@ Private Endpoints are required to enable Private Link. This can be done using th
 ### Approval Process
 Once the network admin creates the Private Endpoint (PE), the PostgreSQL admin can manage the Private Endpoint Connection (PEC) to Azure Database for PostgreSQL.
 
-> [!NOTE]
-> Currently, Azure Database for PostgreSQL Single server only supports auto-approval for the private endpoint.
-
 * Navigate to the Azure Database for PostgreSQL server resource in the Azure portal. 
     * Select the Private endpoint connections in the left pane
     * Shows a list of all Private Endpoint Connections (PECs)
