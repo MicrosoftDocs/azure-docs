@@ -11,15 +11,15 @@ metadata:
   layout: LandingPage
   ms.service: speech-service
   ms.topic: landing-page
-  ms.date: 02/11/2020
+  ms.date: 03/10/2020
   ms.author: dapine
 
 landingContent:
-- title: Get started
+- title: About the Speech Devices SDK
   linkLists:
     - linkListType: overview
       links:
-        - text: About the Speech Devices SDK
+        - text: What is the Speech Devices SDK?
           url: speech-devices-sdk.md
     - linkListType: quickstart
       links:
@@ -29,7 +29,7 @@ landingContent:
           url: speech-devices-sdk-quickstart.md?pivots=platform-linux
         - text: Use Speech Device SDK (Android)
           url: speech-devices-sdk-quickstart.md?pivots=platform-android
-- title: Step-by-step guides
+- title: Develop with the Speech Devices SDK
   linkLists:
     - linkListType: how-to-guide
       links:

@@ -11,11 +11,11 @@ metadata:
   layout: LandingPage
   ms.service: speech-service
   ms.topic: landing-page
-  ms.date: 02/11/2020
+  ms.date: 03/10/2020
   ms.author: dapine
 
 landingContent:
-- title: Get started
+- title: About Speech Hosting
   linkLists:
     - linkListType: concept
       links:
@@ -25,7 +25,7 @@ landingContent:
           url: speech-container-howto-on-premises.md
         - text: Speech service containers on Azure Container Instances
           url: deploy-speech-on-container-instances.md
-- title: Step-by-step guides
+- title: Create and Configure
   linkLists:
     - linkListType: how-to-guide
       links:

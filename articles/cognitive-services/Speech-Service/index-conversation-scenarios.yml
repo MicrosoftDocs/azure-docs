@@ -11,15 +11,15 @@ metadata:
   layout: LandingPage
   ms.service: speech-service
   ms.topic: landing-page
-  ms.date: 02/11/2020
+  ms.date: 03/10/2020
   ms.author: dapine
 
 landingContent:
-- title:  Conversation Transcription
+- title: About Conversation Transcription
   linkLists:
     - linkListType: overview
       links:
-      - text: About Conversation Transcription
+      - text: What is Conversation Transcription?
         url: conversation-transcription.md
     - linkListType: how-to-guide
       links:
@@ -29,11 +29,11 @@ landingContent:
           url: how-to-async-conversation-transcription.md
         - text: Handle call center scenarios
           url: call-center-transcription.md
-- title: Multi-device conversation
+- title: Develop Multi-device conversation
   linkLists:
     - linkListType: overview
       links:
-      - text: About Multi-device conversation
+      - text: What is Multi-device conversation?
         url: multi-device-conversation.md
     - linkListType: quickstart
       links:

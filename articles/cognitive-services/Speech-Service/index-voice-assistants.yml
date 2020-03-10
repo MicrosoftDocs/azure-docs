@@ -11,11 +11,11 @@ metadata:
   layout: LandingPage
   ms.service: speech-service
   ms.topic: landing-page
-  ms.date: 02/11/2020
+  ms.date: 03/10/2020
   ms.author: dapine
 
 landingContent:
-- title: Get started
+- title: About Voice Assistants
   linkLists:
     - linkListType: overview
       links:
@@ -31,8 +31,8 @@ landingContent:
           url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services
         - text: Voice assistants FAQ
           url: faq-voice-assistants.md
-- title: Custom Keyword
-  linkLists:          
+- title: Develop Custom Keyword
+  linkLists:
     - linkListType: how-to-guide
       links:
         - text: Custom Keyword
@@ -41,8 +41,8 @@ landingContent:
       links:
         - text: Custom Keyword naming guidelines
           url: speech-devices-sdk-kws-guidelines.md
-- title: Custom Commands
-  linkLists:          
+- title: Develop Custom Commands
+  linkLists:
     - linkListType: quickstart
       links:
         - text: Create a Custom Command (preview)
@@ -65,7 +65,7 @@ landingContent:
         url: how-to-custom-speech-commands-confirmations.md
       - text: Add a one-step correction to a Custom Command
         url: how-to-custom-speech-commands-one-step-correction.md
-- title: Direct Line Speech
+- title: Develop Direct Line Speech
   linkLists:
     - linkListType: quickstart
       links:

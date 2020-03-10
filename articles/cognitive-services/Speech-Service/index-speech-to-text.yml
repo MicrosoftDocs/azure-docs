@@ -19,7 +19,7 @@ landingContent:
   linkLists:
     - linkListType: overview
       links:
-      - text: What is speech-to-text?
+      - text: What is Speech-to-text?
         url: speech-to-text.md
     - linkListType: quickstart
       links:

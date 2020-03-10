@@ -11,11 +11,11 @@ metadata:
   layout: LandingPage
   ms.service: speech-service
   ms.topic: landing-page
-  ms.date: 02/11/2020
+  ms.date: 03/10/2020
   ms.author: dapine
 
 landingContent:
-- title: Get started
+- title: About Speech Translation
   linkLists:
     - linkListType: overview
       links:
@@ -29,7 +29,7 @@ landingContent:
           url: quickstarts/translate-speech-to-text-multiple-languages.md
         - text: Translate speech-to-speech
           url: quickstarts/translate-speech-to-speech.md
-- title: Step-by-step guides
+- title: Develop with Speech Translation
   linkLists:
     - linkListType: learn
       links:

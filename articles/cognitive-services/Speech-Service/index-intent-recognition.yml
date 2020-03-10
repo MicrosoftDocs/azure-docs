@@ -11,17 +11,17 @@ metadata:
   layout: LandingPage
   ms.service: speech-service
   ms.topic: landing-page
-  ms.date: 02/11/2020
+  ms.date: 03/10/2020
   ms.author: dapine
 
 landingContent:
-- title: Get started
+- title: About Intent Recognition
   linkLists:
     - linkListType: quickstart
       links:
         - text: Recognize speech, intents, and entities
           url: quickstarts/intent-recognition.md
-- title: Step-by-step guides
+- title: Develop with Intent Recognition
   linkLists:
     - linkListType: how-to-guide
       links:
