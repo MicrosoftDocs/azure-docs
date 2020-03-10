@@ -26,9 +26,9 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 
 ## Configuration
 
-To configure Raw logs for your Azure CDN from Microsoft Service: 
+To configure Raw logs for your Azure CDN from Microsoft profile: 
 
-1. From the Azure portal menu, select **All Resources** > **\<your-CDN-profile>**.
+1. From the Azure portal menu, select **All Resources** >> **\<your-CDN-profile>**.
 
 2. Under **Monitoring**, select **Diagnostics settings**.
 
@@ -77,4 +77,4 @@ Azure CDN from Microsoft Service currently provides Raw logs (batched hourly). R
 | HttpStatusCode        | The HTTP status code returned from the proxy.                                                                                                                                                        |
 | HttpStatusDetails     | Resulting status on the request. Meaning of this string value can be found at a Status reference table.                                                                                              |
 | Pop                   | The edge pop, which responded to the user request. POPs' abbreviations are airport codes of their respective metros.                                                                                   |
-| Cache Status          | Signifies if the object was returned from cache or came from the origin.                                                                                                                             |1. Select **All services** in the left-hand menu, select **All resources**, and then select **myLoadBalancer** from the resources list.
+| Cache Status          | Signifies if the object was returned from cache or came from the origin.                                                                                                             |
