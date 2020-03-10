@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/05/2020
+ms.date: 03/09/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -52,17 +52,17 @@ The following example shows the **AAD-Common** technical profile:
 </TechnicalProfile>
 ```
 
-## Input claims
+## InputClaims
 
-The following technical profiles include **InputClaims** for social and local accounts:
+The InputClaims element contains a claim, which is used to look up an account in the directory, or create a new one. There must be exactly one InputClaim element in the input claims collection for all Azure AD technical profiles. You may need to map the name of the claim defined in your policy to the name defined in Azure Active Directory.
 
-- The social account technical profiles **AAD-UserReadUsingAlternativeSecurityId** and **AAD-UserWriteUsingAlternativeSecurityId** includes the **AlternativeSecurityId** claim. This claim contains the social account user identifier.
-- The local account technical profiles **AAD-UserReadUsingEmailAddress** and **AAD-UserWriteUsingLogonEmail** includes the **email** claim. This claim contains the sign-in name of the local account.
-- The unified (local and social) technical profiles **AAD-UserReadUsingObjectId**, **AAD-UserWritePasswordUsingObjectId**, **AAD-UserWriteProfileUsingObjectId**, and **AAD-UserWritePhoneNumberUsingObjectId** includes the **objectId** claim. The unique identifier of an account.
+To read, update, or delete an existing user account, the input claim is a key that uniquely identifies the account in Azure AD directory. For example, **objectId**, **userPrincipalName**, **signInNames.emailAddress**, **signInNames.userName**, or **alternativeSecurityId**. 
 
-The **InputClaimsTransformations** element may contain a collection of **InputClaimsTransformation** elements that are used to modify the input claims or generate new ones.
+To create a new user account, the input claim is a key that uniquely identifies a local or federated account. For example, local account: **signInNames.emailAddress**, or **signInNames.userName**. For a federated account: the **alternativeSecurityId**.
 
-## Output claims
+The InputClaimsTransformations element may contain a collection of input claims transformation elements that are used to modify the input claim or generate new one.
+
+## OutputClaims
 
 The **OutputClaims** element contains a list of claims returned by the Azure AD technical profile. You may need to map the name of the claim defined in your policy to the name defined in Azure Active Directory. You can also include claims that aren't returned by the Azure Active Directory, as long as you set the `DefaultValue` attribute.
 
