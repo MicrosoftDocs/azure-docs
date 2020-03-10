@@ -12,7 +12,7 @@
       href: resources-faq.md
     - name: Questions about Azure Migrate appliance
       href: common-questions-appliance.md
-    - name: Questions about discovery, assessment/dependency visualization
+    - name: Questions about discovery/assessment/dependency analysis
       href: common-questions-discovery-assessment.md
     - name: Questions about Server Migration
       href: common-questions-server-migration.md
@@ -74,6 +74,8 @@
       href: migrate-appliance.md
     - name: Replication appliance requirements
       href: migrate-replication-appliance.md
+    - name: Dependency analysis requirements
+      href: dependency-analysis-support-matrix.md
   - name: Hyper-V migration architecture
     href: hyper-v-migration-architecture.md
   - name: Agent-based migration architecture
@@ -83,7 +85,7 @@
     href: best-practices-assessment.md
   - name: Assessments overview
     href: concepts-assessment-calculation.md
-  - name: Dependency visualization
+  - name: Dependency analysis
     href: concepts-dependency-visualization.md
 - name: How-to guides
   items:
