@@ -42,6 +42,8 @@ az aks create \
     --attach-acr <acrName>
 ```
 
+You can also manually configure a service principal to pull images from ACR. For more information, see [ACR authentication with service principals](../container-registry/container-registry-auth-service-principal.md) or [Authenticate from Kubernetes with a pull secret](../container-registry/container-registry-auth-kubernetes.md).
+
 After a few minutes, the deployment completes, and returns JSON-formatted information about the AKS deployment.
 
 > [!NOTE]

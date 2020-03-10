@@ -1,6 +1,6 @@
 ---
 title: Mapping data flow flatten transformation
-description: Azure data factory mapping data flow flatten transformation
+description: Azure Data Factory Mapping Data Flow flatten transformation
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
@@ -24,7 +24,7 @@ First, choose the array column that you wish to unroll and pivot.
 
 ## Unroll root
 
-By default ADF will flatten the structure at the unroll array that you chose above. Or, you can choose a different part of the hierarchy to unroll to.
+By default ADF will flatten the structure at the unroll array that you chose above. Or, you can choose a different part of the hierarchy to unroll to. "Unroll root" is an optional setting.
 
 ## Input columns
 

@@ -41,6 +41,9 @@ The Lookup Transformation is implemented as a left outer join. When you have mul
 * Match on: Select first, last, or any match
 * Sort conditions: If you select first or last, ADF requires your data to be ordered so that there is logic behind first and last
 
+> [!NOTE]
+> Only use the first or last option on your single row selector if you need to control which value to bring back from your lookup. Using "any" or multi-row lookups will perform faster.
+
 ### Option 2
 
 You can also do this using an Aggregate transformation after your Lookup. In this case, an Aggregate transformation called ```PickFirst``` is used to pick the first value from the lookup matches.
