@@ -150,7 +150,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     c. In the **General Settings** section, open your downloaded certificate from Azure portal in notepad, copy the content, and then paste it into the IDP metadata textbox. 
 
-    d. Click on the **Save & Stay** button.**
+    d. Click on the **Save & Stay** button.
   
     e. Click on the **Update Metadata** button in the SAML Metadata section. 
 
@@ -164,7 +164,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ### Create Aventri test user
 
-In this section, you create a user called Britta Simon in Aventri. Work with [Aventri Client support team](mail to: support@aventri.com) to add the users in the Aventri platform.
+In this section, you create a user called Britta Simon in Aventri. Work with [Aventri Client support team](mail to:support@aventri.com) to add the users in the Aventri platform.
 
 ## Test SSO 
 
