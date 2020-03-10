@@ -65,11 +65,11 @@ After you modified and saved the manifest, Unity will automatically refresh. Con
 
 The following steps ensure that your project is using the latest version of the remote-rendering package.
 1. Select the package in the Project window and click on the package icon:
-![Selecting the package icon](media/packageIcons.png)
+![Selecting the package icon](media/package-icons.png)
 1. In the Inspector, click "View in Package Manager":
-![package inspector](media/packageProperties.png)
+![package inspector](media/package-properties.png)
 1. In the package manager page for remote rendering package, see if the update button is available. If it is, then clicking it will update the package to the latest available version:
-![The ARR package in the package manager](media/packageManager.png)
+![The ARR package in the package manager](media/package-manager.png)
 1. Sometimes updating the package may lead to errors in the console. If this occurs, try closing and reopening the project.
 
 ## Configure the camera
