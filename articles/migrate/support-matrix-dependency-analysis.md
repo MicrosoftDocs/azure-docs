@@ -7,7 +7,7 @@ ms.date: 03/11/2020
 
 # Support matrix for dependency analysis
 
-This article summarizes support requirements and prerequisites for dependency analysis in Azure Migrate:Server Assessment. Dependency analysis helps you to identify dependencies between on-premises machines that you want to assess and migrate to Azure. [Learn](concepts-dependency-visualization.md) about dependency analysis, and [compare](concepts-dependency-visualization.md#compare-agentless-and-agent-based) agent-based dependency analysis with agentless analysis.
+This article summarizes prerequisites and support requirements for dependency analysis in Azure Migrate:Server Assessment. Dependency analysis helps you to identify dependencies between on-premises machines that you want to assess and migrate to Azure. [Learn](concepts-dependency-visualization.md) about dependency analysis, and [compare](concepts-dependency-visualization.md#compare-agentless-and-agent-based) agent-based dependency analysis with agentless analysis.
 
 ## Agentless requirements
 
