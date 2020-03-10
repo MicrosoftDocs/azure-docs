@@ -27,7 +27,7 @@ In this tutorial, you'll learn how to integrate Aventri with Azure Active Direct
 * Enable your users to be automatically signed-in to Aventri with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
-To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/what-is-single-sign-on).
+To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
 ## Prerequisites
 
@@ -65,8 +65,8 @@ To configure and test Azure AD SSO with Aventri, complete the following building
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
     1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
     1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
-1. **[Configure Aventri SSO](#configure-Aventri-sso)** - to configure the single sign-on settings on application side.
-    1. **[Create Aventri test user](#create-Aventri-test-user)** - to have a counterpart of B.Simon in Aventri that is linked to the Azure AD representation of user.
+1. **[Configure Aventri SSO](#configure-aventri-sso)** - to configure the single sign-on settings on application side.
+    1. **[Create Aventri test user](#create-aventri-test-user)** - to have a counterpart of B.Simon in Aventri that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
 ## Configure Azure AD SSO
@@ -164,7 +164,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ### Create Aventri test user
 
-In this section, you create a user called Britta Simon in Aventri. Work with [Aventri Client support team](support@aventri.com) to add the users in the Aventri platform.
+In this section, you create a user called Britta Simon in Aventri. Work with [Aventri Client support team](mail to: support@aventri.com) to add the users in the Aventri platform.
 
 ## Test SSO 
 
@@ -176,7 +176,7 @@ When you click the Aventri tile in the Access Panel, you should be automatically
 
 - [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/what-is-single-sign-on)
+- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
 - [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
