@@ -161,6 +161,8 @@ There are a few things to know when working with the query editor.
 
 * The query editor uses ports 443 and 1443 to communicate.  Please ensure you have enabled outbound HTTPS traffic on these ports. You will also need to add your outbound IP address to the server's allowed firewall rules to access your databases and data warehouses.
 
+* Query Editor works with Private Link without needing to add the Client Ip address into the SQL Database firewall
+
 * Pressing F5 refreshes the query editor page and any query being worked on is lost.
 
 * Query editor doesn't support connecting to the `master` database.
@@ -170,6 +172,8 @@ There are a few things to know when working with the query editor.
 * The query editor only supports cylindrical projection for geography data types.
 
 * There's no support for IntelliSense for database tables and views. However, the editor does support autocomplete on names that have already been typed.
+
+
 
 
 ## Next steps
