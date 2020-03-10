@@ -6,11 +6,10 @@ manager: nitinme
 description: Two tables representing the container registries, repositories and image names for all Cognitive Service offerings.
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 01/10/2020
+ms.date: 03/10/2020
 ms.author: dapine
 ---
-> [!NOTE]
-> Information the user should notice even if skimming
+
 ### Container repositories and images
 
 The tables below are a listing of the available container images offered by Azure Cognitive Services. For a complete list of all the available container image names and their available tags, see [Cognitive Services container image tags](../container-image-tags.md). Currently, there are no Cognitive Services containers that are generally available (GA). For the time being, until further announcements are made -- containers are available as either *Public Ungated* or *Public Gated Preview*.
