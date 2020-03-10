@@ -30,7 +30,7 @@ Your private endpoint and virtual network must be in the same region. When you s
 
 Your private endpoint uses a private IP address in your virtual network.
 
-## Establish a private link connection to Key Vault using the Azure Portal 
+## Establish a private link connection to Key Vault using the Azure portal 
 
 First, create a virtual network by following the steps in [Create a virtual network using the Azure portal](../virtual-network/quick-create-portal.md)
 
@@ -144,7 +144,7 @@ There are four provisioning states:
 | Reject | Rejected | Connection was rejected by the private link resource owner. |
 | Remove | Disconnected | Connection was removed by the private link resource owner, the private endpoint becomes informative and should be deleted for cleanup. |
  
-###  How to manage a private endpoint connection to Key Vault using the Azure Portal 
+###  How to manage a private endpoint connection to Key Vault using the Azure portal 
 
 1. Log in to the Azure portal.
 1. In the search bar, type in "key vaults"
