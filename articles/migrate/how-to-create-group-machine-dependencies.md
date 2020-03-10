@@ -1,29 +1,29 @@
 ---
-title: Set up dependency visualization in Azure Migrate
-description: This article describes how to set up dependency visualization in Azure Migrate Server Assessment.
-ms.topic: article
+title: Set up agent-based dependency analysis in Azure Migrate Server Assessment
+description: This article describes how to set up agent-based dependency analysis in Azure Migrate Server Assessment.
+ms.topic: how-to
 ms.date: 2/24/2020
 ---
 
 # Set up dependency visualization
 
-This article describes how to set up dependency visualization in Azure Migrate: Server Assessment. [Dependency visualization](concepts-dependency-visualization.md#what-is-dependency-visualization) helps you to identify and understand dependencies across machines you want to assess and migrate to Azure.
+This article describes how to set up agent-based dependency analysis in Azure Migrate:Server Assessment. [Dependency analysis](concepts-dependency-visualization.md) helps you to identify and understand dependencies across machines you want to assess and migrate to Azure.
 
 ## Before you start
 
-- [Review](concepts-dependency-visualization.md) the requirements and costs associated with dependency visualization.
+- [Learn about](concepts-dependency-visualization.md#agent-based-analysis) agent-based dependency analysis.
+- [Review](dependency-analysis-support.matrix.md#agent-based-requirements) the prerequisites and support requirements for setting up agent-based dependency visualization.
 - Make sure you've [created](how-to-add-tool-first-time.md) an Azure Migrate project.
-- If you've already created a project, make sure you've [added](how-to-assess.md) the Azure Migrate: Server Assessment tool.
-- Make sure you've set up an [Azure Migrate appliance](migrate-appliance.md) to discover your on-premises machines. Learn how to set up an appliance for [VMware](how-to-set-up-appliance-vmware.md) or [Hyper-V](how-to-set-up-appliance-hyper-v.md). The appliance discovers on-premises machines, and sends metadata and performance data to Azure Migrate: Server Assessment.
+- If you've already created a project, make sure you've [added](how-to-assess.md) the Azure Migrate:Server Assessment tool.
+- Make sure you've set up an [Azure Migrate appliance](migrate-appliance.md) to discover your on-premises machines. Learn how to set up an appliance for [VMware](how-to-set-up-appliance-vmware.md), [Hyper-V](how-to-set-up-appliance-hyper-v.md), or [physical servers](how-to-set-up-appliance-physical.md). The appliance discovers on-premises machines, and sends metadata, performance data to Azure Migrate:Server Assessment.
 - To use dependency visualization, you associate a [Log Analytics workspace](../azure-monitor/platform/manage-access.md) with an Azure Migrate project:
+    - You can attach a workspace only after setting up the Azure Migrate appliance, and discovering machines in the Azure Migrate project.
     - Make sure you have a workspace in the subscription that contains the Azure Migrate project.
     - The workspace must reside in the East US, Southeast Asia, or West Europe regions. Workspaces in other regions can't be associated with a project.
     - The workspace must be in a region in which [Service Map is supported](../azure-monitor/insights/vminsights-enable-overview.md#prerequisites).
     - You can associate a new or existing Log Analytics workspace with an Azure Migrate project.
     - You attach the workspace the first time that you set up dependency visualization for a machine. The workspace for an Azure Migrate project can't be modified after it's added.
     - In Log Analytics, the workspace associated with Azure Migrate is tagged with the Migration Project key, and the project name.
-
-- You can attach a workspace only after discovering machines in the Azure Migrate project. You can do this by setting up an Azure Migrate appliance for [VMware](how-to-set-up-appliance-vmware.md) or [Hyper-V](how-to-set-up-appliance-hyper-v.md). The appliance discovers on-premises machines, and sends metadata and performance data to Azure Migrate: Server Assessment. [Learn more](migrate-appliance.md).
 
 ## Associate a workspace
 
