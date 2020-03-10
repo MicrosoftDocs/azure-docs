@@ -12,7 +12,7 @@ ms.date: 03/10/2020
 ms.author: allensu
 ---
 
-# Azure CD HTTP raw logs
+# Azure CDN HTTP raw logs
 Raw logs provide rich information about operations and errors that are important for auditing and troubleshooting. Raw logs differ from activity logs. Activity logs provide visibility into the operations done on Azure resources. Raw logs provide a record of operations of your resource.
 
 > [!IMPORTANT]
