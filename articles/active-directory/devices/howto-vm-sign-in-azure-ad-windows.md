@@ -149,7 +149,7 @@ Now that you have created the VM, you need to configure Azure RBAC policy to det
 
 > [!NOTE]
 > To allow a user to log in to the VM over RDP, you must assign either the Virtual Machine Administrator Login or Virtual Machine User Login role. An Azure user with the Owner or Contributor roles assigned for a VM do not automatically have privileges to log in to the VM over RDP. This is to provide audited separation between the set of people who control virtual machines versus the set of people who can access virtual machines.
-'
+
 There are multiple ways you can configure role assignments for VM:
 
 - Using the Azure AD Portal experience
@@ -192,7 +192,7 @@ For more information on how to use RBAC to manage access to your Azure subscript
 - [Manage access to Azure resources using RBAC and Azure CLI](/azure/role-based-access-control/role-assignments-cli)
 - [Manage access to Azure resources using RBAC and the Azure portal](/azure/role-based-access-control/role-assignments-portal)
 - [Manage access to Azure resources using RBAC and Azure PowerShell](/azure/role-based-access-control/role-assignments-powershell).
-'
+
 ## Using Conditional Access
 
 You can enforce Conditional Access policies such as multi-factor authentication or user sign-in risk check before authorizing access to Windows VMs in Azure that are enabled with Azure AD sign in. To apply Conditional Access policy, you must select "Azure Windows VM Sign-In" app from the cloud apps or actions assignment option and then use Sign-in risk as a condition and/or 
@@ -363,5 +363,5 @@ If you have not deployed Windows Hello for Business and if that is not an option
 Share your feedback about this preview feature or report issues using it on the [Azure AD feedback forum](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032).
 
 ## Next steps
+
 For more information on Azure Active Directory, see [What is Azure Active Directory](/azure/active-directory/fundamentals/active-directory-whatis)
-'
