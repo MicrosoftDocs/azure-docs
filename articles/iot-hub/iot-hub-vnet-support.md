@@ -70,11 +70,11 @@ Private endpoints supported in IoT Hub's created in the following regions:
 
 To set up a private endpoint, follow these steps:
 
-* Navigate to the _Private endpoint connections_ tab in your IoT Hub portal, and click the plus sign to add a new private endpoint.
+* Navigate to the _Private endpoint connections_ tab in your IoT Hub portal (this tab is only available for in IoT Hubs in the [supported regions](#regional-availability-private-links)), and click the _+_ sign to add a new private endpoint.
 
 * Provide the subscription, resource group, name and region to create the new private endpoint in (ideally, private endpoint should be created in the same region as your hub; see [regional availability section](#regional-availability-private-links) for more details).
 
-* Click _Next: Resource_, and provide the subscription for your IoT Hub resource, and select _Microsoft.Devices/IotHubs_ as resource type, and your IoT Hub name as _resource_.
+* Click _Next: Resource_, and provide the subscription for your IoT Hub resource, and select _"Microsoft.Devices/IotHubs"_ as resource type, your IoT Hub name as _resource_, and _iotHub_ as target sub-resource.
 
 * Click _Next: Configuration_ and provide your virtual network and subnet to create the private endpoint in. Select the option to integrate with Azure private DNS zone, if desired.
 
@@ -84,6 +84,7 @@ To set up a private endpoint, follow these steps:
 
 
 ### Pricing (private links)
+
 For pricing details, see [Azure Private Link pricing](https://azure.microsoft.com/pricing/details/private-link).
 
 
@@ -111,9 +112,14 @@ Azure trusted first party services exception to byass firewall restrictions to A
 * West US 2
 
 
+### Pricing (trusted Microsoft first party services)
+
+Trusted Microsoft first party exception feature is free of charge in IoT Hubs in the [supported regions](#regional-availability-trusted-microsoft-first-party-services). Charges for the provisioned storage accounts, event hubs, or service bus resources apply separately.
+
+
 ### Create a hub with managed service identity
 
-Currently, a managed service identity can be assigned to your hub at resource provisioning time. For this purpose, you need to use the ARM template below:
+A managed service identity can be assigned to your hub at resource provisioning time (this feature is not currently supported for existing hubs). For this purpose, you need to use the ARM resource template below:
 
 ```json
 {
@@ -165,9 +171,9 @@ Currently, a managed service identity can be assigned to your hub at resource pr
 }
 ```
 
-After substituting the values for your resource name, location, SKU name and tier, you can use Azure CLI to deploy the resource in an existing resource group using:
+After substituting the values for your resource `name`, `location`, `SKU.name` and `SKU.tier`, you can use Azure CLI to deploy the resource in an existing resource group using:
 
-```cli
+```azurecli-interactive
 az group deployment create --name <deployment-name> --resource-group <resource-group-name> --template-file <template-file.json>
 ```
 
