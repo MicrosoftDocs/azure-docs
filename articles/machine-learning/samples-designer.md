@@ -13,9 +13,7 @@ ms.date: 03/10/2020
 ---
 # Designer sample pipelines
 
-Use the built-in example in Azure Machine Learning designer to quickly get started building your own machine learning pipelines.
-
-The Azure Machine Learning designer [GitHub repository](https://github.com/Azure/MachineLearningDesigner) contains the latest pipeline samples to help you get started with common machine learning scenarios.
+Use the built-in examples in Azure Machine Learning designer to quickly get started building your own machine learning pipelines. The Azure Machine Learning designer [GitHub repository](https://github.com/Azure/MachineLearningDesigner) contains detailed documentation to help you understand some common  machine learning scenarios.
 
 ## Prerequisites
 
