@@ -71,7 +71,7 @@ Keep default settings.
 In this section, you will create a private Web App using a Private Endpoint to it.
 
 > [!Note]
->The Private Endpoint feature is only available for PremiumV2 and Isolated with external ASE
+>The Private Endpoint feature is only available for Premium V2 and Isolated with external ASE SKU
 
 ### Web App
 
