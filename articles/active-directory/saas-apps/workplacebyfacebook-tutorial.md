@@ -13,7 +13,7 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 01/31/2020
+ms.date: 03/03/2020
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -27,7 +27,7 @@ In this tutorial, you'll learn how to integrate Workplace by Facebook with Azure
 * Enable your users to be automatically signed-in to Workplace by Facebook with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
-To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/what-is-single-sign-on).
 
 ## Prerequisites
 
@@ -157,6 +157,8 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 	a. Check the **Single-sign on(SSO)** option.
 	
 	b. Click on **+Add new SSO Provider**.
+    > [!NOTE]
+    > Make sure you check the Password login checkbox too. Admins may need this option for login while doing the certificate rollover in order to stop themselves getting locked out.
 
 1. Under **Authentication** tab, select **Single-Sign On (SSO)** and perform the following steps:
 
@@ -238,7 +240,7 @@ When you click the Workplace by Facebook tile in the Access Panel, you should be
 
 - [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/what-is-single-sign-on)
 
 - [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
@@ -247,4 +249,3 @@ When you click the Workplace by Facebook tile in the Access Panel, you should be
 - [Try Workplace by Facebook with Azure AD](https://aad.portal.azure.com)
 
 - [What is session control in Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
-

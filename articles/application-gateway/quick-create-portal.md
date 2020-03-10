@@ -6,7 +6,7 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: quickstart
-ms.date: 03/05/2020
+ms.date: 03/09/2020
 ms.author: victorh
 ms.custom: mvc
 ---
@@ -114,7 +114,7 @@ On the **Configuration** tab, you'll connect the frontend and backend pool you c
 
 4. On the **Backend targets** tab, select **myBackendPool** for the **Backend target**.
 
-5. For the **HTTP setting**, select **Create new** to create a new HTTP setting. The HTTP setting will determine the behavior of the routing rule. In the **Add an HTTP setting** window that opens, enter *myHTTPSetting* for the **HTTP setting name**. Accept the default values for the other settings in the **Add an HTTP setting** window, then select **Add** to return to the **Add a routing rule** window. 
+5. For the **HTTP setting**, select **Create new** to create a new HTTP setting. The HTTP setting will determine the behavior of the routing rule. In the **Add an HTTP setting** window that opens, enter *myHTTPSetting* for the **HTTP setting name** and *80* for the **Backend port**. Accept the default values for the other settings in the **Add an HTTP setting** window, then select **Add** to return to the **Add a routing rule** window. 
 
      ![Create new application gateway: HTTP setting](./media/application-gateway-create-gateway-portal/application-gateway-create-httpsetting.png)
 
@@ -141,13 +141,14 @@ To do this, you'll:
 ### Create a virtual machine
 
 1. On the Azure portal menu or from the **Home** page, select **Create a resource**. The **New** window appears.
-2. Select **Compute** and then select **Windows Server 2016 Datacenter** in the **Popular** list. The **Create a virtual machine** page appears.<br>Application Gateway can route traffic to any type of virtual machine used in its backend pool. In this example, you use a Windows Server 2016 Datacenter.
+2. Select **Windows Server 2016 Datacenter** in the **Popular** list. The **Create a virtual machine** page appears.<br>Application Gateway can route traffic to any type of virtual machine used in its backend pool. In this example, you use a Windows Server 2016 Datacenter.
 3. Enter these values in the **Basics** tab for the following virtual machine settings:
 
     - **Resource group**: Select **myResourceGroupAG** for the resource group name.
     - **Virtual machine name**: Enter *myVM* for the name of the virtual machine.
+    - **Region**: Select the same region where you created the application gateway.
     - **Username**: Type *azureuser* for the administrator user name.
-    - **Password**: Type the password.
+    - **Password**: Type a password.
 4. Accept the other defaults and then select **Next: Disks**.  
 5. Accept the **Disks** tab defaults and then select **Next: Networking**.
 6. On the **Networking** tab, verify that **myVNet** is selected for the **Virtual network** and the **Subnet** is set to **myBackendSubnet**. Accept the other defaults and then select **Next: Management**.<br>Application Gateway can communicate with instances outside of the virtual network that it is in, but you need to ensure there's IP connectivity.
@@ -163,7 +164,7 @@ In this example, you install IIS on the virtual machines only to verify Azure cr
 
     ![Install custom extension](./media/application-gateway-create-gateway-portal/application-gateway-extension.png)
 
-2. Run the following command to install IIS on the virtual machine: 
+2. Run the following command to install IIS on the virtual machine. Change the *Location* parameter if necessary: 
 
     ```azurepowershell-interactive
     Set-AzVMExtension `
@@ -187,11 +188,13 @@ In this example, you install IIS on the virtual machines only to verify Azure cr
 
 3. Select **myBackendPool**.
 
-4. Under **Targets**, select **Virtual machine** from the drop-down list.
+4. Under **Backend targets**, **Target type**, select **Virtual machine** from the drop-down list.
 
-5. Under **VIRTUAL MACHINE** and **NETWORK INTERFACES**, select the **myVM** and **myVM2** virtual machines and their associated network interfaces from the drop-down lists.
+5. Under **Target**, select the **myVM** and **myVM2** virtual machines and their associated network interfaces from the drop-down lists.
 
-    ![Add backend servers](./media/application-gateway-create-gateway-portal/application-gateway-backend.png)
+
+   > [!div class="mx-imgBorder"]
+   > ![Add backend servers](./media/application-gateway-create-gateway-portal/application-gateway-backend.png)
 
 6. Select **Save**.
 
@@ -199,13 +202,15 @@ In this example, you install IIS on the virtual machines only to verify Azure cr
 
 ## Test the application gateway
 
-Although IIS isn't required to create the application gateway, you installed it in this quickstart to verify whether Azure successfully created the application gateway. Use IIS to test the application gateway:
+Although IIS isn't required to create the application gateway, you installed it in this quickstart to verify if Azure successfully created the application gateway. Use IIS to test the application gateway:
 
 1. Find the public IP address for the application gateway on its **Overview** page.![Record application gateway public IP address](./media/application-gateway-create-gateway-portal/application-gateway-record-ag-address.png) Or, you can select **All resources**, enter *myAGPublicIPAddress* in the search box, and then select it in the search results. Azure displays the public IP address on the **Overview** page.
-2. Copy the public IP address, and then paste it into the address bar of your browser.
+2. Copy the public IP address, and then paste it into the address bar of your browser to browse that IP address.
 3. Check the response. A valid response verifies that the application gateway was successfully created and can successfully connect with the backend.
 
    ![Test application gateway](./media/application-gateway-create-gateway-portal/application-gateway-iistest.png)
+
+   Refresh the browser multiple times and you should see connections to both myVM and myVM2.
 
 ## Clean up resources
 
