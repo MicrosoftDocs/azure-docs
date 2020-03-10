@@ -4,7 +4,6 @@ description: Deploy VMs to dedicated hosts using the portal.
 author: cynthn
 ms.service: virtual-machines-windows
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 03/10/2020
 ms.author: cynthn
