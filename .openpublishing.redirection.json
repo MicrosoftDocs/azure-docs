@@ -8472,7 +8472,12 @@
     },
     {
       "source_path": "articles/app-service-web/web-sites-traffic-manager-custom-domain-name.md",
-      "redirect_url": "/azure/app-service/web-sites-traffic-manager-custom-domain-name",
+      "redirect_url": "/azure/app-service/configure-domain-traffic-manager",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service/web-sites-traffic-manager-custom-domain-name.md",
+      "redirect_url": "/azure/app-service/configure-domain-traffic-manager",
       "redirect_document_id": false
     },
     {
@@ -49199,6 +49204,16 @@
     {
       "source_path": "articles/cognitive-services/Speech-Service/sapi-phoneset-usage.md",
       "redirect_url": "/azure/cognitive-services/speech-service/speech-ssml-phonetic-sets",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/how-to-use-codec-compressed-audio-input-streams-android.md",
+      "redirect_url": "/azure/cognitive-services/Speech-Service/how-to-use-codec-compressed-audio-input-streams?pivots=programming-language-java",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/how-to-use-codec-compressed-audio-input-streams-ios.md",
+      "redirect_url": "/azure/cognitive-services/Speech-Service/how-to-use-codec-compressed-audio-input-streams?pivots=programming-language-objectivec",
       "redirect_document_id": false
     }
   ]
