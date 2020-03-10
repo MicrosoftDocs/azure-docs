@@ -53,7 +53,7 @@ Run ID: cf4 was successful after 5s
 
 ## View stored logs 
 
-Azure Container Registry stores run logs for all tasks. You can view stored run logs in the Azure portal. Or, use the [az acr task logs](/cli/azure/acr/task#az-acr-task-logs) command to view a selected log. 
+Azure Container Registry stores run logs for all tasks. You can view stored run logs in the Azure portal. Or, use the [az acr task logs](/cli/azure/acr/task#az-acr-task-logs) command to view a selected log. By default, logs are retained for 30 days.
 
 If a task is automatically triggered, for example by a source code update, accessing the stored logs is the *only* way to view the run logs. Automatic task triggers include source code commits or pull requests, base image updates, and timer triggers.
 
@@ -72,18 +72,6 @@ The following example outputs the log for the run with ID *cf4*:
 ```azurecli
 az acr task logs --registry mycontainerregistry1220 \
   --run-id cf4
-```
-
-## Log retention
-
-By default, data and logs for task runs in a registry are retained for 30 days. After that time, records are automatically purged. 
-
-If you want Azure Container Registry to archive the data for a task run, enable archiving using the [az acr task update-run](/cli/azure/acr/task#az-acr-task-update-run) command. The following example enables archiving for the task run *cf4*:
-
-```azurecli
-az acr task update-run \
-  --registry mycontainerregistry1220 \
-  --run-id cf4 --no-archive false
 ```
 
 ## Alternative log storage
