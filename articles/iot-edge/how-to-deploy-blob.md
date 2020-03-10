@@ -267,7 +267,7 @@ In addition, a blob storage module also requires the HTTPS_PROXY setting in the 
 
 1. Navigate to your Iot hub in the Azure portal and select **Iot Edge** from the left pane menu.
 
-1. Select the device with the modules to configure.
+1. Select the device with the module to configure.
 
 1. Select **Set Modules**.
 
@@ -277,7 +277,7 @@ In addition, a blob storage module also requires the HTTPS_PROXY setting in the 
 
 1. Add "HTTPS_PROXY" for the **Name** and your proxy URL for the **Value**.
 
-  ![Set HTTPS_PROXY environment variable](./media/how-to-deploy-blob/https-proxy-config.png)
+      ![Set HTTPS_PROXY environment variable](./media/how-to-deploy-blob/https-proxy-config.png)
 
 1. Click **Update**, then **Review + Create**.
 
@@ -285,7 +285,7 @@ In addition, a blob storage module also requires the HTTPS_PROXY setting in the 
 
 1. Verify the setting by selecting the module from the device details page, and on the **IoT Edge Modules Details** page select the **Environment Variables** tab.
 
-  ![Set HTTPS_PROXY environment variable](./media/how-to-deploy-blob/verify-proxy-config.png)
+      ![Set HTTPS_PROXY environment variable](./media/how-to-deploy-blob/verify-proxy-config.png)
 
 ## Next steps
 
