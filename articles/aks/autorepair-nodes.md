@@ -1,6 +1,6 @@
 ---
 title: Automatically repairing Azure Kubernetes Service (AKS) nodes 
-description: Learn about auto-repair functionality, and how AKS fixes broken worker nodes.
+description: Learn about node auto-repair functionality, and how AKS fixes broken worker nodes.
 services: container-service
 ms.topic: conceptual
 ms.date: 03/10/2020
@@ -30,7 +30,7 @@ AKS uses rules to determine if a node is an unhealthy state and needs repair. AK
 * The node reports status of **NotReady** on consecutive checks within a 10-minute timeframe
 * The node doesn't report a status within 10 minutes
 
-## How auto-repair works
+## How automatic repair works
 
 Auto-repair takes several steps to repair a broken node.  If a node is determined to be unhealthy, AKS uses the following remediation steps:
 
