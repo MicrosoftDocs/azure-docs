@@ -13,7 +13,7 @@ ms.author: allensu
 ---
 
 # Azure CD HTTP raw logs
-Raw logs provide rich information about operations and errors that are important for auditing and troubleshooting. Raw logs differ from activity logs. Activity logs provide insights into the operations done on Azure resources. Raw logs provide insight into operations that your resource performed.
+Raw logs provide rich information about operations and errors that are important for auditing and troubleshooting. Raw logs differ from activity logs. Activity logs provide visibility into the operations done on Azure resources. Raw logs provide a record of operations of your resource.
 
 > [!IMPORTANT]
 > The HTTP raw logs feature is available for Azure CDN from Microsoft.
@@ -76,5 +76,5 @@ Azure CDN from Microsoft Service currently provides Raw logs (batched hourly). R
 | Sent to origin shield | If true, it means that request was answered from origin shield cache instead of the edge pop. Origin shield is a parent cache used to improve cache hit ratio.                                       |
 | HttpStatusCode        | The HTTP status code returned from the proxy.                                                                                                                                                        |
 | HttpStatusDetails     | Resulting status on the request. Meaning of this string value can be found at a Status reference table.                                                                                              |
-| Pop                   | The edge pop which responded to the user request. POPs abbreviations are airport codes of their respective metros.                                                                                   |
+| Pop                   | The edge pop, which responded to the user request. POPs' abbreviations are airport codes of their respective metros.                                                                                   |
 | Cache Status          | Signifies if the object was returned from cache or came from the origin.                                                                                                                             |1. Select **All services** in the left-hand menu, select **All resources**, and then select **myLoadBalancer** from the resources list.
