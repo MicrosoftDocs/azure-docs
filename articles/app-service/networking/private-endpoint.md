@@ -18,11 +18,9 @@ You can use Private Endpoint for your Azure Web App to allow clients located in 
 Using Private Endpoint for your Web App enables you to:
 
 - Secure your Web App by configuring the Service Endpoint, eliminating public exposure
-- Increase security for the Vnet by enabling you to block data exfiltration from the Vnet
 - Securely connect to Web App from on-premises networks that connect to the Vnet using a VPN or ExpressRoute private peering.
 
-If you just need a secure connection between your Vnet and your Web App, Service Endpoint is the simplest solution. 
-If you need to protect against data exfiltration or route access from on-premises, Private Endpoint is the solution.
+If you just need a secure connection between your Vnet and your Web App, Service Endpoint is the simplest solution. if you also need to reach the web app from on-premises, Private Endpoint is the solution.  
 
 For more information about [Service Endpoint][serviceendpoint]
 
@@ -45,6 +43,7 @@ From the security perspective:
 - The NIC of the Private Endpoint cannot have an NSG associated
 - The Subnet that hosts the Private Endpoint can have an NSG associated, but you must disable the network policies enforcement for the Private Endpoint see [this article] [disablesecuritype]. As a result, you cannot filter by any NSG the access to your Private Endpoint.
 - When you enable Private Endpoint to your Web App, the [access restrictions][accessrestrictions] configuration of the Web App is not evaluated.
+- You can reduce data exfiltration from the vnet by removing all NSG rules where destination is Internet Tag, but adding a Service Endpoint in your subnet will allow you to reach any Web App hosted in the same stamp and exposed to Internet.
 
 Private Endpoint for Web App is available for tier PremiumV2, and Isolated with an external ASE.
 
