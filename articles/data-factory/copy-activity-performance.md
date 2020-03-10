@@ -83,7 +83,7 @@ Take these steps to tune the performance of your Azure Data Factory service with
 
 ## Troubleshoot copy activity performance
 
-Follow the [Performance tuning steps](#performance-tuning-steps) to plan and conduct performance test for your scenario. And learn how to troubleshoot each copy activity run's performance issue in Azure Data Factory from [Troubleshoot copy activity performance](troubleshoot-copy-activity-performance.md).
+Follow the [Performance tuning steps](#performance-tuning-steps) to plan and conduct performance test for your scenario. And learn how to troubleshoot each copy activity run's performance issue in Azure Data Factory from [Troubleshoot copy activity performance](copy-activity-performance-troubleshooting.md).
 
 ## Copy performance optimization features
 
