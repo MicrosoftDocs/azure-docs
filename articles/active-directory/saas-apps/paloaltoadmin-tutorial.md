@@ -107,10 +107,10 @@ To configure Azure AD single sign-on with Palo Alto Networks - Admin UI, perform
     `https://<Customer Firewall FQDN>/php/login.php`
 
     b. In the **Identifier** box, type a URL using the following pattern:
-    `https://<Customer Firewall FQDN>:443/SAML20/SP`
+    `https://<Customer Firewall FQDN>/SAML20/SP`
 
     c. In the **Reply URL** text box, type the Assertion Consumer Service (ACS) URL in the following format:
-    `https://<Customer Firewall FQDN>:443/SAML20/SP/ACS`
+    `https://<Customer Firewall FQDN>/SAML20/SP/ACS`
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Sign-On URL, Identifier and Reply URL. Contact [Palo Alto Networks - Admin UI Client support team](https://support.paloaltonetworks.com/support) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
