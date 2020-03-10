@@ -60,7 +60,7 @@ Select the **Review + Create** button and create the **Event Hubs namespace**. I
 
 If you already have an Event Hubs namespace, you can create a private link connection by following these steps:
 
-1. Sign in to the [Azure portal](portal.azure.com). 
+1. Sign in to the [Azure portal](https://portal.azure.com). 
 2. In the search bar, type in **event hubs**.
 3. Select the **namespace** from the list to which you want to add a private endpoint.
 4. Select the **Networking** tab under **Settings**.
