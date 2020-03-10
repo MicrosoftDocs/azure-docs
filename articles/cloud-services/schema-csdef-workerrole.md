@@ -1,5 +1,6 @@
 ---
 title: "Azure Cloud Services Def. WorkerRole Schema | Microsoft Docs"
+description: The Azure worker role is used for generalized development and may perform background processing for a web role. Learn about the Azure worker role schema.
 services: cloud-services
 ms.custom: ""
 ms.date: "04/14/2015"
@@ -204,7 +205,7 @@ The following table describes the attributes of the `InputEndpoint` element.
 |protocol|string|Required. The transport protocol for the external endpoint. For a worker role, possible values are `HTTP`, `HTTPS`, `UDP`, or `TCP`.|
 |port|int|Required. The port for the external endpoint. You can specify any port number you choose, but the port numbers specified for each role in the service must be unique.<br /><br /> Possible values range between 1 and 65535, inclusive (Azure SDK version 1.7 or higher).|
 |certificate|string|Required for an HTTPS endpoint. The name of a certificate defined by a `Certificate` element.|
-|localPort|int|Optional. Specifies a port used for internal connections on the endpoint. The `localPort` attribute maps the external port on the endpoint to an internal port on a role. This is useful in scenarios where a role must communicate to an internal component on a port that different from the one that is exposed externally.<br /><br /> If not specified, the value of `localPort` is the same as the `port` attribute. Set the value of `localPort` to “*” to automatically assign an unallocated port that is discoverable using the runtime API.<br /><br /> Possible values range between 1 and 65535, inclusive (Azure SDK version 1.7 or higher).<br /><br /> The `localPort` attribute is only available using the Azure SDK version 1.3 or higher.|
+|localPort|int|Optional. Specifies a port used for internal connections on the endpoint. The `localPort` attribute maps the external port on the endpoint to an internal port on a role. This is useful in scenarios where a role must communicate to an internal component on a port that different from the one that is exposed externally.<br /><br /> If not specified, the value of `localPort` is the same as the `port` attribute. Set the value of `localPort` to "*" to automatically assign an unallocated port that is discoverable using the runtime API.<br /><br /> Possible values range between 1 and 65535, inclusive (Azure SDK version 1.7 or higher).<br /><br /> The `localPort` attribute is only available using the Azure SDK version 1.3 or higher.|
 |ignoreRoleInstanceStatus|boolean|Optional. When the value of this attribute is set to `true`, the status of a service is ignored and the endpoint will not be removed by the load balancer. Setting this value to `true` useful for debugging busy instances of a service. The default value is `false`. **Note:** An endpoint can still receive traffic even when the role is not in a Ready state.|
 |loadBalancerProbe|string|Optional. The name of the load balancer probe associated with the input endpoint. For more information, see [LoadBalancerProbe Schema](schema-csdef-loadbalancerprobe.md).|
 
