@@ -2,18 +2,18 @@
 title: Quickstart - Create a Synapse SQL pool 
 description: Create a new Synapse SQL pool for an Azure Synapse Analytics Synapse Workspace by following the steps in this guide. 
 services: synapse-analytics 
-author: malvenko 
-ms.service: synapse-analytics 
+author: malvenko
+ms.service: synapse-analytics
 ms.topic: quickstart 
-ms.subservice:  
-ms.date: 03/20/2020 
+ms.subservice:
+ms.date: 03/20/2020
 ms.author: josels
 ms.reviewer: jrasnick, carlrab
 ---
 
 # Quickstart: Create a Synapse SQL pool
 
-Azure Synapse Analytics offers various analytics engines to help you ingest, transform, model, analyze, and serve your data. A SQL pool offers T-SQL based compute and storage capabilities. After creating a SQL pool in your Synapse Workspace, data can be loaded, modeled, processed, and served to obtain insights.  
+Azure Synapse Analytics offers various analytics engines to help you ingest, transform, model, analyze, and serve your data. A SQL pool offers T-SQL based compute and storage capabilities. After creating a SQL pool in your Synapse Workspace, data can be loaded, modeled, processed, and served to obtain insights.
 
 In this quickstart, you learn to create a SQL pool in a Synapse Workspace by using the Azure portal.
 
@@ -27,9 +27,9 @@ If you don't have an Azure subscription, [create a free account before you begin
 
 Sign in to the [Azure portal](https://portal.azure.com/)
 
-## Create new Synapse SQL pool
+## Create new SQL pool
 
-1. In the Synapse workspace where you want to create the Apache Spark pool, click **New SQL pool** command in the top bar.
+1. In the Synapse workspace where you want to create the SQL pool, click **New SQL pool** command in the top bar.
 ![Overview of Synapse Workspace with a red box around the command to create a new SQL pool.](media/quickstart-create-sql-pool/quickstart-create-sql-pool-01.png)
 2. Enter the following details in the **Basics** tab:
 
@@ -70,11 +70,11 @@ If you want to delete the SQL pool, complete the following steps:
 1. Select it and press **delete**.
 1. Confirm the deletion, and press **Delete** button.
  ![SQL pool overview - highlighting delete confirmation.](media/quickstart-create-sql-pool/quickstart-create-sql-pool-11.png)
-1. When the process completes successfully, the SQL pool will no longer be listed in the workspace resources. 
+1. When the process completes successfully, the SQL pool will no longer be listed in the workspace resources.
 
-After the SQL pool is created, it will be available in the workspace for loading data, processing streams, reading from the lake, etc. 
+After the SQL pool is created, it will be available in the workspace for loading data, processing streams, reading from the lake, etc.
 
 ## Next steps
 
-- See [Quickstart: Create an Apache Spark pool in Synapse Studio using web tools](spark/apache-spark-notebook-create-spark-use-sql.md).
+- See [Quickstart: Create a Spark pool in Synapse Studio using web tools](spark/apache-spark-notebook-create-spark-use-sql.md).
 - See [Quickstart: Create a Spark pool using the Azure portal](quickstart-create-apache-spark-pool.md).

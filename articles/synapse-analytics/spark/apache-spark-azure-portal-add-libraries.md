@@ -40,7 +40,7 @@ alabaster==0.7.10
 
 ### Python library user interface
 
-The UI for adding libraries is in the **Additional settings** tab of the **Create Apache Spark pool** page on the Azure portal.
+The UI for adding libraries is in the **Additional settings** tab of the **Create Spark pool** page on the Azure portal.
 
 Upload the environment configuration file using the file selector in the **Packages** section of the page.
 

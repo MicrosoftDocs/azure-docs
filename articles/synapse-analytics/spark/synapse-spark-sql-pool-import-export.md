@@ -12,7 +12,7 @@ ms.reviewer: euang
 ---
 # Introduction
 
-The Spark SQL Analytics Connector is designed to efficiently transfer data between the Apache Spark pools and SQL pools in Azure Synapse. The Spark SQL Analytics Connector works on SQL pools only, it does not work with SQL on-Demand.
+The Spark SQL Analytics Connector is designed to efficiently transfer data between Spark pools and SQL pools in Azure Synapse. The Spark SQL Analytics Connector works on SQL pools only, it does not work with SQL on-Demand.
 
 ## Design
 
@@ -112,7 +112,7 @@ sqlanalytics("[DBName].[Schema].[TableName]", [TableType])
 
 ### Using SQL Auth instead of AAD
 
-#### Read API 
+#### Read API
 
 Currently the connector does not support token-based auth to a SQL pool that is outside of the workspace. You need to use SQL Auth.
 
