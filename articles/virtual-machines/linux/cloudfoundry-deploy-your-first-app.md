@@ -26,7 +26,7 @@ There are several options for creating a Cloud Foundry environment on Azure:
 
 ## Connect to the Cloud Controller
 
-The Cloud Controller is the primary entry point to a Cloud Foundry environment for deploying and managing applications. The core Cloud Controller API (CCAPI) is a REST API, but it is accessible through various tools. In this case, we interact with it through the [Cloud Foundry CLI][cf-cli]. You can install the CLI on Linux, MacOS, or Windows, but if you'd prefer not to install it at all, it is available pre-installed in the [Azure Cloud Shell][cloudshell-docs].
+The Cloud Controller is the primary entry point to a Cloud Foundry environment for deploying and managing applications. The core Cloud Controller API (CCAPI) is a REST API, but it is accessible through various tools. In this case, we interact with it through the [Cloud Foundry CLI][cf-cli]. You can install the CLI on Linux, macOS, or Windows, but if you'd prefer not to install it at all, it is available pre-installed in the [Azure Cloud Shell][cloudshell-docs].
 
 To log in, prepend `api` to the SYSTEMDOMAINURL that you obtained from the marketplace deployment. Since the default deployment uses a self-signed certificate, you should also include the `skip-ssl-validation` switch.
 
