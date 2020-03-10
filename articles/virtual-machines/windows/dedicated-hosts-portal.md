@@ -46,9 +46,12 @@ You can add an exiting VM to a dedicated host, but the VM must first be Stop\Dea
 Move the VM to a dedicated host using the [portal](https://portal.azure.com).
 
 1. Open the page for the VM.
-1. Find the configuration tab on the VM Blade.
-1. Select host group and the host.
-1. Click Save.
+1. Select **Stop** to stop\deallocate the VM.
+1. Select **Configuration** from the left menu.
+1. Select a host group and a host from the drop-down menus.
+1. When you are done, select **Save** at the top of the page.
+1. After the VM has been added to the host, select **Overview** from the left menu.
+1. At the top of the page, select **Start** to restart the VM.
 
 ## Next steps
 
