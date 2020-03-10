@@ -30,7 +30,7 @@ To complete this tutorial, you need an Azure account. For details, see [Azure Fr
 
 1. Sign in at the [Azure portal](https://portal.azure.com/).
 1. Click **+Create a resource** > **Media** > **Media Services**.
-1. In **CREATE MEDIA SERVICES ACCOUNT** enter required values.
+1. In the **Create a Media Services account** section enter required values.
     
     | Name | Description |
     | ---|---|
