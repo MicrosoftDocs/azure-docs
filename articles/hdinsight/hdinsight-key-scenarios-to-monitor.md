@@ -83,7 +83,7 @@ In some cases, sluggishness can occur because of low disk space on the cluster. 
 
 1. Use [ssh command](./hdinsight-hadoop-linux-use-ssh-unix.md) to connect into each of the nodes.
 
-1. Check the disk usage by running the following command:
+1. Check the disk usage by running one of the following commands:
 
     ```bash
     df -h
