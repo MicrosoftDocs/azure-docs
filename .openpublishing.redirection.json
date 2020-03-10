@@ -15276,6 +15276,41 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/machine-learning/how-to-designer-sample-classification-churn.md",
+      "redirect_url": "/azure/machine-learning/samples-designer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/how-to-designer-sample-classification-credit-risk-cost-sensitive.md",
+      "redirect_url": "/azure/machine-learning/samples-designer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/how-to-designer-sample-classification-flight-delay.md",
+      "redirect_url": "/azure/machine-learning/samples-designer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/how-to-designer-sample-classification-predict-income.md",
+      "redirect_url": "/azure/machine-learning/samples-designer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/how-to-designer-sample-regression-automobile-price-basic.md",
+      "redirect_url": "/azure/machine-learning/samples-designer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/how-to-designer-sample-regression-automobile-price-compare-algorithms.md",
+      "redirect_url": "/azure/machine-learning/samples-designer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/how-to-designer-sample-text-classification.md",
+      "redirect_url": "/azure/machine-learning/samples-designer",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/log-analytics/log-analytics-add-solutions.md",
       "redirect_url": "/azure/monitoring/monitoring-solutions",
       "redirect_document_id": false
@@ -49214,6 +49249,11 @@
     {
       "source_path": "articles/cognitive-services/Speech-Service/how-to-use-codec-compressed-audio-input-streams-ios.md",
       "redirect_url": "/azure/cognitive-services/Speech-Service/how-to-use-codec-compressed-audio-input-streams?pivots=programming-language-objectivec",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/power-bi-embedded/index.md",
+      "redirect_url": "https://docs.microsoft.com/power-bi/developer/azure-pbie-what-is-power-bi-embedded",
       "redirect_document_id": false
     }
   ]
