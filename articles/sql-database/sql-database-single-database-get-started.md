@@ -56,14 +56,36 @@ Now you can use the built-in **Query editor** in the Azure portal to connect to 
 
 Keep the resource group, server, and single database to go on to the next steps, and learn how to connect and query your database with different methods.
 
-When you're finished using these resources, you can delete them as follows:
+When you're finished using these resources, you can delete the resource group you created, which will also delete the server and single database within it.
 
-1. From the left menu in the Azure portal, select **Resource groups**, and then select **myResourceGroup**.
-2. On your resource group page, select **Delete resource group**.
-3. Enter *myResourceGroup* in the field, and then select **Delete**.
+# [Portal](#tab/azure-portal)
 
+To delete **myResourceGroup** and all its resources using the Azure portal:
+
+1. From the portal, search for and select **Resource groups**, and then select **myResourceGroup** from the list.
+2. On the resource group page, select **Delete resource group**.
+3. Under **Type the resource group name**, enter *myResourceGroup*, and then select **Delete**.
+
+# [Azure CLI](#tab/azure-cli)
+
+To delete the resource group and all its resources, run the following Azure CLI command, using the name of your resource group:
+
+```azurecli-interactive
+az group delete --name <your resource group>
+```
+
+# [PowerShell](#tab/azure-powershell)
+
+To delete the resource group and all its resources, run the following PowerShell cmdlet, using the name of your resource group:
+
+ ```azurepowershell-interactive
+Remove-AzResourceGroup -Name <your resource group>
+```
+
+---
 ## Next steps
 
-You can [connect and query](sql-database-connect-query.md) your database using several different tools and languages:
-  - [Connect and query using SQL Server Management Studio](sql-database-connect-query-ssms.md)
-  - [Connect and query using Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)
+[Connect and query](sql-database-connect-query.md) your database using different tools and languages:
+> [!div class="nextstepaction"]
+> [Connect and query using SQL Server Management Studio](sql-database-connect-query-ssms.md)
+> [Connect and query using Azure Data Studio](/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)

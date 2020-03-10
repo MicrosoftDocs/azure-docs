@@ -77,15 +77,15 @@ You can create an Azure resource group, SQL server, and single database using th
 
 To run the following code sample in Azure Cloud Shell, select **Try it** in the code sample title bar. When the Cloud Shell opens, select **Copy** in the code sample title bar, and paste the code sample into the Cloud Shell window. In the code, replace `<Subscription ID>` with your Azure Subscription ID, and for `$startIp` and `$endIP`, replace `0.0.0.0` with the public IP address of the computer you're using.
 
-Follow the onscreen prompts to sign in to Azure and run the code. Make sure to record the generated server name and password so you can log in to your server and databases. 
+Follow the onscreen prompts to sign in to Azure and run the code. 
 
 You can also use the Azure Cloud Shell from the Azure portal, by selecting the Cloud Shell icon on the top bar. 
    
    ![Azure Cloud Shell](../media/sql-database-single-database-get-started/cloudshell.png)
    
-The first time you use Cloud Shell, select **Bash** in the **Welcome** dialog. Subsequent sessions will use Azure CLI in a Bash environment, or you can select **Bash** from the Cloud Shell control bar. 
+The first time you use Cloud Shell in the portal, select **Bash** in the **Welcome** dialog. Subsequent sessions will use Azure CLI in a Bash environment, or you can select **Bash** from the Cloud Shell control bar. 
 
-The following Azure CLI code creates an Azure resource group, SQL server, single database, and firewall rule for access to the server:
+The following Azure CLI code creates an Azure resource group, SQL server, single database, and firewall rule for access to the server. Make sure to record the generated resource group and server names, so you can manage these resources later.
 
 ```azurecli-interactive
 #!/bin/bash
@@ -161,15 +161,15 @@ You can create an Azure resource group, SQL server, and single database using Wi
 
 To run the following code sample in the Azure Cloud Shell, select **Try it** in the code title bar. When the Cloud Shell opens, select **Copy** in the code sample title bar, and paste the code sample into the Cloud Shell window. In the code, replace `<Subscription ID>` with your Azure Subscription ID, and for `$startIp` and `$endIP`, replace `0.0.0.0` with the public IP address of the computer you're using. 
 
-Follow the onscreen prompts to sign in to Azure and run the code. Make sure to record the generated server name and password, so you can log in to your server and databases. 
+Follow the onscreen prompts to sign in to Azure and run the code. 
 
 You can also use Azure Cloud Shell from the Azure portal, by selecting the Cloud Shell icon on the top bar. 
    
    ![Azure Cloud Shell](../media/sql-database-single-database-get-started/cloudshell.png)
    
-The first time you use Cloud Shell, select **PowerShell** on the **Welcome** dialog. Subsequent sessions will use PowerShell, or you can select it from the Cloud Shell control bar. 
+The first time you use Cloud Shell from the portal, select **PowerShell** on the **Welcome** dialog. Subsequent sessions will use PowerShell, or you can select it from the Cloud Shell control bar. 
 
-The following PowerShell code creates an Azure resource group, SQL server, single database, and firewall rule for access to the server:
+The following PowerShell code creates an Azure resource group, SQL server, single database, and firewall rule for access to the server. Make sure to record the generated resource group and server names, so you can manage these resources later.
 
    ```powershell-interactive
    # Set variables for your server and database
