@@ -333,13 +333,13 @@
      - name: Frequently asked questions
        href: frequently-asked-questions.md      
      - name: Error codes
-      items:
-      - name: Streaming Endpoint error codes  
-        href: streaming-endpoint-error-codes.md
-      - name: Live Event error codes
-        href: live-event-error-codes.md
-      - name: Job error codes
-        href: job-error-codes.md   
+       items:
+       - name: Streaming Endpoint error codes  
+         href: streaming-endpoint-error-codes.md
+       - name: Live Event error codes
+         href: live-event-error-codes.md
+       - name: Job error codes
+         href: job-error-codes.md   
 - name: Resources
 - name: Reference
   items:
