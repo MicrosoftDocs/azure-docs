@@ -32,7 +32,7 @@ Transferring HSM-protected keys to Key Vault is supported via two different meth
 |---|---|---|---|
 |nCipher|Manufacturer|<ul><li>nShield family of HSMs</li></ul>|[Use legacy BYOK method](hsm-protected-keys-legacy.md)|
 |Thales|Manufacturer|<ul><li>SafeNet Luna HSM 7 family with firmware version 7.3 or newer</li></ul>| [Use new BYOK method (preview)](hsm-protected-keys-vendor-agnostic-byok.md)|
-|Fortanix|Manufacturer|<ul><li>Self-Defending Key Management Service (SDKMS)</li></ul>|[Use new BYOK method (preview)](hsm-protected-keys-vendor-agnostic-byok.md)|
+|Fortanix|HSM as a Service|<ul><li>Self-Defending Key Management Service (SDKMS)</li></ul>|[Use new BYOK method (preview)](hsm-protected-keys-vendor-agnostic-byok.md)|
 
 
 
