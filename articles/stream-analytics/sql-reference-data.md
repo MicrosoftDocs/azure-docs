@@ -187,7 +187,7 @@ When using the delta query, [temporal tables in Azure SQL Database](../sql-datab
    
    ![Stream Analytics input configuration in Visual Studio](./media/sql-reference-data/Fill-Connection-Information.png)
 
-5. Right click in reference sql and click "Execute Query".
+5. Right-click in reference SQL and select **Execute Query**.
    
    ![Stream Analytics input configuration in Visual Studio](./media/sql-reference-data/Execute-Query.png)
 
