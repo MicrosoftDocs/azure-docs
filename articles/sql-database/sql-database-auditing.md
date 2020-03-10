@@ -194,6 +194,10 @@ If you chose to write audit logs to an Azure storage account, there are several 
 
     - [Query Extended Events Files](https://sqlscope.wordpress.com/20../../reading-extended-event-files-using-client-side-tools-only/) by using PowerShell.
 
+## Log audits to storage account under VNet or firewall
+
+You can write audit logs to a an Azure Storage account under a VNet or firewall. For specific instructions see, [Write audit to a storage account under VNet and firewall](create-auditing-storage-account-vnet-firewall.md).
+
 ## <a id="subheading-5"></a>Production practices
 
 <!--The description in this section refers to preceding screen captures.-->
