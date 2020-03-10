@@ -201,7 +201,7 @@ Once your IoT Edge device is configured to work with your proxy server, you need
 
 Always configure the two runtime modules, edgeAgent and edgeHub, to communicate through the proxy server so they can maintain a connection with IoT Hub. If you remove the proxy information from the edgeAgent module, the only way to reestablish connection is by editing the config.yaml file on the device, as described in the previous section.
 
-In addition to the edgeAgent and edgeHub modules, other IoT Edge modules may also need to have HTTPS_PROXY configuration but only if they are providing data for other Azure resources, such as blob storage. See [Configure proxy support](how-to-deploy-blob.md#configure-proxy-support) for setting the HTTPS_PROXY variable using the Azure portal for these modules. Alternatively, you can just update the JSON file.
+Other IoT Edge modules may need to have the HTTPS_PROXY variable specified for their modules in the deployment manifest file, but only if they are providing data for other Azure resources, such as blob storage. See [Configure proxy support](how-to-deploy-blob.md#configure-proxy-support) for setting the HTTPS_PROXY variable for these modules using the Azure portal.
 
 The following procedure is applicable throughout the life of the IoT Edge device.
 

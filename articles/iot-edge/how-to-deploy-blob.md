@@ -256,15 +256,14 @@ When you connect to additional blob storage modules, change the endpoint to poin
 
 ## Configure proxy support
 
-If your organization is using a proxy server, you will need to set the HTTPS_PROXY environment variable on the following IoT Edge modules:
+If your organization is using a proxy server, you will need to configure proxy support for the edgeAgent and edgeHub runtime modules. This process involves two tasks:
 
-- The edgeAgent runtime module
-- The edgeHub runtime module
-- Any module that is passing data to Azure blob storage
+- Configure the runtime daemons and the IoT Edge agent on the device.
+- Set the HTTPS_PROXY environment variable for modules in the deployment manifest JSON file.
 
-To set proxy support for the edgeAgent and edgeHub modules, follow the instructions described in [Configure an IoT Edge device to communicate through a proxy server](how-to-configure-proxy-support.md#configure-deployment-manifests). Specifically, you set the HTTPS_PROXY environment variable to both the IoT Edge agent and IoT Edge hub module definitions.
+This process is described in [Configure an IoT Edge device to communicate through a proxy server](how-to-configure-proxy-support.md#configure-deployment-manifests).
 
-To configure proxy support for blob storage modules, you also configure the deployment manifest in a similar manner by adding the HTTPS_PROXY environment variable.
+In addition, a blob storage module also requires the HTTPS_PROXY setting in the manifest deployment file. You can directly edit the deployment manifest file, or use the Azure portal.
 
 1. Navigate to your Iot hub in the Azure portal and select **Iot Edge** from the left pane menu.
 
