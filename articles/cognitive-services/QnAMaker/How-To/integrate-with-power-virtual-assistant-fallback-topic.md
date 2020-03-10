@@ -21,7 +21,7 @@ You can send the question to your knowledge base as part of a topic's action or 
 
 ## Power Automate connects to GenerateAnswer action
 
-To connect your agent to your knowledge base, use Power Automate. Power Automate provides a process **flow** which connects to QnA Maker's GenerateAnswer API.
+To connect your agent to your knowledge base, use Power Automate. Power Automate provides a process **flow, which connects to QnA Maker's GenerateAnswer API.
 
 Once the **flow** is designed and saved, it is available from a Power Automate **Solution**.  Once the GenerateAnswer flow is added to a solution, use that solution as an action in your agent.
 
@@ -44,7 +44,7 @@ Steps to use a Power Virtual agent with QnA Maker:
 
 ## Get your published knowledge base information
 
-Before you build your agent, create and publish your knowledge base. Next, find the endpoint key, endpoint host, and knowledge base Id on the **Settings** page in the QnA Maker portal.
+Before you build your agent, create and publish your knowledge base. Next, find the endpoint key, endpoint host, and knowledge base ID on the **Settings** page in the QnA Maker portal.
 
 You will need this information for the Power Automate step to configure your QnA Maker GenerateAnswer connection.
 
@@ -64,7 +64,8 @@ The first step is to configure an agent topic. While it can be any topic, this p
 
 1. After the topic is added, select the button  **Go to fallback topic** to author the fallback topic on the authoring canvas.
 
-    > [!TIP] If you need to return to the fallback topic, the fallback topic is under **Topics** section, as part of the **System** topics.
+    > [!TIP]
+    > If you need to return to the fallback topic, the fallback topic is under **Topics** section, as part of the **System** topics.
 
 ## Use authoring canvas to add an action
 
@@ -186,4 +187,4 @@ Test the agent by typing in a question that your knowledge base can answer. The 
 
 ## Next step
 
-[Get analytics on your knowledge base](How-To/get-analytics-knowledge-base.md)
+[Get analytics on your knowledge base](get-analytics-knowledge-base.md)
