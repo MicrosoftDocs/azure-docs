@@ -14,17 +14,17 @@ ms.date: 03/06/2020
 ---
 # Quickstart: Create an Azure SQL Database single database
 
-In this quickstart, you use the Azure portal, a PowerShell script, or an Azure CLI script to create an Azure SQL Database single database. You then query the database using **Query editor** in the Azure portal. A [single database](sql-database-single-database.md) is the quickest and simplest deployment option for Azure SQL Database. 
+In this quickstart, you use the Azure portal, a PowerShell script, or an Azure CLI script to create an Azure SQL Database single database. You then query the database using **Query editor** in the Azure portal. 
 
-You manage a single database within a [SQL Database server](sql-database-servers.md), which is inside an [Azure resource group](../azure-resource-manager/management/overview.md) in a specified Azure region. In this quickstart, you create a new resource group and SQL server for the new database.
+A [single database](sql-database-single-database.md) is the quickest and simplest deployment option for Azure SQL Database. You manage a single database within a [SQL Database server](sql-database-servers.md), which is inside an [Azure resource group](../azure-resource-manager/management/overview.md) in a specified Azure region. In this quickstart, you create a new resource group and SQL server for the new database.
 
-You can create a single database in the *provisioned* or *serverless* compute tier. A provisioned database is pre-allocated a fixed amount of compute resources, including CPU and memory, and uses one of two [purchasing models](sql-database-purchase-models.md). This quickstart creates a provisioned database using the [vCore-based](sql-database-service-tiers-vcore.md) purchasing model, but you can also choose a [DTU-based](sql-database-service-tiers-DTU.md) model. The serverless compute tier has a range of compute resources, including CPU and memory, that are auto-scaled, and is only available in the vCore-based purchasing model.
+You can create a single database in the *provisioned* or *serverless* compute tier. A provisioned database is pre-allocated a fixed amount of compute resources, including CPU and memory, and uses one of two [purchasing models](sql-database-purchase-models.md). This quickstart creates a provisioned database using the [vCore-based](sql-database-service-tiers-vcore.md) purchasing model, but you can also choose a [DTU-based](sql-database-service-tiers-DTU.md) model. 
+
+The serverless compute tier is only available in the vCore-based purchasing model, and has an auto-scaled range of compute resources, including CPU and memory. To create a single database in the serverless compute tier, see [Create a serverless database](sql-database-serverless.md#create-new-database-in-serverless-compute-tier).
 
 This quickstart requires an active Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/). 
 
 ## Create a single database
-
-To create a single database containing the AdventureWorksLT sample data:
 
 [!INCLUDE [sql-database-create-single-database](includes/sql-database-create-single-database.md)]
 
@@ -64,10 +64,6 @@ When you're finished using these resources, you can delete them as follows:
 
 ## Next steps
 
-- Create a server-level firewall rule to connect to the single database from on-premises or remote tools. For more information, see [Create a server-level firewall rule](sql-database-server-level-firewall-rule.md).
-- After you create a server-level firewall rule, [connect and query](sql-database-connect-query.md) your database using several different tools and languages.
+You can [connect and query](sql-database-connect-query.md) your database using several different tools and languages:
   - [Connect and query using SQL Server Management Studio](sql-database-connect-query-ssms.md)
   - [Connect and query using Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)
-- To create a single database in the provisioned compute tier using Azure CLI, see [Azure CLI samples](sql-database-cli-samples.md).
-- To create a single database in the provisioned compute tier using Azure PowerShell, see [Azure PowerShell samples](sql-database-powershell-samples.md).
-- To create a single database in the serverless compute tier using Azure Powershell, see [Create serverless database](sql-database-serverless.md#create-new-database-in-serverless-compute-tier).

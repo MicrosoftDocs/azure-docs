@@ -10,7 +10,7 @@ ms.reviewer: v-thepet
 
 In this step, you create an Azure SQL Database server and a single database that uses AdventureWorksLT sample data. You can create the database by using Azure portal menus and screens, or by using an Azure CLI or PowerShell script in the Azure Cloud Shell.
 
-All the methods include setting up a server-level firewall rule to let the public IP address of the computer you're using access the server. For more information about server firewall rules, see [Create a server-level firewall](../sql-database-server-level-firewall-rule.md). You can also set database-level firewall rules. See [Create a database-level firewall rule](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database). 
+All the methods include setting up a server-level firewall rule to let the public IP address of the computer you're using access the server. For more information about creating server firewall rules, see [Create a server-level firewall](../sql-database-server-level-firewall-rule.md). You can also set database-level firewall rules. See [Create a database-level firewall rule](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database). 
 
 # [Portal](#tab/azure-portal)
 
@@ -36,6 +36,7 @@ To create a resource group, SQL server, and single database in the Azure portal:
    - **Server admin login**: Enter *azureuser*.
    - **Password**: Enter a password that meets requirements, and enter it again in the **Confirm password** field.
    - **Location**: Drop down and choose a location, such as **(US) East US**.
+   
    Select **OK**.
    
    ![New server](../media/sql-database-single-database-get-started/new-server.png)
@@ -48,6 +49,7 @@ To create a resource group, SQL server, and single database in the Azure portal:
    - Change the **Compute tier** from **Provisioned** to **Serverless**
    - Review and change the settings for **vCores** and **Data max size**.
    - Select **Change configuration** to change the hardware generation.
+   
    After making any changes, select **Apply**.
    
 1. Select **Next: Networking** at the bottom of the page.
@@ -61,18 +63,17 @@ To create a resource group, SQL server, and single database in the Azure portal:
    ![Networking tab](../media/sql-database-single-database-get-started/networking.png)
    
 1. On the **Additional settings** tab, in the **Data source** section, for **Use existing data**, select **Sample**.
+1. Select **Review + create** at the bottom of the page.
    
    ![Additional settings tab](../media/sql-database-single-database-get-started/additional-settings.png)
    
-1. Select **Review + create** at the bottom of the page.
 1. After reviewing settings, select **Create**.
 
-[Allow Azure services and resources to access this server](../sql-database-networkaccess-overview.md)
-[Add a private endpoint](../../private-link/private-endpoint-overview.md).
+For more information about firewall settings, see [Allow Azure services and resources to access this server](../sql-database-networkaccess-overview.md) and [Add a private endpoint](../../private-link/private-endpoint-overview.md).
 
 # [PowerShell](#tab/azure-powershell)
 
-You can create an Azure resource group, SQL server, and single database using Windows PowerShell. If you don't want to use the Azure Cloud Shell, [install the Azure PowerShell module](powershell/azure/install-az-ps).
+You can create an Azure resource group, SQL server, and single database using Windows PowerShell. If you don't want to use the Azure Cloud Shell, [install the Azure PowerShell module](/powershell/azure/install-az-ps).
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -151,9 +152,11 @@ The preceding code uses the following PowerShell cmdlets:
 | [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) | Creates a firewall rule for a logical server. | 
 | [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) | Creates an Azure SQL Database single database. | 
 
+For more Azure SQL Database samples using Azure PowerShell, see [Azure PowerShell samples](sql-database-powershell-samples.md).
+
 # [Azure CLI](#tab/azure-cli)
 
-You can create an Azure resource group, SQL server, and single database using the Azure command-line interface (Azure CLI). If you don't want to use the Azure Cloud Shell, [install Azure CLI](powershell/azure/install-az-ps) on your computer.
+You can create an Azure resource group, SQL server, and single database using the Azure command-line interface (Azure CLI). If you don't want to use the Azure Cloud Shell, [install Azure CLI](/cli/azure/install-azure-cli) on your computer.
 
 To run the following code sample in Azure Cloud Shell, select **Try it** in the code sample title bar. When the Cloud Shell opens, select **Copy** in the code sample title bar, and paste the code sample into the Cloud Shell window. In the code, replace `<Subscription ID>` with your Azure Subscription ID, and for `$startIp` and `$endIP`, replace `0.0.0.0` with the public IP address of the computer you're using.
 
@@ -227,4 +230,5 @@ The preceding code uses these Azure CLI commands:
 | [az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule) | Creates a server's firewall rules. | 
 | [az sql db create](/cli/azure/sql/db?view=azure-cli-latest) | Creates a database. | 
 
+For more Azure SQL Database Azure CLI samples, see [Azure CLI samples](sql-database-cli-samples.md).
 ---
