@@ -31,7 +31,7 @@ Your private endpoint and virtual network must be in the same region. When you s
 
 Your private endpoint uses a private IP address in your virtual network.
 
-## Establish a private link connection to an Service Bus namespace
+## Establish a private link connection to a namespace
 
 First, create a virtual network by following the steps in [Create a virtual network using the Azure portal](../virtual-network/quick-create-portal.md)
 
@@ -58,7 +58,7 @@ After configuring the namespace basics, select the **Networking** tab and follow
     You can see the configured private endpoint now. You now have the option to delete and edit this private endpoint. 
 8. Select the **Review + Create** button and create the namespace. It will take 5-10 minutes for the deployment to complete. 
 
-### Establish a private link connection to a namespace
+### Establish a private link connection to a Service Bus namespace
 
 If you already have an existing namespace, you can create a private link connection by following these steps:
 
