@@ -11,7 +11,7 @@ ms.author: helohr
 ---
 # Tutorial: Create a host pool by using the Azure Marketplace
 
-In this tutorial, you learn how to create a host pool within a Windows Virtual Desktop tenant by using a Microsoft Azure Marketplace offering.
+In this tutorial, you'll learn how to create a host pool within a Windows Virtual Desktop tenant by using a Microsoft Azure Marketplace offering.
 
 Host pools are a collection of one or more identical virtual machines within Windows Virtual Desktop tenant environments. Each host pool can contain an app group that users can interact with as they would on a physical desktop.
 
