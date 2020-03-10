@@ -40,7 +40,7 @@ Auto-repair takes several steps to repair a broken node.  If a node is determine
 
 ## Next steps
 
-Use [Availability Zones](availability-zones) to increase high availability with your AKS cluster workloads.
+Use [Availability Zones][availability-zones] to increase high availability with your AKS cluster workloads.
 
 <!-- LINKS - External -->
 
