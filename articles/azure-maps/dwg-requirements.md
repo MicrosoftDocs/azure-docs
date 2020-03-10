@@ -29,7 +29,7 @@ You'll also need to acquaint yourself with the following terms before we explain
 
 ## Package structure
 
-A DWG package consists of DWG files and a manifest file. The DWG files can be organized in any way inside the zip folder, but the manifest file must live at the root directory of the folder. The files in the package must define a single facility, and be zipped in a single folder.  The next sections detail the requirements for the DWG files, manifest file, and the content of these files.
+A DWG package consists of DWG files and a manifest file. The DWG files can be organized in any way inside the zip folder, but the manifest file must live at the root directory of the folder. The files in the package must define a single facility and be zipped in a single folder.  The next sections detail the requirements for the DWG files, manifest file, and the content of these files.
 
 ## DWG files requirements
 
@@ -58,7 +58,7 @@ Moreover:
 
 The table below outlines the supported entity types for each layer. The layer ignores any mon-supported entity types.
 
-| Layer | Supported entity type |
+| Layer | Supported entity types |
 | :----- | :-------------------|
 | Exterior | Polygon, PolyLine (closed) |
 | Units |  Polygon, PolyLine (closed) |
@@ -72,7 +72,7 @@ The next sections detail the requirements for each layer.
 
 ### Exterior layer
 
-The DWG file for each level must contain a layer to define that level's perimeter. This layer is refereed to as the exterior layer.
+The DWG file for each level must contain a layer to define that level's perimeter. This layer is referred  to as the exterior layer.
 
 Regardless of how many entities you draw in the exterior layer, the resulting facility data set will contain only one level feature for each DWG file. Additionally, the exterior layer:
 
@@ -83,7 +83,7 @@ If the layer contains multiple overlapping PolyLines, then the PolyLines will be
 
 ### Units layer
 
-The DWG file for each level should define a layer containing units.  Units are navigable spaces in the building, such as offices and hallways. The units layer should adhere to the following requirements:
+The DWG file for each level should define a layer containing units.  Units are navigable spaces in the building, such as offices and hallways. The Units layer should adhere to the following requirements:
 
 * Units must be drawn as closed PolyLines
 * Units must not partially overlap
@@ -108,17 +108,17 @@ Doors won't be rendered on the resulting map, as drawn in the CAD software. Howe
 
 ### Zones layer
 
-The DWG file for each level may contain a zone layer that defines the physical extents of zones. A zone layer:
+The DWG file for each level may contain a zone layer that defines the physical extents of zones. A Zone layer:
 
 * Must be drawn as closed PolyLines
 * May overlap
 * May fall inside or outside the facility's exterior perimeter
 
-A zone can be named by creating a text object in the _zoneLabel_ layer, and placing the text object inside the bounds of the zone. See the [ZoneLabel layer](#ZoneLabel-layer) for more details.
+A zone can be named by creating a text object in the _zoneLabel_ layer and placing the text object inside the bounds of the zone. See the [ZoneLabel layer](#ZoneLabel-layer) for more details.
 
 ### UnitLabel layer
 
-The DWG file for each level may contain a unit label layer. The unit label layers adds a name property to units extracted from the unit layer. Units with a name property can have additional details specified in the manifest file.
+The DWG file for each level may contain a unit label layer. The unit label layer adds a name property to units extracted from the Unit layer. Units with a name property can have additional details specified in the manifest file.
 
 * Unit labels must be single-line text entities.
 * Unit labels must fall inside the bounds of their unit.
@@ -126,7 +126,7 @@ The DWG file for each level may contain a unit label layer. The unit label layer
 
 ### ZoneLabel layer
 
-The DWG file for each level may contain a zone label layer. This layer adds a name property to zones extracted from the zone layer. Zones with a name property can have additional details specified in the manifest file.
+The DWG file for each level may contain a zone label layer. This layer adds a name property to zones extracted from the Zone layer. Zones with a name property can have additional details specified in the manifest file.
 
 * Zones labels must be single-line text entities.
 * Zones labels must fall inside the bounds of their zone.
@@ -167,7 +167,7 @@ The next sections detail the requirements for each object.
 | nonPublic |    bool    | false | Flag specifying if the building is open to the public. |
 | anchorLatitude | numeric |    false | Latitude of a facility anchor (pushpin) |
 | anchorLongitude | numeric |    false | Longitude of a facility anchor (pushpin) |
-| anchorHeightAboveSeaLevel  | numeric | false | Height of facility's ground floor above sea level, in meters |
+| anchorHeightAboveSeaLevel  | numeric | false | Height of the facility's ground floor above sea level, in meters |
 | defaultLevelVerticalExtent | numeric | false | Default height (thickness) of a level of this facility to use when a level's `verticalExtent` is undefined |
 
 ### buildingLevels
@@ -210,14 +210,14 @@ The `unitProperties` object contains a JSON array of unit properties.
 |-----------|------|----------|-------------|
 |unitName    |string    |true    |Name of unit to associate with this `unitProperty` record. This record is only valid when a label matching `unitName` is found in the `unitLabel` layer(s) |
 |categoryName|    string|    false    |Category Name. For a complete list of categories, refer to [space categories](https://aka.ms/pa-indoor-spacecategories). |
-|navigableBy| Array of strings |    false    |Indicates the types of navigating agents that can traverse the unit. For example, "pedestrian". This property will inform the wayfinding capabilities.  The permitted values are: `pedestrian`, `wheelchair`, `machine`, `bicycle`, `automobile`, `hired_auto`, `bus`, `railcar`, `emergency`, `ferry`, `boat`, and `disallowed`.|
-|routeThroughBehavior|    string|    false    |The route through behavior for the unit. The permitted values are: `disallowed`, `allowed`, and `preferred`.|
+|navigableBy| Array of strings |    false    |Indicates the types of navigating agents that can traverse the unit. For example, "pedestrian". This property will inform the wayfinding capabilities.  The permitted values are `pedestrian`, `wheelchair`, `machine`, `bicycle`, `automobile`, `hired_auto`, `bus`, `railcar`, `emergency`, `ferry`, `boat`, and `disallowed`.|
+|routeThroughBehavior|    string|    false    |The route through behavior for the unit. The permitted values are `disallowed`, `allowed`, and `preferred`.|
 |occupants    |directoryInfo[]|false    |List of occupants for the unit |
 |nameAlt|    string|    false|    Alternate Name |
 |nameSubtitle|    string    |false|    Subtitle |
 |addressRoomNumber|    string|    false|    Room/Unit/Apartment/Suite number of the unit|
 |verticalPenetrationCategory|    string|    false|    Vertical Penetration Category Name. For a complete list of categories, refer to [space categories](https://aka.ms/pa-indoor-spacecategories). When this property is defined, the resulting feature will be Vertical Penetration (VRT), meaning it can be used to navigate to other VRT features in levels above or below it. |
-|verticalPenetrationDirection|    string|    false    |If `verticalPenetrationCategory` is defined, optionally define the valid direction of travel. The permitted values are: `low_to_high`, `high_to_low`, `both`, and `closed`.|
+|verticalPenetrationDirection|    string|    false    |If `verticalPenetrationCategory` is defined, optionally define the valid direction of travel. The permitted values are `low_to_high`, `high_to_low`, `both`, and `closed`.|
 | nonWheelchairAccessible  | bool | false | indicates if the unit is accessible by wheelchair |
 | nonPublic | bool | false | Indicates if the unit is open to the public |
 | isRoutable | bool | false | When set to false, unit can't be navigated to, or through |
