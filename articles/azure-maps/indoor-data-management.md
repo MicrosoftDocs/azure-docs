@@ -12,19 +12,19 @@ manager: philmea
 
 # Indoor map data management
 
-Azure Maps provIDes the Indoor Maps SDK, which has a plug-in for the QGIS application. The Azure Maps QGIS plug-in and the Azure Maps APIs can be used together to develop indoor maps for your application. This article overview the data management pipeline for developing indoor map applications. The process start with data ingestion into Azure Maps resources, and ends with resource administration using the Azure Maps QGIS plug-in.
+Azure Maps provides the Indoor Maps SDK, which has a plug-in for the QGIS application. The Azure Maps QGIS plug-in and the Azure Maps APIs can be used together to develop indoor maps for your application. This article overview the data management pipeline for developing indoor map applications. The process starts with data ingestion into Azure Maps resources, and wraps up with resource administration using the Azure Maps QGIS plug-in.
 
 ## Prerequisites
 
-You need to [obtain a primary subscription key](quick-demo-map-app.md#get-the-primary-key-for-your-account) by [making an Azure Maps account](quick-demo-map-app.md#create-an-account-with-azure-maps). The primary subscription key is a required parameter for the Azure Maps APIs.
+You need to [obtain a primary subscription key](quick-demo-map-app.md#get-the-primary-key-for-your-account) by [making an Azure Maps account](quick-demo-map-app.md#create-an-account-with-azure-maps). The primary subscription key is a required parameter for all Azure Maps APIs, including the indoor maps APIs.
 
 In this article, the [Postman](https://www.postman.com/) application is used to call the Azure Maps APIs. But, you may use any API development environment.
 
-Before you start ingesting data into Azure Maps resources, make sure that your DWG package adheres to the [DWG package requirements](dwg-requirements.md).
+Before you feed data to the Azure Maps resources, make sure that your DWG package adheres to the [DWG package requirements](dwg-requirements.md).
 
 ## Data Ingestion
 
-The first step is to upload your DWG package using the [Data Upload API](). The [Data Upload API]() consumes a DWG package, and it returns a URI pointing to the uploaded package. Once the package is uploaded, you can use the URI to accesses and download the package. The URI also contains the `udid` of the uploaded package. Use the package `udid` as inputs to the [Conversion API](). This API accesses the uploaded DWG package and valIDates it against the [DWG package requirements](dwg-requirements.md). If the package meets the requirements, it's converted from design data to map data. Then, a resource URI is returned. The URI contains the conversion `udid`. concludes the ingestion phase. The map data can be accessed using the conversion ID. The data can then be accesses and modified by other APIs. 
+The first step is to upload your DWG package using the [Data Upload API](). The [Data Upload API]() consumes a DWG package, and it returns a URI pointing to the uploaded package. Once the package is uploaded, you can use the URI to access and download the package. The URI also contains the `udid` of the uploaded package. Use the package `udid` as an input to the [Conversion API](). This API accesses the uploaded DWG package and validates it against the [DWG package requirements](dwg-requirements.md). If the package meets the requirements, it's converted from design data to map data. Then, a resource URI is returned. The URI contains the conversion `udid`, and obtaining this id concludes the data ingestion phase. The map data can be accessed using the conversion ID. The data can then be accessed and modified by other APIs.
 
 The [Conversion API]() will return error codes in the response body if the DWG package doesn't meet the requirements. If you come across errors, then see [Conversion API error codes]() for details.
 
@@ -50,7 +50,7 @@ Follow the processes below to upload your DWG design package:
 
     </center>
 
-5. Click the blue **Send** button, and wait for the request to process. Once the request completes, go to the **Headers** tab for the response, and copy the **Location** URL value. This value points to the Azure Maps resource that contains the DWG package, and it looks like this:
+5. Click the blue **Send** button and wait for the request to process. Once the request completes, go to the **Headers** tab for the response, and copy the **Location** URL value. This value points to the Azure Maps resource that contains the DWG package, and it looks like this:
 
     ```http
     https://atlas.microsoft.com/mapData/<unique-alphanumeric-value>/status?api-version=1.0
@@ -107,13 +107,13 @@ keep the Postman application open. Now that your DWG package is uploaded, we'll 
 
 ## Data Curation
 
-In the data curation stage, the map data is maintained and managed. And the way the map data is managed depends on your application goals. Nonetheless, there are three sets of APIs that will regularly be used at this stage. These APIs are the data set APIs, tile set APIs, and state set APIs. A data set is the primary resource for compiling one or more facility data. A tile set is a set of grIDded vector tiles. And, a state set contains state information for the dynamic map properties. The tile set and the state set use data from the data set. So, you would first generate a data set, and then use the data set to generate tile and state sets. Tile sets and state sets are used in combination with the indoor map sdk, to develop your use cases.
+In the data curation stage, the map data is maintained and managed. And the way the map data is managed depends on your application. Nonetheless, there are three sets of APIs that will regularly be used at this stage. These APIs are the data set APIs, tile set APIs, and state set APIs. A data set is the primary resource for compiling one or more facility data. A tile set is a set of gridded vector tiles. And, a state set contains state information for the dynamic map properties. The tile set and the state set use data from the data set. So, you would first generate a data set, and then use the data set to generate tile and state sets. Tile sets and state sets are used in combination with the indoor map sdk, to develop your application's use cases.
 
 The next sections detail the process to generate data sets, tile sets, and state sets. Although the sections focus on some APIs more than others, the general concepts apply to all APIs. You can also use the Azure Maps QGIS plug-in to manipulate the map data. But, you would still need to obtain the set IDs by making the create API calls.
 
 ### Data sets
 
-The data set is a collection of map data entities, such as buildings. The [Dataset Create API]() takes a conversion ID of a DWG package, and produces one or more data sets. It assigns a unique data set ID for the newly generated set. It's not likely that you want to have set duplicates. However, the API doesn't prevent you from appending duplicate blob into a data set. 
+The data set is a collection of map data entities, such as buildings. The [Dataset Create API]() takes a conversion ID of a DWG package, and produces one or more data sets. It assigns a unique data set ID for the newly generated set. It's not likely that you want to have set duplicates. However, the API doesn't prevent you from appending duplicate blob into a data set. This option makes the API flexible to meet the various need of developers.
 
 Let's now make a new data set using the [Dataset Create API]() and the conversion ID of our DWG package, obtained in the data ingestion phase.
 
@@ -149,7 +149,7 @@ Let's now make a new data set using the [Dataset Create API]() and the conversio
 
 Now that you've obtained the data set ID, you can use the [Azure Maps QGIS plug-in](azure-maps-qgis-plugin.md) to edit the data set. You may access your data set features by querying the Azure Maps [Web Feature Service (WFS) API](). It's okay to use another WFS API, as long as it follows the [OGC Web Feature Service 3.0](http://docs.opengeospatial.org/DRAFTS/17-069.html)
 
-The data set ID is also needed to generate a tile set and state set. At any time in the development phase, you may use the [Dataset List API]() to view details of the data sets you generated. When you're done using a set, you can remove its resources using the [Dataset Delete API]().
+The data set ID is also needed to generate a tile set and state set. At any time in the development phase, you may use the [Dataset List API]() to view details of the data sets you have generated. When you're done using a data set, you can remove its resources using the [Dataset Delete API]().
 
 ### Tile sets
 
@@ -179,18 +179,18 @@ To create a tile set, follow the steps below:
 
     </center>
 
-Use the tile set ID to render tiles for indoor maps for the map data that was originally obtained from the DWG package. For example, you may render indoor maps using the [Get Map Tile API]() and the Web SDK Indoor module. You may use the [Tileset Delete API]() to delete tiles. If you delete an in use tile set, then those tiles won't render on the map at the application runtime.
+Use the tile set ID to render tiles for indoor maps for the map data that was originally obtained from the DWG package. For example, you may render indoor maps using the [Get Map Tile API](). You may use the [Tileset Delete API]() to delete tiles. If you delete an in use tile set, then those tiles won't render on the map at the application runtime.
 
 You can also fetch a list of all the tile sets, including the tile sets that aren't used in your application, using the [Tileset List API]().
 
 > [!Note]
-> Whenever you review the list of items and decIDe to delete them, consIDer the cascading dependencies impacting other API with runtime dependencies. For example, you may have a tile set being rendered in your application using the **Get Map Tile API** and deleting the tile set will result in failure to render that tile set.
+> Whenever you review the list of items and decide to delete them, consider the cascading dependencies impact. For example, you may have a tile set being rendered in your application using the **Get Map Tile API** and deleting the tile set will result in failure to render that tile set.
 
 ### State sets
 
-A state set contains style information of the map features that can dynamically change. Accessing and changing the style of a feature is useful for highlighting events or state statuses. For example, you may toggle the tile colors to indicate the room occupancy status.
+A state set contains style information of the map features' properties  that can dynamically change. Accessing and changing the style of a feature is useful for highlighting events or statuses. For example, you may toggle the tile colors to indicate the room occupancy status.
 
-The process of using the feature state set APIs is similar to the processes of using the data set and tile set APIs. You would first make a state set. And you would use the feature ID and the state set ID to update feature. The steps below explain how to create a state set, obtain the feature ID, update the feature ID state, and acquire the state of the feature.
+The process of using the feature state set APIs is similar to using the data set and tile set APIs. You would first make a state set. And you would use the feature ID and the state set ID to update feature. The steps below explain how to create a state set, obtain the feature ID, update the feature ID state, and acquire the state of the feature.
 
 1. Open the Postman application. Select **New**. In the **Create New** window, select **Request**. Enter a **Request name**, and select a collection. Click **Save**
 
@@ -200,7 +200,7 @@ The process of using the feature state set APIs is similar to the processes of u
     https://atlas.microsoft.com/wfs/datasets/<datasetID>/collections?subscription-key=<Azure-Maps-Primary-Subscription-key>&api-version=1.0
     ```
 
-3. The response body will contain a set of collections in your data set. Once you choose a collection, make a **GET** request to learn about the features insIDe the collections. The URL to use is below:
+3. The response body will contain a set of collections in your data set. Once you choose a collection, make a **GET** request to learn about the features inside the collections. The URL to use is below:
 
     ```http
     https://atlas.microsoft.com/wfs/datasets/<datasetID>/collections/unit/items?subscription-key=<Azure-Maps-Primary-Subscription-key>&api-version=1.0
@@ -222,7 +222,7 @@ The process of using the feature state set APIs is similar to the processes of u
     https://atlas.microsoft.com/featureState/state?api-version=1.0&statesetID=<statesetID>&datasetID=<datasetID>&featureID=<featureID>&subscription-key=<Azure-Maps-Primary-Subscription-key>
     ```
 
-8. In the **Headers** of the **POST** request, set `Content-Type` to `application/json`. In the **body** of the **POST** request, write the JSON with the feature updates. The updates will only occur if the time stamp insIDe the JSON body is newer than the time stamp of the previous request. Here's a sample JSON body that updates a feature:
+8. In the **Headers** of the **POST** request, set `Content-Type` to `application/json`. In the **body** of the **POST** request, write the JSON with the feature updates. The updates will only occur if the time stamp inside the JSON body is after the time stamp of the previous request. Here's a sample JSON body that updates a feature:
 
     ```json
     {
@@ -242,11 +242,11 @@ The process of using the feature state set APIs is similar to the processes of u
     https://atlas.microsoft.com/featureState/state?api-version=1.0&statesetID=<statesetID>&datasetID=<datasetID>&featureID=<featureID>&subscription-key=<Azure-Maps-Primary-Subscription-key>
     ```
 
-All the dynamic styling properties of all features can become states. So, unlike the data set and the tile set APIs, there isn't an API to fetch the different states of various features in your application. But, the [Feature Get States API]() suffices for learning about the state of one feature. You can also delete the state set and its associated states using the [Feature State Delete API]().
+All the dynamic styling properties of all features can become states. So, unlike the data set and the tile set APIs, there isn't an API to fetch the different states of various features in your application. But, the [Feature Get States API]() is sufficient for learning about the state of one feature. You can also delete the state set and its associated states using the [Feature State Delete API]().
 
 ### Azure Maps QGIS Plug-in
 
-The Azure Maps QGIS Plug-in lets you make the same data map manipulation as the Azure Maps APIs. However, it's recommended that you use the plug-in for minor data modification, and use the APIs for heavy revisions. In the main window of the plug-in, the user can see the indoor map rendered as it would render in the application. Changes to the data set are observed right after the modification, in near real time.
+The Azure Maps QGIS Plug-in lets you make the same data map manipulation as the Azure Maps APIs. However, it's recommended that you use the plug-in for minor data modification and use the APIs for heavy revisions. In the main window of the plug-in, the user can see the indoor map rendered as it would render in the application. Changes to the data set are observed right after the modification, in near real time.
 
  The plug-in is still in the experimentation phase. So, there are some limitations to keep in mind. Only one user at a time can make changes to the data set. And before switching the floor number, make sure you save your edits for the current floor. Changes done on a given floor will be lost if you don't save before changing the floor.
 
