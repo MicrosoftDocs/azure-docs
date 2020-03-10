@@ -68,7 +68,7 @@ ESXi Hosts | **Required only for [application discovery](https://docs.microsoft.
 
 ## Dependency visualization
 
-[Dependency visualization](concepts-dependency-visualization.md) helps you to visualize dependencies across machines that you want to assess and migrate. [Review prerequisites and support](dependency-analysis-support-matrix.md) for dependency visualization.
+[Dependency visualization](concepts-dependency-visualization.md) helps you to visualize dependencies across machines that you want to assess and migrate. [Review prerequisites and support](support-matrix-dependency-analysis.md) for dependency visualization.
 
 
 ## Next steps
