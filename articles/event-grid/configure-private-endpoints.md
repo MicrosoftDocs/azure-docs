@@ -69,7 +69,7 @@ There are four provisioning states:
 | Reject | Rejected | Connection was rejected by the private link resource owner. |
 | Remove | Disconnected | Connection was removed by the private link resource owner, the private endpoint becomes informative and should be deleted for cleanup. |
  
-###  How to manage a private endpoint connection to the namespace
+###  How to manage a private endpoint connection
 
 1. Sign in to the Azure portal.
 1. In the search bar, type in **Event Grid topics** or **Event Grid domains**.
