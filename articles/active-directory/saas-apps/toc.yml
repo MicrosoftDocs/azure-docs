@@ -17,7 +17,7 @@
         href: 360online-tutorial.md
       - name: 4me
         href: 4me-tutorial.md
-      - name: 8x8 Virtual Office
+      - name: 8x8
         href: 8x8virtualoffice-tutorial.md
     - name: A
       items:
@@ -131,6 +131,8 @@
         href: asccontracts-tutorial.md
       - name: Ascentis
         href: ascentis-tutorial.md
+      - name: AskYourTeam
+        href: askyourteam-tutorial.md
       - name: Asset Bank
         href: assetbank-tutorial.md
       - name: AssetSonar
@@ -251,6 +253,8 @@
         href: carbonite-endpoint-backup-tutorial.md
       - name: Carlson Wagonlit Travel
         href: carlsonwagonlit-tutorial.md
+      - name: Catchpoint
+        href: catchpoint-tutorial.md
       - name: CBRE ServiceInsight
         href: cbre-serviceinsight-tutorial.md
       - name: Central Desktop
@@ -602,6 +606,8 @@
         href: greenhouse-tutorial.md
       - name: Greenlight Compliant Access Management
         href: greenlight-compliant-access-management-tutorial.md
+      - name: Greenlight Integration Platform
+        href: greenlight-integration-platform-tutorial.md
       - name: GreenOrbit
         href: greenorbit-tutorial.md
       - name: Grok Learning

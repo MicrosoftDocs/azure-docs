@@ -40,7 +40,7 @@ The following table provides a map of Azure regions to ExpressRoute locations wi
 | --- | --- | --- |
 | **Australia Government** |Australia Central, Australia Central 2 |Canberra, Canberra2 |
 | **Europe** | France Central, France South, Germany North, Germany West Central, North Europe, Norway East, Norway West, Switzerland North, Switzerland West, UK West, UK South, West Europe |Amsterdam, Amsterdam2, Copenhagen, Dublin, Frankfurt, Geneva, London, London2, Marseille, Milan, Munich, Newport(Wales), Oslo, Paris, Stavanger, Stockholm, Zurich |
-| **North America** |East US, West US, East US 2, West US 2, Central US, South Central US, North Central US, West Central US, Canada Central, Canada East |Atlanta, Chicago, Dallas, Denver, Las Vegas, Los Angeles, Miami, New York, San Antonio, Seattle, Silicon Valley, Silicon Valley2, Washington DC, Washington DC2, Montreal, Quebec City, Toronto |
+| **North America** |East US, West US, East US 2, West US 2, Central US, South Central US, North Central US, West Central US, Canada Central, Canada East |Atlanta, Chicago, Dallas, Denver, Las Vegas, Los Angeles, Miami, New York, San Antonio, Seattle, Silicon Valley, Silicon Valley2, Washington DC, Washington DC2, Montreal, Quebec City, Toronto, Vancouver |
 | **Asia** | East Asia, Southeast Asia | Bangkok, Hong Kong, Hong Kong2, Jakarta, Kuala Lumpur, Singapore, Singapore2, Taipei |
 | **India** | India West, India Central, India South |Chennai, Chennai2, Mumbai, Mumbai2 |
 | **Japan** | Japan West, Japan East |Osaka, Tokyo, Tokyo2 |
@@ -128,6 +128,7 @@ The following table shows locations by service provider. If you want to view ava
 | **[NTT Communications](https://www.ntt.com/en/services/network/virtual-private-network.html)** |Supported |Supported |Amsterdam, Hong Kong SAR, London, Los Angeles, Osaka, Singapore, Sydney, Tokyo, Washington DC |
 | **[NTT EAST](https://flets.com/cloudgateway/crossconnect/)** |Supported |Supported |Tokyo |
 | **[NTT SmartConnect](https://cloud.nttsmc.com/cxc/azure.html)** |Supported |Supported |Osaka |
+| **[Ooredoo Cloud Connect](https://www.ooredoo.qa/portal/OoredooQatar/cloud-connect-expressroute)** |Supported |Supported |Marseille |
 | **[Optus](https://www.optus.com.au/enterprise/)** |Supported |Supported |Melbourne, Sydney |
 | **[Orange](https://www.orange-business.com/en/products/business-vpn-galerie)** |Supported |Supported |Amsterdam, Amsterdam2, Dubai2, Frankfurt, Hong Kong SAR, Johannesburg, London, Paris, Sao Paulo, Silicon Valley, Singapore, Sydney, Tokyo, Washington DC |
 | **[Orixcom](https://www.orixcom.com/cloud-solutions/)** | Supported | Supported | Dubai2 |

@@ -29,9 +29,6 @@ When creating a variable, you can specify its encryption and storage by Azure Au
 Azure Automation stores each encrypted variable securely. Its value can't be retrieved using the [Get-AzAutomationVariable](https://docs.microsoft.com/powershell/module/az.automation/get-azautomationvariable?view=azps-3.5.0) cmdlet that ships as part of the Azure PowerShell module. The only way to retrieve an encrypted value is by using the **Get-AutomationVariable** activity in a runbook or DSC configuration.
 
 >[!NOTE]
->If you want to remove the encryption for a variable, you must delete the variable and recreate it as unencrypted.
-
->[!NOTE]
 >This article has been updated to use the new Azure PowerShell Az module. You can still use the AzureRM module, which will continue to receive bug fixes until at least December 2020. To learn more about the new Az module and AzureRM compatibility, see [Introducing the new Azure PowerShell Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). For Az module installation instructions on your Hybrid Runbook Worker, see [Install the Azure PowerShell Module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). For your Automation account, you can update your modules to the latest version using [How to update Azure PowerShell modules in Azure Automation](../automation-update-azure-modules.md).
 
 ## Variable types
@@ -90,6 +87,9 @@ The functions in the following table are used to access and retrieve variables i
 1. From your Automation account, click the **Assets** tile and then on the **Assets** blade, select **Variables**.
 2. On the **Variables** tile, select **Add a variable**.
 3. Complete the options on the **New Variable** blade and then click **Create** to save the new variable.
+
+>[!NOTE]
+>If you want to remove the encryption for a variable, you must delete the variable and recreate it as unencrypted.
 
 ### Create a new variable with Windows PowerShell
 
