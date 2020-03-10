@@ -35,6 +35,10 @@ For details, see [Scale media processing with CLI](media-reserved-units-cli-how-
 
 Use [Transforms](https://docs.microsoft.com/rest/api/media/transforms) to configure common tasks for encoding or analyzing videos. Each **Transform** describes a recipe, or a workflow of tasks for processing your video or audio files. A [Job](https://docs.microsoft.com/rest/api/media/jobs) is the actual request to Media Services to apply the **Transform** to a given input video or audio content. Once the Transform has been created, you can submit jobs using Media Services APIs, or any of the published SDKs. For more information, see [Transforms and Jobs](transforms-jobs-concept.md).
 
+### I uploaded, encoded, and published a video. What would be the reason the video does not play when I try to stream it?
+
+One of the most common reasons is you do not have the streaming endpoint from which you are trying to play back in the Running state.
+
 ### How does pagination work?
 
 When using pagination, you should always use the next link to enumerate the collection and not depend on a particular page size. For details and examples, see [Filtering, ordering, paging](entities-overview.md).
