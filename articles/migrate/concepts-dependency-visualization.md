@@ -33,7 +33,7 @@ Agentless dependency analysis works by capturing TCP connection data from machin
 
 ### Collected data
 
-Agentless dependency visualization works by capturing TCP connection data from machines for which it's enabled. After dependency discovery starts, the appliance gathers this data from machines by polling every five minutes:
+Polling gathers this data from machines: 
 - Source machine server name, process, application name
 - Destination server name, process, application name, and port.
 
