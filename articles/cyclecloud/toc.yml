@@ -77,7 +77,7 @@
     - name: Configure SSL
       href: ./how-to/ssl-configuration.md
     - name: Run Multiple CycleCloud Installs
-      href: ./how-to/mutiple-installs.md
+      href: ./how-to/multiple-installs.md
   - name: Cluster Operations
     items:
     - name: Create a Cluster
@@ -133,36 +133,32 @@
 
 - name: Reference
   items:
-  - name: Cluster Reference
+  - name: Cluster Template Reference
     items:
-    - name: Cluster Parameters
-      href: ~/cluster-references/cluster-template-reference.md
-    - name: Cluster Template File
-      href: ~/cluster-references/cluster-template-files.md
+    - name: Cluster Template Overview
+      href: ./cluster-references/cluster-template-reference.md
     - name: Cluster
-      href: ~/cluster-references/build-cluster-template.md
+      href: ./cluster-references/cluster-reference.md
     - name: Node and Nodearray
-      href: ~/cluster-references/nodes-in-cluster-templates.md
+      href: ./cluster-references/node-nodearray-reference.md
     - name: Volume
-      href: ~/cluster-references/volume-reference.md
+      href: ./cluster-references/volume-reference.md
     - name: Network Interface
-      href: ~/cluster-references/network-interface.md
+      href: ./cluster-references/network-interface-reference.md
     - name: Cluster-Init
-      href: ~/cluster-references/cluster-init-reference.md
+      href: ./cluster-references/cluster-init-reference.md
     - name: Input-Endpoint
-      href: ~/cluster-references/input-endpoint.md
+      href: ./cluster-references/input-endpoint-reference.md
     - name: Cluster Configuration
-      href: ~/cluster-references/cluster-configuration.md
+      href: ./cluster-references/configuration-reference.md
     - name: Environment
-      href: ~/cluster-references/environment.md
+      href: ./cluster-references/environment-reference.md
     - name: Noderef
-      href: ~/cluster-references/noderef.md
+      href: ./cluster-references/noderef-reference.md
     - name: Cluster Parameters
-      href: ~/cluster-references/parameter-reference.md
+      href: ./cluster-references/parameter-reference.md
     - name: Cluster Parameter Special Parsing
-      href: ~/cluster-references/special-parsing.md
-    - name: Download Existing Cluster Templates
-      href: download-cluster-templates.md
+      href: ./cluster-references/special-parsing.md
   - name: REST API Reference
     href: api.md
   - name: Python API Reference

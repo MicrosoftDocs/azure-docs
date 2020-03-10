@@ -1,14 +1,14 @@
 ---
 title: Cluster Reference Docs
-description: Build a new cluster template file and fill in the desired attributes with the parameters shown here.
-author: KimliW
-ms.date: 08/01/2018
+description: CycleCloud template reference for the Cluster section
+author: adriankjohnson
+ms.date: 03/10/2020
 ms.author: adjohnso
 ---
 
-# Build a New Cluster Template
+# Cluster Section
 
-A Cluster Template file must have at least one `[cluster]` section with an inline name attribute.  This is the only required section of the file.
+A cluster template file must have at least one `[cluster]` section with an inline name attribute.  This is the only required section of the file.
 
 ## Examples
 

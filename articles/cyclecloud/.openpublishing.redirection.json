@@ -164,6 +164,41 @@
             "source_path": "container-distribution.md",
             "redirect_url": "how-to/run-in-container.md",
             "redirect_document_id": true
+        },
+        {
+            "source_path": "cluster-references/build-cluster-template.md",
+            "redirect_url": "cluster-references/cluster-reference.md",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "cluster-references/nodes-in-cluster-templates.md ",
+            "redirect_url": "cluster-references/node-nodearray-reference.md",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "cluster-references/cluster-configuration.md",
+            "redirect_url": "cluster-references/configuration-reference.md",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "cluster-references/environment.md",
+            "redirect_url": "cluster-references/environment-reference.md",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "cluster-references/input-endpoint.md",
+            "redirect_url": "cluster-references/input-endpoint-reference.md",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "cluster-references/network-interface.md",
+            "redirect_url": "cluster-references/network-interface-reference.md",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "cluster-references/noderef.md",
+            "redirect_url": "cluster-references/noderef-reference.md",
+            "redirect_document_id": true
         }
     ]
 }

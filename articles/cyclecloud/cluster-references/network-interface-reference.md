@@ -1,8 +1,8 @@
 ---
 title: Cluster Template Reference - Network
 description: Network Interface reference for cluster templates for use with Azure CycleCloud
-author: KimliW
-ms.date: 010/19/2018
+author: adriankjohnson
+ms.date: 03/10/2020
 ms.author: adjohnso
 ---
 
@@ -14,7 +14,7 @@ Network Interface objects are rank 3, and subordinate to `node` or `nodearray`. 
 
 Adding a `[[[network-interface]]]` section to a node adds controls to the default NIC. You can also add additional NICs and attach them to a VM.
 
-In this example, we attach an existing NIC to a VM:
+This example attaches an existing NIC to a VM:
 
 ``` ini
 [cluster my-cluster]
@@ -25,10 +25,10 @@ In this example, we attach an existing NIC to a VM:
     ImageName = $ImageName
 
     [[[network-interface my-nic]]]
-      NetworkInterfaceId = /subscriptions/17AE2F23-B081-465F-A8E3-BD32C0349788/resourceGroups/my-rg/providers/Microsoft.Network/networkInterfaces/my-nic
+      NetworkInterfaceId = /subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/my-rg/providers/Microsoft.Network/networkInterfaces/my-nic
 ```
 
-The `$` is a reference to a parameter name.
+Attribute values that begin with `$` are referencing parameters.
 
 ## Attribute Reference
 

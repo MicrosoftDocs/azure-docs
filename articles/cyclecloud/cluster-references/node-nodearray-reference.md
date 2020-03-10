@@ -1,8 +1,8 @@
 ---
 title: Cluster Template Reference - Nodes
 description: Attributes for nodes and nodearrays within cluster templates for use with Azure CycleCloud
-author: KimliW
-ms.date: 08/01/2018
+author: adriankjohnson
+ms.date: 03/10/2020
 ms.author: adjohnso
 ---
 
@@ -12,7 +12,7 @@ Node and nodearray objects are rank 2, and subordinate to `cluster`. A node repr
 
 ## Node Defaults
 
-The `[[node defaults]]` is a special abstract node for default setting on all other nodes and nodearrays in a cluster:
+The `[[node defaults]]` is a special abstract node that specifies the default setting for all nodes and nodearrays in a cluster:
 
 ``` ini
 [cluster my-cluster]
@@ -26,13 +26,13 @@ The `[[node defaults]]` is a special abstract node for default setting on all ot
   MachineType = Standard_H16
 ```
 
-The `$` is a reference to a parameter name.
+The `$Credentials` is a reference to a parameter named "Credentials".
 
-In `my-cluster`, the `grid` nodearray inherits the Credential and SubnetId from the node defaults, but uses a specific HPC VM size of `Standard_H16`.
+In `my-cluster`, the `grid` nodearray inherits the Credential and SubnetId from the node `defaults`, but uses a specific HPC VM size of `Standard_H16`.
 
 ## Example
 
-In this example, you are creating a cluster with two nodes and a nodearray. The proxy node has the special role of `ReturnProxy`, which will be the endpoint for a reverse channel proxy coming from CycleCloud when the cluster starts.
+This example template creates a cluster with two nodes and a nodearray. The proxy node uses the `IsReturnProxy` to define the special role of `ReturnProxy`, which will be the endpoint for a reverse channel proxy coming from CycleCloud when the cluster starts.
 
 ``` ini
 [cluster my-cluster]
@@ -56,18 +56,29 @@ In this example, you are creating a cluster with two nodes and a nodearray. The 
 
 ## Required Attribute Reference
 
-There are a minimum of 4 required attributes to successfully start a node:
+There are a minimum of four required attributes to successfully start a node:
 
 Attribute | Type | Definition
 ------ | ----- | ----------
 MachineType | String | The Azure VM Size
 SubnetId | String | Subnet definition in the form `${rg}/${vnet}/${subnet}`
 Credentials | String | Name of the Cloud Provider account.
-ImageName | String | Cycle-supported image name.  cycle.image.[win2016, win2012, centos7, centos6, ubuntu16, ubuntu14]
 
 ### Image Attributes
 
-The VM image is also a required setting to launch a virtual machine. There are three valid forms of image definition. Along with Cycle-managed Marketplace Images, any marketplace image can be used.
+The VM image is a required setting to launch a virtual machine. There are three valid forms of image definition: default CycleCloud image names, Marketplace image definitions and Image IDs.
+
+#### ImageName
+
+CycleCloud supports a number of default Marketplace images that are available for different OS flavors. These can be specified with an `ImageName`.
+
+Attribute | Type | Definition
+------ | ----- | ----------
+ImageName | String | Cycle-supported image name.  cycle.image.[win2016, win2012, centos7, centos6, ubuntu16, ubuntu14]
+
+#### Marketplace Images
+
+Along with Cycle-managed Marketplace Images, any marketplace image can be used by specifying the `Publisher`, `Offer`, `Sku` and `ImageVersion`.
 
 Attribute | Type | Definition
 ------ | ----- | ----------
@@ -76,19 +87,26 @@ Azure.Offer | String | Offer for VM Marketplace image
 Azure.Sku | String | Sku of VM Marketplace image
 Azure.ImageVersion | String | Image Version of Marketplace image.
 
-Alternatively, the resource ID of a VM image in the Credential subscription can be used:
+#### ImageId
+
+Alternatively, the resource ID of a VM image in the Credential's subscription can also be used:
 
 Attribute | Type | Definition
 ------ | ----- | ----------
-ImageId | String | Resource ID of vm image
+ImageId | String | Resource ID of VM image
 
-These two variations need a few additional settings to properly configure the CycleCloud OS extension:
+#### Image Attributes
+
+Marketplace image and images defined by ImageIds need a few additional settings to properly configure the CycleCloud OS extension:
 
 Attribute | Type | Definition
 ------ | ----- | ----------
 InstallJetpack | Boolean | CycleCloud will install jetpack with OS extension.
-AwaitInstallation | Boolean | Once a vm is started, wait for jetpack to report installation details.
+AwaitInstallation | Boolean | Once a VM is started, wait for jetpack to report installation details.
 JetpackPlatform | String | Jetpack installer platform to use: `centos-7`, `centos-6`, `ubuntu-14.04`, `ubuntu-16.04`, `windows`. Deprecated in 7.7.0.
+
+> [!NOTE]
+> ImageId is used by default if multiple image definitions are included in a single node definition.
 
 ### Alternative Image Sample
 
@@ -127,7 +145,7 @@ Here is a sample template using the three alternate image constructs for the nod
 Attribute | Type | Definition
 ------ | ----- | ----------
 IsReturnProxy | boolean | Establish reverse channel proxy to this node. Only one node per cluster may have this setting as true.
-KeyPairLocation | Integer | Where CycleCloud will find a ssh keypair on the local filesystem
+KeyPairLocation | Integer | Where CycleCloud will find a SSH keypair on the local filesystem
 ReturnPath.Hostname | Hostname | Hostname where node can reach CycleCloud.
 ReturnPath.WebserverPort | Integer | Webserver port where node can reach CycleCloud.
 ReturnPath.BrokerPort | Integer | Broker where node can reach CycleCloud.
@@ -151,14 +169,13 @@ MaxPrice | Float | The maximum price to spend on the VM. Default is -1.
 
 ### Nodearray-Specific Attributes
 
-All of the attributes for a node are valid for a nodearray, but a node array is an
-elastic resource so additional attributes are available.
+All of the attributes for a node are valid for a nodearray, but a node array is an elastic resource so additional attributes are available.
 
 Attribute | String | Definition
 ------ | ----- | ----------
 Azure.AllocationMethod  | String | Set this to `StandAlone` to manage single VMs or leave undefined to use VM ScaleSets
 Azure.SingleScaleset  | Boolean | Use a single VMSS for all nodes, and put all VMs in a single placement group in the VMSS
-Azure.MaxScaleSetSize | Integer | Limit the number of VMs in a single VMSS. Once this maximum is reached, CycleCloud will add additional VMSS to cluster. Default is 40.
+Azure.MaxScaleSetSize | Integer | Limit the number of VMs in a single VMSS. Once this maximum is reached, CycleCloud will add additional VMSS to cluster. Default: `40`.
 InitialCount | Integer | Number of nodes to start when cluster starts.
 MaxCount | Integer | To ensure that the cluster never exceeds 10 nodes you would specify a value of 10. Note that MaxCount and MaxCoreCount can be used together, in which case the lower effective constraint will take effect.
 InitialCoreCount | Integer | Number of cores to start when cluster starts.
@@ -166,5 +183,4 @@ MaxCoreCount | Integer | To ensure that the cluster never exceeds 100 cores you 
 
 ## Subordinate Objects
 
-The node/nodearray objects have `volume`, `network-interface`, `cluster-init`,
-`input-endpoint`, and `configuration` as subordinate objects.
+The node/nodearray objects have [volume](./volume-reference.md), [network-interface](./network-interface-reference.md), [cluster-init](./cluster-init-reference.md), [input-endpoint](./input-endpoint-reference.md), and [configuration](./configuration-reference.md) as subordinate objects.
