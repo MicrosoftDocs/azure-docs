@@ -62,7 +62,7 @@ Security Center automatically collects, analyzes, and integrates log data from y
 
 1. The remediation steps suggested by Security Center vary according to the security alert. Follow them for each alert. 
 
-    In some cases, in order to mitigate a threat detection alert, you may have to use other Azure controls or services to implement the recommended remediation. 
+    In some cases, in order to mitigate a security alert, you may have to use other Azure controls or services to implement the recommended remediation. 
 
     The following topics guide you through the different alerts, according to resource types:
     

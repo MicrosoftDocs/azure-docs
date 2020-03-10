@@ -1,7 +1,6 @@
 ---
 title: Azure Monitor for VMs (GA) frequently asked questions | Microsoft Docs
 description: Azure Monitor for VMs is a solution in Azure that combines health and performance monitoring of the Azure VM operating system, as well as automatically discovering application components and dependencies with other resources and maps the communication between them. This article answers common questions about the GA release.
-ms.service:  azure-monitor
 ms.subservice: 
 ms.topic: conceptual
 author: bwren

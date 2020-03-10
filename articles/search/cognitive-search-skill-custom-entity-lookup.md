@@ -59,7 +59,7 @@ Parameters are case-sensitive.
 
 There are 3 different ways to provide the list of custom entities to the Custom Entity Lookup skill. You can provide the list in a .CSV file, a .JSON file or as an inline definition as part of the skill definition.  
 
-If the definition file is a .CSV or .JSON file, the path of the file needs to be provided as part of the *entitiesDefitionUri* parameter. In this case, the file is downloaded once at the beginning of each indexer run. The file must be accessible as long as the indexer is intended to run.
+If the definition file is a .CSV or .JSON file, the path of the file needs to be provided as part of the *entitiesDefitionUri* parameter. In this case, the file is downloaded once at the beginning of each indexer run. The file must be accessible as long as the indexer is intended to run. Also, the file must be encoded UTF-8.
 
 If the definition is provided inline, it should be provided as inline as the content of the *inlineEntitiesDefinition* skill parameter. 
 

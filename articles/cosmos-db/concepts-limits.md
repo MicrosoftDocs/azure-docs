@@ -163,6 +163,9 @@ The following table lists the limits specific to MongoDB feature support. Other 
 | --- | --- |
 | Maximum MongoDB query memory size | 40 MB |
 | Maximum execution time for MongoDB operations| 30s |
+| Idle connection timeout for server side connection closure* | 30 minutes |
+
+\* We recommend that client applications set the idle connection timeout in the driver settings to 2-3 minutes because the [default timeout for Azure LoadBalancer is 4 minutes](../load-balancer/load-balancer-tcp-idle-timeout.md#tcp-idle-timeout).  This timeout will ensure that idle connections are not closed by an intermediate load balancer between the client machine and Azure Cosmos DB.
 
 ## Try Cosmos DB Free limits
 
@@ -178,6 +181,20 @@ The following table lists the limits for the [Try Azure Cosmos DB for Free](http
 | Maximum total storage per account | 10 GB |
 
 Try Cosmos DB supports global distribution in only the Central US, North Europe, and Southeast Asia regions. Azure support tickets can't be created for Try Azure Cosmos DB accounts. However, support is provided for subscribers with existing support plans.
+
+## Free tier account limits
+The following table lists the limits for [Azure Cosmos DB free tier accounts.](optimize-dev-test.md#azure-cosmos-db-free-tier)
+
+| Resource | Default limit |
+| --- | --- |
+| Number of free tier accounts per Azure subscription | 1 |
+| Duration of free-tier discount | Lifetime of the account. Must opt-in during account creation. |
+| Maximum RU/s for free | 400 RU/s |
+| Maximum storage for free | 5 GB |
+| Maximum number of shared throughput databases | 5 |
+| Maximum number of containers in a shared throughput database | 25 <br>In free tier accounts, the minimum RU/s for a shared throughput database with up to 25 containers is 400 RU/s. |
+
+  In addition to the above, the [Per-account limits](#per-account-limits) also apply to free tier accounts.
 
 ## Next steps
 

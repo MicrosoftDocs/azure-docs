@@ -26,7 +26,7 @@ In this quickstart, you programmatically create an individual enrollment for a T
 - Endorsement key. Use the steps in [Create and provision a simulated device](quick-create-simulated-device.md) or use the endorsement key supplied with the SDK, described below.
 
 > [!IMPORTANT]
-> This article only applies to the deprecated V1 Python SDK. Device and service clients for the Iot Hub Device Provisioning Service are not yet available in V2. The team is currently hard at work to bring V2 to feature parity.
+> This article only applies to the deprecated V1 Python SDK. Device and service clients for the IoT Hub Device Provisioning Service are not yet available in V2. The team is currently hard at work to bring V2 to feature parity.
 
 <a id="prepareenvironment"></a>
 

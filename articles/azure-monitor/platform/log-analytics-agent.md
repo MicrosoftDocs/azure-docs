@@ -1,7 +1,6 @@
 ---
 title: Log Analytics agent overview
 description: This topic helps you understand how to collect data and monitor computers hosted in Azure, on-premises, or other cloud environment with Log Analytics.
-ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
@@ -11,7 +10,7 @@ ms.date: 02/04/2020
 ---
 
 # Log Analytics agent overview
-The Azure Log Analytics agent was developed for comprehensive management across virtual machines in any cloud, on-premises machines, and those monitored by [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/). The Windows and Linux agents send collected data from different sources to your Log Analytics workspace in Azure Monitor, as well as any unique logs or metrics as defined in a monitoring solution. The Log Analytics agent also supports insights and other services in Azure Monitor such as [Azure Monitor for VMs](), [Azure Security Center](), and [Azure Automation]().
+The Azure Log Analytics agent was developed for comprehensive management across virtual machines in any cloud, on-premises machines, and those monitored by [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/). The Windows and Linux agents send collected data from different sources to your Log Analytics workspace in Azure Monitor, as well as any unique logs or metrics as defined in a monitoring solution. The Log Analytics agent also supports insights and other services in Azure Monitor such as [Azure Monitor for VMs](../insights/vminsights-enable-overview.md), [Azure Security Center](/azure/security-center/), and [Azure Automation](../../automation/automation-intro.md).
 
 This article provides a detailed overview of the agent, system and network requirements, and the different deployment methods.
 
@@ -98,7 +97,7 @@ This section provides details about the supported Linux distributions.
 Starting with versions released after August 2018, we are making the following changes to our support model:  
 
 * Only the server versions are supported, not client.  
-* New versions of [Azure Linux Endorsed distros](../../virtual-machines/linux/endorsed-distros.md) are always supported.  
+* Focus support on any of the [Azure Linux Endorsed distros](../../virtual-machines/linux/endorsed-distros.md). Note that there may be some delay between a new distro/version being Azure Linux Endorsed and it being supported for the Log Analytics Linux agent.
 * All minor releases are supported for each major version listed.
 * Versions that have passed their manufacturer's end-of-support date are not supported.  
 * New versions of AMI are not supported.  

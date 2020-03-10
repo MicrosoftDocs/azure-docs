@@ -76,7 +76,7 @@ To run the script:
     **Example**
 
    ```azurepowershell
-   ./AzureILBUpgrade.ps1 -rgName "test_InternalUpgrade_rg" -oldLBName "LBForInternal" -newlocation "centralus" -newLbName "LBForUpgrade"
+   AzureILBUpgrade.ps1 -rgName "test_InternalUpgrade_rg" -oldLBName "LBForInternal" -newlocation "centralus" -newLbName "LBForUpgrade"
    ```
 
 ### Add VMs to backend pools of Standard Load Balancer

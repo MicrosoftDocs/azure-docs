@@ -1,5 +1,5 @@
 ---
-title: Utilize Azure infrastructure VM restart to achieve “higher availability” of an SAP system | Microsoft Docs
+title: Utilize Azure VMs restart for “higher availability” of an SAP system | Microsoft Docs
 description: Utilize Azure infrastructure VM restart to achieve “higher availability” of SAP applications
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure

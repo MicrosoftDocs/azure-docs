@@ -39,7 +39,7 @@ The following table provides a list of the features that are available in the va
 
 | Feature | Azure AD Free - Security defaults | Azure AD Free - Azure AD Global Administrators | Office 365 Business Premium, E3, or E5 | Azure AD Premium P1 or P2 |
 | --- |:---:|:---:|:---:|:---:|
-| Protect Azure AD admin accounts with MFA | ● | ● (*Azure AD Global Administrator* accounts only) | ● | ● |
+| Protect Azure AD tenant admin accounts with MFA | ● | ● (*Azure AD Global Administrator* accounts only) | ● | ● |
 | Mobile app as a second factor | ● | ● | ● | ● |
 | Phone call as a second factor | | ● | ● | ● |
 | SMS as a second factor | | ● | ● | ● |

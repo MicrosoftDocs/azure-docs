@@ -75,7 +75,7 @@ Because SUSE Linux uses symbolic links (or *symlinks*) to maintain a certificate
 
 1. If the Symantec root CA certificate is not found, run the following command to download the file. Check for any errors and follow recommended actions for network failures.
 
-    **# wget https://www.symantec.com/content/dam/symantec/docs/other-resources/verisign-class-3-public-primary-certification-authority-g5-en.pem -O VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem**
+    **# wget https://docs.broadcom.com/docs-and-downloads/content/dam/symantec/docs/other-resources/verisign-class-3-public-primary-certification-authority-g5-en.pem -O VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem**
 
 1. Check whether the Baltimore root CA certificate is present:
 

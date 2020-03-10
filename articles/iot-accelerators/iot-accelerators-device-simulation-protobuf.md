@@ -232,7 +232,7 @@ The following script assumes that the name of your IoT hub is
 
 ```azurecli-interactive
 # Install the IoT extension if it's not already installed
-az extension add --name azure-cli-iot-ext
+az extension add --name azure-iot
 
 # Monitor telemetry sent to your hub
 az iot hub monitor-events --hub-name device-simulation-test

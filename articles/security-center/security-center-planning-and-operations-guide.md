@@ -175,7 +175,7 @@ When you first opt in to use Security Center for your current Azure environment,
 
 Once you address all recommendations, the **Prevention** section should be green for all resources that were addressed. Ongoing monitoring at this point becomes easier since you will only take actions based on changes in the resource security health and recommendations tiles.
 
-The **Detection** section is more reactive, these are alerts regarding issues that are either taking place now, or occurred in the past and were detected by Security Center controls and 3rd party systems. The Security Alerts tile will show bar graphs that represent the number of threat detection alerts that were found in each day, and their distribution among the different severity categories (low, medium, high). For more information about Security Alerts, read [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md).
+The **Detection** section is more reactive, these are alerts regarding issues that are either taking place now, or occurred in the past and were detected by Security Center controls and 3rd party systems. The Security Alerts tile will show bar graphs that represent the number of alerts that were found in each day, and their distribution among the different severity categories (low, medium, high). For more information about Security Alerts, read [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md).
 
 Plan to visit the [threat intelligence](https://docs.microsoft.com/azure/security-center/security-center-threat-intel) option as part of your daily security operations. There you can identify security threats against the environment, such as identify if a particular computer is part of a botnet.
 
@@ -207,7 +207,7 @@ You can use [Adaptive Application Controls](https://docs.microsoft.com/azure/sec
 
 
 ## Incident response
-Security Center detects and alerts you to threats as they occur. Organizations should monitor for new security alerts and take action as needed to investigate further or remediate the attack. For more information on how Security Center threat detection works, read [How Azure Security Center detects and responds to threats](security-center-alerts-overview.md#detect-threats).
+Security Center detects and alerts you to threats as they occur. Organizations should monitor for new security alerts and take action as needed to investigate further or remediate the attack. For more information on how Security Center threat protection works, read [How Azure Security Center detects and responds to threats](security-center-alerts-overview.md#detect-threats).
 
 While this article doesn’t have the intent to assist you creating your own Incident Response plan, we are going to use Microsoft Azure Security Response in the Cloud lifecycle as the foundation for incident response stages. The stages are shown in the following diagram:
 

@@ -7,7 +7,7 @@ ms.date: 06/12/2019
 ms.author: pafarley
 ---
 
-Go to the Azure Portal and [create a new Form Recognizer resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer). In the **Create** pane, provide the following information:
+Go to the Azure portal and <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer" title="Create a new Form Recognizer resource" target="_blank">create a new Form Recognizer resource <span class="docon docon-navigate-external x-hidden-focus"></span></a>. In the **Create** pane, provide the following information:
 
 |    |    |
 |--|--|

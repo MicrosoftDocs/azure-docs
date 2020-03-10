@@ -105,8 +105,8 @@
         href: developer-best-practices-pod-security.md
   - name: Quotas and regional limits
     href: quotas-skus-regions.md
-  - name: Migrate from ACS to AKS
-    href: acs-aks-migration.md
+  - name: Migrate to AKS
+    href: aks-migration.md
   - name: Supported Kubernetes version
     href: supported-kubernetes-versions.md
   - name: Security Hardening in host OS
@@ -375,6 +375,8 @@
       href: kube-advisor-tool.md
     - name: SSH node access
       href: ssh.md
+    - name: Linux performance tools
+      href: troubleshoot-linux.md
 - name: Reference
   items:
   - name: Azure CLI

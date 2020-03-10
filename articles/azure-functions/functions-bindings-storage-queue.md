@@ -16,7 +16,7 @@ Azure Functions can run as new Azure Queue storage messages are created and can 
 | Action | Type |
 |---------|---------|
 | Run a function as queue storage data changes | [Trigger](./functions-bindings-storage-queue-trigger.md) |
-| Write queue storage messages |[Output binding](./functions-bindings-storage-blob-output.md) |
+| Write queue storage messages |[Output binding](./functions-bindings-storage-queue-output.md) |
 
 ## Add to your Functions app
 
@@ -45,4 +45,4 @@ Functions 1.x apps automatically have a reference the [Microsoft.Azure.WebJobs](
 ## Next steps
 
 - [Run a function as queue storage data changes (Trigger)](./functions-bindings-storage-queue-trigger.md)
-- [Write queue storage messages (Output binding)](./functions-bindings-storage-blob-output.md)
+- [Write queue storage messages (Output binding)](./functions-bindings-storage-queue-output.md)
