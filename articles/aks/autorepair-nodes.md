@@ -25,7 +25,7 @@ kubectl get nodes
 
 ## Auto-repair rules to determine an unhealthy node
 
-Auto-repair for AKS nodes uses rules to determine if a node is an unhealthy state and needs repair. AKS uses the following rules to determine if auto-repair is needed.  AKS takes repair action on nodes with the user **aks-remediator**.  
+AKS nodes uses rules to determine if a node is an unhealthy state and needs repair. AKS uses the following rules to determine if automatic repair is needed.  AKS takes repair action on nodes with the user **aks-remediator**.  
 
 * The node reports status of **NotReady** on consecutive checks within a 10-minute timeframe
 * The node doesn't report a status within 10 minutes
