@@ -156,7 +156,7 @@ You can assign users to administrative units in two ways.
 
     1. You can go to the Azure AD in the portal and select Users and select the user to be assigned to an administrative unit. You can then select Administrative units in the left panel. The user can be assigned to one or more administrative units by clicking on Assign to administrative unit and selecting the administrative units to which the user needs to be assigned.
 
-      ![select Add and then enter a name for the administrative unit](./media/roles-administrative-units-scope/assign-users-individually.png)
+       ![select Add and then enter a name for the administrative unit](./media/roles-administrative-units-scope/assign-users-individually.png)
 
     1. You can go to Azure AD in the portal and select Administrative units in the left pane and then select the administrative unit in which the users need to be assigned. Select All users on the left pane and then select Add member. You can then go ahead and select one or more users to be assigned to the administrative unit from the right pane.
 
