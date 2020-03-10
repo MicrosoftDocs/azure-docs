@@ -42,7 +42,7 @@ If you choose to encrypt data using a customer-managed key (CMK), you'll be prom
 > [!div class="mx-imgBorder"]
 > ![Invite team member with CMK](images/create-team-cmk.png)
 
-If you try to reuse a Content Moderator resource, you'll see the following: 
+If you try to reuse a Content Moderator resource, you'll see this warning: 
 
 > [!div class="mx-imgBorder"]
 > ![CMK failure](images/create-team-cmk-fail.png)
