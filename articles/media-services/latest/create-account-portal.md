@@ -16,7 +16,7 @@ ms.date: 03/09/2020
 ms.author: juliako
 
 ---
-# Create a Media Services account using the Azure portal
+# Use the Azure portal to create a Media Services account
 
 The Azure portal provides a way to quickly create an Azure Media Services account. You can use your account to access Media Services that enable you to store, encrypt, encode, manage, and stream media content in Azure.
 

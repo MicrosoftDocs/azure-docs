@@ -15,7 +15,7 @@ ms.topic: how-to
 ms.date: 03/09/2020
 ms.author: juliako
 ---
-# Use portal to access Media Services API with Azure AD authentication
+# Use the Azure portal to get credentials to access Media Services API  
 
 Learn how to use the Azure portal to access Azure Active Directory (Azure AD) authentication to access the Azure Media Services API.
 
