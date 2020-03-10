@@ -12,7 +12,7 @@ This article describes how to set up agent-based dependency analysis in Azure Mi
 ## Before you start
 
 - [Learn about](concepts-dependency-visualization.md#agent-based-analysis) agent-based dependency analysis.
-- [Review](dependency-analysis-support.matrix.md#agent-based-requirements) the prerequisites and support requirements for setting up agent-based dependency visualization.
+- [Review](support-matrix-dependency-analysis.md#agent-based-requirements) the prerequisites and support requirements for setting up agent-based dependency visualization.
 - Make sure you've [created](how-to-add-tool-first-time.md) an Azure Migrate project.
 - If you've already created a project, make sure you've [added](how-to-assess.md) the Azure Migrate:Server Assessment tool.
 - Make sure you've set up an [Azure Migrate appliance](migrate-appliance.md) to discover your on-premises machines. Learn how to set up an appliance for [VMware](how-to-set-up-appliance-vmware.md), [Hyper-V](how-to-set-up-appliance-hyper-v.md), or [physical servers](how-to-set-up-appliance-physical.md). The appliance discovers on-premises machines, and sends metadata, performance data to Azure Migrate:Server Assessment.

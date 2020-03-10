@@ -22,7 +22,7 @@ This article describes how to set up agentless dependency analysis in Azure Migr
 ## Before you start
 
 - [Learn about](concepts-dependency-visualization.md#agentless-analysis) agentless dependency analysis.
-- [Review](dependency-analysis-support.matrix.md#agentless-requirements) the prerequisites and support requirements for setting up agentless dependency visualization.
+- [Review](support=matrix-dependency-analysis.md#agentless-requirements) the prerequisites and support requirements for setting up agentless dependency visualization.
 - Make sure you've [created](how-to-add-tool-first-time.md) an Azure Migrate project.
 - If you've already created a project, make sure you've [added](how-to-assess.md) the Azure Migrate:Server Assessment tool.
 - Make sure you've set up an [Azure Migrate appliance](migrate-appliance.md) to discover your on-premises machines. Learn how to set up an appliance for [VMware](how-to-set-up-appliance-vmware.md) VMs. The appliance discovers on-premises machines, and sends metadata and performance data to Azure Migrate:Server Assessment.
@@ -36,7 +36,7 @@ This article describes how to set up agentless dependency analysis in Azure Migr
 
 ## Create a user account for discovery
 
-Set up a user account so that Server Assessment can access the VM for discovery. [Learn](dependency-analysis-support.matrix.md#agentless-requirements) about account requirements.
+Set up a user account so that Server Assessment can access the VM for discovery. [Learn](support-matrix-dependency-analysis.md#agentless-requirements) about account requirements.
 
 
 ## Add the user account to the appliance
