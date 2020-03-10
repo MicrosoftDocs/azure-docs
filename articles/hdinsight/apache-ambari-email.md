@@ -25,7 +25,7 @@ In this tutorial, you learn how to:
 
 * A SendGrid email account. See [How to Send Email Using SendGrid with Azure](https://docs.microsoft.com/azure/sendgrid-dotnet-how-to-send-email) for instructions.
 
-* An HDInsight cluster. See [Create Apache Hadoop clusters using the Azure portal](../hdinsight-hadoop-create-linux-clusters-portal.md).
+* An HDInsight cluster. See [Create Apache Hadoop clusters using the Azure portal](./hdinsight-hadoop-create-linux-clusters-portal.md).
 
 ## Obtain SendGrid Username
 
