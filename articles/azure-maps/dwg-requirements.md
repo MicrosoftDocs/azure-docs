@@ -75,7 +75,7 @@ The next sections detail the requirements for each layer.
 
 The DWG file for each level must contain a layer to define that level's perimeter. This layer is referred  to as the exterior layer.
 
-Regardless of how many entities you draw in the exterior layer, the [resulting facility data set](indoor-data-management.md#Data-sets) will contain only one level feature for each DWG file. Additionally, the exterior layer:
+Regardless of how many entities you draw in the exterior layer, the [resulting facility data set](indoor-data-management.md#data-sets) will contain only one level feature for each DWG file. Additionally, the exterior layer:
 
 * Must contain at least one closed PolyLine, which defines the exterior perimeter of the building at that level
 * Must not contain multiple PolyLines
@@ -92,7 +92,7 @@ The DWG file for each level should define a layer containing units.  Units are n
 * Units must fall inside the bounds of the facility exterior perimeter
 * Units must not overlap
 
- Name a unit by creating a text object in the _unitLabel_ layer, then place the object inside the bounds of the unit. For more information, see the [UnitLabel layer](#UnitLabel-layer).
+ Name a unit by creating a text object in the _unitLabel_ layer, then place the object inside the bounds of the unit. For more information, see the [UnitLabel layer](#unitLabel-layer).
 
 ### Walls layer
 
@@ -115,7 +115,7 @@ The DWG file for each level may contain a zone layer that defines the physical e
 * May overlap
 * May fall inside or outside the facility's exterior perimeter
 
-A zone can be named by creating a text object in the _zoneLabel_ layer and placing the text object inside the bounds of the zone. See the [ZoneLabel layer](#ZoneLabel-layer) for more details.
+A zone can be named by creating a text object in the _zoneLabel_ layer and placing the text object inside the bounds of the zone. See the [ZoneLabel layer](#zoneLabel-layer) for more details.
 
 ### UnitLabel layer
 
