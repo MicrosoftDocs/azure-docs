@@ -1,7 +1,7 @@
 ---
 title: Understand the query language
 description: Describes Resource Graph tables and the available Kusto data types, operators, and functions usable with Azure Resource Graph.
-ms.date: 12/05/2019
+ms.date: 03/07/2020
 ms.topic: conceptual
 ---
 # Understanding the Azure Resource Graph query language
@@ -27,8 +27,13 @@ from related resource types. Here is the list of tables available in Resource Gr
 |---|---|
 |Resources |The default table if none defined in the query. Most Resource Manager resource types and properties are here. |
 |ResourceContainers |Includes subscription (in preview -- `Microsoft.Resources/subscriptions`) and resource group (`Microsoft.Resources/subscriptions/resourcegroups`) resource types and data. |
+|AdvisorResources |Includes resources _related_ to `Microsoft.Advisor`. |
 |AlertsManagementResources |Includes resources _related_ to `Microsoft.AlertsManagement`. |
+|MaintenanceResources |Includes resources _related_ to `Microsoft.Maintenance`. |
 |SecurityResources |Includes resources _related_ to `Microsoft.Security`. |
+
+For a complete list including resource types, see
+[Reference: Supported tables and resource types](../reference/supported-tables-resources.md).
 
 > [!NOTE]
 > _Resources_ is the default table. While querying the _Resources_ table, it isn't required to

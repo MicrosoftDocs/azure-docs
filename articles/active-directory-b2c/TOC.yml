@@ -329,6 +329,8 @@
             href: restful-technical-profile.md
           - name: SAML
             href: saml-technical-profile.md
+          - name: SAML token issuer
+            href: saml-issuer-technical-profile.md
           - name: Self-asserted
             href: self-asserted-technical-profile.md
           - name: SSO session
