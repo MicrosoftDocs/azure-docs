@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # Administrative unit scope for roles in Azure Active Directory (preview)
 
-This article tells you about what's available in Administrative Units public preview in Azure Active Directory (Azure AD). This article covers the basic tasks for setting up and using administrative units to restrict the scope of Azure AD role assignments.
+This article tells you about what's available in Administrative Units public preview in Azure Active Directory (Azure AD). We cover the basic tasks for setting up and using administrative units to restrict the scope of Azure AD role assignments.
 
 Outside this document, please refer to the following:
 
