@@ -34,12 +34,13 @@ The serverless compute tier is only available in the vCore-based purchasing mode
 
 Once your database is created, you can use the built-in **Query editor** in the Azure portal to connect to the database and query the data.
 
-1. In the 1. On the **SQL Database** page for your database, select **Query editor (preview)** in the left menu.
-2. Enter your server admin login information, and select **OK**.
+1. In the portal, search for and select **SQL databases**, and then select your database from the list.
+1. On the **SQL Database** page for your database, select **Query editor (preview)** in the left menu.
+1. Enter your server admin login information, and select **OK**.
    
    ![Sign in to Query editor](./media/sql-database-single-database-get-started/query-editor-login.png)
 
-3. Enter the following query in the **Query editor** pane.
+1. Enter the following query in the **Query editor** pane.
 
    ```sql
    SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName
@@ -48,11 +49,11 @@ Once your database is created, you can use the built-in **Query editor** in the 
    ON pc.productcategoryid = p.productcategoryid;
    ```
 
-4. Select **Run**, and then review the query results in the **Results** pane.
+1. Select **Run**, and then review the query results in the **Results** pane.
 
    ![Query editor results](./media/sql-database-single-database-get-started/query-editor-results.png)
 
-5. Close the **Query editor** page, and select **OK** when prompted to discard your unsaved edits.
+1. Close the **Query editor** page, and select **OK** when prompted to discard your unsaved edits.
 
 ## Clean up resources
 
@@ -64,9 +65,9 @@ When you're finished using these resources, you can delete the resource group yo
 
 To delete **myResourceGroup** and all its resources using the Azure portal:
 
-1. From the portal, search for and select **Resource groups**, and then select **myResourceGroup** from the list.
-2. On the resource group page, select **Delete resource group**.
-3. Under **Type the resource group name**, enter *myResourceGroup*, and then select **Delete**.
+1. In the portal, search for and select **Resource groups**, and then select **myResourceGroup** from the list.
+1. On the resource group page, select **Delete resource group**.
+1. Under **Type the resource group name**, enter *myResourceGroup*, and then select **Delete**.
 
 # [Azure CLI](#tab/azure-cli)
 
