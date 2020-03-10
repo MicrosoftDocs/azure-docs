@@ -17,16 +17,17 @@ ms.service: digital-twins
 
 # Developer overview of Azure Digital Twins APIs
 
-This section gives a brief overview of the API surface of Azure Digital Twins. 
-
-## API surface summary
-
+This article gives a brief overview of the API surface of Azure Digital Twins. 
 The Azure Digital Twins API surface can be broadly divided into the following categories: 
 
 * **Model Management APIs** — The Model Management APIs are used to manage the [models](concepts-models.md) in an Azure Digital Twins instance. Management activities include upload, validation, and retrieval of twin models authored in DTDL.
 * **Twin APIs** — The Twin APIs let developers create, modify, and delete [twins](concepts-twins-graph.md) and their relationships in an Azure Digital Twins instance.
 * **Query APIs** — The Query APIs let developers [find sets of twins in the graph](concepts-query-graph.md) across relationships and applying filters.
 * **Event and Routing APIs** — The Event APIs let developers [wire up event flow](concepts-route-events.md) through the system, as well as to downstream services.
+
+## Azure Digital Twins SDKs (preview)
+
+During preview, to generate an SDK for the language of your choice, use [AutoRest](https://github.com/Azure/autorest) with the Azure Digital Twins Swagger.
 
 ## Next steps
 
