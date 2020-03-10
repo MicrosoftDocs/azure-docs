@@ -1,16 +1,16 @@
 ---
-author: v-thepet
+author: MashaMSFT
 ms.service: sql-database
 ms.subservice: single-database  
 ms.topic: include
-ms.date: 03/06/2020
-ms.author: v-thepet
-ms.reviewer: v-thepet
+ms.date: 03/10/2020
+ms.author: mathoma
+ms.reviewer: vanto
 ---
 
 In this step, you create an Azure SQL Database server and a single database that uses AdventureWorksLT sample data. You can create the database by using Azure portal menus and screens, or by using an Azure CLI or PowerShell script in the Azure Cloud Shell.
 
-All the methods include setting up a server-level firewall rule to let the public IP address of the computer you're using access the server. For more information about creating server firewall rules, see [Create a server-level firewall](../sql-database-server-level-firewall-rule.md). You can also set database-level firewall rules. See [Create a database-level firewall rule](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database). 
+All the methods include setting up a server-level firewall rule to allow the public IP address of the computer you're using to access the server. For more information about creating server firewall rules, see [Create a server-level firewall](../sql-database-server-level-firewall-rule.md). You can also set database-level firewall rules. See [Create a database-level firewall rule](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database). 
 
 # [Portal](#tab/azure-portal)
 
@@ -30,8 +30,7 @@ To create a resource group, SQL server, and single database in the Azure portal:
 1. On the **Basics** tab of the **Create SQL database** form, under **Project details**, select the correct Azure **Subscription** if it isn't already selected.
 1. Under **Resource group**, select **Create new**, enter *myResourceGroup*, and select **OK**.
 1. Under **Database details**, for **Database name** enter *mySampleDatabase*.
-1. For **Server**, select **Create new**.
-1. Fill out the **New server** form as follows:
+1. For **Server**, select **Create new**, and fill out the **New server** form as follows:
    - **Server name**: Enter *mysqlserver*, and some characters for uniqueness.
    - **Server admin login**: Enter *azureuser*.
    - **Password**: Enter a password that meets requirements, and enter it again in the **Confirm password** field.

@@ -7,10 +7,10 @@ ms.subservice: single-database
 ms.custom:
 ms.devlang:
 ms.topic: quickstart
-author: v-thepet
-ms.author: v-thepet
-# ms.reviewer: carlrab, sstein, vanto
-ms.date: 03/06/2020
+author: sachinpMSFT
+ms.author: ninarn
+ms.reviewer: carlrab, sstein, vanto
+ms.date: 03/10/2020
 ---
 # Quickstart: Create an Azure SQL Database single database
 
@@ -22,7 +22,9 @@ You can create a single database in the *provisioned* or *serverless* compute ti
 
 The serverless compute tier is only available in the vCore-based purchasing model, and has an auto-scaled range of compute resources, including CPU and memory. To create a single database in the serverless compute tier, see [Create a serverless database](sql-database-serverless.md#create-new-database-in-serverless-compute-tier).
 
-This quickstart requires an active Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/). 
+## Prerequisite
+
+- An active Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/). 
 
 ## Create a single database
 
@@ -30,9 +32,9 @@ This quickstart requires an active Azure subscription. If you don't have one, [c
 
 ## Query the database
 
-Now you can use the built-in **Query editor** in the Azure portal to connect to the database and query the data.
+Once your database is created, you can use the built-in **Query editor** in the Azure portal to connect to the database and query the data.
 
-1. On the **SQL Database** page for your database, select **Query editor (preview)** in the left menu.
+1. In the 1. On the **SQL Database** page for your database, select **Query editor (preview)** in the left menu.
 2. Enter your server admin login information, and select **OK**.
    
    ![Sign in to Query editor](./media/sql-database-single-database-get-started/query-editor-login.png)
@@ -88,4 +90,5 @@ Remove-AzResourceGroup -Name <your resource group>
 [Connect and query](sql-database-connect-query.md) your database using different tools and languages:
 > [!div class="nextstepaction"]
 > [Connect and query using SQL Server Management Studio](sql-database-connect-query-ssms.md)
+> 
 > [Connect and query using Azure Data Studio](/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)
