@@ -29,14 +29,21 @@ This article describes how to configure private endpoints for Event Grid topics 
 
       ![Private endpoint - basics page](./media/configure-private-endpoints/private-endpoint-basics-page.png)
 3. On the **Resource** page, follow these steps: 
-    1. For connection method, select **Connect to an Azure resource in my directory**. This example shows how to connect to an Azure resource in your directory. You can also connect to someone else's resource with a resource ID or alias that they've shared with you. 
-    2. Select the **Azure subscription** in which your **Event Grid topic/domain** exists. 
-    3. For **Resource type**, Select **Microsoft.EventGrid/topics** or **Microsoft.EventGrid/domains** for the **Resource type**.
-    4. For **Resource**, select an Event Grid topic/domain from the drop-down list. 
-    5. Confirm that the **Target subresource** is set to **topic** or **domain** (based on the resource type you selected).
-    6. Select **Next: Configuration >** button at the bottom of the page. 
+    1. For connection method, if you select **Connect to an Azure resource in my directory**. This example shows how to connect to an Azure resource in your directory. 
+        1. Select the **Azure subscription** in which your **Event Grid topic/domain** exists. 
+        1. For **Resource type**, Select **Microsoft.EventGrid/topics** or **Microsoft.EventGrid/domains** for the **Resource type**.
+        2. For **Resource**, select an Event Grid topic/domain from the drop-down list. 
+        3. Confirm that the **Target subresource** is set to **topic** or **domain** (based on the resource type you selected).    
+        4. Select **Next: Configuration >** button at the bottom of the page. 
 
-        ![Private endpoint - resource page](./media/configure-private-endpoints/private-endpoint-resource-page.png)
+            ![Private endpoint - resource page](./media/configure-private-endpoints/private-endpoint-resource-page.png)
+    2. If you select **Connect to a resource using a resource ID or an alias**, follow these steps:
+        1. Enter the ID of the resource. For example: `/subscriptions/00000000000-0000-0000-0000-00000000000000/resourceGroups/myegridrg/providers/Microsoft.EventGrid/topics/mytopic0130`.  
+        2. For **Resource**, enter **topic**. 
+        3. (optional) Add a request message. 
+        4. Select **Next: Configuration >** button at the bottom of the page. 
+
+            ![Private endpoint - resource page](./media/configure-private-endpoints/connect-azure-resource-id.png)
 4. On the **Configuration** page, you select the subnet in a virtual network to where you want to deploy the private endpoint. 
     1. Select a **virtual network**. Only virtual networks in the currently selected subscription and location are listed in the drop-down list. 
     2. Select a **subnet** in the virtual network you selected. 
@@ -47,6 +54,32 @@ This article describes how to configure private endpoints for Event Grid topics 
 6. On the **Review + create**, review all the settings, and select **Create** to create the private endpoint. 
 
     ![Private endpoint - review & create page](./media/configure-private-endpoints/private-endpoint-review-create-page.png)
+    
+
+## Manage private link connection
+
+When you create a private endpoint, the connection must be approved. If the resource for which you're creating a private endpoint is in your directory, you can approve the connection request provided you have sufficient permissions. If you're connecting to an Azure resource in another directory, you must wait for the owner of that resource to approve your connection request.
+
+There are four provisioning states:
+
+| Service action | Service consumer private endpoint state | Description |
+|--|--|--|
+| None | Pending | Connection is created manually and is pending approval from the Private Link resource owner. |
+| Approve | Approved | Connection was automatically or manually approved and is ready to be used. |
+| Reject | Rejected | Connection was rejected by the private link resource owner. |
+| Remove | Disconnected | Connection was removed by the private link resource owner, the private endpoint becomes informative and should be deleted for cleanup. |
+ 
+###  How to manage a private endpoint connection to the namespace
+
+1. Sign in to the Azure portal.
+1. In the search bar, type in **Event Grid topics** or **Event Grid domains**.
+1. Select the **topic** or **domain** that you want to manage.
+1. Select the **Networking** tab.
+1. If there are any connections that are pending, you will see a connection listed with **Pending** in the provisioning state. 
+1. Select the **private endpoint** you wish to approve
+1. Select the **Approve** button on the toolbar. 
+1. If there are any private endpoint connections you want to reject, whether it is a pending request or existing connection, select the connection and click the **Reject** button.
+
 
 ## Use Azure CLI
 

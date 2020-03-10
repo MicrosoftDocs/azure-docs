@@ -65,3 +65,4 @@ See the following articles:
 - [Set up a lab focused on deep learning in natural language processing using Azure Lab Services](class-type-deep-learning-natural-processing.md)
 - [Shell scripting on Linux](class-type-shell-scripting-linux.md)
 - [Ethical hacking](class-type-ethical-hacking.md)
+''
