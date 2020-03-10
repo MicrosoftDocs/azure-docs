@@ -14,21 +14,18 @@ AKS continuously checks the health state of worker nodes and performs automatic 
 
 This feature is available in all regions where AKS is supported.
 
-## Manually check your node's health
-
-You can manually check the health state of your nodes.  
-
-```azurecli-interactive
-# Check the state of your node
-kubectl get nodes
-```
-
-## Auto-repair rules to determine an unhealthy node
+## How AKS checks for unhealthy nodes
 
 AKS uses rules to determine if a node is an unhealthy state and needs repair. AKS uses the following rules to determine if automatic repair is needed.  AKS takes repair action on nodes with the user **aks-remediator**.  
 
 * The node reports status of **NotReady** on consecutive checks within a 10-minute timeframe
 * The node doesn't report a status within 10 minutes
+
+You can manually check the health state of your nodes with kubectl. 
+
+```
+kubectl get nodes
+```
 
 ## How automatic repair works
 
