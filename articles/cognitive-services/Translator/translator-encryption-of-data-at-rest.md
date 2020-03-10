@@ -69,12 +69,6 @@ Only RSA keys of size 2048 are supported with Cognitive Services encryption. For
 > [!NOTE]
 > If the entire key vault is deleted, your data will no longer be displayed and all your models will be undeployed.
 
-### Rotate customer-managed keys
-
-You can rotate a customer-managed key in Azure Key Vault according to your compliance policies. When the key is rotated, you must update the Cognitive Services resource to use the new key URI. To learn how to update the resource to use a new version of the key in the Azure portal, see the section titled **Update the key version** in [Configure customer-managed keys for Cognitive Services by using the Azure portal](../Encryption/cognitive-services-encryption-keys-portal.md).
-
-Rotating the key does not trigger re-encryption of data in the resource. There is no further action required from the user.
-
 ### Revoke access to customer-managed keys
 
 To revoke access to customer-managed keys, use PowerShell or Azure CLI. For more information, see [Azure Key Vault PowerShell](https://docs.microsoft.com/powershell/module/az.keyvault//) or [Azure Key Vault CLI](https://docs.microsoft.com/cli/azure/keyvault). Revoking access effectively blocks access to all data in the Cognitive Services resource and your models will be undeployed, as the encryption key is inaccessible by Cognitive Services.
