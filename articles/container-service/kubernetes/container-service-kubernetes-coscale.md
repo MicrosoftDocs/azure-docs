@@ -1,12 +1,10 @@
 ---
 title: (DEPRECATED) Monitor an Azure Kubernetes cluster with CoScale
 description: Monitor a Kubernetes cluster in Azure Container Service using CoScale
-services: container-service
 author: fryckbos
-manager: jeconnoc
 
 ms.service: container-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/22/2017
 ms.author: saudas
 ms.custom: mvc

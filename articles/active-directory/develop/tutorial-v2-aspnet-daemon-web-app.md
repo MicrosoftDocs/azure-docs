@@ -14,16 +14,23 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/20/2019
+ms.date: 12/10/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
 #Customer intent: As an application developer, I want to know how to set up OpenId Connect authentication in a web application built using Node.js with Express.
-ms.collection: M365-identity-device-management
 ---
 
-# Build a multitenant daemon that uses the Microsoft identity platform endpoint
+# Tutorial: Build a multitenant daemon that uses the Microsoft identity platform endpoint
 
 In this tutorial, you learn how to use the Microsoft identity platform to access the data of Microsoft business customers in a long-running, non-interactive process. The sample daemon uses the [OAuth2 client credentials grant](v2-oauth2-client-creds-grant-flow.md) to acquire an access token. The daemon then uses the token to call [Microsoft Graph](https://graph.microsoft.io) and access organizational data.
+
+> [!div class="checklist"]
+> * Integrate a daemon app with the Microsoft identity platform
+> * Grant application permissions directly to the app by an admin
+> * Get an access token to call the Microsoft Graph API
+> * Call the Microsoft Graph API.
+
+If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 The app is built as an ASP.NET MVC application. It uses the OWIN OpenID Connect middleware to sign in users.  
 
@@ -57,11 +64,11 @@ git clone https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2.git
 
 Or [download the sample in a zip file](https://github.com/Azure-Samples/ms-identity-aspnet-daemon-webapp/archive/master.zip).
 
-## Register the sample application with your Azure AD tenant
+## Register your application
 
-This sample has one project. To register it, you can either:
+This sample has one project. To register the application with your Azure AD tenant, you can either:
 
-- Follow the steps in [Register the sample with your Azure Active Directory tenant](#register-the-sample-application-with-your-azure-ad-tenant) and [Configure the sample to use your Azure AD tenant](#choose-the-azure-ad-tenant).
+- Follow the steps in [Register the sample with your Azure Active Directory tenant](#register-your-application) and [Configure the sample to use your Azure AD tenant](#choose-the-azure-ad-tenant).
 - Use PowerShell scripts that:
   - *Automatically* create the Azure AD applications and related objects (passwords, permissions, dependencies) for you.
   - Modify the Visual Studio projects' configuration files.
@@ -234,7 +241,10 @@ Visual Studio will publish the project and automatically open a browser to the p
 1. Save the configuration.
 1. Add the same URL in the list of values of the **Authentication** > **Redirect URIs** menu. If you have multiple redirect URLs, make sure that there's a new entry that uses the app service's URI for each redirect URL.
 
-## Community help and support
+## Clean up resources
+When no longer needed, delete the app object that you created in the [Register your application](#register-your-application) step.  To remove the application, follow the instructions in [Remove an application authored by you or your organization](quickstart-remove-app.md#remove-an-application-authored-by-you-or-your-organization).
+
+## Get help
 
 Use [Stack Overflow](http://stackoverflow.com/questions/tagged/msal) to get support from the community.
 Ask your questions on Stack Overflow first, and browse existing issues to see if someone has asked your question before.

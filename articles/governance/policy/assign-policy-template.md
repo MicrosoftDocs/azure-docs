@@ -46,7 +46,7 @@ Here is a copy of the template:
    | Resource group | Select **Create new**, specify a name, and then select **OK**. In the screenshot, the resource group name is _mypolicyquickstart\<Date in MMDD\>rg_. |
    | Location | Select a region. For example, **Central US**. |
    | Policy Assignment Name | Specify a policy assignment name. You can use the policy definition display if you want. For example, **Audit VMs that do not use managed disks**. |
-   | Rg Name | Specify a resource group name where you want to assign the policy to. In this quickstart, use the default value **[resourceGroup().name]**. **[resourceGroup()](../../azure-resource-manager/resource-group-template-functions-resource.md#resourcegroup)** is a template function that retrieves the resource group. |
+   | Rg Name | Specify a resource group name where you want to assign the policy to. In this quickstart, use the default value **[resourceGroup().name]**. **[resourceGroup()](../../azure-resource-manager/templates/template-functions-resource.md#resourcegroup)** is a template function that retrieves the resource group. |
    | Policy Definition ID | Specify **/providers/Microsoft.Authorization/policyDefinitions/0a914e76-4921-4c19-b460-a2d36003525a**. |
    | I agree to the terms and conditions stated above | (Select) |
 
@@ -59,9 +59,9 @@ Some additional resources:
 - To see the template reference, go to
   [Azure template reference](/azure/templates/microsoft.authorization/allversions).
 - To learn how to develop Resource Manager templates, see
-  [Azure Resource Manager documentation](../../azure-resource-manager/resource-group-overview.md).
+  [Azure Resource Manager documentation](../../azure-resource-manager/management/overview.md).
 - To learn subscription-level deployment, see
-  [Create resource groups and resources at the subscription level](../../azure-resource-manager/deploy-to-subscription.md).
+  [Create resource groups and resources at the subscription level](../../azure-resource-manager/templates/deploy-to-subscription.md).
 
 ## Identify non-compliant resources
 

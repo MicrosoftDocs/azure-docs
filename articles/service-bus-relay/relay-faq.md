@@ -1,6 +1,6 @@
 ---
 title: Azure Relay FAQs | Microsoft Docs
-description: Get answers to some frequently asked questions about Azure Relay.
+description: This article provides answers to some of the frequently asked questions about the Azure Relay service.
 services: service-bus-relay
 documentationcenter: na
 author: spelluru
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/21/2018
+ms.date: 01/21/2020
 ms.author: spelluru
 
 ---
@@ -102,7 +102,7 @@ To move a namespace from one Azure subscription to another subscription, you can
 
 #### Azure portal
 
-To use the Azure portal to migrate Azure Relay namespaces from one subscription to another subscription, see [Move resources to a new resource group or subscription](../azure-resource-manager/resource-group-move-resources.md#use-the-portal). 
+To use the Azure portal to migrate Azure Relay namespaces from one subscription to another subscription, see [Move resources to a new resource group or subscription](../azure-resource-manager/management/move-resource-group-and-subscription.md#use-the-portal). 
 
 #### PowerShell
 

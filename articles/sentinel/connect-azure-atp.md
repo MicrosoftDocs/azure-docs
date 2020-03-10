@@ -3,7 +3,7 @@ title: Connect Azure ATP data to Azure Sentinel| Microsoft Docs
 description: Learn how to connect Azure ATP data to Azure Sentinel.
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: rkarlin
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/17/2019
-ms.author: rkarlin
+ms.date: 12/30/2019
+ms.author: yelevin
 
 ---
 # Connect data from Azure Advanced Threat Protection (ATP)

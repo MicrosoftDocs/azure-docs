@@ -90,10 +90,10 @@ An app is defined by its Azure resources, which is determined by the owner's sub
 You can move your LUIS app. Use the following documentation resources in the Azure portal or Azure CLI:
 
 * [Move app between LUIS authoring resources](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/apps-move-app-to-another-luis-authoring-azure-resource)
-* [Move resource to new resource group or subscription](../../azure-resource-manager/resource-group-move-resources.md)
-* [Move resource within same subscription or across subscriptions](../../azure-resource-manager/move-limitations/app-service-move-limitations.md)
+* [Move resource to new resource group or subscription](../../azure-resource-manager/management/move-resource-group-and-subscription.md)
+* [Move resource within same subscription or across subscriptions](../../azure-resource-manager/management/move-limitations/app-service-move-limitations.md)
 
-To transfer [ownership](../../billing/billing-subscription-transfer.md) of your subscription: 
+To transfer [ownership](../../cost-management-billing/manage/billing-subscription-transfer.md) of your subscription: 
 
 **For users who have migrated - [authoring resource migrated](luis-migration-authoring.md) apps**: As the owner of the resource, you can add a `contributor`.
 

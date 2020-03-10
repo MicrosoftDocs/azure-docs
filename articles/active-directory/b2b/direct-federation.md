@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 08/07/2019
+ms.date: 02/27/2019
 
 ms.author: mimart
 author: msmimart
@@ -61,6 +61,10 @@ If you specify the metadata URL in the identity provider settings, Azure AD will
 
 ### Limit on federation relationships
 Currently, a maximum of 1,000 federation relationships is supported. This limit includes both [internal federations](https://docs.microsoft.com/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0) and direct federations.
+
+### Limit on multiple domains
+We don’t currently support direct federation with multiple domains from the same tenant.
+
 ## Frequently asked questions
 ### Can I set up direct federation with a domain for which an unmanaged (email-verified) tenant exists? 
 Yes. If the domain hasn't been verified and the tenant hasn't undergone an [admin takeover](../users-groups-roles/domains-admin-takeover.md), you can set up direct federation with that domain. Unmanaged, or email-verified, tenants are created when a user redeems a B2B invitation or performs a self-service sign-up for Azure AD using a domain that doesn’t currently exist. You can set up direct federation with these domains. If you try to set up direct federation with a DNS-verified domain, either in the Azure portal or via PowerShell, you'll see an error.
@@ -80,8 +84,7 @@ First, your partner organization needs to configure their identity provider with
 Azure AD B2B can be configured to federate with identity providers that use the SAML protocol with specific requirements listed below. For more information about setting up a trust between your SAML identity provider and Azure AD, see  [Use a SAML 2.0 Identity Provider (IdP) for Single Sign-On](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-fed-saml-idp).  
 
 > [!NOTE]
-> NOTE
-The target domain for direct federation must not be DNS-verified on Azure AD. The authentication URL domain must match the target domain or it must be the domain of an allowed identity provider. See the [Limitations](#limitations) section for details. 
+> The target domain for direct federation must not be DNS-verified on Azure AD. The authentication URL domain must match the target domain or it must be the domain of an allowed identity provider. See the [Limitations](#limitations) section for details. 
 
 #### Required SAML 2.0 attributes and claims
 The following tables show requirements for specific attributes and claims that must be configured at the third-party identity provider. To set up direct federation, the following attributes must be received in the SAML 2.0 response from the identity provider. These attributes can be configured by linking to the online security token service XML file or by entering them manually.

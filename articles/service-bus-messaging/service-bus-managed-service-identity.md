@@ -1,6 +1,6 @@
 ---
 title: Managed identities for Azure resources with Service Bus
-description: Use managed identities for Azure resources with Azure Service Bus
+description: This article describes how to use managed identities to access with Azure Service Bus entities (queues, topics, and subscriptions).
 services: service-bus-messaging
 documentationcenter: na
 author: axisc
@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/22/2019
+ms.date: 01/24/2020
 ms.author: aschhab
 
 ---

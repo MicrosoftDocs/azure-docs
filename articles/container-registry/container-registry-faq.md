@@ -27,7 +27,7 @@ Yes. Here is [a template](https://github.com/Azure/azure-quickstart-templates/tr
 
 ### Is there security vulnerability scanning for images in ACR?
 
-Yes. See the documentation from [Twistlock](https://www.twistlock.com/2016/11/07/twistlock-supports-azure-container-registry/) and [Aqua](https://blog.aquasec.com/image-vulnerability-scanning-in-azure-container-registry).
+Yes. See the documentation from [Azure Security Center](https://docs.microsoft.com/azure/security-center/azure-container-registry-integration), [Twistlock](https://www.twistlock.com/2016/11/07/twistlock-supports-azure-container-registry/) and [Aqua](https://blog.aquasec.com/image-vulnerability-scanning-in-azure-container-registry).
 
 ### How do I configure Kubernetes with Azure Container Registry?
 
@@ -96,7 +96,7 @@ It takes some time to propagate firewall rule changes. After you change firewall
 - [Why does the registry quota usage not reduce after deleting images?](#why-does-the-registry-quota-usage-not-reduce-after-deleting-images)
 - [How do I validate storage quota changes?](#how-do-i-validate-storage-quota-changes)
 - [How do I authenticate with my registry when running the CLI in a container?](#how-do-i-authenticate-with-my-registry-when-running-the-cli-in-a-container)
-- [Does Azure Container Registry offer TLS v1.2 only configuration and how to enable TLS v1.2?](#does-azure-container-registry-offer-tls-v12-only-configuration-and-how-to-enable-tls-v12)
+- [How to enable TLS 1.2?](#how-to-enable-tls-12)
 - [Does Azure Container Registry support Content Trust?](#does-azure-container-registry-support-content-trust)
 - [How do I grant access to pull or push images without permission to manage the registry resource?](#how-do-i-grant-access-to-pull-or-push-images-without-permission-to-manage-the-registry-resource)
 - [How do I enable automatic image quarantine for a registry](#how-do-i-enable-automatic-image-quarantine-for-a-registry)
@@ -110,13 +110,13 @@ ACR supports Docker Registry HTTP API V2. The APIs can be accessed at
 
 If you are on bash:
 
-```bash
+```azurecli
 az acr repository show-manifests -n myRegistry --repository myRepository --query "[?tags[0]==null].digest" -o tsv  | xargs -I% az acr repository delete -n myRegistry -t myRepository@%
 ```
 
 For Powershell:
 
-```powershell
+```azurecli
 az acr repository show-manifests -n myRegistry --repository myRepository --query "[?tags[0]==null].digest" -o tsv | %{ az acr repository delete -n myRegistry -t myRepository@$_ }
 ```
 
@@ -147,13 +147,13 @@ docker push myregistry.azurecr.io/1gb:latest
 
 You should be able to see that the storage usage has increased in the Azure portal, or you can query usage using the CLI.
 
-```bash
+```azurecli
 az acr show-usage -n myregistry
 ```
 
 Delete the image using the Azure CLI or portal and check the updated usage in a few minutes.
 
-```bash
+```azurecli
 az acr repository delete -n myregistry --image 1gb
 ```
 
@@ -177,9 +177,12 @@ Then authenticate with your registry:
 az acr login -n MyRegistry
 ```
 
-### Does Azure Container Registry offer TLS v1.2 only configuration and how to enable TLS v1.2?
+### How to enable TLS 1.2?
 
-Yes. Enable TLS by using any recent docker client (version 18.03.0 and above). 
+Enable TLS 1.2 by using any recent docker client (version 18.03.0 and above). 
+
+> [!IMPORTANT]
+> Starting January 13, 2020, Azure Container Registry will require all secure connections from servers and applications to use TLS 1.2. Support for TLS 1.0 and 1.1 will be retired.
 
 ### Does Azure Container Registry support Content Trust?
 
@@ -209,12 +212,12 @@ ACR supports [custom roles](container-registry-roles.md) that provide different 
   Then you can assign the `AcrPull` or `AcrPush` role to a user (the following example uses `AcrPull`):
 
   ```azurecli
-    az role assignment create --scope resource_id --role AcrPull --assignee user@example.com
-    ```
+  az role assignment create --scope resource_id --role AcrPull --assignee user@example.com
+  ```
 
   Or, assign the role to a service principle identified by its application ID:
 
-  ```
+  ```azurecli
   az role assignment create --scope resource_id --role AcrPull --assignee 00000000-0000-0000-0000-000000000000
   ```
 
@@ -232,9 +235,9 @@ The assignee is then able to authenticate and access images in the registry.
   az acr repository list -n myRegistry
   ```
 
- To pull an image:
-    
-  ```azurecli
+* To pull an image:
+
+  ```bash
   docker pull myregistry.azurecr.io/hello-world
   ```
 
@@ -268,9 +271,10 @@ To troubleshoot common environment and registry issues, see [Check the health of
  - If `docker pull` fails continuously, then there could be a problem with the Docker daemon. The problem can generally be mitigated by restarting the Docker daemon. 
  - If you continue to see this issue after restarting Docker daemon, then the problem could be some network connectivity issues with the machine. To check if general network on the machine is healthy, run the following command to test endpoint connectivity. The minimum `az acr` version that contains this connectivity check command is 2.2.9. Upgrade your Azure CLI if you are using an older version.
  
-   ```azurecli
-    az acr check-health -n myRegistry
-    ```
+  ```azurecli
+  az acr check-health -n myRegistry
+  ```
+
  - You should always have a retry mechanism on all Docker client operations.
 
 ### Docker pull is slow
@@ -289,28 +293,25 @@ grep OPTIONS /etc/sysconfig/docker
 
 For instance, Fedora 28 Server has the following docker daemon options:
 
-```
-OPTIONS='--selinux-enabled --log-driver=journald --live-restore'
-```
+`OPTIONS='--selinux-enabled --log-driver=journald --live-restore'`
 
 With `--signature-verification=false` missing, `docker pull` fails with an error similar to:
 
-```bash
+```output
 Trying to pull repository myregistry.azurecr.io/myimage ...
 unauthorized: authentication required
 ```
 
 To resolve the error:
 1. Add the option `--signature-verification=false` to the Docker daemon configuration file `/etc/sysconfig/docker`. For example:
-
-  ```
-  OPTIONS='--selinux-enabled --log-driver=journald --live-restore --signature-verification=false'
-  ```
+   
+   `OPTIONS='--selinux-enabled --log-driver=journald --live-restore --signature-verification=false'`
+   
 2. Restart the Docker daemon service by running the following command:
-
-  ```bash
-  sudo systemctl restart docker.service
-  ```
+   
+   ```bash
+   sudo systemctl restart docker.service
+   ```
 
 Details of `--signature-verification` can be found by running `man dockerd`.
 
@@ -423,8 +424,8 @@ Please contact your network administrator or check your network configuration an
 
 ### Why does my pull or push request fail with disallowed operation?
 
-Here are some senarios where operations maybe disallowed:
-* Classic registries are no longer supported. Please upgrade to a supported [SKUs](https://aka.ms/acr/skus) using [az acr update](https://docs.microsoft.com/cli/azure/acr?view=azure-cli-latest#az-acr-update) or the azure portal.
+Here are some scenarios where operations maybe disallowed:
+* Classic registries are no longer supported. Please upgrade to a supported [SKUs](https://aka.ms/acr/skus) using [az acr update](https://docs.microsoft.com/cli/azure/acr?view=azure-cli-latest#az-acr-update) or the Azure portal.
 * The image or repository maybe locked so that it can't be deleted or updated. You can use the [az acr show repository](https://docs.microsoft.com/azure/container-registry/container-registry-image-lock) command to view current attributes.
 * Some operations are disallowed if the image is in quarantine. Learn more about [quarantine](https://github.com/Azure/acr/tree/master/docs/preview/quarantine).
 
@@ -470,9 +471,7 @@ az acr task list-runs -r $myregistry --run-status Running --query '[].runId' -o 
 
 If you pass a local source folder to the `az acr build` command, the `.git` folder is excluded from the uploaded package by default. You can create a `.dockerignore` file with the following setting. It tells the command to restore all files under `.git` in the uploaded package. 
 
-```sh
-!.git/**
-```
+`!.git/**`
 
 This setting also applies to the `az acr run` command.
 

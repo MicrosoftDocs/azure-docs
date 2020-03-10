@@ -48,7 +48,7 @@ Choosing a service tier depends primarily on business continuity, storage, and p
 
 ## Single database DTU and storage limits
 
-Compute sizes are expressed in terms of Database Transaction Units (DTUs) for single databases and elastic Database Transaction Units (eDTUs) for elastic pools. For more on DTUs and eDTUs, see [DTU-based purchasing model](sql-database-purchase-models.md#dtu-based-purchasing-model)?
+Compute sizes are expressed in terms of Database Transaction Units (DTUs) for single databases and elastic Database Transaction Units (eDTUs) for elastic pools. For more on DTUs and eDTUs, see [DTU-based purchasing model](sql-database-purchase-models.md#dtu-based-purchasing-model).
 
 ||Basic|Standard|Premium|
 | :-- | --: | --: | --: |

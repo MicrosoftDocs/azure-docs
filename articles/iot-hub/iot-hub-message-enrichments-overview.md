@@ -49,7 +49,7 @@ The messages can come from any data source supported by [IoT Hub message routing
 
 You can add enrichments to messages that are going to the built-in endpoint of an IoT Hub, or messages that are being routed to custom endpoints such as Azure Blob storage, a Service Bus queue, or a Service Bus topic.
 
-You can add enrichments to messages that are being published to Event Grid by selecting the endpoint as Event Grid. We create a default route in IoT Hub to device telemetry, based on your Event Grid subscription. This single route can handle all of your Event Grid subscriptions. You can configure enrichments for the event grid ent[point after you have created the event grid subscription to device telemetry. For more information, see [Iot Hub and Event Grid](iot-hub-event-grid.md).
+You can add enrichments to messages that are being published to Event Grid by selecting the endpoint as Event Grid. We create a default route in IoT Hub to device telemetry, based on your Event Grid subscription. This single route can handle all of your Event Grid subscriptions. You can configure enrichments for the event grid endpoint after you have created the event grid subscription to device telemetry. For more information, see [Iot Hub and Event Grid](iot-hub-event-grid.md).
 
 Enrichments are applied per endpoint. If you specify five enrichments to be stamped for a specific endpoint, all messages going to that endpoint are stamped with the same five enrichments.
 

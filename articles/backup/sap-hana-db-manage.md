@@ -17,7 +17,7 @@ Azure Backup shows all manually triggered jobs in the **Backup jobs** section on
 
 ![Backup jobs section](./media/sap-hana-db-manage/backup-jobs.png)
 
-The jobs you see in this portal include database discovery and registering, and backup and restore operations. Scheduled jobs, including log backups are not shown in this section. Manually triggered backups from the SAP HANA native clients (Studio/ Cockpit/ DBA Cockpit) also do not show up here.
+The jobs you see in this portal include database discovery and registering, and backup and restore operations. Scheduled jobs, including log backups aren't shown in this section. Manually triggered backups from the SAP HANA native clients (Studio/ Cockpit/ DBA Cockpit) also don't show up here.
 
 ![Backup jobs list](./media/sap-hana-db-manage/backup-jobs-list.png)
 
@@ -70,25 +70,38 @@ If you want to take a local backup (using HANA Studio / Cockpit) of a database t
 3. To do this, double-click **systemdb** > **Configuration** > **Select Database** > **Filter (Log)**.
 4. Set **enable_auto_log_backup** to **No**.
 5. Set **log_backup_using_backint** to **False**.
-6. Take an ad hoc full backup of the database.
+6. Take an on-demand full backup of the database.
 7. Wait for the full backup and catalog backup to finish.
 8. Revert the previous settings back to those for Azure:
    * Set **enable_auto_log_backup** to **Yes**.
    * Set **log_backup_using_backint** to **True**.
 
-### Edit underlying policy
+### Change policy
 
-Modify policy to change backup frequency or retention range:
+You can change the underlying policy for an SAP HANA backup item.
 
-* In the vault dashboard, go to **Manage** > **Backup Policies**
+* In the vault dashboard, go to **Backup items**:
 
-  ![Backup policies in the vault dashboard](./media/sap-hana-db-manage/backup-policies-dashboard.png)
+  ![Select backup items](./media/sap-hana-db-manage/backup-items.png)
 
-* Choose the policy you want to edit:
+* Choose **SAP HANA in Azure VM**
 
-  ![List of backup policies](./media/sap-hana-db-manage/backup-policies-list.png)
+  ![Choose SAP HANA in Azure VM](./media/sap-hana-db-manage/sap-hana-in-azure-vm.png)
 
-  ![Backup policy details](./media/sap-hana-db-manage/backup-policy-details.png)
+* Choose the backup item whose underlying policy you want to change
+* Click on the existing Backup policy
+
+  ![Select existing backup policy](./media/sap-hana-db-manage/existing-backup-policy.png)
+
+* Change the policy, choosing from the list. [Create a new backup policy](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database#create-a-backup-policy) if needed.
+
+  ![Choose policy from drop-down list](./media/sap-hana-db-manage/choose-backup-policy.png)
+
+* Save the changes
+
+  ![Save the changes](./media/sap-hana-db-manage/save-changes.png)
+
+* Policy modification will impact all the associated Backup Items and trigger corresponding **configure protection** jobs.
 
 >[!NOTE]
 > Any change in the retention period will be applied retrospectively to all the older recovery points besides the new ones.
@@ -170,4 +183,3 @@ Unregister an SAP HANA instance after you disable protection but before you dele
 ## Next steps
 
 * Learn how to [troubleshoot common issues when backing up SAP HANA databases.](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database-troubleshoot)
-

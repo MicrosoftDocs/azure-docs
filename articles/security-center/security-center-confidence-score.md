@@ -15,11 +15,11 @@ ms.date: 08/23/2018
 ms.author: memildin
 
 ---
-# Alert confidence score 
+# Alert confidence score (Preview)
 
 Azure Security Center provides you with visibility across the resources you run in Azure, and alerts you when it detects potential issues. The volume of alerts can be challenging for a security operations team to individually address, and it becomes necessary to prioritize which alerts to investigate. Investigating alerts can be complex and time consuming, and as a result, some alerts are ignored.
 
-The confidence score in Security Center can help your team triage and prioritize alerts. Security Center automatically applies industry best practices, intelligent algorithms, and processes used by analysts to determine whether a threat is legitimate and provides you with meaningful insights in the form of a confidence score.
+The confidence score (currently in preview) in Security Center can help your team triage and prioritize alerts. Security Center automatically applies industry best practices, intelligent algorithms, and processes used by analysts to determine whether a threat is legitimate and provides you with meaningful insights in the form of a confidence score.
 
 ## How the confidence score is triggered
 
@@ -42,14 +42,6 @@ To view the data that contributed to Security Center's confidence in an alert:
   ![Suspicious confidence score][2]
 
 Use Security Center’s confidence score to prioritize alert triage in your environment. The confidence score saves you time and effort by automatically investigating alerts, applying industry best practices and intelligent algorithms, and acting as a virtual analyst to determine which threats are real and where you need to focus your attention.
-
-
-## Next steps
-This article explained how to use the confidence score to prioritize alert investigation. To learn more about Security Center, see the following:
-
-* [Azure Security Center FAQ](security-center-faq.md)--Find frequently asked questions about using the service.
-* [Security health monitoring in Azure Security Center](security-center-monitoring.md)--Learn how to monitor the health of your Azure resources.
-
 
 
 <!--Image references-->

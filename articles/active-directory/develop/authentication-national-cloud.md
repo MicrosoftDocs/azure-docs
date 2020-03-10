@@ -14,7 +14,6 @@ ms.date: 08/28/2019
 ms.author: negoe
 ms.reviewer: negoe,celested
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
 ---
 
 # National clouds

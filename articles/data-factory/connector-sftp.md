@@ -1,6 +1,6 @@
 ---
-title: Copy data from SFTP server
-description: Learn about MySQL connector in Azure Data Factory that lets you copy data from an SFTP server to a data store supported as a sink.
+title: Copy data from and to SFTP server
+description: Learn about how to copy data from and to SFTP server by using Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 ms.author: jingwang
@@ -11,16 +11,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/10/2019
+ms.date: 03/02/2020
 ---
 
-# Copy data from SFTP server using Azure Data Factory
+# Copy data from and to SFTP server using Azure Data Factory
 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-sftp-connector.md)
 > * [Current version](connector-sftp.md)
 
-This article outlines how to copy data from SFTP server. To learn about Azure Data Factory, read the [introductory article](introduction.md).
+This article outlines how to copy data from and to SFTP server. To learn about Azure Data Factory, read the [introductory article](introduction.md).
 
 ## Supported capabilities
 
@@ -33,8 +33,8 @@ This SFTP connector is supported for the following activities:
 
 Specifically, this SFTP connector supports:
 
-- Copying files using **Basic** or **SshPublicKey** authentication.
-- Copying files as-is or parsing files with the [supported file formats and compression codecs](supported-file-formats-and-compression-codecs.md).
+- Copying files from/to SFTP using **Basic** or **SshPublicKey** authentication.
+- Copying files as-is or parsing/generating files with the [supported file formats and compression codecs](supported-file-formats-and-compression-codecs.md).
 
 ## Prerequisites
 
@@ -222,7 +222,7 @@ The following properties are supported for SFTP under `storeSettings` settings i
 
 | Property                 | Description                                                  | Required                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
-| type                     | The type property under `storeSettings` must be set to **SftpReadSetting**. | Yes                                           |
+| type                     | The type property under `storeSettings` must be set to **SftpReadSettings**. | Yes                                           |
 | recursive                | Indicates whether the data is read recursively from the subfolders or only from the specified folder. Note that when recursive is set to true and the sink is a file-based store, an empty folder or subfolder isn't copied or created at the sink. Allowed values are **true** (default) and **false**. | No                                            |
 | wildcardFolderPath       | The folder path with wildcard characters to filter source folders. <br>Allowed wildcards are: `*` (matches zero or more characters) and `?` (matches zero or single character); use `^` to escape if your actual folder name has wildcard or this escape char inside. <br>See more examples in [Folder and file filter examples](#folder-and-file-filter-examples). | No                                            |
 | wildcardFileName         | The file name with wildcard characters under the given folderPath/wildcardFolderPath to filter source files. <br>Allowed wildcards are: `*` (matches zero or more characters) and `?` (matches zero or single character); use `^` to escape if your actual folder name has wildcard or this escape char inside.  See more examples in [Folder and file filter examples](#folder-and-file-filter-examples). | Yes if `fileName` is not specified in dataset |
@@ -253,11 +253,11 @@ The following properties are supported for SFTP under `storeSettings` settings i
             "source": {
                 "type": "DelimitedTextSource",
                 "formatSettings":{
-                    "type": "DelimitedTextReadSetting",
+                    "type": "DelimitedTextReadSettings",
                     "skipLineCount": 10
                 },
                 "storeSettings":{
-                    "type": "SftpReadSetting",
+                    "type": "SftpReadSettings",
                     "recursive": true,
                     "wildcardFolderPath": "myfolder*A",
                     "wildcardFileName": "*.csv"
@@ -265,6 +265,58 @@ The following properties are supported for SFTP under `storeSettings` settings i
             },
             "sink": {
                 "type": "<sink type>"
+            }
+        }
+    }
+]
+```
+
+### SFTP as sink
+
+[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
+
+The following properties are supported for SFTP under `storeSettings` settings in format-based copy sink:
+
+| Property                 | Description                                                  | Required |
+| ------------------------ | ------------------------------------------------------------ | -------- |
+| type                     | The type property under `storeSettings` must be set to **SftpWriteSettings**. | Yes      |
+| copyBehavior             | Defines the copy behavior when the source is files from a file-based data store.<br/><br/>Allowed values are:<br/><b>- PreserveHierarchy (default)</b>: Preserves the file hierarchy in the target folder. The relative path of the source file to the source folder is identical to the relative path of the target file to the target folder.<br/><b>- FlattenHierarchy</b>: All files from the source folder are in the first level of the target folder. The target files have autogenerated names. <br/><b>- MergeFiles</b>: Merges all files from the source folder to one file. If the file name is specified, the merged file name is the specified name. Otherwise, it's an autogenerated file name. | No       |
+| maxConcurrentConnections | The number of connections to connect to the data store concurrently. Specify only when you want to limit the concurrent connection to the data store. | No       |
+| useTempFileRename | Indicate whether to upload to temporary file(s) and rename, or directly write to the target folder/file location. By default, ADF firstly write to temporary file(s) then do file rename upon upload completion, in order to 1) avoid conflict write resulting in corrupted file if you have other process writing to the same file, and 2) ensure the original version of the file exists during whole transfer. If your SFTP server doesn't support rename operation, disable this option and make sure you don't have concurrent write to the target file. See troubleshooting tip below this table. | No. Default value is true. |
+| operationTimeout | The wait time before each write request to SFTP server times out. Default value is 60 min (01:00:00).|No |
+
+>[!TIP]
+>If you hit error of "UserErrorSftpPathNotFound", "UserErrorSftpPermissionDenied" or "SftpOperationFail" when writing data into SFTP, and the SFTP user you use does have the proper permission, check if your SFTP server support file rename operation - if not, disable "Upload with temp file" (`useTempFileRename`) option and try again. Learn more about this property from above table. If you use Self-hosted Integration Runtime for copy, make sure you use version 4.6 or above.
+
+**Example:**
+
+```json
+"activities":[
+    {
+        "name": "CopyToSFTP",
+        "type": "Copy",
+        "inputs": [
+            {
+                "referenceName": "<input dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "outputs": [
+            {
+                "referenceName": "<output dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "typeProperties": {
+            "source": {
+                "type": "<source type>"
+            },
+            "sink": {
+                "type": "BinarySink",
+                "storeSettings":{
+                    "type": "SftpWriteSettings",
+                    "copyBehavior": "PreserveHierarchy"
+                }
             }
         }
     }
@@ -389,4 +441,4 @@ To learn details about the properties, check [Delete activity](delete-activity.m
 ```
 
 ## Next steps
-For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md##supported-data-stores-and-formats).
+For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

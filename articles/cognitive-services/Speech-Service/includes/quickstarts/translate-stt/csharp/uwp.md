@@ -10,7 +10,7 @@ ms.subservice: speech-service
 ms.date: 12/09/2019
 ms.author: jhakulin
 ms.author: erhopf
-ms.topic: quickstart
+ms.topic: include
 ---
 
 ## Prerequisites
@@ -19,8 +19,7 @@ Before you get started, make sure to:
 
 > [!div class="checklist"]
 > * [Create an Azure Speech Resource](../../../../get-started.md)
-> * [Setup your development environment](../../../../quickstarts/setup-platform.md?tabs=uwp)
-> * [Create an empty sample project](../../../../quickstarts/create-project.md?tabs=uwp)
+> * [Setup your development environment and create an empty project](../../../../quickstarts/setup-platform.md?tabs=uwp)
 
 ## Add sample code
 

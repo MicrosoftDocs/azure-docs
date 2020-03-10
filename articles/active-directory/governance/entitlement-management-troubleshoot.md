@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot Azure AD entitlement management - Azure Active Directory
+title: Troubleshoot entitlement management - Azure AD
 description: Learn about some items you should check to help you troubleshoot Azure Active Directory entitlement management.
 services: active-directory
 documentationCenter: ''

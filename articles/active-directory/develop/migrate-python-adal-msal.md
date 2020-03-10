@@ -1,5 +1,5 @@
 ---
-title: ADAL to MSAL migration guide for Python | Azure
+title: Python ADAL to MSAL migration guide | Azure
 description: Learn how to migrate your Azure Active Directory Authentication Library (ADAL) Python app to the Microsoft Authentication Library (MSAL) for Python.
 services: active-directory
 titleSuffix: Microsoft identity platform
@@ -16,7 +16,6 @@ ms.author: rayluo
 ms.reviewer: rayluo, nacanuma, twhitney
 ms.custom: aaddev
 #Customer intent: As a Python application developer, I want to learn how to migrate my v1 ADAL app to v2 MSAL.
-ms.collection: M365-identity-device-management
 ---
 
 # ADAL to MSAL migration guide for Python

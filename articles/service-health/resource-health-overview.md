@@ -1,10 +1,7 @@
 ---
-title: Azure Resource Health overview | Microsoft Docs
+title: Azure Resource Health overview
 description: Overview of Azure Resource Health
-author: stephbaron
-ms.author: stbaron
 ms.topic: conceptual
-ms.service: service-health
 ms.date: 05/10/2019
 
 ---
@@ -36,7 +33,7 @@ The health of a resource is displayed as one of the following statuses.
 
 #### Platform events
 
-Platform events are triggered by multiple components of the Azure infrastructure. They include both scheduled actions (for example, planned maintenance) and unexpected incidents (for example, an unplanned host reboot).
+Platform events are triggered by multiple components of the Azure infrastructure. They include both scheduled actions (for example, planned maintenance) and unexpected incidents (for example, an unplanned host reboot or degraded host hardware that is predicted to fail after a specified time window).
 
 Resource Health provides additional details about the event and the recovery process. It also enables you to contact Microsoft  Support even if you don't have an active support agreement.
 

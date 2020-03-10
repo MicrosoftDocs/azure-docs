@@ -41,6 +41,9 @@ The Speech SDK features many scenarios across a wide variety of programming lang
   - C++/Windows & Linux
   - C# (Framework & .NET Core)/Windows & UWP & Linux
   - Java/Windows & Linux & Android (Speech Devices SDK)
+- **Multi-device Conversation**
+  - C++/Windows
+  - C# (Framework & .NET Core)/Windows
 - **Call Center Transcription**
   - REST API and can be used in any situation
 - **Codec Compressed Audio Input**

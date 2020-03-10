@@ -29,7 +29,7 @@ Azure Synapse has four components:
 
 ## SQL Analytics and SQL pool in Azure Synapse
 
-SQL Analytics refers to the enterprise data warehousing features that are generally available with Azure Synapse. 
+SQL Analytics refers to the enterprise data warehousing features that are generally available in Azure Synapse. 
 
 SQL pool represents a collection of analytic resources that are being provisioned when using SQL Analytics. The size of SQL pool is determined by Data Warehousing Units (DWU).
 
@@ -49,43 +49,14 @@ The analysis results can go to worldwide reporting databases or applications. Bu
 
 ## Next steps
 
-- Explore [Azure Synapse architecture](/azure/sql-data-warehouse/massively-parallel-processing-mpp-architecture)
+- Explore [Azure Synapse architecture](massively-parallel-processing-mpp-architecture.md)
 - Quickly [create a SQL pool](create-data-warehouse-portal.md)
-- [Load sample data][load sample data].
-- Explore [Videos](/azure/sql-data-warehouse/sql-data-warehouse-videos)
+- [Load sample data](sql-data-warehouse-load-sample-databases.md).
+- Explore [Videos](https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse)
 
 Or look at some of these other Azure Synapse resources.  
-* Search [Blogs]
-* Submit a [Feature requests]
-* Search [Customer Advisory Team blogs]
-* [Create a support ticket]
-* Search [MSDN forum]
-* Search [Stack Overflow forum]
-
-
-<!--Image references-->
-[1]: ./media/sql-data-warehouse-overview-what-is/dwarchitecture.png
-
-<!--Article references-->
-[Create a support ticket]: ./sql-data-warehouse-get-started-create-support-ticket.md
-[load sample data]: ./sql-data-warehouse-load-sample-databases.md
-[create a data warehouse]: ./sql-data-warehouse-get-started-provision.md
-[Migration documentation]: ./sql-data-warehouse-overview-migrate.md
-[Azure Synapse Analytics solution partners]: ./sql-data-warehouse-partner-business-intelligence.md
-[Integrated tools overview]: ./sql-data-warehouse-overview-integrate.md
-[Backup and restore overview]: ./sql-data-warehouse-restore-database-overview.md
-[Azure glossary]: ../azure-glossary-cloud-terminology.md
-
-<!--MSDN references-->
-
-<!--Other Web references-->
-[Blogs]: https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/
-[Customer Advisory Team blogs]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
-[Feature requests]: https://feedback.azure.com/forums/307516-sql-data-warehouse
-[MSDN forum]: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=AzureSQLDataWarehouse
-[Stack Overflow forum]: https://stackoverflow.com/questions/tagged/azure-sqldw
-[Twitter]: https://twitter.com/hashtag/SQLDW
-[Videos]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
-[SLA for Azure Synapse Analytics]: https://azure.microsoft.com/support/legal/sla/sql-data-warehouse/v1_0/
-[Volume Licensing]: https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=37
-[Service Level Agreements]: https://azure.microsoft.com/support/legal/sla/
+* Search [Blogs](https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/)
+* Submit a [Feature requests](https://feedback.azure.com/forums/307516-sql-data-warehouse)
+* [Create a support ticket](sql-data-warehouse-get-started-create-support-ticket.md)
+* Search [MSDN forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureSQLDataWarehouse)
+* Search [Stack Overflow forum](https://stackoverflow.com/questions/tagged/azure-sqldw)

@@ -1,11 +1,7 @@
 ---
-title: Azure Application Insights - Dependency Auto-Collection | Microsoft Docs
-description: Application Insights automatically collect and visualize dependencies
-ms.service:  azure-monitor
-ms.subservice: application-insights
+title: Azure Monitor Application Insights NuGet packages
+description: Azure Monitor Application Insights NuGet packages lists for ASP.NET, ASP.NET Core, Python
 ms.topic: reference
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 10/16/2018
 
 ---
@@ -18,24 +14,24 @@ Below is the current list of stable release NuGet Packages for Application Insig
 
 | Package Name | Stable Version | Description | Download |
 |-------------------------------|-----------------------|------------|----|
-| Microsoft.ApplicationInsights | 2.8.0 | Provides core functionality for transmission of all Application Insights Telemetry Types and is a dependent package for all other Application Insights packages | [Download Package](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) |
+| Microsoft.ApplicationInsights | 2.12.0 | Provides core functionality for transmission of all Application Insights Telemetry Types and is a dependent package for all other Application Insights packages | [Download Package](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) |
 |Microsoft.ApplicationInsights.Agent.Intercept | 2.4.0 | Enables Interception of method calls | [Download Package](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Agent.Intercept/) |
-| Microsoft.ApplicationInsights.DependencyCollector | 2.8.0 | Application Insights Dependency Collector for .NET applications. This is a dependent package for Application Insights platform-specific packages and provides automatic collection of dependency telemetry. | [Download Package](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector/) |
-| Microsoft.ApplicationInsights.PerfCounterCollector | 2.8.0 | Application Insights Performance Counters Collector allows you to send data collected by Performance Counters to Application Insights. | [Download Package](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector/) |
-| Microsoft.ApplicationInsights.Web | 2.8.0 | Application Insights for .NET web applications | [Download Package](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/) |
-| Microsoft.ApplicationInsights.WindowsServer | 2.8.0 | Application Insights Windows Server NuGet package provides automatic collection of application insights telemetry for .NET applications. This package can be used as a dependent package for Application Insights platform-specific packages or as a standalone package for .NET applications that are not covered by platform-specific packages (like for .NET worker roles). | [Download Package](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer/)  
-| Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel | 2.8.0 | Provides a telemetry channel to Application Insights Windows Server SDK that will preserve telemetry in offline scenarios. | [Download Package](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel/) |
+| Microsoft.ApplicationInsights.DependencyCollector | 2.12.0 | Application Insights Dependency Collector for .NET applications. This is a dependent package for Application Insights platform-specific packages and provides automatic collection of dependency telemetry. | [Download Package](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector/) |
+| Microsoft.ApplicationInsights.PerfCounterCollector | 2.12.0 | Application Insights Performance Counters Collector allows you to send data collected by Performance Counters to Application Insights. | [Download Package](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector/) |
+| Microsoft.ApplicationInsights.Web | 2.12.0 | Application Insights for .NET web applications | [Download Package](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/) |
+| Microsoft.ApplicationInsights.WindowsServer | 2.12.0 | Application Insights Windows Server NuGet package provides automatic collection of application insights telemetry for .NET applications. This package can be used as a dependent package for Application Insights platform-specific packages or as a standalone package for .NET applications that are not covered by platform-specific packages (like for .NET worker roles). | [Download Package](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer/)  
+| Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel | 2.12.0 | Provides a telemetry channel to Application Insights Windows Server SDK that will preserve telemetry in offline scenarios. | [Download Package](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel/) |
 
 ## Common packages for ASP.NET Core
 
 | Package Name | Stable Version | Description | Download |
 |-------------------------------|-----------------------|------------|----|
 | Microsoft.ApplicationInsights.AspNetCore | 2.5.0 | Application Insights for ASP.NET Core web applications. | [Download Package](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/) |
-| Microsoft.ApplicationInsights | 2.8.0 | This package provides core functionality for transmission of all Application Insights Telemetry Types and is a dependent package for all other Application Insights packages | [Download Package](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) |
-| Microsoft.ApplicationInsights.DependencyCollector | 2.8.0 | Application Insights Dependency Collector for .NET applications. This is a dependent package for Application Insights platform-specific packages and provides automatic collection of dependency telemetry. | [Download Package](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector/) |
-| Microsoft.ApplicationInsights.PerfCounterCollector | 2.8.0 | Application Insights Performance Counters Collector allows you to send data collected by Performance Counters to Application Insights. | [Download Package](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector/) |
-| Microsoft.ApplicationInsights.WindowsServer | 2.8.0 | Application Insights Windows Server NuGet package provides automatic collection of application insights telemetry for .NET applications. This package can be used as a dependent package for Application Insights platform-specific packages or as a standalone package for .NET applications that are not covered by platform-specific packages (like for .NET worker roles). | [Download Package](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer/)  |
-| Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel | 2.8.0 | Provides a telemetry channel to Application Insights Windows Server SDK that will preserve telemetry in offline scenarios. | [Download Package](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel/) |
+| Microsoft.ApplicationInsights | 2.12.0 | This package provides core functionality for transmission of all Application Insights Telemetry Types and is a dependent package for all other Application Insights packages | [Download Package](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) |
+| Microsoft.ApplicationInsights.DependencyCollector | 2.12.0 | Application Insights Dependency Collector for .NET applications. This is a dependent package for Application Insights platform-specific packages and provides automatic collection of dependency telemetry. | [Download Package](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector/) |
+| Microsoft.ApplicationInsights.PerfCounterCollector | 2.12.0 | Application Insights Performance Counters Collector allows you to send data collected by Performance Counters to Application Insights. | [Download Package](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector/) |
+| Microsoft.ApplicationInsights.WindowsServer | 2.12.0 | Application Insights Windows Server NuGet package provides automatic collection of application insights telemetry for .NET applications. This package can be used as a dependent package for Application Insights platform-specific packages or as a standalone package for .NET applications that are not covered by platform-specific packages (like for .NET worker roles). | [Download Package](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer/)  |
+| Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel | 2.12.0 | Provides a telemetry channel to Application Insights Windows Server SDK that will preserve telemetry in offline scenarios. | [Download Package](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel/) |
 
 ## Common packages for Python using OpenCensus
 | Package Name | Stable Version | Description | Download |

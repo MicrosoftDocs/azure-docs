@@ -40,6 +40,20 @@ With existing blockchain protocols, blockchain identities are represented as an 
 
 Azure Blockchain Workbench makes it easier to analyze blockchain events and data by automatically synchronizing data on the blockchain to off-chain storage. Instead of extracting data directly from the blockchain, you can query off-chain database systems such as SQL Server. Blockchain expertise is not required for end users who are doing data analysis tasks.
 
+## Support and feedback
+
+For Azure Blockchain news, visit the [Azure Blockchain blog](https://azure.microsoft.com/blog/topics/blockchain/) to stay up to date on blockchain service offerings and information from the Azure Blockchain engineering team.
+
+To provide product feedback or to request new features, post of vote for an idea via the [Azure feedback forum for blockchain](https://aka.ms/blockchainuservoice).
+
+### Community support
+
+Engage with Microsoft engineers and Azure Blockchain community experts.
+
+* [Azure Blockchain MSDN forum](https://social.msdn.microsoft.com/Forums/home?forum=azureblockchain)
+* [Microsoft Tech Community](https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain)
+* [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-blockchain-workbench)
+
 ## Next steps
 
 > [!div class="nextstepaction"]

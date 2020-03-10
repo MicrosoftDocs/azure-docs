@@ -48,6 +48,7 @@ sections:
               - href: /azure/iot-hub/quickstart-send-telemetry-ios
           - title: Control a device
             values:
+              - href: 
               - href: /azure/iot-hub/quickstart-control-device-node
               - href: /azure/iot-hub/quickstart-control-device-dotnet
               - href: /azure/iot-hub/quickstart-control-device-java
@@ -55,6 +56,7 @@ sections:
               - href: /azure/iot-hub/quickstart-control-device-android
           - title: Communicate using device streams (preview)
             values:
+              - href: 
               - href: /azure/iot-hub/quickstart-device-streams-echo-nodejs
               - href: /azure/iot-hub/quickstart-device-streams-echo-csharp
               - href:
@@ -64,6 +66,7 @@ sections:
               - href:
           - title: SSH/RDP using device streams (preview)
             values:
+              - href: 
               - href: /azure/iot-hub/quickstart-device-streams-proxy-nodejs
               - href: /azure/iot-hub/quickstart-device-streams-proxy-csharp
               - href:

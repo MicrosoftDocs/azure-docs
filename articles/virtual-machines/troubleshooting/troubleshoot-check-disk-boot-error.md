@@ -21,9 +21,6 @@ ms.author: genli
 
 This article describes the “Checking file system” error that you may encounter when you boot a Windows Virtual Machine (VM) in Microsoft Azure.
 
-> [!NOTE] 
-> Azure has two different deployment models for creating and working with resources: 
-[Resource Manager and classic](../../azure-resource-manager/resource-manager-deployment-model.md). This article describes using the Resource Manager deployment model, which we recommend using for new deployments instead of the classic deployment model.
 
 ## Symptom 
 

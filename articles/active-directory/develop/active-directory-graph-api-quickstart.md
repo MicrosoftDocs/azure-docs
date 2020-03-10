@@ -14,7 +14,6 @@ ms.date: 08/28/2019
 ms.author: ryanwi
 ms.reviewer: sureshja
 ms.custom: aaddev, identityplatformtop40
-ms.collection: M365-identity-device-management
 ---
 
 # How to: Use the Azure AD Graph API
@@ -78,7 +77,7 @@ For the purposes of this Quickstart guide, you can use the Fiddler Web Debugger 
 
 In the example below, you use Fiddler Web Debugger to create a new security group ‘MyTestGroup’ in your Azure AD directory.
 
-**Obtain an access token**: To access Azure AD Graph, clients are required to successfully authenticate to Azure AD first. For more information, see [Authentication scenarios for Azure AD](v1-authentication-scenarios.md).
+**Obtain an access token**: To access Azure AD Graph, clients are required to successfully authenticate to Azure AD first. For more information, see [Authentication scenarios for Azure AD](authentication-scenarios.md).
 
 **Compose and run a query**: Complete the following steps:
 

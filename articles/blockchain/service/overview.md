@@ -15,7 +15,7 @@ Azure Blockchain Service is a fully managed ledger service that enables users th
 * Built-in consortium management
 * Develop smart contracts with familiar development tools
 
-Azure Blockchain Service is designed to support multiple ledger protocols. Currently, it provides support for the Ethereum [Quorum](https://www.jpmorgan.com/Quorum) ledger using the [IBFT](https://github.com/jpmorganchase/quorum/wiki/Quorum-Consensus) consensus mechanism.
+Azure Blockchain Service is designed to support multiple ledger protocols. Currently, it provides support for the Ethereum [Quorum](https://www.goquorum.com/) ledger using the [IBFT](https://github.com/jpmorganchase/quorum/wiki/Quorum-Consensus) consensus mechanism.
 
 These capabilities require almost no administration and all are provided at no additional cost. You can focus on app development and business logic rather than allocating time and resources to managing virtual machines and infrastructure. In addition, you can continue to develop your application with the open-source tools and platform of your choice to deliver your solutions without having to learn new skills.
 
@@ -63,10 +63,17 @@ Blockchain Data Manager for Azure Blockchain Service captures, transforms, and d
 
 ## Support and feedback
 
-Need help or have feedback?
+For Azure Blockchain news, visit the [Azure Blockchain blog](https://azure.microsoft.com/blog/topics/blockchain/) to stay up to date on blockchain service offerings and information from the Azure Blockchain engineering team.
 
-* Visit the [Azure Blockchain blog](https://azure.microsoft.com/blog/topics/blockchain/), [Microsoft Tech Community](https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain), and [Azure Blockchain forum](https://social.msdn.microsoft.com/Forums/home?forum=azureblockchain).
-* To provide feedback or to request new features, create an entry via [UserVoice](https://feedback.azure.com/forums/921130-azure-blockchain-service).
+To provide product feedback or to request new features, post of vote for an idea via the [Azure feedback forum for blockchain](https://aka.ms/blockchainuservoice).
+
+### Community support
+
+Engage with Microsoft engineers and Azure Blockchain community experts.
+
+* [Azure Blockchain MSDN forum](https://social.msdn.microsoft.com/Forums/home?forum=azureblockchain)
+* [Microsoft Tech Community](https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain)
+* [Stack Overflow](https://stackoverflow.com/questions/tagged/AzureBlockchainService)
 
 ## Next steps
 

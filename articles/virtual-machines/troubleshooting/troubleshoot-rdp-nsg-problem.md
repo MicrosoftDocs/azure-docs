@@ -21,10 +21,6 @@ ms.author: genli
 This article explains how to resolve a problem in which you cannot connect to an Azure Windows virtual machine (VM) because the Remote Desktop Protocol (RDP) port is not enabled in the network security group (NSG).
 
 
-> [!NOTE] 
-> Azure has two deployment models for creating and working with resources: 
-[Resource Manager and classic](../../azure-resource-manager/resource-manager-deployment-model.md). We recommend that you use the Resource Manager deployment model instead of the classic deployment model for new deployments. 
-
 ## Symptom
 
 You cannot make an RDP connection to a VM in Azure because the RDP port is not opened in the network security group.

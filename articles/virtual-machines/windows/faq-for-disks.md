@@ -1,5 +1,5 @@
 ---
-title: Frequently asked questions (FAQ) about Azure IaaS Windows VM disks 
+title: Frequently asked questions about Azure IaaS Windows VM disks 
 description: Frequently asked questions about Azure IaaS Windows VM disks and premium disks (managed and unmanaged)
 author: roygara
 ms.service: virtual-machines-windows

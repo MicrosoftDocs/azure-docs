@@ -17,7 +17,6 @@ ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: ryanwi
 
-ms.collection: M365-identity-device-management
 ---
 
 # Azure portal registration fields for custom-developed apps

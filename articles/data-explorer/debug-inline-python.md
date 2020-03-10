@@ -11,7 +11,7 @@ ms.date: 12/04/2019
 
 # Debug Kusto query language inline Python using VS Code
 
-Azure Data Explorer supports running Python code embedded in Kusto query language using the [python() plugin](/azure/kusto/query/pythonplugin). The plugin runtime is hosted in a sandbox, an isolated and secure Python environment. The python() plugin capability extends Kusto query language native functionalities with the huge archive of OSS Python packages. This extension enables you to run advanced algorithms, such as machine learning, artificial intelligence, statistical, and time series,as part of the query.
+Azure Data Explorer supports running Python code embedded in Kusto query language using the [python() plugin](/azure/kusto/query/pythonplugin). The plugin runtime is hosted in a sandbox, an isolated and secure Python environment. The python() plugin capability extends Kusto query language native functionalities with the huge archive of OSS Python packages. This extension enables you to run advanced algorithms, such as machine learning, artificial intelligence, statistical, and time series as part of the query.
 
 Kusto query language tools aren't convenient for developing and debugging Python algorithms. Therefore, develop the algorithm on your favorite Python-integrated development environment such as Jupyter, PyCharm, VS, or VS Code. When the algorithm is complete, copy and paste into KQL. To improve and streamline this workflow, Azure Data Explorer supports integration between Kusto Explorer or Web UI clients and VS Code for authoring and debugging KQL inline Python code. 
 

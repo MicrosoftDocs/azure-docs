@@ -192,7 +192,7 @@ Learn how to use Azure Data Lake Storage Gen1 (previously known as Azure Data La
                         <p><a href="/java/api/overview/azure/datalake">Java</a></p>
                         <p><a href="https://www.npmjs.com/package/azure-arm-datalake-store">Node​.js</a></p>
                         <p><a href="/python/api/azure-mgmt-datalake-store/">Python (Account Mgmt​.)</a></p>
-                        <p><a href="https://azure-datalake-store.readthedocs.io/en/latest">Python (Filesystem Mgmt​.)</a></p>
+                        <p><a href="https://docs.microsoft.com/python/api/azure-datalake-store/azure.datalake.store.core">Python (Filesystem Mgmt​.)</a></p>
                     </div>
                 </div>
             </div>

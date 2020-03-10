@@ -1,20 +1,9 @@
 ---
-title: Set up Azure Active Directory for Service Fabric client authentication | Microsoft Docs
+title: Set up Azure Active Directory for client authentication 
 description: Learn how to set up Azure Active Directory (Azure AD) to authenticate clients for Service Fabric clusters.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: chackdan
-ms.assetid: 15d0ab67-fc66-4108-8038-3584eeebabaa
-ms.service: service-fabric
-ms.devlang: dotnet
-ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 6/28/2019
-ms.author: atsenthi
 
+ms.topic: conceptual
+ms.date: 6/28/2019
 ---
 
 # Set up Azure Active Directory for client authentication
@@ -27,6 +16,11 @@ A Service Fabric cluster offers several entry points to its management functiona
 
 > [!NOTE]
 > On Linux, you must complete the following steps before you create the cluster. On Windows, you also have the option to [configure Azure AD authentication for an existing cluster](https://github.com/Azure/Service-Fabric-Troubleshooting-Guides/blob/master/Security/Configure%20Azure%20Active%20Directory%20Authentication%20for%20Existing%20Cluster.md).
+
+> [!NOTE]
+> It is a [known issue](https://github.com/microsoft/service-fabric/issues/399) that applications and nodes on Linux AAD-enabled clusters cannot be viewed in Azure Portal.
+
+
 
 ## Prerequisites
 In this article, we assume that you have already created a tenant. If you have not, start by reading [How to get an Azure Active Directory tenant][active-directory-howto-tenant].
@@ -106,9 +100,19 @@ When you try to sign in to Azure AD in Service Fabric Explorer, the page returns
 The cluster (web) application that represents Service Fabric Explorer attempts to authenticate against Azure AD, and as part of the request it provides the redirect return URL. But the URL is not listed in the Azure AD application **REPLY URL** list.
 
 #### Solution
-Select "App registrations" in AAD page, select your cluster application, and then select the **Reply URLs** button. On "Reply URLs" page, add the URL of Service Fabric Explorer to the list or replace one of the items in the list. When you have finished, save your change.
+On the Azure AD app registration page for your cluster, select **Authentication**, and under the **Redirect URIs** section, add the Service Fabric Explorer URL to the list. Save your change.
 
-![Web application reply url][web-application-reply-url]
+![Web application reply URL][web-application-reply-url]
+
+### Connecting to the cluster using Azure AD authentication via PowerShell gives an error when you sign in: "AADSTS50011"
+#### Problem
+When you try to connect to a Service Fabric cluster using Azure AD via PowerShell, the sign-in page returns a failure: "AADSTS50011: The reply url specified in the request does not match the reply urls configured for the application: &lt;guid&gt;."
+
+#### Reason
+Similar to the preceding issue, PowerShell attempts to authenticate against Azure AD, which provides a redirect URL that isn't listed in the Azure AD application **Reply URLs** list.  
+
+#### Solution
+Use the same process as in the preceding issue, but the URL must be set to `urn:ietf:wg:oauth:2.0:oob`, a special redirect for command-line authentication.
 
 ### Connect the cluster by using Azure AD authentication via PowerShell
 To connect the Service Fabric cluster, use the following PowerShell command example:

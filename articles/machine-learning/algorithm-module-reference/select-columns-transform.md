@@ -1,7 +1,7 @@
 ---
 title: "Select Columns Transform: Module reference"
-titleSuffix: Azure Machine Learning service
-description: Learn how to use the Select Columns Transform module in the Azure Machine Learning service to create a transformation that selects the same subset of columns as in the given dataset.
+titleSuffix: Azure Machine Learning
+description: Learn how to use the Select Columns Transform module in Azure Machine Learning to create a transformation that selects the same subset of columns as in the given dataset.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -50,4 +50,4 @@ This process of saving and then applying a column selection ensures that the sam
 
 ## Next steps
 
-See the [set of modules available](module-reference.md) to the Azure Machine Learning service. 
+See the [set of modules available](module-reference.md) to Azure Machine Learning. 

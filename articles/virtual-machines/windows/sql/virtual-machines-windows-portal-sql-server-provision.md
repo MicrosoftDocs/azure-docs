@@ -62,7 +62,7 @@ On the **Basics** tab, provide the following information:
     ![Subscription](media/quickstart-sql-vm-create-portal/basics-project-details.png)
 
   > [!NOTE]
-  > Using a new resource group is helpful if you are just testing or learning about SQL Server deployments in Azure. After you finish with your test, delete the resource group to automatically delete the VM and all resources associated with that resource group. For more information about resource groups, see [Azure Resource Manager Overview](../../../azure-resource-manager/resource-group-overview.md).
+  > Using a new resource group is helpful if you are just testing or learning about SQL Server deployments in Azure. After you finish with your test, delete the resource group to automatically delete the VM and all resources associated with that resource group. For more information about resource groups, see [Azure Resource Manager Overview](../../../azure-resource-manager/management/overview.md).
 
 
 * Under **Instance details**:

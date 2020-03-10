@@ -14,7 +14,6 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: aragra, lenalepa, sureshja
 #Customer intent: As an application developer, I want to know how to remove my application from the Microsoft identity registered.
-ms.collection: M365-identity-device-management
 ---
 
 # Quickstart: Remove an application registered with the Microsoft identity platform

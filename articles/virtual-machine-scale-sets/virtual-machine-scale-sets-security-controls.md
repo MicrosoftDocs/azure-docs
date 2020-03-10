@@ -1,11 +1,8 @@
 ---
 title: Security controls for Azure Virtual Machine Scale Sets
 description: A checklist of security controls for evaluating Azure Virtual Machine Scale Sets
-services: virtual-machine-scale-sets
 ms.service: virtual-machine-scale-sets
-documentationcenter: ''
 author: msmbaldwin
-manager: rkarlin
 
 ms.topic: conceptual
 ms.date: 09/05/2019
@@ -50,7 +47,7 @@ This article documents the security controls built into Azure Virtual Machine Sc
 | Encryption in transit (such as ExpressRoute encryption, in VNet encryption, and VNet-VNet encryption )| Yes | Azure Virtual Machines supports [ExpressRoute](/azure/expressroute) and VNet encryption. See [In-transit encryption in VMs](/azure/security/security-azure-encryption-overview#in-transit-encryption-in-vms). |
 | Server-side encryption at rest: customer-managed keys (BYOK) | Yes | Customer-managed keys is a supported Azure encryption scenario; see  See [Azure Disk Encryption for Virtual Machine Scale Sets](disk-encryption-overview.md)|
 | Column level encryption (Azure Data Services)| N/A | |
-| API calls encrypted| Yes | Via HTTPS and SSL. |
+| API calls encrypted| Yes | Via HTTPS and TLS. |
 
 ## Configuration management
 

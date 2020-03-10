@@ -1,21 +1,9 @@
 ---
-title: Update an Azure Service Fabric cluster to use certificate common name | Microsoft Docs
+title: Update a cluster to use certificate common name 
 description: Learn how to switch a Service Fabric cluster from using certificate thumbprints to using certificate common name.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
 
-
-ms.assetid: 
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 09/06/2019
-ms.author: atsenthi
-
 ---
 # Change cluster from certificate thumbprint to common name
 No two certificates can have the same thumbprint, which makes cluster certificate rollover or management difficult. Multiple certificates, however, can have the same common name or subject.  Switching a deployed cluster from using certificate thumbprints to using certificate common names makes certificate management much simpler. This article describes how to update a running Service Fabric cluster to use the certificate common name instead of the certificate thumbprint.

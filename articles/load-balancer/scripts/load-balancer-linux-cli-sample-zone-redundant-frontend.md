@@ -1,18 +1,12 @@
 ---
 title: Load balance VMs across availability zones - Azure CLI - Azure Load Balancer
 description: This Azure CLI script example shows how to load balance traffic to VMs across availability zones
-services: load-balancer
 documentationcenter: load-balancer
 author: asudbring
-manager: jeconnoc
-editor: tysonn
-tags: 
 Customer intent: As an IT administrator, I want to create a load balancer that load balances incoming internet traffic to virtual machines across availability zones in a region.
-ms.assetid:
 ms.service: load-balancer
 ms.devlang: azurecli
 ms.topic: sample
-ms.tgt_pltfrm: 
 ms.workload: infrastructure
 ms.date: 06/14/2018
 ms.author: allensu

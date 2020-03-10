@@ -7,7 +7,7 @@ ms.author: v-chjen
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 05/30/2019
+ms.date: 02/06/2020
 ---
 
 # Overview of the Commercial Marketplace portal in Partner Center
@@ -24,11 +24,12 @@ Partner Center is the hub of a Microsoft partner's experience. For organizations
 
 ## Migration from Cloud Partner Portal
 
-Partner Center is evolving to better integrate all aspects of Microsoft's relationship with software publishers. As part of this evolution, we are migrating the functions of the [Cloud Partner Portal](https://cloudpartner.azure.com/) to Partner Center. 
+Partner Center is evolving to better integrate all aspects of Microsoft's relationship with software publishers. As part of this evolution, we are migrating the functions of the [Cloud Partner Portal](https://cloudpartner.azure.com/) to Partner Center.
 
-**Currently, Partner Center only supports the creation and management of Software-as-a-Service (SaaS) offers.**
+>[!NOTE]
+>Currently, Partner Center supports the creation and management of Software-as-a-Service (SaaS) offers, Azure application offers, Dynamics 365 for Customer offers, Engagement & PowerApps offers, Dynamics 365 for Operations offers, and Dynamics 365 for Business Central offers. More offers will be supported soon.
 
-Existing marketplace publishers will find a familiar but improved user experience with an intuitive interface. Notifications in the portal and via email will inform publishers of the migration. Users will be seamlessly directed to the appropriate location. Customers will not be impacted by this partner experience upgrade. 
+Existing marketplace publishers will find a familiar but improved user experience with an intuitive interface. Notifications in the portal and via email will inform publishers of the migration. Users will be seamlessly directed to the appropriate location. Customers will not be impacted by this partner experience upgrade.
 
 ### Improvements on user experience and billing
 

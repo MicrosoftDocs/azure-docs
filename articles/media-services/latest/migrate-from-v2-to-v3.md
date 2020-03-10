@@ -14,18 +14,20 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 05/01/2019
+ms.date: 03/09/2020
 ms.author: juliako
 ---
 
 # Migration guidance for moving from Media Services v2 to v3
+
+>Get notified about when to revisit this page for updates by copying and pasting this URL: `https://docs.microsoft.com/api/search/rss?search=%22Migrate+from+Azure+Media+Services+v2+to+v3%22&locale=en-us` into your RSS feed reader.
 
 This article describes changes that were introduced in Azure Media Services v3, shows differences between two versions, and provides the migration guidance.
 
 If you have a video service developed today on top of the [legacy Media Services v2 APIs](../previous/media-services-overview.md), you should review the following guidelines and considerations prior to migrating to the v3 APIs. There are many benefits and new features in the v3 API that improve the developer experience and capabilities of Media Services. However, as called out in the [Known Issues](#known-issues) section of this article, there are also some limitations due to changes between the API versions. This page will be maintained as the Media Services team makes continued improvements to the v3 APIs and addresses the gaps between the versions. 
 
 > [!NOTE]
-> Currently, you cannot use the Azure portal to manage v3 resources. Use the [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), or one of the supported [SDKs](media-services-apis-overview.md#sdks).
+> You can use the [Azure portal](https://portal.azure.com/) to manage v3 [Live Events](live-events-outputs-concept.md), view v3 [Assets](assets-concept.md), get info about accessing APIs. For all other management tasks (for example, Transforms and Jobs), use the [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), or one of the supported [SDKs](media-services-apis-overview.md#sdks).
 
 ## Benefits of Media Services v3
   
@@ -71,9 +73,28 @@ If you have a video service developed today on top of the [legacy Media Services
 * Live Outputs start on creation and stop when deleted. Programs worked differently in the v2 APIs, they had to be started after creation.
 * To get information about a job, you need to know the Transform name under which the job was created. 
 * In v2, XML [input](../previous/media-services-input-metadata-schema.md) and [output](../previous/media-services-output-metadata-schema.md) metadata files get generated as the result of an encoding job. In v3, the metadata format changed from XML to JSON. 
+* In Media Services v2, initialization vector (IV) can be specified. In Media Services v3, the FairPlay IV cannot be specified. While it does not impact customers using Media Services for both packaging and license delivery, it can be an issue when using a third party DRM system to deliver the  FairPlay licenses (hybrid mode). In that case, it is important to know that the FairPlay IV is derived from the cbcs key ID and can be retrieved using this formula:
 
+    ```
+    string cbcsIV =  Convert.ToBase64String(HexStringToByteArray(cbcsGuid.ToString().Replace("-", string.Empty)));
+    ```
+
+    with
+
+    ``` 
+    public static byte[] HexStringToByteArray(string hex)
+    {
+        return Enumerable.Range(0, hex.Length)
+            .Where(x => x % 2 == 0)
+            .Select(x => Convert.ToByte(hex.Substring(x, 2), 16))
+            .ToArray();
+    }
+    ```
+
+    For more information, see the [Azure Functions C# code for Media Services v3 in hybrid mode for both Live and VOD operations](https://github.com/Azure-Samples/media-services-v3-dotnet-core-functions-integration/tree/master/LiveAndVodDRMOperationsV3).
+ 
 > [!NOTE]
-> Review the naming conventions that are applied to [Media Services v3 resources](media-services-apis-overview.md#naming-conventions). Also review [naming blobs](assets-concept.md#naming-blobs).
+> Review the naming conventions that are applied to [Media Services v3 resources](media-services-apis-overview.md#naming-conventions). Also review [naming blobs](assets-concept.md#naming).
 
 ## Feature gaps with respect to v2 APIs
 
@@ -106,10 +127,12 @@ The following table shows the code differences between v2 and v3 for common scen
 
 ## Known issues
 
-* Currently, you cannot use the Azure portal to manage v3 resources. Use the [REST API](https://aka.ms/ams-v3-rest-sdk), CLI, or one of the supported SDKs.
+*  You can use the [Azure portal](https://portal.azure.com/) to manage v3 [Live Events](live-events-outputs-concept.md), view v3 [Assets](assets-concept.md), get info about accessing APIs. 
+
+    For all other management tasks (for example, Transforms and Jobs), use the [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), or one of the supported [SDKs](media-services-apis-overview.md#sdks).
 * You need to provision Media Reserved Units (MRUs) in your account in order to control the concurrency and performance of your Jobs, particularly ones involving Video or Audio Analysis. For more information, see [Scaling Media Processing](../previous/media-services-scale-media-processing-overview.md). You can manage the MRUs using [CLI 2.0 for Media Services v3](media-reserved-units-cli-how-to.md), using the [Azure portal](../previous/media-services-portal-scale-media-processing.md), or using the [v2 APIs](../previous/media-services-dotnet-encoding-units.md). You need to provision MRUs, whether you are using Media Services v2 or v3 APIs.
 * Media Services entities created with the v3 API cannot be managed by the v2 API.  
-* It is not recommended to manage entities that were created with v2 APIs via the v3 APIs. Following are examples of the differences that make the entities in two versions incompatible:   
+* Not all entities in the V2 API automatically show up in the V3 API.  Following are examples of entities in the two versions that are incompatible:  
     * Jobs and Tasks created in v2 do not show up in v3 as they are not associated with a Transform. The recommendation is to switch to v3 Transforms and Jobs. There will be a relatively short time period of needing to monitor the inflight v2 Jobs during the switchover.
     * Channels and Programs created with v2 (which are mapped to Live Events and Live Outputs in v3) cannot continue being managed with v3. The recommendation is to switch to v3 Live Events and Live Outputs at a convenient Channel stop.<br/>Presently, you cannot migrate continuously running Channels.  
 

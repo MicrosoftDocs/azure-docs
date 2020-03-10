@@ -1,5 +1,5 @@
 ---
-title: Understand deny assignments for Azure resources | Microsoft Docs
+title: Understand deny assignments for Azure resources
 description: Learn about deny assignments in role-based access control (RBAC) for Azure resources.
 services: active-directory
 documentationcenter: ''

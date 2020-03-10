@@ -1,14 +1,13 @@
 ---
 title: "Quickstart: Recognize speech from a microphone, C# (UWP) - Speech service"
 titleSuffix: Azure Cognitive Services
-description: TBD
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
-ms.date: 10/28/2019
+ms.topic: include
+ms.date: 12/17/2019
 ms.author: erhopf
 ---
 
@@ -18,8 +17,7 @@ Before you get started:
 
 > [!div class="checklist"]
 > * [Create an Azure Speech Resource](../../../../get-started.md)
-> * [Setup your development environment](../../../../quickstarts/setup-platform.md?tabs=uwp)
-> * [Create an empty sample project](../../../../quickstarts/create-project.md?tabs=uwp)
+> * [Setup your development environment and create an empty project](../../../../quickstarts/setup-platform.md?tabs=uwp)
 > * Make sure that you have access to a microphone for audio capture
 
 If you've already done this, great. Let's keep going.
@@ -61,7 +59,8 @@ Now, let's create a `SpeechRecognizer`. This object is created inside of a using
 
 From the `SpeechRecognizer` object, you're going to call the `RecognizeOnceAsync()` method. This method lets the Speech service know that you're sending a single phrase for recognition, and that once the phrase is identified to stop recognizing speech.
 
-Inside the using statement, add this code:
+Inside the using statement, add this code.
+
 [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/uwp/from-microphone/helloworld/MainPage.xaml.cs?range=66)]
 
 ## Display the recognition results (or errors)

@@ -152,15 +152,15 @@ PolyBase is commonly used to load data into Azure SQL Data Warehouse from Azure 
        > - There is no need to specify SECRET with Azure Storage access key because this mechanism uses [Managed Identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) under the covers.
        > - IDENTITY name should be **'Managed Service Identity'** for PolyBase connectivity to work with Azure Storage account secured to VNet.
 
-   1. Create external data source with abfss:// scheme for connecting to your general-purpose v2 storage account using PolyBase:
+   1. Create external data source with `abfss://` scheme for connecting to your general-purpose v2 storage account using PolyBase:
 
        ```SQL
        CREATE EXTERNAL DATA SOURCE ext_datasource_with_abfss WITH (TYPE = hadoop, LOCATION = 'abfss://myfile@mystorageaccount.dfs.core.windows.net', CREDENTIAL = msi_cred);
        ```
 
        > [!NOTE]
-       > - If you already have external tables associated with general-purpose v1 or blob storage account, you should first drop those external tables and then drop corresponding external data source. Then create external data source with abfss:// scheme connecting to general-purpose v2 storage account as above and re-create all the external tables using this new external data source. You could use [Generate and Publish Scripts Wizard](https://docs.microsoft.com/sql/ssms/scripting/generate-and-publish-scripts-wizard) to generate create-scripts for all the external tables for ease.
-       > - For more information on abfss:// scheme, refer to this [guide](https://docs.microsoft.com/azure/storage/data-lake-storage/introduction-abfs-uri).
+       > - If you already have external tables associated with general-purpose v1 or blob storage account, you should first drop those external tables and then drop corresponding external data source. Then create external data source with `abfss://` scheme connecting to general-purpose v2 storage account as above and re-create all the external tables using this new external data source. You could use [Generate and Publish Scripts Wizard](https://docs.microsoft.com/sql/ssms/scripting/generate-and-publish-scripts-wizard) to generate create-scripts for all the external tables for ease.
+       > - For more information on `abfss://` scheme, refer to this [guide](https://docs.microsoft.com/azure/storage/data-lake-storage/introduction-abfs-uri).
        > - For more information on CREATE EXTERNAL DATA SOURCE, refer to this [guide](https://docs.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql).
 
    1. Query as normal using [external tables](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql).
@@ -231,7 +231,7 @@ You must already have a subnet that is tagged with the particular Virtual Networ
 
 1. Sign in to the [Azure portal][http-azure-portal-link-ref-477t].
 
-2. Then navigate the portal to **SQL servers** &gt; **Firewall / Virtual Networks**.
+2. Search for and select **SQL servers**, then select your server. Under **Security**, select **Firewalls and virtual networks**.
 
 3. Set the **Allow access to Azure services** control to OFF.
 
@@ -283,7 +283,7 @@ The virtual network rule feature for Azure SQL Database became available in late
 [image-portal-firewall-vnet-result-rule-30-png]: media/sql-database-vnet-service-endpoint-rule-overview/portal-firewall-vnet-result-rule-30.png
 
 <!-- Link references, to text, Within this same GitHub repo. -->
-[arm-deployment-model-568f]: ../azure-resource-manager/resource-manager-deployment-model.md
+[arm-deployment-model-568f]: ../azure-resource-manager/management/deployment-models.md
 [expressroute-indexmd-744v]: ../expressroute/index.yml
 [rbac-what-is-813s]:../role-based-access-control/overview.md
 [sql-db-firewall-rules-config-715d]: sql-database-firewall-configure.md

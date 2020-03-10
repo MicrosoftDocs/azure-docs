@@ -1,20 +1,9 @@
 ---
-title: Azure Service Fabric resource governance for containers and services | Microsoft Docs
+title: Resource governance for containers and services 
 description: Azure Service Fabric allows you to specify resource limits for services running inside or outside containers.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
 
-ms.assetid: ab49c4b9-74a8-4907-b75b-8d2ee84c6d90
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 8/9/2017
-ms.author: atsenthi
 ---
 
 # Resource governance
@@ -72,7 +61,7 @@ Here is an example of how to instruct Service Fabric to use 50% of available CPU
 </Section>
 ```
 
-If you need full manual setup of node capacities, you can use the regular mechanism for describing the nodes in the cluster. Here is an example of how to set up the node with four cores and 2 GB of memory:
+For most customers and scenarios, automatic detection of node capacities for the CPU and memory is the recommended configuration (automatic detection is turned on by default). However, if you need full manual setup of node capacities, you can configure those per node type using the mechanism for describing the nodes in the cluster. Here is an example of how to set up the node type with four cores and 2 GB of memory:
 
 ```xml
     <NodeType Name="MyNodeType">

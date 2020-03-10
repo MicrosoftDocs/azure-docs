@@ -11,12 +11,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/25/2019
+ms.date: 01/24/2020
 ms.author: spelluru
 
 ---
 
-# Create a custom image factory in Azure DevTest Labs
+# Set up retention policy in Azure DevTest Labs
 This article covers setting a retention policy, cleaning up the factory, and retiring old images from all the other DevTest Labs in the organization. 
 
 ## Prerequisites

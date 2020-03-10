@@ -1,20 +1,9 @@
 ---
-title: Import certificates into a container running on Azure Service Fabric| Microsoft Docs
+title: Import certificates into a container
 description: Learn now to import certificate files into a Service Fabric container service.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
 
-ms.assetid: ab49c4b9-74a8-4907-b75b-8d2ee84c6d90
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 2/23/2018
-ms.author: atsenthi
 ---
 
 # Import a certificate file into a container running on Service Fabric

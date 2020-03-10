@@ -1,6 +1,6 @@
 ---
-title: Create or join parallel branches
-description: How to create or join parallel branches for workflows in Azure Logic Apps
+title: Create or join parallel branches for actions in workflows
+description: Learn how to create or merge parallel running branches for independent workflow actions in Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm

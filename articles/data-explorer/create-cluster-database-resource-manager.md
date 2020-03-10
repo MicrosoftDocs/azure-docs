@@ -3,7 +3,7 @@ title: 'Create an Azure Data Explorer cluster and database by using an Azure Res
 description: Learn how to create an Azure Data Explorer cluster and database by using an Azure Resource Manager template
 author: orspod
 ms.author: orspodek 
-ms.reviewer: oflipman
+ms.reviewer: lugoldbe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/26/2019
@@ -21,7 +21,7 @@ ms.date: 09/26/2019
 
 Azure Data Explorer is a fast and highly scalable data exploration service for log and telemetry data. To use Azure Data Explorer, you first create a cluster, and create one or more databases in that cluster. Then you ingest (load) data into a database so that you can run queries against it. 
 
-In this article, you create an Azure Data Explorer cluster and database by using an [Azure Resource Manager template](../azure-resource-manager/resource-group-overview.md). The article shows how to define which resources are deployed and how to define parameters that are specified when the deployment is executed. You can use this template for your own deployments, or customize it to meet your requirements. For information about creating templates, see [authoring Azure Resource Manager templates](/azure/azure-resource-manager/resource-group-authoring-templates). For the JSON syntax and properties to use in a template, see [Microsoft.Kusto resource types](/azure/templates/microsoft.kusto/allversions).
+In this article, you create an Azure Data Explorer cluster and database by using an [Azure Resource Manager template](../azure-resource-manager/management/overview.md). The article shows how to define which resources are deployed and how to define parameters that are specified when the deployment is executed. You can use this template for your own deployments, or customize it to meet your requirements. For information about creating templates, see [authoring Azure Resource Manager templates](/azure/azure-resource-manager/resource-group-authoring-templates). For the JSON syntax and properties to use in a template, see [Microsoft.Kusto resource types](/azure/templates/microsoft.kusto/allversions).
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 

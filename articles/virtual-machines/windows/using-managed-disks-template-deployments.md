@@ -1,5 +1,5 @@
 ---
-title: Using managed disks in Azure Resource Manager templates for Windows VMs 
+title: Managed disks - Azure Resource Manager templates - Windows VMs
 description: Details how to use managed disks in Azure Resource Manager templates for Windows VMs
 services: virtual-machines-windows
 documentationcenter:

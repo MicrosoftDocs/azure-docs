@@ -1,5 +1,5 @@
 ---
-title: Apache Cassandra features & commands supported by Azure Cosmos DB Cassandra API
+title: Apache Cassandra features supported by Azure Cosmos DB Cassandra API
 description: Learn about the Apache Cassandra feature support in Azure Cosmos DB Cassandra API
 author: kanshiG
 ms.author: govindk
@@ -91,7 +91,7 @@ Azure Cosmos DB Cassandra API supports the following CQL functions:
 
 ## Cassandra API limits
 
-Azure Cosmos DB Cassandra API does not have any limits on the size of data stored in a table. Hundreds of terabytes or Petabytes of data can be stored while ensuring partition key limits are honored. Similarly, every entity or row equivalent does not have any limits on the number of columns. However, the total size of the entity should not exceed 2 MB. The data per partition key cannot exceed 10 GB as in all other APIs.
+Azure Cosmos DB Cassandra API does not have any limits on the size of data stored in a table. Hundreds of terabytes or Petabytes of data can be stored while ensuring partition key limits are honored. Similarly, every entity or row equivalent does not have any limits on the number of columns. However, the total size of the entity should not exceed 2 MB. The data per partition key cannot exceed 20 GB as in all other APIs.
 
 ## Tools 
 

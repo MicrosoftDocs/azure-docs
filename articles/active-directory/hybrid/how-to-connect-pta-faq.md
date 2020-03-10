@@ -102,7 +102,7 @@ No, you can only install one Pass-through Authentication Agent on a single serve
 
 ## Do I have to manually renew certificates used by Pass-through Authentication Agents?
 
-The communication between each Pass-through Authentication Agent and Azure AD is secured using certificate-based authentication. These [certificates are automatically renewed every few months by Azure AD](how-to-connect-pta-security-deep-dive.md#operational-security-of -the-authentication-agents). There is no need to manually renew these certificates. You can clean up older expired certificates as required.
+The communication between each Pass-through Authentication Agent and Azure AD is secured using certificate-based authentication. These [certificates are automatically renewed every few months by Azure AD](how-to-connect-pta-security-deep-dive.md#operational-security-of-the-authentication-agents). There is no need to manually renew these certificates. You can clean up older expired certificates as required.
 
 ## How do I remove a Pass-through Authentication Agent?
 
@@ -163,7 +163,7 @@ A: Under the following circumstances your on-premises UPN changes may not synchr
 
 This is because the default behavior of tenants created prior to June 15th 2015 was to block UPN changes.  If you need to un-block UPN changes you need to run the following PowerShell cmdlt:  
 
-`Set-MsolDirSyncFeature -Feature SynchronizeUpnForManagedUsers-Enable $True`
+`Set-MsolDirSyncFeature -Feature SynchronizeUpnForManagedUsers -Enable $True`
 
 Tenants created after June 15th 2015 have the default behavior of synchronizing UPN changes.   
 

@@ -11,7 +11,7 @@ ms.custom: seodec18
 
 # Configure a Linux Ruby app for Azure App Service
 
-This article describes how [Azure App Service](app-service-linux-intro.md) runs Ruby apps, and how you can customize the behavior of App Service when needed. Ruby apps must be deployed with all the required [pip](https://pypi.org/project/pip/) modules.
+This article describes how [Azure App Service](app-service-linux-intro.md) runs Ruby apps, and how you can customize the behavior of App Service when needed. Ruby apps must be deployed with all the required [gems](https://rubygems.org/gems).
 
 This guide provides key concepts and instructions for Ruby developers who use a built-in Linux container in App Service. If you've never used Azure App Service, you should follow the [Ruby quickstart](quickstart-ruby.md) and [Ruby with PostgreSQL tutorial](tutorial-ruby-postgres-app.md) first.
 
@@ -143,6 +143,8 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 ## Open SSH session in browser
 
 [!INCLUDE [Open SSH session in browser](../../../includes/app-service-web-ssh-connect-builtin-no-h.md)]
+
+[!INCLUDE [robots933456](../../../includes/app-service-web-configure-robots933456.md)]
 
 ## Next steps
 

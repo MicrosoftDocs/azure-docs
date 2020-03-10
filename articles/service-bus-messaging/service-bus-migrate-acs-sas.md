@@ -1,5 +1,5 @@
 ---
-title: Migrate from Azure AD Access Control Service to SAS
+title: Azure Service Bus - Migrate to Shared Access Signature authorization
 description: Learn about migrating from Azure Active Directory Access Control Service to Shared Access Signature authorization.
 services: service-bus-messaging
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/22/2018
+ms.date: 01/27/2020
 ms.author: aschhab
 
 ---
 
-# Migrate from Azure Active Directory Access Control Service to Shared Access Signature authorization
+# Service Bus - Migrate from Azure Active Directory Access Control Service to Shared Access Signature authorization
 
 Service Bus applications have previously had a choice of using two different authorization models: the [Shared Access Signature (SAS)](service-bus-sas.md) token model provided directly by Service Bus, and a federated model where the management of authorization rules is managed inside by the [Azure Active Directory](/azure/active-directory/) Access Control Service (ACS), and tokens obtained from ACS are passed to Service Bus for authorizing access to the desired features.
 

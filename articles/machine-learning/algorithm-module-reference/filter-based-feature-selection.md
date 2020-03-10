@@ -1,7 +1,7 @@
 ---
 title: "Filter Based Feature Selection: Module reference"
-titleSuffix: Azure Machine Learning service
-description: Learn how to use the Filter Based Feature Selection module in the Azure Machine Learning service to identify the features in a dataset with the greatest predictive power.
+titleSuffix: Azure Machine Learning
+description: Learn how to use the Filter Based Feature Selection module in Azure Machine Learning to identify the features in a dataset with the greatest predictive power.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -92,9 +92,9 @@ You choose a standard statistical metric. The module computes the correlation be
 
 After processing is complete:
 
-+ To see a complete list of the feature columns that were analyzed, and their scores, right-click the module. Select **Features**, and then select **Visualize**.  
++ To see a complete list of the analyzed feature columns and their scores, right-click the module and select **Visualize**.  
 
-+ To view the dataset that's generated based on your feature selection criteria, right-click the module. Select **Dataset**, and then select **Visualize**. 
++ To view the dataset based on your feature selection criteria, right-click the module and select **Visualize**. 
 
 If the dataset contains fewer columns than you expected, check the module settings. Also check the data types of the columns provided as input. For example, if you set **Number of desired features** to 1, the output dataset contains just two columns: the label column, and the most highly ranked feature column.
 
@@ -130,5 +130,5 @@ If you use Pearson correlation on a numeric feature and a categorical label, the
 
 ## Next steps
 
-See the [set of modules available](module-reference.md) to the Azure Machine Learning service. 
+See the [set of modules available](module-reference.md) to Azure Machine Learning. 
 

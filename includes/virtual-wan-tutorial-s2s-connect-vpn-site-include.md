@@ -16,7 +16,7 @@
    Complete the following fields:
 
    * Enter a pre-shared key. If you don't enter a key, Azure autogenerates one for you.
-   * Select the Protocol and IPsec settings. Refer to default/custom IPSec details (put the link to the page)
+   * Select the Protocol and IPsec settings. Refer to [default/custom IPSec details] (https://docs.microsoft.com/azure/virtual-wan/virtual-wan-ipsec)
    * Select the appropriate option for **Propagate Default Route**. The **Enable** option allows the virtual hub to propagate a learned default route to this connection. This flag enables default route propagation to a connection only if the default route is already learned by the Virtual WAN hub as a result of deploying a firewall in the hub, or if another connected site has forced tunneling enabled. The default route does not originate in the Virtual WAN hub.
 
 2. Select **Connect**.

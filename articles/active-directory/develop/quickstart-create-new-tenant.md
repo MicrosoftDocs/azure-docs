@@ -13,9 +13,8 @@ ms.topic: quickstart
 ms.date: 02/05/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur
-ms.custom: aaddev, identityplatformtop40
+ms.custom: aaddev, identityplatformtop40, fasttrack-edit
 #Customer intent: As an application developer, I need to create an Microsoft identity environment so I can use it to register applications.
-ms.collection: M365-identity-device-management
 ---
 
 # Quickstart: Set up a tenant
@@ -55,7 +54,7 @@ If you don't have an existing tenant associated with your account, you'll see a 
 
 ### Create a new Azure AD tenant
 
-If you don't already have an Azure AD tenant or want to create a new one for development, follow the [directory creation experience](https://portal.azure.com/#create/Microsoft.AzureActiveDirectory). You will have to provide the following info to create your new tenant:
+If you don't already have an Azure AD tenant or want to create a new one for development, see the [quickstart](../fundamentals/active-directory-access-create-new-tenant.md) or simply follow the [directory creation experience](https://portal.azure.com/#create/Microsoft.AzureActiveDirectory). You will have to provide the following info to create your new tenant:
 
 - **Organization name**
 - **Initial domain** - this will be part of *.onmicrosoft.com. You can customize the domain more later.
@@ -72,4 +71,4 @@ To begin building apps that sign in social and local accounts, you'll need to cr
 
 * Try a coding quickstart and begin authenticating users. 
 * For more in-depth code samples, check out the **Tutorials** section of the documentation.
-* Want to deploy your app to the cloud? Check out [deploying containers to Azure](https://docs.microsoft.com/azure/index#pivot=products&panel=containers). 
+* Want to deploy your app to the cloud? Check out [deploying containers to Azure](https://docs.microsoft.com/azure/index?pivot=products&panel=containers).

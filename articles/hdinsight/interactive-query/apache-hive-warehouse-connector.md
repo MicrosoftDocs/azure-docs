@@ -1,12 +1,12 @@
 ---
 title: Apache Spark & Hive - Hive Warehouse Connector - Azure HDInsight
 description: Learn how to integrate Apache Spark and Apache Hive with the Hive Warehouse Connector on Azure HDInsight.
-author: nakhanha
-ms.author: nakhanha
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 10/08/2019
+ms.date: 03/02/2020
 ---
 
 # Integrate Apache Spark and Apache Hive with the Hive Warehouse Connector
@@ -49,17 +49,17 @@ Copy the node information from the `/etc/hosts` file on headnode0 of your Intera
 
 #### From your Interactive Query cluster
 
-1. Navigate to the cluster's Apache Ambari home page using `https://LLAPCLUSTERNAME.azurehdinsight.net` where `LLAPCLUSTERNAME` is the name of your Interactive Query cluster.
+1. Navigate to the cluster's Apache Ambari Hive page using `https://LLAPCLUSTERNAME.azurehdinsight.net/#/main/services/HIVE/configs` where `LLAPCLUSTERNAME` is the name of your Interactive Query cluster.
 
-1. Navigate to **Hive** > **CONFIGS** > **Advanced** > **Advanced hive-site** > **hive.zookeeper.quorum** and note the value. The value may be similar to: `zk0-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:2181,zk1-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:2181,zk4-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:2181`.
+1. Navigate to **Advanced** > **General** > **hive.metastore.uris** and note the value. The value may be similar to: `thrift://iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:9083,thrift://hn1-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:9083`.
 
-1. Navigate to **Hive** > **CONFIGS** > **Advanced** > **General** > **hive.metastore.uris** and note the value. The value may be similar to: `thrift://hn0-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:9083,thrift://hn1-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:9083`.
+1. Navigate to **Advanced** > **Advanced hive-site** > **hive.zookeeper.quorum** and note the value. The value may be similar to: `zk0-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:2181,zk1-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:2181,zk4-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:2181`.
 
 #### From your Apache Spark cluster
 
-1. Navigate to the cluster's Apache Ambari home page using `https://SPARKCLUSTERNAME.azurehdinsight.net` where `SPARKCLUSTERNAME` is the name of your Apache Spark cluster.
+1. Navigate to the cluster's Apache Ambari Hive page using `https://SPARKCLUSTERNAME.azurehdinsight.net/#/main/services/HIVE/configs` where `SPARKCLUSTERNAME` is the name of your Apache Spark cluster.
 
-1. Navigate to **Hive** > **CONFIGS** > **Advanced** > **Advanced hive-interactive-site** > **hive.llap.daemon.service.hosts** and note the value. The value may be similar to: `@llap0`.
+1. Navigate to **Advanced** > **Advanced hive-interactive-site** > **hive.llap.daemon.service.hosts** and note the value. The value may be similar to: `@llap0`.
 
 ### Configure Spark cluster settings
 
@@ -102,7 +102,7 @@ To start a spark-shell session, do the following steps:
 
     ```bash
     spark-shell --master yarn \
-    --jars /usr/hdp/current/hive_warehouse_connector/hive-warehouse-connector-assembly-1.0.0.3.0.2.1-8.jar \
+    --jars /usr/hdp/current/hive_warehouse_connector/hive-warehouse-connector-assembly-<STACK_VERSION>.jar \
     --conf spark.security.credentials.hiveserver2.enabled=false
     ```
 
@@ -127,7 +127,7 @@ The Enterprise Security Package (ESP) provides enterprise-grade capabilities lik
 
     ```bash
     spark-shell --master yarn \
-    --jars /usr/hdp/3.0.1.0-183/hive_warehouse_connector/hive-warehouse-connector-assembly-1.0.0.3.0.1.0-183.jar \
+    --jars /usr/hdp/current/hive_warehouse_connector/hive-warehouse-connector-assembly-<STACK_VERSION>.jar \
     --conf spark.security.credentials.hiveserver2.enabled=false
     --conf spark.hadoop.hive.llap.daemon.service.hosts='<LLAP_APP_NAME>'
     --conf spark.sql.hive.hiveserver2.jdbc.url='jdbc:hive2://<ZOOKEEPER_QUORUM>;serviceDiscoveryMode=zookeeper;zookeeperNamespace=hiveserver2-interactive'
@@ -169,7 +169,7 @@ Spark doesn’t natively support writing to Hive’s managed ACID tables. Using 
     ```scala
     hive.table("sampletable_colorado").show()
     ```
-    
+
     ![hive warehouse connector show hive table](./media/apache-hive-warehouse-connector/hive-warehouse-connector-show-hive-table.png)
 
 ### Structured streaming writes
@@ -256,5 +256,5 @@ Use **Ctrl + C** to stop netcat on the second SSH session. Use `:q` to exit spar
 
 ## Next steps
 
-* [Use Interactive Query with HDInsight](https://docs.microsoft.com/azure/hdinsight/interactive-query/apache-interactive-query-get-started)
+* [Use Interactive Query with HDInsight](./apache-interactive-query-get-started.md)
 * [Examples of interacting with Hive Warehouse Connector using Zeppelin, Livy, spark-submit, and pyspark](https://community.hortonworks.com/articles/223626/integrating-apache-hive-with-apache-spark-hive-war.html)

@@ -1,21 +1,9 @@
 ---
-title: Guidelines & Recommendations for Reliable Collections in  Azure Service Fabric | Microsoft Docs
-description: Guidelines and Recommendations for using Service Fabric Reliable Collections
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: masnider,rajak,zhol
+title: Guidelines for Reliable Collections
+description: Guidelines and Recommendations for using Service Fabric Reliable Collections in an Azure Service Fabric application.
 
-ms.assetid: 62857523-604b-434e-bd1c-2141ea4b00d1
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: required
 ms.date: 12/10/2017
-ms.author: atsenthi
-
 ---
 # Guidelines and recommendations for Reliable Collections in Azure Service Fabric
 This section provides guidelines for using Reliable State Manager and Reliable Collections. The goal is to help users avoid common pitfalls.

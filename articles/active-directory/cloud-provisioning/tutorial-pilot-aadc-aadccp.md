@@ -7,7 +7,7 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 12/05/2019
+ms.date: 03/04/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -27,7 +27,7 @@ Before you try this tutorial, consider the following items:
 3. Ensure that the objects in the pilot scope have ms-ds-consistencyGUID populated so cloud provisioning hard matches the objects. 
 
    > [!NOTE]
-   > Azure AD Connect sync does not populate *ms-ds-consistencyGUID* by default for group objects. Follow the steps documented in [this blog post](https://blogs.technet.microsoft.com/markrenoden/2017/10/13/choosing-a-sourceanchor-for-groups-in-multi-forest-sync-with-aad-connect/) to populate *ms-ds-consistencyGUID* for group objects.
+   > Azure AD Connect sync does not populate *ms-ds-consistencyGUID* by default for group objects.
 
 4. This is an advanced scenario. Ensure that you follow the steps documented in this tutorial precisely.
 
@@ -63,7 +63,7 @@ Azure AD Connect sync synchronizes changes occurring in your on-premises directo
  3. On the **Description** page, enter the following and click **Next**:
 
     **Name:** Give the rule a meaningful name<br>
-    **Description:** Add a meaningful description<br> 
+    **Description:** Add a meaningful description<br>
     **Connected System:** Choose the AD connector that you are writing the custom sync rule for<br>
     **Connected System Object Type:** User<br>
     **Metaverse Object Type:** Person<br>
@@ -95,7 +95,7 @@ Same steps need to be followed for all object types (user, group and contact). R
  2. On the **Description** page, enter the following and click **Next**:
 
     **Name:** Give the rule a meaningful name<br>
-    **Description:** Add a meaningful description<br> 
+    **Description:** Add a meaningful description<br>
     **Connected System:** Choose the AAD connector that you are writing the custom sync rule for<br>
     **Connected System Object Type:** User<br>
     **Metaverse Object Type:** Person<br>
@@ -115,22 +115,7 @@ Same steps need to be followed for all object types (user, group and contact).
 
 ## Install the Azure AD Connect provisioning agent
 1. Sign in to the server you will use with enterprise admin permissions.  If you are using the  [Basic AD and Azure environment](tutorial-basic-ad-azure.md) tutorial it would be CP1.
-2. Download the Azure AD Connect cloud provisioning agent [here](https://go.microsoft.com/fwlink/?linkid=2109037).
-3. Run the Azure AD Connect cloud provisioning (AADConnectProvisioningAgent.Installer)
-3. On the splash screen, **Accept** the licensing terms and click **Install**.</br>
-![Welcome screen](media/how-to-install/install1.png)</br>
-
-4. Once this operation completes, the configuration wizard will launch.  Sign in with your Azure AD global administrator account.
-5. On the **Connect Active Directory** screen, click **Add directory** and then sign in with your Active Directory administrator account.  This operation will add your on-premises directory.  Click **Next**.</br>
-![Welcome screen](media/how-to-install/install3.png)</br>
-
-6. On the **Configuration complete** screen, click **Confirm**.  This operation will register and restart the agent.</br>
-![Welcome screen](media/how-to-install/install4.png)</br>
-
-7. Once this operation completes you should see a notice **Your was successfully verified.**  You can click **Exit**.</br>
-![Welcome screen](media/how-to-install/install5.png)</br>
-8. If you still see the initial splash screen, click **Close**.1. Sign in to the server you will use with enterprise admin permissions.
-2. Download the Azure AD Connect cloud provisioning agent [here](https://go.microsoft.com/fwlink/?linkid=2109037).
+2. Download the Azure AD Connect cloud provisioning agent using the steps outlined [here](how-to-install.md#install-the-agent).
 3. Run the Azure AD Connect cloud provisioning (AADConnectProvisioningAgent.Installer)
 3. On the splash screen, **Accept** the licensing terms and click **Install**.</br>
 ![Welcome screen](media/how-to-install/install1.png)</br>
