@@ -17,9 +17,24 @@ Unity packages are containers that can be managed via Unity's [Package Manager](
 This package contains the entire C# API as well as all plugin binaries required to use Azure Remote Rendering with Unity.
 Following Unity's naming scheme for packages, the package is called **com.microsoft.azure.remote-rendering**.
 
-The package is not part of the [arrClient](https://dev.azure.com/arrClient/arrClient/_git/arrClient) repository, and it is not available from Unity's internal package registry. To add it to a project, a manual step is required.
-
-To add the package to a Unity project, use *Add package from disk...*. For further instructions on its usage, follow the [Tutorial: Setting up a Unity project from scratch](../../tutorials/unity/project-setup.md).
+The package is not part of the [arrClient](https://dev.azure.com/arrClient/arrClient/_git/arrClient) repository, and it is not available from Unity's internal package registry. To add it to a project, you have to manually edit the project's `manifest.md` file to add the following:
+```json
+{
+  "scopedRegistries": [
+    {
+      "name": "Azure Mixed Reality Services",
+      "url": "https://api.bintray.com/npm/microsoft/AzureMixedReality-NPM/",
+      "scopes": ["com.microsoft.azure"]
+    }
+   ],
+  "dependencies": {
+    "com.microsoft.azure.remote-rendering": "0.1.11",
+    ...existing dependencies...
+  }
+}
+```
+Once this has been added, you can use the Unity Package Manager to ensure you have the latest version.
+More comprehensive instructions are given in the [Tutorial: Setting up a Unity project from scratch](../../tutorials/unity/project-setup.md).
 
 ## Unity render pipelines
 
