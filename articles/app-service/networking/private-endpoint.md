@@ -33,6 +33,8 @@ When you create a Private Endpoint for your Web App, it provides a secure connec
 The connection between the Private Endpoint and the Web App uses a secure [Private Link][privatelink]. Private endpoint is only used for incoming flows to your Web App. Outgoing flows will not use this Private Endpoint, but you can inject outgoing flows to your network in a different subnet through the [Vnet integration feature][vnetintegrationfeature].
 
 The Subnet where you plug the Private Endpoint can have other resources in it, you don't need a dedicated empty Subnet.
+You can deploy Private Endpoint in region A for the Web App deployed in region B. 
+
 > [!Note]
 >The Vnet integration feature cannot use the same subnet than Private Endpoint, this is a limitation of the Vnet integration feature
 
@@ -44,7 +46,7 @@ From the security perspective:
 - The Subnet that hosts the Private Endpoint can have an NSG associated, but you must disable the network policies enforcement for the Private Endpoint see [this article] [disablesecuritype]. As a result, you cannot filter by any NSG the access to your Private Endpoint.
 - When you enable Private Endpoint to your Web App, the [access restrictions][accessrestrictions] configuration of the Web App is not evaluated.
 
-Private Endpoint for Web App is available for tier Standard, PremiumV2, and Isolated with an external ASE.
+Private Endpoint for Web App is available for tier PremiumV2, and Isolated with an external ASE.
 
 In the Web http logs of your Web App, you will discover that we are aware of the client source IP. We implemented the TCP Proxy protocol, forwarding up to the Web App the client IP. For more information, see [this article][tcpproxy].
 
