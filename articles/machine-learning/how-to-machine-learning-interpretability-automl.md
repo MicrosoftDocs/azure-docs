@@ -17,7 +17,9 @@ ms.date: 10/25/2019
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-In this article, you learn how to enable the interpretability features for automated machine learning (ML) in Azure Machine Learning. Automated ML helps you understand both raw and engineered feature importance. In order to use model interpretability, set `model_explainability=True` in the `AutoMLConfig` object.  
+In this article, you learn how to enable the interpretability features for automated machine learning (ML) in Azure Machine Learning. Automated ML helps you understand engineered feature importance. 
+
+All SDK versions after 1.0.85 set `model_explainability=True` by default. In SDK version 1.0.85 and earlier versions users need to set `model_explainability=True` in the `AutoMLConfig` object in order to use model interpretability. 
 
 In this article, you learn how to:
 
@@ -32,11 +34,11 @@ In this article, you learn how to:
 
 ## Interpretability during training for the best model
 
-Retrieve the explanation from the `best_run`, which includes explanations for engineered features and raw features.
+Retrieve the explanation from the `best_run`, which includes explanations for engineered features.
 
 ### Download engineered feature importance from artifact store
 
-You can use `ExplanationClient` to download the engineered feature explanations from the artifact store of the `best_run`. To get the explanation for the raw features set `raw=True`.
+You can use `ExplanationClient` to download the engineered feature explanations from the artifact store of the `best_run`. 
 
 ```python
 from azureml.explain.model._internal.explanation_client import ExplanationClient
@@ -48,7 +50,7 @@ print(engineered_explanations.get_feature_importance_dict())
 
 ## Interpretability during training for any model 
 
-When you compute model explanations and visualize them, you're not limited to an existing model explanation for an automated ML model. You can also get an explanation for your model with different test data. The steps in this section show you how to compute and visualize engineered feature importance and raw feature importance based on your test data.
+When you compute model explanations and visualize them, you're not limited to an existing model explanation for an automated ML model. You can also get an explanation for your model with different test data. The steps in this section show you how to compute and visualize engineered feature importance based on your test data.
 
 ### Retrieve any other AutoML model from training
 
@@ -58,10 +60,10 @@ automl_run, fitted_model = local_run.get_output(metric='accuracy')
 
 ### Set up the model explanations
 
-Use `automl_setup_model_explanations` to get the engineered and raw feature explanations. The `fitted_model` can generate the following items:
+Use `automl_setup_model_explanations` to get the engineered explanations. The `fitted_model` can generate the following items:
 
 - Featured data from trained or test samples
-- Engineered and raw feature name lists
+- Engineered feature name lists
 - Findable classes in your labeled column in classification scenarios
 
 The `automl_explainer_setup_obj` contains all the structures from above list.
@@ -111,7 +113,7 @@ In this section, you learn how to operationalize an automated ML model with the 
 
 ### Register the model and the scoring explainer
 
-Use the `TreeScoringExplainer` to create the scoring explainer that'll compute the raw and engineered feature importance values at inference time. You initialize the scoring explainer with the `feature_map` that was computed previously. The scoring explainer uses the `feature_map` to return the raw feature importance.
+Use the `TreeScoringExplainer` to create the scoring explainer that'll compute the engineered feature importance values at inference time. You initialize the scoring explainer with the `feature_map` that was computed previously. 
 
 Save the scoring explainer, and then register the model and the scoring explainer with the Model Management Service. Run the following code:
 
@@ -185,21 +187,19 @@ service.wait_for_deployment(show_output=True)
 
 ### Inference with test data
 
-Inference with some test data to see the predicted value from automated ML model. View the engineered feature importance for the predicted value and raw feature importance for the predicted value.
+Inference with some test data to see the predicted value from automated ML model. View the engineered feature importance for the predicted value.
 
 ```python
 if service.state == 'Healthy':
     # Serialize the first row of the test data into json
     X_test_json = X_test[:1].to_json(orient='records')
     print(X_test_json)
-    # Call the service to get the predictions and the engineered and raw explanations
+    # Call the service to get the predictions and the engineered explanations
     output = service.run(X_test_json)
     # Print the predicted value
     print(output['predictions'])
     # Print the engineered feature importances for the predicted value
     print(output['engineered_local_importance_values'])
-    # Print the raw feature importances for the predicted value
-    print(output['raw_local_importance_values'])
 ```
 
 ### Visualize to discover patterns in data and explanations at training time
