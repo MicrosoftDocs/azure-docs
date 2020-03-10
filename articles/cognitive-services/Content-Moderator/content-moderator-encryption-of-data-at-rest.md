@@ -8,7 +8,7 @@ manager: venkyv
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
-ms.date: 03/11/2020
+ms.date: 03/13/2020
 ms.author: egeaney
 #Customer intent: As a user of the Content Moderator service, I want to learn how encryption at rest works.
 ---
@@ -25,12 +25,12 @@ Content Moderator automatically encrypts your data when it is persisted to the c
 [!INCLUDE [cognitive-services-cmk](../../../includes/cognitive-services-cmk.md)]
 
 ## Enable data encryption for your Content Moderator Team
- 
+
 To enable data encryption for your Content Moderator Review Team, see the [Quickstart: Try Content Moderator on the web](quick-start.md#create-a-review-team).  
 
 > [!NOTE]
 > You'll need to provide a _Resource ID_ with the Content Moderator E0 pricing tier.
- 
+
 
 ## Next steps
 

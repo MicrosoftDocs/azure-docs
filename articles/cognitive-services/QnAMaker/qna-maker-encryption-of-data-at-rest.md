@@ -1,19 +1,19 @@
 ---
-title: QnA Maker encryption of data at rest 
+title: QnA Maker encryption of data at rest
 titleSuffix: Azure Cognitive Services
 description: QnA Maker encryption of data at rest .
 author: erindormier
 manager: venkyv
 
 ms.service: cognitive-services
-ms.subservice: content-moderator
+ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 03/11/2020
+ms.date: 03/13/2020
 ms.author: egeaney
 #Customer intent: As a user of the QnA Maker service, I want to learn how encryption at rest works.
 ---
 
-# QnA Maker encryption of data at rest 
+# QnA Maker encryption of data at rest
 
 QnA Maker automatically encrypts your data when it is persisted to the cloud, helping to meet your organizational security and compliance goals.
 
@@ -21,7 +21,7 @@ QnA Maker automatically encrypts your data when it is persisted to the cloud, he
 
 By default, your subscription uses Microsoft-managed encryption keys. There is also an option to manage your subscription with your own keys. Customer-managed keys (CMK) offer greater flexibility to create, rotate, disable, and revoke access controls. You can also audit the encryption keys used to protect your data.
 
-QnA Maker uses CMK support from Azure search. You need to create [CMK in Azure Search using Azure Key Vault](https://docs.microsoft.com/azure/search/search-security-manage-encryption-keys). This Azure instance should be associated with QnA Maker service to make it CMK enabled. 
+QnA Maker uses CMK support from Azure search. You need to create [CMK in Azure Search using Azure Key Vault](https://docs.microsoft.com/azure/search/search-security-manage-encryption-keys). This Azure instance should be associated with QnA Maker service to make it CMK enabled.
 
 > [!IMPORTANT]
 > Your Azure Search service resource must have been created after January 2019 and cannot be in the free (shared) tier. There is no support to configure customer-managed keys in the Azure portal.

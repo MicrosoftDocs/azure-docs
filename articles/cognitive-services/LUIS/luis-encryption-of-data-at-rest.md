@@ -6,9 +6,9 @@ author: erindormier
 manager: venkyv
 
 ms.service: cognitive-services
-ms.subservice: face-api
+ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 03/11/2020
+ms.date: 03/13/2020
 ms.author: egeaney
 #Customer intent: As a user of the Language Understanding (LUIS) service, I want to learn how encryption at rest works.
 ---
