@@ -1,6 +1,6 @@
 ﻿---
 title: "Quickstart: Set & retrieve a secret from Key Vault using PowerShell"
-description: In this quickstart, learn how to create, retrieve, and delete secrets from an Azure key vault using PowerShell
+description: In this quickstart, learn how to create, retrieve, and delete secrets from an Azure Key Vault using Azure PowerShell.
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -43,7 +43,7 @@ New-AzResourceGroup -Name ContosoResourceGroup -Location EastUS
 
 Next you create a Key Vault. When doing this step, you need some information:
 
-Although we use “Contoso KeyVault2” as the name for our Key Vault throughout this quickstart, you must use a unique name.
+Although we use "Contoso KeyVault2" as the name for our Key Vault throughout this quickstart, you must use a unique name.
 
 - **Vault name** Contoso-Vault2.
 - **Resource group name** ContosoResourceGroup.
