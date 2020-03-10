@@ -42,7 +42,7 @@ From the security perspective:
 - You can enable multiple Private Endpoints in others Vnets and Subnets, including Vnets in other regions
 - The IP address of the Private endpoint NIC must be dynamic, but will remain the same until you delete the Private Endpoint
 - The NIC of the Private Endpoint cannot have an NSG associated
-- The Subnet that hosts the Private Endpoint can have an NSG associated, but you must disable the network policies enforcement for the Private Endpoint see [this article] [disablesecuritype]. As a result, you cannot filter by any NSG the access to your Private Endpoint
+- The Subnet that hosts the Private Endpoint can have an NSG associated, but you must disable the network policies enforcement for the Private Endpoint see [this article][disablesecuritype]. As a result, you cannot filter by any NSG the access to your Private Endpoint
 - When you enable Private Endpoint to your Web App, the [access restrictions][accessrestrictions] configuration of the Web App is not evaluated.
 - You can reduce data exfiltration risk from the vnet by removing all NSG rules where destination is tag Internet or Azure services. But adding a Web App Service Endpoint in your subnet, will let you reach any Web App hosted in the same stamp and exposed to Internet.
 
