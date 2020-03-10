@@ -19,6 +19,8 @@ You can check for updated settings on demand by calling `AppConfigurationRefresh
 
 Alternatively, you can use the `spring-cloud-azure-appconfiguration-config-web` package, which takes a dependency on `spring-web` to handle automated refresh.
 
+## Use automated refresh
+
 To use automated refresh, start with a Spring Boot app that uses App Configuration, such as the app you create by following the [Spring Boot quickstart for App Configuration](quickstart-java-spring-app.md).
 
 Then, open the *pom.xml* file in a text editor, and add a `<dependency>` for `spring-cloud-azure-appconfiguration-config-web`.
