@@ -49252,6 +49252,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/sdks/index.yml",
+      "redirect_url": "https://azure.microsoft.com/downloads/",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/power-bi-embedded/index.md",
       "redirect_url": "https://docs.microsoft.com/power-bi/developer/azure-pbie-what-is-power-bi-embedded",
       "redirect_document_id": false
