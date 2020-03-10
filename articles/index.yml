@@ -761,13 +761,6 @@ productDirectory:
         - devops
       url: integrations/index.yml
     # Card
-    - title: SDKs
-      summary: Get the SDKs and command-line tools you need
-      imageSrc: https://docs.microsoft.com/media/common/i_tools.svg
-      azureCategories:
-        - developer-tools
-      url: sdks/index.yml
-    # Card
     - title: Visual Studio
       summary: The powerful and flexible environment for developing applications in the cloud
       imageSrc: https://docs.microsoft.com/media/logos/logo_visual-studio.svg
