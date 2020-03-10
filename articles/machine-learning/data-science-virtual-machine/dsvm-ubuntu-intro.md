@@ -5,10 +5,10 @@ description: Configure and create a Data Science Virtual Machine for Linux (Ubun
 ms.service: machine-learning
 ms.subservice: data-science-vm
 
-author: gvashishtha
-ms.author: gopalv
+author: lobrien
+ms.author: laobri
 ms.topic: quickstart
-ms.date: 12/31/2019
+ms.date: 03/10/2020
 
 # Customer intent: As a data scientist, I want to learn how to provision the Linux DSVM so that I can move my existing workflow to the cloud.
 ---
