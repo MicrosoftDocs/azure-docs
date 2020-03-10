@@ -49,6 +49,6 @@ The QnA Maker service uses CMK from the Azure Search service. Follow these steps
 
 ## Next steps
 
-* [Encryption in Azure Search using CMKs in Azure Key Vault](https://docs.microsoft.com/en-US/azure/search/search-security-manage-encryption-keys)
+* [Encryption in Azure Search using CMKs in Azure Key Vault](https://docs.microsoft.com/azure/search/search-security-manage-encryption-keys)
 * [Data encryption at rest](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest)
 * [Learn more about Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)
