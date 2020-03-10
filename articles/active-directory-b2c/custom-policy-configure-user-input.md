@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/09/2020
+ms.date: 03/10/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -17,15 +17,15 @@ ms.subservice: B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-In this article, you will collect a new attribute during your sign-up journey in Azure Active Directory B2C (Azure AD B2C). You will obtain the users' City, configure it as a dropdown, and define whether it's required to be provided.
+In this article, you collect a new attribute during your sign-up journey in Azure Active Directory B2C (Azure AD B2C). You'll obtain the users' city, configure it as a drop-down, and define whether it's required to be provided.
 
-Gathering initial data from your users is achieved using the sign-up or sign-in user journey. Additional claims can be gathered later by using a profile edit user journey. Anytime Azure AD B2C gathers information directly from the user interactively, the Identity Experience Framework uses its [self-asserted technical profile](self-asserted-technical-profile.md). In this sample, you:
+You can gather initial data from your users by using the sign-up or sign-in user journey. Additional claims can be gathered later by using a profile edit user journey. Anytime Azure AD B2C gathers information directly from the user interactively, the Identity Experience Framework uses its [self-asserted technical profile](self-asserted-technical-profile.md). In this sample, you:
 
-1. Define a 'city' claim.
+1. Define a "city" claim.
 1. Ask the user for their city.
-1. Persist the city to the user profile in Azure AD B2C directory.
+1. Persist the city to the user profile in the Azure AD B2C directory.
 1. Read the city claim from the user profile on each sign-in.
-1. Return the city to your relying party application after sign in or sign up.  
+1. Return the city to your relying party application after sign-in or sign-up.  
 
 ## Prerequisites
 
@@ -38,7 +38,7 @@ A claim provides a temporary storage of data during an Azure AD B2C policy execu
 - **DisplayName** - A string that defines the user-facing label.
 - [DataType](claimsschema.md#datatype) - The type of the claim.
 - **UserHelpText** - Helps the user understand what is required.
-- [UserInputType](claimsschema.md#userinputtype) - The type of input control, such as textbox, radio selection, drop-down list, or multiple selections.
+- [UserInputType](claimsschema.md#userinputtype) - The type of input control, such as text box, radio selection, drop-down list, or multiple selections.
 
 Open the extensions file of your policy. For example, <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em>.
 
@@ -67,7 +67,7 @@ The following technical profiles are [self-asserted](self-asserted-technical-pro
 - **SelfAsserted-Social** - Federated account first-time user sign-in.
 - **SelfAsserted-ProfileUpdate** - Edit profile flow.
 
-To collect the City claim during sign-up, it must be added as an output claim to the `LocalAccountSignUpWithLogonEmail` technical profile. Override this technical profile in the extension file. Specify the entire list of output claims to control the order the claims are presented on the screen. Find the **ClaimsProviders** element. Add a new ClaimsProviders as follows:
+To collect the city claim during sign-up, it must be added as an output claim to the `LocalAccountSignUpWithLogonEmail` technical profile. Override this technical profile in the extension file. Specify the entire list of output claims to control the order the claims are presented on the screen. Find the **ClaimsProviders** element. Add a new ClaimsProviders as follows:
 
 ```xml
 <ClaimsProvider>
@@ -90,7 +90,8 @@ To collect the City claim during sign-up, it must be added as an output claim to
 <ClaimsProvider>
 ```
 
-To collect the City claim after initial sign in with Social Account, it must be added as an output claim to the `SelfAsserted-Social` technical profile. For Social Account users to be able to edit their profile data later, add the output claim to the `SelfAsserted-ProfileUpdate` technical profile. Override these technical profiles in the extension file. Specify the entire list of the output claims to control the order the claims are presented on the screen. Find the **ClaimsProviders** element. Add a new ClaimsProviders as follows:
+To collect the city claim after initial sign-in with a social account, it must be added as an output claim to the `SelfAsserted-Social` technical profile. For social account users to be able to edit their profile data later, add the output claim to the `SelfAsserted-ProfileUpdate` technical profile. Override these technical profiles in the extension file. Specify the entire list of the output claims to control the order the claims are presented on the screen. Find the **ClaimsProviders** element. Add a new ClaimsProviders as follows:
+
 ```xml
   <DisplayName>Self Asserted</DisplayName>
   <TechnicalProfiles>
@@ -118,7 +119,7 @@ To collect the City claim after initial sign in with Social Account, it must be 
 
 ## Read and write a claim
 
-The following technical profiles are [Active Directory technical profile](active-directory-technical-profile.md), which read and write data to the Azure Active Directory. 
+The following technical profiles are [Active Directory technical profiles](active-directory-technical-profile.md), which read and write data to Azure Active Directory.  
 Use `PersistedClaims` to write data to the user profile and `OutputClaims` to read data from the user profile within the respective Active Directory technical profiles.
 
 Find the **ClaimsProviders** element.  Add a new ClaimsProviders as follows:
@@ -228,5 +229,5 @@ The token sent back to your application includes the `city` claim.
 
 ## Next steps
 
-- Learn more about [ClaimsSchema](claimsschema.md) element in the IEF reference.
-- Learn how to [Use custom attributes in a custom profile edit policy](custom-policy-custom-attributes.md).
+- Learn more about the [ClaimsSchema](claimsschema.md) element in the IEF reference.
+- Learn how to [use custom attributes in a custom profile edit policy](custom-policy-custom-attributes.md).
