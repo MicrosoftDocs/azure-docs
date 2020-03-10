@@ -6,7 +6,7 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 02/25/2020
+ms.date: 03/09/2020
 ---
 
 # Use the Apache Beeline client with Apache Hive
@@ -49,6 +49,12 @@ beeline -u 'jdbc:hive2://<headnode-FQDN>:10001/default;principal=hive/_HOST@<AAD
 ```
 
 Replace `<username>` with the name of an account on the domain with permissions to access the cluster. Replace `<AAD-DOMAIN>` with the name of the Azure Active Directory (AAD) that the cluster is joined to. Use an uppercase string for the `<AAD-DOMAIN>` value, otherwise the credential won't be found. Check `/etc/krb5.conf` for the realm names if needed.
+
+To find the JDBC URL from Ambari:
+
+1. From a web browser, navigate to `https://CLUSTERNAME.azurehdinsight.net/#/main/services/HIVE/summary`, where `CLUSTERNAME` is the name of your cluster. Ensure that HiveServer2 is running.
+
+1. Use clipboard to copy the HiveServer2 JDBC URL.
 
 ---
 
