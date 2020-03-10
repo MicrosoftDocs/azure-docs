@@ -28,7 +28,7 @@ Service Fabric "orchestrates" underlying changes and updates so that data is not
 
 When removing a node type that is Bronze, all the nodes in the node type go down immediately. Service Fabric doesn't trap any Bronze nodes scale set updates, thus all the VMs go down immediately. If you had anything stateful on those nodes, the data is lost. Now, even if you were stateless, all the nodes in the Service Fabric participate in the ring, so an entire neighborhood may be lost, which might destabilize the cluster itself.
 
-## Remove a non-primary node type
+## Remove a node type
 
 1. Please take care of this pre-requisites before you start the process.
 
