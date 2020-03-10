@@ -32,7 +32,7 @@ Auto-repair for AKS nodes uses rules to determine if a node is an unhealthy stat
 
 ## How auto-repair works
 
-Auto-repair takes several steps to repair a broken node.  AKS uses The following remediation steps.
+Auto-repair takes several steps to repair a broken node.  AKS uses the following remediation steps.
 
 * The node is rebooted
 * If a reboot doesn't fix the node, the node is replaced with a new node
