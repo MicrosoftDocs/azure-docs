@@ -36,7 +36,7 @@ First, you need to get the OS image you'll use for the MSIX app. To get the OS i
      >[!NOTE]
      >You must be member of the Windows Insider program to access the Windows Insider portal. To learn more about the Windows Insider program, check out our [Windows Insider documentation](/windows-insider/at-home/).
 
-2. Scroll down to the **Select edition** section and select **Windows 10 Insider Preview Enterprise (FAST) – Build 19035** or later.
+2. Scroll down to the **Select edition** section and select **Windows 10 Insider Preview Enterprise (FAST) – Build 19041** or later.
 
 3. Select **Confirm**, then select the language you wish to use, and then select **Confirm** again.
     
@@ -68,7 +68,14 @@ rem Disable Windows Update:
 
 sc config wuauserv start=disabled
 ```
+After automatic updates have been disabled you must enable Hyper-V as the Mound-VHD command will be used to perform staging, and Dismount-VHD to destage. 
 
+```powershell
+Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V-All
+```
+>[!NOTE]
+>This will require restart of the VM.
+    
 Next, prepare the VM VHD for Azure and upload the resulting VHD disk to Azure. To learn more, see [Prepare and customize a master VHD image](set-up-customize-master-image.md).
 
 Once you've uploaded the VHD to Azure, create a host pool that's based on this new image by following the instructions in the [Create a host pool by using the Azure Marketplace](create-host-pools-azure-marketplace.md) tutorial.
@@ -252,7 +259,7 @@ Before you update the PowerShell scripts, make sure you have the volume GUID of 
 
     {
 
-    Mount-Diskimage -ImagePath $vhdSrc -NoDriveLetter -Access ReadOnly
+    Mount-VHD -Path $vhdSrc -NoDriveLetter -ReadOnly
 
     Write-Host ("Mounting of " + $vhdSrc + " was completed!") -BackgroundColor Green
 
