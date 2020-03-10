@@ -17,17 +17,17 @@ ms.author: juliako
 ---
 # Use the Azure portal to get credentials to access Media Services API  
 
-Learn how to use the Azure portal to access Azure Active Directory (Azure AD) authentication to access the Azure Media Services API.
+When you use Azure AD authentication to access the Azure Media Services API, you have two authentication options:
+
+- **Service principal authentication**. Authenticate a service. Applications that commonly use this authentication method are apps that run daemon services, middle-tier services, or scheduled jobs: web apps, function apps, logic apps, APIs, or a microservice.
+- **User authentication**. Authenticate a person who is using the app to interact with Media Services resources. The interactive application should first prompt the user for credentials. An example is a management console app used by authorized users to monitor encoding jobs or live streaming. 
+
+This article shows you hot to use the Azure portal o get credentials to access Media Services API.
 
 ## Prerequisites
 
 - An Azure account. If you don't have an account, start with an [Azure free trial](https://azure.microsoft.com/pricing/free-trial/). 
 - A Media Services account. For more information, see [Create an Azure Media Services account by using the Azure portal](create-account-portal.md).
-
-When you use Azure AD authentication with Media Services, you have two authentication options:
-
-- **Service principal authentication**. Authenticate a service. Applications that commonly use this authentication method are apps that run daemon services, middle-tier services, or scheduled jobs: web apps, function apps, logic apps, APIs, or a microservice.
-- **User authentication**. Authenticate a person who is using the app to interact with Media Services resources. The interactive application should first prompt the user for credentials. An example is a management console app used by authorized users to monitor encoding jobs or live streaming. 
 
 ## API access 
 
