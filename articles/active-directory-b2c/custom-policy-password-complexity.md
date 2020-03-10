@@ -42,7 +42,7 @@ To configure the password complexity override `newPassword` and `reenterPassword
     </ClaimType>
     ```
 
-1. [Predicates](predicates.md) defines a basic validation to check the value of a claim type and returns true or false. The validation is done by using a specified method element, and a set of parameters relevant to the method. Add the following predicates to the **ClaimsSchema** element, immediately after the closing of the `</ClaimsSchema>` element:
+1. [Predicates](predicates.md) defines a basic validation to check the value of a claim type and returns true or false. The validation is done by using a specified method element, and a set of parameters relevant to the method. Add the following predicates to the **BuildingBlocks** element, immediately after the closing of the `</ClaimsSchema>` element:
 
     ```XML
     <Predicates>
@@ -80,7 +80,7 @@ To configure the password complexity override `newPassword` and `reenterPassword
     </Predicates>
     ```
 
-1. Add the following predicate validations to the **ClaimsSchema** element, immediately after the closing of the `</Predicates>` element:
+1. Add the following predicate validations to the **BuildingBlocks** element, immediately after the closing of the `</Predicates>` element:
 
     ```XML
     <PredicateValidations>
@@ -127,6 +127,7 @@ To configure the password complexity override `newPassword` and `reenterPassword
 
 1. Save the policy file.
 
+## Test your policy
 
 ### Upload the files
 
@@ -148,4 +149,4 @@ To configure the password complexity override `newPassword` and `reenterPassword
 ## Next steps
 
 - Learn how to [Configure password change using custom policies in Azure Active Directory B2C](custom-policy-password-change.md).
-- Learn more about the [Predicates and PredicateValidation](predicates.md)  elements in the IEF reference.
+- Learn more about the [Predicates](predicates.md) and [PredicateValidation](predicates.md#predicatevalidations)  elements in the IEF reference.
