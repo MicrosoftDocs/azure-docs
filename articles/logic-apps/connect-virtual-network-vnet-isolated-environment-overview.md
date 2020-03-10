@@ -5,12 +5,12 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
-ms.date: 03/11/2020
+ms.date: 03/12/2020
 ---
 
 # Access to Azure Virtual Network resources from Azure Logic Apps by using integration service environments (ISEs)
 
-Sometimes, your logic apps and integration accounts need access to secured resources, such as virtual machines (VMs) and other systems or services, that are inside an [Azure virtual network](../virtual-network/virtual-networks-overview.md). To set up this access, you can [create an *integration service environment* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment.md). An ISE is an isolated instance of the Logic Apps service that uses dedicated resources and runs separately from the "global" multi-tenant Logic Apps service.
+Sometimes, your logic apps need access to secured resources, such as virtual machines (VMs) and other systems or services, that are inside an [Azure virtual network](../virtual-network/virtual-networks-overview.md). To set up this access, you can [create an *integration service environment* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment.md). An ISE is an isolated instance of the Logic Apps service that uses dedicated resources and runs separately from the "global" multi-tenant Logic Apps service.
 
 Running logic apps in your own separate isolated instance helps reduce the impact that other Azure tenants might have on your apps' performance, also known as the ["noisy neighbors" effect](https://en.wikipedia.org/wiki/Cloud_computing_issues#Performance_interference_and_noisy_neighbors). An ISE also provides these benefits:
 
@@ -46,7 +46,7 @@ You can still also use connectors that don't have the **CORE** or **ISE** label 
 > For more information, see [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md#fixed-pricing). 
 > For pricing details, see [Logic Apps pricing](../logic-apps/logic-apps-pricing.md).
 
-This overview describes more information about how an ISE gives your logic apps and integration accounts direct access to your Azure virtual network and compares the differences between an ISE and the multi-tenant Logic Apps service.
+This overview describes more information about how an ISE gives your logic apps direct access to your Azure virtual network and compares the differences between an ISE and the multi-tenant Logic Apps service.
 
 <a name="difference"></a>
 
