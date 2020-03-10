@@ -8,7 +8,7 @@ ms.subservice: text-analytics
 ms.topic: include
 ms.date: 02/26/2020
 ms.author: aahi
-ms.reviewer: tasharm, assafi
+ms.reviewer: tasharm, assafi, sumeh
 ---
 
 <a name="HOLTop"></a>
@@ -34,7 +34,7 @@ Add the following text analytics dependency to your project. This version of the
  	<dependency>
         <groupId>com.azure</groupId>
         <artifactId>azure-ai-textanalytics</artifactId>
-        <version>1.0.0-beta.2</version>
+        <version>1.0.0-beta.3</version>
     </dependency>
 </dependencies>
 ```
@@ -118,17 +118,17 @@ static void sentimentAnalysisExample(TextAnalyticsClient client)
         System.out.printf(
             "Recognized document sentiment: %s, positive score: %.2f, neutral score: %.2f, negative score: %.2f.%n",
             documentSentiment.getSentiment(),
-            documentSentiment.getSentimentScores().getPositive(),
-            documentSentiment.getSentimentScores().getNeutral(),
-            documentSentiment.getSentimentScores().getNegative());
+            documentSentiment.getConfidenceScores().getPositive(),
+            documentSentiment.getConfidenceScores().getNeutral(),
+            documentSentiment.getConfidenceScores().getNegative());
 
         for (SentenceSentiment sentenceSentiment : documentSentiment.getSentences()) {
             System.out.printf(
                 "Recognized sentence sentiment: %s, positive score: %.2f, neutral score: %.2f, negative score: %.2f.%n",
                 sentenceSentiment.getSentiment(),
-                sentenceSentiment.getSentimentScores().getPositive(),
-                sentenceSentiment.getSentimentScores().getNeutral(),
-                sentenceSentiment.getSentimentScores().getNegative());
+                sentenceSentiment.getConfidenceScores().getPositive(),
+                sentenceSentiment.getConfidenceScores().getNeutral(),
+                sentenceSentiment.getConfidenceScores().getNegative());
         }
 }
 ```
@@ -136,7 +136,7 @@ static void sentimentAnalysisExample(TextAnalyticsClient client)
 ### Output
 
 ```console
-Recognized document sentiment: positive, Positive Score: 1.00, Neutral Score: 0.00, Negative Score: 0.00.
+Recognized document sentiment: positive, positive score: 1.00, neutral score: 0.00, negative score: 0.00.
 Recognized sentence sentiment: positive, positive score: 1.00, neutral score: 0.00, negative score: 0.00.
 Recognized sentence sentiment: neutral, positive score: 0.21, neutral score: 0.77, negative score: 0.02.
 ```
@@ -186,10 +186,10 @@ static void recognizeEntitiesExample(TextAnalyticsClient client)
             "Recognized entity: %s, entity category: %s, entity sub-category: %s, offset: %s, length: %s, score: %.2f.%n",
             entity.getText(),
             entity.getCategory(),
-            entity.getSubCategory() == null || entity.getSubCategory().isEmpty() ? "N/A" : entity.getSubCategory(),
-            entity.getOffset(),
-            entity.getLength(),
-            entity.getScore());
+            entity.getSubCategory() != null && !entity.getSubCategory().isEmpty() ? entity.getSubCategory() : "N/A",
+            entity.getGraphemeOffset(),
+            entity.getGraphemeLength(),
+            entity.getConfidenceScore());
     }
 }
 ```
@@ -213,13 +213,13 @@ static void recognizePIIEntitiesExample(TextAnalyticsClient client)
 
     for (PiiEntity entity : client.recognizePiiEntities(text)) {
         System.out.printf(
-            "Recognized personal identifiable information entity: %s, entity category: %s, entity sub-category: %s, offset: %s, length: %s, score: %.2f.%n",
+            "Recognized personal identifiable information entity: %s, entity category: %s, %nentity sub-category: %s, offset: %s, length: %s, score: %.2f.%n",
             entity.getText(),
             entity.getCategory(),
-            entity.getSubCategory() == null || entity.getSubCategory().isEmpty() ? "N/A" : entity.getSubCategory(),
-            entity.getOffset(),
-            entity.getLength(),
-            entity.getScore());
+            entity.getSubCategory() != null && !entity.getSubCategory().isEmpty() ? entity.getSubCategory() : "N/A",
+            entity.getGraphemeOffset(),
+            entity.getGraphemeLength(),
+            entity.getConfidenceScore());
     }
 }
 ```
@@ -227,7 +227,8 @@ static void recognizePIIEntitiesExample(TextAnalyticsClient client)
 ### Output
 
 ```console
-Recognized personal identifiable information entity: 123-12-1234, entity category: U.S. Social Security Number (SSN), entity sub-category: N/A, offset: 33, length: 11, score: 0.85.
+Recognized personal identifiable information entity: 123-12-1234, entity category: U.S. Social Security Number (SSN), 
+entity sub-category: N/A, offset: 33, length: 11, score: 0.85.
 ```
 
 ## Entity linking
@@ -248,16 +249,16 @@ static void recognizeLinkedEntitiesExample(TextAnalyticsClient client)
     for (LinkedEntity linkedEntity : client.recognizeLinkedEntities(text)) {
         System.out.printf("Name: %s, ID: %s, URL: %s, Data Source: %s.%n",
                 linkedEntity.getName(),
-                linkedEntity.getId(),
+                linkedEntity.getDataSourceEntityId(),
                 linkedEntity.getUrl(),
                 linkedEntity.getDataSource());
         System.out.printf("Matches:%n");
         for (LinkedEntityMatch linkedEntityMatch : linkedEntity.getLinkedEntityMatches()) {
             System.out.printf("Text: %s, Offset: %s, Length: %s, Score: %.2f.%n",
                     linkedEntityMatch.getText(),
-                    linkedEntityMatch.getOffset(),
-                    linkedEntityMatch.getLength(),
-                    linkedEntityMatch.getScore());
+                    linkedEntityMatch.getGraphemeOffset(),
+                    linkedEntityMatch.getGraphemeLength(),
+                    linkedEntityMatch.getConfidenceScore());
         }
     }
 }
