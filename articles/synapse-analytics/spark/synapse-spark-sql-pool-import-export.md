@@ -156,4 +156,4 @@ val scala_df = spark.sqlContext.sql ("select * from pysparkdftemptable")
 pysparkdftemptable.write.sqlanalytics("sqlpool.dbo.PySparkTable", Constants.INTERNAL)
 ```
 
-Similarly, in the read scenario, read the data using Scala and write it into a temptable, and use Spark SQL in PySpark to query the temp table into a dataframe.
+Similarly, in the read scenario, read the data using Scala and write it into a temp table, and use Spark SQL in PySpark to query the temp table into a dataframe.
