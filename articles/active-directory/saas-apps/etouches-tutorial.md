@@ -164,7 +164,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ### Create Aventri test user
 
-In this section, you create a user called Britta Simon in Aventri. Work with [Aventri Client support team](mail to:support@aventri.com) to add the users in the Aventri platform.
+In this section, you create a user called B.Simon in Aventri. Work with [Aventri Client support team](mailto:support@aventri.com) to add the users in the Aventri platform.
 
 ## Test SSO 
 
