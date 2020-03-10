@@ -11,16 +11,16 @@ Each task run in [Azure Container Registry tasks](container-registry-tasks-overv
 
 ## View streamed logs
 
-Tasks that you trigger manually stream log output directly to the console. For example, when you trigger a task manually by using the [az acr build](/cli/azure/acr#az-acr-build), [az acr run](/cli/azure/acr#az-acr-run), or [az acr task run](/cli/azure/acr/task#az-acr-task-run) command, log output is streamed to the console. 
+When you trigger a task manually, log output is streamed directly to the console. For example, when you trigger a task manually by using the [az acr build](/cli/azure/acr#az-acr-build), [az acr run](/cli/azure/acr#az-acr-run), or [az acr task run](/cli/azure/acr/task#az-acr-task-run) command, log output is streamed to the console. 
 
-The following sample [az acr run](/cli/azure/acr#az-acr-run) command manually triggers running a container pulled from a registry:
+The following sample [az acr run](/cli/azure/acr#az-acr-run) command manually triggers a task that runs a container pulled from the same registry:
 
 ```azurecli
 az acr run --registry mycontainerregistry1220 \
   --cmd '$Registry/samples/hello-world:v1' /dev/null
 ```
 
-Streamed log for run *cf4*:
+Streamed log:
 
 ```console
 Queued a run with ID: cf4
@@ -51,9 +51,9 @@ Run ID: cf4 was successful after 5s
 
 ## View stored logs 
 
-Azure Container Registry stores run logs for all tasks. You can view stored run logs in the Azure portal, or use the [az acr task logs](/cli/azure/acr/task#az-acr-task-logs) command. 
+Azure Container Registry stores run logs for all tasks. You can view stored run logs in the Azure portal. Or, use the [az acr task logs](/cli/azure/acr/task#az-acr-task-logs) command to view a selected log. 
 
-If a task is automatically triggered, for example by a source code update, accessing the stored logs is the *only* way to view the run logs. Automatic task triggers include source code commits or pull requests, base image updates, or timer triggers.
+If a task is automatically triggered, for example by a source code update, accessing the stored logs is the *only* way to view the run logs. Automatic task triggers include source code commits or pull requests, base image updates, and timer triggers.
 
 To view run logs in the portal:
 
@@ -63,13 +63,14 @@ To view run logs in the portal:
 
 ![View task run login portal](./media/container-registry-tasks-logs/portal-task-run-logs.png)
 
-In the Azure CLI, run [az acr task logs](/cli/azure/acr/task#az-acr-task-logs) and specify a run ID, a task name, or a specific image built by the task. If a task name is specified, the command shows the log for the last created run. For example, specify a run ID to view the log for that run:
+To view a log using the Azure CLI, run [az acr task logs](/cli/azure/acr/task#az-acr-task-logs) and specify a run ID, a task name, or a specific image create by a build task. If a task name is specified, the command shows the log for the last created run.
+
+The following example outputs the log for the run with ID *cf4*:
 
 ```azurecli
 az acr task logs --registry mycontainerregistry1220 \
   --run-id cf4
 ```
-The output shows the specified run log.
 
 ## Log retention
 
@@ -96,7 +97,7 @@ az acr task logs --registry mycontainerregistry1220 \
   --run-id cf4 > ~/tasklogs/cf4.log
 ```
 
-You can save local log files to Azure Storage. For example, use the [Azure CLI](../storage/blobs/storage-quickstart-blobs-cli.md), the [Azure portal](../storage/blobs/storage-quickstart-blobs-portal.md), or other methods to upload files to a storage account.
+You can also save local log files to Azure Storage. For example, use the [Azure CLI](../storage/blobs/storage-quickstart-blobs-cli.md), the [Azure portal](../storage/blobs/storage-quickstart-blobs-portal.md), or other methods to upload files to a storage account.
 
 
 ## Next steps
