@@ -25,6 +25,10 @@ This article gives answers to Azure Media Services (AMS) v3 frequently asked que
 
 See [Role-based access control (RBAC) for Media Services accounts](rbac-overview.md).
 
+### How do you stream to Apple iOS devices?
+
+Make sure you have "(format=m3u8-aapl)" at the end of your path (after the "/manifest" portion of the URL) to tell the streaming origin server to return back HLS content for consumption on Apple iOS native devices (for details, see [delivering content](dynamic-packaging-overview.md)).
+
 ### How do I configure Media Reserved Units?
 
 For the Audio Analysis and Video Analysis Jobs that are triggered by Media Services v3 or Video Indexer, it is highly recommended to provision your account with 10 S3 MRUs. If you need more than 10 S3 MRUs, open a support ticket using the [Azure portal](https://portal.azure.com/).
