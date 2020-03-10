@@ -34,9 +34,9 @@ kubectl get nodes
 
 Auto-repair takes several steps to repair a broken node.  If a node is determined to be unhealthy, AKS attemps several remediation steps.  The steps are performed in this order:
 
-1. Docker is restarted on the node
-2. The node is rebooted
-3. The node is re-imaged
+1. Docker is restarted on the node.
+2. The node is rebooted.
+3. The node is re-imaged.
 
 > ![Note]
 > If multiple nodes are unhealthy, they are repaired one by one
