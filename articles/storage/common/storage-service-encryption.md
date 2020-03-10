@@ -112,17 +112,15 @@ To revoke access to customer-managed keys, use PowerShell or Azure CLI. For more
 
 After access to customer-managed keys is revoked, operations that read from or write to a blob or its metadata are not permitted. The specific operations that are not permitted are:
 
-- [List Blobs](rest/api/storageservices/list-blobs) (with metadata)
+- [List Blobs](rest/api/storageservices/list-blobs), when called with the `include=metadata` parameter on the request URI
 - [Get Blob](rest/api/storageservices/get-blob)
 - [Get Blob Properties](rest/api/storageservices/get-blob-properties)
 - [Get Blob Metadata](rest/api/storageservices/get-blob-metadata)
 - [Set Blob Metadata](rest/api/storageservices/set-blob-metadata)
-- [Snapshot Blob](rest/api/storageservices/snapshot-blob) (with metadata)
+- [Snapshot Blob](rest/api/storageservices/snapshot-blob), when called with the `x-ms-meta-name` request header
 - [Copy Blob](rest/api/storageservices/copy-blob)
 - [Copy Blob From URL](rest/api/storageservices/copy-blob-from-url)
-- Incremental Copy Blob???
 - [Set Blob Tier](rest/api/storageservices/set-blob-tier)
-- Query Blob Contents (Quick Query)???
 - [Put Block](rest/api/storageservices/put-block)
 - [Put Block From URL](rest/api/storageservices/put-block-from-url)
 - [Append Block](rest/api/storageservices/append-block)
@@ -130,8 +128,9 @@ After access to customer-managed keys is revoked, operations that read from or w
 - [Put Blob](rest/api/storageservices/put-blob)
 - [Put Page](rest/api/storageservices/put-page)
 - [Put Page From URL](rest/api/storageservices/put-page-from-url)
+- [Incremental Copy Blob](/rest/api/storageservices/incremental-copy-blob)
 
-After customer-managed keys are revoked for the storage account, any of these operations will fail with error code 403 (Forbidden).
+After customer-managed keys are revoked for the storage account, any of these operations will fail with error code 403 (Forbidden) for all users. To call these operations again, configure a new customer-managed key.
 
 ### Customer-managed keys for Azure managed disks (preview)
 
@@ -141,7 +140,7 @@ Customer-managed keys are also available for managing encryption of Azure manage
 
 Clients making requests against Azure Blob storage have the option to provide an encryption key on an individual request. Including the encryption key on the request provides granular control over encryption settings for Blob storage operations. Customer-provided keys (preview) can be stored in Azure Key Vault or in another key store.
 
-For an example that shows how to specify a customer-provided key on a request to Blob storage, see [Specify a customer-provided key on a request to Blob storage with .NET](../blobs/storage-blob-customer-provided-key.md). 
+For an example that shows how to specify a customer-provided key on a request to Blob storage, see [Specify a customer-provided key on a request to Blob storage with .NET](../blobs/storage-blob-customer-provided-key.md).
 
 ### Encrypting read and write operations
 
