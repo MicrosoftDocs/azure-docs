@@ -6,7 +6,7 @@ author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 03/05/2020
+ms.date: 03/10/2020
 ---
 
 # Export an Azure Stream Analytics job Azure Resource Manager template
@@ -27,7 +27,7 @@ For more information on using Visual Studio Code to manage Stream Analytics jobs
 
 ## Compile the script 
 
-The next step is to compile the job script to an Azure Resource Manager template. Before you compile the script, ensure that your job has both an input and an output configured. If no input or output is configured, you need to configure the input and output first.
+The next step is to compile the job script to an Azure Resource Manager template. Before you compile the script, ensure that your job has at least one input and one output configured. If no input or output is configured, you need to configure the input and output first.
 
 1. In Visual Studio Code, navigate to your job's *Transformation.asaql* file.
 
