@@ -21,14 +21,14 @@ Auditing for [Azure SQL Database](sql-database-technical-overview.md) and [Azure
 
 To learn more about the VNet concepts, Best practices and many more, see [What is Azure Virtual Network](../virtual-network/virtual-networks-overview.md).
 
-## How to create a virtual network
+## Create a virtual network
 
 To learn more about how to create a virtual network, see [Quickstart: Create a virtual network using the Azure portal](../virtual-network/quick-create-portal.md).
 
 > [!IMPORTANT]
-> You must have `Allow trusted Microsoft services to access this storage account` turned on under Azure Storage account **Firewalls and Virtual networks** settings menu. For more information, see [Configure Azure Storage firewalls and virtual networks - exceptions](../storage/common/storage-network-security.md#exceptions).
+> To support writing audit logs under a VNet and firewalls, chose `Allow trusted Microsoft services to access this storage account`. This setting is on the Azure Storage account **Firewalls and Virtual networks** settings menu. For more information, see [Configure Azure Storage firewalls and virtual networks - exceptions](../storage/common/storage-network-security.md#exceptions).
 > You must have the `Microsoft.Authorization/roleAssignments/write` permission on the selected storage account. For various built-in roles for Azure resources, see [Azure built-in roles](../role-based-access-control/built-in-roles.md).
-> If you have a general-purpose v1 or blob storage account, first [Upgrade to a general-purpose v2 storage account](../storage/common/storage-account-upgrade.md).
+> If you have a general-purpose v1 or blob storage account, [Upgrade to a general-purpose v2 storage account](../storage/common/storage-account-upgrade.md).
 
 ### Azure Portal
 
@@ -36,20 +36,20 @@ To learn more about how to create a virtual network, see [Quickstart: Create a v
 
 2. Select **Storage** and open **Storage details**. Select the Azure storage account where logs will be saved.
 
-> [!NOTE]
-> If the selected Storage account is under VNet, you will see the following message:
->
->`You have selected a storage account that is behind a firewall or in a virtual network. Using this storage: requires an Active Directory admin on the server; enables 'Allow trusted Microsoft services to access this storage account' on the storage account; and creates a server managed identity with 'storage blob data contributor' RBAC.`
->
->If you do not see this message, then your Storage account is not under VNet.
+  > [!NOTE]
+  > If the selected Storage account is under VNet, you will see the following message:
+  >
+  >`You have selected a storage account that is behind a firewall or in a virtual network. Using this storage: requires an Active Directory admin on the server; enables 'Allow trusted Microsoft services to access this storage account' on the storage account; and creates a server managed identity with 'storage blob data contributor' RBAC.`
+  >
+  >If you do not see this message, then storage account is not under VNet.
 
 3. Select the retention period. Then click **OK**. Logs older than the retention period are deleted.
 
 4. Select **Save** on your auditing settings blade.
 
-### Others
+### Other
 
-You can also configure your Auditing to write database events on a storage account under Virtual Network and Firewall:
+You can also configure Audit to write database events on a storage account under Virtual Network and Firewall:
 
 1. Register your Azure SQL Server hosting your Azure SQL Data Warehouse instance with Azure Active Directory (AAD):
 
