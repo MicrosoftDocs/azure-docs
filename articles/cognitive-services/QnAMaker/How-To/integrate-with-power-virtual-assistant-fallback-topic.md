@@ -186,3 +186,4 @@ Test the agent by typing in a question that your knowledge base can answer. The 
 
 ## Next step
 
+[Get analytics on your knowledge base](How-To/get-analytics-knowledge-base.md)
