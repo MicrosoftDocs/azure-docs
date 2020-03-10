@@ -18,7 +18,7 @@ To create a resource group, SQL server, and single database in the Azure portal:
 
 1. Sign in to the [portal](https://portal.azure.com).
 1. From the Search bar, search for and select **Azure SQL**.
-1. Select **Add**. 
+1. On the **Azure SQL** page, select **Add**. 
    
    ![Add to Azure SQL](../media/sql-database-single-database-get-started/sqldbportal.png)
    
@@ -27,7 +27,7 @@ To create a resource group, SQL server, and single database in the Azure portal:
    
    ![Create single database](../media/sql-database-single-database-get-started/create-single-database.png)
    
-1. On the **Basics** tab of the **Create SQL database** form, under **Project details**, drop down and select the correct Azure **Subscription** if it isn't already selected.
+1. On the **Basics** tab of the **Create SQL database** form, under **Project details**, select the correct Azure **Subscription** if it isn't already selected.
 1. Under **Resource group**, select **Create new**, enter *myResourceGroup*, and select **OK**.
 1. Under **Database details**, for **Database name** enter *mySampleDatabase*.
 1. For **Server**, select **Create new**.
@@ -62,97 +62,14 @@ To create a resource group, SQL server, and single database in the Azure portal:
    
    ![Networking tab](../media/sql-database-single-database-get-started/networking.png)
    
+   For more information about firewall settings, see [Allow Azure services and resources to access this server](../sql-database-networkaccess-overview.md) and [Add a private endpoint](../../private-link/private-endpoint-overview.md).
+   
 1. On the **Additional settings** tab, in the **Data source** section, for **Use existing data**, select **Sample**.
 1. Select **Review + create** at the bottom of the page.
    
    ![Additional settings tab](../media/sql-database-single-database-get-started/additional-settings.png)
    
 1. After reviewing settings, select **Create**.
-
-For more information about firewall settings, see [Allow Azure services and resources to access this server](../sql-database-networkaccess-overview.md) and [Add a private endpoint](../../private-link/private-endpoint-overview.md).
-
-# [PowerShell](#tab/azure-powershell)
-
-You can create an Azure resource group, SQL server, and single database using Windows PowerShell. If you don't want to use the Azure Cloud Shell, [install the Azure PowerShell module](/powershell/azure/install-az-ps).
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-
-To run the following code sample in the Azure Cloud Shell, select **Try it** in the code title bar. When the Cloud Shell opens, select **Copy** in the code sample title bar, and paste the code sample into the Cloud Shell window. In the code, replace `<Subscription ID>` with your Azure Subscription ID, and for `$startIp` and `$endIP`, replace `0.0.0.0` with the public IP address of the computer you're using. 
-
-Follow the onscreen prompts to sign in to Azure and run the code. Make sure to record the generated server name and password so you can log in to your server and databases. 
-
-You can also use Azure Cloud Shell from the Azure portal by selecting the Cloud Shell icon on the top bar. The first time you use Cloud Shell, select **PowerShell** on the **Welcome** dialog. Subsequent sessions will use PowerShell, or you can select it from the Cloud Shell control bar. 
-
-The following PowerShell code creates an Azure resource group, SQL server, single database, and firewall rule for access to the server:
-
-   ```powershell-interactive
-   # Set variables for your server and database
-   $subscriptionId = '<SubscriptionID>'
-   $resourceGroupName = "myResourceGroup-$(Get-Random)"
-   $location = "West US"
-   $adminLogin = "azureuser"
-   $password = "Azure1234567"
-   $serverName = "mysqlserver-$(Get-Random)"
-   $databaseName = "mySampleDatabase"
-
-   # The ip address range that you want to allow to access your server 
-   $startIp = "0.0.0.0"
-   $endIp = "0.0.0.0"
-
-   # Show randomized variables
-   Write-host "Resource group name is" $resourceGroupName 
-   Write-host "Server name is" $serverName 
-
-   # Connect to Azure
-   Connect-AzAccount
-
-   # Set subscription ID
-   Set-AzContext -SubscriptionId $subscriptionId 
-
-   # Create a resource group
-   Write-host "Creating resource group..."
-   $resourceGroup = New-AzResourceGroup -Name $resourceGroupName -Location $location -Tag @{Owner="SQLDB-Samples"}
-   $resourceGroup
-
-   # Create a server with a system wide unique server name
-   Write-host "Creating primary logical server..."
-   $server = New-AzSqlServer -ResourceGroupName $resourceGroupName `
-      -ServerName $serverName `
-      -Location $location `
-      -SqlAdministratorCredentials $(New-Object -TypeName System.Management.Automation.PSCredential `
-      -ArgumentList $adminLogin, $(ConvertTo-SecureString -String $password -AsPlainText -Force))
-   $server
-
-   # Create a server firewall rule that allows access from the specified IP range
-   Write-host "Configuring firewall for primary logical server..."
-   $serverFirewallRule = New-AzSqlServerFirewallRule -ResourceGroupName $resourceGroupName `
-      -ServerName $serverName `
-      -FirewallRuleName "AllowedIPs" -StartIpAddress $startIp -EndIpAddress $endIp
-   $serverFirewallRule
-
-   # Create General Purpose Gen4 database with 1 vCore
-   Write-host "Creating a gen5 2 vCore database..."
-   $database = New-AzSqlDatabase  -ResourceGroupName $resourceGroupName `
-      -ServerName $serverName `
-      -DatabaseName $databaseName `
-      -Edition GeneralPurpose `
-      -VCore 2 `
-      -ComputeGeneration Gen5 `
-      -MinimumCapacity 2 `
-      -SampleName "AdventureWorksLT"
-   $database
-   ```
-
-The preceding code uses the following PowerShell cmdlets:
-
-| Command | Notes |
-|---|---|
-| [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Creates a resource group in which all resources are stored. |
-| [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) | Creates a SQL Database server that hosts single databases and elastic pools. |
-| [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) | Creates a firewall rule for a logical server. | 
-| [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) | Creates an Azure SQL Database single database. | 
-
-For more Azure SQL Database samples using Azure PowerShell, see [Azure PowerShell samples](sql-database-powershell-samples.md).
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -162,7 +79,11 @@ To run the following code sample in Azure Cloud Shell, select **Try it** in the 
 
 Follow the onscreen prompts to sign in to Azure and run the code. Make sure to record the generated server name and password so you can log in to your server and databases. 
 
-You can also use the Azure Cloud Shell from the Azure portal by selecting the Cloud Shell icon on the top bar. The first time you use Cloud Shell, select **Bash** in the **Welcome** dialog. Subsequent sessions will use Azure CLI in a Bash environment, or you can select **Bash** from the Cloud Shell control bar. 
+You can also use the Azure Cloud Shell from the Azure portal, by selecting the Cloud Shell icon on the top bar. 
+   
+   ![Azure Cloud Shell](../media/sql-database-single-database-get-started/cloudshell.png)
+   
+The first time you use Cloud Shell, select **Bash** in the **Welcome** dialog. Subsequent sessions will use Azure CLI in a Bash environment, or you can select **Bash** from the Cloud Shell control bar. 
 
 The following Azure CLI code creates an Azure resource group, SQL server, single database, and firewall rule for access to the server:
 
@@ -230,5 +151,93 @@ The preceding code uses these Azure CLI commands:
 | [az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule) | Creates a server's firewall rules. | 
 | [az sql db create](/cli/azure/sql/db?view=azure-cli-latest) | Creates a database. | 
 
-For more Azure SQL Database Azure CLI samples, see [Azure CLI samples](sql-database-cli-samples.md).
+For more Azure SQL Database Azure CLI samples, see [Azure CLI samples](../sql-database-cli-samples.md).
+
+# [PowerShell](#tab/azure-powershell)
+
+You can create an Azure resource group, SQL server, and single database using Windows PowerShell. If you don't want to use the Azure Cloud Shell, [install the Azure PowerShell module](/powershell/azure/install-az-ps).
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+To run the following code sample in the Azure Cloud Shell, select **Try it** in the code title bar. When the Cloud Shell opens, select **Copy** in the code sample title bar, and paste the code sample into the Cloud Shell window. In the code, replace `<Subscription ID>` with your Azure Subscription ID, and for `$startIp` and `$endIP`, replace `0.0.0.0` with the public IP address of the computer you're using. 
+
+Follow the onscreen prompts to sign in to Azure and run the code. Make sure to record the generated server name and password, so you can log in to your server and databases. 
+
+You can also use Azure Cloud Shell from the Azure portal, by selecting the Cloud Shell icon on the top bar. 
+   
+   ![Azure Cloud Shell](../media/sql-database-single-database-get-started/cloudshell.png)
+   
+The first time you use Cloud Shell, select **PowerShell** on the **Welcome** dialog. Subsequent sessions will use PowerShell, or you can select it from the Cloud Shell control bar. 
+
+The following PowerShell code creates an Azure resource group, SQL server, single database, and firewall rule for access to the server:
+
+   ```powershell-interactive
+   # Set variables for your server and database
+   $subscriptionId = '<SubscriptionID>'
+   $resourceGroupName = "myResourceGroup-$(Get-Random)"
+   $location = "West US"
+   $adminLogin = "azureuser"
+   $password = "Azure1234567"
+   $serverName = "mysqlserver-$(Get-Random)"
+   $databaseName = "mySampleDatabase"
+
+   # The ip address range that you want to allow to access your server 
+   $startIp = "0.0.0.0"
+   $endIp = "0.0.0.0"
+
+   # Show randomized variables
+   Write-host "Resource group name is" $resourceGroupName 
+   Write-host "Server name is" $serverName 
+
+   # Connect to Azure
+   Connect-AzAccount
+
+   # Set subscription ID
+   Set-AzContext -SubscriptionId $subscriptionId 
+
+   # Create a resource group
+   Write-host "Creating resource group..."
+   $resourceGroup = New-AzResourceGroup -Name $resourceGroupName -Location $location -Tag @{Owner="SQLDB-Samples"}
+   $resourceGroup
+
+   # Create a server with a system wide unique server name
+   Write-host "Creating primary logical server..."
+   $server = New-AzSqlServer -ResourceGroupName $resourceGroupName `
+      -ServerName $serverName `
+      -Location $location `
+      -SqlAdministratorCredentials $(New-Object -TypeName System.Management.Automation.PSCredential `
+      -ArgumentList $adminLogin, $(ConvertTo-SecureString -String $password -AsPlainText -Force))
+   $server
+
+   # Create a server firewall rule that allows access from the specified IP range
+   Write-host "Configuring firewall for primary logical server..."
+   $serverFirewallRule = New-AzSqlServerFirewallRule -ResourceGroupName $resourceGroupName `
+      -ServerName $serverName `
+      -FirewallRuleName "AllowedIPs" -StartIpAddress $startIp -EndIpAddress $endIp
+   $serverFirewallRule
+
+   # Create General Purpose Gen4 database with 1 vCore
+   Write-host "Creating a gen5 2 vCore database..."
+   $database = New-AzSqlDatabase  -ResourceGroupName $resourceGroupName `
+      -ServerName $serverName `
+      -DatabaseName $databaseName `
+      -Edition GeneralPurpose `
+      -VCore 2 `
+      -ComputeGeneration Gen5 `
+      -MinimumCapacity 2 `
+      -SampleName "AdventureWorksLT"
+   $database
+   ```
+
+The preceding code uses these PowerShell cmdlets:
+
+| Command | Notes |
+|---|---|
+| [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Creates a resource group in which all resources are stored. |
+| [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) | Creates a SQL Database server that hosts single databases and elastic pools. |
+| [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) | Creates a firewall rule for a logical server. | 
+| [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) | Creates an Azure SQL Database single database. | 
+
+For more Azure SQL Database PowerShell samples, see [Azure PowerShell samples](../sql-database-powershell-samples.md).
+
 ---

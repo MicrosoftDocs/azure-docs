@@ -33,10 +33,10 @@ This quickstart requires an active Azure subscription. If you don't have one, [c
 Now you can use the built-in **Query editor** in the Azure portal to connect to the database and query the data.
 
 1. On the **SQL Database** page for your database, select **Query editor (preview)** in the left menu.
-
+2. Enter your server admin login information, and select **OK**.
+   
    ![Sign in to Query editor](./media/sql-database-single-database-get-started/query-editor-login.png)
 
-2. Enter your server admin login information, and select **OK**.
 3. Enter the following query in the **Query editor** pane.
 
    ```sql
