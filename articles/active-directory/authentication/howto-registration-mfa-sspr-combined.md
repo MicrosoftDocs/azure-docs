@@ -1,6 +1,6 @@
 ---
 title: Get started with combined registration - Azure Active Directory
-description: Enable combined Azure AD Multi-Factor Authentication and self-service password reset registration (preview)
+description: Enable combined Azure AD Multi-Factor Authentication and self-service password reset registration
 
 services: active-directory
 ms.service: active-directory
@@ -15,21 +15,11 @@ ms.reviewer: sahenry, calebb
 
 ms.collection: M365-identity-device-management
 ---
-# Enable combined security information registration (preview)
+# Enable combined security information registration
 
-Before enabling the new experience, review the article [Combined security information registration (preview)](concept-registration-mfa-sspr-combined.md) to ensure you understand the functionality and effects of this feature.
+Before enabling the new experience, review the article [Combined security information registration](concept-registration-mfa-sspr-combined.md) to ensure you understand the functionality and effects of this feature.
 
 ![Combined security information registration enhanced experience](media/howto-registration-mfa-sspr-combined/combined-security-info-more-required.png)
-
-|     |
-| --- |
-| Combined security information registration for Azure Multi-Factor Authentication and Azure Active Directory (Azure AD) self-service password reset is a public preview feature of Azure AD. For more information about previews, see  [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
-|     |
-
-> [!NOTE]
-> Organizations who enabled the previous preview for registering and managing security info should complete the steps below to enable the enhanced preview experience. For organizations who do not make the switch, on October 8, 2019, Microsoft will switch users of the previous preview for registering and managing security info to the enhanced experience. 
-> 
-> If you have not enabled any version of the preview your organization will not be impacted.
 
 ## Enable combined registration
 
@@ -55,7 +45,7 @@ If you have configured the Site to Zone Assignment List in Internet Explorer, th
 
 ## Conditional Access policies for combined registration
 
-Securing when and how users register for Azure Multi-Factor Authentication and self-service password reset is now possible with user actions in Conditional Access policy. This preview feature is available to organizations who have enabled the [combined registration preview](../authentication/concept-registration-mfa-sspr-combined.md). This functionality may be enabled in organizations where they want users to register for Azure Multi-Factor Authentication and SSPR from a central location such as a trusted network location during HR onboarding. For more information about creating trusted locations in Conditional Access, see the article [What is the location condition in Azure Active Directory Conditional Access?](../conditional-access/location-condition.md#named-locations)
+Securing when and how users register for Azure Multi-Factor Authentication and self-service password reset is now possible with user actions in Conditional Access policy. This feature is available to organizations who have enabled the [combined registration feature](../authentication/concept-registration-mfa-sspr-combined.md). This functionality may be enabled in organizations where they want users to register for Azure Multi-Factor Authentication and SSPR from a central location such as a trusted network location during HR onboarding. For more information about creating trusted locations in Conditional Access, see the article [What is the location condition in Azure Active Directory Conditional Access?](../conditional-access/location-condition.md#named-locations)
 
 ### Create a policy to require registration from a trusted location
 
@@ -69,7 +59,7 @@ The following policy applies to all selected users, who attempt to register usin
 1. Under **Assignments**, click **Users and groups**, and select the users and groups you want this policy to apply to
 
    > [!WARNING]
-   > Users must be enabled for the [combined registration preview](../authentication/howto-registration-mfa-sspr-combined.md).
+   > Users must be enabled for [combined registration](../authentication/howto-registration-mfa-sspr-combined.md).
 
 1. Under **Cloud apps or actions**, select **User actions**, check **Register security information (preview)**
 1. Under **Conditions** > **Locations**

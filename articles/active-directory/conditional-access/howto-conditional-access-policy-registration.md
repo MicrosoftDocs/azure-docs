@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # Conditional Access: Require trusted location for MFA registration
 
-Securing when and how users register for Azure Multi-Factor Authentication and self-service password reset is now possible with user actions in Conditional Access policy. This preview feature is available to organizations who have enabled the [combined registration preview](../authentication/concept-registration-mfa-sspr-combined.md). This functionality may be enabled in organizations where they want to use conditions like trusted network location to restrict access to register for Azure Multi-Factor Authentication and SSPR. For more information about creating trusted locations in Conditional Access, see the article [What is the location condition in Azure Active Directory Conditional Access?](../conditional-access/location-condition.md#named-locations)
+Securing when and how users register for Azure Multi-Factor Authentication and self-service password reset is now possible with user actions in Conditional Access policy. This preview feature is available to organizations who have enabled [combined registration](../authentication/concept-registration-mfa-sspr-combined.md). This functionality may be enabled in organizations where they want to use conditions like trusted network location to restrict access to register for Azure Multi-Factor Authentication and SSPR. For more information about creating trusted locations in Conditional Access, see the article [What is the location condition in Azure Active Directory Conditional Access?](../conditional-access/location-condition.md#named-locations)
 
 ## Create a policy to require registration from a trusted location
 
@@ -29,9 +29,9 @@ The following policy applies to all selected users, who attempt to register usin
 1. Under **Assignments**, click **Users and groups**, and select the users and groups you want this policy to apply to.
 
    > [!WARNING]
-   > Users must be enabled for the [combined registration preview](../authentication/howto-registration-mfa-sspr-combined.md).
+   > Users must be enabled for the [combined registration](../authentication/howto-registration-mfa-sspr-combined.md).
 
-1. Under **Cloud apps or actions**, select **User actions**, check **Register security information (preview)**.
+1. Under **Cloud apps or actions**, select **User actions**, check **Register security information**.
 1. Under **Conditions** > **Locations**.
    1. Configure **Yes**.
    1. Include **Any location**.
