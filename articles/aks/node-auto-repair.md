@@ -8,7 +8,7 @@ ms.date: 03/10/2020
 
 # Azure Kubernetes Service (AKS) node auto-repair functionality
 
-Periodically AKS cluster nodes will become unhealthy.  When AKS nodes are in an unhealthy state, they are automatically repaired. AKS continuously checks the health state of worker nodes and performs automatic repair if they become unhealthy.
+AKS continuously checks the health state of worker nodes and performs automatic repair of the nodes if they become unhealthy.
 
 ## Region Availability
 
