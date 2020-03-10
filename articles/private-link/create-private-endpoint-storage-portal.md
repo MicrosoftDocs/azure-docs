@@ -24,24 +24,22 @@ Sign in to the Azure portal at https://portal.azure.com.
 ## Create a VM
 In this section, you will create virtual network and the subnet to host the VM that is used to access your Private Link Resource (a storage account in this example).
 
-### Create the virtual network
+## Virtual network and parameters
 
 In this section, you will create virtual network and the subnet to host the VM that is used to access your Private Link resource.
 
-1. On the upper-left side of the screen, select **Create a resource** > **Networking** > **Virtual network**.
-1. In **Create virtual network**, enter or select this information:
+In this section you'll need to replace the following parameters in the steps with the information below:
 
-    | Setting | Value |
-    | ------- | ----- |
-    | Name | Enter *MyVirtualNetwork*. |
-    | Address space | Enter *10.1.0.0/16*. |
-    | Subscription | Select your subscription.|
-    | Resource group | Select **Create new**, enter *myResourceGroup*, then select **OK**. |
-    | Location | Select **WestCentralUS**.|
-    | Subnet - Name | Enter *mySubnet*. |
-    | Subnet - Address range | Enter *10.1.0.0/24*. |
-    |||
-1. Leave the rest as default and select **Create**.
+| Parameter                   | Value                |
+|-----------------------------|----------------------|
+| **\<resource-group-name>**  | myResourceGroup |
+| **\<virtual-network-name>** | myVirtualNetwork          |
+| **\<region-name>**          | West Central US      |
+| **\<IPv4-address-space>**   | 10.1.0.0\16          |
+| **\<subnet-name>**          | mySubnet        |
+| **\<subnet-address-range>** | 10.1.0.0\24          |
+
+[!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
 
 ### Create virtual machine

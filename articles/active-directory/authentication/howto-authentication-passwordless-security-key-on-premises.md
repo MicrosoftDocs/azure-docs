@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/30/2020
+ms.date: 03/09/2020
 
 ms.author: iainfou
 author: iainfoulds
@@ -30,7 +30,7 @@ Azure Active Directory (AD) can issue Kerberos Ticket Granting Tickets (TGTs) fo
 
 An Azure AD Kerberos Server object is created in your on-premises Active Directory and then securely published to Azure Active Directory. The object isn't associated with any physical servers. It's simply a resource that can be used by Azure Active Directory to generate Kerberos TGTs for your Active Directory Domain.
 
-![Getting a TGT and PRT from Azure AD and AD DS](./media/howto-authentication-passwordless-on-premises/fido2-tgt-exchange-process.png)
+![Getting a ticket granting ticket (TGT) from Azure AD and AD DS](./media/howto-authentication-passwordless-on-premises/fido2-ticket-granting-ticket-exchange-process.png)
 
 1. User signs in to their Windows 10 device with a FIDO2 security key and authenticates to Azure AD.
 1. Azure AD checks the directory for a Kerberos server key matching the user's on-premises AD domain.
@@ -47,6 +47,7 @@ Organizations must also meet the following software requirements.
 
 - Devices must be running Windows 10 Insider Build 18945 or newer.
 - You must have version 1.4.32.0 or later of [Azure AD Connect](../hybrid/how-to-connect-install-roadmap.md#install-azure-ad-connect).
+  - For more information on the available Azure AD hybrid authentication options, see [Choose the right authentication method for your Azure Active Directory hybrid identity solution](../../security/fundamentals/choose-ad-authn.md) and [Select which installation type to use for Azure AD Connect](../hybrid/how-to-connect-install-select-installation.md).
 - Your Windows Server domain controllers must have the following patches installed:
     - For Windows Server 2016 - https://support.microsoft.com/help/4534307/windows-10-update-kb4534307
 	- For Windows Server 2019 - https://support.microsoft.com/help/4534321/windows-10-update-kb4534321

@@ -289,36 +289,40 @@
     - name: Anomaly Detector
       tocHref: /azure/cognitive-services/anomaly-detector/
       topicHref: /azure/cognitive-services/anomaly-detector/
-    - name: Bing Autosuggest
-      tocHref: /azure/cognitive-services/Bing-Autosuggest/
-      topicHref: /azure/cognitive-services/Bing-Autosuggest/
-    - name: Bing Custom Search
-      tocHref: /azure/cognitive-services/bing-custom-search/
-      topicHref: /azure/cognitive-services/bing-custom-search/
-    - name: Bing Entity Search
-      tocHref: /azure/cognitive-services/bing-entities-search/
-      topicHref: /azure/cognitive-services/bing-entities-search/
-    - name: Bing Image Search
-      tocHref: /azure/cognitive-services/bing-image-search/
-      topicHref: /azure/cognitive-services/bing-image-search/
-    - name: Bing News Search
-      tocHref: /azure/cognitive-services/bing-news-search/
-      topicHref: /azure/cognitive-services/bing-news-search/
-    - name: Bing Spell Check
-      tocHref: /azure/cognitive-services/bing-spell-check/
-      topicHref: /azure/cognitive-services/bing-spell-check/
-    - name: Bing Video Search
-      tocHref: /azure/cognitive-services/Bing-Video-Search/
-      topicHref: /azure/cognitive-services/Bing-Video-Search/
-    - name: Bing Visual Search
-      tocHref: /azure/cognitive-services/bing-visual-search/
-      topicHref: /azure/cognitive-services/bing-visual-search/
-    - name: Bing Web Search
-      tocHref: /azure/cognitive-services/bing-web-search/
-      topicHref: /azure/cognitive-services/bing-web-search/
-    - name: Bing Local Business Search
-      tocHref: /azure/cognitive-services/bing-local-business-search/
-      topicHref: /azure/cognitive-services/bing-local-business-search/
+    - name: Bing Search APIs
+      tocHref: /azure/cognitive-services/bing-web-search
+      topicHref: /azure/cognitive-services/bing-web-search
+      items:
+      - name: Bing Autosuggest
+        tocHref: /azure/cognitive-services/Bing-Autosuggest
+        topicHref: /azure/cognitive-services/Bing-Autosuggest/get-suggested-search-terms
+      - name: Bing Custom Search
+        tocHref: /azure/cognitive-services/bing-custom-search
+        topicHref: /azure/cognitive-services/bing-custom-search/overview
+      - name: Bing Entity Search
+        tocHref: /azure/cognitive-services/bing-entities-search
+        topicHref: /azure/cognitive-services/bing-entities-search/overview
+      - name: Bing Image Search
+        tocHref: /azure/cognitive-services/bing-image-search
+        topicHref: /azure/cognitive-services/bing-image-search/overview
+      - name: Bing News Search
+        tocHref: /azure/cognitive-services/bing-news-search
+        topicHref: /azure/cognitive-services/bing-news-search/search-the-web
+      - name: Bing Spell Check
+        tocHref: /azure/cognitive-services/bing-spell-check
+        topicHref: /azure/cognitive-services/bing-spell-check/overview
+      - name: Bing Video Search
+        tocHref: /azure/cognitive-services/Bing-Video-Search
+        topicHref: /azure/cognitive-services/Bing-Video-Search/overview
+      - name: Bing Visual Search
+        tocHref: /azure/cognitive-services/bing-visual-search
+        topicHref: /azure/cognitive-services/bing-visual-search/overview
+      - name: Bing Web Search
+        tocHref: /azure/cognitive-services/bing-web-search
+        topicHref: /azure/cognitive-services/bing-web-search/overview
+      - name: Bing Local Business Search
+        tocHref: /azure/cognitive-services/bing-local-business-search
+        topicHref: /azure/cognitive-services/bing-local-business-search/overview
     - name: Computer Vision
       tocHref: /azure/cognitive-services/computer-vision/
       topicHref: /azure/cognitive-services/computer-vision/
@@ -728,6 +732,9 @@
   - name: Site Recovery
     tocHref: /azure/site-recovery/
     topicHref: /azure/site-recovery/
+  - name: Site Reliability Engineering
+    tocHref: /azure/site-reliability-engineering/
+    topicHref: /azure/site-reliability-engineering/
   - name: Synapse Analytics
     tocHref: /azure/sql-data-warehouse/
     topicHref: /azure/sql-data-warehouse/

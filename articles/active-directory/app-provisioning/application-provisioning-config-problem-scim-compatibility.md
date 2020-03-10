@@ -8,7 +8,7 @@ manager: CelesteDG
 
 ms.assetid: 
 ms.service: active-directory
-ms.subservice: app-mgmt
+ms.subservice: app-provisioning
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na

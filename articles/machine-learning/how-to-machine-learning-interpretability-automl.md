@@ -85,12 +85,13 @@ To generate an explanation for AutoML models, use the `MimicWrapper` class. You 
 The MimicWrapper also takes the `automl_run` object where the raw and engineered explanations will be uploaded.
 
 ```python
-from azureml.interpret.mimic.models.lightgbm_model import LGBMExplainableModel
-from azureml.interpret.mimic_wrapper import MimicWrapper
+from azureml.explain.model.mimic.models.lightgbm_model import LGBMExplainableModel
+from azureml.explain.model.mimic_wrapper import MimicWrapper
 
-explainer = MimicWrapper(ws, automl_explainer_setup_obj.automl_estimator, LGBMExplainableModel, 
+# Initialize the Mimic Explainer
+explainer = MimicWrapper(ws, automl_explainer_setup_obj.automl_estimator, LGBMExplainableModel,
                          init_dataset=automl_explainer_setup_obj.X_transform, run=automl_run,
-                         features=automl_explainer_setup_obj.engineered_feature_names, 
+                         features=automl_explainer_setup_obj.engineered_feature_names,
                          feature_maps=[automl_explainer_setup_obj.feature_map],
                          classes=automl_explainer_setup_obj.classes)
 ```

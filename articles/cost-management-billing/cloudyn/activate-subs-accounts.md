@@ -5,7 +5,7 @@ keywords:
 author: bandersmsft
 ms.author: banders
 ms.date: 01/24/2020
-ms.topic: quickstart
+ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: vitavor
 ms.custom: secdec18

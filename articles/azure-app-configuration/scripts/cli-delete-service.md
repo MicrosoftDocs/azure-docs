@@ -1,21 +1,15 @@
 ---
 title: Azure CLI Script Sample - Delete an Azure App Configuration Store
 titleSuffix: Azure App Configuration
-description: Azure CLI Script Sample - Delete an Azure App Configuration store
+description: Use Azure CLI Script to delete an Azure App Configuration store
 services: azure-app-configuration
-documentationcenter: ''
 author: lisaguthrie
-manager: balans
-editor: ''
 
 ms.service: azure-app-configuration
 ms.devlang: azurecli
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: azure-app-configuration
-ms.date: 02/24/2019
+ms.date: 02/19/2020
 ms.author: lcozzens
-ms.custom: mvc
 ---
 
 # Delete an Azure App Configuration store

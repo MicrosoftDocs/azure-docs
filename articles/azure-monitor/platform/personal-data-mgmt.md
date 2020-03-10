@@ -1,7 +1,6 @@
 ---
 title: Guidance for personal data stored in Azure Log Analytics| Microsoft Docs
 description: This article describes how to manage personal data stored in Azure Log Analytics and the methods to identify and remove it.
-ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren

@@ -1,6 +1,6 @@
 ---
 title: Apache Ambari stale alerts in Azure HDInsight
-description: Discussion and analysis of possible reasons and solutions for stale Apache Ambari alerts in HDInsight.
+description: Discussion and analysis of possible reasons and solutions for Apache Ambari stale alerts in HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -15,64 +15,70 @@ This article describes troubleshooting steps and possible resolutions for issues
 
 ## Issue
 
-From the Apache Ambari UI, you may see an alert similar to the following image:
+In the Apache Ambari UI, you might see an alert like this:
 
 ![Apache Ambari stale alert example](./media/apache-ambari-troubleshoot-stale-alerts/ambari-stale-alerts-example.png)
 
 ## Cause
 
-Ambari agents continually execute health checks to monitor the health of many resources. Each alert is configured to run at predefined intervals of time. After execution of each alert, Ambari agents report back the status to the Ambari server. At this point if Ambari server detects that any of the alerts weren't run in a timely manner, then it triggers an "Ambari Server Alerts". There are various reasons why a health check might not execute at its defined interval:
+Ambari agents continuously monitor the health of many resources. *Alerts* can be configured to notify you whether specific cluster properties are within predetermined thresholds. After each resource check runs, if the alert condition is met, Ambari agents report the status back to the Ambari server and trigger an alert. If an alert isn't checked according to the interval in its Alert Profile, the server triggers an *Ambari Server Stale Alerts* alert.
 
-* When hosts are under heavy utilization (high CPU), there's a possibility that the Ambari Agent wasn't able get enough system resources to execute the alerts in timely manner.
+There are various reasons why a health check might not run at its defined interval:
 
-* The cluster is busy executing many jobs/services during heavy load.
+* The hosts are under heavy use (high CPU usage), so that the Ambari agent can't get enough system resources to run the alerts on time.
 
-* Few hosts in the cluster may host many components and hence will be required to run many alerts. If the number of components is large, it's possible that alert jobs may miss their scheduled intervals
+* The cluster is busy executing many jobs or services during a period of heavy load.
+
+* A small number of hosts in the cluster are hosting many components and so are required to run many alerts. If the number of components is large, alert jobs might miss their scheduled intervals.
 
 ## Resolution
 
-### Increase alert interval time
+Try the following methods to resolve problems with Ambari stale alerts.
 
-You can choose to increase the value of an individual alert interval based on the response time of your cluster and its load.
+### Increase the alert interval time
 
-1. From the Apache Ambari UI, select the **Alerts** tab.
-1. Select the desired alert definition name.
+You can increase the value of an individual alert interval, based on your cluster's response time and load:
+
+1. In the Apache Ambari UI, select the **Alerts** tab.
+1. Select the alert definition name that you want.
 1. From the definition, select **Edit**.
-1. Modify the **Check Interval** value as desired, and then select **Save**.
+1. Increase the **Check Interval** value, and then select **Save**.
 
-### Increase alert interval time for Ambari Server Alerts
+### Increase the alert interval time for Ambari Server Alerts
 
-1. From the Apache Ambari UI, select the **Alerts** tab.
+1. In the Apache Ambari UI, select the **Alerts** tab.
 1. From the **Groups** drop-down list, select **AMBARI Default**.
-1. Select alert **Ambari Server Alerts**.
+1. Select the **Ambari Server Alerts** alert.
 1. From the definition, select **Edit**.
-1. Modify the **Check Interval** value as desired.
-1. Modify the **Interval Multiplier** value as desired, and then select **Save**.
+1. Increase the **Check Interval** value.
+1. Increase the **Interval Multiplier** value, and then select **Save**.
 
-### Disable and enable the alert
+### Disable and reenable the alert
 
-You can disable and then again enable the alert to discard any stale alerts.
+To discard a stale alert, disable and then reenable it:
 
-1. From the Apache Ambari UI, select the **Alerts** tab.
-1. Select the desired alert definition name.
-1. From the definition, select **Enabled** located on the far right.
-1. From the **Confirmation** pop-up, select **Confirm Disable**.
-1. Wait a few seconds for all the alert "Instances" shown on the page are cleared.
-1. From the definition, select **Disabled** located on the far right.
-1. From the **Confirmation** pop-up, select **Confirm Enable**.
+1. In the Apache Ambari UI, select the **Alerts** tab.
+1. Select the alert definition name that you want.
+1. From the definition, select **Enabled** on the far right part of the UI.
+1. In the **Confirmation** pop-up window, select **Confirm Disable**.
+1. Wait a few seconds for all the alert "instances" shown on the page to be cleared.
+1. From the definition, select **Disabled** on the far right part of the UI.
+1. In the **Confirmation** pop-up window, select **Confirm Enable**.
 
-### Increase alert grace time
+### Increase the alert grace period
 
-Before Ambari agent reports that a configured alert missed its schedule, there's a grace time applied. Even if the alert missed its scheduled time but was triggered within the alert grace time, then stale alert isn't fired.
+There's a grace period before an Ambari agent reports that a configured alert missed its schedule. If the alert missed its scheduled time but ran within the grace period, the stale alert isn't generated.
 
-The default `alert_grace_period` value is 5 seconds. This `alert_grace_period` setting is configurable in `/etc/ambari-agent/conf/ambari-agent.ini`. For those hosts from which the stale alerts are fired at regular intervals, try to increase to a value of 10. Then restart the Ambari agent
+The default `alert_grace_period` value is 5 seconds. You can configure this setting in /etc/ambari-agent/conf/ambari-agent.ini. For hosts on which stale alerts occur at regular intervals, try increasing the value to 10. Then, restart the Ambari agent.
 
 ## Next steps
 
-If you didn't see your problem or are unable to solve your issue, visit one of the following channels for more support:
+If your problem wasn't mentioned here or you're unable to solve it, visit one of the following channels for more support:
 
-* Get answers from Azure experts through [Azure Community Support](https://azure.microsoft.com/support/community/).
+* Get answers from Azure experts at [Azure Community Support](https://azure.microsoft.com/support/community/).
 
-* Connect with [@AzureSupport](https://twitter.com/azuresupport) - the official Microsoft Azure account for improving customer experience. Connecting the Azure community to the right resources: answers, support, and experts.
+* Connect with [@AzureSupport](https://twitter.com/azuresupport) on Twitter. This is the official Microsoft Azure account for improving customer experience. It connects the Azure community to the right resources: answers, support, and experts.
 
-* If you need more help, you can submit a support request from the [Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Select **Support** from the menu bar or open the **Help + support** hub. For more detailed information, review [How to create an Azure support request](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). Access to Subscription Management and billing support is included with your Microsoft Azure subscription, and Technical Support is provided through one of the [Azure Support Plans](https://azure.microsoft.com/support/plans/).
+* If you need more help, submit a support request from the [Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). To get there, select Help (**?**) from the portal menu or open the **Help + support** pane. For more information, see [How to create an Azure support request](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). 
+
+  Support for subscription management and billing is included with your Microsoft Azure subscription. Technical support is available through the [Azure Support Plans](https://azure.microsoft.com/support/plans/).
