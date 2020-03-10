@@ -195,7 +195,7 @@ When using the delta query, [temporal tables in Azure SQL Database](../sql-datab
    
    ![Stream Analytics input configuration in Visual Studio](./media/sql-reference-data/Choose-Connection.png)
 
-7. Check out and verify your query result.
+7. Review and verify your query result.
    
    ![Stream Analytics input configuration in Visual Studio](./media/sql-reference-data/Verify-Result.png)
 
