@@ -60,7 +60,7 @@ The following command copies files in the */home/azureuser/logs/* directory on t
 scp -r azureuser@myserver.eastus.cloudapp.com:/home/azureuser/logs/. /tmp/
 ```
 
-The `-r` cli flag instructs SCP to recursively copy the files and directories from the point of the directory listed in the command.  Also notice that the command-line syntax is similar to a `cp` copy command.
+The `-r` flag instructs SCP to recursively copy the files and directories from the point of the directory listed in the command.  Also notice that the command-line syntax is similar to a `cp` copy command.
 
 ## Next steps
 
