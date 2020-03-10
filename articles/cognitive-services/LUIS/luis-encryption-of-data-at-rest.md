@@ -50,7 +50,6 @@ There are some limitations when using the E0 tier with existing/previously creat
 * The Speech priming capability from the Azure Bot service isn't supported for applications in the E0 tier. This feature is available via the Azure Bot Service, which doesn't support CMK.
 * The speech priming capability from the portal requires Azure Blob Storage. For more details, see [x](link-from-carol).
 
-
 ### Enable customer-managed keys
 
 A new Cognitive Services resource is always encrypted using Microsoft-managed keys. It's not possible to enable customer-managed keys at the time that the resource is created. Customer-managed keys are stored in Azure Key Vault, and the key vault must be provisioned with access policies that grant key permissions to the managed identity that is associated with the Cognitive Services resource. The managed identity is available only after the resource is created using the Pricing Tier for CMK.
