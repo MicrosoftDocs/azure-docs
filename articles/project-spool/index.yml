@@ -1,91 +1,65 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Project Spool Documentation
+### YamlMime:Landing
+
+title: Project Spool documentation 
+summary: Project Spool is cloud-based communications service that lets you add voice, video, chat, and telephony to your apps. 
+
 metadata:
-  title: Project Spool Documentation
-  meta.description: Learn how to use Azure Communication Services to add voice, video, and chat to your applications.
-  services: azure-communication-services
-  author: mickbengtson
-  manager: jken
-  ms.service: azure-communication-services
-  ms.tgt_pltfrm: na
-  ms.topic: landing-page
-  ms.date: 02/14/2020
+  title: Project Spool documentation 
+  description: Project Spool is cloud-based communications service that lets you add voice, video, chat, and telephony to your apps. 
+  ms.service: azure-functions 
+  ms.topic: landing-page # Required
+  author: mikben 
   ms.author: mikben
-abstract:
-  description: TODO... Spatial Anchors is a cross-platform developer service that allows you to create mixed reality experiences using objects that persist their location across devices over time.
-sections:
-- title: Concepts
-  items:
-  - type: paragraph
-    text: 'Learn key concepts to help get you started with Azure Spatial Anchors:'
-  - type: list
-    style: unordered
-    items:
-      - html: <a href="/azure/spatial-anchors/concepts/authentication">Authentication.</a>
-      - html: <a href="/azure/spatial-anchors/concepts/anchor-relationships-way-finding">Anchor relationships and way-finding.</a>
-      - html: <a href="/azure/spatial-anchors/concepts/guidelines-effective-anchor-experiences">Experience guidelines.</a>
-      - html: <a href="/azure/spatial-anchors/concepts/logging-diagnostics">Logging and diagnostics.</a>
-      - html: <a href="/azure/spatial-anchors/concepts/coarse-reloc">Coarse relocalization.</a>
-- title: 5-Minute Quickstarts
-  items:
-  - type: paragraph
-    text: 'Learn how to create your first application using Azure Spatial Anchors:'
-  - type: list
-    style: icon48
-    items:
-    - image:
-        src: /media/logos/logo_Windows.svg
-        alt:
-      text: Unity HoloLens
-      href: quickstarts/get-started-unity-hololens.md
-    - image:
-        src: /media/logos/logo_android.svg
-        alt:
-      text: Unity Android
-      href: quickstarts/get-started-unity-android.md
-    - image:
-        src: /media/logos/logo_ios.svg
-        alt:
-      text: Unity iOS
-      href: quickstarts/get-started-unity-ios.md
-    - image:
-        src: /media/logos/logo_Windows.svg
-        alt:
-      text: HoloLens
-      href: quickstarts/get-started-hololens.md
-    - image:
-        src: /media/logos/logo_android.svg
-        alt:
-      text: Android
-      href: quickstarts/get-started-android.md
-    - image:
-        src: /media/logos/logo_ios.svg
-        alt:
-      text: iOS
-      href: quickstarts/get-started-ios.md
-    - image:
-        src: /media/logos/logo_xamarin.svg
-        alt:
-      text: Xamarin Android
-      href: quickstarts/get-started-xamarin-android.md
-    - image:
-        src: /media/logos/logo_xamarin.svg
-        alt:
-      text: Xamarin iOS
-      href: quickstarts/get-started-xamarin-ios.md
-- title: Step-by-Step Tutorials
-  items:
-  - type: paragraph
-    text: 'Learn how to setup, manage, build, and deploy an app using Azure Spatial Anchors:'
-  - type: list
-    style: unordered
-    items:
-      - html: <a href="/azure/spatial-anchors/tutorials/tutorial-share-anchors-across-devices">Sharing across sessions and devices.</a>
-      - html: <a href="/azure/spatial-anchors/tutorials/tutorial-use-cosmos-db-to-store-anchors">Persistent sharing with Azure Cosmos DB.</a>
-      - html: <a href="/azure/spatial-anchors/tutorials/tutorial-new-unity-hololens-app">Starting a new Unity HoloLens app.</a>
-      - html: <a href="/azure/spatial-anchors/tutorials/tutorial-new-android-app">Starting a new Android app.</a>
-- title: Release Notes
-  items:
-  - type: paragraph
-    text: '<a href="https://github.com/Azure/azure-spatial-anchors-samples/releases">View release notes on GitHub.</a>'
+  ms.date: 03/10/2020 
+
+landingContent:
+  - title: About Project Spool
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Project Spool?
+            url: functions-overview.md 
+      - linkListType: concept
+        links:
+          - text: Hosting options
+            url: functions-scale.md
+      - linkListType: learn
+        links:
+          - text: Add voice and video to your app in 15 minutes (TODO Learn Module)
+            url: /learn/modules/choose-azure-service-to-integrate-and-automate-business-processes/index 
+      - linkListType: video
+        links:
+          - text: (TODO Build Video)
+            url: https://azure.microsoft.com/resources/videos/build-2019-where-should-i-host-my-code-choosing-between-kubernetes-containers-and-serverless/
+  - title: Get started
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Create and connect to a session
+            url: todo.md
+          - text: Send messages between two clients
+            url: todo.md
+          - text: Add voice chat to your app
+            url: todo.md
+          - text: Add video chat to your app
+            url: todo.md
+      - linkListType: learn
+        links:
+          - text: TODO Learn Module
+            url: /learn/modules/create-serverless-logic-with-azure-functions/
+      - linkListType: video
+        links:
+          - text: TODO Video
+            url: https://azure.microsoft.com/resources/videos/get-started-with-azure-functions/
+  - title: Samples
+    linkLists:
+      - linkListType: download
+        links:
+          - text: Project Spool samples
+            url: /samples/browse/?products=azure-functions
+          - text: Azure Resource Manager templates
+            url: https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Web&term=functions
+      - linkListType: how-to-guide
+        links:
+          - text: Azure CLI samples
+            url: functions-cli-samples.md
