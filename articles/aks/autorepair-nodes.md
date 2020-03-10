@@ -43,13 +43,7 @@ Auto-repair takes several steps to repair a broken node.  AKS uses the following
 Use [Availability Zones](availability-zones) to increase high availability with your AKS cluster workloads.
 
 <!-- LINKS - External -->
-[azure-support]: https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest
-[region-availability]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service
 
 <!-- LINKS - Internal -->
-[vm-skus]: ../virtual-machines/linux/sizes.md
-[nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
-[faq]: ./faq.md
 [availability-zones]: ./availability-zones.md
-[az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az-aks-create
 
