@@ -25,7 +25,8 @@ You'll also need to acquaint yourself with the following terms before we explain
 | Layer | An AutoCAD DWG layer|
 | Level | An area of a building at a set elevation. For example, the floor of a building |
 | Xref  | A DWG file attached to the primary drawing as an external reference |
-| Feature | |
+| Feature | An object that combines a geometry with an additional metadata information |
+| Feature Classes | A common blueprint for features. For example, a Unit is a feature class and an office is a feature |
 
 ## Package structure
 
@@ -54,7 +55,7 @@ Moreover:
 * The origins of drawings for all DWG files, of a facility, must align to the same latitude and longitude.
 * Each level must be in the same orientation
 * Self-intersecting polygons will be repaired automatically. A warning will be raised, so the repair results can be inspected manually.
-* All entities must be one of the following types: Line, PolyLine, Polygon, Circular Arc, Circle, Text (single line). Any other entity types will be ignored.
+* All CAD entities must be one of the following types: Line, PolyLine, Polygon, Circular Arc, Circle, Text (single line). Any other entity types will be ignored.
 
 The table below outlines the supported entity types for each layer. The layer ignores any mon-supported entity types.
 
@@ -74,7 +75,7 @@ The next sections detail the requirements for each layer.
 
 The DWG file for each level must contain a layer to define that level's perimeter. This layer is referred  to as the exterior layer.
 
-Regardless of how many entities you draw in the exterior layer, the resulting facility data set will contain only one level feature for each DWG file. Additionally, the exterior layer:
+Regardless of how many entities you draw in the exterior layer, the [resulting facility data set](indoor-data-management.md#Data-sets) will contain only one level feature for each DWG file. Additionally, the exterior layer:
 
 * Must contain at least one closed PolyLine, which defines the exterior perimeter of the building at that level
 * Must not contain multiple PolyLines
