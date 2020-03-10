@@ -67,10 +67,9 @@ async void LoadModel(AzureSession session, Entity modelParent, string storageAcc
     );
 
     // ... (identical to the SAS URI snippet above)
-}''
-```''
-''
-''
+}
+```
+
 Afterwards you can traverse the entity hierarchy and modify the entities and components. Loading the same model multiple times creates multiple instances, each with their own copy of the entity/component structure. Since meshes, materials, and textures are [shared resources](../concepts/lifetime.md), their data will not be loaded again, though. Therefore instantiating a model more than once incurs relatively little memory overhead.
 
 > [!CAUTION]
