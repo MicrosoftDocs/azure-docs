@@ -134,7 +134,13 @@ Heartbeat
 | where TimeGenerated > ago(30m)
 ```
 
-In the search results, you should see heartbeat records for the computer, indicating that it is connected and reporting to the service. By default, every agent forwards a heartbeat record to its assigned workspace. You can verify that the agent has correctly downloaded the Automation solution when it has a folder called **AzureAutomationFiles** in **C:\Program Files\Microsoft Monitoring Agent\Agent**. To confirm the version of the Hybrid Runbook Worker, browse to **C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation** and note the **version** subfolder.
+In the search results, you should see heartbeat records for the computer, indicating that it is connected and reporting to the service. By default, every agent forwards a heartbeat record to its assigned workspace. 
+
+Use the following steps to complete the agent installation and setup.
+
+1. Verify that the agent has correctly downloaded the Automation solution. It should have a folder called **AzureAutomationFiles** in **C:\Program Files\Microsoft Monitoring Agent\Agent**. 
+2. To confirm the version of the Hybrid Runbook Worker, browse to **C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation** and note the **version** subfolder.
+3. Enable the solution to onboard the agent machine. See [Onboard machines in the workspace](https://docs.microsoft.com/en-us/azure/automation/automation-onboard-solutions-from-automation-account#onboard-machines-in-the-workspace).
 
 ### Step 4 - Install the runbook environment and connect to Azure Automation
 
