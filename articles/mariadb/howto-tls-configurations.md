@@ -40,4 +40,4 @@ Follow these steps to set MariaDB server minimum TLS version:
 
 ## Next steps
 
-Learn about [how to create alerts on metrics](howto-alert-on-metric.md).
+Learn about [how to create alerts on metrics](howto-alert-metric.md).

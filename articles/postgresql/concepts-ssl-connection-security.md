@@ -60,11 +60,11 @@ psql "sslmode=verify-full sslrootcert=BaltimoreCyberTrustRoot.crt host=mydemoser
 > [!TIP]
 > Confirm that the value passed to `sslrootcert` matches the file path for the certificate you saved.
 
-# TLS connectivity in Azure Database for PostgreSQL Single server
+## TLS connectivity in Azure Database for PostgreSQL Single server
 
 Azure Database for PostgreSQL Single server supports privacy and data integrity over communications as clients connect to your database server using Transport Layer Security (TLS). TLS is an industry standard protocol that ensures secure network connections between your database server and your client applications and helps adhere to compliance requirements.
 
-## TLS settings
+### TLS settings
 
 Security conscious customers now have the ability to enforce the TLS version for the client connecting to their Azure Database for PostgreSQL Single server. To use the TLS option, use the **minumumTlsVersion** option setting. The following values are allowed for this option setting:
 

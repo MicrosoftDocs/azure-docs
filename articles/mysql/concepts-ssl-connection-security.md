@@ -22,11 +22,11 @@ Connection strings for various programming languages are shown in the Azure port
 
 To learn how to enable or disable SSL connection when developing application, refer to [How to configure SSL](howto-configure-ssl.md).
 
-# TLS connectivity in Azure Database for MySQL
+## TLS connectivity in Azure Database for MySQL
 
 Azure Database for MySQL supports privacy and data integrity over communications as clients connect to your database server using Transport Layer Security (TLS). TLS is an industry standard protocol that ensures secure network connections between your database server and your client applications and helps adhere to compliance requirements.
 
-## TLS settings
+### TLS settings
 
 Security conscious customers now have the ability to enforce the TLS version for the client connecting to their Azure Database for MySQL. To use the TLS option, use the **minumumTlsVersion** option setting. The following values are allowed for this option setting:
 
