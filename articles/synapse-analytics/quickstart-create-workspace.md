@@ -1,10 +1,10 @@
 ---
 title: Quickstart - create a workspace 
 description: Create an Azure Synapse Analytics workspace by following the steps in this guide. 
-services: synapse-analytics  
+services: synapse-analytics
 author: malvenko 
 ms.service: synapse-analytics 
-ms.topic: quickstart  
+ms.topic: quickstart
 ms.subservice: 
 ms.date: 03/15/2020
 ms.author: josels
@@ -66,7 +66,7 @@ Follow the steps below to delete the Azure Synapse workspace.
 >
 > Deleting the workspace will **not** affect the data in the Data Lake Store Gen2 linked to the workspace.
 
-If you want to delete the  Azure Synapse workspace, complete the following steps:
+If you want to delete the Azure Synapse workspace, complete the following steps:
 
 1. Navigate to the Azure Synapse workspace to delete.
 1. Press **delete** on the command bar.
@@ -77,4 +77,4 @@ If you want to delete the  Azure Synapse workspace, complete the following steps
 
 ## Next steps
 
-Next, you can [create SQL pools](quickstart-create-sql-pool.md) or [create Apache Spark pools](quickstart-create-apache-spark-pool.md) to start analyzing and exploring your data.
+Next, you can [create SQL pools](quickstart-create-sql-pool.md) or [create Spark pools](quickstart-create-apache-spark-pool.md) to start analyzing and exploring your data.

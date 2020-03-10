@@ -19,12 +19,12 @@
   - name: Create an Azure Synapse workspace
     href: quickstart-create-workspace.md
   - name: Use Azure Synapse Studio
-    href: quickstart-synapse-studio.md    
+    href: quickstart-synapse-studio.md
   - name: Create pools
     items:
-    - name: Create Spark pool
+    - name: Create Spark pool using web tools
       href: ./spark/apache-spark-notebook-create-spark-use-sql.md
-    - name: Create Apache Spark pool
+    - name: Create Spark pool using Azure portal
       href: quickstart-create-apache-spark-pool.md
     - name: Create SQL pool
       href: quickstart-create-sql-pool.md
@@ -46,8 +46,8 @@
     href: get-started.md
 - name: Tutorials
   items:
-  - name: Run Apache Spark applications for Synapse Spark Pools
-    href: ./spark/intellij-tool-synapse.md  
+  - name: Run Apache Spark applications for Spark pools
+    href: ./spark/intellij-tool-synapse.md
   - name: Power BI Professional
     href: ./sql-analytics/tutorial-connect-power-bi-desktop.md
   - name: Data Scientist
@@ -100,7 +100,7 @@
           href: ../data-factory/concepts-data-flow-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     - name: Maintenance schedule
       href: ../sql-data-warehouse/maintenance-scheduling.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-    - name: Backup and restore  
+    - name: Backup and restore
       href: ../sql-data-warehouse/backup-and-restore.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
   - name: Monitoring 
     items:
@@ -187,7 +187,7 @@
       # - name: Securing meta data objects
       #   href: article-template.md
   - name: Integration and orchestration
-    items:      
+    items:
     - name: Pipeline and activity
       href: ../data-factory/concepts-pipelines-activities.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     - name: Execution and trigger
@@ -209,7 +209,7 @@
       - name: What is Delta Lake
         href: ./spark/apache-spark-what-is-delta-lake.md
       - name: Apache Spark performance
-        href: ./spark/apache-spark-performance.md        
+        href: ./spark/apache-spark-performance.md
       # - name: Cheat sheet
       #   href: article-template.md
     - name: Development
@@ -403,7 +403,7 @@
   - name: Manage and monitor
     items:
     # - name: Cost monitoring and budgeting
-    #   href: article-template.md  
+    #   href: article-template.md
     # - name: Explore current workspace activity
     #   href: article-template.md
     # - name: Pipeline runs

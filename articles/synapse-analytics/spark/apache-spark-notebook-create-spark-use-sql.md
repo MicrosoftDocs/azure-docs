@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: Create an Apache Spark pool in Azure Synapse Analytics'
-description: This quickstart shows how to use the web tools to create an Apache Spark pool in Azure Synapse Analytics, and run a Spark SQL query.
+title: 'Quickstart: Create a Spark pool in Azure Synapse Analytics'
+description: This quickstart shows how to use the web tools to create a Spark pool in Azure Synapse Analytics, and run a Spark SQL query.
 author: euangMS
 ms.author: euang 
 ms.reviewer: jrasnick, carlrab
@@ -10,38 +10,32 @@ ms.topic: quickstart
 ms.date: 03/20/2020
 ---
 
-# Quickstart: Create an Apache Spark pool in Synapse Analytics using web tools
+# Quickstart: Create a Spark pool in Synapse Analytics using web tools
 
-In this quickstart, you learn how to create an Apache Spark pool in Azure Synapse Analytics using web tools. You then learn to connect to the Spark pool and run Spark SQL queries against files and tables. Apache Spark enables fast data analytics and cluster computing using in-memory processing. For information on Spark on Synapse Analytics, see [Overview: Apache Spark on Azure Synapse Analytics](apache-spark-overview.md).
+In this quickstart, you learn how to create a Spark pool in Azure Synapse Analytics using web tools. You then learn to connect to the Spark pool and run Spark SQL queries against files and tables. Apache Spark enables fast data analytics and cluster computing using in-memory processing. For information on Spark on Synapse Analytics, see [Overview: Apache Spark on Azure Synapse Analytics](apache-spark-overview.md).
 
-> [!IMPORTANT]  
+> [!IMPORTANT]
 > Billing for Spark instances is prorated per minute, whether you are using them or not. Be sure to shutdown your Spark instance after you have finished using it, or set a short timeout. For more information, see the **Clean up resources** section of this article.
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
-## Create a Synapse Analytics Apache Spark pool
+## Create a Spark pool
 
-This article shows you how to create a new Apache Spark pool using web tools.
+This article shows you how to create a new Spark pool using web tools.
 
 ## Create a notebook
 
 A notebook is an interactive environment that supports various programming languages. The notebook allows you to interact with your data, combine code with markdown, text and perform simple visualizations.
 
 1. From the Azure portal view for the Synapse Analytics workspace you want to use, select **Launch Synapse Studio**.
-
 2. Once Synapse Analytics Studio has launched, select **Develop**. Then, hover over the **Notebooks** entry. Select the ellipsis (**...**).
-
 3. From there, select **New notebook**. A new notebook is created and opened with an automatically generated name.
   ![New notebook](./media/apache-spark-notebook-create-spark-use-sql/spark-get-started-new-notebook.png "New notebook")
 
 4. In the **Properties** window, provide a name for the notebook.
-
 5. On the toolbar, click **Publish**.
-
 6. If there is only one Spark pool in your workspace, then it is selected by default. Use the drop-down to select the correct Spark pool if none is selected.
-
 7. Click **Add code**. The default language is `Pyspark`. You are going to use a mix of Pyspark and Spark SQL, so the default choice is fine.
-
 8. Next you create a simple Spark DataFrame object to manipulate. In this case, you create it from code. There are three rows and three columns:
 
    ```python
@@ -52,9 +46,9 @@ A notebook is an interactive environment that supports various programming langu
 
 9. Now run the cell using one of the following methods:
 
-    * Press **SHIFT + ENTER**.
-    * Select the blue play icon to the left of the cell.
-    * Select the **Run all** button on the toolbar.
+   - Press **SHIFT + ENTER**.
+   - Select the blue play icon to the left of the cell.
+   - Select the **Run all** button on the toolbar.
 
    ![Create data frame object](./media/apache-spark-notebook-create-spark-use-sql/spark-get-started-create-data-frame-object.png "Output from the Spark job ")
 
@@ -63,7 +57,6 @@ A notebook is an interactive environment that supports various programming langu
     ![Output from executing a cell](./media/apache-spark-notebook-create-spark-use-sql/run-cell-with-output.png "Output from the Spark job ")
 
 11. The data now exists in a DataFrame from there you can use the data in many different ways. You are going to need it in different formats for the rest of this quickstart.
-
 12. Enter the code below in another cell and run it, this creates a Spark table, a CSV, and a Parquet file all with copies of the data:
 
     ```python
@@ -107,17 +100,11 @@ SQL (Structured Query Language) is the most common and widely used language for 
     ![Query output in Synapse Analytics Spark](./media/apache-spark-notebook-create-spark-use-sql/spark-get-started-query.png "Query output in Synapse Analytics Spark")
 
 3. In the **View** switcher, select **Chart**
-
 4. Select the **View options** icon from the far right-hand side.
-
 5. In the **Chart type** field, select "bar chart".
-
 6. In the X-axis column field, select "state".
-
 7. In the Y-axis column field, select "salary".
-
 8. In the **Aggregation** field, select to "AVG".
-
 9. Select **Apply**.
 
    ![Chart output in Synapse Analytics Spark](./media/apache-spark-notebook-create-spark-use-sql/spark-get-started-query-chart-output.png "Chart output in Synapse Analytics Spark")
@@ -140,9 +127,9 @@ To ensure the Spark instance is shut down, end any connected sessions(notebooks)
 
 In this quickstart, you learned how to create a Synapse Analytics Spark pool and run a basic Spark SQL query.
 
-* [.NET for Apache Spark documentation](https://docs.microsoft.com/dotnet/spark)
-* [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)
-* [Apache Spark official documentation](https://spark.apache.org/docs/latest/)
+- [.NET for Apache Spark documentation](https://docs.microsoft.com/dotnet/spark)
+- [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)
+- [Apache Spark official documentation](https://spark.apache.org/docs/latest/)
 
 > [!NOTE]
 > Some of the official Apache Spark documentation relies on using the spark console, this is not available on Azure Synapse Spark, use the notebook or IntelliJ experiences instead
