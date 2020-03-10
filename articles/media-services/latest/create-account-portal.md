@@ -45,8 +45,7 @@ To complete this tutorial, you need an Azure account. For details, see [Azure Fr
    
     Once the account is successfully created, overview page loads. In the streaming endpoint table, the account will have a default streaming endpoint in the **Stopped** state. 
 
-    >[!NOTE]
-    >When your Media Services account is created a **default** streaming endpoint is added to your account in the **Stopped** state. To start streaming your content and take advantage of dynamic packaging and dynamic encryption, the streaming endpoint from which you want to stream content has to be in the **Running** state. 
+    When your Media Services account is created a **default** streaming endpoint is added to your account in the **Stopped** state. To start streaming your content and take advantage of dynamic packaging and dynamic encryption, the streaming endpoint from which you want to stream content has to be in the **Running** state. 
 
 > [!NOTE]
 > You can use the [Azure portal](https://portal.azure.com/) to manage v3 [Live Events](live-events-outputs-concept.md), view v3 [Assets](assets-concept.md), get info about accessing APIs. For all other management tasks (for example, Transforms and Jobs), use the [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), or one of the supported [SDKs](media-services-apis-overview.md#sdks).
