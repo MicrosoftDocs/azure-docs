@@ -1,36 +1,28 @@
 ---
 title: Create a single database
-description: Create and query a single database in Azure SQL Database using the Azure portal, PowerShell and Azure CLI.
+description: Create an  Azure SQL Database single database using the Azure portal, PowerShell, or Azure CLI. Query the database with Query Editor in the Azure portal.
 services: sql-database
 ms.service: sql-database
 ms.subservice: single-database
 ms.custom:
 ms.devlang:
 ms.topic: quickstart
-author: sachinpMSFT
-ms.author: ninarn
-ms.reviewer: carlrab, sstein, vanto
-ms.date: 02/14/2020
+author: v-thepet
+ms.author: v-thepet
+# ms.reviewer: carlrab, sstein, vanto
+ms.date: 03/06/2020
 ---
-# Quickstart: Create a single database in Azure SQL Database using the Azure portal, PowerShell, and Azure CLI
+# Quickstart: Create an Azure SQL Database single database
 
-Creating a [single database](sql-database-single-database.md) is the quickest and simplest deployment option for creating a database in Azure SQL Database. This quickstart shows you how to create and then query a single database using the Azure portal.
+In this quickstart, you use the Azure portal, a PowerShell script, or an Azure CLI script to create an Azure SQL Database single database. You then query the database using **Query editor** in the Azure portal. A [single database](sql-database-single-database.md) is the quickest and simplest deployment option for Azure SQL Database. 
 
-If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/). 
+You manage a single database within a [SQL Database server](sql-database-servers.md), which is inside an [Azure resource group](../azure-resource-manager/management/overview.md) in a specified Azure region. In this quickstart, you create a new resource group and SQL server for the new database.
 
-For all steps in this quickstart, sign in to the [Azure portal](https://portal.azure.com/).
+You can create a single database in the *provisioned* or *serverless* compute tier. A provisioned database is pre-allocated a fixed amount of compute resources, including CPU and memory, and uses one of two [purchasing models](sql-database-purchase-models.md). This quickstart creates a provisioned database using the [vCore-based](sql-database-service-tiers-vcore.md) purchasing model, but you can also choose a [DTU-based](sql-database-service-tiers-DTU.md) model. The serverless compute tier has a range of compute resources, including CPU and memory, that are auto-scaled, and is only available in the vCore-based purchasing model.
+
+This quickstart requires an active Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/). 
 
 ## Create a single database
-
-A single database can either be created in the provisioned or serverless compute tier.
-
-- A single database in the provisioned compute tier is pre-allocated a fixed amount of compute resources including CPU and memory using one of two [purchasing models](sql-database-purchase-models.md).
-- A single database in the serverless compute tier has a range of compute resources including CPU and memory that are auto-scaled and is only available in the [vCore-based purchasing models](sql-database-service-tiers-vcore.md).
-
-When you create a single database, you also define a [SQL Database server](sql-database-servers.md) to manage it and place it within [Azure resource group](../azure-resource-manager/management/overview.md) in a specified region.
-
-> [!NOTE]
-> This quickstart uses the [vCore-based purchasing model](sql-database-service-tiers-vcore.md), but the [DTU-based purchasing model](sql-database-service-tiers-DTU.md) is also available.
 
 To create a single database containing the AdventureWorksLT sample data:
 
@@ -38,13 +30,13 @@ To create a single database containing the AdventureWorksLT sample data:
 
 ## Query the database
 
-Now that you've created the database, use the built-in query tool in the Azure portal to connect to the database and query the data.
+Now you can use the built-in **Query editor** in the Azure portal to connect to the database and query the data.
 
 1. On the **SQL Database** page for your database, select **Query editor (preview)** in the left menu.
 
-   ![Sign in to Query editor](./media/sql-database-get-started-portal/query-editor-login.png)
+   ![Sign in to Query editor](./media/sql-database-single-database-get-started/query-editor-login.png)
 
-2. Enter your login information, and select **OK**.
+2. Enter your server admin login information, and select **OK**.
 3. Enter the following query in the **Query editor** pane.
 
    ```sql
@@ -56,13 +48,13 @@ Now that you've created the database, use the built-in query tool in the Azure p
 
 4. Select **Run**, and then review the query results in the **Results** pane.
 
-   ![Query editor results](./media/sql-database-get-started-portal/query-editor-results.png)
+   ![Query editor results](./media/sql-database-single-database-get-started/query-editor-results.png)
 
 5. Close the **Query editor** page, and select **OK** when prompted to discard your unsaved edits.
 
 ## Clean up resources
 
-Keep this resource group, database server, and single database if you want to go to the [Next steps](#next-steps). The next steps show you how to connect and query your database using different methods.
+Keep the resource group, server, and single database to go on to the next steps, and learn how to connect and query your database with different methods.
 
 When you're finished using these resources, you can delete them as follows:
 
