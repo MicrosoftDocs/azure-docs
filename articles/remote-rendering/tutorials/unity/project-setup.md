@@ -13,7 +13,6 @@ In this tutorial you will learn:
 
 > [!div class="checklist"]
 >
-> * Getting the required NuGet packages.
 > * Configuring a scratch Unity project for ARR.
 > * Creating and stopping rendering sessions.
 > * Reusing existing sessions.
@@ -29,46 +28,49 @@ For this tutorial you need:
 * Your account information (account ID, account key, subscription ID)
 
 > [!TIP]
-> The [arrClient repository](https://dev.azure.com/arrClient/arrClient/_git/arrClient) contains prepared Unity projects for all tutorials, that you can use as reference.
-
-## Prepare a folder
-
-1. Create a folder that will hold the NuGet packages and Unity project folder, for example `C:\RemoteRendering\`. You can use this folder to store multiple Unity projects, if needed.
-
-1. Install the latest NuGet packages:
-
-    ```PowerShell
-    nuget.exe install com.microsoft.azure.remote_rendering -ExcludeVersion
-    ```
-
-    If any of the NuGet commands fail, make sure you set up [these prerequisites](../../quickstarts/render-model.md#prerequisites) correctly.
+> The [arrClient repository](https://dev.azure.com/arrClient/arrClient/_git/arrClient) contains prepared Unity projects for all tutorials. You can use those projects as a reference.
 
 ## Create a new Unity project
 
-From the Unity Hub, create a new project in the folder created above (for example, `C:\RemoteRendering\`).
+From the Unity Hub, create a new project.
+In this example, we'll assume the project is being created in a folder called `RemoteRendering`.
 
 ![new project window](media/new-project.png)
 
 ## Configure the project's manifest
 
-You need to modify the file `Packages/manifest.json` that's located in your Unity project folder. Open the file in a text editor and append the lines listed below:
+You need to modify the file `Packages/manifest.json` that is located in your Unity project folder. Open the file in a text editor and append the lines listed below:
 
 ```json
 {
+  "scopedRegistries": [
+    {
+      "name": "Azure Mixed Reality Services",
+      "url": "https://api.bintray.com/npm/microsoft/AzureMixedReality-NPM/",
+      "scopes": ["com.microsoft.azure"]
+    }
+   ],
   "dependencies": {
-    ...existing dependencies...,
-    "com.microsoft.azure.remote_rendering": "file:../../com.microsoft.azure.remote_rendering",
-    "com.unity.render-pipelines.universal": "7.2.1",
+    "com.microsoft.azure.remote-rendering": "0.1.11",
+    ...existing dependencies...
   }
 }
 ```
 
-> [!IMPORTANT]
-> The relative paths used above expect that the NuGet packages were installed next to the Unity project. If you installed them somewhere else you need to adjust the paths accordingly.
-
 After you modified and saved the manifest, Unity will automatically refresh. Confirm the packages have been loaded in the *Project* window:
 
 ![confirm package imports](media/confirm-packages.png)
+
+## Ensure you have the latest version of the package
+
+The following steps ensure that your project is using the latest version of the remote-rendering package.
+1. Select the package in the Project window and click on the package icon:
+![Selecting the package icon](media/packageIcons.png)
+1. In the Inspector, click "View in Package Manager":
+![package inspector](media/packageProperties.png)
+1. In the package manager page for remote rendering package, see if the update button is available. If it is, then clicking it will update the package to the latest available version:
+![The ARR package in the package manager](media/packageManager.png)
+1. Sometimes updating the package may lead to errors in the console. If this occurs, try closing and reopening the project.
 
 ## Configure the camera
 

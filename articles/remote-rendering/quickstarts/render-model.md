@@ -30,24 +30,6 @@ The following software must be installed:
 * The latest version of Visual Studio 2019 [(download)](https://visualstudio.microsoft.com/vs/older-downloads/)
 * GIT [(download)](https://git-scm.com/downloads)
 * Unity 2019.3.1 [(download)](https://unity3d.com/get-unity/download)
-* The NuGet command-line tool and Credential Provider (see below)
-
-### Installing NuGet
-
-1. Go to [https://dev.azure.com/arrClient/arrClient](https://dev.azure.com/arrClient/arrClient).
-1. Click on **Artifacts**, change the dropdown to **ArrPackages**, and click on **Connect to feed**.
-  ![Connect to Feed 1](../overview/media/connect-to-feed.png)
-1. Click on **Nuget.exe**, then **Get the tools**
-  ![Connect to Feed 2](../overview/media/connect-to-feed-2.png)
-1. From the link under *Step 1*, download the latest NuGet.exe (under *Windows x86 Commandline*)
-1. Copy NuGet.exe to some folder and add the location to your `PATH` environment variable.
-1. The page linked under *Step 2* describes how to install the NuGet Credential Provider. The [manual installation](https://github.com/microsoft/artifacts-credprovider#manual-installation-on-windows) is straight forward.
-1. Open a **new** command prompt (if you had to change your `PATH` environment variable you cannot reuse an existing one).
-1. Add the "arrPackages" feed with the following NuGet command:
-  
-    ```cmd
-    NuGet.exe sources Add -Name "ArrPackages" -Source "https://pkgs.dev.azure.com/arrClient/_packaging/ArrPackages/nuget/v3/index.json"
-    ```
 
 ## Clone the sample app
 
@@ -63,23 +45,7 @@ git clone https://dev.azure.com/arrClient/arrClient/_git/arrClient
 
 The last command creates a subdirectory in the ARR directory containing the various sample projects for Azure Remote Rendering.
 
-The quickstart sample app for Unity is found in the subdirectory *Unity/Quickstart* but **do not open it yet**:
-It expects Unity packages to be present in directory beside it, which you need to first obtain using NuGet.
-
-## Getting the Unity NuGet packages
-
-You need to use NuGet commands to pull the packages from the ARR depot – from the same command prompt window within the ARR directory, run the following command:
-
-```cmd
-cd arrClient\Unity
-nuget install com.microsoft.azure.remote_rendering -ExcludeVersion
-```
-
-If the NuGet command results in authentication prompts, make sure you have NuGet and the NuGet Credential Provider installed as described in the prerequisites above.
-
-The command above will download a NuGet package, carrying a Unity package. This operation adds the following directory to your *ARR\arrClient\Unity* folder:
-
-* *com.microsoft.azure.remote_rendering* - The Unity package, which provides the client functionality of Azure Remote Rendering
+The quickstart sample app for Unity is found in the subdirectory *Unity/Quickstart*.
 
 ## Rendering a model with the Unity sample project
 
