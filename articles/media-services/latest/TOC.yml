@@ -6,7 +6,12 @@
     href: media-services-overview.md
   - name: What's new in Media Services
     displayName: release notes
-    href: release-notes.md    
+    href: release-notes.md
+- name: Quickstarts
+  items:
+  - name: Live event with portal and Wirecast
+    displayName: live, event, portal, wirecast
+    href: live-events-wirecast-quickstart.md
 - name: Tutorials
   expanded: true
   items:
@@ -189,10 +194,10 @@
   - name: High availability
     items:
     - name: Encoding
-      displayName: failover, bcdr
+      displayName: failover, bcdr, HA, high availability
       href: media-services-high-availability-encoding.md
     - name: Streaming
-      displayName: failover, bcdr
+      displayName: failover, bcdr, HA, high availability
       href: media-services-high-availability-streaming.md
   - name: Migration guidance from v2 to v3
     href: migrate-from-v2-to-v3.md 
@@ -201,11 +206,15 @@
   items:
   - name: Get started
     items:
+    - name: Create an account - portal
+      href: create-account-portal.md
     - name: Create an account - CLI
       href: create-account-cli-how-to.md  
       displayName: storage
     - name: Reset the account credentials - CLI
-      href: cli-reset-account-credentials.md      
+      href: cli-reset-account-credentials.md   
+    - name: Access APIs - portal
+      href: access-api-portal.md   
     - name: Access APIs - CLI
       href: access-api-cli-how-to.md
     - name: Scale Media Reserved Units - CLI
