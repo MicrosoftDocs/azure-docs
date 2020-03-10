@@ -17,8 +17,8 @@
   - name: Assign a policy - Azure CLI
     displayName: assign, compliance
     href: assign-policy-azurecli.md
-  - name: Assign a policy - ARM template
-    displayName: assign, compliance, resource manager,
+  - name: Assign a policy - template
+    displayName: assign, compliance, resource manager, ARM
     href: assign-policy-template.md
 - name: Tutorials
   items:
