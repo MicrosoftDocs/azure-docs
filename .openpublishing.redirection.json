@@ -49252,6 +49252,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/integrations/index.yml",
+      "redirect_url": "https://azure.microsoft.com/products/developer-tool-integrations/",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/sdks/index.yml",
       "redirect_url": "https://azure.microsoft.com/downloads/",
       "redirect_document_id": false
