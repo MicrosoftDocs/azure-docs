@@ -6,7 +6,7 @@ ms.topic: conceptual
 ms.date: 03/10/2020
 ---
 
-# Azure Kubernetes Service (AKS) node auto-repair functionality
+# Azure Kubernetes Service (AKS) node auto-repair
 
 AKS continuously checks the health state of worker nodes and performs automatic repair of the nodes if they become unhealthy.
 
