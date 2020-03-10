@@ -3,7 +3,9 @@ title: "Quickstart: New policy assignment with templates"
 description: In this quickstart, you use a Resource Manager template to create a policy assignment to identify non-compliant resources.
 ms.date: 11/25/2019
 ms.topic: quickstart
+ms.custom:subject-armqs
 ---
+
 # Quickstart: Create a policy assignment to identify non-compliant resources by using a Resource Manager template
 
 The first step in understanding compliance in Azure is to identify the status of your resources.

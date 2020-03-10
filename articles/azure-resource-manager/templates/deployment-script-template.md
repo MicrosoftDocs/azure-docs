@@ -70,7 +70,10 @@ The benefits of deployment script:
   ```
   ---
 
-- **Azure PowerShell version 3.0.0, 2.8.0 or 2.7.0** or **Azure CLI version 2.0.80, 2.0.79, 2.0.78 or 2.0.77**. You don't need these versions for deploying templates. But these versions are needed for testing deployment scripts locally. See [Install the Azure PowerShell module](/powershell/azure/install-az-ps). You can use a preconfigured Docker image.  See [Configure development environment](#configure-development-environment).
+- **Azure PowerShell** or **Azure CLI**. For a list of supported versions, browse to [Azure PowerShell versions](https://mcr.microsoft.com/v2/azuredeploymentscripts-powershell/tags/list), or [Azure CLI versions](https://mcr.microsoft.com/v2/azure-cli/tags/list). You don't need these versions for deploying templates. But these versions are needed for testing deployment scripts locally. See [Install the Azure PowerShell module](/powershell/azure/install-az-ps). You can use a preconfigured Docker image.  See [Configure development environment](#configure-development-environment).
+
+> [!NOTE]
+> Deployment script only supports a subset of the list provided by [Azure CLI versions](https://mcr.microsoft.com/v2/azure-cli/tags/list). 
 
 ## Sample templates
 
