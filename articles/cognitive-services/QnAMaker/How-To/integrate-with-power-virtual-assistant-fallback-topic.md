@@ -182,6 +182,7 @@ The final canvas is shown below.
 
 Test the agent by typing in a question that your knowledge base can answer. The authoring canvas reports the successful steps with a green checkmark.
 
-![![Test you Power Virtual Agent with a query meant for your knowledge base.](../media/how-to-integrate-power-virtual-agent/power-virtual-agent-test.png)](../media/how-to-integrate-power-virtual-agent/power-virtual-agent-test.png#lightbox)
+[![Test you Power Virtual Agent with a query meant for your knowledge base.](../media/how-to-integrate-power-virtual-agent/power-virtual-agent-test.png)](../media/how-to-integrate-power-virtual-agent/power-virtual-agent-test.png#lightbox)
 
 ## Next step
+
