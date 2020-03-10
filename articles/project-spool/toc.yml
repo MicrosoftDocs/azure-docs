@@ -9,8 +9,6 @@
     href: internalquestions.md
   - name: Docs Priorities
     href: docspriorities.md
-  - name: Internal Developer Quickstart
-    href: internaldevquickstart.md
   - name: Canonical Scenarios
     href: canonicalscenarios.md
   - name: Automating Reference Docs
