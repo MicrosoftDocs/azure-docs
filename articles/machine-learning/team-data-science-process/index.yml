@@ -40,5 +40,5 @@ landingContent:
         links:
           - text: Project planning
             url: team-data-science-process-project-templates.md
-          - text: Agile development.md
+          - text: Agile development
             url: agile-development.md
