@@ -41,9 +41,11 @@ Create an ASP.NET Core web app by following these steps:
 
    ![Configure your web app project](./media/app-service-web-get-started-dotnet/configure-web-app-project.png)
 
-1. For this quickstart, choose the **Web Application** template. You can deploy any type of ASP.NET Core web app to Azure. Make sure Authentication is set to **No Authentication** and no other option is selected. Select **Create**.
+1. Choose the **Web Application** template. Make sure Authentication is set to **No Authentication** and no other option is selected. Select **Create**.
 
    ![Select ASP.NET Core Razor Pages for this tutorial](./media/app-service-web-get-started-dotnet/aspnet-razor-pages-app.png)
+
+   You can deploy any type of ASP.NET Core web app to Azure. 
    
 1. From the Visual Studio menu, select **Debug** > **Start Without Debugging** to run the web app locally.
 
@@ -75,7 +77,7 @@ Create an ASP.NET Core web app by following these steps:
 
    ![Deploy web app to Azure](./media/app-service-web-get-started-dotnet/deploy-web-app.png)
 
-This publishes the ASP.NET Core web app to Azure, and then launches the app in the default browser.
+This publishes your ASP.NET Core web app to Azure, and launches the app in your default browser.
 
 ![Published ASP.NET web app in Azure](./media/app-service-web-get-started-dotnet/web-app-running-live.png)
 
@@ -120,11 +122,13 @@ This opens your web app's **Overview** page, containing options for basic manage
 
 ![App Service in Azure portal](./media/app-service-web-get-started-dotnet/web-app-general-vs2019.png)
 
-
-
 [!INCLUDE [Clean-up section](../../includes/clean-up-section-portal.md)]
 
 ## Next steps
+
+In this quickstart, you used Visual Studio to create and deploy an ASP.NET Core web app to Azure App Service.
+
+Advance to the next article to learn how to create a .NET Core app and connect it to a SQL Database:
 
 > [!div class="nextstepaction"]
 > [ASP.NET Core with SQL Database](app-service-web-tutorial-dotnetcore-sqldb.md)
