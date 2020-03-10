@@ -182,7 +182,7 @@
       - name: Build image with Buildpacks (preview)
         href: container-registry-tasks-pack-build.md
       - name: View task logs
-        href: container-registry-tasks-logs
+        href: container-registry-tasks-logs.md
 - name: Reference
   expanded: false
   items:
