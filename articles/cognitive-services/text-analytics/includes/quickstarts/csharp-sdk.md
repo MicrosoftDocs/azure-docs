@@ -165,7 +165,7 @@ static void SentimentAnalysisExample(TextAnalyticsClient client)
     var si = new StringInfo(inputText);
     foreach (var sentence in documentSentiment.Sentences)
     {
-        Console.WriteLine($"\tSentence [offset {sentence.GraphemeOffset}, length {sentence.GraphemeLength}]");
+        Console.WriteLine($"\tSentence [length {sentence.GraphemeLength}]");
         Console.WriteLine($"\tText: \"{si.SubstringByTextElements(sentence.GraphemeOffset, sentence.GraphemeLength)}\"");
         Console.WriteLine($"\tSentence sentiment: {sentence.Sentiment}");
         Console.WriteLine($"\tPositive score: {sentence.ConfidenceScores.Positive:0.00}");
@@ -180,14 +180,14 @@ static void SentimentAnalysisExample(TextAnalyticsClient client)
 ```console
 Document sentiment: Positive
 
-        Sentence [offset 0, length 30]
+        Sentence [length 30]
         Text: "I had the best day of my life."
         Sentence sentiment: Positive
         Positive score: 1.00
         Negative score: 0.00
         Neutral score: 0.00
 
-        Sentence [offset 31, length 30]
+        Sentence [length 30]
         Text: "I wish you were there with me."
         Sentence sentiment: Neutral
         Positive score: 0.21
@@ -267,13 +267,14 @@ Create a new function called `EntityRecognitionExample()` that takes the client 
 
 ```csharp
 static void EntityRecognitionExample(TextAnalyticsClient client)
+static void EntityRecognitionExample(TextAnalyticsClient client)
 {
     var response = client.RecognizeEntities("I had a wonderful trip to Seattle last week.");
     Console.WriteLine("Named Entities:");
     foreach (var entity in response.Value)
     {
         Console.WriteLine($"\tText: {entity.Text},\tCategory: {entity.Category},\tSub-Category: {entity.SubCategory}");
-        Console.WriteLine($"\t\tOffset: {entity.GraphemeOffset},\tLength: {entity.GraphemeLength},\tScore: {entity.ConfidenceScore:F2}\n");
+        Console.WriteLine($"\t\tLength: {entity.GraphemeLength},\tScore: {entity.ConfidenceScore:F2}\n");
     }
 }
 ```
@@ -283,10 +284,10 @@ static void EntityRecognitionExample(TextAnalyticsClient client)
 ```console
 Named Entities:
         Text: Seattle,  Category: Location,     Sub-Category: GPE
-                Offset: 26,     Length: 7,      Score: 0.92
+                Length: 7,      Score: 0.92
 
         Text: last week,        Category: DateTime,     Sub-Category: DateRange
-                Offset: 34,     Length: 9,      Score: 0.80
+                Length: 9,      Score: 0.80
 ```
 
 ## Detect personal information
@@ -302,7 +303,7 @@ static void EntityPIIExample(TextAnalyticsClient client)
     foreach (var entity in response.Value)
     {
         Console.WriteLine($"\tText: {entity.Text},\tCategory: {entity.Category},\tSub-Category: {entity.SubCategory}");
-        Console.WriteLine($"\t\tOffset: {entity.GraphemeOffset},\tLength: {entity.GraphemeLength},\tScore: {entity.ConfidenceScore:F2}\n");
+        Console.WriteLine($"\t\tLength: {entity.GraphemeLength},\tScore: {entity.ConfidenceScore:F2}\n");
     }
 }
 ```
@@ -311,8 +312,8 @@ static void EntityPIIExample(TextAnalyticsClient client)
 
 ```console
 Personally Identifiable Information Entities:
-        Text: 123-12-1234,      Category: U.S. Social Security Number (SSN),    Sub-Category: None
-                Offset: 33,     Length: 11,     Score: 0.85
+        Text: 123-12-1234,      Category: U.S. Social Security Number (SSN),    Sub-Category:
+                Length: 11,     Score: 0.85
 ```
 
 
@@ -337,7 +338,7 @@ static void EntityLinkingExample(TextAnalyticsClient client)
         foreach (var match in entity.Matches)
         {
             Console.WriteLine($"\t\tText: {match.Text}");
-            Console.WriteLine($"\t\tOffset: {match.GraphemeOffset},\tLength: {match.GraphemeLength},\tScore: {match.ConfidenceScore:F2}\n");
+            Console.WriteLine($"\t\tLength: {match.GraphemeLength},\tScore: {match.ConfidenceScore:F2}\n");
         }
     }
 }
@@ -350,38 +351,38 @@ Linked Entities:
         Name: Altair 8800,      ID: Altair 8800,        URL: https://en.wikipedia.org/wiki/Altair_8800  Data Source: Wikipedia
         Matches:
                 Text: Altair 8800
-                Offset: 116,    Length: 11,     Score: 0.79
+                Length: 11,     Score: 0.78
 
         Name: Bill Gates,       ID: Bill Gates, URL: https://en.wikipedia.org/wiki/Bill_Gates   Data Source: Wikipedia
         Matches:
                 Text: Bill Gates
-                Offset: 25,     Length: 10,     Score: 0.55
+                Length: 10,     Score: 0.55
 
                 Text: Gates
-                Offset: 161,    Length: 5,      Score: 0.55
+                Length: 5,      Score: 0.55
 
         Name: Paul Allen,       ID: Paul Allen, URL: https://en.wikipedia.org/wiki/Paul_Allen   Data Source: Wikipedia
         Matches:
                 Text: Paul Allen
-                Offset: 40,     Length: 10,     Score: 0.53
+                Length: 10,     Score: 0.53
 
         Name: Microsoft,        ID: Microsoft,  URL: https://en.wikipedia.org/wiki/Microsoft    Data Source: Wikipedia
         Matches:
                 Text: Microsoft
-                Offset: 0,      Length: 9,      Score: 0.47
+                Length: 9,      Score: 0.47
 
                 Text: Microsoft
-                Offset: 150,    Length: 9,      Score: 0.47
+                Length: 9,      Score: 0.47
 
         Name: April 4,  ID: April 4,    URL: https://en.wikipedia.org/wiki/April_4      Data Source: Wikipedia
         Matches:
                 Text: April 4
-                Offset: 54,     Length: 7,      Score: 0.25
+                Length: 7,      Score: 0.25
 
         Name: BASIC,    ID: BASIC,      URL: https://en.wikipedia.org/wiki/BASIC        Data Source: Wikipedia
         Matches:
                 Text: BASIC
-                Offset: 89,     Length: 5,      Score: 0.28
+                Length: 5,      Score: 0.28
 ```
 
 #### [Version 2.1](#tab/version-2)
