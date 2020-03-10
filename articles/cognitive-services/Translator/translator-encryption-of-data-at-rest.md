@@ -34,7 +34,7 @@ For subscriptions that only support Microsoft-managed encryption keys, you will 
 There is also an option to manage your subscription with your own keys. Customer-managed keys (CMK), also known as Bring your own key (BYOK), offer greater flexibility to create, rotate, disable, and revoke access controls. You can also audit the encryption keys used to protect your data.
 
 > [!IMPORTANT]
-> Customer-managed keys are available for all pricing tiers for the Translator service. To request the ability to use customer-managed keys, fill out and submit the Face Service [Translator Customer-Managed Key Request Form](https://aka.ms/cogsvc-cmk) It will take approximately 3-5 business days to hear back on the status of your request. Depending on demand, you may be placed in a queue and approved as space becomes available. Once approved for using CMK with the Translator service, you will need to create a new Translator resource. Once your Translator resource is created, you can use Azure Key Vault to set up your managed identity.
+> Customer-managed keys are available for all pricing tiers for the Translator service. To request the ability to use customer-managed keys, fill out and submit the [Translator Customer-Managed Key Request Form](https://aka.ms/cogsvc-cmk) It will take approximately 3-5 business days to hear back on the status of your request. Depending on demand, you may be placed in a queue and approved as space becomes available. Once approved for using CMK with the Translator service, you will need to create a new Translator resource. Once your Translator resource is created, you can use Azure Key Vault to set up your managed identity.
 
 Follow these steps to enable customer-managed keys for Translator:
 
