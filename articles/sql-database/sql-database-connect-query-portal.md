@@ -171,6 +171,8 @@ There are a few things to know when working with the query editor.
 
 * There's no support for IntelliSense for database tables and views. However, the editor does support autocomplete on names that have already been typed.
 
+* Query Editor works with Private Link without needing to add the Client Ip address into the SQL Database firewall
+
 
 ## Next steps
 
