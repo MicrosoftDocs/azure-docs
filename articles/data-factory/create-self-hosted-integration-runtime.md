@@ -10,7 +10,7 @@ author: nabhishek
 ms.author: abnarain
 manager: anandsub
 ms.custom: seo-lt-2019
-ms.date: 06/18/2019
+ms.date: 03/10/2020
 ---
 
 # Create and configure a self-hosted integration runtime
