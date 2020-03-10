@@ -36,6 +36,18 @@ Here are some things to keep in mind:
   Reads from Primary are always stable: can never be false progressed.
 * Security/Privacy of the data persisted by your application in a reliable collection is your decision and subject to the protections provided by your storage management; I.E. Operating System disk encryption could be used to protect your data at rest.  
 
+## Volatile Reliable Collections
+When deciding to use volatile reliable collections, consider the following:
+
+* ```ReliableDictionary``` does have volatile support
+* ```ReliableQueue``` does have volatile support
+* ```ReliableConcurrentQueue``` does NOT have volatile support
+* Persisted services CANNOT be made volatile. Changing the ```HasPersistedState``` flag to ```false``` requires recreating the entire service from scratch
+* Volatile services CANNOT be made persisted. Changing the ```HasPersistedState``` flag to ```true``` requires recreating the entire service from scratch
+* ```HasPersistedState``` is a service level config. This means that **ALL** collections will either be persisted or volatile. You cannont mix volatile and persisted collections
+* Quorum loss of a volatile partition results in complete data loss
+* Backup and restore is NOT available for volatile services
+
 ### Next steps
 * [Working with Reliable Collections](service-fabric-work-with-reliable-collections.md)
 * [Transactions and Locks](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
