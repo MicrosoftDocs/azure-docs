@@ -34,7 +34,7 @@ Sign in to the [Azure portal](https:/portal.azure.com/)
 ## Create new Apache Spark pool
 
 1. In the Synapse workspace where you want to create the Apache Spark pool, click **New Apache Spark pool**.
-![Overview of Synapse workspace with a red box around the command to create a new Apache Spark pool](media/quickstart-create-apache-spark-pool/quickstart-create-spark-pool-01.png).
+![Overview of Synapse workspace with a red box around the command to create a new Apache Spark pool](media/quickstart-create-apache-spark-pool/quickstart-create-spark-pool-01.png)
 2. Enter the following details in the **Basics** tab:
 
     |Setting | Suggested value | Description |
