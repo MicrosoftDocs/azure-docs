@@ -138,9 +138,9 @@ In the search results, you should see heartbeat records for the computer, indica
 
 Use the following steps to complete the agent installation and setup.
 
-1. Verify that the agent has correctly downloaded the Automation solution. It should have a folder called **AzureAutomationFiles** in **C:\Program Files\Microsoft Monitoring Agent\Agent**. 
-2. To confirm the version of the Hybrid Runbook Worker, browse to **C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation** and note the **version** subfolder.
-3. Enable the solution to onboard the agent machine. See [Onboard machines in the workspace](https://docs.microsoft.com/en-us/azure/automation/automation-onboard-solutions-from-automation-account#onboard-machines-in-the-workspace).
+1. Enable the solution to onboard the agent machine. See [Onboard machines in the workspace](https://docs.microsoft.com/azure/automation/automation-onboard-solutions-from-automation-account#onboard-machines-in-the-workspace).
+2. Verify that the agent has correctly downloaded the Automation solution. It should have a folder called **AzureAutomationFiles** in **C:\Program Files\Microsoft Monitoring Agent\Agent**. 
+3. To confirm the version of the Hybrid Runbook Worker, browse to **C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation** and note the **version** subfolder.
 
 ### Step 4 - Install the runbook environment and connect to Azure Automation
 
