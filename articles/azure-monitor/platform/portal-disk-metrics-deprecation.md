@@ -40,39 +40,48 @@ Here is a table of the old metrics that are being removed and their correspondin
 
 2. Click on the Manage Alert Rules Icon near the top left corner
 
-   ![Image description](./media/portal-disk-metrics-deprecation/tempImage.png)
+   > [!div class="mx-imgBorder"]
+   > ![Image description](./media/portal-disk-metrics-deprecation/tempImage.png)
 
 3. Now in the drop-down menus filter for Virtual Machines for the resource type and Metrics for the Signal type.
 
-   ![Image description](./media/portal-disk-metrics-deprecation/tempImage.png)
+   > [!div class="mx-imgBorder"]
+   > ![Image description](./media/portal-disk-metrics-deprecation/tempImage.png)
 
 4. Now go through the results and look for any conditions that relate to Disks, note that they will not have the preview text next to them and click into these alerts and Click on their names.
 
-   ![Image description](./media/portal-disk-metrics-deprecation/tempImage.png)
+   > [!div class="mx-imgBorder"]
+   > ![Image description](./media/portal-disk-metrics-deprecation/tempImage.png)
 
 5. Now in rules menu, go to the condition and click on the blue text to adjust the condition.
 
-   ![Image description](./media/portal-disk-metrics-deprecation/tempImage.png)
+   > [!div class="mx-imgBorder"]
+   > ![Image description](./media/portal-disk-metrics-deprecation/tempImage.png)
 
 6. Make note of what the alert is set to because this information will not be there when you come back with the new metric.
 
-   ![Image description](./media/portal-disk-metrics-deprecation/tempImage.png)
+   > [!div class="mx-imgBorder"]
+   > ![Image description](./media/portal-disk-metrics-deprecation/tempImage.png)
 
 7. Now select Back to signal selection in new window.
 
-   ![Image description](./media/portal-disk-metrics-deprecation/tempImage.png)
+   > [!div class="mx-imgBorder"]
+   > ![Image description](./media/portal-disk-metrics-deprecation/tempImage.png)
 
 8. And now change the signal selection to the corresponding new metric by searching for it in the search menu and locating it when it pops up.
 
-   ![Image description](./media/portal-disk-metrics-deprecation/tempImage.png)
+   > [!div class="mx-imgBorder"]
+   > ![Image description](./media/portal-disk-metrics-deprecation/tempImage.png)
 
 9. Now set your Alert and click Done at the very bottom.
 
-   ![Image description](./media/portal-disk-metrics-deprecation/tempImage.png)
+   > [!div class="mx-imgBorder"]
+   > ![Image description](./media/portal-disk-metrics-deprecation/tempImage.png)
 
 10. Now click Save to complete your migration.
 
-    ![Image description](./media/portal-disk-metrics-deprecation/tempImage.png)
+   > [!div class="mx-imgBorder"]
+   > ![Image description](./media/portal-disk-metrics-deprecation/tempImage.png)
 
 
 
