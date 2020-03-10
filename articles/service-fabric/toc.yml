@@ -317,6 +317,8 @@
         href: service-fabric-cluster-resource-manager-defragmentation-metrics.md
       - name: Balance a cluster
         href: service-fabric-cluster-resource-manager-balancing.md
+      - name: Sub-clustering
+        href: service-fabric-cluster-resource-manager-sub-clustering.md
       - name: Throttling
         href: service-fabric-cluster-resource-manager-advanced-throttling.md
       - name: Service movement
