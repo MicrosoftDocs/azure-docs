@@ -42,7 +42,7 @@ To configure the password complexity override `newPassword` and `reenterPassword
     </ClaimType>
     ```
 
-1. [Predicates](predicates.md) defines a basic validation to check the value of a claim type and returns true or false. The validation is done by using a specified method element, and a set of parameters relevant to the method. Add the following predicates to the **ClaimsSchema** element, immediately after the closing of the `</ClaimsSchema>`:
+1. [Predicates](predicates.md) defines a basic validation to check the value of a claim type and returns true or false. The validation is done by using a specified method element, and a set of parameters relevant to the method. Add the following predicates to the **ClaimsSchema** element, immediately after the closing of the `</ClaimsSchema>` element:
 
     ```XML
     <Predicates>
@@ -80,7 +80,7 @@ To configure the password complexity override `newPassword` and `reenterPassword
     </Predicates>
     ```
 
-1. Add the following predicates to the **ClaimsSchema** element, immediately after the closing of the `</Predicates>`:
+1. Add the following predicate validations to the **ClaimsSchema** element, immediately after the closing of the `</Predicates>` element:
 
     ```XML
     <PredicateValidations>
@@ -105,10 +105,7 @@ To configure the password complexity override `newPassword` and `reenterPassword
     </PredicateValidations>
     ```
 
-1. The following technical profiles are [Active Directory technical profiles](active-directory-technical-profile.md), which read and write data to Azure Active Directory.  
-Use `PersistedClaims` to write disable the strong password policy.
-
-    Override these technical profiles in the extension file. Find the **ClaimsProviders** element.  Add a new ClaimsProviders as follows:
+1. The following technical profiles are [Active Directory technical profiles](active-directory-technical-profile.md), which read and write data to Azure Active Directory. Override these technical profiles in the extension file. Use `PersistedClaims` to disable the strong password policy. Find the **ClaimsProviders** element.  Add the following claim providers as follows:
 
     ```XML
     <ClaimsProvider>
