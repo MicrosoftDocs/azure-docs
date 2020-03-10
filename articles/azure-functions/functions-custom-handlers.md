@@ -160,7 +160,7 @@ The following *function.json* file is no different from how you would define a f
 
 ```
 
-This function is defined as an [HTTP triggered function](./functions-bindings-http-webhook-trigger.md) that returns an [HTTP response](./functions-bindings-http-webhook-trigger-output.md) and outputs a [Queue storage](./functions-bindings-storage-queue-output.md) message.
+This function is defined as an [HTTP triggered function](./functions-bindings-http-webhook-trigger.md) that returns an [HTTP response](./functions-bindings-http-webhook-output.md) and outputs a [Queue storage](./functions-bindings-storage-queue-output.md) message.
 
 
 ### Server implementation
