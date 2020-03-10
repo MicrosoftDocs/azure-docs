@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 08/27/2019
+ms.date: 03/09/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -142,7 +142,7 @@ The **LocalizedString** element contains the following attributes:
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
-| ElementType | Yes | A reference to a claim type element or a user interface element in the policy. Possible values: `ClaimType`, `UxElement`, `ErrorMessage`, `Predicate`, or  . The `ClaimType` value is used to localize one of the claim attributes, as specified in the StringId. The `UxElement` value is used to localize one of the user interface elements as specified in the StringId. The `ErrorMessage` value is used to localize one of the system error messages as specified in the StringId. The `Predicate` value is used to localize one of the [Predicate](predicates.md) error messages, as specified in the StringId. The `InputValidation` value is used to localize one of the [PredicateValidation](predicates.md) group error messages as specified in the StringId. |
+| ElementType | Yes | A reference to a claim type element or a user interface element in the policy. Possible values: `ClaimType`, `UxElement`, `ErrorMessage`, `Predicate`, or  `GetLocalizedStringsTransformationClaimType`. The `ClaimType` value is used to localize one of the claim attributes, as specified in the StringId. The `UxElement` value is used to localize one of the user interface elements as specified in the StringId. The `ErrorMessage` value is used to localize one of the system error messages as specified in the StringId. The `Predicate` value is used to localize one of the [Predicate](predicates.md) error messages, as specified in the StringId. The `InputValidation` value is used to localize one of the [PredicateValidation](predicates.md) group error messages as specified in the StringId. The `GetLocalizedStringsTransformationClaimType` value is used to copy localized strings into claims. For more information, see [GetLocalizedStringsTransformation claims transformation](string-transformations.md#getlocalizedstringstransformation)  | 
 | ElementId | Yes | If **ElementType** is set to `ClaimType`, `Predicate`, or `InputValidation`, this element contains a reference to a claim type already defined in the ClaimsSchema section. |
 | StringId | Yes | If **ElementType** is set to `ClaimType`, this element contains a reference to an attribute of a claim type. Possible values: `DisplayName`, `AdminHelpText`, or `PatternHelpText`. The `DisplayName` value is used to set the claim display name. The `AdminHelpText` value is used to set the help text name of the claim user. The `PatternHelpText` value is used to set the claim pattern help text. If **ElementType** is set to `UxElement`, this element contains a reference to an attribute of a user interface element. If **ElementType** is set to `ErrorMessage`, this element specifies the identifier of an error message. See [Localization string IDs](localization-string-ids.md) for a complete list of the `UxElement` identifiers.|
 
