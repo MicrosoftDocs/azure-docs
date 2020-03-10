@@ -6,7 +6,7 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 03/09/2020
+ms.date: 03/10/2020
 ms.author: cynthn
 
 #Customer intent: As an IT administrator, I want to learn about more about using a dedicated host for my Azure virtual machines
@@ -41,7 +41,7 @@ You can add an exiting VM to a dedicated host, but the VM must first be Stop\Dea
 - The VM needs to be located in same region as the dedicated host.
 - The VM can't be part of a proximity placement group. Remove the VM from the proximity placement group before moving it to a dedicated host. For more information, see [Move a VM out of a proximity placement group](https://docs.microsoft.com/azure/virtual-machines/windows/proximity-placement-groups#move-an-existing-vm-out-of-a-proximity-placement-group)
 - The VM can't be in an availability set.
-- The VM can't be in an availability zone.
+- If the VM is in an availability zone, it must be the same availability zone as the host group. The availability zone settings for the VM and the host group must match.
 
 Move the VM to a dedicated host using the [portal](https://portal.azure.com).
 
