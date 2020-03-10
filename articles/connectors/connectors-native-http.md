@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
-ms.date: 03/10/2020
+ms.date: 03/11/2020
 tags: connectors
 ---
 
@@ -49,7 +49,7 @@ This built-in trigger makes an HTTP call to the specified URL for an endpoint an
 
 1. Sign in to the [Azure portal](https://portal.azure.com). Open your blank logic app in Logic App Designer.
 
-1. Under **Choose an action**, in the search box, enter "http" as your filter. From the **Triggers** list, select the **HTTP** trigger.
+1. Under the designer's search box, select **Built-in**. In the search box, enter `http` as your filter. From the **Triggers** list, select the **HTTP** trigger.
 
    ![Select HTTP trigger](./media/connectors-native-http/select-http-trigger.png)
 
@@ -84,7 +84,7 @@ This built-in action makes an HTTP call to the specified URL for an endpoint and
 
    To add an action between steps, move your pointer over the arrow between steps. Select the plus sign (**+**) that appears, and then select **Add an action**.
 
-1. Under **Choose an action**, in the search box, enter "http" as your filter. From the **Actions** list, select the **HTTP** action.
+1. Under **Choose an action**, select **Built-in**. In the search box, enter `http` as your filter. From the **Actions** list, select the **HTTP** action.
 
    ![Select HTTP action](./media/connectors-native-http/select-http-action.png)
 
