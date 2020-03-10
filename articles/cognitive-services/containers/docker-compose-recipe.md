@@ -71,7 +71,7 @@ services:
     image: "containerpreview.azurecr.io/microsoft/cognitive-services-read"
     environment:
       eula: accept
-      apikey: # < Your computer API key >
+      apikey: # < Your computer vision API key >
       billing: # < Your computer vision billing URL >
     ports:
       - "5021:5000"
