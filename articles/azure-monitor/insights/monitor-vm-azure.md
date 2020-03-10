@@ -6,7 +6,7 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/02/2020
+ms.date: 03/10/2020
 
 ---
 
@@ -52,7 +52,7 @@ To enable all features of Azure Monitor for monitoring a virtual machine, you ne
 | Configuration step | Actions completed | Features enabled |
 |:---|:---|:---|
 | No configuration | - Host platform metrics collected to Metrics.<br>- Activity log collected. | - Metrics explorer for host.<br>- Metrics alerts for host.<br>- Activity log alerts. |
-| [Enable Azure Monitor for VMs](#enable-azure-monitor-for-vms-preview) | - Log Analytics agent installed.<br>- Dependency agent installed.<br>- Guest performance data collected to Logs. | - Performance charts and workbooks for guest performance data.<br>- Log queries for guest performance data.<br>- Log alerts for guest performance data.<br>- Dependency map. |
+| [Enable Azure Monitor for VMs](#enable-azure-monitor-for-vms-preview) | - Log Analytics agent installed.<br>- Dependency agent installed.<br>- Guest performance data collected to Logs.<br>Process and dependency details collected to Logs. | - Performance charts and workbooks for guest performance data.<br>- Log queries for guest performance data.<br>- Log alerts for guest performance data.<br>- Dependency map. |
 | [Install the diagnostics extension](#enable-diagnostics-extension) | - Guest performance data collected to Metrics. | - Metrics explorer for guest.<br>- Metrics alerts for guest.  |
 | [Configure Log Analytics workspace](#configure-log-analytics-workspace) | - Events collected from guest. | - Log queries for guest events.<br>- Log alerts for guest events. |
 | [Create diagnostic setting for virtual machine](#collect-platform-metrics-and-activity-log) | - Platform metrics collected to Logs.<br>- Activity log collected to Logs. | - Loq queries for host metrics.<br>- Log alerts for host metrics.<br>- Log queries for Activity log.
@@ -78,17 +78,17 @@ Enable Azure Monitor for VMs from the **Insights** option in the virtual machine
 ### Configure Log Analytics workspace
 The Log Analytics agent used by Azure Monitor for VMs sends data to a [Log Analytics workspace](../platform/data-platform-logs.md#how-is-data-in-azure-monitor-logs-structured). You can enable the collection of additional performance data, events, and other monitoring data from the agent by configuring the Log Analytics workspace. It only needs to be configured once, since any agent connecting to the workspace will automatically download the configuration and immediately start collecting the defined data. 
 
-You can access the configuration for the workspace directly from Azure Monitor for VMs by selecting **Workspace configuration** from the **Get Started** tab in **Azure Monitor for VMs**. Click on the workspace name to open its menu.
+You can access the configuration for the workspace directly from Azure Monitor for VMs by selecting **Workspace configuration** from the **Get Started**. Click on the workspace name to open its menu.
 
 ![Workspace configuration](media/monitor-vm-azure/workspace-configuration.png)
 
-Select **Advanced Settings** from the workspace menu and then **Data** to configure data source. For Windows agents, select **Windows Event Logs** and add common event logs such as *System* and *Application*. For Linux agents, select **Syslog** and add common facilities such as *kern* and *daemon*. See [Agent data sources in Azure Monitor](../platform/agent-data-sources.md) for a list of the data sources available and details on configuring them.
+Select **Advanced Settings** from the workspace menu and then **Data** to configure data sources. For Windows agents, select **Windows Event Logs** and add common event logs such as *System* and *Application*. For Linux agents, select **Syslog** and add common facilities such as *kern* and *daemon*. See [Agent data sources in Azure Monitor](../platform/agent-data-sources.md) for a list of the data sources available and details on configuring them. 
 
 ![Configure events](media/monitor-vm-azure/configure-events.png)
 
 
 > [!NOTE]
-> You can configure performance counters to be collected from the workspace configuration, but this will most likely be redundant with the performance counters collected by Azure Monitor for VMs. Azure Monitor for VMs collects the most common set of counters at a frequency of once per minute. Only configure performance counters to be collected by the workspace if you want to collect counters not already collected by Azure Monitor for VMs or if you have existing queries using performance data.
+> You can configure performance counters to be collected from the workspace configuration, but this may be redundant with the performance counters collected by Azure Monitor for VMs. Azure Monitor for VMs collects the most common set of counters at a frequency of once per minute. Only configure performance counters to be collected by the workspace if you want to collect counters not already collected by Azure Monitor for VMs or if you have existing queries using performance data.
 
 
 ### Enable diagnostics extension
@@ -166,7 +166,7 @@ Azure Monitor for VMs enables the collection of a predetermined set of performan
 
 
 > [!NOTE]
-> Performance data collected by the Log Analytics agent writes to the *Perf* table while Azure Monitor for VMs will collect it to *InsightsMetrics*. This is the same data, but the tables have a different structure. If you have existing queries based on *Perf*, the will need to be rewritten to use *InsightsMetrics*.
+> Performance data collected by the Log Analytics agent writes to the *Perf* table while Azure Monitor for VMs will collect it to the *InsightsMetrics* table. This is the same data, but the tables have a different structure. If you have existing queries based on *Perf*, the will need to be rewritten to use *InsightsMetrics*.
 
 
 ## Alerts
@@ -176,21 +176,21 @@ The following sections describe the types of alert rules and recommendations on 
 
 
 ### Activity log alert rules
-[Activity log alert rules](../platform/alerts-activity-log.md) fire when an entry matching particular criteria is created in the activity log. They should be your first choice if the logic you require is in the activity log since they're free. 
+[Activity log alert rules](../platform/alerts-activity-log.md) fire when an entry matching particular criteria is created in the activity log. They have no cost so they should be your first choice if the logic you require is in the activity log. 
 
 The target resource for activity log alerts can be a specific virtual machine, all virtual machines in a resource group, or all virtual machines in a subscription.
 
-For example, you can create an alert if a critical virtual machine is stopped.
+For example, create an alert if a critical virtual machine is stopped by selecting the *Power Off Virtual Machine* for the signal name.
 
 ![Activity log alert](media/monitor-vm-azure/activity-log-alert.png)
 
 
 ### Metric alert rules
-[Metric alert rules](../platform/alerts-metric.md) fire when a metric value exceeds a threshold. You can define a specific threshold value or allow Azure Monitor to dynamically determine a threshold based on historical data.  Use metric alerts whenever possible since they cost less and are more responsive than alert rules. They are also stateful meaning they will resolve themselves when the metric drops below the threshold.
+[Metric alert rules](../platform/alerts-metric.md) fire when a metric value exceeds a threshold. You can define a specific threshold value or allow Azure Monitor to dynamically determine a threshold based on historical data.  Use metric alerts whenever possible with metric data since they cost less and are more responsive than log alert rules. They are also stateful meaning they will resolve themselves when the metric drops below the threshold.
 
 The target resource for activity log alerts can be a specific virtual machine or all virtual machines in a resource group.
 
-For example, to create an alert when the processor of a virtual machine exceeds a particular value, create a metric alert rule using *Percentage CPU* as the signal type. Set either a specific threshold value or allow Azure Monitor to set a dynamic threshold. Set the target resource either to a specific virtual machine or all virtual machines in a resource group.
+For example, to create an alert when the processor of a virtual machine exceeds a particular value, create a metric alert rule using *Percentage CPU* as the signal type. Set either a specific threshold value or allow Azure Monitor to set a dynamic threshold. 
 
 ![Metric alert](media/monitor-vm-azure/metric-alert.png)
 
@@ -199,7 +199,7 @@ For example, to create an alert when the processor of a virtual machine exceeds 
 
 The target resource for a log query is a Log Analytics workspace. Filter for specific computers in the query.
 
-For example, to create an alert that checks if any virtual machines in a particular resource group have missed heartbeats, use the following query which returns a record for each computer that's missed a heartbeat in the last ten minutes. Use a threshold of one which fires if at least one computer has a missed heartbeat.
+For example, to create an alert that checks if any virtual machines in a particular resource group are offline, use the following query which returns a record for each computer that's missed a heartbeat in the last ten minutes. Use a threshold of 1 which fires if at least one computer has a missed heartbeat.
 
 ```kusto
 Heartbeat
@@ -226,7 +226,7 @@ System Center Operations Manager (SCOM) provides granular monitoring of workload
 
 If you have an existing SCOM environment that you intend to keep using, you can integrate it with Azure Monitor to provide additional functionality. The Log Analytics agent used by Azure Monitor is the same one used for SCOM so that you have monitored virtual machines send data to both. You still need to add the agent to Azure Monitor for VMs and configure the workspace to collect additional data as specified above, but the virtual machines can continue to run their existing management packs in a SCOM environment without modification.
 
-Features of Azure Monitor that augment an existing SCOM environment include the following:
+Features of Azure Monitor that augment an existing SCOM features include the following:
 
 - Use Log Analytics to interactively analyze your log and performance data.
 - Use log alerts to define alerting conditions across multiple virtual machines and using long term trends that aren't possible using alerts in SCOM.   
