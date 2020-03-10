@@ -16,7 +16,7 @@ This feature is available in all regions where AKS is supported.
 
 ## Manually check your node's health
 
-You can manually check the health state of your nodes at any time.  
+You can manually check the health state of your nodes.  
 
 ```azurecli-interactive
 # Check the state of your node
