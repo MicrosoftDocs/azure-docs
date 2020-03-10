@@ -13,7 +13,7 @@ ms.workload: data-services
 
 
 ms.topic: conceptual
-ms.date: 11/26/2019
+ms.date: 03/02/2020
 ms.author: jingwang
 
 ---
@@ -31,7 +31,7 @@ The following functionality is available in the control flow:
 
 ## Capabilities
 
-The Get Metadata activity takes a dataset as an input and returns metadata information as output. Currently, the following connectors and corresponding retrievable metadata are supported. The maximum size of returned metadata is 1 MB.
+The Get Metadata activity takes a dataset as an input and returns metadata information as output. Currently, the following connectors and corresponding retrievable metadata are supported. The maximum size of returned metadata is 2 MB.
 
 >[!NOTE]
 >If you run the Get Metadata activity on a self-hosted integration runtime, the latest capabilities are supported on version 3.6 or later.

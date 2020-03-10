@@ -3,14 +3,14 @@ title: Get started with custom policies
 titleSuffix: Azure AD B2C
 description: Learn how to get started with custom policies in Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/28/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
 ---
 
