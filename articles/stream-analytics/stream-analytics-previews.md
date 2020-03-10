@@ -6,7 +6,7 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 10/30/2019
+ms.date: 3/9/2020
 ---
 
 # Azure Stream Analytics preview features
@@ -28,13 +28,6 @@ Developers can leverage the power of Azure Stream Analytics to process data in P
 
 Developers creating Stream Analytics modules in the cloud or on IoT Edge can write or reuse custom C# functions and invoke them directly in the query through [user-defined functions](stream-analytics-edge-csharp-udf-methods.md).
 
-### Managed Identity authentication with Power BI
-
-Azure Stream Analytics offers full support for Managed Identity based authentication with Power BI for a dynamic dashboarding experience.
-
-### Anomaly Detection
-
-Azure Stream Analytics' machine learning models have support for *spike* and *dips* detection in addition to bi-directional, slow positive, and slow negative trends detection. For more information, visit [Anomaly detection in Azure Stream Analytics](stream-analytics-machine-learning-anomaly-detection.md).
 
 ### Debug query steps in Visual Studio
 
@@ -47,11 +40,6 @@ You can test your queries against live data on your local machine before submitt
 ### Visual Studio Code for Azure Stream Analytics
 
 Azure Stream Analytics jobs can be authored in Visual Studio Code. See our [VS Code getting started tutorial](https://docs.microsoft.com/azure/stream-analytics/quick-create-vs-code).
-
-
-### Anomaly Detection
-
-Azure Stream Analytics introduces new machine learning models with support for *spike* and *dips* detection in addition to bi-directional, slow positive, and slow negative trends detection. For more information, visit [Anomaly detection in Azure Stream Analytics](stream-analytics-machine-learning-anomaly-detection.md).
 
 
 ### Integration with Azure Machine Learning

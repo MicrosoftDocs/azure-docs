@@ -21,14 +21,13 @@ Use the SDK, to send a user utterance to Language Understanding (LUIS) and recei
 [!INCLUDE [Get prediction with C# SDK](./includes/sdk-csharp-prediction.md)]
 ::: zone-end
 
-::: zone pivot="programming-language-python"
-[!INCLUDE [Get prediction with Python SDK](./includes/sdk-python-prediction.md)]
-::: zone-end
-
-::: zone pivot="programming-language-nodejs"
+::: zone pivot="programming-language-javascript"
 [!INCLUDE [Get prediction with Node.js SDK](./includes/sdk-nodejs-prediction.md)]
 ::: zone-end
 
+::: zone pivot="programming-language-python"
+[!INCLUDE [Get prediction with Python SDK](./includes/sdk-python-prediction.md)]
+::: zone-end
 
 ## Next steps
 

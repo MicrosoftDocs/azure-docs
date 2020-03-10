@@ -4,6 +4,7 @@ description: Get started with Linux apps on Azure App Service by deploying your 
 ms.topic: quickstart
 ms.date: 10/22/2019
 ms.custom: seo-python-october2019
+ms.custom: cli-validate
 
 experimental: true
 experiment_id: 01a9132f-eaab-4c

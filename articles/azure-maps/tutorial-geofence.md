@@ -1,8 +1,8 @@
 ---
 title: 'Tutorial: Create a geofence and track devices on a map | Microsoft Azure Maps'
 description: Learn how to set up a geofence and track devices relative to the geofence using Microsoft Azure Maps Spatial Service.
-author: walsehgal
-ms.author: v-musehg
+author: farah-alyasari
+ms.author: v-faalya
 ms.date: 1/15/2020
 ms.topic: tutorial
 ms.service: azure-maps
@@ -171,7 +171,7 @@ In this section, We create an event handler that receives notifications. This ev
 
 We make two [Logic Apps](https://docs.microsoft.com/azure/event-grid/event-handlers#logic-apps) services to handle enter and exit events. When the events in the Logic Apps trigger, more events trigger in sequence. The idea is to send alerts, in this case emails, to the Operations Manager. The following figure illustrates creation of a Logic App for geofence enter event. Similarly, you can create another one for exit event. You can see all [supported event handlers](https://docs.microsoft.com/azure/event-grid/event-handlers) for more info.
 
-1. Create a Logic App in Azure portal
+1. Create a Logic App in Azure portal. Select the Logic App in Azure Marketplace. Then, select the **Create** button.
 
    ![Create Azure Logic Apps to handle geofence events](./media/tutorial-geofence/logic-app.png)
 

@@ -1,19 +1,19 @@
 ---
 title: Workload isolation 
-description: Guidance for setting workload isolation with workload groups in Azure SQL Data Warehouse.
+description: Guidance for setting workload isolation with workload groups in Azure Synapse Analytics.
 services: sql-data-warehouse
 author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload-management
-ms.date: 01/23/2020
+ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.custom: seo-lt-2019
+ms.custom: azure-synapse
 ---
 
-# SQL Data Warehouse Workload Group Isolation (Preview)
+# Azure Synapse Analytics workload group isolation (Preview)
 
 This article explains how workload groups can be used to configure workload isolation, contain resources, and apply runtime rules for query execution.
 

@@ -1,7 +1,7 @@
 ---
 title: Azure CLI Script Sample - Create an Azure App Configuration Store
 titleSuffix: Azure App Configuration
-description: Azure CLI Script Sample - Create an Azure App Configuration store
+description: Use Azure CLI Script to create an Azure App Configuration store
 services: azure-app-configuration
 author: lisaguthrie
 
@@ -13,17 +13,13 @@ ms.author: lcozzens
 
 # Create an Azure App Configuration Store
 
-This sample script creates a new instance of Azure App Configuration in a new resource group with a random name.
+This sample script creates a new instance of Azure App Configuration in a new resource group.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 If you choose to install and use the CLI locally, this article requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli).
-
-You need to install the Azure App Configuration CLI extension first by executing the following command:
-
-        az extension add -n appconfig
 
 ## Sample script
 
@@ -44,7 +40,9 @@ appConfigHostname=$(az appconfig create \
   --location eastus \
   --resource-group $myResourceGroupName \
   --query hostName \
-  -o tsv)
+  --sku free \
+  -o tsv
+  )
 
 # Get the AppConfig connection string 
 appConfigConnectionString=$(az appconfig credential list \
@@ -67,8 +65,8 @@ This script uses the following commands to create a new resource group and an Ap
 | Command | Notes |
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Creates a resource group in which all resources are stored. |
-| [az appconfig create](/cli/azure/ext/appconfig/appconfig#ext-appconfig-az-appconfig-create) | Creates an App Configuration store resource. |
-| [az appconfig credential list](/cli/azure/ext/appconfig/appconfig/credential?view=azure-cli-latest) | List access keys for an App Configuration store. |
+| [az appconfig create](/cli/azure/appconfig#az-appconfig-create) | Creates an App Configuration store resource. |
+| [az appconfig credential list](/cli/azure/appconfig/credential#az-appconfig-credential-list) | List access keys for an App Configuration store. |
 
 ## Next steps
 

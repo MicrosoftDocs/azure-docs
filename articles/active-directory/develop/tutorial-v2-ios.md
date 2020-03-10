@@ -3,7 +3,7 @@ title: MSAL for iOS & macOS tutorial - Microsoft identity platform | Azure
 description: Learn how iOS and macOS (Swift) apps can call an API that requires access tokens using the Microsoft identity platform
 services: active-directory
 documentationcenter: dev-center-name
-author: tylermsft
+author: mmacy
 manager: CelesteDG
 
 ms.service: active-directory

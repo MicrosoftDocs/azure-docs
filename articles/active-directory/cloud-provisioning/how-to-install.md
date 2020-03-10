@@ -7,7 +7,7 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 02/26/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -91,7 +91,7 @@ To verify that the agent is running, follow these steps.
     ![Services screen](media/how-to-troubleshoot/troubleshoot1.png)
 
 >[!IMPORTANT]
->The agent has been installed but it must be configured and enabled before it will start synchronizing users. To configure a new agent, see [Azure AD Connect cloud provisioning new agent configuration](how-to-configure.md).
+>The agent has been installed but it must be configured and enabled before it will start synchronizing users. To configure a new agent, see [Create a new configuration for Azure AD Connect cloud-based provisioning](how-to-configure.md).
 
 
 

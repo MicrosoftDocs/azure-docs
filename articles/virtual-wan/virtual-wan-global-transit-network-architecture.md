@@ -1,12 +1,13 @@
 ---
-title: 'Azure Virtual WAN global transit network architecture | Microsoft Docs'
+title: 'Architecture: Global transit network architecture'
+titleSuffix: Azure Virtual WAN
 description: Learn about global transit network architecture for Virtual WAN
 services: virtual-wan
 author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: article
-ms.date: 10/18/2019
+ms.date: 02/06/2020
 ms.author: cherylmc
 
 ---

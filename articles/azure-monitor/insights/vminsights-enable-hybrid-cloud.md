@@ -1,7 +1,6 @@
 ---
 title: Enable Azure Monitor (preview) for a hybrid environment | Microsoft Docs
 description: This article describes how you enable Azure Monitor for VMs for a hybrid cloud environment that contains one or more virtual machines.
-ms.service:  azure-monitor
 ms.subservice:
 ms.topic: conceptual
 author: bwren

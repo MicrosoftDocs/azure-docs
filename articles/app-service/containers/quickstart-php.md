@@ -4,7 +4,7 @@ description: Get started with Linux apps on Azure App Service by deploying your 
 ms.assetid: 6feac128-c728-4491-8b79-962da9a40788
 ms.topic: quickstart
 ms.date: 03/27/2019
-ms.custom: mvc
+ms.custom: mvc, cli-validate
 ms.custom: seodec18
 ---
 # Create a PHP app in App Service on Linux

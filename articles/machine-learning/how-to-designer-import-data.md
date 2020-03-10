@@ -41,7 +41,7 @@ Your registered datasets can be found in the module palette, under **Datasets** 
 
 ![Screenshot showing location of saved datasets in the designer palette](media/how-to-designer-import-data/use-datasets-designer.png)
 
-Any [file dataset](how-to-create-register-datasets.md#dataset-types) registered to your machine learning workspace will appear in the module palette. You aren't limited to using datasets created in the designer.
+
 
 > [!NOTE]
 > The designer currently only supports processing [tabular datasets](how-to-create-register-datasets.md#dataset-types). If you want to use [file datasets](how-to-create-register-datasets.md#dataset-types), use the Azure Machine Learning SDK available for Python and R.
@@ -52,6 +52,8 @@ While we recommend that you use datasets to import data, you can also use the [I
 
 For detailed information on how to use the Import Data module, see the [Import Data reference page](algorithm-module-reference/import-data.md).
 
+[!NOTE]
+> If the data has many columns, you may encounter "Validation failed due to size limitation" in Import Data Module. That's because the columns excludes maxmium module parameter length after encode. In this case we recommend to [register the dataset in Datasets UI](how-to-create-register-datasets.md#use-the-ui), which can avoid the error.  
 
 ## Supported sources
 

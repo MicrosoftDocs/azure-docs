@@ -23,6 +23,7 @@ In this tutorial, you'll learn how to:
 
 * Azure Subscription: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 * Your recipient's Azure login e-mail address (using their e-mail alias won't work).
+* If the source Azure data store is in a different Azure subscription than the one you will use to create Data Share resource, register the [Microsoft.DataShare resource provider](concepts-roles-permissions.md#resource-provider-registration) in the subscription where the Azure data store is located. 
 
 ### Share from a storage account:
 
@@ -51,7 +52,7 @@ In this tutorial, you'll learn how to:
 * Client IP SQL Server Firewall access. This can be done through the following steps: 
     1. In SQL server in Azure portal, navigate to *Firewalls and virtual networks*
     1. Click the **on** toggle to allow access to Azure Services.
-    1. Click **+Add client IP** and click **Save**. Client IP address is subject to change. You can also add an IP range. 
+    1. Click **+Add client IP** and click **Save**. Client IP address is subject to change. This process might need to be repeated the next time you are sharing SQL data from Azure portal. You can also add an IP range. 
 
 ### Share from Azure Data Explorer
 * An Azure Data Explorer cluster with databases you want to share.

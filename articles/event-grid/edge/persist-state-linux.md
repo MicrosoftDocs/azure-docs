@@ -44,17 +44,17 @@ For example, the following configuration will result in the creation of the volu
 ```json
  {
   "Env": [
-    "inbound:serverAuth:tlsPolicy=strict",
-    "inbound:serverAuth:serverCert:source=IoTEdge",
-    "inbound:clientAuth:sasKeys:enabled=false",
-    "inbound:clientAuth:clientCert:enabled=true",
-    "inbound:clientAuth:clientCert:source=IoTEdge",
-    "inbound:clientAuth:clientCert:allowUnknownCA=true",
-    "outbound:clientAuth:clientCert:enabled=true",
-    "outbound:clientAuth:clientCert:source=IoTEdge",
-    "outbound:webhook:httpsOnly=true",
-    "outbound:webhook:skipServerCertValidation=false",
-    "outbound:webhook:allowUnknownCA=true"
+    "inbound__serverAuth__tlsPolicy=strict",
+    "inbound__serverAuth__serverCert__source=IoTEdge",
+    "inbound__clientAuth__sasKeys__enabled=false",
+    "inbound__clientAuth__clientCert__enabled=true",
+    "inbound__clientAuth__clientCert__source=IoTEdge",
+    "inbound__clientAuth__clientCert__allowUnknownCA=true",
+    "outbound__clientAuth__clientCert__enabled=true",
+    "outbound__clientAuth__clientCert__source=IoTEdge",
+    "outbound__webhook__httpsOnly=true",
+    "outbound__webhook__skipServerCertValidation=false",
+    "outbound__webhook__allowUnknownCA=true"
   ],
   "HostConfig": {
     "Binds": [
@@ -111,7 +111,8 @@ Instead of a docker volume, you also have the option to mount a host folder.
     {
          "HostConfig": {
             "Binds": [
-                "<your-directory-name-here>:/app/metadataDb"
+                "<your-directory-name-here>:/app/metadataDb",
+                "<your-directory-name-here>:/app/eventsDb",
              ]
          }
     }
@@ -122,17 +123,17 @@ Instead of a docker volume, you also have the option to mount a host folder.
     ```json
     {
           "Env": [
-            "inbound:serverAuth:tlsPolicy=strict",
-            "inbound:serverAuth:serverCert:source=IoTEdge",
-            "inbound:clientAuth:sasKeys:enabled=false",
-            "inbound:clientAuth:clientCert:enabled=true",
-            "inbound:clientAuth:clientCert:source=IoTEdge",
-            "inbound:clientAuth:clientCert:allowUnknownCA=true",
-            "outbound:clientAuth:clientCert:enabled=true",
-            "outbound:clientAuth:clientCert:source=IoTEdge",
-            "outbound:webhook:httpsOnly=true",
-            "outbound:webhook:skipServerCertValidation=false",
-            "outbound:webhook:allowUnknownCA=true"
+            "inbound__serverAuth__tlsPolicy=strict",
+            "inbound__serverAuth__serverCert__source=IoTEdge",
+            "inbound__clientAuth__sasKeys__enabled=false",
+            "inbound__clientAuth__clientCert__enabled=true",
+            "inbound__clientAuth__clientCert__source=IoTEdge",
+            "inbound__clientAuth__clientCert__allowUnknownCA=true",
+            "outbound__clientAuth__clientCert__enabled=true",
+            "outbound__clientAuth__clientCert__source=IoTEdge",
+            "outbound__webhook__httpsOnly=true",
+            "outbound__webhook__skipServerCertValidation=false",
+            "outbound__webhook__allowUnknownCA=true"
           ],
           "HostConfig": {
                 "Binds": [
@@ -151,7 +152,7 @@ Instead of a docker volume, you also have the option to mount a host folder.
     ```
 
     >[!IMPORTANT]
-    >Do not change the second part of the bind value. It points to a specific location within the module. For the Event Grid module on linux, it has to be **/app/metadata**.
+    >Do not change the second part of the bind value. It points to a specific location within the module. For the Event Grid module on linux, it has to be **/app/metadataDb** and **/app/eventsDb**
 
 
 ## Persist events
@@ -162,7 +163,7 @@ Important things to note about persisting events:
 
 * Persisting events is enabled on a per Event Subscription basis and is opt-in once a volume or directory has been mounted.
 * Event persistence is configured on an Event Subscription at creation time and cannot be modified once the Event Subscription is created. To toggle event persistence, you must delete and re-create the Event Subscription.
-* Persisting events is almost always slower than in memory operations, however the speed difference is highly dependent on the characteristics of the drive. The tradeoff between speed and reliability is inherent to all messaging systems but generally only becomes a noticible at large scale.
+* Persisting events is almost always slower than in memory operations, however the speed difference is highly dependent on the characteristics of the drive. The tradeoff between speed and reliability is inherent to all messaging systems but generally only becomes a noticeable at large scale.
 
 To enable event persistence on an Event Subscription, set `persistencePolicy` to `true`:
 

@@ -1,12 +1,8 @@
 ---
-
 title: Understand how metric alerts work in Azure Monitor.
 description: Get an overview of what you can do with metric alerts and how they work in Azure Monitor.
-author: rboucher
-ms.author: robb
 ms.date: 12/5/2019
 ms.topic: conceptual
-ms.service: azure-monitor
 ms.subservice: alerts
 
 ---
@@ -122,15 +118,15 @@ Increasing look-back periods and number of violations can also allow filtering a
 
 ## Monitoring at scale using metric alerts in Azure Monitor
 
-So far, you have seen how a single metric alert could be used to monitor one or many metric time-series related to a single Azure resource. Many times, you might want the same alert rule applied to many resources. Azure Monitor also supports monitoring multiple resources with one metric alert rule. This feature is currently supported only on virtual machines, SQL server databases, SQL server elastic pools and data box edge devices. Also, a single metric alert can monitor resources in one Azure region.
+So far, you have seen how a single metric alert could be used to monitor one or many metric time-series related to a single Azure resource. Many times, you might want the same alert rule applied to many resources. Azure Monitor also supports monitoring multiple resources (of the same type) with one metric alert rule, for resources that exist in the same Azure region. This feature is currently supported only in Azure public cloud and only for virtual machines, SQL server databases, SQL server elastic pools and Data box edge devices. Also, this feature is only available for platform metrics, and isn't supported for custom metrics.
 
-You can specify the scope of monitoring by a single metric alert in one of three ways:
+You can specify the scope of monitoring by a single metric alert rule in one of three ways:
 
 - as a list of virtual machines in one Azure region within a subscription
 - all virtual machines (in one Azure region) in one or more resource groups in a subscription
 - all virtual machines (in one Azure region) in one subscription
 
-Creating metric alert rules that monitor multiple resources is like [creating any other metric alert](alerts-metric.md) that monitors a single resource. Only difference is that you would select all the resources you want to monitor. You can also create these rules through [Azure Resource Manager templates](../../azure-monitor/platform/alerts-metric-create-templates.md#template-for-a-metric-alert-that-monitors-multiple-resources). You will receive individual notifications for each virtual machine.
+Creating metric alert rules that monitor multiple resources is like [creating any other metric alert](alerts-metric.md) that monitors a single resource. Only difference is that you would select all the resources you want to monitor. You can also create these rules through [Azure Resource Manager templates](../../azure-monitor/platform/alerts-metric-create-templates.md#template-for-a-metric-alert-that-monitors-multiple-resources). You will receive individual notifications for each monitored resource.
 
 ## Typical latency
 

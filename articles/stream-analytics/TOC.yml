@@ -23,7 +23,7 @@
     href: stream-analytics-manage-job.md
   - name: 2 - Run Azure Functions
     href: stream-analytics-with-azure-functions.md
-  - name: 3 - Run a Javascript UDF
+  - name: 3 - Run a JavaScript UDF
     href: stream-analytics-javascript-user-defined-functions.md
   - name: 4 - Deploy with CI/CD in Azure Pipelines
     href: stream-analytics-tools-visual-studio-cicd-vsts.md
@@ -195,6 +195,8 @@
       href: setup-cicd-vs-code.md
     - name: Explore jobs
       href: visual-studio-code-explore-jobs.md
+    - name: JobConfig.json fields
+      href: job-config-json.md
   - name: Troubleshoot
     items:
     - name: Input
@@ -221,6 +223,9 @@
     href: stream-analytics-scale-with-machine-learning-functions.md
 - name: Stream Analytics Query Language
   items:
+    - name: Stream Analytics Query Language overview
+      href: /stream-analytics-query/stream-analytics-query-language-reference
+      maintainContext: true
     - name: Built-in Functions
       items:
         - name: Built-in Functions Overview

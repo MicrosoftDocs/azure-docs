@@ -38,4 +38,4 @@ Once you've subscribed to a feed, the feed's content will update automatically o
 
 ## Next steps
 
-To learn more about the macOS client, check out the [Get started with the macOS client](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-mac) documentation.
+To learn more about the macOS client, check out the [Get started with the macOS client](/windows-server/remote/remote-desktop-services/clients/remote-desktop-mac/) documentation.

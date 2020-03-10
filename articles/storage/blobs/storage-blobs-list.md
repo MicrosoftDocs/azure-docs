@@ -6,7 +6,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: article
-ms.date: 01/06/2020
+ms.date: 02/25/2020
 ms.author: tamram
 ms.subservice: blobs
 ---
@@ -131,7 +131,7 @@ private static async Task ListBlobsHierarchicalListingAsync(CloudBlobContainer c
 {
     CloudBlobDirectory dir;
     CloudBlob blob;
-    BlobContinuationToken continuationToken;
+    BlobContinuationToken continuationToken = null;
 
     try
     {
