@@ -26,12 +26,12 @@ To migrate to Gen2, we recommend the following approach.
 
 :heavy_check_mark: Step 2: Prepare to migrate
 
-:heavy_check_mark: Step 3: Migrate data, workloads, and applications
+:heavy_check_mark: Step 3: Migrate data and application workloads
 
 :heavy_check_mark: Step 4: Cutover from Gen1 to Gen2
 
 > [!NOTE]
-> There's no way to convert a Gen1 account into Gen2 because these accounts run in separate services.
+> Gen1 and Gen2 are different services, there is no in-place upgrade experience, intentional migration effort required. 
 
 ### Step 1: Assess readiness
 
