@@ -29,7 +29,7 @@ Some example use cases enabled by Project Spool include:
 - **Home Security**: Build an app that live-streams webcam footage to all of your devices while storing media whenever motion is detected.
 - **Group Chat**: Build an internal Skype clone that integrates with your organization's ecosystem.
 - **Telehealth**: Easily connect healthcare providers to their patients.
-- **Disaster response**: Build an app that connects first responders to remote emergency response teams.
+- **Disaster Response**: Build an app that connects first responders to remote emergency response teams.
 - **Tech Support**: Allow your customers to share their screens with your staff for a seamless customer support experience.
 
 
