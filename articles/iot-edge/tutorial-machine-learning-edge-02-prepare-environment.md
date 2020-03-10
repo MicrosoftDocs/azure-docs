@@ -36,7 +36,7 @@ The development VM will be set up with:
 * [VS Code Extensions](https://marketplace.visualstudio.com/search?target=VSCode)
   * [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
   * [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
-  * [C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
+  * [C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
   * [Docker](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker)
   * [PowerShell](https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell)
 
