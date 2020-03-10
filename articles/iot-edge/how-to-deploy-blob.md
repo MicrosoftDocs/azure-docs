@@ -261,7 +261,7 @@ If your organization is using a proxy server, you will need to configure proxy s
 - Configure the runtime daemons and the IoT Edge agent on the device.
 - Set the HTTPS_PROXY environment variable for modules in the deployment manifest JSON file.
 
-This process is described in [Configure an IoT Edge device to communicate through a proxy server](how-to-configure-proxy-support.md#configure-deployment-manifests).
+This process is described in [Configure an IoT Edge device to communicate through a proxy server](how-to-configure-proxy-support.md).
 
 In addition, a blob storage module also requires the HTTPS_PROXY setting in the manifest deployment file. You can directly edit the deployment manifest file, or use the Azure portal.
 
