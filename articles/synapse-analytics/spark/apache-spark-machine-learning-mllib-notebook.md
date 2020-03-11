@@ -1,9 +1,10 @@
 ---
 title: Build a machine learning app with Apache Spark MLlib and Azure Synapse Analytics
 description: Learn how to use Apache Spark MLlib to create a machine learning app that analyzes a dataset using classification through logistic regression.
+services: synapse-analytics
 author: euangMS
 ms.reviewer: jrasnick, carlrab
-ms.service: sql-data-warehouse
+ms.service: synapse-analytics
 ms.topic: conceptual
 ms.date: 03/20/2020
 ms.author: euang
@@ -81,7 +82,7 @@ Because the raw data is in a Parquet format, you can use the Spark context to pu
     df = spark.read.parquet(wasbs_path)
     ```
 
-2. Pulling all of this data generates about 1.5 billion rows. Depending on the size of your Spark pool, the raw data may be too large or take too much time to operate on. You can filter this data down to something smaller. If needed, add the following lines to filter the data down to about 2 million rows for a more responsive experience. Use these parameters to pull one week of data.
+2. Pulling all of this data generates about 1.5 billion rows. Depending on the size of your Spark pool (preview), the raw data may be too large or take too much time to operate on. You can filter this data down to something smaller. If needed, add the following lines to filter the data down to about 2 million rows for a more responsive experience. Use these parameters to pull one week of data.
 
     ```python
     # Create an ingestion filter
