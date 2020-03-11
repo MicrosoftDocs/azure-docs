@@ -119,7 +119,7 @@ Sign in to Azure subscription to connect to your Spark pools.
 
 ## Remote Run a Spark Scala application on a Spark pool
 
-After creating a Scala application, you can remote run it.
+After creating a Scala application, you can remotely run it.
 
 1. Open **Run/Debug Configurations** window by clicking the icon.
 
@@ -147,7 +147,7 @@ After creating a Scala application, you can remote run it.
 
     ![The Spark Submission dialog box](./media/intellij-tool-synapse/create-synapse-configuration03.png)
 
-4. Click **SparkJobRun** icon to submit your project to the selected Spark pool. The **Remote Spark Job in Cluster** tab displays the job execution progress at the bottom. You can stop the application by clicking the red run button.
+4. Click **SparkJobRun** icon to submit your project to the selected Spark pool. The **Remote Spark Job in Cluster** tab displays the job execution progress at the bottom. You can stop the application by clicking the red button.
 
     ![Apache Spark Submission window](./media/intellij-tool-synapse/remotely-run-synapse.png)
 
@@ -167,7 +167,7 @@ You can follow the instructions below to set up your local run and local debug f
     - Environment variables: The system environment variable can be auto detected if you have set it before and no need to manually add.
     - [WinUtils.exe Location](http://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe): You can specify the WinUtils location by clicking the folder icon on the right.
 
-2. Then click the local run button.
+2. Then click the local play button.
 
     ![Intellij Run debug configurations local run](./media/intellij-tool-synapse/local-run-synapse01.png)
 

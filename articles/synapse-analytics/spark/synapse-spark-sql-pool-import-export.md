@@ -1,6 +1,6 @@
 ---
-title: Import and Exporting data between Apache Spark pools and SQL pools in Synapse
-description: This article provides information on how to use the custom connector for moving data back and forth between SQL pools and Apache Spark pools.
+title: Import and Exporting data between Spark pools and SQL pools in Synapse
+description: This article provides information on how to use the custom connector for moving data back and forth between SQL pools and Spark pools.
 services: sql-data-warehouse 
 author: euangMS 
 ms.service: sql-data-warehouse 
@@ -12,13 +12,13 @@ ms.reviewer: euang
 ---
 # Introduction
 
-The Spark SQL Analytics Connector is designed to efficiently transfer data between Apache Spark pools and SQL pools in Azure Synapse. The Spark SQL Analytics Connector works on SQL pools only, it does not work with SQL on-Demand.
+The Spark SQL Analytics Connector is designed to efficiently transfer data between Spark pools and SQL pools in Azure Synapse. The Spark SQL Analytics Connector works on SQL pools only, it does not work with SQL on-Demand.
 
 ## Design
 
-Transferring data between Apache Spark pools and SQL pools can be done using JDBC. However, given two distributed systems such as Spark and SQL pools (which provides massively parallel processing (MPP)), JDBC tends to be a bottleneck with serial data transfer.
+Transferring data between Spark pools and SQL pools can be done using JDBC. However, given two distributed systems such as Spark and SQL pools (which provides massively parallel processing (MPP)), JDBC tends to be a bottleneck with serial data transfer.
 
-The Apache Spark pools to SQL Analytics Connector is a data source implementation for Apache Spark. It uses the Azure Data Lake Storage Gen 2, and Polybase in SQL pools to efficiently transfer data between the Spark cluster and the SQL Analytics instance.
+The Spark pools to SQL Analytics Connector is a data source implementation for Apache Spark. It uses the Azure Data Lake Storage Gen 2, and Polybase in SQL pools to efficiently transfer data between the Spark cluster and the SQL Analytics instance.
 
 ![Connector Architecture](./media/synapse-spark-sqlpool-import-export/arch1.png)
 

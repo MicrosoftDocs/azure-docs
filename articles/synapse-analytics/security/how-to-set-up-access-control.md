@@ -149,7 +149,7 @@ Synapse Studio will behave differently based on what roles a user is in. Some it
 | Orchestrate hub / use Pipelines | YES | NO | NO |
 | Use the Manage Hub | YES | YES | YES |
 | Manage Hub / SQL pools | YES | NO | YES |
-| Manage Hub / Apache Spark pools | YES | YES | NO |
+| Manage Hub / Spark pools | YES | YES | NO |
 | Manage Hub / Triggers | YES | NO | NO |
 | Manage Hub / Linked services | YES | YES | YES |
 | Manage Hub / Access Control (assign users to Synapse workspace roles) | YES | NO | NO |
