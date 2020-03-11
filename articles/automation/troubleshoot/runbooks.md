@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot errors with Azure Automation Runbooks
-description: Learn how to troubleshoot and resolve issues you may encounter with Azure Automation runbooks.
+description: Learn how to troubleshoot and resolve issues you might encounter with Azure Automation runbooks.
 services: automation
 author: mgoedtel
 ms.author: magoedte
@@ -26,9 +26,9 @@ When you have errors executing runbooks in Azure Automation, you can use the fol
 
 3. **Ensure your Nodes and Automation workspace have the required modules:** If your runbook imports any modules, ensure they are available to your Automation account using the steps listed in [Import Modules](../shared-resources/modules.md#import-modules). Update your modules to the latest version by following the instructions at [Update Azure modules in Azure Automation](..//automation-update-azure-modules.md). For more troubleshooting information, see [Troubleshoot Modules](shared-resources.md#modules).
 
-If your Runbook is suspended or unexpectedly failed:
+If your runbook is suspended or unexpectedly fails:
 
-* [Check Job Statuses](https://docs.microsoft.com/azure/automation/automation-runbook-execution#job-statuses) defines runbook statuses and some possible causes.
+* [Check job statuses](https://docs.microsoft.com/azure/automation/automation-runbook-execution#job-statuses) defines runbook statuses and some possible causes.
 * [Add additional output](https://docs.microsoft.com/azure/automation/automation-runbook-output-and-messages#message-streams) to the runbook to identify what happens before the runbook is suspended.
 * [Handle any exceptions](https://docs.microsoft.com/azure/automation/automation-runbook-execution#handling-exceptions) that are thrown by your job.
 
@@ -87,7 +87,7 @@ If you're trying to access resources in another subscription, you can follow the
 
 ### Issue
 
-You receive the following error when working with the `Select-AzureSubscription` or `Select-AzureRmSubscription` cmdlets:
+You receive the following error when working with the **Select-AzureSubscription** or **Select-AzureRmSubscription** cmdlet:
 
 ```error
 The subscription named <subscription name> cannot be found.
@@ -95,26 +95,25 @@ The subscription named <subscription name> cannot be found.
 
 ### Error
 
-This error may occur if:
+This error can occur if:
 
 * The subscription name isn't valid
-
 * The Azure Active Directory user who is trying to get the subscription details isn't configured as an admin of the subscription.
 
 ### Resolution
 
-Take the following steps to determine if you've authenticated to Azure and have access to the subscription you're trying to select:
+Take the following steps to determine if you have authenticated to Azure and have access to the subscription you're trying to select:
 
 1. To make sure it works stand-alone, test your script outside of Azure Automation.
-2. Make sure that you run the `Add-AzureAccount` cmdlet before running the `Select-AzureSubscription` cmdlet.
-3. Add `Disable-AzureRmContextAutosave –Scope Process` to the beginning of your runbook. This cmdlet ensures that any credentials apply only to the execution of the current runbook.
-4. If you still see this error message, modify your code by adding the **AzureRmContext** parameter following the `Add-AzureAccount` cmdlet and then execute the code.
+2. Make sure that you run the **Add-AzureAccount** cmdlet before running the **Select-AzureSubscription** cmdlet.
+3. Add `Disable-AzureRmContextAutosave –Scope Process` to the beginning of your runbook. This cmdlet call ensures that any credentials apply only to the execution of the current runbook.
+4. If you still see this error message, modify your code by adding the *AzureRmContext* parameter for the **Add-AzureAccount** cmdlet and then execute the code.
 
    ```powershell
    Disable-AzureRmContextAutosave –Scope Process
 
    $Conn = Get-AutomationConnection -Name AzureRunAsConnection
-   Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationID $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
+   Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
 
    $context = Get-AzureRmContext
 
@@ -137,13 +136,13 @@ If you have multi-factor authentication on your Azure account, you can't use an 
 
 ### Resolution
 
-To use a certificate with the Azure classic deployment model cmdlets, refer to [creating and adding a certificate to manage Azure services](https://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx). To use a service principal with Azure Resource Manager cmdlets, refer to [creating service principal using Azure portal](../../active-directory/develop/howto-create-service-principal-portal.md) and [authenticating a service principal with Azure Resource Manager](../../active-directory/develop/howto-authenticate-service-principal-powershell.md).
+To use a certificate with the Azure classic deployment model cmdlets, refer to [Creating and adding a certificate to manage Azure services](https://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx). To use a service principal with Azure Resource Manager cmdlets, see [Creating service principal using Azure portal](../../active-directory/develop/howto-create-service-principal-portal.md) and [Authenticating a service principal with Azure Resource Manager](../../active-directory/develop/howto-authenticate-service-principal-powershell.md).
 
-## <a name="get-serializationsettings"></a>Scenario: You see an error in your job streams about the get_SerializationSettings Method
+## <a name="get-serializationsettings"></a>Scenario: You see an error in your job streams about the get_SerializationSettings method
 
 ### Issue
 
-You see in your error in your job streams for a runbook with the following message:
+You see the following error in your job streams for a runbook:
 
 ```error
 Connect-AzureRMAccount : Method 'get_SerializationSettings' in type
@@ -197,7 +196,7 @@ The runbook isn't using the correct context when running.
 
 ### Resolution
 
-When working with multiple subscriptions, the subscription context might be lost when invoking runbooks. To ensure that the subscription context is passed to the runbooks, add the `AzureRmContext` parameter to the cmdlet and pass the context to it. It is also recommended to use the `Disable-AzureRmContextAutosave` cmdlet with the **Process** scope to ensure that the credentials you use are only used for the current runbook.
+The subscription context might be lost when invoking multiple runbooks. To ensure that the subscription context is passed to the runbooks, pass the context to the cmdlet in the *AzureRmContext* parameter. Use the **Disable-AzureRmContextAutosave** cmdlet with the **Process** scope to ensure that the specified credentials are only used for the current runbook.
 
 ```azurepowershell-interactive
 # Ensures that any credentials apply only to the execution of this runbook
@@ -263,15 +262,15 @@ The job was tried three times but it failed
 
 ### Cause
 
-This error occurs due to one of the following issues.
+This error occurs because of one of the following issues:
 
 * Memory Limit. A job might fail if it's using more than 400 MB of memory. The documented limits on memory allocated to a sandbox are found at [Automation service limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits). 
 
 * Network Sockets. Azure sandboxes are limited to 1000 concurrent network sockets. See [Automation service limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits).
 
-* Module Incompatible. Module dependencies might not be correct. In this case, your runbook typically returns a "Command not found" or "Cannot bind parameter" message.
+* Module Incompatible. Module dependencies might not be correct. In this case, your runbook typically returns a **Command not found** or **Cannot bind parameter** message.
 
-* No Authentication with Active Directory for Sandbox. Your runbook attempted to call an executable or subprocess that runs in an Azure sandbox. Configuring runbooks to authenticate with Azure AD using the Azure Active Directory Authentication Library (ADAL) is not supported.
+* No Authentication with Active Directory for sandbox. Your runbook attempted to call an executable or subprocess that runs in an Azure sandbox. Configuring runbooks to authenticate with Azure AD using the Azure Active Directory Authentication Library (ADAL) is not supported.
 
 * Too Much Exception Data. Your runbook attempted to write too much exception data to the output stream.
 
@@ -287,11 +286,11 @@ This error occurs due to one of the following issues.
 
 * Too Much Exception Data. There is a 1MB limit on the job output stream. Ensure that your runbook encloses calls to an executable or subprocess in a try/catch block. If the operations throw an exception, have the code write the message from the exception into an Automation variable. This technique prevents the message from being written into the job output stream.
 
-## <a name="sign-in-failed"></a>Scenario: Sign-in to Azure Account failed
+## <a name="sign-in-failed"></a>Scenario: Sign in to Azure account failed
 
 ### Issue
 
-You receive one of the following errors when working with the `Add-AzureAccount` or `Connect-AzureRmAccount` cmdlets:
+You receive one of the following errors when working with the **Add-AzureAccount** or **Connect-AzureRmAccount** cmdlet:
 
 ```error
 Unknown_user_type: Unknown User Type
@@ -303,13 +302,13 @@ No certificate was found in the certificate store with thumbprint
 
 ### Cause
 
-This error occurs if the credential asset name isn't valid. This error may also occur if the username and password that you used to set up the Automation credential asset aren't valid.
+This error occurs if the credential asset name isn't valid. This error might also occur if the username and password that you used to set up the Automation credential asset aren't valid.
 
 ### Resolution
 
 To determine what's wrong, take the following steps:
 
-1. Make sure that you don’t have any special characters. These characters include the **\@** character in the Automation credential asset name that you're using to connect to Azure.
+1. Make sure that you don't have any special characters. These characters include the **\@** character in the Automation credential asset name that you're using to connect to Azure.
 2. Check that you can use the username and password that stored in the Azure Automation credential in your local PowerShell ISE editor. You can do check the username and password are correct by running the following cmdlets in the PowerShell ISE:
 
    ```powershell
@@ -320,7 +319,7 @@ To determine what's wrong, take the following steps:
    Connect-AzureRmAccount –Credential $Cred
    ```
 
-3. If your authentication fails locally, it means that you haven’t set up your Azure Active Directory credentials properly. Refer to [Authenticating to Azure using Azure Active Directory](https://azure.microsoft.com/blog/azure-automation-authenticating-to-azure-using-azure-active-directory/) blog post to get the Azure Active Directory account set up correctly.
+3. If your authentication fails locally, it means that you haven't set up your Azure Active Directory credentials properly. Refer to [Authenticating to Azure using Azure Active Directory](https://azure.microsoft.com/blog/azure-automation-authenticating-to-azure-using-azure-active-directory/) blog post to get the Azure Active Directory account set up correctly.
 
 4. If it looks like a transient error, try adding retry logic to your authentication routine to make authenticating more robust.
 
@@ -358,11 +357,11 @@ Object reference not set to an instance of an object
 
 ### Cause
 
-There is a known issue where Start-AzureRmAutomationRunbook does not handle the output stream correctly if it contains objects.
+**Start-AzureRmAutomationRunbook** does not handle the output stream correctly if the stream contains objects.
 
 ### Resolution
 
-To resolve this issue, it is recommended that you implement a polling logic and use the [Get-AzureRmAutomationJobOutput](/powershell/module/azurerm.automation/get-azurermautomationjoboutput) cmdlet to retrieve the output. A sample of this logic is defined in the following example.
+It is recommended to implement a polling logic and use the [Get-AzureRmAutomationJobOutput](/powershell/module/azurerm.automation/get-azurermautomationjoboutput) cmdlet to retrieve the output. A sample of this logic is defined below.
 
 ```powershell
 $automationAccountName = "ContosoAutomationAccount"
@@ -422,7 +421,7 @@ The quota for the monthly total job run time has been reached for this subscript
 
 ### Cause
 
-This error occurs when the job execution exceeds the 500-minute free quota for your account. This quota applies to all types of job execution tasks. Some of these tasks may be testing a job, starting a job from the portal, executing a job by using webhooks, or scheduling a job to execute by using either the Azure portal or in your datacenter. To learn more about pricing for Automation, see [Automation pricing](https://azure.microsoft.com/pricing/details/automation/).
+This error occurs when the job execution exceeds the 500-minute free quota for your account. This quota applies to all types of job execution tasks. Some of these tasks are testing a job, starting a job from the portal, executing a job by using webhooks, or scheduling a job to execute using either the Azure portal or your datacenter. To learn more about pricing for Automation, see [Automation pricing](https://azure.microsoft.com/pricing/details/automation/).
 
 ### Resolution
 
@@ -445,28 +444,28 @@ Your runbook job fails with the error:
 
 ### Cause
 
-This error is caused when the PowerShell engine can't find the cmdlet you're using in your runbook. This error could be because the module containing the cmdlet is missing from the account, there's a name conflict with a runbook name, or the cmdlet also exists in another module and Automation can't resolve the name.
+This error is caused when the PowerShell engine can't find the cmdlet you're using in your runbook. It is possible that the module containing the cmdlet is missing from the account, there's a name conflict with a runbook name, or the cmdlet also exists in another module and Automation can't resolve the name.
 
 ### Resolution
 
 Any of the following solutions fix the problem:
 
 * Check that you've entered the cmdlet name correctly.
-* Make sure the cmdlet exists in your Automation account and that there are no conflicts. To verify if the cmdlet is present, open a runbook in edit mode and search for the cmdlet you want to find in the library or run `Get-Command <CommandName>`. Once you've validated that the cmdlet is available to the account, and that there are no name conflicts with other cmdlets or runbooks, add it to the canvas and make sure that you're using a valid parameter set in your runbook.
+* Make sure the cmdlet exists in your Automation account and that there are no conflicts. To verify if the cmdlet is present, open a runbook in edit mode and search for the cmdlet you want to find in the library or run `Get-Command <CommandName>`. Once you've validated that the cmdlet is available to the account, and that there are no name conflicts with other cmdlets or runbooks, add the cmdlet to the canvas and make sure that you're using a valid parameter set in your runbook.
 * If you do have a name conflict and the cmdlet is available in two different modules, you can resolve this issue by using the fully qualified name for the cmdlet. For example, you can use **ModuleName\CmdletName**.
-* If you're executing the runbook on-premises in a hybrid worker group, then make sure that the module and cmdlet is installed on the machine that hosts the hybrid worker.
+* If you're executing the runbook on-premises in a hybrid worker group, then make sure that the module and cmdlet are installed on the machine that hosts the hybrid worker.
 
 ## <a name="long-running-runbook"></a>Scenario: A long-running runbook fails to complete
 
 ### Issue
 
-Your runbook shows in a **Stopped** state after running for 3 hours. You may also receive the error:
+Your runbook shows in a Stopped state after running for 3 hours. You might also receive this error:
 
 ```error
-The job was evicted and subsequently reached a Stopped state. The job cannot continue running
+The job was evicted and subsequently reached a Stopped state. The job cannot continue running.
 ```
 
-This behavior is by design in Azure sandboxes because of the [fair share](../automation-runbook-execution.md#fair-share) monitoring of processes within Azure Automation. If it executes longer than three hours, fair share automatically stops a runbook. The status of a runbook that goes past the fair share time limit differs by runbook type. PowerShell and Python runbooks are set to a **Stopped** status. PowerShell Workflow runbooks are set to **Failed**.
+This behavior is by design in Azure sandboxes because of the [fair share](../automation-runbook-execution.md#fair-share) monitoring of processes within Azure Automation. If a process executes longer than three hours, fair share automatically stops a runbook. The status of a runbook that goes past the fair share time limit differs by runbook type. PowerShell and Python runbooks are set to a Stopped status. PowerShell Workflow runbooks are set to Failed.
 
 ### Cause
 
@@ -478,7 +477,7 @@ One recommended solution is to run the runbook on a [Hybrid Runbook Worker](../a
 
 Hybrid Workers aren't limited by the 3-hour fair share runbook limit that Azure sandboxes have. Runbooks run on Hybrid Runbook Workers should be developed to support restart behaviors if there are unexpected local infrastructure issues.
 
-Another option is to optimize the runbook by creating [child runbooks](../automation-child-runbooks.md). If your runbook loops through the same function on several resources, such as a database operation on several databases, you can move that function to a child runbook. Each of these child runbooks executes in parallel in separate processes. This behavior decreases the total amount of time for the parent runbook to complete.
+Another option is to optimize the runbook by creating [child runbooks](../automation-child-runbooks.md). If your runbook loops through the same function on several resources, for example, in a database operation on several databases, you can move the function to a child runbook. Each child runbook executes in parallel in a separate process. This behavior decreases the total amount of time for the parent runbook to complete.
 
 The PowerShell cmdlets that enable the child runbook scenario are:
 
@@ -508,7 +507,7 @@ If the webhook is disabled, you can re-enable the webhook through the Azure port
 
 ### Issue
 
-You receive the following error message when running the `Get-AzureRmAutomationJobOutput` cmdlet:
+You receive the following error message when running the **Get-AzureRmAutomationJobOutput** cmdlet:
 
 ```error
 429: The request rate is currently too large. Please try again
@@ -516,20 +515,20 @@ You receive the following error message when running the `Get-AzureRmAutomationJ
 
 ### Cause
 
-This error may occur when retrieving job output from a runbook that has many [verbose streams](../automation-runbook-output-and-messages.md#verbose-stream).
+This error can occur when retrieving job output from a runbook that has many [verbose streams](../automation-runbook-output-and-messages.md#verbose-stream).
 
 ### Resolution
 
 There are two ways to resolve this error:
 
 * Edit the runbook, and reduce the number of job streams that it emits​.
-* Reduce the number of streams to be retrieved when running the cmdlet. To follow this behavior, you can specify the `-Stream Output` parameter to the `Get-AzureRmAutomationJobOutput` cmdlet to retrieve only output streams. ​
+* Reduce the number of streams to be retrieved when running the cmdlet. To follow this behavior, you can set the value of the *Stream* parameter for the **Get-AzureRmAutomationJobOutput** cmdlet to retrieve only output streams. ​
 
 ## <a name="cannot-invoke-method"></a>Scenario: PowerShell job fails with error: Cannot invoke method
 
 ### Issue
 
-You receive the following error message when starting a PowerShell Job in a runbook running in Azure:
+You receive the following error message when starting a PowerShell job in a runbook running in Azure:
 
 ```error
 Exception was thrown - Cannot invoke method. Method invocation is supported only on core types in this language mode.
@@ -537,16 +536,16 @@ Exception was thrown - Cannot invoke method. Method invocation is supported only
 
 ### Cause
 
-This error may occur when you start a PowerShell job in a runbook that runs in Azure. This behavior may occur because runbooks run in an Azure sandbox may not run in the [Full language mode](/powershell/module/microsoft.powershell.core/about/about_language_modes).
+This error might indicate that runbooks run in an Azure sandbox can't run in the [Full language mode](/powershell/module/microsoft.powershell.core/about/about_language_modes).
 
 ### Resolution
 
-There are two ways to resolve this error:
+There are two ways to resolve this error.
 
-* Instead of using `Start-Job`, use `Start-AzureRmAutomationRunbook` to start a runbook
-* If your runbook has this error message, run it on a Hybrid Runbook Worker
+* Instead of using **Start-Job**, use **Start-AzureRmAutomationRunbook** to start the runbook.
+* If your runbook has this error message, try running it on a Hybrid Runbook Worker.
 
-To learn more about this behavior and other behaviors of Azure Automation Runbooks, see [Runbook behavior](../automation-runbook-execution.md#runbook-behavior).
+To learn more about this behavior and other behaviors of Azure Automation runbooks, see [Runbook behavior](../automation-runbook-execution.md#runbook-behavior).
 
 ## Scenario: Linux Hybrid Runbook Worker receives a prompt for a password when signing a runbook
 
@@ -556,13 +555,13 @@ Running the **sudo** command for a Linux Hybrid Runbook Worker retrieves an unex
 
 ### Cause
 
-The nxautomationuser account for the Log Analytics agent for Linux is not correctly configured in the sudoers file. The Hybrid Runbook Worker needs the appropriate configuration of account permissions and other data so that it can sign runbooks on the Linux Runbook Worker.
+The **nxautomationuser** account for the Log Analytics agent for Linux is not correctly configured in the sudoers file. The Hybrid Runbook Worker needs the appropriate configuration of account permissions and other data so that it can sign runbooks on the Linux Runbook Worker.
 
 ### Resolution
 
 * Ensure that the Hybrid Runbook Worker has the GnuPG (GPG) executable on the machine.
 
-* Verify the configuration of the nxautomationuser account in the sudoers file. See [Running runbooks on a Hybrid Runbook Worker](../automation-hrw-run-runbooks.md)
+* Verify the configuration of the **nxautomationuser** account in the sudoers file. See [Running runbooks on a Hybrid Runbook Worker](../automation-hrw-run-runbooks.md)
 
 ## Scenario: Cmdlet failing in PnP PowerShell runbook on Azure Automation
 
@@ -572,7 +571,7 @@ When a runbook writes a PnP PowerShell-generated object to the Azure Automation 
 
 ### Cause
 
-This issue is most commonly caused when Azure Automation processes runbooks that invoke PnP PowerShell cmdlets, for example, **add-pnplistitem**, without catching the return objects.
+This issue most commonly occurs when Azure Automation processes runbooks that invoke PnP PowerShell cmdlets, for example, **add-pnplistitem**, without catching the return objects.
 
 ### Resolution
 
@@ -581,6 +580,7 @@ Edit your scripts to assign any return values to variables so that the cmdlets d
 ```azurecli
   $null = add-pnplistitem
 ```
+
 If your script parses cmdlet output, the script must store the output in a variable and manipulate the variable instead of simply streaming the output.
 
 ```azurecli
@@ -590,20 +590,15 @@ if ($SomeVariable.someproperty -eq ....
 
 ## <a name="other"></a>My problem isn't listed above
 
-The sections below list other common errors in addition to supporting documentation to help you resolve your issue.
+The sections below list other common errors and provide supporting documentation to help you resolve your issue.
 
 ### Hybrid runbook worker doesn't run jobs or isn't responding
 
-If you are running jobs using a hybrid worker instead of in Azure Automation, you might need to [troubleshoot the hybrid worker itself](https://docs.microsoft.com/azure/automation/troubleshoot/hybrid-runbook-worker).
+If you are running jobs on a Hybrid Runbook Worker instead of in Azure Automation, you might need to [troubleshoot the hybrid worker itself](https://docs.microsoft.com/azure/automation/troubleshoot/hybrid-runbook-worker).
 
 ### Runbook fails with "No permission" or some variation
 
 Run As accounts might not have the same permissions against Azure resources as your current account. Ensure that your Run As account has [permissions to access any resources](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) used in your script.
-
-### Runbooks were working, but suddenly stopped
-
-* If runbooks were previously executing but stopped, ensure that the [Run As account](https://docs.microsoft.com/azure/automation/manage-runas-account#cert-renewal) has not expired.
-* If you are using webhooks to start runbooks, ensure that a [webhook](https://docs.microsoft.com/azure/automation/automation-webhooks#renew-webhook) has not expired.
 
 ### Issues passing parameters into webhooks
 
@@ -611,7 +606,7 @@ For help with passing parameters into webhooks, see [Start a runbook from a webh
 
 ### Issues using Az modules
 
-Using Az modules and AzureRM modules in the same Automation account is not supported. For more information, see [Az modules in runbooks](https://docs.microsoft.com/azure/automation/az-modules) for more details.
+Using Az modules and AzureRM modules in the same Automation account is not supported. See [Az modules in runbooks](https://docs.microsoft.com/azure/automation/az-modules) for more details.
 
 ### Inconsistent behavior in runbooks
 
@@ -623,8 +618,8 @@ Run As accounts might not have the same permissions against Azure resources as y
 
 ### Runbooks were working, but suddenly stopped
 
-* If runbooks were previously executing but stopped, ensure that the Run As account has not expired. See [certification renewal](https://docs.microsoft.com/azure/automation/manage-runas-account#cert-renewal).
-* If you are using webhooks to start runbooks, ensure that the webhook [has not expired](https://docs.microsoft.com/azure/automation/automation-webhooks#renew-webhook).
+* Ensure that the Run As account has not expired. See [certification renewal](https://docs.microsoft.com/azure/automation/manage-runas-account#cert-renewal).
+* If you're using a [webhook](https://docs.microsoft.com/azure/automation/automation-webhooks#renew-webhook) to start a runbook, ensure that webhook has not expired.
 
 ### Passing parameters into webhooks
 
@@ -638,6 +633,10 @@ Using Az modules and AzureRM modules in the same Automation account is not suppo
 
 To use Self-Signed certificates, see [Creating a new certificate](https://docs.microsoft.com/azure/automation/shared-resources/certificates#creating-a-new-certificate).
 
+### Access denied when using Azure sandbox for a runbook
+
+The Azure sandbox prevents access to all out-of-process COM servers. For example, a sandboxed application or runbook can't call into Windows Management Instrumentation (WMI), or into the Windows Installer service (msiserver.exe). For details about the use of the sandbox, see [Runbook execution in Azure Automation](https://docs.microsoft.com/azure/automation/automation-runbook-execution.md).
+
 ## Recommended Documents
 
 * [Starting a runbook in Azure Automation](https://docs.microsoft.com/azure/automation/automation-starting-a-runbook)
@@ -647,6 +646,6 @@ To use Self-Signed certificates, see [Creating a new certificate](https://docs.m
 
 If you didn't see your problem or are unable to solve your issue, visit one of the following channels for more support:
 
-* Get answers from Azure experts through [Azure Forums](https://azure.microsoft.com/support/forums/)
+* Get answers from Azure experts through [Azure Forums](https://azure.microsoft.com/support/forums/).
 * Connect with [@AzureSupport](https://twitter.com/azuresupport) – the official Microsoft Azure account for improving customer experience by connecting the Azure community to the right resources: answers, support, and experts.
 * If you need more help, you can file an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/support/options/) and select **Get Support**.
