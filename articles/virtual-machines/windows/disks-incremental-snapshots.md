@@ -10,4 +10,4 @@ ms.subservice: disks
 ---
 
 # Creating an incremental snapshot for managed disks
-[!INCLUDE [virtual-machines-disks-incremental-snapshot](../../../includes/virtual-machines-disks-incremental-snapshot.md)]
+[!INCLUDE [virtual-machines-disks-incremental-snapshot-powershell](../../../includes/virtual-machines-disks-incremental-snapshot-powershell.md)]
