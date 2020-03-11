@@ -31,15 +31,15 @@ is transmitted directly to Azure backbone network.
 
 * Preventing exfiltration attacks from sensitive on-prem networks. 
 
-* Following established Azure-wide connectivity patterns using [private endpoints](./private-link/private-endpoint-overview.md).
+* Following established Azure-wide connectivity patterns using [private endpoints](../private-link/private-endpoint-overview.md).
 
 
-This article describes how to achieve these goals using [private endpoints](./private-link/private-endpoint-overview.md) for ingress connectivity to IoT Hub, as using Azure Trusted first party connectivity exception for egress connectivity from IoT Hub to other Azure resources.
+This article describes how to achieve these goals using [private endpoints](../private-link/private-endpoint-overview.md) for ingress connectivity to IoT Hub, as using Azure Trusted first party connectivity exception for egress connectivity from IoT Hub to other Azure resources.
 
 
 ## Ingress connectivity to IoT Hub using private endpoints
 
-A private endpoint is a private IP address allocated inside a customer-owned VNET via which an Azure resource is reachable. By having a private endpoint for your IoT Hub, you will be able to allow services operating inside your VNET to reach IoT Hub without requiring traffic to be sent to IoT Hub's public endpoint. Similarly, devices that operate in your on-prem can use [Virtual Private Network (VPN)](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpngateways) or [ExpressRoute](https://azure.microsoft.com/en-us/services/expressroute/) Private Peering to gain connectivity to your VNET in Azure and subsequently to your IoT Hub (via its private endpoint). As a result, customers who wish to restrict connectivity to their IoT Hub's public endpoints (or possibly completely block it off) can achieve this goal by using [IoT Hub firewall rules](./iot-hub-ip-filtering.md) while retaining connectivity to their Hub using the private endpoint.
+A private endpoint is a private IP address allocated inside a customer-owned VNET via which an Azure resource is reachable. By having a private endpoint for your IoT Hub, you will be able to allow services operating inside your VNET to reach IoT Hub without requiring traffic to be sent to IoT Hub's public endpoint. Similarly, devices that operate in your on-prem can use [Virtual Private Network (VPN)](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) or [ExpressRoute](https://azure.microsoft.com/services/expressroute/) Private Peering to gain connectivity to your VNET in Azure and subsequently to your IoT Hub (via its private endpoint). As a result, customers who wish to restrict connectivity to their IoT Hub's public endpoints (or possibly completely block it off) can achieve this goal by using [IoT Hub firewall rules](./iot-hub-ip-filtering.md) while retaining connectivity to their Hub using the private endpoint.
 
 [!NOTE] 
 The main focus of this setup is for devices inside an on-premise network. This setup is not advised for devices deployed in a wide-area network. 
@@ -52,7 +52,7 @@ Before proceeding ensure that the following pre-requisites are met:
 
 * You need to provision an Azure VNET with a subnet in which the private endpoint will be created. See [create a virtual network using Azure CLI](../virtual-network/quick-create-cli.md) for more details.
 
-* For devices that operate inside of on-premise networks, set up [Virtual Private Network (VPN)](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpngateways) or [ExpressRoute](https://azure.microsoft.com/en-us/services/expressroute/) private peering into your Azure VNET.
+* For devices that operate inside of on-premise networks, set up [Virtual Private Network (VPN)](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) or [ExpressRoute](https://azure.microsoft.com/en-us/services/expressroute/) private peering into your Azure VNET.
 
 
 ### Regional availability (private links)
@@ -177,7 +177,7 @@ After substituting the values for your resource `name`, `location`, `SKU.name` a
 az group deployment create --name <deployment-name> --resource-group <resource-group-name> --template-file <template-file.json>
 ```
 
-Once the hub is provisioned, follow the corresponding section to set up routing endpoints to [storage accounts](#egress-connectivity-to-storage-account-endpoints-for-routing), [event hubs](#egress-connectivity-to-event-hubs-endpoints-for-routing), and [service bus](#egress-connectivity-to-service-bus-endpoints-for-routing) resources, or to configure [file upload](#file-upload) and [bulk device import/export](#bulk-device-import-export).
+Once the hub is provisioned, follow the corresponding section to set up routing endpoints to [storage accounts](#egress-connectivity-to-storage-account-endpoints-for-routing), [event hubs](#egress-connectivity-to-event-hubs-endpoints-for-routing), and [service bus](#egress-connectivity-to-service-bus-endpoints-for-routing) resources, or to configure [file upload](#egress-connectivity-to-storage-accounts-for-file-upload) and [bulk device import/export](#egress-connectivity-to-storage-accounts-for-bulk-device-importexport).
 
 
 ### Egress connectivity to storage account endpoints for routing
