@@ -20,8 +20,6 @@ ms.author: juliako
 
 # Media Services v2 vs. v3
 
->Get notified about when to revisit this page for updates by copying and pasting this URL: `https://docs.microsoft.com/api/search/rss?search=%22Migrate+from+Azure+Media+Services+v2+to+v3%22&locale=en-us` into your RSS feed reader.
-
 This article describes changes that were introduced in Azure Media Services v3 and shows differences between two versions.
 
 ## General changes from v2
@@ -81,21 +79,7 @@ The v3 API has the following feature gaps with respect to the v2 API. Closing th
     * Inserting a silent audio track when input has no audio
     * Inserting a video track when input has no video
 * Live Events with transcoding currently do not support Slate insertion mid-stream and ad marker insertion via API call. 
-
-> [!NOTE]
-> Please bookmark this article and keep checking for updates.
  
-## Code differences
-
-The following table shows the code differences between v2 and v3 for common scenarios.
-
-|Scenario|V2 API|V3 API|
-|---|---|---|
-|Create an asset and upload a file |[v2 .NET example](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L113)|[v3 .NET example](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#L169)|
-|Submit a job|[v2 .NET example](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L146)|[v3 .NET example](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#L298)<br/><br/>Shows how to first create a Transform and then submit a Job.|
-|Publish an asset with AES encryption |1. Create ContentKeyAuthorizationPolicyOption<br/>2. Create ContentKeyAuthorizationPolicy<br/>3. Create AssetDeliveryPolicy<br/>4. Create Asset and upload content OR Submit job and use output asset<br/>5. Associate AssetDeliveryPolicy with Asset<br/>6. Create ContentKey<br/>7. Attach ContentKey to Asset<br/>8. Create AccessPolicy<br/>9. Create Locator<br/><br/>[v2 .NET example](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L64)|1. Create Content Key Policy<br/>2. Create Asset<br/>3. Upload content or use Asset as JobOutput<br/>4. Create Streaming Locator<br/><br/>[v3 .NET example](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES/Program.cs#L105)|
-|Get job details and manage jobs |[Manage jobs with v2](../previous/media-services-dotnet-manage-entities.md#get-a-job-reference) |[Manage jobs with v3](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#L546)|
-
 ## Asset specific changes
 
 ### Map v3 asset properties to v2
@@ -128,6 +112,20 @@ To protect your Assets at rest, the assets should be encrypted by the storage si
 <sup>1</sup> While Media Services does support handling of content in the clear/without any form of encryption, doing so isn't recommended.
 
 <sup>2</sup> In Media Services v3, storage encryption (AES-256 encryption) is only supported for backwards compatibility when your Assets were created with Media Services v2. Meaning v3 works with existing storage encrypted assets but won't allow creation of new ones.
+
+## Code differences
+
+The following table shows the code differences between v2 and v3 for common scenarios.
+
+|Scenario|V2 API|V3 API|
+|---|---|---|
+|Create an asset and upload a file |[v2 .NET example](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L113)|[v3 .NET example](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#L169)|
+|Submit a job|[v2 .NET example](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L146)|[v3 .NET example](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#L298)<br/><br/>Shows how to first create a Transform and then submit a Job.|
+|Publish an asset with AES encryption |1. Create ContentKeyAuthorizationPolicyOption<br/>2. Create ContentKeyAuthorizationPolicy<br/>3. Create AssetDeliveryPolicy<br/>4. Create Asset and upload content OR Submit job and use output asset<br/>5. Associate AssetDeliveryPolicy with Asset<br/>6. Create ContentKey<br/>7. Attach ContentKey to Asset<br/>8. Create AccessPolicy<br/>9. Create Locator<br/><br/>[v2 .NET example](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L64)|1. Create Content Key Policy<br/>2. Create Asset<br/>3. Upload content or use Asset as JobOutput<br/>4. Create Streaming Locator<br/><br/>[v3 .NET example](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES/Program.cs#L105)|
+|Get job details and manage jobs |[Manage jobs with v2](../previous/media-services-dotnet-manage-entities.md#get-a-job-reference) |[Manage jobs with v3](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#L546)|
+
+> [!NOTE]
+> Please bookmark this article and keep checking for updates.
 
 ## Ask questions, give feedback, get updates
 
