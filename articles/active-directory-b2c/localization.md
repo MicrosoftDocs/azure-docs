@@ -205,7 +205,7 @@ Under the **BuildingBlocks** element, add the **Localization** element with the 
 
 ## Next steps
 
-See the following article, for example of using localiztion:
+See the following articles for localization examples:
 
 - [Language customization with custom policy in Azure Active Directory B2C](custom-policy-localization.md)
 - [Language customization with user flows in Azure Active Directory B2C](user-flow-language-customization.md)
