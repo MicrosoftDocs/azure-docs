@@ -46,6 +46,10 @@ landingContent:
             url: create-notification-hub-portal.md
           - text: Set up push notifications in a notification hub in the Azure portal
             url: configure-notification-hub-portal-pns-settings.md
+
+  # Card (optional)
+  - title: Send notifications to all registered devices
+    linkLists:
       - linkListType: tutorial
         links:
           - text: Send push notifications to all registered devices
