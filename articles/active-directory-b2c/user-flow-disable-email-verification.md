@@ -28,7 +28,7 @@ Follow these steps to disable email verification:
 1. Select **Page layouts**.
 1. Select **Local account sign-up page**.
 1. Under **User attributes**, select **Email Address**.
-1. In the **REQUIRES VERIFICATION** drop down, select **No**.
+1. In the **REQUIRES VERIFICATION** drop-down, select **No**.
 1. Select **Save**. Email verification is now disabled for this user flow.
 
 
