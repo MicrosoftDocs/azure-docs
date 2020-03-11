@@ -82,7 +82,7 @@ Azure CDN from Microsoft Service currently provides Raw logs (batched hourly). R
 ## Next Steps
 In this article, you enabled HTTP raw logs for the Microsoft CDN service.
 
-Learn more about:
+For more information on Azure CDN and the other Azure services mentioned in this article, see:
 
 * [Analyze](cdn-log-analysis.md) Azure CDN usage patterns.
 
