@@ -57,10 +57,10 @@ In Azure Resource Manager (ARM), there is a [base64 function](https://docs.micro
 The provisioning agents installed on the VMs handle interfacing with the platform and placing it on the file system. 
 
 ### Windows
-Custom data is placed in %SYSTEMDRIVE%\AzureData\CustomData.bin as a binary file, but it is not processed. If you wish to process this file, you will need to build a custom image, and write code to process the CustomData.bin.
+Custom data is placed in *%SYSTEMDRIVE%\AzureData\CustomData.bin* as a binary file, but it is not processed. If you wish to process this file, you will need to build a custom image, and write code to process the CustomData.bin.
 
 ### Linux  
-On Linux OS's, custom data is passed to the VM via the ovf-env.xml file, which is copied to the /var/lib/waagent directory during provisioning.  Newer versions of the Microsoft Azure Linux Agent will also copy the base64-encoded data to /var/lib/waagent/CustomData as well for convenience.
+On Linux OS's, custom data is passed to the VM via the ovf-env.xml file, which is copied to the */var/lib/waagent* directory during provisioning.  Newer versions of the Microsoft Azure Linux Agent will also copy the base64-encoded data to */var/lib/waagent/CustomData* as well for convenience.
 
 Azure currently supports two provisioning agents:
 * Linux Agent - By default the agent will not process custom data, you will need to build a custom image with it enabled. These are the relevant settings, as per the [documentation](https://github.com/Azure/WALinuxAgent#configuration):
