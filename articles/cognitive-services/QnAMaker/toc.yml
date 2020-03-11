@@ -28,6 +28,8 @@
   items:
   - name: Azure resources
     href: Concepts/azure-resources.md
+  - name: Collaborate with others
+    href: ../Concepts/role-based-access-control.md
   - name: Design a knowledge base
     items:
     - name: For languages
@@ -68,6 +70,8 @@
       displayName: azure, resource, key, upgrade, pricing, tier,
     - name: Create a business continuity plan
       href: How-To/business-continuity-plan.md
+    - name: Add role-based access (RBAC)
+      href: How-To/collaborate-knowledge-base.md
   - name: Manage knowledge base
     items:
     - name: Create knowledge base
@@ -79,8 +83,6 @@
     - name: Migrate to new knowledge base
       href: Tutorials/migrate-knowledge-base.md
       displayName: metadata, pair
-    - name: Collaborate
-      href: How-To/collaborate-knowledge-base.md
     - name: Test
       href: How-To/test-knowledge-base.md
   - name: Manage QnA sets

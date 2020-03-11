@@ -1,24 +1,23 @@
 ---
 title: Collaborating on knowledge base - QnA Maker
-titleSuffix: Azure Cognitive Services
 description: QnA Maker allows multiple people to collaborate on a knowledge base. This feature is provided with the Azure Role-Based Access Control.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 01/03/2020
-ms.author: diberry
+ms.date: 01/13/2020
 ---
 
-# Collaborate on your knowledge base
+# Add role-based access (RBAC) to your QnA Maker resource
 
 QnA Maker allows multiple people to collaborate on all knowledge bases in the same QnA Maker resource. This feature is provided with the Azure [Role-Based Access Control](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure).
 
-Perform the following steps to share your QnA Maker service with someone:
+## Access at the QnA Maker resource level
 
-1. Sign in to the Azure portal, and go to your QnA Maker resource.
+You cannot share a particular knowledge base in a QnA Maker service. If you want more granular access control, consider distributing your knowledge bases across different QnA Maker services.
+
+## Add a user account to the QnA Maker resource
+
+The following steps use the collaborator role but any of the [roles](reference-role-based-access-control.md) can be added using these steps
+
+1. Sign in to the [Azure](http://portal.azure.com/) portal, and go to your QnA Maker resource.
 
     ![QnA Maker resource list](../media/qnamaker-how-to-collaborate-knowledge-base/qnamaker-resource-list.PNG)
 
@@ -30,7 +29,15 @@ Perform the following steps to share your QnA Maker service with someone:
 
     ![QnA Maker IAM add](../media/qnamaker-how-to-collaborate-knowledge-base/qnamaker-iam-add.PNG)
 
-1. Select the **Owner** or the **Contributor** role. You cannot grant read-only access through Role-Based Access Control. Owner and Contributor roles have read-write access permissions to the QnA Maker service.
+1. Select a role from the following list:
+
+    |Role|
+    |--|
+    |Owner|
+    |Contributor|
+    |QnA Maker Reader|
+    |QnA Maker Editor|
+    |Cognitive Services User|
 
     ![QnA Maker IAM add role](../media/qnamaker-how-to-collaborate-knowledge-base/qnamaker-iam-add-role.PNG)
 
@@ -38,9 +45,7 @@ Perform the following steps to share your QnA Maker service with someone:
 
     ![QnA Maker IAM add email](../media/qnamaker-how-to-collaborate-knowledge-base/qnamaker-iam-add-email.PNG)
 
-When the person, you shared your QnA Maker service with, logs into the [QnA Maker portal](https://qnamaker.ai) they can see all the knowledge bases in that service.
-
-Remember, you cannot share a particular knowledge base in a QnA Maker service. If you want more granular access control, consider distributing your knowledge bases across different QnA Maker services.
+When the person you shared your QnA Maker service with logs into the [QnA Maker portal](https://qnamaker.ai), they can see all the knowledge bases in that service based on their role.
 
 ## Next steps
 
