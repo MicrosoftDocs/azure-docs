@@ -52,7 +52,7 @@ Publishers on a VNet using the private endpoint should use the same connection s
 ### DNS changes for private endpoints
 When you create a private endpoint, the DNS CNAME record for the resource is updated to an alias in a subdomain with the prefix `privatelink`. By default, a private DNS zone is created that corresponds to the private link's subdomain. 
 
-When you resolve the topic or domain endpoint URL from outside the VNet with the private endpoint, it resolves to the public endpoint of the service. The DNS resource records for 'topicA', when resolved from outside the VNet hosting the private endpoint, will be:
+When you resolve the topic or domain endpoint URL from outside the VNet with the private endpoint, it resolves to the public endpoint of the service. The DNS resource records for 'topicA', when resolved from **outside the VNet** hosting the private endpoint, will be:
 
 | Name                                          | Type      | Value                                         |
 | --------------------------------------------- | ----------| --------------------------------------------- |  
@@ -61,7 +61,7 @@ When you resolve the topic or domain endpoint URL from outside the VNet with the
 
 You can deny or control access for a client outside the VNet through the public endpoint using the [IP firewall](#ip-firewall). 
 
-When resolved from the VNet hosting the private endpoint, the topic or domain endpoint URL resolves to the private endpoint's IP address. The DNS resource records for the topic 'topicA', when resolved from inside the VNet hosting the private endpoint, will be:
+When resolved from the VNet hosting the private endpoint, the topic or domain endpoint URL resolves to the private endpoint's IP address. The DNS resource records for the topic 'topicA', when resolved from **inside the VNet** hosting the private endpoint, will be:
 
 | Name                                          | Type      | Value                                         |
 | --------------------------------------------- | ----------| --------------------------------------------- |  
@@ -91,6 +91,7 @@ For publishing to be successful, the private endpoint connection state should be
 **Private endpoints** are only available with premium tier topics and domains. Event Grid allows up to 64 private endpoint connections to be created per topic or domain.
 
 **IP Firewall** feature is available in both basic and premium tiers of Event Grid. We allow up to 16 IP Firewall rules to be created per topic or domain.
+
 
 ## Next steps
 You can configure IP firewall for your Event Grid resource to restrict access over the public internet from only a select set of IP Addresses or IP Address ranges. For step-by-step instructions, see [Configure IP firewall](configure-firewall.md).

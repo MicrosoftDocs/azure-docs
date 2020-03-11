@@ -18,6 +18,9 @@ This article describes how to configure private endpoints for topics or domains.
 ## Use Azure portal 
 This section shows you how to use the Azure portal to create a private endpoint for a topic or a domain.
 
+> [!NOTE]
+> The steps shown in this section are mostly for topics. You can use similar steps to create private endpoints for **domains**. 
+
 1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your topic or domain.
 2. Switch to the **Networking** tab of your topic page. Select **+ Private endpoint** on the toolbar.
 
@@ -83,6 +86,9 @@ The following sections show you how to approve or reject a private endpoint conn
 ### To approve a private endpoint
 You can approve a private endpoint that's in the pending state. To approve, follow these steps: 
 
+> [!NOTE]
+> The steps shown in this section are mostly for topics. You can use similar steps to approve private endpoints for **domains**. 
+
 1. Select the **private endpoint** you wish to approve, and select **Approve** on the toolbar.
 
     ![Private endpoint - pending state](./media/configure-private-endpoints/endpoint-pending.png)
@@ -95,6 +101,9 @@ You can approve a private endpoint that's in the pending state. To approve, foll
 
 ### To reject a private endpoint
 You can reject a private endpoint that's in the pending state or approved state. To reject, follow these steps: 
+
+> [!NOTE]
+> The steps shown in this section are for topics. You can use similar steps to reject private endpoints for **domains**. 
 
 1. Select the **private endpoint** you wish to reject, and select **Reject** on the toolbar.
 
@@ -113,7 +122,7 @@ You can reject a private endpoint that's in the pending state or approved state.
 ## Use Azure CLI
 To create a private endpoint, use the [az network private-endpoint create](/cli/azure/network/private-endpoint?view=azure-cli-latest#az-network-private-endpoint-create) method as shown in the following example:
 
-```azurecli
+```azurecli-interactive
 az network private-endpoint create \
     --resource-group <RESOURECE GROUP NAME> \
     --name <PRIVATE ENDPOINT NAME> \
@@ -132,9 +141,12 @@ For descriptions of the parameters used in the example, see documentation for [a
 
 To delete a private endpoint, use the [az network private-endpoint delete](/cli/azure/network/private-endpoint?view=azure-cli-latest#az-network-private-endpoint-delete) method as shown in the following example:
 
-```azurecli
+```azurecli-interactive
 az network private-endpoint delete --resource-group <RESOURECE GROUP NAME> --name <PRIVATE ENDPOINT NAME>
 ```
+
+> [!NOTE]
+> The steps shown in this section are for topics. You can use similar steps to create private endpoints for **domains**. 
 
 ### Sample script 
 Here's a sample script that creates the following Azure resources:
@@ -145,7 +157,10 @@ Here's a sample script that creates the following Azure resources:
 - Azure Event Grid topic (premium tier)
 - Private endpoint for the topic
 
-```azurecli
+> [!NOTE]
+> The steps shown in this section are for topics. You can use similar steps to create private endpoints for domains.
+
+```azurecli-interactive
 subscriptionID="<AZURE SUBSCRIPTION ID>"
 resourceGroupName="<RESOURCE GROUP NAME>"
 location="<LOCATION>"
@@ -222,7 +237,7 @@ Follow instructions from [How to: Use the portal to create an Azure AD applicati
 ### Prepare token and headers for REST API calls 
 Run the following prerequisite commands to get an authentication token to use with REST API calls and authorization and other header information. 
 
-```azurepowershell
+```azurepowershell-interactive
 $body = "grant_type=client_credentials&client_id=<CLIENT ID>&client_secret=<CLIENT SECRET>&resource=https://management.core.windows.net"
 
 # get authentication token
@@ -238,7 +253,7 @@ $Headers.Add("Authorization","$($Token.token_type) "+ " " + "$($Token.access_tok
 
 ### Create a subnet with endpoint network policies disabled
 
-```azurepowershell
+```azurepowershell-interactive
 
 # create resource group
 New-AzResourceGroup -ResourceGroupName <RESOURCE GROUP NAME>  -Location <LOCATION>
@@ -263,7 +278,11 @@ $virtualNetwork | Set-AzVirtualNetwork
 
 ### Create an event grid topic with a private endpoint
 
-```azurepowershell
+> [!NOTE]
+> The steps shown in this section are for topics. You can use similar steps to create private endpoints for **domains**. 
+
+
+```azurepowershell-interactive
 $body = @{"location"="<LOCATION>"; "sku"= @{"name"="premium"}; "properties"=@{"publicNetworkAccess"="disabled"}} | ConvertTo-Json
 
 # create topic
@@ -336,10 +355,34 @@ When you verify that the endpoint was created, you should see the result similar
 }
 ```
 
-### Reject a private endpoint 
-THe following example shows you how to reject a private endpoint using PowerShell. You can get the GUID for the private endpoint from the result of the previous GET command. 
+### Approve a private endpoint
+The following sample PowerShell snippet shows you how to approve a private endpoint. 
 
-```azurepowershell
+> [!NOTE]
+> The steps shown in this section are for topics. You can use similar steps to approve private endpoints for **domains**. 
+
+```azurepowershell-interactive
+$approvedBody = @{"properties"=@{"privateLinkServiceConnectionState"=@{"status"="approved";"description"="connection approved";"actionsRequired"="none"}}} | ConvertTo-Json
+
+Invoke-RestMethod -Method 'Put'  `
+    -Uri "https://management.azure.com/subscriptions/<AzuRE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventGrid/topics/<EVENT GRID TOPIC NAME>/privateEndpointConnections/<PRIVATE ENDPOINT NAME>.<GUID>?api-version=2020-04-01-preview"  `
+    -Headers $Headers  `
+    -Body $approvedBody
+
+Invoke-RestMethod -Method 'Get'  `
+    -Uri "https://management.azure.com/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventGrid/topics/<EVENT GRID TOPIC NAME>/privateEndpointConnections/<PRIVATE ENDPOINT NAME>.<GUID>?api-version=2020-04-01-preview"  `
+    -Headers $Headers
+
+```
+
+### Reject a private endpoint 
+The following example shows you how to reject a private endpoint using PowerShell. You can get the GUID for the private endpoint from the result of the previous GET command. 
+
+> [!NOTE]
+> The steps shown in this section are for topics. You can use similar steps to reject private endpoints for **domains**. 
+
+
+```azurepowershell-interactive
 $rejectedBody = @{"properties"=@{"privateLinkServiceConnectionState"=@{"status"="rejected";"description"="connection rejected";"actionsRequired"="none"}}} | ConvertTo-Json
 
 # reject private endpoint
@@ -352,23 +395,6 @@ Invoke-RestMethod -Method 'Put'  `
 Invoke-RestMethod -Method 'Get' 
     -Uri "https://management.azure.com/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventGrid/topics/<EVENT GRID TOPIC NAME>/privateEndpointConnections/<PRIVATE ENDPOINT NAME>.<GUID>?api-version=2020-04-01-preview" ` 
     -Headers $Headers
-```
-
-### Approve a private endpoint
-The following sample PowerShell snippet shows you how to approve a private endpoint. 
-
-```azurepowershell
-$approvedBody = @{"properties"=@{"privateLinkServiceConnectionState"=@{"status"="approved";"description"="connection approved";"actionsRequired"="none"}}} | ConvertTo-Json
-
-Invoke-RestMethod -Method 'Put'  `
-    -Uri "https://management.azure.com/subscriptions/<AzuRE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventGrid/topics/<EVENT GRID TOPIC NAME>/privateEndpointConnections/<PRIVATE ENDPOINT NAME>.<GUID>?api-version=2020-04-01-preview"  `
-    -Headers $Headers  `
-    -Body $approvedBody
-
-Invoke-RestMethod -Method 'Get'  `
-    -Uri "https://management.azure.com/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventGrid/topics/<EVENT GRID TOPIC NAME>/privateEndpointConnections/<PRIVATE ENDPOINT NAME>.<GUID>?api-version=2020-04-01-preview"  `
-    -Headers $Headers
-
 ```
 
 You can approve the connection even after it's rejected via API. If you use Azure portal, you can't approve an endpoint that has been rejected. 

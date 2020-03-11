@@ -16,54 +16,64 @@ By default, topic and domain are accessible from internet as long as the request
 This article describes how to configure IP firewall settings for Azure Event Grid topics or domains.
 
 ## Use Azure portal
-This section shows how to enable 
+
 1. In the [Azure portal](https://portal.azure.com), Navigate to your Event Grid topic or domain, and switch to the **Networking** tab. 
 
     ![Networking -> Firewall](./media/configure-firewall/networking-filewall-page.png)
-2. Select one of the following options. 
-    
-    - Select **All IP addresses** (default) if you want the Event Grid topic or domain to be accessed from all IP addresses. 
-    - Select the **Selected IP addresses and private endpoints** option if you want the Event Grid to be accessed from only specified IP addresses and private endpoints.
-    
-3. If you want to allow only sources with selected IP addresses to publish to the topic or domain, enter the **range of IP addresses**. Singular addresses can be entered in IPv4 notation while address ranges must be entered in CIDR notation. Several online tools exist for [converting IP ranges to CIDR](https://ipaddressguide.com/cidr).
+2. Select **Public networks** for the **Allow access from** field to allow all network, including the internet, to access the resource. You can restrict the traffic using IP-based firewall rules. 
+
+    If you want to allow only sources with selected IP addresses to publish to the topic or domain, enter the **range of IP addresses**. Singular addresses can be entered in IPv4 notation while address ranges must be entered in CIDR notation. Several online tools exist for [converting IP ranges to CIDR](https://ipaddressguide.com/cidr).
+
+    ![Public networks page](./media/configure-firewall/public-networks-page.png)
+3. Select **Private endpoints only** to allow only private endpoint connections to access this resource. Use the **Private endpoint connections** tab on this page to manage connections. 
+
+    ![Public networks page](./media/configure-firewall/private-endpoints-page.png)
 4. Select **Save** on the toolbar. 
+
+    > [!NOTE]
+    > The steps shown in this section are mostly for topics. You can use similar steps to create inbound IP rules for **domains**. 
 
 ## Use Azure CLI
 This section shows you how to use Azure CLI commands to create topics with inbound IP rules. 
 
+> [!NOTE]
+> The steps shown in this section are mostly for topics. You can use similar steps to create inbound IP rules for **domains**. 
 
 ### Create topic with inbound ip rules
 The following sample CLI command creates an event grid topic with inbound IP rules in one step. 
 
-```azurecli
+```azurecli-interactive
 az rest --method put \
     --uri "/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventGrid/topics/<EVENT GRID TOPIC NAME>?api-version=2020-04-01-preview" \
-    --body {\""location\"":\""<LOCATION>\", \""properties\"" :{ \""InboundIpRules\"": [ {\""ipMask\"": \""0.0.0.0/0\"", \""action\"": \""allow\""} ]}}
+    --body {\""location\"":\""<LOCATION>\", \""properties\"" :{ \""InboundIpRules\"": [ {\""ipMask\"": \""<IP ADDRESS or IP ADDRESS RANGE in CIDR notation>\"", \""action\"": \""allow\""} ]}}
 ```
 
 ### Create topic first and then add inbound ip rules
 This example creates an event grid topic first and then adds inbound IP rules for the topic in a separate command. It also updates the inbound IP rules that were set in the second command. 
 
-```azurecli
+```azurecli-interactive
 
 # create the event grid topic first
 az rest --method put \
     --uri "/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventGrid/topics/<EVENT GRID TOPIC NAME>?api-version=2020-04-01-preview" \
-    --body {\""location\"":\""<LOCATION>\"}
+    --body {\""location\"":\""<LOCATION>\""}
 
 # add inbound IP rules
 az rest --method put \
     --uri "/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventGrid/topics/<EVENT GRID TOPIC NAME>?api-version=2020-04-01-preview" 
-    --body {\""location\"":\""<LOCATION>\", \""properties\"" :{ \""InboundIpRules\"": [ {\""ipMask\"": \""0.0.0.0/0\"", \""action\"": \""allow\""} ]}}
+    --body {\""location\"":\""<LOCATION>\", \""properties\"" :{ \""InboundIpRules\"": [ {\""ipMask\"": \""<IP ADDRESS or IP ADDRESS RANGE in CIDR notation>\"", \""action\"": \""allow\""} ]}}
 
 # later, update topic with additional ip rules or remove them. 
 az rest --method put \
     --uri "/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventGrid/topics/<EVENT GRID TOPIC NAME>?api-version=2020-04-01-preview" 
-    --body {\""location\"":\""<LOCATION>\", \""properties\"" :{ \""InboundIpRules\"": [ {\""ipMask\"": \""10.0.0.0/8\"", \""action\"": \""allow\""}, {\""ipMask\"": \""10.1.0.0/16\"", \""action\"": \""allow\""} ]}}
+    --body {\""location\"":\""<LOCATION>\", \""properties\"" :{ \""InboundIpRules\"": [ {\""ipMask\"": \""<IP ADDRESS or IP ADDRESS RANGE in CIDR notation>\"", \""action\"": \""allow\""}, {\""ipMask\"": \""<IP ADDRESS or IP ADDRESS RANGE in CIDR notation>\"", \""action\"": \""allow\""} ]}}
 ```
 
 ## Use PowerShell
 This section shows you how to use Azure PowerShell commands to create Azure Event Grid topics with inbound rules. 
+
+> [!NOTE]
+> The steps shown in this section are mostly for topics. You can use similar steps to create inbound IP rules for **domains**. 
 
 ### Prerequisite
 Follow instructions from [How to: Use the portal to create an Azure AD application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md) to create an Azure Active Directory application and note down the following values:
@@ -75,7 +85,7 @@ Follow instructions from [How to: Use the portal to create an Azure AD applicati
 ### Prepare token and headers for REST API calls 
 Run the following prerequisite commands to get an authentication token to use with REST API calls and authorization and other header information. 
 
-```azurepowershell
+```azurepowershell-interactive
 # replace <CLIENT ID> and <CLIENT SECRET>
 $body = "grant_type=client_credentials&client_id=<CLIENT ID>&client_secret=<CLIENT SECRET>&resource=https://management.core.windows.net"
 
@@ -93,10 +103,10 @@ $Headers.Add("Content-Type","application/json")
 
 ### Create an event grid topic with inbound rules in one step
 
-```azurepowershell
+```azurepowershell-interactive
 
 # prepare the body for the REST PUT method. Notice that inbound IP rules are included. 
-$body = @{"location"="<LOCATION>"; "sku"= @{"name"="basic"}; "properties"=@{"publicNetworkAccess"="enabled"; "inboundIpRules"=@(@{"ipmask"="0.0.0.0/0";"action"="allow"})}} | ConvertTo-Json -Depth 5
+$body = @{"location"="<LOCATION>"; "sku"= @{"name"="basic"}; "properties"=@{"publicNetworkAccess"="enabled"; "inboundIpRules"=@(@{"ipmask"="<IP ADDRESS or IP ADDRESS RANGE in CIDR notation>";"action"="allow"})}} | ConvertTo-Json -Depth 5
 
 # create the event grid topic with inbound IP rules
 Invoke-RestMethod -Method 'Put' `
@@ -114,7 +124,7 @@ Invoke-RestMethod -Method 'Get' `
 
 ### Create event grid topic first and then add inbound ip rules
 
-```azurepowershell
+```azurepowershell-interactive
 
 # prepare the body for the REST PUT method. Notice that no inbound IP rules are specified. 
 $body = @{"location"="<LOCATION>"; "sku"= @{"name"="basic"}; "properties"=@{"publicNetworkAccess"="enabled";}} | ConvertTo-Json -Depth 5
@@ -132,7 +142,7 @@ Invoke-RestMethod -Method 'Get' `
     | ConvertTo-Json -Depth 5
 
 # prepare the body for REST PUT method. Notice that it includes inbound IP rules now. This feature available in both basic and premium tiers.
-$body = @{"location"="<LOCATION>"; "sku"= @{"name"="basic"}; "properties"=@{"publicNetworkAccess"="enabled"; "inboundIpRules"=@(@{"ipmask"="0.0.0.0/0";"action"="allow"}, @{"ipmask"="10.0.0.0/8";"action"="allow"})}} | ConvertTo-Json -Depth 5
+$body = @{"location"="<LOCATION>"; "sku"= @{"name"="basic"}; "properties"=@{"publicNetworkAccess"="enabled"; "inboundIpRules"=@(@{"ipmask"="<IP ADDRESS or IP ADDRESS RANGE in CIDR notation>";"action"="allow"}, @{"ipmask"="<IP ADDRESS or IP ADDRESS RANGE in CIDR notation>";"action"="allow"})}} | ConvertTo-Json -Depth 5
 
 # update the topic with inbound IP rules
 Invoke-RestMethod -Method 'Put' `

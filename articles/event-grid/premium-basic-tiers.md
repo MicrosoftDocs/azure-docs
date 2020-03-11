@@ -32,8 +32,6 @@ During initial preview, premium tier topics and domains with private endpoint in
 - East US
 - West US 2
 - South Central US
-- US Gov
-
 
 ## Pricing and quotas
 See [Event Grid pricing](https://azure.microsoft.com/pricing/details/event-grid/) for the pricing details of using the basic tier. The Premium tier pricing isn't yet announced and is free until pricing is available.
