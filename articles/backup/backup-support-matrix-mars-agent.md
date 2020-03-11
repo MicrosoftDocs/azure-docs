@@ -80,7 +80,7 @@ With Microsoft peering, please select the following services/regions and relevan
 - Microsoft Azure Region (according to the location of your Recovery Services vault)
 - Azure Storage (according to the location of your Recovery Services vault)
 
-For more details, see the [ExpressRoute routing requirements](https://docs.microsoft.com/azure/expressroute/expressroute-routing).
+For more information, see the [ExpressRoute routing requirements](https://docs.microsoft.com/azure/expressroute/expressroute-routing).
 
 >[!NOTE]
 >Public Peering is deprecated for new circuits.
@@ -92,7 +92,7 @@ For more details, see the [ExpressRoute routing requirements](https://docs.micro
 Bandwidth control | Supported. In the MARS agent, use **Change Properties** to adjust bandwidth.
 Network throttling | Not available for backed-up machines that run Windows Server 2008 R2, Windows Server 2008 SP2, or Windows 7.
 
-## Support for direct backups
+## Supported operating systems
 
 >[!NOTE]
 > The MARS agent does not support Windows Server Core SKUs.
@@ -109,7 +109,6 @@ The operating systems must be 64 bit and should be running the latest services p
 Windows 10 (Enterprise, Pro, Home) | Yes | No |  Check the corresponding server version for software/module requirements
 Windows 8.1 (Enterprise, Pro)| Yes |No | Check the corresponding server version for software/module requirements
 Windows 8 (Enterprise, Pro) | Yes | No | Check the corresponding server version for software/module requirements
-Windows 7 (Ultimate, Enterprise, Pro, Home Premium/Basic, Starter) | Yes | No | Check the corresponding server version for software/module requirements
 Windows Server 2016 (Standard, Datacenter, Essentials) | Yes | Yes | - .NET 4.5 <br> - Windows PowerShell <br> - Latest Compatible Microsoft VC++ Redistributable <br> - Microsoft Management Console (MMC) 3.0
 Windows Server 2012 R2 (Standard, Datacenter, Foundation, Essentials) | Yes | Yes | - .NET 4.5 <br> - Windows PowerShell <br> - Latest Compatible Microsoft VC++ Redistributable <br> - Microsoft Management Console (MMC) 3.0
 Windows Server 2012 (Standard, Datacenter, Foundation) | Yes | Yes |- .NET 4.5 <br> -Windows PowerShell <br> - Latest Compatible Microsoft VC++ Redistributable <br> - Microsoft Management Console (MMC) 3.0 <br> - Deployment Image Servicing and Management (DISM.exe)
@@ -117,6 +116,20 @@ Windows Storage Server 2016/2012 R2/2012 (Standard, Workgroup) | Yes | No | - .N
 Windows Server 2019 (Standard, Datacenter, Essentials) | Yes | Yes | - .NET 4.5 <br> - Windows PowerShell <br> - Latest Compatible Microsoft VC++ Redistributable <br> - Microsoft Management Console (MMC) 3.0
 
 For more information, see [Supported MABS and DPM operating systems](backup-support-matrix-mabs-dpm.md#supported-mabs-and-dpm-operating-systems).
+
+### Operating Systems at end of support
+
+The following operating systems are at the end of support and it is strongly recommended to upgrade the operating system to continue to stay protected.
+
+If existing commitments prevent upgrading the operating system, consider migrating the Windows servers to Azure VMs and leverage Azure VM backups to continue staying protected. Visit the [migration page here](https://azure.microsoft.com/migration/windows-server/) for more information about migrating your Windows server.
+
+For on-premises or hosted environments, where you cannot upgrade the operating system or migrate to Azure, activate Extended Security Updates for the machines to continue staying protected and supported. Notice that only specific editions are eligible for Extended Security Updates. Visit the [FAQ page](https://www.microsoft.com/cloud-platform/extended-security-updates) to learn more.
+
+| **Operating   system**                                       | **Files/folders** | **System   state** | **Software/Module   requirements**                           |
+| ------------------------------------------------------------ | ----------------- | ------------------ | ------------------------------------------------------------ |
+| Windows 7 (Ultimate,  Enterprise, Pro, Home Premium/Basic, Starter) | Yes               | No                 | Check the corresponding  server version for software/module requirements |
+| Windows Server 2008 R2  (Standard, Enterprise, Datacenter, Foundation) | Yes               | Yes                | - .NET 3.5, .NET 4.5 <br>  - Windows PowerShell <br>  - Compatible Microsoft VC++ Redistributable <br>  - Microsoft Management Console (MMC) 3.0 <br>  - Deployment Image Servicing and Management (DISM.exe) |
+| Windows Server 2008 SP2  (Standard, Datacenter, Foundation)  | Yes               | No                 | - .NET 3.5, .NET 4.5 <br>  - Windows PowerShell <br>  - Compatible Microsoft VC++ Redistributable <br>  - Microsoft Management Console (MMC) 3.0 <br>  - Deployment Image Servicing and Management (DISM.exe) <br>  - Virtual Server 2005 base + KB KB948515 |
 
 ## Backup limits
 
@@ -140,7 +153,7 @@ Windows 7| 1,700 GB
 
 **Type** | **Support**
 --- | ---
-Encrypted| Supported.
+Encrypted<sup>*</sup>| Supported.
 Compressed | Supported.
 Sparse | Supported.
 Compressed and sparse |Supported.
@@ -151,6 +164,8 @@ Compressed stream| Not supported. Skipped.
 Sparse stream| Not supported. Skipped.
 OneDrive (synced files are sparse streams)| Not supported.
 Folders with DFS Replication enabled | Not supported.
+
+\* Ensure that the MARS agent has access to the required certificates to access the encrypted files. Inaccessible files will be skipped.
 
 ## Supported drives or volumes for backup
 
