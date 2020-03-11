@@ -45,8 +45,7 @@ Replace `<access-key>` with the primary key for your cache.
 
 In Visual Studio, click **File** > **New** > **Project**.
 
-Under **Visual C#**, click **Windows Classic Desktop** and then click **Console App**, and **OK** to create a new console application.
-
+Select **Console App (.NET Framework)**, and **Next** to configure your app. Type a **Project name** and click **Create** to create a new console application.
 
 <a name="configure-the-cache-clients"></a>
 
