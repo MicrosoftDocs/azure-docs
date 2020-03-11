@@ -1,6 +1,6 @@
 ---
 title: Security practices for manufacturers - Azure IoT Hub Device Provisioning Service
-description: Overviews common security practices for OEMs and device manufactures who prepare devices to enroll in Azure IoT DPS. 
+description: Overviews common security practices for OEMs and device manufactures who prepare devices to enroll in Azure IoT Device Provisioning Service (DPS). 
 author: timlt
 ms.author: timlt
 ms.date: 3/02/2020
@@ -12,7 +12,7 @@ ms.custom: iot-p0-scenario, iot-devices-deviceOEM
 # ms.reviewer: MSFT-alias-of-reviewer
 ---
 # Security practices for Azure IoT device manufacturers
-As more manufacturers release IoT devices, the Azure IoT Hub Device Provisioning Service (DPS) team has provided guidance on security practices for the manufacturing process. This article overviews key security practices to consider when you manufacture devices for DPS enrollment. 
+As more manufacturers release IoT devices, the Azure IoT Hub Device Provisioning Service (DPS) team has provided guidance on security practices. This articles overviews recommended security practices to consider when you manufacture devices for use with DPS.  
 
 > [!div class="checklist"]
 > * Integrating a Trusted Platform Module (TPM) into the manufacturing process
@@ -20,50 +20,43 @@ As more manufacturers release IoT devices, the Azure IoT Hub Device Provisioning
 > * Selecting device authentication options
 
 ## Integrating a TPM into the manufacturing process
-You can follow a standard process to integrate TPM devices during manufacturing. The focus here is on TPM 2.0 devices that have hash-based message authentication code (HMAC) key support.  TPM is an industry-wide, ISO standard from the Trusted Computing Group. For more on TPM, see the specifications for [TPM 2.0](https://trustedcomputinggroup.org/tpm-library-specification/) and [ISO/IEC 11889](https://www.iso.org/standard/66510.html). 
+You can follow a standards-based process to integrate TPM devices during manufacturing. This section addresses the widely used TPM 2.0 devices that have hash-based message authentication code (HMAC) key support. The TPM specification for TPM chips is an ISO standard that's maintained by the Trusted Computing Group. For more on TPM, see the specifications for [TPM 2.0](https://trustedcomputinggroup.org/tpm-library-specification/) and [ISO/IEC 11889](https://www.iso.org/standard/66510.html). 
 
-A critical task in manufacturing is to take ownership of the TPM so there's an owner key available to the device. To take ownership, you extract the endorsement key (EK) from the device. You can extract the EK and claim ownership at different points in the manufacturing process, which gives you some flexibility. Many manufacturers are taking advantage of this flexibility, by adding a Hardware Security Module (HSM) to enhance the security on their devices. The TPM life cycle is new to them, especially since the manufacturing process might still be in the design phase. This section provides guidance on when to extract the EK, and when to claim ownership of the TPM. 
+### Taking ownership of the TPM
+A critical step in manufacturing a device with a TPM chip is to take ownership of the TPM. This step is required so that you can provide a key to the device owner. To take ownership, first you extract the endorsement key (EK) from the device, and then you claim ownership. You can extract the EK and claim ownership at different times, which gives added flexibility in the manufacturing process. Many manufacturers are taking advantage of this flexibility by adding a Hardware Security Module (HSM) to enhance the security of their devices. This section provides guidance on when to extract the EK, when to claim ownership of the TPM, and considerations for integrating these steps into a manufacturing timeline. 
 
-A couple of notes on software TPMs:
+> [!IMPORTANT]
+> The following guidance assumes you use a discrete, firmware, or integrated TPM. In places where it's applicable, the guidance adds notes on using a non-discrete or software TPM. If you use a software TPM, there may be additional steps that this guidance doesn't include. Software TPMs have a variety of implementations that are beyond the scope of this article.  In general, it's possible to integrate a software TPM into the following general manufacturing timeline. However, while a software emulated TPM is suitable for prototyping and testing, it can't provide the same level of security as a discrete, firmware, or integrated TPM. As a general practice, avoid using a software TPM in production.
 
-    I'm assuming you're using a discrete, firmware, or integrated TPM, and I've included notes on using a software, or non-discrete, TPM where applicable. If you're using a software TPM, there may be additional steps that I don't call out. That's because software TPMs can have different implementations and I can't cover them all, but you should be able to figure out how it works for your particular software TPM based on the timeline below.
-    Software emulated TPMs are well-suited for prototyping or testing, but they do not provide the same level of security as discrete, firmware, or integrated TPMs do. Please don't use software TPMs in production. Learn more about the types of TPMs.
+### General manufacturing timeline
+The following timeline shows how a TPM goes through a production process and ends up in a device. Each manufacturing process is unique and this timeline shows the most common patterns. If you're new to manufacturing devices that use a TPM, the timeline guides you on when to take certain actions with the keys. 
 
-The following is a general timeline of how the TPM goes through the production process and ends up in a device; each manufacturing process is a little different and this post only talks about the most common patterns. If you're new to manufacturing devices using a TPM, the below serves as guidance about when to do certain things with the keys. If you have been manufacturing devices using TPMs for a while, feel free to disregard if your current process is working well for you.
-Step 1: TPM is manufactured
+#### Step 1: TPM is manufactured
+- If you buy TPMs from a manufacturer for use in your devices, see if they will extract public endorsement keys (EK_pubs) for you. It's helpful if the manufacturer provides the list of EK_pubs with the shipped devices. 
+    > [!NOTE]
+    > You could give the TPM manufacturer write access to your enrollment list by using shared access policies in your provisioning service.  This lets them add the TPMs to your enrollment list for you.  But that is early in the manufacturing process, and it requires trust in the TPM manufacturer. Do so at your own risk. 
+- If you manufacture TPMs to sell to device manufacturers, consider giving your customers a list of EK_pubs along with their physical TPMs.  Providing customers with EK_pubs saves a step in their process. 
+- If you manufacture TPMs to use with your own devices, identify which point in your process is the most convenient to extract the EK_pub. You can do this at any of the remaining points in the timeline. 
 
-    If you are purchasing TPMs from a TPM manufacturer for use in your devices, see if they will extract the EK_pubs for you and provide you the list of EK_pubs in addition to the physical shipment. You may also give the TPM manufacturer write access to your enrollment list via the provisioning service's shared access policies and let them add the TPMs to your enrollment list for you, but this might be a little early in the production process and requires a certain amount of trust in the TPM manufacturer. Do so at your own risk.
-    If you are manufacturing TPMs to sell to device manufacturers, consider providing your customers with a list of EK_pubs with their physical TPMs to save them a step.
-    If you are manufacturing TPMs to use with your own devices, identify where in the manufacturing process is the most convenient to extract the EK_pub. This could occur at any of the later steps presented, and I trust you to understand your manufacturing process and when this could happen.
+#### Step 2: TPM is installed into a device
+At this point in the production process, you should know which DPS instance the device will be used with. As a result, you can add devices to the enrollment list for automated provisioning. For more information about automatic device provisioning, see the [DPS documentation](about-iot-dps.md).
+- If you haven't extracted the EK_pub, now is a good time to do so. 
+- Depending on the installation process of the TPM, this can be a good time to take ownership of the TPM. 
 
-Step 2: TPM is installed into a device
+#### Step 3: Device has firmware and software installed
+At this point in the process, install the DPS client along with the ID scope and global URL for provisioning.
+- Now is the last chance to extract the EK_pub. If a third party will install the software on your device, it's a good idea to extract the EK_pub first.
+- This point in the manufacturing process is ideal to take ownership of the TPM.  
+    > [!NOTE]
+    > If you're using a software TPM, you can install it now.  Extract the EK_pub at the same time.
 
-At this point in the production process, you should know which Device Provisioning Service the device should talk to, and you can add devices to the enrollment list for automated provisioning. Learn more about automatic device provisioning with the Device Provisioning Service in documentation.
+#### Step 4: Device is packaged and sent to the warehouse
+A device can sit in a warehouse for 6-12 months before being deployed. 
 
-    If you haven't already, this may be a time to extract the EK_pub.
-    Depending on the installation process, you can take ownership of the TPM at this time.
+#### Step 5: Device is installed into the location
+After the device arrives at its final location, it goes through automated provisioning with DPS.
 
-Step 3: Device has firmware and software installed
-
-This is when the Device Provisioning Service client is installed with the ID scope and global URL for provisioning.
-
-    This is the last chance to extract the EK_pub. If a third party is installing the software on your device, you probably want to have already extracted the EK_pub.
-    This is when you want to take ownership of the TPM, because you're running things on the device anyway.
-    Software TPM note: this may be when the software TPM is installed as well. You should extract the EK_pub at the time the software TPM is installed.
-
-Step 4: Device is boxed-up and sent to the warehouse, awaiting final installation
-
-The device might sit in a warehouse for 6-12 months before it is deployed in the field.
-Step 5: Device is installed into the location
-
-Once the device arrives at its final location, it goes through automated provisioning with the Device Provisioning Service.
-
-
-Of course, every manufacturing process has its own unique characteristics and the above timeline may not exactly match your process. Use your best judgment, and contact Microsoft Support if you're having trouble.
-
-Learn more about the TPM attestation in the Device Provisioning Service in this blog post.
-
-This is an image:
+For more information, see [Auto-provisioning concepts](concepts-auto-provisioning.md) and [TPM attestation](concepts-tpm-attestation.md). 
 
 ## Installing certificates on IoT devices
 One note before I begin, if you already have a system in place for installing certificates on your IoT devices and its working out for you, great! Feel free to stop reading and check out some of our other content. This blog post is for folks who are just making the switch to using certificates on IoT devices and are struggling with figuring out what works best.
