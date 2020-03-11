@@ -73,9 +73,9 @@ Nine Azure resources are defined in the template:
 **Azure CLI**
 
 ```azurecli-interactive
-resourceGroupName="myResourceGroupNAT" &&
-templateUri="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-nat-gateway-1-vm/azuredeploy.json" &&
-location="eastus2"
+read -p "Enter the location (i.e. westcentralus): " location
+resourceGroupName="myResourceGroupNAT"
+templateUri="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-nat-gateway-1-vm/azuredeploy.json" 
 
 az group create \
 --name $resourceGroupName \
@@ -89,7 +89,7 @@ az group deployment create \
 **Azure PowerShell**
 
 ```azurepowershell-interactive
-$location = Read-Host -Prompt "Enter the location (i.e. centralus)"
+$location = Read-Host -Prompt "Enter the location (i.e. westcentralus)"
 $templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-nat-gateway-1-vm/azuredeploy.json"
 
 $resourceGroupName = "myResourceGroupNAT"
