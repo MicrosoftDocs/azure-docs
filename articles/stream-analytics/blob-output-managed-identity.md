@@ -5,7 +5,7 @@ author: cedarbaum
 ms.author: sacedarb
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 07/12/2019
+ms.date: 03/11/2020
 ---
 
 # Use Managed Identity to authenticate your Azure Stream Analytics job to Azure Blob Storage output
