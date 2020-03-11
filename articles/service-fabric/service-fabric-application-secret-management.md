@@ -52,6 +52,11 @@ The secrets should also be included in your Service Fabric application by specif
   </Certificates>
 </ApplicationManifest>
 ```
+> [!NOTE]
+> Upon activating an application specifying a SecretsCertificate, Service Fabric will find the matching certificate, and grant the identity the application is running as full permisions to the certificate's private key. The runtime will also monitor the certificate for changes, and re-apply permissions accordingly.
+>
+> While the SecretsCertificate does allow declarations based on the subject common name of the certificate, do note that the encrypted settings are tied to the key pair which was used to encrypt the setting on the client. You must ensure that, on every node of the cluster where the application can be deployed, at least one of the certificates matching the subject common name-based declaration corresponds to the actual encryption certificate, or corresponds to the same key pair.
+>
 
 ### Inject application secrets into application instances
 Ideally, deployment to different environments should be as automated as possible. This can be accomplished by performing secret encryption in a build environment and providing the encrypted secrets as parameters when creating application instances.
