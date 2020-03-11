@@ -1,6 +1,6 @@
 ---
 title: Disaster recovery for integration service environments (ISE)
-description: Learn how to set up your integration service environment (ISE) for disaster recovery scenarios in Azure Logic Apps
+description: Set up disaster recovery and preserve business continuity for your integration service environment (ISE) in Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 author: kevinlam1
@@ -12,13 +12,15 @@ ms.date: 03/31/2020
 
 # Disaster recovery for integration service environments (ISEs) in Azure Logic Apps
 
-This article describes how to set up a disaster recovery solution for an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) that you use with Azure Logic Apps. A disaster can mean full datacenter loss, underlying component loss, such as storage, network, or compute resources, or unrecoverable application issues. If the primary instance fails, disaster recovery gives you the capability to preserve business continuity when you have a secondary, backup, or standby instance that's ready to pick up the work, also known as *failover*.
+This article describes how to set up a *disaster recovery* solution when you have an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) that you use with Azure Logic Apps. *Disaster recovery* focuses on the systems that support critical business functions, while *business continuity* addresses how to keep all essential business functions running despite major disruptive events.
 
-When you create your logic app, you select a deployment location, which is either a public region in the global multi-tenant Azure or a previously created ISE. This environment is your own isolated instance of the Logic Apps runtime that uses dedicated resources, such as storage, is deployed (*injected*) into an Azure virtual network, and operates in a region that runs logic app workloads. Running logic apps in an ISE is similar to running logic apps in a public region, so many disaster recovery approaches apply to both. However, an ISE might require you to consider other elements, such as network configuration.
+A disaster can refer to a full datacenter loss, an underlying infrastructure loss, such as storage, network, or compute resources, or unrecoverable application issues. If your primary instance fails, you can keep essential or critical functions going by having a secondary *failover* instance as a backup or on standby that can pick up the work.
+
+When you create your logic app, you select a deployment location, which is either a public region in global multi-tenant Azure or a previously created ISE. This environment is your own isolated instance of the Logic Apps runtime that uses dedicated resources, such as storage, is deployed, or *injected*, into an Azure virtual network, and operates in a region that can run logic app workloads. Running logic apps in an ISE is similar to running logic apps in a public Azure region, so disaster recovery approaches can apply to both. However, an ISE might require you to consider additional elements, such as network configuration.
 
 ## Requirements
 
-To configure for disaster recovery, you need a secondary location that's ready to take on workloads if the primary location goes down. This backup location can either be a Logic Apps service multi-tenant region or an instance of an ISE. That will require that the logic apps and their dependent resources are deployed and ready to run. If you are following good DevOps practices, then you would be utilizing ARM deployment templates to deploy the logic apps. Using ARM deployment templates allows for multiple parameters files where each parameter file can represent the configuration for a particular location allowing you to easily deploy the logic apps to multiple locations.
+To set up a disaster recovery solution, you need a secondary location that can take on logic app workloads if the primary location goes down. For this backup location, you can use a public region in multi-tenant Azure or an ISE. That will require that the logic apps and their dependent resources are deployed and ready to run. If you are following good DevOps practices, then you would be utilizing ARM deployment templates to deploy the logic apps. Using ARM deployment templates allows for multiple parameters files where each parameter file can represent the configuration for a particular location allowing you to easily deploy the logic apps to multiple locations.
 
 [PICTURE: Two pictures of regions and ISE pairs each with a single ARM deployment template and separate parameter files]
 
