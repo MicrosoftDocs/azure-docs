@@ -16881,6 +16881,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/storage/blobs/data-lake-storage-upgrade.md",
+      "redirect_url": "/azure/storage/blobs/data-lake-storage-migrate-gen1-to-gen2",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/storage/blobs/data-lake-storage-integrate-with-azure-services.md",
       "redirect_url": "/azure/storage/blobs/data-lake-storage-supported-azure-services",
       "redirect_document_id": false
