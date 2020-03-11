@@ -58,7 +58,7 @@ landingContent:
   # Card
   - title: Samples
     linkLists:
-      - linkListType: Azure Notification Hubs Samples
+      - linkListType: sample
         links:
           - text: Azure Notification Hubs Samples
             url: samples.md
