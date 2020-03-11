@@ -110,11 +110,11 @@ You can set parallel copy to indicate the parallelism that you want the copy act
 
 When you copy data from a source data store to a sink data store, you might choose to use Blob storage as an interim staging store. [Learn more](copy-activity-performance-features.md#staged-copy).
 
-
-
 ## Next steps
 See the other copy activity articles:
 
 - [Copy activity overview](copy-activity-overview.md)
+- [Troubleshoot copy activity performance](copy-activity-performance-troubleshooting.md)
+- [Copy activity performance optimization features](copy-activity-performance-features.md)
 - [Use Azure Data Factory to migrate data from your data lake or data warehouse to Azure](data-migration-guidance-overview.md)
 - [Migrate data from Amazon S3 to Azure Storage](data-migration-guidance-s3-azure-storage.md)
