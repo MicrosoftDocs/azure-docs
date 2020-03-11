@@ -70,6 +70,9 @@ public void ListBlobsInContainer(string containerName, string iothub)
 }
 ```
 
+> [!NOTE]
+> If your storage account has firewall configurations that restrict IoT Hub's connectivity, consider using [Microsoft trusted first party exception](./iot-hub-vnet-support.md#egress-connectivity-to-storage-account-endpoints-for-routing) (this is available in select regions for IoT hubs with managed service identity).
+
 To create an Azure Data Lake Gen2-compatible storage account, create a new V2 storage account and select *enabled* on the *Hierarchical namespace* field on the **Advanced** tab as shown in the following image:
 
 ![Select Azure Date Lake Gen2 storage](./media/iot-hub-devguide-messages-d2c/selectadls2storage.png)
@@ -78,6 +81,10 @@ To create an Azure Data Lake Gen2-compatible storage account, create a new V2 st
 ### Service Bus Queues and Service Bus Topics
 
 Service Bus queues and topics used as IoT Hub endpoints must not have **Sessions** or **Duplicate Detection** enabled. If either of those options are enabled, the endpoint appears as **Unreachable** in the Azure portal.
+
+> [!NOTE]
+> If your service bus resource has firewall configurations that restrict IoT Hub's connectivity, consider using [Microsoft trusted first party exception](./iot-hub-vnet-support.md#egress-connectivity-to-service-bus-endpoints-for-routing) (this is available in select regions for IoT hubs with managed service identity).
+
 
 ### Event Hubs
 
@@ -98,6 +105,9 @@ Use the following tutorials to learn how to read message from an endpoint.
 * Reading from [Service Bus Queues](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md)
 
 * Read from [Service Bus Topics](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions)
+
+> [!NOTE]
+> If your event hubs resource has firewall configurations that restrict IoT Hub's connectivity, consider using [Microsoft trusted first party exception](./iot-hub-vnet-support.md#egress-connectivity-to-event-hubs-endpoints-for-routing) (this is available in select regions for IoT hubs with managed service identity).
 
 ## Fallback route
 
