@@ -6,7 +6,7 @@ author: banisadr
 
 ms.service: event-grid
 ms.topic: overview
-ms.date: 03/08/2020
+ms.date: 03/11/2020
 ms.author: babanisa
 ---
 
@@ -22,14 +22,18 @@ The following table describes the security, performance, and SLA differences bet
 
 |       &nbsp;                                           | Basic           | Premium        |
 | ------------------------------------------------------ | --------------- | -------------- |
-| IP firewall rules for ingress                          | GA              | GA             |
-| Service tags for egress                                | GA              | GA             |
-| Bring your own key (customer-managed key)              | Public Preview  | Public Preview |
-| Publish to VNet storage queues using service endpoints | GA              | GA             | 
-| Managed service identities for topics and domains      | Public Preview  | Public Preview |
-| Managed service identities for publishing              | Public Preview  | Public Preview |
-| Uptime availability SLA                                | GA              | GA             |
-| Private endpoints VNET integration on ingress          | Not Available   | Public Preview |
+| IP firewall rules for ingress                          | Public preview  | Public preview |
+| Service tags for egress                                | Public preview  | Public preview |
+| Private endpoint VNet integration on ingress          | Not available   | Public preview |
+
+## Availability
+During initial preview, premium tier topics and domains with private endpoint integration is available in the following regions:
+
+- East US
+- West US 2
+- South Central US
+- US Gov
+
 
 ## Pricing and quotas
 See [Event Grid pricing](https://azure.microsoft.com/pricing/details/event-grid/) for the pricing details of using the basic tier. The Premium tier pricing isn't yet announced and is free until pricing is available.

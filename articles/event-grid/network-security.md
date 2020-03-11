@@ -39,15 +39,12 @@ The columns indicate whether the tag:
 
 For more information, see [Service tags overview](../virtual-network/service-tags-overview.md).
 
-## IP firewall
+## IP firewall 
 Azure Event Grid supports IP-based access controls for publishing to topics and domains. With IP-based controls, you can limit the publishers to a topic or domain to only a set of approved set of machines and cloud services. This feature complements the [authentication mechanisms](security-authentication.md) supported by Event Grid.
-
-> [!NOTE
-> This feature is currently in preview.
 
 ### Overview
 
-By default, topic and domain are accessible from internet as long as the request comes with valid authentication and authorization. With IP firewall, you can restrict it further to only a set of IP addresses or IP address ranges in CIDR (Classless Inter-Domain Routing) notation. Publishers originating from any other IP address will be rejected and will receive a 403 (Forbidden) response.
+By default, topic and domain are accessible from internet as long as the request comes with valid authentication and authorization. With IP firewall, you can restrict it further to only a set of IP addresses or IP address ranges in [CIDR (Classless Inter-Domain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) notation. Publishers originating from any other IP address will be rejected and will receive a 403 (Forbidden) response.
 
 ### Pricing and Quotas
 
@@ -64,8 +61,7 @@ Using private endpoints for your Event Grid resource enables you to:
 
 When you create a private endpoint for a topic or domain in your VNet, a consent request is sent for approval to the resource owner. If the user requesting the creation of the private endpoint is also an owner of the resource, this consent request is automatically approved. Otherwise, the connection is in 'Pending' state until approved. Applications in the VNet can connect to the Event Grid service over the private endpoint seamlessly, using the same connection strings and authorization mechanisms that they would use otherwise. Resource owners can manage consent requests and the private endpoints, through the **Private Endpoints** tab for the resource in the Azure portal.
 
-> [!NOTE
-> This feature is currently in preview.
+![Architecture diagram](./media/network-security/architecture-diagram.png)
 
 ### Connect to private endpoints
 
@@ -75,10 +71,9 @@ Event Grid creates a [private DNS zone](../dns/private-dns-overview.md) attached
 
 ### DNS changes for private endpoints
 
-When you create a private endpoint, the DNS CNAME record for the resource is updated to an alias in a subdomain with the prefix `privatelink`. By default, a private DNS zone is created that corresponds to the private link's subdomain.
+When you create a private endpoint, the DNS CNAME record for the resource is updated to an alias in a subdomain with the prefix `privatelink`. By default, a private DNS zone is created that corresponds to the private link's subdomain. When you resolve the topic or domain endpoint URL from outside the VNet with the private endpoint, it resolves to the public endpoint of the service. 
 
-When you resolve the topic or domain endpoint URL from outside the VNet with the private endpoint, it resolves to the public endpoint of the service. 
-The DNS resource records for 'topicA', when resolved from outside the VNet hosting the private endpoint, will be:
+The DNS resource records for 'topicA', when resolved from inside the VNet hosting the private endpoint, will be:
 
 | Name                                          | Type      | Value                                         |
 | --------------------------------------------- | ----------| --------------------------------------------- |  

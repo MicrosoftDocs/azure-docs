@@ -11,20 +11,22 @@ ms.author: spelluru
 ---
 
 # Configure IP firewall for Azure Event Grid topics or domains (Preview)
-By default, topic and domain are accessible from internet as long as the request comes with valid authentication and authorization. With IP firewall, you can restrict it further to only a set of IP addresses or IP address ranges in CIDR (Classless Inter-Domain Routing) notation. Publishers originating from any other IP address will be rejected and will receive a 403 (Forbidden) response. 
+By default, topic and domain are accessible from internet as long as the request comes with valid authentication and authorization. With IP firewall, you can restrict it further to only a set of IPv4 addresses or IPv4 address ranges in [CIDR (Classless Inter-Domain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) notation. Publishers originating from any other IP address will be rejected and will receive a 403 (Forbidden) response. 
 
-This article describes how to configure IP firewall settings for event grid topics or domains.
+This article describes how to configure IP firewall settings for Azure Event Grid topics or domains.
 
 ## Use Azure portal
 
-1. In the [Azure portal](https://portal.azure.com), Navigate to your event grid topic or domain, and switch to the **Networking** tab. 
+1. In the [Azure portal](https://portal.azure.com), Navigate to your Event Grid topic or domain, and switch to the **Networking** tab. 
 
     ![Networking -> Firewall](./media/configure-firewall/networking-filewall-page.png)
 2. Select one of the following options. 
     
-    - Select **All IP addresses** if you want the event grid topic or domain to be accessed from all IP addresses. This is the default value. 
-    - Select the **Selected IP addresses and private endpoints** option if you want the Event Grid to be accessed from only specified IP addresses and private endpoints. Then, enter the range of IP addresses that can access the event grid topic or domain. 
-3. Select **Save** on the toolbar. 
+    - Select **All IP addresses** (default) if you want the Event Grid topic or domain to be accessed from all IP addresses. 
+    - Select the **Selected IP addresses and private endpoints** option if you want the Event Grid to be accessed from only specified IP addresses and private endpoints.
+    
+3. If you want to allow only sources with selected IP addresses to publish to the topic or domain, enter the range of IP addresses. Singular addresses can be entered in IPv4 notation while address ranges must be entered in CIDR notation. Several online tools exist for [converting IP ranges to CIDR](https://ipaddressguide.com/cidr).
+4. Select **Save** on the toolbar. 
 
 
 ## Use Azure CLI
@@ -73,7 +75,11 @@ az rest --method put \
 This section shows you how to use Azure PowerShell commands to create Azure Event Grid topics with inbound rules. 
 
 ### Prerequisite
-Follow instructions from [How to: Use the portal to create an Azure AD application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md) to create an Azure Active Directory application and note down the values for **Directory (tenant) ID**, **Application (Client) ID**, and **Application (client) secret**. 
+Follow instructions from [How to: Use the portal to create an Azure AD application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md) to create an Azure Active Directory application and note down the following values:
+
+- Directory (tenant) ID
+- Application (Client) ID
+- Application (client) secret
 
 ### Prepare token and headers for REST API calls 
 Run the following prerequisite commands to get an authentication token to use with REST API calls and authorization and other header information. 
