@@ -1,7 +1,8 @@
 ---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
-title: Azure Media Services terminology and concepts - Azure | Microsoft Docs
-description: This topic gives a brief overview of Azure Media Services terminology and concepts and provides links for more details.
+title: Media Services terminology and concepts
+titleSuffix: Azure
+description: Learn about terminology and concepts for Azure Media Services.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -17,7 +18,7 @@ ms.custom: seodec18
 
 ---
 
-# Media Services concepts
+# Media Services terminology and concepts
 
 This topic gives a brief overview of Azure Media Services terminology and concepts. The article also provides links to articles with in-depth explanation of Media Services v3 concepts and functionality. 
 
