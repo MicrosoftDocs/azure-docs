@@ -11,23 +11,26 @@ Encrypting your web app's application data at rest requires an Azure Storage Acc
 
   - [Azure Storage provides encryption at rest](../storage/common/storage-service-encryption.md). You can use system-provided keys or your own, customer-managed keys. This is where your application data is stored when it's not running in a web app in Azure.
   - [Running from a deployment package](deploy-run-package.md) is a deployment feature of App Service. It allows you to deploy your site content from an Azure Storage Account using a Shared Access Signature (SAS) URL.
-  - [Key Vault references](app-service-key-vault-reference.md) are a security feature of App Service. It allows you to import secrets at runtime as app settings. Use this to encrypt the SAS URL of your Azure Storage Account.
+  - [Key Vault references](app-service-key-vault-reference.md) are a security feature of App Service. It allows you to import secrets at runtime as application settings. Use this to encrypt the SAS URL of your Azure Storage Account.
 
 ## Create an Azure Storage account
-  
-First, follow [these instructions](../storage/common/storage-service-encryption.md#customer-managed-keys-with-azure-key-vault) to create an Azure Storage account and encrypt it with customer managed keys. Once the storage account is created, use the [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) to upload package files.
 
-Next, use the Storage Explorer to [generate an SAS](../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows#generate-a-sas-in-storage-explorer). Save this SAS URL, this is used later to enable secure access of the deployment package at runtime.
+First, [create an Azure Storage account](../storage/common/storage-account-create.md) and [encrypt it with customer managed keys](../storage/common/storage-service-encryption.md#customer-managed-keys-with-azure-key-vault). Once the storage account is created, use the [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) to upload package files.
+
+Next, use the Storage Explorer to [generate an SAS](../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows#generate-a-sas-in-storage-explorer). 
+
+> [!NOTE]
+> Save this SAS URL, this is used later to enable secure access of the deployment package at runtime.
 
 ## Configure running from a package from your storage account
   
-Once you upload your file to Blob storage and have an SAS URL for the file, set the `WEBSITE_RUN_FROM_PACKAGE` app setting to the SAS URL. The following example does it by using Azure CLI:
+Once you upload your file to Blob storage and have an SAS URL for the file, set the `WEBSITE_RUN_FROM_PACKAGE` application setting to the SAS URL. The following example does it by using Azure CLI:
 
 ```
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings WEBSITE_RUN_FROM_PACKAGE="<your-SAS-URL>"
 ```
 
-Adding this app setting causes your web app to restart. After the app has restarted, browse to it and make sure that the app has started correctly using the deployment package. If the application didn't start correctly, see the [Run from package troubleshooting guide](deploy-run-package.md#troubleshooting).
+Adding this application setting causes your web app to restart. After the app has restarted, browse to it and make sure that the app has started correctly using the deployment package. If the application didn't start correctly, see the [Run from package troubleshooting guide](deploy-run-package.md#troubleshooting).
 
 ## Encrypt the application setting using Key Vault references
 
@@ -47,13 +50,13 @@ Now you can replace the value of the `WEBSITE_RUN_FROM_PACKAGE` application sett
     az keyvault secret set --vault-name "Contoso-Vault" --name "external-url" --value "<SAS-URL>"    
     ```    
 
-1.  Use the following [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) command to create the `WEBSITE_RUN_FROM_PACKAGE` app setting with the value as a Key Vault reference to the external URL:
+1.  Use the following [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) command to create the `WEBSITE_RUN_FROM_PACKAGE` application setting with the value as a Key Vault reference to the external URL:
 
     ```azurecli    
     az webapp config appsettings set --settings WEBSITE_RUN_FROM_PACKAGE="@Microsoft.KeyVault(SecretUri=https://Contoso-Vault.vault.azure.net/secrets/external-url/<secret-version>"    
     ```
 
-Updating this app setting causes your web app to restart. After the app has restarted, browse to it make sure it has started correctly using the Key Vault reference.
+Updating this application setting causes your web app to restart. After the app has restarted, browse to it make sure it has started correctly using the Key Vault reference.
 
 ## Summary
 
@@ -66,6 +69,10 @@ If you need to revoke the web app's access to your storage account, you can eith
 ### Is there any additional charge for running my web app from the deployment package?
 
 Only the cost associated with the Azure Storage Account and any applicable egress charges.
+
+### What happens if the SAS token expires or rotates?
+
+If the SAS URL is invalidated for any reason, the web app will continue to run with the last downloaded version of the package file. You must update the value of `WEBSITE_RUN_FROM_PACKAGE` with the new SAS URL for the web app to reestablish a connection to the storage account.
 
 ### How does running from the deployment package affect my web app?
 
