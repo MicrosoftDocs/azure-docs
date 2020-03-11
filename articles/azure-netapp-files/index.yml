@@ -26,8 +26,12 @@ landingContent:
             url: azure-netapp-files-understand-storage-hierarchy.md
       - linkListType: concept
         links:
-          - text: Service levels for Azure NetApp Files
+          - text: Service levels
             url: azure-netapp-files-service-levels.md
+          - text: Performance considerations
+            url: azure-netapp-files-performance-considerations.md
+          - text: Guidelines for network planning
+            url: azure-netapp-files-network-topologies.md
       - linkListType: video
         links:
           - text: Azure NetApp Files videos
