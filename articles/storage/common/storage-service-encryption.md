@@ -130,7 +130,7 @@ After access to customer-managed keys is revoked, operations that read from or w
 - [Put Page From URL](/rest/api/storageservices/put-page-from-url)
 - [Incremental Copy Blob](/rest/api/storageservices/incremental-copy-blob)
 
-After customer-managed keys are revoked for the storage account, any of the listed operations will fail with error code 403 (Forbidden) for all users. To call these operations again, configure a new customer-managed key.
+After customer-managed keys are revoked for the storage account, calling any of the listed operations will fail with error code 403 (Forbidden) for all users. To call these operations again, configure a new customer-managed key.
 
 ### Customer-managed keys for Azure managed disks (preview)
 
