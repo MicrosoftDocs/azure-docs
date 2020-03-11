@@ -45,7 +45,7 @@ To create a resource group, SQL server, and single database in the Azure portal:
 1. Under **Compute + storage**, if you want to reconfigure the defaults, select **Configure database**.
    
    On the **Configure** page, you can optionally:
-   - Change the **Compute tier** from **Provisioned** to **Serverless**
+   - Change the **Compute tier** from **Provisioned** to **Serverless**.
    - Review and change the settings for **vCores** and **Data max size**.
    - Select **Change configuration** to change the hardware generation.
    
@@ -74,7 +74,7 @@ To create a resource group, SQL server, and single database in the Azure portal:
 
 You can create an Azure resource group, SQL server, and single database using the Azure command-line interface (Azure CLI). If you don't want to use the Azure Cloud Shell, [install Azure CLI](/cli/azure/install-azure-cli) on your computer.
 
-To run the following code sample in Azure Cloud Shell, select **Try it** in the code sample title bar. When the Cloud Shell opens, select **Copy** in the code sample title bar, and paste the code sample into the Cloud Shell window. In the code, replace `<Subscription ID>` with your Azure Subscription ID, and for `$startIp` and `$endIP`, replace `0.0.0.0` with the public IP address of the computer you're using.
+To run the following code sample in Azure Cloud Shell, select **Try it** in the code sample title bar. When the Cloud Shell opens, select **Copy** in the code sample title bar, and paste the code sample into the Cloud Shell window. In the code, replace `<Subscription ID>` with your Azure Subscription ID, and for `$startip` and `$endip`, replace `0.0.0.0` with the public IP address of the computer you're using.
 
 Follow the onscreen prompts to sign in to Azure and run the code. 
 
@@ -147,8 +147,8 @@ The preceding code uses these Azure CLI commands:
 | [az account set](/cli/azure/account?view=azure-cli-latest#az-account-set) | Sets a subscription to be the current active subscription. | 
 | [az group create](/cli/azure/group#az-group-create) | Creates a resource group in which all resources are stored. |
 | [az sql server create](/cli/azure/sql/server#az-sql-server-create) | Creates a SQL Database server that hosts single databases and elastic pools. |
-| [az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule) | Creates a server's firewall rules. | 
-| [az sql db create](/cli/azure/sql/db?view=azure-cli-latest) | Creates a database. | 
+| [az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule##az-sql-server-firewall-rule-create) | Creates a server's firewall rules. | 
+| [az sql db create](/cli/azure/sql/db#az-sql-db-create?view=azure-cli-latest) | Creates a database. | 
 
 For more Azure SQL Database Azure CLI samples, see [Azure CLI samples](../sql-database-cli-samples.md).
 
@@ -158,7 +158,7 @@ You can create an Azure resource group, SQL server, and single database using Wi
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-To run the following code sample in the Azure Cloud Shell, select **Try it** in the code title bar. When the Cloud Shell opens, select **Copy** in the code sample title bar, and paste the code sample into the Cloud Shell window. In the code, replace `<Subscription ID>` with your Azure Subscription ID, and for `$startIp` and `$endIP`, replace `0.0.0.0` with the public IP address of the computer you're using. 
+To run the following code sample in the Azure Cloud Shell, select **Try it** in the code title bar. When the Cloud Shell opens, select **Copy** in the code sample title bar, and paste the code sample into the Cloud Shell window. In the code, replace `<Subscription ID>` with your Azure Subscription ID, and for `$startIp` and `$endIp`, replace `0.0.0.0` with the public IP address of the computer you're using. 
 
 Follow the onscreen prompts to sign in to Azure and run the code. 
 
