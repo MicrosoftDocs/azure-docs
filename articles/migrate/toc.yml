@@ -74,8 +74,6 @@
       href: migrate-appliance.md
     - name: Replication appliance requirements
       href: migrate-replication-appliance.md
-    - name: Dependency analysis requirements
-      href: support-matrix-dependency-analysis.md
   - name: Hyper-V migration architecture
     href: hyper-v-migration-architecture.md
   - name: Agent-based migration architecture

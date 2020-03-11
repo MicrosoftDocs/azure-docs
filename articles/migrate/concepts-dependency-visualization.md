@@ -56,7 +56,7 @@ The differences between agentless visualization and agent-based visualization ar
 
 **Requirement** | **Agentless** | **Agent-based**
 --- | --- | ---
-Support | This option is currently in preview, and is only available for VMware VMs. [Review](support-matrix-dependency-analysis.md#agentless-requirements) supported operating systems. | In general availability (GA).
+Support | This option is currently in preview, and is only available for VMware VMs. [Review](migrate-support-matrix-vmware.md#agentless-dependency-analysis-requirements) supported operating systems. | In general availability (GA).
 Agent | No need to install agents on machines you want to cross-check. | Agents to be installed on each on-premises machine that you want to analyze: The [Microsoft Monitoring agent (MMA)](https://docs.microsoft.com/azure/log-analytics/log-analytics-agent-windows), and the [Dependency agent](https://docs.microsoft.com/azure/azure-monitor/platform/agents-overview#dependency-agent). 
 Log Analytics | Not required. | Azure Migrate uses the [Service Map](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-service-map) solution in [Azure Monitor logs](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) for dependency analysis. 
 How it works | Captures TCP connection data on machines enabled for dependency visualization. After discovery, it gathers data at intervals of five minutes. | Service Map agents installed on a machine gather data about TCP processes and inbound/outbound connections for each process.
@@ -67,7 +67,8 @@ Data export | Can't currently be downloaded in tabular format. | Data can be que
 
 
 ## Next steps
-- [Review the requirements](support-matrix-dependency-analysis.md) for setting up agentless and agent-based analysis.
+- Review the requirements for setting up agent-based analysis for [VMware VMs](migrate-support-matrix-vmware.md#agent-based-dependency-analysis-requirements), [physical servers](migrate-support-matrix-physical.md#agent-based-dependency-analysis-requirements), and [Hyper-V VMs](migrate-support-matrix-hyper-v.md#agent-based-dependency-analysis-requirements).
+- [Review](migrate-support-matrix-vmware.md#agentless-dependency-analysis-requirements) the requirements for agentless analysis of VMware VMs.
 - [Set up](how-to-create-group-machine-dependencies.md) agent-based dependency visualization
 - [Try out](how-to-create-group-machine-dependencies-agentless.md) agentless dependency visualization for VMware VMs.
 - Review [common questions](common-questions-discovery-assessment.md#what-is-dependency-visualization) about dependency visualization.
