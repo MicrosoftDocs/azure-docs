@@ -41,7 +41,7 @@ E0 resources are only available for Authoring service and that the E0 tier will 
 
 ### Regional availability
 
-Customer-managed keys are currently available in the **West** US region.
+Customer-managed keys are currently available in the **West US** region.
 
 ### Limitations
 
