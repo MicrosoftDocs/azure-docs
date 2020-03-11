@@ -27,7 +27,7 @@ This article describes changes that were introduced in Azure Media Services v3, 
 If you have a video service developed today on top of the [legacy Media Services v2 APIs](../previous/media-services-overview.md), you should review the following guidelines and considerations prior to migrating to the v3 APIs. There are many benefits and new features in the v3 API that improve the developer experience and capabilities of Media Services. However, as called out in the [Known Issues](#known-issues) section of this article, there are also some limitations due to changes between the API versions. This page will be maintained as the Media Services team makes continued improvements to the v3 APIs and addresses the gaps between the versions. 
 
 > [!NOTE]
-> You can use the [Azure portal](https://portal.azure.com/) to manage v3 [Live Events](live-events-outputs-concept.md), view v3 [Assets](assets-concept.md), get info about accessing APIs. For all other management tasks (for example, Transforms and Jobs), use the [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), or one of the supported [SDKs](media-services-apis-overview.md#sdks).
+> You can use the [Azure portal](https://portal.azure.com/) to manage v3 [Live Events](live-events-outputs-concept.md), view (not manage) v3 [Assets](assets-concept.md), get info about accessing APIs. For more details, see [FAQs](frequently-asked-questions.md#can-i-use-the-azure-portal-to-manage-v3-resources). 
 
 ## Benefits of Media Services v3
   
@@ -127,9 +127,13 @@ The following table shows the code differences between v2 and v3 for common scen
 
 ## Known issues
 
-*  You can use the [Azure portal](https://portal.azure.com/) to manage v3 [Live Events](live-events-outputs-concept.md), view v3 [Assets](assets-concept.md), get info about accessing APIs. 
+*  Currently, you can use the [Azure portal](https://portal.azure.com/) to:
 
-    For all other management tasks (for example, Transforms and Jobs), use the [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), or one of the supported [SDKs](media-services-apis-overview.md#sdks).
+    * manage Media Services v3 [Live Events](live-events-outputs-concept.md), 
+    * view (not manage) v3 [Assets](assets-concept.md), 
+    * [get info about accessing APIs](access-api-portal.md). 
+
+For all other management tasks (for example, [Transforms and Jobs](transforms-jobs-concept.md) and [Content protection](content-protection-overview.md)), use the [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), or one of the supported [SDKs](media-services-apis-overview.md#sdks).
 * You need to provision Media Reserved Units (MRUs) in your account in order to control the concurrency and performance of your Jobs, particularly ones involving Video or Audio Analysis. For more information, see [Scaling Media Processing](../previous/media-services-scale-media-processing-overview.md). You can manage the MRUs using [CLI 2.0 for Media Services v3](media-reserved-units-cli-how-to.md), using the [Azure portal](../previous/media-services-portal-scale-media-processing.md), or using the [v2 APIs](../previous/media-services-dotnet-encoding-units.md). You need to provision MRUs, whether you are using Media Services v2 or v3 APIs.
 * Media Services entities created with the v3 API cannot be managed by the v2 API.  
 * Not all entities in the V2 API automatically show up in the V3 API.  Following are examples of entities in the two versions that are incompatible:  
