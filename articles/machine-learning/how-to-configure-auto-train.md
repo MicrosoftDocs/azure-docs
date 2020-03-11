@@ -9,7 +9,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 03/09/2020
 ms.custom: seodec18
 ---
 
@@ -125,8 +125,8 @@ Use custom validation dataset if random split is not acceptable, usually time se
 ## Compute to run experiment
 
 Next determine where the model will be trained. An automated machine learning training experiment can run on the following compute options:
-*	Your local machine such as a local desktop or laptop – Generally when you have small dataset and you are still in the exploration stage.
-*	A remote machine in the cloud – [Azure Machine Learning Managed Compute](concept-compute-target.md#amlcompute) is a managed service that enables the ability to train machine learning models on clusters of Azure virtual machines.
+*    Your local machine such as a local desktop or laptop – Generally when you have small dataset and you are still in the exploration stage.
+*    A remote machine in the cloud – [Azure Machine Learning Managed Compute](concept-compute-target.md#amlcompute) is a managed service that enables the ability to train machine learning models on clusters of Azure virtual machines.
 
     See this [GitHub site](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning) for examples of notebooks with local and remote compute targets.
 
@@ -142,25 +142,25 @@ There are several options that you can use to configure your automated machine l
 
 Some examples include:
 
-1.	Classification experiment using AUC weighted as the primary metric with experiment timeout minutes set to 30 minutes and 2 cross-validation folds.
+1.    Classification experiment using AUC weighted as the primary metric with experiment timeout minutes set to 30 minutes and 2 cross-validation folds.
 
     ```python
     automl_classifier=AutoMLConfig(
         task='classification',
         primary_metric='AUC_weighted',
         experiment_timeout_minutes=30,
-        blacklist_models='XGBoostClassifier',
+        blacklist_models=['XGBoostClassifier'],
         training_data=train_data,
         label_column_name=label,
         n_cross_validations=2)
     ```
-2.	Below is an example of a regression experiment set to end after 60 minutes with five validation cross folds.
+2.    Below is an example of a regression experiment set to end after 60 minutes with five validation cross folds.
 
     ```python
     automl_regressor = AutoMLConfig(
         task='regression',
         experiment_timeout_minutes=60,
-        whitelist_models='kNN regressor'
+        whitelist_models=['kNN regressor'],
         primary_metric='r2_score',
         training_data=train_data,
         label_column_name=label,
@@ -367,7 +367,7 @@ Use these 2 APIs on the first step of fitted model to understand more.  See [thi
   This list includes all engineered feature names.
 
   >[!Note]
-  >Use 'timeseriestransformer' for task=’forecasting’, else use 'datatransformer' for ‘regression’ or ‘classification’ task.
+  >Use 'timeseriestransformer' for task='forecasting', else use 'datatransformer' for 'regression' or 'classification' task.
 
 + API 2: `get_featurization_summary()` returns featurization summary for all the input features.
 
@@ -377,7 +377,7 @@ Use these 2 APIs on the first step of fitted model to understand more.  See [thi
   ```
 
   >[!Note]
-  >Use 'timeseriestransformer' for task=’forecasting’, else use 'datatransformer' for ‘regression’ or ‘classification’ task.
+  >Use 'timeseriestransformer' for task='forecasting', else use 'datatransformer' for 'regression' or 'classification' task.
 
   Output:
   ```
