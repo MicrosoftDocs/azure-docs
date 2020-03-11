@@ -12,13 +12,13 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 08/29/2019
+ms.date: 03/09/2020
 ms.author: juliako
 ms.custom: seodec18
 
 ---
 
-# Assets in Azure Media Services
+# Assets in Azure Media Services v3
 
 In Azure Media Services, an [Asset](https://docs.microsoft.com/rest/api/media/assets) is a core concept. It is where you input media (for example, through upload or live ingest), output media (from a job output), and publish media from (for streaming). 
 
@@ -37,10 +37,6 @@ Asset's names must be unique. Media Services v3 resource names (for example, Ass
 ### Blobs
 
 The names of files/blobs within an asset must follow both the [blob name requirements](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata) and the [NTFS name requirements](https://docs.microsoft.com/windows/win32/fileio/naming-a-file). The reason for these requirements is the files can get copied from blob storage to a local NTFS disk for processing.
-
-## Asset changes between Media Services v2 and v3
-
-See [Asset changes between Media Services v2 and v3](media-services-v2-vs-v3.md#asset-specific-changes)
 
 ## Next steps
 
