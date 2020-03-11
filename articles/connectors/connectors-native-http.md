@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
-ms.date: 03/11/2020
+ms.date: 03/12/2020
 tags: connectors
 ---
 
@@ -13,21 +13,35 @@ tags: connectors
 
 With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the built-in HTTP trigger or action, you can create automated tasks and workflows that send requests to service endpoints over HTTP or HTTPS. For example, you can monitor the service endpoint for your website by checking that endpoint on a specific schedule. When the specified event happens at that endpoint, such as your website going down, the event triggers your logic app's workflow and runs the actions in that workflow. If you want to receive and respond to inbound HTTPS calls instead, use the built-in [Request trigger or Response action](../connectors/connectors-native-reqres.md).
 
+> [!NOTE]
+> Based the target endpoint's capability, the HTTP connector supports Transport Layer Security (TLS) 
+> versions 1.0, 1.1, and 1.2. Logic Apps negotiates with the endpoint over using the highest supported 
+> version possible. So for example, if the endpoint supports 1.2, the connector uses 1.2 first. 
+> Otherwise, the connector uses the next highest supported version.
+
 To check or *poll* an endpoint on a recurring schedule, [add the HTTP trigger](#http-trigger) as the first step in your workflow. Each time that the trigger checks the endpoint, the trigger calls or sends a *request* to the endpoint. The endpoint's response determines whether your logic app's workflow runs. The trigger passes any content from the endpoint's response to the actions in your logic app.
 
 To call an endpoint from anywhere else in your workflow, [add the HTTP action](#http-action). The endpoint's response determines how your workflow's remaining actions run.
 
-> [!NOTE]
-> Based the target endpoint's capability, the HTTP connector supports Transport Layer Security (TLS) 
-> versions 1.0, 1.1, and 1.2. Logic Apps negotiates with the endpoint over using the highest supported 
-> version possible. So, for example, if the endpoint supports 1.2, the connector uses 1.2 first. 
-> Otherwise, the connector uses the next highest supported version.
+> [!IMPORTANT]
+> When an HTTP trigger or action sends a `GET` request or doesn't have a request body, 
+> Logic Apps removes these headers when included, but without warning or error:
 >
-> If the HTTP trigger or action sends a `GET` request or doesn't have a request body, Logic Apps 
-> removes any `Content-*` headers from the request without warning or error. Although Logic Apps 
-> won't stop you from saving logic apps where an HTTP trigger or action is set up this way, 
-> any `Content-*` headers are ignored. This behavior doesn't happen to any other requests, 
-> such as `PUT` and `POST`, that have request bodies and `Content-*` headers.
+> * `Accept-*`
+> * `Allow`
+> * `Content-*`
+> * `Cookie`
+> * `Expires`
+> * `Host`
+> * `Last-Modified`
+> * `Origin`
+> * `Set-Cookie`
+> * `Transfer-Encoding`
+>
+> Although Logic Apps won't stop you from saving logic apps that use an HTTP trigger 
+> or action with these headers, Logic Apps ignores these headers. This behavior 
+> doesn't apply to other request types, such as `PUT` and `POST`, as long as these 
+> requests include request bodies.
 
 This article shows how to add an HTTP trigger or action to your logic app's workflow.
 

@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewers: klam, logicappspm
 ms.topic: conceptual
-ms.date: 03/10/2020
+ms.date: 03/12/2020
 tags: connectors
 ---
 
@@ -199,11 +199,23 @@ You can use the Response action to respond with a payload (data) to an incoming 
 
 Your logic app keeps the incoming request open only for one minute. Assuming that your logic app workflow includes a Response action, if the logic app doesn't return a response after this time passes, your logic app returns a `504 GATEWAY TIMEOUT` to the caller. Otherwise, if your logic app doesn't include a Response action, your logic app immediately returns a `202 ACCEPTED` response to the caller.
 
-> [!NOTE]
-> If the Response action doesn't have a response body, Logic Apps removes any `Content-*` headers 
-> that aren't `Content-Type`, `Content-Encoding`, or `Content-Disposition` without warning or error. 
-> Although Logic Apps also won't stop you from saving logic apps where the Response action is set up 
-> in this way, non-exempt `Content-*` headers are ignored.
+> [!IMPORTANT]
+> If the Response action doesn't have a response body, Logic Apps removes 
+> these headers when included, but without warning or error:
+>
+> * `Accept-*`
+> * `Allow`
+> * `Content-*` with these exceptions: `Content-Type`, `Content-Encoding`, and `Content-Disposition`
+> * `Cookie`
+> * `Expires`
+> * `Host`
+> * `Last-Modified`
+> * `Origin`
+> * `Set-Cookie`
+> * `Transfer-Encoding`
+>
+> Although Logic Apps won't stop you from saving logic apps that use a 
+> Response action with these headers, Logic Apps ignores these headers.
 
 1. In the Logic App Designer, under the step where you want to add a Response action, select **New step**.
 
