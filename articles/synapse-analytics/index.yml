@@ -19,13 +19,13 @@ metadata:
 landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
-  # Card (optional)
-  # - title: About Azure Synapse Analytics 
-  #   linkLists:
-  #     - linkListType: overview
-  #       links:
-  #         - text: What is Azure Synapse?
-  #           url: sql-data-warehouse-overview-what-is.md
+#   Card (optional)
+  - title: About Azure Synapse Analytics 
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Synapse?
+            url: overview-cheat-sheet.md
   #     - linkListType: architecture
   #       links:
   #         - text: Azure Synapse architecture
