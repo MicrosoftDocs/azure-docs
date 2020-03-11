@@ -278,20 +278,25 @@ This functionality requires connectivity from IoT Hub to the storage account. To
 You can now use the Azure IoT REST API's for [creating import export jobs](https://docs.microsoft.com/rest/api/iothub/service/createimportexportjob) for information on how use the bulk import/export functionality. Note that you will need to provide the `autheticationType="identityBased"` in your request body and use `inputBlobContainerUri="https://..."` and `outputBlobContainerUri="https://..."` as the input and output URL's of your storage account, respectively.
 
 
-Azure IoT Hub SDK's also support this functionality in the service client's registry manager:
+Azure IoT Hub SDK's also support this functionality in the service client's registry manager. The following code snippet shows how to initiate an import job or export job in using the C# SDK. Note that the `inputBlobContainerUri` and `outputBlobContainerUri` parameters must be in HTTPS URL format (with `https://` prefix).
 
 ```csharp
-// Call an export job on the IoT Hub to retrieve all devices
-JobProperties exportJob = 
-await registryManager.ExportDevicesAsync(
-    JobProperties.CreateForExportJob(outputBlobContainerUri, true, null, StorageAuthenticationType.IdentityBased),
-    cancellationToken);
- 
- 
-The following C# code snippet shows how to initiate an import job:
 // Call an import job on the IoT Hub
 JobProperties importJob = 
 await registryManager.ImportDevicesAsync(
   JobProperties.CreateForImportJob(inputBlobContainerUri, outputBlobContainerUri, null, StorageAuthenticationType.IdentityBased), 
   cancellationToken);
+
+// Call an export job on the IoT Hub to retrieve all devices
+JobProperties exportJob = 
+await registryManager.ExportDevicesAsync(
+    JobProperties.CreateForExportJob(outputBlobContainerUri, true, null, StorageAuthenticationType.IdentityBased),
+    cancellationToken);
 ```
+
+| SDK language | Link         |
+|--------------|--------------|
+| C#           |  [`RegistryManager.ExportDevicesAsync()`](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.registrymanager?view=azure-dotnet) and [`RegistryManager.ImportDevicesAsync()`](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.registrymanager?view=azure-dotnet) |
+| Java         |  [`RegistryManager.importDevicesAsync()`](https://github.com/Azure/azure-iot-sdk-java/blob/master/service/iot-service-client/src/main/java/com/microsoft/azure/sdk/iot/service/RegistryManager.java#L771) and [`RegistryManager.exportDevicesAsync()`](https://github.com/Azure/azure-iot-sdk-java/blob/master/service/iot-service-client/src/main/java/com/microsoft/azure/sdk/iot/service/RegistryManager.java#L700) |
+| NodeJS       |  [`Registry.importDevicesFromBlob()`](https://github.com/Azure/azure-iot-sdk-node/blob/master/service/src/registry.ts#L368) and [`Registry.exportDevicesToBlob()`](https://github.com/Azure/azure-iot-sdk-node/blob/master/service/src/registry.ts#L415)         |
+
