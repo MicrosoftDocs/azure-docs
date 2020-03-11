@@ -174,6 +174,9 @@ The resources currently supported in the second generation alerts experience are
 - Microsoft.Web/sites
 - Microsoft.Web/sites/slots
 
+> [!NOTE]
+> Creating multi-resource metric alert rules on Virtual Machines is **currently not supported**. This article will be updated as soon as this functionality becomes available.
+
 You can still use [classic alerts](../azure-monitor/platform/alerts-classic.overview.md) for resources not yet available in the second generation of alerts. 
 
 When using PowerShell/ARM/Rest calls to create metric alerts, you will need to set the "Location" of the metric alert to "USGov Virginia" or "USGov Iowa". An example of the setting is below:
@@ -185,6 +188,7 @@ Add-AzMetricAlertRule -Name vmcpu_gt_1 -Location "USGov Virginia" -ResourceGroup
 ```
 
 For more information on using PowerShell, see [public documentation](../azure-monitor/platform/powershell-quickstart-samples.md).
+
 
 ## Application Insights
 
