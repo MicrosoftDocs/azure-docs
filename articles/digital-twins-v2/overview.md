@@ -28,14 +28,13 @@ Azure Digital Twins does the hard work of translating a device-centric view of t
 
 Here is a summary of what you can do with Azure Digital Twins.
 
-### Model your real-world business environment
+### Represent your real-world business environment
 
 In Azure Digital Twins, you define the twin types that represent the people, places, and things in your physical environment, as well as the relationships between them. You can think of these definitions as a custom vocabulary to describe your business. For a building management solution, for instance, you might define types such as "building", "floor", "room", "elevator" and "HVAC system". Twin types are expressed in terms of persistent state properties, telemetry events, commands, relationships, and components.
 
-Once you have defined the vocabulary for your business, you can model your concrete environment by creating a graph of twins from the types you previously defined.  
-For example, with the same building management solution, you can create a model that represents the office building you are in with its many floors, rooms, etc.
+Once you have defined the vocabulary for your business, you can represent your concrete environment by creating a graph of twins from the types you previously defined. For example, using the types described above for a building management solution, you can create an Azure digital twin that represents the office building you are in with its many floors, rooms, etc.
 
-The arrows in the illustration below show different semantic relationships between the twins in the model. For example, the building *contains* three floors, and each floor *contains* several rooms. The building also *is-equipped-with* an HVAC system and an elevator. The HVAC system *cools* specific floors. 
+The arrows in the illustration below show different semantic relationships between the twins in the representation. For example, the building *contains* three floors, and each floor *contains* several rooms. The building also *is-equipped-with* an HVAC system and an elevator. The HVAC system *cools* specific floors. 
 
 ![An example model scenario](./media/overview/modeling-example.png)
 
@@ -66,7 +65,7 @@ Using fine-grained, twin-level access control, you can define the policies for d
 
 ### Integrate with IoT Hub for device-centric scenarios
 
-Azure Digital Twins can mirror devices connected to an attached IoT hub into your Azure Digital Twins graph, where you can connect them via relationships and query them alongside model-based twins.
+Azure Digital Twins can represent IoT devices managed by IoT Hub as part of your Azure Digital Twins graph, where you can connect them via relationships and query them alongside model-based twins.
 
 ## Azure Digital Twins in a solution context
 
