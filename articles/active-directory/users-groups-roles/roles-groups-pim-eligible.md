@@ -27,13 +27,13 @@ This article describes how an IT admin can assign an Azure Active Directory (Azu
 
 1. Select Privileged Identity Management > Azure AD roles > Roles > Add member
 
-    ![Azure AD roles](./media/pim-how-to-add-role-to-user/roles-list.png)
+    ![Azure AD roles](./media/roles-groups-pim-eligible/roles-list.png)
 
 1. Select the group. Only groups that are eligible for role assignment (the cloud groups created with "Eligible for role assignment") are shown in the list, not all groups.
 
     ![select the user to whom you're assigning the role](./media/roles-groups-pim-eligible/select-member.png)
 
-1. Select the desired membership setting. For roles requiring activation, choose eligible. By default, the user would be permanently eligible, but you could also set a start and end time for the user’s eligibility. Once you are complete, hit Save and Add to complete the role assignment.
+1. Select the desired membership setting. For roles requiring activation, choose eligible. By default, the user would be permanently eligible, but you could also set a start and end time for the user's eligibility. Once you are complete, hit Save and Add to complete the role assignment.
 
     ![select the user to whom you're assigning the role](./media/roles-groups-pim-eligible/set-assignment-settings.png)
 
@@ -41,17 +41,17 @@ This article describes how an IT admin can assign an Azure Active Directory (Azu
 
 ### Download the Azure AD Preview PowerShell module
 
-    #To install the Azure AD #PowerShell module, use the following cmdlets:
-    
+To install the Azure AD #PowerShell module, use the following cmdlets:
+
     install-module azureadpreview 
     import-module azureadpreview 
-    
-    #To verify that the module is ready to use, use the following cmdlet: 
-    
+
+To verify that the module is ready to use, use the following cmdlet:
+
     get-module azureadpreview 
-    
-    #Assign a group as an eligible member of a role 
-    
+
+### Assign a group as an eligible member of a role
+
     $schedule = New-Object Microsoft.Open.MSGraph.Model.AzureADMSPrivilegedSchedule
     $schedule.Type = "Once"     
     $schedule.StartDateTime = "2019-04-26T20:49:11.770Z"
@@ -65,25 +65,25 @@ This article describes how an IT admin can assign an Azure Active Directory (Azu
     
     {
     
-     “roleDefinitionId": {roleDefinitionId}, 
+     "roleDefinitionId": {roleDefinitionId}, 
     
-     “resourceId”: {tenantId}, 
+     "resourceId": {tenantId}, 
     
-     “subjectId”: {GroupId}, 
+     "subjectId": {GroupId}, 
     
-     “assignmentState”: “Eligible”, 
+     "assignmentState": "Eligible", 
     
-     “type”: “AdminAdd”, 
+     "type": "AdminAdd", 
     
-     “reason”: “reason string”, 
+     "reason": "reason string", 
     
-     “schedule”: { 
+     "schedule": { 
     
-           “startDateTime”: {DateTime}, 
+           "startDateTime": {DateTime}, 
     
-           “endDateTime”: {DateTime}, 
+           "endDateTime": {DateTime}, 
     
-           “type”: “Once”  
+           "type": "Once"  
     
      } 
     
@@ -91,5 +91,5 @@ This article describes how an IT admin can assign an Azure Active Directory (Azu
 
 ## Next steps
 
-- [Configure Azure AD admin role settings in Privileged Identity Management](pim-how-to-change-default-settings.md)
-- [Assign Azure resource roles in Privileged Identity Management](pim-resource-roles-assign-roles.md)
+- [Configure Azure AD admin role settings in Privileged Identity Management](../privileged-identity-management/pim-how-to-change-default-settings.md)
+- [Assign Azure resource roles in Privileged Identity Management](../privileged-identity-management/pim-resource-roles-assign-roles.md)
