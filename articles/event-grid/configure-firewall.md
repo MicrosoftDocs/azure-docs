@@ -70,6 +70,59 @@ az rest --method put \
 ```
 
 ## Use PowerShell
+This section shows you how to use Azure PowerShell commands to create Event Grid topics with inbound rules. Run the following prerequisite commands to get an authentication token to use with REST API calls and authorization and other header information. 
+
+```azurepowershell
+# replace <CLIENT ID> and <CLIENT SECRET>
+$body = "grant_type=client_credentials&client_id=<CLIENT ID>&client_secret=<CLIENT SECRET>&resource=https://management.core.windows.net"
+
+# get the authentication token
+$Token = Invoke-RestMethod -Method Post -Uri https://login.microsoftonline.com/<TENANT ID>/oauth2/token -Body $body -ContentType 'application/x-www-form-urlencoded'
+
+# set authorization and content-type headers
+$Headers = @{}
+$Headers.Add("Authorization","$($Token.token_type) "+ " " + "$($Token.access_token)")
+$Headers.Add("Content-Type","application/json")
+```
+
+### Create an Event Grid topic with inbound rules in one step
+
+```azurepowershell
+
+# prepare the body for the REST PUT method. Notice that inbound IP rules are included. 
+$body = @{"location"="<LOCATION>"; "sku"= @{"name"="basic"}; "properties"=@{"publicNetworkAccess"="enabled"; "inboundIpRules"=@(@{"ipmask"="0.0.0.0/0";"action"="allow"})}} | ConvertTo-Json -Depth 5
+
+# create the Event Grid topic with inbound IP rules
+Invoke-RestMethod -Method 'Put' -Uri "https://management.azure.com/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventGrid/topics/<EVENT GRID TOPIC NAME>?api-version=2020-04-01-preview" -Headers $Headers -Body $body
+
+# verify that the topic was created
+Invoke-RestMethod -Method 'Get' -Uri "https://management.azure.com/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventGrid/topics/<EVENT GRID TOPIC NAME>?api-version=2020-04-01-preview" -Headers $Headers | ConvertTo-Json -Depth 5
+```
+
+
+### Create Event Grid topic first and then add inbound ip rules
+
+```azurepowershell
+
+# prepare the body for the REST PUT method. Notice that no inbound IP rules are specified. 
+$body = @{"location"="<LOCATION>"; "sku"= @{"name"="basic"}; "properties"=@{"publicNetworkAccess"="enabled";}} | ConvertTo-Json -Depth 5
+
+# create the Event Grid topic
+Invoke-RestMethod -Method 'Put' -Uri "https://management.azure.com/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventGrid/topics/<EVENT GRID TOPIC NAME>?api-version=2020-04-01-preview" -Headers $Headers -Body $body
+
+# verify that the topic was created
+Invoke-RestMethod -Method 'Get' -Uri "https://management.azure.com/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventGrid/topics/<EVENT GRID TOPIC NAME>?api-version=2020-04-01-preview" -Headers $Headers | ConvertTo-Json -Depth 5
+
+# prepare the body for REST PUT method. Notice that it includes inbound IP rules now. 
+$body = @{"location"="<LOCATION>"; "sku"= @{"name"="basic"}; "properties"=@{"publicNetworkAccess"="enabled"; "inboundIpRules"=@(@{"ipmask"="0.0.0.0/0";"action"="allow"}, @{"ipmask"="10.0.0.0/8";"action"="allow"})}} | ConvertTo-Json -Depth 5
+
+# Update the topic with inbound IP rules
+Invoke-RestMethod -Method 'Put' -Uri "https://management.azure.com/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventGrid/topics/<EVENT GRID TOPIC NAME>?api-version=2020-04-01-preview" -Headers $Headers -Body $body
+
+# Verify that the topic was updated
+Invoke-RestMethod -Method 'Get' -Uri "https://management.azure.com/subscriptions/<AzURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventGrid/topics/<EVENT GRID TOPIC NAME>?api-version=2020-04-01-preview" -Headers $Headers | ConvertTo-Json -Depth 5
+
+```
 
 
 

@@ -157,35 +157,52 @@ az account set --subscription $subscriptionID
 az group create --name $resourceGroupName --location $location
 
 -- create vnet and subnet in $resourceGroupName
-az network vnet create --resource-group $resourceGroupName --name $vNetName --address-prefix 10.0.0.0/16
-az network vnet subnet create --resource-group $resourceGroupName --vnet-name $vNetName --name $subNetName --address-prefixes 10.0.0.0/24
-az network vnet subnet update --resource-group $resourceGroupName --vnet-name $vNetName --name $subNetName --disable-private-endpoint-network-policies true
+az network vnet create \
+    --resource-group $resourceGroupName \
+    --name $vNetName \
+    --address-prefix 10.0.0.0/16
 
--- create topic. Replace <SUBSCRIPTION ID>, <RESOURCE GROUP NAME>, <TOPIC NAME>, and <LOCATION> with appropriate values. 
-az rest --method put --uri "/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventGrid/topics/<TOPIC NAME>?api-version=2020-04-01-preview" --body "{\""location\"":\""<LOCATION>\"", \""sku\"": {\""name\"": \""premium\""}, \""properties\"": {\""publicNetworkAccess\"":\""Disabled\""}}"
+az network vnet subnet create \
+    --resource-group $resourceGroupName \
+    --vnet-name $vNetName \
+    --name $subNetName \
+    --address-prefixes 10.0.0.0/24
+
+az network vnet subnet update \
+    --resource-group $resourceGroupName \
+    --vnet-name $vNetName \
+    --name $subNetName \
+    --disable-private-endpoint-network-policies true
+
+-- create topic.
+-- IMPORTANT: replace <SUBSCRIPTION ID>, <RESOURCE GROUP NAME>, <TOPIC NAME>, and <LOCATION> with appropriate values.
+az rest --method put \
+    --uri "/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventGrid/topics/<TOPIC NAME>?api-version=2020-04-01-preview" \
+    --body "{\""location\"":\""<LOCATION>\"", \""sku\"": {\""name\"": \""premium\""}, \""properties\"": {\""publicNetworkAccess\"":\""Disabled\""}}"
 
 -- verify that the topic was created.
-az rest --method get --uri "/subscriptions/$subscriptionID/resourceGroups/$resourceGroupName/providers/Microsoft.EventGrid/topics/$topicName?api-version=2020-04-01-preview"
+az rest --method get \
+    --uri "/subscriptions/$subscriptionID/resourceGroups/$resourceGroupName/providers/Microsoft.EventGrid/topics/$topicName?api-version=2020-04-01-preview"
 
--- create private endpoint. Replace <SUBSCRIPTION ID>, <RESOURCE GROUP NAME>, and <TOPIC NAME> with appropriate values. 
-az network private-endpoint create --resource-group $resourceGroupName --name $endpointName --vnet-name $vNetName --subnet $subNetName --private-connection-resource-id "/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventGrid/topics/<TOPIC NAME> --connection-name $connectionName --location $location --group-ids topic
+-- create private endpoint. 
+-- IMPORTANT: replace <SUBSCRIPTION ID>, <RESOURCE GROUP NAME>, and <TOPIC NAME> with appropriate values.
+az network private-endpoint create \
+    --resource-group $resourceGroupName \
+    --name $endpointName \
+    --vnet-name $vNetName \
+    --subnet $subNetName \
+    --private-connection-resource-id "/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventGrid/topics/<TOPIC NAME> \
+    --connection-name $connectionName \
+    --location $location \
+    --group-ids topic
 
 -- get topic in $resourceGroupName
-az rest --method get --uri "/subscriptions/$subscriptionID/resourceGroups/$resourceGroupName/providers/Microsoft.EventGrid/topics/$topicName?api-version=2020-04-01-preview"
+az rest --method get \
+    --uri "/subscriptions/$subscriptionID/resourceGroups/$resourceGroupName/providers/Microsoft.EventGrid/topics/$topicName?api-version=2020-04-01-preview"
 
 ```
 
 ## Use PowerShell
-
-```azurepowershell
-$privateEndpointConnection = New-AzPrivateLinkServiceConnection -Name <PRIVATE LINK SERVICE CONNECTION NAME> -PrivateLinkServiceId $topic.Id  -GroupId "topic" 
-
-$virtualNetwork = Get-AzVirtualNetwork -ResourceGroupName  "example-privatelinkRg1" -Name "example-privatelinkvnet"
-
-$subnet = $virtualNetwork  | Select -ExpandProperty subnets  | Where-Object  {$_.Name -eq 'example-privatelinksubnet'}  
-
-$privateEndpoint = New-AzPrivateEndpoint -ResourceGroupName "example-privatelinkRg1"  -Name "myPrivateEndpoint"  -Location "<LOCATION>"  -Subnet  $subnet  -PrivateLinkServiceConnection $privateEndpointConnection
-```
 
 ## Next steps
 To learn about how to configure IP firewall settings, see [Configure IP firewall for Event Grid topics or domains](configure-firewall.md).
