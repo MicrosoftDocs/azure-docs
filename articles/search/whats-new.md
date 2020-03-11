@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 03/03/2020
+ms.date: 03/10/2020
 ---
 # What's new in Azure Cognitive Search
 
@@ -21,6 +21,10 @@ Learn what's new in the service. Bookmark this page to keep up to date with the 
 Azure Search is now renamed to **Azure Cognitive Search** to reflect the expanded (yet optional) use of cognitive skills and AI processing in core operations. API versions, NuGet packages, namespaces, and endpoints are unchanged. New and existing search solutions are unaffected by the service name change.
 
 ## Feature announcements
+
+### March 2020
+
++ New stable Management REST API (2020-03-13) is now available. 
 
 ### February 2020
 

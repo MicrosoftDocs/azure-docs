@@ -1,5 +1,5 @@
 ---
-title: Deploy Azure Data Explorer into your Virtual Network (Preview)
+title: Deploy Azure Data Explorer into your Virtual Network
 description: Learn how to deploy Azure Data Explorer into your Virtual Network
 author: basaba
 ms.author: basaba
@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 10/31/2019
 ---
 
-# Deploy Azure Data Explorer into your Virtual Network (Preview)
+# Deploy Azure Data Explorer into your Virtual Network
 
 This article explains the resources that are present when you deploy an Azure Data Explorer cluster into a custom Azure Virtual Network. This information will help you deploy a cluster into a subnet in your Virtual Network (VNet). For more information on Azure Virtual Networks, see [What is Azure Virtual Network?](/azure/virtual-network/virtual-networks-overview)
 
