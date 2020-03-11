@@ -23,6 +23,8 @@ landingContent:
         links:
           - text: What is Microsoft Genomics?
             url: overview-what-is-genomics.md
+          - text: Common questions
+            url: frequently-asked-questions-genomics.md
       - linkListType: quickstart
         links:
           - text: Run a sample workflow
