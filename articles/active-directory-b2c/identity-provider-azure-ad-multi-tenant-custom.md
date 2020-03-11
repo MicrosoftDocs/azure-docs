@@ -3,14 +3,14 @@ title: Set up sign-in for multi-tenant Azure AD by custom policies
 titleSuffix: Azure AD B2C
 description: Add a multi-tenant Azure AD identity provider using custom policies in Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/06/2020
-ms.author: marsma
+ms.date: 02/10/2020
+ms.author: mimart
 ms.subservice: B2C
 ---
 
@@ -46,6 +46,19 @@ To enable sign-in for users from a specific Azure AD organization, you need to r
 1. Select **Certificates & secrets**, and then select **New client secret**.
 1. Enter a **Description** for the secret, select an expiration, and then select **Add**. Record the **Value** of the secret for use in a later step.
 
+## Configuring optional claims
+
+If you want to get the `family_name` and `given_name` claims from Azure AD, you can configure optional claims for your application in the Azure portal UI or application manifest. For more information, see [How to provide optional claims to your Azure AD app](../active-directory/develop/active-directory-optional-claims.md).
+
+1. Sign in to the [Azure portal](https://portal.azure.com). Search for and select **Azure Active Directory**.
+1. From the **Manage** section, select **App registrations**.
+1. Select the application you want to configure optional claims for in the list.
+1. From the **Manage** section, select **Token configuration (preview)**.
+1. Select **Add optional claim**.
+1. Select the token type you want to configure.
+1. Select the optional claims to add.
+1. Click **Add**.
+
 ## Create a policy key
 
 You need to store the application key that you created in your Azure AD B2C tenant.
@@ -59,19 +72,6 @@ You need to store the application key that you created in your Azure AD B2C tena
 1. In **Secret**, enter your client secret that you recorded earlier.
 1. For **Key usage**, select `Signature`.
 1. Select **Create**.
-
-## Configuring optional claims
-
-If you want to get the `family_name` and `given_name` claims from Azure AD, you can configure optional claims for your application in the Azure portal UI or application manifest. For more information, see [How to provide optional claims to your Azure AD app](../active-directory/develop/active-directory-optional-claims.md).
-
-1. Sign in to the [Azure portal](https://portal.azure.com). Search for and select **Azure Active Directory**.
-1. From the **Manage** section, select **App registrations**.
-1. Select the application you want to configure optional claims for in the list.
-1. From the **Manage** section, select **Token configuration (preview)**.
-1. Select **Add optional claim**.
-1. Select the token type you want to configure.
-1. Select the optional claims to add.
-1. Click **Add**.
 
 ## Add a claims provider
 

@@ -13,8 +13,7 @@ ms.topic: quickstart
 ms.date: 02/05/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur
-ms.custom: aaddev, identityplatformtop40
-ms.custom: fasttrack-edit
+ms.custom: aaddev, identityplatformtop40, fasttrack-edit
 #Customer intent: As an application developer, I need to create an Microsoft identity environment so I can use it to register applications.
 ---
 
@@ -72,4 +71,4 @@ To begin building apps that sign in social and local accounts, you'll need to cr
 
 * Try a coding quickstart and begin authenticating users. 
 * For more in-depth code samples, check out the **Tutorials** section of the documentation.
-* Want to deploy your app to the cloud? Check out [deploying containers to Azure](https://docs.microsoft.com/azure/index#pivot=products&panel=containers). 
+* Want to deploy your app to the cloud? Check out [deploying containers to Azure](https://docs.microsoft.com/azure/index?pivot=products&panel=containers).

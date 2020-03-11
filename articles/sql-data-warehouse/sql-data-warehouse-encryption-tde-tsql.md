@@ -1,6 +1,6 @@
 ---
 title: Transparent data encryption (T-SQL)
-description: Transparent data encryption (TDE) in SQL Data Warehouse (T-SQL)
+description: Transparent data encryption (TDE) in Azure Synapse Analytics (T-SQL)
 services: sql-data-warehouse
 author: julieMSFT
 manager: craigg
@@ -26,7 +26,7 @@ ms.custom: seo-lt-2019
 To enable Transparent Data Encryption (TDE), you must be an administrator or a member of the dbmanager role.
 
 ## Enabling Encryption
-Follow these steps to enable TDE for a SQL Data Warehouse:
+Follow these steps to enable TDE:
 
 1. Connect to the *master* database on the server hosting the database using a login that is an administrator or a member of the **dbmanager** role in the master database
 2. Execute the following statement to encrypt the database.
@@ -36,7 +36,7 @@ ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
 ```
 
 ## Disabling Encryption
-Follow these steps to disable TDE for a SQL Data Warehouse:
+Follow these steps to disable TDE:
 
 1. Connect to the *master* database using a login that is an administrator or a member of the **dbmanager** role in the master database
 2. Execute the following statement to encrypt the database.
@@ -46,12 +46,12 @@ ALTER DATABASE [AdventureWorks] SET ENCRYPTION OFF;
 ```
 
 > [!NOTE]
-> A paused SQL Data Warehouse must be resumed before making changes to the TDE settings.
+> A paused SQL pool must be resumed before making changes to the TDE settings.
 > 
 > 
 
 ## Verifying Encryption
-To verify encryption status for a SQL Data Warehouse, follow the steps below:
+To verify encryption status, follow the steps below:
 
 1. Connect to the *master* or instance database using a login that is an administrator or a member of the **dbmanager** role in the master database
 2. Execute the following statement to encrypt the database.

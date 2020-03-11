@@ -29,7 +29,7 @@ After you create the lab account, enable following settings in the lab account:
 
 | Lab account setting | Instructions |
 | ----------- | ------------ |  
-| Marketplace images | Enable the [Ubuntu Server 18.04 LTS](https://azuremarketplace.microsoft.com/marketplace/apps/canonical.0001-com-ubuntu-server-bionic) image for use within your lab account. For more information, see [Specify Marketplace images available to lab creators](tutorial-setup-lab-account.md#specify-marketplace-images-available-to-lab-creators) | 
+| Marketplace images | Enable the [Ubuntu Server 18.04 LTS](https://azuremarketplace.microsoft.com/marketplace/apps/canonical.0001-com-ubuntu-server-bionic) image for use within your lab account. For more information, see [Specify Marketplace images available to lab creators](specify-marketplace-images.md). | 
 
 Follow [this tutorial](tutorial-setup-classroom-lab.md) to create a new lab and apply the following settings:
 

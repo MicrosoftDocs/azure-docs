@@ -19,7 +19,7 @@ ms.custom: devops
 
 # Tutorial: Integrated DevOps for IaaS and PaaS on Azure
 
-With end-to-end solutions on Azure, teams can implement DevOps practices in each of the application lifecycle phases: plan, develop, deliver, and operate. 
+With end-to-end solutions on Azure, teams can implement DevOps practices in each of the application lifecycle phases: plan, develop, deliver, and operate. 
 
 Below are some of the Azure Services that simplify cloud workloads and can be combined to enable amazingly powerful scenarios.
 These technologies, combined with people and processes, enable teams to continually provide value to customers. 

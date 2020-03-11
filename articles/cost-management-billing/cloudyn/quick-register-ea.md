@@ -21,7 +21,7 @@ Azure Cost Management offers similar functionality to Cloudyn. Azure Cost Manage
 
 ## Sign in to Azure
 
-- Sign in to the Azure portal at https://portal.azure.com.
+- Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
 
 ## Register with Cloudyn
 

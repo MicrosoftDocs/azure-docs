@@ -1,12 +1,9 @@
 ---
-title: Deploy Azure dedicated hosts using the CLI 
+title: Deploy Linux VMs to dedicated hosts using the CLI 
 description: Deploy VMs to dedicated hosts using the Azure CLI.
-services: virtual-machines-linux
 author: cynthn
 ms.service: virtual-machines-linux
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure
 ms.date: 01/09/2020
 ms.author: cynthn
 
@@ -24,7 +21,7 @@ Make sure that you have installed Azure CLI version 2.0.70 or later, and signed 
 ## Limitations
 
 - Virtual machine scale sets are not currently supported on dedicated hosts.
-- The initial release supports the following VM series: DSv3 and ESv3. 
+- The initial release supports the following VM series: DSv3, ESv3, FSv2, LSv2, and MSv2. 
  
 
 ## Create resource group 

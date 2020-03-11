@@ -129,9 +129,11 @@ Below are two examples of complete templates to set up NSG Flow Logs.
       "storageId": "/subscriptions/56abfbd6-ec72-4ce9-831f-bc2b6f2c5505/resourceGroups/MyCanaryFlowLog/providers/Microsoft.Storage/storageAccounts/storagev2ira",
       "enabled": true,
       "flowAnalyticsConfiguration": {
-		    "enabled": true,
-        "workspaceResourceId": "91a3d1e9-698e-4a49-96dc-f6fc585ae888",
-        "trafficAnalyticsInterval": 10
+		"networkWatcherFlowAnalyticsConfiguration": {
+			"enabled": true,
+			"workspaceResourceId": "/subscriptions/56abfbd6-ec72-4ce9-831f-bc2b6f2c5505/resourceGroups/defaultresourcegroup-wcus/providers/Microsoft.OperationalInsights/workspaces/1c4f42e5-3a02-4146-ac9b-3051d8501db0",
+			"trafficAnalyticsInterval": 10
+				}
 	  },
       "retentionPolicy": {
         "days": 5,
@@ -139,7 +141,7 @@ Below are two examples of complete templates to set up NSG Flow Logs.
       },
       "format": {
         "type": "JSON",
-        "version": 1
+        "version": 2			
       }
     }
 

@@ -1,6 +1,6 @@
 # Testing the new code owners feature in GitHub. Please contact Cory Fowler if you have questions.
 # Cognitive Services
-articles/cognitive-services/ @diberry @erhopf, @nitinme
+articles/cognitive-services/ @diberry @erhopf @aahill @ievangelist @patrickfarley @nitinme
 
 # DevOps
 articles/ansible/ @TomArcherMsft

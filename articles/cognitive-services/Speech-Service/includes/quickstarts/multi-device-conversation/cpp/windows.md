@@ -15,8 +15,7 @@ Before you get started, make sure to:
 
 > [!div class="checklist"]
 > * [Create an Azure Speech resource](../../../../get-started.md)
-> * [Setup your development environment](../../../../quickstarts/setup-platform.md?tabs=windows)
-> * [Create an empty sample project](../../../../quickstarts/create-project.md?tabs=windows)
+> * [Setup your development environment and create an empty project](../../../../quickstarts/setup-platform.md?tabs=windows)
 
 ## Add sample code
 
@@ -50,7 +49,10 @@ Before you get started, make sure to:
     {
         // Set these
         std::string subscriptionKey("YourSubscriptionKey");
+
+        // Replace below with your own region identifier from here: https://aka.ms/speech/sdkregion
         std::string region("YourServiceRegion");
+        
         std::string speechLanguage("en-US");
     
         // Create the conversation object you'll need to manage the conversation
