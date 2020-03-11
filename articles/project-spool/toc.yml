@@ -17,52 +17,10 @@
   items:
   - name: About Project Spool
     href: overview.md
-- name: Quickstarts
-  expanded: true
-  items:
-  - name: Provision Spool Resources
-    href: quickstarts/provision-spool-resources.md
-  - name: Create And Connect To A Spool Session
-    href: quickstarts/create-and-connect-to-a-session.md
-  - name: Add Video To Your App
-    href: quickstarts/add-video-to-your-app.md
-  - name: Add Voice To Your App
-    href: quickstarts/add-voice-to-your-app.md
 - name: Tutorials
   items:
   - name: Add Video To Your UWP App
     href: tutorials/add-video-to-your-uwp-app.md
-- name: How-to
-  items:
-  - name: TODO
-    href: create-locate-anchors-overview.md
-    items:
-    - name: TODO
-      href: how-tos/create-locate-anchors-unity.md
-    - name: TODO
-      href: how-tos/create-locate-anchors-objc.md
-    - name: TODO
-      href: how-tos/create-locate-anchors-swift.md
-    - name: TODO
-      href: how-tos/create-locate-anchors-java.md
-    - name: TODO
-      href: how-tos/create-locate-anchors-cpp-ndk.md
-    - name: TODO
-      href: how-tos/create-locate-anchors-cpp-winrt.md
-  - name: TODO
-    items:
-    - name: In C#/Unity
-      href: how-tos/set-up-coarse-reloc-unity.md
-    - name: In Objective-C
-      href: how-tos/set-up-coarse-reloc-objc.md
-    - name: In Swift
-      href: how-tos/set-up-coarse-reloc-swift.md
-    - name: In Java
-      href: how-tos/set-up-coarse-reloc-java.md
-    - name: In C++/NDK
-      href: how-tos/set-up-coarse-reloc-cpp-ndk.md
-    - name: In C++/WinRT
-      href: how-tos/set-up-coarse-reloc-cpp-winrt.md
 - name: Samples
   items:
   - name: TODO
