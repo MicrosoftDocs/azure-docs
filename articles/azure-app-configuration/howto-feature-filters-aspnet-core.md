@@ -46,33 +46,39 @@ You can configure these settings for feature flags defined in Azure App Configur
 
 1. Click on the context menu for the *Beta* feature flag that you created in the quickstart. Click **Edit**.
 
-![Edit Beta feature flag](./media/edit-beta-feature-flag.png)
+    > [!div class="mx-imgBorder"]
+    > ![Edit Beta feature flag](./media/edit-beta-feature-flag.png)
 
 1. In the **Edit** screen, select the **On** radio button if it is not already selected. Then click the **Add Filter** button. (The **On** radio button's label will change to read **Conditional**.)
 
 1. In the **Key** field, enter *Microsoft.Percentage*.
 
-![Add feature filter](./media/feature-flag-add-filter.png)
+    > [!div class="mx-imgBorder"]
+    > ![Add feature filter](./media/feature-flag-add-filter.png)
 
 1. Click the context menu next to the feature filter key. Click **Edit Parameters**.
 
-![Edit feature filter parameters](./media/feature-flag-edit-filter-parameters.png)
+    > [!div class="mx-imgBorder"]
+    > ![Edit feature filter parameters](./media/feature-flag-edit-filter-parameters.png)
 
 1. Hover under the **Name** header so that text boxes appear in the grid. Enter a **Name** of *Value* and a **Value** of 50. The **Value** field indicates the percentage of requests for which to enable the feature filter.
 
-![Set feature filter parameters](./media/feature-flag-set-filter-parameters.png)
+    > [!div class="mx-imgBorder"]
+    > ![Set feature filter parameters](./media/feature-flag-set-filter-parameters.png)
 
 1. Click **Apply** to return to the **Edit feature flag** screen. Then click **Apply** again to save the feature flag settings.
 
 1. The **State** of the feature flag now appears as *Conditional*. This indicates that the feature flag will be enabled or disabled on a per-request basis, based on the criteria enforced by the feature filter.
 
-![Conditional feature flag](./media/feature-flag-filter-enabled.png)
+    > [!div class="mx-imgBorder"]
+    > ![Conditional feature flag](./media/feature-flag-filter-enabled.png)
 
 ## Feature filters in action
 
 To see the effects of this feature flag, launch the application and hit the **Refresh** button in your browser multiple times. You will see that the *Beta* item appears on the toolbar 50% of the time, and does not appear on the toolbar the other 50% of the time. This reflects the feature flag being enabled or disabled by the `PercentageFilter`. The following video shows this behavior.
 
-![PercentageFilter in action](./media/feature-flags-percentagefilter.gif)
+> [!div class="mx-imgBorder"]
+> ![PercentageFilter in action](./media/feature-flags-percentagefilter.gif)
 
 ## Next steps
 
