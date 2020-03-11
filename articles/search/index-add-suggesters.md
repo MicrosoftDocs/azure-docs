@@ -1,43 +1,32 @@
 ---
-title: Add typeahead queries to an index
+title: Autocomplete or typeahead search
 titleSuffix: Azure Cognitive Search
 description: Enable type-ahead query actions in Azure Cognitive Search by creating suggesters and formulating requests that invoke autocomplete or autosuggested query terms.
 
 manager: nitinme
-author: Brjohnstmsft
-ms.author: brjohnst
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-translation.priority.mt:
-  - "de-de"
-  - "es-es"
-  - "fr-fr"
-  - "it-it"
-  - "ja-jp"
-  - "ko-kr"
-  - "pt-br"
-  - "ru-ru"
-  - "zh-cn"
-  - "zh-tw"
+ms.date: 03/11/2020
 ---
-# Add suggesters to an index for typeahead in Azure Cognitive Search
+# Add autocomplete or suggestions for typeahead search
 
 In Azure Cognitive Search, "search-as-you-type" or typeahead functionality is based on a **suggester** construct that you add to a [search index](search-what-is-an-index.md). It's a list of one or more fields for which you want typeahead enabled.
 
-A suggester supports two typeahead variants: *autocomplete*, which completes the term or phrase you are typing, and *suggestions* that return a short list of matching documents.  
+A suggester supports two typeahead variants: *autocomplete*, which completes the term or phrase you are typing, and *suggestions* that return a short list of matching documents. 
 
-The following screenshot, from the [Create your first app in C#](tutorial-csharp-type-ahead-and-suggestions.md) sample, illustrates typeahead. Autocomplete anticipates what the user might type into the search box. Actual input is "tw", which autocomplete finishes with "in", resolving as "twin" as the prospective search term. Suggestions are visualized in the dropdown list. For suggestions, you can surface any part of a document that best describes the result. In this example, the suggestions are hotel names. 
+The following screenshot, from the [Create your first app in C#](tutorial-csharp-type-ahead-and-suggestions.md) sample, illustrates typeahead. Autocomplete anticipates what the user might type into the search box. Actual input is "tw", which autocomplete finishes with "in", creating a prospective search term pulled from terms in your index. Suggestions represent search documents (results) instead of potential queries, and are visualized in the dropdown list. For suggestions, you can surface any part of a document that best describes the result. In this example, the suggestions are hotel names. 
 
 ![Visual comparison of autocomplete and suggested queries](./media/index-add-suggesters/hotel-app-suggestions-autocomplete.png "Visual comparison of autocomplete and suggested queries")
 
-To implement these behaviors in Azure Cognitive Search, there is an index and query component. 
+You can use these features separately or together. To implement these behaviors in Azure Cognitive Search, there is an index and query component. 
 
-+ In the index, add a suggester to an index. You can use the portal, [REST API](https://docs.microsoft.com/rest/api/searchservice/create-index), or [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.suggester?view=azure-dotnet). The remainder of this article is focused on creating a suggester. 
++ In the index, add a suggester to an index. You can use the portal, [REST API](https://docs.microsoft.com/rest/api/searchservice/create-index), or [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.suggester?view=azure-dotnet).
 
 + In the query request, call one of the [APIs listed below](#how-to-use-a-suggester).
 
-Search-as-you-type support is enabled on a per-field basis. You can implement both typeahead behaviors within the same search solution if you want an experience similar to the one indicated in the screenshot. Both requests target the *documents* collection of specific index and responses are returned after a user has provided at least a three character input string.
+Search-as-you-type support is enabled on a per-field basis for string fields. You can implement both typeahead behaviors within the same search solution if you want an experience similar to the one indicated in the screenshot. Both requests target the *documents* collection of specific index and responses are returned after a user has provided at least a three character input string.
 
 ## Create a suggester
 
@@ -74,7 +63,6 @@ In the REST API, add suggesters through [Create Index](https://docs.microsoft.co
     ]
   }
   ```
-
 
 ### Create using the .NET SDK
 

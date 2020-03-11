@@ -46,12 +46,12 @@ The sample targets an existing demo search service and a prebuilt index populate
 
 1. Open **AutocompleteTutorial.sln** in Visual Studio. The solution contains an ASP.NET MVC project with a connection to an existing search service and index.
 
-1. Update the NuGet Packages.
+1. Update the NuGet Packages:
 
    1. In Solution Explorer, right-click **DotNetHowToAutoComplete** and select **Manage NuGet Packages**.  
-   1. Select the **Updates** tab, select all packages, and click **Update**. Accept any license agreements. More than one pass might be required to update all packages.
+   1. Select the **Updates** tab, select all packages, and click **Update**. Accept any license agreements. More than one pass might be required to update all of the packages.
 
-1. Press F5 to run the project and load the page in a browsers.
+1. Press F5 to run the project and load the page in a browser.
 
 At the top, you'll see an option to select C# or JavaScript. The C# option calls into the HomeController from the browser and uses the Azure Cognitive Search .NET SDK to retrieve results. 
 
@@ -232,7 +232,7 @@ The other examples on the page follow the same pattern to add hit highlighting a
 
 ## JavaScript example
 
-A Javascript implementation of autocomplete and suggestions calls the REST API, using a URI as the source to specify the index and operation. 
+A JavaScript implementation of autocomplete and suggestions calls the REST API, using a URI as the source to specify the index and operation. 
 
 To review the JavaScript implementation, open **IndexJavaScript.cshtml**. Notice that the jQuery UI Autocomplete function is also used for the search box, collecting search term inputs and making asynchronous calls to Azure Cognitive Search to retrieve suggested matches or completed terms. 
 
@@ -290,7 +290,7 @@ On line 148, you can find a script that calls the `autocompleteUri`. The first c
 
 <a name="configure-app"></a>
 
-## Configure NYCJobs to run on your service
+## Create an NYCJobs index
 
 Until now, you've been using the hosted NYCJobs demo index. If you want full visibility into all of the code, including the index, follow these instructions to create and load the index in your own search service.
 
