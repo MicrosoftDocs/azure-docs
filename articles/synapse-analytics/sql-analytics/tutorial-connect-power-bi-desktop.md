@@ -27,7 +27,7 @@ In this tutorial, you learn how to:
 To complete this tutorial, you need:
 
 - A SQL query tool, such as [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio), or [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms).
-- [Power BI Desktop](https://powerbi.microsoft.com/en-us/downloads/).
+- [Power BI Desktop](https://powerbi.microsoft.com/downloads/).
 
 Parameters:
 
@@ -61,7 +61,7 @@ GO
 
 A credential is necessary for the SQL on-demand service to access files in storage. Create the credential for a storage account that is located in the same region as your endpoint. Although SQL on-demand can access storage accounts from different regions, having the storage and endpoint in the same region provides better performance.
 
-To create the credential, run the following Transact-SQL (T-SQL) code: 
+To create the credential, run the following Transact-SQL (T-SQL) code:
 
 ```sql
 IF EXISTS (SELECT * FROM sys.credentials WHERE name = 'https://azureopendatastorage.blob.core.windows.net/censusdatacontainer')
@@ -70,73 +70,73 @@ Go
 
 -- Create credentials for Census Data container which resides in a azure open data storage account
 -- There is no secret. We are using public storage account which doesn't need secret
-CREATE CREDENTIAL [https://azureopendatastorage.blob.core.windows.net/censusdatacontainer]  
-WITH IDENTITY='SHARED ACCESS SIGNATURE',  
+CREATE CREDENTIAL [https://azureopendatastorage.blob.core.windows.net/censusdatacontainer]
+WITH IDENTITY='SHARED ACCESS SIGNATURE',
 SECRET = ''
-Go
+GO
 ```
 
-## 3 - Prepare view 
+## 3 - Prepare view
 
-In this step, create the view based on the external demo data for Power BI to consume. 
+In this step, create the view based on the external demo data for Power BI to consume.
 
-Create the view `usPopulationView` inside the database `Demo` with the following query: 
+Create the view `usPopulationView` inside the database `Demo` with the following query:
 
 ```sql
 DROP VIEW IF EXISTS usPopulationView
 GO
 
 CREATE VIEW usPopulationView AS
-SELECT 
+SELECT
     *
-FROM  
+FROM
     OPENROWSET(
-        BULK 'https://azureopendatastorage.blob.core.windows.net/censusdatacontainer/release/us_population_county/year=20*/*.parquet', 
+        BULK 'https://azureopendatastorage.blob.core.windows.net/censusdatacontainer/release/us_population_county/year=20*/*.parquet',
         FORMAT='PARQUET'
     ) AS uspv
 ```
 
 The demo data contains the following data sets:
 
-US population by gender and race for each US county sourced from 2000 and 2010 Decennial Census in parquet format. 
+US population by gender and race for each US county sourced from 2000 and 2010 Decennial Census in parquet format.
 
 | Folder path                                                  | Description                                                  |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | /release/                                                    | Parent folder for data in demo storage account               |
 | /release/us_population_county/                               | US population data files in Parquet format, partitioned by year using Hive/Hadoop partitioning scheme. |
 
-## 4 - Create Power BI report 
+## 4 - Create Power BI report
 
 In this step, create the report for Power BI Desktop. To do so, follow these steps:
 
-1. Open the Power BI Desktop application and select **Get data**. 
+1. Open the Power BI Desktop application and select **Get data**.
 
    ![Open Power BI desktop application and select get data.](./media/tutorial-bi-professional/step-0-open-powerbi.png)
 
-1. Select **Azure** > **Azure SQL database**. 
+1. Select **Azure** > **Azure SQL database**.
 
    ![Select data source.](./media/tutorial-bi-professional/step-1-select-data-source.png)
 
-1. Type the name of the server where the database is located in the **Server** field, and then type `Demo` in the database name. Select the **Import** option and then select **OK**. 
+1. Type the name of the server where the database is located in the **Server** field, and then type `Demo` in the database name. Select the **Import** option and then select **OK**.
 
    ![Select database on the endpoint.](./media/tutorial-bi-professional/step-2-db.png)
 
-1. Select the view `usPopulationView`, and then select **Load**. 
+1. Select the view `usPopulationView`, and then select **Load**.
 
    ![Select a View on the database that is selected.](./media/tutorial-bi-professional/step-3-select-view.png)
 
-1. Wait for the operation to complete, and then a pop-up will appear stating `There are pending changes in your queries that haven't been applied`. Select **Apply changes**. 
+1. Wait for the operation to complete, and then a pop-up will appear stating `There are pending changes in your queries that haven't been applied`. Select **Apply changes**.
 
    ![Click apply changes.](./media/tutorial-bi-professional/step-4-apply-changes.png)
 
-1. Wait for the **Apply query changes** dialog box to disappear, which may take a few minutes. 
+1. Wait for the **Apply query changes** dialog box to disappear, which may take a few minutes.
 
    ![Wait for a query to finish.](./media/tutorial-bi-professional/step-5-wait-for-query-to-finish.png)
 
 1. Once the load completes, select the following columns in this order to create the report:
    - countyName
    - population
-   - stateName 
+   - stateName
 
    ![Select columns of interest to generate a map report.](./media/tutorial-bi-professional/step-6-select-columns-of-interest.png)
 
@@ -161,7 +161,6 @@ Once you're done using this report, delete the resources with the following step
    ```sql
    DROP DATABASE Demo
    ```
-
 
 ## Next steps
 
