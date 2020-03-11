@@ -256,17 +256,3 @@ In the designer where you created your experiment, export data you have added:
 1. In the list, select the dataset to export
 
     ![Download data](./media/how-to-export-delete-data/unregister-dataset.png)
-
-tk MISSING STEPS 
-
-It appears to me that while you can "unregister" using the above image, this is not a way to export the data. 
-
-
-In the designer where you created your experiment, export data you have added:
-1. On the left, select **Data**.
-1. On the top, select **My Datasets** or **Samples** to locate the data you want to export.
-![Download data](media/how-to-export-delete-data.md/download-data.png)
-1. In the list, select the individual datasets to export.
-1. On the bottom, select **Download**.
-
-tk
