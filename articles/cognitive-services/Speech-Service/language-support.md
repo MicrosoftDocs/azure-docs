@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/10/2020
+ms.date: 03/11/2020
 ms.author: dapine
 ms.custom: seodec18
 ---
@@ -87,6 +87,9 @@ Neural voices can be used to make interactions with chatbots and voice assistant
 
 For more information about regional availability, see [regions](regions.md#standard-and-neural-voices).
 
+> [!IMPORTANT]
+> The `en-US-JessaNeural` voices have changed to `en-US-AriaNeural`. If you were using "Jessa" before, please convert over to "Aria". For backwards compatibility, the "Jessa" voice will temporarily be redirected to "Aria" automatically.
+
 | Locale  | Language            | Gender | Full service name mapping                                               | Short voice name        |
 |---------|---------------------|--------|-------------------------------------------------------------------------|-------------------------|
 | `de-DE` | German (Germany)    | Female | "Microsoft Server Speech Text to Speech Voice (de-DE, KatjaNeural)"     | "de-DE-KatjaNeural"     |
@@ -98,12 +101,15 @@ For more information about regional availability, see [regions](regions.md#stand
 
 To learn how you can configure and adjust neural voices, see [Speech synthesis markup language](speech-synthesis-markup.md#adjust-speaking-styles).
 
-> [!NOTE]
+> [!TIP]
 > You can use either the full service name mapping or the short voice name in your speech synthesis requests.
 
 ### Standard voices
 
 More than 75 standard voices are available in over 45 languages and locales, which allow you to convert text into synthesized speech. For more information about regional availability, see [regions](regions.md#standard-and-neural-voices).
+
+> [!IMPORTANT]
+> The `en-US-JessaNeural` voices have changed to `en-US-AriaNeural`. If you were using "Jessa" before, please convert over to "Aria". For backwards compatibility, the "Jessa" voice will temporarily be redirected to "Aria" automatically.
 
 | Locale | Language | Gender | Full service name mapping | Short name |
 |--|--|--|--|--|
@@ -133,7 +139,6 @@ More than 75 standard voices are available in over 45 languages and locales, whi
 | `en-US` | English (US) | Female | "Microsoft Server Speech Text to Speech Voice (en-US, ZiraRUS)" | "en-US-ZiraRUS" |
 |  |  | Female | "Microsoft Server Speech Text to Speech Voice (en-US, AriaRUS)" | "en-US-AriaRUS" |
 |  |  | Male | "Microsoft Server Speech Text to Speech Voice (en-US, BenjaminRUS)" | "en-US-BenjaminRUS" |
-|  |  | Female | "Microsoft Server Speech Text to Speech Voice (en-US, Aria24kRUS)" | "en-US-Aria24kRUS" |
 |  |  | Male | "Microsoft Server Speech Text to Speech Voice (en-US, Guy24kRUS)" | "en-US-Guy24kRUS" |
 | `es-ES` | Spanish (Spain) | Female | "Microsoft Server Speech Text to Speech Voice (es-ES, Laura, Apollo)" | "es-ES-Laura-Apollo" |
 |  |  | Female | "Microsoft Server Speech Text to Speech Voice (es-ES, HelenaRUS)" | "es-ES-HelenaRUS" |
