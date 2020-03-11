@@ -1785,8 +1785,8 @@ Azure service: [Cognitive Services](../cognitive-services/index.yml)
 > | DataAction | Microsoft.CognitiveServices/accounts/ComputerVision/describe/action | This operation generates a description of an image in human readable language with complete sentences.<br> The description is based on a collection of content tags, which are also returned by the operation.<br>More than one description can be generated for each image.<br> Descriptions are ordered by their confidence score.<br>All descriptions are in English. |
 > | DataAction | Microsoft.CognitiveServices/accounts/ComputerVision/generatethumbnail/action | This operation generates a thumbnail image with the user-specified width and height.<br> By default, the service analyzes the image, identifies the region of interest (ROI), and generates smart cropping coordinates based on the ROI.<br> Smart cropping helps when you specify an aspect ratio that differs from that of the input image |
 > | DataAction | Microsoft.CognitiveServices/accounts/ComputerVision/ocr/action | Optical Character Recognition (OCR) detects text in an image and extracts the recognized characters into a machine-usable character stream.    |
-> | DataAction | Microsoft.CognitiveServices/accounts/ComputerVision/recognizetext/action | Use this interface to get the result of a Recognize Text operation. When you use the Recognize Text interface, the response contains a field called “Operation-Location”. The “Operation-Location” field contains the URL that you must use for your Get Recognize Text Operation Result operation. |
-> | DataAction | Microsoft.CognitiveServices/accounts/ComputerVision/tag/action | This operation generates a list of words, or tags, that are relevant to the content of the supplied image.<br>The Computer Vision API can return tags based on objects, living beings, scenery or actions found in images.<br>Unlike categories, tags are not organized according to a hierarchical classification system, but correspond to image content.<br>Tags may contain hints to avoid ambiguity or provide context, for example the tag “cello” may be accompanied by the hint “musical instrument”.<br>All tags are in English. |
+> | DataAction | Microsoft.CognitiveServices/accounts/ComputerVision/recognizetext/action | Use this interface to get the result of a Recognize Text operation. When you use the Recognize Text interface, the response contains a field called "Operation-Location". The "Operation-Location" field contains the URL that you must use for your Get Recognize Text Operation Result operation. |
+> | DataAction | Microsoft.CognitiveServices/accounts/ComputerVision/tag/action | This operation generates a list of words, or tags, that are relevant to the content of the supplied image.<br>The Computer Vision API can return tags based on objects, living beings, scenery or actions found in images.<br>Unlike categories, tags are not organized according to a hierarchical classification system, but correspond to image content.<br>Tags may contain hints to avoid ambiguity or provide context, for example the tag "cello" may be accompanied by the hint "musical instrument".<br>All tags are in English. |
 > | DataAction | Microsoft.CognitiveServices/accounts/ComputerVision/areaofinterest/action | This operation returns a bounding box around the most important area of the image. |
 > | DataAction | Microsoft.CognitiveServices/accounts/ComputerVision/detect/action | This operation Performs object detection on the specified image.  |
 > |  | **accounts/ComputerVision/models** |  |
@@ -1801,7 +1801,7 @@ Azure service: [Cognitive Services](../cognitive-services/index.yml)
 > |  | **accounts/ComputerVision/read/operations** |  |
 > | DataAction | Microsoft.CognitiveServices/accounts/ComputerVision/read/operations/read | This interface is used for getting OCR results of Read operation. The URL to this interface should be retrieved from <b>"Operation-Location"</b> field returned from Batch Read File interface. |
 > |  | **accounts/ComputerVision/textoperations** |  |
-> | DataAction | Microsoft.CognitiveServices/accounts/ComputerVision/textoperations/read | This interface is used for getting recognize text operation result. The URL to this interface should be retrieved from <b>“Operation-Location”</b> field returned from Recognize Text interface. |
+> | DataAction | Microsoft.CognitiveServices/accounts/ComputerVision/textoperations/read | This interface is used for getting recognize text operation result. The URL to this interface should be retrieved from <b>"Operation-Location"</b> field returned from Recognize Text interface. |
 > |  | **accounts/ContentModerator** |  |
 > | DataAction | Microsoft.CognitiveServices/accounts/ContentModerator/imagelists/action | Create image list. |
 > | DataAction | Microsoft.CognitiveServices/accounts/ContentModerator/termlists/action | Create term list. |
@@ -2105,7 +2105,7 @@ Azure service: core
 > |  | **RateCard** |  |
 > | Action | Microsoft.Commerce/RateCard/read | Returns offer data, resource/meter metadata and rates for the given subscription. |
 > |  | **UsageAggregates** |  |
-> | Action | Microsoft.Commerce/UsageAggregates/read | Retrieves Microsoft Azure’s consumption  by a subscription. The result contains aggregates usage data, subscription and resource related information, on a particular time range. |
+> | Action | Microsoft.Commerce/UsageAggregates/read | Retrieves Microsoft Azure's consumption  by a subscription. The result contains aggregates usage data, subscription and resource related information, on a particular time range. |
 
 ## Microsoft.Compute
 
@@ -6039,48 +6039,48 @@ Azure service: [Virtual Network](../virtual-network/index.yml), [Load Balancer](
 > | Action | Microsoft.Network/dnszones/write | Create or update a DNS zone within a resource group.  Used to update the tags on a DNS zone resource. Note that this command can not be used to create or update record sets within the zone. |
 > | Action | Microsoft.Network/dnszones/delete | Delete the DNS zone, in JSON format. The zone properties include tags, etag, numberOfRecordSets, and maxNumberOfRecordSets. |
 > |  | **dnszones/A** |  |
-> | Action | Microsoft.Network/dnszones/A/read | Get the record set of type ‘A’, in JSON format. The record set contains a list of records as well as the TTL, tags, and etag. |
-> | Action | Microsoft.Network/dnszones/A/write | Create or update a record set of type ‘A’ within a DNS zone. The records specified will replace the current records in the record set. |
-> | Action | Microsoft.Network/dnszones/A/delete | Remove the record set of a given name and type ‘A’ from a DNS zone. |
+> | Action | Microsoft.Network/dnszones/A/read | Get the record set of type 'A', in JSON format. The record set contains a list of records as well as the TTL, tags, and etag. |
+> | Action | Microsoft.Network/dnszones/A/write | Create or update a record set of type 'A' within a DNS zone. The records specified will replace the current records in the record set. |
+> | Action | Microsoft.Network/dnszones/A/delete | Remove the record set of a given name and type 'A' from a DNS zone. |
 > |  | **dnszones/AAAA** |  |
-> | Action | Microsoft.Network/dnszones/AAAA/read | Get the record set of type ‘AAAA’, in JSON format. The record set contains a list of records as well as the TTL, tags, and etag. |
-> | Action | Microsoft.Network/dnszones/AAAA/write | Create or update a record set of type ‘AAAA’ within a DNS zone. The records specified will replace the current records in the record set. |
-> | Action | Microsoft.Network/dnszones/AAAA/delete | Remove the record set of a given name and type ‘AAAA’ from a DNS zone. |
+> | Action | Microsoft.Network/dnszones/AAAA/read | Get the record set of type 'AAAA', in JSON format. The record set contains a list of records as well as the TTL, tags, and etag. |
+> | Action | Microsoft.Network/dnszones/AAAA/write | Create or update a record set of type 'AAAA' within a DNS zone. The records specified will replace the current records in the record set. |
+> | Action | Microsoft.Network/dnszones/AAAA/delete | Remove the record set of a given name and type 'AAAA' from a DNS zone. |
 > |  | **dnszones/all** |  |
 > | Action | Microsoft.Network/dnszones/all/read | Gets DNS record sets across types |
 > |  | **dnszones/CAA** |  |
-> | Action | Microsoft.Network/dnszones/CAA/read | Get the record set of type ‘CAA’, in JSON format. The record set contains the TTL, tags, and etag. |
-> | Action | Microsoft.Network/dnszones/CAA/write | Create or update a record set of type ‘CAA’ within a DNS zone. The records specified will replace the current records in the record set. |
-> | Action | Microsoft.Network/dnszones/CAA/delete | Remove the record set of a given name and type ‘CAA’ from a DNS zone. |
+> | Action | Microsoft.Network/dnszones/CAA/read | Get the record set of type 'CAA', in JSON format. The record set contains the TTL, tags, and etag. |
+> | Action | Microsoft.Network/dnszones/CAA/write | Create or update a record set of type 'CAA' within a DNS zone. The records specified will replace the current records in the record set. |
+> | Action | Microsoft.Network/dnszones/CAA/delete | Remove the record set of a given name and type 'CAA' from a DNS zone. |
 > |  | **dnszones/CNAME** |  |
-> | Action | Microsoft.Network/dnszones/CNAME/read | Get the record set of type ‘CNAME’, in JSON format. The record set contains the TTL, tags, and etag. |
-> | Action | Microsoft.Network/dnszones/CNAME/write | Create or update a record set of type ‘CNAME’ within a DNS zone. The records specified will replace the current records in the record set. |
-> | Action | Microsoft.Network/dnszones/CNAME/delete | Remove the record set of a given name and type ‘CNAME’ from a DNS zone. |
+> | Action | Microsoft.Network/dnszones/CNAME/read | Get the record set of type 'CNAME', in JSON format. The record set contains the TTL, tags, and etag. |
+> | Action | Microsoft.Network/dnszones/CNAME/write | Create or update a record set of type 'CNAME' within a DNS zone. The records specified will replace the current records in the record set. |
+> | Action | Microsoft.Network/dnszones/CNAME/delete | Remove the record set of a given name and type 'CNAME' from a DNS zone. |
 > |  | **dnszones/MX** |  |
-> | Action | Microsoft.Network/dnszones/MX/read | Get the record set of type ‘MX’, in JSON format. The record set contains a list of records as well as the TTL, tags, and etag. |
-> | Action | Microsoft.Network/dnszones/MX/write | Create or update a record set of type ‘MX’ within a DNS zone. The records specified will replace the current records in the record set. |
-> | Action | Microsoft.Network/dnszones/MX/delete | Remove the record set of a given name and type ‘MX’ from a DNS zone. |
+> | Action | Microsoft.Network/dnszones/MX/read | Get the record set of type 'MX', in JSON format. The record set contains a list of records as well as the TTL, tags, and etag. |
+> | Action | Microsoft.Network/dnszones/MX/write | Create or update a record set of type 'MX' within a DNS zone. The records specified will replace the current records in the record set. |
+> | Action | Microsoft.Network/dnszones/MX/delete | Remove the record set of a given name and type 'MX' from a DNS zone. |
 > |  | **dnszones/NS** |  |
 > | Action | Microsoft.Network/dnszones/NS/read | Gets DNS record set of type NS |
 > | Action | Microsoft.Network/dnszones/NS/write | Creates or updates DNS record set of type NS |
 > | Action | Microsoft.Network/dnszones/NS/delete | Deletes the DNS record set of type NS |
 > |  | **dnszones/PTR** |  |
-> | Action | Microsoft.Network/dnszones/PTR/read | Get the record set of type ‘PTR’, in JSON format. The record set contains a list of records as well as the TTL, tags, and etag. |
-> | Action | Microsoft.Network/dnszones/PTR/write | Create or update a record set of type ‘PTR’ within a DNS zone. The records specified will replace the current records in the record set. |
-> | Action | Microsoft.Network/dnszones/PTR/delete | Remove the record set of a given name and type ‘PTR’ from a DNS zone. |
+> | Action | Microsoft.Network/dnszones/PTR/read | Get the record set of type 'PTR', in JSON format. The record set contains a list of records as well as the TTL, tags, and etag. |
+> | Action | Microsoft.Network/dnszones/PTR/write | Create or update a record set of type 'PTR' within a DNS zone. The records specified will replace the current records in the record set. |
+> | Action | Microsoft.Network/dnszones/PTR/delete | Remove the record set of a given name and type 'PTR' from a DNS zone. |
 > |  | **dnszones/recordsets** |  |
 > | Action | Microsoft.Network/dnszones/recordsets/read | Gets DNS record sets across types |
 > |  | **dnszones/SOA** |  |
 > | Action | Microsoft.Network/dnszones/SOA/read | Gets DNS record set of type SOA |
 > | Action | Microsoft.Network/dnszones/SOA/write | Creates or updates DNS record set of type SOA |
 > |  | **dnszones/SRV** |  |
-> | Action | Microsoft.Network/dnszones/SRV/read | Get the record set of type ‘SRV’, in JSON format. The record set contains a list of records as well as the TTL, tags, and etag. |
+> | Action | Microsoft.Network/dnszones/SRV/read | Get the record set of type 'SRV', in JSON format. The record set contains a list of records as well as the TTL, tags, and etag. |
 > | Action | Microsoft.Network/dnszones/SRV/write | Create or update record set of type SRV |
-> | Action | Microsoft.Network/dnszones/SRV/delete | Remove the record set of a given name and type ‘SRV’ from a DNS zone. |
+> | Action | Microsoft.Network/dnszones/SRV/delete | Remove the record set of a given name and type 'SRV' from a DNS zone. |
 > |  | **dnszones/TXT** |  |
-> | Action | Microsoft.Network/dnszones/TXT/read | Get the record set of type ‘TXT’, in JSON format. The record set contains a list of records as well as the TTL, tags, and etag. |
-> | Action | Microsoft.Network/dnszones/TXT/write | Create or update a record set of type ‘TXT’ within a DNS zone. The records specified will replace the current records in the record set. |
-> | Action | Microsoft.Network/dnszones/TXT/delete | Remove the record set of a given name and type ‘TXT’ from a DNS zone. |
+> | Action | Microsoft.Network/dnszones/TXT/read | Get the record set of type 'TXT', in JSON format. The record set contains a list of records as well as the TTL, tags, and etag. |
+> | Action | Microsoft.Network/dnszones/TXT/write | Create or update a record set of type 'TXT' within a DNS zone. The records specified will replace the current records in the record set. |
+> | Action | Microsoft.Network/dnszones/TXT/delete | Remove the record set of a given name and type 'TXT' from a DNS zone. |
 > |  | **expressRouteCircuits** |  |
 > | Action | Microsoft.Network/expressRouteCircuits/read | Get an ExpressRouteCircuit |
 > | Action | Microsoft.Network/expressRouteCircuits/write | Creates or updates an existing ExpressRouteCircuit |
@@ -6362,40 +6362,40 @@ Azure service: [Virtual Network](../virtual-network/index.yml), [Load Balancer](
 > | Action | Microsoft.Network/privateDnsZones/delete | Delete a Private DNS zone. |
 > | Action | Microsoft.Network/privateDnsZones/join/action | Joins a Private DNS Zone |
 > |  | **privateDnsZones/A** |  |
-> | Action | Microsoft.Network/privateDnsZones/A/read | Get the record set of type ‘A’ within a Private DNS zone, in JSON format. The record set contains a list of records as well as the TTL, tags, and etag. |
-> | Action | Microsoft.Network/privateDnsZones/A/write | Create or update a record set of type ‘A’ within a Private DNS zone. The records specified will replace the current records in the record set. |
-> | Action | Microsoft.Network/privateDnsZones/A/delete | Remove the record set of a given name and type ‘A’ from a Private DNS zone. |
+> | Action | Microsoft.Network/privateDnsZones/A/read | Get the record set of type 'A' within a Private DNS zone, in JSON format. The record set contains a list of records as well as the TTL, tags, and etag. |
+> | Action | Microsoft.Network/privateDnsZones/A/write | Create or update a record set of type 'A' within a Private DNS zone. The records specified will replace the current records in the record set. |
+> | Action | Microsoft.Network/privateDnsZones/A/delete | Remove the record set of a given name and type 'A' from a Private DNS zone. |
 > |  | **privateDnsZones/AAAA** |  |
-> | Action | Microsoft.Network/privateDnsZones/AAAA/read | Get the record set of type ‘AAAA’ within a Private DNS zone, in JSON format. The record set contains a list of records as well as the TTL, tags, and etag. |
-> | Action | Microsoft.Network/privateDnsZones/AAAA/write | Create or update a record set of type ‘AAAA’ within a Private DNS zone. The records specified will replace the current records in the record set. |
-> | Action | Microsoft.Network/privateDnsZones/AAAA/delete | Remove the record set of a given name and type ‘AAAA’ from a Private DNS zone. |
+> | Action | Microsoft.Network/privateDnsZones/AAAA/read | Get the record set of type 'AAAA' within a Private DNS zone, in JSON format. The record set contains a list of records as well as the TTL, tags, and etag. |
+> | Action | Microsoft.Network/privateDnsZones/AAAA/write | Create or update a record set of type 'AAAA' within a Private DNS zone. The records specified will replace the current records in the record set. |
+> | Action | Microsoft.Network/privateDnsZones/AAAA/delete | Remove the record set of a given name and type 'AAAA' from a Private DNS zone. |
 > |  | **privateDnsZones/ALL** |  |
 > | Action | Microsoft.Network/privateDnsZones/ALL/read | Gets Private DNS record sets across types |
 > |  | **privateDnsZones/CNAME** |  |
-> | Action | Microsoft.Network/privateDnsZones/CNAME/read | Get the record set of type ‘CNAME’ within a Private DNS zone, in JSON format. |
-> | Action | Microsoft.Network/privateDnsZones/CNAME/write | Create or update a record set of type ‘CNAME’ within a Private DNS zone. |
-> | Action | Microsoft.Network/privateDnsZones/CNAME/delete | Remove the record set of a given name and type ‘CNAME’ from a Private DNS zone. |
+> | Action | Microsoft.Network/privateDnsZones/CNAME/read | Get the record set of type 'CNAME' within a Private DNS zone, in JSON format. |
+> | Action | Microsoft.Network/privateDnsZones/CNAME/write | Create or update a record set of type 'CNAME' within a Private DNS zone. |
+> | Action | Microsoft.Network/privateDnsZones/CNAME/delete | Remove the record set of a given name and type 'CNAME' from a Private DNS zone. |
 > |  | **privateDnsZones/MX** |  |
-> | Action | Microsoft.Network/privateDnsZones/MX/read | Get the record set of type ‘MX’ within a Private DNS zone, in JSON format. The record set contains a list of records as well as the TTL, tags, and etag. |
-> | Action | Microsoft.Network/privateDnsZones/MX/write | Create or update a record set of type ‘MX’ within a Private DNS zone. The records specified will replace the current records in the record set. |
-> | Action | Microsoft.Network/privateDnsZones/MX/delete | Remove the record set of a given name and type ‘MX’ from a Private DNS zone. |
+> | Action | Microsoft.Network/privateDnsZones/MX/read | Get the record set of type 'MX' within a Private DNS zone, in JSON format. The record set contains a list of records as well as the TTL, tags, and etag. |
+> | Action | Microsoft.Network/privateDnsZones/MX/write | Create or update a record set of type 'MX' within a Private DNS zone. The records specified will replace the current records in the record set. |
+> | Action | Microsoft.Network/privateDnsZones/MX/delete | Remove the record set of a given name and type 'MX' from a Private DNS zone. |
 > |  | **privateDnsZones/PTR** |  |
-> | Action | Microsoft.Network/privateDnsZones/PTR/read | Get the record set of type ‘PTR’ within a Private DNS zone, in JSON format. The record set contains a list of records as well as the TTL, tags, and etag. |
-> | Action | Microsoft.Network/privateDnsZones/PTR/write | Create or update a record set of type ‘PTR’ within a Private DNS zone. The records specified will replace the current records in the record set. |
-> | Action | Microsoft.Network/privateDnsZones/PTR/delete | Remove the record set of a given name and type ‘PTR’ from a Private DNS zone. |
+> | Action | Microsoft.Network/privateDnsZones/PTR/read | Get the record set of type 'PTR' within a Private DNS zone, in JSON format. The record set contains a list of records as well as the TTL, tags, and etag. |
+> | Action | Microsoft.Network/privateDnsZones/PTR/write | Create or update a record set of type 'PTR' within a Private DNS zone. The records specified will replace the current records in the record set. |
+> | Action | Microsoft.Network/privateDnsZones/PTR/delete | Remove the record set of a given name and type 'PTR' from a Private DNS zone. |
 > |  | **privateDnsZones/recordsets** |  |
 > | Action | Microsoft.Network/privateDnsZones/recordsets/read | Gets Private DNS record sets across types |
 > |  | **privateDnsZones/SOA** |  |
-> | Action | Microsoft.Network/privateDnsZones/SOA/read | Get the record set of type ‘SOA’ within a Private DNS zone, in JSON format. |
-> | Action | Microsoft.Network/privateDnsZones/SOA/write | Update a record set of type ‘SOA’ within a Private DNS zone. |
+> | Action | Microsoft.Network/privateDnsZones/SOA/read | Get the record set of type 'SOA' within a Private DNS zone, in JSON format. |
+> | Action | Microsoft.Network/privateDnsZones/SOA/write | Update a record set of type 'SOA' within a Private DNS zone. |
 > |  | **privateDnsZones/SRV** |  |
-> | Action | Microsoft.Network/privateDnsZones/SRV/read | Get the record set of type ‘SRV’ within a Private DNS zone, in JSON format. The record set contains a list of records as well as the TTL, tags, and etag. |
-> | Action | Microsoft.Network/privateDnsZones/SRV/write | Create or update a record set of type ‘SRV’ within a Private DNS zone. The records specified will replace the current records in the record set. |
-> | Action | Microsoft.Network/privateDnsZones/SRV/delete | Remove the record set of a given name and type ‘SRV’ from a Private DNS zone. |
+> | Action | Microsoft.Network/privateDnsZones/SRV/read | Get the record set of type 'SRV' within a Private DNS zone, in JSON format. The record set contains a list of records as well as the TTL, tags, and etag. |
+> | Action | Microsoft.Network/privateDnsZones/SRV/write | Create or update a record set of type 'SRV' within a Private DNS zone. The records specified will replace the current records in the record set. |
+> | Action | Microsoft.Network/privateDnsZones/SRV/delete | Remove the record set of a given name and type 'SRV' from a Private DNS zone. |
 > |  | **privateDnsZones/TXT** |  |
-> | Action | Microsoft.Network/privateDnsZones/TXT/read | Get the record set of type ‘TXT’ within a Private DNS zone, in JSON format. The record set contains a list of records as well as the TTL, tags, and etag. |
-> | Action | Microsoft.Network/privateDnsZones/TXT/write | Create or update a record set of type ‘TXT’ within a Private DNS zone. The records specified will replace the current records in the record set. |
-> | Action | Microsoft.Network/privateDnsZones/TXT/delete | Remove the record set of a given name and type ‘TXT’ from a Private DNS zone. |
+> | Action | Microsoft.Network/privateDnsZones/TXT/read | Get the record set of type 'TXT' within a Private DNS zone, in JSON format. The record set contains a list of records as well as the TTL, tags, and etag. |
+> | Action | Microsoft.Network/privateDnsZones/TXT/write | Create or update a record set of type 'TXT' within a Private DNS zone. The records specified will replace the current records in the record set. |
+> | Action | Microsoft.Network/privateDnsZones/TXT/delete | Remove the record set of a given name and type 'TXT' from a Private DNS zone. |
 > |  | **privateDnsZones/virtualNetworkLinks** |  |
 > | Action | Microsoft.Network/privateDnsZones/virtualNetworkLinks/read | Get the Private DNS zone link to virtual network properties, in JSON format. |
 > | Action | Microsoft.Network/privateDnsZones/virtualNetworkLinks/write | Create or update a Private DNS zone link to virtual network. |
@@ -9420,7 +9420,7 @@ Azure service: [Storage](../storage/index.yml)
 
 ## Microsoft.StorSimple
 
-Azure service: [StorSimple](../storsimple/index.md)
+Azure service: [StorSimple](../storsimple/index.yml)
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
