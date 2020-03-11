@@ -1,4 +1,4 @@
-t- name: Media Services Documentation
+- name: Media Services Documentation
   href: ./index.yml
 - name: Overview
   items:
@@ -344,7 +344,6 @@ t- name: Media Services Documentation
         href: live-event-error-codes.md
       - name: Job error codes
         href: job-error-codes.md   
-- name: Resources
 - name: Reference
   items:
   - name: OpenAPI Specification (Swagger)
@@ -368,6 +367,7 @@ t- name: Media Services Documentation
       href: https://aka.ms/ams-v3-go-ref
   - name: Resource Manager template
     href: /azure/templates/microsoft.media/allversions
+- name: Resources
   items:
   - name: Azure Media Services community
     displayName: forums, twitter, feedback
