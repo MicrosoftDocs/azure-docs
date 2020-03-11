@@ -37,7 +37,7 @@ Using [Windows PowerShell Desired State Configuration](https://docs.microsoft.co
 
    In the output, you should see something similar to the following:
 
-   ![Confirmation of Connected Machine DSC module installation example](./media/onboad-dsc/confirm-module-installation.png)
+   ![Confirmation of Connected Machine DSC module installation example](./media/onboard-dsc/confirm-module-installation.png)
 
 ## Install the agent and connect to Azure
 
