@@ -207,6 +207,97 @@ az rest --method get \
 ### Prerequisite
 Follow instructions from [How to: Use the portal to create an Azure AD application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md) to create an Azure Active Directory application and note down the values for **Directory (tenant) ID**, **Application (Client) ID**, and **Application (client) secret**. 
 
+### Prepare token and headers for REST API calls 
+Run the following prerequisite commands to get an authentication token to use with REST API calls and authorization and other header information. 
+
+```azurepowershell
+$body = "grant_type=client_credentials&client_id=<CLIENT ID>&client_secret=<CLIENT SECRET>&resource=https://management.core.windows.net"
+
+# get the authentication token
+$Token = Invoke-RestMethod -Method Post `
+    -Uri https://login.microsoftonline.com/<TENANT ID>/oauth2/token  `
+    -Body $body  `
+    -ContentType 'application/x-www-form-urlencoded' 
+
+# set authorization and content-type headers
+$Headers = @{}
+$Headers.Add("Authorization","$($Token.token_type) "+ " " + "$($Token.access_token)")
+```
+
+### Create an event grid topic with a private endpoint
+
+```azurepowershell
+$body = @{"location"="<LOCATION>"; "sku"= @{"name"="premium"}; "properties"=@{"publicNetworkAccess"="disabled"}} | ConvertTo-Json
+
+Invoke-RestMethod -Method 'Put'  `
+    -Uri "https://management.azure.com/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventGrid/topics/<EVENT GRID TOPIC NAME>?api-version=2020-04-01-preview"  `
+    -Headers $Headers  `
+    -Body $body
+
+$topic=Invoke-RestMethod -Method 'Get'  `
+    -Uri "https://management.azure.com/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventGrid/topics/<EVENT GRID TOPIC NAME>?api-version=2020-04-01-preview"   `
+    -Headers $Headers  
+
+$privateEndpointConnection = New-AzPrivateLinkServiceConnection `
+                                -Name "<PRIVATE LINK SERVICE CONNECTION NAME>" `
+                                -PrivateLinkServiceId $topic.Id `
+                                -GroupId "topic"
+
+$virtualNetwork = Get-AzVirtualNetwork  `
+                    -ResourceGroupName  <RESOURCE GROUP NAME> `
+                    -Name <VIRTUAL NETWORK NAME>
+
+$subnet = $virtualNetwork | Select -ExpandProperty subnets `
+                             | Where-Object  {$_.Name -eq <SUBNET NAME>}  
+
+$privateEndpoint = New-AzPrivateEndpoint -ResourceGroupName <RESOURCE GROUP NAME>  `
+                                        -Name <PRIVATE ENDPOINT NAME>   `
+                                        -Location <LOCATION> `
+                                        -Subnet  $subnet   `
+                                        -PrivateLinkServiceConnection $privateEndpointConnection
+
+Invoke-RestMethod -Method 'Get'  `
+    -Uri "https://management.azure.com/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventGrid/topics/<EVENT GRID TOPIC NAME>/privateEndpointConnections?api-version=2020-04-01-preview"   `
+    -Headers $Headers   `
+    | ConvertTo-Json -Depth 5
+
+{
+  "value": [
+    {
+      "properties": {
+        "privateEndpoint": {
+          "id": "/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.Network/privateEndpoints/<PRIVATE ENDPOINT NAME>"
+        },
+        "groupIds": [
+          "topic"
+        ],
+        "privateLinkServiceConnectionState": {
+          "status": "Approved",
+          "description": "Auto-approved",
+          "actionsRequired": "None"
+        },
+        "provisioningState": "Succeeded"
+      },
+      "id": "/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventGrid/topics/<EVENT GRID TOPIC NAME>/privateEndpointConnections/<PRIVATE ENDPOINT NAME>.B20B31C5-F8CC-4CE2-9829-1EB8818230FE",
+      "name": "myConnection",
+      "type": "Microsoft.EventGrid/topics/privateEndpointConnections"
+    }
+  ]
+}
+
+-- you will need to get the private endpoint connection id first
+$rejectedBody = @{"properties"=@{"privateLinkServiceConnectionState"=@{"status"="rejected";"description"="connection rejected";"actionsRequired"="none"}}} | ConvertTo-Json
+
+Invoke-RestMethod -Method 'Put' 
+    -Uri "https://management.azure.com/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventGrid/topics/<EVENT GRID TOPIC NAME>/privateEndpointConnections/MYPRIVATEENDPOINT.B20B31C5-F8CC-4CE2-9829-1EB8818230FE?api-version=2020-04-01-preview" -Headers $Headers -Body $rejectedBody
+Invoke-RestMethod -Method 'Get' -Uri "https://management.azure.com/subscriptions/0D28F770-F3BC-4939-B759-82C2243DEB4B/resourceGroups/EXAMPLE-PRIVATELINKRG2/providers/Microsoft.EventGrid/topics/EXAMPLEPRIVATELINKTOPIC/privateEndpointConnections/MYPRIVATEENDPOINT.B20B31C5-F8CC-4CE2-9829-1EB8818230FE?api-version=2020-04-01-preview" -Headers $Headers
+
+-- you can approve the connection even after its rejected via api. only portal it is not supported!
+$approvedBody = @{"properties"=@{"privateLinkServiceConnectionState"=@{"status"="approved";"description"="connection approved";"actionsRequired"="none"}}} | ConvertTo-Json
+Invoke-RestMethod -Method 'Put' -Uri "https://management.azure.com/subscriptions/0D28F770-F3BC-4939-B759-82C2243DEB4B/resourceGroups/EXAMPLE-PRIVATELINKRG2/providers/Microsoft.EventGrid/topics/EXAMPLEPRIVATELINKTOPIC/privateEndpointConnections/MYPRIVATEENDPOINT.B20B31C5-F8CC-4CE2-9829-1EB8818230FE?api-version=2020-04-01-preview" -Headers $Headers -Body $approvedBody
+Invoke-RestMethod -Method 'Get' -Uri "https://management.azure.com/subscriptions/0D28F770-F3BC-4939-B759-82C2243DEB4B/resourceGroups/EXAMPLE-PRIVATELINKRG2/providers/Microsoft.EventGrid/topics/EXAMPLEPRIVATELINKTOPIC/privateEndpointConnections/MYPRIVATEENDPOINT.B20B31C5-F8CC-4CE2-9829-1EB8818230FE?api-version=2020-04-01-preview" -Headers $Headers
+
+```
 
 
 ## Next steps
