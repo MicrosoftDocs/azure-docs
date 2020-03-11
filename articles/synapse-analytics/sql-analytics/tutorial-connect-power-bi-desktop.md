@@ -114,27 +114,38 @@ In this step, create the report for Power BI Desktop. To do so, follow these ste
 
    ![Open Power BI desktop application and select get data.](./media/tutorial-bi-professional/step-0-open-powerbi.png)
 
-1. Select **Azure** > **Azure SQL database**. 
+2. Select **Azure** > **Azure SQL database**. 
 
    ![Select data source.](./media/tutorial-bi-professional/step-1-select-data-source.png)
 
-1. Type the name of the server where the database is located in the **Server** field, and then type `Demo` in the database name. Select the **Import** option and then select **OK**. 
+3. Type the name of the server where the database is located in the **Server** field, and then type `Demo` in the database name. Select the **Import** option and then select **OK**. 
 
    ![Select database on the endpoint.](./media/tutorial-bi-professional/step-2-db.png)
 
-1. Select the view `usPopulationView`, and then select **Load**. 
+4. Select preferred authentication method:
+
+    - Example for AAD 
+  
+    ![Click Sign in.](./media/tutorial-bi-professional/step-2.1-select-aad-auth.png)
+
+    - Example for SQL Login - Type your User name and password.
+
+    ![Use SQL login.](./media/tutorial-bi-professional/step-2.2-select-sql-auth.png)
+
+
+5. Select the view `usPopulationView`, and then select **Load**. 
 
    ![Select a View on the database that is selected.](./media/tutorial-bi-professional/step-3-select-view.png)
 
-1. Wait for the operation to complete, and then a pop-up will appear stating `There are pending changes in your queries that haven't been applied`. Select **Apply changes**. 
+6. Wait for the operation to complete, and then a pop-up will appear stating `There are pending changes in your queries that haven't been applied`. Select **Apply changes**. 
 
    ![Click apply changes.](./media/tutorial-bi-professional/step-4-apply-changes.png)
 
-1. Wait for the **Apply query changes** dialog box to disappear, which may take a few minutes. 
+7. Wait for the **Apply query changes** dialog box to disappear, which may take a few minutes. 
 
    ![Wait for a query to finish.](./media/tutorial-bi-professional/step-5-wait-for-query-to-finish.png)
 
-1. Once the load completes, select the following columns in this order to create the report:
+8. Once the load completes, select the following columns in this order to create the report:
    - countyName
    - population
    - stateName 
