@@ -221,7 +221,7 @@
       # - name: Tips and tricks
       #   href: article-template.md
       - name: .NET for Apache Spark
-        href: spark-dotnet.md
+        href: ./spark/spark-dotnet.md
       # - name: Remote jobs with Apache Livy
       #   href: article-template.md
       # - name: Debug jobs remotely with IntelliJ through VPN
