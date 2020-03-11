@@ -108,9 +108,7 @@ Rotating the key does not trigger re-encryption of data in the storage account. 
 
 ### Revoke access to customer-managed keys
 
-To revoke access to customer-managed keys, use PowerShell or Azure CLI. For more information, see [Azure Key Vault PowerShell](/powershell/module/az.keyvault//) or [Azure Key Vault CLI](/cli/azure/keyvault). Revoking access effectively blocks access to all data in the storage account, as the encryption key is inaccessible by Azure Storage.
-
-After access to customer-managed keys is revoked, operations that read from or write to a blob or its metadata are not permitted. All other data operations are permitted. The specific operations that are not permitted are:
+You can revoke customer-managed keys if you believe that a key may have been compromised. After access to customer-managed keys is revoked, operations that read from or write to a blob or its metadata are not permitted. All other data operations are permitted. The specific operations that are not permitted are:
 
 - [List Blobs](/rest/api/storageservices/list-blobs), when called with the `include=metadata` parameter on the request URI
 - [Get Blob](/rest/api/storageservices/get-blob)
@@ -130,7 +128,9 @@ After access to customer-managed keys is revoked, operations that read from or w
 - [Put Page From URL](/rest/api/storageservices/put-page-from-url)
 - [Incremental Copy Blob](/rest/api/storageservices/incremental-copy-blob)
 
-After customer-managed keys are revoked for the storage account, calling any of the listed operations will fail with error code 403 (Forbidden) for all users. To call these operations again, configure a new customer-managed key.
+After customer-managed keys are revoked for the storage account, calling any of the listed operations will fail with error code 403 (Forbidden) for all users. To call these operations again, restore access to the customer-managed key.
+
+To revoke access to customer-managed keys, use [PowerShell](storage-encryption-keys-powershell.md#revoke-customer-managed-keys) or [Azure CLI](storage-encryption-keys-cli.md#revoke-customer-managed-keys).
 
 ### Customer-managed keys for Azure managed disks (preview)
 
