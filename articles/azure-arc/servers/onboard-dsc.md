@@ -75,12 +75,13 @@ The following are the parameters you pass to the PowerShell script to use.
 
 3. This will create a `localhost.mof file` in a new folder named `C:\dsc`.
 
+After you install the agent and configure it to connect to Azure Arc for servers (preview), go to the Azure portal to verify that the server has been successfully connected. View your machines in the [Azure portal](https://aka.ms/hybridmachineportal).
+
 ## Adding to existing configurations
 
 This resource can be added to existing DSC configurations to represent an end-to-end configuration
-for a machine.  For example, you might wish to add this resource to a configuration that sets
+for a machine. For example, you might wish to add this resource to a configuration that sets
 secure operating system settings.
 
 The **CompsiteResource** module from the PowerShell Gallery can be used to create a composite
 resource of the example configuration, to further simplify combining configurations.
-
