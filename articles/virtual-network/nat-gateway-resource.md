@@ -358,6 +358,7 @@ We want to know how we can improve the service. Share your [feedback on the Publ
   - [Azure CLI](./quickstart-create-nat-gateway-cli.md),
   - [PowerShell](./quickstart-create-nat-gateway-powershell.md),
   - [Portal](./quickstart-create-nat-gateway-portal.md).
+  - [Template](./quickstart-create-nat-gateway-template.md).
 * Learn about NAT gateway resource API
   - [REST API](https://docs.microsoft.com/rest/api/virtualnetwork/natgateways),
   - [Azure CLI](https://docs.microsoft.com/cli/azure/network/nat/gateway?view=azure-cli-latest),
