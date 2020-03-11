@@ -46,6 +46,10 @@ The QnA Maker service uses CMK from the Azure Search service. Follow these steps
 
 4. When finished, restart the runtime. Now your QnA Maker service is CMK-enabled.
 
+## Regional availability
+
+Customer-managed keys are available in all Azure Search regions.
+
 ## Next steps
 
 * [Encryption in Azure Search using CMKs in Azure Key Vault](https://docs.microsoft.com/azure/search/search-security-manage-encryption-keys)
