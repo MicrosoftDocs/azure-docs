@@ -360,3 +360,4 @@ The following example shows the final XML:
   </Localization>
 </BuildingBlocks>
 ```
+
