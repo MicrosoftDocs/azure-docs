@@ -692,8 +692,8 @@
         href: ../common/storage-account-create.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Migrate
       items:
-      - name: Upgrade from Data Lake Storage Gen1
-        href: ../blobs/data-lake-storage-upgrade.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Migrate from Data Lake Storage Gen1
+        href: ../blobs/data-lake-storage-migrate-gen1-to-gen2.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.jso
       - name: Migrate an on-premises HDFS store
         href: ../blobs/data-lake-storage-migrate-on-premises-HDFS-cluster.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Secure

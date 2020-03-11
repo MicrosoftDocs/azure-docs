@@ -8,6 +8,7 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 12/18/2019
 ms.author: helohr
+manager: lizross
 ---
 # Use Log Analytics for the diagnostics feature
 
@@ -17,7 +18,7 @@ Windows Virtual Desktop offers a diagnostics feature that allows the administrat
 - Connection activities: when a user tries to connect to a desktop or RemoteApp through Microsoft Remote Desktop applications.
 - Management activities: when an administrator performs management operations on the system, such as creating host pools, assigning users to app groups, and creating role assignments.
 
-Connections that don’t reach Windows Virtual Desktop won't show up in diagnostics results because the diagnostics role service itself is part of Windows Virtual Desktop. Windows Virtual Desktop connection issues can happen when the user is experiencing network connectivity issues.
+Connections that don't reach Windows Virtual Desktop won't show up in diagnostics results because the diagnostics role service itself is part of Windows Virtual Desktop. Windows Virtual Desktop connection issues can happen when the user is experiencing network connectivity issues.
 
 ## Why you should use Log Analytics
 
