@@ -5,7 +5,7 @@ services: synapse-analytics
 author: MikeRys
 ms.service:  synapse-analytics 
 ms.topic: overview
-ms.subservice: design
+ms.subservice: 
 ms.date: 02/24/2020
 ms.author: mrys 
 ms.reviewer: jrasnick

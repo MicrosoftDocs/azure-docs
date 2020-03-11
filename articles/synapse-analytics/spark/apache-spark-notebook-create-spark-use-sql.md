@@ -5,7 +5,7 @@ author: euangMS
 ms.author: euang 
 ms.reviewer: jrasnick, carlrab
 ms.service:  synapse-analytics
-ms.subservice: design
+ms.subservice: 
 ms.topic: quickstart
 ms.date: 03/20/2020
 ---
