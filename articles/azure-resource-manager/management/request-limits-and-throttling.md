@@ -118,7 +118,7 @@ Get-AzResourceGroup -Debug
 
 Which returns many values, including the following response value:
 
-```powershell
+```output
 DEBUG: ============================ HTTP RESPONSE ============================
 
 Status Code:
@@ -137,7 +137,7 @@ New-AzResourceGroup -Name myresourcegroup -Location westus -Debug
 
 Which returns many values, including the following values:
 
-```powershell
+```output
 DEBUG: ============================ HTTP RESPONSE ============================
 
 Status Code:
@@ -156,7 +156,7 @@ az group list --verbose --debug
 
 Which returns many values, including the following values:
 
-```azurecli
+```output
 msrest.http_logger : Response status: 200
 msrest.http_logger : Response headers:
 msrest.http_logger :     'Cache-Control': 'no-cache'
@@ -176,7 +176,7 @@ az group create -n myresourcegroup --location westus --verbose --debug
 
 Which returns many values, including the following values:
 
-```azurecli
+```output
 msrest.http_logger : Response status: 201
 msrest.http_logger : Response headers:
 msrest.http_logger :     'Cache-Control': 'no-cache'

@@ -2,7 +2,7 @@
 title: What is the Additional verification page? - Azure AD
 description: How to get to the Additional security verification page for two-factor verification.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 
 ms.service: active-directory
@@ -10,7 +10,7 @@ ms.subservice: user-help
 ms.workload: identity
 ms.topic: overview
 ms.date: 01/15/2020
-ms.author: lizross
+ms.author: curtand
 ---
 
 # What is the Additional verification page?

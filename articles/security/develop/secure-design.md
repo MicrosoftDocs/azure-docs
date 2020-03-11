@@ -50,7 +50,7 @@ with security best practices on Azure:
     started using the Azure platform for their development needs.
 
   - [SDKs and
-    tools](https://docs.microsoft.com/azure/index#pivot=sdkstools)
+    tools](https://docs.microsoft.com/azure/index?pivot=sdkstools)
     describes the tools that are available on Azure.
 
   - [Azure DevOps
@@ -227,7 +227,7 @@ environments (IDEs) and editors that have advanced debugging
 capabilities and built-in Azure support.
 
 Microsoft offers a variety of [languages, frameworks, and
-tools](https://docs.microsoft.com/azure/index#pivot=sdkstools&panel=sdkstools-all)
+tools](https://docs.microsoft.com/azure/index?pivot=sdkstools&panel=sdkstools-all)
 that you can use to develop applications on Azure. An example is [Azure
 for .NET and .NET Core
 developers](https://docs.microsoft.com/dotnet/azure/). For each language

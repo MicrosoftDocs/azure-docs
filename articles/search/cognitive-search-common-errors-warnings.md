@@ -44,7 +44,7 @@ Indexer was unable to read the document from the data source. This can happen du
 
 | Reason | Details/Example | Resolution |
 | --- | --- | --- |
-| inconsistent field types across different documents | Type of value has a mismatch with column type. Couldn't store `'{47.6,-122.1}'` in authors column.  Expected type is JArray. | Ensure that the type of each field is the same across different documents. For example, if the first document `'startTime'` field is a DateTime, and in the second document it's a string, this error will be hit. |
+| Inconsistent field types across different documents | "Type of value has a mismatch with column type. Couldn't store `'{47.6,-122.1}'` in authors column.  Expected type is JArray."  "Error converting data type nvarchar to float."  "Conversion failed when converting the nvarchar value '12 months' to data type int."  "Arithmetic overflow error converting expression to data type int." | Ensure that the type of each field is the same across different documents. For example, if the first document `'startTime'` field is a DateTime, and in the second document it's a string, this error will be hit. |
 | errors from the data source's underlying service | (from Cosmos DB) `{"Errors":["Request rate is large"]}` | Check your storage instance to ensure it's healthy. You may need to adjust your scaling/partitioning. |
 | transient issues | A transport-level error has occurred when receiving results from the server. (provider: TCP Provider, error: 0 - An existing connection was forcibly closed by the remote host | Occasionally there are unexpected connectivity issues. Try running the document through your indexer again later. |
 
@@ -148,9 +148,9 @@ The document was read and processed, but the indexer could not add it to the sea
 
 <a name="could-not-index-document-because-the-indexer-data-to-index-was-invalid"/>
 
-## Error: Could not index document because the indexer data to index was invalid
+## Error: Could not index document because some of the document's data was not valid
 
-The document was read and processed, but due to a mismatch in the configuration of the index fields and the nature of the data extracted by the indexer, it could not be added to the search index. This can happen due to:
+The document was read and processed by the indexer, but due to a mismatch in the configuration of the index fields and the data extracted and processed by the indexer, it could not be added to the search index. This can happen due to:
 
 | Reason | Details/Example
 | --- | ---
@@ -162,12 +162,11 @@ The document was read and processed, but due to a mismatch in the configuration 
 
 In all these cases, refer to [Supported Data types](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) and [Data type map for indexers](https://docs.microsoft.com/rest/api/searchservice/data-type-map-for-indexers-in-azure-search) to make sure that you build the index schema correctly and have set up appropriate [indexer field mappings](search-indexer-field-mappings.md). The error message will include details that can help track down the source of the mismatch.
 
-<a name="could-not-process-document-within-indexer-max-run-time"/>
-
 ## Error: Integrated change tracking policy cannot be used because table has a composite primary key
 
 This applies to SQL tables, and usually happens when the key is either defined as a composite key or, when the table has defined a unique clustered index (as in a SQL index, not an Azure Search index). The main reason is that the key attribute is modified to be a composite primary key in the case of a [unique clustered index](https://docs.microsoft.com/sql/relational-databases/indexes/clustered-and-nonclustered-indexes-described?view=sql-server-ver15). In that case, make sure that your SQL table does not have a unique clustered index, or that you map the key field to a field that is guaranteed not to have duplicate values.
 
+<a name="could-not-process-document-within-indexer-max-run-time"/>
 
 ## Error: Could not process document within indexer max run time
 
@@ -245,7 +244,7 @@ If you know that your data set contains multiple languages and thus you need the
 ```
 
 Here are some references for the currently supported languages for each of the skills that may produce this error message:
-* [Text Analytics Supported Languages](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages) (for the [KeyPhraseExtractionSkill](cognitive-search-skill-keyphrases.md), [EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md), and [SentimentSkill](cognitive-search-skill-sentiment.md))
+* [Text Analytics Supported Languages](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages) (for the [KeyPhraseExtractionSkill](cognitive-search-skill-keyphrases.md), [EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md), [SentimentSkill](cognitive-search-skill-sentiment.md), and [PIIDetectionSkill](cognitive-search-skill-pii-detection.md))
 * [Translator Supported Languages](https://docs.microsoft.com/azure/cognitive-services/translator/language-support) (for the [Text TranslationSkill](cognitive-search-skill-text-translation.md))
 * [Text SplitSkill](cognitive-search-skill-textsplit.md) Supported Languages: `da, de, en, es, fi, fr, it, ko, pt`
 
@@ -299,7 +298,7 @@ The [Table Storage service](https://azure.microsoft.com/services/storage/tables)
 <a name="truncated-extracted-text-to-x-characters"/>
 
 ## Warning: Truncated extracted text to X characters
-Indexers limit how much text can be extracted from any one document. This limit depends on the pricing tier: 32,000 characters for Free tier, 64,000 for Basic, and 4 million for Standard, Standard S2 and Standard S3 tiers. Text that was truncated will not be indexed. To avoid this warning, try breaking apart documents with large amounts of text into multiple, smaller documents. 
+Indexers limit how much text can be extracted from any one document. This limit depends on the pricing tier: 32,000 characters for Free tier, 64,000 for Basic, 4 million for Standard, 8 million for Standard S2, and 16 million for Standard S3. Text that was truncated will not be indexed. To avoid this warning, try breaking apart documents with large amounts of text into multiple, smaller documents. 
 
 For more information, see [Indexer limits](search-limits-quotas-capacity.md#indexer-limits).
 

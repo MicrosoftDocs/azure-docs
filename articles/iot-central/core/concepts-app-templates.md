@@ -21,33 +21,16 @@ Application templates consist of:
 - Pre-configured rules and jobs
 - Rich documentation including tutorials and how-tos
 
-## Preview templates
+You choose the application template when you create your application. You can't change the template after the application is created.
 
-Your choice of application template determines whether your application uses IoT Central preview features such as Plug and Play for devices.
+## Custom templates
 
-Currently, the application template that use _generally available_ features is:
+If you want to create your application from scratch, choose one of the two custom application templates:
 
-- Custom app > Legacy application
+- Custom application
+- Custom application (legacy)
 
-
-Currently, the application templates that use _public preview_ features are:
-
-- Custom app > Preview application
-- Retail > Connected logistics
-- Retail > Digital distribution center
-- Retail > In-store analytics – condition monitoring
-- Retail > In-store analytics – checkout
-- Retail > Micro-fulfillment center
-- Retail > Smart inventory management
-- Energy > Smart meter monitoring
-- Energy > Solar panel monitoring
-- Government > Connected waste management
-- Government > Water consumption monitoring
-- Government > Water quality monitoring
-- Healthcare > Continuous patient monitoring
-
-> [!NOTE]
-> The **legacy application** templates are currently  available in the **United States**, **Australia**, **Asia Pacific**, or in the **Europe** locations, while other templates are currently available only in **Europe** and **US** locations.
+Choose the **Custom application** template unless you have a specific reason to use the legacy template.
 
 ## Industry focused templates
 

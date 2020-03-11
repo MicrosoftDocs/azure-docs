@@ -26,6 +26,8 @@
     href: convert-to-csv.md
   - name: Convert to Dataset
     href: convert-to-dataset.md
+  - name: Convert to Indicator Values
+    href: convert-to-indicator-values.md  
   - name: Clean Missing Data
     href: clean-missing-data.md
   - name: Edit Metadata
@@ -44,6 +46,8 @@
     href: select-columns-transform.md
   - name: Select Columns in Dataset
     href: select-columns-in-dataset.md
+  - name: Split Data
+    href: split-data.md
 - name: Feature selection
   items:
   - name: Filter Based Feature Selection

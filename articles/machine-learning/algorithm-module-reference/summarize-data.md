@@ -9,7 +9,7 @@ ms.topic: reference
 
 author: likebupt
 ms.author: keli19
-ms.date: 09/09/2019
+ms.date: 01/27/2020
 ---
 
 # Summarize Data
@@ -66,6 +66,20 @@ The report from the module can include the following statistics.
 |**P5**|5% percentile|
 |**P95**|95% percentile|
 |**P99.5**|99.5% percentile |
+
+## Technical notes
+
+- For non-numeric columns, only the values for Count, Unique value count, and Missing value count are computed. For other statistics, a null value is returned.
+
+- Columns that contain Boolean values are processed using these rules:
+
+    - When calculating Min, a logical AND is applied.
+    
+    - When calculating Max, a logical OR is applied
+    
+    - When computing Range, the module first checks whether the number of unique values in the column equals 2.
+    
+    - When computing any statistic that requires floating-point calculations, values of True are treated as 1.0, and values of False are treated as 0.0.
 
 ## Next steps
 

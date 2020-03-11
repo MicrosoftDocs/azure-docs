@@ -1,7 +1,6 @@
 ---
 title: How to chart performance with Azure Monitor for VMs (preview) | Microsoft Docs
 description: Performance is a feature of the Azure Monitor for VMs that automatically discovers application components on Windows and Linux systems and maps the communication between services. This article provides details on how to use it in a variety of scenarios.
-ms.service:  azure-monitor
 ms.subservice: 
 ms.topic: conceptual
 author: bwren

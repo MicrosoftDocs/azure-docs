@@ -1,5 +1,6 @@
 ---
 title: Machine learning and data science tools
+titleSuffix: Azure Data Science Virtual Machine 
 description: Learn about the machine-learning tools and frameworks that are preinstalled on the Data Science Virtual Machine.
 keywords: data science tools, data science virtual machine, tools for data science, linux data science
 services: machine-learning

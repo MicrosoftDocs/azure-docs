@@ -228,6 +228,8 @@
 
 - name: Resources
   items:
+  - name: Support and help options
+    href: /azure/iot-fundamentals/iot-support-help
   - name: Remote monitoring
     items:
     - name: Developer reference guide (.NET)

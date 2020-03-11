@@ -110,37 +110,17 @@ You can initiate an account failover from the Azure portal, PowerShell, Azure CL
 
 ## About the preview
 
-Account failover is available in preview for all customers using GRS or RA-GRS with Azure Resource Manager deployments. General-purpose v1, General-purpose v2, and Blob storage account types are supported. account failover is currently available in these regions:
-
-- Asia East
-- Asia Southeast
-- Australia East
-- Australia Southeast
-- US Central
-- US East 2
-- US West Central
-- US West 2
+Account failover is available in preview for all customers using GRS or RA-GRS with Azure Resource Manager deployments. General-purpose v1, General-purpose v2, and Blob storage account types are supported. Account failover is currently available in all public regions. Account failover is not available in sovereign/national clouds at this time.
 
 The preview is intended for non-production use only. Production service-level agreements (SLAs) are not currently available.
-
-### Register for the preview
-
-To register for the preview, run the following commands in PowerShell. Make sure to replace the placeholder in brackets with your own subscription ID:
-
-```powershell
-Connect-AzAccount -SubscriptionId <subscription-id>
-Register-AzProviderFeature -FeatureName CustomerControlledFailover -ProviderNamespace Microsoft.Storage
-```
-
-It can take 5-7 days to receive approval for the preview. To verify that your registration has been approved, run the following command:
-
-```powershell
-Get-AzProviderFeature -FeatureName CustomerControlledFailover -ProviderNamespace Microsoft.Storage
-```
 
 ### Additional considerations
 
 Review the additional considerations described in this section to understand how your applications and services may be affected when you force a failover during the preview period.
+
+#### Storage account containing archived blobs
+
+Storage accounts containing archived blobs support account failover. Once failover is complete, to convert the account back to GRS or RA-GRS all archieved blobs need to be rehydrated to an online tier first.
 
 #### Storage resource provider
 
@@ -173,8 +153,8 @@ Keep in mind that any data stored in a temporary disk is lost when the VM is shu
 
 The following features and services are not supported for account failover for the preview release:
 
-- Azure File Sync does not support storage account failover. Storage accounts containing Azure file shares being used as cloud endpoints in Azure File Sync should not be failed over. Doing so will cause sync to stop working and may also cause unexpected data loss in the case of newly tiered files.  
-- A storage account containing archived blobs cannot be failed over. Maintain archived blobs in a separate storage account that you do not plan to fail over.
+- Azure File Sync does not support storage account failover. Storage accounts containing Azure file shares being used as cloud endpoints in Azure File Sync should not be failed over. Doing so will cause sync to stop working and may also cause unexpected data loss in the case of newly tiered files.
+- ADLS Gen2 storage accounts (accounts that have hierarchical namespace enabled) are not supported at this time.
 - A storage account containing premium block blobs cannot be failed over. Storage accounts that support premium block blobs do not currently support geo-redundancy.
 - A storage account containing any [WORM immutability policy](../blobs/storage-blob-immutable-storage.md) enabled containers cannot be failed over. Unlocked/locked time-based retention or legal hold policies prevent failover in order to maintain compliance.
 - After the failover is complete, the following features may stop working if originally enabled: [Event subscriptions](../blobs/storage-blob-event-overview.md), [Change Feed](../blobs/storage-blob-change-feed.md), [Lifecycle policies](../blobs/storage-lifecycle-management-concepts.md), and [Storage Analytics Logging](storage-analytics-logging.md).
