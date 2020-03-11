@@ -310,6 +310,12 @@ For specific information on using Azure Databricks with a virtual network, see [
 
 > [!IMPORTANT]
 > Azure Machine Learning supports only virtual machines that are running Ubuntu.
+>
+> The following Azure regions only support attaching an Azure-based virtual machine or HDInsight cluster:
+>
+> * US East
+> * US West 2
+> * US South Central
 
 To use a virtual machine or Azure HDInsight cluster in a virtual network with your workspace, use the following steps:
 
@@ -501,11 +507,16 @@ For more information on configuring a network rule, see [Deploy and configure Az
 
 ## Use Azure Container Registry
 
-Azure Container Registry can be put inside a virtual network, however only the premium version supports this functionality. To use Azure Container Registry in the virtual network, use these steps:
+> [!IMPORTANT]
+> Azure Container Registry (ACR) can be put inside a virtual network, however you must meet the following prerequisites:
+>
+> * Your Azure Machine Learning workspace must be Enterprise edition. For information on upgrading, see [Upgrade to Enterprise edition](how-to-manage-workspace.md#upgrade).
+> * Your Azure Container Registry must be Premium version . For more information on upgrading, see [Changing SKUs](/azure/container-registry/container-registry-skus#changing-skus).
+> * Your Azure Machine Learning workspace must contain an [Azure Machine Learning compute cluster](how-to-set-up-training-targets.md#amlcompute).
+>
+>     When ACR is behind a virtual network, Azure Machine Learning cannot use it to directly build Docker images. Instead, the compute cluster is used to build the images.
 
-1. Upgrade your Azure Container Registry to the __Premium__ SKU. For more information, see [Changing SKUs](/azure/container-registry/container-registry-skus#changing-skus).
-
-    To find the name of the Azure Container Registry for your workspace, use one of the following methods:
+1. To find the name of the Azure Container Registry for your workspace, use one of the following methods:
 
     __Azure Portal__
 
@@ -523,7 +534,23 @@ Azure Container Registry can be put inside a virtual network, however only the p
 
     This command returns a value similar to `"/subscriptions/{GUID}/resourceGroups/{resourcegroupname}/providers/Microsoft.ContainerRegistry/registries/{ACRname}"`. The last part of the string is the name of the Azure Container Registry for the workspace.
 
-2. ???? 
+2. To limit access to your virtual network, use the steps in [Configure network access for registry](../container-registry/container-registry-vnet.md#configure-network-access-for-registry). When adding the virtual network, select the virtual network and subnet for your Azure Machine Learning resources.
+
+3. If you are using Private Link for your Azure Machine Learning workspace, use the following Azure Resource Manager template. This template enables your workspace to communicate with ACR over the Private Link.
+
+    TBD!
+
+4. Use the Azure Machine Learning Python SDK to configure a compute cluster to build docker images. The following code snippet demonstrates how to do this:
+
+    ```python
+    from azureml.core import Workspace
+    # Load workspace from an existing config file
+    ws = Workspace.from_config()
+    # Update the workspace to use an existing compute cluster
+    ws.update(image_build_compute = 'mycomputecluster')
+    ```
+    
+    For more information, see the [update()]() method reference.
 
 ## Next steps
 

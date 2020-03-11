@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 03/09/2020
+ms.date: 03/13/2020
 ---
 
 # Enterprise security for Azure Machine Learning
@@ -101,6 +101,22 @@ Azure Machine Learning creates an additional application (the name starts with `
 Azure Machine Learning relies on other Azure services for compute resources. Compute resources (compute targets) are used to train and deploy models. You can create these compute targets in a virtual network. For example, you can use Azure Data Science Virtual Machine to train a model and then deploy the model to AKS.  
 
 For more information, see [How to run experiments and inference in a virtual network](how-to-enable-virtual-network.md).
+
+You can also enable Azure Private Link for your workspace. Private Link allows you to restrict communications to your workspace to a virtual network. For more information, see [How to configure Private Link](how-to-configure-private-link.md).
+
+> [!TIP]
+> You can combine virtual network and Private Link together to protect communication between your workspace and other Azure resources. However, some combinations require an Enterprise edition workspace. Use the following table to understand what scenarios require Enterprise edition:
+>
+> | Scenario | Enterprise</br>edition | Basic</br>edition |
+> | ----- |:-----:|:-----:| 
+> | No virtual network or Private Link | ✔ | ✔ |
+> | Workspace without Private Link and other resources (except Azure Container Registry) in a virtual network | ✔ | ✔ |
+> | Workspace without Private Link and other resources (including Azure Container Registry) in a virtual network | ✔ | |
+> | Workspace with Private Link and other resources (except Azure Container Registry) in a virtual network | ✔ | ✔ |
+> | Workspace and any other resource with Private Link | ✔ | |
+> | Workspace with Private Link and other resources without Private Link or virtual network | ✔ | ✔ |
+> | Azure Container Registry in a virtual network | ✔ | |
+> | Customer Managed Keys for workspace | ✔ | |
 
 ## Data encryption
 
