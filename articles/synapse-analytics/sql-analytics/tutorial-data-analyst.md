@@ -74,7 +74,7 @@ The following shows the result snippet for the public holidays dataset:
 Lastly we can also query the weather dataset using the following query:
 
 ```sql
-SELECT 
+SELECT
     TOP 100 *
 FROM  
     OPENROWSET(
