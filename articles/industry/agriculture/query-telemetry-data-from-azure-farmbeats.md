@@ -11,14 +11,14 @@ ms.author: sunasing
 
 This article describes how to query ingested sensor data from Azure FarmBeats.
 
-Ingesting data from Internet of Things (IoT) resources such as devices and sensors is a common scenario in FarmBeats. You create metadata for devices and sensors and then ingest the historical data to FarmBeats in a canonical format. Once the sensor data is available on FarmBeats Datahub, we can query the same to generate actionable insights or build models.
+Ingesting data from Internet of Things (IoT) resources such as devices and sensors is a common scenario in FarmBeats. You create metadata for devices and sensors and then ingest the historical data to FarmBeats in a canonical format. Once the sensor data is available on FarmBeats Data hub, we can query the same to generate actionable insights or build models.
 
 ## Before you begin
 
-Before you proceed with this article, make sure that you've installed FarmBeats and ingested sensor telemetry data from your IoT devices to FarmBeats
+Before you proceed with this article, make sure that you've installed FarmBeats and ingested sensor telemetry data from your IoT devices to FarmBeats.
 To ingest sensor telemetry data, visit [ingest historical telemetry data](ingest-historical-telemetry-data-in-azure-farmbeats.md)
 
-Before you proceed, also make sure you are familiar with FarmBeats REST APIs as you will query ingested telemetry using APIs. For more details on FarmBeats APIs, please see [FarmBeats REST APIs](rest-api-in-azure-farmbeats.md). **Ensure that you are able to make API requests to your FarmBeats Datahub endpoint**
+Before you proceed, also make sure you are familiar with FarmBeats REST APIs as you will query ingested telemetry using APIs. For more details on FarmBeats APIs, please see [FarmBeats REST APIs](rest-api-in-azure-farmbeats.md). **Ensure that you are able to make API requests to your FarmBeats Data hub endpoint**
 
 ## Query ingested sensor telemetry data
 
@@ -26,7 +26,7 @@ Follow the below steps to query the ingested sensor telemetry data:
 
 1. Identify the sensor you are interested in. You can do this by making a GET request on /Sensor API. Note the **id** and the **sensorModelId** of the interested sensor object.
 
-2. Make a GET/{id} on /SensorModel API for the **sensorModelId** as noted in step 1. The SensorModel has all the metadata and details about the ingested telemetry from the sensor. For example, SensorMeasure within the SensorModel object has details about what measures is the sensor sending and in what types and units. For example,
+2. Make a GET/{id} on /SensorModel API for the **sensorModelId** as noted in step 1. The "Sensor Model" has all the metadata and details about the ingested telemetry from the sensor. For example, "Sensor Measure" within the "Sensor Model" object has details about what measures is the sensor sending and in what types and units. For example,
 
 ```json
 {
@@ -38,7 +38,7 @@ Follow the below steps to query the ingested sensor telemetry data:
     "description": "<Description of the measure>"
 }
 ```
-Make a note of the response from the GET/{id} call for the SensorModel.
+Make a note of the response from the GET/{id} call for the Sensor Model.
 
 3. Do a POST call on /Telemetry API with the following input payload
 
@@ -89,7 +89,7 @@ Make a note of the response from the GET/{id} call for the SensorModel.
   ]
 }
 ```
-In the above example response, the queried sensor telemetry gives data for two timestamps along with the measure name ("moist_soil_last") and values of the reported telemetry in the two timestamps. You will need to refer to the associated /SensorModel (as described in step 2) to interpret the type and unit of the reported values.
+In the above example response, the queried sensor telemetry gives data for two timestamps along with the measure name ("moist_soil_last") and values of the reported telemetry in the two timestamps. You will need to refer to the associated Sensor Model (as described in step 2) to interpret the type and unit of the reported values.
 
 ## Next steps
 
