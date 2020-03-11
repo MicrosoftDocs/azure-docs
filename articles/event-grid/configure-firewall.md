@@ -102,6 +102,9 @@ $Headers.Add("Content-Type","application/json")
 ```
 
 ### Create an event grid topic with inbound rules in one step
+When public network access is enabled for a topic, traffic over the public internet is accepted, restrictions might apply based on additional Inbound IP rules.
+
+When public network access is disabled for a topic, traffic over public internet is not allowed, private endpoint connections would be the exclusive access method for a resource with public network disabled. 
 
 ```azurepowershell-interactive
 
