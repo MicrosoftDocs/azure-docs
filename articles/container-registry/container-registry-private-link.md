@@ -13,7 +13,10 @@ You can [configure DNS settings](../private-link/private-endpoint-overview.md#dn
 
 This feature is available in the **Premium** container registry service tier. For information about registry service tiers and limits, see [Azure Container Registry SKUs](container-registry-skus.md).
 
-## Limitations
+> [!IMPORTANT]
+> This feature is currently in preview, and some [limitations](#preview-limitations) apply. Previews are made available to you on the condition that you agree to the [supplemental terms of use][terms-of-use]. Some aspects of this feature may change prior to general availability (GA).
+
+## Preview limitations
 
 * Currently, you can't set up a private link with a private endpoint on a [geo-replicated registry](container-registry-geo-replication.md). 
 

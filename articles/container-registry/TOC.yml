@@ -80,7 +80,7 @@
       items:
       - name: Limit access with virtual network (preview)
         href: container-registry-vnet.md
-      - name: Integrate with Azure Private Link
+      - name: Integrate with Azure Private Link (preview)
         href: container-registry-private-link.md
       - name: Access behind a firewall
         href: container-registry-firewall-access-rules.md

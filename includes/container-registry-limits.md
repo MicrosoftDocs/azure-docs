@@ -23,7 +23,7 @@ ms.custom: include file
 | Geo-replication | N/A | N/A | [Supported][geo-replication] |
 | Content trust | N/A | N/A | [Supported][content-trust] |
 | Virtual network access | N/A | N/A | [Preview][vnet] |
-| Private link integration | N/A | N/A | [Supported][plink] |
+| Private link integration | N/A | N/A | [Preview][plink] |
 | Customer-managed keys | N/A | N/A | [Preview][cmk] |
 | Repository-scoped permissions | N/A | N/A | [Preview][token]|
 | &bull; Tokens | N/A | N/A | 20,000 |
