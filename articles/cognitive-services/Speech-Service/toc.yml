@@ -294,18 +294,19 @@
   items:
   - name: Conversation scenarios documentation
     href: index-conversation-scenarios.yml
+    displayName: meeting,meetings,conversation,call center,transcription,multi-device conversation
   - name: Conversation transcription
     items:
     - name: Overview
       items:
-      - name: About Conversation transcription
+      - name: What is Conversation transcription?
         href: conversation-transcription.md
     - name: How-to guides
       items:
       - name: Handle call center scenarios
         href: call-center-transcription.md
         displayName: IVRs, IVR, Telephony Data, Transcription for Telephony Data, Real-time Transcription for Call Centers
-      - name: Real time Conversation transcription
+      - name: Real-time Conversation transcription
         href: how-to-use-conversation-transcription.md
       - name: Asynchronous Conversation transcription
         href: how-to-async-conversation-transcription.md
@@ -342,7 +343,7 @@
     items:
     - name: Overview
       items:
-      - name: About Multi-device conversation
+      - name: What is multi-device conversation?
         href: multi-device-conversation.md
     - name: Quickstart
       items:

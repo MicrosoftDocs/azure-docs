@@ -19,11 +19,11 @@ landingContent:
   linkLists:
     - linkListType: overview
       links:
-      - text: Voice Assistant solutions
+      - text: What is a voice assistant?
         url: voice-assistants.md
-      - text: About Custom Commands
+      - text: What is Custom Commands?
         url: custom-commands.md
-      - text: About Direct Line Speech
+      - text: What is Direct Line Speech?
         url: direct-line-speech.md
     - linkListType: reference
       links:
@@ -31,27 +31,27 @@ landingContent:
           url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services
         - text: Voice assistants FAQ
           url: faq-voice-assistants.md
-- title: Develop Custom Keyword
+- title: Develop with Custom Keyword
   linkLists:
     - linkListType: how-to-guide
       links:
-        - text: Custom Keyword
+        - text: Create a Custom Keyword
           url: speech-devices-sdk-create-kws.md
     - linkListType: reference
       links:
         - text: Custom Keyword naming guidelines
           url: speech-devices-sdk-kws-guidelines.md
-- title: Develop Custom Commands
+- title: Develop with Custom Commands
   linkLists:
     - linkListType: quickstart
       links:
-        - text: Create a Custom Command (preview)
+        - text: Create a Custom Command
           url: quickstart-custom-speech-commands-create-new.md
-        - text: Create a Custom Command with parameters (preview)
+        - text: Create a Custom Command with parameters
           url: quickstart-custom-speech-commands-create-parameters.md
-        - text: Use Custom Commands with Custom Voice (preview)
+        - text: Use Custom Commands with Custom Voice
           url: quickstart-custom-speech-commands-select-custom-voice.md
-        - text: Use Custom Commands with the Speech SDK (preview)
+        - text: Use Custom Commands with the Speech SDK
           url: quickstart-custom-speech-commands-speech-sdk.md
     - linkListType: how-to-guide
       links:
@@ -65,7 +65,7 @@ landingContent:
         url: how-to-custom-speech-commands-confirmations.md
       - text: Add a one-step correction to a Custom Command
         url: how-to-custom-speech-commands-one-step-correction.md
-- title: Develop Direct Line Speech
+- title: Develop with Direct Line Speech
   linkLists:
     - linkListType: quickstart
       links:

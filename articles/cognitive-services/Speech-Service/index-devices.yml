@@ -19,7 +19,7 @@ landingContent:
   linkLists:
     - linkListType: overview
       links:
-        - text: What is the Speech Devices SDK?
+        - text: About the Speech Devices SDK?
           url: speech-devices-sdk.md
     - linkListType: quickstart
       links:
