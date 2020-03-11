@@ -49,7 +49,12 @@ Here is an example for modifying the geospatial data type to `geometry` by setti
                 }
             };
     spatialPath.SpatialTypes.Add(SpatialType.Point);
+    spatialPath.SpatialTypes.Add(SpatialType.LineString);
+    spatialPath.SpatialTypes.Add(SpatialType.Polygon);
+    spatialPath.SpatialTypes.Add(SpatialType.MultiPolygon);
+
     containerResponse.Resource.IndexingPolicy.SpatialIndexes.Add(spatialPath);
+
     // Update container with changes
     await client.GetContainer("db", "spatial").ReplaceContainerAsync(containerResponse.Resource);
 ```
