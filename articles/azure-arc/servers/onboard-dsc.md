@@ -6,19 +6,19 @@ ms.service: azure-arc
 ms.subservice: azure-arc-servers
 author: mgoedtel
 ms.author: magoedte
-ms.date: 03/10/2020
+ms.date: 03/11/2020
 ms.topic: conceptual
 ---
 
 # How to install the Connected Machine agent using Windows PowerShell Desired State Configuration
 
-Using [Windows PowerShell Desired State Configuration](https://docs.microsoft.com/powershell/scripting/dsc/getting-started/winGettingStarted?view=powershell-7) (DSC), you can automate software installation and configuration for a computer. This article describes how to use DSC to install the Azure Arc for servers Connected Machine agent on hybrid Windows machines.
+Using [Windows PowerShell Desired State Configuration](https://docs.microsoft.com/powershell/scripting/dsc/getting-started/winGettingStarted?view=powershell-7) (DSC), you can automate software installation and configuration for a Windows computer. This article describes how to use DSC to install the Azure Arc for servers Connected Machine agent on hybrid Windows machines.
 
 ## Requirements
 
 - Windows PowerShell version 4.0 or higher
 
-- The [AzureConnectedMachineDsc](https://www.powershellgallery.com/packages/AzureConnectedMachineDsc/1.0.1.0) DSC module 
+- The [AzureConnectedMachineDsc](https://www.powershellgallery.com/packages/AzureConnectedMachineDsc/1.0.1.0) DSC module
 
 ## Install the ConnectedMachine DSC module
 
@@ -41,7 +41,7 @@ Using [Windows PowerShell Desired State Configuration](https://docs.microsoft.co
 
 ## Install the agent and connect to Azure
 
-The resources in this module are designed to manage the Azure Connected Machine Agent configuration. Also included is a configuration MOF document `AzureConnectedMachineAgent.ps1`, found in the `AzureConnectedMachineDsc\examples` folder, uses community resources to automate the download and installation, and to establish the connection with Azure Arc. This configuration document performs similar steps described in the [Connect hybrid machines to Azure from the Azure portal](onboard-portal.md) article.
+The resources in this module are designed to manage the Azure Connected Machine Agent configuration. Also included is a configuration MOF document `AzureConnectedMachineAgent.ps1`, found in the `AzureConnectedMachineDsc\examples` folder, uses community resources to automate the download and installation, and establish the connection with Azure Arc. This configuration document performs similar steps described in the [Connect hybrid machines to Azure from the Azure portal](onboard-portal.md) article.
 
 If the machine needs to communicate through a proxy server to the service, after you install the agent you need to run a command that's described [here](onboard-portal.md#configure-the-agent-proxy-setting). This sets the proxy server system environment variable `https_proxy`. Instead of running the command manually, you can perform this step with DSC by using the ComputeManagementDsc module.
 
@@ -51,23 +51,19 @@ To allow DSC to run, Windows needs to be configured to receive PowerShell remote
 
 Configuration documents (MOF files) can be applied to the machine using the `Start-DscConfiguration` cmdlet.
 
-PowerShell script:
+The following are the parameters you pass to the PowerShell script to use.
 
-```powershell
-& .\examples\AzureConnectedMachineAgent.ps1
-```
+- `TenantID`: The unique identifier (GUID) that represents your dedicated instance of Azure AD.
 
-The script parameters include:
+- `SubscriptionId`: The subscription ID (GUID) of your Azure subscription that you want the machines in.
 
-- **TenantID**: The id (guid) of the Azure tenant
-- **SubscriptionId**: The id (guid) of the Azure subscription
-- **ResourceGroup**: The name of the resource group where the connect machine resource should be created
-- **Location**: The Azure location where the connected machine resource should be created
-- **Tags**: String array of tags that should be applied to the connected machine resource
-- **Credential**: A PowerShell credential object with the AppId and Secret used to register machines at scale
+- `ResourceGroup`: The resource group name where you want your connected machines to belong to.
 
-The Azure Connected Machine Agent supports connecting through an http proxy service.  For more information on the proxy details, see the
-documentation for Azure Connect Machine Agent.
+- `Location`: See [supported Azure regions](overview.md#supported-regions). This location can be the same or different, as the resource group's location.
+
+- `Tags`: String array of tags that should be applied to the connected machine resource.
+
+- `Credential`: A PowerShell credential object with the **ApplicationId** and **password** used to register machines at scale using a service principal. 
 
 ## Adding to existing configurations
 
