@@ -1,5 +1,5 @@
 ---
- title: Custom Data and Cloud-Init on Azure Virtual Machines
+ title: Custom Data and Azure Virtual Machines
  description: Details on using Custom Data and Cloud-Init on Azure Virtual Machines
  services: virtual-machines
  author: mimckitt
@@ -13,10 +13,79 @@
 
 ## What is Custom Data?
 
-Customers often ask how they can inject a script or other metadata into a Microsoft Azure virtual machine at provision time.  In other clouds this concept is often referred to as user data.  In Microsoft Azure we have a similar feature called custom data. Custom data is sent to the VM along with the other provisioning configuration information such as the new hostname, username, password, certificates and keys, etc.  This data is passed to the Azure API as base64-encoded data.  On Windows this data ends up in %SYSTEMDRIVE%\AzureData\CustomData.bin as a binary file.  On Linux, this data is passed to the VM via the ovf-env.xml file, which is copied to the /var/lib/waagent directory during provisioning.  Newer versions of the Microsoft Azure Linux Agent will also copy the base64-encoded data to /var/lib/waagent/CustomData as well for convenience.
+Customers often ask how they can inject a script or other metadata into a Microsoft Azure virtual machine at provision time.  In other clouds this concept is often referred to as user data.  In Microsoft Azure we have a similar feature called custom data. 
 
-## What About Cloud-Init?
-Currently, only the Ubuntu images in the Microsoft Azure Gallery have cloud-init preinstalled and configured to act on the custom data sent during provisioning.  This means that for Ubuntu you can use custom data to provision a VM using a cloud-init configuration file, or just simply send a script that will be executed by cloud-init during provisioning.  See the cloud-init documentation for more information. If cloud-init is not available on the image, then you can still make use of the custom data provided you preinstall a script or other tool on the system that can read the data.  In this case a script could be installed to run at boot time that can read in the custom data via the %SYSTEMDRIVE%\AzureData\CustomData.bin (Windows) or the /var/lib/waagent/ovf-env.xml (Linux) file, decode it and act on the data.  Once the script is installed the Windows or Linux image can then be deprovisioned and captured for reuse.
+Custom data is only made available to the VM during first boot/initial setup, we call this 'provisioning'. Provisioning is the process where VM Create parameters (e.g. hostname, username, password, certificates, custom data, keys etc.) are made available to the VM and a provisioning agent processes them, such as the [Linux Agent](https://docs.microsoft.com/en-us/azure/virtual-machines/extensions/agent-linux) and [cloud-init](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/using-cloud-init#troubleshooting-cloud-init). 
 
-## How Does It Work?
-Currently, the easiest way to inject custom data into an IaaS VM is to use the Windows Azure command-line tools.  Support for this feature in the Microsoft Azure Powershell cmdlets is not yet available, but is coming soon in an upcoming release. As of version 0.7.5 of the CLI tools there is a new parameter called --custom-data.  This parameter takes a file name as an argument, and the tools will then base64 encode the contents of the file and send it along with the provisioning configuration information.  The only limit here is that the file must be less than 64KB or the Azure API will not accept the request. The following is a simple example of how to provision and pass custom data to an Ubuntu Linux VM:  In this example, custom-data.txt could be a cloud-init configuration file, or simply a shell script (as long as it starts with #!, then cloud-init will execute it). Give it a try.
+
+## Passing custom data to the VM
+To use custom data, you must base64 encode the contents first before passing it to the API, unless you are using a CLI tool that does the conversion for you, such as AZ CLI. The size cannot exceed 64KB.
+
+This is a CLI example, where you can pass your custom data as a file, and it will be converted to base64.
+```bash
+az vm create \
+  --resource-group myResourceGroup \
+  --name centos74 \
+  --image OpenLogic:CentOS-CI:7-CI:latest \
+  --custom-data cloud-init.txt \
+  --generate-ssh-keys
+```
+
+In Azure Resource Manager (ARM), there is a [base64 function](https://docs.microsoft.com/en-us/azure/azure-resource-manager/templates/template-functions-string#base64).
+
+```json
+"name": "[parameters('virtualMachineName')]",
+"type": "Microsoft.Compute/virtualMachines",
+"apiVersion": "2019-07-01",
+"location": "[parameters('location')]",
+"dependsOn": [
+..],
+"variables": {
+        "customDataBase64": "[base64(parameters('stringData'))]"
+    },
+"properties": {
+..
+    "osProfile": {
+        "computerName": "[parameters('virtualMachineName')]",
+        "adminUsername": "[parameters('adminUsername')]",
+        "adminPassword": "[parameters('adminPassword')]",
+        "customDataBase64": "[variables('customData')]"
+    	},
+```
+
+## Processing custom data
+The provisioning agents installed on the VMs handle interfacing with the platform and placing it on the file system. 
+
+### Windows
+Custom data is placed in %SYSTEMDRIVE%\AzureData\CustomData.bin as a binary file, but it is not processed. If you wish to process this file, you will need to build a custom image, and write code to process the CustomData.bin.
+
+### Linux  
+On Linux OS's, custom data is passed to the VM via the ovf-env.xml file, which is copied to the /var/lib/waagent directory during provisioning.  Newer versions of the Microsoft Azure Linux Agent will also copy the base64-encoded data to /var/lib/waagent/CustomData as well for convenience.
+
+Azure currently supports two provisioning agents:
+* Linux Agent - By default the agent will not process custom data, you will need to build a custom image with this enabled. These are the relevent settings, as per the [documentation](https://github.com/Azure/WALinuxAgent#configuration):
+    * Provisioning.DecodeCustomData
+    * Provisioning.ExecuteCustomData
+
+When you enable custom data, and execute a script, it will delay the VM reporting that is it ready or that provisioning has succeeded until the script has completed. If the script exceeds the total VM provisioning time allowance of 40mins, the VM Create will fail. Note, if the script fails to execute, or errors during executing, this is not deemed a fatal provisioning failure, you will need create a notification path to alert you for the completion state of the script.
+
+To troubleshooting custom data execution, review */var/log/waagent.log*
+
+* cloud-init - By default will process custom data by default, cloud-init accepts [multiple formats](https://cloudinit.readthedocs.io/en/latest/topics/format.html) of custom data, such as cloud-init configuration, scripts etc. Similar to the Linux Agent, when cloud-init processes the custom data. If there are errors during execution of the configuration processing or scripts, this is not deemed a fatal provisioning failure, and you will need create a notification path to alert you for the completion state of the script. However, different to the Linux Agent, cloud-init does not wait on user custom data configurations to complete before reporting to the platform that the VM is ready. For more information on cloud-init on azure, please review the [documentation](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/using-cloud-init).
+
+
+To troubleshooting custom data execution, review the troubleshooting [documentation](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/using-cloud-init#troubleshooting-cloud-init).
+
+
+## FAQ
+### Can I update custom data after the VM has been created?
+For single VMs, custom data in the VM model cannot be updated, but for VMSS, you can update VMSS custom data via REST API (this does not work for the PS or AZ CLI clients). When you update custom data in the VMSS model, this will happen:
+* Existing instances in the VMSS will not get the updated custom data, only until they are reimaged.
+* Existing instances in the VMSS that are upgraded will not get the updated custom data.
+* New instances will recieve the new custom data.
+
+### Can I place sensitive values in custom data?
+<We need to get a CELA answer for this>
+
+### Is custom data made available in IMDS?
+No, this not currently available.
