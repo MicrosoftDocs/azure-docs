@@ -1,8 +1,8 @@
-- name: Azure Resource Manager template documentation
+- name: ARM template documentation
   href: index.yml
 - name: Overview
   items:
-  - name: What are Azure Resource Manager templates?
+  - name: What are ARM templates?
     href: overview.md
 - name: Quickstarts
   items:
@@ -142,10 +142,9 @@
       - name: Variables
         displayName: iteration,copy
         href: copy-variables.md
-    - name: Subscription level resources
-      href: deploy-to-subscription.md
-    - name: Management group level resources
-      href: deploy-to-management-group.md
+      - name: Outputs
+        displayName: iteration,copy
+        href: copy-outputs.md
   - name: Use authoring tools
     items:
     - name: VS Code
@@ -179,7 +178,15 @@
       href: rollback-on-error.md
     - name: Secure template with SAS token
       href: secure-template-with-sas-token.md
-    - name: Deploy to multiple resource groups or subscriptions
+  - name: Scoped deployments
+    items:
+    - name: Subscription
+      href: deploy-to-subscription.md
+    - name: Management group
+      href: deploy-to-management-group.md
+    - name: Tenant
+      href: deploy-to-tenant.md
+    - name: Multiple resource groups or subscriptions
       href: cross-resource-group-deployment.md
   - name: Provide parameters
     items:

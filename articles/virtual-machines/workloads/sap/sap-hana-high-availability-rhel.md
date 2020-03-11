@@ -1,5 +1,5 @@
 ---
-title: Set up SAP HANA System Replication on Azure virtual machines (VMs) | Microsoft Docs
+title: High availability of SAP HANA on Azure VMs on RHEL | Microsoft Docs
 description: Establish high availability of SAP HANA on Azure virtual machines (VMs).
 services: virtual-machines-linux
 documentationcenter: 

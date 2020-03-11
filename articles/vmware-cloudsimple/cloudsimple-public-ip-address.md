@@ -1,6 +1,6 @@
 ---
-title: Azure VMware Solutions (AVS) - Public IP address  
-description: Learn about public IP addresses and their benefits on Azure VMware Solutions (AVS) 
+title: Azure VMware Solution by CloudSimple - Public IP address  
+description: Learn about public IP addresses and their benefits on Azure VMware Solution by CloudSimple 
 author: sharaths-cs 
 ms.author: dikamath 
 ms.date: 08/20/2019 
@@ -9,9 +9,9 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn 
 manager: dikamath 
 ---
-# AVS public IP address overview
+# CloudSimple public IP address overview
 
-A public IP address allows internet resources to communicate inbound to AVS Private Cloud resources at a private IP address. The private IP address is a virtual machine or a software load balancer on your AVS Private Cloud vCenter. The public IP address allows you to expose services running on your AVS Private Cloud to the internet.
+A public IP address allows internet resources to communicate inbound to Private Cloud resources at a private IP address. The private IP address is a virtual machine or a software load balancer on your Private Cloud vCenter. The public IP address allows you to expose services running on your Private Cloud to the internet.
 
 The public IP address is dedicated to the private IP address until you unassign it. A public IP address can only be assigned to one private IP address.
 

@@ -121,7 +121,7 @@ If you are experiencing issues related to instance pool deployment (creation or 
 
 If you are experiencing issues related to single instances or databases within a pool, you should create a regular support ticket for Azure SQL Database managed instances.
 
-To create larger managed instance deployments (with or without instance pools), you may need to obtain a larger regional quota. Use the [standard managed instance procedure for requesting a larger quota](sql-database-managed-instance-resource-limits.md#obtaining-a-larger-quota-for-sql-managed-instance), but note that if you are using instance pools, the deployment logic compares total vCore consumption *at the pool level* against your quota to determine whether you are allowed to create new resources without further increasing your quota.
+To create larger managed instance deployments (with or without instance pools), you may need to obtain a larger regional quota. For more information, see [Request quota increases for Azure SQL Database](quota-increase-request.md). Note that if you are using instance pools, the deployment logic compares total vCore consumption *at the pool level* against your quota to determine whether you are allowed to create new resources without further increasing your quota.
 
 ## Instance pool billing
 

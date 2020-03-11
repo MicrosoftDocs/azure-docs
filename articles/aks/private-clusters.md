@@ -2,12 +2,9 @@
 title: Create a private Azure Kubernetes Service cluster
 description: Learn how to create a private Azure Kubernetes Service (AKS) cluster
 services: container-service
-author: mlearned
-
-ms.service: container-service
 ms.topic: article
 ms.date: 2/21/2020
-ms.author: mlearned
+
 ---
 
 # Create a private Azure Kubernetes Service cluster (preview)
@@ -54,6 +51,18 @@ The control plane or API server is in an Azure Kubernetes Service (AKS)-managed 
 * West US 2
 * East US 2
 
+## Currently Supported Availability Zones
+
+* Central US
+* East US
+* East US 2
+* France Central
+* Japan East
+* North Europe
+* Southeast Asia
+* UK South
+* West Europe
+* West US 2
 
 ## Install the latest Azure CLI AKS Preview extension
 
@@ -87,6 +96,14 @@ az provider register --namespace Microsoft.Network
 ```
 ## Create a private AKS cluster
 
+### Create a resource group
+
+Create a resource group or use an existing resource group for your AKS cluster.
+
+```azurecli-interactive
+az group create -l westus -n MyResourceGroup
+```
+
 ### Default basic networking 
 
 ```azurecli-interactive
@@ -113,41 +130,37 @@ Where *--enable-private-cluster* is a mandatory flag for a private cluster.
 > [!NOTE]
 > If the Docker bridge address CIDR (172.17.0.1/16) clashes with the subnet CIDR, change the Docker bridge address appropriately.
 
-## Connect to the private cluster
-The API server endpoint has no public IP address. Consequently, you must create an Azure virtual machine (VM) in a virtual network and connect to the API server. To do so, do the following:
+## Options for connecting to the private cluster
 
-1. Get credentials to connect to the cluster.
+The API server endpoint has no public IP address. To manage the API server, you will need to use a VM that has access to the AKS cluster's Azure Virtual Network (VNet). There are several options for establishing network connectivity to the private cluster.
 
-   ```azurecli-interactive
-   az aks get-credentials --name MyManagedCluster --resource-group MyResourceGroup
-   ```
+* Create a VM in the same Azure Virtual Network (VNet) as the AKS cluster.
+* Use a VM in a separate network and set up [Virtual network peering][virtual-network-peering].  See the section below for more information on this option.
+* Use an [Express Route or VPN][express-route-or-VPN] connection.
 
-1. Do either of the following:
-   * Create a VM in the same virtual network as the AKS cluster.  
-   * Create a VM in a different virtual network, and peer this virtual network with the AKS cluster virtual network.
+Creating a VM in the same VNET as the AKS cluster is the easiest option.  Express Route and VPNs add costs and require additional networking complexity.  Virtual network peering requires you to plan your network CIDR ranges to ensure there are no overlapping ranges.
 
-     If you create a VM in a different virtual network, set up a link between this virtual network and the private DNS zone. To do so:
+## Virtual network peering
+
+As mentioned, VNet peering is one way to access your private cluster. To use VNet peering you need to set up a link between virtual network and the private DNS zone.
     
-     a. Go to the MC_* resource group in the Azure portal.  
-     b. Select the private DNS zone.   
-     c. In the left pane, select the **Virtual network** link.  
-     d. Create a new link to add the virtual network of the VM to the private DNS zone. It takes a few minutes for the DNS zone link to become available.  
-     e. Go back to the MC_* resource group in the Azure portal.  
-     f. In the right pane, select the virtual network. The virtual network name is in the form *aks-vnet-\**.  
-     g. In the left pane, select **Peerings**.  
-     h. Select **Add**, add the virtual network of the VM, and then create the peering.  
-     i. Go to the virtual network where you have the VM, select **Peerings**, select the AKS virtual network, and then create the peering. If the address ranges on the AKS virtual network and the VM's virtual network clash, peering fails. For more information, see  [Virtual network peering][virtual-network-peering].
-
-1. Access the VM via Secure Shell (SSH).
-1. Install the Kubectl tool, and run the Kubectl commands.
-
+1. Go to the MC_* resource group in the Azure portal.  
+2. Select the private DNS zone.   
+3. In the left pane, select the **Virtual network** link.  
+4. Create a new link to add the virtual network of the VM to the private DNS zone. It takes a few minutes for the DNS zone link to become available.  
+5. Go back to the MC_* resource group in the Azure portal.  
+6. In the right pane, select the virtual network. The virtual network name is in the form *aks-vnet-\**.  
+7. In the left pane, select **Peerings**.  
+8. Select **Add**, add the virtual network of the VM, and then create the peering.  
+9. Go to the virtual network where you have the VM, select **Peerings**, select the AKS virtual network, and then create the peering. If the address ranges on the AKS virtual network and the VM's virtual network clash, peering fails. For more information, see  [Virtual network peering][virtual-network-peering].
 
 ## Dependencies  
 * The Private Link service is supported on Standard Azure Load Balancer only. Basic Azure Load Balancer isn't supported.  
 * To use a custom DNS server, deploy an AD server with DNS to forward to this IP 168.63.129.16
 
 ## Limitations 
-* Availability Zones are currently only supported for East US 2 and West US 2 regions
+* IP authorized ranges cannot be applied to the private api server endpoint, they only apply to the public API server
+* Availability Zones are currently supported for certain regions, see the beginning of this document 
 * [Azure Private Link service limitations][private-link-service] apply to private clusters, Azure private endpoints, and virtual network service endpoints, which aren't currently supported in the same virtual network.
 * No support for virtual nodes in a private cluster to spin private Azure Container Instances (ACI) in a private Azure virtual network
 * No support for Azure DevOps integration out of the box with private clusters
@@ -164,6 +177,8 @@ The API server endpoint has no public IP address. Consequently, you must create 
 [az-feature-list]: /cli/azure/feature?view=azure-cli-latest#az-feature-list
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
-[private-link-service]: https://docs.microsoft.com/azure/private-link/private-link-service-overview
+[private-link-service]: /private-link/private-link-service-overview
 [virtual-network-peering]: ../virtual-network/virtual-network-peering-overview.md
+[azure-bastion]: ../bastion/bastion-create-host-portal.md
+[express-route-or-vpn]: ../expressroute/expressroute-about-virtual-network-gateways.md
 

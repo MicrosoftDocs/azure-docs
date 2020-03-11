@@ -53,7 +53,7 @@ Your code can use a managed identity to request access tokens for services that 
 
 The following diagram shows how managed service identities work with Azure virtual machines (VMs):
 
-![Managed service identities and Azure VMs](media/overview/msi-vm-vmextension-imds-example.png)
+![Managed service identities and Azure VMs](media/overview/data-flow.png)
 
 |  Property    | System-assigned managed identity | User-assigned managed identity |
 |------|----------------------------------|--------------------------------|
@@ -137,6 +137,7 @@ Learn how to use a managed identity with other Azure services:
 * [Azure Kubernetes Service](/azure/aks/use-managed-identity)
 * [Azure Logic Apps](/azure/logic-apps/create-managed-service-identity)
 * [Azure Service Bus](../../service-bus-messaging/service-bus-managed-service-identity.md)
+* [Azure Data Factory](../../data-factory/data-factory-service-identity.md)
 
 
 ## What Azure services support the feature?<a name="which-azure-services-support-managed-identity"></a>
