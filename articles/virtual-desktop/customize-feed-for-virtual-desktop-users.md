@@ -8,6 +8,7 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: helohr
+manager: lizross
 ---
 # Customize feed for Windows Virtual Desktop users
 
@@ -58,6 +59,6 @@ Set-RdsRemoteDesktop -TenantName <tenantname> -HostPoolName <hostpoolname> -AppG
 ## Next steps
 
 Now that you've customized the feed for users, you can sign in to a Windows Virtual Desktop client to test it out. To do so, continue to the Connect to Windows Virtual Desktop How-tos:
-	
+    
  * [Connect from Windows 10 or Windows 7](connect-windows-7-and-10.md)
  * [Connect from a web browser](connect-web.md) 
