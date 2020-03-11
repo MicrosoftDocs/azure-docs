@@ -59,44 +59,44 @@ After the device arrives at its final location, it goes through automated provis
 For more information, see [Auto-provisioning concepts](concepts-auto-provisioning.md) and [TPM attestation](concepts-tpm-attestation.md). 
 
 ## Installing certificates on IoT devices
-One note before I begin, if you already have a system in place for installing certificates on your IoT devices and its working out for you, great! Feel free to stop reading and check out some of our other content. This blog post is for folks who are just making the switch to using certificates on IoT devices and are struggling with figuring out what works best.
-Mandatory security rant
+When you start using certificates on IoT devices in a manufacturing process, you'll need to make several decisions.  These include decisions about common certificate variables, when to generate certificates, and when to install them. 
 
-If you're coming from the land of passwords and want a quick fix, you might be asking yourself why you can't use the same certificate in all your devices like you would be able to use the same password in all your devices. First, using the same password everywhere is really bad practice and has already caused several major DDoS attacks, including the one that took down DNS on the US East Coast a few years back. So don't ever do this, even with your own personal accounts. Second, certificates are not passwords they are complete identities. A password is like knowing the secret phrase to get into the clubhouse, a certificate is the bouncer asking to see your driver's license. It's like if I got multiple copies made of my passport and gave you one to use for identification. Either you give my name and my passport and impersonate me (AKA spoof my identity), or you give your name and my passport and the border control agent kicks you out for not having an ID matching your name.
-Variables involved in certificate decisions
+> [!CAUTION]
+> A note on security. If you're used to using passwords, you might ask why you can't use the same certificate in all your devices. In the same way that you'd be able to use the same password in all your devices. First, using the same password everywhere is dangerous and has exposed companies to major DDoS attacks. Including the one that took down DNS on the US East Coast several years ago. Never use the same password everywhere, even with personal accounts. Second, a certificate isn't a password, it's a unique identity. A password is like a secret code that anyone can use to open a door at a secured building.  It's something you know, and you could give the password to anyone to gain entrance.  A certificate is like a driver's license with your photo and other details, which you can show to a guard to get into a secured building. It's tied to who you are.  Provided that the guard accurately matches people with driver's licenses, only you can use your license (identity) to gain entrance. 
 
-There are several variables that come into play when you decide to use certificates in your IoT devices. The heavy hitters are as follows.
+### Variables involved in certificate decisions
+Consider the following variables, and how each one impacts the overall manufacturing process. 
 
-Where the certificate root of trust comes from. Make this decision based on your own cost tolerances and masochism levels – managing a public key infrastructure (PKI), especially if your company does not have experience doing so, is not for the faint of heart. Your options are:
+#### Where the certificate root of trust comes from
+Managing a public key infrastructure (PKI) can be costly and complex.  Especially if your company does not have experience doing so. Your options are as follows:
+- Use a 3rd party PKI. You can buy intermediate signing certificates from a 3rd party certificate vendor. Or you can use a private Certificate Authority (CA). 
+- Use a self-managed PKI. You can maintain your own PKI system and generate your own certificates.
+- Use the [Azure Sphere](https://azure.microsoft.com/services/azure-sphere/) security service. This applies only to Azure Sphere devices. 
 
-    3rd party PKI in which you buy intermediate signing certificates (or a private CA) from a 3rd party cert vendor.
-    Self-managed PKI in which you maintain your own PKI system and generate your own certificates.
-    Azure Sphere's security service (only for Azure Sphere devices).
+#### Where certificates are stored
+There are a few factors that impact the decision on where certificates are stored. These include the type of device, expected profit margins (whether you can afford secure storage), device capabilities, and existing security technology on the device that you may be able to use. Consider the following options:
+- In a hardware security module (HSM). Using an HSM is highly recommended. Check whether your device's control board already has an HSM installed. If you know you don't have an HSM, work with your hardware manufacturer to identify an HSM that meets your needs.
+- In a secure place on disk such as a trusted execution environment (TEE).
+- In the local file system or a certificate store. For example, the Windows certificate store. 
+- Other
 
-Where certificates are stored. This depends on the type of device you're building, the expected device margins (whether you can afford secure storage), the device's capabilities, and existing security technology on the device that may be leveraged. Your options are:
+#### Connectivity at the factory
+Connectivity at the factory determines how and when you'll get the certificates to install on the devices. Connectivity options are as follows:
+- Connectivity. This is optimal, because you can generate certificates locally. 
+- No connectivity. In this case, you use a signed certificate from a CA to generate device certificates locally and offline. 
+- No connectivity. In this case, you obtain certificates that were generated ahead of time, or you use an offline PKI.  
 
-    In a hardware security module (HSM) (recommended!). Check whether your device's control board already has an HSM installed. I've talked to a couple customers who were surprised to find they had an HSM already installed in their devices that they just weren't using. If you know you don't have an HSM, work with your hardware manufacturer to identify an HSM that meets your needs.
-    In a secure place on disk such as a trusted execution environment (TEE).
-    Local file system or cert store, e.g. the Windows certificate store.
-    Other
+#### Audit requirement
+Depending on the type of devices you produce, you might have a regulatory requirement to create an audit trail of how device identities are installed on your devices. Auditing adds significant production cost, so in most cases, only do it if required. If you're unsure whether an audit is required, check with your company's legal department. Auditing options are as follows: 
+- Not a sensitive industry. No auditing is required.
+- Sensitive industry. Certificates need to be installed in a secure room according to compliance certification requirements. If you need a secure room to install certificates, you are likely already aware of how certificates get installed in your devices. And you probably already have an audit system in place. 
 
-Connectivity at the factory. This determines how and when you get the certificates that will be installed on the devices. Your options are:
+#### Length of certificate validity
+Like a driver's license, certificates have an expiration date that is set when they are created. These are the options for length of certificate validity:
+- Renewal not required.  This approach uses a very long renewal period, so that you'll never need to renew the certificate during the device's lifetime. While this is convenient, it's also risky.  You can reduce the risk by using secure storage like an HSM on your devices. However, using long-lived certificates is not recommended.
+- Renewal required.  You'll need to renew the certificate during the lifetime of the device. The length of the certificate validity depends on context and you'll need a strategy for renewal.  The strategy should include where you're getting certificates, and what type of over-the-air functionality your devices have to use in the renewal process. 
 
-    Yes connectivity (can generate certs locally).
-    No connectivity (factory has a signed CA cert it uses to generate device certs locally offline).
-    No connectivity (certs need to be generated ahead of time, OR offline PKI).
-
-Audit requirement. Depending on the type of devices you are producing, you may be required by regulations to have an auditable trail of how device identities are installed in your devices. Only do this if you need to since it can add significant costs to production. If you're not sure if this applies to you, check with your company's legal department. Your options are:
-
-    Not a sensitive industry, no auditing required.
-    Sensitive industry, certs need to be installed in a secure room according to various compliance certification requirements. If you need a secure room to install certificates, you probably already are aware of how certs get installed in your devices and already have a system in place. This post is probably not for you.
-
-Length of cert validity. Like a driver's license, certificates have an expiration date that is set when they are created. Your options are:
-
-    Very long, never will need to roll it. A very risky approach. Risk can be reduced using very secure storage like an HSM etc. However, the long-lived certificate approach is not recommended.
-    Will need to roll during the lifetime of the device. This is context dependent and requires a strategy for how to roll certificates, where you're getting certificates from, and what type of over the air functionality exists for your devices.
-
-When to generate certificates
+### When to generate certificates
 
 As I mentioned in the previous section, connectivity at the factory plays an important role in determining when you generate the certificates for your devices. Let's talk about that.
 
@@ -109,7 +109,8 @@ If your factory has connectivity, you can generate the certs whenever you need t
 If your factory does not have connectivity, and you are using your own PKI with offline support, then you can generate the certs whenever you need them.
 
 If your factory does not have connectivity, and you are using a 3rd party PKI, you have to generate the certs ahead of time from an internet connected location.
-When to install certificates
+
+### When to install certificates
 
 Now that you've generated certificates for your IoT devices (or know when to generate them), it's time to install them into your device.
 
