@@ -15,7 +15,7 @@
 
 Customers often ask how they can inject a script or other metadata into a Microsoft Azure virtual machine at provision time.  In other clouds this concept is often referred to as user data.  In Microsoft Azure we have a similar feature called custom data. 
 
-Custom data is only made available to the VM during first boot/initial setup, we call this 'provisioning'. Provisioning is the process where VM Create parameters (e.g. hostname, username, password, certificates, custom data, keys etc.) are made available to the VM and a provisioning agent processes them, such as the [Linux Agent](https://docs.microsoft.com/en-us/azure/virtual-machines/extensions/agent-linux) and [cloud-init](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/using-cloud-init#troubleshooting-cloud-init). 
+Custom data is only made available to the VM during first boot/initial setup, we call this 'provisioning'. Provisioning is the process where VM Create parameters (e.g. hostname, username, password, certificates, custom data, keys etc.) are made available to the VM and a provisioning agent processes them, such as the [Linux Agent](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux) and [cloud-init](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init#troubleshooting-cloud-init). 
 
 
 ## Passing custom data to the VM
@@ -31,7 +31,7 @@ az vm create \
   --generate-ssh-keys
 ```
 
-In Azure Resource Manager (ARM), there is a [base64 function](https://docs.microsoft.com/en-us/azure/azure-resource-manager/templates/template-functions-string#base64).
+In Azure Resource Manager (ARM), there is a [base64 function](https://docs.microsoft.com/azure/azure-resource-manager/templates/template-functions-string#base64).
 
 ```json
 "name": "[parameters('virtualMachineName')]",
@@ -71,10 +71,10 @@ When you enable custom data, and execute a script, it will delay the VM reportin
 
 To troubleshooting custom data execution, review */var/log/waagent.log*
 
-* cloud-init - By default will process custom data by default, cloud-init accepts [multiple formats](https://cloudinit.readthedocs.io/en/latest/topics/format.html) of custom data, such as cloud-init configuration, scripts etc. Similar to the Linux Agent, when cloud-init processes the custom data. If there are errors during execution of the configuration processing or scripts, this is not deemed a fatal provisioning failure, and you will need create a notification path to alert you for the completion state of the script. However, different to the Linux Agent, cloud-init does not wait on user custom data configurations to complete before reporting to the platform that the VM is ready. For more information on cloud-init on azure, please review the [documentation](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/using-cloud-init).
+* cloud-init - By default will process custom data by default, cloud-init accepts [multiple formats](https://cloudinit.readthedocs.io/en/latest/topics/format.html) of custom data, such as cloud-init configuration, scripts etc. Similar to the Linux Agent, when cloud-init processes the custom data. If there are errors during execution of the configuration processing or scripts, this is not deemed a fatal provisioning failure, and you will need create a notification path to alert you for the completion state of the script. However, different to the Linux Agent, cloud-init does not wait on user custom data configurations to complete before reporting to the platform that the VM is ready. For more information on cloud-init on azure, please review the [documentation](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init).
 
 
-To troubleshooting custom data execution, review the troubleshooting [documentation](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/using-cloud-init#troubleshooting-cloud-init).
+To troubleshooting custom data execution, review the troubleshooting [documentation](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init#troubleshooting-cloud-init).
 
 
 ## FAQ
