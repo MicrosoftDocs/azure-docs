@@ -1,14 +1,14 @@
 ---
-title: 'GA Update - Azure Time Series Insights | Microsoft Docs'
-description: This article describes Ingestion & Storage - GA update.
+title: 'How to use fleet queries - Azure Time Series Insights | Microsoft Docs'
+description: 'How to use fleet queries.'
 author: deepakpalled
 ms.author: dpalled
 ms.service: time-series-insights
 ms.topic: conceptual
-ms.date: 03/11/2020
+ms.date: 02/20/2020
 ---
 
-# GA Update
+# How to use fleet queries
 
 This article describes...
 
