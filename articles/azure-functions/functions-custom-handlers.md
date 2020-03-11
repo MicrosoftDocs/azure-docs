@@ -19,27 +19,31 @@ Custom handlers are best suited for situations where you want to:
 - Implement a Functions app in a language version not supported by default
 - Have granular control over the app execution environment
 
+With custom handlers, all [triggers and input and output bindings](./functions-triggers-bindings.md) are supported.
+
 ## Application structure
 
 To implement a custom handler, you need the following files:
 
 - A *host.json* file at the root of your app
-- An executable
+- An executable, script, or command which runs the web server
 - A *function.json* file for each function
 
-The following diagram shows how these files look on the file system for a function named "orders".
+The following diagram shows how these files look on the file system for a function named "order".
 
 ```bash
-| orders
+| /order
 |   function.json
 |
-| server.exe
+| server.exe // either a custom EXE, or point to a runtime with arguments
 | host.json
 ```
 
 ### App configuration
 
 The application is configured via the *host.json* file. This file tells the Functions host where to send requests by pointing to an executable that implements a server capable of processing HTTP events.
+
+Ensure the *host.json* file is at the same level in the directory structure as the running web server. Some languages and toolchains may not place the this file at the application root by default.
 
 ### Function metadata
 
@@ -52,7 +56,7 @@ By convention, function responses are formatted as key/value pairs. Supported ke
 | Key           | Data type      | Remarks                                                      |
 | ------------- | -------------- | ------------------------------------------------------------ |
 | `Outputs`     | key/value pair | Holds response values as defined by the `bindings` array the *function.json* file.<br /><br />For instance, if a function is configured with a blob storage output binding named "blob", then `Outputs` contains a key named `blob`, which is set to the blob's value. |
-| `Logs`        | array          | Statements are logged to ??                                  |
+| `Logs`        | array          | Messages appear in the Functions invocation logs.<br /><br />When running in Azure, logged messaged appear in Application Insights. |
 | `ReturnValue` | string         | Used to provide a response when an output is configured as `$return` in the *function.json* file. |
 
 See the [example for a sample payload](#server-implementation).
@@ -60,13 +64,12 @@ See the [example for a sample payload](#server-implementation).
 ### Considerations
 
 - Your app must respond to requests within 60 seconds or the host considers the request a failure and attempts a retry.
-- Ensure the *host.json* file is at the same level in the directory structure as the running web server. Some languages and toolchains may not place the *host.json* file at the application root by default.
 
 ## Create a custom handler
 
 Custom handlers can be implemented in any language that supports HTTP events. While Azure Functions [fully supports JavaScript and Node.js](./functions-reference-node.md), the following example shows how to implement a custom handler using JavaScript in Node.js for the purposes of instruction.
 
-The scenario implemented in this example features a function named `orders` that accepts a POST with a payload representing a product order.
+The scenario implemented in this example features a function named `order` that accepts a `POST` with a payload representing a product order.
 
 ```http
 POST http://127.0.0.1:7071/api/order HTTP/1.1
@@ -96,7 +99,7 @@ For an app written in a compiled language, `defaultExecutablePath` points to an 
 }
 ```
 
-For scripted apps, `defaultExecutablePath` points to the script language's executable and `defaultWorkerPath` points to the script file location. The following example shows how to configure a JavaScript app in Node.js is configured as a custom handler.
+For scripted apps, `defaultExecutablePath` points to the script language's executable and `defaultWorkerPath` points to the script file location. The following example shows how to a JavaScript app in Node.js is configured as a custom handler.
 
 ```json
 {
@@ -125,20 +128,20 @@ You can also pass arguments using the `arguments` array:
 }
 ```
 
-Arguments are necessary for many debugging setups. See the [Debugging](#debugging) section. 
+Arguments are necessary for many debugging setups. See the [Debugging](#debugging) section for more detail. 
 
 Standard triggers and input and output bindings are available by referencing [extension bundles](./functions-bindings-register.md) in your *host.json* file.
 
 ### Function definition
 
-The following *function.json* file is no different from how you would define a function under any other context. Since the function name is *orders*, this file is saved in a folder named "orders".
+The following *function.json* file is no different from how you would define a function under any other context. Since the function name is *order*, this file is saved in a folder named "order".
 
 ```json
 {
   "bindings": [
     {
       "type": "httpTrigger",
-      "authLevel": "anonymous",
+      "authLevel": "function",
       "direction": "in",
       "name": "req",
       "methods": ["post"]
@@ -168,7 +171,7 @@ This function is defined as an [HTTP triggered function](./functions-bindings-ht
 A web server is used to listen for requests coming through the `FUNCTIONS_HTTPWORKER_PORT`. 
 
 >[!NOTE]
->The `FUNCTIONS_HTTPWORKER_PORT`is not the public facing port used to call the function, but is the port used by the Functions host to call the custom handler.
+>The `FUNCTIONS_HTTPWORKER_PORT` is not the public facing port used to call the function. This port is used by the Functions host to call the custom handler.
 
 ```javascript
 const express = require("express");
@@ -201,22 +204,17 @@ const server = app.listen(PORT, "localhost", () => {
 
 ```
 
-Express.js is used to create a web server to handle HTTP events and is set to listen for request via the `FUNCTIONS_HTTPWORKER_PORT`. 
+Express.js is used to create a web server to handle HTTP events and is set to listen for requests via the `FUNCTIONS_HTTPWORKER_PORT`. 
 
-The order function is defined at the path of `/orders` and extracts the request payload to save as a queue message. 
+The order function is defined at the path of `/order` and extracts the request payload to save as a queue message.  
 
-> [!NOTE]
-> The route for the order function here is `/order` and not `/api/order` because the function host is proxying the request to the custom handler. Once the Functions host receives the request, the proxied request sent to the handler at the handler's application root.
+The route for the order function here is `/order` and not `/api/order` because the function host is proxying the request to the custom handler. Once the Functions host receives the request, the proxied request sent to the handler at the handler's application root.
 
 The message contents are available from the request via `req.body.Data.req.Body`. 
 
 The function's response is formatted into a key/value pair where the `Outputs` member holds another key/value pair where the keys match the outputs as defined in the *function.json* file.
 
 By setting `message` equal to the message that came in from the request, and `res` to the expected HTTP response, this function outputs a message to Queue Storage and returns an HTTP response.
-
-> [!NOTE]
->
-> You may also choose to use the key `ReturnValue` in the function's response for an output configured as `$return` in *function.json* binding definitions.
 
 ## Debugging
 
