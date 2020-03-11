@@ -147,6 +147,8 @@
     href: Overview/language-support.md
   - name: Limits
     href: limits.md
+  - name: Role-based access control (RBAC)
+    href: reference-role-based-access-control.md
   - name: Troubleshooting
     href: troubleshooting.md
   - name: Service configuration
