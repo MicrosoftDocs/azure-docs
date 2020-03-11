@@ -22,13 +22,6 @@ After you run a copy activity, you can collect the run result and performance st
 
 ![Monitor copy activity run details](./media/copy-activity-overview/monitor-copy-activity-run-details.png)
 
-Learn more about:
-
-- [Auto suggested performance tuning tips](#performance-tuning-tips)
-- [Understand copy activity execution details](#understand-copy-activity-execution-details)
-- [Troubleshoot copy activity on Azure IR](#troubleshoot-copy-activity-on-azure-ir)
-- [Troubleshoot copy activity on Self-hosted IR](#troubleshoot-copy-activity-on-self-hosted-ir)
-
 ## Performance tuning tips
 
 In some scenarios, when you run a copy activity in Data Factory, you'll see **"Performance tuning tips"** at the top as shown in the above example. The tips tell you the bottleneck identified by ADF for this particular copy run, along with suggestion on how to boost copy throughput. Try making the recommanded change, then run the copy again.
@@ -62,7 +55,7 @@ The execution details and durations at the bottom of the copy activity monitorin
 
 Follow the [Performance tuning steps](copy-activity-performance.md#performance-tuning-steps) to plan and conduct performance test for your scenario. 
 
-When the copy activity performance doesn't meet your expectation, to troubleshoot single copy activity running on Azure Integration Runtime, if you see **[performance tuning tips](#performance-tuning-tips)** shown up in the copy monitoring view, apply the suggestion and try again. Otherwise, **[understand copy activity execution details](#understand-copy-activity-execution-details)**, check which stage has the **longest** duration, and apply the guidance below to boost copy performance:
+When the copy activity performance doesn't meet your expectation, to troubleshoot single copy activity running on Azure Integration Runtime, if you see [performance tuning tips](#performance-tuning-tips) shown up in the copy monitoring view, apply the suggestion and try again. Otherwise, [understand copy activity execution details](#understand-copy-activity-execution-details), check which stage has the **longest** duration, and apply the guidance below to boost copy performance:
 
 - **"Pre-copy script" experienced long duration:** it means the pre-copy script running on sink database takes long to finish. Tune the specified pre-copy script logic to enhance the performance. If you need further help on improving the script, contact your database team.
 
@@ -114,7 +107,7 @@ When the copy activity performance doesn't meet your expectation, to troubleshoo
 
 Follow the [Performance tuning steps](copy-activity-performance.md#performance-tuning-steps) to plan and conduct performance test for your scenario. 
 
-When the copy performance doesn't meet your expectation, to troubleshoot single copy activity running on Azure Integration Runtime, if you see **[performance tuning tips](#performance-tuning-tips)** shown up in the copy monitoring view, apply the suggestion and try again. Otherwise, **[understand copy activity execution details](#understand-copy-activity-execution-details)**, check which stage has the **longest** duration, and apply the guidance below to boost copy performance:
+When the copy performance doesn't meet your expectation, to troubleshoot single copy activity running on Azure Integration Runtime, if you see [performance tuning tips](#performance-tuning-tips) shown up in the copy monitoring view, apply the suggestion and try again. Otherwise, [understand copy activity execution details](#understand-copy-activity-execution-details), check which stage has the **longest** duration, and apply the guidance below to boost copy performance:
 
 - **"Queue" experienced long duration:** it means the copy activity waits long in the queue until your Self-hosted IR has resource to execute. Check the IR capacity and usage, and [scale up or out](create-self-hosted-integration-runtime.md#high-availability-and-scalability) according to your workload.
 

@@ -16,12 +16,7 @@ ms.date: 03/09/2020
 
 # Copy activity performance optimization features
 
-Azure Data Factory provides the following performance optimization features that you can leverage in copy activity:
-
-- [Data Integration Units](#data-integration-units)
-- [Self-hosted integration runtime scalability](#self-hosted-integration-runtime-scalability)
-- [Parallel copy](#parallel-copy)
-- [Staged copy](#staged-copy)
+This article outlines the copy activity performance optimization features that you can leverage in Azure Data Factory.
 
 ## Data Integration Units
 
