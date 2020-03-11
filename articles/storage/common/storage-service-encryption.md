@@ -61,7 +61,7 @@ By default, your storage account uses Microsoft-managed encryption keys. You can
 
 ## Customer-managed keys with Azure Key Vault
 
-You can manage Azure Storage encryption at the level of the storage account with your own keys. When you specify a customer-managed key at the level of the storage account, that key is used to protect and control access the root encryption key for the storage account which in turn is used to encrypt and decrypt all blob and file data. Customer-managed keys offer greater flexibility to create, rotate, disable, and revoke access controls. You can also audit the encryption keys used to protect your data.
+You can manage Azure Storage encryption at the level of the storage account with your own keys. When you specify a customer-managed key at the level of the storage account, that key is used to protect and control access to the root encryption key for the storage account which in turn is used to encrypt and decrypt all blob and file data. Customer-managed keys offer greater flexibility to manage access controls. You can also audit the encryption keys used to protect your data.
 
 You must use Azure Key Vault to store your customer-managed keys. You can either create your own keys and store them in a key vault, or you can use the Azure Key Vault APIs to generate keys. The storage account and the key vault must be in the same region and in the same Azure Active Directory (Azure AD) tenant, but they can be in different subscriptions. For more information about Azure Key Vault, see [What is Azure Key Vault?](../../key-vault/key-vault-overview.md).
 
@@ -110,7 +110,7 @@ Rotating the key does not trigger re-encryption of data in the storage account. 
 
 To revoke access to customer-managed keys, use PowerShell or Azure CLI. For more information, see [Azure Key Vault PowerShell](/powershell/module/az.keyvault//) or [Azure Key Vault CLI](/cli/azure/keyvault). Revoking access effectively blocks access to all data in the storage account, as the encryption key is inaccessible by Azure Storage.
 
-After access to customer-managed keys is revoked, operations that read from or write to a blob or its metadata are not permitted. The specific operations that are not permitted are:
+After access to customer-managed keys is revoked, operations that read from or write to a blob or its metadata are not permitted. All other data operations are permitted. The specific operations that are not permitted are:
 
 - [List Blobs](/rest/api/storageservices/list-blobs), when called with the `include=metadata` parameter on the request URI
 - [Get Blob](/rest/api/storageservices/get-blob)
@@ -130,7 +130,7 @@ After access to customer-managed keys is revoked, operations that read from or w
 - [Put Page From URL](/rest/api/storageservices/put-page-from-url)
 - [Incremental Copy Blob](/rest/api/storageservices/incremental-copy-blob)
 
-After customer-managed keys are revoked for the storage account, any of these operations will fail with error code 403 (Forbidden) for all users. To call these operations again, configure a new customer-managed key.
+After customer-managed keys are revoked for the storage account, any of the listed operations will fail with error code 403 (Forbidden) for all users. To call these operations again, configure a new customer-managed key.
 
 ### Customer-managed keys for Azure managed disks (preview)
 
