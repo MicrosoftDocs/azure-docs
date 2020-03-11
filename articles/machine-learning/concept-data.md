@@ -79,7 +79,7 @@ With datasets, you can accomplish a number of machine learning tasks through sea
 
 + [Train machine learning models](how-to-train-with-datasets.md).
 + Consume datasets in 
-     + [automated ML experiments](how-to-create-portal-experiments.md)
+     + [automated ML experiments](how-to-use-automated-ml-for-ml-models.md)
      + the [designer](tutorial-designer-automobile-price-train-score.md#import-data) 
 + Access datasets for scoring with batch inference in [machine learning pipelines](how-to-create-your-first-pipeline.md).
 + Create a [data labeling project](#label).
