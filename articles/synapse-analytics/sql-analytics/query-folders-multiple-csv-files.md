@@ -46,7 +46,7 @@ Files in *csv/taxi* are named after year and month:
 
     
     
-    ## Read all files in folder
+## Read all files in folder
     
 The example below reads all NYC Yellow Taxi data files from the *csv/taxi* folder and returns the total number of passengers and rides per year. It also shows usage of aggregate functions.
 
