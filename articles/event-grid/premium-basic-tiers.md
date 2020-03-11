@@ -11,20 +11,20 @@ ms.author: babanisa
 ---
 
 # Azure Event Grid premium and basic tiers
-Azure Event Grid has two tiers: **Premium** and **Basic**. The basic tier uses consumption, or pay-as-you-go pricing. It gives you all of the basic pub/sub tools you need to use Event Grid for event-driven programming models. The premium tier takes this one step further with security features aimed at the enterprise. The premium tier is in early **public preview** with many of its features still under development.
+Azure Event Grid has two tiers: **Premium** and **Basic**. The basic tier uses consumption, or pay-as-you-go pricing. It gives you all of the basic pub/sub tools you need to use Event Grid for event-driven programming models. The premium tier takes this one step further with security features aimed at the enterprise. The premium tier is in early **preview** with many of its features still under development.
 
 ## Overview
-All custom topics and event domains in Event Grid are either Basic tier or Premium tier. All topics and domains created with API versions before `03-13-2020-preview` default to basic tier. The premium tier has all the features of the basic tier and more such as virtual network (VNet) integration via private endpoints. It's priced on an hourly basis as opposed to consumption pricing of the basic tier.
+All custom topics and event domains in Event Grid are either basic tier or premium tier. All topics and domains created with API versions before `03-13-2020-preview` default to the basic tier. The premium tier has all the features of basic tier and more such as virtual network (VNet) integration via private endpoints. It's priced on an hourly basis as opposed to consumption pricing of the basic tier.
 
 ## Capabilities and features
 
-The following table describes the security, performance, and SLA differences between the tiers:
+The following table describes differences between the tiers:
 
 |       &nbsp;                                           | Basic           | Premium        |
 | ------------------------------------------------------ | --------------- | -------------- |
-| IP firewall rules for ingress                          | Public preview  | Public preview |
-| Service tags for egress                                | Public preview  | Public preview |
-| Private endpoint VNet integration on ingress          | Not available   | Public preview |
+| IP firewall rules for ingress                          | Preview  | Preview |
+| Service tags for egress                                | Preview  | Preview |
+| Private endpoint VNet integration on ingress          | Not available   | Preview |
 
 ## Availability
 During initial preview, premium tier topics and domains with private endpoint integration is available in the following regions:
