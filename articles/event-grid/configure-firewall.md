@@ -31,10 +31,10 @@ This article describes how to configure IP firewall settings for event grid topi
 This section shows you how to use Azure CLI commands to create topics with inbound rules. Run the following commands if you need to create a resource group instead of using an existing one.
 
 ```azurecli
--- select a subscription (if you have multiple subscriptions)
+# select a subscription (if you have multiple subscriptions)
 az account set --subscription "AZURE SUBSCRIPTION ID"
 
--- create resource group
+# create resource group
 az group create --name "RESOURECE GROUP NAME" --location "LOCATION"
 ```
 
@@ -73,7 +73,7 @@ az rest --method put \
 This section shows you how to use Azure PowerShell commands to create Azure Event Grid topics with inbound rules. 
 
 ### Prerequisite
-Follw instructions from [How to: Use the portal to create an Azure AD application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md) to create an Azure Active Directory application and note down the values for **Directory (tenant) ID**, **Application (Client) ID**, and **Application (client) secret**. 
+Follow instructions from [How to: Use the portal to create an Azure AD application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md) to create an Azure Active Directory application and note down the values for **Directory (tenant) ID**, **Application (Client) ID**, and **Application (client) secret**. 
 
 ### Prepare token and headers for REST API calls 
 Run the following prerequisite commands to get an authentication token to use with REST API calls and authorization and other header information. 
