@@ -1,14 +1,14 @@
 ---
 title: "Tutorial: Connect SQL on-demand to Power BI Desktop & create report"
-description: In this tutorial, learn how to connect Azure Synapse Analytics SQL on-demand to Power BI desktop and create a demo report based on a view.
+description: In this tutorial, learn how to connect SQL on-demand in Azure Synapse Analytics to Power BI desktop and create a demo report based on a view.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice:
-ms.date: 10/14/2019
+ms.date: 03/20/2020
 ms.author: v-stazar
-ms.reviewer: jrasnick
+ms.reviewer: jrasnick, carlrab
 ---
 
 # Tutorial: Connect SQL on-demand to Power BI Desktop & create report
@@ -16,18 +16,18 @@ ms.reviewer: jrasnick
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> - Create demo database 
-> - Create view used for report 
+>
+> - Create demo database
+> - Create view used for report
 > - Connect to Power BI Desktop
 > - Create report based on view
 
-
 ## Prerequisites
 
-To complete this tutorial, you need: 
+To complete this tutorial, you need:
 
-- A SQL query tool, such as [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio), or [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms). 
-- [Power BI Desktop](https://powerbi.microsoft.com/en-us/downloads/). 
+- A SQL query tool, such as [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio), or [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms).
+- [Power BI Desktop](https://powerbi.microsoft.com/en-us/downloads/).
 
 Parameters:
 
@@ -38,12 +38,11 @@ Parameters:
 | Username and password for endpoint access | Will be used to access endpoint                               |
 | Database you will use to create views     | This database will be used as starting point in samples       |
 
-
 ## 1 - Create database
 
-Since this is a demo environment, create your own database for demo purposes. This database is used to view metadata, and not actual data. 
+Since this is a demo environment, create your own database for demo purposes. This database is used to view metadata, and not actual data.
 
-To create the demo database, run the following Transact-SQL (T-SQL) code: 
+To create the demo database, run the following Transact-SQL (T-SQL) code:
 
 ```sql
 -- Drop database if it exists
@@ -60,7 +59,7 @@ GO
 
 ## 2 - Create credential
 
-A credential is necessary for the SQL on-demand service to access files in storage. Create the credential for a storage account that is located in the same region as your endpoint. Although SQL on-demand can access storage accounts from different regions, having the storage and endpoint in the same region provides better performance. 
+A credential is necessary for the SQL on-demand service to access files in storage. Create the credential for a storage account that is located in the same region as your endpoint. Although SQL on-demand can access storage accounts from different regions, having the storage and endpoint in the same region provides better performance.
 
 To create the credential, run the following Transact-SQL (T-SQL) code: 
 
@@ -91,10 +90,10 @@ CREATE VIEW usPopulationView AS
 SELECT 
     *
 FROM  
-	OPENROWSET(
+    OPENROWSET(
         BULK 'https://azureopendatastorage.blob.core.windows.net/censusdatacontainer/release/us_population_county/year=20*/*.parquet', 
-		FORMAT='PARQUET'
-	) AS uspv
+        FORMAT='PARQUET'
+    ) AS uspv
 ```
 
 The demo data contains the following data sets:
