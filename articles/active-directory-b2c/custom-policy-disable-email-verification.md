@@ -24,11 +24,10 @@ Complete the steps in [Get started with custom policies](custom-policy-get-start
 
 ## Add the metadata to the self-asserted technical profile
 
-The **LocalAccountSignUpWithLogonEmail** technical profile is a [self-asserted](self-asserted-technical-profile.md), which is invoked during the sign-up flow. To disable the email verification, set the `EnforceEmailVerification` metadata to false. Override the LocalAccountSignUpWithLogonEmail technical profiles in the extension file. Find the ClaimsProviders element. Add a new ClaimsProviders as follows:
+The **LocalAccountSignUpWithLogonEmail** technical profile is a [self-asserted](self-asserted-technical-profile.md), which is invoked during the sign-up flow. To disable the email verification, set the `EnforceEmailVerification` metadata to false. Override the LocalAccountSignUpWithLogonEmail technical profiles in the extension file. Find the `ClaimsProviders` element. Add the following claims provider to the `ClaimsProviders` element:
 
 
 ```XML
-
 <ClaimsProvider>
   <DisplayName>Local Account</DisplayName>
   <TechnicalProfiles>
