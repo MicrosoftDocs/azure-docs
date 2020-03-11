@@ -39,6 +39,10 @@ E0 resources are only available for Authoring service and that the E0 tier will 
 
 ![LUIS subscription image](../media/cognitive-services-encryption/luis-subscription.png)
 
+### Regional availability
+
+Customer-managed keys are currently available in the **West** US region.
+
 ### Limitations
 
 There are some limitations when using the E0 tier with existing/previously created applications:

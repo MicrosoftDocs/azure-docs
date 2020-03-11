@@ -39,7 +39,13 @@ To request access to bring your own storage, fill out and submit the [Speech s
 > [!IMPORTANT]
 > If you disable system assigned managed identities, access to the storage account will be removed. This will cause the parts of the Speech service that require access to the storage account to stop working.  
 
-[!INCLUDE [cognitive-services-cmk](../../../includes/cognitive-services-cmk-regions.md)]
+## Regional availability
+
+BYOS is currently available in these regions:
+
+* US South Central
+* West US 2
+* East US
 
 ## Next steps
 
