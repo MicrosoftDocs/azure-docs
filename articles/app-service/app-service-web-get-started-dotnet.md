@@ -10,11 +10,13 @@ ms.custom: seodec18
 
 # Quickstart: Create an ASP.NET Core web app in Azure
 
+In this quickstart, you'll learn how to use Visual Studio 2019 to create and deploy an ASP.NET Core web app to [Azure App Service](overview.md). 
+
+When you're finished, you'll have a resource group that consists of an App Service plan and an App Service with a deployed web application.
+
 > [!NOTE]
 > This article deploys an app to App Service on Windows. To deploy to App Service on _Linux_, see [Create a .NET Core web app in App Service on Linux](./containers/quickstart-dotnetcore.md).
 >
-
-In this quickstart, you'll learn how to use Visual Studio 2019 to create and deploy an ASP.NET Core web app to [Azure App Service](overview.md). When you're finished, you'll have a resource group that consists of an App Service plan and an App Service with a deployed web application.
 
 ## Prerequisites
 
@@ -55,37 +57,46 @@ Create an ASP.NET Core web app by following these steps:
 
    ![Pick a publish target](./media/app-service-web-get-started-dotnet/pick-a-publish-target-vs2019.png)
 
-The options in the **App Service: Create new** dialog depend on whether you're already signed in to Azure and whether you have a Visual Studio account linked to an Azure account. If you haven't already signed-in to your Azure account from Visual Studio, select either **Add an account** or **Sign in**. You can also create a free Azure account.
+1. The options in the **App Service: Create new** dialog depend on whether you're already signed in to Azure and whether you have a Visual Studio account linked to an Azure account. If you haven't already signed-in to your Azure account from Visual Studio, select either **Add an account** or **Sign in**. You can also create a free Azure account.
 
-1. In the **App Service: Create new** dialog, provide a globally unique **Name** for your app by either accepting the default name, or by entering a new name. Valid characters are: `a-z`, `A-Z`, `0-9`, and `-`.
+1. In the **App Service: Create new** dialog, provide a globally unique **Name** for your app by either accepting the default name, or entering a new name. Valid characters are: `a-z`, `A-Z`, `0-9`, and `-`. This **Name** is used as the URL prefix for your web app in the format `http://<app_name>.azurewebsites.net`.
 
 1. For **Subscription**, accept the subscription that is listed or select a new one from the drop-down list.
 
-1. In **Resource group**, select **New**. In **New resource group name**, enter *myResourceGroup* and select **OK**. A [resource group]](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/overview#terminology) is a logical container into which Azure resources like web apps, databases, and storage accounts are deployed and managed. For example, you can choose to delete the entire resource group in one simple step later.
+1. In **Resource group**, select **New**. In **New resource group name**, enter *myResourceGroup* and select **OK**. 
+
+   A [resource group](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/overview#terminology) is a logical container into which Azure resources like web apps, databases, and storage accounts are deployed and managed. For example, you can choose to delete the entire resource group in one simple step later.
 
 1. For **Hosting Plan**, select **New**. In the **Hosting Plan: Create new** dialog, enter the values specified in the following table:
 
-| Setting  | Suggested Value | Description |
-| -------- | --------------- | ----------- |
-| **Hosting Plan**  | *myFirstAzureWebAppPlan* |  |
-| **Location**      | *West Europe* | |
-| **Size**          | *Free* | |
+   | Setting  | Suggested Value | Description |
+   | -------- | --------------- | ----------- |
+   | **Hosting Plan**  | *myFirstAzureWebAppPlan* | Name of the App Service plan. |
+   | **Location**      | *West Europe* | The datacenter where the web app is hosted. |
+   | **Size**          | *Free* | [Pricing tier](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) determines hosting features. |
 
-A [Hosting Plan](https://docs.microsoft.com/en-us/azure/app-service/overview-hosting-plans) 
+   A [Hosting Plan](https://docs.microsoft.com/en-us/azure/app-service/overview-hosting-plans) specifies the location, size, and features of the web server farm that hosts your app. You can save money when hosting multiple apps by configuring the web apps to share a single App Service plan.
 
-1. Leave **Application Insights** set to *None*.   
+   App Service plans define:
 
-![Create new app service](./media/app-service-web-get-started-dotnet/create-new-app-service-vs2019.png)
+   - Region (for example: North Europe, East US, or Southeast Asia)
+   - Instance size (small, medium, or large)
+   - Scale count (1 to 20 instances)
+   - SKU (Free, Shared, Basic, Standard, or Premium)
 
-1. Select **Create** to start creating the Azure resources. Once the wizard completes, deploy your web app by selecting **Publish**.
+1. Leave **Application Insights** set to *None*.
+
+1. Select **Create** to start creating the Azure resources.
+
+   ![Create new app service](./media/app-service-web-get-started-dotnet/create-new-app-service-vs2019.png)
+
+1. Once the wizard completes, deploy your web app by selecting **Publish**.
 
    ![Publish web app to Azure](./media/app-service-web-get-started-dotnet/publish-web-app-vs2019.png)
 
-This publishes your ASP.NET Core web app to Azure, and launches the app in your default browser.
+   This publishes your ASP.NET Core web app to Azure, and launches the app in your default browser. 
 
-![Published ASP.NET web app running in Azure](./media/app-service-web-get-started-dotnet/web-app-running-live.png)
-
-The app name specified in the **App Service Create new** page is used as the URL prefix in the format `http://<app_name>.azurewebsites.net`.
+   ![Published ASP.NET web app running in Azure](./media/app-service-web-get-started-dotnet/web-app-running-live.png)
 
 **Congratulations!** Your ASP.NET Core web app is running live in Azure App Service.
 
