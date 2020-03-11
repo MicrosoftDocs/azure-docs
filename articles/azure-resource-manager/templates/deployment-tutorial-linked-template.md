@@ -8,11 +8,11 @@ ms.author: jgao
 
 # Tutorial: Deploy a linked template
 
-In the previous two tutorials, [Deploy a local template](./deployment-tutorial-local-template.md) and [Deploy a remote template](./deployment-tutorial-remote-template.md), you learned how to deploy a template that is stored in your local computer and in an Azure storage account. To deploy complex solutions, you can break a template into many templates, and deploy these templates through a main template. In this tutorial, you learn how to deploy a main template and a linked template.  It takes about **12 minutes** to complete.
+In the [previous tutorials](./deployment-tutorial-local-template.md), you learned how to deploy a template that is stored in your local computer. To deploy complex solutions, you can break a template into many templates, and deploy these templates through a main template. In this tutorial, you learn how to deploy a main template and a linked template. You also learn how to secure the linked template. It takes about **12 minutes** to complete.
 
 ## Prerequisites
 
-We recommend that you complete the first two deployment tutorials, but it's not required.
+We recommend that you complete the first tutorial, but it's not required.
 
 ## Review template
 
@@ -39,17 +39,17 @@ The following PowerShell script creates a storage account, creates a container, 
 Select **Try-it** to open the Cloud shell, select **Copy** to copy the PowerShell script, and right-click the shell pane to paste the script:
 
 ```azurepowershell-interactive
-$projectNamePrefix = Read-Host -Prompt "Enter a project name:"   # This name is used to generate names for Azure resources, such as storage account name.
+$projectName = Read-Host -Prompt "Enter a project name:"   # This name is used to generate names for Azure resources, such as storage account name.
 $location = Read-Host -Prompt "Enter a location (i.e. centralus)"
 
-$resourceGroupName = $projectNamePrefix + "rg"
-$storageAccountName = $projectNamePrefix + "store"
-$containerName = "linkedtemplates" # The name of the Blob container to be created.
+$resourceGroupName = $projectName + "rg"
+$storageAccountName = $projectName + "store"
+$containerName = "templates" # The name of the Blob container to be created.
 
 $linkedTemplateURL = "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-deployment/linked-template/linkedStorageAccount.json" # A completed linked template used in this tutorial.
 $fileName = "linkedStorageAccount.json" # A file name used for downloading and uploading the linked template.
 
-# Download the tutorial linked template
+# Download the template
 Invoke-WebRequest -Uri $linkedTemplateURL -OutFile "$home/$fileName"
 
 # Create a resource group
@@ -67,17 +67,25 @@ $context = $storageAccount.Context
 # Create a container
 New-AzStorageContainer -Name $containerName -Context $context -Permission Container
 
-# Upload the linked template
+# Upload the template
 Set-AzStorageBlobContent `
     -Container $containerName `
     -File "$home/$fileName" `
     -Blob $fileName `
     -Context $context
 
-Get-azStorageBlob -container $containerName -Context $context | Select Name
+# Generate a SAS token
+$templateURI = New-AzStorageBlobSASToken `
+    -Context $context `
+    -Container $containerName `
+    -Blob $fileName `
+    -Permission r `
+    -ExpiryTime (Get-Date).AddHours(8.0) `
+    -FullUri
 
-Write-Host "The linked template URI is https://${storageAccountName}.blob.core.windows.net/${containerName}/${fileName}".
-
+Write-Host "You need the following values later in the tutorial:"
+Write-Host "Resource Group Name: $resourceGroupName"
+Write-Host "Linked template URI with SAS token: $templateURI"
 Write-Host "Press [ENTER] to continue ..."
 ```
 
@@ -140,7 +148,7 @@ If you're stopping now, you might want to clean up the resources you deployed by
 
 ## Next steps
 
-You learned how to deploy a linked template. In the next tutorial, you learn how to secure the linked template by using SAS token.
+You learned how to deploy a linked template. In the next tutorial, you learn how to create a DevOp pipeline to deploy a template.
 
 > [!div class="nextstepaction"]
-> [Secure a linked template](./deployment-tutorial-secured-linked-template.md)
+> [Create a pipeline](./deployment-tutorial-pipeline.md)

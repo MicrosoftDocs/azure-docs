@@ -38,12 +38,10 @@
     items:
     - name: 1 - Deploy a local template
       href: deployment-tutorial-local-template.md
-    - name: 2 - Deploy a remote template
-      href: deployment-tutorial-remote-template.md
-    - name: 3 - Deploy a linked template
+    - name: 2 - Deploy a linked template
       href: deployment-tutorial-linked-template.md
-    - name: 4 - Secure the linked template
-      href: deployment-tutorial-secured-linked-template.md
+    - name: 3 - Create a pipeline
+      href: deployment-tutorial-pipeline.md
   - name: Advanced
     items:
     - name: Utilize template reference
