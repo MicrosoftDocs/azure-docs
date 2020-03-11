@@ -25,6 +25,10 @@ This article gives answers to Azure Media Services (AMS) v3 frequently asked que
 
 See [Role-based access control (RBAC) for Media Services accounts](rbac-overview.md).
 
+### How do you stream to Apple iOS devices?
+
+Make sure you have "(format=m3u8-aapl)" at the end of your path (after the "/manifest" portion of the URL) to tell the streaming origin server to return back HLS content for consumption on Apple iOS native devices (for details, see [delivering content](dynamic-packaging-overview.md)).
+
 ### How do I configure Media Reserved Units?
 
 For the Audio Analysis and Video Analysis Jobs that are triggered by Media Services v3 or Video Indexer, it is highly recommended to provision your account with 10 S3 MRUs. If you need more than 10 S3 MRUs, open a support ticket using the [Azure portal](https://portal.azure.com/).
@@ -34,6 +38,10 @@ For details, see [Scale media processing with CLI](media-reserved-units-cli-how-
 ### What is the recommended method to process videos?
 
 Use [Transforms](https://docs.microsoft.com/rest/api/media/transforms) to configure common tasks for encoding or analyzing videos. Each **Transform** describes a recipe, or a workflow of tasks for processing your video or audio files. A [Job](https://docs.microsoft.com/rest/api/media/jobs) is the actual request to Media Services to apply the **Transform** to a given input video or audio content. Once the Transform has been created, you can submit jobs using Media Services APIs, or any of the published SDKs. For more information, see [Transforms and Jobs](transforms-jobs-concept.md).
+
+### I uploaded, encoded, and published a video. What would be the reason the video does not play when I try to stream it?
+
+One of the most common reasons is you do not have the streaming endpoint from which you are trying to play back in the Running state.
 
 ### How does pagination work?
 
@@ -123,7 +131,13 @@ Often, customers invested in a license server farm either in their own data cent
 
 ### Can I use the Azure portal to manage v3 resources?
 
-You can use the [Azure portal](https://portal.azure.com/) to manage v3 [Live Events](live-events-outputs-concept.md), view v3 [Assets](assets-concept.md), get info about accessing APIs. For all other management tasks (for example, Transforms and Jobs), use the [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), or one of the supported [SDKs](media-services-apis-overview.md#sdks).
+Currently, you can use the [Azure portal](https://portal.azure.com/) to:
+
+* manage Media Services v3 [Live Events](live-events-outputs-concept.md), 
+* view (not manage) v3 [Assets](assets-concept.md), 
+* [get info about accessing APIs](access-api-portal.md). 
+
+For all other management tasks (for example, [Transforms and Jobs](transforms-jobs-concept.md) and [Content protection](content-protection-overview.md)), use the [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), or one of the supported [SDKs](media-services-apis-overview.md#sdks).
 
 ### Is there an AssetFile concept in v3?
 
