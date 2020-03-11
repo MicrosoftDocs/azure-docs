@@ -80,7 +80,7 @@ Azure CDN from Microsoft Service currently provides Raw logs (batched hourly). R
 | Cache Status          | Signifies if the object was returned from cache or came from the origin.                                                                                                             |
 
 ## Next Steps
-In this article you enabled HTTP raw logs for the Microsoft CDN service.
+In this article, you enabled HTTP raw logs for the Microsoft CDN service.
 
 Learn more about:
 
