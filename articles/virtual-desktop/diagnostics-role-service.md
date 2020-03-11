@@ -8,6 +8,7 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 03/10/2020
 ms.author: helohr
+manager: lizross
 ---
 # Identify and diagnose issues
 
