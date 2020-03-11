@@ -10,7 +10,8 @@ ms.date: 11/21/2019
 ---
 
 > [!NOTE]
-> For devices that are deployed inside of on-premises networks, Azure IoT Hub supports VNET integration with private links connectivity. See [IoT Hub Support for VNET's](./iot-hub-vnet-support.md#ingress-connectivity-to-iot-hub-using-private-endpoints) for more information.
+> For devices that are deployed inside of on-premises networks, Azure IoT Hub supports VNET  connectivity integration with private endpoints. See [IoT Hub support for VNET's](./iot-hub-vnet-support.md#ingress-connectivity-to-iot-hub-using-private-endpoints) for more information.
+
 
 # IoT Hub IP addresses
 
