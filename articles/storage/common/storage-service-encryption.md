@@ -108,7 +108,7 @@ Rotating the key does not trigger re-encryption of data in the storage account. 
 
 ### Revoke access to customer-managed keys
 
-You can revoke the storage account's access to the customer-managed key at any time. After access to customer-managed keys is revoked, or after the key has been disabled or deleted, operations that read from or write to a blob or its metadata are not permitted. All other data operations are permitted. The specific operations that are not permitted are:
+You can revoke the storage account's access to the customer-managed key at any time. After access to customer-managed keys is revoked, or after the key has been disabled or deleted, clients cannot call operations that read from or write to a blob or its metadata. Attempts to call any of the following operations will fail with error code 403 (Forbidden) for all users:
 
 - [List Blobs](/rest/api/storageservices/list-blobs), when called with the `include=metadata` parameter on the request URI
 - [Get Blob](/rest/api/storageservices/get-blob)
@@ -128,7 +128,9 @@ You can revoke the storage account's access to the customer-managed key at any t
 - [Put Page From URL](/rest/api/storageservices/put-page-from-url)
 - [Incremental Copy Blob](/rest/api/storageservices/incremental-copy-blob)
 
-After customer-managed keys are revoked for the storage account, calling any of the listed operations will fail with error code 403 (Forbidden) for all users. To call these operations again, restore access to the customer-managed key.
+To call these operations again, restore access to the customer-managed key.
+
+All data operations that are not listed in this section may proceed after customer-managed keys are revoked or a key is disabled or deleted.
 
 To revoke access to customer-managed keys, use [PowerShell](storage-encryption-keys-powershell.md#revoke-customer-managed-keys) or [Azure CLI](storage-encryption-keys-cli.md#revoke-customer-managed-keys).
 
