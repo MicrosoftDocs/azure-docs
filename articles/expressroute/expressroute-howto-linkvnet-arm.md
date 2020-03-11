@@ -175,15 +175,20 @@ The range of *RoutingWeight* is 0 to 32000. The default value is 0.
 ## Configure ExpressRoute FastPath 
 You can enable [ExpressRoute FastPath](expressroute-about-virtual-network-gateways.md) if your ExpressRoute circuit is on [ExpressRoute Direct](expressroute-erdirect-about.md) and your virtual network gateway is Ultra Performance or ErGw3AZ. FastPath improves data path performance such as packets per second and connections per second between your on-premises network and your virtual network. 
 
-> [!NOTE] 
-> If you already have a virtual network connection but haven't enabled FastPath you need to delete the virtual network connection and create a new one. 
-> 
->  
+**Configure FastPath on a new connection**
 
 ```azurepowershell-interactive 
 $circuit = Get-AzExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG" 
 $gw = Get-AzVirtualNetworkGateway -Name "MyGateway" -ResourceGroupName "MyRG" 
 $connection = New-AzVirtualNetworkGatewayConnection -Name "MyConnection" -ResourceGroupName "MyRG" -ExpressRouteGatewayBypass -VirtualNetworkGateway1 $gw -PeerId $circuit.Id -ConnectionType ExpressRoute -Location "MyLocation" 
+``` 
+
+**Updating an existing connection to enable FastPath**
+
+```azurepowershell-interactive 
+$connection = Get-AzVirtualNetworkGatewayConnection -Name "MyConnection" -ResourceGroupName "MyRG" 
+$connection.ExpressRouteGatewayBypass = $True
+Set-AzVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connection
 ``` 
 
 ## Next steps

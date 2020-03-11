@@ -3,7 +3,7 @@ title: Create diagnostic setting to collect logs and metrics in Azure
 description: Create diagnostic settings to forward Azure platform logs to Azure Monitor Logs, Azure storage, or Azure Event Hubs.
 author: bwren
 services: azure-monitor
-ms.service: azure-monitor
+
 ms.topic: conceptual
 ms.date: 12/18/2019
 ms.author: bwren

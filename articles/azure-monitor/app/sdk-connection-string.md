@@ -1,8 +1,6 @@
 ---
 title: Connection strings in Azure Application Insights | Microsoft Docs
 description: How to use connection strings.
-ms.service:  azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: timothymothra
 ms.author: tilee

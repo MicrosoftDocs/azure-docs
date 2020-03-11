@@ -270,4 +270,3 @@ To learn more about Security Center, see the following:
 - [Setting security policies](tutorial-security-policy.md) — Learn how to configure security policies for your Azure subscriptions and resource groups.
 - [Managing security recommendations](security-center-recommendations.md) — Learn how recommendations help you protect your Azure resources.
 - [Security health monitoring](security-center-monitoring.md) — Learn how to monitor the health of your Azure resources.
-- [Azure Security Center FAQ](security-center-faq.md) — Find frequently asked questions about using the service.

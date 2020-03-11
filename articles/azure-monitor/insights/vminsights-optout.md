@@ -1,7 +1,6 @@
 ---
 title: Disable monitoring in Azure Monitor for VMs (preview) | Microsoft Docs
 description: This article describes how to stop monitoring your virtual machines in Azure Monitor for VMs.
-ms.service:  azure-monitor
 ms.subservice: 
 ms.topic: conceptual
 author: bwren

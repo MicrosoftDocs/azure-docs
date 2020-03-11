@@ -46,6 +46,8 @@
     href: select-columns-transform.md
   - name: Select Columns in Dataset
     href: select-columns-in-dataset.md
+  - name: Split Data
+    href: split-data.md
 - name: Feature selection
   items:
   - name: Filter Based Feature Selection

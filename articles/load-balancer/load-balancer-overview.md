@@ -27,9 +27,9 @@ A **[public load balancer](./concepts-limitations.md#publicloadbalancer)** can p
 
 An **[internal (or private) load balancer](./concepts-limitations.md#internalloadbalancer)** is used where private IPs are needed at the frontend only. Internal load balancers are used to load balance traffic inside a virtual network. A load balancer frontend can be accessed from an on-premises network in a hybrid scenario.
 
-<div align="center">
-  <img src='./media/load-balancer-overview/IC744147.png'>
-</div>
+<p align="center">
+  <img src="./media/load-balancer-overview/load-balancer.svg" width="512" title="Azure Load Balancer">
+</p>
 
 *Figure: Balancing multi-tier applications by using both public and internal Load Balancer*
 
@@ -68,7 +68,7 @@ Key scenarios that you can accomplish using Standard Load Balancer include:
 
 ### <a name="securebydefault"></a>Secure by default
 
-Standard Load Balancer is built on the zero trust network security model at its core. Standard Load Balancer secure by default and is part of your virtual network. The virtual network is a private and isolated network.  This means Standard Load Balancers and Standard Public IP addresses are closed to inbound flows unless opened by Network Security Groups. NSGs are used to explicitly permit and whitelist allowed traffic.  If you do not have an NSG on a subnet or NIC of your virtual machine resource, traffic is not allowed to reach this resource. To learn more about NSGs and how to apply them for your scenario, see [Network Security Groups](../virtual-network/security-overview.md).
+Standard Load Balancer is built on the zero trust network security model at its core. Standard Load Balancer secure by default and is part of your virtual network. The virtual network is a private and isolated network.  This means Standard Load Balancers and Standard Public IP addresses are closed to inbound flows unless opened by Network Security Groups. NSGs are used to explicitly permit allowed traffic.  If you do not have an NSG on a subnet or NIC of your virtual machine resource, traffic is not allowed to reach this resource. To learn more about NSGs and how to apply them for your scenario, see [Network Security Groups](../virtual-network/security-overview.md).
 Basic Load Balancer is open to the internet by default.
 
 

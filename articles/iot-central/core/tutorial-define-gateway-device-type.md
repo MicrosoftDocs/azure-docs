@@ -202,4 +202,4 @@ In this tutorial, you learned how to:
 Next, you can:
 
 > [!div class="nextstepaction"]
-> [Connect a device](tutorial-connect-pnp-device.md)
+> [Connect a device](tutorial-connect-device.md)

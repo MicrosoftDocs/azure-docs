@@ -26,19 +26,19 @@ The following steps show how to create a Java function using the Azure CLI:
 
 1. Create a resource group, replacing the **&lt;resource_group>** placeholder with your resource group name.
 
-    ```cli
+    ```azurecli
     az group create --name <resource_group> --location eastus
     ```
 
 1. Create an Azure storage account, replacing the placeholders with the appropriate values.
  
-    ```cli
+    ```azurecli
     az storage account create --name <storage_account> --location eastus --resource-group <resource_group> --sku Standard_LRS    
     ```
 
 1. Create the test function app, replacing the placeholders with the appropriate values.
 
-    ```cli
+    ```azurecli
     az functionapp create --resource-group <resource_group> --consumption-plan-location eastus --name <function_app> --storage-account <storage_account>
     ```
 
@@ -144,7 +144,7 @@ It's now time to run the Jenkins job.
 If you're not going to continue to use this application, delete
 the resources you created with the following step:
 
-```cli
+```azurecli
 az group delete -y --no-wait -n <resource_group>
 ```
 

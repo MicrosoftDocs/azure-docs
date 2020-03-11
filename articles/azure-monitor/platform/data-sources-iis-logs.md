@@ -1,7 +1,6 @@
 ---
 title: IIS logs in Azure Monitor | Microsoft Docs
 description: Internet Information Services (IIS) stores user activity in log files that can be collected by Azure Monitor.  This article describes how to configure collection of IIS logs and details of the records they create in Azure Monitor.
-ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
