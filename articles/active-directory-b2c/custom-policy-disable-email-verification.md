@@ -34,10 +34,10 @@ The **LocalAccountSignUpWithLogonEmail** technical profile is a [self-asserted](
     <TechnicalProfile Id="SelfAsserted-LocalAccountSignin-Email">
       <Metadata>
         <Item Key="EnforceEmailVerification">false</Item>
-        </Metadata>
-      </TechnicalProfile>
-    </TechnicalProfiles>
-  </ClaimsProvider>
+      </Metadata>
+    </TechnicalProfile>
+  </TechnicalProfiles>
+</ClaimsProvider>
 ```
 
 ## Test the custom policy
