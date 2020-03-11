@@ -17,7 +17,7 @@ metadata:
 
 landingContent:
   # Card
-  - title: About Microsoft Genomics
+  - title: Get started
     linkLists:
       - linkListType: overview
         links:
