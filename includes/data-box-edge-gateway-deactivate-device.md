@@ -10,7 +10,7 @@ To reset your device, you need to securely wipe out all the data on the data dis
 
 Use the `Reset-HcsAppliance` cmdlet to wipe out both the data disks and the boot disk or just the data disks. The `ClearData` and `BootDisk` switches allow you to wipe the data disks and the boot disk respectively.
 
-The `BootDisk` switch wipes the boot disk and makes the device unusable. It should only be used when the device needs to be returned to Microsoft. For more information, see [Return the device to Microsoft](https://docs.microsoft.com/azure/databox-online/data-box-edge-return-device).
+The `BootDisk` switch wipes the boot disk and makes the device unusable. It should be used only when the device needs to be returned to Microsoft. For more information, see [Return the device to Microsoft](https://docs.microsoft.com/azure/databox-online/data-box-edge-return-device).
 
 If you use the device reset in the local web UI, only the data disks are securely wiped but the boot disk is kept intact. The boot disk contains the device configuration.
 
