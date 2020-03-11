@@ -16,6 +16,8 @@ ms.subservice: B2C
 
 # Disable email verification during customer sign-up in Azure Active Directory B2C
 
+[!INCLUDE [disable email verification intro](../../includes/active-directory-b2c-disable-email-verification.md)]
+
 Follow these steps to disable email verification:
 
 1. Sign in to the [Azure portal](https://portal.azure.com)
