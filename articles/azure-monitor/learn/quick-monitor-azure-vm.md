@@ -6,7 +6,7 @@ ms. subservice: logs
 ms.topic: quickstart
 author: bwren
 ms.author: bwren
-ms.date: 12/15/2019
+ms.date: 03/10/2020
 ---
 
 # Quickstart: Monitor an Azure virtual machine with Azure Monitor
@@ -66,16 +66,6 @@ When you create a new Log Analytics workspace, it needs to be configured to coll
 
 5. Select **Save** at the top of the page to save the configuration.
 
-6. Select **Windows Performance Data** to enable collection of performance counters on a Windows computer.
-
-7. When you first configure Windows Performance counters for a new Log Analytics workspace, you are given the option to quickly create several common counters. They are listed with a checkbox next to each.
-
-    ![Default Windows performance counters selected](media/quick-collect-azurevm/windows-perfcounters-default.png)
-
-    Select **Add the selected performance counters**.  They are added and preset with a ten second collection sample interval.
-  
-8. Select **Save** at the top of the page to save the configuration.
-
 ### Data collection from Linux VM
 
 1. Select **Syslog**.  
@@ -85,17 +75,6 @@ When you create a new Log Analytics workspace, it needs to be configured to coll
 3. In the table, deselect the severities **Info**, **Notice** and **Debug**. 
 
 4. Select **Save** at the top of the page to save the configuration.
-
-5. Select **Linux Performance Data** to enable collection of performance counters on a Linux computer. 
-
-6. When you first configure Linux Performance counters for a new Log Analytics workspace, you are given the option to quickly create several common counters. They are listed with a checkbox next to each.
-
-    ![Default Windows performance counters selected](media/quick-collect-azurevm/linux-perfcounters-azure-monitor.png)
-
-    Select **Apply below configuration to to my machines** and then select **Add the selected performance counters**.  They are added and preset with a ten second collection sample interval.  
-
-7. Select **Save** at the top of the page to save the configuration.
-
 
 ## View data collected
 
