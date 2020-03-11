@@ -85,9 +85,9 @@ Node Redis and IORedis use TLS 1.2 by default.
 
 ### PHP
 #### Predis
- < PHP 7 Predis supports only TLS 1.0. Does not work with TLS 1.2, you need to upgrade.
+ For versions less than PHP 7 Predis supports only TLS 1.0. These do not work with TLS 1.2, you need to upgrade.
  
- PHP 7.0 to PHP 7.2.1 -> Predis uses only TLS 1.0 or 1.1 by default. You can use the workaround below to use TLS 1.2.
+ PHP 7.0 to PHP 7.2.1: Predis uses only TLS 1.0 or 1.1 by default. You can use the workaround below to use TLS 1.2.
  Specify TLS 1.2 when you create the client instance:
 
 ``` PHP
