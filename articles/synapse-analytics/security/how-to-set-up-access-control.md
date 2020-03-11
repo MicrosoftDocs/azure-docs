@@ -110,12 +110,12 @@ Now, ask users in each role to follow the steps below.
 | --- | --- | --- | --- | --- |
 | 1 | Upload a parquet file into CNT1 | YES | YES | YES |
 | 2 | Read the parquet file using SQL on demand | YES | NO | YES |
-| 3 | Create an Apache Spark pool | YES [1] | YES [1] | NO  |
+| 3 | Create a Spark pool | YES [1] | YES [1] | NO  |
 | 4 | Reads the parquet file with a Notebook | YES | YES | NO |
 | 5 | Create a pipeline from the Notebook and Trigger the pipeline to run now | YES | NO | NO |
 | 6 | Create a SQL Pool and run a SQL script such as &quot;SELECT 1&quot; | YES [1] | NO | YES[1] |
 
-[1] Note, to create SQL or Apache Spark pools the user must have at least Contributor role on the Synapse workspace.
+[1] Note, to create SQL or Spark pools the user must have at least Contributor role on the Synapse workspace.
 
 ## STEP 8: Network Security
 

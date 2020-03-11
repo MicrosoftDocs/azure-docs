@@ -1,6 +1,6 @@
 ---
 title: Tutorial - Azure Toolkit for IntelliJ (Spark application)
-description: Tutorial - Use the Azure Toolkit for IntelliJ to develop Spark applications, which are written in Scala, and submit them to an Apache Spark pool.
+description: Tutorial - Use the Azure Toolkit for IntelliJ to develop Spark applications, which are written in Scala, and submit them to a Spark pool.
 services: synapse-analytics 
 author: v-jiche
 ms.author: v-jiche
@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 03/20/2020
 ---
 
-# Tutorial: Use Azure Toolkit for IntelliJ to create Apache Spark applications for Apache Spark pools
+# Tutorial: Use Azure Toolkit for IntelliJ to create Apache Spark applications for Spark pools
 
-This tutorial demonstrates how to use the Azure Toolkit for IntelliJ plug-in to develop Apache Spark applications, which are written in [Scala](https://www.scala-lang.org/), and then submit them to an Apache Spark pool directly from the IntelliJ integrated development environment (IDE). You can use the plug-in in a few ways:
+This tutorial demonstrates how to use the Azure Toolkit for IntelliJ plug-in to develop Apache Spark applications, which are written in [Scala](https://www.scala-lang.org/), and then submit them to a Spark pool directly from the IntelliJ integrated development environment (IDE). You can use the plug-in in a few ways:
 
-- Develop and submit a Scala Spark application on an Apache Spark pool.
-- Access your Apache Spark pools resources.
+- Develop and submit a Scala Spark application on a Spark pool.
+- Access your Spark pools resources.
 - Develop and run a Scala Spark application locally.
 
 In this tutorial, you learn how to:
@@ -23,7 +23,7 @@ In this tutorial, you learn how to:
 >
 > - Use the Azure Toolkit for IntelliJ plug-in
 > - Develop Apache Spark applications
-> - Submit application to Apache Spark pools
+> - Submit application to Spark pools
 
 ## Prerequisites
 
@@ -36,7 +36,7 @@ In this tutorial, you learn how to:
   While you're running the local Spark Scala application on a Windows computer, you might get an exception, as explained in [SPARK-2356](https://issues.apache.org/jira/browse/SPARK-2356). The exception occurs because WinUtils.exe is missing on Windows.
   To resolve this error, download the [WinUtils executable](http://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe) to a location such as **C:\WinUtils\bin**. Then, add the environment variable **HADOOP_HOME**, and set the value of the variable to **C:\WinUtils**.
 
-## Create a Spark Scala application for an Apache Spark pool
+## Create a Spark Scala application for a Spark pool
 
 1. Start IntelliJ IDEA, and select **Create New Project** to open the **New Project** window.
 2. Select **Apache Spark/HDInsight** from the left pane.
@@ -75,9 +75,9 @@ In this tutorial, you learn how to:
 
    ![Commands for creating a Scala class from Project](./media/intellij-tool-synapse/select-run-file.png)
 
-## Connect to your Apache Spark pools
+## Connect to your Spark pools
 
-Sign in to Azure subscription to connect to your Apache Spark pools.
+Sign in to Azure subscription to connect to your Spark pools.
 
 ### Sign in to your Azure subscription
 
@@ -113,11 +113,11 @@ Sign in to Azure subscription to connect to your Apache Spark pools.
 
     ![IntelliJ IDEA Azure Explorer main view](./media/intellij-tool-synapse/azure-explorer-workspace.png)
 
-9. To view the Apache Spark pools, you can further expand a workspace.
+9. To view the Spark pools, you can further expand a workspace.
 
     ![Azure Explorer storage accounts](./media/intellij-tool-synapse/azure-explorer-pool.png)
 
-## Remote Run a Spark Scala application on an Apache Spark pool
+## Remote Run a Spark Scala application on a Spark pool
 
 After creating a Scala application, you can remote run it.
 
@@ -133,7 +133,7 @@ After creating a Scala application, you can remote run it.
 
     |Property |Value |
     |----|----|
-    |Apache Spark pools|Select the Apache Spark pools on which you want to run your application.|
+    |Spark pools|Select the Spark pools on which you want to run your application.|
     |Select an Artifact to submit|Leave default setting.|
     |Main class name|The default value is the main class from the selected file. You can change the class by selecting the ellipsis(**...**) and choosing another class.|
     |Job configurations|You can change the default key and values. For more information, see [Apache Livy REST API](https://livy.incubator.apache.org./docs/latest/rest-api.html).|
@@ -147,7 +147,7 @@ After creating a Scala application, you can remote run it.
 
     ![The Spark Submission dialog box](./media/intellij-tool-synapse/create-synapse-configuration03.png)
 
-4. Click **SparkJobRun** icon to submit your project to the selected Apache Spark pool. The **Remote Spark Job in Cluster** tab displays the job execution progress at the bottom. You can stop the application by clicking the red run button.
+4. Click **SparkJobRun** icon to submit your project to the selected Spark pool. The **Remote Spark Job in Cluster** tab displays the job execution progress at the bottom. You can stop the application by clicking the red run button.
 
     ![Apache Spark Submission window](./media/intellij-tool-synapse/remotely-run-synapse.png)
 
@@ -244,7 +244,7 @@ It's only supported on IntelliJ 2018.2 and 2018.3.
 
     |Property |Value |
     |----|----|
-    |Apache Spark pools|Select the Apache Spark pools on which you want to run your application.|
+    |Spark pools|Select the Spark pools on which you want to run your application.|
     ||
 
     ![Interactive Console Set Configuration](./media/intellij-tool-synapse/interactive-console-configuration.png)

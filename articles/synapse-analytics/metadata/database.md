@@ -13,11 +13,11 @@ ms.reviewer: jrasnick
 
 # Azure Synapse Analytics shared database
 
-Azure Synapse Analytics allows the different computational engines of a workspace to share databases and tables between its Apache Spark pools, SQL on-demand engine, and SQL pools.
+Azure Synapse Analytics allows the different computational engines of a workspace to share databases and tables between its Spark pools, SQL on-demand engine, and SQL pools.
 
 [!INCLUDE [synapse-analytics-preview-terms](../../../includes/synapse-analytics-preview-terms.md)]
 
-Once a database has been created with a Spark job, that database will become visible as a database with that same name to all current and future Apache Spark pools in the workspace as well as the SQL on-demand engine.
+Once a database has been created with a Spark job, that database will become visible as a database with that same name to all current and future Spark pools in the workspace as well as the SQL on-demand engine.
 
 If there are SQL pools in the workspace that have their metadata synchronization enabled or if a new SQL pool is being created with the metadata synchronization enabled, these Spark created databases will be mapped automatically into special schemas in the SQL pool database. Each such schema is named after the Spark database name with an additional `$` prefix. Both the external and managed tables in the Spark-generated database are exposed as external tables in the corresponding special schema.
 
@@ -29,7 +29,7 @@ Since the databases are synchronized to SQL on-demand and the SQL pools asynchro
 
 [!INCLUDE [synapse-analytics-preview-features](../../../includes/synapse-analytics-preview-features.md)]
 
-Use Spark to manage Spark created databases. For example, delete it through an Apache Spark pool job, and create tables in it from Spark.
+Use Spark to manage Spark created databases. For example, delete it through a Spark pool job, and create tables in it from Spark.
 
 If you create objects in such a database from SQL on-demand or try to drop the database, the operation will succeed, but the original Spark database will not be changed.
 

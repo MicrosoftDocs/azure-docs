@@ -13,7 +13,7 @@ ms.reviewer: jrasnick, carlrab
 
 # Quickstart: Create a new Apache Spark pool
 
-Synapse Analytics offers various analytics engines to help you ingest, transform, model, analyze, and serve your data. an Apache Spark pool offers open-source big data compute capabilities. After creating an Apache Spark pool in your Synapse workspace, data can be loaded, modeled, processed, and served to obtain insights.
+Synapse Analytics offers various analytics engines to help you ingest, transform, model, analyze, and serve your data. An Apache Spark pool offers open-source big data compute capabilities. After creating an Apache Spark pool in your Synapse workspace, data can be loaded, modeled, processed, and served to obtain insights.
 
 In this quickstart, you learn how to use the Azure portal to create an Apache Spark pool in a Synapse workspace.
 

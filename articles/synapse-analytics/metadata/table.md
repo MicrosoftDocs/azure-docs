@@ -15,9 +15,9 @@ ms.reviewer: jrasnick
 
 [!INCLUDE [synapse-analytics-preview-terms](../../../includes/synapse-analytics-preview-terms.md)]
 
-Azure Synapse Analytics allows the different computational engines of a workspace to share databases and Parquet-backed tables between its Apache Spark pools, SQL on-demand engine, and SQL pools.
+Azure Synapse Analytics allows the different computational engines of a workspace to share databases and Parquet-backed tables between its Spark pools, SQL on-demand engine, and SQL pools.
 
-Once a database has been created by a Spark job, you can create tables in it with Spark that use Parquet as the storage format. These tables will immediately become available to be queried by any of the Azure Synapse workspace Apache Spark pools and can be used from any of the Spark jobs subject to permissions.
+Once a database has been created by a Spark job, you can create tables in it with Spark that use Parquet as the storage format. These tables will immediately become available to be queried by any of the Azure Synapse workspace Spark pools and can be used from any of the Spark jobs subject to permissions.
 
 The Spark created, managed, and external tables are also made available as external tables with the same name in the corresponding synchronized database in SQL on-demand and in the corresponding `$`-prefixed schemas in the SQL pools that have their metadata synchronization enabled. [Exposing a Spark table in SQL](#exposing-a-spark-table-in-sql) provides more detail on the table synchronization.
 
@@ -29,7 +29,7 @@ Mapping of tables to external tables, data sources and file formats.
 
 [!INCLUDE [synapse-analytics-preview-features](../../../includes/synapse-analytics-preview-features.md)]
 
-Use Spark to manage Spark created databases. For example, delete it through an Apache Spark pool job, and create tables in it from Spark.
+Use Spark to manage Spark created databases. For example, delete it through a Spark pool job, and create tables in it from Spark.
 
 If you create objects in such a database from SQL on-demand or try to drop the database, the operation will succeed, but the original Spark database will not be changed.
 
