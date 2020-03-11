@@ -96,7 +96,7 @@ Use the [mysql command-line tool](https://dev.mysql.com/doc/refman/5.7/en/mysql.
 
 Enter the command to connect:
 
-```cmd
+```bash
 mysql -h mydemoserver.mariadb.database.azure.com -u myadmin@mydemoserver -p
 ```
 

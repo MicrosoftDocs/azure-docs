@@ -110,7 +110,7 @@ You can deploy a model as a web service on FPGAs with Azure Machine Learning Har
  
 - The Python SDK for hardware-accelerated models:
 
-    ```cmd
+    ```bash
     pip install --upgrade azureml-accel-models
     ```
 

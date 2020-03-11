@@ -19,12 +19,12 @@ ms.date: 09/26/2019
 
 1. Clone [the GitHub repository](https://aka.ms/aml-notebooks).
 
-    ```cmd
+    ```bash
     git clone https://github.com/Azure/MachineLearningNotebooks.git
     ```
 
 1. Start the notebook server from your cloned directory.
 
-    ```cmd
+    ```bash
     jupyter notebook
     ```

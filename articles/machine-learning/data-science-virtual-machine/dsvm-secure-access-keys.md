@@ -45,7 +45,7 @@ az keyvault set-policy --object-id <Principal ID of the DSVM from previous step>
 
 ## Access a secret in the key vault from the DSVM
 
-```cmd
+```bash
 # Get the access token for the VM.
 x=`curl http://localhost:50342/oauth2/token --data "resource=https://vault.azure.net" -H Metadata:true`
 token=`echo $x | python -c "import sys, json; print(json.load(sys.stdin)['access_token'])"`
@@ -56,7 +56,7 @@ curl https://<Vault Name>.vault.azure.net/secrets/SQLPasswd?api-version=2016-10-
 
 ## Access storage keys from the DSVM
 
-```cmd
+```bash
 # Prerequisite: You have granted your VMs MSI access to use storage account access keys based on instructions at https://docs.microsoft.com/azure/active-directory/managed-service-identity/tutorial-linux-vm-access-storage. This article describes the process in more detail.
 
 y=`curl http://localhost:50342/oauth2/token --data "resource=https://management.azure.com/" -H Metadata:true`

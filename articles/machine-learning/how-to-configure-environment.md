@@ -112,13 +112,13 @@ To use the DSVM as a development environment:
 
     * For Ubuntu DSVM:
 
-        ```cmd
+        ```bash
         conda activate py36
         ```
 
     * For Windows DSVM:
 
-        ```cmd
+        ```bash
         conda activate AzureML
         ```
 
@@ -143,13 +143,13 @@ When you're using a local computer (which might also be a remote virtual machine
 
     Run the following command to create the environment.
 
-    ```cmd
+    ```bash
     conda create -n myenv python=3.6.5
     ```
 
     Then activate the environment.
 
-    ```cmd
+    ```bash
     conda activate myenv
     ```
 
@@ -157,13 +157,13 @@ When you're using a local computer (which might also be a remote virtual machine
 
 1. Run the following commands in your new environment to enable environment-specific IPython kernels. This will ensure expected kernel and package import behavior when working with Jupyter Notebooks within Anaconda environments:
 
-    ```cmd
+    ```bash
     conda install notebook ipykernel
     ```
 
     Then run the following command to create the kernel:
 
-    ```cmd
+    ```bash
     ipython kernel install --user --name myenv --display-name "Python (myenv)"
     ```
 
@@ -171,7 +171,7 @@ When you're using a local computer (which might also be a remote virtual machine
 
     This command installs the base Azure Machine Learning SDK with notebook and `automl` extras. The `automl` extra is a large install, and can be removed from the brackets if you don't intend to run automated machine learning experiments. The `automl` extra also includes the Azure Machine Learning Data Prep SDK by default as a dependency.
 
-    ```cmd
+    ```bash
     pip install azureml-sdk[notebooks,automl]
     ```
 
@@ -190,13 +190,13 @@ When you're using a local computer (which might also be a remote virtual machine
 
     Use either of the following commands and replace *\<new package>* with the package you want to install. Installing packages via `conda install` requires that the package is part of the current channels (new channels can be added in Anaconda Cloud).
 
-    ```cmd
+    ```bash
     conda install <new package>
     ```
 
     Alternatively, you can install packages via `pip`.
 
-    ```cmd
+    ```bash
     pip install <new package>
     ```
 
@@ -210,19 +210,19 @@ To enable these components in your Jupyter Notebook environment:
 
 1. Open an Anaconda prompt and activate your environment.
 
-    ```cmd
+    ```bash
     conda activate myenv
     ```
 
 1. Clone [the GitHub repository](https://aka.ms/aml-notebooks) for a set of sample notebooks.
 
-    ```cmd
+    ```bash
     git clone https://github.com/Azure/MachineLearningNotebooks.git
     ```
 
 1. Launch the Jupyter Notebook server with the following command:
 
-    ```cmd
+    ```bash
     jupyter notebook
     ```
 
