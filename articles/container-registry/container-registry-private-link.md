@@ -370,7 +370,8 @@ To clean up your resources in the portal, navigate to your resource group. Once 
 * To learn more about Private Link, see the [Azure Private Link](../private-link/private-link-overview.md) documentation.
 * An alternative to private link is to set up network access rules to restrict registry access. To learn more, see [Restrict access to an Azure container registry using an Azure virtual network or firewall rules](container-registry-vnet.md).
 
-<!-- LINKS - External -->
+<!-- LINKS - external -->
+[terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms
 [docker-linux]: https://docs.docker.com/engine/installation/#supported-platforms
 [docker-login]: https://docs.docker.com/engine/reference/commandline/login/
 [docker-mac]: https://docs.docker.com/docker-for-mac/
