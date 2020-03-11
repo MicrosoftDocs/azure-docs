@@ -30,7 +30,7 @@ Microsoft identity platform is an evolution of the Azure Active Directory (Azure
   - Social or local accounts (via Azure AD B2C)
 - **Open-source libraries**: Microsoft Authentication Libraries (MSAL) and support for other standards-compliant libraries
 - **Application management portal**: A registration and configuration experience built in the Azure portal, along with all your other Azure management capabilities.
-- **Application configuration API and PowerShell**: which allows programmatic configuration of your applications through REST API (Microsoft Graph and Azure Active Directory Graph 1.6) and PowerShell, so you can automate your DevOps tasks.
+- **Application configuration API and PowerShell**: which allows programmatic configuration of your applications through the Microsoft Graph API and PowerShell, so you can automate your DevOps tasks.
 - **Developer content**: conceptual and reference documentation, quickstart samples, code samples, tutorials, and how-to guides.
 
 For developers, Microsoft identity platform offers seamless integration into innovations in the identity and security space, such as passwordless authentication, step-up authentication, and Conditional Access.  You don’t need to implement such functionality yourself: applications integrated with the Microsoft identity platform natively take advantage of such innovations.
@@ -39,7 +39,11 @@ With Microsoft identity platform, you can write code once and reach any user. Yo
 
 ## Getting started
 
-Working with identity doesn’t have to be hard. Choose a [scenario](authentication-flows-app-scenarios.md) that applies to you— each scenario path has a quickstart and an overview page to get you up and running in minutes:
+Working with identity doesn’t have to be hard. 
+
+Watch a [Microsoft identity platform video](identity-videos.md) to learn the basics. 
+
+Choose a [scenario](authentication-flows-app-scenarios.md) that applies to you— each scenario path has a quickstart and an overview page to get you up and running in minutes:
 
 - [Build a single-page app](scenario-spa-overview.md)
 - [Build a web app that signs in users](scenario-web-app-sign-user-overview.md)

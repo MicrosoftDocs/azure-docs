@@ -5,11 +5,11 @@ description: Follow this example build a no-code classifier to predict income wi
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: sample
 author: likebupt
 ms.author: keli19
 ms.reviewer: peterlu
-ms.date: 12/25/2019
+ms.date: 02/22/2020
 ---
 # Build a classifier & use feature selection to predict income with Azure Machine Learning designer
 
@@ -19,7 +19,7 @@ ms.date: 12/25/2019
 
 Learn how to build a machine learning classifier without writing a single line of code using the designer (preview). This sample trains a **two-class boosted decision tree** to predict adult census income (>=50K or <=50K).
 
-Because the question is answering "Which one?" this is called a classification problem. However, you can apply the same fundamental process to tackle any type of machine learning problem - regression, classification, clustering, and so on.
+Because the question is answering "Which one?", this is called a classification problem. However, you can apply the same fundamental process to tackle any type of machine learning problem - regression, classification, clustering, and so on.
 
 Here's the final pipeline graph for this sample:
 
@@ -46,7 +46,7 @@ Follow these steps to create the pipeline:
 
 1. Drag the Adult Census Income Binary dataset module into the pipeline canvas.
 1. Add a **Split Data** module to create the training and test sets. Set the fraction of rows in the first output dataset to 0.7. This setting specifies that 70% of the data will be output to the left port of the module and the rest to the right port. We use the left dataset for training and the right one for testing.
-1. Add the **Filter Based Feature Selection** module to select 5 features by PearsonCorreclation. 
+1. Add the **Filter Based Feature Selection** module to select 5 features by PearsonCorrelation. 
 1. Add a **Two-Class Boosted Decision Tree** module to initialize a boosted decision tree classifier.
 1. Add a **Train Model** module. Connect the classifier from the previous step to the left input port of the **Train Model**. Connect the filtered dataset from Filter Based Feature Selection module as training dataset.  The **Train Model** will train the classifier.
 1. Add Select Columns Transformation and Apply Transformation module to apply the same transformation (filtered based feature selection) to test dataset.

@@ -60,11 +60,62 @@ authentication | Authentication method used for calling the endpoint. Supported 
 timeout | How long the activity will wait for the &#39;callBackUri&#39; to be invoked. How long the activity will wait for the ‘callBackUri’ to be invoked. Default value is 10mins (“00:10:00”). Format is Timespan i.e. d.hh:mm:ss | String | No |
 Report status on callback | Allows the user the report the failed status of the webhook activity which will mark the activity as failed | Boolean | No |
 
+## Authentication
+
+Below are the supported authentication types in the webhook activity.
+
+### None
+
+If authentication is not required, do not include the "authentication" property.
+
+### Basic
+
+Specify user name and password to use with the basic authentication.
+
+```json
+"authentication":{
+   "type":"Basic",
+   "username":"****",
+   "password":"****"
+}
+```
+
+### Client certificate
+
+Specify base64-encoded contents of a PFX file and the password.
+
+```json
+"authentication":{
+   "type":"ClientCertificate",
+   "pfx":"****",
+   "password":"****"
+}
+```
+
+### Managed Identity
+
+Specify the resource uri for which the access token will be requested using the managed identity for the data factory. To call the Azure Resource Management API, use `https://management.azure.com/`. For more information about how managed identities works see the [managed identities for Azure resources overview page](/azure/active-directory/managed-identities-azure-resources/overview).
+
+```json
+"authentication": {
+	"type": "MSI",
+	"resource": "https://management.azure.com/"
+}
+```
+
+> [!NOTE]
+> If your data factory is configured with a git repository, you must store your credentials in Azure Key Vault to use basic or client certificate authentication. Azure Data Factory doesn't store passwords in git.
+
 ## Additional notes
 
 Azure Data Factory will pass an additional property “callBackUri” in the body to the url endpoint, and will expect this uri to be invoked before the timeout value specified. If the uri is not invoked, the activity will fail with status ‘TimedOut’.
 
 The webhook activity itself fails when the call to the custom endpoint fails. Any error message can be added into the body of the callback and used in a subsequent activity.
+
+Further for every REST API call the client will timeout if the endpoint doesn't respond in 1 min. This is standard http best practice. 
+To fix this issue, you need to implement 202 pattern in this case where the endpoint will return 202 (Accepted) and the client will poll.
+
+The 1 min timeout on the request doesn't have anything to do with the activity timeout. That will be used to wait for the callbackUri.
 
 The body passed back to the callback URI should be valid JSON. You must set the Content-Type header to `application/json`.
 

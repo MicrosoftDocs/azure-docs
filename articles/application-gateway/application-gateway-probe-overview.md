@@ -5,7 +5,7 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 01/28/2020
+ms.date: 02/20/2020
 ms.author: victorh
 ---
 
@@ -96,9 +96,11 @@ The following table provides definitions for the properties of a custom health p
 
 ## NSG considerations
 
-If there's a network security group (NSG) on an application gateway subnet, port ranges 65503-65534 must be opened on the application gateway subnet for inbound traffic. These ports are required for the backend health API to work.
+You must allow incoming Internet traffic on TCP ports 65503-65534 for the Application Gateway v1 SKU, and TCP ports 65200-65535 for the v2 SKU with the destination subnet as **Any** and source as **GatewayManager** service tag. This port range is required for Azure infrastructure communication.
 
-Additionally, outbound Internet connectivity can't be blocked, and inbound traffic coming from the AzureLoadBalancer tag must be allowed.
+Additionally, outbound Internet connectivity can't be blocked, and inbound traffic coming from the **AzureLoadBalancer** tag must be allowed.
+
+For more information, see [Application Gateway configuration overview](configuration-overview.md#network-security-groups-on-the-application-gateway-subnet).
 
 ## Next steps
 After learning about Application Gateway health monitoring, you can configure a [custom health probe](application-gateway-create-probe-portal.md) in the Azure portal or a [custom health probe](application-gateway-create-probe-ps.md) using PowerShell and the Azure Resource Manager deployment model.

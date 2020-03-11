@@ -101,7 +101,7 @@ An email notification is also sent with the alert details and recommended action
 
 ## Cosmos DB ATP alerts
 
- To see a list of the alerts generated when monitoring Azure Cosmos DB accounts, see the [Cosmos DB alerts](../security-center/security-center-alerts-data-services.md#cosmos-db) section in the Security Center documentation.
+ To see a list of the alerts generated when monitoring Azure Cosmos DB accounts, see the [Cosmos DB alerts](https://docs.microsoft.com/azure/security-center/alerts-reference#alerts-azurecosmos) section in the Azure Security Center documentation.
 
 ## Next steps
 

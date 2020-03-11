@@ -14,7 +14,7 @@ ms.localizationpriority: high
 # Customer intent: As an IT admin, I need to be able to copy data to Data Box to upload on-premises data from my server onto Azure.
 ---
 
-::: zone target="docs"
+::: zone target="docs" 
 
 # Tutorial: Copy data to Azure Data Box via SMB
 

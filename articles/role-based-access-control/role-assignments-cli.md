@@ -152,7 +152,7 @@ az role assignment create --role "Reader" --assignee annm@example.com --subscrip
 
 ### User at a management group scope
 
-To add a role assignment for a user at a management group scope, use [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create). To get the management group ID, you can find it on the **Management groups** blade in the Azure portal or you can use [az account management-group list](/cli/azure/ext/managementgroups/account/management-group#ext-managementgroups-az-account-management-group-list).
+To add a role assignment for a user at a management group scope, use [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create). To get the management group ID, you can find it on the **Management groups** blade in the Azure portal or you can use [az account management-group list](/cli/azure/account/management-group#az-account-management-group-list).
 
 ```azurecli
 az role assignment create --role <role_name_or_id> --assignee <assignee> --scope /providers/Microsoft.Management/managementGroups/<group_id>
@@ -200,7 +200,7 @@ The following example removes the *Reader* role from the *Ann Mack Team* group w
 az role assignment delete --assignee 22222222-2222-2222-2222-222222222222 --role "Reader" --subscription 00000000-0000-0000-0000-000000000000
 ```
 
-The following example removes the *Billing Reader* role from the *alain\@example.com* user at the management group scope. To get the ID of the management group, you can use [az account management-group list](/cli/azure/ext/managementgroups/account/management-group#ext-managementgroups-az-account-management-group-list).
+The following example removes the *Billing Reader* role from the *alain\@example.com* user at the management group scope. To get the ID of the management group, you can use [az account management-group list](/cli/azure/account/management-group#az-account-management-group-list).
 
 ```azurecli
 az role assignment delete --assignee alain@example.com --role "Billing Reader" --scope /providers/Microsoft.Management/managementGroups/marketing-group

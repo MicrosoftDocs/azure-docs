@@ -26,6 +26,25 @@ To stay up-to-date with the most recent developments, this article provides you 
 * Bug fixes
 * Deprecated functionality
 
+## January 2020
+ 
+### Custom language support for additional languages
+
+Video Indexer now supports custom language models for `ar-SY` , `en-UK`, and `en-AU` (API only).
+ 
+### Delete account timeframe action update
+
+Delete account action now deletes the account within 90 days instead of 48 hours.
+ 
+### New Video Indexer GitHub repository
+
+A new Video Indexer GitHub with different projects, getting started guides and code samples is now available:
+https://github.com/Azure-Samples/media-services-video-indexer
+ 
+### Swagger update
+
+Video Indexer unified **authentications** and **operations** into a single [Video Indexer OpenAPI Specification (swagger)](https://api-portal.videoindexer.ai/docs/services/Operations/export?DocumentFormat=OpenApiJson). Develpers can find the APIs in [Video Indexer Developer Portal](https://api-portal.videoindexer.ai/).
+
 ## December 2019
 
 ### Update transcript with the new API

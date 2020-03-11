@@ -8,7 +8,7 @@ zone_pivot_groups: programming-languages-set-six
 
 # Quickstart: Personalizer client library
 
-Display personalized content in this python quickstart with the Personalizer service.
+Display personalized content in this quickstart with the Personalizer service.
 
 Get started with the Personalizer client library. Follow these steps to install the package and try out the example code for basic tasks.
 
@@ -19,12 +19,12 @@ Get started with the Personalizer client library. Follow these steps to install 
 [!INCLUDE [Get intent with C# SDK](./includes/quickstart-sdk-csharp.md)]
 ::: zone-end
 
-::: zone pivot="programming-language-python"
-[!INCLUDE [Get intent with Python SDK](./includes/quickstart-sdk-python.md)]
+::: zone pivot="programming-language-javascript"
+[!INCLUDE [Get intent with Node.js SDK](./includes/quickstart-sdk-nodejs.md)]
 ::: zone-end
 
-::: zone pivot="programming-language-nodejs"
-[!INCLUDE [Get intent with Node.js SDK](./includes/quickstart-sdk-nodejs.md)]
+::: zone pivot="programming-language-python"
+[!INCLUDE [Get intent with Python SDK](./includes/quickstart-sdk-python.md)]
 ::: zone-end
 
 ## Clean up resources

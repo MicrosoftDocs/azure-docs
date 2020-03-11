@@ -113,7 +113,7 @@ For forecasting tasks, automated machine learning uses pre-processing and estima
 
 The [`AutoMLConfig`](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py) object defines the settings and data necessary for an automated machine learning task. Similar to a regression problem, you define standard training parameters like task type, number of iterations, training data, and number of cross-validations. For forecasting tasks, there are additional parameters that must be set that affect the experiment. The following table explains each parameter and its usage.
 
-| Param | Description | Required |
+| Parameter&nbsp;name | Description | Required |
 |-------|-------|-------|
 |`time_column_name`|Used to specify the datetime column in the input data used for building the time series and inferring its frequency.|✓|
 |`grain_column_names`|Name(s) defining individual series groups in the input data. If grain is not defined, the data set is assumed to be one time-series.||
@@ -181,15 +181,14 @@ See the [forecasting sample notebooks](https://github.com/Azure/MachineLearningN
 ### Configure a DNN enable Forecasting experiment
 
 > [!NOTE]
-> DNN support for forecasting in Automated Machine Learning is in Preview.
+> DNN support for forecasting in Automated Machine Learning is in Preview and not supported for local runs.
 
 In order to leverage DNNs for forecasting, you will need to set the `enable_dnn` parameter in the AutoMLConfig to true. 
 
-In order to use DNNs, we recommend using an AML Compute cluster with GPU SKUs and at least two nodes as the compute target. 
-For more information, see the [AML Compute documentation](how-to-set-up-training-targets.md#amlcompute). 
-See [GPU optimized virtual machine sizes](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu) for more information on the VM sizes that include GPUs.
+We recommend using an AML Compute cluster with GPU SKUs and at least two nodes as the compute target. To allow sufficient time for the DNN training to complete, we recommend setting the experiment timeout to a minimum of a couple of hours.
+For more information on AML compute and VM sizes that include GPU's, see the [AML Compute documentation](how-to-set-up-training-targets.md#amlcompute) and [GPU optimized virtual machine sizes documentation](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu).
 
-To allow sufficient time for the DNN training to complete, we recommend setting the experiment timeout to at least a couple of hours.
+View the [Beverage Production Forecasting notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-beer-remote/auto-ml-forecasting-beer-remote.ipynb) for a detailed code example leveraging DNNs.
 
 ### View feature engineering summary
 

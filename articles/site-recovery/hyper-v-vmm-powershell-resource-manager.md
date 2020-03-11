@@ -214,9 +214,9 @@ To check the completion of the operation, follow the steps in [Monitor activity]
 1. Run this command to retrieve the networks for the source Virtual Machine Manager server and the target Virtual Machine Manager server.
 
    ```azurepowershell
-   $PrimaryNetworks = Get-AzRecoveryServicesAsrNetwork -Name $Servers[0]
+   $PrimaryNetworks = Get-AzRecoveryServicesAsrNetwork -Fabric $Servers[0]
 
-   $RecoveryNetworks = Get-AzRecoveryServicesAsrNetwork -Name $Servers[1]
+   $RecoveryNetworks = Get-AzRecoveryServicesAsrNetwork -Fabric $Servers[1]
    ```
 
    > [!NOTE]

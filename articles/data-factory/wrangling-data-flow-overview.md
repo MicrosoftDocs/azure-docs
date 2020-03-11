@@ -38,9 +38,9 @@ and conform it to a shape for fast analytics.
 
 | Connector | Data format | Authentication type |
 | -- | -- | --|
-| [Azure Blob Storage](connector-azure-blob-storage.md) | CSV | Account Key |
+| [Azure Blob Storage](connector-azure-blob-storage.md) | CSV, Parquet | Account Key |
 | [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md) | CSV | Service Principal |
-| [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | CSV | Account Key, Service Principal |
+| [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | CSV, Parquet | Account Key, Service Principal |
 | [Azure SQL Database](connector-azure-sql-database.md) | - | SQL authentication |
 | [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md) | - | SQL authentication |
 

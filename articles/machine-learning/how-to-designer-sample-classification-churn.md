@@ -5,7 +5,7 @@ description: Follow this classification example to predict churn with Azure Mach
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: sample
 author: likebupt
 ms.author: keli19
 ms.reviewer: sgilley

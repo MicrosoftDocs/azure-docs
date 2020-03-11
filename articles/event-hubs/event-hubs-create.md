@@ -3,13 +3,13 @@ title: Azure Quickstart - Create an event hub using the Azure portal
 description: In this quickstart, you learn how to create an Azure event hub using Azure portal and then send and receive events using .NET Standard SDK.
 services: event-hubs
 documentationcenter: ''
-author: ShubhaVijayasarathy
+author: spelluru
 
 ms.service: event-hubs
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 12/02/2019
-ms.author: shvija
+ms.date: 02/11/2020
+ms.author: spelluru
 #Customer intent: How do I stream data and process telemetry from an event hub? 
 
 ---
@@ -93,11 +93,10 @@ Congratulations! You have used the portal to create an Event Hubs namespace, and
 
 In this article, you created a resource group, an Event Hubs namespace, and an event hub. For step-by-step instructions to send events to (or) receive events from an event hub, see the **Send and receive events** tutorials: 
 
-- [.NET Core](event-hubs-dotnet-standard-getstarted-send.md)
-- [.NET Framework](event-hubs-dotnet-framework-getstarted-send.md)
-- [Java](event-hubs-java-get-started-send.md)
-- [Python](event-hubs-python-get-started-send.md)
-- [Node.js](event-hubs-node-get-started-send.md)
+- [.NET Core](get-started-dotnet-standard-send-v2.md)
+- [Java](get-started-java-send-v2.md)
+- [Python](get-started-python-send-v2.md)
+- [JavaScript](get-started-java-send-v2.md)
 - [Go](event-hubs-go-get-started-send.md)
 - [C (send only)](event-hubs-c-getstarted-send.md)
 - [Apache Storm (receive only)](event-hubs-storm-getstarted-receive.md)

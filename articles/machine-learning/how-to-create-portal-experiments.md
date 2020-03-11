@@ -10,7 +10,7 @@ ms.author: nibaccam
 author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 11/04/2019
+ms.date: 02/04/2020
 
 ---
 
@@ -43,7 +43,7 @@ Otherwise, you'll see a list of your recent automated machine learning experimen
 
 ## Create and run experiment
 
-1. Select **+ Create Experiment** and populate the form.
+1. Select **+ New automated ML run** and populate the form.
 
 1. Select a dataset from your storage container, or create a new dataset. Datasets can be created from local files, web urls, datastores, or Azure open datasets. 
 
@@ -56,7 +56,7 @@ Otherwise, you'll see a list of your recent automated machine learning experimen
 
     1. Give your dataset a unique name and provide an optional description. 
 
-    1. Select **Next**, to upload it to the default storage container that's automatically created with your workspace, or choose a storage container that you want to use for the experiment. 
+    1. Select **Next** to open the **Datastore and file selection form**. On this form you select where to upload your dataset; the default storage container that's automatically created with your workspace, or choose a storage container that you want to use for the experiment. 
 
     1. Review the **Settings and preview** form for accuracy. The form is intelligently populated based on the file type. 
 
@@ -74,7 +74,7 @@ Otherwise, you'll see a list of your recent automated machine learning experimen
             
         Select **Next.**
 
-    1. The **Confirm details** form is a summary of the information previously populated in the **Basic info** and **Settings and preview** forms. You also have the option to profile your dataset using a profiling enabled compute. Learn more about [data profiling](#profile).
+    1. The **Confirm details** form is a summary of the information previously populated in the **Basic info** and **Settings and preview** forms. You also have the option to create a data profile for your dataset using a profiling enabled compute. Learn more about [data profiling](#profile).
 
         Select **Next**.
 1. Select your newly created dataset once it appears. You are also able to view a preview of the dataset and sample statistics. 
@@ -109,16 +109,19 @@ Otherwise, you'll see a list of your recent automated machine learning experimen
 
         1. Select forecast horizon: Indicate how many time units (minutes/hours/days/weeks/months/years) will the model be able to predict to the future. The further the model is required to predict into the future, the less accurate it will become. [Learn more about forecasting and forecast horizon](how-to-auto-train-forecast.md).
 
-1. (Optional) Addition configurations: additional settings you can use to better control the training job. Otherwise, defaults are applied based on experiment selection and data. 
+1. (Optional) View addition configuration settings: additional settings you can use to better control the training job. Otherwise, defaults are applied based on experiment selection and data. 
 
     Additional configurations|Description
     ------|------
     Primary metric| Main metric used for scoring your model. [Learn more about model metrics](how-to-configure-auto-train.md#explore-model-metrics).
-    Automatic featurization| Select to enable or disable the preprocessing done by automated machine learning. Preprocessing includes automatic data cleansing, preparing, and transformation to generate synthetic features. [Learn more about preprocessing](#preprocess).
+    Automatic featurization| Select to enable or disable the preprocessing done by automated machine learning. Preprocessing includes automatic data cleansing, preparing, and transformation to generate synthetic features. Not supported for the time series forecasting task type. [Learn more about preprocessing](#featurization). 
+    Explain best model | Select to enable or disable to show explainability of the recommended best model
     Blocked algorithm| Select algorithms you want to exclude from the training job.
     Exit criterion| When any of these criteria are met, the training job is stopped. <br> *Training job time (hours)*: How long to allow the training job to run. <br> *Metric score threshold*:  Minimum metric score for all pipelines. This ensures that if you have a defined target metric you want to reach, you do not spend more time on the training job than necessary.
     Validation| Select one of the cross validation options to use in the training job. [Learn more about cross validation](how-to-configure-auto-train.md).
-    Concurrency| *Max concurrent iterations*: Maximum number of pipelines (iterations) to test in the training job. The job will not run more than the specified number of iterations. <br> *Max cores per iteration*: Select the multi-core limits you would like to use when using multi-core compute.
+    Concurrency| *Max concurrent iterations*: Maximum number of pipelines (iterations) to test in the training job. The job will not run more than the specified number of iterations.
+
+1. (Optional) View featurization settings: if you choose to enable **Automatic featurization** in the **Additional configuration settings** form, this form is where you specify which columns to perform those featurizations on, and select which statistical value to use for missing value imputations.
 
 <a name="profile"></a>
 
@@ -147,17 +150,13 @@ Skewness| Measure of how different this column's data is from a normal distribut
 Kurtosis| Measure of how heavily tailed this column's data is compared to a normal distribution.
 
 
-<a name="preprocess"></a>
+<a name="featurization"></a>
 
 ## Advanced featurization options
 
-When configuring your experiments, you can enable the advanced setting `feauturization`. 
+Automated machine learning offers preprocessing and data guardrails automatically, to help you identify and manage potential issues with your data. 
 
-|Featurization Configuration | Description |
-| ------------- | ------------- |
-|"feauturization" = 'FeaturizationConfig'| Indicates customized featurization step should be used. [Learn how to customize featurization](how-to-configure-auto-train.md#customize-feature-engineering).|
-|"feauturization" = 'off'| Indicates featurization step should not be done automatically.|
-|"feauturization" = 'auto'| Indicates that as part of preprocessing the following data guardrails and featurization steps are performed automatically.|
+### Preprocessing
 
 |Preprocessing&nbsp;steps| Description |
 | ------------- | ------------- |
@@ -173,7 +172,7 @@ When configuring your experiments, you can enable the advanced setting `feauturi
 
 ### Data guardrails
 
-Automated machine learning offers data guardrails to help you identify potential issues with your data (e.g., missing values, class imbalance) and help take corrective actions for improved results. There are many best practices that are available and can be applied to achieve reliable results. 
+Data guardrails are applied automatically to help you identify potential issues with your data (e.g., missing values, class imbalance) and help take corrective actions for improved results. There are many best practices that are available and can be applied to achieve reliable results. 
 
 The following table describes the currently supported data guardrails, and the associated statuses that users may come across when submitting their experiment.
 
@@ -187,14 +186,11 @@ Time-series data consistency|**Passed** <br><br><br><br> **Fixed** |<br> The sel
 
 ## Run experiment and view results
 
-Select **Start** to run your experiment. The experiment preparing process can take up to 10 minutes. Training jobs can take an additional 2-3 minutes more for each pipeline to finish running.
+Select **Finish** to run your experiment. The experiment preparing process can take up to 10 minutes. Training jobs can take an additional 2-3 minutes more for each pipeline to finish running.
 
 ### View experiment details
 
->[!NOTE]
-> Select **Refresh** periodically to view the status of the run. 
-
-The **Run Detail** screen opens to the **Details** tab. This screen shows you a summary of the experiment run including the **Run status**. 
+The **Run Detail** screen opens to the **Details** tab. This screen shows you a summary of the experiment run including a status bar at the top next to the run number. 
 
 The **Models** tab contains a list of the models created ordered by the metric score. By default, the model that scores the highest based on the chosen metric is at the top of the list. As the training job tries out more models, they are added to the list. Use this to get a quick comparison of the metrics for the models produced so far.
 
@@ -214,18 +210,18 @@ Automated ML helps you with deploying the model without writing code:
 
 1. You have a couple options for deployment. 
 
-    + Option 1: To deploy the best model (according to the metric criteria you defined), select Deploy Best Model from the Details tab.
+    + Option 1: To deploy the best model (according to the metric criteria you defined), select the **Deploy best model** button on the **Details** tab.
 
-    + Option 2: To deploy a specific model iteration from this experiment, drill down on the model to open its Model details tab and select Deploy Model.
+    + Option 2: To deploy a specific model iteration from this experiment, drill down on the model to open its **Model details** tab and select **Deploy model**.
 
-1. Populate the **Deploy Model** pane.
+1. Populate the **Deploy model** pane.
 
     Field| Value
     ----|----
     Name| Enter a unique name for your deployment.
     Description| Enter a description to better identify what this deployment is for.
     Compute type| Select the type of endpoint you want to deploy: *Azure Kubernetes Service (AKS)* or *Azure Container Instance (ACI)*.
-    Name| *Applies to AKS only:* Select the name of the AKS cluster you wish to deploy to.
+    Compute name| *Applies to AKS only:* Select the name of the AKS cluster you wish to deploy to.
     Enable authentication | Select to allow for token-based or key-based authentication.
     Use custom deployment assets| Enable this feature if you want to upload your own scoring script and environment file. [Learn more about scoring scripts](how-to-deploy-and-where.md#script).
 
@@ -240,7 +236,7 @@ Now you have an operational web service to generate predictions! You can test th
 
 ## Next steps
 
-* Try the end to end [tutorial for creating your first automated ML experiment with Azure Machine Learning](tutorial-first-experiment-automated-ml.md). 
+* Try the end to end [tutorial for creating your first automated ML experiment with Azure Machine Learning studio](tutorial-first-experiment-automated-ml.md). 
 * [Learn more about automated machine learning](concept-automated-ml.md) and Azure Machine Learning.
 * [Understand automated machine learning results](how-to-understand-automated-ml.md).
 * [Learn how to consume a web service](https://docs.microsoft.com/azure/machine-learning/how-to-consume-web-service).
