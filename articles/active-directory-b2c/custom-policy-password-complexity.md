@@ -27,7 +27,7 @@ Complete the steps in [Get started with custom policies](custom-policy-get-start
 
 ## Add the elements
 
-To configure the password complexity override `newPassword` and `reenterPassword` [claim types](claimsschema.md) with a reference to [predicates validation](predicates.md#predicatevalidations). The predicate validations group a set of predicates to form a user input validation that can be applied to a claim type. Open the extensions file of your policy. For example, <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em>.
+To configure the password complexity, override the `newPassword` and `reenterPassword` [claim types](claimsschema.md) with a reference to [predicate validations](predicates.md#predicatevalidations). The PredicateValidations element groups a set of predicates to form a user input validation that can be applied to a claim type. Open the extensions file of your policy. For example, <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em>.
 
 1. Search for the [BuildingBlocks](buildingblocks.md) element. If the element doesn't exist, add it.
 1. Locate the [ClaimsSchema](claimsschema.md) element. If the element doesn't exist, add it.
@@ -149,4 +149,4 @@ To configure the password complexity override `newPassword` and `reenterPassword
 ## Next steps
 
 - Learn how to [Configure password change using custom policies in Azure Active Directory B2C](custom-policy-password-change.md).
-- Learn more about the [Predicates](predicates.md) and [PredicateValidation](predicates.md#predicatevalidations)  elements in the IEF reference.
+- - Learn more about the [Predicates](predicates.md) and [PredicateValidations](predicates.md#predicatevalidations) elements in the IEF reference.
