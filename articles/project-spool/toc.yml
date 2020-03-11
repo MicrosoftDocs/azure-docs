@@ -30,11 +30,8 @@
     href: quickstarts/add-voice-to-your-app.md
 - name: Tutorials
   items:
-  - name: TODO
-    href: tutorials/tutorial-share-anchors-across-devices.md
-    items:
-    - name: TODO
-      href: tutorials/tutorial-use-cosmos-db-to-store-anchors.md
+  - name: Add Video To Your UWP App
+    href: tutorials/add-video-to-your-uwp-app.md
 - name: How-to
   items:
   - name: TODO
