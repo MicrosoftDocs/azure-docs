@@ -63,10 +63,14 @@ RequestStartTime: 2020-03-09T22:44:49.5373624Z, RequestEndTime: 2020-03-09T22:44
 ResponseTime: 2020-03-09T22:44:49.9279906Z, StoreResult: StorePhysicalAddress: rntbd://..., ...
 ```
 
-It might indicate a bottleneck on the Network interfaces because of the load. If the application is running on Azure Virtual Machines, there are possible workarounds:
-* Consider using a [Virtual Machine with Accelerated Networking enabled](../virtual-network/create-vm-accelerated-networking-powershell.md).
-* Enable [Accelerated Networking on an existing Virtual Machine](../virtual-network/create-vm-accelerated-networking-powershell.md#enable-accelerated-networking-on-existing-vms).
-* Consider using a [higher end Virtual Machine](../virtual-machines/windows/sizes.md).
+This latency can have multiple causes:
+
+* Your application is not running in the same region as your Azure Cosmos DB account.
+* Your [PreferredLocations](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.connectionpolicy.preferredlocations) or [ApplicationRegion](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.applicationregion) configuration is incorrect and is trying to connect to a different region to where your application is currently running on.
+* There might be a bottleneck on the Network interface because of high traffic. If the application is running on Azure Virtual Machines, there are possible workarounds:
+    * Consider using a [Virtual Machine with Accelerated Networking enabled](../virtual-network/create-vm-accelerated-networking-powershell.md).
+    * Enable [Accelerated Networking on an existing Virtual Machine](../virtual-network/create-vm-accelerated-networking-powershell.md#enable-accelerated-networking-on-existing-vms).
+    * Consider using a [higher end Virtual Machine](../virtual-machines/windows/sizes.md).
 
 ### <a name="snat"></a>Azure SNAT (PAT) port exhaustion
 
