@@ -10,7 +10,7 @@ ms.date: 03/11/2020
 ms.topic: conceptual
 ---
 
-# How to install the Connected Machine agent using Windows PowerShell Desired State Configuration
+# How to install the Connected Machine agent using Windows PowerShell DSC
 
 Using [Windows PowerShell Desired State Configuration](https://docs.microsoft.com/powershell/scripting/dsc/getting-started/winGettingStarted?view=powershell-7) (DSC), you can automate software installation and configuration for a Windows computer. This article describes how to use DSC to install the Azure Arc for servers Connected Machine agent on hybrid Windows machines.
 
