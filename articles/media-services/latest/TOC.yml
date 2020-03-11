@@ -208,11 +208,15 @@
   items:
   - name: Get started
     items:
+    - name: Create an account - portal
+      href: create-account-portal.md
     - name: Create an account - CLI
       href: create-account-cli-how-to.md  
       displayName: storage
     - name: Reset the account credentials - CLI
-      href: cli-reset-account-credentials.md      
+      href: cli-reset-account-credentials.md   
+    - name: Access APIs - portal
+      href: access-api-portal.md   
     - name: Access APIs - CLI
       href: access-api-cli-how-to.md
     - name: Scale Media Reserved Units - CLI
@@ -326,6 +330,19 @@
       href: download-results-howto.md
     - name: Signal descriptive audio
       href: signal-descriptive-audio-howto.md
+  - name: Troubleshoot
+    items:
+    - name: Frequently asked questions
+      href: frequently-asked-questions.md      
+    - name: Error codes
+      items:
+      - name: Streaming Endpoint error codes  
+        href: streaming-endpoint-error-codes.md
+      - name: Live Event error codes
+        href: live-event-error-codes.md
+      - name: Job error codes
+        href: job-error-codes.md   
+- name: Resources
 - name: Reference
   items:
   - name: OpenAPI Specification (Swagger)
@@ -349,15 +366,6 @@
       href: https://aka.ms/ams-v3-go-ref
   - name: Resource Manager template
     href: /azure/templates/microsoft.media/allversions
-  - name: Error codes
-    items:
-    - name: Streaming Endpoint error codes  
-      href: streaming-endpoint-error-codes.md
-    - name: Live Event error codes
-      href: live-event-error-codes.md
-    - name: Job error codes
-      href: job-error-codes.md   
-- name: Resources
   items:
   - name: Azure Media Services community
     displayName: forums, twitter, feedback
@@ -390,7 +398,5 @@
     href: https://github.com/Azure/Azure-Media-Services-Explorer
   - name: Quotas and limitations
     href: limits-quotas-constraints.md       
-  - name: FAQ
-    href: frequently-asked-questions.md
   - name: Azure clouds and regions
     href: azure-clouds-regions.md
