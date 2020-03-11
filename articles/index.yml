@@ -753,14 +753,6 @@ productDirectory:
         - devops
       url: https://docs.microsoft.com/azure/devops/pipelines/
     # Card
-    - title: Developer tool integrations
-      summary: Use the development tools you know—including Eclipse, IntelliJ, and Maven—with Azure
-      imageSrc: https://docs.microsoft.com/media/common/i_extensions.svg
-      azureCategories:
-        - developer-tools
-        - devops
-      url: integrations/index.yml
-    # Card
     - title: Visual Studio
       summary: The powerful and flexible environment for developing applications in the cloud
       imageSrc: https://docs.microsoft.com/media/logos/logo_visual-studio.svg

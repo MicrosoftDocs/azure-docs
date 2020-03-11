@@ -16526,6 +16526,21 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/machine-learning/team-data-science-process/cortana-analytics-playbook-predictive-maintenance.md",
+      "redirect_url": "/azure/machine-learning/team-data-science-process/predictive-maintenance-playbook",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/machine-learning/team-data-science-process/cortana-analytics-architecture-predictive-maintenance.md",
+      "redirect_url": "/azure/machine-learning/team-data-science-process/predictive-maintenance-architecture",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/machine-learning/team-data-science-process/cortana-analytics-technical-guide-predictive-maintenance.md",
+      "redirect_url": "/azure/machine-learning/team-data-science-process/predictive-maintenance-technical-guide",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/monitoring-and-diagnostics/monitor-alerts-unified-log-template.md",
       "redirect_url": "/azure/monitoring-and-diagnostics/alert-log",
       "redirect_document_id": false
@@ -49249,6 +49264,11 @@
     {
       "source_path": "articles/cognitive-services/Speech-Service/how-to-use-codec-compressed-audio-input-streams-ios.md",
       "redirect_url": "/azure/cognitive-services/Speech-Service/how-to-use-codec-compressed-audio-input-streams?pivots=programming-language-objectivec",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/integrations/index.yml",
+      "redirect_url": "https://azure.microsoft.com/products/developer-tool-integrations/",
       "redirect_document_id": false
     },
     {
