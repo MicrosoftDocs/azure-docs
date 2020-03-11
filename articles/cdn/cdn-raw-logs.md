@@ -34,10 +34,10 @@ To configure Raw logs for your Azure CDN from Microsoft profile:
 
 3. Select **+ Add diagnostic setting**.
 
-    ![CDN diagnostic setting](./media/cdn-raw-logs/cdn-raw-01.png)
+    ![CDN diagnostic setting](./media/cdn-raw-logs/raw-logs-01.png)
 
-> [!IMPORTANT]
-> Raw logs is only available in the profile level while aggregated http status code logs are available in the endpoint level.
+    > [!IMPORTANT]
+    > Raw logs is only available in the profile level while aggregated http status code logs are available in the endpoint level.
 
 4. Under **Diagnostic settings**, enter a name for the diagnostic setting under **Diagnostic settings name**.
 
@@ -51,7 +51,7 @@ To configure Raw logs for your Azure CDN from Microsoft profile:
     * **Stream to an event hub**
         * Select the **Subscription**, **Event hub namespace**, **Event hub name (optional)**, and **Event hub policy name**.
 
-    ![CDN diagnostic setting](./media/cdn-raw-logs/cdn-raw-02.png)
+    ![CDN diagnostic setting](./media/cdn-raw-logs/raw-logs-02.png)
 
 7. Select **Save**.
 
@@ -78,3 +78,14 @@ Azure CDN from Microsoft Service currently provides Raw logs (batched hourly). R
 | HttpStatusDetails     | Resulting status on the request. Meaning of this string value can be found at a Status reference table.                                                                                              |
 | Pop                   | The edge pop, which responded to the user request. POPs' abbreviations are airport codes of their respective metros.                                                                                   |
 | Cache Status          | Signifies if the object was returned from cache or came from the origin.                                                                                                             |
+
+## Next Steps
+In this article you enabled HTTP raw logs for the Microsoft CDN service.
+
+Learn more about:
+
+* [Analyze](cdn-log-analysis.md) Azure CDN usage patterns.
+
+* Learn more about [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview).
+
+* Configure [Log Analytics in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal).
