@@ -57,7 +57,7 @@ landingContent:
           url: language-support.md#standard-voices
         - text: Neural voice support
           url: language-support.md#neural-voices
-        - text: Pricing
-          url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services
         - text: SSML phonetic sets
           url: speech-ssml-phonetic-sets.md
+        - text: Text-to-speech pricing
+          url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services

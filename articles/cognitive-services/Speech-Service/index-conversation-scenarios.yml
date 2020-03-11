@@ -51,5 +51,5 @@ landingContent:
   linkLists:
     - linkListType: reference
       links:
-        - text: Pricing
+        - text: Speech transcription pricing
           url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/
