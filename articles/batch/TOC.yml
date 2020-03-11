@@ -51,6 +51,8 @@
     href: batch-api-basics.md
   - name: APIs and tools
     href: batch-apis-tools.md
+  - name: Detecting and handling Batch service errors
+    href: batch-retry-after-errors.md
   - name: Best practices
     href: best-practices.md
   - name: Quotas and limits
@@ -132,8 +134,6 @@
       href: batch-job-schedule.md
     - name: Check for job and task errors
       href: batch-job-task-error-checking.md
-    - name: Detecting and handling Batch service errors
-      href: batch-retry-after-errors.md   
   - name: Persist job and task output
     href: batch-task-output.md
     items:

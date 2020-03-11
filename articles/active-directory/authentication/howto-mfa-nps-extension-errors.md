@@ -95,7 +95,7 @@ If your users are [Having trouble with two-step verification](../user-help/multi
 
 ### Health check script
 
-The [Azure MFA NPS Extension health check script](https://gallery.technet.microsoft.com/Azure-MFA-NPS-Extension-648de6bb) is available on the TechNet Gallery to perform a basic health check when troubleshooting the NPS extension. Run the script and choose option 3.
+The [Azure MFA NPS Extension health check script](https://docs.microsoft.com/samples/azure-samples/azure-mfa-nps-extension-health-check/azure-mfa-nps-extension-health-check/) performs a basic health check when troubleshooting the NPS extension. Run the script and choose option 3.
 
 ### Contact Microsoft support
 
