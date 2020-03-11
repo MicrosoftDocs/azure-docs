@@ -10,7 +10,7 @@ ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
-ms.custom: seodec18, previous-author=fboylu, previous-ms.author=fboylu
+ms.custom: previous-author=fboylu, previous-ms.author=fboylu
 ---
 # Azure AI guide for predictive maintenance solutions
 
@@ -146,7 +146,7 @@ Failure events are rare in PdM applications. However, when building prediction m
 Maintenance history of an asset contains details about components replaced, repair activities performed etc. These events record degradation patterns. Absence of this crucial information in the training data can lead to misleading model results. Failure history can also be found within maintenance history as special error codes, or order dates for parts. Additional data sources that influence failure patterns should be investigated and provided by domain experts.
 
 #### Machine operating conditions
-Sensor based (or other) streaming data of the equipment in operation is an important data source. A key assumption in PdM is that a machine’s health status degrades over time during its routine operation. The data is expected to contain time-varying features that capture this aging pattern, and any anomalies that leads to degradation. The temporal aspect of the data is required for the algorithm to learn the failure and non-failure patterns over time. Based on these data points, the algorithm learns to predict how many more units of time a machine can continue to work before it fails.
+Sensor based (or other) streaming data of the equipment in operation is an important data source. A key assumption in PdM is that a machine's health status degrades over time during its routine operation. The data is expected to contain time-varying features that capture this aging pattern, and any anomalies that leads to degradation. The temporal aspect of the data is required for the algorithm to learn the failure and non-failure patterns over time. Based on these data points, the algorithm learns to predict how many more units of time a machine can continue to work before it fails.
 
 #### Static feature data
 Static features are metadata about the equipment. Examples are the equipment make, model, manufactured date, start date of service, location of the system, and other technical specifications.
@@ -189,7 +189,7 @@ Other data preprocessing steps include _handling missing values_ and _normalizat
 With the above preprocessed data sources in place, the final transformation before feature engineering is to join the above tables based on the asset identifier and timestamp. The resulting table would have null values for the failure column when machine is in normal operation. These null values can be imputed by an indicator for normal operation. Use this failure column to create _labels for the predictive model_. For more information, see the section on [modeling techniques for predictive maintenance](#modeling-techniques-for-predictive-maintenance).
 
 ## Feature engineering
-Feature engineering is the first step prior to modeling the data. Its role in the data science process [is described here](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/create-features). A _feature_ is a predictive attribute for the model - such as temperature, pressure, vibration, and so on. For PdM, feature engineering involves abstracting a machine’s health over historical data collected over a sizable duration. In that sense, it is different from its peers such as remote monitoring, anomaly detection, and failure detection. 
+Feature engineering is the first step prior to modeling the data. Its role in the data science process [is described here](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/create-features). A _feature_ is a predictive attribute for the model - such as temperature, pressure, vibration, and so on. For PdM, feature engineering involves abstracting a machine's health over historical data collected over a sizable duration. In that sense, it is different from its peers such as remote monitoring, anomaly detection, and failure detection. 
 
 ### Time windows
 Remote monitoring entails reporting the events that happen as of _points in time_. Anomaly detection models evaluate (score) incoming streams of data to flag anomalies as of points in time. Failure detection classifies failures to be of specific types as they occur points in time. In contrast, PdM involves predicting failures over a _future time period_, based on features that represent machine behavior over _historical time period_. For PdM, feature data from individual points of time are too noisy to be predictive. So the data for each feature needs to be _smoothened_ by aggregating data points over time windows.
@@ -206,7 +206,7 @@ The business requirements define how far the model has to predict into the futur
 #### Rolling aggregates
 For each record of an asset, a rolling window of size "W" is chosen as the number of units of time to compute the aggregates. Lag features are then computed using the W periods _before the date_ of that record. In Figure 1, the blue lines show sensor values recorded for an asset for each unit of time. They denote a rolling average of feature values over a window of size W=3. The rolling average is computed over all records with timestamps in the range t<sub>1</sub> (in orange) to t<sub>2</sub> (in green). The value for W is typically in minutes or hours depending on the nature of the data. But for certain problems, picking a large W (say 12 months) can provide the whole history of an asset until the time of the record.
 
-![Figure 1. Rolling aggregate features](./media/cortana-analytics-playbook-predictive-maintenance/rolling-aggregate-features.png)
+![Figure 1. Rolling aggregate features](./media/predictive-maintenance-playbook/rolling-aggregate-features.png)
 
 Figure 1. Rolling aggregate features
 
@@ -222,7 +222,7 @@ Another useful technique in PdM is to capture trend changes, spikes, and level c
 #### Tumbling aggregates
 For each labeled record of an asset, a window of size _W-<sub>k</sub>_ is defined, where _k_ is the number of windows of size _W_. Aggregates are then created over _k_ _tumbling windows_ _W-k, W-<sub>(k-1)</sub>, …, W-<sub>2</sub>, W-<sub>1</sub>_ for the periods before a record's timestamp. _k_ can be a small number to capture short-term effects, or a large number to capture long-term degradation patterns. (see Figure 2).
 
-![Figure 2. Tumbling aggregate features](./media/cortana-analytics-playbook-predictive-maintenance/tumbling-aggregate-features.png)
+![Figure 2. Tumbling aggregate features](./media/predictive-maintenance-playbook/tumbling-aggregate-features.png)
 
 Figure 2. Tumbling aggregate features
 
@@ -278,7 +278,7 @@ In this technique, two types of training examples are identified. A positive exa
 #### Label construction for binary classification
 The question here is: "What is the probability that the asset will fail in the next X units of time?" To answer this question, label X records prior to the failure of an asset as "about to fail" (label = 1), and label all other records as being "normal" (label =0). (see Figure 3).
 
-![Figure 3. Labeling for binary classification](./media/cortana-analytics-playbook-predictive-maintenance/labelling-for-binary-classification.png)
+![Figure 3. Labeling for binary classification](./media/predictive-maintenance-playbook/labelling-for-binary-classification.png)
 
 Figure 3. Labeling for binary classification
 
@@ -295,7 +295,7 @@ Regression models are used to _compute the remaining useful life (RUL) of an ass
 #### Label construction for regression
 The question here is: "What is the remaining useful life (RUL) of the equipment?" For each record prior to the failure, calculate the label to be the number of units of time remaining before the next failure. In this method, labels are continuous variables. (See Figure 4)
 
-![Figure 4. Labeling for regression](./media/cortana-analytics-playbook-predictive-maintenance/labelling-for-regression.png)
+![Figure 4. Labeling for regression](./media/predictive-maintenance-playbook/labelling-for-regression.png)
 
 Figure 4. Labeling for regression
 
@@ -309,13 +309,13 @@ Multi-class classification techniques can be used in PdM solutions for two scena
 #### Label construction for multi-class classification
 The question here is: "What is the probability that an asset will fail in the next _nZ_ units of time where _n_ is the number of periods?" To answer this question, label nZ records prior to the failure of an asset using buckets of time (3Z, 2Z, Z). Label all other records as "normal" (label = 0). In this method, the target variable holds _categorical_ values. (See Figure 5).
 
-![Figure 5. Failure time prediction labels for multiclass classification](./media/cortana-analytics-playbook-predictive-maintenance/labelling-for-multiclass-classification-for-failure-time-prediction.png)
+![Figure 5. Failure time prediction labels for multiclass classification](./media/predictive-maintenance-playbook/labelling-for-multiclass-classification-for-failure-time-prediction.png)
 
 Figure 5. Labeling for multi-class classification for failure time prediction
 
 The question here is: "What is the probability that the asset will fail in the next X units of time due to root cause/problem _P<sub>i</sub>_?" where _i_ is the number of possible root causes. To answer this question, label X records prior to the failure of an asset as "about to fail due to root cause _P<sub>i</sub>_" (label = _P<sub>i</sub>_). Label all other records as being "normal" (label = 0). In this method also, labels are categorical (See Figure 6).
 
-![Figure 6. Root cause prediction labels for multiclass classification](./media/cortana-analytics-playbook-predictive-maintenance/labelling-for-multiclass-classification-for-root-cause-prediction.png)
+![Figure 6. Root cause prediction labels for multiclass classification](./media/predictive-maintenance-playbook/labelling-for-multiclass-classification-for-root-cause-prediction.png)
 
 Figure 6. Labeling for multi-class classification for root cause prediction
 
@@ -335,7 +335,7 @@ The most common one is _k-fold cross-validation_ that splits the examples random
 
 In PdM problems, data is recorded as a time series of events that come from several data sources. These records may be ordered according to the time of labeling. Hence, if the dataset is split _randomly_ into training and validation set, _some of the training examples may be later in time than some of validation examples_. Future performance of hyperparameter values will be estimated based on some data that arrived _before_ model was trained. These estimations might be overly optimistic, especially if the time-series is not stationary and evolves over time. As a result, the chosen hyperparameter values might be suboptimal.
 
-The recommended way is to split the examples into training and validation set in a _time-dependent_ manner, where all validation examples are later in time than all training examples. For each set of hyperparameter values, train the algorithm over the training data set. Measure the model’s performance over the same validation set. Choose hyperparameter values that show the best performance. Hyperparameter values chosen by train/validation split result in better future model performance than with the values chosen randomly by cross-validation.
+The recommended way is to split the examples into training and validation set in a _time-dependent_ manner, where all validation examples are later in time than all training examples. For each set of hyperparameter values, train the algorithm over the training data set. Measure the model's performance over the same validation set. Choose hyperparameter values that show the best performance. Hyperparameter values chosen by train/validation split result in better future model performance than with the values chosen randomly by cross-validation.
 
 The final model can be generated by training a learning algorithm over entire training data using the best hyperparameter values.
 
@@ -353,7 +353,7 @@ Assume a stream of timestamped events such as measurements from various sensors.
 
 For time-dependent split, pick a _training cutoff time T<sub>c</sub>_ at which to train a model, with hyperparameters tuned using historical data up to T<sub>c</sub>. To prevent leakage of future labels that are beyond T<sub>c</sub> into the training data, choose the latest time to label training examples to be X units before T<sub>c</sub>. In the example shown in Figure 7, each square represents a record in the data set where features and labels are computed as described above. The figure shows the records that should go into training and testing sets for X=2 and W=3:
 
-![Figure 7. Time-dependent split for binary classification](./media/cortana-analytics-playbook-predictive-maintenance/time-dependent-split-for-binary-classification.png)
+![Figure 7. Time-dependent split for binary classification](./media/predictive-maintenance-playbook/time-dependent-split-for-binary-classification.png)
 
 Figure 7. Time-dependent split for binary classification
 
@@ -401,7 +401,7 @@ Mis-classification is a significant problem for PdM scenarios where the cost of 
 
 Typical performance metrics used to evaluate PdM models are discussed below:
 
-- [Accuracy](https://en.wikipedia.org/wiki/Accuracy_and_precision) is the most popular metric used for describing a classifier’s performance. But accuracy is sensitive to data distributions, and is an ineffective measure for scenarios with imbalanced data sets. Other metrics are used instead. Tools like [confusion matrix](https://en.wikipedia.org/wiki/Confusion_matrix) are used to compute and reason about accuracy of the model.
+- [Accuracy](https://en.wikipedia.org/wiki/Accuracy_and_precision) is the most popular metric used for describing a classifier's performance. But accuracy is sensitive to data distributions, and is an ineffective measure for scenarios with imbalanced data sets. Other metrics are used instead. Tools like [confusion matrix](https://en.wikipedia.org/wiki/Confusion_matrix) are used to compute and reason about accuracy of the model.
 - [Precision](https://en.wikipedia.org/wiki/Precision_and_recall) of PdM models relate to the rate of false alarms. Lower precision of the model generally corresponds to a higher rate of false alarms.
 - [Recall](https://en.wikipedia.org/wiki/Precision_and_recall) rate denotes how many of the failures in the test set were correctly identified by the model. Higher recall rates mean the model is successful in identifying the true failures.
 - [F1 score](https://en.wikipedia.org/wiki/F1_score) is the harmonic average of precision and recall, with its value ranging between 0 (worst) to 1 (best).
