@@ -13,6 +13,9 @@
 
 This article introduces the VNET connectivity pattern and elaborates on how to set up a private connectivity experience to an IoT Hub through a customer-owned Azure VNET.
 
+> [!NOTE]
+> The IoT hub features and functionalities described in this article is currenlty available to IoT Hub created in East US, South Central US, and West US 2 regions.
+
 
 ## Introduction
 
@@ -273,4 +276,3 @@ This functionality requires connectivity from IoT Hub to the storage account. To
 * Navigate to the _Firewalls and virtual networks_ tab in your storage account and enable _Allow access from selected networks_ option. Under the _Exceptions_ list, check the box for _Allow trusted Microsoft services to access this storage account_. Click the _Save_ button.
 
 You can now use the Azure IoT REST API's for [creating import export jobs](https://docs.microsoft.com/rest/api/iothub/service/createimportexportjob) for information on how use the bulk import/export functionality. Note that you will need to provide the `autheticationType="identityBased"` in your request body and use `inputBlobContainerUri="https://..."` and `outputBlobContainerUri="https://..."` as the input and output URL's of your storage account, respectively (all values are without quotes).
-
