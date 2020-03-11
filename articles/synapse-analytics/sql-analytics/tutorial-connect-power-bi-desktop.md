@@ -69,7 +69,7 @@ DROP CREDENTIAL [https://azureopendatastorage.blob.core.windows.net/censusdataco
 Go
 
 -- Create credentials for Census Data container which resides in a azure open data storage account
--- There is no secret. We are using public storage account which doesn't need secret
+-- There is no secret. We are using public storage account which doesn't need a secret.
 CREATE CREDENTIAL [https://azureopendatastorage.blob.core.windows.net/censusdatacontainer]
 WITH IDENTITY='SHARED ACCESS SIGNATURE',
 SECRET = ''

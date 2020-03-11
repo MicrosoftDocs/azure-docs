@@ -93,7 +93,7 @@ You cannot reference data or variables directly across different languages in a 
 
    ```scala
    %%scala
-   val scalaDataFrame = spark.read.option(“format”, “DW    connector predefined type”)
+   val scalaDataFrame = spark.read.option("format", "DW    connector predefined type")
    scalaDataFrame.registerTempTable( "mydataframetable" )
    ```
 
@@ -152,7 +152,7 @@ A step-by-step cell execution status is displayed beneath the cell to help you s
 
 ### Spark progress indicator
 
-Azure Synapse Studio notebook is purely Spark based. Code cells are executed on the Apache Spark pool remotely. A Spark job progress indicator is provided with a real-time progress bar appears to help you understand the job execution status.
+Azure Synapse Studio notebook is purely Spark based. Code cells are executed on the Spark pool remotely. A Spark job progress indicator is provided with a real-time progress bar appears to help you understand the job execution status.
 
 ![spark_progress_indicator](./media/apache-spark-development-using-notebooks/synapse-spark-progress-indicator.png)
 
