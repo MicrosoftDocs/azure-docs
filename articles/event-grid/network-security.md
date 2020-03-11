@@ -39,8 +39,11 @@ The columns indicate whether the tag:
 
 For more information, see [Service tags overview](../virtual-network/service-tags-overview.md).
 
-## IP firewall (Preview)
+## IP firewall
 Azure Event Grid supports IP-based access controls for publishing to topics and domains. With IP-based controls, you can limit the publishers to a topic or domain to only a set of approved set of machines and cloud services. This feature complements the [authentication mechanisms](security-authentication.md) supported by Event Grid.
+
+> [!NOTE
+> This feature is currently in preview.
 
 ### Overview
 
@@ -51,7 +54,7 @@ By default, topic and domain are accessible from internet as long as the request
 This feature is available in both basic and premium tiers of Event Grid. We allow up to 16 IP Firewall rules to be created per topic or domain.
 
 
-## Private endpoints (Preview)
+## Private endpoints
 You can use [private endpoints](../private-link/private-endpoint-overview.md) to allow ingress of events directly from your virtual network to your topics and domains securely over a [private link](../private-link/private-link-overview.md) without going through the public internet. A private endpoint is a special network interface for an Azure service in your VNet. When you create a private endpoint for your topic or domain, it provides secure connectivity between clients on your VNet and your Event Grid resource. The private endpoint is assigned an IP address from the IP address range of your VNet. The connection between the private endpoint and the Event Grid service uses a secure private link.
 
 Using private endpoints for your Event Grid resource enables you to:
@@ -60,6 +63,9 @@ Using private endpoints for your Event Grid resource enables you to:
 - Securely connect from on-premises networks that connect to the VNet using VPN or ExpressRoutes with private-peering.
 
 When you create a private endpoint for a topic or domain in your VNet, a consent request is sent for approval to the resource owner. If the user requesting the creation of the private endpoint is also an owner of the resource, this consent request is automatically approved. Otherwise, the connection is in 'Pending' state until approved. Applications in the VNet can connect to the Event Grid service over the private endpoint seamlessly, using the same connection strings and authorization mechanisms that they would use otherwise. Resource owners can manage consent requests and the private endpoints, through the **Private Endpoints** tab for the resource in the Azure portal.
+
+> [!NOTE
+> This feature is currently in preview.
 
 ### Connect to private endpoints
 
