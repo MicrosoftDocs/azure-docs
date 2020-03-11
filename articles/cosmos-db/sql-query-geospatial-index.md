@@ -26,7 +26,7 @@ If you specify an indexing policy that includes spatial index for /* (all paths)
 In your container, the `geospatialConfig` specifies how the geospatial data will be indexed. You should specify one `geospatialConfig` per container: geography or geometry. If not specified, the `geospatialConfig` will default to the geography data type. When you modify the `geospatialConfig`, all existing geospatial data in the container will be reindexed.
 
 > [!NOTE]
-> Azure Cosmos DB currently supports modifications to the geospatialConfig in the .NET sdk only in versions 3.6 and above. Support in     > other sdk versions and the Azure Portal is planned.
+> Azure Cosmos DB currently supports modifications to the geospatialConfig in the .NET SDK only in versions 3.6 and above.
 >
 
 Here is an example for modifying the geospatial data type to `geometry` by setting the `geospatialConfig` property and adding a **boundingBox**:
@@ -91,9 +91,6 @@ The following JSON snippet shows an indexing policy with spatial indexing enable
 
 > [!NOTE]
 > If the location GeoJSON value within the document is malformed or invalid, then it will not get indexed for spatial querying. You can validate location values using ST_ISVALID and ST_ISVALIDDETAILED.
->
->
->
 
 You can also [modify indexing policy](how-to-manage-indexing-policy.md) using the Azure CLI, PowerShell, or any SDK.
 
@@ -151,7 +148,7 @@ Here is an example indexing policy that indexes **geometry** data with **geospat
 The above indexing policy has a **boundingBox** of (-10, 10) for x coordinates and (-20, 20) for y coordinates. The container with the above indexing policy will index all Points, Polygons, MultiPolygons, and LineStrings that are entirely within this region.
 
 > [!NOTE]
-> If you try to add an indexing policy with a **boundingBox** to a container with `geography` data type, it will fail. You should modify  > the container's **geospatialConfig** to be `geometry` before adding a **boundingBox**. You can add data and modify the remainder of
+> If you try to add an indexing policy with a **boundingBox** to a container with `geography` data type, it will fail. You should modify the container's **geospatialConfig** to be `geometry` before adding a **boundingBox**. You can add data and modify the remainder of
 > your indexing policy (such as the paths and types) either before or after selecting the geospatial data type for the container.
 
 ## Next steps
