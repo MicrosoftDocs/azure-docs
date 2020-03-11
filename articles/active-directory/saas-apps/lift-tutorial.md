@@ -90,20 +90,6 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [LIFT Client support team](mailto:support@liftsoftware.nl) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 
-	1. Click **Add new claim** to open the **Manage user claims** dialog.
-
-	1. In the **Name** textbox, type the attribute name shown for that row.
-
-	1. Leave the **Namespace** blank.
-
-	1. Select Source as **Attribute**.
-
-	1. From the **Source attribute** list, type the attribute value shown for that row.
-
-	1. Click **Ok**
-
-	1. Click **Save**.
-
 1. On the **Set up single sign-on with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 
 	![The Certificate download link](common/copy-metadataurl.png)
