@@ -151,7 +151,7 @@ Scaling can vary on a number of factors, and scale differently based on the trig
 * A single function app only scales out to a maximum of 200 instances. A single instance may process more than one message or request at a time though, so there isn't a set limit on number of concurrent executions.
 * For HTTP triggers, new instances are allocated, at most, once per second.
 * For non-HTTP triggers, new instances are allocated, at most, once every 30 seconds.
-* For Service Bus triggers, use _Manage_ rights on resources for the most efficient scaling. With _Listen_ rights, scaling won't be as accurate. To learn more about setting rights in Service Bus access policies, see [Shared Access Authorization Policy](../service-bus-messaging/service-bus-sas#shared-access-authorization-policies).
+* For Service Bus triggers, use _Manage_ rights on resources for the most efficient scaling. With _Listen_ rights, scaling won't be as accurate. To learn more about setting rights in Service Bus access policies, see [Shared Access Authorization Policy](../service-bus-messaging/service-bus-sas.md#shared-access-authorization-policies).
 
 Different triggers may also have different scaling limits as well as documented below:
 
