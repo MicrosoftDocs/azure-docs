@@ -42,7 +42,7 @@ Open the extensions file of your policy. For example, <em>`SocialAndLocalAccount
 
 The [LocalizedResources](localization.md#localizedresources) of the `Localization` element contains the list of localized strings. The localized resources element has an identifier that is used to uniquely identify localized resources. This identifer is used later in the [content definition](contentdefinitions.md) element.
 
-You configure localized resources elements for content definition and any language you want to support. To customize the unified sign-up or sign-in pages for English, Spanish you add the following `LocalizedResources` elements after the close of the `</SupportedLanguages>`.
+You configure localized resources elements for the content definition and any language you want to support. To customize the unified sign-up or sign-in pages for English and Spanish, you add the following `LocalizedResources` elements after the close of the `</SupportedLanguages>` element.
 
 > [!NOTE]
 > In the following sample we added the pound `#` symbol at the begging of each line, so you can easly find the localized labels on the screen.
