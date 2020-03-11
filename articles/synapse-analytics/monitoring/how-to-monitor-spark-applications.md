@@ -42,19 +42,20 @@ For example, you can filter the view to see only the Spark applications that con
 
   > [!div class="mx-imgBorder"]
   > ![Filter button](./media/common/filter-button.png)
-  >
+
   > [!div class="mx-imgBorder"]
   > ![Sample filter](./media/how-to-monitor-spark-applications/filter-example.png)
 
 ## Viewing details about a specific Spark application
 
 To view the details about one of your Spark applications, select the Spark application and view the details. If the Spark application is still running, you can monitor the progress.
-  
+
 ## Next steps
 
 This article showed you how to monitor Spark applications in your Azure Synapse workspace. You learned how to:
 
 > [!div class="checklist"]
+>
 > * View the list of Spark applications in your workspace
 > * Filter the list of Spark applications to find the Spark applications you'd like to monitor
 > * Monitor your selected Spark application in detail.
