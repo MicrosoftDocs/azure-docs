@@ -3,7 +3,7 @@ title: Restrict egress traffic in Azure Kubernetes Service (AKS)
 description: Learn what ports and addresses are required to control egress traffic in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 01/21/2020
+ms.date: 03/10/2020
 
 
 #Customer intent: As an cluster operator, I want to restrict egress traffic for nodes to only access defined ports and addresses and improve cluster security.
@@ -67,6 +67,7 @@ The following FQDN / application rules are required:
 |----------------------------|-----------|----------|
 | *.hcp.\<location\>.azmk8s.io | HTTPS:443, TCP:22, TCP:9000, UDP:1194 | This address is required for Node <-> API server communication. Replace *\<location\>* with the region where your AKS cluster is deployed. |
 | *.tun.\<location\>.azmk8s.io | HTTPS:443, TCP:22, TCP:9000, UDP:1194 | This address is required for Node <-> API server communication. Replace *\<location\>* with the region where your AKS cluster is deployed. |
+| *.cdn.mscr.io       | HTTPS:443 | This address is required for MCR storage backed by the Azure Content Delivery Network (CDN). |
 | mcr.microsoft.com          | HTTPS:443 | This address is required to access images in Microsoft Container Registry (MCR). This registry contains first-party images/charts(for example, moby, etc.) required for the functioning of the cluster during upgrade and scale of the cluster |
 | *.data.mcr.microsoft.com             | HTTPS:443 | This address is required for MCR storage backed by the Azure content delivery network (CDN). |
 | management.azure.com       | HTTPS:443 | This address is required for Kubernetes GET/PUT operations. |

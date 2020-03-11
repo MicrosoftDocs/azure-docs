@@ -119,15 +119,11 @@ By default, ACR Tasks builds images for the Linux OS and the amd64 architecture.
 | Linux | amd64<br/>arm<br/>arm64<br/>386 |
 | Windows | amd64 |
 
-## View task logs
+## View task output
 
-Each task run generates log output that you can inspect to determine whether the task steps ran successfully. If you use the [az acr build](/cli/azure/acr#az-acr-build), [az acr run](/cli/azure/acr#az-acr-run), or [az acr task run](/cli/azure/acr/task#az-acr-task-run) command to trigger the task, log output for the task run is streamed to the console and also stored for later retrieval. When a task is automatically triggered, for example by a source code commit or a base image update, task logs are only stored. View the logs for a task run in the Azure portal, or use the [az acr task logs](/cli/azure/acr/task#az-acr-task-logs) command.
+Each task run generates log output that you can inspect to determine whether the task steps ran successfully. When you trigger a task manually, log output for the task run is streamed to the console and also stored for later retrieval. When a task is automatically triggered, for example by a source code commit or a base image update, task logs are only stored. View the run logs in the Azure portal, or use the [az acr task logs](/cli/azure/acr/task#az-acr-task-logs) command.
 
-By default, data and logs for task runs in a registry are retained for 30 days and then automatically purged. If you want to archive the data for a task run, enable archiving using the [az acr task update-run](/cli/azure/acr/task#az-acr-task-update-run) command. The following example enables archiving for the task run *cf11* in registry *myregistry*.
-
-```azurecli
-az acr task update-run --registry myregistry --run-id cf11 --no-archive false
-```
+See more about [viewing and managing task logs](container-registry-tasks-logs.md).
 
 ## Next steps
 
