@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ---
 
-# Delete data from Azure Data Explorer
+# Delete data from Azure Data Explorer (Kusto)
 
 Azure Data Explorer supports several bulk delete approaches, which we cover in this article. It doesn't support per-record deletion in real time, because it's optimized for fast read access.
 
