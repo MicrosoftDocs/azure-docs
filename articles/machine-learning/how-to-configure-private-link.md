@@ -109,3 +109,8 @@ For information on enabling Private Link for the key vault, see [Integrate Key V
 
 ## Azure Container Registry
 
+For information on securing Azure Container Registry inside the virtual network, see [Use Azure Container Registry](how-to-enable-virtual-network.md#use-azure-container-registry).
+
+## Next steps
+
+For more information on securing your Azure Machine Learning workspace, see the [Enterprise security](concept-enterprise-security.md) article.
