@@ -26,76 +26,11 @@ Adaptive Network Hardening provides recommendations to further harden the NSG ru
 
 For example, let's say the existing NSG rule is to allow traffic from 140.20.30.10/24 on port 22. The Adaptive Network Hardening's recommendation, based on the analysis, would be to narrow the range and allow traffic from 140.23.30.10/29 – which is a narrower IP range, and deny all other traffic to that port.
 
-![network hardening view](./media/security-center-adaptive-network-hardening/traffic-hardening.png)
+>[!TIP]
+> Adaptive Network Hardening recommendations are only supported on specific ports. For the full list, see [#which-ports-are-supported](Which ports are supported?) below. 
 
 
-## Which ports are supported?
-
-Adaptive Network Hardening recommendations are only supported on specific ports. This table gives you the full list:
-
-|Port|Protocol|Associated Service|
-|:---:|:----:|:----|
-|13|UDP|Daytime service|
-|17|UDP|QOTD protocol|
-|19|UDP|CHARGEN protocol|
-|22|TCP|SSH|
-|23|TCP|Telnet|
-|53|UDP|DNS|
-|69|UDP|TFTP|
-|81|TCP|Potentially malicious (TOR exit node)|
-|111|TCP/UDP|RPC|
-|119|TCP|NNTP|
-|123|UDP|NTP|
-|135|TCP/UDP|Endpoint Mapper; RPC; DCE|
-|137|TCP/UDP|NetBIOS Name Service|
-|138|TCP/UDP|NetBIOS Datagram Service|
-|139|TCP|NetBIOS Session Service|
-|161|TCP/UDP|SNMP|
-|162|TCP/UDP|SNMP|
-|389|TCP|LDAP|
-|445|TCP|SMB|
-|512|TCP|Rexec|
-|514|TCP|Remote shell|
-|593|TCP/UDP|HTTP RPC|
-|636|TCP|LDAP|
-|873|TCP|Rsync|
-|1433|TCP|MS SQL|
-|1434|UDP|MS SQL|
-|1900|UDP|SSDP|
-|1900|UDP|SSDP|
-|2049|TCP/UDP|NFS|
-|2301|TCP|Compaq management service|
-|2323|TCP|3d-nfsd|
-|2381|TCP|Compaq management service|
-|3268|TCP|LDAP|
-|3306|TCP|MySQL|
-|3389|TCP|RDP|
-|4333|TCP|mSQL|
-|5353|UDP|mDNS|
-|5432|TCP|PostgreSQL|
-|5555|TCP|Personal Agent; HP OmniBack|
-|5800|TCP|VNC|
-|5900|TCP|Remote framebuffer; VNC|
-|5900|TCP|VNC|
-|5985|TCP|Windows PowerShell|
-|5986|TCP|Windows PowerShell|
-|6379|TCP|Redis|
-|6379|TCP|Redis|
-|7000|TCP|Cassandra|
-|7001|TCP|Cassandra|
-|7199|TCP|Cassandra|
-|8081|TCP|CosmosDB; Sun Proxy Admin|
-|8089|TCP|Splunk|
-|8545|TCP|Potentially malicious (Cryptominer)|
-|9042|TCP|Cassandra|
-|9160|TCP|Cassandra|
-|9300|TCP|Elasticsearch|
-|11211|UDP|Memcached|
-|16379|TCP|Redis|
-|26379|TCP|Redis|
-|27017|TCP|MongoDB|
-|37215|TCP|Potentially malicious|
-||||
+![Network hardening view](./media/security-center-adaptive-network-hardening/traffic-hardening.png)
 
 
 ## View Adaptive Network Hardening alerts and rules
@@ -202,11 +137,72 @@ When necessary, you can delete a recommended rule for the current session. For e
 
     ![hardening rules](./media/security-center-adaptive-network-hardening/delete-hard-rule.png)
 
-
-
-
-
-
-
  
 
+## Which ports are supported?
+
+Adaptive Network Hardening recommendations are only supported on specific ports. This table gives you the full list:
+
+|Port|Protocol|Associated Service|
+|:---:|:----:|:----|
+|13|UDP|Daytime service|
+|17|UDP|QOTD protocol|
+|19|UDP|CHARGEN protocol|
+|22|TCP|SSH|
+|23|TCP|Telnet|
+|53|UDP|DNS|
+|69|UDP|TFTP|
+|81|TCP|Potentially malicious (TOR exit node)|
+|111|TCP/UDP|RPC|
+|119|TCP|NNTP|
+|123|UDP|NTP|
+|135|TCP/UDP|Endpoint Mapper; RPC; DCE|
+|137|TCP/UDP|NetBIOS Name Service|
+|138|TCP/UDP|NetBIOS Datagram Service|
+|139|TCP|NetBIOS Session Service|
+|161|TCP/UDP|SNMP|
+|162|TCP/UDP|SNMP|
+|389|TCP|LDAP|
+|445|TCP|SMB|
+|512|TCP|Rexec|
+|514|TCP|Remote shell|
+|593|TCP/UDP|HTTP RPC|
+|636|TCP|LDAP|
+|873|TCP|Rsync|
+|1433|TCP|MS SQL|
+|1434|UDP|MS SQL|
+|1900|UDP|SSDP|
+|1900|UDP|SSDP|
+|2049|TCP/UDP|NFS|
+|2301|TCP|Compaq management service|
+|2323|TCP|3d-nfsd|
+|2381|TCP|Compaq management service|
+|3268|TCP|LDAP|
+|3306|TCP|MySQL|
+|3389|TCP|RDP|
+|4333|TCP|mSQL|
+|5353|UDP|mDNS|
+|5432|TCP|PostgreSQL|
+|5555|TCP|Personal Agent; HP OmniBack|
+|5800|TCP|VNC|
+|5900|TCP|Remote framebuffer; VNC|
+|5900|TCP|VNC|
+|5985|TCP|Windows PowerShell|
+|5986|TCP|Windows PowerShell|
+|6379|TCP|Redis|
+|6379|TCP|Redis|
+|7000|TCP|Cassandra|
+|7001|TCP|Cassandra|
+|7199|TCP|Cassandra|
+|8081|TCP|CosmosDB; Sun Proxy Admin|
+|8089|TCP|Splunk|
+|8545|TCP|Potentially malicious (Cryptominer)|
+|9042|TCP|Cassandra|
+|9160|TCP|Cassandra|
+|9300|TCP|Elasticsearch|
+|11211|UDP|Memcached|
+|16379|TCP|Redis|
+|26379|TCP|Redis|
+|27017|TCP|MongoDB|
+|37215|TCP|Potentially malicious|
+||||
