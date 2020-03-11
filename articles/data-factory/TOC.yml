@@ -479,6 +479,8 @@
       href: control-flow-webhook-activity.md
   - name: Data flow transformations
     items:
+    - name: Transformation overview
+      href: data-flow-transformation-overview.md
     - name: Aggregate
       href: data-flow-aggregate.md
     - name: Alter row
@@ -491,6 +493,8 @@
       href: data-flow-exists.md
     - name: Filter
       href: data-flow-filter.md
+    - name: Flatten
+      href: data-flow-flatten.md
     - name: Join
       href: data-flow-join.md
     - name: Lookup
@@ -515,8 +519,6 @@
       href: data-flow-unpivot.md
     - name: Window
       href: data-flow-window.md
-    - name: Flatten
-      href: data-flow-flatten.md
   - name: Parameterize
     items:
     - name: Parameterizing linked services

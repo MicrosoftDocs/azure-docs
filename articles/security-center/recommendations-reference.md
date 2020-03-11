@@ -10,7 +10,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/18/2019
+ms.date: 03/11/2020
 ms.author: memildin
 
 ---
@@ -21,7 +21,10 @@ This article lists the recommendations you might see in Azure Security Center. T
 
 To learn about how to respond to these recommendations, see [Remediate recommendations in Azure Security Center](security-center-remediate-recommendations.md).
 
-Your Secure Score is based on how many Security Center recommendations you have mitigated. To prioritize the recommendations to resolve first, consider the severity of each.
+Your Secure Score is based on the number of Security Center recommendations you've completed. To decide which  recommendations to resolve first, look at the severity of each one and its potential impact on your Secure Score.
+
+>[!TIP]
+> If a recommendation's description says "No related policy", it's usually because that recommendation is dependent on a different recommendation and *its* policy. For example, the recommendation "Endpoint protection health failures should be remediated...", relies on the recommendation that checks whether an endpoint protection solution is even *installed* ("Endpoint protection solution should be installed..."). The underlying recommendation *does* have a policy. Limiting the policies to only the foundational recommendation simplifies policy management.
 
 ## <a name="recs-network"></a>Network recommendations
 
@@ -102,7 +105,7 @@ Your Secure Score is based on how many Security Center recommendations you have 
 |**Vulnerabilities should be remediated by a Vulnerability Assessment solution**|Virtual machines for which a vulnerability assessment 3rd party solution is deployed are being continuously assessed against application and OS vulnerabilities. Whenever such vulnerabilities are found, these are available for more information as part of the recommendation.<br>(Related policy: Vulnerabilities should be remediated by a Vulnerability Assessment solution)|High|N|Machine|
 |**Vulnerabilities in security configuration on your machines should be remediated**|Remediate vulnerabilities in security configuration on your machines to protect them from attacks.<br>(Related policy: Vulnerabilities in security configuration on your machines should be remediated)|Low|N|Machine|
 |**Vulnerabilities in container security configurations should be remediated**|Remediate vulnerabilities in security configuration on machines with Docker installed to protect them from attacks.<br>(Related policy: Vulnerabilities in container security configurations should be remediated)|High|N|Machine|
-|**Endpoint protection health issues should be resolved on your machines**|For full Security Center protection, resolve monitoring agent issues on your machines by following the instructions in the Troubleshooting guide.<br>(No related policy - dependent upon "Install endpoint protection solution on your machines")|Medium|N|Machine|
+|**Endpoint protection health issues should be resolved on your machines**|For full Security Center protection, resolve monitoring agent issues on your machines by following the instructions in the Troubleshooting guide.<br>(This recommendation is dependent upon the recommendation "Install endpoint protection solution on your machines" and its policy)|Medium|N|Machine|
 ||||||
 
 
