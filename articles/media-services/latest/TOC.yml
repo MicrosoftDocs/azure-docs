@@ -1,4 +1,4 @@
-- name: Media Services Documentation
+t- name: Media Services Documentation
   href: ./index.yml
 - name: Overview
   items:
@@ -199,9 +199,13 @@
     - name: Streaming
       displayName: failover, bcdr, HA, high availability
       href: media-services-high-availability-streaming.md
-  - name: Migration guidance from v2 to v3
-    href: migrate-from-v2-to-v3.md 
-    displayName: naming
+  - name: Migration from v2 to v3
+    items:
+    - name: v2 vs. v3
+      href: media-services-v2-vs-v3.md
+    - name: Migration guidance
+      href: migrate-from-v2-to-v3.md 
+      displayName: naming      
 - name: How-to guides
   items:
   - name: Get started
