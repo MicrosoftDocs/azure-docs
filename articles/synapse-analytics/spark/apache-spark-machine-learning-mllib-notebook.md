@@ -82,7 +82,7 @@ Because the raw data is in a Parquet format, you can use the Spark context to pu
     df = spark.read.parquet(wasbs_path)
     ```
 
-2. Pulling all of this data generates about 1.5 billion rows. Depending on the size of your Spark pool, the raw data may be too large or take too much time to operate on. You can filter this data down to something smaller. If needed, add the following lines to filter the data down to about 2 million rows for a more responsive experience. Use these parameters to pull one week of data.
+2. Pulling all of this data generates about 1.5 billion rows. Depending on the size of your Apache Spark pool, the raw data may be too large or take too much time to operate on. You can filter this data down to something smaller. If needed, add the following lines to filter the data down to about 2 million rows for a more responsive experience. Use these parameters to pull one week of data.
 
     ```python
     # Create an ingestion filter

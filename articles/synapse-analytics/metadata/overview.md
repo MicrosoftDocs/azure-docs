@@ -13,7 +13,7 @@ ms.reviewer: jrasnick
 
 # Azure Synapse Analytics shared metadata
 
-Azure Synapse Analytics allows the different computational engines of a workspace to share databases and tables between its Spark pools, SQL on-demand engine, and SQL pools.
+Azure Synapse Analytics allows the different computational engines of a workspace to share databases and tables between its Apache Spark pools, SQL on-demand engine, and SQL pools.
 
 [!INCLUDE [synapse-analytics-preview-terms](../../../includes/synapse-analytics-preview-terms.md)]
 
@@ -25,7 +25,7 @@ The shared metadata model supports the modern data warehouse pattern in the foll
 
 1. Data from the data lake is prepared and structured efficiently with Spark by storing the prepared data in (possibly partitioned) Parquet-backed tables contained in possibly several databases.
 
-2. The Spark created databases and all their tables become visible in any of the Azure Synapse workspace Spark pool instances and can be used from any of the Spark jobs. This capability is subject to the [permissions](#security-model-at-a-glance) since all Spark pools in a workspace share the same underlying catalog meta store.
+2. The Spark created databases and all their tables become visible in any of the Azure Synapse workspace Apache Spark pool instances and can be used from any of the Spark jobs. This capability is subject to the [permissions](#security-model-at-a-glance) since all Apache Spark pools in a workspace share the same underlying catalog meta store.
 
 3. The Spark created databases and their Parquet-backed tables become visible in the workspace SQL on-demand engine. [Databases](database.md) are created automatically in the SQL on-demand metadata, and both the [external and managed tables](table.md) created by a Spark job are made accessible as external tables in the SQL on-demand metadata in the `dbo` schema of the corresponding database. <!--For more details, see [ADD LINK].-->
 
@@ -41,7 +41,7 @@ The object synchronization occurs asynchronously. Objects will therefore have a 
 
 [!INCLUDE [synapse-analytics-preview-features](../../../includes/synapse-analytics-preview-features.md)]
 
-Spark allows you to create databases, external and managed tables as well as views. However, since Spark views require a Spark engine to process the defining Spark SQL statement and cannot be processed by a SQL engine, only databases and their contained external and managed tables that use the Parquet storage format are being shared with the workspace SQL engines. Spark views are only shared among the Spark pool instances.
+Spark allows you to create databases, external and managed tables as well as views. However, since Spark views require a Spark engine to process the defining Spark SQL statement and cannot be processed by a SQL engine, only databases and their contained external and managed tables that use the Parquet storage format are being shared with the workspace SQL engines. Spark views are only shared among the Apache Spark pool instances.
 
 ## Security model at a glance
 

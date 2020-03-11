@@ -11,7 +11,7 @@ ms.reviewer: jrasnick
 
 # Use .NET for Apache Spark with Azure Synapse Analytics
 
-Azure Synapse Analytics uses Spark pools for data processing. Apache Spark is a general-purpose distributed processing engine for analytics over large data sets - typically terabytes or petabytes of data. You can use Apache Spark for several popular big data scenarios, including:
+Azure Synapse Analytics uses Apache Spark pools for data processing. Apache Spark is a general-purpose distributed processing engine for analytics over large data sets - typically terabytes or petabytes of data. You can use Apache Spark for several popular big data scenarios, including:
 
 * Batch processing
 * Machine Learning
@@ -27,7 +27,7 @@ The .NET APIs for Spark enable you to access all aspects of Spark that help you 
 
 You can analyze your data using .NET for Apache Spark through interactive Azure Synapse Analytics notebooks. When creating a new Azure Synapse Analytics notebook, you choose a language kernel that you wish to express your business logic. There is kernel support for several languages, including C#.
 
-To use .NET for Apache Spark in your Azure Synapse Analytics notebook, select **Spark.NET C#** as your kernel and attach the notebook to an existing Spark pool.
+To use .NET for Apache Spark in your Azure Synapse Analytics notebook, select **Spark.NET C#** as your kernel and attach the notebook to an existing Apache Spark pool.
 
 ## .NET for Apache Spark scenarios
 
