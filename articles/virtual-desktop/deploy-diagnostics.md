@@ -8,6 +8,7 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 03/03/2020
 ms.author: helohr
+manager: lizross
 ---
 
 # Deploy the diagnostics tool
