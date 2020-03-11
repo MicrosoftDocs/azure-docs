@@ -16,13 +16,21 @@ The links below provide useful resources for developers using the Azure Storage 
 
 ### Azure Storage common APIs
 
+<<<<<<< HEAD
 - [API reference documentation](/dotnet/api/overview/azure/storage?view=azure-dotnet)
+=======
+- [API reference documentation](/dotnet/api/overview/azure/storage)
+>>>>>>> 43950092a6aa5647cac98306e9b8eb80bcea4872
 - [Library source code](https://github.com/Azure/azure-storage-net/tree/master/Common)
 - [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/)
 
 ### Blob storage APIs
 
+<<<<<<< HEAD
 - [API reference documentation](/dotnet/api/overview/azure/storage?view=azure-dotnet)
+=======
+- [API reference documentation](/dotnet/api/overview/azure/storage)
+>>>>>>> 43950092a6aa5647cac98306e9b8eb80bcea4872
 - [Library source code](https://github.com/Azure/azure-storage-net/tree/master/Blob)
 - [Package (NuGet) for version 11.x](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/)
 - [Package (NuGet) for version 12.x](https://www.nuget.org/packages/Azure.Storage.Blobs)
