@@ -24,7 +24,7 @@ Azure Synapse Studio depends on a set of Web API endpoints to work properly. Thi
 
 Right click on the following link, and click "Save target as":
 
-- [Test-AzureSynapse.ps1](https://a365releasenotesprod.blob.core.windows.net/release-notes/Test-AzureSynapse.ps1)
+- [Test-AzureSynapse.ps1](https://go.microsoft.com/fwlink/?linkid=2119734)
 
 Alternatively, you may open the link directly, and save the opened script file. Don't save the address of the link above, as it may change in the future.
 

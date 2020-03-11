@@ -115,6 +115,11 @@ Azure Data Factory will pass an additional property “callBackUri” in the bod
 
 The webhook activity itself fails when the call to the custom endpoint fails. Any error message can be added into the body of the callback and used in a subsequent activity.
 
+Further for every REST API call the client will timeout if the endpoint doesn't respond in 1 min. This is standard http best practice. 
+To fix this issue, you need to implement 202 pattern in this case where the endpoint will return 202 (Accepted) and the client will poll.
+
+The 1 min timeout on the request doesn't have anything to do with the activity timeout. That will be used to wait for the callbackUri.
+
 The body passed back to the callback URI should be valid JSON. You must set the Content-Type header to `application/json`.
 
 When you use the "Report status on callback" option, you must add the following snippet to the body when making the callback:

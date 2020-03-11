@@ -56,6 +56,9 @@ By default, turning on debug will use the default Azure Integration runtime that
 
 ![Source Part](media/data-flow/sourcepart3.png "Source Part")
 
+> [!NOTE]
+> A good guide to help you choose number of partitions for your source is based on the number of cores that you have set for your Azure Integration Runtime and multiply that number by five. So, for example, if you are transforming a series of files in your ADLS folders and you are going to utilize a 32-core Azure IR, the number of partitions you would target is 32 x 5 = 160 partitions.
+
 ### Source batch size, input, and isolation level
 
 Under **Source Options** in the source transformation, the following settings can affect performance:
@@ -97,7 +100,7 @@ To avoid row-by-row inserts into your DW, check **Enable staging** in your Sink 
 
 At each transformation, you can set the partitioning scheme you wish data factory to use in the Optimize tab. It is a good practice to first test file-based sinks keeping the default partitioning and optimizations.
 
-* For smaller files, you may find selecting *Single Partition* can sometimes work better and faster than asking Spark to partition your small files.
+* For smaller files, you may find choosing fewer partitions can sometimes work better and faster than asking Spark to partition your small files.
 * If you don't have enough information about your source data, choose *Round Robin* partitioning and set the number of partitions.
 * If your data has columns that can be good hash keys, choose *Hash partitioning*.
 

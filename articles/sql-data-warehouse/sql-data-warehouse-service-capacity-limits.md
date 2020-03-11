@@ -7,9 +7,10 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: design
-ms.date: 11/04/2019
+ms.date: 2/19/2020
 ms.author: martinle
 ms.reviewer: igorstan
+ms.custom: azure-synapse
 ---
 
 # Azure Synapse Analytics (formerly SQL DW) capacity limits
@@ -28,10 +29,11 @@ Maximum values allowed for various components of Azure Synapse.
 | [tempdb](../synapse-analytics/sql-analytics/development-tables-temporary.md) |Maximum GB |399 GB per DW100. Therefore at DWU1000, tempdb is sized to 3.99 TB. |
 
 ## Database objects
+
 | Category | Description | Maximum |
 |:--- |:--- |:--- |
-| Database |Max size | Gen1: 240 TB compressed on disk. This space is independent of tempdb or log space, and therefore this space is dedicated to permanent tables.  Clustered columnstore compression is estimated at 5X.  This compression allows the database to grow to approximately 1 PB when all tables are clustered columnstore (the default table type). <br/><br/> Gen2: 240TB for rowstore and unlimited storage for columnstore tables |
-| Table |Max size | For columnstore tables, there is no uppper limit. <br/><br/>For row store tables, 60 TB compressed on disk |
+| Database |Max size | Gen1: 240 TB compressed on disk. This space is independent of tempdb or log space, and therefore this space is dedicated to permanent tables.  Clustered columnstore compression is estimated at 5X.  This compression allows the database to grow to approximately 1 PB when all tables are clustered columnstore (the default table type). <br/><br/> Gen2: Unlimited storage for columnstore tables.  Rowstore portion of the database is still limited to 240 TB compressed on disk. |
+| Table |Max size |Unlimited size for columnstore tables. <br>60 TB for rowstore tables compressed on disk. |
 | Table |Tables per database | 100,000 |
 | Table |Columns per table |1024 columns |
 | Table |Bytes per column |Dependent on column [data type](../synapse-analytics/sql-analytics/development-tables-data-types.md). Limit is 8000 for char data types, 4000 for nvarchar, or 2 GB for MAX data types. |
@@ -47,13 +49,17 @@ Maximum values allowed for various components of Azure Synapse.
 | Statistics |Statistics created on columns per table. |30,000 |
 | Stored Procedures |Maximum levels of nesting. |8 |
 | View |Columns per view |1,024 |
+||||
 
 ## Loads
+
 | Category | Description | Maximum |
 |:--- |:--- |:--- |
 | Polybase Loads |MB per row |1<br/><br/>Polybase loads rows that are smaller than 1 MB. Loading LOB data types into tables with a Clustered Columnstore Index (CCI) is not supported.<br/><br/> |
+||||
 
 ## Queries
+
 | Category | Description | Maximum |
 |:--- |:--- |:--- |
 | Query |Queued queries on user tables. |1000 |
@@ -68,8 +74,10 @@ Maximum values allowed for various components of Azure Synapse.
 | SELECT |Bytes per ORDER BY columns |8060 bytes<br/><br/>The columns in the ORDER BY clause can have a maximum of 8060 bytes |
 | Identifiers  per statement |Number of referenced identifiers |65,535<br/><br/> The number of identifiers that can be contained in a single expression of a query is limited. Exceeding this number results in SQL Server error 8632. For more information, see [Internal error: An expression services limit has been reached](https://support.microsoft.com/help/913050/error-message-when-you-run-a-query-in-sql-server-2005-internal-error-a). |
 | String literals | Number of string literals in a statement | 20,000 <br/><br/>The number of string constants in a single expression of a query is limited. Exceeding this number results in SQL Server error 8632.|
+||||
 
 ## Metadata
+
 | System view | Maximum rows |
 |:--- |:--- |
 | sys.dm_pdw_component_health_alerts |10,000 |
@@ -81,6 +89,8 @@ Maximum values allowed for various components of Azure Synapse.
 | sys.dm_pdw_request_steps |Total number of steps for the most recent 1000 SQL requests that are stored in sys.dm_pdw_exec_requests. |
 | sys.dm_pdw_os_event_logs |10,000 |
 | sys.dm_pdw_sql_requests |The most recent 1000 SQL requests that are stored in sys.dm_pdw_exec_requests. |
+|||
 
 ## Next steps
+
 For recommendations on using Azure Synapse, see the [Cheat Sheet](cheat-sheet.md).

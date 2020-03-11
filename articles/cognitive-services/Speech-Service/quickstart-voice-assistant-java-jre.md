@@ -17,13 +17,13 @@ ms.author: dapine
 
 Quickstarts are also available for [speech-to-text](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-java&tabs=jre), [text-to-speech](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-java&tabs=jre), and [speech translation](~/articles/cognitive-services/Speech-Service/quickstarts/translate-speech-to-text.md?pivots=programming-language-java&tabs=jre).
 
-In this article, you create a Java console application by using the [Azure Cognitive Services Speech SDK](speech-sdk.md). The application connects to a previously authored bot configured to use the Direct Line Speech channel, sends a voice request, and returns a voice response activity (if configured). The application is built with the Speech SDK Maven package and the Eclipse Java IDE on Windows, Ubuntu Linux, or on macOS. It runs on a 64-bit Java 8 runtime environment (JRE).
+In this article, you create a Java console application by using the [Azure Cognitive Services Speech SDK](speech-sdk.md). The application connects to a previously authored bot configured to use the Direct Line Speech channel, sends a voice request, and returns a voice response activity (if configured). The application is built with the Speech SDK Maven package and the Eclipse Java IDE on Windows, Linux, or on macOS. It runs on a 64-bit Java 8 runtime environment (JRE).
 
 ## Prerequisites
 
 This quickstart requires:
 
-- Operating system: Windows (64-bit), Ubuntu Linux 16.04/18.04 (64-bit), or macOS 10.13 or later.
+- Operating system: Windows (64-bit), Ubuntu Linux 16.04/18.04 (64-bit), RHEL/CentOS 8 (x64), or macOS 10.13 or later.
 - [Eclipse Java IDE](https://www.eclipse.org/downloads/).
 - [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) or [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html).
 - An Azure subscription key for the Speech service. [Get one for free](get-started.md) or create it in the [Azure portal](https://portal.azure.com).
@@ -38,6 +38,17 @@ If you're running Ubuntu 16.04/18.04, make sure these dependencies are installed
 sudo apt-get update
 sudo apt-get install build-essential libssl1.0.0 libasound2 wget
 ```
+
+On RHEL/CentOS 8:
+
+```sh
+sudo yum update
+sudo yum groupinstall "Development tools"
+sudo yum install alsa-lib java-1.8.0-openjdk-devel openssl wget
+```
+
+> [!NOTE]
+> On RHEL/CentOS 8, follow the instructions on [how to configure OpenSSL for Linux](~/articles/cognitive-services/speech-service/how-to-configure-openssl-linux.md).
 
 If you're running Windows (64-bit), make sure you installed the Microsoft Visual C++ Redistributable for your platform:
 

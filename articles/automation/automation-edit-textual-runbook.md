@@ -18,7 +18,7 @@ The textual editor includes a feature to insert code for cmdlets, assets, and ch
 
 Each runbook in Azure Automation has two versions, Draft and Published. You edit the Draft version of the runbook and then publish it so it can be executed. The Published version cannot be edited. For more information, see [Publishing a runbook](manage-runbooks.md#publish-a-runbook).
 
-This article provides detailed steps for performing different functions with this editor. These are not applicable to [Graphical Runbooks](automation-runbook-types.md#graphical-runbooks). To work with these runbooks, see [Graphical authoring in Azure Automation](automation-graphical-authoring-intro.md).
+This article provides detailed steps for performing different functions with this editor. These are not applicable to [graphical runbooks](automation-runbook-types.md#graphical-runbooks). To work with these runbooks, see [Graphical authoring in Azure Automation](automation-graphical-authoring-intro.md).
 
 >[!NOTE]
 >This article has been updated to use the new Azure PowerShell Az module. You can still use the AzureRM module, which will continue to receive bug fixes until at least December 2020. To learn more about the new Az module and AzureRM compatibility, see [Introducing the new Azure PowerShell Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). For Az module installation instructions on your Hybrid Runbook Worker, see [Install the Azure PowerShell Module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). For your Automation account, you can update your modules to the latest version using [How to update Azure PowerShell modules in Azure Automation](automation-update-azure-modules.md).

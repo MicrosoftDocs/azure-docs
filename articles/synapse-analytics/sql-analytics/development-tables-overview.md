@@ -432,4 +432,4 @@ ORDER BY    distribution_id
 ```
 
 ## Next steps
-After creating the tables for your data warehouse, the next step is to load data into the table.  For a loading tutorial, see [Loading data into SQL pool](../../sql-data-warehouse/load-data-wideworldimportersdw.md#load-the-data-into-your-data-warehouse).
+After creating the tables for your data warehouse, the next step is to load data into the table.  For a loading tutorial, see [Loading data into SQL pool](../../sql-data-warehouse/load-data-wideworldimportersdw.md#load-the-data-into-sql-pool).

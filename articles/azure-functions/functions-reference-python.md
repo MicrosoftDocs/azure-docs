@@ -17,25 +17,9 @@ Azure Functions expects a function to be a stateless method in your Python scrip
 
 Data from triggers and bindings is bound to the function via method attributes using the `name` property defined in the *function.json* file. For example, the  _function.json_ below describes a simple function triggered by an HTTP request named `req`:
 
-```json
-{
-  "bindings": [
-    {
-      "name": "req",
-      "direction": "in",
-      "type": "httpTrigger",
-      "authLevel": "anonymous"
-    },
-    {
-      "name": "$return",
-      "direction": "out",
-      "type": "http"
-    }
-  ]
-}
-```
+:::code language="son" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-Python/function.json":::
 
-The `__init__.py` file contains the following function code:
+Based on this definition, the `__init__.py` file that contains the function code might look like the following example:
 
 ```python
 def main(req):
@@ -43,7 +27,7 @@ def main(req):
     return f'Hello, {user}!'
 ```
 
-you can also explicitly declare the attribute types and return type in the function using Python type annotations. This helps you use the intellisense and autocomplete features provided by many Python code editors.
+You can also explicitly declare the attribute types and return type in the function using Python type annotations. This helps you use the intellisense and autocomplete features provided by many Python code editors.
 
 ```python
 import azure.functions
@@ -76,16 +60,16 @@ The recommended folder structure for a Python Functions project looks like the f
 
 ```
  __app__
- | - MyFirstFunction
+ | - my_first_function
  | | - __init__.py
  | | - function.json
  | | - example.py
- | - MySecondFunction
+ | - my_second_function
  | | - __init__.py
  | | - function.json
- | - SharedCode
- | | - myFirstHelperFunction.py
- | | - mySecondHelperFunction.py
+ | - shared_code
+ | | - my_first_helper_function.py
+ | | - my_second_helper_function.py
  | - host.json
  | - requirements.txt
  tests
@@ -100,19 +84,47 @@ The main project folder (\_\_app\_\_) can contain the following files:
 
 Each function has its own code file and binding configuration file (function.json). 
 
-Shared code should be kept in a separate folder in \_\_app\_\_. To reference modules in the SharedCode folder, you can use the following syntax:
+When deploying your project to a function app in Azure, the entire contents of the main project (*\_\_app\_\_*) folder should be included in the package, but not the folder itself. We recommend that you maintain your tests in a folder separate from the project folder, in this example `tests`. This keeps you from deploying test code with your app. For more information, see [Unit Testing](#unit-testing).
+
+## Import behavior
+
+You can import modules in your function code using both explicit relative and absolute references. Based on the folder structure shown above, the following imports work from within the function file *\_\_app\_\_\my\_first\_function\\_\_init\_\_.py*:
 
 ```python
-from __app__.SharedCode import myFirstHelperFunction
+from . import example #(explicit relative)
 ```
-
-To reference modules local to a function, you can use the relative import syntax as follows:
 
 ```python
-from . import example
+from ..shared_code import my_first_helper_function #(explicit relative)
 ```
 
-When deploying your project to a function app in Azure, the entire content of the *FunctionApp* folder should be included in the package, but not the folder itself. We recommend that you maintain your tests in a folder separate from the project folder, in this example `tests`. This keeps you from deploying test code with your app. For more information, see [Unit Testing](#unit-testing).
+```python
+from __app__ import shared_code #(absolute)
+```
+
+```python
+import __app__.shared_code #(absolute)
+```
+
+The following imports *don't work* from within the same file:
+
+```python
+import example
+```
+
+```python
+from example import some_helper_code
+```
+
+```python
+import shared_code
+```
+
+Shared code should be kept in a separate folder in *\_\_app\_\_*. To reference modules in the *shared\_code* folder, you can use the following syntax:
+
+```python
+from __app__.shared_code import my_first_helper_function
+```
 
 ## Triggers and Inputs
 

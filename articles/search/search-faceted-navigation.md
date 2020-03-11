@@ -29,9 +29,9 @@ In your application development, writing code that constructs queries constitute
 ## Sample code and demo
 This article uses a job search portal as an example. The example is implemented as an ASP.NET MVC application.
 
--   See and test the working demo online at [Azure Cognitive Search Job Portal Demo](https://azjobsdemo.azurewebsites.net/).
+- See and test the working demo online at [Azure Cognitive Search Job Portal Demo](http://azjobsdemo.azurewebsites.net/).
 
--   Download the code from the [Azure-Samples repo on GitHub](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs).
+- Download the code from the [Azure-Samples repo on GitHub](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs).
 
 ## Get started
 If you're new to search development, the best way to think of faceted navigation is that it shows the possibilities for self-directed search. It’s a type of drill-down search experience, based on predefined filters, used for quickly narrowing down search results through point-and-click actions. 

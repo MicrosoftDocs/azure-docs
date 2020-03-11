@@ -6,15 +6,16 @@
     href: load-balancer-overview.md
 - name: Quickstart
   items:
-  - name: Portal
+  - name: Create Load Balancer - Portal
     href: quickstart-load-balancer-standard-public-portal.md
-  - name: Azure CLI
+  - name: Create Load Balancer - Azure CLI
     href: quickstart-load-balancer-standard-public-cli.md
-  - name: Azure PowerShell
+  - name: Create Load Balancer - PowerShell
     href: quickstart-create-standard-load-balancer-powershell.md
-  - name: Azure Resource Manager template
+  - name: Create Load Balancer - ARM template
+    displayName: Resource Manager
     href: quickstart-load-balancer-standard-public-template.md
-    displayName: ARM
+  expanded: true
 - name: Tutorials
   items:
   - name: Load balance internet traffic to VMs

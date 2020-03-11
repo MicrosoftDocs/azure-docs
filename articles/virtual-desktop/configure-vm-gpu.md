@@ -78,7 +78,7 @@ To verify that apps are using the GPU for rendering, try any of the following:
 To verify that Remote Desktop is using GPU-accelerated encoding:
 
 1. Connect to the desktop of the VM using Windows Virtual Desktop client.
-2. Launch the Event Viewer and navigate to the following node: **Applications and Services Logs** > **Microsoft** > **Windows** > **RemoteDesktopServices-RdpCoreTS** > **Operational**
+2. Launch the Event Viewer and navigate to the following node: **Applications and Services Logs** > **Microsoft** > **Windows** > **RemoteDesktopServices-RdpCoreCDV** > **Operational**
 3. To determine if GPU-accelerated encoding is used, look for event ID 170. If you see "AVC hardware encoder enabled: 1" then GPU encoding is used.
 4. To determine if AVC 444 mode is used, look for event ID 162. If you see "AVC Available: 1 Initial Profile: 2048" then AVC 444 is used.
 

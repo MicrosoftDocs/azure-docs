@@ -25,7 +25,7 @@ A user that has logged into a SQL on-demand resource must be authorized to acces
 - [User Identity](#user-identity)
 
 > [!NOTE]
-> [Azure AD pass-through](#force-azure-ad-pass-through) is the default behavior when you create a workspace. You can [disable this behavior](#disable-forcing-azure-ad-pass-through).
+> [Azure AD pass-through](#force-azure-ad-pass-through) is the default behavior when you create a workspace. If you use it, you don't need to create credentials for each storage account accessed using AD logins. You can [disable this behavior](#disable-forcing-azure-ad-pass-through).
 
 In the table below you'll find the different authorization types that are either supported or will be supported soon.
 
@@ -52,6 +52,9 @@ You can get an SAS token by navigating to the **Azure portal -> Storage Account 
 **User Identity**, also known as “pass-through", is an authorization type where the identity of the Azure AD user that logged into
 SQL on-demand is used to authorize data access. Before accessing the data, the Azure Storage administrator must grant permissions to the Azure AD user. As indicated in the table above, it's not supported for the SQL user type.
 
+> [!NOTE]
+> If you use [Azure AD pass-through](#force-azure-ad-pass-through) you don't need to create credentials for each storage account accessed using AD logins.
+
 > [!IMPORTANT]
 > You need to have a Storage Blob Data Owner/Contributor/Reader role to use your identity to access the data.
 > Even if you are an Owner of a Storage Account, you still need to add yourself into one of the Storage Blob Data roles.
@@ -74,7 +77,7 @@ To query a file located in Azure Storage, your SQL on-demand end point needs a s
 
 For all supported authorization types, credentials can point to an account, a container, any directory (non-root), or a single file. 
 
-CREDENTIAL NAME must match the full path to the container, folder, or file, in the following format: `<prefix>://<storage_account_path>/<storage_path>` .
+CREDENTIAL NAME must match the full path to the container, folder, or file, in the following format: `<prefix>://<storage_account_path>/<storage_path>` 
 
 | External Data Source       | Prefix | Storage account path                                |
 | -------------------------- | ------ | --------------------------------------------------- |
@@ -144,7 +147,7 @@ Exchange <*mystorageaccountname*> with your actual storage account name, and <*m
 Forcing an Azure AD pass-through is a default behavior achieved by a special CREDENTIAL NAME, `UserIdentity`, that is created automatically during Azure Synapse workspace provisioning. It forces the usage of an Azure AD pass-through for each query of every Azure AD login, which will occur despite the existence of other credentials. 
 
 > [!NOTE]
-> Azure AD pass-through is a default behavior.
+> Azure AD pass-through is a default behavior. You don't need to create credentials for each storage account accessed by AD logins.
 
 In case you [disabled forcing Azure AD pass-through for each query](#disable-forcing-azure-ad-pass-through), and want to enable it again, execute:
 

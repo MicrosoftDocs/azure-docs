@@ -23,7 +23,7 @@ The articles below highlight concepts and design decisions for SQL Analytics dev
 |                                                          |   SQL pool   | SQL on-demand |
 | -----------------------------------------------------    | ---- | ---- |
 | [Connections](connect-overview.md)                    | Yes | Yes |
-| [Resource classes and concurrency](workload-management-resource-classes.md) | Yes    | No |
+| [Resource classes and concurrency](../../sql-data-warehouse/resource-classes-for-workload-management.md) | Yes    | No |
 | [Transactions](development-transactions.md)              | Yes | No |
 | [User-defined schemas](development-user-defined-schemas.md) | Yes | Yes |
 | [Table distribution](../../sql-data-warehouse/sql-data-warehouse-tables-distribute.md)                 | Yes | No |

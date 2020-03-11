@@ -130,15 +130,15 @@ To manage parallelism for Cartesian joins, you can add nested structures, window
 When deciding your executor configuration, consider the Java garbage collection (GC) overhead.
 
 * Factors to reduce executor size:
-    * Reduce heap size below 32 GB to keep GC overhead < 10%.
-    * Reduce the number of cores to keep GC overhead < 10%.
+  * Reduce heap size below 32 GB to keep GC overhead < 10%.
+  * Reduce the number of cores to keep GC overhead < 10%.
 
 * Factors to increase executor size:
-    * Reduce communication overhead between executors.
-    * Reduce the number of open connections between executors (N2) on larger clusters (>100 executors).
-    * Increase heap size to accommodate for memory-intensive tasks.
-    * Optional: Reduce per-executor memory overhead.
-    * Optional: Increase utilization and concurrency by oversubscribing CPU.
+  * Reduce communication overhead between executors.
+  * Reduce the number of open connections between executors (N2) on larger clusters (>100 executors).
+  * Increase heap size to accommodate for memory-intensive tasks.
+  * Optional: Reduce per-executor memory overhead.
+  * Optional: Increase utilization and concurrency by oversubscribing CPU.
 
 As a general rule of thumb when selecting the executor size:
 
