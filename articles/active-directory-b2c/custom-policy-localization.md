@@ -248,7 +248,7 @@ In the following example, English (en) and Spanish (es) custom strings are added
 1. Select the policy that you uploaded, and then select **Run now**.
 1. You should be able to see the localized sign-up or sign-in page.
 1. Click on the sign-up link, and you should be able to see the localized sign-up page.
-1. Swich your browser default language to Spanish. Or you can add the query string parameter, `ui_locales` to the authoriztion reqeust. For example: 
+1. Switch your browser default language to Spanish. Or you can add the query string parameter, `ui_locales` to the authorization request. For example: 
 
 ```http
 https://yourtenant.b2clogin.com/yourtenant.onmicrosoft.com/oauth2/v2.0/authorize?p=B2C_1A_signup_signin&client_id=0239a9cc-309c-4d41-12f1-31299feb2e82&nonce=defaultNonce&redirect_uri=https%3A%2F%2Fjwt.ms&scope=openid&response_type=id_token&prompt=login&ui_locales=es
@@ -256,6 +256,6 @@ https://yourtenant.b2clogin.com/yourtenant.onmicrosoft.com/oauth2/v2.0/authorize
 
 ## Next steps
 
-- Learn more about the [localiztion](localization.md) element in the IEF reference.
-- See the list of [localization string IDs](localization-string-ids.md) avalible in Azure AD B2C.
+- Learn more about the [localization](localization.md) element in the IEF reference.
+- See the list of [localization string IDs](localization-string-ids.md) available in Azure AD B2C.
 
