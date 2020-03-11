@@ -1,0 +1,96 @@
+---
+title: Query ingested telemetry data
+description: This article describes how to query ingested telemetry data.
+author: sunasing
+ms.topic: article
+ms.date: 03/11/2020
+ms.author: sunasing
+---
+
+# Query ingested telemetry data
+
+This article describes how to query ingested sensor data from Azure FarmBeats.
+
+Ingesting data from Internet of Things (IoT) resources such as devices and sensors is a common scenario in FarmBeats. You create metadata for devices and sensors and then ingest the historical data to FarmBeats in a canonical format. Once the sensor data is available on FarmBeats Datahub, we can query the same to generate actionable insights or build models.
+
+## Before you begin
+
+Before you proceed with this article, make sure that you've installed FarmBeats and ingested sensor telemetry data from your IoT devices to FarmBeats
+To ingest sensor telemetry data, visit [ingest historical telemetry data](ingest-historical-telemetry-data-in-azure-farmbeats.md)
+
+Before you proceed, also make sure you are familiar with FarmBeats REST APIs as you will query ingested telemetry using APIs. For more details on FarmBeats APIs, please see [FarmBeats REST APIs](rest-api-in-azure-farmbeats.md). **Ensure that you are able to make API requests to your FarmBeats Datahub endpoint**
+
+## Query ingested sensor telemetry data
+
+Follow the below steps to query the ingested sensor telemetry data:
+
+1. Identify the sensor you are interested in. You can do this by making a GET request on /Sensor API. Note the **id** and the **sensorModelId** of the interested sensor object.
+
+2. Make a GET/{id} on /SensorModel API for the **sensorModelId** as noted in step 1. The SensorModel has all the metadata and details about the ingested telemetry from the sensor. For example, SensorMeasure within the SensorModel object has details about what measures is the sensor sending and in what types and units. For example,
+
+```json
+{
+    "name": "moist_soil_last <name of the sensor measure - this is what we will receive as part of the queried telemetry data>",
+    "dataType": "Double <Data Type - eg. Double>",
+    "type": "SoilMoisture <Type of measure eg. temperature, soil moisture etc.>",
+    "unit": "Percentage <Unit of measure eg. Celsius, Percentage etc.>",
+    "aggregationType": "None <either of None, Average, Maximum, Minimum, StandardDeviation>",
+    "description": "<Description of the measure>"
+}
+```
+Make a note of the response from the GET/{id} call for the SensorModel.
+
+3. Do a POST call on /Telemetry API with the following input payload
+
+```json
+{
+  "sensorId": "<id of the sensor as noted in step 1>",
+  "searchSpan": {
+    "from": "<desired start timestamp in ISO 8601 format; default is UTC>",
+    "to": "<desired end timestamp in ISO 8601 format; default is UTC>"
+  },
+  "filter": {
+    "tsx": "string"
+  },
+  "projectedProperties": [
+    {
+      "additionalProp1": "string",
+      "additionalProp2": "string",
+      "additionalProp3": "string"
+    }
+  ]
+}
+```
+4. The response from the /Telemetry API will look something like this:
+
+```json
+{
+  "timestamps": [
+    "2020-XX-XXT07:30:00Z",
+    "2020-XX-XXT07:45:00Z"
+  ],
+  "properties": [
+    {
+      "values": [
+        "<id of the sensor>",
+        "<id of the sensor>"
+      ],
+      "name": "Id",
+      "type": "String"
+    },
+    {
+      "values": [
+        2.1,
+        2.2
+      ],
+      "name": "moist_soil_last <name of the SensorMeasure as defined in the SensorModel object>",
+      "type": "Double <Data Type of the value - eg. Double>"
+    }
+  ]
+}
+```
+In the above example response, the queried sensor telemetry gives data for two timestamps along with the measure name ("moist_soil_last") and values of the reported telemetry in the two timestamps. You will need to refer to the associated /SensorModel (as described in step 2) to interpret the type and unit of the reported values.
+
+## Next steps
+
+You now have queried sensor data from your Azure FarmBeats instance. Now, learn how to [generate maps](generate-maps-in-azure-farmbeats.md#generate-maps) for your farms.
