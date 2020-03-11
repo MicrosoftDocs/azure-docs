@@ -43,8 +43,10 @@ Setting up customer-managed keys for your disks will require you to create resou
 
 #### Setting up your disk encryption set
 
-1. Search for and select **Disk encryption set**
-1. On the disk encryption set blade select **+Add**.
+To create and configure disk encryption sets, you must use the following link: https://aka.ms/diskencryptionsets. Disk encryption set creation is not yet available in the global Azure portal.
+
+1. Open the [disk encryption sets link](https://aka.ms/diskencryptionsets).
+1. Select **+Add**.
 
     ![Screenshot of the disk encryption portal main screen. Highlighting the Add button](media/virtual-machines-disk-encryption-portal/sse-create-disk-encryption-set.png)
 
@@ -69,6 +71,7 @@ Two notifications should pop up and succeed. Doing this will allow you to use th
 Now that you've created and set up your key vault and the disk encryption set, you can deploy a VM using the encryption.
 The VM deployment process is similar to the standard deployment process, the only differences are that you need to deploy the VM in the same region as your other resources and you opt to use a customer managed key.
 
+1. Open the [disk encryption sets link](https://aka.ms/diskencryptionsets).
 1. Search for **Virtual Machines** and select **+ Add** to create a VM.
 1. On the **Basic** tab, select the same region as your disk encryption set and Azure Key Vault.
 1. Fill in the other values on the **Basic** tab as you like.
@@ -83,10 +86,13 @@ The VM deployment process is similar to the standard deployment process, the onl
 
 #### Enable on an existing disk
 
+To manage and configure disk encryption on your existing disks, you must use the following link: https://aka.ms/diskencryptionsets. Enabling customer-managed keys on existing disks is not yet available in the global Azure portal.
+
 > [!CAUTION]
 > Enabling disk encryption on any disks attached to a VM will require that you stop the VM.
 
-1. Navigate to a VM that is in the same region as one of your disk encryption sets.
+1. Open the [disk encryption sets link](https://aka.ms/diskencryptionsets).
+1. Navigate to a VM which is in the same region as one of your disk encryption sets.
 1. Open the VM and select **Stop**.
 
     ![Screenshot of the main overlay for your example VM. With the Stop button highlighted](media/virtual-machines-disk-encryption-portal/sse-stop-VM-to-encrypt-disk.png)

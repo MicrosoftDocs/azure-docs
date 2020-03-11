@@ -54,13 +54,8 @@ To revoke access to customer-managed keys, see [Azure Key Vault PowerShell](http
 
 For premium SSDs, standard SSDs, and standard HDDs, only the following regions are currently supported:
 
-- East US
-- East US 2
-- West US 2
-- South Central US
-- Canada Central
-- UK South
-- North Europe
+- Available as a GA offering in the East US, West US 2, South Central US, UK South regions.
+- Available as a public preview in the West Central US, East US 2, Canada Central, and North Europe regions.
 
 For ultra disks, the following regions support customer-managed keys as a GA offering:
 
