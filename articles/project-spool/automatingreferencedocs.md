@@ -14,7 +14,12 @@ In general, product teams and content developers will not be exposed to the comp
 
 ### Generating Non-REST Reference Docs
 
-Step 1 on [this page](https://review.docs.microsoft.com/en-us/help/onboard/admin/reference/dotnet/road-to-docs?branch=master) tells us how to prepare our code for handoff to Robert's team. Once the code is prepared, we'll send Robert an email with the following:
+Step 1 on [this page](https://review.docs.microsoft.com/en-us/help/onboard/admin/reference/dotnet/road-to-docs?branch=master) tells us how to prepare our code for handoff to Robert's team. 
+
+ - For JS, it looks like [TypeDoc](http://typedoc.org/guides/doccomments/) conventions are used ([source](https://review.docs.microsoft.com/en-us/help/onboard/admin/reference/js-ts/documenting-api?branch=master)).
+ - For C#, the instructions are documented [here](https://review.docs.microsoft.com/en-us/help/onboard/admin/reference/dotnet/documenting-api?branch=master).
+
+Once the code is prepared, we'll send Robert an email with the following:
 
 - Our prepared **packages' locations** (myget / nuget / npm / etc)
   - *For our **C# SDKs**, I believe that's Microsoft.Azure.Spool.Client and Microsoft.Azure.Spool.Server on myget: https://www.myget.org/F/spool-sdk/auth/d2d18e05-8424-467c-9b5b-9194847fcf64/api/v3/index.json*
