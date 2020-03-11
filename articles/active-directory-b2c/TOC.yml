@@ -48,6 +48,8 @@
   href: code-samples.md
 - name: Concepts
   items:
+  - name: Azure AD B2C best practices
+    href: best-practices.md
   - name: Application types
     href: application-types.md
   - name: Authentication protocols
@@ -327,6 +329,8 @@
             href: restful-technical-profile.md
           - name: SAML
             href: saml-technical-profile.md
+          - name: SAML token issuer
+            href: saml-issuer-technical-profile.md
           - name: Self-asserted
             href: self-asserted-technical-profile.md
           - name: SSO session

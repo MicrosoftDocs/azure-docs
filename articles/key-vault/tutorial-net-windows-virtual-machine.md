@@ -6,6 +6,7 @@ author: msmbaldwin
 manager: rajvijan
 
 ms.service: key-vault
+ms.subservice: general
 ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: mbaldwin

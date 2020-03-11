@@ -93,7 +93,7 @@ Azure Logic Apps isn't available in Azure Germany, but you can create scheduling
 For more information:
 
 - Learn more by completing the [Azure Logic Apps tutorials](https://docs.microsoft.com/azure/logic-apps/tutorial-build-schedule-recurring-logic-app-workflow).
-- Review the [Azure Logic Apps overview](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview.md).
+- Review the [Azure Logic Apps overview](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview).
 
 ## Next steps
 

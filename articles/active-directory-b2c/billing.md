@@ -2,14 +2,14 @@
 title: Billing model for Azure Active Directory B2C
 description: Learn about Azure AD B2C's monthly active users (MAU) billing model and how to enable billing for a specific Azure subscription.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/25/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
 ---
 

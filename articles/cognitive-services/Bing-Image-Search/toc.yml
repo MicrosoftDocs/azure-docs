@@ -26,14 +26,8 @@
       href: quickstarts/ruby.md
   - name: SDK
     items:
-    - name: "Using C#"
-      href: image-search-sdk-quickstart.md
-    - name: "Using Node.js"
-      href: image-search-sdk-node-quickstart.md
-    - name: "Using Python"
-      href: image-sdk-python-quickstart.md
-    - name: "Using Java"
-      href: image-sdk-java-quickstart.md
+    - name: "Bing Image Search client libraries"
+      href: ./quickstarts/client-libraries.md
 - name: Tutorials
   items:
   - name: Build an image search web application

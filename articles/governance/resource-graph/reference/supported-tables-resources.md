@@ -1,7 +1,7 @@
 ---
 title: Supported Resource Manager resource types
 description: Provide a list of the Resource Manager resource types supported by Azure Resource Graph and Change History.
-ms.date: 02/25/2020
+ms.date: 03/09/2020
 ms.topic: reference
 ---
 # Azure Resource Graph table and resource type reference
@@ -118,6 +118,7 @@ part of a **table** in Resource Graph.
 - microsoft.compute/virtualmachinescalesets
 - microsoft.containerinstance/containergroups
 - microsoft.containerregistry/registries
+- microsoft.containerregistry/registries/agentpools
 - microsoft.containerregistry/registries/buildtasks
 - microsoft.containerregistry/registries/replications
 - microsoft.containerregistry/registries/taskruns
@@ -148,6 +149,7 @@ part of a **table** in Resource Graph.
 - microsoft.dbforpostgresql/servergroups
 - microsoft.dbforpostgresql/servers
 - microsoft.dbforpostgresql/serversv2
+- microsoft.dbforpostgresql/singleservers
 - microsoft.deploymentmanager/artifactsources
 - microsoft.deploymentmanager/rollouts
 - microsoft.deploymentmanager/servicetopologies
@@ -206,6 +208,7 @@ part of a **table** in Resource Graph.
 - microsoft.insights/metricalerts
 - microsoft.insights/notificationgroups
 - microsoft.insights/notificationrules
+- microsoft.insights/privatelinkscopes
 - microsoft.insights/scheduledqueryrules
 - microsoft.insights/webtests
 - microsoft.insights/workbooks
@@ -343,6 +346,7 @@ part of a **table** in Resource Graph.
 - microsoft.search/searchservices
 - microsoft.security/automations
 - microsoft.security/iotsecuritysolutions
+- microsoft.securitydetonation/chambers
 - microsoft.servicebus/namespaces
 - microsoft.servicefabric/clusters
 - microsoft.servicefabric/containergroupsets
@@ -407,6 +411,7 @@ part of a **table** in Resource Graph.
 - microsoft.web/connections
 - microsoft.web/customapis
 - microsoft.web/hostingenvironments
+- microsoft.web/kubeenvironments
 - microsoft.web/serverfarms
 - microsoft.web/sites
 - microsoft.web/sites/premieraddons
