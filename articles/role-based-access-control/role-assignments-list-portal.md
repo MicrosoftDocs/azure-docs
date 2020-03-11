@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/27/2020
+ms.date: 03/10/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ---
@@ -96,9 +96,16 @@ To list access for a user, group, service principal, or managed identity, you li
 
     On this pane, you can see the roles assigned to the selected security principal and the scope. If there are any deny assignments at this scope or inherited to this scope, they will be listed.
 
-## Download role assignments
+## Download role assignments (Preview)
 
-You can download role assignments at a scope in CSV or JSON formats. This can be helpful if you need to inspect the list in a spreadsheet or take an inventory when migrating a subscription. When you download role assignments, you should keep in mind the following criteria:
+You can download role assignments at a scope in CSV or JSON formats. This can be helpful if you need to inspect the list in a spreadsheet or take an inventory when migrating a subscription.
+
+> [!IMPORTANT]
+> Download role assignments is currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+When you download role assignments, you should keep in mind the following criteria:
 
 - If you don't have permissions to read the directory, such as the Directory Readers role, the DisplayName, SignInName, and ObjectType columns will be blank.
 - Role assignments whose security principal has been deleted are not included.
