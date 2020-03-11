@@ -40,7 +40,7 @@ auto config = SpeechConfig::FromSubscription("YourSubscriptionKey", "YourService
 
 ## Initialize a recognizer
 
-After you've created a [`SpeechConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig), the next step is to initialize a [`SpeechRecognizer`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechrecognizer). When you initialize a [`SpeechRecognizer`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechrecognizer), you'll need to pass it your `speech_config`. This ensures that the credentials that the service requires to validate your request are provided.
+After you've created a [`SpeechConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig), the next step is to initialize a [`SpeechRecognizer`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechrecognizer). When you initialize a [`SpeechRecognizer`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechrecognizer), you'll need to pass it your `speech_config`. This provides the credentials that the speech service requires to validate your request.
 
 If you're recognizing speech using your device's default microphone, here's what the [`SpeechRecognizer`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechrecognizer) should look like:
 
@@ -66,7 +66,7 @@ auto audioConfig = AudioConfig::FromDefaultMicrophoneInput();
 auto recognizer = SpeechRecognizer::FromConfig(config, audioConfig);
 ```
 
-If you don't want to use a microphone, and want to provide an audio file, you'll still need to provide an `audioConfig`. However, when you create an [`AudioConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/audio-audioconfig), instead of calling `FromDefaultMicrophoneInput`, you'll call `FromWavFileOutput` and pass the `filename` parameter.
+If you want to provide an audio file instead of using a microphone, you'll still need to provide an `audioConfig`. However, when you create an [`AudioConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/audio-audioconfig), instead of calling `FromDefaultMicrophoneInput`, you'll call `FromWavFileOutput` and pass the `filename` parameter.
 
 ```cpp
 auto audioInput = AudioConfig::FromWavFileInput("YourAudioFile.wav");
@@ -91,7 +91,7 @@ Here's an example of asynchronous single-shot recognition using [`RecognizeOnceA
 auto result = recognizer->RecognizeOnceAsync().get();
 ```
 
-You'll need to write some code to handle the result. This sample does a few things with the [`result->Reason`](https://docs.microsoft.com/cpp/cognitive-services/speech/recognitionresult#reason):
+You'll need to write some code to handle the result. This sample evaluates the [`result->Reason`](https://docs.microsoft.com/cpp/cognitive-services/speech/recognitionresult#reason):
 
 * Prints the recognition result: `ResultReason::RecognizedSpeech`
 * If there is no recognition match, inform the user: `ResultReason::NoMatch`
