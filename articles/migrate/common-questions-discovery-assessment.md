@@ -1,5 +1,5 @@
 ---
-title: Discovery, assessment, and dependency analysis FAQ
+title: Questions about discovery, assessment, and dependency analysis in Azure Migrate
 description: Get answers to common questions about discovery, assessment, and dependency analysis in Azure Migrate.
 ms.topic: conceptual
 ms.date: 02/17/2020
