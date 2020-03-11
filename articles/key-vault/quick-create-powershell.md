@@ -43,7 +43,7 @@ New-AzResourceGroup -Name ContosoResourceGroup -Location EastUS
 
 Next you create a Key Vault. When doing this step, you need some information:
 
-Although we use "Contoso KeyVault2" as the name for our Key Vault throughout this quickstart, you must use a unique name.
+Although we use “Contoso KeyVault2” as the name for our Key Vault throughout this quickstart, you must use a unique name.
 
 - **Vault name** Contoso-Vault2.
 - **Resource group name** ContosoResourceGroup.
