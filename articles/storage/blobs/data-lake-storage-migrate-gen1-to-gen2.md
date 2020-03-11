@@ -4,8 +4,9 @@ description: Migrate Azure Data Lake Storage from Gen1 to Gen2.
 author: normesta
 ms.topic: conceptual
 ms.author: normesta
-ms.date: 03/05/2020
+ms.date: 03/11/2020
 ms.service: storage
+ms.reviewer: rukmani-msft
 ms.subservice: data-lake-storage-gen2
 ---
 
