@@ -97,7 +97,7 @@ landingContent:
           - text: REST API
             url: data-lake-store-get-started-rest-api.md
           - text: Python
-            url: data-lake-store/data-lake-store-get-started-python.md
+            url: data-lake-store-get-started-python.md
 
   # Card
   - title: Filesystem operations
@@ -107,7 +107,7 @@ landingContent:
           - text: .NET SDK
             url: data-lake-store-data-operations-net-sdk.md
           - text: Java SDK
-            url: data-lake-store/data-lake-store-get-started-java-sdk.md
+            url: data-lake-store-get-started-java-sdk.md
           - text: REST API
             url: data-lake-store-data-operations-rest-api.md
           - text: Python
