@@ -147,6 +147,6 @@ When you click the LIFT tile in the Access Panel, you should be automatically si
 
 - [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-- [Try Slack with Azure AD](https://aad.portal.azure.com/)
+- [Try LIFT with Azure AD](https://aad.portal.azure.com/)
 
 - [What is session control in Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
