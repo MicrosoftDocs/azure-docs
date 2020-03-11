@@ -76,7 +76,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
       + Added image_build_compute parameter in workspace update method to allow user updating the compute for image build
     +  Added deprecation messages to the old profiling workflow. Fixed profiling cpu and memory limits
     + Added RSection as part of Environment to run R jobs
-    +  Add validation to `Dataset.mount` which raises error when source of the dataset is not accessible or does not contain any data.
+    +  Add validation to `Dataset.mount` to raise error when source of the dataset is not accessible or does not contain any data.
     + Added `--grant-workspace-msi-access` as an additional parameter for the Datastore CLI for registering Azure Blob Container which will allow you to register Blob Container that is behind a VNet
     + Single instance profiling was fixed to produce a recommendation and was made available in core sdk.
     + Fixed the issue in aks.py _deploy
@@ -84,7 +84,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + User may now specify a value for the auth key when regenerating keys for webservices.
     + Fixed bug where uppercase letters cannot be used as dataset's input name
   + **azureml-defaults**
-    + `azureml-dataprep` will now be installed as part of `azureml-defaults`
+    + `azureml-dataprep` will now be installed as part of `azureml-defaults`. It is no longer required to install dataprep[fuse] manually on compute targets to mount datasets.
   + **azureml-interpret**
     + Updated azureml-interpret to interpret-community 0.6.*
     + Updated azureml-interpret to depend on interpret-community 0.5.0
