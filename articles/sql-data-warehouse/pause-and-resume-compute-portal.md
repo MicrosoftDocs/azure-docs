@@ -92,8 +92,8 @@ Follow these steps to clean up resources as you desire.
 
 3. To remove the SQL server you created, click **sqlpoolservername.database.windows.net**, and then click **Delete**.  
 
->[!CAUTION]
-Be careful with this deletion, since deleting the server also deletes all databases assigned to the server.
+> [!CAUTION]
+> Be careful with this deletion, since deleting the server also deletes all databases assigned to the server.
 
 5. To remove the resource group, click **myResourceGroup**, and then click **Delete resource group**.
 
