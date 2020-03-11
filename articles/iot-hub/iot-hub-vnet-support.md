@@ -52,7 +52,7 @@ Before proceeding ensure that the following pre-requisites are met:
 
 * You need to provision an Azure VNET with a subnet in which the private endpoint will be created. See [create a virtual network using Azure CLI](../virtual-network/quick-create-cli.md) for more details.
 
-* For devices that operate inside of on-premise networks, set up [Virtual Private Network (VPN)](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) or [ExpressRoute](https://azure.microsoft.com/en-us/services/expressroute/) private peering into your Azure VNET.
+* For devices that operate inside of on-premise networks, set up [Virtual Private Network (VPN)](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) or [ExpressRoute](https://azure.microsoft.com/services/expressroute/) private peering into your Azure VNET.
 
 
 ### Regional availability (private links)
