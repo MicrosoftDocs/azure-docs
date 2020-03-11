@@ -1,6 +1,6 @@
 ---
-title: Configure private endpoints for Event Grid topics or domains
-description: This article describes how to configure private endpoints for Event Grid topics or domain. 
+title: Configure private endpoints for Azure Event Grid topics or domains
+description: This article describes how to configure private endpoints for Azure Event Grid topics or domain. 
 services: event-grid
 author: spelluru
 
@@ -10,30 +10,30 @@ ms.date: 03/09/2020
 ms.author: spelluru
 ---
 
-# Configure private endpoints for Event Grid topics or domains (Preview)
+# Configure private endpoints for Azure Event Grid topics or domains (Preview)
 You can use [private endpoints](../private-link/private-endpoint-overview.md) to allow ingress of events directly from your virtual network to your topics and domains securely over a [private link](../private-link/private-link-overview.md) without going through the public internet. The private endpoint uses an IP address from the VNet address space for your topic or domain. For more conceptual information, see [Network security](network-security.md).
 
-This article describes how to configure private endpoints for Event Grid topics or domains.
+This article describes how to configure private endpoints for topics or domains.
 
 ## Use Azure portal 
-This section shows you how to use the Azure portal to create a private endpoint for an Event Grid topic or a domain.
+This section shows you how to use the Azure portal to create a private endpoint for a topic or a domain.
 
-1. Switch to the **Networking** tab of your Event Grid topic page. Select **+ Private endpoint** on the toolbar.
+1. Switch to the **Networking** tab of your topic page. Select **+ Private endpoint** on the toolbar.
 
     ![Add private endpoint](./media/configure-private-endpoints/add-private-endpoint-button.png)
 2. One the **Basics** page, follow these steps: 
     1. Select an **Azure subscription** in which you want to create the private endpoint. 
     2. Select an **Azure resource group** for the private endpoint. 
     3. Enter a **name** for the endpoint. 
-    4. Select the **region** for the endpoint. Your private endpoint must be in the same region as your virtual network, but can in a different region from the private link resource (in this example, the Event Grid topic). 
+    4. Select the **region** for the endpoint. Your private endpoint must be in the same region as your virtual network, but can in a different region from the private link resource (in this example, an Azure Event Grid topic). 
     5. Then, select **Next: Resource >** button at the bottom of the page. 
 
       ![Private endpoint - basics page](./media/configure-private-endpoints/private-endpoint-basics-page.png)
 3. On the **Resource** page, follow these steps: 
     1. For connection method, if you select **Connect to an Azure resource in my directory**, follow these steps. This example shows how to connect to an Azure resource in your directory. 
-        1. Select the **Azure subscription** in which your **Event Grid topic/domain** exists. 
+        1. Select the **Azure subscription** in which your **topic/domain** exists. 
         1. For **Resource type**, Select **Microsoft.EventGrid/topics** or **Microsoft.EventGrid/domains** for the **Resource type**.
-        2. For **Resource**, select an Event Grid topic/domain from the drop-down list. 
+        2. For **Resource**, select an topic/domain from the drop-down list. 
         3. Confirm that the **Target subresource** is set to **topic** or **domain** (based on the resource type you selected).    
         4. Select **Next: Configuration >** button at the bottom of the page. 
 
@@ -76,7 +76,7 @@ There are four provisioning states:
 1. In the search bar, type in **Event Grid topics** or **Event Grid domains**.
 1. Select the **topic** or **domain** that you want to manage.
 1. Select the **Networking** tab.
-1. If there are any connections that are pending, you will see a connection listed with **Pending** in the provisioning state. 
+1. If there are any connections that are pending, you'll see a connection listed with **Pending** in the provisioning state. 
 
 ### To approve a private endpoint
 You can approve a private endpoint that's in the pending state. To approve, follow these steps: 
@@ -137,7 +137,7 @@ Here's the full script to create the following Azure resources:
 - Resource group
 - Virtual network
 - Subnet in the virtual network
-- Event Grid topic (premium tier )
+- Azure Event Grid topic (premium tier)
 - Private endpoint for the topic
 
 ```azurecli
@@ -204,5 +204,10 @@ az rest --method get \
 
 ## Use PowerShell
 
+### Prerequisite
+Follw instructions from [How to: Use the portal to create an Azure AD application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md) to create an Azure Active Directory application and note down the values for **Directory (tenant) ID**, **Application (Client) ID**, and **Application (client) secret**. 
+
+
+
 ## Next steps
-To learn about how to configure IP firewall settings, see [Configure IP firewall for Event Grid topics or domains](configure-firewall.md).
+To learn about how to configure IP firewall settings, see [Configure IP firewall for Azure Event Grid topics or domains](configure-firewall.md).

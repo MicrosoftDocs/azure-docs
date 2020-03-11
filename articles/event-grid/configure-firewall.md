@@ -1,5 +1,5 @@
 ---
-title: Configure firewall for Event Grid topics or domains (Preview)
+title: Configure firewall for Azure Event Grid topics or domains (Preview)
 description: This article describes how to configure firewall settings for Event Grid topics or domains. 
 services: event-grid
 author: spelluru
@@ -10,25 +10,25 @@ ms.date: 03/09/2020
 ms.author: spelluru
 ---
 
-# Configure IP firewall for Event Grid topics or domains (Preview)
+# Configure IP firewall for Azure Event Grid topics or domains (Preview)
 By default, topic and domain are accessible from internet as long as the request comes with valid authentication and authorization. With IP firewall, you can restrict it further to only a set of IP addresses or IP address ranges in CIDR (Classless Inter-Domain Routing) notation. Publishers originating from any other IP address will be rejected and will receive a 403 (Forbidden) response. 
 
-This article describes how to configure IP firewall settings for Event Grid topics or domains.
+This article describes how to configure IP firewall settings for event grid topics or domains.
 
 ## Use Azure portal
 
-1. In the [Azure portal](https://portal.azure.com), Navigate to your Event Grid topic or domain, and switch to the **Networking** tab. 
+1. In the [Azure portal](https://portal.azure.com), Navigate to your event grid topic or domain, and switch to the **Networking** tab. 
 
     ![Networking -> Firewall](./media/configure-firewall/networking-filewall-page.png)
 2. Select one of the following options. 
     
-    - Select **All IP addresses** if you want the Event Grid topic or domain to be accessed from all IP addresses. This is the default value. 
-    - Select the **Selected IP addresses and private endpoints** option if you want the Event Grid to be accessed from only specified IP addresses and private endpoints. Then, enter the range of IP addresses that can access the Event Grid topic or domain. 
+    - Select **All IP addresses** if you want the event grid topic or domain to be accessed from all IP addresses. This is the default value. 
+    - Select the **Selected IP addresses and private endpoints** option if you want the Event Grid to be accessed from only specified IP addresses and private endpoints. Then, enter the range of IP addresses that can access the event grid topic or domain. 
 3. Select **Save** on the toolbar. 
 
 
 ## Use Azure CLI
-This section shows you how to use Azure CLI commands to create Event Grid topics with inbound rules. Run the following commands if you need to create a resource group instead of using an existing one.
+This section shows you how to use Azure CLI commands to create topics with inbound rules. Run the following commands if you need to create a resource group instead of using an existing one.
 
 ```azurecli
 -- select a subscription (if you have multiple subscriptions)
@@ -40,7 +40,7 @@ az group create --name "RESOURECE GROUP NAME" --location "LOCATION"
 
 
 ### Create topic with inbound ip rules
-The following sample CLI command creates an Event Grid topic with inbound IP rules in one step. 
+The following sample CLI command creates an event grid topic with inbound IP rules in one step. 
 
 ```azurecli
 az rest --method put \
@@ -49,11 +49,11 @@ az rest --method put \
 ```
 
 ### Create topic first and then add inbound ip rules
-This example creates an Event Grid topic first and then adds inbound IP rules for the topic in a separate command. It also updates the inbound IP rules that were set in the second command. 
+This example creates an event grid topic first and then adds inbound IP rules for the topic in a separate command. It also updates the inbound IP rules that were set in the second command. 
 
 ```azurecli
 
--- Create the Event Grid topic first
+-- Create the event grid topic first
 az rest --method put \
     --uri "/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventGrid/topics/<EVENT GRID TOPIC NAME>?api-version=2020-04-01-preview" \
     --body {\""location\"":\""<LOCATION>\"}
@@ -70,7 +70,13 @@ az rest --method put \
 ```
 
 ## Use PowerShell
-This section shows you how to use Azure PowerShell commands to create Event Grid topics with inbound rules. Run the following prerequisite commands to get an authentication token to use with REST API calls and authorization and other header information. 
+This section shows you how to use Azure PowerShell commands to create Azure Event Grid topics with inbound rules. 
+
+### Prerequisite
+Follw instructions from [How to: Use the portal to create an Azure AD application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md) to create an Azure Active Directory application and note down the values for **Directory (tenant) ID**, **Application (Client) ID**, and **Application (client) secret**. 
+
+### Prepare token and headers for REST API calls 
+Run the following prerequisite commands to get an authentication token to use with REST API calls and authorization and other header information. 
 
 ```azurepowershell
 # replace <CLIENT ID> and <CLIENT SECRET>
@@ -88,14 +94,14 @@ $Headers.Add("Authorization","$($Token.token_type) "+ " " + "$($Token.access_tok
 $Headers.Add("Content-Type","application/json")
 ```
 
-### Create an Event Grid topic with inbound rules in one step
+### Create an event grid topic with inbound rules in one step
 
 ```azurepowershell
 
 # prepare the body for the REST PUT method. Notice that inbound IP rules are included. 
 $body = @{"location"="<LOCATION>"; "sku"= @{"name"="basic"}; "properties"=@{"publicNetworkAccess"="enabled"; "inboundIpRules"=@(@{"ipmask"="0.0.0.0/0";"action"="allow"})}} | ConvertTo-Json -Depth 5
 
-# create the Event Grid topic with inbound IP rules
+# create the event grid topic with inbound IP rules
 Invoke-RestMethod -Method 'Put' `
     -Uri "https://management.azure.com/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventGrid/topics/<EVENT GRID TOPIC NAME>?api-version=2020-04-01-preview" `
     -Headers $Headers `
@@ -109,7 +115,7 @@ Invoke-RestMethod -Method 'Get' `
 ```
 
 
-### Create Event Grid topic first and then add inbound ip rules
+### Create event grid topic first and then add inbound ip rules
 
 ```azurepowershell
 
