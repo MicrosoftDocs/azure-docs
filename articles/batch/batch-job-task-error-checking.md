@@ -71,7 +71,7 @@ The impact of task failures on the job and any task dependencies must be conside
 
 ### Task command line failures
 
-When the task command line is run, output is written to **stderr.txt** and **stdout.txt**. In addition, the application may write to application-specific log files.
+When the task command line is run, output is written to `stderr.txt` and `stdout.txt`. In addition, the application may write to application-specific log files.
 
 If the pool node on which a task has run still exists, then the log files can be obtained and viewed. For example, the Azure portal lists and can view log files for a task or a pool node. Multiple APIs also allow task files to be listed and obtained, such as [Get From Task](https://docs.microsoft.com/rest/api/batchservice/file/getfromtask).
 
