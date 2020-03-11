@@ -1,5 +1,5 @@
 ---
-title: Delete data from Azure Data Explorer
+title: Delete data from Azure Data Explorer (Kusto)
 description: This article describes bulk delete scenarios in Azure Data Explore, including purge and retention based deletes.
 author: orspod
 ms.author: orspodek
@@ -11,26 +11,25 @@ ms.date: 09/24/2018
 
 # Delete data from Azure Data Explorer (Kusto)
 
-Azure Data Explorer supports several bulk delete approaches, which we cover in this article. It doesn't support per-record deletion in real time, because it's optimized for fast read access.
+Azure Data Explorer supports three main delete approaches described in this article.
 
-* If one or more tables is no longer needed, delete them using the drop table or drop tables command.
+## Expiration using retention policy    
+Azure Data Explorer automatically deletes data based on the [retention policy](https://docs.microsoft.com/azure/kusto/concepts/retentionpolicy) that can be defined on the database level and/or the table level. This is the most efficient and hassle-free method of deleting data.      
 
-    ```Kusto
-    .drop table <TableName>
+## Dropping extents
+[Extent (data shard)](https://docs.microsoft.com/en-us/azure/kusto/management/extents-overview) is the internal structure where data is stored. Each extent can hold from one to millions of records. Extents can be deleted individually or as a group using [drop extent/s commands](https://docs.microsoft.com/en-us/azure/kusto/management/extents-commands#drop-extents) 
 
-    .drop tables (<TableName1>, <TableName2>,...)
-    ```
+Here is an example for deleting all rows in a table:
 
-* If old data is no longer needed, delete it by changing the retention period at the database or table level.
+```Kusto
+.drop extents from TestTable
+```
 
-    Consider a database or table that is set for 90 days of retention. Business needs change, so now only 60 days of data is needed. In this case, delete the older data in one of the following ways.
+Here is an example of deleting a specific extent:
+```Kusto
+.drop extent e9fac0d2-b6d5-4ce3-bdb4-dea052d13b42
+```
 
-    ```Kusto
-    .alter-merge database <DatabaseName> policy retention softdelete = 60d
+## Delete individual rows using purge
+[Data purge](https://docs.microsoft.com/en-us/azure/kusto/concepts/data-purge) allows for deleting individuals rows and is designed to allow compliance with GDPR requirements. Please note that the deletion is *not* immediate and requires significant system resources, thus it is only advised to be used for compliance scenarios.    
 
-    .alter-merge table <TableName> policy retention softdelete = 60d
-    ```
-
-    For more information, see [Retention policy](https://docs.microsoft.com/azure/kusto/concepts/retentionpolicy).
-
-If you need assistance with data deletion issues, please open a support request in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
