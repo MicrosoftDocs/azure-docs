@@ -57,5 +57,5 @@ landingContent:
           url: language-support.md#speech-to-text
         - text: Speech-to-text FAQ
           url: faq-stt.md
-        - text: Speech-to-text ricing
+        - text: Speech-to-text pricing
           url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services
