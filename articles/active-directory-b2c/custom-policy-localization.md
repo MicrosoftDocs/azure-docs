@@ -17,9 +17,9 @@ ms.subservice: B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Language customization in Azure Active Directory B2C (Azure AD B2C) allows you to accommodate different languages to suit your customer needs. Microsoft provides the translations for 36 languages, but you can also provide your own translations for any language. Even if your experience is provided for only a single language, you can customize any text on the pages. 
+Language customization in Azure Active Directory B2C (Azure AD B2C) allows you to accommodate different languages to suit your customer' needs. Microsoft provides the translations for 36 languages, but you can also provide your own translations for any language. Even if your experience is provided for only a single language, you can customize any text on the pages. 
 
-This article shows you how to support multiple locales or languages in the policy for user journeys. Localization requires three steps: set-up the explicit list of the supported languages, provide language-specific strings and collections, and edit the [content definition](contentdefinitions.md) for the page. 
+This article shows you how to support multiple locales or languages in the policy for user journeys. Localization requires three steps: set-up the explicit list of supported languages, provide language-specific strings and collections, and edit the [content definition](contentdefinitions.md) for the page. 
 
 ## Set up the list of supported languages
 
@@ -212,7 +212,7 @@ You configure localized resources elements for content definition and any langua
 
 Paste the entire contents of the ContentDefinitions element that you copied as a child of the BuildingBlocks element.
 
-In the following example, English (en) and Spanish (es) custom strings are added to the sign-up or sign-in page, and to the local account sign-up page. The **LocalizedResourcesReferenceId** for each **LocalizedResourcesReference** is the same as their locale, but you could use any string as the identifier. For each language and page combination, you point to the  corresponding **LocalizedResources** you previously created.
+In the following example, English (en) and Spanish (es) custom strings are added to the sign-up or sign-in page, and to the local account sign-up page. The **LocalizedResourcesReferenceId** for each **LocalizedResourcesReference** is the same as their locale, but you could use any string as the identifier. For each language and page combination, you point to the corresponding **LocalizedResources** you previously created.
 
 ```XML
 <ContentDefinitions>
