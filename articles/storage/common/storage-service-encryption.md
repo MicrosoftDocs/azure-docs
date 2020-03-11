@@ -108,7 +108,7 @@ Rotating the key does not trigger re-encryption of data in the storage account. 
 
 ### Revoke access to customer-managed keys
 
-You can revoke customer-managed keys if you believe that a key may have been compromised. After access to customer-managed keys is revoked, operations that read from or write to a blob or its metadata are not permitted. All other data operations are permitted. The specific operations that are not permitted are:
+You can revoke the storage account's access to the customer-managed key at any time. After access to customer-managed keys is revoked, or after the key has been disabled or deleted, operations that read from or write to a blob or its metadata are not permitted. All other data operations are permitted. The specific operations that are not permitted are:
 
 - [List Blobs](/rest/api/storageservices/list-blobs), when called with the `include=metadata` parameter on the request URI
 - [Get Blob](/rest/api/storageservices/get-blob)
