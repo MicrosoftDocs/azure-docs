@@ -23,7 +23,7 @@ If you specify an indexing policy that includes spatial index for /* (all paths)
 
 ## Modifying geospatial data type
 
-In your container, the `geospatialConfig` specifies how the geospatial data will be indexed. You should specific one `geospatialConfig` per container: geography or geometry. If not specified, the `geospatialConfig` will default to the geography data type. You can modify the `geospatialConfig` at any time.
+In your container, the `geospatialConfig` specifies how the geospatial data will be indexed. You should specify one `geospatialConfig` per container: geography or geometry. If not specified, the `geospatialConfig` will default to the geography data type. When you modify the `geospatialConfig`, all existing geospatial data in the container will be reindexed.
 
 > [!NOTE]
 > Azure Cosmos DB currently supports modifications to the geospatialConfig in the .NET sdk only in versions 3.6 and above. Support in     > other sdk versions and the Azure Portal is planned.
@@ -94,7 +94,9 @@ You can also [modify indexing policy](how-to-manage-indexing-policy.md) using th
 
 ## Geometry data indexing examples
 
-With the **geometry** data type, similar to the geography data type, you must specify relevant paths and types to index. In addition, you must also specify a `boundingBox` within the indexing policy to indicate the desired area to be indexed. The bounding box consists of the following properties:
+With the **geometry** data type, similar to the geography data type, you must specify relevant paths and types to index. In addition, you must also specify a `boundingBox` within the indexing policy to indicate the desired area to be indexed for that specific path. Each geospatial path requires its own`boundingBox`.
+
+The bounding box consists of the following properties:
 
 - **xmin**: the minimum indexed x coordinate
 - **ymin**: the minimum indexed y coordinate
@@ -105,7 +107,7 @@ A bounding box is required because geometric data occupies a plane that can be i
 
 You should create a bounding box that contains all (or most) of your data. Only operations computed on the objects that are entirely inside the bounding box will be able to utilize the spatial index. You should not make the bounding box significantly larger than necessary because this will negatively impact query performance.
 
-Here is an example indexing policy that indexes **geometry** data:
+Here is an example indexing policy that indexes **geometry** data with **geospatialConfig** set to `geometry`:
 
 ```json
  {
