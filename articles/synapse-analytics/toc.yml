@@ -22,9 +22,9 @@
     href: quickstart-synapse-studio.md
   - name: Create pools
     items:
-    - name: Create Spark pool using web tools
+    - name: Create Apache Spark pool using web tools
       href: ./spark/apache-spark-notebook-create-spark-use-sql.md
-    - name: Create Spark pool using Azure portal
+    - name: Create Apache Spark pool using Azure portal
       href: quickstart-create-apache-spark-pool.md
     - name: Create SQL pool
       href: quickstart-create-sql-pool.md
@@ -46,7 +46,7 @@
     href: get-started.md
 - name: Tutorials
   items:
-  - name: Run Apache Spark applications for Spark pools
+  - name: Run Apache Spark applications for Apache Spark pools
     href: ./spark/intellij-tool-synapse.md
   - name: Power BI Professional
     href: ./sql-analytics/tutorial-connect-power-bi-desktop.md
@@ -128,7 +128,7 @@
           href: ../sql-data-warehouse/sql-data-warehouse-overview-manageability-monitoring.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: Resource utilization & query activity 
           href: ../sql-data-warehouse/sql-data-warehouse-concept-resource-utilization-query-activity.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json 
-      - name: Spark pool history server
+      - name: Apache Spark pool history server
         href: ./spark/apache-spark-history-server.md
   - name: Security
     items:
@@ -412,7 +412,7 @@
     #   href: article-template.md
     # - name: Spark applications
     #   href: article-template.md
-    # - name: Spark pools
+    # - name: Apache Spark pools
     #   href: article-template.md
     # - name: Troubleshooting and performance enhancement
     #   href: article-template.md 

@@ -14,11 +14,11 @@ ms.reviewer: euang
 
 Apache Spark depends on many libraries to provide functionality. These libraries can be augmented or replaced with additional libraries or updated versions of older ones.
 
-Python packages can be added at the Spark pool level and .jar based packages can be added at the Spark job definition level.
+Python packages can be added at the Apache Spark pool level and .jar based packages can be added at the Spark job definition level.
 
 ## Adding or updating Python libraries
 
-Apache Spark in Azure Synapse Analytics has a full Anacondas install plus additional libraries. The full list can be found at [Apache Spark version support](apache-spark-version-support.md). When a Spark instance starts up, a new virtual environment is created using this installation as the base. Additionally, a *requirements.txt* file (output from the `pip freeze` command) can be used to upgrade the virtual environment. The packages listed in this file for install or upgrade are downloaded from PyPi at the time of cluster startup. This requirements file is used every time a Spark instance is created from that Spark pool.
+Apache Spark in Azure Synapse Analytics has a full Anacondas install plus additional libraries. The full list can be found at [Apache Spark version support](apache-spark-version-support.md). When a Spark instance starts up, a new virtual environment is created using this installation as the base. Additionally, a *requirements.txt* file (output from the `pip freeze` command) can be used to upgrade the virtual environment. The packages listed in this file for install or upgrade are downloaded from PyPi at the time of cluster startup. This requirements file is used every time a Spark instance is created from that Apache Spark pool.
 
 > [!IMPORTANT]
 >
@@ -40,7 +40,7 @@ alabaster==0.7.10
 
 ### Python library user interface
 
-The UI for adding libraries is in the **Additional settings** tab of the **Create Spark pool** page on the Azure portal.
+The UI for adding libraries is in the **Additional settings** tab of the **Create Apache Spark pool** page on the Azure portal.
 
 Upload the environment configuration file using the file selector in the **Packages** section of the page.
 

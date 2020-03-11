@@ -77,4 +77,4 @@ If you want to delete the Azure Synapse workspace, complete the following steps:
 
 ## Next steps
 
-Next, you can [create SQL pools](quickstart-create-sql-pool.md) or [create Spark pools](quickstart-create-apache-spark-pool.md) to start analyzing and exploring your data.
+Next, you can [create SQL pools](quickstart-create-sql-pool.md) or [create Apache Spark pools](quickstart-create-apache-spark-pool.md) to start analyzing and exploring your data.

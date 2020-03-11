@@ -16,7 +16,7 @@ ms.reviewer: jrasnick
 Azure Synapse Analytic is a big data analytic service that enables you to query and analyze your data using the powerful query languages. You can use the following languages for data analysis:
 
 - Transact-SQL language - standard ANSI-compliant dialect of SQL language used on SQL Server and Azure SQL Database. This language is available in SQL Pool and SQL On-Demand capability.
-- Spark SQL, PySpark(Python), Scala(Java), and .NET Spark (C#) languages that are used on Apache Spark. These languages are available on Spark pool capability.
+- Spark SQL, PySpark(Python), Scala(Java), and .NET Spark (C#) languages that are used on Apache Spark. These languages are available on Apache Spark pool capability.
 
 Transact-SQL language is used in SQL Pools and SQL On-Demand can reference different objects and has some differences in the set of supported features. In this page, you can find high-level Transact-SQL language differences between SQL Pools and SQL On-Demand Capabilities.
 
