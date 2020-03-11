@@ -15,21 +15,21 @@ metadata:
   ms.author: dapine
 
 landingContent:
-- title: About the Speech Devices SDK
+- title: About the Speech devices SDK
   linkLists:
     - linkListType: overview
       links:
-        - text: About the Speech Devices SDK?
+        - text: What is the Speech devices SDK?
           url: speech-devices-sdk.md
     - linkListType: quickstart
       links:
-        - text: Use Speech Device SDK (Windows)
+        - text: Use Speech devices SDK (Windows)
           url: speech-devices-sdk-quickstart.md?pivots=platform-windows
-        - text: Use Speech Device SDK (Linux)
+        - text: Use Speech devices SDK (Linux)
           url: speech-devices-sdk-quickstart.md?pivots=platform-linux
-        - text: Use Speech Device SDK (Android)
+        - text: Use Speech devices SDK (Android)
           url: speech-devices-sdk-quickstart.md?pivots=platform-android
-- title: Develop with the Speech Devices SDK
+- title: Develop with Speech devices SDK
   linkLists:
     - linkListType: how-to-guide
       links:

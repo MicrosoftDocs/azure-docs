@@ -15,11 +15,11 @@ metadata:
   ms.author: dapine
 
 landingContent:
-- title: About Text-to-speech
+- title: About text-to-speech
   linkLists:
     - linkListType: overview
       links:
-      - text: What is Text-to-speech?
+      - text: What is text-to-speech?
         url: text-to-speech.md
     - linkListType: quickstart
       links:
@@ -29,7 +29,7 @@ landingContent:
           url: quickstarts/text-to-speech-audio-file.md
         - text: Synthesize speech with long-form audio
           url: quickstarts/text-to-speech/async-synthesis-long-form-audio.md
-- title: Develop with Text-to-speech
+- title: Develop with text-to-speech
   linkLists:
     - linkListType: how-to-guide
       links:

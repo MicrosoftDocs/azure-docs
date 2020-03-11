@@ -466,7 +466,7 @@
       items:
         - name: Speech SDK samples (GitHub)
           href: 'https://github.com/Azure-Samples/cognitive-services-speech-sdk'
-        - name: Speech Devices SDK samples (GitHub)
+        - name: Speech devices SDK samples (GitHub)
           href: https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK
     - name: Reference
       items:
@@ -490,9 +490,9 @@
       href: index-devices.yml
     - name: Overview
       items:
-        - name: About the Speech Devices SDK
+        - name: What is the Speech devices SDK?
           href: speech-devices-sdk.md
-        - name: Get the Speech Devices SDK
+        - name: Get the Speech devices SDK
           href: get-speech-devices-sdk.md
     - name: Hardware
       items:
@@ -504,15 +504,15 @@
           href: speech-devices-sdk-roobo-v2.md
     - name: Quickstart
       items:
-        - name: Use Speech Devices SDK
+        - name: Use Speech devices SDK
           href: speech-devices-sdk-quickstart.md
     - name: Resources
       items:
-        - name: Troubleshoot the Speech Devices SDK
+        - name: Troubleshoot the Speech devices SDK
           href: speech-devices-sdk-troubleshooting.md
     - name: Reference
       items:
-        - name: Speech Devices SDK release notes
+        - name: Speech devices SDK release notes
           href: devices-sdk-release-notes.md
 - name: Migration
   items:

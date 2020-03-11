@@ -15,13 +15,13 @@ metadata:
   ms.author: dapine
 
 landingContent:
-- title: About Intent Recognition
+- title: About intent recognition
   linkLists:
     - linkListType: quickstart
       links:
         - text: Recognize speech, intents, and entities
           url: quickstarts/intent-recognition.md
-- title: Develop with Intent Recognition
+- title: Develop with intent recognition
   linkLists:
     - linkListType: how-to-guide
       links:

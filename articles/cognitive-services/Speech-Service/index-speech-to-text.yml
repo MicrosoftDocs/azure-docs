@@ -15,11 +15,11 @@ metadata:
   ms.author: dapine
 
 landingContent:
-- title: About Speech-to-text
+- title: About speech-to-text
   linkLists:
     - linkListType: overview
       links:
-      - text: What is Speech-to-text?
+      - text: What is speech-to-text?
         url: speech-to-text.md
     - linkListType: quickstart
       links:
@@ -29,7 +29,7 @@ landingContent:
           url: quickstarts/speech-to-text-from-file.md
         - text: Recognize speech stored in blob storage
           url: quickstarts/from-blob.md
-- title: Develop with Speech-to-text
+- title: Develop with speech-to-text
   linkLists:
     - linkListType: how-to-guide
       links:
