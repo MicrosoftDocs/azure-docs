@@ -32,5 +32,5 @@ Below is a list of the transformations currently supported in mapping data flow.
 | [Source](data-flow-source.md) | - | A data source for the data flow |
 | [Surrogate key](data-flow-surrogate-key.md) | Schema modifier | Add an incrementing non-business arbitrary key value |
 | [Union](data-flow-union.md) | Multiple inputs/outputs | Combine multiple data streams vertically |
-| [Unpivot](data-flow-unpviot.md) | Schema modifier | Pivot columns into row values |
+| [Unpivot](data-flow-unpivot.md) | Schema modifier | Pivot columns into row values |
 | [Window](data-flow-window.md) | Schema modifier |  Define window-based aggregations of columns in your data streams. |
