@@ -13,28 +13,37 @@ ms.custom: azure-synapse
 ---
 # Write audit to a storage account under VNet and firewall
 
-Auditing for [Azure SQL Database](sql-database-technical-overview.md) and [Azure Synapse Analytics](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) supports writing database events to an [Azure Storage account](../storage/common/storage-account-overview.md) behind a virtual network and firewall. This article explains how to configure Azure SQL Server and Azure storage account for this option.
+Auditing for [Azure SQL Database](sql-database-technical-overview.md) and [Azure Synapse Analytics](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) supports writing database events to an [Azure Storage account](../storage/common/storage-account-overview.md) behind a virtual network and firewall. 
 
-## What is virtual network
+This article explains two ways to configure Azure SQL Server and Azure storage account for this option. The first uses the Azure Portal, the second uses REST.
+
+### Background
 
 [Azure Virtual Network (VNet)](../virtual-network/virtual-networks-overview.md) is the fundamental building block for your private network in Azure. VNet enables many types of Azure resources, such as Azure Virtual Machines (VM), to securely communicate with each other, the internet, and on-premises networks. VNet is similar to a traditional network in your own data center, but brings with it additional benefits of Azure infrastructure such as scale, availability, and isolation.
 
 To learn more about the VNet concepts, Best practices and many more, see [What is Azure Virtual Network](../virtual-network/virtual-networks-overview.md).
 
-## Create a virtual network
-
 To learn more about how to create a virtual network, see [Quickstart: Create a virtual network using the Azure portal](../virtual-network/quick-create-portal.md).
 
-> [!IMPORTANT]
-> To support writing audit logs under a VNet and firewalls, chose `Allow trusted Microsoft services to access this storage account`. This setting is on the Azure Storage account **Firewalls and Virtual networks** settings menu. For more information, see [Configure Azure Storage firewalls and virtual networks - exceptions](../storage/common/storage-network-security.md#exceptions).
-> You must have the `Microsoft.Authorization/roleAssignments/write` permission on the selected storage account. For various built-in roles for Azure resources, see [Azure built-in roles](../role-based-access-control/built-in-roles.md).
-> If you have a general-purpose v1 or blob storage account, [Upgrade to a general-purpose v2 storage account](../storage/common/storage-account-upgrade.md).
+## Prerequisites
 
-### Azure Portal
+For audit to write to a storage account under a VNet or firewall, the following prerequisites are required:
 
-1. Click on **Auditing** under the Security heading in your SQL database/server pane.
+> [!div class="checklist"]
+> * A general-purpose v2 storage account. If you have a general-purpose v1 or blob storage account, [upgrade to a general-purpose v2 storage account](../storage/common/storage-account-upgrade.md). For more information, see [Types of storage accounts](../storage/common/storage-account-overview.md#types-of-storage-accounts).
+> * The storage account must be on the same subscription and at the same location as the Azure SQL Database server. 
+> * The Azure Storage account requires `Allow trusted Microsoft services to access this storage account`. Set this on the Storage Account **Firewalls and Virtual networks**.
+> * You must have `Microsoft.Authorization/roleAssignments/write` permission on the selected storage account. For more information, see [Azure built-in roles](../role-based-access-control/built-in-roles.md).
 
-2. Select **Storage** and open **Storage details**. Select the Azure storage account where logs will be saved.
+## Configure in Azure portal
+
+Connect to [Azure portal](https://portal.azure.com) with your subscription. Navigate to the resource group and Azure SQL database server.
+
+1. Click on **Auditing** under the Security heading. Select **On**.
+
+2. Select **Storage**. Select the storage account where logs will be saved. The storage account must comply with the requirements listed in [Prerequisites](#prerequisites).
+
+3. Open **Storage details** 
 
   > [!NOTE]
   > If the selected Storage account is under VNet, you will see the following message:
@@ -43,22 +52,36 @@ To learn more about how to create a virtual network, see [Quickstart: Create a v
   >
   >If you do not see this message, then storage account is not under VNet.
 
-3. Select the retention period. Then click **OK**. Logs older than the retention period are deleted.
+3. Select the number of days for the retention period. Then click **OK**. Logs older than the retention period are deleted.
 
-4. Select **Save** on your auditing settings blade.
+4. Select **Save** on your auditing settings.
 
-### Other
+You have succesfully configured audit to write to a storage account under a VNet or firewall. 
 
-You can also configure Audit to write database events on a storage account under Virtual Network and Firewall:
+## Configure with REST commands
 
-1. Register your Azure SQL Server hosting your Azure SQL Data Warehouse instance with Azure Active Directory (AAD):
+As an alternative to using the Azure portal, you can use REST commands to configure audit to write database events on a storage account under a VNet and Firewall. 
+
+The sample scripts in this section require you to update the script before you run them. Replace the following values in the scripts:
+
+|Sample value|Sample description|
+|:-----|:-----|
+|`<subscriptionId>`| Azure subscription ID|
+|`<resource group>`| Resource group|
+|`<sql database server>`| Azure SQL database server name|
+|`<administrator login>`| SQL database administrator account |
+|`<complex password>`| Complex password for the administrator account|
+
+To configure SQL Audit to write events to a storage account behind a VNet or Firewall:
+
+1. Register your Azure SQL Datababase server with Azure Active Directory (AAD):
 
   - In PowerShell
 
    ```powershell
    Connect-AzAccount
    Select-AzSubscription -SubscriptionId <subscriptionId>
-   Set-AzSqlServer -ResourceGroupName your-database-server-resourceGroup -ServerName your-SQL-servername -AssignIdentity
+   Set-AzSqlServer -ResourceGroupName <your resource group> -ServerName <sql database server> -AssignIdentity
    ```
    
   - In [REST API](https://docs.microsoft.com/rest/api/sql/servers/createorupdate):
@@ -66,45 +89,45 @@ You can also configure Audit to write database events on a storage account under
   Sample Request
 
    ```html
-   PUT https://management.azure.com/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/sqlcrudtest-7398/providers/Microsoft.Sql/servers/sqlcrudtest-4645?api-version=2015-05-01-preview
+   PUT https://management.azure.com/subscriptions/<subscription ID>/resourceGroups/<resource group>/providers/Microsoft.Sql/servers/<sql database server>?api-version=2015-05-01-preview
    ```
 
   Request Body
 
-   ```javascript
+   ```json
    {
   "identity": {
              "type": "SystemAssigned",
              },
   "properties": {
-    "fullyQualifiedDomainName": "sqlcrudtest-4645.database.windows.net",
-    "administratorLogin": "dummylogin",
-    "administratorLoginPassword": "Un53cuRE!",
+    "fullyQualifiedDomainName": "<sql database server>.database.windows.net",
+    "administratorLogin": "<administrator login>",
+    "administratorLoginPassword": "<complex password>",
     "version": "12.0",
     "state": "Ready"
   }
    ```
 
-2. Under your storage account, navigate to **Access Control (IAM)**, and click **Add role assignment**. Assign **Storage Blob Data Contributor** RBAC role to your Azure SQL Server hosting your Azure SQL Data Warehouse which you've registered with Azure Active Directory (AAD) as in step#1.
+2. Open [Azure portal](https://portal.azure.com). Navigate to your storage account. Locate **Access Control (IAM)**, and click **Add role assignment**. Assign **Storage Blob Data Contributor** RBAC role to your Azure SQL Server hosting your Azure SQL database that you registered with Azure Active Directory (AAD) as in the previous step.
 
    > [!NOTE]
-   > Only members with Owner privilege can perform this step. For various built-in roles for Azure resources, refer to this [guide](/role-based-access-control/built-in-roles).
+   > Only members with Owner privilege can perform this step. For various built-in roles for Azure resources, refer to [Azure built-in roles](../role-based-access-control/built-in-roles.md).
 
-3. Configure your [Azure SQL server's blob auditing policy](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/createorupdate), without specify *storageAccountAccessKey*:
+3. Configure [Azure SQL server's blob auditing policy](/rest/api/sql/server%20auditing%20settings/createorupdate), without specifying a *storageAccountAccessKey*:
 
   Sample Request
 
    ```html
-   PUT https://management.azure.com/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/blobauditingtest-4799/providers/Microsoft.Sql/servers/blobauditingtest-6440/auditingSettings/default?api-version=2017-03-01-preview
+   PUT https://management.azure.com/subscriptions/<subscription ID>/resourceGroups/<resource group>/providers/Microsoft.Sql/servers/<azure sql database server>?api-version=2017-03-01-preview
    ```
 
   Request Body
 
-   ```javascript
+   ```json
    {
      "properties": {
       "state": "Enabled",
-      "storageEndpoint": "https://mystorage.blob.core.windows.net"
+      "storageEndpoint": "https://<storage account>.blob.core.windows.net"
      }
    }
    ```
