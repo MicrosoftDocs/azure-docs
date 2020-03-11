@@ -1,26 +1,26 @@
 ---
 title: Visualize data from Azure Data Explorer using Kibana
 description: In this article, you learn how to set up Azure Data Explorer as a data source for Kibana
-author: yossi-karp
-ms.author: guregini
-ms.reviewer: v-yokarp
+author: orspod
+ms.author: ornat.spodek
+ms.reviewer: guregini
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 03/03/2020
+ms.date: 03/11/2020
 ---
 
 # Visualize data from Azure Data Explorer in Kibana with the K2Bridge open-source connector
 
-K2Bridge (Kibana-Kusto Bridge) enables you to use Azure Data Explorer (Kusto) as the data source and to visualize that data in Kibana. K2Bridge is an open-source containerized application which acts as a proxy between a Kibana instance and an Azure Data Explorer cluster. This article describes how to use K2Bridge to create that connection.
+K2Bridge (Kibana-Kusto Bridge) enables you to use Azure Data Explorer as the data source and to visualize that data in Kibana. K2Bridge is an open-source containerized application which acts as a proxy between a Kibana instance and an Azure Data Explorer cluster. This article describes how to use K2Bridge to create that connection.
 
 K2Bridge translates Kibana queries to Kusto Query Language (KQL) and sends the Azure Data Explorer results back to Kibana. 
 
    ![chart](media/k2bridge/k2bridge-chart.png)
 
-K2Bridge supports Kibana’s "Discover" tab, where you can:
+K2Bridge supports Kibana’s Discover tab, where you can:
 * Search and explore the data
 * Filter results
-* Add or remove fields to the results grid
+* Add or remove fields in the results grid
 * View record content
 * Save and share searches
 
@@ -51,6 +51,7 @@ Before you can visualize data from Azure Data Explorer in Kibana, have the follo
     * [Set the cluster's view permissions for the Azure AD service principal](https://docs.microsoft.com/azure/data-explorer/manage-database-permissions#manage-permissions-in-the-azure-portal).
 
     For more information about the Azure AD service principal, see [Create an Azure AD service principal](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#create-an-azure-active-directory-application).
+
 ## Run K2Bridge on Azure Kubernetes Service (AKS)
 
 By default, K2Bridges's Helm chart references a publicly available image located on Microsoft's Container Registry (MCR). MCR doesn't require any credentials, and works out-of-the-box.
