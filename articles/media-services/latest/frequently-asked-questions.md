@@ -49,7 +49,7 @@ When using pagination, you should always use the next link to enumerate the coll
 
 ### What features are not yet available in Azure Media Services v3?
 
-For details, see [feature gaps with respect to v2 APIs](migrate-from-v2-to-v3.md#feature-gaps-with-respect-to-v2-apis).
+For details, see [feature gaps with respect to v2 APIs](media-services-v2-vs-v3.md#feature-gaps-with-respect-to-v2-apis).
 
 ### What is the process of moving a Media Services account between subscriptions?  
 
@@ -143,7 +143,7 @@ For all other management tasks (for example, [Transforms and Jobs](transforms-jo
 
 The AssetFiles were removed from the AMS API in order to separate Media Services from Storage SDK dependency. Now Storage, not Media Services, keeps the information that belongs in Storage. 
 
-For more information, see [Migrate to Media Services v3](migrate-from-v2-to-v3.md).
+For more information, see [Migrate to Media Services v3](media-services-v2-vs-v3.md).
 
 ### Where did client-side storage encryption go?
 
