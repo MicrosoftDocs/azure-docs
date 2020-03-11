@@ -13,9 +13,9 @@ ms.author: lcozzens
 ---
 # Use feature filters to enable a feature for a subset of users
 
-Feature flags allow you to dynamically show or hide functionality in your application. A simple feature flag is either on or off. Every request experiences the same behavior. For example, you could roll out a new feature behind a feature flag. When the feature flag is enabled, all users see the new feature. Disabling the feature flag hides the new feature.
+Feature flags allow you to show or hide functionality in your application. A simple feature flag is either on or off. The application always behaves the same way. For example, you could roll out a new feature behind a feature flag. When the feature flag is enabled, all users see the new feature. Disabling the feature flag hides the new feature.
 
-In contrast, a _conditional feature flag_ allows different requests to experience different behavior. Suppose you want to enable your new feature for a small subset of users at first. A conditional feature flag allows you to enable the feature flag for some users while disabling it for others. _Feature filters_ determine the behavior in effect for a given request.
+In contrast, a _conditional feature flag_ allows the feature flag to be enabled or disabled dynamically. The application may behave differently, depending on the feature flag criteria. Suppose you want to show your new feature to a small subset of users at first. A conditional feature flag allows you to enable the feature flag for some users while disabling it for others. _Feature filters_ determine the state of the feature flag each time it's evaluated.
 
 The `Microsoft.FeatureManagement` library includes two feature filters:
 
