@@ -11,7 +11,7 @@
 ---
 
 
-## Regional availability
+### Regional availability
 
 Customer-managed keys are currently available in these regions:
 

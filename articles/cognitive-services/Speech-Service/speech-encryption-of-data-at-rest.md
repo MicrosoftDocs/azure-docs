@@ -39,6 +39,8 @@ To request access to bring your own storage, fill out and submit the [Speech s
 > [!IMPORTANT]
 > If you disable system assigned managed identities, access to the storage account will be removed. This will cause the parts of the Speech service that require access to the storage account to stop working.  
 
+[!INCLUDE [cognitive-services-cmk](../../../includes/cognitive-services-cmk-regions.md)]
+
 ## Next steps
 
 * [Speech service - bring your own storage (BYOS) request form](https://aka.ms/cogsvc-cmk)

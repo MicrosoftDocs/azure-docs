@@ -21,6 +21,8 @@ The Personalizer service automatically encrypts your data when persisted it to t
 > [!IMPORTANT]
 > Customer-managed keys are only available on the E0 pricing tier. To request the ability to use customer-managed keys, fill out and submit the [Personalizer Service Customer-Managed Key Request Form](https://aka.ms/cogsvc-cmk). It will take approximately 3-5 business days to hear back on the status of your request. Depending on demand, you may be placed in a queue and approved as space becomes available. Once approved for using CMK with the Personalizer service, you will need to create a new Personalizer resource and select E0 as the Pricing Tier. Once your Personalizer resource with the E0 pricing tier is created, you can use Azure Key Vault to set up your managed identity.
 
+[!INCLUDE [cognitive-services-cmk](../../../includes/cognitive-services-cmk-regions.md)]
+
 [!INCLUDE [cognitive-services-cmk](../../../includes/cognitive-services-cmk.md)]
 
 ## Next steps
