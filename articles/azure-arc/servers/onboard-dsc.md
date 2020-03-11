@@ -53,7 +53,7 @@ Configuration documents (MOF files) can be applied to the machine using the `Sta
 
 The following are the parameters you pass to the PowerShell script to use.
 
-- `TenantID`: The unique identifier (GUID) that represents your dedicated instance of Azure AD.
+- `TenantId`: The unique identifier (GUID) that represents your dedicated instance of Azure AD.
 
 - `SubscriptionId`: The subscription ID (GUID) of your Azure subscription that you want the machines in.
 
@@ -63,7 +63,17 @@ The following are the parameters you pass to the PowerShell script to use.
 
 - `Tags`: String array of tags that should be applied to the connected machine resource.
 
-- `Credential`: A PowerShell credential object with the **ApplicationId** and **password** used to register machines at scale using a service principal. 
+- `Credential`: A PowerShell credential object with the **ApplicationId** and **password** used to register machines at scale using a [service principal](onboard-service-principal.md). 
+
+1. In a PowerShell console, navigate to the folder where you saved the .ps1 file.
+
+2. Run the following PowerShell commands to compile the MOF document (for information about compiling DSC configurations, see [DSC Configurations](https://docs.microsoft.com/powershell/scripting/dsc/configurations/configurations?view=powershell-7):
+
+    ```powershell
+    .\`AzureConnectedMachineAgent.ps1 -TenantId <TenantId GUID> -SubscriptionId <SubscriptionId GUID> -ResourceGroup '<ResourceGroupName>' -Location '<LocationName>' -Tags '<Tag>' -Credential <psCredential>
+    ```
+
+3. This will create a `localhost.mof file` in a new folder named `C:\dsc`.
 
 ## Adding to existing configurations
 
