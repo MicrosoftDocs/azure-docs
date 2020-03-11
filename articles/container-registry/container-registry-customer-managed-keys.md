@@ -385,9 +385,9 @@ Revoking the key effectively blocks access to all registry data, since the regis
 
 ## Next steps
 
-* Learn more about [encryption at rest in Azure](../security/fundamentals/encryption-atrest.md)
+* Learn more about [encryption at rest in Azure](../security/fundamentals/encryption-atrest.md).
 * Learn more about access policies and how to [secure access to a key vault](../key-vault/key-vault-secure-your-key-vault.md).
-* To provide feedback on customer-managed keys for Azure Container Registry, visit the [ACR GitHub site](https://aka.ms/acr/issues)
+* To provide feedback on customer-managed keys for Azure Container Registry, visit the [ACR GitHub site](https://aka.ms/acr/issues).
 
 
 <!-- LINKS - external -->
