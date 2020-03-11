@@ -114,7 +114,7 @@ In this step, create the report for Power BI Desktop. To do so, follow these ste
 
    ![Open Power BI desktop application and select get data.](./media/tutorial-bi-professional/step-0-open-powerbi.png)
 
-2. Select **Azure** > **Azure SQL database**. 
+2. Select **Azure** > **Azure SQL Database**. 
 
    ![Select data source.](./media/tutorial-bi-professional/step-1-select-data-source.png)
 
