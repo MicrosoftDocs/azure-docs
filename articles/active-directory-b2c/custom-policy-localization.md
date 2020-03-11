@@ -21,7 +21,6 @@ Language customization in Azure Active Directory B2C (Azure AD B2C) allows you t
 
 This article shows you how to support multiple locales or languages in the policy for user journeys. Localization requires three steps: set-up the explicit list of the supported languages, provide language-specific strings and collections, and edit the [content definition](contentdefinitions.md) for the page. 
 
-
 ## Set up the list of supported languages
 
 Open the extensions file of your policy. For example, <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em>.
@@ -44,6 +43,9 @@ Open the extensions file of your policy. For example, <em>`SocialAndLocalAccount
 The [LocalizedResources](localization.md#localizedresources) of the `Localization` element contains the list of localized strings. The localized resources element has an identifier that is used to uniquely identify localized resources. This identifer is used later in the [content definition](contentdefinitions.md) element.
 
 You configure localized resources elements for content definition and any language you want to support. To customize the unified sign-up or sign-in pages for English, Spanish you add the following `LocalizedResources` elements after the close of the `</SupportedLanguages>`.
+
+> [!NOTE]
+> In the following sample we added the pound `#` symbol at the begging of each line, so you can easly find the localized labels on the screen.
 
 ```XML
 <!--Local account sign-up or sign-in page English-->
@@ -168,8 +170,8 @@ You configure localized resources elements for content definition and any langua
     <LocalizedString ElementType="ClaimType" ElementId="reenterPassword" StringId="DisplayName">#Confirmar nueva contraseña</LocalizedString>
     <LocalizedString ElementType="ClaimType" ElementId="reenterPassword" StringId="UserHelpText">#Confirmar nueva contraseña</LocalizedString>
     <LocalizedString ElementType="ClaimType" ElementId="reenterPassword" StringId="PatternHelpText">#8 a 16 caracteres, que contengan 3 de los 4 tipos siguientes: caracteres en minúsculas, caracteres en mayúsculas, dígitos (0-9) y uno o más de los siguientes símbolos: @ # $ % ^ &amp; * - _ + = [ ] { } | \\ : ' , ? / ` ~ \" ( ) ; .</LocalizedString>
-    <LocalizedString ElementType="ClaimType" ElementId="displayName" StringId="DisplayName">#</LocalizedString>
-    <LocalizedString ElementType="ClaimType" ElementId="displayName" StringId="UserHelpText">#</LocalizedString>
+    <LocalizedString ElementType="ClaimType" ElementId="displayName" StringId="DisplayName">#Nombre para mostrar</LocalizedString>
+    <LocalizedString ElementType="ClaimType" ElementId="displayName" StringId="UserHelpText">#Su nombre para mostrar.</LocalizedString>
     <LocalizedString ElementType="ClaimType" ElementId="surname" StringId="DisplayName">#Apellido</LocalizedString>
     <LocalizedString ElementType="ClaimType" ElementId="surname" StringId="UserHelpText">#Su apellido.</LocalizedString>
     <LocalizedString ElementType="ClaimType" ElementId="givenName" StringId="DisplayName">#Nombre</LocalizedString>
@@ -224,7 +226,7 @@ In the following example, English (en) and Spanish (es) custom strings are added
   <ContentDefinition Id="api.localaccountsignup">
     <LocalizedResourcesReferences MergeBehavior="Prepend">
         <LocalizedResourcesReference Language="en" LocalizedResourcesReferenceId="api.localaccountsignup.en" />
-        <LocalizedResourcesReference Language="en" LocalizedResourcesReferenceId="api.localaccountsignup.es" />
+        <LocalizedResourcesReference Language="es" LocalizedResourcesReferenceId="api.localaccountsignup.es" />
     </LocalizedResourcesReferences>
   </ContentDefinition>
 </ContentDefinitions>
@@ -246,6 +248,11 @@ In the following example, English (en) and Spanish (es) custom strings are added
 1. Select the policy that you uploaded, and then select **Run now**.
 1. You should be able to see the localized sign-up or sign-in page.
 1. Click on the sign-up link, and you should be able to see the localized sign-up page.
+1. Swich your browser default language to Spanish. Or you can add the query string parameter, `ui_locales` to the authoriztion reqeust. For example: 
+
+```http
+https://yourtenant.b2clogin.com/yourtenant.onmicrosoft.com/oauth2/v2.0/authorize?p=B2C_1A_signup_signin&client_id=0239a9cc-309c-4d41-12f1-31299feb2e82&nonce=defaultNonce&redirect_uri=https%3A%2F%2Fjwt.ms&scope=openid&response_type=id_token&prompt=login&ui_locales=es
+```
 
 ## Next steps
 
