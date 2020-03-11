@@ -40,17 +40,17 @@ This step generates a journal file. The journal file stores basic information su
 
 Perform the following steps to prepare the drives.
 
-1.	Connect your disk drives to the Windows system via SATA connectors.
+1.    Connect your disk drives to the Windows system via SATA connectors.
 1.  Create a single NTFS volume on each drive. Assign a drive letter to the volume. Do not use mountpoints.
 2.  Enable BitLocker encryption on the NTFS volume. If using a Windows Server system, use the instructions in [How to enable BitLocker on Windows Server 2012 R2](https://thesolving.com/storage/how-to-enable-bitlocker-on-windows-server-2012-r2/).
 3.  Copy data to encrypted volume. Use drag and drop or Robocopy or any such copy tool.
-4.	Open a PowerShell or command line window with administrative privileges. To change directory to the unzipped folder, run the following command:
+4.    Open a PowerShell or command line window with administrative privileges. To change directory to the unzipped folder, run the following command:
 
     `cd C:\WaImportExportV1`
 5.  To get the BitLocker key of the drive, run the following command:
 
     `manage-bde -protectors -get <DriveLetter>:`
-6.	To prepare the disk, run the following command. **Depending on the data size, this may take several hours to days.**
+6.    To prepare the disk, run the following command. **Depending on the data size, this may take several hours to days.**
 
     ```
     ./WAImportExport.exe PrepImport /j:<journal file name> /id:session#<session number> /t:<Drive letter> /bk:<BitLocker key> /srcdir:<Drive letter>:\ /dstdir:<Container name>/ /blobtype:<BlockBlob or PageBlob> /skipwrite
@@ -125,7 +125,11 @@ Perform the following steps to create an import job in the Azure portal.
 
      ![Create import job - Step 4](./media/storage-import-export-data-to-blobs/import-to-blob6.png)
 
-## Step 3: Ship the drives
+## (Optional) Step 3: Configure customer managed key
+
+Skip this step and go to the next step if you want to use the Microsoft managed key to protect your BitLocker keys for the drives. To configure your own key to protect the BitLocker key, follow the instructions in [Configure customer-managed keys with Azure Key Vault for Azure Import/Export in the Azure portal](storage-import-export-encryption-key-portal.md) 
+
+## Step 4: Ship the drives
 
 [!INCLUDE [storage-import-export-ship-drives](../../../includes/storage-import-export-ship-drives.md)]
 
