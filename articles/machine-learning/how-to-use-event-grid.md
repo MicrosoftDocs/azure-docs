@@ -85,7 +85,7 @@ When setting up your events, you can apply filters to only trigger on specific e
 
 1. Select the filters tab and scroll down to Advanced filters. In the **Key** and **Value** provide the property types you want to filter by. Here you can see the event will only trigger when the run type is a pipeline run or pipeline step run.  
 
-:::image type="content" source="media/how-to-use-event-grid/select-event-filters.png" alt-text="filter events":::
+    :::image type="content" source="media/how-to-use-event-grid/select-event-filters.png" alt-text="filter events":::
 
 ## Sample scenarios
 
