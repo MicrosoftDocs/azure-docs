@@ -13,7 +13,9 @@ ms.author: lcozzens
 ---
 # Use feature filters to enable a feature for a subset of users
 
-You can show or hide functionality in your application based on the value of a feature flag. Feature flags can be simply on or off, so that all requests experience the same behavior. Feature flags can also be conditional, so that different requests experience different behavior. A conditional feature flag relies on a _feature filter_ to determine the behavior in effect for a given request.
+Feature flags allow you to dynamically show or hide functionality in your application. A simple feature flag is either on or off. Every request experiences the same behavior. For example, you could roll out a new feature behind a feature flag. When the feature flag is enabled, all users see the new feature. Disabling the feature flag hides the new feature.
+
+In contrast, a _conditional feature flag_ allows different requests to experience different behavior. Suppose you want to enable your new feature for a small subset of users at first. A conditional feature flag allows you to enable the feature flag for some users while disabling it for others. _Feature filters_ determine the behavior in effect for a given request.
 
 The `Microsoft.FeatureManagement` library includes two feature filters:
 
@@ -49,7 +51,7 @@ You can configure these settings for feature flags defined in Azure App Configur
     > [!div class="mx-imgBorder"]
     > ![Edit Beta feature flag](./media/edit-beta-feature-flag.png)
 
-1. In the **Edit** screen, select the **On** radio button if it is not already selected. Then click the **Add Filter** button. (The **On** radio button's label will change to read **Conditional**.)
+1. In the **Edit** screen, select the **On** radio button if it isn't already selected. Then click the **Add Filter** button. (The **On** radio button's label will change to read **Conditional**.)
 
 1. In the **Key** field, enter *Microsoft.Percentage*.
 
@@ -68,14 +70,14 @@ You can configure these settings for feature flags defined in Azure App Configur
 
 1. Click **Apply** to return to the **Edit feature flag** screen. Then click **Apply** again to save the feature flag settings.
 
-1. The **State** of the feature flag now appears as *Conditional*. This indicates that the feature flag will be enabled or disabled on a per-request basis, based on the criteria enforced by the feature filter.
+1. The **State** of the feature flag now appears as *Conditional*. This state indicates that the feature flag will be enabled or disabled on a per-request basis, based on the criteria enforced by the feature filter.
 
     > [!div class="mx-imgBorder"]
     > ![Conditional feature flag](./media/feature-flag-filter-enabled.png)
 
 ## Feature filters in action
 
-To see the effects of this feature flag, launch the application and hit the **Refresh** button in your browser multiple times. You will see that the *Beta* item appears on the toolbar 50% of the time, and does not appear on the toolbar the other 50% of the time. This reflects the feature flag being enabled or disabled by the `PercentageFilter`. The following video shows this behavior.
+To see the effects of this feature flag, launch the application and hit the **Refresh** button in your browser multiple times. You'll see that the *Beta* item appears on the toolbar about 50% of the time. It's hidden the rest of the time, because the `PercentageFilter` dynamically enables the *Beta* feature for a subset of requests. The following video shows this behavior in action.
 
 > [!div class="mx-imgBorder"]
 > ![PercentageFilter in action](./media/feature-flags-percentagefilter.gif)
