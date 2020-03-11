@@ -1,7 +1,7 @@
 ---
-title: Build & deploy automated ML models
+title: Use autoML to create models & deploy 
 titleSuffix: Azure Machine Learning
-description: Create, manage, and deploy automated machine learning experiments in Azure Machine Learning studio.
+description: Create, review, and deploy automated machine learning models with Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,26 +10,28 @@ ms.author: nibaccam
 author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 02/04/2020
+ms.date: 03/10/2020
 
 ---
 
-# Create, explore, and deploy automated machine learning experiments with Azure Machine Learning studio
+# Create, review, and deploy automated machine learning models with Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
- In this article, you learn how to create, explore, and deploy automated machine learning experiments in Azure Machine Learning studio without a single line of code. Automated machine learning automates the process of selecting the best algorithm to use for your specific data, so you can generate a machine learning model quickly. [Learn more about automated machine learning](concept-automated-ml.md).
+In this article, you learn how to create, explore, and deploy automated machine learning models without a single line of code in Azure Machine Learning's studio interface. Automated machine learning is a process in which the best machine learning algorithm to use for your specific data is selected for you. This process enables you to generate machine learning models quickly. [Learn more about automated machine learning](concept-automated-ml.md).
+ 
+For an end to end example, try the [tutorial for creating a classification model with Azure Machine Learning's automated ML interface](tutorial-first-experiment-automated-ml.md). 
 
- If you prefer a more code-based experience, you can also [configure your automated machine learning experiments in Python](how-to-configure-auto-train.md) with the [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
+For a Python code-based experience, [configure your automated machine learning experiments](how-to-configure-auto-train.md) with the Azure Machine Learning SDK.
 
 ## Prerequisites
 
-* An Azure subscription. If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today.
+* An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today.
 
 * An Azure Machine Learning workspace with a type of **Enterprise edition**. See [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).  To upgrade an existing workspace to Enterprise edition, see [Upgrade to Enterprise edition](how-to-manage-workspace.md#upgrade).
 
 ## Get started
 
-1. Sign in to [Azure Machine Learning studio](https://ml.azure.com). 
+1. Sign in to Azure Machine Learning at https://ml.azure.com. 
 
 1. Select your subscription and workspace. 
 
@@ -164,7 +166,7 @@ Automated machine learning offers preprocessing and data guardrails automaticall
 |Impute missing values|For numerical features, impute with average of values in the column.<br/><br/>For categorical features, impute with most frequent value.|
 |Generate additional features|For DateTime features: Year, Month, Day, Day of week, Day of year, Quarter, Week of the year, Hour, Minute, Second.<br/><br/>For Text features: Term frequency based on unigrams, bi-grams, and tri-character-grams.|
 |Transform and encode |Numeric features with few unique values are transformed into categorical features.<br/><br/>One-hot encoding is performed for low cardinality categorical; for high cardinality, one-hot-hash encoding.|
-|Word embeddings|Text featurizer that converts vectors of text tokens into sentence vectors using a pre-trained model. Each word’s embedding vector in a document is aggregated together to produce a document feature vector.|
+|Word embeddings|Text featurizer that converts vectors of text tokens into sentence vectors using a pre-trained model. Each word's embedding vector in a document is aggregated together to produce a document feature vector.|
 |Target encodings|For categorical features, maps each category with averaged target value for regression problems, and to the class probability for each class for classification problems. Frequency-based weighting and k-fold cross validation is applied to reduce over fitting of the mapping and noise caused by sparse data categories.|
 |Text target encoding|For text input, a stacked linear model with bag-of-words is used to generate the probability of each class.|
 |Weight of Evidence (WoE)|Calculates WoE as a measure of correlation of categorical columns to the target column. It is calculated as the log of the ratio of in-class vs out-of-class probabilities. This step outputs one numerical feature column per class and removes the need to explicitly impute missing values and outlier treatment.|
@@ -178,10 +180,10 @@ The following table describes the currently supported data guardrails, and the a
 
 Guardrail|Status|Condition&nbsp;for&nbsp;trigger
 ---|---|---
-Missing&nbsp;values&nbsp;imputation |**Passed** <br> <br> **Fixed**|	No missing value in any of the input&nbsp;columns <br> <br> Some columns have missing values
+Missing&nbsp;values&nbsp;imputation |**Passed** <br> <br> **Fixed**|    No missing value in any of the input&nbsp;columns <br> <br> Some columns have missing values
 Cross validation|**Done**|If no explicit validation set is provided
-High&nbsp;cardinality&nbsp;feature&nbsp;detection|	**Passed** <br> <br>**Done**|	No high cardinality features were detected <br><br> High cardinality input columns were detected
-Class balance detection	|**Passed** <br><br><br>**Alerted** |Classes are balanced in the training data; A dataset is considered balanced if each class has good representation in the dataset, as measured by number and ratio of samples <br> <br> Classes in the training data are imbalanced
+High&nbsp;cardinality&nbsp;feature&nbsp;detection|    **Passed** <br> <br>**Done**|    No high cardinality features were detected <br><br> High cardinality input columns were detected
+Class balance detection    |**Passed** <br><br><br>**Alerted** |Classes are balanced in the training data; A dataset is considered balanced if each class has good representation in the dataset, as measured by number and ratio of samples <br> <br> Classes in the training data are imbalanced
 Time-series data consistency|**Passed** <br><br><br><br> **Fixed** |<br> The selected {horizon, lag, rolling window} value(s) were analyzed, and no potential out-of-memory issues were detected. <br> <br>The selected {horizon, lag, rolling window} values were analyzed and will potentially cause your experiment to run out of memory. The lag or rolling window has been turned off.
 
 ## Run experiment and view results
@@ -232,11 +234,10 @@ Automated ML helps you with deploying the model without writing code:
 
 1. Select **Deploy**. Deployment can take about 20 minutes to complete.
 
-Now you have an operational web service to generate predictions! You can test the predictions by querying the service from [Power BI’s built in Azure Machine Learning support](how-to-consume-web-service.md#consume-the-service-from-power-bi).
+Now you have an operational web service to generate predictions! You can test the predictions by querying the service from [Power BI's built in Azure Machine Learning support](how-to-consume-web-service.md#consume-the-service-from-power-bi).
 
 ## Next steps
 
-* Try the end to end [tutorial for creating your first automated ML experiment with Azure Machine Learning studio](tutorial-first-experiment-automated-ml.md). 
-* [Learn more about automated machine learning](concept-automated-ml.md) and Azure Machine Learning.
-* [Understand automated machine learning results](how-to-understand-automated-ml.md).
 * [Learn how to consume a web service](https://docs.microsoft.com/azure/machine-learning/how-to-consume-web-service).
+* [Understand automated machine learning results](how-to-understand-automated-ml.md).
+* [Learn more about automated machine learning](concept-automated-ml.md) and Azure Machine Learning.
