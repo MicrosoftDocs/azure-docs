@@ -67,8 +67,6 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + Parameters passed in ParallelRunConfig can be overwritten by passing pipeline parameters now. New pipeline parameters supported aml_mini_batch_size, aml_error_threshold, aml_logging_level, aml_run_invocation_timeout (aml_node_count and aml_process_count_per_node are already part of earlier release).
   + **azureml-core**
     + Deployed AzureML Webservices will now default to `INFO` logging. This can be controlled by setting the `AZUREML_LOG_LEVEL` environment variable in the deployed service.
-    + Fix iterating on `Dataset.get_all` to return all datasets registered with the workspace.
-    + Improve error message when invalid type is passed to `path` argument of dataset creation APIs.
     + Python sdk uses discovery service to use 'api' endpoint instead of 'pipelines'.
     + Swap to the new routes in all SDK calls
     + Changes routing of calls to the ModelManagementService to a new unified structure
