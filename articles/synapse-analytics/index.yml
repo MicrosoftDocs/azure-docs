@@ -46,8 +46,8 @@ landingContent:
   #         #   url: file2.md
 
   # Card (optional)
-  - title: Load data
-    linkLists:
+  # - title: Load data
+  #   linkLists:
       # - linkListType: concept
       #   links:
           # - text: Design data loading strategy
