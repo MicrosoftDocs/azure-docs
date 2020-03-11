@@ -44,7 +44,7 @@ When deciding to use volatile reliable collections, consider the following:
 * ```ReliableConcurrentQueue``` does NOT have volatile support
 * Persisted services CANNOT be made volatile. Changing the ```HasPersistedState``` flag to ```false``` requires recreating the entire service from scratch
 * Volatile services CANNOT be made persisted. Changing the ```HasPersistedState``` flag to ```true``` requires recreating the entire service from scratch
-* ```HasPersistedState``` is a service level config. This means that **ALL** collections will either be persisted or volatile. You cannont mix volatile and persisted collections
+* ```HasPersistedState``` is a service level config. This means that **ALL** collections will either be persisted or volatile. You cannot mix volatile and persisted collections
 * Quorum loss of a volatile partition results in complete data loss
 * Backup and restore is NOT available for volatile services
 
