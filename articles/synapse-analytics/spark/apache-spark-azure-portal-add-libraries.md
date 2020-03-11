@@ -6,7 +6,7 @@ author: euangMS
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice:
-ms.date: 03/202020
+ms.date: 03/20/2020
 ms.author: euang
 ms.reviewer: jrasnick, carlrab
 ---
