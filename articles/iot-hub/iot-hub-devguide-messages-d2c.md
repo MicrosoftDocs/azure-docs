@@ -90,6 +90,10 @@ Service Bus queues and topics used as IoT Hub endpoints must not have **Sessions
 
 Apart from the built-in-Event Hubs compatible endpoint, you can also route data to custom endpoints of type Event Hubs. 
 
+> [!NOTE]
+> If your event hubs resource has firewall configurations that restrict IoT Hub's connectivity, consider using [Microsoft trusted first party exception](./iot-hub-vnet-support.md#egress-connectivity-to-event-hubs-endpoints-for-routing) (available in select regions for IoT hubs with managed service identity).
+
+
 ## Reading data that has been routed
 
 You can configure a route by following this [tutorial](tutorial-routing.md).
@@ -105,9 +109,6 @@ Use the following tutorials to learn how to read message from an endpoint.
 * Reading from [Service Bus Queues](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md)
 
 * Read from [Service Bus Topics](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions)
-
-> [!NOTE]
-> If your event hubs resource has firewall configurations that restrict IoT Hub's connectivity, consider using [Microsoft trusted first party exception](./iot-hub-vnet-support.md#egress-connectivity-to-event-hubs-endpoints-for-routing) (available in select regions for IoT hubs with managed service identity).
 
 
 ## Fallback route
