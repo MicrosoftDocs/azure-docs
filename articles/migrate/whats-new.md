@@ -1,17 +1,14 @@
 ---
 title: What's new in Azure Migrate 
 description: Learn about what's new and recent updates in the Azure Migrate service.
-author: rayne-wiselman
-ms.service: azure-migrate
 ms.topic: overview
-ms.date: 11/30/2019
-ms.author: raynew
+ms.date: 03/12/2020
 ms.custom: mvc
 ---
 
 # What's new in Azure Migrate
 
-[Azure Migrate](migrate-services-overview.md) helps you to discover, assess, and migrate on-premises servers, apps, and data to the Microsoft Azure cloud. This article summarizes new features in Azure Migrate.
+[Azure Migrate](migrate-services-overview.md) helps you to discover, assess, and migrate on-premises servers, apps, and data to the Microsoft Azure cloud. This article summarizes new releases and features in Azure Migrate.
 
 
 
