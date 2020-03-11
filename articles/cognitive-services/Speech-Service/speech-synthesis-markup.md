@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 02/18/2020
+ms.date: 03/05/2020
 ms.author: dapine
 ---
 
@@ -324,7 +324,7 @@ Phonetic alphabets are composed of phones, which are made up of letters, numbers
 
 | Attribute | Description | Required / Optional |
 |-----------|-------------|---------------------|
-| `alphabet` | Specifies the phonetic alphabet to use when synthesizing the pronunciation of the string in the `ph` attribute. The string specifying the alphabet must be specified in lowercase letters. The following are the possible alphabets that you may specify.<ul><li>ipa &ndash; International Phonetic Alphabet</li><li>sapi &ndash; Speech API Phone Set</li><li>ups &ndash; Universal Phone Set</li></ul>The alphabet applies only to the phoneme in the element. For more information, see [Phonetic Alphabet Reference](https://msdn.microsoft.com/library/hh362879(v=office.14).aspx). | Optional |
+| `alphabet` | Specifies the phonetic alphabet to use when synthesizing the pronunciation of the string in the `ph` attribute. The string specifying the alphabet must be specified in lowercase letters. The following are the possible alphabets that you may specify.<ul><li>`ipa` &ndash; International Phonetic Alphabet</li><li>`sapi` &ndash; Speech service phonetic alphabet</li><li>`ups` &ndash; Universal Phone Set</li></ul><br>The alphabet applies only to the `phoneme` in the element. For more information, see [Phonetic Alphabet Reference](https://en.wikipedia.org/wiki/International_Phonetic_Alphabet). | Optional |
 | `ph` | A string containing phones that specify the pronunciation of the word in the `phoneme` element. If the specified string contains unrecognized phones, the text-to-speech (TTS) service rejects the entire SSML document and produces none of the speech output specified in the document. | Required if using phonemes. |
 
 **Examples**
@@ -413,13 +413,11 @@ Could you help leave a message to Robert Benigni for me?
 - File size: custom lexicon file size maximum limit is 100KB, if beyond this size, synthesis request will fail.
 - Lexicon cache refresh: custom lexicon will be cached with URI as key on TTS Service when it's first loaded. Lexicon with same URI won't be reloaded within 15 mins, so custom lexicon change needs to wait at most 15 mins to take effect.
 
-**SAPI Phone set**
+**Speech service phonetic sets**
 
-In the sample above, we're using the International Phonetic Association (IPA) phone set. We suggest developers use the IPA, because the IPA is the international standard. 
+In the sample above, we're using the International Phonetic Alphabet, also known as the IPA phone set. We suggest developers use the IPA, because it is the international standard. Considering that the IPA is not easy to remember, the Speech service defines a phonetic set for seven languages (`en-US`, `fr-FR`, `de-DE`, `es-ES`, `ja-JP`, `zh-CN`, and `zh-TW`).
 
-Considering that IPA is not easy to remember, Microsoft define SAPI phone set for seven languages (`en-US`, `fr-FR`, `de-DE`, `es-ES`, `ja-JP`, `zh-CN`, and `zh-TW`). For more alphabet information, see the [Phonetic Alphabet Reference](https://msdn.microsoft.com/library/hh362879(v=office.14).aspx).
-
-You can use the SAPI phone set with custom lexicons as demonstrated below. Set the alphabet value with **sapi**.
+You can use the `sapi` as the vale for the `alphabet` attribute with custom lexicons as demonstrated below:
 
 ```xml
 <?xml version="1.0" encoding="UTF-16"?>
@@ -440,7 +438,7 @@ You can use the SAPI phone set with custom lexicons as demonstrated below. Set t
 </lexicon>
 ```
 
-For more information on the detailed SAPI alphabet, see the [SAPI Alphabet Reference](sapi-phoneset-usage.md).
+For more information on the detailed Speech service phonetic alphabet, see the [Speech service phonetic sets](speech-ssml-phonetic-sets.md).
 
 ## Adjust prosody
 
