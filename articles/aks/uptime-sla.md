@@ -1,9 +1,9 @@
 ---
-title: High Availability for Azure Kubernetes Service (AKS) API server with Uptime SLA
+title: Azure Kubernetes Service (AKS) high availability with Uptime SLA
 description: Learn about the optional high availability Uptime SLA offering for the Azure Kubernetes Service (AKS) API Server.
 services: container-service
 ms.topic: conceptual
-ms.date: 03/05/2020
+ms.date: 03/11/2020
 ---
 
 # Azure Kubernetes Service (AKS) Uptime SLA
