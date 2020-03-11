@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: Scale compute - Azure portal '
-description: Scale compute in SQL pool in the Azure portal. Scale out compute for better performance, or scale back compute to save costs. 
+title: Scale compute for Synapse SQL pool (Azure portal)
+description: You can scale compute for Synapse SQL pool (data warehouse) using the Azure portal.
 services: sql-data-warehouse
 author: Antvgski
 manager: craigg
@@ -13,9 +13,9 @@ ms.reviewer: jrasnick
 ms.custom: seo-lt-2019, azure-synapse
 ---
 
-# Quickstart: Scale compute in Azure Synapse Analytics SQL pool in the Azure portal
+# Quickstart: Scale compute for Synapse SQL pool with the Azure portal
 
-Scale compute in SQL pool in the Azure portal. [Scale out compute](sql-data-warehouse-manage-compute-overview.md) for better performance, or scale back compute to save costs. 
+You can scale compute for Synapse SQL pool (data warehouse) using the Azure portal. [Scale out compute](sql-data-warehouse-manage-compute-overview.md) for better performance, or scale back compute to save costs. 
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
@@ -25,9 +25,9 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 ## Before you begin
 
-You can scale a SQL pool that you already have, or use [Quickstart: create and connect - portal](create-data-warehouse-portal.md) to create a SQL pool named **mySampleDataWarehouse**.  This quickstart scales **mySampleDataWarehouse**.
+You can scale a SQL pool that you already have or use [Quickstart: create and connect - portal](create-data-warehouse-portal.md) to create a SQL pool named **mySampleDataWarehouse**. This quickstart scales **mySampleDataWarehouse**.
 
->[!Note]
+>[!IMPORTANT] 
 >Your SQL pool must be online to scale. 
 
 ## Scale compute
@@ -47,7 +47,4 @@ To change data warehouse units:
     ![Move Slider](media/quickstart-scale-compute-portal/scale-dwu.png)
 
 ## Next steps
-You've now learned to scale compute for SQL pool. To learn more about SQL pool, continue to the tutorial for loading data.
-
-> [!div class="nextstepaction"]
->[Load data into SQL pool](load-data-from-azure-blob-storage-using-polybase.md)
+To learn more about SQL pool, continue to the [Load data into SQL pool](load-data-from-azure-blob-storage-using-polybase.md) tutorial. 
