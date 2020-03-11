@@ -10,15 +10,19 @@ ms.topic: conceptual
 ms.date: 03/31/2020
 ---
 
-# Disaster recovery for integration service environments in Azure Logic Apps
+# Disaster recovery for integration service environments (ISEs) in Azure Logic Apps
 
-This article describes how to set up a disaster recovery solution for your [integration service environment (ISE)](../logic-apps/connect-) in Azure Logic Apps.
+This article describes how to set up a disaster recovery solution for an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) that you use with Azure Logic Apps. A disaster can mean full datacenter loss, underlying component loss, such as storage, network, or compute resources, or unrecoverable application issues. If the primary instance fails, disaster recovery gives you the capability to preserve business continuity when you have a secondary, backup, or standby instance that's ready to pick up the work, also known as *failover*.
 
-Disaster recovery provides business continuity in the face of a disaster. Disaster can entail either a full datacenter loss, an underlying relying component loss (e.g. storage, network or compute) or an unrecoverable application issue.
+When you create your logic app, you select a deployment location, which is either a public region in the global multi-tenant Azure or a previously created ISE. This environment is your own isolated instance of the Logic Apps runtime that uses dedicated resources, such as storage, is deployed (*injected*) into an Azure virtual network, and operates in a region that runs logic app workloads. Running logic apps in an ISE is similar to running logic apps in a public region, so many disaster recovery approaches apply to both. However, an ISE might require you to consider other elements, such as network configuration.
 
-Disaster recovery provides the ability to fail over to an alternate instance in the case that the primary instance fails. Fail over requires that the alternate instance be appropriately configured and can handle incoming requests and automated workloads (e.g. recurrence or polling).
+## Requirements
 
-A logic app can either be deployed to the multi-tenant service in an Azure public region or to your own instance of an Integration Service Environment (ISE). Integration Service Environments (ISE) are private instances of the logic apps runtime running in a location (region) that executes logic apps workloads. Running a logic app in an ISE instance is like running the logic app in a public region. Many of the disaster recovery points will apply to logic apps running in both public regions as to ISE. When using an ISE there may be other considerations such as network configuration.
+To configure for disaster recovery, you need a secondary location that's ready to take on workloads if the primary location goes down. This backup location can either be a Logic Apps service multi-tenant region or an instance of an ISE. That will require that the logic apps and their dependent resources are deployed and ready to run. If you are following good DevOps practices, then you would be utilizing ARM deployment templates to deploy the logic apps. Using ARM deployment templates allows for multiple parameters files where each parameter file can represent the configuration for a particular location allowing you to easily deploy the logic apps to multiple locations.
+
+[PICTURE: Two pictures of regions and ISE pairs each with a single ARM deployment template and separate parameter files]
+
+This backup requires that you hFailover requires that you have an alternate instance that's appropriately configured to handle incoming requests and automated workloads, such as recurrence or polling.
 
 Primary and secondary locations for your logic apps should be of the same host type, either both multi-tenant locations or both ISE. This is required if you are leveraging the ISE connectors and/or VNET integration in one and expect the same logic app to run in both locations with a similar configuration. In a more advanced configuration, it is possible to have them be of each type of host but you must be aware of the differences when logic apps run in each location.
 
@@ -28,11 +32,6 @@ Active-passive means that a primary location is handling all of the workload and
 
 A combination of both active-active and active-passive means that some of the logic apps are configured as active-active and some of the logic apps are configured as active-passive.
 
-## Set up disaster recovery
-
-To configure for disaster recovery, you need to have a secondary location that's ready to take on the work in case the primary location goes down. This backup location can either be a Logic Apps service multi-tenant region or an instance of an ISE. That will require that the logic apps and their dependent resources are deployed and ready to run. If you are following good DevOps practices, then you would be utilizing ARM deployment templates to deploy the logic apps. Using ARM deployment templates allows for multiple parameters files where each parameter file can represent the configuration for a particular location allowing you to easily deploy the logic apps to multiple locations.
-
-[PICTURE: Two pictures of regions and ISE pairs each with a single ARM deployment template and separate parameter files]
 
 ### Logic App state 
 
