@@ -182,6 +182,8 @@
       - name: Customize the UI
         href: custom-policy-ui-customization.md
         displayName: ux, input, cors, html, css
+      - name: Customize language
+        href: custom-policy-localization.md
       - name: Custom email
         href: custom-email.md
         displayName: verification
