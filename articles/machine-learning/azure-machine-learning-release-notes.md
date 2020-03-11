@@ -19,13 +19,11 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
 
 ## 2020-03-11
 
-### Azure Machine Learning SDK for Python v1.1.3
+### Azure Machine Learning SDK for Python v1.1.5
 
-+ **New features**
-  + [Insert new features below. Reference articles and/or doc pages]
-  
-  + **Preview features**
-    + [Contrib features below] 
++ **Feature deprecation**
+  + **Python 2.7**
+    + Last version to support python 2.7
 
 + **Breaking changes**
   + **Semantic Versioning 2.0.0**
@@ -111,7 +109,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
   
 ## 2020-03-02
 
-### Azure Machine Learning SDK for Python v1.1.2rc0
+### Azure Machine Learning SDK for Python v1.1.2rc0 (Pre-release)
 
 + **Bug fixes and improvements**
   + **azureml-automl-core**
@@ -149,7 +147,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
 
 ## 2020-02-18
 
-### Azure Machine Learning SDK for Python v1.1.1rc0
+### Azure Machine Learning SDK for Python v1.1.1rc0 (Pre-release)
 
 + **Bug fixes and improvements**
   + **azure-cli-ml**
@@ -188,7 +186,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
   
 ## 2020-02-04
 
-### Azure Machine Learning SDK for Python v1.1.0rc0
+### Azure Machine Learning SDK for Python v1.1.0rc0 (Pre-release)
 
 + **Breaking changes**
   + **Semantic Versioning 2.0.0**
