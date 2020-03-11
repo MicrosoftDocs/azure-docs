@@ -10,11 +10,11 @@ ms.author: alkohli
 ms.subservice: common
 ---
 
-# Configure customer-managed keys in Azure Key Vault for Import/Export service via the Azure portal
+# Use customer-managed keys in Azure Key Vault for Import/Export service 
 
 Azure Import/Export protects the BitLocker keys used to lock the drives via an encryption key. By default, BitLocker keys are encrypted with Microsoft-managed keys. For additional control over encryption keys, you can also provide customer-managed keys.
 
-Customer-managed keys must be created and stored in an Azure Key Vault. The Import/Export service and the key vault must be in the same region, but they can be in different subscriptions. For more information about Azure Key Vault, see [What is Azure Key Vault?](../articles/key-vault/key-vault-overview.md)
+Customer-managed keys must be created and stored in an Azure Key Vault. The Import/Export service and the key vault must be in the same region, but they can be in different subscriptions. For more information about Azure Key Vault, see [What is Azure Key Vault?](../../key-vault/key-vault-overview.md)
 
 This article shows how to use customer-managed keys with Import/Export service in the [Azure portal](https://portal.azure.com/). 
 
