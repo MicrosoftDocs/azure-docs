@@ -80,6 +80,8 @@
       items:
       - name: Limit access with virtual network (preview)
         href: container-registry-vnet.md
+      - name: Integrate with Azure Private Link
+        href: container-registry-private-link.md
       - name: Access behind a firewall
         href: container-registry-firewall-access-rules.md
       - name: Authentication
@@ -181,6 +183,8 @@
           href: container-registry-tasks-authentication-key-vault.md
       - name: Build image with Buildpacks (preview)
         href: container-registry-tasks-pack-build.md
+      - name: View task logs
+        href: container-registry-tasks-logs.md
 - name: Reference
   expanded: false
   items:
