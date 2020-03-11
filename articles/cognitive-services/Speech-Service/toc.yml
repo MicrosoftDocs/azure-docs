@@ -386,13 +386,13 @@
               href: quickstart-custom-speech-commands-speech-sdk.md
         - name: How-to guides
           items:
-            - name: Fulfill Custom Commands with the Speech SDK
+            - name: Handle Custom Commands
               href: how-to-custom-speech-commands-fulfill-sdk.md
-            - name: Add parameter validation to a Custom Command
+            - name: Add parameter validation
               href: how-to-custom-speech-commands-validations.md
-            - name: Add a confirmation to a Custom Command
+            - name: Add a confirmation
               href: how-to-custom-speech-commands-confirmations.md
-            - name: Add a one-step correction to a Custom Command
+            - name: Add a one-step correction
               href: how-to-custom-speech-commands-one-step-correction.md
     - name: Direct Line Speech
       items:

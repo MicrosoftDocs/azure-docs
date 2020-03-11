@@ -15,32 +15,22 @@ metadata:
   ms.author: dapine
 
 landingContent:
-- title: About Voice Assistants
+- title: About voice assistants
   linkLists:
     - linkListType: overview
       links:
       - text: What is a voice assistant?
         url: voice-assistants.md
-      - text: What is Custom Commands?
+      - text: What are Custom Commands?
         url: custom-commands.md
       - text: What is Direct Line Speech?
         url: direct-line-speech.md
     - linkListType: reference
       links:
-        - text: Pricing
-          url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services
         - text: Voice assistants FAQ
           url: faq-voice-assistants.md
-- title: Develop with Custom Keyword
-  linkLists:
-    - linkListType: how-to-guide
-      links:
-        - text: Create a Custom Keyword
-          url: speech-devices-sdk-create-kws.md
-    - linkListType: reference
-      links:
-        - text: Custom Keyword naming guidelines
-          url: speech-devices-sdk-kws-guidelines.md
+        - text: Voice assistants pricing
+          url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services
 - title: Develop with Custom Commands
   linkLists:
     - linkListType: quickstart
@@ -55,15 +45,13 @@ landingContent:
           url: quickstart-custom-speech-commands-speech-sdk.md
     - linkListType: how-to-guide
       links:
-      - text: Custom Commands with the Speech SDK
+      - text: Handle Custom Commands on the client
         url: how-to-custom-speech-commands-fulfill-sdk.md
-      - text: Fulfill Custom Commands with the Speech SDK
-        url: how-to-custom-speech-commands-fulfill-sdk.md
-      - text: Add parameter validation to a Custom Command
+      - text: Add parameter validation
         url: how-to-custom-speech-commands-validations.md
-      - text: Add a confirmation to a Custom Command
+      - text: Add a confirmation
         url: how-to-custom-speech-commands-confirmations.md
-      - text: Add a one-step correction to a Custom Command
+      - text: Add a one-step correction
         url: how-to-custom-speech-commands-one-step-correction.md
 - title: Develop with Direct Line Speech
   linkLists:
@@ -79,3 +67,13 @@ landingContent:
       links:
         - text: Voice enable your bot with Speech SDK
           url: tutorial-voice-enable-your-bot-speech-sdk.md
+- title: Develop with Custom Keyword
+  linkLists:
+    - linkListType: how-to-guide
+      links:
+        - text: Create a Custom Keyword
+          url: speech-devices-sdk-create-kws.md
+    - linkListType: reference
+      links:
+        - text: Custom Keyword naming guidelines
+          url: speech-devices-sdk-kws-guidelines.md
