@@ -109,7 +109,7 @@ To learn how you can configure and adjust neural voices, see [Speech synthesis m
 More than 75 standard voices are available in over 45 languages and locales, which allow you to convert text into synthesized speech. For more information about regional availability, see [regions](regions.md#standard-and-neural-voices).
 
 > [!IMPORTANT]
-> The `en-US-JessaNeural` voices have changed to `en-US-AriaNeural`. If you were using "Jessa" before, please convert over to "Aria". For backwards compatibility, the "Jessa" voice will temporarily be redirected to "Aria" automatically.
+> The `en-US-Jessa` voices have changed to `en-US-Aria`. If you were using "Jessa" before, please convert over to "Aria". For backwards compatibility, the "Jessa" voice will temporarily be redirected to "Aria" automatically.
 
 | Locale | Language | Gender | Full service name mapping | Short name |
 |--|--|--|--|--|
