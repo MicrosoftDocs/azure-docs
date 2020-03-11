@@ -3,7 +3,7 @@ title: Query Azure Update Management logs
 description: This article describes how to query the logs for Update Management in your Log Analytics workspace.
 services: automation
 ms.subservice: update-management
-ms.date: 01/10/2020
+ms.date: 03/11/2020
 ms.topic: conceptual
 ---
 # Query update records for Update Management in Azure Monitor Logs
@@ -138,8 +138,8 @@ A record with a type of `UpdateSummary` is created that provides update summary 
 | CriticalUpdatesMissing | Number of critical updates missing that are applicable. | 
 | ManagementGroupName | Name of the Operations Manager management group or Log Analytics workspace. |
 | NETRuntimeVersion | Version of .NET Framework installed on the Windows computer. |
-| OldestMissingSecurityUpdateBucket | | 
-| OldestMissingSecurityUpdateInDays | |
+| OldestMissingSecurityUpdateBucket | *Recent* if oldest missing update is under 60 days, *60 days* if over 60 days and less than 100 days, *Older* if greater than 100 days. | 
+| OldestMissingSecurityUpdateInDays | Total number of days for the oldest update detected as applicable that has not been installed. |
 | OsVersion | The version of the operating system. |
 | OtherUpdatesMissing | Count of detected updates missing. |
 | Resource |  Name of the resource. | 
