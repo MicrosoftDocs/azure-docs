@@ -23,11 +23,11 @@ To call an endpoint from anywhere else in your workflow, [add the HTTP action](#
 > version possible. So, for example, if the endpoint supports 1.2, the connector uses 1.2 first. 
 > Otherwise, the connector uses the next highest supported version.
 >
-> If the HTTP trigger or action sends a `GET` request or a request that doesn't have a request body, 
-> Logic Apps removes any `Content-*` headers from these requests without warning or error. Logic Apps 
-> also won't stop you from saving logic apps where an HTTP trigger or action sends `GET` requests that 
-> have these headers, which are ignored, or requests that don't have request bodies. This behavior 
-> doesn't happen to any other requests, such as `PUT` and `POST`, that have `Content-*` headers.
+> If the HTTP trigger or action sends a `GET` request or doesn't have a request body, Logic Apps 
+> removes any `Content-*` headers from the request without warning or error. Although Logic Apps 
+> won't stop you from saving logic apps where an HTTP trigger or action is set up this way, 
+> any `Content-*` headers are ignored. This behavior doesn't happen to any other requests, 
+> such as `PUT` and `POST`, that have request bodies and `Content-*` headers.
 
 This article shows how to add an HTTP trigger or action to your logic app's workflow.
 
