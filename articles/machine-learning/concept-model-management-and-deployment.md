@@ -66,11 +66,6 @@ Registered models are identified by name and version. Each time you register a m
 You can't delete a registered model that is being used in an active deployment.
 For more information, see the register model section of [Deploy models](how-to-deploy-and-where.md#registermodel).
 
-### Profile models
-
-Azure Machine Learning can help you understand the CPU and memory requirements of the service that will be created when you deploy your model. Profiling tests the service that runs your model and returns information such as the CPU usage, memory usage, and response latency. It also provides a CPU and memory recommendation based on the resource usage.
-For more information, see the profiling section of [Deploy models](how-to-deploy-and-where.md#profilemodel).
-
 ### Package and debug models
 
 Before deploying a model into production, it is packaged into a Docker image. In most cases, image creation happens automatically in the background during deployment. You can manually specify the image.
