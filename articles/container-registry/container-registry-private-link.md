@@ -2,7 +2,7 @@
 title: Set up private link
 description: Set up a private endpoint on a container registry and enable a private link in a local virtual network
 ms.topic: article
-ms.date: 03/07/2020
+ms.date: 03/10/2020
 ---
 
 # Configure Azure Private Link for an Azure container registry 
@@ -19,7 +19,7 @@ This feature is available in the **Premium** container registry service tier. Fo
 
 ## Prerequisites
 
-* To use the Azure CLI steps in this article, Azure CLI version 2.1.1 or later is recommended. If you need to install or upgrade, see [Install Azure CLI][azure-cli]. Or run in [Azure Cloud Shell](../cloud-shell/quickstart.md).
+* To use the Azure CLI steps in this article, Azure CLI version 2.2.0 or later is recommended. If you need to install or upgrade, see [Install Azure CLI][azure-cli]. Or run in [Azure Cloud Shell](../cloud-shell/quickstart.md).
 * If you don't already have a container registry, create one (Premium tier required) and push a sample image such as `hello-world` from Docker Hub. For example, use the [Azure portal][quickstart-portal] or the [Azure CLI][quickstart-cli] to create a registry. 
 
 The Azure CLI examples in this article use the following environment variables. Substitute values appropriate for your environment. All examples are formatted for the Bash shell:
@@ -240,14 +240,6 @@ az network private-dns record-set a add-record \
 
 The private link is now configured and ready for use.
 
-To show details of a registry's private endpoint connection, run the [az acr private-endpoint-connection show][az-acr-private-endpoint-connection-show] command. For example:
-
-```azurecli
-az acr private-endpoint-connection show \
-  --name $registryName \
-  --private-endpoint-connection-name myPrivateEndpoint
-```
-
 ## Set up private link - portal
 
 The following steps assume you already have a virtual network and subnet set up with a VM for testing. You can also [create a new virtual network and subnet](../virtual-network/quick-create-portal.md).
@@ -351,7 +343,13 @@ Docker successfully pulls the image to the VM.
 
 Manage a registry's private endpoint connections using the Azure portal, or by using commands in the [az acr private-endpoint-connection][az-acr-private-endpoint-connection] command group. Operations include approve, delete, list, reject, or show details of a registry's private endpoint connections.
 
-By default when you create a private endpoint connection, the registry automatically accepts connections from clients and services that have RBAC permissions on the registry. You can set up the endpoint to require manual approval of connections. For information about approving and rejecting private endpoint connections, see [Manage a Private Endpoint Connection](../private-link/manage-private-endpoint.md).
+For example, to list the private endpoint connections of a registry, run the [az acr private-endpoint-connection list][az-acr-private-endpoint-connection-list] command. For example:
+
+```azurecli
+az acr private-endpoint-connection list \
+  --registry-name $registryName 
+
+When you set up a private endpoint connection using the steps in this article, the registry automatically accepts connections from clients and services that have RBAC permissions on the registry. You can set up the endpoint to require manual approval of connections. For information about how to approve and reject private endpoint connections, see [Manage a Private Endpoint Connection](../private-link/manage-private-endpoint.md).
 
 ## Clean up resources
 
@@ -384,7 +382,7 @@ To clean up your resources in the portal, navigate to your resource group. Once 
 [az-acr-repository-list]: /cli/azure/acr/repository#az-acr-repository-list
 [az-acr-login]: /cli/azure/acr#az-acr-login
 [az-acr-private-endpoint-connection]: /cli/azure/acr/private-endpoint-connection
-[az-acr-private-endpoint-connection-show]: /cli/azure/acr/private-endpoint-connection#az-acr-private-endpoint-connection-show
+[az-acr-private-endpoint-connection-list]: /cli/azure/acr/private-endpoint-connection#az-acr-private-endpoint-connection-list
 [az-acr-private-endpoint-connection-approve]: /cli/azure/acr/private-endpoint-connection#az-acr-private-endpoint-connection-approve
 [az-group-create]: /cli/azure/group
 [az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
