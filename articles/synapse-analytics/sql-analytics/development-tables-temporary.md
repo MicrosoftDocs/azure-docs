@@ -1,7 +1,7 @@
 ---
 title: Use temporary tables with SQL Analytics
 description: Essential guidance for using temporary tables in SQL Analytics. 
-services: synapse analytics
+services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
 ms.service: synapse-analytics

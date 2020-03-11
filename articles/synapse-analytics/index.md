@@ -1,7 +1,7 @@
 ---
 title: Azure Synapse Analytics documentation | Microsoft Docs
 description: Learn how to use an Azure Synapse Analytics, which combines SQL relational databases with massively parallel processing. Tutorials and other documentation shows you how to design, load, manage, and analyze data using a data warehouse. 
-services: synapse analytics
+services: synapse-analytics
 author: hirokib
 manager: craigg
 layout: LandingPage
@@ -25,7 +25,7 @@ Learn how to use an Azure SQL Data Warehouse, which combines SQL relational data
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <!-- <img src="media/index/sql-data-warehouse.svg" alt="" /> -->
+           '       '        <!-- <img src="media/index/sql-data-warehouse.svg" alt="" /> -->
                         </div>
                     </div>
                     <div class="cardText">
@@ -33,7 +33,7 @@ Learn how to use an Azure SQL Data Warehouse, which combines SQL relational data
                     </div>
                 </div>
             </div>
-        </div>
+        </div''
         </a>
     </li>
      <li>
@@ -41,7 +41,7 @@ Learn how to use an Azure SQL Data Warehouse, which combines SQL relational data
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
-                    <div class="cardImageOuter">
+                    <div 'lass="cardImageOuter">
                         <div class="cardImage">
                             <!-- <img src="media/index/video-library.svg" alt="" /> -->
                         </div>
@@ -104,7 +104,8 @@ Learn how to use an Azure SQL Data Warehouse, which combines SQL relational data
                 </div>
             </div>
         </div>
-    </li>
-</ul>
-
-
+       </li>
+    /ul>
+    
+    
+""                                    

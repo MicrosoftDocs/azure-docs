@@ -1,9 +1,9 @@
 ---
 title: Use the extended Spark history server to debug apps - Apache Spark in Azure Synapse 
 description: Use the extended Spark history server to debug and diagnose Spark applications in Azure Synapse Analytics.
-services: sql-data-warehouse 
+services: synapse-analytics 
 author: euangMS 
-ms.service: sql-data-warehouse 
+ms.service:  synapse-analytics 
 ms.topic: conceptual
 ms.subservice: design
 ms.date: 11/25/2019 

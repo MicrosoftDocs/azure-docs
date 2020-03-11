@@ -3,7 +3,7 @@ title: Build a machine learning app with Apache Spark MLlib and Azure Synapse An
 description: Learn how to use Apache Spark MLlib to create a machine learning app that analyzes a dataset using classification through logistic regression.
 author: euangMS
 ms.reviewer: euang
-ms.service: sql-data-warehouse
+ms.service:  synapse-analytics
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: euang

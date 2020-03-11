@@ -1,7 +1,7 @@
 ---
 title: Connection strings for SQL Analytics
 description: Connection strings for SQL Analytics
-services: synapse analytics 
+services: synapse-analytics 
 author: azaricstefan 
 ms.service: synapse-analytics 
 ms.topic: overview 

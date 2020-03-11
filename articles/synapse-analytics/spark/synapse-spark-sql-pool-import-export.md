@@ -1,9 +1,9 @@
 ---
 title: Import and Exporting data between Apache Spark pools and SQL pools in Synapse
 description: This article provides information on how to use the custom connector for moving data back and forth between SQL pools and Apache Spark pools.
-services: sql-data-warehouse 
+services: synapse-analytics 
 author: euangMS 
-ms.service: sql-data-warehouse 
+ms.service:  synapse-analytics 
 ms.topic: overview
 ms.subservice: design
 ms.date: 01/22/2019 

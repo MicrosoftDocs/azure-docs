@@ -1,7 +1,7 @@
 ---
 title: What is SQL on-demand
 description: SQL on-demand overview
-services: synapse analytics
+services: synapse-analytics
 author: filippopovic
 ms.service: synapse-analytics
 ms.topic: overview

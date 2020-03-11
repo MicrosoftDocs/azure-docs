@@ -1,7 +1,7 @@
 ---
 title: Create, develop, and maintain Azure Synapse Studio notebooks
 description: In this article, you learn how to create and develop Azure Synapse Studio notebooks to do data preparation and visualization.
-services: synapse analytics 
+services: synapse-analytics 
 author: ruixinxu 
 ms.service: synapse-analytics 
 ms.topic: conceptual 
@@ -93,7 +93,7 @@ You cannot reference data or variables directly across different languages in a 
 
    ```scala
    %%scala
-   val scalaDataFrame = spark.read.option(“format”, “DW    connector predefined type”)
+   val scalaDataFrame = spark.read.option("format", "DW    connector predefined type")
    scalaDataFrame.registerTempTable( "mydataframetable" )
    ```
 

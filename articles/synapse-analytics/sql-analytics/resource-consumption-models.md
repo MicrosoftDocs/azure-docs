@@ -1,7 +1,7 @@
 ---
 title: Synapse Analytics SQL resource consumption | Microsoft Docs
 description: Learn about SQL Analytics consumption models in Synapse Analytics.
-services: synapse analytics
+services: synapse-analytics
 author: vvasic-msft
 ms.service: synapse-analytics
 ms.topic: overview

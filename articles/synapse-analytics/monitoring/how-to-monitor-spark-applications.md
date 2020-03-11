@@ -1,9 +1,9 @@
 ---
 title: Monitor Spark applications
 description: Use the Azure Synapse Studio to monitor your Spark applications.
-services: sql-data-warehouse 
+services: synapse-analytics 
 author: matt1883
-ms.service: sql-data-warehouse
+ms.service:  synapse-analytics
 ms.topic: how-to
 ms.subservice: design
 ms.date: 01/01/2020

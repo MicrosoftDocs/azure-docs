@@ -1,7 +1,7 @@
 ---
 title: Connect to SQL Analytics using sqlcmd
 description: Use the sqlcmd command-line utility to connect to and query SQL on-demand and SQL pool.
-services: synapse analytics
+services: synapse-analytics
 author: azaricstefan 
 ms.service: synapse-analytics
 ms.topic: overview 
