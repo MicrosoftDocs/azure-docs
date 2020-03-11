@@ -43,9 +43,9 @@ landingContent:
           url: how-to-use-codec-compressed-audio-input-streams.md
     - linkListType: concept
       links:
-        - text: Prepare Custom Speech data
+        - text: Prepare data for Custom Speech
           url: how-to-custom-speech-test-data.md
-        - text: Train a custom model
+        - text: Train a model for Custom Speech
           url: how-to-custom-speech-train-model.md
         - text: Create human-labeled transcriptions
           url: how-to-custom-speech-human-labeled-transcriptions.md

@@ -15,23 +15,23 @@ metadata:
   ms.author: dapine
 
 landingContent:
-- title: About Speech Hosting
+- title: About hosting
   linkLists:
     - linkListType: concept
       links:
-        - text: Speech service containers
+        - text: Install and run Speech containers
           url: speech-container-howto.md
-        - text: Speech service containers with Kubernetes
+        - text: Speech containers with Kubernetes and Helm
           url: speech-container-howto-on-premises.md
-        - text: Speech service containers on Azure Container Instances
+        - text: Speech containers on Azure container instances
           url: deploy-speech-on-container-instances.md
-- title: Create and Configure
+- title: Create and configure
   linkLists:
     - linkListType: how-to-guide
       links:
         - text: Create an Azure Speech resource
           url: get-started.md#new-resource
-        - text: Configure containers
+        - text: Configure speech containers
           url: speech-container-configuration.md
 - title: Reference
   linkLists:

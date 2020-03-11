@@ -29,12 +29,14 @@
       href: quickstarts/from-blob.md
   - name: How-to guides
     items:
-    - name: Change speech recognition source language
-      href: how-to-specify-source-language.md
     - name: Choose speech recognition mode
       href: how-to-choose-recognition-mode.md
+    - name: Change speech recognition source language
+      href: how-to-specify-source-language.md
     - name: Improve accuracy with Custom Speech
       href: how-to-custom-speech.md
+    - name: Use compressed audio input formats
+      href: how-to-use-codec-compressed-audio-input-streams.md
     - name: Improve accuracy with Phrase Lists
       href: how-to-phrase-lists.md
     - name: Improve accuracy with tenant models
@@ -43,17 +45,15 @@
       href: how-to-select-audio-input-devices.md
     - name: Use automatic source language detection
       href: how-to-automatic-language-detection.md
-    - name: Use compressed audio input formats
-      href: how-to-use-codec-compressed-audio-input-streams.md
   - name: Customization
     items:
-    - name: Prepare data
+    - name: Prepare data for Custom Speech
       href: how-to-custom-speech-test-data.md
-    - name: Inspect data
+    - name: Inspect Custom Speech data
       href: how-to-custom-speech-inspect-data.md
-    - name: Evaluate accuracy
+    - name: Evaluate Custom Speech accuracy
       href: how-to-custom-speech-evaluate-data.md
-    - name: Train a custom model
+    - name: Train a model for Custom Speech
       href: how-to-custom-speech-train-model.md
     - name: Deploy a custom model
       href: how-to-custom-speech-deploy-model.md
@@ -94,6 +94,8 @@
         href: rest-speech-to-text.md
       - name: Batch transcription REST API
         href: batch-transcription.md
+    - name: Language support
+      href: language-support.md#speech-to-text
   - name: Resources
     items:
     - name: Speech-to-text FAQ
@@ -189,6 +191,10 @@
       items:
       - name: Text-to-speech REST API
         href: rest-text-to-speech.md
+    - name: Standard voice support
+      href: language-support.md#standard-voices
+    - name: Neural voice support
+      href: language-support.md#neural-voices
     - name: SSML phonetic sets
       href: speech-ssml-phonetic-sets.md
   - name: Resources
@@ -215,7 +221,7 @@
       href: quickstarts/translate-speech-to-speech.md
   - name: Tutorials
     items:
-    - name: Build a Flask app to translate and synthesize text with REST APIs
+    - name: Translate and synthesize text with REST APIs
       href: ../translator/tutorial-build-flask-app-translation-synthesis.md?toc=%2fazure%2fcognitive-services%2fspeech-service%2ftoc.json&bc=%2fazure%2fcognitive-services%2fspeech-service%2fbreadcrumb%2ftoc.json
   - name: Reference
     items:
@@ -242,6 +248,8 @@
       - name: Release notes
         href: releasenotes.md
         displayName: "release notes,updates,what's new,what is new,changes"
+    - name: Language support
+      href: language-support.md#speech-translation
   - name: Resources
     items:
     - name: Speech translation FAQ
@@ -299,7 +307,7 @@
     items:
     - name: Overview
       items:
-      - name: What is Conversation transcription?
+      - name: What is conversation transcription?
         href: conversation-transcription.md
     - name: How-to guides
       items:
@@ -423,16 +431,16 @@
       href: index-hosting.yml
     - name: How-to guides
       items:
-        - name: Install and run containers
+        - name: Install and run Speech containers
           href: speech-container-howto.md
           displayName: "containers,install container,run container"
-        - name: Configure containers
+        - name: Configure speech containers
           href: speech-container-configuration.md
           displayName: "containers,configure containers,container config,configuration"
-        - name: Kubernetes and Helm
+        - name: Speech containers with Kubernetes and Helm
           href: speech-container-howto-on-premises.md
           displayName: "containers,kubernetes,k8s,helm,orchestration,on-prem,on-premises"
-        - name: Azure container instances
+        - name: Speech containers on Azure container instances
           href: deploy-speech-on-container-instances.md
           displayName: "ACI,azure container instances,container instances,containers"
 - name: Speech SDK
