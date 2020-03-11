@@ -150,13 +150,13 @@ topicName = "<TOPIC NAME>"
 connectionName="<ENDPOINT CONNECTION NAME>"
 
 
--- setup subscription
+# setup subscription
 az account set --subscription $subscriptionID
 
--- create resource group
+# create resource group
 az group create --name $resourceGroupName --location $location
 
--- create vnet and subnet in $resourceGroupName
+# create vnet and subnet in $resourceGroupName
 az network vnet create \
     --resource-group $resourceGroupName \
     --name $vNetName \
@@ -174,18 +174,18 @@ az network vnet subnet update \
     --name $subNetName \
     --disable-private-endpoint-network-policies true
 
--- create topic.
--- IMPORTANT: replace <SUBSCRIPTION ID>, <RESOURCE GROUP NAME>, <TOPIC NAME>, and <LOCATION> with appropriate values.
+# create topic.
+# IMPORTANT: replace <SUBSCRIPTION ID>, <RESOURCE GROUP NAME>, <TOPIC NAME>, and <LOCATION> with appropriate values.
 az rest --method put \
     --uri "/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventGrid/topics/<TOPIC NAME>?api-version=2020-04-01-preview" \
     --body "{\""location\"":\""<LOCATION>\"", \""sku\"": {\""name\"": \""premium\""}, \""properties\"": {\""publicNetworkAccess\"":\""Disabled\""}}"
 
--- verify that the topic was created.
+# verify that the topic was created.
 az rest --method get \
     --uri "/subscriptions/$subscriptionID/resourceGroups/$resourceGroupName/providers/Microsoft.EventGrid/topics/$topicName?api-version=2020-04-01-preview"
 
--- create private endpoint. 
--- IMPORTANT: replace <SUBSCRIPTION ID>, <RESOURCE GROUP NAME>, and <TOPIC NAME> with appropriate values.
+# create private endpoint. 
+# IMPORTANT: replace <SUBSCRIPTION ID>, <RESOURCE GROUP NAME>, and <TOPIC NAME> with appropriate values.
 az network private-endpoint create \
     --resource-group $resourceGroupName \
     --name $endpointName \
@@ -196,7 +196,7 @@ az network private-endpoint create \
     --location $location \
     --group-ids topic
 
--- get topic in $resourceGroupName
+# get topic in $resourceGroupName
 az rest --method get \
     --uri "/subscriptions/$subscriptionID/resourceGroups/$resourceGroupName/providers/Microsoft.EventGrid/topics/$topicName?api-version=2020-04-01-preview"
 
