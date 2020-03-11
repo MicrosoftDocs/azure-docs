@@ -1,10 +1,10 @@
 ### YamlMime:Landing
 
-title: Azure Notification Hubs Documentation
+title: Azure Notification Hubs documentation
 summary: Send push notifications from any backend to any mobile device. Tutorials, API references, and other documentation.
 
 metadata:
-  title: Azure Notification Hubs Documentation
+  title: Azure Notification Hubs documentation
   description: Send push notifications from any backend to any mobile device. Tutorials, API references, and other documentation.
   ms.service: notification-hubs
   ms.topic: landing-page
