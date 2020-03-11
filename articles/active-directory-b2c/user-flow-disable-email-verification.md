@@ -31,4 +31,7 @@ Follow these steps to disable email verification:
 1. In the **REQUIRES VERIFICATION** drop-down, select **No**.
 1. Select **Save**. Email verification is now disabled for this user flow.
 
+## Next steps
+
+- Learn how to [customize the user interface in Azure Active Directory B2C](customize-ui-overview.md)
 
