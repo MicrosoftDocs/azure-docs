@@ -3,7 +3,7 @@ title: Server-side encryption of Azure Managed Disks - PowerShell
 description: Azure Storage protects your data by encrypting it at rest before persisting it to Storage clusters. You can rely on Microsoft-managed keys for the encryption of your managed disks, or you can use customer-managed keys to manage encryption with your own keys.
 author: roygara
 
-ms.date: 03/06/2020
+ms.date: 03/11/2020
 ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines-windows
@@ -52,11 +52,24 @@ To revoke access to customer-managed keys, see [Azure Key Vault PowerShell](http
 
 ### Supported regions
 
-Only the following regions are currently supported:
+For premium SSDs, standard SSDs, and standard HDDs, only the following regions are currently supported:
 
 - East US
 - East US 2
 - West US 2
+- South Central US
+- Canada Central
+- UK South
+- North Europe
+
+For ultra disks, the following regions support customer-managed keys as a GA offering:
+
+- East US
+- West US 2
+
+The remaining regions support customer-managed keys for ultra disks as a preview offering:
+
+- East US 2
 - South Central US
 - Canada Central
 - UK South
