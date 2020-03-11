@@ -122,7 +122,7 @@ To configure Azure AD single sign-on with ClickUp Productivity Platform, perform
 
     ![ClickUp Productivity Configuration](./media/clickup-productivity-platform-tutorial/configure0.png)
 
-    ![ClickUp Productivity Configuration](./media/clickup-productivity-platform-tutorial/configure1.png)
+    ![ClickUp Productivity Configuration](./media/clickup-productivity-platform-tutorial/configure1_1.png)
 
 3. Select **Microsoft**, under Single Sign-On (SSO) Provider.
 
