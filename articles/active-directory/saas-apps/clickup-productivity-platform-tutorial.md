@@ -195,7 +195,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 1. In a different web browser window, sign-on to your ClickUp Productivity Platform tenant as an administrator.
 
-2. Click on the **User profile** and select **Users**.
+2. Click on the **User profile** and select **People**.
    
     ![ClickUp Productivity Configuration](./media/clickup-productivity-platform-tutorial/configure0.png)
 
