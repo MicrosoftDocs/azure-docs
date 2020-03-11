@@ -79,7 +79,7 @@ Depending on whether you are connected to a Windows or Linux client, the steps t
 
 Perform the following steps to connect and unlock your disks.
 
-1. In the Azure portal, go to **General > Device details**. 
+1. In the Azure portal, navigate to your Data Box Disk Order. Search for it by navigating to **General > All resources**, then select your Data Box Disk Order.
 2. Download the Data Box Disk toolset corresponding to the Windows client. This toolset contains 3 tools: Data Box Disk Unlock tool, Data Box Disk Validation tool, and Data Box Disk Split Copy tool.
 
     In this procedure, you will use only the Data Box Disk Unlock tool. The other two tools will be used later.
