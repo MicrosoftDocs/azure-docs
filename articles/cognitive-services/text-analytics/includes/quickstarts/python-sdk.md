@@ -134,7 +134,7 @@ def sentiment_analysis_example(client):
         response.confidence_scores.negative,
     ))
     for idx, sentence in enumerate(response.sentences):
-        print("[Offset: {}, Length: {}]".format(sentence.grapheme_offset, sentence.grapheme_length))
+        print("[Length: {}]".format(sentence.grapheme_length))
         print("Sentence {} sentiment: {}".format(idx+1, sentence.sentiment))
         print("Sentence score:\nPositive={0:.2f}\nNeutral={1:.2f}\nNegative={2:.2f}\n".format(
             sentence.confidence_scores.positive,
@@ -152,14 +152,14 @@ sentiment_analysis_example(client)
 Document Sentiment: positive
 Overall scores: positive=1.00; neutral=0.00; negative=0.00
 
-[Offset: 0, Length: 30]
+[Length: 30]
 Sentence 1 sentiment: positive
 Sentence score:
 Positive=1.00
 Neutral=0.00
 Negative=0.00
 
-[Offset: 31, Length: 30]
+[Length: 30]
 Sentence 2 sentiment: neutral
 Sentence score:
 Positive=0.21
@@ -249,9 +249,8 @@ def entity_recognition_example(client):
 
         print("Named Entities:\n")
         for entity in result.entities:
-                print("\tText: \t", entity.text, "\tCategory: \t", entity.category, "\tSubCategory: \t", entity.subcategory,
-                      "\n\tOffset: \t", entity.grapheme_offset, "\tLength: \t", entity.grapheme_offset, 
-                      "\tConfidence Score: \t", round(entity.score, 2), "\n")
+            print("\tText: \t", entity.text, "\tCategory: \t", entity.category, "\tSubCategory: \t", entity.subcategory,
+                    "\n\tLength: \t", entity.grapheme_length, "\tConfidence Score: \t", round(entity.score, 2), "\n")
 
     except Exception as err:
         print("Encountered exception. {}".format(err))
@@ -263,11 +262,11 @@ entity_recognition_example(client)
 ```console
 Named Entities:
 
-    Text:    Seattle    Category:    Location   SubCategory:     GPE 
-    Offset:      26     Length:      26     Confidence Score:    0.92 
+    Text:    Seattle        Category:        Location       SubCategory:     GPE
+    Length:          7      Confidence Score:        0.92
 
-    Text:    last week  Category:    DateTime   SubCategory:     DateRange 
-    Offset:      34     Length:      34     Confidence Score:    0.8 
+    Text:    last week      Category:        DateTime       SubCategory:     DateRange
+    Length:          9      Confidence Score:        0.8
 ```
 
 ## Using NER to detect personal information
@@ -285,7 +284,7 @@ def entity_pii_example(client):
         print("Personally Identifiable Information Entities: ")
         for entity in result.entities:
             print("\tText: ",entity.text,"\tCategory: ", entity.category,"\tSubCategory: ", entity.subcategory)
-            print("\t\tOffset: ", entity.grapheme_offset, "\tLength: ", entity.grapheme_length, "\tScore: {0:.2f}".format(entity.score), "\n")
+            print("\t\tLength: ", entity.grapheme_length, "\tScore: {0:.2f}".format(entity.score), "\n")
         
 entity_pii_example(client)
 ```
@@ -293,9 +292,9 @@ entity_pii_example(client)
 ### Output
 
 ```console
-Personally Identifiable Information Entities: 
-    Text:  123-12-1234  Category:  U.S. Social Security Number (SSN)    SubCategory:  None
-        Offset:  33     Length:  11     Score: 0.85
+Personally Identifiable Information Entities:
+    Text:  123-12-1234      Category:  U.S. Social Security Number (SSN)    SubCategory:  None
+        Length:  11     Score: 0.85
 ```
 
 
@@ -321,8 +320,7 @@ def entity_linking_example(client):
             print("\tMatches:")
             for match in entity.matches:
                 print("\t\tText:", match.text)
-                print("\t\tScore: {0:.2f}".format(match.score), "\tOffset: ", match.grapheme_offset, 
-                      "\tLength: {}\n".format(match.grapheme_length))
+                print("\t\tScore: {0:.2f}".format(match.score), "\tLength: {}\n".format(match.grapheme_length))
             
     except Exception as err:
         print("Encountered exception. {}".format(err))
@@ -334,47 +332,47 @@ entity_linking_example(client)
 ```console
 Linked Entities:
 
-    Name:  Altair 8800  Id:  Altair 8800    Url:  https://en.wikipedia.org/wiki/Altair_8800 
+    Name:  Altair 8800      Id:  Altair 8800        Url:  https://en.wikipedia.org/wiki/Altair_8800
     Data Source:  Wikipedia
     Matches:
         Text: Altair 8800
-        Score: 0.78     Offset:  125    Length: 11
+        Score: 0.78     Length: 11
 
-    Name:  Bill Gates   Id:  Bill Gates     Url:  https://en.wikipedia.org/wiki/Bill_Gates 
+    Name:  Bill Gates       Id:  Bill Gates         Url:  https://en.wikipedia.org/wiki/Bill_Gates
     Data Source:  Wikipedia
     Matches:
         Text: Bill Gates
-        Score: 0.55     Offset:  25     Length: 10
+        Score: 0.55     Length: 10
 
         Text: Gates
-        Score: 0.55     Offset:  179    Length: 5
+        Score: 0.55     Length: 5
 
-    Name:  Paul Allen   Id:  Paul Allen     Url:  https://en.wikipedia.org/wiki/Paul_Allen 
+    Name:  Paul Allen       Id:  Paul Allen         Url:  https://en.wikipedia.org/wiki/Paul_Allen
     Data Source:  Wikipedia
     Matches:
         Text: Paul Allen
-        Score: 0.53     Offset:  40     Length: 10
+        Score: 0.53     Length: 10
 
-    Name:  Microsoft    Id:  Microsoft  Url:  https://en.wikipedia.org/wiki/Microsoft 
+    Name:  Microsoft        Id:  Microsoft  Url:  https://en.wikipedia.org/wiki/Microsoft
     Data Source:  Wikipedia
     Matches:
         Text: Microsoft
-        Score: 0.47     Offset:  0  Length: 9
+        Score: 0.47     Length: 9
 
         Text: Microsoft
-        Score: 0.47     Offset:  168    Length: 9
+        Score: 0.47     Length: 9
 
-    Name:  April 4  Id:  April 4    Url:  https://en.wikipedia.org/wiki/April_4 
+    Name:  April 4  Id:  April 4    Url:  https://en.wikipedia.org/wiki/April_4
     Data Source:  Wikipedia
     Matches:
         Text: April 4
-        Score: 0.25     Offset:  54     Length: 7
+        Score: 0.25     Length: 7
 
-    Name:  BASIC    Id:  BASIC  Url:  https://en.wikipedia.org/wiki/BASIC 
+    Name:  BASIC    Id:  BASIC      Url:  https://en.wikipedia.org/wiki/BASIC
     Data Source:  Wikipedia
     Matches:
         Text: BASIC
-        Score: 0.28     Offset:  98     Length: 5
+        Score: 0.28     Length: 5
 
 ```
 
