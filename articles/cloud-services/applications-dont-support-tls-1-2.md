@@ -46,7 +46,7 @@ The server also comes with a limited set of cipher suites:
 ```
 
 
-## Step 1: Open your exsisting Azure Web Role project
+## Step 1: Open your existing Azure Web Role project
 
 > ![NOTE]
 > The entireity of these steps and scripts can be found in the following [GitHub Repo](https://github.com/microsoft/azure-ssl-configure).
