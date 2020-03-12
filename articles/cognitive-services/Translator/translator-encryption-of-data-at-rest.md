@@ -69,7 +69,7 @@ To enable customer-managed keys, you must use an Azure Key Vault to store your k
 Only RSA keys of size 2048 are supported with Cognitive Services encryption. For more information about keys, see **Key Vault keys** in [About Azure Key Vault keys, secrets and certificates](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates#key-vault-keys).
 
 > [!NOTE]
-> If the entire key vault is deleted, your data will no longer be displayed and all your models will be undeployed.
+> If the entire key vault is deleted, your data will no longer be displayed and all your models will be undeployed. All uploaded data will be deleted from Custom Translator. 
 
 ### Revoke access to customer-managed keys
 
