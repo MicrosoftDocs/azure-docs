@@ -119,9 +119,9 @@ Use the **Accumulated costs** option and then filter by the **Resource type** as
 
 **How can I set inbound NSG rules on management ports?**
 
-The built-in firewall feature configures Windows firewall on all virtual machines in the cluster to allow inbound connections from IP ranges associated only to Microsoft management/deployment machines and secure admin workstations effectively preventing intrusions through the network layer.
+Managed instance control plane maintains NSG rules that protect management ports.
 
-Here is what ports are used for:
+Here is what management ports are used for:
 
 Ports 9000 and 9003 are used by Service Fabric infrastructure. Service Fabric primary role is to keep the virtual cluster healthy and keep goal state in terms of number of component replicas.
 
@@ -175,19 +175,19 @@ DNS configuration is eventually refreshed:
 As a workaround, downgrade the managed instance to 4 vCore and upgrade it again afterward. This has a side effect of refreshing the DNS configuration.
 
 
-## Static IP address
+## IP address
+
+**Can I connect to managed instance using IP address?**
+
+Connecting to managed instance using IP address is not supported. Managed instance host name maps to load balancer in front of managed instance virtual cluster. As one virtual cluster could host multiple managed instances connection could not be routed to proper managed instance without specifying it's name.
+
+For more information on managed instance virtual cluster architecture, see [Virtual cluster connectivity architecture](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-managed-instance-connectivity-architecture#virtual-cluster-connectivity-architecture).
 
 **Can a managed instance have a static IP address?**
 
 In rare but necessary situations, we might need to do an online migration of a managed instance to a new virtual cluster. If needed, this migration is because of changes in our technology stack aimed to improve security and reliability of the service. Migrating to a new virtual cluster results in changing the IP address that is mapped to the managed instance host name. The managed instance service doesn't claim static IP address support and reserves the right to change it without notice as a part of regular maintenance cycles.
 
 For this reason, we strongly discourage relying on immutability of the IP address as it could cause unnecessary downtime.
-
-## Moving MI
-
-**Can I move a managed instance or its VNet to another resource group?**
-
-No, this is current platform limitation. After a managed instance is created, moving the managed instance or VNet to another resource group or subscription is not supported.
 
 ## Change time zone
 
