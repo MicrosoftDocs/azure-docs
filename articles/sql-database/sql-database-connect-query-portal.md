@@ -15,20 +15,20 @@ ms.date: 03/12/2020
 ---
 # Quickstart: Use the Azure portal's query editor to query a SQL database
 
-The query editor is a tool in the Azure portal for running SQL queries against your Azure SQL Database or Azure SQL Data Warehouse. 
+The query editor is a tool in the Azure portal for running SQL queries against your Azure SQL database or Azure SQL Data Warehouse. 
 
-In this quickstart, you'll use the query editor in the portal to run Transact-SQL (T-SQL) queries against an Azure SQL database.
+In this quickstart, you'll use the query editor to run Transact-SQL (T-SQL) queries against an Azure SQL database.
 
 
 ## Prerequisites
 
-To complete this quickstart you need the AdventureWorksLT sample database. If you don't have a working copy of the AdventureWorksLT SQL Database, the following quickstart quickly creates one:
+Completing this quickstart requires the AdventureWorksLT sample database. If you don't have a working copy of the AdventureWorksLT SQL database, the following quickstart quickly creates one:
 
 - [Quickstart: Create a single Azure SQL database using the Azure portal, PowerShell, or Azure CLI](sql-database-single-database-get-started.md) 
 
 ### Configure network settings
 
-If you get one of the following errors in the query editor: *Your local network settings might be preventing the Query Editor from issuing queries. Please click here for instructions on how to configure your network settings*, or *A connection to the server could not be established. This might indicate an issue with your local firewall configuration or your network proxy settings.*. The following important information should help with these errors:
+If you get one of the following errors in the query editor: *Your local network settings might be preventing the Query Editor from issuing queries. Please click here for instructions on how to configure your network settings*, or *A connection to the server could not be established. This might indicate an issue with your local firewall configuration or your network proxy settings*, the following important information should help resolve:
 
 > [!IMPORTANT]
 > The query editor uses ports 443 and 1443 to communicate. Ensure you have enabled outbound HTTPS traffic on these ports. You also need to [add your outbound IP address to the server's allowed firewall rules](sql-database-server-level-firewall-rule.md) to access your databases and data warehouses.
@@ -43,10 +43,11 @@ If you get one of the following errors in the query editor: *Your local network 
     ![find query editor](./media/sql-database-connect-query-portal/find-query-editor.PNG)
 
 
+## Establish a connection to the database
 
-## Connect using SQL Authentication
+Even though you're signed into the portal, you still need to provide credentials to access the SQL database. You can connect using SQL authentication or Azure Active Directory to connect to your database.
 
-Even though you're signed into the portal, you still need to provide credentials to access the SQL database. If you use Azure Active Directory to connect to your database, skip to [the following section](#connect-using-azure-active-directory).
+### Connect using SQL Authentication
 
 1. In the **Login** page, under **SQL server authentication**, enter a **Login** and **Password** for a user that has access to the database. If you're not sure, use the login and password for the Server admin of the database's server.
 
@@ -55,7 +56,7 @@ Even though you're signed into the portal, you still need to provide credentials
 2. Select **OK**.
 
 
-## Connect using Azure Active Directory
+### Connect using Azure Active Directory
 
 Configuring an Azure Active Directory (Azure AD) administrator enables you to use a single identity to sign in to the Azure portal and your SQL database. To connect to your database using Azure AD, follow the steps below to configure an Azure AD admin for your SQL server.
 
@@ -63,7 +64,7 @@ Configuring an Azure Active Directory (Azure AD) administrator enables you to us
 > * Email accounts (for example, outlook.com, gmail.com, yahoo.com, and so on) aren't yet supported as Azure AD admins. Make sure to choose a user created either natively in the Azure AD, or federated into the Azure AD.
 > * Azure AD admin sign in doesn't work with accounts that have 2-factor authentication enabled.
 
-### Set an Active Directory admin for the database server
+#### Set an Active Directory admin for the database server
 
 1. In the Azure portal, select your SQL server.
 
@@ -83,7 +84,11 @@ Configuring an Azure Active Directory (Azure AD) administrator enables you to us
 
 7. In the **SQL database** menu, select **Query editor (preview)**. In the **Login** page, under the **Active Directory authentication** label, a message appears saying you have been signed in if you're an Azure AD admin. Then select the **Continue as** *\<your user or group ID>* button. If the page indicates that you have not successfully logged in, you may need to refresh the page.
 
-## Run a Select query
+## Query a SQL database
+
+The following example queries should run successfully against the AdventureWorksLT sample database.
+
+### Run a SELECT query
 
 1. Paste the following query into the query editor:
 
@@ -100,7 +105,7 @@ Configuring an Azure Active Directory (Azure AD) administrator enables you to us
 
 3. Optionally, you can save the query as a .sql file, or export the returned data as a .json, .csv, or .xml file.
 
-## Run an Insert query
+### Run an INSERT query
 
 Run the following [INSERT](/sql/t-sql/statements/insert-transact-sql/) T-SQL statement to add a new product in the `SalesLT.Product` table.
 
@@ -130,7 +135,7 @@ Run the following [INSERT](/sql/t-sql/statements/insert-transact-sql/) T-SQL sta
 2. Select **Run**  to insert a new row in the `Product` table. The **Messages** pane displays **Query succeeded: Affected rows: 1**.
 
 
-## Run an Update query
+### Run an UPDATE query
 
 Run the following [UPDATE](/sql/t-sql/queries/update-transact-sql/) T-SQL statement to modify your new product.
 
@@ -144,7 +149,7 @@ Run the following [UPDATE](/sql/t-sql/queries/update-transact-sql/) T-SQL statem
 
 2. Select **Run** to update the specified row in the `Product` table. The **Messages** pane displays **Query succeeded: Affected rows: 1**.
 
-## Run a Delete query
+### Run a DELETE query
 
 Run the following [DELETE](/sql/t-sql/statements/delete-transact-sql/) T-SQL statement to remove your new product.
 
