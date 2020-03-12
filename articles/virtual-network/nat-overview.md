@@ -17,7 +17,7 @@ ms.date: 03/05/2020
 ms.author: allensu
 ---
 
-# What is Virtual Network NAT (Public Preview)?
+# What is Virtual Network NAT?
 
 Virtual Network NAT (network address translation) simplifies outbound-only Internet connectivity for virtual networks. When configured on a subnet, all outbound connectivity uses your specified static public IP addresses.  Outbound connectivity is possible without load balancer or public IP addresses directly attached to virtual machines. NAT is fully managed and highly resilient.
 
@@ -33,10 +33,6 @@ Virtual Network NAT (network address translation) simplifies outbound-only Inter
 
 
 *Figure: Virtual Network NAT*
-
-
->[!NOTE] 
->Virtual Network NAT is available as a public preview. Currently it's available in a limited set of [regions](nat-overview.md#region-availability). This preview is provided without a service level agreement and isn't recommended for production workloads. Certain features may not be supported or may have constrained capabilities. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms) for details.
 
 ## Static IP addresses for outbound-only
 
@@ -122,48 +118,6 @@ You can monitor the operation of your NAT through multi-dimensional metrics expo
 
 At general availability, NAT data path is at least 99.9% available.
 
-## <a name = "region-availability"></a>Region availability
-
-NAT is currently available in these regions:
-
-- Europe West
-- Japan East
-- US East 2
-- US West
-- US West 2
-- US West Central
-
-## <a name = "enable-preview"></a>Public Preview participation
-
-Subscriptions must be registered to allow participation in the Public Preview.  Participation requires a two-step process and instructions are provided below for Azure CLI and Azure PowerShell.  The activation may take several minutes to complete.
-
-### Azure CLI
-
-1. register subscription for Public Preview
-
-    ```azurecli-interactive
-      az feature register --namespace Microsoft.Network --name AllowNatGateway
-    ```
-
-2. activate registration
-
-    ```azurecli-interactive
-      az provider register --namespace Microsoft.Network
-    ```
-
-### Azure PowerShell
-
-1. register subscription for Public Preview
-
-    ```azurepowershell-interactive
-      Register-AzProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowNatGateway
-    ```
-
-2. activate registration
-
-    ```azurepowershell-interactive
-      Register-AzResourceProvider -ProviderNamespace Microsoft.Network
-    ```
 
 ## Pricing
 
@@ -185,13 +139,13 @@ NAT is supported through normal support channels.
 
 ## Feedback
 
-We want to know how we can improve the service. Share your [feedback on the Public Preview](https://aka.ms/natfeedback). Propose and vote on what we should build next at [UserVoice for NAT](https://aka.ms/natuservoice).
+We want to know how we can improve the service. Propose and vote on what we should build next at [UserVoice for NAT](https://aka.ms/natuservoice).
 
 
 ## Limitations
 
 * NAT is compatible with standard SKU public IP, public IP prefix, and load balancer resources.   Basic resources (for example basic load balancer) and any products derived from them aren't compatible with NAT.  Basic resources must be placed on a subnet not configured with NAT.
-* IPv4 address family is supported.  NAT doesn't interact with IPv6 address family.  NAT cannot be deployed on a subnet with IPv6 prefix.
+* IPv4 address family is supported.  NAT doesn't interact with IPv6 address family.  NAT can't be deployed on a subnet with an IPv6 prefix.
 * NSG flow logging isn't supported when using NAT.
 * NAT can't span multiple virtual networks.
 
@@ -199,4 +153,4 @@ We want to know how we can improve the service. Share your [feedback on the Publ
 
 * Learn about [NAT gateway resource](./nat-gateway-resource.md).
 * [Tell us what to build next for Virtual Network NAT in UserVoice](https://aka.ms/natuservoice).
-* [Provide feedback on the Public Preview](https://aka.ms/natfeedback).
+
