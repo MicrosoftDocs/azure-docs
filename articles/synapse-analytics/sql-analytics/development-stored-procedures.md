@@ -13,7 +13,7 @@ ms.reviewer: igorstan
 ---
 
 # Using stored procedures in SQL pool
-Tips for implementing stored procedures in Synapse SQL pool (data wareshouse) for developing solutions.
+Tips for implementing stored procedures in Synapse SQL pool (data warehouse) for developing solutions.
 
 ## What to expect
 
