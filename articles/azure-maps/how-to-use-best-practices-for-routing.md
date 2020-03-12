@@ -38,7 +38,7 @@ This article uses the [Postman app](https://www.postman.com/downloads/) to build
 
 The Route directions service returns instructions including the travel time and the coordinates for a route path. On the other hand, the Route Matrix service lets you calculate the travel time and distances for a set of routes that are defined by origin and destination locations. For every given origin, the Matrix service calculates the cost of routing from that origin to every given destination. The cost of routing is the travel time and the distance, from the origin to the given destination. Both of these services allow you to choose departure time, arrival time, and vehicle type. For example, you can specify a truck vehicle type, and specify the type of engine for the truck. Both services use real-time or predictive traffic data accordingly. Predictive traffic data is produced from historical data.
 
-Consider calling Route Directions APIs if your scenario is to:
+Consider calling Route Directions APIs, if your scenario is to:
 
 * Request the shortest or fastest driving route between two or more known locations to get precise arrival times for your delivery vehicles.
 * Request detailed route guidance, including route geometry, to visualize routes on the map
