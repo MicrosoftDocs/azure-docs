@@ -53,7 +53,7 @@ Before proceeding ensure that the following prerequisites are met:
 
 * Your IoT hub must be provisioned in one of the [supported regions](#regional-availability-private-endpoints).
 
-* You need to provision an Azure VNET with a subnet in which the private endpoint will be created. See [create a virtual network using Azure CLI](../virtual-network/quick-create-cli.md) for more details.
+* You have provisioned an Azure VNET with a subnet in which the private endpoint will be created. See [create a virtual network using Azure CLI](../virtual-network/quick-create-cli.md) for more details.
 
 * For devices that operate inside of on-prem networks, set up [Virtual Private Network (VPN)](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) or [ExpressRoute](https://azure.microsoft.com/services/expressroute/) private peering into your Azure VNET.
 
@@ -97,7 +97,7 @@ IoT Hub needs access to your Azure blob storage, event hubs, service bus resourc
 
 To alleviate this situation, you need to enable connectivity from your IoT Hub resource to your storage account, event hubs or service bus resources via the _Azure first party trusted services_ option.
 
-The prerequisite are as follows:
+The prerequisites are as follows:
 
 * Your IoT hub must be provisioned in one of the [supported regions](#regional-availability-trusted-microsoft-first-party-services).
 
@@ -229,7 +229,7 @@ Now your custom event hubs endpoint is set up to use your hub's system assigned 
 
 ### Egress connectivity to service bus endpoints for routing
 
-IoT Hub can be configured to route messages to a customer-owned service bus namespace. To allow the routing functionality to access an service bus resource while firewall restrictions are in place, your IoT Hub needs to have a managed service identity (see how to [create a hub with managed service identity](#create-a-hub-with-managed-service-identity)). Once a managed service identity is provisioned, follow the steps below to give RBAC permission to your hub's resource identity to access your service bus.
+IoT Hub can be configured to route messages to a customer-owned service bus namespace. To allow the routing functionality to access a service bus resource while firewall restrictions are in place, your IoT Hub needs to have a managed service identity (see how to [create a hub with managed service identity](#create-a-hub-with-managed-service-identity)). Once a managed service identity is provisioned, follow the steps below to give RBAC permission to your hub's resource identity to access your service bus.
 
 * In the Azure portal, navigate to your service bus' _Access control (IAM)_ tab and click _Add_ under the _Add a role assignment_ section.
 
@@ -275,7 +275,7 @@ This functionality requires connectivity from IoT Hub to the storage account. To
 
 * Navigate to the _Firewalls and virtual networks_ tab in your storage account and enable _Allow access from selected networks_ option. Under the _Exceptions_ list, check the box for _Allow trusted Microsoft services to access this storage account_. Click the _Save_ button.
 
-You can now use the Azure IoT REST API's for [creating import export jobs](https://docs.microsoft.com/rest/api/iothub/service/createimportexportjob) for information on how use the bulk import/export functionality. Note that you will need to provide the `autheticationType="identityBased"` in your request body and use `inputBlobContainerUri="https://..."` and `outputBlobContainerUri="https://..."` as the input and output URL's of your storage account, respectively.
+You can now use the Azure IoT REST API's for [creating import export jobs](https://docs.microsoft.com/rest/api/iothub/service/createimportexportjob) for information on how to use the bulk import/export functionality. Note that you will need to provide the `autheticationType="identityBased"` in your request body and use `inputBlobContainerUri="https://..."` and `outputBlobContainerUri="https://..."` as the input and output URL's of your storage account, respectively.
 
 
 Azure IoT Hub SDK's also support this functionality in the service client's registry manager. The following code snippet shows how to initiate an import job or export job in using the C# SDK. Note that the `inputBlobContainerUri` and `outputBlobContainerUri` parameters must be in HTTPS URL format (with `https://` prefix).
