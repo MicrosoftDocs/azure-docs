@@ -73,7 +73,7 @@ This article shows how resource provider namespaces map to Azure services.
 | Microsoft.DevOps | [Azure DevOps](/azure/devops/) |
 | Microsoft.DevSpaces | [Azure Dev Spaces](/azure/dev-spaces/) |
 | Microsoft.DevTestLab | [Azure Lab Services](../../lab-services/index.yml) |
-| Microsoft.DigitalTwins | [Azure Digital Twins](../../digital-twins/about-digital-twins)   | 
+| Microsoft.DigitalTwins | [Azure Digital Twins](../../digital-twins/about-digital-twins.md) |
 | Microsoft.DocumentDB | [Azure Cosmos DB](../../cosmos-db/index.yml) |
 | Microsoft.DomainRegistration | [App Service](/azure/app-service/) |
 | Microsoft.EnterpriseKnowledgeGraph | Enterprise Knowledge Graph |
