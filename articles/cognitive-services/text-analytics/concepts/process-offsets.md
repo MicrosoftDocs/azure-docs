@@ -15,9 +15,7 @@ ms.reviewer: jdesousa
 
 # Text offsets in the Text Analytics API output
 
-Multilingual and emoji support has led to Unicode encodings that use more than one [code point](https://wikipedia.org/wiki/Code_point) to represent a single displayed character, called a grapheme. For example, emojis like 🌷 and 👍 may use several characters to compose the shape with additional characters for visual attributes, such as skin tone. Similarly, the Hindi word `अनुच्छेद` is encoded as five letters and three combining marks:
-
-`अ` + `न` +` ु` + `च` +` ्` + `छ` + ` े` + `द`
+Multilingual and emoji support has led to Unicode encodings that use more than one [code point](https://wikipedia.org/wiki/Code_point) to represent a single displayed character, called a grapheme. For example, emojis like 🌷 and 👍 may use several characters to compose the shape with additional characters for visual attributes, such as skin tone. Similarly, the Hindi word `अनुच्छेद` is encoded as five letters and three combining marks.
 
 Because of the different lengths of possible multilingual and emoji encodings, the Text Analytics API may return offsets in the response.
 
@@ -33,7 +31,7 @@ Whenever offsets are returned the API response, such as [Named Entity Recognitio
 
 Offsets can cause problems when using character-based substring methods, for example the .NET [substring()](https://docs.microsoft.com/dotnet/api/system.string.substring?view=netframework-4.8) method. One problem is that an offset may cause a substring method to end in the middle of a multi-character grapheme encoding instead of the end.
 
-In .NET consider using the [StringInfo](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo?view=netframework-4.8) class, which enables you to work with a string as a series of textual elements, rather than individual character objects. You can also look for grapheme splitter libraries in your preferred software environment. 
+In .NET, consider using the [StringInfo](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo?view=netframework-4.8) class, which enables you to work with a string as a series of textual elements, rather than individual character objects. You can also look for grapheme splitter libraries in your preferred software environment. 
 
 The Text Analytics API returns these textual elements as well, for convenience.
 
