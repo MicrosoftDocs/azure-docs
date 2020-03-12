@@ -57,13 +57,13 @@ This module can be helpful in scenarios such as these:
   
     -   **ARFF**:  Paste in an existing ARFF format file. If you are typing values directly, be sure to add the optional header and required attribute fields at the  beginning of the data. 
     
-        For example, the following header and attribute rows could be added to a simple list. The column heading would be `SampleText`.
+        For example, the following header and attribute rows could be added to a simple list. The column heading would be `SampleText`. Note that String type is not supported.
     
         ```text
-        % Title: SampleText.ARFF  
-        % Source: Enter Data module  
-        @ATTRIBUTE SampleText STRING  
-        @DATA  
+        % Title: SampleText.ARFF
+        % Source: Enter Data module
+        @ATTRIBUTE SampleText NUMERIC
+        @DATA
         \<type first data row here>  
         ```
 
