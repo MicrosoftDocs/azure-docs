@@ -1,18 +1,19 @@
 ---
-title: 'Quickstart: Create an Apache Spark pool in Azure Synapse Analytics'
-description: This quickstart shows how to use the web tools to create an Apache Spark pool in Azure Synapse Analytics, and run a Spark SQL query.
+title: 'Quickstart: Create an Apache Spark pool (preview) in Azure Synapse Analytics'
+description: This quickstart shows how to use the web tools to create an Apache Spark pool (preview) in Azure Synapse Analytics, and run a Spark SQL query.
+services: synapse-analytics
 author: euangMS
 ms.author: euang 
 ms.reviewer: jrasnick, carlrab
-ms.service: sql-data-warehouse
-ms.subservice: design
+ms.service: synapse-analytics
+ms.subservice: 
 ms.topic: quickstart
 ms.date: 03/20/2020
 ---
 
-# Quickstart: Create an Apache Spark pool in Synapse Analytics using web tools
+# Quickstart: Create an Apache Spark pool (preview) in Synapse Analytics using web tools
 
-In this quickstart, you learn how to create an Apache Spark pool in Azure Synapse Analytics using web tools. You then learn to connect to the Apache Spark pool and run Spark SQL queries against files and tables. Apache Spark enables fast data analytics and cluster computing using in-memory processing. For information on Spark on Synapse Analytics, see [Overview: Apache Spark on Azure Synapse Analytics](apache-spark-overview.md).
+In this quickstart, you learn how to create an Apache Spark pool (preview) in Azure Synapse Analytics using web tools. You then learn to connect to the Apache Spark pool and run Spark SQL queries against files and tables. Apache Spark enables fast data analytics and cluster computing using in-memory processing. For information on Spark on Synapse Analytics, see [Overview: Apache Spark on Azure Synapse Analytics](apache-spark-overview.md).
 
 > [!IMPORTANT]
 > Billing for Spark instances is prorated per minute, whether you are using them or not. Be sure to shutdown your Spark instance after you have finished using it, or set a short timeout. For more information, see the **Clean up resources** section of this article.

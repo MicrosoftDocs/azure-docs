@@ -1,11 +1,11 @@
 ---
 title: Synapse Spark version support 
 description: Supported versions of Spark, Scala, Python
-services: sql-data-warehouse 
+services: synapse-analytics
 author: euangMS 
-ms.service: sql-data-warehouse 
+ms.service: synapse-analytics 
 ms.topic: reference
-ms.subservice: design
+ms.subservice: 
 ms.date: 2/21/2020 
 ms.author: euang 
 ms.reviewer: euang

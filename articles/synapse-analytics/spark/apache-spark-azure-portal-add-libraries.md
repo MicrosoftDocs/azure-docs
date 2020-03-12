@@ -14,7 +14,7 @@ ms.reviewer: jrasnick, carlrab
 
 Apache Spark depends on many libraries to provide functionality. These libraries can be augmented or replaced with additional libraries or updated versions of older ones.
 
-Python packages can be added at the Spark pool level and .jar based packages can be added at the Spark job definition level.
+Python packages can be added at the Spark pool (preview) level and .jar based packages can be added at the Spark job definition level.
 
 ## Adding or updating Python libraries
 

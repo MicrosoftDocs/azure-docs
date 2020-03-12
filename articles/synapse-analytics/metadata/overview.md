@@ -1,6 +1,6 @@
 ---
 title: Azure Synapse Analytics shared metadata model 
-description: Azure Synapse Analytics provides a shared metadata model where creating a database or table in Spark will make it accessible from its SQL Analytics and SQL Pool engines without duplicating the data or requiring user action. 
+description: Azure Synapse Analytics provides a shared metadata model where creating a database or table in Apache Spark will make it accessible from its SQL on-demand (preview) and SQL pool engines without duplicating the data or requiring user action. 
 services: synapse-analytics
 author: MikeRys 
 ms.service: synapse-analytics
@@ -13,7 +13,7 @@ ms.reviewer: jrasnick
 
 # Azure Synapse Analytics shared metadata
 
-Azure Synapse Analytics allows the different computational engines of a workspace to share databases and tables between its Spark pools, SQL on-demand engine, and SQL pools.
+Azure Synapse Analytics allows the different computational engines of a workspace to share databases and tables between its Spark pools (preview), SQL on-demand engine (preview), and SQL pools.
 
 [!INCLUDE [synapse-analytics-preview-terms](../../../includes/synapse-analytics-preview-terms.md)]
 

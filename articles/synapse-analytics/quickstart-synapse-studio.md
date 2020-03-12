@@ -1,5 +1,5 @@
 ---
-title: Use Synapse Studio
+title: Use Synapse Studio (preview)
 description: In this quickstart, you'll see and learn how easy it is to query various types of files using Synapse Studio.
 services: synapse-analytics
 author: jovanpop-msft
@@ -11,7 +11,7 @@ ms.author: jovanpop
 ms.reviewer: jrasnick, carlrab
 ---
 
-# Quickstart: Using Synapse Studio
+# Quickstart: Using Synapse Studio (preview)
 
 In this quickstart, you'll learn how to query files using Synapse Studio.
 
