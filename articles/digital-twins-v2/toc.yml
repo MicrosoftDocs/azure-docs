@@ -4,6 +4,8 @@
   items:
   - name: About Azure Digital Twins
     href: overview.md
+  - name: Differences from Public Preview 1
+    href: overview-differences.md
 - name: Concepts
   items:
   - name: Model objects
