@@ -14,6 +14,8 @@ ms.date: 04/19/2017
 ---
 # Azure Batch service for Azure Machine Learning Studio (classic) jobs
 
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
+
 Machine Learning Batch Pool processing provides customer-managed scale for the Azure Machine Learning Batch Execution Service. Classic batch processing for machine learning takes place in a multi-tenant environment, which limits the number of concurrent jobs you can submit, and jobs are queued on a first-in-first-out basis. This uncertainty means that you can't accurately predict when your job will run.
 
 Batch Pool processing allows you to create pools on which you can submit batch jobs. You control the size of the pool, and to which pool the job is submitted. Your BES job runs in its own processing space providing predictable processing performance and the ability to create resource pools that
@@ -56,38 +58,38 @@ https://ussouthcentral.services.azureml.net/subscriptions/80c77c7674ba4c8c82294c
 ```json
 {
 
-	"Input":{
-	
-		"ConnectionString":"DefaultEndpointsProtocol=https;BlobEndpoint=https://sampleaccount.blob.core.windows.net/;TableEndpoint
-		=https://sampleaccount.table.core.windows.net/;QueueEndpoint=https://sampleaccount.queue.core.windows.net/;FileEndpoint=https://zhguim
-		l.file.core.windows.net/;AccountName=sampleaccount;AccountKey=&lt;Key&gt;;",
-		
-		"BaseLocation":null,
-		
-		"RelativeLocation":"testint/AdultCensusIncomeBinaryClassificationDataset.csv",
-		
-		"SasBlobToken":null
-	
-	},
-	
-	"GlobalParameters":{ },
-	
-	"Outputs":{
-	
-		"output1":{
-		
-			"ConnectionString":"DefaultEndpointsProtocol=https;BlobEndpoint=https://sampleaccount.blob.core.windows.net/;TableEndpo
-			int=https://sampleaccount.table.core.windows.net/;QueueEndpoint=https://sampleaccount.queue.core.windows.net/;FileEndpoint=https://sampleaccount.file.core.windows.net/;AccountName=sampleaccount;AccountKey=&lt;Key&gt;",
-			"BaseLocation":null,
-			"RelativeLocation":"testintoutput/testint\_results.csv",
-			
-			"SasBlobToken":null
-		
-		}
-	
-	},
-	
-	"AzureBatchPoolId":"8dfc151b0d3e446497b845f3b29ef53b"
+    "Input":{
+    
+        "ConnectionString":"DefaultEndpointsProtocol=https;BlobEndpoint=https://sampleaccount.blob.core.windows.net/;TableEndpoint
+        =https://sampleaccount.table.core.windows.net/;QueueEndpoint=https://sampleaccount.queue.core.windows.net/;FileEndpoint=https://zhguim
+        l.file.core.windows.net/;AccountName=sampleaccount;AccountKey=&lt;Key&gt;;",
+        
+        "BaseLocation":null,
+        
+        "RelativeLocation":"testint/AdultCensusIncomeBinaryClassificationDataset.csv",
+        
+        "SasBlobToken":null
+    
+    },
+    
+    "GlobalParameters":{ },
+    
+    "Outputs":{
+    
+        "output1":{
+        
+            "ConnectionString":"DefaultEndpointsProtocol=https;BlobEndpoint=https://sampleaccount.blob.core.windows.net/;TableEndpo
+            int=https://sampleaccount.table.core.windows.net/;QueueEndpoint=https://sampleaccount.queue.core.windows.net/;FileEndpoint=https://sampleaccount.file.core.windows.net/;AccountName=sampleaccount;AccountKey=&lt;Key&gt;",
+            "BaseLocation":null,
+            "RelativeLocation":"testintoutput/testint\_results.csv",
+            
+            "SasBlobToken":null
+        
+        }
+    
+    },
+    
+    "AzureBatchPoolId":"8dfc151b0d3e446497b845f3b29ef53b"
 
 }
 ```
@@ -107,4 +109,4 @@ We recommend that you poll the job status to determine when jobs complete. When 
 
 | **Use Batch Pool Processing when**    | **Use classic batch processing when**  |
 |---|---|
-|You need to run a large number of jobs<br>Or<br/>You need to know that your jobs will run immediately<br/>Or<br/>You need guaranteed throughput. For example, you need to run a number of jobs in a given time frame, and want to scale out your compute resources to meet your needs.    | You are running just a few jobs<br/>And<br/> You don’t need the jobs to run immediately |
+|You need to run a large number of jobs<br>Or<br/>You need to know that your jobs will run immediately<br/>Or<br/>You need guaranteed throughput. For example, you need to run a number of jobs in a given time frame, and want to scale out your compute resources to meet your needs.    | You are running just a few jobs<br/>And<br/> You don't need the jobs to run immediately |
