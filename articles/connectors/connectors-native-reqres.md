@@ -44,23 +44,6 @@ With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the built-in R
 
 This built-in trigger creates a manually callable HTTPS endpoint that can receive *only* incoming HTTPS requests. When this event happens, the trigger fires and runs the logic app. For more information about the trigger's underlying JSON definition and how to call this trigger, see the [Request trigger type](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger) and [Call, trigger, or nest workflows with HTTP endpoints in Azure Logic Apps](../logic-apps/logic-apps-http-endpoint.md).
 
-> [!IMPORTANT]
-> When you use the Request trigger, Logic Apps removes these headers when included, but without warning or error:
->
-> * `Accept-*`
-> * `Allow`
-> * `Content-*` with these exceptions: `Content-Disposition`, `Content-Encoding`, and `Content-Type`
-> * `Cookie`
-> * `Expires`
-> * `Host`
-> * `Last-Modified`
-> * `Origin`
-> * `Set-Cookie`
-> * `Transfer-Encoding`
->
-> Although Logic Apps won't stop you from saving logic apps that use a 
-> Response action with these headers, Logic Apps ignores these headers.
-
 1. Sign in to the [Azure portal](https://portal.azure.com). Create a blank logic app.
 
 1. After Logic App Designer opens, in the search box, enter "http request" as your filter. From the triggers list, select the **When an HTTP request is received** trigger, which is the first step in your logic app workflow.
@@ -217,7 +200,8 @@ You can use the Response action to respond with a payload (data) to an incoming 
 Your logic app keeps the incoming request open only for one minute. Assuming that your logic app workflow includes a Response action, if the logic app doesn't return a response after this time passes, your logic app returns a `504 GATEWAY TIMEOUT` to the caller. Otherwise, if your logic app doesn't include a Response action, your logic app immediately returns a `202 ACCEPTED` response to the caller.
 
 > [!IMPORTANT]
-> For any Response message, Logic Apps removes these headers when included, but without warning or error:
+> If a Response action includes these headers, Logic Apps removes these headers 
+> from the generated response message without showing any warning or error:
 >
 > * `Allow`
 > * `Content-*` with these exceptions: `Content-Disposition`, `Content-Encoding`, and `Content-Type`
@@ -227,7 +211,7 @@ Your logic app keeps the incoming request open only for one minute. Assuming tha
 > * `Set-Cookie`
 > * `Transfer-Encoding`
 >
-> Although Logic Apps won't stop you from saving logic apps that use a 
+> Although Logic Apps won't stop you from saving logic apps that have a 
 > Response action with these headers, Logic Apps ignores these headers.
 
 1. In the Logic App Designer, under the step where you want to add a Response action, select **New step**.

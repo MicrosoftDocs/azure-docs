@@ -24,12 +24,12 @@ To check or *poll* an endpoint on a recurring schedule, [add the HTTP trigger](#
 To call an endpoint from anywhere else in your workflow, [add the HTTP action](#http-action). The endpoint's response determines how your workflow's remaining actions run.
 
 > [!IMPORTANT]
-> When an HTTP trigger or action sends a `GET` request or doesn't have a request body, 
-> Logic Apps removes these headers when included, but without warning or error:
+> If an HTTP trigger or action includes these headers, Logic Apps removes these 
+> headers from the generated request message without showing any warning or error:
 >
 > * `Accept-*`
 > * `Allow`
-> * `Content-*`
+> * `Content-*` with these exceptions: `Content-Disposition`, `Content-Encoding`, and `Content-Type`
 > * `Cookie`
 > * `Expires`
 > * `Host`
@@ -38,10 +38,8 @@ To call an endpoint from anywhere else in your workflow, [add the HTTP action](#
 > * `Set-Cookie`
 > * `Transfer-Encoding`
 >
-> Although Logic Apps won't stop you from saving logic apps that use an HTTP trigger 
-> or action with these headers, Logic Apps ignores these headers. This behavior 
-> doesn't apply to other request types, such as `PUT` and `POST`, as long as these 
-> requests include request bodies.
+> Although Logic Apps won't stop you from saving logic apps that use an 
+> HTTP trigger or action with these headers, Logic Apps ignores these headers.
 
 This article shows how to add an HTTP trigger or action to your logic app's workflow.
 
