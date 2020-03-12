@@ -15,7 +15,7 @@ ms.service: digital-twins
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# Manage the components of your twin graph
+# Manage the elements in your twin graph
 
 Azure Digital Twins **Twin APIs** let developers create, modify, and delete digital twins and their relationships in an Azure Digital Twins instance.
 
@@ -61,7 +61,7 @@ Response rMoon = client.CreateTwin("urn:contosocom:example:Moon:1", "idMyMoon01"
 Response rR = client.CreateRelationship("idMyPlanet01", "IsCircledBy", "idMyMoon01", "idRel01");
 ```
 
-This code creates two digital twins, one using twin type model *Planet*, and the other using twin type model *Moon*. In addition to the twin type model ID (`urn:contosocom:example:Planet` and `urn:contosocom:example:Moon`), you need to pass in a unique ID, and data to initialize the Azure digital twin during creation. The sample also creates a relationship between the two instances, connecting them to each other.
+This code creates two digital twins, one using twin type model *Planet*, and the other using twin type model *Moon*. In addition to the twin type model ID (`urn:contosocom:example:Planet` and `urn:contosocom:example:Moon`), you need to pass in a unique ID, and data to initialize the Azure digital twin during creation. The sample also creates a relationship between the two digital twins, connecting them to each other.
 
 ## Initialize properties
 

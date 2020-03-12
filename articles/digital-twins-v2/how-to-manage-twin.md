@@ -310,6 +310,6 @@ foreach (JElement je in result)
 
 ## Next steps
 
-Learn about managing the other key components of an Azure Digital Twins solution:
+Learn about managing the other key elements of an Azure Digital Twins solution:
 * [Manage a twin type model](how-to-manage-model.md)
 * [Manage a twin graph](how-to-manage-graph.md)

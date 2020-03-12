@@ -174,7 +174,7 @@ Recall the types of notifications that can be generated and used for event routi
 
 Notifications allow the solution backend to be notified when below actions are happening. The sections that follow describe the types of notifications emitted by IoT Hub and Azure Digital Twins, or other Azure IoT services. 
 
-Notifications are made up of two parts: the headers and the body. 
+Notifications are made up of two parts: the header and the body. 
 
 ### Notification headers
 
@@ -278,7 +278,7 @@ Here is another example of an Azure digital twin based on a twin type model, tha
 
 ### Digital twin edge change notifications
 
-These notifications are triggered when any relationship's edge of an Azure digital twin is created, updated, or deleted. 
+These notifications are triggered when any relationship edge of an Azure digital twin is created, updated, or deleted. 
 
 #### Properties
 
@@ -288,13 +288,13 @@ These notifications are triggered when any relationship's edge of an Azure digit
 | source    | Name of the Azure Digital Twins instance, like *mydigitaltwins.westcentralus.azuredigitaltwins.net* |
 | specversion    | 1.0 |
 | type    | `Microsoft.<Service RP>.Edge.Create`<br>`Microsoft.<Service RP>.Edge.Update`<br>`Microsoft.<Service RP>.Edge.Delete`<br>`datacontenttype    application/json for Edge.Create`<br>`application/json-patch+json for Edge.Update` |
-| subject    | ID of the edge, like `<twinid>/relationships/<relationshipName>/<edged>` |
-| time    | Timestamp for when the operation occurred on the edge |
+| subject    | ID of the relationship edge, like `<twinid>/relationships/<relationshipName>/<edged>` |
+| time    | Timestamp for when the operation occurred on the relationship edge |
 | sequence, sequencetype    | See earlier detail on notification headers |
 
 #### Body
 
-This section includes payload in a JSON format for creating and deleting a relationship's edge. It uses the same format as a `GET` request for a relationship's edge via the Relationship API. "Updating a relationship" means properties of the edge have changed. 
+This section includes payload in a JSON format for creating and deleting a relationship edge. It uses the same format as a `GET` request for a relationship edge via the Relationship API. "Updating a relationship" means properties of the relationship edge have changed. 
 For `Edge.Delete`, the body is the same as the `GET` request, and it gets the latest state before deletion.
 Here is an example of a create or delete edge notification:
 
@@ -359,7 +359,7 @@ For and `Model.Decom`, the body of the patch will be in JSON patch format, like 
 
 ### Digital twin change notifications
 
-These notifications are triggered when an Azure digital twin is being updated, for instance:
+These notifications are triggered when an Azure digital twin is being updated, like:
 * When property values or metadata changes.
 * When digital twin or component metadata changes. An example of this scenario is changing the twin type model of a twin.
 
@@ -379,7 +379,7 @@ These notifications are triggered when an Azure digital twin is being updated, f
 #### Body
 
 The body for the `Twin.Update` notification is a JSON Patch document containing the update to the Azure digital twin.
-For instance, for the following PATCH digital twin:
+For example, for the following PATCH digital twin:
 
 ```json
 [

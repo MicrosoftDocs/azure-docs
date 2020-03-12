@@ -59,7 +59,7 @@ In a similar manner, twin type models for the hospital itself, as well as hospit
 
 ## Upload twin type models
 
-Once twin type models are created, you can upload them to the service instance. 
+Once twin type models are created, you can upload them to the Azure Digital Twins instance. 
 An example:
 
 ```csharp
@@ -105,7 +105,7 @@ On upload, twin type model files are validated.
 
 ## Retrieve twin type models
 
-You can list and retrieve twin type models stored on your Azure Digital Twins service instance. Your options are:
+You can list and retrieve twin type models stored on your Azure Digital Twins instance. Your options are:
 * Retrieve all twin type models
 * Retrieve a single twin type model
 * Retrieve a single twin type model with dependencies
@@ -129,7 +129,7 @@ Response<ModelData> oneModel = client.RetrieveModel(modelId, IncludeModels.All);
 IAsyncEnumerable<Response<ModelData>> oneModelWithDependencies = client.RetrieveModelWithDependenciesAsync(modelId, IncludeModels.All);
 ```
 
-The API calls to retrieve twin type models return `ModelData` objects. `ModelData` contains metadata about the twin type model stored in the Azure Digital Twins service instance, such as name, DTMI, and creation date of the twin type model. The `ModelData` object also optionally includes the twin type model itself. Depending on parameters, you can thus use the retrieve calls to either retrieve just metadata (which is useful in scenarios where you want to display a UI list of available tools, for example), or the entire twin type model.
+The API calls to retrieve twin type models return `ModelData` objects. `ModelData` contains metadata about the twin type model stored in the Azure Digital Twins instance, such as name, DTMI, and creation date of the twin type model. The `ModelData` object also optionally includes the twin type model itself. Depending on parameters, you can thus use the retrieve calls to either retrieve just metadata (which is useful in scenarios where you want to display a UI list of available tools, for example), or the entire twin type model.
 
 The `RetrieveModelWithDependencies` call returns not only the requested twin type model, but also all twin type models that the requested twin type model depends on.
 Twin type models are not necessarily returned in exactly the document form they were uploaded in. Azure Digital Twins makes no guarantees about the form a document is returned in, beyond that the document will be returned in semantically equivalent form. 
@@ -238,9 +238,9 @@ public void ParseModels()
 ## Delete twin type models
 
 Twin type models can also be deleted from the service. Deletion is a multi-step process:
-* First, **decommission** the twin type model. A decommissioned twin type model is still valid for use by existing Azure digital twins, including the ability to change properties or add and delete relationships. However, new instances of this twin type model can't be created anymore.
-* After decommissioning a twin type model, you will typically either delete existing instances of that twin type model, or transition the Azure digital twin to a different twin type model.
-* Once there are no more instances of a given twin type model, and the twin type model is not referenced by any other twin type model any longer, you can **delete** it. 
+* First, **decommission** the twin type model. A decommissioned twin type model is still valid for use by existing Azure digital twins, including the ability to change properties or add and delete relationships. However, new digital twins of this twin type model can't be created anymore.
+* After decommissioning a twin type model, you will typically either delete existing digital twins of that twin type model, or transition the Azure digital twin to a different twin type model.
+* Once there are no more digital twins of a given twin type model, and the twin type model is not referenced by any other twin type model any longer, you can **delete** it. 
 
 ```csharp
 DigitalTwinsClient client = new DigitalTwinsClient("...");  
@@ -253,6 +253,6 @@ client.DecommisionModel(dtmiOfPlanetInterface);
 
 ## Next steps
 
-Learn about managing the other key components of an Azure Digital Twins solution:
+Learn about managing the other key elements of an Azure Digital Twins solution:
 * [Manage a twin graph](how-to-manage-graph.md)
 * [Manage an individual digital twin](how-to-manage-twin.md)
