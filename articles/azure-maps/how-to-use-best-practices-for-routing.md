@@ -184,7 +184,7 @@ The Route API returns directions that accommodate the dimensions of the truck an
 
 <center>
 
-![Trick with class 1 hazwaste](media/how-to-use-best-practices-for-routing/truck-with-hazwaste.png)
+![Truck with class 1 hazwaste](media/how-to-use-best-practices-for-routing/truck-with-hazwaste.png)
 
 </center>
 
