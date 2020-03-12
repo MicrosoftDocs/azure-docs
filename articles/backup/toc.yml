@@ -336,6 +336,8 @@
       href: backup-rm-template-samples.md
   - name: Security
     items:
+    - name: Overview
+      href: security-overview.md
     - name: Role-Based Access Control
       href: backup-rbac-rs-vault.md
     - name: Security for cloud workloads
