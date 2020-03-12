@@ -1,5 +1,5 @@
 ---
-title: Configure firewall for Azure Event Grid topics or domains (Preview)
+title: Configure IP firewall for Azure Event Grid topics or domains (Preview)
 description: This article describes how to configure firewall settings for Event Grid topics or domains. 
 services: event-grid
 author: spelluru
@@ -16,11 +16,12 @@ By default, topic and domain are accessible from internet as long as the request
 This article describes how to configure IP firewall settings for Azure Event Grid topics or domains.
 
 ## Use Azure portal
+This section shows you how to use the Azure portal to create inbound IP firewall rules. The steps shown in this section are for topics. You can use similar steps to create inbound IP rules for **domains**. 
 
 1. In the [Azure portal](https://portal.azure.com), Navigate to your Event Grid topic or domain, and switch to the **Networking** tab.
-2. For the **Allow access from** field, select **Public networks** to allow all network, including the internet, to access the resource. You can restrict the traffic using IP-based firewall rules. 
+2. Select **Public networks** to allow all network, including the internet, to access the resource. 
 
-    If you want to allow only sources with selected IP addresses to publish to the topic or domain, enter the **range of IP addresses**. Singular addresses can be entered in IPv4 notation while address ranges must be entered in CIDR notation. Several online tools exist for [converting IP ranges to CIDR](https://ipaddressguide.com/cidr).
+    You can restrict the traffic using IP-based firewall rules. Specify a single IPv4 address or a range of IP addresses in Classless inter-domain routing (CIDR) notation. 
 
     ![Public networks page](./media/configure-firewall/public-networks-page.png)
 3. Select **Private endpoints only** to allow only private endpoint connections to access this resource. Use the **Private endpoint connections** tab on this page to manage connections. 
@@ -28,16 +29,11 @@ This article describes how to configure IP firewall settings for Azure Event Gri
     ![Public networks page](./media/configure-firewall/private-endpoints-page.png)
 4. Select **Save** on the toolbar. 
 
-    > [!NOTE]
-    > The steps shown in this section are mostly for topics. You can use similar steps to create inbound IP rules for **domains**. 
-
 
 
 ## Use Azure CLI
-This section shows you how to use Azure CLI commands to create topics with inbound IP rules. 
+This section shows you how to use Azure CLI commands to create topics with inbound IP rules. The steps shown in this section are for topics. You can use similar steps to create inbound IP rules for **domains**. 
 
-> [!NOTE]
-> The steps shown in this section are mostly for topics. You can use similar steps to create inbound IP rules for **domains**. 
 
 ### Enable public network access for an existing topic
 By default, the public network access is enabled for topics and domains. You can restrict traffic by configuring inbound IP firewall rules. 
@@ -83,11 +79,9 @@ az rest --method put \
     --body {\""location\"":\""<LOCATION>\", \""properties\"" :{\""publicNetworkAccess\"":\""enabled\"", \""InboundIpRules\"": [ {\""ipMask\"": \""<IP ADDRESS or IP ADDRESS RANGE in CIDR notation>\"", \""action\"": \""allow\""}, {\""ipMask\"": \""<IP ADDRESS or IP ADDRESS RANGE in CIDR notation>\"", \""action\"": \""allow\""} ]}}
 ```
 
-## Use PowerShell
-This section shows you how to use Azure PowerShell commands to create Azure Event Grid topics with inbound rules. 
 
-> [!NOTE]
-> The steps shown in this section are mostly for topics. You can use similar steps to create inbound IP rules for **domains**. 
+## Use PowerShell
+This section shows you how to use Azure PowerShell commands to create Azure Event Grid topics with inbound IP firewall rules. The steps shown in this section are for topics. You can use similar steps to create inbound IP rules for **domains**. 
 
 ### Prerequisite
 Follow instructions from [How to: Use the portal to create an Azure AD application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md) to create an Azure Active Directory application and note down the following values:

@@ -16,7 +16,7 @@ You can use [private endpoints](../private-link/private-endpoint-overview.md) to
 This article describes how to configure private endpoints for topics or domains.
 
 > [!IMPORTANT]
-> Private endpoints feature is available for topics and domains only in premium tier.
+> Private endpoints feature is available for topics and domains only in premium tier. To upgrade from basic tier to premium tier, see the [Update pricing tier](update-tier.md) article. 
 
 ## Use Azure portal 
 This section shows you how to use the Azure portal to create a private endpoint for a topic or a domain.

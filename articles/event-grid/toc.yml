@@ -126,7 +126,7 @@
     href: configure-private-endpoints.md
   - name: Configure IP firewall (preview)
     href: configure-firewall.md
-  - name: Update pricing tier of a topic or a domain
+  - name: Update pricing tier
     href: update-tier.md
   - name: Post to custom topic
     href: post-to-custom-topic.md
