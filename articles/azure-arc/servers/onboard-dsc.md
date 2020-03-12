@@ -43,7 +43,7 @@ Using [Windows PowerShell Desired State Configuration](https://docs.microsoft.co
 
 ## Install the agent and connect to Azure
 
-The resources in this module are designed to manage the Azure Connected Machine Agent configuration. Also included is a configuration MOF document `AzureConnectedMachineAgent.ps1`, found in the `AzureConnectedMachineDsc\examples` folder, uses community resources to automate the download and installation, and establish the connection with Azure Arc. This configuration document performs similar steps described in the [Connect hybrid machines to Azure from the Azure portal](onboard-portal.md) article.
+The resources in this module are designed to manage the Azure Connected Machine Agent configuration. Also included is a configuration MOF document `AzureConnectedMachineAgent.ps1`, found in the `AzureConnectedMachineDsc\examples` folder, which uses community resources to automate the download and installation, and establish the connection with Azure Arc. This configuration document performs similar steps described in the [Connect hybrid machines to Azure from the Azure portal](onboard-portal.md) article.
 
 If the machine needs to communicate through a proxy server to the service, after you install the agent you need to run a command that's described [here](onboard-portal.md#configure-the-agent-proxy-setting). This sets the proxy server system environment variable `https_proxy`. Instead of running the command manually, you can perform this step with DSC by using the ComputeManagementDsc module.
 
