@@ -91,7 +91,7 @@ Service Bus queues and topics used as IoT Hub endpoints must not have **Sessions
 Apart from the built-in-Event Hubs compatible endpoint, you can also route data to custom endpoints of type Event Hubs. 
 
 > [!NOTE]
-> If your event hubs resource has firewall configurations that restrict IoT Hub's connectivity, consider using [Microsoft trusted first party exception](./iot-hub-vnet-support.md#egress-connectivity-to-event-hubs-endpoints-for-routing) (available in select regions for IoT hubs with managed service identity).
+> If your event hubs resource has firewall configurations that restrict IoT Hub's connectivity, consider using [Microsoft trusted first party exception](./virtual-network-support.md#egress-connectivity-to-event-hubs-endpoints-for-routing) (available in select regions for IoT hubs with managed service identity).
 
 
 ## Reading data that has been routed
