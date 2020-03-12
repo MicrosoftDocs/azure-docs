@@ -151,21 +151,21 @@ When Azure Data Explorer is configured as a data source for Kibana, you can use 
 
 1. In Kibana, on the left menu, select the **Discover** tab.
 
-1. From the left drop-down list select an index pattern (in this case, an Azure Data Explorer table), which defines the data source you want to explore. 
+1. From the left drop-down list select an index pattern (in this case, an Azure Data Explorer table), which defines the data source you want to explore.
     
-    ![Select an index pattern](media/k2bridge/k2bridge-select-an-index-pattern.png)
+   ![Select an index pattern](media/k2bridge/k2bridge-select-an-index-pattern.png)
 
 1. If your data has a time-filter field, you can specify the time range. At the upper-right of the page, set a time filter. By default, Discover shows data for the last 15 minutes.
 
-    ![Time filter](media/k2bridge/k2bridge-time-filter.png)
+   ![Time filter](media/k2bridge/k2bridge-time-filter.png)
     
 1. The results table shows the first 500 records. You can expand a document to examine its field data in either JSON or table formats.
 
-    ![Expand a record](media/k2bridge/k2bridge-expand-record.png)
+   ![Expand a record](media/k2bridge/k2bridge-expand-record.png)
 
 1. By default, the results table includes columns for the document _source and the time field (if it exists). You can choose specific columns to be added to the results table by selecting **add** next to the field name in the left sidebar.
 
-    ![Specific columns](media/k2bridge/k2bridge-specific-columns.png)
+   ![Specific columns](media/k2bridge/k2bridge-specific-columns.png)
     
 1. In the query bar, you can search the data by:
     * Entering a search term
