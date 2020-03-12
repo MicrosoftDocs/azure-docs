@@ -3,7 +3,7 @@ title: Server-side encryption of Azure Managed Disks - PowerShell
 description: Azure Storage protects your data by encrypting it at rest before persisting it to Storage clusters. You can rely on Microsoft-managed keys for the encryption of your managed disks, or you can use customer-managed keys to manage encryption with your own keys.
 author: roygara
 
-ms.date: 03/11/2020
+ms.date: 03/12/2020
 ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines-windows
@@ -26,11 +26,15 @@ The following sections describe each of the options for key management in greate
 
 ## Platform-managed keys
 
-By default, managed disks use platform-managed encryption keys. As of June 10, 2017, all new managed disks, snapshots, images, and new data written to existing managed disks are automatically encrypted-at-rest with platform-managed keys. 
+By default, managed disks use platform-managed encryption keys. As of June 10, 2017, all new managed disks, snapshots, images, and new data written to existing managed disks are automatically encrypted-at-rest with platform-managed keys.
 
 ## Customer-managed keys
 
 You can choose to manage encryption at the level of each managed disk, with your own keys. Server-side encryption for managed disks with customer-managed keys offers an integrated experience with Azure Key Vault. You can either import [your RSA keys](../../key-vault/key-vault-hsm-protected-keys.md) to your Key Vault or generate new RSA keys in Azure Key Vault. Azure managed disks handles the encryption and decryption in a fully transparent fashion using [envelope encryption](../../storage/common/storage-client-side-encryption.md#encryption-and-decryption-via-the-envelope-technique). It encrypts data using an [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) 256 based data encryption key (DEK), which is, in turn, protected using your keys. You have to grant access to managed disks in your Key Vault to use your keys for encrypting and decrypting the DEK. This allows you full control of your data and keys. You can disable your keys or revoke access to managed disks at any time. You can also audit the encryption key usage with Azure Key Vault monitoring to ensure that only managed disks or other trusted Azure services are accessing your keys.
+
+For premium SSDs, standard SSDs, and standard HDDs: When you disable or rotate your key, any VMs using that key will automatically shut down. After this, VM will not be usable unless the key was rotated or you assign a new key.
+
+For ultra disks: When you disable or rotate your key, you must shut down any VMs using that key yourself, they will not automatically shut down. After this, you must either rotate the key or assign a new key for the VM to be usable again.
 
 The following diagram shows how managed disks use Azure Active Directory and Azure Key Vault to make requests using the customer-managed key:
 
@@ -52,19 +56,12 @@ To revoke access to customer-managed keys, see [Azure Key Vault PowerShell](http
 
 ### Supported regions
 
-#### Platform-managed keys
-
-Platform-managed keys are available for premium SSDs, standard SDDs, and standard HDDs in all regions.
-
-Platform-managed keys are also available for all ultra disks but, ultra disks have limited regional availability, refer to [Using Azure ultra disks](disks-enable-ultra-ssd.md) for details.
-
 [!INCLUDE [virtual-machines-disks-encryption-regions](../../../includes/virtual-machines-disks-encryption-regions.md)]
 
 ### Restrictions
 
 For now, customer-managed keys have the following restrictions:
 
-- Ultra disk support for this feature is in preview, all other disk types are in GA.
 - If this feature is enabled for your disk, you cannot disable it.
     If you need to work around this, you must [copy all the data](disks-upload-vhd-to-managed-disk-powershell.md#copy-a-managed-disk) to an entirely different managed disk that isn't using customer-managed keys.
 - Only ["soft" and "hard" RSA keys](../../key-vault/about-keys-secrets-and-certificates.md#keys-and-key-types) of size 2080 are supported, no other keys or sizes.

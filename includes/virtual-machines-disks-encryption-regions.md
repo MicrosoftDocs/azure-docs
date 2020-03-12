@@ -10,8 +10,6 @@
  ms.custom: include file
 ---
 
-#### customer-managed keys
-
 For premium SSDs, standard SSDs, and standard HDDs, only the following regions currently support customer-managed keys:
 
 - Available as a GA offering in the East US, West US 2, South Central US, UK South regions.
