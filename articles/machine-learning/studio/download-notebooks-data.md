@@ -20,12 +20,12 @@ This article provides a step-by-step guidance on how to download Notebooks(previ
 1. Go to the **Notebooks** tab in Azure Machine Learning Studio (classic).
     ![Navigate to Notebooks tab!](./media/download-notebooks/notebooks-list.png)
 
-1. Select the notebook you want to download. It will open in Jupyter.
+2. Select the notebook you want to download. It will open in Jupyter.
     ![Select a notebook](./media/download-notebooks/select-notebook.png)
 
-Downloading multiple notebooks at once is not supported.
+    Downloading multiple notebooks at once is not supported.
 
-1. Go to **Files** -> **Download as**, and select a format option.
+3. Go to **Files** -> **Download as**, and select a format option.
     ![Notebook download options](./media/download-notebooks/download-options.PNG)
 
-1. After selecting an option, the notebook file will start download. You might see a 500/502 error in the pop-up page,  ignore the error because it will not impact your download.
+4. After selecting an option, the notebook file will start download. You might see a 500/502 error in the pop-up page,  ignore the error because it will not impact your download.
