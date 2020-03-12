@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 03/24/2019
+ms.date: 03/11/2020
 ms.author: gsacavdm
 
 ---
@@ -91,6 +91,22 @@ Azure Security Center in Azure Government has achieved FedRAMP High authorizatio
 
 Azure Security Center is deployed on Azure Government regions but not DoD regions. Azure resources created in DoD regions can still utilize Security Center capabilities. However, using it will result in Security Center collected data being moved out from DoD regions and stored in Azure Government regions. By default, all Security Center features which collect and store data are disabled
 for resources hosted in DoD regions. The type of data collected and stored varies depending on the selected feature. Customers who want to enable Azure Security Center features for DoD resources are recommended to consider data residency before doing so.
+
+## Azure Sentinel
+
+Azure Sentinel is generally available in Azure Government.
+
+For details on the service and how to use it, see the [Azure Sentinel public documentation](https://docs.microsoft.com/azure/sentinel/).
+
+### Variations
+
+Unless otherwise specified, new feature releases to general availability will be available in Azure Sentinel Government within three months of their release in the Azure Sentinel commercial environment.
+
+- **Office 365 data connector**  
+The Office 365 data connector can be used only for [Office 365 GCC High](https://docs.microsoft.com/office365/servicedescriptions/office-365-platform-service-description/office-365-us-government/gcc-high-and-dod).
+
+- **AWS CloudTrail data connector**  
+The AWS CloudTrail data connector can be used only for [AWS in the Public Sector](https://aws.amazon.com/government-education/).
 
 ## Key Vault
 
