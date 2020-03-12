@@ -3586,6 +3586,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/sql-database/sql-database-operate-query-store.md",
+      "redirect_url": "https://docs.microsoft.com/sql/relational-databases/performance/best-practice-with-the-query-store#Insight",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/sql-database/sql-database-customer-implementations.md",
       "redirect_url": "http://customers.microsoft.com",
       "redirect_document_id": false
@@ -3678,6 +3683,11 @@
     {
       "source_path": "articles/sql-database/sql-database-performance-tutorial.md",
       "redirect_url": "/azure/sql-database/sql-database-performance-guidance",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sql-database/sql-database-performance.md",
+      "redirect_url": "/azure/sql-database/sql-database-monitor-overview",
       "redirect_document_id": false
     },
     {
@@ -32812,6 +32822,11 @@
     {
       "source_path": "articles/active-directory/role-based-access-built-in-roles.md",
       "redirect_url": "/azure/role-based-access-control/built-in-roles",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/sql-database/sql-database-control-access.md",
+      "redirect_url": "/azure/sql-database/sql-database-manage-logins",
       "redirect_document_id": true
     },
     {
