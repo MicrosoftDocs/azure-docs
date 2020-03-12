@@ -340,7 +340,7 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
 
     while context.current_utc_datetime < expiry_time:
         job_status = yield context.call_activity("GetJobStatus", job_id)
-        if (job_status == "Completed"):
+        if job_status == "Completed":
             # Perform an action when a condition is met.
             yield context.call_activity("SendAlert", job_id)
             break
