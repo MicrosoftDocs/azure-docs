@@ -71,7 +71,7 @@ public void ListBlobsInContainer(string containerName, string iothub)
 ```
 
 > [!NOTE]
-> If your storage account has firewall configurations that restrict IoT Hub's connectivity, consider using [Microsoft trusted first party exception](./iot-hub-vnet-support.md#egress-connectivity-to-storage-account-endpoints-for-routing) (available in select regions for IoT hubs with managed service identity).
+> If your storage account has firewall configurations that restrict IoT Hub's connectivity, consider using [Microsoft trusted first party exception](./virtual-network-support.md#egress-connectivity-to-storage-account-endpoints-for-routing) (available in select regions for IoT hubs with managed service identity).
 
 To create an Azure Data Lake Gen2-compatible storage account, create a new V2 storage account and select *enabled* on the *Hierarchical namespace* field on the **Advanced** tab as shown in the following image:
 
@@ -83,7 +83,7 @@ To create an Azure Data Lake Gen2-compatible storage account, create a new V2 st
 Service Bus queues and topics used as IoT Hub endpoints must not have **Sessions** or **Duplicate Detection** enabled. If either of those options are enabled, the endpoint appears as **Unreachable** in the Azure portal.
 
 > [!NOTE]
-> If your service bus resource has firewall configurations that restrict IoT Hub's connectivity, consider using [Microsoft trusted first party exception](./iot-hub-vnet-support.md#egress-connectivity-to-service-bus-endpoints-for-routing) (available in select regions for IoT hubs with managed service identity).
+> If your service bus resource has firewall configurations that restrict IoT Hub's connectivity, consider using [Microsoft trusted first party exception](./virtual-network-support.md#egress-connectivity-to-service-bus-endpoints-for-routing) (available in select regions for IoT hubs with managed service identity).
 
 
 ### Event Hubs
