@@ -133,7 +133,9 @@
   - name: Security
     items:
     - name: Network Security
-      items:
+      items: 
+      - name: Synapse workspace IP firewall rules
+        href: ./security/synapse-workspace-ip-firewall.md
       - name: Firewall rules
         href: ../sql-database/sql-database-firewall-configure.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Virtual network service endpoints
