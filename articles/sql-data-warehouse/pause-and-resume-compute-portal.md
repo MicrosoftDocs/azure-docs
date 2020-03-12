@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Pause & resume compute - Azure portal '
+title: Pause and resume compute in Synapse SQL pool via the Azure portal
 description: Use the Azure portal to pause compute for SQL pool to save costs. Resume compute when you are ready to use the data warehouse.
 services: sql-data-warehouse
 author: kevinvngo
@@ -12,10 +12,9 @@ ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
 ---
-# Quickstart: Pause and resume compute in Azure Synapse Analytics SQL pool in the Azure portal
+# Quickstart: Pause and resume compute in Synapse SQL pool via the Azure portal
 
-Use the Azure portal to pause compute for SQL pool to save costs. [Resume compute](sql-data-warehouse-manage-compute-overview.md) when you are ready to use the data warehouse.
-
+You can use the Azure portal to pause and resume the Synapse SQL pool (data warehouse) compute resources. 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
 ## Sign in to the Azure portal
@@ -28,9 +27,11 @@ Use [Create and Connect - portal](create-data-warehouse-portal.md) to create a S
 
 ## Pause compute
 
-To save costs, you can pause and resume compute resources on-demand. For example, if you won't be using the database during the night and on weekends, you can pause it during those times, and resume it during the day. You won't be charged for compute resources while the database is paused. However, you will continue to be charged for storage. 
+To reduce costs, you can pause and resume compute resources on-demand. For example, if you won't be using the database during the night and on weekends, you can pause it during those times, and resume it during the day. 
+>[!NOTE]
+>You won't be charged for compute resources while the database is paused. However, you will continue to be charged for storage. 
 
-Follow these steps to pause a SQL pool.
+Follow these steps to pause a SQL pool:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. Click **Azure Synapse Analytics (formerly SQL DW)** in the left navigation page of the Azure portal.
@@ -74,7 +75,7 @@ Follow these steps to resume SQL pool.
 
 ## Clean up resources
 
-You are being charged for data warehouse units and the data stored in your data warehouse. These compute and storage resources are billed separately. 
+You are being charged for data warehouse units and the data stored in your SQL pool. These compute and storage resources are billed separately. 
 
 - If you want to keep the data in storage, pause compute.
 - If you want to remove future charges, you can delete the SQL pool. 
@@ -89,14 +90,15 @@ Follow these steps to clean up resources as you desire.
 
 2. To remove the SQL pool so you are not charged for compute or storage, click **Delete**.
 
-3. To remove the SQL server you created, click **sqlpoolservername.database.windows.net**, and then click **Delete**.  Be careful with this deletion, since deleting the server also deletes all databases assigned to the server.
+3. To remove the SQL server you created, click **sqlpoolservername.database.windows.net**, and then click **Delete**.  
 
-4. To remove the resource group, click **myResourceGroup**, and then click **Delete resource group**.
+   > [!CAUTION]
+   > Be careful with this deletion, since deleting the server also deletes all databases assigned to the server.
+
+5. To remove the resource group, click **myResourceGroup**, and then click **Delete resource group**.
 
 
 ## Next steps
 
-You have now paused and resumed compute for your SQL pool. For  next steps continue to the tutorial for loading data.
+You have now paused and resumed compute for your SQL pool. Continue to the next article to learn more about how to [Load data into SQL pool](load-data-from-azure-blob-storage-using-polybase.md). For additional information about managing compute capabilities, see the [Manage compute overview](sql-data-warehouse-manage-compute-overview.md) article. 
 
-> [!div class="nextstepaction"]
-> [Load data into SQL pool](load-data-from-azure-blob-storage-using-polybase.md)

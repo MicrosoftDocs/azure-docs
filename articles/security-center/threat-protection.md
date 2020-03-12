@@ -84,7 +84,7 @@ Security Center uses the scale of the cloud to identify attacks targeting applic
 
 By using the visibility that Azure has as a cloud provider, Security Center analyzes App Service internal logs to identify attack methodology on multiple targets. For example, methodology includes widespread scanning and distributed attacks. This type of attack typically comes from a small subset of IPs, and shows patterns of crawling to similar endpoints on multiple hosts. The attacks are searching for a vulnerable page or plugin, and can't be identified from the standpoint of a single host.
 
-If you’re running a Windows-based App Service plan, Security Center also has access to the underlying sandboxes and VMs. Together with the log data mentioned above, the infrastructure can tell the story, from a new attack circulating in the wild to compromises in customer machines. Therefore, even if Security Center is deployed after a web app has been exploited, it may be able to detect ongoing attacks.
+If you're running a Windows-based App Service plan, Security Center also has access to the underlying sandboxes and VMs. Together with the log data mentioned above, the infrastructure can tell the story, from a new attack circulating in the wild to compromises in customer machines. Therefore, even if Security Center is deployed after a web app has been exploited, it may be able to detect ongoing attacks.
 
 For a list of the Azure App Service alerts, see the [Reference table of alerts](alerts-reference.md#alerts-azureappserv).
 
@@ -121,6 +121,10 @@ Security Center provides threat protection at different levels:
     For a list of the AKS cluster level alerts, see the [Reference table of alerts](alerts-reference.md#alerts-akscluster).
 
 Also, our global team of security researchers constantly monitor the threat landscape. They add container-specific alerts and vulnerabilities as they're discovered.
+
+> [!TIP]
+> You can simulate container alerts by following the instructions in [this blog post](https://techcommunity.microsoft.com/t5/azure-security-center/how-to-demonstrate-the-new-containers-features-in-azure-security/ba-p/1011270).
+
 
 
 
@@ -204,6 +208,9 @@ For more information, see:
 * [The list of threat protection alerts for Azure Storage](alerts-reference.md#alerts-azurestorage)
 
 
+> [!TIP]
+> You can simulate Azure Storage alerts by following the instructions in [this blog post](https://techcommunity.microsoft.com/t5/azure-security-center/validating-atp-for-azure-storage-detections-in-azure-security/ba-p/1068131).
+
 
 
 
@@ -261,7 +268,7 @@ If you have a license for Azure WAF, your WAF alerts are streamed to Security Ce
 
 Distributed denial of service (DDoS) attacks are known to be easy to execute. They've become a great security concern, particularly if you're moving your applications to the cloud. 
 
-A DDoS attack attempts to exhaust an application’s resources, making the application unavailable to legitimate users. DDoS attacks can target any endpoint that can be reached through the internet.
+A DDoS attack attempts to exhaust an application's resources, making the application unavailable to legitimate users. DDoS attacks can target any endpoint that can be reached through the internet.
 
 To defend against DDoS attacks, purchase a license for Azure DDoS Protection and ensure you're following application design best practices. DDoS Protection provides different service tiers. For more information, see [Azure DDoS Protection overview](https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview).
 
