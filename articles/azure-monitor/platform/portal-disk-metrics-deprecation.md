@@ -39,7 +39,7 @@ Update your metric alerts to use new metrics.
 1. In the Azure portal, search for **Alerts**. Then, in the **Services** section, choose **Alerts**.
 
    > [!div class="mx-imgBorder"]
-   > ![Image description](./media/portal-disk-metrics-deprecation/alert-service-in-azure-portal.png)
+   > ![Image description](./media/portal-disk-metrics-deprecation/alert-service-azure-portal.png)
 
 2. In the **Alerts** page, choose the **Manage Alert Rules** button. 
 
