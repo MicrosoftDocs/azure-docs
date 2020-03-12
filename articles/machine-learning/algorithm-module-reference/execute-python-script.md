@@ -110,6 +110,8 @@ def azureml_main(dataframe1 = None, dataframe2 = None):
 ```
 
 After the pipeline is submitted successfully, you can preview the image in the right panel of the module
+
+[!div class="mx-imgBorder"]
 ![Uploaded-image](media/module/upload-image-in-python-script.png)
 
 ## How to configure Execute Python Script
