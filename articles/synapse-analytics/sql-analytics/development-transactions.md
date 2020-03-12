@@ -1,6 +1,6 @@
 ---
 title: Using transactions
-description: Tips for implementing transactions in Azure SQL Data Warehouse for developing solutions.
+description: Tips for implementing transactions in SQL pool (data warehouse) for developing solutions.
 services: synapse-analytics
 author: XiaoyuMSFT 
 manager: craigg
@@ -12,14 +12,17 @@ ms.author: xiaoyul
 ms.reviewer: igorstan
 ---
 
-# Using transactions in SQL Data Warehouse
-Tips for implementing transactions in Azure SQL Data Warehouse for developing solutions.
+# Using transactions in SQL pool
+
+Tips for implementing transactions in SQL pool (data warehouse) for developing solutions.
 
 ## What to expect
-As you would expect, SQL Data Warehouse supports transactions as part of the data warehouse workload. However, to ensure the performance of SQL Data Warehouse is maintained at scale some features are limited when compared to SQL Server. This article highlights the differences and lists the others. 
+
+As you would expect, SQL pool supports transactions as part of the data warehouse workload. However, to ensure the performance of SQL pool is maintained at scale some features are limited when compared to SQL Server. This article highlights the differences and lists the others. 
 
 ## Transaction isolation levels
-SQL Data Warehouse implements ACID transactions. The isolation level of the transactional support is default to READ UNCOMMITTED.  You can change it to READ COMMITTED SNAPSHOT ISOLATION by turning ON the READ_COMMITTED_SNAPSHOT database option for a user database when connected to the master database.  Once enabled, all transactions in this database are executed under READ COMMITTED SNAPSHOT ISOLATION and setting READ UNCOMMITTED on session level will not be honored. Check [ALTER DATABASE SET options (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azure-sqldw-latest) for details.
+
+SQL pool implements ACID transactions. The isolation level of the transactional support is default to READ UNCOMMITTED.  You can change it to READ COMMITTED SNAPSHOT ISOLATION by turning ON the READ_COMMITTED_SNAPSHOT database option for a user database when connected to the master database.  Once enabled, all transactions in this database are executed under READ COMMITTED SNAPSHOT ISOLATION and setting READ UNCOMMITTED on session level will not be honored. Check [ALTER DATABASE SET options (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azure-sqldw-latest) for details.
 
 ## Transaction size
 A single data modification transaction is limited in size. The limit is applied per distribution. Therefore, the total allocation can be calculated by multiplying the limit by the distribution count. To approximate the maximum number of rows in the transaction divide the distribution cap by the total size of each row. For variable length columns, consider taking an average column length rather than using the maximum size.
@@ -81,7 +84,7 @@ To optimize and minimize the amount of data written to the log, please refer to 
 SQL Data Warehouse uses the XACT_STATE() function to report a failed transaction using the value -2. This value means the transaction has failed and is marked for rollback only.
 
 > [!NOTE]
-> The use of -2 by the XACT_STATE function to denote a failed transaction represents different behavior to SQL Server. SQL Server uses the value -1 to represent an uncommittable transaction. SQL Server can tolerate some errors inside a transaction without it having to be marked as uncommittable. For example `SELECT 1/0` would cause an error but not force a transaction into an uncommittable state. SQL Server also permits reads in the uncommittable transaction. However, SQL Data Warehouse does not let you do this. If an error occurs inside a SQL Data Warehouse transaction it will automatically enter the -2 state and you will not be able to make any further select statements until the statement has been rolled back. It is therefore important to check that your application code to see if it uses  XACT_STATE() as you may need to make code modifications.
+> The use of -2 by the XACT_STATE function to denote a failed transaction represents different behavior to SQL Server. SQL Server uses the value -1 to represent an uncommittable transaction. SQL Server can tolerate some errors inside a transaction without it having to be marked as uncommittable. For example `SELECT 1/0` would cause an error but not force a transaction into an uncommittable state. SQL Server also permits reads in the uncommittable transaction. However, SQL pool does not let you do this. If an error occurs inside a SQL pool transaction it will automatically enter the -2 state and you will not be able to make any further select statements until the statement has been rolled back. It is therefore important to check that your application code to see if it uses  XACT_STATE() as you may need to make code modifications.
 > 
 > 
 
@@ -130,7 +133,7 @@ Msg 111233, Level 16, State 1, Line 1
 
 You won't get the output of the ERROR_* functions.
 
-In SQL Data Warehouse the code needs to be slightly altered:
+In SQL pool the code needs to be slightly altered:
 
 ```sql
 SET NOCOUNT ON;
@@ -172,17 +175,19 @@ The expected behavior is now observed. The error in the transaction is managed a
 All that has changed is that the ROLLBACK of the transaction had to happen before the read of the error information in the CATCH block.
 
 ## Error_Line() function
-It is also worth noting that SQL Data Warehouse does not implement or support the ERROR_LINE() function. If you have this in your code, you need to remove it to be compliant with SQL Data Warehouse. Use query labels in your code instead to implement equivalent functionality. For more details, see the [LABEL](development-label.md) article.
+
+It is also worth noting that SQL pool does not implement or support the ERROR_LINE() function. If you have this in your code, you need to remove it to be compliant with SQL pool. Use query labels in your code instead to implement equivalent functionality. For more details, see the [LABEL](development-label.md) article.
 
 ## Using THROW and RAISERROR
-THROW is the more modern implementation for raising exceptions in SQL Data Warehouse but RAISERROR is also supported. There are a few differences that are worth paying attention to however.
+
+THROW is the more modern implementation for raising exceptions in SQL pool but RAISERROR is also supported. There are a few differences that are worth paying attention to however.
 
 * User-defined error messages numbers cannot be in the 100,000 - 150,000 range for THROW
 * RAISERROR error messages are fixed at 50,000
 * Use of sys.messages is not supported
 
 ## Limitations
-SQL Data Warehouse does have a few other restrictions that relate to transactions.
+SQL pool does have a few other restrictions that relate to transactions.
 
 They are as follows:
 
@@ -194,5 +199,5 @@ They are as follows:
 * No support for DDL such as CREATE TABLE inside a user-defined transaction
 
 ## Next steps
-To learn more about optimizing transactions, see [Transactions best practices](development-transaction-best-practices.md). Additional best practices guides are also provided for [SQL pools](best-practices-sql-pool.md) and [SQL on-demand](best-practices-sql-on-demand.md).
+To learn more about optimizing transactions, see [Transactions best practices](development-transaction-best-practices.md). Additional best practices guides are also provided for [SQL pools](best-practices-sql-pool.md) and [SQL on-demand (preview)](best-practices-sql-on-demand.md).
 

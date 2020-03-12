@@ -1,6 +1,6 @@
 ---
-title: Query storage files using SQL on-demand within SQL Analytics
-description: Describes querying storage files using SQL on-demand resources within SQL Analytics.
+title: Query storage files using SQL on-demand (preview) within SQL Analytics
+description: Describes querying storage files using SQL on-demand (preview) resources within SQL Analytics.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -11,9 +11,9 @@ ms.author: v-stazar
 ms.reviewer: jrasnick
 ---
 
-# Query storage files using SQL on-demand resources within SQL Analytics
+# Query storage files using SQL on-demand (preview) resources within SQL Analytics
 
-SQL on-demand enables you to query data in your data lake. It offers a T-SQL query surface area that accommodates semi-structured and unstructured data queries.
+SQL on-demand (preview) enables you to query data in your data lake. It offers a T-SQL query surface area that accommodates semi-structured and unstructured data queries.
 
 For querying, the following T-SQL aspects are supported:
 
@@ -60,8 +60,8 @@ To query Parquet source data, use FORMAT = 'PARQUET'
 ```
 OPENROWSET
 ( 
-	{ BULK 'data_file’ ,
-	{ FORMATFILE = 'format_file_path' [ <bulk_options>] | SINGLE_BLOB | SINGLE_CLOB | SINGLE_NCLOB } } 
+    { BULK 'data_file' ,
+    { FORMATFILE = 'format_file_path' [ <bulk_options>] | SINGLE_BLOB | SINGLE_CLOB | SINGLE_NCLOB } } 
 )
 AS table_alias(column_alias,...n) 
 <bulk_options> ::= 
@@ -79,7 +79,7 @@ These additional parameters are introduced for working with CSV (delimited text)
 <bulk_options> ::= 
 ...
 [ , FIELDTERMINATOR = 'char' ]
-[ , ROWTERMINATOR = 'char’ ]
+[ , ROWTERMINATOR = 'char' ]
 [ , ESCAPE_CHAR = 'char' ]
 ...
 ```
@@ -89,7 +89,7 @@ Specifies the character in the file that is used to escape itself and all delimi
 The ESCAPE_CHAR parameter will be applied regardless of whether the FIELDQUOTE is or isn't enabled. It will not be used to escape the quoting character. The quoting character is escaped with double-quotes in alignment with the Excel CSV behavior.
 
 - FIELDTERMINATOR ='field_terminator'
-Specifies the field terminator to be used. The default field terminator is a comma (“**,**”) 
+Specifies the field terminator to be used. The default field terminator is a comma ("**,**") 
 
 - ROWTERMINATOR ='row_terminator'
 Specifies the row terminator to be used. The default row terminator is a newline character: **\r\n**.
@@ -105,7 +105,7 @@ To specify columns that you want to read, you can provide an optional WITH claus
 ```
 OPENROWSET
 ...
-| BULK 'data_file’,
+| BULK 'data_file',
 { FORMATFILE = 'format_file_path' [ <bulk_options>] | SINGLE_BLOB | SINGLE_CLOB | SINGLE_NCLOB } } 
 ) AS table_alias(column_alias,...n) | WITH ( {'column_name' 'column_type' [ 'column_ordinal'] })
 ```
@@ -148,11 +148,11 @@ To enable a smooth experience when working with data stored in nested or repeate
 To project data, run a SELECT statement over the Parquet file that contains columns of nested data types. On output, nested values will be serialized into JSON and returned as a varchar(8000) SQL data type. 
 
 ```
-	SELECT  *  FROM
-	OPENROWSET 
-	(   BULK 'unstructured_data_path' ,
-	    FORMAT = 'PARQUET' ) 
-	[AS alias]
+    SELECT  *  FROM
+    OPENROWSET 
+    (   BULK 'unstructured_data_path' ,
+        FORMAT = 'PARQUET' ) 
+    [AS alias]
 ```
 
 For more detailed information, refer to the Project nested or repeated data section of the [Query Parquet nested types](query-parquet-nested-types.md#project-nested-or-repeated-data) article.
@@ -165,13 +165,13 @@ To access nested elements from a nested column, such as Struct, use "dot notatio
 The syntax fragment example is as follows:
 
 ```
-	OPENROWSET 
-	(   BULK 'unstructured_data_path' , 
-	    FORMAT = 'PARQUET'  ) 
-	WITH ({'column_name' 'column_type',}) 
-	[AS alias] 
-	 
-	'column_name' ::= '[field_name.] field_name'
+    OPENROWSET 
+    (   BULK 'unstructured_data_path' , 
+        FORMAT = 'PARQUET'  ) 
+    WITH ({'column_name' 'column_type',}) 
+    [AS alias] 
+     
+    'column_name' ::= '[field_name.] field_name'
 ```
 
 By default, the OPENROWSET function matches the source field name and path with the column names provided in the WITH clause. Elements contained at different nesting levels within the same source Parquet file can be accessed via the WITH clause.
@@ -199,14 +199,14 @@ To access non-scalar elements from a repeated column, use the [JSON_QUERY](https
 See syntax fragment below:
 
 ```
-	SELECT 
-	   { JSON_VALUE (column_name, path_to_sub_element), }
-	   { JSON_QUERY (column_name [ , path_to_sub_element ]), ) 
-	FROM
-	OPENROWSET 
-	(   BULK 'unstructured_data_path' ,
-	    FORMAT = 'PARQUET' ) 
-	[AS alias]
+    SELECT 
+       { JSON_VALUE (column_name, path_to_sub_element), }
+       { JSON_QUERY (column_name [ , path_to_sub_element ]), ) 
+    FROM
+    OPENROWSET 
+    (   BULK 'unstructured_data_path' ,
+        FORMAT = 'PARQUET' ) 
+    [AS alias]
 ```
 
 You can find query samples for accessing elements from repeated columns in the [Query Parquet nested types](query-parquet-nested-types.md#access-elements-from-repeated-columns) article.

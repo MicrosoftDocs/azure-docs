@@ -1,6 +1,6 @@
 ---
-title: How to use OPENROWSET in SQL on-demand
-description: This article describes syntax of OPENROWSET in SQL on-demand and explains how to use arguments.
+title: How to use OPENROWSET in SQL on-demand (preview)
+description: This article describes syntax of OPENROWSET in SQL on-demand (preview) and explains how to use arguments.
 services: synapse-analytics
 author: filippopovic
 ms.service: synapse-analytics
@@ -11,9 +11,9 @@ ms.author: fipopovi
 ms.reviewer: jrasnick
 ---
 
-# How to use OPENROWSET with SQL on-demand
+# How to use OPENROWSET with SQL on-demand (preview)
 
-The OPENROWSET(BULK...) function allows you to access files in Azure Storage. Within the SQL on-demand resource, the OPENROWSET bulk rowset provider is accessed by calling the OPENROWSET function and specifying the BULK option.  
+The OPENROWSET(BULK...) function allows you to access files in Azure Storage. Within the SQL on-demand (preview) resource, the OPENROWSET bulk rowset provider is accessed by calling the OPENROWSET function and specifying the BULK option.  
 
 The OPENROWSET function can be referenced in the FROM clause of a query as if it were a table name OPENROWSET. It supports bulk operations through a built-in BULK provider that enables data from a file to be read and returned as a rowset.
 
@@ -25,7 +25,7 @@ OPENROWSET is currently not supported in SQL pool.
 --OPENROWSET syntax for reading Parquet files
 OPENROWSET  
 ( { BULK 'unstructured_data_path' , 
-    FORMAT=’PARQUET’ }  
+    FORMAT='PARQUET' }  
 )  
 [WITH ( {'column_name' 'column_type' }) ]
 [AS] table_alias(column_alias,...n)
@@ -33,7 +33,7 @@ OPENROWSET
 --OPENROWSET syntax for reading delimited text files
 OPENROWSET  
 ( { BULK 'unstructured_data_path' , 
-    FORMAT = ‘CSV’
+    FORMAT = 'CSV'
     [ <bulk_options> ] }  
 )  
 WITH ( {'column_name' 'column_type' [ 'column_ordinal'] })  
@@ -41,7 +41,7 @@ WITH ( {'column_name' 'column_type' [ 'column_ordinal'] })
  
 <bulk_options> ::=  
 [ , FIELDTERMINATOR = 'char' ]    
-[ , ROWTERMINATOR = 'char’ ] 
+[ , ROWTERMINATOR = 'char' ] 
 [ , ESCAPE_CHAR = 'char' ] 
 [ , FIRSTROW = 'first_row'  ]     
 [ , FIELDQUOTE = 'quote_characters']
@@ -104,17 +104,17 @@ column_ordinal = Ordinal number of the column in the source file(s). This argume
 
 ```sql
 WITH (
-	--[country_code] VARCHAR (5) COLLATE Latin1_General_BIN2,
-	[country_name] VARCHAR (100) COLLATE Latin1_General_BIN2 2
-	--[year] smallint,
-	--[population] bigint
+    --[country_code] VARCHAR (5) COLLATE Latin1_General_BIN2,
+    [country_name] VARCHAR (100) COLLATE Latin1_General_BIN2 2
+    --[year] smallint,
+    --[population] bigint
 )
 ```
 <bulk_options>
 
 FIELDTERMINATOR ='field_terminator'
 
-Specifies the field terminator to be used. The default field terminator is a comma (“**,**”).
+Specifies the field terminator to be used. The default field terminator is a comma ("**,**").
 
 ROWTERMINATOR ='row_terminator'`
 
@@ -154,7 +154,7 @@ SELECT *
 FROM OPENROWSET(
         BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/population/population*.csv',
         FORMAT = 'CSV',
-		FIRSTROW = 1
+        FIRSTROW = 1
     )
 WITH (
     [country_code] VARCHAR (5) COLLATE Latin1_General_BIN2 1,
@@ -179,12 +179,12 @@ GO
 */
 
 SELECT 
-	TOP 1 *
+    TOP 1 *
 FROM  
-	OPENROWSET(
-		BULK 'https://azureopendatastorage.blob.core.windows.net/censusdatacontainer/release/us_population_county/year=20*/*.parquet',
-		FORMAT='PARQUET'
-	) AS [r]
+    OPENROWSET(
+        BULK 'https://azureopendatastorage.blob.core.windows.net/censusdatacontainer/release/us_population_county/year=20*/*.parquet',
+        FORMAT='PARQUET'
+    ) AS [r]
 ```
 
 

@@ -17,7 +17,7 @@ ms.custom:
 Included in this article are essential tips for using query labels in SQL Analytics.
 
 > [!NOTE]
-> SQL on-demand doesn't support labelling queries.
+> SQL on-demand (preview) doesn't support labelling queries.
 
 ## What are query labels
 SQL pool supports a concept called query labels. Before going into any depth, let's look at an example:

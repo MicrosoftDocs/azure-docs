@@ -13,7 +13,7 @@ ms.reviewer: jrasnick
 
 # CETAS with SQL Analytics
 
-In either SQL pool or SQL on-demand, you can use CREATE EXTERNAL TABLE AS SELECT (CETAS) to complete the  following tasks:  
+In either SQL pool or SQL on-demand (preview), you can use CREATE EXTERNAL TABLE AS SELECT (CETAS) to complete the  following tasks:  
 
 - Create an external table
 - Export, in parallel, the results of a Transact-SQL SELECT statement to
@@ -89,15 +89,15 @@ This sample relies on the credential, data source, and external file format crea
 -- use CETAS to export select statement with OPENROWSET result to  storage
 CREATE EXTERNAL TABLE population_by_year_state
 WITH (   
-	LOCATION = 'aggregated_data/',
-	DATA_SOURCE = population_ds,  
-	FILE_FORMAT = census_file_format
+    LOCATION = 'aggregated_data/',
+    DATA_SOURCE = population_ds,  
+    FILE_FORMAT = census_file_format
 )  
 AS 
 SELECT decennialTime, stateName, SUM(population) AS population
 FROM 
-	OPENROWSET(BULK 'https://azureopendatastorage.blob.core.windows.net/censusdatacontainer/release/us_population_county/year=*/*.parquet',
-	FORMAT='PARQUET') AS [r]
+    OPENROWSET(BULK 'https://azureopendatastorage.blob.core.windows.net/censusdatacontainer/release/us_population_county/year=*/*.parquet',
+    FORMAT='PARQUET') AS [r]
 GROUP BY decennialTime, stateName
 GO
 
@@ -111,9 +111,9 @@ The sample below uses an external table as the source for CETAS. It relies on th
 -- use CETAS with select from external table
 CREATE EXTERNAL TABLE population_by_year_state
 WITH (   
-	LOCATION = 'aggregated_data/',
-	DATA_SOURCE = population_ds,  
-	FILE_FORMAT = census_file_format
+    LOCATION = 'aggregated_data/',
+    DATA_SOURCE = population_ds,  
+    FILE_FORMAT = census_file_format
 )  
 AS 
 SELECT decennialTime, stateName, SUM(population) AS population

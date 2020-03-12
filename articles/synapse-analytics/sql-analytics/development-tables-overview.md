@@ -1,5 +1,5 @@
 ---
-title: Design tables using SQL Analytics | Microsoft Docs
+title: Design tables using SQL Analytics
 description: Introduction to designing tables in SQL Analytics. 
 services: synapse-analytics
 author: filippopovic
@@ -14,9 +14,9 @@ ms.reviewer: jrasnick
 
 # Design tables using SQL Analytics
 
-This document includes key concepts for designing tables with SQL pool and SQL on-demand.  
+This document includes key concepts for designing tables with SQL pool and SQL on-demand (preview).  
 
-[SQL on-demand](on-demand.md) is a query service over the data in your data lake. It doesn't have local storage for data ingestion. [SQL pool](best-practices-sql-pool.md) represents a collection of analytic resources that are being provisioned when using SQL Analytics. The size of SQL pool is determined by Data Warehousing Units (DWU).
+[SQL on-demand (preview)](on-demand.md) is a query service over the data in your data lake. It doesn't have local storage for data ingestion. [SQL pool](best-practices-sql-pool.md) represents a collection of analytic resources that are being provisioned when using SQL Analytics. The size of SQL pool is determined by Data Warehousing Units (DWU).
 
 The following table lists the topics that are relevant to SQL pool vs. SQL on-demand:
 
@@ -160,22 +160,22 @@ In SQL on-demand, you can limit the files/folders (partitions) that will be read
 
 ```sql
 SELECT 
-	nyc.filepath(1) AS [year],
-	payment_type,
-	SUM(fare_amount) AS fare_total
+    nyc.filepath(1) AS [year],
+    payment_type,
+    SUM(fare_amount) AS fare_total
 FROM  
-	OPENROWSET(
-		BULK 'https://sqlondemandstorage.blob.core.windows.net/parquet/taxi/year=*/month=*/*.parquet',
-		FORMAT='PARQUET'
-	) AS nyc
+    OPENROWSET(
+        BULK 'https://sqlondemandstorage.blob.core.windows.net/parquet/taxi/year=*/month=*/*.parquet',
+        FORMAT='PARQUET'
+    ) AS nyc
 WHERE 
-	nyc.filepath(1) = 2017 
+    nyc.filepath(1) = 2017 
 GROUP BY 
-	nyc.filepath(1),
-	payment_type
+    nyc.filepath(1),
+    payment_type
 ORDER BY
-	nyc.filepath(1),
-	payment_type
+    nyc.filepath(1),
+    payment_type
 ```
 
 ## Columnstore indexes

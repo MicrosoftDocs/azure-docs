@@ -1,6 +1,6 @@
 ---
-title: Control storage account access for SQL on-demand in Azure Synapse Analytics
-description: Describes how SQL on-demand accesses Azure Storage and how you can control storage access for SQL on-demand in Azure Synapse Analytics.
+title: Control storage account access for SQL on-demand (preview)
+description: Describes how SQL on-demand (preview) accesses Azure Storage and how you can control storage access for SQL on-demand in Azure Synapse Analytics.
 services: synapse-analytics 
 author: filippopovic
 ms.service: synapse-analytics 
@@ -12,9 +12,9 @@ ms.reviewer: jrasnick
 ---
 
 
-# Control storage account access for SQL on-demand in Azure Synapse Analytics
+# Control storage account access for SQL on-demand (preview) in Azure Synapse Analytics
 
-A SQL on-demand query reads files directly from Azure Storage. Since the storage account is an object that is external to the SQL on-demand resource, appropriate credentials are required. A user needs the applicable permissions granted to use the requisite credential. This article describes the types of credentials you can use and how credential lookup is enacted for SQL and Azure AD users.
+A SQL on-demand (preview) query reads files directly from Azure Storage. Since the storage account is an object that is external to the SQL on-demand resource, appropriate credentials are required. A user needs the applicable permissions granted to use the requisite credential. This article describes the types of credentials you can use and how credential lookup is enacted for SQL and Azure AD users.
 
 ## Supported storage authorization types
 
@@ -49,7 +49,7 @@ You can get an SAS token by navigating to the **Azure portal -> Storage Account 
 
 ### User Identity
 
-**User Identity**, also known as “pass-through", is an authorization type where the identity of the Azure AD user that logged into
+**User Identity**, also known as "pass-through", is an authorization type where the identity of the Azure AD user that logged into
 SQL on-demand is used to authorize data access. Before accessing the data, the Azure Storage administrator must grant permissions to the Azure AD user. As indicated in the table above, it's not supported for the SQL user type.
 
 > [!NOTE]
