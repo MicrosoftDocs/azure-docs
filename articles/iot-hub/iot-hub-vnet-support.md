@@ -37,7 +37,7 @@ is transmitted directly to Azure backbone network.
 * Following established Azure-wide connectivity patterns using [private endpoints](../private-link/private-endpoint-overview.md).
 
 
-This article describes how to achieve these goals using [private endpoints](../private-link/private-endpoint-overview.md) for ingress connectivity to IoT Hub, as using Azure Trusted first party connectivity exception for egress connectivity from IoT Hub to other Azure resources.
+This article describes how to achieve these goals using [private endpoints](../private-link/private-endpoint-overview.md) for ingress connectivity to IoT Hub, as using Azure trusted first party services exception for egress connectivity from IoT Hub to other Azure resources.
 
 
 ## Ingress connectivity to IoT Hub using private endpoints
@@ -117,7 +117,7 @@ Azure trusted first party services exception to bypass firewall restrictions to 
 
 ### Pricing (trusted Microsoft first party services)
 
-Trusted Microsoft first party exception feature is free of charge in IoT Hubs in the [supported regions](#regional-availability-trusted-microsoft-first-party-services). Charges for the provisioned storage accounts, event hubs, or service bus resources apply separately.
+Trusted Microsoft first party services exception feature is free of charge in IoT Hubs in the [supported regions](#regional-availability-trusted-microsoft-first-party-services). Charges for the provisioned storage accounts, event hubs, or service bus resources apply separately.
 
 
 ### Create a hub with managed service identity
@@ -293,10 +293,3 @@ await registryManager.ExportDevicesAsync(
     JobProperties.CreateForExportJob(outputBlobContainerUri, true, null, StorageAuthenticationType.IdentityBased),
     cancellationToken);
 ```
-
-| SDK language | Link         |
-|--------------|--------------|
-| C#           |  [`RegistryManager.ExportDevicesAsync()`](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.registrymanager?view=azure-dotnet) and [`RegistryManager.ImportDevicesAsync()`](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.registrymanager?view=azure-dotnet) |
-| Java         |  [`RegistryManager.importDevicesAsync()`](https://github.com/Azure/azure-iot-sdk-java/blob/master/service/iot-service-client/src/main/java/com/microsoft/azure/sdk/iot/service/RegistryManager.java#L771) and [`RegistryManager.exportDevicesAsync()`](https://github.com/Azure/azure-iot-sdk-java/blob/master/service/iot-service-client/src/main/java/com/microsoft/azure/sdk/iot/service/RegistryManager.java#L700) |
-| NodeJS       |  [`Registry.importDevicesFromBlob()`](https://github.com/Azure/azure-iot-sdk-node/blob/master/service/src/registry.ts#L368) and [`Registry.exportDevicesToBlob()`](https://github.com/Azure/azure-iot-sdk-node/blob/master/service/src/registry.ts#L415)         |
-
