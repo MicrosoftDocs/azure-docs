@@ -111,7 +111,7 @@ Install the Bing Entity Search client library dependencies by using Maven, Gradl
        }
        //...
        ```
-      ## Send a request and receive a response
+## Send a request and receive a response
 
 1. Create a new instance of the search client with your subscription key. use `client.entities().search()` to send a search request for the search query `satya nadella`, and get a response. 
     
