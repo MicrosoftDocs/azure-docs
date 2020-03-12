@@ -11,21 +11,21 @@ ms.topic: quickstart
 author: Ninarn
 ms.author: ninarn
 ms.reviewer: carlrab
-ms.date: 03/10/2020
+ms.date: 03/11/2020
 ---
 # Quickstart: Use the Azure portal's query editor to query a SQL database
 
-The query editor is a tool in the Azure portal for executing SQL queries against your Azure SQL Database or Azure SQL Data Warehouse. In this quickstart, you'll use the query editor to run Transact-SQL (T-SQL) statements to query, insert, update, and delete data.
+The query editor is a tool in the Azure portal for running SQL queries against your Azure SQL Database or Azure Synapse Analytics (formerly SQL Data Warehouse). In this quickstart, you'll use the query editor to run Transact-SQL (T-SQL) queries.
 
 ## Prerequisites
 
-To complete this quickstart you need the AdventureWorksLT SQL Database. If you don't have a working copy of the AdventureWorksLT SQL Database, use the following quickstart to quickly create one:
+To complete this quickstart you need the AdventureWorksLT sample database. If you don't have a working copy of the AdventureWorksLT SQL Database, use the following quickstart to quickly create one:
 
-- [Quickstart: Create a single database in Azure SQL Database using the Azure portal, PowerShell, or Azure CLI](sql-database-single-database-get-started.md) 
+- [Quickstart: Create a single Azure SQL database using the Azure portal, PowerShell, or Azure CLI](sql-database-single-database-get-started.md) 
 
 ### Configure network settings
 
-If you get an error in the query editor saying: *Your local network settings might be preventing the Query Editor from issuing queries. Please click here for instructions on how to configure your network settings*. The following important information should help get past this:
+If you get an error in the query editor saying: *Your local network settings might be preventing the Query Editor from issuing queries. Please click here for instructions on how to configure your network settings*, or *A connection to the server could not be established. This might indicate an issue with your local firewall configuration or your network proxy settings.*. The following important information should help with these errors:
 
 > [!IMPORTANT]
 > The query editor uses ports 443 and 1443 to communicate. Ensure you have enabled outbound HTTPS traffic on these ports. You also need to [add your outbound IP address to the server's allowed firewall rules](sql-database-server-level-firewall-rule.md) to access your databases and data warehouses.
@@ -42,6 +42,8 @@ If you get an error in the query editor saying: *Your local network settings mig
 
 
 ## Connect using SQL Authentication
+
+Even though you're signed in to the portal, you still need to provide credentials to access the SQL database. If you use Azure Active Directory to connect to your database, skip to [the following section](#connect-using-azure-active-directory).
 
 1. In the **Login** page, under the **SQL server authentication** label, enter a **Login** and **Password** for a user that has access to the database. If you're not sure, use the login and password for the Server admin of the database's server.
 
