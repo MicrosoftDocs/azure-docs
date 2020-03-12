@@ -574,6 +574,10 @@ module.exports = df.entity(function(context) {
 });
 ```
 
+# [Python](#tab/python)
+
+Durable entities is currently not supported in Python.
+
 ---
 
 Clients can enqueue *operations* for (also known as "signaling") an entity function using the [entity client binding](durable-functions-bindings.md#entity-client).
@@ -609,6 +613,10 @@ module.exports = async function (context) {
     await context.df.signalEntity(entityId, "add", 1);
 };
 ```
+
+# [Python](#tab/python)
+
+Durable entities is currently not supported in Python.
 
 ---
 
