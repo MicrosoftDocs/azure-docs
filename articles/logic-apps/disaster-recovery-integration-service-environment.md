@@ -1,6 +1,6 @@
 ---
-title: Disaster recovery for integration service environments (ISE)
-description: Set up disaster recovery and preserve business continuity for your integration service environment (ISE) in Azure Logic Apps
+title: Disaster recovery and business continuity
+description: Set up a disaster recovery solution to help you restore business functions, protect data, and maintain business continuity when you use Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 author: kevinlam1
@@ -10,13 +10,22 @@ ms.topic: conceptual
 ms.date: 03/31/2020
 ---
 
-# Disaster recovery for integration service environments (ISEs) in Azure Logic Apps
+# Disaster recovery and business continuity for Azure Logic Apps
 
-This article describes how to set up a *disaster recovery* solution when you have an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) that you use with Azure Logic Apps. *Disaster recovery* focuses on the systems that support critical business functions, while *business continuity* addresses how to keep all essential business functions running despite major disruptive events.
+This article provides guidance for setting up a *disaster recovery* (DR) solution when you use [Azure Logic Apps](../logic-apps/logic-apps-overview.md). This solution helps you protect data and restore the technologies that support critical business functions after a major loss or disruptive event and is important for keeping operations running so that you can maintain *business continuity* (BC) overall. Disruptive events can include, but aren't limited, to outages, underlying component losses such as storage, network, or compute resources, unrecoverable application failures, and full datacenter loss. By having a BCDR strategy in place, you can more easily protect your data and keep your workloads running despite interruptions, both planned and unplanned.
 
-A disaster can refer to a full datacenter loss, an underlying infrastructure loss, such as storage, network, or compute resources, or unrecoverable application issues. If your primary instance fails, you can keep essential or critical functions going by having a secondary *failover* instance as a backup or on standby that can pick up the work.
+When you plan your disaster recovery solution, consider not only your logic apps but also include any [integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) that you have for defining and storing B2B artifacts to use in [enterprise integration scenarios](../logic-apps/logic-apps-enterprise-integration-overview.md), and any [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) that you have for running logic apps in an isolated Logic Apps runtime instance. When you create a logic app in the [Azure portal](https://portal.azure.com), you select a location to use for deployment. This location is either a public region in global multi-tenant Azure or a previously created ISE. If your logic apps need to use the artifacts in an integration account, both integration account and logic apps must exist in the same location.
 
-When you create your logic app, you select a deployment location, which is either a public region in global multi-tenant Azure or a previously created ISE. This environment is your own isolated instance of the Logic Apps runtime that uses dedicated resources, such as storage, is deployed, or *injected*, into an Azure virtual network, and operates in a region that can run logic app workloads. Running logic apps in an ISE is similar to running logic apps in a public Azure region, so disaster recovery approaches can apply to both. However, an ISE might require you to consider additional elements, such as network configuration.
+Running logic apps in an ISE is similar to running logic apps in a public Azure region, so your disaster recovery plan can apply to both scenarios. However, an ISE might require that you also consider other elements, such as network configuration.
+
+If this primary instance fails, have a secondary *failover* instance ready or on standby to pick up the work.
+
+For more information, see these topics:
+
+* 
+* [Set up cross-region disaster recovery for integration accounts in Azure Logic Apps](../logic-apps/logic-apps-enterprise-integration-b2b-business-continuity.md)
+* [Backup and disaster recovery for Azure applications](https://docs.microsoft.com/azure/architecture/framework/resiliency/backup-and-recovery.md)
+
 
 ## Requirements
 
