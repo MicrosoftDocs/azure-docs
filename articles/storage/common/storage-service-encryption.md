@@ -5,7 +5,7 @@ services: storage
 author: tamram
 
 ms.service: storage
-ms.date: 02/05/2020
+ms.date: 03/09/2020
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: cbrooks
@@ -61,7 +61,7 @@ By default, your storage account uses Microsoft-managed encryption keys. You can
 
 ## Customer-managed keys with Azure Key Vault
 
-You can manage Azure Storage encryption at the level of the storage account with your own keys. When you specify a customer-managed key at the level of the storage account, that key is used to protect and control access the root encryption key for the storage account which in turn is used to encrypt and decrypt all blob and file data. Customer-managed keys offer greater flexibility to create, rotate, disable, and revoke access controls. You can also audit the encryption keys used to protect your data.
+You can manage Azure Storage encryption at the level of the storage account with your own keys. When you specify a customer-managed key at the level of the storage account, that key is used to protect and control access to the root encryption key for the storage account which in turn is used to encrypt and decrypt all blob and file data. Customer-managed keys offer greater flexibility to manage access controls. You can also audit the encryption keys used to protect your data.
 
 You must use Azure Key Vault to store your customer-managed keys. You can either create your own keys and store them in a key vault, or you can use the Azure Key Vault APIs to generate keys. The storage account and the key vault must be in the same region and in the same Azure Active Directory (Azure AD) tenant, but they can be in different subscriptions. For more information about Azure Key Vault, see [What is Azure Key Vault?](../../key-vault/key-vault-overview.md).
 
@@ -98,7 +98,7 @@ To learn how to use customer-managed keys with Azure Key Vault for Azure Storage
 
 To enable customer-managed keys on a storage account, you must use an Azure Key Vault to store your keys. You must enable both the **Soft Delete** and **Do Not Purge** properties on the key vault.
 
-Only RSA keys of size 2048 are supported with Azure Storage encryption. For more information about keys, see **Key Vault keys** in [About Azure Key Vault keys, secrets and certificates](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys).
+Only RSA keys are supported with Azure Storage encryption. For more information about keys, see **Key Vault keys** in [About Azure Key Vault keys, secrets and certificates](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys).
 
 ### Rotate customer-managed keys
 
@@ -108,7 +108,31 @@ Rotating the key does not trigger re-encryption of data in the storage account. 
 
 ### Revoke access to customer-managed keys
 
-To revoke access to customer-managed keys, use PowerShell or Azure CLI. For more information, see [Azure Key Vault PowerShell](/powershell/module/az.keyvault//) or [Azure Key Vault CLI](/cli/azure/keyvault). Revoking access effectively blocks access to all data in the storage account, as the encryption key is inaccessible by Azure Storage.
+You can revoke the storage account's access to the customer-managed key at any time. After access to customer-managed keys is revoked, or after the key has been disabled or deleted, clients cannot call operations that read from or write to a blob or its metadata. Attempts to call any of the following operations will fail with error code 403 (Forbidden) for all users:
+
+- [List Blobs](/rest/api/storageservices/list-blobs), when called with the `include=metadata` parameter on the request URI
+- [Get Blob](/rest/api/storageservices/get-blob)
+- [Get Blob Properties](/rest/api/storageservices/get-blob-properties)
+- [Get Blob Metadata](/rest/api/storageservices/get-blob-metadata)
+- [Set Blob Metadata](/rest/api/storageservices/set-blob-metadata)
+- [Snapshot Blob](/rest/api/storageservices/snapshot-blob), when called with the `x-ms-meta-name` request header
+- [Copy Blob](/rest/api/storageservices/copy-blob)
+- [Copy Blob From URL](/rest/api/storageservices/copy-blob-from-url)
+- [Set Blob Tier](/rest/api/storageservices/set-blob-tier)
+- [Put Block](/rest/api/storageservices/put-block)
+- [Put Block From URL](/rest/api/storageservices/put-block-from-url)
+- [Append Block](/rest/api/storageservices/append-block)
+- [Append Block From URL](/rest/api/storageservices/append-block-from-url)
+- [Put Blob](/rest/api/storageservices/put-blob)
+- [Put Page](/rest/api/storageservices/put-page)
+- [Put Page From URL](/rest/api/storageservices/put-page-from-url)
+- [Incremental Copy Blob](/rest/api/storageservices/incremental-copy-blob)
+
+To call these operations again, restore access to the customer-managed key.
+
+All data operations that are not listed in this section may proceed after customer-managed keys are revoked or a key is disabled or deleted.
+
+To revoke access to customer-managed keys, use [PowerShell](storage-encryption-keys-powershell.md#revoke-customer-managed-keys) or [Azure CLI](storage-encryption-keys-cli.md#revoke-customer-managed-keys).
 
 ### Customer-managed keys for Azure managed disks (preview)
 
@@ -118,11 +142,11 @@ Customer-managed keys are also available for managing encryption of Azure manage
 
 Clients making requests against Azure Blob storage have the option to provide an encryption key on an individual request. Including the encryption key on the request provides granular control over encryption settings for Blob storage operations. Customer-provided keys (preview) can be stored in Azure Key Vault or in another key store.
 
-For an example that shows how to specify a customer-provided key on a request to Blob storage, see [Specify a customer-provided key on a request to Blob storage with .NET](../blobs/storage-blob-customer-provided-key.md). 
+For an example that shows how to specify a customer-provided key on a request to Blob storage, see [Specify a customer-provided key on a request to Blob storage with .NET](../blobs/storage-blob-customer-provided-key.md).
 
 ### Encrypting read and write operations
 
-When a client application provides an encryption key on the request, Azure Storage performs encryption and decryption transparently while reading and writing blob data. Azure Storage writes an SHA-256 hash of the encryption key alongside the blob's contents. The hash is used to verify that all subsequent operations against the blob use the same encryption key. 
+When a client application provides an encryption key on the request, Azure Storage performs encryption and decryption transparently while reading and writing blob data. Azure Storage writes an SHA-256 hash of the encryption key alongside the blob's contents. The hash is used to verify that all subsequent operations against the blob use the same encryption key.
 
 Azure Storage does not store or manage the encryption key that the client sends with the request. The key is securely discarded as soon as the encryption or decryption process is complete.
 

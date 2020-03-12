@@ -1,20 +1,16 @@
 ---
-title: "Quickstart: Search for entities with the SDK for Python - Bing Entity Search"
+title: Bing Entity Search Python client library quickstart 
 titleSuffix: Azure Cognitive Services
-description: Use this quickstart to search for entities with the Bing Entity Search SDK for Python.
 services: cognitive-services
 author: aahill
 manager: nitinme
-
 ms.service: cognitive-services
-ms.subservice: bing-entity-search
-ms.topic: quickstart
-ms.date: 02/11/2020
+ms.topic: include
+ms.date: 03/06/2020
 ms.author: aahi
 ---
-# Quickstart: Bing Entity Search SDK with Python
 
-Use this quickstart to begin searching for entities with the Bing Entity Search SDK for Python. While Bing Entity Search has a REST API compatible with most programming languages, the SDK provides an easy way to integrate the service into your applications. The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/entity_search_samples.py).
+Use this quickstart to begin searching for entities with the Bing Entity Search client library for Python. While Bing Entity Search has a REST API compatible with most programming languages, the client library provides an easy way to integrate the service into your applications. The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/entity_search_samples.py).
 
 ## Prerequisites
 
@@ -28,14 +24,14 @@ It is recommended that you use a python virtual environment. You can install and
 python -m venv mytestenv
 ```
 
-Install the Bing Entity Search SDK with:
+Install the Bing Entity Search client library with:
 
 ```Console
 cd mytestenv
 python -m pip install azure-cognitiveservices-search-entitysearch
 ```
 
-[!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-entity-search-signup-requirements.md)]
+[!INCLUDE [cognitive-services-bing-news-search-signup-requirements](~/includes/cognitive-services-bing-entity-search-signup-requirements.md)]
 
 ## Create and initialize the application
 
@@ -77,6 +73,6 @@ python -m pip install azure-cognitiveservices-search-entitysearch
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create a single-page web app](../tutorial-bing-entities-search-single-page-app.md)
+> [Create a single-page web app](../../tutorial-bing-entities-search-single-page-app.md)
 
-* [What is the Bing Entity Search API?](../overview.md )
+* [What is the Bing Entity Search API?](../../overview.md )

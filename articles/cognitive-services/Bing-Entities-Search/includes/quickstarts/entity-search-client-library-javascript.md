@@ -1,21 +1,16 @@
 ---
-title: "Quickstart: Send a search request with the SDK for Node.js - Bing Entity Search"
+title: Bing Entity Search JavaScript client library quickstart 
 titleSuffix: Azure Cognitive Services
-description: Use this quickstart to search for entities with the Bing Entity Search SDK for Node.js
 services: cognitive-services
 author: aahill
 manager: nitinme
-
 ms.service: cognitive-services
-ms.subservice: bing-entity-search
-ms.topic: quickstart
-ms.date: 01/22/2020
+ms.topic: include
+ms.date: 03/06/2020
 ms.author: aahi
 ---
 
-# Quickstart: Send a search request with the Bing Entity Search SDK for Node.js
-
-Use this quickstart to begin searching for entities with the Bing Entity Search SDK for Node.js. While Bing Entity Search has a REST API compatible with most programming languages, the SDK provides an easy way to integrate the service into your applications. The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/entitySearch.js).
+Use this quickstart to begin searching for entities with the Bing Entity Search client library for JavaScript. While Bing Entity Search has a REST API compatible with most programming languages, the client library provides an easy way to integrate the service into your applications. The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/entitySearch.js).
 
 ## Prerequisites
 
@@ -28,7 +23,7 @@ To install the Bing Entity Search SDK:
 1. Run `npm install ms-rest-azure` in your development environment.
 2. Run `npm install @azure/cognitiveservices-entitysearch` in your development environment.
 
-[!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-entity-search-signup-requirements.md)]
+[!INCLUDE [cognitive-services-bing-news-search-signup-requirements](~/includes/cognitive-services-bing-entity-search-signup-requirements.md)]
 
 
 ## Create and initialize the application
@@ -68,6 +63,6 @@ To install the Bing Entity Search SDK:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create a single-page web app](../tutorial-bing-entities-search-single-page-app.md)
+> [Create a single-page web app](../../tutorial-bing-entities-search-single-page-app.md)
 
-* [What is the Bing Entity Search API?](../overview.md )
+* [What is the Bing Entity Search API?](../../overview.md)
