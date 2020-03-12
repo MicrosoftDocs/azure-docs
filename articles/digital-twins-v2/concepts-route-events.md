@@ -61,7 +61,7 @@ The endpoint APIs that are available in control plane are:
 
 ## Create a route
  
-Event routes are created with the following [Azure Digital Twins API](concepts-use-apis.md) call: 
+Event routes are created with the following [Azure Digital Twins API](how-to-use-apis.md) call: 
 
 `Response RegisterEventRoute(string routeId, string endpointId, string topic, string filter);`
 
