@@ -1,21 +1,16 @@
 ---
-title: "Quickstart: Search for entities with the SDK for C# - Bing Entity Search"
+title: Bing Entity Search C# client library quickstart 
 titleSuffix: Azure Cognitive Services
-description: Use this quickstart to search for entities with the Bing Entity Search SDK for C#.
 services: cognitive-services
 author: aahill
 manager: nitinme
-
 ms.service: cognitive-services
-ms.subservice: bing-entity-search
-ms.topic: quickstart
-ms.date: 12/11/2019
+ms.topic: include
+ms.date: 03/06/2020
 ms.author: aahi
 ---
 
-# Send a search request with the Bing Entity Search SDK for C#
-
-Use this quickstart to begin searching for entities with the Bing Entity Search SDK for C#. While Bing Entity Search has a REST API compatible with most programming languages, the SDK provides an easy way to integrate the service into your applications. The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingEntitySearch).
+Use this quickstart to begin searching for entities with the Bing Entity Search client library for C#. While Bing Entity Search has a REST API compatible with most programming languages, the client library provides an easy way to integrate the service into your applications. The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingEntitySearch).
 
 
 ## Prerequisites
@@ -28,10 +23,10 @@ Use this quickstart to begin searching for entities with the Bing Entity Search 
     * Microsoft.Rest.ClientRuntime.Azure
     * Newtonsoft.Json
 
-To add the Bing Entity Search SDK to your Visual Studio project, use the **Manage NuGet Packages** option from **Solution Explorer**, and add the `Microsoft.Azure.CognitiveServices.Search.EntitySearch` package.
+To add the Bing Entity Search client library to your Visual Studio project, use the **Manage NuGet Packages** option from **Solution Explorer**, and add the `Microsoft.Azure.CognitiveServices.Search.EntitySearch` package.
 
 
-[!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-entity-search-signup-requirements.md)]
+[!INCLUDE [cognitive-services-bing-news-search-signup-requirements](~/includes/cognitive-services-bing-entity-search-signup-requirements.md)]
 
 ## Create and initialize an application
 
@@ -77,6 +72,6 @@ To add the Bing Entity Search SDK to your Visual Studio project, use the **Manag
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create a single-page web app](../tutorial-bing-entities-search-single-page-app.md)
+> [Create a single-page web app](../../tutorial-bing-entities-search-single-page-app.md)
 
-* [What is the Bing Entity Search API?](../overview.md )
+* [What is the Bing Entity Search API?](../../overview.md )
