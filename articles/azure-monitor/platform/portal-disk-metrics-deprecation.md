@@ -7,18 +7,17 @@ ms.topic: conceptual
 author: normesta
 ms.author: normesta
 ms.date: 03/10/2020
-
 ---
 
 # Portal Disk Metrics Deprecation
 
-We are removing the old deprecated metrics from the Azure Portal Experience on TBD. All these deprecated metrics that are being removed have corresponding new metrics that are an easy replacement. 
+Deprecated metrics will soon be removed from the Azure portal. A new version of each deprecated metric will be available for you to use. This article lists those new replacement metrics, and shows you how to update your metric alerts to use them.
 
-## Metrics replacement
+## List of new metrics
 
-Here is a table of the old metrics that are being removed and their corresponding new metrics.
+This table maps each deprecated metric to it's corresponding new metric. 
 
-|Deprecated Metrics to be Removed|New Metrics replacing old one|
+|Deprecated metrics|New (replacement) metrics|
 |----|----|
 |Data Disk QD (Deprecated)|Data Disk Queue Depth (Preview)|
 |Data Disk Read Bytes/Sec (Deprecated)|Data Disk Read Bytes/Sec (Preview)|
@@ -31,54 +30,72 @@ Here is a table of the old metrics that are being removed and their correspondin
 |OS Write Bytes/Sec (Deprecated)|OS Write Bytes/Sec (Preview)|
 |OS Write Operations/Sec (Deprecated)|OS Write Operations/Sec (Preview)|\
 
-## How to migrate old alerts
+## Update metric alerts to use new metrics
 
-1. In the portal search bar, search for Alerts like shown and select Alerts in the services section:
+If the rules of your metric alerts use deprecated metrics, you'll have to update those rules to use new metrics instead. 
+
+1. In the Azure portal, search for **Alerts**. Then, in the **Services** section of the results page, choose **Alerts**.
 
    > [!div class="mx-imgBorder"]
    > ![Image description](./media/portal-disk-metrics-deprecation/alert-service-in-azure-portal.png)
 
-2. Click on the Manage Alert Rules Icon near the top left corner
+2. In the **Alerts** page, choose the **Manage Alert Rules** button. 
 
    > [!div class="mx-imgBorder"]
    > ![Image description](./media/portal-disk-metrics-deprecation/manage-alert-rules-button.png)
 
-3. Now in the drop-down menus filter for Virtual Machines for the resource type and Metrics for the Signal type.
+3. In the **Resource group** drop-down list, select the **Virtual Machines** checkbox, and in the **Signal type** drop-down-list, select the **Metrics** checkbox. 
 
    > [!div class="mx-imgBorder"]
    > ![Image description](./media/portal-disk-metrics-deprecation/filter-alerts.png)
 
-4. Now go through the results and look for any conditions that relate to Disks, note that they will not have the preview text next to them and click into these alerts and Click on their names.
+   A list of metric alerts appear.
+
+4. In the list of metrics, identify conditions that relate to disks. Click the name of the rule. 
+
+   The name appears as a hyperlink in the **Name** column of the table.
 
    > [!div class="mx-imgBorder"]
    > ![Image description](./media/portal-disk-metrics-deprecation/find-disk-conditions.png)
 
-5. Now in rules menu, go to the condition and click on the blue text to adjust the condition.
+   The **Rules management** page appears for the alert.
+
+5. In the **Conditions** section of the **Rules management** page, click the condition of the alert. 
+
+   The condition appears as a hyperlink.  
 
    > [!div class="mx-imgBorder"]
    > ![Image description](./media/portal-disk-metrics-deprecation/adjust-condition.png)
 
-6. Make note of what the alert is set to because this information will not be there when you come back with the new metric.
+   The **Configure signal logic** page appears and the settings of the condition appear in the **Alert logic** section of that page.
+
+6. Make a record of these settings as they will not disappear when you remove the deprecated metric.
 
    > [!div class="mx-imgBorder"]
    > ![Image description](./media/portal-disk-metrics-deprecation/condition-rules.png)
 
-7. Now select Back to signal selection in new window.
+   > [!TIP] Consider capturing these settings in a screenshot or in a text file. 
+
+7. Click the **Back to signal selection** link.
 
    > [!div class="mx-imgBorder"]
    > ![Image description](./media/portal-disk-metrics-deprecation/back-to-signal-selection.png)
 
-8. And now change the signal selection to the corresponding new metric by searching for it in the search menu and locating it when it pops up.
+   The **Configure signal logic** page appears.
+
+8. In the **Configure signal logic** page, choose the appropriate replacement metric (new metric). Use the [table](#azure-role-based-access-control-rbac) that appears earlier in this article to identity the name of the new metric.
+
+   > [!TIP] Begin typing in the search bar to narrow the list of metric names. 
 
    > [!div class="mx-imgBorder"]
    > ![Image description](./media/portal-disk-metrics-deprecation/choose-new-metric.png)
 
-9. Now set your Alert and click Done at the very bottom.
+9. Choose the **Done** button. 
 
    > [!div class="mx-imgBorder"]
    > ![Image description](./media/portal-disk-metrics-deprecation/set-new-metric.png)
 
-10. Now click Save to complete your migration.
+10. Commit your changes by choosing the **Save** button. 
 
     > [!div class="mx-imgBorder"]
     > ![Image description](./media/portal-disk-metrics-deprecation/save-new-metric.png)
