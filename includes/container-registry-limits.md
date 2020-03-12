@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: container-registry
 ms.topic: include
-ms.date: 11/05/2019
+ms.date: 03/11/2020
 ms.author: danlep
 ms.custom: include file
 ---
@@ -23,6 +23,8 @@ ms.custom: include file
 | Geo-replication | N/A | N/A | [Supported][geo-replication] |
 | Content trust | N/A | N/A | [Supported][content-trust] |
 | Virtual network access | N/A | N/A | [Preview][vnet] |
+| Private link integration | N/A | N/A | [Preview][plink] |
+| Customer-managed keys | N/A | N/A | [Preview][cmk] |
 | Repository-scoped permissions | N/A | N/A | [Preview][token]|
 | &bull; Tokens | N/A | N/A | 20,000 |
 | &bull; Scope maps | N/A | N/A | 20,000 |
@@ -44,4 +46,6 @@ ms.custom: include file
 [geo-replication]: ../articles/container-registry/container-registry-geo-replication.md
 [content-trust]: ../articles/container-registry/container-registry-content-trust.md
 [vnet]: ../articles/container-registry/container-registry-vnet.md
+[plink]: ../articles/container-registry/container-registry-private-link.md
+[cmk]: ../articles/container-registry/container-registry-customer-managed-keys.md
 [token]: ../articles/container-registry/container-registry-repository-scoped-permissions.md

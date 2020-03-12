@@ -83,7 +83,15 @@ For this process, there are pricing implications as it is at the storage level.
 >Before you begin:
 >
 >- Review the [support matrix](backup-support-matrix.md#cross-region-restore) for a list of supported managed types and regions.
->- The Cross Region Restore (CRR) feature is currently only available in the following regions: West Central US, West US 2, Australia East, and Australia Southeast. 
+>- The Cross Region Restore (CRR) feature is currently only available in the following regions: 
+>    - West Central US
+>    - West US 2
+>    - Australia East
+>    - Australia Southeast
+>    - Japan East
+>    - Japan West
+>    - Southeast Asia
+>    - UK South
 >- CRR is a vault level opt-in feature for any GRS vault (turned off by default).
 >- Please use the following command to onboard your subscription for this feature:<br>
 >  `Register-AzProviderFeature -FeatureName CrossRegionRestore -ProviderNamespace Microsoft.RecoveryServices`

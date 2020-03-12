@@ -135,7 +135,7 @@ Azure Marketplace products which are available for subscriptions that are manage
 
 ### Azure Reservations transfer
 
-Azure Reservations don't automatically move with subscriptions. [Contact Azure support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to move Reservations.
+Azure Reservations don't automatically move with subscriptions.You can keep the reservation or [cancel and repurchse the reservation](https://docs.microsoft.com/azure/cost-management-billing/reservations/exchange-and-refund-azure-reservations) in CSP. 
 
 ### Access to Azure services
 
