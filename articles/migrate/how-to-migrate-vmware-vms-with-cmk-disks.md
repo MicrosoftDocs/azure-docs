@@ -13,7 +13,7 @@ ms.author: raynew
 
 # Migrate VMware VMs to Azure virtual machines with server-side encryption(SSE) using customer-managed keys(CMK)
 
-This article describes how you can use Azure Migrate: Server Migration to migrate VMware VMs using agentless replication to Azure virtual machines with disks encrypted using server-side encryption(SSE) with customer-managed keys(CMK).
+This article describes how to migrate VMware VMs to Azure virtual machines with disks encrypted using server-side encryption(SSE) with customer-managed keys(CMK), using Azure Migrate Server Migration (agentless replication).
 
 The Azure Migrate Server Migration portal experience lets you [migrate VMware VMs to Azure with agentless replication.](tutorial-migrate-vmware.md) The portal experience currently doesn't offer the ability to turn on SSE with CMK for your replicated disks in Azure. The ability to turn on SSE with CMK for the replicated disks is currently available only through REST API. In this article, you'll see how to create and deploy an [Azure Resource Manager(ARM) template](../azure-resource-manager/templates/overview.md) to replicate a VMware VM and configure the replicated disks in Azure to use SSE with CMK.
 
@@ -246,7 +246,7 @@ uuid                                 label       name    maxSizeInBytes
 
 ## Deploy the ARM template and set up replication for the VM
 
-You can now deploy the edited ARM template to the project resource group to set up replication for the VM. Learn how to [deploy resource with ARM templates and Azure PowerShell](../azure-resource-manager/templates/deploy-powershell)
+You can now deploy the edited ARM template to the project resource group to set up replication for the VM. Learn how to [deploy resource with ARM templates and Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md)
 
 ```azurepowershell
 New-AzResourceGroupDeployment -ResourceGroupName $ProjectResourceGroup -TemplateFile "C:\Users\Administrator\Downloads\template.json"
