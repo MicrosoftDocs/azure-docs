@@ -4,7 +4,7 @@ description: The effect of placement constraints on balancing and how to handle 
 author: nipavlo
 
 ms.topic: conceptual
-ms.date: 08/18/2017
+ms.date: 03/15/2020
 ms.author: nipavlo
 ---
 # Balancing of subclustered metrics
