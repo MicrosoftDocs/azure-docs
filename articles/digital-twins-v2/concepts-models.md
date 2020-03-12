@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Understand how Azure Digital Twins uses user-defined models to describe objects within the graph.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 2/21/2020
+ms.date: 2/28/2020
 ms.topic: conceptual
 ms.service: digital-twins
 
@@ -17,16 +17,9 @@ ms.service: digital-twins
 
 # Understand object modeling in Azure Digital Twins
 
-Think of a **model** as a template that describes the characteristics of a particular type of twin in terms of properties, telemetry/events, commands etc. They are defined using the JSON-based **Digital Twin Definition Language (DTDL)**.  
+A key characteristic of Azure Digital Twins is the ability to define your own vocabulary, allowing you to build your digital twin graph in the self-defined terms of your business. This capability is provided through object **models**.
 
-## Key model components
-
-Model descriptions in DTDL are called **interfaces**. An interface describes a model in terms of:
-* **Properties** — Properties are data fields that represent the state of an entity, just like with many object-oriented programming languages. Unlike telemetry, which is just a data event, properties have backing storage and can be read at any time.
-* **Telemetry** — Telemetry fields represent measurements or events. Measurements are typically used for the equivalent of sensor readings. Telemetry is not stored on a twin; it is effectively sent as a stream of data events.
-* **Commands** — Commands represent methods that can be executed on a digital twin. An example would be a reset command, or a command to switch a fan on or off. Command descriptions include command parameters and return values.
-* **Relationships** — Relationships let you model how a given twin is involved with other twins. Relationships can represent different semantic meanings, such as "floor contains room", "hvac cools rooms", "Compressor is-billed-to user" etc. Relationships allow digital twins solutions to construct graphs of interrelated twins. 
-* **Components** — A component lets you build your model as an assembly of other interfaces. Use a component to describe something that is an integral part of your model, and that does not need to be created, deleted, or rearranged in your topology of twins independently. In contrast, use independent twins connected by a relationship when you want both parts to have an independent existence in the graph.
+A model is a template, defining some type of twin that can exist in your Azure Digital Twins graph. Models have names (such as *Room* or *TemperatureSensor*), and contain elements such as properties, telemetry/events, and commands that describe what this type of graph element can represent and do. Models are written using the JSON-based **Digital Twin Definition Language (DTDL)**.  
 
 ## Digital Twin Definition Language (DTDL) for modeling
 
@@ -36,19 +29,32 @@ DTDL is also used as part of [Azure IoT Plug and Play](../iot-pnp/overview-iot-p
 
 For more information about pure DTDL, see its [reference documentation](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL).
 
-## Writing a model
+## Key model information
 
-DTDL models can be created in any text editor. They can be stored with the extension *.json*. As DTDL uses JSON syntax, using the *.json* extension will enable most programming text editors to automatically provide basic syntax checking and highlighting for DTDL. 
-A richer DTDL editing experience will be available in Visual Studio Code and Visual Studio.
+The sections of information provided in a model's description make up its **interface**. A model interface may have zero, one, or many of each of the following fields:
+* **Property** — Properties are data fields that represent the state of an entity (like the properties in many object-oriented programming languages). Unlike telemetry, which is a time-bound data event, properties have backing storage and can be read at any time.
+* **Telemetry** — Telemetry fields represent measurements or events, and are often used to describe device sensor readings. Telemetry is not stored on a twin; it is effectively represented as a stream of data events to be sent somewhere.
+* **Command** — Commands represent methods that can be executed on a digital twin. An example would be a reset command, or a command to switch a fan on or off. Command descriptions include command parameters and return values.
+* **Relationship** — Relationships let you model how a twin can be involved with other twins. Relationships can represent different semantic meanings, such as *contains* ("floor contains room"), *cools* ("hvac cools room"), *is-billed-to* ("compressor is-billed-to user"), etc. Relationships allow digital twins solutions to provide graphs of interrelated entities. 
+* **Component** — Components allow you to build your model as an assembly of other interfaces, if desired. An example of a component may be a *frontCamera* (and another component *backCamera*) for a model representing a phone device. A separate interface for *frontCamera* must be defined, as though it were another model, but once it's included as a component on the *phone* model, it cannot be instantiated by an independent twin in the graph.
 
-### Example
+>[!TIP] 
+> Use a **component** to describe something that is an integral part of your model, but that does not need to be created, deleted, or rearranged in your topology of twins independently. If you want both entities to have an independent existence in the graph, represent them as independent twin models connected by a **relationship**.
 
-A simple example model: 
+## Creating a model
+
+Models can be written in any text editor. Their DTDL language follows JSON syntax, so you should store models with the extension *.json*. Using this extension will enable many programming text editors to provide basic syntax checking and highlighting for your DTDL documents.
+
+### Example model code
+
+Here is an example of a basic model, written in DTDL: 
 
 ```json
 {
-    "@id": "dtmi:com:example:Planet",
+    "@id": "urn:contosocom:example:Planet:1",
     "@type": "Interface",
+	"@context": "http://azure.com/v3/contexts/Model.json",
+    "displayName": "Planet",
     "contents": [
         {
             "@type": "Property",
@@ -56,31 +62,44 @@ A simple example model:
             "schema": "string"
         },
         {
-            "@type": "Property"
+            "@type": "Property",
             "name": "mass",
+            "schema": "double"
+        },
+        {
+            "@type": "Telemetry",
+            "name": "Temperature",
             "schema": "double"
         },
         {
             "@type": "Relationship",
             "name": "satellites",
-            "target": "dtmi:com:example:Moon"
+            "target": "urn:contosocom:example:Moon:1"
         },
         {
-            "@type": "Telemetry",
-            "name": "locationOfCenterOfMass",
-            "schema": "ex:CelestialCoordinate"
+            "type": "Component",
+            "name": "deepestCrater",
+            "schema": "urn:contosocom:example:Crater:1"
         }
     ]
 }
 ```
 
-As the example shows, all content of an interface is described in the `contents` section of the DTDL file as an array of attribute definitions. Each attribute has a type (telemetry, property, relationship, etc.) and a set of properties that define the actual attribute (for example, name and schema to define a property).
+The fields of the JSON document are defined as follows:
 
-### DTDL data types
+| Field | Description |
+| --- | --- |
+| `@id` | An identifier for the model. Must be in the format `urn:<domain>:<unique model identifier>:<model version number>`. |
+| `@type` | Identifies the type of information being described. For an interface, the type is *Interface*. |
+| `@context` | Sets the [context](https://niem.github.io/json/reference/json-ld/context/) for the JSON document. Models should use `http://azure.com/v3/contexts/Model.json`. |
+| `displayName` | [optional] Allows you to give the model a friendly name if desired. |
+| `contents` | All remaining interface data is placed here, as an array of attribute definitions. Each attribute must provide a `@type` (*Property*, *Telemetry*, *Command*, *Relationship*, or *Component*) to identify the sort of interface information it describes, and then a set of properties that define the actual attribute (for example, `name` and `schema` to define a *Property*). |
 
-Property and telemetry values can be of standard primitive types — `integer`, `double`, `string`, and `Boolean` — and others such as `DateTime` and `Duration`. 
+### Schema options
 
-In addition to primitive types, property and telemetry fields can have the following four complex types:
+As per DTDL, the schema for *Property* and *Telemetry* attributes can be of standard primitive types — `integer`, `double`, `string`, and `Boolean` — and others such as `DateTime` and `Duration`. 
+
+In addition to primitive types, *Property* and *Telemetry* fields can have the following four complex types:
 * `Object`
 * `Array`
 * `Map`
@@ -88,81 +107,77 @@ In addition to primitive types, property and telemetry fields can have the follo
 
 ### Inheritance
 
-Sometimes it is desirable to specialize a given model. For example, a generic model *Room* might have specialized variants *ConferenceRoom* and *Gym*. To express specialization, DTDL supports inheritance: interfaces can inherit from one or more other interfaces. 
+Sometimes, you may want to specialize a model further. For example, it might be useful to have a generic model *Room*, and specialized variants *ConferenceRoom* and *Gym*. To express specialization, DTDL supports inheritance: interfaces can inherit from one or more other interfaces. 
+
+The following example reimagines the *Planet* model from the previous example as a subtype of a larger *CelestialBody* model. The "parent" model is defined first, and then the "child" model builds on it by using the new field `extends`.
 
 ```json
 {
-    "@id": " dtmi:com:example:CelestialBody",
+    "@id": "urn:contosocom:example:CelestialBody:1",
     "@type": "Interface",
+    "@context": "http://azure.com/v3/contexts/Model.json",
+    "displayName": "Celestial body",
     "contents": [
-        {
-            "@type": "Property",
-            "name": "location",
-            "schema": " dtmi:com:example:CelestialCoordinate"
-        },
         {
             "@type": "Property",
             "name": "name",
             "schema": "string"
         },
         {
-            "@type": "Property"
+            "@type": "Property",
             "name": "mass",
             "schema": "double"
-        }
-    ] ,
-    "@context": "http://azure.com/v3/contexts/Model.json"
-},
-{
-    "@id": "dtmi:com:example:Planet;1",
-    "@type": "Interface",
-    "extends": [
-        "dtmi:com:example:CelestialBody"
-    ]
-    "contents": [
+        },
         {
-            "@type": "Relationship",
-            "name": "satellites",
-            "target": " dtmi:com:example:Moon"
+            "@type": "Telemetry",
+            "name": "Temperature",
+            "schema": "double"
         }
-    ] ,
-    "@context": "http://azure.com/v3/contexts/Model.json"
+    ]
 },
 {
-    "@id": " dtmi:com:example:Moon",
+    "@id": "urn:contosocom:example:Planet:1",
     "@type": "Interface",
+    "@context": "http://azure.com/v3/contexts/Model.json",
+    "displayName": "Planet",
     "extends": [
-        "dtmi:com:example:CelestialBody"
+        "urn:contosocom:example:CelestialBody:1"
     ],
     "contents": [
         {
             "@type": "Relationship",
-            "name": "owner",
-            "target": " dtmi:com:example:Planet"
+            "name": "satellites",
+            "target": "urn:contosocom:example:Moon:1"
         }
-    ] ,
-    "@context": "http://azure.com/v3/contexts/Model.json"
+        ,
+        {
+            "type": "Component",
+            "name": "deepestCrater",
+            "schema": "urn:contosocom:example:Crater:1"
+        }
+    ]
 }
 ```
 
-In this example, both *Planet* and *Moon* inherit from *CelestialBody*, which contributes a name, a mass and a location to both *Planet* and *Moon*. Inheritance is expressed in the DTDL files with the `extends` section, which points to an array of interface specifications.
-If inheritance is applied, the subtype exposes all properties from the entire inheritance chain.
+In this example, *CelestialBody* contributes a name, a mass, and a telemetry to *Planet*. The `extends` is structured as an array of interface names, allowing the extending interface to inherit from multiple parent models if desired.
 
-The extending interface cannot change any of the definitions of the parent interfaces, it can only add to them. An interface inheriting from one or more interfaces cannot define a capability already defined in one of those parent interfaces (even if the capabilities are defined to be the same). For example, if a parent interface defines a `double` property *foo*, the extending interface cannot contain a declaration of *foo*, even if it is also declared as a `double`.
+Once inheritance is applied, the extending interface exposes all properties from the entire inheritance chain.
+
+The extending interface cannot change any of the definitions of the parent interfaces; it can only add to them. It also cannot define a capability already defined in any of its parent interfaces (even if the capabilities are defined to be the same)—for example, if a parent interface defines a `double` property *mass*, the extending interface cannot contain a declaration of *mass*, even if it is also declared as a `double`.
 
 ### Preview constraints
 
 DTDL constraints while in preview:
 * While the DTDL language specification allows for inline definitions of interfaces, this is not supported in the current version of the Azure Digital Twins service.
-* Azure Digital Twins does not support complex type definitions in separate documents, or as inline definitions. Complex types must be defined in a `schemas` section within an interface document. The definitions are only valid within the interface they are part of.
-* Azure Digital Twins currently only allows a single level of component nesting. That is, interfaces used as components must not themselves use components. 
-* Azure Digital Twins does not currently support the execution of commands on twins you model and instantiate. You can, however, execute commands on devices.
-* Azure Digital Twins does not support stand-alone relationships (that is, relationships defined as independent types). All relationships must be defined inline in a model type.
+* Azure Digital Twins does not support complex type definitions in separate documents, or as inline definitions. Complex types must be defined in a `schemas` section within an interface document. The definitions are only valid inside the interface that contains them.
+* Azure Digital Twins currently only allows a single level of component nesting⁠—so an interface that is used as a component cannot have any further components itself.  
+* Azure Digital Twins does not currently support the execution of commands on twins you model and instantiate.
+* Azure Digital Twins does not support stand-alone relationships (that is, relationships defined as independent types). All relationships must be defined inline as part of a model.
 
 ## Next steps
 
 Learn about instantiating models to create twins:
 * [Represent objects with a twin](concepts-twins-graph.md)
 
-Or, see how a model is managed with Model Management APIs:
+Or, see how a model is managed with the Model Management APIs:
 * [Manage an object model](how-to-manage-model.md)
