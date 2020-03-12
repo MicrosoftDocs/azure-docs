@@ -9,7 +9,7 @@ editor: spelluru
 
 ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 03/11/2020
+ms.date: 03/12/2020
 ms.author: aschhab
 ---
 
@@ -29,16 +29,21 @@ Service Bus enables clients to send and receive messages via one of three protoc
 2. Service Bus Messaging Protocol (SBMP)
 3. Hypertext Transfer Protocol (HTTP)
 
-AMQP and SBMP are more efficient, because they maintain the connection to Service Bus as long as the messaging factory exists. It also implements batching and prefetching. Unless explicitly mentioned, all content in this article assumes the use of AMQP or SBMP.
+AMQP is the most efficient, because it maintains the connection to Service Bus. It also implements batching and prefetching. Unless explicitly mentioned, all content in this article assumes the use of AMQP or SBMP.
 
-## Choosing the correct Service Bus .NET SDK
+> [!IMPORTANT]
+> The SBMP is only available for .NET Framework. AMQP is the default for .NET Standard.
 
-There are two supported Azure Service Bus .NET SDKs. Their APIs are very similar, and it can be confusing which one to choose. Refer to the following table to help guide your decision. We suggest the Microsoft.Azure.ServiceBus SDK as it is more modern, performant, and is cross-platform compatible.
+## Choosing the appropriate Service Bus .NET SDK
 
-| NuGet Package | Primary Namespace | Platform(s) |
-|---------------|-----------|-------------|
-| <a href="https://www.nuget.org/packages/Microsoft.Azure.ServiceBus" target="_blank">Microsoft.Azure.ServiceBus <span class="docon docon-navigate-external x-hidden-focus"></span></a> | `Microsoft.Azure.ServiceBus` | .NET Core 2.0<br>.NET Framework 4.6.1<br>Mono 5.4<br>Xamarin.iOS 10.14<br>Xamarin.Mac 3.8<br>Xamarin.Android 8.0<br>Universal Windows Platform 10.0.16299 |
-| <a href="https://www.nuget.org/packages/WindowsAzure.ServiceBus" target="_blank">WindowsAzure.ServiceBus <span class="docon docon-navigate-external x-hidden-focus"></span></a> | `Microsoft.ServiceBus.Messaging` | .NET Framework 4.6.1 |
+There are two supported Azure Service Bus .NET SDKs. Their APIs are very similar, and it can be confusing which one to choose. Refer to the following table to help guide your decision. We suggest the Microsoft.Azure.ServiceBus SDK as it is more modern, performant, and is cross-platform compatible. Additionally, it supports AMQP over WebSockets and is part of the Azure .NET SDK collection of open-source projects.
+
+| NuGet Package | Primary Namespace(s) | Minimum Platform(s) | Protocol(s) |
+|---------------|-------------------|-------------|-------------|
+| <a href="https://www.nuget.org/packages/Microsoft.Azure.ServiceBus" target="_blank">Microsoft.Azure.ServiceBus <span class="docon docon-navigate-external x-hidden-focus"></span></a> | `Microsoft.Azure.ServiceBus`<br>`Microsoft.Azure.ServiceBus.Management` | .NET Core 2.0<br>.NET Framework 4.6.1<br>Mono 5.4<br>Xamarin.iOS 10.14<br>Xamarin.Mac 3.8<br>Xamarin.Android 8.0<br>Universal Windows Platform 10.0.16299 | AMQP<br>HTTP |
+| <a href="https://www.nuget.org/packages/WindowsAzure.ServiceBus" target="_blank">WindowsAzure.ServiceBus <span class="docon docon-navigate-external x-hidden-focus"></span></a> | `Microsoft.ServiceBus`<br>`Microsoft.ServiceBus.Messaging` | .NET Framework 4.6.1 | AMQP<br>SBMP<br>HTTP |
+
+For more information on minimum .NET Standard platform support, see [.NET implementation support](https://docs.microsoft.com/dotnet/standard/net-standard#net-implementation-support).
 
 ## Reusing factories and clients
 
@@ -82,8 +87,8 @@ Console.WriteLine("All messages sent");
 # [WindowsAzure.ServiceBus SDK](#tab/net-framework-sdk)
 
 ```csharp
-var messageOne = new Message(body /* byte[] */);
-var messageTwo = new Message(body /* byte[] */);
+var messageOne = new Message(body);
+var messageTwo = new Message(body);
 
 var sendFirstMessageTask =
     queueClient.SendAsync(messageOne).ContinueWith(_ =>
@@ -134,6 +139,8 @@ The `MessageReceiver` object is instantiated with the connection string, queue n
 
 # [WindowsAzure.ServiceBus SDK](#tab/net-framework-sdk)
 
+See the GitHub repository for full <a href="https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/SendersReceiversWithQueues" target="_blank">source code examples <span class="docon docon-navigate-external x-hidden-focus"></span></a>:
+
 ```csharp
 var factory = MessagingFactory.CreateFromConnectionString(connectionString);
 var receiver = await factory.CreateMessageReceiverAsync(queueName, ReceiveMode.PeekLock);
@@ -152,7 +159,7 @@ receiver.OnMessageAsync(
     });
 ```
 
-The `MessagingFactory` created a `factory` instance from the connection string. With the `factory` instance, a `MessageReceiver` instance is created. Next, the `receiver` instance is used to register the on-message handler.
+The `MessagingFactory` creates a `factory` object from the connection string. With the `factory` instance, a `MessageReceiver` is instantiated. Next, the `receiver` instance is used to register the on-message handler.
 
 ---
 
@@ -170,7 +177,7 @@ Client-side batching enables a queue or topic client to delay the sending of a m
 
 # [Microsoft.Azure.ServiceBus SDK](#tab/net-standard-sdk)
 
-Batching functionality for the .NET Standard SDK, does not yet exist.
+Batching functionality for the .NET Standard SDK, does not yet expose a property to manipulate.
 
 # [WindowsAzure.ServiceBus SDK](#tab/net-framework-sdk)
 
@@ -179,20 +186,24 @@ By default, a client uses a batch interval of 20 ms. You can change the batch in
 To disable batching, set the [BatchFlushInterval][BatchFlushInterval] property to **TimeSpan.Zero**. For example:
 
 ```csharp
-MessagingFactorySettings mfs = new MessagingFactorySettings();
-mfs.TokenProvider = tokenProvider;
-mfs.NetMessagingTransportSettings.BatchFlushInterval = TimeSpan.FromSeconds(0.05);
-MessagingFactory messagingFactory = MessagingFactory.Create(namespaceUri, mfs);
+var settings = new MessagingFactorySettings
+{
+    NetMessagingTransportSettings =
+    {
+        BatchFlushInterval = TimeSpan.Zero
+    }
+};
+var factory = MessagingFactory.Create(namespaceUri, settings);
 ```
 
 Batching does not affect the number of billable messaging operations, and is available only for the Service Bus client protocol using the [Microsoft.ServiceBus.Messaging](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) library. The HTTP protocol does not support batching.
 
 > [!NOTE]
-> Setting BatchFlushInterval ensures that the batching is implicit from the application's perspective. i.e. The application makes SendAsync() and CompleteAsync() calls and does not make specific Batch calls.
+> Setting `BatchFlushInterval` ensures that the batching is implicit from the application's perspective. i.e.; the application makes `SendAsync` and `CompleteAsync` calls and does not make specific Batch calls.
 >
-> Explicit client side batching can be implemented by utilizing the below method call - 
+> Explicit client side batching can be implemented by utilizing the below method call:
 > ```csharp
-> Task SendBatchAsync (IEnumerable<BrokeredMessage> messages);
+> Task SendBatchAsync(IEnumerable<BrokeredMessage> messages);
 > ```
 > Here the combined size of the messages must be less than the maximum size supported by the pricing tier.
 
@@ -200,14 +211,35 @@ Batching does not affect the number of billable messaging operations, and is ava
 
 ## Batching store access
 
-To increase the throughput of a queue, topic, or subscription, Service Bus batches multiple messages when it writes to its internal store. If enabled on a queue or topic, writing messages into the store will be batched. If enabled on a queue or subscription, deleting messages from the store will be batched. If batched store access is enabled for an entity, Service Bus delays a store write operation regarding that entity by up to 20 ms. 
+To increase the throughput of a queue, topic, or subscription, Service Bus batches multiple messages when it writes to its internal store. If enabled on a queue or topic, writing messages into the store will be batched. If enabled on a queue or subscription, deleting messages from the store will be batched. If batched store access is enabled for an entity, Service Bus delays a store write operation regarding that entity by up to 20 ms.
 
 > [!NOTE]
-> There is no risk of losing messages with batching, even if there is a Service Bus failure at the end of a 20ms batching interval. 
+> There is no risk of losing messages with batching, even if there is a Service Bus failure at the end of a 20ms batching interval.
 
 Additional store operations that occur during this interval are added to the batch. Batched store access only affects **Send** and **Complete** operations; receive operations are not affected. Batched store access is a property on an entity. Batching occurs across all entities that enable batched store access.
 
-When creating a new queue, topic or subscription, batched store access is enabled by default. To disable batched store access, set the [EnableBatchedOperations][EnableBatchedOperations] property to **false** before creating the entity. For example:
+When creating a new queue, topic or subscription, batched store access is enabled by default.
+
+# [Microsoft.Azure.ServiceBus SDK](#tab/net-standard-sdk)
+
+To disable batched store access, you'll need an instance of a `ManagementClient`. Create a queue from a queue description that sets the `EnableBatchedOperations` property to `false`.
+
+```csharp
+var queueDescription = new QueueDescription(path)
+{
+    EnableBatchedOperations = false
+};
+var managementClient = new ManagementClient(connectionString);
+```
+
+For more information, see the following:
+* <a href="https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.management.queuedescription.enablebatchedoperations?view=azure-dotnet" target="_blank">`Microsoft.Azure.ServiceBus.Management.QueueDescription.EnableBatchedOperations` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+* <a href="https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.management.subscriptiondescription.enablebatchedoperations?view=azure-dotnet" target="_blank">`Microsoft.Azure.ServiceBus.Management.SubscriptionDescription.EnableBatchedOperations` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+* <a href="https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.management.topicdescription.enablebatchedoperations?view=azure-dotnet" target="_blank">`Microsoft.Azure.ServiceBus.Management.TopicDescription.EnableBatchedOperations` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+
+# [WindowsAzure.ServiceBus SDK](#tab/net-framework-sdk)
+
+To disable batched store access, you'll need an instance of a `NamespaceManager`. Create a queue from a queue description that sets the `EnableBatchedOperations` property to `false`.
 
 ```csharp
 var queueDescription = new QueueDescription
@@ -217,15 +249,22 @@ var queueDescription = new QueueDescription
 var queue = namespaceManager.CreateQueue(qd);
 ```
 
+For more information, see the following:
+* <a href="https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.queuedescription.enablebatchedoperations?view=azure-dotnet" target="_blank">`Microsoft.ServiceBus.Messaging.QueueDescription.EnableBatchedOperations` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+* <a href="https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription.enablebatchedoperations?view=azure-dotnet" target="_blank">`Microsoft.ServiceBus.Messaging.SubscriptionDescription.EnableBatchedOperations` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+* <a href="https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.topicdescription.enablebatchedoperations?view=azure-dotnet" target="_blank">`Microsoft.ServiceBus.Messaging.TopicDescription.EnableBatchedOperations` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+
+---
+
 Batched store access does not affect the number of billable messaging operations, and is a property of a queue, topic, or subscription. It is independent of the receive mode and the protocol that is used between a client and the Service Bus service.
 
 ## Prefetching
-''
-[Prefetching](service-bus-prefetch.md) enables the queue or subscription client to load additional messages from the service when it performs a receive operation. The client stores these messages in a local cache. The size of the cache is determined by the [QueueClient.PrefetchCount][QueueClient.PrefetchCount] or [SubscriptionClient.PrefetchCount][SubscriptionClient.PrefetchCount] properties. Each client that enables prefetching maintains its own cache. A cache is not shared across clients. If the client initiates a receive operation and its cache is empty, the service transmits a batch of messages. The size of the batch equals the size of the cache or 256 KB, whichever is smaller. If the client initiates a receive operation and the cache contains a message, the message is taken from the cache.
+
+[Prefetching](service-bus-prefetch.md) enables the queue or subscription client to load additional messages from the service when it performs a receive operation. The client stores these messages in a local cache. The size of the cache is determined by the `QueueClient.PrefetchCount` or `SubscriptionClient.PrefetchCount` properties. Each client that enables prefetching maintains its own cache. A cache is not shared across clients. If the client initiates a receive operation and its cache is empty, the service transmits a batch of messages. The size of the batch equals the size of the cache or 256 KB, whichever is smaller. If the client initiates a receive operation and the cache contains a message, the message is taken from the cache.
 
 When a message is prefetched, the service locks the prefetched message. With the lock, the prefetched message cannot be received by a different receiver. If the receiver cannot complete the message before the lock expires, the message becomes available to other receivers. The prefetched copy of the message remains in the cache. The receiver that consumes the expired cached copy will receive an exception when it tries to complete that message. By default, the message lock expires after 60 seconds. This value can be extended to 5 minutes. To prevent the consumption of expired messages, the cache size should always be smaller than the number of messages that can be consumed by a client within the lock time-out interval.
 
-When using the default lock expiration of 60 seconds, a good value for [PrefetchCount][SubscriptionClient.PrefetchCount] is 20 times the maximum processing rates of all receivers of the factory. For example, a factory creates three receivers, and each receiver can process up to 10 messages per second. The prefetch count should not exceed 20 X 3 X 10 = 600. By default, [PrefetchCount][QueueClient.PrefetchCount] is set to 0, which means that no additional messages are fetched from the service.
+When using the default lock expiration of 60 seconds, a good value for `PrefetchCount` is 20 times the maximum processing rates of all receivers of the factory. For example, a factory creates three receivers, and each receiver can process up to 10 messages per second. The prefetch count should not exceed 20 X 3 X 10 = 600. By default, `PrefetchCount` is set to 0, which means that no additional messages are fetched from the service.
 
 Prefetching messages increases the overall throughput for a queue or subscription because it reduces the overall number of message operations, or round trips. Fetching the first message, however, will take longer (due to the increased message size). Receiving prefetched messages will be faster because these messages have already been downloaded by the client.
 
@@ -233,15 +272,32 @@ The time-to-live (TTL) property of a message is checked by the server at the tim
 
 Prefetching does not affect the number of billable messaging operations, and is available only for the Service Bus client protocol. The HTTP protocol does not support prefetching. Prefetching is available for both synchronous and asynchronous receive operations.
 
+For more information, see the following `PrefetchCount` properties:
+
+# [Microsoft.Azure.ServiceBus SDK](#tab/net-standard-sdk)
+
+* <a href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.servicebus.queueclient.prefetchcount?view=azure-dotnet" target="_blank">`Microsoft.Azure.ServiceBus.QueueClient.PrefetchCount` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+* <a href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.servicebus.subscriptionclient.prefetchcount?view=azure-dotnet" target="_blank">`Microsoft.Azure.ServiceBus.SubscriptionClient.PrefetchCount` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+
+# [WindowsAzure.ServiceBus SDK](#tab/net-framework-sdk)
+
+* <a href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.queueclient.prefetchcount?view=azure-dotnet" target="_blank">`Microsoft.ServiceBus.Messaging.QueueClient.PrefetchCount` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+* <a href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.subscriptionclient.prefetchcount?view=azure-dotnet" target="_blank">`Microsoft.ServiceBus.Messaging.SubscriptionClient.PrefetchCount` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+
+---
+
 ## Prefetching and ReceiveBatch
 
-While the concepts of prefetching multiple messages together have similar semantics to processing messages in a batch (ReceiveBatch), there are some minor differences that must be kept in mind when leveraging these together.
+> [!NOTE]
+> This section only applies to the WindowsAzure.ServiceBus SDK, as the Microsoft.Azure.ServiceBus SDK does not expose batch functions.
 
-Prefetch is a configuration (or mode) on the client (QueueClient and SubscriptionClient) and ReceiveBatch is an operation (that has request-response semantics).
+While the concepts of prefetching multiple messages together have similar semantics to processing messages in a batch (`ReceiveBatch`), there are some minor differences that must be kept in mind when leveraging these together.
+
+Prefetch is a configuration (or mode) on the client (`QueueClient` and `SubscriptionClient`) and `ReceiveBatch` is an operation (that has request-response semantics).
 
 While using these together, consider the following cases -
 
-* Prefetch should be greater than or equal to the number of messages you are expecting to receive from ReceiveBatch.
+* Prefetch should be greater than or equal to the number of messages you are expecting to receive from `ReceiveBatch`.
 * Prefetch can be up to n/3 times the number of messages processed per second, where n is the default lock duration.
 
 There are some challenges with having a greedy approach(i.e. keeping the prefetch count very high), because it implies that the message is locked to a particular receiver. The recommendation is to try out prefetch values between the thresholds mentioned above and empirically identify what fits.
@@ -252,9 +308,12 @@ If the expected load cannot be handled by a single queue or topic, you must use 
 
 ## Development and testing features
 
-Service Bus has one feature, used specifically for development, which **should never be used in production configurations**: [TopicDescription.EnableFilteringMessagesBeforePublishing][].
+> [!NOTE]
+> This section only applies to the WindowsAzure.ServiceBus SDK, as the Microsoft.Azure.ServiceBus SDK does not expose this functionality.
 
-When new rules or filters are added to the topic, you can use [TopicDescription.EnableFilteringMessagesBeforePublishing][] to verify that the new filter expression is working as expected.
+Service Bus has one feature, used specifically for development, which **should never be used in production configurations**: [`TopicDescription.EnableFilteringMessagesBeforePublishing`][TopicDescription.EnableFiltering].
+
+When new rules or filters are added to the topic, you can use [`TopicDescription.EnableFilteringMessagesBeforePublishing`][TopicDescription.EnableFiltering] to verify that the new filter expression is working as expected.
 
 ## Scenarios
 
@@ -342,18 +401,13 @@ To maximize throughput, try the following steps:
 <!-- .NET Standard SDK, Microsoft.Azure.ServiceBus -->
 [QueueClient]: /dotnet/api/microsoft.azure.servicebus.queueclient
 [MessageSender]: /dotnet/api/microsoft.azure.servicebus.core.messagesender
-[PeekLock]: /dotnet/api/microsoft.azure.servicebus.receivemode
-[ReceiveAndDelete]: /dotnet/api/microsoft.azure.servicebus.receivemode
-[QueueClient.PrefetchCount]: /dotnet/api/microsoft.azure.servicebus.queueclient.prefetchcount
-[SubscriptionClient.PrefetchCount]: /dotnet/api/microsoft.azure.servicebus.subscriptionclient.prefetchcount
 
 <!-- .NET Framework SDK, Microsoft.Azure.ServiceBus -->
 [MessagingFactory]: /dotnet/api/microsoft.servicebus.messaging.messagingfactory
 [BatchFlushInterval]: /dotnet/api/microsoft.servicebus.messaging.messagesender.batchflushinterval
-[EnableBatchedOperations]: /dotnet/api/microsoft.servicebus.messaging.queuedescription.enablebatchedoperations
 [ForcePersistence]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage.forcepersistence
 [EnablePartitioning]: /dotnet/api/microsoft.servicebus.messaging.queuedescription.enablepartitioning
-[TopicDescription.EnableFilteringMessagesBeforePublishing]: /dotnet/api/microsoft.servicebus.messaging.topicdescription.enablefilteringmessagesbeforepublishing
+[TopicDescription.EnableFiltering]: /dotnet/api/microsoft.servicebus.messaging.topicdescription.enablefilteringmessagesbeforepublishing
 
 <!-- Local links -->
 [Partitioned messaging entities]: service-bus-partitioning.md
