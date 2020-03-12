@@ -278,7 +278,7 @@ This functionality requires connectivity from IoT Hub to the storage account. To
 You can now use the Azure IoT REST API's for [creating import export jobs](https://docs.microsoft.com/rest/api/iothub/service/createimportexportjob) for information on how to use the bulk import/export functionality. Note that you will need to provide the `autheticationType="identityBased"` in your request body and use `inputBlobContainerUri="https://..."` and `outputBlobContainerUri="https://..."` as the input and output URL's of your storage account, respectively.
 
 
-Azure IoT Hub SDK's also support this functionality in the service client's registry manager. The following code snippet shows how to initiate an import job or export job in using the C# SDK. Note that the `inputBlobContainerUri` and `outputBlobContainerUri` parameters must be in HTTPS URL format (with `https://` prefix).
+Azure IoT Hub SDK's also support this functionality in the service client's registry manager. The following code snippet shows how to initiate an import job or export job in using the C# SDK.
 
 ```csharp
 // Call an import job on the IoT Hub
