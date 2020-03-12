@@ -626,7 +626,7 @@ For more information, please see [public documentation](../cognitive-services/Fa
   - `https://api.cognitive.microsofttranslator.us`
 * There are 2 regions `USGovVirginia` and `USGovArizona`
 ### Text Translation Method
-This sample will use the [Text Translation - Translate method](../cognitive-services/translator/reference/v3-0-translate.md) to translate a string of text from a language into another specified language. There are multiple [language codes](https://api.cognitive.microsofttranslator.com/languages?api-version=3.0&scope=translation,dictionary,transliteration) that can be used with the Text Translation API. 
+The below example uses [Text Translation - Translate method](../cognitive-services/translator/reference/v3-0-translate.md) to translate a string of text from a language into another specified language. There are multiple [language codes](https://api.cognitive.microsofttranslator.com/languages?api-version=3.0&scope=translation) that can be used with the Text Translation API. 
 
 ### Text Translation C# example request
 
