@@ -22,17 +22,17 @@ You can also use this in the TOC if your service name doesn't cause the phrase t
 --->
 
 ## IP firewall rules
-IP firewall rules grant or deny access to your Synapse workspace based on the originating IP address of each request. You can configure IP firewall rules for your workspace. IP firewall rules configured at the workspace level apply to all public endpoints of the workspace (SQL pools, SQL on-demand and Development).
+IP firewall rules grant or deny access to your Synapse workspace based on the originating IP address of each request. You can configure IP firewall rules for your workspace. IP firewall rules configured at the workspace level apply to all public endpoints of the workspace (SQL pools, SQL on-demand, and Development).
 
 ## Create and manage IP firewall rules
 
-There are two ways IP firewall rules are added to a Synapse workspace. First, an IP firewall rule is added to your workspace if you select **Security + networking** and check **Allow connections from all IP addresses** during workspace creation.
+There are two ways IP firewall rules are added to a Synapse workspace. An IP firewall rule is added to your workspace if you select **Security + networking** and check **Allow connections from all IP addresses** when you create your workspace.
 
 ![Azure portal Synapse workspace IP configuration.](../media/security/ip-firewall1.png).
 
 ![Azure portal Synapse workspace IP configuration.](../media/security/ip-firewall2.png).
 
-You can also add IP firewall rules to a Synapse workspace after the workspace is created. Select **Firewalls** under **Security** from Azure portal. To add a new IP firewall rule, give the rule a name under Rule Name and provide the Start IP and End IP for the IP address range that you want to provide access to your workspace. Select **Save** when you are done.
+You can also add IP firewall rules to a Synapse workspace after the workspace is created. Select **Firewalls** under **Security** from Azure portal. To add a new IP firewall rule, give it a name, Start IP, and End IP. Select **Save** when done.
 
 ![Azure portal Synapse workspace IP configuration.](../media/security/ip-firewall3.png).
 
