@@ -55,7 +55,7 @@ conceptualContent:
           text: Java
         - url: ./app/opencensus-python.md
           itemType: how-to-guide
-          text: Python (preview)
+          text: Python
         - url: ./app/javascript.md
           itemType: how-to-guide
           text: JavaScript
