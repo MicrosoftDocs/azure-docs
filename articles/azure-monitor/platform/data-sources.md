@@ -68,8 +68,8 @@ The [Azure Activity log](platform-logs-overview.md) includes service health reco
 |:---|:---|
 | Activity log | The Activity log is collected into its own data store that you can view from the Azure Monitor menu or use to create Activity log alerts. | [Query the Activity log in the Azure portal](activity-log-view.md#azure-portal) |
 | Azure Monitor Logs | Configure Azure Monitor Logs to collect the Activity log to analyze it with other monitoring data. | [Collect and analyze Azure activity logs in Log Analytics workspace in Azure Monitor](activity-log-collect.md) |
-| Azure Storage | Export the Activity log to Azure Storage for archiving. | [Archive Activity log](activity-log-export.md#archive-activity-log)  |
-| Event Hubs | Stream the Activity log to other locations using Event Hubs | [Stream Activity log to Event Hub](activity-log-export.md#stream-activity-log-to-event-hub). |
+| Azure Storage | Export the Activity log to Azure Storage for archiving. | [Archive Activity log](resource-logs-collect-storage.md)  |
+| Event Hubs | Stream the Activity log to other locations using Event Hubs | [Stream Activity log to Event Hub](resource-logs-stream-event-hubs.md). |
 
 ### Azure Service Health
 [Azure Service Health](../../service-health/service-health-overview.md) provides information about the health of the Azure services in your subscription that your application and resources rely on.
@@ -97,7 +97,7 @@ Most Azure services will send [platform metrics](data-platform-metrics.md) that 
 ### Resource logs
 [Resource logs](platform-logs-overview.md) provide insights into the _internal_ operation of an Azure resource.  Resource logs are created automatically, but you must create a diagnostic setting to specify a destination for them to collected for each resource.
 
-The configuration requirements and content of resource logs vary by resource type, and not all services yet create them. See [Supported services, schemas, and categories for Azure resource logs](diagnostic-logs-schema.md) for details on each service and links to detailed configuration procedures. If the service isn’t listed in this article, then that service doesn’t currently create resource logs.
+The configuration requirements and content of resource logs vary by resource type, and not all services yet create them. See [Supported services, schemas, and categories for Azure resource logs](diagnostic-logs-schema.md) for details on each service and links to detailed configuration procedures. If the service isn't listed in this article, then that service doesn't currently create resource logs.
 
 | Destination | Description | Reference |
 |:---|:---|:---|

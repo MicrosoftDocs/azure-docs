@@ -88,7 +88,7 @@ https://docs.microsoft.com/azure/security-center/security-center-alerts-service-
 
 ### 1.5: Record network packets and flow logs
 
-**Guidance**: Enable network security group (NSG) flog logs for the NSG attached to the subnet being used to protect your Azure HDInsight cluster. Record the NSG flow logs into a Azure Storage Account to generate flow records. If required for investigating anomalous activity, enable Azure Network Watcher packet capture.
+**Guidance**: Enable network security group (NSG) flow logs for the NSG attached to the subnet being used to protect your Azure HDInsight cluster. Record the NSG flow logs into a Azure Storage Account to generate flow records. If required for investigating anomalous activity, enable Azure Network Watcher packet capture.
 
 
 How to Enable NSG Flow Logs:
