@@ -1,5 +1,5 @@
 ---
-title: Connect an Amazon Web Services account to Cloudyn in Azure | Microsoft Docs
+title: Connect an Amazon Web Services account to Cloudyn in Azure
 description: Connect an Amazon Web Services account to view cost and usage data in Cloudyn reports.
 keywords:
 author: bandersmsft
@@ -9,6 +9,7 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: benshy
 ms.custom: seodec18
+ROBOTS: NOINDEX
 ---
 
 # Connect an Amazon Web Services account
@@ -126,43 +127,43 @@ You create an S3 bucket to store detailed billing information.
 
    ```json
    {
-  	"Version": "2012-10-17",
-  	"Id": "Policy1426774604000",
-  	"Statement": [
-  		{
-  			"Sid": "Stmt1426774604000",
-  			"Effect": "Allow",
-  			"Principal": {
-  				"AWS": "arn:aws:iam::386209384616:root"
-  			},
-  			"Action": [
-  				"s3:GetBucketAcl",
-  				"s3:GetBucketPolicy"
-  			],
-  			"Resource": "arn:aws:s3:::<BillingBucketName>"
-  		},
-  		{
-  			"Sid": "Stmt1426774604001",
-  			"Effect": "Allow",
-  			"Principal": {
-  				"AWS": "arn:aws:iam::386209384616:root"
-  			},
-  			"Action": "s3:PutObject",
-  			"Resource": "arn:aws:s3:::<BillingBucketName>/*"
-  		},
-  		{
-  			"Sid": "Stmt1426774604002",
-  			"Effect": "Allow",
-  			"Principal": {
-  				"AWS": "<ReadOnlyUserOrRole>"
-  			},
-  			"Action": [
-  				"s3:List*",
-  				"s3:Get*"
-  			],
-  			"Resource": "arn:aws:s3:::<BillingBucketName>/*"
-  		}
-  	]
+      "Version": "2012-10-17",
+      "Id": "Policy1426774604000",
+      "Statement": [
+          {
+              "Sid": "Stmt1426774604000",
+              "Effect": "Allow",
+              "Principal": {
+                  "AWS": "arn:aws:iam::386209384616:root"
+              },
+              "Action": [
+                  "s3:GetBucketAcl",
+                  "s3:GetBucketPolicy"
+              ],
+              "Resource": "arn:aws:s3:::<BillingBucketName>"
+          },
+          {
+              "Sid": "Stmt1426774604001",
+              "Effect": "Allow",
+              "Principal": {
+                  "AWS": "arn:aws:iam::386209384616:root"
+              },
+              "Action": "s3:PutObject",
+              "Resource": "arn:aws:s3:::<BillingBucketName>/*"
+          },
+          {
+              "Sid": "Stmt1426774604002",
+              "Effect": "Allow",
+              "Principal": {
+                  "AWS": "<ReadOnlyUserOrRole>"
+              },
+              "Action": [
+                  "s3:List*",
+                  "s3:Get*"
+              ],
+              "Resource": "arn:aws:s3:::<BillingBucketName>/*"
+          }
+      ]
    }
    ```
 

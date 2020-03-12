@@ -1,5 +1,5 @@
 ---
-title: Training videos for Cloudyn in Azure | Microsoft Docs
+title: Training videos for Cloudyn in Azure
 description: The training videos for Cloudyn walk you through getting started and using its features.
 keywords:
 author: bandersmsft
@@ -9,6 +9,7 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: benshy
 ms.custom: seodec18
+ROBOTS: NOINDEX
 ---
 
 # Cloudyn walk-through training videos

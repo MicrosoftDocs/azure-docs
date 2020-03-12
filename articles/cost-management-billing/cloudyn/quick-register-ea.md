@@ -1,6 +1,6 @@
 ---
 
-title: Register your Azure Enterprise Agreement with Cloudyn | Microsoft Docs
+title: Register your Azure Enterprise Agreement with Cloudyn
 description: This quickstart details the registration process needed to create a Cloudyn trial subscription and sign in to the Cloudyn portal.
 keywords:
 author: bandersmsft
@@ -10,6 +10,7 @@ ms.topic: quickstart
 ms.custom: seodec18
 ms.service: cost-management-billing
 ms.reviewer: benshy
+ROBOTS: NOINDEX
 ---
 
 

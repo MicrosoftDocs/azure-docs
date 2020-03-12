@@ -1,5 +1,5 @@
 ---
-title: Understanding Cloudyn cost management reports in Azure | Microsoft Docs
+title: Understanding Cloudyn cost management reports in Azure
 description: This article helps you understand Cloudyn cost management reports basic structure and functions.
 keywords:
 author: bandersmsft
@@ -9,6 +9,7 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: benshy
 ms.custom: seodec18
+ROBOTS: NOINDEX
 ---
 
 # Understanding Cloudyn cost management reports
@@ -84,7 +85,7 @@ Each numbered area in the preceding image is described in detail in the followin
      - **Account Name**
        - The account or subscription name. In Azure, it is the name of the Azure subscription.
      - **Account No**
-       - Select an account, multiple accounts, or all accounts. In Azure, it is the Azure subscription’s GUID.
+       - Select an account, multiple accounts, or all accounts. In Azure, it is the Azure subscription's GUID.
      - **Parent Account**
        - Select the parent account, multiple accounts, or select all.
      - **Service**

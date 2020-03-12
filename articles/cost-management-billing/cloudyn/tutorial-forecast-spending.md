@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Forecast spending with Cloudyn in Azure | Microsoft Docs
+title: Tutorial - Forecast spending with Cloudyn in Azure
 description: In this tutorial you learn how to forecast spending using historical usage and spending data.
 keywords:
 author: bandersmsft
@@ -9,6 +9,7 @@ ms.topic: tutorial
 ms.service: cost-management-billing
 ms.custom: seodec18
 ms.reviewer: benshy
+ROBOTS: NOINDEX
 ---
 
 # Tutorial: Forecast future spending

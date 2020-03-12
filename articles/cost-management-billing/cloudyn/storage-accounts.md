@@ -1,5 +1,5 @@
 ---
-title: Configure storage accounts for Cloudyn in Azure | Microsoft Docs
+title: Configure storage accounts for Cloudyn in Azure
 description: This article describes how you configure Azure storage accounts and AWS storage buckets for Cloudyn.
 keywords:
 author: bandersmsft
@@ -9,6 +9,7 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: benshy
 ms.custom: secdec18
+ROBOTS: NOINDEX
 ---
 
 # Configure storage accounts for Cloudyn
@@ -64,18 +65,18 @@ bucket.
 
    ```json
    {
-	"Version": "2012-10-17",
-	"Statement": [
-	  {
-		"Sid":  "CloudynSaveReport2S3",
-		"Effect":      "Allow",
-		"Action": [
-		  "s3:PutObject"
-		],
-		"Resource": [
-		  "arn:aws:s3:::<bucketname>/*"
-		]
-	  }
+    "Version": "2012-10-17",
+    "Statement": [
+      {
+        "Sid":  "CloudynSaveReport2S3",
+        "Effect":      "Allow",
+        "Action": [
+          "s3:PutObject"
+        ],
+        "Resource": [
+          "arn:aws:s3:::<bucketname>/*"
+        ]
+      }
     ]
    }
    ```

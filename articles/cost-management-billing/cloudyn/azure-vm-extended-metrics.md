@@ -1,5 +1,5 @@
 ---
-title: Add extended metrics for Azure virtual machines | Microsoft Docs
+title: Add extended metrics for Azure virtual machines
 description: This article helps you enable and configure extended diagnostics metrics for your Azure VMs.
 keywords:
 author: bandersmsft
@@ -9,6 +9,7 @@ ms.date: 01/24/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.custom: seodec18
+ROBOTS: NOINDEX
 ---
 
 # Add extended metrics for Azure virtual machines
