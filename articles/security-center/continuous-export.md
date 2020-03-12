@@ -18,9 +18,9 @@ This article describes the set of (preview) tools that allow you to export alert
 
 Using these tools you can:
 
-* Continously export to Log Analytics workspaces
-* Continously export to Azure Event Hubs (for integrations with third-party SIEMs)
-* Perform a one-time export to CSV
+* Continuously export to Log Analytics workspaces
+* Continuously export to Azure Event Hubs (for integrations with third-party SIEMs)
+* Export to CSV (one time)
 
 
 ## Setting up a continuous export
@@ -46,7 +46,7 @@ The steps below are necessary whether you're setting up a continuous export to L
 
 ## Configuring SIEM integration via Azure Event Hubs
 
-Azure Event Hubs is a great solution for programatically consuming any streaming data. In the case of Azure Security Center alerts and recommendations, it's the preferred way to integrate with a third-party SIEM.
+Azure Event Hubs is a great solution for programatically consuming any streaming data. For Azure Security Center alerts and recommendations, it's the preferred way to integrate with a third-party SIEM.
 
 > [!NOTE]
 > The most effective method to stream monitoring data to external tools in most cases is using Azure Event Hubs. [This article](https://docs.microsoft.com/azure/azure-monitor/platform/stream-monitoring-data-event-hubs) provides a brief description for how you can stream monitoring data from different sources to an Event Hub and links to detailed guidance.
