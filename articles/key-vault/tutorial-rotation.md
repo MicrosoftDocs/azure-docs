@@ -43,7 +43,7 @@ This tutorial uses a pre-created Azure Resource Manager template to create compo
 1. For "Resource Group", select "Create New" and give it the name "simplerotation".
 1. Select "Purchase".
 
-  ![Create new resource group](./media/rotate2.png)
+    ![Create new resource group](./media/rotate2.png)
 
 After completing these steps, you will have a key vault, a SQL server, and a SQL database. You can verify this in an Azure CLI terminal by running:
 
@@ -265,8 +265,6 @@ Go to the deployed application and click "URL":
 ![Test and verify](./media/rotate10.png)
 
 The Generated Secret Value should be shown with Database Connected as true.
-
-![Test and verify](./media/rotate11.png)
 
 ## Learn more:
 
