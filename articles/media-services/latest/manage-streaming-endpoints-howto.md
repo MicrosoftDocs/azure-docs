@@ -24,7 +24,7 @@ ms.author: juliako
 
 When your Media Services account is created a **default** streaming endpoint is added to your account in the **Stopped** state. To start streaming your content and take advantage of [dynamic packaging](dynamic-packaging-overview.md) and [dynamic encryption](content-protection-overview.md), the streaming endpoint from which you want to stream content has to be in the **Running** state.
  
-This article shows how to start your streaming endpoint.
+This article shows you how to start your streaming endpoint.
  
 > [!NOTE]
 > You are only billed when your Streaming Endpoint is in running state.
@@ -37,13 +37,13 @@ Review:
 * [Streaming Endpoint concept](streaming-endpoint-concept.md)
 * [Dynamic packaging](dynamic-packaging-overview.md)
 
-## Portal
+## Use the Azure portal
 
 1. Sign in at the [Azure portal](https://portal.azure.com/).
 1. On the left, select  **Streaming Endpoints**.
 1. Select the streaming endpoint you want to start, click **Start**.
 
-## Java
+## Use the Java SDK
 
 ```java
 if (streamingEndpoint != null) {
@@ -55,7 +55,7 @@ if (streamingEndpoint.resourceState() != StreamingEndpointResourceState.RUNNING)
 
 The samples [in this repository](https://docs.microsoft.com/samples/azure-samples/media-services-v3-dotnet/azure-media-services-v3-samples-using-net/) shows how to start the default streaming endpoint with .NET.
 
-## .NET
+## Use the .NET SDK
 
 ```charp
 StreamingEndpoint streamingEndpoint = await client.StreamingEndpoints.GetAsync(config.ResourceGroup, config.AccountName, DefaultStreamingEndpointName);
@@ -70,7 +70,7 @@ if (streamingEndpoint != null)
 
 The samples [in this repository](https://docs.microsoft.com/samples/azure-samples/media-services-v3-java/azure-media-services-v3-samples-using-java/) shows how to start the default streaming endpoint with Java.
 
-## CLI
+## Use CLI
 
 ```cli
 az ams streaming-endpoint start [--account-name]
@@ -83,7 +83,7 @@ az ams streaming-endpoint start [--account-name]
 
 For more information, see [az ams streaming-endpoint start](https://docs.microsoft.com/cli/azure/ams/streaming-endpoint?view=azure-cli-latest#az-ams-streaming-endpoint-start).
 
-## REST
+## Use REST
 
 ```rest
 POST https://management.azure.com/subscriptions/0a6ec948-5a62-437d-b9df-934dc7c1b722/resourceGroups/mediaresources/providers/Microsoft.Media/mediaservices/slitestmedia10/streamingEndpoints/myStreamingEndpoint1/start?api-version=2018-07-01
