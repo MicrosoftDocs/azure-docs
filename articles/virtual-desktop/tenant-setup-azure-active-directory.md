@@ -8,6 +8,7 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 12/17/2019
 ms.author: helohr
+manager: lizross
 ---
 # Tutorial: Create a tenant in Windows Virtual Desktop
 
@@ -67,7 +68,7 @@ Assigning an Azure Active Directory user the TenantCreator application role allo
 
 To assign the TenantCreator application role:
 
-1. Go to the [Azure portal](https://portal.azure.com) to manage the TenantCreator application role. Search for and select **Enterprise applications**. If you're working with multiple Azure Active Directory tenants, it's a best practice to open a private browser session and copy and paste the URLs into the address bar.
+1. Go to the [Azure portal](https://portal.azure.com) to manage the TenantCreator application role. Search for and select **Enterprise applications**. If you're working with multiple Azure Active Directory tenants, it's a best practice to open a private browser session and copy and paste the URLs into the address bar.
 
    ![Screenshot of searching for Enterprise applications in the Azure portal](media/azure-portal-enterprise-applications.png)
 2. Within **Enterprise applications**, search for **Windows Virtual Desktop**. You'll see the two applications that you provided consent for in the previous section. Of these two apps, select **Windows Virtual Desktop**.

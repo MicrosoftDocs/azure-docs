@@ -857,78 +857,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/cognitive-services/QnaMaker/quickstarts/create-new-kb-csharp.md",
-      "redirect_url": "/azure/cognitive-services/QnaMaker/quickstarts/quickstart-rest-curl",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/cognitive-services/QnaMaker/quickstarts/create-new-kb-go.md",
-      "redirect_url": "/azure/cognitive-services/QnaMaker/quickstarts/quickstart-rest-curl",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/cognitive-services/QnaMaker/quickstarts/create-new-kb-java.md",
-      "redirect_url": "/azure/cognitive-services/QnaMaker/quickstarts/quickstart-rest-curl",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/cognitive-services/QnaMaker/quickstarts/create-new-kb-python.md",
-      "redirect_url": "/azure/cognitive-services/QnaMaker/quickstarts/quickstart-rest-curl",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/cognitive-services/QnaMaker/quickstarts/get-answer-from-knowledge-base-csharp.md",
-      "redirect_url": "/azure/cognitive-services/QnaMaker/quickstarts/quickstart-rest-curl",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/cognitive-services/QnaMaker/quickstarts/get-answer-from-knowledge-base-go.md",
-      "redirect_url": "/azure/cognitive-services/QnaMaker/quickstarts/quickstart-rest-curl",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/cognitive-services/QnaMaker/quickstarts/get-answer-from-knowledge-base-java.md",
-      "redirect_url": "/azure/cognitive-services/QnaMaker/quickstarts/quickstart-rest-curl",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/cognitive-services/QnaMaker/quickstarts/get-answer-from-knowledge-base-python.md",
-      "redirect_url": "/azure/cognitive-services/QnaMaker/quickstarts/quickstart-rest-curl",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/cognitive-services/QnaMaker/quickstarts/get-answer-from-knowledge-base-nodejs.md",
-      "redirect_url": "/azure/cognitive-services/QnaMaker/quickstarts/quickstart-rest-curl",
-      "redirect_document_id": false
-    },
-
-    {
-      "source_path": "articles/cognitive-services/QnaMaker/quickstarts/publish-kb-csharp.md",
-      "redirect_url": "/azure/cognitive-services/QnaMaker/quickstarts/quickstart-rest-curl",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/cognitive-services/QnaMaker/quickstarts/publish-kb-go.md",
-      "redirect_url": "/azure/cognitive-services/QnaMaker/quickstarts/quickstart-rest-curl",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/cognitive-services/QnaMaker/quickstarts/publish-kb-java.md",
-      "redirect_url": "/azure/cognitive-services/QnaMaker/quickstarts/quickstart-rest-curl",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/cognitive-services/QnaMaker/quickstarts/publish-kb-python.md",
-      "redirect_url": "/azure/cognitive-services/QnaMaker/quickstarts/quickstart-rest-curl",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/cognitive-services/QnaMaker/quickstarts/publish-kb-nodejs.md",
-      "redirect_url": "/azure/cognitive-services/QnaMaker/quickstarts/quickstart-rest-curl",
-      "redirect_document_id": false
-    },
-
-    {
       "source_path": "articles/cognitive-services/LUIS/luis-tutorial-bot-csharp-appinsights.md",
       "redirect_url": "/azure/cognitive-services/LUIS/luis-csharp-tutorial-bf-v4",
       "redirect_document_id": false
@@ -1771,6 +1699,26 @@
     {
       "source_path": "articles/cognitive-services/Bing-Web-Search/web-sdk-python-quickstart.md",
       "redirect_url": "/azure/cognitive-services/bing-web-search/quickstarts/client-libraries?pivots=programming-language-python",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Image-Search/image-search-sdk-quickstart.md",
+      "redirect_url": "/azure/cognitive-services/bing-image-search/quickstarts/client-libraries?pivots=programming-language-csharp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Image-Search/image-sdk-java-quickstart.md",
+      "redirect_url": "/azure/cognitive-services/bing-image-search/quickstarts/client-libraries?pivots=programming-language-java",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Image-Search/image-search-sdk-node-quickstart.md",
+      "redirect_url": "/azure/cognitive-services/bing-image-search/quickstarts/client-libraries?pivots=programming-language-javascript",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Image-Search/image-sdk-python-quickstart.md",
+      "redirect_url": "/azure/cognitive-services/bing-image-search/quickstarts/client-libraries?pivots=programming-language-python",
       "redirect_document_id": false
     },
     {
@@ -6779,6 +6727,10 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/scheduler/get-started-portal.md",
+      "redirect_url": "/azure/scheduler/migrate-from-scheduler-to-logic-apps",
+    },
+    {
       "source_path": "articles/connectors/connectors-create-api-googledrive.md",
       "redirect_url": "https://docs.microsoft.com/connectors/googledrive/",
       "redirect_document_id": true
@@ -8520,7 +8472,12 @@
     },
     {
       "source_path": "articles/app-service-web/web-sites-traffic-manager-custom-domain-name.md",
-      "redirect_url": "/azure/app-service/web-sites-traffic-manager-custom-domain-name",
+      "redirect_url": "/azure/app-service/configure-domain-traffic-manager",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service/web-sites-traffic-manager-custom-domain-name.md",
+      "redirect_url": "/azure/app-service/configure-domain-traffic-manager",
       "redirect_document_id": false
     },
     {
@@ -14989,6 +14946,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/machine-learning/designer-sample-datasets.md",
+      "redirect_url": "/azure/machine-learning/sample-designer-datasets",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/machine-learning/service/how-to-enable-app-insights.md",
       "redirect_url": "/azure/machine-learning/how-to-enable-app-insights",
       "redirect_document_id": true
@@ -15294,6 +15256,16 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/machine-learning/algorithm-module-reference/pca-based-anomaly-detection.md",
+      "redirect_url": "/azure/machine-learning/algorithm-module-reference/module-reference",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/algorithm-module-reference/train-anomaly-detection-model.md",
+      "redirect_url": "/azure/machine-learning/algorithm-module-reference/module-reference",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/machine-learning/how-to-ui-sample-regression-predict-automobile-price-basic.md",
       "redirect_url": "/azure/machine-learning/how-to-designer-sample-regression-automobile-price-basic",
       "redirect_document_id": false
@@ -15301,6 +15273,41 @@
     {
       "source_path": "articles/machine-learning/how-to-ui-sample-classification-predict-flight-delay.md",
       "redirect_url": "/azure/machine-learning/how-to-designer-sample-classification-flight-delay",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/how-to-designer-sample-classification-churn.md",
+      "redirect_url": "/azure/machine-learning/samples-designer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/how-to-designer-sample-classification-credit-risk-cost-sensitive.md",
+      "redirect_url": "/azure/machine-learning/samples-designer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/how-to-designer-sample-classification-flight-delay.md",
+      "redirect_url": "/azure/machine-learning/samples-designer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/how-to-designer-sample-classification-predict-income.md",
+      "redirect_url": "/azure/machine-learning/samples-designer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/how-to-designer-sample-regression-automobile-price-basic.md",
+      "redirect_url": "/azure/machine-learning/samples-designer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/how-to-designer-sample-regression-automobile-price-compare-algorithms.md",
+      "redirect_url": "/azure/machine-learning/samples-designer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/how-to-designer-sample-text-classification.md",
+      "redirect_url": "/azure/machine-learning/samples-designer",
       "redirect_document_id": false
     },
     {
@@ -16519,6 +16526,21 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/machine-learning/team-data-science-process/cortana-analytics-playbook-predictive-maintenance.md",
+      "redirect_url": "/azure/machine-learning/team-data-science-process/predictive-maintenance-playbook",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/machine-learning/team-data-science-process/cortana-analytics-architecture-predictive-maintenance.md",
+      "redirect_url": "/azure/machine-learning/team-data-science-process/predictive-maintenance-architecture",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/machine-learning/team-data-science-process/cortana-analytics-technical-guide-predictive-maintenance.md",
+      "redirect_url": "/azure/machine-learning/team-data-science-process/predictive-maintenance-technical-guide",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/monitoring-and-diagnostics/monitor-alerts-unified-log-template.md",
       "redirect_url": "/azure/monitoring-and-diagnostics/alert-log",
       "redirect_document_id": false
@@ -16856,6 +16878,11 @@
     {
       "source_path": "articles/storage/blobs/data-lake-storage-evaluation.md",
       "redirect_url": "/azure/storage/blobs/data-lake-storage-upgrade",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storage/blobs/data-lake-storage-upgrade.md",
+      "redirect_url": "/azure/storage/blobs/data-lake-storage-migrate-gen1-to-gen2",
       "redirect_document_id": false
     },
     {
@@ -18626,6 +18653,11 @@
     {
       "source_path": "articles/backup/backup-azure-backup-ibiza-faq.md",
       "redirect_url": "/azure/backup/backup-azure-backup-faq",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/backup/backup-configure-vault.md",
+      "redirect_url": "/azure/backup/backup-windows-with-mars-agent",
       "redirect_document_id": false
     },
     {
@@ -31120,7 +31152,7 @@
     },
     {
       "source_path": "articles/backup/backup-configure-vault-classic.md",
-      "redirect_url": "/azure/backup/backup-configure-vault",
+      "redirect_url": "/azure/backup/backup-windows-with-mars-agent",
       "redirect_document_id": false
     },
     {
@@ -31130,7 +31162,7 @@
     },
     {
       "source_path": "articles/backup/backup-try-azure-backup-in-10-mins.md",
-      "redirect_url": "/azure/backup/backup-configure-vault",
+      "redirect_url": "/azure/backup/backup-windows-with-mars-agent",
       "redirect_document_id": false
     },
     {
@@ -49223,6 +49255,36 @@
       "source_path": "articles/jenkins/install-jenkins-solution-template.md",
       "redirect_url": "/azure/jenkins/install-solution-template-tutorial",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/sapi-phoneset-usage.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/speech-ssml-phonetic-sets",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/how-to-use-codec-compressed-audio-input-streams-android.md",
+      "redirect_url": "/azure/cognitive-services/Speech-Service/how-to-use-codec-compressed-audio-input-streams?pivots=programming-language-java",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/how-to-use-codec-compressed-audio-input-streams-ios.md",
+      "redirect_url": "/azure/cognitive-services/Speech-Service/how-to-use-codec-compressed-audio-input-streams?pivots=programming-language-objectivec",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/integrations/index.yml",
+      "redirect_url": "https://azure.microsoft.com/products/developer-tool-integrations/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sdks/index.yml",
+      "redirect_url": "https://azure.microsoft.com/downloads/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/power-bi-embedded/index.md",
+      "redirect_url": "https://docs.microsoft.com/power-bi/developer/azure-pbie-what-is-power-bi-embedded",
+      "redirect_document_id": false
     }
   ]
 }

@@ -155,4 +155,4 @@ These are the current limitations on `JOINs` in the Azure Digital Twins Query St
 ## Next steps
 
 Learn about the Azure Digital Twins APIs:
-* [Use the Azure Digital Twins APIs](concepts-use-apis.md)
+* [Use the Azure Digital Twins APIs](how-to-use-apis.md)
