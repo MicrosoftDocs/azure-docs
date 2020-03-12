@@ -239,7 +239,7 @@ To debug your Functions custom handler app, the `--inspect` flag needs to be inc
 With this configuration, you can start the Function's host process using the following command:
 
 ```bash
-func: host start
+func host start
 ```
 
 Once the process is started, you can attach a debugger and hit breakpoints.
