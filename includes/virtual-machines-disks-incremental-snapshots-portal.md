@@ -21,7 +21,7 @@
 
 ## Portal
 
-To create and configure incremental snapshots in the public Azure portal, you must use the following link: [https://aka.ms/incrementalsnapshots](https://aka.ms/incrementalsnapshots). If you are in the Azure Government regions, you must use this link instead: [https://aka.ms/diskencryptionsetsff](https://aka.ms/diskencryptionsetsff) Incremental snapshot creation is not yet available in the global Azure portal.
+To create and configure incremental snapshots in the public Azure portal, you must use the following link: [https://aka.ms/incrementalsnapshots](https://aka.ms/incrementalsnapshots). If you are in the Azure Government regions, you must use this link instead: [https://aka.ms/diskencryptionsetsff](https://aka.ms/diskencryptionsetsff). Incremental snapshot creation is not yet available in the global Azure portal.
 
 1. Sign into the Azure portal with one of the provided links and navigate to the disk you'd like to snapshot.
 1. On your disk select **Create a Snapshot**
