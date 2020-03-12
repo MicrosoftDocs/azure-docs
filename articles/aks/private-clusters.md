@@ -58,29 +58,6 @@ The control plane or API server is in an Azure Kubernetes Service (AKS)-managed 
 * West Europe
 * West US 2
 
-## Install the latest Azure CLI AKS Preview extension
-
-To use private clusters, you need Azure Private Link, which is currently in preview.
-
-> [!CAUTION]
-> When you register a feature on a subscription, you can't currently un-register that feature. After you enable some preview features, you can use default settings for all AKS clusters that were created in the subscription. Don't enable preview features on production subscriptions. Use a separate subscription to test preview features and gather feedback.
-
-```azurecli-interactive
-az feature register --name AKSPrivateLinkPreview --namespace Microsoft.ContainerService
-```
-
-It might take several minutes for the registration status to show as *Registered*. You can check on the status by using the following [az feature list][az-feature-list] command:
-
-```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKSPrivateLinkPreview')].{Name:name,State:properties.state}"
-```
-
-When the state is registered, refresh the registration of the *Microsoft.ContainerService* resource provider by using the following [az provider register][az-provider-register] command:
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-az provider register --namespace Microsoft.Network
-```
 ## Create a private AKS cluster
 
 ### Create a resource group
@@ -142,6 +119,7 @@ As mentioned, VNet peering is one way to access your private cluster. To use VNe
 9. Go to the virtual network where you have the VM, select **Peerings**, select the AKS virtual network, and then create the peering. If the address ranges on the AKS virtual network and the VM's virtual network clash, peering fails. For more information, see  [Virtual network peering][virtual-network-peering].
 
 ## Dependencies  
+
 * The Private Link service is supported on Standard Azure Load Balancer only. Basic Azure Load Balancer isn't supported.  
 * To use a custom DNS server, deploy an AD server with DNS to forward to this IP 168.63.129.16
 
