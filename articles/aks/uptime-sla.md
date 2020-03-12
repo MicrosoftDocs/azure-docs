@@ -11,7 +11,7 @@ ms.date: 03/11/2020
 When used with Availability Zones, this **optional** offering allows you to achieve 99.95% availability for the AKS cluster API server. If you do not use Availability Zones, you can achieve 99.9% availability. AKS uses master node replicas across update and fault domains to ensure SLA requirements are met.
 
 > [!Important]
-> The SLA Agreement is for the API server endpoint availability and is not related to AKS control plane availability, or it's performance.
+> TODO verbiage [limit egress traffic][limit-egress-traffic]
 
 ## Region Availability
 
@@ -30,7 +30,7 @@ Uptime SLA is available in the following regions:
 
 ## Billing and refunds
 
-Uptime SLA is an optional paid feature. TODO link for pricing details. Uptime SLA pricing is determined by the number of clusters, and not by the size of the clusters. The Uptime SLA reimbursements are performed monthly. The billing unit is calculated TODO per cluster/hour. TODO legal?
+The SLA Agreement is for the API server endpoint availability and is not related to AKS control plane availability, or it's performance. Uptime SLA is an optional paid feature. TODO link for pricing details. Uptime SLA pricing is determined by the number of clusters, and not by the size of the clusters. The Uptime SLA reimbursements are performed monthly. The billing unit is calculated TODO per cluster/hour. TODO legal?
 
 ## Creating a cluster with Uptime SLA
 
@@ -66,7 +66,7 @@ Worker Node SLA relies on the [SLA for Virtual Machines](https://azure.microsoft
 
 ## Next steps
 
-Use [Availability Zones](availability-zones) to increase high availability with your AKS cluster workloads.
+Use [Availability Zones][availability-zones] to increase high availability with your AKS cluster workloads.
 
 <!-- LINKS - External -->
 [azure-support]: https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest
@@ -78,3 +78,4 @@ Use [Availability Zones](availability-zones) to increase high availability with 
 [faq]: ./faq.md
 [availability-zones]: ./availability-zones.md
 [az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az-aks-create
+[limit-egress-traffic]: limit-egress.traffic.md
