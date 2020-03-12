@@ -14,7 +14,7 @@ ms.custom: mvc
 
 This article compares the following Microsoft cloud services:
 
-* [Microsoft Flow](https://flow.microsoft.com/)
+* [Microsoft Power Automate](https://flow.microsoft.com/)
 * [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/)
 * [Azure Functions](https://azure.microsoft.com/services/functions/)
 * [Azure App Service WebJobs](../app-service/webjobs-create.md)
@@ -23,7 +23,7 @@ All of these services can solve integration problems and automate business proce
 
 If you're looking for a more general comparison between Azure Functions and other Azure compute options, see [Criteria for choosing an Azure compute service](/azure/architecture/guide/technology-choices/compute-comparison) and [Choosing an Azure compute option for microservices](/azure/architecture/microservices/design/compute-options).
 
-## Compare Microsoft Flow and Azure Logic Apps
+## Compare Microsoft Power Automate and Azure Logic Apps
 
 Microsoft Flow and Logic Apps are both *designer-first* integration services that can create workflows. Both services integrate with various SaaS and enterprise applications. 
 
