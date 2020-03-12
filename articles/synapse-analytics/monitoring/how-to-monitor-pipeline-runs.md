@@ -24,12 +24,10 @@ To see the list of pipeline runs in your workspace, first [open the Azure Synaps
 > ![Log in to workspace](./media/common/login-workspace.png)
 
 Once you've opened your workspace, select the **Monitor** section on the left.
-
 > [!div class="mx-imgBorder"]
 > ![Select Monitor hub](./media/common/left-nav.png)
 
 Select **Pipeline runs** to view the list of pipeline runs.
-
 > [!div class="mx-imgBorder"]
 > ![Select pipeline runs](./media/how-to-monitor-pipeline-runs/monitor-hub-nav-pipelineruns.png)
 
