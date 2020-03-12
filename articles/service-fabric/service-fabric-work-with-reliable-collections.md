@@ -56,6 +56,8 @@ To enable volatile support in your service, set the ```HasPersistedState``` flag
 <StatefulServiceType ServiceTypeName="MyServiceType" HasPersistedState="false" />
 ```
 
+**Note**: Existing persisted services cannot be made volatile, and vice versa. You will need to recreate the service from scratch, which means incurring full data loss, if you want to change this flag after a service has already been deployed. 
+
 ## Common pitfalls and how to avoid them
 Now that you understand how the reliable collections work internally, let’s take a look at some common misuses of them. See the code below:
 
