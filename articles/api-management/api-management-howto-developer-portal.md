@@ -153,7 +153,7 @@ The interactive console makes a client-side API request from the browser. You ca
 </cors>
 ```
 
-Apply the CORS in the global scope to ensure it's enabled for all APIs.
+Apply the CORS on the global scope to ensure it's enabled for all APIs.
 
 1. Navigate to **All APIs** in the **APIs** section of your API Management service in the Azure portal.
 2. Click on the **</>** icon in the **Inbound processing** section.
