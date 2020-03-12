@@ -67,7 +67,7 @@ The following are the parameters you pass to the PowerShell script to use.
 
 - `Credential`: A PowerShell credential object with the **ApplicationId** and **password** used to register machines at scale using a [service principal](onboard-service-principal.md). 
 
-1. In a PowerShell console, navigate to the folder where you saved the .ps1 file.
+1. In a PowerShell console, navigate to the folder where you saved the `.ps1` file.
 
 2. Run the following PowerShell commands to compile the MOF document (for information about compiling DSC configurations, see [DSC Configurations](https://docs.microsoft.com/powershell/scripting/dsc/configurations/configurations?view=powershell-7):
 
