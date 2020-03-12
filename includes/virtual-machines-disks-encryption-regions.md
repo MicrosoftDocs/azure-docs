@@ -16,7 +16,7 @@ For premium SSDs, standard SSDs, and standard HDDs, only the following regions c
 - Available as a public preview in the West Central US, East US 2, Canada Central, and North Europe regions.
 
 
-For ultra disks, the following regions support customer-managed keys as a GA offering:
+For ultra disks, only the following regions support customer-managed keys as a GA offering:
 
 - East US
 - West US 2
