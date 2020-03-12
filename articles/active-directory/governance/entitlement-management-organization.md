@@ -91,7 +91,7 @@ To add an external Azure AD directory or domain as a connected organization, fol
 
     Sponsors are internal or external users already in your directory that are the point of contact for the relationship with this connected organization. Internal sponsors are member users in your directory. External sponsors are guest users from the connected organization that were previously invited and are already in your directory. Sponsors can be utilized as approvers when users in this connected organization request access to this access package. For information about how to invite a guest user to your directory, see [Add Azure Active Directory B2B collaboration users in the Azure portal](../b2b/add-users-administrator.md).
 
-    When you select **Add/Remove**, a pane opens on which you can choose internal or external sponsors. The pane displays an unfiltered list of users and groups in your directory.
+    When you select **Add/Remove**, a pane opens in which you can choose internal or external sponsors. The pane displays an unfiltered list of users and groups in your directory.
 
     ![The Sponsors pane](./media/entitlement-management-organization/organization-sponsors.png)
 
