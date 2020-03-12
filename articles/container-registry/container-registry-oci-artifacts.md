@@ -72,8 +72,8 @@ oras push myregistry.azurecr.io/samples/artifact:1.0 \
 **Windows**
 
 ```cmd
-oras push myregistry.azurecr.io/samples/artifact:1.0 \
-    --manifest-config NUL:application/vnd.unknown.config.v1+json \
+.\oras.exe push myregistry.azurecr.io/samples/artifact:1.0 ^
+    --manifest-config NUL:application/vnd.unknown.config.v1+json ^
     .\artifact.txt:application/vnd.unknown.layer.v1+txt
 ```
 
