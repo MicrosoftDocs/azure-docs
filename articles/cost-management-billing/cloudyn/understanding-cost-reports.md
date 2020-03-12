@@ -1,10 +1,9 @@
 ---
 title: Understanding Cloudyn cost management reports in Azure
 description: This article helps you understand Cloudyn cost management reports basic structure and functions.
-keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 01/24/2020
+ms.date: 03/12/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: benshy
@@ -15,6 +14,8 @@ ROBOTS: NOINDEX
 # Understanding Cloudyn cost management reports
 
 This article helps you understand Cloudyn cost management reports basic structure and functions. Most Cloudyn reports are intuitive and have a uniform look and feel. After you read this article, are ready to use all the cost management reports. Many standard features are available throughout the various reports, allowing you to navigate the reports with ease. Reports are customizable, and you can select from several options to calculate and display results.
+
+[!INCLUDE [cloudyn-note](../../../includes/cloudyn-note.md)]
 
 ## Report fields and options
 

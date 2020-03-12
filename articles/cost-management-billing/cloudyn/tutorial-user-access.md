@@ -1,10 +1,9 @@
 ---
 title: Tutorial - Assign access with Cloudyn in Azure
 description: In this tutorial you learn how to assign access to Cloudyn data with user accounts that define access levels to entities.
-keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 01/24/2020
+ms.date: 03/12/2020
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.custom: seodec18
@@ -30,6 +29,8 @@ When you registered your Azure agreement or account, an account with admin permi
 
 
 If you don't have an Azure subscription, create a  [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+[!INCLUDE [cloudyn-note](../../../includes/cloudyn-note.md)]
 
 ## Prerequisites
 

@@ -1,10 +1,9 @@
 ---
 title: Frequently asked questions for Cloudyn in Azure
 description: This article provides answers to some of the common questions about Cloudyn.
-keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 01/24/2020
+ms.date: 03/12/2020
 ms.topic: troubleshooting
 ms.service: cost-management-billing
 ms.reviewer: benshy
@@ -15,6 +14,8 @@ ROBOTS: NOINDEX
 # Frequently asked questions for Cloudyn
 
 This article addresses some common questions about Cloudyn. If you have questions about Cloudyn, you can ask them at [FAQs for Cloudyn](https://social.msdn.microsoft.com/Forums/en-US/231bf072-2c71-4121-8339-ac9d868137b9/faqs-for-cloudyn-cost-management?forum=Cloudyn).
+
+[!INCLUDE [cloudyn-note](../../../includes/cloudyn-note.md)]
 
 ## How can I resolve common indirect enterprise setup problems?
 

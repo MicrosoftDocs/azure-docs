@@ -1,10 +1,9 @@
 ---
 title: Connect an Amazon Web Services account to Cloudyn in Azure
 description: Connect an Amazon Web Services account to view cost and usage data in Cloudyn reports.
-keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 01/24/2020
+ms.date: 03/12/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: benshy
@@ -20,7 +19,7 @@ For more information about AWS IAM identities, see [Identities (Users, Groups, a
 
 Also, you enable AWS detailed billing reports and store the information in an AWS simple storage service (S3) bucket. Detailed billing reports include billing charges with tag and resource information on an hourly basis. Storing the reports allows Cloudyn to retrieve them from your bucket and display the information in its reports.
 
-
+[!INCLUDE [cloudyn-note](../../../includes/cloudyn-note.md)]
 ## AWS role-based access
 
 The following sections walk you through creating a read-only IAM role to provide access to Cloudyn.

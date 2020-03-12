@@ -1,10 +1,9 @@
 ---
 title: Tutorial - Manage costs with Cloudyn in Azure
 description: In this tutorial you learn to manage costs by using cost allocation and showback and chargeback reports.
-keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 01/24/2020
+ms.date: 03/12/2020
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.custom: seodec18
@@ -27,6 +26,8 @@ In this tutorial, you learn how to:
 > * Create showback and chargeback reports.
 
 If you don't have an Azure subscription, create a  [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+[!INCLUDE [cloudyn-note](../../../includes/cloudyn-note.md)]
 
 ## Prerequisites
 

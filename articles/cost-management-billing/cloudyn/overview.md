@@ -1,10 +1,9 @@
 ---
 title: Overview of Cloudyn in Azure
 description: Cloudyn is a multi-cloud cost management solution that helps you use Azure and other cloud resources.
-keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 01/24/2020
+ms.date: 03/12/2020
 ms.topic: overview
 ms.service: cost-management-billing
 ms.reviewer: benshy
@@ -16,8 +15,7 @@ ROBOTS: NOINDEX
 
 Cloudyn, a Microsoft subsidiary, allows you to track cloud usage and expenditures for your Azure resources and other cloud providers including AWS and Google. Easy-to-understand dashboard reports help with cost allocation and showbacks/chargebacks as well. Cloudyn helps optimize your cloud spending by identifying underutilized resources that you can then manage and adjust.
 
-> [!NOTE]
-> Cloudyn is being deprecated by the end of 2020. Existing Cloudyn features are being integrated directly into the Azure portal wherever possible. No new customers are being onboarded at this time, but support will remain for the product until it is fully deprecated. 
+[!INCLUDE [cloudyn-note](../../../includes/cloudyn-note.md)]
 
 To watch an introductory video, see [Introduction to Azure Cloudyn](https://azure.microsoft.com/resources/videos/azure-cost-management-overview-and-demo/).
  
