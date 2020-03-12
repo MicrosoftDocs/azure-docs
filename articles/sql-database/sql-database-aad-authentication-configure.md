@@ -18,7 +18,7 @@ tags: azure-synapse
 This article shows you how to create and populate Azure AD, and then use Azure AD with Azure [SQL Database](sql-database-technical-overview.md), [managed instance](sql-database-managed-instance.md), and [Azure Synapse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md). For an overview, see [Azure Active Directory Authentication](sql-database-aad-authentication.md).
 
 > [!NOTE]
-> This article applies to Azure SQL server, and to both SQL Database and Azure Synpase] that are created on the Azure SQL server. For simplicity, SQL Database is used when referring to both SQL Database and Azure Synapse.
+> This article applies to Azure SQL server, and to both SQL Database and Azure Synpase that are created on the Azure SQL server. For simplicity, SQL Database is used when referring to both SQL Database and Azure Synapse.
 
 > [!IMPORTANT]  
 > Connecting to SQL Server running on an Azure VM is not supported using an Azure Active Directory account. Use a domain Active Directory account instead.

@@ -21,7 +21,7 @@ To quickly generate a search page for your client, explore these options:
 + Use the [application generator](search-create-app-portal.md) in the portal to create an HTML page with a search bar, faceted navigation, and results area.
 + Follow the [Create your first app in C#](tutorial-csharp-create-first-app.md) tutorial to create a functional client.
 
-Several code samples include a web front-end interface, which you can find here: [New York City Jobs demo app](https://azjobsdemo.azurewebsites.net/), [JavaScript sample code with a live demo site](https://github.com/liamca/azure-search-javascript-samples), and [CognitiveSearchFrontEnd](https://github.com/LuisCabrer/CognitiveSearchFrontEnd).
+Several code samples include a web front-end interface, which you can find here: [New York City Jobs demo app](https://aka.ms/azjobsdemo), [JavaScript sample code with a live demo site](https://github.com/liamca/azure-search-javascript-samples), and [CognitiveSearchFrontEnd](https://github.com/LuisCabrer/CognitiveSearchFrontEnd).
 
 > [!NOTE]
 > A valid request includes a number of elements, such as a service URL and path, HTTP verb, `api-version`, and so on. For brevity, we trimmed the examples to highlight just the syntax that is relevant to pagination. For more information about request syntax, see [Azure Cognitive Search REST APIs](https://docs.microsoft.com/rest/api/searchservice).
