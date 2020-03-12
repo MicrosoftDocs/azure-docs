@@ -70,9 +70,7 @@
     items:
     - name: Transforms and Jobs
       href: transforms-jobs-concept.md 
-      displayName: preset, schema 
-    - name: Error codes
-      href: job-error-codes.md         
+      displayName: preset, schema         
   - name: Encoding content
     items:
     - name: Overview
@@ -91,9 +89,7 @@
       href: analyzing-video-audio-files-concept.md
       displayName: analyzing, presets, jobs
     - name: Transforms and Jobs
-      href: transforms-jobs-concept.md 
-    - name: Job error codes
-      href: job-error-codes.md     
+      href: transforms-jobs-concept.md    
   - name: Live streaming 
     items:
     - name: Overview
@@ -114,10 +110,6 @@
       href: live-event-states-billing.md
     - name: Latency
       href: live-event-latency.md  
-    - name: Become an on-premises encoder partner
-      href: become-on-premises-encoder-partner.md      
-    - name: Live Event error codes
-      href: live-event-error-codes.md
   - name: Packaging and delivery
     items:
     - name: Dynamic packaging
@@ -287,7 +279,15 @@
         displayName: subclipping, clip, edit, trim, clipping
       - name: With REST
         href: subclip-video-rest-howto.md
-        displayName: subclipping, clip, edit, trim, clipping        
+        displayName: subclipping, clip, edit, trim, clipping  
+    - name: Error codes
+      href: job-error-codes.md         
+  - name: Stream live
+    items:
+    - name: Become an on-premises encoder partner
+      href: become-on-premises-encoder-partner.md      
+    - name: Live Event error codes
+      href: live-event-error-codes.md    
   - name: Use Event Grid
     items:
     - name: Monitor events - Portal
