@@ -11,15 +11,15 @@ ms.author: raynew
 
 
 
-# Migrate VMware VMs to Azure virtual machines with server-side encryption(SSE) using customer-managed keys(CMK)
+# Migrate VMware VMs to Azure VMs enabled with server-side encryption and customer-managed keys
 
 This article describes how to migrate VMware VMs to Azure virtual machines with disks encrypted using server-side encryption(SSE) with customer-managed keys(CMK), using Azure Migrate Server Migration (agentless replication).
 
-The Azure Migrate Server Migration portal experience lets you [migrate VMware VMs to Azure with agentless replication.](tutorial-migrate-vmware.md) The portal experience currently doesn't offer the ability to turn on SSE with CMK for your replicated disks in Azure. The ability to turn on SSE with CMK for the replicated disks is currently available only through REST API. In this article, you'll see how to create and deploy an [Azure Resource Manager(ARM) template](../azure-resource-manager/templates/overview.md) to replicate a VMware VM and configure the replicated disks in Azure to use SSE with CMK.
+The Azure Migrate Server Migration portal experience lets you [migrate VMware VMs to Azure with agentless replication.](tutorial-migrate-vmware.md) The portal experience currently doesn't offer the ability to turn on SSE with CMK for your replicated disks in Azure. The ability to turn on SSE with CMK for the replicated disks is currently available only through REST API. In this article, you'll see how to create and deploy an [Azure Resource Manager template](../azure-resource-manager/templates/overview.md) to replicate a VMware VM and configure the replicated disks in Azure to use SSE with CMK.
 
-The examples in this article use [Azure PowerShell](/powershell/azure/new-azureps-module-az) to perform the tasks needed to create and deploy the ARM template.
+The examples in this article use [Azure PowerShell](/powershell/azure/new-azureps-module-az) to perform the tasks needed to create and deploy the Resource Manager template.
 
-[Learn more](../virtual-machines/windows/disk-encryption.md) about server-side encryption(SSE) with customer managed keys(CMK) for managed disks.
+[Learn more](../virtual-machines/windows/disk-encryption.md) about server-side encryption (SSE) with customer managed keys(CMK) for managed disks.
 
 ## Prerequisites
 
@@ -33,7 +33,7 @@ Once VM discovery is complete, the Discovered Servers line on the Server Migrati
 
 Before you can start replicating VMs, the replication infrastructure needs to be prepared.
 
-1. Create a Service Bus in the target region. The Service Bus is used by the on-premises Azure Migrate appliance to communicate with the Server Migration service to coordinate replication and migration.
+1. Create a Service Bus instance in the target region. The Service Bus is used by the on-premises Azure Migrate appliance to communicate with the Server Migration service to coordinate replication and migration.
 2. Create a storage account for transfer of operation logs from replication.
 3. Create a storage account that the Azure Migrate appliance uploads replication data to.
 4. Create a Key Vault and configure the Key Vault to manage shared access signature tokens for blob access on the storage accounts created in step 3 and 4.
@@ -43,19 +43,19 @@ Before you can start replicating VMs, the replication infrastructure needs to be
 
 The replication infrastructure must be created in the target Azure region for the migration and in the target Azure subscription that the VMs are being migrated to.
 
-The Server Migration portal experience simplifies preparation of the replication infrastructure by automatically doing this for you when you replicate a VM for the first time in a project. In this article, we'll assume that you've already replicated one or more VMs using the portal experience and that the replication infrastructure is already created. We'll look at how to discover details of the existing replication infrastructure and how to use these details as inputs to the ARM template that will be used to set up replication with CMK.
+The Server Migration portal experience simplifies preparation of the replication infrastructure by automatically doing this for you when you replicate a VM for the first time in a project. In this article, we'll assume that you've already replicated one or more VMs using the portal experience and that the replication infrastructure is already created. We'll look at how to discover details of the existing replication infrastructure and how to use these details as inputs to the Resource Manager template that will be used to set up replication with CMK.
 
 ### Identifying replication infrastructure components
 
 1. On the Azure portal, go the resource groups page and select the resource group in which the Azure Migrate project was created.
-2. Select **Deployments** from the left menu and search for a deployment name beginning with the string *"Microsoft.MigrateV2.VMwareV2EnableMigrate"*. You'll see a list of ARM templates created by the portal experience to set up replication for VMs in this project. We'll download one such ARM template and use that as the base to prepare the ARM template for replication with CMK.
+2. Select **Deployments** from the left menu and search for a deployment name beginning with the string *"Microsoft.MigrateV2.VMwareV2EnableMigrate"*. You'll see a list of Resource Manager templates created by the portal experience to set up replication for VMs in this project. We'll download one such template and use that as the base to prepare the template for replication with CMK.
 3. To download the template, select any deployment matching the string pattern in the previous step > select **Template** from the left menu > Click **Download** from the top menu. Save the template.json file locally. You'll edit this template file in the last step.
 
 ## Create a Disk Encryption Set
 
 A disk encryption set object maps Managed Disks to a Key Vault that contains the CMK to use for SSE. To replicate VMs with CMK, you'll create a disk encryption set and pass it as an input to the replication operation.
 
-Follow the example [here](../virtual-machines/windows/disk-encryption.md#powershell) to create a disk encryption set using Azure PowerShell. Ensure that the disk encryption set is created in the target subscription that VMs are being migrated to and in the target Azure region for the migration.
+Follow the example [here](../virtual-machines/windows/disk-encryption.md#powershell) to create a disk encryption set using Azure PowerShell. Ensure that the disk encryption set is created in the target subscription that VMs are being migrated to, and in the target Azure region for the migration.
 
 ```azurepowershell
 $Location = "southcentralus"                           #Target Azure region for migration 
@@ -80,7 +80,7 @@ New-AzRoleAssignment -ResourceName $KeyVaultName -ResourceGroupName $TargetResou
 
 ## Get details of the VMware VM to migrate
 
-In this step, you'll use Azure PowerShell to get the details of the VM that needs to be migrated. These details will be used to construct the ARM template for replication. Specifically, the two properties of interest are:
+In this step, you'll use Azure PowerShell to get the details of the VM that needs to be migrated. These details will be used to construct the Resource Manager template for replication. Specifically, the two properties of interest are:
 
 - The machine Resource ID for the discovered VMs.
 - The list of disks for the VM and their disk identifiers.
@@ -134,9 +134,9 @@ uuid                                 label       name    maxSizeInBytes
 
 ```
 
-## Create an ARM template for replication
+## Create an Azure Resource Manager template for replication
 
-- Open the ARM template file that you downloaded in the **Identifying replication infrastructure components** step in an editor of your choice.
+- Open the Resource Manager template file that you downloaded in the **Identifying replication infrastructure components** step in an editor of your choice.
 - Remove all resource definitions from the template except for resources that are of type *"Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationMigrationItems"*
 - If there are multiple resource definitions of the above type, remove all but one. Remove any **dependsOn** property definitions from the resource definition.
 - At the end of this step, you should have a file that looks like the example below and has the same set of properties.
@@ -244,9 +244,9 @@ uuid                                 label       name    maxSizeInBytes
 }
 ```
 
-## Deploy the ARM template and set up replication for the VM
+## Deploy the Azure Resource Manager template and set up replication for the VM
 
-You can now deploy the edited ARM template to the project resource group to set up replication for the VM. Learn how to [deploy resource with ARM templates and Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md)
+You can now deploy the edited Resource Manager template to the project resource group to set up replication for the VM. Learn how to [deploy resource with Azure Resource Manager templates and Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md)
 
 ```azurepowershell
 New-AzResourceGroupDeployment -ResourceGroupName $ProjectResourceGroup -TemplateFile "C:\Users\Administrator\Downloads\template.json"
