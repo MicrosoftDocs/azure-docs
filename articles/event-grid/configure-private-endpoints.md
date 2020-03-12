@@ -208,7 +208,7 @@ az network vnet subnet update \
 # create event grid topic. update <LOCATION>
 az rest --method put \
     --uri $topicUri \
-    --body "{\""location\"":\""<LOCATION>\"", \""sku\"": {\""name\"": \""premium\""}, \""properties\"": {\""publicNetworkAccess\"":\""Disabled\""}}"
+    --body "{\""location\"":\""LOCATION\"", \""sku\"": {\""name\"": \""premium\""}, \""properties\"": {\""publicNetworkAccess\"":\""Disabled\""}}"
 
 # verify that the topic was created.
 az rest --method get \
@@ -383,11 +383,13 @@ The following sample PowerShell snippet shows you how to approve a private endpo
 ```azurepowershell-interactive
 $approvedBody = @{"properties"=@{"privateLinkServiceConnectionState"=@{"status"="approved";"description"="connection approved";"actionsRequired"="none"}}} | ConvertTo-Json
 
+# approve endpoint connection
 Invoke-RestMethod -Method 'Put'  `
     -Uri "https://management.azure.com/subscriptions/<AzuRE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventGrid/topics/<EVENT GRID TOPIC NAME>/privateEndpointConnections/<PRIVATE ENDPOINT NAME>.<GUID>?api-version=2020-04-01-preview"  `
     -Headers $Headers  `
     -Body $approvedBody
 
+# confirm that the endpoint connection was approved
 Invoke-RestMethod -Method 'Get'  `
     -Uri "https://management.azure.com/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventGrid/topics/<EVENT GRID TOPIC NAME>/privateEndpointConnections/<PRIVATE ENDPOINT NAME>.<GUID>?api-version=2020-04-01-preview"  `
     -Headers $Headers
