@@ -1,7 +1,7 @@
 ---
-title: Create, develop, and maintain Azure Synapse Studio notebooks
-description: In this article, you learn how to create and develop Azure Synapse Studio notebooks to do data preparation and visualization.
-services: synapse-analytics 
+title: Create, develop, and maintain Azure Synapse Studio (preview) notebooks
+description: In this article, you learn how to create and develop Azure Synapse Studio (preview) notebooks to do data preparation and visualization.
+services: synapse analytics 
 author: ruixinxu 
 ms.service: synapse-analytics 
 ms.topic: conceptual 
@@ -11,9 +11,9 @@ ms.author: ruxu
 ms.reviewer: 
 ---
 
-# Create, develop, and maintain Azure Synapse Studio notebooks
+# Create, develop, and maintain Azure Synapse Studio (preview) notebooks
 
-An Azure Synapse Studio notebook is a web interface for you to create files that contain live code, visualizations, and narrative text. Notebooks are a good place to validate ideas and use quick experiments to get insights from your data. Notebooks are also widely used in data preparation, data visualization, machine learning, and other Big Data scenarios.
+An Azure Synapse Studio (preview) notebook is a web interface for you to create files that contain live code, visualizations, and narrative text. Notebooks are a good place to validate ideas and use quick experiments to get insights from your data. Notebooks are also widely used in data preparation, data visualization, machine learning, and other Big Data scenarios.
 
 With an Azure Synapse Studio notebook, you can:
 

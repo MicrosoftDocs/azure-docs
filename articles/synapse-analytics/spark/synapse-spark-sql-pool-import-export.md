@@ -1,9 +1,9 @@
 ---
-title: Import and Exporting data between Spark pools and SQL pools in Synapse
-description: This article provides information on how to use the custom connector for moving data back and forth between SQL pools and Spark pools.
-services: sql-data-warehouse 
+title: Import and Exporting data between Spark pools (preview) and SQL pools
+description: This article provides information on how to use the custom connector for moving data back and forth between SQL pools and Spark pools (preview).
+services: synapse-analytics 
 author: euangMS 
-ms.service:  synapse-analytics 
+ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: 
 ms.date: 01/22/2019 
@@ -12,7 +12,7 @@ ms.reviewer: euang
 ---
 # Introduction
 
-The Spark SQL Analytics Connector is designed to efficiently transfer data between Spark pools and SQL pools in Azure Synapse. The Spark SQL Analytics Connector works on SQL pools only, it does not work with SQL on-Demand.
+The Spark SQL Analytics Connector is designed to efficiently transfer data between Spark pool (preview) and SQL pools in Azure Synapse. The Spark SQL Analytics Connector works on SQL pools only, it does not work with SQL on-Demand.
 
 ## Design
 

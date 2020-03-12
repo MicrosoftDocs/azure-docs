@@ -3,7 +3,7 @@ title: Optimize Spark jobs for performance in Azure Synapse Analytics
 description: This article provides an introduction to Apache Spark in Azure Synapse Analytics and the different concepts.
 services: synapse-analytics
 author: euangMS
-ms.service:  synapse-analytics
+ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: 
 ms.date: 02/21/2019
@@ -11,7 +11,7 @@ ms.author: euang
 ms.reviewer: euang
 ---
 
-# Optimize Apache Spark jobs in Azure Synapse Analytics
+# Optimize Apache Spark jobs (preview) in Azure Synapse Analytics
 
 Learn how to optimize [Apache Spark](https://spark.apache.org/) cluster configuration for your particular workload.  The most common challenge is memory pressure, because of improper configurations (particularly wrong-sized executors), long-running operations, and tasks that result in Cartesian operations. You can speed up jobs with appropriate caching, and by allowing for [data skew](#optimize-joins-and-shuffles). For the best performance, monitor and review long-running and resource-consuming Spark job executions.
 

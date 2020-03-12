@@ -37,8 +37,8 @@ A: To start using Azure Synapse Analytics, create a Synapse workspace (it's free
 
 A: Azure Synapse has the following capabilities:
 
-- SQL Analytics offers analytics capabilities either with SQL pool or SQL on-demand (Serverless).
-- Spark with full support for Scala, Python, SparkSQL, and C#
+- SQL Analytics offers analytics capabilities either with SQL pool or SQL on-demand (preview) (Serverless).
+- Apache Spark pool (preview) with full support for Scala, Python, SparkSQL, and C#
 - Data Flow offering a code-free big data transformation experience
 - Data Integration & Orchestration to bring your data and operationalize all of your code development
 - Studio to access all of these capabilities through a single Web UI
