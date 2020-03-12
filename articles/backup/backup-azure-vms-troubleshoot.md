@@ -78,8 +78,8 @@ The Backup operation failed due to an issue with Windows service **COM+ System**
 * If unable to restart the service, then reinstall **Distributed Transaction Coordinator** service by following the below steps:
   * Stop the MSDTC service
   * Open a command prompt (cmd)
-  * Run command “msdtc -uninstall”
-  * Run command “msdtc -install”
+  * Run command "msdtc -uninstall"
+  * Run command "msdtc -install"
   * Start the MSDTC service
 * Start the Windows service **COM+ System Application**. After the **COM+ System Application** starts, trigger a backup job from the Azure portal.</ol>
 
@@ -185,7 +185,7 @@ This will ensure the snapshots are taken through host instead of Guest. Retry th
 | The VM Agent isn't present on the virtual machine: <br>Install any prerequisite and the VM Agent. Then restart the operation. |Read more about [VM Agent installation and how to validate VM Agent installation](#vm-agent). |
 | **Error code**: ExtensionSnapshotFailedNoSecureNetwork <br/> **Error message**: The snapshot operation failed because of failure to create a secure network communication channel. | <ol><li> Open the Registry Editor by running **regedit.exe** in an elevated mode. <li> Identify all versions of the .NET Framework present in your system. They're present under the hierarchy of registry key **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft**. <li> For each .NET Framework present in the registry key, add the following key: <br> **SchUseStrongCrypto"=dword:00000001**. </ol>|
 | **Error code**: ExtensionVCRedistInstallationFailure <br/> **Error message**: The snapshot operation failed because of failure to install Visual C++ Redistributable for Visual Studio 2012. | Navigate to C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot\agentVersion and install vcredist2013_x64.<br/>Make sure that the registry key value that allows the service installation is set to the correct value. That is, set the **Start** value in **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Msiserver** to **3** and not **4**. <br><br>If you still have issues with installation, restart the installation service by running **MSIEXEC /UNREGISTER** followed by **MSIEXEC /REGISTER** from an elevated command prompt.  |
-
+| **Error code**:  UserErrorRequestDisallowedByPolicy <BR> **Error message**: An invalid policy is configured on the VM which is preventing Snapshot operation. | If you have an Azure Policy that [governs tags within your environment](https://docs.microsoft.com/azure/governance/policy/tutorials/govern-tags), either consider changing the policy from a [Deny effect](https://docs.microsoft.com/azure/governance/policy/concepts/effects#deny) to a [Modify effect](https://docs.microsoft.com/azure/governance/policy/concepts/effects#modify), or create the resource group manually according to the [naming schema required by Azure Backup](https://docs.microsoft.com/azure/backup/backup-during-vm-creation#azure-backup-resource-group-for-virtual-machines).
 ## Jobs
 
 | Error details | Workaround |
