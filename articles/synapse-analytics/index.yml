@@ -57,11 +57,11 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Load data from Azure Data Lake Storage
-            url: data-integration-data-lake.md
+            url: ./data-integration/data-integration-data-lake.md
       - linkListType: tutorial
         links:
           - text: Load data from Azure Blob storage
-            url: data-integration-sql-pool.md
+            url: ./data-integration/data-integration-sql-pool.md
 
   # Card
   - title: Performance tuning
