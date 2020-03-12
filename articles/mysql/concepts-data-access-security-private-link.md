@@ -46,7 +46,7 @@ With Private Link, you can enable cross-premises access to the private endpoint 
 
 ### Creation Process
 
-private endpoints are required to enable Private Link. This can be done using the following how-to guides.
+Private endpoints are required to enable Private Link. This can be done using the following how-to guides.
 
 * [Azure portal](https://docs.microsoft.com/azure/mysql/howto-configure-privatelink-portal)
 * [CLI](https://docs.microsoft.com/azure/mysql/howto-configure-privatelink-cli)
