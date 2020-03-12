@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: jordane
 author: jpe316
-ms.date: 10/11/2019
+ms.date: 03/05/2020
 ---
 # Git integration for Azure Machine Learning
 

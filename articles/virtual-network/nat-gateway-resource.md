@@ -331,7 +331,7 @@ A SNAT port is available for reuse to the same destination IP address and destin
 ## Limitations
 
 - NAT is compatible with standard SKU public IP, public IP prefix, and load balancer resources.   Basic resources (for example basic load balancer) and any products derived from them aren't compatible with NAT.  Basic resources must be placed on a subnet not configured with NAT.
-- IPv4 address family is supported.  NAT doesn't interact with IPv6 address family.
+- IPv4 address family is supported.  NAT doesn't interact with IPv6 address family.  NAT cannot be deployed on a subnet with IPv6 prefix.
 - NSG flow logging isn't supported when using NAT.
 - NAT can't span multiple virtual networks.
 
@@ -348,7 +348,7 @@ We want to know how we can improve the service. Share your [feedback on the Publ
 * Learn about [virtual network NAT](nat-overview.md).
 * Learn about [metrics and alerts for NAT gateway resources](nat-metrics.md).
 * Learn about [troubleshooting NAT gateway resources](troubleshoot-nat.md).
-* [Tell us what to build next in UserVoice](https://aka.ms/natuservoice).
+* [Tell us what to build next for Virtual Network NAT in UserVoice](https://aka.ms/natuservoice).
 * [Provide feedback on the Public Preview](https://aka.ms/natfeedback).
 * Tutorial for validating NAT Gateway
   - [Azure CLI](tutorial-create-validate-nat-gateway-cli.md),

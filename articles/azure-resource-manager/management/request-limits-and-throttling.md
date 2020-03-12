@@ -118,7 +118,7 @@ Get-AzResourceGroup -Debug
 
 Which returns many values, including the following response value:
 
-```powershell
+```output
 DEBUG: ============================ HTTP RESPONSE ============================
 
 Status Code:
@@ -137,7 +137,7 @@ New-AzResourceGroup -Name myresourcegroup -Location westus -Debug
 
 Which returns many values, including the following values:
 
-```powershell
+```output
 DEBUG: ============================ HTTP RESPONSE ============================
 
 Status Code:
