@@ -189,7 +189,7 @@ As part of creating the IoT hub, the script that we ran in the previous section 
 
    * It points to the blob storage container you created named `devicedata` as indicated by **Container name**.
    * Its **Filename format** has partition as the last element in the name. We find this format is more convenient for the file operations we will do with Azure Notebooks later in the tutorial.
-   * The status should be healthy.
+   * The **Status** should be healthy.
 
 1. Select the **Routes** tab.
 
