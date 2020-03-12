@@ -36,7 +36,7 @@ The table below lists the [user resource type](https://docs.microsoft.com/graph/
 |accountEnabled  |Boolean|Whether the user account is enabled or disabled: **true** if the account is enabled, otherwise **false**.|Yes|No|Persisted, Output|
 |ageGroup        |String|The user’s age group. Possible values: null, Undefined, Minor, Adult, NotAdult.|Yes|No|Persisted, Output|
 |alternativeSecurityId|String|A single user identity from the external identity provider.||No|No|Input, Persisted, Output|
-|alternativeSecurityIds|alternativeSecurityIdCollection|A collection of user identities from external identity providers.|No|No|Persisted, Output|
+|alternativeSecurityIds|alternative securityId collection|A collection of user identities from external identity providers.|No|No|Persisted, Output|
 |city            |String|The city in which the user is located. Max length 128.|Yes|Yes|Persisted, Output|
 |consentProvidedForMinor|String|Whether the consent has been provided for a minor. Allowed values: null, granted, denied, or notRequired.|Yes|No|Persisted, Output|
 |country         |String|The country/region in which the user is located. Example: “US” or “UK”. Max length 128.|Yes|Yes|Persisted, Output|
@@ -56,7 +56,7 @@ The table below lists the [user resource type](https://docs.microsoft.com/graph/
 |mobile (mobilePhone) |String|The primary cellular telephone number for the user. Max length 64.|Yes|No|Persisted, Output|
 |netId           |String|Net ID.|No|No|Persisted, Output|
 |objectId        |String|A Guid that is the unique identifier for the user. Example: 12345678-9abc-def0-1234-56789abcde. Read only, Immutable.|Read only|Yes|Input, Persisted, Output|
-|otherMails      |StringCollection|A list of additional email addresses for the user. Example: ["bob@contoso.com", "Robert@fabrikam.com"].|Yes (Alternate email)|No|Persisted, Output|
+|otherMails      |String collection|A list of additional email addresses for the user. Example: ["bob@contoso.com", "Robert@fabrikam.com"].|Yes (Alternate email)|No|Persisted, Output|
 |password        |String|The password for the local account during user creation.|No|No|Persisted|
 |passwordPolicies     |String|Policy of the password. It's a string consisting of different policy name separated by comma. i.e. "DisablePasswordExpiration, DisableStrongPassword".|No|No|Persisted, Output|
 |physicalDeliveryOfficeName (officeLocation)|String|The office location in the user's place of business. Max length 128.|Yes|No|Persisted, Output|
@@ -69,9 +69,9 @@ The table below lists the [user resource type](https://docs.microsoft.com/graph/
 |signInNames.emailAddress |String|The unique email address of the local account user in the directory. Use this to create or get a user with a specific sign-in email address. Specifying this in PersistedClaims alone during Patch operation will remove other types of signInNames. If you would like to add a new type of signInNames, you also need to persist existing signInNames.|No|No|Input, Persisted, Output|
 |state           |String|The state or province in the user's address. Max length 128.|Yes|Yes|Persisted, Output|
 |streetAddress   |String|The street address of the user's place of business. Max length 1024.|Yes|Yes|Persisted, Output|
-|strongAuthenticationAlternativePhoneNumber<sup>1</sup>|String|The secondary telephone number of the user, used for Multi factor authentication.|Yes|No|Persisted, Output|
-|strongAuthenticationEmailAddress<sup>1</sup>|String|The SMTP address for the user. Example: "bob@contoso.com" This attribute is used for sign-in with username policy, to store the user email address. The email address then used in a password reset flow.|Yes|No|Persisted, Output|
-|strongAuthenticationPhoneNumber<sup>1</sup>|String|The primary telephone number of the user, used for Multi factor authentication.|Yes|No|Persisted, Output|
+|strongAuthentication AlternativePhoneNumber<sup>1</sup>|String|The secondary telephone number of the user, used for Multi factor authentication.|Yes|No|Persisted, Output|
+|strongAuthentication EmailAddress<sup>1</sup>|String|The SMTP address for the user. Example: "bob@contoso.com" This attribute is used for sign-in with username policy, to store the user email address. The email address then used in a password reset flow.|Yes|No|Persisted, Output|
+|strongAuthentication PhoneNumber<sup>1</sup>|String|The primary telephone number of the user, used for Multi factor authentication.|Yes|No|Persisted, Output|
 |surname         |String|The user's surname (family name or last name). Max length 64.|Yes|Yes|Persisted, Output|
 |telephoneNumber (first entry of businessPhones)|String|The primary telephone number of the user's place of business.|Yes|No|Persisted, Output|
 |userPrincipalName    |String|The user principal name (UPN) of the user. The UPN is an Internet-style login name for the user based on the Internet standard RFC 822. The domain must be present in the tenant's collection of verified domains. This property is required when an account is created. Immutable.|No|No|Input, Persisted, Output|
