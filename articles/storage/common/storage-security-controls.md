@@ -34,7 +34,7 @@ This article documents the security controls built into Azure Storage.
 | Service endpoint support| Yes |  |
 | Service tags support| Yes | See [Azure service tags overview](../../virtual-network/service-tags-overview.md) for more information about service tags supported by Azure Storage. |
 | VNet injection support| N/A |  |
-| Network isolation and firewalling support| Yes | |
+| Network isolation and firewall support| Yes | |
 | Forced tunneling support| N/A |  |
 
 ## Monitoring & logging
