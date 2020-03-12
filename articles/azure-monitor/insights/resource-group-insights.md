@@ -1,16 +1,13 @@
 ---
-title:  Azure Monitor Resource Group Insights | Microsoft Docs
+title: Azure Monitor Resource Group Insights | Microsoft Docs
 description: Understand the health and performance of your distributed applications and services at the Resource Group level with Azure Monitor
-services: azure-monitor
-author: NumberByColors
-manager: carmonm
-ms.service: azure-monitor
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.subservice: 
 ms.topic: conceptual
-ms.date: 09/19/2018
-ms.reviewer: mbullwin
+author: NumberByColors
 ms.author: daviste
+ms.date: 09/19/2018
+
+ms.reviewer: mbullwin
 ---
 
 # Monitor resource groups with Azure Monitor (preview)

@@ -10,7 +10,7 @@
     - name: Deploy Ansible solution template to CentOS
       href: ./ansible-deploy-solution-template.md
     - name: Install Ansible on Linux virtual machines
-      href: /azure/virtual-machines/linux/ansible-install-configure
+      href: ./ansible-install-configure.md
       maintainContext: true
     - name: Run playbooks in Cloud Shell
       href: ./ansible-run-playbook-in-cloudshell.md
@@ -18,10 +18,10 @@
       expanded: true
       items:
       - name: Configure Linux virtual machines
-        href: /azure/virtual-machines/linux/ansible-create-vm
+        href: ./ansible-create-vm.md
         maintainContext: true
       - name: Manage Linux virtual machines
-        href: /azure/virtual-machines/linux/ansible-manage-linux-vm
+        href: ./ansible-manage-linux-vm.md
         maintainContext: true
 - name: Tutorials 
   items:
@@ -71,7 +71,11 @@
     items:
     - name: Manage your Azure resources
       href: ./ansible-manage-azure-dynamic-inventories.md
-  - name: Virtual machines scale sets
+  - name: Virtual machines
+    items:
+    - name: Create Shared Image Gallery
+      href: ansible-vm-create-from-shared-generalized-image.md
+  - name: Virtual machine scale sets
     items:
     - name: Configure 
       href: ./ansible-create-configure-vmss.md
@@ -81,6 +85,8 @@
       href: ./ansible-auto-scale-vmss.md
     - name: Update custom image
       href: ./ansible-vmss-update-image.md
+    - name: Create Shared Image Gallery
+      href: ansible-vm-create-from-shared-generalized-image.md
   - name: Virtual network
     items:
     - name: Configure peering

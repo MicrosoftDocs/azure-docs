@@ -1,6 +1,6 @@
 ---
 title: Sign up for Video Indexer and upload your first video - Azure
-titlesuffix: Azure Media Services
+titleSuffix: Azure Media Services
 description: Learn how to sign up and upload your first video using the Video Indexer portal.
 services: media-services
 author: Juliako
@@ -9,7 +9,7 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: tutorial
-ms.date: 05/15/2019
+ms.date: 02/03/2020
 ms.author: juliako
 ---
 
@@ -25,6 +25,15 @@ To start developing with Video Indexer, browse to the [Video Indexer](https://ww
 
 ## Upload a video using the Video Indexer website
 
+> [!NOTE]
+> A name of the video must be no greater than 80 characters.
+
+### Supported file formats for Video Indexer
+
+See the [input container/file formats](../latest/media-encoder-standard-formats.md#input-containerfile-formats) article for a list of file formats that you can use with Video Indexer.
+
+### Upload a video
+
 1. Sign in on the [Video Indexer](https://www.videoindexer.ai/) website.
 2. To upload a video, press the **Upload** button or link.
 
@@ -36,13 +45,17 @@ To start developing with Video Indexer, browse to the [Video Indexer](https://ww
 
     Once Video Indexer is done analyzing, you will get a notification with a link to your video and a short description of what was found in your video. For example: people, topics, OCRs.
 
-## Next steps
-
-You can now use the [Video Indexer](video-indexer-view-edit.md) website or [Video Indexer Developer Portal](video-indexer-use-apis.md) to see the insights of the video. 
-
 ## See also
 
-[Video Indexer overview](video-indexer-overview.md)
+See [Upload and index videos](upload-index-videos.md) for more details.
 
-[Start using APIs](video-indexer-use-apis.md).
+After you upload and index a video, you can start using [Video Indexer](video-indexer-view-edit.md) website or [Video Indexer Developer Portal](video-indexer-use-apis.md) to see the insights of the video. 
+
+[Start using APIs](video-indexer-use-apis.md)
+
+## Next steps
+
+For detailed introduction please visit our [introduction lab](https://github.com/Azure-Samples/media-services-video-indexer/blob/master/IntroToVideoIndexer.md). 
+
+At the end of the workshop you will have a good understanding of the kind of information that can be extracted from video and audio content, you will be more prepared to identify opportunities related to content intelligence, pitch video AI on Azure, and demo several scenarios on Video Indexer.
 

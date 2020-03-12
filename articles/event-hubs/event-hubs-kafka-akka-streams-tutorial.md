@@ -3,7 +3,7 @@ title: Using Akka Streams for Apache Kafka - Azure Event Hubs| Microsoft Docs
 description: This article provides information on how to connect Akka Streams to an Apache Kafka enabled Azure event hub. 
 services: event-hubs
 documentationcenter: ''
-author: basilhariri
+author: ShubhaVijayasarathy
 manager: timlt
 editor: ''
 
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
-ms.author: bahariri
+ms.author: shvija
 
 ---
 

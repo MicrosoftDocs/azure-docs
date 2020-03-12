@@ -1,6 +1,6 @@
 ---
 title: Use Azure Media Content Moderator to detect possible adult and racy content | Microsoft Docs
-description: Video moderation helps detect potential adult and racy content in videos.
+description: Azure Media Content Moderator media processor helps detect potential adult and racy content in videos.
 services: media-services
 documentationcenter: ''
 author: sanjeev3
@@ -18,6 +18,9 @@ ms.author: sajagtap
 
 ---
 # Use Azure Media Content Moderator to detect possible adult and racy content 
+
+> [!NOTE]
+> The **Azure Media Content Moderator** media processor will be retired. For the retirement date, see the [legacy components](legacy-components.md) topic.
 
 ## Overview
 The **Azure Media Content Moderator** media processor (MP) enables you to use machine-assisted moderation for your videos. For example, you might want to detect possible adult and racy content in videos and review the flagged content by your human moderation teams.

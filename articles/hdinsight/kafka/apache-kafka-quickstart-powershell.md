@@ -1,5 +1,5 @@
 ---
-title: Set up Apache Kafka on HDInsight using Azure PowerShell - Quickstart
+title: 'Quickstart: Create Apache Kafka with Azure PowerShell - HDInsight'
 description: In this quickstart, you learn how to create an Apache Kafka cluster on Azure HDInsight using Azure PowerShell. You also learn about Kafka topics, subscribers, and consumers.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -24,6 +24,8 @@ The Kafka API can only be accessed by resources inside the same virtual network.
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 * The PowerShell [Az Module](https://docs.microsoft.com/powershell/azure/overview) installed.
 

@@ -1,12 +1,12 @@
 ---
-title: Troubleshooting - Azure Disk Encryption for Linux VMs
+title: Troubleshooting Azure Disk Encryption for Linux VMs
 description: This article provides troubleshooting tips for Microsoft Azure Disk Encryption for Linux VMs.
 author: msmbaldwin
-ms.service: security
+ms.service: virtual-machines-linux
+ms.subservice: security
 ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
-
 ms.custom: seodec18
 
 ---
@@ -20,7 +20,7 @@ Before taking any of the steps below, first ensure that the VMs you are attempti
 - [Networking requirements](disk-encryption-overview.md#networking-requirements)
 - [Encryption key storage requirements](disk-encryption-overview.md#encryption-key-storage-requirements)
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+ 
 
 ## Troubleshooting Linux OS disk encryption
 
@@ -92,21 +92,7 @@ Before the next attempt, reevaluate the characteristics of the VM and make sure 
 
 ## Troubleshooting Azure Disk Encryption behind a firewall
 
-When connectivity is restricted by a firewall, proxy requirement, or network security group (NSG) settings, the ability of the extension to perform needed tasks might be disrupted. This disruption can result in status messages such as "Extension status not available on the VM." In expected scenarios, the encryption fails to finish. The sections that follow have some common firewall problems that you might investigate.
-
-### Network security groups
-Any network security group settings that are applied must still allow the endpoint to meet the documented network configuration [prerequisites](disk-encryption-overview.md#networking-requirements) for disk encryption.
-
-### Azure Key Vault behind a firewall
-
-When encryption is being enabled with [Azure AD credentials](disk-encryption-linux-aad.md#), the target VM must allow connectivity to both Azure Active Directory endpoints and Key Vault endpoints. Current Azure Active Directory authentication endpoints are maintained in sections 56 and 59 of the [Office 365 URLs and IP address ranges](https://docs.microsoft.com/office365/enterprise/urls-and-ip-address-ranges) documentation. Key Vault instructions are provided in the documentation on how to [Access Azure Key Vault behind a firewall](../../key-vault/key-vault-access-behind-firewall.md).
-
-### Azure Instance Metadata Service 
-The VM must be able to access the [Azure Instance Metadata service](../windows/instance-metadata-service.md) endpoint which uses a well-known non-routable IP address (`169.254.169.254`) that can be accessed only from within the VM.  Proxy configurations that alter local HTTP traffic to this address (for example, adding an X-Forwarded-For header) are not supported.
-
-### Linux package management behind a firewall
-
-At runtime, Azure Disk Encryption for Linux relies on the target distribution’s package management system to install needed prerequisite components before enabling encryption. If the firewall settings prevent the VM from being able to download and install these components, then subsequent failures are expected. The steps to configure this package management system can vary by distribution. On Red Hat, when a proxy is required, you must make sure that the subscription-manager and yum are set up properly. For more information, see [How to troubleshoot subscription-manager and yum problems](https://access.redhat.com/solutions/189533).  
+See [Disk Encryption on an isolated network](disk-encryption-isolated-network.md)
 
 ## Troubleshooting encryption status 
 

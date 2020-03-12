@@ -1,18 +1,12 @@
 ---
 title: Collect and analyze Windows Event logs in Azure Monitor | Microsoft Docs
 description: Describes how to configure the collection of Windows Event logs by Azure Monitor and details of the records they create.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: tysonn
-ms.assetid: ee52f564-995b-450f-a6ba-0d7b1dac3f32
-ms.service: log-analytics
+ms.subservice: logs
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 11/28/2018
+author: bwren
 ms.author: bwren
+ms.date: 11/28/2018
+
 ---
 
 # Windows event log data sources in Azure Monitor

@@ -1,11 +1,7 @@
 ---
 title: Azure status overview | Microsoft Docs
 description: A global view into the health of Azure services
-services: Azure status
-ms.topic: article
-author: stephbaron
-ms.author: stbaron
-ms.service: service-health
+ms.topic: overview
 ms.date: 06/11/2019
 
 ---
@@ -25,7 +21,7 @@ The Azure status page gets updated in real time as the health of Azure services 
 
 While the Azure status page always shows the latest health information, you can view older events using the [Azure status history page](https://status.azure.com/status/history/).
 
-There you can see events up to 90 days in the past, including a preliminary root cause, mitigation, and next steps for Azure.
+Starting with events that were published in November 2019, the status history page shows events up to 365 days in the past, including a preliminary root cause, mitigation, and next steps for Azure.
 
 ## RSS Feed
 

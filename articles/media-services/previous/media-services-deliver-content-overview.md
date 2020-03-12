@@ -119,7 +119,7 @@ By default, Smooth Streaming manifest format contains the repeat tag (r-tag). Ho
 
 {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=fmp4-v20)
 
-    http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=fmp4-v20)
+    http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=fmp4-v20)
 
 ## Progressive download
 With progressive download, you can start playing media before the entire file has been downloaded. You cannot progressively download .ism* (ismv, isma, ismt, or ismc) files.

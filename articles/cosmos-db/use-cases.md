@@ -96,4 +96,4 @@ JSON, a format supported by Cosmos DB, is an effective format to represent UI la
 
 * To get started with Azure Cosmos DB, follow our [quick starts](create-sql-api-dotnet.md), which walk you through creating an account and getting started with Cosmos DB.
 
-* If you'd like to read more about customers using Azure Cosmos DB, see the [customer case studies](https://azure.microsoft.com/en-us/case-studies/?service=cosmos-db) page.
+* If you'd like to read more about customers using Azure Cosmos DB, see the [customer case studies](https://azure.microsoft.com/case-studies/?service=cosmos-db) page.

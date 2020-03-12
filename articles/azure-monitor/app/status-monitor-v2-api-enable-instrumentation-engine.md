@@ -1,19 +1,14 @@
 ---
-title: "Azure Status Monitor v2 API reference: Enable instrumentation engine | Microsoft Docs"
-description: Status Monitor v2 API reference. Enable-InstrumentationEngine. Monitor website performance without redeploying the website. Works with ASP.NET web apps hosted on-premises, in VMs, or on Azure.
-services: application-insights
-documentationcenter: .net
-author: TimothyMothra
-manager: alexklim
-ms.assetid: 769a5ea4-a8c6-4c18-b46c-657e864e24de
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+title: Azure Application Insights Agent API reference
+description: Application Insights Agent API reference. Enable-InstrumentationEngine. Monitor website performance without redeploying the website. Works with ASP.NET web apps hosted on-premises, in VMs, or on Azure.
 ms.topic: conceptual
-ms.date: 04/23/2019
+author: TimothyMothra
 ms.author: tilee
+ms.date: 04/23/2019
+
 ---
-# Status Monitor v2 API: Enable-InstrumentationEngine
+
+# Application Insights Agent API: Enable-InstrumentationEngine
 
 This article describes a cmdlet that's a member of the [Az.ApplicationMonitor PowerShell module](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
 
@@ -73,7 +68,7 @@ Configuring registry for instrumentation engine...
 - [Add web client telemetry](../../azure-monitor/app/javascript.md) to see exceptions from web page code and to enable trace calls.
 - [Add the Application Insights SDK to your code](../../azure-monitor/app/asp-net.md) so you can insert trace and log calls.
  
- Do more with Status Monitor v2:
- - Use our guide to [troubleshoot](status-monitor-v2-troubleshoot.md) Status Monitor v2.
+ Do more with Application Insights Agent:
+ - Use our guide to [troubleshoot](status-monitor-v2-troubleshoot.md) Application Insights Agent.
  - [Get the config](status-monitor-v2-api-get-config.md) to confirm that your settings were recorded correctly.
  - [Get the status](status-monitor-v2-api-get-status.md) to inspect monitoring.

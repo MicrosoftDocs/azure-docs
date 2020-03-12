@@ -9,6 +9,7 @@ ms.reviewer: barbkess
 
 ms.assetid: 78ec1766-4f79-4f16-9a66-d5584c4b6151
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -183,7 +184,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 In order to enable Azure AD users to log into Greenhouse, they must be provisioned into Greenhouse. In the case of Greenhouse, provisioning is a manual task.
 
 >[!NOTE]
->You can use any other Greenhouse user account creation tools or APIs provided by Greenhouse to provision AAD user accounts. 
+>You can use any other Greenhouse user account creation tools or APIs provided by Greenhouse to provision Azure AD user accounts. 
 
 **To provision a user accounts, perform the following steps:**
 

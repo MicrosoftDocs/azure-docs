@@ -1,6 +1,6 @@
 ---
 title: File Integrity Monitoring in Azure Security Center | Microsoft Docs
-description: " Learn how to enable File Integrity Monitoring in Azure Security Center. "
+description: Learn how to configure File Integrity Monitoring (FIM) in Azure Security Center using this walkthrough.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -89,7 +89,7 @@ The **File integrity monitoring** dashboard displays for workspaces where FIM is
 
 ![File Integrity Monitoring dashboard][6]
 
-The FIM dashboard for a workspace displays the following:
+The FIM dashboard for a workspace displays the following details:
 
 - Total number of machines connected to the workspace
 - Total number of changes that occurred during the selected time period
@@ -195,14 +195,13 @@ You can disable FIM. FIM uses the Azure Change Tracking solution to track and id
 4. Select **Remove** to disable.
 
 ## Next steps
-In this article you learned to use File Integrity Monitoring (FIM) in Security Center. To learn more about Security Center, see the following:
+In this article, you learned to use File Integrity Monitoring (FIM) in Security Center. To learn more about Security Center, see the following pages:
 
 * [Setting security policies](tutorial-security-policy.md) -- Learn how to configure security policies for your Azure subscriptions and resource groups.
 * [Managing security recommendations](security-center-recommendations.md) -- Learn how recommendations help you protect your Azure resources.
 * [Security health monitoring](security-center-monitoring.md)--Learn how to monitor the health of your Azure resources.
 * [Managing and responding to security alerts](security-center-managing-and-responding-alerts.md)--Learn how to manage and respond to security alerts.
 * [Monitoring partner solutions](security-center-partner-solutions.md) -- Learn how to monitor the health status of your partner solutions.
-* [Security Center FAQ](security-center-faq.md)--Find frequently asked questions about using the service.
 * [Azure Security blog](https://blogs.msdn.com/b/azuresecurity/)--Get the latest Azure security news and information.
 
 <!--Image references-->

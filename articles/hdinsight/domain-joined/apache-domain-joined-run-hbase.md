@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Configure Apache HBase with Enterprise Security Package - Azure
+title: Apache HBase & Enterprise Security Package - Azure HDInsight
 description: Tutorial - Learn how to configure Apache Ranger policies for HBase in Azure HDInsight with Enterprise Security Package.
 ms.service: hdinsight
 author: hrasheed-msft
@@ -81,7 +81,7 @@ You can use SSH to connect to HBase clusters and then use [Apache HBase Shell](h
 4. View the contents of the table:
     
     ```hbaseshell
-    scan 'Contacts'
+    scan 'Customers'
     ```
 
     ![HDInsight Hadoop HBase shell output](./media/apache-domain-joined-run-hbase/hbase-shell-scan-table.png)

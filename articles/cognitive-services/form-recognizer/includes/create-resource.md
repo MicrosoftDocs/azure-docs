@@ -7,7 +7,7 @@ ms.date: 06/12/2019
 ms.author: pafarley
 ---
 
-When you're granted access to use Form Recognizer, you'll receive a Welcome email with several links and resources. Use the "Azure portal" link in that message to open the Azure portal and create a Form Recognizer resource. In the **Create** pane, provide the following information:
+Go to the Azure portal and <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer" title="Create a new Form Recognizer resource" target="_blank">create a new Form Recognizer resource <span class="docon docon-navigate-external x-hidden-focus"></span></a>. In the **Create** pane, provide the following information:
 
 |    |    |
 |--|--|
@@ -20,4 +20,4 @@ When you're granted access to use Form Recognizer, you'll receive a Welcome emai
 > [!IMPORTANT]
 > Normally when you create a Cognitive Service resource in the Azure portal, you have the option to create a multi-service subscription key (used across multiple cognitive services) or a single-service subscription key (used only with a specific cognitive service). However, because Form Recognizer is a preview release, it is not included in the multi-service subscription, and you cannot create the single-service subscription unless you use the link provided in the Welcome email.
 
-When your Form Recognizer resource finishes deploying, find and select it from the **All resources** list in the portal. Then select the **Keys** tab to view your subscription keys. Either key will give your app access to the resource. Copy the value of **KEY 1**.
+When your Form Recognizer resource finishes deploying, find and select it from the **All resources** list in the portal. Then select the **Quick start** tab to view your subscription data. Save the values of **Key1** and **Endpoint** to a temporary location. You'll use them in the following steps.

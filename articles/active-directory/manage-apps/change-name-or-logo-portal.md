@@ -1,5 +1,5 @@
 ---
-title: Change the name or logo of an enterprise application in Azure Active Directory | Microsoft Docs
+title: Change the name or logo of an enterprise application in Azure AD
 description: How to change the name or logo for a custom enterprise application in Azure Active Directory
 services: active-directory
 documentationcenter: ''

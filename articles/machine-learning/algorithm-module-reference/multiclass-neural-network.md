@@ -1,19 +1,19 @@
 ---
 title:  "Multiclass Neural Network: Module Reference"
-titleSuffix: Azure Machine Learning service
-description: Learn how to use the Multiclass Neural Network module in Azure Machine Learning service to create a neural network model that can be used to predict a target that has multiple values. 
+titleSuffix: Azure Machine Learning
+description: Learn how to use the Multiclass Neural Network module in Azure Machine Learning to create a neural network model that can be used to predict a target that has multiple values. 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 
-author: xiaoharper
-ms.author: zhanxia
-ms.date: 05/02/2019
+author: likebupt
+ms.author: keli19
+ms.date: 02/22/2020
 ---
 # Multiclass Neural Network module
 
-This article describes a module of the visual interface (preview) for Azure Machine Learning service.
+This article describes a module in Azure Machine Learning designer (preview).
 
 Use this module to create a neural network model that can be used to predict a target that has multiple values. 
 
@@ -35,13 +35,13 @@ To compute the output of the network for a particular input, a value is calculat
 
 ## Configure Multiclass Neural Network
 
-1. Add the **MultiClass Neural Network** module to your experiment in the interface. You can find this module under **Machine Learning**, **Initialize**, in the **Classification** category.
+1. Add the **MultiClass Neural Network** module to your pipeline in the designer. You can find this module under **Machine Learning**, **Initialize**, in the **Classification** category.
 
 2. **Create trainer mode**: Use this option to specify how you want the model to be trained:
 
     - **Single Parameter**: Choose this option if you already know how you want to configure the model.
 
-    
+    - **Parameter Range**: Select this option if you are not sure of the best parameters, and want to run a parameter sweep. Select a range of values to iterate over, and the [Tune Model Hyperparameters](tune-model-hyperparameters.md) iterates over all possible combinations of the settings you provided to determine the hyperparameters that produce the optimal results.  
 
 3. **Hidden layer specification**: Select the type of network architecture to create.
 
@@ -68,9 +68,9 @@ To compute the output of the network for a particular input, a value is calculat
   
 11. **Shuffle examples**: Select this option to shuffle cases between iterations.
 
-    If you deselect this option, cases are processed in exactly the same order each time you run the experiment.
+    If you deselect this option, cases are processed in exactly the same order each time you run the pipeline.
 
-12. **Random number seed**: Type a value to use as the seed, if you want to ensure repeatability across runs of the same experiment.
+12. **Random number seed**: Type a value to use as the seed, if you want to ensure repeatability across runs of the same pipeline.
 
 14. Connect a training dataset and one of the [training modules](module-reference.md): 
 
@@ -81,11 +81,8 @@ To compute the output of the network for a particular input, a value is calculat
 
 After training is complete:
 
-- To see a summary of the model's parameters, together with the feature weights learned from training, and other parameters of the neural network, right-click the output of [Train Model](./train-model.md)  and select **Visualize**.  
-
-- To save a snapshot of the trained model, right-click the **Trained model** output and select **Save As Trained Model**. This model is not updated on successive runs of the same experiment.
-
+- To save a snapshot of the trained model, select the **Outputs** tab in the right panel of the **Train model** module. Select the **Register dataset** icon to save the model as a reusable module.
 
 ## Next steps
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning service. 
+See the [set of modules available](module-reference.md) to Azure Machine Learning. 

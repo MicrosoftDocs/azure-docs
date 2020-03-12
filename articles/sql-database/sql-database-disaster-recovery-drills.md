@@ -1,5 +1,5 @@
 ---
-title: SQL Database Disaster Recovery Drills | Microsoft Docs
+title: Disaster Recovery Drills 
 description: Learn guidance and best practices for using Azure SQL Database to perform disaster recovery drills.
 services: sql-database
 ms.service: sql-database

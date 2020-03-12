@@ -1,21 +1,9 @@
 ---
-title: Networking patterns for Azure Service Fabric | Microsoft Docs
+title: Networking patterns for Azure Service Fabric 
 description: Describes common networking patterns for Service Fabric and how to create a cluster by using Azure networking features.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor:
 
-ms.assetid:
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 01/19/2018
-ms.author: atsenthi
-
 ---
 # Service Fabric networking patterns
 You can integrate your Azure Service Fabric cluster with other Azure networking features. In this article, we show you how to create clusters that use the following features:
@@ -26,6 +14,8 @@ You can integrate your Azure Service Fabric cluster with other Azure networking 
 - [Internal and external load balancer](#internalexternallb)
 
 Service Fabric runs in a standard virtual machine scale set. Any functionality that you can use in a virtual machine scale set, you can use with a Service Fabric cluster. The networking sections of the Azure Resource Manager templates for virtual machine scale sets and Service Fabric are identical. After you deploy to an existing virtual network, it's easy to incorporate other networking features, like Azure ExpressRoute, Azure VPN Gateway, a network security group, and virtual network peering.
+
+### Allowing the Service Fabric resource provider to query your cluster
 
 Service Fabric is unique from other networking features in one aspect. The [Azure portal](https://portal.azure.com) internally uses the Service Fabric resource provider to call to a cluster to get information about nodes and applications. The Service Fabric resource provider requires publicly accessible inbound access to the HTTP gateway port (port 19080, by default) on the management endpoint. [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) uses the management endpoint to manage your cluster. The Service Fabric resource provider also uses this port to query information about your cluster, to display in the Azure portal. 
 
@@ -289,7 +279,7 @@ After deployment, you can see that your load balancer is bound to the public sta
 <a id="internallb"></a>
 ## Internal-only load balancer
 
-This scenario replaces the external load balancer in the default Service Fabric template with an internal-only load balancer. For implications for the Azure portal and for the Service Fabric resource provider, see the preceding section.
+This scenario replaces the external load balancer in the default Service Fabric template with an internal-only load balancer. See [earlier in the article](#allowing-the-service-fabric-resource-provider-to-query-your-cluster) for implications for the Azure portal and for the Service Fabric resource provider.
 
 1. Remove the `dnsName` parameter. (It's not needed.)
 
@@ -387,7 +377,7 @@ After deployment, your load balancer uses the private static 10.0.0.250 IP addre
 <a id="internalexternallb"></a>
 ## Internal and external load balancer
 
-In this scenario, you start with the existing single-node type external load balancer, and add an internal load balancer for the same node type. A back-end port attached to a back-end address pool can be assigned only to a single load balancer. Choose which load balancer will have your application ports, and which load balancer will have your management endpoints (ports 19000 and 19080). If you put the management endpoints on the internal load balancer, keep in mind the Service Fabric resource provider restrictions discussed earlier in the article. In the example we use, the management endpoints remain on the external load balancer. You also add a port 80 application port, and place it on the internal load balancer.
+In this scenario, you start with the existing single-node type external load balancer, and add an internal load balancer for the same node type. A back-end port attached to a back-end address pool can be assigned only to a single load balancer. Choose which load balancer will have your application ports, and which load balancer will have your management endpoints (ports 19000 and 19080). If you put the management endpoints on the internal load balancer, keep in mind the Service Fabric resource provider restrictions discussed [earlier in the article](#allowing-the-service-fabric-resource-provider-to-query-your-cluster). In the example we use, the management endpoints remain on the external load balancer. You also add a port 80 application port, and place it on the internal load balancer.
 
 In a two-node-type cluster, one node type is on the external load balancer. The other node type is on the internal load balancer. To use a two-node-type cluster, in the portal-created two-node-type template (which comes with two load balancers), switch the second load balancer to an internal load balancer. For more information, see the [Internal-only load balancer](#internallb) section.
 

@@ -1,5 +1,5 @@
 ---
-title: How to configure Azure SQL Database | Microsoft Docs
+title: Configure and manage
 description: Learn how to configure and manage Azure SQL Database.
 services: sql-database
 ms.service: sql-database
@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
-ms.date: 01/25/2019
+ms.date: 11/14/2019
 ---
 # How to use Azure SQL Database
 
@@ -66,7 +66,6 @@ In this section you can find various guides, scripts, and explanations that can 
 - [Connectivity](sql-database-libraries.md)
 - [Use Spark Connector](sql-database-spark-connector.md)
 - [Authenticate app](sql-database-client-id-keys.md)
-- [Error messages](sql-database-develop-error-messages.md)
 - [Use batching for better performance](sql-database-use-batching-to-improve-performance.md)
 - [Connectivity guidance](sql-database-connectivity-issues.md)
 - [DNS aliases](dns-alias-overview.md)

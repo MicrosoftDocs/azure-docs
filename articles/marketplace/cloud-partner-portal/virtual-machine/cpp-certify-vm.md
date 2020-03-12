@@ -4,6 +4,7 @@ description: Explains how to test and submit a VM image for Azure Marketplace ce
 services: Azure, Marketplace, Cloud Partner Portal, 
 author: pbutlerm
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 09/26/2018
 ms.author: pabutler

@@ -1,11 +1,7 @@
 ---
 title: Service Health overview | Microsoft Docs
 description: Personalized information about how your Azure apps are affected by current and future Azure service problems and maintenance. 
-author: stephbaron
-ms.author: stbaron
-services: service-health
-ms.service: service-health
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/10/2019
 
 
@@ -16,14 +12,15 @@ Service Health provides you with a customizable dashboard which tracks the healt
 
 ## Service Health Events
 
-Service Health tracks three types of health events that may impact your resources:
+Service Health tracks four types of health events that may impact your resources:
 
 1. **Service issues** - Problems in the Azure services that affect you right now. 
 2. **Planned maintenance** - Upcoming maintenance that can affect the availability of your services in the future.  
 3. **Health advisories** - Changes in Azure services that require your attention. Examples include when Azure features are deprecated or if you exceed a usage quota.
+4. **Security advisories (preview)** - Security related notifications that may affect the availability of your Azure services.
 
 > [!NOTE]
-> To view Service Health events, users must have the Reader role on a subscription.
+> To view Service Health events, users must be [granted the Reader role](../role-based-access-control/role-assignments-portal.md) on a subscription.
 
 ## Get started with Service Health
 
@@ -43,7 +40,7 @@ Choose the **Potential impact** tab to see the specific list of resources you ow
 
 ## Get links and downloadable explanations 
 
-You can get a link for the issue to use in your problem management system. You can download PDF and sometimes CSV files to share with people who don’t have access to the Azure portal.   
+You can get a link for the issue to use in your problem management system. You can download PDF and sometimes CSV files to share with people who don't have access to the Azure portal.   
 
 ![Manage service issue - Problem management](./media/service-health-overview/azure-service-health-overview-3.png)
 

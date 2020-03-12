@@ -1,13 +1,8 @@
 ---
-title: Key Vault references - Azure App Service | Microsoft Docs
-description: Conceptual reference and setup guide for Azure Key Vault references in Azure App Service and Azure Functions
-services: app-service
+title: Use Key Vault references
+description: Learn how to set up Azure App Service and Azure Functions to use Azure Key Vault references. Make Key Vault secrets available to your application code.
 author: mattchenderson
-manager: jeconnoc
-editor: ''
 
-ms.service: app-service
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/09/2019
 ms.author: mahender
@@ -16,9 +11,6 @@ ms.custom: seodec18
 ---
 
 # Use Key Vault references for App Service and Azure Functions
-
-> [!NOTE] 
-> Key Vault references are not currently available in Linux consumption plans.
 
 This topic shows you how to work with secrets from Azure Key Vault in your App Service or Azure Functions application without requiring any code changes. [Azure Key Vault](../key-vault/key-vault-overview.md) is a service that provides centralized secrets management, with full control over access policies and audit history.
 
@@ -48,15 +40,11 @@ A Key Vault reference is of the form `@Microsoft.KeyVault({referenceString})`, w
 > | SecretUri=_secretUri_                                                       | The **SecretUri** should be the full data-plane URI of a secret in Key Vault, including a version, e.g., https://myvault.vault.azure.net/secrets/mysecret/ec96f02080254f109c51a1f14cdb1931  |
 > | VaultName=_vaultName_;SecretName=_secretName_;SecretVersion=_secretVersion_ | The **VaultName** should the name of your Key Vault resource. The **SecretName** should be the name of the target secret. The **SecretVersion** should be the version of the secret to use. |
 
-> [!NOTE] 
-> Versions are currently required. When rotating secrets, you will need to update the version in your application configuration.
-
-For example, a complete reference would look like the following:
+For example, a complete reference with Version would look like the following:
 
 ```
 @Microsoft.KeyVault(SecretUri=https://myvault.vault.azure.net/secrets/mysecret/ec96f02080254f109c51a1f14cdb1931)
 ```
-
 Alternatively:
 
 ```

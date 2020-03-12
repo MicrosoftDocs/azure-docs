@@ -1,12 +1,8 @@
 ---
-title: Create a function app from the Azure Portal | Microsoft Docs
+title: Create a function app from the Azure Portal 
 description: Create a new function app in Azure from the portal. 
-author: ggailey777
-manager: gwallace
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 08/29/2019
-ms.author: glenga
 ms.custom: mvc
 
 ---

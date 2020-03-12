@@ -1,24 +1,20 @@
 ---
-title: Azure AD B2C (Microsoft Authentication Library for Android) | Azure 
+title: Azure AD B2C (MSAL Android) | Azure
+titleSuffix: Microsoft identity platform
 description: Learn about specific considerations when using Azure AD B2C with the Microsoft Authentication Library for Android (MSAL.Android)
 services: active-directory
-documentationcenter: dev-center-name
 author: brianmel
-manager: omkrishn
-editor: ''
+manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 9/18/2019
 ms.author: brianmel 
 ms.reviewer: rapong
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to learn about specific considerations when using Azure AD B2C and MSAL.Android so I can decide if this platform meets my application development needs and requirements.
-ms.collection: M365-identity-device-management
 ---
 
 # Use MSAL for Android with B2C
@@ -55,7 +51,7 @@ The configuration file for the app would declare two `authorities`. One for each
 }
 ```
 
-The `redirect_uri` must be registered in the app configuration, and also in  `AndroidManifest.xml` to support redirection during the [authorization code grant flow](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-reference-oauth-code).
+The `redirect_uri` must be registered in the app configuration, and also in  `AndroidManifest.xml` to support redirection during the [authorization code grant flow](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-oauth-code).
 
 ## Initialize IPublicClientApplication
 
@@ -216,7 +212,7 @@ String id = account.getId();
 // Get the IdToken Claims
 //
 // For more information about B2C token claims, see reference documentation
-// https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-reference-tokens
+// https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-tokens
 Map<String, ?> claims = account.getClaims();
 
 // Get the 'preferred_username' claim through a convenience function

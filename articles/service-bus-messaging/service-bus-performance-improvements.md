@@ -1,5 +1,5 @@
 ---
-title: Best practices for improving performance using Azure Service Bus | Microsoft Docs
+title: Best practices for improving performance using Azure Service Bus
 description: Describes how to use Service Bus to optimize performance when exchanging brokered messages.
 services: service-bus-messaging
 documentationcenter: na
@@ -9,7 +9,7 @@ editor: spelluru
 
 ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 09/14/2018
+ms.date: 01/16/2020
 ms.author: aschhab
 
 ---
@@ -148,7 +148,7 @@ There are some challenges with having a greedy approach(i.e. keeping the prefetc
 
 ## Multiple queues
 
-If the expected load cannot be handled by a single partitioned queue or topic, you must use multiple messaging entities. When using multiple entities, create a dedicated client for each entity, instead of using the same client for all entities.
+If the expected load cannot be handled by a single queue or topic, you must use multiple messaging entities. When using multiple entities, create a dedicated client for each entity, instead of using the same client for all entities.
 
 ## Development and testing features
 
@@ -170,7 +170,6 @@ Goal: Maximize the throughput of a single queue. The number of senders and recei
 * Set the batching interval to 50 ms to reduce the number of Service Bus client protocol transmissions. If multiple senders are used, increase the batching interval to 100 ms.
 * Leave batched store access enabled. This access increases the overall rate at which messages can be written into the queue.
 * Set the prefetch count to 20 times the maximum processing rates of all receivers of a factory. This count reduces the number of Service Bus client protocol transmissions.
-* Use a partitioned queue for improved performance and availability.
 
 ### Multiple high-throughput queues
 
@@ -186,7 +185,6 @@ Goal: Minimize end-to-end latency of a queue or topic. The number of senders and
 * Disable batched store access. The service immediately writes the message to the store.
 * If using a single client, set the prefetch count to 20 times the processing rate of the receiver. If multiple messages arrive at the queue at the same time, the Service Bus client protocol transmits them all at the same time. When the client receives the next message, that message is already in the local cache. The cache should be small.
 * If using multiple clients, set the prefetch count to 0. By setting the count, the second client can receive the second message while the first client is still processing the first message.
-* Use a partitioned queue for improved performance and availability.
 
 ### Queue with a large number of senders
 
@@ -201,7 +199,6 @@ To maximize throughput, perform the following steps:
 * Use the default batching interval of 20 ms to reduce the number of Service Bus client protocol transmissions.
 * Leave batched store access enabled. This access increases the overall rate at which messages can be written into the queue or topic.
 * Set the prefetch count to 20 times the maximum processing rates of all receivers of a factory. This count reduces the number of Service Bus client protocol transmissions.
-* Use a partitioned queue for improved performance and availability.
 
 ### Queue with a large number of receivers
 
@@ -215,7 +212,6 @@ To maximize throughput, do the following:
 * Receivers can use synchronous or asynchronous operations. Given the moderate receive rate of an individual receiver, client-side batching of a Complete request does not affect receiver throughput.
 * Leave batched store access enabled. This access reduces the overall load of the entity. It also reduces the overall rate at which messages can be written into the queue or topic.
 * Set the prefetch count to a small value (for example, PrefetchCount = 10). This count prevents receivers from being idle while other receivers have large numbers of messages cached.
-* Use a partitioned queue for improved performance and availability.
 
 ### Topic with a small number of subscriptions
 
@@ -229,7 +225,6 @@ To maximize throughput, do the following:
 * Use the default batching interval of 20 ms to reduce the number of Service Bus client protocol transmissions.
 * Leave batched store access enabled. This access increases the overall rate at which messages can be written into the topic.
 * Set the prefetch count to 20 times the maximum processing rates of all receivers of a factory. This count reduces the number of Service Bus client protocol transmissions.
-* Use a partitioned topic for improved performance and availability.
 
 ### Topic with a large number of subscriptions
 
@@ -243,11 +238,6 @@ To maximize throughput, try the following steps:
 * Use the default batching interval of 20 ms to reduce the number of Service Bus client protocol transmissions.
 * Leave batched store access enabled. This access increases the overall rate at which messages can be written into the topic.
 * Set the prefetch count to 20 times the expected receive rate in seconds. This count reduces the number of Service Bus client protocol transmissions.
-* Use a partitioned topic for improved performance and availability.
-
-## Next steps
-
-To learn more about optimizing Service Bus performance, see [Partitioned messaging entities][Partitioned messaging entities].
 
 [QueueClient]: /dotnet/api/microsoft.azure.servicebus.queueclient
 [MessageSender]: /dotnet/api/microsoft.azure.servicebus.core.messagesender

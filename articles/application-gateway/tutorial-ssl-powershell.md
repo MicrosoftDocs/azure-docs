@@ -1,11 +1,12 @@
 ---
-title: Create an application gateway with SSL termination - Azure PowerShell
+title: SSL termination using PowerShell
+titleSuffix: Azure Application Gateway
 description: Learn how to create an application gateway and add a certificate for SSL termination using Azure PowerShell.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 7/31/2019
+ms.date: 11/14/2019
 ms.author: victorh
 ms.custom: mvc
 ---

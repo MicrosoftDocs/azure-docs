@@ -1,19 +1,10 @@
 ---
 title: Create your first function in Azure using Visual Studio
 description: Create and publish an HTTP triggered Azure Function using Visual Studio.
-services: functions
-documentationcenter: na
-author: ggailey777
-manager: gwallace
-keywords: azure functions, functions, event processing, compute, serverless architecture
-
 ms.assetid: 82db1177-2295-4e39-bd42-763f6082e796
-ms.service: azure-functions
 ms.topic: quickstart
 ms.date: 07/19/2019
-ms.author: glenga
 ms.custom: mvc, devcenter, vs-azure, 23113853-34f2-4f
-
 ---
 # Create your first function using Visual Studio
 
@@ -35,7 +26,7 @@ To complete this tutorial, you must first install [Visual Studio 2019](https://a
 
 [!INCLUDE [Create a project using the Azure Functions template](../../includes/functions-vstools-create.md)]
 
-Visual Studio creates a project and class that contains boilerplate code for the HTTP trigger function type. The `FunctionName` attribute on the method sets the name of the function, which by default is `HttpTrigger`. The `HttpTrigger` attribute specifies that the function is triggered by an HTTP request. The boilerplate code sends an HTTP response that includes a value from the request body or query string.
+Visual Studio creates a project and class that contains boilerplate code for the HTTP trigger function type. The `FunctionName` attribute on the method sets the name of the function, which by default is `Function1`. The `HttpTrigger` attribute specifies that the function is triggered by an HTTP request. The boilerplate code sends an HTTP response that includes a value from the request body or query string.
 
 You can expand the capabilities of your function using input and output bindings by applying the appropriate attributes to the method. For more information, see the [Triggers and bindings](functions-dotnet-class-library.md#triggers-and-bindings) section of the [Azure Functions C# developer reference](functions-dotnet-class-library.md).
 

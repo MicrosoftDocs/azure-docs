@@ -1,5 +1,5 @@
 ---
-title: Azure CLI Script Sample - Create a Linux VM with NGINX| Microsoft Docs
+title: Azure CLI Script Sample - Create a Linux VM with NGINX
 description: Azure CLI Script Sample - Create a Linux VM with NGINX
 services: virtual-machines-linux
 documentationcenter: virtual-machines

@@ -1,20 +1,21 @@
 ---
-title: Monitoring and logging in Azure AD Password Protection - Azure Active Directory
-description: Understand Azure AD Password Protection monitoring and logging
+title: Monitor on-premises Azure AD Password Protection
+description: Learn how to monitor and review logs for Azure AD Password Protection for an on-premises Active Directory Domain Services environment
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 02/01/2019
+ms.date: 11/21/2019
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
+
 ms.collection: M365-identity-device-management
 ---
-# Azure AD Password Protection monitoring and logging
+# Monitor and review logs for on-premises Azure AD Password Protection environments
 
 After the deployment of Azure AD Password Protection, monitoring and reporting are essential tasks. This article goes into detail to help you understand various monitoring techniques, including where each service logs information and how to report on the use of Azure AD Password Protection.
 

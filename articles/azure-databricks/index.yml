@@ -33,7 +33,7 @@ landingContent:
       - linkListType: reference
         links:
           - text: Release notes
-            url: https://docs.azuredatabricks.net/release-notes/index.html
+            url: /azure/databricks/release-notes/product/
       - linkListType: learn
         links:
           - text: Introduction to Azure Databricks
@@ -49,7 +49,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Create an Apache Spark cluster
-            url: https://docs.azuredatabricks.net/user-guide/clusters/index.html
+            url: /azure/databricks/clusters/create
           - text: Connect to data sources
             url: databricks-connect-to-data-sources.md
           - text: Use Databricks CLI from Azure Cloud Shell
@@ -85,7 +85,7 @@ landingContent:
       - linkListType: deploy
         links:
           - text: Deploy Azure Databricks in your virtual network
-            url: vnet-injection.md
+            url: https://docs.microsoft.com/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject
       - linkListType: tutorial
         links:
           - text: Query a SQL Server Linux Docker container in a virtual network from an Azure Databricks notebook
@@ -93,7 +93,7 @@ landingContent:
   - title: Stream data
     linkLists:
       - linkListType: learn
-        links: 
+        links:
           - text: Work with streaming data in Azure Databricks
             url: https://docs.microsoft.com/learn/modules/streaming-in-azure-databricks/
       - linkListType: tutorial
@@ -101,7 +101,7 @@ landingContent:
           - text: Stream data using Event Hubs
             url: databricks-stream-from-eventhubs.md
           - text: Stream data from HDInsight Kafka
-            url: https://docs.azuredatabricks.net/spark/latest/structured-streaming/kafka.html
+            url: /azure/databricks/spark/latest/structured-streaming/kafka
   - title: Guides for developers
     linkLists:
       - linkListType: learn

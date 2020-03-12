@@ -1,12 +1,12 @@
 ---
 title: Access system document properties via Azure Cosmos DB Graph
 description: Learn how read and write Cosmos DB system document properties via Gremlin API
-author: olignat
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 09/10/2019
-ms.author: olignat
+author: luisbosquez
+ms.author: lbosq
 ---
 
 # System document properties

@@ -1,12 +1,13 @@
 ---
 title: Create a Commercial Marketplace account in Partner Center
 description: Learn how to create a Commercial Marketplace account in Partner Center.
-author: ChJenk
+author: qianw211
 manager: evansma
-ms.author: v-chjen
+ms.author: evansma
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: guide
-ms.date: 09/26/2019
+ms.date: 03/10/2020
 ---
 
 # Create a Commercial Marketplace account in Partner Center
@@ -21,9 +22,9 @@ To publish your offers to [Azure Marketplace](https://azuremarketplace.microsoft
 To create an account on Partner Center, make sure you have:
 
 - Authority to sign legal agreements on your company's behalf.
-- Your company’s legal business name, address, and primary contact (this can be you).
+- Your company's legal business name, address, and primary contact (this can be you).
 
-We’ll verify this information during the account creation process.
+We'll verify this information during the account creation process.
 
 There are two ways to create an account:
 
@@ -44,7 +45,7 @@ Use this method if you're new to Partner Center and are not enrolled in the Micr
 
 ### Register on the Partner Center enrollment page
 
-Review the information on the [**Welcome to Microsoft Partner Center**](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) enrollment page and then register for an account.
+Review the information on the [**Welcome to Microsoft Partner Center**](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) enrollment page and then register for an account.
 
 ### Sign in with a work account
 
@@ -131,7 +132,7 @@ After you sign in, use the following steps to finish setting up your account:
 
 1. From Partner Center, select **Settings** > **Developer Settings** > **Programs** > **Get Started**, and enter your work e-mail address.
 2. Complete the details on the publisher profile page.
-3. Read the terms and conditions in the [Microsoft Marketplace Publisher Agreement](http://go.microsoft.com/fwlink/?LinkID=699560), and then select **Accept and continue** to complete your enrollment.
+3. Read the terms and conditions in the [Microsoft Marketplace Publisher Agreement](https://go.microsoft.com/fwlink/?LinkID=699560), and then select **Accept and continue** to complete your enrollment.
 
     >[!Important]
     >*You must be authorized to act on your company's behalf in order to accept these terms.*

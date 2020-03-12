@@ -1,6 +1,6 @@
 ---
 title: Invite users to Video Indexer - Azure  
-titlesuffix: Azure Media Services
+titleSuffix: Azure Media Services
 description: This article shows how to invite users to Video Indexer.
 services: media-services
 author: ReutAmior

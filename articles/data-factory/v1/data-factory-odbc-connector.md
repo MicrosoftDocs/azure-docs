@@ -1,16 +1,16 @@
 ---
-title: Move data from ODBC data stores | Microsoft Docs
+title: Move data from ODBC data stores 
 description: Learn about how to move data from ODBC data stores using Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 
 
 ms.assetid: ad70a598-c031-4339-a883-c6125403cb76
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
+
 
 ms.topic: conceptual
 ms.date: 11/19/2018

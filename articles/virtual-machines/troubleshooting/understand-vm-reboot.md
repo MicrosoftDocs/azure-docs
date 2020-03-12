@@ -28,10 +28,7 @@ The best way to protect an application that's running on Azure against VM reboot
 
 To provide this level of redundancy to your application, we recommend that you group two or more VMs in an availability set. This configuration ensures that during either a planned or unplanned maintenance event, at least one VM is available and meets the 99.95 percent [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_5/).
 
-For more information about availability sets, see the following articles:
-
-- [Manage the availability of VMs](../windows/manage-availability.md)
-- [Configure availability of VMs](../windows/classic/configure-availability.md)
+For more information about availability sets, see [Manage the availability of VMs](../windows/manage-availability.md)
 
 ## Resource Health information
 
@@ -65,7 +62,7 @@ Multi-instance updates (for VMs in an availability set) are applied one update d
 
 ### User-initiated reboot or shutdown actions
 
-If you perform a reboot from the Azure portal, Azure PowerShell, command-line interface, or Reset API, you can find the event in the [Azure Activity Log](../../azure-monitor/platform/activity-logs-overview.md).
+If you perform a reboot from the Azure portal, Azure PowerShell, command-line interface, or REST API, you can find the event in the [Azure Activity Log](../../azure-monitor/platform/platform-logs-overview.md).
 
 If you perform the action from the VM's operating system, you can find the event in the system logs.
 

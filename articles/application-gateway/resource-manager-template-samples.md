@@ -1,14 +1,15 @@
 ---
-title: Azure Resource Manager templates for Azure Application Gateway
-description: Azure Resource Manager templates for Azure Application Gateway
+title: Azure Resource Manager templates
+titleSuffix: Azure Application Gateway
+description: This article has links to Azure Resource Manager template examples so you can quickly deploy Azure Application Gateway configured in various ways.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: sample
-ms.date: 08/13/2019
+ms.date: 11/16/2019
 ms.author: victorh
-
 ---
+
 # Azure Resource Manager templates for Azure Application Gateway
 
 The following table includes links to Azure Resource Manager templates for Azure Application Gateway.

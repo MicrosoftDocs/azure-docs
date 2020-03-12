@@ -11,7 +11,7 @@ metadata:
   ms.collection: collection
   author: DCtheGeek
   ms.author: dacoulte
-  ms.date: 09/17/2019
+  ms.date: 11/04/2019
 
 landingContent:
   - title: About Azure Policy
@@ -47,6 +47,10 @@ landingContent:
         links:
           - text: Create and manage policies
             url: ./tutorials/create-and-manage.md
+          - text: Use VS Code extension
+            url: ./how-to/extension-for-vscode.md
+          - text: Design Policy as Code workflows
+            url: ./concepts/policy-as-code.md
       - linkListType: deploy
         links:
           - text: Index of policy samples
@@ -58,6 +62,8 @@ landingContent:
         links:
           - text: Create a custom policy
             url: ./tutorials/create-custom-policy-definition.md
+          - text: Manage tag governance
+            url: ./tutorials/govern-tags.md
       - linkListType: how-to-guide
         links:
           - text: Create policy with SDK
@@ -68,6 +74,8 @@ landingContent:
         links:
           - text: Policy for AKS
             url: ./concepts/rego-for-aks.md
+          - text: Policy for AKS Engine
+            url: ./concepts/aks-engine.md
           - text: Policy for VMs
             url: ./concepts/guest-configuration.md
 

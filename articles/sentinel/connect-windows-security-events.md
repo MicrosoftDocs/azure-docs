@@ -3,7 +3,7 @@ title: Connect Windows security event data to Azure Sentinel| Microsoft Docs
 description: Learn how to connect Windows security event data to Azure Sentinel.
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: rkarlin
 editor: ''
 
@@ -15,7 +15,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
-ms.author: rkarlin
+ms.author: yelevin
 
 ---
 # Connect Windows security events 
@@ -55,7 +55,7 @@ The following list provides a complete breakdown of the Security and App Locker 
 
 To fully integrate your Windows security events with Azure Sentinel:
 
-1. In the Azure Sentinel portal, select **Data connectors** and then click on the **Windows security events** tile. 
+1. In the Azure Sentinel portal, select **Data connectors** and then click on the **Security Events** tile. 
 1. Select which data types you want to stream.
 1. Click **Update**.
 6. To use the relevant schema in Log Analytics for the Windows security events, search for **SecurityEvent**.

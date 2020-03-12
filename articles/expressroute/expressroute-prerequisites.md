@@ -1,5 +1,5 @@
 ---
-title: 'Prerequisites - ExpressRoute : Azure | Microsoft Docs'
+title: 'Azure ExpressRoute: Prerequisites'
 description: This page provides a list of requirements to be met before you can order an Azure ExpressRoute circuit. It includes a checklist.
 services: expressroute
 author: cherylmc
@@ -8,7 +8,7 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: cherylmc
-ms.custom: seodec18
+
 
 ---
 # ExpressRoute prerequisites & checklist

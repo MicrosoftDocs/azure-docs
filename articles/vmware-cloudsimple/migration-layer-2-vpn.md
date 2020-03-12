@@ -132,7 +132,7 @@ The following steps show how to fetch the logical-router ID of Tier0 DR logical 
 ## Fetch the logical-switch ID needed for L2VPN
 
 1. Sign in to [NSX-T Manager](https://nsx-t-manager-ip-address).
-2. Select **Networking** > **Switching** > **Switches** > **<\Logical switch>\ ** > **Overview**.
+2. Select **Networking** > **Switching** > **Switches** > **<\Logical switch\>** > **Overview**.
 3. Make a note of the UUID of the stretch logical switch, which is required when configuring the L2VPN.
 
     ![get logical-router output](media/l2vpn-fetch-switch01.png)
@@ -171,7 +171,7 @@ To establish an IPsec route-based VPN between the NSX-T Tier0 router and the sta
 
 Use the following template to fill in all the details for configuring a route-based VPN on the NSX-T Tier0 router. The UUIDs in each POST call are required in subsequent POST calls. The IP addresses for the loopback and tunnel interfaces for L2VPN must be unique and not overlap with the on-premises or Private Cloud networks.
 
-The IP addresses chosen for loopback and tunnel interface used for L2VPN must be unique and not overlap with the on-premise or Private Cloud networks. The loopback interface network must always be /32.
+The IP addresses chosen for loopback and tunnel interface used for L2VPN must be unique and not overlap with the on-premises or Private Cloud networks. The loopback interface network must always be /32.
 
 ```
 Loopback interface ip : 192.168.254.254/32
@@ -451,7 +451,7 @@ Before deploying, verify that your on-premises firewall rules allow inbound and 
 
     Expand Uplink Interface:
 
-    * **DNS IP Address**. Enter the on-premise DNS IP address.
+    * **DNS IP Address**. Enter the on-premises DNS IP address.
     * **Default Gateway**.  Enter the default gateway of the VLAN that will act as a default gateway for this client.
     * **IP Address**. Enter the uplink IP address of the standalone client.
     * **Prefix Length**. Enter the prefix length of the uplink VLAN/subnet.

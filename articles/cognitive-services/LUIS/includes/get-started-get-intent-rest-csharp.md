@@ -1,61 +1,189 @@
 ---
-title: Get intent with REST call in C#
+title: Get prediction with REST call in C#
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: diberry
 manager: nitinme
 ms.service: cognitive-services
-ms.topic: include 
-ms.date: 09/27/2019
+ms.topic: include
+ms.date: 01/31/2020
 ms.author: diberry
 ---
 
 ## Prerequisites
 
-* [Visual Studio Community 2017 edition](https://visualstudio.microsoft.com/vs/community/)
-* C# programming language (included with VS Community 2017)
-* Public app ID: df67dcdb-c37d-46af-88e1-8b97951ca1c2
+* [.NET Core V2.2+](https://dotnet.microsoft.com/download)
+* [Visual Studio Code](https://code.visualstudio.com/)
+* Public app ID: `df67dcdb-c37d-46af-88e1-8b97951ca1c2`
 
+## Create LUIS runtime key for predictions
 
-[!INCLUDE [Use authoring key for endpoint](../../../../includes/cognitive-services-luis-qs-endpoint-luis-repo-note.md)]
+1. Sign into the [Azure portal](https://portal.azure.com)
+1. Click [Create **Language Understanding**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne)
+1. Enter all required settings for Runtime key:
 
-## Get LUIS key
+    |Setting|Value|
+    |--|--|
+    |Name|Desired name (2-64 characters)|
+    |Subscription|Select appropriate subscription|
+    |Location|Select any nearby and available location|
+    |Pricing Tier|`F0` - the minimal pricing tier|
+    |Resource Group|Select an available resource group|
 
-[!INCLUDE [Use authoring key for endpoint](../../../../includes/cognitive-services-luis-qs-endpoint-get-key-para.md)]
+1. Click **Create** and wait for the resource to be created. After it is created, navigate to the resource page.
+1. Collect configured `endpoint` and a `key`.
 
 ## Get intent programmatically
 
-Use C# to query the prediction endpoint GET [API](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78) to get the same results as you saw in the browser window in the previous section. 
+Use C# (.NET Core) to query the [prediction endpoint](https://aka.ms/luis-apim-v3-prediction) and get a prediction result.
 
-1. Create a new console application in Visual Studio. 
+1. Create a new console application targeting the C# language, with a project and folder name of `predict-with-rest`.
 
-    ![Create a new console application in Visual Studio](../media/luis-get-started-cs-get-intent/visual-studio-console-app.png)
+    ```console
+    dotnet new console -lang C# -n predict-with-rest
+    ```
 
-2. In the Visual Studio project, in the Solutions Explorer, select **Add reference**, then select **System.Web** from the Assemblies tab.
+1. Change to the `predict-with-rest` directory you just created, and install required dependencies with these commands:
 
-    ![select Add reference, then select System.Web from the Assemblies tab](../media/luis-get-started-cs-get-intent/add-system-dot-web-to-project.png)
+    ```console
+    cd predict-with-rest
+    dotnet add package System.Net.Http
+    ```
 
-3. Overwrite Program.cs with the following code:
-    
-   [!code-csharp[Console app code that calls a LUIS endpoint](~/samples-luis/documentation-samples/quickstarts/analyze-text/csharp/Program.cs)]
+1. Open `Program.cs` in your favorite IDE or editor. Then overwrite `Program.cs` with the following code:
 
-4. Replace the value of `YOUR_KEY` with your LUIS key.
+   ```csharp
+    using System;
+    using System.Net.Http;
+    using System.Web;
 
-5. Build and run the console application. It displays the same JSON that you saw earlier in the browser window.
+    namespace predict_with_rest
+    {
+        class Program
+        {
+            static void Main(string[] args)
+            {
+                // YOUR-KEY: 32 character key
+                var key = "YOUR-KEY";
 
-    ![Console window displays JSON result from LUIS](../media/luis-get-started-cs-get-intent/console-turn-on.png)
+                // YOUR-ENDPOINT: example is your-resource-name.api.cognitive.microsoft.com
+                var endpoint = "YOUR-ENDPOINT";
 
+                // //public sample app
+                var appId = "df67dcdb-c37d-46af-88e1-8b97951ca1c2";
 
+                var utterance = "turn on all lights";
 
-## LUIS keys
+                MakeRequest(key, endpoint, appId, utterance);
 
-[!INCLUDE [Use authoring key for endpoint](../../../../includes/cognitive-services-luis-qs-endpoint-key-usage-para.md)]
+                Console.WriteLine("Hit ENTER to exit...");
+                Console.ReadLine();
+            }
+            static async void MakeRequest(string key, string endpoint, string appId, string utterance)
+            {
+                var client = new HttpClient();
+                var queryString = HttpUtility.ParseQueryString(string.Empty);
+
+                // The request header contains your subscription key
+                client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", key);
+
+                // The "q" parameter contains the utterance to send to LUIS
+                queryString["query"] = utterance;
+
+                // These optional request parameters are set to their default values
+                queryString["verbose"] = "true";
+                queryString["show-all-intents"] = "true";
+                queryString["staging"] = "false";
+                queryString["timezoneOffset"] = "0";
+
+                var endpointUri = String.Format("https://{0}/luis/prediction/v3.0/apps/{1}/slots/production/predict?query={2}", endpoint, appId, queryString);
+
+                var response = await client.GetAsync(endpointUri);
+
+                var strResponseContent = await response.Content.ReadAsStringAsync();
+
+                // Display the JSON result from LUIS
+                Console.WriteLine(strResponseContent.ToString());
+            }
+        }
+    }
+
+   ```
+
+1. Replace the `YOUR-KEY` and `YOUR-ENDPOINT` values with your own prediction key and endpoint.
+
+    |Information|Purpose|
+    |--|--|
+    |`YOUR-KEY`|Your 32 character prediction key.|
+    |`YOUR-ENDPOINT`| Your prediction URL endpoint. For example, `replace-with-your-resource-name.api.cognitive.microsoft.com`.|
+
+1. Build the console application with this command:
+
+    ```console
+    dotnet build
+    ```
+
+1. Run the console application. The console output displays the same JSON that you saw earlier in the browser window.
+
+    ```console
+    dotnet run
+    ```
+
+1. Review the prediction response, which is returned as JSON:
+
+    ```console
+    Hit ENTER to exit...
+    {'query': 'turn on all lights', 'prediction': {'topIntent': 'HomeAutomation.TurnOn', 'intents': {'HomeAutomation.TurnOn': {'score': 0.5375382}, 'None': {'score': 0.08687421}, 'HomeAutomation.TurnOff': {'score': 0.0207554}}, 'entities': {'HomeAutomation.Operation': ['on'], '$instance': {'HomeAutomation.Operation': [{'type': 'HomeAutomation.Operation', 'text': 'on', 'startIndex': 5, 'length': 2, 'score': 0.724984169, 'modelTypeId': -1, 'modelType': 'Unknown', 'recognitionSources': ['model']}]}}}}
+    ```
+
+    The JSON response formatted for readability:
+
+    ```JSON
+    {
+        "query": "turn on all lights",
+        "prediction": {
+            "topIntent": "HomeAutomation.TurnOn",
+            "intents": {
+                "HomeAutomation.TurnOn": {
+                    "score": 0.5375382
+                },
+                "None": {
+                    "score": 0.08687421
+                },
+                "HomeAutomation.TurnOff": {
+                    "score": 0.0207554
+                }
+            },
+            "entities": {
+                "HomeAutomation.Operation": [
+                    "on"
+                ],
+                "$instance": {
+                    "HomeAutomation.Operation": [
+                        {
+                            "type": "HomeAutomation.Operation",
+                            "text": "on",
+                            "startIndex": 5,
+                            "length": 2,
+                            "score": 0.724984169,
+                            "modelTypeId": -1,
+                            "modelType": "Unknown",
+                            "recognitionSources": [
+                                "model"
+                            ]
+                        }
+                    ]
+                }
+            }
+        }
+    }
+    ```
 
 ## Clean up resources
 
-When you are finished with this quickstart, close the Visual Studio project and remove the project directory from the file system. 
+When you are finished with this quickstart, delete the file from the file system.
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Add utterances and train with C#](../luis-get-started-cs-add-utterance.md)
+> [Add utterances and train](../get-started-get-model-rest-apis.md)

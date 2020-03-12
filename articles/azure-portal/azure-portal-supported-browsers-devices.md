@@ -1,6 +1,6 @@
 ---
 title: Supported browsers and devices for Azure portal | Microsoft Docs
-description: Describes the browsers and devices on which the Azure portal will work.
+description: You can use the Azure portal on all modern devices and with the latest browser versions. Consult this article to be sure your browser is supported. 
 services: azure-portal
 documentationcenter: ''
 author: adamabmsft
@@ -13,8 +13,8 @@ ms.workload: multiple
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/27/2019
-ms.author: kfollis
+ms.date: 12/20/2019
+ms.author: mblythe
 ms.custom: accessibility
 ---
 # Supported devices

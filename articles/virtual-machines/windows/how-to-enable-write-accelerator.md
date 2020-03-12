@@ -1,5 +1,5 @@
 ---
-title: Azure Write Accelerator | Microsoft Docs
+title: Azure Write Accelerator 
 description: Documentation on how to enable and use Write Accelerator
 services: virtual-machines-windows
 documentationcenter: ''
@@ -21,4 +21,5 @@ ms.subservice: disks
 
 ---
 
+# Enable Write Accelerator
 [!INCLUDE [how-to-enable-write-accelerator](../../../includes/virtual-machines-common-how-to-enable-write-accelerator.md)]

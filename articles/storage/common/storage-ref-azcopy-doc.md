@@ -4,7 +4,7 @@ description: This article provides reference information for the azcopy doc comm
 author: normesta
 ms.service: storage
 ms.topic: reference
-ms.date: 08/26/2019
+ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
@@ -23,6 +23,13 @@ By default, the files are stored in a folder named 'doc' inside the current dire
 ```azcopy
 azcopy doc [flags]
 ```
+
+## Related conceptual articles
+
+- [Get started with AzCopy](storage-use-azcopy-v10.md)
+- [Transfer data with AzCopy and Blob storage](storage-use-azcopy-blobs.md)
+- [Transfer data with AzCopy and file storage](storage-use-azcopy-files.md)
+- [Configure, optimize, and troubleshoot AzCopy](storage-use-azcopy-configure.md)
 
 ## Options
 

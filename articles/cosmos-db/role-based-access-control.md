@@ -1,10 +1,10 @@
 ---
-title: Role-based access control in Azure Cosmos DB with Azure Active Directory integration
+title: Role-based access control in Azure Cosmos DB 
 description: Learn how Azure Cosmos DB provides database protection with Active directory integration (RBAC).
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/23/2019
+ms.date: 10/31/2019
 ms.author: mjbrown
 ---
 
@@ -18,10 +18,10 @@ The following are the built-in roles supported by Azure Cosmos DB:
 
 |**Built-in role**  |**Description**  |
 |---------|---------|
-|[DocumentDB Accounts Contributor](../role-based-access-control/built-in-roles.md#documentdb-account-contributor)   | Can manage Azure Cosmos DB accounts.  |
-|[Cosmos DB Account Reader](../role-based-access-control/built-in-roles.md#cosmos-db-account-reader-role)  | Can read Azure Cosmos DB account data.        |
-|[Cosmos Backup Operator](../role-based-access-control/built-in-roles.md#cosmosbackupoperator)     |  Can submit restore request for an Azure Cosmos database or a container.       |
-|[Cosmos DB Operator](../role-based-access-control/built-in-roles.md#cosmos-db-operator)  | Can provision Azure Cosmos accounts, databases, and containers but cannot access the keys that are required to access the data.         |
+|[DocumentDB Account Contributor](../role-based-access-control/built-in-roles.md#documentdb-account-contributor)|Can manage Azure Cosmos DB accounts.|
+|[Cosmos DB Account Reader](../role-based-access-control/built-in-roles.md#cosmos-db-account-reader-role)|Can read Azure Cosmos DB account data.|
+|[Cosmos Backup Operator](../role-based-access-control/built-in-roles.md#cosmosbackupoperator)|Can submit restore request for an Azure Cosmos database or a container.|
+|[Cosmos DB Operator](../role-based-access-control/built-in-roles.md#cosmos-db-operator)|Can provision Azure Cosmos accounts, databases, and containers but cannot access the keys that are required to access the data.|
 
 > [!IMPORTANT]
 > RBAC support in Azure Cosmos DB applies to control plane operations only. Data plane operations are secured using master keys or resource tokens. To learn more, see [Secure access to data in Azure Cosmos DB](secure-access-to-data.md)
@@ -35,6 +35,28 @@ The **Access control (IAM)** pane in the Azure portal is used to configure role-
 ## Custom roles
 
 In addition to the built-in roles, users may also create [custom roles](../role-based-access-control/custom-roles.md) in Azure and apply these roles to service principals across all subscriptions within their Active Directory tenant. Custom roles provide users a way to create RBAC role definitions with a custom set of resource provider operations. To learn which operations are available for building custom roles for Azure Cosmos DB see, [Azure Cosmos DB resource provider operations](../role-based-access-control/resource-provider-operations.md#microsoftdocumentdb)
+
+## Preventing changes from Cosmos SDK
+
+The Cosmos resource provider can be locked down to prevent any changes to resources including Cosmos account, databases, containers and throughput from any client connecting via account keys (i.e. applications connecting via Cosmos SDK). When set, changes to any resource must be from a user with the proper RBAC role and credentials. This capability is set with `disableKeyBasedMetadataWriteAccess` property value in the Cosmos resource provider. An example of an Azure Resource Manager template with this property setting is below.
+
+```json
+{
+    {
+      "type": "Microsoft.DocumentDB/databaseAccounts",
+      "name": "[variables('accountName')]",
+      "apiVersion": "2019-08-01",
+      "location": "[parameters('location')]",
+      "kind": "GlobalDocumentDB",
+      "properties": {
+        "consistencyPolicy": "[variables('consistencyPolicy')[parameters('defaultConsistencyLevel')]]",
+        "locations": "[variables('locations')]",
+        "databaseAccountOfferType": "Standard",
+        "disableKeyBasedMetadataWriteAccess": true
+        }
+    }
+}
+```
 
 ## Next steps
 

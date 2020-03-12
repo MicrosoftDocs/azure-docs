@@ -1,16 +1,9 @@
 ---
-title: Automate Azure Application Insights processes by using Logic Apps.
+title: Automate Azure Application Insights processes by using Logic Apps
 description: Learn how you can quickly automate repeatable processes by adding the Application Insights connector to your logic app.
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/11/2019
-ms.author: mbullwin
+
 ---
 
 # Automate Application Insights processes by using Logic Apps

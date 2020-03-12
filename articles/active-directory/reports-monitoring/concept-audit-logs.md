@@ -4,7 +4,7 @@ title: Audit activity reports in the Azure Active Directory portal | Microsoft D
 description: Introduction to the audit activity reports in the Azure Active Directory portal
 services: active-directory
 documentationcenter: ''
-author: cawrites
+author: MarkusVi
 manager: daveba
 editor: ''
 
@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 07/17/2019
-ms.author: chadam
+ms.author: markvi
 ms.reviewer: dhanyahk
 
 ms.collection: M365-identity-device-management
@@ -38,12 +38,11 @@ This article gives you an overview of the audit report.
  
 ## Who can access the data?
 
-* Users in the **Security Administrator**, **Security Reader**, **Report Reader** or **Global Administrator** roles
-* In addition, all users (non-administrators) can see their own audit activities
+* Users in the **Security Administrator**, **Security Reader**, **Report Reader** , **Global Reader** or **Global Administrator** roles
 
 ## Audit logs
 
-The Azure AD audit logs provide records of system activities for compliance. To access the audit report, select **Audit logs** in the **Activity** section of **Azure Active Directory**. Note that audit logs may have a latency of upto an hour, so it may take that long for audit activity data to show up in the portal after you have completed the task.
+The Azure AD audit logs provide records of system activities for compliance. To access the audit report, select **Audit logs** in the **Monitoring** section of **Azure Active Directory**. Note that audit logs may have a latency of up to an hour, so it may take that long for audit activity data to show up in the portal after you have completed the task.
 
 
 
@@ -88,16 +87,20 @@ You can filter the audit data on the following fields:
 The **Service** filter allows you to select from a drop-down list of the following services:
 
 - All
+- AAD Management UX
 - Access Reviews
-- Account Provisioning 
-- Application SSO
+- Account Provisioning
+- Application Proxy
 - Authentication Methods
 - B2C
 - Conditional Access
 - Core Directory
 - Entitlement Management
+- Hybrid Authentication
 - Identity Protection
 - Invited Users
+- MIM Service
+- MyApps
 - PIM
 - Self-service Group Management
 - Self-service Password Management
@@ -116,7 +119,11 @@ The **Category** filter enables you to select one of the following filters:
 - DirectoryManagement
 - EntitlementManagement
 - GroupManagement
+- KerberosDomain
+- KeyManagement
+- Label
 - Other
+- PermissionGrantPolicy
 - Policy
 - ResourceManagement
 - RoleManagement
@@ -132,14 +139,13 @@ The **Status** filter allows you to filter based on the status of an audit opera
 - Success
 - Failure
 
-The **Target** filter allows you to search for a particular target by name or user principal name (UPN). The target name and UPN are case-sensitive. 
+The **Target** filter allows you to search for a particular target by the starting of the name or user principal name (UPN). The target name and UPN are case-sensitive. 
 
-The **Initiated by** filter enables you to define an actor's name or a universal principal name (UPN). The name and UPN are case-sensitive.
+The **Initiated by** filter enables you to define what an actor's name or a universal principal name (UPN) starts with. The name and UPN are case-sensitive.
 
 The **Date range** filter enables to you to define a timeframe for the returned data.  
 Possible values are:
 
-- 1 month
 - 7 days
 - 24 hours
 - Custom
@@ -177,11 +183,11 @@ With user and group-based audit reports, you can get answers to questions such a
 
 - What licenses have been assigned to a group or a user?
 
-If you want to review only auditing data that is related to users, you can find a filtered view under **Audit logs** in the **Activity** section of the **Users** tab. This entry point has **UserManagement** as preselected category.
+If you want to review only auditing data that is related to users, you can find a filtered view under **Audit logs** in the **Monitoring** section of the **Users** tab. This entry point has **UserManagement** as preselected category.
 
 ![Audit logs](./media/concept-audit-logs/users.png "Audit logs")
 
-If you want to review only auditing data that is related to groups, you can find a filtered view under **Audit logs** in the **Activity** section of the **Groups** tab. This entry point has **GroupManagement** as preselected category.
+If you want to review only auditing data that is related to groups, you can find a filtered view under **Audit logs** in the **Monitoring** section of the **Groups** tab. This entry point has **GroupManagement** as preselected category.
 
 ![Audit logs](./media/concept-audit-logs/groups.png "Audit logs")
 

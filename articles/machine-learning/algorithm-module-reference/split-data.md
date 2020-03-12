@@ -1,19 +1,19 @@
 ---
 title:  "Split Data: Module Reference"
-titleSuffix: Azure Machine Learning service
-description: Learn how to use the Split Data module in Azure Machine Learning service to divide a dataset into two distinct sets.
+titleSuffix: Azure Machine Learning
+description: Learn how to use the Split Data module in Azure Machine Learning to divide a dataset into two distinct sets.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 
-author: xiaoharper
-ms.author: zhanxia
-ms.date: 05/02/2019
+author: likebupt
+ms.author: keli19
+ms.date: 10/22/2019
 ---
 # Split Data module
 
-This article describes a module of the visual interface (preview) for Azure Machine Learning service.
+This article describes a module in Azure Machine Learning designer (preview).
 
 Use this module to divide a dataset into two distinct sets.
 
@@ -25,7 +25,7 @@ This module is particularly useful when you need to separate data into training 
 > Before choosing the splitting mode, read all options to determine the type of split you need.
 > If you change the splitting mode, all other options could be reset.
 
-1. Add the **Split Data** module to your experiment in the interface. You can find this module under **Data Transformation**, in the **Sample and Split** category.
+1. Add the **Split Data** module to your pipeline in the designer. You can find this module under **Data Transformation**, in the **Sample and Split** category.
 
 2. **Splitting mode**: Choose one of the following modes, depending on the type of data you have, and how you want to divide it. Each splitting mode has different options. Click the following topics for detailed instructions and examples. 
 
@@ -40,7 +40,8 @@ This module is particularly useful when you need to separate data into training 
     - **Relative Expression Split**:  Use this option whenever you want to apply a condition to a number column. The number could be a date/time field, a column containing age or dollar amounts, or even a percentage. For example, you might want to divide your data set depending on the cost of the items, group people by age ranges, or separate data by a calendar date.
 
 ### Split Rows
-1.  Add the [Split Data](./split-data.md) module to your experiment in the interface, and connect the dataset you want to split.
+
+1.  Add the [Split Data](./split-data.md) module to your pipeline in the designer, and connect the dataset you want to split.
   
 2.  For **Splitting mode**, choose **Split rows**. 
 
@@ -60,12 +61,12 @@ This module is particularly useful when you need to separate data into training 
 
     With stratified sampling, the data is divided such that each output dataset gets roughly the same percentage of each target value. For example, you might want to ensure that your training and testing sets are roughly balanced with regard to the outcome, or with regard ot some other column such as gender.
 
-7. Run the experiment.
+7. Run the pipeline.
 
 
 ## Regular expression split
 
-1.  Add the [Split Data](./split-data.md) module to your experiment, and connect it as input to the dataset you want to split.  
+1.  Add the [Split Data](./split-data.md) module to your pipeline, and connect it as input to the dataset you want to split.  
   
 2.  For **Splitting mode**, select **Regular expression split**.
 
@@ -74,39 +75,79 @@ This module is particularly useful when you need to separate data into training 
    The regular expression should follow Python regular expression syntax.
 
 
-4. Run the experiment.
+4. Run the pipeline.
 
     Based on the regular expression you provide, the dataset is divided into two sets of rows: rows with values that match the expression and all remaining rows. 
 
+The following examples demonstrate how to divide a dataset using the **Regular Expression** option. 
+
+### Single whole word 
+
+This example puts into the first dataset all rows that contain the text `Gryphon` in the column `Text`, and puts other rows into the second output of **Split Data**:
+
+```text
+    \"Text" Gryphon  
+```
+
+### Substring
+
+This example looks for the specified string in any position within the second column of the dataset, denoted here by the index value of 1. The match is case-sensitive.
+
+```text
+(\1) ^[a-f]
+```
+
+The first result dataset contains all rows where the index column begins with one of these characters: `a`, `b`, `c`, `d`, `e`, `f`. All other rows are directed to the second output.
+
 ## Relative expression split.
 
-1. Add the [Split Data](./split-data.md) module to your experiment, and connect it as input to the dataset you want to split.
+1. Add the [Split Data](./split-data.md) module to your pipeline, and connect it as input to the dataset you want to split.
   
 2. For **Splitting mode**, select **relative expression split**.
   
-3. In the **Relational expression** text box, type an expression that performs a comparison operation, on a single column:
+3. In the **Relational expression** text box, type an expression that performs a comparison operation on a single column:
 
+   For the **Numeric column**:
+   - The column contains numbers of any numeric data type, including date and time data types.
+   - The expression can reference a maximum of one column name.
+   - Use the ampersand character `&` for the AND operation. Use the pipe character `|` for the OR operation.
+   - The following operators are supported: `<`, `>`, `<=`, `>=`, `==`, `!=`.
+   - You cannot group operations by using `(` and `)`.
+   
+   For the **String column**:
+   - The following operators are supported: `==`, `!=`.
 
- - Numeric column:
-    - The column contains numbers of any numeric data type, including date/time data types.
-
-    - The expression can reference a maximum of one column name.
-
-    - Use the ampersand character (&) for the AND operation and use the pipe character (|) for the OR operation.
-
-    - The following operators are supported: `<`, `>`, `<=`, `>=`, `==`, `!=`
-
-    - You cannot group operations by using `(` and `)`.
-
- - String column: 
-    - The following operators are supported: `==`, `!=`
-
-
-
-4. Run the experiment.
+4. Run the pipeline.
 
     The expression divides the dataset into two sets of rows: rows with values that meet the condition, and all remaining rows.
 
+The following examples demonstrate how to divide a dataset using the **Relative Expression** option in the **Split Data** module:  
+
+### Using calendar year
+
+A common scenario is to divide a dataset by years. The following expression selects all rows where the values in the column `Year` are greater than `2010`.
+
+```text
+\"Year" > 2010
+```
+
+The date expression must account for all date parts that are included in the data column, and the format of dates in the data column must be consistent. 
+
+For example, in a date column using the format `mmddyyyy`, the expression should be something like this:
+
+```text
+\"Date" > 1/1/2010
+```
+
+### Using column indices
+
+The following expression demonstrates how you can use the column index to select all rows in the first column of the dataset that contain values less than or equal to 30, but not equal to 20.
+
+```text
+(\0)<=30 & !=20
+```
+
+
 ## Next steps
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning service. 
+See the [set of modules available](module-reference.md) to Azure Machine Learning. 

@@ -1,6 +1,6 @@
 --- 
-title: Create VLANs/subnets
-description: Azure VMware Solution by CloudSimple - Describes how to create and manage VLANs/subnets for your Private Clouds and then apply firewall rules.
+title: Create VLANs/subnets - Azure VMware Solution by CloudSimple
+description: Azure VMware Solutions by CloudSimple - Describes how to create and manage VLANs/subnets for your Private Clouds and then apply firewall rules.
 author: sharaths-cs 
 ms.author: b-shsury 
 ms.date: 08/15/2019 
@@ -29,6 +29,10 @@ Open the VLANs/Subnets tab on the Network page to create and manage VLANs/subnet
 8. Click **Submit**.
 
     ![Create VLAN/subnet](media/create-new-vlan-subnet-details.png)
+
+
+> [!IMPORTANT]
+> There is a quota of 30 VLANs per private cloud. These limits can be increased by [contacting support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
 ## Use VLAN information to set up a distributed port group in vSphere
 

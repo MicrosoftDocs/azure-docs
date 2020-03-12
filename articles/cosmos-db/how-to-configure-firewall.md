@@ -4,7 +4,7 @@ description: Learn how to configure IP access control policies for firewall supp
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/28/2019
+ms.date: 10/31/2019
 ms.author: mjbrown
 ---
 
@@ -38,20 +38,20 @@ When you enable an IP access control policy programmatically, you need to add th
 |US Gov|52.244.48.71|
 |All other regions|104.42.195.92,40.76.54.131,52.176.6.30,52.169.50.45,52.187.184.26|
 
-You can enable access to the Azure portal by selecting the **Allow access from Azure portal** option, as shown in the following screenshot:
+You can enable requests to access the Azure portal by selecting the **Allow access from Azure portal** option, as shown in the following screenshot:
 
 ![Screenshot showing how to enable Azure portal access](./media/how-to-configure-firewall/enable-azure-portal.png)
 
 ### Allow requests from global Azure datacenters or other sources within Azure
 
-If you access your Azure Cosmos DB account from services that don’t provide a static IP (for example, Azure Stream Analytics and Azure Functions), you can still use the IP firewall to limit access. To allow access to the Azure Cosmos DB account from such services, add the IP address 0.0.0.0 to the list of allowed IP addresses. The 0.0.0.0 address restricts requests to your Azure Cosmos DB account from Azure datacenter IP range. This setting does not allow access for any other IP ranges to your Azure Cosmos DB account.
+If you access your Azure Cosmos DB account from services that don’t provide a static IP (for example, Azure Stream Analytics and Azure Functions), you can still use the IP firewall to limit access. You can enable access from other sources within the Azure by selecting the **Accept connections from within Azure datacenters** option, as shown in the following screenshot:
+
+![Screenshot showing how to open the Firewall page in the Azure portal](./media/how-to-configure-firewall/enable-azure-services.png)
+
+When you enable this option, the IP address `0.0.0.0` is added to the list of allowed IP addresses. The `0.0.0.0` IP address restricts requests to your Azure Cosmos DB account from Azure datacenter IP range. This setting does not allow access for any other IP ranges to your Azure Cosmos DB account.
 
 > [!NOTE]
 > This option configures the firewall to allow all requests from Azure, including requests from the subscriptions of other customers deployed in Azure. The list of IPs allowed by this option is wide, so it limits the effectiveness of a firewall policy. Use this option only if your requests don’t originate from static IPs or subnets in virtual networks. Choosing this option automatically allows access from the Azure portal because the Azure portal is deployed in Azure.
-
-You can enable access to the Azure portal by selecting the **Accept connections from within Azure datacenters** option, as shown in the following screenshot:
-
-![Screenshot showing how to open the Firewall page in the Azure portal](./media/how-to-configure-firewall/enable-azure-services.png)
 
 ### Requests from your current IP
 
@@ -95,7 +95,7 @@ To configure access control to your Azure Cosmos DB account, make sure that the 
 {
   "type": "Microsoft.DocumentDB/databaseAccounts",
   "name": "[variables('accountName')]",
-  "apiVersion": "2016-03-31",
+  "apiVersion": "2019-08-01",
   "location": "[parameters('location')]",
   "kind": "GlobalDocumentDB",
   "properties": {
@@ -103,8 +103,7 @@ To configure access control to your Azure Cosmos DB account, make sure that the 
     "locations": "[variables('locations')]",
     "databaseAccountOfferType": "Standard",
     "enableAutomaticFailover": "[parameters('automaticFailover')]",
-    "enableMultipleWriteLocations": "[parameters('multipleWriteLocations')]",
-    "ipRangeFilter":"183.240.196.255,104.42.195.92,40.76.54.131,52.176.6.30,52.169.50.45,52.187.184.26"
+    "ipRangeFilter":"40.76.54.131,52.176.6.30,52.169.50.45,52.187.184.26"
   }
 }
 ```

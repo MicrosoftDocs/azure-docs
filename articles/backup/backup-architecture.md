@@ -1,12 +1,8 @@
 ---
-title: Azure Backup architecture
+title: Architecture Overview 
 description: Provides an overview of the architecture, components, and processes used by the Azure Backup service.
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.author: dacurwin
 ---
 
 # Azure Backup architecture and components
@@ -91,7 +87,7 @@ Storage consumption, recovery time objective (RTO), and network consumption vari
 
 The following table summarizes the supported features for the different types of backup:
 
-**Feature** | **On-premises Windows Server machines (direct)** | **Azure VMs** | **Machines or apps with DPM/MABS**
+**Feature** | **Direct Backup of Files and Folders (using MARS Agent)** | **Azure VM Backup** | **Machines or apps with DPM/MABS**
 --- | --- | --- | ---
 Back up to vault | ![Yes][green] | ![Yes][green] | ![Yes][green]
 Back up to DPM/MABS disk, then to Azure | | | ![Yes][green]
@@ -101,7 +97,24 @@ Back up deduplicated disks | | | ![Partially][yellow]<br/><br/> For DPM/MABS ser
 
 ![Table key](./media/backup-architecture/table-key.png)
 
-## Architecture: Direct backup of Azure VMs
+## Backup policy essentials
+
+- A backup policy is created per vault.
+- A backup policy can be created for the backup of following workloads
+  - Azure VM
+  - SQL in Azure VM
+  - Azure File Share
+- A policy can be assigned to many resources. An Azure VM backup policy can be used to protect many Azure VMs.
+- A policy consists of two components
+  - Schedule: When to take the backup
+  - Retention: For how long each backup should be retained.
+- Schedule can be defined as "daily" or "weekly" with a specific point of time.
+- Retention can be defined for "daily", "weekly", "monthly", "yearly" backup points.
+- "weekly" refers to a backup on a certain day of the week, "monthly" means a backup on a certain day of the month and "yearly" refers to a backup on a certain day of the year.
+- Retention for "monthly", "yearly" backup points is referred to as "LongTermRetention".
+- When a vault is created, a policy for Azure VM backups called "DefaultPolicy" is also created and can be used to back up Azure VMs.
+
+## Architecture: Built-in Azure VM Backup
 
 1. When you enable backup for an Azure VM, a backup runs according to the schedule you specify.
 1. During the first backup, a backup extension is installed on the VM if the VM is running.
@@ -115,9 +128,9 @@ Back up deduplicated disks | | | ![Partially][yellow]<br/><br/> For DPM/MABS ser
     - Only blocks of data that changed since the last backup are copied.
     - Data isn't encrypted. Azure Backup can back up Azure VMs that were encrypted by using Azure Disk Encryption.
     - Snapshot data might not be immediately copied to the vault. At peak times, the backup might take some hours. Total backup time for a VM will be less than 24 hours for daily backup policies.
-1. After the data is sent to the vault, a recovery point is created. By default, snapshots are retained for two days before they are deleted. This feature allows restore operation from these snapshots, thereby cutting down the restore times. It reduces the time that's required to transform and copy data back from the vault. See [Azure Backup Instant Restore Capability](https://docs.microsoft.com/en-us/azure/backup/backup-instant-restore-capability).
+1. After the data is sent to the vault, a recovery point is created. By default, snapshots are retained for two days before they are deleted. This feature allows restore operation from these snapshots, thereby cutting down the restore times. It reduces the time that's required to transform and copy data back from the vault. See [Azure Backup Instant Restore Capability](https://docs.microsoft.com/azure/backup/backup-instant-restore-capability).
 
-Azure VMs need internet access for control commands. If you're backing up workloads inside the VM (for example, SQL Server database backups), the back-end data also needs internet access.
+You do not need to explicitly allow internet connectivity to back up your Azure VMs.
 
 ![Backup of Azure VMs](./media/backup-architecture/architecture-azure-vm.png)
 
@@ -129,7 +142,7 @@ Azure VMs need internet access for control commands. If you're backing up worklo
     - The MARS agent uses only the Windows system write operation to capture the snapshot.
     - Because the agent doesn't use any application VSS writers, it doesn't capture app-consistent snapshots.
 1. After taking the snapshot with VSS, the MARS agent creates a virtual hard disk (VHD) in the cache folder you specified when you configured the backup. The agent also stores checksums for each data block.
-1. Incremental backups run according to the schedule you specify, unless you run an ad-hoc backup.
+1. Incremental backups run according to the schedule you specify, unless you run an on-demand backup.
 1. In incremental backups, changed files are identified and a new VHD is created. The VHD is compressed and encrypted, and then it's sent to the vault.
 1. After the incremental backup finishes, the new VHD is merged with the VHD created after the initial replication. This merged VHD provides the latest state to be used for comparison for ongoing backup.
 
@@ -143,7 +156,7 @@ Azure VMs need internet access for control commands. If you're backing up worklo
     - With DPM/MABS, you can protect backup volumes, shares, files, and folders. You can also protect a machine's system state (bare metal), and you can protect specific apps with app-aware backup settings.
 1. When you set up protection for a machine or app in DPM/MABS, you select to back up to the MABS/DPM local disk for short-term storage and to Azure for online protection. You also specify when the backup to local DPM/MABS storage should run and when the online backup to Azure should run.
 1. The disk of the protected workload is backed up to the local MABS/DPM disks, according to the schedule you specified.
-4. The DPM/MABS disks are backed up to the vault by the MARS agent that's running on the DPM/MABS server.
+1. The DPM/MABS disks are backed up to the vault by the MARS agent that's running on the DPM/MABS server.
 
 ![Backup of machines and workloads protected by DPM or MABS](./media/backup-architecture/architecture-dpm-mabs.png)
 
@@ -173,7 +186,7 @@ For more information about disk storage and the available disk types for VMs, se
 You can back up Azure VMs by using premium storage with Azure Backup:
 
 - During the process of backing up VMs with premium storage, the Backup service creates a temporary staging location, named *AzureBackup-*, in the storage account. The size of the staging location equals the size of the recovery point snapshot.
-- Make sure that the premium storage account has adequate free space to accommodate the temporary staging location. [Learn more](../storage/common/storage-scalability-targets.md#premium-performance-storage-account-scale-limits). Don't modify the staging location.
+- Make sure that the premium storage account has adequate free space to accommodate the temporary staging location. For more information, see [Scalability targets for premium page blob storage accounts](../storage/blobs/scalability-targets-premium-page-blobs.md). Don't modify the staging location.
 - After the backup job finishes, the staging location is deleted.
 - The price of storage used for the staging location is consistent with [premium storage pricing](../virtual-machines/windows/disks-types.md#billing).
 

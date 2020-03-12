@@ -168,7 +168,6 @@ Some Bot Service features available in the public cloud are not yet available in
 
 Commonly used services in bot applications that are currently unavailable in Azure Government:
 - Application Insights
-- Azure Search
 - Speech Services
 
 For more information, see [global Azure documentation](https://aka.ms/botdocs/) for Bot Service.

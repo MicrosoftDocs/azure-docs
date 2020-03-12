@@ -1,10 +1,7 @@
 ---
 title: (DEPRECATED) Azure Container Service Quickstart - Deploy DC/OS Cluster
 description: Azure Container Service Quickstart - Deploy DC/OS Cluster
-services: container-service
 author: iainfoulds
-manager: jeconnoc
-
 ms.service: container-service
 ms.topic: quickstart
 ms.date: 02/26/2018
@@ -16,7 +13,7 @@ ms.custom: mvc
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
-DC/OS provides a distributed platform for running modern and containerized applications. With Azure Container Service, provisioning of a production ready DC/OS cluster is simple and quick. This quick start details the basic steps needed to deploy a DC/OS cluster and run basic workload.
+DC/OS provides a distributed platform for running modern and containerized applications. With Azure Container Service, provisioning of a production ready DC/OS cluster is simple and quick. This quickstart details the basic steps needed to deploy a DC/OS cluster and run basic workload.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -126,19 +123,19 @@ The default scheduling mechanism for an ACS DC/OS cluster is Marathon. Marathon 
 
 Run the following command to schedule the application to run on the DC/OS cluster.
 
-```azurecli
+```console
 dcos marathon app add marathon-app.json
 ```
 
 To see the deployment status for the app, run the following command.
 
-```azurecli
+```console
 dcos marathon app list
 ```
 
 When the **WAITING** column value switches from *True* to *False*, application deployment has completed.
 
-```azurecli
+```output
 ID     MEM  CPUS  TASKS  HEALTH  DEPLOYMENT  WAITING  CONTAINER  CMD   
 /test   32   1     1/1    ---       ---      False      DOCKER   None
 ```
@@ -163,7 +160,7 @@ az group delete --name myResourceGroup --no-wait
 
 ## Next steps
 
-In this quick start, you’ve deployed a DC/OS cluster and have run a simple Docker container on the cluster. To learn more about Azure Container Service, continue to the ACS tutorials.
+In this quickstart, you’ve deployed a DC/OS cluster and have run a simple Docker container on the cluster. To learn more about Azure Container Service, continue to the ACS tutorials.
 
 > [!div class="nextstepaction"]
 > [Manage an ACS DC/OS Cluster](container-service-dcos-manage-tutorial.md)

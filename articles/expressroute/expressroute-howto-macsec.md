@@ -1,12 +1,12 @@
 ---
-title: 'Configure MACsec - ExpressRoute: Azure | Microsoft Docs'
+title: 'Azure ExpressRoute: Configure MACsec'
 description: This article helps you configure MACsec to secure the connections between your edge routers and Microsoft's edge routers.
 services: expressroute
 author: cherylmc
 
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 10/09/2019
+ms.date: 10/22/2019
 ms.author: cherylmc
 
 ---
@@ -25,7 +25,7 @@ Before you start configuration, confirm the following:
 
 ### Working with Azure PowerShell
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../includes/hybrid-az-ps.md)]
 
 [!INCLUDE [expressroute-cloudshell](../../includes/expressroute-cloudshell-powershell-about.md)]
 
@@ -44,7 +44,7 @@ To start the configuration, sign in to your Azure account and select the subscri
     $keyVault = New-AzKeyVault -Name "your_key_vault_name" -ResourceGroupName "your_resource_group" -Location "resource_location" -EnableSoftDelete 
     ```
 
-    If you already have a key vault or a resource group, you can reuse them. However, it is critical that you enable the [**soft-delete** feature](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-ovw-soft-delete) on your existing key vault. If soft-delete is not enabled, you can use the following commands to enable it:
+    If you already have a key vault or a resource group, you can reuse them. However, it is critical that you enable the [**soft-delete** feature](../key-vault/key-vault-ovw-soft-delete.md) on your existing key vault. If soft-delete is not enabled, you can use the following commands to enable it:
 
     ```azurepowershell-interactive
     ($resource = Get-AzResource -ResourceId (Get-AzKeyVault -VaultName "your_existing_keyvault").ResourceId).Properties | Add-Member -MemberType "NoteProperty" -Name "enableSoftDelete" -Value "true"
@@ -94,10 +94,10 @@ Each ExpressRoute Direct instance has two physical ports. You can choose to enab
     $erDirect = Get-AzExpressRoutePort -ResourceGroupName "your_resource_group" -Name "your_direct_port_name"
     $erDirect.Links[0]. MacSecConfig.CknSecretIdentifier = $MacSecCKNSecret.Id
     $erDirect.Links[0]. MacSecConfig.CakSecretIdentifier = $MacSecCAKSecret.Id
-    $erDirect.Links[0]. MacSecConfig.Cipher = "gcm-aes-128"
+    $erDirect.Links[0]. MacSecConfig.Cipher = "GcmAes256"
     $erDirect.Links[1]. MacSecConfig.CknSecretIdentifier = $MacSecCKNSecret.Id
     $erDirect.Links[1]. MacSecConfig.CakSecretIdentifier = $MacSecCAKSecret.Id
-    $erDirect.Links[1]. MacSecConfig.Cipher = "gcm-aes-128"
+    $erDirect.Links[1]. MacSecConfig.Cipher = "GcmAes256"
     $erDirect.identity = $erIdentity
     Set-AzExpressRoutePort -ExpressRoutePort $erDirect
     ```
@@ -105,8 +105,8 @@ Each ExpressRoute Direct instance has two physical ports. You can choose to enab
 
     ```azurepowershell-interactive
     $erDirect = Get-AzExpressRoutePort -ResourceGroupName "your_resource_group" -Name "your_direct_port_name"
-    $erDirect.Links[0].AdminState = “Enabled”
-    $erDirect.Links[1].AdminState = “Enabled”
+    $erDirect.Links[0].AdminState = "Enabled"
+    $erDirect.Links[1].AdminState = "Enabled"
     Set-AzExpressRoutePort -ExpressRoutePort $erDirect
     ```
 

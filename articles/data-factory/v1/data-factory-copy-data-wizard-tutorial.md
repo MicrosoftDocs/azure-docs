@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Create a pipeline using Copy Wizard | Microsoft Docs'
+title: 'Tutorial: Create a pipeline using Copy Wizard '
 description: In this tutorial, you create an Azure Data Factory pipeline with a Copy Activity by using the Copy Wizard supported by Data Factory
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 
 
 ms.assetid: b87afb8e-53b7-4e1b-905b-0343dd096198
@@ -58,7 +58,7 @@ In this step, you use the Azure portal to create an Azure data factory named **A
       - Select **Use existing** to select an existing resource group.
       - Select **Create new** to enter a name for a resource group.
           
-		Some of the steps in this tutorial assume that you use the name: **ADFTutorialResourceGroup** for the resource group. To learn about resource groups, see [Using resource groups to manage your Azure resources](../../azure-resource-manager/resource-group-overview.md).
+		Some of the steps in this tutorial assume that you use the name: **ADFTutorialResourceGroup** for the resource group. To learn about resource groups, see [Using resource groups to manage your Azure resources](../../azure-resource-manager/management/overview.md).
    4. Select a **location** for the data factory.
    5. Select **Pin to dashboard** check box at the bottom of the blade.  
    6. Click **Create**.

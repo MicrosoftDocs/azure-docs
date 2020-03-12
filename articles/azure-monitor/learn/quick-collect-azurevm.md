@@ -1,19 +1,13 @@
 ---
 title: Collect data from an Azure virtual machine with Azure Monitor | Microsoft Docs
 description: Learn how to enable the Log Analytics agent VM Extension and enable collection of data from your Azure VMs with Log Analytics.
-services: log-analytics
-documentationcenter: log-analytics
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: 
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.subservice: logs
 ms.topic: quickstart
+author: bwren
+ms.author: bwren
 ms.date: 08/19/2019
-ms.author: magoedte
-ms.custom: mvc
+
+ms.custom: mvc, sec-javascript-october2019
 ---
 
 # Collect data from an Azure virtual machine with Azure Monitor
@@ -30,7 +24,7 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 
 1. In the Azure portal, select **All services**. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics workspaces**.
 
-    ![Azure portal](media/quick-collect-azurevm/azure-portal-01.png)<br>  
+    ![Azure portal](media/quick-collect-azurevm/azure-portal-log-analytics-workspaces.png)<br>  
 
 2. Select **Create**, and then select choices for the following items:
 
@@ -40,7 +34,7 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
    * Select the **Location** your VMs are deployed to.  For additional information, see which [regions Log Analytics is available in](https://azure.microsoft.com/regions/services/).
    * If you are creating a workspace in a new subscription created after April 2, 2018, it will automatically use the *Per GB* pricing plan and the option to select a pricing tier will not be available.  If you are creating a workspace for an existing subscription created before April 2, or to subscription that was tied to an existing EA enrollment, select your preferred pricing tier.  For additional information about the particular tiers, see [Log Analytics Pricing Details](https://azure.microsoft.com/pricing/details/log-analytics/).
   
-        ![Create Log Analytics resource blade](media/quick-collect-azurevm/create-loganalytics-workspace-02.png) 
+        ![Create Log Analytics resource blade](media/quick-collect-azurevm/create-log-analytics-workspace-azure-portal.png) 
 
 3. After providing the required information on the **Log Analytics workspace** pane, select **OK**.  
 
@@ -75,7 +69,7 @@ Azure Monitor can collect events from the Windows event logs or Linux Syslog and
 
 1. Select **Advanced settings**.
 
-    ![Log Analytics Advance Settings](media/quick-collect-azurevm/log-analytics-advanced-settings-01.png)
+    ![Log Analytics Advance Settings](media/quick-collect-azurevm/log-analytics-advanced-settings-azure-portal.png)
 
 2. Select **Data**, and then select **Windows Event Logs**.
 
@@ -109,7 +103,7 @@ Azure Monitor can collect events from the Windows event logs or Linux Syslog and
 
 6. When you first configure Linux Performance counters for a new Log Analytics workspace, you are given the option to quickly create several common counters. They are listed with a checkbox next to each.
 
-    ![Default Windows performance counters selected](media/quick-collect-azurevm/linux-perfcounters-default.png)
+    ![Default Windows performance counters selected](media/quick-collect-azurevm/linux-perfcounters-azure-monitor.png)
 
     Select **Apply below configuration to to my machines** and then select **Add the selected performance counters**.  They are added and preset with a ten second collection sample interval.  
 

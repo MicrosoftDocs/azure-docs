@@ -1,13 +1,9 @@
 ---
 title: Configure function app settings in Azure 
 description: Learn how to configure Azure function app settings.
-author: ggailey777
-manager: gwallace
 ms.assetid: 81eb04f8-9a27-45bb-bf24-9ab6c30d205c
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 08/14/2019
-ms.author: glenga
 ms.custom: cc996988-fb4f-47
 ---
 

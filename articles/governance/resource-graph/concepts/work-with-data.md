@@ -1,11 +1,8 @@
 ---
 title: Work with large data sets
-description: Understand how to get and control large data sets while working with Azure Resource Graph.
-author: DCtheGeek
-ms.author: dacoulte
-ms.date: 10/10/2019
+description: Understand how to get, format, page, and skip records in large data sets while working with Azure Resource Graph.
+ms.date: 10/18/2019
 ms.topic: conceptual
-ms.service: resource-graph
 ---
 # Working with large Azure resource data sets
 
@@ -32,14 +29,14 @@ The default limit can be overridden through all methods of interacting with Reso
 following examples show how to change the data set size limit to _200_:
 
 ```azurecli-interactive
-az graph query -q "project name | order by name asc" --first 200 --output table
+az graph query -q "Resources | project name | order by name asc" --first 200 --output table
 ```
 
 ```azurepowershell-interactive
-Search-AzGraph -Query "project name | order by name asc" -First 200
+Search-AzGraph -Query "Resources | project name | order by name asc" -First 200
 ```
 
-In the [REST API](/rest/api/azureresourcegraph/resources/resources), the control is **$top** and is
+In the [REST API](/rest/api/azureresourcegraph/resourcegraph(2018-09-01-preview)/resources/resources), the control is **$top** and is
 part of **QueryRequestOptions**.
 
 The control that is _most restrictive_ will win. For example, if your query uses the **top** or
@@ -66,21 +63,20 @@ The following examples show how to skip the first _10_ records a query would res
 starting the returned result set with the 11th record:
 
 ```azurecli-interactive
-az graph query -q "project name | order by name asc" --skip 10 --output table
+az graph query -q "Resources | project name | order by name asc" --skip 10 --output table
 ```
 
 ```azurepowershell-interactive
-Search-AzGraph -Query "project name | order by name asc" -Skip 10
+Search-AzGraph -Query "Resources | project name | order by name asc" -Skip 10
 ```
 
-In the [REST API](/rest/api/azureresourcegraph/resources/resources), the control is **$skip** and is
+In the [REST API](/rest/api/azureresourcegraph/resourcegraph(2018-09-01-preview)/resources/resources), the control is **$skip** and is
 part of **QueryRequestOptions**.
 
 ## Paging results
 
 When it's necessary to break a result set into smaller sets of records for processing or because a
-result set would exceed the maximum allowed value of _1000_ returned records, use paging. The [REST
-API](/rest/api/azureresourcegraph/resources/resources) **QueryResponse** provides values to
+result set would exceed the maximum allowed value of _1000_ returned records, use paging. The [REST API](/rest/api/azureresourcegraph/resourcegraph(2018-09-01-preview)/resources/resources) **QueryResponse** provides values to
 indicate of a results set has been broken up: **resultTruncated** and **$skipToken**.
 **resultTruncated** is a boolean value that informs the consumer if there are additional records
 not returned in the response. This condition can also be identified when the **count** property is
@@ -95,18 +91,18 @@ The following examples show how to **skip** the first 3000 records and return th
 records after those records skipped with Azure CLI and Azure PowerShell:
 
 ```azurecli-interactive
-az graph query -q "project id, name | order by id asc" --first 1000 --skip 3000
+az graph query -q "Resources | project id, name | order by id asc" --first 1000 --skip 3000
 ```
 
 ```azurepowershell-interactive
-Search-AzGraph -Query "project id, name | order by id asc" -First 1000 -Skip 3000
+Search-AzGraph -Query "Resources | project id, name | order by id asc" -First 1000 -Skip 3000
 ```
 
 > [!IMPORTANT]
 > The query must **project** the **id** field in order for pagination to work. If it's missing from
 > the query, the response won't include the **$skipToken**.
 
-For an example, see [Next page query](/rest/api/azureresourcegraph/resources/resources#next-page-query)
+For an example, see [Next page query](/rest/api/azureresourcegraph/resourcegraph(2018-09-01-preview)/resources/resources#next-page-query)
 in the REST API docs.
 
 ## Formatting results
@@ -191,14 +187,14 @@ Here are some examples of setting **resultFormat** to use the _ObjectArray_ form
 
 ```csharp
 var requestOptions = new QueryRequestOptions( resultFormat: ResultFormat.ObjectArray);
-var request = new QueryRequest(subscriptions, "limit 1", options: requestOptions);
+var request = new QueryRequest(subscriptions, "Resources | limit 1", options: requestOptions);
 ```
 
 ```python
 request_options = QueryRequestOptions(
     result_format=ResultFormat.object_array
 )
-request = QueryRequest(query="limit 1", subscriptions=subs_list, options=request_options)
+request = QueryRequest(query="Resources | limit 1", subscriptions=subs_list, options=request_options)
 response = client.resources(request)
 ```
 
@@ -206,4 +202,4 @@ response = client.resources(request)
 
 - See the language in use in [Starter queries](../samples/starter.md).
 - See advanced uses in [Advanced queries](../samples/advanced.md).
-- Learn to [explore resources](explore-resources.md).
+- Learn more about how to [explore resources](explore-resources.md).

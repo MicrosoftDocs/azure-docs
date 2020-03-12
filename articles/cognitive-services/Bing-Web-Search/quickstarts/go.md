@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 03/12/2019
+ms.date: 12/09/2019
 ms.author: aahi
 ms.reviewer: nhoyadx@gmail.com, v-gedod, erhopf
 ms.custom: seodec2018
@@ -18,8 +18,6 @@ ms.custom: seodec2018
 # Quickstart: Search the web using the Bing Web Search REST API and Go
 
 Use this quickstart to make your first call to the Bing Web Search API and receive the JSON response. This Go application sends a search request to the API, and shows the response. While this application is written in Go, the API is a RESTful Web service compatible with most programming languages.
-
-See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 ## Prerequisites
 Here are a few things that you'll need before running this quickstart:
@@ -109,7 +107,7 @@ type BingAnswer struct {
 
 ## Declare the main function and define variables  
 
-This code declares the main function and sets required variables. Confirm that the endpoint is correct and replace the `token` value with a valid subscription key from your Azure account. Feel free to customize the search query by replacing the value for `searchTerm`.
+This code declares the main function and sets required variables. `endpoint` can be the global endpoint below, or the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource. Confirm that the endpoint is correct and replace the `token` value with a valid subscription key from your Azure account. Feel free to customize the search query by replacing the value for `searchTerm`.
 
 ```go
 // Declare the main function. This is required for all Go programs.

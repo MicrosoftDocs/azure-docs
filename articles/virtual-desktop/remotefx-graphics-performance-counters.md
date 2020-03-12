@@ -1,5 +1,5 @@
 ---
-title: Diagnosing graphics performance issues in remote desktop - Azure
+title: Diagnose graphics performance issues Remote Desktop - Azure
 description: This article describes how to use RemoteFX graphics counters in remote desktop protocol sessions to diagnose performance issues with graphics in Windows Virtual Desktop.
 services: virtual-desktop
 author: Heidilohr
@@ -8,6 +8,7 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 05/23/2019
 ms.author: helohr
+manager: lizross
 ---
 
 # Diagnose graphics performance issues in Remote Desktop
@@ -20,7 +21,7 @@ You'll need your remote session name to identify the graphics performance counte
 
 1. Open the Windows command prompt from your remote session.
 2. Run the **qwinsta** command and find your session name.
-    - If your session is hosted in a multi-session virtual machine (VM): Your instance of each counter is suffixed by the same number that suffixes your session name, such as “rdp-tcp 37.”
+    - If your session is hosted in a multi-session virtual machine (VM): Your instance of each counter is suffixed by the same number that suffixes your session name, such as "rdp-tcp 37."
     - If your session is hosted in a VM that supports virtual Graphics Processing Units (vGPU): Your instance of each counter is stored on the server instead of in your VM. Your counter instances include the VM name instead of the number in the session name, such as "Win8 Enterprise VM."
 
 >[!NOTE]
@@ -65,9 +66,9 @@ A high value for any of the Frames Skipped/Second counters implies that the prob
 
 If the Output Frames/Second counter matches the Input Frames/Second counter, yet you still notice unusual lag or stalling, Average Encoding Time may be the culprit. Encoding is a synchronous process that occurs on the server in the single-session (vGPU) scenario and on the VM in the multi-session scenario. Average Encoding Time should be under 33 ms. If Average Encoding Time is under 33 ms but you still have performance issues, there may be an issue with the app or operating system you are using.
 
-For more information about diagnosing app-related issues, see [User Input Delay performance counters](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-rdsh-performance-counters).
+For more information about diagnosing app-related issues, see [User Input Delay performance counters](/windows-server/remote/remote-desktop-services/rds-rdsh-performance-counters/).
 
-Because RDP supports an Average Encoding Time of 33 ms, it supports an input frame rate up to 30 frames/second. Note that 33 ms is the maximum supported frame rate. In many cases, the frame rate experienced by the user will be lower, depending on how often a frame is provided to RDP by the source. For example, tasks like watching a video require a full input frame rate of 30 frames/second, but less computationally intensive tasks like infrequently editing a document result in a much lower value for Input Frames/Second with no degradation in the user’s experience quality.
+Because RDP supports an Average Encoding Time of 33 ms, it supports an input frame rate up to 30 frames/second. Note that 33 ms is the maximum supported frame rate. In many cases, the frame rate experienced by the user will be lower, depending on how often a frame is provided to RDP by the source. For example, tasks like watching a video require a full input frame rate of 30 frames/second, but less computationally intensive tasks like infrequently editing a document result in a much lower value for Input Frames/Second with no degradation in the user's experience quality.
 
 ### Addressing poor frame quality
 
@@ -93,10 +94,10 @@ If client resources are causing the bottleneck, try one of the following approac
 - Increase memory and compute resources on the client machine.
 
 > [!NOTE]
-> We currently don’t support the Source Frames/Second counter. For now, the Source Frames/Second counter will always display 0.
+> We currently don't support the Source Frames/Second counter. For now, the Source Frames/Second counter will always display 0.
 
 ## Next steps
 
-- To create a GPU optimized Azure virtual machine, see [Configure graphics processing unit (GPU) acceleration for Windows Virtual Desktop environment](https://docs.microsoft.com/azure/virtual-desktop/configure-vm-gpu).
-- For an overview of troubleshooting and escalation tracks, see [Troubleshooting overview, feedback, and support](https://docs.microsoft.com/azure/virtual-desktop/troubleshoot-set-up-overview).
-- To learn more about the service, see [Windows Desktop environment](https://docs.microsoft.com/azure/virtual-desktop/environment-setup).
+- To create a GPU optimized Azure virtual machine, see [Configure graphics processing unit (GPU) acceleration for Windows Virtual Desktop environment](configure-vm-gpu.md).
+- For an overview of troubleshooting and escalation tracks, see [Troubleshooting overview, feedback, and support](troubleshoot-set-up-overview.md).
+- To learn more about the service, see [Windows Desktop environment](environment-setup.md).

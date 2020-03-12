@@ -14,9 +14,9 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 07/29/2019
+ms.date: 11/04/2019
 ms.author: markvi
-ms.reviewer: dhanyahk
+ms.reviewer: arvinh
 
 ms.collection: M365-identity-device-management
 ---
@@ -201,6 +201,29 @@ The **summary** tab provides an overview of what happened and identifiers for th
 - There is currently no support for log analytics.
 
 - When you access the provisioning logs from the context of an app, it doesn’t automatically filter events to the specific app the way audit logs do.
+
+## Error Codes
+
+Use the table below to better understand how to resolve errors you may find in the provisioning logs. For any error codes that are missing, provide feedback using the link at the bottom of this page. 
+
+|Error Code|Description|
+|---|---|
+|Conflict, EntryConflict|Correct the conflicting attribute values in either Azure AD or the application, or review your matching attribute configuration if the conflicting user account was supposed to be matched and taken over. Review the following [documentation](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes) for more information on configuring matching attributes.|
+|TooManyRequests|The target app rejected this attempt to update the user because it is overloaded and receiving too many requests. There is nothing to do. This attempt will automatically be retired. Microsoft has also been notified of this issue.|
+|InternalServerError |The target app returned an unexpected error. There may be a service issue with the target application that is preventing this from working. This attempt will automatically be retired in 40 minutes.|
+|InsufficientRights, MethodNotAllowed, NotPermitted, Unauthorized| Azure AD was able to authenticate with the target application, but was not authorized to perform the update. Please review any instructions provided by the target application as well as the respective application [tutorial](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list).|
+|UnprocessableEntity|The target application returned an unexpected response. The configuration of the target application may not be correct, or there may be a service issue with the target application that is preventing this from working.|
+|WebExceptionProtocolError |An HTTP protocol error occurred while connecting to the target application. There is nothing to do. This attempt will automatically be retired in 40 minutes.|
+|InvalidAnchor|A user that was previously created or matched by the provisioning service no longer exists. Check to ensure the user exists. To force a re-match of all users, use the MS Graph API to [restart job](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-restart?view=graph-rest-beta&tabs=http). Note that restarting provisioning will trigger an initial cycle, which can take time to complete. It also deletes the cache the provisioning service uses to operate, meaning that all users and groups in the tenant will have to be evaluated again and certain provisioning events could be dropped.|
+|NotImplemented | The target app returned an unexpected response. The configuration of the app may not be correct, or there may be a service issue with the target app that is preventing this from working. Please review any instructions provided by the target application as well as the respective application [tutorial](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list). |
+|MandatoryFieldsMissing, MissingValues |The user could not be created because required values are missing. Correct the missing attribute values in the source record, or review your matching attribute configuration to ensure the required fields are not omitted. [Learn more](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes) about configuring matching attributes.|
+|SchemaAttributeNotFound |Could not perform the operation because an attribute was specified that does not exist in the target application. See the [documentation](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes) on attribute customization and ensure your configuration is correct.|
+|InternalError |An internal service error occurred within the Azure AD provisioning service. There is nothing to do. This attempt will automatically be retried in 40 minutes.|
+|InvalidDomain |The operation could not be performed due to an attribute value containing an invalid domain name. Update the domain name on the user or add it to the permitted list in the target application. |
+|Timeout |The operation could not be completed because the target application took too long to respond. There is nothing to do. This attempt will automatically be retried in 40 minutes.|
+|LicenseLimitExceeded|The user could not be created in the target application because there are no available licenses for this user. Either procure additional licenses for the target application, or review your user assignments and attribute mapping configuration to ensure that the correct users are assigned with the correct attributes.|
+|DuplicateTargetEntries  |The operation could not be completed because more than one user in the target application was found with the configured matching attributes. Either remove the duplicate user from the target application, or reconfigure your attribute mappings as described [here](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes).|
+|DuplicateSourceEntries | The operation could not be completed because more than one user was found with the configured matching attributes. Either remove the duplicate user, or reconfigure your attribute mappings as described [here](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes).|
 
 ## Next steps
 

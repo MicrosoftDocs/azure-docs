@@ -1,6 +1,6 @@
 ---
 title: Get started using Azure Security Center  for IoT security agents| Microsoft Docs
-description: Get started with Azure Security Center for IoT security agents.
+description: Get started with understanding, configuring, deploying and using Azure Security Center for IoT security service agents on your IoT devices.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na

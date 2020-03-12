@@ -3,13 +3,13 @@ title: Integrate with Apache Kafka Connect- Azure Event Hubs | Microsoft Docs
 description: This article provides information on how to use Apache Spark with Azure Event Hubs for Kafka.
 services: event-hubs
 documentationcenter: .net
-author: basilhariri
+author: ShubhaVijayasarathy
 manager: timlt
 ms.service: event-hubs
 ms.topic: tutorial
 ms.custom: seodec18
 ms.date: 12/06/2018
-ms.author: bahariri
+ms.author: shvija
 
 ---
 
@@ -103,7 +103,9 @@ In this step, a Kafka Connect worker is started locally in distributed mode, usi
 4. Run `./bin/connect-distributed.sh /PATH/TO/connect-distributed.properties`.  The Connect worker REST API is ready for interaction when you see `'INFO Finished starting connectors and tasks'`. 
 
 > [!NOTE]
-> Event Hubs supports Kafka clients creating topics automatically. A quick check of the namespace in the Azure portal reveals that the Connect worker's internal topics have been created automatically.
+> Kafka Connect uses the Kafka AdminClient API to automatically create topics with recommended configurations, including compaction. A quick check of the namespace in the Azure portal reveals that the Connect worker's internal topics have been created automatically.
+>
+>Kafka Connect internal topics **must use compaction**.  The Event Hubs team is not responsible for fixing improper configurations if internal Connect topics are incorrectly configured.
 
 ### Create connectors
 This section walks you through spinning up FileStreamSource and FileStreamSink connectors. 

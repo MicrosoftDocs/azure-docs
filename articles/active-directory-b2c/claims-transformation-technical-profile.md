@@ -1,15 +1,16 @@
 ---
-title: Define a Claims transformation technical profile in a custom policy in Azure Active Directory B2C | Microsoft Docs
+title: Define a Claims transformation technical profile
+titleSuffix: Azure AD B2C
 description: Define a Claims transformation technical profile in a custom policy in Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
-ms.author: marsma
+ms.date: 02/13/2020
+ms.author: mimart
 ms.subservice: B2C
 ---
 
@@ -94,6 +95,12 @@ The claims transformation technical profile enables you to execute a claims tran
   </OrchestrationSteps>
 </UserJourney>
 ```
+
+## Metadata
+
+| Attribute | Required | Description |
+| --------- | -------- | ----------- |
+| IncludeClaimResolvingInClaimsHandling  | No | For input and output claims, specifies whether [claims resolution](claim-resolver-overview.md) is included in the technical profile. Possible values: `true`, or `false` (default). If you want to use a claims resolver in the technical profile, set this to `true`. |
 
 ## Use a validation technical profile
 

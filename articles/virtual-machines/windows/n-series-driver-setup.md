@@ -1,5 +1,5 @@
 ﻿---
-title: Azure N-series GPU driver setup for Windows | Microsoft Docs
+title: Azure N-series GPU driver setup for Windows 
 description: How to set up NVIDIA GPU drivers for N-series VMs running Windows Server or Windows in Azure
 services: virtual-machines-windows
 author: cynthn
@@ -59,7 +59,7 @@ To install the latest version 1.1 HpcVMDrivers extension on an existing RDMA-cap
   ```powershell
   Set-AzVMExtension -ResourceGroupName "myResourceGroup" -Location "westus" -VMName "myVM" -ExtensionName "HpcVmDrivers" -Publisher "Microsoft.HpcCompute" -Type "HpcVmDrivers" -TypeHandlerVersion "1.1"
   ```
-  For more information, see [Virtual machine extensions and features for Windows](extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+  For more information, see [Virtual machine extensions and features for Windows](extensions-features.md).
 
 The RDMA network supports Message Passing Interface (MPI) traffic for applications running with [Microsoft MPI](https://docs.microsoft.com/message-passing-interface/microsoft-mpi) or Intel MPI 5.x. 
 

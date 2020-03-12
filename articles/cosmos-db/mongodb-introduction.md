@@ -4,7 +4,7 @@ description: Learn how you can use Azure Cosmos DB to store and query massive am
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: overview
-ms.date: 05/20/2019
+ms.date: 10/1/2019
 author: sivethe
 ms.author: sivethe
 ---
@@ -16,9 +16,9 @@ ms.author: sivethe
 
 Azure Cosmos DB implements wire protocols of common NoSQL databases including Cassandra, MongoDB, Gremlin, and Azure Tables Storage. By providing a native implementation of the wire protocols directly and efficiently inside Cosmos DB, it allows existing client SDKs, drivers, and tools of the NoSQL databases to interact with Cosmos DB transparently. Cosmos DB does not use any source code of the databases for providing wire-compatible APIs for any of the NoSQL databases.
 
-By default, Azure Cosmos DB's API for MongoDB is compatible with version 3.2 of the MongoDB's wire protocol. Features or query operators added in version 3.4 of the wire protocol are currently available as a preview feature. Any MongoDB client driver that understands these protocol versions should be able to natively connect to Cosmos DB.
+By default, new accounts created using Azure Cosmos DB's API for MongoDB are compatible with version 3.6 of the MongoDB wire protocol. Any MongoDB client driver that understands this protocol version should be able to natively connect to Cosmos DB.
 
-![Azure Cosmos DB's API for MongoDB](./media/mongodb-introduction/cosmosdb-mongodb.png) 
+![Azure Cosmos DB's API for MongoDB](./media/mongodb-introduction/cosmosdb-mongodb.png)
 
 ## Key benefits
 
@@ -32,7 +32,7 @@ The key benefits of Cosmos DB as a fully managed, globally distributed, database
 
 ## Cosmos DB's API for MongoDB
 
-Follow the quickstarts to create an Cosmos account and migrate your existing MongoDB application to use Azure Cosmos DB, or build a new one:
+Follow the quickstarts to create an Azure Cosmos account and migrate your existing MongoDB application to use Azure Cosmos DB, or build a new one:
 
 * [Migrate an existing MongoDB Node.js web app](create-mongodb-nodejs.md).
 * [Build a web app using Azure Cosmos DB's API for MongoDB and .NET SDK](create-mongodb-dotnet.md)

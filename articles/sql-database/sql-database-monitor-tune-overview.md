@@ -1,5 +1,5 @@
 ---
-title: Monitoring and performance tuning - Azure SQL Database | Microsoft Docs
+title: Monitoring and performance tuning
 description: Tips for performance tuning in Azure SQL Database through evaluation and improvement.
 services: sql-database
 ms.service: sql-database

@@ -1,5 +1,5 @@
 ---
-title: Deploy OKD in Azure | Microsoft Docs
+title: Deploy OKD in Azure 
 description: Deploy OKD in Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -14,7 +14,7 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/02/2019
+ms.date: 10/15/2019
 ms.author: haroldw
 ---
 
@@ -160,6 +160,6 @@ az group delete --name openshiftrg
 
 ## Next steps
 
-- [Post-deployment tasks](./openshift-post-deployment.md)
-- [Troubleshoot OpenShift deployment](./openshift-troubleshooting.md)
+- [Post-deployment tasks](./openshift-container-platform-3x-post-deployment.md)
+- [Troubleshoot OpenShift deployment](./openshift-container-platform-3x-troubleshooting.md)
 - [Getting started with OKD](https://docs.okd.io)

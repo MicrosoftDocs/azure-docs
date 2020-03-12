@@ -1,14 +1,8 @@
 ---
-title: Create an Azure function with Java and IntelliJ | Microsoft Docs
+title: Create an Azure function with Java and IntelliJ 
 description: Learn how to create and publish a simple HTTP-triggered, serverless app on Azure with Java and IntelliJ.
-services: functions
-documentationcenter: na
 author: jeffhollan
-manager: jpconnock
-keywords: azure functions, functions, event processing, compute, serverless architecture, java
-ms.service: azure-functions
 ms.topic: conceptual
-ms.devlang: java
 ms.date: 07/01/2018
 ms.author: jehollan
 ms.custom: mvc, devcenter
@@ -81,8 +75,6 @@ Maven creates the project files in a new folder with the same name as the _Artif
 1. Select **(+)** to add a **Remote**.
 1. Complete the _Name_ and _Settings_ fields, and then select **OK** to save the configuration.
 1. After setup, select **Debug < Remote Configuration Name >** or press Shift+F9 on your keyboard to start debugging.
-
-   ![Debug functions in IntelliJ](media/functions-create-first-java-intellij/debug-configuration-intellij.png)
 
 1. When you're finished, stop the debugger and the running process. Only one function host can be active and running locally at a time.
 

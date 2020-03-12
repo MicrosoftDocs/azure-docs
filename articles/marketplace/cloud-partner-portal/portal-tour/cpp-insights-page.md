@@ -4,6 +4,7 @@ description: Overview of the Insights page in Cloud Partner Portal for Azure Mar
 services: Azure, Marketplace, Cloud Partner Portal, 
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: pabutler

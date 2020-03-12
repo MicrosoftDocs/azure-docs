@@ -1,5 +1,5 @@
 ---
-title: Onboard a root or apex domain to an existing Front Door using the Azure portal
+title: Onboard a root or apex domain to an existing Front Door - Azure portal
 description: Learn how to onboard a root or apex domain to an existing Front Door using the Azure portal.
 services: front-door
 author: sharad4u

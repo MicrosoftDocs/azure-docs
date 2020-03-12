@@ -24,4 +24,5 @@ This article shows the supported IPsec policy combinations.
 
 ## Next steps
 
+For steps to configure a custom IPsec policy, see [Configure a custom IPsec policy for Virtual WAN](virtual-wan-custom-ipsec-portal.md).
 For more information about Virtual WAN, see [About Azure Virtual WAN](virtual-wan-about.md) and the [Azure Virtual WAN FAQ](virtual-wan-faq.md).

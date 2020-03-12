@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Create a Linux VM with Azure PowerShell | Microsoft Docs
+title: Quickstart - Create a Linux VM with Azure PowerShell 
 description: In this quickstart, you learn how to use Azure PowerShell to create a Linux virtual machine
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -207,7 +207,7 @@ When done, type `exit` to leave the SSH session.
 
 Use a web browser of your choice to view the default NGINX welcome page. Enter the public IP address of the VM as the web address. The public IP address can be found on the VM overview page or as part of the SSH connection string you used earlier.
 
-![NGINX default site](./media/quick-create-cli/nginx.png)
+![NGINX default Welcome page](./media/quick-create-cli/nginix-welcome-page.png)
 
 ## Clean up resources
 

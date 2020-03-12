@@ -1,17 +1,8 @@
 ---
-title: Tutorial- Upgrade an Azure Service Fabric Mesh application | Microsoft Docs
-description: Learn how to upgrade a Service Fabric application using Visual Studio
-services: service-fabric-mesh
-documentationcenter: .net
+title: Tutorial- Upgrade an Azure Service Fabric Mesh application 
+description: This tutorial is part four of a series and shows you how to upgrade an Azure Service Fabric Mesh application directly from Visual Studio.
 author: dkkapur
-manager: chakdan
-editor: ''
-
-ms.assetid: 
-ms.service: service-fabric-mesh
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 11/29/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter 

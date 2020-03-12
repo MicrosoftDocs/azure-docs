@@ -1,11 +1,11 @@
 ---
-title: Azure PowerShell script - Azure Cosmos DB Update RU/s for MongoDB API
-description: Azure PowerShell script - Azure Cosmos DB Update RU/s for MongoDB API
+title: PowerShell script to update RU/s for Azure Cosmos DB's API for MongoDB
+description: Learn how to use a PowerShell script to update the throughput for a database or a container in Azure Cosmos DB's API for MongoDB
 author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: sample
-ms.date: 05/18/2019
+ms.date: 12/02/2019
 ms.author: mjbrown
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: System variables in Azure Data Factory | Microsoft Docs
+title: System variables in Azure Data Factory 
 description: This article describes system variables supported by Azure Data Factory. You can use these variables in expressions when defining Data Factory entities.
 services: data-factory
 documentationcenter: ''

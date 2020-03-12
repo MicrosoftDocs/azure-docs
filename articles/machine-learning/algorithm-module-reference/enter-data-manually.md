@@ -1,19 +1,19 @@
 ---
 title:  "Enter Data Manually: Module Reference"
-titleSuffix: Azure Machine Learning service
-description: Learn how to use the Enter Data Manually module in Azure Machine Learning service to create a small dataset by typing values. The dataset can have multiple columns.
+titleSuffix: Azure Machine Learning
+description: Learn how to use the Enter Data Manually module in Azure Machine Learning to create a small dataset by typing values. The dataset can have multiple columns.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 
-author: xiaoharper
-ms.author: zhanxia
-ms.date: 05/02/2019
+author: likebupt
+ms.author: keli19
+ms.date: 02/22/2020
 ---
 # Enter Data Manually module
 
-This article describes a module of the visual interface (preview) for Azure Machine Learning service.
+This article describes a module in Azure Machine Learning designer (preview).
 
 Use this module to create a small dataset by typing values. The dataset can have multiple columns.
   
@@ -27,17 +27,17 @@ This module can be helpful in scenarios such as these:
 
 ## Enter Data Manually 
   
-1.  Add the [Enter Data Manually](./enter-data-manually.md) module to your experiment. You can find this module in the **Data Input and Output** category in Azure Machine Learning. 
+1.  Add the [Enter Data Manually](./enter-data-manually.md) module to your pipeline. You can find this module in the **Data Input and Output** category in Azure Machine Learning. 
   
 2.  For **DataFormat**, select one of the following options. These options determine how the data that you provide should be parsed. The requirements for each format differ greatly, so be sure to read the related topics.  
   
-    -   **ARFF**. The attribute-relation file format, used by Weka.   
+    -   **ARFF**: The attribute-relation file format, used by Weka.   
   
-    -   **CSV**. Comma-separated values format. For more information, see [Convert to CSV](./convert-to-csv.md).  
+    -   **CSV**: Comma-separated values format. For more information, see [Convert to CSV](./convert-to-csv.md).  
   
-    -   **SVMLight**. A format used by Vowpal Wabbit and other machine learning frameworks.  
+    -   **SVMLight**: A format used by Vowpal Wabbit and other machine learning frameworks.  
   
-    -   **TSV**. Tab-separated values format.
+    -   **TSV**: Tab-separated values format.
 
      If you choose a format and do not provide data that meets the format specifications, a run-time error occurs.
   
@@ -84,17 +84,15 @@ This module can be helpful in scenarios such as these:
         |0.00016|0.004|0.999961|0.00784|1|  
         |0|0.004|0.999955|0.008615|1|  
   
-4.  Press ENTER after each row, to start a new line.  
-  
-     **Be sure to press ENTER after the final row.** 
+4.  Press ENTER after each row, to start a new line.      
      
-     If you press ENTER multiple times to add multiple empty trailing rows, the final empty row is removed trimmed, but other empty rows are treated as missing values.  
+     If you press ENTER multiple times to add multiple empty trailing rows, the empty rows will be removed trimmed.  
   
      If you create rows with missing values, you can always filter them out later.  
   
-5.  Right-click the module and select **Run selected** to parse the data and load it into your workspace as a dataset.  
+5.  Connect the output port to other modules, and run the pipeline.  
   
-     To view the dataset, click the output port and select **Visualize**.  
+     To view the dataset, right-click the module and select **Visualize**.  
 ## Next steps
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning service. 
+See the [set of modules available](module-reference.md) to Azure Machine Learning. 

@@ -1,6 +1,7 @@
 ---
-title: Azure VMware Solution by CloudSimple Quickstart - Create a Private Cloud 
-description: Learn how to create and configure a Private Cloud with Azure VMware Solution by CloudSimple 
+title: "Quickstart: Create a Private Cloud"
+titleSuffix: Azure VMware Solutions by CloudSimple 
+description: Learn how to create and configure a Private Cloud with Azure VMware Solutions by CloudSimple 
 author: sharaths-cs 
 ms.author: dikamath 
 ms.date: 08/16/2019 
@@ -36,7 +37,7 @@ Private Clouds are managed through the CloudSimple portal. They have their own v
 
 5. In the CloudSimple portal, provide a name for your Private Cloud.
 6. Select the **Location** of your Private Cloud.
-7. Select **Node type**, consistent with what you purchased on Azure.
+7. Select **Node type**, consistent with what you provisioned on Azure.
 8. Specify **Node count**.  At least three nodes are required to create a Private Cloud.
 
     ![Create Private Cloud - Basic info](media/create-private-cloud-basic-info.png)
@@ -152,7 +153,7 @@ You can now sign in to vCenter to set up virtual machines and policies.
     ![Launch vSphere Client](media/launch-vcenter-from-cloudsimple-portal.png)
 
 2. Select your preferred vSphere client to access vCenter and sign in with your username and password.  The defaults are:
-    * User name: **CloudOwner@cloudsimple.local**
+    * User name: **CloudOwner\@cloudsimple.local**
     * Password: **CloudSimple123!**  
 
 The vCenter screens in the next procedures are from the vSphere (HTML5) client.

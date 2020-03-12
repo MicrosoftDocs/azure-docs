@@ -1,13 +1,13 @@
 ---
-title: Optimize cluster configurations with Apache Ambari - Azure HDInsight 
+title: Apache Ambari to optimize cluster configurations - Azure HDInsight
 description: Use the Apache Ambari web UI to configure and optimize Azure HDInsight clusters.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 03/26/2019
-ms.author: hrasheed
+ms.date: 11/15/2019
 ---
 
 # Use Apache Ambari to optimize HDInsight cluster configurations
@@ -138,7 +138,7 @@ Hive processes data row by row. Vectorization directs Hive to process data in bl
 
 By default, Hive follows a set of rules to find one optimal query execution plan. Cost-based optimization (CBO) evaluates multiple plans to execute a query and assigns a cost to each plan, then determines the cheapest plan to execute a query.
 
-To enable CBO, navigate to the Hive **Configs** tab and search for `parameter hive.cbo.enable`, then switch the toggle button to **On**.
+To enable CBO, navigate to **Hive** > **Configs** > **Settings** and find **Enable Cost Based Optimizer**, then switch the toggle button to **On**.
 
 ![HDInsight cost-based optimizer](./media/hdinsight-changing-configs-via-ambari/hdinsight-cbo-config.png)
 
@@ -190,15 +190,13 @@ As a general rule, having the compression method splittable is important, otherw
 
 1. To add a custom setting:
 
-    a. Navigate to the Hive **Configs** tab and select the **Advanced** tab.
+    a. Navigate to **Hive** > **Configs** > **Advanced** > **Custom hive-site**.
 
-    b. Under the **Advanced** tab, find and expand the **Custom hive-site** pane.
+    b. Select **Add Property...** at the bottom of the Custom hive-site pane.
 
-    c. Click the link **Add Property** at the bottom of the Custom hive-site pane.
+    c. In the Add Property window, enter `mapred.map.output.compression.codec` as the key and `org.apache.hadoop.io.compress.SnappyCodec` as the value.
 
-    d. In the Add Property window, enter `mapred.map.output.compression.codec` as the key and `org.apache.hadoop.io.compress.SnappyCodec` as the value.
-
-    e. Click **Add**.
+    d. Select **Add**.
 
 	![Apache Hive custom property add](./media/hdinsight-changing-configs-via-ambari/hive-custom-property.png)
 
@@ -276,7 +274,7 @@ Additional recommendations for optimizing the Hive execution engine:
 | Setting | Recommended | HDInsight Default |
 | -- | -- | -- |
 | `hive.mapjoin.hybridgrace.hashtable` | True = safer, slower; false = faster | false |
-| `tez.am.resource.memory.mb` | 4-GB upper bound for most | Auto-Tuned |
+| `tez.am.resource.memory.mb` | 4 GB upper bound for most | Auto-Tuned |
 | `tez.session.am.dag.submit.timeout.secs` | 300+ | 300 |
 | `tez.am.container.idle.release-timeout-min.millis` | 20000+ | 10000 |
 | `tez.am.container.idle.release-timeout-max.millis` | 40000+ | 20000 |
@@ -314,7 +312,7 @@ Similar to Hive, local mode is used to speed jobs with relatively smaller amount
 
 ### Copy user jar cache
 
-Pig copies the JAR files required by UDFs to a distributed cache  to make them available for task nodes. These jars do not change frequently. If enabled, the `pig.user.cache.enabled` setting allows jars to be placed in a cache to reuse them for jobs run by the same user. This results in a minor increase in job performance.
+Pig copies the JAR files required by UDFs to a distributed cache  to make them available for task nodes. These jars don't change frequently. If enabled, the `pig.user.cache.enabled` setting allows jars to be placed in a cache to reuse them for jobs run by the same user. This results in a minor increase in job performance.
 
 1. To enable, set `pig.user.cache.enabled` to true. The default is false.
 
@@ -324,7 +322,7 @@ Pig copies the JAR files required by UDFs to a distributed cache  to make them a
 
 The following memory settings can help optimize Pig script performance.
 
-* `pig.cachedbag.memusage`: The amount of memory allocated to a bag. A bag is collection of tuples. A tuple is an ordered set of fields, and a field is a piece of data. If the data in a bag is beyond the allocated memory, it is spilled to disk. The default value is 0.2, which represents 20 percent of available memory. This memory is shared across all bags in an application.
+* `pig.cachedbag.memusage`: The amount of memory allocated to a bag. A bag is collection of tuples. A tuple is an ordered set of fields, and a field is a piece of data. If the data in a bag is beyond the allocated memory, it's spilled to disk. The default value is 0.2, which represents 20 percent of available memory. This memory is shared across all bags in an application.
 
 * `pig.spill.size.threshold`: Bags larger than this spill size threshold (in bytes) are  spilled to disk. The default value is 5 MB.
 
@@ -411,7 +409,7 @@ The larger the region file size, the smaller the number of splits. You can incre
 
 * The property `hbase.hregion.memstore.flush.size` defines the size at which Memstore is flushed to disk. The default size is 128 MB.
 
-* The Hbase region block multiplier is defined by `hbase.hregion.memstore.block.multiplier`. The default value is 4. The maximum allowed is 8.
+* The HBase region block multiplier is defined by `hbase.hregion.memstore.block.multiplier`. The default value is 4. The maximum allowed is 8.
 
 * HBase blocks updates if the Memstore is (`hbase.hregion.memstore.flush.size` * `hbase.hregion.memstore.block.multiplier`) bytes.
 

@@ -1,5 +1,5 @@
 ---
-title: Performance tuning with Azure SQL Data Warehouse ordered clustered columnstore index | Microsoft Docs
+title: Performance tuning with ordered clustered columnstore index 
 description: Recommendations and considerations you should know as you use ordered clustered columnstore index to improve your query performance. 
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -10,16 +10,18 @@ ms.subservice: development
 ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
+ms.custom: seo-lt-2019
+ms.custom: azure-synapse
 ---
 
 # Performance tuning with ordered clustered columnstore index  
 
-When users query a columnstore table in Azure SQL Data Warehouse, the optimizer checks the minimum and maximum values stored in each segment.  Segments that are outside the bounds of the query predicate aren't read from disk to memory.  A query can get faster performance if the number of segments to read and their total size are small.   
+When users query a columnstore table in SQL Analytics, the optimizer checks the minimum and maximum values stored in each segment.  Segments that are outside the bounds of the query predicate aren't read from disk to memory.  A query can get faster performance if the number of segments to read and their total size are small.   
 
 ## Ordered vs. non-ordered clustered columnstore index 
-By default, for each Azure Data Warehouse table created without an index option, an internal component (index builder) creates a non-ordered clustered columnstore index (CCI) on it.  Data in each column is compressed into a separate CCI rowgroup segment.  There's metadata on each segment’s value range, so segments that are outside the bounds of the query predicate aren't read from disk during query execution.  CCI offers the highest level of data compression and reduces the size of segments to read so queries can run faster. However, because the index builder doesn't sort data before compressing them into segments, segments with overlapping value ranges could occur, causing queries to read more segments from disk and take longer to finish.  
+By default, for each SQL Analytics table created without an index option, an internal component (index builder) creates a non-ordered clustered columnstore index (CCI) on it.  Data in each column is compressed into a separate CCI rowgroup segment.  There's metadata on each segment’s value range, so segments that are outside the bounds of the query predicate aren't read from disk during query execution.  CCI offers the highest level of data compression and reduces the size of segments to read so queries can run faster. However, because the index builder doesn't sort data before compressing them into segments, segments with overlapping value ranges could occur, causing queries to read more segments from disk and take longer to finish.  
 
-When creating an ordered CCI, the Azure SQL Data Warehouse engine sorts the existing data in memory by the order key(s) before the index builder compresses them into index segments.  With sorted data, segment overlapping is reduced allowing queries to have a more efficient segment elimination and thus faster performance because the number of segments to read from disk is smaller.  If all data can be sorted in memory at once, then segment overlapping can be avoided.  Given the large size of data in data warehouse tables, this scenario doesn't happen often.  
+When creating an ordered CCI, the SQL Analytics engine sorts the existing data in memory by the order key(s) before the index builder compresses them into index segments.  With sorted data, segment overlapping is reduced allowing queries to have a more efficient segment elimination and thus faster performance because the number of segments to read from disk is smaller.  If all data can be sorted in memory at once, then segment overlapping can be avoided.  Given the large size of data in SQL Analytics tables, this scenario doesn't happen often.  
 
 To check the segment ranges for a column, run this command with your table name and column name:
 
@@ -38,7 +40,7 @@ ORDER BY o.name, pnp.distribution_id, cls.min_data_id
 ```
 
 > [!NOTE] 
-> In an ordered CCI table, new data resulting from DML or data loading operations are not automatically sorted.  Users can REBUILD the ordered CCI to sort all data in the table.  In Azure SQL Data Warehouse, the columnstore index REBUILD is an offline operation.  For a partitioned table, the REBUILD is done one partition at a time.  Data in the partition that is being rebuilt is "offline" and unavailable until the REBUILD is complete for that partition. 
+> In an ordered CCI table, the new data resulting from the same batch of DML or data loading operations are sorted within that batch, there is no global sorting across all data in the table.  Users can REBUILD the ordered CCI to sort all data in the table.  In SQL Analytics, the columnstore index REBUILD is an offline operation.  For a partitioned table, the REBUILD is done one partition at a time.  Data in the partition that is being rebuilt is "offline" and unavailable until the REBUILD is complete for that partition. 
 
 ## Query performance
 
@@ -58,7 +60,7 @@ ORDER (Col_C, Col_B, Col_A)
 
 ```
 
-The performance of query 1 can benefit more from ordered CCI than the other 3 queries. 
+The performance of query 1 can benefit more from ordered CCI than the other three queries. 
 
 ```sql
 -- Query #1: 
@@ -95,7 +97,7 @@ Here is an example query performance comparison between CCI and ordered CCI.
 
 The number of overlapping segments depends on the size of data to sort, the available memory, and the maximum degree of parallelism (MAXDOP) setting during ordered CCI creation. Below are options to reduce segment overlapping when creating ordered CCI.
 
-- Use xlargerc resource class on a higher DWU to allow more memory for data sorting before the index builder compresses the data into segments.  Once in an index segment, the physical location of the data cannot be changed.  There is no data sorting within a segment or across segments.  
+- Use xlargerc resource class on a higher DWU to allow more memory for data sorting before the index builder compresses the data into segments.  Once in an index segment, the physical location of the data cannot be changed.  There's no data sorting within a segment or across segments.  
 
 - Create ordered CCI with MAXDOP = 1.  Each thread used for ordered CCI creation works on a subset of data and sorts it locally.  There's no global  sorting across data sorted by different threads.  Using parallel threads can reduce the time to create an ordered CCI but will generate more overlapping segments than using a single thread.  Currently, the MAXDOP option is only supported in creating an ordered CCI table using CREATE TABLE AS SELECT command.  Creating an ordered CCI via CREATE INDEX or CREATE TABLE commands does not support the MAXDOP option. For example,
 
@@ -104,22 +106,22 @@ CREATE TABLE Table1 WITH (DISTRIBUTION = HASH(c1), CLUSTERED COLUMNSTORE INDEX O
 AS SELECT * FROM ExampleTable
 OPTION (MAXDOP 1);
 ```
-- Pre-sort the data by the sort key(s) before loading them into Azure SQL Data Warehouse tables.
+- Pre-sort the data by the sort key(s) before loading them into SQL Analytics tables.
 
 
-Here is an example of an ordered CCI table distribution that has zero segment overlapping following above recommendations. The ordered CCI table is created in a DWU1000c database via CTAS from a 20GB heap table using MAXDOP 1 and xlargerc.  The CCI is ordered on a BIGINT column with no duplicates.  
+Here is an example of an ordered CCI table distribution that has zero segment overlapping following above recommendations. The ordered CCI table is created in a DWU1000c database via CTAS from a 20-GB heap table using MAXDOP 1 and xlargerc.  The CCI is ordered on a BIGINT column with no duplicates.  
 
 ![Segment_No_Overlapping](media/performance-tuning-ordered-cci/perfect-sorting-example.png)
 
 ## Create ordered CCI on large tables
-Creating an ordered CCI is an offline operation.  For tables with no partitions, the data won't be accessible to users until the ordered CCI creation process completes.   For partitioned tables,since the engine creates the ordered CCI partition by partition, users can still access the data in partitions where ordered CCI creation isn't in process.   You can use this option to minimize the downtime during ordered CCI creation on large tables: 
+Creating an ordered CCI is an offline operation.  For tables with no partitions, the data won't be accessible to users until the ordered CCI creation process completes.   For partitioned tables, since the engine creates the ordered CCI partition by partition, users can still access the data in partitions where ordered CCI creation isn't in process.   You can use this option to minimize the downtime during ordered CCI creation on large tables: 
 
-1.	Create partitions on the target large table (called Table A).
-2.	Create an empty ordered CCI table (called Table B) with the same table and partition schema as Table A.
+1.	Create partitions on the target large table (called Table_A).
+2.	Create an empty ordered CCI table (called Table_B) with the same table and partition schema as Table A.
 3.	Switch one partition from Table A to Table B.
-4.	Run ALTER INDEX <Ordered_CCI_Index> REBUILD PARTITION = <Partition_ID> on Table B to rebuild the switched-in partition.  
-5.	Repeat step 3 and 4 for each partition in Table A.
-6.	Once all partitions are switched from Table A to Table B and have been rebuilt, drop Table A, and rename Table B to Table A. 
+4.	Run ALTER INDEX <Ordered_CCI_Index> ON <Table_B> REBUILD PARTITION = <Partition_ID> on Table B to rebuild the switched-in partition.  
+5.	Repeat step 3 and 4 for each partition in Table_A.
+6.	Once all partitions are switched from Table_A to Table_B and have been rebuilt, drop Table_A, and rename Table_B to Table_A. 
 
 ## Examples
 
@@ -139,4 +141,4 @@ WITH (DROP_EXISTING = ON)
 ```
 
 ## Next steps
-For more development tips, see [SQL Data Warehouse development overview](sql-data-warehouse-overview-develop.md).
+For more development tips, see [development overview](sql-data-warehouse-overview-develop.md).

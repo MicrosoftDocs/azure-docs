@@ -1,9 +1,9 @@
 ---
-title: Patch the Windows operating system in your Service Fabric cluster | Microsoft Docs
+title: Patch the Windows operating system in your Service Fabric cluster 
 description: This article discusses how to automate operating system patching on a Service Fabric cluster by using Patch Orchestration Application.
 services: service-fabric
 documentationcenter: .net
-author: khandelwalbrijeshiitr
+author: athinanthny
 manager: chackdan
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/01/2019
-ms.author: brkhande
+ms.author: atsenthi
 
 ---
 
@@ -24,8 +24,11 @@ ms.author: brkhande
 > [!IMPORTANT]
 > As of April 30, 2019, Patch Orchestration Application version 1.2.* is no longer supported. Be sure to upgrade to the latest version.
 
+> [!NOTE]
+> Getting [automatic OS image upgrades on your virtual machine scale set](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) is the best practice for keeping your operating system patched in Azure. Virtual Machine Scale Set based automatic OS image upgrades will require silver or greater durability on a scale set.
+>
 
-Getting [automatic OS image upgrades on your virtual machine scale set](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) is the best practice for keeping your operating system patched in Azure. Patch Orchestration Application (POA) is a wrapper around the Azure Service Fabric Repair Manager service, which enables configuration-based OS patch scheduling for non-Azure hosted clusters. POA isn't required for non-Azure hosted clusters, but scheduling patch installation by update domain is required to patch Service Fabric cluster hosts without incurring downtime.
+ Patch Orchestration Application (POA) is a wrapper around the Azure Service Fabric Repair Manager service, which enables configuration-based OS patch scheduling for non-Azure hosted clusters. POA isn't required for non-Azure hosted clusters, but scheduling patch installation by update domain is required to patch Service Fabric cluster hosts without incurring downtime.
 
 POA is a Service Fabric application that automates operating system patching on a Service Fabric cluster without incurring downtime.
 

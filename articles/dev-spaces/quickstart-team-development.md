@@ -1,17 +1,13 @@
 ---
-title: "Team development on Kubernetes using Azure Dev Spaces"
-titleSuffix: Azure Dev Spaces
-author: zr-msft
+title: "Team development on Kubernetes"
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
-ms.author: zarhoads
-ms.date: 04/25/2019
+ms.date: 01/22/2020
 ms.topic: quickstart
-description: "Team Kubernetes development with containers and microservices on Azure"
+description: "This quickstart shows you how to do team Kubernetes development with containers and microservices with Azure Dev Spaces"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s"
 manager: gwallace
 ---
-# Quickstart: Team development on Kubernetes using Azure Dev Spaces
+# Quickstart: Team development on Kubernetes - Azure Dev Spaces
 
 In this guide, you will learn how to:
 
@@ -25,15 +21,15 @@ In this guide, you will learn how to:
 
 - An Azure subscription. If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free).
 - [Azure CLI installed](/cli/azure/install-azure-cli?view=azure-cli-latest).
-- [Helm 2.13 or greater installed](https://github.com/helm/helm/blob/master/docs/install.md).
+- [Helm 3 installed][helm-installed].
 
 ## Create an Azure Kubernetes Service cluster
 
 You must create an AKS cluster in a [supported region][supported-regions]. The below commands create a resource group called *MyResourceGroup* and an AKS cluster called *MyAKS*.
 
-```cmd
+```azurecli
 az group create --name MyResourceGroup --location eastus
-az aks create -g MyResourceGroup -n MyAKS --location eastus --disable-rbac --generate-ssh-keys
+az aks create -g MyResourceGroup -n MyAKS --location eastus --generate-ssh-keys
 ```
 
 ## Enable Azure Dev Spaces on your AKS cluster
@@ -43,7 +39,7 @@ Use the `use-dev-spaces` command to enable Dev Spaces on your AKS cluster and fo
 > [!NOTE]
 > The `use-dev-spaces` command will also install the Azure Dev Spaces CLI if its not already installed. You cannot install the Azure Dev Spaces CLI in the Azure Cloud Shell.
 
-```cmd
+```azurecli
 az aks use-dev-spaces -g MyResourceGroup -n MyAKS --space dev --yes
 ```
 
@@ -80,39 +76,14 @@ The commands for running the sample application on Kubernetes are part of an exi
 
 You can use Azure Dev Spaces for team development after an application is running in a cluster regardless of the tooling used to deploy it.
 
-Use the `helm init` and `helm install` commands to set up and install the sample application on your cluster.
+Use the `helm install` command to set up and install the sample application on your cluster.
 
 ```cmd
 cd charts/
-helm init --wait
-helm install -n bikesharing . --dep-up --namespace dev --atomic 
-```
-> [!Note]
-> **If you are using an RBAC-enabled cluster**, be sure to configure [a service account for Tiller](https://helm.sh/docs/using_helm/#role-based-access-control). Otherwise, `helm` commands will fail.
-
-The `helm install` command may take several minutes to complete. The output of the command shows the status of all the services it deployed to the cluster when completed:
-
-```cmd
-$ cd charts/
-$ helm init --wait
-...
-Happy Helming!
-
-$ helm install -n bikesharing . --dep-up --namespace dev --atomic
-
-Hang tight while we grab the latest from your chart repositories...
-...
-NAME               READY  UP-TO-DATE  AVAILABLE  AGE
-bikes              1/1    1           1          4m32s
-bikesharingweb     1/1    1           1          4m32s
-billing            1/1    1           1          4m32s
-gateway            1/1    1           1          4m32s
-reservation        1/1    1           1          4m32s
-reservationengine  1/1    1           1          4m32s
-users              1/1    1           1          4m32s
+helm install bikesharingsampleappsampleapp . --dependency-update --namespace dev --atomic
 ```
 
-After the sample application is installed on your cluster and since you have Dev Spaces enabled on your cluster, use the `azds list-uris` command to display the URLs for the sample application in *dev* that is currently selected.
+The `helm install` command may take several minutes to complete. After the sample application is installed on your cluster and since you have Dev Spaces enabled on your cluster, use the `azds list-uris` command to display the URLs for the sample application in *dev* that is currently selected.
 
 ```cmd
 $ azds list-uris
@@ -135,7 +106,7 @@ azds space select -n dev/azureuser1 -y
 azds space select -n dev/azureuser2 -y
 ```
 
-The above commands create two child spaces under *dev* named *azureuser1* and *azureuser2*. These two child spaces represent distinct dev spaces for the developers' *azureuser1* and *azureuser2* to use for making changes to the sample application.
+The above commands create two child spaces under *dev* named *azureuser1* and *azureuser2*. These two child spaces represent distinct dev spaces for developers *azureuser1* and *azureuser2* to use for making changes to the sample application.
 
 Use the `azds space list` command to list all the dev spaces and confirm *dev/azureuser2* is selected.
 
@@ -222,7 +193,7 @@ To have these changes reflected in *dev* and *dev/azureuser1*, you should follow
 
 ## Clean up your Azure resources
 
-```cmd
+```azurecli
 az group delete --name MyResourceGroup --yes --no-wait
 ```
 
@@ -233,5 +204,5 @@ Learn how Azure Dev Spaces helps you develop more complex apps across multiple c
 > [!div class="nextstepaction"]
 > [Working with multiple containers and team development](multi-service-nodejs.md)
 
-
-[supported-regions]: about.md#supported-regions-and-configurations
+[helm-installed]: https://helm.sh/docs/intro/install/
+[supported-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service

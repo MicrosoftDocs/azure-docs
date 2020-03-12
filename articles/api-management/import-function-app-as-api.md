@@ -1,5 +1,6 @@
 ---
-title: Import an Azure Function App as an API in Azure API Management | Microsoft Docs
+title: Import an Azure Function App as an API in API Management
+titleSuffix: Azure API Management
 description: This tutorial shows you how to import an Azure Function App into Azure API Management as an API.
 services: api-management
 documentationcenter: ''
@@ -114,7 +115,7 @@ Import of an Azure Function App automatically generates:
 * Host key inside the Function App with the name apim-{*your Azure API Management service instance name*},
 * Named value inside the Azure API Management instance with the name {*your Azure Function App instance name*}-key, which contains the created host key.
 
-For APIs created after April 4th 2019, the host key is passed in HTTP requests from API Management to the Function App in a header. Older APIs pass the host key as [a query parameter](../azure-functions/functions-bindings-http-webhook.md#api-key-authorization). This behavior may be changed through the `PATCH Backend` [REST API call](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/backend/update#backendcredentialscontract) on the *Backend* entity associated with the Function App.
+For APIs created after April 4th 2019, the host key is passed in HTTP requests from API Management to the Function App in a header. Older APIs pass the host key as [a query parameter](../azure-functions/functions-bindings-http-webhook-trigger.md#api-key-authorization). This behavior may be changed through the `PATCH Backend` [REST API call](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/backend/update#backendcredentialscontract) on the *Backend* entity associated with the Function App.
 
 > [!WARNING]
 > Removing or changing value of either the Azure Function App host key or Azure API Management named value will break the communication between the services. The values do not sync automatically.
@@ -139,7 +140,7 @@ Navigate to your Azure API Management instance and select **Named values** from 
 
 ![Add from Function App](./media/import-function-app-as-api/keys-01.png)
 
-## <a name="test-in-azure-portal"></a> Test the new API Management API in the Azure portal
+## <a name="test-in-azure-portal"></a> Test the new API in the Azure portal
 
 You can call operations directly from the Azure portal. Using the Azure portal is a convenient way to view and test the operations of an API.  
 
@@ -154,26 +155,6 @@ You can call operations directly from the Azure portal. Using the Azure portal i
 4. Select **Send**.
 
     The back end responds with **200 OK** and some data.
-
-## <a name="test-in-developer-portal"></a> Call an operation from the developer portal
-
-You can also call operations from the developer portal to test APIs. 
-
-1. Select the API that you created in Import and publish a back-end API.
-
-2. Select **Developer portal**.
-
-    The developer portal site opens.
-
-3. Select the **API** that you created.
-
-4. Select the operation you want to test.
-
-5. Select **Try it**.
-
-6. Select **Send**.
-    
-    After an operation is invoked, the developer portal displays the **Response status**, the **Response headers**, and any **Response content**.
 
 [!INCLUDE [api-management-define-api-topics.md](../../includes/api-management-define-api-topics.md)]
 

@@ -1,20 +1,17 @@
 ---
-title: Reference for functions in Workflow Definition Language - Azure Logic Apps and Microsoft Flow
-description: Reference guide for functions in expressions created with Workflow Definition Language for Azure Logic Apps and Microsoft Flow
+title: Reference guide for functions in expressions
+description: Reference guide to functions in expressions for Azure Logic Apps and Power Automate
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
-ms.topic: reference
-ms.date: 08/23/2019
+ms.reviewer: klam, logicappspm
+ms.topic: conceptual
+ms.date: 02/03/2020
 ---
 
-# Functions reference for Workflow Definition Language in Azure Logic Apps and Microsoft Flow
+# Reference guide to using functions in expressions for Azure Logic Apps and Power Automate
 
 For workflow definitions in [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 
-and [Microsoft Flow](https://docs.microsoft.com/flow/getting-started), some 
+and [Power Automate](https://docs.microsoft.com/flow/getting-started), some 
 [expressions](../logic-apps/logic-apps-workflow-definition-language.md#expressions) 
 get their values from runtime actions that might not yet exist when your 
 workflow starts running. To reference these values or process the values 
@@ -22,10 +19,10 @@ in these expressions, you can use *functions* provided by the
 [Workflow Definition Language](../logic-apps/logic-apps-workflow-definition-language.md). 
 
 > [!NOTE]
-> This reference page applies to both Azure Logic Apps and Microsoft Flow, 
+> This reference page applies to both Azure Logic Apps and Power Automate, 
 > but appears in the Azure Logic Apps documentation. Although this page refers 
 > specifically to logic apps, these functions work for both flows and logic apps. 
-> For more information about functions and expressions in Microsoft Flow, see 
+> For more information about functions and expressions in Power Automate, see 
 > [Use expressions in conditions](https://docs.microsoft.com/flow/use-expressions-in-conditions).
 
 For example, you can calculate values by using math functions, such as the
@@ -107,6 +104,7 @@ String functions work only on strings.
 | --------------- | ---- |
 | [concat](../logic-apps/workflow-definition-language-functions-reference.md#concat) | Combine two or more strings, and return the combined string. |
 | [endsWith](../logic-apps/workflow-definition-language-functions-reference.md#endswith) | Check whether a string ends with the specified substring. |
+| [formatNumber](../logic-apps/workflow-definition-language-functions-reference.md#formatNumber) | Return a number as a string based on the specified format |
 | [guid](../logic-apps/workflow-definition-language-functions-reference.md#guid) | Generate a globally unique identifier (GUID) as a string. |
 | [indexOf](../logic-apps/workflow-definition-language-functions-reference.md#indexof) | Return the starting position for a substring. |
 | [lastIndexOf](../logic-apps/workflow-definition-language-functions-reference.md#lastindexof) | Return the starting position for the last occurrence of a substring. |
@@ -1297,7 +1295,7 @@ convertFromUtc('<timestamp>', '<destinationTimeZone>', '<format>'?)
 | Parameter | Required | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Yes | String | The string that contains the timestamp |
-| <*destinationTimeZone*> | Yes | String | The name for the target time zone. For more information about time zone names, see [Microsoft Time Zone Index Values](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values). |
+| <*destinationTimeZone*> | Yes | String | The name for the target time zone. For time zone names, see [Microsoft Time Zone Index Values](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values), but you might have to remove any punctuation from the time zone name. |
 | <*format*> | No | String | Either a [single format specifier](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. |
 |||||
 
@@ -1339,8 +1337,8 @@ convertTimeZone('<timestamp>', '<sourceTimeZone>', '<destinationTimeZone>', '<fo
 | Parameter | Required | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Yes | String | The string that contains the timestamp |
-| <*sourceTimeZone*> | Yes | String | The name for the source time zone. For more information about time zone names, see [Microsoft Time Zone Index Values](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values). |
-| <*destinationTimeZone*> | Yes | String | The name for the target time zone. For more information about time zone names, see [Microsoft Time Zone Index Values](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values). |
+| <*sourceTimeZone*> | Yes | String | The name for the source time zone. For time zone names, see [Microsoft Time Zone Index Values](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values), but you might have to remove any punctuation from the time zone name. |
+| <*destinationTimeZone*> | Yes | String | The name for the target time zone. For time zone names, see [Microsoft Time Zone Index Values](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values), but you might have to remove any punctuation from the time zone name. |
 | <*format*> | No | String | Either a [single format specifier](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. |
 |||||
 
@@ -1382,7 +1380,7 @@ convertToUtc('<timestamp>', '<sourceTimeZone>', '<format>'?)
 | Parameter | Required | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Yes | String | The string that contains the timestamp |
-| <*sourceTimeZone*> | Yes | String | The name for the source time zone. For more information about time zone names, see [Microsoft Time Zone Index Values](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values). |
+| <*sourceTimeZone*> | Yes | String | The name for the source time zone. For time zone names, see [Microsoft Time Zone Index Values](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values), but you might have to remove any punctuation from the time zone name. |
 | <*format*> | No | String | Either a [single format specifier](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. |
 |||||
 
@@ -2087,6 +2085,60 @@ formDataValue('Send_an_email', 'Subject')
 
 And returns the subject text as a string, for example: `"Hello world"`
 
+<a name="formatNumber"></a>
+
+### formatNumber
+
+Return a number as a string that's based on the specified format.
+
+```text
+formatNumber(<number>, <format>, <locale>?)
+```
+
+| Parameter | Required | Type | Description |
+| --------- | -------- | ---- | ----------- |
+| <*number*> | Yes | Integer or Double | The value that you want to format. |
+| <*format*> | Yes | String | A composite format string that specifies the format that you want to use. For the supported numeric format strings, see [Standard numeric format strings](https://docs.microsoft.com/dotnet/standard/base-types/standard-numeric-format-strings), which are supported by `number.ToString(<format>, <locale>)`. |
+| <*locale*> | No | String | The locale to use as supported by `number.ToString(<format>, <locale>)`. If not specified, the default value is `en-us`. |
+|||||
+
+| Return value | Type | Description |
+| ------------ | ---- | ----------- |
+| <*formatted-number*> | String | The specified number as a string in the format that you specified. You can cast this return value to an `int` or `float`. |
+||||
+
+*Example 1*
+
+Suppose that you want to format the number `1234567890`. This example formats that number as the string "1,234,567,890.00".
+
+```
+formatNumber(1234567890, '{0:0,0.00}', 'en-us')
+```
+
+*Example 2"
+
+Suppose that you want to format the number `1234567890`. This example formats the number to the string "1.234.567.890,00".
+
+```
+formatNumber(1234567890, '{0:0,0.00}', 'is-is')
+```
+
+*Example 3*
+
+Suppose that you want to format the number `17.35`. This example formats the number to the string "$17.35".
+
+```
+formatNumber(17.36, 'C2')
+```
+
+*Example 4*
+
+Suppose that you want to format the number `17.35`. This example formats the number to the string "17,35 kr".
+
+```
+formatNumber(17.36, 'C2', 'is-is')
+```
+
 <a name="getFutureTime"></a>
 
 ### getFutureTime
@@ -2099,7 +2151,7 @@ getFutureTime(<interval>, <timeUnit>, <format>?)
 
 | Parameter | Required | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*interval*> | Yes | Integer | The number of specified time units to subtract |
+| <*interval*> | Yes | Integer | The number of specified time units to add |
 | <*timeUnit*> | Yes | String | The unit of time to use with *interval*: "Second", "Minute", "Hour", "Day", "Week", "Month", "Year" |
 | <*format*> | No | String | Either a [single format specifier](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) or a [custom format pattern](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). The default format for the timestamp is ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffffK), which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. |
 |||||
@@ -4786,10 +4838,7 @@ And returns this result XML:
 
 ### xpath
 
-Check XML for nodes or values that match an XPath (XML Path Language) expression,
-and return the matching nodes or values. An XPath expression, or just "XPath",
-helps you navigate an XML document structure so that you can select nodes
-or compute values in the XML content.
+Check XML for nodes or values that match an XPath (XML Path Language) expression, and return the matching nodes or values. An XPath expression, or just "XPath", helps you navigate an XML document structure so that you can select nodes or compute values in the XML content.
 
 ```
 xpath('<xml>', '<xpath>')
@@ -4810,8 +4859,7 @@ xpath('<xml>', '<xpath>')
 
 *Example 1*
 
-This example finds nodes that match the `<name></name>` node
-in the specified arguments, and returns an array with those node values:
+This example finds nodes that match the `<name></name>` node in the specified arguments, and returns an array with those node values:
 
 `xpath(xml(parameters('items')), '/produce/item/name')`
 
@@ -4821,8 +4869,7 @@ Here are the arguments:
 
   `"<?xml version="1.0"?> <produce> <item> <name>Gala</name> <type>apple</type> <count>20</count> </item> <item> <name>Honeycrisp</name> <type>apple</type> <count>10</count> </item> </produce>"`
 
-  The example uses the [parameters()](#parameters) function to get
-  the XML string from the "items" argument, but must also convert
+  The example uses the [parameters()](#parameters) function to get the XML string from the "items" argument, but must also convert
   the string to XML format by using the [xml()](#xml) function.
 
 * This XPath expression, which is passed as a string:
@@ -4835,8 +4882,7 @@ Here is the result array with the nodes that match `<name></name`:
 
 *Example 2*
 
-Following on Example 1, this example finds nodes that match the
-`<count></count>` node and adds those node values with the `sum()` function:
+Following on Example 1, this example finds nodes that match the `<count></count>` node and adds those node values with the `sum()` function:
 
 `xpath(xml(parameters('items')), 'sum(/produce/item/count)')`
 
@@ -4844,18 +4890,28 @@ And returns this result: `30`
 
 *Example 3*
 
-For this example, both expressions find nodes that match the
-`<location></location>` node, in the specified arguments,
-which include XML with a namespace. The expressions use the backslash
-character (\\) as an escape character for the double quotation mark (").
+For this example, both expressions find nodes that match the `<location></location>` node, in the specified arguments, which include XML with a namespace. 
+
+> [!NOTE]
+>
+> If you're working in code view, escape the double quotation mark (") by using the backslash character (\\). 
+> For example, you need to use escape characters when you serialize an expression as a JSON string. 
+> However, if you're working in the Logic App Designer or expression editor, you don't need to escape the 
+> double quotation mark because the backslash character is added automatically to the underlying definition, for example:
+> 
+> * Code view: `xpath(xml(body('Http')), '/*[name()=\"file\"]/*[name()=\"location\"]')`
+>
+> * Expression editor: `xpath(xml(body('Http')), '/*[name()="file"]/*[name()="location"]')`
+> 
+> The following examples apply to expressions that you enter in the expression editor.
 
 * *Expression 1*
 
-  `xpath(xml(body('Http')), '/*[name()=\"file\"]/*[name()=\"location\"]')`
+  `xpath(xml(body('Http')), '/*[name()="file"]/*[name()="location"]')`
 
 * *Expression 2*
 
-  `xpath(xml(body('Http')), '/*[local-name()=\"file\" and namespace-uri()=\"http://contoso.com\"]/*[local-name()=\"location\"]')`
+  `xpath(xml(body('Http')), '/*[local-name()="file" and namespace-uri()="http://contoso.com"]/*[local-name()="location"]')`
 
 Here are the arguments:
 
@@ -4867,9 +4923,9 @@ Here are the arguments:
 
 * Either XPath expression here:
 
-  * `/*[name()=\"file\"]/*[name()=\"location\"]`
+  * `/*[name()="file"]/*[name()="location"]`
 
-  * `/*[local-name()=\"file\" and namespace-uri()=\"http://contoso.com\"]/*[local-name()=\"location\"]`
+  * `/*[local-name()="file" and namespace-uri()="http://contoso.com"]/*[local-name()="location"]`
 
 Here is the result node that matches the `<location></location>` node:
 
@@ -4879,10 +4935,9 @@ Here is the result node that matches the `<location></location>` node:
 
 *Example 4*
 
-Following on Example 3, this example finds the value in the
-`<location></location>` node:
+Following on Example 3, this example finds the value in the `<location></location>` node:
 
-`xpath(xml(body('Http')), 'string(/*[name()=\"file\"]/*[name()=\"location\"])')`
+`xpath(xml(body('Http')), 'string(/*[name()="file"]/*[name()="location"])')`
 
 And returns this result: `"Paris"`
 

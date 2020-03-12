@@ -1,20 +1,11 @@
 ---
 title: Release annotations for Application Insights | Microsoft Docs
 description: Add deployment or build markers to your metrics explorer charts in Application Insights.
-services: application-insights
-documentationcenter: .net
-author: mrbullwinkle
-manager: carmonm
-
-ms.assetid: 23173e33-d4f2-4528-a730-913a8fd5f02e
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/01/2019
-ms.author: mbullwin
 
 ---
+
 # Annotations on metric charts in Application Insights
 
 Annotations on [Metrics Explorer](../../azure-monitor/app/metrics-explorer.md) charts show where you deployed a new build, or other significant events. Annotations make it easy to see whether your changes had any effect on your application's performance. They can be automatically created by the [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/tasks/) build system. You can also create annotations to flag any event you like by creating them from PowerShell.
@@ -54,6 +45,9 @@ Create a separate API key for each of your Azure Pipelines release templates.
 1. Select **Add task**, and then select the **Application Insights Release Annotation** task from the menu.
    
    ![Select Add Task and select Application Insights Release Annotation.](./media/annotations/3-add-task.png)
+
+   > [!NOTE]
+   > The Release Annotation task currently supports only Windows-based agents; it won't run on Linux, macOS, or other types of agents.
    
 1. Under **Application ID**, paste the Application Insights ID you copied from the **API Access** tab.
    

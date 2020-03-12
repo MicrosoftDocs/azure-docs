@@ -1,16 +1,9 @@
 ---
 title: Automate Azure Application Insights processes with Microsoft Flow
 description: Learn how you can use Microsoft Flow to quickly automate repeatable processes by using the Application Insights connector.
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 08/29/2019
-ms.author: mbullwin
+
 ---
 
 # Automate Azure Application Insights processes with the connector for Microsoft Flow

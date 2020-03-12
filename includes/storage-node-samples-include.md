@@ -9,11 +9,11 @@ ms.author: tamram
 
 Here is a list of all our sample repositories for the Azure Storage JavaScript client library.
 
-* [Getting Started with Azure Blob Service in Node.js](https://azure.microsoft.com/resources/samples/storage-blob-node-getting-started/)
-* [Getting Started with Azure File Service in Node.js](https://azure.microsoft.com/resources/samples/storage-file-node-getting-started/)
-* [Getting Started with Azure Queue Service in Node.js](https://azure.microsoft.com/resources/samples/storage-queue-node-getting-started/)
-* [Getting Started with Azure Table Service in Node.js](https://azure.microsoft.com/resources/samples/storage-table-node-getting-started/)
-* [Build a serverless web app in Azure](https://azure.microsoft.com/resources/samples/functions-first-serverless-web-application/)
+* [Getting Started with Azure Blob Service in Node.js](https://github.com/Azure-Samples/storage-blob-node-getting-started)
+* [Getting Started with Azure File Service in Node.js](https://github.com/Azure-Samples/storage-file-node-getting-started)
+* [Getting Started with Azure Queue Service in Node.js](https://github.com/Azure-Samples/storage-queue-node-getting-started)
+* [Getting Started with Azure Table Service in Node.js](https://github.com/Azure-Samples/storage-table-node-getting-started)
+* [Build a serverless web app in Azure](https://github.com/Azure-Samples/functions-first-serverless-web-application)
 * [Blob uploader](https://github.com/Azure/azure-storage-node/tree/master/examples/blobuploader)
 * [Upload and download blob](https://github.com/Azure/azure-storage-node/blob/master/examples/samples/blobuploaddownloadsample.js)
 * [Continuation token](https://github.com/Azure/azure-storage-node/blob/master/examples/samples/continuationsample.js)

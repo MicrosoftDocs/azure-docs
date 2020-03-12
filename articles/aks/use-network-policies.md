@@ -2,12 +2,9 @@
 title: Secure pods with network policies in Azure Kubernetes Service (AKS)
 description: Learn how to secure traffic that flows in and out of pods by using Kubernetes network policies in Azure Kubernetes Service (AKS)
 services: container-service
-author: mlearned
-
-ms.service: container-service
 ms.topic: article
 ms.date: 05/06/2019
-ms.author: mlearned
+
 ---
 
 # Secure traffic between pods using network policies in Azure Kubernetes Service (AKS)
@@ -65,7 +62,11 @@ To see network policies in action, let's create and then expand on a policy that
 * Allow traffic based on pod labels.
 * Allow traffic based on namespace.
 
-First, let's create an AKS cluster that supports network policy. The network policy feature can only be enabled when the cluster is created. You can't enable network policy on an existing AKS cluster.
+First, let's create an AKS cluster that supports network policy. 
+
+> [!IMPORTANT]
+>
+> The network policy feature can only be enabled when the cluster is created. You can't enable network policy on an existing AKS cluster.
 
 To use Azure Network Policy, you must use the [Azure CNI plug-in][azure-cni] and define your own virtual network and subnets. For more detailed information on how to plan out the required subnet ranges, see [configure advanced networking][use-advanced-networking]. Calico Network Policy could be used with either this same Azure CNI plug-in or with the Kubenet CNI plug-in.
 

@@ -3,10 +3,8 @@ title: Support policies for Azure Kubernetes Service (AKS)
 description: Learn about Azure Kubernetes Service (AKS) support policies, shared responsibility, and features that are in preview (or alpha or beta).
 services: container-service
 author: jnoller
-
-ms.service: container-service
 ms.topic: article
-ms.date: 04/01/2019
+ms.date: 01/24/2020
 ms.author: jenoller
 
 #Customer intent: As a cluster operator or developer, I want to understand what AKS components I need to manage, what components are managed by Microsoft (including security patches), and networking and preview features.
@@ -40,6 +38,8 @@ The services are *managed* in the sense that Microsoft and the AKS team deploys,
 
 > [!NOTE]
 > AKS worker nodes appear in the Azure portal as regular Azure IaaS resources. But these virtual machines are deployed into a custom Azure resource group (prefixed with MC\\*). It's possible to change AKS worker nodes. For example, you can use Secure Shell (SSH) to change AKS worker nodes the way you change normal virtual machines (you can't, however, change the base OS image, and changes might not persist through an update or reboot), and you can attach other Azure resources to AKS worker nodes. But when you make changes *out of band management and customization,* the AKS cluster can become unsupportable. Avoid changing worker nodes unless Microsoft Support directs you to make changes.
+
+Issuing unsupported operations as defined above, such as out of band deallocation of all agent nodes, renders the cluster unsupported. AKS reserves the right to archive control planes that have been configured out of support guidelines for extended periods equal to and beyond 30 days. AKS maintains backups of cluster etcd metadata and can readily reallocate the cluster. This reallocation can be initiated by any PUT operation bringing the cluster back into support, such as an upgrade or scale to active agent nodes.
 
 ## Shared responsibility
 
@@ -93,7 +93,7 @@ Microsoft and customers share responsibility for Kubernetes worker nodes where:
   * Docker or Moby daemon
 
 > [!NOTE]
-> On a worker node, if a control plane component is not operational, the AKS team might need to reboot individual components or the entire worker node. These reboot operations are automated and provide auto-remediation for common issues. These reboots occur only on the _node_ level and not the cluster unless these is an emergency maintenance or outage.
+> On a worker node, if a control plane component is not operational, the AKS team might need to reboot individual components or the entire worker node. These reboot operations are automated and provide auto-remediation for common issues. These reboots occur only on the _node_ level and not the cluster unless there is an emergency maintenance or outage.
 
 ### Customer responsibilities for AKS worker nodes
 

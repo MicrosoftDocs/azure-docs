@@ -1,19 +1,19 @@
 ---
 title:  "Decision Forest Regression: Module Reference"
-titleSuffix: Azure Machine Learning service
-description: Learn how to use the Two-Class Averaged Perceptron module in Azure Machine Learning service to create a machine learning model based on the averaged perceptron algorithm.  
+titleSuffix: Azure Machine Learning
+description: Learn how to use the Two-Class Averaged Perceptron module in Azure Machine Learning to create a machine learning model based on the averaged perceptron algorithm.  
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 
-author: xiaoharper
-ms.author: zhanxia
-ms.date: 05/02/2019
+author: likebupt
+ms.author: keli19
+ms.date: 02/22/2020
 ---
 # Two-Class Averaged Perceptron module
 
-This article describes a module of the visual interface (preview) for Azure Machine Learning service.
+This article describes a module in Azure Machine Learning designer (preview).
 
 Use this module to create a machine learning model based on the averaged perceptron algorithm.  
   
@@ -27,11 +27,13 @@ The simpler perceptron models are suited to learning linearly separable patterns
 
 ## How to configure Two-Class Averaged Perceptron
 
-1.  Add the **Two-Class Averaged Perceptron** module to your experiment.  
+1.  Add the **Two-Class Averaged Perceptron** module to your pipeline.  
 
 2.  Specify how you want the model to be trained, by setting the **Create trainer mode** option.  
   
     -   **Single Parameter**: If you know how you want to configure the model, provide a specific set of values as arguments.
+
+    -   **Parameter Range**: Select this option if you are not sure of the best parameters, and want to run a parameter sweep. Select a range of values to iterate over, and the [Tune Model Hyperparameters](tune-model-hyperparameters.md) iterates over all possible combinations of the settings you provided to determine the hyperparameters that produce the optimal results.  
   
 3.  For **Learning rate**, specify a value for the *learning rate*. The learning rate values control the size of the step that is used in stochastic gradient descent each time the model is tested and corrected.
   
@@ -41,19 +43,15 @@ The simpler perceptron models are suited to learning linearly separable patterns
   
      Stopping early often provides better generalization. Increasing the number of iterations improves fitting, at the risk of overfitting.
   
-5.  For **Random number seed**, optionally type an integer value to use as the seed. Using a seed is recommended if you want to ensure reproducibility of the experiment across runs.  
+5.  For **Random number seed**, optionally type an integer value to use as the seed. Using a seed is recommended if you want to ensure reproducibility of the pipeline across runs.  
   
 1.  Connect a training dataset, and one of the training modules:
   
     -   If you set **Create trainer mode** to **Single Parameter**, use the [Train Model](train-model.md) module.
 
-## Results
 
-After training is complete:
-
-+ To see a summary of the model's parameters, together with the feature weights learned from training, right-click the output of [Train Model](./train-model.md).
 
 
 ## Next steps
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning service. 
+See the [set of modules available](module-reference.md) to Azure Machine Learning. 

@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/09/2019
+ms.date: 11/19/2019
 ms.author: diberry
 ---
 
@@ -23,7 +23,7 @@ Authoring and runtime resources provide authentication to your LUIS app and pred
 When you sign in to the LUIS portal, you can choose to continue with:
 
 * a free [trial key](#trial-key) - providing authoring and a few prediction endpoint queries.
-* a new Azure LUIS authoring resource - create a new resource. This is not the same as a prediction endpoint resource. 
+* an Azure [LUIS authoring](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne) resource. 
 
 
 <a name="starter-key"></a>
@@ -47,10 +47,7 @@ When you are ready to publish your prediction endpoint, create and assign author
 
 ## Create resources in the Azure portal
 
-1. Sign in to the [Azure portal](https://azure.microsoft.com/free/). 
-1. Select **+ Create a resource**.
-1. In the search box, enter `Language understanding`.
-1. Select **Create** to begin the creation process. 
+1. Use [this link](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne) to open the Azure portal at for resource creation.
 1. Select **Both** to create an authoring and a prediction endpoint runtime key. 
 1. Enter the information required to create the resource then select **Create** to finish the process.
 
@@ -79,7 +76,7 @@ Resource `kind`:
 
 1. Sign in to the Azure CLI:
 
-    ```console
+    ```azurecli
     az login
     ```
 
@@ -87,13 +84,13 @@ Resource `kind`:
 
 1. Create a **LUIS authoring resource**, of kind `LUIS.Authoring`, named `my-luis-authoring-resource` in the _existing_ resource group named `my-resource-group` for the `westus` region. 
 
-    ```console
+    ```azurecli
     az cognitiveservices account create -n my-luis-authoring-resource -g my-resource-group --kind LUIS.Authoring --sku F0 -l westus --yes
     ```
 
 1. Create a **LUIS prediction endpoint resource**, of kind `LUIS`, named `my-luis-prediction-resource` in the _existing_ resource group named `my-resource-group` for the `westus` region. If you want a higher throughput than the free tier, change `F0` to `S0`. Learn more about [pricing tiers and throughput](luis-boundaries.md#key-limits).
 
-    ```console
+    ```azurecli
     az cognitiveservices account create -n my-luis-prediction-resource -g my-resource-group --kind LUIS --sku F0 -l westus --yes
     ```
 

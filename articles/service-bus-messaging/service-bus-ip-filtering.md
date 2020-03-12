@@ -10,12 +10,12 @@ editor: spelluru
 ms.service: service-bus
 ms.devlang: na
 ms.topic: article
-ms.date: 04/23/2019
+ms.date: 12/20/2019
 ms.author: aschhab
 
 ---
 
-# Use Firewall rules
+# Azure Service Bus - use firewall rules
 
 For scenarios in which Azure Service Bus is only accessible from certain well-known sites, Firewall rules enable you to configure rules for accepting traffic originating from specific IPv4 addresses. For example, these addresses may be those of a corporate NAT gateway.
 
@@ -43,12 +43,10 @@ IP filter rules are applied in order and the first rule that matches the IP addr
 > Trusted Microsoft services are not supported when IP Filtering (Firewall rules) are implemented, and will be made available soon.
 >
 > Common Azure scenarios that don't work with IP Filtering (note that the list is **NOT** exhaustive) -
-> - Azure Monitor
 > - Azure Stream Analytics
 > - Integration with Azure Event Grid
 > - Azure IoT Hub Routes
 > - Azure IoT Device Explorer
-> - Azure Data Explorer
 >
 > The below Microsoft services are required to be on a virtual network
 > - Azure App Service
@@ -151,6 +149,6 @@ For constraining access to Service Bus to Azure virtual networks, see the follow
 
 <!-- Links -->
 
-[lnk-deploy]: ../azure-resource-manager/resource-group-template-deploy.md
+[lnk-deploy]: ../azure-resource-manager/templates/deploy-powershell.md
 [lnk-vnet]: service-bus-service-endpoints.md
 [express-route]:  /azure/expressroute/expressroute-faqs#supported-services

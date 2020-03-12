@@ -1,20 +1,11 @@
 ---
-title: Azure PowerShell Samples - App Service | Microsoft Docs
-description: Azure PowerShell Samples - App Service
-services: app-service
-documentationcenter: app-service
-author: syntaxc4
-manager: erikre
-editor: ggailey777
+title: PowerShell samples
+description: Find Azure PowerShell samples for some of the common App Service scenarios. Learn how to automate your App Service deployment or management tasks.
 tags: azure-service-management
 
 ms.assetid: b48d1137-8c04-46e0-b430-101e07d7e470
-ms.service: app-service
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: app-service
 ms.date: 03/08/2017
-ms.author: cfowler
 ms.custom: mvc
 ---
 # PowerShell samples for Azure App Service

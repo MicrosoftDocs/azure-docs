@@ -24,7 +24,7 @@ When you create a new Azure API for FHIR instance, you can configure a list of a
 
 These object IDs can either be IDs for specific users or service principals in your Azure Active Directory.
 
-## Find user object ID using PowerShell
+## Find user object ID
 
 If you have a user with user name `myuser@consoso.com`, you can locate the users `ObjectId` using the following PowerShell command:
 
@@ -38,7 +38,7 @@ or you can use the Azure CLI:
 az ad user show --upn-or-object-id myuser@consoso.com | jq -r .objectId
 ```
 
-## Find service principal object ID using PowerShell
+## Find service principal object ID
 
 Suppose you have registered a [service client app](register-service-azure-ad-client-app.md) and you would like to allow this service client to access the Azure API for FHIR, you can find the object ID for the client service principal with the following PowerShell command:
 
@@ -63,4 +63,4 @@ az ad sp show --id XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX | jq -r .objectId
 In this article, you've learned how to find identity object IDs needed to configure the identities that are allowed to access an Azure API for FHIR instance. Next deploy a fully managed Azure API for FHIR:
  
 >[!div class="nextstepaction"]
->[Deploy Open Source FHIR server](fhir-paas-portal-quickstart.md)
+>[Deploy Azure API for FHIR](fhir-paas-portal-quickstart.md)
