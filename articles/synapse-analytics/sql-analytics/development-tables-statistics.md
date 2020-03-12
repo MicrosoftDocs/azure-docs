@@ -1,7 +1,7 @@
 ---
 title: Creating, updating statistics
 description: Recommendations and examples for creating and updating query-optimization statistics in SQL Analytics.
-services: synapse analytics
+services: synapse-analytics
 author: filippopovic
 manager: craigg
 ms.service: synapse-analytics

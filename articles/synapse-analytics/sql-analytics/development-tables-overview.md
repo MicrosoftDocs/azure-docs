@@ -1,7 +1,7 @@
 ---
 title: Design tables using SQL Analytics | Microsoft Docs
 description: Introduction to designing tables in SQL Analytics. 
-services: synapse analytics
+services: synapse-analytics
 author: filippopovic
 manager: craigg
 ms.service: synapse-analytics

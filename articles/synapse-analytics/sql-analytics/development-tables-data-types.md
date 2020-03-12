@@ -1,7 +1,7 @@
 ---
 title: Defining data types
 description: Recommendations for defining table data types in SQL Analytics. 
-services: synapse analytics
+services: synapse-analytics
 author: filippopovic
 manager: craigg
 ms.service: synapse-analytics

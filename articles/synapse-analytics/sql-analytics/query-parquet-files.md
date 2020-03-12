@@ -1,7 +1,7 @@
 ---
 title: Query Parquet files using SQL on-demand
 description: In this article, you'll learn how to query Parquet files using SQL on-demand.
-services: synapse analytics
+services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: overview

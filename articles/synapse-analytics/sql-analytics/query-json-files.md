@@ -1,7 +1,7 @@
 ---
 title: Query JSON files using SQL on-demand in Azure Synapse Analytics
 description: This section explains how to read JSON files using SQL on-demand in Azure Synapse Analytics.
-services: synapse analytics
+services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: overview

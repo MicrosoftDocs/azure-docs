@@ -1,7 +1,7 @@
 ---
 title: Query folders and multiple CSV files  
 description: SQL on-demand supports reading multiple files/folders by using wildcards, which are similar to the wildcards used in Windows OS.
-services: synapse analytics 
+services: synapse-analytics 
 author: azaricstefan 
 ms.service: synapse-analytics 
 ms.topic: overview
@@ -38,51 +38,51 @@ Files in *csv/taxi* are named after year and month:
 - yellow_tripdata_2018-05.csv
 - yellow_tripdata_2018-06.csv
 
+        
+        
+        ch file has the following structure:
+        
+    [First 10 rows of the CSV file](./media/querying-folders-and-multiple-csv-files/nyc-taxi.png)
 
-
-Each file has the following structure:
-
-![First 10 rows of the CSV file](./media/querying-folders-and-multiple-csv-files/nyc-taxi.png)
-
-
-
-### Read all files in folder
-
+    
+    
+## Read all files in folder
+    
 The example below reads all NYC Yellow Taxi data files from the *csv/taxi* folder and returns the total number of passengers and rides per year. It also shows usage of aggregate functions.
 
 ```sql
 SELECT 
-	YEAR(pickup_datetime) as [year],
-	SUM(passenger_count) AS passengers_total,
-	COUNT(*) AS [rides_total]
+    YEAR(pickup_datetime) as [year],
+    SUM(passenger_count) AS passengers_total,
+    COUNT(*) AS [rides_total]
 FROM OPENROWSET(
-	BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/taxi/*.*',
-		FORMAT = 'CSV', 
-		FIRSTROW = 2
-	)
-	WITH (
-		vendor_id VARCHAR(100) COLLATE Latin1_General_BIN2, 
-		pickup_datetime DATETIME2, 
-		dropoff_datetime DATETIME2,
-		passenger_count INT,
-		trip_distance FLOAT,
-		rate_code INT,
-		store_and_fwd_flag VARCHAR(100) COLLATE Latin1_General_BIN2,
-		pickup_location_id INT,
-		dropoff_location_id INT,
-		payment_type INT,
-		fare_amount FLOAT,
-		extra FLOAT,
-		mta_tax FLOAT,
-		tip_amount FLOAT,
-		tolls_amount FLOAT,
-		improvement_surcharge FLOAT,
-		total_amount FLOAT
-	) AS nyc
+    BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/taxi/*.*',
+        FORMAT = 'CSV', 
+        FIRSTROW = 2
+    )
+    WITH (
+        vendor_id VARCHAR(100) COLLATE Latin1_General_BIN2, 
+        pickup_datetime DATETIME2, 
+        dropoff_datetime DATETIME2,
+        passenger_count INT,
+           trip_distance FLOAT,
+        rate_code INT,
+        store_and_fwd_flag VARCHAR(100) COLLATE Latin1_General_BIN2,
+           pickup_location_id INT,'
+        dropoff_location_id INT,
+           payment_type INT,
+        fare_amount FLOAT,
+        extra FLOAT,
+        mta_tax FLOAT,
+        tip_amount FLOAT,
+        tolls_amount FLOAT,
+        improvement_surcharge FLOAT,
+        total_amount FLOAT
+    ) AS nyc
 GROUP BY 
-	YEAR(pickup_datetime)
+    YEAR(pickup_datetime)
 ORDER BY
-	YEAR(pickup_datetime) 
+    YEAR(pickup_datetime) 
 ```
 
 > [!NOTE]
@@ -96,32 +96,32 @@ The example below reads the  2017 NYC Yellow Taxi data files from the *csv/taxi*
 
 ```sql
 SELECT 
-	payment_type,  
-	SUM(fare_amount) AS fare_total
+    payment_type,  
+    SUM(fare_amount) AS fare_total
 FROM OPENROWSET(
-	BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/taxi/yellow_tripdata_2017-*.csv',
-		FORMAT = 'CSV', 
-		FIRSTROW = 2
-	)
-	WITH (
-		vendor_id VARCHAR(100) COLLATE Latin1_General_BIN2, 
-		pickup_datetime DATETIME2, 
-		dropoff_datetime DATETIME2,
-		passenger_count INT,
-		trip_distance FLOAT,
-		rate_code INT,
-		store_and_fwd_flag VARCHAR(100) COLLATE Latin1_General_BIN2,
-		pickup_location_id INT,
-		dropoff_location_id INT,
-		payment_type INT,
-		fare_amount FLOAT,
-		extra FLOAT,
-		mta_tax FLOAT,
-		tip_amount FLOAT,
-		tolls_amount FLOAT,
-		improvement_surcharge FLOAT,
-		total_amount FLOAT
-	) AS nyc
+    BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/taxi/yellow_tripdata_2017-*.csv',
+        FORMAT = 'CSV', 
+        FIRSTROW = 2
+    )
+    WITH (
+        vendor_id VARCHAR(100) COLLATE Latin1_General_BIN2, 
+        pickup_datetime DATETIME2, 
+        dropoff_datetime DATETIME2,
+        passenger_count INT,
+        trip_distance FLOAT,
+        rate_code INT,
+        store_and_fwd_flag VARCHAR(100) COLLATE Latin1_General_BIN2,
+        pickup_location_id INT,
+        dropoff_location_id INT,
+        payment_type INT,
+        fare_amount FLOAT,
+        extra FLOAT,
+        mta_tax FLOAT,
+        tip_amount FLOAT,
+        tolls_amount FLOAT,
+        improvement_surcharge FLOAT,
+        total_amount FLOAT
+    ) AS nyc
 GROUP BY payment_type
 ORDER BY payment_type 
 
@@ -147,37 +147,37 @@ If the path provided in OPENROWSET points to a folder, all files in that folder 
 
 ```sql
 SELECT 
-	YEAR(pickup_datetime) as [year],
-	SUM(passenger_count) AS passengers_total,
-	COUNT(*) AS [rides_total]
+    YEAR(pickup_datetime) as [year],
+    SUM(passenger_count) AS passengers_total,
+    COUNT(*) AS [rides_total]
 FROM OPENROWSET(
-	BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/taxi/',
-		FORMAT = 'CSV', 
-		FIRSTROW = 2
-	)
-	WITH (
-		vendor_id VARCHAR(100) COLLATE Latin1_General_BIN2, 
-		pickup_datetime DATETIME2, 
-		dropoff_datetime DATETIME2,
-		passenger_count INT,
-		trip_distance FLOAT,
-		rate_code INT,
-		store_and_fwd_flag VARCHAR(100) COLLATE Latin1_General_BIN2,
-		pickup_location_id INT,
-		dropoff_location_id INT,
-		payment_type INT,
-		fare_amount FLOAT,
-		extra FLOAT,
-		mta_tax FLOAT,
-		tip_amount FLOAT,
-		tolls_amount FLOAT,
-		improvement_surcharge FLOAT,
-		total_amount FLOAT
-	) AS nyc
+    BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/taxi/',
+        FORMAT = 'CSV', 
+        FIRSTROW = 2
+    )
+    WITH (
+        vendor_id VARCHAR(100) COLLATE Latin1_General_BIN2, 
+        pickup_datetime DATETIME2, 
+        dropoff_datetime DATETIME2,
+        passenger_count INT,
+        trip_distance FLOAT,
+        rate_code INT,
+        store_and_fwd_flag VARCHAR(100) COLLATE Latin1_General_BIN2,
+        pickup_location_id INT,
+        dropoff_location_id INT,
+        payment_type INT,
+        fare_amount FLOAT,
+        extra FLOAT,
+        mta_tax FLOAT,
+        tip_amount FLOAT,
+        tolls_amount FLOAT,
+        improvement_surcharge FLOAT,
+        total_amount FLOAT
+    ) AS nyc
 GROUP BY 
-	YEAR(pickup_datetime)
+    YEAR(pickup_datetime)
 ORDER BY
-	YEAR(pickup_datetime)
+    YEAR(pickup_datetime)
 ```
 
 > [!NOTE]
@@ -192,37 +192,37 @@ It's possible to read files from multiple folders by using a wildcard. The follo
 
 ```sql
 SELECT 
-	YEAR(pickup_datetime) as [year],
-	SUM(passenger_count) AS passengers_total,
-	COUNT(*) AS [rides_total]
+    YEAR(pickup_datetime) as [year],
+    SUM(passenger_count) AS passengers_total,
+    COUNT(*) AS [rides_total]
 FROM OPENROWSET(
-	BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/t*i/', 
-		FORMAT = 'CSV', 
-		FIRSTROW = 2
-	)
-	WITH (
-		vendor_id VARCHAR(100) COLLATE Latin1_General_BIN2, 
-		pickup_datetime DATETIME2, 
-		dropoff_datetime DATETIME2,
-		passenger_count INT,
-		trip_distance FLOAT,
-		rate_code INT,
-		store_and_fwd_flag VARCHAR(100) COLLATE Latin1_General_BIN2,
-		pickup_location_id INT,
-		dropoff_location_id INT,
-		payment_type INT,
-		fare_amount FLOAT,
-		extra FLOAT,
-		mta_tax FLOAT,
-		tip_amount FLOAT,
-		tolls_amount FLOAT,
-		improvement_surcharge FLOAT,
-		total_amount FLOAT
-	) AS nyc
+    BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/t*i/', 
+        FORMAT = 'CSV', 
+        FIRSTROW = 2
+    )
+    WITH (
+        vendor_id VARCHAR(100) COLLATE Latin1_General_BIN2, 
+        pickup_datetime DATETIME2, 
+        dropoff_datetime DATETIME2,
+        passenger_count INT,
+        trip_distance FLOAT,
+        rate_code INT,
+        store_and_fwd_flag VARCHAR(100) COLLATE Latin1_General_BIN2,
+        pickup_location_id INT,
+        dropoff_location_id INT,
+        payment_type INT,
+        fare_amount FLOAT,
+        extra FLOAT,
+        mta_tax FLOAT,
+        tip_amount FLOAT,
+        tolls_amount FLOAT,
+        improvement_surcharge FLOAT,
+        total_amount FLOAT
+    ) AS nyc
 GROUP BY 
-	YEAR(pickup_datetime)
+    YEAR(pickup_datetime)
 ORDER BY
-	YEAR(pickup_datetime)
+    YEAR(pickup_datetime)
 ```
 
 > [!NOTE]
@@ -241,37 +241,37 @@ You can use multiple wildcards on different path levels. For example, you can en
 
 ```sql
 SELECT 
-	YEAR(pickup_datetime) as [year],
-	SUM(passenger_count) AS passengers_total,
-	COUNT(*) AS [rides_total]
+    YEAR(pickup_datetime) as [year],
+    SUM(passenger_count) AS passengers_total,
+    COUNT(*) AS [rides_total]
 FROM OPENROWSET(
-	BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/t*i/yellow_tripdata_2017-*.csv',
-		FORMAT = 'CSV', 
-		FIRSTROW = 2
-	)
-	WITH (
-		vendor_id VARCHAR(100) COLLATE Latin1_General_BIN2, 
-		pickup_datetime DATETIME2, 
-		dropoff_datetime DATETIME2,
-		passenger_count INT,
-		trip_distance FLOAT,
-		rate_code INT,
-		store_and_fwd_flag VARCHAR(100) COLLATE Latin1_General_BIN2,
-		pickup_location_id INT,
-		dropoff_location_id INT,
-		payment_type INT,
-		fare_amount FLOAT,
-		extra FLOAT,
-		mta_tax FLOAT,
-		tip_amount FLOAT,
-		tolls_amount FLOAT,
-		improvement_surcharge FLOAT,
-		total_amount FLOAT
-	) AS nyc
+    BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/t*i/yellow_tripdata_2017-*.csv',
+        FORMAT = 'CSV', 
+        FIRSTROW = 2
+    )
+    WITH (
+        vendor_id VARCHAR(100) COLLATE Latin1_General_BIN2, 
+        pickup_datetime DATETIME2, 
+        dropoff_datetime DATETIME2,
+        passenger_count INT,
+        trip_distance FLOAT,
+        rate_code INT,
+        store_and_fwd_flag VARCHAR(100) COLLATE Latin1_General_BIN2,
+        pickup_location_id INT,
+        dropoff_location_id INT,
+        payment_type INT,
+        fare_amount FLOAT,
+        extra FLOAT,
+        mta_tax FLOAT,
+        tip_amount FLOAT,
+        tolls_amount FLOAT,
+        improvement_surcharge FLOAT,
+        total_amount FLOAT
+    ) AS nyc
 GROUP BY 
-	YEAR(pickup_datetime)
+    YEAR(pickup_datetime)
 ORDER BY
-	YEAR(pickup_datetime)
+    YEAR(pickup_datetime)
 ```
 
 > [!NOTE]

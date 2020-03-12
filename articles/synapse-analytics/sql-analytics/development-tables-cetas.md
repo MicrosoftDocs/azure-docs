@@ -1,7 +1,7 @@
 ---
 title: CETAS in SQL Analytics
 description: Using CETAS with SQL Analytics
-services: synapse analytics
+services: synapse-analytics
 author: filippopovic
 ms.service: synapse-analytics
 ms.topic: overview
