@@ -11,18 +11,18 @@ ms.topic: quickstart
 author: Ninarn
 ms.author: ninarn
 ms.reviewer: carlrab
-ms.date: 03/11/2020
+ms.date: 03/12/2020
 ---
 # Quickstart: Use the Azure portal's query editor to query a SQL database
 
-The query editor is a tool in the Azure portal for running SQL queries against your Azure SQL Database or Azure Synapse Analytics (formerly SQL Data Warehouse). 
+The query editor is a tool in the Azure portal for running SQL queries against your Azure SQL Database or Azure SQL Data Warehouse. 
 
-In this quickstart, you'll use the Azure portal's SQL Database query editor to run Transact-SQL (T-SQL) queries against an Azure SQL Database.
+In this quickstart, you'll use the query editor in the portal to run Transact-SQL (T-SQL) queries against an Azure SQL database.
 
 
 ## Prerequisites
 
-To complete this quickstart you need the AdventureWorksLT sample database. If you don't have a working copy of the AdventureWorksLT SQL Database, use the following quickstart to quickly create one:
+To complete this quickstart you need the AdventureWorksLT sample database. If you don't have a working copy of the AdventureWorksLT SQL Database, the following quickstart quickly creates one:
 
 - [Quickstart: Create a single Azure SQL database using the Azure portal, PowerShell, or Azure CLI](sql-database-single-database-get-started.md) 
 
@@ -46,7 +46,7 @@ If you get one of the following errors in the query editor: *Your local network 
 
 ## Connect using SQL Authentication
 
-Even though you're signed into the portal, you still need to provide credentials to access the SQL database. For using Azure Active Directory to connect to your database, skip to [the following section](#connect-using-azure-active-directory).
+Even though you're signed into the portal, you still need to provide credentials to access the SQL database. If you use Azure Active Directory to connect to your database, skip to [the following section](#connect-using-azure-active-directory).
 
 1. In the **Login** page, under **SQL server authentication**, enter a **Login** and **Password** for a user that has access to the database. If you're not sure, use the login and password for the Server admin of the database's server.
 
