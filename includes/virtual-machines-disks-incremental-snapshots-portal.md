@@ -21,11 +21,14 @@
 
 ## Portal
 
-1. Sign in to the Azure portal and navigate to the disk you'd like to snapshot.
+1. Sign into the [Azure portal](https://portal.azure.com/) and navigate to the disk you'd like to snapshot.
 1. On your disk select **Create a Snapshot**
-1. Fill out the name, select **Incremental Snapshot**, and select **Review + Create**
 
-:::image type="content" source="media/virtual-machines-disks-incremental-snapshots-portal/incremental-snapshot-create-snapshot-blade.png" alt-text=" ":::
+    :::image type="content" source="media/virtual-machines-disks-incremental-snapshots-portal/create-a-snapshot-button-incremental.png" alt-text=" ":::
+
+1. Enter a name, select **Incremental Snapshot**, and select **Review + Create**
+
+    :::image type="content" source="media/virtual-machines-disks-incremental-snapshots-portal/incremental-snapshot-create-snapshot-blade.png" alt-text=" ":::
 
 1. Select **Create**
 
