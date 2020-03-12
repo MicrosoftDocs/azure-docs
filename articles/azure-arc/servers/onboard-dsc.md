@@ -6,7 +6,7 @@ ms.service: azure-arc
 ms.subservice: azure-arc-servers
 author: mgoedtel
 ms.author: magoedte
-ms.date: 03/11/2020
+ms.date: 03/12/2020
 ms.topic: conceptual
 ---
 
@@ -20,7 +20,7 @@ Using [Windows PowerShell Desired State Configuration](https://docs.microsoft.co
 
 - The [AzureConnectedMachineDsc](https://www.powershellgallery.com/packages/AzureConnectedMachineDsc/1.0.1.0) DSC module
 
-- Configured a service principal to connect the machines to Azure Arc for servers. Follow the steps under the section [Create a Service Principal for onboarding at scale](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale).
+- A service principal to connect the machines to Azure Arc for servers non-interactively. Follow the steps under the section [Create a Service Principal for onboarding at scale](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) if you have not created a service principal for Arc for servers already.
 
 ## Install the ConnectedMachine DSC module
 
@@ -81,12 +81,9 @@ After you install the agent and configure it to connect to Azure Arc for servers
 
 ## Adding to existing configurations
 
-This resource can be added to existing DSC configurations to represent an end-to-end configuration
-for a machine. For example, you might wish to add this resource to a configuration that sets
-secure operating system settings.
+This resource can be added to existing DSC configurations to represent an end-to-end configuration for a machine. For example, you might wish to add this resource to a configuration that sets secure operating system settings.
 
-The **CompsiteResource** module from the PowerShell Gallery can be used to create a composite
-resource of the example configuration, to further simplify combining configurations.
+The **CompsiteResource** module from the PowerShell Gallery can be used to create a composite resource of the example configuration, to further simplify combining configurations.
 
 ## Next steps
 
