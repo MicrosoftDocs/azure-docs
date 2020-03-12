@@ -11,6 +11,11 @@ Collaborate with other authors and maintainers using role-based access control p
 
 ## Access is provided on the QnA Maker resource
 
+All permissions are controlled among authors by the permissions placed on the QnA Maker resource. These permissions align to read, write, publish, and complete access.
+
+[!INCLUDE [RBAC permissions table](../includes/quickstart-sdk-csharp.md)]
+
+
 ## Access is provided by a defined role
 
 ## Next step
