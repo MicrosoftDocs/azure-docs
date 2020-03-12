@@ -25,7 +25,7 @@ This Document scope is to validate the encryption status of a virtual machine us
 1. A virtual machine has been encrypted using dual-pass or single-pass.
 2. Once the encryption process is triggered (in progress) or has been completed, we can validate the encryption status using different methods defined below
 
-# Verification
+## Verification
 
 The encryption status validation can be done from the Portal, PowerShell, AZ CLI and/or within the VM (OS side). Below the different validations methods:
 
