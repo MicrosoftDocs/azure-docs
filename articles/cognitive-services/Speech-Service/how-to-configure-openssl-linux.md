@@ -45,6 +45,8 @@ Set environment variable `SSL_CERT_FILE` to point at that file before running a 
 ```bash
 export SSL_CERT_FILE=/etc/pki/tls/certs/ca-bundle.crt
 ```
+> [!NOTE]
+> It is also worth noting the some distobutions of linux do not has a TMP or TMPDIR defined.  This will cause OpenSSL to download the Certificate Revocation List (CRL) every time, rather than caching them to disk for reuse until they expire. To improve initial connection performance you can [configure a user or system default TMPDIR](https://help.ubuntu.com/community/EnvironmentVariables).
 
 ## Next steps
 
