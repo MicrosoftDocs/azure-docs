@@ -90,7 +90,7 @@ POST https://management.azure.com/subscriptions/00000000-0000-0000-0000-00000000
 
 For more information, see: 
 
-* The [start a StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints/start) reference documenation.
+* The [start a StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints/start) reference documentation.
 * Starting a streaming endpoint is an asynchronous operation. 
 
     For details on how to monitor a long-running operations see[Long-running operations](media-services-apis-overview.md)
