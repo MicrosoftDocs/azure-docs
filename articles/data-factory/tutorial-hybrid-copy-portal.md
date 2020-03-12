@@ -10,7 +10,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
-ms.date: 01/11/2018
+ms.date: 03/11/2020
 ---
 
 # Copy data from an on-premises SQL Server database to Azure Blob storage
@@ -86,17 +86,17 @@ You use the name and key of your storage account in this tutorial. To get the na
 #### Create the adftutorial container
 In this section, you create a blob container named **adftutorial** in your Blob storage.
 
-1. In the **Storage account** window, go to **Overview**, and then select **Blobs**.
+1. In the **Storage account** window, go to **Overview**, and then select **Containers**.
 
     ![Select Blobs option](media/tutorial-hybrid-copy-powershell/select-blobs.png)
 
-1. In the **Blob service** window, select **Container**.
+1. In the **Containers** window, select **+ Container** to create a new one.
 
-1. In the **New container** window, under **Name**, enter **adftutorial**. Then select **OK**.
+1. In the **New container** window, under **Name**, enter **adftutorial**. Then select **Create**.
 
-1. In the list of containers, select **adftutorial**.
+1. In the list of containers, select **adftutorial** you just created.
 
-1. Keep the **container** window for **adftutorial** open. You use it verify the output at the end of the tutorial. Data Factory automatically creates the output folder in this container, so you don't need to create one.
+1. Keep the **container** window for **adftutorial** open. You use it to verify the output at the end of the tutorial. Data Factory automatically creates the output folder in this container, so you don't need to create one.
 
 ## Create a data factory
 In this step, you create a data factory and start the Data Factory UI to create a pipeline in the data factory.
@@ -138,23 +138,23 @@ In this step, you create a data factory and start the Data Factory UI to create 
 
 1. On the **General** tab at the bottom of the **Properties** window, for **Name**, enter **SQLServerToBlobPipeline**.
 
-   ![Pipeline name](./media/tutorial-hybrid-copy-portal/pipeline-name.png)
-
 1. In the **Activities** tool box, expand **Move & Transform**. Drag and drop the **Copy** activity to the pipeline design surface. Set the name of the activity to **CopySqlServerToAzureBlobActivity**.
 
 1. In the **Properties** window, go to the **Source** tab, and select **+ New**.
 
 1. In the **New Dataset** dialog box, search for **SQL Server**. Select **SQL Server**, and then select **Continue**.
+    ![New SqlServer dataset](./media/tutorial-hybrid-copy-portal/create-sqlserver-dataset.png)
 
 1. In the **Set Properties** dialog box, under **Name**, enter **SqlServerDataset**. Under **Linked service**, select **+ New**. You create a connection to the source data store (SQL Server database) in this step.
 
 1. In the **New Linked Service** dialog box, add **Name** as **SqlServerLinkedService**. Under **Connect via integration runtime**, select **+New**.  In this section, you create a self-hosted integration runtime and associate it with an on-premises machine with the SQL Server database. The self-hosted integration runtime is the component that copies data from the SQL Server database on your machine to Blob storage.
 
-1. In the **Integration Runtime Setup** dialog box, select **Self-Hosted**, and then select **Next**.
+1. In the **Integration Runtime Setup** dialog box, select **Self-Hosted**, and then select **Continue**.
 
-1. Under name, enter **TutorialIntegrationRuntime**. Then select **Next**.
+1. Under name, enter **TutorialIntegrationRuntime**. Then select **Create**.
 
 1. For Settings, select **Click here to launch the express setup for this computer**.This action installs the integration runtime on your machine and registers it with Data Factory. Alternatively, you can use the manual setup option to download the installation file, run it, and use the key to register the integration runtime.
+    ![Integration runtime setup](./media/tutorial-hybrid-copy-portal/intergration-runtime-setup.png)
 
 1. In the **Integration Runtime (Self-hosted) Express Setup** window, select **Close**.
 
