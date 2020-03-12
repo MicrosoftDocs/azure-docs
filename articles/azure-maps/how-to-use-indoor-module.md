@@ -12,7 +12,7 @@ manager: philmea
 
 # Use the Azure Maps Indoor Maps module
 
-The Azure Maps Web SDK provides an *Indoor Maps* module. This module offers extended functionalities to the Azure Maps *Maps Control* library. It conveniently renders indoor maps and integrates the indoor map data in a web application. 
+The Azure Maps Web SDK provides the *Indoor Maps* module. This module offers extended functionalities to the Azure Maps *Map Control* library. It conveniently renders indoor maps and integrates the indoor map data in a web application. 
 
 ## Prerequisites
 
