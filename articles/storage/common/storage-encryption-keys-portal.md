@@ -90,7 +90,7 @@ To change the key used for Azure Storage encryption, follow these steps:
 
 ## Disable customer-managed keys
 
-When you disable customer-managed keys, your storage account is then encrypted with Microsoft-managed keys. To disable customer-managed keys, follow these steps:
+When you disable customer-managed keys, your storage account is once again encrypted with Microsoft-managed keys. To disable customer-managed keys, follow these steps:
 
 1. Navigate to your storage account and display the **Encryption** settings.
 1. Deselect the checkbox next to the **Use your own key** setting.
