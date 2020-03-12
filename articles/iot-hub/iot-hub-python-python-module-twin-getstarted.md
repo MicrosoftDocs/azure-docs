@@ -15,7 +15,7 @@ ms.author: menchi
 [!INCLUDE [iot-hub-selector-module-twin-getstarted](../../includes/iot-hub-selector-module-twin-getstarted.md)]
 
 > [!NOTE]
-> [Module identities and module twins](iot-hub-devguide-module-twins.md) are similar to Azure IoT Hub device identity and device twin, but provide finer granularity. While Azure IoT Hub device identity and device twin enable the back-end application to configure a device and provides visibility on the device’s conditions, a module identity and module twin provide these capabilities for individual components of a device. On capable devices with multiple components, such as operating system based devices or firmware devices, it allows for isolated configuration and conditions for each component.
+> [Module identities and module twins](iot-hub-devguide-module-twins.md) are similar to Azure IoT Hub device identity and device twin, but provide finer granularity. While Azure IoT Hub device identity and device twin enable the back-end application to configure a device and provides visibility on the device's conditions, a module identity and module twin provide these capabilities for individual components of a device. On capable devices with multiple components, such as operating system based devices or firmware devices, it allows for isolated configuration and conditions for each component.
 >
 
 At the end of this tutorial, you have two Python apps:
@@ -28,7 +28,7 @@ At the end of this tutorial, you have two Python apps:
 
 ## Prerequisites
 
-[!INCLUDE [iot-hub-include-python-installation-notes](../../includes/iot-hub-include-python-installation-notes.md)]
+[!INCLUDE [iot-hub-include-python-v2-installation-notes](../../includes/iot-hub-include-python-v2-installation-notes.md)]
 
 ## Create an IoT hub
 
@@ -42,43 +42,78 @@ At the end of this tutorial, you have two Python apps:
 
 ## Create a device identity and a module identity in IoT Hub
 
-In this section, you create a Python app that creates a device identity and a module identity in the identity registry in your IoT hub. A device or module cannot connect to IoT hub unless it has an entry in the identity registry. For more information, see the "Identity registry" section of the [IoT Hub developer guide](iot-hub-devguide-identity-registry.md). When you run this console app, it generates a unique ID and key for both device and module. Your device and module use these values to identify itself when it sends device-to-cloud messages to IoT Hub. The IDs are case-sensitive.
+In this section, you create a Python app that creates a device identity and a module identity in the identity registry in your IoT hub. A device or module cannot connect to IoT hub unless it has an entry in the identity registry. For more information, see the [Identity registry section of the IoT Hub developer guide](iot-hub-devguide-identity-registry.md). When you run this console app, it generates a unique ID and key for both device and module. Your device and module use these values to identify itself when it sends device-to-cloud messages to IoT Hub. The IDs are case-sensitive.
 
-Add the following code to your Python file:
+1. At your command prompt, run the following command to install the **azure-iot-hub** package:
 
-```python
-import sys
-import iothub_service_client
-from iothub_service_client import IoTHubRegistryManager, IoTHubRegistryManagerAuthMethod, IoTHubError
+    ```cmd/sh
+    pip install azure-iot-hub
+    ```
 
-CONNECTION_STRING = "YourConnString"
-DEVICE_ID = "myFirstDevice"
-MODULE_ID = "myFirstModule"
+2. Using a text editor, create a file named **CreateModule.py** in your working directory.
 
-try:
-    # RegistryManager
-    iothub_registry_manager = IoTHubRegistryManager(CONNECTION_STRING)
+3. Add the following code to your Python file:
 
-    # CreateDevice
-    primary_key = ""
-    secondary_key = ""
-    auth_method = IoTHubRegistryManagerAuthMethod.SHARED_PRIVATE_KEY
-    new_device = iothub_registry_manager.create_device(
-        DEVICE_ID, primary_key, secondary_key, auth_method)
-    print("new_device <" + DEVICE_ID +
-          "> has primary key = " + new_device.primaryKey)
+    ```python
+    import sys
+    from msrest.exceptions import HttpOperationError
+    from azure.iot.hub import IoTHubRegistryManager
 
-    # CreateModule
-    new_module = iothub_registry_manager.create_module(
-        DEVICE_ID, primary_key, secondary_key, MODULE_ID, auth_method)
-    print("device/new_module <" + DEVICE_ID + "/" + MODULE_ID +
-          "> has primary key = " + new_module.primaryKey)
+    CONNECTION_STRING = "YourConnString"
+    DEVICE_ID = "myFirstDevice"
+    MODULE_ID = "myFirstModule"
 
-except IoTHubError as iothub_error:
-    print("Unexpected error {0}".format(iothub_error))
-except KeyboardInterrupt:
-    print("IoTHubRegistryManager sample stopped")
-```
+    try:
+        # RegistryManager
+        iothub_registry_manager = IoTHubRegistryManager(CONNECTION_STRING)
+
+        try:
+            # CreateDevice - let IoT Hub assign keys
+            primary_key = ""
+            secondary_key = ""
+            device_state = "enabled"
+            new_device = iothub_registry_manager.create_device_with_sas(
+                DEVICE_ID, primary_key, secondary_key, device_state
+            )
+        except HttpOperationError as ex:
+            if ex.response.status_code == 409:
+                # 409 indicates a conflict. This happens because the device already exists.
+                new_device = iothub_registry_manager.get_device(DEVICE_ID)
+            else:
+                raise
+
+        print("device <" + DEVICE_ID +
+              "> has primary key = " + new_device.authentication.symmetric_key.primary_key)
+
+        try:
+            # CreateModule - let IoT Hub assign keys
+            primary_key = ""
+            secondary_key = ""
+            managed_by = ""
+            new_module = iothub_registry_manager.create_module_with_sas(
+                DEVICE_ID, MODULE_ID, managed_by, primary_key, secondary_key
+            )
+        except HttpOperationError as ex:
+            if ex.response.status_code == 409:
+                # 409 indicates a conflict. This happens because the module already exists.
+                new_module = iothub_registry_manager.get_module(DEVICE_ID, MODULE_ID)
+            else:
+                raise
+
+        print("device/module <" + DEVICE_ID + "/" + MODULE_ID +
+              "> has primary key = " + new_module.authentication.symmetric_key.primary_key)
+
+    except Exception as ex:
+        print("Unexpected error {0}".format(ex))
+    except KeyboardInterrupt:
+        print("IoTHubRegistryManager sample stopped")
+    ```
+
+4. At your command prompt, run the following command:
+
+    ```cmd/sh
+    python AddModule.py
+    ```
 
 This app creates a device identity with ID **myFirstDevice** and a module identity with ID **myFirstModule** under device **myFirstDevice**. (If that module ID already exists in the identity registry, the code simply retrieves the existing module information.) The app then displays the primary key for that identity. You use this key in the simulated module app to connect to your IoT hub.
 
