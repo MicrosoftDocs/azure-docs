@@ -74,7 +74,7 @@ If any other application ports are needed, then you will need to adjust the Micr
 
 ## Set template parameters
 
-The [AzureDeploy.Parameters][parameters] parameters file declares many values used to deploy the cluster and associated resources. Some of the parameters that you might need to modify for your deployment:
+The **AzureDeploy.Parameters** file declares many values used to deploy the cluster and associated resources. Some of the parameters that you might need to modify for your deployment:
 
 |Parameter|Example value|Notes|
 |---|---||
@@ -90,7 +90,7 @@ The [AzureDeploy.Parameters][parameters] parameters file declares many values us
 
 ## Deploy the virtual network and cluster
 
-Next, set up the network topology and deploy the Service Fabric cluster. The [AzureDeploy.json][template] Resource Manager template creates a virtual network (VNET) and a subnet for Service Fabric. The template also deploys a cluster with certificate security enabled.  For production clusters, use a certificate from a certificate authority (CA) as the cluster certificate. A self-signed certificate can be used to secure test clusters.
+Next, set up the network topology and deploy the Service Fabric cluster. The **AzureDeploy.json** Resource Manager template creates a virtual network (VNET) and a subnet for Service Fabric. The template also deploys a cluster with certificate security enabled.  For production clusters, use a certificate from a certificate authority (CA) as the cluster certificate. A self-signed certificate can be used to secure test clusters.
 
 The template in this article deploy a cluster that uses the certificate thumbprint to identify the cluster certificate.  No two certificates can have the same thumbprint, which makes certificate management more difficult. Switching a deployed cluster from using certificate thumbprints to using certificate common names makes certificate management much simpler.  To learn how to update the cluster to use certificate common names for certificate management, read [change cluster to certificate common name management](service-fabric-cluster-change-cert-thumbprint-to-cn.md).
 
