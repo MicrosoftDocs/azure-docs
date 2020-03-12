@@ -70,6 +70,21 @@ await client.GetDatabase("database").CreateContainerAsync(new ContainerPropertie
 });
 ```
 
+### <a id="dotnet-enable-noexpiry"></a>Java SDK V4 (com.azure.azure-cosmos)
+
+```java
+private CosmosAsyncContainer container;
+
+// Create a new container with TTL enabled and without any expiration value
+CosmosContainerProperties containerProperties = new CosmosContainerProperties(containerName, "/lastName");
+containerProperties.setDefaultTimeToLiveInSeconds(-1);
+database.createContainerIfNotExists(containerProperties, 400).flatMap(containerResponse -> {
+            container = containerResponse.getContainer();
+            return Mono.empty();
+        }).block();
+```
+
+
 ## Set time to live on a container using SDK
 
 To set the time to live on a container, you need to provide a non-zero positive number that indicates the time period in seconds. Based on the configured TTL value, all items in the container after the last modified timestamp of the item `_ts` are deleted.
