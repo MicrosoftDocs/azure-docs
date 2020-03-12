@@ -74,6 +74,8 @@
       href: custom-policy-overview.md
   - name: User accounts
     href: user-overview.md
+  - name: User profile attributes
+    href: user-profile-attributes.md
 - name: How-to guides
   items:
   - name: App integration
@@ -391,8 +393,6 @@
   items:
   - name: Identity Experience Framework release notes
     href: custom-policy-developer-notes.md
-  - name: User profile attributes
-    href: user-profile-attributes.md
   - name: Code samples
     href: https://azure.microsoft.com/resources/samples/?service=active-directory-b2c
   - name: Page layout versions
