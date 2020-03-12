@@ -1,5 +1,5 @@
 ---
-title: Upgrade cluster nodes to use Azure managed disks 
+title: Upgrade cluster nodes to use Azure managed disks
 description: Here's how to upgrade an existing Service Fabric cluster to use Azure managed disks with little or no downtime of your cluster.
 ms.topic: how-to
 ms.date: 3/01/2020
@@ -21,11 +21,11 @@ This article will walk you through the steps of upgrading the primary node type 
 > [!CAUTION]
 > You will experience an outage with this procedure only if you have dependencies on the cluster DNS (such as when accessing [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)). Architectural [best practice for front-end services](https://docs.microsoft.com/azure/architecture/microservices/design/gateway) is to have some kind of [load balancer](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview) in front of your node types to make node swapping possible without an outage.
 
-Here are the [templates and cmdlets](TBD_REPO) for Azure resource manager that we'll use to complete the upgrade scenario. The template changes will be explained in [Deploy an upgraded scale set for the primary node type](#deploy-an-upgraded-scale-set-for-the-primary-node-type)  below.
+Here are the [templates and cmdlets](https://github.com/erikadoyle/service-fabric-scripts-and-templates/tree/managed-disks/templates/nodetype-upgrade-no-outage) for Azure resource manager that we'll use to complete the upgrade scenario. The template changes will be explained in [Deploy an upgraded scale set for the primary node type](#deploy-an-upgraded-scale-set-for-the-primary-node-type)  below.
 
 ## Set up the test cluster
 
-Let's set up the initial Service Fabric test cluster. First, [download](TBD_REPO) the Azure resource manager sample templates that we'll use to complete this scenario.
+Let's set up the initial Service Fabric test cluster. First, [download](https://github.com/erikadoyle/service-fabric-scripts-and-templates/tree/managed-disks/templates/nodetype-upgrade-no-outage) the Azure resource manager sample templates that we'll use to complete this scenario.
 
 Next, sign in to your Azure account.
 
@@ -53,11 +53,12 @@ $parameterFilePath="C:\Initial-1NodeType-UnmanagedDisks.parameters.json"
 > [!NOTE]
 > Ensure that the `certOutputFolder` location exist on your local machine before running the command to deploy a new Service Fabric cluster.
 
-Next open the *Initial-1NodeType-UnmanagedDisks.parameters.json* file and adjust the values for `clusterName` and `dnsName` to correspond to the dynamic values you set in PowerShell and save your changes.
+Next open the [*Initial-1NodeType-UnmanagedDisks.parameters.json*](https://github.com/erikadoyle/service-fabric-scripts-and-templates/blob/managed-disks/templates/nodetype-upgrade-no-outage/Initial-1NodeType-UnmanagedDisks.parameters.json) file and adjust the values for `clusterName` and `dnsName` to correspond to the dynamic values you set in PowerShell and save your changes.
 
 Then deploy the Service Fabric test cluster:
 
 ```powershell
+# Deploy the initial test cluster
 New-AzServiceFabricCluster `
     -ResourceGroupName $resourceGroupName `
     -CertificateOutputFolder $certOutputFolder `
@@ -67,16 +68,19 @@ New-AzServiceFabricCluster `
     -ParameterFile $parameterFilePath
 ```
 
-Once the deployment is complete, install the certificate for the cluster and retrieve the thumbprint (adjust the value for `FilePath` as needed):
+Once the deployment is complete, locate the *.pfx* file (`$certPfx`) on your local machine and import it to your certificate store:
 
 ```powershell
-PS C:\certificates> Import-PfxCertificate `
-     -FilePath .\sftestupgradegroup20200309235308.pfx `
+cd c:\certificates
+$certPfx=".\sftestupgradegroup20200312121003.pfx"
+
+Import-PfxCertificate `
+     -FilePath $certPfx `
      -CertStoreLocation Cert:\CurrentUser\My `
      -Password (ConvertTo-SecureString Password!1 -AsPlainText -Force)
 ```
 
-Next, [connect to the new cluster](#connect-to-the-new-cluster-and-check-health-status) and check its health status. (Skip the following section.)
+The operation will return the certificate thumbprint, which you'll use to [connect to the new cluster](#connect-to-the-new-cluster-and-check-health-status) and check its health status. (Skip the following section, which is an alternate approach to cluster deployment.)
 
 ### Use an existing certificate to deploy the cluster
 
@@ -89,7 +93,7 @@ $sourceVaultValue="/subscriptions/########-####-####-####-############/resourceG
 $thumb="BB796AA33BD9767E7DA27FE5182CF8FDEE714A70"
 ```
 
-Open the *Initial-1NodeType-UnmanagedDisks.parameters.json* file and change the values for `clusterName` and `dnsName` to something unique.
+Open the [*Initial-1NodeType-UnmanagedDisks.parameters.json*](https://github.com/erikadoyle/service-fabric-scripts-and-templates/blob/managed-disks/templates/nodetype-upgrade-no-outage/Initial-1NodeType-UnmanagedDisks.parameters.json) file and change the values for `clusterName` and `dnsName` to something unique.
 
 Finally, designate a resource group name for the cluster and set the `templateFilePath` and `parameterFilePath` locations of your *Initial-1NodeType-UnmanagedDisks** files:
 
@@ -145,7 +149,7 @@ With that, we're ready to begin the upgrade procedure.
 
 In order to upgrade, or *vertically scale*, a node type, we'll need to deploy a copy of that node type's virtual machine scale set, which is otherwise identical to the original scale set (including reference to the same `nodeTypeRef`, `subnet`, and `loadBalancerBackendAddressPools`) except that it includes the desired upgrade/changes and its own separate subnet and inbound NAT address pool. Because we are upgrading a primary node type, the new scale set will be marked as primary (`isPrimary: true`), just like the original scale set.
 
-For convenience, the required changes have already been made for you in the *Upgrade-1NodeType-2ScaleSets-ManagedDisks** template and parameters files.
+For convenience, the required changes have already been made for you in the *Upgrade-1NodeType-2ScaleSets-ManagedDisks** [template](https://github.com/erikadoyle/service-fabric-scripts-and-templates/blob/managed-disks/templates/nodetype-upgrade-no-outage/Upgrade-1NodeType-2ScaleSets-ManagedDisks.json) and [parameters](https://github.com/erikadoyle/service-fabric-scripts-and-templates/blob/managed-disks/templates/nodetype-upgrade-no-outage/Upgrade-1NodeType-2ScaleSets-ManagedDisks.parameters.json) files.
 
 The following sections will explain the template changes in detail. If you prefer, you can skip the explanation and continue on to [the next step of the upgrade procedure](#obtain-your-key-vault-references).
 
@@ -361,6 +365,6 @@ Learn how to:
 
 See also:
 
-* [Sample: Upgrade cluster nodes to use Azure managed disks](TBD_REPO)
+* [Sample: Upgrade cluster nodes to use Azure managed disks](https://github.com/erikadoyle/service-fabric-scripts-and-templates/tree/managed-disks/templates/nodetype-upgrade-no-outage)
 
 * [Vertical scaling considerations](service-fabric-best-practices-capacity-scaling.md#vertical-scaling-considerations)
