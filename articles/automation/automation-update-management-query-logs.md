@@ -138,7 +138,7 @@ A record with a type of `UpdateSummary` is created that provides update summary 
 | CriticalUpdatesMissing | Number of critical updates missing that are applicable. | 
 | ManagementGroupName | Name of the Operations Manager management group or Log Analytics workspace. |
 | NETRuntimeVersion | Version of .NET Framework installed on the Windows computer. |
-| OldestMissingSecurityUpdateBucket | Values are: *Recent*<br> *30 days ago*<br> *60 days ago*<br> *Older* | 
+| OldestMissingSecurityUpdateBucket | Values are:<br> *Recent*<br> *30 days ago*<br> *60 days ago*<br> *Older* | 
 | OldestMissingSecurityUpdateInDays | Total number of days for the oldest update detected as applicable that has not been installed. |
 | OsVersion | The version of the operating system. |
 | OtherUpdatesMissing | Count of detected updates missing. |
