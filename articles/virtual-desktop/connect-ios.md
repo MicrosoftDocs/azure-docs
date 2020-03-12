@@ -8,6 +8,7 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 02/08/2020
 ms.author: helohr
+manager: lizross
 ---
 # Connect with the iOS client
 
