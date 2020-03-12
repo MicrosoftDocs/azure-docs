@@ -17,7 +17,7 @@ ms.author: mbaldwin
 
 Azure Key Vault is a cloud service that safeguards encryption keys and secrets like certificates, connection strings, and passwords. Because this data is sensitive and business critical, you need to secure access to your key vaults by allowing only authorized applications and users. This article provides an overview of the Key Vault access model. It explains authentication and authorization, and describes how to secure access to your key vaults.
 
-[!INCLUDE [updated-for-az](.../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## Access model overview
 

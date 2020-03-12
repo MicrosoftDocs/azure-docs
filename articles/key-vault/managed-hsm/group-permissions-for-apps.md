@@ -15,7 +15,7 @@ ms.author: mbaldwin
 ---
 # Provide Key Vault authentication with an access control policy
 
-[!INCLUDE [updated-for-az](.../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 The simplest way to authenticate a cloud-based application to Key Vault is with a managed identity; see [Use an App Service managed identity to access Azure Key Vault](managed-identity.md) for details.  If you are creating an on-prem application, doing local development, or otherwise unable to use a managed identity, you can instead register a service principal manually and provide access to your key vault using an access control policy.  
 
@@ -27,7 +27,7 @@ For full details on Key Vault access control, see [Azure Key Vault security: Ide
 - [Secrets access control](about-keys-secrets-and-certificates.md#secret-access-control)
 - [Certificates access control](about-keys-secrets-and-certificates.md#certificate-access-control)
 
-[!INCLUDE [cloud-shell-try-it.md](.../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 ## Prerequisites
 

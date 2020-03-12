@@ -21,7 +21,7 @@ Azure Key Vault's soft delete feature allows recovery of deleted vaults and vaul
 
 ## Prerequisites
 
-[!INCLUDE [updated-for-az](.../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 - Azure PowerShell 1.0.0 or later - If you don't have this already setup, install Azure PowerShell and associate it with your Azure subscription, see [How to install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview). 
 

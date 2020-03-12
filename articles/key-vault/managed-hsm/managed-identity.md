@@ -20,7 +20,7 @@ A managed identity from Azure Active Directory allows your app to easily access 
 This article shows you how to create a managed identity for an App Service application and use it to access Azure Key Vault. For applications hosted in Azure VMs, see [Use a Windows VM system-assigned managed identity to access Azure Key Vault](../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-nonaad.md).
 
 
-[!INCLUDE [cloud-shell-try-it.md](.../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 ## Prerequisites 
 
