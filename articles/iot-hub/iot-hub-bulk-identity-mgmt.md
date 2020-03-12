@@ -15,7 +15,7 @@ ms.author: robinsh
 Each IoT hub has an identity registry you can use to create per-device resources in the service. The identity registry also enables you to control access to the device-facing endpoints. This article describes how to import and export device identities in bulk to and from an identity registry. To see a working sample in C# and learn how you can use this capability when cloning a hub to a different region, see [How to Clone an IoT Hub](iot-hub-how-to-clone.md).
 
 > [!NOTE]
-> IoT Hub has recently added VNET support in a limited number of regions. This eliminates the need to pass keys for authentication.  Initially, VNET support is available only in these regions: *WestUS2*, *EastUS*, and *SouthCentralUS*. To learn more about VNET support and the API calls to implement it, see [IoT Hub Support for VNETs](https://go.microsoft.com/fwlink/p/?linkid=2122101).
+> IoT Hub has recently added VNET support in a limited number of regions. VNET support secures import and export operations and eliminates the need to pass keys for authentication.  Initially, VNET support is available only in these regions: *WestUS2*, *EastUS*, and *SouthCentralUS*. To learn more about VNET support and the API calls to implement it, see [IoT Hub Support for VNETs](https://go.microsoft.com/fwlink/p/?linkid=2122101).
 
 Import and export operations take place in the context of *Jobs* that enable you to execute bulk service operations against an IoT hub.
 
