@@ -10,7 +10,7 @@ ms.service: virtual-machines-linux
 ms.subservice: disks
 ---
 
-# Server side encryption of Azure managed disks
+# Server-side encryption of Azure managed disks
 
 Azure managed disks automatically encrypt your data by default when persisting it to the cloud. Server-side encryption protects your data and helps you meet your organizational security and compliance commitments. Data in Azure managed disks is encrypted transparently using 256-bit [AES encryption](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), one of the strongest block ciphers available, and is FIPS 140-2 compliant.   
 
@@ -38,7 +38,7 @@ For ultra disks: When you disable or rotate your key, you must shut down any VMs
 
 The following diagram shows how managed disks use Azure Active Directory and Azure Key Vault to make requests using the customer-managed key:
 
-![Managed disk and customer-managed keys workflow. An admin creates an Azure Key Vault, then creates a disk encryption set, and sets up the disk encryption set. The Set is associated to a VM which allows the disk to make use of Azure AD to authenticate](media/disk-storage-encryption/customer-managed-keys-sse-managed-disks-workflow.png)
+![Managed disk and customer-managed keys workflow. An admin creates an Azure Key Vault, then creates a disk encryption set, and sets up the disk encryption set. The Set is associated to a VM, which allows the disk to make use of Azure AD to authenticate](media/disk-storage-encryption/customer-managed-keys-sse-managed-disks-workflow.png)
 
 
 The following list explains the diagram in even more detail:
