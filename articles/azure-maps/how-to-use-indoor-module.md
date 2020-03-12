@@ -10,17 +10,15 @@ services: azure-maps
 manager: philmea
 ---
 
-# Use the Azure Maps map control
+# Use the Azure Maps Indoor Maps module
 
-# Use the Azure Maps services module
+The Azure Maps Web SDK provides an *Indoor Maps* module. This module offers extended functionalities to the Azure Maps *Maps Control* library. It conveniently renders indoor maps and integrates the indoor map data in a web application. 
 
-The Azure Maps Web SDK provides an *Indoor Maps* module. This module offers extended functionalities to the Azure Maps *Maps Control* library. The Indoor Maps module makes it easy to render indoor maps and integrate the data in a web application. 
-
-## Prerequisites 
+## Prerequisites
 
 You'll need to obtain a DWG file for an indoor map, upload your DWG package, and then convert the DWG package to map data. These steps are part of the [indoor data management process](). When you complete these steps, note your data set ID and tile set ID to use in the exercise of this article.
 
-As in using any Azure Maps APIs, you'll need to have an [Azure Maps account]() and a[primary subscription key](). This key may also be referred to as the primary key or the subscription key.
+As in using any Azure Maps APIs, you'll need to have an [Azure Maps account]() and a [primary subscription key](). This key may also be referred to as the primary key or the subscription key.
 
 ## Embed the Indoor Maps module
 
@@ -79,7 +77,7 @@ indoorManager.setOptions({ levelControl });
 
 ## Indoor Events
 
-Because the Indoor Maps module is an extension of the Map Control, the Map Control events are still supported while using the Indoor Map. Additionally, the Indoor Map currently supports facility and level change events invoked by the IndoorManager. The event listeners can be added as shown below:
+Because the Indoor Maps module is an extension of the Map Control, the Map Control events are still supported while using the Indoor Maps module. Additionally, the Indoor Maps module supports facility and level change events invoked by the IndoorManager. The event listeners can be added as shown below:
 
 ```javascript
 map.events.add("levelchanged", indoorManager, (eventData) => {
@@ -90,9 +88,9 @@ map.events.add("facilitychanged", indoorManager, (eventData) => {
 });
 ```
 
-## Use the Indoor Map Module
+## Use the Indoor Maps Module
 
-This exercise demonstrates how to integrate the Indoor Maps module with the Azure Maps Web SDK. Although the exercise is limited in scope, it covers the foundational knowledge to using the Indoor Maps module.
+This exercise demonstrates how to integrate the Indoor Maps module with the Azure Maps Web SDK. Although the exercise is limited in scope, it covers the foundational knowledge to start using the Indoor Maps module.
 
 1. Create a new HTML file
 
@@ -103,7 +101,7 @@ This exercise demonstrates how to integrate the Indoor Maps module with the Azur
     <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/indoor/0.1/atlas-indoor.min.css"
     ```
 
-3. Initialize a map object, add style rules, and authenticate to your Azure Maps account. The HTML file similar to the HTML below. Use your primary key in the `<your Azure Maps Primary Subscription Key>` place holder. Alter the `center` option to use a latitude and longitude near your indoor map location. You may also change the map `style` option, the `blank` value shows the indoor map on a white background.
+3. Initialize a map object, add style rules, and authenticate to your Azure Maps account. The HTML file should look similar to the HTML below. Use your primary key in the `<your Azure Maps Primary Subscription Key>` place holder. Alter the `center` option to use a latitude and longitude near your indoor map location. You may also change the map `style` option, the `blank` value shows the indoor map on a white background.
 
     ```html
     <!DOCTYPE html>
@@ -151,7 +149,7 @@ This exercise demonstrates how to integrate the Indoor Maps module with the Azur
     </html>
     ```
 
-4. Add the Indoor Maps `tilesetId`, and optionally the `statesetId`. Enable polling, if you provide a state set ID. Instantiate the Indoor Manager, Indoor Level Picker Control, and add the Indoor Map event listeners. The code below is how the HTML file would look like after completing the described steps:
+4. Assign the Indoor Maps `tilesetId`, and optionally add the `statesetId`. Enable polling, if you provide a state set ID. Instantiate the Indoor Manager, Indoor Level Picker Control, and add the Indoor Maps event listeners. The code below is how the HTML file would look like after completing the described steps:
 
     ```html
     <!DOCTYPE html>
@@ -222,7 +220,7 @@ This exercise demonstrates how to integrate the Indoor Maps module with the Azur
     </html>
     ```
 
-5. Remember to provide your primary key, tile set ID, and optionally the state set ID. Then, open your HTML file to see the Indoor Map rendered in the web browser. The image below shows the indoor map for a single floor facility rendered on a white background:
+5. Remember to provide your primary subscription key, tile set ID, and optionally the state set ID. Then, open your HTML file to see the indoor map rendered in the web browser. The image below shows the indoor map for a single floor facility, rendered on a white background:
 
     <center>
 
