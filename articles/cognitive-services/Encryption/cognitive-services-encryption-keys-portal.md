@@ -6,7 +6,7 @@ services: cognitive-services
 author: erindormier
 
 ms.service: cognitive-services
-ms.topic: conceptual
+ms.topic: include
 ms.date: 03/11/2020
 ms.author: egeaney
 ---
@@ -22,7 +22,7 @@ This article shows how to configure an Azure Key Vault with customer-managed key
 Using customer-managed keys requires that two properties be set on the key vault, **Soft Delete** and **Do Not Purge**. These properties are not enabled by default, but can be enabled using either PowerShell or Azure CLI on a new or existing key vault.
 
 > [!IMPORTANT]
-> If you do not have the **Soft Delete** and **Do Not Purge** properties enabled and you delete your key, you won't be able to recover the data in your Cognitive Service resource. 
+> If you do not have the **Soft Delete** and **Do Not Purge** properties enabled and you delete your key, you won't be able to recover the data in your Cognitive Service resource.
 
 To learn how to enable these properties on an existing key vault, see the sections titled **Enabling soft-delete** and **Enabling Purge Protection** in one of the following articles:
 
@@ -39,7 +39,7 @@ To enable customer-managed keys in the Azure portal, follow these steps:
 1. On the **Settings** blade for your Cognitive Services resource, click **Encryption**. Select the **Customer Managed Keys** option, as shown in the following figure.
 
     ![Screenshot showing how to select Customer Managed Keys](../media/cognitive-services-encryption/selectcmk.png)
-  
+
 ## Specify a key
 
 After you enable customer-managed keys, you'll have the opportunity to specify a key to associate with the Cognitive Services resource.
@@ -102,6 +102,6 @@ When you disable customer-managed keys, your Cognitive Services resource is then
 * [Cognitive Services Customer-Managed Key Request Form](https://aka.ms/cogsvc-cmk)
 * [Face Services encryption of data at rest](../Face/face-encryption-of-data-at-rest.md)
 * [QnA Maker encryption of data at rest](../QnAMaker/qna-maker-encryption-of-data-at-rest.md)
-* [Languange Understanding service encryption of data at rest](../LUIS/luis-encryption-of-data-at-rest.md)
+* [Language Understanding service encryption of data at rest](../LUIS/luis-encryption-of-data-at-rest.md)
 * [Content Moderator encryption of data at rest](../Content-Moderator/content-moderator-encryption-of-data-at-rest.md)
 * [Translator encryption of data at rest](../translator/translator-encryption-of-data-at-rest.md)
