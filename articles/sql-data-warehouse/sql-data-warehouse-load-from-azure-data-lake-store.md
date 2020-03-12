@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: load-data
-ms.date: 02/04/2020
+ms.date: 03/04/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
@@ -41,6 +41,8 @@ You can skip this section and proceed to "Create the external data source"  when
 To access your Data Lake Storage account, you will need to create a Database Master Key to encrypt your credential secret. You then create a Database Scoped Credential to store your secret. When authenticating using service principals (Azure Directory Application user), the Database Scoped Credential stores the service principal credentials set up in AAD. You can also use the Database Scoped Credential to store the storage account key for Gen2.
 
 To connect to Data Lake Storage using service principals, you must **first** create an Azure Active Directory Application, create an access key, and grant the application access to the Data Lake Storage account. For instructions, see [Authenticate to Azure Data Lake Storage Using Active Directory](../data-lake-store/data-lake-store-authenticate-using-active-directory.md).
+
+Log into your SQL pool with a user having CONTROL level permissions and execute the following SQL statements against your database:
 
 ```sql
 -- A: Create a Database Master Key.
