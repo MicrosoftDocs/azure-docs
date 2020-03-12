@@ -11,7 +11,7 @@ Encrypting your web app's application data at rest requires an Azure Storage Acc
 
   - [Azure Storage provides encryption at rest](../storage/common/storage-service-encryption.md). You can use system-provided keys or your own, customer-managed keys. This is where your application data is stored when it's not running in a web app in Azure.
   - [Running from a deployment package](deploy-run-package.md) is a deployment feature of App Service. It allows you to deploy your site content from an Azure Storage Account using a Shared Access Signature (SAS) URL.
-  - [Key Vault references](app-service-key-vault-reference.md) are a security feature of App Service. It allows you to import secrets at runtime as application settings. Use this to encrypt the SAS URL of your Azure Storage Account.
+  - [Key Vault references](app-service-key-vault-references.md) are a security feature of App Service. It allows you to import secrets at runtime as application settings. Use this to encrypt the SAS URL of your Azure Storage Account.
 
 ## Set up encryption at rest
 
