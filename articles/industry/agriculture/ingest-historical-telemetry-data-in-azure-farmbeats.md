@@ -269,7 +269,7 @@ Sensor
   }
 }
 ```
-The following sample request creates a device. This request has input JSON as payload with the request body. Below there is also a sample python script that creates a device model.
+The following sample request creates a device. This request has input JSON as payload with the request body.
 
 ```bash
 curl -X POST "https://<datahub>.azurewebsites.net/Device" -H  
@@ -279,13 +279,13 @@ curl -X POST "https://<datahub>.azurewebsites.net/Device" -H
 \"description\": \"Test Device 123\"}" *
 ```
 
-Below is the sample code in Python. Please note that the access token used in this sample is the same that we received during authentication
+Below is a sample code in Python. Please note that the access token used in this sample is the same that we received during authentication
 
 ```python
 import requests
 import json
 
-# Got access token - Calling the DeviceModel API
+# Got access token - Calling the Device Model API
 headers = {
     "Authorization": "Bearer " + access_token,
     "Content-Type" : "application/json"
