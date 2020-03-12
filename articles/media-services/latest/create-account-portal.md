@@ -50,8 +50,6 @@ To complete this tutorial, you need an Azure account. For details, see [Azure Fr
     
 1. Select **Pin to dashboard** to see the progress of the account deployment.
 1. Click **Create** at the bottom of the form.
-   
-    Once the account is successfully created, overview page loads. In the streaming endpoint table, the account will have a default streaming endpoint in the **Stopped** state. 
 
     When your Media Services account is created a **default** streaming endpoint is added to your account in the **Stopped** state. To start streaming your content and take advantage of [dynamic packaging](dynamic-packaging-overview.md) and [dynamic encryption](content-protection-overview.md), the streaming endpoint from which you want to stream content has to be in the **Running** state. 
 
