@@ -89,11 +89,15 @@ For more information, see [az ams streaming-endpoint start](https://docs.microso
 POST https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mediaresources/providers/Microsoft.Media/mediaservices/slitestmedia10/streamingEndpoints/myStreamingEndpoint1/start?api-version=2018-07-01
 ```
 
-For more information, see 
+For more information, see: 
 
-* [Start a StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints/start)
-* [REST sample](https://github.com/Azure-Samples/media-services-v3-rest-postman/blob/master/Postman/Media%20Services%20v3.postman_collection.json)
+* The [start a StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints/start) reference documenation.
+* Starting a streaming endpoint is an asynchronous operation. 
+
+    For details on how to monitor a long-running operations see[Long-running operations](media-services-apis-overview.md)
+* This [Postman collection](https://github.com/Azure-Samples/media-services-v3-rest-postman/blob/master/Postman/Media%20Services%20v3.postman_collection.json) contains examples of multiple REST operations including on how to start a streaming endpoint.
 
 ## Next steps
 
-[Long-running operations](media-services-apis-overview.md)
+* [Media Services v3 OpenAPI Specification (Swagger)](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01)
+* [Streaming Endpoint operations](https://docs.microsoft.com/en-us/rest/api/media/streamingendpoints)
