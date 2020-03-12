@@ -23,7 +23,7 @@ We understand that while we are taking steps to deprecate TLS 1.0 and TLS 1.1, o
 
 
 > [!NOTE]
-> Guest OS Family 6 releases enforces TLS 1.2 by disabling 1.0/1.1 ciphers. 
+> Guest OS Family 6 releases enforces TLS 1.2 by explicitly disabled TLS 1.0 and 1.1 and defining a specific set of cipher suites.
 
 
 ## Dropping support for TLS 1.0, TLS 1.1 and older cipher suites 
