@@ -19,11 +19,11 @@ Azure Data Explorer automatically deletes data based on the [retention policy](/
 
 Consider a database or table that is set for 90 days of retention. If only 60 days of data are needed, delete the older data as follows:
 
-    ```Kusto
-    .alter-merge database <DatabaseName> policy retention softdelete = 60d
+```kusto
+.alter-merge database <DatabaseName> policy retention softdelete = 60d
 
-    .alter-merge table <TableName> policy retention softdelete = 60d
-    ```
+.alter-merge table <TableName> policy retention softdelete = 60d
+```
 
 ## Delete data by dropping extents
 
@@ -35,20 +35,17 @@ You can delete all rows in a table or just a specific extent.
 
 * Delete all rows in a table:
 
-    ```Kusto
+    ```kusto
     .drop extents from TestTable
     ```
 
 * Delete a specific extent:
 
-    ```Kusto
+    ```kusto
     .drop extent e9fac0d2-b6d5-4ce3-bdb4-dea052d13b42
     ```
 
 ## Delete individual rows using purge
-
-> [!NOTE]
-> Purge allows you to delete personal data from the device or service and can be used to support your obligations under the GDPR. If you're looking for general information about GDPR, see the [GDPR section of the Service Trust portal](https://servicetrust.microsoft.com/ViewPage/GDPRGetStarted).
 
 [Data purge](/azure/kusto/management/data-purge) can be used for deleting individuals rows. Deletion isn't immediate and requires significant system resources. As such, it's only advised for compliance scenarios.  
 
