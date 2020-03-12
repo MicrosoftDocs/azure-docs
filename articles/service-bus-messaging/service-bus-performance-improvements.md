@@ -66,8 +66,8 @@ The client schedules concurrent operations by performing asynchronous operations
 # [Microsoft.Azure.ServiceBus SDK](#tab/net-standard-sdk)
 
 ```csharp
-var messageOne = new BrokeredMessage(body);
-var messageTwo = new BrokeredMessage(body);
+var messageOne = new Message(body);
+var messageTwo = new Message(body);
 
 var sendFirstMessageTask =
     queueClient.SendAsync(messageOne).ContinueWith(_ =>
@@ -87,8 +87,8 @@ Console.WriteLine("All messages sent");
 # [WindowsAzure.ServiceBus SDK](#tab/net-framework-sdk)
 
 ```csharp
-var messageOne = new Message(body);
-var messageTwo = new Message(body);
+var messageOne = new BrokeredMessage(body);
+var messageTwo = new BrokeredMessage(body);
 
 var sendFirstMessageTask =
     queueClient.SendAsync(messageOne).ContinueWith(_ =>
