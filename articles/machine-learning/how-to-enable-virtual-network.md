@@ -534,13 +534,9 @@ For more information on configuring a network rule, see [Deploy and configure Az
 
     This command returns a value similar to `"/subscriptions/{GUID}/resourceGroups/{resourcegroupname}/providers/Microsoft.ContainerRegistry/registries/{ACRname}"`. The last part of the string is the name of the Azure Container Registry for the workspace.
 
-2. To limit access to your virtual network, use the steps in [Configure network access for registry](../container-registry/container-registry-vnet.md#configure-network-access-for-registry). When adding the virtual network, select the virtual network and subnet for your Azure Machine Learning resources.
+1. To limit access to your virtual network, use the steps in [Configure network access for registry](../container-registry/container-registry-vnet.md#configure-network-access-for-registry). When adding the virtual network, select the virtual network and subnet for your Azure Machine Learning resources.
 
-3. If you are using Private Link for your Azure Machine Learning workspace, use the following Azure Resource Manager template. This template enables your workspace to communicate with ACR over the Private Link.
-
-    TBD!
-
-4. Use the Azure Machine Learning Python SDK to configure a compute cluster to build docker images. The following code snippet demonstrates how to do this:
+1. Use the Azure Machine Learning Python SDK to configure a compute cluster to build docker images. The following code snippet demonstrates how to do this:
 
     ```python
     from azureml.core import Workspace
@@ -550,7 +546,7 @@ For more information on configuring a network rule, see [Deploy and configure Az
     ws.update(image_build_compute = 'mycomputecluster')
     ```
     
-    For more information, see the [update()]() method reference.
+    For more information, see the [update()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#update-friendly-name-none--description-none--tags-none--image-build-compute-none-) method reference.
 
 ## Next steps
 

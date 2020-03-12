@@ -112,6 +112,59 @@ For information on putting the key vault in the virtual network, see [Use a key 
 
 For information on enabling Private Link for the key vault, see [Integrate Key Vault with Azure Private Link](/azure/key-vault/private-link-service).
 
+> [!IMPORTANT]
+> If you are using Private Link for your Azure Machine Learning workspace, and put the Azure Key Vault for your workspace in a virtual network, you must also apply the following Azure Resource Manager template. This template enables your workspace to communicate with ACR over the Private Link.
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+      "keyVaultArmId": {
+      "type": "string"
+      },
+      "workspaceName": {
+      "type": "string"
+      },
+      "containerRegistryArmId": {
+      "type": "string"
+      },
+      "applicationInsightsArmId": {
+      "type": "string"
+      },
+      "storageAccountArmId": {
+      "type": "string"
+      },
+      "location": {
+      "type": "string"
+      }
+  },
+  "resources": [
+      {
+      "type": "Microsoft.MachineLearningServices/workspaces",
+      "apiVersion": "2019-11-01",
+      "name": "[parameters('workspaceName')]",
+      "location": "[parameters('location')]",
+      "identity": {
+          "type": "SystemAssigned"
+      },
+      "sku": {
+          "tier": "enterprise",
+          "name": "enterprise"
+      },
+      "properties": {
+          "sharedPrivateLinkResources":
+  [{"Name":"Acr","Properties":{"PrivateLinkResourceId":"[concat(parameters('containerRegistryArmId'), '/privateLinkResources/registry')]","GroupId":"registry","RequestMessage":"Approve","Status":"Pending"}}],
+          "keyVault": "[parameters('keyVaultArmId')]",
+          "containerRegistry": "[parameters('containerRegistryArmId')]",
+          "applicationInsights": "[parameters('applicationInsightsArmId')]",
+          "storageAccount": "[parameters('storageAccountArmId')]"
+      }
+      }
+  ]
+}
+```
+
 ## Azure Container Registry
 
 For information on securing Azure Container Registry inside the virtual network, see [Use Azure Container Registry](how-to-enable-virtual-network.md#use-azure-container-registry).
