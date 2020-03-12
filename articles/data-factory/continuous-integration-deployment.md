@@ -1,4 +1,4 @@
-﻿---
+---
 title: Continuous integration and delivery in Azure Data Factory 
 description: Learn how to use continuous integration and delivery to move Data Factory pipelines from one environment (development, test, production) to another.
 services: data-factory
@@ -163,7 +163,7 @@ There are two ways to handle secrets:
 
     The parameters file needs to be in the publish branch as well.
 
--  Add an [Azure Key Vault task](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-key-vault) before the Azure Resource Manager Deployment task described in the previous section:
+1. Add an [Azure Key Vault task](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-key-vault) before the Azure Resource Manager Deployment task described in the previous section:
 
     1.  On the **Tasks** tab, create a new task. Search for **Azure Key Vault** and add it.
 
@@ -171,9 +171,9 @@ There are two ways to handle secrets:
 
     ![Add a Key Vault task](media/continuous-integration-deployment/continuous-integration-image8.png)
 
-   #### Grant permissions to the Azure Pipelines agent
+#### Grant permissions to the Azure Pipelines agent
 
-   The Azure Key Vault task might fail with an Access Denied error if the correct permissions aren't set. Download the logs for the release, and locate the .ps1 file that contains the command to give permissions to the Azure Pipelines agent. You can run the command directly. Or you can copy the principal ID from the file and add the access policy manually in the Azure portal. `Get` and `List` are the minimum permissions required.
+The Azure Key Vault task might fail with an Access Denied error if the correct permissions aren't set. Download the logs for the release, and locate the .ps1 file that contains the command to give permissions to the Azure Pipelines agent. You can run the command directly. Or you can copy the principal ID from the file and add the access policy manually in the Azure portal. `Get` and `List` are the minimum permissions required.
 
 ### Update active triggers
 
