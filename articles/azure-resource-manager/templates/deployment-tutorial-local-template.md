@@ -10,7 +10,7 @@ ms.author: jgao
 
 Learn how to deploy an Azure Resource Manager template from your local machine. It takes about **8 minutes** to complete.
 
-This tutorial is the first of a series. As you progress through the series, you modularize the template by creating a linked template, you secure the linked template, and you learn how to create a DevOp pipeline to deploy a template . This series focuses on template deployment.  If you want to learn template development, see the [beginner tutorials](./template-tutorial-create-first-template.md).
+This tutorial is the first of a series. As you progress through the series, you modularize the template by creating a linked template, you store the linked template in a storage account, and secure the linked template by using SAS token, and you learn how to create a DevOp pipeline to deploy a template. This series focuses on template deployment.  If you want to learn template development, see the [beginner tutorials](./template-tutorial-create-first-template.md).
 
 ## Get tools
 
@@ -38,7 +38,7 @@ The template deploys a storage account, app service plan, and web app.
 
 :::code language="json" source="~/resourcemanager-templates/get-started-deployment/local-template/azuredeploy.json":::
 
-Save a copy of the template to your local computer. You will deploy this template.
+Save a copy of the template to your local computer. You deploy this template later in the tutorial.
 
 ## Sign in to Azure
 
@@ -65,16 +65,23 @@ When you deploy a template, you specify a resource group that will contain the r
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
+$projectName = Read-Host -Prompt "Enter a project name that is used to generate resource and resource group names"
+$resourceGroupName = "${projectName}rg"
+
 New-AzResourceGroup `
-  -Name myResourceGroup `
+  -Name $resourceGroupName `
   -Location "Central US"
 ```
 
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
+echo "Enter a project name that is used to generate resource and resource group names:"
+read projectName
+resourceGroupName="${projectName}rg"
+
 az group create \
-  --name myResourceGroup \
+  --name $resourceGroupName \
   --location "Central US"
 ```
 
@@ -87,12 +94,13 @@ Use one or both deployment options to deploy the template.
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-$projectName = Read-Host -Prompt "Enter a project name that is used to generate resource names"
+$projectName = Read-Host -Prompt "Enter a project name that is used to generate resource and resource group names"
 $templateFile = Read-Host -Prompt "Enter the template file path and file name"
+$resourceGroupName = "${projectName}rg"
 
 New-AzResourceGroupDeployment `
   -Name DeployLocalTemplate `
-  -ResourceGroupName myResourceGroup `
+  -ResourceGroupName $resourceGroupName `
   -TemplateFile $templateFile `
   -projectName $projectName `
   -verbose
@@ -103,14 +111,15 @@ To learn more about deploying template by using Azure PowerShell, see [Deploy re
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
-echo "Enter a project name that is used to generate resource names:"
+echo "Enter a project name that is used to generate resource and resource group names:"
 read projectName
 echo "Enter the template file path and file name:"
 read templateFile
+resourceGroupName="${projectName}rg"
 
 az group deployment create \
   --name DeployLocalTemplate \
-  --resource-group myResourceGroup \
+  --resource-group $resourceGroupName \
   --template-file $templateFile \
   --parameters projectname=$projectName \
   --verbose

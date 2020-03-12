@@ -8,7 +8,7 @@ ms.author: jgao
 
 # Tutorial: Deploy a linked template
 
-In the [previous tutorials](./deployment-tutorial-local-template.md), you learned how to deploy a template that is stored in your local computer. To deploy complex solutions, you can break a template into many templates, and deploy these templates through a main template. In this tutorial, you learn how to deploy a main template and a linked template. You also learn how to secure the linked template. It takes about **12 minutes** to complete.
+In the [previous tutorials](./deployment-tutorial-local-template.md), you learned how to deploy a template that is stored in your local computer. To deploy complex solutions, you can break a template into many templates, and deploy these templates through a main template. In this tutorial, you learn how to deploy a main template and a linked template. You also learn how to secure the linked template by using SAS token. It takes about **12 minutes** to complete.
 
 ## Prerequisites
 
@@ -89,7 +89,7 @@ Write-Host "Linked template URI with SAS token: $templateURI"
 Write-Host "Press [ENTER] to continue ..."
 ```
 
-Make a note of the linked template URI.
+Make a note of the linked template URI. The SAS token is embedded in the URL.
 
 ## Deploy template
 
@@ -101,13 +101,30 @@ If you haven't created the resource group, see [Create resource group](template-
 
 ```azurepowershell
 
-$projectName = Read-Host -Prompt "Enter a project name that is used to generate resource names"
+$projectName = Read-Host -Prompt "Enter a project name:"   # This name is used to generate names for Azure resources, such as storage account name.
 $templateFile = Read-Host -Prompt "Enter the main template file"
-$linkedTemplateUri = Read-Host -Prompt "Enter the linked template URI"
+
+$resourceGroupName = $projectName + "rg"
+$storageAccountName = $projectName + "store"
+$containerName = "templates"
+$fileName = "linkedStorageAccount.json" # A file name used for downloading and uploading the linked template.
+
+$key = (Get-AzStorageAccountKey -ResourceGroupName $resourceGroupName -Name $storageAccountName).Value[0]
+$context = New-AzStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $key
+
+# Generate a SAS token
+$linkedTemplateUri = New-AzStorageBlobSASToken `
+    -Context $context `
+    -Container $containerName `
+    -Blob $fileName `
+    -Permission r `
+    -ExpiryTime (Get-Date).AddHours(2.0) `
+    -FullUri
+
 
 New-AzResourceGroupDeployment `
   -Name DeployLinkedTemplate `
-  -ResourceGroupName myResourceGroup `
+  -ResourceGroupName $resourceGroupName `
   -TemplateUri $templateUri `
   -projectName $projectName `
   -linkedTemplateUri $linkedTemplateUri `
