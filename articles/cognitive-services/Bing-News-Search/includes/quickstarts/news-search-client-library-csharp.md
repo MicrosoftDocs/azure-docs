@@ -79,4 +79,4 @@ To set up a console application using the Bing News Search client library, brows
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create a single-page web app](tutorial-bing-news-search-single-page-app.md)
+> [Create a single-page web app](../../tutorial-bing-news-search-single-page-app.md)
