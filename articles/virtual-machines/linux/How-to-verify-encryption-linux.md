@@ -16,11 +16,11 @@ ms.custom: seodec18
 **This scenario is applicable to ADE dual-pass and single-pass extensions.**  
 This Document scope is to validate the encryption status of a virtual machine using different methods.
 
-# Environment
+## Environment
 
 - Linux distributions
 
-# Procedure
+### Procedure
 
 1. A virtual machine has been encrypted using dual-pass or single-pass.
 2. Once the encryption process is triggered (in progress) or has been completed, we can validate the encryption status using different methods defined below
