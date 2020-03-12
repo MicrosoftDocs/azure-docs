@@ -32815,6 +32815,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/sql-database/sql-database-control-access.md",
+      "redirect_url": "/azure/sql-database/sql-database-manage-logins",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/active-directory/role-based-access-control-access-change-history-report.md",
       "redirect_url": "/azure/role-based-access-control/change-history-report",
       "redirect_document_id": true
