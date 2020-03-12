@@ -124,7 +124,7 @@ Add the following code for the `Main` procedure of the `Program` class for your 
         {
             // Connection refers to a property that returns a ConnectionMultiplexer
             // as shown in the previous example.
-            IDatabase cache = lazyConnection.Value.GetDatabase();
+            IDatabase cache = Connection.GetDatabase();
 
             // Perform cache operations using the cache object...
 
