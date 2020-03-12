@@ -65,7 +65,7 @@ Using fine-grained, twin-level access control, you can define the policies for d
 
 ### Integrate with IoT Hub for device-centric scenarios
 
-Azure Digital Twins can represent IoT devices managed by IoT Hub as part of your Azure Digital Twins graph, where you can connect them via relationships and query them alongside model-based twins.
+Azure Digital Twins can represent IoT devices managed by [IoT Hub](../iot-hub/about-iot-hub.md) as part of your Azure Digital Twins graph, where you can connect them via relationships and query them alongside model-based twins.
 
 ## Azure Digital Twins in a solution context
 

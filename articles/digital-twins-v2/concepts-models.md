@@ -32,11 +32,11 @@ For more information about pure DTDL, see its [reference documentation](https://
 ## Key model information
 
 The sections of information provided in a model's description make up its **interface**. A model interface may have zero, one, or many of each of the following fields:
-* **Property** — Properties are data fields that represent the state of an entity (like the properties in many object-oriented programming languages). Unlike telemetry, which is a time-bound data event, properties have backing storage and can be read at any time.
-* **Telemetry** — Telemetry fields represent measurements or events, and are often used to describe device sensor readings. Telemetry is not stored on a twin; it is effectively represented as a stream of data events to be sent somewhere.
-* **Command** — Commands represent methods that can be executed on a digital twin. An example would be a reset command, or a command to switch a fan on or off. Command descriptions include command parameters and return values.
-* **Relationship** — Relationships let you model how a twin can be involved with other twins. Relationships can represent different semantic meanings, such as *contains* ("floor contains room"), *cools* ("hvac cools room"), *is-billed-to* ("compressor is-billed-to user"), etc. Relationships allow digital twins solutions to provide graphs of interrelated entities. 
-* **Component** — Components allow you to build your model as an assembly of other interfaces, if desired. An example of a component may be a *frontCamera* (and another component *backCamera*) for a model representing a phone device. A separate interface for *frontCamera* must be defined, as though it were another model, but once it's included as a component on the *phone* model, it cannot be instantiated by an independent twin in the graph.
+* **Property** - Properties are data fields that represent the state of an entity (like the properties in many object-oriented programming languages). Unlike telemetry, which is a time-bound data event, properties have backing storage and can be read at any time.
+* **Telemetry** - Telemetry fields represent measurements or events, and are often used to describe device sensor readings. Telemetry is not stored on a twin; it is effectively represented as a stream of data events to be sent somewhere.
+* **Command** - Commands represent methods that can be executed on a digital twin. An example would be a reset command, or a command to switch a fan on or off. Command descriptions include command parameters and return values.
+* **Relationship** - Relationships let you model how a twin can be involved with other twins. Relationships can represent different semantic meanings, such as *contains* ("floor contains room"), *cools* ("hvac cools room"), *is-billed-to* ("compressor is-billed-to user"), etc. Relationships allow digital twins solutions to provide graphs of interrelated entities. 
+* **Component** - Components allow you to build your model as an assembly of other interfaces, if desired. An example of a component may be a *frontCamera* (and another component *backCamera*) for a model representing a phone device. A separate interface for *frontCamera* must be defined, as though it were another model, but once it's included as a component on the *phone* model, it cannot be instantiated by an independent twin in the graph.
 
 >[!TIP] 
 > Use a **component** to describe something that is an integral part of your model, but that does not need to be created, deleted, or rearranged in your topology of twins independently. If you want both entities to have an independent existence in the graph, represent them as independent twin models connected by a **relationship**.
@@ -53,7 +53,7 @@ Here is an example of a basic model, written in DTDL:
 {
     "@id": "urn:contosocom:example:Planet:1",
     "@type": "Interface",
-	"@context": "http://azure.com/v3/contexts/Model.json",
+    "@context": "http://azure.com/v3/contexts/Model.json",
     "displayName": "Planet",
     "contents": [
         {
