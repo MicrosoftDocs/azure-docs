@@ -58,7 +58,7 @@ Most tasks and services can be performed on delegated resources across managed t
 
 - Back up and restore customer data in customer tenants
 - Use the [Backup Explorer](../../backup/monitor-azure-backup-with-backup-explorer.md) to help view operational information of backup items (including Azure resources not yet configured for backup) and monitoring information (jobs and alerts) for delegated subscriptions. The Backup Explorer is currently available only for Azure VM data.
-- Use [Backup Reports](https://docs.microsoft.com/azure/backup/configure-reports) across delegated subscriptions to track historical trends, analyze backup storage consumption, and audit backups and restores.
+- Use [Backup Reports](../../backup/configure-reports.md) across delegated subscriptions to track historical trends, analyze backup storage consumption, and audit backups and restores.
 
 [Azure Kubernetes Service (AKS)](../../aks/index.yml):
 
