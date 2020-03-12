@@ -8,12 +8,12 @@
     displayName: release notes
     href: release-notes.md
 - name: Quickstarts
+  expanded: true
   items:
   - name: Live event with portal and Wirecast
     displayName: live, event, portal, wirecast
     href: live-events-wirecast-quickstart.md
 - name: Tutorials
-  expanded: true
   items:
   - name: Encode remote file and stream video
     items:
