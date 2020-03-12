@@ -18,15 +18,15 @@ ms.service: digital-twins
 # Understand device connectivity in Azure Digital Twins
 
 As part of the Azure Digital Twins graph, in addition to your business twins, you can also have twin that represent IoT devices placed in your environment. IoT devices might be simple sensors, such as thermostats, or complex machines. 
-If you attach an IoT hub to Azure Digital Twins, each device connected to the hub can become visible as a node in the twin graph, which can then be connected to other nodes to form a topology. Typically, incoming data from devices triggers event handling functions that are then used to drive properties on other twins.
+If you attach an [IoT hub](../iot-hub/about-iot-hub.md) to Azure Digital Twins, each device connected to the hub can become visible as a node in the twin graph, which can then be connected to other nodes to form a topology. Typically, incoming data from devices triggers event handling functions that are then used to drive properties on other twins.
 Azure Digital Twins makes it easy to work with devices by automatically mapping devices from a connected IoT hub into the Azure Digital Twins instance graph. 
 
 ## Working with real devices
 
 An Azure Digital Twins graph contains more than twins based on the models you create and instantiate. Azure Digital Twins also automatically creates nodes for every device registered on an IoT hub attached to Azure Digital Twins. You can connect these twins to the modeled twins you create using relationships.
 Devices can be:
-* **[IoT Plug and Play (PnP)](../iot-pnp/overview-iot-plug-and-play.md) devices** — These are devices that are represented by a Digital Twin Definition Language (DTDL) [model](concepts-models.md). Devices with a DTDL model have a well-defined interface, allowing you to reflect on the messages the device can be expected to set, and the properties etc., exposed on its twin in Azure Digital Twins.
-* **Devices without PnP** — For these devices, we have no information about the messages the device can send, or properties or commands available on it. 
+* **[IoT Plug and Play (PnP)](../iot-pnp/overview-iot-plug-and-play.md) devices** - These are devices that are represented by a Digital Twin Definition Language (DTDL) [model](concepts-models.md). Devices with a DTDL model have a well-defined interface, allowing you to reflect on the messages the device can be expected to set, and the properties etc., exposed on its twin in Azure Digital Twins.
+* **Devices without PnP** - For these devices, we have no information about the messages the device can send, or properties or commands available on it. 
 Devices send messages for telemetry, or whenever a property is changed. There are also messages for life-cycle events, such as device registration, connection, etc.
 
 ### Working with PnP devices

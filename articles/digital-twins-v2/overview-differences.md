@@ -27,7 +27,7 @@ The main changes in the newest preview release are:
     - access custom code libraries without restriction.
     - have access to a robust development and debugging story with supported serverless compute platforms such as Azure Functions.
     - take advantage of a flexible event processing and routing model throughout the platform. 
-* Full access to IoT Hub. In Azure Digital Twins Public Preview 1, IoT Hub was integrated into Azure Digital Twins, and not fully accessible to developers. In the new version of Azure Digital Twins, you bring your own IoT hub. This change puts you in full control of all device management, and gives you full access to IoT Hub's capabilities.
+* Full access to IoT Hub. In Azure Digital Twins Public Preview 1, [IoT Hub](../iot-hub/about-iot-hub.md) was integrated into Azure Digital Twins, and not fully accessible to developers. In the new version of Azure Digital Twins, you bring your own IoT hub. This change puts you in full control of all device management, and gives you full access to IoT Hub's capabilities.
 * Greater scale. The new version of Azure Digital Twins is designed to run at greater scale, with more compute power for handling large numbers of messages and API requests.
 
 ## Next steps
