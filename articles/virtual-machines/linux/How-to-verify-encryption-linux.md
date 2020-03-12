@@ -60,7 +60,7 @@ b. Another way of validating the encryption status is by taking a look at the **
     ```
 
 **Note:** replace the "VMNAME" and "RGNAME" variables accordingly
-![verify status powershell 1](./media/disk-encryption/verify-encryption-linux/verify-status-ps-01.png)
+![verify status PowerShell 1](./media/disk-encryption/verify-encryption-linux/verify-status-ps-01.png)
 
 b.  You can capture the encryption settings from each individual disk using the following PowerShell commands:
 
@@ -141,7 +141,7 @@ Write-Host "====================================================================
 ```
 
 **Note:** replace the "VMNAME" and "RGNAME" variables accordingly
-![Verify dual pass powershell  1](./media/disk-encryption/verify-encryption-linux/verify-dual-ps-001.png)
+![Verify dual pass PowerShell  1](./media/disk-encryption/verify-encryption-linux/verify-dual-ps-001.png)
 
 1. Using AZ CLI:
 
@@ -154,7 +154,7 @@ az vm encryption show --name ${VMNAME} --resource-group ${RGNAME} --query "subst
 ```
 
 **Note:** replace the "VMNAME" and "RGNAME" variables accordingly
-![Verify general using cli ](./media/disk-encryption/verify-encryption-linux/verify-gen-cli.png)
+![Verify general using CLI ](./media/disk-encryption/verify-encryption-linux/verify-gen-cli.png)
 
 Single Pass:
 You can validate the encryption settings from each individual disk using the following AZ CLI commands:
@@ -206,7 +206,7 @@ echo "==========================================================================
 done
 ```
 
-![Data single cli ](./media/disk-encryption/verify-encryption-linux/data-single-cli.png)
+![Data single CLI ](./media/disk-encryption/verify-encryption-linux/data-single-cli.png)
 
 Dual Pass:
 
@@ -214,7 +214,7 @@ Dual Pass:
 az vm encryption show --name ${VMNAME} --resource-group ${RGNAME} -o table
 ```
 
-![Verify general dual using cli ](./media/disk-encryption/verify-encryption-linux/verify-gen-dual-cli.png)
+![Verify general dual using CLI ](./media/disk-encryption/verify-encryption-linux/verify-gen-dual-cli.png)
 You can also check the Encryption settings on the VM Model Storage profile of the OS disk:
 
 ```bash
@@ -229,7 +229,7 @@ echo "==========================================================================
 done
 ```
 
-![Verify vm profile dual using cli ](./media/disk-encryption/verify-encryption-linux/verify-vm-profile-dual-cli.png)
+![Verify vm profile dual using CLI ](./media/disk-encryption/verify-encryption-linux/verify-vm-profile-dual-cli.png)
 
 4. From the Linux VM OS:
 Validate if the data disk partitions are encrypted (and the OS disk is not). When a partition/disk is encrypted it's displayed as **crypt** type, when it's not encrypted it is displayed as **part/disk** type
