@@ -381,6 +381,6 @@ In this tutorial, you learned how to:
 Advance to the next article to learn more about Azure Event Hubs.
 
 > [!div class="nextstepaction"]
-> [Get started sending messages to Azure Event Hubs in .NET Standard](event-hubs-dotnet-standard-getstarted-send.md)
+> [Get started sending messages to Azure Event Hubs in .NET Standard](get-started-dotnet-standard-send-v2.md)
 
 [create a free account]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio

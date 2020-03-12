@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
-ms.date: 12/03/2019
+ms.date: 3/11/2020
 ---
 # Azure SQL Database serverless
 
@@ -142,6 +142,10 @@ If a serverless database is paused, then the first login will resume the databas
 ### Latency
 
 The latency to autoresume and autopause a serverless database is generally order of 1 minute to autoresume and 1-10 minutes to autopause.
+
+### Customer managed transparent data encryption (BYOK)
+
+If using [customer managed transparent data encryption](transparent-data-encryption-byok-azure-sql.md) (BYOK) and the serverless database is auto-paused when key deletion or revocation occurs, then the database remains in the auto-paused state.  In this case, when resuming is next attempted, the database remains paused until its status transitions to inaccessible after approximately 10 minutes or less.  Once the database becomes inaccessible, the recovery process is the same as for provisioned compute databases.  If the serverless database is online when key deletion or revocation occurs, then the database also becomes inaccessible after approximately 10 minutes or less in the same way as with provisioned compute databases.
 
 ## Onboarding into serverless compute tier
 
@@ -336,7 +340,7 @@ More precisely, the compute bill in this example is calculated as follows:
 |8:00-24:00|0|0|No compute billed while paused|0 vCore seconds|
 |Total vCore seconds billed over 24 hours||||50400 vCore seconds|
 
-Suppose the compute unit price is $0.000073/vCore/second.  Then the compute billed for this 24-hour period is the product of the compute unit price and vCore seconds billed: $0.000073/vCore/second * 50400 vCore seconds = $3.68
+Suppose the compute unit price is $0.000145/vCore/second.  Then the compute billed for this 24-hour period is the product of the compute unit price and vCore seconds billed: $0.000145/vCore/second * 50400 vCore seconds ~ $7.31
 
 ### Azure Hybrid Benefit and reserved capacity
 

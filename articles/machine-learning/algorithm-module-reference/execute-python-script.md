@@ -7,9 +7,9 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 
-author: xiaoharper
-ms.author: zhanxia
-ms.date: 10/22/2019
+author: likebupt
+ms.author: keli19
+ms.date: 03/10/2020
 ---
 # Execute Python Script module
 
@@ -70,7 +70,51 @@ import os
 os.system(f"pip install scikit-misc")
 ```
 
-## How to use
+## Upload files
+The **Execute Python Script** supports uploading files using [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py#upload-file-name--path-or-stream-).
+
+The following example shows how to upload an image file in the **Execute Python Script** module:
+
+```Python
+
+# The script MUST contain a function named azureml_main
+# which is the entry point for this module.
+
+# imports up here can be used to
+import pandas as pd
+
+# The entry point function can contain up to two input arguments:
+#   Param<dataframe1>: a pandas.DataFrame
+#   Param<dataframe2>: a pandas.DataFrame
+def azureml_main(dataframe1 = None, dataframe2 = None):
+
+    # Execution logic goes here
+    print(f'Input pandas.DataFrame #1: {dataframe1}')
+
+    from matplotlib import pyplot as plt
+    plt.plot([1, 2, 3, 4])
+    plt.ylabel('some numbers')
+    img_file = "line.png"
+    plt.savefig(img_file)
+
+    from azureml.core import Run
+    run = Run.get_context(allow_offline=True)
+    run.upload_file(f"graphics/{img_file}", img_file)
+
+    # Return value must be of a sequence of pandas.DataFrame
+    # E.g.
+    #   -  Single return value: return dataframe1,
+    #   -  Two return values: return dataframe1, dataframe2
+    return dataframe1,
+}
+```
+
+After the pipeline is submitted successfully, you can preview the image in the right panel of the module
+
+[!div class="mx-imgBorder"]
+![Uploaded-image](media/module/upload-image-in-python-script.png)
+
+## How to configure Execute Python Script
 
 The **Execute Python Script** module contains sample Python code that you can use as a starting point. To configure the **Execute Python Script** module, you provide a set of inputs and Python code to execute in the **Python script** text box.
 
@@ -86,7 +130,7 @@ The **Execute Python Script** module contains sample Python code that you can us
 
     ![Execute Python input map](media/module/python-module.png)
 
-4. To include new Python packages or code, add the zipped file containing these custom resources  on **Script bundle**. The input to **Script bundle** must be a zipped file already uploaded to your workspace. 
+4. To include new Python packages or code, add the zipped file containing these custom resources on **Script bundle**. The input to **Script bundle** must be a zipped file uploaded to your workspace as a File type Dataset. You can upload the dataset in the **Datasets** asset page, and you can drag and drop the dataset module from the **My datasets** list in the left module tree in designer authoring page. 
 
     Any file contained in the uploaded zipped archive can be used during pipeline execution. If the archive includes a directory structure, the structure is preserved, but you must prepend a directory called **src** to the path.
 

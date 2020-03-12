@@ -75,18 +75,12 @@
     - name: Security overview
       href: sql-database-security-overview.md
       displayName: compliance, fedramp, soc, fact, fisc, hitrust, pci, iso
-
     - name: Security best practices
       href: sql-database-security-best-practice.md
+    - name: Logins, user accounts, roles, and permissions
+      href: sql-database-manage-logins.md
 
-    - name: Access management
-      items:
-      - name: Access control
-        href: sql-database-control-access.md
-      - name: Logins and users
-        href: sql-database-manage-logins.md
-
-    - name: Authentication
+    - name: Azure AD Authentication
       href: sql-database-aad-authentication.md
       items:
       - name: Configure Azure AD auth
@@ -95,6 +89,8 @@
         href: sql-database-ssms-mfa-authentication.md
       - name: Configure multi-factor auth
         href: sql-database-ssms-mfa-authentication-configure.md
+      - name: Conditional Access
+        href: sql-database-conditional-access.md
 
     - name: Data protection
       items:
@@ -119,12 +115,12 @@
         - name: Use the Azure key vault
           href: sql-database-always-encrypted-azure-key-vault.md
   
-    - name: Monitoring, logging, and auditing
+    - name: Auditing
       items:
-      - name: Auditing
-        items:
-        - name: Get started with SQL Database auditing
-          href: sql-database-auditing.md
+      - name: Get started with SQL Database auditing
+        href: sql-database-auditing.md
+      - name: Audit Log Format
+        href: sql-database-audit-log-format.md
 
     - name: Security management
       items:
@@ -152,11 +148,6 @@
           href: sql-database-vnet-service-endpoint-rule-powershell.md
       - name: Private Link
         href: sql-database-private-endpoint-overview.md
-      - name: Audit Log Format
-        href: sql-database-audit-log-format.md
-      - name: Conditional Access
-        href: sql-database-conditional-access.md
-
 
     - name: Managed instance security
       items:
@@ -485,6 +476,8 @@
             href: saas-multitenantdb-schema-management.md
           - name: ETL for analytics
             href: saas-multitenantdb-tenant-analytics.md
+    - name: Request quota increases
+      href: quota-increase-request.md
 
 - name: SQL databases
   items:

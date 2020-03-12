@@ -36,7 +36,7 @@ The first step is to get the unique connection passphrase from the Cloudyn porta
 
 ### Add AWS read-only role-based access
 
-1. Sign in to the AWS console at https://console.aws.amazon.com/iam/home and select **Roles**.
+1. Sign in to the AWS console at [https://console.aws.amazon.com/iam/home](https://console.aws.amazon.com/iam/home) and select **Roles**.
 2. Click **Create Role** and then select **Another AWS account**.
 3. In the **Account ID** box, paste `432263259397`. This Account ID is the Cloudyn data collector account assigned by AWS to the Cloudyn service. Use the exact Account ID shown.
 4. Next to **Options**, select **Require external ID**. Paste your unique value that copied previously from the **External ID** field in Cloudyn. Then click **Next: Permissions**.  
@@ -71,7 +71,7 @@ The following sections walk you through creating a read-only user to provide acc
 
 ### Add AWS read-only user-based access
 
-1. Sign in to the AWS console at https://console.aws.amazon.com/iam/home and select **Users**.
+1. Sign in to the AWS console at [https://console.aws.amazon.com/iam/home](https://console.aws.amazon.com/iam/home) and select **Users**.
 2. Click **Add User**.
 3. In the **User name** field, type a user name.
 4. For **Access type**, select **Programmatic access** and click **Next: Permissions**.  
@@ -102,7 +102,7 @@ Cloudyn starts collecting the data and populating reports. Next, [enable detaile
 
 Use the following steps to get your AWS Role ARN. You use the Role ARN to grant read permissions to a billing bucket.
 
-1. Sign in to the AWS console at https://console.aws.amazon.com and select **Services**.
+1. Sign in to the AWS console at [https://console.aws.amazon.com](https://console.aws.amazon.com) and select **Services**.
 2. In the Service Search box type *IAM*, and select that option.
 3. Select **Roles** from the left-hand menu.
 4. In the list of Roles, select the role that you created for Cloudyn access.
@@ -112,7 +112,7 @@ Use the following steps to get your AWS Role ARN. You use the Role ARN to grant 
 
 You create an S3 bucket to store detailed billing information.
 
-1. Sign in to the AWS console at https://console.aws.amazon.com and select **Services**.
+1. Sign in to the AWS console at [https://console.aws.amazon.com](https://console.aws.amazon.com) and select **Services**.
 2. In the Service Search box type *S3*, and select **S3**.
 3. On the Amazon S3 page, click **Create bucket**.
 4. In the Create bucket wizard, choose a Bucket name and Region and then click **Next**.  

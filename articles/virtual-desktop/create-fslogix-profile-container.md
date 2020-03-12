@@ -8,6 +8,7 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 11/25/2019
 ms.author: helohr
+manager: lizross
 ---
 # Create an FSLogix profile container for a host pool using Azure NetApp Files
 
@@ -33,7 +34,7 @@ Before you can create an FSLogix profile container for a host pool, you must:
 
 - Set up and configure Windows Virtual Desktop
 - Provision a Windows Virtual Desktop host pool
-- [Enable your Azure NetApp Files subscription](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-register)
+- [Enable your Azure NetApp Files subscription](../azure-netapp-files/azure-netapp-files-register.md)
 
 ## Set up your Azure NetApp Files account
 

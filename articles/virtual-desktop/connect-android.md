@@ -8,6 +8,7 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 09/26/2019
 ms.author: helohr
+manager: lizross
 ---
 # Connect with the Android client
 
@@ -44,4 +45,4 @@ Once subscribed to a feed, the feed's content will update automatically on a reg
 
 ## Next steps
 
-To learn more about how to use the Android client, check out [Get started with the Android client](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-android).
+To learn more about how to use the Android client, check out [Get started with the Android client](/windows-server/remote/remote-desktop-services/clients/remote-desktop-android/).

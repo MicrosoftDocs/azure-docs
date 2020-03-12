@@ -16,8 +16,11 @@ To view logs from your application code within a container, you can use the [az 
 
 The following is log output from the example task-based container in [Set the command line in a container instance](container-instances-start-command.md#azure-cli-example), after having provided an invalid URL using a command-line override:
 
-```console
-$ az container logs --resource-group myResourceGroup --name mycontainer
+```azurecli
+az container logs --resource-group myResourceGroup --name mycontainer
+```
+
+```output
 Traceback (most recent call last):
   File "wordcount.py", line 11, in <module>
     urllib.request.urlretrieve (sys.argv[1], "foo.txt")
@@ -44,8 +47,11 @@ The [az container attach][az-container-attach] command provides diagnostic infor
 
 For example, here is output from the task-based container in [Set the command line in a container instance](container-instances-start-command.md#azure-cli-example), after having supplied a valid URL of a large text file to process:
 
-```console
-$ az container attach --resource-group myResourceGroup --name mycontainer
+```azurecli
+az container attach --resource-group myResourceGroup --name mycontainer
+```
+
+```output
 Container 'mycontainer' is in state 'Unknown'...
 Container 'mycontainer' is in state 'Waiting'...
 Container 'mycontainer' is in state 'Running'...

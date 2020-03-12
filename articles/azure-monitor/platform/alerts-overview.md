@@ -1,11 +1,8 @@
 ---
 title: Overview of alerting and notification monitoring in Azure
 description: Overview of alerting in Azure. Alerts, classic alerts, and the alerts interface.
-ms.service:  azure-monitor
 ms.subservice: alerts
 ms.topic: conceptual
-author: rboucher
-ms.author: robb
 ms.date: 01/28/2018
 
 ---
@@ -13,9 +10,6 @@ ms.date: 01/28/2018
 # Overview of alerts in Microsoft Azure 
 
 This article describes what alerts are, their benefits, and how to get started using them.  
-
-
-
 
 ## What are alerts in Microsoft Azure?
 Alerts proactively notify you when important conditions are found in your monitoring data. They allow you to identify and address issues before the users of your system notice them. 
@@ -37,26 +31,29 @@ The following are key attributes of an alert rule:
 **Signal**: Emitted by the target resource. Signals can be of the following types: metric, activity log, Application Insights, and log.
 
 **Criteria**: A combination of signal and logic applied on a target resource. Examples: 
-   - Percentage CPU > 70%
-   - Server Response Time > 4 ms 
-   - Result count of a log query > 100
+
+- Percentage CPU > 70%
+- Server Response Time > 4 ms 
+- Result count of a log query > 100
 
 **Alert Name**: A specific name for the alert rule configured by the user.
 
 **Alert Description**: A description for the alert rule configured by the user.
 
 **Severity**: The severity of the alert after the criteria specified in the alert rule is met. Severity can range from 0 to 4.
-   - Sev 0 = Critical
-   - Sev 1 = Error
-   - Sev 2 = Warning
-   - Sev 3 = Informational
-   - Sev 4 = Verbose 
+
+- Sev 0 = Critical
+- Sev 1 = Error
+- Sev 2 = Warning
+- Sev 3 = Informational
+- Sev 4 = Verbose 
 
 **Action**: A specific action taken when the alert is fired. For more information, see [Action Groups](../../azure-monitor/platform/action-groups.md).
 
 ## What you can alert on
 
 You can alert on metrics and logs, as described in [monitoring data sources](../../azure-monitor/platform/data-sources.md). These include but are not limited to:
+
 - Metric values
 - Log search queries
 - Activity log events
@@ -65,7 +62,7 @@ You can alert on metrics and logs, as described in [monitoring data sources](../
 
 Previously, Azure Monitor metrics, Application Insights, Log Analytics, and Service Health had separate alerting capabilities. Over time, Azure improved and combined both the user interface and different methods of alerting. This consolidation is still in process. As a result, there are still some alerting capabilities not yet in the new alerts system.  
 
-| **Monitor source** | **Signal type**  | **Description** | 
+| **Monitor source** | **Signal type**  | **Description** |
 |-------------|----------------|-------------|
 | Service health | Activity log  | Not supported. See [Create activity log alerts on service notifications](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).  |
 | Application Insights | Web availability tests | Not supported. See [Web test alerts](../../azure-monitor/app/monitor-web-app-availability.md). Available to any website that's instrumented to send data to Application Insights. Receive a notification when availability or responsiveness of a website is below expectations. |

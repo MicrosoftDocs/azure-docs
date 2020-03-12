@@ -82,7 +82,7 @@ The Account ID parameter is required in all operational API calls. Account ID is
 
 * Use **Video Indexer Developer Portal** to programmatically get the Account ID.
 
-    Use the [Get accounts](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Accounts?) API.
+    Use the [Get account](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Account?) API.
 
     > [!TIP]
     > You can generate access tokens for the accounts by defining `generateAccessTokens=true`.

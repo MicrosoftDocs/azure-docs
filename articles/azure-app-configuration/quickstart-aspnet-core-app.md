@@ -7,7 +7,7 @@ author: lisaguthrie
 ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.topic: quickstart
-ms.date: 01/21/2020
+ms.date: 02/19/2020
 ms.author: lcozzens
 
 #Customer intent: As an ASP.NET Core developer, I want to learn how to manage all my app settings in one place.
@@ -99,7 +99,7 @@ The Secret Manager tool stores sensitive data for development work outside of yo
 1. Add a reference to the `Microsoft.Azure.AppConfiguration.AspNetCore` NuGet package by running the following command:
 
     ```dotnetcli
-    dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore --version 3.0.0-preview-011100002-1192
+    dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore
     ```
 
 1. Run the following command to restore packages for your project:
