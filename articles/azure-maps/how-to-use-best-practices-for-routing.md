@@ -10,7 +10,7 @@ services: azure-maps
 manager: philmea
 ---
 
-# Best practices for Azure Maps Search Service
+# Best practices for Azure Maps Route Service
 
 The routing directions service and the route matrix service in Azure Maps [Route Service](https://docs.microsoft.com/rest/api/maps/route) allow users to navigate the shortest, fastest routes that are available. The user can navigate to multiple destinations at a time, in sequence. Results can be optimized based on the time or the distance. The Route service provides specialized routes and details for walkers, bicyclists, and commercial vehicles like trucks. The service considers multiple factors, such as the current traffic. And, the typical road speeds on the requested time of day and day of the week. Real-time traffic information and historic traffic data are used to calculate the estimated arrival times (ETAs) for each returned route, that's used by many "Mobility as a Service" (MaaS) applications.
 
