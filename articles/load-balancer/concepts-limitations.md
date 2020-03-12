@@ -47,7 +47,7 @@ Basic Load Balancers have limited scope (availability set) can only scale up to 
 * **Outbound rules**: An **[outbound rule](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-rules-overview)** configures outbound Network Address Translation (NAT) for all virtual machines or instances identified by the backend pool of your Standard Load Balancer to be translated to the frontend.
 Basic Load Balancer does not support Outbound Rules.
 ![Azure Load Balancer](./media/load-balancer-overview/load-balancer-overview.png)
-
+* **Transport Protocol**: Load Balancer does not support ICMP and so ICMP pings of a public facing Load Balancer will timeout. You can ping your public facing Load Balancer using TCP Ping. 
 ## <a name = "load-balancer-concepts"></a>Load Balancer concepts
 
 Load Balancer provides the following fundamental capabilities for TCP and UDP applications:
