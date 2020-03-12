@@ -1,6 +1,6 @@
 ---
-title: Quickstart - Create and use views in SQL on-demand using Azure Synapse Analytics
-description: In this section, you'll learn how to create and use views to wrap SQL on-demand queries. Views will allow you to reuse those queries. Views are also needed if you want to use tools, such as Power BI, in conjunction with SQL on-demand.
+title: Create and use views in SQL on-demand (preview)
+description: In this section, you'll learn how to create and use views to wrap SQL on-demand (preview) queries. Views will allow you to reuse those queries. Views are also needed if you want to use tools, such as Power BI, in conjunction with SQL on-demand.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -11,9 +11,9 @@ ms.author: v-stazar
 ms.reviewer: jrasnick
 ---
 
-# Quickstart: Create and use views in SQL on-demand using Azure Synapse Analytics
+# Create and use views in SQL on-demand (preview) using Azure Synapse Analytics
 
-In this section, you'll learn how to create and use views to wrap SQL on-demand queries. Views will allow you to reuse those queries. Views are also needed if you want to use tools, such as Power BI, in conjunction with SQL on-demand.
+In this section, you'll learn how to create and use views to wrap SQL on-demand (preview) queries. Views will allow you to reuse those queries. Views are also needed if you want to use tools, such as Power BI, in conjunction with SQL on-demand.
 
 ## Prerequisites
 
@@ -38,16 +38,16 @@ GO
 CREATE VIEW populationView AS
 SELECT * 
 FROM OPENROWSET(
-		BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/population/population.csv',
- 		FORMAT = 'CSV', 
-		FIELDTERMINATOR =',', 
-		ROWTERMINATOR = '\n'
-	)
+        BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/population/population.csv',
+         FORMAT = 'CSV', 
+        FIELDTERMINATOR =',', 
+        ROWTERMINATOR = '\n'
+    )
 WITH (
-	[country_code] VARCHAR (5) COLLATE Latin1_General_BIN2,
-	[country_name] VARCHAR (100) COLLATE Latin1_General_BIN2,
-	[year] smallint,
-	[population] bigint
+    [country_code] VARCHAR (5) COLLATE Latin1_General_BIN2,
+    [country_name] VARCHAR (100) COLLATE Latin1_General_BIN2,
+    [year] smallint,
+    [population] bigint
 ) AS [r]
 ```
 
@@ -65,12 +65,12 @@ USE [mydbname]
 GO
 
 SELECT 
-	country_name, population
+    country_name, population
 FROM populationView
 WHERE 
-	[year] = 2019
+    [year] = 2019
 ORDER BY 
-	[population] DESC
+    [population] DESC
 ```
 
 ## Next steps

@@ -13,7 +13,7 @@ ms.reviewer: jrasnick
 
 # Use external tables with SQL Analytics
 
-An external table points to data located in Hadoop, Azure Storage blob, or Azure Data Lake Storage. External tables are used to read data from files or write data to files in Azure Storage. With SQL Analytics, you can use external tables to read and write data to SQL pool or SQL on-demand.
+An external table points to data located in Hadoop, Azure Storage blob, or Azure Data Lake Storage. External tables are used to read data from files or write data to files in Azure Storage. With SQL Analytics, you can use external tables to read and write data to SQL pool or SQL on-demand (preview).
 
 ## External tables in SQL pool
 
@@ -25,7 +25,7 @@ In SQL pool, you'll use an external table to:
 When used in conjunction with the [CREATE TABLE AS SELECT](../../sql-data-warehouse/sql-data-warehouse-develop-ctas.md) statement, selecting from an external table imports data into a SQL pool. External tables are useful for loading data. For a loading tutorial, see [Use PolyBase to load data from Azure Blob Storage](../../sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md).
 
 
-## External tables in SQL on-demand
+## External tables in SQL on-demand (preview)
 
 For SQL on-demand, you'll use an external table to:
 
@@ -48,7 +48,7 @@ External data sources are used to connect to storage accounts.
 ```
 CREATE EXTERNAL DATA SOURCE <data_source_name>
 WITH
-(	LOCATION         = '<prefix>://<path>' )
+(    LOCATION         = '<prefix>://<path>' )
 [;]
 ```
 
@@ -72,7 +72,7 @@ The following example creates an external data source pointing to US population 
 CREATE EXTERNAL DATA SOURCE population_ds
 WITH
 (
-	LOCATION =  'https://azureopendatastorage.blob.core.windows.net/censusdatacontainer/release/us_population_county'
+    LOCATION =  'https://azureopendatastorage.blob.core.windows.net/censusdatacontainer/release/us_population_county'
 )
 ```
 
@@ -250,7 +250,7 @@ CREATE EXTERNAL TABLE census_external_table
     countyName varchar(100),
     population int,
     race varchar(50),
-    sex	varchar(10),
+    sex    varchar(10),
     minAge int,
     maxAge int
 )  

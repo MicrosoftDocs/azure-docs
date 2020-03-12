@@ -1,6 +1,6 @@
 ---
-title: Create and use external tables in SQL on-demand using Azure Synapse Analytics
-description: In this section, you'll learn how to create and use external tables in SQL on-demand. External tables are useful when you want to control access to external data in SQL On-demand and if you want to use tools, such as Power BI, in conjunction with SQL on-demand.
+title: Create and use external tables in SQL on-demand (preview)
+description: In this section, you'll learn how to create and use external tables in SQL on-demand (preview). External tables are useful when you want to control access to external data in SQL On-demand and if you want to use tools, such as Power BI, in conjunction with SQL on-demand.
 services: synapse-analytics
 author: vvasic-msft
 ms.service: synapse-analytics
@@ -11,9 +11,9 @@ ms.author: vvasic
 ms.reviewer: jrasnick
 ---
 
-# Quickstart: Create and use external tables in SQL on-demand using Azure Synapse Analytics
+# Create and use external tables in SQL on-demand (preview) using Azure Synapse Analytics
 
-In this section, you'll learn how to create and use external tables in SQL on-demand. External tables are useful when you want to control access to external data in SQL On-demand and if you want to use tools, such as Power BI, in conjunction with SQL on-demand.
+In this section, you'll learn how to create and use external tables in SQL on-demand (preview). External tables are useful when you want to control access to external data in SQL On-demand and if you want to use tools, such as Power BI, in conjunction with SQL on-demand.
 
 ## Prerequisites
 
@@ -40,20 +40,20 @@ GO
 CREATE EXTERNAL FILE FORMAT CSVFileFormat  
 WITH (  
     FORMAT_TYPE = DELIMITEDTEXT,  
-	FORMAT_OPTIONS (
-		FIELD_TERMINATOR = ',',
+    FORMAT_OPTIONS (
+        FIELD_TERMINATOR = ',',
         STRING_DELIMITER = '"',
-        FIRST_ROW = 2		
-	)
+        FIRST_ROW = 2        
+    )
 )
 GO
 
 CREATE EXTERNAL TABLE populationExternalTable
 ( 
     [country_code] VARCHAR (5) COLLATE Latin1_General_BIN2,
-	[country_name] VARCHAR (100) COLLATE Latin1_General_BIN2,
-	[year] smallint,
-	[population] bigint
+    [country_name] VARCHAR (100) COLLATE Latin1_General_BIN2,
+    [year] smallint,
+    [population] bigint
 )  
 WITH (
     LOCATION = 'population/population.csv', 
@@ -78,12 +78,12 @@ USE [mydbname]
 GO
 
 SELECT 
-	country_name, population
+    country_name, population
 FROM populationExternalTable
 WHERE 
-	[year] = 2019
+    [year] = 2019
 ORDER BY 
-	[population] DESC
+    [population] DESC
 ```
 
 ## Next steps

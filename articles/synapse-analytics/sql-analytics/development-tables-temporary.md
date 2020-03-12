@@ -13,9 +13,10 @@ ms.reviewer: igorstan
 ---
 
 # Temporary tables in SQL Analytics
+
 This article contains essential guidance for using temporary tables and highlights the principles of session level temporary tables within SQL Analytics. 
 
-Both the SQL pool and SQL on-demand resources can utilize temporary tables. SQL on-demand has limitations that are discussed at the end of this article. 
+Both the SQL pool and SQL on-demand (preview) resources can utilize temporary tables. SQL on-demand has limitations that are discussed at the end of this article. 
 
 ## What are temporary tables?
 
@@ -218,7 +219,7 @@ SQL pool does have a few implementation limitations for temporary tables:
 - Views can't be created on temporary tables.
 - Temporary tables can only be created with hash or round robin distribution.  Replicated temporary table distribution isn't supported. 
 
-## Temporary tables in SQL on-demand
+## Temporary tables in SQL on-demand (preview)
 
 Temporary tables in SQL on-demand are supported but their usage is limited. They can't be used in queries which target files. 
 
