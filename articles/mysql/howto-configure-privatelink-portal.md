@@ -1,5 +1,5 @@
 ---
-title: Private Link for Azure Database for MySQL portal setup method
+title: Private Link - Azure portal - Azure Database for MySQL
 description: Learn how to configure private link for Azure Database for MySQL from Azure portal
 author: kummanish
 ms.author: manishku

@@ -22,11 +22,11 @@ To learn how to enable or disable SSL connection when developing application, re
 
 ## TLS connectivity in Azure Database for MariaDB
 
-Azure Database for MariaDB supports privacy and data integrity over communications as clients connect to your database server using Transport Layer Security (TLS). TLS is an industry standard protocol that ensures secure network connections between your database server and your client applications and helps adhere to compliance requirements.
+Azure Database for MariaDB supports encryption for clients connecting to your database server using Transport Layer Security (TLS). TLS is an industry standard protocol that ensures secure network connections between your database server and client applications, allowing you to adhere to compliance requirements.
 
 ### TLS settings
 
-Security conscious customers now have the ability to enforce the TLS version for the client connecting to their Azure Database for MariaDB. To use the TLS option, use the **minumumTlsVersion** option setting. The following values are allowed for this option setting:
+Azure Database for MariaDB provides the ability to enforce the TLS version for the client connections. To use the TLS option, use the **Minimum TLS version** option setting. The following values are allowed for this option setting:
 
 |  Minimum TLS Setting             | TLS Version supported                |
 |:---------------------------------|-------------------------------------:|
@@ -36,12 +36,12 @@ Security conscious customers now have the ability to enforce the TLS version for
 | TLS1_2                           | TLS version 1.2 and higher           |
 
 
-For example, setting this Minimum TLS setting version to TLS 1.0 means you shall allow clients connecting using TLS 1.0,1.1 and 1.2+. Alternatively, setting this to 1.2 means that you only allow clients connecting using TLS 1.2 and all incoming connections with TLS 1.0 and TLS 1.1 will be rejected.
+For example, setting this Minimum TLS setting version to TLS 1.0 means your server will allow connections from clients using TLS 1.0, 1.1, and 1.2+. Alternatively, setting this to 1.2 means that you only allow connections from clients using TLS 1.2 and all connections with TLS 1.0 and TLS 1.1 will be rejected.
 
 > [!Note] 
 > Azure Database for MariaDB defaults to TLS being disabled for all new servers.
 >
-> Currently the TLS version supported for Azure Database for MariaDB are TLS 1.0, TLS 1.1, TLS 1.2.
+> Currently the TLS versions supported byAzure Database for MariaDB are TLS 1.0, 1.1, and 1.2.
 
 To learn how to set the TLS setting for your Azure Database for MariaDB, refer to [How to configure TLS setting](howto-tls-configurations.md).
 

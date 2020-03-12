@@ -1,5 +1,5 @@
 ---
-title: Private Link for Azure Database for MariaDB
+title: Private Link - Azure Database for MariaDB
 description: Learn how Private link works for Azure Database for MariaDB.
 author: kummanish
 ms.author: manishku
@@ -10,7 +10,7 @@ ms.date: 03/10/2020
 
 # Private Link for Azure Database for MariaDB
 
-Private Link allows you to connect to various PaaS services in Azure via a private endpoint. Azure Private Link essentially brings Azure services inside your private Virtual Network (VNet). The PaaS resources can be accessed using the private IP address just like any other resource in the VNet.
+Private Link allows you to create private endpoints for Azure Database for MariaDB and so brings Azure services inside your private Virtual Network (VNet). The private endpoint exposes a private IP you can use to connect to your Azure Database for MariaDB database server just like any other resource in the VNet.
 
 For a list to PaaS services that support Private Link functionality, review the Private Link [documentation](https://docs.microsoft.com/azure/private-link/index). A private endpoint is a private IP address within a specific [VNet](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) and Subnet.
 
@@ -46,39 +46,39 @@ With Private Link, you can enable cross-premises access to the private endpoint 
 
 ### Creation Process
 
-Private Endpoints are required to enable Private Link. This can be done using the following how-to guides.
+private endpoints are required to enable Private Link. This can be done using the following how-to guides.
 
 * [Azure portal](https://docs.microsoft.com/azure/mariadb/howto-configure-privatelink-portal)
 * [CLI](https://docs.microsoft.com/azure/mariadb/howto-configure-privatelink-cli)
 
 ### Approval Process
 
-Once the network admin creates the Private Endpoint (PE), the admin can manage the Private Endpoint Connection (PEC) to Azure Database for MariaDB.
+Once the network admin creates the private endpoint (PE), the admin can manage the private endpoint Connection (PEC) to Azure Database for MariaDB. This separation of duties between the network admin and the DBA is helpful for management of the Azure Database for MariaDB connectivity. 
 
 * Navigate to the Azure Database for MariaDB server resource in the Azure portal. 
-    * Select the Private endpoint connections in the left pane
-    * Shows a list of all Private Endpoint Connections (PECs)
-    * Corresponding Private Endpoint (PE) created
+    * Select the private endpoint connections in the left pane
+    * Shows a list of all private endpoint Connections (PECs)
+    * Corresponding private endpoint (PE) created
 
-![select the Private endpoint portal](media/concepts-data-access-and-security-private-link/select-private-link-portal.png)
+![select the private endpoint portal](media/concepts-data-access-and-security-private-link/select-private-link-portal.png)
 
 * Select an individual PEC from the list by selecting it.
 
-![select the Private endpoint pending approval](media/concepts-data-access-and-security-private-link/select-private-link.png)
+![select the private endpoint pending approval](media/concepts-data-access-and-security-private-link/select-private-link.png)
 
 * The MariaDB server admin can choose to approve or reject a PEC and optionally add a short text response.
 
-![select the Private endpoint message](media/concepts-data-access-and-security-private-link/select-private-link-message.png)
+![select the private endpoint message](media/concepts-data-access-and-security-private-link/select-private-link-message.png)
 
 * After approval or rejection, the list will reflect the appropriate state along with the response text
 
-![select the Private endpoint final state](media/concepts-data-access-and-security-private-link/show-private-link-approved-connection.png)
+![select the private endpoint final state](media/concepts-data-access-and-security-private-link/show-private-link-approved-connection.png)
 
 ## Use cases of Private Link for Azure Database for MariaDB
 
-Clients can connect to the Private endpoint from the same VNet, peered VNet in same region, or via VNet-to-VNet connection across regions. Additionally, clients can connect from on-premises using ExpressRoute, private peering, or VPN tunneling. Below is a simplified diagram showing the common use cases.
+Clients can connect to the private endpoint from the same VNet, peered VNet in same region, or via VNet-to-VNet connection across regions. Additionally, clients can connect from on-premises using ExpressRoute, private peering, or VPN tunneling. Below is a simplified diagram showing the common use cases.
 
-![select the Private endpoint overview](media/concepts-data-access-and-security-private-link/show-private-link-overview.png)
+![select the private endpoint overview](media/concepts-data-access-and-security-private-link/show-private-link-overview.png)
 
 ### Connecting from an Azure VM in Peered Virtual Network (VNet)
 Configure [VNet peering](https://docs.microsoft.com/azure/virtual-network/tutorial-connect-virtual-networks-powershell) to establish connectivity to the Azure Database for MariaDB from an Azure VM in a peered VNet.
@@ -105,9 +105,9 @@ The following situations and outcomes are possible when you use Private Link in 
 
 ## Deny public access for Azure Database for MariaDB
 
-While Private Link allows access via private endpoint only, customer can use still use the public end points via [firewall rules](concepts-firewall-rules.md) and [VNet service endpoints](concepts-data-access-security-vnet.md) in such cases where they may need a mix of private and public connectivity. However, if you want to rely only on private endpoints for accessing their Azure Database for MariaDB, you can disable setting all public endpoints by setting the **Deny Public Network Access** configuration on the database server. 
+If you want to rely completely only on private endpoints for accessing their Azure Database for MariaDB, you can disable setting all public endpoints ([firewall rules](concepts-firewall-rules.md) and [VNet service endpoints](concepts-data-access-security-vnet.md)) by setting the **Deny Public Network Access** configuration on the database server. 
 
-When this setting is set to *YES* only connections via private endpoints are allowed to your Azure Database for MariaDB. When this setting is set to *NO* clients can connect to your Azure Database for MariaDB based on your firewall or VNet service endpoint setting.￼ Additionally, once the value of the Private network access is set to  customers cannot add ￼and/or update ￼existing ‘Firewall rules’ and ‘VNet service endpoint rule
+When this setting is set to *YES*, only connections via private endpoints are allowed to your Azure Database for MariaDB. When this setting is set to *NO*, clients can connect to your Azure Database for MariaDB based on your firewall or VNet service endpoint settings.￼ Additionally, once the value of the Private network access is set, you cannot add ￼and/or update ￼existing firewall and VNet service endpoint rules.
 
 > [!Note]
 > This setting does not have any impact on the SSL and TLS configurations for your Azure Database for MariaDB.

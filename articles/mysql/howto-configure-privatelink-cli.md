@@ -1,5 +1,5 @@
 ---
-title: Private Link for Azure Database for MySQL CLI setup method
+title: Private Link - Azure CLI - Azure Database for MySQL
 description: Learn how to configure private link for Azure Database for MySQL from Azure CLI
 author: kummanish
 ms.author: manishku
