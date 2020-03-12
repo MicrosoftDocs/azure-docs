@@ -93,7 +93,7 @@ The response contains a summary element, like the one below. Because the depart 
     "lengthInMeters": 2131,
     "travelTimeInSeconds": 248,
     "trafficDelayInSeconds": 0,
-    "departureTime": "2025-03-29T08:00:20Z", |departure is in the future, at the time of writing
+    "departureTime": "2025-03-29T08:00:20Z",
     "arrivalTime": "2025-03-29T08:04:28Z",
     "noTrafficTravelTimeInSeconds": 225,
     "historicTrafficTravelTimeInSeconds": 248,
@@ -116,7 +116,7 @@ The response contains a summary as shown below. Because of congestions, the **tr
     "lengthInMeters": 16637, 
     "travelTimeInSeconds": 2905, 
     "trafficDelayInSeconds": 1604, 
-    "departureTime": "2020-02-28T01:00:20+00:00", |departure is now 
+    "departureTime": "2020-02-28T01:00:20+00:00",
     "arrivalTime": "2020-02-28T01:48:45+00:00", 
     "noTrafficTravelTimeInSeconds": 872, 
     "historicTrafficTravelTimeInSeconds": 1976, 
