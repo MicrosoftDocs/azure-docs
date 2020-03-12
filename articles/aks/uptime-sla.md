@@ -51,9 +51,9 @@ az aks create --resource-group myResourceGroup --name myAKSCluster --node-count 
 ```
 After a few minutes, the command completes and returns JSON-formatted information about the cluster.
 
-## AKS clusters with no Uptime SLA
+## AKS clusters without Uptime SLA
 
-In a service-level agreement (SLA), the provider agrees to reimburse the customer for the cost of the service if the published service level isn't met. Since AKS is free, no cost is available to reimburse for clusters not using Uptime SLA, so AKS has no formal SLA. However, AKS seeks to maintain availability of at least 99.5 percent for the Kubernetes API server.
+Uptime SLA is an **optional paid service.** In a service-level agreement (SLA), the provider agrees to reimburse the customer for the cost of the service if the published service level isn't met. Since AKS is free, no cost is available to reimburse for clusters not using Uptime SLA, so AKS has no formal SLA. However, AKS seeks to maintain availability of at least 99.5 percent for the Kubernetes API server.
 
 It is important to recognize the distinction between AKS service availability, which refers to the uptime of the Kubernetes API server and the availability of your specific workload, which is running on Azure Virtual Machines. Although the API server may be unavailable if the API server is not ready, your cluster workloads running on Azure VMs can still function. Given Azure VMs are paid resources, they are backed by a [financial SLA for VMs](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/). You can increase the VM availability with features like [Availability Zones][availability-zones].
 
