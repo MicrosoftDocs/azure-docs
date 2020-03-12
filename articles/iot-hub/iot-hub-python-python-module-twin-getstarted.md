@@ -144,7 +144,7 @@ In this section, you create a Python app on your simulated device that updates t
     import iothub_service_client
     from iothub_service_client import IoTHubRegistryManager, IoTHubRegistryManagerAuthMethod, IoTHubDeviceTwin, IoTHubError
 
-    CONNECTION_STRING = "FILL IN CONNECTION STRING"
+    CONNECTION_STRING = "{moduleConnectionString}"
     DEVICE_ID = "myFirstDevice"
     MODULE_ID = "myFirstModule"
 
