@@ -32,7 +32,7 @@ This section shows you how to use the Azure portal to create a private endpoint 
     1. Select an **Azure subscription** in which you want to create the private endpoint. 
     2. Select an **Azure resource group** for the private endpoint. 
     3. Enter a **name** for the endpoint. 
-    4. Select the **region** for the endpoint. Your private endpoint must be in the same region as your virtual network, but can in a different region from the private link resource (in this example, an Azure Event Grid topic). 
+    4. Select the **region** for the endpoint. Your private endpoint must be in the same region as your virtual network, but can in a different region from the private link resource (in this example, an  event grid topic). 
     5. Then, select **Next: Resource >** button at the bottom of the page. 
 
       ![Private endpoint - basics page](./media/configure-private-endpoints/private-endpoint-basics-page.png)
@@ -139,7 +139,7 @@ az network private-endpoint create \
 
 For descriptions of the parameters used in the example, see documentation for [az network private-endpoint create](/cli/azure/network/private-endpoint?view=azure-cli-latest#az-network-private-endpoint-create). A few points to note in this example are: 
 
-- For `private-connection-resource-id`, specify the resource ID of the Event Grid **topic** or **domain**. The preceding example uses the type: topic.
+- For `private-connection-resource-id`, specify the resource ID of the **topic** or **domain**. The preceding example uses the type: topic.
 - for `group-ids`, specify `topic` or `domain`. In the preceding example, `topic` is used. 
 
 To delete a private endpoint, use the [az network private-endpoint delete](/cli/azure/network/private-endpoint?view=azure-cli-latest#az-network-private-endpoint-delete) method as shown in the following example:

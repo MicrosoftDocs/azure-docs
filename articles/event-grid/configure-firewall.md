@@ -18,7 +18,7 @@ This article describes how to configure IP firewall settings for Azure Event Gri
 ## Use Azure portal
 This section shows you how to use the Azure portal to create inbound IP firewall rules. The steps shown in this section are for topics. You can use similar steps to create inbound IP rules for **domains**. 
 
-1. In the [Azure portal](https://portal.azure.com), Navigate to your Event Grid topic or domain, and switch to the **Networking** tab.
+1. In the [Azure portal](https://portal.azure.com), Navigate to your event grid topic or domain, and switch to the **Networking** tab.
 2. Select **Public networks** to allow all network, including the internet, to access the resource. 
 
     You can restrict the traffic using IP-based firewall rules. Specify a single IPv4 address or a range of IP addresses in Classless inter-domain routing (CIDR) notation. 

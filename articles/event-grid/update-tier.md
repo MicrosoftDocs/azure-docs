@@ -158,4 +158,4 @@ Invoke-RestMethod -Method 'Patch' `
 ```
 
 ## Next steps
-For premier tier topics and domains, you can configure private endpoints to restrict access from only from selected virtual networks. For step-by-step instructions, see [Configure private endpoints](configure-private-endpoints.md).
+For premium tier topics and domains, you can configure private endpoints to restrict access from only from selected virtual networks. For step-by-step instructions, see [Configure private endpoints](configure-private-endpoints.md).
