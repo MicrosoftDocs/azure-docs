@@ -131,7 +131,7 @@ This query language should be similar to the way IoT Hub supports filtering of m
 
 ```json
 {
-	"Temperature": 50,
+    "Temperature": 50,
         "Humidity": 83,
         "Time": "2017-03-09T00:00:00.000Z",
         "IsEnabled": true,
@@ -282,15 +282,15 @@ These notifications are triggered when any relationship's edge of a digital twin
 
 #### Properties
 
-| Name	| Value |
+| Name    | Value |
 | --- | --- |
-| id	| Identifier of the notification, such as a UUID or a counter maintained by the service. `source` + `id` is unique for each distinct event |
-| source	| Name of the Azure Digital Twins instance, like *mydigitaltwins.westcentralus.azuredigitaltwins.net* |
-| specversion	| 1.0 |
-| type	| `Microsoft.<Service RP>.Edge.Create`<br>`Microsoft.<Service RP>.Edge.Update`<br>`Microsoft.<Service RP>.Edge.Delete`<br>`datacontenttype	application/json for Edge.Create`<br>`application/json-patch+json for Edge.Update` |
-| subject	| ID of the edge, like `<twinid>/relationships/<relationshipName>/<edged>` |
-| time	| Timestamp for when the operation occurred on the edge |
-| sequence, sequencetype	| See earlier detail on notification headers |
+| id    | Identifier of the notification, such as a UUID or a counter maintained by the service. `source` + `id` is unique for each distinct event |
+| source    | Name of the Azure Digital Twins instance, like *mydigitaltwins.westcentralus.azuredigitaltwins.net* |
+| specversion    | 1.0 |
+| type    | `Microsoft.<Service RP>.Edge.Create`<br>`Microsoft.<Service RP>.Edge.Update`<br>`Microsoft.<Service RP>.Edge.Delete`<br>`datacontenttype    application/json for Edge.Create`<br>`application/json-patch+json for Edge.Update` |
+| subject    | ID of the edge, like `<twinid>/relationships/<relationshipName>/<edged>` |
+| time    | Timestamp for when the operation occurred on the edge |
+| sequence, sequencetype    | See earlier detail on notification headers |
 
 #### Body
 
@@ -327,19 +327,19 @@ These notifications are triggered when a Digital Twins Definition Language (DTDL
 
 #### Properties
 
-| Name	| Value |
+| Name    | Value |
 | --- | --- |
-| id	| Identifier of the notification, such as a UUID or a counter maintained by the service. `source` + `id` is unique for each distinct event |
-| source	| Name of the IoT hub or Azure Digital Twins instance, like *myhub.azure-devices.net* or *mydigitaltwins.westcentralus.azuredigitaltwins.net* |
-| specversion	| 1.0 |
-| type	| `Microsoft.<Service RP>.Model.Upload`<br>`Microsoft.<Service RP>.Model.Reload` (Hub-specific)<br>`Microsoft.<Service RP>.Model.Patch` (Hub-specific)<br>`Microsoft.<Service RP>.Model.Decom`<br>`Microsoft.<Service RP>.Model.Delete` |
-| datacontenttype	| application/json |
-| subject	| ID of the model, in the form `urn:<domain>:<unique model identifier>:<model version number>` |
-| time	| Timestamp for when the operation occurred on the model |
-| sequence	| Value expressing the event's position in the larger ordered sequence of events. Services have to add a sequence number on all the notifications to indicate order of notifications, or otherwise perform their own actions to maintain ordering. Sequence will be incremented for each subject, and will be reset to 1 every time the object gets recreated with the same ID (such as during delete and recreate operations). |
-| sequencetype	| The exact value and meaning of sequence. For example, this property may specify that the value must be a string-encoded, signed, 32-bit integer that starts with 1, and increases by 1 for each subsequent value |
-| modelstatus	| The resolution model status for resolving a model. Possible values: Successful/NotFound/Failed (IoT Hub only) | 
-| updatereason	| Update model reason in the schema. Possible values: Create/Reset/Override (IoT Hub only) | 
+| id    | Identifier of the notification, such as a UUID or a counter maintained by the service. `source` + `id` is unique for each distinct event |
+| source    | Name of the IoT hub or Azure Digital Twins instance, like *myhub.azure-devices.net* or *mydigitaltwins.westcentralus.azuredigitaltwins.net* |
+| specversion    | 1.0 |
+| type    | `Microsoft.<Service RP>.Model.Upload`<br>`Microsoft.<Service RP>.Model.Reload` (Hub-specific)<br>`Microsoft.<Service RP>.Model.Patch` (Hub-specific)<br>`Microsoft.<Service RP>.Model.Decom`<br>`Microsoft.<Service RP>.Model.Delete` |
+| datacontenttype    | application/json |
+| subject    | ID of the model, in the form `urn:<domain>:<unique model identifier>:<model version number>` |
+| time    | Timestamp for when the operation occurred on the model |
+| sequence    | Value expressing the event's position in the larger ordered sequence of events. Services have to add a sequence number on all the notifications to indicate order of notifications, or otherwise perform their own actions to maintain ordering. Sequence will be incremented for each subject, and will be reset to 1 every time the object gets recreated with the same ID (such as during delete and recreate operations). |
+| sequencetype    | The exact value and meaning of sequence. For example, this property may specify that the value must be a string-encoded, signed, 32-bit integer that starts with 1, and increases by 1 for each subsequent value |
+| modelstatus    | The resolution model status for resolving a model. Possible values: Successful/NotFound/Failed (IoT Hub only) | 
+| updatereason    | Update model reason in the schema. Possible values: Create/Reset/Override (IoT Hub only) | 
 
 #### Body
 
@@ -365,16 +365,16 @@ These notifications are triggered when a digital twin resource is being updated,
 
 #### Properties
 
-| Name	| Value |
+| Name    | Value |
 | --- | --- |
-| id	| Identifier of the notification, such as a UUID or a counter maintained by the service. `source` + `id` is unique for each distinct event |
-| source	| Name of the IoT hub or Azure Digital Twins instance, like *myhub.azure-devices.net* or *mydigitaltwins.westcentralus.azuredigitaltwins.net*
-| specversion	| 1.0 |
-| type	| `Microsoft.<Service RP>.Twin.Update` |
-| datacontenttype	| application/json-patch+json |
-| subject	| ID of the twin |
-| time	| Timestamp for when the operation occurred on the twin |
-| sequence, sequencetype	| See earlier detail on notification headers |
+| id    | Identifier of the notification, such as a UUID or a counter maintained by the service. `source` + `id` is unique for each distinct event |
+| source    | Name of the IoT hub or Azure Digital Twins instance, like *myhub.azure-devices.net* or *mydigitaltwins.westcentralus.azuredigitaltwins.net*
+| specversion    | 1.0 |
+| type    | `Microsoft.<Service RP>.Twin.Update` |
+| datacontenttype    | application/json-patch+json |
+| subject    | ID of the twin |
+| time    | Timestamp for when the operation occurred on the twin |
+| sequence, sequencetype    | See earlier detail on notification headers |
 
 #### Body
 
@@ -400,7 +400,7 @@ The corresponding notification (if synchronously executed by the service, such a
         "value": {
             "desiredValue": { "a": 3 },
             "desiredVersion": 2,
-		        "ackCode": 200,
+                "ackCode": 200,
             "ackVersion": 2 
         }
     }
@@ -410,4 +410,4 @@ The corresponding notification (if synchronously executed by the service, such a
 ## Next steps
 
 Learn more about the Azure Digital Twins APIs
-* [Use the Azure Digital Twins APIs](concepts-use-apis.md)
+* [Use the Azure Digital Twins APIs](how-to-use-apis.md)
