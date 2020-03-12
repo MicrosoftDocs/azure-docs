@@ -100,4 +100,4 @@ For more information, see:
 ## Next steps
 
 * [Media Services v3 OpenAPI Specification (Swagger)](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01)
-* [Streaming Endpoint operations](https://docs.microsoft.com/en-us/rest/api/media/streamingendpoints)
+* [Streaming Endpoint operations](https://docs.microsoft.com/rest/api/media/streamingendpoints)
