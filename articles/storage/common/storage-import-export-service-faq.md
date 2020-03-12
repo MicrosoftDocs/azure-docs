@@ -85,8 +85,10 @@ You can ship drives to the Azure datacenter using any known carrier like FedEx, 
 > [!NOTE]
 > The datacenters in India require a declaration letter on your letterhead (delivery challan) to return the drives. To arrange the required entry pass, you must also book the pick up with your selected carrier and share the details with the datacenter.
 
-### Are there any restrictions with shipping my drive internationally?
+### Are there any restrictions with shipping and returning my drive internationally?
 Please note that the physical media that you are shipping may need to cross international borders. You are responsible for ensuring that your physical media and data are imported and/or exported in accordance with the applicable laws. Before shipping the physical media, check with your advisors to verify that your media and data can legally be shipped to the identified data center. This will help to ensure that it reaches Microsoft in a timely manner.
+
+After the upload is complete, the process to return drive(s) to an international address can take longer than the typical 2-3 days we see for local shipping. During the stage listed in the Azure portal as ‘packaging’ our team is ensuring the correct documentation is provided to ensure the shipment complies with the varied international import/export requirements.
 
 ### Are there any special requirements for delivering my disks to a datacenter?
 
