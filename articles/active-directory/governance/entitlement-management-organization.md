@@ -106,26 +106,26 @@ If the connected organization changes to a different domain, the organization's 
 
 1. In the Azure portal, select **Azure Active Directory**, and then select **Identity Governance**.
 
-1. In the left pane, select **Connected organizations**, and then select to open the connected organization.
+1. In the left pane, select **Connected organizations**, and then select the connected organization to open it.
 
-1. On the Overview page, select **Edit** to change the organization name or description.  
+1. In the connected organization's overview pane, select **Edit** to change the organization name or description.  
 
-1. On the Directory + domain page, select **Update directory + domain** to change to a different directory or domain.
+1. In the **Directory + domain** pane, select **Update directory + domain** to change to a different directory or domain.
 
-1. On the Sponsors page, select **Add internal sponsors** or **Add external sponsors** to add a user as a sponsor.  To remove a sponsor, select the sponsor and on the pane on the right, select **Delete**.
+1. In the **Sponsors** pane, select **Add internal sponsors** or **Add external sponsors** to add a user as a sponsor. To remove a sponsor, select the sponsor and, in the right pane, select **Delete**.
 
 
 ## Delete a connected organization
 
 If you no longer have a relationship with an external Azure AD directory or domain, you can delete the connected organization.
 
-**Prerequisite role:** *Global administrator*, *User administrator*, or *Guest inviter*
+**Prerequisite role**: *Global administrator*, *User administrator*, or *Guest inviter*
 
 1. In the Azure portal, select **Azure Active Directory**, and then select **Identity Governance**.
 
 1. In the left pane, select **Connected organizations**, and then select the connected organization to open it.
 
-1. On the connected organization's overview page, select **Delete** to delete it.
+1. In the connected organization's overview pane, select **Delete** to delete it.
 
     Currently, you can delete a connected organization only if there are no connected users.
 
