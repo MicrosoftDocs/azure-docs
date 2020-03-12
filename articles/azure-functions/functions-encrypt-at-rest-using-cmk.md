@@ -10,8 +10,8 @@ ms.date: 03/06/2020
 Encrypting your function app's application data at rest requires an Azure Storage Account and an Azure Key Vault. These services are used when you run your app from a deployment package.
 
   - [Azure Storage provides encryption at rest](../storage/common/storage-service-encryption.md). You can use system-provided keys or your own, customer-managed keys. This is where your application data is stored when it's not running in a function app in Azure.
-  - [Running from a deployment package](deploy-run-package.md) is a deployment feature of App Service. It allows you to deploy your site content from an Azure Storage Account using a Shared Access Signature (SAS) URL.
-  - [Key Vault references](app-service-key-vault-reference.md) are a security feature of App Service. It allows you to import secrets at runtime as application settings. Use this to encrypt the SAS URL of your Azure Storage Account.
+  - [Running from a deployment package]((run-functions-from-deployment-package.md) is a deployment feature of App Service. It allows you to deploy your site content from an Azure Storage Account using a Shared Access Signature (SAS) URL.
+  - [Key Vault references](../app-service/app-service-key-vault-reference.md) are a security feature of App Service. It allows you to import secrets at runtime as application settings. Use this to encrypt the SAS URL of your Azure Storage Account.
 
 ## Set up encryption at rest
 
@@ -32,7 +32,7 @@ Once you upload your file to Blob storage and have an SAS URL for the file, set 
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings WEBSITE_RUN_FROM_PACKAGE="<your-SAS-URL>"
 ```
 
-Adding this application setting causes your function app to restart. After the app has restarted, browse to it and make sure that the app has started correctly using the deployment package. If the application didn't start correctly, see the [Run from package troubleshooting guide](deploy-run-package.md#troubleshooting).
+Adding this application setting causes your function app to restart. After the app has restarted, browse to it and make sure that the app has started correctly using the deployment package. If the application didn't start correctly, see the [Run from package troubleshooting guide](run-functions-from-deployment-package.md#troubleshooting).
 
 ### Encrypt the application setting using Key Vault references
 
@@ -44,7 +44,7 @@ Now you can replace the value of the `WEBSITE_RUN_FROM_PACKAGE` application sett
     az keyvault create --name "Contoso-Vault" --resource-group <group-name> --location eastus    
     ```    
 
-1. Follow [these instructions to grant your app access](app-service-key-vault-references.md#granting-your-app-access-to-key-vault) to your key vault:
+1. Follow [these instructions to grant your app access](../app-service/app-service-key-vault-references.md#granting-your-app-access-to-key-vault) to your key vault:
 
 1. Use the following [`az keyvault secret set`](/cli/azure/keyvault/secret#az-keyvault-secret-set) command to add your external URL as a secret in your key vault:   
 
@@ -114,5 +114,5 @@ Only the cost associated with the Azure Storage Account and any applicable egres
 
 ## Next steps
 
-- [Key Vault references for App Service](app-service-key-vault-references.md)
+- [Key Vault references for App Service](../app-service/app-service-key-vault-references.md)
 - [Azure Storage encryption for data at rest](../storage/common/storage-service-encryption.md)
