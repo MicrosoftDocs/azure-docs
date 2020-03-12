@@ -16,9 +16,17 @@ Service Fabric supports the ability to create clusters based on Ubuntu 18.04 LTS
 2. Migrate data and point other resources at the new deployment.
 3. Delete the original deployment and clean up resources.
 
+You can follow along by beginning with this template, which deploys a secure 7 node, 3 node type cluster with Ubuntu 16.04 LTS:
+
+* [AzureDeploy.json][template]
+* [AzureDeploy.Parameters.json][parameters]
+
 ## Create an identical deployment for 18.04 LTS
 
-The first thing to do is modify the cluster for the new version of Ubuntu. The cluster operating system can be specified in Azure Resource Manager templates. Modify the **vmImageSku** attribute, and make sure **typeHandlerVersion** for each node type is set to **1.1**:
+The first thing to do is modify the cluster for the new version of Ubuntu. The cluster operating system can be specified in Azure Resource Manager templates. Modify the **vmImageSku** attribute, and make sure **typeHandlerVersion** for each node type is set to **1.1**. The updated version of the template using Ubuntu 18.04 LTS can be downloaded here:
+
+* [AzureDeploy.json][template2]
+* [AzureDeploy.Parameters.json][parameters2]
 
 ```json
 "vmImageSku": {
@@ -102,3 +110,10 @@ Remove-AzResource `
 
 * [Learn how to scale a cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-tutorial-scale-cluster)
 * [Monitor your cluster with Azure Monitor](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-analysis-oms)
+
+
+<!-- Links -->
+[template]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Ubuntu-3-NodeTypes-Secure/AzureDeploy.json
+[parameters]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Ubuntu-3-NodeTypes-Secure/AzureDeploy.Parameters.json
+[template2]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Ubuntu-1804-3-NodeTypes-Secure/AzureDeploy.json
+[parameters2]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Ubuntu-1804-3-NodeTypes-Secure/AzureDeploy.Parameters.json
