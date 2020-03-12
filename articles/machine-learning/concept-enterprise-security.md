@@ -110,11 +110,11 @@ You can also enable Azure Private Link for your workspace. Private Link allows y
 > | Scenario | Enterprise</br>edition | Basic</br>edition |
 > | ----- |:-----:|:-----:| 
 > | No virtual network or Private Link | ✔ | ✔ |
-> | Workspace without Private Link and other resources (except Azure Container Registry) in a virtual network | ✔ | ✔ |
-> | Workspace without Private Link and other resources (including Azure Container Registry) in a virtual network | ✔ | |
-> | Workspace with Private Link and other resources (except Azure Container Registry) in a virtual network | ✔ | ✔ |
+> | Workspace without Private Link. Other resources (except Azure Container Registry) in a virtual network | ✔ | ✔ |
+> | Workspace without Private Link. Other resources (including Azure Container Registry) in a virtual network | ✔ | |
+> | Workspace with Private Link. Other resources (except Azure Container Registry) in a virtual network | ✔ | ✔ |
 > | Workspace and any other resource with Private Link | ✔ | |
-> | Workspace with Private Link and other resources without Private Link or virtual network | ✔ | ✔ |
+> | Workspace with Private Link. Other resources without Private Link or virtual network | ✔ | ✔ |
 > | Azure Container Registry in a virtual network | ✔ | |
 > | Customer Managed Keys for workspace | ✔ | |
 

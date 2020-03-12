@@ -14,7 +14,7 @@ ms.date: 03/13/2020
 
 # Configure Azure Private Link for an Azure Machine Learning workspace
 
-By using Azure Private Link, you can connect to your Azure Machine Learning workspace via a private endpoint. The private endpoint is a set of private IP addresses within your virtual network. You can then limit access to your workspace to only occur over the private IP addresses. When Private Link is combined with restricted network security group (NSG) policies, it helps reduce the risk of data exfiltration. To learn more about private endpoints, see the [Azure Private Link](/azure/private-link/private-link-overview) article.
+In this document, you learn how to use Azure Private Link with your Azure Machine Learning workspace. Azure Private Link enables you to connect to your workspace using a private endpoint. The private endpoint is a set of private IP addresses within your virtual network. You can then limit access to your workspace to only occur over the private IP addresses. When Private Link is combined with restricted network security group (NSG) policies, it helps reduce the risk of data exfiltration. To learn more about private endpoints, see the [Azure Private Link](/azure/private-link/private-link-overview) article.
 
 > [!IMPORTANT]
 > Azure Private Link does not effect Azure control plane (management operations) such as deleting the workspace or managing compute resources. For example, creating, updating, or deleting a compute target. These operations are performed over the public Internet as normal.
@@ -53,7 +53,7 @@ The workspace also contains a Azure Virtual Network that can communicate with th
 
 ### Deploy the template using the Azure portal
 
-1. Follow the steps in [Deploy resources from custom template](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-portal#deploy-resources-from-custom-template). When you arrive at the __Edit template__ screen, paste in the template from this document.
+1. Follow the steps in [Deploy resources from custom template](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-portal#deploy-resources-from-custom-template). When you arrive at the __Edit template__ screen, paste in one of the templates from the end of this document.
 1. Select __Save__ to use the template. Provide the following information and agree to the listed terms and conditions:
 
    * Subscription: Select the Azure subscription to use for these resources.
@@ -65,7 +65,7 @@ For more information, see [Deploy resources from custom template](../azure-resou
 
 ### Deploy the template using Azure PowerShell
 
-This example assumes that you have saved the template to a file named `azuredeploy.json` in the current directory:
+This example assumes that you have saved one of the templates from the end of this document to a file named `azuredeploy.json` in the current directory:
 
 ```powershell
 New-AzResourceGroup -Name examplegroup -Location "East US"
@@ -78,7 +78,7 @@ For more information, see [Deploy resources with Resource Manager templates and 
 
 ### Deploy the template using the Azure CLI
 
-This example assumes that you have saved the template to a file named `azuredeploy.json` in the current directory:
+This example assumes that you have saved one of the templates from the end of this document to a file named `azuredeploy.json` in the current directory:
 
 ```azurecli-interactive
 az group create --name examplegroup --location "East US"
@@ -94,6 +94,9 @@ For more information, see [Deploy resources with Resource Manager templates and 
 ## Using a workspace over a private endpoint
 
 Since communication to the workspace is only allowed from the virtual network, any development environments that use the workspace must be members of the virtual network. For example, a virtual machine in the virtual network or a machine connected to the virtual network using a VPN gateway.
+
+> [!IMPORTANT]
+> To avoid temporary disruption of connectivity, Microsoft recommends flushing the DNS cache on machines connecting to the workspace after enabling Private Link. 
 
 For information on Azure Virtual Machines, see the [Virtual Machines documentation](/azure/virtual-machines/).
 
