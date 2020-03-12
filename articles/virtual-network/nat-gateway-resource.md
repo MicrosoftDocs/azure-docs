@@ -360,10 +360,10 @@ We want to know how we can improve the service. Share your [feedback on the Publ
   - [REST API](https://docs.microsoft.com/rest/api/virtualnetwork/natgateways)
   - [Azure CLI](https://docs.microsoft.com/cli/azure/network/nat/gateway?view=azure-cli-latest)
   - [PowerShell](https://docs.microsoft.com/powershell/module/az.network/new-aznatgateway)
-* Learn about [availability zones](../availability-zones/az-overview.md).
 * [Tell us what to build next for Virtual Network NAT in UserVoice](https://aka.ms/natuservoice).
 * [Provide feedback on the Public Preview](https://aka.ms/natfeedback).
 
+* Learn about [availability zones](../availability-zones/az-overview.md).
 * Learn about [standard load balancer](../load-balancer/load-balancer-standard-overview.md).
 * Learn about [availability zones and standard load balancer](../load-balancer/load-balancer-standard-availability-zones.md).
 
