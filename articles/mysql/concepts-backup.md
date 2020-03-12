@@ -16,6 +16,8 @@ Azure Database for MySQL automatically creates server backups and stores them in
 
 Azure Database for MySQL takes backups of the data files and the transaction log. Depending on the supported maximum storage size, we either take full and differential backups (4 TB max storage servers) or snapshot backups (up to 16-TB max storage servers). These backups allow you to restore a server to any point-in-time within your configured backup retention period. The default backup retention period is seven days. You can [optionally configure it](howto-restore-server-portal.md#set-backup-configuration) up to 35 days. All backups are encrypted using AES 256-bit encryption.
 
+These backup files cannot be exported. The backups can only be used for restore operations in Azure Database for MySQL. You can use [mysqldump](concepts-migrate-dump-restore.md) to copy a database.
+
 ### Backup frequency
 
 Generally, full backups occur weekly, differential backups occur twice a day for servers with a max supported storage of 4 TB. Snapshot backups happen at least once a day for servers that support up to 16 TB of storage. Transaction log backups in both cases occur every five minutes. The first snapshot of full backup is scheduled immediately after a server is created. The initial full backup can take longer on a large restored server. The earliest point in time that a new server can be restored to is the time at which the initial full backup is complete. As snapshots are instantanious, servers with support up to 16 TB of storage can be restored all the way back to the create time.

@@ -6,7 +6,7 @@ author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.topic: conceptual
-ms.date: 07/01/2019
+ms.date: 02/14/2020
 ms.custom: seodec18
 ---
 
@@ -203,19 +203,19 @@ There are two ways to update the reference data:
 
 This version information was last updated on 2019-06-27:
 
-- Image: `asaedge.azurecr.io/public/azure-stream-analytics/azureiotedge:1.0.3-linux-amd64`
+- Image: `mcr.microsoft.com/azure-stream-analytics/azureiotedge:1.0.5-linux-amd64`
    - base image: microsoft/dotnet:2.1.6-runtime-alpine3.7
    - platform:
       - architecture: amd64
       - os: linux
   
-- Image: `asaedge.azurecr.io/public/azure-stream-analytics/azureiotedge:1.0.3-linux-arm32v7`
+- Image: `mcr.microsoft.com/azure-stream-analytics/azureiotedge:1.0.5-linux-arm32v7`
    - base image: microsoft/dotnet:2.1.6-runtime-bionic-arm32v7
    - platform:
       - architecture: arm
       - os: linux
   
-- Image: `asaedge.azurecr.io/public/azure-stream-analytics/azureiotedge:1.0.3-windows-amd64`
+- Image: `mcr.microsoft.com/azure-stream-analytics/azureiotedge:1.0.5-windows-amd64`
    - base image: microsoft/dotnet:2.1.6-runtime-nanoserver-1809
    - platform:
       - architecture: amd64

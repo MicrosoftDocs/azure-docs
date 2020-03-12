@@ -4,11 +4,11 @@ titleSuffix: Azure Cognitive Search
 description: This tutorial demonstrates how to order search results. It builds on a previous hotels project, ordering by primary property, secondary property, and includes a scoring profile to add boosting criteria.
 
 manager: nitinme
-author: PeterTurcan
-ms.author: v-pettur
+author: tchristiani
+ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 11/04/2019
+ms.date: 02/10/2020
 ---
 
 # C# tutorial: Order the results - Azure Cognitive Search

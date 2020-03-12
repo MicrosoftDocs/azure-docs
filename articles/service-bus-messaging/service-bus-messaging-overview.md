@@ -1,6 +1,6 @@
 ---
 title: Azure Service Bus messaging overview | Microsoft Docs
-description: Description of Service Bus messaging
+description: This article provides a high level overview of Azure Service Bus, a fully managed enterprise integration message broker. 
 services: service-bus-messaging
 documentationcenter: ''
 author: axisc

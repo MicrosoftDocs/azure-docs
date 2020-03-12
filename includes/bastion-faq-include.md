@@ -5,7 +5,7 @@
  author: cherylmc
  ms.service: bastion
  ms.topic: include
- ms.date: 12/17/2019
+ ms.date: 03/02/2020
  ms.author: cherylmc
  ms.custom: include file
 ---
@@ -17,7 +17,7 @@
 
 ### <a name="publicip"></a>Do I need a public IP on my virtual machine?
 
-You do NOT need a public IP on the Azure Virtual Machine that you are connecting to with the Azure Bastion service. The Bastion service will open the RDP/SSH session/connection to your virtual machine over the private IP of your virtual machine, within your virtual network.
+When you connect to a VM using Azure Bastion, you do NOT need a public IP on the Azure Virtual Machine that you are connecting to. The Bastion service will open the RDP/SSH session/connection to your virtual machine over the private IP of your virtual machine, within your virtual network.
 
 ### Is IPv6 supported?
 
@@ -27,9 +27,12 @@ At this time, IPv6 is not supported. Azure Bastion supports IPv4 only.
 
 You do not need an RDP or SSH client to access the RDP/SSH to your Azure virtual machine in your Azure portal. Use the [Azure portal](https://portal.azure.com) to let you get RDP/SSH access to your virtual machine directly in the browser.
 
+### <a name="rdscal"></a>Does Azure Bastion require an RDS CAL for administrative purposes on Azure-hosted VMs?
+No, access to Windows Server VMs by Azure Bastion does not require an [RDS CAL](https://www.microsoft.com/en-us/p/windows-server-remote-desktop-services-cal/dg7gmgf0dvsv?activetab=pivot:overviewtab) when used solely for administrative purposes.
+
 ### <a name="agent"></a>Do I need an agent running in the Azure virtual machine?
 
-You don't need to install an agent or any software on your browser or on your Azure virtual machine. The Bastion service is agentless and does not require any additional software for RDP/SSH.
+You don't need to install an agent or any software on your browser or your Azure virtual machine. The Bastion service is agentless and does not require any additional software for RDP/SSH.
 
 ### <a name="browsers"></a>Which browsers are supported?
 
@@ -58,7 +61,7 @@ Azure Bastion currently supports en-us-qwerty keyboard layout inside the VM.  Su
 ### <a name="udr"></a>Is user-defined routing (UDR) supported on an Azure Bastion subnet?
 
 No. UDR is not supported on an Azure Bastion subnet.
-For scenarios that include both Azure Bastion and Azure Firewall/Network Virtual Appliance (NVA) in the same virtual network, you don’t need to force traffic from an Azure Bastion subnet to Azure Firewall because the communication between Azure Bastion and your VMs is private. For more details, see [Accessing VMs behind Azure Firewall with Bastion](https://azure.microsoft.com/blog/accessing-virtual-machines-behind-azure-firewall-with-azure-bastion/).
+For scenarios that include both Azure Bastion and Azure Firewall/Network Virtual Appliance (NVA) in the same virtual network, you don’t need to force traffic from an Azure Bastion subnet to Azure Firewall because the communication between Azure Bastion and your VMs is private. For more information, see [Accessing VMs behind Azure Firewall with Bastion](https://azure.microsoft.com/blog/accessing-virtual-machines-behind-azure-firewall-with-azure-bastion/).
 
 ### <a name="filetransfer"></a>Is file-transfer supported with Azure Bastion RDP session?
 

@@ -2,7 +2,7 @@
 title: Move operation support by resource type
 description: Lists the Azure resource types that can be moved to a new resource group or subscription.
 ms.topic: conceptual
-ms.date: 01/17/2020
+ms.date: 02/26/2020
 ---
 
 # Move operation support for resources
@@ -71,6 +71,7 @@ Jump to a resource provider namespace:
 > - [Microsoft.DevOps](#microsoftdevops)
 > - [Microsoft.DevSpaces](#microsoftdevspaces)
 > - [Microsoft.DevTestLab](#microsoftdevtestlab)
+> - [Microsoft.DigitalTwins](#microsoftdigitaltwins)
 > - [Microsoft.DocumentDB](#microsoftdocumentdb)
 > - [Microsoft.DomainRegistration](#microsoftdomainregistration)
 > - [Microsoft.EnterpriseKnowledgeGraph](#microsoftenterpriseknowledgegraph)
@@ -128,7 +129,6 @@ Jump to a resource provider namespace:
 > - [Microsoft.ResourceHealth](#microsoftresourcehealth)
 > - [Microsoft.Resources](#microsoftresources)
 > - [Microsoft.SaaS](#microsoftsaas)
-> - [Microsoft.Scheduler](#microsoftscheduler)
 > - [Microsoft.Search](#microsoftsearch)
 > - [Microsoft.Security](#microsoftsecurity)
 > - [Microsoft.SecurityInsights](#microsoftsecurityinsights)
@@ -155,6 +155,7 @@ Jump to a resource provider namespace:
 > - [Microsoft.TerraformOSS](#microsoftterraformoss)
 > - [Microsoft.TimeSeriesInsights](#microsofttimeseriesinsights)
 > - [Microsoft.Token](#microsofttoken)
+> - [microsoft.visualstudio](#microsoftvisualstudio)
 > - [Microsoft.VMwareCloudSimple](#microsoftvmwarecloudsimple)
 > - [Microsoft.VSOnline](#microsoftvsonline)
 > - [Microsoft.Web](#microsoftweb)
@@ -726,6 +727,13 @@ Jump to a resource provider namespace:
 > | labs / virtualmachines | Yes | No |
 > | schedules | Yes | Yes |
 
+## Microsoft.DigitalTwins
+
+> [!div class="mx-tableFixed"]
+> | Resource type | Resource group | Subscription |
+> | ------------- | ----------- | ---------- |
+> | digitaltwinsinstances | No | No |
+
 ## Microsoft.DocumentDB
 
 > [!div class="mx-tableFixed"]
@@ -840,7 +848,6 @@ Jump to a resource provider namespace:
 > | actiongroups | Yes | Yes |
 > | activitylogalerts | No | No |
 > | alertrules | Yes | Yes |
-> | automatedexportsettings | No | No |
 > | autoscalesettings | Yes | Yes |
 > | baseline | No | No |
 > | calculatebaseline | No | No |
@@ -857,6 +864,7 @@ Jump to a resource provider namespace:
 > | metricnamespaces | No | No |
 > | metrics | No | No |
 > | myworkbooks | No | No |
+> | privatelinkscopes | Yes | Yes |
 > | scheduledqueryrules | Yes | Yes |
 > | topology | No | No |
 > | transactions | No | No |
@@ -988,6 +996,7 @@ Jump to a resource provider namespace:
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | workspaces | No | No |
+> | workspaces / computes | No | No |
 
 ## Microsoft.ManagedIdentity
 
@@ -1072,8 +1081,10 @@ Jump to a resource provider namespace:
 > | dnszones | Yes | Yes |
 > | expressroutecircuits | No | No |
 > | expressroutegateways | No | No |
+> | firewallpolicies | Yes | Yes |
 > | frontdoors | No | No |
 > | frontdoorwebapplicationfirewallpolicies | No | No |
+> | ipgroups | Yes | Yes |
 > | loadbalancers | Yes - Basic SKU<br>No - Standard SKU | Yes - Basic SKU<br>No - Standard SKU |
 > | localnetworkgateways | Yes | Yes |
 > | networkexperimentprofiles | Yes | Yes |
@@ -1081,11 +1092,11 @@ Jump to a resource provider namespace:
 > | networkinterfaces | Yes | Yes |
 > | networkprofiles | No | No |
 > | networksecuritygroups | Yes | Yes |
-> | networkwatchers | Yes | Yes |
-> | networkwatchers / connectionmonitors | Yes | Yes |
-> | networkwatchers / flowlogs | Yes | Yes |
-> | networkwatchers / lenses | Yes | Yes |
-> | networkwatchers / pingmeshes | Yes | Yes |
+> | networkwatchers | Yes | No |
+> | networkwatchers / connectionmonitors | Yes | No |
+> | networkwatchers / flowlogs | Yes | No |
+> | networkwatchers / lenses | Yes | No |
+> | networkwatchers / pingmeshes | Yes | No |
 > | p2svpngateways | No | No |
 > | privatednszones | Yes | Yes |
 > | privatednszones / virtualnetworklinks | Yes | Yes |
@@ -1268,13 +1279,6 @@ Jump to a resource provider namespace:
 > | ------------- | ----------- | ---------- |
 > | applications | Yes | No |
 
-## Microsoft.Scheduler
-
-> [!div class="mx-tableFixed"]
-> | Resource type | Resource group | Subscription |
-> | ------------- | ----------- | ---------- |
-> | jobcollections | Yes | Yes |
-
 ## Microsoft.Search
 
 > [!div class="mx-tableFixed"]
@@ -1298,7 +1302,6 @@ Jump to a resource provider namespace:
 > | complianceresults | No | No |
 > | compliances | No | No |
 > | datacollectionagents | No | No |
-> | datacollectionresults | No | No |
 > | devicesecuritygroups | No | No |
 > | informationprotectionpolicies | No | No |
 > | iotsecuritysolutions | Yes | Yes |
@@ -1315,8 +1318,10 @@ Jump to a resource provider namespace:
 > | bookmarks | No | No |
 > | cases | No | No |
 > | dataconnectors | No | No |
+> | dataconnectorscheckrequirements | No | No |
 > | entities | No | No |
 > | entityqueries | No | No |
+> | incidents | No | No |
 > | officeconsents | No | No |
 > | settings | No | No |
 
@@ -1346,6 +1351,7 @@ Jump to a resource provider namespace:
 > | containergroups | No | No |
 > | containergroupsets | No | No |
 > | edgeclusters | No | No |
+> | managedclusters | No | No |
 > | networks | No | No |
 > | secretstores | No | No |
 > | volumes | No | No |
@@ -1402,6 +1408,8 @@ Jump to a resource provider namespace:
 > | servers | Yes | Yes |
 > | servers / databases | Yes | Yes |
 > | servers / elasticpools | Yes | Yes |
+> | servers / jobaccounts | Yes | Yes |
+> | servers / jobagents | Yes | Yes |
 > | virtualclusters | Yes | Yes |
 
 > [!IMPORTANT]
@@ -1490,7 +1498,6 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | createsupportticket | No | No |
 > | supporttickets | No | No |
 
 ## Microsoft.TerraformOSS
@@ -1516,6 +1523,18 @@ Jump to a resource provider namespace:
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | stores | Yes | Yes |
+
+## microsoft.visualstudio
+
+> [!div class="mx-tableFixed"]
+> | Resource type | Resource group | Subscription |
+> | ------------- | ----------- | ---------- |
+> | account | No | No |
+> | account / extension | Yes | Yes |
+> | account / project | Yes | Yes |
+
+> [!IMPORTANT]
+> To change the subscription for Azure DevOps, see [change the Azure subscription used for billing](/azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/toc.json).
 
 ## Microsoft.VMwareCloudSimple
 

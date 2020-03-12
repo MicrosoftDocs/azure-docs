@@ -13,7 +13,7 @@ ms.date: 10/10/2019
 ---
 # Select Columns Transform
 
-This article describes how to use the Select Columns Transform module in Azure Machine Learning designer. The purpose of the Select Columns Transform module is to ensure that a predictable, consistent set of columns is used in downstream machine learning operations.
+This article describes how to use the Select Columns Transform module in Azure Machine Learning designer (preview). The purpose of the Select Columns Transform module is to ensure that a predictable, consistent set of columns is used in downstream machine learning operations.
 
 This module is helpful for tasks such as scoring, which require specific columns. Changes in the available columns might break the pipeline or change the results.
 

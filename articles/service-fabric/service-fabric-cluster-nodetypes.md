@@ -8,7 +8,9 @@ ms.custom: sfrev
 ---
 # Azure Service Fabric node types and virtual machine scale sets
 
-[Virtual machine scale sets](/azure/virtual-machine-scale-sets) are an Azure compute resource. You can use scale sets to deploy and manage a collection of virtual machines as a set. Each node type that you define in an Azure Service Fabric cluster sets up a separate scale. The Service Fabric runtime is installed on each virtual machine in the scale set by the *Microsoft.Azure.ServiceFabric* Virtual Machine extension. You can independently scale each node type up or down, change the OS SKU running on each cluster node, have different sets of ports open, and use different capacity metrics.
+[Virtual machine scale sets](/azure/virtual-machine-scale-sets) are an Azure compute resource. You can use scale sets to deploy and manage a collection of virtual machines as a set. Each node type that you define in an Azure Service Fabric cluster sets up exactly one scale set: multiple node types cannot be backed by the same scale set and one node type should not (in most cases) be backed by multiple scale sets. An exception to this is in the rare situation of [vertical scaling](service-fabric-best-practices-capacity-scaling.md#vertical-scaling-considerations) a node type, when you temporarily have two scale sets with the same `nodeTypeRef` value while replicas are migrated from the original to the upgraded scale set.
+
+The Service Fabric runtime is installed on each virtual machine in the scale set by the *Microsoft.Azure.ServiceFabric* Virtual Machine extension. You can independently scale each node type up or down, change the OS SKU running on each cluster node, have different sets of ports open, and use different capacity metrics.
 
 The following figure shows a cluster that has two node types, named *FrontEnd* and *BackEnd*. Each node type has five nodes.
 
@@ -69,7 +71,7 @@ The following are the property descriptions:
 | name | string | Unique name for extension |
 | type | "ServiceFabricLinuxNode" or "ServiceFabricWindowsNode" | Identifies OS Service Fabric is bootstrapping to |
 | autoUpgradeMinorVersion | true or false | Enable Auto Upgrade of SF Runtime Minor Versions |
-| publisher | Microsoft.Azure.ServiceFabric | Name of the Service Fabric extention publisher |
+| publisher | Microsoft.Azure.ServiceFabric | Name of the Service Fabric extension publisher |
 | clusterEndpont | string | URI:PORT to Management endpoint |
 | nodeTypeRef | string | Name of nodeType |
 | durabilityLevel | bronze, silver, gold, platinum | Time allowed to pause immutable Azure Infrastructure |

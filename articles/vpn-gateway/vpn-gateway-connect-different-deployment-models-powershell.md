@@ -162,7 +162,7 @@ You can check the status of the gateway by using the **Get-AzureVNetGateway** cm
 
 ## <a name="creatermgw"></a>Section 2 - Configure the RM VNet gateway
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 
 The prerequisites assume that you already have created an RM VNet. In this step, you create a VPN gateway for the RM VNet. Don't start these steps until after you have retrieved the public IP address for the classic VNet's gateway. 
 

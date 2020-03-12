@@ -3,8 +3,8 @@ title: "Tutorial: Migrate RDS SQL Server online to SQL Database"
 titleSuffix: Azure Database Migration Service
 description: Learn to perform an online migration from RDS SQL Server to Azure SQL Database single database or managed instance by using the Azure Database Migration Service.
 services: dms
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms

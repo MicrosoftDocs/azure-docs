@@ -2,7 +2,7 @@
 title: Configure Azure Red Hat OpenShift clusters with Azure Monitor for containers | Microsoft Docs
 description: This article describes how to configure monitoring of a Kubernetes cluster with Azure Monitor hosted on Azure Red Hat OpenShift.
 ms.topic: conceptual
-ms.date: 01/13/2020
+ms.date: 02/12/2020
 ---
 
 # Configure Azure Red Hat OpenShift clusters with Azure Monitor for containers
@@ -15,8 +15,8 @@ Azure Monitor for containers provides rich monitoring experience for the Azure K
 
 Azure Monitor for containers can be enabled for new, or one or more existing deployments of Azure Red Hat OpenShift using the following supported methods:
 
-- For an existing cluster from the Azure portal or using Azure Resource Manager template
-- For a new cluster using Azure Resource Manager template
+- For an existing cluster from the Azure portal or using Azure Resource Manager template.
+- For a new cluster using Azure Resource Manager template, or while creating a new cluster using the [Azure CLI](https://docs.microsoft.com/cli/azure/openshift?view=azure-cli-latest#az-openshift-create).
 
 ## Supported and unsupported features
 
@@ -108,7 +108,7 @@ The Log Analytics workspace has to be created before you enable monitoring using
 
     The output resembles the following:
 
-    ```azurecli
+    ```output
     provisioningState       : Succeeded
     ```
 
@@ -192,7 +192,7 @@ The Log Analytics workspace has to be created before you enable monitoring using
 
     The output resembles the following:
 
-    ```azurecli
+    ```output
     provisioningState       : Succeeded
     ```
 

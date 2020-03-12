@@ -2,7 +2,7 @@
 title: Assessments in Azure Migrate 
 description: Learn about assessments in Azure Migrate.
 ms.topic: conceptual
-ms.date: 01/06/2020
+ms.date: 02/17/2020
 ---
 
 # About assessments in Azure Migrate
@@ -10,7 +10,7 @@ ms.date: 01/06/2020
 This article describes how assessments are calculated in [Azure Migrate: Server Assessment](migrate-services-overview.md#azure-migrate-server-assessment-tool). You run assessments on groups of on-premises machines, to figure out whether they're ready for migration to Azure Migrate.
 
 ## How do I run an assessment?
-You can run an assessment using Azure Migrate: Server Assessment, or another Azure or third-party tool. After creating an Azure Migrate project, you add the tool you need. [Learn more](how-to-add-tool-first-time.md
+You can run an assessment using Azure Migrate: Server Assessment, or another Azure or third-party tool. After creating an Azure Migrate project, you add the tool you need. [Learn more](how-to-add-tool-first-time.md)
 
 ### Collect compute data
 
@@ -144,7 +144,7 @@ Windows Client 7, 8 and 10 | Azure provides support with [Visual Studio subscrip
 Windows 10 Pro Desktop | Azure provides support with [Multitenant Hosting Rights.](https://docs.microsoft.com/azure/virtual-machines/windows/windows-desktop-multitenant-hosting-deployment) | Conditionally ready for Azure
 Windows Vista, XP Professional | These operating systems have passed their end-of-support date. The machine might start in Azure, but Azure provides no OS support. | Conditionally ready for Azure. We recommend that you upgrade the OS before migrating to Azure.
 Linux | Azure endorses these [Linux operating systems](../virtual-machines/linux/endorsed-distros.md). Other Linux operating systems might start in Azure, but we recommend that you upgrade the OS to an endorsed version before migrating to Azure. | Ready for Azure if the version is endorsed.<br/><br/>Conditionally ready if the version is not endorsed.
-Other operating systems<br/><br/> For example,  Oracle Solaris, Apple Mac OS etc., FreeBSD, etc. | Azure doesn't endorse these operating systems. The machine might start in Azure, but Azure provides no OS support. | Conditionally ready for Azure. We recommend that you install a supported OS before migrating to Azure.  
+Other operating systems<br/><br/> For example,  Oracle Solaris, Apple macOS etc., FreeBSD, etc. | Azure doesn't endorse these operating systems. The machine might start in Azure, but Azure provides no OS support. | Conditionally ready for Azure. We recommend that you install a supported OS before migrating to Azure.  
 OS specified as **Other** in vCenter Server | Azure Migrate cannot identify the OS in this case. | Unknown readiness. Ensure that the OS running inside the VM is supported in Azure.
 32-bit operating systems | The machine might start in Azure, but Azure might not provide full support. | Conditionally ready for Azure. Consider upgrading the OS of the machine from 32-bit OS to 64-bit OS before migrating to Azure.
 

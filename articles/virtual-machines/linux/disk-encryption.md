@@ -2,7 +2,6 @@
 title: Server-side encryption of Azure Managed Disks - Azure CLI
 description: Azure Storage protects your data by encrypting it at rest before persisting it to Storage clusters. You can rely on Microsoft-managed keys for the encryption of your managed disks, or you can use customer-managed keys to manage encryption with your own keys.
 author: roygara
-
 ms.date: 01/13/2020
 ms.topic: conceptual
 ms.author: rogarana
@@ -34,7 +33,7 @@ You can choose to manage encryption at the level of each managed disk, with your
 
 The following diagram shows how managed disks use Azure Active Directory and Azure Key Vault to make requests using the customer-managed key:
 
-![Managed disks customer-managed keys workflow](media/disk-storage-encryption/customer-managed-keys-sse-managed-disks-workflow.png)
+![Managed disk and customer-managed keys workflow. An admin creates an Azure Key Vault, then creates a disk encryption set, and sets up the disk encryption set. The Set is associated to a VM which allows the disk to make use of Azure AD to authenticate](media/disk-storage-encryption/customer-managed-keys-sse-managed-disks-workflow.png)
 
 
 The following list explains the diagram in even more detail:
@@ -68,6 +67,7 @@ For now, customer-managed keys have the following restrictions:
 - All resources related to your customer-managed keys (Azure Key Vaults, disk encryption sets, VMs, disks, and snapshots) must be in the same subscription and region.
 - Disks, snapshots, and images encrypted with customer-managed keys cannot move to another subscription.
 - If you use the Azure portal to create your disk encryption set, you cannot use snapshots for now.
+- Managed disks encrypted using customer-managed keys cannot also be encrypted with Azure Disk Encryption.
 
 ### CLI
 #### Setting up your Azure Key Vault and DiskEncryptionSet
@@ -132,15 +132,28 @@ diskEncryptionSetId=$(az disk-encryption-set show -n $diskEncryptionSetName -g $
 az vm create -g $rgName -n $vmName -l $location --image $image --size $vmSize --generate-ssh-keys --os-disk-encryption-set $diskEncryptionSetId --data-disk-sizes-gb 128 128 --data-disk-encryption-sets $diskEncryptionSetId $diskEncryptionSetId
 ```
 
+
+#### Encrypt existing unattached managed disks 
+
+Your existing disks must not be attached to a running VM in order for you to encrypt them using the following script:
+
+```azurecli
+rgName=yourResourceGroupName
+diskName=yourDiskName
+diskEncryptionSetName=yourDiskEncryptionSetName
+ 
+az disk update -n $diskName -g $rgName --encryption-type EncryptionAtRestWithCustomerKey --disk-encryption-set $diskEncryptionSetId
+```
+
 #### Create a virtual machine scale set using a Marketplace image, encrypting the OS and data disks with customer-managed keys
 
 ```azurecli
-rgName=ssecmktesting
-vmssName=ssecmktestvmss5
+rgName=yourResourceGroupName
+vmssName=yourVMSSName
 location=WestCentralUS
 vmSize=Standard_DS3_V2
 image=UbuntuLTS 
-diskEncryptionSetName=diskencryptionset786
+diskEncryptionSetName=yourDiskencryptionSetName
 
 diskEncryptionSetId=$(az disk-encryption-set show -n $diskEncryptionSetName -g $rgName --query [id] -o tsv)
 az vmss create -g $rgName -n $vmssName --image UbuntuLTS --upgrade-policy automatic --admin-username azureuser --generate-ssh-keys --os-disk-encryption-set $diskEncryptionSetId --data-disk-sizes-gb 64 128 --data-disk-encryption-sets $diskEncryptionSetId $diskEncryptionSetId

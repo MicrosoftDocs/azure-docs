@@ -2,7 +2,7 @@
 title: Outputs in templates
 description: Describes how to define output values in an Azure Resource Manager template. 
 ms.topic: conceptual
-ms.date: 09/05/2019
+ms.date: 02/25/2020
 ---
 # Outputs in Azure Resource Manager template
 
@@ -36,6 +36,24 @@ In the outputs section, you can conditionally return a value. Typically, you use
 ```
 
 For a simple example of conditional output, see [conditional output template](https://github.com/bmoore-msft/AzureRM-Samples/blob/master/conditional-output/azuredeploy.json).
+
+## Dynamic number of outputs
+
+In some scenarios, you don't know the number of instances of a value you need to return when creating the template. You can return a variable number of values by using the **copy** element.
+
+```json
+"outputs": {
+  "storageEndpoints": {
+    "type": "array",
+    "copy": {
+      "count": "[parameters('storageCount')]",
+      "input": "[reference(concat(copyIndex(), variables('baseName'))).primaryEndpoints.blob]"
+    }
+  }
+}
+```
+
+For more information, see [Outputs iteration in Azure Resource Manager templates](copy-outputs.md).
 
 ## Linked templates
 

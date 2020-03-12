@@ -16,6 +16,8 @@
     href: azure-resource-manager-security-controls.md
   - name: Resource providers by service
     href: azure-services-resource-providers.md
+  - name: Extension resource types
+    href: extension-resource-types.md
   - name: Resource instance limit
     href: resources-without-resource-group-limit.md
 - name: How to
@@ -68,44 +70,44 @@
       href: tag-resources.md
     - name: Tag support
       href: tag-support.md
-  - name: Manage
+  - name: Manage resource groups
     items:
-    - name: Manage resource groups
-      items:
-      - name: Use the Azure portal
-        displayName: create,list,open,delete,deploy,move,lock,tag,export
-        href: manage-resource-groups-portal.md
-      - name: Use the Azure CLI
-        displayName: create,list,open,delete,deploy,move,lock,tag,export
-        href: manage-resource-groups-cli.md
-      - name: Use Azure PowerShell
-        displayName: create,list,open,delete,deploy,move,lock,tag,export
-        href: manage-resource-groups-powershell.md
-    - name: Manage resources
-      items:
-      - name: Use the Azure portal
-        displayName: open,delete,deploy,move,lock,tag,monitor
-        href: manage-resources-portal.md
-      - name: Use the Azure CLI
-        displayName: open,delete,deploy,move,lock,tag
-        href: manage-resources-cli.md
-      - name: Use Azure PowerShell
-        displayName: open,delete,deploy,move,lock,tag
-        href: manage-resources-powershell.md
-    - name: Delete resource groups and resources
-      href: delete-resource-group.md
-    - name: Lock resources
-      href: lock-resources.md
-    - name: Create EA subscriptions
+    - name: Azure portal
+      displayName: create,list,open,delete,deploy,move,lock,tag,export
+      href: manage-resource-groups-portal.md
+    - name: Azure CLI
+      displayName: create,list,open,delete,deploy,move,lock,tag,export
+      href: manage-resource-groups-cli.md
+    - name: Azure PowerShell
+      displayName: create,list,open,delete,deploy,move,lock,tag,export
+      href: manage-resource-groups-powershell.md
+  - name: Manage resources
+    items:
+    - name: Azure portal
+      displayName: open,delete,deploy,move,lock,tag,monitor
+      href: manage-resources-portal.md
+    - name: Azure CLI
+      displayName: open,delete,deploy,move,lock,tag
+      href: manage-resources-cli.md
+    - name: Azure PowerShell
+      displayName: open,delete,deploy,move,lock,tag
+      href: manage-resources-powershell.md
+  - name: EA subscriptions
+    items:
+    - name: Create
       href: programmatically-create-subscription.md
-    - name: Grant access to create EA subscriptions
+    - name: Grant access to create
       href: grant-access-to-create-subscription.md
-    - name: Authenticate across tenants
-      href: authenticate-multi-tenant.md
-  - name: View activity logs
-    href: view-activity-logs.md
   - name: Resource providers and types
     href: resource-providers-and-types.md
+  - name: Delete resource groups and resources
+    href: delete-resource-group.md
+  - name: Lock resources
+    href: lock-resources.md
+  - name: Authenticate across tenants
+    href: authenticate-multi-tenant.md
+  - name: View activity logs
+    href: view-activity-logs.md
   - name: Throttling requests
     href: request-limits-and-throttling.md
   - name: Track asynchronous operations

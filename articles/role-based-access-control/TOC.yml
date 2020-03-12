@@ -40,8 +40,6 @@
       href: role-definitions.md
     - name: List role definitions
       href: role-definitions-list.md
-    - name: Built-in roles
-      href: built-in-roles.md
   - name: List role assignments
     items:
     - name: Portal
@@ -80,6 +78,8 @@
     items:
     - name: Overview
       href: custom-roles.md
+    - name: Portal
+      href: custom-roles-portal.md
     - name: PowerShell
       href: custom-roles-powershell.md
     - name: Azure CLI
@@ -96,6 +96,8 @@
     href: troubleshooting.md
 - name: Reference
   items:
+  - name: Built-in roles
+    href: built-in-roles.md
   - name: Resource provider operations
     href: resource-provider-operations.md
   - name: RBAC limits

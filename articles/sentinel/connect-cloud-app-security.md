@@ -3,7 +3,7 @@ title: Connect Cloud App Security data to Azure Sentinel| Microsoft Docs
 description: Learn how to connect Cloud App Security data to Azure Sentinel.
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: rkarlin
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/23/2019
-ms.author: rkarlin
+ms.author: yelevin
 
 ---
 # Connect data from Microsoft Cloud App Security 

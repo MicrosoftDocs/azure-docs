@@ -14,7 +14,6 @@ ms.topic: conceptual
 ms.date: 07/15/2019
 ms.author: ryanwi
 
-ms.collection: M365-identity-device-management
 ---
 
 # How to select permissions for a given API 

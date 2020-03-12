@@ -32,7 +32,7 @@ Each tier also provides a specific subset of App Service features. These feature
 <a name="new-pricing-tier-premiumv2"></a>
 
 > [!NOTE]
-> The new **PremiumV2** pricing tier provides [Dv2-series VMs](../virtual-machines/windows/sizes-general.md#dv2-series) with faster processors, SSD storage, and double memory-to-core ratio compared to **Standard** tier. **PremiumV2** also supports higher scale via increased instance count while still providing all the advanced capabilities found in the Standard plan. All features available in the existing **Premium** tier are included in **PremiumV2**.
+> The new **PremiumV2** pricing tier provides [Dv2-series VMs](../virtual-machines/dv2-dsv2-series.md) with faster processors, SSD storage, and double memory-to-core ratio compared to **Standard** tier. **PremiumV2** also supports higher scale via increased instance count while still providing all the advanced capabilities found in the Standard plan. All features available in the existing **Premium** tier are included in **PremiumV2**.
 >
 > Similar to other dedicated tiers, three VM sizes are available for this tier:
 >

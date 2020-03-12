@@ -1,7 +1,7 @@
 ---
 title: Manage DNS records in Azure DNS using the Azure CLI
 description: Managing DNS record sets and records on Azure DNS when hosting your domain on Azure DNS.
-author: asudbring
+author: rohinkoul
 
 ms.assetid: 5356a3a5-8dec-44ac-9709-0c2b707f6cb5
 ms.service: dns
@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 05/15/2018
-ms.author: allensu
+ms.author: rohink
 ---
 
 # Manage DNS records and recordsets in Azure DNS using the Azure CLI
