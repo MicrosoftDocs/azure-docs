@@ -43,36 +43,6 @@ To force the request to be handled by a specific Azure geography, change the Glo
 |Azure|Europe|	api-eur.cognitive.microsofttranslator.com|
 |Azure|Asia Pacific|	api-apc.cognitive.microsofttranslator.com|
 
-Here's an example request to call the Translator API using the global translator resource
-
-```curl
-// Pass secret key using headers
-curl -X POST "https://api.cognitive.microsoft.com/translate?api-version=3.0&to=es" \
-     -H "Ocp-Apim-Subscription-Key:<your-key>" \
-     -H "Content-Type: application/json" \
-     -d ""
-```
-
-## Regional translator resource
-You can now create [regional-based translator resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation).
-There are 2 headers that you need to call the translator API
-
-|Headers|Description|
-|:-----|:----|
-|Ocp-Apim-Subscription-Key| The value is the Azure secret key for your subscription to Translator Text API.|
-|Ocp-Apim-Subscription-Region| The value is the region of the translator resource. |
-
-Here's an example request to call the Translator API using the regional translator resource
-
-```curl
-// Pass secret key and region using headers
-curl -X POST "https://api.cognitive.microsoft.com/translate?api-version=3.0&to=es" \
-     -H "Ocp-Apim-Subscription-Key:<your-key>" \
-     -H "Ocp-Apim-Subscription-Region:<your-region>" \
-     -H "Content-Type: application/json" \
-     -d ""
-```
-
 ## Authentication
 
 Subscribe to Translator Text API or [Cognitive Services multi-service](https://azure.microsoft.com/pricing/details/cognitive-services/) in Azure Cognitive Services, and use your subscription key (available in the Azure portal) to authenticate. 
@@ -113,7 +83,46 @@ Authorization: Bearer <Base64-access_token>
 
 An authentication token is valid for 10 minutes. The token should be reused when making multiple calls to the Translator APIs. However, if your program makes requests to the Translator API over an extended period of time, then your program must request a new access token at regular intervals (for example, every 8 minutes).
 
-### Multi-service subscription
+### Authentication with a global resource
+
+When you create a [global translator resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation), you need to include one header to call the translator API.
+
+|Headers|Description|
+|:-----|:----|
+|Ocp-Apim-Subscription-Key| The value is the Azure secret key for your subscription to Translator Text API.|
+
+Here's an example request to call the Translator API using the global translator resource
+
+```curl
+// Pass secret key using headers
+curl -X POST "https://api.cognitive.microsoft.com/translate?api-version=3.0&to=es" \
+     -H "Ocp-Apim-Subscription-Key:<your-key>" \
+     -H "Content-Type: application/json" \
+     -d "[{'Text':'Hello, what is your name?'}]"
+```
+
+### Authentication with a regional resource
+
+You can also create [regional translator resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation).
+There are 2 headers that you need to call the translator API.
+
+|Headers|Description|
+|:-----|:----|
+|Ocp-Apim-Subscription-Key| The value is the Azure secret key for your subscription to Translator Text API.|
+|Ocp-Apim-Subscription-Region| The value is the region of the translator resource. |
+
+Here's an example request to call the Translator API using the regional translator resource
+
+```curl
+// Pass secret key and region using headers
+curl -X POST "https://api.cognitive.microsoft.com/translate?api-version=3.0&to=es" \
+     -H "Ocp-Apim-Subscription-Key:<your-key>" \
+     -H "Ocp-Apim-Subscription-Region:<your-region>" \
+     -H "Content-Type: application/json" \
+     -d "[{'Text':'Hello, what is your name?'}]"
+```
+
+### Authentication with a Multi-service resource
 
 The last authentication option is to use a Cognitive Service’s multi-service subscription. This allows you to use a single secret key to authenticate requests for multiple services. 
 
@@ -131,9 +140,9 @@ If you use a bearer token, you must obtain the token from the region endpoint: `
 
 ## Virtual Network support
 
-Translator service is now available with Virtual Network capabilities in limited regions (`WestUS`, `WestUS2`, `EastUS`,`SouthCentralUS`, `global`). To enable Virtual Network, please see [Configuring Azure Cognitive Services Virtual Networks](https://docs.microsoft.com/en-us/azure/cognitive-services/cognitive-services-virtual-networks?tabs=portal). 
+Translator service is now available with Virtual Network capabilities in limited regions (`WestUS`, `WestUS2`, `EastUS`, `SouthCentralUS`, `global`). To enable Virtual Network, please see [Configuring Azure Cognitive Services Virtual Networks](https://docs.microsoft.com/en-us/azure/cognitive-services/cognitive-services-virtual-networks?tabs=portal). 
 
-With this capability, you can only use the custom endpoint to call the Translator API. You cannot use the global translator endpoint ("api.cognitive.microsofttranslator.com") and you cannot use [Authorization Token](#-authorization-token).
+Once you turn on this capability, you must use the custom endpoint to call the Translator API. You cannot use the global translator endpoint ("api.cognitive.microsofttranslator.com") and you cannot use [Authorization Token](#-authorization-token).
 
 You can find the custom endpoint once you create the [translator resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation).
 
@@ -150,7 +159,7 @@ curl -X POST "https://<your-custom-domain>.cognitiveservices.azure.com/translato
      -H "Ocp-Apim-Subscription-Key:<your-key>" \
      -H "Ocp-Apim-Subscription-Region:<your-region>" \
      -H "Content-Type: application/json" \
-     -d ""
+     -d "[{'Text':'Hello, what is your name?'}]"
 ```
 
 ## Errors
