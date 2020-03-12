@@ -12,7 +12,7 @@ ms.devlang:
 ms.topic: reference
 ms.tgt_pltfrm:
 ms.workload: identity
-ms.date: 02/18/2020
+ms.date: 03/12/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 
@@ -73,14 +73,14 @@ The following table provides a brief description and the unique ID of each built
 > | [Blockchain Member Node Access (Preview)](#blockchain-member-node-access-preview) | Allows for access to Blockchain Member nodes | 31a002a1-acaf-453e-8a5b-297c9ca1ea24 |
 > | [Blueprint Contributor](#blueprint-contributor) | Can manage blueprint definitions, but not assign them. | 41077137-e803-4205-871c-5a86e6a753b4 |
 > | [Blueprint Operator](#blueprint-operator) | Can assign existing published blueprints, but cannot create new blueprints. NOTE: this only works if the assignment is done with a user-assigned managed identity. | 437d2ced-4a38-4302-8479-ed2bcb43d090 |
-> | [CDN Endpoint Contributor](#cdn-endpoint-contributor) | Can manage CDN endpoints, but can’t grant access to other users. | 426e0c7f-0c7e-4658-b36f-ff54d6c29b45 |
-> | [CDN Endpoint Reader](#cdn-endpoint-reader) | Can view CDN endpoints, but can’t make changes. | 871e35f6-b5c1-49cc-a043-bde969a0f2cd |
-> | [CDN Profile Contributor](#cdn-profile-contributor) | Can manage CDN profiles and their endpoints, but can’t grant access to other users. | ec156ff8-a8d1-4d15-830c-5b80698ca432 |
-> | [CDN Profile Reader](#cdn-profile-reader) | Can view CDN profiles and their endpoints, but can’t make changes. | 8f96442b-4075-438f-813d-ad51ab4019af |
+> | [CDN Endpoint Contributor](#cdn-endpoint-contributor) | Can manage CDN endpoints, but can't grant access to other users. | 426e0c7f-0c7e-4658-b36f-ff54d6c29b45 |
+> | [CDN Endpoint Reader](#cdn-endpoint-reader) | Can view CDN endpoints, but can't make changes. | 871e35f6-b5c1-49cc-a043-bde969a0f2cd |
+> | [CDN Profile Contributor](#cdn-profile-contributor) | Can manage CDN profiles and their endpoints, but can't grant access to other users. | ec156ff8-a8d1-4d15-830c-5b80698ca432 |
+> | [CDN Profile Reader](#cdn-profile-reader) | Can view CDN profiles and their endpoints, but can't make changes. | 8f96442b-4075-438f-813d-ad51ab4019af |
 > | [Classic Network Contributor](#classic-network-contributor) | Lets you manage classic networks, but not access to them. | b34d265f-36f7-4a0d-a4d4-e158ca92e90f |
 > | [Classic Storage Account Contributor](#classic-storage-account-contributor) | Lets you manage classic storage accounts, but not access to them. | 86e8f5dc-a6e9-4c67-9d15-de283e8eac25 |
 > | [Classic Storage Account Key Operator Service Role](#classic-storage-account-key-operator-service-role) | Classic Storage Account Key Operators are allowed to list and regenerate keys on Classic Storage Accounts | 985d6b00-f706-48f5-a6fe-d0ca12fb668d |
-> | [Classic Virtual Machine Contributor](#classic-virtual-machine-contributor) | Lets you manage classic virtual machines, but not access to them, and not the virtual network or storage account they’re connected to. | d73bb868-a0df-4d4d-bd69-98a00b01fccb |
+> | [Classic Virtual Machine Contributor](#classic-virtual-machine-contributor) | Lets you manage classic virtual machines, but not access to them, and not the virtual network or storage account they're connected to. | d73bb868-a0df-4d4d-bd69-98a00b01fccb |
 > | [Cognitive Services Contributor](#cognitive-services-contributor) | Lets you create, read, update, delete and manage keys of Cognitive Services. | 25fbc0a9-bd7c-42a3-aa1a-3b75d497ee68 |
 > | [Cognitive Services Data Reader (Preview)](#cognitive-services-data-reader-preview) | Lets you read Cognitive Services data. | b59867f0-fa02-499b-be73-45a86b5b3e1c |
 > | [Cognitive Services User](#cognitive-services-user) | Lets you read and list keys of Cognitive Services. | a97b65f3-24c7-4388-baec-2e87135dc908 |
@@ -141,7 +141,7 @@ The following table provides a brief description and the unique ID of each built
 > | [Spatial Anchors Account Owner](#spatial-anchors-account-owner) | Lets you manage spatial anchors in your account, including deleting them | 70bbe301-9835-447d-afdd-19eb3167307c |
 > | [Spatial Anchors Account Reader](#spatial-anchors-account-reader) | Lets you locate and read properties of spatial anchors in your account | 5d51204f-eb77-4b1c-b86a-2ec626c49413 |
 > | [SQL DB Contributor](#sql-db-contributor) | Lets you manage SQL databases, but not access to them. Also, you can't manage their security-related policies or their parent SQL servers. | 9b7fa17d-e63e-47b0-bb0a-15c516ac86ec |
-> | [SQL Managed Instance Contributor](#sql-managed-instance-contributor) | Lets you manage SQL Managed Instances and required network configuration, but can’t give access to others. | 4939a1f6-9ae0-4e48-a1e0-f2cbe897382d |
+> | [SQL Managed Instance Contributor](#sql-managed-instance-contributor) | Lets you manage SQL Managed Instances and required network configuration, but can't give access to others. | 4939a1f6-9ae0-4e48-a1e0-f2cbe897382d |
 > | [SQL Security Manager](#sql-security-manager) | Lets you manage the security-related policies of SQL servers and databases, but not access to them. | 056cd41c-7e88-42e1-933e-88ba6a50c9c3 |
 > | [SQL Server Contributor](#sql-server-contributor) | Lets you manage SQL servers and databases, but not access to them, and not their security -related policies. | 6d8ee4ec-f05a-4a1d-8b00-a9b17e38b437 |
 > | [Storage Account Contributor](#storage-account-contributor) | Permits management of storage accounts. Provides access to the account key, which can be used to access data via Shared Key authorization. | 17d1049b-9a84-46fb-8f53-869881c3d3ab |
@@ -1020,7 +1020,7 @@ Allows for access to Blockchain Member nodes
 
 ### Classic Virtual Machine Contributor
 
-Lets you manage classic virtual machines, but not access to them, and not the virtual network or storage account they’re connected to.
+Lets you manage classic virtual machines, but not access to them, and not the virtual network or storage account they're connected to.
 
 > [!div class="mx-tableFixed"]
 > |  |  |
@@ -1055,7 +1055,7 @@ Lets you manage classic virtual machines, but not access to them, and not the vi
   "assignableScopes": [
     "/"
   ],
-  "description": "Lets you manage classic virtual machines, but not access to them, and not the virtual network or storage account they’re connected to.",
+  "description": "Lets you manage classic virtual machines, but not access to them, and not the virtual network or storage account they're connected to.",
   "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/d73bb868-a0df-4d4d-bd69-98a00b01fccb",
   "name": "d73bb868-a0df-4d4d-bd69-98a00b01fccb",
   "permissions": [
@@ -2016,7 +2016,7 @@ Lets you manage SQL databases, but not access to them. Also, you can't manage th
 
 ### SQL Managed Instance Contributor
 
-Lets you manage SQL Managed Instances and required network configuration, but can’t give access to others.
+Lets you manage SQL Managed Instances and required network configuration, but can't give access to others.
 
 > [!div class="mx-tableFixed"]
 > |  |  |
@@ -2048,7 +2048,7 @@ Lets you manage SQL Managed Instances and required network configuration, but ca
   "assignableScopes": [
     "/"
   ],
-  "description": "Lets you manage SQL Managed Instances and required network configuration, but can’t give access to others.",
+  "description": "Lets you manage SQL Managed Instances and required network configuration, but can't give access to others.",
   "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/4939a1f6-9ae0-4e48-a1e0-f2cbe897382d",
   "name": "4939a1f6-9ae0-4e48-a1e0-f2cbe897382d",
   "permissions": [
@@ -3849,10 +3849,7 @@ Can manage blueprint definitions, but not assign them.
 
 ### Blueprint Operator
 
-Can assign existing published blueprints, but cannot create new blueprints. 
-
-> [!NOTE] 
-> This works only if the assignment is done with a user-assigned managed identity.
+Can assign existing published blueprints, but cannot create new blueprints. NOTE: this only works if the assignment is done with a user-assigned managed identity.
 
 > [!div class="mx-tableFixed"]
 > |  |  |
@@ -4312,6 +4309,8 @@ Can read all monitoring data and edit monitoring settings. See also [Get started
 > | Microsoft.WorkloadMonitor/monitors/* |  |
 > | Microsoft.WorkloadMonitor/notificationSettings/* |  |
 > | Microsoft.AlertsManagement/smartDetectorAlertRules/* |  |
+> | Microsoft.AlertsManagement/actionRules/* |  |
+> | Microsoft.AlertsManagement/smartGroups/* |  |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -4355,7 +4354,9 @@ Can read all monitoring data and edit monitoring settings. See also [Get started
         "Microsoft.Support/*",
         "Microsoft.WorkloadMonitor/monitors/*",
         "Microsoft.WorkloadMonitor/notificationSettings/*",
-        "Microsoft.AlertsManagement/smartDetectorAlertRules/*"
+        "Microsoft.AlertsManagement/smartDetectorAlertRules/*",
+        "Microsoft.AlertsManagement/actionRules/*",
+        "Microsoft.AlertsManagement/smartGroups/*"
       ],
       "notActions": [],
       "dataActions": [],
@@ -5292,7 +5293,7 @@ Lets you locate and read properties of spatial anchors in your account
 
 ### CDN Endpoint Contributor
 
-Can manage CDN endpoints, but can’t grant access to other users.
+Can manage CDN endpoints, but can't grant access to other users.
 
 > [!div class="mx-tableFixed"]
 > |  |  |
@@ -5318,7 +5319,7 @@ Can manage CDN endpoints, but can’t grant access to other users.
   "assignableScopes": [
     "/"
   ],
-  "description": "Can manage CDN endpoints, but can’t grant access to other users.",
+  "description": "Can manage CDN endpoints, but can't grant access to other users.",
   "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/426e0c7f-0c7e-4658-b36f-ff54d6c29b45",
   "name": "426e0c7f-0c7e-4658-b36f-ff54d6c29b45",
   "permissions": [
@@ -5346,7 +5347,7 @@ Can manage CDN endpoints, but can’t grant access to other users.
 
 ### CDN Endpoint Reader
 
-Can view CDN endpoints, but can’t make changes.
+Can view CDN endpoints, but can't make changes.
 
 > [!div class="mx-tableFixed"]
 > |  |  |
@@ -5372,7 +5373,7 @@ Can view CDN endpoints, but can’t make changes.
   "assignableScopes": [
     "/"
   ],
-  "description": "Can view CDN endpoints, but can’t make changes.",
+  "description": "Can view CDN endpoints, but can't make changes.",
   "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/871e35f6-b5c1-49cc-a043-bde969a0f2cd",
   "name": "871e35f6-b5c1-49cc-a043-bde969a0f2cd",
   "permissions": [
@@ -5400,7 +5401,7 @@ Can view CDN endpoints, but can’t make changes.
 
 ### CDN Profile Contributor
 
-Can manage CDN profiles and their endpoints, but can’t grant access to other users.
+Can manage CDN profiles and their endpoints, but can't grant access to other users.
 
 > [!div class="mx-tableFixed"]
 > |  |  |
@@ -5426,7 +5427,7 @@ Can manage CDN profiles and their endpoints, but can’t grant access to other u
   "assignableScopes": [
     "/"
   ],
-  "description": "Can manage CDN profiles and their endpoints, but can’t grant access to other users.",
+  "description": "Can manage CDN profiles and their endpoints, but can't grant access to other users.",
   "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/ec156ff8-a8d1-4d15-830c-5b80698ca432",
   "name": "ec156ff8-a8d1-4d15-830c-5b80698ca432",
   "permissions": [
@@ -5454,7 +5455,7 @@ Can manage CDN profiles and their endpoints, but can’t grant access to other u
 
 ### CDN Profile Reader
 
-Can view CDN profiles and their endpoints, but can’t make changes.
+Can view CDN profiles and their endpoints, but can't make changes.
 
 > [!div class="mx-tableFixed"]
 > |  |  |
@@ -5480,7 +5481,7 @@ Can view CDN profiles and their endpoints, but can’t make changes.
   "assignableScopes": [
     "/"
   ],
-  "description": "Can view CDN profiles and their endpoints, but can’t make changes.",
+  "description": "Can view CDN profiles and their endpoints, but can't make changes.",
   "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/8f96442b-4075-438f-813d-ad51ab4019af",
   "name": "8f96442b-4075-438f-813d-ad51ab4019af",
   "permissions": [
@@ -5727,7 +5728,7 @@ Azure Sentinel Contributor
 > | **Actions** |  |
 > | Microsoft.SecurityInsights/* |  |
 > | Microsoft.OperationalInsights/workspaces/analytics/query/action | Search using new engine. |
-> | Microsoft.OperationalInsights/workspaces/read | Gets an existing workspace |
+> | Microsoft.OperationalInsights/workspaces/*/read | View log analytics data |
 > | Microsoft.OperationalInsights/workspaces/savedSearches/* |  |
 > | Microsoft.OperationsManagement/solutions/read | Get exiting OMS solution |
 > | Microsoft.OperationalInsights/workspaces/query/read | Run queries over the data in the workspace |
@@ -5759,7 +5760,7 @@ Azure Sentinel Contributor
       "actions": [
         "Microsoft.SecurityInsights/*",
         "Microsoft.OperationalInsights/workspaces/analytics/query/action",
-        "Microsoft.OperationalInsights/workspaces/read",
+        "Microsoft.OperationalInsights/workspaces/*/read",
         "Microsoft.OperationalInsights/workspaces/savedSearches/*",
         "Microsoft.OperationsManagement/solutions/read",
         "Microsoft.OperationalInsights/workspaces/query/read",
@@ -5793,7 +5794,8 @@ Azure Sentinel Reader
 > | **Actions** |  |
 > | Microsoft.SecurityInsights/*/read |  |
 > | Microsoft.OperationalInsights/workspaces/analytics/query/action | Search using new engine. |
-> | Microsoft.OperationalInsights/workspaces/read | Gets an existing workspace |
+> | Microsoft.OperationalInsights/workspaces/*/read | View log analytics data |
+> | Microsoft.OperationalInsights/workspaces/LinkedServices/read | Get linked services under given workspace. |
 > | Microsoft.OperationalInsights/workspaces/savedSearches/read | Gets a saved search query |
 > | Microsoft.OperationsManagement/solutions/read | Get exiting OMS solution |
 > | Microsoft.OperationalInsights/workspaces/query/read | Run queries over the data in the workspace |
@@ -5825,7 +5827,8 @@ Azure Sentinel Reader
       "actions": [
         "Microsoft.SecurityInsights/*/read",
         "Microsoft.OperationalInsights/workspaces/analytics/query/action",
-        "Microsoft.OperationalInsights/workspaces/read",
+        "Microsoft.OperationalInsights/workspaces/*/read",
+        "Microsoft.OperationalInsights/workspaces/LinkedServices/read",
         "Microsoft.OperationalInsights/workspaces/savedSearches/read",
         "Microsoft.OperationsManagement/solutions/read",
         "Microsoft.OperationalInsights/workspaces/query/read",
@@ -5859,8 +5862,9 @@ Azure Sentinel Responder
 > | **Actions** |  |
 > | Microsoft.SecurityInsights/*/read |  |
 > | Microsoft.SecurityInsights/cases/* |  |
+> | Microsoft.SecurityInsights/incidents/* |  |
 > | Microsoft.OperationalInsights/workspaces/analytics/query/action | Search using new engine. |
-> | Microsoft.OperationalInsights/workspaces/read | Gets an existing workspace |
+> | Microsoft.OperationalInsights/workspaces/*/read | View log analytics data |
 > | Microsoft.OperationalInsights/workspaces/dataSources/read | Get datasources under a workspace. |
 > | Microsoft.OperationalInsights/workspaces/savedSearches/read | Gets a saved search query |
 > | Microsoft.OperationsManagement/solutions/read | Get exiting OMS solution |
@@ -5893,8 +5897,9 @@ Azure Sentinel Responder
       "actions": [
         "Microsoft.SecurityInsights/*/read",
         "Microsoft.SecurityInsights/cases/*",
+        "Microsoft.SecurityInsights/incidents/*",
         "Microsoft.OperationalInsights/workspaces/analytics/query/action",
-        "Microsoft.OperationalInsights/workspaces/read",
+        "Microsoft.OperationalInsights/workspaces/*/read",
         "Microsoft.OperationalInsights/workspaces/dataSources/read",
         "Microsoft.OperationalInsights/workspaces/savedSearches/read",
         "Microsoft.OperationsManagement/solutions/read",
@@ -6651,6 +6656,7 @@ Can view backup services, but can't make changes
 > | Microsoft.RecoveryServices/locations/operationStatus/read | Gets Operation Status for a given Operation |
 > | Microsoft.RecoveryServices/Vaults/backupProtectionIntents/read | List all backup Protection Intents |
 > | Microsoft.RecoveryServices/Vaults/usages/read | Returns usage details for a Recovery Services Vault. |
+> | Microsoft.RecoveryServices/locations/backupValidateFeatures/action | Validate Features |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -6705,7 +6711,8 @@ Can view backup services, but can't make changes
         "Microsoft.RecoveryServices/operations/read",
         "Microsoft.RecoveryServices/locations/operationStatus/read",
         "Microsoft.RecoveryServices/Vaults/backupProtectionIntents/read",
-        "Microsoft.RecoveryServices/Vaults/usages/read"
+        "Microsoft.RecoveryServices/Vaults/usages/read",
+        "Microsoft.RecoveryServices/locations/backupValidateFeatures/action"
       ],
       "notActions": [],
       "dataActions": [],
