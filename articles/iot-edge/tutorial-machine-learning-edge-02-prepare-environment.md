@@ -183,13 +183,13 @@ As part of creating the IoT hub, the script that we ran in the previous section 
 
 1. Expand the **Storage** section:
 
-   ![Verify turbofandevicestorage is in the custom endpoints list](media/tutorial-machine-learning-edge-02-prepare-environment/custom-endpoints.png)
+   ![Verify turbofanDeviceStorage is in the custom endpoints list](media/tutorial-machine-learning-edge-02-prepare-environment/custom-endpoints.png)
 
-   We see **turbofandevicestorage** is in the custom endpoints list. Note the following characteristics about this endpoint:
+   We see **turbofanDeviceStorage** is in the custom endpoints list. Note the following characteristics about this endpoint:
 
    * It points to the blob storage container you created named `devicedata` as indicated by **Container name**.
    * Its **Filename format** has partition as the last element in the name. We find this format is more convenient for the file operations we will do with Azure Notebooks later in the tutorial.
-   * The **Status** should be healthy.
+   * Its **Status** should be healthy.
 
 1. Select the **Routes** tab.
 
