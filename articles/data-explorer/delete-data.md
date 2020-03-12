@@ -13,7 +13,7 @@ ms.date: 03/12/2020
 
 Azure Data Explorer supports various delete scenarios described in this article. 
 
-## Delete using retention policy
+## Delete data using the retention policy
 
 Azure Data Explorer automatically deletes data based on the [retention policy](/azure/kusto/management/retentionpolicy). This method is the most efficient and hassle-free way of deleting data. Set the retention policy at the database or table level.
 
