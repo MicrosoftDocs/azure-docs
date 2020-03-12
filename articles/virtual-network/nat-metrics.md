@@ -27,7 +27,7 @@ Azure Virtual Network NAT gateway resources provide multi-dimensional metrics. Y
 *Figure: Virtual Network NAT for outbound to Internet*
 
 >[!NOTE] 
->Virtual Network NAT is available as public preview at this time. Currently it's only available in a limited set of [regions](nat-overview.md#region-availability). This preview is provided without a service level agreement and isn't recommended for production workloads. Certain features may not be supported or may have constrained capabilities. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms) for details.
+>Virtual Network NAT is available as a public preview. Currently it's available in a limited set of [regions](nat-overview.md#region-availability). This preview is provided without a service level agreement and isn't recommended for production workloads. Certain features may not be supported or may have constrained capabilities. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms) for details.
 
 ## Metrics
 

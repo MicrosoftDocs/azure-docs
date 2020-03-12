@@ -1,6 +1,7 @@
 ---
 
 title: What is Azure Virtual Network NAT?
+titlesuffix: Azure Virtual Network
 description: Overview of Virtual Network NAT features, resources, architecture, and implementation. Learn how Virtual Network NAT works and how to use NAT gateway resources in the cloud.
 services: virtual-network
 documentationcenter: na
@@ -35,7 +36,7 @@ Virtual Network NAT (network address translation) simplifies outbound-only Inter
 
 
 >[!NOTE] 
->Virtual Network NAT is available as public preview at this time. Currently it's only available in a limited set of [regions](#region-availability). This preview is provided without a service level agreement and isn't recommended for production workloads. Certain features may not be supported or may have constrained capabilities. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms) for details.
+>Virtual Network NAT is available as a public preview. Currently it's available in a limited set of [regions](nat-overview.md#region-availability). This preview is provided without a service level agreement and isn't recommended for production workloads. Certain features may not be supported or may have constrained capabilities. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms) for details.
 
 ## Static IP addresses for outbound-only
 
@@ -184,12 +185,13 @@ NAT is supported through normal support channels.
 
 ## Feedback
 
-We want to know how we can improve the service. Share your [feedback on the Public Preview](https://aka.ms/natfeedback) with us.  And you can propose and vote on what we should build next at [UserVoice for NAT](https://aka.ms/natuservoice).
+We want to know how we can improve the service. Share your [feedback on the Public Preview](https://aka.ms/natfeedback). Propose and vote on what we should build next at [UserVoice for NAT](https://aka.ms/natuservoice).
+
 
 ## Limitations
 
 * NAT is compatible with standard SKU public IP, public IP prefix, and load balancer resources.   Basic resources (for example basic load balancer) and any products derived from them aren't compatible with NAT.  Basic resources must be placed on a subnet not configured with NAT.
-* IPv4 address family is supported.  NAT doesn't interact with IPv6 address family.  NAT cannot be deployed on a subnet with IPv6 prefix.
+* IPv4 address family is supported.  NAT doesn't interact with IPv6 address family.  NAT can't be deployed on a subnet with an IPv6 prefix.
 * NSG flow logging isn't supported when using NAT.
 * NAT can't span multiple virtual networks.
 
