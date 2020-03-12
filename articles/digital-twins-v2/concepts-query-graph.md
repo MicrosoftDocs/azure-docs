@@ -91,7 +91,7 @@ The following section gives several examples of what this looks like.
 
 To get a dataset that includes relationships, use a single `FROM` statement followed by N `JOIN` statements, where the `JOIN` statements express relationships on the result of a previous `FROM` or `JOIN` statement.
 
-Here is a sample relationship-based query. This code snippet selects all twins with an *id* property of 'ABC', and all twins related to these twins via a *contains* relationship. 
+Here is a sample relationship-based query. This code snippet selects all twins with an *ID* property of 'ABC', and all twins related to these twins via a *contains* relationship. 
 
 ```sql
 SELECT T, CT
@@ -116,7 +116,7 @@ WHERE T.$dtId = 'ABC'
 You can also query over multiple levels of relationships, and based on related twins' properties. The following example extends the previous example to get 
 the twins with a *v1* value of '123', that are serviced by  
     the twins contained by
-        the twins with an *id* property of 'ABC'.
+        the twins with an *ID* property of 'ABC'.
 
 ```sql
 SELECT T, CT, SBT2
