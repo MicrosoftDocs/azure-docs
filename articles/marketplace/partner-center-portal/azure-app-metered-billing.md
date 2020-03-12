@@ -19,7 +19,7 @@ With the Marketplace metering service, you can create Azure Application-Managed 
 In order for a Azure Application-Managed Apps offer to use metered billing, it must:
 
 * Meet all of the offer requirements as outlined in [Create an Azure application offer](create-new-azure-apps-offer.md).
-* Be configured for the **Pricing** for charging customers for your service. Price can be zero if you don’t want to charge a fixed fee.
+* Be configured for the **Pricing** for charging customers for your service. Price can be zero if you don't want to charge a fixed fee.
 * Set **Dimensions** extension to the flat rate pricing model.
 * Integrate with the [Marketplace metering service APIs](./marketplace-metering-service-apis.md) to inform Microsoft of billable events.
 
@@ -97,6 +97,9 @@ Once a plan is published, the plan-level details can no longer be changed:
 * Price per unit
 * Included quantity for monthly term
 * Whether the dimension is enabled for the plan
+
+>[!Note]
+>Metered billing using the marketplace metering service is not yet supported on the Azure Government Cloud.
 
 ### Upper limits
 
