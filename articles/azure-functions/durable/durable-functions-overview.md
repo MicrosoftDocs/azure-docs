@@ -106,6 +106,7 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
     result = yield context.call_activity("F4", z)
     return result
 
+
 main = df.Orchestrator.create(orchestrator_function)
 ```
 
@@ -202,6 +203,7 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
     # Aggregate all N outputs and send the result to F3.
     total = sum(outputs)
     yield context.call_activity("F3", total)
+
 
 main = df.Orchestrator.create(orchestrator_function)
 ```
@@ -332,6 +334,7 @@ import azure.durable_functions as df
 import json
 from datetime import timedelta 
 
+
 def orchestrator_function(context: df.DurableOrchestrationContext):
     job = json.loads(context.get_input())
     job_id = job["jobId"]
@@ -350,6 +353,7 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
     yield context.create_timer(next_check)
 
     # Perform more work here, or let the orchestration end.
+
 
 main = df.Orchestrator.create(orchestrator_function)
 ```
@@ -431,6 +435,7 @@ import azure.durable_functions as df
 import json
 from datetime import timedelta 
 
+
 def orchestrator_function(context: df.DurableOrchestrationContext):
     yield context.call_activity("RequestApproval", None)
 
@@ -445,6 +450,7 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
         yield context.call_activity("ProcessApproval", approval_event_task.result)
     else:
         yield context.call_activity("Escalate", None)
+
 
 main = df.Orchestrator.create(orchestrator_function)
 ```
@@ -490,6 +496,7 @@ module.exports = async function (context) {
 
 ```python
 import azure.durable_functions as df
+
 
 async def main(client: str):
     durable_client = df.DurableOrchestrationClient(client)
