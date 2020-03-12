@@ -70,7 +70,7 @@ Use Data Lake Storage Gen1 to help control access to your data store at the netw
 
 ![Firewall settings and IP access](./media/data-lake-store-security-overview/firewall-ip-access.png "Firewall settings and IP address")
 
-Azure virtual networks (VNet) support service tags for Data Lake Gen 1. A service tag represents a group of IP address prefixes from a given Azure service. Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change. For more information, see [Azure service tags overview](../../virtual-network/service-tags-overview.md).
+Azure virtual networks (VNet) support service tags for Data Lake Gen 1. A service tag represents a group of IP address prefixes from a given Azure service. Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change. For more information, see [Azure service tags overview](../virtual-network/service-tags-overview.md).
 
 ## Data protection
 
