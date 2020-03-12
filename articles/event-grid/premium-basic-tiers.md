@@ -14,7 +14,7 @@ ms.author: babanisa
 Azure Event Grid has two tiers: **Premium** and **Basic**. The basic tier uses consumption, or pay-as-you-go pricing. It gives you all of the basic pub/sub tools you need to use Event Grid for event-driven programming models. The premium tier takes this one step further with security features aimed at the enterprise. The premium tier is in early **preview** with many of its features still under development.
 
 ## Overview
-All custom topics and event domains in Event Grid are either basic tier or premium tier. All topics and domains created with API versions before `03-13-2020-preview` default to the basic tier. The premium tier has all the features of basic tier and more such as virtual network (VNet) integration via private endpoints. It's priced on an hourly basis as opposed to consumption pricing of the basic tier.
+All custom topics and domains in Event Grid belong to basic tier (default) or premium tier. The premium tier has all the features of basic tier and more such as virtual network (VNet) integration via private endpoints. It's priced on an hourly basis as opposed to consumption pricing of the basic tier. To change the pricing tier for your topics and domains, see [How to update tier for topics and domains](update-tier.md). 
 
 ## Capabilities and features
 

@@ -17,10 +17,8 @@ This article describes how to configure IP firewall settings for Azure Event Gri
 
 ## Use Azure portal
 
-1. In the [Azure portal](https://portal.azure.com), Navigate to your Event Grid topic or domain, and switch to the **Networking** tab. 
-
-    ![Networking -> Firewall](./media/configure-firewall/networking-filewall-page.png)
-2. Select **Public networks** for the **Allow access from** field to allow all network, including the internet, to access the resource. You can restrict the traffic using IP-based firewall rules. 
+1. In the [Azure portal](https://portal.azure.com), Navigate to your Event Grid topic or domain, and switch to the **Networking** tab.
+2. For the **Allow access from** field, select **Public networks** to allow all network, including the internet, to access the resource. You can restrict the traffic using IP-based firewall rules. 
 
     If you want to allow only sources with selected IP addresses to publish to the topic or domain, enter the **range of IP addresses**. Singular addresses can be entered in IPv4 notation while address ranges must be entered in CIDR notation. Several online tools exist for [converting IP ranges to CIDR](https://ipaddressguide.com/cidr).
 
@@ -33,11 +31,27 @@ This article describes how to configure IP firewall settings for Azure Event Gri
     > [!NOTE]
     > The steps shown in this section are mostly for topics. You can use similar steps to create inbound IP rules for **domains**. 
 
+
+
 ## Use Azure CLI
 This section shows you how to use Azure CLI commands to create topics with inbound IP rules. 
 
 > [!NOTE]
 > The steps shown in this section are mostly for topics. You can use similar steps to create inbound IP rules for **domains**. 
+
+### Enable public network access for an existing topic
+By default, the public network access is enabled for topics and domains. You can restrict traffic by configuring inbound IP firewall rules. 
+
+```azurecli-interactive
+az rest --method patch --uri "/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventGrid/topics/<EVENT GRID TOPIC NAME>?api-version=2020-04-01-preview" --body "{\""properties\"": {\""publicNetworkAccess\"": \""Enabled\""}}"
+```
+
+### Disable public network access for an existing topic
+When public network access is disabled for a topic or domain, traffic over public internet isn't allowed. Only private endpoint connections will be allowed to access these resources. 
+
+```azurecli-interactive
+az rest --method patch --uri "/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventGrid/topics/<EVENT GRID TOPIC NAME>?api-version=2020-04-01-preview" --body "{\""properties\"": {\""publicNetworkAccess\"": \""Disabled\""}}"
+```
 
 ### Create topic with inbound ip rules
 The following sample CLI command creates an event grid topic with inbound IP rules in one step. 
@@ -45,7 +59,7 @@ The following sample CLI command creates an event grid topic with inbound IP rul
 ```azurecli-interactive
 az rest --method put \
     --uri "/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventGrid/topics/<EVENT GRID TOPIC NAME>?api-version=2020-04-01-preview" \
-    --body {\""location\"":\""<LOCATION>\", \""properties\"" :{ \""InboundIpRules\"": [ {\""ipMask\"": \""<IP ADDRESS or IP ADDRESS RANGE in CIDR notation>\"", \""action\"": \""allow\""} ]}}
+    --body {\""location\"":\""<LOCATION>\", \""properties\"" :{\""publicNetworkAccess\"":\""enabled\"",\""InboundIpRules\"": [ {\""ipMask\"": \""<IP ADDRESS or IP ADDRESS RANGE in CIDR notation>\"", \""action\"": \""allow\""} ]}}
 ```
 
 ### Create topic first and then add inbound ip rules
@@ -61,12 +75,12 @@ az rest --method put \
 # add inbound IP rules
 az rest --method put \
     --uri "/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventGrid/topics/<EVENT GRID TOPIC NAME>?api-version=2020-04-01-preview" 
-    --body {\""location\"":\""<LOCATION>\", \""properties\"" :{ \""InboundIpRules\"": [ {\""ipMask\"": \""<IP ADDRESS or IP ADDRESS RANGE in CIDR notation>\"", \""action\"": \""allow\""} ]}}
+    --body {\""location\"":\""<LOCATION>\", \""properties\"" :{\""publicNetworkAccess\"":\""enabled\"", \""InboundIpRules\"": [ {\""ipMask\"": \""<IP ADDRESS or IP ADDRESS RANGE in CIDR notation>\"", \""action\"": \""allow\""} ]}}
 
 # later, update topic with additional ip rules or remove them. 
 az rest --method put \
     --uri "/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventGrid/topics/<EVENT GRID TOPIC NAME>?api-version=2020-04-01-preview" 
-    --body {\""location\"":\""<LOCATION>\", \""properties\"" :{ \""InboundIpRules\"": [ {\""ipMask\"": \""<IP ADDRESS or IP ADDRESS RANGE in CIDR notation>\"", \""action\"": \""allow\""}, {\""ipMask\"": \""<IP ADDRESS or IP ADDRESS RANGE in CIDR notation>\"", \""action\"": \""allow\""} ]}}
+    --body {\""location\"":\""<LOCATION>\", \""properties\"" :{\""publicNetworkAccess\"":\""enabled\"", \""InboundIpRules\"": [ {\""ipMask\"": \""<IP ADDRESS or IP ADDRESS RANGE in CIDR notation>\"", \""action\"": \""allow\""}, {\""ipMask\"": \""<IP ADDRESS or IP ADDRESS RANGE in CIDR notation>\"", \""action\"": \""allow\""} ]}}
 ```
 
 ## Use PowerShell
@@ -83,7 +97,7 @@ Follow instructions from [How to: Use the portal to create an Azure AD applicati
 - Application (client) secret
 
 ### Prepare token and headers for REST API calls 
-Run the following prerequisite commands to get an authentication token to use with REST API calls and authorization and other header information. 
+Run the following prerequisite commands to get an authentication token to use with REST API calls, and authorization and other header information. 
 
 ```azurepowershell-interactive
 # replace <CLIENT ID> and <CLIENT SECRET>
@@ -101,10 +115,33 @@ $Headers.Add("Authorization","$($Token.token_type) "+ " " + "$($Token.access_tok
 $Headers.Add("Content-Type","application/json")
 ```
 
-### Create an event grid topic with inbound rules in one step
-When public network access is enabled for a topic, traffic over the public internet is accepted, restrictions might apply based on additional Inbound IP rules.
+### Enable public network access for an existing topic
+By default, the public network access is enabled for topics and domains. You can restrict traffic by configuring inbound IP firewall rules. 
 
-When public network access is disabled for a topic, traffic over public internet is not allowed, private endpoint connections would be the exclusive access method for a resource with public network disabled. 
+```azurepowershell-interactive
+$body = @{"properties"=@{"publicNetworkAccess"="enabled"}} | ConvertTo-Json -Depth 5
+
+Invoke-RestMethod -Method 'Patch' `
+    -Uri "https://management.azure.com/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventGrid/topics/<EVENT GRID TOPIC NAME>?api-version=2020-04-01-preview" `
+    -Headers $Headers `
+    -Body $body `
+    | ConvertTo-Json -Depth 5
+```
+
+### Disable public network access for an existing topic
+When public network access is disabled for a topic or domain, traffic over public internet isn't allowed. Only private endpoint connections will be allowed to access these resources. 
+
+```azurepowershell-interactive
+$body = @{"properties"=@{"publicNetworkAccess"="disabled"}} | ConvertTo-Json -Depth 5
+
+Invoke-RestMethod -Method 'Patch' `
+    -Uri "https://management.azure.com/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventGrid/topics/<EVENT GRID TOPIC NAME>?api-version=2020-04-01-preview" `
+    -Headers $Headers `
+    -Body $body `
+    | ConvertTo-Json -Depth 5
+```
+
+### Create an event grid topic with inbound rules in one step
 
 ```azurepowershell-interactive
 

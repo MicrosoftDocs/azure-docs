@@ -124,8 +124,10 @@
   items:
   - name: Configure private endpoints (preview)
     href: configure-private-endpoints.md
-  - name: Configure firewall (preview)
+  - name: Configure IP firewall (preview)
     href: configure-firewall.md
+  - name: Update pricing tier of a topic or a domain
+    href: update-tier.md
   - name: Post to custom topic
     href: post-to-custom-topic.md
   - name: Receive events at HTTP endpoint

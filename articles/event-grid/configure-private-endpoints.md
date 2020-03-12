@@ -15,6 +15,9 @@ You can use [private endpoints](../private-link/private-endpoint-overview.md) to
 
 This article describes how to configure private endpoints for topics or domains.
 
+> [!IMPORTANT]
+> Private endpoints feature is available for topics and domains only in premium tier.
+
 ## Use Azure portal 
 This section shows you how to use the Azure portal to create a private endpoint for a topic or a domain.
 
@@ -148,7 +151,7 @@ az network private-endpoint delete --resource-group <RESOURECE GROUP NAME> --nam
 > [!NOTE]
 > The steps shown in this section are for topics. You can use similar steps to create private endpoints for **domains**. 
 
-### Sample script 
+### Create a private endpoint
 Here's a sample script that creates the following Azure resources:
 
 - Resource group
@@ -227,6 +230,22 @@ az rest --method get \
     --uri $topicUri
 
 ```
+
+### Approve a private endpoint connection
+The following sample CLI snippet shows you how to approve a private endpoint connection. 
+
+```azurecli-interactive
+az rest --method put --uri "/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventGrid/topics/<EVENT GRID TOPIC NAME>/privateEndpointConnections/<PRIVATE ENDPOINT NAME>.<GUID>?api-version=2020-04-01-preview" --body "{\""properties\"":{\""privateLinkServiceConnectionState\"": {\""status\"":\""approved\"",\""description\"":\""connection approved\"", \""actionsRequired\"": \""none\""}}}"
+```
+
+
+### Reject a private endpoint connection
+The following sample CLI snippet shows you how to reject a private endpoint connection. 
+
+```azurecli-interactive
+az rest --method put --uri "/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventGrid/topics/<EVENT GRID TOPIC NAME>/privateEndpointConnections/<PRIVATE ENDPOINT NAME>.<GUID>?api-version=2020-04-01-preview" --body "{\""properties\"":{\""privateLinkServiceConnectionState\"": {\""status\"":\""rejected\"",\""description\"":\""connection rejected\"", \""actionsRequired\"": \""none\""}}}"
+```
+
 
 ## Use PowerShell
 This section shows you how to create a private endpoint for a topic or domain using PowerShell. 
@@ -355,7 +374,7 @@ When you verify that the endpoint was created, you should see the result similar
 }
 ```
 
-### Approve a private endpoint
+### Approve a private endpoint connection
 The following sample PowerShell snippet shows you how to approve a private endpoint. 
 
 > [!NOTE]
@@ -375,7 +394,7 @@ Invoke-RestMethod -Method 'Get'  `
 
 ```
 
-### Reject a private endpoint 
+### Reject a private endpoint connection
 The following example shows you how to reject a private endpoint using PowerShell. You can get the GUID for the private endpoint from the result of the previous GET command. 
 
 > [!NOTE]
