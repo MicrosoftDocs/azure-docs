@@ -1,6 +1,6 @@
 ---
- title: Azure IoT Hub VNET support
- description: How to use VNET connectivity pattern with IoT Hub
+ title: Azure IoT Hub support for virtual networks
+ description: How to use virtual networks connectivity pattern with IoT Hub
  services: iot-hub
  author: rezasherafat
  ms.service: iot-fundamentals
@@ -9,17 +9,17 @@
  ms.author: rezas
 ---
 
-# IoT Hub Support for VNET's
+# IoT Hub support for virtual networks
 
-This article introduces the VNET connectivity pattern and elaborates on how to set up a private connectivity experience to an IoT Hub through a customer-owned Azure VNET.
+This article introduces the VNET connectivity pattern and elaborates on how to set up a private connectivity experience to an IoT hub through a customer-owned Azure VNET.
 
 > [!NOTE]
-> The IoT hub features and functionalities described in this article is currenlty available to IoT Hub created in East US, South Central US, and West US 2 regions.
+> The IoT hub features and functionalities described in this article is currently available to IoT Hub created in East US, South Central US, and West US 2 regions.
 
 
 ## Introduction
 
-By default, IoT Hub hostnames map to a public endpoint with a publicly routable IP address over the Internet. As shown in the illustration below, this IoT Hub public endpoint is shared among hubs owned by different customers and can be accessed by IoT devices over wide-area networks as well as on-prem networks alike.
+By default, IoT Hub hostnames map to a public endpoint with a publicly routable IP address over the Internet. As shown in the illustration below, this IoT Hub public endpoint is shared among hubs owned by different customers and can be accessed by IoT devices over wide-area networks as well as on-premises networks alike.
 
 Several IoT Hub features including [message routing](./iot-hub-devguide-messages-d2c.md), [file upload](./iot-hub-devguide-file-upload.md), and [bulk device import/export](./iot-hub-bulk-identity-mgmt.md) similarly require connectivity from IoT Hub to a customer-owned Azure resource over its public endpoint. As illustrated below, these connectivity paths collectively constitute the egress traffic from IoT Hub to customer resources.
 ![IoT Hub public endpoint](./media/iot-hub-vnet-support/public-endpoint.png)
@@ -27,12 +27,12 @@ Several IoT Hub features including [message routing](./iot-hub-devguide-messages
 
 For several reasons, customers may wish to restrict connectivity to their Azure resources (including IoT Hub) through a VNET that they own and operate. These reasons include:
 
-* Introducing additional layers of security via network level isolation for your IoT Hub by preventing connectivity exposure to your hub over the public Internet.
+* Introducing additional layers of security via network level isolation for your IoT hub by preventing connectivity exposure to your hub over the public Internet.
 
-* Enabling a private connectivity experience from your on-prem network assets ensuring that your data and traffic 
+* Enabling a private connectivity experience from your on-premises network assets ensuring that your data and traffic 
 is transmitted directly to Azure backbone network.
 
-* Preventing exfiltration attacks from sensitive on-prem networks. 
+* Preventing exfiltration attacks from sensitive on-premises networks. 
 
 * Following established Azure-wide connectivity patterns using [private endpoints](../private-link/private-endpoint-overview.md).
 
@@ -42,10 +42,10 @@ This article describes how to achieve these goals using [private endpoints](../p
 
 ## Ingress connectivity to IoT Hub using private endpoints
 
-A private endpoint is a private IP address allocated inside a customer-owned VNET via which an Azure resource is reachable. By having a private endpoint for your IoT Hub, you will be able to allow services operating inside your VNET to reach IoT Hub without requiring traffic to be sent to IoT Hub's public endpoint. Similarly, devices that operate in your on-prem can use [Virtual Private Network (VPN)](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) or [ExpressRoute](https://azure.microsoft.com/services/expressroute/) Private Peering to gain connectivity to your VNET in Azure and subsequently to your IoT Hub (via its private endpoint). As a result, customers who wish to restrict connectivity to their IoT Hub's public endpoints (or possibly completely block it off) can achieve this goal by using [IoT Hub firewall rules](./iot-hub-ip-filtering.md) while retaining connectivity to their Hub using the private endpoint.
+A private endpoint is a private IP address allocated inside a customer-owned VNET via which an Azure resource is reachable. By having a private endpoint for your IoT hub, you will be able to allow services operating inside your VNET to reach IoT Hub without requiring traffic to be sent to IoT Hub's public endpoint. Similarly, devices that operate in your on-premises can use [Virtual Private Network (VPN)](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) or [ExpressRoute](https://azure.microsoft.com/services/expressroute/) Private Peering to gain connectivity to your VNET in Azure and subsequently to your IoT Hub (via its private endpoint). As a result, customers who wish to restrict connectivity to their IoT hub's public endpoints (or possibly completely block it off) can achieve this goal by using [IoT Hub firewall rules](./iot-hub-ip-filtering.md) while retaining connectivity to their Hub using the private endpoint.
 
 > [!NOTE]
-> The main focus of this setup is for devices inside an on-prem network. This setup is not advised for devices deployed in a wide-area network. 
+> The main focus of this setup is for devices inside an on-premises network. This setup is not advised for devices deployed in a wide-area network. 
 
 ![IoT Hub public endpoint](./media/iot-hub-vnet-support/vnet-ingress.png)
 
@@ -55,7 +55,7 @@ Before proceeding ensure that the following prerequisites are met:
 
 * You have provisioned an Azure VNET with a subnet in which the private endpoint will be created. See [create a virtual network using Azure CLI](../virtual-network/quick-create-cli.md) for more details.
 
-* For devices that operate inside of on-prem networks, set up [Virtual Private Network (VPN)](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) or [ExpressRoute](https://azure.microsoft.com/services/expressroute/) private peering into your Azure VNET.
+* For devices that operate inside of on-premises networks, set up [Virtual Private Network (VPN)](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) or [ExpressRoute](https://azure.microsoft.com/services/expressroute/) private peering into your Azure VNET.
 
 
 ### Regional availability (private endpoints)
@@ -73,17 +73,17 @@ Private endpoints supported in IoT Hub's created in the following regions:
 
 To set up a private endpoint, follow these steps:
 
-* Navigate to the _Private endpoint connections_ tab in your IoT Hub portal (this tab is only available for in IoT Hubs in the [supported regions](#regional-availability-private-endpoints)), and click the _+_ sign to add a new private endpoint.
+1. Navigate to the **Private endpoint connections** tab in your IoT Hub portal (this tab is only available for in IoT Hubs in the [supported regions](#regional-availability-private-endpoints)), and click the **+** sign to add a new private endpoint.
 
-* Provide the subscription, resource group, name and region to create the new private endpoint in (ideally, private endpoint should be created in the same region as your hub; see [regional availability section](#regional-availability-private-endpoints) for more details).
+2. Provide the subscription, resource group, name and region to create the new private endpoint in (ideally, private endpoint should be created in the same region as your hub; see [regional availability section](#regional-availability-private-endpoints) for more details).
 
-* Click _Next: Resource_, and provide the subscription for your IoT Hub resource, and select _"Microsoft.Devices/IotHubs"_ as resource type, your IoT Hub name as _resource_, and _iotHub_ as target sub-resource.
+3. Click **Next: Resource**, and provide the subscription for your IoT Hub resource, and select **"Microsoft.Devices/IotHubs"** as resource type, your IoT Hub name as **resource**, and **iotHub** as target sub-resource.
 
-* Click _Next: Configuration_ and provide your virtual network and subnet to create the private endpoint in. Select the option to integrate with Azure private DNS zone, if desired.
+4. Click **Next: Configuration** and provide your virtual network and subnet to create the private endpoint in. Select the option to integrate with Azure private DNS zone, if desired.
 
-* Click _Next: Tags_, and optionally provide any tags for your resource.
+5. Click **Next: Tags**, and optionally provide any tags for your resource.
 
-* Click _Review + create_ to create your private endpoint resource.
+6. Click **Review + create** to create your private endpoint resource.
 
 
 ### Pricing (private endpoints)
@@ -95,7 +95,7 @@ For pricing details, see [Azure Private Link pricing](https://azure.microsoft.co
 
 IoT Hub needs access to your Azure blob storage, event hubs, service bus resources for [message routing](./iot-hub-devguide-messages-d2c.md), [file upload](./iot-hub-devguide-file-upload.md), and [bulk device import/export](./iot-hub-bulk-identity-mgmt.md), which typically takes place over the resources' public endpoint. In the event that you bind your storage account, event hubs or service bus resource to a VNET, the advised configuration will block connectivity to the resource by default. Consequently, this will impede IoT Hub's functionality that requires access to those resources.
 
-To alleviate this situation, you need to enable connectivity from your IoT Hub resource to your storage account, event hubs or service bus resources via the _Azure first party trusted services_ option.
+To alleviate this situation, you need to enable connectivity from your IoT Hub resource to your storage account, event hubs or service bus resources via the **Azure first party trusted services** option.
 
 The prerequisites are as follows:
 
@@ -193,17 +193,17 @@ Once IoT Hub with a managed service identity is provisioned, follow the correspo
 
 IoT Hub can be configured to route messages to a customer-owned storage account. To allow the routing functionality to access a storage account while firewall restrictions are in place, your IoT Hub needs to have a managed service identity (see how to [create a hub with managed service identity](#create-a-hub-with-managed-service-identity)). Once a managed service identity is provisioned, follow the steps below to give RBAC permission to your hub's resource identity to access your storage account.
 
-* In the Azure portal, navigate to your storage account's _Access control (IAM)_ tab and click _Add_ under the _Add a role assignment_ section.
+1. In the Azure portal, navigate to your storage account's **Access control (IAM)** tab and click **Add** under the **Add a role assignment** section.
 
-* Select _"Storage Blob Data Contributor"_ as _role_, _"Azure AD user, group, or service principal"_ as _Assigning access to_ and select your IoT Hub's resource name in the drop-down list. Click the _Save_ button.
+2. Select **Storage Blob Data Contributor** as **role**, **Azure AD user, group, or service principal** as **Assigning access to** and select your IoT Hub's resource name in the drop-down list. Click the **Save** button.
 
-* Navigate to the _Firewalls and virtual networks_ tab in your storage account and enable _Allow access from selected networks_ option. Under the _Exceptions_ list, check the box for _Allow trusted Microsoft services to access this storage account_. Click the _Save_ button.
+3. Navigate to the **Firewalls and virtual networks** tab in your storage account and enable **Allow access from selected networks** option. Under the **Exceptions** list, check the box for **Allow trusted Microsoft services to access this storage account**. Click the **Save** button.
 
-* On your IoT Hub's resource page, navigate to _Message routing_ tab.
+4. On your IoT Hub's resource page, navigate to **Message routing** tab.
 
-* Navigate to _Custom endpoints_ section and click _Add_. Select _Storage_ as the endpoint type.
+5. Navigate to **Custom endpoints** section and click **Add**. Select **Storage** as the endpoint type.
 
-* On the page that shows up, provide a name for your endpoint, select the container that you intend to use in your blob storage, provide encoding, and file name format. Select _System Assigned_ as the _Authentication type_ to your storage endpoint. Click the _Create_ button.
+6. On the page that shows up, provide a name for your endpoint, select the container that you intend to use in your blob storage, provide encoding, and file name format. Select **System Assigned** as the **Authentication type** to your storage endpoint. Click the **Create** button.
 
 Now your custom storage endpoint is set up to use your hub's system assigned identity, and it has permission to access your storage resource despite its firewall restrictions. You can now use this endpoint to set up a routing rule.
 
@@ -212,17 +212,17 @@ Now your custom storage endpoint is set up to use your hub's system assigned ide
 
 IoT Hub can be configured to route messages to a customer-owned event hubs namespace. To allow the routing functionality to access an event hubs resource while firewall restrictions are in place, your IoT Hub needs to have a managed service identity (see how to [create a hub with managed service identity](#create-a-hub-with-managed-service-identity)). Once a managed service identity is provisioned, follow the steps below to give RBAC permission to your hub's resource identity to access your event hubs.
 
-* In the Azure portal, navigate to your event hubs _Access control (IAM)_ tab and click _Add_ under the _Add a role assignment_ section.
+1. In the Azure portal, navigate to your event hubs **Access control (IAM)** tab and click **Add** under the **Add a role assignment** section.
 
-* Select _"Event Hubs Data Sender"_ as _role_, _"Azure AD user, group, or service principal"_ as _Assigning access to_ and select your IoT Hub's resource name in the drop-down list. Click the _Save_ button.
+2. Select **Event Hubs Data Sender** as **role**, **Azure AD user, group, or service principal** as **Assigning access to** and select your IoT Hub's resource name in the drop-down list. Click the **Save** button.
 
-* Navigate to the _Firewalls and virtual networks_ tab in your event hubs and enable _Allow access from selected networks_ option. Under the _Exceptions_ list, check the box for _Allow trusted Microsoft services to access event hubs_. Click the _Save_ button.
+3. Navigate to the **Firewalls and virtual networks** tab in your event hubs and enable **Allow access from selected networks** option. Under the **Exceptions** list, check the box for **Allow trusted Microsoft services to access event hubs**. Click the **Save** button.
 
-* On your IoT Hub's resource page, navigate to _Message routing_ tab.
+4. On your IoT Hub's resource page, navigate to **Message routing** tab.
 
-* Navigate to _Custom endpoints_ section and click _Add_. Select _Event hubs_ as the endpoint type.
+5. Navigate to **Custom endpoints** section and click **Add**. Select **Event hubs** as the endpoint type.
 
-* On the page that shows up, provide a name for your endpoint, select your event hubs namespace and instance and click the _Create_ button.
+6. On the page that shows up, provide a name for your endpoint, select your event hubs namespace and instance and click the **Create** button.
 
 Now your custom event hubs endpoint is set up to use your hub's system assigned identity, and it has permission to access your event hubs resource despite its firewall restrictions. You can now use this endpoint to set up a routing rule.
 
@@ -231,17 +231,17 @@ Now your custom event hubs endpoint is set up to use your hub's system assigned 
 
 IoT Hub can be configured to route messages to a customer-owned service bus namespace. To allow the routing functionality to access a service bus resource while firewall restrictions are in place, your IoT Hub needs to have a managed service identity (see how to [create a hub with managed service identity](#create-a-hub-with-managed-service-identity)). Once a managed service identity is provisioned, follow the steps below to give RBAC permission to your hub's resource identity to access your service bus.
 
-* In the Azure portal, navigate to your service bus' _Access control (IAM)_ tab and click _Add_ under the _Add a role assignment_ section.
+1. In the Azure portal, navigate to your service bus' **Access control (IAM)** tab and click **Add** under the **Add a role assignment** section.
 
-* Select _"Service bus Data Sender"_ as _role_, _"Azure AD user, group, or service principal"_ as _Assigning access to_ and select your IoT Hub's resource name in the drop-down list. Click the _Save_ button.
+2. Select **Service bus Data Sender** as **role**, **Azure AD user, group, or service principal** as **Assigning access to** and select your IoT Hub's resource name in the drop-down list. Click the **Save** button.
 
-* Navigate to the _Firewalls and virtual networks_ tab in your service bus and enable _Allow access from selected networks_ option. Under the _Exceptions_ list, check the box for _Allow trusted Microsoft services to access this service bus_. Click the _Save_ button.
+3. Navigate to the **Firewalls and virtual networks** tab in your service bus and enable **Allow access from selected networks** option. Under the **Exceptions** list, check the box for **Allow trusted Microsoft services to access this service bus**. Click the **Save** button.
 
-* On your IoT Hub's resource page, navigate to _Message routing_ tab.
+4. On your IoT Hub's resource page, navigate to **Message routing** tab.
 
-* Navigate to _Custom endpoints_ section and click _Add_. Select _Service bus queue_ or _Service bus topic_ (as applicable) as the endpoint type.
+5. Navigate to **Custom endpoints** section and click **Add**. Select **Service bus queue** or **Service bus topic** (as applicable) as the endpoint type.
 
-* On the page that shows up, provide a name for your endpoint, select your service bus' namespace and queue or topic (as applicable). Click the _Create_ button.
+6. On the page that shows up, provide a name for your endpoint, select your service bus' namespace and queue or topic (as applicable). Click the **Create** button.
 
 Now your custom service bus endpoint is set up to use your hub's system assigned identity, and it has permission to access your service bus resource despite its firewall restrictions. You can now use this endpoint to set up a routing rule.
 
@@ -250,15 +250,15 @@ Now your custom service bus endpoint is set up to use your hub's system assigned
 
 IoT Hub's file upload feature allows devices to upload files to a customer-owned storage account. To allow the file upload to function, both devices and IoT Hub need to have connectivity to the storage account. If firewall restrictions are in place on the storage account, your devices need to use any of the supported storage account's mechanism (including [private endpoints](../private-link/create-private-endpoint-storage-portal.md), [service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md) or [direct firewall configuration](../storage/common/storage-network-security.md)) to gain connectivity. Similarly, if firewall restrictions are in place on the storage account, IoT Hub needs to be configured to access the storage resource via the trusted Microsoft services exception. For this purpose, your IoT Hub must have a managed service identity (see how to [create a hub with managed service identity](#create-a-hub-with-managed-service-identity)). Once a managed service identity is provisioned, follow the steps below to give RBAC permission to your hub's resource identity to access your storage account.
 
-* In the Azure portal, navigate to your storage account's _Access control (IAM)_ tab and click _Add_ under the _Add a role assignment_ section.
+1. In the Azure portal, navigate to your storage account's **Access control (IAM)** tab and click **Add** under the **Add a role assignment** section.
 
-* Select _"Storage Blob Data Contributor"_ as _role_, _"Azure AD user, group, or service principal"_ as _Assigning access to_ and select your IoT Hub's resource name in the drop-down list. Click the _Save_ button.
+2. Select **Storage Blob Data Contributor** as **role**, **Azure AD user, group, or service principal** as **Assigning access to** and select your IoT Hub's resource name in the drop-down list. Click the **Save** button.
 
-* Navigate to the _Firewalls and virtual networks_ tab in your storage account and enable _Allow access from selected networks_ option. Under the _Exceptions_ list, check the box for _Allow trusted Microsoft services to access this storage account_. Click the _Save_ button.
+3. Navigate to the **Firewalls and virtual networks** tab in your storage account and enable **Allow access from selected networks** option. Under the **Exceptions** list, check the box for **Allow trusted Microsoft services to access this storage account**. Click the **Save** button.
 
-* On your IoT Hub's resource page, navigate to _File upload_ tab.
+4. On your IoT Hub's resource page, navigate to **File upload** tab.
 
-* On the page that shows up, select the container that you intend to use in your blob storage, configure the _File notification settings_, _SAS TTL_, _Default TTL_ and _Maximum delivery count_ as desired. Select _System Assigned_ as the _Authentication type_ to your storage endpoint. Click the _Create_ button.
+5. On the page that shows up, select the container that you intend to use in your blob storage, configure the **File notification settings**, **SAS TTL**, **Default TTL** and **Maximum delivery count** as desired. Select **System Assigned** as the **Authentication type** to your storage endpoint. Click the **Create** button.
 
 Now your storage endpoint for file upload is set up to use your hub's system assigned identity, and it has permission to access your storage resource despite its firewall restrictions.
 
@@ -269,13 +269,13 @@ IoT Hub supports the functionality to [import/export](./iot-hub-bulk-identity-mg
 
 This functionality requires connectivity from IoT Hub to the storage account. To access a service bus resource while firewall restrictions are in place, your IoT Hub needs to have a managed service identity (see how to [create a hub with managed service identity](#create-a-hub-with-managed-service-identity)). Once a managed service identity is provisioned, follow the steps below to give RBAC permission to your hub's resource identity to access your service bus.
 
-* In the Azure portal, navigate to your storage account's _Access control (IAM)_ tab and click _Add_ under the _Add a role assignment_ section.
+1. In the Azure portal, navigate to your storage account's **Access control (IAM)** tab and click **Add** under the **Add a role assignment** section.
 
-* Select _"Storage Blob Data Contributor"_ as _role_, _"Azure AD user, group, or service principal"_ as _Assigning access to_ and select your IoT Hub's resource name in the drop-down list. Click the _Save_ button.
+2. Select **Storage Blob Data Contributor** as **role**, **Azure AD user, group, or service principal** as **Assigning access to** and select your IoT Hub's resource name in the drop-down list. Click the **Save** button.
 
-* Navigate to the _Firewalls and virtual networks_ tab in your storage account and enable _Allow access from selected networks_ option. Under the _Exceptions_ list, check the box for _Allow trusted Microsoft services to access this storage account_. Click the _Save_ button.
+3. Navigate to the **Firewalls and virtual networks** tab in your storage account and enable **Allow access from selected networks** option. Under the **Exceptions** list, check the box for **Allow trusted Microsoft services to access this storage account**. Click the **Save** button.
 
-You can now use the Azure IoT REST API's for [creating import export jobs](https://docs.microsoft.com/rest/api/iothub/service/createimportexportjob) for information on how to use the bulk import/export functionality. Note that you will need to provide the `autheticationType="identityBased"` in your request body and use `inputBlobContainerUri="https://..."` and `outputBlobContainerUri="https://..."` as the input and output URL's of your storage account, respectively.
+You can now use the Azure IoT REST API's for [creating import export jobs](https://docs.microsoft.com/rest/api/iothub/jobclient/getimportexportjobs) for information on how to use the bulk import/export functionality. Note that you will need to provide the `storageAuthenticationType="identityBased"` in your request body and use `inputBlobContainerUri="https://..."` and `outputBlobContainerUri="https://..."` as the input and output URL's of your storage account, respectively.
 
 
 Azure IoT Hub SDK's also support this functionality in the service client's registry manager. The following code snippet shows how to initiate an import job or export job in using the C# SDK.
@@ -293,3 +293,11 @@ await registryManager.ExportDevicesAsync(
     JobProperties.CreateForExportJob(outputBlobContainerUri, true, null, StorageAuthenticationType.IdentityBased),
     cancellationToken);
 ```
+
+## Next steps
+
+Use the links below to learn more about IoT Hub features:
+
+* [Message routing](./iot-hub-devguide-messages-d2c.md)
+* [File upload](./iot-hub-devguide-file-upload.md)
+* [Bulk device import/export](./iot-hub-bulk-identity-mgmt.md) 
