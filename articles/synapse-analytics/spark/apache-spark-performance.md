@@ -5,7 +5,7 @@ services: synapse-analytics
 author: euangMS
 ms.service: synapse-analytics
 ms.topic: overview
-ms.subservice: design
+ms.subservice: 
 ms.date: 02/21/2019
 ms.author: euang
 ms.reviewer: euang
