@@ -6,47 +6,43 @@ ms.author: orspodek
 ms.reviewer: guregini
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 03/11/2020
+ms.date: 03/12/2020
 ---
 
 # Visualize data from Azure Data Explorer in Kibana with the K2Bridge open-source connector
 
-K2Bridge (Kibana-Kusto Bridge) enables you to use Azure Data Explorer as the data source and to visualize that data in Kibana. K2Bridge is an open-source containerized application which acts as a proxy between a Kibana instance and an Azure Data Explorer cluster. This article describes how to use K2Bridge to create that connection.
+K2Bridge (Kibana-Kusto Bridge) enables you to use Azure Data Explorer as the data source and to visualize that data in Kibana. K2Bridge is an  [open-source](https://github.com/microsoft/K2Bridge) containerized application which acts as a proxy between a Kibana instance and an Azure Data Explorer cluster. This article describes how to use K2Bridge to create that connection.
 
 K2Bridge translates Kibana queries to Kusto Query Language (KQL) and sends the Azure Data Explorer results back to Kibana. 
 
    ![chart](media/k2bridge/k2bridge-chart.png)
 
-K2Bridge supports Kibana’s Discover tab, where you can:
+K2Bridge supports Kibana's Discover tab, where you can:
 * Search and explore the data
 * Filter results
 * Add or remove fields in the results grid
 * View record content
 * Save and share searches
 
-The image below shows a Kibana instance bound to Azure Data Explorer by K2Bridge. The search experience is in Kibana, and the overall look and feel is as usual.
+The image below shows a Kibana instance bound to Azure Data Explorer by K2Bridge. The user experience in Kibana is unchanged.
 
    [![Kibana Page](media/k2bridge/k2bridge-kibana-page.png)](media/k2bridge/k2bridge-kibana-page.png#lightbox)
-
-The K2Bridge connector source code is on [GitHub](https://github.com/microsoft/K2Bridge).
 
 ## Prerequisites
 
 Before you can visualize data from Azure Data Explorer in Kibana, have the following ready:
 
 * [Helm V3](https://github.com/helm/helm#install), the Kubernetes package manager
-* Azure Kubernetes Service (AKS) cluster, or any other Kubernetes cluster (version 1.14 to version 1.16 have been tested and verified). If you need an AKS cluster, see the AKS Quickstart guide [using the Azure CLI](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough) or [using the Azure portal](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough-portal)
-* An Azure Data Explorer cluster, including:
+* Azure Kubernetes Service (AKS) cluster, or any other Kubernetes cluster (version 1.14 to version 1.16 have been tested and verified). If you need an AKS cluster, see Deploy an AKS cluster [using the Azure CLI](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough) or [using the Azure portal](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough-portal)
+* An [Azure Data Explorer cluster](create-cluster-database-portal.md), including:
     * The Azure Data Explorer cluster's URL 
     * The database name
     
-    For more information, see: [Create an Azure Data Explorer cluster and database](create-cluster-database-portal.md)
 * An Azure AD service principal authorized to view data in Azure Data Explorer, including:
     * The Client ID 
     * The Client Secret
 
-    > [!Note]
-    > A service principal with 'Viewer' permission is recommended. It is discouraged to use higher permissions.
+    A service principal with 'Viewer' permission is recommended. It is discouraged to use higher permissions.
 
     * [Set the cluster's view permissions for the Azure AD service principal](https://docs.microsoft.com/azure/data-explorer/manage-database-permissions#manage-permissions-in-the-azure-portal).
 
@@ -103,7 +99,7 @@ By default, K2Bridges's Helm chart references a publicly available image located
         helm install k2bridge charts/k2bridge -n k2bridge --set image.repository=$REPOSITORY_NAME/$CONTAINER_NAME --set settings.adxClusterUrl="$ADX_URL" --set settings.adxDefaultDatabaseName="$ADX_DATABASE" --set settings.aadClientId="$ADX_CLIENT_ID" --set settings.aadClientSecret="$ADX_CLIENT_SECRET" --set settings.aadTenantId="$ADX_TENANT_ID" [--set image.tag=latest] [--set privateRegistry="$IMAGE_PULL_SECRET_NAME"] [--set settings.collectTelemetry=$COLLECT_TELEMETRY]
         ```
 
-        The complete set of configuration options is [here](https://github.com/microsoft/K2Bridge/blob/master/docs/configuration.md).
+        In [Configuration](https://github.com/microsoft/K2Bridge/blob/master/docs/configuration.md) you can find the complete set of configuration options.
 
     1. The command output will suggest the next Helm command to run to deploy Kibana. Optionally, run:
 
@@ -119,17 +115,17 @@ By default, K2Bridges's Helm chart references a publicly available image located
 
     1. Expose Kibana to the end users. There are multiple methods to do so. The method you use largely depends on your use case.
 
-        Example:
+        For example:
 
         Expose the service as a LoadBalancer service. To do so, add the following parameter to the K2Bridge Helm install command ([above](#install-k2bridge-chart)):
 
-	    `--set service.type=LoadBalancer`
-	
-	    Then run:
+        `--set service.type=LoadBalancer`
+    
+        Then run:
 
-        ```bash
-        kubectl get service -w -n k2bridge
-        ```   
+           ```bash
+           kubectl get service -w -n k2bridge
+           ```   
         The output should look like: 
 
         ```bash
@@ -144,7 +140,7 @@ In a new Kibana instance:
      1. Navigate to Management.
      1. Select **Index Patterns**. 
      1. Create an index pattern.
-The name of the index must **exactly match** the table name or function name, without an asterisk. You can copy the relevant line from the list.
+The name of the index must exactly match the table name or function name, without an asterisk. You can copy the relevant line from the list.
 
 > [!Note]
 > To run on other Kubernetes providers, change the Elasticsearch storageClassName in `values.yaml` to fit the one suggested by the provider.
@@ -159,33 +155,33 @@ When Azure Data Explorer is configured as a data source for Kibana, you can use 
     
     ![Select an index pattern](media/k2bridge/k2bridge-select-an-index-pattern.png)
 
-1. If your data has a time-filter field, you can specify the time range. At the upper-right of the page, set a **time filter**. By default, Discover shows data for the last 15 minutes.
+1. If your data has a time-filter field, you can specify the time range. At the upper-right of the page, set a time filter. By default, Discover shows data for the last 15 minutes.
 
     ![Time filter](media/k2bridge/k2bridge-time-filter.png)
     
-1. The results table shows the first 500 records. You can **expand a document** to examine its field data in either JSON or table formats.
+1. The results table shows the first 500 records. You can expand a document to examine its field data in either JSON or table formats.
 
     ![Expand a record](media/k2bridge/k2bridge-expand-record.png)
 
-1. By default, the results table includes columns for the document _source and the time field (if it exists). You can **choose specific columns** to be added to the results table by selecting **add** next to the field name in the left sidebar.
+1. By default, the results table includes columns for the document _source and the time field (if it exists). You can choose specific columns to be added to the results table by selecting **add** next to the field name in the left sidebar.
 
     ![Specific columns](media/k2bridge/k2bridge-specific-columns.png)
     
-1. In the query bar, you can **search the data** by:
+1. In the query bar, you can search the data by:
     * Entering a search term
     * Using the Lucene query syntax. 
-    Examples:
+    For example:
         * Search "error" to find all the records that contain this value. 
         * Search for "status: 200", to get all the records with a status value of 200. 
     * Using logical operators (AND, OR, NOT)
     * Using wildcards (asterisk " \* " or question mark "?") 
-    Example:
+    For example:
         * The query `"destination_city: L*"` will match records where the destination city value starts with "l" (K2Bridge is not case-sensitive).
 
     ![Run query](media/k2bridge/k2bridge-run-query.png)
     
     > [!Tip]
-    > You can find more search rules and logic [here](https://github.com/microsoft/K2Bridge/blob/master/docs/searching.md).
+    > In [Searching](https://github.com/microsoft/K2Bridge/blob/master/docs/searching.md), you can find more search rules and logic.
 
 1. To filter your search results, use the **field list** on the right sidebar of the page. 
     The field list is where you can see:
@@ -202,6 +198,6 @@ When Azure Data Explorer is configured as a data source for Kibana, you can use 
     
      ![Table list](media/k2bridge/k2bridge-table-list.png)
     
-1. To **save** and **share** your search, on the top menu bar, select either **Save** or **Share**.
+1. Select either to **Save** or **Share** your search.
 
      ![Save search](media/k2bridge/k2bridge-save-search.png)
