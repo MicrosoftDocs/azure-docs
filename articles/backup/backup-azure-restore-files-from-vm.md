@@ -196,10 +196,10 @@ If you run the script on a computer with restricted access, ensure there is acce
 
 - `download.microsoft.com`
 - Recovery Service URLs (geo-name refers to the region where the recovery service vault resides)
-  - <https://pod01-rec2.geo-name.backup.windowsazure.com> (For Azure public geos)
-  - <https://pod01-rec2.geo-name.backup.windowsazure.cn> (For Azure China 21Vianet)
-  - <https://pod01-rec2.geo-name.backup.windowsazure.us> (For Azure US Government)
-  - <https://pod01-rec2.geo-name.backup.windowsazure.de> (For Azure Germany)
+  - `https://pod01-rec2.geo-name.backup.windowsazure.com` (For Azure public geos)
+  - `https://pod01-rec2.geo-name.backup.windowsazure.cn` (For Azure China 21Vianet)
+  - `https://pod01-rec2.geo-name.backup.windowsazure.us` (For Azure US Government)
+  - `https://pod01-rec2.geo-name.backup.windowsazure.de` (For Azure Germany)
 - Outbound ports 53 (DNS), 443, 3260
 
 > [!NOTE]

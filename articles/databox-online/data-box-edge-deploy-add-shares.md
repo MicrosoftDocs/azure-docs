@@ -64,7 +64,7 @@ To create a share, do the following procedure:
    
     f. Depending on whether you've created an SMB share or an NFS share, do one of the following steps: 
      
-    - **SMB share**: Under **All privilege local user**, select **Create new** or **Use existing**. If you create a new local user, enter a username and password, and then confirm the password. This action assigns permissions to the local user. After you've assigned the permissions here, you can use File Explorer to modify them.
+    - **SMB share**: Under **All privilege local user**, select **Create new** or **Use existing**. If you create a new local user, enter a username and password, and then confirm the password. This action assigns permissions to the local user. Modification of share-level permissions is currently not supported.
 
         If you select the **Allow only read operations** check box for this share data, you can specify read-only users.
 
@@ -140,7 +140,7 @@ On your Linux client connected to your Data Box Edge device, do the following pr
 
 > [!NOTE] 
 > The following caveats are applicable to this release:
-> - After a file is created in the share, renaming of the file isn’t supported. 
+> - After a file is created in the share, renaming of the file isn't supported. 
 > - Deleting a file from a share does not delete the entry in the storage account.
 
 ## Next steps
