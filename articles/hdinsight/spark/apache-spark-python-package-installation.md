@@ -69,7 +69,7 @@ HDInsight cluster depends on the built-in Python environment, both Python 2.7 an
 
     You can search the [package index](https://pypi.python.org/pypi) for the complete list of packages that are available. You can also get a list of available packages from other sources. For example, you can install packages made available through [conda-forge](https://conda-forge.org/feedstocks/).
 
-    Use below command if you would like to isntall a library with its latest version:
+    Use below command if you would like to install a library with its latest version:
     
     - Use conda channel:
 
@@ -96,7 +96,7 @@ HDInsight cluster depends on the built-in Python environment, both Python 2.7 an
         sudo /usr/bin/anaconda/bin/conda install numpy=1.16.1 -n py35new --yes
         ```
 
-    - Or use Pypi repo, change `numpy==1.16.1` and `py35new` correspondingly:
+    - Or use PyPi repo, change `numpy==1.16.1` and `py35new` correspondingly:
 
         ```bash
         sudo /usr/bin/anaconda/env/py35new/bin/pip install numpy==1.16.1
