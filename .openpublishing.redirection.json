@@ -1721,6 +1721,26 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/Bing-Entities-Search/quickstarts/entity-sdk-csharp-quickstart.md",
+      "redirect_url": "/azure/cognitive-services/bing-entity-search/quickstarts/client-libraries?pivots=programming-language-csharp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Entities-Search/quickstarts/entity-sdk-java-quickstart.md",
+      "redirect_url": "/azure/cognitive-services/bing-entity-search/quickstarts/client-libraries?pivots=programming-language-java",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Entities-Search/quickstarts/entity-sdk-node-quickstart.md",
+      "redirect_url": "/azure/cognitive-services/bing-entity-search/quickstarts/client-libraries?pivots=programming-language-javascript",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Entities-Search/quickstarts/entity-sdk-python-quickstart.md",
+      "redirect_url": "/azure/cognitive-services/bing-entity-search/quickstarts/client-libraries?pivots=programming-language-python",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/linux/classic/rdma-cluster.md",
       "redirect_url": "/azure/virtual-machines/linux/sizes-hpc#rdma-capable-instances",
       "redirect_document_id": false
@@ -32792,6 +32812,11 @@
     {
       "source_path": "articles/active-directory/role-based-access-built-in-roles.md",
       "redirect_url": "/azure/role-based-access-control/built-in-roles",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/sql-database/sql-database-control-access.md",
+      "redirect_url": "/azure/sql-database/sql-database-manage-logins",
       "redirect_document_id": true
     },
     {
