@@ -1,13 +1,80 @@
 - name: Managed HSM Documentation
   href: index.yml
-- name: Overview
-  items:
-  - name: About Managed HSM
-    href: overview.md
-- name: Quickstarts
-  expanded: true
-- name: Tutorials
-- name: Samples
-- name: How-to guides
-- name: Reference
-- name: Resources
+- name: About Azure Key Vault keys, secrets and certificates
+  href: about-keys.md
+- name: Access Key Vault behind a firewall
+  href: access-behind-firewall.md
+- name: Authentication, requests and responses
+  href: authentication-requests-and-responses.md
+- name: What is Azure Key Vault?
+  href: basic-concepts.md
+- name: Best Practices to use Key Vault
+  href: best-practices.md
+- name: Common parameters and headers
+  href: common-parameters-and-headers.md
+- name: Azure Key Vault customer data features
+  href: customer-data.md
+- name: Azure Key Vault Developer's Guide
+  href: developers-guide.md
+- name: What to do in the event of an Azure service disruption that affects Azure Key Vault
+  href: disaster-recovery-guide.md
+- name: Grant permission to applications to access an Azure key vault
+  href: group-permissions-for-apps.md
+- name: How to generate and transfer HSM-protected keys for Azure Key Vault
+  href: hsm-protected-keys-vendor-agnostic-byok.md
+- name: Azure Key Vault logging
+  href: logging.md
+- name: Manage Azure Key Vault using CLI
+  href: manage-with-cli.md
+- name: Use an system-assigned managed identity to access Azure Key Vault
+  href: managed-identity.md
+- name: Configure Azure Key Vault firewalls and virtual networks
+  href: network-security.md
+- name: Azure Key Vault security
+  href: overview-security.md
+- name: Azure Managed HSM Overview - Azure Managed HSM
+  href: overview.md
+- name: Integrate with Azure Private Link Service
+  href: private-link-service.md
+- name: 'Quickstart: Set and retrieve a secret from Azure Key Vault'
+  href: quick-create-cli.md
+- name: Quickstart -  Azure Key Vault client library for Java
+  href: quick-create-java.md
+- name: Quickstart -  Azure Key Vault client library for .NET (SDK v3)
+  href: quick-create-net-v3.md
+- name: Quickstart -  Azure Key Vault client library for .NET (v4)
+  href: quick-create-net.md
+- name: Quickstart -  Azure Key Vault client library for Node.js (v4)
+  href: quick-create-node.md
+- name: Azure Quickstart - Set and retrieve a secret from Key Vault using Azure portal
+  href: quick-create-portal.md
+- name: "Quickstart: Set & retrieve a secret from Key Vault using PowerShell"
+  href: quick-create-powershell.md
+- name: Quickstart -  Azure Key Vault client library for Python
+  href: quick-create-python.md
+- name: Azure Quickstart - Create an Azure key vault and a secret by using Azure Resource Manager template
+  href: quick-create-template.md
+- name: REST API error codes
+  href: rest-error-codes.md
+- name: Secure access to a key vault
+  href: secure-your-hsm.md
+- name: Azure Security Baseline for Key Vault
+  href: security-baseline.md
+- name: Azure Key Vault security worlds
+  href: security-domains.md
+- name: Security recommendations for Azure Key Vault
+  href: security-recommendations.md
+- name: Azure Key Vault Service Limits
+  href: service-limits.md
+- name: Service-to-service authentication to Azure Key Vault using .NET
+  href: service-to-service-authentication.md
+- name: Azure Key Vault - How to use soft delete with CLI
+  href: soft-delete-cli.md
+- name: Azure Key Vault soft delete
+  href: soft-delete-overview.md
+- name: Azure Key Vault - How to use soft-delete with PowerShell
+  href: soft-delete-powershell.md
+- name: Azure Key Vault throttling guidance
+  href: throttling-overview.md
+- name: Virtual network service endpoints for Azure Key Vault
+  href: vnet-service-endpoints.md
