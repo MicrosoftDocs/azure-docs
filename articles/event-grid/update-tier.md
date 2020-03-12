@@ -10,8 +10,8 @@ ms.date: 03/11/2020
 ms.author: spelluru
 ---
 
-# Update pricing tier of an Azure Event Grid topic or domain
-This article shows you how to update pricing tier of an Azure Event Grid topic by using Azure portal, Azure CLI, and Azure PowerShell. 
+# Update pricing tier 
+This article shows you how to update pricing tier of an Azure Event Grid topic or domain by using Azure portal, Azure CLI, and Azure PowerShell. 
 
 ## Use Azure portal
 This section shows how to change the pricing tier of a topic or a domain in the Azure portal. 
