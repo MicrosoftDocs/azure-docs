@@ -525,7 +525,6 @@
       "redirect_url": "/azure/site-recovery/vmware-physical-mobility-service-overview#install-mobility-agent-through-ui",
       "redirect_document_id": false
     },
-
     {
       "source_path": "articles/machine-learning/service/quickstart-get-started.md",
       "redirect_url": "/azure/machine-learning/service/tutorial-1st-experiment-sdk-setup",
@@ -1719,6 +1718,26 @@
     {
       "source_path": "articles/cognitive-services/Bing-Image-Search/image-sdk-python-quickstart.md",
       "redirect_url": "/azure/cognitive-services/bing-image-search/quickstarts/client-libraries?pivots=programming-language-python",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Entities-Search/quickstarts/entity-sdk-csharp-quickstart.md",
+      "redirect_url": "/azure/cognitive-services/bing-entity-search/quickstarts/client-libraries?pivots=programming-language-csharp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Entities-Search/quickstarts/entity-sdk-java-quickstart.md",
+      "redirect_url": "/azure/cognitive-services/bing-entity-search/quickstarts/client-libraries?pivots=programming-language-java",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Entities-Search/quickstarts/entity-sdk-node-quickstart.md",
+      "redirect_url": "/azure/cognitive-services/bing-entity-search/quickstarts/client-libraries?pivots=programming-language-javascript",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Entities-Search/quickstarts/entity-sdk-python-quickstart.md",
+      "redirect_url": "/azure/cognitive-services/bing-entity-search/quickstarts/client-libraries?pivots=programming-language-python",
       "redirect_document_id": false
     },
     {
@@ -18680,17 +18699,17 @@
       "redirect_url": "/azure/backup/backup-azure-arm-vms-prepare",
       "redirect_document_id": false
     },
-	{
+    {
       "source_path": "articles/backup/backup-azure-configure-reports.md",
       "redirect_url": "/azure/backup/configure-reports.md",
       "redirect_document_id": false
     },
-	{
+    {
       "source_path": "articles/backup/backup-azure-log-analytics-data-model.md",
       "redirect_url": "/azure/backup/backup-azure-diagnostics-mode-data-model.md",
       "redirect_document_id": false
     },
-	{
+    {
       "source_path": "articles/backup/backup-azure-log-analytics-new-data-model.md",
       "redirect_url": "/azure/backup/backup-azure-reports-data-model.md",
       "redirect_document_id": false
@@ -25742,7 +25761,7 @@
     },
     {
       "source_path": "articles/active-directory/active-directory-reporting-power-bi-content-pack-how-to.md",
-      "redirect_url": "azure/active-directory/reports-monitoring/howto-use-azure-monitor-workbooks",
+      "redirect_url": "/azure/active-directory/reports-monitoring/howto-use-azure-monitor-workbooks",
       "redirect_document_id": false
     },
     {
@@ -36932,8 +36951,8 @@
     },
     {
       "source_path": "articles/active-directory/manage-apps/application-provisioning-config-problem-no-users-provisioned.md",
-      "redirect_url": "azure/active-directory/app-provisioning/application-provisioning-config-problem-no-users-provisioned",
-      "redirect_document_id": false
+      "redirect_url": "/azure/active-directory/app-provisioning/application-provisioning-config-problem-no-users-provisioned",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/application-provisioning-config-problem-storage-limit.md",
@@ -36952,7 +36971,7 @@
     },
     {
       "source_path": "articles/active-directory/manage-apps/application-provisioning-config-problem-wrong-users-provisioned.md",
-      "redirect_url": "azure/active-directory/app-provisioning/application-provisioning-config-problem-wrong-users-provisioned",
+      "redirect_url": "/azure/active-directory/app-provisioning/application-provisioning-config-problem-wrong-users-provisioned",
       "redirect_document_id": false
     },
     {
@@ -42710,7 +42729,7 @@
       "redirect_url": "/previous-versions/azure/virtual-machines/windows/classic/capture-image-classic",
       "redirect_document_id": false
     },
-	{
+    {
       "source_path": "articles/virtual-machines/virtual-machines-availability-set-supportability.md",
       "redirect_url": "/azure/virtual-machines/troubleshooting/virtual-machines-availability-set-supportability",
       "redirect_document_id": false
@@ -46110,7 +46129,6 @@
       "redirect_url": "/azure/iot-central/core/howto-use-app-templates/",
       "redirect_document_id": true
     },
-
     {
       "source_path": "articles/iot-central/preview/howto-customize-ui.md",
       "redirect_url": "/azure/iot-central/core/howto-customize-ui/",
@@ -46131,7 +46149,6 @@
       "redirect_url": "/azure/iot-central/core/howto-manage-iot-central-from-cli/",
       "redirect_document_id": true
     },
-
     {
       "source_path": "articles/iot-central/preview/tutorial-add-edge-as-leaf-device.md",
       "redirect_url": "/azure/iot-central/core/tutorial-add-edge-as-leaf-device/",
@@ -46216,7 +46233,8 @@
       "source_path": "articles/iot-central/preview/overview-iot-central-tour.md",
       "redirect_url": "/azure/iot-central/core/overview-iot-central-tour/",
       "redirect_document_id": true
-    },{
+    },
+    {
       "source_path": "articles/iot-central/preview/overview-iot-central-transform.md",
       "redirect_url": "/azure/iot-central/core/overview-iot-central/",
       "redirect_document_id": true
@@ -46239,7 +46257,7 @@
     {
       "source_path": "articles/iot-central/preview/index.yml",
       "redirect_url": "/azure/iot-central/core/",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/iot-pnp/quickstart-connect-pnp-device-linux.md",
@@ -48977,57 +48995,57 @@
       "redirect_document_id": false
     },
     {
-      "source_path":  "articles/cognitive-services/speech-service/quickstart-platform-cpp-linux.md",
+      "source_path": "articles/cognitive-services/speech-service/quickstart-platform-cpp-linux.md",
       "redirect_url": "/azure/cognitive-services/speech-service/quickstarts/setup-platform?tabs=linux&pivots=programming-language-cpp",
       "redirect_document_id": false
     },
     {
-      "source_path":  "articles/cognitive-services/speech-service/quickstart-platform-cpp-macos.md",
+      "source_path": "articles/cognitive-services/speech-service/quickstart-platform-cpp-macos.md",
       "redirect_url": "/azure/cognitive-services/speech-service/quickstarts/setup-platform?tabs=macos&pivots=programming-language-cpp",
       "redirect_document_id": false
     },
     {
-      "source_path":  "articles/cognitive-services/speech-service/quickstart-platform-cpp-windows.md",
+      "source_path": "articles/cognitive-services/speech-service/quickstart-platform-cpp-windows.md",
       "redirect_url": "/azure/cognitive-services/speech-service/quickstarts/setup-platform?tabs=windows&pivots=programming-language-cpp",
       "redirect_document_id": false
     },
     {
-      "source_path":  "articles/cognitive-services/speech-service/quickstart-platform-csharp-dotnet-windows.md",
+      "source_path": "articles/cognitive-services/speech-service/quickstart-platform-csharp-dotnet-windows.md",
       "redirect_url": "/azure/cognitive-services/speech-service/quickstarts/setup-platform?tabs=dotnet&pivots=programming-language-csharp",
       "redirect_document_id": false
     },
     {
-      "source_path":  "articles/cognitive-services/speech-service/quickstart-platform-csharp-dotnetcore-windows.md",
+      "source_path": "articles/cognitive-services/speech-service/quickstart-platform-csharp-dotnetcore-windows.md",
       "redirect_url": "/azure/cognitive-services/speech-service/quickstarts/setup-platform?tabs=dotnetcore&pivots=programming-language-csharp",
       "redirect_document_id": false
     },
     {
-      "source_path":  "articles/cognitive-services/speech-service/quickstart-platform-csharp-unity.md",
+      "source_path": "articles/cognitive-services/speech-service/quickstart-platform-csharp-unity.md",
       "redirect_url": "/azure/cognitive-services/speech-service/quickstarts/setup-platform?tabs=unity&pivots=programming-language-csharp",
       "redirect_document_id": false
     },
     {
-      "source_path":  "articles/cognitive-services/speech-service/quickstart-platform-csharp-uwp.md",
+      "source_path": "articles/cognitive-services/speech-service/quickstart-platform-csharp-uwp.md",
       "redirect_url": "/azure/cognitive-services/speech-service/quickstarts/setup-platform?tabs=uwp&pivots=programming-language-csharp",
       "redirect_document_id": false
     },
     {
-      "source_path":  "articles/cognitive-services/speech-service/quickstart-platform-csharp-xamarin.md",
+      "source_path": "articles/cognitive-services/speech-service/quickstart-platform-csharp-xamarin.md",
       "redirect_url": "/azure/cognitive-services/speech-service/quickstarts/setup-platform?tabs=xaml&pivots=programming-language-csharp",
       "redirect_document_id": false
     },
     {
-      "source_path":  "articles/cognitive-services/speech-service/quickstart-platform-java-android.md",
+      "source_path": "articles/cognitive-services/speech-service/quickstart-platform-java-android.md",
       "redirect_url": "/azure/cognitive-services/speech-service/quickstarts/setup-platform?tabs=android&pivots=programming-language-java",
       "redirect_document_id": false
     },
     {
-      "source_path":  "articles/cognitive-services/speech-service/quickstart-platform-java-jre.md",
+      "source_path": "articles/cognitive-services/speech-service/quickstart-platform-java-jre.md",
       "redirect_url": "/azure/cognitive-services/speech-service/quickstarts/setup-platform?tabs=jre&pivots=programming-language-java",
       "redirect_document_id": false
     },
     {
-      "source_path":  "articles/cognitive-services/speech-service/quickstart-platform-python.md",
+      "source_path": "articles/cognitive-services/speech-service/quickstart-platform-python.md",
       "redirect_url": "/azure/cognitive-services/speech-service/quickstarts/setup-platform?pivots=programming-language-python",
       "redirect_document_id": false
     },
@@ -49122,9 +49140,9 @@
       "redirect_document_id": false
     },
     {
-       "source_path": "articles/cognitive-services/Bing-News-Search/vs-bing-news-search-connected-service.md",
-       "redirect_url": "/azure/cognitive-services/bing-news-search/search-the-web",
-       "redirect_document_id": false
+      "source_path": "articles/cognitive-services/Bing-News-Search/vs-bing-news-search-connected-service.md",
+      "redirect_url": "/azure/cognitive-services/bing-news-search/search-the-web",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/cognitive-services/Computer-vision/vs-computer-vision-connected-service.md",
@@ -49244,7 +49262,7 @@
     {
       "source_path": "articles/virtual-machines/workloads/sap/sap-hana-backup-storage-snapshots.md",
       "redirect_url": "sap-hana-backup-guide",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/service-fabric/service-fabric-cicd-your-linux-applications-with-jenkins.md",
