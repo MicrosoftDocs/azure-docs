@@ -43,9 +43,9 @@ Using [Windows PowerShell Desired State Configuration](https://docs.microsoft.co
 
 ## Install the agent and connect to Azure
 
-The resources in this module are designed to manage the Azure Connected Machine Agent configuration. Also included is a configuration MOF document `AzureConnectedMachineAgent.ps1`, found in the `AzureConnectedMachineDsc\examples` folder, which uses community resources to automate the download and installation, and establish the connection with Azure Arc. This configuration document performs similar steps described in the [Connect hybrid machines to Azure from the Azure portal](onboard-portal.md) article.
+The resources in this module are designed to manage the Azure Connected Machine Agent configuration. Also included is a PowerShell script `AzureConnectedMachineAgent.ps1`, found in the `AzureConnectedMachineDsc\examples` folder. It uses community resources to automate the download and installation, and establish a connection with Azure Arc. This script performs similar steps described in the [Connect hybrid machines to Azure from the Azure portal](onboard-portal.md) article.
 
-If the machine needs to communicate through a proxy server to the service, after you install the agent you need to run a command that's described [here](onboard-portal.md#configure-the-agent-proxy-setting). This sets the proxy server system environment variable `https_proxy`. Instead of running the command manually, you can perform this step with DSC by using the ComputeManagementDsc module.
+If the machine needs to communicate through a proxy server to the service, after you install the agent you need to run a command that's described [here](onboard-portal.md#configure-the-agent-proxy-setting). This sets the proxy server system environment variable `https_proxy`. Instead of running the command manually, you can perform this step with DSC by using the [ComputeManagementDsc](https://www.powershellgallery.com/packages/ComputerManagementDsc/6.0.0.0) module.
 
 >[!NOTE]
 >To allow DSC to run, Windows needs to be configured to receive PowerShell remote commands even when you're running a localhost configuration. To easily configure your environment correctly, just run `Set-WsManQuickConfig -Force` in an elevated PowerShell Terminal.
@@ -83,7 +83,7 @@ After you install the agent and configure it to connect to Azure Arc for servers
 
 This resource can be added to existing DSC configurations to represent an end-to-end configuration for a machine. For example, you might wish to add this resource to a configuration that sets secure operating system settings.
 
-The **CompsiteResource** module from the PowerShell Gallery can be used to create a composite resource of the example configuration, to further simplify combining configurations.
+The [CompsiteResource](https://www.powershellgallery.com/packages/compositeresource/0.4.0) module from the PowerShell Gallery can be used to create a [composite resource](https://docs.microsoft.com/powershell/scripting/dsc/resources/authoringResourceComposite?view=powershell-7) of the example configuration, to further simplify combining configurations.
 
 ## Next steps
 
