@@ -12,7 +12,7 @@ In the [previous tutorials](./deployment-tutorial-local-template.md), you learne
 
 ## Prerequisites
 
-We recommend that you complete the first tutorial, but it's not required.
+We recommend that you complete the previous tutorial, but it's not required.
 
 ## Review template
 
@@ -34,7 +34,7 @@ Save a copy of the main template to your local computer.
 
 ## Store the linked template
 
-The following PowerShell script creates a storage account, creates a container, copies the linked template from a github repository to the container. At the end of the execution, the script returns the URI of the linked template. You will pass the value as a parameter when you deploy the main template.
+The following PowerShell script creates a storage account, creates a container, copies the linked template from a github repository to the container. \
 
 Select **Try-it** to open the Cloud shell, select **Copy** to copy the PowerShell script, and right-click the shell pane to paste the script:
 
@@ -74,35 +74,26 @@ Set-AzStorageBlobContent `
     -Blob $fileName `
     -Context $context
 
-# Generate a SAS token
-$templateURI = New-AzStorageBlobSASToken `
-    -Context $context `
+# List the template
+Get-AzStorageBlob `
     -Container $containerName `
-    -Blob $fileName `
-    -Permission r `
-    -ExpiryTime (Get-Date).AddHours(8.0) `
-    -FullUri
+    -Blob $fileName
 
-Write-Host "You need the following values later in the tutorial:"
-Write-Host "Resource Group Name: $resourceGroupName"
-Write-Host "Linked template URI with SAS token: $templateURI"
 Write-Host "Press [ENTER] to continue ..."
 ```
 
-Make a note of the linked template URI. The SAS token is embedded in the URL.
-
 ## Deploy template
 
-Use either Azure CLI or Azure PowerShell to deploy the template.
+To deploy a private template in a storage account, generate a SAS token and include it in the URI for the template. Set the expiry time to allow enough time to complete the deployment. The blob containing the template is accessible to only the account owner. However, when you create a SAS token for the blob, the blob is accessible to anyone with that URI. If another user intercepts the URI, that user is able to access the template. A SAS token is a good way of limiting access to your templates, but you should not include sensitive data like passwords directly in the template.
 
-If you haven't created the resource group, see [Create resource group](template-tutorial-create-first-template.md#create-resource-group). The example assumes you've set the **templateFile** variable to the path to the template file, as shown in the [first tutorial](./deployment-tutorial-local-template.md#deploy-template).
+If you haven't created the resource group, see [Create resource group](deployment-tutorial-linked-template.md#create-resource-group).
 
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 
 $projectName = Read-Host -Prompt "Enter a project name:"   # This name is used to generate names for Azure resources, such as storage account name.
-$templateFile = Read-Host -Prompt "Enter the main template file"
+$templateFile = Read-Host -Prompt "Enter the main template file and path"
 
 $resourceGroupName = $projectName + "rg"
 $storageAccountName = $projectName + "store"
@@ -121,7 +112,7 @@ $linkedTemplateUri = New-AzStorageBlobSASToken `
     -ExpiryTime (Get-Date).AddHours(2.0) `
     -FullUri
 
-
+# Deploy the template
 New-AzResourceGroupDeployment `
   -Name DeployLinkedTemplate `
   -ResourceGroupName $resourceGroupName `
@@ -129,6 +120,8 @@ New-AzResourceGroupDeployment `
   -projectName $projectName `
   -linkedTemplateUri $linkedTemplateUri `
   -verbose
+
+Write-Host "Press [ENTER] to continue ..."
 ```
 
 # [Azure CLI](#tab/azure-cli)
@@ -139,8 +132,23 @@ echo "Enter a project name that is used to generate resource names:"
 read projectName
 echo "Enter the main template file:"
 read templateFile
-echo "Enter the linked template URI:"
-read linkedTemplateUri
+
+resourceGroupName="${projectName}rg"
+storageAccountName="${projectName}store"
+containerName = "templates"
+fileName="linkedStorageAccount.json"
+
+key=$(az storage account keys list -g $resourceGroupName -n $storageAccountName --query [0].value -o tsv)
+
+linkedTemplateUri=$(az storage blob generate-sas \
+  --account-name $storageAccountName \
+  --account-key $key \
+  --container-name $containerName \
+  --name $fileName \
+  --permissions r \
+  --expiry `date -u -d "120 minutes" '+%Y-%m-%dT%H:%MZ'` \
+  --full-uri)
+
 
 az deployment group create \
   --name DeployLinkedTemplate \
