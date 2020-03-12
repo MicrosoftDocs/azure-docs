@@ -6,7 +6,7 @@ ms.reviewer: amberb
 tags: billing
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 02/13/2020
+ms.date: 3/11/2020
 ms.author: banders
 ---
 # Prevent unexpected charges with Azure billing and cost management
@@ -19,6 +19,8 @@ When you sign up for Azure, there are several things you can do to get a better 
 - Integrate billing and cost data with your own reporting system using [billing](https://docs.microsoft.com/rest/api/billing/) and [consumption](https://docs.microsoft.com/rest/api/consumption/) APIs.
 - Use additional resources and tools for Enterprise Agreement (EA), Cloud Solution Provider (CSP), and Azure Sponsorship customers.
 - Make use of [some of the most popular Azure services for free for 12 months](create-free-services.md) available with the [Azure free account](https://azure.microsoft.com/free/). Along with the recommendations listed below, see [Avoid getting charged for free account](avoid-charges-free-account.md).
+
+If you need to cancel your Azure subscription, see [Cancel your Azure subscription](cancel-azure-subscription.md).
 
 ## Get estimated costs before adding Azure services
 
@@ -153,7 +155,7 @@ If you have access to Azure through a Microsoft Customer Agreement (MCA) billing
 
 ### Request a Service Level Agreement credit for a service incident
 
-The Service Level Agreement (SLA) describes Microsoft’s commitments for uptime and connectivity. A service incident is reported when Azure services experience an issue that impacts uptime or connectivity, often referred to as an *outage*. If we do not achieve and maintain the Service Levels for each service as described in the SLA, then you might be eligible for a credit towards a portion of your monthly service fees.
+The Service Level Agreement (SLA) describes Microsoft's commitments for uptime and connectivity. A service incident is reported when Azure services experience an issue that impacts uptime or connectivity, often referred to as an *outage*. If we do not achieve and maintain the Service Levels for each service as described in the SLA, then you might be eligible for a credit towards a portion of your monthly service fees.
 
 To request a credit:
 
@@ -161,7 +163,7 @@ To request a credit:
 2. Create a new support request.
 3. Under **Issue type**, select **Billing**.
 4. Under **Problem type**, select **Refund Request**.
-5. Add details to specify that you’re asking for an SLA credit, mention the date/time/time-zone as well as the impacted services (VMs, Web Sites, etc.)
+5. Add details to specify that you're asking for an SLA credit, mention the date/time/time-zone as well as the impacted services (VMs, Web Sites, etc.)
 6. Verify your contact details and select **Create** to submit your request.
 
 SLA thresholds vary by service. For example, the SQL Web Tier has an SLA of 99.9%, VMs have an SLA of 99.95%, and SQL Standard Tier has an SLA of 99.99%.

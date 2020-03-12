@@ -45,7 +45,7 @@ The application is built with the Speech SDK package, and the Eclipse Java IDE (
 For Linux, the sample application is provided as a cross-platform Java application. Download the latest version of the [JRE Speech Devices SDK](https://aka.ms/sdsdk-download-JRE).
 The application is built with the Speech SDK package, and the Eclipse Java IDE (v4) on 64-bit Linux (Ubuntu 16.04, Ubuntu 18.04, Debian 9, RHEL 8, CentOS 8). It runs on a 64-bit Java 8 runtime environment (JRE).
 
-Additional binaries are provided to support upcoming devices, [Roobo v2 DDK](https://aka.ms/sdsdk-download-roobov2), and [Urbetter DDK](https://aka.ms/sdsdk-download-urbetter).
+Additional binaries are provided to support upcoming devices, [Roobo v2 DDK](https://aka.ms/sdsdk-download-roobov2), [Urbetter DDK](https://aka.ms/sdsdk-download-urbetter), and [GGEC Speaker](https://aka.ms/sdsdk-download-speaker).
 
 ## Next steps
 
