@@ -13,6 +13,8 @@ ms.date: 01/18/2019
 ---
 # Get support and training for Azure Machine Learning Studio (classic)
 
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
+
 This article provides information on how to learn more about Azure Machine Learning Studio (classic) and get support for your issues and questions.
 
 ## Learn more about Studio (classic)
