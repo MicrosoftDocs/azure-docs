@@ -25,7 +25,7 @@ Building an Azure digital twin starts with creating a twin type model. A twin ty
 
 After creating a twin type model, your client app will instantiate it in order to create Azure digital twins. For example, after creating a twin type model of *Floor*, you may create one or several digital twins that use this design (a *Floor*-type twin called *GroundFloor*, another called *Floor2*, etc.). 
 
-Here is some example client code that uses the [Twin APIs](concepts-use-apis.md) to instantiate several Azure digital twins: two of twin type model *Floor* and one of twin type model *Room*.
+Here is some example client code that uses the [Twin APIs](how-to-use-apis.md) to instantiate several Azure digital twins: two of twin type model *Floor* and one of twin type model *Room*.
 
 ```csharp
 // Create digital twins
@@ -40,7 +40,7 @@ Twins are connected into a twin graph by their relationships. The relationship t
 
 For example, a *Floor*-type digital twin might have a *contains* relationship that allows it to connect to several *Room*-type digital twins. A cooling device might have a *cools* relationship with a motor. 
 
-Here is some example client code that uses the [Twin APIs](concepts-use-apis.md) to build a relationship between a *Floor*-type digital twin called *GroundFloor* and a *Room*-type digital twin called *Cafe*.
+Here is some example client code that uses the [Twin APIs](how-to-use-apis.md) to build a relationship between a *Floor*-type digital twin called *GroundFloor* and a *Room*-type digital twin called *Cafe*.
 
 ```csharp
 // Create relationships
