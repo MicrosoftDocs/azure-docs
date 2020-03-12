@@ -22,7 +22,7 @@ This article introduces the VNET connectivity pattern and elaborates on how to s
 By default, IoT Hub hostnames map to a public endpoint with a publicly routable IP address over the Internet. As shown in the illustration below, this IoT Hub public endpoint is shared among hubs owned by different customers and can be accessed by IoT devices over wide-area networks as well as on-premises networks alike.
 
 Several IoT Hub features including [message routing](./iot-hub-devguide-messages-d2c.md), [file upload](./iot-hub-devguide-file-upload.md), and [bulk device import/export](./iot-hub-bulk-identity-mgmt.md) similarly require connectivity from IoT Hub to a customer-owned Azure resource over its public endpoint. As illustrated below, these connectivity paths collectively constitute the egress traffic from IoT Hub to customer resources.
-![IoT Hub public endpoint](./media/iot-hub-vnet-support/public-endpoint.png)
+![IoT Hub public endpoint](./media/virtual-network-support/public-endpoint.png)
 
 
 For several reasons, customers may wish to restrict connectivity to their Azure resources (including IoT Hub) through a VNET that they own and operate. These reasons include:
@@ -45,9 +45,9 @@ This article describes how to achieve these goals using [private endpoints](../p
 A private endpoint is a private IP address allocated inside a customer-owned VNET via which an Azure resource is reachable. By having a private endpoint for your IoT hub, you will be able to allow services operating inside your VNET to reach IoT Hub without requiring traffic to be sent to IoT Hub's public endpoint. Similarly, devices that operate in your on-premises can use [Virtual Private Network (VPN)](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) or [ExpressRoute](https://azure.microsoft.com/services/expressroute/) Private Peering to gain connectivity to your VNET in Azure and subsequently to your IoT Hub (via its private endpoint). As a result, customers who wish to restrict connectivity to their IoT hub's public endpoints (or possibly completely block it off) can achieve this goal by using [IoT Hub firewall rules](./iot-hub-ip-filtering.md) while retaining connectivity to their Hub using the private endpoint.
 
 > [!NOTE]
-> The main focus of this setup is for devices inside an on-premises network. This setup is not advised for devices deployed in a wide-area network. 
+> The main focus of this setup is for devices inside an on-premises network. This setup is not advised for devices deployed in a wide-area network.
 
-![IoT Hub public endpoint](./media/iot-hub-vnet-support/vnet-ingress.png)
+![IoT Hub public endpoint](./media/virtual-network-support/virtual-network-ingress.png)
 
 Before proceeding ensure that the following prerequisites are met:
 
@@ -306,7 +306,7 @@ To use this region-limited version of the Azure IoT SDKs with VNET support for C
  
 For Python, download our limited version from Github.
 
-1. Navigate to the [Github release page](http://aka.ms/vnetpythonsdk).
+1. Navigate to the [Github release page](https://aka.ms/vnetpythonsdk).
 
 2. Download the following file, which you'll find at the bottom of the release page under the header named **assets**.
     > *azure_iot_hub-2.2.0.limited-py2.py3-none-any.whl*
