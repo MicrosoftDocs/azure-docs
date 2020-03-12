@@ -8,7 +8,7 @@ ms.date: 09/13/2019
 
 Concerns about security issues, like malware, ransomware, and intrusion, are increasing. These security issues can be costly, in terms of both money and data. To guard against such attacks, Azure Backup now provides security features to help protect backup data even after deletion.
 
-One such feature is soft delete. With soft delete, even if a malicious actor deletes the backup of a VM (or backup data is accidentally deleted), the backup data is retained for 14 additional days, allowing the recovery of that backup item with no data loss. The additional 14 days retention of backup data in the "soft delete" state don’t incur any cost to the customer. Azure also encrypts all the backed-up data at rest using [Storage Service Encryption](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) to further secure your data.
+One such feature is soft delete. With soft delete, even if a malicious actor deletes the backup of a VM (or backup data is accidentally deleted), the backup data is retained for 14 additional days, allowing the recovery of that backup item with no data loss. The additional 14 days retention of backup data in the "soft delete" state don't incur any cost to the customer. Azure also encrypts all the backed-up data at rest using [Storage Service Encryption](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) to further secure your data.
 
 Soft delete protection for Azure virtual machines is generally available.
 
@@ -40,7 +40,7 @@ Soft delete is currently supported in the West Central US, East Asia, Canada Cen
 
    ![Screenshot of Azure portal, Stop Backup screen](./media/backup-azure-security-feature-cloud/delete-backup-data.png)
 
-3. During those 14 days, in the Recovery Services Vault, the soft deleted VM will appear with a red “soft-delete” icon next to it.
+3. During those 14 days, in the Recovery Services Vault, the soft deleted VM will appear with a red "soft-delete" icon next to it.
 
    ![Screenshot of Azure portal, VM in soft delete state](./media/backup-azure-security-feature-cloud/vm-soft-delete.png)
 
@@ -51,7 +51,7 @@ Soft delete is currently supported in the West Central US, East Asia, Canada Cen
 
    ![Screenshot of Azure portal, Undelete VM](./media/backup-azure-security-feature-cloud/choose-undelete.png)
 
-   A window will appear warning that if undelete is chosen, all restore points for the VM will be undeleted and available for performing a restore operation. The VM will be retained in a “stop protection with retain data” state with backups paused and backup data retained forever with no backup policy effective.
+   A window will appear warning that if undelete is chosen, all restore points for the VM will be undeleted and available for performing a restore operation. The VM will be retained in a "stop protection with retain data" state with backups paused and backup data retained forever with no backup policy effective.
 
    ![Screenshot of Azure portal, Confirm undelete VM](./media/backup-azure-security-feature-cloud/undelete-vm.png)
 
@@ -62,7 +62,7 @@ Soft delete is currently supported in the West Central US, East Asia, Canada Cen
    > [!NOTE]
    > Garbage collector will run and clean expired recovery points only after the user performs the **Resume backup** operation.
 
-5. After the undelete process is completed, the status will return to “Stop backup with retain data” and then you can choose **Resume backup**. The **Resume backup** operation brings back the backup item in the active state, associated with a backup policy selected by the user defining the backup and retention schedules.
+5. After the undelete process is completed, the status will return to "Stop backup with retain data" and then you can choose **Resume backup**. The **Resume backup** operation brings back the backup item in the active state, associated with a backup policy selected by the user defining the backup and retention schedules.
 
    ![Screenshot of Azure portal, Resume backup option](./media/backup-azure-security-feature-cloud/resume-backup.png)
 
@@ -172,24 +172,23 @@ Follow these steps:
 1. Follow the steps to [disable soft delete](#disabling-soft-delete).
 2. In the Azure portal, go to your vault, go to **Backup Items**, and choose the soft deleted VM.
 
-![Choose soft deleted VM](./media/backup-azure-security-feature-cloud/vm-soft-delete.png)
+   ![Choose soft deleted VM](./media/backup-azure-security-feature-cloud/vm-soft-delete.png)
 
 3. Select the option **Undelete**.
 
-![Choose Undelete](./media/backup-azure-security-feature-cloud/choose-undelete.png)
-
+   ![Choose Undelete](./media/backup-azure-security-feature-cloud/choose-undelete.png)
 
 4. A window will appear. Select **Undelete**.
 
-![Select Undelete](./media/backup-azure-security-feature-cloud/undelete-vm.png)
+   ![Select Undelete](./media/backup-azure-security-feature-cloud/undelete-vm.png)
 
 5. Choose **Delete backup data** to permanently delete the backup data.
 
-![Choose Delete backup data](https://docs.microsoft.com/azure/backup/media/backup-azure-manage-vms/delete-backup-buttom.png)
+   ![Choose Delete backup data](https://docs.microsoft.com/azure/backup/media/backup-azure-manage-vms/delete-backup-buttom.png)
 
 6. Type the name of the backup item to confirm that you want to delete the recovery points.
 
-![Type the name of the backup item](https://docs.microsoft.com/azure/backup/media/backup-azure-manage-vms/delete-backup-data1.png)
+   ![Type the name of the backup item](https://docs.microsoft.com/azure/backup/media/backup-azure-manage-vms/delete-backup-data1.png)
 
 7. To delete the backup data for the item, select **Delete**. A notification message lets you know that the backup data has been deleted.
 
@@ -262,6 +261,10 @@ Azure Backup allows you to back up Azure Virtual Machines containing disks encry
 ### Backup of encrypted VMs
 
 You can back up and restore Windows or Linux Azure virtual machines (VMs) with encrypted disks using the Azure Backup service. For instructions, see [Back up and restore encrypted virtual machines with Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption).
+
+## Private Endpoints
+
+[!INCLUDE [Private Endpoints](../../includes/backup-private-endpoints.md)]
 
 ## Other security features
 

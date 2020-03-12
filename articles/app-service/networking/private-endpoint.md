@@ -80,7 +80,7 @@ To deploy Private endpoint for your Web App through the portal see [How to conne
 [vnetintegrationfeature]: https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet
 [disablesecuritype]: https://docs.microsoft.com/azure/private-link/disable-private-endpoint-network-policy
 [accessrestrictions]: https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions
-[tcpproxy]: https://docs.microsoft.com/azure/private-link/rivate-link-service-overview#getting-connection-information-using-tcp-proxy-v2
+[tcpproxy]: ../../private-link/private-link-service-overview.md#getting-connection-information-using-tcp-proxy-v2
 [dnsvalidation]: https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-domain
 [pllimitations]: https://docs.microsoft.com/azure/private-link/private-endpoint-overview#limitations
 [pricing]: https://azure.microsoft.com/pricing/details/private-link/
