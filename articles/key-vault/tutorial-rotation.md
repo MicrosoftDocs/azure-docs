@@ -21,9 +21,9 @@ This tutorial demonstrates how to automate the periodic rotation of secrets for 
 
 ![Rotation diagram](./media/rotate1.png)
 
-1. Thirty days before 30 days before the expiration date of a secret, Key Vault publish the "near expiry" event to Event Grid .
+1. Thirty days before the expiration date of a secret, Key Vault publish the "near expiry" event to Event Grid.
 1. Event Grid checks the event subscriptions and, using http post, calls the Function App endpoint subscribed to this event.
-1. The function App receives secret information, generates new random password, and create a new version for the secret with a new password in Key Vault.
+1. The function App receives the secret information, generates a new random password, and creates a new version for the secret with a new password in Key Vault.
 1. The function App updates SQL with new password.
 
 > [!NOTE]
@@ -63,7 +63,7 @@ simplerotation-sql/master     simplerotation             eastus      Microsoft.S
 
 ## Create Function App
 
-Create a Function App with a with system managed identity, as well as the additional required components: 
+Create a Function App with a system-managed identity, as well as the additional required components: 
 
 Function app requires below components and configuration:
 - App Service Plan
@@ -141,7 +141,7 @@ public class SecretRotator
            var client = new SecretClient(new Uri(kvUri), new DefaultAzureCredential());
            KeyVaultSecret secret = client.GetSecret(secretName, secretVersion);
            log.LogInformation("Secret Info Retrieved");
-    	
+        
            //Retrieve Secret Info
            var userId = secret.Properties.Tags.ContainsKey(UserIdTagName) ?  
                         secret.Properties.Tags[UserIdTagName] : "";
@@ -149,19 +149,19 @@ public class SecretRotator
                             secret.Properties.Tags[DataSourceTagName] : "";
            log.LogInformation($"Data Source Name: {datasource}");
            log.LogInformation($"User Id Name: {userId}");
-    	
+        
            //create new password
            var randomPassword = CreateRandomPassword();
            log.LogInformation("New Password Generated");
-    	
+        
            //Check db connection using existing secret
            CheckServiceConnection(secret);
            log.LogInformation("Service Connection Validated");
-    	            
+                    
            //Create new secret with generated password
            CreateNewSecretVersion(client, secret, randomPassword);
            log.LogInformation("New Secret Version Generated");
-    	
+        
            //Update db password
            UpdateServicePassword(secret, randomPassword);
            log.LogInformation("Password Changed");
@@ -177,7 +177,7 @@ https://github.com/jlichwa/azure-keyvault-basicrotation-tutorial/tree/master/rot
 1. Download function app zip file:
 https://github.com/jlichwa/azure-keyvault-basicrotation-tutorial/raw/master/simplerotationsample-fn.zip
 
-1. Upload file simplerotationsample-fn.zip to Cloud Shell.
+1. Upload file simplerotationsample-fn.zip to Azure Cloud Shell.
  
 1. Use below CLI command to deploy zip file to function app:
 
@@ -188,17 +188,17 @@ az functionapp deployment source config-zip -g simplerotation -n simplerotation-
 
 After deployment you should notice two functions under simplerotation-fn:
 
-![Cloud Shell](./media/rotate5.png)
+![Azure Cloud Shell](./media/rotate5.png)
 
-### Add event subscription for “SecretNearExpiry” event
+### Add event subscription for "SecretNearExpiry" event
 
 Copy the function app eventgrid_extension key.
 
-![Cloud Shell](./media/rotate6.png)
+![Azure Cloud Shell](./media/rotate6.png)
 
 ![Test and verify](./media/rotate7.png)
 
-Use the copied eventgrid extension key and your subscription id in below command to create an event grid subscription for SecretNearExpiry events.
+Use the copied eventgrid extension key and your subscription ID in below command to create an event grid subscription for SecretNearExpiry events.
 
 ```azurecli
 az eventgrid event-subscription create --name simplerotation-eventsubscription --source-resource-id "/subscriptions/<subscription-id>/resourceGroups/simplerotation/providers/Microsoft.KeyVault/vaults/simplerotation-kv" --endpoint "https://simplerotation-fn.azurewebsites.net/runtime/webhooks/EventGrid?functionName=SimpleRotation&code=<extension-key>" --endpoint-type WebHook --included-event-types "Microsoft.KeyVault.SecretNearExpiry"
@@ -211,7 +211,7 @@ Set your access policy to give "manage secrets" permission to users.
 az keyvault set-policy --upn <email-address-of-user> --name simplerotation-kv --secret-permissions set delete get list
 ```
 
-Now create a new secret with tags containing sql database datasource and user id, with the expiration date set for tomorrow.
+Now create a new secret with tags containing sql database datasource and user ID, with the expiration date set for tomorrow.
 
 ```azurecli
 $tomorrowDate = (get-date).AddDays(+1).ToString("yyy-MM-ddThh:mm:ssZ")
@@ -236,12 +236,12 @@ Open the "sqluser" secret and view the original and rotated version
 To verify SQL credentials, create a web application. This web application will get the secret from key vault, extract sql database information and credentials from the secret, and test the connection to sql.
 
 The web app requires below components and configuration:
-- Web App with System Managed Identity
+- Web App with System-Managed Identity
 - Access policy to access secrets in Key Vault using Web App Managed Identity
 
 1. Click Azure template deployment link: 
 <br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2Fazure-keyvault-basicrotation-tutorial%2Fmaster%2Farm-templates%2Fweb-app%2Fazuredeploy.json" target="_blank"> <img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png"/></a>
-1. Select ‘simplerotation’ resource group
+1. Select the **simplerotation** resource group
 1. Click Purchase
 
 ### Deploy Web App
@@ -251,7 +251,7 @@ For deployment of the web app, do the following:
 
 1. Download the function app zip file from 
 https://github.com/jlichwa/azure-keyvault-basicrotation-tutorial/raw/master/simplerotationsample-app.zip
-1. Upload the file "simplerotationsample-app.zip" to Cloud Shell.
+1. Upload the file `simplerotationsample-app.zip` to Azure Cloud Shell.
 1. Use this Azure CLI command to deploy the zip file to the function app:
 
    ```azurecli
