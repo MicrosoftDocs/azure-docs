@@ -1,5 +1,5 @@
 ---
-title: Understand admin roles for Enterprise in Azure | Microsoft Docs
+title: Understand admin roles for Enterprise in Azure
 description: Learn about Enterprise administrator roles in Azure.
 author: bandersmsft
 ms.reviewer: adwise
