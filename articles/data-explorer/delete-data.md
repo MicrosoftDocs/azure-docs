@@ -15,7 +15,7 @@ Azure Data Explorer supports various delete scenarios described in this article.
 
 ## Delete using retention policy
 
-Azure Data Explorer automatically deletes data based on the [retention policy](/azure/kusto/management/retentionpolicy). This is the most efficient and hassle-free method of deleting data. Set the retention policy at the database or table level.
+Azure Data Explorer automatically deletes data based on the [retention policy](/azure/kusto/management/retentionpolicy). This method is the most efficient and hassle-free way of deleting data. Set the retention policy at the database or table level.
 
 Consider a database or table that is set for 90 days of retention. If only 60 days of data are needed, delete the older data as follows:
 
@@ -50,5 +50,5 @@ You can delete all rows in a table or just a specific extent.
 > [!NOTE]
 > Purge allows you to delete personal data from the device or service and can be used to support your obligations under the GDPR. If you're looking for general information about GDPR, see the [GDPR section of the Service Trust portal](https://servicetrust.microsoft.com/ViewPage/GDPRGetStarted).
 
-[Data purge](/azure/kusto/management/data-purge) can be used for deleting individuals rows. Deletion is *not* immediate and requires significant system resources. Therefore, it is only advised for compliance scenarios.  
+[Data purge](/azure/kusto/management/data-purge) can be used for deleting individuals rows. Deletion isn't immediate and requires significant system resources. As such, it's only advised for compliance scenarios.  
 
