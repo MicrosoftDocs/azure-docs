@@ -17,21 +17,19 @@ Azure Arc and Azure IoT Edge complement each other's capabilities quite well. Ar
     ```
     $ kubectl create ns iotedge
 
-    $ kubectl create secret generic dcs 
+    $ kubectl create secret generic dcs \
       --from-file=fully-qualified-path-to-values.yaml \
       --namespace iotedge
     ```
 
-    >You can also set this up remotely using the [cluster config example](./use-gitops.md).
-
-1. The Flux `helm-operator` [doesn't yet support Helm 3](https://github.com/fluxcd/helm-operator/issues/8), so we'll need to deploy a cluster-scoped `tiller` instance for now.
+    >You can also set this up remotely using the [cluster config example](./use-gitops-in-connected-cluster.md).
 
 ## Connect a cluster
 
 Use the `az` CLI `connectedk8s` extension to connect a Kubernetes cluster to Azure Arc:
 
   ```
-  az connectedk8s connect --name AzureArcEdge1 --resource-group AzureArcEdge
+  az connectedk8s connect --name AzureArcIotEdge --resource-group AzureArcTest
   ```
 
 ## Create a configuration for IoT Edge
@@ -45,12 +43,15 @@ This repo points to the IoT Edge Helm chart and references the secret created in
     ```
     az k8sconfiguration create \
       --name iotedge \
-      --cluster-name AzureArcEdge1 \
-      --resource-group AzureArcEdge \
+      --cluster-name AzureArcIotEdge \
+      --resource-group AzureArcTest \
       --operator-instance-name iotedge \
-      --operator-namespace azure-arc-edge \
-      --enable-helm-operator true \
-      --repository-url "git://github.com/veyalla/edgearc.git"
+      --operator-namespace azure-arc-iot-edge \
+      --enable-helm-operator \
+      --helm-operator-chart-version 0.6.0 \
+      --helm-operator-chart-values "--set helm.versions=v3" \
+      --repository-url "git://github.com/veyalla/edgearc.git" \
+      --cluster-scoped
     ```
 
     In a minute or two, you should see the IoT Edge workload modules deployed into the `iotedge` namespace in your cluster. You can view the logs of the `SimulatedTemperatureSensor` pod in that namespace to see the sample values being generated. You can also watch the messages arrive at your IoT hub by using the [Azure IoT Hub Toolkit extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit).
@@ -60,5 +61,5 @@ This repo points to the IoT Edge Helm chart and references the secret created in
 You can remove the configuration using:
 
 ```
-az k8sconfiguration delete -g AzureArcEdge --cluster-name AzureArcEdge1 --name iotedge
+az k8sconfiguration delete -g AzureArcTest --cluster-name AzureArcIotEdge --name iotedge
 ```

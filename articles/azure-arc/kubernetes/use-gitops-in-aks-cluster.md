@@ -2,9 +2,9 @@
 title: "Use GitOps with Azure Kubernetes Service (AKS)"
 services: arc-kubernetes
 ms.date: 02/21/2020
-ms.topic: "conceptual"
+ms.topic: "Tutorial"
 description: ""
-keywords: "GitOps, Kubernetes, Arc, Azure, AKS, Azure Kubernetes Service, containers"
+keywords: "GitOps, Kubernetes, K8s, Azure, Arc, AKS, Azure Kubernetes Service, containers"
 ---
 
 # Enable source control config for Azure Kubernetes Services (AKS)
@@ -111,7 +111,7 @@ STATUS: deployed
 
 Using the Azure CLI extension for `k8sconfiguration`, let's link an AKS managed cluster to an example git repository. We will give this configuration a name `cluster-config`, instruct the agent to deploy the operator in the `cluster-config` namespace, and give the operator `cluster-admin` permissions.
 
-Be sure to update `k8sconfiguration` CLI version to 0.1.1 or above. [Install or update CLI extensions](./01-install-cli-extension.md)
+Be sure to update `k8sconfiguration` CLI version to 0.1.1 or above. [Install or update CLI extensions](./install-cli-extension.md)
 
 ```console
 az k8sconfiguration create \
@@ -124,8 +124,26 @@ az k8sconfiguration create \
 
 When configuring an AKS cluster, be sure to pass the CLI argument `--cluster-type managedclusters`.
 
+#### Additional Parameters
+
+To customize the creation of configuration, here are a few additional parameters:
+
+`--cluster-scoped` : *Optional* switch to set the scope of the operator to be cluster. Default scope is **namespace**.
+
+`--cluster-type`  : *Optional* parameter to specify On-prem or AKS cluster. Allowed values: **connectedClusters** (default), **managedClusters**.
+
+`--enable-helm-operator` : *Optional* switch to enable support for Helm chart deployments. By default this is disabled.
+
+`--helm-operator-chart-values` : *Optional* chart values for Helm operator (if enabled).  E.g. "`'--set git.ssh.secretName=flux-git-deploy'`"
+
+`--helm-operator-chart-version` : Optional chart version for Helm operator, if helm operator is enabled. Default: **0.2.0**.
+
+`--operator-namespace` : Optional name for the operator namespace. Default: **default**
+
+`--operator-params` : Optional parameters for operator. Must be given within single quotes. E.g. `'--git-readonly'`
+
 ### Next
 
 * Return to the [README](../README.md)
-* [Use GitOps in a connected cluster](./use-gitops-in-connected-cluster.md)
+* [Use GitOps in a connected cluster (has info that also applies to AKS cluster)](./use-gitops-in-connected-cluster.md)
 * [Use Azure Policy to govern cluster configuration](./use-azure-policy.md)

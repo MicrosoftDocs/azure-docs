@@ -3,10 +3,12 @@
 To help you with testing here are instructions for creating clusters in Azure using AKS-Engine.
 
 ## Install AKS-Engine on your client machine
+
 Follow these instructions to [install the AKS-Engine](https://github.com/Azure/aks-engine/blob/master/docs/tutorials/deploy.md).
 
 ## Create a cluster
-The following assumes that you have also [enabled providers](./00-enable-providers.md) and [installed the Azure CLI](.\01-install-cli-extension.md) on your client machine.
+
+The following assumes that you have also [enabled providers](./enable-providers.md) and [installed the Azure CLI](./install-cli-extension.md) on your client machine.
 
 ```console
 # Login to az and set Azure subscription
@@ -46,4 +48,4 @@ kubectl cluster-info
 ## Next
 
 * Return to the [README](../README.md)
-* [Connect a cluster to Azure](./02-connect-a-cluster.md)
+* [Connect a cluster to Azure](./connect-a-cluster.md)

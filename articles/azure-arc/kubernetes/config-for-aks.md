@@ -72,7 +72,7 @@ STATUS: deployed
 
 Using the Azure CLI extension for `k8sconfiguration`, let's link AKS cluster (managedcluster) to a example git repository. We will give this configuration a name `cluster-config`, instruct the agent to deploy the operator in the `cluster-config` namespace, and give the operator `cluster-admin` permissions.
 
-Make sure to update `k8sconfiguration` CLI version to 0.1.1 or above. [Install or update CLI extensions](./01-install-cli-extension.md)
+Make sure to update `k8sconfiguration` CLI version to 0.1.1 or above. [Install or update CLI extensions](./install-cli-extension.md)
 
 ```console
 az k8sconfiguration create \

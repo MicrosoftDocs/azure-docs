@@ -64,7 +64,7 @@ If the user running the Azure CLI commands does not have sufficient permissions 
 az connectedk8s connect --name AzureArcTest1 --resource-group AzureArcTest
 ```
 
-__Note: If you receive errors regarding missing provider, or provider not found, double check that your subscriptions have been [onboarded to the private preview, and the required providers have been enabled](./00-enable-providers.md).__
+__Note: If you receive errors regarding missing provider, or provider not found, double check that your subscriptions have been [onboarded to the private preview, and the required providers have been enabled](./enable-providers.md).__
 
 **Output:**
 
