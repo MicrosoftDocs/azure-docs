@@ -25,7 +25,7 @@ Building a twin starts with creating a model. A twin's model describes its prope
 
 After creating a model, your client app will instantiate it in order to create twins. For example, after creating a model type of *Floor*, you may create one or several twins that use this design (a *Floor*-type twin called *GroundFloor*, another called *Floor2*, etc.). 
 
-Here is some example client code that uses the [Twin APIs](concepts-use-apis.md) to instantiate several twin instances—two of model type *Floor* and one of model type *Room*:
+Here is some example client code that uses the [Twin APIs](how-to-use-apis.md) to instantiate several twin instances—two of model type *Floor* and one of model type *Room*:
 
 ```csharp
 // Create twins
@@ -40,7 +40,7 @@ Twins are connected into a graph by their relationships. The relationship types 
 
 For example, a *Floor*-type twin might have a *contains* relationship that allows it to connect to several *Room*-type twins. A cooling device might have a *cools* relationship with a motor. 
 
-Here is some example client code that uses the [Twin APIs](concepts-use-apis.md) to build a relationship between a *Floor*-type twin called *GroundFloor* and a *Room*-type twin called *Cafe*.
+Here is some example client code that uses the [Twin APIs](how-to-use-apis.md) to build a relationship between a *Floor*-type twin called *GroundFloor* and a *Room*-type twin called *Cafe*.
 
 ```csharp
 // Create relationships
