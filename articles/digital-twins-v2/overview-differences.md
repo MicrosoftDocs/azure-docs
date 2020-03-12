@@ -18,7 +18,9 @@ ms.service: digital-twins
 
 Azure Digital Twins Public Preview 1 was released in October of 2018. The new version of Azure Digital Twins (also currently in preview) marks a significant departure from the previous architecture. While the core concepts are still the same, the developer interfaces and APIs are different, and the service provides improved capabilities and flexibility. The changes were motivated by customer feedback. 
 
-The main changes are:
+## Overview of changes
+
+The main changes in the newest preview release are:
 * Free modeling of twin types and topology. Azure Digital Twins Preview 1 evolved from a solution designed for building management, and came with a built-in vocabulary for buildings. Twins could be connected using hierarchical relationships, effectively creating a tree topology. Customers expressed great interest in applying the Azure Digital Twins design pattern to a much broader set of business solutions. In response, the new Azure Digital Twins preview provides a modeling environment that lets you define your own custom vocabulary and custom twin types for your solution; out of the box, Azure Digital Twins is now completely domain agnostic. In addition, the individual digital twins you define can be connected into arbitrary graph topologies, giving you much more flexibility to express the complex relationships that exist in real world environments.
 * Flexible compute and event processing model. Azure Digital Twins Public Preview 1 had a compute model that relied on user-defined JavaScript functions. Based on customer feedback, this model has been replaced with a new compute model that relies on external, customer-provided processing, such as Azure Functions. The enables developers to...
     - use a programming language of their choice.
