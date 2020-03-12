@@ -15,7 +15,7 @@ The control plane or API server is in an Azure Kubernetes Service (AKS)-managed 
 
 ## Prerequisites
 
-* The Azure CLI version 2.0.77 or later
+* The Azure CLI version 2.2.0 or later
 
 ## Currently supported regions
 
