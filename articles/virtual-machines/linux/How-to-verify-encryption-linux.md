@@ -88,6 +88,7 @@ $VM = Get-AzVM -Name ${VMNAME} -ResourceGroupName ${RGNAME}
 ![Verify OS Single pass 01](./media/disk-encryption/verify-encryption-linux/verify-os-single-ps-001.png)
 
 In case the disk does not have encryption settings stamped, the output will be empty as shown below:
+
 ![OS Encryption settings 2](./media/disk-encryption/verify-encryption-linux/os-encryption-settings-2.png)
 
 **Note:** replace the $VMNAME and $RGNAME variables accordingly
