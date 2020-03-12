@@ -178,23 +178,23 @@ Updated indexing policy:
 
 **RU charge:** 2.98 RUs
 
-You can add properties to the indexing policy at any time, with no impact to write availability or performance. If you add a new property to the index, queries that use this property will immediately use the new available index. The query will utilize the new index while it is being built. As a result, query results may be inconsistent as the index rebuild is in progress. If a new property is indexed, queries that only utilize existing indexes will not be affected during the index rebuild. You can [track index transformation progress](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-indexing-policy#use-the-net-sdk-v3).
+You can add properties to the indexing policy at any time, with no effect on write availability or performance. If you add a new property to the index, queries that use the property will immediately use the new available index. The query will use the new index while it's being built. So query results might be inconsistent while the index rebuild is in progress. If a new property is indexed, queries that use only existing indexes won't be affected during the index rebuild. You can [track index transformation progress](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-indexing-policy#use-the-net-sdk-v3).
 
-## Understand which system functions utilize the index
+## Understand which system functions use the index
 
-If the expression can be translated into a range of string values, then it can utilize the index; otherwise, it cannot.
+If an expression can be translated into a range of string values, it can use the index. Otherwise, it can't.
 
-Here is the list of string functions that can utilize the index:
+Here's the list of string functions that can use the index:
 
 - STARTSWITH(str_expr, str_expr)
 - LEFT(str_expr, num_expr) = str_expr
-- SUBSTRING(str_expr, num_expr, num_expr) = str_expr, but only if first num_expr is 0
+- SUBSTRING(str_expr, num_expr, num_expr) = str_expr, but only if the first num_expr is 0
 
-Some common system functions that do not use the index and must load each document are below:
+Following are some common system functions that don't use the index and must load each document:
 
-| **System Function**                     | **Ideas   for Optimization**             |
+| **System function**                     | **Ideas   for optimization**             |
 | --------------------------------------- |------------------------------------------------------------ |
-| CONTAINS                                | Use Azure Search for full text search                        |
+| CONTAINS                                | Use Azure Search for full text. search                        |
 | UPPER/LOWER                             | Instead of using the system function to normalize data each time for comparisons, instead normalize the casing upon insertion. Then a query such as ```SELECT * FROM c WHERE UPPER(c.name) = 'BOB'``` simply becomes ```SELECT * FROM c WHERE c.name = 'BOB'``` |
 | Mathematical functions (non-aggregates) | If you need to frequently compute a value in your query, consider storing this value as a property in your JSON document. |
 
