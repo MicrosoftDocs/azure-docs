@@ -9,7 +9,6 @@ writer: juliako
 manager: femila
 editor: ''
 
-ms.assetid: 0da34a97-f36c-48d0-8ea2-ec12584a2215
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -23,7 +22,9 @@ ms.author: juliako
 # Manage streaming endpoints with  Media Services v3
 
 When your Media Services account is created a **default** streaming endpoint is added to your account in the **Stopped** state. To start streaming your content and take advantage of [dynamic packaging](dynamic-packaging-overview.md) and [dynamic encryption](content-protection-overview.md), the streaming endpoint from which you want to stream content has to be in the **Running** state.
- 
+
+The default streaming endpoint can be deleted or updated with Media Services v3 APIs. If your account doesn't have the **default** streaming endpoint, you can create a few one. Currently, you cannot use the Azure portal to delete or update the **default** streaming endpoint.
+
 This article shows you how to start your streaming endpoint.
  
 > [!NOTE]
@@ -42,6 +43,9 @@ Review:
 1. Sign in at the [Azure portal](https://portal.azure.com/).
 1. On the left, select  **Streaming Endpoints**.
 1. Select the streaming endpoint you want to start, click **Start**.
+
+> [!NOTE]
+> Currently, you cannot use the Azure portal to delete or update the **default** streaming endpoint.
 
 ## Use the Java SDK
 
