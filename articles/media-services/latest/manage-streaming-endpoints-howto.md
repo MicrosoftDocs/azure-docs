@@ -53,7 +53,7 @@ if (streamingEndpoint.resourceState() != StreamingEndpointResourceState.RUNNING)
 }
 ```
 
-The samples [in this repository](https://docs.microsoft.com/en-us/samples/azure-samples/media-services-v3-dotnet/azure-media-services-v3-samples-using-net/) shows how to start the default streaming endpoint with .NET.
+The samples [in this repository](https://docs.microsoft.com/samples/azure-samples/media-services-v3-dotnet/azure-media-services-v3-samples-using-net/) shows how to start the default streaming endpoint with .NET.
 
 ## .NET
 
@@ -68,7 +68,7 @@ if (streamingEndpoint != null)
     }
 ```
 
-The samples [in this repository](https://docs.microsoft.com/en-us/samples/azure-samples/media-services-v3-java/azure-media-services-v3-samples-using-java/) shows how to start the default streaming endpoint with Java.
+The samples [in this repository](https://docs.microsoft.com/samples/azure-samples/media-services-v3-java/azure-media-services-v3-samples-using-java/) shows how to start the default streaming endpoint with Java.
 
 ## CLI
 
