@@ -8,6 +8,7 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 11/25/2019
 ms.author: helohr
+manager: lizross
 ---
 # Create an FSLogix profile container for a host pool using Azure NetApp Files
 
