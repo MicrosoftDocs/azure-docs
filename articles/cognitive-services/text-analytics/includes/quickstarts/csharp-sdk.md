@@ -267,7 +267,6 @@ Create a new function called `EntityRecognitionExample()` that takes the client 
 
 ```csharp
 static void EntityRecognitionExample(TextAnalyticsClient client)
-static void EntityRecognitionExample(TextAnalyticsClient client)
 {
     var response = client.RecognizeEntities("I had a wonderful trip to Seattle last week.");
     Console.WriteLine("Named Entities:");
