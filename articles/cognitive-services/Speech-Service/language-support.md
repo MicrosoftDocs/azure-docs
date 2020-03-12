@@ -87,9 +87,6 @@ Neural voices can be used to make interactions with chatbots and voice assistant
 
 For more information about regional availability, see [regions](regions.md#standard-and-neural-voices).
 
-> [!IMPORTANT]
-> The `en-US-JessaNeural` voices have changed to `en-US-AriaNeural`. If you were using "Jessa" before, please convert over to "Aria". For backwards compatibility, the "Jessa" voice will temporarily be redirected to "Aria" automatically.
-
 | Locale  | Language            | Gender | Full service name mapping                                               | Short voice name        |
 |---------|---------------------|--------|-------------------------------------------------------------------------|-------------------------|
 | `de-DE` | German (Germany)    | Female | "Microsoft Server Speech Text to Speech Voice (de-DE, KatjaNeural)"     | "de-DE-KatjaNeural"     |
@@ -99,6 +96,9 @@ For more information about regional availability, see [regions](regions.md#stand
 | `pt-BR` | Portuguese (Brazil) | Female | "Microsoft Server Speech Text to Speech Voice (pt-BR, FranciscaNeural)" | "pt-BR-FranciscaNeural" |
 | `zh-CN` | Chinese (Mainland)  | Female | "Microsoft Server Speech Text to Speech Voice (zh-CN, XiaoxiaoNeural)"  | "zh-CN-XiaoxiaoNeural"  |
 
+> [!IMPORTANT]
+> The `en-US-JessaNeural` voice has changed to `en-US-AriaNeural`. If you were using "Jessa" before, convert over to "Aria".
+
 To learn how you can configure and adjust neural voices, see [Speech synthesis markup language](speech-synthesis-markup.md#adjust-speaking-styles).
 
 > [!TIP]
@@ -107,9 +107,6 @@ To learn how you can configure and adjust neural voices, see [Speech synthesis m
 ### Standard voices
 
 More than 75 standard voices are available in over 45 languages and locales, which allow you to convert text into synthesized speech. For more information about regional availability, see [regions](regions.md#standard-and-neural-voices).
-
-> [!IMPORTANT]
-> The `en-US-Jessa` voices have changed to `en-US-Aria`. If you were using "Jessa" before, please convert over to "Aria". For backwards compatibility, the "Jessa" voice will temporarily be redirected to "Aria" automatically.
 
 | Locale | Language | Gender | Full service name mapping | Short name |
 |--|--|--|--|--|
@@ -196,7 +193,10 @@ More than 75 standard voices are available in over 45 languages and locales, whi
 
 **1** *ar-EG supports Modern Standard Arabic (MSA).*
 
-> [!NOTE]
+> [!IMPORTANT]
+> The `en-US-Jessa` voice has changed to `en-US-Aria`. If you were using "Jessa" before, convert over to "Aria".
+
+> [!TIP]
 > You can use either the full service name mapping or the short voice name in your speech synthesis requests.
 
 ### Customization
