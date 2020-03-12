@@ -26,8 +26,17 @@ The following procedures create a seven-node Service Fabric cluster. To calculat
 
 Download the following Resource Manager template files:
 
+For Ubuntu 16.04 LTS:
+
 * [AzureDeploy.json][template]
 * [AzureDeploy.Parameters.json][parameters]
+
+For Ubuntu 18.04 LTS:
+
+* [AzureDeploy.json][template2]
+* [AzureDeploy.Parameters.json][parameters2]
+
+The difference between the two templates is the **vmImageSku** attribute being set to "18.04-LTS" and each node's **typeHandlerVersion** being set to 1.1.
 
 This template deploys a secure cluster of seven virtual machines and three node types into a virtual network.  Other sample templates can be found on [GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates). The [AzureDeploy.json][template] deploys a number resources, including the following.
 
@@ -37,7 +46,7 @@ In the **Microsoft.ServiceFabric/clusters** resource, a Linux cluster is deploye
 
 * three node types
 * five nodes in the primary node type (configurable in the template parameters), one node in each of the other node types
-* OS: Ubuntu 16.04 LTS (configurable in the template parameters)
+* OS: (Ubuntu 16.04 LTS / Ubuntu 18.04 LTS) (configurable in the template parameters)
 * certificate secured (configurable in the template parameters)
 * [DNS service](service-fabric-dnsservice.md) is enabled
 * [Durability level](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) of Bronze (configurable in the template parameters)
@@ -78,51 +87,6 @@ The [AzureDeploy.Parameters][parameters] parameters file declares many values us
 |sourceVaultValue||<p>Value should be empty if creating a self-signed certificate or providing a certificate file.</p><p>To use an existing certificate previously uploaded to a key vault, fill in the source vault value. For example, "/subscriptions/333cc2c84-12fa-5778-bd71-c71c07bf873f/resourceGroups/MyTestRG/providers/Microsoft.KeyVault/vaults/MYKEYVAULT".</p>|
 
 <a id="createvaultandcert" name="createvaultandcert_anchor"></a>
-
-## Use Ubuntu 18.04 LTS
-
-Service Fabric supports the ability to create clusters based on Ubuntu 18.04 LTS. The cluster operating system can be specified in our template. Modify the **vmImageSku** attribute, and make sure **typeHandlerVersion** for each node is set to **1.1** in AzureDeploy.json and AzureDeploy.Parameters.json:
-
-```json
-"vmImageSku": {
-   "type": "string",
-   "defaultValue": "18.04-LTS",
-   "metadata": {
-      "description": "VM image SKU"
-   }
-}
-```
-
-```json
-"name": "[concat('ServiceFabricNodeVmExt','_vmNodeType1Name')]",
-"properties": {
-   "type": "ServiceFabricLinuxNode",
-   "autoUpgradeMinorVersion": true,
-   "protectedSettings": {
-      "StorageAccountKey1": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('supportLogStorageAccountName')),'2015-05-01-preview').key1]",
-      "StorageAccountKey2": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('supportLogStorageAccountName')),'2015-05-01-preview').key2]"
-   },
-   "publisher": "Microsoft.Azure.ServiceFabric",
-   "settings": {
-      "clusterEndpoint": "[reference(parameters('clusterName')).clusterEndpoint]",
-      "nodeTypeRef": "[variables('vmNodeType1Name')]",
-      "durabilityLevel": "Bronze",
-      "enableParallelJobs": true,
-      "nicPrefixOverride": "[variables('subnet1Prefix')]",
-      "certificate": {
-         "thumbprint": "[parameters('certificateThumbprint')]",
-         "x509StoreName": "[parameters('certificateStoreValue')]"
-      }
-   },
-   "typeHandlerVersion": "1.1"
-}
-```
-
-The template is now configured to use Ubuntu 18.04 LTS upon deployment.
-
-### Deploying an Ubuntu 18.04 LTS cluster via Azure Portal
-Fill in with snippet from cluster Portal creation
-
 
 ## Deploy the virtual network and cluster
 
@@ -201,3 +165,5 @@ The template in this article deploy a cluster that uses the certificate thumbpri
 
 [template]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Ubuntu-3-NodeTypes-Secure/AzureDeploy.json
 [parameters]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Ubuntu-3-NodeTypes-Secure/AzureDeploy.Parameters.json
+[template2]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Ubuntu-1804-3-NodeTypes-Secure/AzureDeploy.json
+[parameters2]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Ubuntu-1804-3-NodeTypes-Secure/AzureDeploy.Parameters.json
