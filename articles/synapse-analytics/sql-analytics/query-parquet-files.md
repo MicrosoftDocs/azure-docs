@@ -68,7 +68,7 @@ GROUP BY
     YEAR(pickup_datetime)
 ORDER BY
     YEAR(pickup_datetime),
-    passenger_count
+    passenger_count;
 ```
 
 ## Automatic schema inference
@@ -87,7 +87,7 @@ FROM
     OPENROWSET(
         BULK 'https://sqlondemandstorage.blob.core.windows.net/parquet/taxi/year=2017/month=9/*.parquet',
         FORMAT='PARQUET'
-    ) AS nyc
+    ) AS nyc;
 ```
 
 ### Query partitioned data
@@ -119,7 +119,7 @@ GROUP BY
 ORDER BY
     nyc.filepath(1),
     nyc.filepath(2),
-    payment_type
+    payment_type;
 ```
 
 ## Type mapping

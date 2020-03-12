@@ -46,7 +46,7 @@ The section below contains sample scripts to read JSON files. Files are stored i
 
 To process JSON files using JSON_VALUE and [JSON_QUERY](https://docs.microsoft.com/sql/t-sql/functions/json-query-transact-sql?view=sql-server-2017), you need to read the JSON file from storage as a single column. The following script reads the *book1.json* file as a single column:
 
-```mssql
+```sql
 SELECT
     *
 FROM
@@ -59,7 +59,7 @@ FROM
     )
     WITH (
         jsonContent varchar(8000)
-    ) AS [r]
+    ) AS [r];
 ```
 
 > [!NOTE]
@@ -69,7 +69,7 @@ FROM
 
 The query below shows you how to use [JSON_VALUE](https://docs.microsoft.com/sql/t-sql/functions/json-value-transact-sql?view=sql-server-2017) to retrieve scalar values (title, publisher) from a book entitled *Probabilistic and Statistical Methods in Cryptology, An Introduction by Selected articles*:
 
-```mssql
+```sql
 SELECT
     JSON_VALUE(jsonContent, '$.title') AS title,
     JSON_VALUE(jsonContent, '$.publisher') as publisher,
@@ -86,14 +86,14 @@ FROM
         jsonContent varchar(8000)
     ) AS [r]
 WHERE
-    JSON_VALUE(jsonContent, '$.title') = 'Probabilistic and Statistical Methods in Cryptology, An Introduction by Selected Topics'
+    JSON_VALUE(jsonContent, '$.title') = 'Probabilistic and Statistical Methods in Cryptology, An Introduction by Selected Topics';
 ```
 
 ## Query JSON files using JSON_QUERY
 
 The following query shows you how to use [JSON_QUERY](https://docs.microsoft.com/sql/t-sql/functions/json-query-transact-sql?view=sql-server-2017) to retrieve objects and arrays (authors) from a book entitled *Probabilistic and Statistical Methods in Cryptology, An Introduction by Selected Topics*:
 
-```mssql
+```sql
 SELECT
     JSON_QUERY(jsonContent, '$.authors') AS authors,
     jsonContent
@@ -109,14 +109,14 @@ FROM
         jsonContent varchar(8000)
     ) AS [r]
 WHERE
-    JSON_VALUE(jsonContent, '$.title') = 'Probabilistic and Statistical Methods in Cryptology, An Introduction by Selected Topics'
+    JSON_VALUE(jsonContent, '$.title') = 'Probabilistic and Statistical Methods in Cryptology, An Introduction by Selected Topics';
 ```
 
 ## Query JSON files using OPENJSON
 
 The following query uses [OPENJSON](https://docs.microsoft.com/sql/t-sql/functions/openjson-transact-sql?view=sql-server-2017). It will retrieve objects and properties within a book entitled *Probabilistic and Statistical Methods in Cryptology, An Introduction by Selected articles*:
 
-```mssql
+```sql
 SELECT
     j.*
 FROM
@@ -132,7 +132,7 @@ FROM
     ) AS [r]
 CROSS APPLY OPENJSON(jsonContent) AS j
 WHERE
-    JSON_VALUE(jsonContent, '$.title') = 'Probabilistic and Statistical Methods in Cryptology, An Introduction by Selected Topics'
+    JSON_VALUE(jsonContent, '$.title') = 'Probabilistic and Statistical Methods in Cryptology, An Introduction by Selected Topics';
 ```
 
 ## Next steps

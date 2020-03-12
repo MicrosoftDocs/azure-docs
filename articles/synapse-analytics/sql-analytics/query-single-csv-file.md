@@ -53,7 +53,7 @@ WITH (
 ) AS [r]
 WHERE
     country_name = 'Luxembourg'
-    AND year = 2017
+    AND year = 2017;
 ```
 
 ## Unix-style new line
@@ -80,7 +80,7 @@ WITH (
 ) AS [r]
 WHERE
     country_name = 'Luxembourg'
-    AND year = 2017
+    AND year = 2017;
 ```
 
 ## Header row
@@ -107,7 +107,7 @@ FROM OPENROWSET(
     ) AS [r]
 WHERE
     country_name = 'Luxembourg'
-    AND year = 2017
+    AND year = 2017;
 ```
 
 ## Custom quote character
@@ -136,7 +136,7 @@ FROM OPENROWSET(
     ) AS [r]
 WHERE
     country_name = 'Luxembourg'
-    AND year = 2017
+    AND year = 2017;
 ```
 
 > [!NOTE]
@@ -167,7 +167,7 @@ FROM OPENROWSET(
         [population] bigint
     ) AS [r]
 WHERE
-    country_name = 'Slov,enia'
+    country_name = 'Slov,enia';
 ```
 
 > [!NOTE]

@@ -49,11 +49,11 @@ Create the demo database (and drop an existing database if necessary) by running
 IF EXISTS (SELECT * FROM sys.sysdatabases WHERE name = 'Demo')
 BEGIN
     DROP DATABASE Demo
-END
+END;
 GO
 
 -- Create new database
-CREATE DATABASE [Demo]
+CREATE DATABASE [Demo];
 GO
 ```
 
@@ -65,14 +65,14 @@ Create the credential by running the following Transact-SQL (T-SQL) script:
 
 ```sql
 IF EXISTS (SELECT * FROM sys.credentials WHERE name = 'https://azureopendatastorage.blob.core.windows.net/censusdatacontainer')
-DROP CREDENTIAL [https://azureopendatastorage.blob.core.windows.net/censusdatacontainer]
-Go
+DROP CREDENTIAL [https://azureopendatastorage.blob.core.windows.net/censusdatacontainer];
+GO
 
 -- Create credentials for Census Data container which resides in a azure open data storage account
 -- There is no secret. We are using public storage account which doesn't need a secret.
 CREATE CREDENTIAL [https://azureopendatastorage.blob.core.windows.net/censusdatacontainer]
 WITH IDENTITY='SHARED ACCESS SIGNATURE',
-SECRET = ''
+SECRET = '';
 GO
 ```
 
@@ -83,7 +83,7 @@ Create the view based on the external demo data for Power BI to consume by runni
 Create the view `usPopulationView` inside the database `Demo` with the following query:
 
 ```sql
-DROP VIEW IF EXISTS usPopulationView
+DROP VIEW IF EXISTS usPopulationView;
 GO
 
 CREATE VIEW usPopulationView AS
@@ -93,7 +93,7 @@ FROM
     OPENROWSET(
         BULK 'https://azureopendatastorage.blob.core.windows.net/censusdatacontainer/release/us_population_county/year=20*/*.parquet',
         FORMAT='PARQUET'
-    ) AS uspv
+    ) AS uspv;
 ```
 
 The demo data contains the following data sets:
@@ -147,19 +147,19 @@ Once you're done using this report, delete the resources with the following step
 1. Delete the credential for the storage account
 
    ```sql
-   DROP CREDENTIAL [https://azureopendatastorage.blob.core.windows.net/censusdatacontainer]
+   DROP CREDENTIAL [https://azureopendatastorage.blob.core.windows.net/censusdatacontainer];
    ```
 
 2. Delete the view
 
    ```sql
-   DROP VIEW usPopulationView
+   DROP VIEW usPopulationView;
    ```
 
 3. Drop the database
 
    ```sql
-   DROP DATABASE Demo
+   DROP DATABASE Demo;
    ```
 
 ## Next steps

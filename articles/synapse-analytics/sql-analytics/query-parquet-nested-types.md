@@ -11,7 +11,7 @@ ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
 ---
 
-# Quickstart: Quickstart: Query Parquet nested types using SQL on-demand in Azure Synapse Analytics
+# Query Parquet nested types using SQL on-demand in Azure Synapse Analytics
 
 In this article, you'll learn how to write a query using SQL on-demand in Azure Synapse Analytics. This query will read Parquet nested types.
 
@@ -26,21 +26,21 @@ Before reading the rest of this article, review the following articles:
 
 The following query reads the *justSimpleArray.parquet* file. It projects all columns from the Parquet file including nested or repeated data.
 
-```mssql
+```sql
 SELECT
     *
 FROM
     OPENROWSET(
         BULK 'https://sqlondemandstorage.blob.core.windows.net/parquet/nested/justSimpleArray.parquet',
         FORMAT='PARQUET'
-    ) AS [r]
+    ) AS [r];
 ```
 
 ## Access elements from nested columns
 
 The following query reads the *structExample.parquet* file and shows how to surface elements of a nested column:
 
-```mssql
+```sql
 SELECT
     *
 FROM
@@ -49,7 +49,7 @@ FROM
         FORMAT='PARQUET'
     )
     WITH (
-        -- you can see original nested columns values by uncommenting lines below
+        -- you can see original n"sted columns values by uncommenting lines below
         --DateStruct VARCHAR(8000),
         [DateStruct.Date] DATE,
         --TimeStruct VARCHAR(8000),
@@ -60,14 +60,14 @@ FROM
         [DecimalStruct.Decimal] DECIMAL(18, 5),
         --FloatStruct VARCHAR(8000),
         [FloatStruct.Float] FLOAT
-    ) AS [r]
+    ) AS [r];
 ```
 
 ## Access elements from repeated columns
 
 The following query reads the *justSimpleArray.parquet* file and uses [JSON_VALUE](https://docs.microsoft.com/sql/t-sql/functions/json-value-transact-sql?view=sql-server-2017) to retrieve a **scalar** element from within a repeated column, such as an Array or Map:
 
-```mssql
+```sql
 SELECT
     *,
     JSON_VALUE(SimpleArray, '$[0]') AS FirstElement,
@@ -77,12 +77,12 @@ FROM
     OPENROWSET(
         BULK 'https://sqlondemandstorage.blob.core.windows.net/parquet/nested/justSimpleArray.parquet',
         FORMAT='PARQUET'
-    ) AS [r]
+    ) AS [r];
 ```
 
 The following query reads the *mapExample.parquet* file and uses [JSON_QUERY](https://docs.microsoft.com/sql/t-sql/functions/json-query-transact-sql?view=sql-server-2017) to retrieve a **non-scalar** element from within a repeated column, such as an Array or Map:
 
-```mssql
+```sql
 SELECT
     MapOfPersons,
     JSON_QUERY(MapOfPersons, '$."John Doe"') AS [John]
@@ -90,7 +90,7 @@ FROM
     OPENROWSET(
         BULK 'https://sqlondemandstorage.blob.core.windows.net/parquet/nested/mapExample.parquet',
         FORMAT='PARQUET'
-    ) AS [r]
+    ) AS [r];
 ```
 
 ## Next steps
