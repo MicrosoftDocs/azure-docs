@@ -19,7 +19,7 @@ You can connect to an Azure Cosmos account configured with Private Link by using
 This article describes the steps to create a private endpoint. It assumes that you're using the automatic approval method.
 
 > [!NOTE]
-> Private endpoint support is currently generally available for gateway connection mode only. For direct mode, it is available as a preview feature.
+> Private endpoint support is currently generally available in supported regions for gateway connection mode only. For direct mode, it is available as a preview feature.
 
 ## Create a private endpoint by using the Azure portal
 
@@ -550,21 +550,9 @@ Adding or removing regions to an Azure Cosmos account requires you to add or rem
 
 For example, imagine that you deploy an Azure Cosmos account in three regions: "West US," "Central US," and "West Europe." When you create a private endpoint for your account, four private IPs are reserved in the subnet. There's one IP for each of the three regions, and there's one IP for the global/region-agnostic endpoint.
 
-Later, you might add a new region (for example, "East US") to the Azure Cosmos account. By default, the new region is not accessible from the existing private endpoint. The Azure Cosmos account administrator should refresh the private endpoint connection before accessing it from the new region. 
+Later, you might add a new region (for example, "East US") to the Azure Cosmos account. After adding the new region, you need to add a corresponding DNS record to either your private DNS zone or your custom DNS.
 
-When you run the ` Get-AzPrivateEndpoint -Name <your private endpoint name> -ResourceGroupName <your resource group name>` command, the output of the command contains the `actionsRequired` parameter. This parameter is set to `Recreate`. This value indicates that the private endpoint should be refreshed. Next, the Azure Cosmos account administrator runs the `Set-AzPrivateEndpoint` command to trigger the private endpoint refresh.
-
-```powershell
-$pe = Get-AzPrivateEndpoint -Name <your private endpoint name> -ResourceGroupName <your resource group name>
-
-Set-AzPrivateEndpoint -PrivateEndpoint $pe
-```
-
-A new private IP is automatically reserved in the subnet under this private endpoint. The value for `actionsRequired` becomes `None`. If you don't have any private DNZ zone integration (in other words, if you're using a custom private DNS zone), you have to configure your private DNS zone to add a new DNS record for the private IP that corresponds to the new region.
-
-You can use the same steps when you remove a region. The private IP of the removed region is automatically reclaimed, and the `actionsRequired` flag becomes `None`. If you don't have any private DNZ zone integration, you must configure your private DNS zone to remove the DNS record for the removed region.
-
-DNS records in the private DNS zone are not removed automatically when a private endpoint is deleted or a region from the Azure Cosmos account is removed. You must manually remove the DNS records.
+You can use the same steps when you remove a region. After removing the region, you need to remove the corresponding DNS record from either your private DNS zone or your custom DNS.
 
 ## Current limitations
 
@@ -577,7 +565,7 @@ The following limitations apply when you're using Private Link with an Azure Cos
 
 * When you're using Private Link with an Azure Cosmos account by using a direct mode connection, you can use only the TCP protocol. The HTTP protocol is not yet supported.
 
-* Private endpoint support is currently generally available for gateway connection mode only. For direct mode, it is available as a preview feature.
+* Private endpoint support is currently generally available in supported regions for gateway connection mode only. For direct mode, it is available as a preview feature.
 
 * When you're using Azure Cosmos DB's API for MongoDB accounts, a private endpoint is supported for accounts on server version 3.6 only (that is, accounts using the endpoint in the format `*.mongo.cosmos.azure.com`). Private Link is not supported for accounts on server version 3.2 (that is, accounts using the endpoint in the format `*.documents.azure.com`). To use Private Link, you should migrate old accounts to the new version.
 
