@@ -1,5 +1,5 @@
 ---
-title: Enable Azure Monitor for VMs (preview) for evaluation | Microsoft Docs
+title: Enable Azure Monitor for VMs for evaluation | Microsoft Docs
 description: Learn how to evaluate Azure Monitor for VMs on a single Azure virtual machine or on a virtual machine scale set.
 ms.subservice: 
 ms.topic: conceptual
@@ -9,9 +9,9 @@ ms.date: 11/14/2019
 
 ---
 
-# Enable Azure Monitor for VMs (preview) for evaluation
+# Enable Azure Monitor for VMs for evaluation
 
-You can evaluate Azure Monitor for VMs (preview) on a small number of Azure virtual machines (VMs) or on a single VM or virtual machine scale set. The easiest and most direct way to enable monitoring is from the Azure portal. Your goal is to monitor your VMs and discover any performance or availability issues. 
+You can evaluate Azure Monitor for VMs on a small number of Azure virtual machines (VMs) or on a single VM or virtual machine scale set. The easiest and most direct way to enable monitoring is from the Azure portal. Your goal is to monitor your VMs and discover any performance or availability issues. 
 
 Before you begin, review the [prerequisites](vminsights-enable-overview.md) and make sure your subscription and resources meet the requirements.  
 
@@ -24,9 +24,9 @@ To enable monitoring of your Azure VM:
 
 1. From the list, select a VM.
 
-1. On the VM page, in the **Monitoring** section, select **Insights (preview)**.
+1. On the VM page, in the **Monitoring** section, select **Insights**.
 
-1. On the **Insights (preview)** page, select **Try now**.
+1. On the **Insights* page, select **Try now**.
 
     ![Enable Azure Monitor for VMs for a VM](./media/vminsights-enable-single-vm/enable-vminsights-vm-portal.png)
 
@@ -51,9 +51,9 @@ To enable monitoring of your Azure virtual machine scale set:
 
 3. From the list, select a virtual machine scale set.
 
-4. On the virtual machine scale set page, in the **Monitoring** section, select **Insights (preview)**.
+4. On the virtual machine scale set page, in the **Monitoring** section, select **Insights**.
 
-5. On the **Insights (preview)** page, if you want to use an existing Log Analytics workspace, select it in the drop-down list.
+5. On the **Insights** page, if you want to use an existing Log Analytics workspace, select it in the drop-down list.
 
     The list preselects the default workspace and location that the VM is deployed to in the subscription. 
 
