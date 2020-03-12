@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: larryfr
 author: blackmist
-ms.date: 11/12/2019
+ms.date: 03/12/2020
 ---
 
 # Monitor and collect data from ML web service endpoints
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-In this article, you learn how to collect data from and monitor models deployed to web service endpoints in Azure Kubernetes Service (AKS) or Azure Container Instances (ACI) by enabling Azure Application Insights. In addition to collecting an endpoint's input data and response, you can monitor:
+In this article, you learn how to collect data from and monitor models deployed to web service endpoints in Azure Kubernetes Service (AKS) or Azure Container Instances (ACI) by enabling Azure Application Insights. In addition to collecting an endpoint's output data and response, you can monitor:
 
 * Request rates, response times, and failure rates
 * Dependency rates, response times, and failure rates
@@ -26,7 +26,7 @@ In this article, you learn how to collect data from and monitor models deployed 
 
 ## Prerequisites
 
-* If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today
+* If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today
 
 * An Azure Machine Learning workspace, a local directory that contains your scripts, and the Azure Machine Learning SDK for Python installed. To learn how to get these prerequisites, see [How to configure a development environment](how-to-configure-environment.md)
 * A trained machine learning model to be deployed to Azure Kubernetes Service (AKS) or Azure Container Instance (ACI). If you don't have one, see the [Train image classification model](tutorial-train-models-with-aml.md) tutorial
@@ -80,12 +80,24 @@ To disable Azure Application Insights, use the following code:
 ## replace <service_name> with the name of the web service
 <service_name>.update(enable_app_insights=False)
 ```
+## Use Azure Machine Learning studio to configure
+You can also enable Azure Application Insights from Azure Machine Learning studio when you're ready to deploy your model with these steps.
 
+1. Sign in to your workspace at https://ml.azure.com/
+1. Go to **Models** and select which model you want to deploy
+1. Select  **+Deploy**
+1. Populate the **Deploy model** form
+1. Expand the **Advanced** menu
+
+    ![Deploy form](./media/how-to-enable-app-insights/deploy-form.png)
+1. Select **Enable Application Insights diagnostics and data collection**
+
+    ![Enable App Insights](./media/how-to-enable-app-insights/enable-app-insights.png)
 ## Evaluate data
 Your service's data is stored in your Azure Application Insights account, within the same resource group as Azure Machine Learning.
 To view it:
 
-1. Go to your Azure Machine Learning workspace in [Azure Machine Learning studio](https://ml.azure.com) and click on Application Insights link
+1. Go to your Azure Machine Learning workspace in the [Azure portal](https://ms.portal.azure.com/) and click on the Application Insights link
 
     [![AppInsightsLoc](./media/how-to-enable-app-insights/AppInsightsLoc.png)](././media/how-to-enable-app-insights/AppInsightsLoc.png#lightbox)
 
