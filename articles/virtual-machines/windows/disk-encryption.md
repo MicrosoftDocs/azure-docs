@@ -52,24 +52,13 @@ To revoke access to customer-managed keys, see [Azure Key Vault PowerShell](http
 
 ### Supported regions
 
-For premium SSDs, standard SSDs, and standard HDDs, only the following regions are currently supported:
+#### Platform-managed keys
 
-- Available as a GA offering in the East US, West US 2, South Central US, UK South regions.
-- Available as a public preview in the West Central US, East US 2, Canada Central, and North Europe regions.
+Platform-managed keys are available for premium SSDs, standard SDDs, and standard HDDs in all regions.
 
+Platform-managed keys are also available for all ultra disks but, ultra disks have limited regional availability, refer to [Using Azure ultra disks](disks-enable-ultra-ssd.md) for details.
 
-For ultra disks, the following regions support customer-managed keys as a GA offering:
-
-- East US
-- West US 2
-
-The following regions support customer-managed keys for ultra disks as a preview offering:
-
-- East US 2
-- South Central US
-- Canada Central
-- UK South
-- North Europe
+[!INCLUDE [virtual-machines-disks-encryption-regions](../../../includes/virtual-machines-disks-encryption-regions.md)]
 
 ### Restrictions
 
