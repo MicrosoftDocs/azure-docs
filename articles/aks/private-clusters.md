@@ -17,47 +17,6 @@ The control plane or API server is in an Azure Kubernetes Service (AKS)-managed 
 
 * The Azure CLI version 2.2.0 or later
 
-## Currently supported regions
-
-* Australia East
-* Australia Southeast
-* Brazil South
-* Canada Central
-* Canada East
-* Cenral US
-* East Asia
-* East US
-* East US 2
-* East US 2 EUAP
-* France Central
-* Germany North
-* Japan East
-* Japan West
-* Korea Central
-* Korea South
-* North Central US
-* North Europe
-* North Europe
-* South Central US
-* UK South
-* West Europe
-* West US
-* West US 2
-* East US 2
-
-## Currently Supported Availability Zones
-
-* Central US
-* East US
-* East US 2
-* France Central
-* Japan East
-* North Europe
-* Southeast Asia
-* UK South
-* West Europe
-* West US 2
-
 ## Create a private AKS cluster
 
 ### Create a resource group
