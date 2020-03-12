@@ -4,7 +4,7 @@ description: Learn how to integrate Azure Service Bus with Azure Private Link Se
 services: service-bus-messaging
 author: spelluru
 ms.author: spelluru
-ms.date: 03/09/2020
+ms.date: 03/12/2020
 ms.service: service-bus-messaging
 ms.topic: article
 
@@ -17,6 +17,9 @@ Azure Private Link Service enables you to access Azure Services (for example, Az
 A private endpoint is a network interface that connects you privately and securely to a service powered by Azure Private Link. The private endpoint uses a private IP address from your VNet, effectively bringing the service into your VNet. All traffic to the service can be routed through the private endpoint, so no gateways, NAT devices, ExpressRoute or VPN connections, or public IP addresses are needed. Traffic between your virtual network and the service traverses over the Microsoft backbone network, eliminating exposure from the public Internet. You can connect to an instance of an Azure resource, giving you the highest level of granularity in access control.
 
 For more information, see [What is Azure Private Link (Preview)?](../private-link/private-link-overview.md)
+
+> [!NOTE]
+> This feature is supported with the **premium** tier of Azure Service Bus. For more information about the premium tier, see the [Service Bus Premium and Standard messaging tiers](service-bus-premium-messaging.md) article.
 
 ## Prerequisites
 
