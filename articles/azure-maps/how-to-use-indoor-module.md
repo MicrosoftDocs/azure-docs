@@ -1,6 +1,6 @@
 ---
 title: Getting started with Indoor Maps module | Microsoft Azure Maps
-description: Learn how to use the Microsoft Azure Maps Indoor Maps module to render maps by embeddeding the module's JavaScript libraries.
+description: Learn how to use the Microsoft Azure Maps Indoor Maps module to render maps by embedding the module's JavaScript libraries.
 author: farah-alyasari
 ms.author: v-faalya
 ms.date: 03/12/2020
@@ -33,7 +33,7 @@ You can load the Azure Maps Indoor Maps module in one of two ways.
     <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/indoor/0.1/atlas-indoor.min.css"
     ```
 
-- Alternatively, load the Indoor Maps module for the Azure Maps Web SDK locally by using the [azure-maps-rest](https://www.npmjs.com/package/azure-maps-rest) npm package, and then host it with your app. This package also includes TypeScript definitions. Use this command:
+- Or, you can load the Indoor Maps module for the Azure Maps Web SDK locally by using the [azure-maps-rest](https://www.npmjs.com/package/azure-maps-rest) npm package, and then host it with your app. This package also includes TypeScript definitions. Use this command:
 
     > **npm install azure-maps-rest**
 
@@ -151,7 +151,7 @@ This exercise demonstrates how to integrate the Indoor Maps module with the Azur
     </html>
     ```
 
-4. Add the Indoor Maps `tilesetId`, and optionally the `statesetId`. Enable polling, if you provide a state set id. Instantiate the Indoor Manager, Indoor Level Picker Control, and add the Indoor Map event listeners. This is how the HTML file would look like after completing the described steps:
+4. Add the Indoor Maps `tilesetId`, and optionally the `statesetId`. Enable polling, if you provide a state set ID. Instantiate the Indoor Manager, Indoor Level Picker Control, and add the Indoor Map event listeners. The code below is how the HTML file would look like after completing the described steps:
 
     ```html
     <!DOCTYPE html>
@@ -222,7 +222,7 @@ This exercise demonstrates how to integrate the Indoor Maps module with the Azur
     </html>
     ```
 
-5. Remember to provide your primary key, tile set id, and optionally the state set id. Then, open your HTML file. You should be able to see the Indoor Map rendered in the web browser. The image below shows the indoor map for a single floor facility rendered on a white background:
+5. Remember to provide your primary key, tile set ID, and optionally the state set ID. Then, open your HTML file to see the Indoor Map rendered in the web browser. The image below shows the indoor map for a single floor facility rendered on a white background:
 
     <center>
 
