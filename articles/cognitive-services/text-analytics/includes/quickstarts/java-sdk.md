@@ -8,7 +8,7 @@ ms.subservice: text-analytics
 ms.topic: include
 ms.date: 02/26/2020
 ms.author: aahi
-ms.reviewer: tasharm, assafi
+ms.reviewer: tasharm, assafi, sumeh
 ---
 
 <a name="HOLTop"></a>
@@ -34,7 +34,7 @@ Add the following text analytics dependency to your project. This version of the
  	<dependency>
         <groupId>com.azure</groupId>
         <artifactId>azure-ai-textanalytics</artifactId>
-        <version>1.0.0-beta.2</version>
+        <version>1.0.0-beta.3</version>
     </dependency>
 </dependencies>
 ```
@@ -115,31 +115,32 @@ static void sentimentAnalysisExample(TextAnalyticsClient client)
     String text = "I had the best day of my life. I wish you were there with me.";
 
     DocumentSentiment documentSentiment = client.analyzeSentiment(text);
-        System.out.printf(
-            "Recognized document sentiment: %s, positive score: %.2f, neutral score: %.2f, negative score: %.2f.%n",
-            documentSentiment.getSentiment(),
-            documentSentiment.getSentimentScores().getPositive(),
-            documentSentiment.getSentimentScores().getNeutral(),
-            documentSentiment.getSentimentScores().getNegative());
+    System.out.printf(
+        "Recognized document sentiment: %s, positive score: %s, neutral score: %s, negative score: %s.%n",
+        documentSentiment.getSentiment(),
+        documentSentiment.getConfidenceScores().getPositive(),
+        documentSentiment.getConfidenceScores().getNeutral(),
+        documentSentiment.getConfidenceScores().getNegative());
 
-        for (SentenceSentiment sentenceSentiment : documentSentiment.getSentences()) {
-            System.out.printf(
-                "Recognized sentence sentiment: %s, positive score: %.2f, neutral score: %.2f, negative score: %.2f.%n",
-                sentenceSentiment.getSentiment(),
-                sentenceSentiment.getSentimentScores().getPositive(),
-                sentenceSentiment.getSentimentScores().getNeutral(),
-                sentenceSentiment.getSentimentScores().getNegative());
-        }
+    for (SentenceSentiment sentenceSentiment : documentSentiment.getSentences()) {
+        System.out.printf(
+            "Recognized sentence sentiment: %s, positive score: %s, neutral score: %s, negative score: %s.%n",
+            sentenceSentiment.getSentiment(),
+            sentenceSentiment.getConfidenceScores().getPositive(),
+            sentenceSentiment.getConfidenceScores().getNeutral(),
+            sentenceSentiment.getConfidenceScores().getNegative());
+    }
 }
 ```
 
 ### Output
 
 ```console
-Recognized document sentiment: positive, Positive Score: 1.00, Neutral Score: 0.00, Negative Score: 0.00.
-Recognized sentence sentiment: positive, positive score: 1.00, neutral score: 0.00, negative score: 0.00.
+Recognized document sentiment: positive, positive score: 1.0, neutral score: 0.0, negative score: 0.0.
+Recognized sentence sentiment: positive, positive score: 1.0, neutral score: 0.0, negative score: 0.0.
 Recognized sentence sentiment: neutral, positive score: 0.21, neutral score: 0.77, negative score: 0.02.
 ```
+
 ## Language detection
 
 Create a new function called `detectLanguageExample()` that takes the client that you created earlier, and call its `detectLanguage()` function. The returned `DetectLanguageResult` object will contain a primary language detected, a list of other languages detected if successful, or an `errorMessage` if not.
@@ -183,13 +184,11 @@ static void recognizeEntitiesExample(TextAnalyticsClient client)
 
     for (CategorizedEntity entity : client.recognizeEntities(text)) {
         System.out.printf(
-            "Recognized entity: %s, entity category: %s, entity sub-category: %s, offset: %s, length: %s, score: %.2f.%n",
+            "Recognized entity: %s, entity category: %s, entity sub-category: %s, score: %s.%n",
             entity.getText(),
             entity.getCategory(),
-            entity.getSubCategory() == null || entity.getSubCategory().isEmpty() ? "N/A" : entity.getSubCategory(),
-            entity.getOffset(),
-            entity.getLength(),
-            entity.getScore());
+            entity.getSubCategory(),
+            entity.getConfidenceScore());
     }
 }
 ```
@@ -197,8 +196,8 @@ static void recognizeEntitiesExample(TextAnalyticsClient client)
 ### Output
 
 ```console
-Recognized entity: Seattle, entity category: Location, entity sub-category: GPE, offset: 26, length: 7, score: 0.92.
-Recognized entity: last week, entity category: DateTime, entity sub-category: DateRange, offset: 34, length: 9, score: 0.80.
+Recognized entity: Seattle, entity category: Location, entity sub-category: GPE, score: 0.92.
+Recognized entity: last week, entity category: DateTime, entity sub-category: DateRange, score: 0.8.
 ```
 
 ## Using NER to recognize personal information
@@ -213,13 +212,11 @@ static void recognizePIIEntitiesExample(TextAnalyticsClient client)
 
     for (PiiEntity entity : client.recognizePiiEntities(text)) {
         System.out.printf(
-            "Recognized personal identifiable information entity: %s, entity category: %s, entity sub-category: %s, offset: %s, length: %s, score: %.2f.%n",
+            "Recognized personal identifiable information entity: %s, entity category: %s, %nentity sub-category: %s, score: %s.%n",
             entity.getText(),
             entity.getCategory(),
-            entity.getSubCategory() == null || entity.getSubCategory().isEmpty() ? "N/A" : entity.getSubCategory(),
-            entity.getOffset(),
-            entity.getLength(),
-            entity.getScore());
+            entity.getSubCategory(),
+            entity.getConfidenceScore());
     }
 }
 ```
@@ -227,7 +224,8 @@ static void recognizePIIEntitiesExample(TextAnalyticsClient client)
 ### Output
 
 ```console
-Recognized personal identifiable information entity: 123-12-1234, entity category: U.S. Social Security Number (SSN), entity sub-category: N/A, offset: 33, length: 11, score: 0.85.
+Recognized personal identifiable information entity: 123-12-1234, entity category: U.S. Social Security Number (SSN), 
+entity sub-category: null, score: 0.85.
 ```
 
 ## Entity linking
@@ -248,16 +246,14 @@ static void recognizeLinkedEntitiesExample(TextAnalyticsClient client)
     for (LinkedEntity linkedEntity : client.recognizeLinkedEntities(text)) {
         System.out.printf("Name: %s, ID: %s, URL: %s, Data Source: %s.%n",
                 linkedEntity.getName(),
-                linkedEntity.getId(),
+                linkedEntity.getDataSourceEntityId(),
                 linkedEntity.getUrl(),
                 linkedEntity.getDataSource());
         System.out.printf("Matches:%n");
         for (LinkedEntityMatch linkedEntityMatch : linkedEntity.getLinkedEntityMatches()) {
-            System.out.printf("Text: %s, Offset: %s, Length: %s, Score: %.2f.%n",
+            System.out.printf("Text: %s, Score: %.2f%n",
                     linkedEntityMatch.getText(),
-                    linkedEntityMatch.getOffset(),
-                    linkedEntityMatch.getLength(),
-                    linkedEntityMatch.getScore());
+                    linkedEntityMatch.getConfidenceScore());
         }
     }
 }
@@ -269,24 +265,24 @@ static void recognizeLinkedEntitiesExample(TextAnalyticsClient client)
 Linked Entities:
 Name: Altair 8800, ID: Altair 8800, URL: https://en.wikipedia.org/wiki/Altair_8800, Data Source: Wikipedia.
 Matches:
-Text: Altair 8800, Offset: 11, Length: 116, Score: 0.78.
+Text: Altair 8800, Score: 0.78
 Name: Bill Gates, ID: Bill Gates, URL: https://en.wikipedia.org/wiki/Bill_Gates, Data Source: Wikipedia.
 Matches:
-Text: Bill Gates, Offset: 10, Length: 25, Score: 0.55.
-Text: Gates, Offset: 5, Length: 161, Score: 0.55.
+Text: Bill Gates, Score: 0.55
+Text: Gates, Score: 0.55
 Name: Paul Allen, ID: Paul Allen, URL: https://en.wikipedia.org/wiki/Paul_Allen, Data Source: Wikipedia.
 Matches:
-Text: Paul Allen, Offset: 10, Length: 40, Score: 0.53.
+Text: Paul Allen, Score: 0.53
 Name: Microsoft, ID: Microsoft, URL: https://en.wikipedia.org/wiki/Microsoft, Data Source: Wikipedia.
 Matches:
-Text: Microsoft, Offset: 9, Length: 0, Score: 0.47.
-Text: Microsoft, Offset: 9, Length: 150, Score: 0.47.
+Text: Microsoft, Score: 0.47
+Text: Microsoft, Score: 0.47
 Name: April 4, ID: April 4, URL: https://en.wikipedia.org/wiki/April_4, Data Source: Wikipedia.
 Matches:
-Text: April 4, Offset: 7, Length: 54, Score: 0.25.
+Text: April 4, Score: 0.25
 Name: BASIC, ID: BASIC, URL: https://en.wikipedia.org/wiki/BASIC, Data Source: Wikipedia.
 Matches:
-Text: BASIC, Offset: 5, Length: 89, Score: 0.28.
+Text: BASIC, Score: 0.28
 ```
 ## Key phrase extraction
 
