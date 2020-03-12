@@ -21,7 +21,7 @@ landingContent:
       links:
       - text: What is a voice assistant?
         url: voice-assistants.md
-      - text: What are Custom Commands?
+      - text: What is a Custom Commands app?
         url: custom-commands.md
       - text: What is Direct Line Speech?
         url: direct-line-speech.md
@@ -35,9 +35,9 @@ landingContent:
   linkLists:
     - linkListType: quickstart
       links:
-        - text: Create a Custom Command
+        - text: Create a Custom Commands app
           url: quickstart-custom-speech-commands-create-new.md
-        - text: Create a Custom Command with parameters
+        - text: Create a custom command with parameters
           url: quickstart-custom-speech-commands-create-parameters.md
         - text: Use Custom Commands with Custom Voice
           url: quickstart-custom-speech-commands-select-custom-voice.md
@@ -45,7 +45,7 @@ landingContent:
           url: quickstart-custom-speech-commands-speech-sdk.md
     - linkListType: how-to-guide
       links:
-      - text: Handle Custom Commands on the client
+      - text: Fulfill commands from a client
         url: how-to-custom-speech-commands-fulfill-sdk.md
       - text: Add parameter validation
         url: how-to-custom-speech-commands-validations.md

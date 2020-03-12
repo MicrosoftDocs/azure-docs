@@ -372,13 +372,13 @@
           href: voice-assistants.md
     - name: Custom Commands (Preview)
       items:
-        - name: What is Custom Commands?
+        - name: What is Custom Commands app?
           href: custom-commands.md
         - name: Quickstarts
           items:
-            - name: Create a Custom Command
+            - name: Create a Custom Commands app
               href: quickstart-custom-speech-commands-create-new.md
-            - name: Create a Custom Command with parameters
+            - name: Create a custom command with parameters
               href: quickstart-custom-speech-commands-create-parameters.md
             - name: Use Custom Commands with Custom Voice
               href: quickstart-custom-speech-commands-select-custom-voice.md
@@ -386,7 +386,7 @@
               href: quickstart-custom-speech-commands-speech-sdk.md
         - name: How-to guides
           items:
-            - name: Handle Custom Commands
+            - name: Fulfill commands from a client
               href: how-to-custom-speech-commands-fulfill-sdk.md
             - name: Add parameter validation
               href: how-to-custom-speech-commands-validations.md
