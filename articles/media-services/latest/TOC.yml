@@ -137,9 +137,7 @@
       displayName: URLs
       href: streaming-locators-concept.md
     - name: Streaming Policies 
-      href: streaming-policy-concept.md  
-    - name: Streaming Endpoint error codes  
-      href: streaming-endpoint-error-codes.md          
+      href: streaming-policy-concept.md        
   - name: Content protection
     items:
     - name: Dynamic encryption and key delivery
@@ -325,6 +323,8 @@
       displayName: filters
   - name: Deliver content
     items:
+    - name: Manage streaming endpoints
+      href: manage-streaming-endpoints-howto.md
     - name: Publish an asset - CLI
       href: cli-publish-asset.md
     - name: Create a streaming locator and build URLs
