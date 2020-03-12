@@ -92,7 +92,7 @@ The Text Analytics client is a `TextAnalyticsClient` object that authenticates t
 
 ## Authenticate the client
 
-Create a method to instantiate the `TextAnalyticsClient` object with your `KEY` AND `ENDPOINT` created above.
+Create a method to instantiate the `TextAnalyticsClient` object with the key and endpoint for your Text Analytics resource.
 
 ```java
 static TextAnalyticsClient authenticateClient(String key, String endpoint) {
