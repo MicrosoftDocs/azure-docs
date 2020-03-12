@@ -1,6 +1,6 @@
 ---
-title: Migrate VMware virtual machines to Azure with server-side encryption(SSE) using customer-managed keys(CMK) 
-description: Learn how to migrate VMware VMs to Azure with server-side encryption(SSE) using customer-managed keys(CMK)  
+title: Migrate VMware virtual machines to Azure with server-side encryption(SSE) and customer-managed keys(CMK) using Azure Migrate Server Migration
+description: Learn how to migrate VMware VMs to Azure with server-side encryption(SSE) and customer-managed keys(CMK) using Azure Migrate Server Migration 
 author: bsiva
 ms.service: azure-migrate
 ms.manager: carmonm
@@ -23,9 +23,9 @@ The examples in this article use [Azure PowerShell](/powershell/azure/new-azurep
 
 ## Prerequisites
 
-1. [Review the tutorial](tutorial-migrate-vmware.md) on migration of VMware VMs to Azure with agentless replication to understand tool requirements.
-2. [Follow these instructions](how-to-add-tool-first-time.md) to create an Azure Migrate project and add the **Azure Migrate: Server Migration** tool to the project.
-3. [Follow these instructions](how-to-set-up-appliance-vmware.md) to set up the Azure Migrate appliance for VMware in your on-premises environment and complete discovery.
+- [Review the tutorial](tutorial-migrate-vmware.md) on migration of VMware VMs to Azure with agentless replication to understand tool requirements.
+- [Follow these instructions](how-to-add-tool-first-time.md) to create an Azure Migrate project and add the **Azure Migrate: Server Migration** tool to the project.
+- [Follow these instructions](how-to-set-up-appliance-vmware.md) to set up the Azure Migrate appliance for VMware in your on-premises environment and complete discovery.
 
 ## Prepare for replication
 
@@ -134,7 +134,7 @@ uuid                                 label       name    maxSizeInBytes
 
 ```
 
-## Create an Azure Resource Manager template for replication
+## Create Resource Manager template for replication
 
 - Open the Resource Manager template file that you downloaded in the **Identifying replication infrastructure components** step in an editor of your choice.
 - Remove all resource definitions from the template except for resources that are of type *"Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationMigrationItems"*
@@ -244,7 +244,7 @@ uuid                                 label       name    maxSizeInBytes
 }
 ```
 
-## Deploy the Azure Resource Manager template and set up replication for the VM
+## Set up replication
 
 You can now deploy the edited Resource Manager template to the project resource group to set up replication for the VM. Learn how to [deploy resource with Azure Resource Manager templates and Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md)
 
