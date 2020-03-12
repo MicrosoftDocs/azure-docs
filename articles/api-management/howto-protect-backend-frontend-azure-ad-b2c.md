@@ -249,7 +249,7 @@ You'll need to add CIDR formatted blocks of addresses to the IP restrictions pan
 
    > [!NOTE]
    > The following section is optional and does not apply to the **Consumption** tier, which does not support the developer portal.
-   > If you do not intend to use the developer portal, or cannot use it since you are using the Consumption tier, please skip this step and jump straight to ["Build the JavaScript SPA to consume the API"](##build-the-javascript-spa-to-consume-the-api).
+   > If you do not intend to use the developer portal, or cannot use it since you are using the Consumption tier, please skip this step and jump straight to ["Build the JavaScript SPA to consume the API"](#build-the-javascript-spa-to-consume-the-api).
 
 ## [Optional] Configure the developer portal
 
