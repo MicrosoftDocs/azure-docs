@@ -72,12 +72,12 @@
       href: concept-github-action.md
     - name: Event handling
       href: concept-app-configuration-event.md
-    - name: Secure your config store using Private Endpoints
-      href: concept-private-endpoint.md
     - name: Security
       items:
         - name: Encrypt using customer-managed keys
           href: concept-customer-managed-keys.md
+        - name: Secure your config store using Private Endpoints
+          href: concept-private-endpoint.md
         - name: Integrate with Azure Managed Identity
           href: howto-integrate-azure-managed-service-identity.md
         - name: Enable access using Azure Active Directory
