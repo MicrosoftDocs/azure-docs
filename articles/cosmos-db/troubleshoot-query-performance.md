@@ -36,7 +36,7 @@ This article provides examples that you can re-create by using the [nutrition](h
     - Empty pages are caused by the backend preempting a query because the query is taking more than some fixed amount of time on the backend to retrieve the documents. If Azure Cosmos DB preempts a query, it will return a continuation token that will allow the query to continue.
 - Be sure to drain the query completely. Look at the SDK samples, and use a `while` loop on `FeedIterator.HasMoreResults` to drain the entire query.
 
-### Get query metrics
+## Get query metrics
 
 When you optimize a query in Azure Cosmos DB, the first step is always to [get the query metrics](profile-sql-api-query.md) for your query. These metrics are also available through the Azure portal:
 
@@ -124,13 +124,13 @@ Client Side Metrics
 
 The Retrieved Document Count (60,951) is significantly higher than the Output Document Count (7), so this query needed to do a scan. In this case, the system function [UPPER()](sql-query-upper.md) doesn't use the index.
 
-## Include necessary paths in the indexing policy
+### Include necessary paths in the indexing policy
 
 Your indexing policy should cover any properties included in `WHERE` clauses, `ORDER BY` clauses, `JOIN`, and most system functions. The path specified in the index policy should match (case-sensitive) the property in the JSON documents.
 
-If you run a simple query on the [nutrition](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json) dataset, you observe a much lower RU charge when the property in the `WHERE` clause is indexed.
+If you run a simple query on the [nutrition](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json) dataset, you observe a much lower RU charge when the property in the `WHERE` clause is indexed:
 
-### Original
+#### Original
 
 Query:
 
@@ -159,7 +159,7 @@ Indexing policy:
 
 **RU charge:** 409.51 RUs
 
-### Optimized
+#### Optimized
 
 Updated indexing policy:
 
@@ -180,7 +180,7 @@ Updated indexing policy:
 
 You can add properties to the indexing policy at any time, with no effect on write availability or performance. If you add a new property to the index, queries that use the property will immediately use the new available index. The query will use the new index while it's being built. So query results might be inconsistent while the index rebuild is in progress. If a new property is indexed, queries that use only existing indexes won't be affected during the index rebuild. You can [track index transformation progress](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-indexing-policy#use-the-net-sdk-v3).
 
-## Understand which system functions use the index
+### Understand which system functions use the index
 
 If an expression can be translated into a range of string values, it can use the index. Otherwise, it can't.
 
@@ -194,19 +194,19 @@ Following are some common system functions that don't use the index and must loa
 
 | **System function**                     | **Ideas   for optimization**             |
 | --------------------------------------- |------------------------------------------------------------ |
-| CONTAINS                                | Use Azure Search for full text. search                        |
-| UPPER/LOWER                             | Instead of using the system function to normalize data each time for comparisons, instead normalize the casing upon insertion. Then a query such as ```SELECT * FROM c WHERE UPPER(c.name) = 'BOB'``` simply becomes ```SELECT * FROM c WHERE c.name = 'BOB'``` |
-| Mathematical functions (non-aggregates) | If you need to frequently compute a value in your query, consider storing this value as a property in your JSON document. |
+| CONTAINS                                | Use Azure Search for full-text search.                        |
+| UPPER/LOWER                             | Instead of using the system function to normalize data for comparisons, normalize the casing upon insertion. A query like ```SELECT * FROM c WHERE UPPER(c.name) = 'BOB'``` becomes ```SELECT * FROM c WHERE c.name = 'BOB'```. |
+| Mathematical functions (non-aggregates) | If you need to compute a value frequently in your query, consider storing the value as a property in your JSON document. |
 
 ------
 
-Other parts of the query may still utilize the index despite the system functions not using the index.
+Other parts of the query might still use the index even though the system functions don't.
 
-## Queries with both a filter and an ORDER BY clause
+### Modify queries that have both a filter and an ORDER BY clause
 
-While queries with a filter and an `ORDER BY` clause will normally utilize a range index, they will be more efficient if they can be served from a composite index. In addition to modifying the indexing policy, you should add all properties in the composite index to the `ORDER BY` clause. This query modification will ensure that it utilizes the composite index.  You can observe the impact by running a query on the [nutrition](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json) dataset.
+Although queries that have a filter and an `ORDER BY` clause will normally use a range index, they'll be more efficient if they can be served from a composite index. In addition to modifying the indexing policy, you should add all properties in the composite index to the `ORDER BY` clause. This change to the query will ensure that it uses the composite index.  You can observe the impact by running a query on the [nutrition](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json) dataset:
 
-### Original
+#### Original
 
 Query:
 
@@ -230,9 +230,9 @@ Indexing policy:
 }
 ```
 
-**RU Charge:** 44.28 RUs
+**RU charge:** 44.28 RUs
 
-### Optimized
+#### Optimized
 
 Updated query (includes both properties in the `ORDER BY` clause):
 
@@ -270,12 +270,12 @@ Updated indexing policy:
 
 ```
 
-**RU Charge:** 8.86 RUs
+**RU charge:** 8.86 RUs
 
-## Optimize JOIN expressions by using a subquery
-Multi-value subqueries can optimize `JOIN` expressions by pushing predicates after each select-many expression rather than after all cross-joins in the `WHERE` clause.
+### Optimize JOIN expressions by using a subquery
+Multi-value subqueries can optimize `JOIN` expressions by pushing predicates after each select-many expression rather than after all cross joins in the `WHERE` clause.
 
-Consider the following query:
+Consider this query:
 
 ```sql
 SELECT Count(1) AS Count
@@ -287,11 +287,11 @@ WHERE t.name = 'infant formula' AND (n.nutritionValue > 0
 AND n.nutritionValue < 10) AND s.amount > 1
 ```
 
-**RU Charge:** 167.62 RUs
+**RU charge:** 167.62 RUs
 
 For this query, the index will match any document that has a tag with the name "infant formula", nutritionValue greater than 0, and serving amount greater than 1. The `JOIN` expression here will perform the cross-product of all items of tags, nutrients, and servings arrays for each matching document before any filter is applied. The `WHERE` clause will then apply the filter predicate on each `<c, t, n, s>` tuple.
 
-For instance, if a matching document had 10 items in each of the three arrays, it will expand to 1 x 10 x 10 x 10 (that is, 1,000) tuples. Using subqueries here can help in filtering out joined array items before joining with the next expression.
+For example, if a matching document had 10 items in each of the three arrays, it will expand to 1 x 10 x 10 x 10 (that is, 1,000) tuples. The use of subqueries here can help to filter out joined array items before joining with the next expression.
 
 This query is equivalent to the preceding one but uses subqueries:
 
@@ -303,35 +303,35 @@ JOIN (SELECT VALUE n FROM n IN c.nutrients WHERE n.nutritionValue > 0 AND n.nutr
 JOIN (SELECT VALUE s FROM s IN c.servings WHERE s.amount > 1)
 ```
 
-**RU Charge:** 22.17 RUs
+**RU charge:** 22.17 RUs
 
-Assume that only one item in the tags array matches the filter, and there are five items for both nutrients and servings arrays. The `JOIN` expressions will then expand to 1 x 1 x 5 x 5 = 25 items, as opposed to 1,000 items in the first query.
+Assume that only one item in the tags array matches the filter and that there are five items for both the nutrients and servings arrays. The `JOIN` expressions will then expand to 1 x 1 x 5 x 5 = 25 items, as opposed to 1,000 items in the first query.
 
 ## Queries where Retrieved Document Count is equal to Output Document Count
 
-If the Retrieved Document Count is approximately equal to the Output Document Count, it means the query did not have to scan many unnecessary documents. For many queries, such as those that use the TOP keyword, Retrieved Document Count may exceed Output Document Count by 1. This should not be cause for concern.
+If the Retrieved Document Count is approximately equal to the Output Document Count, the query didn't have to scan many unnecessary documents. For many queries, like those that use the TOP keyword, Retrieved Document Count might exceed Output Document Count by 1. You don't need to be concerned about this.
 
-## Avoid cross partition queries
+### Avoid cross partition queries
 
-Azure Cosmos DB uses [partitioning](partitioning-overview.md) to scale individual containers as Request Unit and data storage needs increase. Each physical partition has a separate and independent index. If your query has an equality filter that matches your container’s partition key, you will only need to check the relevant partition’s index. This optimization reduces the total number of RU’s that the query requires.
+Azure Cosmos DB uses [partitioning](partitioning-overview.md) to scale individual containers as Request Unit and data storage needs increase. Each physical partition has a separate and independent index. If your query has an equality filter that matches your container’s partition key, you'll need to check only the relevant partition’s index. This optimization reduces the total number of RUs that the query requires.
 
-If you have a large number of provisioned RU’s (over 30,000) or a large amount of data stored (over approximately 100 GB), you likely have a large enough container to see a significant reduction in query RU charges.
+If you have a large number of provisioned RUs (more than 30,000) or a large amount of data stored (more than approximately 100 GB), you probably have a large enough container to see a significant reduction in query RU charges.
 
-For example, if we create a container with the partition key foodGroup, the following queries would only need to check a single physical partition:
+For example, if you create a container with the partition key foodGroup, the following queries would need to check only a single physical partition:
 
 ```sql
 SELECT * FROM c
 WHERE c.foodGroup = "Soups, Sauces, and Gravies" and c.description = "Mushroom, oyster, raw"
 ```
 
-These queries would also be optimized by including the partition key in the query:
+These queries would also be optimized by the addition of the partition key in the query:
 
 ```sql
 SELECT * FROM c
 WHERE c.foodGroup IN("Soups, Sauces, and Gravies", "Vegetables and Vegetable Products") and c.description = "Mushroom, oyster, raw"
 ```
 
-Queries that have range filters on the partition key or don’t have any filters on the partition key, will need to “fan-out” and check every physical partition’s index for results.
+Queries that have range filters on the partition key, or that don’t have any filters on the partition key, will need to check every physical partition’s index for results:
 
 ```sql
 SELECT * FROM c
@@ -343,11 +343,11 @@ SELECT * FROM c
 WHERE c.foodGroup > "Soups, Sauces, and Gravies" and c.description = "Mushroom, oyster, raw"
 ```
 
-## Filters on multiple properties
+### Optimize queries that have filters on multiple properties
 
-While queries with filters on multiple properties will normally utilize a range index, they will be more efficient if they can be served from a composite index. For small amounts of data, this optimization will not have a significant impact. It may prove useful, however, for large amounts of data. You can only optimize, at most, one non-equality filter per composite index. If your query has multiple non-equality filters, you should pick one of them that will utilize the composite index. The remainder will continue to utilize range indexes. The non-equality filter must be defined last in the composite index. [Learn more about composite indexes](index-policy.md#composite-indexes)
+Although queries that have filters on multiple properties will normally use a range index, they'll be more efficient if they can be served from a composite index. For small amounts of data, this optimization won't have a significant impact. It could be useful, however, for large amounts of data. You can only optimize, at most, one non-equality filter per composite index. If your query has multiple non-equality filters, pick one of them that will use the composite index. The rest will continue to use range indexes. The non-equality filter must be defined last in the composite index. [Learn more about composite indexes](index-policy.md#composite-indexes).
 
-Here are some examples of queries which could be optimized with a composite index:
+Here are some examples of queries that could be optimized with a composite index:
 
 ```sql
 SELECT * FROM c
@@ -359,7 +359,7 @@ SELECT * FROM c
 WHERE c.foodGroup = "Vegetables and Vegetable Products" AND c._ts > 1575503264
 ```
 
-Here is the relevant composite index:
+Here's the relevant composite index:
 
 ```json
 {  
@@ -386,23 +386,23 @@ Here is the relevant composite index:
 }
 ```
 
-## Optimizations that reduce query latency:
+## Optimizations that reduce query latency
 
-In many cases, RU charge may be acceptable but query latency is still too high. The below sections give an overview of tips for reducing query latency. If you run the same query multiple times on the same dataset, it will have the same RU charge each time. However, query latency may vary between query executions.
+In many cases, the RU charge might be acceptable when query latency is still too high. The following sections give an overview of tips for reducing query latency. If you run the same query multiple times on the same dataset, it will have the same RU charge each time. But query latency might vary between query executions.
 
-## Improve proximity
+### Improve proximity
 
 Queries that are run from a different region than the Azure Cosmos DB account will have a higher latency than if they were run inside the same region. For example, if you were running code on your desktop computer, you should expect latency to be tens or hundreds (or more) milliseconds greater than if the query came from a Virtual Machine within the same Azure region as Azure Cosmos DB. It is simple to [globally distribute data in Azure Cosmos DB](distribute-data-globally.md) to ensure you can bring your data closer to your app.
 
-## Increase provisioned throughput
+### Increase provisioned throughput
 
 In Azure Cosmos DB, your provisioned throughput is measured in Request Units (RU’s). Let’s imagine you have a query that consumes 5 RU’s of throughput. For example, if you provision 1,000 RU’s, you would be able to run that query 200 times per second. If you attempted to run the query when there was not enough throughput available, Azure Cosmos DB would return an HTTP 429 error. Any of the current Core (SQL) API sdk's will automatically retry this query after waiting a brief period. Throttled requests take a longer amount of time, so increasing provisioned throughput can improve query latency. You can observe the [total number of throttled requests](use-metrics.md#understand-how-many-requests-are-succeeding-or-causing-errors) in the Metrics blade of the Azure portal.
 
-## Increase MaxConcurrency
+### Increase MaxConcurrency
 
 Parallel queries work by querying multiple partitions in parallel. However, data from an individual partitioned collection is fetched serially with respect to the query. So, adjusting the MaxConcurrency to the number of partitions has the maximum chance of achieving the most performant query, provided all other system conditions remain the same. If you don't know the number of partitions, you can set the MaxConcurrency (or MaxDegreesOfParallelism in older sdk versions) to a high number, and the system chooses the minimum (number of partitions, user provided input) as the maximum degree of parallelism.
 
-## Increase MaxBufferedItemCount
+### Increase MaxBufferedItemCount
 
 Queries are designed to pre-fetch results while the current batch of results is being processed by the client. The pre-fetching helps in overall latency improvement of a query. Setting the MaxBufferedItemCount limits the number of pre-fetched results. By setting this value to the expected number of results returned (or a higher number), the query can receive maximum benefit from pre-fetching. Setting this value to -1 allows the system to automatically decide the number of items to buffer.
 
