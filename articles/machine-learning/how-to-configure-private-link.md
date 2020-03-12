@@ -25,6 +25,9 @@ By using Azure Private Link, you can connect to your Azure Machine Learning work
 
 Currently, we only support enabling a private endpoint when creating a new Azure Machine Learning workspace. The following templates are provided for several popular configurations:
 
+> [!TIP]
+> Auto-approval controls the automated access to the Private Link service. For more information, see [What is Azure Private Link service](../private-link/private-link-service-overview.md).
+
 * [Workspace with customer-managed keys and auto-approval for Private Link](#cmkaapl)
 * [Workspace with customer-managed keys and manual approval for Private Link](#cmkmapl)
 * [Workspace with Microsoft-managed keys and auto-approval for Private Link](#mmkaapl)
