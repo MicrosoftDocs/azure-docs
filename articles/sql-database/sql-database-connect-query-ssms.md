@@ -15,14 +15,14 @@ ms.date: 03/10/2020
 ---
 # Quickstart: Use SQL Server Management Studio to connect and query an Azure SQL database
 
-In this quickstart, you'll use [SQL Server Management Studio][ssms-install-latest-84g] (SSMS) to connect to an Azure SQL database and run some sample queries.
+In this quickstart, you'll learn how to use SQL Server Management Studio (SSMS) to connect to an Azure SQL database and run some queries.
 
 ## Prerequisites
 
 Completing this quickstart requires the following items:
 
 - [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms/).
-- An AdventureWorksLT sample database. If you need a working copy of the AdventureWorksLT SQL database, create one by completing the steps in this article: [Quickstart: Create an Azure SQL database](sql-database-single-database-get-started.md).
+- The AdventureWorksLT sample database. If you need a working copy of the AdventureWorksLT database, create one by completing the [Create an Azure SQL database](sql-database-single-database-get-started.md) quickstart.
     - The scripts in this article are written to use the AdventureWorksLT database. If you are using a managed instance, you must either import the AdventureWorks database into an instance database or modify the scripts in this article to use the Wide World Importers database.
 
 If you simply want to run some ad-hoc queries without installing SSMS, see [Quickstart: Use the Azure portal's query editor to query a SQL database](sql-database-connect-query-portal.md).
@@ -39,11 +39,10 @@ Get the connection information you need to connect to your database. You'll need
 
 ## Connect to your database
 
-In SMSS, connect to your Azure SQL Database server.
+In SSMS, connect to your Azure SQL Database server.
 
 > [!IMPORTANT]
 > An Azure SQL Database server listens on port 1433. To connect to a SQL Database server from behind a corporate firewall, the firewall must have this port open.
->
 
 1. Open SSMS.
 
@@ -60,13 +59,13 @@ In SMSS, connect to your Azure SQL Database server.
 
    ![connect to server](./media/sql-database-connect-query-ssms/connect.png)  
 
-3. Select **Options** in the **Connect to Server** dialog box. In the **Connect to database** drop-down menu, select **mySampleDatabase**. If your working copy of the AdventureWorks database has a different database name, select it instead of **mySampleDatabase**.
+3. Select **Options** in the **Connect to Server** dialog box. In the **Connect to database** drop-down menu, select **mySampleDatabase**. Completing the quickstart in the [Prerequisites section](#prerequisites) creates an AdventureWorksLT database named mySampleDatabase. If your working copy of the AdventureWorks database has a different name than mySampleDatabase, then select it instead.
 
    ![connect to db on server](./media/sql-database-connect-query-ssms/options-connect-to-db.png)  
 
 4. Select **Connect**. The Object Explorer window opens.
 
-5. To view the database's objects, expand **Databases** and then expand **mySampleDatabase**.
+5. To view the database's objects, expand **Databases** and then expand your database node.
 
    ![mySampleDatabase objects](./media/sql-database-connect-query-ssms/connected.png)  
 
@@ -133,7 +132,7 @@ Run this [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transact-SQL
 
 Run this [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL code to modify your new product.
 
-1. Replace the previous query with this one.
+1. Replace the previous query with this one that returns the new record created previously:
 
    ```sql
    UPDATE [SalesLT].[Product]
@@ -167,5 +166,3 @@ Run this [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) Transact-SQL
 - To connect and query using Java, see [Connect and query with Java](sql-database-connect-query-java.md).
 - To connect and query using Python, see [Connect and query with Python](sql-database-connect-query-python.md).
 - To connect and query using Ruby, see [Connect and query with Ruby](sql-database-connect-query-ruby.md).
-
-
