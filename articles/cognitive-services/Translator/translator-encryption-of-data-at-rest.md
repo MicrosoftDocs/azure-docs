@@ -15,7 +15,7 @@ ms.author: egeaney
 
 # Translator encryption of data at rest
 
-Translator automatically encrypts your data when it is persisted to the cloud, helping to meet your organizational security and compliance goals.
+Translator automatically encrypts your data, which you upload to build custom translation models, when it is persisted to the cloud, helping to meet your organizational security and compliance goals.
 
 ## About Cognitive Services encryption
 
