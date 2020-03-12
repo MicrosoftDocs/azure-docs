@@ -39,6 +39,8 @@ See [Event Grid pricing](https://azure.microsoft.com/pricing/details/event-grid/
 The existing quotas on topic and domain count, and throughput apply to both premium and basic tier resources until premium tier pricing is announced.
 
 ## Next steps
-You can configure IP firewall for your Event Grid resource to restrict access over the public internet from only a select set of IP Addresses or IP Address ranges. For step-by-step instructions, see [Configure firewall](configure-firewall.md).
+See the following articles:
 
-You can configure private endpoints to restrict access from only from selected virtual networks. For step-by-step instructions, see [Configure private endpoints](configure-private-endpoints.md).
+- To upgrade from basic tier to premium tier, see the [Update pricing tier](update-tier.md) article. 
+- You can configure IP firewall for your Event Grid resource to restrict access over the public internet from only a select set of IP Addresses or IP Address ranges. For step-by-step instructions, see [Configure firewall](configure-firewall.md).
+- You can configure private endpoints to restrict access from only from selected virtual networks. For step-by-step instructions, see [Configure private endpoints](configure-private-endpoints.md).
