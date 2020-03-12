@@ -4,8 +4,8 @@ description: Learn which disk metrics have been deprecated and how to update you
 services: azure-monitor
 ms.subservice: metrics
 ms.topic: conceptual
-author: normesta
-ms.author: normesta
+author: albecker1
+ms.author: albecker
 ms.date: 03/12/2020
 ---
 
