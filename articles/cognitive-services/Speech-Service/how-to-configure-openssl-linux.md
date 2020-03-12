@@ -46,7 +46,7 @@ Set environment variable `SSL_CERT_FILE` to point at that file before running a 
 export SSL_CERT_FILE=/etc/pki/tls/certs/ca-bundle.crt
 ```
 > [!NOTE]
-> It is also worth noting that some distributions of Linux do not have a TMP or TMPDIR defined. This will cause OpenSSL to download the Certificate Revocation List (CRL) every time, rather than caching the CRL to disk for reuse until they expire. To improve initial connection performance you can [configure a user or system default TMPDIR](https://help.ubuntu.com/community/EnvironmentVariables).
+> It is also worth noting that some distributions of Linux do not have a TMP or TMPDIR environment variable defined. This will cause the Speech SDK to download the Certificate Revocation List (CRL) every time, rather than caching the CRL to disk for reuse until they expire. To improve initial connection performance you can [create an environment variable named TMPDIR and set it to the path of your chosen temporary directory.](https://help.ubuntu.com/community/EnvironmentVariables).
 
 ## Next steps
 
