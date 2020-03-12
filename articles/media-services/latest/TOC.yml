@@ -42,7 +42,7 @@
     href: protect-with-drm.md   
 - name: Samples
   items:    
-  - name: Media Services samples
+  - name: Media Services v3 samples
     displayName: .NET, Java
     href: https://docs.microsoft.com/samples/browse/?products=azure-media-services
   - name: Media Services v3 REST samples
