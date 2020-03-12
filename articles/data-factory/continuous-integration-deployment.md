@@ -55,7 +55,7 @@ Below is a sample overview of the CI/CD lifecycle in an Azure data factory that'
 
    ![Build your own template](media/continuous-integration-deployment/custom-deployment-build-your-own-template.png) 
 
-1. Select **Load file**, and then select the generated Resource Manager template (look for the **arm_template.json** file exported in step 1)
+1. Select **Load file**, and then select the generated Resource Manager template. This is the **arm_template.json** file located in the zip file exported in step one.
 
    ![Edit template](media/continuous-integration-deployment/custom-deployment-edit-template.png)
 
@@ -327,7 +327,8 @@ If you're in GIT mode, you can override the default properties in your Resource 
 
 Under these conditions, to override the default parameterization template, create a file named **arm-template-parameters-definition.json** in the folder specified as the root folder for the data factory git integration. You must use that exact file name. Data Factory reads this file from whichever branch you're currently on in the Azure Data Factory portal, not just from the collaboration branch. You can create or edit the file from a private branch, where you can test your changes by selecting **Export ARM Template** in the UI. You can then merge the file into the collaboration branch. If no file is found, the default template is used.
 
-Please note that the use of a custom parameterization template will not help to deploy more than 256 parameters in your ARM template but instead it will help you to choose what properties you want to parameterize and decrease the number of parameterized properties.
+> [!NOTE]
+A custom parameterization template doesn't change the ARM template parameter limit of 256. It lets you choose and decrease the number of parameterized properties
 
 ### Syntax of a custom parameters file
 
