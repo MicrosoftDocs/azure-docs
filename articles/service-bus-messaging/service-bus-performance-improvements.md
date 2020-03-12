@@ -39,7 +39,7 @@ AMQP is the most efficient, because it maintains the connection to Service Bus. 
 There are two supported Azure Service Bus .NET SDKs. Their APIs are very similar, and it can be confusing which one to choose. Refer to the following table to help guide your decision. We suggest the Microsoft.Azure.ServiceBus SDK as it is more modern, performant, and is cross-platform compatible. Additionally, it supports AMQP over WebSockets and is part of the Azure .NET SDK collection of open-source projects.
 
 | NuGet Package | Primary Namespace(s) | Minimum Platform(s) | Protocol(s) |
-|---------------|-------------------|-------------|-------------|
+|---------------|----------------------|---------------------|-------------|
 | <a href="https://www.nuget.org/packages/Microsoft.Azure.ServiceBus" target="_blank">Microsoft.Azure.ServiceBus <span class="docon docon-navigate-external x-hidden-focus"></span></a> | `Microsoft.Azure.ServiceBus`<br>`Microsoft.Azure.ServiceBus.Management` | .NET Core 2.0<br>.NET Framework 4.6.1<br>Mono 5.4<br>Xamarin.iOS 10.14<br>Xamarin.Mac 3.8<br>Xamarin.Android 8.0<br>Universal Windows Platform 10.0.16299 | AMQP<br>HTTP |
 | <a href="https://www.nuget.org/packages/WindowsAzure.ServiceBus" target="_blank">WindowsAzure.ServiceBus <span class="docon docon-navigate-external x-hidden-focus"></span></a> | `Microsoft.ServiceBus`<br>`Microsoft.ServiceBus.Messaging` | .NET Framework 4.6.1 | AMQP<br>SBMP<br>HTTP |
 
@@ -229,7 +229,7 @@ var queueDescription = new QueueDescription(path)
 {
     EnableBatchedOperations = false
 };
-var managementClient = new ManagementClient(connectionString);
+var queue = await managementClient.CreateQueueAsync(queueDescription);
 ```
 
 For more information, see the following:
@@ -242,11 +242,11 @@ For more information, see the following:
 To disable batched store access, you'll need an instance of a `NamespaceManager`. Create a queue from a queue description that sets the `EnableBatchedOperations` property to `false`.
 
 ```csharp
-var queueDescription = new QueueDescription
+var queueDescription = new QueueDescription(path)
 {
     EnableBatchedOperations = false
 };
-var queue = namespaceManager.CreateQueue(qd);
+var queue = namespaceManager.CreateQueue(queueDescription);
 ```
 
 For more information, see the following:
