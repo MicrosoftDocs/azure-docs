@@ -140,8 +140,8 @@ For business continuity and disaster recovery (BCDR) reasons you may have specif
 > - https:\//kailani1.one.microsoft.com (paired fail-over region: East US)
 > - https:\//tm-kailani.one.microsoft.com (discovery URL of the primary region)
 
-### Allowlist for Azure File Sync IP addresses
-If your on-premises firewall requires adding specific IP addresses to an allowlist to connect to Azure File Sync, you can add the following IP address ranges based on the regions that you are connecting to.
+### Allow list for Azure File Sync IP addresses
+If your on-premises firewall requires adding specific IP addresses to an allow list to connect to Azure File Sync, you can add the following IP address ranges based on the regions that you are connecting to.
 
 | Region | IP address ranges |
 |--------|-------------------|
