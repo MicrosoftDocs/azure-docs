@@ -1,7 +1,7 @@
 ---
 title: Quickstart - Create and use views in SQL on-demand using Azure Synapse Analytics
 description: In this section, you'll learn how to create and use views to wrap SQL on-demand queries. Views will allow you to reuse those queries. Views are also needed if you want to use tools, such as Power BI, in conjunction with SQL on-demand.
-services: sql-data-warehouse
+services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: overview

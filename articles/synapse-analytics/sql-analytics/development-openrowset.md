@@ -1,7 +1,7 @@
 ---
 title: How to use OPENROWSET in SQL on-demand
 description: This article describes syntax of OPENROWSET in SQL on-demand and explains how to use arguments.
-services: synapse analytics
+services: synapse-analytics
 author: filippopovic
 ms.service: synapse-analytics
 ms.topic: overview

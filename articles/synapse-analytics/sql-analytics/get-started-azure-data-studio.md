@@ -1,7 +1,7 @@
 ---
 title: "Azure Data Studio: Connect and query SQL Analytics" 
 description: Use Azure Data Studio to connect to and query SQL Analytics in Azure Synapse Analytics. 
-services: synapse analytics
+services: synapse-analytics
 author: azaricstefan 
 ms.service: synapse-analytics
 ms.topic: overview 

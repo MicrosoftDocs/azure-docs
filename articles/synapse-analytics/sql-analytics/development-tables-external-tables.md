@@ -1,7 +1,7 @@
 ---
 title: Use external tables with SQL Analytics
 description: Reading or writing data files with SQL Analytics
-services: synapse analytics
+services: synapse-analytics
 author: julieMSFT
 ms.service: synapse-analytics
 ms.topic: overview

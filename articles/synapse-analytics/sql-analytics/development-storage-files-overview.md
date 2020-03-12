@@ -1,7 +1,7 @@
 ---
 title: Query storage files using SQL on-demand within SQL Analytics
 description: Describes querying storage files using SQL on-demand resources within SQL Analytics.
-services: synapse analytics
+services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: overview

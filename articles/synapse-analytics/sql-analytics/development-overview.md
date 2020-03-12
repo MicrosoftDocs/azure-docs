@@ -1,7 +1,7 @@
 ---
 title: Resources for developing SQL Analytics features in Azure Synapse Analytics | Microsoft Docs
 description: Development concepts, design decisions, recommendations, and coding techniques for SQL Analytics.
-services: synapse analytics
+services: synapse-analytics
 author: filippopovic
 manager: craigg
 ms.service: synapse-analytics

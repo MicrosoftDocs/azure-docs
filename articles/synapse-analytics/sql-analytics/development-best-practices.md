@@ -1,7 +1,7 @@
 ---
 title: Development best practices for SQL Analytics | Microsoft Docs
 description: Recommendations and best practices you should know as you develop for SQL Analytics. 
-services: synapse analytics
+services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
 ms.service: synapse-analytics
