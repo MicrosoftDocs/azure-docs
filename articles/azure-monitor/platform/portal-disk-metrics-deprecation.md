@@ -11,13 +11,13 @@ ms.date: 03/10/2020
 
 # Portal Disk Metrics Deprecation
 
-Deprecated metrics will soon be removed from the Azure portal. A new version of each deprecated metric will be available for you to use. This article lists those new replacement metrics, and shows you how to update your metric alerts to use them.
+Deprecated metrics will soon be removed from the Azure portal. A new version of each deprecated metric is available for you to use. This article lists the new replacement metrics, and shows you how to update your metric alerts to use them.
 
 ## List of new metrics
 
 This table maps each deprecated metric to it's corresponding new metric. 
 
-|Deprecated metrics|New (replacement) metrics|
+|Deprecated metric|New (replacement) metric|
 |----|----|
 |Data Disk QD (Deprecated)|Data Disk Queue Depth (Preview)|
 |Data Disk Read Bytes/Sec (Deprecated)|Data Disk Read Bytes/Sec (Preview)|
@@ -28,13 +28,15 @@ This table maps each deprecated metric to it's corresponding new metric.
 |OS Read Bytes/Sec (Deprecated)|OS Read Bytes/Sec (Preview)|
 |OS Read Operations/Sec (Deprecated)|OS Read Operations/Sec (Preview)|
 |OS Write Bytes/Sec (Deprecated)|OS Write Bytes/Sec (Preview)|
-|OS Write Operations/Sec (Deprecated)|OS Write Operations/Sec (Preview)|\
+|OS Write Operations/Sec (Deprecated)|OS Write Operations/Sec (Preview)|
 
-## Update metric alerts to use new metrics
+<a id="update-metrics" />
 
-If the rules of your metric alerts use deprecated metrics, you'll have to update those rules to use new metrics instead. 
+## Migrate metrics in your metric alerts
 
-1. In the Azure portal, search for **Alerts**. Then, in the **Services** section of the results page, choose **Alerts**.
+If your metric alerts use deprecated metrics, you'll have them to use new metrics instead. 
+
+1. In the Azure portal, search for **Alerts**. Then, in the **Services** section, choose **Alerts**.
 
    > [!div class="mx-imgBorder"]
    > ![Image description](./media/portal-disk-metrics-deprecation/alert-service-in-azure-portal.png)
@@ -49,16 +51,12 @@ If the rules of your metric alerts use deprecated metrics, you'll have to update
    > [!div class="mx-imgBorder"]
    > ![Image description](./media/portal-disk-metrics-deprecation/filter-alerts.png)
 
-   A list of metric alerts appear.
-
 4. In the list of metrics, identify conditions that relate to disks. Click the name of the rule. 
 
    The name appears as a hyperlink in the **Name** column of the table.
 
    > [!div class="mx-imgBorder"]
    > ![Image description](./media/portal-disk-metrics-deprecation/find-disk-conditions.png)
-
-   The **Rules management** page appears for the alert.
 
 5. In the **Conditions** section of the **Rules management** page, click the condition of the alert. 
 
@@ -69,23 +67,23 @@ If the rules of your metric alerts use deprecated metrics, you'll have to update
 
    The **Configure signal logic** page appears and the settings of the condition appear in the **Alert logic** section of that page.
 
-6. Make a record of these settings as they will not disappear when you remove the deprecated metric.
+6. Make a record of these settings as they'll disappear when you remove the deprecated metric.
 
    > [!div class="mx-imgBorder"]
    > ![Image description](./media/portal-disk-metrics-deprecation/condition-rules.png)
 
-   > [!TIP] Consider capturing these settings in a screenshot or in a text file. 
+   > [!TIP] 
+   > Consider capturing these settings in a screenshot or in a text file. 
 
 7. Click the **Back to signal selection** link.
 
    > [!div class="mx-imgBorder"]
    > ![Image description](./media/portal-disk-metrics-deprecation/back-to-signal-selection.png)
 
-   The **Configure signal logic** page appears.
+8. In the **Configure signal logic** page, choose the appropriate replacement metric (new metric). Use the [table](#update-metrics) that appears earlier in this article to identity the name of the new metric.
 
-8. In the **Configure signal logic** page, choose the appropriate replacement metric (new metric). Use the [table](#azure-role-based-access-control-rbac) that appears earlier in this article to identity the name of the new metric.
-
-   > [!TIP] Begin typing in the search bar to narrow the list of metric names. 
+   > [!TIP] 
+   > Begin typing in the search bar to narrow the list of metric names. 
 
    > [!div class="mx-imgBorder"]
    > ![Image description](./media/portal-disk-metrics-deprecation/choose-new-metric.png)
