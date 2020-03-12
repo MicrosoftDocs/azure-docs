@@ -86,7 +86,7 @@ For more information, see [az ams streaming-endpoint start](https://docs.microso
 ## Use REST
 
 ```rest
-POST https://management.azure.com/subscriptions/00000000-0000-0000-0000-0000000000000000/resourceGroups/mediaresources/providers/Microsoft.Media/mediaservices/slitestmedia10/streamingEndpoints/myStreamingEndpoint1/start?api-version=2018-07-01
+POST https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mediaresources/providers/Microsoft.Media/mediaservices/slitestmedia10/streamingEndpoints/myStreamingEndpoint1/start?api-version=2018-07-01
 ```
 
 For more information, see 
