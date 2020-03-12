@@ -17,7 +17,8 @@ This quickstart helps you configure a firewall for your Azure Analysis Services 
 
 - An Analysis Services server in your subscription. To learn more, see [Quickstart: Create a server - Portal](analysis-services-create-server.md) or [Quickstart: Create a server - PowerShell](analysis-services-create-powershell.md)
 - One or more IP address ranges for client computers (if needed).
-- Please note that scenarios that use Power BI Premium to connect to AAS, including data import (refresh) and paginated reports are currently not supported even when **Allow access from Power BI** is toggled on. The most common scenario of live connect from Power BI Premium is supported. All Power BI Pro scenarios are supported.
+- Some scenarios where Power BI Premium connects to Azure Analysis Services, including data import (refresh) and paginated reports, are currently not supported even when Allow access from Power BI is enabled. The more common scenario of using Live Connect from Power BI Premium is supported. All Power BI Pro scenarios are supported.
+
 
 ## Sign in to the Azure portal 
 
