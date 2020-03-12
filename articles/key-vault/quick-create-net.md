@@ -36,7 +36,7 @@ This quickstart assumes you are running `dotnet`, [Azure CLI](/cli/azure/install
 
 ### Create new .NET console app
 
-In a console window, use the `dotnet new` command to create a new .NET console app with the name `akv-dotnet`.
+In a console window, use the `dotnet new` command to create a new .NET console app with the name `key-vault-console-app`.
 
 ```console
 dotnet new console -n key-vault-console-app
@@ -61,13 +61,13 @@ Build succeeded.
 From the console window, install the Azure Key Vault client library for .NET:
 
 ```console
-dotnet add package Azure.Security.KeyVault.Secrets --version 4.0.0
+dotnet add package Azure.Security.KeyVault.Secrets
 ```
 
 For this quickstart, you will need to install the following packages as well:
 
 ```console
-dotnet add package Azure.Identity --version 1.0.0
+dotnet add package Azure.Identity
 ```
 
 ### Create a resource group and key vault
@@ -137,6 +137,16 @@ setx KEY_VAULT_NAME <your-key-vault-name>
 ````
 
 Each time you call `setx`, you should get a response of "SUCCESS: Specified value was saved."
+
+```shell
+AZURE_CLIENT_ID=<your-clientID>
+
+AZURE_CLIENT_SECRET=<your-clientSecret>
+
+AZURE_TENANT_ID=<your-tenantId>
+
+KEY_VAULT_NAME=<your-key-vault-name>
+```
 
 ## Object model
 
