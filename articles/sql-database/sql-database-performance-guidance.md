@@ -226,7 +226,7 @@ You can examine **sys.resource_stats** to determine whether the resource for a t
 
 If a workload has a set of repeating queries, often it makes sense to capture and validate the optimality of your plan choices because it drives the minimum resource size unit required to host the database. After you validate it, occasionally reexamine the plans to help you make sure that they have not degraded. You can learn more about [query hints (Transact-SQL)](https://msdn.microsoft.com/library/ms181714.aspx).
 
-### Very large database archtectures
+### Very large database architectures
 
 Before the release of [Hyperscale](sql-database-service-tier-hyperscale.md) service tier for single databases in Azure SQL Database, customers used to hit capacity limits for individual databases. These capacity limits still exist for pooled databases in elastic pools and instance database in managed instances. The following two sections discuss two options for solving problems with very large databases in Azure SQL Database when you cannot use the Hyperscale service tier.
 
