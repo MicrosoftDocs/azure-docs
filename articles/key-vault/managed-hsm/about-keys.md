@@ -10,7 +10,7 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
 ms.date: 09/04/2019
-ms.author: mbaldwin
+author: mbaldwin
 ---
 
 # About keys, secrets, and certificates

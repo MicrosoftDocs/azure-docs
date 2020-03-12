@@ -9,7 +9,7 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
-ms.author: mbaldwin
+author: mbaldwin
 
 ---
 # Manage Key Vault using the Azure CLI 

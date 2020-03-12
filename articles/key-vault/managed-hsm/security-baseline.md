@@ -7,7 +7,7 @@ manager: rkarlin
 ms.service: security
 ms.topic: conceptual
 ms.date: 02/22/2020
-ms.author: mbaldwin
+author: mbaldwin
 ms.custom: security-benchmark
 
 ---

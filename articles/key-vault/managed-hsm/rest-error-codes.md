@@ -5,7 +5,7 @@ keywords:
 services: machine-learning
 author: msmbaldwin
 ms.custom: seodec18
-ms.author: mbaldwin
+author: mbaldwin
 
 ms.service: key-vault
 ms.topic: reference
