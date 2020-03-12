@@ -142,7 +142,7 @@ read templateFile
 echo "Enter the linked template URI:"
 read linkedTemplateUri
 
-az group deployment create \
+az deployment group create \
   --name DeployLinkedTemplate \
   --resource-group myResourceGroup \
   --template-uri $templateFile \

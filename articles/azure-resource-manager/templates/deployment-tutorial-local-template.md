@@ -10,7 +10,7 @@ ms.author: jgao
 
 Learn how to deploy an Azure Resource Manager template from your local machine. It takes about **8 minutes** to complete.
 
-This tutorial is the first of a series. As you progress through the series, you modularize the template by creating a linked template, you store the linked template in a storage account, and secure the linked template by using SAS token, and you learn how to create a DevOp pipeline to deploy a template. This series focuses on template deployment.  If you want to learn template development, see the [beginner tutorials](./template-tutorial-create-first-template.md).
+This tutorial is the first of a series. As you progress through the series, you modularize the template by creating a linked template, you store the linked template in a storage account, and secure the linked template by using SAS token, and you learn how to create a DevOp pipeline to deploy templates. This series focuses on template deployment.  If you want to learn template development, see the [beginner tutorials](./template-tutorial-create-first-template.md).
 
 ## Get tools
 
@@ -94,7 +94,7 @@ Use one or both deployment options to deploy the template.
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-$projectName = Read-Host -Prompt "Enter a project name that is used to generate resource and resource group names"
+$projectName = Read-Host -Prompt "Enter the same project name"
 $templateFile = Read-Host -Prompt "Enter the template file path and file name"
 $resourceGroupName = "${projectName}rg"
 
@@ -111,13 +111,13 @@ To learn more about deploying template by using Azure PowerShell, see [Deploy re
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
-echo "Enter a project name that is used to generate resource and resource group names:"
+echo "Enter the same project name:"
 read projectName
 echo "Enter the template file path and file name:"
 read templateFile
 resourceGroupName="${projectName}rg"
 
-az group deployment create \
+az deployment group create \
   --name DeployLocalTemplate \
   --resource-group $resourceGroupName \
   --template-file $templateFile \
