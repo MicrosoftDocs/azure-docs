@@ -7,9 +7,9 @@ ms.date: 03/06/2020
 
 # Encryption at rest using customer-managed keys
 
-Encrypting your web app's application data at rest requires an Azure Storage Account and an Azure Key Vault. These services are used when you run your app from a deployment package.
+Encrypting your function app's application data at rest requires an Azure Storage Account and an Azure Key Vault. These services are used when you run your app from a deployment package.
 
-  - [Azure Storage provides encryption at rest](../storage/common/storage-service-encryption.md). You can use system-provided keys or your own, customer-managed keys. This is where your application data is stored when it's not running in a web app in Azure.
+  - [Azure Storage provides encryption at rest](../storage/common/storage-service-encryption.md). You can use system-provided keys or your own, customer-managed keys. This is where your application data is stored when it's not running in a function app in Azure.
   - [Running from a deployment package](deploy-run-package.md) is a deployment feature of App Service. It allows you to deploy your site content from an Azure Storage Account using a Shared Access Signature (SAS) URL.
   - [Key Vault references](app-service-key-vault-reference.md) are a security feature of App Service. It allows you to import secrets at runtime as application settings. Use this to encrypt the SAS URL of your Azure Storage Account.
 
@@ -32,7 +32,7 @@ Once you upload your file to Blob storage and have an SAS URL for the file, set 
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings WEBSITE_RUN_FROM_PACKAGE="<your-SAS-URL>"
 ```
 
-Adding this application setting causes your web app to restart. After the app has restarted, browse to it and make sure that the app has started correctly using the deployment package. If the application didn't start correctly, see the [Run from package troubleshooting guide](deploy-run-package.md#troubleshooting).
+Adding this application setting causes your function app to restart. After the app has restarted, browse to it and make sure that the app has started correctly using the deployment package. If the application didn't start correctly, see the [Run from package troubleshooting guide](deploy-run-package.md#troubleshooting).
 
 ### Encrypt the application setting using Key Vault references
 
@@ -60,11 +60,11 @@ Now you can replace the value of the `WEBSITE_RUN_FROM_PACKAGE` application sett
 
     The `<secret-version>` will be in the output of the previous `az keyvault secret set` command.
 
-Updating this application setting causes your web app to restart. After the app has restarted, browse to it make sure it has started correctly using the Key Vault reference.
+Updating this application setting causes your function app to restart. After the app has restarted, browse to it make sure it has started correctly using the Key Vault reference.
 
 ## How to rotate the access token
 
-It is best practice to periodically rotate the SAS key of your storage account. To ensure the web app does not inadvertently loose access, you must also update the SAS URL in Key Vault.
+It is best practice to periodically rotate the SAS key of your storage account. To ensure the function app does not inadvertently loose access, you must also update the SAS URL in Key Vault.
 
 1. Rotate the SAS key by navigating to your storage account in the Azure Portal. Under **Settings** > **Access keys**, click the icon to rotate the SAS key.
 
@@ -82,31 +82,31 @@ It is best practice to periodically rotate the SAS key of your storage account. 
 
     The `<secret-version>` will be in the output of the previous `az keyvault secret set` command.
 
-## How to revoke the web app's data access
+## How to revoke the function app's data access
 
-There are two methods to revoke the web app's access to the storage account. 
+There are two methods to revoke the function app's access to the storage account. 
 
 ### Rotate the SAS key for the Azure Storage account
 
-If the SAS key for the storage account is rotated, the web app will no longer have access to the storage account, but it will continue to run with the last downloaded version of the package file. Restart the web app to clear the last downloaded version.
+If the SAS key for the storage account is rotated, the function app will no longer have access to the storage account, but it will continue to run with the last downloaded version of the package file. Restart the function app to clear the last downloaded version.
 
-### Remove the web app's access to Key Vault
+### Remove the function app's access to Key Vault
 
-You can revoke the web app's access to the site data by disabling the web app's access to Key Vault. To do this, remove the access policy for the web app's identity. This is the same identity you created earlier while configuring key vault references.
+You can revoke the function app's access to the site data by disabling the function app's access to Key Vault. To do this, remove the access policy for the function app's identity. This is the same identity you created earlier while configuring key vault references.
 
 ## Summary
 
-Your application files are now encrypted at rest in your storage account. When your web app starts, it retrieves the SAS URL from your key vault. Finally, the web app loads the application files from the storage account. 
+Your application files are now encrypted at rest in your storage account. When your function app starts, it retrieves the SAS URL from your key vault. Finally, the function app loads the application files from the storage account. 
 
-If you need to revoke the web app's access to your storage account, you can either revoke access to the key vault or rotate the storage account keys, which invalidates the SAS URL.
+If you need to revoke the function app's access to your storage account, you can either revoke access to the key vault or rotate the storage account keys, which invalidates the SAS URL.
 
 ## Frequently Asked Questions
 
-### Is there any additional charge for running my web app from the deployment package?
+### Is there any additional charge for running my function app from the deployment package?
 
 Only the cost associated with the Azure Storage Account and any applicable egress charges.
 
-### How does running from the deployment package affect my web app?
+### How does running from the deployment package affect my function app?
 
 - Running your app from the deployment package makes `wwwroot/` read-only. Your app receives an error when it attempts to write to this directory.
 - TAR and GZIP formats are not supported.
