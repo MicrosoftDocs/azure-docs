@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/09/2020
+ms.date: 03/10/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -66,6 +66,12 @@ The CryptographicKeys element contains the following attributes:
 ## Session management
 
 To configure the Azure AD B2C SAML sessions between a relying party application, the attribute of the `UseTechnicalProfileForSessionManagement` element, reference to [SamlSSOSessionProvider](custom-policy-reference-sso.md#samlssosessionprovider) SSO session.
+
+## Next steps
+
+See the following article for example of using a SAML issuer technical profile:
+
+- [Register a SAML application in Azure AD B2C](connect-with-saml-service-providers.md)
 
 
 

@@ -6,7 +6,7 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
-ms.date: 02/24/2020
+ms.date: 03/11/2020
 ---
 
 # Mapping data flows performance and tuning guide
@@ -14,6 +14,9 @@ ms.date: 02/24/2020
 Mapping Data Flows in Azure Data Factory provide a code-free interface to design, deploy, and orchestrate data transformations at scale. If you're not familiar with mapping data flows, see the [Mapping Data Flow Overview](concepts-data-flow-overview.md).
 
 When designing and testing Data Flows from the ADF UX, make sure to switch on debug mode to execute your data flows in real time without waiting for a cluster to warm up. For more information, see [Debug Mode](concepts-data-flow-debug-mode.md).
+
+This video shows some sample timings transforming data with data flows:
+> [!VIDEO https://www.youtube.com/watch?v=6CSbWm4lRhw]
 
 ## Monitoring data flow performance
 
