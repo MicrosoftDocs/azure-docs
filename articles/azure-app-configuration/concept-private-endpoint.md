@@ -12,21 +12,21 @@ ms.author: lcozzens
 ---
 # Using private endpoints for Azure App Configuration
 
-You can use [private endpoints](../private-link/private-endpoint-overview.md) for Azure App Configuration to allow clients on a virtual network (VNet) to securely access data over a [private link](../private-link/private-link-overview.md). The private endpoint uses an IP address from the VNet address space for your App Configuration service. Network traffic between the clients on the VNet and the App Configuration store traverses over the VNet using a private link on the Microsoft backbone network, eliminating exposure to the public internet.
+You can use [private endpoints](../private-link/private-endpoint-overview.md) for Azure App Configuration to allow clients on a virtual network (VNet) to securely access data over a [private link](../private-link/private-link-overview.md). The private endpoint uses an IP address from the VNet address space for your App Configuration store. Network traffic between the clients on the VNet and the App Configuration store traverses over the VNet using a private link on the Microsoft backbone network, eliminating exposure to the public internet.
 
-Using private endpoints for your App Configuration service enables you to:
+Using private endpoints for your App Configuration store enables you to:
 - Secure your application configuration details by configuring the firewall to block all connections to App Configuration on the public endpoint.
 - Increase security for the virtual network (VNet) ensuring data doesn't escape from the VNet.
-- Securely connect to the App Configuration service from on-premises networks that connect to the VNet using [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) or [ExpressRoutes](../expressroute/expressroute-locations.md) with private-peering.
+- Securely connect to the App Configuration store from on-premises networks that connect to the VNet using [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) or [ExpressRoutes](../expressroute/expressroute-locations.md) with private-peering.
 
 > [!NOTE]
-> Azure App Configuration offers the use of private endpoints as a public preview. Public preview offerings allow customers to experiment with new features prior to their official release.  Public preview features and services are not meant for production use. As a preview service, we ask that you reach out to us so that we can add your subscription to our allow-list.  If you would like to explore the capabilities of Azure App Configuration, please [fill out this form](https://www.surveymonkey.com/r/VQVKMHH) so that we can add you to our allow-list.
+> Azure App Configuration offers the use of private endpoints as a public preview. Public preview offerings allow customers to experiment with new features prior to their official release.  Public preview features and services are not meant for production use.
 
 ## Conceptual Overview
 
-A private endpoint is a special network interface for an Azure service in your [Virtual Network](../virtual-network/virtual-networks-overview.md) (VNet). When you create a private endpoint for your App Config store, it provides secure connectivity between clients on your VNet and your configuration store. The private endpoint is assigned an IP address from the IP address range of your VNet. The connection between the private endpoint and the configuration service uses a secure private link.
+A private endpoint is a special network interface for an Azure service in your [Virtual Network](../virtual-network/virtual-networks-overview.md) (VNet). When you create a private endpoint for your App Config store, it provides secure connectivity between clients on your VNet and your configuration store. The private endpoint is assigned an IP address from the IP address range of your VNet. The connection between the private endpoint and the configuration store uses a secure private link.
 
-Applications in the VNet can connect to the configuration service over the private endpoint **using the same connection strings and authorization mechanisms that they would use otherwise**. Private endpoints can be used with all protocols supported by the App Configuration store.
+Applications in the VNet can connect to the configuration store over the private endpoint **using the same connection strings and authorization mechanisms that they would use otherwise**. Private endpoints can be used with all protocols supported by the App Configuration store.
 
 While App Configuration doesn't support service endpoints, private endpoints can be created in subnets that use [Service Endpoints](../virtual-network/virtual-network-service-endpoints-overview.md). Clients in a subnet can connect securely to an App Configuration store using the private endpoint while using service endpoints to access others.  
 
@@ -55,9 +55,9 @@ Azure relies upon DNS resolution to route connections from the VNet to the confi
 
 ## DNS changes for Private Endpoints
 
-When you create a private endpoint, the DNS CNAME resource record for the service is updated to an alias in a subdomain with the prefix `privatelink`. Azure also creates a [private DNS zone](../dns/private-dns-overview.md) corresponding to the `privatelink` subdomain, with the DNS A resource records for the private endpoints.
+When you create a private endpoint, the DNS CNAME resource record for the configuration store is updated to an alias in a subdomain with the prefix `privatelink`. Azure also creates a [private DNS zone](../dns/private-dns-overview.md) corresponding to the `privatelink` subdomain, with the DNS A resource records for the private endpoints.
 
-When you resolve the endpoint URL from outside the VNet, it resolves to the public endpoint of the service. When resolved from within the VNet hosting the private endpoint, the endpoint URL resolves to the private endpoint.
+When you resolve the endpoint URL from outside the VNet, it resolves to the public endpoint of the store. When resolved from within the VNet hosting the private endpoint, the endpoint URL resolves to the private endpoint.
 
 You can control access for clients outside the VNet through the public endpoint using the Azure Firewall service.
 
