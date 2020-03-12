@@ -3,7 +3,7 @@ title: Virtual network service endpoints for Azure Key Vault - Azure Key Vault |
 description: Overview of virtual network service endpoints for Key Vault
 services: key-vault
 author: msmbaldwin
-author: mbaldwin
+ms.author: mbaldwin
 manager: rkarlin
 ms.date: 01/02/2019
 ms.service: key-vault

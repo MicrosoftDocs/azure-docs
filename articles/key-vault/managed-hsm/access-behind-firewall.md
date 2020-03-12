@@ -10,7 +10,7 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
-author: mbaldwin
+ms.author: mbaldwin
 
 ---
 # Access Azure Key Vault behind a firewall

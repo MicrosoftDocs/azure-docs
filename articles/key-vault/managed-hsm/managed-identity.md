@@ -10,7 +10,7 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
 ms.date: 09/04/2019
-author: mbaldwin
+ms.author: mbaldwin
 #Customer intent: As someone new to Key Vault, I'm trying to learn basic concepts that can help me understand Key Vault documentation.
 ---
 # Provide Key Vault authentication with a managed identity

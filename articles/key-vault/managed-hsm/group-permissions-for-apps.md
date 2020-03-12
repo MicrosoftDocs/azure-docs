@@ -10,7 +10,7 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: tutorial
 ms.date: 09/27/2019
-author: mbaldwin
+ms.author: mbaldwin
 
 ---
 # Provide Key Vault authentication with an access control policy

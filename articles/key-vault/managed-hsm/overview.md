@@ -10,7 +10,7 @@ ms.service: key-vault
 ms.topic: overview
 ms.custom: mvc
 ms.date: 01/07/2019
-author: mbaldwin
+ms.author: mbaldwin
 #Customer intent: As an IT Pro, Decision maker or developer I am trying to learn what Managed HSM is and if it offers anything that could be used in my organization.
 
 ---

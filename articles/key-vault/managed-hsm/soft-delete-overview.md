@@ -4,7 +4,7 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
 author: msmbaldwin
-author: mbaldwin
+ms.author: mbaldwin
 manager: rkarlin
 ms.date: 03/19/2019
 ---

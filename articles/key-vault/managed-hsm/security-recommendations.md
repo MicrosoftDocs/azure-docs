@@ -8,7 +8,7 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: article
 ms.date: 09/30/2019
-author: mbaldwin
+ms.author: mbaldwin
 ms.custom: security-recommendations
 
 ---

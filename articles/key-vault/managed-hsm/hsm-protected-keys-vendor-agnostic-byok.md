@@ -9,7 +9,7 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.topic: conceptual
 ms.date: 02/17/2020
-author: mbaldwin
+ms.author: mbaldwin
 
 ---
 

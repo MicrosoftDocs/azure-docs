@@ -6,7 +6,7 @@ author: msmbaldwin
 manager: rkarlin
 services: key-vault
 
-author: mbaldwin
+ms.author: mbaldwin
 ms.date: 08/28/2019
 ms.topic: conceptual
 ms.service: key-vault

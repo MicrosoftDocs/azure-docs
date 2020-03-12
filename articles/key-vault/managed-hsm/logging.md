@@ -10,7 +10,7 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
-author: mbaldwin
+ms.author: mbaldwin
 #Customer intent: As an Azure Key Vault administrator, I want to enable logging so I can monitor how my key vaults are accessed.
 ---
 # Azure Key Vault logging

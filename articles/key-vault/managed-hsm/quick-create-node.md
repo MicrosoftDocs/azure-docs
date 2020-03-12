@@ -2,7 +2,7 @@
 title: Quickstart -  Azure Key Vault client library for Node.js (v4)
 description: Learn how to create, retrieve, and delete secrets from an Azure key vault using the Node.js client library
 author: msmbaldwin
-author: mbaldwin
+ms.author: mbaldwin
 ms.date: 10/20/2019
 ms.service: key-vault
 ms.subservice: secrets
