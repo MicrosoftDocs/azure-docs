@@ -8,13 +8,13 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/10/2020
+ms.date: 03/12/2020
 ms.author: iainfou
 
 ---
 # Review security audit events in Azure AD Domain Services using Azure Monitor Workbooks
 
-To help you understand the health of your Azure Active Directory Domain Services (Azure AD DS) managed domain, security audit events can be enabled. These security audit events can be reviewed using Azure Monitor Workbooks which combine text, analytics queries, Azure Metrics, and parameters into rich interactive reports. Workbook templates for security overview and account activity let you dig into audit events and manage your environment.
+To help you understand the health of your Azure Active Directory Domain Services (Azure AD DS) managed domain, you can enable security audit events. These security audit events can then be reviewed using Azure Monitor Workbooks that combine text, analytics queries, and parameters into rich interactive reports. Azure AD DS includes workbook templates for security overview and account activity that let you dig into audit events and manage your environment.
 
 This article shows you how to use Azure Monitor Workbooks to review security audit events in Azure AD DS.
 
@@ -28,7 +28,7 @@ To complete this article, you need the following resources and privileges:
     * If needed, [create an Azure Active Directory tenant][create-azure-ad-tenant] or [associate an Azure subscription with your account][associate-azure-ad-tenant].
 * An Azure Active Directory Domain Services managed domain enabled and configured in your Azure AD tenant.
     * If needed, complete the tutorial to [create and configure an Azure Active Directory Domain Services instance][create-azure-ad-ds-instance].
-* Security audit events enabled for your Azure Active Directory Domain Services managed domain.
+* Security audit events enabled for your Azure Active Directory Domain Services managed domain that stream data to a Log Analytics workspace.
     * If needed, [enable security audits for Azure Active Directory Domain Services][enable-security-audits].
 
 ## Azure Monitor Workbooks overview
@@ -44,9 +44,9 @@ Azure AD DS includes the following two workbook templates:
 
 For more information about how to edit and manage workbooks, see [Azure Monitor Workbooks overview](../azure-monitor/platform/workbooks-overview.md).
 
-## Use security overview report workbook
+## Use the security overview report workbook
 
-To access the workbook templates, complete the following steps:
+To access the workbook template for the security overview report, complete the following steps:
 
 1. Search for and select **Azure Active Directory Domain Services** in the Azure portal.
 1. Select your managed domain, such as *aaddscontoso.com*
@@ -59,11 +59,41 @@ To access the workbook templates, complete the following steps:
 
     ![Select the Workbooks menu option in the Azure portal](./media/use-azure-monitor-workbooks/select-query-filters.png)
 
-    The **Tile view** and **Chart view** options can also be changed to analyze and visualize the data as desired, as shown in the following example:
+    The **Tile view** and **Chart view** options can also be changed to analyze and visualize the data as desired
+
+1. To drill down into a specific event type, select the one of the **Sign-in result** cards such as *Account Locked Out*, as shown in the following example:
 
     ![Example Security Overview Report data visualized in Azure Monitor Workbooks](./media/use-azure-monitor-workbooks/example-security-overview-report.png)
 
-## Use account activity report workbook
+1. The lower part of the security overview report below the chart then breaks down the activity type selected. You can filter by usernames involved on the right-hand side, as shown in the following example report:
+
+    ![Details of account lockouts in Azure Monitor Workbooks](./media/use-azure-monitor-workbooks/account-lockout-details.png)
+
+## Use the account activity report workbook
+
+To access the workbook template for the account activity report, complete the following steps:
+
+1. Search for and select **Azure Active Directory Domain Services** in the Azure portal.
+1. Select your managed domain, such as *aaddscontoso.com*
+1. From the menu on the left-hand side, choose **Monitoring > Workbooks**
+1. Choose the **Account Activity Report**.
+1. From the drop-down menus at the top of the workbook, select your Azure subscription and then Azure Monitor workspace. Choose a **Time range**, such as *Last 30 days*, then how you want the **Tile view** to represent the data. You can filter by **Account username**, such as *felix*, as shown in the following example report:
+
+    ![Account activity report in Azure Monitor Workbooks](./media/use-azure-monitor-workbooks/account-activity-report.png)
+
+    Below the chart shows the individual sign-in events along with information such as the activity result and source workstation. This information can help determine repeated sources of sign-in events that may cause account lockouts or indicate a potential attack.
+
+As with the security overview report, you can drill down into the different tiles at the top of the report to visualize and analyze the data as needed.
+
+## Save and edit workbooks
+
+The two template workbooks provided by Azure AD DS are a good place to start with your own data analysis. If you need to get more granular in the data queries and investigations, you can save your own workbooks and edit the queries.
+
+To save a copy of one of the workbook templates, select **Edit > Save as > Shared reports**, then provide a name and save it.
+
+From your own copy of the template, select **Edit** to enter the edit mode. You can choose the blue **Edit** button next to any part of the report and change it. All of the charts and tables are generated using Kusto queries.
+
+For more information on creating your own queries, see [Azure Monitor log queries][azure-monitor-queries] and [Kusto queries tutorial][kusto-queries].
 
 ## Next steps
 
@@ -79,3 +109,5 @@ For problems with users, learn how to troubleshoot [account sign-in problems][tr
 [password-policy]: password-policy.md
 [troubleshoot-sign-in]: troubleshoot-sign-in.md
 [troubleshoot-account-lockout]: troubleshoot-account-lockout.md
+[azure-monitor-queries]: ../azure-monitor/log-query/query-language.md
+[kusto-queries]: ../kusto/query/tutorial.md?pivots=azuredataexplorer
