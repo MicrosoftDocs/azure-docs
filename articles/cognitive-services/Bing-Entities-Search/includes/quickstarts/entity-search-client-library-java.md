@@ -1,28 +1,24 @@
 ---
-title: "Quickstart: Search for entities with the SDK for Java - Bing Entity Search"
+title: Bing Entity Search Java client library quickstart 
 titleSuffix: Azure Cognitive Services
-description: Use this quickstart to search for entities with the Bing Entity Search SDK for Java
 services: cognitive-services
 author: aahill
 manager: nitinme
-
 ms.service: cognitive-services
-ms.subservice: bing-entity-search
-ms.topic: quickstart
-ms.date: 12/11/2019
+ms.topic: include
+ms.date: 03/06/2020
 ms.author: aahi
 ---
-# Quickstart: Send a search request with the Bing Entity Search SDK for Java
 
-Use this quickstart to begin searching for entities with the Bing Entity Search SDK for Java. While Bing Entity Search has a REST API compatible with most programming languages, the SDK provides an easy way to integrate the service into your applications. The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingEntitySearch).
+Use this quickstart to begin searching for entities with the Bing Entity Search client library for Java. While Bing Entity Search has a REST API compatible with most programming languages, the client library provides an easy way to integrate the service into your applications. The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingEntitySearch).
 
 ## Prerequisites
 
 * The [Java Development Kit(JDK)](https://www.oracle.com/technetwork/java/javase/downloads/)
 
-* The Bing Entity Search SDK for Java
+* The Bing Entity Search client library for Java
 
-Install the Bing Entity Search SDK dependencies by using Maven, Gradle, or another dependency management system. The Maven POM file requires the declaration:
+Install the Bing Entity Search client library dependencies by using Maven, Gradle, or another dependency management system. The Maven POM file requires the declaration:
 
 ```xml
 <dependency>
@@ -32,7 +28,7 @@ Install the Bing Entity Search SDK dependencies by using Maven, Gradle, or anoth
 </dependency>
 ```
 
-[!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-entity-search-signup-requirements.md)]
+[!INCLUDE [cognitive-services-bing-news-search-signup-requirements](~/includes/cognitive-services-bing-entity-search-signup-requirements.md)]
 
 
 ## Create and initialize a project
@@ -62,7 +58,7 @@ Install the Bing Entity Search SDK dependencies by using Maven, Gradle, or anoth
 
 ## Create a search client
 
-1. Implement the `dominantEntityLookup` client, which requires your API endpoint, and an instance of the `ServiceClientCredentials` class. You can use the global endpoint below, or the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
+1. Implement the `dominantEntityLookup` client, which requires your API endpoint, and an instance of the `ServiceClientCredentials` class. You can use the global endpoint below, or the [custom subdomain](../../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 
     ```java
     public static EntitySearchAPIImpl getClient(final String subscriptionKey) {
@@ -115,7 +111,7 @@ Install the Bing Entity Search SDK dependencies by using Maven, Gradle, or anoth
        }
        //...
        ```
-      ## Send a request and receive a response
+## Send a request and receive a response
 
 1. Create a new instance of the search client with your subscription key. use `client.entities().search()` to send a search request for the search query `satya nadella`, and get a response. 
     
@@ -145,6 +141,6 @@ Install the Bing Entity Search SDK dependencies by using Maven, Gradle, or anoth
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Build a single-page web app](../tutorial-bing-entities-search-single-page-app.md)
+> [Build a single-page web app](../../tutorial-bing-entities-search-single-page-app.md)
 
-* [What is the Bing Entity Search API?](../overview.md )
+* [What is the Bing Entity Search API?](../../overview.md)
