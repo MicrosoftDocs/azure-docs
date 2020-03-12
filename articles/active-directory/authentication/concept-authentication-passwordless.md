@@ -74,6 +74,11 @@ The following providers offer FIDO2 security keys of different form factors that
 | Ensurity | [https://www.ensurity.com/contact](https://www.ensurity.com/contact) |
 | eWBM | [https://www.ewbm.com/support](https://www.ewbm.com/support) |
 | AuthenTrend | [https://authentrend.com/about-us/#pg-35-3](https://authentrend.com/about-us/#pg-35-3) |
+| Gemalto (Thales Group) | [https://safenet.gemalto.com/technical-support/](https://safenet.gemalto.com/technical-support/) |
+| OneSpan | [https://www.onespan.com/contact-us](https://www.onespan.com/contact-us) |
+| IDmelon Technologies Inc. | [https://www.idmelon.com/#contact-section](https://www.idmelon.com/#contact-section) |
+
+
 
 > [!NOTE]
 > If you purchase and plan to use NFC-based security keys, you need a supported NFC reader for the security key. The NFC reader isn't an Azure requirement or limitation. Check with the vendor for your NFC-based security key for a list of supported NFC readers.
