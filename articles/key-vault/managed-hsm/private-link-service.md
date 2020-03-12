@@ -45,7 +45,7 @@ After configuring the key vault basics, select the Networking tab and follow the
 1. Select the Private Endpoint (preview) radio button in the Networking tab.
 1. Click the "+ Add" Button to add a private endpoint.
 
-    ![Image](./media/private-link-service-1.png)
+    ![Image](../media/private-link-service-1.png)
  
 1. In the "Location" field of the Create Private Endpoint Blade, select the region in which your virtual network is located. 
 1. In the "Name" field, create a descriptive name that will allow you to identify this private endpoint. 
@@ -53,7 +53,7 @@ After configuring the key vault basics, select the Networking tab and follow the
 1. Leave the "integrate with the private zone DNS" option unchanged.  
 1. Select "Ok".
 
-    ![Image](./media/private-link-service-2.png)
+    ![Image](../media/private-link-service-2.png)
  
 You will now be able to see the configured private endpoint. You now have the option to delete and edit this private endpoint. 
 Select the "Review + Create" button and create the key vault. It will take 5-10 minutes for the deployment to complete. 
@@ -69,13 +69,13 @@ If you already have a key vault, you can create a private link connection by fol
 1. Select the Private endpoint connections (preview) tab at the top of the page
 1. Select the "+ Private Endpoint" button at the top of the page.
 
-    ![Image](./media/private-link-service-3.png)
-    ![Image](./media/private-link-service-4.png)
+    ![Image](../media/private-link-service-3.png)
+    ![Image](../media/private-link-service-4.png)
 
 You can choose to create a private endpoint for any Azure resource in using this blade. You can either use the dropdown menus to select a resource type and select a resource in your directory, or you can connect to any Azure resource using a resource ID. Leave the "integrate with the private zone DNS" option unchanged.  
 
-![Image](./media/private-link-service-3.png)
-![Image](./media/private-link-service-4.png)
+![Image](../media/private-link-service-3.png)
+![Image](../media/private-link-service-4.png)
 
 ## Manage private link connection
 
@@ -101,7 +101,7 @@ There are four provisioning states:
 1. Select the approve button.
 1. If there are any private endpoint connections you want to reject, whether it is a pending request or existing connection, select the connection and click the "Reject" button.
 
-    ![Image](./media/private-link-service-7.png)
+    ![Image](../media/private-link-service-7.png)
 
 ## Validate that the private link connection works
 

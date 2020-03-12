@@ -17,13 +17,13 @@ author: mbaldwin
 ---
 # Quickstart: Set and retrieve a secret from Azure Key Vault using PowerShell
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](.../../includes/updated-for-az.md)]
 
 Azure Key Vault is a cloud service that works as a secure secrets store. You can securely store keys, passwords, certificates, and other secrets. For more information on Key Vault, you may review the [Overview](key-vault-overview.md). In this quickstart, you use PowerShell to create a key vault. You then store a secret in the newly created vault.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it.md](.../../includes/cloud-shell-try-it.md)]
 
 If you choose to install and use PowerShell locally, this tutorial requires Azure PowerShell module version 1.0.0 or later. Type `$PSVersionTable.PSVersion` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps). If you are running PowerShell locally, you also need to run `Login-AzAccount` to create a connection with Azure.
 
@@ -60,7 +60,7 @@ The output of this cmdlet shows properties of the newly created key vault. Take 
 
 After vault creation your Azure account is the only account allowed to do anything on this new vault.
 
-![Output after Key Vault creation command completes](./media/quick-create-powershell/output-after-creating-keyvault.png)
+![Output after Key Vault creation command completes](../media/quick-create-powershell/output-after-creating-keyvault.png)
 
 ## Adding a secret to Key Vault
 

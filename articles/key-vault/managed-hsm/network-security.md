@@ -70,7 +70,7 @@ Here's how to configure Key Vault firewalls and virtual networks by using the Az
 
 ## Use Azure PowerShell
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](.../../includes/updated-for-az.md)]
 
 Here's how to configure Key Vault firewalls and virtual networks by using PowerShell:
 

@@ -66,11 +66,11 @@ More Azure Key Vault template samples can be found [here](https://azure.microsof
 
 1. Select the following image to sign in to Azure and open a template. The template creates a key vault and a secret.
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-key-vault-create%2Fazuredeploy.json"><img src="./media/quick-create-template/deploy-to-azure.png" alt="deploy to azure"/></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-key-vault-create%2Fazuredeploy.json"><img src="../media/quick-create-template/deploy-to-azure.png" alt="deploy to azure"/></a>
 
 2. Select or enter the following values.
 
-    ![Resource Manager template, Key Vault integration, deploy portal](./media/quick-create-template/create-key-vault-using-template-portal.png)
+    ![Resource Manager template, Key Vault integration, deploy portal](../media/quick-create-template/create-key-vault-using-template-portal.png)
 
     Unless it is specified, use the default value to create the key vault and a secret.
 
@@ -85,7 +85,7 @@ More Azure Key Vault template samples can be found [here](https://azure.microsof
     * **I agree to the terms and conditions state above**: Select.
 3. Select **Purchase**. After the key vault has been deployed successfully, you get a notification:
 
-    ![Resource Manager template, Key Vault integration, deploy portal notification](./media/quick-create-template/resource-manager-template-portal-deployment-notification.png)
+    ![Resource Manager template, Key Vault integration, deploy portal notification](../media/quick-create-template/resource-manager-template-portal-deployment-notification.png)
 
 The Azure portal is used to deploy the template. In addition to the Azure portal, you can also use the Azure PowerShell, Azure CLI, and REST API. To learn other deployment methods, see [Deploy templates](../azure-resource-manager/templates/deploy-powershell.md).
 
@@ -116,11 +116,11 @@ The output looks similar to:
 
 # [CLI](#tab/CLI)
 
-![Resource Manager template, Key Vault integration, deploy portal validation output](./media/quick-create-template/resource-manager-template-portal-deployment-cli-output.png)
+![Resource Manager template, Key Vault integration, deploy portal validation output](../media/quick-create-template/resource-manager-template-portal-deployment-cli-output.png)
 
 # [PowerShell](#tab/PowerShell)
 
-![Resource Manager template, Key Vault integration, deploy portal validation output](./media/quick-create-template/resource-manager-template-portal-deployment-powershell-output.png)
+![Resource Manager template, Key Vault integration, deploy portal validation output](../media/quick-create-template/resource-manager-template-portal-deployment-powershell-output.png)
 
 ---
 ## Clean up resources

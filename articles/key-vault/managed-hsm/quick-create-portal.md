@@ -45,7 +45,7 @@ Take note of the two properties listed below:
 
 At this point, your Azure account is the only one authorized to perform operations on this new vault.
 
-![Output after Key Vault creation completes](./media/quick-create-portal/vault-properties.png)
+![Output after Key Vault creation completes](../media/quick-create-portal/vault-properties.png)
 
 ## Add a secret to Key Vault
 
@@ -61,11 +61,11 @@ To add a secret to the vault, you just need to take a couple of additional steps
 
 Once that you receive the message that the secret has been successfully created, you may click on it on the list. You can then see some of the properties. If you click on the current version, you can see the value you specified in the previous step.
 
-![Secret properties](./media/quick-create-portal/current-version-hidden.png)
+![Secret properties](../media/quick-create-portal/current-version-hidden.png)
 
 By clicking "Show Secret Value" button in the right pane, you can see the hidden value. 
 
-![Secret value appeared](./media/quick-create-portal/current-version-shown.png)
+![Secret value appeared](../media/quick-create-portal/current-version-shown.png)
 
 ## Clean up resources
 

@@ -20,7 +20,7 @@ A managed identity from Azure Active Directory allows your app to easily access 
 This article shows you how to create a managed identity for an App Service application and use it to access Azure Key Vault. For applications hosted in Azure VMs, see [Use a Windows VM system-assigned managed identity to access Azure Key Vault](../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-nonaad.md).
 
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it.md](.../../includes/cloud-shell-try-it.md)]
 
 ## Prerequisites 
 
@@ -48,7 +48,7 @@ To set up a managed identity in the portal, you will first create an application
 
 1. Within the **System assigned** tab, switch **Status** to **On**. Click **Save**. 
 
-	![](./media/managed-identity-system-assigned.png)
+	![](../media/managed-identity-system-assigned.png)
 
 ### Azure CLI
 
@@ -96,7 +96,7 @@ Make a note of the `PrincipalId`, which will be needed in next section.
 
 1.	Click **Add** to finish adding the new access policy.
 
-	![](./media/managed-identity-access-policy.png)
+	![](../media/managed-identity-access-policy.png)
 
 ### Azure CLI
 

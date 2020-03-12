@@ -296,7 +296,7 @@ When a Key Vault certificate is created, an addressable key and secret are also 
 
 The identifier and version of certificates is similar to that of keys and secrets. A specific version of an addressable key and secret created with the Key Vault certificate version is available in the Key Vault certificate response.
  
-![Certificates are complex objects](media/azure-key-vault.png)
+![Certificates are complex objects](../media/azure-key-vault.png)
 
 ### Exportable or Non-exportable key
 
