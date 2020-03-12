@@ -1,6 +1,6 @@
 ---
 title: Query a SQL Database using the query editor in the Azure portal
-description: Learn how to connect to SQL Database in the Azure portal by using the SQL Query Editor. Then, run Transact-SQL (T-SQL) statements to query and edit data.
+description: Learn how to use the Query Editor to run Transact-SQL (T-SQL) queries against an Azure SQL Database.
 keywords: connect to sql database,query sql database, azure portal, portal, query editor
 services: sql-database
 ms.service: sql-database
@@ -15,7 +15,10 @@ ms.date: 03/11/2020
 ---
 # Quickstart: Use the Azure portal's query editor to query a SQL database
 
-The query editor is a tool in the Azure portal for running SQL queries against your Azure SQL Database or Azure Synapse Analytics (formerly SQL Data Warehouse). In this quickstart, you'll use the query editor to run Transact-SQL (T-SQL) queries.
+The query editor is a tool in the Azure portal for running SQL queries against your Azure SQL Database or Azure Synapse Analytics (formerly SQL Data Warehouse). 
+
+In this quickstart, you'll use the Azure portal's SQL Database query editor to run Transact-SQL (T-SQL) queries against an Azure SQL Database.
+
 
 ## Prerequisites
 
@@ -25,7 +28,7 @@ To complete this quickstart you need the AdventureWorksLT sample database. If yo
 
 ### Configure network settings
 
-If you get an error in the query editor saying: *Your local network settings might be preventing the Query Editor from issuing queries. Please click here for instructions on how to configure your network settings*, or *A connection to the server could not be established. This might indicate an issue with your local firewall configuration or your network proxy settings.*. The following important information should help with these errors:
+If you get one of the following errors in the query editor: *Your local network settings might be preventing the Query Editor from issuing queries. Please click here for instructions on how to configure your network settings*, or *A connection to the server could not be established. This might indicate an issue with your local firewall configuration or your network proxy settings.*. The following important information should help with these errors:
 
 > [!IMPORTANT]
 > The query editor uses ports 443 and 1443 to communicate. Ensure you have enabled outbound HTTPS traffic on these ports. You also need to [add your outbound IP address to the server's allowed firewall rules](sql-database-server-level-firewall-rule.md) to access your databases and data warehouses.
@@ -33,7 +36,7 @@ If you get an error in the query editor saying: *Your local network settings mig
 
 ## Open the SQL Database Query Editor
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) and select your SQL database.
+1. Sign in to the [Azure portal](https://portal.azure.com/) and select the SQL database you want to query.
 
 2. In the **SQL database** menu, select **Query editor (preview)**.
 
@@ -43,9 +46,9 @@ If you get an error in the query editor saying: *Your local network settings mig
 
 ## Connect using SQL Authentication
 
-Even though you're signed in to the portal, you still need to provide credentials to access the SQL database. If you use Azure Active Directory to connect to your database, skip to [the following section](#connect-using-azure-active-directory).
+Even though you're signed into the portal, you still need to provide credentials to access the SQL database. For using Azure Active Directory to connect to your database, skip to [the following section](#connect-using-azure-active-directory).
 
-1. In the **Login** page, under the **SQL server authentication** label, enter a **Login** and **Password** for a user that has access to the database. If you're not sure, use the login and password for the Server admin of the database's server.
+1. In the **Login** page, under **SQL server authentication**, enter a **Login** and **Password** for a user that has access to the database. If you're not sure, use the login and password for the Server admin of the database's server.
 
     ![sign in](./media/sql-database-connect-query-portal/login-menu.png)
 
@@ -59,6 +62,8 @@ Configuring an Azure Active Directory (Azure AD) administrator enables you to us
 > [!NOTE]
 > * Email accounts (for example, outlook.com, gmail.com, yahoo.com, and so on) aren't yet supported as Azure AD admins. Make sure to choose a user created either natively in the Azure AD, or federated into the Azure AD.
 > * Azure AD admin sign in doesn't work with accounts that have 2-factor authentication enabled.
+
+### Set an Active Directory admin for the database server
 
 1. In the Azure portal, select your SQL server.
 
