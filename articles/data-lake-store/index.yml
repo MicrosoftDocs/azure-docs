@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 title: Azure Data Lake Storage Gen1 documentation
-summary: Learn how to set up, manage, and access a hyper-scale, Hadoop-compatible data lake repository for analytics on data of any size, type, and ingestion speed. Azure Data Lake Storage Gen2 is generally available. We recommend that you start using it today. For more information, see the <a href="https://aka.ms/adlsgen2-product">product page</a>.
+summary: Learn how to set up, manage, and access a hyper-scale, Hadoop-compatible data lake repository for analytics on data of any size, type, and ingestion speed. Azure Data Lake Storage Gen2 is generally available. We recommend that you start using it today.
 
 metadata:
   title: Azure Data Lake Storage Gen1 documentation
