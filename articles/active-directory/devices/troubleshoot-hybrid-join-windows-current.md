@@ -385,12 +385,19 @@ Use Event Viewer logs to locate the phase and errorcode for the join failures.
 
 ### Step 5: Collect logs and contact Microsoft Support
 
-Get public scripts here: [https://1drv.ms/u/s!AkyTjQ17vtfagYkZ6VJzPg78e3o7PQ]( https://1drv.ms/u/s!AkyTjQ17vtfagYkZ6VJzPg78e3o7PQ)
+About Auth script
+https://github.com/CSS-Windows/WindowsDiag/tree/master/ADS/AUTH
 
-1. Open an admin command prompt and run `start_ngc_tracing_public.cmd`.
-2. Perform the steps to reproduce the issue.
-3. Stop running the logging script by executing `stop_ngc_tracing_public.cmd`.
-4. Zip and send the logs under `%SYSTEMDRIVE%\TraceDJPP\*` for analysis.
+Download Auth script
+https://github.com/CSS-Windows/WindowsDiag/blob/master/ADS/AUTH/Auth.zip
+1.	download the ZIP file to client and extarct it
+2. Rename start-auth.txt and stop-auth.txt to .bat files
+3. Create a folder "MSLogs" and move the start-auth.bat and stop-auth.bat
+4. Open up admin command prompt on the win 10 client execute the start-auth.bat
+5. Repro the issue  (if it PRT troubleshooting on win10 client, lock & unlock and wait for 2 minutes) 
+6. execute stop-auth.bat from admin prompt
+7. Please collect the logs it does create under folder “MSLogs"
+
 
 ## Troubleshoot Post-Join issues
 
