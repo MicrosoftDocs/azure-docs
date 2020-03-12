@@ -73,7 +73,7 @@ Only RSA keys of size 2048 are supported with Cognitive Services encryption. For
 
 ### Revoke access to customer-managed keys
 
-To revoke access to customer-managed keys, use PowerShell or Azure CLI. For more information, see [Azure Key Vault PowerShell](https://docs.microsoft.com/powershell/module/az.keyvault//) or [Azure Key Vault CLI](https://docs.microsoft.com/cli/azure/keyvault). Revoking access effectively blocks access to all data in the Cognitive Services resource and your models will be undeployed, as the encryption key is inaccessible by Cognitive Services.
+To revoke access to customer-managed keys, use PowerShell or Azure CLI. For more information, see [Azure Key Vault PowerShell](https://docs.microsoft.com/powershell/module/az.keyvault//) or [Azure Key Vault CLI](https://docs.microsoft.com/cli/azure/keyvault). Revoking access effectively blocks access to all data in the Cognitive Services resource and your models will be undeployed, as the encryption key is inaccessible by Cognitive Services. All uploaded data will also be deleted from Custom Translator.
 
 
 ## Next steps
