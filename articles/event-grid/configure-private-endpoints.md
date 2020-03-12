@@ -27,7 +27,7 @@ This section shows you how to use the Azure portal to create a private endpoint 
 1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your topic or domain.
 2. Switch to the **Networking** tab of your topic page. Select **+ Private endpoint** on the toolbar.
 
-    ![Add private endpoint](./media/configure-private-endpoints/add-private-endpoint-button.png)
+    ![Add private endpoint](./media/configure-private-endpoints/add-button.png)
 2. One the **Basics** page, follow these steps: 
     1. Select an **Azure subscription** in which you want to create the private endpoint. 
     2. Select an **Azure resource group** for the private endpoint. 
@@ -35,7 +35,7 @@ This section shows you how to use the Azure portal to create a private endpoint 
     4. Select the **region** for the endpoint. Your private endpoint must be in the same region as your virtual network, but can in a different region from the private link resource (in this example, an  event grid topic). 
     5. Then, select **Next: Resource >** button at the bottom of the page. 
 
-      ![Private endpoint - basics page](./media/configure-private-endpoints/private-endpoint-basics-page.png)
+      ![Private endpoint - basics page](./media/configure-private-endpoints/basics-page.png)
 3. On the **Resource** page, follow these steps: 
     1. For connection method, if you select **Connect to an Azure resource in my directory**, follow these steps. This example shows how to connect to an Azure resource in your directory. 
         1. Select the **Azure subscription** in which your **topic/domain** exists. 
@@ -44,7 +44,7 @@ This section shows you how to use the Azure portal to create a private endpoint 
         3. Confirm that the **Target subresource** is set to **topic** or **domain** (based on the resource type you selected).    
         4. Select **Next: Configuration >** button at the bottom of the page. 
 
-            ![Private endpoint - resource page](./media/configure-private-endpoints/private-endpoint-resource-page.png)
+            ![Private endpoint - resource page](./media/configure-private-endpoints/resource-page.png)
     2. If you select **Connect to a resource using a resource ID or an alias**, follow these steps:
         1. Enter the ID of the resource. For example: `/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventGrid/topics/<EVENT GRID TOPIC NAME>`.  
         2. For **Resource**, enter **topic** or **domain**. 
@@ -57,11 +57,11 @@ This section shows you how to use the Azure portal to create a private endpoint 
     2. Select a **subnet** in the virtual network you selected. 
     3. Select **Next: Tags >** button at the bottom of the page. 
 
-    ![Private endpoint - configuration page](./media/configure-private-endpoints/private-endpoint-configuration-page.png)
+    ![Private endpoint - configuration page](./media/configure-private-endpoints/configuration-page.png)
 5. On the **Tags** page, create any tags (names and values) that you want to associate with the private endpoint resource. Then, select **Review + create** button at the bottom of the page. 
 6. On the **Review + create**, review all the settings, and select **Create** to create the private endpoint. 
 
-    ![Private endpoint - review & create page](./media/configure-private-endpoints/private-endpoint-review-create-page.png)
+    ![Private endpoint - review & create page](./media/configure-private-endpoints/review-create-page.png)
     
 
 ## Manage private link connection
@@ -94,13 +94,13 @@ You can approve a private endpoint that's in the pending state. To approve, foll
 
 1. Select the **private endpoint** you wish to approve, and select **Approve** on the toolbar.
 
-    ![Private endpoint - pending state](./media/configure-private-endpoints/endpoint-pending.png)
+    ![Private endpoint - pending state](./media/configure-private-endpoints/pending.png)
 1. On the **Approve connection** dialog box, enter a comment (optional), and select **Yes**. 
 
-    ![Private endpoint - approve](./media/configure-private-endpoints/endpoint-approve.png)
+    ![Private endpoint - approve](./media/configure-private-endpoints/approve.png)
 1. Confirm that you see the status of the endpoint as **Approved**. 
 
-    ![Private endpoint - approved state](./media/configure-private-endpoints/endpoint-approved-status.png)
+    ![Private endpoint - approved state](./media/configure-private-endpoints/approved-status.png)
 
 ### To reject a private endpoint
 You can reject a private endpoint that's in the pending state or approved state. To reject, follow these steps: 
@@ -110,13 +110,13 @@ You can reject a private endpoint that's in the pending state or approved state.
 
 1. Select the **private endpoint** you wish to reject, and select **Reject** on the toolbar.
 
-    ![Private endpoint - reject](./media/configure-private-endpoints/endpoint-reject-button.png)
+    ![Private endpoint - reject](./media/configure-private-endpoints/reject-button.png)
 1. On the **Reject connection** dialog box, enter a comment (optional), and select **Yes**. 
 
-    ![Private endpoint - reject](./media/configure-private-endpoints/endpoint-reject.png)
+    ![Private endpoint - reject](./media/configure-private-endpoints/reject.png)
 1. Confirm that you see the status of the endpoint as **Rejected**. 
 
-    ![Private endpoint - rejected state](./media/configure-private-endpoints/endpoint-rejected-status.png)
+    ![Private endpoint - rejected state](./media/configure-private-endpoints/rejected-status.png)
 
     > [!NOTE]
     > You can't approve a private endpoint in the Azure portal once it's rejected. 

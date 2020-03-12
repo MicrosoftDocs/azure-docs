@@ -25,13 +25,13 @@ You can change the pricing tier of a topic or a domain on the **Overview** page.
     ![Select the current pricing tier](./media/update-tier/select-tier.png)
 3. On the **Pricing tier** page, change the tier, and select **OK**. 
 
-    ![Update the pricing tier](./media/update-tier/update-tier.png)
+    ![Update the pricing tier](./media/update-tier/change-tier.png)
 4. Check the status of the operation in the **Notifications** page.
 
-    ![Update status](./media/update-tier/upddate-status.png)    
+    ![Update status](./media/update-tier/status.png)    
 5. Confirm that you see the updated tier on the **Overview** page. 
 
-    ![Update status](./media/update-tier/updated-tier.png)
+    ![Update status](./media/update-tier/changed-tier.png)
 
 ### Networking page
 You can **upgrade** from the basic tier to the premium tier on the **Networking** page. You can't downgrade from the premium tier to the basic tier on this page though. 
@@ -40,13 +40,13 @@ You can **upgrade** from the basic tier to the premium tier on the **Networking*
 2. On the **Networking** page, switch to the **Private endpoint connections (preview)** tab. 
 3. If the current pricing tier is **basic**, you see the following message. Select it. 
 
-    ![Update tier on private endpoint connections page](./media/update-tier/update-tier-private-endpoint-connections-page.png)
+    ![Update tier on private endpoint connections page](./media/update-tier/private-endpoint-connections-page.png)
 4. On the **Update to premium pricing tier** page, select **Yes**. 
     
-    ![Confirm upgrade](./media/update-tier/update-tier-message-private-endpoint-connection.png)
+    ![Confirm upgrade](./media/update-tier/message-private-endpoint-connection.png)
 5. Check the status of the operation in the **Notifications** page.
 
-    ![Update status](./media/update-tier/upddate-status.png)
+    ![Update status](./media/update-tier/status.png)
 
 
 
