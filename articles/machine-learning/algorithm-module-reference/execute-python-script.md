@@ -110,6 +110,8 @@ def azureml_main(dataframe1 = None, dataframe2 = None):
 ```
 
 After the pipeline is submitted successfully, you can preview the image in the right panel of the module
+
+[!div class="mx-imgBorder"]
 ![Uploaded-image](media/module/upload-image-in-python-script.png)
 
 ## How to configure Execute Python Script
@@ -128,7 +130,7 @@ The **Execute Python Script** module contains sample Python code that you can us
 
     ![Execute Python input map](media/module/python-module.png)
 
-4. To include new Python packages or code, add the zipped file containing these custom resources on **Script bundle**. The input to **Script bundle** must be a zipped file uploaded to your workspace as a File type Dataset. 
+4. To include new Python packages or code, add the zipped file containing these custom resources on **Script bundle**. The input to **Script bundle** must be a zipped file uploaded to your workspace as a File type Dataset. You can upload the dataset in the **Datasets** asset page, and you can drag and drop the dataset module from the **My datasets** list in the left module tree in designer authoring page. 
 
     Any file contained in the uploaded zipped archive can be used during pipeline execution. If the archive includes a directory structure, the structure is preserved, but you must prepend a directory called **src** to the path.
 

@@ -8,6 +8,7 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: helohr
+manager: lizross
 ---
 # Determine user connection latency in Windows Virtual Desktop
 
@@ -17,7 +18,7 @@ The [Windows Virtual Desktop Experience Estimator tool](https://azure.microsoft.
 
 ## Azure Traffic Manager
 
-Windows Virtual Desktop uses the Azure Traffic Manager, which checks the location of the user’s DNS server to find the nearest Windows Virtual Desktop service instance. We recommend admins review the location of the user’s DNS server before choosing the location for the VMs.
+Windows Virtual Desktop uses the Azure Traffic Manager, which checks the location of the user's DNS server to find the nearest Windows Virtual Desktop service instance. We recommend admins review the location of the user's DNS server before choosing the location for the VMs.
 
 ## Next steps
 

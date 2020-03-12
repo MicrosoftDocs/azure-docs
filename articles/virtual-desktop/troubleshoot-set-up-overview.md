@@ -8,6 +8,7 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 02/07/2020
 ms.author: helohr
+manager: lizross
 ---
 # Troubleshooting overview, feedback, and support
 
