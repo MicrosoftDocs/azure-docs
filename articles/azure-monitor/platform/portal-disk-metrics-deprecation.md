@@ -1,17 +1,17 @@
 ---
-title: Portal Disk Metrics Deprecation | Microsoft Docs
-description: Put description here
+title: Disk metrics deprecation in the Azure portal | Microsoft Docs
+description: Learn which disk metrics have been deprecated and how to update your metric alerts to use new metrics. 
 services: azure-monitor
 ms.subservice: metrics
 ms.topic: conceptual
 author: normesta
 ms.author: normesta
-ms.date: 03/10/2020
+ms.date: 03/12/2020
 ---
 
-# Portal Disk Metrics Deprecation
+# Disk metrics deprecation in the Azure portal
 
-Deprecated metrics will soon be removed from the Azure portal. A new version of each deprecated metric is available for you to use. This article lists the new replacement metrics, and shows you how to update your metric alerts to use them.
+Deprecated disk-related metrics will soon be removed from the Azure portal. A new version of each deprecated metric is available for you to use. This article shows you which metrics are new and how to update your metric alerts to use them.
 
 ## List of new metrics
 
@@ -34,7 +34,7 @@ This table maps each deprecated metric to it's corresponding new metric.
 
 ## Migrate metrics in your metric alerts
 
-If your metric alerts use deprecated metrics, you'll have them to use new metrics instead. 
+Update your metric alerts to use new metrics.
 
 1. In the Azure portal, search for **Alerts**. Then, in the **Services** section, choose **Alerts**.
 
