@@ -12,7 +12,7 @@ ms.subservice: disks
 
 # Server side encryption of Azure managed disks
 
-Azure managed disks automatically encrypt your data by default when persisting it to the cloud. Server-side encryption protects your data and helps you meet your organizational security and compliance commitments. Data in Azure managed disks is encrypted transparently using 256-bit [AES encryption](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), one of the strongest block ciphers available, and is FIPS 140-2 compliant.   
+Azure managed disks automatically encrypt your data by default when persisting it to the cloud. Server-side encryption protects your data and helps you meet your organizational security and compliance commitments. Data in Azure managed disks is encrypted transparently using 256-bit [AES encryption](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), one of the strongest block ciphers available, and is FIPS 140-2 compliant.
 
 Encryption does not impact the performance of managed disks. There is no additional cost for the encryption.
 
@@ -63,7 +63,7 @@ For ultra disks, the following regions support customer-managed keys as a GA off
 - East US
 - West US 2
 
-The remaining regions support customer-managed keys for ultra disks as a preview offering:
+The following regions support customer-managed keys for ultra disks as a preview offering:
 
 - East US 2
 - South Central US

@@ -62,7 +62,7 @@ For ultra disks, the following regions support customer-managed keys as a GA off
 - East US
 - West US 2
 
-The remaining regions support customer-managed keys for ultra disks as a preview offering:
+The following regions support customer-managed keys for ultra disks as a preview offering:
 
 - East US 2
 - South Central US
