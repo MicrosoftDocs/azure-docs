@@ -269,7 +269,7 @@ Sensor
   }
 }
 ```
-The following sample request creates a device. This request has input JSON as payload with the request body.
+The following sample request creates a device. This request has input JSON as payload with the request body. Below there is also a sample python script that creates a device model.
 
 ```bash
 curl -X POST "https://<datahub>.azurewebsites.net/Device" -H  
@@ -278,6 +278,22 @@ curl -X POST "https://<datahub>.azurewebsites.net/Device" -H
 \"reportingInterval\": 900,  \"name\": \"Device123\",  
 \"description\": \"Test Device 123\"}" *
 ```
+
+Below is the sample code in Python. Please note that the access token used in this sample is the same that we received during authentication
+
+```python
+import requests
+import json
+
+# Got access token - Calling the DeviceModel API
+headers = {
+    "Authorization": "Bearer " + access_token,
+    "Content-Type" : "application/json"
+    }
+payload = '{"type" : "Node", "productCode" : "TestCode", "ports": [{"name": "port1","type": "Analog"}], "name" : "DummyDevice"}'
+response = requests.post(ENDPOINT + "/DeviceModel", data=payload, headers=headers)
+```
+
 
 > [!NOTE]
 > The APIs return unique IDs for each instance created. You must retain the IDs to send the corresponding telemetry messages.
