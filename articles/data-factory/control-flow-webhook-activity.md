@@ -90,7 +90,7 @@ Specify the Base64-encoded contents of a PFX file and a password.
 }
 ```
 
-### Managed Identity
+### Managed identity
 
 Use the data factory's managed identity to specify the resource URI for which the access token is requested. To call the Azure Resource Management API, use `https://management.azure.com/`. For more information about how managed identities work, see the [managed identities for Azure resources overview](/azure/active-directory/managed-identities-azure-resources/overview).
 
