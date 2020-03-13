@@ -142,7 +142,7 @@ An authentication token is valid for 10 minutes. The token should be reused when
 
 ## Virtual Network support
 
-Translator service is now available with Virtual Network capabilities in limited regions (`WestUS`, `WestUS2`, `EastUS`, `SouthCentralUS`, `global`). To enable Virtual Network, please see [Configuring Azure Cognitive Services Virtual Networks](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-virtual-networks?tabs=portal). 
+Translator service is now available with Virtual Network capabilities in limited regions (`WestUS2`, `EastUS`, `SouthCentralUS`, `WestUS`, `Central US EUAP`, `global`). To enable Virtual Network, please see [Configuring Azure Cognitive Services Virtual Networks](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-virtual-networks?tabs=portal). 
 
 Once you turn on this capability, you must use the custom endpoint to call the Translator API. You cannot use the global translator endpoint ("api.cognitive.microsofttranslator.com") and you cannot authenticate with an access token.
 
