@@ -58,7 +58,7 @@ Supported Azure storage services that can be registered as datastores:
 
 [Create an Azure Machine Learning dataset](how-to-create-register-datasets.md) to interact with data in your datastores and package your data into a consumable object for machine learning tasks. Register the dataset to your workspace to share and reuse it across different experiments without data ingestion complexities.
 
-Datasets can be created from local files, public urls, [Azure Open Datasets](#open), or specific file(s) in your datastores. To create a dataset from an in memory pandas dataframe, write the data to a local file, like a csv, and create your dataset from that file. Datasets aren't copies of your data, but are references that point to the data in your storage service, so no extra storage cost is incurred. 
+Datasets can be created from local files, public urls, Azure Open Datasets, or specific file(s) in your datastores. To create a dataset from an in memory pandas dataframe, write the data to a local file, like a csv, and create your dataset from that file. Datasets aren't copies of your data, but are references that point to the data in your storage service, so no extra storage cost is incurred. 
 
 The following diagram shows that if you don't have an Azure storage service, you can create a dataset directly from local files, public urls, or an Azure Open Dataset. Doing so connects your dataset to the default datastore that was automatically created with your experiment's [Azure Machine Learning workspace](concept-workspace.md).
 
@@ -77,22 +77,15 @@ Additional datasets capabilities can be found in the following documentation:
 
 With datasets, you can accomplish a number of machine learning tasks through seamless integration with Azure Machine Learning features. 
 
++ Create a [data labeling project](#label).
++ Create a dataset from an [Azure Open Dataset](how-to-create-register-datasets.md#create-datasets-with-azure-open-datasets).
 + [Train machine learning models](how-to-train-with-datasets.md).
 + Consume datasets in 
      + [automated ML experiments](how-to-create-portal-experiments.md)
      + the [designer](tutorial-designer-automobile-price-train-score.md#import-data) 
      + [Azure Machine Learning pipelines](how-to-create-your-first-pipeline.md)
 + Access datasets for scoring with batch inference in [machine learning pipelines](how-to-create-your-first-pipeline.md).
-+ Create a [data labeling project](#label).
 + Set up a dataset monitor for [data drift](#drift) detection.
-
-<a name="open"></a>
-
-### Azure Open Datasets
-
-[Azure Open Datasets](how-to-create-register-datasets.md#create-datasets-with-azure-open-datasets) are curated public datasets that you can use to add scenario-specific features to machine learning solutions for more accurate models. Open Datasets are in the cloud on Microsoft Azure and are integrated into Azure Machine Learning. You can also access the datasets through APIs and use them in other products, such as Power BI and Azure Data Factory.
-
-Azure Open Datasets include public-domain data for weather, census, holidays, public safety, and location that help you train machine learning models and enrich predictive solutions. You can also share your public datasets on Azure Open Datasets.
 
 <a name="label"></a>
 
