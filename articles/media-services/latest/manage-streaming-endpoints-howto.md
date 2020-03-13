@@ -57,7 +57,7 @@ See the complete [Java code sample](https://github.com/Azure-Samples/media-servi
 
 ## Use the .NET SDK
 
-```charp
+```csharp
 StreamingEndpoint streamingEndpoint = await client.StreamingEndpoints.GetAsync(config.ResourceGroup, config.AccountName, DefaultStreamingEndpointName);
 
 if (streamingEndpoint != null)
