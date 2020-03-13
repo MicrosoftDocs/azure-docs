@@ -16,7 +16,7 @@ AI enrichment is a capability of Azure Cognitive Search indexing used to extract
 
 + **Natural language processing** skills include [entity recognition](cognitive-search-skill-entity-recognition.md), [language detection](cognitive-search-skill-language-detection.md), [key phrase extraction](cognitive-search-skill-keyphrases.md), text manipulation, [sentiment detection](cognitive-search-skill-sentiment.md), and [PII detection](cognitive-search-skill-pii-detection.md). With these skills, unstructured text can assume new forms, mapped as searchable and filterable fields in an index.
 
-+ **Image processing** skills include [Optical Character Recognition (OCR)](cognitive-search-skill-ocr.md) and identification of [visual features](cognitive-search-skill-image-analysis.md), such as facial detection, image interpretation, image recognition (famous people and landmarks) or attributes like colors or image orientation. You can create text-representations of image content, searchable using all the query capabilities of Azure Cognitive Search.
++ **Image processing** skills include [Optical Character Recognition (OCR)](cognitive-search-skill-ocr.md) and identification of [visual features](cognitive-search-skill-image-analysis.md), such as facial detection, image interpretation, image recognition (famous people and landmarks) or attributes like image orientation. You can create text-representations of image content, searchable using all the query capabilities of Azure Cognitive Search.
 
 ![Enrichment pipeline diagram](./media/cognitive-search-intro/cogsearch-architecture.png "enrichment pipeline overview")
 
