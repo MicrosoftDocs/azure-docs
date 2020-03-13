@@ -130,6 +130,13 @@ Refer to the following list to configure managed identity for Azure API Manageme
 
 - [Azure Resource Manager template](/azure/api-management/api-management-howto-use-managed-service-identity)
 
+### Azure Super Transport (XT)
+
+Managed identity type | All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
+| --- | --- | --- | --- | --- |
+| System assigned | Available in the region where Azure Import Export service is available | Preview | Available | Available |
+| User assigned | Not available | Not available | Not available | Not available |
+
 ### Azure Container Instances
 
 Managed identity type | All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
@@ -155,6 +162,7 @@ Refer to the following list to configure managed identity for Azure Container Re
 - [Azure CLI](~/articles/container-registry/container-registry-tasks-authentication-managed-identity.md)
 
 ### Azure Service Fabric
+
 [Managed Identity for Service Fabric Applications](https://docs.microsoft.com/azure/service-fabric/concepts-managed-identity) is in Preview and available in all regions.
 
 Managed identity type | All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
@@ -163,6 +171,7 @@ Managed identity type | All Generally Available<br>Global Azure Regions | Azure 
 | User assigned | Available | Not Available | Not Available |Not Available |
 
 Refer to the following list to configure managed identity for Azure Service Fabric applications in all regions:
+
 - [Azure Resource Manager template](https://github.com/Azure-Samples/service-fabric-managed-identity/tree/anmenard-docs)
 
 ## Azure services that support Azure AD authentication
@@ -194,7 +203,7 @@ Refer to the following list to configure access to Azure Resource Manager:
 | Azure Germany |  `https://vault.microsoftazure.de` | Available |
 | Azure China 21Vianet | `https://vault.azure.cn` | Available |
 
-### Azure Data Lake 
+### Azure Data Lake
 
 | Cloud | Resource ID | Status |
 |--------|------------|--------|
@@ -203,7 +212,7 @@ Refer to the following list to configure access to Azure Resource Manager:
 | Azure Germany |   | Not Available |
 | Azure China 21Vianet |  | Not Available |
 
-### Azure SQL 
+### Azure SQL
 
 | Cloud | Resource ID | Status |
 |--------|------------|--------|
@@ -246,15 +255,6 @@ Refer to the following list to configure access to Azure Resource Manager:
 | Azure Government | `https://storage.azure.com/`<br /><br />`https://<account>.blob.core.usgovcloudapi.net` <br /><br />`https://<account>.queue.core.usgovcloudapi.net` | Available |
 | Azure Germany | `https://storage.azure.com/`<br /><br />`https://<account>.blob.core.cloudapi.de` <br /><br />`https://<account>.queue.core.cloudapi.de` | Available |
 | Azure China 21Vianet | `https://storage.azure.com/`<br /><br />`https://<account>.blob.core.chinacloudapi.cn` <br /><br />`https://<account>.queue.core.chinacloudapi.cn` | Available |
-
-
-
-
-
-
-
-
-
 
 ### Azure Analysis Services
 
