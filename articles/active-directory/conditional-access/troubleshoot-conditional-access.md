@@ -31,7 +31,7 @@ In the above error, the message states that the application can only be accessed
 
 The second method to get detailed information about the sign-in interruption is to review the Azure AD sign-in events to see which Conditional Access policy or policies were applied and why.
 
-More information can be found about the problem by clicking **More Details** in the initial error page. Clicking **More Details** will reveal troubleshooting information that is helpful when searching the Azure AD sign in events for the specific failure event the user saw or when opening a support incident with Microsoft.
+More information can be found about the problem by clicking **More Details** in the initial error page. Clicking **More Details** will reveal troubleshooting information that is helpful when searching the Azure AD sign-in events for the specific failure event the user saw or when opening a support incident with Microsoft.
 
 ![More details from a Conditional Access interrupted web browser sign-in.](./media/troubleshoot-conditional-access/image2.png)
 
