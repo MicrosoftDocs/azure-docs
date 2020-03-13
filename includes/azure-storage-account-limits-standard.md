@@ -5,16 +5,16 @@
  author: tamram
  ms.service: storage
  ms.topic: include
- ms.date: 02/27/2020
+ ms.date: 03/12/2020
  ms.author: tamram
  ms.custom: include file
 ---
 
-The following table describes default limits for Azure general-purpose v1 (GPv1), v2 (GPv2), Blob, Premium BlockBlob and Data Lake Gen2 enabled storage accounts. The *ingress* limit refers to all data that is sent to a storage account. The *egress* limit refers to all data that is received from a storage account.
+The following table describes default limits for Azure general-purpose v1, v2, Blob storage, block blob storage, and Data Lake Storage Gen2 enabled storage accounts. The *ingress* limit refers to all data that is sent to a storage account. The *egress* limit refers to all data that is received from a storage account.
 
 | Resource | Default limit |
 | --- | --- |
-| Number of storage accounts per region per subscription, including both standard, premium, and data lake gen2 accounts<sup>3</sup> | 250 |
+| Number of storage accounts per region per subscription, including standard, premium, and Data Lake Storage Gen2 enabled storage accounts.<sup>3</sup> | 250 |
 | Maximum storage account capacity | 5 PiB <sup>1</sup>|
 | Maximum number of blob containers, blobs, file shares, tables, queues, entities, or messages per storage account | No limit |
 | Maximum request rate<sup>1</sup> per storage account | 20,000 requests per second |
@@ -39,4 +39,4 @@ The following table describes default limits for Azure general-purpose v1 (GPv1)
 
 If the needs of your application exceed the scalability targets of a single storage account, you can build your application to use multiple storage accounts. You can then partition your data objects across those storage accounts. For information on volume pricing, see [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage/).
 
-All storage accounts run on a flat network topology regardless of when they were created. For more information on the Azure Storage flat network architecture and on scalability, see [Microsoft Azure Storage: A Highly Available Cloud Storage Service with Strong Consistency](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx). A [hierarchical namespace can be enabled for a data lake gen2 account](../articles/storage/blobs/data-lake-storage-namespace.md) in addition to the flat namespace for multiprotocol access. Both flat and hierarchical namespace storage accounts support the same scalability and performance targets outlined in this article.
+All storage accounts run on a flat network topology regardless of when they were created. For more information on the Azure Storage flat network architecture and on scalability, see [Microsoft Azure Storage: A Highly Available Cloud Storage Service with Strong Consistency](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx). A [hierarchical](../articles/storage/blobs/data-lake-storage-namespace.md) namespace can be enabled for a data lake gen2 account in addition to the flat namespace for multiprotocol access. Both flat and hierarchical namespace storage accounts support the same scalability and performance targets outlined in this article.

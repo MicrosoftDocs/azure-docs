@@ -326,7 +326,7 @@ New-AzResourceGroupDeployment `
 
 The output from the preceding example is:
 
-```powershell
+```output
  Name             Type                       Value
  ===============  =========================  ==========
  parentRG         String                     Parent resource group is parentGroup

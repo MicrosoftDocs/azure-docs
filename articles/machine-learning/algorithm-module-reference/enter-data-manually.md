@@ -51,13 +51,13 @@ This module can be helpful in scenarios such as:
      If you deselect this option, the column names (Col1, Col2, and so forth) are used. You can add or change columns names later by using [Edit Metadata](./edit-metadata.md).  
   
    - **ARFF**: Paste in an existing ARFF format file. If you're typing values directly, be sure to add the optional header and required attribute fields at the beginning of the data. 
-    
-     For example, the following header and attribute rows can be added to a simple list. The column heading would be `SampleText`.
+
+     For example, the following header and attribute rows can be added to a simple list. The column heading would be `SampleText`. Note that the String type is not supported.
     
      ```text
      % Title: SampleText.ARFF  
      % Source: Enter Data module  
-     @ATTRIBUTE SampleText STRING  
+     @ATTRIBUTE SampleText NUMERIC  
      @DATA  
      \<type first data row here>  
      ```

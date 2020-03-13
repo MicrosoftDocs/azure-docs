@@ -55,10 +55,6 @@ landingContent:
           url: how-to-custom-voice-create-voice.md
         - text: Record voice samples
           url: record-custom-voice-samples.md
-        - text: Custom keyword naming guidelines
-          url: speech-devices-sdk-kws-guidelines.md
-        - text: Custom keyword spotting
-          url: speech-devices-sdk-create-kws.md
         - text: Gating of Custom Voice
           url: concepts-gating-overview.md
         - text: Deployment of synthetic technology
@@ -75,6 +71,8 @@ landingContent:
           url: language-support.md#text-to-speech
         - text: Pricing
           url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services
+        - text: SSML phonetic sets
+          url: speech-ssml-phonetic-sets.md
         - text: Code of conduct
           url: https://aka.ms/custom-neural-code-of-conduct
         - text: Disclosure for voice talent
