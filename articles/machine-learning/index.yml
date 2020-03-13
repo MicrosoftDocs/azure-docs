@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
 title: Azure Machine Learning documentation
-summary: Azure Machine Learning offers graphical interfaces & SDKs so you can quickly train and deploy your machine learning models and pipelines at scale. Use these capabilities with open-source Python frameworks, such as PyTorch, TensorFlow, and scikit-learn. 
+summary: Azure Machine Learning is Microsoft's all-inclusive service for data scientists and developers. Train, deploy, and manage your machine learning models and pipelines at scale with a single, cloud-based solution. 
 
 metadata:
   title: Azure Machine Learning documentation
-  description: Use SDKs and graphical interfaces to quickly train and deploy your machine learning models and pipelines at scale. Use these capabilities with open-source Python frameworks, such as PyTorch, TensorFlow, and scikit-learn. 
+  description: Azure Machine Learning is Microsoft's all-inclusive service for data scientists and developers. Train, deploy, and manage your machine learning models and pipelines at scale with a single, cloud-based solution.
  
   services: machine-learning
   ms.service: machine-learning
@@ -23,21 +23,21 @@ landingContent:
 # Start card title with a verb
            
   # GET STARTED
-  - title: Get started with Azure ML
+  - title: Get started
     linkLists:
       - linkListType: tutorial
         links:
-          - text: Start with Python notebooks
+          - text: Python notebooks
             url: tutorial-1st-experiment-sdk-setup.md
-          - text: Start with RStudio
+          - text: RStudio
             url: tutorial-1st-r-experiment.md
-          - text: Start with the designer (drag & drop)
+          - text: The designer (drag & drop)
             url: tutorial-designer-automobile-price-train-score.md
-          - text: Start with automated ML
+          - text: Automated ML
             url: tutorial-first-experiment-automated-ml.md
       - linkListType: overview
         links:
-          - text: What is Azure ML?
+          - text: What is Azure machine learning?
             url: overview-what-is-azure-ml.md
           - text: Architecture and concepts
             url: concept-azure-machine-learning-architecture.md
@@ -49,7 +49,7 @@ landingContent:
             url: how-to-set-up-training-targets.md    
             
   # PYTHON
-  - title: 'Experiment: Python SDK'
+  - title: 'Use the Python SDK'
     linkLists:
       - linkListType: tutorial
         links:
@@ -71,29 +71,20 @@ landingContent:
             url: how-to-train-keras.md
 
   # Pipelines
-  - title: 'Build ML Pipelines'
+  - title: 'Build ML pipelines'
     linkLists:
     - linkListType: tutorial
       links:
+      - text: Create ML pipelines (Python)
+        url: tutorial-pipeline-batch-scoring-classification.md   
       - text: Linear regression to predict prices (designer)
         url: tutorial-designer-automobile-price-train-score.md
-      - text: Create ML pipelines (Python SDK)
-        url: tutorial-pipeline-batch-scoring-classification.md   
     - linkListType: overview
       links:
       - text: What are ML pipelines?
         url: concept-ml-pipelines.md   
-      - text: The 'drag-&-drop' designer
+      - text: What is the designer?
         url: concept-designer.md   
-      
-    - linkListType: how-to-guide
-      links:
-          - text: Scheduling pipelines (Python SDK)
-            url: how-to-schedule-pipelines.md                 
-          - text: Predict delays (designer)
-            url: how-to-designer-sample-classification-flight-delay.md
-          - text: Predict churn (designer)
-            url: how-to-designer-sample-classification-churn.md     
 
   # MLOps
   - title: Deploy & manage models
@@ -114,7 +105,7 @@ landingContent:
             url: how-to-setup-authentication.md
 
   # Reference
-  - title: View reference docs
+  - title: Go to reference docs
     linkLists:
       - linkListType: reference
         links:
