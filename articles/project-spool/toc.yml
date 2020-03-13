@@ -11,7 +11,7 @@
     href: docspriorities.md
   - name: Canonical Scenarios
     href: canonicalscenarios.md
-  - name: Automating Reference Docs
+  - name: Generating Reference Docs
     href: automatingreferencedocs.md
 - name: Overview
   items:
