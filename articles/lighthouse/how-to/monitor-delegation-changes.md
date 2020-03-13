@@ -7,9 +7,9 @@ ms.topic: conceptual
 
 # Monitor delegation changes in your managing tenant
 
-As a service provider, you may want to be aware when customer subscriptions and/or resource groups are delegated to your tenant through [Azure delegated resource management](../concepts/azure-delegated-resource-management.md), or when previously delegated resources are removed.
+As a service provider, you may want to be aware when customer subscriptions or resource groups are delegated to your tenant through [Azure delegated resource management](../concepts/azure-delegated-resource-management.md), or when previously delegated resources are removed.
 
-In the managing tenant, the [Azure activity log](../../azure-monitor/platform/platform-logs-overview.md) tracks delegation activity at the tenant level. This includes any added or removed delegations from all customer tenants.
+In the managing tenant, the [Azure activity log](../../azure-monitor/platform/platform-logs-overview.md) tracks delegation activity at the tenant level. This logged activity includes any added or removed delegations from all customer tenants.
 
 This topic shows how you can monitor delegation activity from customer tenants to your managing tenant.
 
@@ -22,9 +22,11 @@ To access tenant-level Activity Log data, an account must be assigned the [Monit
 
 ### Elevate access for a Global Administrator account
 
-To assign a role at root scope (/), you will need to have the Global Administrator role with elevated access. This elevated access should be added only when you need to make the role assignment and then removed when you are done. For detailed instructions on adding and removing elevation, see [Elevate access to manage all Azure subscriptions and management groups](../../role-based-access-control/elevate-access-global-admin.md).
+To assign a role at root scope (/), you will need to have the Global Administrator role with elevated access. This elevated access should be added only when you need to make the role assignment, then removed when you are done.
 
-After you elevate your access, your account will have the User Access Administrator role in Azure at root scope. This allows you to view all resources and assign access in any subscription or management group in the directory, as well as to make root-level role assignments. 
+For detailed instructions on adding and removing elevation, see [Elevate access to manage all Azure subscriptions and management groups](../../role-based-access-control/elevate-access-global-admin.md).
+
+After you elevate your access, your account will have the User Access Administrator role in Azure at root scope. This role assignment allows you to view all resources and assign access in any subscription or management group in the directory, as well as to make root-level role assignments. 
 
 ### Create a new service principal account to access tenant-level data
 
@@ -61,15 +63,15 @@ After you've created your service principal account and assigned the Monitoring 
 
 ## Query the activity log
 
-Once you've created a new service principal user with Monitoring Reader access to the root scope, you can use it to query and report on delegation activity. This must be done from within your managing tenant, using the service principal account that you created as described above.
+Once you've created a new service principal user with Monitoring Reader access to the root scope of your managing tenant, you can use it to query and report on delegation activity in your tenant.
 
-The sample below uses Azure PowerShell to query the past 10 days of activity and reports on any added or removed delegations (or attempts which were not successful).
+The sample below uses Azure PowerShell to query the past 10 days of activity and reports on any added or removed delegations (or attempts that were not successful).
 
 For each delegation that is added or removed, the following details are shown:
 
 - **DelegatedResourceId**: The ID of the delegated subscription or resource group
 - **CustomerTenantId**: The customer tenant ID
-- **CustomerSubscriptionId**: The subscription ID which was delegated or that contains the resource group that was delegated
+- **CustomerSubscriptionId**: The subscription ID that was delegated or that contains the resource group that was delegated
 - **CustomerDelegationStatus**: The status change for the delegated resource (succeeded or failed)
 - **EventTimeStamp**: The date and time at which the delegation change was logged
 
