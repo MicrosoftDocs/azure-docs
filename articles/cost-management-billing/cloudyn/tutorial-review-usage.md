@@ -1,7 +1,6 @@
 ---
-title: Tutorial - Review usage and costs with Cloudyn in Azure | Microsoft Docs
+title: Tutorial - Review usage and costs with Cloudyn in Azure
 description: In this tutorial, you review usage and costs to track trends, detect inefficiencies, and create alerts.
-keywords:
 author: bandersmsft
 ms.author: banders
 ms.date: 01/24/2020

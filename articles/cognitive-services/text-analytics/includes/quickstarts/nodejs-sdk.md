@@ -6,7 +6,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 03/06/2020
+ms.date: 03/12/2020
 ms.author: aahi
 ms.reviewer: sumeh, assafi
 ---
@@ -36,13 +36,12 @@ ms.reviewer: sumeh, assafi
 
 ### Create a new Node.js application
 
-> [!NOTE]
-> You can also run this version of the Text Analytics client library [in your browser](https://github.com/Azure/azure-sdk-for-js/blob/master/documentation/Bundling.md).
-
 In a console window (such as cmd, PowerShell, or Bash), create a new directory for your app, and navigate to it. 
 
 ```console
-mkdir myapp && cd myapp
+mkdir myapp 
+
+cd myapp
 ```
 
 Run the `npm init` command to create a node application with a `package.json` file. 
@@ -60,6 +59,9 @@ Install the `@azure/ai-text-analytics` NPM packages:
 npm install --save @azure/ai-text-analytics
 ```
 
+> [!TIP]
+> Want to view the whole quickstart code file at once? You can find it [on GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/TextAnalytics/text-analytics-v3-client-library.js), which contains the code examples in this quickstart. 
+
 #### [Version 2.1](#tab/version-2)
 
 Install the `@azure/cognitiveservices-textanalytics` NPM packages:
@@ -68,14 +70,13 @@ Install the `@azure/cognitiveservices-textanalytics` NPM packages:
 npm install --save @azure/cognitiveservices-textanalytics
 ```
 
-Your app's `package.json` file will be updated with the dependencies.
-
-Create a file named `index.js` and add the following libraries:
+> [!TIP]
+> Want to view the whole quickstart code file at once? You can find it [on GitHub](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/textAnalytics.js), which contains the code examples in this quickstart. 
 
 ---
 
 Your app's `package.json` file will be updated with the dependencies.
-Create a file named `index.js` and add the following libraries:
+Create a file named `index.js` and add the following:
 
 #### [Version 3.0-preview](#tab/version-3)
 
