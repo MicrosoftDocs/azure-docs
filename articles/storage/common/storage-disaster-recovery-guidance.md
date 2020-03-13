@@ -19,6 +19,8 @@ Microsoft strives to ensure that Azure services are always available. However, u
 
 Azure Storage supports account failover (preview) for geo-redundant storage accounts. With account failover, you can initiate the failover process for your storage account if the primary endpoint becomes unavailable. The failover updates the secondary endpoint to become the primary endpoint for your storage account. Once the failover is complete, clients can begin writing to the new primary endpoint.
 
+[!INCLUDE [updated-for-az](../../../includes/storage-data-lake-gen2-support.md)]
+
 This article describes the concepts and process involved with an account failover and discusses how to prepare your storage account for recovery with the least amount of customer impact. To learn how to initiate an account failover in the Azure portal or PowerShell, see [Initiate an account failover (preview)](storage-initiate-account-failover.md).
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
