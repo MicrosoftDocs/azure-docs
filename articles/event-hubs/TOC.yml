@@ -186,9 +186,7 @@
       href: event-hubs-ip-filtering.md
     - name: Configure virtual network service endpoints
       href: event-hubs-service-endpoints.md
-    - name: Configure firewall and virtual network service endpoints
-      href: event-hubs-tutorial-virtual-networks-firewalls.md
-    - name: Create and manage private endpoints (preview)
+    - name: Configure private endpoints (preview)
       href: private-link-service.md
     - name: Configure customer-managed keys for encrypting data at rest
       href: configure-customer-managed-key.md
