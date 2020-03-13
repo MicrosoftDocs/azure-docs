@@ -51,7 +51,7 @@ In Azure Cosmos DB, JavaScript runtime is hosted inside the database engine. Hen
 
 ### Scope of a transaction
 
-If a stored procedure is associated with an Azure Cosmos container, then the stored procedure is executed in the transaction scope of a logical partition key. Each stored procedure execution must include a logical partition key value that corresponds to the scope of the transaction. For more information, see [Azure Cosmos DB partitioning](partition-data.md) article.
+Stored procedures are associated with exactly one Azure Cosmos container and are therfore scoped to exactly one logical partition key. Each stored procedure execution must include a logical partition key value that corresponds to the scope of the transaction. Items that have a different partition key value (and items in different containers) will not be visible to the stored procedure. No mechanism currently exists to perform cross-partition (or cross-container) transactions. For more information, see [Azure Cosmos DB partitioning](partition-data.md) article.
 
 ### Commit and rollback
 
