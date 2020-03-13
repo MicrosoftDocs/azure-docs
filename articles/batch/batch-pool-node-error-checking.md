@@ -99,7 +99,7 @@ Additional examples of causes for **unusable** nodes include:
 
 - A VM is moved because of an infrastructure failure or a low-level upgrade. Batch recovers the node.
 
-- A VM image has been deployed on hardware that doesn’t support it. For example, trying to run a CentOS HPC image on a [Standard_D1_v2](../virtual-machines/dv2-dsv2-series.md) VM.
+- A VM image has been deployed on hardware that doesn't support it. For example, trying to run a CentOS HPC image on a [Standard_D1_v2](../virtual-machines/dv2-dsv2-series.md) VM.
 
 - The VMs are in an [Azure virtual network](batch-virtual-network.md), and traffic has been blocked to key ports.
 
@@ -132,7 +132,7 @@ The size of the temporary drive depends on the VM size. One consideration when p
 
 For files written out by each task, a retention time can be specified for each task that determines how long the task files are kept before being automatically cleaned up. The retention time can be reduced to lower the storage requirements.
 
-If temporary disk space does fill, then currently the node will stop running tasks. In the future, a [node error](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) will be reported.
+If the temporary disk runs out of space (or is very close to running out of space), the node will move to [Unusable](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodestate) state and a node error (use the link already there) will be reported saying that the disk is full.
 
 
 ## Next steps
