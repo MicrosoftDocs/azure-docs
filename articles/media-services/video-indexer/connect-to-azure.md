@@ -114,7 +114,7 @@ If the connection to Azure failed, you can attempt to troubleshoot the problem b
 2. Adjust the type and number of [reserved units](../previous/media-services-scale-media-processing-overview.md ) to **10 S3 Reserved Units** in the Media Services account you created. See [Use portal to change reserved units](../previous/media-services-portal-scale-media-processing.md).
 3. Before you can play your videos in the Video Indexer web app, you must start the default **Streaming Endpoint** of the new Media Services account.
 
-    In the new Media Services account, select **Streaming endpoints**. Select the streaming endpoint and press start.
+    In the new Media Services account, select **Streaming endpoints**. Then select the streaming endpoint and press start.
 
     ![New AMS account](./media/create-account/create-ams-account2.png)
 
@@ -166,7 +166,7 @@ The following Azure Media Services related considerations apply:
 
     Streaming endpoints have a considerable startup time. Therefore, it may take several minutes from the time you connected your account to Azure until your videos can be streamed and watched in the Video Indexer web app.
 
-* If you connect to an existing Media Services account, Video Indexer doesn't change the default Streaming Endpoint configuration. If there's no running **Streaming Endpoint**, you won't be able to watch videos from this Media Services account or in Video Indexer.
+* If you connect to an existing Media Services account, Video Indexer doesn't change the default Streaming Endpoint configuration. If there's no running **Streaming Endpoint**, you can't watch videos from this Media Services account or in Video Indexer.
 
 ## Next steps
 

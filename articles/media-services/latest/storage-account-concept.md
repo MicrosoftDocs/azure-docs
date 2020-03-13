@@ -1,13 +1,13 @@
 ---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
-title: Azure Storage accounts with Azure Media Services accounts | Microsoft Docs
-description: When creating a Media Services account, you need to supply the name of an Azure Storage account resource. The specified storage account is attached to your Media Services account.  
+title: Azure storage accounts
+titleSUffix: Azure Media Services
+description: Learn how to create an Azure storage account to use with Azure Media Services.
 services: media-services
 documentationcenter: ''
 author: Juliako
 manager: femila
 editor: ''
-
 ms.service: media-services
 ms.workload: 
 ms.topic: article
@@ -17,11 +17,11 @@ ms.author: juliako
 
 # Azure Storage accounts
 
-To start managing, encrypting, encoding, analyzing, and streaming media content in Azure, you need to create a Media Services account. When creating a Media Services account, you need to supply the name of an Azure Storage account resource. The specified storage account is attached to your Media Services account. 
+To start managing, encrypting, encoding, analyzing, and streaming media content in Azure, you need to create a Media Services account. When creating a Media Services account, you need to supply the name of an Azure Storage account resource. The specified storage account is attached to your Media Services account.
 
 The Media Services account and all associated storage accounts must be in the same Azure subscription. It is strongly recommended to use storage accounts in the same location as the Media Services account to avoid additional latency and data egress costs
 
-You must have one **Primary** storage account and you can have any number of **Secondary** storage accounts associated with your Media Services account. Media Services supports **General-purpose v2** (GPv2) or **General-purpose v1** (GPv1) accounts. <br/>Blob only accounts are not allowed as **Primary**. 
+You must have one **Primary** storage account and you can have any number of **Secondary** storage accounts associated with your Media Services account. Media Services supports **General-purpose v2** (GPv2) or **General-purpose v1** (GPv1) accounts. <br/>Blob only accounts are not allowed as **Primary**.
 
 We recommend that you use GPv2, so you can take advantage of the latest features and performance. To learn more about storage accounts, see [Azure Storage account overview](../../storage/common/storage-account-overview.md).
 
@@ -43,7 +43,7 @@ To protect your Assets at rest, the assets should be encrypted by the storage si
 
 |Encryption option|Description|Media Services v3|
 |---|---|---|
-|Media Services Storage Encryption|	AES-256 encryption, key managed by Media Services|Not supported<sup>(1)</sup>|
+|Media Services Storage Encryption|    AES-256 encryption, key managed by Media Services|Not supported<sup>(1)</sup>|
 |[Storage Service Encryption for Data at Rest](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)|Server-side encryption offered by Azure Storage, key managed by Azure or by customer|Supported|
 |[Storage Client-Side Encryption](https://docs.microsoft.com/azure/storage/common/storage-client-side-encryption)|Client-side encryption offered by Azure storage, key managed by customer in Key Vault|Not supported|
 
