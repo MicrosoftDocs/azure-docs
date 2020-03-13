@@ -117,6 +117,8 @@
     href: how-to-modify-assessment.md
   - name: Add migration tools
     href: how-to-migrate.md
+  - name: Migrate VMware VMs to Azure VMs encrypted with SSE and CMK
+    href: how-to-migrate-vmware-vms-with-cmk-disks.md
   - name: Prepare machines for migration
     href: prepare-for-migration.md
   - name: Delete an Azure Migrate project

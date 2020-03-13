@@ -27,7 +27,7 @@ You can create a new runbook in Azure Automation using one of the Azure portals 
 
 ### Create a runbook with PowerShell
 
-You can use the [New-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/az.automation/new-azautomationrunbook?view=azps-3.5.0) cmdlet to create an empty [PowerShell Workflow runbook](automation-runbook-types.md#powershell-workflow-runbooks). Use the *Type* parameter to specify one of the runbook types defined for **New-AzAutomationRunbook**.
+You can use the [New-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/az.automation/new-azautomationrunbook?view=azps-3.5.0) cmdlet to create an empty [PowerShell Workflow runbook](automation-runbook-types.md#powershell-workflow-runbooks). Use the `Type` parameter to specify one of the runbook types defined for `New-AzAutomationRunbook`.
 
 The following example shows how to create a new empty runbook.
 
@@ -69,7 +69,7 @@ You can use the following procedure to import a script file into Azure Automatio
 
 ### Import a runbook from a script file with Windows PowerShell
 
-Use the [Import-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/az.automation/import-azautomationrunbook?view=azps-3.5.0) cmdlet to import a script file as a draft PowerShell Workflow runbook. If the runbook already exists, the import fails unless you use the *Force* parameter with the cmdlet.
+Use the [Import-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/az.automation/import-azautomationrunbook?view=azps-3.5.0) cmdlet to import a script file as a draft PowerShell Workflow runbook. If the runbook already exists, the import fails unless you use the `Force` parameter with the cmdlet.
 
 The following example shows how to import a script file into a runbook.
 
@@ -86,7 +86,7 @@ Import-AzAutomationRunbook -Name $runbookName -Path $scriptPath `
 
 ## Test a runbook
 
-When you test a runbook, the [Draft version](#publish-a-runbook) is executed and any actions that it performs are completed. No job history is created, but the [Output](automation-runbook-output-and-messages.md#output-stream) and [Warning and Error](automation-runbook-output-and-messages.md#message-streams) streams are displayed in the Test output pane. Messages to the [Verbose stream](automation-runbook-output-and-messages.md#message-streams) are displayed in the Output pane only if the *VerbosePreference* variable](automation-runbook-output-and-messages.md#preference-variables) is set to **Continue**.
+When you test a runbook, the [Draft version](#publish-a-runbook) is executed and any actions that it performs are completed. No job history is created, but the [Output](automation-runbook-output-and-messages.md#output-stream) and [Warning and Error](automation-runbook-output-and-messages.md#message-streams) streams are displayed in the Test output pane. Messages to the [Verbose stream](automation-runbook-output-and-messages.md#message-streams) are displayed in the Output pane only if the `VerbosePreference` variable](automation-runbook-output-and-messages.md#preference-variables) is set to Continue.
 
 Even though the draft version is being run, the runbook still executes normally and performs any actions against resources in the environment. For this reason, you should only test runbooks on non-production resources.
 
