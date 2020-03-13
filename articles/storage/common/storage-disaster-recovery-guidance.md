@@ -122,7 +122,7 @@ Review the additional considerations described in this section to understand how
 
 #### Storage account containing archived blobs
 
-Storage accounts containing archived blobs support account failover. Once failover is complete, to convert the account back to GRS or RA-GRS all archieved blobs need to be rehydrated to an online tier first.
+Storage accounts containing archived blobs support account failover. Once failover is complete, to convert the account back to GRS or RA-GRS all archived blobs need to be rehydrated to an online tier first.
 
 #### Storage resource provider
 
