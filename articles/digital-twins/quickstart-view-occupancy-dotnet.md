@@ -15,7 +15,7 @@ ms.date: 01/10/2020
 
 # Quickstart: Find available rooms by using Azure Digital Twins
 
-[!INCLUDE [digital-twins-pp1-limit-alert](../../includes/digital-twins-pp1-limit-alert.md)]
+[!INCLUDE [digital-twins-preview-limit-alert](../../includes/digital-twins-preview-limit-alert.md)]
 
 The Azure Digital Twins service allows you to re-create a digital image of your physical environment. You can then get notified by events in your environment and customize your responses to them.
 

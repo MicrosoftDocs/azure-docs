@@ -12,7 +12,7 @@ ms.date: 01/17/2020
 
 # Public preview service limits
 
-[!INCLUDE [digital-twins-pp1-limit-alert](../../includes/digital-twins-pp1-limit-alert.md)]
+[!INCLUDE [digital-twins-preview-limit-alert](../../includes/digital-twins-preview-limit-alert.md)]
 
 During the public preview, Azure Digital Twins has the following temporary subscription, instance, and rate limits for existing customers. These constraints exist to help simplify learning about the new service and its many features, and will be increased or removed by general availability (GA).
 
