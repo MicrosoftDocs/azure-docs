@@ -124,7 +124,7 @@
     - name: Process node OS updates
       href: node-updates-kured.md
     - name: Configure an AKS cluster
-      href: configure-cluster.md
+      href: cluster-configuration.md
     - name: Integrate ACR with an AKS cluster
       href: cluster-container-registry-integration.md
     - name: Create virtual nodes
