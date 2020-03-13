@@ -650,7 +650,7 @@
       href: disks-reserved-capacity.md
     - name: Create an incremental snapshot - CLI
       href: disks-incremental-snapshots.md
-    - name: Create an incremental snapshot - portal
+    - name: Create an incremental snapshot - Portal
       href: disks-incremental-snapshots-portal.md
     - name: Back up unmanaged disks
       href: incremental-snapshots.md
