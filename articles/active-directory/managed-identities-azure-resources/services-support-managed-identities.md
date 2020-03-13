@@ -97,8 +97,8 @@ Refer to the following list to configure managed identity for Azure Functions (i
 
 Managed identity type | All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
-| System assigned | Available | Available | Not available | Available |
-| User assigned | Available | Available | Not available | Available |
+| System assigned | ![Available][check] | ![Available][check] | Not available | ![Available][check] |
+| User assigned | ![Available][check] | ![Available][check] | Not available | ![Available][check] |
 
 
 Refer to the following list to configure managed identity for Azure Logic Apps (in regions where available):
@@ -181,25 +181,25 @@ Refer to the following list to configure access to Azure Resource Manager:
 
 | Cloud | Resource ID | Status |
 |--------|------------|:-:|
-| Azure Global | `https://management.azure.com/`| Available |
-| Azure Government | `https://management.usgovcloudapi.net/` | Available |
-| Azure Germany | `https://management.microsoftazure.de/` | Available |
-| Azure China 21Vianet | `https://management.chinacloudapi.cn` | Available |
+| Azure Global | `https://management.azure.com/`| ![Available][check] |
+| Azure Government | `https://management.usgovcloudapi.net/` | ![Available][check] |
+| Azure Germany | `https://management.microsoftazure.de/` | ![Available][check] |
+| Azure China 21Vianet | `https://management.chinacloudapi.cn` | ![Available][check] |
 
 ### Azure Key Vault
 
 | Cloud | Resource ID | Status |
 |--------|------------|:-:|
-| Azure Global | `https://vault.azure.net`| Available |
-| Azure Government | `https://vault.usgovcloudapi.net` | Available |
-| Azure Germany |  `https://vault.microsoftazure.de` | Available |
-| Azure China 21Vianet | `https://vault.azure.cn` | Available |
+| Azure Global | `https://vault.azure.net`| ![Available][check] |
+| Azure Government | `https://vault.usgovcloudapi.net` | ![Available][check] |
+| Azure Germany |  `https://vault.microsoftazure.de` | ![Available][check] |
+| Azure China 21Vianet | `https://vault.azure.cn` | ![Available][check] |
 
 ### Azure Data Lake 
 
 | Cloud | Resource ID | Status |
 |--------|------------|:-:|
-| Azure Global | `https://datalake.azure.net/` | Available |
+| Azure Global | `https://datalake.azure.net/` | ![Available][check] |
 | Azure Government |  | Not Available |
 | Azure Germany |   | Not Available |
 | Azure China 21Vianet |  | Not Available |
@@ -208,16 +208,16 @@ Refer to the following list to configure access to Azure Resource Manager:
 
 | Cloud | Resource ID | Status |
 |--------|------------|:-:|
-| Azure Global | `https://database.windows.net/` | Available |
-| Azure Government | `https://database.usgovcloudapi.net/` | Available |
-| Azure Germany | `https://database.cloudapi.de/` | Available |
-| Azure China 21Vianet | `https://database.chinacloudapi.cn/` | Available |
+| Azure Global | `https://database.windows.net/` | ![Available][check] |
+| Azure Government | `https://database.usgovcloudapi.net/` | ![Available][check] |
+| Azure Germany | `https://database.cloudapi.de/` | ![Available][check] |
+| Azure China 21Vianet | `https://database.chinacloudapi.cn/` | ![Available][check] |
 
 ### Azure Event Hubs
 
 | Cloud | Resource ID | Status |
 |--------|------------|:-:|
-| Azure Global | `https://eventhubs.azure.net` | Available |
+| Azure Global | `https://eventhubs.azure.net` | ![Available][check] |
 | Azure Government |  | Not Available |
 | Azure Germany |   | Not Available |
 | Azure China 21Vianet |  | Not Available |
@@ -226,8 +226,8 @@ Refer to the following list to configure access to Azure Resource Manager:
 
 | Cloud | Resource ID | Status |
 |--------|------------|:-:|
-| Azure Global | `https://servicebus.azure.net`  | Available |
-| Azure Government |  | Available |
+| Azure Global | `https://servicebus.azure.net`  | ![Available][check] |
+| Azure Government |  | ![Available][check] |
 | Azure Germany |   | Not Available |
 | Azure China 21Vianet |  | Not Available |
 
@@ -243,10 +243,10 @@ Refer to the following list to configure access to Azure Resource Manager:
 
 | Cloud | Resource ID | Status |
 |--------|------------|:-:|
-| Azure Global | `https://storage.azure.com/` <br /><br />`https://<account>.blob.core.windows.net` <br /><br />`https://<account>.queue.core.windows.net` | Available |
-| Azure Government | `https://storage.azure.com/`<br /><br />`https://<account>.blob.core.usgovcloudapi.net` <br /><br />`https://<account>.queue.core.usgovcloudapi.net` | Available |
-| Azure Germany | `https://storage.azure.com/`<br /><br />`https://<account>.blob.core.cloudapi.de` <br /><br />`https://<account>.queue.core.cloudapi.de` | Available |
-| Azure China 21Vianet | `https://storage.azure.com/`<br /><br />`https://<account>.blob.core.chinacloudapi.cn` <br /><br />`https://<account>.queue.core.chinacloudapi.cn` | Available |
+| Azure Global | `https://storage.azure.com/` <br /><br />`https://<account>.blob.core.windows.net` <br /><br />`https://<account>.queue.core.windows.net` | ![Available][check] |
+| Azure Government | `https://storage.azure.com/`<br /><br />`https://<account>.blob.core.usgovcloudapi.net` <br /><br />`https://<account>.queue.core.usgovcloudapi.net` | ![Available][check] |
+| Azure Germany | `https://storage.azure.com/`<br /><br />`https://<account>.blob.core.cloudapi.de` <br /><br />`https://<account>.queue.core.cloudapi.de` | ![Available][check] |
+| Azure China 21Vianet | `https://storage.azure.com/`<br /><br />`https://<account>.blob.core.chinacloudapi.cn` <br /><br />`https://<account>.queue.core.chinacloudapi.cn` | ![Available][check] |
 
 
 
@@ -261,10 +261,10 @@ Refer to the following list to configure access to Azure Resource Manager:
 
 | Cloud | Resource ID | Status |
 |--------|------------|:-:|
-| Azure Global | `https://*.asazure.windows.net` | Available |
-| Azure Government | `https://*.asazure.usgovcloudapi.net` | Available |
-| Azure Germany | `https://*.asazure.cloudapi.de` | Available |
-| Azure China 21Vianet | `https://*.asazure.chinacloudapi.cn` | Available |
+| Azure Global | `https://*.asazure.windows.net` | ![Available][check] |
+| Azure Government | `https://*.asazure.usgovcloudapi.net` | ![Available][check] |
+| Azure Germany | `https://*.asazure.cloudapi.de` | ![Available][check] |
+| Azure China 21Vianet | `https://*.asazure.chinacloudapi.cn` | ![Available][check] |
 
 
 [check]: media/services-support-managed-identities/check.png "Available"
