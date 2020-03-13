@@ -83,7 +83,7 @@ The **Floor Picker** tab provides options to select the floor number and visuali
 
    </center>
 
- To load your data set, provide **DataSet ID**, and **primary subscription key**, then Press the **get features** button. Once this request completes processing, in the **Layers** panel, you'll see layers with the features of you data set. The layers reflect the content in your DWG package. For example, you will find a _unit_ layer and a _level_ layer. You can zoom into a layer or edit the layer by right clicking on the layer and choosing **Zoom to Layer** or **Open Attribute Table**, respectively. The **Layers** panel supports more features, see the [full list of collection features](#Full-list-of-feature-collections)
+ To load your data set, provide **DataSet ID**, and **primary subscription key**, then Press the **get features** button. Once this request completes processing, in the **Layers** panel, you'll see layers with the features of you data set. The layers reflect the content in your DWG package. For example, you will find a _unit_ layer and a _level_ layer. You can zoom into a layer or edit the layer by right clicking on the layer and choosing **Zoom to Layer** or **Open Attribute Table**, respectively. The **Layers** panel supports more features, see the [full list of collection features]()
 
    <center>
 
@@ -97,7 +97,7 @@ Once you view the features, you might want to make minor modification or soft to
 
 #### Update a feature collection
 
-The feature collection in your **Layers** panel is imported using the **DWG convert API**. All the features listed in the [Feature collection ID column of the features table](#Full-list-of-feature-collections) can be updated, except the _point_, _line_, and _area_element_ feature. Follow the steps below to change the name of a unit, assuming a scenario where the building space has been repurposed.
+The feature collection in your **Layers** panel is imported using the **DWG convert API**. All the features listed in the [Feature collection ID column of the features table]() can be updated, except the _point_, _line_, and _area_element_ feature. Follow the steps below to change the name of a unit, assuming a scenario where the building space has been repurposed.
 
 1. In the Azure Maps plugin, select the **Floor Picker** tab. Choose the floor where the unit to be edited is mapped. You may skip this step, but the list of units on all floors will appear in the next step.
 
@@ -206,7 +206,7 @@ The information in the image below are possible options that you could choose.
 
    <center>
 
-These steps concludes the general processes to add an element for the `furniture.desk` feature type. You can follow similar steps to add an element of another feature type to the map. See the [list of feature collections](#Full-list-of-feature-collections) to learn more about more features can be added. And, see the [supported categories](https://atlas.microsoft.com/sdk/javascript/indoor/0.1/categories.json) that can describe the feature type.  
+These steps concludes the general processes to add an element for the `furniture.desk` feature type. You can follow similar steps to add an element of another feature type to the map. See the [list of feature collections]() to learn more about more features can be added. And, see the [supported categories](https://atlas.microsoft.com/sdk/javascript/indoor/0.1/categories.json) that can describe the feature type.  
 
 ## Full list of feature collections
 

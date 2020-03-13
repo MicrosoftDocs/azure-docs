@@ -12,7 +12,7 @@ manager: philmea
 
 # Indoor map data management
 
-Azure Maps provides the Indoor Maps SDK, which has a plug-in for the QGIS application. The Azure Maps QGIS plug-in, the Azure Maps APIs, and the Indoor  Maps module can be used together to develop indoor maps for your application. This article overviews the data management pipeline for developing applications with indoor maps. The process starts with data ingestion into Azure Maps resources.Throughout the development process, the Azure Maps APIs can be used for heavy data modification, such as uploading or importing data. The Azure Maps QGIS plug-in can be used for light data modification, with a friendly interface. The Indoor Maps module can be used to render indoor maps and control indoor maps events. After development, data resource can be administrated using the Azure Maps QGIS plug-in.
+Azure Maps provides the Indoor Maps SDK, which has a plug-in for the QGIS application. The Azure Maps QGIS plug-in, the Azure Maps APIs, and the Indoor Maps module can be used together to develop indoor maps for your application. This article overviews the data management pipeline for developing applications with indoor maps. The process starts with data ingestion into Azure Maps resources. Throughout the development process, the Azure Maps APIs can be used for heavy data modification, such as uploading or importing data. The Azure Maps QGIS plug-in can be used for light data modification, using a friendly interface. And the Indoor Maps module can be used to render indoor maps and control indoor maps events. After development, data resource can be administrated using the Azure Maps QGIS plug-in and Azure Maps APIs. 
 
 ## Prerequisites
 
@@ -74,7 +74,7 @@ Follow the processes below to upload your DWG design package:
 
 keep the Postman application open. Now that your DWG package is uploaded, we'll use the package `udid`, from the previous section, to convert the DWG package into map data.
 
-1. Select **New** again. In the **Create New** window, select **Request**. Enter a **Request name**, and select a collection. Click **Save**.
+1. Select **New** again. In the **Create New** window, select **Request**. Enter a **Request name** and select a collection. Click **Save**.
 
 2. Select the **POST** HTTP method in the builder tab and enter the following URL to convert your uploaded DWG package into map data. Use the `udid` of the uploaded DWG package.
 
@@ -109,9 +109,9 @@ keep the Postman application open. Now that your DWG package is uploaded, we'll 
 
 In the data curation stage, the way the map data is managed depends on your application. The data set APIs, tile set APIs, and state set APIs will regularly be used in this stage. The Data set APIs let you create, list, and delete a data set. You can also import more data into a data set after it has been uploaded. To clarify, a data set is the primary resource for compiling one or more facility data. A tile set is a set of gridded vector tiles. A state set contains state information for map properties that can be dynamically manipulated. The tile set and state set APIs let you create, list, and delete a tile set and a state set, respectively.
 
-You'll first need to make a data set, before you can generate a tile set or a state set, because the tile set and the state set use data from the data set. However, each of the tile set and state set are independent entities. In another word, if you delete the data set that you used to generate the tile set with, then the tile set will continue to exist. You will also need to use the Azure WFS service to learn about your map features, and obtain a feature ID to use as a parameter for the state set APIs. Normally, the tile sets and state sets are used in combination with the Indoor Maps module to render tiles and feature states on the map.
+You'll first need to make a data set, before you can generate a tile set or a state set, because the tile set and the state set use data from the data set. However, each of the tile set and state set are independent entities. In another word, if you delete the data set that you used to generate the tile set with, then the tile set will continue to exist. You will also need to use the Azure WFS service to learn about your map features and obtain a feature ID to use as a parameter for the state set APIs. Normally, the tile sets and state sets are used in combination with the Indoor Maps module to render tiles and feature states on the map.
 
-The next sections detail the process to generate data sets, tile sets, and state sets. In the state sets section, the steps demonstrates how to use Azure Maps WFS service to learn about your feature and obtain a feature ID. The Azure Maps QGIS plug-in section and the Indoor Module section provide an overview of each tool. Because these tools entail a lot of details, we linked how-to guides for each the QGIS plug-in and the Indoor Module at the end of this article.
+The next sections detail the process to generate data sets, tile sets, and state sets. In the state sets section, the steps demonstrate how to use Azure Maps WFS service to learn about your feature and obtain a feature ID. The Azure Maps QGIS plug-in section and the Indoor Module section provide an overview of each tool. Because these tools entail a lot of details, we linked how-to guides for each the QGIS plug-in and the Indoor Module in their respective section and at the end of this article. 
 
 ### Data sets
 
@@ -119,7 +119,7 @@ The data set is a collection of map data entities, such as buildings. To make a 
 
 The steps below show you how to make a data set, and obtain its ID:
 
-1. Open the Postman application. Select **New**. In the **Create New** window, select **Request**. Enter a **Request name**, and select a collection. Click **Save**
+1. Open the Postman application. Select **New**. In the **Create New** window, select **Request**. Enter a **Request name** and select a collection. Click **Save**
 
 2. Make a **POST** request to the [Dataset Create API]() to create a new data set. The URL of the request should have a format like the one below:
 
@@ -162,7 +162,7 @@ A tile set is a set of vector tiles to render on the map. It's produced from the
 
 To create a tile set, follow the steps below:
 
-1. Open the Postman application.  Select **New** again. In the **Create New** window, select **Request**. Enter a **Request name**, and select a collection. Click **Save**
+1. Open the Postman application.  Select **New** again. In the **Create New** window, select **Request**. Enter a **Request name** and select a collection. Click **Save**
 
 2. Make a **POST** request in the builder tab. The request URL should look like to the one below:
 
@@ -186,7 +186,7 @@ To create a tile set, follow the steps below:
 
 To display the map data that was originally obtained from the DWG package, [use the Indoor Maps module](how-to-use-indoor-module.md#use-the-indoor-maps-module) with your tile set ID. You may also render indoor maps using the [Get Map Tile API](). You can also fetch a list of all the tile sets, including the tile sets that aren't used in your application, using the [Tileset List API]().
 
-To delete your tile set,  use the [Tileset Delete API](). If you delete an in use tile set, then those tiles won't render on the map at the application runtime.
+To delete your tile set,  use the [Tileset Delete API](). If you delete an in-use tile set, then those tiles won't render on the map at the application runtime.
 
 > [!Caution]
 > Whenever you review the list of items and decide to delete them, consider the cascading dependencies impact. For example, you may have a tile set being rendered in your application using the **Get Map Tile API** and deleting the tile set will result in failure to render that tile set.
@@ -195,9 +195,9 @@ To delete your tile set,  use the [Tileset Delete API](). If you delete an in us
 
 A state set contains style information of properties that can dynamically change. Accessing and changing the style of a feature is useful for highlighting events or states. For example, you may toggle the tile colors to indicate the room occupancy status.
 
-The process of using the feature state set APIs is similar to using the data set and tile set APIs. You would first make a state set. And you would use the feature ID and the state set ID to update feature. The steps below explain how to create a state set, obtain the feature ID, update the feature ID state, and acquire the state of the feature.
+The process of using the feature state set APIs is like using the data set and tile set APIs. You would first make a state set. And you would use the feature ID and the state set ID to update feature. The steps below explain how to create a state set, obtain the feature ID, update the feature ID state, and acquire the state of the feature.
 
-1. Open the Postman application. Select **New**. In the **Create New** window, select **Request**. Enter a **Request name**, and select a collection. Click **Save**
+1. Open the Postman application. Select **New**. In the **Create New** window, select **Request**. Enter a **Request name** and select a collection. Click **Save**
 
 2. If you don't already have a feature ID, obtain a feature ID from a data set using the [WFS API](). First, make a **GET** request to learn about the collections in your data set.
 
@@ -247,7 +247,7 @@ The process of using the feature state set APIs is similar to using the data set
     https://atlas.microsoft.com/featureState/state?api-version=1.0&statesetID=<statesetID>&datasetID=<datasetID>&featureID=<featureID>&subscription-key=<Azure-Maps-Primary-Subscription-key>
     ```
 
-All the dynamic styling properties of all features can become states, where the color is a common style to add as a state set. For example, the indoor map tile color can change based on room fire code occupancy limit. Another use case, would be to toggle the tile color based on room availability, for a scheduling application. For more information, see [Implement dynamic styling for Private Atlas Indoor Maps]()
+All the dynamic styling properties of all features can become states, where the color is a common style to add as a state set. For example, the indoor map tile color can change based on room fire code occupancy limit. Another use case would be to toggle the tile color based on room availability, for a scheduling application. For more information, see [Implement dynamic styling for Private Atlas Indoor Maps]()
 
 The [Feature Get States API]() lets you learn about the state of a feature, using its feature ID. You can render the states on the indoor map using the Indoor Maps manager from the Indoor Module or the Azure Maps QGIS plug-in. You can also delete the state set and its resource using the [Feature State Delete API]().
 
@@ -266,9 +266,9 @@ The Azure Maps Web SDK provides the Indoor Maps module. The Indoor Maps module i
 
 ## Resource Administration
 
- At this phase, your tile sets are ready for indoor maps rendering. Your data sets can be queried using a WFS service. And, your feature state service can accept dynamic property updates. You can continue to monitor the status of your map data using the list APIs available in the Dataset, Tileset, and Feature State services. You can review the relevance of your map data. If you wish, you may update or delete the data, using the update and delete APIs, for the respective service.
+At this phase, your tile sets are ready for indoor maps rendering. Your data sets can be queried using a WFS service. And your feature state service can accept dynamic property updates. You can continue to monitor the status of your map data using the list APIs available in the Dataset, Tileset, and Feature State services. You can review the relevance of your map data. If you wish, you may update or delete the data, using the update and delete APIs, for the respective service. 
 
- The Azure Maps QGIS plug-in is another convenient tool to administer your map data. The plug-in interface lets you see real-time updates reflected based on changes to your data set. You can also make minor modification using a graphical user interface rather than making API calls.
+The Azure Maps QGIS plug-in is another convenient tool to administer your map data. The plug-in interface lets you see real-time updates reflected based on changes to your data set. You can also make minor modification using a graphical user interface rather than making API calls.
 
 ## Next steps
 
@@ -309,4 +309,4 @@ Relevant articles:
 > [!div class="nextstepaction"]
 > [Indoor Module SDK documentation]()
 
-Consider leveraging more Azure Maps services with your indoor maps application. For example, if your application is "smart", then you may incorporate IoT system powering location logic or produce map visualization. Learn more by reading:
+Consider leveraging more Azure Maps services with your indoor map application. For example, if your application is "smart", then you may incorporate IoT system powering location logic or produce map visualization. Learn more by reading:

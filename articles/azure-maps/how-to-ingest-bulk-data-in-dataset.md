@@ -12,29 +12,29 @@ manager: philmea
 
 # Bulk import data into a dataset
 
-This guide will show you how to use the [Dataset Import API]() to bulk import data into a dataset. It will also show you how to upload the data that you want to be imported.
+This guide will show you how to use the [Dataset Import API]() to bulk import data into a dataset. It will also show you how to upload the data that you want to be imported to an existing data set.
 
 ## Prerequisites
 
-You need to [obtain a primary subscription key](quick-demo-map-app.md#get-the-primary-key-for-your-account) by [making an Azure Maps account](quick-demo-map-app.md#create-an-account-with-azure-maps). The primary subscription key is a required parameter for all Azure Maps APIs, including the indoor maps APIs.
+You need to [obtain a primary subscription key](quick-demo-map-app.md#get-the-primary-key-for-your-account) by [making an Azure Maps account](quick-demo-map-app.md#create-an-account-with-azure-maps).
 
 In this article, the [Postman](https://www.postman.com/) application is used to call the Azure Maps APIs, but you may use any API development environment.
-
-Before you feed data into the Azure Maps resources, make sure that your DWG package meets to the [DWG package requirements](dwg-requirements.md).
 
 ## Creating an initial data set
 
 The instructions below start with the overview the process of uploading, converting a DWG package, and creating a data set. If you already have a data set to import the bulk data into, then skip this section and continue to the next section.
 
-1. Upload a DWG package to the Azure Maps service, and obtain a `udid` of the uploaded package. This procedure is detailed in the [Data Upload section of the Indoor Data Management](indoor-data-management.md#data-upload-process) article.
+1. Before you upload data into the Azure Maps resources, make sure that your DWG package meets to the [DWG package requirements](dwg-requirements.md).
 
-2. Once you obtain the uploaded packaged `udid`, convert the uploaded packaged using the conversion service, and obtain the conversion `udid` of the converted package. This ID may also be called the conversion ID. Similar to the previous step, this procedure is detailed in the [Data Conversion section of the Indoor Data Management](indoor-data-management.md#data-conversion-process) article.
+2. Upload your DWG package to the Azure Maps service, and obtain a `udid` of the uploaded package. This procedure is detailed in the [Data Upload section of the Indoor Data Management](indoor-data-management.md#data-upload-process) article.
 
-3. Create an initial data set, and obtain the data set ID, also known as the data set `udid`. For more information on how to obtain the data set ID, see the [Data sets section of the Indoor Data Management](indoor-data-management.md#Data-sets) article. Copy the data set ID to use in the next section.
+3. Once you obtain the uploaded packaged `udid`, convert the uploaded packaged using the conversion service, and obtain the conversion `udid` of the converted package. This ID may also be called the conversion ID. The details are in the [Data Conversion section of the Indoor Data Management](indoor-data-management.md#data-conversion-process) article.
+
+4. Create an initial data set, and obtain the data set ID, also known as the data set `udid`. For details on how to do this step, see the [Data sets section of the Indoor Data Management](indoor-data-management.md#data-sets) article. Copy the data set ID to use in the next section.
 
 ## Bulk import data into a dataset
 
-This section assumes that you already have a data set. It shows you how to import bulk data into an existing data set.
+This section assumes that you already have a data set. It shows you how to upload bulk data to Azure services, and then import the bulk data into an existing data set.
 
 1. Prepare your bulk data by placing your GeoJSON files in a zip folder.
 
