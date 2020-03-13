@@ -10,6 +10,16 @@
     href: quickstart-create-templates-use-the-portal.md
   - name: Create templates - VS Code
     href: quickstart-create-templates-use-visual-studio-code.md
+  - name: Azure services
+    items:
+    - name: Cosmos DB
+      href: ../../cosmos-db/quick-create-template.md
+    - name: Event Grid
+      href: ../../event-grid/blob-event-quickstart-template.md
+    - name: Key Vault
+      href: ../../key-vault/quick-create-template.md
+    - name: Load Balancer
+      href: ../../load-balancer/quickstart-load-balancer-standard-public-template.md
 - name: Tutorials
   items:
   - name: Beginner
