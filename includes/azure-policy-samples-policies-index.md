@@ -14,6 +14,10 @@
 
 [!INCLUDE [azure-policy-samples-policies-automation](azure-policy-samples-policies-automation.md)]
 
+## Backup
+
+[!INCLUDE [azure-policy-samples-policies-backup](azure-policy-samples-policies-backup.md)]
+
 ## Batch
 
 [!INCLUDE [azure-policy-samples-policies-batch](azure-policy-samples-policies-batch.md)]

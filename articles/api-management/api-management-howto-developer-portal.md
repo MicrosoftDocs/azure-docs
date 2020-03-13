@@ -153,6 +153,12 @@ The interactive console makes a client-side API request from the browser. You ca
 </cors>
 ```
 
+Apply the CORS on the global scope to ensure it's enabled for all APIs.
+
+1. Navigate to **All APIs** in the **APIs** section of your API Management service in the Azure portal.
+2. Click on the **</>** icon in the **Inbound processing** section.
+3. Insert the policy in the **<inbound>** section of the XML file. Make sure the **<origin>** value matches your developer portal's domain.
+
 > [!NOTE]
 > 
 > If you apply the CORS policy in the Product scope, instead of the API(s) scope, and your API uses subscription key authentication through a header, your console won't work.
