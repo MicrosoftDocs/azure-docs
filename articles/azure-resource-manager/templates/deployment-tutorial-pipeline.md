@@ -1,8 +1,7 @@
 ---
 title: Continuous integration with Azure Pipelines
 description: Learn how to continuously build, test, and deploy Azure Resource Manager templates.
-author: mumian
-ms.date: 10/29/2019
+ms.date: 03/13/2020
 ms.topic: tutorial
 ms.author: jgao
 ---
@@ -87,9 +86,8 @@ Instead of creating the templates, you can download the templates and save them 
 
 * The main template: https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-deployment/linked-template/azuredeploy.json
 * The linked template: https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-deployment/linked-template/linkedStorageAccount.json
-* The parameter file: https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-deployment/linked-template/azuredeploy.parameters.json
 
-Both the folder name and the file name are used as they are in the pipeline.  If you change these names, you must update the names used in the pipeline.
+Both the folder name and the file names are used as they are in the pipeline.  If you change these names, you must update the names used in the pipeline.
 
 ### Push the template to the remote repository
 
@@ -110,7 +108,7 @@ The azuredeploy.json has been added to the local repository. Next, you upload th
 1. Browse to your GitHub repository from a browser.  The URL is **https://github.com/[YourAccountName]/[YourGitHubRepository]**. You shall see the **CreateWebApp** folder and the three files inside the folder.
 1. Select **linkedStorageAccount.json** to open the template.
 1. Select the **Raw** button. The URL is started with **raw.githubusercontent.com**.
-1. Make a copy of the URL.  You need to provide this value when you configure the pipeline later in the tutroial.
+1. Make a copy of the URL.  You need to provide this value when you configure the pipeline later in the tutorial.
 
 So far, you have created a GitHub repository, and uploaded the templates to the repository.
 
@@ -179,7 +177,7 @@ To create a pipeline with a step to deploy a template:
     * **Template location**: Select **Linked artifact**, which means the task looks for the template file directly from the connected repository.
     * **Template**: Enter **CreateWebApp/azuredeploy.json**. If you changed the folder name and the file name, you need to change this value.
     * **Template parameters**: Leave this field blank. You will specify the parameter values in the **Override template parameters.
-    * **overrideParameters**: Enter **-projectName [EnterAProjectName] -linkedTemplateUri [EnterTheLinkedTemplateURL]**. Replace the project name ans the linked template url. The linked template URL is what you wrote down at the end of [Create a Github repository](#create-a-github-repository).
+    * **overrideParameters**: Enter **-projectName [EnterAProjectName] -linkedTemplateUri [EnterTheLinkedTemplateURL]**. Replace the project name and the linked template url. The linked template URL is what you wrote down at the end of [Create a Github repository](#create-a-github-repository).
     * **Deployment mode**: Select **Incremental**.
     * **Deployment name**: Enter **DeployPipelineTemplate**. Select **Advanced** before you can see **Deployment name**.
 
@@ -242,7 +240,7 @@ You might also want to delete the GitHub repository and the Azure DevOps project
 
 ## Next steps
 
-Congratulations, you've finished this Resource Manager template deployoment tutorial. Let us know if you have any comments and suggestions in the feedback section. Thanks!
+Congratulations, you've finished this Resource Manager template deployment tutorial. Let us know if you have any comments and suggestions in the feedback section. Thanks!
 You're ready to jump into more advanced concepts about templates. The next tutorial goes into more detail about using template reference documentation to help with defining resources to deploy.
 
 > [!div class="nextstepaction"]
