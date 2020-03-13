@@ -125,18 +125,18 @@ Here is what management ports are used for:
 
 Ports 9000 and 9003 are used by Service Fabric infrastructure. Service Fabric primary role is to keep the virtual cluster healthy and keep goal state in terms of number of component replicas.
 
-Ports 1438, 1440, and 1452 are used by Node Agent. Node agent is an application that runs inside the cluster and is used by the control plane to execute management commands.
+Ports 1438, 1440, and 1452 are used by node agent. Node agent is an application that runs inside the cluster and is used by the control plane to execute management commands.
 
-In addition to the built-in firewall on the network layer, communication is also protected with certificates.
+In addition to NSG rules the built-in firewall protects the instance on the network layer. On the application layer communication is protected with the certificates.
   
 For more information and how to verify the built-in firewall, see [Azure SQL Database managed instance built-in firewall](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md).
 
 
-## Mitigate network risks  
+## Mitigate data exfiltration risks  
 
-**How can I mitigate networking risks?**
+**How can I mitigate data exfiltration risks?**
 
-To mitigate any networking risks, customers are recommended to apply a set of security settings and controls:
+To mitigate any data exfiltration risks, customers are recommended to apply a set of security settings and controls:
 
 - Turn on [Transparent Data Encryption (TDE)](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql) on all databases.
 - Turn off Common Language Runtime (CLR). This is recommended on-premises as well.
