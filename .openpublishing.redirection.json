@@ -31705,6 +31705,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/key-vault/automation-manage-key-vault.md",
+      "redirect_url": "/azure/key-vault/",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/load-balancer/load-balancer-security-attributes.md",
       "redirect_url": "/azure/load-balancer/load-balancer-security-controls",
       "redirect_document_id": false
