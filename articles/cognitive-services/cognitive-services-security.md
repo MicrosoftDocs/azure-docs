@@ -33,7 +33,7 @@ For .NET users, consider the <a href="https://docs.microsoft.com/dotnet/framewor
 
 An alternative to using hardcoded values for sensitive data, is to use environment variables. Hardcoded values are insecure and should be avoided.
 
-### Set environment variables
+### Set environment variable
 
 To set environment variables, use one the following commands where the `ENVIRONMENT_VARIABLE_KEY` is the key and `value` is the value to store in the environment variable.
 
@@ -69,9 +69,47 @@ echo ENVIRONMENT_VARIABLE_KEY
 
 ---
 
-### Get environment variables
+### Get environment variable
 
+# [C#](#tab/csharp)
 
+```csharp
+var value =
+    Environment.GetEnvironmentVariable(
+        "ENVIRONMENT_VARIABLE_KEY");
+```
+
+# [C++](#tab/cpp)
+
+```cpp
+auto value =
+    getenv("ENVIRONMENT_VARIABLE_KEY");
+```
+
+# [Java](#tab/java)
+
+```java
+String value =
+    System.getenv(
+        "ENVIRONMENT_VARIABLE_KEY")
+```
+
+# [Node.js](#tab/node-js)
+
+```javascript
+const value =
+    process.env.ENVIRONMENT_VARIABLE_KEY;
+```
+
+# [Python](#tab/python)
+
+```python
+import os
+
+value = os.environ['ENVIRONMENT_VARIABLE_KEY']
+```
+
+---
 
 For more information, see <a href="https://docs.microsoft.com/azure/azure-app-configuration/overview" target="_blank">Azure App Configuration <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
