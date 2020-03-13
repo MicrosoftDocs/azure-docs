@@ -88,18 +88,6 @@ landingContent:
             url: data-lake-store-service-to-service-authenticate-using-active-directory.md
 
   # Card
-  - title: Account management operations
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: .NET SDK
-            url: data-lake-store-get-started-net-sdk.md
-          - text: REST API
-            url: data-lake-store-get-started-rest-api.md
-          - text: Python
-            url: data-lake-store-get-started-python.md
-
-  # Card
   - title: Filesystem operations
     linkLists:
       - linkListType: how-to-guide
@@ -112,3 +100,15 @@ landingContent:
             url: data-lake-store-data-operations-rest-api.md
           - text: Python
             url: data-lake-store-data-operations-python.md
+
+  # Card
+  - title: Account management operations
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: .NET SDK
+            url: data-lake-store-get-started-net-sdk.md
+          - text: REST API
+            url: data-lake-store-get-started-rest-api.md
+          - text: Python
+            url: data-lake-store-get-started-python.md
