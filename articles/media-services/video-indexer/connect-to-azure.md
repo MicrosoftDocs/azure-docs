@@ -14,7 +14,7 @@ ms.author: juliako
 
 # Create a Video Indexer account connected to Azure
 
-When creating a Video Indexer account, you can choose a free trial account (where you get a certain number of free indexing minutes) or a paid option (where you are not limited by the quota). With free trial, Video Indexer provides up to 600 minutes of free indexing to website users and up to 2400 minutes of free indexing to API users. With the paid option, you create a Video Indexer account that is connected to your Azure subscription and an Azure Media Services account. You pay for minutes indexed as well as the Media Account related charges.
+When creating a Video Indexer account, you can choose a free trial account (where you get a certain number of free indexing minutes) or a paid option (where you're not limited by the quota). With a free trial, Video Indexer provides up to 600 minutes of free indexing to website users and up to 2400 minutes of free indexing to API users. With the paid option, you create a Video Indexer account that's connected to your Azure subscription and an Azure Media Services account. You pay for minutes indexed as well as the media account related charges.
 
 This article shows how to create a Video Indexer account that's linked to an Azure subscription and an Azure Media Services account. The topic provides steps for connecting to Azure using the automatic (default) flow. It also shows how to connect to Azure manually (advanced).
 
@@ -26,7 +26,7 @@ This article shows how to create a Video Indexer account that's linked to an Azu
 
 * An Azure Active Directory (AD) domain.
 
-    If you don't have an Azure AD domain, create this domain with your Azure subscription. For more information, see [Managing custom domain names in your Azure Active Directory](../../active-directory/users-groups-roles/domains-manage.md)
+    If you don't have an Azure AD domain, create this domain with your Azure subscription. For more information, see [Managing custom domain names in your Azure AD](../../active-directory/users-groups-roles/domains-manage.md)
 
 * A user in your Azure AD domain with an **Application administrator** role. You'll use this member when connecting your Video Indexer account to Azure.
 
@@ -36,60 +36,62 @@ This article shows how to create a Video Indexer account that's linked to an Azu
 
 ### Additional prerequisites for automatic flow
 
-A user and member in your Azure AD domain. You'll use this member when connecting your Video Indexer account to Azure.
+* A user and member in your Azure AD domain.
 
-This user should be a member in your Azure subscription with either an **Owner** role, or both **Contributor** and **User Access Administrator** roles. A user can be added twice, with 2 roles. Once with Contributor and once with user Access Administrator.
+    You'll use this member when connecting your Video Indexer account to Azure.
 
-![access control](./media/create-account/access-control-iam.png)
+    This user should be a member in your Azure subscription with either an **Owner** role, or both **Contributor** and **User Access Administrator** roles. A user can be added twice, with 2 roles. Once with Contributor and once with user Access Administrator.
+
+    ![access control](./media/create-account/access-control-iam.png)
 
 ### Additional prerequisites for manual flow
 
-Register the EventGrid resource provider using the Azure portal.
+* Register the EventGrid resource provider using the Azure portal.
 
-In the [Azure portal](https://portal.azure.com/), go to **Subscriptions**->[subscription]->**ResourceProviders**. 
+    In the [Azure portal](https://portal.azure.com/), go to **Subscriptions**->[subscription]->**ResourceProviders**.
 
-Search for **Microsoft.Media** and **Microsoft.EventGrid**. If not in the "Registered" state, click **Register**. It takes a couple of minutes to register.
+    Search for **Microsoft.Media** and **Microsoft.EventGrid**. If not in the "Registered" state, click **Register**. It takes a couple of minutes to register.
 
-![EventGrid](./media/create-account/event-grid.png)
+    ![EventGrid](./media/create-account/event-grid.png)
 
 ## Connect to Azure
 
 > [!NOTE]
-> If your Azure subscription uses certificate-based multi-factor authentication, it is crucial that you perform the following steps on a device that has the required certificates installed.
+> If your Azure subscription uses certificate-based multi-factor authentication, it's crucial that you perform the following steps on a device that has the required certificates installed.
 
 1. Browse to the [Video Indexer](https://www.videoindexer.ai/) website and sign in.
 
-2. Click on the **Create new account** button:
+2. Select the **Create new account** button:
 
-    ![connect to Azure](./media/create-account/connect-to-azure.png)
+    ![Create new Video Indexer account](./media/create-account/connect-to-azure.png)
 
 3. When the subscriptions list appears, select the subscription you want to use.
 
-    ![connect Video Indexer to Azure](./media/create-account/connect-vi-to-azure-subscription.png)
+    ![Connect Video Indexer to Azure](./media/create-account/connect-vi-to-azure-subscription.png)
 
 4. Select an Azure region from the supported locations: West US 2, North Europe, or East Asia.
 5. Under **Azure Media Services account**, choose one of these options:
 
     * To create a new Media Services account, select **Create new resource group**. Provide a name for your resource group.
 
-        Azure will create your new account in your subscription, including a new Azure Storage account. Your new Media Services account has a default initial configuration with a Streaming Endpoint and 10 S3 Reserved Units.
+        Azure will create your new account in your subscription, including a new Azure Storage account. Your new Media Services account has a default initial configuration with a streaming endpoint and 10 S3 reserved units.
     * To use an existing Media Services account, select **Use existing resource**. From the accounts list, select your account.
 
-        Your Media Services account must have the same region as your Video Indexer account. 
+        Your Media Services account must have the same region as your Video Indexer account.
 
         > [!NOTE]
-        > To minimize indexing duration and low throughput, it is highly recommended to adjust the type and number of [Reserved Units](../previous/media-services-scale-media-processing-overview.md ) to **10 S3 Reserved Units** in your Media Services account. See [Use portal to change Reserved Units](../previous/media-services-portal-scale-media-processing.md).
+        > To minimize indexing duration and low throughput, it's highly recommended to adjust the type and number of [Reserved Units](../previous/media-services-scale-media-processing-overview.md ) in your Media Services account to **10 S3 Reserved Units**. See [Use portal to change reserved units](../previous/media-services-portal-scale-media-processing.md).
 
-    * To manually configure your connection, click the **Switch to manual configuration** link.
+    * To manually configure your connection, select the **Switch to manual configuration** link.
 
         For detailed information, see the [Connect to Azure manually](#connect-to-azure-manually-advanced-option) (advanced option) section that follows.
-6. When you're done, choose **Connect**. This operation might take up to a few minutes. 
+6. When you're done, choose **Connect**. This operation might take up to a few minutes.
 
     After you're connected to Azure, your new Video Indexer account appears in the account list:
 
     ![new account](./media/create-account/new-account.png)
 
-7. Browse to your new account
+7. Browse to your new account.
 
 ## Connect to Azure manually (advanced option)
 
