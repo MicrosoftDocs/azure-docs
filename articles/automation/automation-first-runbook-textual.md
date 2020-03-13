@@ -39,7 +39,7 @@ Start by creating a simple runbook that outputs the text `Hello World`.
 1. Select **Runbooks** under **Process Automation** to open the list of runbooks.
 1. Create a new runbook by selecting **Create a runbook**.
 1. Give the runbook the name **MyFirstRunbook-Workflow**.
-1. In this case, you're going to create a [PowerShell Workflow runbook](automation-runbook-types.md#powershell-workflow-runbooks). So select **Powershell Workflow** for **Runbook type**.
+1. In this case, you're going to create a [PowerShell Workflow runbook](automation-runbook-types.md#powershell-workflow-runbooks). Select **PowerShell Workflow** for **Runbook type**.
 1. Click **Create** to create the runbook and open the textual editor.
 
 ## Step 2 - Add code to the runbook

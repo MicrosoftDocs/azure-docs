@@ -152,7 +152,7 @@ By default, the job history does not store verbose messages from published runbo
 
 When [testing a runbook](automation-testing-runbook.md), verbose messages aren't displayed even if the runbook is configured to log verbose records. To display verbose messages while [testing a runbook](automation-testing-runbook.md), you must set the `VerbosePreference` variable to Continue. With that variable set, verbose messages are displayed in the Test output pane of the Azure portal.
 
-The following code reates a verbose message using the [Write-Verbose](https://technet.microsoft.com/library/hh849951.aspx) cmdlet.
+The following code creates a verbose message using the [Write-Verbose](https://technet.microsoft.com/library/hh849951.aspx) cmdlet.
 
 ```powershell
 #The following line creates a verbose message.

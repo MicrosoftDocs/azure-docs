@@ -50,7 +50,7 @@ Start by creating a simple runbook that outputs the text `Hello World`.
 2. Select **Runbooks** under **Process Automation** to open the list of runbooks.
 3. Create a new runbook by selecting **Create a runbook**.
 4. Give the runbook the name **MyFirstRunbook-PowerShell**.
-5. In this case, you're going to create a [PowerShell runbook](automation-runbook-types.md#powershell-runbooks). Select **Powershell** for **Runbook type**.
+5. In this case, you're going to create a [PowerShell runbook](automation-runbook-types.md#powershell-runbooks). Select **PowerShell** for **Runbook type**.
 6. Click **Create** to create the runbook and open the textual editor.
 
 ## Step 2 - Add code to the runbook
