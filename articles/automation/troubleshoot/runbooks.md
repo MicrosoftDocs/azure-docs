@@ -604,7 +604,7 @@ Run As accounts might not have the same permissions against Azure resources as y
 
 ### Issues passing parameters into webhooks
 
-For help with passing parameters into webhooks, see [Start a runbook from a webhook](https://docs.microsoft.com/azure/automation/automation-webhooks#parameters).
+For help with passing parameters into webhooks, see [Start a runbook from a webhook](../automation-webhooks.md#parameters-used-when-the-webhook-starts-a-runbook).
 
 ### Issues using Az modules
 
@@ -625,7 +625,7 @@ Run As accounts might not have the same permissions against Azure resources as y
 
 ### Passing parameters into webhooks
 
-For help with passing parameters into webhooks, see [Start a runbook from a webhook](https://docs.microsoft.com/azure/automation/automation-webhooks#parameters).
+For help with passing parameters into webhooks, see [Start a runbook from a webhook](https://docs.microsoft.com/azure/automation/automation-webhooks#parameters-used-when-the-webhook-starts-a-runbook).
 
 ### Using Az modules
 

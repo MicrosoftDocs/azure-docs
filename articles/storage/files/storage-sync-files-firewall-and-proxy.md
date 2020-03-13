@@ -140,6 +140,55 @@ For business continuity and disaster recovery (BCDR) reasons you may have specif
 > - https:\//kailani1.one.microsoft.com (paired fail-over region: East US)
 > - https:\//tm-kailani.one.microsoft.com (discovery URL of the primary region)
 
+### Allow list for Azure File Sync IP addresses
+If your on-premises firewall requires adding specific IP addresses to an allow list to connect to Azure File Sync, you can add the following IP address ranges based on the regions that you are connecting to.
+
+| Region | IP address ranges |
+|--------|-------------------|
+| Central US | 52.176.149.179/32, 20.37.157.80/29 |
+| East US 2 | 40.123.47.110/32, 20.41.5.144/29 |
+| East US | 104.41.148.238/32, 20.42.4.248/29 |
+| North Central US | 65.52.62.167/32, 40.80.188.24/29 |
+| South Central US | 104.210.219.252/32, 13.73.248.112/29 |
+| West US 2 | 52.183.27.204/32, 20.42.131.224/29 |
+| West Central US | 52.161.25.233/32, 52.150.139.104/29 |
+| West US | 40.112.150.67/32, 40.82.253.192/29 |
+| Canada Central | 52.228.42.41/32, 52.228.81.248/29 |
+| Canada East | 52.235.36.119/32, 40.89.17.232/29 |
+| Brazil South | 191.237.253.115/32, 191.235.225.216/29 |
+| North Europe | 40.113.94.67/32, 20.38.85.152/29 |
+| West Europe | 104.40.191.8/32, 20.50.1.0/29 |
+| France Central | 52.143.166.54/32, 20.43.42.8/29 |
+| France South | 52.136.131.99/32, 51.105.88.248/29 |
+| UK South | 51.140.67.72/32, 51.104.25.224/29 |
+| UK West | 51.140.202.34/32, 51.137.161.240/29 |
+| Switzerland North | 51.107.48.224/29 |
+| Switzerland West | 51.107.144.216/29 |
+| Norway West | 51.120.224.216/29 |
+| Norway East | 51.120.40.224/29 |
+| East Asia | 23.102.225.54/32, 20.189.108.56/29 |
+| Southeast Asia | 13.76.81.46/32, 20.43.131.40/29 |
+| Australia Central | 20.37.224.216/29 |
+| Australia Central 2 | 20.36.120.216/29 |
+| Australia East | 13.75.153.240/32, 20.37.195.96/29 |
+| Australia Southeast | 13.70.176.196/32, 20.42.227.128/29 |
+| South India | 104.211.231.18/32, 20.41.193.160/29 |
+| West India | 52.136.48.216/29 |
+| Japan East | 104.41.161.113/32, 20.43.66.0/29 |
+| Japan West | 23.100.106.151/32, 40.80.57.192/29 |
+| Korea Central | 52.231.67.75/32, 20.41.65.184/29 |
+| Korea South | 52.231.159.38/32, 40.80.169.176/29 |
+| US DoD East | 20.140.72.152/29 |
+| US Gov Arizona | 20.140.64.152/29 |
+| US Gov Arizona | 52.244.75.224/32, 52.244.79.140/32 |
+| US Gov Iowa | 52.244.79.140/32, 52.244.75.224/32 |
+| US Gov Texas | 52.238.166.107/32, 52.238.79.29/32 |
+| US Gov Virginia | 13.72.17.152/32, 52.227.153.92/32 |
+| South Africa North | 102.133.175.72/32 |
+| South Africa West | 102.133.75.173/32, 102.133.56.128/29, 20.140.48.216/29 |
+| UAE Central | 20.45.71.151/32, 20.37.64.216/29, 20.140.48.216/29 |
+| UAE North | 40.123.216.130/32, 20.38.136.224/29, 20.140.56.136/29 |
+
 ## Test network connectivity to service endpoints
 Once a server is registered with the Azure File Sync service, the Test-StorageSyncNetworkConnectivity cmdlet and ServerRegistration.exe can be used to test communications with all endpoints (URLs) specific to this server. This cmdlet can help troubleshoot when incomplete communication prevents the server from fully working with Azure File Sync and it can be used to fine tune proxy and firewall configurations.
 
