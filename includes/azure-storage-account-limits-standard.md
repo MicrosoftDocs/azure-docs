@@ -5,7 +5,7 @@
  author: tamram
  ms.service: storage
  ms.topic: include
- ms.date: 03/12/2020
+ ms.date: 03/13/2020
  ms.author: tamram
  ms.custom: include file
 ---
@@ -39,4 +39,4 @@ The following table describes default limits for Azure general-purpose v1, v2, B
 
 If the needs of your application exceed the scalability targets of a single storage account, you can build your application to use multiple storage accounts. You can then partition your data objects across those storage accounts. For information on volume pricing, see [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage/).
 
-All storage accounts run on a flat network topology regardless of when they were created. For more information on the Azure Storage flat network architecture and on scalability, see [Microsoft Azure Storage: A Highly Available Cloud Storage Service with Strong Consistency](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx). A [hierarchical](../articles/storage/blobs/data-lake-storage-namespace.md) namespace can be enabled for a data lake gen2 account in addition to the flat namespace for multiprotocol access. Both flat and hierarchical namespace storage accounts support the same scalability and performance targets outlined in this article.
+All storage accounts run on a flat network topology regardless of when they were created. For more information on the Azure Storage flat network architecture and on scalability, see [Microsoft Azure Storage: A Highly Available Cloud Storage Service with Strong Consistency](https://docs.microsoft.com/archive/blogs/hanuk/windows-azures-flat-network-storage-to-enable-higher-scalability-targets). 
