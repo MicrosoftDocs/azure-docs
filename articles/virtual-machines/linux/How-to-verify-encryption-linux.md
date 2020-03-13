@@ -1,37 +1,39 @@
 ---
-title: How to verify encryption linux 
+title: How to verify encryption status for linux 
 description: This article provides instructions on verifying the encryption status from platform and OS level.
-author: kaib
+author: kailashmsft
 ms.service: security
 ms.topic: article
-ms.author: kaib
+ms.author: kailashmsft
 ms.date: 03/11/2020
 
 ms.custom: seodec18
 
 ---
 
-# Scenario
+
+
+# How to verify encryption status for Linux 
 
 **This scenario is applicable to ADE dual-pass and single-pass extensions.**  
 This Document scope is to validate the encryption status of a virtual machine using different methods.
 
-## Environment
+# Environment
 
 - Linux distributions
 
-### Procedure
+# Procedure
 
 1. A virtual machine has been encrypted using dual-pass or single-pass.
 2. Once the encryption process is triggered (in progress) or has been completed, we can validate the encryption status using different methods defined below
 
-## Verification
+# Verification
 
 The encryption status validation can be done from the Portal, PowerShell, AZ CLI and/or within the VM (OS side). Below the different validations methods:
 
-1. Using the Portal:
+## Using the Portal:
 
-a. You can validate the encryption status of a virtual machine by taking a look at the extensions blade in the corresponding virtual machine from the Portal.
+- You can validate the encryption status of a virtual machine by taking a look at the extensions blade in the corresponding virtual machine from the Portal.
 Inside the **Extensions** blade, you will see the ADE extension listed. You can click it and take a look at the **status message** which will indicate the current encryption status:
 
 ![Portal check number 1](./media/disk-encryption/verify-encryption-linux/portal-check-001.png)
@@ -43,15 +45,17 @@ You can also get further details clicking on the extension and then on *View det
 
 ![Portal check number 3](./media/disk-encryption/verify-encryption-linux/portal-check-003.png)
 
-b. Another way of validating the encryption status is by taking a look at the **Disks** blade. Over there, you get to see if encryption is enabled on each disk attached to a particular VM.
+- Another way of validating the encryption status is by taking a look at the **Disks** blade. Over there, you get to see if encryption is enabled on each disk attached to a particular VM.
 
 ![Portal check number 4](./media/disk-encryption/verify-encryption-linux/portal-check-004.png)
 
-**Note:** As a warning, this status is not too accurate. This just means the disks have encryption settings stamped but not that they were actually encrypted at OS level. Unfortunately by the way the ADE extension design works today, the disks get stamped first and encrypted later. If the encryption process fails, the disks may end up stamped but not encrypted. To confirm if the disks are truly encrypted, you can double check the encryption of each disk at OS level, following instructions in one of the upcoming sections.
+>[!NOTE] 
 
-2. Using PowerShell:
+> As a warning, this status is not too accurate. This just means the disks have encryption settings stamped but not that they were actually encrypted at OS level. Unfortunately by the way the ADE extension design works today, the disks get stamped first and encrypted later. If the encryption process fails, the disks may end up stamped but not encrypted. To confirm if the disks are truly encrypted, you can double check the encryption of each disk at OS level, following instructions in one of the upcoming sections.
 
-    a.  You can validate the **general** encryption status of an encrypted VM using the following PowerShell commands:
+## Using PowerShell:
+
+    You can validate the **general** encryption status of an encrypted VM using the following PowerShell commands:
 
     ```azurepowershell
     $VMNAME="VMNAME"
@@ -59,10 +63,12 @@ b. Another way of validating the encryption status is by taking a look at the **
     Get-AzVmDiskEncryptionStatus -ResourceGroupName  ${RGNAME} -VMName ${VMNAME}
     ```
 
-**Note:** replace the "VMNAME" and "RGNAME" variables accordingly
+>[!NOTE]
+> Replace the "VMNAME" and "RGNAME" variables accordingly
+
 ![verify status PowerShell 1](./media/disk-encryption/verify-encryption-linux/verify-status-ps-01.png)
 
-b.  You can capture the encryption settings from each individual disk using the following PowerShell commands:
+    You can capture the encryption settings from each individual disk using the following PowerShell commands:
 
 **Single-Pass:**
 In the case of single-pass the encryption settings are stamped in each of the disks (OS and Data).
@@ -91,7 +97,9 @@ In case the disk does not have encryption settings stamped, the output will be e
 
 ![OS Encryption settings 2](./media/disk-encryption/verify-encryption-linux/os-encryption-settings-2.png)
 
-**Note:** replace the $VMNAME and $RGNAME variables accordingly
+>[!NOTE]
+> Replace the $VMNAME and $RGNAME variables accordingly
+
 Capture Data disk(s) encryption settings:
 
 ```azurepowershell
@@ -116,7 +124,9 @@ $VM = Get-AzVM -Name ${VMNAME} -ResourceGroupName ${RGNAME}
 
 ![Verify data single ps 001](./media/disk-encryption/verify-encryption-linux/verify-data-single-ps-001.png)
 
-**Note:** replace the "VMNAME" and "RGNAME" variables accordingly
+>[!NOTE]
+- Replace the "VMNAME" and "RGNAME" variables accordingly
+
 
 **Dual-Pass**:
 In the case of dual pass, the encryption settings are stamped in the VM model and not on in individual disk.
@@ -141,10 +151,12 @@ Write-Host "Key URL:" $Sourcedisk.EncryptionSettingsCollection.EncryptionSetting
 Write-Host "============================================================================================================================================================="
 ```
 
-**Note:** replace the "VMNAME" and "RGNAME" variables accordingly
+>[!NOTE]
+> Replace the "VMNAME" and "RGNAME" variables accordingly
+
 ![Verify dual pass PowerShell  1](./media/disk-encryption/verify-encryption-linux/verify-dual-ps-001.png)
 
-1. Using AZ CLI:
+## Using AZ CLI:
 
 You can validate the **general** encryption status of an encrypted VM using the following AZ CLI commands:
 
@@ -154,7 +166,9 @@ RGNAME="RGNAME"
 az vm encryption show --name ${VMNAME} --resource-group ${RGNAME} --query "substatus"
 ```
 
-**Note:** replace the "VMNAME" and "RGNAME" variables accordingly
+>[!NOTE] 
+> Replace the "VMNAME" and "RGNAME" variables accordingly
+
 ![Verify general using CLI ](./media/disk-encryption/verify-encryption-linux/verify-gen-cli.png)
 
 Single Pass:
@@ -164,7 +178,9 @@ You can validate the encryption settings from each individual disk using the fol
 az vm encryption show -g ${RGNAME} -n ${VMNAME} --query "disks[*].[name, statuses[*].displayStatus]"  -o table
 ```
 
-**Note:** replace the $VMNAME and $RGNAME variables accordingly
+>[!NOTE]
+> Replace the $VMNAME and $RGNAME variables accordingly
+
 ![Data encryption settings](./media/disk-encryption/verify-encryption-linux/data-encryption-settings-2.png)
 
 **Important:** In case the disk does not have encryption settings stamped, it will be shown as **Disk is not encrypted**
@@ -232,7 +248,7 @@ done
 
 ![Verify vm profile dual using CLI ](./media/disk-encryption/verify-encryption-linux/verify-vm-profile-dual-cli.png)
 
-4. From the Linux VM OS:
+## From the Linux VM OS:
 Validate if the data disk partitions are encrypted (and the OS disk is not). When a partition/disk is encrypted it's displayed as **crypt** type, when it's not encrypted it is displayed as **part/disk** type
 
 ``` bash
@@ -262,3 +278,8 @@ And which dm devices are listed as crypt
 
 ```bash
 dmsetup ls --target crypt
+```
+
+## Next Steps
+
+- [Azure Disk Encryption troubleshooting](disk-encryption-troubleshooting.md)
