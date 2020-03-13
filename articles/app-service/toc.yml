@@ -176,7 +176,7 @@
     - name: Configure TLS mutual authentication
       href: app-service-web-configure-tls-mutual-auth.md
     - name: Encrypt site data
-      href: app-service-encrypt-at-rest-using-cmk.md
+      href: configure-encrypt-at-rest-using-cmk.md
   - name: Scale app
     items:
     - name: Scale up server capacity
