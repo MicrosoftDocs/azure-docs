@@ -33,33 +33,7 @@ Your private endpoint and virtual network must be in the same region. When you s
 
 Your private endpoint uses a private IP address in your virtual network.
 
-## Establish a private link connection to a namespace
-
-First, create a virtual network by following the steps in [Create a virtual network using the Azure portal](../virtual-network/quick-create-portal.md)
-
-You can then either create a new Event Hubs namespace, or establish a private link connection to an existing namespace.
-
-### Create an Event Hubs namespace and establish a private link connection
-You can create a new Event Hubs namespace and event hub by following the steps in [Create an event hub](event-hubs-create.md)
-
-After configuring the basics for the namespace, select the **Networking** tab and follow these steps:
-
-1. Select the **Private Endpoint (preview)** radio button in the **Networking** tab.
-1. Click the **+ Add** Button to add a private endpoint.
-
-    ![Image](./media/private-link-service/private-link-service-1.png) 
-1. In the **Location** field of the **Create Private Endpoint** page, select the **region** in which your virtual network is located. 
-1. In the **Name** field, create a descriptive name that will allow you to identify this private endpoint. 
-1. Select the **virtual network** and **subnet** you want this private endpoint to be created in from the dropdown menu. 
-1. Leave **integrate with the private zone DNS** option unchanged.  
-1. Select **Ok**.
-
-    ![Image](./media/private-link-service/private-link-service-2.png)
- 
-You can see the configured private endpoint now. You now have the option to delete and edit this private endpoint. 
-Select the **Review + Create** button and create the **Event Hubs namespace**. It will take 5-10 minutes for the deployment to complete. 
-
-### Establish a private link connection to an existing namespace
+## Add a private endpoint connection
 
 If you already have an Event Hubs namespace, you can create a private link connection by following these steps:
 
@@ -102,7 +76,7 @@ If you already have an Event Hubs namespace, you can create a private link conne
 
     ![Private endpoint created](./media/private-link-service/private-endpoint-created.png)
 
-## Manage private link connection
+## Manage private endpoint connection
 
 When you create a private endpoint, the connection must be approved. If the resource for which you're creating a private endpoint is in your directory, you can approve the connection request provided you have sufficient permissions. If you're connecting to an Azure resource in another directory, you must wait for the owner of that resource to approve your connection request.
 
@@ -124,6 +98,8 @@ There are four provisioning states:
 1. If there are any connections that are pending, you will see a connection listed with **Pending** in the provisioning state. 
 1. Select the **private endpoint** you wish to approve
 1. Select the **Approve** button.
+
+    ![Image](./media/private-link-service/approve-private-endpoint.png)
 1. If there are any private endpoint connections you want to reject, whether it is a pending request or existing connection, select the connection and click the **Reject** button.
 
     ![Image](./media/private-link-service/private-endpoint-reject-button.png)
