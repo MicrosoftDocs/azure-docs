@@ -276,7 +276,7 @@ Internal server error.
 
 Gets the specified SaaS subscription. Use this call to get license information and plan information.
 
-##### Get<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId?api-version=<ApiVersion>`
+##### Get<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>?api-version=<ApiVersion>`
 
 *Query parameters:*
 
@@ -588,7 +588,7 @@ Internal server error.
 
 Unsubscribe and delete the specified subscription.
 
-##### Delete<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId> ?api-version=<ApiVersion>`
+##### Delete<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>?api-version=<ApiVersion>`
 
 *Query parameters:*
 
