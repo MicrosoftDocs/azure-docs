@@ -13,7 +13,7 @@ metadata:
   ms.collection: collection
   author: spelluru #Required; your GitHub user alias, with correct capitalization.
   ms.author: spelluru #Required; microsoft alias of author; optional team alias.
-  ms.date: 01/29/2020 #Required; mm/dd/yyyy format.
+  ms.date: 03/13/2020 #Required; mm/dd/yyyy format.
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -89,6 +89,28 @@ landingContent:
             url: event-hubs-kafka-connect-tutorial.md
           - text: Connect Akka streams to an event hub
             url: event-hubs-kafka-akka-streams-tutorial.md
+
+  # Card
+  - title: Event Hubs on Azure Stack 
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Overview
+            url: /azure-stack/user/event-hubs-overview
+          - text: Common feature set
+            url: /azure-stack/user/event-hubs-overview
+      - linkListType: how-to-guide
+        links:
+          - text: Capacity planning
+            url: /azure-stack/operator/event-hubs-rp-capacity-planning
+          - text: Installation prerequisites (operator)
+            url: /azure-stack/operator/event-hubs-rp-prerequisites
+          - text: Installation (operator)
+            url: /azure-stack/operator/event-hubs-rp-install            
+      - linkListType: quickstart
+        links:
+          - text: Create a cluster
+            url: /user/event-hubs-quickstart-cluster-portal
 
   # Card
   - title: Send and receive events
