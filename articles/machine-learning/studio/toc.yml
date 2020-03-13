@@ -143,8 +143,6 @@
       href: consuming-from-excel.md
     - name: Use Excel add-in
       href: excel-add-in-for-web-services.md
-    - name: Use Batch Pool
-      href: dedicated-capacity-for-bes-jobs.md
   - name: Use cases
     items: 
     - name: Customer churn
