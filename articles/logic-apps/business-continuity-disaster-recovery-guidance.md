@@ -16,54 +16,60 @@ To help reduce the impact and effects that unpredictable events can have on your
 
 This article provides guidance for planning and creating a disaster recovery solution for the automated workflows that you can build and run by using [Azure Logic Apps](../logic-apps/logic-apps-overview.md). These logic app workflows help you integrate and orchestrate data between various apps, cloud-based services, and on-premises systems.
 
-When you design a disaster recovery strategy, consider not only your logic apps but also any [integration accounts](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) that you have for defining and storing B2B artifacts used in [enterprise integration scenarios](../logic-apps/logic-apps-enterprise-integration-overview.md), and any [integration service environments (ISEs)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) that you have for running logic apps in an isolated Logic Apps runtime instance.
+When you design a disaster recovery strategy, consider not only your logic apps but also any [integration accounts](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) that you use for defining and storing B2B artifacts used in [enterprise integration scenarios](../logic-apps/logic-apps-enterprise-integration-overview.md), and any [integration service environments (ISEs)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) that you use for running logic apps in an isolated instance of the Logic Apps runtime.
 
 Each logic app specifies a location to use for deployment. This location is either a public region in global multi-tenant Azure or a previously created ISE that's deployed into an Azure virtual network. If your logic apps need to use B2B artifacts that are stored in an integration account, both your integration account and logic apps must use the same location. Running logic apps in an ISE is similar to running logic apps in a public Azure region, so your disaster recovery strategy can apply to both scenarios. However, an ISE might require that you consider additional or other elements, such as network configuration.
 
 ## Primary and secondary locations
 
-This disaster recovery strategy focuses on setting up your primary logic app instance to *failover* onto a standby or backup instance in an alternate location where Azure Logic Apps is available. That way, if the primary instance suffers losses or failures, the secondary instance can take on the load from the primary instance. For this strategy, you need to have your logic app and dependent resources already deployed and ready to run in the alternate location.
+This disaster recovery strategy focuses on setting up your primary logic app instance to *failover* onto a standby or backup instance in an alternate location where Azure Logic Apps is available. That way, if the primary instance suffers losses or failures, the secondary instance can take on the load instead. For this strategy, you need to have your logic app and dependent resources already deployed and ready to run in the alternate location.
 
 If you follow good DevOps practices, you already use Azure Resource Manager templates to define and deploy logic apps and their dependent resources These templates give you the capability to use parameter files that specify different configuration values to use for deployment, based on the destination region or environment, such as build, test, and production.
 
-For example, this illustration shows primary and secondary logic app instances, which are hosted in separate ISEs in this scenario. A single Resource Manager template defines the logic app and the dependent resources for deployment. Separate parameter files contain the configuration values to use for deployment to each location:
+For example, this illustration shows primary and secondary logic apps, which are deployed to separate ISEs in this scenario. A single Resource Manager template defines both logic apps and the dependent resources for deployment. Separate parameter files define the configuration values to use for deployment to each location:
 
-![Primary and secondary instances in different locations](./media/business-continuity-disaster-recovery-guidance/primary-secondary-locations.png)
+![Primary and secondary logic apps in different locations](./media/business-continuity-disaster-recovery-guidance/primary-secondary-locations.png)
 
-Your instances and locations must meet these requirements:
+Your logic apps and locations must meet these requirements:
 
-* You need to set up the secondary instance to handle incoming requests and automated workloads, either recurring or polling.
+* You need to set up the secondary logic app instance to handle incoming requests and automated workloads, either recurring or polling.
 
-* Both locations should have the same host type. You can deploy a logic app to either a public region in multi-tenant Azure or to an ISE. To support a disaster recovery strategy, both locations should be either multi-tenant Azure or ISEs.
+* Both locations should have the same host type. You can deploy a logic app to either a public region in multi-tenant Azure or to an ISE. However, to support a disaster recovery strategy, both locations should be in either multi-tenant Azure or ISEs.
 
-  For example, both locations must be ISEs in this scenario:
+  For example, this scenario requires that both locations are ISEs:
 
   * Your primary logic app runs in an ISE, uses ISE-versioned connectors, and integrates with resources in the associated virtual network.
 
   * You expect this same logic app to run with a similar configuration in the secondary location.
 
-  In more advanced scenarios, you can have locations in both multi-tenant Azure and an ISE. However, make that you consider and understand the differences between how a logic app and its connections run in each location.
+  In more advanced scenarios, you can mix both multi-tenant Azure and an ISE as locations. However, make that you consider and understand the differences between how logic apps, built-in triggers and actions, and managed connectors run in each location.
 
 ## Active-active and active-passive roles
 
-You can set up your primary and secondary locations so that the instances in those locations play these roles: *active-active*, *active-passive*, or some combination of both.
+You can set up your primary and secondary locations so that the logic app instances in those locations play these roles.
 
 | Primary-secondary role | Description |
 |------------------------|-------------|
-| Active-active | Both instances actively handle requests. <p>- You can have the secondary instance listen to an HTTP endpoint, and load balance traffic between the two instances. <p>- Or, you can have the secondary instance act as a competing consumer so that both instances compete for messages from a queue. If one instance fails, the other instance takes over the workload. |
-| Active-passive | The primary instance handles the entire workload, while the secondary instance is passive and doesn't do any work. However, the secondary waits for a signal that the primary can't do any work due to disruption. When this signal happens, the secondary takes over as the active instance. |
-| Combination | One instance is set up as active-active, while other instance is set up as active-passive. |
+| *Active-active* | Logic app instances in both locations actively handle requests, for example: <p><p>- You can have the secondary instance listen to an HTTP endpoint, and then load balance traffic between the two instances as necessary. <p>- You can have the secondary instance act as a competing consumer so that both instances compete for messages from a queue. If one instance fails, the other instance takes over the workload. |
+| *Active-passive* | The primary instance handles the entire workload, while the secondary instance is passive and inactive. The secondary waits for a signal that the primary can no longer function due to a disruption. On receiving this signal happens, the secondary takes over as the active instance. |
+| Some combination of both | For example, some logic apps play an active-active role, while other logic apps play an active-passive role. |
 |||
 
 ## Logic app state
 
-When a logic app is invoked and runs, its state is persisted in the location where it started. The state of a running logic app is non-transferable to an alternate location. When a failure occurs, the in-flight instances would be abandoned and new instances would execute on the secondary location.
+When your logic app is triggered and starts running, the app's state is stored at the location where the app started and is non-transferrable to another location. If a failure or disruption happens, any in-progress workflow instances are abandoned. When you have a primary and secondary locations set up, new workflow instances start running at the secondary location.
 
-Patterns can be implemented to mitigate the number of abandoned in-flight instances when a disaster occurs. One pattern that can be implemented is the fixed routing-slip enterprise message pattern (https://www.enterpriseintegrationpatterns.com/patterns/messaging/RoutingTable.html) where the business process would be split into several smaller logic apps stages where the inter-communication between the stages uses an asynchronous messaging protocol like Service Bus queues or topics. Having these logic apps executing on both the primary and secondary would allow for a competing consumer pattern in an active-active configuration. By splitting up the logic apps into smaller stages can reduce the number of in-flight business processes that could be stuck running on the failed instance.
- 
-[PICTURE: A business process broken up into a series of stages that transition between the stages using queues]
+To minimize the number of abandoned in-progress workflow instances, you can choose from these patterns to implement:
 
-Logic Apps provides the ability to interrogate the details of previous executions through the run history. That run history is stored in the location where the logic app had executed and is non-transferable. When you need to fail over to the secondary location you will only be able to access the history of logic apps that have executed in that location. To provide insight of the executions of logic apps that is location agnostic configure your logic apps to emit diagnostic events to log analytics which can provide cross logic app and cross location insights into the health of your logic apps.
+* [Fixed routing slip pattern](https://www.enterpriseintegrationpatterns.com/patterns/messaging/RoutingTable.html)
+
+   This enterprise message pattern splits a business process into smaller stages where a logic app handles the workload for each stage. These logic apps communicate with each other by using an asynchronous messaging protocol, such as Azure Service Bus queues or topics. By having these logic apps in both primary and secondary locations, you can implement the competing consumer pattern by setting up active-active roles for the instances in the primary and secondary locations.
+
+   When you divide a process into smaller stages, you can reduce the number of stages that might get stuck on a failed instance.
+
+   ![Business process split into stages that communicate with each other by using Azure Service Bus queues](./media/business-continuity-disaster-recovery-guidance/fixed-routing-slip-pattern.png)
+
+ * Logic Apps has the capability for you to find details about previous instance executions by using the run history. This run history is stored in the location where the logic app had executed and is non-transferable. When you need to fail over to the secondary location you will only be able to access the history of logic apps that have executed in that location. To provide insight of the executions of logic apps that is location agnostic configure your logic apps to emit diagnostic events to log analytics which can provide cross logic app and cross location insights into the health of your logic apps.
 
 ## Considerations for different trigger types
 
