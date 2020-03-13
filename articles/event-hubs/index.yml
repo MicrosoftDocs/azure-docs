@@ -130,7 +130,7 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Create Event Hubs cluster
-            url: azure-stack/user/event-hubs-quickstart-cluster-portal
+            url: /azure-stack/user/event-hubs-quickstart-cluster-portal
 
   # Card
   - title: Capture events
