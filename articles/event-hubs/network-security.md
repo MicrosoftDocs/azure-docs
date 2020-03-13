@@ -1,17 +1,17 @@
 ---
-title: Network security for Azure Event Grid resources
+title: Network security for Azure Event Hubs 
 description: This article describes how to configure access from private endpoints
-services: event-grid
+services: event-hubs
 author: spelluru
 
-ms.service: event-grid
+ms.service: event-hubs
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: spelluru
 ---
 
-# Network security for Azure Event Grid resources
-This article describes how to use the following security features with Azure Event Grid: 
+# Network security for Azure Event Hubs 
+This article describes how to use the following security features with Azure Event Hubs: 
 
 - Service tags
 - IP Firewall rules
