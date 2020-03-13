@@ -1,7 +1,7 @@
 ---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
 title: Become an on-premises encoder partner - Azure Media Services 
-description: Become an on-premises encoder partner with Azure Media Services.
+description: This article discusses how to verify your on-premises live streaming encoders.
 services: media-services
 author: johndeu
 manager: johndeu
@@ -21,7 +21,7 @@ ms.service: media-services
 # manager: MSFT-alias-manager-or-PM-counterpart
 ---
  
-# How to verify your on-premises encoder
+# How to verify your on-premises live streaming encoder
 
 As an Azure Media Services on-premises encoder partner, Media Services promotes your product by recommending your encoder to enterprise customers. To become an on-premises encoder partner, you must verify compatibility of your on-premises encoder with Media Services. To do so, complete the following verifications.
 
