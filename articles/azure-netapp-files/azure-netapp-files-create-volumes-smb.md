@@ -13,8 +13,8 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/05/2020
-ms.author: b-juche
+ms.date: 03/13/2020
+ms.author: b-juche, lichunli
 ---
 # Create an SMB volume for Azure NetApp Files
 
@@ -71,13 +71,56 @@ A subnet must be delegated to Azure NetApp Files.
     
 See Azure NetApp Files [SMB FAQs](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-faqs#smb-faqs) about additional AD information. 
 
+## Decide which Domain Services to use 
+
+Azure NetApp Files supports both [Active Directory Domain Services](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/understanding-active-directory-site-topology) (ADDS) and Azure Active Directory Domain Services (AADDS) for AD connections.  Before you create an AD connection, you need to decide whether to use ADDS or AADDS.  
+
+See [Compare self-managed Active Directory Domain Services, Azure Active Directory, and managed Azure Active Directory Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/compare-identity-solutions) for more information. 
+
+### Active Directory Domain Services (ADDS)
+
+You can use your preferred [Active Directory Sites and Services(https://docs.microsoft.com/windows-server/identity/ad-ds/plan/understanding-active-directory-site-topology)] scope for Azure NetApp Files. This option enables reads and writes to an Active Directory Domain Services (ADDS) domain controllers that are [accessible by Azure NetApp Files](azure-netapp-files-network-topologies.md). It also prevents the service from communicating with domain controllers that are not in the specified AD Sites and Services site. 
+
+To find your site name when you use ADDS, you can contact the administrative group in your organization that is responsible for Active Directory Domain Services. The example below shows the Active Directory Sites and Services plugin where the site name is displayed: 
+
+![Active Directory Sites and Services](../media/azure-netapp-files/azure-netapp-files-active-directory-sites-and-services.png)
+
+When you configure an AD connection for Azure NetApp Files, you specify the site name  in scope for the AD Site Name field.
+
+### Azure Active Directory Domain Services 
+
+For Azure Active Directory Domain Services (AADDS) configuration, best practices, and guidance, see [Azure AD Domain Services documentation](https://docs.microsoft.com/azure/active-directory-domain-services/).
+
+Additional AADDS best practices and considerations apply for Azure NetApp Files: 
+
+* Ensure the VNet or subnet where AADDS is deployed is in the same Azure region as the Azure NetApp Files deployment.
+* If you use another VNet in the region where Azure NetApp Files is deployed, you should create a peering between the two VNets.
+* Azure NetApp Files supports 'user' and 'resource forest' types.
+* For synchronization type, you can select from 'All' or 'Scoped'. If Scoped is selected, ensure the correct Azure AD group is selected for accessing SMB shares.  If you are uncertain, you can use the 'All' synchronization type.
+* Use of the Enterprise or Premium SKU is required. The Standard SKU is not supported.
+
+When you create an Active Directory connection, note the following specifics for AADDS:
+
+* You can find information for **Primary DNS**, **Secondary DNS Servers**, and **AD DNS Domain Name** in the AADDS menu.  
+For DNS servers, two IP addresses will be used for configuring the Active Directory connection. 
+* The **organizational unit path** is `OU=AADDC Computers`.  
+This setting is configured in the **Active Directory Connections** under **NetApp Account**:
+
+  ![Organizational unit path](../media/azure-netapp-files/azure-netapp-files-org-unit-path.png)
+
+* **Username** credentials can be any user that is a member of the Azure AD group **Azure AD DC Administrators**.
+
+
 ## Create an Active Directory connection
 
 1. From your NetApp account, click **Active Directory connections**, then click **Join**.  
 
     ![Active Directory Connections](../media/azure-netapp-files/azure-netapp-files-active-directory-connections.png)
 
-2. In the Join Active Directory window, provide the following information:
+2. In the Join Active Directory window, provide the following information, based on the Domain Services you want to use: 
+
+    See the Decide which Domain Services to use section above about information specific to the Domain Services you use. 
+
 
     * **Primary DNS**  
         This is the DNS that is required for the Active Directory domain join and SMB authentication operations. 
@@ -90,7 +133,7 @@ See Azure NetApp Files [SMB FAQs](https://docs.microsoft.com/azure/azure-netapp-
     * **SMB server (computer account) prefix**  
         This is the naming prefix for the machine account in Active Directory that Azure NetApp Files will use for creation of new accounts.
 
-        For example, if the naming standard that your organization uses for file servers is NAS-01, NAS-02..., NAS-045, then you would enter “NAS” for the prefix. 
+        For example, if the naming standard that your organization uses for file servers is NAS-01, NAS-02..., NAS-045, then you would enter "NAS" for the prefix. 
 
         The service will create additional machine accounts in Active Directory as needed.
 
