@@ -11,14 +11,14 @@ ms.reviewer: sngun
 ---
 # Troubleshoot query issues when using Azure Cosmos DB
 
-This article walks through a general recommended approach for troubleshooting queries in Azure Cosmos DB. Although you shouldn't consider the steps outlined in this article a complete defense against potential query issues, we have included the most common performance tips here. You should use this article as a starting place for troubleshooting slow or expensive queries in the Azure Cosmos DB core (SQL) API. You can also use [diagnostics logs](cosmosdb-monitor-resource-logs.md) to identify queries that are slow or that consume significant amounts of throughput.
+This article walks through a general recommended approach for troubleshooting queries in Azure Cosmos DB. Although you shouldn't consider the steps outlined in this article a complete defense against potential query issues, we've included the most common performance tips here. You should use this article as a starting place for troubleshooting slow or expensive queries in the Azure Cosmos DB core (SQL) API. You can also use [diagnostics logs](cosmosdb-monitor-resource-logs.md) to identify queries that are slow or that consume significant amounts of throughput.
 
 You can broadly categorize query optimizations in Azure Cosmos DB: 
 
 - Optimizations that reduce the Request Unit (RU) charge of the query
 - Optimizations that just reduce latency
 
-If you reduce the RU charge of a query, you will almost certainly decrease latency as well.
+If you reduce the RU charge of a query, you'll almost certainly decrease latency as well.
 
 This article provides examples that you can re-create by using the [nutrition](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json) dataset.
 
@@ -54,9 +54,9 @@ Refer to the following sections to understand the relevant query optimizations f
 
 - [Include necessary paths in the indexing policy.](#include-necessary-paths-in-the-indexing-policy)
 
-- [Understand which system functions use the index.](#understand-which-system-functions-utilize-the-index)
+- [Understand which system functions use the index.](#understand-which-system-functions-use-the-index)
 
-- [Modify queries that have both a filter and an ORDER BY clause.](#queries-with-both-a-filter-and-an-order-by-clause)
+- [Modify queries that have both a filter and an ORDER BY clause.](#modify-queries-that-have-both-a-filter-and-an-order-by-clause)
 
 - [Optimize JOIN expressions by using a subquery.](#optimize-join-expressions-by-using-a-subquery)
 
@@ -66,9 +66,9 @@ Refer to the following sections to understand the relevant query optimizations f
 
 - [Avoid cross partition queries.](#avoid-cross-partition-queries)
 
-- [Optimize queries that have filters on multiple properties.](#filters-on-multiple-properties)
+- [Optimize queries that have filters on multiple properties.](#optimize-queries-that-have-filters-on-multiple-properties)
 
-- [Modify queries that have both a filter and an ORDER BY clause.](#queries-with-both-a-filter-and-an-order-by-clause)
+- [Modify queries that have both a filter and an ORDER BY clause.](#modify-queries-that-have-both-a-filter-and-an-order-by-clause)
 
 <br>
 
@@ -400,7 +400,7 @@ In Azure Cosmos DB, your provisioned throughput is measured in Request Units (RU
 
 ### Increase MaxConcurrency
 
-Parallel queries work by querying multiple partitions in parallel. But data from an individual partitioned collection is fetched serially with respect to the query. So, if you set MaxConcurrency to the number of partitions, you have the best chance of achieving the most performant query, provided all other system conditions remain the same. If you don't know the number of partitions, you can set MaxConcurrency (or MaxDegreesOfParallelism in older SDK versions) to a high number, and the system will choose the minimum (number of partitions, user provided input) as the maximum degree of parallelism.
+Parallel queries work by querying multiple partitions in parallel. But data from an individual partitioned collection is fetched serially with respect to the query. So, if you set MaxConcurrency to the number of partitions, you have the best chance of achieving the most performant query, provided all other system conditions remain the same. If you don't know the number of partitions, you can set MaxConcurrency (or MaxDegreesOfParallelism in older SDK versions) to a high number. The system will choose the minimum (number of partitions, user provided input) as the maximum degree of parallelism.
 
 ### Increase MaxBufferedItemCount
 
