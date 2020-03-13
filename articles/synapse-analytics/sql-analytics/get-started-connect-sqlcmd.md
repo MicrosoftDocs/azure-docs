@@ -1,7 +1,7 @@
 ---
 title: Connect to SQL Analytics using sqlcmd
-description: Use the sqlcmd command-line utility to connect to and query SQL on-demand and SQL pool.
-services: synapse-analytics
+description: Use the sqlcmd command-line utility to connect to and query SQL on-demand (preview) and SQL pool.
+services: synapse analytics
 author: azaricstefan 
 ms.service: synapse-analytics
 ms.topic: overview 
@@ -12,8 +12,9 @@ ms.reviewer: jrasnick
 ---
 
 # Connect to SQL Analytics with sqlcmd
+
 > [!div class="op_single_selector"]
-> * [Azure Data Studio](get-started-azure-data-studio.md)
+> * [Azure Data Studio (preview)](get-started-azure-data-studio.md)
 > * [Power BI](get-started-power-bi-professional.md)
 > * [Visual Studio](../../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md)
 > * [sqlcmd](get-started-connect-sqlcmd.md)
@@ -21,7 +22,7 @@ ms.reviewer: jrasnick
 > 
 > 
 
-You can use the [sqlcmd](https://docs.microsoft.com/sql/tools/sqlcmd-utility?redirectedfrom=MSDN&view=sql-server-ver15) command-line utility to connect to and query SQL on-demand and SQL pool within SQL Analytics.  
+You can use the [sqlcmd](https://docs.microsoft.com/sql/tools/sqlcmd-utility?redirectedfrom=MSDN&view=sql-server-ver15) command-line utility to connect to and query SQL on-demand (preview) and SQL pool within SQL Analytics.  
 
 ## 1. Connect
 To get started with [sqlcmd](https://docs.microsoft.com/sql/tools/sqlcmd-utility?redirectedfrom=MSDN&view=sql-server-ver15), open the command prompt and enter **sqlcmd** followed by the connection string for your SQL Analytics database. The connection string requires the following parameters:

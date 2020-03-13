@@ -1,7 +1,7 @@
 ---
-title: T-SQL feature differences - Azure Synapse Analytics
-description: List of Transact-SQL features that are available in SQL Pool and SQL On-Demand.
-services: synapse-analytics
+title: T-SQL feature differences
+description: List of Transact-SQL features that are available in SQL pool and SQL on-demand (preview).
+services: synapse analytics
 author: jovanpop-msft
 ms.service: synapse-analytics
 ms.topic: overview
@@ -11,23 +11,23 @@ ms.author: jovanpop
 ms.reviewer: jrasnick
 ---
 
-# Transact-SQL features supported in Synapse
+# Transact-SQL features supported in Azure Synapse Analytics
 
 Azure Synapse Analytic is a big data analytic service that enables you to query and analyze your data using the powerful query languages. You can use the following languages for data analysis:
 
-- Transact-SQL language - standard ANSI-compliant dialect of SQL language used on SQL Server and Azure SQL Database. This language is available in SQL Pool and SQL On-Demand capability.
-- Spark SQL, PySpark(Python), Scala(Java), and .NET Spark (C#) languages that are used on Apache Spark. These languages are available on Spark pool capability.
+- Transact-SQL language - standard ANSI-compliant dialect of SQL language used on SQL Server and Azure SQL Database. This language is available in SQL pool and SQL on-demand (preview) capability.
+- Spark SQL, PySpark(Python), Scala(Java), and .NET Spark (C#) languages that are used on Apache Spark. These languages are available on Spark pool (preview) capability.
 
-Transact-SQL language is used in SQL Pools and SQL On-Demand can reference different objects and has some differences in the set of supported features. In this page, you can find high-level Transact-SQL language differences between SQL Pools and SQL On-Demand Capabilities.
+Transact-SQL language is used in SQL pools and SQL on-demand (preview) can reference different objects and has some differences in the set of supported features. In this page, you can find high-level Transact-SQL language differences between SQL pools and SQL on-demand Capabilities.
 
 ## Database objects
 
-SQL Pools and SQL On-Demand capabilities enable you to use different database objects. The comparison of supported object types is shown in the following table:
+SQL pools and SQL on-demand capabilities enable you to use different database objects. The comparison of supported object types is shown in the following table:
 
-|   | SQL Pool | SQL On-demand |
+|   | SQL pool | SQL on-demand |
 | --- | --- | --- |
-| Tables | [Yes](https://docs.microsoft.com/sql/t-sql/statements/create-table-azure-sql-data-warehouse) | No, SQL On-Demand capability can query only external data placed on [Azure Storage](#storage-options) |
-| Views | [Yes](https://docs.microsoft.com/sql/t-sql/statements/create-view-transact-sql). Views can use [query language elements](#query-language) that are available in SQL Pool. | [Yes](https://docs.microsoft.com/sql/t-sql/statements/create-view-transact-sql). Views can use [query language elements](#query-language) that are available in SQL On-Demand. |
+| Tables | [Yes](https://docs.microsoft.com/sql/t-sql/statements/create-table-azure-sql-data-warehouse) | No, SQL on-demand capability can query only external data placed on [Azure Storage](#storage-options) |
+| Views | [Yes](https://docs.microsoft.com/sql/t-sql/statements/create-view-transact-sql). Views can use [query language elements](#query-language) that are available in SQL pool. | [Yes](https://docs.microsoft.com/sql/t-sql/statements/create-view-transact-sql). Views can use [query language elements](#query-language) that are available in SQL on-demand. |
 | Schemas | [Yes](https://docs.microsoft.com/sql/t-sql/statements/create-schema-transact-sql) | [Yes](https://docs.microsoft.com/sql/t-sql/statements/create-schema-transact-sql) |
 | Temporary tables | [Yes](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-temporary) | [Yes](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-temporary) |
 | Procedures | [Yes](https://docs.microsoft.com/sql/t-sql/statements/create-procedure-transact-sql) | No |
@@ -39,9 +39,9 @@ SQL Pools and SQL On-Demand capabilities enable you to use different database ob
 
 ## Query language
 
-Query languages used in SQL Pools and SQL On-Demand can have different supported features. The following table outlines the most important query language differences in Transact-SQL dialects used in SQL On-Demand and SQL Pools.
+Query languages used in SQL pools and SQL on-demand can have different supported features. The following table outlines the most important query language differences in Transact-SQL dialects used in SQL on-demand and SQL pools.
 
-|   | SQL Pool | SQL On-demand |
+|   | SQL pool | SQL on-demand |
 | --- | --- | --- |
 | SELECT statement | Yes. Transact-SQL query clauses [FOR XML/FOR JSON](https://docs.microsoft.com/sql/t-sql/queries/select-for-clause-transact-sql), [MATCH](https://docs.microsoft.com/sql/t-sql/queries/match-sql-graph) and [PREDICT](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql) are not supported. | Yes. Transact-SQL query clauses [FOR XML/FOR JSON](https://docs.microsoft.com/sql/t-sql/queries/select-for-clause-transact-sql), [MATCH](https://docs.microsoft.com/sql/t-sql/queries/match-sql-graph), [PREDICT](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql), and query hints are not supported. [OFFSET/FETCH](https://docs.microsoft.com/sql/t-sql/queries/select-order-by-clause-transact-sql?view=sql-server-ver15#using-offset-and-fetch-to-limit-the-rows-returned) and [PIVOT/UNPIVOT](https://docs.microsoft.com/sql/t-sql/queries/from-using-pivot-and-unpivot) can be used to only to query data in temporary tables (not external data). |
 | INSERT statement | Yes | Limited (temp tables only) |
@@ -62,9 +62,9 @@ Query languages used in SQL Pools and SQL On-Demand can have different supported
 
 ## Security
 
-SQL Pools and SQL On-Demand enable you to use built-in security features to secure your data and control access. The following table compares high-level differences between capabilities.
+SQL pools and SQL on-demand enable you to use built-in security features to secure your data and control access. The following table compares high-level differences between capabilities.
 
-|   | SQL Pool | SQL On-demand |
+|   | SQL pool | SQL on-demand |
 | --- | --- | --- |
 | Logins | N/A (only contained users are supported in DW databases) | Yes |
 | Users | Yes. **Note:** only one AAD user can be unrestricted admin | Yes |
@@ -75,13 +75,13 @@ SQL Pools and SQL On-Demand enable you to use built-in security features to secu
 | Storage AAD passthrough authentication | Yes | Yes |
 | Security &amp; identity functions | Some Transact-SQL security functions and operators:  `CURRENT_USER`, `HAS_DBACCESS`, `IS_MEMBER`, `IS_ROLEMEMBER`, `SESSION_USER`, `SUSER_NAME`, `SUSER_SNAME`, `SYSTEM_USER`, `USER`, `USER_NAME`, `EXECUTE AS`, `OPEN/CLOSE MASTER KEY` | Some Transact-SQL security functions and operators:  `CURRENT_USER`, `HAS_DBACCESS`, `HAS_PERMS_BY_NAME`, `IS_MEMBER', 'IS_ROLEMEMBER`, `IS_SRVROLEMEMBER`, `SESSION_USER`, `SUSER_NAME`, `SUSER_SNAME`, `SYSTEM_USER`, `USER`, `USER_NAME`, `EXECUTE AS`, and `REVERT`. Security functions cannot be used to query external data (store the result in variable that can be used in the query).  |
 
-SQL Pool and SQL On-Demand use standard Transact-SQL language to query data. For detailed differences, look at the [Transact-SQL language reference](https://docs.microsoft.com/sql/t-sql/language-reference).
+SQL pool and SQL on-demand use standard Transact-SQL language to query data. For detailed differences, look at the [Transact-SQL language reference](https://docs.microsoft.com/sql/t-sql/language-reference).
 
 ## Tools
 
 You can use various tools to connect to synapse capabilities and query data.
 
-|   | SQL Pool | SQL On-demand |
+|   | SQL pool | SQL on-demand |
 | --- | --- | --- |
 | Synapse Studio | Yes, SQL scripts | Yes, SQL scripts |
 | Power BI | Yes | [Yes](tutorial-connect-power-bi-desktop.md) |
@@ -89,13 +89,13 @@ You can use various tools to connect to synapse capabilities and query data.
 | Azure Data Studio | Yes | Yes, version 1.14 or higher. SQL scripts and SQL Notebooks are supported. |
 | SQL Server Management Studio | Yes | Yes, version 18.4 or higher |
 
-Most of the applications that query the services using Transact-SQL language can query SQL Pools and SQL On-demand.
+Most of the applications that query the services using Transact-SQL language can query SQL pools and SQL on-demand.
 
 ## Storage options
 
 Data that is analyzed can be stored on various storage types. The following table lists all available storage options:
 
-|   | SQL Pool | SQL On-demand |
+|   | SQL pool | SQL on-demand |
 | --- | --- | --- |
 | Internal storage | Yes | No |
 | Azure Data Lake v2 | Yes | Yes |
@@ -105,7 +105,7 @@ Data that is analyzed can be stored on various storage types. The following tabl
 
 Data that is analyzed can be stored in various storage formats. The following table lists all available data formats that can be analyzed:
 
-|   | SQL Pool | SQL On-demand |
+|   | SQL pool | SQL on-demand |
 | --- | --- | --- |
 | Delimited | [Yes](https://docs.microsoft.com/sql/t-sql/statements/create-external-file-format-transact-sql) | [Yes](query-single-csv-file.md) |
 | CSV | Yes (multi-character delimiters not supported) | [Yes](query-single-csv-file.md) |

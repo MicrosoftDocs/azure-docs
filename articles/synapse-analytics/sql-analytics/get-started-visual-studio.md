@@ -1,7 +1,7 @@
 ---
-title: Connect to and query SQL Analytics with Visual Studio and SSDT | Microsoft Docs
-description: Use Visual Studio to query SQL Pool using Azure Synapse Analytics.
-services: synapse-analytics
+title: Connect to and query SQL Analytics with Visual Studio and SSDT
+description: Use Visual Studio to query SQL pool using Azure Synapse Analytics.
+services: synapse analytics
 author: azaricstefan 
 ms.service: synapse-analytics
 ms.topic: conceptual
@@ -23,17 +23,18 @@ ms.reviewer: jrasnick
 
 Use Visual Studio to query SQL pool using Azure Synapse Analytics. This method uses the SQL Server Data Tools (SSDT) extension in Visual Studio 2019. 
 
-### Supported tools for SQL on-demand
-Visual studio is not currently supported for SQL on-demand. However, Azure Data Studio is a fully supported tool. SQL Server Management Studio is partially supported from version 18.4 and has limited features such as connecting and querying.
+### Supported tools for SQL on-demand (preview)
+
+Visual studio is not currently supported for SQL on-demand (preview). However, Azure Data Studi (preview)o is a fully supported tool. SQL Server Management Studio is partially supported from version 18.4 and has limited features such as connecting and querying.
 
 ## Prerequisites
 To use this tutorial, you need to have the following components:
 
-* An existing SQL Pool. If you do not have one, see [Create a SQL Pool](../../sql-data-warehouse/create-data-warehouse-portal.md) to complete this prerequisite.
+* An existing SQL pool. If you do not have one, see [Create a SQL pool](../../sql-data-warehouse/create-data-warehouse-portal.md) to complete this prerequisite.
 * SSDT for Visual Studio. If you have Visual Studio, you probably already have this component. For installation instructions and options, see [Installing Visual Studio and SSDT](../../sql-data-warehouse/sql-data-warehouse-install-visual-studio.md).
-* The fully qualified SQL server name. To find this, see [Connect to SQL Pool](connect-overview.md).
+* The fully qualified SQL server name. To find this, see [Connect to SQL pool](connect-overview.md).
 
-## 1. Connect to SQL Pool
+## 1. Connect to SQL pool
 1. Open Visual Studio 2019.
 2. Open the SQL Server Object Explorer. To do this, select **View** > **SQL Server Object Explorer**.
    
@@ -74,5 +75,5 @@ Now that a connection has been established to your database, you'll write a quer
 
 ## Next steps
 Now that you can connect and query, try [visualizing the data with Power BI](get-started-power-bi-professional.md).
-To configure your environment for Azure Active Directory authentication, see [Authenticate to SQL Pool](../../sql-data-warehouse/sql-data-warehouse-authentication.md).
+To configure your environment for Azure Active Directory authentication, see [Authenticate to SQL pool](../../sql-data-warehouse/sql-data-warehouse-authentication.md).
  

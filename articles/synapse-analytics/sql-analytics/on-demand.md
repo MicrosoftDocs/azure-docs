@@ -1,7 +1,7 @@
 ---
-title: What is SQL on-demand
-description: SQL on-demand overview
-services: synapse-analytics
+title: What is SQL on-demand (preview)
+description: SQL on-demand (preview) overview
+services: synapse analytics
 author: filippopovic
 ms.service: synapse-analytics
 ms.topic: overview
@@ -13,7 +13,7 @@ ms.reviewer: jrasnick
 
 # What is SQL on-demand (preview)? 
 
-SQL on-demand is a service that queries over the data in your data lake. It democratizes access to all your data by providing the following functionalities:
+SQL on-demand (preview) is a service that queries over the data in your data lake. It democratizes access to all your data by providing the following functionalities:
 
 - A familiar T-SQL syntax to query data in place without the need to copy or load data into a specialized store. 
 - Integrated connectivity via the T-SQL interface that offers a wide range of business intelligence and ad-hoc querying tools, including the most popular drivers. 
@@ -36,7 +36,7 @@ SQL on-demand is serverless. You don't have infrastructure to setup or clusters 
 
 ## Spark
 
-If you use Spark for data preparation, cleansing, or enrichment, you can query any Spark tables you’ve created directly from SQL on-demand.  You can also use Private Link to bring the SQL on-demand endpoint into your private virtual network by mapping it to a private IP address. You'll keep your data secure by using familiar SQL-based security mechanisms. 
+If you use Spark for data preparation, cleansing, or enrichment, you can query any Spark tables you've created directly from SQL on-demand.  You can also use Private Link to bring the SQL on-demand endpoint into your private virtual network by mapping it to a private IP address. You'll keep your data secure by using familiar SQL-based security mechanisms. 
 
 
 ## Who is SQL on-demand for?

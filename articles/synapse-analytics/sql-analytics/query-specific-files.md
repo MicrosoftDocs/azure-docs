@@ -4,7 +4,7 @@ description: OPENROWSET function provides file and path information about every 
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
-ms.topic: overview
+ms.topic: how-to
 ms.subservice:
 ms.date: 03/20/2020
 ms.author: v-stazar

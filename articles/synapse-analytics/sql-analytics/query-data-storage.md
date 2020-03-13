@@ -1,7 +1,7 @@
 ---
-title: Overview - Query data in storage
-description: This section contains sample queries you can use to try out the SQL on-demand resource within Azure Synapse Analytics.
-services: synapse-analytics
+title: Overview - Query data in storage using SQL on-demand (preview) 
+description: This section contains sample queries you can use to try out the SQL on-demand (preview) resource within Azure Synapse Analytics.
+services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics 
 ms.topic: overview
@@ -13,8 +13,8 @@ ms.reviewer: jrasnick, carlrab
 
 # Overview: Query data in storage
 
-This section contains sample queries you can use to try out the SQL on-demand resource within Azure Synapse Analytics. Currently supported files are:
-
+This section contains sample queries you can use to try out the SQL on-demand (preview) resource within Azure Synapse Analytics.
+Currently supported files are: 
 - CSV
 - Parquet
 - JSON
@@ -24,9 +24,9 @@ This section contains sample queries you can use to try out the SQL on-demand re
 The tools you need to issue queries:
 
 - SQL client of your choice:
-  - Azure Synapse Studio
-  - Azure Data Studio
-  - SQL Server Management Studio
+    - Azure Synapse Studio (preview)
+    - Azure Data Studio
+    - SQL Server Management Studio
 
 Additionally, the parameters are as follows:
 

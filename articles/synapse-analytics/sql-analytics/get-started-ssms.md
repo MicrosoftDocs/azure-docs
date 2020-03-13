@@ -21,9 +21,10 @@ ms.reviewer: jrasnick
 > 
 > 
 
-You can use [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) to connect to and query SQL Analytics in Azure Synapse Analytics through either SQL on-demand or SQL pool resources. 
+You can use [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) to connect to and query SQL Analytics in Azure Synapse Analytics through either SQL on-demand (preview) or SQL pool resources. 
 
-### Supported tools for SQL on-demand
+### Supported tools for SQL on-demand (preview)
+
 SSMS is partially supported starting in version 18.5 with limited features such as connecting and querying. [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio) is fully supported.
 
 ## Prerequisites
@@ -31,7 +32,7 @@ SSMS is partially supported starting in version 18.5 with limited features such 
 Before you begin, make sure you have the following prerequisites:  
 
 * [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms). 
-* For SQL Pool, you need an existing data warehouse. To create one, see [Create a data warehouse](https://docs.microsoft.com/azure/sql-data-warehouse/create-data-warehouse-portal#create-a-data-warehouse). For SQL on-demand, one is already provisioned in your workspace at creation time. 
+* For SQL pool, you need an existing data warehouse. To create one, see [Create a SQL pool](../quickstart-create-sql-pool.md). For SQL on-demand, one is already provisioned in your workspace at creation time. 
 * The fully qualified SQL Server name. To find this, see [Connect to SQL Analytics](connect-overview.md).
 
 ## Connect
@@ -54,7 +55,7 @@ To connect to SQL Analytics using SQL pool, follow these steps:
     ![Explore AdventureWorksDW](../../sql-data-warehouse/media/sql-data-warehouse-query-ssms/explore-tables.png)
 
 
-### SQL on-demand
+### SQL on-demand (preview)
 
 To connect to SQL Analytics using SQL on-demand, follow these steps: 
 

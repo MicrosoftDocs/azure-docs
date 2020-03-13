@@ -1,7 +1,7 @@
 ---
-title: "Azure Data Studio: Connect and query SQL Analytics" 
-description: Use Azure Data Studio to connect to and query SQL Analytics in Azure Synapse Analytics. 
-services: synapse-analytics
+title: "Azure Data Studio (preview): Connect and query SQL Analytics" 
+description: Use Azure Data Studio (preview) to connect to and query SQL Analytics in Azure Synapse Analytics. 
+services: synapse analytics
 author: azaricstefan 
 ms.service: synapse-analytics
 ms.topic: overview 
@@ -11,7 +11,7 @@ ms.author: v-stazar
 ms.reviewer: jrasnick
 ---
 
-# Connect to SQL Analytics with Azure Data Studio
+# Connect to SQL Analytics with Azure Data Studio (preview)
 
 > [!div class="op_single_selector"]
 > * [Azure Data Studio](get-started-azure-data-studio.md)
@@ -22,7 +22,7 @@ ms.reviewer: jrasnick
 > 
 > 
 
-You can use [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio) to connect to and query SQL Analytics in Azure Synapse Analytics. 
+You can use [Azure Data Studio (preview)](/sql/azure-data-studio/download-azure-data-studio) to connect to and query SQL Analytics in Azure Synapse Analytics. 
 
 ## Connect 
 
@@ -38,11 +38,11 @@ The connection requires the following parameters:
 * **Database:** Database name
 
 > [!NOTE]
-> If you would like to use **SQL on-demand** URL should look like: 
+> If you would like to use **SQL on-demand (preview)** the URL should look like: 
 > - `<Azure Synapse workspace name>`-ondemand.sql.azuresynapse.net.
 
 > [!NOTE]
-> If you would like to use **SQL pool** URL should look like: 
+> If you would like to use **SQL pool** the URL should look like: 
 > - `<Azure Synapse workspace name>`.sql.azuresynapse.net
 
 Choose **Windows Authentication**, **Azure Active Directory**, or **SQL Login** as the **Authentication Type**. 
