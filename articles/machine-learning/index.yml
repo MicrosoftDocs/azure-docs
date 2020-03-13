@@ -23,7 +23,7 @@ landingContent:
 # Start card title with a verb
            
   # GET STARTED
-  - title: Get started
+  - title: Get started with machine learning
     linkLists:
       - linkListType: tutorial
         links:
