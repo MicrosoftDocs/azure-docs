@@ -38,7 +38,10 @@ The template deploys a storage account, app service plan, and web app.
 
 :::code language="json" source="~/resourcemanager-templates/get-started-deployment/local-template/azuredeploy.json":::
 
-Save a copy of the template to your local computer. You deploy this template later in the tutorial.
+> [!IMPORTANT]
+> Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only. The name must be unique. In the template, the storage account name is the project name with "store" appended, and the project name must be between 3 and 11 characters. So the project name must meet the storage account name requirements and has less than 11 characters.
+
+Save a copy of the template to your local computer with the .json extension, for example, azuredeploy.json. You deploy this template later in the tutorial.
 
 ## Sign in to Azure
 
@@ -54,6 +57,20 @@ Connect-AzAccount
 
 ```azurecli
 az login
+```
+
+If you have multiple Azure subscriptions, select the subscription you want to use:
+
+# [PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+Select-AzSubscription [SubscriptionID/SubscriptionName]
+```
+
+# [Azure CLI](#tab/azure-cli)
+
+```azurecli
+az account set --subscription [SubscriptionID/SubscriptionName]
 ```
 
 ---
@@ -121,7 +138,7 @@ az deployment group create \
   --name DeployLocalTemplate \
   --resource-group $resourceGroupName \
   --template-file $templateFile \
-  --parameters projectname=$projectName \
+  --parameters projectName=$projectName \
   --verbose
 ```
 
@@ -131,9 +148,7 @@ To learn more about deploying template by using Azure CLI, see [Deploy resources
 
 ## Clean up resources
 
-If you're moving on to the next tutorial, you don't need to delete the resource group.
-
-If you're stopping now, you might want to clean up the resources you deployed by deleting the resource group.
+Clean up the resources you deployed by deleting the resource group.
 
 1. From the Azure portal, select **Resource group** from the left menu.
 2. Enter the resource group name in the **Filter by name** field.

@@ -30,11 +30,11 @@ The following template is the main template.  The highlighted **Microsoft.Resour
 
 :::code language="json" source="~/resourcemanager-templates/get-started-deployment/linked-template/azuredeploy.json" highlight="27-32,40-58":::
 
-Save a copy of the main template to your local computer.
+Save a copy of the main template to your local computer with the .json extension, for example, azuredeploy.json. You don't need to save a copy of the linked template.  The linked template will be copied from a GitHub repository to a storage account.
 
 ## Store the linked template
 
-The following PowerShell script creates a storage account, creates a container, copies the linked template from a github repository to the container. \
+The following PowerShell script creates a storage account, creates a container, and copies the linked template from a github repository to the container. A copy of the linked template is stored in [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-deployment/linked-template/linkedStorageAccount.json).
 
 Select **Try-it** to open the Cloud shell, select **Copy** to copy the PowerShell script, and right-click the shell pane to paste the script:
 
@@ -74,11 +74,6 @@ Set-AzStorageBlobContent `
     -Blob $fileName `
     -Context $context
 
-# List the template
-Get-AzStorageBlob `
-    -Container $containerName `
-    -Blob $fileName
-
 Write-Host "Press [ENTER] to continue ..."
 ```
 
@@ -86,7 +81,7 @@ Write-Host "Press [ENTER] to continue ..."
 
 To deploy a private template in a storage account, generate a SAS token and include it in the URI for the template. Set the expiry time to allow enough time to complete the deployment. The blob containing the template is accessible to only the account owner. However, when you create a SAS token for the blob, the blob is accessible to anyone with that URI. If another user intercepts the URI, that user is able to access the template. A SAS token is a good way of limiting access to your templates, but you should not include sensitive data like passwords directly in the template.
 
-If you haven't created the resource group, see [Create resource group](deployment-tutorial-linked-template.md#create-resource-group).
+If you haven't created the resource group, see [Create resource group](./deployment-tutorial-local-template.md#create-resource-group).
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -95,8 +90,8 @@ If you haven't created the resource group, see [Create resource group](deploymen
 $projectName = Read-Host -Prompt "Enter a project name:"   # This name is used to generate names for Azure resources, such as storage account name.
 $templateFile = Read-Host -Prompt "Enter the main template file and path"
 
-$resourceGroupName = $projectName + "rg"
-$storageAccountName = $projectName + "store"
+$resourceGroupName="${projectName}rg"
+$storageAccountName="${projectName}store"
 $containerName = "templates"
 $fileName = "linkedStorageAccount.json" # A file name used for downloading and uploading the linked template.
 
@@ -116,7 +111,7 @@ $linkedTemplateUri = New-AzStorageBlobSASToken `
 New-AzResourceGroupDeployment `
   -Name DeployLinkedTemplate `
   -ResourceGroupName $resourceGroupName `
-  -TemplateUri $templateUri `
+  -TemplateFile $templateFile `
   -projectName $projectName `
   -linkedTemplateUri $linkedTemplateUri `
   -verbose
@@ -135,7 +130,7 @@ read templateFile
 
 resourceGroupName="${projectName}rg"
 storageAccountName="${projectName}store"
-containerName = "templates"
+containerName="templates"
 fileName="linkedStorageAccount.json"
 
 key=$(az storage account keys list -g $resourceGroupName -n $storageAccountName --query [0].value -o tsv)
@@ -149,11 +144,11 @@ linkedTemplateUri=$(az storage blob generate-sas \
   --expiry `date -u -d "120 minutes" '+%Y-%m-%dT%H:%MZ'` \
   --full-uri)
 
-
+linkedTemplateUri=$(echo $linkedTemplateUri | sed 's/"//g')
 az deployment group create \
   --name DeployLinkedTemplate \
-  --resource-group myResourceGroup \
-  --template-uri $templateFile \
+  --resource-group $resourceGroupName \
+  --template-file $templateFile \
   --parameters projectName=$projectName linkedTemplateUri=$linkedTemplateUri \
   --verbose
 ```
@@ -162,9 +157,7 @@ az deployment group create \
 
 ## Clean up resources
 
-If you're moving on to the next tutorial, you don't need to delete the resource groups.
-
-If you're stopping now, you might want to clean up the resources you deployed by deleting the resource groups.
+Clean up the resources you deployed by deleting the resource group.
 
 1. From the Azure portal, select **Resource group** from the left menu.
 2. Enter the resource group name in the **Filter by name** field.
