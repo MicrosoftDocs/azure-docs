@@ -305,10 +305,7 @@ To use this region-limited version of the Azure IoT SDKs with VNET support for C
 
 1. Create an environment variable named `EnableStorageIdentity` and set its value to `1`.
 
-2. Download the SDK:
-    - > [Java](https://aka.ms/vnetjavasdk)
-    - > [C#](https://aka.ms/vnetcsharpsdk)
-    - > [Node.js](https://aka.ms/vnetnodesdk)
+2. Download the SDK:  [Java](https://aka.ms/vnetjavasdk) | [C#](https://aka.ms/vnetcsharpsdk) | [Node.js](https://aka.ms/vnetnodesdk)
  
 For Python, download our limited version from Github.
 
