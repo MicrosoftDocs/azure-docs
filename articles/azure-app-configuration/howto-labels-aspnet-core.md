@@ -48,7 +48,7 @@ You can load configuration values with the label corresponding to the current en
                         .Connect(Environment.GetEnvironmentVariable("AppConfigConnectionString"))
                         // Load configuration values with no label
                         .Select(KeyFilter.Any, LabelFilter.Null)
-                        // Override with any configuration values specific to the current hosting environment
+                        // Override with any configuration values specific to current hosting env
                         .Select(KeyFilter.Any, hostingContext.HostingEnvironment.EnvironmentName)
                 );
             })
