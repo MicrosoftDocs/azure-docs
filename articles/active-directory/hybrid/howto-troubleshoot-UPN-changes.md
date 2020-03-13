@@ -19,12 +19,10 @@ ms.collection: M365-identity-device-management
 
 A User Principal Name (UPN) is an attribute that is an internet communication standard for user accounts. A UPN consists of a UPN prefix (the user account name) and a UPN suffix (a DNS domain name). The prefix joins the suffix using the "@" symbol. For example, someone@example.com. A UPN must be unique among all security principal objects within a directory forest. 
 
-> [!NOTE] 
-> For developers, we recommend that you use the user objectID as the immutable identifier, rather than UPN. 
-If your applications are currently using UPN, we recommend setting the UPN to match the user's primary email address to improve their experience.<br>
-**In a hybrid environment, it is important that the UPN for a user is identical in the on-premises directory and in Azure Active Directory**.
+> [!NOTE]
+> For developers, we recommend that you use the user objectID as the immutable identifier, rather than UPN. If your applications are currently using UPN, we recommend setting the UPN to match the user's primary email address to improve their experience.<br> **In a hybrid environment, it is important that the UPN for a user is identical in the on-premises directory and in Azure Active Directory**.
 
-**This article assumes you're using UPN as the immutable ID. It addresses planning for UPN changes, and recovering from issues that may result from UPN changes.**
+**This article assumes you're using UPN as the user identifier. It addresses planning for UPN changes, and recovering from issues that may result from UPN changes.**
 
 ## Learn about UPNs and UPN changes
 Sign-in pages often prompt users to enter their email address when the required value is actually their UPN. Therefore, you should be sure to change users' UPN anytime their primary email address changes.
@@ -75,7 +73,8 @@ For example, you may want to add labs.contoso.com and have the users' UPNs and e
 
 username@labs.contoso.com.
 
-> [!IMPORTANT]  If UPNs in Active directory and Azure Active Directory do not match, issues will arise. If you are [changing the suffix in Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/add-custom-domain), you must ensure that a matching custom domain name has been [added and verified on Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/add-custom-domain). 
+>[!IMPORTANT]
+> If UPNs in Active directory and Azure Active Directory do not match, issues will arise. If you are [changing the suffix in Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/add-custom-domain), you must ensure that a matching custom domain name has been [added and verified on Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/add-custom-domain). 
 
 ![A screenshot of verified domains](./media/howto-troubleshoot-upn-changes/custom-domains.png)
 
