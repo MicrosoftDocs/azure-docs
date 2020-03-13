@@ -11,7 +11,7 @@ ms.reviewer: sngun
 ---
 # Troubleshoot query issues when using Azure Cosmos DB
 
-This article walks through a general recommended approach for troubleshooting queries in Azure Cosmos DB. Although you shouldn’t consider the steps outlined in this article a complete defense against potential query issues, we have included the most common performance tips here. You should use this article as a starting place for troubleshooting slow or expensive queries in the Azure Cosmos DB core (SQL) API. You can also use [diagnostics logs](cosmosdb-monitor-resource-logs.md) to identify queries that are slow or that consume significant amounts of throughput.
+This article walks through a general recommended approach for troubleshooting queries in Azure Cosmos DB. Although you shouldn't consider the steps outlined in this article a complete defense against potential query issues, we have included the most common performance tips here. You should use this article as a starting place for troubleshooting slow or expensive queries in the Azure Cosmos DB core (SQL) API. You can also use [diagnostics logs](cosmosdb-monitor-resource-logs.md) to identify queries that are slow or that consume significant amounts of throughput.
 
 You can broadly categorize query optimizations in Azure Cosmos DB: 
 
@@ -238,7 +238,7 @@ Updated query (includes both properties in the `ORDER BY` clause):
 
 ```sql
 SELECT * FROM c
-WHERE c.foodGroup = “Soups, Sauces, and Gravies”
+WHERE c.foodGroup = "Soups, Sauces, and Gravies"
 ORDER BY c.foodGroup, c._ts ASC
 ```
 
@@ -313,7 +313,7 @@ If the Retrieved Document Count is approximately equal to the Output Document Co
 
 ### Avoid cross partition queries
 
-Azure Cosmos DB uses [partitioning](partitioning-overview.md) to scale individual containers as Request Unit and data storage needs increase. Each physical partition has a separate and independent index. If your query has an equality filter that matches your container’s partition key, you'll need to check only the relevant partition’s index. This optimization reduces the total number of RUs that the query requires.
+Azure Cosmos DB uses [partitioning](partitioning-overview.md) to scale individual containers as Request Unit and data storage needs increase. Each physical partition has a separate and independent index. If your query has an equality filter that matches your container's partition key, you'll need to check only the relevant partition's index. This optimization reduces the total number of RUs that the query requires.
 
 If you have a large number of provisioned RUs (more than 30,000) or a large amount of data stored (more than approximately 100 GB), you probably have a large enough container to see a significant reduction in query RU charges.
 
@@ -331,7 +331,7 @@ SELECT * FROM c
 WHERE c.foodGroup IN("Soups, Sauces, and Gravies", "Vegetables and Vegetable Products") and c.description = "Mushroom, oyster, raw"
 ```
 
-Queries that have range filters on the partition key, or that don’t have any filters on the partition key, will need to check every physical partition’s index for results:
+Queries that have range filters on the partition key, or that don't have any filters on the partition key, will need to check every physical partition's index for results:
 
 ```sql
 SELECT * FROM c
@@ -392,23 +392,23 @@ In many cases, the RU charge might be acceptable when query latency is still too
 
 ### Improve proximity
 
-Queries that are run from a different region than the Azure Cosmos DB account will have a higher latency than if they were run inside the same region. For example, if you were running code on your desktop computer, you should expect latency to be tens or hundreds (or more) milliseconds greater than if the query came from a Virtual Machine within the same Azure region as Azure Cosmos DB. It is simple to [globally distribute data in Azure Cosmos DB](distribute-data-globally.md) to ensure you can bring your data closer to your app.
+Queries that are run from a different region than the Azure Cosmos DB account will have higher latency than if they were run inside the same region. For example, if you're running code on your desktop computer, you should expect latency to be tens or hundreds of milliseconds higher (or more) than if the query came from a virtual machine within the same Azure region as Azure Cosmos DB. It's simple to [globally distribute data in Azure Cosmos DB](distribute-data-globally.md) to ensure you can bring your data closer to your app.
 
 ### Increase provisioned throughput
 
-In Azure Cosmos DB, your provisioned throughput is measured in Request Units (RU’s). Let’s imagine you have a query that consumes 5 RU’s of throughput. For example, if you provision 1,000 RU’s, you would be able to run that query 200 times per second. If you attempted to run the query when there was not enough throughput available, Azure Cosmos DB would return an HTTP 429 error. Any of the current Core (SQL) API sdk's will automatically retry this query after waiting a brief period. Throttled requests take a longer amount of time, so increasing provisioned throughput can improve query latency. You can observe the [total number of throttled requests](use-metrics.md#understand-how-many-requests-are-succeeding-or-causing-errors) in the Metrics blade of the Azure portal.
+In Azure Cosmos DB, your provisioned throughput is measured in Request Units (RUs). Imagine you have a query that consumes 5 RUs of throughput. For example, if you provision 1,000 RUs, you would be able to run that query 200 times per second. If you tried to run the query when there wasn't enough throughput available, Azure Cosmos DB would return an HTTP 429 error. Any of the current Core (SQL) API SDKs will automatically retry this query after waiting for a short time. Throttled requests take longer, so increasing provisioned throughput can improve query latency. You can observe the [total number of throttled requests](use-metrics.md#understand-how-many-requests-are-succeeding-or-causing-errors) on the **Metrics** blade of the Azure portal.
 
 ### Increase MaxConcurrency
 
-Parallel queries work by querying multiple partitions in parallel. However, data from an individual partitioned collection is fetched serially with respect to the query. So, adjusting the MaxConcurrency to the number of partitions has the maximum chance of achieving the most performant query, provided all other system conditions remain the same. If you don't know the number of partitions, you can set the MaxConcurrency (or MaxDegreesOfParallelism in older sdk versions) to a high number, and the system chooses the minimum (number of partitions, user provided input) as the maximum degree of parallelism.
+Parallel queries work by querying multiple partitions in parallel. But data from an individual partitioned collection is fetched serially with respect to the query. So, if you set MaxConcurrency to the number of partitions, you have the best chance of achieving the most performant query, provided all other system conditions remain the same. If you don't know the number of partitions, you can set MaxConcurrency (or MaxDegreesOfParallelism in older SDK versions) to a high number, and the system will choose the minimum (number of partitions, user provided input) as the maximum degree of parallelism.
 
 ### Increase MaxBufferedItemCount
 
-Queries are designed to pre-fetch results while the current batch of results is being processed by the client. The pre-fetching helps in overall latency improvement of a query. Setting the MaxBufferedItemCount limits the number of pre-fetched results. By setting this value to the expected number of results returned (or a higher number), the query can receive maximum benefit from pre-fetching. Setting this value to -1 allows the system to automatically decide the number of items to buffer.
+Queries are designed to pre-fetch results while the current batch of results is being processed by the client. Pre-fetching helps to improve the overall latency of a query. Setting MaxBufferedItemCount limits the number of pre-fetched results. If you set this value to the expected number of results returned (or a higher number), the query can get the most benefit from pre-fetching. If you set this value to -1, the system will automatically determine the number of items to buffer.
 
 ## Next steps
-Refer to documents below on how to measure RUs per query, get execution statistics to tune your queries, and more:
+See the following articles for information on how to measure RUs per query, get execution statistics to tune your queries, and more:
 
-* [Get SQL query execution metrics using .NET SDK](profile-sql-api-query.md)
+* [Get SQL query execution metrics by using .NET SDK](profile-sql-api-query.md)
 * [Tuning query performance with Azure Cosmos DB](sql-api-sql-query-metrics.md)
 * [Performance tips for .NET SDK](performance-tips.md)
