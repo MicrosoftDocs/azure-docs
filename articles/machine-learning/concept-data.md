@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.reviewer: nibaccam
 author: nibaccam
 ms.author: nibaccam
-ms.date: 03/09/2020
+ms.date: 03/15/2020
 
 ---
 
@@ -17,7 +17,7 @@ ms.date: 03/09/2020
 
 In this article, you learn about Azure Machine Learning's data management and integration solutions for your machine learning tasks. This article assumes you've already created an [Azure storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal) and [Azure storage service](https://docs.microsoft.com/azure/storage/common/storage-introduction).
 
-When you're ready to use the data in your storage, we recommend you
+When you're ready to use the data in your Azure storage solution, we recommend you
 
 1. Create an Azure Machine Learning datastore.
 2. From that datastore, create an Azure Machine Learning dataset. 
@@ -36,13 +36,13 @@ The following diagram provides a visual demonstration of this recommended data a
 
 ## Access data in storage
 
-To access your data in your storage account, Azure Machine Learning offers datastores and datasets. Datastores answer the question: how do I securely connect to my data that's in my Azure Storage? Datastores provide a layer of abstraction over your storage service. This aids in security and ease of access to your storage, since connection information is kept in the datastore and not exposed in scripts. 
+To access your data in your storage account, Azure Machine Learning offers datastores and datasets. Datastores answer the question: how do I securely connect to my data that's in my Azure Storage? Datastores save the connection information to your Azure Storage. This aids in security and ease of access to your storage, since connection information is kept in the datastore and not exposed in scripts. 
 
 Datasets answer the question: how do I get specific data files in my datastore? Datasets point to the specific file or files in your underlying storage that you want to use for your machine learning experiment. Together, datastores and datasets offer a secure, scalable, and reproducible data delivery workflow for your machine learning tasks.
 
 ## Datastores
 
-An Azure Machine Learning datastore is a storage abstraction over your Azure storage services. [Register and create a datastore](how-to-access-data.md) to easily connect to your Azure storage account, and access the data in your underlying Azure storage services.
+An Azure Machine Learning datastore keeps the connection information to your storage so you don't have to code it in your scripts. [Register and create a datastore](how-to-access-data.md) to easily connect to your Azure storage account, and access the data in your underlying Azure storage services.
 
 Supported Azure storage services that can be registered as datastores:
 + Azure Blob Container
