@@ -66,7 +66,7 @@ Updating this application setting causes your web app to restart. After the app 
 
 It is best practice to periodically rotate the SAS key of your storage account. To ensure the web app does not inadvertently loose access, you must also update the SAS URL in Key Vault.
 
-1. Rotate the SAS key by navigating to your storage account in the Azure Portal. Under **Settings** > **Access keys**, click the icon to rotate the SAS key.
+1. Rotate the SAS key by navigating to your storage account in the Azure portal. Under **Settings** > **Access keys**, click the icon to rotate the SAS key.
 
 1. Copy the new SAS URL, and use the following command to set the updated SAS URL in your key vault:
 
