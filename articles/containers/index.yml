@@ -1,10 +1,10 @@
 ### YamlMime:Hub
 title: Container services documentation
-summary: Learn how to use Azure container services to manage and develop cloud based applications.
+summary: Learn how to use Azure container services to manage and develop cloud-based applications.
 brand: azure
 metadata:
    title: Microsoft Azure container services documentation | Microsoft Docs
-   description: Learn how to use Azure container services to manage and develop cloud based applications.
+   description: Learn how to use Azure container services to manage and develop cloud-based applications.
    ms.topic: hub-page
 
 productDirectory:
@@ -57,13 +57,13 @@ conceptualContent:
     # Card
     - title: Azure Kubernetes Service
       links:
-        - url: /azure/aks/intro-kubernetes.md
+        - url: /azure/aks/intro-kubernetes
           itemType: overview
           text: Intro to AKS
-        - url: /azure/aks/tutorial-kubernetes-prepare-app.md
+        - url: /azure/aks/tutorial-kubernetes-prepare-app
           itemType: tutorial
           text: Prepare an application for AKS
-        - url: /azure/aks/tutorial-kubernetes-deploy-cluster.md
+        - url: /azure/aks/tutorial-kubernetes-deploy-cluster
           itemType: tutorial
           text: Deploy an AKS Cluster
       # footerLink (optional)
@@ -73,16 +73,112 @@ conceptualContent:
     # Card
     - title: App Service 
       links:
-        - url: /azure/app-service/overview.md
+        - url: /azure/app-service/overview
           itemType: overview
           text: What is App Service?
-        - url: /azure/app-service/app-service-web-get-started-dotnet.md
+        - url: /azure/app-service/app-service-web-get-started-dotnet
           itemType: get-started
           text: Prepare an application for AKS
-        - url: /azure/app-service/app-service-web-tutorial-custom-domain.md
+        - url: /azure/app-service/app-service-web-tutorial-custom-domain
           itemType: tutorial
           text: Map a custom domain to your app
       # footerLink (optional)
       footerLink:
-        url: /azure/aks/ 
+        url: /azure/app-service/ 
+        text: See more
+    # Card
+    - title: App Service 
+      links:
+        - url: /azure/app-service/overview
+          itemType: overview
+          text: What is App Service?
+        - url: /azure/app-service/app-service-web-get-started-dotnet
+          itemType: get-started
+          text: Prepare an application for AKS
+        - url: /azure/app-service/app-service-web-tutorial-custom-domain
+          itemType: tutorial
+          text: Map a custom domain to your app
+      # footerLink (optional)
+      footerLink:
+        url: /azure/app-service/ 
+        text: See more
+    # Card
+    - title: App Service 
+      links:
+        - url: /azure/app-service/overview
+          itemType: overview
+          text: What is App Service?
+        - url: /azure/app-service/app-service-web-get-started-dotnet
+          itemType: get-started
+          text: Prepare an application for AKS
+        - url: /azure/app-service/app-service-web-tutorial-custom-domain
+          itemType: tutorial
+          text: Map a custom domain to your app
+      # footerLink (optional)
+      footerLink:
+        url: /azure/app-service/ 
+        text: See more
+    # Card
+    - title: App Service 
+      links:
+        - url: /azure/app-service/overview
+          itemType: overview
+          text: What is App Service?
+        - url: /azure/app-service/app-service-web-get-started-dotnet
+          itemType: get-started
+          text: Prepare an application for AKS
+        - url: /azure/app-service/app-service-web-tutorial-custom-domain
+          itemType: tutorial
+          text: Map a custom domain to your app
+      # footerLink (optional)
+      footerLink:
+        url: /azure/app-service/ 
+        text: See more
+    # Card
+    - title: App Service 
+      links:
+        - url: /azure/app-service/overview
+          itemType: overview
+          text: What is App Service?
+        - url: /azure/app-service/app-service-web-get-started-dotnet
+          itemType: get-started
+          text: Prepare an application for AKS
+        - url: /azure/app-service/app-service-web-tutorial-custom-domain
+          itemType: tutorial
+          text: Map a custom domain to your app
+      # footerLink (optional)
+      footerLink:
+        url: /azure/app-service/ 
+        text: See more
+    # Card
+    - title: App Service 
+      links:
+        - url: /azure/app-service/overview
+          itemType: overview
+          text: What is App Service?
+        - url: /azure/app-service/app-service-web-get-started-dotnet
+          itemType: get-started
+          text: Prepare an application for AKS
+        - url: /azure/app-service/app-service-web-tutorial-custom-domain
+          itemType: tutorial
+          text: Map a custom domain to your app
+      # footerLink (optional)
+      footerLink:
+        url: /azure/app-service/ 
+        text: See more
+    # Card
+    - title: App Service 
+      links:
+        - url: /azure/app-service/overview
+          itemType: overview
+          text: What is App Service?
+        - url: /azure/app-service/app-service-web-get-started-dotnet
+          itemType: get-started
+          text: Prepare an application for AKS
+        - url: /azure/app-service/app-service-web-tutorial-custom-domain
+          itemType: tutorial
+          text: Map a custom domain to your app
+      # footerLink (optional)
+      footerLink:
+        url: /azure/app-service/ 
         text: See more
