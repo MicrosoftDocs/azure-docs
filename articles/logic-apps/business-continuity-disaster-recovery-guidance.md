@@ -18,19 +18,30 @@ This article provides guidance around planning and creating a disaster recovery 
 
 ## Considerations
 
-When you design a disaster recovery solution, consider not only your logic apps but also any [integration accounts](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) that you have for defining and storing B2B artifacts used in [enterprise integration scenarios](../logic-apps/logic-apps-enterprise-integration-overview.md), and any [integration service environments (ISEs)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) that you have for running logic apps in an isolated Logic Apps runtime instance.
+When you design a disaster recovery strategy, consider not only your logic apps but also any [integration accounts](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) that you have for defining and storing B2B artifacts used in [enterprise integration scenarios](../logic-apps/logic-apps-enterprise-integration-overview.md), and any [integration service environments (ISEs)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) that you have for running logic apps in an isolated Logic Apps runtime instance.
 
-When you create a logic app in the [Azure portal](https://portal.azure.com), you select a location to use for deployment. This location is either a public region in global multi-tenant Azure or a previously created ISE. If your logic apps need to use B2B artifacts in an integration account, both your integration account and logic apps must use the same location. Running logic apps in an ISE is similar to running logic apps in a public Azure region, so your disaster recovery strategy can apply to both scenarios. However, an ISE might require that you consider additional or other elements, such as network configuration.
+When you create a logic app in the [Azure portal](https://portal.azure.com), you select a location to use for deployment. This location is either a public region in global multi-tenant Azure or a previously created ISE, which is deployed into an Azure virtual network. If your logic apps need to use B2B artifacts in an integration account, both your integration account and logic apps must use the same location. Running logic apps in an ISE is similar to running logic apps in a public Azure region, so your disaster recovery strategy can apply to both scenarios. However, an ISE might require that you consider additional or other elements, such as network configuration.
 
-## Primary and secondary instances
+## Primary and secondary locations
 
-This disaster recovery strategy requires that you have a standby or backup instance in an alternate location where Azure Logic Apps can run. That way, if your primary instance suffers losses or failures, the secondary instance can take over the workloads from the primary instance. You can have this secondary instance in a location that's either a public region in multi-tenant Azure or your isolated ISE. For this strategy to work, you need to have your logic apps and their dependent resources previously deployed and ready to run in this location.
+This disaster recovery strategy describes setting up the capability for your primary instance to *failover* onto a standby or backup instance in an alternate location where Azure Logic Apps can run. That way, if the primary instance suffers losses or failures, the secondary instance can take on the workloads from the primary instance. For the secondary instance to take over when necessary, you need to have your logic app and dependent resources already deployed and ready to run in the alternate location.
 
-This diagram shows a solution that uses a single Azure Resource Manager template, which defines the logic app and dependent resources to deploy. with separate and different parameter files for the primary ISE and for the secondary ISE, which serves as the backup:
+For example, this illustration shows primary and secondary logic app instances, which are hosted in separate ISEs for this particular scenario. A single Azure Resource Manager template defines the logic app and dependent resources that are necessary for deployment. Separate parameter files contain the configuration values to use for deployment in each location:
 
-![Primary and secondary locations or regions](./media/business-continuity-disaster-recovery-guidance/primary-secondary-locations.png)
+![Primary and secondary instances in different locations](./media/business-continuity-disaster-recovery-guidance/primary-secondary-locations.png)
 
-Primary and secondary locations for your logic apps should be of the same host type, either both multi-tenant locations or both ISE. This is required if you are leveraging the ISE connectors and/or VNET integration in one and expect the same logic app to run in both locations with a similar configuration. In a more advanced configuration, it is possible to have them be of each type of host but you must be aware of the differences when logic apps run in each location.
+Here are the requirements that these location must meet:
+
+* Although you can use either a public region in multi-tenant Azure or an ISE as your deployment location, both the primary and secondary locations for your logic apps should have the same host type, which is either both multi-tenant locations or both ISEs. 
+
+This is required if you are leveraging the ISE connectors and/or VNET integration in one and expect the same logic app to run in both locations with a similar configuration. In a more advanced configuration, it is possible to have them be of each type of host but you must be aware of the differences when logic apps run in each location.
+
+
+The secondary instance needs to be configured to handle incoming requests and automated workloads, either recurring or polling.
+
+
+
+
 
 This backup requires that you hFailover requires that you have an alternate instance that's appropriately configured to handle incoming requests and automated workloads, such as recurrence or polling.
 
