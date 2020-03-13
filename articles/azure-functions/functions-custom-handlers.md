@@ -3,7 +3,7 @@ title: Azure Functions custom handlers (preview)
 description: Learn to use Azure Functions with any language or runtime version.
 author: craigshoemaker
 ms.author: cshoe
-ms.date: 3/10/2020
+ms.date: 3/18/2020
 ms.topic: article
 ---
 
@@ -26,7 +26,7 @@ With custom handlers, all [triggers and input and output bindings](./functions-t
 To implement a custom handler, you need the following files:
 
 - A *host.json* file at the root of your app
-- An executable, script, or command which runs the web server
+- A command, script, or executable which runs a web server
 - A *function.json* file for each function
 
 The following diagram shows how these files look on the file system for a function named "order".
@@ -35,7 +35,6 @@ The following diagram shows how these files look on the file system for a functi
 | /order
 |   function.json
 |
-| server.exe // either a custom EXE, or point to a runtime with arguments
 | host.json
 ```
 
@@ -164,7 +163,6 @@ The following *function.json* file is no different from how you would define a f
 ```
 
 This function is defined as an [HTTP triggered function](./functions-bindings-http-webhook-trigger.md) that returns an [HTTP response](./functions-bindings-http-webhook-output.md) and outputs a [Queue storage](./functions-bindings-storage-queue-output.md) message.
-
 
 ### Server implementation
 
