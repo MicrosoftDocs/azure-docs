@@ -37,11 +37,11 @@ Once you have enabled Privileged Identity Management for your directory, you'll 
 
 1. Open **Azure AD Privileged Identity Management**.
 
-1. Click **Azure AD roles**.
+1. Select **Azure AD roles**.
 
     ![Sign up Privileged Identity Management for Azure AD roles](./media/pim-getting-started/sign-up-pim-azure-ad-roles.png)
 
-1. Click **Sign up**.
+1. Select **Sign up**.
 
 1. In the message that appears, click **Yes** to sign up Privileged Identity Management to manage Azure AD roles.
 
@@ -68,15 +68,15 @@ Once Privileged Identity Management is set up, you can start your identity manag
 
 ## Add a PIM tile to the dashboard
 
-To make it easier to open Privileged Identity Management, you should add a Privileged Identity Management tile to your Azure portal dashboard.
+To make it easier to open Privileged Identity Management, add a Privileged Identity Management tile to your Azure portal dashboard.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-1. Click **All services** and find the **Azure AD Privileged Identity Management** service.
+1. Select **All services** and find the **Azure AD Privileged Identity Management** service.
 
     ![Azure AD Privileged Identity Management in All services](./media/pim-getting-started/pim-all-services-find.png)
 
-1. Click to open the Privileged Identity Management Quickstart.
+1. Select the Privileged Identity Management Quickstart.
 
 1. Check **Pin blade to dashboard** to pin the Privileged Identity Management Quickstart blade to the dashboard.
 
