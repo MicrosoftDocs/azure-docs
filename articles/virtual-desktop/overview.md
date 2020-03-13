@@ -8,12 +8,13 @@ ms.service: virtual-desktop
 ms.topic: overview
 ms.date: 01/27/2020
 ms.author: helohr
+manager: lizross
 ---
 # What is Windows Virtual Desktop? 
 
 Windows Virtual Desktop is a desktop and app virtualization service that runs on the cloud.
 
-Here’s what you can do when you run Windows Virtual Desktop on Azure:
+Here's what you can do when you run Windows Virtual Desktop on Azure:
 
 * Set up a multi-session Windows 10 deployment that delivers a full Windows 10 with scalability
 * Virtualize Office 365 ProPlus and optimize it to run in multi-user virtual scenarios
@@ -24,7 +25,7 @@ Here’s what you can do when you run Windows Virtual Desktop on Azure:
 
 ## Introductory video
 
-Learn about Windows Virtual Desktop, why it’s unique, and what’s new in this video:
+Learn about Windows Virtual Desktop, why it's unique, and what's new in this video:
 
 <br></br><iframe src="https://www.youtube.com/embed/NQFtI3JLtaU" width="640" height="320" allowFullScreen="true" frameBorder="0"></iframe>
 
