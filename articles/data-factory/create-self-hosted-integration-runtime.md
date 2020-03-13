@@ -31,19 +31,19 @@ To create and set up a self-hosted integration runtime, use the following proced
 
 1. You can use Azure PowerShell for this task. Here is an example:
 
-	```powershell
-	Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName -Type SelfHosted -Description "selfhosted IR description"
-	```
+    ```powershell
+    Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName -Type SelfHosted -Description "selfhosted IR description"
+    ```
   
 2. [Download](https://www.microsoft.com/download/details.aspx?id=39717) and install the self-hosted integration runtime on a local machine.
 
 3. Retrieve the authentication key and register the self-hosted integration runtime with the key. Here is a PowerShell example:
 
-	```powershell
+    ```powershell
 
-	Get-AzDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName  
+    Get-AzDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName  
 
-	```
+    ```
 
 ### Create a self-hosted IR via Azure Data Factory UI
 
@@ -57,11 +57,14 @@ Use the following steps to create a self-hosted IR using Azure Data Factory UI.
 
    ![Create an integration runtime](media/create-self-hosted-integration-runtime/new-integration-runtime.png)
 
-1. On the **Integration runtime setup** window, select **Perform data movement and dispatch activities to external computes**, and select **Continue**.
+1. On the **Integration runtime setup** page, select **Azure, Self-Hosted**, and then select **Continue**. 
+
+1. On the following page, select **Self-Hosted** to create a Self-Hosted IR, and then select **Continue**.
+   ![Create a selfhosted IR](media/create-self-hosted-integration-runtime/new-selfhosted-ir.png)
 
 1. Enter a name for your IR, and select **Create**.
 
-1. Select the link under **Option 1** to open the express setup on your computer. Or follow the steps under **Option 2** to set up manually. The following instructions are based on manual setup:
+1. On the **Integration runtime setup** page, select the link under **Option 1** to open the express setup on your computer. Or follow the steps under **Option 2** to set up manually. The following instructions are based on manual setup:
 
    ![Integration runtime setup](media/create-self-hosted-integration-runtime/integration-runtime-setting-up.png)
 
@@ -71,7 +74,7 @@ Use the following steps to create a self-hosted IR using Azure Data Factory UI.
 
     1. On the **Register Integration Runtime (Self-hosted)** page, paste the key you saved earlier, and select **Register**.
     
-	   ![Register the integration runtime](media/create-self-hosted-integration-runtime/register-integration-runtime.png)
+       ![Register the integration runtime](media/create-self-hosted-integration-runtime/register-integration-runtime.png)
 
     1. On the **New Integration Runtime (Self-hosted) Node** page, select **Finish**.
 
@@ -157,7 +160,7 @@ Here is a high-level summary of the data-flow steps for copying with a self-host
    
    Installation of the self-hosted integration runtime on a domain controller isn't supported.
 - .NET Framework 4.6.1 or later is required. If you're installing the self-hosted integration runtime on a Windows 7 machine, install .NET Framework 4.6.1 or later. See [.NET Framework System Requirements](/dotnet/framework/get-started/system-requirements) for details.
-- The recommended minimum configuration for the self-hosted integration runtime machine is a 2-GHz processor with four cores, 8 GB of RAM, and 80 GB of available hard drive space.
+- The recommended minimum configuration for the self-hosted integration runtime machine is a 2-GHz processor with 4 cores, 8 GB of RAM, and 80 GB of available hard drive space.
 - If the host machine hibernates, the self-hosted integration runtime doesn't respond to data requests. Configure an appropriate power plan on the computer before you install the self-hosted integration runtime. If the machine is configured to hibernate, the self-hosted integration runtime installer prompts with a message.
 - You must be an administrator on the machine to successfully install and configure the self-hosted integration runtime.
 - Copy-activity runs happen with a specific frequency. Processor and RAM usage on the machine follows the same pattern with peak and idle times. Resource usage also depends heavily on the amount of data that is moved. When multiple copy jobs are in progress, you see resource usage go up during peak times.
@@ -185,9 +188,9 @@ You can install the self-hosted integration runtime by downloading an MSI setup 
 1. Select **Finish** to complete installation.
 1. Get the authentication key by using PowerShell. Here's a PowerShell example for retrieving the authentication key:
 
-	```powershell
-	Get-AzDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntime
-	```
+    ```powershell
+    Get-AzDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntime
+    ```
 
 1. On the **Register Integration Runtime (Self-hosted)** window of Microsoft Integration Runtime Configuration Manager running on your machine, take the following steps:
 
@@ -343,7 +346,7 @@ There are three configuration options:
 
 - **Do not use proxy**: The self-hosted integration runtime doesn't explicitly use any proxy to connect to cloud services.
 - **Use system proxy**: The self-hosted integration runtime uses the proxy setting that is configured in diahost.exe.config and diawp.exe.config. If these files specify no proxy configuration, the self-hosted integration runtime connects to the cloud service directly without going through a proxy.
-- **Use custom proxy**: Configure the HTTP proxy setting to use for the self-hosted integration runtime, instead of using configurations in diahost.exe.config and diawp.exe.config. **Address** and **Port** values are required. **User Name** and **Password** values are optional, depending on your proxy’s authentication setting. All settings are encrypted with Windows DPAPI on the self-hosted integration runtime and stored locally on the machine.
+- **Use custom proxy**: Configure the HTTP proxy setting to use for the self-hosted integration runtime, instead of using configurations in diahost.exe.config and diawp.exe.config. **Address** and **Port** values are required. **User Name** and **Password** values are optional, depending on your proxy's authentication setting. All settings are encrypted with Windows DPAPI on the self-hosted integration runtime and stored locally on the machine.
 
 The integration runtime host service restarts automatically after you save the updated proxy settings.
 
@@ -370,26 +373,26 @@ If you select the **Use system proxy** option for the HTTP proxy, the self-hoste
 1. In Notepad, open the text file C:\Program Files\Microsoft Integration Runtime\3.0\Shared\diahost.exe.config.
 1. Find the default **system.net** tag as shown in the following code:
 
-	```xml
-	<system.net>
-		<defaultProxy useDefaultCredentials="true" />
-	</system.net>
-	```
-	You can then add proxy server details as shown in the following example:
+    ```xml
+    <system.net>
+        <defaultProxy useDefaultCredentials="true" />
+    </system.net>
+    ```
+    You can then add proxy server details as shown in the following example:
 
-	```xml
-	<system.net>
+    ```xml
+    <system.net>
         <defaultProxy enabled="true">
               <proxy bypassonlocal="true" proxyaddress="http://proxy.domain.org:8888/" />
         </defaultProxy>
-	</system.net>
-	```
+    </system.net>
+    ```
 
-	The proxy tag allows additional properties to specify required settings like `scriptLocation`. See [\<proxy\> Element (Network Settings)](https://msdn.microsoft.com/library/sa91de1e.aspx) for syntax.
+    The proxy tag allows additional properties to specify required settings like `scriptLocation`. See [\<proxy\> Element (Network Settings)](https://msdn.microsoft.com/library/sa91de1e.aspx) for syntax.
 
-	```xml
-	<proxy autoDetect="true|false|unspecified" bypassonlocal="true|false|unspecified" proxyaddress="uriString" scriptLocation="uriString" usesystemdefault="true|false|unspecified "/>
-	```
+    ```xml
+    <proxy autoDetect="true|false|unspecified" bypassonlocal="true|false|unspecified" proxyaddress="uriString" scriptLocation="uriString" usesystemdefault="true|false|unspecified "/>
+    ```
 1. Save the configuration file in its original location. Then restart the self-hosted integration runtime host service, which picks up the changes.
 
    To restart the service, use the services applet from Control Panel. Or from Integration Runtime Configuration Manager, select the **Stop Service** button, and then select **Start Service**.
@@ -399,7 +402,7 @@ If you select the **Use system proxy** option for the HTTP proxy, the self-hoste
 > [!IMPORTANT]
 > Don't forget to update both diahost.exe.config and diawp.exe.config.
 
-You also need to make sure that Microsoft Azure is in your company’s allow list. You can download the list of valid Azure IP addresses from [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=41653).
+You also need to make sure that Microsoft Azure is in your company's allow list. You can download the list of valid Azure IP addresses from [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=41653).
 
 ### Possible symptoms for issues related to the firewall and proxy server
 
@@ -408,10 +411,10 @@ If you see error messages like the following ones, the likely reason is improper
 * When you try to register the self-hosted integration runtime, you receive the following error message: "Failed to register this Integration Runtime node! Confirm that the Authentication key is valid and the integration service host service is running on this machine."
 * When you open Integration Runtime Configuration Manager, you see a status of **Disconnected** or **Connecting**. When you view Windows event logs, under **Event Viewer** > **Application and Services Logs** > **Microsoft Integration Runtime**, you see error messages like this one:
 
-	```
-	Unable to connect to the remote server
-	A component of Integration Runtime has become unresponsive and restarts automatically. Component name: Integration Runtime (Self-hosted).
-	```
+    ```
+    Unable to connect to the remote server
+    A component of Integration Runtime has become unresponsive and restarts automatically. Component name: Integration Runtime (Self-hosted).
+    ```
 
 ### Enable remote access from an intranet
 
