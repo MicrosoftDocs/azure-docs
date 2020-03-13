@@ -2142,8 +2142,8 @@
     },
     {
       "source_path": "articles/cosmos-db/cosmos-db-security-controls.md",
-      "redirect_url": "/azure/cosmos-db/security-baselines",
-      "redirect_document_id": true
+      "redirect_url": "/azure/cosmos-db/security-baseline",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/cosmos-db/how-to-custom-synchronization.md",
@@ -16916,7 +16916,7 @@
     },
     {
       "source_path": "articles/storage/blobs/storage-security-controls.md",
-      "redirect_url": "/azure/storage/blobs/security-controls",
+      "redirect_url": "/azure/storage/common/security-baseline",
       "redirect_document_id": false
     },
     {

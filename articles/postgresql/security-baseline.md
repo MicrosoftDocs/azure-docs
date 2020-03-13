@@ -903,7 +903,9 @@ How to provide Key Vault authentication with a managed identity: https://docs.mi
 
 ### 7.12: Manage identities securely and automatically
 
-**Guidance**: For Azure Virtual Machines or web applications running on Azure App Service being used to access your Azure Database for PostgreSQL instances, use Managed Service Identity in conjunction with Azure Key Vault to simplify and secure Azure Database for PostgreSQL secret management. Ensure Key Vault Soft Delete is enabled.
+**Guidance**: Azure Database for PostgreSQL server supports Azure Active Directory authentication (in preview) to access databases.  While creating the Azure Database for PostgreSQL server, you provide credentials for an administrator user. This administrator can be used to create additional database users.  
+
+For Azure Virtual Machines or web applications running on Azure App Service being used to access your Azure Database for PostgreSQL server, use Managed Service Identity in conjunction with Azure Key Vault to store and retrieve credentials for Azure Database for PostgreSQL server. Ensure Key Vault Soft Delete is enabled.
 
 Use Managed Identities to provide Azure services with an automatically managed identity in Azure Active Directory (AD). Managed Identities allows you to authenticate to any service that supports Azure AD authentication, including Key Vault, without any credentials in your code.
 
