@@ -79,9 +79,9 @@ If you have adapted and deployed a model with baseline V1.0, that deployment wil
 > [!IMPORTANT]
 > If you have further privacy concerns that prohibit you from using the custom Speech service, contact one of the support channels.
 
-**Q: Do models get replicated?**
+**Q: Do models get deprecated?**
 
-**A**: If there is a new model for a locale we will trigger deprecation for the older model. New endpoints will not be deployed with a model marked as deprecated. New custom models will not be adapted using a model marked as deprecated. Existing endpoints will be live for up to 3 years, although users will be encouraged to replace the underlying model with the newer version.
+**A**: If there is a new model for a locale older models for that locale will be deprecated three months (earliest) after the new model was made available. For a deprecated model you cannot start new model adaptations or create new endpoints. Existing endpoints will be live for up to 3 years, although users will be encouraged to replace the underlying model with the newer version.
 
 ## Increasing concurrency
 
