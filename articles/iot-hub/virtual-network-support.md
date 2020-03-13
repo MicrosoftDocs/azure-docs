@@ -307,7 +307,7 @@ To use this region-limited version of the Azure IoT SDKs with VNET support for C
 
 2. Download the SDK:
     - > [Java](https://aka.ms/vnetjavasdk)
-    - > [C#](https://aka.ms/vnetcsharsdk)
+    - > [C#](https://aka.ms/vnetcsharpsdk)
     - > [Node.js](https://aka.ms/vnetnodesdk)
  
 For Python, download our limited version from Github.
