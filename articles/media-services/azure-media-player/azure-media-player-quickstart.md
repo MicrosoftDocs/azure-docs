@@ -56,4 +56,4 @@ If you don't want to use auto-setup, you can omit the `data-setup` attribute and
 ## Next steps
 
 <!---Some context for the following links goes here--->
-- [link to next logical step for the customer](global-quickstart-template.md)
+- [link to something](global-quickstart-template.md)
