@@ -21,7 +21,7 @@ All of the Cognitive Services endpoints exposed over HTTP enforce TLS 1.2. With 
 
 * The client Operating System (OS) would need to support TLS 1.2
 * The language (and platform) used to make the HTTP call would need to specify TLS 1.2 as part of the request
-    * Depending on the language and platform, this can be done either implicitly or explicitly
+    * Depending on the language and platform, specifying TLS is done either implicitly or explicitly
 
 For .NET users, consider the <a href="https://docs.microsoft.com/dotnet/framework/network-programming/tls" target="_blank">Transport Layer Security best practices <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
@@ -35,7 +35,7 @@ An alternative to using hardcoded values for sensitive data, is to use environme
 
 ### Set environment variable
 
-To set environment variables, use one the following commands where the `ENVIRONMENT_VARIABLE_KEY` is the key and `value` is the value to store in the environment variable.
+To set environment variables, use one the following commands - where the `ENVIRONMENT_VARIABLE_KEY` is the named key and `value` is the value stored in the environment variable.
 
 # [Command Line](#tab/command-line)
 
