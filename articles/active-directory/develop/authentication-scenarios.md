@@ -47,9 +47,9 @@ Azure AD also provides Azure Active Directory B2C so that organizations can sign
 
 Security tokens contain information about users and apps. Azure AD uses JSON based tokens (JWTs) that contain claims.
 
-A claim provides assertions about one entity, such as a [client application](https://docs.microsoft.com/azure/active-directory/develop/developer-glossary#client-application) or [resource owner](https://docs.microsoft.com/azure/active-directory/develop/developer-glossary#resource-owner)), to another entity, such as a [resource server](https://docs.microsoft.com/azure/active-directory/develop/developer-glossary#resource-server)).
+A claim provides assertions about one entity, such as a [client application](https://docs.microsoft.com/azure/active-directory/develop/developer-glossary#client-application) or [resource owner](https://docs.microsoft.com/azure/active-directory/develop/developer-glossary#resource-owner), to another entity, such as a [resource server](https://docs.microsoft.com/azure/active-directory/develop/developer-glossary#resource-server).
 
-Claims are name/value pairs that relay facts about the token subject. For example, a claim may contain facts about the security principal that was authenticated by the [authorization server](https://docs.microsoft.com/azure/active-directory/develop/developer-glossary#authorization-server)). The claims present in a given token  depend on many things, including the type of token, the type of credential used to authenticate the subject, the application configuration, and so on.
+Claims are name/value pairs that relay facts about the token subject. For example, a claim may contain facts about the security principal that was authenticated by the [authorization server](https://docs.microsoft.com/azure/active-directory/develop/developer-glossary#authorization-server). The claims present in a given token  depend on many things, including the type of token, the type of credential used to authenticate the subject, the application configuration, and so on.
 
 Applications can use claims for various tasks such as:
 

@@ -1,7 +1,6 @@
 ---
-title: Tutorial - Create and manage Azure budgets | Microsoft Docs
+title: Tutorial - Create and manage Azure budgets
 description: This tutorial helps plan and account for the costs of Azure services that you consume.
-keywords:
 author: bandersmsft
 ms.author: banders
 ms.date: 03/11/2020

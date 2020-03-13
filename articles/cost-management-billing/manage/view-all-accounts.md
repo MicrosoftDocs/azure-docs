@@ -1,5 +1,5 @@
 ---
-title: View your billing accounts in Azure portal  | Microsoft Docs
+title: View your billing accounts in Azure portal 
 description: Learn how to view your billing accounts in Azure portal.
 author: amberbhargava
 tags: billing
