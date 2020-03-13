@@ -60,7 +60,7 @@ For services created after July 15, 2020: If the similarity is omitted or set to
 You can also explicitly set the similarity value to be one of the following two values:   *"#Microsoft.Azure.Search.ClassicSimilarity"* or *"#Microsoft.Azure.Search.BM25Similarity"*.
 
 
-## BM25 Similarity Parameters
+## BM25 similarity parameters
 
 BM25 similarity adds two user customizable parameters to control the calculated relevance score:
 
