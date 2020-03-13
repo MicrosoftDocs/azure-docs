@@ -32,7 +32,7 @@ SSMS is partially supported starting in version 18.5 with limited features such 
 Before you begin, make sure you have the following prerequisites:  
 
 * [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms). 
-* For SQL pool, you need an existing data warehouse. To create one, see [Create a data warehouse](../../sql-data-warehouse/create-data-warehouse-portal#create-a-data-warehouse). For SQL on-demand, one is already provisioned in your workspace at creation time. 
+* For SQL pool, you need an existing data warehouse. To create one, see [Create a SQL pool](../quickstart-create-sql-pool.md). For SQL on-demand, one is already provisioned in your workspace at creation time. 
 * The fully qualified SQL Server name. To find this, see [Connect to SQL Analytics](connect-overview.md).
 
 ## Connect
