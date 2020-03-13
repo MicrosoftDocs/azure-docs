@@ -113,7 +113,9 @@ See details of supported locales by features in [Language and region support for
 Variations in Azure Government:
 
 - Endpoint:  https://api.cognitive.microsofttranslator.us
-- Auth Token Service: https://virginia.api.cognitive.microsoft.us/sts/v1.0/issueToken
+- Auth Token Service: 
+     - https://usgovvirginia.api.cognitive.microsoft.us/sts/v1.0/issueToken
+     - https://usgovarizona.api.cognitive.microsoft.us/sts/v1.0/issueToken
 - Available SKUs: S1
 - Custom Translator and Translator Hub are not supported.
  
