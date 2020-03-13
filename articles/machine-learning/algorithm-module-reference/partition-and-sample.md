@@ -70,7 +70,7 @@ This option supports simple random sampling or stratified random sampling. It's 
 
 1. **Rate of sampling**: Enter a value between 0 and 1. this value specifies the percentage of rows from the source dataset that should be included in the output dataset.
 
-   For example, if you want only half of the original dataset, enter **0.5** to indicate that the sampling rate should be 50 percent.
+   For example, if you want only half of the original dataset, enter `0.5` to indicate that the sampling rate should be 50 percent.
 
    The rows of the input dataset are shuffled and selectively placed in the output dataset, according to the specified ratio.
 
@@ -149,7 +149,7 @@ Use this option when you have divided a dataset into multiple partitions and now
 
 1. If you're working with multiple partitions, you must add more instances of the **Partition and Sample** module to handle each partition.
 
-   For example, the **Partition and Sample** module in the second row is set to **Assign to folds**, and the module in the third row is set to **Pick fold**.   
+   For example, the **Partition and Sample** module in the second row is set to **Assign to Folds**, and the module in the third row is set to **Pick Fold**.   
 
    ![Partition and sample](./media/module/partition-and-sample.png)
 
