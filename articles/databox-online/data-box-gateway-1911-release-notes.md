@@ -19,11 +19,11 @@ The release notes are continuously updated, and as critical issues requiring a w
 
 This release corresponds to the software versions:
 
-- **Data Box Gateway 1911 (1.6.978.743)**
-- **Data Box Edge 1911 (1.6.978.743)**
+- **Data Box Gateway 1911 (1.6.1049.786)**
+- **Data Box Edge 1911 (1.6.1049.786)**
 
 > [!NOTE]
-> Update 1911 can be applied only to Data Box Edge devices that are running general availability (GA) or 1905 version of the software.
+> Update 1911 can be applied only to Data Box Edge devices that are running general availability (GA) or 1906 version of the software.
 
 ## What's new
 
