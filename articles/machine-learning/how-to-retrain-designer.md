@@ -26,7 +26,7 @@ In this article, you learn how to:
 
 ## Prerequisites
 
-* An Azure subscription. If you don’t have an Azure subscription, create a [free account](https://aka.ms/AMLFree).
+* An Azure subscription. If you don't have an Azure subscription, create a [free account](https://aka.ms/AMLFree).
 * An Azure Machine Learning workspace with the Enterprise SKU.
 
 This article assumes that you have basic knowledge of building pipelines in the designer. For a guided introduction to the designer, complete the [tutorial](tutorial-designer-automobile-price-train-score.md). 
@@ -70,7 +70,7 @@ The designer saves all pipeline outputs, including trained models, to the defaul
 Add pipeline parameters to dynamically set variables at runtime. For this pipeline, add a parameter for the training data path so that you can retrain your model on a new dataset.
 
 1. Select the **Import Data** module.
-1. On the settings pane, select the ellipses above the **Path** field.
+1. In the settings pane, select the ellipses above the **Path** field.
 1. Select  **Add to pipeline parameter**.
 1. Provide a parameter name and a default value.
 
