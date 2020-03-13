@@ -1,9 +1,7 @@
 ---
-title: Azure Security Baseline for Azure Database for PostgreSQL
-description: Azure Security Baseline for Azure Database for PostgreSQL
+title: Azure Security Baseline for Azure Database for PostgreSQL Single Server
+description: Azure Security Baseline for Azure Database for PostgreSQL Single Server
 author: msmbaldwin
-manager: rkarlin
-
 ms.service: security
 ms.topic: conceptual
 ms.date: 03/13/2020
@@ -12,11 +10,11 @@ ms.custom: security-benchmark
 
 ---
 
-# Azure Security Baseline for Azure Database for PostgreSQL
+# Azure Security Baseline for Azure Database for PostgreSQL Single Server
 
-The Azure Security Baseline for Azure Database for PostgreSQL contains recommendations that will help you improve the security posture of your deployment.
+The Azure Security Baseline for Azure Database for PostgreSQL Single Server contains recommendations that will help you improve the security posture of your deployment.
 
-The baseline for this services is drawn from the [Azure Security Benchmark version 1.0](https://docs.microsoft.com/azure/security/benchmarks/overview), which provides recommendations on how you can secure your cloud solutions on Azure with our best practices guidance.
+The baseline for this service is drawn from the [Azure Security Benchmark version 1.0](https://docs.microsoft.com/azure/security/benchmarks/overview), which provides recommendations on how you can secure your cloud solutions on Azure with our best practices guidance.
 
 For more information, see [Azure Security Baselines overview](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview).
 
