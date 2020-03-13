@@ -71,6 +71,8 @@ echo ENVIRONMENT_VARIABLE_KEY
 
 ### Get environment variable
 
+To get an environment variable, it must be read into memory. Depending on the language you're using, consider the following code snippets for getting environment variables given the `ENVIRONMENT_VARIABLE_KEY` and assign to a variable named `value`.
+
 # [C#](#tab/csharp)
 
 ```csharp
