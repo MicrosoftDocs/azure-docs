@@ -19,6 +19,9 @@ ms.service: digital-twins
 
 In an Azure Digital Twins solution, the entities in your environment are represented by **Azure digital twins**. An Azure digital twin is an instance of one of the user-created [twin types](concepts-models.md); it follows a pre-defined twin type template and is connected to other Azure digital twins via relationships to form the Azure Digital Twins **twin graph**.
 
+> [!TIP]
+> "Azure Digital Twins" (every word capitalized) refers to the entire Azure service. When you see "digital twin(s)" or "Azure digital twin(s)" (not capitalized), these refer to the actual twin nodes inside the twin graph. They are individual entities in your "Azure Digital Twins" solution.
+
 ## Creating Azure digital twins
 
 Building an Azure digital twin starts with creating a twin type. A twin type describes a digital twin's properties and what relationships it can have, among other aspects. For the types of information that are defined in a twin type, see [Create a twin type](concepts-models.md).
