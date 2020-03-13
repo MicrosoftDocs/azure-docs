@@ -18,6 +18,8 @@ Azure Media Player is easy to set up. It only takes a few minutes to get basic p
 > [!IMPORTANT] 
 > You should **NOT** use the `latest` version in production, as this is subject to change on demand. Replace `latest` with a version of Azure Media Player; for example replace `latest` with `1.0.0`. Azure Media Player versions can be queried from [here](azure-media-player-changelog.md).
 
+## Use the video element
+
 Next, simply use the `<video>` element as you normally would, but with an additional `data-setup` attribute containing any options. These options can include any Azure Media Services option in a valid JSON object.
 
 ```
