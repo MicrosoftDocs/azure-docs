@@ -74,6 +74,7 @@ echo ENVIRONMENT_VARIABLE_KEY
 # [C#](#tab/csharp)
 
 ```csharp
+// Get the named env var, and assign it to the value variable
 var value =
     Environment.GetEnvironmentVariable(
         "ENVIRONMENT_VARIABLE_KEY");
@@ -82,6 +83,7 @@ var value =
 # [C++](#tab/cpp)
 
 ```cpp
+// Get the named env var, and assign it to the value variable
 auto value =
     getenv("ENVIRONMENT_VARIABLE_KEY");
 ```
@@ -89,6 +91,7 @@ auto value =
 # [Java](#tab/java)
 
 ```java
+// Get the named env var, and assign it to the value variable
 String value =
     System.getenv(
         "ENVIRONMENT_VARIABLE_KEY")
@@ -97,6 +100,7 @@ String value =
 # [Node.js](#tab/node-js)
 
 ```javascript
+// Get the named env var, and assign it to the value variable
 const value =
     process.env.ENVIRONMENT_VARIABLE_KEY;
 ```
@@ -106,7 +110,16 @@ const value =
 ```python
 import os
 
+# Get the named env var, and assign it to the value variable
 value = os.environ['ENVIRONMENT_VARIABLE_KEY']
+```
+
+# [Objective-C](#tab/objective-c)
+
+```objectivec
+// Get the named env var, and assign it to the value variable
+NSString* value =
+    [[[NSProcessInfo processInfo]environment]objectForKey:@"ENVIRONMENT_VARIABLE_KEY"];
 ```
 
 ---
