@@ -22,7 +22,7 @@
       href: speech-to-text.md
     - name: Speech-to-text basics
       href: speech-to-text-basics.md
-  - name: Quickstarts
+  - name: Quickstart
     items:
     - name: Recognize speech with microphone input
       href: quickstarts/speech-to-text-from-microphone.md
@@ -102,7 +102,6 @@
     - name: Speech-to-text FAQ
       href: faq-stt.md
       displayName: "FAQ,STT FAQ,SR FAQ,frequently asked questions"
->>>>>>> Minor cleanup
 - name: Text-to-speech
   items:
     - name: Text-to-speech documentation
