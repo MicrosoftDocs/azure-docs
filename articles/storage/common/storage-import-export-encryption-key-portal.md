@@ -34,7 +34,7 @@ Before you begin, make sure:
 
         - [How to use soft-delete with PowerShell](../../key-vault/key-vault-soft-delete-powershell.md).
         - [How to use soft-delete with CLI](../../key-vault/key-vault-soft-delete-cli.md).
-    - The existing key vault should have an RSA key of 2048 size. For more information about keys, see **Key Vault keys** in [About Azure Key Vault keys, secrets, and certificates](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys).
+    - The existing key vault should have an RSA key of 2048 size or more. For more information about keys, see **Key Vault keys** in [About Azure Key Vault keys, secrets, and certificates](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys).
     - Key vault must be in the same region as the storage account for your data.  
     - If you don't have an existing Azure Key Vault, you can also create it inline as described in the following section.
 
