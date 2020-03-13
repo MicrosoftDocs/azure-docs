@@ -1,6 +1,6 @@
 ---
 title: Video Indexer failover and disaster recovery
-titleSuffix: Azure
+titleSuffix: Azure Media Services
 description: Learn how to failover to a secondary Video Indexer account if a regional datacenter failure or disaster occurs.
 services: media-services
 documentationcenter: ''
