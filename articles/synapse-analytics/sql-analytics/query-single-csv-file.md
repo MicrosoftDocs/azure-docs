@@ -1,19 +1,19 @@
 ---
-title: Query CSV files
-description: In this article, you'll learn how to query single CSV files with different file formats using SQL on-demand.
+title: Query CSV files using SQL on-demand (preview) 
+description: In this article, you'll learn how to query single CSV files with different file formats using SQL on-demand (preview).
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
-ms.topic: overview
+ms.topic: how-to
 ms.subservice:
 ms.date: 10/07/2019
 ms.author: v-stazar
 ms.reviewer: jrasnick
 ---
 
-# Quickstart: Query CSV files
+# Query CSV files
 
-In this article, you'll learn how to query a single CSV file using SQL on-demand in Azure Synapse Analytics. CSV files may have different formats: 
+In this article, you'll learn how to query a single CSV file using SQL on-demand (preview) in Azure Synapse Analytics. CSV files may have different formats: 
 
 - With and without a header row
 - Comma and tab-delimited values
@@ -42,20 +42,20 @@ File preview:
 ```sql
 SELECT * 
 FROM OPENROWSET(
-		BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/population/population.csv',
- 		FORMAT = 'CSV', 
-		FIELDTERMINATOR =',', 
-		ROWTERMINATOR = '\n'
-	)
+        BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/population/population.csv',
+         FORMAT = 'CSV', 
+        FIELDTERMINATOR =',', 
+        ROWTERMINATOR = '\n'
+    )
 WITH (
-	[country_code] VARCHAR (5) COLLATE Latin1_General_BIN2,
-	[country_name] VARCHAR (100) COLLATE Latin1_General_BIN2,
-	[year] smallint,
-	[population] bigint
+    [country_code] VARCHAR (5) COLLATE Latin1_General_BIN2,
+    [country_name] VARCHAR (100) COLLATE Latin1_General_BIN2,
+    [year] smallint,
+    [population] bigint
 ) AS [r]
 WHERE 
-	country_name = 'Luxembourg' 
-	AND year = 2017
+    country_name = 'Luxembourg' 
+    AND year = 2017
 ```
 
 ## Unix-style new line
@@ -69,20 +69,20 @@ File preview:
 ```sql
 SELECT * 
 FROM OPENROWSET(
-		BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/population-unix/population.csv', 
-		FORMAT = 'CSV', 
-		FIELDTERMINATOR =',', 
-		ROWTERMINATOR = '0x0a'
-	)
+        BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/population-unix/population.csv', 
+        FORMAT = 'CSV', 
+        FIELDTERMINATOR =',', 
+        ROWTERMINATOR = '0x0a'
+    )
 WITH (
-	[country_code] VARCHAR (5) COLLATE Latin1_General_BIN2,
-	[country_name] VARCHAR (100) COLLATE Latin1_General_BIN2,
-	[year] smallint,
-	[population] bigint
+    [country_code] VARCHAR (5) COLLATE Latin1_General_BIN2,
+    [country_name] VARCHAR (100) COLLATE Latin1_General_BIN2,
+    [year] smallint,
+    [population] bigint
 ) AS [r]
 WHERE 
-	country_name = 'Luxembourg' 
-	AND year = 2017
+    country_name = 'Luxembourg' 
+    AND year = 2017
 ```
 
 
@@ -99,11 +99,11 @@ File preview:
 ```sql
 SELECT * 
 FROM OPENROWSET(
-		BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/population-unix-hdr/population.csv',
-		FORMAT = 'CSV', 
-		FIELDTERMINATOR =',', 
-		FIRSTROW = 2
-	)
+        BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/population-unix-hdr/population.csv',
+        FORMAT = 'CSV', 
+        FIELDTERMINATOR =',', 
+        FIRSTROW = 2
+    )
     WITH (
         [country_code] VARCHAR (5) COLLATE Latin1_General_BIN2,
         [country_name] VARCHAR (100) COLLATE Latin1_General_BIN2,
@@ -111,8 +111,8 @@ FROM OPENROWSET(
         [population] bigint
     ) AS [r]
 WHERE 
-	country_name = 'Luxembourg' 
-	AND year = 2017
+    country_name = 'Luxembourg' 
+    AND year = 2017
 ```
 
 
@@ -128,13 +128,13 @@ File preview:
 ```sql
 SELECT * 
 FROM OPENROWSET(
-		BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/population-unix-hdr-quoted/population.csv',
-		FORMAT = 'CSV', 
-		FIELDTERMINATOR =',', 
-		ROWTERMINATOR = '0x0a', 
-		FIRSTROW = 2,
-		FIELDQUOTE = '"'
-	)
+        BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/population-unix-hdr-quoted/population.csv',
+        FORMAT = 'CSV', 
+        FIELDTERMINATOR =',', 
+        ROWTERMINATOR = '0x0a', 
+        FIRSTROW = 2,
+        FIELDQUOTE = '"'
+    )
     WITH (
         [country_code] VARCHAR (5) COLLATE Latin1_General_BIN2,
         [country_name] VARCHAR (100) COLLATE Latin1_General_BIN2,
@@ -142,8 +142,8 @@ FROM OPENROWSET(
         [population] bigint
     ) AS [r]
 WHERE 
-	country_name = 'Luxembourg' 
-	AND year = 2017
+    country_name = 'Luxembourg' 
+    AND year = 2017
 ```
 
 > [!NOTE]
@@ -162,13 +162,13 @@ File preview:
 ```sql
 SELECT * 
 FROM OPENROWSET(
-		BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/population-unix-hdr-escape/population.csv',
-		FORMAT = 'CSV', 
-		FIELDTERMINATOR =',', 
-		ROWTERMINATOR = '0x0a', 
-		FIRSTROW = 2,
-		ESCAPECHAR = '\\'
-	)
+        BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/population-unix-hdr-escape/population.csv',
+        FORMAT = 'CSV', 
+        FIELDTERMINATOR =',', 
+        ROWTERMINATOR = '0x0a', 
+        FIRSTROW = 2,
+        ESCAPECHAR = '\\'
+    )
     WITH (
         [country_code] VARCHAR (5) COLLATE Latin1_General_BIN2,
         [country_name] VARCHAR (100) COLLATE Latin1_General_BIN2,
@@ -176,7 +176,7 @@ FROM OPENROWSET(
         [population] bigint
     ) AS [r]
 WHERE 
-	country_name = 'Slov,enia' 
+    country_name = 'Slov,enia' 
 ```
 
 > [!NOTE]
@@ -195,21 +195,21 @@ File preview:
 ```sql
 SELECT * 
 FROM OPENROWSET(
-		BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/population-unix-hdr-tsv/population.csv',
-		FORMAT = 'CSV', 
-		FIELDTERMINATOR ='\t', 
-		ROWTERMINATOR = '0x0a', 
-		FIRSTROW = 2
-	)
-	WITH (
-		[country_code] VARCHAR (5) COLLATE Latin1_General_BIN2,
-		[country_name] VARCHAR (100) COLLATE Latin1_General_BIN2,
-		[year] smallint,
-		[population] bigint
-	) AS [r]
+        BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/population-unix-hdr-tsv/population.csv',
+        FORMAT = 'CSV', 
+        FIELDTERMINATOR ='\t', 
+        ROWTERMINATOR = '0x0a', 
+        FIRSTROW = 2
+    )
+    WITH (
+        [country_code] VARCHAR (5) COLLATE Latin1_General_BIN2,
+        [country_name] VARCHAR (100) COLLATE Latin1_General_BIN2,
+        [year] smallint,
+        [population] bigint
+    ) AS [r]
 WHERE 
-	country_name = 'Luxembourg' 
-	AND year = 2017
+    country_name = 'Luxembourg' 
+    AND year = 2017
 ```
 
 
@@ -225,18 +225,18 @@ The following query returns the number of distinct country names in a file, spec
 
 ```sql
 SELECT 
-	COUNT(DISTINCT country_name) AS countries
+    COUNT(DISTINCT country_name) AS countries
 FROM OPENROWSET(
-		BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/population/population.csv',
- 		FORMAT = 'CSV', 
-		FIELDTERMINATOR =',', 
-		ROWTERMINATOR = '\n'
-	)
+        BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/population/population.csv',
+         FORMAT = 'CSV', 
+        FIELDTERMINATOR =',', 
+        ROWTERMINATOR = '\n'
+    )
 WITH (
-	--[country_code] VARCHAR (5) COLLATE Latin1_General_BIN2,
-	[country_name] VARCHAR (100) COLLATE Latin1_General_BIN2 2
-	--[year] smallint,
-	--[population] bigint
+    --[country_code] VARCHAR (5) COLLATE Latin1_General_BIN2,
+    [country_name] VARCHAR (100) COLLATE Latin1_General_BIN2 2
+    --[year] smallint,
+    --[population] bigint
 ) AS [r]
 ```
 

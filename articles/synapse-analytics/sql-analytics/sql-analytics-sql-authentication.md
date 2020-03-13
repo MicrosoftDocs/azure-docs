@@ -1,6 +1,6 @@
 ---
-title: Synapse Analytics SQL Authentication | Microsoft Docs
-description: Learn about SQL authentication in Synapse Analytics.
+title: SQL Authentication
+description: Learn about SQL authentication in Azure Synapse Analytics.
 services: synapse-analytics
 author: vvasic-msft
 ms.service: synapse-analytics
@@ -11,7 +11,7 @@ ms.reviewer: jrasnick
 ---
 # SQL Authentication
 
-Azure Synapse Analytics has two SQL Analytics form-factors that enable you to control your resource consumption. This article explains how the two form-factors control the user authentication.
+Azure Synapse Analytics has two SQL form-factors that enable you to control your resource consumption. This article explains how the two form-factors control the user authentication.
 
 To authorize to SQL Analytics, you can use two authorization types:
 - AAD authorization
@@ -43,7 +43,7 @@ The **Server admin** and **Azure AD admin** accounts have the following characte
 - Can add and remove members to the `dbmanager` and `loginmanager` roles.
 - Can view the `sys.sql_logins` system table.
 
-## SQL On-demand
+## SQL On-demand (preview)
 
 To manage the users having access to SQL on-demand, you can use the instructions below.
 

@@ -1,6 +1,6 @@
 ---
-title: Overview - Query data in storage
-description: This section contains sample queries you can use to try out the SQL on-demand resource within Azure Synapse Analytics.
+title: Overview - Query data in storage using SQL on-demand (preview) 
+description: This section contains sample queries you can use to try out the SQL on-demand (preview) resource within Azure Synapse Analytics.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics 
@@ -13,7 +13,7 @@ ms.reviewer: jrasnick
 
 # Overview: Query data in storage
 
-This section contains sample queries you can use to try out the SQL on-demand resource within Azure Synapse Analytics.
+This section contains sample queries you can use to try out the SQL on-demand (preview) resource within Azure Synapse Analytics.
 Currently supported files are: 
 - CSV
 - Parquet
@@ -25,7 +25,7 @@ Currently supported files are:
 The tools you need to issue queries:
 
 - SQL client of your choice:
-    - Azure Synapse Studio
+    - Azure Synapse Studio (preview)
     - Azure Data Studio
     - SQL Server Management Studio
 
@@ -162,12 +162,12 @@ The last step of validation is to execute the following query:
 
 ```sql
 SELECT 
-	COUNT_BIG(*)
+    COUNT_BIG(*)
 FROM  
-	OPENROWSET(
-		BULK 'https://sqlondemandstorage.blob.core.windows.net/parquet/taxi/year=2017/month=9/*.parquet',
-		FORMAT='PARQUET'
-	) AS nyc
+    OPENROWSET(
+        BULK 'https://sqlondemandstorage.blob.core.windows.net/parquet/taxi/year=2017/month=9/*.parquet',
+        FORMAT='PARQUET'
+    ) AS nyc
 ```
 
 The above Query should return this number: **8945574**.

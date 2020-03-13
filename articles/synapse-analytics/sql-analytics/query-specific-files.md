@@ -4,7 +4,7 @@ description: OPENROWSET function provides file and path information about every 
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
-ms.topic: overview
+ms.topic: how-to
 ms.subservice:
 ms.date: 10/07/2019
 ms.author: v-stazar
@@ -35,15 +35,15 @@ The following sample reads the NYC Yellow Taxi data files for the last three mon
 
 ```sql
 SELECT 
-	r.filename() AS [filename]
-	,COUNT_BIG(*) AS [rows]
+    r.filename() AS [filename]
+    ,COUNT_BIG(*) AS [rows]
 FROM OPENROWSET(
-		BULK 'https://sqlondemandstorage.blob.core.windows.net/parquet/taxi/year=2017/month=9/*.parquet',
-		FORMAT='PARQUET') AS [r]
+        BULK 'https://sqlondemandstorage.blob.core.windows.net/parquet/taxi/year=2017/month=9/*.parquet',
+        FORMAT='PARQUET') AS [r]
 GROUP BY
-	r.filename()
+    r.filename()
 ORDER BY
-	[filename]
+    [filename]
 ```
 
 
@@ -54,17 +54,17 @@ Your results will be the same as the prior example.
 
 ```sql
 SELECT 
-	r.filename() AS [filename]
-	,COUNT_BIG(*) AS [rows]
+    r.filename() AS [filename]
+    ,COUNT_BIG(*) AS [rows]
 FROM OPENROWSET(
-	BULK 'https://sqlondemandstorage.blob.core.windows.net/parquet/taxi/year=2017/month=9/*.parquet',
-	FORMAT='PARQUET') AS [r]
+    BULK 'https://sqlondemandstorage.blob.core.windows.net/parquet/taxi/year=2017/month=9/*.parquet',
+    FORMAT='PARQUET') AS [r]
 WHERE
-	r.filename() IN ('yellow_tripdata_2017-10.parquet', 'yellow_tripdata_2017-11.parquet', 'yellow_tripdata_2017-12.parquet')
+    r.filename() IN ('yellow_tripdata_2017-10.parquet', 'yellow_tripdata_2017-11.parquet', 'yellow_tripdata_2017-12.parquet')
 GROUP BY
-	r.filename()
+    r.filename()
 ORDER BY
-	[filename]
+    [filename]
 ```
 
 
@@ -81,36 +81,36 @@ The following sample reads NYC Yellow Taxi data files for the last three months 
 
 ```sql
 SELECT 
-	r.filepath() AS filepath
-	,COUNT_BIG(*) AS [rows]
+    r.filepath() AS filepath
+    ,COUNT_BIG(*) AS [rows]
 FROM OPENROWSET(
-		BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/taxi/yellow_tripdata_2017-1*.csv',
-		FORMAT = 'CSV',
-		FIRSTROW = 2
-	)
-	WITH (
-		vendor_id INT, 
-		pickup_datetime DATETIME2, 
-		dropoff_datetime DATETIME2,
-		passenger_count SMALLINT,
-		trip_distance FLOAT,
-		rate_code SMALLINT,
-		store_and_fwd_flag SMALLINT,
-		pickup_location_id INT,
-		dropoff_location_id INT,
-		payment_type SMALLINT,
-		fare_amount FLOAT,
-		extra FLOAT,
-		mta_tax FLOAT,
-		tip_amount FLOAT,
-		tolls_amount FLOAT,
-		improvement_surcharge FLOAT,
-		total_amount FLOAT
-	) AS [r]
+        BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/taxi/yellow_tripdata_2017-1*.csv',
+        FORMAT = 'CSV',
+        FIRSTROW = 2
+    )
+    WITH (
+        vendor_id INT, 
+        pickup_datetime DATETIME2, 
+        dropoff_datetime DATETIME2,
+        passenger_count SMALLINT,
+        trip_distance FLOAT,
+        rate_code SMALLINT,
+        store_and_fwd_flag SMALLINT,
+        pickup_location_id INT,
+        dropoff_location_id INT,
+        payment_type SMALLINT,
+        fare_amount FLOAT,
+        extra FLOAT,
+        mta_tax FLOAT,
+        tip_amount FLOAT,
+        tolls_amount FLOAT,
+        improvement_surcharge FLOAT,
+        total_amount FLOAT
+    ) AS [r]
 GROUP BY
-	r.filepath()
+    r.filepath()
 ORDER BY
-	filepath
+    filepath
 ```
 
 
@@ -121,15 +121,15 @@ You can use the wildcards in the OPENROWSET part of the query and filter the fil
 
 ```sql
 SELECT 
-	r.filepath() AS filepath
-	,r.filepath(1) AS [year]
-	,r.filepath(2) AS [month]
-	,COUNT_BIG(*) AS [rows]
+    r.filepath() AS filepath
+    ,r.filepath(1) AS [year]
+    ,r.filepath(2) AS [month]
+    ,COUNT_BIG(*) AS [rows]
 FROM OPENROWSET(
-		BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/taxi/yellow_tripdata_*-*.csv',
-		FORMAT = 'CSV',
-		FIRSTROW = 2
-	)
+        BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/taxi/yellow_tripdata_*-*.csv',
+        FORMAT = 'CSV',
+        FIRSTROW = 2
+    )
 WITH (
     vendor_id INT, 
     pickup_datetime DATETIME2, 
@@ -150,14 +150,14 @@ WITH (
     total_amount FLOAT
 ) AS [r]
 WHERE
-	r.filepath(1) IN ('2017')
-	AND r.filepath(2) IN ('10', '11', '12')
+    r.filepath(1) IN ('2017')
+    AND r.filepath(2) IN ('10', '11', '12')
 GROUP BY
-	r.filepath()
-	,r.filepath(1)
-	,r.filepath(2)
+    r.filepath()
+    ,r.filepath(1)
+    ,r.filepath(2)
 ORDER BY
-	filepath
+    filepath
 ```
 
 ## Next steps

@@ -1,19 +1,19 @@
 ---
-title: Query JSON files using SQL on-demand in Azure Synapse Analytics
+title: Query JSON files using SQL on-demand (preview) 
 description: This section explains how to read JSON files using SQL on-demand in Azure Synapse Analytics.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
-ms.topic: overview
+ms.topic: how-to
 ms.subservice:
 ms.date: 10/07/2019
 ms.author: v-stazar
 ms.reviewer: jrasnick
 ---
 
-# Quickstart: Query JSON files using SQL on-demand in Azure Synapse Analytics 
+# Query JSON files using SQL on-demand (preview) in Azure Synapse Analytics 
 
-In this article, you'll learn how to write a query using SQL on-demand in Azure Synapse Analytics. The query's objective is to read JSON files.
+In this article, you'll learn how to write a query using SQL on-demand (preview) in Azure Synapse Analytics. The query's objective is to read JSON files.
 
 ## Prerequisites
 
@@ -75,12 +75,12 @@ The query below shows you how to use [JSON_VALUE](https://docs.microsoft.com/sql
 ```mssql
 SELECT 
     JSON_VALUE(jsonContent, '$.title') AS title,
-	JSON_VALUE(jsonContent, '$.publisher') as publisher,
-	jsonContent
+    JSON_VALUE(jsonContent, '$.publisher') as publisher,
+    jsonContent
 FROM 
     OPENROWSET(
         BULK 'https://sqlondemandstorage.blob.core.windows.net/json/books/*.json',
-		FORMAT='CSV', 
+        FORMAT='CSV', 
         FIELDTERMINATOR ='0x0b',
         FIELDQUOTE = '0x0b', 
         ROWTERMINATOR = '0x0b'
@@ -89,7 +89,7 @@ FROM
         jsonContent varchar(8000)
     ) AS [r]
 WHERE 
-	JSON_VALUE(jsonContent, '$.title') = 'Probabilistic and Statistical Methods in Cryptology, An Introduction by Selected Topics'
+    JSON_VALUE(jsonContent, '$.title') = 'Probabilistic and Statistical Methods in Cryptology, An Introduction by Selected Topics'
 ```
 
 
@@ -100,11 +100,11 @@ The following query shows you how to use [JSON_QUERY](https://docs.microsoft.com
 ```mssql
 SELECT 
     JSON_QUERY(jsonContent, '$.authors') AS authors,
-	jsonContent
+    jsonContent
 FROM 
     OPENROWSET(
         BULK 'https://sqlondemandstorage.blob.core.windows.net/json/books/*.json',
-		FORMAT='CSV', 
+        FORMAT='CSV', 
         FIELDTERMINATOR ='0x0b',
         FIELDQUOTE = '0x0b', 
         ROWTERMINATOR = '0x0b'
@@ -113,7 +113,7 @@ FROM
         jsonContent varchar(8000)
     ) AS [r]
 WHERE 
-	JSON_VALUE(jsonContent, '$.title') = 'Probabilistic and Statistical Methods in Cryptology, An Introduction by Selected Topics'
+    JSON_VALUE(jsonContent, '$.title') = 'Probabilistic and Statistical Methods in Cryptology, An Introduction by Selected Topics'
 ```
 
 
@@ -123,11 +123,11 @@ The following query uses [OPENJSON](https://docs.microsoft.com/sql/t-sql/functio
 
 ```mssql
 SELECT
-	j.*
+    j.*
 FROM 
     OPENROWSET(
         BULK 'https://sqlondemandstorage.blob.core.windows.net/json/books/*.json',
-		FORMAT='CSV', 
+        FORMAT='CSV', 
         FIELDTERMINATOR ='0x0b',
         FIELDQUOTE = '0x0b', 
         ROWTERMINATOR = '0x0b'
@@ -137,7 +137,7 @@ FROM
     ) AS [r]
 CROSS APPLY OPENJSON(jsonContent) AS j
 WHERE 
-	JSON_VALUE(jsonContent, '$.title') = 'Probabilistic and Statistical Methods in Cryptology, An Introduction by Selected Topics'
+    JSON_VALUE(jsonContent, '$.title') = 'Probabilistic and Statistical Methods in Cryptology, An Introduction by Selected Topics'
 ```
 
 ## Next steps
