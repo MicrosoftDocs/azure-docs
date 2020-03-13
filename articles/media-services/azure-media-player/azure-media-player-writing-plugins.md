@@ -33,8 +33,8 @@ You can write your code  directly in your HTML page within `<script>` tags or in
 Example:
 
 ```javascript
-      <!--*****START OF Azure Media Player Scripts*****-->
-       <script src="//amp.azure.net/libs/amp/latest/azuremediaplayer.min.js"></script>
+    <!--*****START OF Azure Media Player Scripts*****-->
+    <script src="//amp.azure.net/libs/amp/latest/azuremediaplayer.min.js"></script>
     <link href="//amp.azure.net/libs/amp/latest/skins/amp-default/azuremediaplayer.min.css" rel="stylesheet">
     <!--*****END OF Azure Media Player Scripts*****-->
     <!--Add Plugins-->

@@ -1,11 +1,11 @@
 ---
-title: 
-description: 
+title: Azure Media Player error codes
+description: An error code reference for Azure Media Player.
 author: IngridAtMicrosoft
 ms.author: inhenkel
 ms.service: media-services
-ms.topic: overview
-ms.date: 03/06/2020
+ms.topic: reference
+ms.date: 03/13/2020
 ---
 
 # Error codes #
