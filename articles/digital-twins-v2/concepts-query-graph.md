@@ -30,7 +30,7 @@ Here are the operations available via Azure digital twin queries:
 * Get digital twins by relationships
 * Get digital twins over multiple relationship types and multiple hops (`JOIN` queries). 
 * Get digital twins based on actual state condition (information about digital twins and their last known property value)
-* Custom twin type model function support: `IS_OF_MODEL(twinToCheck, modelName)` allows query authors to filter based on information within DTDL twin type models
+* Custom twin type function support: `IS_OF_MODEL(twinToCheck, modelName)` allows query authors to filter based on information within DTDL twin types
 * Any combination (`AND`, `OR`, `NOT` operator) of the above
 * Scalar functions support: `IS_BOOL`, `IS_DEFINED`, `IS_NULL`, `IS_NUMBER`, `IS_OBJECT`, `IS_PRIMITIVE`, `IS_STRING`, `STARTS_WITH`, `ENDS_WITH`
 * Support for query comparison operators: `AND`/`OR`/`NOT`,  `IN`/`NOT IN`, `STARTSWITH`/`ENDSWITH`, `=`, `!=`, `<`, `>`, `<=`, `>=`
@@ -49,7 +49,7 @@ AND T.$dtId in ['123', '456']
 AND T.$metadata.Temperature.reportedValue = 70
 ```
 
-Get Azure digital twins by twin type model
+Get Azure digital twins by twin type
 ```sql
 SELECT  * 
 FROM DigitalTwins T  
@@ -78,7 +78,7 @@ When querying based on digital twins' relationships, Azure Digital Twins Query S
 
 Relationships are pulled into the query scope in the `FROM` clause. An important distinction here from "classical" SQL-type languages is that each expression in this `FROM` clause is not a table; rather, the `FROM` clause expresses a cross-entity relationship traversal, and is written with an Azure Digital Twins version of `JOIN`. 
 
-Recall that with the Azure Digital Twins [twin type model](concepts-models.md) capabilities, relationships do not exist independently of twins. This means the Azure Digital Twins Query Store Language's `JOIN` operation is a little different from the general SQL `JOIN` operation, as relationship edges in this case cannot be queried independently and must be tied to a twin.
+Recall that with the Azure Digital Twins [twin type](concepts-models.md) capabilities, relationships do not exist independently of twins. This means the Azure Digital Twins Query Store Language's `JOIN` operation is a little different from the general SQL `JOIN` operation, as relationship edges in this case cannot be queried independently and must be tied to a twin.
 To mark this difference, the keyword `RELATED` is used within the `JOIN` clause to reference a twin's set of relationships. 
 
 The following section gives several examples of what this looks like.

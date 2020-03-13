@@ -17,15 +17,15 @@ ms.service: digital-twins
 
 # Understand Azure digital twins and their twin graph
 
-In an Azure Digital Twins solution, the entities in your environment are represented by **Azure digital twins**. An Azure digital twin is an instance of one of the user-created [twin type models](concepts-models.md); it follows a pre-defined twin type model template and is connected to other Azure digital twins via relationships to form the Azure Digital Twins **twin graph**.
+In an Azure Digital Twins solution, the entities in your environment are represented by **Azure digital twins**. An Azure digital twin is an instance of one of the user-created [twin types](concepts-models.md); it follows a pre-defined twin type template and is connected to other Azure digital twins via relationships to form the Azure Digital Twins **twin graph**.
 
 ## Creating Azure digital twins
 
-Building an Azure digital twin starts with creating a twin type model. A twin type model describes a digital twin's properties and what relationships it can have, among other aspects. For the types of information that are defined in a twin type model, see [Create a twin type model](concepts-models.md).
+Building an Azure digital twin starts with creating a twin type. A twin type describes a digital twin's properties and what relationships it can have, among other aspects. For the types of information that are defined in a twin type, see [Create a twin type](concepts-models.md).
 
-After creating a twin type model, your client app will instantiate it in order to create Azure digital twins. For example, after creating a twin type model of *Floor*, you may create one or several digital twins that use this design (a *Floor*-type twin called *GroundFloor*, another called *Floor2*, etc.). 
+After creating a twin type, your client app will instantiate it in order to create Azure digital twins. For example, after creating a twin type of *Floor*, you may create one or several digital twins that use this design (a *Floor*-type twin called *GroundFloor*, another called *Floor2*, etc.). 
 
-Here is some example client code that uses the [Twin APIs](how-to-use-apis.md) to instantiate several Azure digital twins: two of twin type model *Floor* and one of twin type model *Room*.
+Here is some example client code that uses the [Twin APIs](how-to-use-apis.md) to instantiate several Azure digital twins: two of twin type *Floor* and one of twin type *Room*.
 
 ```csharp
 // Create digital twins
@@ -36,7 +36,7 @@ client.CreateTwin("Cafe", "urn:contosocom:example:Room:1");
 
 ## Relationships: creating a graph of digital twins
 
-Twins are connected into a twin graph by their relationships. The relationship types that an Azure digital twin can have are defined as part of the twin type model. Then, when instantiating graph elements in client app code, you can instantiate an allowed relationship between two Azure digital twins that you have created.
+Twins are connected into a twin graph by their relationships. The relationship types that an Azure digital twin can have are defined as part of the twin type. Then, when instantiating graph elements in client app code, you can instantiate an allowed relationship between two Azure digital twins that you have created.
 
 For example, a *Floor*-type digital twin might have a *contains* relationship that allows it to connect to several *Room*-type digital twins. A cooling device might have a *cools* relationship with a motor. 
 
@@ -63,7 +63,7 @@ When represented as a JSON object, an Azure digital twin has the following field
 | `$conformance` | An enum containing the conformance status of this digital twin (*conformant*, *non-conformant*, *unknown*) |
 | `{propertyName}` | The value of a property in JSON (`string`, number type, or object) |
 | `$relationships` | URL of the path to the relationships collection. This field is absent if the digital twin has no outgoing relationship edges. |
-| `$metadata.$model` | [Optional] The URN of the twin type model interface that characterizes this digital twin |
+| `$metadata.$model` | [Optional] The URN of the twin type interface that characterizes this digital twin |
 | `$metadata.{propertyName}.desiredValue` | [only for writable properties] The desired value of the specified property |
 | `$metadata.{propertyName}.desiredVersion` | [only for writable properties] The version of the desired value |
 | `$metadata.{propertyName}.ackVersion` | The version acknowledged by the device app implementing the digital twin |

@@ -8,7 +8,7 @@
     href: overview-differences.md
 - name: Concepts
   items:
-  - name: Create a twin type model
+  - name: Create a twin type
     href: concepts-models.md
   - name: Create digital twins and the twin graph
     href: concepts-twins-graph.md
@@ -26,7 +26,7 @@
   items:
   - name: Use the APIs
     href: how-to-use-apis.md
-  - name: Manage a twin type model
+  - name: Manage a twin type
     href: how-to-manage-model.md
   - name: Manage a digital twin
     href: how-to-manage-twin.md
