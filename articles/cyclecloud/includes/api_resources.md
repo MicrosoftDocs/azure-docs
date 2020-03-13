@@ -36,15 +36,21 @@ Status of the cluster
 |**availableCoreCount**  <br>*required*|How many extra cores may be created in this bucket, in this nodearray. Always a multiple of availableCount.  <br>**Example** : `8`|integer|
 |**availableCount**  <br>*required*|How many extra nodes may be created in this bucket, in this nodearray. Note this may be less than implied by maxCount and usedCount, since maxCount may be limited globally.  <br>**Example** : `2`|integer|
 |**bucketId**  <br>*required*|The identifier for this bucket. This will always have the same value  for a given bucket in a nodearray, as long as the cluster is not deleted.  <br>**Example** : `"00000000-0000-0000-0000-000000000000"`|string|
-|**consumedCoreCount**  <br>*required*|The number of cores for this family that are already in use  <br>**Example** : `2`|integer|
+|**consumedCoreCount**  <br>*required*|The number of cores for this family that are already in use across the entire region.  <br>**Example** : `2`|integer|
 |**definition**  <br>*optional*|The properties of this bucket, used to create nodes from this bucket. The create-nodes API takes this definition in its `bucket` property.  <br>**Example** : `"object"`|[definition](#clusterstatus-buckets-definition)|
+|**familyConsumedCoreCount**  <br>*optional*|The number of cores for this family that are already in use across the entire region.  <br>**Example** : `2`|integer|
+|**familyQuotaCoreCount**  <br>*optional*|The number of total cores that can be started for this family in this region. This might not be an integer multiple of quotaCount.  <br>**Example** : `16`|integer|
+|**familyQuotaCount**  <br>*optional*|The number of total instances that can be started (given familyQuotaCoreCount)  <br>**Example** : `4`|integer|
 |**maxCoreCount**  <br>*required*|The maximum number of cores that may be in this bucket, including global and nodearray limits.  Always a multiple of maxCount.  <br>**Example** : `16`|integer|
 |**maxCount**  <br>*required*|The maximum number of nodes that may be in this bucket, including global and nodearray limits  <br>**Example** : `4`|integer|
 |**maxPlacementGroupCoreSize**  <br>*required*|The maximum total number of cores that can be in a placement group in this bucket. Always a multiple of maxPlacementGroupSize.  <br>**Example** : `64`|integer|
 |**maxPlacementGroupSize**  <br>*required*|The maximum total number of instances that can be in a placement group in this bucket  <br>**Example** : `16`|integer|
 |**placementGroups**  <br>*required*|The placement groups in use for this nodearray, if any.  <br>**Example** : `[ "object" ]`|< [placementGroups](#clusterstatus-buckets-placementgroups) > array|
-|**quotaCoreCount**  <br>*required*|The number of total cores that can be started for this family. This might not be an integer multiple of quotaCount.  <br>**Example** : `16`|integer|
+|**quotaCoreCount**  <br>*required*|The number of total cores that can be started for this family in this region, taking into account the regional quota core count as well. This might not be an integer multiple of quotaCount.  <br>**Example** : `16`|integer|
 |**quotaCount**  <br>*required*|The number of total instances that can be started (given quotaCoreCount)  <br>**Example** : `4`|integer|
+|**regionalConsumedCoreCount**  <br>*optional*|The number of cores that are already in use across the entire region.  <br>**Example** : `2`|integer|
+|**regionalQuotaCoreCount**  <br>*optional*|The number of total cores that can be started in this region. This might not be an integer multiple of regionalQuotaCount.  <br>**Example** : `16`|integer|
+|**regionalQuotaCount**  <br>*optional*|The number of total instances that can be started (given regionalQuotaCoreCount)  <br>**Example** : `4`|integer|
 |**valid**  <br>*required*|If true, this bucket represents a currently valid bucket to use for new nodes. If false, this bucket represents existing nodes only.  <br>**Example** : `true`|boolean|
 |**virtualMachine**  <br>*required*|The properties of the virtual machines launched from this bucket  <br>**Example** : `"object"`|[virtualMachine](#clusterstatus-buckets-virtualmachine)|
 
