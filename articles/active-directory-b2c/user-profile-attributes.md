@@ -15,15 +15,16 @@ ms.subservice: B2C
 
 # User profile attributes
 
-Your Azure AD B2C directory user profile comes with a built-in set of attributes, such as given name, surname, city, postal code, and phone number. You can extend the user profile with your own application data without requiring an external data store. Most of the attributes that can be used with Azure AD B2C user profiles are also supported by Microsoft Graph, but certain attributes are not. There are also user profile attributes available in Microsoft Graph that should not be used with Azure AD B2C. This article gives details about all of these attributes.
+Your Azure AD B2C directory user profile comes with a built-in set of attributes, such as given name, surname, city, postal code, and phone number. You can extend the user profile with your own application data without requiring an external data store. Most of the attributes that can be used with Azure AD B2C user profiles are also supported by Microsoft Graph. This article describes supported Azure AD B2C user profile attributes. It also notes those attributes that are not supported by Microsoft Graph, as well as Microsoft Graph attributes that should not be used with Azure AD B2C.
 
-Important: You should not use built-in or extension attributes to store sensitive personal data, such as account credentials, government identification numbers, cardholder data, financial account data, healthcare information, or sensitive background information.
+> [!IMPORTANT]
+> You should not use built-in or extension attributes to store sensitive personal data, such as account credentials, government identification numbers, cardholder data, financial account data, healthcare information, or sensitive background information.
 
 You can also integrate with external systems. For example, you can use Azure AD B2C for authentication, but delegate to an external customer relationship management (CRM) or customer loyalty database as the authoritative source of customer data. For more information, see the [remote profile](https://github.com/azure-ad-b2c/samples/tree/master/policies/remote-profile) solution.
 
 The table below lists the [user resource type](https://docs.microsoft.com/graph/api/resources/user) attributes that are supported by the Azure AD B2C directory user profile. It gives the following information about each attribute:
 
-- Attribute name used by Azure AD B2C (followed by the MS Graph name in parentheses, if different)
+- Attribute name used by Azure AD B2C (followed by the Microsoft Graph name in parentheses, if different)
 - Attribute data type
 - Attribute description
 - The attribute’s characteristics, such as the data length, read-only, etc.
@@ -41,7 +42,7 @@ The table below lists the [user resource type](https://docs.microsoft.com/graph/
 |consentProvidedForMinor|String|Whether the consent has been provided for a minor. Allowed values: null, granted, denied, or notRequired.|Yes|No|Persisted, Output|
 |country         |String|The country/region in which the user is located. Example: “US” or “UK”. Max length 128.|Yes|Yes|Persisted, Output|
 |createdDateTime|DateTime|The date the user object was created. Read only.|No|No|Persisted, Output|
-|creationType    |String|Whether the user account was created. A local account for an Azure Active Directory B2C tenant the value is LocalAccount, or nameCoexistence. Read only.|No|No|Persisted, Output|
+|creationType    |String|If the user account was created as a local account for an Azure Active Directory B2C tenant, the value is LocalAccount or nameCoexistence. Read only.|No|No|Persisted, Output|
 |dateOfBirth     |Date|Date of birth.|No|No|Persisted, Output|
 |department      |String|The name for the department in which the user works. Max length 64.|Yes|No|Persisted, Output|
 |displayName     |String|The display name for the user. Max length 256.|Yes|Yes|Persisted, Output|
@@ -51,7 +52,7 @@ The table below lists the [user resource type](https://docs.microsoft.com/graph/
 |immutableId     |String|An identifier which is typically used for users migrated from on-premises Active Directory.|No|No|Persisted, Output|
 |legalAgeGroupClassification|String|Legal age group classification. Read-only and calculated based on ageGroup and consentProvidedForMinor properties. Allowed values: null, minorWithOutParentalConsent, minorWithParentalConsent, minorNoParentalConsentRequired, notAdult and adult.|Yes|No|Persisted, Output|
 |legalCountry<sup>1</sup>  |String|Country for legal purposes.|No|No|Persisted, Output|
-|mail            |String|The SMTP address for the user. Example: "bob@contoso.com". Read-only.|No|No|Persisted, Output|
+|mail            |String|The SMTP address for the user, for example, "bob@contoso.com". Read-only.|No|No|Persisted, Output|
 |mailNickName    |String|The mail alias for the user. Max length 64.|No|No|Persisted, Output|
 |mobile (mobilePhone) |String|The primary cellular telephone number for the user. Max length 64.|Yes|No|Persisted, Output|
 |netId           |String|Net ID.|No|No|Persisted, Output|
@@ -69,17 +70,17 @@ The table below lists the [user resource type](https://docs.microsoft.com/graph/
 |signInNames.emailAddress |String|The unique email address of the local account user in the directory. Use this to create or get a user with a specific sign-in email address. Specifying this in PersistedClaims alone during Patch operation will remove other types of signInNames. If you would like to add a new type of signInNames, you also need to persist existing signInNames.|No|No|Input, Persisted, Output|
 |state           |String|The state or province in the user's address. Max length 128.|Yes|Yes|Persisted, Output|
 |streetAddress   |String|The street address of the user's place of business. Max length 1024.|Yes|Yes|Persisted, Output|
-|strongAuthentication AlternativePhoneNumber<sup>1</sup>|String|The secondary telephone number of the user, used for Multi factor authentication.|Yes|No|Persisted, Output|
+|strongAuthentication AlternativePhoneNumber<sup>1</sup>|String|The secondary telephone number of the user, used for multi-factor authentication.|Yes|No|Persisted, Output|
 |strongAuthenticationEmailAddress<sup>1</sup>|String|The SMTP address for the user. Example: "bob@contoso.com" This attribute is used for sign-in with username policy, to store the user email address. The email address then used in a password reset flow.|Yes|No|Persisted, Output|
-|strongAuthenticationPhoneNumber<sup>1</sup>|String|The primary telephone number of the user, used for Multi factor authentication.|Yes|No|Persisted, Output|
+|strongAuthenticationPhoneNumber<sup>1</sup>|String|The primary telephone number of the user, used for multi-factor authentication.|Yes|No|Persisted, Output|
 |surname         |String|The user's surname (family name or last name). Max length 64.|Yes|Yes|Persisted, Output|
 |telephoneNumber (first entry of businessPhones)|String|The primary telephone number of the user's place of business.|Yes|No|Persisted, Output|
 |userPrincipalName    |String|The user principal name (UPN) of the user. The UPN is an Internet-style login name for the user based on the Internet standard RFC 822. The domain must be present in the tenant's collection of verified domains. This property is required when an account is created. Immutable.|No|No|Input, Persisted, Output|
-|usageLocation   |String|Required for users that will be assigned licenses due to legal requirement to check for availability of services in countries. Not nullable. A two letter country code (ISO standard 3166). Examples include: "US", "JP", and "GB".|Yes|No|Persisted, Output|
+|usageLocation   |String|Required for users that will be assigned licenses due to legal requirement to check for availability of services in countries. Not nullable. A two letter country code (ISO standard 3166). Examples: "US", "JP", and "GB".|Yes|No|Persisted, Output|
 |userType        |String|A string value that can be used to classify user types in your directory. Value must be Member. Read-only.|Read only|No|Persisted, Output|
 |userState (externalUserState)<sup>2</sup>|String|For Azure AD B2B account only, indicates whether the invitation is PendingAcceptance or Accepted.|No|No|Persisted, Output|
 |userStateChangedOn (externalUserStateChangeDateTime)<sup>2</sup>|DateTime|Shows the timestamp for the latest change to the UserState property.|No|No|Persisted, Output|
-|<sup>1 </sup>Not supported by MS Graph<br><sup>2 </sup>Should not be used with Azure AD B2C||||||
+|<sup>1 </sup>Not supported by Microsoft Graph<br><sup>2 </sup>Should not be used with Azure AD B2C||||||
 
 
 ## Extension attributes
