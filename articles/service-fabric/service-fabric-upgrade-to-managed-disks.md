@@ -10,7 +10,7 @@ ms.date: 3/01/2020
 
 The general strategy for upgrading a Service Fabric cluster node to use managed disks is to:
 
-1. Deploy an otherwise duplicate virtual machine scale set of that node type, but with the [managedDisk](https://docs.microsoft.com/en-us/azure/templates/microsoft.compute/2019-07-01/virtualmachinescalesets/virtualmachines#ManagedDiskParameters) object added to the `osDisk` section of the virtual machine scale set deployment template. The new scale set should bind to the same load balancer / IP as the original, so that your customers don't experience a service outage during the migration.
+1. Deploy an otherwise duplicate virtual machine scale set of that node type, but with the [managedDisk](https://docs.microsoft.com/azure/templates/microsoft.compute/2019-07-01/virtualmachinescalesets/virtualmachines#ManagedDiskParameters) object added to the `osDisk` section of the virtual machine scale set deployment template. The new scale set should bind to the same load balancer / IP as the original, so that your customers don't experience a service outage during the migration.
 
 2. Once both the original and upgraded scale sets are running side by side, disable the original node instances one at a time so that the system services (or replicas of stateful services) migrate to the new scale set.
 
@@ -84,7 +84,7 @@ The operation will return the certificate thumbprint, which you'll use to [conne
 
 ### Use an existing certificate to deploy the cluster
 
-You can also use an existing Azure Key Vault certificate  to deploy the test cluster. To do this, you'll need to obtain your [Key Vault resource ID and certificate URL](#obtain-your-key-vault-resource-id-and-certificate-url), and certificate thumbprint, and store them in variables:
+You can also use an existing Azure Key Vault certificate  to deploy the test cluster. To do this, you'll need to [obtain references to your Key Vault](#obtain-your-key-vault-references) and certificate thumbprint.
 
 ```powershell
 # Key Vault variables
@@ -350,7 +350,6 @@ foreach($name in $nodeNames){
 
 ![Service Fabric Explorer with down nodes in error state removed](./media/service-fabric-upgrade-to-managed-disks/sfx-healthy-cluster.png)
 
-
 ## Next steps
 
 In this walkthrough, you learned how to upgrade the virtual machine scale sets of a Service Fabric cluster to use managed disks while avoiding service outages during the process. For more info on related topics check out the following resources.
@@ -359,7 +358,7 @@ Learn how to:
 
 * [Scale up a Service Fabric cluster primary node type](service-fabric-scale-up-node-type.md)
 
-* [Convert a scale set template to use managed disks](virtual-machine-scale-sets-convert-template-to-md.md)
+* [Convert a scale set template to use managed disks](../virtual-machine-scale-sets/virtual-machine-scale-sets-convert-template-to-md.md)
 
 * [Remove a Service Fabric node type](service-fabric-how-to-remove-node-type.md)
 
