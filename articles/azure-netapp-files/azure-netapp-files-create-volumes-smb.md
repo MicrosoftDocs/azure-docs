@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/13/2020
-ms.author: b-juche, lichunli
+ms.author: b-juche; lichunli
 ---
 # Create an SMB volume for Azure NetApp Files
 
@@ -75,11 +75,11 @@ See Azure NetApp Files [SMB FAQs](https://docs.microsoft.com/azure/azure-netapp-
 
 Azure NetApp Files supports both [Active Directory Domain Services](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/understanding-active-directory-site-topology) (ADDS) and Azure Active Directory Domain Services (AADDS) for AD connections.  Before you create an AD connection, you need to decide whether to use ADDS or AADDS.  
 
-See [Compare self-managed Active Directory Domain Services, Azure Active Directory, and managed Azure Active Directory Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/compare-identity-solutions) for more information. 
+For more information, see [Compare self-managed Active Directory Domain Services, Azure Active Directory, and managed Azure Active Directory Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/compare-identity-solutions). 
 
 ### Active Directory Domain Services (ADDS)
 
-You can use your preferred [Active Directory Sites and Services(https://docs.microsoft.com/windows-server/identity/ad-ds/plan/understanding-active-directory-site-topology)] scope for Azure NetApp Files. This option enables reads and writes to an Active Directory Domain Services (ADDS) domain controllers that are [accessible by Azure NetApp Files](azure-netapp-files-network-topologies.md). It also prevents the service from communicating with domain controllers that are not in the specified AD Sites and Services site. 
+You can use your preferred [Active Directory Sites and Services(https://docs.microsoft.com/windows-server/identity/ad-ds/plan/understanding-active-directory-site-topology)] scope for Azure NetApp Files. This option enables reads and writes to Active Directory Domain Services (ADDS) domain controllers that are [accessible by Azure NetApp Files](azure-netapp-files-network-topologies.md). It also prevents the service from communicating with domain controllers that are not in the specified AD Sites and Services site. 
 
 To find your site name when you use ADDS, you can contact the administrative group in your organization that is responsible for Active Directory Domain Services. The example below shows the Active Directory Sites and Services plugin where the site name is displayed: 
 
