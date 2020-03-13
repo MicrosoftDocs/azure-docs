@@ -1,5 +1,5 @@
 ---
-title: Release Notes
+title: Release notes
 description: Learn about the new features and improvements in Azure SQL Database Edge
 services: sql-database-edge
 author: stevestein
@@ -7,7 +7,7 @@ ms.service: sql-database-edge
 ms.subservice: 
 ms.devlang: 
 ms.topic: conceptual
-ms.date: 03/03/2020
+ms.date: 03/13/2020
 ms.author: sstein
 ---
 # SQL Database Edge release notes

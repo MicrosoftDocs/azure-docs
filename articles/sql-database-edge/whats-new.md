@@ -5,7 +5,7 @@ services: sql-database-edge
 author: stevestein
 ms.service: sql-database-edge
 ms.topic: conceptual
-ms.date: 03/03/2020
+ms.date: 03/13/2020
 ms.author: sstein
 
 ---
