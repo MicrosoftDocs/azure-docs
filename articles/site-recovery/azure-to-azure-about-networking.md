@@ -60,8 +60,8 @@ If you are using an NSG to control outbound connectivity, these service tags nee
 - Create a [Azure Active Directory (AAD) service tag](../virtual-network/security-overview.md#service-tags) based NSG rule for allowing access to all IP addresses corresponding to AAD
 - Create an EventsHub service tag based NSG rule for the target region, allowing access to Site Recovery monitoring.
 - Create an AzureSiteRecovery service tag based NSG rule for allowing access to Site Recovery service in any region.
-- Create an AzureKeyVault service tag based NSG rule for enabling replication of ADE-enabled virtual machines via portal (if required)
-- Create a GuestAndHybridManagement service tag based NSG rule for enabling auto-upgrade of mobility agent for a replicated item via portal (if required)
+- Create an AzureKeyVault service tag based NSG rule. This is required only for enabling replication of ADE-enabled virtual machines via portal.
+- Create a GuestAndHybridManagement service tag based NSG rule. This is required only for enabling auto-upgrade of mobility agent for a replicated item via portal.
 - We recommend that you create the required NSG rules on a test NSG, and verify that there are no problems before you create the rules on a production NSG.
 
 ## Example NSG configuration
