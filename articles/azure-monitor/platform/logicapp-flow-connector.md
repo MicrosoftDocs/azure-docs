@@ -1,17 +1,17 @@
 ---
-title: Automate Azure Monitor log processes with Microsoft Flow
+title: Use Azure Monitor Logs with Azure Logic Apps and 
 description: Learn how you can use Microsoft Flow to quickly automate repeatable processes by using the Azure Log Analytics connector.
 ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 09/29/2017
+ms.date: 03/13/2020
 
 ---
 
 # Azure Monitor Logs connector for Logic Apps and Flow
-[Azure Logic Apps](/azure/logic-apps/) and [Microsoft Flow](https://ms.flow.microsoft.com) allow you to create automated workflows using hundreds of actions for a variety of services. The Azure Monitor Logs connector allows you to build workflows that retrieve data from a Log Analytics workspace or an Application Insights application in Azure Monitor. This article describes the actions included with the connector and provides a walkthrough to build a workflow using this data.
+[Azure Logic Apps](/azure/logic-apps/) and [Power Automate](https://ms.flow.microsoft.com) allow you to create automated workflows using hundreds of actions for a variety of services. The Azure Monitor Logs connector allows you to build workflows that retrieve data from a Log Analytics workspace or an Application Insights application in Azure Monitor. This article describes the actions included with the connector and provides a walkthrough to build a workflow using this data.
 
 For example, you can create a logic app to use Azure Monitor log data in an email notification from Office 365, create a bug in Azure DevOps, or post a Slack message.  You can trigger a workflow by a simple schedule or from some action in a connected service such as when a mail or a tweet is received. 
 
@@ -28,7 +28,7 @@ The following table describes the actions included with the Azure Monitor Logs c
 | [Run query and and visualize results](https://docs.microsoft.com/connectors/azuremonitorlogs/#run-query-and-visualize-results) | Returns all rows in the result set as a single formatted object. Use this action when you want to use the result set together in the rest of the workflow, such as sending the results in a mail.  |
 
 ## Walkthroughs
-The following tutorials illustrate the use of the Azure Monitor connectors in Azure Logic Apps. You can perform these same example with Microsoft Flow, the only difference being how to you create the initial flow and run it when complete. Configuration of the workflow and actions is the same between both. See [Create a flow from a template in Power Automate](https://docs.microsoft.com/power-automate/get-started-logic-template) to get started.
+The following tutorials illustrate the use of the Azure Monitor connectors in Azure Logic Apps. You can perform these same example with Power Automate, the only difference being how to you create the initial workflow and run it when complete. Configuration of the workflow and actions is the same between both. See [Create a flow from a template in Power Automate](https://docs.microsoft.com/power-automate/get-started-logic-template) to get started.
 
 
 ### Create a Logic App
@@ -106,37 +106,6 @@ Click **Save** and then **Run** to perform a test run of the logic app.
 When the logic app completes, check the mail of the recipient that you specified.  You should have received a mail with a body similar to the following:
 
 ![Sample email](media/logicapp-flow-connector/sample-mail.png)
-
-
-## Walkthrough: Store list of results
-The following tutorial shows you how to create a logic app that automatically sends the results of an Azure Monitor log query to an Excel spreadsheet stored on OneDrive. You can perform this same example with Microsoft Flow, the only difference being how to you create the initial flow and run it when complete. Configuration of the workflow and actions is the same between both. See [Create a flow from a template in Power Automate](https://docs.microsoft.com/power-automate/get-started-logic-template) to get started.
-
-### Add Azure Monitor Logs action
-Click **+ New step** to add an action that runs after the recurrence action. Under **Choose an action**, type **azure monitor** and then select **Azure Monitor Logs**.
-
-![Azure Monitor Logs action](media/logicapp-flow-connector/select-azure-monitor-connector.png)
-
-Click **Azure Log Analytics – Run query and list results**.
-
-![Run query and visualize results action](media/logicapp-flow-connector/select-query-action.png)
-
-
-### Add Azure Monitor Logs action
-
-Select the **Subscription** and **Resource Group** for your Log Analytics workspace. Select *Log Analytics Workspace* for the **Resource Type** and then select the workspace's name under **Resource Name**.
-
-Add the following log query to the **Query** window.  
-
-```Kusto
-Event
-| where EventLevelName == "Error" 
-| where TimeGenerated > ago(1day)
-| summarize TotalErrors=count() by Computer
-| sort by Computer asc   
-```
-
-### Add Initialize variable action
-The logic app will send the list values to a worksheet with a name of the current month and year. 
 
 
 
