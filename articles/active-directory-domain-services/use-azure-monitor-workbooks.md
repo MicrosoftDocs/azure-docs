@@ -46,6 +46,8 @@ For more information about how to edit and manage workbooks, see [Azure Monitor 
 
 ## Use the security overview report workbook
 
+To help you better understand usage and identify potential security threats, the security overview report summarizes sign-in data and identifies accounts you might want to check on. You can view events in a particular date range, and drill down into specific sign-in events, such as bad password attempts or where the account was disabled.
+
 To access the workbook template for the security overview report, complete the following steps:
 
 1. Search for and select **Azure Active Directory Domain Services** in the Azure portal.
@@ -71,6 +73,8 @@ To access the workbook template for the security overview report, complete the f
 
 ## Use the account activity report workbook
 
+To help you troubleshoot issues for a specific user account, the account activity report breaks down detailed audit event log information. You can review when a bad username or password was provided during sign-in, and the source of the sign-in attempt.
+
 To access the workbook template for the account activity report, complete the following steps:
 
 1. Search for and select **Azure Active Directory Domain Services** in the Azure portal.
@@ -81,7 +85,7 @@ To access the workbook template for the account activity report, complete the fo
 
     ![Account activity report in Azure Monitor Workbooks](./media/use-azure-monitor-workbooks/account-activity-report.png)
 
-    Below the chart shows the individual sign-in events along with information such as the activity result and source workstation. This information can help determine repeated sources of sign-in events that may cause account lockouts or indicate a potential attack.
+    The area below the chart shows individual sign-in events along with information such as the activity result and source workstation. This information can help determine repeated sources of sign-in events that may cause account lockouts or indicate a potential attack.
 
 As with the security overview report, you can drill down into the different tiles at the top of the report to visualize and analyze the data as needed.
 
@@ -89,11 +93,10 @@ As with the security overview report, you can drill down into the different tile
 
 The two template workbooks provided by Azure AD DS are a good place to start with your own data analysis. If you need to get more granular in the data queries and investigations, you can save your own workbooks and edit the queries.
 
-To save a copy of one of the workbook templates, select **Edit > Save as > Shared reports**, then provide a name and save it.
+1. To save a copy of one of the workbook templates, select **Edit > Save as > Shared reports**, then provide a name and save it.
+1. From your own copy of the template, select **Edit** to enter the edit mode. You can choose the blue **Edit** button next to any part of the report and change it.
 
-From your own copy of the template, select **Edit** to enter the edit mode. You can choose the blue **Edit** button next to any part of the report and change it. All of the charts and tables are generated using Kusto queries.
-
-For more information on creating your own queries, see [Azure Monitor log queries][azure-monitor-queries] and [Kusto queries tutorial][kusto-queries].
+All of the charts and tables in Azure Monitor Workbooks are generated using Kusto queries. For more information on creating your own queries, see [Azure Monitor log queries][azure-monitor-queries] and [Kusto queries tutorial][kusto-queries].
 
 ## Next steps
 
@@ -110,4 +113,4 @@ For problems with users, learn how to troubleshoot [account sign-in problems][tr
 [troubleshoot-sign-in]: troubleshoot-sign-in.md
 [troubleshoot-account-lockout]: troubleshoot-account-lockout.md
 [azure-monitor-queries]: ../azure-monitor/log-query/query-language.md
-[kusto-queries]: ../kusto/query/tutorial.md?pivots=azuredataexplorer
+[kusto-queries]: https://docs.microsoft.com/azure/kusto/query/tutorial?pivots=azuredataexplorer
