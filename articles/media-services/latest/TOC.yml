@@ -99,7 +99,7 @@
     - name: Live Events and Live Outputs 
       href: live-events-outputs-concept.md    
       displayName: vanity, ingest 
-    - name: Recommended live encoders
+    - name: Tested on-premises live encoders
       href: recommended-on-premises-live-encoders.md
     - name: Time-shifting and live-to-VOD
       displayName: archive, dvr
@@ -292,7 +292,9 @@
       href: job-error-codes.md         
   - name: Stream live
     items:
-    - name: Become an on-premises encoder partner
+    - name: Live event with portal and Wirecast
+      href: live-events-wirecast-quickstart.md    
+    - name: Verify your on-premises encoder 
       href: become-on-premises-encoder-partner.md      
     - name: Live Event error codes
       href: live-event-error-codes.md    
