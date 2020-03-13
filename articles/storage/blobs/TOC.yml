@@ -663,8 +663,13 @@
         href: ../common/authorization-resource-provider.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Access control (directories and files)
         href: data-lake-storage-access-control.md
-      - name: Azure Storage encryption
+      - name: Azure Storage encryption at rest
         href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        items:
+        - name: Customer-managed keys with Azure Key Vault
+          href: ../common/encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Customer-provided keys on the request
+          href: ../common/encryption-customer-provided-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Advanced threat protection
         href: ../common/storage-advanced-threat-protection.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Use Azure Private Endpoints
