@@ -21,10 +21,10 @@
 
 ## Portal
 
-To create and configure incremental snapshots in the public Azure portal, you must use the following link: [https://aka.ms/incrementalsnapshots](https://aka.ms/incrementalsnapshots). Incremental snapshot creation is not yet available in the global Azure portal.
+To create and configure incremental snapshots in the global Azure portal, you must use the following link: [https://aka.ms/incrementalsnapshots](https://aka.ms/incrementalsnapshots). Incremental snapshot creation is not yet available in the global Azure portal.
 
 1. Sign into the [Azure portal](https://aka.ms/incrementalsnapshots) with the provided link and navigate to the disk you'd like to snapshot.
-1. On your disk select **Create a Snapshot**
+1. On your disk, select **Create a Snapshot**
 
     :::image type="content" source="media/virtual-machines-disks-incremental-snapshots-portal/create-a-snapshot-button-incremental.png" alt-text=" ":::
 
