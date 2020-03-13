@@ -5,7 +5,7 @@ services: storage
 author: alkohli
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/10/2020
+ms.date: 03/12/2020
 ms.author: alkohli
 ms.subservice: common
 ---
@@ -14,7 +14,7 @@ ms.subservice: common
 
 Azure Import/Export protects the BitLocker keys used to lock the drives via an encryption key. By default, BitLocker keys are encrypted with Microsoft-managed keys. For additional control over encryption keys, you can also provide customer-managed keys.
 
-Customer-managed keys must be created and stored in an Azure Key Vault. The Import/Export service and the key vault must be in the same region, but they can be in different subscriptions. For more information about Azure Key Vault, see [What is Azure Key Vault?](../../key-vault/key-vault-overview.md)
+Customer-managed keys must be created and stored in an Azure Key Vault. For more information about Azure Key Vault, see [What is Azure Key Vault?](../../key-vault/key-vault-overview.md)
 
 This article shows how to use customer-managed keys with Import/Export service in the [Azure portal](https://portal.azure.com/). 
 
@@ -22,10 +22,11 @@ This article shows how to use customer-managed keys with Import/Export service i
 
 Before you begin, make sure:
 
-1. You have created an import job as per the instructions in:
+1. You have created an import or an export job as per the instructions in:
 
     - [Create an import job for blobs](storage-import-export-data-to-blobs.md).
     - [Create an import job for files](storage-import-export-data-to-files.md).
+    - [Create an export job for blobs](storage-import-export-data-from-blobs.md)
 
 2. You have an existing Azure Key Vault with a key in it that you can use to protect your BitLocker key. To learn how to create a key vault using the Azure portal, see [Quickstart: Set and retrieve a secret from Azure Key Vault using the Azure portal](../../key-vault/quick-create-portal.md).
     
@@ -34,10 +35,11 @@ Before you begin, make sure:
         - [How to use soft-delete with PowerShell](../../key-vault/key-vault-soft-delete-powershell.md).
         - [How to use soft-delete with CLI](../../key-vault/key-vault-soft-delete-cli.md).
     - The existing key vault should have an RSA key of 2048 size. For more information about keys, see **Key Vault keys** in [About Azure Key Vault keys, secrets, and certificates](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys).
-    - If you don't have an existing Azure Key Vault, you can also create it inline.
+    - Key vault must be in the same region as the storage account for your data.  
+    - If you don't have an existing Azure Key Vault, you can also create it inline as described in the following section.
 
 
-## Enable customer-managed keys
+## Enable keys
 
 Configuring customer-managed key for your Import/Export service is optional. By default, the Import/Export service uses a Microsoft managed key to protect your BitLocker key. To enable customer-managed keys in the Azure portal, follow these steps:
 
@@ -70,9 +72,11 @@ Configuring customer-managed key for your Import/Export service is optional. By 
 
 
 
-8. If you created a new key vault, select **Create new**. 
+8. If you created a new key vault, select **Create new** to create a key. RSA key size can be 2048 or greater.
 
     ![Create new key in Azure Key Vault](./media/storage-import-export-encryption-key-portal/encryption-key-7.png)
+
+    If the soft delete and purge protection are not enabled when you create the key vault, key vault will be updated to have soft delete and purge protection enabled. 
 
 9. Provide the name for your key, accept the other defaults, and select **Create**. 
 
@@ -85,15 +89,29 @@ Configuring customer-managed key for your Import/Export service is optional. By 
 In the **Encryption** blade, you can see the key vault and the key selected for your customer managed key.
 
 
-## Disable customer-managed keys
+## Disable keys
 
-When you disable customer-managed keys, your storage account is then encrypted with Microsoft-managed keys. To disable customer-managed keys, follow these steps:
+You can only disable Microsoft managed keys and move to customer managed keys at any stage of the import/export job. However, you cannot disable the customer managed key once you have created it.
 
-1. Navigate to your storage account and display the **Encryption** settings.
-1. Deselect the checkbox next to the **Use your own key** setting.
+<!--## Troubleshoot customer managed key errors
+
+If you receive any errors related to your customer managed key, use the following table to troubleshoot:
+
+| Error code             |Details     | Recoverable?    |
+|-----------------------|---------------------|-------------------------|
+| CmkErrorAccessRevoked | Applied a customer managed key but the key access is currently revoked. For more information, see how to Enable the key access.                                                      | Yes, customer should check if <ol><li>Key vault still has the MSI in the access policy</li><li>Access policy provides permissions to Get, Wrap, Unwrap</li><li>If key vault is in a vNet behind the firewall, check if Allow Microsoft Trusted Services is enabled</li></ol>                                                                                            |
+| CmkErrorDisabled      | Applied a customer managed key but the key is disabled. For more information, see how to Enable the key.                                                                             | Yes, by enabling the key version                                                                                                |
+| CmkErrorNotFound      | Applied a customer managed key but can't find the key.                                                                                                                               | No, the key has been deleted and also got purged after the retention period                                                     |
+|                       |                                                                                                                                                                                      | Yes, only if the customer has the key backed-up and restores it                                                                 |
+|                       | If the key is deleted and purged after the retention period, you can't recover the key. If you backed up the key, you can restore the key to resolve this issue.                     |                                                                                                                                 |
+| CmkErrorVaultNotFound | Applied a customer managed key but can't find the key vault associated with the key.                                                                                                 | No, if the customer has deleted the KV                                                                                          |
+|                       |                                                                                                                                                                                      |                                                                                                                                 |
+|                       | If you deleted the key vault, you can't recover the customer managed key.  If you migrated the key vault to a different tenant, see how to Migrate the key vault to original tenant. | Yes, if KV underwent a tenant migration, then do one of                                                                         |
+|                       |                                                                                                                                                                                      | a. move back the KV to the old tenant                                                                                           |
+|                       |                                                                                                                                                                                      | b. set Identity = None and then back to Identity = SystemAssigned, this will delete and recreate the identity                   |
+|                       |                                                                                                                                                                                      | Note: Tenant migration case is based on limited understanding, need to test and confirm actual behavior, could be revised later |-->
 
 
 ## Next steps
 
-- [Azure Storage encryption for data at rest](storage-service-encryption.md)
 - [What is Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)?
