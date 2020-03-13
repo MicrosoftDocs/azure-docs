@@ -68,7 +68,7 @@ This section shows you how to use Azure portal to add a virtual network service 
     ![Save network](./media/event-hubs-tutorial-vnet-and-firewalls/save-vnet.png)
 
 
-### Use Resource Manager template
+## Use Resource Manager template
 
 The following Resource Manager template enables adding a virtual network rule to an existing Event Hubs namespace.
 

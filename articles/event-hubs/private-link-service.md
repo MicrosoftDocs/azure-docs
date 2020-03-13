@@ -23,7 +23,7 @@ For more information, see [What is Azure Private Link (Preview)?](../private-lin
 > This feature is currently in **preview**. 
 
 
-## Add a private endpoint connection using Azure portal
+## Add a private endpoint using Azure portal
 
 ### Prerequisites
 
@@ -80,7 +80,7 @@ If you already have an Event Hubs namespace, you can create a private link conne
 
     ![Private endpoint created](./media/private-link-service/private-endpoint-created.png)
 
-## Add a private endpoint connection using Azure PowerShell
+## Add a private endpoint using PowerShell
 The following example shows how to use Azure PowerShell to create a private endpoint connection. It doesn't create a dedicated cluster for you. Follow steps in [this article](event-hubs-dedicated-cluster-create-portal.md) to create a dedicated Event Hubs cluster. 
 
 ```azurepowershell-interactive
@@ -142,7 +142,7 @@ $privateEndpoint = New-AzPrivateEndpoint -ResourceGroupName $rgName  `
 
 ```
 
-## Manage private endpoint connection
+## Manage private endpoints using Azure portal
 
 When you create a private endpoint, the connection must be approved. If the resource for which you're creating a private endpoint is in your directory, you can approve the connection request provided you have sufficient permissions. If you're connecting to an Azure resource in another directory, you must wait for the owner of that resource to approve your connection request.
 
