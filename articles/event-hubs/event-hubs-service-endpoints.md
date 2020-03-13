@@ -23,23 +23,6 @@ Once configured to bound to at least one virtual network subnet service endpoint
 
 The result is a private and isolated relationship between the workloads bound to the subnet and the respective Event Hubs namespace, in spite of the observable network address of the messaging service endpoint being in a public IP range. There is an exception to this behavior. Enabling a service endpoint, by default, enables the denyall rule in the IP firewall associated with the virtual network. You can add specific IP addresses in the IP firewall to enable access to the Event Hub public endpoint. 
 
-
->[!WARNING]
-> Implementing Virtual Networks integration can prevent other Azure services from interacting with Event Hubs.
->
-> Trusted Microsoft services are not supported when Virtual Networks are implemented.
->
-> Common Azure scenarios that don't work with Virtual Networks (note that the list is **NOT** exhaustive) -
-> - Integration with Azure Monitor. You can't stream diagnostic logs from **other** Azure services into Event Hubs. However, you can enable Azure diagnostic logs on the event hub itself. It's the same case when you have the firewall (IP filtering) enabled.
-> - Azure Stream Analytics
-> - Integration with Azure Event Grid
-> - Azure IoT Hub Routes
-> - Azure IoT Device Explorer
->
-> The below Microsoft services are required to be on a virtual network
-> - Azure Web Apps
-> - Azure Functions
-
 > [!IMPORTANT]
 > Virtual networks are supported in **standard** and **dedicated** tiers of Event Hubs. It's not supported in basic tier.
 
@@ -59,7 +42,31 @@ Binding an Event Hubs namespace to a virtual network is a two-step process. You 
 
 The virtual network rule is an association of the Event Hubs namespace with a virtual network subnet. While the rule exists, all workloads bound to the subnet are granted access to the Event Hubs namespace. Event Hubs itself never establishes outbound connections, does not need to gain access, and is therefore never granted access to your subnet by enabling this rule.
 
-### Create a virtual network rule with Azure Resource Manager templates
+## Add a virtual network service endpoint
+
+To limit access, you need to integrate the Virtual Network service endpoint for this Event Hubs namespace.
+
+1. Navigate to your **Event Hubs namespace** in the [Azure portal](https://portal.azure.com).
+2. On the left menu, select **Firewalls and Virtual Networks** option.   The first time you visit this page, the **All Networks** radio button must be selected. This implies that the Event Hubs namespace allows all incoming connections.
+  ![Navigate to menu](./media/event-hubs-tutorial-vnet-and-firewalls/vnet-firewall-landing-page.png)
+1. Click the **Selected Networks** radio button on the top of the page to enable the rest of the page with menu options.
+  ![selected networks](./media/event-hubs-tutorial-vnet-and-firewalls/vnet-firewall-selecting-selected-networks.png)
+2. In the Virtual Network section of the page, select the option to ***+Add existing virtual network***. This will slide in the pane that will permit you to select an already created Virtual network.
+  ![add existing virtual network](./media/event-hubs-tutorial-vnet-and-firewalls/vnet-firewall-adding-vnet-from-portal-slide-in-pane.png)
+3. Select the Virtual Network from the list and pick the subnet.
+   ![select subnet](./media/event-hubs-tutorial-vnet-and-firewalls/vnet-firewall-adding-vnet-from-portal-slide-in-pane-with-subnet-query.png)
+4. You have to enable the service endpoint before adding the Virtual Network to the list. If the service endpoint is not enabled, the portal will prompt you to enable it.
+  ![select subnet and enable endpoint](./media/event-hubs-tutorial-vnet-and-firewalls/vnet-firewall-adding-vnet-from-portal-slide-in-pane-after-enabling.png)
+    > [!NOTE]
+    > If you are unable to enable the service endpoint, you may ignore the missing Virtual network service endpoint using the ARM template. This functionality is not available on the portal.
+
+5. After enabling the Service endpoint on the selected subnet, you can proceed to add it to the list of permitted Virtual Networks.
+  ![adding subnet after enabling endpoint](./media/event-hubs-tutorial-vnet-and-firewalls/vnet-firewall-adding-vnet-from-portal-slide-in-pane-after-adding.png)
+
+6. Proceed to hit the **Save** button on the top ribbon to save the virtual network configuration on the service. Please wait for a few minutes for the confirmation to show up on the portal notifications.
+
+
+### Create a virtual network rule with Resource Manager template
 
 The following Resource Manager template enables adding a virtual network rule to an existing Event Hubs 
 namespace.

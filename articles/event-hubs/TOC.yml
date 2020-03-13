@@ -182,14 +182,14 @@
       href: event-hubs-management-libraries.md
   - name: Secure 
     items:
-    - name: Use firewalls
+    - name: Configure firewall
       href: event-hubs-ip-filtering.md
-    - name: Use virtual network service endpoints
+    - name: Configure virtual network service endpoints
       href: event-hubs-service-endpoints.md
-    - name: Use private endpoints (preview)
-      href: private-link-service.md
-    - name: Enable Virtual Networks Integration and Firewalls on Event Hubs Namespace
+    - name: Configure firewall and virtual network service endpoints
       href: event-hubs-tutorial-virtual-networks-firewalls.md
+    - name: Create and manage private endpoints (preview)
+      href: private-link-service.md
     - name: Configure customer-managed keys for encrypting data at rest
       href: configure-customer-managed-key.md
   - name: Troubleshoot
