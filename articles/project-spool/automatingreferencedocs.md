@@ -6,7 +6,7 @@
 
 We'll be working with Robert Outlaw's (routlaw) team to generate reference docs. 
 
-The documentation types we need for Spool are:
+The reference documentation types we need for Spool are:
 
 - **REST Management** docs to support resource management (portal actions) via REST APIs. This is similar to the [Mixed Reality REST API doc set](https://docs.microsoft.com/en-us/rest/api/mixedreality/), the [Azure Media Services OpenAPI Swagger spec](https://docs.microsoft.com/en-us/azure/media-services/latest/), and the [Azure Media Services REST API spec](https://docs.microsoft.com/en-us/azure/media-services/latest/) (what's the difference between these last two?).
 - **Azure CLI** docs to support resource management (portal actions) via the Azure CLI. This is similar to the [Azure Monitor CLI doc set](https://docs.microsoft.com/en-us/cli/azure/monitor?view=azure-cli-latest) and the [Azure Media Services CLI doc set](https://docs.microsoft.com/en-us/cli/azure/ams?view=azure-cli-latest).
