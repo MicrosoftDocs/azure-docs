@@ -23,7 +23,8 @@ To show this functionality in action, we'll modify the web app created in [Quick
 
 In the Azure portal, go into **Configuration Explorer** and locate the *TestApp:Settings:FontColor* key that you created in the quickstart. Click its context menu and then click **Add Value**.
 
-![Add Value menu item](media/labels-add-value.png)
+> [!div class="mx-imgBorder"]
+> ![Add Value menu item](media/labels-add-value.png)
 
 On the **Add Value** screen, enter a **Value** of **red** and a **Label** of **Development**. Leave **Content type** empty. Click **Apply**.
 
@@ -43,18 +44,19 @@ You can load configuration values with the label corresponding to the current en
             {
                 var settings = config.Build();
                 config.AddAzureAppConfiguration(options =>
-                    options.Connect(Environment.GetEnvironmentVariable("AzureAppConfigurationConnectionString"))
-                            // Load configuration values with no label
-                            .Select(KeyFilter.Any, LabelFilter.Null)
-                            // Override with any configuration values specific to the current hosting environment
-                            .Select(KeyFilter.Any, hostingContext.HostingEnvironment.EnvironmentName)
+                    options
+                        .Connect(Environment.GetEnvironmentVariable("AppConfigConnectionString"))
+                        // Load configuration values with no label
+                        .Select(KeyFilter.Any, LabelFilter.Null)
+                        // Override with any configuration values specific to the current hosting environment
+                        .Select(KeyFilter.Any, hostingContext.HostingEnvironment.EnvironmentName)
                 );
             })
             .UseStartup<Startup>());
 ```
 
 > [!IMPORTANT]
-> The above code snippet loads the App Configuration connection string from an environment variable called *AzureAppConfigurationConnectionString*. Be sure that this environment variable is set properly.
+> The above code snippet loads the App Configuration connection string from an environment variable called `AppConfigConnectionString`. Be sure that this environment variable is set properly.
 
 Note that the `Select` method is called twice. The first time, it loads configuration values with no label. Then, it loads configuration values with the label corresponding to the current environment. These environment-specific values override any corresponding values with no label. You do not need to define environment-specific values for every key. If a key does not have a value with a label corresponding to the current environment, then the value with no label is used.
 
