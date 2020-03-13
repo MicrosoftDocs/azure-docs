@@ -12,6 +12,7 @@ ms.topic: article
 ms.date: 03/12/2020
 ms.author: aschhab
 ---
+
 # Best Practices for performance improvements using Service Bus Messaging
 
 This article describes how to use Azure Service Bus to optimize performance when exchanging brokered messages. The first part of this article describes the different mechanisms that are offered to help increase performance. The second part provides guidance on how to use Service Bus in a way that can offer the best performance in a given scenario.
@@ -26,7 +27,7 @@ Service Bus enables clients to send and receive messages via one of three protoc
 
 1. Advanced Message Queuing Protocol (AMQP)
 2. Service Bus Messaging Protocol (SBMP)
-3. HTTP
+3. Hypertext Transfer Protocol (HTTP)
 
 AMQP is the most efficient, because it maintains the connection to Service Bus. It also implements batching and prefetching. Unless explicitly mentioned, all content in this article assumes the use of AMQP or SBMP.
 
@@ -267,7 +268,7 @@ When using the default lock expiration of 60 seconds, a good value for `Prefetch
 
 Prefetching messages increases the overall throughput for a queue or subscription because it reduces the overall number of message operations, or round trips. Fetching the first message, however, will take longer (due to the increased message size). Receiving prefetched messages will be faster because these messages have already been downloaded by the client.
 
-The time-to-live (TTL) property of a message is checked by the server at the time the server sends the message to the client. The client does not check the message’s TTL property when the message is received. Instead, the message can be received even if the message’s TTL has passed while the message was cached by the client.
+The time-to-live (TTL) property of a message is checked by the server at the time the server sends the message to the client. The client does not check the message's TTL property when the message is received. Instead, the message can be received even if the message's TTL has passed while the message was cached by the client.
 
 Prefetching does not affect the number of billable messaging operations, and is available only for the Service Bus client protocol. The HTTP protocol does not support prefetching. Prefetching is available for both synchronous and asynchronous receive operations.
 
