@@ -1,6 +1,6 @@
 ---
-title: Use Azure Monitor Logs with Azure Logic Apps and 
-description: Learn how you can use Microsoft Flow to quickly automate repeatable processes by using the Azure Log Analytics connector.
+title: Use Azure Monitor Logs with Azure Logic Apps and Power Automate
+description: Learn how you can use Azure Logic Apps and Power Automate to quickly automate repeatable processes by using the Azure Monitor connector.
 ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
