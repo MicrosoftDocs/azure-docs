@@ -79,6 +79,7 @@ SecurityEvent
 | extend FilePath = tostring(Details.UserData.RuleAndFileData.FilePath)
 | extend FileHash = tostring(Details.UserData.RuleAndFileData.FileHash)
 | summarize count() by FileHash, FilePath
+| where FileHash != "" // No need to filter out %SYSTEM32 here as it was removed before
 ```
 
 Queries that contain [where](/azure/kusto/query/whereoperator) clauses on an evaluated column rather than on columns that are physically present in the dataset lose efficiency. Filtering on evaluated columns prevents some system optimizations when large sets of data are handled.
