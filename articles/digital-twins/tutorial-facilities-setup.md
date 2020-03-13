@@ -14,7 +14,7 @@ ms.date: 01/10/2020
 
 # Tutorial: Deploy Azure Digital Twins Preview and configure a spatial graph
 
-[!INCLUDE [digital-twins-pp1-limit-alert](../../includes/digital-twins-pp1-limit-alert.md)]
+[!INCLUDE [digital-twins-preview-limit-alert](../../includes/digital-twins-preview-limit-alert.md)]
 
 You can use the Azure Digital Twins Preview service to bring together people, places, and devices in a coherent spatial system. This series of tutorials demonstrates how to use Azure Digital Twins to detect room occupancy with optimal conditions of temperature and air quality. 
 

@@ -14,7 +14,7 @@ ms.custom: mvc
 
 # Overview of Azure Digital Twins Preview
 
-[!INCLUDE [digital-twins-pp1-limit-alert](../../includes/digital-twins-pp1-limit-alert.md)]
+[!INCLUDE [digital-twins-preview-limit-alert](../../includes/digital-twins-preview-limit-alert.md)]
 
 Azure Digital Twins Preview is an Azure IoT service that creates comprehensive models of the physical environment. It can create spatial intelligence graphs to model the relationships and interactions between people, spaces, and devices.
 
