@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: carlrab
-ms.date: 11/18/2019
+ms.date: 03/13/2019
 ---
 
 # Resource management in dense elastic pools
@@ -27,6 +27,8 @@ The overarching design goal of elastic pools is to be cost-effective. For this r
 
 This approach allows customers to use dense elastic pools to achieve adequate performance and major cost savings. However, if the workload against databases in a dense pool is sufficiently intense, resource contention becomes significant. Resource contention reduces user workload performance, and can negatively impact internal processes.
 
+Therefore, in dense pools with intense user workloads it may not be feasible to increase the number of databases in the pool up to the maximum number of databases per pool documented under resource limits for [DTU](sql-database-dtu-resource-limits-elastic-pools.md) and [vCore](sql-database-vcore-resource-limits-elastic-pools.md) elastic pools. The maximum number of databases that can be placed in such pools depends on the resource consumption by the user workloads, and can change over time as user workloads change.
+
 When resource contention occurs in a densely packed pool, customers can choose one or more of the following actions to mitigate it:
 - Tune query workload to reduce resource consumption.
 - Reduce pool density by moving some databases to another pool, or by making them standalone databases.
@@ -36,7 +38,7 @@ For suggestions on how to implement the last two actions, see [Operational recom
 
 ## Monitoring resource consumption
 
-To avoid performance degradation due to resource contention, customers using dense elastic pools should proactively monitor resource consumption, and take timely action if increasing resource contention starts affecting workloads. Continuous monitoring is important because resource usage in a pool changes over time, due to changes in user workload, changes in data volumes and distribution, changes in pool density, and changes in the SQL Server database engine. 
+To avoid performance degradation due to resource contention, customers using dense elastic pools should proactively monitor resource consumption, and take timely action if increasing resource contention starts affecting workloads. Continuous monitoring is important because resource usage in a pool changes over time, due to changes in user workload, changes in data volumes and distribution, changes in pool density, and changes in the Azure SQL Database service. 
 
 Azure SQL Database provides several metrics that are relevant for this type of monitoring. Exceeding the recommended average value for each metric indicates resource contention in the pool, and should be addressed using one of the actions mentioned earlier.
 
