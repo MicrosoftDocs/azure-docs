@@ -1,7 +1,7 @@
 ---
 title: Provide an encryption key on a request to Blob storage
 titleSuffix: Azure Storage
-description: 
+description: Clients making requests against Azure Blob storage have the option to provide an encryption key on a per-request basis (preview). Including the encryption key on the request provides granular control over encryption settings for Blob storage operations.
 services: storage
 author: tamram
 
@@ -13,21 +13,17 @@ ms.reviewer: cbrooks
 ms.subservice: common
 ---
 
-# Provide an encryption key on a request to Blob storage
+# Provide an encryption key on a request to Blob storage (preview)
 
-Clients making requests against Azure Blob storage have the option to provide an encryption key on an individual request. Including the encryption key on the request provides granular control over encryption settings for Blob storage operations. Customer-provided keys (preview) can be stored in Azure Key Vault or in another key store.
+Clients making requests against Azure Blob storage have the option to provide an encryption key on a per-request basis (preview). Including the encryption key on the request provides granular control over encryption settings for Blob storage operations. Customer-provided keys can be stored in Azure Key Vault or in another key store.
 
-## Customer-provided keys (preview)
-
-For an example that shows how to specify a customer-provided key on a request to Blob storage, see [Specify a customer-provided key on a request to Blob storage with .NET](../blobs/storage-blob-customer-provided-key.md).
-
-### Encrypting read and write operations
+## Encrypting read and write operations
 
 When a client application provides an encryption key on the request, Azure Storage performs encryption and decryption transparently while reading and writing blob data. Azure Storage writes an SHA-256 hash of the encryption key alongside the blob's contents. The hash is used to verify that all subsequent operations against the blob use the same encryption key.
 
 Azure Storage does not store or manage the encryption key that the client sends with the request. The key is securely discarded as soon as the encryption or decryption process is complete.
 
-When a client creates or updates a blob using a customer-provided key, then subsequent read and write requests for that blob must also provide the key. If the key is not provided on a request for a blob that has already been encrypted with a customer-provided key, then the request fails with error code 409 (Conflict).
+When a client creates or updates a blob using a customer-provided on the request, then subsequent read and write requests for that blob must also provide the key. If the key is not provided on a request for a blob that has already been encrypted with a customer-provided key, then the request fails with error code 409 (Conflict).
 
 If the client application sends an encryption key on the request, and the storage account is also encrypted using a Microsoft-managed key or a customer-managed key, then Azure Storage uses the key provided on the request for encryption and decryption.
 
@@ -35,7 +31,7 @@ To send the encryption key as part of the request, a client must establish a sec
 
 Each blob snapshot can have its own encryption key.
 
-### Request headers for specifying customer-provided keys
+## Request headers for specifying customer-provided keys
 
 For REST calls, clients can use the following headers to securely pass encryption key information on a request to Blob storage:
 
@@ -47,7 +43,7 @@ For REST calls, clients can use the following headers to securely pass encryptio
 
 Specifying encryption keys on the request is optional. However, if you specify one of the headers listed above for a write operation, then you must specify all of them.
 
-### Blob storage operations supporting customer-provided keys
+## Blob storage operations supporting customer-provided keys
 
 The following Blob storage operations support sending customer-provided encryption keys on a request:
 
@@ -65,7 +61,7 @@ The following Blob storage operations support sending customer-provided encrypti
 - [Get Blob Metadata](/rest/api/storageservices/get-blob-metadata)
 - [Snapshot Blob](/rest/api/storageservices/snapshot-blob)
 
-### Rotate customer-provided keys
+## Rotate customer-provided keys
 
 To rotate an encryption key passed on the request, download the blob and re-upload it with the new encryption key.
 
@@ -74,6 +70,7 @@ To rotate an encryption key passed on the request, download the blob and re-uplo
 >
 > Be sure to protect the encryption key that you provide on a request to Blob storage in a secure key store like Azure Key Vault. If you attempt a write operation on a container or blob without the encryption key, the operation will fail, and you will lose access to the object.
 
-## Azure Storage encryption versus disk encryption
+## Next steps
 
-Azure Storage encryption encrypts the page blobs that back Azure virtual machine disks. Additionally, all Azure virtual machine disks, including local temp disks, may optionally be encrypted with [Azure Disk Encryption](../../security/azure-security-disk-encryption-overview.md). Azure Disk Encryption uses industry-standard [BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview) on Windows and [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) on Linux to provide operating system-based encryption solutions that are integrated with Azure Key Vault.
+- [Specify a customer-provided key on a request to Blob storage with .NET](../blobs/storage-blob-customer-provided-key.md)
+- [Azure Storage encryption for data at rest](storage-service-encryption.md)
