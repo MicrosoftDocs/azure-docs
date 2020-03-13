@@ -1,4 +1,3 @@
-
 - name: Azure Cognitive Services Documentation
   href: index.yml
 - name: Overview
@@ -14,6 +13,8 @@
     href: cognitive-services-custom-subdomains.md
   - name: Language support
     href: language-support.md
+  - name: Configure customer-managed keys with the Azure portal
+    href: ./Encryption/cognitive-services-encryption-keys-portal.md
 - name: Container support
   items:
   - name: Container support
