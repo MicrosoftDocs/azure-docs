@@ -64,7 +64,7 @@ If you are using a custom DNS server on your network, clients must be able to re
 
 Enabling private endpoints requires a [Standard tier](https://azure.microsoft.com/pricing/details/app-configuration/) App Configuration store.  To learn about private link pricing details, see [Azure Private Link pricing](https://azure.microsoft.com/pricing/details/private-link).
 
-## Next Steps
+## Next steps
 
 Learn more about creating a private endpoint for your App Configuration store, refer to the following articles:
 
