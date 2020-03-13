@@ -35,7 +35,7 @@ Your private endpoint and virtual network must be in the same region. When you s
 Your private endpoint uses a private IP address in your virtual network.
 
 
-## Add a private endpoint using the Azure portal
+## Add a private endpoint connection using the Azure portal
 
 If you already have an existing namespace, you can create a private link connection by following these steps:
 
@@ -78,7 +78,7 @@ If you already have an existing namespace, you can create a private link connect
 
     ![Private endpoint created](./media/private-link-service/private-endpoint-created.png)
 
-## Add a private endpoint using PowerShell
+## Add a private endpoint connection using PowerShell
 The following example shows you how to use Azure PowerShell to create a private endpoint connection to a Service Bus namespace.
 
 ```azurepowershell-interactive
