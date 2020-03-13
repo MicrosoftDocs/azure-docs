@@ -517,8 +517,6 @@
   items:
   - name: From Bing Speech
     href: how-to-migrate-from-bing-speech.md
-  - name: From the Custom Speech service
-    href: how-to-migrate-from-custom-speech-service.md
   - name: From the Translator Speech API
     href: how-to-migrate-from-translator-speech-api.md
 - name: Resources
