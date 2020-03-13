@@ -149,21 +149,29 @@ Use the Azure Data Science Virtual Machine (DSVM)  as the Azure VM of choice for
 1. **Attach**: To attach an existing virtual machine as a compute target, you must provide the fully qualified domain name (FQDN), user name, and password for the virtual machine. In the example, replace \<fqdn> with the public FQDN of the VM, or the public IP address. Replace \<username> and \<password> with the SSH user name and password for the VM.
 
     > [!IMPORTANT]
-    > The following Azure regions do not support attaching a virtual machine using the public IP address of the VM. Instead, use the Azure Resource Manager ID of the VM:
+    > The following Azure regions do not support attaching a virtual machine using the public IP address of the VM. Instead, use the Azure Resource Manager ID of the VM with the `resource_id` parameter:
     >
     > * US East
     > * US West 2
     > * US South Central
+    >
+    > The resource ID of the VM can be constructed using the subscription ID, resource group name, and VM name using the following string format: `/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Compute/virtualMachines/<vm_name>`.
+
 
    ```python
    from azureml.core.compute import RemoteCompute, ComputeTarget
 
    # Create the compute config 
    compute_target_name = "attach-dsvm"
-   attach_config = RemoteCompute.attach_configuration(address = "<fqdn>",
+   attach_config = RemoteCompute.attach_configuration(address='<fqdn>',
                                                     ssh_port=22,
                                                     username='<username>',
                                                     password="<password>")
+   # If in US East, US West 2, or US South Central, use the following instead:
+   # attach_config = RemoteCompute.attach_configuration(resource_id='<resource_id>',
+   #                                                 ssh_port=22,
+   #                                                 username='<username>',
+   #                                                 password="<password>")
 
    # If you authenticate with SSH keys instead, use this code:
    #                                                  ssh_port=22,
@@ -200,11 +208,13 @@ Azure HDInsight is a popular platform for big-data analytics. The platform provi
 1. **Attach**: To attach an HDInsight cluster as a compute target, you must provide the hostname, user name, and password for the HDInsight cluster. The following example uses the SDK to attach a cluster to your workspace. In the example, replace \<clustername> with the name of your cluster. Replace \<username> and \<password> with the SSH user name and password for the cluster.
 
     > [!IMPORTANT]
-    > The following Azure regions do not support attaching an HDInsight cluster using the public IP address of the cluster. Instead, use the Azure Resource Manager ID of the cluster:
+    > The following Azure regions do not support attaching an HDInsight cluster using the public IP address of the cluster. Instead, use the Azure Resource Manager ID of the cluster with the `resource_id` parameter:
     >
     > * US East
     > * US West 2
     > * US South Central
+    >
+    > The resource ID of the cluster can be constructed using the subscription ID, resource group name, and cluster name using the following string format: `/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.HDInsight/clusters/<cluster_name>`.
 
    ```python
    from azureml.core.compute import ComputeTarget, HDInsightCompute
@@ -216,6 +226,11 @@ Azure HDInsight is a popular platform for big-data analytics. The platform provi
                                                           ssh_port=22, 
                                                           username='<ssh-username>', 
                                                           password='<ssh-pwd>')
+    # If you are in US East, US West 2, or US South Central, use the following instead:
+    # attach_config = HDInsightCompute.attach_configuration(resource_id='<resource_id>',
+    #                                                      ssh_port=22, 
+    #                                                      username='<ssh-username>', 
+    #                                                      password='<ssh-pwd>')
     hdi_compute = ComputeTarget.attach(workspace=ws, 
                                        name='myhdi', 
                                        attach_configuration=attach_config)
