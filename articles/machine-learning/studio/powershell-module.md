@@ -13,6 +13,8 @@ ms.date: 04/25/2019
 ---
 # PowerShell modules for Azure Machine Learning Studio (classic)
 
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
+
 Using PowerShell modules, you can programmatically manage your Studio (classic) resources and assets such as workspaces, datasets, and web services.
 
 You can interact with Studio (classic) resources using three Powershell modules:
