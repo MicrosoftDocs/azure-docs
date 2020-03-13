@@ -1017,7 +1017,7 @@ For information on securing Azure Container Registry inside the virtual network,
 ```
 
 <a id="mmkmapl"></a>
-###Workspace with Microsoft-managed keys and manual approval for Private Link
+### Workspace with Microsoft-managed keys and manual approval for Private Link
 
 ```json
 {
