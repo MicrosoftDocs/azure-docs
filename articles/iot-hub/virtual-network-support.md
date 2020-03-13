@@ -73,17 +73,23 @@ Private endpoints supported in IoT Hub's created in the following regions:
 
 To set up a private endpoint, follow these steps:
 
-1. Navigate to the **Private endpoint connections** tab in your IoT Hub portal (this tab is only available for in IoT Hubs in the [supported regions](#regional-availability-private-endpoints)), and click the **+** sign to add a new private endpoint.
+1. Run the following Azure CLI command to re-register Azure IoT Hub provider with your subscription:
 
-2. Provide the subscription, resource group, name and region to create the new private endpoint in (ideally, private endpoint should be created in the same region as your hub; see [regional availability section](#regional-availability-private-endpoints) for more details).
+```azurecli-interactive
+az provider register --namespace Microsoft.Devices --wait --subscription  <subscription-name>
+```
 
-3. Click **Next: Resource**, and provide the subscription for your IoT Hub resource, and select **"Microsoft.Devices/IotHubs"** as resource type, your IoT Hub name as **resource**, and **iotHub** as target sub-resource.
+2. Navigate to the **Private endpoint connections** tab in your IoT Hub portal (this tab is only available for in IoT Hubs in the [supported regions](#regional-availability-private-endpoints)), and click the **+** sign to add a new private endpoint.
 
-4. Click **Next: Configuration** and provide your virtual network and subnet to create the private endpoint in. Select the option to integrate with Azure private DNS zone, if desired.
+3. Provide the subscription, resource group, name and region to create the new private endpoint in (ideally, private endpoint should be created in the same region as your hub; see [regional availability section](#regional-availability-private-endpoints) for more details).
 
-5. Click **Next: Tags**, and optionally provide any tags for your resource.
+4. Click **Next: Resource**, and provide the subscription for your IoT Hub resource, and select **"Microsoft.Devices/IotHubs"** as resource type, your IoT Hub name as **resource**, and **iotHub** as target sub-resource.
 
-6. Click **Review + create** to create your private endpoint resource.
+5. Click **Next: Configuration** and provide your virtual network and subnet to create the private endpoint in. Select the option to integrate with Azure private DNS zone, if desired.
+
+6. Click **Next: Tags**, and optionally provide any tags for your resource.
+
+7. Click **Review + create** to create your private endpoint resource.
 
 
 ### Pricing (private endpoints)
