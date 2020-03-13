@@ -67,7 +67,7 @@ If you already have an Event Hubs namespace, you can create a private link conne
 2. In the search bar, type in **event hubs**.
 3. Select the **namespace** from the list to which you want to add a private endpoint.
 4. Select the **Networking** tab under **Settings**.
-5. Select the **Private endpoint connections (preview)** tab at the top of the page
+5. Select the **Private endpoint connections (preview)** tab at the top of the page. If you aren't using a dedicated tier of Event Hubs, you see a message: **Private endpoint connections on Event Hubs are only supported by namespaces created under a dedicated cluster**.
 6. Select the **+ Private Endpoint** button at the top of the page.
 
     ![Image](./media/private-link-service/private-link-service-3.png)
@@ -98,6 +98,9 @@ If you already have an Event Hubs namespace, you can create a private link conne
 11. On the **Review + create**, review all the settings, and select **Create** to create the private endpoint.
     
     ![Create Private Endpoint - Review and Create page](./media/private-link-service/create-private-endpoint-review-create-page.png)
+12. Confirm that you see the private endpoint connection you created shows up in the list of endpoints. In this example, the private endpoint is auto-approved because you connected to an Azure resource in your directory and you have sufficient permissions. 
+
+    ![Private endpoint created](./media/private-link-service/private-endpoint-created.png)
 
 ## Manage private link connection
 
@@ -123,7 +126,7 @@ There are four provisioning states:
 1. Select the **Approve** button.
 1. If there are any private endpoint connections you want to reject, whether it is a pending request or existing connection, select the connection and click the **Reject** button.
 
-    ![Image](./media/private-link-service/private-link-service-7.png)
+    ![Image](./media/private-link-service/private-endpoint-reject-button.png)
 
 ## Validate that the private link connection works
 
