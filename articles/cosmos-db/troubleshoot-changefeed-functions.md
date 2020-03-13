@@ -68,7 +68,7 @@ If it's the latter, there could be some delay between the changes being stored a
 ### Some changes are repeated in my Trigger
 
 The concept of a "change" is an operation on a document. The most common scenarios where events for the same document is received are:
-* The account is using Eventual consistency. [Order of reads is not guaranteed with Eventual consistency](consistency-levels.md#guarantees-associated-with-consistency-levels) and duplicates can occur.
+* The account is using Eventual consistency. While consuming the change feed in an Eventual consistency level, there could be duplicate events in-between subsequent change feed read operations (the last event of one read operation appears as the first of the next).
 * The document is being updated. The Change Feed can contain multiple operations for the same documents, if that document is receiving updates, it can pick up multiple events (one for each update). One easy way to distinguish among different operations for the same document is to track the `_ts` (Timestamp) and `_lsn` [properties for each change](change-feed.md#change-feed-and-_etag-_lsn-or-_ts). If they don't match, these are different changes over the same document.
 * If you are identifying documents just by `id`, remember that the unique identifier for a document is the `id` and its partition key (there can be two documents with the same `id` but different partition key).
 

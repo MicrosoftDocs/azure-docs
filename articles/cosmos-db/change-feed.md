@@ -44,7 +44,7 @@ Change feed items come in the order of their modification time. This sort order 
 
 ### Consistency level
 
-While consuming the change feed in an Eventual consistency level, the [order of reads is not guaranteed](consistency-levels.md#guarantees-associated-with-consistency-levels). This means that there could be duplicate events in-between subsequent change feed read operations. This does not occur with other consistency levels.
+While consuming the change feed in an Eventual consistency level, there could be duplicate events in-between subsequent change feed read operations (the last event of one read operation appears as the first of the next).
 
 ### Change feed in multi-region Azure Cosmos accounts
 
