@@ -1,11 +1,11 @@
 ---
-title: Create interactive reports Azure Monitor for VMs with workbooks | Microsoft Docs
+title: Create interactive reports Azure Monitor for VMs with workbooks
 description: Simplify complex reporting with predefined and custom parameterized workbooks for Azure Monitor for VMs.
 ms.subservice: 
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 10/15/2019
+ms.date: 03/12/2020
 
 ---
 
@@ -46,19 +46,15 @@ A workbook is made up of sections consisting of independently editable charts, t
 
 3. From the list, select a VM.
 
-4. On the VM page, in the **Monitoring** section, select **Insights (preview)**.
+4. On the VM page, in the **Monitoring** section, select **Insights**.
 
-5. On the VM insights page, select **Performance** or **Maps** tab and then select **View Workbooks** from the link on the page. 
-
-    ![Screenshot of navigation to workbooks](media/vminsights-workbooks/workbook-option-01.png)
-
-6. From the drop-down list, select **Go to Gallery** from the bottom of the list.
+5. On the VM insights page, select **Performance** or **Maps** tab and then select **View Workbooks** from the link on the page. From the drop-down list, select **Go to Gallery**.
 
     ![Screenshot of workbook drop-down list](media/vminsights-workbooks/workbook-dropdown-gallery-01.png)
 
-    It launches the workbook gallery with a number of prebuilt workbooks to help you get started.
+    This launches the workbook gallery with a number of prebuilt workbooks to help you get started.
 
-7. We'll start with the **Default Template**, which is located under the heading **Quick start**.
+7. Start with the **Default Template**, which is located under the heading **Quick start**.
 
     ![Screenshot of workbook gallery](media/vminsights-workbooks/workbook-gallery-01.png)
 

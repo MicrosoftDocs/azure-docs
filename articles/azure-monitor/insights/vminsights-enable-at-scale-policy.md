@@ -1,17 +1,17 @@
 ---
-title: Enable Azure Monitor for VMs by using Azure Policy | Microsoft Docs
+title: Enable Azure Monitor for VMs by using Azure Policy
 description: This article describes how you enable Azure Monitor for VMs for multiple Azure virtual machines or virtual machine scale sets by using Azure Policy.
 ms.subservice: 
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 10/15/2019
+ms.date: 03/12/2020
 
 ---
 
-# Enable Azure Monitor for VMs (preview) by using Azure Policy
+# Enable Azure Monitor for VMs by using Azure Policy
 
-This article explains how to enable Azure Monitor for VMs (preview) for Azure virtual machines or virtual machine scale sets by using Azure Policy. At the end of this process, you will have successfully configured enabling the Log Analytics and Dependency agents and identified virtual machines that aren't compliant.
+This article explains how to enable Azure Monitor for VMs for Azure virtual machines or virtual machine scale sets by using Azure Policy. At the end of this process, you will have successfully configured enabling the Log Analytics and Dependency agents and identified virtual machines that aren't compliant.
 
 To discover, manage, and enable Azure Monitor for VMs for all of your Azure virtual machines or virtual machine scale sets, you can use either Azure Policy or Azure PowerShell. Azure Policy is the method we recommend because you can manage policy definitions to effectively govern your subscriptions to ensure consistent compliance and automatic enabling of newly provisioned VMs. These policy definitions:
 
@@ -19,11 +19,11 @@ To discover, manage, and enable Azure Monitor for VMs for all of your Azure virt
 * Report on compliance results.
 * Remediate for noncompliant VMs.
 
-If you're interested in accomplishing these tasks with Azure PowerShell or an Azure Resource Manager template, see [Enable Azure Monitor for VMs (preview) using Azure PowerShell or Azure Resource Manager templates](vminsights-enable-at-scale-powershell.md).
+If you're interested in accomplishing these tasks with Azure PowerShell or an Azure Resource Manager template, see [Enable Azure Monitor for VMs using Azure PowerShell or Azure Resource Manager templates](vminsights-enable-at-scale-powershell.md).
 
 ## Manage Policy Coverage feature overview
 
-Originally, the experience with Azure Policy for managing and deploying the policy definitions for Azure Monitor for VMs was done exclusively from Azure Policy. The Manage Policy Coverage feature makes it simpler and easier to discover, manage, and enable at scale the **Enable Azure Monitor for VMs** initiative, which includes the policy definitions mentioned earlier. You can access this new feature from the **Get Started** tab in Azure Monitor for VMs. Select **Manage Policy Coverage** to open the **Azure Monitor for VMs Policy Coverage** page.
+Azure Monitor for VMs Policy Coverage simplifies discovering, managing, and enabling at scale the **Enable Azure Monitor for VMs** initiative, which includes the policy definitions mentioned earlier. Access this new feature from the **Get Started** tab in Azure Monitor for VMs. Select **Manage Policy Coverage** to open the **Azure Monitor for VMs Policy Coverage** page.
 
 ![Azure Monitor from VMs Get Started tab](./media/vminsights-enable-at-scale-policy/get-started-page.png)
 
@@ -148,7 +148,7 @@ The following matrix maps each possible compliance state for the initiative.
 | **Lock** | You don't have sufficient privileges to the management group.<sup>1</sup> | 
 | **Blank** | No policy is assigned. | 
 
-<sup>1</sup> If you don’t have access to the management group, ask an owner to provide access. Or, view compliance and manage assignments through the child management groups or subscriptions. 
+<sup>1</sup> If you don't have access to the management group, ask an owner to provide access. Or, view compliance and manage assignments through the child management groups or subscriptions. 
 
 The following table maps each possible assignment status for the initiative.
 
@@ -161,7 +161,7 @@ The following table maps each possible assignment status for the initiative.
 | **Blank** | No VMs exist or a policy isn't assigned. | 
 | **Action** | Assign a policy or edit an assignment. | 
 
-<sup>1</sup> If you don’t have access to the management group, ask an owner to provide access. Or, view compliance and manage assignments through the child management groups or subscriptions.
+<sup>1</sup> If you don't have access to the management group, ask an owner to provide access. Or, view compliance and manage assignments through the child management groups or subscriptions.
 
 ## Review and remediate the compliance results
 

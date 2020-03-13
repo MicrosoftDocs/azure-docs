@@ -180,60 +180,16 @@ To enable and access the features in Azure Monitor for VMs, you must have the *L
 
 For more information about how to control access to a Log Analytics workspace, see [Manage workspaces](../../azure-monitor/platform/manage-access.md).
 
-## How to enable Azure Monitor for VMs (preview)
+## How to enable Azure Monitor for VMs
 
 Enable Azure Monitor for VMs by using one of the methods described in this table:
 
 | Deployment state | Method | Description |
 |------------------|--------|-------------|
-| Single Azure VM or virtual machine scale set | [Enable from the VM](vminsights-enable-single-vm.md) | You can enable a single Azure VM by selecting **Insights (preview)** directly from the VM or virtual machine scale set. |
+| Single Azure VM or virtual machine scale set | [Enable from the VM](vminsights-enable-single-vm.md) | You can enable a single Azure VM by selecting **Insights** directly from the VM or virtual machine scale set. |
 | Multiple Azure VMs or virtual machine scale sets | [Enable through Azure Policy](vminsights-enable-at-scale-policy.md) | You can enable multiple Azure VMs by using Azure Policy and available policy definitions. |
 | Multiple Azure VMs or virtual machine scale sets | [Enable through Azure PowerShell or Azure Resource Manager templates](vminsights-enable-at-scale-powershell.md) | You can enable multiple Azure VMs or virtual machine scale sets across a specified subscription or resource group by using Azure PowerShell or Azure Resource Manager templates. |
 | Hybrid cloud | [Enable for the hybrid environment](vminsights-enable-hybrid-cloud.md) | You can deploy to VMs or physical computers that are hosted in your datacenter or other cloud environments. |
-
-## Performance counters enabled 
-
-Azure Monitor for VMs configures a Log Analytics workspace to collect the performance counters that it uses. The following tables list the objects and counters that are collected every 60 seconds.
-
->[!NOTE]
->The following list of performance counters enabled by Azure Monitor for VMs does not limit you from enabling additional counters you need to collect from VMs reporting to the workspace. Also, if you disable these counters, it will prevent the set of performance charts included with the Performance feature from showing resource utilization from your VMs.
-
-### Windows performance counters
-
-|Object name |Counter name |
-|------------|-------------|
-|LogicalDisk |% Free Space |
-|LogicalDisk |Avg. Disk sec/Read |
-|LogicalDisk |Avg. Disk sec/Transfer |
-|LogicalDisk |Avg. Disk sec/Write |
-|LogicalDisk |Disk Bytes/sec |
-|LogicalDisk |Disk Read Bytes/sec |
-|LogicalDisk |Disk Reads/sec |
-|LogicalDisk |Disk Transfers/sec |
-|LogicalDisk |Disk Write Bytes/sec |
-|LogicalDisk |Disk Writes/sec |
-|LogicalDisk |Free Megabytes |
-|Memory |Available MBytes |
-|Network Adapter |Bytes Received/sec |
-|Network Adapter |Bytes Sent/sec |
-|Processor |% Processor Time |
-
-### Linux performance counters
-
-|Object name |Counter name |
-|------------|-------------|
-|Logical Disk |% Used Space |
-|Logical Disk |Disk Read Bytes/sec |
-|Logical Disk |Disk Reads/sec |
-|Logical Disk |Disk Transfers/sec |
-|Logical Disk |Disk Write Bytes/sec |
-|Logical Disk |Disk Writes/sec |
-|Logical Disk |Free Megabytes |
-|Logical Disk |Logical Disk Bytes/sec |
-|Memory |Available MBytes Memory |
-|Network |Total Bytes Received |
-|Network |Total Bytes Transmitted |
-|Processor |% Processor Time |
 
 ## Management packs
 
