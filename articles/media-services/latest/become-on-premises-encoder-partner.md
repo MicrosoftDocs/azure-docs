@@ -27,7 +27,7 @@ As an Azure Media Services on-premises encoder partner, Media Services promotes 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-### Pass-through Live Event verification
+## Pass-through Live Event verification
 
 1. In your Media Services account, make sure that the **Streaming Endpoint** is running. 
 2. Create and start the **pass-through** Live Event. <br/> For more information, see [Live Event states and billing](live-event-states-billing.md).
@@ -46,7 +46,7 @@ As an Azure Media Services on-premises encoder partner, Media Services promotes 
 15. Reset the Live Event state after creating each sample.
 16. Repeat steps 5 through 15 for all configurations supported by your encoder (with and without ad signaling, captions, or different encoding speeds).
 
-### Live encoding Live Event verification
+## Live encoding Live Event verification
 
 1. In your Media Services account, make sure that the **Streaming Endpoint** is running. 
 2. Create and start the **live encoding** Live Event. <br/> For more information, see [Live Event states and billing](live-event-states-billing.md).
@@ -65,11 +65,11 @@ As an Azure Media Services on-premises encoder partner, Media Services promotes 
 15. Reset the Live Event state after creating each sample.
 16. Repeat steps 5 through 15 for all configurations supported by your encoder (with and without ad signaling, captions, or different encoding speeds).
 
-### Longevity verification
+## Longevity verification
 
 Follow the same steps as in [Pass-through Live Event verification](#pass-through-live-event-verification) except for step 11. <br/>Instead of 10 minutes, run your live encoder for one week or longer. Use a player such as [Azure Media Player](https://aka.ms/azuremediaplayer) to watch the live streaming from time to time (or an archived asset) to ensure that playback has no visible glitches.
 
-### Email your recorded settings
+## Email your recorded settings
 
 Finally, email your recorded settings and live archive parameters to Azure Media Services at amshelp@microsoft.com as a notification that all self-verification checks have passed. Also, include your contact information for any follow-ups. You can contact the Azure Media Services team with any questions about this process.
 
