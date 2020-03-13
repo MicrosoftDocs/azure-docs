@@ -59,7 +59,7 @@ To use an Azure storage account for the workspace in a virtual network, use the 
     - Under __Virtual networks__, select the __Add existing virtual network__ link. This action adds the virtual network where your compute  resides (see step 1).
 
         > [!IMPORTANT]
-        > The storage account must be in the same virtual network as the compute instances or clusters used for training or inference.
+        > The storage account must be in the same virtual network and subnet as the compute instances or clusters used for training or inference.
 
     - Select the __Allow trusted Microsoft services to access this storage account__ check box.
 
@@ -310,12 +310,6 @@ For specific information on using Azure Databricks with a virtual network, see [
 
 > [!IMPORTANT]
 > Azure Machine Learning supports only virtual machines that are running Ubuntu.
->
-> The following Azure regions only support attaching an Azure-based virtual machine or HDInsight cluster:
->
-> * US East
-> * US West 2
-> * US South Central
 
 To use a virtual machine or Azure HDInsight cluster in a virtual network with your workspace, use the following steps:
 
@@ -547,6 +541,58 @@ For more information on configuring a network rule, see [Deploy and configure Az
     ```
     
     For more information, see the [update()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#update-friendly-name-none--description-none--tags-none--image-build-compute-none-) method reference.
+
+1. If you are using Private Link for your Azure Machine Learning workspace, and put the Azure Container Registry for your workspace in a virtual network, you must also apply the following Azure Resource Manager template. This template enables your workspace to communicate with ACR over the Private Link.
+
+    ```json
+    {
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "keyVaultArmId": {
+        "type": "string"
+        },
+        "workspaceName": {
+        "type": "string"
+        },
+        "containerRegistryArmId": {
+        "type": "string"
+        },
+        "applicationInsightsArmId": {
+        "type": "string"
+        },
+        "storageAccountArmId": {
+        "type": "string"
+        },
+        "location": {
+        "type": "string"
+        }
+    },
+    "resources": [
+        {
+        "type": "Microsoft.MachineLearningServices/workspaces",
+        "apiVersion": "2019-11-01",
+        "name": "[parameters('workspaceName')]",
+        "location": "[parameters('location')]",
+        "identity": {
+            "type": "SystemAssigned"
+        },
+        "sku": {
+            "tier": "enterprise",
+            "name": "enterprise"
+        },
+        "properties": {
+            "sharedPrivateLinkResources":
+    [{"Name":"Acr","Properties":{"PrivateLinkResourceId":"[concat(parameters('containerRegistryArmId'), '/privateLinkResources/registry')]","GroupId":"registry","RequestMessage":"Approve","Status":"Pending"}}],
+            "keyVault": "[parameters('keyVaultArmId')]",
+            "containerRegistry": "[parameters('containerRegistryArmId')]",
+            "applicationInsights": "[parameters('applicationInsightsArmId')]",
+            "storageAccount": "[parameters('storageAccountArmId')]"
+        }
+        }
+    ]
+    }
+    ```
 
 ## Next steps
 

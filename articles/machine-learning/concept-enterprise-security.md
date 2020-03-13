@@ -102,7 +102,7 @@ Azure Machine Learning relies on other Azure services for compute resources. Com
 
 For more information, see [How to run experiments and inference in a virtual network](how-to-enable-virtual-network.md).
 
-You can also enable Azure Private Link for your workspace. Private Link allows you to restrict communications to your workspace to a virtual network. For more information, see [How to configure Private Link](how-to-configure-private-link.md).
+You can also enable Azure Private Link for your workspace. Private Link allows you to restrict communications to your workspace from an Azure Virtual Network. For more information, see [How to configure Private Link](how-to-configure-private-link.md).
 
 > [!TIP]
 > You can combine virtual network and Private Link together to protect communication between your workspace and other Azure resources. However, some combinations require an Enterprise edition workspace. Use the following table to understand what scenarios require Enterprise edition:
@@ -186,7 +186,21 @@ For an example of creating a workspace using an existing Azure Container Registr
 
 #### Azure Container Instance
 
-You may encrypt a deployed Azure Container Instance resource using customer-managed keys. For more information, see [Encrypt data with a customer-managed key](../container-instances/container-instances-encrypt-data.md#encrypt-data-with-a-customer-managed-key).
+You may encrypt a deployed Azure Container Instance (ACI) resource using customer-managed keys. The customer-managed key used for ACI can be stored in the Azure Key Vault for your workspace. For information on generating a key, see [Encrypt data with a customer-managed key](../container-instances/container-instances-encrypt-data.md#generate-a-new-key).
+
+To use the key when deploying a model to Azure Container Instance, create a new deployment configuration using `AciWebservice.deploy_configuration()`. Provide the key information using the following parameters:
+
+* `cmk_vault_base_url`: The URL of the key vault that contains the key.
+* `cmk_key_name`: The name of the key.
+* `cmk_key_version`: The version of the key.
+
+For more information on creating and using a deployment configuration, see the following articles:
+
+* [AciWebservice.deploy_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aci.aciwebservice?view=azure-ml-py#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none--primary-key-none--secondary-key-none--collect-model-data-none--cmk-vault-base-url-none--cmk-key-name-none--cmk-key-version-none-) reference
+* [Where and how to deploy](how-to-deploy-and-where.md)
+* [Deploy a model to Azure Container Instances](how-to-deploy-azure-container-instance.md)
+
+For more information on using a customer-managed key with ACI, see [Encrypt data with a customer-managed key](../container-instances/container-instances-encrypt-data.md#encrypt-data-with-a-customer-managed-key).
 
 #### Azure Kubernetes Service
 

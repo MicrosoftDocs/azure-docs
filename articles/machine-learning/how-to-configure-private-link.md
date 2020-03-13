@@ -14,7 +14,7 @@ ms.date: 03/13/2020
 
 # Configure Azure Private Link for an Azure Machine Learning workspace
 
-In this document, you learn how to use Azure Private Link with your Azure Machine Learning workspace. Azure Private Link enables you to connect to your workspace using a private endpoint. The private endpoint is a set of private IP addresses within your virtual network. You can then limit access to your workspace to only occur over the private IP addresses. When Private Link is combined with restricted network security group (NSG) policies, it helps reduce the risk of data exfiltration. To learn more about private endpoints, see the [Azure Private Link](/azure/private-link/private-link-overview) article.
+In this document, you learn how to use Azure Private Link with your Azure Machine Learning workspace. Azure Private Link enables you to connect to your workspace using a private endpoint. The private endpoint is a set of private IP addresses within your virtual network. You can then limit access to your workspace to only occur over the private IP addresses. Private Link helps reduce the risk of data exfiltration. To learn more about private endpoints, see the [Azure Private Link](/azure/private-link/private-link-overview) article.
 
 > [!IMPORTANT]
 > Azure Private Link does not effect Azure control plane (management operations) such as deleting the workspace or managing compute resources. For example, creating, updating, or deleting a compute target. These operations are performed over the public Internet as normal.
@@ -26,7 +26,7 @@ In this document, you learn how to use Azure Private Link with your Azure Machin
 Currently, we only support enabling a private endpoint when creating a new Azure Machine Learning workspace. The following templates are provided for several popular configurations:
 
 > [!TIP]
-> Auto-approval controls the automated access to the Private Link service. For more information, see [What is Azure Private Link service](../private-link/private-link-service-overview.md).
+> Auto-approval controls the automated access to the Private Link enabled resource. For more information, see [What is Azure Private Link service](../private-link/private-link-service-overview.md).
 
 * [Workspace with customer-managed keys and auto-approval for Private Link](#cmkaapl)
 * [Workspace with customer-managed keys and manual approval for Private Link](#cmkmapl)
@@ -118,8 +118,13 @@ For information on putting the key vault in the virtual network, see [Use a key 
 
 For information on enabling Private Link for the key vault, see [Integrate Key Vault with Azure Private Link](/azure/key-vault/private-link-service).
 
+
+## Azure Container Registry
+
+For information on securing Azure Container Registry inside the virtual network, see [Use Azure Container Registry](how-to-enable-virtual-network.md#use-azure-container-registry).
+
 > [!IMPORTANT]
-> If you are using Private Link for your Azure Machine Learning workspace, and put the Azure Key Vault for your workspace in a virtual network, you must also apply the following Azure Resource Manager template. This template enables your workspace to communicate with ACR over the Private Link.
+> If you are using Private Link for your Azure Machine Learning workspace, and put the Azure Container Registry for your workspace in a virtual network, you must also apply the following Azure Resource Manager template. This template enables your workspace to communicate with ACR over the Private Link.
 
 ```json
 {
@@ -170,10 +175,6 @@ For information on enabling Private Link for the key vault, see [Integrate Key V
   ]
 }
 ```
-
-## Azure Container Registry
-
-For information on securing Azure Container Registry inside the virtual network, see [Use Azure Container Registry](how-to-enable-virtual-network.md#use-azure-container-registry).
 
 ## Azure Resource Manager templates
 
@@ -537,7 +538,7 @@ For information on securing Azure Container Registry inside the virtual network,
         "description": "Specifies the location for all resources."
       }
     },
-    "sku": {
+    "sku":{
       "type": "string",
       "defaultValue": "basic",
       "allowedValues": [
@@ -548,12 +549,46 @@ For information on securing Azure Container Registry inside the virtual network,
         "description": "Specifies the sku, also referred as 'edition' of the Azure Machine Learning workspace."
       }
     },
-    "subnetName": {
-      "type": "string"
+    "hbi_workspace":{
+      "type": "string",
+      "defaultValue": "false",
+      "allowedValues": [
+        "false",
+        "true"
+      ],
+      "metadata": {
+        "description": "Specifies that the Azure Machine Learning workspace holds highly confidential data."
+      }
     },
-    "vnetName": {
-      "type": "string"
-    }
+    "encryption_status":{
+      "type": "string",
+      "defaultValue": "Disabled",
+      "allowedValues": [
+        "Enabled",
+        "Disabled"
+      ],
+      "metadata": {
+        "description": "Specifies if the Azure Machine Learning workspace should be encrypted with customer managed key."
+      }
+    },
+    "cmk_keyvault":{
+      "type": "string",
+      "metadata": {
+        "description": "Specifies the customer managed keyVault id."
+      }
+    },
+    "resource_cmk_uri":{
+      "type": "string",
+      "metadata": {
+        "description": "Specifies if the customer managed keyvault key uri."
+      }
+    },
+    "subnetName": {
+        "type": "string"
+      },
+      "vnetName": {
+        "type": "string"
+      }
   },
   "variables": {
     "storageAccountName": "[concat('sa',uniqueString(resourceGroup().id))]",
@@ -613,7 +648,7 @@ For information on securing Azure Container Registry inside the virtual network,
     },
     {
       "type": "Microsoft.MachineLearningServices/workspaces",
-      "apiVersion": "2019-11-01",
+      "apiVersion": "2020-01-01",
       "name": "[parameters('workspaceName')]",
       "location": "[parameters('location')]",
       "dependsOn": [
@@ -625,45 +660,53 @@ For information on securing Azure Container Registry inside the virtual network,
         "type": "systemAssigned"
       },
       "sku": {
-        "tier": "[parameters('sku')]",
-        "name": "[parameters('sku')]"
+            "tier": "[parameters('sku')]",
+            "name": "[parameters('sku')]"
       },
       "properties": {
         "friendlyName": "[parameters('workspaceName')]",
         "keyVault": "[resourceId('Microsoft.KeyVault/vaults',variables('keyVaultName'))]",
         "applicationInsights": "[resourceId('Microsoft.Insights/components',variables('applicationInsightsName'))]",
-        "storageAccount": "[resourceId('Microsoft.Storage/storageAccounts/',variables('storageAccountName'))]"
+        "storageAccount": "[resourceId('Microsoft.Storage/storageAccounts/',variables('storageAccountName'))]",
+         "encryption": {
+                "status": "[parameters('encryption_status')]",
+                "keyVaultProperties": {
+                    "keyVaultArmId": "[parameters('cmk_keyvault')]",
+                    "keyIdentifier": "[parameters('resource_cmk_uri')]"
+                  }
+            },
+        "hbi_workspace": "[parameters('hbi_workspace')]"
       }
     },
     {
-      "type": "Microsoft.Network/virtualNetworks",
-      "apiVersion": "2019-09-01",
-      "name": "[parameters('vnetName')]",
-      "location": "[parameters('location')]",
-      "properties": {
-        "addressSpace": {
-          "addressPrefixes": [
-            "10.0.0.0/27"
-          ]
-        },
-        "virtualNetworkPeerings": [],
-        "enableDdosProtection": false,
-        "enableVmProtection": false
-      }
-    },
+        "type": "Microsoft.Network/virtualNetworks",
+        "apiVersion": "2019-09-01",
+        "name": "[parameters('vnetName')]",
+        "location": "[parameters('location')]",
+        "properties": {
+            "addressSpace": {
+                "addressPrefixes": [
+                    "10.0.0.0/27"
+                ]
+            },
+            "virtualNetworkPeerings": [],
+            "enableDdosProtection": false,
+            "enableVmProtection": false
+        }
+      },
     {
-      "type": "Microsoft.Network/virtualNetworks/subnets",
-      "apiVersion": "2019-09-01",
-      "name": "[concat(parameters('vnetName'), '/', parameters('subnetName'))]",
-      "dependsOn": [
-        "[resourceId('Microsoft.Network/virtualNetworks', parameters('vnetName'))]"
-      ],
-      "properties": {
-        "addressPrefix": "10.0.0.0/27",
-        "delegations": [],
-        "privateEndpointNetworkPolicies": "Disabled",
-        "privateLinkServiceNetworkPolicies": "Enabled"
-      }
+        "type": "Microsoft.Network/virtualNetworks/subnets",
+        "apiVersion": "2019-09-01",
+        "name": "[concat(parameters('vnetName'), '/', parameters('subnetName'))]",
+        "dependsOn": [
+            "[resourceId('Microsoft.Network/virtualNetworks', parameters('vnetName'))]"
+        ],
+        "properties": {
+            "addressPrefix": "10.0.0.0/27",
+            "delegations": [],
+            "privateEndpointNetworkPolicies": "Disabled",
+            "privateLinkServiceNetworkPolicies": "Enabled"
+        }
     },
     {
       "apiVersion": "2019-04-01",
@@ -1014,7 +1057,7 @@ For information on securing Azure Container Registry inside the virtual network,
         "description": "Specifies the location for all resources."
       }
     },
-    "sku":{
+    "sku": {
       "type": "string",
       "defaultValue": "basic",
       "allowedValues": [
@@ -1025,46 +1068,12 @@ For information on securing Azure Container Registry inside the virtual network,
         "description": "Specifies the sku, also referred as 'edition' of the Azure Machine Learning workspace."
       }
     },
-    "hbi_workspace":{
-      "type": "string",
-      "defaultValue": "false",
-      "allowedValues": [
-        "false",
-        "true"
-      ],
-      "metadata": {
-        "description": "Specifies that the Azure Machine Learning workspace holds highly confidential data."
-      }
-    },
-    "encryption_status":{
-      "type": "string",
-      "defaultValue": "Disabled",
-      "allowedValues": [
-        "Enabled",
-        "Disabled"
-      ],
-      "metadata": {
-        "description": "Specifies if the Azure Machine Learning workspace should be encrypted with customer managed key."
-      }
-    },
-    "cmk_keyvault":{
-      "type": "string",
-      "metadata": {
-        "description": "Specifies the customer managed keyVault id."
-      }
-    },
-    "resource_cmk_uri":{
-      "type": "string",
-      "metadata": {
-        "description": "Specifies if the customer managed keyvault key uri."
-      }
-    },
     "subnetName": {
-        "type": "string"
-      },
-      "vnetName": {
-        "type": "string"
-      }
+      "type": "string"
+    },
+    "vnetName": {
+      "type": "string"
+    }
   },
   "variables": {
     "storageAccountName": "[concat('sa',uniqueString(resourceGroup().id))]",
@@ -1124,7 +1133,7 @@ For information on securing Azure Container Registry inside the virtual network,
     },
     {
       "type": "Microsoft.MachineLearningServices/workspaces",
-      "apiVersion": "2020-01-01",
+      "apiVersion": "2019-11-01",
       "name": "[parameters('workspaceName')]",
       "location": "[parameters('location')]",
       "dependsOn": [
@@ -1136,53 +1145,45 @@ For information on securing Azure Container Registry inside the virtual network,
         "type": "systemAssigned"
       },
       "sku": {
-            "tier": "[parameters('sku')]",
-            "name": "[parameters('sku')]"
+        "tier": "[parameters('sku')]",
+        "name": "[parameters('sku')]"
       },
       "properties": {
         "friendlyName": "[parameters('workspaceName')]",
         "keyVault": "[resourceId('Microsoft.KeyVault/vaults',variables('keyVaultName'))]",
         "applicationInsights": "[resourceId('Microsoft.Insights/components',variables('applicationInsightsName'))]",
-        "storageAccount": "[resourceId('Microsoft.Storage/storageAccounts/',variables('storageAccountName'))]",
-         "encryption": {
-                "status": "[parameters('encryption_status')]",
-                "keyVaultProperties": {
-                    "keyVaultArmId": "[parameters('cmk_keyvault')]",
-                    "keyIdentifier": "[parameters('resource_cmk_uri')]"
-                  }
-            },
-        "hbi_workspace": "[parameters('hbi_workspace')]"
+        "storageAccount": "[resourceId('Microsoft.Storage/storageAccounts/',variables('storageAccountName'))]"
       }
     },
     {
-        "type": "Microsoft.Network/virtualNetworks",
-        "apiVersion": "2019-09-01",
-        "name": "[parameters('vnetName')]",
-        "location": "[parameters('location')]",
-        "properties": {
-            "addressSpace": {
-                "addressPrefixes": [
-                    "10.0.0.0/27"
-                ]
-            },
-            "virtualNetworkPeerings": [],
-            "enableDdosProtection": false,
-            "enableVmProtection": false
-        }
-      },
+      "type": "Microsoft.Network/virtualNetworks",
+      "apiVersion": "2019-09-01",
+      "name": "[parameters('vnetName')]",
+      "location": "[parameters('location')]",
+      "properties": {
+        "addressSpace": {
+          "addressPrefixes": [
+            "10.0.0.0/27"
+          ]
+        },
+        "virtualNetworkPeerings": [],
+        "enableDdosProtection": false,
+        "enableVmProtection": false
+      }
+    },
     {
-        "type": "Microsoft.Network/virtualNetworks/subnets",
-        "apiVersion": "2019-09-01",
-        "name": "[concat(parameters('vnetName'), '/', parameters('subnetName'))]",
-        "dependsOn": [
-            "[resourceId('Microsoft.Network/virtualNetworks', parameters('vnetName'))]"
-        ],
-        "properties": {
-            "addressPrefix": "10.0.0.0/27",
-            "delegations": [],
-            "privateEndpointNetworkPolicies": "Disabled",
-            "privateLinkServiceNetworkPolicies": "Enabled"
-        }
+      "type": "Microsoft.Network/virtualNetworks/subnets",
+      "apiVersion": "2019-09-01",
+      "name": "[concat(parameters('vnetName'), '/', parameters('subnetName'))]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Network/virtualNetworks', parameters('vnetName'))]"
+      ],
+      "properties": {
+        "addressPrefix": "10.0.0.0/27",
+        "delegations": [],
+        "privateEndpointNetworkPolicies": "Disabled",
+        "privateLinkServiceNetworkPolicies": "Enabled"
+      }
     },
     {
       "apiVersion": "2019-04-01",
