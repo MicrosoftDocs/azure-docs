@@ -1,6 +1,6 @@
 ---
 title: Use and manage an App Service Environment
-description: Learn how to create, publish, and scale apps in an Azure App Service Environment. Find all the common tasks in this article.
+description: Learn how to create, publish, and scale apps in an App Service Environment. Find all the common tasks in this article.
 author: ccompy
 
 ms.assetid: a22450c4-9b8b-41d4-9568-c4646f4cf66b
@@ -196,7 +196,7 @@ For more information, see [Azure App Service pricing][Pricing].
 
 To delete an ASE:
 
-1. Use **Delete** at the top of the **App Service Environment** pane.
+1. Select **Delete** at the top of the **App Service Environment** pane.
 
 1. Enter the name of your ASE to confirm that you want to delete it. When you delete an ASE, you also delete all the content within it.
 
