@@ -111,7 +111,7 @@ landingContent:
             url: event-hubs-go-get-started-send.md
 
 # Card
-  - title: Event Hubs on Azure Stack 
+  - title: Event Hubs on Azure Stack Hub
     linkLists:
       - linkListType: overview
         links:
@@ -129,8 +129,8 @@ landingContent:
             url: /azure-stack/operator/event-hubs-rp-install            
       - linkListType: quickstart
         links:
-          - text: Create a cluster
-            url: /user/event-hubs-quickstart-cluster-portal
+          - text: Create Event Hubs cluster
+            url: azure-stack/user/event-hubs-quickstart-cluster-portal
 
   # Card
   - title: Capture events
