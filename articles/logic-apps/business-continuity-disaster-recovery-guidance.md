@@ -22,7 +22,7 @@ Each logic app specifies a location to use for deployment. This location is eith
 
 ## Primary and secondary locations
 
-This disaster recovery strategy focuses on setting up your primary logic app instance to *failover* onto a standby or backup instance in an alternate location where Azure Logic Apps is available. That way, if the primary instance suffers losses or failures, the secondary instance can take on the load instead. For this strategy, you need to have your logic app and dependent resources already deployed and ready to run in the alternate location.
+This disaster recovery strategy focuses on setting up your primary logic app to *failover* onto a standby or backup logic app in an alternate location where Azure Logic Apps is available. That way, if the primary suffers losses or failures, the secondary can perform the work instead. For this strategy, you need to have your logic app and dependent resources already deployed and ready to run in the alternate location.
 
 If you follow good DevOps practices, you already use Azure Resource Manager templates to define and deploy logic apps and their dependent resources These templates give you the capability to use parameter files that specify different configuration values to use for deployment, based on the destination region or environment, such as build, test, and production.
 
@@ -57,19 +57,21 @@ You can set up your primary and secondary locations so that the logic app instan
 
 ## Logic app state
 
-When your logic app is triggered and starts running, the app's state is stored at the location where the app started and is non-transferrable to another location. If a failure or disruption happens, any in-progress workflow instances are abandoned. When you have a primary and secondary locations set up, new workflow instances start running at the secondary location.
+When your logic app is triggered and starts running, the app's state is stored in the same location where the app started and is non-transferable to another location. If a failure or disruption happens, any in-progress workflow instances are abandoned. When you have a primary and secondary locations set up, new workflow instances start running at the secondary location.
 
-To minimize the number of abandoned in-progress workflow instances, you can choose from these patterns to implement:
+### Reduce abandoned in-progress instances
 
-* [Fixed routing slip pattern](https://www.enterpriseintegrationpatterns.com/patterns/messaging/RoutingTable.html)
+To minimize the number of abandoned in-progress workflow instances, you have various patterns that you can implement. For example, the [fixed routing slip pattern](https://www.enterpriseintegrationpatterns.com/patterns/messaging/RoutingTable.html) is an enterprise message pattern that splits a business process into smaller stages. You can the set up a logic app to handle the workload for each stage. To communicate with each other, these logic apps use an asynchronous messaging protocol, such as Azure Service Bus queues or topics. So, by dividing a process into smaller stages, you can reduce the number of stages that might get stuck in a failed workflow instance.
 
-   This enterprise message pattern splits a business process into smaller stages where a logic app handles the workload for each stage. These logic apps communicate with each other by using an asynchronous messaging protocol, such as Azure Service Bus queues or topics. By having these logic apps in both primary and secondary locations, you can implement the competing consumer pattern by setting up active-active roles for the instances in the primary and secondary locations.
+If you have these logic apps in both primary and secondary locations, you can implement the competing consumer pattern by setting up active-active roles for the instances in the primary and secondary locations.
 
-   When you divide a process into smaller stages, you can reduce the number of stages that might get stuck on a failed instance.
+![Business process split into stages that communicate with each other by using Azure Service Bus queues](./media/business-continuity-disaster-recovery-guidance/fixed-routing-slip-pattern.png)
 
-   ![Business process split into stages that communicate with each other by using Azure Service Bus queues](./media/business-continuity-disaster-recovery-guidance/fixed-routing-slip-pattern.png)
+### Access to logic apps' trigger and runs history
 
- * Logic Apps has the capability for you to find details about previous instance executions by using the run history. This run history is stored in the location where the logic app had executed and is non-transferable. When you need to fail over to the secondary location you will only be able to access the history of logic apps that have executed in that location. To provide insight of the executions of logic apps that is location agnostic configure your logic apps to emit diagnostic events to log analytics which can provide cross logic app and cross location insights into the health of your logic apps.
+To learn more about your logic app's past workflow executions, you can review your app's trigger and runs history. This history is stored in the same location where the logic app ran and is non-transferable to another location. So, if your primary instance fails over to the secondary instance, you can access the trigger and runs history, but only for the executions in each location, not as a whole
+
+However, you can get location-agnostic information about your logic app's history when you set up your logic apps to send diagnostic events to an Azure Log Analytics workspace. You can then get insights about the health and history across logic apps in multiple locations.
 
 ## Considerations for different trigger types
 
