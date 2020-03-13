@@ -1,6 +1,6 @@
 ---
 title: Business continuity and disaster recovery
-description: Design a strategy to help you protect data, restore resources that support critical business functions, and maintain business continuity for Azure Logic Apps
+description: Design a strategy to help you protect data, recover quickly from disruptive events, restore resources required by critical business functions, and maintain business continuity for Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 author: kevinlam1
@@ -14,7 +14,7 @@ ms.date: 03/31/2020
 
 To help reduce the impact and effects that unpredictable events can have on your business, you need a *disaster recovery* (DR) solution that helps you protect data, restore resources that support critical and important business functions, and keep operations running so that you can maintain *business continuity* (BC). Disruptions can include outages, losses in underlying infrastructure or components such as storage, network, or compute resources, unrecoverable application failures, or even a full datacenter loss. By having a BCDR solution ready, your business or organization can more respond more quickly to interruptions, planned or unplanned, and keep workloads running.
 
-This article provides guidance for planning and creating a disaster recovery solution for the automated workflows that you can build and run by using [Azure Logic Apps](../logic-apps/logic-apps-overview.md). These logic app workflows help you integrate and orchestrate data between various apps, cloud-based services, and on-premises systems.
+This article provides guidance for planning and creating a disaster recovery solution for the automated workflows that you can build and run using [Azure Logic Apps](../logic-apps/logic-apps-overview.md). These logic app workflows help you more easily integrate and orchestrate data between various apps, cloud-based services, and on-premises systems.
 
 When you design a disaster recovery strategy, consider not only your logic apps but also any [integration accounts](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) that you use for defining and storing B2B artifacts used in [enterprise integration scenarios](../logic-apps/logic-apps-enterprise-integration-overview.md), and any [integration service environments (ISEs)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) that you use for running logic apps in an isolated instance of the Logic Apps runtime.
 
@@ -51,11 +51,11 @@ You can set up your primary and secondary locations so that the logic app instan
 | Primary-secondary role | Description |
 |------------------------|-------------|
 | *Active-active* | Logic app instances in both locations actively handle requests, for example: <p><p>- You can have the secondary instance listen to an HTTP endpoint, and then load balance traffic between the two instances as necessary. <p>- You can have the secondary instance act as a competing consumer so that both instances compete for messages from a queue. If one instance fails, the other instance takes over the workload. |
-| *Active-passive* | The primary instance handles the entire workload, while the secondary instance is passive and inactive. The secondary waits for a signal that the primary can no longer function due to a disruption. On receiving this signal happens, the secondary takes over as the active instance. |
+| *Active-passive* | The primary instance handles the entire workload, while the secondary instance is passive, or inactive. The secondary waits for a signal that the primary can no longer function due to a disruption. On receiving this signal happens, the secondary takes over as the active instance. |
 | Some combination of both | For example, some logic apps play an active-active role, while other logic apps play an active-passive role. |
 |||
 
-## Logic app state
+## Logic app state and history
 
 When your logic app is triggered and starts running, the app's state is stored in the same location where the app started and is non-transferable to another location. If a failure or disruption happens, any in-progress workflow instances are abandoned. When you have a primary and secondary locations set up, new workflow instances start running at the secondary location.
 
@@ -67,36 +67,51 @@ If you have these logic apps in both primary and secondary locations, you can im
 
 ![Business process split into stages that communicate with each other by using Azure Service Bus queues](./media/business-continuity-disaster-recovery-guidance/fixed-routing-slip-pattern.png)
 
-### Access to logic apps' trigger and runs history
+### Access to trigger and runs history
 
-To learn more about your logic app's past workflow executions, you can review your app's trigger and runs history. This history is stored in the same location where the logic app ran and is non-transferable to another location. So, if your primary instance fails over to the secondary instance, you can access the trigger and runs history, but only for the executions in each location, not as a whole
+To learn more about your logic app's past workflow executions, you can review your app's trigger and runs history. This history is stored in the same location where the logic app ran and is non-transferable to another location. So, if your primary instance fails over to the secondary instance, you can access the trigger and runs history, but only for the executions in each location, not as a whole.
 
-However, you can get location-agnostic information about your logic app's history when you set up your logic apps to send diagnostic events to an Azure Log Analytics workspace. You can then get insights about the health and history across logic apps in multiple locations.
+However, you can get location-agnostic information about your logic app's history when you set up your logic apps to send diagnostic events to an Azure Log Analytics workspace. You can then review the health and history across logic apps in multiple locations.
 
-## Considerations for different trigger types
+## Trigger type guidance
 
-Depending on the type of trigger used in a logic app will determine the options you have for configuring logic apps across locations for disaster recovery. There are 4 classes of triggers: 
+The trigger type that you use in your logic apps determine your options for how you can set up logic apps across locations in your disaster recovery strategy. You can use these trigger types in logic apps:
 
-* [Request trigger](#request-trigger)
+* [Recurrence trigger](#recurrence-trigger)
 * [Polling trigger](#polling-trigger)
-* [Recurrence or scheduled trigger](#recurrence-trigger)
+* [Request trigger](#request-trigger)
 * [Webhook trigger](#webhook-trigger)
 
-<a name="request-trigger"></a>
+<a name="recurrence-trigger"></a>
 
-### Request trigger
+### Recurrence trigger
 
-Request triggers provide a logic app with a direct REST API that can be invoked remotely. Request triggers are typically used in the following ways:
+A Recurrence trigger fires solely based a specified schedule and no other criteria, for example:
 
-  * REST API for other services to call either as part of an app or as a callback (webhook) mechanism
+* A fixed frequency and interval, such as every 10 minutes
+* A more advanced schedule, such as the last Monday of every month at 5:00 PM
 
-  * Allow the logic app to be called by another logic app using the call workflow action 
+If your logic app starts with a Recurrence trigger, you need to set up the primary and secondary instances with the active-passive roles in their respective locations. To reduce the *recovery time objective* (RTO), which refers to the target duration for restoring a business process after a disruption or disaster, you can set up logic apps that use Recurrence triggers either with the active-passive or passive-active configuration. In this setup, you split the schedule across locations.
 
-  * Manual invocation for more user-operations types of routines 
+For example, if you have a logic app that needs to run every 10 minutes, set up your locations and logic apps as follows:
 
-Request triggers are passive where the logic app will not do any work until the request trigger is explicitly invoked. As a passive endpoint it can be configured as either active-active using a load balancer or active-passive where the calling system or router determines when to deem it as active.
+* Active-passive
 
-A recommended architecture would be to use API Management as a proxy for the logic apps with request triggers. API Management provides the built-in cross-regional resiliency and capability to route across multiple endpoints (https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-deploy-multi-region).
+  * In the primary location, set the active logic app's Recurrence trigger to a 20-minute recurrence that starts at the top of the hour, for example, 9:00 AM.
+
+  * In the secondary location, set the passive logic app's Recurrence trigger also to a 20-minute recurrence, but use a start time that's 10 minutes past the hour, for example, 9:10 AM.
+
+* Passive-active
+
+  * In the location, set the active logic app's Recurrence trigger to a 20-minute recurrence that starts at 10 minutes past the hour, for example, 9:10 AM.
+  
+  * In the primary location, set the passive logic app's Recurrence trigger to a 20-minute recurrence that starts at the top of the hour, for example, 9:00 AM.
+  
+  When a disruptive event happens in one location, enable the passive logic app. That way, if discovering the failure takes time, this configuration limits the number of missed recurrences during that delay.
+
+> [!NOTE]
+> Although the Sliding Window trigger has the capability for you to move the 
+> trigger state to an alternate region, the API for this task is undocumented.
 
 <a name="polling-trigger"></a>
 
@@ -108,15 +123,21 @@ To ensure that the same data isn't read multiple times state needs to be maintai
 
 When configuring logic apps that have client-side trigger state, to ensure that the same message is not read more than once, then only one location can have the logic app active at any given time. Therefore, the logic app in the alternate location must be disabled until the primary fails over to the alternate location. Logic apps with server-side state can either be configure as active-active, where they are working as competing consumers or active-passive, or as active-passive, where the alternate is waiting until a fail over occurs. Note that if you are reading messages from queues that need to be read in order, then competing consumer can only be used in combination with sessions (aka sequential convoy message pattern) otherwise they must be configured as active-passive.
 
-<a name="recurrence-trigger"></a>
+<a name="request-trigger"></a>
 
-### Recurrence trigger
+### Request trigger
 
-Recurrence triggers will fire either on a fixed interval (e.g. every 5 minutes) or, with more advanced configurations, will fire on a specific schedule (e.g. last Monday of every month at 5:00 pm). Logic apps with recurrence triggers must be configured in an active-passive across the two locations.
+A logic app can use a Request trigger  provide a logic app with a direct REST API that can be invoked remotely. Request triggers are typically used in the following ways:
 
-To reduce the RTO you can also configure logic apps with recurrence triggers in an active-passive/passive-active configuration. In this configuration you would split the schedule across to the two locations. For example, if you have a logic app that needs to run every 10 minutes then have one location with an active logic app that has a 20 minute recurrence starting at the top of the hour (e.g. 9:00 am) and a passive (disabled) logic app configured with a recurrence trigger that also recurs every 20 minutes but with the start time at ten minutes past the hour (e.g. 9:10 am). The inverse configuration is setup at the alternate location (i.e. the logic app with the 9:10am start time is active and the logic app with the 9:00am start time is disabled). With this configuration, when a disaster occurs in one location, enable the passive logic app in the secondary location. If it takes some time to discover the failure, then this configuration limits the missed recurrences during that time window.
+  * REST API for other services to call either as part of an app or as a callback (webhook) mechanism
 
-[NOTE: Sliding window triggers have the ability to allow the user to move the trigger state to an alternate region but the API is not documented]
+  * Allow the logic app to be called by another logic app using the call workflow action 
+
+  * Manual invocation for more user-operations types of routines 
+
+Request triggers are passive where the logic app will not do any work until the request trigger is explicitly invoked. As a passive endpoint it can be configured as either active-active using a load balancer or active-passive where the calling system or router determines when to deem it as active.
+
+A recommended architecture would be to use API Management as a proxy for the logic apps with request triggers. API Management provides the built-in cross-regional resiliency and capability to route across multiple endpoints (https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-deploy-multi-region).
 
 <a name="webhook-trigger"></a>
 
