@@ -1,7 +1,7 @@
 ---
 title: "SSMS: Connect and query SQL Analytics"
 description: Use SQL Server Management Studio (SSMS) to connect to and query SQL Analytics in Azure Synapse Analytics. 
-services: synapse analytics
+services: synapse-analytics
 author: azaricstefan 
 ms.service: synapse-analytics
 ms.topic: overview 

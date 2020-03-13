@@ -1,7 +1,7 @@
 ---
 title: Data loading best practices
 description: Recommendations and performance optimizations for loading data into SQL Analytics
-services: sql-data-warehouse
+services: synapse-analytics
 author: kevinvngo 
 manager: craigg
 ms.service: synapse-analytics
