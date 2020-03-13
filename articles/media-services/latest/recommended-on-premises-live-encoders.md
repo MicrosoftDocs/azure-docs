@@ -35,6 +35,8 @@ In Azure Media Services, a [Live Event](https://docs.microsoft.com/rest/api/medi
  
 * An on-premises live encoder sends a single-bitrate stream to the Live Event that is enabled to perform live encoding with Media Services in one of the following formats: RTMP or Smooth Streaming (fragmented MP4). The Live Event then performs live encoding of the incoming single-bitrate stream to a multi-bitrate (adaptive) video stream.
 
+This article discusses tested on-premises live streaming encoders. For instructions on how to verify your on-premises live encoder, see [verify your on-premises encoder](become-on-premises-encoder-partner.md)
+
 For detailed information about live encoding with Media Services, see [Live streaming with Media Services v3](live-streaming-overview.md).
 
 ## Encoder requirements
