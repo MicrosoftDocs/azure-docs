@@ -177,8 +177,6 @@ If you don't want to use the default outbound rules and you do want to limit the
    - Azure Storage, by using __Service Tag__ of __Storage.RegionName__. Where `{RegionName}` is the name of an Azure region.
    - Azure Container Registry, by using __Service Tag__ of __AzureContainerRegistry.RegionName__. Where `{RegionName}` is the name of an Azure region.
    - Azure Machine Learning, by using __Service Tag__ of __AzureMachineLearning__
-   
-- For a __compute instance__, also add the follow items:
    - Azure Resource Manager, by using __Service Tag__ of __AzureResourceManager__
    - Azure Active Directory, by using __Service Tag__ of __AzureActiveDirectory__
 
