@@ -22,44 +22,48 @@ The status and ownership of these reference docs are outlined in [this spreadshe
 
 We want to give our customers something that looks like this: TODO
 
-To do that...
+To do that... TODO
 
 
 #### Generating Azure CLI Docs
 
 We want to give our customers something that looks like this: TODO
 
-To do that...
+To do that... TODO
 
 
 #### Generating C# SDK Reference Docs
 
 We want to give our customers something that looks like this: TODO
 
-To do that...
+To do that... TODO
 
 
 #### Generating JS SDK Reference Docs
 
 We want to give our customers something that looks like this: TODO
 
-To do that...
+To do that... TODO
 
 
 #### Generating Swift SDK Reference Docs
 
 We want to give our customers something that looks like this: TODO
 
-To do that...
+To do that... TODO
 
 
 #### Generating Java SDK Reference Docs
 
 We want to give our customers something that looks like this: TODO
 
-To do that...
+To do that... TODO
 
 
+### Outstanding Risks / Concerns
+
+- We may have some unique reference docs needs that may not be addressed by existing processes. (What are those needs?)
+- How can we ensure that the pipelines across all platforms (from "raw material handoff" to "hosted reference docs") are fully tested well before we need our docs to be published?
 
 
 
