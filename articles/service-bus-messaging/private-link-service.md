@@ -4,7 +4,7 @@ description: Learn how to integrate Azure Service Bus with Azure Private Link Se
 services: service-bus-messaging
 author: spelluru
 ms.author: spelluru
-ms.date: 03/12/2020
+ms.date: 03/13/2020
 ms.service: service-bus-messaging
 ms.topic: article
 
