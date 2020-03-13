@@ -54,7 +54,11 @@ Expected time to create new managed instance or change service tier (vCores, sto
 
 **Can a managed instance have the same name as on-premises SQL Server?**
 
-Managed instance must have a name that ends with *database.windows.net*. To use another DNS zone instead of the default, for example, **mi-another-name**.contoso.com: 
+Changing managed instance name is not supported.
+
+Managed instance default DNS zone *database.windows.net* could be changed. 
+
+To use another DNS zone instead of the default, for example, **mi-name**.contoso.com: 
 - Use CliConfig to define an alias. The tool is just a registry settings wrapper, so it could be done using group policy or script as well.
 - Use *CNAME* with *TrustServerCertificate=true* option.
 
