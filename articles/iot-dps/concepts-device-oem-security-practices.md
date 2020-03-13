@@ -69,7 +69,7 @@ Consider the following variables, and how each one impacts the overall manufactu
 
 #### Where the certificate root of trust comes from
 Managing a public key infrastructure (PKI) can be costly and complex.  Especially if your company does not have experience doing so. Your options are as follows:
-- Use a 3rd party PKI. You can buy intermediate signing certificates from a 3rd party certificate vendor. Or you can use a private Certificate Authority (CA). 
+- Use a third party PKI. You can buy intermediate signing certificates from a third party certificate vendor. Or you can use a private Certificate Authority (CA). 
 - Use a self-managed PKI. You can maintain your own PKI system and generate your own certificates.
 - Use the [Azure Sphere](https://azure.microsoft.com/services/azure-sphere/) security service. This applies only to Azure Sphere devices. 
 
@@ -78,13 +78,12 @@ There are a few factors that impact the decision on where certificates are store
 - In a hardware security module (HSM). Using an HSM is highly recommended. Check whether your device's control board already has an HSM installed. If you know you don't have an HSM, work with your hardware manufacturer to identify an HSM that meets your needs.
 - In a secure place on disk such as a trusted execution environment (TEE).
 - In the local file system or a certificate store. For example, the Windows certificate store. 
-- Other
 
 #### Connectivity at the factory
 Connectivity at the factory determines how and when you'll get the certificates to install on the devices. Connectivity options are as follows:
 - Connectivity. This is optimal, because you can generate certificates locally. 
 - No connectivity. In this case, you use a signed certificate from a CA to generate device certificates locally and offline. 
-- No connectivity. In this case, you obtain certificates that were generated ahead of time, or you use an offline PKI.  
+- No connectivity,. In this case, you obtain certificates that were generated ahead of time, or you use an offline PKI.  
 
 #### Audit requirement
 Depending on the type of devices you produce, you might have a regulatory requirement to create an audit trail of how device identities are installed on your devices. Auditing adds significant production cost, so in most cases, only do it if required. If you're unsure whether an audit is required, check with your company's legal department. Auditing options are as follows: 
@@ -93,35 +92,32 @@ Depending on the type of devices you produce, you might have a regulatory requir
 
 #### Length of certificate validity
 Like a driver's license, certificates have an expiration date that is set when they are created. These are the options for length of certificate validity:
-- Renewal not required.  This approach uses a very long renewal period, so that you'll never need to renew the certificate during the device's lifetime. While this is convenient, it's also risky.  You can reduce the risk by using secure storage like an HSM on your devices. However, using long-lived certificates is not recommended.
+- Renewal not required.  This approach uses a very long renewal period, so you'll never need to renew the certificate during the device's lifetime. While this is convenient, it's also risky.  You can reduce the risk by using secure storage like an HSM on your devices. However, using long-lived certificates is not recommended.
 - Renewal required.  You'll need to renew the certificate during the lifetime of the device. The length of the certificate validity depends on context and you'll need a strategy for renewal.  The strategy should include where you're getting certificates, and what type of over-the-air functionality your devices have to use in the renewal process. 
 
 ### When to generate certificates
+The Internet connectivity capabilities at your factory will impact your process for generating certificates. You have several options for when to generate certificates. 
 
-As I mentioned in the previous section, connectivity at the factory plays an important role in determining when you generate the certificates for your devices. Let's talk about that.
-
-Some HSM vendors offer a premium service in which the HSM vendor installs certificates in the HSMs on behalf of the customer. Customers give the HSM vendor access to a signing certificate and the HSM vendor installs certificates signed by that signing certificate on each HSM the customer buys. All the customer has to do is install the HSM on the device. One customer I've talked to who went this route says the process is pretty slick. If you choose to go the "preloaded in HSM" route, when to generate certificates is not your problem! Hooray!
-
-If your devices internally generate their certificates, then you must extract the public X.509 certificate from the device for enrollment.
-
-If your factory has connectivity, you can generate the certs whenever you need them.
-
-If your factory does not have connectivity, and you are using your own PKI with offline support, then you can generate the certs whenever you need them.
-
-If your factory does not have connectivity, and you are using a 3rd party PKI, you have to generate the certs ahead of time from an internet connected location.
+- Pre-loaded certificates.  Some HSM vendors offer a premium service in which the HSM vendor installs certificates for the customer. First, customers give the HSM vendor access to a signing certificate. Then the HSM vendor installs certificates signed by that signing certificate onto each HSM the customer buys. All the customer has to do is install the HSM on the device. While this is a premium service that adds cost, it helps to streamline your manufacturing process.  And it resolves the question of when to install certificates.
+- Device-generated certificates.  If your devices generate certificates internally, then you must extract the public X.509 certificate from the device to enroll it in DPS. 
+- Connected factory.  If your factory has connectivity, you can generate device certificates whenever you need them.
+- Offline factory with your own PKI. If your factory does not have connectivity, and you are using your own PKI with offline support, you can generate the certificates when you need them.
+- Offline factory with third party PKI. If your factory does not have connectivity, and you are using a third party PKI, you must generate the certificates ahead of time. And it will be necessary to generate the certificates from a location that has connectivity. 
 
 ### When to install certificates
+After you generate certificates for your IoT devices, you can install them in the devices. 
 
-Now that you've generated certificates for your IoT devices (or know when to generate them), it's time to install them into your device.
+If you use pre-loaded certificates with an HSM, the process is simplified. After the HSM is installed in the device, the device code can access it. Then you'll call the HSM APIs to access the certificate that's stored in the HSM. This is the most convenient option for your manufacturing process. 
 
-If you go the "preloaded in HSM" route, your life is made a little easier. Once the HSM is installed in the device, it is available for the device code to access. You will then use the HSM APIs to use the cert stored within the HSM. It's the easiest option, but it costs a little more.
+If you don't use a pre-loaded certificate, you must install the certificate as part of your production process. The simplest approach is to install the certificate with the initial firmware image. Your process must add a step to install the image on each device. After this step, you can run final quality checks and any other steps, before you package and ship the device. 
 
-Otherwise, you need to install the certificate as part of the production process. The easiest way to integrate it into your existing process is to install the certificate with the initial firmware image. Each device has to go through at least one touch on the manufacturing floor to get an image installed and to run the final quality checks, etc, before the device is packaged up to send to its final destination. There's generally a tool used that does the installation and testing in one shot. You can modify the tool to generate a cert or pull a cert from a pre-generated store and then install it wherever the cert needs to be installed. The tool gives you the scale you need for production-level manufacturing.
+> [!TIP]
+> There are software tools available that let you run the installation process and final quality check in a single step. You can modify these tools to generate a certificate, or to pull a certificate from a pre-generated certificate store. Then the software can install the certificate where you need to install it. Software tools of this type enable you to run production quality manufacturing at scale. 
 
-If you need more help getting certificates in your IoT devices, please reach out to someone from our security auditor program. Once you get set up with certs on your devices, learn how to use certificates and enrollments in the Device Provisioning Service!
+If you need help installing certificates in your IoT devices, please contact the Microsoft security auditor program. After you have certificates installed on your devices, the next step is to learn how to enroll the devices with DPS.  
 
 ## Selecting device authentication options
-Picking the right security for the job is a challenging issue. Obviously, everyone wants maximum security for IoT solutions. But issues such as hardware limitations, cost consciousness, lack of security expertise, and more all play into which security option is ultimately chosen for how your IoT devices connect to the cloud. There are many dimensions of IoT security and in my experience authentication type tends to be the first one customers encounter, though all are important.
+Choosing the right security options is a challenge. The ultimate goal is to create secure connections for every device in an IoT solution. But issues such as hardware limitations, cost, and lack of security expertise, all impact which security solutions you choose. And your approach to security, in turn, impacts  how your IoT devices connect to the cloud. There are many dimensions of IoT security and in my experience authentication type tends to be the first one customers encounter, though all are important.
 
 In this blog post, I'm going to discuss the authentication types supported by the Azure IoT Hub Device Provisioning Service and Azure IoT Hub. There are other authentication methods out there, but these are the ones we have found to be the most widely used.
 
