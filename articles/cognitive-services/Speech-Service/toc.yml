@@ -20,7 +20,7 @@
       items:
         - name: What is speech-to-text?
           href: speech-to-text.md
-        - name: Speech-to-text basics
+        - name: Speech recognition basics
           href: speech-to-text-basics.md
     - name: Quickstart
       items:
