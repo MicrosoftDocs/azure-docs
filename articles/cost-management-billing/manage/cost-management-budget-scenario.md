@@ -37,7 +37,7 @@ These actions included in this tutorial allow you to:
 2. Click the **Create a resource** button found on the upper left corner of Azure.
 3. Select **Management Tools** > **Automation**.
    > [!NOTE]
-   > If you don’t have an Azure account, you can create a [free account](https://azure.microsoft.com/free/).
+   > If you don't have an Azure account, you can create a [free account](https://azure.microsoft.com/free/).
 4. Enter your account information. For **Create Azure Run As account**, choose **Yes** to automatically enable the settings needed to simplify authentication to Azure.
 5. When complete, click **Create**, to start the Automation account deployment.
 
@@ -45,16 +45,16 @@ These actions included in this tutorial allow you to:
 
 Using an [Azure Automation runbook](https://docs.microsoft.com/azure/automation/automation-runbook-types), import the [Stop Azure V2 VMs](https://gallery.technet.microsoft.com/scriptcenter/Stop-Azure-ARM-VMs-1ba96d5b) graphical runbook from the gallery.
 
-1.	Sign in to the [Azure portal](https://portal.azure.com/) with your Azure account credentials.
-2.	Open your Automation account by selecting **All services** > **Automation Accounts**. Then, select your Automation Account.
-3.	Click **Runbooks gallery** from the **Process Automation** section.
-4.	Set the **Gallery Source** to **Script Center** and select **OK**.
-5.	Locate and select the [Stop Azure V2 VMs](https://gallery.technet.microsoft.com/scriptcenter/Stop-Azure-ARM-VMs-1ba96d5b) gallery item within the Azure portal.
-6.	Click the **Import** button to display the **Import** blade and select **OK**. The runbook overview blade will be displayed.
-7.	Once the runbook has completed the import process, select **Edit** to display the graphical runbook editor and publishing option.
+1.    Sign in to the [Azure portal](https://portal.azure.com/) with your Azure account credentials.
+2.    Open your Automation account by selecting **All services** > **Automation Accounts**. Then, select your Automation Account.
+3.    Click **Runbooks gallery** from the **Process Automation** section.
+4.    Set the **Gallery Source** to **Script Center** and select **OK**.
+5.    Locate and select the [Stop Azure V2 VMs](https://gallery.technet.microsoft.com/scriptcenter/Stop-Azure-ARM-VMs-1ba96d5b) gallery item within the Azure portal.
+6.    Click the **Import** button to display the **Import** blade and select **OK**. The runbook overview blade will be displayed.
+7.    Once the runbook has completed the import process, select **Edit** to display the graphical runbook editor and publishing option.
 
     ![Azure - Edit graphical runbook](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-01.png)
-8.	Click the **Publish** button to publish the runbook and then select **Yes** when prompted. When you publish a runbook, you override any existing published version with the draft version. In this case, you have no published version because you have created the runbook.
+8.    Click the **Publish** button to publish the runbook and then select **Yes** when prompted. When you publish a runbook, you override any existing published version with the draft version. In this case, you have no published version because you have created the runbook.
 
     For more information about publishing a runbook, see [Create a graphical runbook](https://docs.microsoft.com/azure/automation/automation-first-runbook-graphical).
 
@@ -62,10 +62,10 @@ Using an [Azure Automation runbook](https://docs.microsoft.com/azure/automation/
 
 Using the [Stop Azure V2 VMs](https://gallery.technet.microsoft.com/scriptcenter/Stop-Azure-ARM-VMs-1ba96d5b) graphical runbook, you will create two Webhooks to start the runbook in Azure Automation through a single HTTP request. The first webhook will invoke the runbook at an 80% budget threshold with the resource group name as a parameter, allowing the optional VMs to be stopped. Then, second webhook will invoke the runbook with no parameters (at 100%), which will stop all remaining VM instances.
 
-1. From the **Runbooks** page in the [Azure portal](https://portal.azure.com/), click the **StopAzureV2Vm** runbook that displays the runbook’s overview blade.
+1. From the **Runbooks** page in the [Azure portal](https://portal.azure.com/), click the **StopAzureV2Vm** runbook that displays the runbook's overview blade.
 2. Click **Webhook** at the top of the page to open the **Add Webhook** blade.
 3. Click **Create new webhook** to open the **Create a new webhook** blade.
-4. Set the **Name** of the Webhook to **Optional**. The **Enabled** property must be **Yes**. The **Expires** value does not need to be changed. For more information about Webhook properties, see [Details of a webhook](https://docs.microsoft.com/azure/automation/automation-webhooks#details-of-a-webhook).
+4. Set the **Name** of the Webhook to **Optional**. The **Enabled** property must be **Yes**. The **Expires** value does not need to be changed. For more information about Webhook properties, see [Webhook properties](../../automation/automation-webhooks.md#webhook-properties).
 5. Next to the URL value, click the copy icon to copy the URL of the webhook.
    > [!IMPORTANT]
    > Save the URL of the webhook named **Optional** in a safe place. You will use the URL later in this tutorial. For security reasons, once you create the webhook, you cannot view or retrieve the URL again.
@@ -75,7 +75,7 @@ Using the [Stop Azure V2 VMs](https://gallery.technet.microsoft.com/scriptcenter
    > If the runbook has mandatory parameters, then you are not able to create the webhook unless values are provided.
 8. Click **OK** to accept the webhook parameter values.
 9. Click **Create** to create the webhook.
-10.	Next, follow the steps above to create a second webhook named **Complete**.
+10.    Next, follow the steps above to create a second webhook named **Complete**.
     > [!IMPORTANT]
     > Be sure to save both webhook URLs to use later in this tutorial. For security reasons, once you create the webhook, you cannot view or retrieve the URL again.
 
@@ -83,7 +83,7 @@ You should now have two configured webhooks that are each available using the UR
 
 ![Webhooks - Optional and Complete](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-02.png)
 
-You’re now done with the Azure Automation setup. You can test the webhooks with a simple Postman test to validate that the webhook works. Next, you must create the Logic App for orchestration.
+You're now done with the Azure Automation setup. You can test the webhooks with a simple Postman test to validate that the webhook works. Next, you must create the Logic App for orchestration.
 
 ## Create an Azure Logic App for orchestration
 
@@ -105,10 +105,10 @@ The logic app will perform several actions. The following list provides a high-l
 
 The following steps are needed to create the logic app that will perform the above steps:
 
-1.	In the [Azure portal](https://portal.azure.com/), select **Create a resource** > **Integration** > **Logic App**.
+1.    In the [Azure portal](https://portal.azure.com/), select **Create a resource** > **Integration** > **Logic App**.
 
     ![Azure - Select the Logic App resource](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-03.png)
-2.	In the **Create logic app** blade, provide the details need to create your logic app, select **Pin to dashboard**, and click **Create**.
+2.    In the **Create logic app** blade, provide the details need to create your logic app, select **Pin to dashboard**, and click **Create**.
 
     ![Azure - Create a Logic App](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-03a.png)
 
@@ -118,81 +118,81 @@ After Azure deploys your logic app, the **Logic Apps Designer** opens and shows 
 
 Every logic app must start with a trigger, which fires when a specific event happens or when a specific condition is met. Each time the trigger fires, the Logic Apps engine creates a logic app instance that starts and runs your workflow. Actions are all the steps that happen after the trigger.
 
-1.	Under **Templates** of the **Logic Apps Designer** blade, choose **Blank Logic App**.
-2.	Add a [trigger](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview#logic-app-concepts) by entering "http request" in the **Logic Apps Designer** search box to find and select the trigger named **Request – When an HTTP request is received**.
+1.    Under **Templates** of the **Logic Apps Designer** blade, choose **Blank Logic App**.
+2.    Add a [trigger](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview#logic-app-concepts) by entering "http request" in the **Logic Apps Designer** search box to find and select the trigger named **Request – When an HTTP request is received**.
 
     ![Azure - Logic app - Http trigger](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-04.png)
-3.	Select **New step** > **Add an action**.
+3.    Select **New step** > **Add an action**.
 
     ![Azure - New step - Add an action](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-05.png)
-4.	Search for "parse JSON" in the **Logic Apps Designer** search box to find and select the **Data Operations - Parse JSON** [action](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview#logic-app-concepts).
+4.    Search for "parse JSON" in the **Logic Apps Designer** search box to find and select the **Data Operations - Parse JSON** [action](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview#logic-app-concepts).
 
     ![Azure - Logic app - Add parse JSON action](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-06.png)
-5.	Enter "Payload" as the **Content** name for the Parse JSON payload or use the "Body" tag from dynamic content.
-6.	Select the **Use sample payload to generate schema** option in the **Parse JSON** box.
+5.    Enter "Payload" as the **Content** name for the Parse JSON payload or use the "Body" tag from dynamic content.
+6.    Select the **Use sample payload to generate schema** option in the **Parse JSON** box.
 
     ![Azure - Logic app - Use sample JSON data to generate schema](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-07.png)
-7.	Paste the following JSON sample payload into the textbox:
+7.    Paste the following JSON sample payload into the textbox:
     `{"schemaId":"AIP Budget Notification","data":{"SubscriptionName":"CCM - Microsoft Azure Enterprise - 1","SubscriptionId":"<GUID>","SpendingAmount":"100","BudgetStartDate":"6/1/2018","Budget":"50","Unit":"USD","BudgetCreator":"email@contoso.com","BudgetName":"BudgetName","BudgetType":"Cost","ResourceGroup":"","NotificationThresholdAmount":"0.8"}}`
 
     The textbox will appear as the following:
 
     ![Azure - Logic app - The sample JSON payload](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-08.png)
-8.	Click **Done**.
+8.    Click **Done**.
 
 ### Add the first conditional action
 
 Use a conditional statement to check whether the threshold amount has reached 80% or more of the budget range, but not greater than or equal to 100%. If this threshold amount has been reached, send an HTTP POST using the webhook named **Optional**. This action will shut down the VMs in the **Optional** group.
 
-1.	Select **New step** > **Add a condition**.
+1.    Select **New step** > **Add a condition**.
 
     ![Azure - Logic app - Add a condition](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-09.png)
-2.	In the **Condition** box, click the textbox containing **Choose a value** to display a list of available values.
+2.    In the **Condition** box, click the textbox containing **Choose a value** to display a list of available values.
 
     ![Azure - Logic app - Condition box](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-10.png)
 
-3.	Click **Expression** at the top of the list and enter the following expression in the expression editor:
+3.    Click **Expression** at the top of the list and enter the following expression in the expression editor:
     `float()`
 
     ![Azure - Logic app - Float expression](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-11.png)
 
-4.	Select **Dynamic content**, place the cursor inside the parenthesis (), and select **NotificationThresholdAmount** from the list to populate the complete expression.
+4.    Select **Dynamic content**, place the cursor inside the parenthesis (), and select **NotificationThresholdAmount** from the list to populate the complete expression.
 
     The expression will be the following:<br>
     `float(body('Parse_JSON')?['data']?['NotificationThresholdAmount'])`
 
-5.	Select **OK** to set the expression.
-6.	Select **is greater than or equal to** in the dropdown box of the **Condition**.
-7.	In the **Choose a value** box of the condition enter `.8`.
+5.    Select **OK** to set the expression.
+6.    Select **is greater than or equal to** in the dropdown box of the **Condition**.
+7.    In the **Choose a value** box of the condition enter `.8`.
 
     ![Azure - Logic app - Float expression with a value](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-12.png)
 
-8.	Click **Add** > **Add row** within the Condition box to add an additional part of the condition.
-9.	In the **Condition** box, click the textbox containing **Choose a value**.
-10.	Click **Expression** at the top of the list and enter the following expression in the expression editor:
+8.    Click **Add** > **Add row** within the Condition box to add an additional part of the condition.
+9.    In the **Condition** box, click the textbox containing **Choose a value**.
+10.    Click **Expression** at the top of the list and enter the following expression in the expression editor:
     `float()`
-11.	Select **Dynamic content**, place the cursor inside the parenthesis (), and select **NotificationThresholdAmount** from the list to populate the complete expression.
-12.	Select **OK** to set the expression.
-13.	Select **is less than** in the dropdown box of the **Condition**.
-14.	In the **Choose a value** box of the condition enter `1`.
+11.    Select **Dynamic content**, place the cursor inside the parenthesis (), and select **NotificationThresholdAmount** from the list to populate the complete expression.
+12.    Select **OK** to set the expression.
+13.    Select **is less than** in the dropdown box of the **Condition**.
+14.    In the **Choose a value** box of the condition enter `1`.
 
     ![Azure - Logic app - Float expression with a value](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-13.png)
 
-15.	In the **If true** box, select **Add an action**. You will add an HTTP POST action that will shut down optional VMs.
+15.    In the **If true** box, select **Add an action**. You will add an HTTP POST action that will shut down optional VMs.
 
     ![Azure - Logic app - Add an action](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-14.png)
 
-16.	Enter **HTTP** to search for the HTTP action and select the **HTTP – HTTP** action.
+16.    Enter **HTTP** to search for the HTTP action and select the **HTTP – HTTP** action.
 
     ![Azure - Logic app - Add HTTP action](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-15.png)
 
-17.	Select **Post** as the for the **Method** value.
-18.	Enter the URL for the webhook named **Optional** that you created earlier in this tutorial as the **Uri** value.
+17.    Select **Post** as the for the **Method** value.
+18.    Enter the URL for the webhook named **Optional** that you created earlier in this tutorial as the **Uri** value.
 
     ![Azure - Logic app - HTTP action URI](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-16.png)
 
-19.	Select **Add an action** in the **If true** box. You will add an email action that will send an email notifying the recipient that the optional VMs have been shut down.
-20.	Search for "send email" and select a *send email* action based on the email service you use.
+19.    Select **Add an action** in the **If true** box. You will add an email action that will send an email notifying the recipient that the optional VMs have been shut down.
+20.    Search for "send email" and select a *send email* action based on the email service you use.
 
     ![Azure - Logic app - Send email action](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-17.png)
 
@@ -202,7 +202,7 @@ Use a conditional statement to check whether the threshold amount has reached 80
 
     ![Azure - Logic app - Access notice](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-18.png)
 
-21.	Add the **To**, **Subject**, and **Body** text for the email that notifies the recipient that the optional VMs have been shut down. Use the **BudgetName** and the **NotificationThresholdAmount** dynamic content to populate the subject and body fields.
+21.    Add the **To**, **Subject**, and **Body** text for the email that notifies the recipient that the optional VMs have been shut down. Use the **BudgetName** and the **NotificationThresholdAmount** dynamic content to populate the subject and body fields.
 
     ![Azure - Logic app - Email details](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-19.png)
 
@@ -210,49 +210,49 @@ Use a conditional statement to check whether the threshold amount has reached 80
 
 Use a conditional statement to check whether the threshold amount has reached or exceeded 100% of the budget value. If the threshold amount has been reached, send an HTTP POST using the webhook named **Complete**. This action will shut down all remaining VMs.
 
-1.	Select **New step** > **Add a Condition**.
+1.    Select **New step** > **Add a Condition**.
 
     ![Azure - Logic app - Add action](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-20.png)
 
-2.	In the **Condition** box, click the textbox containing **Choose a value** to display a list of available values.
-3.	Click **Expression** at the top of the list and enter the following expression in the expression editor:
+2.    In the **Condition** box, click the textbox containing **Choose a value** to display a list of available values.
+3.    Click **Expression** at the top of the list and enter the following expression in the expression editor:
     `float()`
-4.	Select **Dynamic content**, place the cursor inside the parenthesis (), and select **NotificationThresholdAmount** from the list to populate the complete expression.
+4.    Select **Dynamic content**, place the cursor inside the parenthesis (), and select **NotificationThresholdAmount** from the list to populate the complete expression.
 
     The expression will be the following:<br>
     `float(body('Parse_JSON')?['data']?['NotificationThresholdAmount'])`
 
-5.	Select **OK** to set the expression.
-6.	Select **is greater than or equal to** in the dropdown box of the **Condition**.
-7.	In the **Choose a value box** of the condition enter `1`.
+5.    Select **OK** to set the expression.
+6.    Select **is greater than or equal to** in the dropdown box of the **Condition**.
+7.    In the **Choose a value box** of the condition enter `1`.
 
     ![Azure - Logic app - Set condition value](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-21.png)
 
-8.	In the **If true** box, select **Add an action**. You will add an HTTP POST action that will shut down all the remaining VMs.
+8.    In the **If true** box, select **Add an action**. You will add an HTTP POST action that will shut down all the remaining VMs.
 
     ![Azure - Logic app - Add an action](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-22.png)
 
-9.	Enter **HTTP** to search for the HTTP action and select the **HTTP – HTTP** action.
-10.	Select **Post** as the for the **Method** value.
-11.	Enter the URL for the webhook named **Complete** that you created earlier in this tutorial as the **Uri** value.
+9.    Enter **HTTP** to search for the HTTP action and select the **HTTP – HTTP** action.
+10.    Select **Post** as the for the **Method** value.
+11.    Enter the URL for the webhook named **Complete** that you created earlier in this tutorial as the **Uri** value.
 
     ![Azure - Logic app - Add an action](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-23.png)
 
-12.	Select **Add an action** in the **If true** box. You will add an email action that will send an email notifying the recipient that the remaining VMs have been shut down.
-13.	Search for "send email" and select a *send email* action based on the email service you use.
-14.	Add the **To**, **Subject**, and **Body** text for the email that notifies the recipient that the optional VMs have been shut down. Use the **BudgetName** and the **NotificationThresholdAmount** dynamic content to populate the subject and body fields.
+12.    Select **Add an action** in the **If true** box. You will add an email action that will send an email notifying the recipient that the remaining VMs have been shut down.
+13.    Search for "send email" and select a *send email* action based on the email service you use.
+14.    Add the **To**, **Subject**, and **Body** text for the email that notifies the recipient that the optional VMs have been shut down. Use the **BudgetName** and the **NotificationThresholdAmount** dynamic content to populate the subject and body fields.
 
     ![Azure - Logic app - Send email details](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-24.png)
 
-15.	Click **Save** at the top of the **Logic App Designer** blade.
+15.    Click **Save** at the top of the **Logic App Designer** blade.
 
 ### Logic App summary
 
-Here’s what your Logic App looks like once you’re done. In the most basic of scenarios where you don’t need any threshold-based orchestration, you could directly call the automation script from **Monitor** and skip the **Logic App** step.
+Here's what your Logic App looks like once you're done. In the most basic of scenarios where you don't need any threshold-based orchestration, you could directly call the automation script from **Monitor** and skip the **Logic App** step.
 
    ![Azure - Logic app - Complete view](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-25.png)
 
-When you saved your logic app, a URL was generated that you will be able to call. You’ll use this URL in the next section of this tutorial.
+When you saved your logic app, a URL was generated that you will be able to call. You'll use this URL in the next section of this tutorial.
 
 ## Create an Azure Monitor Action Group
 
@@ -264,10 +264,10 @@ Action groups are the only endpoint that you will integrate with your budget. Yo
 
 When you create the action group, you will point to the Logic App that you created earlier in this tutorial.
 
-1.	If you are not already signed-in to the [Azure portal](https://portal.azure.com/), sign-in and select **All services** > **Monitor**.
-2.	Select **Alerts** then select **Manage actions**.
-3.	Select **Add an action group** from the **Action groups** blade.
-4.	Add and verify the following items:
+1.    If you are not already signed-in to the [Azure portal](https://portal.azure.com/), sign-in and select **All services** > **Monitor**.
+2.    Select **Alerts** then select **Manage actions**.
+3.    Select **Add an action group** from the **Action groups** blade.
+4.    Add and verify the following items:
     - Action group name
     - Short name
     - Subscription
@@ -275,10 +275,10 @@ When you create the action group, you will point to the Logic App that you creat
 
     ![Azure - Logic app - Add an action group](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-26.png)
 
-5.	Within the **Add action group** pane, add a LogicApp action. Name the action **Budget-BudgetLA**. In the **Logic App** pane, select the **Subscription** and the **Resource group**. Then, select the **Logic app** that you created earlier in this tutorial.
-6.	Click **OK** to set the Logic App. Then, select **OK** in the **Add action group** pane to create the action group.
+5.    Within the **Add action group** pane, add a LogicApp action. Name the action **Budget-BudgetLA**. In the **Logic App** pane, select the **Subscription** and the **Resource group**. Then, select the **Logic app** that you created earlier in this tutorial.
+6.    Click **OK** to set the Logic App. Then, select **OK** in the **Add action group** pane to create the action group.
 
-You’re done with all the supporting components needed to effectively orchestrate your budget. Now all you need to do is create the budget and configure it to use the action group you created.
+You're done with all the supporting components needed to effectively orchestrate your budget. Now all you need to do is create the budget and configure it to use the action group you created.
 
 ## Create the Azure Budget
 
@@ -286,43 +286,43 @@ You can create a budget in the Azure portal using the [Budget feature](../costs/
 
 ### Create an authentication token
 
-1.	Navigate to the [ARMClient](https://github.com/projectkudu/ARMClient) project on GitHub.
-2.	Clone the repo to get a local copy.
-3.	Open the project in Visual Studio and build it.
-4.	Once the build is successful, the executable should be in the *\bin\debug* folder.
-5.	Run the ARMClient. Open a command prompt and navigate to the *\bin\debug* folder from the project root.
-6.	To login and authenticate, enter the following command at the command prompt:<br>
+1.    Navigate to the [ARMClient](https://github.com/projectkudu/ARMClient) project on GitHub.
+2.    Clone the repo to get a local copy.
+3.    Open the project in Visual Studio and build it.
+4.    Once the build is successful, the executable should be in the *\bin\debug* folder.
+5.    Run the ARMClient. Open a command prompt and navigate to the *\bin\debug* folder from the project root.
+6.    To login and authenticate, enter the following command at the command prompt:<br>
     `ARMClient login prod`
-7.	Copy the **subscription guid** from the output.
-8.	To copy an authorization token to your clipboard, enter the following command at the command prompt, but sure to use the copied subscription ID from the step above: <br>
+7.    Copy the **subscription guid** from the output.
+8.    To copy an authorization token to your clipboard, enter the following command at the command prompt, but sure to use the copied subscription ID from the step above: <br>
     `ARMClient token <subscription GUID from previous step>`
 
     Once you have completed the step above, you will see the following:<br>
     **Token copied to clipboard successfully.**
-9.	Save the token to be used for steps in the next section of this tutorial.
+9.    Save the token to be used for steps in the next section of this tutorial.
 
 ### Create the Budget
 
 Next, you will configure **Postman** to create a budget by calling the Azure Consumption REST APIs. Postman is an API Development environment. You will import environment and collection files into Postman. The collection contains grouped definitions of HTTP requests that call Azure Consumption REST APIs. The environment file contains variables that are used by the collection.
 
-1.	Download and open the [Postman REST client](https://www.getpostman.com/) to execute the REST APIs.
-2.	In Postman, create a new request.
+1.    Download and open the [Postman REST client](https://www.getpostman.com/) to execute the REST APIs.
+2.    In Postman, create a new request.
 
     ![Postman - Create a new request](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-27.png)
 
-3.	Save the new request as a collection, so that the new request has nothing on it.
+3.    Save the new request as a collection, so that the new request has nothing on it.
 
     ![Postman - Save the new request](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-28.png)
 
-4.	Change the request from a `Get` to a `Put` action.
-5.	Modify the following URL by replacing `{subscriptionId}` with the **Subscription ID** that you used in the previous section of this tutorial. Also, modify the URL to include "SampleBudget" as the value for `{budgetName}`:
+4.    Change the request from a `Get` to a `Put` action.
+5.    Modify the following URL by replacing `{subscriptionId}` with the **Subscription ID** that you used in the previous section of this tutorial. Also, modify the URL to include "SampleBudget" as the value for `{budgetName}`:
     `https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Consumption/budgets/{budgetName}?api-version=2018-03-31`
-6.	Select the **Headers** tab within Postman.
-7.	Add a new **Key** named "Authorization".
-8.	Set the **Value** to the token that was created using the ArmClient at the end of the last section.
-9.	Select **Body** tab within Postman.
-10.	Select the **raw** button option.
-11.	In the textbox, paste in the below sample budget definition, however you must replace the **subscriptionid**, **budgetname**, and **actiongroupname** parameters with your subscription ID, a unique name for your budget, and the action group name you created in both the URL and the request body:
+6.    Select the **Headers** tab within Postman.
+7.    Add a new **Key** named "Authorization".
+8.    Set the **Value** to the token that was created using the ArmClient at the end of the last section.
+9.    Select **Body** tab within Postman.
+10.    Select the **raw** button option.
+11.    In the textbox, paste in the below sample budget definition, however you must replace the **subscriptionid**, **budgetname**, and **actiongroupname** parameters with your subscription ID, a unique name for your budget, and the action group name you created in both the URL and the request body:
 
     ```
         {
@@ -359,7 +359,7 @@ Next, you will configure **Postman** to create a budget by calling the Azure Con
             }
         }
     ```
-12.	Press **Send** to send the request.
+12.    Press **Send** to send the request.
 
 You now have all the pieces you need to call the [budgets API](https://docs.microsoft.com/rest/api/consumption/budgets). The budgets API reference has additional details on the specific requests, including the following:
     - **budgetName** - Multiple budgets are supported.  Budget names must be unique.
