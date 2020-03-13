@@ -200,7 +200,7 @@ In this tutorial, you learned how to:
 * Publish your device template.
 
 > [!NOTE]
-> VSCode based code generation is currently not supported for gateway devices modeled in IoT Central. 
+> VS Code based code generation is currently not supported for gateway devices modeled in IoT Central.
 
 Next, you can:
 
