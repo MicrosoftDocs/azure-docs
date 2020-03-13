@@ -47,13 +47,13 @@ AKS generates and uses the following certificates, Certificate Authorities, and 
 
 Use [az aks get-credentials][az-aks-get-credentials] to sign in to your AKS cluster. This command also downloads and configures the `kubectl` client certificate on your local machine.
 
-```console
+```azurecli
 az aks get-credentials -g $RESOURCE_GROUP_NAME -n $CLUSTER_NAME
 ```
 
 Use `az aks rotate-certs` to rotate all certificates, CAs, and SAs on your cluster.
 
-```console
+```azurecli
 az aks rotate-certs -g $RESOURCE_GROUP_NAME -n $CLUSTER_NAME
 ```
 
@@ -69,7 +69,7 @@ Unable to connect to the server: x509: certificate signed by unknown authority (
 
 Update the certificate used by `kubectl` by running `az aks get-credentials`.
 
-```console
+```azurecli
 az aks get-credentials -g $RESOURCE_GROUP_NAME -n $CLUSTER_NAME --overwrite-existing
 ```
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/04/2020
+ms.date: 03/12/2020
 ms.author: allensu
 ---
 
-# Designing virtual networks with NAT gateway resources (Public Preview)
+# Designing virtual networks with NAT gateway resources
 
 NAT gateway resources are part of [Virtual Network NAT](nat-overview.md) and provide outbound Internet connectivity for one or more subnets of a virtual network. The subnet of the virtual network states which NAT gateway will be used. NAT provides source network address translation (SNAT) for a subnet.  NAT gateway resources specify which static IP addresses virtual machines use when creating outbound flows. Static IP addresses come from public IP address resources, public IP prefix resources, or both. A NAT gateway resource can use up to 16 static IP addresses from either.
 
@@ -349,6 +349,7 @@ We want to know how we can improve the service. Propose and vote on what we shou
   - [Azure CLI](./quickstart-create-nat-gateway-cli.md)
   - [PowerShell](./quickstart-create-nat-gateway-powershell.md)
   - [Portal](./quickstart-create-nat-gateway-portal.md)
+  - [Template](./quickstart-create-nat-gateway-template.md)
 * Learn about NAT gateway resource API
   - [REST API](https://docs.microsoft.com/rest/api/virtualnetwork/natgateways)
   - [Azure CLI](https://docs.microsoft.com/cli/azure/network/nat/gateway?view=azure-cli-latest)
