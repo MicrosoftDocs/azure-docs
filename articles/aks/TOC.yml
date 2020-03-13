@@ -126,6 +126,8 @@
       href: upgrade-cluster.md
     - name: Process node OS updates
       href: node-updates-kured.md
+    - name: Configure an AKS cluster
+      href: configure-cluster.md
     - name: Delete an AKS cluster
       href: /cli/azure/aks#az-aks-delete
       maintainContext: true
