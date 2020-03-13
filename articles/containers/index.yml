@@ -7,8 +7,6 @@ metadata:
    description: Learn how to use Azure container services to manage and develop cloud based applications.
    ms.topic: hub-page
 
-# itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
-
 productDirectory:
   items:
   - title: Azure Kubernetes Service (AKS) 
@@ -45,9 +43,46 @@ productDirectory:
     imageSrc: https://static.docs.com/ui/media/product/azure/openshift.svg
     links:
       - url: https://docs.microsoft.com/azure/openshift/
-        text: Store and manage container images across all types of Azure deployments
+        text: Fully managed OpenShift service, jointly operated with Red Hat
   - title: Functions
     imageSrc: https://static.docs.com/ui/media/product/azure/functions.svg
     links:
       - url: https://docs.microsoft.com/azure/azure-functions/
         text: Accelerate and simplify application development with serverless compute
+
+# conceptualContent section (optional)
+conceptualContent:
+# itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
+  items:
+    # Card
+    - title: Azure Kubernetes Service
+      links:
+        - url: /azure/aks/intro-kubernetes.md
+          itemType: overview
+          text: Intro to AKS
+        - url: /azure/aks/tutorial-kubernetes-prepare-app.md
+          itemType: tutorial
+          text: Prepare an application for AKS
+        - url: /azure/aks/tutorial-kubernetes-deploy-cluster.md
+          itemType: tutorial
+          text: Deploy an AKS Cluster
+      # footerLink (optional)
+      footerLink:
+        url: /azure/aks/ 
+        text: See more
+    # Card
+    - title: App Service 
+      links:
+        - url: /azure/app-service/overview.md
+          itemType: overview
+          text: What is App Service?
+        - url: /azure/app-service/app-service-web-get-started-dotnet.md
+          itemType: get-started
+          text: Prepare an application for AKS
+        - url: /azure/app-service/app-service-web-tutorial-custom-domain.md
+          itemType: tutorial
+          text: Map a custom domain to your app
+      # footerLink (optional)
+      footerLink:
+        url: /azure/aks/ 
+        text: See more
