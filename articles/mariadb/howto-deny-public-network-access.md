@@ -22,17 +22,17 @@ To complete this how-to guide, you need:
 
 Follow these steps to set MariaDB server Deny Public Network Access:
 
-* In the [Azure portal](https://portal.azure.com/), select your existing Azure Database for MariaDB server.
+1. In the [Azure portal](https://portal.azure.com/), select your existing Azure Database for MariaDB server.
 
-* On the MariaDB server page, under **Settings**, click **Connection security** to open the connection security configuration page.
+1. On the MariaDB server page, under **Settings**, click **Connection security** to open the connection security configuration page.
 
-* In Deny Public Network Access, select **Yes** to enable deny public access for your MariaDB server.
+1. In Deny Public Network Access, select **Yes** to enable deny public access for your MariaDB server.
 
     ![Azure Database for MariaDB Deny network access](./media/howto-deny-public-network-access/deny-public-network-access.PNG)
 
-* Click **Save** to save the changes.
+1. Click **Save** to save the changes.
 
-* A notification will confirm that connection security setting was successfully enabled.
+1. A notification will confirm that connection security setting was successfully enabled.
 
     ![Azure Database for MariaDB Deny network access success](./media/howto-deny-public-network-access/deny-public-network-access-success.png)
 
