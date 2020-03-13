@@ -19,6 +19,8 @@ For more information, see [What is Azure Private Link (Preview)?](../private-lin
 
 > [!NOTE]
 > This feature is supported only with the **dedicated** tier. For more information about the dedicated tier, see [Overview of Event Hubs Dedicated](event-hubs-dedicated-overview.md). 
+>
+> This feature is currently in **preview**. 
 
 ## Prerequisites
 

@@ -74,6 +74,9 @@ A private endpoint is a network interface that connects you privately and secure
 
 > [!NOTE]
 > This feature is supported only with the **dedicated** tier. For more information about the dedicated tier, see [Overview of Event Hubs Dedicated](event-hubs-dedicated-overview.md). 
+>
+> This feature is currently in **preview**. 
+
 
 For more information, see [How to configure private endpoints for an event hub](private-link-service.md)
 
