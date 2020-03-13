@@ -11,7 +11,9 @@ ms.date: 03/13/2020
 ms.author: dapine
 ---
 
-# Introduction
+# Cognitive Services Security
+
+< Add introduction details, consider changing title? >
 
 ## Transport Layer Security (TLS)
 
@@ -25,7 +27,21 @@ For .NET users, consider the <a href="https://docs.microsoft.com/dotnet/framewor
 
 ## Authentication
 
+< Add introduction details, consider changing title? >
+
 ## Environment variables and application configuration
+
+An alternative to using hardcoded values for sensitive data, is to use environment variables. Hardcoded values are insecure and should be avoided.
+
+### Set environment variables
+
+
+
+### Get environment variables
+
+
+
+For more information, see <a href="https://docs.microsoft.com/azure/azure-app-configuration/overview" target="_blank">Azure App Configuration <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
 ## Next steps
 
