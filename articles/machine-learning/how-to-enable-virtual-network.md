@@ -499,6 +499,7 @@ For more information on configuring a network rule, see [Deploy and configure Az
 >
 > * Your Azure Machine Learning workspace must be Enterprise edition. For information on upgrading, see [Upgrade to Enterprise edition](how-to-manage-workspace.md#upgrade).
 > * Your Azure Container Registry must be Premium version . For more information on upgrading, see [Changing SKUs](/azure/container-registry/container-registry-skus#changing-skus).
+> * Your Azure Container Registry must be in the same virtual network and subnet as the storage account and compute targets used for training or inference.
 > * Your Azure Machine Learning workspace must contain an [Azure Machine Learning compute cluster](how-to-set-up-training-targets.md#amlcompute).
 >
 >     When ACR is behind a virtual network, Azure Machine Learning cannot use it to directly build Docker images. Instead, the compute cluster is used to build the images.
