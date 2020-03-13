@@ -30,7 +30,7 @@ This article shows how to create a Video Indexer account that's linked to an Azu
 
 * A user in your Azure AD domain with an **Application administrator** role. You'll use this member when connecting your Video Indexer account to Azure.
 
-    This user should be an Azure AD user with a work or school account, not a personal account, such as outlook.com, live.com, or hotmail.com.
+    This user should be an Azure AD user with a work or school account. Don't use a personal account, such as outlook.com, live.com, or hotmail.com.
 
     ![all AAD users](./media/create-account/all-aad-users.png)
 
@@ -40,7 +40,7 @@ This article shows how to create a Video Indexer account that's linked to an Azu
 
     You'll use this member when connecting your Video Indexer account to Azure.
 
-    This user should be a member in your Azure subscription with either an **Owner** role, or both **Contributor** and **User Access Administrator** roles. A user can be added twice, with 2 roles. Once with Contributor and once with user Access Administrator.
+    This user should be a member in your Azure subscription with either an **Owner** role, or both **Contributor** and **User Access Administrator** roles. A user can be added twice, with two roles. Once with Contributor and once with user Access Administrator.
 
     ![access control](./media/create-account/access-control-iam.png)
 
@@ -114,7 +114,7 @@ If the connection to Azure failed, you can attempt to troubleshoot the problem b
 2. Adjust the type and number of [reserved units](../previous/media-services-scale-media-processing-overview.md ) to **10 S3 Reserved Units** in the Media Services account you created. See [Use portal to change reserved units](../previous/media-services-portal-scale-media-processing.md).
 3. Before you can play your videos in the Video Indexer web app, you must start the default **Streaming Endpoint** of the new Media Services account.
 
-    In the new Media Services account, click **Streaming endpoints**. Select the streaming endpoint and press start.
+    In the new Media Services account, select **Streaming endpoints**. Select the streaming endpoint and press start.
 
     ![New AMS account](./media/create-account/create-ams-account2.png)
 
@@ -141,7 +141,7 @@ In the dialog, provide the following information:
 |---|---|
 |Video Indexer account region|The name of the Video Indexer account region. For better performance and lower costs, it's highly recommended to specify the name of the region where the Azure Media Services resource and Azure Storage account are located. |
 |Azure AD tenant|The name of the Azure AD tenant, for example "contoso.onmicrosoft.com". The tenant information can be retrieved from the Azure portal. Place your cursor over the name of the signed-in user in the top-right corner. Find the name to the right of **Domain**.|
-|Subscription ID|The Azure subscription under which this connection should be created. The subscription ID can be retrieved from the Azure portal. Click on **All services** in the left panel, and search for "subscriptions". Select **Subscriptions** and choose the desired ID from the list of your subscriptions.|
+|Subscription ID|The Azure subscription under which this connection should be created. The subscription ID can be retrieved from the Azure portal. Select **All services** in the left panel, and search for "subscriptions". Select **Subscriptions** and choose the desired ID from the list of your subscriptions.|
 |Azure Media Services resource group name|The name for the resource group in which you created the Media Services account.|
 |Media service resource name|The name of the Azure Media Services account that you created in the previous section.|
 |Application ID|The Azure AD application ID (with permissions for the specified Media Services account) that you created in the previous section.|
@@ -164,7 +164,7 @@ The following Azure Media Services related considerations apply:
 
     ![Media Services streaming endpoint](./media/create-account/ams-streaming-endpoint.png)
 
-    Streaming Endpoints have a considerable startup time. Therefore, it may take several minutes from the time you connected your account to Azure, until your videos can be streamed and watched in the Video Indexer web application.
+    Streaming endpoints have a considerable startup time. Therefore, it may take several minutes from the time you connected your account to Azure until your videos can be streamed and watched in the Video Indexer web app.
 
 * If you connect to an existing Media Services account, Video Indexer doesn't change the default Streaming Endpoint configuration. If there's no running **Streaming Endpoint**, you won't be able to watch videos from this Media Services account or in Video Indexer.
 
@@ -173,5 +173,3 @@ The following Azure Media Services related considerations apply:
 You can programmatically interact with your trial account and/or with your Video Indexer accounts that are connected to Azure by following the instructions in: [Use APIs](video-indexer-use-apis.md).
 
 You should use the same Azure AD user you used when connecting to Azure.
-
-
