@@ -18,26 +18,23 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 
 ## February 2020 Guest OS
 
->[!NOTE]
->The February Guest OS is currently being rolled out to Cloud Service VMs that are configured for automatic updates. When the rollout is complete, this version will be made available for manual updates through the Azure portal and configuration files. The following patches are included in the February Guest OS. This list is subject to change.
-
 | Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |
-|  Rel 20-02 |  [4537767]  |  Internet Explorer | 2.85, 3.82, 4.75 | Feb 11, 2020 |
-|  Rel 20-02 |  [4537813]  |  Windows Security | 2.85 | Feb 11, 2020 |
-|  Rel 20-02 |  [4537794]  |  Windows Security | 3.82 | Feb 11, 2020 |
-|  Rel 20-02 |  [4537803]  |  Windows Security | 4.75 | Feb 11, 2020 |
-|  Rel 20-02 |  [4537764]  |  Latest Cumulative Update(LCU) | 5.4 | Feb 11, 2020 |
-|  Rel 20-02 |  [4532691]  |  Latest Cumulative Update(LCU) | 6.16 | Feb 11, 2020 |
-|  Rel 20-02 |  [4534310]  |  Monthly Rollup | 2.85 | Jan 14, 2020 |
-|  Rel 20-02 |  [4536952]  |  Servicing Stack update(SSU) | 2.85 | Jan 14, 2020 |
-|  Rel 20-02 |  [4537829]  |  Servicing Stack update(SSU) | 2.85 | Feb 11, 2020 |
-|  Rel 20-02 |  [4538483]  |  Extended security updates(ESU) | 2.85 | Feb 11, 2020 |
-|  Rel 20-02 |  [4537820]  |  Monthly Rollup | 2.85 | Feb 11, 2020 |
-|  Rel 20-02 |  [4537759]  |  Security Update(Flash) | 3.82, 4.75 | Feb 11, 2020 |
-|  Rel 20-02 |  [4534283]  |  Monthly Rollup | 3.82 | Jan 14, 2020 |
-|  Rel 20-02 |  [4532920]  |  Servicing Stack update(SSU) | 3.82 | Dec 10, 2020 |
-|  Rel 20-02 |  [4534297]  |  Non-Security | 4.75 | Jan 14, 2020 |
+|  Rel 20-02  |  [4537767]  |  Internet Explorer  |  [2.95], [3.82], [4.75]  |  Feb 11, 2020  |
+|  Rel 20-02  |  [4537813]  |  Windows Security  |  [2.95]  |  Feb 11, 2020  |
+|  Rel 20-02  |  [4537794]  |  Windows Security  |  [3.82]  |  Feb 11, 2020  |
+|  Rel 20-02  |  [4537803]  |  Windows Security  |  [4.75]  |  Feb 11, 2020  |
+|  Rel 20-02  |  [4537764]  |  Latest Cumulative Update(LCU)  |  [5.40]  |  Feb 11, 2020  |
+|  Rel 20-02  |  [4532691]  |  Latest Cumulative Update(LCU)  |  [6.16]  |  Feb 11, 2020  |
+|  Rel 20-02  |  [4534310]  |  Monthly Rollup  |  [2.95]  |  Jan 14, 2020  |
+|  Rel 20-02  |  [4536952]  |  Servicing Stack update(SSU)  |  [2.95]  |  Jan 14, 2020  |
+|  Rel 20-02  |  [4537829]  |  Servicing Stack update(SSU)  |  [2.95]  |  Feb 11, 2020  |
+|  Rel 20-02  |  [4538483]  |  Extended security updates(ESU)  |  [2.95]  |  Feb 11, 2020  |
+|  Rel 20-02  |  [4537820]  |  Monthly Rollup  |  [2.95]  |  Feb 11, 2020  |
+|  Rel 20-02  |  [4537759]  |  Security Update(Flash)  |  [3.82], [4.75]  |  Feb 11, 2020  |
+|  Rel 20-02  |  [4534283]  |  Monthly Rollup  |  [3.82]  |  Jan 14, 2020  |
+|  Rel 20-02  |  [4532920]  |  Servicing Stack update(SSU)  |  [3.82]  |  Dec 10, 2020  |
+|  Rel 20-02  |  [4534297]  |  Non-Security  |  [4.75]  |  Jan 14, 2020  |
 
 [4537767]: https://support.microsoft.com/kb/4537767
 [4537813]: https://support.microsoft.com/kb/4537813
@@ -54,6 +51,12 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 [4534283]: https://support.microsoft.com/kb/4534283
 [4532920]: https://support.microsoft.com/kb/4532920
 [4534297]: https://support.microsoft.com/kb/4534297
+
+[6.16]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
+[5.40]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
+[4.75]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
+[3.82]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases
+[2.95]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-2-releases
 
 
 ## January 2020 Guest OS
