@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 03/06/2020
+ms.date: 03/13/2020
 ms.author: dapine
 zone_pivot_groups: programming-languages-set-two
 ---
@@ -22,24 +22,23 @@ One of the core features of the Speech service is the ability to recognize and t
 > * [Recognize speech from a microphone](quickstarts/speech-to-text-from-microphone.md)
 
 ::: zone pivot="programming-language-csharp"
-
 [!INCLUDE [C# Basics include](includes/how-to/speech-to-text-basics/speech-to-text-basics-csharp.md)]
-
 ::: zone-end
+
 ::: zone pivot="programming-language-cpp"
-
 [!INCLUDE [C++ Basics include](includes/how-to/speech-to-text-basics/speech-to-text-basics-cpp.md)]
-
 ::: zone-end
+
 ::: zone pivot="programming-language-java"
-
 [!INCLUDE [Java Basics include](includes/how-to/speech-to-text-basics/speech-to-text-basics-java.md)]
-
 ::: zone-end
+
 ::: zone pivot="programming-language-python"
-
 [!INCLUDE [Python Basics include](./includes/how-to/speech-to-text-basics/speech-to-text-basics-python.md)]
+::: zone-end
 
+::: zone pivot="programming-language-more"
+[!INCLUDE [More languages include](./includes/how-to/speech-to-text-basics/more.md)]
 ::: zone-end
 
 ## Next steps
