@@ -316,6 +316,8 @@
       href: tshoot-connect-attribute-not-syncing.md
     - name: Installation issues
       href: tshoot-connect-install-issues.md
+    - name: UPN changes
+      href: howto-troubleshoot-upn-changes.md
 - name: Reference
   items:
   - name: Hybrid Identity Required Ports and Protocols
