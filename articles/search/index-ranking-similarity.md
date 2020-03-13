@@ -1,5 +1,5 @@
 ---
-title: Azure Search Ranking Similarity Algorithm
+title: Ranking Similarity Algorithm
 titleSuffix: Azure Cognitive Search
 description: How to set the similarity algorithm to try new similarity algorithm for ranking
 
@@ -7,7 +7,7 @@ manager: nitinme
 author: luiscabrer
 ms.author: luisca
 ms.service: cognitive-search
-ms.topic: howto
+ms.topic: conceptual
 ms.date: 03/13/2020
 ---
 
