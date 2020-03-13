@@ -2141,6 +2141,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/cosmos-db/cosmos-db-security-controls.md",
+      "redirect_url": "/azure/cosmos-db/security-baselines",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/cosmos-db/how-to-custom-synchronization.md",
       "redirect_url": "/azure/cosmos-db/how-to-multi-master",
       "redirect_document_id": true
@@ -16907,6 +16912,11 @@
     {
       "source_path": "articles/storage/blobs/data-lake-storage-evaluation.md",
       "redirect_url": "/azure/storage/blobs/data-lake-storage-upgrade",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storage/blobs/storage-security-controls.md",
+      "redirect_url": "/azure/storage/blobs/security-controls",
       "redirect_document_id": false
     },
     {
