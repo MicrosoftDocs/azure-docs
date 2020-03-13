@@ -317,7 +317,7 @@ For Python, download our limited version from Github.
 3. Open a terminal and navigate to the folder with the downloaded file.
 
 4. Run the following command to install the Python Service SDK with support for virtual networks:
-    > pip install ./azure_iot_hub-2.2.0.limited-py2.py3-none-any.whl
+    > pip install ./azure_iot_hub-2.2.0_limited-py2.py3-none-any.whl
 
 
 ## Next steps
