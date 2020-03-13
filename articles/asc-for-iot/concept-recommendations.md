@@ -1,7 +1,6 @@
 ---
-
-title: Understand Azure Security Center for IoT security recommendations| Microsoft Docs
-description: Learn about the concept of security recommendations and how they are used in Azure Security Center for IoT. 
+title: Security recommendations 
+description: Learn about the concept of security recommendations and how they are used in Azure Security Center for IoT.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -17,18 +16,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/24/2019
 ms.author: mlottner
-
 ---
+
 # Security recommendations
 
-Azure Security Center for IoT scans your Azure resources and IoT devices and provides security recommendations to reduce your attack surface. 
+Azure Security Center for IoT scans your Azure resources and IoT devices and provides security recommendations to reduce your attack surface.
 Security recommendations are actionable and aim to aid customers in complying to security best practices.
 
 In this article, you will find a list of recommendations which can be triggered on your IoT Hub and/or IoT devices.
 
 ## Recommendations for IoT devices
 
-Device recommendations provide insights and suggestions to improve device security posture. 
+Device recommendations provide insights and suggestions to improve device security posture.
 
 | Severity | Name                                                      | Data Source | Description                                                                                                                                                                                           |
 |----------|-----------------------------------------------------------|-------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -51,7 +50,7 @@ Operational recommendations provide insights and suggestions to improve security
 
 ## Recommendations for IoT Hub
 
-Recommendation alerts provide insight and suggestions for actions to improve the security posture of your environment.  
+Recommendation alerts provide insight and suggestions for actions to improve the security posture of your environment.
 
 | Severity | Name                                                     | Data Source | Description                                                                                                                                                                                                             |
 |----------|----------------------------------------------------------|-------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
