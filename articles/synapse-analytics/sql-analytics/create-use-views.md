@@ -6,9 +6,9 @@ author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice:
-ms.date: 10/07/2019
+ms.date: 03/20/2020
 ms.author: v-stazar
-ms.reviewer: jrasnick
+ms.reviewer: jrasnick, carlrab
 ---
 
 # Create and use views in SQL on-demand (preview) using Azure Synapse Analytics
@@ -18,6 +18,7 @@ In this section, you'll learn how to create and use views to wrap SQL on-demand 
 ## Prerequisites
 
 Your first step is to review the articles below and make sure you've met the prerequisites for creating and using SQL on-demand views:
+
 - [First-time setup](query-data-storage.md#first-time-setup)
 - [Prerequisites](query-data-storage.md#prerequisites)
 
@@ -29,10 +30,10 @@ You can create views the same way you create regular SQL Server views. The query
 > Change the first line in the query, i.e., [mydbname], so you're using the database you created. If you have not created a database, please read [First-time setup](query-data-storage.md#first-time-setup).
 
 ```sql
-USE [mydbname]
+USE [mydbname];
 GO
 
-DROP VIEW IF EXISTS populationView
+DROP VIEW IF EXISTS populationView;
 GO
 
 CREATE VIEW populationView AS
@@ -48,12 +49,12 @@ WITH (
     [country_name] VARCHAR (100) COLLATE Latin1_General_BIN2,
     [year] smallint,
     [population] bigint
-) AS [r]
+) AS [r];
 ```
 
 ## Use a view
 
-You can use views in your queries the same way you use views in SQL Server queries. 
+You can use views in your queries the same way you use views in SQL Server queries.
 
 The following query demonstrates using the *population_csv* view we created in [Create a view](#create-a-view). It returns country names with their population in 2019 in descending order.
 
@@ -61,16 +62,16 @@ The following query demonstrates using the *population_csv* view we created in [
 > Change the first line in the query, i.e., [mydbname], so you're using the database you created. If you have not created a database, please read [First-time setup](query-data-storage.md#first-time-setup).
 
 ```sql
-USE [mydbname]
+USE [mydbname];
 GO
 
-SELECT 
+SELECT
     country_name, population
 FROM populationView
-WHERE 
+WHERE
     [year] = 2019
-ORDER BY 
-    [population] DESC
+ORDER BY
+    [population] DESC;
 ```
 
 ## Next steps
