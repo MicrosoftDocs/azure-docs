@@ -205,7 +205,7 @@ The Java client library for Event Hubs is available for use in Maven projects fr
      }
     ```
     
-2. Download the **InMemoryCheckpointStore.java** file from [GitHub](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/eventhubs/azure-messaging-eventhubs/src/samples/java/com/azure/messaging/eventhubs), and add it to your project. 
+2. Download the **InMemoryCheckpointStore.java** file from [GitHub](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs/src/samples/java/com/azure/messaging/eventhubs/InMemoryCheckpointStore.java), and add it to your project. 
 3. Build the program, and ensure that there are no errors. 
 
 ## Run the applications
