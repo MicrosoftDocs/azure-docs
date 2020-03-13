@@ -85,7 +85,7 @@ Once you have authenticated against the Active Directory, you then retrieve a to
 ## Next steps
 
 - To learn how to create and populate Azure AD, and then configure Azure AD with Azure Database for MySQL, see [Configure and sign in with Azure AD for Azure Database for MySQL](howto-configure-sign-in-azure-ad-authentication.md).
-- For an overview of logins, and database users for Azure Database for MySQL, see [Create users in Azure Database for MySQL - Single Server](howto-create-users.md).
+- For an overview of logins, and database users for Azure Database for MySQL, see [Create users in Azure Database for MySQL](howto-create-users.md).
 
 <!--Image references-->
 
