@@ -213,7 +213,7 @@ New-AzResourceLock -LockLevel $lvl -LockName $lnm -ResourceName $rsc -ResourceTy
 
 The equivalent command is also [available via the Azure CLI](https://docs.microsoft.com/cli/azure/lock?view=azure-cli-latest#az-lock-create):
 
-```azurecli-interactive
+```azurecli
 # Lock a DNS zone
 
 az lock create \
