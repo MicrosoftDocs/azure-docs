@@ -17,6 +17,7 @@ If you are already familiar with GitHub and DevOps, you can skip to [Create a pi
 
 > [!NOTE]
 > Pick a project name. When you go through the tutorial, replace any of the **AzureRmPipeline** with your project name.
+> This project name is used to generate resource names.  One of the resource is a storage account. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only. The name must be unique. In the template, the storage account name is the project name with "store" appended, and the project name must be between 3 and 11 characters. So the project name must meet the storage account name requirements and has less than 11 characters.
 
 This tutorial covers the following tasks:
 
@@ -37,7 +38,7 @@ To complete this article, you need:
 * **A GitHub account**, where you use it to create a repository for your templates. If you don’t have one, you can [create one for free](https://github.com). For more information about using GitHub repositories, see [Build GitHub repositories](/azure/devops/pipelines/repos/github).
 * **Install Git**. This tutorial instruction uses *Git Bash* or *Git Shell*. For instructions, see [Install Git]( https://www.atlassian.com/git/tutorials/install-git).
 * **An Azure DevOps organization**. If you don't have one, you can create one for free. See [Create an organization or project collection]( https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization?view=azure-devops).
-* Visual Studio Code with Resource Manager Tools extension. See [Use Visual Studio Code to create Azure Resource Manager templates](use-vs-code-to-create-template.md).
+* (optional) **Visual Studio Code with Resource Manager Tools extension**. See [Use Visual Studio Code to create Azure Resource Manager templates](use-vs-code-to-create-template.md).
 
 ## Prepare a GitHub repository
 
@@ -50,7 +51,7 @@ If you don’t have a GitHub account, see [Prerequisites](#prerequisites).
 1. Sign in to [GitHub](https://github.com).
 1. Select your account image on the upper right corner, and then select **Your repositories**.
 
-    ![Azure Resource Manager Azure DevOps Azure Pipelines create GitHub repository](./media/template-tutorial-use-azure-pipelines/azure-resource-manager-devops-pipelines-github-repository.png)
+    ![Azure Resource Manager Azure DevOps Azure Pipelines create GitHub repository](./media/deployment-tutorial-pipeline/azure-resource-manager-devops-pipelines-github-repository.png)
 
 1. Select **New**, a green button.
 1. In **Repository name**, enter a repository name.  For example, **AzureRmPipeline-repo**. Remember to replace any of **AzureRmPipeline** with your project name. You can select either **Public** or **private** for going through this tutorial. And then select **Create repository**.
@@ -120,7 +121,7 @@ A DevOps organization is needed before you can proceed to the next procedure.  I
 1. Sign in to [Azure DevOps](https://dev.azure.com).
 1. Select a DevOps organization from the left.
 
-    ![Azure Resource Manager Azure DevOps Azure Pipelines create Azure DevOps project](./media/template-tutorial-use-azure-pipelines/azure-resource-manager-devops-pipelines-create-devops-project.png)
+    ![Azure Resource Manager Azure DevOps Azure Pipelines create Azure DevOps project](./media/deployment-tutorial-pipeline/azure-resource-manager-devops-pipelines-create-devops-project.png)
 
 1. Select **New project**. If you don't have any projects, the create project page is opened automatically.
 1. Enter the following values:
@@ -159,50 +160,42 @@ To create a pipeline with a step to deploy a template:
 1. Select **New pipeline**.
 1. From the **Connect** tab, select **GitHub**. If asked, enter your GitHub credentials, and then follow the instructions. If you see the following screen, select **Only select repositories**, and verify your repository is in the list before you select **Approve & Install**.
 
-    ![Azure Resource Manager Azure DevOps Azure Pipelines only select repositories](./media/template-tutorial-use-azure-pipelines/azure-resource-manager-devops-pipelines-only-select-repositories.png)
+    ![Azure Resource Manager Azure DevOps Azure Pipelines only select repositories](./media/deployment-tutorial-pipeline/azure-resource-manager-devops-pipelines-only-select-repositories.png)
 
 1. From the **Select** tab, select your repository.  The default name is **[YourAccountName]/[YourGitHubRepositoryName]**.
 1. From the **Configure** tab, select **Starter pipeline**. It shows the **azure-pipelines.yml** pipeline file with two script steps.
-1. Replace the **steps** section with the following YAML:
+1. Delete the two script steps from the yml file.
+1. Move the cursor to the line after **steps:**.
+1. Select **Show assistant** on the right of the screen to open **Tasks** pane.
+1. Select **ARM template deployment**.
+1. Enter the following values:
 
-    ```yaml
-    steps:
-    - task: AzureResourceManagerTemplateDeployment@3
-      inputs:
-        deploymentScope: 'Resource Group'
-        ConnectedServiceName: '[EnterYourServiceConnectionName]'
-        subscriptionName: '[EnterTheTargetSubscriptionID]'
-        action: 'Create Or Update Resource Group'
-        resourceGroupName: '[EnterANewResourceGroupName]'
-        location: 'Central US'
-        templateLocation: 'Linked artifact'
-        csmFile: 'CreateWebApp/azuredeploy.json'
-        overrideParameters: '-projectName [EnterAProjectName] -linkedTemplateUri [EnterTheLinkedTemplateURL]'
-        deploymentMode: 'Incremental'
-    ```
+    * **deploymentScope**: Select **Resource Group**.. To learn more about the scopes, see [Deployment scopes](deploy-rest.md#deployment-scope).
+    * **Azure Resource Manager connection**: Select the service connection name that you created earlier.
+    * **Subscription**:  Specify the target subscription ID.
+    * **Action**: Select the **Create Or Update Resource Group** action does 2 actions - 1. create a resource group if a new resource group name is provided; 2. deploy the template specified.
+    * **Resource group**: Enter a new resource group name. For example, **AzureRmPipeline-rg**.
+    * **Location**: Select a location for the resource group, for example, **Central US**.
+    * **Template location**: Select **Linked artifact**, which means the task looks for the template file directly from the connected repository.
+    * **Template**: Enter **CreateWebApp/azuredeploy.json**. If you changed the folder name and the file name, you need to change this value.
+    * **Template parameters**: Leave this field blank. You will specify the parameter values in the **Override template parameters.
+    * **overrideParameters**: Enter **-projectName [EnterAProjectName] -linkedTemplateUri [EnterTheLinkedTemplateURL]**. Replace the project name ans the linked template url. The linked template URL is what you wrote down at the end of [Create a Github repository](#create-a-github-repository).
+    * **Deployment mode**: Select **Incremental**.
+    * **Deployment name**: Enter **DeployPipelineTemplate**. Select **Advanced** before you can see **Deployment name**.
 
-    It shall look like:
-
-    ![Azure Resource Manager Azure DevOps Azure Pipelines yaml](./media/template-tutorial-use-azure-pipelines/azure-resource-manager-devops-pipelines-yml.png)
-
-    Make the following changes:
-
-    * **deploymentScope**: Select the scope of deployment from the options: `Management Group`, `Subscription` and `Resource Group`. Use **Resource Group** in this tutorial. To learn more about the scopes, see [Deployment scopes](deploy-rest.md#deployment-scope).
-    * **ConnectedServiceName**: Specify the service connection name that you created earlier.
-    * **SubscriptionName**:  Specify the target subscription ID.
-    * **action**: the **Create Or Update Resource Group** action does 2 actions - 1. create a resource group if a new resource group name is provided; 2. deploy the template specified.
-    * **resourceGroupName**: specify a new resource group name. For example, **AzureRmPipeline-rg**.
-    * **location**: specify the location for the resource group.
-    * **templateLocation**: when **Linked artifact** is specified, the task looks for the template file directly from the connected repository.
-    * **csmFile** is the path to the template file. You don't need to specify a template parameters file because all of the parameters defined in the template have default values.
-    * **overrideParameters**: used to override the parameters. The linked template URL is what you wrote down at the end of [Create a Github repository](#create-a-github-repository).
+1. Select **Add**.
 
     For more information about the task, see [Azure Resource Group Deployment task](/azure/devops/pipelines/tasks/deploy/azure-resource-group-deployment), and [Azure Resource Manager template deployment task](https://github.com/microsoft/azure-pipelines-tasks/blob/master/Tasks/AzureResourceManagerTemplateDeploymentV3/README.md)
+
+    The yml file shall be similar to:
+
+    ![Azure Resource Manager Azure DevOps Azure Pipelines yaml](./media/deployment-tutorial-pipeline/azure-resource-manager-devops-pipelines-yml.png)
+
 1. Select **Save and run**.
 1. Select **Save and run** again. A copy of the YAML file is saved into the connected repository. You can see the YAML file by browse to your repository.
 1. Verify that the pipeline is executed successfully.
 
-    ![Azure Resource Manager Azure DevOps Azure Pipelines yaml](./media/template-tutorial-use-azure-pipelines/azure-resource-manager-devops-pipelines-status.png)
+    ![Azure Resource Manager Azure DevOps Azure Pipelines yaml](./media/deployment-tutorial-pipeline/azure-resource-manager-devops-pipelines-status.png)
 
 ## Verify the deployment
 
@@ -211,16 +204,14 @@ To create a pipeline with a step to deploy a template:
 1. Select the storage account name to open it.
 1. Select **Properties**. Notice the **Replication** is **Locally-redundant storage (LRS)**.
 
-    ![Azure Resource Manager Azure DevOps Azure Pipelines portal verification](./media/template-tutorial-use-azure-pipelines/azure-resource-manager-devops-pipelines-portal-verification.png)
-
 ## Update and redeploy
 
 When you update the template and push the changes to the remote repository, the pipeline automatically updates the resources, the storage account in this case.
 
-1. Open **azuredeploy.json** from your local repository in Visual Studio Code.
+1. Open **linkedStorageAccount.json** from your local repository in Visual Studio Code or any text editor.
 1. Update the **defaultValue** of **storageAccountType** to **Standard_GRS**. See the following screenshot:
 
-    ![Azure Resource Manager Azure DevOps Azure Pipelines update yaml](./media/template-tutorial-use-azure-pipelines/azure-resource-manager-devops-pipelines-update-yml.png)
+    ![Azure Resource Manager Azure DevOps Azure Pipelines update yaml](./media/deployment-tutorial-pipeline/azure-resource-manager-devops-pipelines-update-yml.png)
 
 1. Save the changes.
 1. Push the changes to the remote repository by running the following commands from Git Bash/Shell.
@@ -228,7 +219,7 @@ When you update the template and push the changes to the remote repository, the 
     ```bash
     git pull origin master
     git add .
-    git commit -m “Add a new create storage account template.”
+    git commit -m “Update the storage account type.”
     git push origin master
     ```
 
@@ -251,7 +242,8 @@ You might also want to delete the GitHub repository and the Azure DevOps project
 
 ## Next steps
 
-In this tutorial, you create an Azure DevOps pipeline to deploy an Azure Resource Manager template. To learn how to deploy Azure resources across multiple regions, and how to use safe deployment practices, see
+Congratulations, you've finished this Resource Manager template deployoment tutorial. Let us know if you have any comments and suggestions in the feedback section. Thanks!
+You're ready to jump into more advanced concepts about templates. The next tutorial goes into more detail about using template reference documentation to help with defining resources to deploy.
 
 > [!div class="nextstepaction"]
-> [Use safe deployment practices](./deployment-manager-tutorial.md)
+> [Utilize template reference](./template-tutorial-create-encrypted-storage-accounts.md)
