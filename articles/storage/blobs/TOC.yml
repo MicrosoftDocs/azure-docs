@@ -668,7 +668,7 @@
       items:
       - name: Multi-protocol access
         href: data-lake-storage-multi-protocol-access.md
-      - name: Supported Blob Storage features
+      - name: Supported Blob storage features
         href: data-lake-storage-supported-blob-storage-features.md
       - name: Supported Azure services
         href: data-lake-storage-supported-azure-services.md

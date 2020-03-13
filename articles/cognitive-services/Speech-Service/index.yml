@@ -36,12 +36,12 @@ conceptualContent:
   items:
     - title: Speech-to-text
       links:
+        - itemType: how-to-guide
+          text: Speech recognition basics
+          url: speech-to-text-basics.md
         - itemType: quickstart
           text: Recognize speech from a microphone
           url: quickstarts/speech-to-text-from-microphone.md
-        - itemType: quickstart
-          text: Recognize speech in batch mode
-          url: batch-transcription.md
         - itemType: how-to-guide
           text: Customize speech recognition for your apps
           url: how-to-custom-speech.md
