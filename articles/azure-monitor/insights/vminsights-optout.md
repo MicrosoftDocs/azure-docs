@@ -28,7 +28,7 @@ As you prepare to disable monitoring of your VMs, keep these considerations in m
 * If you selected a preexisting Log Analytics workspace that supports other monitoring solutions and data collection from other sources, you can remove solution components from the workspace without interrupting or affecting your workspace.  
 
 >[!NOTE]
-> After removing the solution components from your workspace, you might continue to see health state from your Azure VMs; specifically, you'll see performance and map data when you go to either view in the portal. Data will eventually stop appearing in the **Performance** and **Map** views. But the **Health** view will continue to show health status for your VMs. The **Try now** option will be available from the selected Azure VM so you can re-enable monitoring in the future.  
+> After removing the solution components from your workspace, you might continue to see performance and map data for your Azure VMs. Data will eventually stop appearing in the **Performance** and **Map** views. The **Enable** option will be available from the selected Azure VM so you can re-enable monitoring in the future.  
 
 ## Remove Azure Monitor for VMs completely
 
@@ -39,8 +39,6 @@ If you still need the Log Analytics workspace, follow these steps to completely 
 3. In your list of Log Analytics workspaces, select the workspace you chose when you enabled Azure Monitor for VMs.
 4. On the left, select **Solutions**.  
 5. In the list of solutions, select **VMInsights(workspace name)**. On the **Overview** page for the solution, select **Delete**. When prompted to confirm, select **Yes**.
-
-Before you enabled Azure Monitor for VMs, if you didn't [collect performance counters](vminsights-enable-overview.md#performance-counters-enabled) for the Windows-based or Linux-based VMs in your workspace, [disable those rules](../platform/data-sources-performance-counters.md#configuring-performance-counters) for Windows and for Linux.
 
 ## Disable monitoring and keep the workspace  
 

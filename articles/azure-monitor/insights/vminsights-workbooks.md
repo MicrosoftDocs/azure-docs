@@ -20,7 +20,7 @@ Workbooks are helpful for scenarios such as:
 * Sharing the results of a resizing experiment of your VM with other members of your team. You can explain the goals for the experiment with text, then show each usage metric and analytics queries used to evaluate the experiment, along with clear call-outs for whether each metric was above- or below-target.
 * Reporting the impact of an outage on the usage of your VM, combining data, text explanation, and a discussion of next steps to prevent outages in the future.
 
-Azure Monitor for VMs includes several workbooks to get you started, and the following table summarizes them.
+The following table summarizes the workbooks that Azure Monitor for VMs includes to get you started.
 
 | Workbook | Description | Scope |
 |----------|-------------|-------|
@@ -54,7 +54,7 @@ A workbook is made up of sections consisting of independently editable charts, t
 
     This launches the workbook gallery with a number of prebuilt workbooks to help you get started.
 
-7. Start with the **Default Template**, which is located under the heading **Quick start**.
+7. Create a new workbook by selecting **New**.
 
     ![Screenshot of workbook gallery](media/vminsights-workbooks/workbook-gallery-01.png)
 
