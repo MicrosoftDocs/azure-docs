@@ -296,7 +296,7 @@ Alternatively, if you decide to provide a pointer to the entities definition fil
 
 ### Warning: Reached maximum capacity for matches, skipping all further duplicate matches.
 
-This warning will be emitted if the number of matches detected is greater than the maximum allowed. In this case, we will remove all duplicate matches. If this is unacceptable to you, please file a [support ticket](https://ms.portal.azure.com/#create/Microsoft.Support) so we can assist you with your individual use case.
+This warning will be emitted if the number of matches detected is greater than the maximum allowed. In this case, we will stop including duplicate matches. If this is unacceptable to you, please file a [support ticket](https://ms.portal.azure.com/#create/Microsoft.Support) so we can assist you with your individual use case.
 
 ## See also
 
