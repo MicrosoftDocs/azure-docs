@@ -20,6 +20,8 @@
       items:
         - name: What is speech-to-text?
           href: speech-to-text.md
+        - name: Speech-to-text basics
+          href: speech-to-text-basics.md
     - name: Quickstart
       items:
         - name: Recognize speech with microphone input
