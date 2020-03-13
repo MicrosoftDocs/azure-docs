@@ -182,7 +182,7 @@
       href: event-hubs-management-libraries.md
   - name: Secure 
     items:
-    - name: Configure firewall
+    - name: Configure IP firewall
       href: event-hubs-ip-filtering.md
     - name: Configure virtual network service endpoints
       href: event-hubs-service-endpoints.md

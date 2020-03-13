@@ -162,8 +162,7 @@ landingContent:
             url: event-hubs-ip-filtering.md
           - text: Use virtual network service endpoints
             url: event-hubs-service-endpoints.md
+          - text: Use private endpoints
+            url: private-link-service.md            
           - text: Configure customer-managed keys for encrypting data at rest
             url: configure-customer-managed-key.md            
-          - text: Enable Virtual Networks integration and firewalls
-            url: event-hubs-tutorial-virtual-networks-firewalls.md
-            

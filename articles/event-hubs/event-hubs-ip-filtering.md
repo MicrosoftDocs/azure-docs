@@ -15,50 +15,31 @@ ms.author: spelluru
 
 ---
 
-# Azure Event Hubs - Configure IP firewall rules
-For scenarios in which Azure Event Hubs should be only accessible from certain well-known sites, firewall rules enable you to configure rules for accepting traffic originating from specific IPv4 addresses. For example, these addresses may be those of a corporate NAT gateway.
+# Configure IP firewall rules for an Azure Event Hubs namespace
+By default, Event Hubs namespaces are accessible from internet as long as the request comes with valid authentication and authorization. With IP firewall, you can restrict it further to only a set of IPv4 addresses or IPv4 address ranges in [CIDR (Classless Inter-Domain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) notation.
 
-Firewalls allow you to limit access to the Event Hubs namespace from specific IP addresses (or IP address ranges)
+This feature is helpful in scenarios in which Azure Event Hubs should be only accessible from certain well-known sites. Firewall rules enable you to configure rules to accept traffic originating from specific IPv4 addresses. For example, if you use Event Hubs with [Azure Express Route][express-route], you can create a **firewall rule** to allow traffic from only your on-premises infrastructure IP addresses. 
 
-## When to use
+## IP firewall rules
+The IP firewall rules are applied at the Event Hubs namespace level. Therefore, the rules apply to all connections from clients using any supported protocol. Any connection attempt from an IP address that does not match an allowed IP rule on the Event Hubs namespace is rejected as unauthorized. The response does not mention the IP rule. IP filter rules are applied in order, and the first rule that matches the IP address determines the accept or reject action.
 
-If you are looking to setup your Event Hubs namespace such that it should receive traffic from only a specified range of IP addresses and reject everything else, then you can leverage a *Firewall rule* to block Event Hub endpoints from other IP addresses. For example, if you use Event Hubs with [Azure Express Route][express-route], you can create a *Firewall rule* to restrict the traffic from your on-premises infrastructure IP addresses.
-
-## How filter rules are applied
-The IP filter rules are applied at the Event Hubs namespace level. Therefore, the rules apply to all connections from clients using any supported protocol.
-
-Any connection attempt from an IP address that does not match an allowed IP rule on the Event Hubs namespace is rejected as unauthorized. The response does not mention the IP rule.
-
-## Default setting
-By default, the **IP Filter** grid in the portal for Event Hubs is empty. This default setting means that your event hub accepts connections from any IP address. This default setting is equivalent to a rule that accepts the 0.0.0.0/0 IP address range.
-
-## IP filter rule evaluation
-IP filter rules are applied in order, and the first rule that matches the IP address determines the accept or reject action.
-
-## Add firewall for specified IP
-
-We can limit access to the Event Hubs namespace for a limited range of IP addresses, or a specific IP address by using Firewall rules.
+## Azure portal
+This section shows you how to use the Azure portal to create IP firewall rules for an Event Hubs namespace. 
 
 1. Navigate to your **Event Hubs namespace** in the [Azure portal](https://portal.azure.com).
-2. On the left menu, select **Firewalls and Virtual Networks** option.
-1. Click the **Selected Networks** radio button on the top of the page to enable the rest of the page with menu options.
-  ![selected networks](./media/event-hubs-tutorial-vnet-and-firewalls/vnet-firewall-selecting-selected-networks.png)
-2. In the **Firewall** section, under the ***Address Range*** grid, you may add one or many specific IP address, or ranges of IP addresses.
-  ![add ip addresses](./media/event-hubs-tutorial-vnet-and-firewalls/vnet-firewall-adding-firewall.png)
-3. Once you have added the multiple IP addresses (or ranges of IP addresses), hit **Save** on the top ribbon to ensure that the configuration is saved on the service side. Please wait for a few minutes for the confirmation to show up on the portal notifications.
-  ![add ip addresses and hit save](./media/event-hubs-tutorial-vnet-and-firewalls/vnet-firewall-adding-firewall-hitting-save.png)
+2. On the left menu, select **Networking** option. By default, the **All networks** option is selected. Your event hub accepts connections from any IP address. This default setting is equivalent to a rule that accepts the 0.0.0.0/0 IP address range. 
 
-## Add your current IP address to the Firewall rules
+    ![Firewall - All networks option selected](./media/event-hubs-firewall/firewall-all-networks-selected.png)
+1. Select the **Selected networks** option at the top of the page. In the **Firewall** section, follow these steps:
+    1. Select **Add your client IP address** option to give your current client IP the access to the namespace. 
+    2. For **address range**, enter a specific IPv4 address or a range of IPv4 address in CIDR notation. 
+    3. Specify whether you want to **allow trusted Microsoft services to bypass this firewall**. 
 
-1. You can also add your current IP address quickly by checking the ***Add your client IP address (YOUR CURRENT IP ADDRESS)*** checkbox just above the ***Address Range*** grid.
-  ![adding current IP address](./media/event-hubs-tutorial-vnet-and-firewalls/vnet-firewall-adding-current-ip-hitting-save.png)
-2. Once you have added your current IP address to the firewall rules, hit **Save** on the top ribbon to ensure that the configuration is saved on the service side. Please wait for a few minutes for the confirmation to show up on the portal notifications.
-  ![add current IP address and hit save](./media/event-hubs-tutorial-vnet-and-firewalls/vnet-firewall-adding-current-ip-hitting-save-after-saving.png)
+        ![Firewall - All networks option selected](./media/event-hubs-firewall/firewall-selected-networks-trusted-access-disabled.png)
+3. Select **Save** on the toolbar to save the settings. Wait for a few minutes for the confirmation to show up on the portal notifications.
 
 
-
-
-## Create a firewall rule with Resource Manager template
+## Resource Manager template
 
 > [!IMPORTANT]
 > Firewall rules are supported in **standard** and **dedicated** tiers of Event Hubs. It's not supported in basic tier.

@@ -21,55 +21,56 @@ The integration of Event Hubs with [Virtual Network (VNet) Service Endpoints][vn
 
 Once configured to bound to at least one virtual network subnet service endpoint, the respective Event Hubs namespace no longer accepts traffic from anywhere but authorized subnets in virtual networks. From the virtual network perspective, binding an Event Hubs namespace to a service endpoint configures an isolated networking tunnel from the virtual network subnet to the messaging service. 
 
-The result is a private and isolated relationship between the workloads bound to the subnet and the respective Event Hubs namespace, in spite of the observable network address of the messaging service endpoint being in a public IP range. There is an exception to this behavior. Enabling a service endpoint, by default, enables the denyall rule in the [IP firewall](event-hubs-ip-filtering.md) associated with the virtual network. You can add specific IP addresses in the IP firewall to enable access to the Event Hub public endpoint. 
+The result is a private and isolated relationship between the workloads bound to the subnet and the respective Event Hubs namespace, in spite of the observable network address of the messaging service endpoint being in a public IP range. There is an exception to this behavior. Enabling a service endpoint, by default, enables the `denyall` rule in the [IP firewall](event-hubs-ip-filtering.md) associated with the virtual network. You can add specific IP addresses in the IP firewall to enable access to the Event Hub public endpoint. 
 
 > [!IMPORTANT]
-> Virtual networks are supported in **standard** and **dedicated** tiers of Event Hubs. It's not supported in basic tier.
+> Virtual networks are supported in **standard** and **dedicated** tiers of Event Hubs. It's not supported in the **basic** tier.
 
 ## Advanced security scenarios enabled by VNet integration 
 
 Solutions that require tight and compartmentalized security, and where virtual network subnets provide the segmentation between the compartmentalized services, still need communication paths between services residing in those compartments.
 
-Any immediate IP route between the compartments, including those carrying HTTPS over TCP/IP, carries the risk of exploitation of vulnerabilities from the network layer on up. Messaging services provide completely insulated communication paths, where messages are even written to disk as they transition between parties. Workloads in two distinct virtual networks that are both bound to the same Event Hubs instance can communicate efficiently and reliably via messages, while the respective network isolation boundary integrity is preserved.
+Any immediate IP route between the compartments, including those carrying HTTPS over TCP/IP, carries the risk of exploitation of vulnerabilities from the network layer on up. Messaging services provide insulated communication paths, where messages are even written to disk as they transition between parties. Workloads in two distinct virtual networks that are both bound to the same Event Hubs instance can communicate efficiently and reliably via messages, while the respective network isolation boundary integrity is preserved.
  
 That means your security sensitive cloud solutions not only gain access to Azure industry-leading reliable and scalable asynchronous messaging capabilities, but they can now use messaging to create communication paths between secure solution compartments that are inherently more secure than what is achievable with any peer-to-peer communication mode, including HTTPS and other TLS-secured socket protocols.
 
-## Bind Event Hubs to Virtual Networks
+## Bind event hubs to virtual networks
 
-*Virtual network rules* are the firewall security feature that controls whether your Azure Event Hubs namespace accepts connections from a particular virtual network subnet.
+**Virtual network rules** are the firewall security feature that controls whether your Azure Event Hubs namespace accepts connections from a particular virtual network subnet.
 
-Binding an Event Hubs namespace to a virtual network is a two-step process. You first need to create a **Virtual Network service endpoint** on a Virtual Network subnet and enable it for "Microsoft.EventHub" as explained in the [service endpoint overview][vnet-sep]. Once you have added the service endpoint, you bind the Event Hubs namespace to it with a *virtual network rule*.
+Binding an Event Hubs namespace to a virtual network is a two-step process. You first need to create a **virtual Network service endpoint** on a virtual network's subnet and enable it for **Microsoft.EventHub** as explained in the [service endpoint overview][vnet-sep] article. Once you have added the service endpoint, you bind the Event Hubs namespace to it with a **virtual network rule**.
 
-The virtual network rule is an association of the Event Hubs namespace with a virtual network subnet. While the rule exists, all workloads bound to the subnet are granted access to the Event Hubs namespace. Event Hubs itself never establishes outbound connections, does not need to gain access, and is therefore never granted access to your subnet by enabling this rule.
+The virtual network rule is an association of the Event Hubs namespace with a virtual network subnet. While the rule exists, all workloads bound to the subnet are granted access to the Event Hubs namespace. Event Hubs itself never establishes outbound connections, doesn't need to gain access, and is therefore never granted access to your subnet by enabling this rule.
 
-## Add a virtual network service endpoint
-
-To limit access, you need to integrate the Virtual Network service endpoint for this Event Hubs namespace.
+## Azure portal
+This section shows you how to use Azure portal to add a virtual network service endpoint. To limit access, you need to integrate the virtual network service endpoint for this Event Hubs namespace.
 
 1. Navigate to your **Event Hubs namespace** in the [Azure portal](https://portal.azure.com).
-2. On the left menu, select **Firewalls and Virtual Networks** option.   The first time you visit this page, the **All Networks** radio button must be selected. This implies that the Event Hubs namespace allows all incoming connections.
-  ![Navigate to menu](./media/event-hubs-tutorial-vnet-and-firewalls/vnet-firewall-landing-page.png)
-1. Click the **Selected Networks** radio button on the top of the page to enable the rest of the page with menu options.
-  ![selected networks](./media/event-hubs-tutorial-vnet-and-firewalls/vnet-firewall-selecting-selected-networks.png)
-2. In the Virtual Network section of the page, select the option to ***+Add existing virtual network***. This will slide in the pane that will permit you to select an already created Virtual network.
-  ![add existing virtual network](./media/event-hubs-tutorial-vnet-and-firewalls/vnet-firewall-adding-vnet-from-portal-slide-in-pane.png)
-3. Select the Virtual Network from the list and pick the subnet.
-   ![select subnet](./media/event-hubs-tutorial-vnet-and-firewalls/vnet-firewall-adding-vnet-from-portal-slide-in-pane-with-subnet-query.png)
-4. You have to enable the service endpoint before adding the Virtual Network to the list. If the service endpoint is not enabled, the portal will prompt you to enable it.
-  ![select subnet and enable endpoint](./media/event-hubs-tutorial-vnet-and-firewalls/vnet-firewall-adding-vnet-from-portal-slide-in-pane-after-enabling.png)
+2. On the left menu, select **Networking** option. By default, the **All networks** option is selected. Your event hub accepts connections from any IP address. This default setting is equivalent to a rule that accepts the 0.0.0.0/0 IP address range. 
+
+    ![Firewall - All networks option selected](./media/event-hubs-firewall/firewall-all-networks-selected.png)
+1. Select the **Selected Networks** option at the top of the page.
+2. In the **Virtual Network** section of the page, select **+Add existing virtual network***. 
+
+    ![add existing virtual network](./media/event-hubs-tutorial-vnet-and-firewalls/add-vnet-menu.png)
+3. Select the virtual network from the list of virtual networks, and then pick the **subnet**. You have to enable the service endpoint before adding the virtual network to the list. If the service endpoint isn't enabled, the portal will prompt you to enable it.
+   
+   ![select subnet](./media/event-hubs-tutorial-vnet-and-firewalls/select-subnet.png)
+
+4. You should see the following successful message after the service endpoint for the subnet is enabled for **Microsoft.EventHub**. Select **Add** at the bottom of the page to add the network. 
+
+    ![select subnet and enable endpoint](./media/event-hubs-tutorial-vnet-and-firewalls/subnet-service-endpoint-enabled.png)
+
     > [!NOTE]
-    > If you are unable to enable the service endpoint, you may ignore the missing Virtual network service endpoint using the ARM template. This functionality is not available on the portal.
+    > If you are unable to enable the service endpoint, you may ignore the missing virtual network service endpoint using the Resource Manager template. This functionality is not available on the portal.
+6. Select **Save** on the toolbar to save the settings. Wait for a few minutes for the confirmation to show up on the portal notifications.
 
-5. After enabling the Service endpoint on the selected subnet, you can proceed to add it to the list of permitted Virtual Networks.
-  ![adding subnet after enabling endpoint](./media/event-hubs-tutorial-vnet-and-firewalls/vnet-firewall-adding-vnet-from-portal-slide-in-pane-after-adding.png)
-
-6. Proceed to hit the **Save** button on the top ribbon to save the virtual network configuration on the service. Please wait for a few minutes for the confirmation to show up on the portal notifications.
+    ![Save network](./media/event-hubs-tutorial-vnet-and-firewalls/save-vnet.png)
 
 
-### Create a virtual network rule with Resource Manager template
+### Resource Manager template
 
-The following Resource Manager template enables adding a virtual network rule to an existing Event Hubs 
-namespace.
+The following Resource Manager template enables adding a virtual network rule to an existing Event Hubs namespace.
 
 Template parameters:
 
