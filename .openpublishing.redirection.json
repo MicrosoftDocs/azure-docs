@@ -856,6 +856,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/LUIS/luis-resources-faq.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/troubleshooting",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/LUIS/luis-tutorial-bot-csharp-appinsights.md",
       "redirect_url": "/azure/cognitive-services/LUIS/luis-csharp-tutorial-bf-v4",
       "redirect_document_id": false
