@@ -137,19 +137,12 @@ Most configuration changes (for example, VNet, sign-in and product terms) requir
 The interactive console makes a client-side API request from the browser. You can resolve the CORS problem by adding [a CORS policy](api-management-cross-domain-policies.md#CORS) on your API(s). You can specify all the parameters manually or use wildcard `*` values. For example:
 
 ```XML
-<cors>
+<cors allow-credentials="true">
     <allowed-origins>
-        <origin>*</origin>
+        <origin>https://contoso.com</origin>
     </allowed-origins>
-    <allowed-methods>
-        <method>GET</method>
-        <method>POST</method>
-        <method>PUT</method>
-        <method>DELETE</method>
-        <method>HEAD</method>
-        <method>OPTIONS</method>
-        <method>PATCH</method>
-        <method>TRACE</method>
+    <allowed-methods preflight-result-max-age="300">
+        <method>*</method>
     </allowed-methods>
     <allowed-headers>
         <header>*</header>
@@ -159,6 +152,12 @@ The interactive console makes a client-side API request from the browser. You ca
     </expose-headers>
 </cors>
 ```
+
+Apply the CORS on the global scope to ensure it's enabled for all APIs.
+
+1. Navigate to **All APIs** in the **APIs** section of your API Management service in the Azure portal.
+2. Click on the **</>** icon in the **Inbound processing** section.
+3. Insert the policy in the **<inbound>** section of the XML file. Make sure the **<origin>** value matches your developer portal's domain.
 
 > [!NOTE]
 > 
