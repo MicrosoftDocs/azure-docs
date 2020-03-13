@@ -239,19 +239,19 @@ For more information, see [Create an Azure Batch pool in a virtual network](../b
 
 To create a Machine Learning Compute cluster, use the following steps:
 
-1. In the [Azure portal](https://portal.azure.com), select your Azure Machine Learning workspace.
+1. Sign in to [Azure Machine Learning studio](https://ml.azure.com/), and then select your subscription and workspace.
 
-1. In the __Application__ section, select __Compute__, and then select __Add compute__.
+1. Select __Compute__ on the left.
 
-1. To configure this compute resource to use a virtual network, do the following actions:
+1. Select __Training clusters__ from the center, and then select __+__.
 
-    a. For __Network configuration__, select __Advanced__.
+1. In the __New Training Cluster__ dialog, expand the __Advanced settings__ section.
 
-    b. In the __Resource group__ drop-down list, select the resource group that contains the virtual network.
+1. To configure this compute resource to use a virtual network, perform the following actions in the __Configure virtual network__ section:
 
-    c. In the __Virtual network__ drop-down list, select the virtual network that contains the subnet.
-
-    d. In the __Subnet__ drop-down list, select the subnet to use.
+    1. In the __Resource group__ drop-down list, select the resource group that contains the virtual network.
+    1. In the __Virtual network__ drop-down list, select the virtual network that contains the subnet.
+    1. In the __Subnet__ drop-down list, select the subnet to use.
 
    ![The virtual network settings for Machine Learning Compute](./media/how-to-enable-virtual-network/amlcompute-virtual-network-screen.png)
 
@@ -353,29 +353,22 @@ To add AKS in a virtual network to your workspace, use the following steps:
 >
 > The AKS instance and the Azure virtual network must be in the same region. If you secure the Azure Storage Account(s) used by the workspace in a virtual network, they must be in the same virtual network as the AKS instance.
 
-1. In the [Azure portal](https://portal.azure.com), make sure that the NSG that controls the virtual network has an inbound rule that's enabled for Azure Machine Learning by using __AzureMachineLearning__ as the **SOURCE**.
+1. Sign in to [Azure Machine Learning studio](https://ml.azure.com/), and then select your subscription and workspace.
 
-    [![Azure Machine Learning Add Compute pane](./media/how-to-enable-virtual-network/aks-vnet-inbound-nsg-aml.png)](./media/how-to-enable-virtual-network/aks-vnet-inbound-nsg-aml.png#lightbox)
+1. Select __Compute__ on the left.
 
-1. Select your Azure Machine Learning workspace.
+1. Select __Inference clusters__ from the center, and then select __+__.
 
-1. In the __Application__ section, select __Compute__, and then select __Add compute__.
+1. In the __New Inference Cluster__ dialog, select __Advanced__ under __Network configuration__.
 
-1. To configure this compute resource to use a virtual network, do the following actions:
+1. To configure this compute resource to use a virtual network, perform the following actions:
 
-    - For __Network configuration__, select __Advanced__.
-
-    - In the __Resource group__ drop-down list, select the resource group that contains the virtual network.
-
-    - In the __Virtual network__ drop-down list, select the virtual network that contains the subnet.
-
-    - In the __Subnet__ drop-down list, select the subnet.
-
-    - In the __Kubernetes Service address range__ box, enter the Kubernetes service address range. This address range uses a Classless Inter-Domain Routing (CIDR) notation IP range to define the IP addresses that are available for the cluster. It must not overlap with any subnet IP ranges (for example, 10.0.0.0/16).
-
-    - In the __Kubernetes DNS service IP address__ box, enter the Kubernetes DNS service IP address. This IP address is assigned to the Kubernetes DNS service. It must be within the Kubernetes service address range (for example, 10.0.0.10).
-
-    - In the __Docker bridge address__ box, enter the Docker bridge address. This IP address is assigned to Docker Bridge. It must not be in any subnet IP ranges, or the Kubernetes service address range (for example, 172.17.0.1/16).
+    1. In the __Resource group__ drop-down list, select the resource group that contains the virtual network.
+    1. In the __Virtual network__ drop-down list, select the virtual network that contains the subnet.
+    1. In the __Subnet__ drop-down list, select the subnet.
+    1. In the __Kubernetes Service address range__ box, enter the Kubernetes service address range. This address range uses a Classless Inter-Domain Routing (CIDR) notation IP range to define the IP addresses that are available for the cluster. It must not overlap with any subnet IP ranges (for example, 10.0.0.0/16).
+    1. In the __Kubernetes DNS service IP address__ box, enter the Kubernetes DNS service IP address. This IP address is assigned to the Kubernetes DNS service. It must be within the Kubernetes service address range (for example, 10.0.0.10).
+    1. In the __Docker bridge address__ box, enter the Docker bridge address. This IP address is assigned to Docker Bridge. It must not be in any subnet IP ranges, or the Kubernetes service address range (for example, 172.17.0.1/16).
 
    ![Azure Machine Learning: Machine Learning Compute virtual network settings](./media/how-to-enable-virtual-network/aks-virtual-network-screen.png)
 
