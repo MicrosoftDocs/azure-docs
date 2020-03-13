@@ -20,7 +20,7 @@
       items:
         - name: What is speech-to-text?
           href: speech-to-text.md
-        - name: Speech-to-text basics
+        - name: Speech recognition basics
           href: speech-to-text-basics.md
     - name: Quickstart
       items:
@@ -538,6 +538,8 @@
       href: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/
     - name: Compliance
       href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
+    - name: Encryption
+      href: speech-encryption-of-data-at-rest.md
     - name: Azure roadmap
       href: 'https://azure.microsoft.com/roadmap/?category=ai-machine-learning'
     - name: Privacy and cookies
