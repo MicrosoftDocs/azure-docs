@@ -1,7 +1,6 @@
 ---
-title: Activate Azure subscriptions and accounts | Microsoft Docs
+title: Activate Azure subscriptions and accounts
 description: Enable access using Azure Resource Manager APIs for new and existing accounts and resolve common account problems.
-keywords:
 author: bandersmsft
 ms.author: banders
 ms.date: 01/24/2020
