@@ -20,7 +20,7 @@ ms.service: digital-twins
 Azure Digital Twins **Twin APIs** let developers create, modify, and delete digital twins and their relationships in an Azure Digital Twins instance.
 
 ## Create a twin graph (preview)
-Once we have a set of Azure digital twins represented by several twin type models, we can create a twin graph representing a complete hospital. For a small hospital, this graph might look like this:
+Once we have a set of Azure digital twins represented by several twin types, we can create a twin graph representing a complete hospital. For a small hospital, this graph might look like this:
 
 [![Twin graph of a sample hospital](./media/how-to-manage-graph/hospital-graph.png)](./media/how-to-manage-graph/hospital-graph.png#lightbox)
 
@@ -50,7 +50,7 @@ var client = new DigitalTwinsClient("...Authentication Info...");
 
 ## Create Azure digital twins and twin graphs 
 
-Once twin type models are uploaded to the server, you can begin creating Azure digital twins and constructing a twin graph. In many cases, the data that determines the topology of the twin graph will come from an existing data source, such as a CAD file, a BIM database, or an Excel spreadsheet.
+Once twin types are uploaded to the server, you can begin creating Azure digital twins and constructing a twin graph. In many cases, the data that determines the topology of the twin graph will come from an existing data source, such as a CAD file, a BIM database, or an Excel spreadsheet.
 
 The following code shows a minimal example for twin graph creation:
 
@@ -61,7 +61,7 @@ Response rMoon = client.CreateTwin("urn:contosocom:example:Moon:1", "idMyMoon01"
 Response rR = client.CreateRelationship("idMyPlanet01", "IsCircledBy", "idMyMoon01", "idRel01");
 ```
 
-This code creates two digital twins, one using twin type model *Planet*, and the other using twin type model *Moon*. In addition to the twin type model ID (`urn:contosocom:example:Planet` and `urn:contosocom:example:Moon`), you need to pass in a unique ID, and data to initialize the Azure digital twin during creation. The sample also creates a relationship between the two digital twins, connecting them to each other.
+This code creates two digital twins, one using twin type *Planet*, and the other using twin type *Moon*. In addition to the twin type ID (`urn:contosocom:example:Planet` and `urn:contosocom:example:Moon`), you need to pass in a unique ID, and data to initialize the Azure digital twin during creation. The sample also creates a relationship between the two digital twins, connecting them to each other.
 
 ## Initialize properties
 
@@ -99,7 +99,7 @@ string s = JsonSerializer.Serialize(moonData);
 
 A slightly more complete example is outlined below, to read topology from a spreadsheet. The example assumes that there are a number of rows in the Excel file that list floors or rooms (and the parent floor for each room):
 
-| Twin type model    | ID | Parent | Relationship name | Other data |
+| Twin type    | ID | Parent | Relationship name | Other data |
 | --- | --- | --- | --- | --- |
 | floor    | Floor01 | | | … |
 | room    | Room10 | Floor01 | contains | … |

@@ -183,7 +183,7 @@ In this section, we will discuss and illustrate notification message headers as 
 We aspire to have notifications conform to the CloudEvents standard. For practical reasons, we suggest a phased approach to CloudEvents conformance.
 * Notifications emitted from devices continue to follow the existing specifications for notifications
 * Notifications processed and emitted by IoT Hub continue to follow the existing specifications for notification, except where IoT Hub chooses to support CloudEvents, such as through Event Grid
-* Notifications emitted from Azure digital twin based on twin type models conform to CloudEvents
+* Notifications emitted from Azure digital twin based on twin types conform to CloudEvents
 * Notifications processed and emitted by Azure Digital Twins conform to CloudEvents
 
 Services have to add a sequence number on all the notifications to indicate order of notifications, or otherwise perform their own actions to maintain ordering. Notifications emitted by Azure Digital Twins to Event Grid are formatted into the Event Grid schema, until Event Grid supports CloudEvents on input. Extension attributes on headers will be added as properties on the Event Grid schema inside of the payload.  
@@ -248,7 +248,7 @@ Here is an example of body for [IoT Plug and Play (PnP)](../iot-pnp/overview-iot
 }
 ```
 
-Here is another example of an Azure digital twin based on a twin type model, that does not support components:
+Here is another example of an Azure digital twin based on a twin type, that does not support components:
 
 ```json
 {
@@ -321,9 +321,9 @@ Here is an example of an update edge notification to update a property:
 ]
 ```
 
-### Digital twin type model change notifications
+### Digital twin type change notifications
 
-These notifications are triggered when a Digital Twins Definition Language (DTDL) [twin type model](concepts-models.md) is uploaded, reloaded, patched, decommissioned, or deleted.
+These notifications are triggered when a Digital Twins Definition Language (DTDL) [twin type](concepts-models.md) is uploaded, reloaded, patched, decommissioned, or deleted.
 
 #### Properties
 
@@ -334,18 +334,18 @@ These notifications are triggered when a Digital Twins Definition Language (DTDL
 | specversion    | 1.0 |
 | type    | `Microsoft.<Service RP>.Model.Upload`<br>`Microsoft.<Service RP>.Model.Reload` (Hub-specific)<br>`Microsoft.<Service RP>.Model.Patch` (Hub-specific)<br>`Microsoft.<Service RP>.Model.Decom`<br>`Microsoft.<Service RP>.Model.Delete` |
 | datacontenttype    | application/json |
-| subject    | ID of the twin type model, in the form `urn:<domain>:<unique model identifier>:<model version number>` |
-| time    | Timestamp for when the operation occurred on the twin type model |
+| subject    | ID of the twin type, in the form `urn:<domain>:<unique model identifier>:<model version number>` |
+| time    | Timestamp for when the operation occurred on the twin type |
 | sequence    | Value expressing the event's position in the larger ordered sequence of events. Services have to add a sequence number on all the notifications to indicate order of notifications, or otherwise perform their own actions to maintain ordering. Sequence will be incremented for each subject, and will be reset to 1 every time the object gets recreated with the same ID (such as during delete and recreate operations). |
 | sequencetype    | The exact value and meaning of sequence. For example, this property may specify that the value must be a string-encoded, signed, 32-bit integer that starts with 1, and increases by 1 for each subsequent value |
-| modelstatus    | The resolution status for resolving a twin type model. Possible values: Successful/NotFound/Failed (IoT Hub only) | 
-| updatereason    | Update twin type model reason in the schema. Possible values: Create/Reset/Override (IoT Hub only) | 
+| modelstatus    | The resolution status for resolving a twin type. Possible values: Successful/NotFound/Failed (IoT Hub only) | 
+| updatereason    | Update twin type reason in the schema. Possible values: Create/Reset/Override (IoT Hub only) | 
 
 #### Body
 
-No body for upload, reload, and patch twin type model. User must make a `GET` call to get the twin type model content. 
+No body for upload, reload, and patch twin type. User must make a `GET` call to get the twin type content. 
 For `Model.Delete`, the request body is the same as a `GET` request, and it gets the latest state before deletion.
-For and `Model.Decom`, the body of the patch will be in JSON patch format, like all other patch APIs in the Azure Digital Twins API surface. That is, to decommission a twin type model, you would use:
+For and `Model.Decom`, the body of the patch will be in JSON patch format, like all other patch APIs in the Azure Digital Twins API surface. That is, to decommission a twin type, you would use:
 
 ```json
 [
@@ -361,7 +361,7 @@ For and `Model.Decom`, the body of the patch will be in JSON patch format, like 
 
 These notifications are triggered when an Azure digital twin is being updated, like:
 * When property values or metadata changes.
-* When digital twin or component metadata changes. An example of this scenario is changing the twin type model of a twin.
+* When digital twin or component metadata changes. An example of this scenario is changing the twin type of a twin.
 
 #### Properties
 
