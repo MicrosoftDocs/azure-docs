@@ -4,6 +4,7 @@
 
 - May 19th - Build. We want our docs to go live (the night before? Morning of?)
 - May 5th - "Documentation Complete". From this point forward, we'll be focused on editorial changes per the Content Review Team's feedback.
+- X = Public preview (docs needs?)
 
 
 ### Docs Deliverables

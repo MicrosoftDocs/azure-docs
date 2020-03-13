@@ -1,18 +1,52 @@
 *Note: This is a temporary page.  **This will not be published.***
 
-*Note: Pending review and approval by Robert Outlaw.*
-
 -- 
 
 ### Intro
 
-Robert Outlaw's (routlaw) team maintains reference document architecture across the board, from Office and Windows to .NET and Azure.  He works with vendors that generate **reference docs** from **SDKs and Swagger specs** prepared by **product teams**.
+We'll be working with Robert Outlaw's (routlaw) team to generate reference docs. 
 
-Every team's set of needs is unique, which means that we have a lot of processes available to us. These processes have been documented in several locations ([dev.azure](https://dev.azure.com/azure-sdk/internal/_wiki/wikis/internal.wiki/10/Welcome-and-Onboarding), [azure.github](https://azure.github.io/azure-sdk-for-net/), [github/azure](https://github.com/Azure/adx-documentation-pr/wiki), [review.docs](https://review.docs.microsoft.com/en-us/help/onboard/admin/reference/?branch=master)).
+The documentation types we need for Spool are:
 
-In general, product teams and content developers will not be exposed to the complexity of these processes. Product teams create packages (for non-REST APIs) or a Swagger specs (for REST APIs) and then hand these to Robert's team. Within about three days, reference documentation should be available.
+- **REST Management** docs to support resource management (portal actions) via REST APIs. This is similar to the [Mixed Reality REST API doc set](https://docs.microsoft.com/en-us/rest/api/mixedreality/).
+- **Azure CLI** docs to support resource management (portal actions) via the Azure CLI. This is similar to the [Azure Monitor CLI doc set](https://docs.microsoft.com/en-us/cli/azure/monitor?view=azure-cli-latest).
+- **C# Reference** docs to support the server and client C# SDKs.
+- **JS Reference** docs to support the server and client C# SDKs.
+- **Swift Reference** docs to support the server and client C# SDKs.
+- **Java Reference** docs to support the server and client C# SDKs.
 
-### Generating Non-REST Reference Docs
+The status and ownership of these reference docs is outlined in this spreadsheet. This is being updated on a weekly basis as we approach public preview and GA.
+
+
+#### Generating REST Management API Docs
+
+TODO
+
+#### Generating Azure CLI Docs
+
+TODO
+
+#### Generating C# SDK Reference Docs
+
+TODO
+
+#### Generating JS SDK Reference Docs
+
+TODO
+
+#### Generating Swift SDK Reference Docs
+
+TODO
+
+#### Generating Java SDK Reference Docs
+
+TODO
+
+
+
+
+
+### Mick's Notes
 
 Step 1 on [this page](https://review.docs.microsoft.com/en-us/help/onboard/admin/reference/dotnet/road-to-docs?branch=master) tells us how to prepare our code for handoff to Robert's team. 
 
@@ -33,3 +67,5 @@ Once the code is prepared, we'll send Robert an email with the following:
   - *That would be this fork for now - https://github.com/mikben/azure-docs-pr/tree/release-project-spool*
 
 Robert will then loop back with any clarifying questions before passing the baton off to the vendor team who will generate our docs.
+
+Every team's set of needs is unique, which means that we have a lot of processes available to us. These processes have been documented in several locations ([dev.azure](https://dev.azure.com/azure-sdk/internal/_wiki/wikis/internal.wiki/10/Welcome-and-Onboarding), [azure.github](https://azure.github.io/azure-sdk-for-net/), [github/azure](https://github.com/Azure/adx-documentation-pr/wiki), [review.docs](https://review.docs.microsoft.com/en-us/help/onboard/admin/reference/?branch=master)).
