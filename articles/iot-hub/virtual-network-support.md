@@ -76,7 +76,7 @@ To set up a private endpoint, follow these steps:
 1. Run the following Azure CLI command to re-register Azure IoT Hub provider with your subscription:
 
 ```azurecli-interactive
-az provider register --namespace Microsoft.Devices --wait --subscription  <subscription-name>
+    az provider register --namespace Microsoft.Devices --wait --subscription  <subscription-name>
 ```
 
 2. Navigate to the **Private endpoint connections** tab in your IoT Hub portal (this tab is only available for in IoT Hubs in the [supported regions](#regional-availability-private-endpoints)), and click the **+** sign to add a new private endpoint.
