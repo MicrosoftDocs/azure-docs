@@ -307,7 +307,7 @@
     - name: Certificates
       href: shared-resources/certificates.md
     - name: Connections
-      href: shared-resources/connections.md
+      href: automation-connections.md
     - name: Credentials
       href: shared-resources/credentials.md
     - name: PowerShell modules
