@@ -85,7 +85,7 @@ For single VMs, custom data in the VM model cannot be updated, but for VMSS, you
 * New instances will receive the new custom data.
 
 ### Can I place sensitive values in custom data?
-We advise to **not** store sensitive data in custom data. For additional information see [Azure Security and encryption best practices] (https://docs.microsoft.com/azure/security/fundamentals/data-encryption-best-practices)
+We advise to **not** store sensitive data in custom data. For additional information see [Azure Security and encryption best practices](https://docs.microsoft.com/azure/security/fundamentals/data-encryption-best-practices).
 
 
 ### Is custom data made available in IMDS?
