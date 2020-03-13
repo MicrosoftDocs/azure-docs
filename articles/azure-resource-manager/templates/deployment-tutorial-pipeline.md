@@ -9,14 +9,11 @@ ms.author: jgao
 
 # Tutorial: Continuous integration of Azure Resource Manager templates with Azure Pipelines
 
-In the [previous tutorial], you deploy a linked template.  In this tutorial, you
-
-
-Learn how to use Azure Pipelines to continuously build and deploy Azure Resource Manager template projects.
+In the [previous tutorial](./deployment-tutorial-linked-template.md), you deploy a linked template.  In this tutorial, you learn how to use Azure Pipelines to continuously build and deploy Azure Resource Manager template projects.
 
 Azure DevOps provides developer services to support teams to plan work, collaborate on code development, and build and deploy applications. Developers can work in the cloud using Azure DevOps Services. Azure DevOps provides an integrated set of features that you can access through your web browser or IDE client. Azure Pipeline is one of these features. Azure Pipelines is a fully featured continuous integration (CI) and continuous delivery (CD) service. It works with your preferred Git provider and can deploy to most major cloud services. Then you can automate the build, testing, and deployment of your code to Microsoft Azure, Google Cloud Platform, or Amazon Web Services.
 
-This tutorial is designed for Azure Resource Manager template developers who are new Azure DevOps Services and Azure Pipelines. If you are already familiar with GitHub and DevOps, you can skip to [Create a pipeline](#create-a-pipeline).
+If you are already familiar with GitHub and DevOps, you can skip to [Create a pipeline](#create-a-pipeline).
 
 > [!NOTE]
 > Pick a project name. When you go through the tutorial, replace any of the **AzureRmPipeline** with your project name.
