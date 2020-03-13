@@ -110,6 +110,8 @@ If you want to rely completely only on private endpoints for accessing their Azu
 When this setting is set to *YES*, only connections via private endpoints are allowed to your Azure Database for MariaDB. When this setting is set to *NO*, clients can connect to your Azure Database for MariaDB based on your firewall or VNet service endpoint settings.￼ Additionally, once the value of the Private network access is set, you cannot add ￼and/or update ￼existing firewall and VNet service endpoint rules.
 
 > [!Note]
+> This feature is available in all Azure regions where Azure Database for PostgreSQL - Single server supports General Purpose and Memory Optimized pricing tiers.
+>
 > This setting does not have any impact on the SSL and TLS configurations for your Azure Database for MariaDB.
 
 To learn how to set the **Deny Public Network Access** for your Azure Database for MariaDB from Azure portal, refer to [How to configure Deny Public Network Access](howto-deny-public-network-access.md).

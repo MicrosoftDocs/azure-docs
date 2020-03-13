@@ -109,6 +109,8 @@ If you want to rely only on private endpoints for accessing their Azure Database
 When this setting is set to *YES* only connections via private endpoints are allowed to your Azure Database for PostgreSQL. When this setting is set to *NO* clients can connect to your Azure Database for PostgreSQL based on your firewall or VNet service endpoint setting.￼ Additionally, once the value of the Private network access is set to  customers cannot add ￼and/or update ￼existing ‘Firewall rules’ and ‘VNet service endpoint rule
 
 > [!Note]
+> This feature is available in all Azure regions where Azure Database for PostgreSQL - Single server supports General Purpose and Memory Optimized pricing tiers.
+>
 > This setting does not have any impact on the SSL and TLS configurations for your Azure Database for PostgreSQL Single server.
 
 To learn how to set the **Deny Public Network Access** for your Azure Database for PostgreSQL Single server from Azure portal, refer to [How to configure Deny Public Network Access](howto-deny-public-network-access.md).
