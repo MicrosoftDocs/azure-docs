@@ -23,7 +23,7 @@ This feature is helpful in scenarios in which Azure Service Bus should be only a
 ## IP firewall rules
 The IP firewall rules are applied at the Service Bus namespace level. Therefore, the rules apply to all connections from clients using any supported protocol. Any connection attempt from an IP address that does not match an allowed IP rule on the Service Bus namespace is rejected as unauthorized. The response does not mention the IP rule. IP filter rules are applied in order, and the first rule that matches the IP address determines the accept or reject action.
 
-## Azure portal
+## Use Azure portal
 This section shows you how to use the Azure portal to create IP firewall rules for an Service Bus namespace. 
 
 1. Navigate to your **Service Bus namespace** in the [Azure portal](https://portal.azure.com).
@@ -38,7 +38,7 @@ This section shows you how to use the Azure portal to create IP firewall rules f
         ![Firewall - All networks option selected](./media/service-bus-ip-filtering/firewall-selected-networks-trusted-access-disabled.png)
 3. Select **Save** on the toolbar to save the settings. Wait for a few minutes for the confirmation to show up on the portal notifications.
 
-### Resource Manager template
+## Use Resource Manager template
 This section has a sample Azure Resource Manager template that creates a virtual network and a firewall rule.
 
 > [!IMPORTANT]

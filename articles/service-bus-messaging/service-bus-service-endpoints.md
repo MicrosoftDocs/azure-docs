@@ -42,7 +42,7 @@ Binding a Service Bus namespace to a virtual network is a two-step process. You 
 
 The virtual network rule is an association of the Service Bus namespace with a virtual network subnet. While the rule exists, all workloads bound to the subnet are granted access to the Service Bus namespace. Service Bus itself never establishes outbound connections, does not need to gain access, and is therefore never granted access to your subnet by enabling this rule.
 
-## Azure portal
+## Use Azure portal
 This section shows you how to use Azure portal to add a virtual network service endpoint. To limit access, you need to integrate the virtual network service endpoint for this Event Hubs namespace.
 
 1. Navigate to your **Service Bus namespace** in the [Azure portal](https://portal.azure.com).
@@ -67,63 +67,7 @@ This section shows you how to use Azure portal to add a virtual network service 
 
     ![Save network](./media/service-endpoints/save-vnet.png)
 
-## Azure PowerShell
-
-```azurepowershell-interactive
-# create resource group
-
-$rgName = "<RESOURCE GROUP NAME>"
-$vnetlocation = "<VNET LOCATION>"
-$vnetName = "<VIRTUAL NETWORK NAME>"
-$subnetName = "<SUBNET NAME>"
-$namespaceLocation = "<NAMESPACE LOCATION>"
-$namespaceName = "<NAMESPACE NAME>"
-$peConnectionName = "<PRIVATE ENDPOINT CONNECTION NAME>"
-
-# create virtual network
-$virtualNetwork = New-AzVirtualNetwork `
-                    -ResourceGroupName $rgName `
-                    -Location $vnetlocation `
-                    -Name $vnetName `
-                    -AddressPrefix 10.0.0.0/16
-
-# create subnet with endpoint network policy disabled
-$subnetConfig = Add-AzVirtualNetworkSubnetConfig `
-                    -Name $subnetName `
-                    -AddressPrefix 10.0.0.0/24 `
-                    -PrivateEndpointNetworkPoliciesFlag "Disabled" `
-                    -VirtualNetwork $virtualNetwork
-
-# update virtual network
-$virtualNetwork | Set-AzVirtualNetwork
-
-# create premium service bus namespace
-$namespaceResource = New-AzResource -Location $namespaceLocation -ResourceName $namespaceName -ResourceGroupName $rgName -Sku @{name = "Premium"; capacity = 1} -Properties @{} -ResourceType "Microsoft.ServiceBus/namespaces" -
-
-# create a private link service connection
-$privateEndpointConnection = New-AzPrivateLinkServiceConnection `
-                                -Name $peConnectionName `
-                                -PrivateLinkServiceId $namespaceResource.ResourceId `
-                                -GroupId "namespace"
-
-# get subnet object that you will use in the next step                                
-$virtualNetwork = Get-AzVirtualNetwork -ResourceGroupName  $rgName -Name $vnetName
-$subnet = $virtualNetwork | Select -ExpandProperty subnets `
-                                | Where-Object  {$_.Name -eq $subnetName}  
-   
-# now, create private endpoint   
-$privateEndpoint = New-AzPrivateEndpoint -ResourceGroupName $rgName  `
-                                -Name $vnetName   `
-                                -Location $vnetlocation `
-                                -Subnet  $subnet   `
-                                -PrivateLinkServiceConnection $privateEndpointConnection
-
-(Get-AzResource -ResourceId $namespaceResource.ResourceId -ExpandProperties).Properties
-
-
-```
-
-## Resource Manager template
+## Use Resource Manager template
 The following Resource Manager template enables adding a virtual network rule to an existing Service Bus 
 namespace.
 

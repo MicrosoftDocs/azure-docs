@@ -78,6 +78,63 @@ If you already have an existing namespace, you can create a private link connect
 
     ![Private endpoint created](./media/private-link-service/private-endpoint-created.png)
 
+## Add a private endpoint using PowerShell
+The following example shows you how to use Azure PowerShell to create a private endpoint connection to a Service Bus namespace.
+
+```azurepowershell-interactive
+# create resource group
+
+$rgName = "<RESOURCE GROUP NAME>"
+$vnetlocation = "<VNET LOCATION>"
+$vnetName = "<VIRTUAL NETWORK NAME>"
+$subnetName = "<SUBNET NAME>"
+$namespaceLocation = "<NAMESPACE LOCATION>"
+$namespaceName = "<NAMESPACE NAME>"
+$peConnectionName = "<PRIVATE ENDPOINT CONNECTION NAME>"
+
+# create virtual network
+$virtualNetwork = New-AzVirtualNetwork `
+                    -ResourceGroupName $rgName `
+                    -Location $vnetlocation `
+                    -Name $vnetName `
+                    -AddressPrefix 10.0.0.0/16
+
+# create subnet with endpoint network policy disabled
+$subnetConfig = Add-AzVirtualNetworkSubnetConfig `
+                    -Name $subnetName `
+                    -AddressPrefix 10.0.0.0/24 `
+                    -PrivateEndpointNetworkPoliciesFlag "Disabled" `
+                    -VirtualNetwork $virtualNetwork
+
+# update virtual network
+$virtualNetwork | Set-AzVirtualNetwork
+
+# create premium service bus namespace
+$namespaceResource = New-AzResource -Location $namespaceLocation -ResourceName $namespaceName -ResourceGroupName $rgName -Sku @{name = "Premium"; capacity = 1} -Properties @{} -ResourceType "Microsoft.ServiceBus/namespaces" -
+
+# create a private link service connection
+$privateEndpointConnection = New-AzPrivateLinkServiceConnection `
+                                -Name $peConnectionName `
+                                -PrivateLinkServiceId $namespaceResource.ResourceId `
+                                -GroupId "namespace"
+
+# get subnet object that you will use in the next step                                
+$virtualNetwork = Get-AzVirtualNetwork -ResourceGroupName  $rgName -Name $vnetName
+$subnet = $virtualNetwork | Select -ExpandProperty subnets `
+                                | Where-Object  {$_.Name -eq $subnetName}  
+   
+# now, create private endpoint   
+$privateEndpoint = New-AzPrivateEndpoint -ResourceGroupName $rgName  `
+                                -Name $vnetName   `
+                                -Location $vnetlocation `
+                                -Subnet  $subnet   `
+                                -PrivateLinkServiceConnection $privateEndpointConnection
+
+(Get-AzResource -ResourceId $namespaceResource.ResourceId -ExpandProperties).Properties
+
+
+```
+
 
 ## Manage private link connection
 
