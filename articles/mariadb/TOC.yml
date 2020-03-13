@@ -138,6 +138,14 @@
       href: howto-auto-grow-storage-portal.md
     - name: Azure CLI
       href: howto-auto-grow-storage-cli.md  
+  - name: Deny Public Network Access
+    items:
+    - name: Azure portal
+      href: howto-deny-public-network-access.md
+  - name: Minimum TLS configuration
+    items:
+    - name: Azure portal
+      href: howto-tls-configurations.md
   - name: Access server logs
     items:
     - name: Slow query logs
