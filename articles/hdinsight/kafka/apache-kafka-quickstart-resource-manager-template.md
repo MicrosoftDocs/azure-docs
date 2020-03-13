@@ -227,4 +227,4 @@ You can also select the resource group name to open the resource group page, and
 In this quickstart, you learned how to create an Apache Kafka cluster in HDInsight using a Resource Manager template. In the next article, you learn how to create an application that uses the Apache Kafka Streams API and run it with Kafka on HDInsight.
 
 > [!div class="nextstepaction"]
-> [Use Apache Kafka streams API in Azure HDInsight](../apache-kafka-streams-api.md)
+> [Use Apache Kafka streams API in Azure HDInsight](./apache-kafka-streams-api.md)
