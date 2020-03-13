@@ -57,7 +57,7 @@ Refer to the following list to configure managed identity for Azure Virtual Mach
 
 | Managed identity type | All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | --- | --- | --- | --- |
-| System assigned | Available | Available | Available | Available |
+| System assigned | ![Available][check] | ![Available][check] | Available | Available |
 | User assigned | Available | Not available | Not available | Not available |
 
 Refer to the following list to configure managed identity for Azure App Service (in regions where available):
@@ -265,3 +265,6 @@ Refer to the following list to configure access to Azure Resource Manager:
 | Azure Government | `https://*.asazure.usgovcloudapi.net` | Available |
 | Azure Germany | `https://*.asazure.cloudapi.de` | Available |
 | Azure China 21Vianet | `https://*.asazure.chinacloudapi.cn` | Available |
+
+
+[check]: media/services-support-managed-identities/check.png
