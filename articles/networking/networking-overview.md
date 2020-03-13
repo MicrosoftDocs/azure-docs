@@ -18,14 +18,14 @@ ms.author: kumud
 # Azure networking
 
 The networking services in Azure provide a variety of networking capabilities that can be used together or separately. Click any of the following key capabilities to learn more about them:
-- [**Connectivity services**](#connect): Connect Azure resources and on-premises resources using any or a combination of these networking services in Azure - Virtual Network (VNet), Virtual WAN, ExpressRoute, VPN Gateway, Virtual network NAT Gateway, Azure DNS, Peering service, or, Azure Bastion.
-- [**Application protection services**](#protect) Protect your applications  using any or a combination of these networking services in Azure - Private Link, DDoS protection, Firewall, Network Security Groups, Web Application Firewall, or Virtual Network Endpoints.
-- [**Application delivery services**](#deliver) Deliver applications in the Azure network using any or a combination of these networking services in Azure - Content Delivery Network (CDN), Azure Front Door Service, Traffic Manager, Application Gateway, Internet Analyzer, or, Load Balancer.
+- [**Connectivity services**](#connect): Connect Azure resources and on-premises resources using any or a combination of these networking services in Azure - Virtual Network (VNet), Virtual WAN, ExpressRoute, VPN Gateway, Virtual network NAT Gateway, Azure DNS, Peering service, and Azure Bastion.
+- [**Application protection services**](#protect) Protect your applications  using any or a combination of these networking services in Azure - Private Link, DDoS protection, Firewall, Network Security Groups, Web Application Firewall, and Virtual Network Endpoints.
+- [**Application delivery services**](#deliver) Deliver applications in the Azure network using any or a combination of these networking services in Azure - Content Delivery Network (CDN), Azure Front Door Service, Traffic Manager, Application Gateway, Internet Analyzer, and Load Balancer.
 - [**Network monitoring**](#monitor) – Monitor your network resources using any or a combination of these networking services in Azure - Network Watcher, ExpressRoute Monitor, Azure Monitor, or VNet Terminal Access Point (TAP).
 
 ## <a name="connect"></a>Connectivity services
  
-This section describes services that provide connectivity between Azure resources, connectivity from an on-premises network to Azure resources, and branch to branch connectivity in Azure - Virtual network, ExpressRoute, VPN Gateway, Virtual WAN, DNS, and Azure Bastion.
+This section describes services that provide connectivity between Azure resources, connectivity from an on-premises network to Azure resources, and branch to branch connectivity in Azure - Virtual Network (VNet), Virtual WAN, ExpressRoute, VPN Gateway, Virtual network NAT Gateway, Azure DNS, Azure Peering service, and Azure Bastion.
 
 |Service|Why use?|Scenarios|
 |---|---|---|
@@ -83,14 +83,14 @@ For more information, see [What is virtual network NAT gateway?](../virtual-netw
 
 ![Virtual network NAT gateway](./media/networking-overview/flow-map.png)
 
-### <a name="azurepeeringservice"></a> Azure Peering Service (Preview)
+### <a name="azurepeeringservice"></a> Azure Peering Service
 Azure Peering service enhances customer connectivity to Microsoft cloud services such as Office 365, Dynamics 365, software as a service (SaaS) services, Azure, or any Microsoft services accessible via the public internet. For more information, see [What is Azure Peering Service?](../peering-service/about.md).
 
 ![Azure Peering Service](./media/networking-overview/peering-service.png)
 
 ## <a name="protect"></a>Application protection services
 
-This section describes networking services in Azure that help protect your network resources - DDoS Protection, Web Application Firewall, Azure Firewall, network security groups, Private Link, and service endpoints.
+This section describes networking services in Azure that help protect your network resources - Protect your applications  using any or a combination of these networking services in Azure - Private Link, DDoS protection, Firewall, Network Security Groups, Web Application Firewall, and Virtual Network Endpoints.
 
 |Service|Why use?|Scenario|
 |---|---|---|
@@ -139,7 +139,7 @@ Traffic between your virtual network and the service travels the Microsoft backb
 
 ## <a name="deliver"></a>Application delivery services
 
-This section describes networking services in Azure that help deliver applications - Content Delivery Network (CDN), Azure Front Door service, Traffic Manager, Application Gateway, and Load Balancer.
+This section describes networking services in Azure that help deliver applications - Network Watcher, ExpressRoute Monitor, Azure Monitor, or VNet Terminal Access Point (TAP).
 
 |Service|Why use?|Scenario|
 |---|---|---|
@@ -174,7 +174,7 @@ The Azure Load Balancer provides high-performance, low-latency Layer 4 load-bala
 
 The following picture shows an Internet-facing multi-tier application that utilizes both external and internal load balancers:
 
-![Azure Load Balancer example](./media/networking-overview/IC744147.png)
+![Azure Load Balancer example](./media/networking-overview/load-balancer.png)
 
 
 ### <a name="applicationgateway"></a>Application Gateway
