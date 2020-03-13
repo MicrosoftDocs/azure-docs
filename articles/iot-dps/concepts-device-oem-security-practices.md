@@ -117,9 +117,9 @@ If you don't use a pre-loaded certificate, you must install the certificate as p
 If you need help installing certificates in your IoT devices, please contact the Microsoft security auditor program. After you have certificates installed on your devices, the next step is to learn how to enroll the devices with DPS.  
 
 ## Selecting device authentication options
-Choosing the right security options is a challenge. The ultimate goal is to create secure connections for every device in an IoT solution. But issues such as hardware limitations, cost, and lack of security expertise, all impact which security solutions you choose. And your approach to security, in turn, impacts  how your IoT devices connect to the cloud. There are many dimensions of IoT security and in my experience authentication type tends to be the first one customers encounter, though all are important.
+The ultimate aim of any IoT device security measure is to create a secure IoT solution. But issues such as hardware limitations, cost, and level of security expertise, all impact which options you choose. Further, your approach to security impacts how your IoT devices connect to the cloud. While there are [several elements of IoT security](https://www.microsoft.com/research/publication/seven-properties-highly-secure-devices/) to consider, a key element that every customer encounters is what authentication type to use. 
 
-In this blog post, I'm going to discuss the authentication types supported by the Azure IoT Hub Device Provisioning Service and Azure IoT Hub. There are other authentication methods out there, but these are the ones we have found to be the most widely used.
+Three authentication types are widely used with Azure IoT Hub, and Azure IoT Hub DPS. 
 
 Azure IoT published a whitepaper about evaluating your IoT security, and we also offer the Security Program for Azure IoT. This security program helps you find the right security auditor for your situation and who can help you figure out how much security you need for your solution. These companies are experts at evaluating IoT security; if you have any in-depth questions around security, I highly recommend you give them a try. You can also learn about how to select secure hardware in this blog post "Whitepaper: Selecting the right secure hardware for your IoT deployment" or in the accompanying whitepaper.
 
