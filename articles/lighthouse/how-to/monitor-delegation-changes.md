@@ -11,7 +11,7 @@ As a service provider, you may want to be aware when customer subscriptions or r
 
 In the managing tenant, the [Azure activity log](../../azure-monitor/platform/platform-logs-overview.md) tracks delegation activity at the tenant level. This logged activity includes any added or removed delegations from all customer tenants.
 
-This topic shows how you can monitor delegation activity from customer tenants to your managing tenant.
+This topic shows how you can monitor delegation activity to your tenant across all of your customers.
 
 > [!IMPORTANT]
 > All of these steps must be performed in your managing tenant, rather than in any customer tenants.
@@ -26,7 +26,7 @@ To assign a role at root scope (/), you will need to have the Global Administrat
 
 For detailed instructions on adding and removing elevation, see [Elevate access to manage all Azure subscriptions and management groups](../../role-based-access-control/elevate-access-global-admin.md).
 
-After you elevate your access, your account will have the User Access Administrator role in Azure at root scope. This role assignment allows you to view all resources and assign access in any subscription or management group in the directory, as well as to make root-level role assignments. 
+After you elevate your access, your account will have the User Access Administrator role in Azure at root scope. This role assignment allows you to view all resources and assign access in any subscription or management group in the directory, as well as to make role assignments at root scope. 
 
 ### Create a new service principal account to access tenant-level data
 
@@ -34,7 +34,7 @@ Once you have elevated your access, you'll need to assign the [Monitoring Reader
 
 It's important to understand that granting a role assignment at the root scope means that the same permissions will apply to every resource in the tenant. Because of this, we recommend:
 
-- [Create a new service principal account](../../active-directory/develop/howto-create-service-principal-portal.md) to be used only for this function, rather than assigning this role to an existing service principal used for other automation.￼￼
+- [Create a new service principal account](../../active-directory/develop/howto-create-service-principal-portal.md) to be used only for this function, rather than assigning this role to an existing service principal used for other automation.
 - Be sure that this service principal does not have access to any delegated customer resources.
 - [Use a certificate to authenticate](../../active-directory/develop/howto-create-service-principal-portal.md#certificates-and-secrets) and [store it securely in Azure Key Vault](../../key-vault/key-vault-best-practices.md).
 - Limit the users who have access to act on behalf of the service principal.
@@ -46,7 +46,7 @@ Use one of the following methods to make the root scope assignments.
 ```azurepowershell-interactive
 # Log in first with Connect-AzAccount if you're not using Cloud Shell
 
-New-AzRoleAssignment -SignInName <yourLoginName> -Scope "/" -RoleDefinitionName "Monitoring Reader"  ApplicationId $servicePrincipal.ApplicationId 
+New-AzRoleAssignment -SignInName <yourLoginName> -Scope "/" -RoleDefinitionName "Monitoring Reader"  -ApplicationId $servicePrincipal.ApplicationId 
 ```
 
 #### Azure CLI
@@ -63,7 +63,7 @@ After you've created your service principal account and assigned the Monitoring 
 
 ## Query the activity log
 
-Once you've created a new service principal user with Monitoring Reader access to the root scope of your managing tenant, you can use it to query and report on delegation activity in your tenant.
+Once you've created a new service principal account with Monitoring Reader access to the root scope of your managing tenant, you can use it to query and report on delegation activity in your tenant.
 
 The sample below uses Azure PowerShell to query the past 10 days of activity and reports on any added or removed delegations (or attempts that were not successful).
 
@@ -79,7 +79,7 @@ When reviewing this info, keep in mind:
 
 - If multiple resource groups are delegated in a single deployment, separate entries will be returned for each resource group.
 - Changes made to a previous delegation (such as updating the permission structure) will be logged as an added delegation.
-- As noted above, a user account must have the Monitoring Reader built-in role at root scope (/) in order to access this tenant-level data.
+- As noted above, an account must have the Monitoring Reader built-in role at root scope (/) in order to access this tenant-level data.
 
 ```azurepowershell-interactive
 # Log in first with Connect-AzAccount if you're not using Cloud Shell
