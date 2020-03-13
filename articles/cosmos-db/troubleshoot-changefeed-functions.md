@@ -49,7 +49,7 @@ The previous versions of the Azure Cosmos DB Extension did not support using a l
 
 ### Azure Function fails to start with "PartitionKey must be supplied for this operation."
 
-This error means that you are currently using a partitioned lease collection with an old [extension dependency](#dependencies). You need to upgrade to the latest available version. If you are currently running on Azure Functions V1, you will need to upgrade to Azure Functions V2.
+This error means that you are currently using a partitioned lease collection with an old [extension dependency](#dependencies). Upgrade to the latest available version. If you are currently running on Azure Functions V1, you will need to upgrade to Azure Functions V2.
 
 ### Azure Function fails to start with "The lease collection, if partitioned, must have partition key equal to id."
 
