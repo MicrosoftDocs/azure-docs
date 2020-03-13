@@ -127,5 +127,5 @@ See the following articles for related information.
 [deployed-code-package-link]: https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricdeployedcodepackage
 [deployed-service-package-link]: https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricdeployedservicePackage
 [fabric-client-link]: https://docs.microsoft.com/en-us/dotnet/api/system.fabric.fabricclient
-[deployed-service-package-fabricclient-link]: https://docs.microsoft.com/en-us/dotnet/api/system.fabric.fabricclient.queryclient.getdeployedservicepackagelistasync?view=azure-dotnet#System_Fabric_FabricClient_QueryClient_GetDeployedServicePackageListAsync_System_String_System_Uri_System_String_
+[deployed-service-package-fabricclient-link]: https://docs.microsoft.com/en-us/dotnet/api/system.fabric.fabricclient.queryclient.getdeployedservicepackagelistasync
 
