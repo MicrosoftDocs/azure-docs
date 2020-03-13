@@ -117,10 +117,9 @@ This setting is configured in the **Active Directory Connections** under **NetAp
 
     ![Active Directory Connections](../media/azure-netapp-files/azure-netapp-files-active-directory-connections.png)
 
-2. In the Join Active Directory window, provide the following information, based on the Domain Services you want to use: 
+2. In the Join Active Directory window, provide the following information, based on the Domain Services you want to use:  
 
-    See the Decide which Domain Services to use section above about information specific to the Domain Services you use. 
-
+    See Decide which Domain Services to use about information specific to the Domain Services you use. 
 
     * **Primary DNS**  
         This is the DNS that is required for the Active Directory domain join and SMB authentication operations. 
