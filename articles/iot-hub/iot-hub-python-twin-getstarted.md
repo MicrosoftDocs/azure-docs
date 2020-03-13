@@ -65,7 +65,7 @@ In this section, you create a Python console app that adds location metadata to 
 4. Add the following code. Replace `[IoTHub Connection String]` with the IoT hub connection string you copied in [Get the IoT hub connection string](#get-the-iot-hub-connection-string). Replace `[Device Id]` with the device ID you registered in [Register a new device in the IoT hub](#register-a-new-device-in-the-iot-hub).
   
     ```python
-    CONNECTION_STRING = "[IoTHub Connection String]"
+    IOTHUB_CONNECTION_STRING = "[IoTHub Connection String]"
     DEVICE_ID = "[Device Id]"
     ```
 
@@ -74,7 +74,7 @@ In this section, you create a Python console app that adds location metadata to 
     ```python
     def iothub_service_sample_run():
         try:
-            iothub_registry_manager = IoTHubRegistryManager(CONNECTION_STRING)
+            iothub_registry_manager = IoTHubRegistryManager(IOTHUB_CONNECTION_STRING)
 
             new_tags = {
                     'location' : {
@@ -92,19 +92,19 @@ In this section, you create a Python console app that adds location metadata to 
 
             query_spec = QuerySpecification(query="SELECT * FROM devices WHERE tags.location.plant = 'Redmond43'")
             query_result = iothub_registry_manager.query_iot_hub(query_spec, None, 100)
-            print("Devices in Redmond: {}".format(', '.join([twin.device_id for twin in query_result.items])))
+            print("Devices in Redmond43 plant: {}".format(', '.join([twin.device_id for twin in query_result.items])))
 
             print()
 
             query_spec = QuerySpecification(query="SELECT * FROM devices WHERE tags.location.plant = 'Redmond43' AND properties.reported.connectivity = 'cellular'")
             query_result = iothub_registry_manager.query_iot_hub(query_spec, None, 100)
-            print("Devices in Redmond using cellular network: {}".format(', '.join([twin.device_id for twin in query_result.items])))
+            print("Devices in Redmond43 plant using cellular network: {}".format(', '.join([twin.device_id for twin in query_result.items])))
 
         except Exception as ex:
             print("Unexpected error {0}".format(ex))
             return
         except KeyboardInterrupt:
-            print("IoTHub sample stopped")
+            print("IoT Hub Device Twin service sample stopped")
     ```
 
     The **IoTHubRegistryManager** object exposes all the methods required to interact with device twins from the service. The code first initializes the **IoTHubRegistryManager** object, then updates the device twin for **DEVICE_ID**, and finally runs two queries. The first selects only the device twins of devices located in the **Redmond43** plant, and the second refines the query to select only the devices that are also connected through a cellular network.
@@ -113,7 +113,7 @@ In this section, you create a Python console app that adds location metadata to 
 
     ```python
     if __name__ == '__main__':
-        print("Starting the IoT Hub Device Twins Python service sample...")
+        print("Starting the Python IoT Hub Device Twin service sample...")
         print()
 
         iothub_service_sample_run()
@@ -187,7 +187,7 @@ In this section, you create a Python console app that connects to your hub as yo
             while True:
                 time.sleep(1000000)
         except KeyboardInterrupt:
-            print ( "IoTHubClient sample stopped" )
+            print ( "IoT Hub Device Twin device sample stopped" )
     ```
 
     The **Client** object exposes all the methods you require to interact with device twins from the device. The previous code, after it initializes the **Client** object, retrieves the device twin for your device and updates its reported property with the connectivity information.
@@ -196,7 +196,7 @@ In this section, you create a Python console app that connects to your hub as yo
 
     ```python
     if __name__ == '__main__':
-        print ( "Starting the IoT Hub Device Twins Python client sample..." )
+        print ( "Starting the Python IoT Hub Device Twin device sample..." )
         print ( "IoTHubModuleClient waiting for commands, press Ctrl-C to exit" )
 
         iothub_client_sample_run()
