@@ -3,7 +3,7 @@ title: Troubleshoot issues when using Azure Functions trigger for Cosmos DB
 description: Common issues, workarounds, and diagnostic steps, when using the Azure Functions trigger for Cosmos DB
 author: ealsur
 ms.service: cosmos-db
-ms.date: 07/17/2019
+ms.date:03/13/2020
 ms.author: maquaran
 ms.topic: troubleshooting
 ms.reviewer: sngun
@@ -46,6 +46,10 @@ This means that either one or both of the Azure Cosmos containers required for t
 ### Azure Function fails to start with "Shared throughput collection should have a partition key"
 
 The previous versions of the Azure Cosmos DB Extension did not support using a leases container that was created within a [shared throughput database](./set-throughput.md#set-throughput-on-a-database). To resolve this issue, update the [Microsoft.Azure.WebJobs.Extensions.CosmosDB](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.CosmosDB) extension to get the latest version.
+
+### Azure Function fails to start with "PartitionKey must be supplied for this operation."
+
+This error means that you are currently using a partitioned lease collection with an old [extension dependency](#dependencies). You need to upgrade to the latest available version. If you are currently running on Azure Functions V1, you will need to upgrade to Azure Functions V2.
 
 ### Azure Function fails to start with "The lease collection, if partitioned, must have partition key equal to id."
 
