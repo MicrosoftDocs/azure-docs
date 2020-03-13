@@ -41,9 +41,9 @@ To find out which Conditional Access policy or policies applied and why do the f
 1. Browse to **Azure Active Directory** > **Sign-ins**.
 1. Find the event for the sign-in to review. Add or remove filters and columns to filter out unnecessary information.
    1. Add filters like:
-      1. **Conditional access** to see policy failure and success
-      1. **Username** to see information related to specific users.
       1. **Correlation ID** when you have a specific event to investigate.
+      1. **Conditional access** to see policy failure and success.
+      1. **Username** to see information related to specific users.
 
    ![Selecting the Conditional access filter in the sign-ins log](./media/troubleshoot-conditional-access/image3.png)
 
