@@ -683,6 +683,7 @@
   - name: Quickstarts
     items:
     - name: Create Interactive Query cluster - ARM Template
+      displayName: Resource Manager
       href: ./interactive-query/quickstart-resource-manager-template.md
     - name: Execute Apache Hive queries - Apache Zeppelin
       href: ./interactive-query/hdinsight-connect-hive-zeppelin.md

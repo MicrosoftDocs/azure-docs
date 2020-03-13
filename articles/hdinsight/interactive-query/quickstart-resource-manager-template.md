@@ -7,7 +7,7 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.date: 03/12/2020
+ms.date: 03/13/2020
 
 #Customer intent: As a developer new to Interactive Query on Azure, I need to see how to create an Interactive Query cluster.
 ---
@@ -24,7 +24,9 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ### Review the template
 
-The template used in this quickstart is from [Azure Quickstart templates](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-interactive-hive). The template for this article is too long to show here. To view the template, see: [https://github.com/Azure/azure-quickstart-templates/blob/master/101-hdinsight-interactive-hive/azuredeploy.json](https://github.com/Azure/azure-quickstart-templates/blob/master/101-hdinsight-interactive-hive/azuredeploy.json).
+The template used in this quickstart is from [Azure Quickstart templates](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-interactive-hive).
+
+:::code language="json" source="~/quickstart-templates/101-hdinsight-interactive-hive/azuredeploy.json" range="1-158":::
 
 The mapping is defined in the `openpublishing.publish.config` file.
 
@@ -66,7 +68,7 @@ After you complete the quickstart, you may want to delete the cluster. With HDIn
 
 From the Azure portal, navigate to your cluster, and select **Delete**.
 
-![Resource Manager template HBase](./media/quickstart-resource-manager-template/hdinsight-azure-portal-delete-cluster.png)
+![Resource Manager template HBase](./media/quickstart-resource-manager-template/azure-portal-delete-hive.png)
 
 You can also select the resource group name to open the resource group page, and then select **Delete resource group**. By deleting the resource group, you delete both the HDInsight cluster, and the default storage account.
 
