@@ -202,7 +202,6 @@ The following table provides coverage information for Azure Maps routing.
 | Romania                        |        ✓       |         ✓            |     ✓      | 
 | Russian Federation             |        ✓       |         ✓            |     ✓      | 
 | San Marino                     |        ✓       |         ✓            |             |
-| +Sint Maarten                  |        ✓       |                      |             |
 | Serbia                         |        ✓       |                      |     ✓      | 
 | Slovakia                       |        ✓       |         ✓            |     ✓      | 
 | Slovenia                       |        ✓       |         ✓            |     ✓      |

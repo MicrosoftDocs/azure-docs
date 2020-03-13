@@ -13,7 +13,7 @@ ms.date: 01/14/2020
 
 # Troubleshooting connectivity issues and other errors with Microsoft Azure SQL Database
 
-You receive error messages when the connection to Azure SQL Database fails. These connection problems can be caused by Azure SQL Database reconfiguration, firewall settings, a connection timeout, incorrect login information or failure to apply best practices and design guidelines during the [application design] (sql-database-develop-overview.md) process. Additionally, if the maximum limit on some Azure SQL Database resources is reached, you can't connect to Azure SQL Database.
+You receive error messages when the connection to Azure SQL Database fails. These connection problems can be caused by Azure SQL Database reconfiguration, firewall settings, a connection timeout, incorrect login information or failure to apply best practices and design guidelines during the [application design](sql-database-develop-overview.md) process. Additionally, if the maximum limit on some Azure SQL Database resources is reached, you can't connect to Azure SQL Database.
 
 ## Transient fault error messages (40197, 40613 and others)
 
@@ -225,8 +225,8 @@ The following steps can either help you work around the problem or provide you w
 
    ```sql
    SELECT o.name,
-    a.SUM(p.row_count) AS 'Row Count',
-    b.SUM(p.reserved_page_count) * 8.0 / 1024 AS 'Table Size (MB)'
+    SUM(p.row_count) AS 'Row Count',
+    SUM(p.reserved_page_count) * 8.0 / 1024 AS 'Table Size (MB)'
    FROM sys.objects o
    JOIN sys.dm_db_partition_stats p on p.object_id = o.object_id
    GROUP BY o.name

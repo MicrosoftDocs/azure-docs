@@ -1,3 +1,7 @@
+## App Configuration
+
+[!INCLUDE [azure-policy-samples-policies-app-configuration](azure-policy-samples-policies-app-configuration.md)]
+
 ## App Platform
 
 [!INCLUDE [azure-policy-samples-policies-app-platform](azure-policy-samples-policies-app-platform.md)]
@@ -9,6 +13,10 @@
 ## Automation
 
 [!INCLUDE [azure-policy-samples-policies-automation](azure-policy-samples-policies-automation.md)]
+
+## Backup
+
+[!INCLUDE [azure-policy-samples-policies-backup](azure-policy-samples-policies-backup.md)]
 
 ## Batch
 

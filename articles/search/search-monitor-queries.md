@@ -8,34 +8,34 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/12/2020
+ms.date: 02/18/2020
 ---
 
 # Monitor query requests in Azure Cognitive Search
 
-This article explains how to measure query performance and volume using metrics. It also explains how to collect the input terms used in queries - necessary information when you need to assess the utility and effectiveness of your search corpus.
+This article explains how to measure query performance and volume using metrics and diagnostic logging. It also explains how to collect the input terms used in queries - necessary information when you need to assess the utility and effectiveness of your search corpus.
 
-Historical data that feeds into metrics is preserved for 30 days. For longer retention, or to report on operational data and query strings, be sure to enable a [diagnostic setting](search-monitor-logs.md) that specifies a storage option.
+Historical data that feeds into metrics is preserved for 30 days. For longer retention, or to report on operational data and query strings, be sure to enable a [diagnostic setting](search-monitor-logs.md) that specifies a storage option for persisting logged events and metrics.
 
-Conditions that maximize the integrity of data measurements include:
+Conditions that maximize the integrity of data measurement include:
 
 + Use a billable service (a service created at either the Basic or a Standard tier). The free service is shared by multiple subscribers, which introduces a certain amount of volatility as loads shift.
 
-+ Use a single replica, if possible, so that calculations are limited to one machine. If you use multiple replicas, query metrics are averaged across multiple nodes, some of which might be faster. If you are tuning query performance, a single node gives a more stable environment for testing.
++ Use a single replica and partition, if possible, to create a contained and isolated environment. If you use multiple replicas, query metrics are averaged across multiple nodes, which can lower the precision of results. Similarly, multiple partitions mean that data is divided, with the potential that some partitions might have different data if indexing is also underway. When tuning query performance, a single node and partition gives a more stable environment for testing.
 
 > [!Tip]
 > With additional client-side code and Application Insights, you can also capture clickthrough data for deeper insight into what attracts the interest of your application users. For more information, see [Search traffic analytics](search-traffic-analytics.md).
 
 ## Query volume (QPS)
 
-Volume is measured as **Search Queries Per Second** (QPS), a built-in metric that can be reported as an average, count, minimum, or maximum values of queries that execute within a one minute window. One minute intervals (TimeGrain = "PT1M") for metrics is fixed within the system.
+Volume is measured as **Search Queries Per Second** (QPS), a built-in metric that can be reported as an average, count, minimum, or maximum values of queries that execute within a one-minute window. One-minute intervals (TimeGrain = "PT1M") for metrics is fixed within the system.
 
 It's common for queries to execute in milliseconds, so only queries that measure as seconds will appear in metrics.
 
 | Aggregation Type | Description |
 |------------------|-------------|
 | Average | The average number of seconds within a minute during which query execution occurred.|
-| Count | The number of metrics emitted to the log within the one minute interval. |
+| Count | The number of metrics emitted to the log within the one-minute interval. |
 | Maximum | The highest number of search queries per second registered during a minute. |
 | Minimum | The lowest number of search queries per second registered during a minute.  |
 | Sum | The sum of all queries executed within the minute.  |
@@ -53,7 +53,7 @@ Service-wide, query performance is measured as search latency (how long a query 
 | Aggregation Type | Latency | 
 |------------------|---------|
 | Average | Average query duration in milliseconds. | 
-| Count | The number of metrics emitted to the log within the one minute interval. |
+| Count | The number of metrics emitted to the log within the one-minute interval. |
 | Maximum | Longest running query in the sample. | 
 | Minimum | Shortest running query in the sample.  | 
 | Total | Total execution time of all queries in the sample, executing within the interval (one minute).  |
@@ -81,7 +81,7 @@ To confirm throttled queries, use **Throttled search queries** metric. You can e
 | Aggregation Type | Throttling |
 |------------------|-----------|
 | Average | Percentage of queries dropped within the interval. |
-| Count | The number of metrics emitted to the log within the one minute interval. |
+| Count | The number of metrics emitted to the log within the one-minute interval. |
 | Maximum | Percentage of queries dropped within the interval.|
 | Minimum | Percentage of queries dropped within the interval. |
 | Total | Percentage of queries dropped within the interval. |
@@ -104,13 +104,52 @@ For deeper exploration, open metrics explorer from the **Monitoring** menu so th
 
    ![Metrics explorer for QPS metric](./media/search-monitor-usage/metrics-explorer-qps.png "Metrics explorer for QPS metric")
 
-1. In the top right corner, set the time interval.
+1. In the top-right corner, set the time interval.
 
 1. Choose a visualization. The default is a line chart.
 
 1. Layer additional aggregations by choosing **Add metric** and selecting different aggregations.
 
 1. Zoom into an area of interest on the line chart. Put the mouse pointer at the beginning of the area, click and hold the left mouse button, drag to the other side of area, and release the button. The chart will zoom in on that time range.
+
+## Identify strings used in queries
+
+When you enable diagnostic logging, the system captures query requests in the **AzureDiagnostics** table. As a prerequisite, you must have already enabled [diagnostic logging](search-monitor-logs.md), specifying a log analytics workspace or another storage option.
+
+1. Under the Monitoring section, select **Logs** to open up an empty query window in Log Analytics.
+
+1. Run the following expression to search Query.Search operations, returning a tabular result set consisting of the operation name, query string, the index queried, and the number of documents found. The last two statements exclude query strings consisting of an empty or unspecified search, over a sample index, which cuts down the noise in your results.
+
+   ```
+   AzureDiagnostics
+   | project OperationName, Query_s, IndexName_s, Documents_d
+   | where OperationName == "Query.Search"
+   | where Query_s != "?api-version=2019-05-06&search=*"
+   | where IndexName_s != "realestate-us-sample-index"
+   ```
+
+1. Optionally, set a Column filter on *Query_s* to search over a specific syntax or string. For example, you could filter over *is equal to* `?api-version=2019-05-06&search=*&%24filter=HotelName`).
+
+   ![Logged query strings](./media/search-monitor-usage/log-query-strings.png "Logged query strings")
+
+While this technique works for ad hoc investigation, building a report lets you consolidate and present the query strings in a layout more conducive to analysis.
+
+## Identify long-running queries
+
+Add the duration column to get the numbers for all queries, not just those that are picked up as a metric. Sorting this data shows you which queries take the longest to complete.
+
+1. Under the Monitoring section, select **Logs** to query for log information.
+
+1. Run the following query to return queries, sorted by duration in milliseconds. The longest-running queries are at the top.
+
+   ```
+   AzureDiagnostics
+   | project OperationName, resultSignature_d, DurationMs, Query_s, Documents_d, IndexName_s
+   | where OperationName == "Query.Search"
+   | sort by DurationMs
+   ```
+
+   ![Sort queries by duration](./media/search-monitor-usage/azurediagnostics-table-sortby-duration.png "Sort queries by duration")
 
 ## Create a metric alert
 
@@ -140,31 +179,9 @@ When pushing the limits of a particular replica-partition configuration, setting
 
 If you specified an email notification, you will receive an email from "Microsoft Azure" with a subject line of "Azure: Activated Severity: 3 `<your rule name>`".
 
-## Query strings used in queries
+<!-- ## Report query data
 
-When you enable diagnostic logging, the system captures query requests in the **AzureDiagnostics** table. As a prerequisite, you must have already enabled [diagnostic logging](search-monitor-logs.md), specifying a log analytics workspace or another storage option.
-
-1. Under the Monitoring section, select **Logs** to open up an empty query window in Log Analytics.
-
-1. Run the following expression to search Query.Search operations, returning a tabular results set consisting of the operation name, query string, the index queried, and the number of documents found. The last two statements excludes query strings consisting of an empty or unspecified search, over a sample index, which cuts down the noise in your results.
-
-   ```
-    AzureDiagnostics 
-     | project OperationName, Query_s, IndexName_s, Documents_d 
-     | where OperationName == "Query.Search"
-     | where Query_s != "?api-version=2019-05-06&search=*"
-     | where IndexName_s != "realestate-us-sample-index"
-   ```
-
-1. Optionally, set a Column filter on *Query_s* to search over a specific syntax or string. For example, you could filter over *is equal to* `?api-version=2019-05-06&search=*&%24filter=HotelName`).
-
-   ![Logged query strings](./media/search-monitor-usage/log-query-strings.png "Logged query strings")
-
-While this technique works for ad hoc investigation, building a report lets you consolidate and present the query strings in a layout more conducive to analysis.
-
-## Report query data
-
-Power BI is an analytical reporting tool that you can use against log data stored in Blob storage or a Log Analytics workspace.
+Power BI is an analytical reporting tool useful for visualizing data, including log information. If you are collecting data in Blob storage, a Power BI template makes it easy to spot anomalies or trends. Use this link to download the template. -->
 
 ## Next steps
 

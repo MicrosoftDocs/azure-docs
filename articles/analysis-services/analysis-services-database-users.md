@@ -20,7 +20,7 @@ Role permissions include:
 *  **Process** - Users can connect to and perform process operations on the database, and analyze model database data.
 *  **Read** -  Users can use a client application to connect to and analyze model database data.
 
-When creating a tabular model project, you create roles and add users or groups to those roles by using Role Manager in Visual Studio with Analysis Services projects. When deployed to a server, you use SQL Server Management Studio (SSMS), [Analysis Services PowerShell cmdlets](https://docs.microsoft.com/analysis-services/powershell/analysis-services-powershell-reference), or [Tabular Model Scripting Language](https://docs.microsoft.com/bi-reference/tmsl/tabular-model-scripting-language-tmsl-reference) (TMSL) to add or remove roles and user members.
+When creating a tabular model project, you create roles and add users or groups to those roles by using Role Manager in Visual Studio with Analysis Services projects. When deployed to a server, you use SQL Server Management Studio (SSMS), [Analysis Services PowerShell cmdlets](https://docs.microsoft.com/analysis-services/powershell/analysis-services-powershell-reference), or [Tabular Model Scripting Language](https://docs.microsoft.com/analysis-services/tmsl/tabular-model-scripting-language-tmsl-reference) (TMSL) to add or remove roles and user members.
 
 **Security groups** must be [mail-enabled](https://docs.microsoft.com/exchange/recipients-in-exchange-online/manage-mail-enabled-security-groups) with the `MailEnabled` property set to `True`. When specifying a group by email address use `obj:groupid@tenantid`.
 
@@ -80,7 +80,7 @@ To add roles and users to a deployed model database, you must be connected to th
 
 ## To add roles and users by using a TMSL script
 
-You can run a TMSL script in the XMLA window in SSMS or by using PowerShell. Use the [CreateOrReplace](https://docs.microsoft.com/bi-reference/tmsl/createorreplace-command-tmsl) command and the [Roles](https://docs.microsoft.com/bi-reference/tmsl/roles-object-tmsl) object.
+You can run a TMSL script in the XMLA window in SSMS or by using PowerShell. Use the [CreateOrReplace](https://docs.microsoft.com/analysis-services/tmsl/createorreplace-command-tmsl) command and the [Roles](https://docs.microsoft.com/analysis-services/tmsl/roles-object-tmsl) object.
 
 **Sample TMSL script**
 
@@ -146,5 +146,5 @@ Row filters apply to the specified rows and related rows. When a table has multi
 
   [Manage server administrators](analysis-services-server-admins.md)   
   [Manage Azure Analysis Services with PowerShell](analysis-services-powershell.md)  
-  [Tabular Model Scripting Language (TMSL) Reference](https://docs.microsoft.com/bi-reference/tmsl/tabular-model-scripting-language-tmsl-reference)
+  [Tabular Model Scripting Language (TMSL) Reference](https://docs.microsoft.com/analysis-services/tmsl/tabular-model-scripting-language-tmsl-reference)
 

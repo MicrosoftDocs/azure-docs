@@ -96,6 +96,23 @@ Follow these steps to add an external Azure AD directory or domain as a connecte
 
     ![Access package - Policy - Add connected organization - Review + create tab](./media/entitlement-management-organization/organization-review-create.png)
 
+## Update a connected organization 
+
+If the connected organization changes to a different domain, if you have a new name for that organization, or you wish to change the sponsors, you can update the connected organization.
+
+**Prerequisite role:** Global administrator, User administrator, or Guest inviter
+
+1. In the Azure portal, click **Azure Active Directory** and then click **Identity Governance**.
+
+1. In the left menu, click **Connected organizations** and then click to open the connected organization.
+
+1. On the Overview page, click **Edit** to change the organization name or description.  
+
+1. On the Directory + domain page, click **Update directory + domain** to change to a different directory or domain.
+
+1. On the Sponsors page, click **Add internal sponsors** or **Add external sponsors** to add a user as a sponsor.  To remove a sponsor, click on the sponsor and on the menu on the right, click **Delete**.
+
+
 ## Delete a connected organization
 
 If you no longer have a relationship with an external Azure AD directory or domain, you can delete the connected organization.

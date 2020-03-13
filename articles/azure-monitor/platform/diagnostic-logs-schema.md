@@ -1,12 +1,9 @@
 ---
 title: Azure Resource Logs supported services and schemas
 description: Understand the supported services and event schema for Azure resource logs.
-ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: reference
 ms.date: 10/22/2019
-author: rboucher
-ms.author: robb
 
 
 ---

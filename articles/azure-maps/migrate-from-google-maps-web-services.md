@@ -19,21 +19,24 @@ The table shows the Azure Maps service APIs, which have a similar functionality 
 
 | Google Maps service API | Azure Maps service API                                                                      |
 |-------------------------|---------------------------------------------------------------------------------------------|
-| Directions              | [Route](https://docs.microsoft.com/rest/api/maps/route)                               |
-| Distance Matrix         | [Route Matrix](https://docs.microsoft.com/rest/api/maps/route/postroutematrixpreview) |
-| Geocoding               | [Search](https://docs.microsoft.com/rest/api/maps/search)                             |
-| Places Search           | [Search](https://docs.microsoft.com/rest/api/maps/search)                             |
-| Place Autocomplete      | [Search](https://docs.microsoft.com/rest/api/maps/search)                             |
-| Static Map              | [Render](https://docs.microsoft.com/rest/api/maps/render/getmapimage)                 |
-| Time Zone               | [Time Zone](https://docs.microsoft.com/rest/api/maps/timezone)                        |
+| Directions              | [Route](https://docs.microsoft.com/rest/api/maps/route)                                     |
+| Distance Matrix         | [Route Matrix](https://docs.microsoft.com/rest/api/maps/route/postroutematrixpreview)       |
+| Geocoding               | [Search](https://docs.microsoft.com/rest/api/maps/search)                                   |
+| Places Search           | [Search](https://docs.microsoft.com/rest/api/maps/search)                                   |
+| Place Autocomplete      | [Search](https://docs.microsoft.com/rest/api/maps/search)                                   |
+| Snap to Road            | See [Calculate routes and directions](#calculate-routes-and-directions) section.            |
+| Speed Limits            | See [Reverse geocode a coordinate](#reverse-geocode-a-coordinate) section.                  |
+| Static Map              | [Render](https://docs.microsoft.com/rest/api/maps/render/getmapimage)                       |
+| Time Zone               | [Time Zone](https://docs.microsoft.com/rest/api/maps/timezone)                              |
 
 The following service APIs aren't currently available in Azure Maps:
 
 - Elevation
 - Geolocation
-- Place Details and Place Photos. Phone numbers and website URL are available in the Azure Maps search API.
+- Places details and photos - Phone numbers and website URL are available in the Azure Maps search API.
 - Map URLs
-- Roads. Speed limit data is available through the route and reverse geocoding APIs in Azure Maps.
+- Nearest Roads - This is achievable using the Web SDK as shown [here](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Basic%20snap%20to%20road%20logic
+), but not available as a service currently.
 - Static street view
 
 Azure Maps has several additional REST web services that may be of interest:
@@ -171,8 +174,8 @@ Calculate routes and directions using Azure Maps. Azure Maps has many of the sam
 
 The Azure Maps routing service provides the following APIs for calculating routes:
 
-- [**Calculate route**](https://docs.microsoft.com/rest/api/maps/route/getroutedirections): Calculate a route and have the request processed immediately. This API supports both GET and POST requests. Use POST requests when you specify a large number of waypoints, or when you use many of the route options. That's because using POST ensures that the URL request doesn’t become too long and cause issues.
-- [**Batch route**](https://docs.microsoft.com/rest/api/maps/route/postroutedirectionsbatchpreview): Create a request containing up to 1,000 route request and have them processed over a period of time. All data will be processed in parallel on the server. When processing completes, you can download the full set of results.
+- [**Calculate route**](https://docs.microsoft.com/rest/api/maps/route/getroutedirections): Calculate a route and have the request processed immediately. This API supports both GET and POST requests. POST requests are recommended when specifying a large number of waypoints or when using lots of the route options to ensure that the URL request doesn’t become too long and cause issues. The POST Route Direction in Azure Maps has an option can that take in thousands of [supporting points](https://docs.microsoft.com/rest/api/maps/route/postroutedirections#supportingpoints) and will use them to recreate a logical route path between them (snap to road). 
+- [**Batch route**](https://docs.microsoft.com/rest/api/maps/route/postroutedirectionsbatchpreview): Create a request containing up to 1,000 route request and have them processed over a period of time. All the data will be processed in parallel on the server and when completed the full result set can be downloaded.
 - [**Mobility services**](https://docs.microsoft.com/rest/api/maps/mobility): Calculate routes and directions using public transit.
 
 The table cross-references the Google Maps API parameters with the comparable API parameters in Azure Maps.

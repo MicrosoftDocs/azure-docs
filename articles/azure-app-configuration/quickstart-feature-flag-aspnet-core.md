@@ -87,14 +87,14 @@ Add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/security/ap
 
 1. Add reference to the `Microsoft.Azure.AppConfiguration.AspNetCore` and the `Microsoft.FeatureManagement.AspNetCore` NuGet packages by running the following commands:
 
-    ```
-    dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore --version 3.0.0-preview-011100002-1192
-    dotnet add package Microsoft.FeatureManagement.AspNetCore --version 2.0.0-preview-010610001-1263
+    ```dotnetcli
+    dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore
+    dotnet add package Microsoft.FeatureManagement.AspNetCore
     ```
 
 1. Run the following command to restore packages for your project:
 
-    ```
+    ```dotnetcli
     dotnet restore
     ```
 
@@ -104,7 +104,7 @@ Add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/security/ap
 
     This command must be executed in the same directory as the *.csproj* file.
 
-    ```
+    ```dotnetcli
     dotnet user-secrets set ConnectionStrings:AppConfig <your_connection_string>
     ```
 
@@ -191,7 +191,7 @@ Add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/security/ap
             {
                 app.UseExceptionHandler("/Home/Error");
             }
-            
+
             app.UseStaticFiles();
             app.UseCookiePolicy();
             app.UseAzureAppConfiguration();

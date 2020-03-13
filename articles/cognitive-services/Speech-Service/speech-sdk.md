@@ -42,9 +42,9 @@ For Windows, we support the following languages:
 # [Linux](#tab/linux)
 
 > [!NOTE]
-> Currently, we only support Ubuntu 16.04, Ubuntu 18.04, and Debian 9 on the following target architectures:
-> - x86, x64, and ARM64 for C++ development
-> - x64 and ARM64 for Java
+> Currently, we only support Ubuntu 16.04, Ubuntu 18.04, Debian 9, Red Hat Enterprise Linux (RHEL) 8, and CentOS 8 on the following target architectures:
+> - x86 (Debian/Ubuntu), x64, ARM32 (Debian/Ubuntu), and ARM64 (Debian/Ubuntu) for C++ development
+> - x64, ARM32 (Debian/Ubuntu), and ARM64 (Debian/Ubuntu) for Java
 > - x64 for .NET Core and Python
 
 Make sure you have the required libraries installed by running the following shell commands:
@@ -62,6 +62,16 @@ On Debian 9:
 sudo apt-get update
 sudo apt-get install libssl1.0.2 libasound2
 ```
+
+On RHEL/CentOS 8:
+
+```sh
+sudo yum update
+sudo yum install alsa-lib openssl
+```
+
+> [!NOTE]
+> On RHEL/CentOS 8, follow the instructions on [how to configure OpenSSL for Linux](~/articles/cognitive-services/speech-service/how-to-configure-openssl-linux.md).
 
 * C#:
   You can reference and use the latest version of our Speech SDK NuGet package. To reference the SDK, add the following package reference to your project:

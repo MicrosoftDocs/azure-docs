@@ -35,13 +35,15 @@ Learn more about how billing works for [triggers](#triggers) and [actions](#acti
 
 ## Fixed pricing model
 
-An [*integration service environment* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) provides a private, isolated, and dedicated way for you to create and run logic apps that can access resources in an Azure virtual network. For new logic apps that run inside an ISE, you pay a [fixed monthly price](https://azure.microsoft.com/pricing/details/logic-apps) for these capabilities:
+An [*integration service environment* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) provides an isolated way for you to create and run logic apps that can access resources in an Azure virtual network. For new logic apps that run inside an ISE, you pay a [fixed monthly price](https://azure.microsoft.com/pricing/details/logic-apps) for these capabilities:
 
-* [Built-in triggers and actions](../connectors/apis-list.md#built-in)
+* [Built-in](../connectors/apis-list.md#built-in) triggers and actions
 
-* [Standard connectors](../connectors/apis-list.md#managed-connectors)
+  Within an ISE, built-in triggers and actions display the **Core** label and run in the same ISE as your logic apps.
 
-* [Enterprise connectors](../connectors/apis-list.md#enterprise-connectors) with as many connections as you want
+* [Standard](../connectors/apis-list.md#managed-connectors) connectors and [Enterprise](../connectors/apis-list.md#enterprise-connectors) connectors (as many Enterprise connections as you want)
+
+   Standard and Enterprise connectors that display the **ISE** label run in the same ISE as your logic apps. Connectors that don't display the ISE label run in the global Logic Apps service. Fixed monthly pricing also applies to connectors that run in the global service when you use them with logic apps that run in an ISE.
 
 * [Integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) usage at no additional cost, based on your [ISE SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level):
 
@@ -55,16 +57,9 @@ An [*integration service environment* (ISE)](../logic-apps/connect-virtual-netwo
 
   * **Developer SKU**: Either up to 4 more Standard accounts, or up to 5 total Standard accounts. No Basic accounts.
 
-For more information about integration account limits, see [Logic Apps limits and configuration](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits). You can learn more about [integration account tiers and their pricing model](#integration-accounts) later in this topic.
+  For more information about integration account limits, see [Logic Apps limits and configuration](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits). You can learn more about [integration account tiers and their pricing model](#integration-accounts) later in this topic.
 
-For the Premium ISE SKU, the base unit has fixed capacity, so if you need more throughput, you can [add more scale units](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#add-capacity), either during creation or afterwards. The Developer ISE SKU doesn't have the capability to add more scale units. Logic apps that run in an ISE don't incur data retention costs.
-
-> [!NOTE]
-> Within an ISE, built-in triggers and actions display the 
-> **Core** label and run in the same ISE as your logic apps. 
-> Standard and Enterprise connectors that display the **ISE** 
-> label run in the same ISE as your logic apps. Connectors 
-> that don't display the ISE label run in the global Logic Apps service.
+If you choose the Premium ISE SKU, the base unit has fixed capacity. If you need more throughput, you can [add more scale units](../logic-apps/ise-manage-integration-service-environment.md#add-capacity), either during creation or afterwards. The Developer ISE SKU doesn't have the capability to add more scale units. Logic apps that run in an ISE don't incur data retention costs.
 
 For pricing rates, see [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps).
 

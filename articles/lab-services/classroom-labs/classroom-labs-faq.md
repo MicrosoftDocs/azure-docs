@@ -25,6 +25,9 @@ Get answers to some of the most common questions about classroom labs in Azure L
 ### Is the quota per user or per week or per entire duration of the lab? 
 The quota you set for a lab is for each student for entire duration of the lab. And, the [scheduled running time of VMs](how-to-create-schedules.md) doesn't count against the quota allotted to a user. The quota is for the time outside of schedule hours that a student spends on VMs.  For more information on quotas, see [Set quotas for users](how-to-configure-student-usage.md#set-quotas-for-users).
 
+### If professor turns on a student VM, does that affect the student quota? 
+No. It doesn't. When professor turns on the student VM, it doesn't affect the quota allotted to the student. 
+
 ## Schedules
 
 ### Do all VMs in the lab start automatically when a schedule is set? 
@@ -39,7 +42,9 @@ For example, if you have a block of /19 - 10.0.0.0/19, this address range accomm
 
 ### What port ranges should I open on my organization's firewall setting to connect to Lab virtual machines via RDP/SSH?
 
-The ports are: 49152–65535. Classroom labs sit behind a load balancer, so all the virtual machines in a lab have single IP address and each virtual machine in the lab has a unique port. The port numbers and the public IP address can change every time the lab is republished.
+The ports are: 49152–65535. Classroom labs sit behind a load balancer. Each lab has a single public IP address and each virtual machine in the lab has a unique port. 
+
+You can also see the private IP address of each virtual machine on the **Virtual machine pool** tab of the home page for lab in the Azure portal. If you republish a lab, the public IP address of the lab will not change, but the private IP and port number of each virtual machine in the lab can change. You can learn more in the article: [Firewall settings for Azure Lab Services](how-to-configure-firewall-settings.md).
 
 ### What public IP address range should I open on my organization's firewall settings to connect to Lab virtual machines via RDP/SSH?
 See [Azure IP Ranges and Service Tags — Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519), which provides the public IP address range for data centers in Azure. You can open the IP addresses for the regions where your lab accounts are in.

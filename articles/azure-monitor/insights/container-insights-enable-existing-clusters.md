@@ -31,7 +31,7 @@ az aks enable-addons -a monitoring -n MyExistingManagedCluster -g MyExistingMana
 
 The output will resemble the following:
 
-```azurecli
+```output
 provisioningState       : Succeeded
 ```
 
@@ -47,7 +47,7 @@ If you would rather integrate with an existing workspace, perform the following 
 
     The output will resemble the following:
 
-    ```azurecli
+    ```output
     Name                                  CloudName    SubscriptionId                        State    IsDefault
     ------------------------------------  -----------  ------------------------------------  -------  -----------
     Microsoft Azure                       AzureCloud   68627f8c-91fO-4905-z48q-b032a81f8vy0  Enabled  True
@@ -63,7 +63,7 @@ If you would rather integrate with an existing workspace, perform the following 
 
 3. The following example displays the list of workspaces in your subscriptions in the default JSON format.
 
-    ```
+    ```azurecli
     az resource list --resource-type Microsoft.OperationalInsights/workspaces -o json
     ```
 
@@ -77,7 +77,7 @@ If you would rather integrate with an existing workspace, perform the following 
 
     The output will resemble the following:
 
-    ```azurecli
+    ```output
     provisioningState       : Succeeded
     ```
 
@@ -268,7 +268,7 @@ If you choose to use the Azure CLI, you first need to install and use the CLI lo
 
        The configuration change can take a few minutes to complete. When it's completed, a message is displayed that's similar to the following and includes the result:
 
-       ```powershell
+       ```output
        provisioningState       : Succeeded
        ```
 
@@ -282,7 +282,7 @@ If you choose to use the Azure CLI, you first need to install and use the CLI lo
 
        The configuration change can take a few minutes to complete. When it's completed, a message is displayed that's similar to the following and includes the result:
 
-       ```azurecli
+       ```output
        provisioningState       : Succeeded
        ```
 
@@ -302,7 +302,7 @@ kubectl get ds omsagent --namespace=kube-system
 
 The output should resemble the following, which indicates that it was deployed properly:
 
-```
+```output
 User@aksuser:~$ kubectl get ds omsagent --namespace=kube-system
 NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE SELECTOR                 AGE
 omsagent   2         2         2         2            2           beta.kubernetes.io/os=linux   1d
@@ -316,7 +316,7 @@ kubectl get deployment omsagent-rs -n=kube-system
 
 The output should resemble the following, which indicates that it was deployed properly:
 
-```
+```output
 User@aksuser:~$ kubectl get deployment omsagent-rs -n=kube-system
 NAME       DESIRED   CURRENT   UP-TO-DATE   AVAILABLE    AGE
 omsagent   1         1         1            1            3h
@@ -332,7 +332,7 @@ kubectl get ds omsagent --namespace=kube-system
 
 The output should resemble the following, which indicates that it was deployed properly:  
 
-```
+```output
 User@aksuser:~$ kubectl get ds omsagent --namespace=kube-system
 NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE SELECTOR                 AGE
 omsagent   2         2         2         2            2           beta.kubernetes.io/os=linux   1d
@@ -348,7 +348,7 @@ az aks show -g <resourceGroupofAKSCluster> -n <nameofAksCluster>
 
 After a few minutes, the command completes and returns JSON-formatted information about solution.  The results of the command should show the monitoring add-on profile and resembles the following example output:
 
-```
+```output
 "addonProfiles": {
     "omsagent": {
       "config": {
