@@ -34,34 +34,8 @@ Your private endpoint and virtual network must be in the same region. When you s
 
 Your private endpoint uses a private IP address in your virtual network.
 
-## Establish a private link connection to a namespace
 
-First, create a virtual network by following the steps in [Create a virtual network using the Azure portal](../virtual-network/quick-create-portal.md)
-
-You can then either create a new Service Bus namespace, or establish a private link connection to an existing namespace.
-
-### Create a new Service Bus namespace and establish a private link connection
-
-For step-by-step instructions on creating a new Service Bus namespace and entities in it, see [Create a Service Bus namespace using the Azure portal](service-bus-create-namespace-portal.md).
-
-After configuring the namespace basics, select the **Networking** tab and follow these steps:
-
-1. Select the **Private Endpoint (preview)** radio button in the **Networking** tab.
-2. Click the **+ Add** Button to add a private endpoint.
-
-    ![Image](./media/private-link-service/private-link-service-1.png) 
-3. In the **Location** field of the **Create Private Endpoint** page, select the **region** in which your virtual network is located. 
-4. In the **Name** field, create a descriptive name that will allow you to identify this private endpoint. 
-5. Select the **virtual network** and **subnet** you want this private endpoint to be created in from the dropdown menu. 
-6. Leave **integrate with the private zone DNS** option unchanged.  
-7. Select **Ok**.
-
-    ![Image](./media/private-link-service/private-link-service-2.png)
-
-    You can see the configured private endpoint now. You now have the option to delete and edit this private endpoint. 
-8. Select the **Review + Create** button and create the namespace. It will take 5-10 minutes for the deployment to complete. 
-
-### Establish a private link connection to a Service Bus namespace
+## Add a private endpoint using the Azure portal
 
 If you already have an existing namespace, you can create a private link connection by following these steps:
 
@@ -100,6 +74,9 @@ If you already have an existing namespace, you can create a private link connect
 11. On the **Review + create**, review all the settings, and select **Create** to create the private endpoint.
     
     ![Create Private Endpoint - Review and Create page](./media/private-link-service/create-private-endpoint-review-create-page.png)
+12. Confirm that the private endpoint is created. 
+
+    ![Private endpoint created](./media/private-link-service/private-endpoint-created.png)
 
 
 ## Manage private link connection
@@ -124,6 +101,8 @@ There are four provisioning states:
 1. If there are any connections that are pending, you will see a connection listed with **Pending** in the provisioning state. 
 1. Select the **private endpoint** you wish to approve
 1. Select the **Approve** button.
+
+    ![Approve private endpoint](./media/private-link-service/private-endpoint-approve.png)
 1. If there are any private endpoint connections you want to reject, whether it is a pending request or existing connection, select the connection and click the **Reject** button.
 
     ![Image](./media/private-link-service/private-link-service-7.png)

@@ -1,5 +1,5 @@
 ---
-title: Azure Service Bus Firewall Rules | Microsoft Docs
+title: Configure IP firewall rules for Azure Service Bus
 description: How to use Firewall Rules to allow connections from specific IP addresses to Azure Service Bus. 
 services: service-bus
 documentationcenter: ''
@@ -15,7 +15,7 @@ ms.author: aschhab
 
 ---
 
-# Azure Service Bus - use firewall rules
+# Configure IP firewall rules for Azure Service Bus
 
 For scenarios in which Azure Service Bus is only accessible from certain well-known sites, Firewall rules enable you to configure rules for accepting traffic originating from specific IPv4 addresses. For example, these addresses may be those of a corporate NAT gateway.
 

@@ -152,10 +152,6 @@
         href: service-bus-amqp-troubleshoot.md
     - name: Advanced features
       items:
-      - name: Use firewalls
-        href: service-bus-ip-filtering.md
-      - name: Virtual Network service endpoints
-        href: service-bus-service-endpoints.md
       - name: Dead-letter queues
         href: service-bus-dead-letter-queues.md
       - name: Prefetch messages
@@ -205,7 +201,11 @@
     items:
     - name: Configure customer-managed keys for encryption at rest
       href: configure-customer-managed-key.md
-    - name: Integrate with Azure Private Link service (preview)
+    - name: Configure firewalls
+      href: service-bus-ip-filtering.md
+    - name: Configure virtual Network service endpoints
+      href: service-bus-service-endpoints.md
+    - name: Configure private endpoints (preview)
       href: private-link-service.md
   - name: Troubleshoot
     items:
