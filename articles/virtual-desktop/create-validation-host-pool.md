@@ -8,6 +8,7 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 08/29/2019
 ms.author: helohr
+manager: lizross
 ---
 # Tutorial: Create a host pool to validate service updates
 
@@ -57,9 +58,9 @@ The results from the cmdlet should look similar to this output:
     FriendlyName        :
     Description         :
     Persistent          : False 
-    CustomRdpProperty	: use multimon:i:0;
+    CustomRdpProperty    : use multimon:i:0;
     MaxSessionLimit     : 10
-    LoadBalancerType	: BreadthFirst
+    LoadBalancerType    : BreadthFirst
     ValidationEnv       : True
     Ring                :
 ```

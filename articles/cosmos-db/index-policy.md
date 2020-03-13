@@ -29,7 +29,7 @@ Azure Cosmos DB supports two indexing modes:
 
 By default, indexing policy is set to `automatic`. It's achieved by setting the `automatic` property in the indexing policy to `true`. Setting this property to `true` allows Azure CosmosDB to automatically index documents as they are written.
 
-## Including and excluding property paths
+## <a id="include-exclude-paths"></a> Including and excluding property paths
 
 A custom indexing policy can specify property paths that are explicitly included or excluded from indexing. By optimizing the number of paths that are indexed, you can lower the amount of storage used by your container and improve the latency of write operations. These paths are defined following [the method described in the indexing overview section](index-overview.md#from-trees-to-property-paths) with the following additions:
 
@@ -70,7 +70,7 @@ Any indexing policy has to include the root path `/*` as either an included or a
 
 - For paths with regular characters that include: alphanumeric characters and _ (underscore), you don’t have to escape the path string around double quotes (for example, "/path/?"). For paths with other special characters, you need to escape the path string around double quotes (for example, "/\"path-abc\"/?"). If you expect special characters in your path, you can escape every path for safety. Functionally it doesn’t make any difference if you escape every path Vs just the ones that have special characters.
 
-- The system property "etag" is excluded from indexing by default, unless the etag is added to the included path for indexing.
+- The system property "_etag" is excluded from indexing by default, unless the etag is added to the included path for indexing.
 
 When including and excluding paths, you may encounter the following attributes:
 

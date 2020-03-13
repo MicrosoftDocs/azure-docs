@@ -178,14 +178,13 @@ The Text Analytics API is stateless. No data is stored in your account, and resu
 
 All POST requests return a JSON formatted response with the IDs and detected entity properties.
 
-Output is returned immediately. You can stream the results to an application that accepts JSON or save the output to a file on the local system, and then import it into an application that allows you to sort, search, and manipulate the data.
-
+Output is returned immediately. You can stream the results to an application that accepts JSON or save the output to a file on the local system, and then import it into an application that allows you to sort, search, and manipulate the data. Due to multilingual and emoji support, the response may contain text offsets. See [how to process text offsets](../concepts/text-offsets.md) for more information.
 
 #### [Version 3.0-preview)](#tab/version-3)
 
 ### Example v3 responses
 
-Version 3 provides separate endpoints for NER and entity linking. The responses for both operations are below.
+Version 3 provides separate endpoints for NER and entity linking. The responses for both operations are below. 
 
 #### Example NER response
 
