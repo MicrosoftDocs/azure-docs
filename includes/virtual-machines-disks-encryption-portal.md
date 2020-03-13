@@ -107,7 +107,7 @@ To manage and configure disk encryption on your existing disks, you must use the
 
     Azure Government regions: [https://aka.ms/diskencryptionsetsff](https://aka.ms/diskencryptionsetsff)
     
-1. Navigate to a VM which is in the same region as one of your disk encryption sets.
+1. Navigate to a VM that is in the same region as one of your disk encryption sets.
 1. Open the VM and select **Stop**.
 
     ![Screenshot of the main overlay for your example VM. With the Stop button highlighted](media/virtual-machines-disk-encryption-portal/sse-stop-VM-to-encrypt-disk.png)
