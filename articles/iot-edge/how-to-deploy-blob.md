@@ -283,7 +283,7 @@ In addition, a blob storage module also requires the HTTPS_PROXY setting in the 
 
 1. Note that the proxy is added to the module in deployment manifest and select **Create**.
 
-1. Verify the setting by selecting the module from the device details page, and on the **IoT Edge Modules Details** page select the **Environment Variables** tab.
+1. Verify the setting by selecting the module from the device details page, and on the lower part of the **IoT Edge Modules Details** page select the **Environment Variables** tab.
 
       ![Set HTTPS_PROXY environment variable](./media/how-to-deploy-blob/verify-proxy-config.png)
 
