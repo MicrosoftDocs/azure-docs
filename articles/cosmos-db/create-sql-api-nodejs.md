@@ -115,7 +115,7 @@ The following snippets are all taken from the _app.js_ file.
 - Select the "Items" container/collection.
 
   ```javascript
-  const container = await client.databases(containerId);
+  const container = await database.container(containerId);
   ```
 
 - Select all the items in the "Items" container.
