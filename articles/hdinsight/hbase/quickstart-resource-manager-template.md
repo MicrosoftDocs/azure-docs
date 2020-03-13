@@ -24,7 +24,9 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ### Review the template
 
-The template used in this quickstart is from [Azure Quickstart templates](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-hbase-linux). The template for this article is too long to show here. To view the template, see: [https://github.com/Azure/azure-quickstart-templates/blob/master/101-hdinsight-hbase-linux/azuredeploy.json](https://github.com/Azure/azure-quickstart-templates/blob/master/101-hdinsight-hbase-linux/azuredeploy.json).
+The template used in this quickstart is from [Azure Quickstart templates](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-hbase-linux).
+
+:::code language="json" source="~/quickstart-templates/101-hdinsight-hbase-linux/azuredeploy.json" range="1-145" highlight="1-145":::
 
 The mapping is defined in the `openpublishing.publish.config` file.
 
@@ -66,7 +68,7 @@ After you complete the quickstart, you may want to delete the cluster. With HDIn
 
 From the Azure portal, navigate to your cluster, and select **Delete**.
 
-![Resource Manager template HBase](./media/quickstart-resource-manager-template/hdinsight-azure-portal-delete-cluster.png)
+![Resource Manager template HBase](./media/quickstart-resource-manager-template/azure-portal-delete-hbase.png)
 
 You can also select the resource group name to open the resource group page, and then select **Delete resource group**. By deleting the resource group, you delete both the HDInsight cluster, and the default storage account.
 
