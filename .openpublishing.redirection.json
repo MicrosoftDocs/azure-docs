@@ -13601,7 +13601,7 @@
     },
     {
       "source_path": "articles/event-hubs-tutorial-virtual-networks-firewalls.md",
-      "redirect_url": "/azure/event-hubs/event-hubs-service-endpoints.md",
+      "redirect_url": "/azure/event-hubs/event-hubs-service-endpoints",
       "redirect_document_id": false
     },    
     {
