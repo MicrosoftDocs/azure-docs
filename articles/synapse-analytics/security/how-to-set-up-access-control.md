@@ -1,5 +1,5 @@
 ---
-title: Secure your Synapse Workspace 
+title: Secure your Synapse workspace (preview)
 description: This article will teach you how to use roles and access control to control activities and access to data in Synapse workspace.
 services: synapse-analytics 
 author: matt1883 
@@ -10,7 +10,7 @@ ms.date: 10/17/2019
 ms.author: mahi
 ms.reviewer: jrasnick
 ---
-#  Secure your Synapse workspace
+#  Secure your Synapse workspace (preview)
 
 This article will teach you how to use roles and access control to control activities and access to data. By following these instructions, access control in Azure Synapse Analytics is simplified. You only need to add and remove users to one of three security groups.
 

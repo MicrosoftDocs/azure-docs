@@ -1,7 +1,7 @@
 ---
 title: Query Parquet nested types using SQL on-demand
 description: In this article, you'll learn how to query Parquet nested types.
-services: synapse analytics
+services: synapse-analytics
 author: azaricstefan 
 ms.service: synapse-analytics
 ms.topic: overview

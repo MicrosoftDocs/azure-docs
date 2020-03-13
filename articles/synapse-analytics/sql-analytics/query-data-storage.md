@@ -1,7 +1,7 @@
 ---
 title: Overview - Query data in storage
 description: This section contains sample queries you can use to try out the SQL on-demand resource within Azure Synapse Analytics.
-services: synapse analytics
+services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics 
 ms.topic: overview

@@ -1,6 +1,6 @@
 ---
 title: Store query results to storage
-description: In this article, you'll learn how to store query results to storage using SQL On-demand.
+description: In this article, you'll learn how to store query results to storage using SQL on-demand (preview).
 services: synapse-analytics
 author: vvasic-msft
 ms.service: synapse-analytics
@@ -11,9 +11,9 @@ ms.author: vvasic
 ms.reviewer: jrasnick, carlrab
 ---
 
-# Store query results to the storage using SQL on-demand using Azure Synapse Analytics
+# Store query results to storage using SQL on-demand (preview) using Azure Synapse Analytics
 
-In this article, you'll learn how to store query results to the storage using SQL On-demand.
+In this article, you'll learn how to store query results to the storage using SQL On-demand (preview).
 
 ## Prerequisites
 

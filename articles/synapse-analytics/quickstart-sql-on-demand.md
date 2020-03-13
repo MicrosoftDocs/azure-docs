@@ -1,6 +1,6 @@
 ---
-title: Using SQL on-demand
-description: In this quickstart, you will see and learn how easy is to query various types of files using SQL on-demand.
+title: Using SQL on-demand (preview)
+description: In this quickstart, you will see and learn how easy is to query various types of files using SQL on-demand (preview).
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -13,12 +13,13 @@ ms.reviewer: jrasnick
 
 # Quickstart: Using SQL on-demand
 
-Synapse SQL Analytics On-demand is a serverless query service that enables you to run the SQL queries on your files placed in azure Storage. In quickstart, you will see and learn how easy is to query various types of files using SQL on-demand.
+Synapse SQL on-demand  (preview) is a serverless query service that enables you to run the SQL queries on your files placed in Azure Storage. In this quickstart, you will learn how to query various types of files using SQL on-demand.
+
 The following file types are supported: JSON, CSV, Apache Parquet
 
 ## Prerequisites
 
-Choose a SQL client of your choice to issue queries:
+Choose a SQL client to issue queries:
 
 - [Azure Synapse Studio](quickstart-synapse-studio.md) is a web tool that you can use to browse files in storage and create SQL query.
 - [Azure Data Studio](./sql-analytics/get-started-azure-data-studio.md) is a client tool that enables you to run SQL queries and notebooks on your On-demand database.
@@ -31,7 +32,7 @@ Parameters for quickstart:
 | SQL on-demand service endpoint address    | Used as server name                                   |
 | SQL on-demand service endpoint region     | Used to determine what storage will we use in samples |
 | Username and password for endpoint access | Used to access endpoint                               |
-| The database used to create views     | Database used as starting point in samples       |
+| The database used to create views         | Database used as starting point in samples       |
 
 ## First-time setup
 

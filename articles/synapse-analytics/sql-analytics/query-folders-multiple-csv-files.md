@@ -1,7 +1,7 @@
 ---
 title: Query folders and multiple CSV files
 description: SQL on-demand supports reading multiple files/folders by using wildcards, which are similar to the wildcards used in Windows OS.
-services: synapse analytics 
+services: synapse-analytics 
 author: azaricstefan 
 ms.service: synapse-analytics 
 ms.topic: overview
@@ -39,34 +39,34 @@ Files in *csv/taxi* are named after year and month:
 - yellow_tripdata_2018-06.csv
 
 Each file has the following structure:
+        
+    [First 10 rows of the CSV file](./media/querying-folders-and-multiple-csv-files/nyc-taxi.png)
 
-![First 10 rows of the CSV file](./media/querying-folders-and-multiple-csv-files/nyc-taxi.png)
-
-### Read all files in folder
-
+## Read all files in folder
+    
 The example below reads all NYC Yellow Taxi data files from the *csv/taxi* folder and returns the total number of passengers and rides per year. It also shows usage of aggregate functions.
 
 ```sql
-SELECT
+SELECT 
     YEAR(pickup_datetime) as [year],
     SUM(passenger_count) AS passengers_total,
     COUNT(*) AS [rides_total]
 FROM OPENROWSET(
     BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/taxi/*.*',
-        FORMAT = 'CSV',
+        FORMAT = 'CSV', 
         FIRSTROW = 2
     )
     WITH (
-        vendor_id VARCHAR(100) COLLATE Latin1_General_BIN2,
-        pickup_datetime DATETIME2,
+        vendor_id VARCHAR(100) COLLATE Latin1_General_BIN2, 
+        pickup_datetime DATETIME2, 
         dropoff_datetime DATETIME2,
         passenger_count INT,
-        trip_distance FLOAT,
+           trip_distance FLOAT,
         rate_code INT,
         store_and_fwd_flag VARCHAR(100) COLLATE Latin1_General_BIN2,
-        pickup_location_id INT,
+           pickup_location_id INT,'
         dropoff_location_id INT,
-        payment_type INT,
+           payment_type INT,
         fare_amount FLOAT,
         extra FLOAT,
         mta_tax FLOAT,
@@ -89,17 +89,17 @@ ORDER BY
 The example below reads the 2017 NYC Yellow Taxi data files from the *csv/taxi* folder using a wildcard and returns the total fare amount per payment type.
 
 ```sql
-SELECT
-    payment_type,
+SELECT 
+    payment_type,  
     SUM(fare_amount) AS fare_total
 FROM OPENROWSET(
     BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/taxi/yellow_tripdata_2017-*.csv',
-        FORMAT = 'CSV',
+        FORMAT = 'CSV', 
         FIRSTROW = 2
     )
     WITH (
-        vendor_id VARCHAR(100) COLLATE Latin1_General_BIN2,
-        pickup_datetime DATETIME2,
+        vendor_id VARCHAR(100) COLLATE Latin1_General_BIN2, 
+        pickup_datetime DATETIME2, 
         dropoff_datetime DATETIME2,
         passenger_count INT,
         trip_distance FLOAT,
@@ -143,12 +143,12 @@ SELECT
     COUNT(*) AS [rides_total]
 FROM OPENROWSET(
     BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/taxi/',
-        FORMAT = 'CSV',
+        FORMAT = 'CSV', 
         FIRSTROW = 2
     )
     WITH (
-        vendor_id VARCHAR(100) COLLATE Latin1_General_BIN2,
-        pickup_datetime DATETIME2,
+        vendor_id VARCHAR(100) COLLATE Latin1_General_BIN2, 
+        pickup_datetime DATETIME2, 
         dropoff_datetime DATETIME2,
         passenger_count INT,
         trip_distance FLOAT,
@@ -187,13 +187,13 @@ SELECT
     SUM(passenger_count) AS passengers_total,
     COUNT(*) AS [rides_total]
 FROM OPENROWSET(
-    BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/t*i/',
-        FORMAT = 'CSV',
+    BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/t*i/', 
+        FORMAT = 'CSV', 
         FIRSTROW = 2
     )
     WITH (
-        vendor_id VARCHAR(100) COLLATE Latin1_General_BIN2,
-        pickup_datetime DATETIME2,
+        vendor_id VARCHAR(100) COLLATE Latin1_General_BIN2, 
+        pickup_datetime DATETIME2, 
         dropoff_datetime DATETIME2,
         passenger_count INT,
         trip_distance FLOAT,
@@ -236,12 +236,12 @@ SELECT
     COUNT(*) AS [rides_total]
 FROM OPENROWSET(
     BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/t*i/yellow_tripdata_2017-*.csv',
-        FORMAT = 'CSV',
+        FORMAT = 'CSV', 
         FIRSTROW = 2
     )
     WITH (
-        vendor_id VARCHAR(100) COLLATE Latin1_General_BIN2,
-        pickup_datetime DATETIME2,
+        vendor_id VARCHAR(100) COLLATE Latin1_General_BIN2, 
+        pickup_datetime DATETIME2, 
         dropoff_datetime DATETIME2,
         passenger_count INT,
         trip_distance FLOAT,

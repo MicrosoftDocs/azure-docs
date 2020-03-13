@@ -1,7 +1,7 @@
 ---
-title: Query storage files using SQL on-demand within SQL Analytics
-description: Describes querying storage files using SQL on-demand resources within SQL Analytics.
-services: synapse analytics
+title: Query storage files using SQL on-demand (preview) within SQL Analytics
+description: Describes querying storage files using SQL on-demand (preview) resources within SQL Analytics.
+services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: overview
@@ -11,9 +11,9 @@ ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
 ---
 
-# Query storage files using SQL on-demand resources within SQL Analytics
+# Query storage files using SQL on-demand (preview) resources within SQL Analytics
 
-SQL on-demand enables you to query data in your data lake. It offers a T-SQL query surface area that accommodates semi-structured and unstructured data queries.
+SQL on-demand (preview) enables you to query data in your data lake. It offers a T-SQL query surface area that accommodates semi-structured and unstructured data queries.
 
 For querying, the following T-SQL aspects are supported:
 

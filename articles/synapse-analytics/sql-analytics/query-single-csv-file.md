@@ -1,7 +1,7 @@
 ---
 title: Query CSV files
 description: In this article, you'll learn how to query single CSV files with different file formats using SQL on-demand.
-services: synapse analytics
+services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: overview

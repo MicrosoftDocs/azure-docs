@@ -121,7 +121,6 @@ dependencies
 | render barchart  
 ```
 
-
 ## Viewing Application Insights usage on your Azure bill
 
 Azure provides a great deal of useful functionality in the [Azure Cost Management + Billing](https://docs.microsoft.com/azure/cost-management/quick-acm-cost-analysis?toc=/azure/billing/TOC.json) hub. For instance, the "Cost analysis" functionality enables you to view your spends for Azure resources. Adding a filter by resource type (to microsoft.insights/components for Application Insights) will allow you to track your spending.
@@ -170,6 +169,14 @@ To change the daily cap, in the **Configure** section of your Application Insigh
 ![Adjust the daily telemetry volume cap](./media/pricing/pricing-003.png)
 
 To [change the daily cap via Azure Resource Manager](../../azure-monitor/app/powershell.md), the property to change is the `dailyQuota`.  Via Azure Resource Manager you can also set the `dailyQuotaResetTime` and the daily cap's `warningThreshold`.
+
+### Create alerts for the Daily Cap
+
+The Application Insights Daily Cap creates an event in the Azure activity kog when the ingested data volumes hits the warning level or the daily cap level.  You can [create an alert based on these activity log events](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log#create-with-the-azure-portal). The signal names for these events are:
+
+* Application Insights component daily cap warning threshold reached
+
+* Application Insights component daily cap reached
 
 ## Sampling
 [Sampling](../../azure-monitor/app/sampling.md) is a method of reducing the rate at which telemetry is sent to your app, while retaining the ability to find related events during diagnostic searches. You also retain correct event counts.

@@ -1,7 +1,7 @@
 ---
 title: Defining data types
 description: Recommendations for defining table data types in SQL Analytics. 
-services: synapse analytics
+services: synapse-analytics
 author: filippopovic
 manager: craigg
 ms.service: synapse-analytics
@@ -14,6 +14,7 @@ ms.custom:
 ---
 
 # Table data types in SQL Analytics
+
 Recommendations for defining table data types in SQL Analytics. 
 
 ## What are the data types?
@@ -56,7 +57,7 @@ The following list shows the data types that SQL Analytics does not support and 
 | [text](/sql/t-sql/data-types/ntext-text-and-image-transact-sql) |[varchar](/sql/t-sql/data-types/char-and-varchar-transact-sql) |
 | [ntext](/sql/t-sql/data-types/ntext-text-and-image-transact-sql) |[nvarchar](/sql/t-sql/data-types/nchar-and-nvarchar-transact-sql) |
 | [sql_variant](/sql/t-sql/data-types/sql-variant-transact-sql) |Split column into several strongly typed columns. |
-| [table](/sql/t-sql/data-types/table-transact-sql) |If using SQL pool, you can convert to temporary tables. If using SQL on-demand, you may consider storing data to storage using [CETAS](development-tables-cetas.md). |
+| [table](/sql/t-sql/data-types/table-transact-sql) |If using SQL pool, you can convert to temporary tables. If using SQL  (preview), you may consider storing data to storage using [CETAS](development-tables-cetas.md). |
 | [timestamp](/sql/t-sql/data-types/date-and-time-types) |Rework code to use [datetime2](/sql/t-sql/data-types/datetime2-transact-sql) and the [CURRENT_TIMESTAMP](/sql/t-sql/functions/current-timestamp-transact-sql) function. Only constants are supported as defaults, therefore current_timestamp cannot be defined as a default constraint. If you need to migrate row version values from a timestamp typed column, then use [BINARY](/sql/t-sql/data-types/binary-and-varbinary-transact-sql)(8) or [VARBINARY](/sql/t-sql/data-types/binary-and-varbinary-transact-sql)(8) for NOT NULL or NULL row version values. |
 | [xml](/sql/t-sql/xml/xml-transact-sql) |[varchar](/sql/t-sql/data-types/char-and-varchar-transact-sql) |
 | [user-defined type](/sql/relational-databases/native-client/features/using-user-defined-types) |Convert back to the native data type when possible. |

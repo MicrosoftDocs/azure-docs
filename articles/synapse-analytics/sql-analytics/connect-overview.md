@@ -1,6 +1,6 @@
 ---
-title: Connect to SQL Analytics | Microsoft Docs
-description: Get connected to Azure SQL Analytics.
+title: Connect to SQL Analytics
+description: Get connected to SQL Analytics.
 services: synapse-analytics 
 author: azaricstefan 
 ms.service: synapse-analytics 
@@ -14,8 +14,8 @@ ms.reviewer: jrasnick
 # Connect to SQL Analytics
 Get connected to the SQL Analytics capability in Azure Synapse Analytics.
 
-## Supported tools for SQL Analytics on-demand
-The fully supported tool is Azure Data Studio.
+## Supported tools for SQL Analytics on-demand (preview)
+The fully supported tool is Azure Data Studio (preview).
 
 SQL Server Management Studio is supported partially from version 18.4. There are limited features such as connecting and querying.
 
@@ -27,11 +27,11 @@ The server name in the following example is samplesvr.database.windows.net. To f
 3. Click on the Analytics you want to connect to.
 4. Locate the full server name.
 
-4.1. **SQL pool**
+## **SQL pool**
 
 ![Full server name](media/sql-analytics-connect-overview/server-connect-example.png)
 
-4.2. **SQL on-demand**
+## **SQL on-demand**
 
 ![Full server name SQL on-demand](media/sql-analytics-connect-overview/server-connect-example-sqlod.png)
 
