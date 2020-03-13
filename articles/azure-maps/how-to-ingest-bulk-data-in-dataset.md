@@ -62,7 +62,7 @@ This section assumes that you already have a data set. It shows you how to impor
     https://atlas.microsoft.com/mapData/<unique-alphanumeric-value>/status?api-version=1.0&subscription-key=<Azure-Maps-Primary-Subscription-key>
     ```
 
-7. If the get request was successful, the response body will contain the `resourceLocation` element. The upload `udid` is embedded in the URL of the `resourceLocation` element, as seen in the image below. Copy the upload ID for this zip folder.
+7. If the get request was successful, the response body will contain the `resourceLocation` element. The upload `udid` is in the URL of the `resourceLocation` element, as seen in the image below. Copy the upload ID for this zip folder.
 
     <center>
 
@@ -70,11 +70,38 @@ This section assumes that you already have a data set. It shows you how to impor
 
     </center>
 
-8. Call the [Dataset Import API]() to import bulk data from the zip folder resource to the dataset resource. You'll need the data set ID and the zip folder upload ID, to import the zip folder data into the data set. Make **PATCH** request URL similar to the one below, and for the `type` parameter, use the `fixture` value.
+8. Call the [Dataset Import API]() to import bulk data from the zip folder resource to the dataset resource. You'll need the data set ID and the zip folder upload ID, to import the zip folder data into the data set. For the `type` parameter, use the `fixture` value. The **PATCH** request URL should look similar to the one below.
 
     ```http
-    <?>
+    https://atlas.microsoft.com/dataset/import/<datasetId>?api-version=1.0&subscription-key=<Azure-Maps-Primary-Subscription-key>&udid=<upload-udid>&type=fixture
     ```
 
-9. After making the **PATCH** request call, you'll receive a response containing a response status, like the one in the image below:
+9. After making the **PATCH** request call, you'll receive a response header containing the status URL, highlighted in the image below. You can use this URL to query the status of the import request.
 
+    <center>
+
+    ![Upload data folder](./media/how-to-ingest-bulk-data-in-dataset/status-uri.png)
+
+    </center>
+
+10. To query the status URL, append you Azure Maps subscription key, and make a **GET** request. The response body lets you know, if your data bulk import failed or succeeded. If it failed, you'll see a message with more details.
+
+    ```http
+    https://atlas.microsoft.com/dataset/operations/<unique-alphanumeric-value>?api-version=1.0&subscription-key=TdexqUMLfpcl0Dl9mhBmmVe2g1fqTenJMl3qai-73KE
+    ```
+
+## Next steps
+
+Learn more about the different APIs mentioned in this application:
+
+> [!div class="nextstepaction"]
+> [Data Upload API]()
+
+> [!div class="nextstepaction"]
+> [Conversion API]()
+
+> [!div class="nextstepaction"]
+> [Dataset API]()
+
+> [!div class="nextstepaction"]
+> [Dataset Import API]()
