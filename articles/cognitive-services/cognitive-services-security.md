@@ -35,7 +35,39 @@ An alternative to using hardcoded values for sensitive data, is to use environme
 
 ### Set environment variables
 
+To set environment variables, use one the following commands where the `ENVIRONMENT_VARIABLE_KEY` is the key and `value` is the value to store in the environment variable.
 
+# [Command Line](#tab/command-line)
+
+```cmd
+:: Assigns the env var to the value
+set ENVIRONMENT_VARIABLE_KEY=value
+
+:: Prints the env var value
+echo %ENVIRONMENT_VARIABLE_KEY%
+```
+
+# [PowerShell](#tab/powershell)
+
+```powershell
+# Assigns the env var to the value
+$Env:ENVIRONMENT_VARIABLE_KEY="value"
+
+# Prints the env var value
+$Env:ENVIRONMENT_VARIABLE_KEY
+```
+
+# [Bash](#tab/bash)
+
+```bash
+# Assigns the env var to the value
+export ENVIRONMENT_VARIABLE_KEY=value
+
+# Prints the env var value
+echo ENVIRONMENT_VARIABLE_KEY
+```
+
+---
 
 ### Get environment variables
 
