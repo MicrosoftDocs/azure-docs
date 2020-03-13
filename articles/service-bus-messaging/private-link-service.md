@@ -16,28 +16,30 @@ Azure Private Link Service enables you to access Azure Services (for example, Az
 
 A private endpoint is a network interface that connects you privately and securely to a service powered by Azure Private Link. The private endpoint uses a private IP address from your VNet, effectively bringing the service into your VNet. All traffic to the service can be routed through the private endpoint, so no gateways, NAT devices, ExpressRoute or VPN connections, or public IP addresses are needed. Traffic between your virtual network and the service traverses over the Microsoft backbone network, eliminating exposure from the public Internet. You can connect to an instance of an Azure resource, giving you the highest level of granularity in access control.
 
-For more information, see [What is Azure Private Link (Preview)?](../private-link/private-link-overview.md)
+For more information, see [What is Azure Private Link?](../private-link/private-link-overview.md)
 
 > [!NOTE]
 > This feature is supported with the **premium** tier of Azure Service Bus. For more information about the premium tier, see the [Service Bus Premium and Standard messaging tiers](service-bus-premium-messaging.md) article.
 
-## Prerequisites
 
-To integrate a Service Bus namespace with Azure Private Link (Preview), you'll need the following entities or permissions:
+
+
+## Add a private endpoint using Azure portal
+
+### Prerequisites
+
+To integrate a Service Bus namespace with Azure Private Link, you'll need the following entities or permissions:
 
 - A Service Bus namespace.
 - An Azure virtual network.
 - A subnet in the virtual network.
 - Owner or contributor permissions for both the Service Bus namespace and the virtual network.
 
-Your private endpoint and virtual network must be in the same region. When you select a region for the private endpoint using the portal, it will automatically filter only virtual networks that are in that region. Your Service Bus namespace can be in a different region.
+Your private endpoint and virtual network must be in the same region. When you select a region for the private endpoint using the portal, it will automatically filter only virtual networks that are in that region. Your Service Bus namespace can be in a different region. And, Your private endpoint uses a private IP address in your virtual network.
 
-Your private endpoint uses a private IP address in your virtual network.
+## steps
 
-
-## Add a private endpoint connection using the Azure portal
-
-If you already have an existing namespace, you can create a private link connection by following these steps:
+If you already have an existing namespace, you can create a private endpoint by following these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com). 
 2. In the search bar, type in **Service Bus**.
@@ -78,11 +80,12 @@ If you already have an existing namespace, you can create a private link connect
 
     ![Private endpoint created](./media/private-link-service/private-endpoint-created.png)
 
-## Add a private endpoint connection using PowerShell
+## Add a private endpoint using PowerShell
 The following example shows you how to use Azure PowerShell to create a private endpoint connection to a Service Bus namespace.
 
+Your private endpoint and virtual network must be in the same region. Your Service Bus namespace can be in a different region. And, Your private endpoint uses a private IP address in your virtual network.
+
 ```azurepowershell-interactive
-# create resource group
 
 $rgName = "<RESOURCE GROUP NAME>"
 $vnetlocation = "<VNET LOCATION>"
@@ -91,6 +94,9 @@ $subnetName = "<SUBNET NAME>"
 $namespaceLocation = "<NAMESPACE LOCATION>"
 $namespaceName = "<NAMESPACE NAME>"
 $peConnectionName = "<PRIVATE ENDPOINT CONNECTION NAME>"
+
+# create resource group
+az group create -l $vnetLocation -n $rgName
 
 # create virtual network
 $virtualNetwork = New-AzVirtualNetwork `
@@ -136,7 +142,7 @@ $privateEndpoint = New-AzPrivateEndpoint -ResourceGroupName $rgName  `
 ```
 
 
-## Manage private link connection
+## Manage private endpoints using Azure portal
 
 When you create a private endpoint, the connection must be approved. If the resource for which you're creating a private endpoint is in your directory, you can approve the connection request provided you have sufficient permissions. If you're connecting to an Azure resource in another directory, you must wait for the owner of that resource to approve your connection request.
 
