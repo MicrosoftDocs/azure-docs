@@ -21,9 +21,11 @@ ms.service: media-services
 # manager: MSFT-alias-manager-or-PM-counterpart
 ---
  
-# Become an on-premises encoder partner
+# How to verify your on-premises encoder
 
 As an Azure Media Services on-premises encoder partner, Media Services promotes your product by recommending your encoder to enterprise customers. To become an on-premises encoder partner, you must verify compatibility of your on-premises encoder with Media Services. To do so, complete the following verifications.
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ### Pass-through Live Event verification
 
@@ -73,7 +75,7 @@ Finally, email your recorded settings and live archive parameters to Azure Media
 
 ## See also
 
-[Recommended on-premises live encoders](recommended-on-premises-live-encoders.md)
+[Tested on-premises encoders](recommended-on-premises-live-encoders.md)
 
 ## Next steps
 
