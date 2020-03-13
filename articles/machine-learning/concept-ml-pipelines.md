@@ -200,6 +200,12 @@ The key advantages of using pipelines for your machine learning workflows are:
 | **Modularity** | Separating areas of concerns and isolating changes allows software to evolve at a faster rate with higher quality. | 
 |**Collaboration**|Pipelines allow data scientists to collaborate across all areas of the machine learning design process, while being able to concurrently work on pipeline steps.|
 
+### Choosing the proper PipelineStep subclass
+
+The `PythonScriptStep` is the most flexible subclass of the abstract `PipelineStep`. Other subclasses, such as `EstimatorStep` subclasses and `DataTransferStep` can accomplish specific tasks with less code. For instance, an `EstimatorStep` can be created by simply passing in a name for the step, an `Estimator`, and a compute target. Or, you can override inputs and outputs, pipeline parameters, and arguments. For more information, see [Train models with Azure Machine Learning using estimator](how-to-train-ml-models.md). 
+
+The `DataTransferStep` makes it easy to move data between data sources and sinks. The code to do this manually is straightforward but repetitive. Instead, you can just create a `DataTransferStep` with a name, references to a data source and a data sink, and a compute target. The notebook [Azure Machine Learning Pipeline with DataTransferStep](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/aml-pipelines-data-transfer.ipynb) demonstrates this flexibility.
+
 ## Modules
 
 While pipeline steps allow the reuse of the results of a previous run, in many cases the construction of the step assumes that the scripts and dependent files required must be locally available. If a data scientist wants to build on top of existing code, the scripts and dependencies often must be cloned from a separate repository.

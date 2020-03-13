@@ -2,7 +2,7 @@
 author: aahill
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 02/26/2019
+ms.date: 03/12/2020
 ms.author: aahi
 ---
 
@@ -38,11 +38,17 @@ After installing Python, you can install the client library with:
 pip install azure-ai-textanalytics
 ```
 
+> [!TIP]
+> Want to view the whole quickstart code file at once? You can find it [on GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/TextAnalytics/python-v3-client-library.py), which contains the code examples in this quickstart. 
+
 #### [Version 2.1](#tab/version-2)
 
 ```console
 pip install --upgrade azure-cognitiveservices-language-textanalytics
 ```
+
+> [!TIP]
+> Want to view the whole quickstart code file at once? You can find it [on GitHub](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/language/text_analytics_samples.py), which contains the code examples in this quickstart. 
 
 ---
 

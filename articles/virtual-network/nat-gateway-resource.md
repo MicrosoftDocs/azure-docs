@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/04/2020
+ms.date: 03/12/2020
 ms.author: allensu
 ---
 
-# Designing virtual networks with NAT gateway resources (Public Preview)
+# Designing virtual networks with NAT gateway resources
 
 NAT gateway resources are part of [Virtual Network NAT](nat-overview.md) and provide outbound Internet connectivity for one or more subnets of a virtual network. The subnet of the virtual network states which NAT gateway will be used. NAT provides source network address translation (SNAT) for a subnet.  NAT gateway resources specify which static IP addresses virtual machines use when creating outbound flows. Static IP addresses come from public IP address resources, public IP prefix resources, or both. A NAT gateway resource can use up to 16 static IP addresses from either.
 
@@ -27,10 +27,6 @@ NAT gateway resources are part of [Virtual Network NAT](nat-overview.md) and pro
 </p>
 
 *Figure: Virtual Network NAT for outbound to Internet*
-
-
->[!NOTE] 
->Virtual Network NAT is available as a public preview. Currently it's available in a limited set of [regions](nat-overview.md#region-availability). This preview is provided without a service level agreement and isn't recommended for production workloads. Certain features may not be supported or may have constrained capabilities. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms) for details.
 
 ## How to deploy NAT
 
@@ -335,13 +331,10 @@ A SNAT port is available for reuse to the same destination IP address and destin
 - NSG flow logging isn't supported when using NAT.
 - NAT can't span multiple virtual networks.
 
-## Preview participation
-
-Follow [instructions to enable your subscription](nat-overview.md#public-preview-participation).
 
 ## Feedback
 
-We want to know how we can improve the service. Share your [feedback on the Public Preview](https://aka.ms/natfeedback). Propose and vote on what we should build next at [UserVoice for NAT](https://aka.ms/natuservoice).
+We want to know how we can improve the service. Propose and vote on what we should build next at [UserVoice for NAT](https://aka.ms/natuservoice).
 
 ## Next steps
 
@@ -356,6 +349,7 @@ We want to know how we can improve the service. Share your [feedback on the Publ
   - [Azure CLI](./quickstart-create-nat-gateway-cli.md)
   - [PowerShell](./quickstart-create-nat-gateway-powershell.md)
   - [Portal](./quickstart-create-nat-gateway-portal.md)
+  - [Template](./quickstart-create-nat-gateway-template.md)
 * Learn about NAT gateway resource API
   - [REST API](https://docs.microsoft.com/rest/api/virtualnetwork/natgateways)
   - [Azure CLI](https://docs.microsoft.com/cli/azure/network/nat/gateway?view=azure-cli-latest)
