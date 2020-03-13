@@ -39,6 +39,7 @@ Review:
 ## Use the Azure portal
 
 1. Sign in at the [Azure portal](https://portal.azure.com/).
+1. Navigate to your Azure Media Services account.
 1. On the left, select  **Streaming Endpoints**.
 1. Select the streaming endpoint you want to start, click **Start**.
 
@@ -52,7 +53,7 @@ if (streamingEndpoint.resourceState() != StreamingEndpointResourceState.RUNNING)
 }
 ```
 
-The samples [in this repository](https://docs.microsoft.com/samples/azure-samples/media-services-v3-dotnet/azure-media-services-v3-samples-using-net/) shows how to start the default streaming endpoint with .NET.
+See the complete [Java code sample](https://github.com/Azure-Samples/media-services-v3-java/blob/master/DynamicPackagingVODContent/StreamHLSAndDASH/src/main/java/sample/StreamHLSAndDASH.java#L128).
 
 ## Use the .NET SDK
 
@@ -67,7 +68,7 @@ if (streamingEndpoint != null)
     }
 ```
 
-The samples [in this repository](https://docs.microsoft.com/samples/azure-samples/media-services-v3-java/azure-media-services-v3-samples-using-java/) shows how to start the default streaming endpoint with Java.
+See the complete [.NET code sample](https://github.com/Azure-Samples/media-services-v3-dotnet/blob/master/DynamicPackagingVODContent/StreamHLSAndDASH/Program.cs#L112).
 
 ## Use CLI
 
@@ -93,7 +94,7 @@ For more information, see:
 * The [start a StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints/start) reference documentation.
 * Starting a streaming endpoint is an asynchronous operation. 
 
-    For details on how to monitor a long-running operations see[Long-running operations](media-services-apis-overview.md)
+    For details on how to monitor a long-running operations see [Long-running operations](media-services-apis-overview.md)
 * This [Postman collection](https://github.com/Azure-Samples/media-services-v3-rest-postman/blob/master/Postman/Media%20Services%20v3.postman_collection.json) contains examples of multiple REST operations including on how to start a streaming endpoint.
 
 ## Next steps
