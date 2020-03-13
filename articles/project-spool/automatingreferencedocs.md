@@ -15,7 +15,7 @@ The reference documentation types we need for Spool are:
 - **Swift Reference** docs to support the server and client Swift SDKs. This is similar to the [Spatial Anchors Objective C SDK docs](https://docs.microsoft.com/en-us/objectivec/api/spatial-anchors/).
 - **Java Reference** docs to support the server and client Java SDKs. This is similar to the [Azure Functions Java API docs](https://docs.microsoft.com/en-us/azure/azure-functions/)
 
-The status and ownership of these reference docs is outlined in [this spreadsheet](https://microsoft.sharepoint-df.com/:x:/t/IC3SDK/EasbZy5MyMBLq2S0NyTNBVABhKiR6r8bq8Ld8clQQkgOeA?e=jxpgWn). This is being updated on a weekly basis as we approach public preview and GA.
+The status and ownership of these reference docs are outlined in [this spreadsheet](https://microsoft.sharepoint-df.com/:x:/t/IC3SDK/EasbZy5MyMBLq2S0NyTNBVABhKiR6r8bq8Ld8clQQkgOeA?e=jxpgWn). This spreadsheet is being updated regularly as we approach public preview and GA.
 
 
 #### Generating REST Management API Docs
