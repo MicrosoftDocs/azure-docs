@@ -1,5 +1,5 @@
 ---
-title: 'QuickStart: Create a C# ASP.NET Core app'
+title: 'Quickstart: Create a C# ASP.NET Core app'
 description: Learn how to run web apps in Azure App Service by deploying the default C# ASP.NET Core web app template from Visual Studio.
 ms.assetid: b1e6bd58-48d1-4007-9d6c-53fd6db061e3
 ms.topic: quickstart
@@ -10,17 +10,14 @@ ms.custom: seodec18
 
 # Quickstart: Create an ASP.NET Core web app in Azure
 
-In this quickstart, you'll learn how to use Visual Studio 2019 to create and deploy an ASP.NET Core web app to [Azure App Service](overview.md). 
+In this quickstart, you'll learn how to create and deploy your first ASP.NET Core web app to [Azure App Service](overview.md). 
 
-When you're finished, you'll have a resource group that consists of an App Service plan and an App Service with a deployed web application.
-
-> [!NOTE]
-> This article deploys an app to App Service on Windows. To deploy to App Service on _Linux_, see [Create a .NET Core web app in App Service on Linux](./containers/quickstart-dotnetcore.md).
->
+When you're finished, you'll have a resource group that consists of an App Service hosting plan and an App Service with a deployed web application.
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- This quickstart deploys an app to App Service on Windows. To deploy to App Service on _Linux_, see [Create a .NET Core web app in App Service on Linux](./containers/quickstart-dotnetcore.md).
 - Install <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2019</a> with the **ASP.NET and web development** workload.
 
   If you've installed Visual Studio 2019 already:
@@ -35,7 +32,7 @@ Create an ASP.NET Core web app by following these steps:
 
 1. Open Visual Studio and select **Create a new project**.
 
-1. In **Create a new project**, find and choose **ASP.NET Core Web Application** and confirm that **C#** is listed in the languages for that choice, then select **Next**.
+1. In **Create a new project**, select **ASP.NET Core Web Application** and confirm that **C#** is listed in the languages for that choice, then select **Next**.
 
 1. In **Configure your new project**, name your web application project *myFirstAzureWebApp*, and select **Create**.
 
@@ -65,7 +62,7 @@ Create an ASP.NET Core web app by following these steps:
 
 1. In **Resource group**, select **New**. In **New resource group name**, enter *myResourceGroup* and select **OK**. 
 
-   A [resource group](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/overview#terminology) is a logical container into which Azure resources like web apps, databases, and storage accounts are deployed and managed. For example, you can choose to delete the entire resource group in one simple step later.
+   A [resource group](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/overview#terminology) is a logical container into which Azure resources like web apps, databases, and storage accounts are deployed and managed.
 
 1. For **Hosting Plan**, select **New**. In the **Hosting Plan: Create new** dialog, enter the values specified in the following table:
 
@@ -90,11 +87,11 @@ Create an ASP.NET Core web app by following these steps:
 
    ![Create new app service](./media/app-service-web-get-started-dotnet/create-new-app-service-vs2019.png)
 
-1. Once the wizard completes, deploy your web app by selecting **Publish**.
+1. Once the wizard completes, select **Publish**.
 
    ![Publish web app to Azure](./media/app-service-web-get-started-dotnet/publish-web-app-vs2019.png)
 
-   This publishes your ASP.NET Core web app to Azure, and launches the app in your default browser. 
+   Visual Studio publishes your ASP.NET Core web app to Azure, and launches the app in your default browser. 
 
    ![Published ASP.NET web app running in Azure](./media/app-service-web-get-started-dotnet/web-app-running-live.png)
 
@@ -133,7 +130,7 @@ On the **App Services** page, select the name of your web app.
 
 ![Portal navigation to Azure app](./media/app-service-web-get-started-dotnet/select-app-service.png)
 
-This opens your web app's **Overview** page, containing options for basic management like browse, stop, start, restart, and delete. The left menu provides further pages for configuring your app.
+The **Overview** page for your web app, contains options for basic management like browse, stop, start, restart, and delete. The left menu provides further pages for configuring your app.
 
 ![App Service in Azure portal](./media/app-service-web-get-started-dotnet/web-app-overview-page.png)
 
