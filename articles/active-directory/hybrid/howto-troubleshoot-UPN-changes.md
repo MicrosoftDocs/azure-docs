@@ -5,8 +5,8 @@ description: Understand known issues and mitigations for UPN changes
 services: active-directory
 ms.service: active-directory
 ms.subservice: hybrid
-ms.topic: conceptual
-ms.date: 03/15/2020
+ms.topic: how-to
+ms.date: 03/13/2020
 
 ms.author: baselden
 author: barbaraselden
@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 A User Principal Name (UPN) is an attribute that is an internet communication standard for user accounts. A UPN consists of a UPN prefix (the user account name) and a UPN suffix (a DNS domain name). The prefix joins the suffix using the "@" symbol. For example, someone@example.com. A UPN must be unique among all security principal objects within a directory forest. 
 
 > [!NOTE] 
->For developers, we recommend that you use the user objectID as the immutable identifier, rather than UPN. 
+> For developers, we recommend that you use the user objectID as the immutable identifier, rather than UPN. 
 If your applications are currently using UPN, we recommend setting the UPN to match the user's primary email address to improve their experience.<br>
 **In a hybrid environment, it is important that the UPN for a user is identical in the on-premises directory and in Azure Active Directory**.
 
@@ -114,7 +114,7 @@ The following sections detail potential known issues and workarounds when UPNs a
 Changing a user's UPN could break the relationship between the Azure AD user and the user profile created on the application. If the application uses  [Just in Time provisioning](https://docs.microsoft.com/azure/active-directory/app-provisioning/user-provisioning), it might create a brand-new user profile. This will require the application administrator to make manual changes to fix this relationship.
 
 **Workaround**<br>
-[Azure AD Automated User Provisioning](https://docs.microsoft.com/fi-fi/azure/active-directory/manage-apps/user-provisioning) lets you automatically create, maintain, and remove your user identities in supported cloud applications. Configuring automated user provisioning on your applications automatically updates UPNs on the applications. Test the applications as part of the progressive rollout to validate that they are not impacted by UPN changes.
+[Azure AD Automated User Provisioning](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) lets you automatically create, maintain, and remove your user identities in supported cloud applications. Configuring automated user provisioning on your applications automatically updates UPNs on the applications. Test the applications as part of the progressive rollout to validate that they are not impacted by UPN changes.
 
 ## Managed devices known issues and workarounds
 
@@ -128,7 +128,7 @@ By [bringing your devices to Azure AD](https://docs.microsoft.com/azure/active-d
 Users may experience single sign-on issues with applications that depend on Azure AD for authentication.
 
 **Workaround** <br>
-Allow enough time for the UPN change to sync to Azure AD. Once you verify that the new UPN is reflected on the Azure AD Portal, ask the user to select the "Other user" tile to sign in with their new UPN. you can also verify through [PowerShell](https://docs.microsoft.com/en-us/powershell/module/azuread/get-azureaduser?view=azureadps-2.0). After signing in with their new UPN, references to the old UPN might still appear on "Access work or school" Windows setting.
+Allow enough time for the UPN change to sync to Azure AD. Once you verify that the new UPN is reflected on the Azure AD Portal, ask the user to select the "Other user" tile to sign in with their new UPN. you can also verify through [PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaduser?view=azureadps-2.0). After signing in with their new UPN, references to the old UPN might still appear on "Access work or school" Windows setting.
 
 ![Screenshot of verified domains](./media/howto-troubleshoot-upn-changes/other-user.png)
 
@@ -159,7 +159,7 @@ The user will need to [re-enroll](https://docs.microsoft.com/windows/security/id
 
 Your organization might require the use of the [Microsoft Authenticator app](https://docs.microsoft.com/azure/active-directory/user-help/user-help-auth-app-overview) to sign in and access organizational applications and data. Although a username might appear in the app, the account isn't set up to function as a verification method until the user completes the registration process.
 
-The [Microsoft Authenticator app](https://docs.microsoft.com/en-us/azure/active-directory/user-help/user-help-auth-app-overview) has four main functions:
+The [Microsoft Authenticator app](https://docs.microsoft.com/azure/active-directory/user-help/user-help-auth-app-overview) has four main functions:
 
 * Multi-factor authentication via a push notification or verification code
 
@@ -240,8 +240,11 @@ OneDrive users are known to experience issues after UPN changes.
 For more informaion, see
 [How UPN changes affect the OneDrive URL and OneDrive features](https://docs.microsoft.com/onedrive/upn-changes).
 
-# More resources
+## Next Steps
 
+See these resources:
 * [Azure AD Connect: Design concepts](https://docs.microsoft.com/azure/active-directory/hybrid/plan-connect-design-concepts)
 
 * [Azure AD UserPrincipalName population](https://docs.microsoft.com/azure/active-directory/hybrid/plan-connect-userprincipalname)
+
+* [Microsoft identity platform ID tokens](https://docs.microsoft.com/azure/active-directory/develop/id-tokens)
