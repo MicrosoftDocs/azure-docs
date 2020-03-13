@@ -42,7 +42,7 @@ Binding an Event Hubs namespace to a virtual network is a two-step process. You 
 
 The virtual network rule is an association of the Event Hubs namespace with a virtual network subnet. While the rule exists, all workloads bound to the subnet are granted access to the Event Hubs namespace. Event Hubs itself never establishes outbound connections, doesn't need to gain access, and is therefore never granted access to your subnet by enabling this rule.
 
-## Azure portal
+## Use Azure portal
 This section shows you how to use Azure portal to add a virtual network service endpoint. To limit access, you need to integrate the virtual network service endpoint for this Event Hubs namespace.
 
 1. Navigate to your **Event Hubs namespace** in the [Azure portal](https://portal.azure.com).
@@ -68,7 +68,7 @@ This section shows you how to use Azure portal to add a virtual network service 
     ![Save network](./media/event-hubs-tutorial-vnet-and-firewalls/save-vnet.png)
 
 
-### Resource Manager template
+### Use Resource Manager template
 
 The following Resource Manager template enables adding a virtual network rule to an existing Event Hubs namespace.
 

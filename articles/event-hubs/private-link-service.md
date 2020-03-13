@@ -22,7 +22,10 @@ For more information, see [What is Azure Private Link (Preview)?](../private-lin
 >
 > This feature is currently in **preview**. 
 
-## Prerequisites
+
+## Add a private endpoint connection using Azure portal
+
+### Prerequisites
 
 To integrate an Event Hubs namespace with Azure Private Link (Preview), you'll need the following entities or permissions:
 
@@ -35,8 +38,7 @@ Your private endpoint and virtual network must be in the same region. When you s
 
 Your private endpoint uses a private IP address in your virtual network.
 
-## Add a private endpoint connection
-
+### Steps
 If you already have an Event Hubs namespace, you can create a private link connection by following these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com). 
@@ -77,6 +79,68 @@ If you already have an Event Hubs namespace, you can create a private link conne
 12. Confirm that you see the private endpoint connection you created shows up in the list of endpoints. In this example, the private endpoint is auto-approved because you connected to an Azure resource in your directory and you have sufficient permissions. 
 
     ![Private endpoint created](./media/private-link-service/private-endpoint-created.png)
+
+## Add a private endpoint connection using Azure PowerShell
+The following example shows how to use Azure PowerShell to create a private endpoint connection. It doesn't create a dedicated cluster for you. Follow steps in [this article](event-hubs-dedicated-cluster-create-portal.md) to create a dedicated Event Hubs cluster. 
+
+```azurepowershell-interactive
+# create resource group
+
+$rgName = "<RESOURCE GROUP NAME>"
+$vnetlocation = "<VIRTUAL NETWORK LOCATION>"
+$vnetName = "<VIRTUAL NETWORK NAME>"
+$subnetName = "<SUBNET NAME>"
+$namespaceLocation = "<NAMESPACE LOCATION>"
+$namespaceName = "<NAMESPACE NAME>"
+$peConnectionName = "<PRIVATE ENDPOINT CONNECTION NAME>"
+
+# create virtual network
+$virtualNetwork = New-AzVirtualNetwork `
+                    -ResourceGroupName $rgName `
+                    -Location $vnetlocation `
+                    -Name $vnetName `
+                    -AddressPrefix 10.0.0.0/16
+
+# create subnet with endpoint network policy disabled
+$subnetConfig = Add-AzVirtualNetworkSubnetConfig `
+                    -Name $subnetName `
+                    -AddressPrefix 10.0.0.0/24 `
+                    -PrivateEndpointNetworkPoliciesFlag "Disabled" `
+                    -VirtualNetwork $virtualNetwork
+
+# update virtual network
+$virtualNetwork | Set-AzVirtualNetwork
+
+# create an event hubs namespace in a dedicated cluster
+$namespaceResource = New-AzResource -Location $namespaceLocation `
+                                    -ResourceName $namespaceName `
+                                    -ResourceGroupName $rgName `
+                                    -Sku @{name = "Standard"; capacity = 1} `
+                                    -Properties @{clusterArmId = "/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventHub/clusters/<EVENT HUBS CLUSTER NAME>"} `
+                                    -ResourceType "Microsoft.EventHub/namespaces" -ApiVersion "2018-01-01-preview"
+
+# create private endpoint connection
+$privateEndpointConnection = New-AzPrivateLinkServiceConnection `
+                                -Name $peConnectionName `
+                                -PrivateLinkServiceId $namespaceResource.ResourceId `
+                                -GroupId "namespace"
+
+# get subnet object that you will use later
+$virtualNetwork = Get-AzVirtualNetwork -ResourceGroupName  $rgName -Name $vnetName
+$subnet = $virtualNetwork | Select -ExpandProperty subnets `
+                                | Where-Object  {$_.Name -eq $subnetName}  
+   
+# create a private endpoint   
+$privateEndpoint = New-AzPrivateEndpoint -ResourceGroupName $rgName  `
+                                -Name $vnetName   `
+                                -Location $vnetlocation `
+                                -Subnet  $subnet   `
+                                -PrivateLinkServiceConnection $privateEndpointConnection
+
+(Get-AzResource -ResourceId $namespaceResource.ResourceId -ExpandProperties).Properties
+
+
+```
 
 ## Manage private endpoint connection
 

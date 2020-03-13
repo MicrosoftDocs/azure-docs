@@ -23,7 +23,7 @@ This feature is helpful in scenarios in which Azure Event Hubs should be only ac
 ## IP firewall rules
 The IP firewall rules are applied at the Event Hubs namespace level. Therefore, the rules apply to all connections from clients using any supported protocol. Any connection attempt from an IP address that does not match an allowed IP rule on the Event Hubs namespace is rejected as unauthorized. The response does not mention the IP rule. IP filter rules are applied in order, and the first rule that matches the IP address determines the accept or reject action.
 
-## Azure portal
+## Use Azure portal
 This section shows you how to use the Azure portal to create IP firewall rules for an Event Hubs namespace. 
 
 1. Navigate to your **Event Hubs namespace** in the [Azure portal](https://portal.azure.com).
@@ -39,7 +39,7 @@ This section shows you how to use the Azure portal to create IP firewall rules f
 3. Select **Save** on the toolbar to save the settings. Wait for a few minutes for the confirmation to show up on the portal notifications.
 
 
-## Resource Manager template
+## Use Resource Manager template
 
 > [!IMPORTANT]
 > Firewall rules are supported in **standard** and **dedicated** tiers of Event Hubs. It's not supported in basic tier.
