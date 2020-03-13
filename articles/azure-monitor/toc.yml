@@ -676,7 +676,7 @@
         href: insights/wire-data.md
       - name: Service Map solution
         href: insights/service-map.md
-      - name: Integration with Operations Manager
+      - name: Service Map and Operations Manager
         href: insights/service-map-scom.md
     - name: Computer groups
       href: platform/computer-groups.md
