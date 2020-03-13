@@ -152,9 +152,6 @@ conceptualContent:
           text: Migrate from Bing Speech
           url: how-to-migrate-from-bing-speech.md
         - itemType: how-to-guide
-          text: Migrate from the Custom Speech service
-          url: how-to-migrate-from-custom-speech-service.md
-        - itemType: how-to-guide
           text: Migrate from the Translator Speech API
           url: how-to-migrate-from-translator-speech-api.md
 
