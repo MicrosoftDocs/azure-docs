@@ -8,39 +8,56 @@ We'll be working with Robert Outlaw's (routlaw) team to generate reference docs.
 
 The documentation types we need for Spool are:
 
-- **REST Management** docs to support resource management (portal actions) via REST APIs. This is similar to the [Mixed Reality REST API doc set](https://docs.microsoft.com/en-us/rest/api/mixedreality/).
-- **Azure CLI** docs to support resource management (portal actions) via the Azure CLI. This is similar to the [Azure Monitor CLI doc set](https://docs.microsoft.com/en-us/cli/azure/monitor?view=azure-cli-latest).
-- **C# Reference** docs to support the server and client C# SDKs.
-- **JS Reference** docs to support the server and client C# SDKs.
-- **Swift Reference** docs to support the server and client C# SDKs.
-- **Java Reference** docs to support the server and client C# SDKs.
+- **REST Management** docs to support resource management (portal actions) via REST APIs. This is similar to the [Mixed Reality REST API doc set](https://docs.microsoft.com/en-us/rest/api/mixedreality/), the [Azure Media Services OpenAPI Swagger spec](https://docs.microsoft.com/en-us/azure/media-services/latest/), and the [Azure Media Services REST API spec](https://docs.microsoft.com/en-us/azure/media-services/latest/) (what's the difference between these last two?).
+- **Azure CLI** docs to support resource management (portal actions) via the Azure CLI. This is similar to the [Azure Monitor CLI doc set](https://docs.microsoft.com/en-us/cli/azure/monitor?view=azure-cli-latest) and the [Azure Media Services CLI doc set](https://docs.microsoft.com/en-us/cli/azure/ams?view=azure-cli-latest).
+- **C# Reference** docs to support the server and client C# SDKs. This is similar to the [Azure Notification Hubs .NET API docs](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.notificationhubs?view=azure-dotnet).
+- **JS Reference** docs to support the server and client JS SDKs. This is similar to the [Azure Blob Storage API reference docs](https://docs.microsoft.com/en-us/javascript/api/@azure/storage-blob/?view=azure-node-latest)
+- **Swift Reference** docs to support the server and client Swift SDKs. This is similar to the [Spatial Anchors Objective C SDK docs](https://docs.microsoft.com/en-us/objectivec/api/spatial-anchors/).
+- **Java Reference** docs to support the server and client Java SDKs. This is similar to the [Azure Functions Java API docs](https://docs.microsoft.com/en-us/azure/azure-functions/)
 
-The status and ownership of these reference docs is outlined in this spreadsheet. This is being updated on a weekly basis as we approach public preview and GA.
+The status and ownership of these reference docs is outlined in this spreadsheet (todo). This is being updated on a weekly basis as we approach public preview and GA.
 
 
 #### Generating REST Management API Docs
 
-TODO
+We want to give our customers something that looks like this: TODO
+
+To do that...
+
 
 #### Generating Azure CLI Docs
 
-TODO
+We want to give our customers something that looks like this: TODO
+
+To do that...
+
 
 #### Generating C# SDK Reference Docs
 
-TODO
+We want to give our customers something that looks like this: TODO
+
+To do that...
+
 
 #### Generating JS SDK Reference Docs
 
-TODO
+We want to give our customers something that looks like this: TODO
+
+To do that...
+
 
 #### Generating Swift SDK Reference Docs
 
-TODO
+We want to give our customers something that looks like this: TODO
+
+To do that...
+
 
 #### Generating Java SDK Reference Docs
 
-TODO
+We want to give our customers something that looks like this: TODO
+
+To do that...
 
 
 
