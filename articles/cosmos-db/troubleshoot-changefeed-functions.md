@@ -65,6 +65,13 @@ If it's the latter, there could be some delay between the changes being stored a
 3. Your Azure Cosmos container might be [rate-limited](./request-units.md).
 4. You can use the `PreferredLocations` attribute in your trigger to specify a comma-separated list of Azure regions to define a custom preferred connection order.
 
+### Some changes are repeated in my Trigger
+
+The concept of a "change" is an operation on a document. The most common scenarios where events for the same document is received are:
+* The account is using Eventual consistency. While consuming the change feed in an Eventual consistency level, there could be duplicate events in-between subsequent change feed read operations (the last event of one read operation appears as the first of the next).
+* The document is being updated. The Change Feed can contain multiple operations for the same documents, if that document is receiving updates, it can pick up multiple events (one for each update). One easy way to distinguish among different operations for the same document is to track the `_lsn` [property for each change](change-feed.md#change-feed-and-_etag-_lsn-or-_ts). If they don't match, these are different changes over the same document.
+* If you are identifying documents just by `id`, remember that the unique identifier for a document is the `id` and its partition key (there can be two documents with the same `id` but different partition key).
+
 ### Some changes are missing in my Trigger
 
 If you find that some of the changes that happened in your Azure Cosmos container are not being picked up by the Azure Function, there is an initial investigation step that needs to take place.
