@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/13/2020
-ms.author: 'b-juche'; 'lichunli'
+ms.author: b-juche
 ---
 # Create an SMB volume for Azure NetApp Files
 
