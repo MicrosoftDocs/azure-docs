@@ -44,7 +44,7 @@ To migrate to Gen2, we recommend the following approach.
 
 4. Gen2 supports Blob storage features such as [diagnostic logging](../common/storage-analytics-logging.md), [access tiers](storage-blob-storage-tiers.md), and [Blob storage lifecycle management policies](storage-lifecycle-management-concepts.md). If you're interesting in using any of these features, review [current level of support](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-multi-protocol-access?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-storage-feature-support).
 
-5. Review the current state of [Azure ecosystem support](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-multi-protocol-access?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#azure-ecosystem-support) to ensure that Gen2 supports any services that your solutions depend upon.
+5. Review the current state of [Azure ecoysystem support](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-multi-protocol-access?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#azure-ecosystem-support) to ensure that Gen2 supports any services that your solutions depend upon.
 
 ### Step 2: Prepare to migrate
 
@@ -127,7 +127,8 @@ This is the simplest pattern.
 
 4. Decommission Gen1.
 
-![lift and shift pattern](./media/data-lake-storage-migrate-gen1-to-gen2/lift-and-shift.png)
+> [!div class="mx-imgBorder"]
+> ![lift and shift pattern](./media/data-lake-storage-migrate-gen1-to-gen2/lift-and-shift.png)
 
 #### Considerations for using the lift and shift pattern
 
@@ -147,7 +148,8 @@ This is the simplest pattern.
 
 4. Decommission Gen1.
 
-![Incremental copy pattern](./media/data-lake-storage-migrate-gen1-to-gen2/incremental-copy.png)
+> [!div class="mx-imgBorder"]
+> ![Incremental copy pattern](./media/data-lake-storage-migrate-gen1-to-gen2/incremental-copy.png)
 
 #### Considerations for using the incremental copy pattern:
 
@@ -167,7 +169,8 @@ This is the simplest pattern.
 
 4. Stop all writes to Gen1 and then decommission Gen1.
 
-![Dual pipeline pattern](./media/data-lake-storage-migrate-gen1-to-gen2/dual-pipeline.png)
+> [!div class="mx-imgBorder"]
+> ![Dual pipeline pattern](./media/data-lake-storage-migrate-gen1-to-gen2/dual-pipeline.png)
 
 #### Considerations for using the dual pipeline pattern:
 
@@ -185,7 +188,8 @@ This is the simplest pattern.
 
 4. Decommission Gen1.
 
-![Bidirectional pattern](./media/data-lake-storage-migrate-gen1-to-gen2/bidirectional-sync.png)
+> [!div class="mx-imgBorder"]
+> ![Bidirectional pattern](./media/data-lake-storage-migrate-gen1-to-gen2/bidirectional-sync.png)
 
 #### Considerations for using the bi-directional sync pattern:
 
