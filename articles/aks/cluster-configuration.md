@@ -73,6 +73,6 @@ As you work with the node resource group, keep in mind that you cannot:
 
 ## Next steps
 
-- Learn how to use Kured to [apply security and kernel updates to Linux nodes](node-updates-kured.md) in your cluster.
+- Learn how to use `Kured` to [apply security and kernel updates to Linux nodes](node-updates-kured.md) in your cluster.
 - See [Upgrade an Azure Kubernetes Service (AKS) cluster](upgrade-cluster.md) to learn how to upgrade your cluster to the latest version of Kubernetes.
 - See the list of [Frequently asked questions about AKS](faq.md) to find answers to some common AKS questions.

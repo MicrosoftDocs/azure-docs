@@ -117,9 +117,6 @@
   items:
   - name: Cluster operations
     items:
-    - name: Create an AKS cluster
-      href: /cli/azure/aks#az-aks-create
-      maintainContext: true
     - name: Scale an AKS cluster
       href: scale-cluster.md
     - name: Upgrade an AKS cluster
@@ -128,9 +125,6 @@
       href: node-updates-kured.md
     - name: Configure an AKS cluster
       href: configure-cluster.md
-    - name: Delete an AKS cluster
-      href: /cli/azure/aks#az-aks-delete
-      maintainContext: true
     - name: Integrate ACR with an AKS cluster
       href: cluster-container-registry-integration.md
     - name: Create virtual nodes
@@ -218,7 +212,7 @@
       href: api-server-authorized-ip-ranges.md
     - name: Control deployments with Azure Policy (preview)
       href: ../governance/policy/concepts/rego-for-aks.md?toc=/azure/aks/toc.json
-    - name: Update cluster service principal credentials
+    - name: Update cluster credentials
       href: update-credentials.md
     - name: Restrict and control cluster egress traffic
       href: limit-egress-traffic.md
