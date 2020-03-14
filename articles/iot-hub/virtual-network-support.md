@@ -301,26 +301,23 @@ await registryManager.ExportDevicesAsync(
 ```
 
 
-To use this region-limited version of the Azure IoT SDKs with VNET support for C#, Java, and Node.js:
+To use this region-limited version of the Azure IoT SDKs with virtual network support for C#, Java, and Node.js:
 
 1. Create an environment variable named `EnableStorageIdentity` and set its value to `1`.
 
-2. Download the SDK:
-    - > [Java](https://aka.ms/vnetjavasdk)
-    - > [C#](https://aka.ms/vnetcsharsdk)
-    - > [Node.js](https://aka.ms/vnetnodesdk)
+2. Download the SDK:  [Java](https://aka.ms/vnetjavasdk) | [C#](https://aka.ms/vnetcsharpsdk) | [Node.js](https://aka.ms/vnetnodesdk)
  
 For Python, download our limited version from Github.
 
 1. Navigate to the [Github release page](https://aka.ms/vnetpythonsdk).
 
 2. Download the following file, which you'll find at the bottom of the release page under the header named **assets**.
-    > *azure_iot_hub-2.2.0.limited-py2.py3-none-any.whl*
+    > *azure_iot_hub-2.2.0_limited-py2.py3-none-any.whl*
 
 3. Open a terminal and navigate to the folder with the downloaded file.
 
-4. Run the following command to install the Python Service SDK with support for VNETs:
-    > pip install ./azure_iot_hub-2.2.0.limited-py2.py3-none-any.whl
+4. Run the following command to install the Python Service SDK with support for virtual networks:
+    > pip install ./azure_iot_hub-2.2.0_limited-py2.py3-none-any.whl
 
 
 ## Next steps

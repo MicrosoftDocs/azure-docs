@@ -261,8 +261,10 @@
     items:
     - name: Page-related features
       href: search-pagination-page-layout.md
-    - name: Relevance tuning (scoring profiles)
+    - name: Relevance tuning (scoring profiles)    
       href: index-add-scoring-profiles.md
+    - name: Relevance tuning (similarity algorithm)  
+      href: index-ranking-similarity.md
   - name: Plan
     items:
     - name: Choose a tier
