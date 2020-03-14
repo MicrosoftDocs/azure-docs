@@ -55,7 +55,7 @@ A subnet must be delegated to Azure NetApp Files.
 
 * The site topology for the targeted Active Directory Domain Services must adhere to best practices, in particular the Azure VNet where Azure NetApp Files is deployed.  
 
-    The address space for the virtual network where Azure NetApp Files is deployed must be added to a new or existing Active Directory site (where a domain controller reachable by Azure NetApp Files resides). 
+    The address space for the virtual network where Azure NetApp Files is deployed must be added to a new or existing Active Directory site (where a domain controller reachable by Azure NetApp Files is). 
 
 * The specified DNS servers must be reachable from the [delegated subnet](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-delegate-subnet) of Azure NetApp Files.  
 
@@ -65,7 +65,7 @@ A subnet must be delegated to Azure NetApp Files.
 
 * The Azure NetApp Files delegated subnet must be able to reach all Active Directory Domain Services (ADDS) domain controllers in the domain, including all local and remote domain controllers. Otherwise, service interruption can occur.  
 
-    If you have domain controllers that are unreachable via the Azure NetApp Files delegated subnet, you can specify an Active Directory site during creation of the Active Directory connection.  Azure NetApp Files needs to communicate only with domain controllers in the site where the Azure NetApp Files delegated subnet address space resides.
+    If you have domain controllers that are unreachable by the Azure NetApp Files delegated subnet, you can specify an Active Directory site during creation of the Active Directory connection.  Azure NetApp Files needs to communicate only with domain controllers in the site where the Azure NetApp Files delegated subnet address space is.
 
     See [Designing the site topology](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/designing-the-site-topology) about AD sites and services. 
     
@@ -79,7 +79,7 @@ For more information, see [Compare self-managed Active Directory Domain Services
 
 ### Active Directory Domain Services (ADDS)
 
-You can use your preferred [Active Directory Sites and Services(https://docs.microsoft.com/windows-server/identity/ad-ds/plan/understanding-active-directory-site-topology)] scope for Azure NetApp Files. This option enables reads and writes to Active Directory Domain Services (ADDS) domain controllers that are [accessible by Azure NetApp Files](azure-netapp-files-network-topologies.md). It also prevents the service from communicating with domain controllers that are not in the specified AD Sites and Services site. 
+You can use your preferred [Active Directory Sites and Services](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/understanding-active-directory-site-topology) scope for Azure NetApp Files. This option enables reads and writes to Active Directory Domain Services (ADDS) domain controllers that are [accessible by Azure NetApp Files](azure-netapp-files-network-topologies.md). It also prevents the service from communicating with domain controllers that are not in the specified AD Sites and Services site. 
 
 To find your site name when you use ADDS, you can contact the administrative group in your organization that is responsible for Active Directory Domain Services. The example below shows the Active Directory Sites and Services plugin where the site name is displayed: 
 
@@ -89,14 +89,14 @@ When you configure an AD connection for Azure NetApp Files, you specify the site
 
 ### Azure Active Directory Domain Services 
 
-For Azure Active Directory Domain Services (AADDS) configuration, best practices, and guidance, see [Azure AD Domain Services documentation](https://docs.microsoft.com/azure/active-directory-domain-services/).
+For Azure Active Directory Domain Services (AADDS) configuration and guidance, see [Azure AD Domain Services documentation](https://docs.microsoft.com/azure/active-directory-domain-services/).
 
-Additional AADDS best practices and considerations apply for Azure NetApp Files: 
+Additional AADDS considerations apply for Azure NetApp Files: 
 
 * Ensure the VNet or subnet where AADDS is deployed is in the same Azure region as the Azure NetApp Files deployment.
 * If you use another VNet in the region where Azure NetApp Files is deployed, you should create a peering between the two VNets.
-* Azure NetApp Files supports 'user' and 'resource forest' types.
-* For synchronization type, you can select from 'All' or 'Scoped'. If Scoped is selected, ensure the correct Azure AD group is selected for accessing SMB shares.  If you are uncertain, you can use the 'All' synchronization type.
+* Azure NetApp Files supports `user` and `resource forest` types.
+* For synchronization type, you can select from `All` or `Scoped`. If Scoped is selected, ensure the correct Azure AD group is selected for accessing SMB shares.  If you are uncertain, you can use the `All` synchronization type.
 * Use of the Enterprise or Premium SKU is required. The Standard SKU is not supported.
 
 When you create an Active Directory connection, note the following specifics for AADDS:
@@ -119,7 +119,7 @@ This setting is configured in the **Active Directory Connections** under **NetAp
 
 2. In the Join Active Directory window, provide the following information, based on the Domain Services you want to use:  
 
-    See Decide which Domain Services to use about information specific to the Domain Services you use. 
+    For information specific to the Domain Services you use, see [Decide which Domain Services to use](#decide-which-domain-services-to-use). 
 
     * **Primary DNS**  
         This is the DNS that is required for the Active Directory domain join and SMB authentication operations. 
