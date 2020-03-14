@@ -46,14 +46,23 @@ To create an app in an ASE:
 1. Select an existing App Service plan in your ASE, or create a new one by following these steps:
 
     a. From the Azure portal left-side menu, select **Create a resource > Web App**.
+
     b. Select the subscription.
+
     c. Select or create the resource group.
+
     d. Enter the name of your web app.
+
     e. Select **Code** or **DockerContainer**.
+
     f. Select a runtime stack.
+
     g. Select **Linux** or **Windows**. 
+
     h. Select your ASE in the **Region** drop-down list. 
+
     i. Select or create a new App Service plan. If creating a new App Service plan, select the appropriate **Isolated** SKU size.
+
     ![Isolated pricing tiers][2]
 
     > [!NOTE]
@@ -200,9 +209,9 @@ To delete an ASE:
 
 1. Enter the name of your ASE to confirm that you want to delete it. When you delete an ASE, you also delete all the content within it.
 
-1. Select **OK**.
-
     ![ASE deletion][3]
+
+1. Select **OK**.
 
 <!--Image references-->
 [1]: ./media/using_an_app_service_environment/usingase-appcreate.png
