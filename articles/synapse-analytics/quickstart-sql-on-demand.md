@@ -79,7 +79,7 @@ SECRET = 'sv=2018-03-28&ss=bf&srt=sco&sp=rl&st=2019-10-14T12%3A10%3A25Z&se=2061-
 GO
 ```
 
-## Querying a CSV file
+## Querying CSV files
 
 The following image is a preview of the file to be queried:
 
@@ -88,7 +88,7 @@ The following image is a preview of the file to be queried:
 The following query shows how to read a CSV file that does not contain a header row, with Windows-style new line, and comma-delimited columns:
 
 ```sql
-SELECT *
+SELECT TOP 10 *
 FROM OPENROWSET
   (
       BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/population/*.csv'
@@ -110,7 +110,7 @@ WHERE
 You can specify schema at query compilation time.
 For more examples, see how to [query CSV file](./sql-analytics/query-single-csv-file.md).
 
-## Querying parquet files without specifying schema
+## Querying parquet files
 
 The following sample shows the automatic schema inference capabilities for querying Parquet files. It returns the number of rows in September of 2017 without specifying schema.
 
@@ -150,7 +150,7 @@ Files are stored in *json* container, folder *books*, and contain single book en
 }
 ```
 
-### Querying JSON files using JSON_VALUE
+### Querying JSON files
 
 Following query shows how to use [JSON_VALUE](https://docs.microsoft.com/sql/t-sql/functions/json-value-transact-sql?view=sql-server-2017) to retrieve scalar values (title, publisher) from a book with the title *Probabilistic and Statistical Methods in Cryptology, An Introduction by Selected articles*:
 
@@ -187,6 +187,8 @@ Now you are ready to start with following Quickstarts:
 - [Query Parquet nested types](./sql-analytics/query-parquet-nested-types.md)
 - [Query JSON files](./sql-analytics/query-json-files.md)
 - [Creating and using views](./sql-analytics/create-use-views.md)
+- [Creating and using external tables](./sql-analytics/create-use-external-tables.md)
+- [Persist query result to Azure storage](./sql-analytics/create-external-table-as-select.md)
 
 Advance to the next article to learn how to query single CSV file.
 > [!div class="nextstepaction"]
