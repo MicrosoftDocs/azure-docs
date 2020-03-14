@@ -52,7 +52,7 @@ Azure File Sync supports syncing up to 100,000 items to a single Azure file shar
 
 It is a best practice to keep the number of items per sync scope low. That aspect is an important factor to be considered in your mapping of folders to Azure file shares.
 
-Even if in your situation a set of folders can logically sync to the same Azure file share (using the new, common root folder approach from above) it might still be better to regroup folders such that they sync to two instead of one Azure file share. That is to keep the number of files and folders per file share balanced across the server.
+Even if in your situation a set of folders can logically sync to the same Azure file share (using the new, common root folder approach from above) it might still be better to regroup folders such that they sync to two instead of one Azure file share. This approach can be used to keep the number of files and folders per file share balanced across the server.
 
 #### Create a mapping table
 
@@ -66,10 +66,11 @@ Even if in your situation a set of folders can logically sync to the same Azure 
         Create a table that records your thoughts, such that you can refer to it in the next step. Staying organized is important as it can be easy to lose details of your mapping plan when provisioning many Azure resources at once. To help you in creating a complete mapping, you can download a Microsoft Excel file as a template.
         :::row:::
             :::column:::
-                :::image type="icon" source="media/storage-files-migration-namespace-mapping/excel.png"::: 
+                :::image type="icon" source="media/storage-files-migration-namespace-mapping/excel.png":::
             :::column-end:::
             :::column:::
                 Download a namespace mapping template.
             :::column-end:::
+        :::row-end:::
     :::column-end:::
 :::row-end:::
