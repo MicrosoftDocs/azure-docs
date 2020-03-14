@@ -74,17 +74,15 @@ landingContent:
           #   url: guidance-for-loading-data.md
       - linkListType: how-to-guide
         links:
-          - text: Use Synapse studio
-            url: quickstart-synapse-studio.md
           - text: Load data from Azure Data Lake Storage
             url: ./data-integration/data-integration-data-lake.md
       - linkListType: tutorial
         links:
-          - text: Load data from Azure Blob storage
+          - text: Load data from Azure Blob storage to SQL pool
             url: ./data-integration/data-integration-sql-pool.md
 
   # Card
-  - title: Performance tuning
+  - title: Performance tuning in SQL pool
     linkLists:
       - linkListType: overview
         links:
@@ -102,7 +100,7 @@ landingContent:
           #   url: file2.md
 
   # Card
-  - title: Manage and monitor
+  - title: Manage and monitor SQL pool
     linkLists:
       - linkListType: overview
         links:
