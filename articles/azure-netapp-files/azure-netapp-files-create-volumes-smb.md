@@ -96,7 +96,7 @@ Additional AADDS considerations apply for Azure NetApp Files:
 * Ensure the VNet or subnet where AADDS is deployed is in the same Azure region as the Azure NetApp Files deployment.
 * If you use another VNet in the region where Azure NetApp Files is deployed, you should create a peering between the two VNets.
 * Azure NetApp Files supports `user` and `resource forest` types.
-* For synchronization type, you can select `All` or `Scoped`. 
+* For synchronization type, you can select `All` or `Scoped`.   
     If you select `Scoped`, ensure the correct Azure AD group is selected for accessing SMB shares.  If you are uncertain, you can use the `All` synchronization type.
 * Use of the Enterprise or Premium SKU is required. The Standard SKU is not supported.
 
