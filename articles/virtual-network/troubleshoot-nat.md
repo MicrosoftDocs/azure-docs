@@ -51,6 +51,7 @@ Always take advantage of connection reuse and connection pooling whenever possib
 _**Solution:**_ Use appropriate patterns and best practices
 
 - Atomic requests (one request per connection) are a poor design choice. Such anti-pattern limits scale, reduces performance, and decreases reliability. Instead, reuse HTTP/S connections to reduce the numbers of connections and associated SNAT ports. The application scale will increase and performance improve due to reduced handshakes, overhead, and cryptographic operation cost  when using TLS.
+- DNS can introduce many individual flows at volume when the client is not caching the DNS resolvers result. Use caching.  - - UDP flows (for example DNS lookups) allocate SNAT ports for the duration of the idle timeout. The longer the idle timeout, the higher the pressure on SNAT ports. Use short idle timeout (for example 4 minutes).
 - Use connection pools to shape your connection volume.
 - Never silently abandon a TCP flow and rely on TCP timers to clean up flow. This will leave state allocated at intermediate systems and endpoints, and make ports unavailable for other connections. This can trigger application failures and SNAT exhaustion. 
 - TCP close related timer values should not be changed without expert knowledge of impact. While TCP will recover, your application performance can be negatively impacted when the endpoints of a connection have mismatched expectations. The desire to change timers is usually a sign of an underlying design problem. Review following recommendations.
