@@ -1,7 +1,7 @@
 ---
 title: Use customer-managed keys with Azure Key Vault to manage account encryption
 titleSuffix: Azure Storage
-description: You can manage Azure Storage encryption at the level of the storage account with your own keys. When you specify a customer-managed key at the level of the storage account, that key is used to protect and control access to the root encryption key for the storage account. The root encryption key is in turn used to encrypt and decrypt all blob and file data.
+description: You can manage Azure Storage encryption at the level of the storage account with your own keys. When you specify a customer-managed key at the level of the storage account, that key is used to protect and control access to the root encryption key for the storage account. The root encryption key is in turn used to encrypt and decrypt all data.
 services: storage
 author: tamram
 
@@ -15,7 +15,7 @@ ms.subservice: common
 
 # Use customer-managed keys with Azure Key Vault to manage Azure Storage encryption
 
-You can manage Azure Storage encryption at the level of the storage account with your own keys. When you specify a customer-managed key at the level of the storage account, that key is used to protect and control access to the root encryption key for the storage account. The root encryption key is in turn used to encrypt and decrypt all blob and file data. Customer-managed keys offer greater flexibility to manage access controls. You can also audit the encryption keys used to protect your data.
+You can manage Azure Storage encryption at the level of the storage account with your own keys. When you specify a customer-managed key at the level of the storage account, that key is used to protect and control access to the root encryption key for the storage account. The root encryption key is in turn used to encrypt and decrypt all data. Customer-managed keys offer greater flexibility to manage access controls. You can also audit the encryption keys used to protect your data.
 
 You must use Azure Key Vault to store your customer-managed keys. You can either create your own keys and store them in a key vault, or you can use the Azure Key Vault APIs to generate keys. The storage account and the key vault must be in the same region and in the same Azure Active Directory (Azure AD) tenant, but they can be in different subscriptions. For more information about Azure Key Vault, see [What is Azure Key Vault?](../../key-vault/key-vault-overview.md).
 
