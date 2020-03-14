@@ -41,11 +41,13 @@ Creating an account that relies on the account encryption key is not necessary t
 
 ## Enable customer-managed keys for a storage account
 
-When you enable encryption with customer-managed keys for a storage account, Azure Storage wraps the account encryption key with the customer-managed key in the associated key vault. Enabling customer-managed keys does not impact performance, and the account is encrypted with the new key immediately, without any time delay.
+When you configure a customer-managed key, Azure Storage wraps the root data encryption key for the account with the customer-managed key in the associated key vault. Enabling customer-managed keys does not impact performance, and takes effect immediately.
 
-A new storage account is always encrypted using Microsoft-managed keys. It's not possible to enable customer-managed keys at the time that the account is created. Customer-managed keys are stored in Azure Key Vault, and the key vault must be provisioned with access policies that grant key permissions to the managed identity that is associated with the storage account. The managed identity is available only after the storage account is created.
+A new storage account is always encrypted using Microsoft-managed keys. It's not possible to enable customer-managed keys at the time that the account is created. The key vault must be provisioned with access policies that grant key permissions to the managed identity that is associated with the storage account. The managed identity is available only after the storage account is created.
 
 When you modify the key being used for Azure Storage encryption by enabling or disabling customer-managed keys, updating the key version, or specifying a different key, then the encryption of the root key changes, but the data in your Azure Storage account does not need to be re-encrypted.
+
+When you enable or disable customer managed keys, or when you modify the key or the key version, the protection of the root encryption key changes, but the data in your Azure Storage account does not need to be re-encrypted.
 
 To learn how to use customer-managed keys with Azure Key Vault for Azure Storage encryption, see one of these articles:
 
@@ -64,7 +66,7 @@ Only RSA keys of size 2048 are supported with Azure Storage encryption. For more
 
 ## Rotate customer-managed keys
 
-You can rotate a customer-managed key in Azure Key Vault according to your compliance policies. When the key is rotated, you must update the storage account to use the new key URI. To learn how to update the storage account to use a new version of the key in the Azure portal, see the section titled **Update the key version** in [Configure customer-managed keys for Azure Storage by using the Azure portal](storage-encryption-keys-portal.md).
+You can rotate a customer-managed key in Azure Key Vault according to your compliance policies. When the key is rotated, you must update the storage account to use the new key version URI. To learn how to update the storage account to use a new version of the key in the Azure portal, see the section titled **Update the key version** in [Configure customer-managed keys for Azure Storage by using the Azure portal](storage-encryption-keys-portal.md).
 
 Rotating the key does not trigger re-encryption of data in the storage account. There is no further action required from the user.
 
@@ -96,9 +98,9 @@ All data operations that are not listed in this section may proceed after custom
 
 To revoke access to customer-managed keys, use [PowerShell](storage-encryption-keys-powershell.md#revoke-customer-managed-keys) or [Azure CLI](storage-encryption-keys-cli.md#revoke-customer-managed-keys).
 
-## Customer-managed keys for Azure managed disks (preview)
+## Customer-managed keys for Azure managed disks
 
-Customer-managed keys are also available for managing encryption of Azure managed disks (preview). Customer-managed keys behave differently for managed disks than for Azure Storage resources. For more information, see [Server side encryption of Azure managed disks](../../virtual-machines/windows/disk-encryption.md) for Windows or [Server side encryption of Azure managed disks](../../virtual-machines/linux/disk-encryption.md) for Linux.
+Customer-managed keys are also available for managing encryption of Azure managed disks. Customer-managed keys behave differently for managed disks than for Azure Storage resources. For more information, see [Server-side encryption of Azure managed disks](../../virtual-machines/windows/disk-encryption.md) for Windows or [Server side encryption of Azure managed disks](../../virtual-machines/linux/disk-encryption.md) for Linux.
 
 ## Next steps
 
