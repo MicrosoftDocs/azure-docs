@@ -77,7 +77,7 @@ Azure NetApp Files supports both [Active Directory Domain Services](https://docs
 
 For more information, see [Compare self-managed Active Directory Domain Services, Azure Active Directory, and managed Azure Active Directory Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/compare-identity-solutions). 
 
-### Active Directory Domain Services (ADDS)
+### Active Directory Domain Services
 
 You can use your preferred [Active Directory Sites and Services](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/understanding-active-directory-site-topology) scope for Azure NetApp Files. This option enables reads and writes to Active Directory Domain Services (ADDS) domain controllers that are [accessible by Azure NetApp Files](azure-netapp-files-network-topologies.md). It also prevents the service from communicating with domain controllers that are not in the specified Active Directory Sites and Services site. 
 
@@ -102,7 +102,7 @@ Additional AADDS considerations apply for Azure NetApp Files:
 
 When you create an Active Directory connection, note the following specifics for AADDS:
 
-* You can find information for **Primary DNS**, **Secondary DNS Servers**, and **AD DNS Domain Name** in the AADDS menu.  
+* You can find information for **Primary DNS**, **Secondary DNS**, and **AD DNS Domain Name** in the AADDS menu.  
 For DNS servers, two IP addresses will be used for configuring the Active Directory connection. 
 * The **organizational unit path** is `OU=AADDC Computers`.  
 This setting is configured in the **Active Directory Connections** under **NetApp Account**:
