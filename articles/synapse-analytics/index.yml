@@ -26,11 +26,11 @@ landingContent:
         links:
           - text: What is Azure Synapse?
             url: overview-cheat-sheet.md
-          - text: What is SQL pool
+          - text: What is SQL pool?
             url: ../sql-data-warehouse/sql-data-warehouse-overview-what-is.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-          - text: What is Spark pool
+          - text: What is Spark pool?
             url: spark/apache-spark-overview.md
-          - text: What is SQL Analytics on-demand
+          - text: What is SQL Analytics on-demand?
             url: sql-analytics/on-demand.md
           - text: Differences between SQL Analytics pool and on-demand
             url: sql-analytics/overview-features.md
