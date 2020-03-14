@@ -29,13 +29,13 @@ SQL pools and SQL on-demand capabilities enable you to use different database ob
 | Tables | [Yes](https://docs.microsoft.com/sql/t-sql/statements/create-table-azure-sql-data-warehouse) | No, SQL on-demand capability can query only external data placed on [Azure Storage](#storage-options) |
 | Views | [Yes](https://docs.microsoft.com/sql/t-sql/statements/create-view-transact-sql). Views can use [query language elements](#query-language) that are available in SQL pool. | [Yes](https://docs.microsoft.com/sql/t-sql/statements/create-view-transact-sql). Views can use [query language elements](#query-language) that are available in SQL on-demand. |
 | Schemas | [Yes](https://docs.microsoft.com/sql/t-sql/statements/create-schema-transact-sql) | [Yes](https://docs.microsoft.com/sql/t-sql/statements/create-schema-transact-sql) |
-| Temporary tables | [Yes](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-temporary) | [Yes](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-temporary) |
+| Temporary tables | [Yes](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-temporary) | No |
 | Procedures | [Yes](https://docs.microsoft.com/sql/t-sql/statements/create-procedure-transact-sql) | No |
 | Functions | [Yes](https://docs.microsoft.com/sql/t-sql/statements/create-function-sql-data-warehouse) | No |
 | Triggers | No | No |
 | External tables | [Yes](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql?view=azure-sqldw-latest). See supported [data formats](#data-formats). | [Yes](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql?view=azure-sqldw-latest). See supported [data formats](#data-formats). |
 | Caching queries | Yes, multiple forms (SSD-based caching, in-memory, resultset caching). In addition, Materialized View are supported | No |
-| Table variables | [No](https://docs.microsoft.com/sql/t-sql/data-types/table-transact-sql), use temporary tables | [No](https://docs.microsoft.com/sql/t-sql/data-types/table-transact-sql), use temporary tables |
+| Table variables | [No](https://docs.microsoft.com/sql/t-sql/data-types/table-transact-sql), use temporary tables | No |
 
 ## Query language
 
@@ -44,10 +44,10 @@ Query languages used in SQL pools and SQL on-demand can have different supported
 |   | SQL pool | SQL on-demand |
 | --- | --- | --- |
 | SELECT statement | Yes. Transact-SQL query clauses [FOR XML/FOR JSON](https://docs.microsoft.com/sql/t-sql/queries/select-for-clause-transact-sql), [MATCH](https://docs.microsoft.com/sql/t-sql/queries/match-sql-graph) and [PREDICT](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql) are not supported. | Yes. Transact-SQL query clauses [FOR XML](https://docs.microsoft.com/sql/t-sql/queries/select-for-clause-transact-sql), [MATCH](https://docs.microsoft.com/sql/t-sql/queries/match-sql-graph), [PREDICT](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql), and query hints are not supported. [OFFSET/FETCH](https://docs.microsoft.com/sql/t-sql/queries/select-order-by-clause-transact-sql?view=sql-server-ver15#using-offset-and-fetch-to-limit-the-rows-returned) and [PIVOT/UNPIVOT](https://docs.microsoft.com/sql/t-sql/queries/from-using-pivot-and-unpivot) can be used to only to query data in temporary tables (not external data). |
-| INSERT statement | Yes | Limited (temp tables only) |
-| UPDATE statement | Yes | Limited (temp tables only) |
-| DELETE statement | Yes | Limited (temp tables only) |
-| MERGE statement | Yes | Limited (temp tables only) |
+| INSERT statement | Yes | No |
+| UPDATE statement | Yes | No |
+| DELETE statement | Yes | No |
+| MERGE statement | Yes | No |
 | Data load | Yes. Preferred utility is [COPY](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) statement, but the system supports both BULK load (BCP) and [CETAS](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-as-select-transact-sql?view=aps-pdw-2016-au7) for data loading. | No |
 | Data export | Yes. Using [CETAS](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-as-select-transact-sql?view=aps-pdw-2016-au7). | Yes. Using [CETAS](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-as-select-transact-sql?view=aps-pdw-2016-au7). |
 | Types | Yes, all Transact-SQL types except [cursor](https://msdn.microsoft.com/library/ms190498.aspx), [hierarchyid](https://msdn.microsoft.com/library/bb677290.aspx), [ntext, text, and image](https://msdn.microsoft.com/library/ms187993.aspx), [rowversion](https://msdn.microsoft.com/library/ms182776.aspx), [Spatial Types](https://msdn.microsoft.com/library/ff848797.aspx), [sql\_variant](https://msdn.microsoft.com/library/ms173829.aspx), and [xml](https://msdn.microsoft.com/library/ms187339.aspx) | Yes, all Transact-SQL types except [cursor](https://msdn.microsoft.com/library/ms190498.aspx), [hierarchyid](https://msdn.microsoft.com/library/bb677290.aspx), [ntext, text, and image](https://msdn.microsoft.com/library/ms187993.aspx), [rowversion](https://msdn.microsoft.com/library/ms182776.aspx), [Spatial Types](https://msdn.microsoft.com/library/ff848797.aspx), [sql\_variant](https://msdn.microsoft.com/library/ms173829.aspx), [xml](https://msdn.microsoft.com/library/ms187339.aspx), and Table type |
@@ -67,12 +67,13 @@ SQL pools and SQL on-demand enable you to use built-in security features to secu
 |   | SQL pool | SQL on-demand |
 | --- | --- | --- |
 | Logins | N/A (only contained users are supported in DW databases) | Yes |
-| Users | Yes. **Note:** only one AAD user can be unrestricted admin | Yes |
+| Users |  N/A (only contained users are supported in DW databases) | Yes |
+| Contained users | Yes. **Note:** only one AAD user can be unrestricted admin | Yes |
 | Azure Active Directory (AAD) authentication | Yes, AAD users | Yes, AAD logins and users |
+| Storage AAD passthrough authentication | Yes, using User identity  or assigned Service identity | Yes, using User identity  or assigned Service identity |
 | Permissions - Object-level | Yes, including ability to GRANT, DENY, and REVOKE permissions to users | Yes, including ability to GRANT, DENY, and REVOKE permissions to users/logins on the system objects that are supported |
 | Permissions - Schema-level | Yes, including ability to GRANT, DENY, and REVOKE permissions to users/logins on the schema | Yes, including ability to GRANT, DENY, and REVOKE permissions to users/logins on the schema |
 | Roles/groups | Yes (database scoped) | Yes (both server and database scoped) |
-| Storage AAD passthrough authentication | Yes | Yes |
 | Security &amp; identity functions | Some Transact-SQL security functions and operators:  `CURRENT_USER`, `HAS_DBACCESS`, `IS_MEMBER`, `IS_ROLEMEMBER`, `SESSION_USER`, `SUSER_NAME`, `SUSER_SNAME`, `SYSTEM_USER`, `USER`, `USER_NAME`, `EXECUTE AS`, `OPEN/CLOSE MASTER KEY` | Some Transact-SQL security functions and operators:  `CURRENT_USER`, `HAS_DBACCESS`, `HAS_PERMS_BY_NAME`, `IS_MEMBER', 'IS_ROLEMEMBER`, `IS_SRVROLEMEMBER`, `SESSION_USER`, `SUSER_NAME`, `SUSER_SNAME`, `SYSTEM_USER`, `USER`, `USER_NAME`, `EXECUTE AS`, and `REVERT`. Security functions cannot be used to query external data (store the result in variable that can be used in the query).  |
 
 SQL pool and SQL on-demand use standard Transact-SQL language to query data. For detailed differences, look at the [Transact-SQL language reference](https://docs.microsoft.com/sql/t-sql/language-reference).
