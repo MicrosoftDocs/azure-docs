@@ -41684,11 +41684,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/azure-monitor/app/automate-with-logic-apps.md",
-      "redirect_url": "/azure/azure-monitor/platform/logicapp-flow-connector",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/azure-monitor/platform/azure-storage-iis-table.md",
       "redirect_url": "/azure/azure-monitor/platform/diagnostics-extension-logs",
       "redirect_document_id": false
