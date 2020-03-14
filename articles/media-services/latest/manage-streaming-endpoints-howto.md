@@ -36,7 +36,7 @@ Review:
 * [Streaming Endpoint concept](streaming-endpoint-concept.md)
 * [Dynamic packaging](dynamic-packaging-overview.md)
 
-## Use REST
+# [HTTP](#tab/http)
 
 ```rest
 POST https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mediaresources/providers/Microsoft.Media/mediaservices/slitestmedia10/streamingEndpoints/myStreamingEndpoint1/start?api-version=2018-07-01
@@ -49,8 +49,6 @@ For more information, see:
 
     For details on how to monitor a long-running operations see [Long-running operations](media-services-apis-overview.md)
 * This [Postman collection](https://github.com/Azure-Samples/media-services-v3-rest-postman/blob/master/Postman/Media%20Services%20v3.postman_collection.json) contains examples of multiple REST operations including on how to start a streaming endpoint.
-
-## Use portal or SDKs
 
 # [Portal](#tab/portal)
     
