@@ -794,7 +794,7 @@ An image expression can be used with the `image` and `textField` options of a sy
 
 **Example**
 
-The foloowing example uses an `image` expression to add an icon inline with text in a symbol layer. 
+The following example uses an `image` expression to add an icon inline with text in a symbol layer. 
 
 ```javascript
  //Load the custom image icon into the map resources.

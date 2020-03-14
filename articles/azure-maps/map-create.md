@@ -43,12 +43,12 @@ When the map is zoomed out on a wide screen, multiple copies of the world will a
 
 ## Map options
 
-When creating a map there are several different types of options that can be passed in to customize how the map functions as listed below.
+When creating a map there, are several different types of options that can be passed in to customize how the map functions as listed below.
 
 - [CameraOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.cameraoptions) and [CameraBoundOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.cameraboundsoptions) are used to specify the area the map should display.
 - [ServiceOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.serviceoptions) are used to specify how the map should interact with services that power the map.
 - [StyleOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.styleoptions) are used to specify the map should be styled and rendered.
-- [UserInteractionOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.userinteractionoptions) are used to specify how the map should reach when the user is iteracting with the map. 
+- [UserInteractionOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.userinteractionoptions) are used to specify how the map should reach when the user is interacting with the map. 
 
 These options can also be updated after the map has been loaded using the `setCamera`, `setServiceOptions`, `setStyle`, and `setUserInteraction` functions. 
 

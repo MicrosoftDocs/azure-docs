@@ -1,6 +1,6 @@
 ---
 title: Change the style of the map in Azure Maps | Microsoft Azure Maps
-description: In this article, you will learn about style related functionalities available in Microsoft Azure Maps web SDK.
+description: In this article, you will learn about style-related functionalities available in Microsoft Azure Maps web SDK.
 author: farah-alyasari
 ms.author: v-faalya
 ms.date: 07/29/2019
@@ -12,11 +12,11 @@ manager: timlt
 
 # Change the style of the map
 
-The map supports several different [style options](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.styleoptions) which can be set when the map is being initialized or later using the maps `setStyle` function. This article shows how to use these style options to customize the how the map appears. Learn to set a style upon loading a map, and learn to set a new map style using the style picker control.
+The map supports several different [style options](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.styleoptions) that can be set when the map is being initialized or later using the maps `setStyle` function. This article shows how to use these style options to customize the maps appearance. Learn to set a style upon loading a map, and learn to set a new map style using the style picker control.
 
 ## Set the style options 
 
-Style options can be passed into the map when it is initiallized or updated later using the maps `setStyle` function.
+Style options can be passed into the map when it is initialized or updated later using the maps `setStyle` function.
 
 ```javascript
 //Set the style options when creating the map.
@@ -50,7 +50,7 @@ One of the most common map style options is used to change the style of the base
 ### Set base map style on map load
 
 
-The map style can be specifieid when initializing the map by setting the `style` option. In the following code, the `style` option of the map is set to `grayscale_dark` on initialization.
+The map style can be specified when initializing the map by setting the `style` option. In the following code, the `style` option of the map is set to `grayscale_dark` on initialization.
 
 ```javascript
 var map = new atlas.Map('map', {
@@ -95,7 +95,7 @@ The second layout option is called `list` and displays a scrollable list of map 
 ![Style picker list layout](media/choose-map-style/style-picker-list-layout.png)</center>
 
 
-The following code shows how to create an instance of the style picker control and add it to the top-right corner of the map. The style picker is set to have a dark style and show a selected few map styles using the list layer .
+The following code shows how to create an instance of the style picker control and add it to the top right corner of the map. The style picker is set to have a dark style and show a selected few map styles using the list layer.
 
 ```javascript
 map.controls.add(new atlas.control.StyleControl({
