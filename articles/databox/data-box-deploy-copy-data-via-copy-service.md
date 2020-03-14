@@ -24,7 +24,8 @@ Use the data copy service:
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Copy data to Data Box
+>
+> - Copy data to Data Box
 
 ## Prerequisites
 
