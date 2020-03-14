@@ -14,6 +14,14 @@ In this quickstart, you'll learn how to create and deploy your first ASP.NET Cor
 
 When you're finished, you'll have a resource group that consists of an App Service hosting plan and an App Service with a deployed web application.
 
+
+   App Service plans define:
+
+   - Region (for example: North Europe, East US, or Southeast Asia)
+   - Instance size (small, medium, or large)
+   - Scale count (1 to 20 instances)
+   - SKU (Free, Shared, Basic, Standard, or Premium)
+
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
@@ -28,7 +36,7 @@ When you're finished, you'll have a resource group that consists of an App Servi
 
 ## Create an ASP.NET Core web app
 
-Create an ASP.NET Core web app by following these steps:
+Create an ASP.NET Core web app in Visual Studio by following these steps:
 
 1. Open Visual Studio and select **Create a new project**.
 
@@ -48,6 +56,8 @@ Create an ASP.NET Core web app by following these steps:
 
 ## Publish your web app
 
+To publish your web app, you first create and configure a new app service that you can publish your app to. As part of setting up the app service, you'll create a new [resource group](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/overview#terminology) that will contain all of the Azure resources for the service, and you will also create a new [Hosting Plan](https://docs.microsoft.com/en-us/azure/app-service/overview-hosting-plans) that specifies the location, size, and features of the web server farm that hosts your app.
+
 1. In **Solution Explorer**, right-click the **myFirstAzureWebApp** project and select **Publish**.
 
 1. In the **Pick a publish target** dialog box, choose **App Service**, select **Create New**, and then select **Create Profile**.
@@ -62,24 +72,17 @@ Create an ASP.NET Core web app by following these steps:
 
 1. In **Resource group**, select **New**. In **New resource group name**, enter *myResourceGroup* and select **OK**. 
 
-   A [resource group](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/overview#terminology) is a logical container into which Azure resources like web apps, databases, and storage accounts are deployed and managed.
+1. For **Hosting Plan**, select **New**. 
 
-1. For **Hosting Plan**, select **New**. In the **Hosting Plan: Create new** dialog, enter the values specified in the following table:
+1. In the **Hosting Plan: Create new** dialog, enter or select the values specified in the following table:
 
    | Setting  | Suggested Value | Description |
    | -------- | --------------- | ----------- |
    | **Hosting Plan**  | *myFirstAzureWebAppPlan* | Name of the App Service plan. |
    | **Location**      | *West Europe* | The datacenter where the web app is hosted. |
    | **Size**          | *Free* | [Pricing tier](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) determines hosting features. |
-
-   A [Hosting Plan](https://docs.microsoft.com/en-us/azure/app-service/overview-hosting-plans) specifies the location, size, and features of the web server farm that hosts your app. You can save money when hosting multiple apps by configuring the web apps to share a single App Service plan.
-
-   App Service plans define:
-
-   - Region (for example: North Europe, East US, or Southeast Asia)
-   - Instance size (small, medium, or large)
-   - Scale count (1 to 20 instances)
-   - SKU (Free, Shared, Basic, Standard, or Premium)
+   
+   ![Create new Hosting Plan](./media/app-service-web-get-started-dotnet/create-new-hosting-plan-vs2019.png)
 
 1. Leave **Application Insights** set to *None*.
 
