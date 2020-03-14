@@ -52,7 +52,8 @@ _**Solution:**_ Use appropriate patterns and best practices
 
 - Atomic requests (one request per connection) are a poor design choice. Such anti-pattern limits scale, reduces performance, and decreases reliability. Instead, reuse HTTP/S connections to reduce the numbers of connections and associated SNAT ports. The application scale will increase and performance improve due to reduced handshakes, overhead, and cryptographic operation cost  when using TLS.
 - Use connection pools to shape your connection volume.
-- Never silently abandon a TCP flow and rely on TCP timers to clean flow up. This will leave state allocated and unavailable for other connections. This can trigger application failures and SNAT exhaustion. - Modifying TCP close timers is discouraged. While TCP will recover, your application performance can be negatively impacted when the endpoints of a connection have mismatched expectations.
+- Never silently abandon a TCP flow and rely on TCP timers to clean up flow. This will leave state allocated at intermediate systems and endpoints, and make ports unavailable for other connections. This can trigger application failures and SNAT exhaustion. 
+- TCP close related timer values should not be changed without expert knowledge of impact. While TCP will recover, your application performance can be negatively impacted when the endpoints of a connection have mismatched expectations. The desire to change timers is usually a sign of an underlying design problem. Review following recommendations.
 
 Often times SNAT exhaustion can also be amplified with other anti-patterns in the underlying application. Review these additional patterns and best practices to improve the scale and reliability of your service.
 
@@ -61,7 +62,7 @@ Often times SNAT exhaustion can also be amplified with other anti-patterns in th
 - Graceful [retry patterns](https://docs.microsoft.com/azure/architecture/patterns/retry) should be used to avoid aggressive retries/bursts during transient failure or failure recovery.
 Creating a new TCP connection for every HTTP operation (also known as "atomic connections") is an anti-pattern.  Atomic connections will prevent your application from scaling well and waste resources.  Always pipeline multiple operations into the same connection.  Your application will benefit in transaction speed and resource costs.  When your application uses transport layer encryption (for example TLS), there's a significant cost associated with the processing of new connections.  Review [Azure Cloud Design Patterns](https://docs.microsoft.com/azure/architecture/patterns/) for additional best practice patterns.
 
-#### Possible mitigations
+#### Additional possible mitigations
 
 _**Solution:**_ Scale outbound connectivity as follows:
 
@@ -167,7 +168,7 @@ You can indicate interest in additional capabilities through [Virtual Network NA
 ## Next steps
 
 * Learn about [Virtual Network NAT](nat-overview.md)
-* Learn about [NAT gateway resource](nat-gateway-resource.md)
+* Learn ab Fry out [NAT gateway resource](nat-gateway-resource.md)
 * Learn about [metrics and alerts for NAT gateway resources](nat-metrics.md).
 * [Tell us what to build next for Virtual Network NAT in UserVoice](https://aka.ms/natuservoice).
 
