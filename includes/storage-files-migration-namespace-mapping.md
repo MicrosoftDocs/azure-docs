@@ -64,7 +64,12 @@ Even if in your situation a set of folders can logically sync to the same Azure 
         Use a combination of the previous concepts to help determine how many Azure file shares you need, and which parts of your existing data will end up in which Azure file share.
         
         Create a table that records your thoughts, such that you can refer to it in the next step. Staying organized is important as it can be easy to lose details of your mapping plan when provisioning many Azure resources at once. To help you in creating a complete mapping, you can download a Microsoft Excel file as a template.
-        
-        :::image type="icon" source="media/storage-files-migration-namespace-mapping/excel.png"::: Download a namespace mapping template.
+        :::row:::
+            :::column:::
+                :::image type="icon" source="media/storage-files-migration-namespace-mapping/excel.png"::: 
+            :::column-end:::
+            :::column:::
+                Download a namespace mapping template.
+            :::column-end:::
     :::column-end:::
 :::row-end:::
