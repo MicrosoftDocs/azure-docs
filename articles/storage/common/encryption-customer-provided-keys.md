@@ -23,7 +23,7 @@ When a client application provides an encryption key on the request, Azure Stora
 
 Azure Storage does not store or manage the encryption key that the client sends with the request. The key is securely discarded as soon as the encryption or decryption process is complete.
 
-When a client creates or updates a blob using a customer-provided on the request, then subsequent read and write requests for that blob must also provide the key. If the key is not provided on a request for a blob that has already been encrypted with a customer-provided key, then the request fails with error code 409 (Conflict).
+When a client creates or updates a blob using a customer-provided key on the request, then subsequent read and write requests for that blob must also provide the key. If the key is not provided on a request for a blob that has already been encrypted with a customer-provided key, then the request fails with error code 409 (Conflict).
 
 If the client application sends an encryption key on the request, and the storage account is also encrypted using a Microsoft-managed key or a customer-managed key, then Azure Storage uses the key provided on the request for encryption and decryption.
 
@@ -63,7 +63,7 @@ The following Blob storage operations support sending customer-provided encrypti
 
 ## Rotate customer-provided keys
 
-To rotate an encryption key passed on the request, download the blob and re-upload it with the new encryption key.
+To rotate an encryption key that was used to encrypt a blob, download the blob and then re-upload it with the new encryption key.
 
 > [!IMPORTANT]
 > The Azure portal cannot be used to read from or write to a container or blob that is encrypted with a key provided on the request.
