@@ -55,7 +55,7 @@ Click **+ New step** to add an action that runs after the recurrence action. Und
 
 Click **Azure Log Analytics – Run query and visualize results**.
 
-![Run query and visualize results action](media/logicapp-flow-connector/select-query-action.png)
+![Run query and visualize results action](media/logicapp-flow-connector/select-query-action-visualize.png)
 
 
 ### Add Azure Monitor Logs action
