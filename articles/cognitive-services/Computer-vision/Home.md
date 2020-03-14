@@ -74,6 +74,6 @@ As with all of the Cognitive Services, developers using the Computer Vision serv
 
 Get started with Computer Vision by following a quickstart guide:
 
-- [Quickstart: Computer Vision .NET SDK](quickstarts-sdk/csharp-sdk.md)
-- [Quickstart: Computer Vision Python SDK](quickstarts-sdk/python-sdk.md)
-- [Quickstart: Computer Vision Java SDK](quickstarts-sdk/java-sdk.md)
+* [Quickstart: Computer Vision .NET SDK](./quickstarts-sdk/computer-vision-sdk.md?pivots=programming-language-csharp)
+- [Quickstart: Computer Vision Python SDK](./quickstarts-sdk/computer-vision-sdk.md?pivots=programming-language-python)
+- [Quickstart: Computer Vision Java SDK](./quickstarts-sdk/computer-vision-sdk.md?pivots=programming-language-java)
