@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/17/2020
+ms.date: 03/13/2020
 ms.author: kumud
 ---
 
 # Add network interfaces to or remove network interfaces from virtual machines
 
-Learn how to add an existing network interface when you create an Azure virtual machine (VM). Also learn to add or remove network interfaces from an existing VM in the stopped (deallocated) state. A network interface enables an Azure VM to communicate with internet, Azure, and on-premises resources. A VM can have one or more network interfaces. 
+Learn how to add an existing network interface when you create an Azure virtual machine (VM). Also learn to add or remove network interfaces from an existing VM in the stopped (deallocated) state. A network interface enables an Azure VM to communicate with internet, Azure, and on-premises resources. A VM has one or more network interfaces. 
 
 If you need to add, change, or remove IP addresses for a network interface, see [Manage network interface IP addresses](virtual-network-network-interface-addresses.md). To create, change, or delete network interfaces, see [Manage network interfaces](virtual-network-network-interface.md).
 
@@ -27,23 +27,23 @@ If you need to add, change, or remove IP addresses for a network interface, see 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-If you don't have one, set up an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). Then complete one of these tasks before starting steps in any section of this article:
+If you don't have one, set up an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). Complete one of these tasks before starting the remainder of this article:
 
 - **Portal users**: Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
 
 - **PowerShell users**: Either run the commands in the [Azure Cloud Shell](https://shell.azure.com/powershell), or run PowerShell from your computer. The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account. In the Azure Cloud Shell browser tab, find the **Select environment** dropdown list, then pick **PowerShell** if it isn't already selected.
 
-    If you're running PowerShell locally, use Azure PowerShell module version 1.0.0 or later. Run `Get-Module -ListAvailable Az.Network` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps). Also run `Connect-AzAccount` to create a connection with Azure.
+    If you're running PowerShell locally, use Azure PowerShell module version 1.0.0 or later. Run `Get-Module -ListAvailable Az.Network` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps). Run `Connect-AzAccount` to create a connection with Azure.
 
-- **Azure Command-line interface (CLI) users**: Either run the commands in the [Azure Cloud Shell](https://shell.azure.com/bash), or run the CLI from your computer. Use Azure CLI version 2.0.26 or later if you're running the Azure CLI locally. Run `az --version` to find the installed version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli). Also run `az login` to create a connection with Azure.
+- **Azure Command-line interface (CLI) users**: Either run the commands in the [Azure Cloud Shell](https://shell.azure.com/bash), or run the CLI from your computer. Use Azure CLI version 2.0.26 or later if you're running the Azure CLI locally. Run `az --version` to find the installed version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli). Run `az login` to create a connection with Azure.
 
 ## Add existing network interfaces to a new VM
 
-When you create a virtual machine through the portal, the portal creates a network interface with default settings and attaches it to the VM for you. You can't use the portal to add existing network interfaces to a new VM, or to create a VM with multiple network interfaces. You can do both by using the CLI or PowerShell. However, be sure to familiarize yourself with the [constraints](#constraints). If you create a VM with multiple network interfaces, you must also configure the operating system to use them properly after you create the VM. Learn how to configure [Linux](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#configure-guest-os-for-multiple-nics) or [Windows](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#configure-guest-os-for-multiple-nics) for multiple network interfaces.
+When you create a virtual machine through the portal, the portal creates a network interface with default settings and attaches the network interface to the VM for you. You can't use the portal to add existing network interfaces to a new VM, or to create a VM with multiple network interfaces. You can do both by using the CLI or PowerShell. Be sure to familiarize yourself with the [constraints](#constraints). If you create a VM with multiple network interfaces, you must also configure the operating system to use them properly after you create the VM. Learn how to configure [Linux](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#configure-guest-os-for-multiple-nics) or [Windows](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#configure-guest-os-for-multiple-nics) for multiple network interfaces.
 
 ### Commands
 
-Before you create the VM, create a network interface by using the steps in [Create a network interface](virtual-network-network-interface.md#create-a-network-interface).
+Before you create the VM, [Create a network interface](virtual-network-network-interface.md#create-a-network-interface).
 
 |Tool|Command|
 |---|---|
@@ -63,7 +63,7 @@ To add a network interface to your virtual machine:
 4. From the VM menu bar, choose **Networking** > **Attach network interface**. Then in **Attach existing network interface**, choose the network interface you'd like to attach, and select **OK**.
 
     >[!NOTE]
-    >The network interface you select can't have accelerated networking enabled, can't have an IPv6 address assigned to it, and must exist in the same virtual network as the one that contains the network interface currently attached to the VM.
+    >The network interface you select can't have accelerated networking enabled, can't have an IPv6 address assigned to it, and must exist in the same virtual network with the network interface currently attached to the VM.
 
     If you don't have an existing network interface, you must first create one. To do so, select **Create network interface**. To learn more about how to create a network interface, see [Create a network interface](virtual-network-network-interface.md#create-a-network-interface). To learn more about additional constraints when adding network interfaces to virtual machines, see [Constraints](#constraints).
 
@@ -132,11 +132,11 @@ To learn about network interface settings and how to change them, see [Manage ne
 
 - The network interfaces you add to a VM can't currently be attached to another VM. To learn more about how to create network interfaces, see [Create a network interface](virtual-network-network-interface.md#create-a-network-interface).
 
-- In the past, you could add network interfaces only to VMs that supported multiple network interfaces and were created with at least two network interfaces. You couldn't add a network interface to a VM that was created with one network interface, even if the VM size supported more than one network interface. Conversely, you could only remove network interfaces from a VM with at least three network interfaces, because VMs created with at least two network interfaces always had to have at least two network interfaces. Neither of these constraints apply anymore. You can now create a VM with any number of network interfaces (up to the number supported by the VM size).
+- In the past, you could add network interfaces only to VMs that supported multiple network interfaces and were created with at least two network interfaces. You couldn't add a network interface to a VM that was created with one network interface, even if the VM size supported more than one network interface. Conversely, you could only remove network interfaces from a VM with at least three network interfaces, because VMs created with at least two network interfaces always had to have at least two network interfaces. These constraints no longer apply. You can now create a VM with any number of network interfaces (up to the number supported by the VM size).
 
-- By default, the first network interface attached to a VM is defined as the *primary* network interface. All other network interfaces in the VM are *secondary* network interfaces.
+- By default, the first network interface attached to a VM is the *primary* network interface. All other network interfaces in the VM are *secondary* network interfaces.
 
-- You can control which network interface you send outbound traffic to. However, the VM by default sends all outbound traffic to the IP address that's assigned to the primary IP configuration of the primary network interface.
+- You can control which network interface you send outbound traffic to. However, a VM by default sends all outbound traffic to the IP address that's assigned to the primary IP configuration of the primary network interface.
 
 - In the past, all VMs within the same availability set were required to have a single, or multiple, network interfaces. VMs with any number of network interfaces can now exist in the same availability set, up to the number supported by the VM size. You can only add a VM to an availability set when it's created. To learn more about availability sets, see [Manage the availability of VMs in Azure](../virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-network%2ftoc.json#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy).
 
@@ -144,13 +144,13 @@ To learn about network interface settings and how to change them, see [Manage ne
 
 - You can add any IP address for any IP configuration of any primary or secondary network interface to an Azure Load Balancer back-end pool. In the past, only the primary IP address for the primary network interface could be added to a back-end pool. To learn more about IP addresses and configurations, see [Add, change, or remove IP addresses](virtual-network-network-interface-addresses.md).
 
-- Deleting a VM doesn't delete the network interfaces that are attached to it. When you delete a VM, the network interfaces are detached from the VM. You can add the network interfaces to different VMs or delete them.
+- Deleting a VM doesn't delete the network interfaces that are attached to it. When you delete a VM, the network interfaces are detached from the VM. You can add those network interfaces to different VMs or delete them.
 
 - As with IPv6, you can't attach a network interface with accelerated networking enabled to a VM after you create it. Further, to take advantage of accelerated networking, you must also complete steps within the VM operating system. Learn more about accelerated networking, and other constraints when using it, for [Windows](create-vm-accelerated-networking-powershell.md) or [Linux](create-vm-accelerated-networking-cli.md) virtual machines.
 
 ## Next steps
 
-To create a VM with multiple network interfaces or IP addresses, see the following articles:
+To create a VM with multiple network interfaces or IP addresses, see:
 
 |Task|Tool|
 |---|---|
