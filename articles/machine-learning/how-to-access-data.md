@@ -77,7 +77,7 @@ When you register an Azure Storage solution as a datastore, you automatically cr
 >[!IMPORTANT]
 > As part of the initial datastore create and register process, Azure Machine Learning validates that the underlying storage service exists and that the user provided principal (username, service principal or SAS token) has access to that storage. For Azure Data Lake Storage Gen 1 and 2 datastores, however,  this validation  happens later, when data access methods like [`from_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?view=azure-ml-py) or [`from_delimited_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#from-parquet-files-path--validate-true--include-path-false--set-column-types-none--partition-format-none-) are called. 
 <br><br>
-This validation is only performed **once** and is **not** repeated thereafter; for example, each time the datastore is called in scripts.
+After datastore creation, this validation is only performed for methods that require access to the underlying storage container, **not** each time datastore objects are retrieved. For example, validation happens if you want to download files from or upload files to a datastore, not if you want to set a default datastore.
 
 ### Python SDK
 
