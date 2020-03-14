@@ -18,12 +18,12 @@ Consider the following options:
 
 #### Share grouping
 
-For instance, if your HR department has a total of 15 shares, then you could consider storing all of the HR data in a single Azure file share. Storing multiple on-premises shares in one Azure file share does not prevent you from creating the usual 15 SMB shares on your local Windows Server. It only means that you organize the root folders of these 15 shares as sub-folders under a common folder. You then sync this common folder to an Azure file share. That way, only a single Azure file share in the cloud is needed for this group of on-premises shares.
+For instance, if your HR department has a total of 15 shares, then you could consider storing all of the HR data in a single Azure file share. Storing multiple on-premises shares in one Azure file share does not prevent you from creating the usual 15 SMB shares on your local Windows Server. It only means that you organize the root folders of these 15 shares as subfolders under a common folder. You then sync this common folder to an Azure file share. That way, only a single Azure file share in the cloud is needed for this group of on-premises shares.
 
 #### Volume sync
 
 Azure File Sync supports syncing the root of a volume to an Azure file share.
-If you sync the root folder, then all sub-folders and files will end up in the same Azure file share.
+If you sync the root folder, then all subfolders and files will end up in the same Azure file share.
 
 Synching the root of the volume will not always be the best answer. There are benefits in syncing multiple locations, doing so helps keep the number of items lower per sync scope. Setting up Azure file sync with a lower number of items is not just important for sync, but also benefits cloud-side restore from backups as well as aiding the speed of disaster recovery in case you lose your server and provision a new one that connects to the same Azure file shares.
 
@@ -34,14 +34,14 @@ Before deploying cloud storage in a subsequent step, it is important to create a
 To make the decision how many Azure file shares you need, you need to understand a few limits and best practices to optimize your map.
 
 * A server with the Azure File Sync agent installed, can sync with up to 30 Azure file shares.
-* An Azure file share is deployed inside of a storage account. That makes the storage account a scale target for performance numbers such as IOPS and throughput. Two standard (not premium) Azure file shares could theoretically saturate the maximum performance a storage account can deliver. If you plan to just attach Azure File Sync to these file shares with occasional direct-access of the Azure file share in the cloud, then grouping several Azure file shares into the same storage account is fine. If you plan on lifting and shifting an app to Azure that will then use the Azure file share natively, you might need more performance for this app than Azure File Sync needed from the file share. In these situations it would be better to map an Azure file share to its own storage account.
+* An Azure file share is deployed inside of a storage account. That makes the storage account a scale target for performance numbers such as IOPS and throughput. Two standard (not premium) Azure file shares could theoretically saturate the maximum performance a storage account can deliver. If you plan to just attach Azure File Sync to these file shares with occasional direct access of the Azure file share in the cloud, then grouping several Azure file shares into the same storage account is fine. If you plan on lifting an app to Azure, that will then use the Azure file share natively, you might need more performance for this app than Azure File Sync needed from the file share. In these situations, it would be better to map an Azure file share to its own storage account.
 * There is a limit of 250 storage accounts per subscription in a single Azure region.
 
 > [!TIP]
 > With this information in mind, it often becomes necessary to group multiple top-level folders on your volumes into a common, new root directory. You will then sync this new root directory and all the folders you grouped into it, to a single Azure file share.                                                    
 
 This technique allows you to stay within the 30 Azure file share sync limit per server.
-This grouping under a common root has no impact on access to your data. Your ACLs stay as is, you would simply adjust any share paths (like SMB or NFS shares) you might have on the server folders that you now changed into a common root. Nothing else changes.
+This grouping under a common root has no impact on access to your data. Your ACLs stay as is, you would only need to adjust any share paths (like SMB or NFS shares) you might have on the server folders that you now changed into a common root. Nothing else changes.
 
 Another important aspect of Azure File Sync and a balanced performance and experience is an understanding of the scale factors for Azure File Sync performance. Obviously, when files are synced over the internet, larger files take more time and bandwidth to sync.
 
@@ -53,7 +53,7 @@ Azure File Sync supports syncing up to 100,000 items to a single Azure file shar
 It is a best practice to keep the number of items per sync scope low. 
 That is an important factor to be considered in your mapping of folders to Azure file shares.
 
-Even if in your situation a set of folders can logically sync to the same Azure file share (using the new, common root folder approach from above) it might still be better to re-group folders such that they sync to two instead of one Azure file share. That is to keep the number of files and folders per file share balanced across the server.
+Even if in your situation a set of folders can logically sync to the same Azure file share (using the new, common root folder approach from above) it might still be better to regroup folders such that they sync to two instead of one Azure file share. That is to keep the number of files and folders per file share balanced across the server.
 
 #### Create a mapping table
 
