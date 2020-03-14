@@ -1,6 +1,6 @@
 - name: Azure Synapse Analytics Documentation preview features
   href:
-- name: Switch to current Azure Synapse Analytics documentation
+- name: Switch to current documentation
   href: ../sql-data-warehouse/sql-data-warehouse-overview-what-is.md 
 - name: Overview
   items:
