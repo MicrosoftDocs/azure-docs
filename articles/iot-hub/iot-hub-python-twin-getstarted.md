@@ -190,7 +190,7 @@ In this section, you create a Python console app that connects to your hub as yo
             print ( "IoT Hub Device Twin device sample stopped" )
     ```
 
-    The **Client** object exposes all the methods you require to interact with device twins from the device. The previous code, after it initializes the **Client** object, retrieves the device twin for your device and updates its reported property with the connectivity information.
+    The **IoTHubModuleClient** object exposes all the methods you require to interact with device twins from the device. The previous code, after it initializes the **IoTHubModuleClient** object, retrieves the device twin for your device and updates its reported property with the connectivity information.
 
 6. Add the following code at the end of  **ReportConnectivity.py** to implement the **iothub_client_sample_run** function:
 
@@ -208,9 +208,9 @@ In this section, you create a Python console app that connects to your hub as yo
     python ReportConnectivity.py
     ```
 
-    You should see confirmation the device twin reported properties were updated. You'll see confirmation that the desired properties twin patch was received after you complete the next step.
+    You should see confirmation the device twin reported properties were updated.
 
-    ![update twins](./media/iot-hub-python-twin-getstarted/device-1.png)
+    ![update reported properties from device app](./media/iot-hub-python-twin-getstarted/device-1.png)
 
 8. Now that the device reported its connectivity information, it should appear in both queries. Go back and run the queries again:
 
@@ -220,7 +220,11 @@ In this section, you create a Python console app that connects to your hub as yo
 
     This time your **{Device ID}** should appear in both query results.
 
-    ![second query](./media/iot-hub-python-twin-getstarted/service-2.png)
+    ![second query on service app](./media/iot-hub-python-twin-getstarted/service-2.png)
+
+    In your device app, you'll see confirmation that the desired properties twin patch sent by the service app was received.
+
+    ![receive desired properties on device app](./media/iot-hub-python-twin-getstarted/device-2.png)
 
 ## Next steps
 
