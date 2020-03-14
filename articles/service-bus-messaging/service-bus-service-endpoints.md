@@ -63,7 +63,7 @@ This section shows you how to use Azure portal to add a virtual network service 
 
     > [!NOTE]
     > If you are unable to enable the service endpoint, you may ignore the missing virtual network service endpoint using the Resource Manager template. This functionality is not available on the portal.
-6. Select **Save** on the toolbar to save the settings. Wait for a few minutes for the confirmation to show up on the portal notifications.
+6. Select **Save** on the toolbar to save the settings. Wait for a few minutes for the confirmation to show up in the portal notifications. The **Save** button should be disabled. 
 
     ![Save network](./media/service-endpoints/save-vnet.png)
 

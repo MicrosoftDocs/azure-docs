@@ -12,7 +12,7 @@ ms.topic: article
 
 # Integrate Azure Service Bus with Azure Private Link (Preview)
 
-Azure Private Link Service enables you to access Azure Services (for example, Azure Service Bus, Azure Storage, and Azure Cosmos DB) and Azure hosted customer/partner services over a **private endpoint** in your virtual network.
+Azure Private Link Service enables you to access Azure services (for example, Azure Service Bus, Azure Storage, and Azure Cosmos DB) and Azure hosted customer/partner services over a **private endpoint** in your virtual network.
 
 A private endpoint is a network interface that connects you privately and securely to a service powered by Azure Private Link. The private endpoint uses a private IP address from your VNet, effectively bringing the service into your VNet. All traffic to the service can be routed through the private endpoint, so no gateways, NAT devices, ExpressRoute or VPN connections, or public IP addresses are needed. Traffic between your virtual network and the service traverses over the Microsoft backbone network, eliminating exposure from the public Internet. You can connect to an instance of an Azure resource, giving you the highest level of granularity in access control.
 
@@ -20,8 +20,8 @@ For more information, see [What is Azure Private Link?](../private-link/private-
 
 > [!NOTE]
 > This feature is supported with the **premium** tier of Azure Service Bus. For more information about the premium tier, see the [Service Bus Premium and Standard messaging tiers](service-bus-premium-messaging.md) article.
-
-
+>
+> This feature is currently in **preview**. 
 
 
 ## Add a private endpoint using Azure portal
