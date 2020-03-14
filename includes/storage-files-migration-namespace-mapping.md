@@ -50,7 +50,7 @@ Another important aspect of Azure File Sync and a balanced performance and exper
 
 Azure File Sync supports syncing up to 100,000 items to a single Azure file share, which is not a hard limit, but depicts what the Azure File Sync team tests on a regular basis.
 
-It is a best practice to keep the number of items per sync scope low. That is an important factor to be considered in your mapping of folders to Azure file shares.
+It is a best practice to keep the number of items per sync scope low. That aspect is an important factor to be considered in your mapping of folders to Azure file shares.
 
 Even if in your situation a set of folders can logically sync to the same Azure file share (using the new, common root folder approach from above) it might still be better to regroup folders such that they sync to two instead of one Azure file share. That is to keep the number of files and folders per file share balanced across the server.
 
