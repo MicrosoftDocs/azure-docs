@@ -26,13 +26,13 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-You can use the Azure Cloud Shell or a local installation of the Azure CLI to complete this quickstart. If you'd like to use it locally, version 2.0.67 or later is recommended. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
+Notification Hubs requires version 2.0.67 or later of the Azure CLI. Run `az --version` to find the version and dependent libraries that are installed. To install or upgrade, see [Install Azure CLI][azure-cli-install].
 
 ## Prepare your environment
 
 ### Sign in
 
-If you're using a local install of the CLI, you need to sign in using the [az login](/cli/azure/reference-index#az-login) command before performing any other steps.
+Sign in using the [az login](/cli/azure/reference-index#az-login) command if you're using a local install of the CLI.
 
 ```azurecli-interactive
 az login
@@ -60,7 +60,7 @@ az group create --name spnhubrg --location eastus
 
 ## Create a notification hub namespace
 
-A namespace contains one or more hubs.  It must exist before a notification hub can be created.  Run the [az notification-hub namespace create](/cli/azure/ext/notification-hub/notification-hub/namespace#ext-notification-hub-az-notification-hub-namespace-create) command to create a namespace.  Use the [az notification-hub namespace check-availability](/cli/azure/ext/notification-hub/notification-hub/namespace#ext-notification-hub-az-notification-hub-namespace-check-availability) command to check the availability of the given service namespace across all Azure subscriptions.
+A namespace contains one or more hubs, and the name must be unique across all Azure subscriptions.  To check the availability of the given service namespace, use the [az notification-hub namespace check-availability](/cli/azure/ext/notification-hub/notification-hub/namespace#ext-notification-hub-az-notification-hub-namespace-check-availability) command.  Run the [az notification-hub namespace create](/cli/azure/ext/notification-hub/notification-hub/namespace#ext-notification-hub-az-notification-hub-namespace-create) command to create a namespace.  
 
 ```azurecli-interactive
 #check availability
@@ -72,7 +72,7 @@ az notification-hub namespace create --resource-group spnhubrg --name spnhubns -
 
 ### List keys and connection strings for a namespace access policy
 
-An access policy is automatically created for a new namespace.  There are two sets of keys and connection strings for each access policy.  To list the keys and connection strings to the namespace, run the [az notification-hub namespace authorization-rule list-keys](/cli/azure/ext/notification-hub/notification-hub/authorization-rule#ext-notification-hub-az-notification-hub-authorization-rule-list-keys) command.
+An access policy is automatically created for a new namespace.  There are two sets of keys and connection strings for each access policy.  To list the keys and connection strings for the namespace, run the [az notification-hub namespace authorization-rule list-keys](/cli/azure/ext/notification-hub/notification-hub/authorization-rule#ext-notification-hub-az-notification-hub-authorization-rule-list-keys) command.
 
 ```azurecli-interactive
 az notification-hub namespace authorization-rule list-keys --resource-group spnhubrg --namespace-name spnhubns --name RootManageSharedAccessKey
@@ -94,7 +94,7 @@ az notification-hub create --resource-group spnhubrg --namespace-name spnhubns -
 
 ### Create a new authorization-rule for a notification hub
 
-An access policy is automatically created for each new notification hub.  Use the [az notification-hub authorization-rule create](/cli/azure/ext/notification-hub/notification-hub/authorization-rule#ext-notification-hub-az-notification-hub-authorization-rule-create) command to create and customize your own access policy.
+An access policy is automatically created for each new notification hub.  To create and customize your own access policy, use the [az notification-hub authorization-rule create](/cli/azure/ext/notification-hub/notification-hub/authorization-rule#ext-notification-hub-az-notification-hub-authorization-rule-create) command.
 
 ```azurecli-interactive
 az notification-hub authorization-rule create --resource-group spnhubrg --namespace-name spnhubns --notification-hub-name spfcmtutorial1nhub --name spnhub1key --rights Listen,Send
@@ -102,7 +102,7 @@ az notification-hub authorization-rule create --resource-group spnhubrg --namesp
 
 ### List access policies for a notification hub
 
-Use the [az notification-hub authorization-rule list](/cli/azure/ext/notification-hub/notification-hub/authorization-rule#ext-notification-hub-az-notification-hub-authorization-rule-list) command to query what access policies exist for a notification hub.
+To query what access policies exist for a notification hub, use the [az notification-hub authorization-rule list](/cli/azure/ext/notification-hub/notification-hub/authorization-rule#ext-notification-hub-az-notification-hub-authorization-rule-list) command.
 
 ```azurecli-interactive
 az notification-hub authorization-rule list --resource-group spnhubrg --namespace-name spnhubns --notification-hub-name spfcmtutorial1nhub --output table
@@ -113,7 +113,7 @@ az notification-hub authorization-rule list --resource-group spnhubrg --namespac
 
 ### List keys and connection strings for a notification hub access policy
 
-There are two sets of keys and connection strings for each access policy.  You'll need them later to handle push notifications.  Use the [az notification-hub authorization-rule list-keys](/cli/azure/ext/notification-hub/notification-hub/authorization-rule#ext-notification-hub-az-notification-hub-authorization-rule-list-keys) command to list the keys and connections strings for a notification hub access policy.
+There are two sets of keys and connection strings for each access policy.  You'll need them later to handle push notifications.  To list the keys and connections strings for a notification hub access policy, use the [az notification-hub authorization-rule list-keys](/cli/azure/ext/notification-hub/notification-hub/authorization-rule#ext-notification-hub-az-notification-hub-authorization-rule-list-keys) command.
 
 ```azurecli-interactive
 #query the keys and connection strings for DefaultListenSharedAccessSignature
@@ -139,6 +139,6 @@ az group delete --name spnhubrg
 Discover full capabilities for managing notifications hubs with the Azure CLI.
 
 * [Notification Hubs full Azure CLI reference list](/cli/azure/ext/notification-hub/notification-hub)
-* [Notification Hubs namespaces Azure CLI reference list](/cli/azure/ext/notification-hub/notification-hub/namespace)
-* [Notification Hubs authorization rules Azure CLI reference list](/cli/azure/ext/notification-hub/notification-hub/authorization-rule)
-* [Notification Hubs credentials Azure CLI reference list](/cli/azure/ext/notification-hub/notification-hub/credential)
+* [Notification Hubs namespace Azure CLI reference list](/cli/azure/ext/notification-hub/notification-hub/namespace)
+* [Notification Hubs authorization rule Azure CLI reference list](/cli/azure/ext/notification-hub/notification-hub/authorization-rule)
+* [Notification Hubs credential Azure CLI reference list](/cli/azure/ext/notification-hub/notification-hub/credential)
