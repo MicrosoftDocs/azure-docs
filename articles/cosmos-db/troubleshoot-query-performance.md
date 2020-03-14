@@ -26,11 +26,11 @@ This article provides examples that you can re-create by using the [nutrition](h
 
 - For best performance, follow the [Performance tips](performance-tips.md).
     > [!NOTE]
-    > For improved performance, we recommend Windows 64-bit host processing. The SQL SDK includes a native ServiceInterop.dll to parse and optimize queries locally. ServiceInterop.dll is supported only on the Windows x64 platform. For linux and other unsupported platforms where ServiceInterop.dll isn't available, an additional network call will be made to the gateway to get the optimized query.
+    > For improved performance, we recommend Windows 64-bit host processing. The SQL SDK includes a native ServiceInterop.dll to parse and optimize queries locally. ServiceInterop.dll is supported only on the Windows x64 platform. For Linux and other unsupported platforms where ServiceInterop.dll isn't available, an additional network call will be made to the gateway to get the optimized query.
 - Azure Cosmos DB queries don't support a minimum item count.
     - Code should handle any page size, from zero to the maximum item count.
     - The number of items in a page can and will change without notice.
-- Empty pages are expected for queries, and can appear at any time.
+- Empty pages are expected for queries and can appear at any time.
     - Empty pages are exposed in the SDKs because that exposure allows more opportunities to cancel a query. It also makes it clear that the SDK is doing multiple network calls.
     - Empty pages can appear in existing workloads because a physical partition is split in Azure Cosmos DB. The first partition now has zero results, which causes the empty page.
     - Empty pages are caused by the backend preempting a query because the query is taking more than some fixed amount of time on the backend to retrieve the documents. If Azure Cosmos DB preempts a query, it will return a continuation token that will allow the query to continue.

@@ -61,7 +61,7 @@ How a client connects to Azure Cosmos DB has important performance implications,
       
      Gateway mode is supported on all SDK platforms and is the configured default for the [Microsoft.Azure.DocumentDB SDK](sql-api-sdk-dotnet.md). If your application runs within a corporate network with strict firewall restrictions, gateway mode is the best choice because it uses the standard HTTPS port and a single endpoint. The performance tradeoff, however, is that gateway mode involves an additional network hop every time data is read from or written to Azure Cosmos DB. So direct mode offers better performance because there are fewer network hops. We also recommend gateway connection mode when you run applications in environments that have a limited number of socket connections.
 
-     When you use the SDK in Azure Functions, particularly in the [Consumption plan](../azure-functions/functions-scale.md#consumption-plan), be mindful of the current [limits on connections](../azure-functions/manage-connections.md). In that case, gateway mode might be better if you're also working with other HTTP-based clients within your Azure Functions application.
+     When you use the SDK in Azure Functions, particularly in the [Consumption plan](../azure-functions/functions-scale.md#consumption-plan), be aware of the current [limits on connections](../azure-functions/manage-connections.md). In that case, gateway mode might be better if you're also working with other HTTP-based clients within your Azure Functions application.
 
    * Direct mode
 
@@ -119,7 +119,7 @@ By default, the first request has higher latency because it needs to fetch the a
    <a id="same-region"></a>
 **For performance, collocate clients in same Azure region**
 
-When possible, place any applications that call Azure Cosmos DB in the same region as the Azure Cosmos DB database. Here's an approximate comparison: calls to Azure Cosmos DB within the same region complete within 1 ms to 2 ms, but the latency between the West and East coast of the US is more than 50 ms. This latency can vary from request to request, depending on the route taken by the request as it passes from the client to the Azure datacenter boundary. You can get the lowest possible latency ensuring the calling application is located within the same Azure region as the provisioned Azure Cosmos DB endpoint. For a list of available regions, see [Azure regions](https://azure.microsoft.com/regions/#services).
+When possible, place any applications that call Azure Cosmos DB in the same region as the Azure Cosmos DB database. Here's an approximate comparison: calls to Azure Cosmos DB within the same region complete within 1 ms to 2 ms, but the latency between the West and East coast of the US is more than 50 ms. This latency can vary from request to request, depending on the route taken by the request as it passes from the client to the Azure datacenter boundary. You can get the lowest possible latency by ensuring the calling application is located within the same Azure region as the provisioned Azure Cosmos DB endpoint. For a list of available regions, see [Azure regions](https://azure.microsoft.com/regions/#services).
 
 ![The Azure Cosmos DB connection policy](./media/performance-tips/same-region.png)
    <a id="increase-threads"></a>
@@ -130,7 +130,7 @@ Because calls to Azure Cosmos DB are made over the network, you might need to va
 
 **Enable accelerated networking**
  
- To reduce latency and CPU jitter, we recommend that accelerated networking is enabled on client virtual machines. See [Create a Windows virtual machine with accelerated networking](../virtual-network/create-vm-accelerated-networking-powershell.md) or [Create a Linux virtual machine with accelerated networking](../virtual-network/create-vm-accelerated-networking-cli.md).
+ To reduce latency and CPU jitter, we recommend that you enable accelerated networking on client virtual machines. See [Create a Windows virtual machine with accelerated networking](../virtual-network/create-vm-accelerated-networking-powershell.md) or [Create a Linux virtual machine with accelerated networking](../virtual-network/create-vm-accelerated-networking-cli.md).
 
 ## SDK usage
 **Install the most recent SDK**
@@ -180,9 +180,9 @@ Retry policy support is included in these SDKs:
 - Version 1.9.0 and later of the [Node.js SDK for SQL](sql-api-sdk-node.md) and the [Python SDK for SQL](sql-api-sdk-python.md)
 - All supported versions of the [.NET Core](sql-api-sdk-dotnet-core.md) SDKs 
 
-For more information, see [RetryAfter](https://msdn.microsoft.com/library/microsoft.azure.documents.documentclientexception.retryafter.aspx)
+For more information, see [RetryAfter](https://msdn.microsoft.com/library/microsoft.azure.documents.documentclientexception.retryafter.aspx).
     
-In version 1.19 and later of the .NET SDK, there's a mechanism to log additional diagnostic information and troubleshoot latency issues, as shown in the following sample. You can log the diagnostic string for requests that have a higher read latency. The captured diagnostic string will help you understand how many times you received 429 errors for a given request.
+In version 1.19 and later of the .NET SDK, there's a mechanism for logging additional diagnostic information and troubleshooting latency issues, as shown in the following sample. You can log the diagnostic string for requests that have a higher read latency. The captured diagnostic string will help you understand how many times you received 429 errors for a given request.
 
 ```csharp
 ResourceResponse<Document> readDocument = await this.readClient.ReadDocumentAsync(oldDocuments[i].SelfLink);
@@ -201,7 +201,7 @@ When you do a bulk read of documents by using read feed functionality (for examp
 To reduce the number of network round trips required to retrieve all applicable results, you can increase the page size by using [x-ms-max-item-count](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) to request as many as 1,000 headers. When you need to display only a few results, for example, if your user interface or application API returns only 10 results at a time, you can also decrease the page size to 10 to reduce the throughput consumed for reads and queries.
 
 > [!NOTE] 
-> The `maxItemCount` property shouldn't be used just for pagination. It's main use is to improve the performance of queries by reducing the maximum number of items returned in a single page.  
+> The `maxItemCount` property shouldn't be used just for pagination. Its main use is to improve the performance of queries by reducing the maximum number of items returned in a single page.  
 
 You can also set the page size by using the available Azure Cosmos DB SDKs. The [MaxItemCount](/dotnet/api/microsoft.azure.documents.client.feedoptions.maxitemcount?view=azure-dotnet) property in `FeedOptions` allows you to set the maximum number of items to be returned in the enumeration operation. When `maxItemCount` is set to -1, the SDK automatically finds the optimal value, depending on the document size. For example:
     
@@ -219,7 +219,7 @@ See [Increase the number of threads/tasks](#increase-threads) in the Networking 
  
 **Exclude unused paths from indexing for faster writes**
 
-The Azure Cosmos DB indexing policy also allows you to specify which document paths to include in or exclude from indexing by using indexing paths (IndexingPolicy.IncludedPaths and IndexingPolicy.ExcludedPaths). Indexing paths can improve write performance and lower index storage for scenarios in which the query patterns are known beforehand. This is because indexing costs correlate directly to the number of unique paths indexed. For example, this code shows how to exclude an entire section of the documents (a subtree) from indexing by using the "*" wildcard:
+The Azure Cosmos DB indexing policy also allows you to specify which document paths to include in or exclude from indexing by using indexing paths (IndexingPolicy.IncludedPaths and IndexingPolicy.ExcludedPaths). Indexing paths can improve write performance and reduce index storage for scenarios in which the query patterns are known beforehand. This is because indexing costs correlate directly to the number of unique paths indexed. For example, this code shows how to exclude an entire section of the documents (a subtree) from indexing by using the "*" wildcard:
 
 ```csharp
 var collection = new DocumentCollection { Id = "excludedPathCollection" };
@@ -233,9 +233,9 @@ For more information, see [Azure Cosmos DB indexing policies](index-policy.md).
 ## Throughput
 <a id="measure-rus"></a>
 
-**Measure and tune for lower request units/second usage**
+**Measure and tune for lower Request Units/second usage**
 
-Azure Cosmos DB offers a rich set of database operations. These operations include relational and hierarchical queries with UDFs, stored procedures, and triggers, all operating on the documents within a database collection. The cost associated with each of these operations varies depending on the CPU, IO, and memory required to complete the operation. Instead of thinking about and managing hardware resources, you can think of a request unit (RU) as a single measure for the resources required to perform various database operations and service an application request.
+Azure Cosmos DB offers a rich set of database operations. These operations include relational and hierarchical queries with UDFs, stored procedures, and triggers, all operating on the documents within a database collection. The cost associated with each of these operations varies depending on the CPU, IO, and memory required to complete the operation. Instead of thinking about and managing hardware resources, you can think of a Request Unit (RU) as a single measure for the resources required to perform various database operations and service an application request.
 
 Throughput is provisioned based on the number of [Request Units](request-units.md) set for each container. Request Unit consumption is evaluated as a rate per second. Applications that exceed the provisioned Request Unit rate for their container are limited until the rate drops below the provisioned level for the container. If your application requires a higher level of throughput, you can increase your throughput by provisioning additional Request Units.
 
@@ -261,7 +261,7 @@ The request charge returned in this header is a fraction of your provisioned thr
 
 **Handle rate limiting/request rate too large**
 
-When a client attempts to exceed the reserved throughput for an account, there's no performance degradation at the server and no use of throughput capacity beyond the reserved level. The server will preemptively end the request with RequestRateTooLarge (HTTP status code 429). It will return an [x-ms-retry-after-ms](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) header that indicates the amount of time, in milliseconds, that the user must wait before reattempting the request.
+When a client attempts to exceed the reserved throughput for an account, there's no performance degradation at the server and no use of throughput capacity beyond the reserved level. The server will preemptively end the request with RequestRateTooLarge (HTTP status code 429). It will return an [x-ms-retry-after-ms](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) header that indicates the amount of time, in milliseconds, that the user must wait before attempting the request again.
 
     HTTP Status 429,
     Status Line: RequestRateTooLarge
@@ -277,7 +277,7 @@ The automated retry behavior helps improve resiliency and usability for most app
 
 **For higher throughput, design for smaller documents**
 
-The request charge (that is, the request-processing cost) of a given operation is directly correlated to the size of the document. Operations on large documents cost more than operations on small documents.
+The request charge (that is, the request-processing cost) of a given operation correlates directly to the size of the document. Operations on large documents cost more than operations on small documents.
 
 ## Next steps
 For a sample application that's used to evaluate Azure Cosmos DB for high-performance scenarios on a few client machines, see [Performance and scale testing with Azure Cosmos DB](performance-testing.md).
