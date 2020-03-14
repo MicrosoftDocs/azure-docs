@@ -12,8 +12,6 @@ In the [previous tutorial](./deployment-tutorial-linked-template.md), you deploy
 
 Azure DevOps provides developer services to support teams to plan work, collaborate on code development, and build and deploy applications. Developers can work in the cloud using Azure DevOps Services. Azure DevOps provides an integrated set of features that you can access through your web browser or IDE client. Azure Pipeline is one of these features. Azure Pipelines is a fully featured continuous integration (CI) and continuous delivery (CD) service. It works with your preferred Git provider and can deploy to most major cloud services. Then you can automate the build, testing, and deployment of your code to Microsoft Azure, Google Cloud Platform, or Amazon Web Services.
 
-If you are already familiar with GitHub and DevOps, you can skip to [Create a pipeline](#create-a-pipeline).
-
 > [!NOTE]
 > Pick a project name. When you go through the tutorial, replace any of the **AzureRmPipeline** with your project name.
 > This project name is used to generate resource names.  One of the resource is a storage account. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only. The name must be unique. In the template, the storage account name is the project name with "store" appended, and the project name must be between 3 and 11 characters. So the project name must meet the storage account name requirements and has less than 11 characters.

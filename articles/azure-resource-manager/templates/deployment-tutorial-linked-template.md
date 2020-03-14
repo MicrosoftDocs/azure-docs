@@ -118,8 +118,6 @@ New-AzResourceGroupDeployment `
   -projectName $projectName `
   -linkedTemplateUri $linkedTemplateUri `
   -verbose
-
-Write-Host "Press [ENTER] to continue ..."
 ```
 
 # [Azure CLI](#tab/azure-cli)
