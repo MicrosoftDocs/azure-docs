@@ -32,7 +32,7 @@ landingContent:
             url: apache-spark-overview.md
           - text: What is SQL Analytics on-demand
             url: sql-analytics/on-demand.md
-          - text Differences between SQL Analytics pool and on-demand
+          - text: Differences between SQL Analytics pool and on-demand
             url: sql-analytics/overview-features.md
       # - linkListType: architecture
       #   links:
@@ -54,6 +54,12 @@ landingContent:
             url: quickstart-create-sql-pool.md
           - text: Create a Spark pool
             url: quickstart-create-apache-spark-pool.md
+      - linkListType: how-to-guide
+        links:
+          - text: Use Synapse studio
+            url: quickstart-synapse-studio.md
+          - text: Analyze files on Azure storage
+            url: quickstart-sql-on-demand.md
   #         # - text: linktext2
   #         #   url: file2.md
 
