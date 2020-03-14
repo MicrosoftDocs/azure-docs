@@ -58,14 +58,21 @@ If you already have an Event Hubs namespace, you can create a private link conne
 
         ![Create Private Endpoint - Basics page](./media/private-link-service/create-private-endpoint-basics-page.png)
 8. On the **Resource** page, follow these steps:
-    1. For connection method, select **Connect to an Azure resource in my directory**. This example shows how to connect to an Azure resource in your directory. You can also connect to someone else's resource with a resource ID or alias that they've shared with you. 
-    2. Select the **Azure subscription** in which your **Event Hubs namespace** exists. 
-    3. For **Resource type**, Select **Microsoft.EventHub/namespaces** for the **Resource type**.
-    4. For **Resource**, select an Event Hubs namespace from the drop-down list. 
-    5. Confirm that the **Target subresource** is set to **topic** or **domain** (based on the resource type you selected).
-    6. Select **Next: Configuration >** button at the bottom of the page. 
+    1. For connection method, if you select **Connect to an Azure resource in my directory**, follow these steps: 
+        1. Select the **Azure subscription** in which your **Event Hubs namespace** exists. 
+        2. For **Resource type**, Select **Microsoft.EventHub/namespaces** for the **Resource type**.
+        3. For **Resource**, select an Event Hubs namespace from the drop-down list. 
+        4. Confirm that the **Target subresource** is set to **topic** or **domain** (based on the resource type you selected).
+        5. Select **Next: Configuration >** button at the bottom of the page. 
         
-        ![Create Private Endpoint - Resource page](./media/private-link-service/create-private-endpoint-resource-page.png)    
+            ![Create Private Endpoint - Resource page](./media/private-link-service/create-private-endpoint-resource-page.png)    
+    2. If you select **Connect to an Azure resource by resource ID or alias**, follow these steps:
+        1. Enter the **resource ID** or **alias**. It can be the resource ID or alias that some has shared with you.
+        2. For **Target sub-resource**, enter **namespace**. It's the type of the sub-resource that your private endpoint can access.
+        3. (optional) Enter a **request message**. The resource owner sees this message while managing private endpoint connection.
+        4. Then, select **Next: Configuration >** button at the bottom of the page.
+
+            ![Create Private Endpoint - Connect using resource ID](./media/private-link-service/connect-resource-id.png)
 9. On the **Configuration** page, you select the subnet in a virtual network to where you want to deploy the private endpoint. 
     1. Select a **virtual network**. Only virtual networks in the currently selected subscription and location are listed in the drop-down list. 
     2. Select a **subnet** in the virtual network you selected. 
@@ -155,20 +162,36 @@ There are four provisioning states:
 | Reject | Rejected | Connection was rejected by the private link resource owner. |
 | Remove | Disconnected | Connection was removed by the private link resource owner, the private endpoint becomes informative and should be deleted for cleanup. |
  
-###  How to manage a private endpoint connection to the namespace
+###  Approve, reject, or remove a private endpoint connection
 
 1. Sign in to the Azure portal.
-1. In the search bar, type in **event hubs**.
-1. Select the **namespace** that you want to manage.
-1. Select the **Networking** tab.
+2. In the search bar, type in **event hubs**.
+3. Select the **namespace** that you want to manage.
+4. Select the **Networking** tab.
+5. Go to the appropriate section below based on the operation you want to: approve, reject, or remove.
+
+### Approve a private endpoint connection
 1. If there are any connections that are pending, you will see a connection listed with **Pending** in the provisioning state. 
-1. Select the **private endpoint** you wish to approve
-1. Select the **Approve** button.
+2. Select the **private endpoint** you wish to approve
+3. Select the **Approve** button.
 
     ![Image](./media/private-link-service/approve-private-endpoint.png)
+4. On the **Approve connection** page, add a comment (optional), and select **Yes**. If you select **No**, nothing happens. 
+5. You should see the status of the private endpoint connection in the list changed to **Approved**. 
+
+### Reject a private endpoint connection
+
 1. If there are any private endpoint connections you want to reject, whether it is a pending request or existing connection, select the connection and click the **Reject** button.
 
     ![Image](./media/private-link-service/private-endpoint-reject-button.png)
+2. On the **Reject connection** page, enter a comment (optional), and select **Yes**. If you select **No**, nothing happens. 
+3. You should see the status of the private endpoint connection in the list changed to **Rejected**. 
+
+### Remove a private endpoint connection
+
+1. To remove a private endpoint connection, select it in the list, and select **Remove** on the toolbar.
+2. On the **Delete connection** page, select **Yes** to confirm the deletion of the private endpoint. If you select **No**, nothing happens.
+3. You should see the status changed to **Disconnected**. Then, you will see the endpoint disappear from the list.
 
 ## Validate that the private link connection works
 
