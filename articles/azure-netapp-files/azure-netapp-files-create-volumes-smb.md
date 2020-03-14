@@ -30,7 +30,7 @@ A subnet must be delegated to Azure NetApp Files.
 
  You need to create Active Directory connections before creating an SMB volume. The requirements for Active Directory connections are as follows: 
 
-* The admin account you use must be able to create machine accounts in the organizational unit (OU) path that you will specify.  
+* The admin account you use must have the capability to create machine accounts in the organizational unit (OU) path that you will specify.  
 
 * Proper ports must be open on the applicable Windows Active Directory (AD) server.  
     The required ports are as follows: 
@@ -79,13 +79,13 @@ For more information, see [Compare self-managed Active Directory Domain Services
 
 ### Active Directory Domain Services (ADDS)
 
-You can use your preferred [Active Directory Sites and Services](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/understanding-active-directory-site-topology) scope for Azure NetApp Files. This option enables reads and writes to Active Directory Domain Services (ADDS) domain controllers that are [accessible by Azure NetApp Files](azure-netapp-files-network-topologies.md). It also prevents the service from communicating with domain controllers that are not in the specified AD Sites and Services site. 
+You can use your preferred [Active Directory Sites and Services](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/understanding-active-directory-site-topology) scope for Azure NetApp Files. This option enables reads and writes to Active Directory Domain Services (ADDS) domain controllers that are [accessible by Azure NetApp Files](azure-netapp-files-network-topologies.md). It also prevents the service from communicating with domain controllers that are not in the specified Active Directory Sites and Services site. 
 
 To find your site name when you use ADDS, you can contact the administrative group in your organization that is responsible for Active Directory Domain Services. The example below shows the Active Directory Sites and Services plugin where the site name is displayed: 
 
 ![Active Directory Sites and Services](../media/azure-netapp-files/azure-netapp-files-active-directory-sites-and-services.png)
 
-When you configure an AD connection for Azure NetApp Files, you specify the site name  in scope for the AD Site Name field.
+When you configure an AD connection for Azure NetApp Files, you specify the site name in scope for the **AD Site Name** field.
 
 ### Azure Active Directory Domain Services 
 
@@ -96,7 +96,8 @@ Additional AADDS considerations apply for Azure NetApp Files:
 * Ensure the VNet or subnet where AADDS is deployed is in the same Azure region as the Azure NetApp Files deployment.
 * If you use another VNet in the region where Azure NetApp Files is deployed, you should create a peering between the two VNets.
 * Azure NetApp Files supports `user` and `resource forest` types.
-* For synchronization type, you can select from `All` or `Scoped`. If Scoped is selected, ensure the correct Azure AD group is selected for accessing SMB shares.  If you are uncertain, you can use the `All` synchronization type.
+* For synchronization type, you can select `All` or `Scoped`. 
+    If you select `Scoped`, ensure the correct Azure AD group is selected for accessing SMB shares.  If you are uncertain, you can use the `All` synchronization type.
 * Use of the Enterprise or Premium SKU is required. The Standard SKU is not supported.
 
 When you create an Active Directory connection, note the following specifics for AADDS:
@@ -169,7 +170,7 @@ This setting is configured in the **Active Directory Connections** under **NetAp
 
         A volume name must be unique within each capacity pool. It must be at least three characters long. You can use any alphanumeric characters.   
 
-        You cannot use `default` as the volume name.
+        You can't use `default` as the volume name.
 
     * **Capacity pool**  
         Specify the capacity pool where you want the volume to be created.
@@ -188,7 +189,7 @@ This setting is configured in the **Active Directory Connections** under **NetAp
         Specify the subnet that you want to use for the volume.  
         The subnet you specify must be delegated to Azure NetApp Files. 
         
-        If you have not delegated a subnet, you can click **Create new** on the Create a Volume page. Then in the Create Subnet page, specify the subnet information, and select **Microsoft.NetApp/volumes** to delegate the subnet for Azure NetApp Files. In each VNet, only one subnet can be delegated to Azure NetApp Files.   
+        If you haven't delegated a subnet, you can click **Create new** on the Create a Volume page. Then in the Create Subnet page, specify the subnet information, and select **Microsoft.NetApp/volumes** to delegate the subnet for Azure NetApp Files. In each VNet, only one subnet can be delegated to Azure NetApp Files.   
  
         ![Create a volume](../media/azure-netapp-files/azure-netapp-files-new-volume.png)
     
