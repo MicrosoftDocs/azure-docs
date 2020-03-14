@@ -48,10 +48,9 @@ Another important aspect of Azure File Sync and a balanced performance and exper
 > [!IMPORTANT]
 > The most important scale vector for Azure File Sync is the number of items (files and folders) that need to be synchronized.
 
-Azure File Sync supports syncing up to 100,000 items to a single Azure file share. This is not a hard limit, but depicts what the Azure File Sync team tests on a regular basis.
+Azure File Sync supports syncing up to 100,000 items to a single Azure file share, which is not a hard limit, but depicts what the Azure File Sync team tests on a regular basis.
 
-It is a best practice to keep the number of items per sync scope low. 
-That is an important factor to be considered in your mapping of folders to Azure file shares.
+It is a best practice to keep the number of items per sync scope low. That is an important factor to be considered in your mapping of folders to Azure file shares.
 
 Even if in your situation a set of folders can logically sync to the same Azure file share (using the new, common root folder approach from above) it might still be better to regroup folders such that they sync to two instead of one Azure file share. That is to keep the number of files and folders per file share balanced across the server.
 
@@ -65,8 +64,7 @@ Even if in your situation a set of folders can logically sync to the same Azure 
         Use a combination of the previous concepts to help determine how many Azure file shares you need, and which parts of your existing data will end up in which Azure file share.
         
         Create a table that records your thoughts, such that you can refer to it in the next step. Staying organized is important as it can be easy to lose details of your mapping plan when provisioning many Azure resources at once. To help you in creating a complete mapping, you can download a Microsoft Excel file as a template.
-        |  |  |
-        | - | :--------- |
-        |:::image type="icon" source="media/storage-files-migration-namespace-mapping/excel.png":::| Download a namespace mapping template. |
+        
+        :::image type="icon" source="media/storage-files-migration-namespace-mapping/excel.png"::: Download a namespace mapping template.
     :::column-end:::
 :::row-end:::
