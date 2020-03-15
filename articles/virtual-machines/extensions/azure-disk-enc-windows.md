@@ -155,12 +155,12 @@ Using `AADClientCertificate`:
 
 ## Template deployment
 
-For an example of template deployment based on schema v2.2, see [Enable encryption on a running Windows VM](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-windows-vm-without-aad).
+For an example of template deployment based on schema v2.2, see Azure QuickStart Template [201-encrypt-running-windows-vm-without-aad](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-windows-vm-without-aad).
 
-For an example of template deployment based on schema v1.1, see [Enable encryption on a running Windows VM](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-windows-vm).
+For an example of template deployment based on schema v1.1, see Azure QuickStart Template [201-encrypt-running-windows-vm](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-windows-vm).
 
 >[!NOTE]
-> Also if `VolumeType` parameter is set to Data or All, data disks will be encrypted only if they are properly formatted. 
+> Also if `VolumeType` parameter is set to All, data disks will be encrypted only if they are properly formatted. 
 
 ## Troubleshoot and support
 
@@ -172,7 +172,7 @@ For troubleshooting, refer to the [Azure Disk Encryption troubleshooting guide](
 
 If you need more help at any point in this article, you can contact the Azure experts on the [MSDN Azure and Stack Overflow forums](https://azure.microsoft.com/support/community/). 
 
-Alternatively, you can file an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/support/options/) and select Get support. For information about using Azure Support, read the [Microsoft Azure support FAQ](https://azure.microsoft.com/support/faq/).
+Alternatively, you can file an Azure support incident. Go to [Azure support](https://azure.microsoft.com/support/options/) and select Get support. For information about using Azure Support, read the [Microsoft Azure Support FAQ](https://azure.microsoft.com/support/faq/).
 
 ## Next steps
 
