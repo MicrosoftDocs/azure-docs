@@ -236,6 +236,8 @@
         href: data-factory-template.md 
       - name: Run control commands using Azure Data Factory
         href: data-factory-command-activity.md   
+    - name: Microsoft Flow Azure Kusto Connector
+      href: flow.md
     - name: Apache Spark Connector
       href: spark-connector.md
     - name: Connect from Databricks using Python
