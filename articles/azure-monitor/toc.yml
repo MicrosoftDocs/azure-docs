@@ -1263,8 +1263,6 @@
       href: https://azure.microsoft.com/updates/?product=log-analytics
     - name: SDK release notes
       href: app/release-notes.md
-  - name: Windows Analytics
-    href: https://www.microsoft.com/en-us/WindowsForBusiness/windows-analytics
   - name: Regional availability
     href: https://azure.microsoft.com/regions/services/?products=monitor&regions=all
   - name: Videos
