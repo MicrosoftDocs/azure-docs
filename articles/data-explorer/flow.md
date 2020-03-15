@@ -1,3 +1,14 @@
+---
+title: Use the Microsoft Azure Kusto connector to run Kusto queries and commands automatically as part of a scheduled or triggered task 
+description: Learn about using the Microsoft Azure Kusto connector to create flows of automatically scheduled or triggered tasks.
+author: orspod
+ms.author: orspodek
+ms.reviewer: dorcohen
+ms.service: data-explorer
+ms.topic: conceptual
+ms.date: 03/15/2020
+---
+
 # Microsoft Flow Azure Kusto Connector (Preview)
 
 The Microsoft Flow Azure Kusto connector enables you to run Kusto queries and commands automatically as part of a scheduled or triggered task, using [Microsoft Flow](https://flow.microsoft.com/).
