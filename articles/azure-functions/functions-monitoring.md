@@ -21,29 +21,6 @@ You can try out Application Insights integration with Function Apps for free. Th
 
 The full list of Application Insights features available to your function app is detailed in [Application Insights for Azure Functions supported features](../azure-monitor/app/azure-functions-supported-features.md).
 
-## Enable Application Insights integration
-
-For a function app to send data to Application Insights, it needs to know the instrumentation key of an Application Insights resource. The key must be in an app setting named **APPINSIGHTS_INSTRUMENTATIONKEY**.
-
-When you create your function app [in the Azure portal](functions-create-first-azure-function.md), from the command line by using [Azure Functions Core Tools](functions-create-first-azure-function-azure-cli.md), or by using [Visual Studio Code](functions-create-first-function-vs-code.md), Application Insights integration is enabled by default. The Application Insights resource has the same name as your function app, and it's created either in the same region or in the nearest region.
-
-### New function app in the portal
-
-To review the Application Insights resource being created, select it to expand the **Application Insights** window. You can change the **New resource name** or choose a different **Location** in an [Azure geography](https://azure.microsoft.com/global-infrastructure/geographies/) where you want to store your data.
-
-![Enable Application Insights while creating a function app](media/functions-monitoring/enable-ai-new-function-app.png)
-
-When you choose **Create**, an Application Insights resource is created with your function app, which has the `APPINSIGHTS_INSTRUMENTATIONKEY` set in application settings. Everything is ready to go.
-
-<a id="manually-connect-an-app-insights-resource"></a>
-### Add to an existing function app 
-
-When you create a function app using [Visual Studio](functions-create-your-first-function-visual-studio.md), you must create the Application Insights resource. You can then add the instrumentation key from that resource as an application setting in your function app.
-
-[!INCLUDE [functions-connect-new-app-insights.md](../../includes/functions-connect-new-app-insights.md)]
-
-Early versions of Functions used built-in monitoring, which is no longer recommended. When enabling Application Insights integration for such a function app, you must also [disable built-in logging](#disable-built-in-logging).  
-
 ## View telemetry in Monitor tab
 
 With [Application Insights integration enabled](#enable-application-insights-integration), you can view telemetry data in the **Monitor** tab.
@@ -564,6 +541,29 @@ Functions v2 automatically collects dependencies for HTTP requests, ServiceBus, 
 You can write custom code to show the dependencies. For examples, see the sample code in the [C# custom telemetry section](#log-custom-telemetry-in-c-functions). The sample code results in an *application map* in Application Insights that looks like the following image:
 
 ![Application map](./media/functions-monitoring/app-map.png)
+
+## Enable Application Insights integration
+
+For a function app to send data to Application Insights, it needs to know the instrumentation key of an Application Insights resource. The key must be in an app setting named **APPINSIGHTS_INSTRUMENTATIONKEY**.
+
+When you create your function app [in the Azure portal](functions-create-first-azure-function.md), from the command line by using [Azure Functions Core Tools](functions-create-first-azure-function-azure-cli.md), or by using [Visual Studio Code](functions-create-first-function-vs-code.md), Application Insights integration is enabled by default. The Application Insights resource has the same name as your function app, and it's created either in the same region or in the nearest region.
+
+### New function app in the portal
+
+To review the Application Insights resource being created, select it to expand the **Application Insights** window. You can change the **New resource name** or choose a different **Location** in an [Azure geography](https://azure.microsoft.com/global-infrastructure/geographies/) where you want to store your data.
+
+![Enable Application Insights while creating a function app](media/functions-monitoring/enable-ai-new-function-app.png)
+
+When you choose **Create**, an Application Insights resource is created with your function app, which has the `APPINSIGHTS_INSTRUMENTATIONKEY` set in application settings. Everything is ready to go.
+
+<a id="manually-connect-an-app-insights-resource"></a>
+### Add to an existing function app 
+
+When you create a function app using [Visual Studio](functions-create-your-first-function-visual-studio.md), you must create the Application Insights resource. You can then add the instrumentation key from that resource as an application setting in your function app.
+
+[!INCLUDE [functions-connect-new-app-insights.md](../../includes/functions-connect-new-app-insights.md)]
+
+Early versions of Functions used built-in monitoring, which is no longer recommended. When enabling Application Insights integration for such a function app, you must also [disable built-in logging](#disable-built-in-logging).  
 
 ## Report issues
 
