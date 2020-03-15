@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/21/2019
+ms.date: 03/16/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -35,108 +35,234 @@ We can verify that the name provided by the user in the profile edit is not part
 
 ## Prerequisites
 
-- An Azure AD B2C tenant configured to complete a local account sign-up/sign-in, as described in [Getting started](custom-policy-get-started.md).
-- A REST API endpoint to interact with. For this walkthrough, we've set up a demo site called [WingTipGames](https://wingtipgamesb2c.azurewebsites.net/) with a REST API service.
+Complete the steps in [Get started with custom policies](custom-policy-get-started.md). You should have a working custom policy for sign-up and sign-in with local accounts.
 
-## Step 1: Prepare the REST API function
 
-> [!NOTE]
-> Setup of REST API functions is outside the scope of this article. [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-reference) provides an excellent toolkit to create RESTful services in the cloud.
+## Prepare a REST API endpoint
 
-We have created an Azure function that receives a claim that it expects as `playerTag`. The function validates whether this claim exists. You can access the complete Azure function code in [GitHub](https://github.com/Azure-Samples/active-directory-b2c-advanced-policies/tree/master/AzureFunctionsSamples).
+For this walkthrough, you should have a REST API that validates whether an email address is register in your back-end system with a membership ID. If registered the REST API returns a registration promotion code customer can use to buy goods at your application. Otherwise, the REST API returns a 409 error message: "Membership ID '{membership ID}' is not associated with '{email}' email address.".
 
-```csharp
-if (requestContentAsJObject.playerTag == null)
+The following JSON illustrates data sends by Azure AD B2C to your REST API endpoint. 
+
+```json
 {
-  return request.CreateResponse(HttpStatusCode.BadRequest);
+    "email": "User email address",
+    "language": "Current UI language",
+    "membershipId": "User membership ID"
 }
-
-var playerTag = ((string) requestContentAsJObject.playerTag).ToLower();
-
-if (playerTag == "mcvinny" || playerTag == "msgates123" || playerTag == "revcottonmarcus")
-{
-  return request.CreateResponse<ResponseContent>(
-    HttpStatusCode.Conflict,
-    new ResponseContent
-    {
-      version = "1.0.0",
-      status = (int) HttpStatusCode.Conflict,
-      userMessage = $"The player tag '{requestContentAsJObject.playerTag}' is already used."
-    },
-    new JsonMediaTypeFormatter(),
-    "application/json");
-}
-
-return request.CreateResponse(HttpStatusCode.OK);
 ```
 
-The IEF expects the `userMessage` claim that the Azure function returns. This claim will be presented as a string to the user if the validation fails, such as when a 409 conflict status is returned in the preceding example.
+On validation success, the REST API returns HTTP 200 (Ok), with following JSON data:
 
-## Step 2: Configure the RESTful API claims exchange as a technical profile in your TrustFrameworkExtensions.xml file
+```json
+{
+    "promoCode": "24534"
+}
+```
 
-A technical profile is the full configuration of the exchange desired with the RESTful service. Open the TrustFrameworkExtensions.xml file and add the following XML snippet inside the `<ClaimsProviders>` element.
+If validation failed, the REST API returns HTTP 409 (Conflict), with the `userMessage` JSON element. The IEF expects the `userMessage` claim that the REST API returns. This claim will be presented as a string to the user if the validation fails.
 
-> [!NOTE]
-> In the following XML, RESTful provider `Version=1.0.0.0` is described as the protocol. Consider it as the function that will interact with the external service. <!-- TODO: A full definition of the schema can be found...link to RESTful Provider schema definition>-->
+```json
+{
+    "version": "1.0.1",
+    "status": 409,
+    "userMessage": "Membership ID '1234' is not associated with 'david@contoso.com' email address."
+}
+```
+
+Setup of REST API endpoint is outside the scope of this article. We have created an [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-reference). You can access the complete Azure function code in [GitHub](https://github.com/Azure-Samples/active-directory-b2c-advanced-policies/tree/master/AzureFunctionsSamples).
+
+## Define claims
+
+A claim provides a temporary storage of data during an Azure AD B2C policy execution. The [claims schema](claimsschema.md) is the place where you declare your claims. 
+
+1. Open the extensions file of your policy. For example, <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em>.
+1. Search for the [BuildingBlocks](buildingblocks.md) element. If the element doesn't exist, add it.
+1. Locate the [ClaimsSchema](claimsschema.md) element. If the element doesn't exist, add it.
+1. Add the following claims to the **ClaimsSchema** element.  
+
+```xml
+<ClaimType Id="loyaltyId">
+  <DisplayName>Your loyalty ID</DisplayName>
+  <DataType>string</DataType>
+  <UserInputType>TextBox</UserInputType>
+</ClaimType>
+<ClaimType Id="promoCode">
+  <DisplayName>Your promo code</DisplayName>
+  <DataType>string</DataType>
+  <UserInputType>Paragraph</UserInputType>
+</ClaimType>
+  <ClaimType Id="userLanguage">
+  <DisplayName>User UI language (used by REST API to return localized error messages)</DisplayName>
+  <DataType>string</DataType>
+</ClaimType>
+```
+
+## Configure the RESTful API technical profile 
+
+A [Restful technical profile](restful-technical-profile.md) provides support for your own RESTful service. Azure AD B2C sends data to the RESTful service in an `InputClaims` collection and receives data back in an `OutputClaims` collection. Find the **ClaimsProviders** element. Add a new claims provider as follows:
 
 ```xml
 <ClaimsProvider>
-    <DisplayName>REST APIs</DisplayName>
-    <TechnicalProfiles>
-        <TechnicalProfile Id="AzureFunctions-CheckPlayerTagWebHook">
-            <DisplayName>Check Player Tag Web Hook Azure Function</DisplayName>
-            <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
-            <Metadata>
-                <Item Key="ServiceUrl">https://wingtipb2cfuncs.azurewebsites.net/api/CheckPlayerTagWebHook?code=L/05YRSpojU0nECzM4Tp3LjBiA2ZGh3kTwwp1OVV7m0SelnvlRVLCg==</Item>
-                <Item Key="SendClaimsIn">Body</Item>
-                <!-- Set AuthenticationType to Basic or ClientCertificate in production environments -->
-                <Item Key="AuthenticationType">None</Item>
-                <!-- REMOVE the following line in production environments -->
-                <Item Key="AllowInsecureAuthInProduction">true</Item>
-            </Metadata>
-            <InputClaims>
-                <InputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="playerTag" />
-            </InputClaims>
-            <UseTechnicalProfileForSessionManagement ReferenceId="SM-Noop" />
-        </TechnicalProfile>
-        <TechnicalProfile Id="SelfAsserted-ProfileUpdate">
-            <ValidationTechnicalProfiles>
-                <ValidationTechnicalProfile ReferenceId="AzureFunctions-CheckPlayerTagWebHook" />
-            </ValidationTechnicalProfiles>
-        </TechnicalProfile>
-    </TechnicalProfiles>
+  <DisplayName>REST APIs</DisplayName>
+  <TechnicalProfiles>
+    <TechnicalProfile Id="REST-ValidateProfile">
+      <DisplayName>Check Player Tag Web Hook Azure Function</DisplayName>
+      <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+      <Metadata>
+        <Item Key="ServiceUrl">https://wingtipb2cfuncs.azurewebsites.net/api/CheckPlayerTagWebHook?code=L/05YRSpojU0nECzM4Tp3LjBiA2ZGh3kTwwp1OVV7m0SelnvlRVLCg==</Item>
+        <Item Key="SendClaimsIn">Body</Item>
+        <!-- Set AuthenticationType to Basic or ClientCertificate in production environments -->
+        <Item Key="AuthenticationType">None</Item>
+        <!-- REMOVE the following line in production environments -->
+        <Item Key="AllowInsecureAuthInProduction">true</Item>
+      </Metadata>
+      <InputClaims>
+        <InputClaim ClaimTypeReferenceId="loyaltyId" />
+        <InputClaim ClaimTypeReferenceId="email" />
+        <InputClaim ClaimTypeReferenceId="userLanguage" PartnerClaimType="lang" DefaultValue="{Culture:LCID}" AlwaysUseDefaultValue="true" />
+      </InputClaims>
+      <OutputClaims>
+        <OutputClaim ClaimTypeReferenceId="promoCode" />
+      </OutputClaims>
+      <UseTechnicalProfileForSessionManagement ReferenceId="SM-Noop" />
+    </TechnicalProfile>
+  </TechnicalProfiles>
 </ClaimsProvider>
 ```
 
-The `InputClaims` element defines the claims that will be sent from the IEF to the REST service. In this example, the contents of the claim `givenName` will be sent to the REST service as `playerTag`. In this example, the IEF does not expect claims back. Instead, it waits for a response from the REST service and acts based on the status codes that it receives.
+In this example, the `userLanguage` will be sent to the REST service as `lang`. The value of th e `userLanguage` claim contains the current user language ID. For more information, see [claim resolver](claim-resolver-overview.md).
 
 The comments above `AuthenticationType` and `AllowInsecureAuthInProduction` specify changes you should make when you move to a production environment. To learn how to secure your RESTful APIs for production, see [Secure RESTful APIs with basic auth](secure-rest-api-dotnet-basic-auth.md) and [Secure RESTful APIs with certificate auth](secure-rest-api-dotnet-certificate-auth.md).
 
-## Step 3: Include the RESTful service claims exchange in self-asserted technical profile where you want to validate the user input
+## Validate the user input
 
-The most common use of the validation step is in the interaction with a user. All interactions where the user is expected to provide input are *self-asserted technical profiles*. For this example, we will add the validation to the Self-Asserted-ProfileUpdate technical profile. This is the technical profile that the relying party (RP) policy file `Profile Edit` uses.
+The most common use of the validation step is in the interaction with a user. All interactions where the user is expected to provide input are [self-asserted technical profiles](self-asserted-technical-profile.md). Override this technical profile in the extension file. 
 
-To add the claims exchange to the self-asserted technical profile:
+In this step, you add the `loyaltyId` output claim. Specify the entire list of output claims to control the order the claims are presented on the screen. You also and the validation technical profile, which calls the `REST-ValidateProfile`. Specify the entire list of validation technical profile, to control the order the claims are presented on the screen. The order of the validation technical profile is important. As you want to make sure, the first validation technical profile is your REST API. Then, only after successful validation, Azure AD B2C can move on to the next validation technical profile, which creates the account in the directory. This requires you to comment out the validation technical profile from the base policy. 
+ 
+1. Find the **ClaimsProviders** element. Add a new claims provider as follows:
 
-1. Open the TrustFrameworkBase.xml file and search for `<TechnicalProfile Id="SelfAsserted-ProfileUpdate">`.
-2. Review the configuration of this technical profile. Observe how the exchange with the user is defined as claims that will be asked of the user (input claims) and claims that will be expected back from the self-asserted provider (output claims).
-3. Search for `TechnicalProfileReferenceId="SelfAsserted-ProfileUpdate`, and notice that this profile is invoked as orchestration step 5 of `<UserJourney Id="ProfileEdit">`.
+    ```xml
+    <ClaimsProvider>
+      <DisplayName>Local Account</DisplayName>
+      <TechnicalProfiles>
+        <TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">
+          <OutputClaims>
+            <OutputClaim ClaimTypeReferenceId="email" PartnerClaimType="Verified.Email" Required="true"/>
+            <OutputClaim ClaimTypeReferenceId="newPassword" Required="true"/>
+            <OutputClaim ClaimTypeReferenceId="reenterPassword" Required="true"/>
+            <OutputClaim ClaimTypeReferenceId="displayName"/>
+            <OutputClaim ClaimTypeReferenceId="givenName"/>
+            <OutputClaim ClaimTypeReferenceId="surName"/>
+            <OutputClaim ClaimTypeReferenceId="loyaltyId"/>
+            <OutputClaim ClaimTypeReferenceId="promoCode" />
+          </OutputClaims>
+          <ValidationTechnicalProfiles>
+            <ValidationTechnicalProfile ReferenceId="REST-ValidateProfile"/>
+            <ValidationTechnicalProfile ReferenceId="AAD-UserWriteUsingLogonEmail" />
+          </ValidationTechnicalProfiles>
+        </TechnicalProfile>
+      </TechnicalProfiles>
+    </ClaimsProvider>
+    <ClaimsProvider>
+      <DisplayName>Self Asserted</DisplayName>
+      <TechnicalProfiles>
+        <TechnicalProfile Id="SelfAsserted-Social">
+          <InputClaims>
+            <InputClaim ClaimTypeReferenceId="email" />
+          </InputClaims>
+            <OutputClaims>
+            <OutputClaim ClaimTypeReferenceId="email" />
+            <OutputClaim ClaimTypeReferenceId="displayName"/>
+            <OutputClaim ClaimTypeReferenceId="givenName"/>
+            <OutputClaim ClaimTypeReferenceId="surname"/>
+            <OutputClaim ClaimTypeReferenceId="loyaltyId"/>
+            <OutputClaim ClaimTypeReferenceId="promoCode" />
+          </OutputClaims>
+          <ValidationTechnicalProfiles>
+            <ValidationTechnicalProfile ReferenceId="REST-ValidateProfile"/>
+            <ValidationTechnicalProfile ReferenceId="AAD-UserWriteUsingAlternativeSecurityId" />
+          </ValidationTechnicalProfiles>
+        </TechnicalProfile>
+      </TechnicalProfiles>
+    </ClaimsProvider>
+    ```
 
-## Step 4: Upload and test the profile edit RP policy file
+1. Open the extensions file of your policy. For example, <em>`SocialAndLocalAccounts/`**`TrustFrameworkBase.xml`**</em>.
+1. Search for `<TechnicalProfile Id="SelfAsserted-ProfileUpdate">`, and comment out the entire `<ValidationTechnicalProfiles>` element.
+1. Search for `<TechnicalProfile Id="SelfAsserted-Social">`, and comment out the entire `<ValidationTechnicalProfiles>` element.
+1. Save and close the TrustFrameworkBase.xml file.
 
-1. Upload the new version of the TrustFrameworkExtensions.xml file.
-2. Use **Run now** to test the profile edit RP policy file.
-3. Test the validation by providing one of the existing names (for example, mcvinny) in the **Given Name** field. If everything is set up correctly, you should receive a message that notifies the user that the player tag is already used.
+## Include a claim in the token 
+
+To return the promo code claim back to the relying party application, add an output claim to the <em>`SocialAndLocalAccounts/`**`SignUpOrSignIn.xml`**</em> file. The output claim will be added into the token after a successful user journey, and will be sent to the application. Modify the technical profile element within the relying party section to add the city as an output claim.
+ 
+```xml
+<RelyingParty>
+  <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
+  <TechnicalProfile Id="PolicyProfile">
+    <DisplayName>PolicyProfile</DisplayName>
+    <Protocol Name="OpenIdConnect" />
+    <OutputClaims>
+      <OutputClaim ClaimTypeReferenceId="displayName" />
+      <OutputClaim ClaimTypeReferenceId="givenName" />
+      <OutputClaim ClaimTypeReferenceId="surname" />
+      <OutputClaim ClaimTypeReferenceId="email" />
+      <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub"/>
+      <OutputClaim ClaimTypeReferenceId="identityProvider" />
+      <OutputClaim ClaimTypeReferenceId="tenantId" AlwaysUseDefaultValue="true" DefaultValue="{Policy:TenantObjectId}" />
+      <OutputClaim ClaimTypeReferenceId="promoCode" DefaultValue="" />
+    </OutputClaims>
+    <SubjectNamingInfo ClaimType="sub" />
+  </TechnicalProfile>
+</RelyingParty>
+```
+
+## Test the custom policy
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Make sure you're using the directory that contains your Azure AD tenant by selecting the **Directory + subscription** filter in the top menu and choosing the directory that contains your Azure AD tenant.
+1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **App registrations**.
+1. Select **Identity Experience Framework**.
+1. Select **Upload Custom Policy**, and then upload the policy files that you changed, *TrustFrameworkBase.xml*, *TrustFrameworkExtensions.xml*, and *SignUpOrSignin.xml* 
+1. Select the sign-up or sign-in policy that you uploaded, and click the **Run now** button.
+1. You should be able to sign up using an email address.
+1. Click on the **Sign up now** link.
+1. In the **Your loyalty ID**, type 1234, and click **Continue**. At this point, you should get a validation error message.
+1. Change to another value and click again  **Continue**
+1. The token sent back to your application includes the `city` claim.
+
+```json
+{
+  "typ": "JWT",
+  "alg": "RS256",
+  "kid": "X5eXk4xyojNFum1kl2Ytv8dlNP4-c57dO6QGTVBwaNk"
+}.{
+  "exp": 1584295703,
+  "nbf": 1584292103,
+  "ver": "1.0",
+  "iss": "https://contoso.b2clogin.com/f06c2fe8-709f-4030-85dc-38a4bfd9e82d/v2.0/",
+  "aud": "e1d2612f-c2bc-4599-8e7b-d874eaca1ee1",
+  "acr": "b2c_1a_signup_signin",
+  "nonce": "defaultNonce",
+  "iat": 1584292103,
+  "auth_time": 1584292103,
+  "name": "Emily Smith",
+  "email": "joe@outlook.com",
+  "given_name": "Emily",
+  "family_name": "Smith",
+  "promoCode": "84362"
+  ...
+}
+```
 
 ## Next steps
 
-[Modify the profile edit and user registration to gather additional information from your users](custom-policy-custom-attributes.md)
-
-[Walkthrough: Integrate REST API claims exchanges in your Azure AD B2C user journey as an orchestration step](custom-policy-rest-api-claims-exchange.md)
-
-[Reference: RESTful technical profile](restful-technical-profile.md)
 
 To learn how to secure your APIs, see the following articles:
 
-* [Secure your RESTful API with basic authentication (username and password)](secure-rest-api-dotnet-basic-auth.md)
-* [Secure your RESTful API with client certificates](secure-rest-api-dotnet-certificate-auth.md)
+- [Walkthrough: Integrate REST API claims exchanges in your Azure AD B2C user journey as an orchestration step](custom-policy-rest-api-claims-exchange.md)
+- [Secure your RESTful API with basic authentication (username and password)](secure-rest-api-dotnet-basic-auth.md)
+- [Secure your RESTful API with client certificates](secure-rest-api-dotnet-certificate-auth.md)
+- [Reference: RESTful technical profile](restful-technical-profile.md)
