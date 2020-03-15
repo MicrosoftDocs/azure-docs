@@ -236,7 +236,7 @@
         href: data-factory-template.md 
       - name: Run control commands using Azure Data Factory
         href: data-factory-command-activity.md   
-    - name: Azure Data Explorer flow connector
+    - name: Microsoft Flow connector
       href: flow.md
     - name: Apache Spark Connector
       href: spark-connector.md

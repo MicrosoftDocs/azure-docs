@@ -1,6 +1,6 @@
 ---
-title: Use the Azure Data Explorer flow connector to run Kusto queries and commands automatically as part of a scheduled or triggered task 
-description: Learn about using the Azure Data Explorer flow connector to create flows of automatically scheduled or triggered tasks.
+title: Use the Microsoft Flow connector to run Kusto queries and commands automatically as part of a scheduled or triggered task 
+description: Learn about using the Microsoft Flow connector to create flows of automatically scheduled or triggered tasks.
 author: orspod
 ms.author: orspodek
 ms.reviewer: dorcohen
@@ -9,9 +9,9 @@ ms.topic: conceptual
 ms.date: 03/15/2020
 ---
 
-# Azure Data Explorer flow connector (Preview)
+# Microsoft Flow connector (Preview)
 
-The Azure Data Explorer flow connector enables you to run Kusto queries and commands automatically as part of a scheduled or triggered task, using [Azure Data Explorer flow](https://flow.microsoft.com/).
+The Microsoft Flow connector enables you to run Kusto queries and commands automatically as part of a scheduled or triggered task, using [Microsoft Flow](https://flow.microsoft.com/).
 
 Common usage scenarios include:
 
@@ -22,9 +22,9 @@ Common usage scenarios include:
 
 ##  Log in 
 
-1. Log in to [Azure Data Explorer flow](https://flow.microsoft.com/).
+1. Log in to [Microsoft Flow](https://flow.microsoft.com/).
 
-1. When connecting to the Azure Data Explorer flow connector for the first time, you'll be prompted to sign in.
+1. When connecting to the Microsoft Flow connector for the first time, you'll be prompted to sign in.
 
 1. Select **Sign in** and enter your credentials.
 
@@ -32,16 +32,16 @@ Common usage scenarios include:
 
 ## Authentication
 
-You can authenticate to Azure Data Explorer flow using user credentials or an AAD application.
+You can authenticate to Microsoft Flow using user credentials or an AAD application.
 
 ### AAD Application Authentication
 
-You can authenticate to Azure Data Explorer flow with an AAD application using the following steps:
+You can authenticate to Microsoft Flow with an AAD application using the following steps:
 
 > [!Note]
 > Make sure your application is an [AAD application](https://docs.microsoft.com/azure/kusto/management/access-control/how-to-provision-aad-app) and is authorized to execute queries on your cluster.
 
-1. Select the three dots at the top right of the Azure Data Explorer flow connector:
+1. Select the three dots at the top right of the Microsoft Flow connector:
 ![alt text](./Media/flow/flow-addconnection.png "flow-addconnection")
 
 1. Select **Add new connection** and then select **Connect with Service Principal**.
@@ -63,7 +63,7 @@ From now on, this flow will run using these application credentials.
 
 ## Find the Azure Kusto connector
 
-To use the Azure Data Explorer flow connector, you need to first add a trigger. 
+To use the Microsoft Flow connector, you need to first add a trigger. 
 A trigger can be defined based on a recurring time period, or as response to a previous flow action.
 
 1. [Create a new flow.](https://flow.microsoft.com/manage/flows/new)
@@ -85,7 +85,7 @@ A trigger can be defined based on a recurring time period, or as response to a p
 
 When you open the Azure Data Explorer connector, there are three possible actions you can add to your flow.
 
-This section describes the capabilities and parameters for each Azure Data Explorer flow action.
+This section describes the capabilities and parameters for each Microsoft Flow action.
 
 ![alt text](./Media/flow/flow-adx-actions.png "Flow Azure Data Explorer actions")
 
@@ -158,7 +158,7 @@ You can include a step in any flow to send reports by email to any email address
 ## How to check if your flow succeeded
 
 To check if your flow succeeded, see the flow's run history:
-1. Go to the [Azure Data Explorer flow home page](https://flow.microsoft.com/).
+1. Go to the [Microsoft Flow home page](https://flow.microsoft.com/).
 1. From the main menu, select [My flows](https://flow.microsoft.com/manage/flows).
     ![alt text](./Media/flow/flow-myflows.png "flow-myflows")
 1. On the row of the flow you want to investigate, select the more commands icon, and then **Run history**.
@@ -175,7 +175,7 @@ To see why a run failed, select the run start time. The flow appears and the ste
 
 Your flow can fail and return a "RequestTimeout" exception if it runs for more than seven minutes.
 
-Learn more about [ Azure Data Explorer flow limitations](#limitations).
+Learn more about [Microsoft Flow limitations](#limitations).
     
 The same query may run successfully in Azure Data Explorer where the time isn't limited and can be changed.
             
@@ -189,14 +189,14 @@ For more information, read about [Query best practices]((https://docs.microsoft.
 
 ## Usage Examples
 
-This section contains several common examples of using the Azure Data Explorer flow connector.
+This section contains several common examples of using the Microsoft Flow connector.
 
 ### Example 1 - Azure Data Explorer (Kusto) flow and SQL
 
-Use the Azure Data Explorer flow connector to query your data and  aggregate it in an SQL database.
+Use the Microsoft Flow connector to query your data and  aggregate it in an SQL database.
 
 > [!Note]
-> SQL insert is done separately for each row. Only use the Azure Data Explorer flow connector for small amounts of output data. 
+> SQL insert is done separately for each row. Only use the Microsoft Flow connector for small amounts of output data. 
 
 ![alt text](./Media/flow/flow-sqlexample.png "flow-sqlexample")
 
@@ -205,7 +205,7 @@ Use the Azure Data Explorer flow connector to query your data and  aggregate it 
 
 ### Example 2 - Push data to Power BI dataset
 
-The Azure Data Explorer flow connector can be used together with the Power BI connector to push data from Kusto queries to Power BI streaming datasets.
+The Microsoft Flow connector can be used together with the Power BI connector to push data from Kusto queries to Power BI streaming datasets.
 
 1. Create a new *Run query and list results* action.
 1. Select **New step**.
@@ -292,7 +292,7 @@ Results:
 
 ### Example 5 - Send a different email to different contacts
 
-You can leverage Azure Data Explorer flow to send different customized emails to different contacts. The email addresses and the email contents are a result of a Kusto query.
+You can leverage Microsoft Flow to send different customized emails to different contacts. The email addresses and the email contents are a result of a Kusto query.
 
 Example:
 
@@ -305,7 +305,7 @@ Example:
 
 ### Example 6 - Create Custom HTML Table
 
-You can leverage Azure Data Explorer flow to create and use custom HTML elements, such as a custom HTML table.
+You can leverage Microsoft Flow to create and use custom HTML elements, such as a custom HTML table.
 
 The following example demonstrates how to create a custom HTML table. The HTML table will have its rows colored by log level (the same as in Azure Data Explorer).
 
