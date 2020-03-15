@@ -27,7 +27,7 @@ This article describes steps for creating a new Azure Media Services account.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-# [Use the Azure portal](#tab/portal)
+## [Use the Azure portal](#tab/portal)
 
 The Azure portal provides a way to quickly create an Azure Media Services account. You can use your account to access Media Services that enable you to store, encrypt, encode, manage, and stream media content in Azure.
 
@@ -41,7 +41,7 @@ For all other management tasks (for example, [Transforms and Jobs](transforms-jo
 
 This article shows how to create a Media Services account using the Azure portal.
 
-## Create a Media Services account
+### Create a Media Services account
 
 1. Sign in at the [Azure portal](https://portal.azure.com/).
 1. Click **+Create a resource** > **Media** > **Media Services**.
@@ -60,13 +60,13 @@ This article shows how to create a Media Services account using the Azure portal
 
     When your Media Services account is created a **default** streaming endpoint is added to your account in the **Stopped** state. To start streaming your content and take advantage of [dynamic packaging](dynamic-packaging-overview.md) and [dynamic encryption](content-protection-overview.md), the streaming endpoint from which you want to stream content has to be in the **Running** state. 
 
-## See also
+### See also
 
 If you plan to access Media Services API programmatically, see [Access the Azure Media Services API with Azure AD authentication](access-api-portal.md).
 
-# [Azure CLI](#tab/azure-cli)
+## [Azure CLI](#tab/azure-cli)
 
-## Set the Azure subscription
+### Set the Azure subscription
 
 In the following command, provide the Azure subscription ID that you want to use for the Media Services account. You can see a list of subscriptions that you have access to by navigating to [Subscriptions](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
 
@@ -76,7 +76,7 @@ az account set --subscription mySubscriptionId
 
 [!INCLUDE [media-services-cli-create-v3-account-include](../../../includes/media-services-cli-create-v3-account-include.md)]
 
-## See also
+### See also
 
 * [Azure CLI](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
 * [Attach a secondary storage to a Media Services account](https://docs.microsoft.com/cli/azure/ams/account/storage?view=azure-cli-latest#az-ams-account-storage-add)
