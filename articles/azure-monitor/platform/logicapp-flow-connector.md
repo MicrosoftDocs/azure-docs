@@ -19,7 +19,7 @@ For example, you can create a logic app to use Azure Monitor log data in an emai
 The following table describes the actions included with the Azure Monitor Logs connector. Both allow you to run a log query against a Log Analytics workspace or Application Insights application. The difference is in the way the data is returned.
 
 > [!NOTE]
-> The Azure Monitor Logs connector replaces the [Azure Log Analytics connector](https://docs.microsoft.com/connectors/azureloganalytics/) and the [Azure Application Insights connector](https://docs.microsoft.com/connectors/applicationinsights/). This connector allows you to select whether to run the query against a Log Analytics workspace or an Application Insights application.
+> The Azure Monitor Logs connector replaces the [Azure Log Analytics connector](https://docs.microsoft.com/connectors/azureloganalytics/) and the [Azure Application Insights connector](https://docs.microsoft.com/connectors/applicationinsights/). This connector provides the same functionality as the others and is the preferred method for running a query against a Log Analytics workspace or an Application Insights application.
 
 
 | Action | Description |
@@ -41,7 +41,7 @@ Go to **Logic Apps** in the Azure portal and click **Add**. Select a **Subscript
 Click **Review + create** and then **Create**. When the deployment is complete, click **Go to resource** to open the **Logic Apps Designer**.
 
 ### Create a trigger for the logic app
-Under **Start with a common trigger**, select **Recurrence**. This creates a logic app that automatically runs at a regular interval. In the **Frequency** box of the action, select **Day** and in the **Interval** box, enter **1**.
+Under **Start with a common trigger**, select **Recurrence**. This creates a logic app that automatically runs at a regular interval. In the **Frequency** box of the action, select **Day** and in the **Interval** box, enter **1** to run the workflow once per day.
 
 ![Recurrence action](media/logicapp-flow-connector/recurrence-action.png)
 
