@@ -39,14 +39,15 @@ Check by clicking on the fired alert in the portal, and look at the history tab 
       - alerts-noreply@mail.windowsazure.com
 
     It is common that internal mailing lists or distribution lists block emails from external email addresses. You need to whitelist the above email addresses.  
-    To test, add to the action group a regular work email address (not a mailing list) to the action group and see if alerts arrive to that email. 
+    To test, add a regular work email address (not a mailing list) to the action group and see if alerts arrive to that email. 
 
 1. **Was the email processed by inbox rules or a spam filter?** 
 
     Verify that there are no inbox rules that delete those emails or move them to a side folder. For example, inbox rules could catch specific senders or specific words in the subject.
 
-    Also, check the spam settings of your 
-      - email client (like Outlook, Gmail)
+    Also, check:
+    
+      - the spam settings of your email client (like Outlook, Gmail)
       - the sender limits / spam settings / quarantine settings of your email server (like Exchange, Office 365, G-suite)
       - the settings of your email security appliance, if any (like Barracuda, Cisco). 
 
@@ -64,7 +65,7 @@ Check by clicking on the fired alert in the portal, and look at the history tab 
 
     To subscribe again – either use the link in the unsubscribe confirmation email you have received, or remove the email address from the action group, and then add it back again. 
  
-1. **Has this email address been receiving numerous of other emails from Azure?** 
+1. **Have you been rated limited due to many emails going to a single email address?** 
 
     Email is [rate limited](alerts-rate-limiting.md) to no more than 100 emails every hour to each email address. If you pass this threshold, additional email notifications are dropped.  Check if you have received a message indicating that your email address has been temporarily rate limited: 
  
@@ -167,14 +168,14 @@ Each action type (email, webhook, etc.) has two formats – the default, legacy 
 
     Check if the format specified at the action level is what you expect. For example, you may have developed code that responds to alerts (webhook, function, logic app, etc.), expecting one format, but later in the action you or another person specified a different format.  
 
-    Also, check the payload format (JSON) for activity log alerts(activity-log-alerts-webhook.md), for [log search alerts](alerts-log-webhook.md) (both Application Insights and log analytics), for [metric alerts](alerts-metric-near-real-time.md#payload-schema), for the [common alert schema](alerts-common-schema-definitions.md), and for the deprecated [classic metric alerts](alerts-webhooks.md).
+    Also, check the payload format (JSON) for [activity log alerts](activity-log-alerts-webhook.md), for [log search alerts](alerts-log-webhook.md) (both Application Insights and log analytics), for [metric alerts](alerts-metric-near-real-time.md#payload-schema), for the [common alert schema](alerts-common-schema-definitions.md), and for the deprecated [classic metric alerts](alerts-webhooks.md).
 
  
-1. **Activity log alerts. Is the information available in the activity log?** 
+1. **Activity log alerts: Is the information available in the activity log?** 
 
 [Activity log alerts](activity-log-alerts.md) are alerts that are based on events written to the Azure Activity Log, such as events about creating, updating or deleting Azure resources, service health and resource health events, or findings from Azure Advisor and Azure Policy. If you have received an alert based on the activity log but some fields that you need are missing or incorrect, first check the events in the activity log itself. If the Azure resource did not write the fields you are looking for in its activity log event, those fields will not be included in the corresponding alert. 
 
-## Action rule not working as expected 
+## Action rule is not working as expected 
 
 If you can see a fired alert in the portal, but a related action rule did not work as expected, follow these steps: 
 
@@ -190,7 +191,7 @@ If you can see a fired alert in the portal, but a related action rule did not wo
 
 1. **Did the action rule act on your alert?** 
 
-    Check if the action rule has suppressed your alert by clicking on the fired alert in the portal, and look at the history tab.
+    Check if the action rule has processed your alert by clicking on the fired alert in the portal, and look at the history tab.
 
     Here is an example of action rule suppressing all action groups: 
  
