@@ -363,7 +363,8 @@ containing data (for example, prediction results) for visualization.
      <br/>
    * To schedule refresh of the data, hover your mouse over the **PredictiveMaintenanceAerospace** dataset, click ![Ellipsis icon](./media/predictive-maintenance-technical-guide/icon-elipsis.png) and then choose **Schedule Refresh**.
      <br/>
-     **Note:** If you see a warning message, click **Edit Credentials** and make sure your database credentials are the same as those described in step 1.
+     > [!NOTE]
+     > If you see a warning message, click **Edit Credentials** and make sure your database credentials are the same as those described in step 1.
      <br/>
      ![Schedule refresh](./media/predictive-maintenance-technical-guide/schedule-refresh.png)
      <br/>
