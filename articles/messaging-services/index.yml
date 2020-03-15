@@ -12,7 +12,7 @@ metadata:
   ms.topic: hub-page
   author: spelluru
   ms.author: spelluru
-  ms.date: 03/12/2020
+  ms.date: 03/15/2020
 
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
@@ -41,64 +41,6 @@ highlightedContent:
 conceptualContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
   items:
-    # Card
-    - title: Create a queue
-      links:
-        - url: ../service-bus-messaging/service-bus-quickstart-portal.md
-          itemType: quickstart
-          text: Use Azure portal to create a Service Bus queue
-        - url: ../service-bus-messaging/service-bus-quickstart-cli.md
-          itemType: quickstart
-          text: Use the Azure CLI to create a Service Bus queue
-      # footerLink
-      footerLink:
-        url: ../service-bus-messaging/index.yml
-        text: See more
-    # Card
-    - title: Create topics and subscriptions
-      links:
-        - url: ../service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal.md
-          itemType: quickstart
-          text: Use the Azure portal to create a Service Bus topic and subscriptions to the topic
-        - url: ../service-bus-messaging/service-bus-resource-manager-namespace-topic.md
-          itemType: quickstart
-          text: Create a Service Bus namespace with topic and subscription using a template
-      # footerLink
-      footerLink:
-        url: ../service-bus-messaging/index.yml
-        text: See more
-    # Card
-    - title: Send and receive messages - queues
-      links:
-        - url: ../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md
-          itemType: concept
-          text: Compare Azure Storage queues and Service Bus queues
-        - url: ../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md
-          itemType: quickstart
-          text: Get started with Service Bus queues
-        - url: ../service-bus-messaging/service-bus-java-how-to-use-queues.md
-          itemType: quickstart
-          text: Use Azure Service Bus queues with Java to send and receive messages
-      # footerLink
-      footerLink:
-        url: ../service-bus-messaging/index.yml
-        text: See more
-    # Card
-    - title: Publish and subscribe for messages
-      links:
-        - url: ../service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions.md
-          itemType: quickstart
-          text: Get started with Service Bus topics
-        - url: ../service-bus-messaging/service-bus-java-how-to-use-topics-subscriptions.md
-          itemType: quickstart
-          text: Use Service Bus topics and subscriptions with Java
-        - url: ../service-bus-messaging/service-bus-python-how-to-use-topics-subscriptions.md
-          itemType: quickstart
-          text: Use Service Bus topics and subscriptions with Python
-      # footerLink
-      footerLink:
-        url: ../service-bus-messaging/index.yml
-        text: See more
     # Card
     - title: Route events
       links:
@@ -169,6 +111,64 @@ conceptualContent:
       # footerLink
       footerLink:
         url: ../event-hubs/index.yml
+        text: See more
+    # Card
+    - title: Create a queue
+      links:
+        - url: ../service-bus-messaging/service-bus-quickstart-portal.md
+          itemType: quickstart
+          text: Use Azure portal to create a Service Bus queue
+        - url: ../service-bus-messaging/service-bus-quickstart-cli.md
+          itemType: quickstart
+          text: Use the Azure CLI to create a Service Bus queue
+      # footerLink
+      footerLink:
+        url: ../service-bus-messaging/index.yml
+        text: See more
+    # Card
+    - title: Create topics and subscriptions
+      links:
+        - url: ../service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal.md
+          itemType: quickstart
+          text: Use the Azure portal to create a Service Bus topic and subscriptions to the topic
+        - url: ../service-bus-messaging/service-bus-resource-manager-namespace-topic.md
+          itemType: quickstart
+          text: Create a Service Bus namespace with topic and subscription using a template
+      # footerLink
+      footerLink:
+        url: ../service-bus-messaging/index.yml
+        text: See more
+    # Card
+    - title: Send and receive messages - queues
+      links:
+        - url: ../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md
+          itemType: concept
+          text: Compare Azure Storage queues and Service Bus queues
+        - url: ../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md
+          itemType: quickstart
+          text: Get started with Service Bus queues
+        - url: ../service-bus-messaging/service-bus-java-how-to-use-queues.md
+          itemType: quickstart
+          text: Use Azure Service Bus queues with Java to send and receive messages
+      # footerLink
+      footerLink:
+        url: ../service-bus-messaging/index.yml
+        text: See more
+    # Card
+    - title: Publish and subscribe for messages
+      links:
+        - url: ../service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions.md
+          itemType: quickstart
+          text: Get started with Service Bus topics
+        - url: ../service-bus-messaging/service-bus-java-how-to-use-topics-subscriptions.md
+          itemType: quickstart
+          text: Use Service Bus topics and subscriptions with Java
+        - url: ../service-bus-messaging/service-bus-python-how-to-use-topics-subscriptions.md
+          itemType: quickstart
+          text: Use Service Bus topics and subscriptions with Python
+      # footerLink
+      footerLink:
+        url: ../service-bus-messaging/index.yml
         text: See more
     # Card
     - title: Hybrid connections
