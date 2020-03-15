@@ -6762,7 +6762,7 @@
     },
     {
       "source_path": "articles/scheduler/get-started-portal.md",
-      "redirect_url": "/azure/scheduler/migrate-from-scheduler-to-logic-apps",
+      "redirect_url": "/azure/scheduler/migrate-from-scheduler-to-logic-apps"
     },
     {
       "source_path": "articles/connectors/connectors-create-api-googledrive.md",
@@ -49338,6 +49338,17 @@
       "source_path": "articles/cognitive-services/speech-service/how-to-migrate-from-custom-speech-service.md",
       "redirect_url": "/azure/cognitive-services/speech-service",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/latest/create-account-portal.md",
+      "redirect_url": "/azure/media-services/latest/create-account-howto",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/latest/create-account-cli-how-to.md",
+      "redirect_url": "/azure/media-services/latest/create-account-howto",
+      "redirect_document_id": false
     }
+
   ]
 }

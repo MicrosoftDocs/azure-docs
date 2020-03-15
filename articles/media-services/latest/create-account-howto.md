@@ -1,6 +1,6 @@
 ---
-title: Create an Azure Media Services account with the Azure portal 
-description: This tutorial walks you through the steps of creating an Azure Media Services account with the Azure portal.
+title: Create an Azure Media Services account
+description: This tutorial walks you through the steps of creating an Azure Media Services account.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -12,11 +12,22 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 03/09/2020
+ms.date: 03/15/2020
 ms.author: juliako
 
 ---
-# Use the Azure portal to create a Media Services account
+# Create a Media Services account
+
+To start encrypting, encoding, analyzing, managing, and streaming media content in Azure, you need to create a Media Services account. The Media Services account needs to be associated with one or more storage accounts.
+
+> [!NOTE]
+> The Media Services account and all associated storage accounts must be in the same Azure subscription. It is strongly recommended to use storage accounts in the same location as the Media Services account to avoid additional latency and data egress costs.
+
+This article describes steps for creating a new Azure Media Services account.
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
+# [Use the Azure portal](#tab/portal)
 
 The Azure portal provides a way to quickly create an Azure Media Services account. You can use your account to access Media Services that enable you to store, encrypt, encode, manage, and stream media content in Azure.
 
@@ -29,10 +40,6 @@ Currently, you can use the [Azure portal](https://portal.azure.com/) to:
 For all other management tasks (for example, [Transforms and Jobs](transforms-jobs-concept.md) and [Content protection](content-protection-overview.md)), use the [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), or one of the supported [SDKs](media-services-apis-overview.md#sdks).
 
 This article shows how to create a Media Services account using the Azure portal.
-
-## Prerequisites
-
-To complete this tutorial, you need an Azure account. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/). 
 
 ## Create a Media Services account
 
@@ -53,9 +60,33 @@ To complete this tutorial, you need an Azure account. For details, see [Azure Fr
 
     When your Media Services account is created a **default** streaming endpoint is added to your account in the **Stopped** state. To start streaming your content and take advantage of [dynamic packaging](dynamic-packaging-overview.md) and [dynamic encryption](content-protection-overview.md), the streaming endpoint from which you want to stream content has to be in the **Running** state. 
 
-## Next steps
+## See also
 
 If you plan to access Media Services API programmatically, see [Access the Azure Media Services API with Azure AD authentication](access-api-portal.md).
+
+# [Azure CLI](#tab/azure-cli)
+
+## Set the Azure subscription
+
+In the following command, provide the Azure subscription ID that you want to use for the Media Services account. You can see a list of subscriptions that you have access to by navigating to [Subscriptions](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
+
+```azurecli
+az account set --subscription mySubscriptionId
+```
+
+[!INCLUDE [media-services-cli-create-v3-account-include](../../../includes/media-services-cli-create-v3-account-include.md)]
+
+## See also
+
+* [Azure CLI](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
+* [Attach a secondary storage to a Media Services account](https://docs.microsoft.com/cli/azure/ams/account/storage?view=azure-cli-latest#az-ams-account-storage-add)
+* [Access v3 APIs](access-api-cli-how-to.md)
+
+---
+
+## Next steps
+
+[Stream a file](stream-files-dotnet-quickstart.md)
 
 ## Provide feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
