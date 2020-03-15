@@ -221,7 +221,7 @@ To locate it, follow these steps:
 
     ![find alert id](media/alerts-troubleshoot/get-alert-id.png)
 
-## Problem creating, updating or deleting action groups or action rules in the Azure portal
+## Problem creating, updating, or deleting action rules in the Azure portal
 
 If you received an error while trying to create, update or delete an [action rule](alerts-action-rules.md), follow these steps: 
 
