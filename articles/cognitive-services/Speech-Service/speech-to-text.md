@@ -3,13 +3,13 @@ title: Speech-to-text - Speech service
 titleSuffix: Azure Cognitive Services
 description: The speech-to-text feature enables real-time transcription of audio streams into text. Your applications, tools, or devices can consume, display, and take action on this text input. This service works seamlessly with the text-to-speech (speech synthesis), and speech translation features.
 services: cognitive-services
-author: erhopf
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/11/2019
-ms.author: erhopf
+ms.date: 03/12/2020
+ms.author: dapine
 ---
 
 # What is speech-to-text?
@@ -19,9 +19,8 @@ Speech-to-text from the Speech service, also known as speech recognition, enable
 The speech-to-text service defaults to using the Universal language model. This model was trained using Microsoft-owned data and is deployed in the cloud. It's optimal for conversational and dictation scenarios. When using speech-to-text for recognition and transcription in a unique environment, you can create and train custom acoustic, language, and pronunciation models. Customization is helpful for addressing ambient noise or industry-specific vocabulary.
 
 > [!NOTE]
-> Bing Speech was decommissioned on October 15, 2019. If your applications, tools, or products are using the Bing Speech APIs or Custom Speech, we've created guides to help you migrate to the Speech service.
+> Bing Speech was decommissioned on October 15, 2019. If your applications, tools, or products are using the Bing Speech APIs, we've created guides to help you migrate to the Speech service.
 > - [Migrate from Bing Speech to the Speech service](how-to-migrate-from-bing-speech.md)
-> - [Migrate from Custom Speech to the Speech service](how-to-migrate-from-custom-speech-service.md)
 
 ## Get started with speech-to-text
 
