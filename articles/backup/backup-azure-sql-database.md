@@ -13,7 +13,7 @@ ms.date: 06/18/2019
 3. Point-in-time recovery up to a second
 4. Individual database level backup and restore
 
-To view the backup and restore scenarios that we support today, refer to the [support matrix](backup-azure-sql-database.md#scenario-support).
+To view the backup and restore scenarios that we support today, refer to the [support matrix](sql-support-matrix.md#scenario-support).
 
 ## Backup process
 
@@ -34,7 +34,7 @@ This solution leverages the SQL native APIs to take backups of your SQL database
 Before you start, verify the below:
 
 1. Make sure you have a SQL Server instance running in Azure. You can [quickly create a SQL Server instance](../virtual-machines/windows/sql/quickstart-sql-vm-create-portal.md) in the marketplace.
-2. Review the [feature consideration](#feature-consideration-and-limitations) and [scenario support](#scenario-support).
+2. Review the [feature consideration](sql-support-matrix.md#feature-consideration-and-limitations) and [scenario support](sql-support-matrix.md#scenario-support).
 3. [Review common questions](faq-backup-sql-server.md) about this scenario.
 
 ## Set VM permissions
