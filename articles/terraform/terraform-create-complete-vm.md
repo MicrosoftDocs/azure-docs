@@ -3,7 +3,7 @@ title: Quickstart - Use Terraform to create a complete Linux VM in Azure
 description: In this quickstart, you use Terraform to create and manage a complete Linux virtual machine environment in Azure
 keywords: azure devops terraform linux vm virtual machine
 ms.topic: quickstart
-ms.date: 03/09/2020
+ms.date: 03/15/2020
 ---
 
 # Quickstart: Create a complete Linux virtual machine infrastructure in Azure with Terraform
@@ -209,7 +209,7 @@ resource "azurerm_linux_virtual_machine" "myterraformvm" {
         storage_account_type = "Premium_LRS"
     }
 
-    storage_image_reference {
+    source_image_reference {
         publisher = "Canonical"
         offer     = "UbuntuServer"
         sku       = "16.04.0-LTS"
