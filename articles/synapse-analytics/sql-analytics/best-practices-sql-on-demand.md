@@ -1,7 +1,7 @@
 ---
-title: Best practices for SQL on-demand in Azure Synapse Analytics
-description: Recommendations and best practices you should know as you work with SQL on-demand. 
-services: synapse analytics
+title: Best practices for SQL on-demand (preview) in Azure Synapse Analytics
+description: Recommendations and best practices you should know as you work with SQL on-demand (preview). 
+services: synapse-analytics
 author: mlee3gsd
 manager: craigg
 ms.service: synapse-analytics
@@ -12,9 +12,9 @@ ms.author: martinle
 ms.reviewer: igorstan
 ---
 
-# Best practices for SQL on-demand in Azure Synapse Analytics
+# Best practices for SQL on-demand (preview) in Azure Synapse Analytics
 
-In this article, you'll find a collection of best practices for using SQL on-demand. SQL on-demand is an additional resource within Azure Synapse Analytics.
+In this article, you'll find a collection of best practices for using SQL on-demand (preview). SQL on-demand is an additional resource within Azure Synapse Analytics.
 
 ## General considerations
 

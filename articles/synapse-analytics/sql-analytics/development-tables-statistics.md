@@ -1,7 +1,7 @@
 ---
 title: Creating, updating statistics
 description: Recommendations and examples for creating and updating query-optimization statistics in SQL Analytics.
-services: synapse analytics
+services: synapse-analytics
 author: filippopovic
 manager: craigg
 ms.service: synapse-analytics
@@ -15,7 +15,7 @@ ms.custom:
 
 # Statistics in SQL Analytics
 
-Provided in this article are recommendations and examples for creating and updating query-optimization statistics using the SQL Analytics resources: SQL pool and SQL on-demand.
+Provided in this article are recommendations and examples for creating and updating query-optimization statistics using the SQL Analytics resources: SQL pool and SQL on-demand (preview).
 
 ## Statistics in SQL pool
 
@@ -79,7 +79,7 @@ The table_name is the name of the table that contains the statistics to display,
 
 One best practice is to update statistics on date columns each day as new dates are added. Each time new rows are loaded into the data warehouse, new load dates or transaction dates are added. These additions change the data distribution and make the statistics out of date. 
 
-Statistics on a country or region column in a customer table might never need to be updated because the distribution of values doesn’t usually change. Assuming the distribution is constant between customers, adding new rows to the table variation isn't going to change the data distribution. 
+Statistics on a country or region column in a customer table might never need to be updated because the distribution of values doesn't usually change. Assuming the distribution is constant between customers, adding new rows to the table variation isn't going to change the data distribution. 
 
 However, when your data warehouse only contains one country or region and you bring in data from a new country or region, then you need to update statistics on the country or region column.
 
@@ -529,12 +529,12 @@ For further improve query performance, see [Monitor your workload](../../sql-dat
 
 
 
-## Statistics in SQL on-demand
+## Statistics in SQL on-demand (preview)
 Statistics are created per particular column for particular dataset (storage path).
 
 ### Why use statistics
 
-The more SQL on-demand knows about your data, the faster it can execute queries against it. Collecting statistics on your data is one of the most important things you can do to optimize your queries. The SQL on-demand query optimizer is a cost-based optimizer. It compares the cost of various query plans, and then chooses the plan with the lowest cost. In most cases, it chooses the plan that will execute the fastest. For example, if the optimizer estimates that the date your query is filtering on will return one row it will choose one plan. If it estimates that the selected date will return 1 million rows, it will return a different plan.
+The more SQL on-demand (preview) knows about your data, the faster it can execute queries against it. Collecting statistics on your data is one of the most important things you can do to optimize your queries. The SQL on-demand query optimizer is a cost-based optimizer. It compares the cost of various query plans, and then chooses the plan with the lowest cost. In most cases, it chooses the plan that will execute the fastest. For example, if the optimizer estimates that the date your query is filtering on will return one row it will choose one plan. If it estimates that the selected date will return 1 million rows, it will return a different plan.
 
 ### Automatic creation of statistics
 
@@ -658,10 +658,10 @@ GO
 
 EXEC sys.sp_create_file_statistics N'SELECT payment_type 
 FROM OPENROWSET(
-		BULK ''https://sqlondemandstorage.blob.core.windows.net/parquet/taxi/year=2018/month=6/*.parquet'',
- 		FORMAT = ''PARQUET''
-	) AS [nyc] 
-	TABLESAMPLE(5 PERCENT)
+        BULK ''https://sqlondemandstorage.blob.core.windows.net/parquet/taxi/year=2018/month=6/*.parquet'',
+         FORMAT = ''PARQUET''
+    ) AS [nyc] 
+    TABLESAMPLE(5 PERCENT)
 '
 ```
 
@@ -680,10 +680,10 @@ To update the statistics for the year column in the dataset, which is based on t
 ```sql
 EXEC sys.sp_drop_file_statistics N'SELECT payment_type 
 FROM OPENROWSET(
-		BULK ''https://sqlondemandstorage.blob.core.windows.net/parquet/taxi/year=2018/month=6/*.parquet'',
- 		FORMAT = ''PARQUET''
-	) AS [nyc] 
-	TABLESAMPLE(5 PERCENT)
+        BULK ''https://sqlondemandstorage.blob.core.windows.net/parquet/taxi/year=2018/month=6/*.parquet'',
+         FORMAT = ''PARQUET''
+    ) AS [nyc] 
+    TABLESAMPLE(5 PERCENT)
 '
 GO
 
@@ -700,10 +700,10 @@ GO
 
 EXEC sys.sp_create_file_statistics N'SELECT payment_type 
 FROM OPENROWSET(
-		BULK ''https://sqlondemandstorage.blob.core.windows.net/parquet/taxi/year=2018/month=6/*.parquet'',
- 		FORMAT = ''PARQUET''
-	) AS [nyc] 
-	TABLESAMPLE(5 PERCENT)
+        BULK ''https://sqlondemandstorage.blob.core.windows.net/parquet/taxi/year=2018/month=6/*.parquet'',
+         FORMAT = ''PARQUET''
+    ) AS [nyc] 
+    TABLESAMPLE(5 PERCENT)
 '
 ```
 

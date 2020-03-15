@@ -1,6 +1,6 @@
 ---
-title: Query Spark tables using SQL on-demand
-description: Overview of how to query Spark tables using SQL on-demand
+title: Query Spark tables using SQL on-demand (preview)
+description: Overview of how to query Spark tables using SQL on-demand (preview)
 services: synapse-analytics 
 author: julieMSFT
 ms.service: synapse-analytics 
@@ -11,8 +11,9 @@ ms.author: jrasnick
 ms.reviewer: jrasnick
 ---
 
-# Query Spark tables with Azure Synapse Analytics using SQL on-demand
-The SQL on-demand can automatically synchronize metadata from Spark pools within Synapse workspace. A SQL on-demand database will be created for each database existing in Spark pools. For each Spark table based on Parquet or CSV, an external table is created in the SQL on-demand database. As such, you can shut down your Spark pools and still query Spark tables from SQL on-demand.
+# Query Spark tables with Azure Synapse Analytics using SQL on-demand (preview)
+
+The SQL on-demand (preview) can automatically synchronize metadata from Spark pools within Synapse workspace (preview). A SQL on-demand database will be created for each database existing in Spark pools (preview). For each Spark table based on Parquet or CSV, an external table is created in the SQL on-demand database. As such, you can shut down your Spark pools and still query Spark tables from SQL on-demand.
 
 When a table is partitioned in Spark, files in storage are organized by folders. SQL on-demand will utilize partition metadata and only target relevant folders and files for your query.
 

@@ -10,6 +10,8 @@ ms.date: 03/04/2020
 
 # Mapping data flow video tutorials
 
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 Below is a list of mapping data flow tutorial videos created by the Azure Data Factory team. 
 
 As updates are constantly made to the product, some features have added or different functionality in the current Azure Data Factory user experience.
@@ -67,6 +69,8 @@ As updates are constantly made to the product, some features have added or diffe
 [Exists Transformation](http://youtu.be/GS8JVgNBMfs?hd=1)
 
 [Dynamic Joins and Dynamic Lookups](https://youtu.be/CMOPPie9bXM)
+
+[Flatten transformation](https://youtu.be/VY2tFQJoAXE)
 
 ## Source and sink
 

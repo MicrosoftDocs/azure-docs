@@ -1,7 +1,7 @@
 ---
 title: Best practices for SQL pools
 description: Recommendations and best practices you should know as you work with SQL pools. 
-services: synapse analytics
+services: synapse-analytics
 author: mlee3gsd
 manager: craigg
 ms.service: synapse-analytics

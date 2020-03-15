@@ -1,6 +1,6 @@
 ---
 title: Azure Synapse Analytics shared metadata model 
-description: Azure Synapse Analytics provides a shared metadata model where creating a database or table in Spark will make it accessible from its SQL Analytics and SQL Pool engines without duplicating the data or requiring user action. 
+description: Azure Synapse Analytics provides a shared metadata model where creating a database or table in Apache Spark will make it accessible from its SQL on-demand (preview) and SQL pool engines without duplicating the data or requiring user action. 
 services: synapse-analytics
 author: MikeRys 
 ms.service: synapse-analytics
@@ -11,9 +11,9 @@ ms.author: mrys
 ms.reviewer: jrasnick
 ---
 
-# Azure Synapse Analytics shared metadata 
+# Azure Synapse Analytics shared metadata
 
-Azure Synapse Analytics allows the different computational engines of a workspace to share databases and tables between its Apache Spark pools, SQL on-demand engine, and SQL pools. 
+Azure Synapse Analytics allows the different computational engines of a workspace to share databases and tables between its Spark pools (preview), SQL on-demand engine (preview), and SQL pools.
 
 [!INCLUDE [synapse-analytics-preview-terms](../../../includes/synapse-analytics-preview-terms.md)]
 
@@ -25,7 +25,7 @@ The shared metadata model supports the modern data warehouse pattern in the foll
 
 1. Data from the data lake is prepared and structured efficiently with Spark by storing the prepared data in (possibly partitioned) Parquet-backed tables contained in possibly several databases.
 
-2. The Spark created databases and all their tables become visible in any of the Azure Synapse workspace Spark pool instances and can be used from any of the Spark jobs. This capability is subject to the [permissions](#security-model-at-a-glance) since all Spark pools in a workspace share the same underlying catalog meta store. 
+2. The Spark created databases and all their tables become visible in any of the Azure Synapse workspace Spark pool instances and can be used from any of the Spark jobs. This capability is subject to the [permissions](#security-model-at-a-glance) since all Spark pools in a workspace share the same underlying catalog meta store.
 
 3. The Spark created databases and their Parquet-backed tables become visible in the workspace SQL on-demand engine. [Databases](database.md) are created automatically in the SQL on-demand metadata, and both the [external and managed tables](table.md) created by a Spark job are made accessible as external tables in the SQL on-demand metadata in the `dbo` schema of the corresponding database. <!--For more details, see [ADD LINK].-->
 
@@ -35,9 +35,9 @@ The shared metadata model supports the modern data warehouse pattern in the foll
 
 <!--__Figure 1 -__ Supporting the Modern Data Warehouse Pattern with shared metadata-->
 
-The object synchronization occurs asynchronously. Objects will therefore have a slight delay of a few seconds until they appear in the SQL context. Once they appear, they can be queried, but not updated nor changed by the SQL engines that have access to them. 
+The object synchronization occurs asynchronously. Objects will therefore have a slight delay of a few seconds until they appear in the SQL context. Once they appear, they can be queried, but not updated nor changed by the SQL engines that have access to them.
 
-## Which metadata objects are shared?
+## Which metadata objects are shared
 
 [!INCLUDE [synapse-analytics-preview-features](../../../includes/synapse-analytics-preview-features.md)]
 
@@ -55,10 +55,10 @@ For more information, see [Azure Synapse Analytics shared database](database.md)
 
 If a metadata object gets deleted or changed with Spark, the changes are picked up and propagated to the SQL on-demand engine as well as the SQL pools that have the objects synchronized. Synchronization is asynchronous and changes are reflected in the SQL engines after a short delay.
 
-
 ## Next steps
 
 - [Learn more about Azure Synapse Analytics' shared metadata Databases](database.md)
 - [Learn more about Azure Synapse Analytics' shared metadata Tables](table.md)
+
 <!--- [Learn more about the Synchronization with SQL Analytics On-Demand](overview.md)
 - [Learn more about the Synchronization with SQL Analytics Pools](overview.md)-->

@@ -13,6 +13,7 @@ ms.reviewer: jrasnick
 
 
 # User-defined schemas within SQL Analytics
+
 In the sections below, you'll find various tips for using T-SQL user-defined schemas to develop solutions within SQL Analytics.
 
 ## Schemas for application boundaries
@@ -22,13 +23,14 @@ Traditional analytics architecture often uses separate databases to create appli
 Instead, SQL Analytics runs the entire analytics workload within one database. Cross database joins aren't permitted. SQL Analytics expects all tables used by the warehouse to be stored within the one database.
 
 > [!NOTE]
-> SQL Analytics pools do not support cross database queries of any kind. Consequently, analytics implementations that leverage this pattern will need to be revised. SQL Analytics on-demand supports cross database queries.
+> SQL pools do not support cross database queries of any kind. Consequently, analytics implementations that leverage this pattern will need to be revised. SQL on-demand (preview) supports cross database queries.
 
 ## User-defined schema recommendations
+
 Included are recommendations for consolidating workloads, security, domain, and functional boundaries by using user-defined schemas:
 
-- Use one SQL Analytics database to run your entire analytics workload.
-- Consolidate your existing analytics environment to use one SQL Analytics database.
+- Use one database to run your entire analytics workload.
+- Consolidate your existing analytics environment to use one database.
 - Leverage **user-defined schemas** to provide the boundary previously implemented using databases.
 
 If user-defined schemas haven't been used previously, then you have a clean slate. Use the old database name as the basis for your user-defined schemas in the SQL Analytics database.

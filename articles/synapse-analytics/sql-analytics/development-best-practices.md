@@ -1,7 +1,7 @@
 ---
-title: Development best practices for SQL Analytics | Microsoft Docs
+title: Development best practices for SQL Analytics
 description: Recommendations and best practices you should know as you develop for SQL Analytics. 
-services: synapse analytics
+services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
 ms.service: synapse-analytics
@@ -12,10 +12,10 @@ ms.author: xiaoyul
 ms.reviewer: igorstan
 ---
 
-# Development best practices for Azure SQL Analytics
+# Development best practices for SQL Analytics
 This article describes guidance and best practices as you develop your data warehouse solution. 
 
-## Development best practices for Azure SQL Analytics
+## Development best practices for SQL Analytics
 
 ### Reduce cost with pause and scale
 For more information about reducing costs through pausing and scaling, see the [Manage compute](../../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md). 
@@ -136,7 +136,7 @@ Use the [Azure SQL Analytics pool Feedback][Azure SQL Analytics pool Feedback] p
 [Azure SQL Analytics pool Stack Overflow Forum]:  https://stackoverflow.com/questions/tagged/azure-sqldw
 [Azure SQL Analytics pool loading patterns and strategies]: https://blogs.msdn.microsoft.com/sqlcat/20../../azure-sql-data-warehouse-loading-patterns-and-strategies/
 
-## Development best practices for Azure SQL Analytics on-demand
+## Development best practices for SQL on-demand (preview)
 
 ### General considerations
 

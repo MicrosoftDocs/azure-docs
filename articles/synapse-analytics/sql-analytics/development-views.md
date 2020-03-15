@@ -12,9 +12,11 @@ ms.reviewer: jrasnick
 ---
 
 # T-SQL views using SQL Analytics
+
 In this article, you'll find tips for using T-SQL views and developing solutions with SQL Analytics. 
 
 ## Why use views?
+
 Views can be used in a number of different ways to improve the quality of your solution.  This article highlights a few examples of how to enrich your solution with views and includes the limitations that need to be considered.
 
 
@@ -24,7 +26,8 @@ Views can be used in a number of different ways to improve the quality of your s
 > **SQL pool**: Syntax for CREATE VIEW is not discussed in this article. For more information, see the [CREATE VIEW](/sql/t-sql/statements/create-view-transact-sql) documentation.
 > 
 
-### SQL on-demand - create view
+### SQL on-demand (preview) - create view
+
 > [!NOTE]
 > **SQL on-demand**: Syntax for CREATE VIEW is not discussed in this article. For more information, see the [CREATE VIEW](/sql/t-sql/statements/create-view-transact-sql) documentation.
 > 
@@ -58,11 +61,13 @@ Keep in mind that this approach can result in tables appearing and disappearing 
 By providing access to data through views, users don't need visibility to the underlying tables. In addition to a consistent user experience, this layer ensures that analytics designers can evolve the data model. The ability to evolve the underlying tables means designers can use CTAS to maximize performance during the data loading process.   
 
 ## Performance optimization
+
 Views can also be used to enforce performance optimized joins between tables. For example, a view can incorporate a redundant distribution key as part of the joining criteria to minimize data movement. 
 
 Forcing a specific query or joining hint is another benefit of using T-SQL views. As such, the views capability ensures that joins are always performed in an optimal fashion. You'll avoid the need for users to remember the correct construct for their joins.
 
 ## Limitations
+
 Views in SQL Analytics are only stored as metadata. Consequently, the following options aren't available:
 
 * There isn't a schema binding option
@@ -72,6 +77,7 @@ Views in SQL Analytics are only stored as metadata. Consequently, the following 
 * There are no indexed views in SQL analytics
 
 ## Next steps
+
 For more development tips, see [SQL Analytics development overview](development-overview.md).
 
 
