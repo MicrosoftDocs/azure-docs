@@ -36,7 +36,7 @@ The following table summarizes the workbooks that Azure Monitor for VMs includes
 | Performance | Provides a customizable version of our Performance view that leverages all of the Log Analytics performance counters that you have enabled. | Single VM | 
 | Connections | Connections provides an in-depth view of the inbound and outbound connections from your VM. | Single VM |
  
-## Starting with a template or saved workbook
+## Creating a new workbook
 
 A workbook is made up of sections consisting of independently editable charts, tables, text, and input controls. To better understand workbooks, let's start by opening a template and walk through creating a custom workbook. 
 
@@ -60,7 +60,7 @@ A workbook is made up of sections consisting of independently editable charts, t
 
 ## Editing workbook sections
 
-Workbooks have two modes: **editing mode**, and **reading mode**. When the default template workbook is first launched, it opens in **editing mode**. It shows all the content of the workbook, including any steps and parameters that are otherwise hidden. **Reading mode** presents a simplified report style view. Reading mode allows you to abstract away the complexity that went into creating a report while still having the underlying mechanics only a few clicks away when needed for modification.
+Workbooks have two modes: **editing mode**, and **reading mode**. When a new workbook is first launched, it opens in **editing mode**. It shows all the content of the workbook, including any steps and parameters that are otherwise hidden. **Reading mode** presents a simplified report style view. Reading mode allows you to abstract away the complexity that went into creating a report while still having the underlying mechanics only a few clicks away when needed for modification.
 
 ![Azure Monitor for VMs Workbooks section editing controls](media/vminsights-workbooks/workbook-new-workbook-editor-01.png)
 
