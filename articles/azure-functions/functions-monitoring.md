@@ -48,31 +48,22 @@ Early versions of Functions used built-in monitoring, which is no longer recomme
 
 With [Application Insights integration enabled](#enable-application-insights-integration), you can view telemetry data in the **Monitor** tab.
 
-1. In the function app page, select a function that has run at least once after Application Insights was configured. Then select the **Monitor** tab.
-
-   ![Select Monitor tab](media/functions-monitoring/monitor-tab.png)
-
-1. Select **Refresh** periodically, until the list of function invocations appears.
-
-   It can take up to five minutes for the list to appear while the telemetry client batches data for transmission to the server. (The delay doesn't apply to the [Live Metrics Stream](../azure-monitor/app/live-stream.md). That service connects to the Functions host when you load the page, so logs are streamed directly to the page.)
+1. In the function app page, select a function that has run at least once after Application Insights was configured. Then select the **Monitor** tab. Select **Refresh** periodically, until the list of function invocations appears.
 
    ![Invocations list](media/functions-monitoring/monitor-tab-ai-invocations.png)
 
-1. To see the logs for a particular function invocation, select the **Date** column link for that invocation.
+    > [!NOTE]
+    > It can take up to five minutes for the list to appear while the telemetry client batches data for transmission to the server. The delay doesn't apply to the [Live Metrics Stream](../azure-monitor/app/live-stream.md). That service connects to the Functions host when you load the page, so logs are streamed directly to the page.
 
-   ![Invocation details link](media/functions-monitoring/invocation-details-link-ai.png)
-
-   The logging output for that invocation appears in a new page.
+1. To see the logs for a particular function invocation, select the **Date (UTC)** column link for that invocation. The logging output for that invocation appears in a new page.
 
    ![Invocation details](media/functions-monitoring/invocation-details-ai.png)
 
-You can see that both pages have a **Run in Application Insights** link to the Application Insights Analytics query that retrieves the data.
+1. Choose the **Run in Application Insights** link to view the source of the query that retrieves the Azure Monitor log data in Azure Log  If this is the first time using Azure Log Analytics in your subscription, you are asked to enable to.
 
-![Run in Application Insights](media/functions-monitoring/run-in-ai.png)
+1. When you choose that link and choose to enable Log Analytic. the following query is displayed. You can see that the query results are limited to the last 30 days (`where timestamp > ago(30d)`). In addition, the results show no more than 20 rows (`take 20`). In contrast, the invocation details list for your function is for the last 30 days with no limit.
 
-The following query is displayed. You can see that the query results are limited to the last 30 days (`where timestamp > ago(30d)`). In addition, the results show no more than 20 rows (`take 20`). In contrast, the invocation details list for your function is for the last 30 days with no limit.
-
-![Application Insights Analytics invocation list](media/functions-monitoring/ai-analytics-invocation-list.png)
+   ![Application Insights Analytics invocation list](media/functions-monitoring/ai-analytics-invocation-list.png)
 
 For more information, see [Query telemetry data](#query-telemetry-data) later in this article.
 
@@ -88,30 +79,29 @@ For information about how to use Application Insights, see the [Application Insi
 
 The following areas of Application Insights can be helpful when evaluating the behavior, performance, and errors in your functions:
 
-| Tab | Description |
+| Investigate | Description |
 | ---- | ----------- |
 | **[Failures](../azure-monitor/app/asp-net-exceptions.md)** |  Create charts and alerts based on function failures and server exceptions. The **Operation Name** is the function name. Failures in dependencies aren't shown unless you implement custom telemetry for dependencies. |
-| **[Performance](../azure-monitor/app/performance-counters.md)** | Analyze performance issues. |
-| **Servers** | View resource utilization and throughput per server. This data can be useful for debugging scenarios where functions are bogging down your underlying resources. Servers are referred to as **Cloud role instances**. |
+| **[Performance](../azure-monitor/app/performance-counters.md)** | Analyze performance issues by viewing resource utilization and throughput per **Cloud role instances**. This data can be useful for debugging scenarios where functions are bogging down your underlying resources. |
 | **[Metrics](../azure-monitor/app/metrics-explorer.md)** | Create charts and alerts that are based on metrics. Metrics include the number of function invocations, execution time, and success rates. |
-| **[Live Metrics Stream](../azure-monitor/app/live-stream.md)** | View metrics data as it's created in near real-time. |
+| **[Live Metrics    ](../azure-monitor/app/live-stream.md)** | View metrics data as it's created in near real-time. |
 
 ## Query telemetry data
 
-[Application Insights Analytics](../azure-monitor/app/analytics.md) gives you access to all telemetry data in the form of tables in a database. Analytics provides a query language for extracting, manipulating, and visualizing the data.
+[Application Insights Analytics](../azure-monitor/app/analytics.md) gives you access to all telemetry data in the form of tables in a database. Analytics provides a query language for extracting, manipulating, and visualizing the data. 
 
-![Select Analytics](media/functions-monitoring/select-analytics.png)
+Choose **Logs** to explore or query for logged events.
 
 ![Analytics example](media/functions-monitoring/analytics-traces.png)
 
 Here's a query example that shows the distribution of requests per worker over the last 30 minutes.
 
-```
+<pre>
 requests
 | where timestamp > ago(30m) 
 | summarize count() by cloud_RoleInstance, bin(timestamp, 1m)
 | render timechart
-```
+</pre>
 
 The tables that are available are shown in the **Schema** tab on the left. You can find data generated by function invocations in the following tables:
 
@@ -128,10 +118,10 @@ The other tables are for availability tests, and client and browser telemetry. Y
 
 Within each table, some of the Functions-specific data is in a `customDimensions` field.  For example, the following query retrieves all traces that have log level `Error`.
 
-```
+<pre>
 traces 
 | where customDimensions.LogLevel == "Error"
-```
+</pre>
 
 The runtime provides the `customDimensions.LogLevel` and `customDimensions.Category` fields. You can provide additional fields in logs that you write in your function code. See [Structured logging](#structured-logging) later in this article.
 
@@ -141,11 +131,20 @@ You can use Application Insights without any custom configuration. The default c
 
 ### Categories
 
-The Azure Functions logger includes a *category* for every log. The category indicates which part of the runtime code or your function code wrote the log. 
+The Azure Functions logger includes a *category* for every log. The category indicates which part of the runtime code or your function code wrote the log. The following chart describes the main categories of logs that the runtime creates. 
+
+| Category | Description |
+| ----- | ----- | 
+| Host.Results | These logs show as **requests** in Application Insights. They indicate success or failure of a function. All of these logs are written at `Information` level. If you filter at `Warning` or above, you won't see any of this data. |
+| Host.Aggregator | These logs provide counts and averages of function invocations over a [configurable](#configure-the-aggregator) period of time. The default period is 30 seconds or 1,000 results, whichever comes first. The logs are available in the **customMetrics** table in Application Insights. Examples are the number of runs, success rate, and duration. All of these logs are written at `Information` level. If you filter at `Warning` or above, you won't see any of this data. |
+
+All logs for categories other than these are available in the **traces** table in Application Insights.
+
+All logs with categories that begin with `Host` are written by the Functions runtime. The **Function started** and **Function completed** logs have category `Host.Executor`. For successful runs, these logs are `Information` level. Exceptions are logged at `Error` level. The runtime also creates `Warning` level logs, for example: queue messages sent to the poison queue.
 
 The Functions runtime creates logs with a category that begin with "Host." In version 1.x, the `function started`, `function executed`, and `function completed` logs have the category `Host.Executor`. Starting in version 2.x, these logs have the category `Function.<YOUR_FUNCTION_NAME>`.
 
-If you write logs in your function code, the category is `Function` in version 1.x of the Functions runtime. In version 2.x, the category is `Function.<YOUR_FUNCTION_NAME>.User`.
+If you write logs in your function code, the category is is `Function.<YOUR_FUNCTION_NAME>.User` and can be any log level. In version 1.x of the Functions runtime, the category is `Function`.
 
 ### Log levels
 
@@ -246,36 +245,6 @@ If [host.json] includes multiple categories that start with the same string, the
 ```
 
 To suppress all logs for a category, you can use log level `None`. No logs are written with that category and there's no log level above it.
-
-The following sections describe the main categories of logs that the runtime creates. 
-
-### Category Host.Results
-
-These logs show as "requests" in Application Insights. They indicate success or failure of a function.
-
-![Requests chart](media/functions-monitoring/requests-chart.png)
-
-All of these logs are written at `Information` level. If you filter at `Warning` or above, you won't see any of this data.
-
-### Category Host.Aggregator
-
-These logs provide counts and averages of function invocations over a [configurable](#configure-the-aggregator) period of time. The default period is 30 seconds or 1,000 results, whichever comes first. 
-
-The logs are available in the **customMetrics** table in Application Insights. Examples are the number of runs, success rate, and duration.
-
-![customMetrics query](media/functions-monitoring/custom-metrics-query.png)
-
-All of these logs are written at `Information` level. If you filter at `Warning` or above, you won't see any of this data.
-
-### Other categories
-
-All logs for categories other than the ones already listed are available in the **traces** table in Application Insights.
-
-![traces query](media/functions-monitoring/analytics-traces.png)
-
-All logs with categories that begin with `Host` are written by the Functions runtime. The "Function started" and "Function completed" logs have category `Host.Executor`. For successful runs, these logs are `Information` level. Exceptions are logged at `Error` level. The runtime also creates `Warning` level logs, for example: queue messages sent to the poison queue.
-
-Logs written by your function code have category `Function` and can be any log level.
 
 ## Configure the aggregator
 
