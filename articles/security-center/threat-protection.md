@@ -198,7 +198,7 @@ For more information, see:
 ## Threat protection for Azure Storage <a name="azure-storage"></a>
 
 > [!NOTE]
-> This service is not currently available in Azure government and sovereign cloud regions.
+> This service is available in US government clouds, but no other sovereign or Azure government cloud regions.
 
 Advanced Threat Protection for Storage (currently available for Blob storage only) detects unusual and potentially harmful attempts to access or exploit storage accounts. This layer of protection allows you to address threats without requiring you to be a security expert, and helps you manage your security monitoring systems.
 
