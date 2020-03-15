@@ -71,6 +71,19 @@ conceptualContent:
         url: ../event-hubs/index.yml
         text: See more
     # Card
+    - title: Integrate with Apache Kafka
+      links:
+        - url: ../event-hubs/event-hubs-for-kafka-ecosystem-overview.md
+          itemType: overview
+          text: What is Event Hubs for Apache Kafka
+        - url: ../event-hubs/event-hubs-quickstart-kafka-enabled-event-hubs.md
+          itemType: quickstart
+          text: Stream into Event Hubs for Apache Kafka
+      # footerLink
+      footerLink:
+        url: ../event-hubs/index.yml
+        text: See more
+    # Card
     - title: Send and receive events
       links:
         - url: ../event-hubs/get-started-dotnet-standard-send-v2.md
