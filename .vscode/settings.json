@@ -57,5 +57,6 @@
     ],
     "cSpell.words": [
         "auditd"
-    ]
+    ],
+    "git.ignoreLimitWarning": true
 }
