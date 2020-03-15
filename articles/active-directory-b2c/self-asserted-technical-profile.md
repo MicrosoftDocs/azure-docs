@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/17/2020
+ms.date: 03/16/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -116,6 +116,8 @@ The `age` claim in the base policy is no longer presented on the screen to the u
 ## Output claims
 
 The **OutputClaims** element contains a list of claims to be returned to the next orchestration step. The **DefaultValue** attribute takes effect only if the claim has never been set. If it was set in a previous orchestration step, the default value does not take effect even if the user leaves the value empty. To force the use of a default value, set the **AlwaysUseDefaultValue** attribute to `true`.
+
+For security reasons, a password claim value (`UserInputType` set to `Password`) is available only to the self-asserted technical profile's validation technical profiles. You cannot use password claim in the next orchestration steps. 
 
 > [!NOTE]
 > In previous versions of the Identity Experience Framework (IEF), output claims were used to collect data from the user. To collect data from the user, use a **DisplayClaims** collection instead.
