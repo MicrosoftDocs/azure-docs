@@ -1,6 +1,6 @@
 ---
-title: Azure Maps plugin for QGIS | Microsoft Docs
-description: Azure Maps plugin for QGIS - Private preview
+title: Azure Maps plugin for the Quantum Geographic Information System [(QGIS) | Microsoft Docs
+description: This article guides you through the installation process of the Azure Maps QGIS plug-ins, and shows you how to use the plugin to visualize and edit a data set.
 author: farah-alyasari
 ms.author: v-faalya
 ms.date: 12/18/2019
@@ -13,11 +13,15 @@ ms.custom: mvc
 
 # Azure Maps plugin for QGIS
 
-The Quantum Geographic Information System [(QGIS)](https://qgis.org/) Software is a professional and a Free and Open Source Software (FOSS) application. The Azure Maps plug-in for QGIS is part of "Private Atlas - Private Preview", and it provides users a way to visualize and QA Azure Maps Private Atlas data sets. It also lets users edits and apply changes to the data sets. Azure Maps QGIS plug-in is currently classified under the experimentation label in the QGIS plug-in store. This article guIDes you through the installation process of the Azure Maps QGIS plug-ins, and how to use the plugin to visualize and edit a dataset.
+The Quantum Geographic Information System [(QGIS)](https://qgis.org/) is a Free and Open Source Software (FOSS) application. The Azure Maps QGIS plug-in is part of "Private Atlas - Private Preview", a tool that lets users own their map data. 
+
+Although this plug-in is currently classified under the experimentation label in the QGIS plug-in store, it offers many useful functionalities. The plug-in provides a way for users to visualize their data, and perform quality assurance methods on their data sets. It also lets users edit and apply changes to the data sets in real-time. This article guides you through the installation process of the Azure Maps QGIS plug-ins. And it shows you how to use the plugin to visualize and edit a data set.
 
 ## Prerequisites
 
-Before you can use the the Azure Maps QGIS plugin, you need to [make an Azure Account](quick-demo-map-app.md#create-an-account-with-azure-maps) and [obtain a primary subscription key](quick-demo-map-app.md#get-the-primary-key-for-your-account). Then, you need to [download the QGIS Desktop application](https://www.qgis.org/en/site/forusers/download.html), with a version of 3.8.* or higher.
+Before you can use the Azure Maps QGIS plugin, you need to [make an Azure Account](quick-demo-map-app.md#create-an-account-with-azure-maps) and [obtain a primary subscription key](quick-demo-map-app.md#get-the-primary-key-for-your-account). 
+
+You also need to [download the QGIS Desktop application](https://www.qgis.org/en/site/forusers/download.html). Select a version of 3.8.* or higher to use the Azure Maps QGIS Plug-in.
 
 ## Install the Azure Maps QGIS plug-in
 
@@ -31,7 +35,7 @@ Follow the steps below to install the Azure Maps QGIS plugin for the QGIS Deskto
 
    </center>
 
-2. Click on **Plugins**, and select **Manage and Install Plugins**.
+2. Click on the **Plugins** option in the main menu and select **Manage and Install Plugins**.
 
    <center>
 
@@ -47,7 +51,7 @@ Follow the steps below to install the Azure Maps QGIS plugin for the QGIS Deskto
 
    </center>
 
-4. In the same **Plugins** window, select the **All** tab. Type "Azure Maps" in the search bar to find the Azure Maps plug-in. The Azure Maps plugin should be listed in the result, click on the **Install Plugin** button. Once the plug-in is installed, you can upgrade to a newer version, if available. Or, you may uninstall and reinstall the plug-in at any time. For more information on how to work with plugins in QGIS, visit the [QGIS plugin documentation](https://docs.qgis.org/3.4/en/docs/user_manual/plugins/plugins.html) page.
+4. In the same **Plugins** window, select the **All** tab. Type "Azure Maps" in the search bar to find the Azure Maps plug-in, the Azure Maps plugin should be listed in the result. Click on the **Install Plugin** button. Once the plug-in is installed, you can upgrade to a newer version, if available. Or, you may uninstall and reinstall the plug-in at any time. For more information on how to generally work with plugins in QGIS, visit the [QGIS plugin documentation](https://docs.qgis.org/3.4/en/docs/user_manual/plugins/plugins.html) page.
 
    <center>
 
@@ -65,7 +69,7 @@ After the installation is complete, the Azure Maps plugin will be accessible via
 
    </center>
 
-Click on the Azure Maps QGIS plugin icon to open the **Azure Maps** window. The **Private Atlas** tab provides the options to set the spatial extent for which features are needed. You also need to provide your **DataSet ID** in the this tab. And, you need to provide your Azure Maps account **primary subscription key** in the **Authentication** tab. ProvIDing the **DataSet ID** and the account **primary subscription key** lets you access and save the private atlas data set.
+Click on the Azure Maps QGIS plugin icon to open the **Azure Maps** window. The **Private Atlas** tab, in the plug-in window, provides the options to set the spatial extent for which features are needed. You also need to provide your **DataSet ID** in this tab. Provide your Azure Maps **primary subscription key** in the **Authentication** tab. Providing the **DataSet ID** and the account **primary subscription key** lets you access and save the private atlas data set.
 
    <center>
 
@@ -74,7 +78,7 @@ Click on the Azure Maps QGIS plugin icon to open the **Azure Maps** window. The 
 
    </center>
 
-The **Floor Picker** tab provides options to select the floor number and visualize the selected floor. Before you can select the floor number, you'll need to load your data set.
+The **Floor Picker** tab provides options to select the floor number and visualize the selected floor. The option is initially greyed out, because need to load your data set before you can select the floor number.
 
    <center>
 
@@ -83,7 +87,7 @@ The **Floor Picker** tab provides options to select the floor number and visuali
 
    </center>
 
- To load your data set, provide **DataSet ID**, and **primary subscription key**, then Press the **get features** button. Once this request completes processing, in the **Layers** panel, you'll see layers with the features of you data set. The layers reflect the content in your DWG package. For example, you will find a _unit_ layer and a _level_ layer. You can zoom into a layer or edit the layer by right clicking on the layer and choosing **Zoom to Layer** or **Open Attribute Table**, respectively. The **Layers** panel supports more features, see the [full list of collection features]()
+ To load your data set, provide the **DataSet ID**, and the **primary subscription key**. Then, press the **get features** button. Once this request completes processing, you'll see layers with the features of your data set in the **Layers** panel. The layers reflect the content in your DWG package. For example, you'll find a _unit_ layer and a _level_ layer. You can zoom into a layer by right-clicking on the layer and choosing **Zoom to Layer**. You can also edit the layer by right-clicking and choosing the **Open Attribute Table** option. A table window would show up, you can click the **toggle** icon to make the data editable. Then, you would make your edits, and click **save**.
 
    <center>
 
@@ -91,7 +95,9 @@ The **Floor Picker** tab provides options to select the floor number and visuali
 
    </center>
 
-### Edit a datasets
+The features in your data may not encompass all the feature collections that the **Layers** panel supports. For more features, see the [full list of collection features](#Full-list-of-feature-collections)
+
+### Edit a data set
 
 Once you view the features, you might want to make minor modification or soft touches to keep your data fresh. Although the QGIS application lets you make geometry changes, add features, or delete features, we recommend that you use the application only to edit the properties of the features. In this section, we discuss common edits you'll likely perform on your data set.
 
