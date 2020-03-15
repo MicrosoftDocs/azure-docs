@@ -85,11 +85,7 @@ You cannot reference data or variables directly across different languages in a 
 
    ```scala
    %%scala
-<<<<<<< HEAD
    val scalaDataFrame = spark.read.option("format", "DW connector predefined type")
-=======
-   val scalaDataFrame = spark.read.option("format", "DW    connector predefined type")
->>>>>>> 48e7d195a13a1f33af31d57996e5f883ff678936
    scalaDataFrame.registerTempTable( "mydataframetable" )
    ```
 
