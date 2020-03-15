@@ -60,6 +60,8 @@
       href: azure-kubernetes-service-integration.md
   - name: Threat protection and security alerts
     items:
+    - name: Threat protection in Azure Security Center
+      href: threat-protection.md
     - name: Security alerts overview
       href: security-center-alerts-overview.md      
     - name: Reference list of alerts
@@ -68,8 +70,6 @@
       href: security-center-managing-and-responding-alerts.md
     - name: Manage security incidents
       href: security-center-incident.md
-    - name: Threat protection in Azure Security Center
-      href: threat-protection.md
     - name: Cloud Smart Alert correlation (incidents)
       href: security-center-alerts-cloud-smart.md
     - name: Security alerts map and threat intelligence
