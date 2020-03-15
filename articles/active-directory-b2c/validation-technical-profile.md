@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
+ms.date: 03/16/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -28,7 +28,7 @@ A validation technical profile is an ordinary technical profile from any protoco
 }
 ```
 
-Claims that are returned from a validation technical profile are added back to the claims bag. You can use those claims in the next validation technical profiles.
+The scope of the output claims of a validation technical profile is limited to the [self-asserted technical profile](self-asserted-technical-profile.md) that invokes the validation technical profile, and its validation technical profiles. If you want to use the output claims in the next orchestration step, add the output claims to the self-asserted technical profile that invokes the validation technical profile.
 
 Validation technical profiles are executed in the sequence that they appear in the **ValidationTechnicalProfiles** element. You can configure in a validation technical profile whether the execution of any subsequent validation technical profiles should continue if the validation technical profile raises an error or is successful.
 
