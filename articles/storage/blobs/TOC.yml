@@ -832,7 +832,7 @@
       href: https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.0.0-preview.6/index.html
     - name: Python
       href: https://azuresdkdocs.blob.core.windows.net/$web/python/azure-storage-file-datalake/12.0.0b5/index.html
-    - name: Javascript
+    - name: JavaScript
       href: https://www.npmjs.com/package/@azure/storage-file-datalake/v/12.0.0-preview.6
     - name: REST
       href: /rest/api/storageservices/data-lake-storage-gen2
