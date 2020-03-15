@@ -195,13 +195,15 @@ A step-by-step cell execution status is displayed beneath the cell to help you s
 
 Azure Synapse Studio notebook is purely Spark based. Code cells are executed on the Spark pool remotely. A Spark job progress indicator is provided with a real-time progress bar appears to help you understand the job execution status.
 
-<img src="./media/apache-spark-development-using-notebooks/synapse-spark-progress-indicator.png" alt="spark-progress-indicator" width="1000" style="border:1px solid #cccccc"/>
+<img src="./media/apache-spark-development-using-notebooks/synapse-spark-progress-indicator.png" alt="spark-progress-indicator" width="800" style="border:1px solid #cccccc"/>
 
 ### Spark session config
 
 You can specify the timeout duration, the number, and the size of executors to give to the current Spark session in **Configure session**. Restart the Spark session is for configuration changes to take effect. All cached notebook variables are cleared.
 
-![spark_session_config](./media/apache-spark-development-using-notebooks/synapse-spark-session-mgmt.png)
+
+<img src="./media/apache-spark-development-using-notebooks/synapse-spark-session-mgmt.png" alt="spark-session-config" width="800" style="border:1px solid #cccccc" style="border:1px solid #cccccc"/>
+
 
 ## Bring data to a notebook
 
@@ -252,7 +254,7 @@ df = spark.read.option("header", "true") \
 
 You can access data in the primary storage account directly. There's no need to provide the secret keys. In Data Explorer, right-click on a file and select **New notebook** to see a new notebook with data extractor auto-generated.
 
-<img src="./media/apache-spark-development-using-notebooks/synapse-data-to-cell.png" alt="data-to-cell" width="800"/>
+<img src="./media/apache-spark-development-using-notebooks/synapse-data-to-cell.png" alt="data-to-cell" width="800" style="border:1px solid #cccccc"/>
 
 ## Visualize data in a notebook
 
