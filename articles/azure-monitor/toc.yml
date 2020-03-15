@@ -973,10 +973,10 @@
       href: platform/grafana-plugin.md
   - name: Alerting
     items:
+    - name: Troubleshoot alerts
+      href: platform/alerts-troubleshoot.md
     - name: Application alert rules
       items:
-      - name: Troubleshoot alerts
-        href: platform/alerts-troubleshoot.md
       - name: Availability
         href: app/monitor-web-app-availability.md
       - name: Metric alerts
