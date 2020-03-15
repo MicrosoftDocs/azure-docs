@@ -52,14 +52,14 @@ For more information, see:
 
 ## Use portal or SDKs
 
-# [Portal](#tab/portal)
+### [Portal](#tab/portal)
     
 1. Sign in at the [Azure portal](https://portal.azure.com/).
 1. Navigate to your Azure Media Services account.
 1. On the left, select  **Streaming Endpoints**.
 1. Select the streaming endpoint you want to start, click **Start**.
     
-# [Java](#tab/java)
+### [Java](#tab/java)
     
 ```java
 if (streamingEndpoint != null) {
@@ -71,7 +71,7 @@ if (streamingEndpoint.resourceState() != StreamingEndpointResourceState.RUNNING)
 
 See the complete [Java code sample](https://github.com/Azure-Samples/media-services-v3-java/blob/master/DynamicPackagingVODContent/StreamHLSAndDASH/src/main/java/sample/StreamHLSAndDASH.java#L128).
 
-# [.NET](#tab/dotnet)
+### [.NET](#tab/dotnet)
 
 
 ```csharp
@@ -87,7 +87,7 @@ if (streamingEndpoint != null)
 
 See the complete [.NET code sample](https://github.com/Azure-Samples/media-services-v3-dotnet/blob/master/DynamicPackagingVODContent/StreamHLSAndDASH/Program.cs#L112).
 
-# [Azure CLI](#tab/azure-cli)
+### [Azure CLI](#tab/azure-cli)
 
 ```cli
 az ams streaming-endpoint start [--account-name]
