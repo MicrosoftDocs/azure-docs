@@ -124,7 +124,7 @@ The steps below show you how to make a data set, and obtain its ID:
 2. Make a **POST** request to the [Dataset Create API]() to create a new data set. The URL of the request should have a format like the one below:
 
     ```http
-    https://atlas.microsoft.com/dataset/create?api-version=1.0&conversionID=<your-dwg-package-conversion-ID>type=facility&subscription-key=<Azure-Maps-Primary-Subscription-key>
+    https://atlas.microsoft.com/dataset/create?api-version=1.0&conversionID=<your-dwg-package-conversion-ID>&type=facility&subscription-key=<Azure-Maps-Primary-Subscription-key>
     ```
 
 3. Obtain the URL in the **Location** key of the response **Headers** tab.
