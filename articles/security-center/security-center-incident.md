@@ -18,7 +18,7 @@ This topic explains about incidents in Security Center, and how to use remediate
 
 ## What is a security incident?
 
-In Security Center, a security incident is an aggregation of all alerts for a resource that align with [kill chain](alerts-reference.md#Intentions) patterns. Incidents appear in the [Security Alerts](security-center-managing-and-responding-alerts.md) list. Click on an incident to view the related alerts, which enables you to obtain more information about each occurrence.
+In Security Center, a security incident is an aggregation of all alerts for a resource that align with [kill chain](alerts-reference.md#intentions-) patterns. Incidents appear in the [Security Alerts](security-center-managing-and-responding-alerts.md) list. Click on an incident to view the related alerts, which enables you to obtain more information about each occurrence.
 
 ## Managing security incidents
 
