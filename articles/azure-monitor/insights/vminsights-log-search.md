@@ -1,15 +1,15 @@
 ---
-title: How to Query Logs from Azure Monitor for VMs (preview) | Microsoft Docs
+title: How to Query Logs from Azure Monitor for VMs
 description: Azure Monitor for VMs solution collects metrics and log data to and this article describes the records and includes sample queries.
 ms.subservice: 
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 12/19/2019
+ms.date: 03/12/2020
 
 ---
 
-# How to query logs from Azure Monitor for VMs (preview)
+# How to query logs from Azure Monitor for VMs
 
 Azure Monitor for VMs collects performance and connection metrics, computer and process inventory data, and health state information and forwards it to the Log Analytics workspace in Azure Monitor.  This data is available for [query](../../azure-monitor/log-query/log-query-overview.md) in Azure Monitor. You can apply this data to scenarios that include migration planning, capacity analysis, discovery, and on-demand performance troubleshooting.
 
@@ -204,7 +204,7 @@ Records with a type of *VMComputer* have inventory data for servers with the Dep
 |AzureCloudServiceRoleType | Cloud Service role type: *worker* or *web* |
 |AzureCloudServiceInstanceId | Cloud Service role instance ID |
 |AzureVmScaleSetName | The name of the virtual machine scale set |
-|AzureVmScaleSetDeployment | VM scale set deployment ID |
+|AzureVmScaleSetDeployment | Virtual machine scale set deployment ID |
 |AzureVmScaleSetResourceId | The unique identifier of the virtual machine scale set resource.|
 |AzureVmScaleSetInstanceId | The unique identifier of the virtual machine scale set |
 |AzureServiceFabricClusterId | The unique identifer of the Azure Service Fabric cluster | 
