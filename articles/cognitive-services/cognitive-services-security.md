@@ -1,5 +1,5 @@
 ---
-title: Cognitive Services security
+title: Security
 titleSuffix: Azure Cognitive Services
 description: Learn about the various security considerations for Cognitive Services usage.
 services: cognitive-services
@@ -11,7 +11,7 @@ ms.date: 03/16/2020
 ms.author: dapine
 ---
 
-# Cognitive Services security
+# Azure Cognitive Services security
 
 < TODO: Add introduction details, consider changing title? >
 
