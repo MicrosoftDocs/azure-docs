@@ -67,9 +67,9 @@ To set up a managed identity using the Azure Data Explorer C# client:
     
     var kustoManagementClient = new KustoManagementClient(credentials)
     {
-    SubscriptionId = subscriptionId
+        SubscriptionId = subscriptionId
     };
-                                                                                                          
+                                                                                                    
     var resourceGroupName = "testrg";
     var clusterName = "mykustocluster";
     var location = "Central US";
@@ -85,10 +85,10 @@ To set up a managed identity using the Azure Data Explorer C# client:
 2. Run the following command to check if your cluster was successfully created or updated with an identity:
 
     ```csharp
-    (resourceGroupName, clusterName);
+    kustoManagementClient.Clusters.Get(resourceGroupName, clusterName);
     ```
 
-If the result contains `ProvisioningState` with the `Succeeded` value, then the cluster was created or updated, and should have the following properties:
+    If the result contains `ProvisioningState` with the `Succeeded` value, then the cluster was created or updated, and should have the following properties:
 
     ```csharp
     var principalId = cluster.Identity.PrincipalId;
