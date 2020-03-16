@@ -1,6 +1,6 @@
 ---
 title: How to audit Azure Cosmos DB control plane operations
-description: Learn how to audit the control plane operations such as add a region, update throughput, region failover, add a VNet etc in Azure Cosmos DB
+description: Learn how to audit the control plane operations such as add a region, update throughput, region failover, add a VNet etc. in Azure Cosmos DB
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -60,6 +60,7 @@ The following screenshots capture logs when throughput of a Cassandra table is u
 
 ## Identify the identity associated to a specific operation
 
-If you want to debug further, you can identify a specific operation in the Activity log by using the Activity Id or by the timestamp of the operation. Timestamp is usually used for some Resource Manager clients where the activity id is not explicitly passed. The Activity log gives details about the identity with which the operation was initiated. 
+If you want to debug further, you can identify a specific operation in the Activity log by using the Activity ID or by the timestamp of the operation. Timestamp is used for some Resource Manager clients where the activity ID is not explicitly passed. The Activity log gives details about the identity with which the operation was initiated. 
 
 ## Next steps
+
