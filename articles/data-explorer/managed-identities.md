@@ -135,11 +135,11 @@ When the cluster is created, it has the following additional properties:
 1. Select **Settings** > **Identity** in left pane of portal.
 1. In the **Identity** pane > **System assigned** tab:
 
-  ![Add system assigned identity](media/managed-identities/turn-system-assigned-identity-on.png)
+    ![Add system assigned identity](media/managed-identities/turn-system-assigned-identity-on.png)
 
-    1. Move the **Status** slider to **On**.
-    1. Select **Save**
-    1. In the pop-up window, select **Yes**
+   1. Move the **Status** slider to **On**.
+   1. Select **Save**
+   1. In the pop-up window, select **Yes**
 
 1. After a few minutes, the resulting screen shows **Object ID** and **Role assignments**
 
@@ -182,7 +182,7 @@ Run the following to remove the system-assigned identity:
 1. In the **Identity** pane > **System assigned** tab:
     1. Move the **Status** slider to **Off**.
     1. Select **Save**
-    1. In the pop-up window, select **Yes** to disable the system-assigned identity. The **Identity** pane reverts to same condition as before the addition of the system-assigned identity:
+    1. In the pop-up window, select **Yes** to disable the system-assigned identity. The **Identity** pane reverts to same condition as before the addition of the system-assigned identity.
 
     ![System assigned identity off](media/managed-identities/system-assigned-identity.png)
 ---
