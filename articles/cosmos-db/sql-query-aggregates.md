@@ -4,7 +4,7 @@ description: Learn about SQL aggregate function syntax, types of aggregate funct
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/05/2020
+ms.date: 03/16/2020
 ms.author: tisande
 
 ---
@@ -70,6 +70,10 @@ You can also aggregate over the results of an array iteration.
 
 > [!NOTE]
 > In the Azure portal's Data Explorer, aggregation queries may aggregate partial results over only one query page. The SDK produces a single cumulative value across all pages. To perform aggregation queries using code, you need .NET SDK 1.12.0, .NET Core SDK 1.1.0, or Java SDK 1.9.5 or above.
+
+## Remarks
+
+These aggregate system functions will benefit from a [range index](index-policy.md#includeexclude-strategy). If you expect to do a COUNT, SUM, MIN, MAX, or AVG on a property, you should [include the relevant path in the indexing policy](index-policy.md#includeexclude-strategy).
 
 ## Next steps
 
