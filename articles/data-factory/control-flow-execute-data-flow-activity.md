@@ -60,7 +60,7 @@ staging.folderPath | If you're using a SQL DW source or sink, the folder path in
 
 ### Dynamically size data flow compute at runtime
 
-The Core Count and Compute Type properties can be set dynamically to adjust to the size of your incoming source data at runtime. Use pipeline activities like Lookup or Get Metadata in order to find the size of the source dataset data. Then, use Add Dynamic Content in the Data Flow acivity properties.
+The Core Count and Compute Type properties can be set dynamically to adjust to the size of your incoming source data at runtime. Use pipeline activities like Lookup or Get Metadata in order to find the size of the source dataset data. Then, use Add Dynamic Content in the Data Flow activity properties.
 
 ![Dynamic Data Flow](media/data-flow/dyna1.png "Dynamic data flow")
 
