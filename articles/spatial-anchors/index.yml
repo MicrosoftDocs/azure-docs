@@ -43,7 +43,7 @@ landingContent:
             url: ./concepts/coarse-reloc.md
 
   # Card
-  - title: Create your first Unity app
+  - title: Create your first app
     linkLists:
       - linkListType: quickstart
         links:
@@ -53,12 +53,6 @@ landingContent:
             url: ./quickstarts/get-started-unity-android.md
           - text: Unity iOS
             url: ./quickstarts/get-started-unity-ios.md
-
-  # Card
-  - title: Create your first app
-    linkLists:
-      - linkListType: quickstart
-        links:
           - text: HoloLens
             url: ./quickstarts/get-started-hololens.md
           - text: Android
