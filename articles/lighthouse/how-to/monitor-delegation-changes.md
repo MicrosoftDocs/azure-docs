@@ -68,7 +68,7 @@ After you've created your service principal account and assigned the Monitoring 
 
 Once you've created a new service principal account with Monitoring Reader access to the root scope of your managing tenant, you can use it to query and report on delegation activity in your tenant. 
 
-The sample below uses Azure PowerShell to query the past 10 days of activity and reports on any added or removed delegations (or attempts that were not successful). It queries the [Tenant Activity Log](https://docs.microsoft.com/rest/api/monitor/TenantActivityLogs/List) data, then constructs the following values to report on delegations that are added or removed:
+The sample below uses Azure PowerShell to query the past 1 day of activity and reports on any added or removed delegations (or attempts that were not successful). It queries the [Tenant Activity Log](https://docs.microsoft.com/rest/api/monitor/TenantActivityLogs/List) data, then constructs the following values to report on delegations that are added or removed:
 
 - **DelegatedResourceId**: The ID of the delegated subscription or resource group
 - **CustomerTenantId**: The customer tenant ID
@@ -81,22 +81,24 @@ When querying this data, keep in mind:
 - If multiple resource groups are delegated in a single deployment, separate entries will be returned for each resource group.
 - Changes made to a previous delegation (such as updating the permission structure) will be logged as an added delegation.
 - As noted above, an account must have the Monitoring Reader built-in role at root scope (/) in order to access this tenant-level data.
-- You can use this data in your own workflows and reporting. For example, you can use the [HTTP Data Collector API (public preview)](../../azure-monitor/platform/data-collector-api) to log data to Azure Monitor from a REST API client, then use [action groups](../../azure-monitor/platform/action-groups) to create notifications or alerts.
+- You can use this data in your own workflows and reporting. For example, you can use the [HTTP Data Collector API (public preview)](../../azure-monitor/platform/data-collector-api.md) to log data to Azure Monitor from a REST API client, then use [action groups](../../azure-monitor/platform/action-groups.md) to create notifications or alerts.
 
 ```azurepowershell-interactive
 # Log in first with Connect-AzAccount if you're not using Cloud Shell
 
-$GetDate = (Get-Date).AddDays((-10))
+# Azure Lighthouse: Query Tenant Activity Log for registered/unregistered delegations for the past 1 day
+
+$GetDate = (Get-Date).AddDays((-1))
 
 $dateFormatForQuery = $GetDate.ToUniversalTime().ToString("yyyy-MM-ddTHH:mm:ssZ")
 
-# Get Azure context for the API call
+# Getting Azure context for the API call
 $currentContext = Get-AzContext
 
-# Fetch new token
+# Fetching new token
 $azureRmProfile = [Microsoft.Azure.Commands.Common.Authentication.Abstractions.AzureRmProfileProvider]::Instance.Profile
 $profileClient = [Microsoft.Azure.Commands.ResourceManager.Common.RMProfileClient]::new($azureRmProfile)
-$token = $profileClient.AcquireAccessToken($currentContext.Subscription.TenantId)
+$token = $profileClient.AcquireAccessToken($currentContext.Tenant.Id)
 
 $listOperations = @{
     Uri = "https://management.azure.com/providers/microsoft.insights/eventtypes/management/values?api-version=2015-04-01&`$filter=eventTimestamp ge '$($dateFormatForQuery)'"
@@ -107,45 +109,46 @@ $listOperations = @{
     Method = 'GET'
 }
 $list = Invoke-RestMethod @listOperations
-
 $showOperations = $list.value
 
 if ($showOperations.operationName.value -eq "Microsoft.Resources/tenants/register/action")
 {
-    $outputs  = $showOperations | Where-Object -FilterScript {$_.eventName.value -eq "EndRequest" -and $_.resourceType.value -and $_.operationName.value -eq "Microsoft.Resources/tenants/register/action"}
-    foreach ($output in $outputs)
+    $registerOutputs  = $showOperations | Where-Object -FilterScript {$_.eventName.value -eq "EndRequest" -and $_.resourceType.value -and $_.operationName.value -eq "Microsoft.Resources/tenants/register/action"}
+    foreach ($registerOutput in $registerOutputs)
     {
-    $outputdata = [pscustomobject]@{
-        Event = "An Azure customer has delegated resources to your tenant.";
-        DelegatedResourceId = $output.description |%{$_.split('"')[11]};
-        CustomerTenantId = $output.description |%{$_.split('"')[7]};
-        CustomerSubscriptionId = $output.subscriptionId;
-        CustomerDelegationStatus = $output.status.value;
-        EventTimeStamp = $output.eventTimestamp;
+    $registerOutputdata = [pscustomobject]@{
+        Event = "An Azure customer has delegated resources to your tenant";
+        DelegatedResourceId = $registerOutput.description |%{$_.split('"')[11]};
+        CustomerTenantId = $registerOutput.description |%{$_.split('"')[7]};
+        CustomerSubscriptionId = $registerOutput.subscriptionId;
+        CustomerDelegationStatus = $registerOutput.status.value;
+        EventTimeStamp = $registerOutput.eventTimestamp;
         }
-        $outputdata | Format-List
+        $registerOutputdata | Format-List
     }
 }
-elseif ($showOperations.operationName.value -eq "Microsoft.Resources/tenants/unregister/action") 
+if ($showOperations.operationName.value -eq "Microsoft.Resources/tenants/unregister/action") 
 {
-    $outputs  = $showOperations | Where-Object -FilterScript {$_.eventName.value -eq "EndRequest" -and $_.resourceType.value -and $_.operationName.value -eq "Microsoft.Resources/tenants/unregister/action"}
-    foreach ($output in $outputs)
+    $unregisterOutputs  = $showOperations | Where-Object -FilterScript {$_.eventName.value -eq "EndRequest" -and $_.resourceType.value -and $_.operationName.value -eq "Microsoft.Resources/tenants/unregister/action"}
+    foreach ($unregisterOutput in $unregisterOutputs)
     {
-    $outputdata = [pscustomobject]@{
-        Event = "An Azure customer has removed delegated resources from your tenant.";
-        DelegatedResourceId = $output.description |%{$_.split('"')[11]};
-        CustomerTenantId = $output.description |%{$_.split('"')[7]};
-        CustomerSubscriptionId = $output.subscriptionId;
-        CustomerDelegationStatus = $output.status.value;
-        EventTimeStamp = $output.eventTimestamp;
+    $unregisterOutputdata = [pscustomobject]@{
+        Event = "An Azure customer has removed delegated resources from your tenant";
+        DelegatedResourceId = $unregisterOutput.description |%{$_.split('"')[11]};
+        CustomerTenantId = $unregisterOutput.description |%{$_.split('"')[7]};
+        CustomerSubscriptionId = $unregisterOutput.subscriptionId;
+        CustomerDelegationStatus = $unregisterOutput.status.value;
+        EventTimeStamp = $unregisterOutput.eventTimestamp;
         }
-        $outputdata | Format-List
+        $unregisterOutputdata | Format-List
     }
 }
 else 
 {
-    Write-Output "No delegation changes."
-}
+    Write-Output "No new delegation changes."
+}   
+
+
 ```
 
 ## Next steps
