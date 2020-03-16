@@ -68,7 +68,7 @@ The key's randomart image is:
 
 **Q:** I am unable to connect to my Windows virtual machine that is domain-joined.
 
-**A:** Azure Bastion supports domain-joined VM sign in for username-password based domain sign-in only. When specifying the domain credentials in  the Azure portal, use the UPN (username@domain) format instead of *domain\username* format to sign in. This is supported for domain-joined or hybrid-joined (both domain-joined as well as Azure AD-joined) virtual machines. It is not supported for Azure AD-joined-only virtual machines.
+**A:** Azure Bastion supports domain-joined VM sign in for username-password based domain sign-in only. When specifying the domain credentials in  the Azure portal, use the UPN (username@domain) format instead of *domain\username* format to sign in. This is supported for domain-joined or hybrid-joined (both domain-joined as well as Azure AD-joined) virtual machines. It is not supported for Azure AD-joined-only virtual machines. Also we currently don't support connecting to domains which have [Restrict NTLM](https://docs.microsoft.com/windows/security/threat-protection/security-policy-settings/network-security-restrict-ntlm-ntlm-authentication-in-this-domain) policy.
 
 ## <a name="filetransfer"></a>File transfer issues
 
