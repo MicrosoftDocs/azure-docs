@@ -123,7 +123,7 @@ You will not be able to deploy models on FPGAs until you have requested and been
 ## Automated machine learning
 
 Tensor Flow
-Automated machine learning does not currently support tensor flow version 1.13. Installing this version will cause package dependencies to stop working. We are working to fix this issue in a future release. 
+Automated machine learning does not currently support tensor flow version 1.13. Installing this version will cause package dependencies to stop working. We are working to fix this issue in a future release.
 
 ### Experiment Charts
 
@@ -145,7 +145,7 @@ script_params = {
 ```
 
 If you don't include the leading forward slash, '/',  you'll need to prefix the working directory e.g.
-`/mnt/batch/.../tmp/dataset` on the compute target to indicate where you want the dataset to be mounted. 
+`/mnt/batch/.../tmp/dataset` on the compute target to indicate where you want the dataset to be mounted.
 
 ### Fail to read Parquet file from HTTP or ADLS Gen 2
 
@@ -205,14 +205,14 @@ If you see this error when you use automated machine learning, run the two follo
 
 If you see this error when you use automated machine learning:
 
-1. Run this command to install two packages in your Azure Databricks cluster: 
+1. Run this command to install two packages in your Azure Databricks cluster:
 
-   ```
+   ```bash
    scikit-learn==0.19.1
    pandas==0.22.0
    ```
 
-1. Detach and then reattach the cluster to your notebook. 
+1. Detach and then reattach the cluster to your notebook.
 
 If these steps don't solve the issue, try restarting the cluster.
 
@@ -265,11 +265,11 @@ If you receive an error `Unable to upload project files to working directory in 
 
 If you are using file share for other workloads, such as data transfer, the recommendation is to use blobs so that file share is free to be used for submitting runs. You may also split the workload between two different workspaces.
 
-## Webservices in Azure Kubernetes Service failures 
+## Webservices in Azure Kubernetes Service failures
 
 Many webservice failures in Azure Kubernetes Service can be debugged by connecting to the cluster using `kubectl`. You can get the `kubeconfig.json` for an Azure Kubernetes Service Cluster by running
 
-```bash
+```azurecli-interactive
 az aks get-credentials -g <rg> -n <aks cluster name>
 ```
 
@@ -313,7 +313,7 @@ Known issues with labeling projects.
 
 ### Only datasets created on blob datastores can be used
 
-This is a known limitation of the current release. 
+This is a known limitation of the current release.
 
 ### After creation, the project shows "Initializing" for a long time
 
