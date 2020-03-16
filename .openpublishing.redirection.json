@@ -49373,6 +49373,21 @@
       "source_path": "articles/media-services/latest/create-account-cli-how-to.md",
       "redirect_url": "/azure/media-services/latest/create-account-howto",
       "redirect_document_id": false
+    },
+    { 
+      "source_path": "articles/mariadb/howto-tls-configurations.md", 
+      "redirect_url": "/azure/mariadb/howto-configure-ssl", 
+      "redirect_document_id": false 
+    },
+    {
+      "source_path": "articles/mysql/howto-tls-configurations.md", 
+      "redirect_url": "/azure/mysql/howto-configure-ssl", 
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/postgresql/howto-tls-configurations.md", 
+      "redirect_url": "/azure/postgresql/concepts-ssl-connection-security", 
+      "redirect_document_id": false
     }
   ]
 }
