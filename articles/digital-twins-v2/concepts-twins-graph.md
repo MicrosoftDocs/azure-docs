@@ -17,14 +17,14 @@ ms.service: digital-twins
 
 # Understand Azure digital twins and their twin graph
 
-In an Azure Digital Twins solution, the entities in your environment are represented by **Azure digital twins**. An Azure digital twin is an instance of one of the user-created [twin types](concepts-models.md); it follows a pre-defined twin type template and is connected to other Azure digital twins via relationships to form the Azure Digital Twins **twin graph**.
+In an Azure Digital Twins solution, the entities in your environment are represented by Azure **digital twins**. An Azure digital twin is an instance of one of your user-created [twin types](concepts-models.md); it follows a pre-defined twin type template and is connected to other Azure digital twins via relationships to form a **twin graph**.
 
 > [!TIP]
-> "Azure Digital Twins" (every word capitalized) refers to the entire Azure service. When you see "digital twin(s)" or "Azure digital twin(s)" (not capitalized), these refer to the actual twin nodes inside the twin graph. They are individual entities in your "Azure Digital Twins" solution.
+> "Azure Digital Twins" (every word capitalized) refers to this entire Azure service. When you see "digital twin(s)" or "Azure digital twin(s)" (not capitalized), this refers to the actual twin nodes inside the twin graph. They are the individual entities in your Azure Digital Twins solution.
 
 ## Creating Azure digital twins
 
-Building an Azure digital twin starts with creating a twin type. A twin type describes a digital twin's properties and what relationships it can have, among other aspects. For the types of information that are defined in a twin type, see [Create a twin type](concepts-models.md).
+Building an Azure digital twin starts with creating a *twin type*. A twin type describes a digital twin's properties and what relationships it can have, among other aspects. For the types of information that are defined in a twin type, see [Create a twin type](concepts-models.md).
 
 After creating a twin type, your client app will instantiate it in order to create Azure digital twins. For example, after creating a twin type of *Floor*, you may create one or several digital twins that use this design (a *Floor*-type twin called *GroundFloor*, another called *Floor2*, etc.). 
 
@@ -50,15 +50,15 @@ Here is some example client code that uses the [Twin APIs](how-to-use-apis.md) t
 client.CreateRelationship("GroundFloor", "contains", "Cafe");
 ```
 
-The result of this process is a set of nodes (the digital twins) connected via edges (their relationships) to form a graph.
+The result of this process is a set of nodes (the digital twins) connected via edges (their relationships) in a graph.
 
 ## JSON representations of graph elements
 
-Digital twin data and relationship data are both stored in JSON format. This means that when you [query the twin graph](concepts-query-graph.md) in your Azure Digital Twins instance, the result will be a JSON representation of the Azure digital twins and relationships you have created.
+Digital twin data and relationship data are both stored in JSON format. This means that when you [query the twin graph](concepts-query-graph.md) in your Azure Digital Twins instance, the result will be a JSON representation of Azure digital twins and relationships you have created.
 
 ### Digital twin JSON format
 
-When represented as a JSON object, an Azure digital twin has the following fields:
+When represented as a JSON object, an Azure digital twin will display the following fields:
 
 | Field name | Description |
 | --- | --- |
@@ -67,11 +67,11 @@ When represented as a JSON object, an Azure digital twin has the following field
 | `{propertyName}` | The value of a property in JSON (`string`, number type, or object) |
 | `$relationships` | URL of the path to the relationships collection. This field is absent if the digital twin has no outgoing relationship edges. |
 | `$metadata.$model` | [Optional] The URN of the twin type interface that characterizes this digital twin |
-| `$metadata.{propertyName}.desiredValue` | [only for writable properties] The desired value of the specified property |
-| `$metadata.{propertyName}.desiredVersion` | [only for writable properties] The version of the desired value |
+| `$metadata.{propertyName}.desiredValue` | [Only for writable properties] The desired value of the specified property |
+| `$metadata.{propertyName}.desiredVersion` | [Only for writable properties] The version of the desired value |
 | `$metadata.{propertyName}.ackVersion` | The version acknowledged by the device app implementing the digital twin |
-| `$metadata.{propertyName}.ackCode` | [only for writable properties] The `ack` code returned by the device app implementing the digital twin |
-| `$metadata.{propertyName}.ackDescription` | [only for writable properties] The `ack` description returned by the device app implementing the digital twin |
+| `$metadata.{propertyName}.ackCode` | [Only for writable properties] The `ack` code returned by the device app implementing the digital twin |
+| `$metadata.{propertyName}.ackDescription` | [Only for writable properties] The `ack` description returned by the device app implementing the digital twin |
 | `{componentName}` | A JSON object containing the component's property values and metadata, similar to those of the root object. This object exists even if the component has no properties. |
 | `{componentName}.{propertyName}` | The value of the component's property in JSON (`string`, number type, or object) |
 | `{componentName}.$metadata` | The metadata information for the component, similar to the root-level `$metadata` |
@@ -124,15 +124,15 @@ Here is an example of an Azure digital twin formatted as a JSON object:
 
 ### Relationship JSON format
 
-When represented as a JSON object, a relationship from an Azure digital twin has the following fields:
+When represented as a JSON object, a relationship from an Azure digital twin will display the following fields:
 
 | Field name | Description |
 | --- | --- |
-| `$edgeId` | A user-provided string representing the ID of this relationship edge. This string is unique in the context of the source digital twin, which also means that `sourceId` + `edgeId` is unique in the context of the service. |
+| `$edgeId` | A user-provided string representing the ID of this relationship edge. This string is unique in the context of the source digital twin, which also means that `sourceId` + `edgeId` is unique in the context of the Azure Digital Twins instance. |
 | `$sourceId` | The ID of the source digital twin |
 | `$targetId` | The ID of the target digital twin |
 | `$relationshipName` | The name of the relationship |
-| `{propertyName}` | The value of the property in JSON (`string`, number type, or object) |
+| `{propertyName}` | [Optional] The value of a property of this relationship, in JSON (`string`, number type, or object) |
 
 Here is an example of a relationship formatted as a JSON object:
 
