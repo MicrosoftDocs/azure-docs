@@ -150,22 +150,22 @@ A request payload similar to this example is returned:
 
 ```json
 {
-	"Data": {
-		"myQueueItem": "{ message: \"Message sent\" }"
-	},
-	"Metadata": {
-		"DequeueCount": 1,
-		"ExpirationTime": "2019-10-16T17:58:31+00:00",
-		"Id": "800ae4b3-bdd2-4c08-badd-f08e5a34b865",
-		"InsertionTime": "2019-10-09T17:58:31+00:00",
-		"NextVisibleTime": "2019-10-09T18:08:32+00:00",
-		"PopReceipt": "AgAAAAMAAAAAAAAAAgtnj8x+1QE=",
-		"sys": {
-			"MethodName": "QueueTrigger",
-			"UtcNow": "2019-10-09T17:58:32.2205399Z",
-			"RandGuid": "24ad4c06-24ad-4e5b-8294-3da9714877e9"
-		}
-	}
+    "Data": {
+        "myQueueItem": "{ message: \"Message sent\" }"
+    },
+    "Metadata": {
+        "DequeueCount": 1,
+        "ExpirationTime": "2019-10-16T17:58:31+00:00",
+        "Id": "800ae4b3-bdd2-4c08-badd-f08e5a34b865",
+        "InsertionTime": "2019-10-09T17:58:31+00:00",
+        "NextVisibleTime": "2019-10-09T18:08:32+00:00",
+        "PopReceipt": "AgAAAAMAAAAAAAAAAgtnj8x+1QE=",
+        "sys": {
+            "MethodName": "QueueTrigger",
+            "UtcNow": "2019-10-09T17:58:32.2205399Z",
+            "RandGuid": "24ad4c06-24ad-4e5b-8294-3da9714877e9"
+        }
+    }
 }
 ```
 
@@ -410,6 +410,7 @@ With this configuration, you can start the Function's host process using the fol
 ```bash
 func host start
 ```
+
 Once the process is started, you can attach a debugger and hit breakpoints.
 
 ### Visual Studio Code
