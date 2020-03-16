@@ -10,7 +10,7 @@ ms.author: tisande
 ---
 # Aggregate functions in Azure Cosmos DB
 
-Aggregate functions perform a calculation on a set of values in the SELECT clause and return a single value. For example, the following query returns the count of items within the `Families` container:
+Aggregate functions perform a calculation on a set of values in the `SELECT` clause and return a single value. For example, the following query returns the count of items within the `Families` container:
 
 ## Examples
 
@@ -56,7 +56,7 @@ The results are:
 
 ## Types of aggregate functions
 
-The SQL API supports the following aggregate functions. SUM and AVG operate on numeric values, and COUNT, MIN, and MAX work on numbers, strings, Booleans, and nulls.
+The SQL API supports the following aggregate functions. `SUM` and `AVG` operate on numeric values, and `COUNT`, `MIN`, and `MAX` work on numbers, strings, Booleans, and nulls.
 
 | Function | Description |
 |-------|-------------|
@@ -73,7 +73,7 @@ You can also aggregate over the results of an array iteration.
 
 ## Remarks
 
-These aggregate system functions will benefit from a [range index](index-policy.md#includeexclude-strategy). If you expect to do a COUNT, SUM, MIN, MAX, or AVG on a property, you should [include the relevant path in the indexing policy](index-policy.md#includeexclude-strategy).
+These aggregate system functions will benefit from a [range index](index-policy.md#includeexclude-strategy). If you expect to do a `COUNT`, `SUM`, `MIN`, `MAX`, or `AVG` on a property, you should [include the relevant path in the indexing policy](index-policy.md#includeexclude-strategy).
 
 ## Next steps
 
