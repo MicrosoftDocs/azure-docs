@@ -21,7 +21,7 @@ ms.author: juliako
 
 Azure Media Service delivers video, audio, and text in different protocols. When you publish your live stream using MPEG-DASH or HLS/CMAF, then along with video and audio, our service delivers the transcribed text in IMSC1.1 compatible TTML. The delivery is packaged into MPEG-4 Part 30 (ISO/IEC 14496-30) fragments. If using delivery via HLS/TS, then text is delivered as chunked VTT.
 
-This article describes how to enable live transcription when streaming a Live Event with Azure Media Services v3. Before you proceed, make sure you're familiar with the use of Media Services v3 REST APIs (see [this tutorial](stream-files-tutorial-with-rest.md) for details). You should also be familiar with the [live streaming](live-streaming-overview.md) concept. It's recommended to complete the [Stream live with Media Services](stream-live-tutorial-with-api.md) tutorial.
+This article describes how to enable live transcription when streaming a Live Event with Azure Media Services v3. Before you continue, make sure you're familiar with the use of Media Services v3 REST APIs (see [this tutorial](stream-files-tutorial-with-rest.md) for details). You should also be familiar with the [live streaming](live-streaming-overview.md) concept. It's recommended to complete the [Stream live with Media Services](stream-live-tutorial-with-api.md) tutorial.
 
 > [!NOTE]
 > Currently, live transcription is only available as a preview feature in the West US 2 region. It supports transcription of spoken words in English to text. The API reference for this feature is located below—becasuse it's in preview, the details aren't available with our REST documents.
@@ -84,7 +84,7 @@ The operation has the following body (where a pass-through Live Event is created
 } 
 ```
 
-You should poll the status of the Live Event until it goes into the "Running" state, which indicates that you can now send a contribution RTMP feed. You can now follow the same steps as in this tutorial, like checking the preview feed and creating Live outputs.
+Poll the status of the Live Event until it goes into the "Running" state, which indicates that you can now send a contribution RTMP feed. You can now follow the same steps as in this tutorial, like checking the preview feed and creating Live outputs.
 
 ## Delivery and playback
 
@@ -100,7 +100,7 @@ For preview, the following are known issues with live transcription:
 * The feature is available only in West US 2.
 * Apps need to use the preview APIs, described in the [Media Services v3 OpenAPI Specification](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/preview/2019-05-01-preview/streamingservice.json).
 * The only supported language is English (en-us).
-* With respect to content protection, only AES envelope encryption is supported.
+* With content protection, only AES envelope encryption is supported.
 
 ## Next steps
 
