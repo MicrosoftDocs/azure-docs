@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 03/11/2020
 ---
 
-# Azure Kubernetes Service (AKS) Uptime SLA (Preview)
+# Azure Kubernetes Service (AKS) Uptime SLA
 
 When used with Availability Zones, this **optional** offering allows you to achieve 99.95% availability for the AKS cluster API server. If you do not use Availability Zones, you can achieve 99.9% availability. AKS uses master node replicas across update and fault domains to ensure SLA requirements are met.
 
 > [!Important]
-> TODO verbiage [limit egress traffic][limit-egress-traffic]
+> For clusters with egress lockdown, see [limit egress traffic](limit-egress-traffic.md) to open appropriate ports for Uptime SLA.
 
 ## Region Availability
 
@@ -28,9 +28,9 @@ Uptime SLA is available in the following regions:
 
 * The Azure CLI version 2.7.0 or later
 
-## Billing and refunds
+## SLA terms and conditions
 
-You can view [Uptime SLA pricing details](https://azure.microsoft.com/pricing/details/kubernetes-service/) for more information. The SLA Agreement is for the API server endpoint availability and is not related to AKS control plane availability, or it's performance. Uptime SLA is an optional paid feature. TODO link for pricing details. Uptime SLA pricing is determined by the number of clusters, and not by the size of the clusters. The Uptime SLA reimbursements are performed monthly. The billing unit is calculated TODO per cluster/hour. TODO legal?
+Uptime SLA pricing is determined by the number of clusters, and not by the size of the clusters. You can view [Uptime SLA pricing details](https://azure.microsoft.com/pricing/details/kubernetes-service/) for more information.
 
 ## Creating a cluster with Uptime SLA
 
@@ -90,3 +90,4 @@ Use [Availability Zones][availability-zones] to increase high availability with 
 [az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az-aks-create
 [limit-egress-traffic]: ./limit-egress-traffic.md
 [az-extension-add]: /cli/azure/extension#az-extension-add
+[az-extension-update]: /cli/azure/extension#az-extension-update
