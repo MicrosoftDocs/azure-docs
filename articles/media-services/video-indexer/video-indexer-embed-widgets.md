@@ -26,7 +26,7 @@ Starting with version 2, the widget base URL includes the region of the specifie
 A Cognitive Insights widget includes all visual insights that were extracted from your video indexing process. The Cognitive Insights widget supports the following optional URL parameters.
 
 |Name|Definition|Description|
-|---|---|---|x`
+|---|---|---|
 |`widgets`|Strings separated by comma|Allows you to control the insights that you want to render. <br/> Example: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search` renders only people and brands UI insights.<br/>Available options: people, keywords, annotations, brands, sentiments, transcript, search.<br/>Note that the `widgets` URL parameter isn't supported in version 2.<br/>|
 |`locale`|A short language code|Controls the the language of the interface. The default value is `en`. <br/> Example: `locale=de`.|
 |`tab`|The default selected tab|Controls the **Insights** tab that's rendered by default. <br/> Example: `tab=timeline` renders the insights with the **Timeline** tab selected.|
