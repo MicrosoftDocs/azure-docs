@@ -41,7 +41,7 @@ To get started, you need the following items:
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Netvision Compas supports **SP and IDP** initiated SSO
-* Once you configure Netvision Compas you can enforce Session Control, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session Control extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
+* Once you configure Netvision Compas you can enforce Session Control, which protect exfiltration and infiltration of your organization’s sensitive data in real time. Session Control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 
 ## Adding Netvision Compas from the gallery
@@ -139,13 +139,13 @@ To configure single sign-on on **Netvision Compas** side, you need to send the d
 
 ### Create Netvision Compas test user
 
-In this section, you create a user called B.Simon in Netvision Compas. Work with [Netvision Compas support team](mailto:contact@net.vision) to add the users in the Netvision Compas platform.Users must be created and activated before you use single sign-on.
+In this section, you create a user called B.Simon in Netvision Compas. Work with [Netvision Compas support team](mailto:contact@net.vision) to add the users in the Netvision Compas platform. Users must be created and activated before you use single sign-on.
 
 ## Test SSO 
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Netvision Compas tile in the Access Panel, you should be automatically signed in to the Netvision Compas for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you click the Netvision Compas tile in the Access Panel, you should be automatically signed in to the Netvision Compas for which you setup SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## Additional resources
 
