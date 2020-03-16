@@ -24,7 +24,7 @@ There are 3 resource types available for querying under this RP. Here is the lis
 These resource types are listed under a new table named as AdvisorResources, which you can also query in the Resource Graph Explorer in Azure portal.
 
 
-## More Information
+## Next Steps
 
 For more information about Advisor recommendations, see:
 * [Introduction to Azure Advisor](advisor-overview.md)
