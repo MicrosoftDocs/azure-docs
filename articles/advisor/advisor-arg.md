@@ -15,6 +15,8 @@ Advisor RP is now onboarded to [Azure Resource Graph](https://azure.microsoft.co
 * All recommendations for a particular recommendation type
 * Impacted resource count by recommendation category
 
+![Advisor in Azure resource graph explorer](articles/advisor/media/arg-1.png)  
+
 Available Advisor resource types in [Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/):
 There are 3 resource types available for querying under this RP. Here is the list of the resources that are now available for querying in Resource Graph.
 * Microsoft.Advisor/configurations
