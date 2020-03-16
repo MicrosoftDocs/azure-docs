@@ -42,4 +42,4 @@ Create an [Azure Synapse Workspace](../quickstart-create-workspace.md)
 
 Learn more about [Managed private endpoints](./synapse-workspace-managed-private-endpoints.md)
 
-[Create Managed private endpoints to your data sources](./how-to-create-a-managed-private-endpoint-to-connect-to-your-data-source.md)
+[Create Managed private endpoints to your data sources](./how-to-create-managed-private-endpoints.md)

@@ -34,4 +34,4 @@ These two Managed private endpoints are automatically created for you when your 
 
 ## Next steps
 
-[Create Managed private endpoints to your data sources](./security/how-to-create-managed-private-endpoints.md)
+[Create Managed private endpoints to your data sources](./how-to-create-managed-private-endpoints.md)
