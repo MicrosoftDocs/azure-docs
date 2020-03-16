@@ -67,17 +67,15 @@ Even if in your situation a set of folders can logically sync to the same Azure 
 
 |   |        |
 | - | ------ |
-| :::image type="icon" source="media/storage-files-migration-namespace-mapping/excel.png"::: | Download a namespace mapping template. |
-
-
+<table>
+    <tr>
+        <td>
+            :::image type="icon" source="media/storage-files-migration-namespace-mapping/excel.png":::
+        </td>
+        <td>
+            Download a namespace mapping template.
+        </td>
+    </tr>
+</table>
     :::column-end:::
 :::row-end:::
-
-:::row:::
-            :::column:::
-                :::image type="icon" source="media/storage-files-migration-namespace-mapping/excel.png":::
-            :::column-end:::
-            :::column:::
-                Download a namespace mapping template.
-            :::column-end:::
-        :::row-end:::
