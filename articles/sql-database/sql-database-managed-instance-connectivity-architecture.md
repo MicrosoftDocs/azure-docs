@@ -52,7 +52,7 @@ Microsoft management and deployment services run outside the virtual network. A 
 
 Management traffic flows through the customer's virtual network. That means that elements of the virtual network's infrastructure can harm management traffic by making the instance fail and become unavailable.
 
-> [!IMPORTANT]
+> [!Important]
 > To improve customer experience and service availability, Microsoft applies a network intent policy on Azure virtual network infrastructure elements. The policy can affect how the managed instance works. This platform mechanism transparently communicates networking requirements to users. The policy's main goal is to prevent network misconfiguration and to ensure normal managed instance operations. When you delete a managed instance, the network intent policy is also removed.
 
 ## Virtual cluster connectivity architecture
