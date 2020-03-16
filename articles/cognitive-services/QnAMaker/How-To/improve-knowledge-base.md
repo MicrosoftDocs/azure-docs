@@ -9,6 +9,10 @@ ms.date: 03/16/2020
 
 Active Learning alters the Knowledge Base or Search Service after you approve the suggestion, then save and train. If you approve the suggestion it will be added as an alternate question.
 
+## Turn on active learning
+
+In order to see suggested questions, you must [turn on active learning](turn-on-active-learning.md) for your QnA Maker resource.
+
 ## View suggested questions
 
 1. In order to see the suggested questions, on the **Edit** knowledge base page, select **View Options**, then select **Show active learning suggestions**.
