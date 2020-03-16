@@ -9,7 +9,7 @@ groups:
   - id: client-operating-system-linux
     title: Linux
   - id: client-operating-system-macos
-    title: MacOS
+    title: macOS
   - id: client-operating-system-windows
     title: Windows
 - id: URL-test-interface
@@ -135,7 +135,7 @@ groups:
   - id: programming-language-javascript
     title: JavaScript
   - id: programming-language-java
-    title: Java 
+    title: Java
   - id: programming-language-other
     title: Other languages...
 - id: programming-languages-set-ten
@@ -196,7 +196,7 @@ groups:
   - id: programming-language-python
     title: Python
   - id: programming-language-java
-    title: Java 
+    title: Java
   - id: programming-language-javascript
     title: JavaScript
   - id: programming-language-other
@@ -241,3 +241,13 @@ groups:
     title: Java
   - id: programming-language-objectivec
     title: Objective-C
+- id: programming-languages-set-thirteen
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-cpp
+    title: C+
+  - id: programming-language-java
+    title: Java

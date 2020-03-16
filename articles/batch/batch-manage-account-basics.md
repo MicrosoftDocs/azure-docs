@@ -58,3 +58,4 @@ The Batch account enables you to run large-scale parallel and high-performance c
 - Create a Batch account programmatically, such as with the [Batch Management .NET library](batch-management-dotnet.md).
 - [Configure or disable remote access to compute nodes in an Azure Batch pool](pool-endpoint-configuration.md).
 - [Run job preparation and job release tasks on Batch compute nodes](batch-job-prep-release.md)
+
