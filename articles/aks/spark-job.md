@@ -235,7 +235,7 @@ Submit the job using `spark-submit`.
 
 This operation starts the Spark job, which streams job status to your shell session. While the job is running, you can see Spark driver pod and executor pods using the kubectl get pods command. Open a second terminal session to run these commands.
 
-```bash
+```console
 kubectl get pods
 ```
 
