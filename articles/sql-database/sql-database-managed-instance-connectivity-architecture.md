@@ -52,7 +52,7 @@ Microsoft management and deployment services run outside the virtual network. A 
 
 Management traffic flows through the customer's virtual network. That means that elements of the virtual network's infrastructure can harm management traffic by making the instance fail and become unavailable.
 
-> [!Important]
+> [!IMPORTANT]
 > To improve customer experience and service availability, Microsoft applies a network intent policy on Azure virtual network infrastructure elements. The policy can affect how the managed instance works. This platform mechanism transparently communicates networking requirements to users. The policy's main goal is to prevent network misconfiguration and to ensure normal managed instance operations. When you delete a managed instance, the network intent policy is also removed.
 
 ## Virtual cluster connectivity architecture
@@ -337,6 +337,7 @@ Deploy a managed instance in a dedicated subnet inside the virtual network. The 
 
 > [!IMPORTANT]
 > Although required inbound security rules allow traffic from _any_ source on ports 9000, 9003, 1438, 1440, and 1452, these ports are protected by a built-in firewall. For more information, see [Determine the management endpoint address](sql-database-managed-instance-find-management-endpoint-ip-address.md).
+
 > [!NOTE]
 > If you use transactional replication in a managed instance, and if you use any instance database as a publisher or a distributor, open port 445 (TCP outbound) in the subnet's security rules. This port will allow access to the Azure file share.
 
