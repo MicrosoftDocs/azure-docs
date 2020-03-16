@@ -80,9 +80,12 @@ To set up the appropriate permissions for password writeback to occur, complete 
 
 When you update permissions, it might take up to an hour or more for these permissions to replicate to all the objects in your directory.
 
-Password policies in the on-premises AD DS environment may prevent password resets from being correctly processed. For password writeback to work correctly, group policy for *Minimum password age* must be set to 0. This setting can be found under **Computer Configuration > Policies > Windows Settings > Security Settings > Account Policies** within `gpedit.msc`.
+Password policies in the on-premises AD DS environment may prevent password resets from being correctly processed. For password writeback to work most efficiently, the group policy for *Minimum password age* must be set to 0. This setting can be found under **Computer Configuration > Policies > Windows Settings > Security Settings > Account Policies** within `gpedit.msc`. 
 
 If you update the group policy, wait for the updated policy to replicate, or use the `gpupdate /force` command.
+
+> [!Note]
+> In order for passwords to be changed immediately, password writeback must be set to 0. However, if users adhere to the on-premises policies, and the *Minimum password age* is set to a value greater than zero, password writeback will still work after the on-premises policies are evaluated. 
 
 ## Enable password writeback in Azure AD Connect
 
