@@ -192,9 +192,6 @@ For more information on using PowerShell, see [public documentation](../azure-mo
 
 ## Application Insights
 
-> [!NOTE]
-> Codeless agent/extension based monitoring for Azure App Services is **currently not supported**. As soon as this functionality becomes available this article will be updated.
-
 This section describes the supplemental configuration that is required to use Application Insights in Azure Government. To learn more about Azure Monitor and Application Insights checkout the [full documentation](https://docs.microsoft.com/azure/azure-monitor/overview).
 
 ### Enable Application Insights for ASP.NET & ASP.NET Core with Visual Studio
