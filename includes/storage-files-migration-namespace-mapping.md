@@ -65,7 +65,7 @@ Even if in your situation a set of folders can logically sync to the same Azure 
         
         Create a table that records your thoughts, such that you can refer to it in the next step. Staying organized is important as it can be easy to lose details of your mapping plan when provisioning many Azure resources at once. To help you in creating a complete mapping, you can download a Microsoft Excel file as a template.
 
-[//]: # (After many tries there is not a markdown way capable of adding a nested 2-column table with working image parsing and text/hyperlink on the same line. HTML is the only option.)
+[//]: # (After several attempts, there does not appear to be a markdown way capable of adding a nested two-column table with working image parsing and text/hyperlink on the same line. HTML seems like the only option.)
 
 <br>
 <table>
