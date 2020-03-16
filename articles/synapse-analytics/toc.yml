@@ -402,7 +402,7 @@
     #   href: article-template.md
     - name: Manage private endpoints
       items:
-        - name: Set up Managed private endpoints to data sources
+      - name: Set up Managed private endpoints to data sources
         href: security/how-to-create-managed-private-endpoints.md
     # - name: Enable encryption - portal
     #   href: article-template.md
