@@ -22,7 +22,7 @@ Azure Digital Twins **Twin APIs** let developers create, modify, and delete digi
 ## Get twin data for an entire digital twin
 
 You can access data on any Azure digital twin by calling `Response<JsonDocument> GetTwin(string id);`.
-This returns twin data in JSON form. Assuming the following twin type model (written in [Digital Twins Definition Language (DTDL)](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL)) defines a digital twin of twin type model *Moon*:
+This returns twin data in JSON form. Assuming the following twin type (written in [Digital Twins Definition Language (DTDL)](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL)) defines a digital twin of twin type *Moon*:
 
 ```json
 {
@@ -76,12 +76,12 @@ The call `GetTwin("myMoon-001");` might return:
 
 The defined properties of the Azure digital twin are returned as top-level properties on the digital twin. Metadata or system information that is not part of the DTDL definition is returned with a `$` prefix:
 * The ID of the digital twin in this Azure Digital Twins instance.
-* The conformance flag, indicating if the current data in the digital twin is conforming to the defined twin type model. Digital twins defined in the Azure Digital Twins service will always be conformant, but [digital twins controlled by IoT Hub devices](concepts-iothub-devices.md) may have data not conforming with the twin type model definition. The conformance flag has three possible values:
-    - *Conformant*: The defined twin type model is available, and the data in the digital twin conforms with the twin type model definition.
-    - *Non-Conformant*: The defined twin type model is available, and the data in the digital twin does not conform with the twin type model definition. For example, a property with an expected type of `double` has mistakenly been set by a device to a `string` value.
-    - *Unknown*: The defined twin type model cannot be found, so conformance cannot be validated.
+* The conformance flag, indicating if the current data in the digital twin is conforming to the defined twin type. Digital twins defined in the Azure Digital Twins service will always be conformant, but [digital twins controlled by IoT Hub devices](concepts-iothub-devices.md) may have data not conforming with the twin type definition. The conformance flag has three possible values:
+    - *Conformant*: The defined twin type is available, and the data in the digital twin conforms with the twin type definition.
+    - *Non-Conformant*: The defined twin type is available, and the data in the digital twin does not conform with the twin type definition. For example, a property with an expected type of `double` has mistakenly been set by a device to a `string` value.
+    - *Unknown*: The defined twin type cannot be found, so conformance cannot be validated.
 * Metadata. The metadata section contains a variety of metadata. For example:
-    - The DTMI of the twin type model of the digital twin.
+    - The DTMI of the twin type of the digital twin.
     - Synchronization status for each writeable property. This is most useful for devices, where it's possible that the service and the device have diverging statuses (for example, when a device is offline). Currently, this property only applies to physical devices connected to IoT Hub. With the data in the metadata section, it is possible to understand the full status of a property, as well as the last modified timestamps. 
     - Service-specific metadata, like from IoT Hub or Azure Digital Twins. 
 
@@ -124,9 +124,9 @@ To patch properties in components, use path syntax in JSON Patch:
 ]
 ```
 
-## Change the twin type model
+## Change the twin type
 
-`UpdateTwin` can also be used to migrate an Azure digital twin to a different twin type model. For example:
+`UpdateTwin` can also be used to migrate an Azure digital twin to a different twin type. For example:
 
 ```json
 [
@@ -138,9 +138,9 @@ To patch properties in components, use path syntax in JSON Patch:
 ]
 ```
 
- This operation will only succeed if the digital twin being modified after application of the patch is conformant with the new twin type model. For example:
-* Imagine an Azure digital twin with a twin type model of *foo_old*. *Foo_old* defines a required property *temperature*.
-* The new twin type model *foo* defines a property temperature, and adds a new required property *humidity*.
+ This operation will only succeed if the digital twin being modified after application of the patch is conformant with the new twin type. For example:
+* Imagine an Azure digital twin with a twin type of *foo_old*. *Foo_old* defines a required property *temperature*.
+* The new twin type *foo* defines a property temperature, and adds a new required property *humidity*.
 * After the patch, the digital twin must have both a temperature and humidity property. The patch thus needs to be:
 
 ```json
@@ -195,8 +195,8 @@ Response<string> result = client.SetProperty(roomid, "myComplexProperty", comple
 
 ## Components
 
-For components defined in a twin type model, you can describe a property path.
-Let's say we have the following DTDL twin type models that define a phone device with two cameras:
+For components defined in a twin type, you can describe a property path.
+Let's say we have the following DTDL twin types that define a phone device with two cameras:
 
 ```json
 {
@@ -249,7 +249,7 @@ In other words, the property name for component access is a property path consis
 ## Relationships
 
 To access relationships, see the following example.
-Recall the twin type model definitions of *Moon* and *Planet* digital twins:
+Recall the twin type definitions of *Moon* and *Planet* digital twins:
 
 ```json
 {
@@ -311,5 +311,5 @@ foreach (JElement je in result)
 ## Next steps
 
 Learn about managing the other key elements of an Azure Digital Twins solution:
-* [Manage a twin type model](how-to-manage-model.md)
+* [Manage a twin type](how-to-manage-model.md)
 * [Manage a twin graph](how-to-manage-graph.md)
