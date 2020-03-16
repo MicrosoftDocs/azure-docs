@@ -50,7 +50,7 @@ Azure Private Link provides the following benefits:
 |  |  Azure Database for MariaDB         | All public regions      |   GA <br/> [Learn more](https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-private-link)      |
 |  |  Azure Key Vault         | All public regions      |   GA   <br/> [Learn more](https://docs.microsoft.com/azure/key-vault/private-link-service)   |
 |  |Azure Kubernetes Service - Kubernetes API | All public regions      |   GA   <br/> [Learn more]( https://docs.microsoft.com/en-us/azure/aks/private-clusters)   |
-|  |Azure Synapse Analytics | All public regions      |   Preview   <br/> [Learn more]   |
+|  |Azure Search | EAST US, WEST US2, SOUTH CENTRAL US |   Preview   <br/> [Learn more]   |
 |  |Azure Container Registry | All public regions      |   Preview   <br/> [Learn more]  |
 |  |Azure App Configuration | All public regions      |   Preview   <br/> [Learn more]  |
 |  |Azure Backup | EAST US, WEST US2, SOUTH CENTRAL US     |   Preview   <br/> [Learn more]   |
@@ -59,7 +59,6 @@ Azure Private Link provides the following benefits:
 |  |Azure Relay | All public regions      |   Preview   <br/> [Learn more] |
 |  |Azure Event Grid| All public regions      |   Preview   <br/> [Learn more](https://docs.microsoft.com/azure/event-grid/network-security)   |
 |  |Azure Web Apps | All public regions      |   Preview   <br/> [Learn more](https://docs.microsoft.com/azure/app-service/networking/private-endpoint)   |
-|  |Azure Machine Learning| EAST US, WEST US2, SOUTH CENTRAL US      |   Preview   <br/> [Learn more]   |
 
 For the most up-to-date notifications, check the [Azure Virtual Network updates page](https://azure.microsoft.com/updates/?product=virtual-network).
 
