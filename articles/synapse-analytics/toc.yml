@@ -133,7 +133,13 @@
   - name: Security
     items:
     - name: Network Security
-      items:
+      items: 
+      - name: Synapse workspace IP firewall rules
+        href: ./security/synapse-workspace-ip-firewall.md
+      - name: Synapse workspace Managed virtual network
+        href: ./security/synapse-workspace-managed-vnet.md
+      - name: Synapse workspace Managed private endpoints
+        href: ./security/synapse-workspace-managed-private-endpoints.md
       - name: Firewall rules
         href: ../sql-database/sql-database-firewall-configure.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Virtual network service endpoints
@@ -394,8 +400,10 @@
     #     href: article-template.md
     # - name: Manage network policies
     #   href: article-template.md
-    # - name: Manage private endpoints
-    #   href: article-template.md
+    - name: Manage private endpoints
+      items:
+      - name: Set up Managed private endpoints to data sources
+        href: security/how-to-create-managed-private-endpoints.md
     # - name: Enable encryption - portal
     #   href: article-template.md
     # - name: Enable encryption - TSQL
