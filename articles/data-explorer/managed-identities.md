@@ -97,7 +97,7 @@ To set up a managed identity using the Azure Data Explorer C# client:
 
 `PrincipalId` and `TenantId` are replaced with GUIDs. The `TenantId` property identifies the AAD tenant to which the identity belongs. The `PrincipalId` is a unique identifier for the cluster's new identity. Within AAD, the service principal has the same name that you gave to your App Service or Azure Functions instance.
 
-# [ARM](#tab/arm)
+# [ARM template](#tab/arm)
 
 ### Add a system-assigned identity using an Azure Resource Manager template
 
@@ -175,7 +175,7 @@ var cluster = new Cluster(location, sku, identity: identity);
 await kustoManagementClient.Clusters.CreateOrUpdateAsync(resourceGroupName, clusterName, cluster);
 ```
 
-# [ARM](#tab/arm)
+# [ARM template](#tab/arm)
 
 ### Remove a system-assigned identity using an Azure Resource Manager template
 
