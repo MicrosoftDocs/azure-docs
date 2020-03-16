@@ -14,6 +14,11 @@ productDirectory:
     links:
       - url: https://docs.microsoft.com/azure/aks/
         text: Simplify the deployment, management, and operations of Kubernetes
+  - title: Azure Dev Spaces
+    imageSrc: https://docs.microsoft.com/azure/media/index/azuredevspacecontroller_50x.svg
+    links:
+      - url: https://docs.microsoft.com/azure/dev-spaces/
+        text: Test and iteratively develop your applications in Azure AKS
   - title: App Service
     imageSrc: https://static.docs.com/ui/media/product/azure/app-service.svg
     links:
@@ -63,6 +68,22 @@ conceptualContent:
         - url: /azure/aks/tutorial-kubernetes-prepare-app
           itemType: tutorial
           text: Prepare an application for AKS
+        - url: /azure/aks/tutorial-kubernetes-deploy-cluster
+          itemType: tutorial
+          text: Deploy an AKS Cluster
+      # footerLink (optional)
+      footerLink:
+        url: /azure/aks/ 
+        text: See more
+    # Card
+    - title: Azure Dev Spaces
+      links:
+        - url: /azure/dev-spaces/about
+          itemType: overview
+          text: What is Azure Dev Spaces?
+        - url: /azure/dev-spaces/how-to/setup-cicd
+          itemType: tutorial
+          text: Integrate Spaces in your CI/CD pipeline for end to end testing
         - url: /azure/aks/tutorial-kubernetes-deploy-cluster
           itemType: tutorial
           text: Deploy an AKS Cluster
