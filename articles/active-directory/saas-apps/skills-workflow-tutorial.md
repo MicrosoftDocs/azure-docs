@@ -127,7 +127,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 To configure single sign-on on **Skills Workflow** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Skills Workflow support team](mailto:support@skillsworkflow.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
-### Configure Skills Workflow test user
+### Create Skills Workflow test user
 
 In this section, you create a user called B.Simon in Skills Workflow. Work with [Skills Workflow support team](mailto:support@skillsworkflow.com) to add the users in the Skills Workflow platform. Users must be created and activated before you use single sign-on.
 
