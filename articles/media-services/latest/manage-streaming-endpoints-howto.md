@@ -72,7 +72,7 @@ For more information, see [az ams streaming-endpoint start](https://docs.microso
 
 ## Use SDKs
 
-### [Java](#tab/java)
+### Java
     
 ```java
 if (streamingEndpoint != null) {
@@ -84,7 +84,7 @@ if (streamingEndpoint.resourceState() != StreamingEndpointResourceState.RUNNING)
 
 See the complete [Java code sample](https://github.com/Azure-Samples/media-services-v3-java/blob/master/DynamicPackagingVODContent/StreamHLSAndDASH/src/main/java/sample/StreamHLSAndDASH.java#L128).
 
-### [.NET](#tab/dotnet)
+### .NET
 
 ```csharp
 StreamingEndpoint streamingEndpoint = await client.StreamingEndpoints.GetAsync(config.ResourceGroup, config.AccountName, DefaultStreamingEndpointName);
