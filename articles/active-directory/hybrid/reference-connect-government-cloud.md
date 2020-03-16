@@ -77,4 +77,4 @@ If you have overridden the `AuthNegotiateDelegateWhitelist` or the `AuthSe
 
 ## Next Steps
 [Pass-through Authentication](how-to-connect-pta-quick-start.md#step-1-check-the-prerequisites)
-[Single Sign-on](how-to-connect-sso-quick-start,md#step-1-check-the-prerequisites) 
+[Single Sign-on](how-to-connect-sso-quick-start.md#step-1-check-the-prerequisites) 
