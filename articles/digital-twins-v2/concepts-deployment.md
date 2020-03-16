@@ -2,7 +2,7 @@
 # Mandatory fields.
 title: Deploy Azure Digital Twins
 titleSuffix: Azure Digital Twins
-description: Understand the different ways to set up and deploy Azure Digital Twins.
+description: Understand the ingress and egress requirements when deploying Azure Digital Twins.
 author: baanders
 ms.author: baanders # Microsoft employees only
 ms.date: 3/16/2020
@@ -15,7 +15,7 @@ ms.service: digital-twins
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# Set up and deploy Azure Digital Twins
+# Deploy Azure Digital Twins alongside other services
 
 Azure Digital Twins is always deployed with an ingress service and an egress service for the e2e data flow to work. Please note that it cannot be used alone. The ingress service collects data and routes it into Azure Digital Twins. The egress service enables Azure Digital Twins to route data to a final endpoint, such as a storage service.
 
