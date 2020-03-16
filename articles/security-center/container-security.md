@@ -63,7 +63,7 @@ For details of the relevant Security Center recommendations that might appear fo
 
 Security Center provides real-time threat detection for your containerized environments and generates alerts for suspicious activities. You can use this information to quickly remediate security issues and improve the security of your containers.
 
-We detect threats at the host and AKS cluster level. For full details, see [threat detection for Azure containers](https://docs.microsoft.com/azure/security-center/security-center-alerts-compute#azure-containers-).
+We detect threats at the host and AKS cluster level. For full details, see [threat detection for Azure containers](threat-protection.md#azure-containers).
 
 
 ## Container security FAQ

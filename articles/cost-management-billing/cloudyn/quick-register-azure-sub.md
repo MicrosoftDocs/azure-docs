@@ -1,7 +1,6 @@
 ---
-title: Register your Azure subscription with Cloudyn | Microsoft Docs
+title: Register your Azure subscription with Cloudyn
 description: This quickstart details the registration process needed to create a Cloudyn trial subscription and sign in to the Cloudyn portal.
-keywords:
 author: bandersmsft
 ms.author: banders
 ms.date: 01/24/2020

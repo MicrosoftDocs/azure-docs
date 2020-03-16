@@ -2,18 +2,12 @@
 title: Deploy resources to subscription
 description: Describes how to create a resource group in an Azure Resource Manager template. It also shows how to deploy resources at the Azure subscription scope.
 ms.topic: conceptual
-ms.date: 03/06/2020
+ms.date: 03/09/2020
 ---
 
 # Create resource groups and resources at the subscription level
 
-Typically, you deploy Azure resources to a resource group in your Azure subscription. However, you can also create resources at the:
-
-* subscription level (covered in this article)
-* [management group level](deploy-to-management-group.md)
-* [tenant level](deploy-to-tenant.md)
-
-You use subscription level deployments to take actions that make sense at that level, such as creating resource groups, or assigning [role-based access control](../../role-based-access-control/overview.md).
+To simplify the management of resources in your Azure subscription, you can define and assign [policies](../../governance/policy/overview.md) or [role-based access controls](../../role-based-access-control/overview.md) across the subscription. With subscription level templates, you declaratively apply policies and assign roles at the subscription. You can also create resource groups and deploy resources.
 
 To deploy templates at the subscription level, use Azure CLI, PowerShell, or REST API. The Azure portal doesn't support deployment in the subscription level.
 
@@ -41,10 +35,10 @@ For templates, use:
 https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#
 ```
 
-For parameter files, use:
+The schema for a parameter file is the same for all deployment scopes. For parameter files, use:
 
 ```json
-https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentParameters.json#
+https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#
 ```
 
 ## Deployment commands
@@ -382,5 +376,4 @@ New-AzSubscriptionDeployment `
 * To learn about assigning roles, see [Manage access to Azure resources using RBAC and Azure Resource Manager templates](../../role-based-access-control/role-assignments-template.md).
 * For an example of deploying workspace settings for Azure Security Center, see [deployASCwithWorkspaceSettings.json](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/deployASCwithWorkspaceSettings.json).
 * Sample templates can be found at [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/subscription-level-deployments).
-* To learn about creating Azure Resource Manager templates, see [Authoring templates](template-syntax.md).
-* For a list of the available functions in a template, see [Template functions](template-functions.md).
+* You can also deploy templates at [management group level](deploy-to-management-group.md) and [tenant level](deploy-to-tenant.md).
