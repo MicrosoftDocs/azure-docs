@@ -117,14 +117,34 @@ For example, if you have a logic app that needs to run every 10 minutes, set up 
 
 ### Polling trigger
 
-To regularly check whether new data is available for processing, your logic app can use a *polling* trigger that repeatedly calls a specific service or endpoint based on a fixed recurrence schedule. The service that you're polling can provide either these types of data:
+To regularly check whether new data for processing is available from a specific service or endpoint, your logic app can use a *polling* trigger that repeatedly calls the service or endpoint based on a fixed recurrence schedule. The data that the service or endpoint provides can have either of these types:
 
-* Static data, which describes data that always remains available for reading
-* Volatile data, which describes data is (once read the data is no longer available).
+* Static data, which describes data that is always available for reading
+* Volatile data, which describes data that is no longer available after reading
 
-To ensure that the same data isn't read multiple times state needs to be maintained to remember what data has already be read. This state can either be maintained in the client, for logic apps that will be called trigger state, or at the system or service. An example of client-side state is a trigger that reads new messages in an inbox which requires that the trigger remember the last message that was read so that it only activates the logic app when a new message arrives. An example of server-side state is a trigger that reads rows from a database based on a query where it only reads rows that don't have a isRead column set to FALSE. Each time a row is read, the logic app updates the row to set the isRead column to TRUE. This works similarly for queues or topics that have queuing semantics where a message can be read and locked and when the logic app is finished handling the message it can delete the message from the queue or topic. 
+To avoid repeatedly reading the same data, your logic app needs to remember which data was previously read. Logic apps track their state either on the client side or on the server side.
 
-When configuring logic apps that have client-side trigger state, to ensure that the same message is not read more than once, then only one location can have the logic app active at any given time. Therefore, the logic app in the alternate location must be disabled until the primary fails over to the alternate location. You can set up logic apps that have server-side state with either an [active-active role](#roles) where they work as competing consumers, or with an [active-passive role](#roles) where the alternate instance waits until failover happens. Note that if you are reading messages from queues that need to be read in order, then competing consumer can only be used in combination with sessions (aka sequential convoy message pattern) otherwise they must be configured as active-passive.
+* Logic apps track their state on the client side when they run based on their trigger state.
+
+  For example, a trigger that reads a new message from an email inbox requires that the trigger can remember the most recently read message. That way, the trigger starts the logic app only when the next unread message arrives.
+
+* Logic apps track their state on the server side when they run based a property value or setting that's on the server or system side.
+
+  For example, a query-based trigger that reads a row from a database requires that the row has an `isRead` column that's set to `FALSE`. Every time that the trigger reads a row, the logic app updates that row by changing the `isRead` column from `FALSE` to `TRUE`.
+
+  This server-side approach works similarly for Service Bus queues or topics that have queuing semantics where a trigger can read and lock a message while the logic app processes the message. When the logic app finishes processing, the trigger deletes the message from the queue or topic.
+
+When you design your disaster recovery strategy using primary and secondary instances, make sure that you've accounted for these behaviors based on whether your logic app tracks state on the client side or on the server side:
+
+* For a logic app that tracks client-side state, make sure that your logic app doesn't read the same message more than one time. Only one location can have an active logic app instance at any specific time. Make sure that the logic app instance in the alternate location is inactive or disabled until the primary instance fails over to the alternate location.
+
+* For a logic app that tracks server side state, you can set up your logic app instances with either [active-active roles](#roles) where they work as competing consumers, or with [active-passive roles](#roles) where the alternate instance waits until the primary instance fails over to the alternate location.
+
+  > [!NOTE]
+  > If your logic app has to read messages in a specific order from a Service Bus queue, 
+  > you can use the competing consumer pattern but only when combined with Service Bus sessions, 
+  > which is also known as the *sequential convoy* pattern. Otherwise, you must set up the 
+  > logic app instances with the active-passive roles.
 
 <a name="request-trigger"></a>
 
