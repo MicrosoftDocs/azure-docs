@@ -68,6 +68,8 @@ As updates are constantly made to the product, some features have added or diffe
 
 [Dynamic Joins and Dynamic Lookups](https://youtu.be/CMOPPie9bXM)
 
+[Flatten transformation](https://youtu.be/VY2tFQJoAXE)
+
 ## Source and sink
 
 [Reading and writing JSONs](https://www.youtube.com/watch?v=yY5aB7Kdhjg)
@@ -99,6 +101,8 @@ As updates are constantly made to the product, some features have added or diffe
 [SQL DB performance](https://youtu.be/iyZT5CY3V_4)
 
 [Logging and auditing](https://www.youtube.com/watch?v=UC__LOyuf8M)
+
+[Dynamically optimize data flow cluster size at runtime](https://www.youtube.com/watch?v=jWSkJdtiJNM)
 
 ## Mapping data flow scenarios
 

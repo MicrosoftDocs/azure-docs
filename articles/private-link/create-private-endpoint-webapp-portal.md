@@ -70,6 +70,9 @@ Keep default settings.
 
 In this section, you will create a private Web App using a Private Endpoint to it.
 
+> [!Note]
+>The Private Endpoint feature is only available for Premium V2 and Isolated with external ASE SKU
+
 ### Web App
 
 1. On the upper-left side of the screen in the Azure portal, select **Create a resource** > **Web** > **Web App**
