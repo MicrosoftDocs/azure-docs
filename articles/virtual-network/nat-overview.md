@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/05/2020
+ms.date: 03/14/2020
 ms.author: allensu
 ---
 
@@ -84,9 +84,9 @@ The private side of NAT sends TCP Reset packets for attempts to communicate on a
 
 The public side of NAT doesn't generate TCP Reset packets or any other traffic.  Only traffic produced by the customer's virtual network is emitted.
 
-## Configurable idle timeout
+## Configurable TCP idle timeout
 
-A default idle timeout of 4 minutes is used and can be increased to up to 120 minutes. Any activity on a flow can also reset the idle timer, including TCP keepalives.
+A default TCP idle timeout of 4 minutes is used and can be increased to up to 120 minutes. Any activity on a flow can also reset the idle timer, including TCP keepalives.
 
 ## Regional or zone isolation with availability zones
 
@@ -131,7 +131,9 @@ NAT gateway is billed with two separate meters:
 Resource hours accounts for the duration during which a NAT gateway resource exists.
 Data processed accounts for all traffic processed by a NAT gateway resource.
 
-During public preview, pricing is discounted at 50%.
+## Availability
+
+Virtual Network NAT and the NAT gateway resource are available in all Azure public cloud [regions](https://azure.microsoft.com/global-infrastructure/regions/).
 
 ## Support
 
@@ -144,7 +146,7 @@ We want to know how we can improve the service. Propose and vote on what we shou
 
 ## Limitations
 
-* NAT is compatible with standard SKU public IP, public IP prefix, and load balancer resources.   Basic resources (for example basic load balancer) and any products derived from them aren't compatible with NAT.  Basic resources must be placed on a subnet not configured with NAT.
+* NAT is compatible with standard SKU public IP, public IP prefix, and load balancer resources. Basic resources, such as basic load balancer, and any products derived from them aren't compatible with NAT.  Basic resources must be placed on a subnet not configured with NAT.
 * IPv4 address family is supported.  NAT doesn't interact with IPv6 address family.  NAT can't be deployed on a subnet with an IPv6 prefix.
 * NSG flow logging isn't supported when using NAT.
 * NAT can't span multiple virtual networks.
