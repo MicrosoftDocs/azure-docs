@@ -11,9 +11,7 @@ ms.author: victorh
 
 # Azure Firewall SNAT private IP address ranges
 
-Azure Firewall doesn't SNAT using Network rules when the destination IP address is in a private IP address range per [IANA RFC 1918](https://tools.ietf.org/html/rfc1918).
-
-Application rules are always applied regardless of the destination IP address.
+Azure Firewall doesn't SNAT with Network rules when the destination IP address is in a private IP address range per [IANA RFC 1918](https://tools.ietf.org/html/rfc1918). Application rules are always applied regardless of the destination IP address.
 
 If your organization uses a public IP address range for private networks, Azure Firewall will SNAT the traffic to one of the firewall private IP addresses in AzureFirewallSubnet. However, you can configure Azure Firewall to **not** SNAT your public IP address range.
 
