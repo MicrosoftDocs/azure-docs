@@ -4,7 +4,7 @@ description: Azure Security Baseline for Azure Cache for Redis
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 03/13/2020
+ms.date: 03/16/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -242,6 +242,8 @@ How to enable Diagnostic Settings for Azure Activity Log: https://docs.microsoft
 
 **Guidance**: In Azure Monitor, set log retention period for Log Analytics workspaces associated with your Azure Cache for Redis instances according to your organization's compliance regulations.
 
+Note that audit logging at the data plane is not yet available for Azure Cache for Redis.
+
 How to set log retention parameters:
 
 https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period
@@ -253,6 +255,8 @@ https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#chan
 ### 2.6: Monitor and review Logs
 
 **Guidance**: Enable Azure Activity Log diagnostic settings and send the logs to a Log Analytics workspace. Perform queries in Log Analytics to search terms, identify trends, analyze patterns, and provide many other insights based on the Activity Log Data that may have been collected for Azure Cache for Redis.
+
+Note that audit logging at the data plane is not yet available for Azure Cache for Redis.
 
 How to enable Diagnostic Settings for Azure Activity Log: https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy
 
@@ -323,7 +327,7 @@ https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemem
 
 Data plane access to Azure Cache for Redis is controlled through access keys. These keys are used by the clients connecting to your cache and can be regenerated at any time.
 
-For custom applications making use of your Azure Cache for Redis instances, it is recommended that you use Azure AD as the identity provider. If you do not use Azure AD as the identity provider, it is recommended that you do not build default passwords into your application.
+It is not recommended that you build default passwords into your application. Instead, you can store your passwords in Azure Key Vault and then use Azure Active Directory to retrieve them.
 
 How to regenerate Azure Cache for Redis access keys:
 https://docs.microsoft.com/azure/azure-cache-for-redis/cache-configure#settings

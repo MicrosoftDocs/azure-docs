@@ -4,7 +4,7 @@ description: Azure Security Baseline for Cosmos DB
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 03/13/2020
+ms.date: 03/16/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 

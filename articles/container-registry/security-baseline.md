@@ -4,7 +4,7 @@ description: Azure Security Baseline for Azure Container Registry
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 03/13/2020
+ms.date: 03/16/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -817,7 +817,7 @@ How to deny a specific resource type with Azure Policy:  https://docs.microsoft.
 
 **Guidance**: Use operating system-specific configurations or third-party resources to limit users' ability to execute scripts within Azure compute resources.
 
-How to configure Conditional Access to block access to Azure Resources Manager: https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management
+How to configure Conditional Access to block access to Azure Resources Manager:  https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management
 
 
 
