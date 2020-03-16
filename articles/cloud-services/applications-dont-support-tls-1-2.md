@@ -12,7 +12,7 @@ ms.service: cloud-services
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 01/17/2020
+ms.date: 03/16/2020
 ms.author: tagore
 ---
 
@@ -199,7 +199,7 @@ For ($i = 0; $i -le 14; $i = $i + 1) {
   }
 }
 
-####################### Candace Made Changes Here#############################
+####################################################
 
 # Ensure SSL 2.0 disabled for client/server
 $reboot = Set-CryptoSetting 10 DisabledByDefault 1 DWord $reboot
@@ -231,7 +231,7 @@ $reboot = Set-CryptoSetting 7 Enabled 1 DWord $reboot
 $reboot = Set-CryptoSetting 8 DisabledByDefault 0 DWord $reboot
 $reboot = Set-CryptoSetting 8 Enabled 1 DWord $reboot
 
-####################### Candace Made Changes Here#############################
+####################################################
 
 $reboot = DisableRC4($reboot)
 
