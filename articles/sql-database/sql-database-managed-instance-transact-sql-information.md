@@ -29,7 +29,7 @@ There are some PaaS limitations that are introduced in Managed Instance and some
 
 Most of these features are architectural constraints and represent service features.
 
-This page also explains [Temporary known issues](#Issues) that are discovered in managed instance, which will be resolved in the future.
+Temporary known issues that are discovered in managed instance and which will be resolved in the future are described in [release notes page](sql-database-release-notes.md).
 
 ## Availability
 
