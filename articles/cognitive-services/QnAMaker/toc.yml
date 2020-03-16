@@ -70,7 +70,9 @@
       href: How-To/business-continuity-plan.md
     - name: Collaborate
       href: How-To/collaborate-knowledge-base.md
-  - name: Manage knowledge base
+    - name: Turn on active learning
+      href: turn-on-active-learning.md
+    - name: Manage knowledge base
     items:
     - name: Create knowledge base
       href: How-To/manage-knowledge-bases.md
