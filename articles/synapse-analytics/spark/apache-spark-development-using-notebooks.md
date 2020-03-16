@@ -40,11 +40,11 @@ There are multiple ways to add a new cell to your notebook.
 
 1. Expand the upper left **+ Cell** button, and select **Add code cell** or **Add text cell**.
 
-![add-cell-with-cell-button](./media/apache-spark-development-using-notebooks/synapse-add-cell-1.png)
+    ![add-cell-with-cell-button](./media/apache-spark-development-using-notebooks/synapse-add-cell-1.png)
 
 2. Hover over the space between two cells and select **Add code** or **Add text**.
 
-![add-cell-between-space](./media/apache-spark-development-using-notebooks/synapse-add-cell-2.png)
+    ![add-cell-between-space](./media/apache-spark-development-using-notebooks/synapse-add-cell-2.png)
 
 3. Use [Shortcut keys under command mode](#shortcut-keys-under-command-mode). Press **A** to insert a cell above the current cell. Press **B** to insert a cell below the current cell.
 
@@ -122,7 +122,7 @@ You can use the format buttons in the text cells toolbar to do common markdown a
   ![synapse-text-cell-toolbar](./media/apache-spark-development-using-notebooks/synapse-text-cell-toolbar.png)
 
 ### Undo cell operations
-CLick the **undo** button or press **Ctrl+Z** to revoke the most recent cell operation. Now you can undo up to the latest 20 historical cell actions. 
+Click the **undo** button or press **Ctrl+Z** to revoke the most recent cell operation. Now you can undo up to the latest 20 historical cell actions. 
 
    ![synapse-undo-cells](./media/apache-spark-development-using-notebooks/synapse-undo-cells.png)
 
@@ -342,7 +342,7 @@ Similar to Jupyter Notebooks, Azure Synapse Studio notebooks have a modal user i
 
 2. Edit mode is indicated by a text cursor prompting you to type in the editor area. When a cell is in edit mode, you cant type into the cell. Enter edit mode by pressing `Enter` or using the mouse to click on a cell's editor area.
    
-   ![edit-mode](/media/apache-spark-development-using-notebooks/synapse-edit-mode2.png)
+   ![edit-mode](./media/apache-spark-development-using-notebooks/synapse-edit-mode2.png)
 
 ### Shortcut keys under command mode
 
