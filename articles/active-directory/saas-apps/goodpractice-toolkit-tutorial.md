@@ -70,7 +70,7 @@ To configure and test Azure AD single sign-on with Mind Tools Toolkit, you need 
     * **[Create Mind Tools Toolkit test user](#create-mind-tools-toolkit-test-user)** - to have a counterpart of B.Simon in Mind Tools Toolkit that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-### Configure Azure AD single sign-on
+### Configure Azure AD SSO
 
 In this section, you enable Azure AD single sign-on in the Azure portal.
 
@@ -140,7 +140,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
 1. In the **Add Assignment** dialog, click the **Assign** button.
 
-## Configure Mind Tools Toolkit Single Sign-On
+## Configure Mind Tools Toolkit SSO
 
 To configure single sign-on on **Mind Tools Toolkit** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Mind Tools Toolkit support team](mailto:support@goodpractice.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
@@ -148,7 +148,7 @@ To configure single sign-on on **Mind Tools Toolkit** side, you need to send the
 
 In this section, a user called Britta Simon is created in Mind Tools Toolkit. Mind Tools Toolkit supports **just-in-time provisioning**, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Mind Tools Toolkit, a new one is created when you attempt to access Mind Tools Toolkit.
 
-### Test single sign-on
+### Test SSO
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
