@@ -40,7 +40,7 @@ Before you go any further, make sure you understand the [basic concepts about Ke
 
 ## Understand Managed Service Identity
 
-Azure Key Vault can store credentials securely so they aren’t in your code. To retrieve them, you need to authenticate to Azure Key Vault. However, to authenticate to Key Vault, you need a credential. It's a classic bootstrap problem. Through Azure and Azure Active Directory (Azure AD), Managed Service Identity (MSI) provides a bootstrap identity that makes it simpler to get things started.
+Azure Key Vault can store credentials securely so they aren't in your code. To retrieve them, you need to authenticate to Azure Key Vault. However, to authenticate to Key Vault, you need a credential. It's a classic bootstrap problem. Through Azure and Azure Active Directory (Azure AD), Managed Service Identity (MSI) provides a bootstrap identity that makes it simpler to get things started.
 
 When you enable MSI for an Azure service like Virtual Machines, App Service, or Functions, Azure creates a service principal for the instance of the service in Azure AD. It injects the credentials for the service principal into the instance of the service.
 
@@ -110,7 +110,7 @@ az vm create \
 
 It takes a few minutes to create the VM and supporting resources. The following example output shows that the VM creation was successful:
 
-```azurecli
+```output
 {
   "fqdns": "",
   "id": "/subscriptions/<guid>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
@@ -135,7 +135,7 @@ az vm identity assign --name <NameOfYourVirtualMachine> --resource-group <YourRe
 
 The output of the command is as follows.
 
-```azurecli
+```output
 {
   "systemAssignedIdentity": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
   "userAssignedIdentities": {}
