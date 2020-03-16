@@ -9,19 +9,19 @@ ms.author: sagupt
 
 # Query for Advisor data in Resource Graph Explorer (Azure Resource Graph)
 
-Advisor RP is now onboarded to [Azure Resource Graph](https://azure.microsoft.com/features/resource-graph/). This lays foundation to many at-scale customer scenarios for Advisor recommendations.  Our top explorations now is deeper integration of Advisor in Azure Portal, powered by ARG. Few scenarios that were not possible before to do at scale and now can be light up using Resource Graph.
-* Gives capability to perform complex query for all your subscriptions in Azure Portal
-* Recommendations summarized by category (e.g., high availability, performance)  and impact (high, medium, low)
+Advisor RP is now onboarded to [Azure Resource Graph](https://azure.microsoft.com/features/resource-graph/). This lays foundation to many at-scale customer scenarios for Advisor recommendations. Few scenarios that were not possible before to do at scale and now can be light up using Resource Graph.
+* Gives capability to perform complex query for all your subscriptions in Azure portal
+* Recommendations summarized by category types ( like high availability, performance)  and impact types (high, medium, low)
 * All recommendations for a particular recommendation type
 * Impacted resource count by recommendation category
 
-Available Advisor Resource Types in [Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/):
-There  are 3 resource types available for querying under this RP. Here is the list of the resources that are now available for querying in Resource Graph.
+Available Advisor resource types in [Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/):
+There are 3 resource types available for querying under this RP. Here is the list of the resources that are now available for querying in Resource Graph.
 * Microsoft.Advisor/configurations
 * Microsoft.Advisor/recommendations
 * Microsoft.Advisor/suppressions
 
-These resource types are listed under a new table named as AdvisorResources, which you can also query in the Resource Graph Explorer in the Portal.
+These resource types are listed under a new table named as AdvisorResources, which you can also query in the Resource Graph Explorer in Azure portal.
 
 
 ## More Information
