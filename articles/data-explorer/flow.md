@@ -30,24 +30,20 @@ For more information, see [Microsoft Flow connector usage examples](flow-usage.m
 
 1. Select **Sign in** and enter your credentials.
 
-![alt text](./Media/flow/flow-signin.png "flow-signin")
+![Sign in dialog](./Media/flow/flow-signin.png "Sign in dialog")
 
 ## Authentication
 
 You can authenticate to Microsoft Flow using user credentials or an AAD application.
 
-### AAD Application Authentication
-
-You can authenticate to Microsoft Flow with an AAD application using the following steps:
-
 > [!Note]
 > Make sure your application is an [AAD application](https://docs.microsoft.com/azure/kusto/management/access-control/how-to-provision-aad-app) and is authorized to execute queries on your cluster.
 
 1. Select the three dots at the top right of the Microsoft Flow connector:
-![alt text](./Media/flow/flow-addconnection.png "flow-addconnection")
+![Add a connection](./Media/flow/flow-addconnection.png "Add a connection")
 
 1. Select **Add new connection** and then select **Connect with Service Principal**.
-![alt text](./Media/flow/flow-signin.png "flow-signin")
+![Sign in dialog](./Media/flow/flow-signin.png "Sign in dialog")
 
 1. Enter the required information:
     * Connection Name: A descriptive and meaningful name for the new connection
@@ -55,11 +51,11 @@ You can authenticate to Microsoft Flow with an AAD application using the followi
     * Client Secret: Your application key
     * Tenant: The ID of the AAD directory in which you created the application. For example, the Microsoft tenant ID is: 72f988bf-86f1-41af-91ab-2d7cd011db47
 
-![alt text](./Media/flow/flow-appauth.png "flow-appauth")
+![Application authentication](./Media/flow/flow-appauth.png "Application authentication")
 
 When authentication is complete, you'll see that your flow uses the newly added connection.
 
-![alt text](./Media/flow/flow-appauthcomplete.png "flow-appauthcomplete")
+![Completed application authentication](./Media/flow/flow-appauthcomplete.png "Completed application authentication")
 
 From now on, this flow will run using these application credentials.
 
@@ -69,17 +65,17 @@ To use the Microsoft Flow connector, you need to first add a trigger.
 A trigger can be defined based on a recurring time period, or as response to a previous flow action.
 
 1. [Create a new flow.](https://flow.microsoft.com/manage/flows/new)
-1. Add **Scheduled-from blank**.
+1. Add Scheduled-from blank.
 
-    ![alt text](./Media/flow/scheduled-from-blank.png "Scheduled-from blank")
+    ![New scheduled flow](./Media/flow/flow-scheduled-from-blank.png "Scheduled-from blank")
 
-1. Enter the required information on the *Build a scheduled flow* page.
-    ![alt text](./Media/flow/build-scheduled-flow.png "Build scheduled flow")
+1. Enter the required information on the Build a scheduled flow page.
+    ![Build a scheduled flow](./Media/flow/flow-build-scheduled-flow.png "Build scheduled flow")
 1. Select **Create**.
 1. Select **+ New step**.
 1. In the search box, enter "Kusto".
 
-    ![alt text](./Media/flow/flow-actions.png "flow-actions")
+    ![Select flow actions](./Media/flow/flow-actions.png "Select flow actions")
 
 1. Select **Azure Data Explorer**.
 
@@ -89,11 +85,11 @@ When you open the Azure Data Explorer connector, there are three possible action
 
 This section describes the capabilities and parameters for each Microsoft Flow action.
 
-![alt text](./Media/flow/flow-adx-actions.png "Flow Azure Data Explorer actions")
+![Flow Azure Data Explorer actions](./Media/flow/flow-adx-actions.png "Flow Azure Data Explorer actions")
 
 ### Run control command and visualize results
 
-Use the *Run control command and visualize results* action to run a [control command](https://docs.microsoft.com/azure/kusto/management/index).
+Use the Run control command and visualize results action to run a [control command](https://docs.microsoft.com/azure/kusto/management/index).
 
 1. Specify the cluster URL. For example, https://clusterName.eastus.kusto.windows.net
 1. Enter the name of the database.
@@ -106,7 +102,7 @@ Use the *Run control command and visualize results* action to run a [control com
     * A time chart
     * A bar chart
 
-![alt text](./Media/flow/flow-runcontrolcommand.png "flow-runcontrolcommand")
+![Run Flow control command](./Media/flow/flow-runcontrolcommand.png "Run Flow control command")
 
 > [!IMPORTANT]
 > In the *Cluster Name* field, enter the cluster URL.
@@ -120,7 +116,7 @@ This action sends a query to Kusto cluster. The actions that are added afterward
 
 The following example triggers a query every minute and sends an email based on the query results. The query checks the number of lines in the database, and then sends an email only if the number of lines is greater than 0. 
 
-![alt text](./Media/flow/flow-runquerylistresults-2.png "flow-runquerylistresults")
+![Run query list results](./Media/flow/flow-runquerylistresults-2.png "Run query list results")
 
 > [!Note]
 > If the column has several lines, the connector will run for each line in the column.
@@ -130,11 +126,11 @@ The following example triggers a query every minute and sends an email based on 
 > [!Note]
 > If your query starts with a dot (meaning it's a [control command]((https://docs.microsoft.com/azure/kusto/management/index)), use [Run control command and visualize results](#run-control-command-and-visualize-results)
         
-Use the *Run query and visualize results* action to visualize Kusto query result as a table or chart. For example, use this flow to receive daily ICM reports by email. 
+Use the Run query and visualize results action to visualize Kusto query result as a table or chart. For example, use this flow to receive daily ICM reports by email. 
     
 In this example, the results of the query are returned as an HTML table.
             
-![alt text](./Media/flow/flow-runquery.png "flow-runquery")
+![Run query and visualize results](./Media/flow/flow-runquery.png "Run query and visualize results")
 
 > [!IMPORTANT]
 > In the *Cluster Name* field, enter the cluster URL.
@@ -144,7 +140,7 @@ In this example, the results of the query are returned as an HTML table.
 You can include a step in any flow to send reports by email to any email address. 
 
 1. Select **+ New Step** to add a new step to your flow.
-1. In the search field, enter *Office 365* and select **Office 365 Outlook**.
+1. In the search field, enter Office 365 and select **Office 365 Outlook**.
 1. Select **Send an email**.
 1. Enter the email address to where you want the email report sent.
 1. Enter the subject of the email.
@@ -155,23 +151,28 @@ You can include a step in any flow to send reports by email to any email address
 1. If necessary, set the importance level.
 1. Select **Save**.
 
-![alt text](./Media/flow/flow-sendemail.png "flow-sendemail")
+![Send email](./Media/flow/flow-sendemail.png "Send email")
 
 ## How to check if your flow succeeded
 
 To check if your flow succeeded, see the flow's run history:
 1. Go to the [Microsoft Flow home page](https://flow.microsoft.com/).
 1. From the main menu, select [My flows](https://flow.microsoft.com/manage/flows).
-    ![alt text](./Media/flow/flow-myflows.png "flow-myflows")
+    ![My Flows page](./Media/flow/flow-myflows.png "My Flows page")
 1. On the row of the flow you want to investigate, select the more commands icon, and then **Run history**.
-    ![alt text](./Media/flow//flow-runhistory.png "flow-runhistory")
+
+    ![Run history menu](./Media/flow//flow-runhistory.png "Run history menu")
+
     All flow runs are listed with start time, duration, and status.
-    ![alt text](./Media/flow/flow-runhistoryresults.png "flow-runhistoryresults")
+    ![Run history results page](./Media/flow/flow-runhistoryresults.png "Run history results page")
+
     For full details about the flow, on the [My flows](https://flow.microsoft.com/manage/flows) page, select the flow you want to investigate.
-    ![alt text](./Media/flow/flows-fulldetails.png "flow-runhistoryresults") 
+
+    ![Run history full results page](./Media/flow/flow-fulldetails.png "Run history full results page") 
 
 To see why a run failed, select the run start time. The flow appears and the step of the flow that failed is indicated by a red exclamation point. Expand the failed step to view its details. The right-hand pane contains information about the failure so that you can troubleshoot it.
-![alt text](./Media/flow/flow-error.png "flow-error")
+
+![Flow errort](./Media/flow/flow-error.png "Flow error")
 
 ## Timeout Exceptions
 
@@ -183,7 +184,7 @@ The same query may run successfully in Azure Data Explorer where the time isn't 
             
 The "RequestTimeout" exception is shown in the image below:
     
-![alt text](./Media/flow/flow-requesttimeout.png "flow-requesttimeout")
+![Flow request timeout exception error](./Media/flow/flow-requesttimeout.png "Flow request timeout exception error")
     
 To fix a timeout issue, try to make your query more efficient so that it runs faster, or separate it into chunks. Each chunk can run on a different part of the query.
 
