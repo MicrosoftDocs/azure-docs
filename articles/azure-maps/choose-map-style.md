@@ -73,7 +73,7 @@ var map = new atlas.Map('map', {
 map.setStyle({ style: 'satellite' });
 ```
 
-In the following code, after a map instance is loaded, the map style is updated from `road` to `satellite` using the [setStyle](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map function.
+In the following code, after a map instance is loaded, the map style is updated from `road` to `satellite` using the [setStyle](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-maps-typescript-latest#setstyle-styleoptions-) function.
 
 <br/>
 
@@ -88,7 +88,7 @@ The style picker control provides an easy to use button with flyout panel that c
 
 ![Style picker icon layout](media/choose-map-style/style-picker-icon-layout.png)</center>
 
-The second layout option is called `list` and displays a scrollable list of map styles. Here is 
+The second layout option is called `list` and displays a scrollable list of map styles.  
 
 <center>
 
