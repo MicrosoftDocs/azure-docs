@@ -4,11 +4,11 @@ description: Learn how to set up the Azure Media Player.
 author: IngridAtMicrosoft
 ms.author: inhenkel
 ms.service: media-services
-ms.topic: overview
-ms.date: 03/06/2020
+ms.topic: how-to
+ms.date: 03/16/2020
 ---
 
-# Azure Media Player full setup#
+# Azure Media Player full setup #
 
 Azure Media Player is easy to set up. It only takes a few moments to get basic playback of media content right from your Azure Media Services account. [Samples](Samples.html) are also provided in the samples directory of the release.
 
