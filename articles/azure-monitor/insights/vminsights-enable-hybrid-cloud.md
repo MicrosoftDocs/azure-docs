@@ -1,5 +1,5 @@
 ---
-title: Enable Azure Monitor (preview) for a hybrid environment | Microsoft Docs
+title: Enable Azure Monitor for a hybrid environment | Microsoft Docs
 description: This article describes how you enable Azure Monitor for VMs for a hybrid cloud environment that contains one or more virtual machines.
 ms.subservice:
 ms.topic: conceptual
@@ -9,11 +9,11 @@ ms.date: 10/15/2019
 
 ---
 
-# Enable Azure Monitor for VMs (preview) for a hybrid environment
+# Enable Azure Monitor for VMs for a hybrid environment
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-This article explains how to enable Azure Monitor for VMs (preview) for virtual machines or physical computers hosted in your datacenter or other cloud environment. At the end of this process, you will have successfully begun monitoring your virtual machines in your environment and learn if they are experiencing any performance or availability issues.
+This article explains how to enable Azure Monitor for VMs for virtual machines or physical computers hosted in your datacenter or other cloud environment. At the end of this process, you will have successfully begun monitoring your virtual machines in your environment and learn if they are experiencing any performance or availability issues.
 
 Before you get started, be sure to review the [prerequisites](vminsights-enable-overview.md) and verify that your subscription and resources meet the requirements. Review the requirements and deployment methods for the [Log Analytics Linux and Windows agent](../../log-analytics/log-analytics-agent-overview.md).
 
@@ -107,7 +107,7 @@ sudo sh InstallDependencyAgent-Linux64.bin -s
 To deploy the Dependency agent using Desired State Configuration (DSC), you can use the xPSDesiredStateConfiguration module with the following example code:
 
 ```powershell
-configuration ServiceMap {
+configuration VMInsights {
 
     Import-DscResource -ModuleName xPSDesiredStateConfiguration
 
@@ -180,7 +180,7 @@ To use the Azure CLI, you first need to install and use the CLI locally. You mus
                     {
                         "apiVersion": "2015-11-01-preview",
                         "location": "[parameters('WorkspaceLocation')]",
-                        "name": "[concat('ServiceMap', '(', parameters('WorkspaceName'),')')]",
+                        "name": "[concat('VMInsights', '(', parameters('WorkspaceName'),')')]",
                         "type": "Microsoft.OperationsManagement/solutions",
                         "dependsOn": [
                             "[concat('Microsoft.OperationalInsights/workspaces/', parameters('WorkspaceName'))]"
@@ -190,9 +190,9 @@ To use the Azure CLI, you first need to install and use the CLI locally. You mus
                         },
 
                         "plan": {
-                            "name": "[concat('ServiceMap', '(', parameters('WorkspaceName'),')')]",
+                            "name": "[concat('VMInsights', '(', parameters('WorkspaceName'),')')]",
                             "publisher": "Microsoft",
-                            "product": "[Concat('OMSGallery/', 'ServiceMap')]",
+                            "product": "[Concat('OMSGallery/', 'VMInsights')]",
                             "promotionCode": ""
                         }
                     }
@@ -236,7 +236,7 @@ If your Dependency agent installation succeeded, but you don't see your computer
 3. Is the computer sending log and perf data to Azure Monitor Logs? Perform the following query for your computer:
 
     ```Kusto
-	Usage | where Computer == "computer-name" | summarize sum(Quantity), any(QuantityUnit) by DataType
+    Usage | where Computer == "computer-name" | summarize sum(Quantity), any(QuantityUnit) by DataType
     ```
 
     Did it return one or more results? Is the data recent? If so, your Log Analytics agent is operating correctly and communicating with the service. If not, check the agent on your server: [Log Analytics agent for Windows troubleshooting](../platform/agent-windows-troubleshoot.md) or [Log Analytics agent for Linux troubleshooting](../platform/agent-linux-troubleshoot.md).

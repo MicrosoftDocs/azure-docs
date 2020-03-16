@@ -111,6 +111,7 @@ The name of the claim is the name of the Azure AD attribute unless the **Partner
 ## Requirements of an operation
 
 - There must be exactly one **InputClaim** element in the claims bag for all Azure AD technical profiles.
+- The [user profile attributes article](user-profile-attributes.md) describes the supported Azure AD B2C user profile attributes you can use in the input claims, output claims, and persisted claims. 
 - If the operation is `Write` or `DeleteClaims`, then it must also appear in a **PersistedClaims** element.
 - The value of the **userPrincipalName** claim must be in the format of `user@tenant.onmicrosoft.com`.
 - The **displayName** claim is required and cannot be an empty string.
