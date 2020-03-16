@@ -143,6 +143,7 @@ When the cluster is created, it has the following additional properties:
 ```
 
 `<TENANTID>` and `<PRINCIPALID>` are replaced with GUIDs. The `TenantId` property identifies the AAD tenant to which the identity belongs. The `PrincipalId` is a unique identifier for the cluster's new identity. Within AAD, the service principal has the same name that you gave to your App Service or Azure Functions instance.
+
 ---
 
 ## Remove a system-assigned identity
@@ -185,6 +186,7 @@ Run the following to remove the system-assigned identity:
     "type": "None"
 }
 ```
+
 ---
 
 ## Next steps
