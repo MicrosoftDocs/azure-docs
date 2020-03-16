@@ -95,7 +95,7 @@ Use a Linux client from the same virtual network as your cache, if possible.
 If that command doesn't list the exports, the cache will have trouble connecting to your storage system. Work with your NAS vendor to enable export listing.
 
 ## Adjust VPN packet size restrictions
-<!-- link in prereqs article -->
+<!-- link in prereqs article and configuration article -->
 
 If you have a VPN between the cache and your NAS device, the VPN might block full-sized 1500-byte Ethernet packets. You might have this problem if large exchanges between the NAS and the Azure HPC Cache instance do not complete, but smaller updates work as expected.
 
