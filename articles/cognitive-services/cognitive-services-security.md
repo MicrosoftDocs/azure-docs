@@ -39,7 +39,7 @@ To set environment variables, use one the following commands - where the `ENVIRO
 
 # [Command Line](#tab/command-line)
 
-```cmd
+```CMD
 :: Assigns the env var to the value
 set ENVIRONMENT_VARIABLE_KEY=value
 
@@ -59,7 +59,7 @@ $Env:ENVIRONMENT_VARIABLE_KEY
 
 # [Bash](#tab/bash)
 
-```bash
+```Bash
 # Assigns the env var to the value
 export ENVIRONMENT_VARIABLE_KEY=value
 
