@@ -58,6 +58,8 @@ You'll use the Docker engine to run the sample labeling tool. Follow these steps
 > [!NOTE]
 > You can also label documents and train models using the Form Recognizer REST API. To train and Analyze with the REST API, see [Train with labels using the REST API and Python](./python-labeled-data.md).
 
+The Form Recognizer Sample Labeling Tool is also available as an Open Source project located [here](https://github.com/microsoft/OCR-Form-Tools/blob/master/README.md#run-as-web-application).
+
 ## Set up input data
 
 First, make sure all the training documents are of the same format. If you have forms in multiple formats, organize them into subfolders based on common format. When you train, you'll need to direct the API to a subfolder.
