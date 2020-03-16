@@ -29,13 +29,16 @@ There are two options for deploying dependency analysis
 
 ## Agentless analysis
 
-Agentless dependency analysis works by capturing TCP connection data from machines for which it's enabled. After dependency discovery starts, the appliance polls data from machines every five minutes to gather data. No agents are installed on machines you want to analyze.
+Agentless dependency analysis works by capturing TCP connection data from machines for which it's enabled. No agents are installed on machines you want to analyze.
 
 ### Collected data
 
+After dependency discovery starts, the appliance polls data from machines every five minutes to gather data. This data is collected from guest VMs via vCenter Server, using vSphere APIs. The gathered data is processed on the Azure Migrate appliance, to deduce identity information, and is sent to Azure Migrate every six hours.
+
 Polling gathers this data from machines: 
-- Source machine server name, process, application name
-- Destination server name, process, application name, and port.
+- Name of processes that have active connections.
+- Name of application that run processes that have active connections.
+- Destination port on the active connections.
 
 ## Agent-based analysis
 
