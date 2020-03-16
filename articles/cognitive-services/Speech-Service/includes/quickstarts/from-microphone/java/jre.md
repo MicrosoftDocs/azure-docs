@@ -12,8 +12,7 @@ Before you get started:
 
 > [!div class="checklist"]
 > * [Create an Azure Speech Resource](../../../../get-started.md)
-> * [Setup your development environment](../../../../quickstarts/setup-platform.md?tabs=jre)
-> * [Create an empty sample project](../../../../quickstarts/create-project.md?tabs=jre)
+> * [Setup your development environment and create an empty project](../../../../quickstarts/setup-platform.md?tabs=jre)
 > * Make sure that you have access to a microphone for audio capture
 
 ## Add sample code
@@ -30,7 +29,7 @@ Before you get started:
 
 1. Replace the string `YourSubscriptionKey` with your subscription key.
 
-1. Replace the string `YourServiceRegion` with the [region](~/articles/cognitive-services/Speech-Service/regions.md) associated with your subscription (for example, `westus` for the free trial subscription).
+1. Replace the string `YourServiceRegion` with the **Region identifier** from [region](https://aka.ms/speech/sdkregion) associated with your subscription (for example, `westus` for the free trial subscription).
 
 1. Save changes to the project.
 

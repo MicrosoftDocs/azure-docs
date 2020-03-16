@@ -1,11 +1,11 @@
 ---
 title: ORDER BY clause in Azure Cosmos DB
 description: Learn about SQL ORDER BY clause for Azure Cosmos DB. Use SQL as an Azure Cosmos DB JSON query language.
-author: markjbrown
+author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/10/2019
-ms.author: mjbrown
+ms.date: 02/12/2020
+ms.author: tisande
 
 ---
 # ORDER BY clause in Azure Cosmos DB
@@ -44,10 +44,10 @@ ORDER BY <sort_specification>
   
 ## Remarks  
   
-   The ORDER BY clause requires that the indexing policy include an index for the fields being sorted. The Azure Cosmos DB query runtime supports sorting against a property name and not against computed properties. Azure Cosmos DB supports multiple ORDER BY properties. In order to run a query with multiple ORDER BY properties, you should define a [composite index](index-policy.md#composite-indexes) on the fields being sorted.
-   
-> [!Note] 
-> If the properties being sorted against might be undefined for some documents and you want to retrieve them in an ORDER BY query, you must explicitly create an index on those properties. The default indexing policy won't allow for the retrieval of the documents where the sort property is undefined.
+   The `ORDER BY` clause requires that the indexing policy include an index for the fields being sorted. The Azure Cosmos DB query runtime supports sorting against a property name and not against computed properties. Azure Cosmos DB supports multiple `ORDER BY` properties. In order to run a query with multiple ORDER BY properties, you should define a [composite index](index-policy.md#composite-indexes) on the fields being sorted.
+
+> [!Note]
+> If the properties being sorted might be undefined for some documents and you want to retrieve them in an ORDER BY query, you must explicitly include this path in the index. The default indexing policy won't allow for the retrieval of the documents where the sort property is undefined. [Review example queries on documents with some missing fields](#documents-with-missing-fields).
 
 ## Examples
 
@@ -107,8 +107,112 @@ Additionally, you can order by multiple properties. A query that orders by multi
 
 This query retrieves the family `id` in ascending order of the city name. If multiple items have the same city name, the query will order by the `creationDate` in descending order.
 
+## Documents with missing fields
+
+Queries with `ORDER BY` that are run against containers with the default indexing policy will not return documents where the sort property is undefined. If you would like to include documents where the sort property is undefined, you should explicitly include this property in the indexing policy.
+
+For example, here's a container with an indexing policy that does not explicitly include any paths besides `"/*"`:
+
+```json
+{
+    "indexingMode": "consistent",
+    "automatic": true,
+    "includedPaths": [
+        {
+            "path": "/*"
+        }
+    ],
+    "excludedPaths": []
+}
+```
+
+If you run a query that includes `lastName` in the `Order By` clause, the results will only include documents that have a `lastName` property defined. We have not defined an explicit included path for `lastName` so any documents without a `lastName` will not appear in the query results.
+
+Here is a query that sorts by `lastName` on two documents, one of which does not have a `lastName` defined:
+
+```sql
+    SELECT f.id, f.lastName
+    FROM Families f
+    ORDER BY f.lastName
+```
+
+The results only include the document that has a defined `lastName`:
+
+```json
+    [
+        {
+            "id": "AndersenFamily",
+            "lastName": "Andersen"
+        }
+    ]
+```
+
+If we update the container's indexing policy to explicitly include a path for `lastName`, we will include documents with an undefined sort property in the query results. You must explicitly define the path to lead to this scalar value (and not beyond it). You should use the `?` character in your path definition in the indexing policy to ensure that you explicitly index the property `lastName` and no additional nested paths beyond it.
+
+Here is a sample indexing policy which allows you to have documents with an undefined `lastName` appear in the query results:
+
+```json
+{
+    "indexingMode": "consistent",
+    "automatic": true,
+    "includedPaths": [
+        {
+            "path": "/lastName/?"
+        },
+        {
+            "path": "/*"
+        }
+    ],
+    "excludedPaths": []
+}
+```
+
+If you run the same query again, documents that are missing `lastName` appear first in the query results:
+
+```sql
+    SELECT f.id, f.lastName
+    FROM Families f
+    ORDER BY f.lastName
+```
+
+The results are:
+
+```json
+[
+    {
+        "id": "WakefieldFamily"
+    },
+    {
+        "id": "AndersenFamily",
+        "lastName": "Andersen"
+    }
+]
+```
+
+If you modify the sort order to `DESC`, documents that are missing `lastName` appear last in the query results:
+
+```sql
+    SELECT f.id, f.lastName
+    FROM Families f
+    ORDER BY f.lastName DESC
+```
+
+The results are:
+
+```json
+[
+    {
+        "id": "AndersenFamily",
+        "lastName": "Andersen"
+    },
+    {
+        "id": "WakefieldFamily"
+    }
+]
+```
+
 ## Next steps
 
 - [Getting started](sql-query-getting-started.md)
-- [SELECT clause](sql-query-select.md)
+- [Indexing policies in Azure Cosmos DB](index-policy.md)
 - [OFFSET LIMIT clause](sql-query-offset-limit.md)

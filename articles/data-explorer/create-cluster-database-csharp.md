@@ -1,5 +1,5 @@
 ---
-title: 'Create an Azure Data Explorer cluster and database by using C#'
+title: 'Create an Azure Data Explorer cluster & DB using C#'
 description: Learn how to create an Azure Data Explorer cluster and database by using the C#
 author: lucygoldbergmicrosoft
 ms.author: lugoldbe
@@ -26,10 +26,7 @@ Azure Data Explorer is a fast, fully managed data analytics service for real-tim
 * If you don't have Visual Studio 2019 installed, you can download and use the **free** [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Make sure that you enable **Azure development** during the Visual Studio setup.
 * If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
 
-## Install C# Nuget
-
-* Install the [Azure Data Explorer (Kusto) nuget package](https://www.nuget.org/packages/Microsoft.Azure.Management.Kusto/).
-* Install the [Microsoft.IdentityModel.Clients.ActiveDirectory nuget package](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/) for authentication.
+[!INCLUDE [data-explorer-data-connection-install-nuget-csharp](../../includes/data-explorer-data-connection-install-nuget-csharp.md)]
 
 ## Authentication
 For running the examples in this article, we need an Azure AD Application and service principal that can access resources. Check [create an Azure AD application](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) to create a free Azure AD Application and add role assignment at the subscription scope. It also shows how to get the `Directory (tenant) ID`, `Application ID`, and `Client Secret`.

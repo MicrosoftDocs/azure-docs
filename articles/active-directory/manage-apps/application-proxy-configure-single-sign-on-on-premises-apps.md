@@ -38,17 +38,15 @@ The protocol diagrams below describe the single sign-on sequence for both a serv
 
 1. In the Azure portal, select **Azure Active Directory > Enterprise applications** and select **New application**.
 
-2. In the **On-premises applications** section, select **Add an on-premises application**.
+2. Enter the display name for your new application, select **Integrate any other application you don't find in the gallery**, then select **Create**.
 
-3. Enter the display name for your new application, and then select **Add**.
+3. On the app's **Overview** page, select **Single sign-on**.
 
-4. On the app's **Overview** page, select **Single sign-on**.
+4. Select **SAML** as the single sign-on method.
 
-5. Select **SAML** as the single sign-on method.
+5. First set up SAML SSO to work while on the corporate network. In the **Set up Single Sign-On with SAML** page, go to the **Basic SAML Configuration** heading and select its **Edit** icon (a pencil). Follow the steps in [Enter basic SAML configuration](configure-single-sign-on-non-gallery-applications.md#step-1-edit-the-basic-saml-configuration) to configure SAML-based authentication for the application.
 
-6. First set up SAML SSO to work while on the corporate network. In the **Set up Single Sign-On with SAML** page, go to the **Basic SAML Configuration** heading and select its **Edit** icon (a pencil). Follow the steps in [Enter basic SAML configuration](configure-single-sign-on-non-gallery-applications.md#step-1-edit-the-basic-saml-configuration) to configure SAML-based authentication for the application.
-
-7. Add at least one user to the application and make sure the test account has access to the application. While connected to the corporate network, use the test account to see if you have single sign-on to the application. 
+6. Add at least one user to the application and make sure the test account has access to the application. While connected to the corporate network, use the test account to see if you have single sign-on to the application. 
 
    > [!NOTE]
    > After you set up Application Proxy, you'll come back and update the SAML **Reply URL**.
@@ -71,7 +69,7 @@ Before you can provide SSO for on-premises applications, you need to enable Appl
 
 1. With the application still open in the Azure portal, select **Single sign-on**. 
 
-2. In the **Set up Single Sign-On with SAML** page, go to the **Basic SAML Configuration** heading and select its **Edit** icon (a pencil). The **External URL** you configured in Application Proxy automatically populates the **Identifier**, **Reply URL**, and **Logout URL** fields. Don't edit these URLs because they are required for Application Proxy to work correctly.
+2. In the **Set up Single Sign-On with SAML** page, go to the **Basic SAML Configuration** heading and select its **Edit** icon (a pencil). Make sure the **External URL** you configured in Application Proxy is populated in the **Identifier**, **Reply URL**, and **Logout URL** fields. These URLs are required for Application Proxy to work correctly. 
 
 3. Edit the **Reply URL** configured earlier so that its domain is reachable by Application Proxy. For example, if your **External URL** is `https://contosotravel-f128.msappproxy.net` and the original **Reply URL** was `https://contosotravel.com/acs`, you'll need to update the original **Reply URL** to `https://contosotravel-f128.msappproxy.net/acs`. 
 

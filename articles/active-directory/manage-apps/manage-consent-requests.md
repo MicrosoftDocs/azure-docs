@@ -96,7 +96,7 @@ See [Grant tenant-wide admin consent to an application](grant-admin-consent.md) 
 
 ### Granting consent on behalf of a specific user
 
-Instead of granting consent for the entire organization, an administrator can also use the [Azure AD Graph API](https://docs.microsoft.com/azure/active-directory/develop/active-directory-graph-api) to grant consent to delegated permissions on behalf of a single user. To do this, send a `POST` request to create an [OAuth2PermissionGrant](https://docs.microsoft.com/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#oauth2permissiongrant-entity) entity where `consentType` is set to "Principal", and `principalId` is set to the object ID for the user on behalf of whom consent is being granted.
+Instead of granting consent for the entire organization, an administrator can also use the [Microsft Graph API](https://docs.microsoft.com/graph/use-the-api) to grant consent to delegated permissions on behalf of a single user. For more information, see [Get access on behalf of a user](https://docs.microsoft.com/graph/auth-v2-user).
 
 ## Limiting user access to applications
 

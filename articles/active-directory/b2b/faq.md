@@ -94,7 +94,7 @@ Azure AD has a fixed set of character, password strength, and account lockout re
 For federated accounts, password policy depends on the policy that is applied in the on-premises tenancy and the user's Microsoft account settings.
 
 ### An organization might want to have different experiences in their applications for tenant users and guest users. Is there standard guidance for this? Is the presence of the identity provider claim the correct model to use?
-A guest user can use any identity provider to authenticate. For more information, see [Properties of a B2B collaboration user](user-properties.md). Use the **UserType** property to determine user experience. The **UserType** claim isn't currently included in the token. Applications should use the Graph API to query the directory for the user, and to get the UserType.
+A guest user can use any identity provider to authenticate. For more information, see [Properties of a B2B collaboration user](user-properties.md). Use the **UserType** property to determine user experience. The **UserType** claim isn't currently included in the token. Applications should use the Microsoft Graph API to query the directory for the user, and to get the UserType.
 
 ### Where can I find a B2B collaboration community to share solutions and to submit ideas?
 We're constantly listening to your feedback, to improve B2B collaboration. Please share your user scenarios, best practices, and what you like about Azure AD B2B collaboration. Join the discussion in the [Microsoft Tech Community](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-B2B/bd-p/AzureAD_B2b).

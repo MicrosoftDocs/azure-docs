@@ -1,5 +1,5 @@
 ---
-title: Azure Database for MySQL data encryption with a customer-managed key
+title: Data encryption with customer-managed key - Azure Database for MySQL
 description: Azure Database for MySQL data encryption with a customer-managed key enables you to Bring Your Own Key (BYOK) for data protection at rest. It also allows organizations to implement separation of duties in the management of keys and data.
 author: kummanish
 ms.author: manishku
@@ -13,9 +13,9 @@ ms.date: 01/13/2020
 > [!NOTE]
 > At this time, you must request access to use this capability. To do so, contact AskAzureDBforMySQL@service.microsoft.com.
 
-Azure Database for MySQL data encryption with a customer-managed key enables you to Bring Your Own Key (BYOK) for data protection at rest. It also allows organizations to implement separation of duties in the management of keys and data. With customer-managed encryption, you are responsible for, and in full control of, a key's lifecycle, key usage permissions, and auditing of operations on keys.
+Data encryption with customer-managed keys for Azure Database for MySQL enables you to bring your own key (BYOK) for data protection at rest. It also allows organizations to implement separation of duties in the management of keys and data. With customer-managed encryption, you are responsible for, and in a full control of, a key's lifecycle, key usage permissions, and auditing of operations on keys.
 
-For Azure Database for MySQL, you set data encryption at the server-level. With this form of data encryption, you use the key in the encryption of the data encryption key (DEK). The DEK is a customer-managed, asymmetric key, stored in a customer-owned and customer-managed [Azure Key Vault](../key-vault/key-Vault-secure-your-key-Vault.md) instance. DEK is described in more detail later in this article.
+Data encryption with customer-managed keys for Azure Database for MySQL, is set at the server-level. For a given server, a customer-managed key, called the key encryption key (KEK), is used to encrypt the data encryption key (DEK) used by the service. The KEK is an asymmetric key stored in a customer-owned and customer-managed [Azure Key Vault](../key-vault/key-Vault-secure-your-key-Vault.md) instance. The Key Encryption Key (KEK) and Data Encryption Key (DEK) is described in more detail later in this article.
 
 Key Vault is a cloud-based, external key management system. It's highly available and provides scalable, secure storage for RSA cryptographic keys, optionally backed by FIPS 140-2 Level 2 validated hardware security modules (HSMs). It doesn't allow direct access to a stored key, but does provide services of encryption and decryption to authorized entities. Key Vault can generate the key, import it, or [have it transferred from an on-premises HSM device](../key-vault/key-Vault-hsm-protected-keys.md).
 
@@ -26,11 +26,11 @@ Key Vault is a cloud-based, external key management system. It's highly availabl
 
 Data encryption for Azure Database for MySQL provides the following benefits:
 
-* Increased transparency, granular control, and management for the encryption key.
-* Central management and organization of keys by hosting them in Azure Key Vault.
-* Ability to implement separation of duties in the management of keys and data within the organization.
-* Ability to separate key management from data management within an organization, so a Key Vault administrator can revoke key access permissions to make an encrypted database inaccessible.
-* Greater trust from your end users, because Microsoft can't see or extract encryption keys in Key Vault.
+* Data-access is fully controlled by you by the ability to remove the key and making the database inaccessible 
+* Full control over the key-lifecycle, including rotation of the key to align with corporate policies
+* Central management and organization of keys in Azure Key Vault
+* Ability to implement separation of duties between security officers, and DBA and system administrators
+
 
 ## Terminology and description
 

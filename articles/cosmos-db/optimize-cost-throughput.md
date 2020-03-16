@@ -5,7 +5,7 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/26/2019
+ms.date: 02/07/2020
 
 ---
 
@@ -119,7 +119,7 @@ You can also set alerts to check if the number of rate-limited requests exceeds 
 
 ## Scale your throughput elastically and on-demand 
 
-Since you are billed for the throughput provisioned, matching the provisioned throughput to your needs can help you avoid the charges for the unused throughput. You can scale your provisioned throughput up or down any time, as needed.  
+Since you are billed for the throughput provisioned, matching the provisioned throughput to your needs can help you avoid the charges for the unused throughput. You can scale your provisioned throughput up or down any time, as needed. If your throughput needs are very predictable you can use Azure Functions and use a Timer Trigger to [increase or decrease throughput on a schedule](scale-on-schedule.md). 
 
 * Monitoring the consumption of your RUs and the ratio of rate-limited requests may reveal that you do not need to keep provisioned throughout constant throughout the day or the week. You may receive less traffic at night or during the weekend. By using either Azure portal or Azure Cosmos DB native SDKs or REST API, you can scale your provisioned throughput at any time. Azure Cosmos DB’s REST API provides endpoints to programmatically update the performance level of your containers making it straightforward to adjust the throughput from your code depending on the time of the day or the day of the week. The operation is performed without any downtime, and typically takes effect in less than a minute. 
 

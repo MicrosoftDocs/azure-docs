@@ -3,7 +3,7 @@ title: MSAL for iOS & macOS tutorial - Microsoft identity platform | Azure
 description: Learn how iOS and macOS (Swift) apps can call an API that requires access tokens using the Microsoft identity platform
 services: active-directory
 documentationcenter: dev-center-name
-author: tylermsft
+author: mmacy
 manager: CelesteDG
 
 ms.service: active-directory
@@ -21,6 +21,9 @@ ms.custom: aaddev, identityplatformtop40
 In this tutorial, you'll learn how to integrate an iOS or macOS app with the Microsoft identity platform. The app will sign in a user, get an access token to call the Microsoft Graph API, and make a request to the Microsoft Graph API.  
 
 When you've completed the guide, your application will accept sign-ins of personal Microsoft accounts (including outlook.com, live.com, and others) and work or school accounts from any company or organization that uses Azure Active Directory.
+
+>[!NOTE]
+> If you are new to the Microsoft identity platform, we recommend you start with the [Sign in users and call the Microsoft Graph API from an iOS or macOS app](quickstart-v2-ios.md).
 
 ## How this tutorial works
 

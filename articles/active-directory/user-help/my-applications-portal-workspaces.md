@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: overview
-ms.date: 02/03/2020
+ms.date: 02/06/2020
 ms.author: curtand
 ms.custom: user-help
 ---
 
 # Use collections in the My Apps portal
 
-Workspaces are different app views you see in the **My Apps** portal. Apps can be grouped into collections by department function or user role, for example. If you don't see any collections or categories available, it means that your administrator hasn't set up or shared any with you. Contact your organization's Helpdesk for additional assistance or permissions to see shared collections.
+Collections are different app views you see in the **My Apps** portal. Apps can be grouped into collections by department function or user role, for example. If you don't see any collections or categories available, it means that your administrator hasn't set up or shared any with you. Contact your organization's Helpdesk for additional assistance or permissions to see shared collections.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-and-workspaces.md)]
 

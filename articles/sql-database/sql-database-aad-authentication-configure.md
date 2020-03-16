@@ -524,8 +524,7 @@ Guidance on troubleshooting issues with Azure AD Authentication can be found in 
 
 ## Next steps
 
-- For an overview of access and control in SQL Database, see [SQL Database access and control](sql-database-control-access.md).
-- For an overview of logins, users, and database roles in SQL Database, see [Logins, users, and database roles](sql-database-manage-logins.md).
+- For an overview of logins, users, database roles, and permissions in SQL Database, see [Logins, users, database roles, and user accounts](sql-database-manage-logins.md).
 - For more information about database principals, see [Principals](https://msdn.microsoft.com/library/ms181127.aspx).
 - For more information about database roles, see [Database roles](https://msdn.microsoft.com/library/ms189121.aspx).
 - For more information about firewall rules in SQL Database, see [SQL Database firewall rules](sql-database-firewall-configure.md).

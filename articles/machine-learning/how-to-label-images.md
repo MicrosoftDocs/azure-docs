@@ -54,6 +54,16 @@ Azure enables the **Submit** button when you've tagged all the images on the pag
 
 After you submit tags for the data at hand, Azure refreshes the page with a new set of images from the work queue.
 
+### Assisted machine learning 
+
+Machine learning algorithms may be triggered during a multi-class or multi-label classification task. If these algorithms are enabled in your project, you may see the following:
+
+* After some amount of images have been labeled, you may see **Tasks clustered** at the top of your screen next to the project name.  This means that images are grouped together to present similar images on the same page.  If so, switch to one of the multiple image views to take advantage of the grouping.  
+
+* At a later point, you may see **Tasks prelabeled** next to the project name.  Images will then appear with a suggested label that comes from a machine learning classification model. No machine learning model has 100% accuracy. While we only use images for which the model is confident, these images might still be incorrectly prelabeled.  When you see these labels, correct any wrong labels before submitting the page.  
+
+Especially early in a labeling project, the machine learning model may only be accurate enough to prelabel a small subset of images. Once these images are labeled, the labeling project will return to manual labeling to gather more data for the next round of model training. Over time, the model will become more confident about a higher proportion of images, resulting in more prelabel tasks later in the project.
+
 ## Tag images for multi-class classification
 
 If your project is of type "Image Classification Multi-Class," you'll assign a single tag to the entire image. To review the directions at any time, go to the **Instructions** page and select **View detailed instructions**.
@@ -77,6 +87,7 @@ To correct a mistake, click the "**X**" to clear an individual tag or select the
 ![A screenshot shows multiple deselections](./media/how-to-label-images/multiple-deselection.png)
 
 Azure will only enable the **Submit** button after you've applied at least one tag to each image. Select **Submit** to save your work.
+
 
 ## Tag images and specify bounding boxes for object detection
 
@@ -111,4 +122,4 @@ When you're done labeling, select your name in the upper-right corner of the lab
 ## Next steps
 
 * Learn to [train image classification models in Azure](https://docs.microsoft.com/azure/machine-learning/tutorial-train-models-with-aml)
-* Read about [object detection using Azure and the "Faster R-CNN" technique](https://www.microsoft.com/developerblog/2017/10/24/bird-detection-with-azure-ml-workbench/)
+

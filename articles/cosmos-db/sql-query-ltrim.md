@@ -40,6 +40,10 @@ SELECT LTRIM("  abc") AS l1, LTRIM("abc") AS l2, LTRIM("abc   ") AS l3
 [{"l1": "abc", "l2": "abc", "l3": "abc   "}]  
 ```  
 
+## Remarks
+
+This system function will not utilize the index.
+
 ## Next steps
 
 - [String functions Azure Cosmos DB](sql-query-string-functions.md)
