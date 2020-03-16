@@ -77,8 +77,8 @@ The self-asserted technical profile calls the validation **login-NonInteractive*
 ### Example
 
 - Input claims:
-    - **leftOperand**: 2018-10-01T15:00:00.0000000Z
-    - **rightOperand**: 2018-10-01T14:00:00.0000000Z
+    - **leftOperand**: 2020-03-01T15:00:00.0000000Z
+    - **rightOperand**: 2020-03-01T14:00:00.0000000Z
 - Result: Error thrown
 
 ## ConvertDateToDateTimeClaim
@@ -106,9 +106,9 @@ The following example demonstrates the conversion of the claim `dateOfBirth` (da
 ### Example
 
 - Input claims:
-    - **inputClaim**: 2019-06-01
+    - **inputClaim**: 2020-15-03
 - Output claims:
-    - **outputClaim**: 1559347200 (June 1, 2019 12:00:00 AM)
+    - **outputClaim**: 2020-15-03T00:00:00.0000000Z
 
 ## ConvertDateTimeToDateClaim
 
@@ -135,9 +135,9 @@ The following example demonstrates the conversion of the claim `systemDateTime` 
 ### Example
 
 - Input claims:
-  - **inputClaim**: 1559347200 (June 1, 2019 12:00:00 AM)
+  - **inputClaim**: 2020-15-03T11:34:22.0000000Z
 - Output claims:
-  - **outputClaim**: 2019-06-01
+  - **outputClaim**: 2020-15-03
 
 ## GetCurrentDateTime
 
@@ -158,7 +158,7 @@ Get the current UTC date and time and add the value to a ClaimType.
 ### Example
 
 * Output claims:
-    * **currentDateTime**: 1534418820 (August 16, 2018 11:27:00 AM)
+    * **currentDateTime**: 2020-15-03T11:40:35.0000000Z
 
 ## DateTimeComparison
 
@@ -194,8 +194,8 @@ To run the claim transformation, you first need to get the current dateTime and 
 ### Example
 
 - Input claims:
-    - **firstDateTime**: 2018-01-01T00:00:00.100000Z
-    - **secondDateTime**: 2018-04-01T00:00:00.100000Z
+    - **firstDateTime**: 2020-01-01T00:00:00.100000Z
+    - **secondDateTime**: 2020-04-01T00:00:00.100000Z
 - Input parameters:
     - **operator**: later than
     - **timeSpanInSeconds**: 7776000 (90 days)
