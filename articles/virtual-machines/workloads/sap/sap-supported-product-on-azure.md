@@ -15,7 +15,7 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 02/13/2020
+ms.date: 03/16/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ---
@@ -90,6 +90,9 @@ For running SAP HANA, SAP has more and stronger conditions infrastructure needs 
 
 > [!NOTE]
 > The units starting with the letter 'S' are [HANA Large Instances](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) units. 
+
+> [!NOTE]
+> SAP has no specific certification dependent on the SAP HANA major releases. Contrary to common opinion, the column **Certification scenario** in the [HANA  certified IaaS platforms](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure), the column makes **no statement about the HANA major or minor release certified**. You need to assume that all the units listed that can be used for HANA 1.0 and HANA 2.0 as long as the certified operating system releases for the specific units are supported by HANA 1.0 releases as well. 
 
 For the usage of SAP HANA, different minimum OS releases may apply than for the general NetWeaver cases. You need to check out the supported operating systems for each unit individually since those might vary. You do so by clicking on each unit. More details will appear. One of the details listed is the different operating systems supported for this specific unit.
 

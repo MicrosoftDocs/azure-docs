@@ -26,7 +26,7 @@ Azure Active Directory can provide a users group membership information in token
 >
 >- Support for use of sAMAccountName and security identifier (SID) attributes synced from on-premises is designed to enable moving existing applications from AD FS and other identity providers. Groups managed in Azure AD do not contain the attributes necessary to emit these claims.
 >- In larger organizations the number of groups a user is a member of may exceed the limit that Azure Active Directory will add to a token. 150 groups for a SAML token, and 200 for a JWT. This can lead to unpredictable results. If your users have large numbers of group memberships, we recommend using the option to restrict the groups emitted in claims to the relevant groups for the application.  
->- For new application development, or in cases where the application can be configured for it, and where nested group support isn't required, we recommend that in-app authorization is based on application roles rather than groups.  This limits the amount of infomation that needs to go into the token, is more secure, and separates user assignment from app configuration.
+>- For new application development, or in cases where the application can be configured for it, and where nested group support isn't required, we recommend that in-app authorization is based on application roles rather than groups.  This limits the amount of information that needs to go into the token, is more secure, and separates user assignment from app configuration.
 
 ## Group claims for applications migrating from AD FS and other identity providers
 
@@ -104,7 +104,7 @@ Groups assigned to the application will be included in the token.  Other groups 
 
 To change the groups assigned to the application, select the application from the **Enterprise Applications** list and then click **Users and Groups** from the application’s left-hand navigation menu.
 
-See the document [Methods for assigning users and groups to an app](../../active-directory/manage-apps/methods-for-assigning-users-and-groups.md#assign-groups) for details of managing group assignment to applications.
+See the document [Assign a user or group to an enterprise app](../../active-directory/manage-apps/assign-user-or-group-access-portal.md) for details of managing group assignment to applications.
 
 ### Advanced options
 
@@ -219,6 +219,6 @@ To emit group names to be returned in netbiosDomain\samAccountName format as the
 
 ## Next steps
 
-[Methods for assigning users and groups to an app](../../active-directory/manage-apps/methods-for-assigning-users-and-groups.md#assign-groups)
+[Assign a user or group to an enterprise app](../../active-directory/manage-apps/assign-user-or-group-access-portal.md)
 
 [Configure role claims](../../active-directory/develop/active-directory-enterprise-app-role-management.md)

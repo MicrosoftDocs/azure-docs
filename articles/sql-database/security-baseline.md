@@ -239,20 +239,19 @@ https://docs.microsoft.com/azure/virtual-machines/windows/time-sync
 
 In addition, you can stream Azure SQL diagnostics telemetry into Azure SQL Analytics, a cloud solution that monitors the performance of Azure SQL databases, elastic pools, and managed instances at scale and across multiple subscriptions. It can help you collect and visualize Azure SQL Database performance metrics, and it has built-in intelligence for performance troubleshooting.
 
-
 How to setup auditing for your Azure SQL Database:
 
 https://docs.microsoft.com/azure/sql-database/sql-database-auditing
 
 
-How to collect platform logs and metrics with Azure Monitor:
+How to collect metrics and resource logs with Azure Monitor:
 
 https://docs.microsoft.com/azure/sql-database/sql-database-metrics-diag-logging
 
 
 How to stream diagnostics into Azure SQL Analytics:
 
-https://docs.microsoft.com/azure/sql-database/sql-database-metrics-diag-logging#stream-into-azure-sql-analytics
+https://docs.microsoft.com/azure/sql-database/sql-database-metrics-diag-logging#stream-diagnostic-telemetry-into-sql-analytics
 
 **Azure Security Center monitoring**: Yes
 
@@ -814,10 +813,10 @@ https://docs.microsoft.com/azure/security-center/security-center-secure-score
 **Guidance**: Use Azure Resource Graph to query and discover all resources (including Azure SQL Server instances) within your subscription(s).  Ensure you have appropriate (read) permissions in your tenant and are able to enumerate all Azure subscriptions as well as resources within your subscriptions.
 
 
-Although classic Azure resources may be discovered via Resource Graph, it is highly recommended to create and use Azure Resource Manager resources going forward.
+Although classic Azure resources may be discovered via Azure Resource Graph, it is highly recommended to create and use Azure Resource Manager resources going forward.
 
 
-How to create queries with Azure Graph: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
+How to create queries with Azure Resource Graph: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
 
 How to view your Azure Subscriptions: https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0
@@ -888,7 +887,7 @@ Use Azure Resource Graph to query/discover resources within your subscription(s)
 
 How to configure and manage Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-How to create queries with Azure Graph: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
+How to create queries with Azure Resource Graph: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
 **Azure Security Center monitoring**: Not applicable
 

@@ -18,13 +18,13 @@ You can target your deployment to either an Azure subscription or a resource gro
 
 To deploy to a **resource group**, use [az group deployment create](/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create):
 
-```azurecli
+```azurecli-interactive
 az group deployment create --resource-group <resource-group-name> --template-file <path-to-template>
 ```
 
 To deploy to a **subscription**, use [az deployment create](/cli/azure/deployment?view=azure-cli-latest#az-deployment-create):
 
-```azurecli
+```azurecli-interactive
 az deployment create --location <location> --template-file <path-to-template>
 ```
 
@@ -97,7 +97,7 @@ To pass parameter values, you can use either inline parameters or a parameter fi
 
 To pass inline parameters, provide the values in `parameters`. For example, to pass a string and array to a template is a Bash shell, use:
 
-```azurecli
+```azurecli-interactive
 az group deployment create \
   --resource-group testgroup \
   --template-file demotemplate.json \
@@ -108,7 +108,7 @@ If you're using Azure CLI with Windows Command Prompt (CMD) or PowerShell, pass 
 
 You can also get the contents of file and provide that content as an inline parameter.
 
-```azurecli
+```azurecli-interactive
 az group deployment create \
   --resource-group testgroup \
   --template-file demotemplate.json \

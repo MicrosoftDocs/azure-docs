@@ -5,7 +5,7 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 08/31/2019
+ms.date: 03/06/2020
 ms.author: victorh
 ---
 
@@ -60,6 +60,8 @@ See the [order of listener processing](https://docs.microsoft.com/azure/applicat
 ### Where do I find the Application Gateway IP and DNS?
 
 If you're using a public IP address as an endpoint, you'll find the IP and DNS information on the public IP address resource. Or find it in the portal, on the overview page for the application gateway. If you're using internal IP addresses, find the information on the overview page.
+
+For the v2 SKU, open the public IP resource and select **Configuration**. The **DNS name label (optional)** field is available to configure the DNS name.
 
 ### What are the settings for Keep-Alive timeout and TCP idle timeout?
 
@@ -125,7 +127,7 @@ No. Instances are distributed across upgrade domains and fault domains.
 
 ### Does Application Gateway support connection draining?
 
-Yes. You can set up connection draining to change members within a backend pool without disruption. For more information, see [connection draining section of Application Gateway](overview.md#connection-draining).
+Yes. You can set up connection draining to change members within a backend pool without disruption. For more information, see [connection draining section of Application Gateway](features.md#connection-draining).
 
 ### Can I change instance size from medium to large without disruption?
 
@@ -406,7 +408,7 @@ Sample NSG configuration for private IP only access:
 ![Application Gateway V2 NSG Configuration for private IP access only](./media/application-gateway-faq/appgw-privip-nsg.png)
 
 ### Does Application Gateway affinity cookie support SameSite attribute?
-Yes, the [Chromium browser](https://www.chromium.org/Home) [v80 update](https://chromiumdash.appspot.com/schedule) introduced a mandate on HTTP cookies without SameSite attribute to be treated as SameSite=Lax. This means that the Application Gateway affinity cookie won't be sent by the browser in a third-pary context. 
+Yes, the [Chromium browser](https://www.chromium.org/Home) [v80 update](https://chromiumdash.appspot.com/schedule) introduced a mandate on HTTP cookies without SameSite attribute to be treated as SameSite=Lax. This means that the Application Gateway affinity cookie won't be sent by the browser in a third-party context. 
 To support this scenario, Application Gateway injects another cookie called *ApplicationGatewayAffinityCORS* in addition to the existing *ApplicationGatewayAffinity* cookie.  These cookies are similar, but the *ApplicationGatewayAffinityCORS* cookie has two more attributes added to it: *SameSite=None; Secure*. These attributes maintain sticky sessions even for cross-origin requests. See the [cookie based affinity section](configuration-overview.md#cookie-based-affinity) for more information.
 
 ## Next steps
