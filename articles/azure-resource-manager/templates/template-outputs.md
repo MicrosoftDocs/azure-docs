@@ -1,6 +1,6 @@
 ---
 title: Outputs in templates
-description: Describes how to define output values in an Azure Resource Manager template. 
+description: Describes how to define output values in an Azure Resource Manager template.
 ms.topic: conceptual
 ms.date: 02/25/2020
 ---
@@ -92,7 +92,7 @@ To get output values from the deployment history, you can use script.
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
-az group deployment show \
+az deployment group show \
   -g <resource-group-name> \
   -n <deployment-name> \
   --query properties.outputs.resourceID.value

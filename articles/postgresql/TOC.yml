@@ -277,10 +277,6 @@
       items:
       - name: Azure portal
         href: howto-deny-public-network-access.md
-    - name: Minimum TLS configuration
-      items:
-      - name: Azure portal
-        href: howto-tls-configurations.md
     - name: Replication
       items:
       - name: Manage read replicas Azure portal
