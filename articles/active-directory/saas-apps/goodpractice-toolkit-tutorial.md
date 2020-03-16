@@ -58,7 +58,7 @@ To configure the integration of Mind Tools Toolkit into Azure AD, you need to ad
 
 ## Configure and test Azure AD single sign-on
 
-In this section, you configure and test Azure AD single sign-on with Mind Tools Toolkit based on a test user called **Britta Simon**.
+In this section, you configure and test Azure AD single sign-on with Mind Tools Toolkit based on a test user called **B.Simon**.
 For single sign-on to work, a link relationship between an Azure AD user and the related user in Mind Tools Toolkit needs to be established.
 
 To configure and test Azure AD single sign-on with Mind Tools Toolkit, you need to complete the following building blocks:
@@ -146,7 +146,7 @@ To configure single sign-on on **Mind Tools Toolkit** side, you need to send the
 
 ### Create Mind Tools Toolkit test user
 
-In this section, a user called Britta Simon is created in Mind Tools Toolkit. Mind Tools Toolkit supports **just-in-time provisioning**, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Mind Tools Toolkit, a new one is created when you attempt to access Mind Tools Toolkit.
+In this section, a user called B.Simon is created in Mind Tools Toolkit. Mind Tools Toolkit supports **just-in-time provisioning**, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Mind Tools Toolkit, a new one is created when you attempt to access Mind Tools Toolkit.
 
 ### Test SSO
 
