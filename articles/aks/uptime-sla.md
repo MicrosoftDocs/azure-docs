@@ -62,11 +62,13 @@ After a few minutes, the command completes and returns JSON-formatted informatio
 
 ## AKS clusters without Uptime SLA
 
-Uptime SLA is an **optional paid service.** In a service-level agreement (SLA), the provider agrees to reimburse the customer for the cost of the service if the published service level isn't met. Since AKS is free, no cost is available to reimburse for clusters not using Uptime SLA, so AKS has no formal SLA. However, AKS seeks to maintain availability of at least 99.5 percent for the Kubernetes API server.
+Uptime SLA is an **optional paid service.** For clusters that do not use Uptime SLA, AKS strives to provide an SLA objective of at least 99.5 percent uptime for the Kubernetes API server.
 
-It is important to recognize the distinction between AKS service availability, which refers to the uptime of the Kubernetes API server and the availability of your specific workload, which is running on Azure Virtual Machines. Although the API server may be unavailable if the API server is not ready, your cluster workloads running on Azure VMs can still function. [Azure Kubernetes Service SLA](https://azure.microsoft.com/support/legal/sla/kubernetes-service/v1_0/) relies on the SLA for Virtual Machines. You can increase the VM availability with features like [Availability Zones][availability-zones].
+The [Azure Kubernetes Service SLA](https://azure.microsoft.com/support/legal/sla/kubernetes-service/v1_0/) relies on the SLA for Virtual Machines. You can increase the VM availability with features like [Availability Zones][availability-zones].
 
 For mission-critical workloads, use **Uptime SLA and Availability Zones** to increase availability for the API server of your AKS clusters.
+
+## Limitations
 
 * You can't currently add Uptime SLA to existing clusters.
 * Currently, there is no way to remove Uptime SLA from an AKS cluster.  
