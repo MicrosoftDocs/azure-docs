@@ -23,7 +23,7 @@ With custom handlers, all [triggers and input and output bindings](./functions-t
 
 ## Overview
 
-The following diagram depicts the relationship between the Functions host and a web server implemented as a custom handler.
+The following diagram shows the relationship between the Functions host and a web server implemented as a custom handler.
 
 ![Azure Functions custom handler overview](./media/functions-custom-handlers/azure-functions-custom-handlers-overview.png)
 
@@ -32,7 +32,7 @@ The following diagram depicts the relationship between the Functions host and a 
 - The web server executes the individual function, and returns a [response payload](#response-payload) to the Functions host.
 - The Functions host proxies the response as an output binding payload to the target.
 
-An Azure Functions app implemented as a custom handler must configure the *host.json* and *function.json* files according a few conventions.
+An Azure Functions app implemented as a custom handler must configure the *host.json* and *function.json* files according to a few conventions.
 
 ## Application structure
 
@@ -40,7 +40,7 @@ To implement a custom handler, you need the following aspects in your applicatio
 
 - A *host.json* file at the root of your app
 - A *function.json* file for each function (inside a folder that matches the function name)
-- A command, script, or executable which runs a web server
+- A command, script, or executable, which runs a web server
 
 The following diagram shows how these files look on the file system for a function named "order".
 
@@ -53,9 +53,9 @@ The following diagram shows how these files look on the file system for a functi
 
 ### Configuration
 
-The application is configured via the *host.json* file. This file tells the Functions host where to send requests by pointing to a web server capable of processing HTTP events. 
+The application is configured via the *host.json* file. This file tells the Functions host where to send requests by pointing to a web server capable of processing HTTP events.
 
-A custom handler is defined by configuring the *host.json* file with details on how to run the web server via the `httpWorker` section. 
+A custom handler is defined by configuring the *host.json* file with details on how to run the web server via the `httpWorker` section.
 
 ```json
 {
@@ -67,7 +67,8 @@ A custom handler is defined by configuring the *host.json* file with details on 
     }
 }
 ```
-The `httpWorker` section points to a target as defined by the `defaultExecutablePath`. The execution target may either be a command, executable or file where the web server is implemented.
+
+The `httpWorker` section points to a target as defined by the `defaultExecutablePath`. The execution target may either be a command, executable, or file where the web server is implemented.
 
 For scripted apps, `defaultExecutablePath` points to the script language's runtime and `defaultWorkerPath` points to the script file location. The following example shows how a JavaScript app in Node.js is configured as a custom handler.
 
@@ -98,7 +99,7 @@ You can also pass arguments using the `arguments` array:
 }
 ```
 
-Arguments are necessary for many debugging setups. See the [Debugging](#debugging) section for more detail. 
+Arguments are necessary for many debugging setups. See the [Debugging](#debugging) section for more detail.
 
 > [!NOTE]
 > The *host.json* file must be at the same level in the directory structure as the running web server. Some languages and toolchains may not place the this file at the application root by default.
@@ -115,7 +116,7 @@ When used with a custom handler, the *function.json* contents are no different f
 
 The request payload for pure HTTP functions is the raw HTTP request payload. Pure HTTP functions are defined as functions with no input or output bindings, that return an HTTP response.
 
-Any other type of function that includes either input, output bindings or is triggered via an event source other than HTTP have a custom request payload. 
+Any other type of function that includes either input, output bindings or is triggered via an event source other than HTTP have a custom request payload.
 
 The following code represents a sample request payload. The payload includes a JSON payload with two members: `Data` and `Metadata`.
 
@@ -140,13 +141,13 @@ Given the bindings defined in the following *function.json* file:
       "type": "queue",
       "direction": "out",
       "queueName": "messages-outgoing",
-      "connection": "AzureWebJobsStorage"      
+      "connection": "AzureWebJobsStorage"
     }
   ]
 }
 ```
 
-A request payload similar to this example is returned: 
+A request payload similar to this example is returned:
 
 ```json
 {
@@ -183,16 +184,16 @@ See the [example for a sample payload](#server-implementation).
 
 ## Examples
 
-Custom handlers can be implemented in any language that supports HTTP events. While Azure Functions [fully supports JavaScript and Node.js](./functions-reference-node.md), the following examples show how to implement a custom handler using JavaScript in Node.js for the purposes of instruction. 
+Custom handlers can be implemented in any language that supports HTTP events. While Azure Functions [fully supports JavaScript and Node.js](./functions-reference-node.md), the following examples show how to implement a custom handler using JavaScript in Node.js for the purposes of instruction.
 
 > [!TIP]
 > While being a guide for learning how to implement a custom handler in other languages, the Node.js-based examples shown here may also be useful if you wanted to run a Functions app in a non-supported version of Node.js.
 
 ## HTTP-only function
 
-The following example demonstrates how to configure a simple HTTP-triggered function with no additional bindings or outputs. The scenario implemented in this example features a function named `http` that accepts a `GET` or `POST` .
+The following example demonstrates how to configure an HTTP-triggered function with no additional bindings or outputs. The scenario implemented in this example features a function named `http` that accepts a `GET` or `POST` .
 
-The following snippet represents how a a request to the function is composed.
+The following snippet represents how a request to the function is composed.
 
 ```http
 POST http://127.0.0.1:7071/api/hello HTTP/1.1
@@ -266,9 +267,9 @@ app.post("/hello", (req, res) => {
 });
 ```
 
-In this example, Express is used to create a web server to handle HTTP events and is set to listen for requests via the `FUNCTIONS_HTTPWORKER_PORT`. 
+In this example, Express is used to create a web server to handle HTTP events and is set to listen for requests via the `FUNCTIONS_HTTPWORKER_PORT`.
 
-The function is defined at the path of `/hello` . `GET` requests are handled by returning a simple JSON object, and `POST` requests have access to the request body via `req.body`.
+The function is defined at the path of `/hello`. `GET` requests are handled by returning a simple JSON object, and `POST` requests have access to the request body via `req.body`.
 
 The route for the order function here is `/hello` and not `/api/hello` because the Functions host is proxying the request to the custom handler.
 
@@ -289,7 +290,6 @@ content-type: application/json
   "color": "black"
 }
 ```
-
 
 ### Implementation
 
@@ -370,7 +370,7 @@ app.post("/order", (req, res) => {
 });
 ```
 
-In this example, Express is used to create a web server to handle HTTP events and is set to listen for requests via the `FUNCTIONS_HTTPWORKER_PORT`. 
+In this example, Express is used to create a web server to handle HTTP events and is set to listen for requests via the `FUNCTIONS_HTTPWORKER_PORT`.
 
 The function is defined at the path of `/order` .  The route for the order function here is `/order` and not `/api/order` because the Functions host is proxying the request to the custom handler.
 
@@ -385,9 +385,9 @@ By setting `message` equal to the message that came in from the request, and `re
 
 ## Debugging
 
-To debug your Functions custom handler app you need to add arguments appropriate for the language and runtime to enable debugging.
+To debug your Functions custom handler app, you need to add arguments appropriate for the language and runtime to enable debugging.
 
-For instance, to debug a Node.js application, the `--inspect` flag is passed as an argument in the *host.json* file. 
+For instance, to debug a Node.js application, the `--inspect` flag is passed as an argument in the *host.json* file.
 
 ```json
 {
@@ -441,7 +441,7 @@ A custom handler can be deployed to any Azure Functions hosting option. If your 
 ## Restrictions
 
 - Custom handlers are not supported in Linux consumption plans.
-- Web servers needs to start within 60 seconds
+- The web server needs to start within 60 seconds.
 
 ## Samples
 
