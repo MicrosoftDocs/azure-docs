@@ -133,6 +133,17 @@ brew install cocoapods --build-from-source
 brew link --overwrite cocoapods
 ```
 
+### App crashes when deploying to iOS 10.3.1 from a personal provisioning profile/developer account 
+
+If you deploy your iOS app on iOS 10.3.1 from a personal provisioning profile/developer account, you might see this error: `Library not loaded: @rpath/ADAL...`. 
+
+To resolve the issue:
+
+- Use a provisioning profile that isn't a Personal Team profile (paid developer account).
+- Deploy your app to an iOS device running iOS 13.3 or earlier, or to one running the iOS 13.4 beta or release version.
+- Read more about this issue on [Stack Overflow](https://stackoverflow.com/questions/60015309/running-ios-apps-causes-runtime-error-for-frameworks-code-signature-invalid).
+
+
 [!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
 
 [!INCLUDE [Next steps](../../../includes/spatial-anchors-quickstarts-nextsteps.md)]
