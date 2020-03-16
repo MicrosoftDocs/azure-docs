@@ -1,11 +1,11 @@
 ---
 # Mandatory fields.
-title: Manage an Azure Digital Twins graph
+title: Manage a twin graph
 titleSuffix: Azure Digital Twins
 description: See how to combine Azure Digital Twins concepts to build out a full graph representation, as well as modify and delete when necessary.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 2/21/2020
+ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
 
@@ -15,20 +15,20 @@ ms.service: digital-twins
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# Manage the components of your digital twin graph
+# Manage the elements in your twin graph
 
-Azure Digital Twins **Twin APIs** let developers create, modify, and delete twins and their relationships in an Azure Digital Twins instance.
+Azure Digital Twins **Twin APIs** let developers create, modify, and delete digital twins and their relationships in an Azure Digital Twins instance.
 
-## Create a graph (preview)
-Once we have a set of types, we can create a graph representing a complete hospital. For a small hospital, this graph might look like this:
+## Create a twin graph (preview)
+Once we have a set of Azure digital twins represented by several twin types, we can create a twin graph representing a complete hospital. For a small hospital, this graph might look like this:
 
-[![Graph of a sample hospital](./media/how-to-manage-graph/hospital-graph.png)](./media/how-to-manage-graph/hospital-graph.png#lightbox)
+[![Twin graph of a sample hospital](./media/how-to-manage-graph/hospital-graph.png)](./media/how-to-manage-graph/hospital-graph.png#lightbox)
 
-For illustration purposes, here is an example code snippet, using the Azure Digital Twins C# SDK, that might be used to create the graph programmatically. In reality, code like this would most likely be driven by information from another pre-existing data system, such as a building information management system:
+For illustration purposes, here is an example code snippet, using the Azure Digital Twins C# SDK, that might be used to create the twin graph programmatically. In reality, code like this would most likely be driven by information from another pre-existing data system, such as a building information management system:
 
 ```csharp
 var client = new DigitalTwinsClient("...Authentication Info...");
-        // Create a twin for the hospital
+        // Create a digital twin for the hospital
         client.CreateTwin("HospitalId", "urn:contosocom:example:Hospital:1");
         // Create some wards
         client.CreateTwin("PediatricWard", "urn:contosocom:example:Ward:1");
@@ -48,11 +48,11 @@ var client = new DigitalTwinsClient("...Authentication Info...");
         client.Relationship("RoomPed01", "hasDevice", "SoapDispenserP01");
 ```
 
-## Create twins and graphs of twin instances 
+## Create Azure digital twins and twin graphs 
 
-Once models are uploaded to the server, you can begin constructing a twin instance graph. In many cases, the data that determines the topology of the instance graph will come from an existing data source, such as a CAD file, a BIM database, or an Excel spreadsheet.
+Once twin types are uploaded to the server, you can begin creating Azure digital twins and constructing a twin graph. In many cases, the data that determines the topology of the twin graph will come from an existing data source, such as a CAD file, a BIM database, or an Excel spreadsheet.
 
-The following code shows a minimal example for instance graph creation:
+The following code shows a minimal example for twin graph creation:
 
 ```csharp
 DigitalTwinsClient client = new DigitalTwinsClient("...");  
@@ -61,12 +61,12 @@ Response rMoon = client.CreateTwin("urn:contosocom:example:Moon:1", "idMyMoon01"
 Response rR = client.CreateRelationship("idMyPlanet01", "IsCircledBy", "idMyMoon01", "idRel01");
 ```
 
-This code creates two instances of twins, one using model type *Planet*, the other using model type *Moon*. In addition to the model type ID (`urn:contosocom:example:Planet` and `urn:contosocom:example:Moon`), you need to pass in a unique ID, and data to initialize the twin instance during creation. The sample also creates a relationship between the two instances, connecting them to each other.
+This code creates two digital twins, one using twin type *Planet*, and the other using twin type *Moon*. In addition to the twin type ID (`urn:contosocom:example:Planet` and `urn:contosocom:example:Moon`), you need to pass in a unique ID, and data to initialize the Azure digital twin during creation. The sample also creates a relationship between the two digital twins, connecting them to each other.
 
 ## Initialize properties
 
-All non-optional properties and components of twins must be initialized at creation time. Relationships may be initialized, but do not need to be. 
-The Twin creation API accepts a JSON string to initialize the twin instance. You will typically create this JSON string by serializing an object that holds the initialization data into JSON; for example, using the JSON functionality in `System.Text.Json` (built-in for .NET Core 3.0, and available as a NuGet package for many other versions of the .NET framework).
+All non-optional properties and components of Azure digital twins must be initialized at creation time. Relationships may be initialized, but do not need to be. 
+The Twin creation API accepts a JSON string to initialize the Azure digital twin. You will typically create this JSON string by serializing an object that holds the initialization data into JSON; for example, using the JSON functionality in `System.Text.Json` (built-in for .NET Core 3.0, and available as a NuGet package for many other versions of the .NET framework).
 
 The following code shows an example for the creation of the JSON string:
 
@@ -79,7 +79,7 @@ Dictionary<string, object> moonData = new Dictionary<string, object>()
 string s = JsonSerializer.Serialize(moonData);
 ```
 
-The example above uses a Dictionary with an initializer to hold the data for the twin. If you have the data in custom classes, you can use the more advanced capabilities of `System.Text.Json` to shape the JSON string as needed. For example:
+The example above uses a Dictionary with an initializer to hold the data for the digital twin. If you have the data in custom classes, you can use the more advanced capabilities of `System.Text.Json` to shape the JSON string as needed. For example:
 
 ```csharp
 class MoonData
@@ -95,21 +95,21 @@ MoonData moonData = new MoonData();
 string s = JsonSerializer.Serialize(moonData);
 ```
 
-## Create twins: a more complete example
+## Create Azure digital twins: a more complete example
 
 A slightly more complete example is outlined below, to read topology from a spreadsheet. The example assumes that there are a number of rows in the Excel file that list floors or rooms (and the parent floor for each room):
 
-| Type	| ID | Parent | RelName | OtherData | OtherData |
-| --- | --- | --- | --- | --- | --- |
-| floor	| Floor01 | | | … | … |
-| room	| Room10 | Floor01 | contains | … | … |
-| room	| Room11 | Floor01 | contains | … | … |
-| room	| Room12 | Floor01 | contains | … | … |
-| floor	| Floor02 | | | … | … |
-| room	| Room21 | Floor02 | contains | … | … |
-| room	| Room22 | Floor02 | contains | … | … |
+| Twin type    | ID | Parent | Relationship name | Other data |
+| --- | --- | --- | --- | --- |
+| floor    | Floor01 | | | … |
+| room    | Room10 | Floor01 | contains | … |
+| room    | Room11 | Floor01 | contains | … |
+| room    | Room12 | Floor01 | contains | … |
+| floor    | Floor02 | | | … |
+| room    | Room21 | Floor02 | contains | … |
+| room    | Room22 | Floor02 | contains | … |
 
-The following code uses the [Microsoft Graph API](https://docs.microsoft.com/graph/overview) to read a spreadsheet and construct an Azure Digital Twins graph from the results:
+The following code uses the [Microsoft Graph API](https://docs.microsoft.com/graph/overview) to read a spreadsheet and construct an Azure Digital Twins twin graph from the results:
 
 ```csharp
 DigitalTwinsClient client = new DigitalTwinsClient("...");
@@ -125,7 +125,7 @@ foreach (JsonElement row in data.RootElement.EnumerateArray())
     string id = row[1].GetString();
     string relSource = row[2].GetString();
     string relName = row[3].GetString();
-    // Parse spreadsheet extra data into a JSON string to initialize the twin
+    // Parse spreadsheet extra data into a JSON string to initialize the digital twin
     string initData = "{...}";
 
     if (relSource != null)
@@ -159,5 +159,5 @@ With RelationshipRecord defined as:
 
 ## Next steps
 
-Learn about querying an Azure Digital Twins graph:
-* [Query the Azure Digital Twins Graph](concepts-query-graph.md)
+Learn about querying an Azure Digital Twins twin graph:
+* [Query the twin graph](concepts-query-graph.md)

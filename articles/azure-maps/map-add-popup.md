@@ -102,6 +102,14 @@ By default, the popup has a white background, a pointer arrow on the bottom, and
 
 Popup templates make it easy to create data driven layouts for popups. The sections below demonstrates the use of various popup templates to generate formatted content using properties of features.
 
+> [!NOTE]
+> By default, all content rendered use the popup template will be sandboxed inside of an iframe as a security feature. However, there are limitations:
+>
+> - All scripts, forms, pointer lock and top navigation functionality is disabled. Links are allowed to open up in a new tab when clicked. 
+> - Older browsers that don't support the `srcdoc` parameter on iframes will be limited to rendering a small amount of content.
+> 
+> If you trust the data being loaded into the popups and potentially want these scripts loaded into popups be able to access your application, you can disable this by setting the popup templates `sandboxContent` option to false. 
+
 ### String template
 
 The String template replaces placeholders with values of the feature properties. The properties of the feature don't have to be assigned a value of type String. For example, `value1` holds an integer. These values are then passed to the content property of the `popupTemplate`. 

@@ -134,15 +134,15 @@ To install AAD Pod Identity to your cluster:
 
    - *RBAC enabled* AKS cluster
 
-    ```bash
-    kubectl create -f https://raw.githubusercontent.com/Azure/aad-pod-identity/master/deploy/infra/deployment-rbac.yaml
-    ```
+     ```bash
+     kubectl create -f https://raw.githubusercontent.com/Azure/aad-pod-identity/master/deploy/infra/deployment-rbac.yaml
+     ```
 
    - *RBAC disabled* AKS cluster
 
-    ```bash
-    kubectl create -f https://raw.githubusercontent.com/Azure/aad-pod-identity/master/deploy/infra/deployment.yaml
-    ```
+     ```bash
+     kubectl create -f https://raw.githubusercontent.com/Azure/aad-pod-identity/master/deploy/infra/deployment.yaml
+     ```
 
 ### Install Helm
 [Helm](https://docs.microsoft.com/azure/aks/kubernetes-helm) is a package manager for
