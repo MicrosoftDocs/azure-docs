@@ -86,7 +86,7 @@ The operation has the following body (where a pass-through Live Event is created
 
 Poll the status of the Live Event until it goes into the "Running" state, which indicates that you can now send a contribution RTMP feed. You can now follow the same steps as in this tutorial, like checking the preview feed and creating Live outputs.
 
-## Delivery and playback
+## Transcription delivery and playback
 
 Review the [Dynamic packaging overview](dynamic-packaging-overview.md#to-prepare-your-source-files-for-delivery) article of how our service uses dynamic packaging to deliver video, audio, and text in different protocols. When you publish your live stream using MPEG-DASH or HLS/CMAF, then along with video and audio, our service delivers the transcribed text in IMSC1.1 compatible TTML. This delivery is packaged into MPEG-4 Part 30 (ISO/IEC 14496-30) fragments. If using delivery via HLS/TS, then the text is delivered as chunked VTT. You can use a web player such as the [Azure Media Player](use-azure-media-player.md) to play the stream.  
 
@@ -104,4 +104,4 @@ For preview, the following are known issues with live transcription:
 
 ## Next steps
 
-[Media Services overview](media-services-overview.md)
+* [Media Services overview](media-services-overview.md)
