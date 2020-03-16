@@ -129,7 +129,7 @@ For Business Objects Data Services, [SAP support note #22288344](https://launchp
 > [!NOTE]
 > As indicated in the SAP support note, you need to check in the SAP PAM to identify the correct support package level to be supported on Azure
 
-SAP Datahub/Vora support Azure Kubernetes Services (AKS) is detailed in [SAP support note #2464722](https://launchpad.support.sap.com/#/notes/2464722)
+SAP Datahub/Vora support in Azure Kubernetes Services (AKS) is detailed in [SAP support note #2464722](https://launchpad.support.sap.com/#/notes/2464722)
 
 Support for SAP BPC 10.1 SP08 is described in [SAP support note #2451795](https://launchpad.support.sap.com/#/notes/2451795)
 
