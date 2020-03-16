@@ -8,7 +8,7 @@ ms.author: adjohnso
 
 # Cluster Templates
 
-Azure CycleCloud uses templates to define cluster configurations. A number of templates are included in CycleCloud by default and a full list of supported templates is [available in GitHub](https://github.com/Azure?q=cyclecloud). You can create new templates or you can customize existing ones. For instance, you may want to customize an existing template to take advantage of [low-priority](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-use-low-priority) VMs, or you might want to add a VPC to extend your own network.
+Azure CycleCloud uses templates to define cluster configurations. A number of templates are included in CycleCloud by default and a full list of supported templates is [available in GitHub](https://github.com/Azure?q=cyclecloud). You can create new templates or you can customize existing ones. For instance, you may want to customize an existing template to take advantage of [Spot VMs](https://docs.microsoft.com/azure/virtual-machines/windows/spot-vms), or you might want to add a VPC to extend your own network.
 
 ## Configuration Notation
 
@@ -172,11 +172,19 @@ ParameterType = Cloud.ClusterInitSpecs
 
 Once this parameter has been added to your cluster template, your user can use the file picker to select the appropriate project specs when creating a new cluster.
 
-## Low-Priority Virtual Machines
+## Spot/Low-priority Virtual Machines
 
-To reduce the cost of your workloads, you can set `interruptible = true`. This will flag your instance as low-priority, and will use surplus capacity when available. It is important to note that these instances are not always available and can be preempted at any time, meaning they are not always appropriate for your workload.
+To reduce the cost of your workloads, you can set `Interruptible = true`. This will flag your instance as Spot/Low-priority, and will use surplus capacity when available. It is important to note that these instances are not always available and can be preempted at any time, meaning they are not always appropriate for your workload.
 
-If you have an existing [Azure Batch account](https://azure.microsoft.com/services/batch/), you can add `BatchAccount = foo` to your node. This will allow low-priority VMs via Batch nodes for your job(s).
+By default, setting `Interruptible` to true will use spot instances with a max price set to -1; this means the instance won't be evicted based on price. The price for the instance will be the current price for Spot or the price for a standard instance, whichever is less, as long as there is capacity and quota available. If you would like to set a custom max price, use the `MaxPrice` attribute on the desired node or nodearray.
+
+``` ini
+[cluster demo]
+
+  [[nodearray execute]]
+  Interruptible = true
+  MaxPrice = 0.2
+```
 
 ## Lookup Tables
 

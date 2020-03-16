@@ -50,7 +50,7 @@ Includes:
 
 * Base price of VMs, including preview-only machine types, at standard "pay-as-you-go" rates
 * Linux/Windows rates
-* Regular/low priority
+* Regular/Spot/Low-priority
 * Boot disks and other disks (7.8.0+)
 
 Does NOT Include:

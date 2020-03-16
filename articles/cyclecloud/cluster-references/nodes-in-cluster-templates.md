@@ -141,6 +141,15 @@ Attribute | String | Definition
 ------ | ----- | ----------
 Tags | String | Use `tags.my-tag = my-tag-value` to add tags to the deployment in addition to the tags assigned by CycleCloud by default.
 
+### Regular/Spot/Low-priority Attributes
+
+CycleCloud supports the use of Spot VMs via the following attributes. See [Spot/Low-priority Virtual Machines](~/cluster-templates.md#spotlow-priority-virtual-machines) for more detail.
+
+Attribute | String | Definition
+------ | ----- | ----------
+Interruptible | Boolean | If true, the VM will be a Spot VM to provide reduced pricing.
+MaxPrice | Float | The maximum price to spend on the VM. Default is -1.
+
 ### Nodearray-Specific Attributes
 
 All of the attributes for a node are valid for a nodearray, but a node array is an
