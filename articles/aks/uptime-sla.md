@@ -89,3 +89,4 @@ Use [Availability Zones][availability-zones] to increase high availability with 
 [availability-zones]: ./availability-zones.md
 [az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az-aks-create
 [limit-egress-traffic]: ./limit-egress-traffic.md
+[az-extension-add]: /cli/azure/extension#az-extension-add
