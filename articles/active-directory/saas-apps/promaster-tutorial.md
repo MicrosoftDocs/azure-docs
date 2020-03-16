@@ -68,7 +68,7 @@ To configure and test Azure AD single sign-on with ProMaster (by Inlogik), you n
     * **[Create ProMaster (by Inlogik) test user](#create-promaster-by-inlogik-test-user)** - to have a counterpart of B.Simon in ProMaster (by Inlogik) that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-### Configure Azure AD single sign-on
+### Configure Azure AD SSO
 
 In this section, you enable Azure AD single sign-on in the Azure portal.
 
@@ -159,7 +159,7 @@ To configure single sign-on on **ProMaster (by Inlogik)** side, you need to send
 
 In this section, you create a user called Britta Simon in ProMaster (by Inlogik). Work with [ProMaster (by Inlogik) support team](mailto:michael.boldiston@inlogik.com) to add the users in the ProMaster (by Inlogik) platform. Users must be created and activated before you use single sign-on.
 
-### Test single sign-on 
+### Test SSO
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
