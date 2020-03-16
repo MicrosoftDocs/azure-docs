@@ -162,5 +162,5 @@ Validate that you're ready by performing the following steps:
 1. Navigate to [www.test-cors.org](https://www.test-cors.org/) 
 1. For the **Remote URL** box, paste the URL of your HTML file. For example, `https://your-account.blob.core.windows.net/azure-ad-b2c/unified.html`
 1. Select **Send Request**.
-    The result should be `XHR status: 200`
+    The result should be `XHR status: 200`. 
     If you receive an error, make sure that your CORS settings are correct. You might also need to clear your browser cache or open an in-private browsing session by pressing Ctrl+Shift+P.
