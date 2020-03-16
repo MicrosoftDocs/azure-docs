@@ -1,7 +1,7 @@
 ---
 title: Use per-environment configuration
 titleSuffix: Azure App Configuration
-description: Learn how to use labels to provide per-environment configuration values
+description: Use labels to provide per-environment configuration values
 ms.service: azure-app-configuration
 author: lisaguthrie
 
@@ -11,22 +11,22 @@ ms.date: 3/12/2020
 ms.author: lcozzens
 
 ---
-# Use labels to enable different configuration for different environments
+# Use labels to enable different configurations for different environments
 
-Many applications need to use different configuration for different environments. Suppose that an application has a configuration value that defines the connection string to use for its back-end database. The application's developers use a different database from the one used in production. The database connection string used by the application must change as the application moves from development to production.
+Many applications need to use different configurations for different environments. Suppose that an application has a configuration value that defines the connection string to use for its back-end database. The application's developers use a different database from the one used in production. The database connection string used by the application must change as the application moves from development to production.
 
 In Azure App Configuration, you can use *labels* to define different values for the same key. For example, you can define a single key with different values for *Development* and *Production*. You can specify which label(s) to load when connecting to App Configuration.
 
-To show this functionality in action, we'll modify the web app created in [Quickstart: Create an ASP.NET Core app with Azure App Configuration](./quickstart-aspnet-core-app.md) to use different configuration settings for development vs. production. Please complete the quickstart before proceeding.
+To demonstrate this functionality, we'll modify the web app created in [Quickstart: Create an ASP.NET Core app with Azure App Configuration](./quickstart-aspnet-core-app.md) to use different configuration settings for development vs. production. Please complete the quickstart before proceeding.
 
 ## Specify a label when adding a configuration value
 
-In the Azure portal, go into **Configuration Explorer** and locate the *TestApp:Settings:FontColor* key that you created in the quickstart. Click its context menu and then click **Add Value**.
+In the Azure portal, go into **Configuration Explorer** and locate the *TestApp:Settings:FontColor* key that you created in the quickstart. Select its context menu and then click **Add Value**.
 
 > [!div class="mx-imgBorder"]
 > ![Add Value menu item](media/labels-add-value.png)
 
-On the **Add Value** screen, enter a **Value** of **red** and a **Label** of **Development**. Leave **Content type** empty. Click **Apply**.
+On the **Add Value** screen, enter a **Value** of **red** and a **Label** of **Development**. Leave **Content type** empty. Select **Apply**.
 
 ## Loading configuration values with a specified label
 
@@ -34,7 +34,7 @@ By default, Azure App Configuration only loads configuration values with no labe
 
 In the last section, you created a different configuration value for the *Development* environment. You use the `HostingEnvironment.EnvironmentName` variable to dynamically determine which environment the app is currently running in. To learn more, see [Use multiple environments in ASP.NET Core](/aspnet/core/fundamentals/environments).
 
-You can load configuration values with the label corresponding to the current environment by passing the environment name into the `Select` method, as shown in the following code snippet:
+Load configuration values with the label corresponding to the current environment by passing the environment name into the `Select` method:
 
 ```csharp
         public static IHostBuilder CreateHostBuilder(string[] args) =>
@@ -64,7 +64,7 @@ Note that the `Select` method is called twice. The first time, it loads configur
 
 To test the different configuration values, open the `launchSettings.json` file under the `Properties` directory. Locate the `config` entry under `profiles`. In the `environmentVariables` section, set the `ASPNETCORE_ENVIRONMENT` variable to `Production`.
 
-Run the following commands to build and run your application:
+With the new values set, build and run your application.
 
 ```dotnetcli
 dotnet build
