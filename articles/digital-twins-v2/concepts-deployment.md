@@ -17,26 +17,31 @@ ms.service: digital-twins
 
 # Deploy Azure Digital Twins alongside other services
 
-Azure Digital Twins is always deployed with an ingress service and an egress service for the e2e data flow to work. Please note that it cannot be used alone. The ingress service collects data and routes it into Azure Digital Twins. The egress service enables Azure Digital Twins to route data to a final endpoint, such as a storage service.
+The Azure Digital Twins service is not designed to be used alone. It is always deployed alongside an **ingress service** and an **egress service** to make a complete end-to-end data flow. The ingress service collects data and routes it into Azure Digital Twins. The egress service enables Azure Digital Twins to route data to a final endpoint, such as a storage service.
 
+The following images shows the relationships between these three services.
 ![Ingress/egress coupling](./media/overview/coupling.jpg)
 
 ## Ingress services
 
-The ingress service currently supported and validated with Azure Digital Twins is [IoT Hub](../iot-hub/about-iot-hub.md), and it allows collecting telemetry from physical devices in your deployment and processing this data in the cloud. IoT Hub is loosely coupled with Azure Digital Twins. You must use an [Azure Function](../azure-functions/functions-overview.md) to redirect data from IoT Hub into Azure Digital Twins. You may use an IoT Hub you currently have in production, or deploy a new one.
+The ingress service currently supported and validated with Azure Digital Twins is [IoT Hub](../iot-hub/about-iot-hub.md), which enables you to collect telemetry from physical devices in your environment and process this data in the cloud. 
+
+During preview, IoT Hub is loosely coupled with Azure Digital Twins. You must use an [Azure Function](../azure-functions/functions-overview.md) to redirect data from IoT Hub into Azure Digital Twins. You may use an IoT Hub you currently have in production, or deploy a new one.
 
 ## Egress services
 
-A variety of egress services are supported with Azure Digital Twins and these may connect directly or indirectly with Azure Digital Twins. There are three services that can be configured as Azure Digital Twins end points. These are:
+A variety of egress services are supported with Azure Digital Twins, and may connect to it directly or indirectly. The three services that can be configured as Azure Digital Twins endpoints are:
 * [Event Hub](../event-hubs/event-hubs-about.md)
 * [Event Grid](../event-grid/overview.md)
 * [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md)
 
-Learn more about how to configure one of these three to be an Azure Digital Twins end point in the [Azure Digital Twins CLI doc](https://github.com/Azure/azure-digital-twins/tree/private-preview/CLI).
+Learn more about how to configure one of these services to be an Azure Digital Twins endpoint in the [Azure Digital Twins CLI doc](https://github.com/Azure/azure-digital-twins/tree/private-preview/CLI).
 
-Note that there are many other services that you may wish to direct your data to, for instance, [Azure Storage](../storage/common/storage-introduction.md) or [Time Series Insights](../time-series-insights/time-series-insights-update-overview.md), and these can be attached to one of the end point services above. Likewise, if additional services like [Azure Maps](../azure-maps/about-azure-maps.md) are to be used to correlate location with your Azure Digital Twins graph, utilize an additional instances of Azure Function and Event Grid to establish all the services in your deployment.
+There are many other services where you may wish to ultimately direct your data, such as [Azure Storage](../storage/common/storage-introduction.md) or [Time Series Insights](../time-series-insights/time-series-insights-update-overview.md). To send your data to services like these, attach the destination service to one of the endpoint services above, using the endpoint service as a middleman to pass your data along.
+
+For example, if you are also using [Azure Maps](../azure-maps/about-azure-maps.md) and want to correlate location with your Azure Digital Twins twin graph, you will utilize an Azure Function alongside an Event Grid to establish communication between all the services in your deployment.
 
 ## Next steps
 
-Learn more about how to deploy Azure Digital Twins with ingress and egress services:
-* [Get started with the Azure Digital Twins CLI](https://github.com/Azure/azure-digital-twins/tree/private-preview/CLI)
+Learn more about endpoints and routing events to external services:
+* [Route events to external services](concepts-route-events.md)
