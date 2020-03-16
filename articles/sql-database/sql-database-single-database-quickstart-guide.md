@@ -28,10 +28,8 @@ In this section, you will see an overview of available articles that can help yo
 
 You can use PowerShell or the Azure CLI to create, configure, and scale your database.
 
-- [Create and configure a single database using PowerShell](scripts/sql-database-create-and-configure-database-powershell.md)
-- [Create and configure a single database using Azure CLI](scripts/sql-database-create-and-configure-database-cli.md)
-- [Update your single database and scale resources using PowerShell](scripts/sql-database-monitor-and-scale-database-powershell.md)
-- [Update your single database and scale resources using Azure CLI](scripts/sql-database-monitor-and-scale-database-cli.md)
+- [Create and configure a single database using PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) or [Azure CLI](scripts/sql-database-create-and-configure-database-cli.md)
+- [Update your single database and scale resources using PowerShell](scripts/sql-database-monitor-and-scale-database-powershell.md) or [Azure CLI](scripts/sql-database-monitor-and-scale-database-cli.md)
 
 ## Migrating to a single database with minimal downtime
 

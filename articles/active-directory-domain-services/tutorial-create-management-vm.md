@@ -57,7 +57,6 @@ Azure AD DS provides a managed domain for your users, applications, and services
 
 Members of the *AAD DC Administrators* group are granted privileges on the Azure AD DS managed domain that enables them to do tasks such as:
 
-* Join machines to the managed domain.
 * Configure the built-in group policy object (GPO) for the *AADDC Computers* and *AADDC Users* containers in the managed domain.
 * Administer DNS on the managed domain.
 * Create and administer custom organizational units (OUs) on the managed domain.
@@ -88,6 +87,7 @@ To get started, connect to the Windows Server VM as follows:
 
     ![Connect to Windows virtual machine using Bastion in the Azure portal](./media/join-windows-vm/connect-to-vm.png)
 
+    You can also [create and use an Azure Bastion host (currently in preview)][azure-bastion] to allow access only through the Azure portal over TLS.
 1. Enter the credentials for your VM, then select **Connect**.
 
    ![Connect through the Bastion host in the Azure portal](./media/join-windows-vm/connect-to-bastion.png)

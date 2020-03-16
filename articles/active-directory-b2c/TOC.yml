@@ -74,6 +74,8 @@
       href: custom-policy-overview.md
   - name: User accounts
     href: user-overview.md
+  - name: User profile attributes
+    href: user-profile-attributes.md
 - name: How-to guides
   items:
   - name: App integration
@@ -182,9 +184,13 @@
       - name: Customize the UI
         href: custom-policy-ui-customization.md
         displayName: ux, input, cors, html, css
+      - name: Customize language
+        href: custom-policy-localization.md
       - name: Custom email
         href: custom-email.md
         displayName: verification
+      - name: Disable email verification
+        href: custom-policy-disable-email-verification.md
       - name: Enable JavaScript
         href: javascript-samples.md
       - name: Password complexity
@@ -329,6 +335,8 @@
             href: restful-technical-profile.md
           - name: SAML
             href: saml-technical-profile.md
+          - name: SAML token issuer
+            href: saml-issuer-technical-profile.md
           - name: Self-asserted
             href: self-asserted-technical-profile.md
           - name: SSO session

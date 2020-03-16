@@ -630,7 +630,7 @@ Ensure HTTPS is required for accessing the Storage Account containing your Azure
 
 Understand Azure Storage Account Encryption in Transit:
 
-https://docs.microsoft.com/azure/storage/common/storage-security-guide#encryption-in-transit
+https://docs.microsoft.com/azure/storage/blobs/security-recommendations
 
 **Azure Security Center monitoring**: Yes
 
@@ -842,7 +842,7 @@ https://docs.microsoft.com/azure/governance/management-groups/create
 
 
 
-How to create and user Tags:
+How to create and use Tags:
 
 https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 

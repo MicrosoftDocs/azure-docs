@@ -33,7 +33,7 @@
     items:
     - name: .NET Core with SQL DB
       href: app-service-web-tutorial-dotnetcore-sqldb.md
-    - name: .NET with SQL DB
+    - name: .NET Framework with SQL DB
       href: app-service-web-tutorial-dotnet-sqldatabase.md
     - name: PHP with MySQL
       href: app-service-web-tutorial-php-mysql.md 
@@ -87,6 +87,8 @@
       href: networking-features.md
     - name: Application Gateway with service endpoints
       href: networking/app-gateway-with-service-endpoints.md
+    - name: Private Endpoint
+      href: networking/private-endpoint.md
   - name: Inbound and outbound IPs
     href: overview-inbound-outbound-ips.md
   - name: Virtual Network Integration
@@ -144,7 +146,7 @@
     - name: Buy domain
       href: manage-custom-dns-buy-domain.md
     - name: Map domains with Traffic Manager
-      href: web-sites-traffic-manager-custom-domain-name.md
+      href: configure-domain-traffic-manager.md
     - name: Migrate an active domain
       href: manage-custom-dns-migrate-domain.md
   - name: Secure app
@@ -175,6 +177,8 @@
       href: configure-ssl-certificate-in-code.md
     - name: Configure TLS mutual authentication
       href: app-service-web-configure-tls-mutual-auth.md
+    - name: Encrypt site data
+      href: configure-encrypt-at-rest-using-cmk.md
   - name: Scale app
     items:
     - name: Scale up server capacity
