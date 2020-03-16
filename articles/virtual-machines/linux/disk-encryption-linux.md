@@ -404,6 +404,7 @@ Azure Disk Encryption does not work for the following Linux scenarios, features,
 - Dynamic volumes.
 - Ephemeral OS disks.
 - Encryption of shared/distributed file systems like (but not limited to): DFS, GFS, DRDB, and CephFS.
+- Moving an encrypted VMs to another subscription.
 - Kernel Crash Dump (kdump).
 
 ## Next steps
