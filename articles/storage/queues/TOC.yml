@@ -45,8 +45,11 @@
     items:
     - name: Security recommendations
       href: security-recommendations.md
-    - name: Azure Storage encryption
+    - name: Azure Storage encryption at rest
       href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+      items:
+      - name: Customer-managed keys with Azure Key Vault
+        href: ../common/encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: Authorizing data operations
       href: ../common/storage-auth.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
       items:

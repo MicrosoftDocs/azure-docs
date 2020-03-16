@@ -8,20 +8,19 @@ metadata:
   services: cognitive-services
   author: IEvangelist
   manager: nitinme
-  layout: LandingPage
   ms.service: speech-service
   ms.topic: landing-page
-  ms.date: 02/11/2020
+  ms.date: 03/10/2020
   ms.author: dapine
 
 landingContent:
-- title: Get started
+- title: About intent recognition
   linkLists:
     - linkListType: quickstart
       links:
         - text: Recognize speech, intents, and entities
           url: quickstarts/intent-recognition.md
-- title: Step-by-step guides
+- title: Develop with intent recognition
   linkLists:
     - linkListType: how-to-guide
       links:
@@ -37,5 +36,5 @@ landingContent:
           url: ../luis/developer-reference-resource.md
         - text: Language support
           url: ../luis/luis-language-support.md#languages-supported
-        - text: Pricing
+        - text: Intent recognition pricing
           url: https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services
