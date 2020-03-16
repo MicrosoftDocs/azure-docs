@@ -25,7 +25,7 @@ To start encrypting, encoding, analyzing, managing, and streaming media content 
 
 This article describes steps for creating a new Azure Media Services account. Choose from the following tabs.
 
-## [Use the Azure portal](#tab/portal)
+## Use the Azure portal
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -64,7 +64,7 @@ This article shows how to create a Media Services account using the Azure portal
 
 If you plan to access Media Services API programmatically, see [Access the Azure Media Services API with Azure AD authentication](access-api-portal.md).
 
-## [Azure CLI](#tab/azure-cli)
+## Use the Azure CLI
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
