@@ -20,8 +20,8 @@ The `atlas.io.core` namespace contains two low-level classes that can quickly re
 
 The `atlas.io.core.CsvReader` class reads strings that contain delimited data sets. This class provides two methods for reading data:
 
-- The `read` function will read the full data set and return a 2-dimensional array of strings representing all cells of the delimited data set.
-- The `getNextRow` function reads each line of text in a delimited data set and returns an array of string representing all cells in that line of data set. The user can processes the row and dispose any unneeded memory from that row before processing the next row. So, function is more memory efficient.
+- The `read` function will read the full data set and return a two-dimensional array of strings representing all cells of the delimited data set.
+- The `getNextRow` function reads each line of text in a delimited data set and returns an array of string representing all cells in that line of data set. The user can process the row and dispose any unneeded memory from that row before processing the next row. So, function is more memory efficient.
 
 By default, the reader will use the comma character as the delimiter. However, the delimiter can be changed to any single character or set to `'auto'`. When set to `'auto'`, the reader will analyze the first line of text in the string. Then, it will select the most common character from the table below to use as the delimiter.
 
@@ -33,6 +33,23 @@ By default, the reader will use the comma character as the delimiter. However, t
 
 This reader also supports text qualifiers that are used to handle cells that contain the delimiter character. The quote (`'"'`) character is the default text qualifier, but it can be changed to any single character.
 
+> [!NOTE]
+> The delimited reader and writer functionality  interprets column names that contain forward slashes "/" as property paths. This allows for complex JSON objects to be flattened into a two-dimensional table. If this is not your intention, download the file outside of the reader and replace the forward slash character with the escaped hex code `&#x2F;` or html code `&#47;`. 
+>
+> ```JavaScript
+> fetch('<URL to a delimited file to read>').then((response) => {
+> 	return response.text();
+> }).then((data) => { 
+> 	//Replace all forward slash charcters with the escaped hex code "&#x2F;" or html code "&#47;"
+> 	data = data.replace(/\//g, '&#x2F;');
+> 	
+> 	//Pass the delimited data into the reader.
+> 	var csvTable = atlas.io.core.CsvReader.read(data);
+> 
+>   //Do something with the parsed data.
+> });
+> ```
+
 ## Write delimited files
 
 The `atlas.io.core.CsvWriter` writes an array of objects as a delimited string. Any single character can be used as a delimiter or a text qualifier. The default delimiter is comma (`','`) and the default text qualifier is the quote (`'"'`) character.
@@ -40,9 +57,9 @@ The `atlas.io.core.CsvWriter` writes an array of objects as a delimited string. 
 To use this class, follow the steps below:
 
 - Create an instance of the class and optionally set a custom delimiter or text qualifier.
-- Write data to the class using the `write` function or the `writeRow` function. For the `write` function, pass a 2-dimensional array of objects representing multiple rows and cells. To use the `writeRow` function, pass an array of objects representing a row of data with multiple columns.
+- Write data to the class using the `write` function or the `writeRow` function. For the `write` function, pass a two-dimensional array of objects representing multiple rows and cells. To use the `writeRow` function, pass an array of objects representing a row of data with multiple columns.
 - Call the `toString` function to retrieve the delimited string. 
-- Optionally, call the `clear` method to make the writer reusable and reduce its resource allocation, or call the `delete` method to dispose of the the writer instance.
+- Optionally, call the `clear` method to make the writer reusable and reduce its resource allocation, or call the `delete` method to dispose of the writer instance.
 
 > [!Note]
 > The number of columns written will be constrained to the number of cells in the first row of the data passed to the writer.
