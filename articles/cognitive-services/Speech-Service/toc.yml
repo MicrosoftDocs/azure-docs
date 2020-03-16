@@ -97,10 +97,12 @@
               href: rest-speech-to-text.md
             - name: Batch transcription REST API
               href: batch-transcription.md
-        - name: Language support
-          href: 'language-support.md#speech-to-text'
     - name: Resources
       items:
+        - name: Language support
+          href: language-support.md#speech-to-text
+        - name: Region support
+          href: regions.md#speech-to-text-text-to-speech-and-translation
         - name: Speech-to-text FAQ
           displayName: 'FAQ,STT FAQ,SR FAQ,frequently asked questions'
           href: faq-stt.md
@@ -193,14 +195,16 @@
           items:
             - name: Text-to-speech REST API
               href: rest-text-to-speech.md
-        - name: Standard voice support
-          href: 'language-support.md#standard-voices'
-        - name: Neural voice support
-          href: 'language-support.md#neural-voices'
-        - name: SSML phonetic sets
-          href: speech-ssml-phonetic-sets.md
     - name: Resources
       items:
+        - name: Standard voice support
+          href: language-support.md#standard-voices
+        - name: Neural voice support
+          href: language-support.md#neural-voices
+        - name: Region support
+          href: regions.md#speech-to-text-text-to-speech-and-translation
+        - name: SSML phonetic sets
+          href: speech-ssml-phonetic-sets.md
         - name: Text-to-speech FAQ
           displayName: 'FAQ,TTS FAQ,SS FAQ,frequently asked questions'
           href: faq-text-to-speech.md
@@ -249,10 +253,12 @@
             - name: Release notes
               displayName: 'release notes,updates,what''s new,what is new,changes'
               href: releasenotes.md
-        - name: Language support
-          href: 'language-support.md#speech-translation'
     - name: Resources
       items:
+        - name: Language support
+          href: language-support.md#speech-translation
+        - name: Region support
+          href: regions.md#speech-to-text-text-to-speech-and-translation
         - name: Speech translation FAQ
           href: 'https://www.microsoft.com/translator/faq.aspx'
 - name: Intent recognition
@@ -297,6 +303,12 @@
           items:
             - name: LUIS developer resources
               href: https://docs.microsoft.com/azure/cognitive-services/luis/developer-reference-resource
+    - name: Resources
+      items:
+        - name: Language support
+          href: ../luis/luis-language-support.md
+        - name: Region support
+          href: regions.md#intent-recognition
 - name: Conversation scenarios
   items:
     - name: Conversation scenarios documentation
