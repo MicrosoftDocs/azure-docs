@@ -142,7 +142,7 @@ Use the [Spring Initializr](https://start.spring.io/) to create a new Spring Boo
 
 1. Set an environment variable named **APP_CONFIGURATION_CONNECTION_STRING**, and set it to the access key to your App Configuration store. At the command line, run the following command and restart the command prompt to allow the change to take effect:
 
-    ```CLI
+    ```cmd
         setx APP_CONFIGURATION_CONNECTION_STRING "connection-string-of-your-app-configuration-store"
     ```
 
@@ -154,7 +154,7 @@ Use the [Spring Initializr](https://start.spring.io/) to create a new Spring Boo
 
     If you use macOS or Linux, run the following command:
 
-    ```console
+    ```cmd
         export APP_CONFIGURATION_CONNECTION_STRING='connection-string-of-your-app-configuration-store'
     ```
 
@@ -162,14 +162,14 @@ Use the [Spring Initializr](https://start.spring.io/) to create a new Spring Boo
 
 1. Build your Spring Boot application with Maven and run it, for example:
 
-    ```CLI
+    ```cmd
     mvn clean package
     mvn spring-boot:run
     ```
 
 2. After your application is running, use *curl* to test your application, for example:
 
-      ```CLI
+      ```cmd
       curl -X GET http://localhost:8080/
       ```
 

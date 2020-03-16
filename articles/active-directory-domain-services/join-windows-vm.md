@@ -71,7 +71,7 @@ If you already have a VM that you want to domain-join, skip to the section to [j
 
 1. By default, VMs created in Azure are accessible from the Internet using RDP. When RDP is enabled, automated sign in attacks are likely to occur, which may disable accounts with common names such as *admin* or *administrator* due to multiple failed successive sign in attempts.
 
-    RDP should only be enabled when required, and limited to a set of authorized IP ranges. This configuration helps improve the security of the VM and reduces the area for potential attack. Or, create and use an Azure Bastion host that allows access only through the Azure portal over SSL. In the next step of this tutorial, you use an Azure Bastion host to securely connect to the VM.
+    RDP should only be enabled when required, and limited to a set of authorized IP ranges. This configuration helps improve the security of the VM and reduces the area for potential attack. Or, create and use an Azure Bastion host that allows access only through the Azure portal over TLS. In the next step of this tutorial, you use an Azure Bastion host to securely connect to the VM.
 
     For now, disable direct RDP connections to the VM.
 
