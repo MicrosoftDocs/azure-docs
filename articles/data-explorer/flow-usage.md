@@ -155,7 +155,7 @@ Follow these instructions to create a similar Flow:
     1. Select **Variables - Initialize variable**. 
     1. Initialize a string variable as follows:
 
-    ![Initialize a variable](./media/flow-usage/flow-initializevariable.pn)
+    ![Initialize a variable](./media/flow-usage/flow-initializevariable.png)
 
 1. Loop over the results:
     1. Select **New step**.
