@@ -69,7 +69,7 @@ To configure and test Azure AD single sign-on with Palo Alto Networks - Admin UI
     * **[Create Palo Alto Networks - Admin UI test user](#create-palo-alto-networks---admin-ui-test-user)** - to have a counterpart of B.Simon in Palo Alto Networks - Admin UI that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-### Configure Azure AD single sign-on
+### Configure Azure AD SSO
 
 In this section, you enable Azure AD single sign-on in the Azure portal.
 
@@ -167,7 +167,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
 1. In the **Add Assignment** dialog, click the **Assign** button.
 
-### Configure Palo Alto Networks - Admin UI Single Sign-On
+### Configure Palo Alto Networks - Admin UI SSO
 
 1. Open the Palo Alto Networks Firewall Admin UI as an administrator in a new window.
 
@@ -184,13 +184,13 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
     ![The "SAML Identify Provider Server Profile Import" window](./media/paloaltoadmin-tutorial/tutorial_paloaltoadmin_idp.png)
 
     a. In the **Profile Name** box, provide a name (for example, **AzureAD Admin UI**).
-	
+
     b. Under **Identity Provider Metadata**, select **Browse**, and select the metadata.xml file that you downloaded earlier from the Azure portal.
-	
+
     c. Clear the **Validate Identity Provider Certificate** check box.
-	
+
     d. Select **OK**.
-	
+
     e. To commit the configurations on the firewall, select **Commit**.
 
 5. In the left pane, select **SAML Identity Provider**, and then select the SAML Identity Provider Profile (for example, **AzureAD Admin UI**) that you created in the preceding step.
@@ -256,7 +256,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 Palo Alto Networks - Admin UI supports just-in-time user provisioning. If a user doesn't already exist, it is automatically created in the system after a successful authentication. No action is required from you to create the user.
 
-### Test single sign-on
+### Test SSO
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
