@@ -255,14 +255,13 @@ The following are the IDs for a [one time password technical profile](one-time-p
 
 ## Claims transformations error messages
 
-The following is the ID for a [AssertStringClaimsAreEqual](string-transformations#assertstringclaimsareequal) error messages
+The following are the IDs for claims transformations error messages:
 
 | ID | Claims transformation | Default value |
 | -- | ------------- |------------- |
 |UserMessageIfClaimsTransformationBooleanValueIsNotEqual |[AssertBooleanClaimIsEqualToValue](boolean-transformations.md#assertbooleanclaimisequaltovalue) | Boolean claim value comparison failed for claim type "inputClaim".| 
 |DateTimeGreaterThan |[AssertDateTimeIsGreaterThan](date-transformations.md#assertdatetimeisgreaterthan) | Claim value comparison failed: The provided left operand is greater than the right operand.|
-|UserMessageIfClaimsTransformationStringsAreNotEqual |[AssertStringClaimsAreEqual](string-transformations.m#assertstringclaimsareequal) | Claim value comparison failed using StringComparison "OrdinalIgnoreCase".|
-
+|UserMessageIfClaimsTransformationStringsAreNotEqual |[AssertStringClaimsAreEqual](string-transformations.md#assertstringclaimsareequal) | Claim value comparison failed using StringComparison "OrdinalIgnoreCase".|
 
 ### Example
 
