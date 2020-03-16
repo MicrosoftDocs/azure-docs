@@ -34,7 +34,8 @@ Assign a system-assigned identity that is tied to your cluster, and is deleted i
 
     ![Add system assigned identity](media/managed-identities/turn-system-assigned-identity-on.png)
 
-1. After a few minutes, the resulting screen shows **Object ID** and **Role assignments**.                                                                                              
+1. After a few minutes, the resulting screen shows **Object ID** and **Role assignments**.
+
     ![System assigned identity on](media/managed-identities/system-assigned-identity-on.png)
 
 # [C#](#tab/c-sharp)
@@ -86,6 +87,7 @@ To set up a managed identity using the Azure Data Explorer C# client:
     ```csharp
     (resourceGroupName, clusterName);
     ```
+
 If the result contains `ProvisioningState` with the `Succeeded` value, then the cluster was created or updated, and should have the following properties:
 
     ```csharp
