@@ -92,7 +92,7 @@ Make a note of the **Azure Subscription ID** and the **Azure Region**.
 
 ### Create an AAD application
 
-Azure FarmBeats requires Azure Active Directory application creation and registration. To successfully run the AAD creation script, the following permissions are needed -
+Azure FarmBeats requires Azure Active Directory application creation and registration. To successfully run the AAD creation script, the following permissions are needed:
 
 - Tenant - AAD app creator
 - Subscription - Owner
@@ -119,11 +119,11 @@ Run the following steps in a Cloud Shell instance using the PowerShell environme
 
 4. The script asks for the following three inputs:
 
-    - FarmBeats Website Name: This is the unique URL prefix for your FarmBeats web application. In case the prefix is already taken, the script will error out. Once installed, your FarmBeats deployment will be accessible from https://\<FarmBeats-website-name>.azurewebsites.net and the swagger APIs will be at https://\<FarmBeats-website-name>-api.azurewebsites.net
+    - **FarmBeats Website Name**: This is the unique URL prefix for your FarmBeats web application. In case the prefix is already taken, the script will error out. Once installed, your FarmBeats deployment will be accessible from https://\<FarmBeats-website-name>.azurewebsites.net and the swagger APIs will be at https://\<FarmBeats-website-name>-api.azurewebsites.net
 
-    - Azure login ID: Provide Azure login ID for the user who you want to be added as admin of FarmBeats. This user can then grant access to access FarmBeats web application to other users. The login ID is generally of the form john.doe@domain.com. Azure UPN is also supported.
+    - **Azure login ID**: Provide Azure login ID for the user who you want to be added as admin of FarmBeats. This user can then grant access to access FarmBeats web application to other users. The login ID is generally of the form john.doe@domain.com. Azure UPN is also supported.
 
-    - Subscription ID: This is the ID of the subscription in which you want to install Azure FarmBeats
+    - **Subscription ID**: This is the ID of the subscription in which you want to install Azure FarmBeats
 
 5. The AAD script takes around 2 minutes to run and outputs values on screen as well as to a json file in the same directory. If you had someone else run the script, ask them to share this output with you.
 
