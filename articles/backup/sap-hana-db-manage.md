@@ -137,11 +137,11 @@ Modify policy to change backup types, frequencies and retention range.
 
    ![Choose backup frequency](./media/sap-hana-db-manage/choose-frequency.png)
 
-Policy modification will impact all the associated backup items and trigger corresponding configure protection jobs.
+Policy modification will impact all the associated backup items and trigger corresponding **configure protection** jobs.
 
 ### Inconsistent policy
 
-Sometimes a modify policy operation can lead to an inconsistent policy version for backup items. This happens when the corresponding configure protection job fails for the backup item after a modify policy operation is triggered. It appears as follows in the backup item view:
+Occasionally a modify policy operation can lead to an **inconsistent** policy version for some backup items. This happens when the corresponding **configure protection** job fails for the backup item after a modify policy operation is triggered. It appears as follows in the backup item view:
 
 ![Inconsistent policy](./media/sap-hana-db-manage/inconsistent-policy.png)
 
