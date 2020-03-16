@@ -26,7 +26,7 @@ The following images shows the relationships between these three services.
 
 The ingress service currently supported and validated with Azure Digital Twins is [IoT Hub](../iot-hub/about-iot-hub.md), which enables you to collect telemetry from physical devices in your environment and process this data in the cloud. 
 
-During preview, IoT Hub is loosely coupled with Azure Digital Twins. You must use an [Azure Function](../azure-functions/functions-overview.md) to redirect data from IoT Hub into Azure Digital Twins. You may use an IoT Hub you currently have in production, or deploy a new one.
+During preview, IoT Hub is loosely coupled with Azure Digital Twins. You may use an IoT Hub you currently have in production, or deploy a new one. You must use an [Azure Function](../azure-functions/functions-overview.md) to redirect data from IoT Hub into Azure Digital Twins. Learn more about using this pattern in a [tutorial](https://github.com/Azure/azure-digital-twins/tree/private-preview/Tutorials).
 
 ## Egress services
 
