@@ -16,14 +16,14 @@ Service-aided subnet configuration provides automated network configuration mana
 
 Automaticaly configured network security groups and route table rules are visible to customer and annotated with prefix _Microsoft.Sql-managedInstances_UseOnly__.
 
-Service-aided configuration is enabled automaticaly once you turn on [subnet-delegation](virtual-network/subnet-delegation-overview.md) for `Microsoft.Sql/managedInstances` resource provider.
+Service-aided configuration is enabled automaticaly once you turn on [subnet-delegation](../virtual-network/subnet-delegation-overview.md) for `Microsoft.Sql/managedInstances` resource provider.
 
-[!IMPORTANT] Once subnet-delegation is turned on you could not turn it off until you remove last virtual cluster from the subnet. For more details on how to delete virtual cluster see the following [article](sql-database/sql-database-managed-instance-delete-virtual-cluster.md#delete-virtual-cluster-from-the-azure-portal).
+[!IMPORTANT] Once subnet-delegation is turned on you could not turn it off until you remove last virtual cluster from the subnet. For more details on how to delete virtual cluster see the following [article](sql-database-managed-instance-delete-virtual-cluster.md#delete-virtual-cluster-from-the-azure-portal).
 
 [!NOTE] As service-aided subnet configuration is esential feature for maintaining SLA, starting May 1st, it wont be possible to deploy managed instances in subnets that are not delegated to managed instance resource provider. On July 1st all subnets containing managed instances will be automaticaly delegated to managed instance resource provider. 
 
 ## Enabling subnet-delegation for new deployments
-To deploy managed instance in to empty subnet you need to delegate it to `Microsoft.Sql/managedInstances` resource provider as described in following [article](virtual-network/manage-subnet-delegation.md). _Please note that referenced article uses `Microsoft.DBforPostgreSQL/serversv2` resource provider for example. You'll need to use `Microsoft.Sql/managedInstances` resource provider instead._
+To deploy managed instance in to empty subnet you need to delegate it to `Microsoft.Sql/managedInstances` resource provider as described in following [article](../virtual-network/manage-subnet-delegation.md). _Please note that referenced article uses `Microsoft.DBforPostgreSQL/serversv2` resource provider for example. You'll need to use `Microsoft.Sql/managedInstances` resource provider instead._
 
 ## Enabling subnet-delegation for existing deployments
 
@@ -52,7 +52,7 @@ $mi = Get-AzSqlInstance -ResourceGroupName {rg-name} -Name {mi-name}
 $mi.SubnetId
 ```
 
-Once you find managed instance subnet you need to delegate it to `Microsoft.Sql/managedInstances` resource provider as described in following [article](virtual-network/manage-subnet-delegation.md). _Please note that referenced article uses `Microsoft.DBforPostgreSQL/serversv2` resource provider for example. You'll need to use `Microsoft.Sql/managedInstances` resource provider instead._
+Once you find managed instance subnet you need to delegate it to `Microsoft.Sql/managedInstances` resource provider as described in following [article](../virtual-network/manage-subnet-delegation.md). _Please note that referenced article uses `Microsoft.DBforPostgreSQL/serversv2` resource provider for example. You'll need to use `Microsoft.Sql/managedInstances` resource provider instead._
 
 
 [!IMPORTANT] Enabling service-aided configuration doesn't cause failover or interuption in connectivity for managed instances that are already in the subnet.
