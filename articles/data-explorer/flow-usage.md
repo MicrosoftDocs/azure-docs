@@ -11,7 +11,7 @@ ms.date: 03/15/2020
 
 # Microsoft Flow connector (Preview) usage examples
 
-The Microsoft Flow connector enables you to run Kusto queries and commands automatically as part of a scheduled or triggered task, using [Microsoft Flow](https://flow.microsoft.com/). This document contains several common Microsoft Flow connector usage examples.
+The Azure Data Explorer flow connector allows Azure Data Explorer to use [Microsoft Power Automate's Flow capabilities](https://flow.microsoft.com/) to run Kusto queries and commands automatically as part of a scheduled or triggered task. This document contains several common Microsoft Flow connector usage examples.
 
 For more information, see [Microsoft Flow connector (Preview)](flow.md).
 
