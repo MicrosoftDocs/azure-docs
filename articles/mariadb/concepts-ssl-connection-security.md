@@ -22,5 +22,4 @@ To learn how to enable or disable SSL connection when developing application, re
 
 ## Next steps
 - Learn more about [server firewall rules](concepts-firewall-rules.md)
-- Learn how to [configure SSL](howto-configure-ssl.md).
-- Learn how to [configure TLS](howto-tls-configurations.md).
+- Learn how to [configure SSL](howto-configure-ssl.md)

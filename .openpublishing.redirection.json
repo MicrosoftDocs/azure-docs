@@ -49338,6 +49338,21 @@
       "source_path": "articles/cognitive-services/speech-service/how-to-migrate-from-custom-speech-service.md",
       "redirect_url": "/azure/cognitive-services/speech-service",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mariadb/howto-tls-configurations.md",
+      "redirect_url": "/azure/mariadb/howto-configure-ssl",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mysql/howto-tls-configurations.md",
+      "redirect_url": "/azure/mysql/howto-configure-ssl",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/postgresql/howto-tls-configurations.md",
+      "redirect_url": "/azure/postgresql/concepts-ssl-connection-security",
+      "redirect_document_id": false
     }
   ]
 }

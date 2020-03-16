@@ -142,10 +142,6 @@
     items:
     - name: Azure portal
       href: howto-deny-public-network-access.md
-  - name: Minimum TLS configuration
-    items:
-    - name: Azure portal
-      href: howto-tls-configurations.md
   - name: Access server logs
     items:
     - name: Slow query logs
