@@ -44,6 +44,8 @@ Your logic apps and locations must meet these requirements:
 
   In more advanced scenarios, you can mix both multi-tenant Azure and an ISE as locations. However, make that you consider and understand the differences between how logic apps, built-in triggers and actions, and managed connectors run in each location.
 
+<a name="roles"></a>
+
 ## Active-active and active-passive roles
 
 You can set up your primary and secondary locations so that the logic app instances in those locations play these roles.
@@ -51,7 +53,7 @@ You can set up your primary and secondary locations so that the logic app instan
 | Primary-secondary role | Description |
 |------------------------|-------------|
 | *Active-active* | Logic app instances in both locations actively handle requests, for example: <p><p>- You can have the secondary instance listen to an HTTP endpoint, and then load balance traffic between the two instances as necessary. <p>- You can have the secondary instance act as a competing consumer so that both instances compete for messages from a queue. If one instance fails, the other instance takes over the workload. |
-| *Active-passive* | The primary instance handles the entire workload, while the secondary instance is passive, or inactive. The secondary waits for a signal that the primary can no longer function due to a disruption. On receiving this signal happens, the secondary takes over as the active instance. |
+| *Active-passive* | The primary instance handles the entire workload, while the secondary instance is passive, or inactive. The secondary waits for a signal that the primary can no longer function due to a disruption. Upon receiving the signal, the secondary takes over as the active instance. |
 | Some combination of both | For example, some logic apps play an active-active role, while other logic apps play an active-passive role. |
 |||
 
@@ -59,19 +61,21 @@ You can set up your primary and secondary locations so that the logic app instan
 
 When your logic app is triggered and starts running, the app's state is stored in the same location where the app started and is non-transferable to another location. If a failure or disruption happens, any in-progress workflow instances are abandoned. When you have a primary and secondary locations set up, new workflow instances start running at the secondary location.
 
+> [!NOTE]
+> The Sliding Window trigger, which is a schedule-based trigger, has the capability for you to 
+> move that trigger's state to an alternate region, but the API for this task is undocumented.
+
 ### Reduce abandoned in-progress instances
 
 To minimize the number of abandoned in-progress workflow instances, you have various patterns that you can implement. For example, the [fixed routing slip pattern](https://www.enterpriseintegrationpatterns.com/patterns/messaging/RoutingTable.html) is an enterprise message pattern that splits a business process into smaller stages. You can the set up a logic app to handle the workload for each stage. To communicate with each other, these logic apps use an asynchronous messaging protocol, such as Azure Service Bus queues or topics. So, by dividing a process into smaller stages, you can reduce the number of stages that might get stuck in a failed workflow instance.
 
-If you have these logic apps in both primary and secondary locations, you can implement the competing consumer pattern by setting up active-active roles for the instances in the primary and secondary locations.
+If you have these logic apps in both primary and secondary locations, you can implement the competing consumer pattern by setting up [active-active roles](#roles) for the instances in the primary and secondary locations.
 
 ![Business process split into stages that communicate with each other by using Azure Service Bus queues](./media/business-continuity-disaster-recovery-guidance/fixed-routing-slip-pattern.png)
 
 ### Access to trigger and runs history
 
-To learn more about your logic app's past workflow executions, you can review your app's trigger and runs history. This history is stored in the same location where the logic app ran and is non-transferable to another location. So, if your primary instance fails over to the secondary instance, you can access the trigger and runs history, but only for the executions in each location, not as a whole.
-
-However, you can get location-agnostic information about your logic app's history when you set up your logic apps to send diagnostic events to an Azure Log Analytics workspace. You can then review the health and history across logic apps in multiple locations.
+To get more information about your logic app's past workflow executions, you can review the app's trigger and runs history. A logic app's history execution history is stored in the same location or region where that logic app ran, which means you can't migrate this history to a different location. If your primary instance fails over to a secondary instance, you can only access each instance's trigger and runs history in the respective locations where those instances ran. However, you can get location-agnostic information about your logic app's history by setting up your logic apps to send diagnostic events to an Azure Log Analytics workspace. You can then review the health and history across logic apps that run in multiple locations.
 
 ## Trigger type guidance
 
@@ -86,7 +90,7 @@ The trigger type that you use in your logic apps determine your options for how 
 
 ### Recurrence trigger
 
-A Recurrence trigger fires solely based a specified schedule and no other criteria, for example:
+The **Recurrence** trigger is independent from any specific service or endpoint, and fires solely based a specified schedule and no other criteria, for example:
 
 * A fixed frequency and interval, such as every 10 minutes
 * A more advanced schedule, such as the last Monday of every month at 5:00 PM
@@ -97,31 +101,30 @@ For example, if you have a logic app that needs to run every 10 minutes, set up 
 
 * Active-passive
 
-  * In the primary location, set the active logic app's Recurrence trigger to a 20-minute recurrence that starts at the top of the hour, for example, 9:00 AM.
+  * In the primary location, set the *active* logic app's Recurrence trigger to a 20-minute recurrence that starts at the top of the hour, for example, 9:00 AM.
 
-  * In the secondary location, set the passive logic app's Recurrence trigger to a 20-minute recurrence that starts at 10 minutes past the hour that's set in the other location, for example, 9:10 AM.
+  * In the secondary location, set the *passive* logic app's Recurrence trigger to a 20-minute recurrence that starts at 10 minutes past the hour that's set in the other location, for example, 9:10 AM.
 
 * Passive-active
 
-  * In the secondary location, set the active logic app's Recurrence trigger to a 20-minute recurrence that starts at 10 minutes past the hour, for example, 9:10 AM.
-  
-  * In the primary location, set the passive logic app's Recurrence trigger to a 20-minute recurrence that starts at the top of the hour that's set in the other location, for example, 9:00 AM.
-  
-  When a disruptive event happens in one location, enable the passive logic app. That way, if discovering the failure takes time, this configuration limits the number of missed recurrences during that delay.
+  * In the secondary location, set the *active* logic app's Recurrence trigger to a 20-minute recurrence that starts at 10 minutes past the hour, for example, 9:10 AM.
 
-> [!NOTE]
-> Although the Sliding Window trigger has the capability for you to move the 
-> trigger state to an alternate region, the API for this task is undocumented.
+  * In the primary location, set the *passive* logic app's Recurrence trigger to a 20-minute recurrence that starts at the top of the hour that's set in the other location, for example, 9:00 AM.
+
+  When a disruptive event happens in one location, enable the passive logic app. That way, if discovering the failure takes time, this configuration limits the number of missed recurrences during that delay.
 
 <a name="polling-trigger"></a>
 
 ### Polling trigger
 
-Polling triggers allows a logic app to repeatedly call a service on a fixed recurrence to determine if there's new data to be processed. The polled service can provide either static data (after reading the data it is still available for someone else to read) and volatile data (once read the data is no longer available).
+To regularly check whether new data is available for processing, your logic app can use a *polling* trigger that repeatedly calls a specific service or endpoint based on a fixed recurrence schedule. The service that you're polling can provide either these types of data:
+
+* Static data, which describes data that always remains available for reading
+* Volatile data, which describes data is (once read the data is no longer available).
 
 To ensure that the same data isn't read multiple times state needs to be maintained to remember what data has already be read. This state can either be maintained in the client, for logic apps that will be called trigger state, or at the system or service. An example of client-side state is a trigger that reads new messages in an inbox which requires that the trigger remember the last message that was read so that it only activates the logic app when a new message arrives. An example of server-side state is a trigger that reads rows from a database based on a query where it only reads rows that don't have a isRead column set to FALSE. Each time a row is read, the logic app updates the row to set the isRead column to TRUE. This works similarly for queues or topics that have queuing semantics where a message can be read and locked and when the logic app is finished handling the message it can delete the message from the queue or topic. 
 
-When configuring logic apps that have client-side trigger state, to ensure that the same message is not read more than once, then only one location can have the logic app active at any given time. Therefore, the logic app in the alternate location must be disabled until the primary fails over to the alternate location. Logic apps with server-side state can either be configure as active-active, where they are working as competing consumers or active-passive, or as active-passive, where the alternate is waiting until a fail over occurs. Note that if you are reading messages from queues that need to be read in order, then competing consumer can only be used in combination with sessions (aka sequential convoy message pattern) otherwise they must be configured as active-passive.
+When configuring logic apps that have client-side trigger state, to ensure that the same message is not read more than once, then only one location can have the logic app active at any given time. Therefore, the logic app in the alternate location must be disabled until the primary fails over to the alternate location. You can set up logic apps that have server-side state with either an [active-active role](#roles) where they work as competing consumers, or with an [active-passive role](#roles) where the alternate instance waits until failover happens. Note that if you are reading messages from queues that need to be read in order, then competing consumer can only be used in combination with sessions (aka sequential convoy message pattern) otherwise they must be configured as active-passive.
 
 <a name="request-trigger"></a>
 
@@ -131,9 +134,9 @@ A logic app can use a Request trigger  provide a logic app with a direct REST AP
 
   * REST API for other services to call either as part of an app or as a callback (webhook) mechanism
 
-  * Allow the logic app to be called by another logic app using the call workflow action 
+  * Allow the logic app to be called by another logic app using the call workflow action
 
-  * Manual invocation for more user-operations types of routines 
+  * Manual invocation for more user-operations types of routines
 
 Request triggers are passive where the logic app will not do any work until the request trigger is explicitly invoked. As a passive endpoint it can be configured as either active-active using a load balancer or active-passive where the calling system or router determines when to deem it as active.
 
