@@ -43,7 +43,7 @@ Complete the steps in [Get started with custom policies](custom-policy-get-start
 
 ## Prepare a REST API endpoint
 
-For this walkthrough, you should have a REST API that validates whether an email address is registered in your back-end system with a membership ID. If registered, the REST API should return a registration promotion code, which the customer can use to buy goods within your application. Otherwise, the REST API should return an HTTP 409 error message: "Membership ID '{membership ID}' is not associated with '{email}' email address.".
+For this walkthrough, you should have a REST API that validates whether an email address is registered in your back-end system with a loyalty ID. If registered, the REST API should return a registration promotion code, which the customer can use to buy goods within your application. Otherwise, the REST API should return an HTTP 409 error message: "Loyalty ID '{loyalty ID}' is not associated with '{email}' email address.".
 
 The following JSON code illustrates the data Azure AD B2C will send to your REST API endpoint. 
 
@@ -51,7 +51,7 @@ The following JSON code illustrates the data Azure AD B2C will send to your REST
 {
     "email": "User email address",
     "language": "Current UI language",
-    "membershipId": "User membership ID"
+    "loyaltyId": "User loyalty ID"
 }
 ```
 
@@ -69,11 +69,11 @@ If the validation failed, the REST API must return an HTTP 409 (Conflict), with 
 {
     "version": "1.0.1",
     "status": 409,
-    "userMessage": "Membership ID '1234' is not associated with 'david@contoso.com' email address."
+    "userMessage": "LoyaltyId ID '1234' is not associated with 'david@contoso.com' email address."
 }
 ```
 
-The setup of the REST API endpoint is outside the scope of this article. We have created an [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-reference) sample. You can access the complete Azure function code at [GitHub](https://github.com/Azure-Samples/active-directory-b2c-advanced-policies/tree/master/AzureFunctionsSamples).
+The setup of the REST API endpoint is outside the scope of this article. We have created an [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-reference) sample. You can access the complete Azure function code at [GitHub](https://github.com/azure-ad-b2c/rest-api/tree/master/source-code/azure-function).
 
 ## Define claims
 
@@ -113,7 +113,7 @@ A [Restful technical profile](restful-technical-profile.md) provides support for
       <DisplayName>Check Player Tag Web Hook Azure Function</DisplayName>
       <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
       <Metadata>
-        <Item Key="ServiceUrl">https://wingtipb2cfuncs.azurewebsites.net/api/CheckPlayerTagWebHook?code=L/05YRSpojU0nECzM4Tp3LjBiA2ZGh3kTwwp1OVV7m0SelnvlRVLCg==</Item>
+        <Item Key="ServiceUrl">https://your-account.azurewebsites.net/api/ValidateProfile?code=your-code</Item>
         <Item Key="SendClaimsIn">Body</Item>
         <!-- Set AuthenticationType to Basic or ClientCertificate in production environments -->
         <Item Key="AuthenticationType">None</Item>
