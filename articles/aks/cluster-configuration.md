@@ -12,7 +12,7 @@ As part of creating an AKS cluster, you may need to customize your cluster confi
 
 ## OS configuration (Preview)
 
-AKS now supports Ubuntu 18.04 as the node operating system (OS) in preview. During the preview period, both Ubuntu 16.04 and Ubuntu 18.04 are available. To continue using clusters with Ubuntu 16.04, do not add the `--aks-custom-headers` tag as shown in the following examples.
+AKS now supports Ubuntu 18.04 as the node operating system (OS) in preview. During the preview period, both Ubuntu 16.04 and Ubuntu 18.04 are available.
 
 You must have the following resources installed:
 
@@ -26,8 +26,7 @@ az extension add --name aks-preview
 az extension list
 ```
 
-> [!CAUTION]
-> After you register a feature on a subscription, you can't currently unregister that feature. When you enable some preview features, defaults might be used for all AKS clusters created afterward in the subscription. Don't enable preview features on production subscriptions. Instead, use a separate subscription to test preview features and gather feedback.
+Register the `UseCustomizedUbuntuPreview` feature:
 
 ```azurecli
 az feature register --name UseCustomizedUbuntuPreview --namespace Microsoft.ContainerService
@@ -50,6 +49,8 @@ Configure the cluster to use Ubuntu 18.04 when the cluster is created. Use the `
 ```azure-cli
 az aks create --name myAKSCluster --resource-group myResourceGroup --aks-custom-headers CustomizedUbuntu=aks-ubuntu-1804
 ```
+
+If you want to create a regular Ubuntu 16.04 cluster, you can do so by omitting the custom `--aks-custom-headers` tag.
 
 ## Custom resource group name
 
