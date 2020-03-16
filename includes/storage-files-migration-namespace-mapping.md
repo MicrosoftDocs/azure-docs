@@ -65,15 +65,14 @@ Even if in your situation a set of folders can logically sync to the same Azure 
         
         Create a table that records your thoughts, such that you can refer to it in the next step. Staying organized is important as it can be easy to lose details of your mapping plan when provisioning many Azure resources at once. To help you in creating a complete mapping, you can download a Microsoft Excel file as a template.
 
-|   |        |
-| - | ------ |
+<br>
 <table>
     <tr>
         <td>
-            :::image type="icon" source="media/storage-files-migration-namespace-mapping/excel.png":::
+            <img src="media/storage-files-migration-namespace-mapping/excel.png" alt="Microsoft Excel file icon that helps to set the context for the type of file download for the link next to it.">
         </td>
         <td>
-            Download a namespace mapping template.
+            Download a namespace-mapping template.
         </td>
     </tr>
 </table>
