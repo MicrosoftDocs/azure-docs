@@ -28,7 +28,15 @@ You can run multiple Batch workloads in a single Batch account, or distribute yo
 
 ## Components of the Batch account
 
-The Batch account enables you to run large-scale parallel and high-performance computing (HPC) batch jobs efficiently in Azure. Within the account you manage the applications you are running, the allocation of pools and nodes within pools, the number and types of tasks, and the input and output of data. You don't need to install additional software to manage tasks.
+The Batch account enables you to run large-scale parallel and high-performance computing (HPC) batch jobs efficiently in Azure. Within the account you manage:
+
+- the applications you are running
+
+- the allocation of pools and nodes within pools
+
+- the number and types of tasks 
+
+- the input and output of data. You don't need to install additional software to manage tasks.
 
 - When you create the Batch account, you are asked to assign a name to it. This name is its ID and once assigned cannot be changed.
 
@@ -47,4 +55,7 @@ The Batch account enables you to run large-scale parallel and high-performance c
 ## Next steps
 
 - Create a Batch account using the [Azure portal](batch-account-create-portal.md).
-- Create a Batch account programmatically, such as with the [Batch Management .NET library](batch-management-dotnet.md).'
+- Create a Batch account programmatically, such as with the [Batch Management .NET library](batch-management-dotnet.md).
+- [Configure or disable remote access to compute nodes in an Azure Batch pool](pool-endpoint-configuration.md).
+- [Run job preparation and job release tasks on Batch compute nodes](batch-job-prep-release.md)
+

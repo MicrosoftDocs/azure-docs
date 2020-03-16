@@ -5,7 +5,7 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 06/06/2019
+ms.date: 03/12/2020
 ms.author: alkohli
 ms.subservice: common
 ---
@@ -25,7 +25,9 @@ You must:
 - Have adequate number of disks of [Supported types](storage-import-export-requirements.md#supported-disks).
 - Have a Windows system running a [Supported OS version](storage-import-export-requirements.md#supported-operating-systems).
 - Enable BitLocker on the Windows system. See [How to enable BitLocker](https://thesolving.com/storage/how-to-enable-bitlocker-on-windows-server-2012-r2/).
-- [Download the WAImportExport version 1](https://www.microsoft.com/download/details.aspx?id=42659) on the Windows system. Unzip to the default folder `waimportexportv1`. For example, `C:\WaImportExportV1`.
+- [Download the latest WAImportExport version 1](https://www.microsoft.com/download/details.aspx?id=42659) on the Windows system. The latest version of the tool has security updates to allow for AES 256-bit BitLocker encryption, an external protector for the BitLocker key, and the updated unlock mode feature. 
+
+    - Unzip to the default folder `waimportexportv1`. For example, `C:\WaImportExportV1`.
 - Have a FedEx/DHL account. If you want to use a carrier other than FedEx/DHL, contact Azure Data Box Operations team at `adbops@microsoft.com`.  
     - The account must be valid, should have balance, and must have return shipping capabilities.
     - Generate a tracking number for the export job.
@@ -40,17 +42,26 @@ This step generates a journal file. The journal file stores basic information su
 
 Perform the following steps to prepare the drives.
 
-1.	Connect your disk drives to the Windows system via SATA connectors.
-1.  Create a single NTFS volume on each drive. Assign a drive letter to the volume. Do not use mountpoints.
-2.  Enable BitLocker encryption on the NTFS volume. If using a Windows Server system, use the instructions in [How to enable BitLocker on Windows Server 2012 R2](https://thesolving.com/storage/how-to-enable-bitlocker-on-windows-server-2012-r2/).
-3.  Copy data to encrypted volume. Use drag and drop or Robocopy or any such copy tool.
-4.	Open a PowerShell or command line window with administrative privileges. To change directory to the unzipped folder, run the following command:
+1.  Connect your disk drives to the Windows system via SATA connectors.
+2.  Create a single NTFS volume on each drive. Assign a drive letter to the volume. Do not use mountpoints.
+3.  Enable BitLocker encryption on the NTFS volume. If using a Windows Server system, use the instructions in [How to enable BitLocker on Windows Server 2012 R2](https://thesolving.com/storage/how-to-enable-bitlocker-on-windows-server-2012-r2/).      
+4.  Copy data to encrypted volume. Use drag and drop or Robocopy or any such copy tool. A journal (*.jrn*) file is created in the same folder where you run the tool.
+
+    If the drive is locked and you need to unlock the drive, the steps to unlock may be different depending on your use case.
+    
+    - If you have added data to a pre-encrypted drive (WAImportExport tool was not used for encryption), use the BitLocker key (a numerical password that you specify) in the popup to unlock the drive.
+
+    - If you have added data to a drive that was encrypted by WAImportExport tool, use the following command to unlock the drive: 
+
+        `WAImportExport Unlock /externalKey:<BitLocker key (base 64 string) copied from journal (*.jrn*) file>` 
+
+4.  Open a PowerShell or command line window with administrative privileges. To change directory to the unzipped folder, run the following command:
 
     `cd C:\WaImportExportV1`
-5.  To get the BitLocker key of the drive, run the following command:
+6.  To get the BitLocker key of the drive, run the following command:
 
     `manage-bde -protectors -get <DriveLetter>:`
-6.	To prepare the disk, run the following command. **Depending on the data size, this may take several hours to days.**
+7.  To prepare the disk, run the following command. **Depending on the data size, this may take several hours to days.**
 
     ```
     ./WAImportExport.exe PrepImport /j:<journal file name> /id:session#<session number> /t:<Drive letter> /bk:<BitLocker key> /srcdir:<Drive letter>:\ /dstdir:<Container name>/ /blobtype:<BlockBlob or PageBlob> /skipwrite
@@ -74,6 +85,7 @@ Perform the following steps to prepare the drives.
 
     > [!IMPORTANT]
     > - Together with the journal file, a `<Journal file name>_DriveInfo_<Drive serial ID>.xml` file is also created in the same folder where the tool resides. The .xml file is used in place of journal file when creating a job if the journal file is too big.
+
 
 ## Step 2: Create an import job
 
@@ -125,7 +137,11 @@ Perform the following steps to create an import job in the Azure portal.
 
      ![Create import job - Step 4](./media/storage-import-export-data-to-blobs/import-to-blob6.png)
 
-## Step 3: Ship the drives
+## (Optional) Step 3: Configure customer managed key
+
+Skip this step and go to the next step if you want to use the Microsoft managed key to protect your BitLocker keys for the drives. To configure your own key to protect the BitLocker key, follow the instructions in [Configure customer-managed keys with Azure Key Vault for Azure Import/Export in the Azure portal](storage-import-export-encryption-key-portal.md) 
+
+## Step 4: Ship the drives
 
 [!INCLUDE [storage-import-export-ship-drives](../../../includes/storage-import-export-ship-drives.md)]
 

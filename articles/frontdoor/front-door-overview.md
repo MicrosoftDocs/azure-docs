@@ -1,6 +1,6 @@
 ---
-title: Azure Front Door Service | Microsoft Docs
-description: This article provides an overview of Azure Front Door. Find out if it is the right choice for load balancing user traffic for your application.
+title: Azure Front Door | Microsoft Docs
+description: This article provides an overview of Azure Front Door. Find out if it is the right choice for load-balancing user traffic for your application.
 services: frontdoor
 documentationcenter: ''
 author: sharad4u
@@ -15,8 +15,8 @@ ms.author: sharadag
 # customer intent: As an IT admin, I want to learn about Front Door and what I can use it for. 
 ---
 
-# What is Azure Front Door Service?
-Azure Front Door Service enables you to define, manage, and monitor the global routing for your web traffic by optimizing for best performance and instant global failover for high availability. With Front Door, you can transform your global (multi-region) consumer and enterprise applications into robust, high-performance personalized modern applications, APIs, and content that reach a global audience with Azure.
+# What is Azure Front Door?
+Azure Front Door enables you to define, manage, and monitor the global routing for your web traffic by optimizing for best performance and instant global failover for high availability. With Front Door, you can transform your global (multi-region) consumer and enterprise applications into robust, high-performance personalized modern applications, APIs, and content that reaches a global audience with Azure.
 
 Front Door works at Layer 7 or HTTP/HTTPS layer and uses anycast protocol with split TCP and Microsoft's global network for improving global connectivity. So, per your routing method selection in the configuration, you can ensure that Front Door is routing your client requests to the fastest and most available application backend. An application backend is any Internet-facing service hosted inside or outside of Azure. Front Door provides a range of [traffic-routing methods](front-door-routing-methods.md) and [backend health monitoring options](front-door-health-probes.md) to suit different application needs and automatic failover models. Similar to [Traffic Manager](../traffic-manager/traffic-manager-overview.md), Front Door is resilient to failures, including the failure of an entire Azure region.
 
@@ -40,7 +40,7 @@ URL Path Based Routing allows you to route traffic to backend pools based on URL
 For example, requests for `http://www.contoso.com/users/*` are routed to UserProfilePool, and `http://www.contoso.com/products/*` are routed to ProductInventoryPool.  Front Door allows even more complex route matching scenarios using best match algorithm and so if none of the path patterns match then your default routing rule for `http://www.contoso.com/*` is selected and the traffic is directed to default catch-all routing rule. Learn more at [Route Matching](front-door-route-matching.md).
 
 ## Multiple-site hosting
-Multiple-site hosting enables you to configure more than one web site on the same Front Door configuration. This feature allows you to configure a more efficient topology for your deployments by adding different web sites to a single Front Door configuration. Based on your application's architecture, you can configure Azure Front Door Service to either direct each web site to its own backend pool or have various web sites directed to the same backend pool. For example, Front Door can serve traffic for `images.contoso.com` and `videos.contoso.com` from two backend pools called ImagePool and VideoPool. Alternatively you can configure both the front-end hosts to direct traffic to a single backend pool called MediaPool.
+Multiple-site hosting enables you to configure more than one web site on the same Front Door configuration. This feature allows you to configure a more efficient topology for your deployments by adding different web sites to a single Front Door configuration. Based on your application's architecture, you can configure Azure Front Door to either direct each web site to its own backend pool or have various web sites directed to the same backend pool. For example, Front Door can serve traffic for `images.contoso.com` and `videos.contoso.com` from two backend pools called ImagePool and VideoPool. Alternatively you can configure both the front-end hosts to direct traffic to a single backend pool called MediaPool.
 
 Similarly, you can have two different domains `www.contoso.com` and `www.fabrikam.com` configured on the same Front Door.
 
@@ -62,9 +62,9 @@ Front Door platform itself is protected by [Azure DDoS Protection](../virtual-ne
 ## URL redirection
 With the strong industry push on supporting only secure communication, web applications are expected to automatically redirect any HTTP traffic to HTTPS. This ensures that all communication between the users and the application occurs over an encrypted path. 
 
-Traditionally, application owners have dealt with this requirement by creating a dedicated service, whose sole purpose was to redirect requests it receives on HTTP to HTTPS. Azure Front Door Service supports the ability to redirect traffic from HTTP to HTTPS. This simplifies application configuration, optimizes the resource usage, and supports new redirection scenarios, including global and path-based redirection. URL redirection from Azure Front Door Service is not limited to HTTP to HTTPS redirection alone, but also to redirect to a different hostname, redirecting to a different path, or even redirecting to a new query string in the URL.
+Traditionally, application owners have dealt with this requirement by creating a dedicated service, whose sole purpose was to redirect requests it receives on HTTP to HTTPS. Azure Front Door supports the ability to redirect traffic from HTTP to HTTPS. This simplifies application configuration, optimizes the resource usage, and supports new redirection scenarios, including global and path-based redirection. URL redirection from Azure Front Door is not limited to HTTP to HTTPS redirection alone, but also to redirect to a different hostname, redirecting to a different path, or even redirecting to a new query string in the URL.
 
-For more information, see [redirecting traffic](front-door-url-redirect.md) with Azure Front Door Service.
+For more information, see [redirecting traffic](front-door-url-redirect.md) with Azure Front Door.
 
 ## URL rewrite
 Front Door supports [URL rewrite](front-door-url-rewrite.md) by allowing you to configure an optional Custom Forwarding Path to use when constructing the request to forward to the backend. Front Door further allows you to configure Host header to be sent when forwarding the request to your backend.
@@ -72,7 +72,7 @@ Front Door supports [URL rewrite](front-door-url-rewrite.md) by allowing you to 
 ## Protocol support - IPv6 and HTTP/2 traffic
 Azure Front Door natively supports end-to-end IPv6 connectivity and also HTTP/2 protocol. 
 
-The HTTP/2 protocol enables full-duplex communication between application backends and a client over a long-running TCP connection. HTTP/2 allows for a more interactive communication between the backend and the client, which can be bidirectional without the need for polling as required in HTTP-based implementations. HTTP/2 protocol has low overhead, unlike HTTP, and can reuse the same TCP connection for multiple request or responses resulting in a more efficient utilization of resources. Learn more about [HTTP/2 support in Azure Front Door Service](front-door-http2.md).
+The HTTP/2 protocol enables full-duplex communication between application backends and a client over a long-running TCP connection. HTTP/2 allows for a more interactive communication between the backend and the client, which can be bidirectional without the need for polling as required in HTTP-based implementations. HTTP/2 protocol has low overhead, unlike HTTP, and can reuse the same TCP connection for multiple request or responses resulting in a more efficient utilization of resources. Learn more about [HTTP/2 support in Azure Front Door](front-door-http2.md).
 
 ## Pricing
 
