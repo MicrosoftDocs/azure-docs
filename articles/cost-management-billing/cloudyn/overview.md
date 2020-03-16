@@ -3,24 +3,27 @@ title: Overview of Cloudyn in Azure
 description: Cloudyn is a multi-cloud cost management solution that helps you use Azure and other cloud resources.
 author: bandersmsft
 ms.author: banders
-ms.date: 01/24/2020
+ms.date: 03/12/2020
 ms.topic: overview
 ms.service: cost-management-billing
 ms.reviewer: benshy
 ms.custom: seodec18
+ROBOTS: NOINDEX
 ---
 
 # What is the Cloudyn service?
 
 Cloudyn, a Microsoft subsidiary, allows you to track cloud usage and expenditures for your Azure resources and other cloud providers including AWS and Google. Easy-to-understand dashboard reports help with cost allocation and showbacks/chargebacks as well. Cloudyn helps optimize your cloud spending by identifying underutilized resources that you can then manage and adjust.
 
-To watch an introductory video, see [Introduction to Azure Cloudyn](https://azure.microsoft.com/resources/videos/azure-cost-management-overview-and-demo).
+[!INCLUDE [cloudyn-note](../../../includes/cloudyn-note.md)]
 
+To watch an introductory video, see [Introduction to Azure Cloudyn](https://azure.microsoft.com/resources/videos/azure-cost-management-overview-and-demo/).
+ 
 Azure Cost Management offers similar functionality to Cloudyn. Azure Cost Management is a native Azure cost management solution. It helps you analyze costs, create and manage budgets, export data, and review and act on optimization recommendations to save money. For more information, see [Azure Cost Management](../cost-management-billing-overview.md).
-
-Watch the [Azure Cost Management and Cloudyn video](https://www.youtube.com/watch?v=PmwFWwSluh8) to see recommendations when you should use either Azure Cost Management or Cloudyn, based on your business needs.
-
->[!VIDEO https://www.youtube.com/embed/PmwFWwSluh8]
+ 
+Watch the [Azure Cost Management and Cloudyn video](https://www.youtube.com/watch?v=15DzKPMBRxM) to see recommendations when you should use either Azure Cost Management or Cloudyn, based on your business needs.
+ 
+>[!VIDEO https://www.youtube.com/embed/15DzKPMBRxM]
 
 ## Cloudyn features moving to Azure Cost Management
 
@@ -76,6 +79,6 @@ If you provisioned AWS Reserved Instances, you can improve your reserved instanc
 
 ## Next steps
 
-Now that you’re familiar with Cloudyn, the next step is to register your cloud environment and start exploring your data.
+Now that you're familiar with Cloudyn, the next step is to register your cloud environment and start exploring your data.
 
-- [Register an individual Azure subscription](quick-register-azure-sub.md)
+- [Register with the CSP Partner program and view cost data](quick-register-csp.md)
