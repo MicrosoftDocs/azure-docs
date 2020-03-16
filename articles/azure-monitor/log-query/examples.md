@@ -371,7 +371,7 @@ suspicious_users_that_later_logged_in
 
 ## Usage
 
-The `Usage` data type can be used to track the ingested data volume by solution or data type. There are other techniques to study ingested data volumes by [computer](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/manage-cost-storage#data-volume-by-computer) or [Azure subscription, resource group or resource](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/manage-cost-storage#data-volume-by-azure-resource-resource-group-or-subscription).
+The `Usage` data type can be used to track the ingested data volume by solution or data type. There are other techniques to study ingested data volumes by [computer](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#data-volume-by-computer) or [Azure subscription, resource group or resource](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#data-volume-by-azure-resource-resource-group-or-subscription).
 
 #### Data volume by solution
 
