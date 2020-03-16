@@ -49,14 +49,14 @@ Azure Private Link provides the following benefits:
 |  |  Azure Database for MySQL         | All public regions      |   GA <br/> [Learn more](https://docs.microsoft.com/azure/mysql/concepts-data-access-security-private-link)     |
 |  |  Azure Database for MariaDB         | All public regions      |   GA <br/> [Learn more](https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-private-link)      |
 |  |  Azure Key Vault         | All public regions      |   GA   <br/> [Learn more](https://docs.microsoft.com/azure/key-vault/private-link-service)   |
-|  |Azure Kubernetes Service - Kubernetes API | All public regions      |   GA   <br/> [Learn more]( https://docs.microsoft.com/en-us/azure/aks/private-clusters)   |
-|  |Azure Search | EAST US, WEST US2, SOUTH CENTRAL US |   Preview   <br/> [Learn more]   |
-|  |Azure Container Registry | All public regions      |   Preview   <br/> [Learn more]  |
-|  |Azure App Configuration | All public regions      |   Preview   <br/> [Learn more]  |
-|  |Azure Backup | EAST US, WEST US2, SOUTH CENTRAL US     |   Preview   <br/> [Learn more]   |
-|  |Azure Event Hub | All public regions      |   Preview   <br/> [Learn more]  |
-|  |Azure Service Bus | All public regions      |   Preview   <br/> [Learn more] |
-|  |Azure Relay | All public regions      |   Preview   <br/> [Learn more] |
+|  |Azure Kubernetes Service - Kubernetes API | All public regions      |   GA   <br/> [Learn more](https://docs.microsoft.com/en-us/azure/aks/private-clusters)   |
+|  |Azure Search | EAST US, WEST US2, SOUTH CENTRAL US |   Preview    |
+|  |Azure Container Registry | All public regions      |   Preview   |
+|  |Azure App Configuration | All public regions      |   Preview   |
+|  |Azure Backup | EAST US, WEST US2, SOUTH CENTRAL US     |   Preview   |
+|  |Azure Event Hub | All public regions      |   Preview    |
+|  |Azure Service Bus | All public regions      |   Preview   |
+|  |Azure Relay | All public regions      |   Preview   |
 |  |Azure Event Grid| All public regions      |   Preview   <br/> [Learn more](https://docs.microsoft.com/azure/event-grid/network-security)   |
 |  |Azure Web Apps | All public regions      |   Preview   <br/> [Learn more](https://docs.microsoft.com/azure/app-service/networking/private-endpoint)   |
 
