@@ -18,7 +18,7 @@ In this article, you will learn how to secure a linked service in Synapse with a
 ## Prerequisites
 
 * **Azure subscription**: If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
-* **Azure Storage account**: You use Azure Data Lake Gen 2 as a *source* data store. If you don't have a storage account, see [Create an Azure Storage account](../../storage/blobs/data-lake-storage-quickstart-create-account.md) for steps to create one. Make sure that the Storage Account has the Synapse Studio IP filtering for accessing it and that you only allow **Selected networks** to access the Storage account. The setting under the balde **Firewallls and virtual networks** should look like the picture below.
+* **Azure Storage account**: You use Azure Data Lake Gen 2 as a *source* data store. If you don't have a storage account, see [Create an Azure Storage account](../../storage/blobs/data-lake-storage-quickstart-create-account.md) for steps to create one. Make sure that the Storage Account has the Synapse Studio IP filtering for accessing it and that you only allow **Selected networks** to access the Storage account. The setting under the blade **Firewalls and virtual networks** should look like the picture below.
 
 ![Secured Storage Account](./media/secure-storage-account.png)
 
@@ -32,8 +32,8 @@ In Azure Synapse Analytics, a linked service is where you define your connection
 1. Select the Azure Data Lake Storage Gen2 tile from the list and click **Continue**.
 1. Make sure you enable **Interactive Authoring**. It might take around 1 minute to be enabled. 
 1. Enter your authentication credentials. Account key, service principal, and managed identity are currently supported authentication types. Click test connection to verify your credentials are correct.
-1. Click **Test connection**, it should fail because the Storage Account does not enable access into it without the creation and approval of a Private Endpoint. In the error message, you should see a link to create a **private endpoint** that you can follow to go to the next part. If you follow that link, skip the next part.
-1. Click **Create** when finished.
+1. Select **Test connection**, it should fail because the Storage Account does not enable access into it without the creation and approval of a Private Endpoint. In the error message, you should see a link to create a **private endpoint** that you can follow to go to the next part. If you follow that link, skip the next part.
+1. Select **Create** when finished.
 
 ## Create Managed private endpoint
 
@@ -48,7 +48,7 @@ In case, you did not click into the hyperlink when testing the connection above,
 1. You should see after waiting some seconds that the private link created needs an approval.
 
 ## Approval of a private link
-1. Select the Private Endpoint that you just created. You can see an hyperlink that will let you approve the Private Endpoint at the Storage Account level. *An alternative is to go directly to the Azure Portal Storage Account and go into the **Private endpoint connections** blade.*
+1. Select the Private Endpoint that you created above. You can see a hyperlink that will let you approve the Private Endpoint at the Storage Account level. *An alternative is to go directly to the Azure portal Storage Account and go into the **Private endpoint connections** blade.*
 1. Tick the Private endpoint you created in the Studio and select **Approve**.
 1. Add a description and click **yes**
 1. Go back to Synapse Studio in under the **Managed Virtual Networks** section of the **Manage**Tab.
