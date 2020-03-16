@@ -139,16 +139,16 @@ Twin types are not necessarily returned in exactly the document form they were u
 As part of the Azure Digital Twins SDK, a DTDL parsing library is provided as a client-side library. This library provides twin type access to the DTDL definitions – effectively, the equivalent of C# reflection on DTDL. This library can be used independently of the Azure Digital Twins SDK; for example, for validation in a visual or text editor for DTDL. 
 
 To use the parser library, you provide a set of DTDL documents to the library. Typically, you would retrieve these twin type documents from the service, but you might also have them available locally, if your client was responsible for uploading them to the service in the first place. The overall workflow is as follows.
-* You retrieve all (or, potentially, some) DTDL documents from the service.
-* You pass the returned in-memory DTDL documents to the parser.
-* The parser will validate the set of documents passed to it and return detailed error information. This ability is useful in editor scenarios.
-* You can use the parser APIs to analyze the twin types included in the document set. 
+1. You retrieve all (or, potentially, some) DTDL documents from the service.
+2. You pass the returned in-memory DTDL documents to the parser.
+3. The parser will validate the set of documents passed to it and return detailed error information. This ability is useful in editor scenarios.
+4. You can use the parser APIs to analyze the twin types included in the document set. 
 
 The functionalities of the parser are:
-    - Get all interfaces implemented (the content of the extends section)
-    - Get all properties, telemetry, commands, components, and relationships declared in the twin type. This command also gets all metadata included in these definitions and takes inheritance (`extends` sections) into account
-    - Get all complex twin type definitions
-    - Ascertain if a twin type is assignable from another twin type 
+* Get all interfaces implemented (the content of the extends section)
+* Get all properties, telemetry, commands, components, and relationships declared in the twin type. This command also gets all metadata included in these definitions and takes inheritance (`extends` sections) into account
+* Get all complex twin type definitions
+* Ascertain if a twin type is assignable from another twin type 
 
 > [!NOTE]
 > IoT Plug and Play (PnP) devices use a small syntax variant to describe their functionality. This syntax variant is a semantically compatible subset of DTDL as used in Azure Digital Twins. When using the parser library, you do not need to know which syntax variant was used to create the DTDL for your digital twin. The parser will always, by default, return the same twin type for both PnP and Azure Digital Twins syntax.
@@ -238,9 +238,9 @@ public void ParseModels()
 ## Delete twin types
 
 Twin types can also be deleted from the service. Deletion is a multi-step process:
-* First, **decommission** the twin type. A decommissioned twin type is still valid for use by existing Azure digital twins, including the ability to change properties or add and delete relationships. However, new digital twins of this twin type can't be created anymore.
-* After decommissioning a twin type, you will typically either delete existing digital twins of that twin type, or transition the Azure digital twin to a different twin type.
-* Once there are no more digital twins of a given twin type, and the twin type is not referenced by any other twin type any longer, you can **delete** it. 
+1. First, **decommission** the twin type. A decommissioned twin type is still valid for use by existing Azure digital twins, including the ability to change properties or add and delete relationships. However, new digital twins of this twin type can't be created anymore.
+2. After decommissioning a twin type, you will typically either delete existing digital twins of that twin type, or transition the Azure digital twin to a different twin type.
+3. Once there are no more digital twins of a given twin type, and the twin type is not referenced by any other twin type any longer, you can **delete** it. 
 
 ```csharp
 DigitalTwinsClient client = new DigitalTwinsClient("...");  
