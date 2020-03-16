@@ -18,7 +18,7 @@ ms.subservice: B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-A validation technical profile is an ordinary technical profile from any protocol, such as [Azure Active Directory](active-directory-technical-profile.md) or a [REST API](restful-technical-profile.md). The validation technical profile returns output claims or returns an HTTP 409 error message (Conflict response status code), with the following data:
+A validation technical profile is an ordinary technical profile from any protocol, such as [Azure Active Directory](active-directory-technical-profile.md) or a [REST API](restful-technical-profile.md). The validation technical profile returns output claims, or returns 4xx HTTP status code, with the following data. For more informaiton, see [returning error message](restful-technical-profile.md#returning-error-message)
 
 ```JSON
 {
@@ -32,7 +32,7 @@ The scope of the output claims of a validation technical profile is limited to t
 
 Validation technical profiles are executed in the sequence that they appear in the **ValidationTechnicalProfiles** element. You can configure in a validation technical profile whether the execution of any subsequent validation technical profiles should continue if the validation technical profile raises an error or is successful.
 
-A validation technical profile can be conditionally executed based on preconditions defined in the **ValidationTechnicalProfile** element. For example, you can check whether a specific claims exists, or if a claim is equal or not to the specified value.
+A validation technical profile can be conditionally executed based on preconditions defined in the **ValidationTechnicalProfile** element. For example, you can check whether a specific claim exists, or if a claim is equal or not to the specified value.
 
 A self-asserted technical profile may define a validation technical profile to be used for validating some or all of its output claims. All of the input claims of the referenced technical profile must appear in the output claims of the referencing validation technical profile.
 
