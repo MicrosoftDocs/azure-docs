@@ -28,17 +28,18 @@ You can load the Azure Maps Indoor Maps module in one of two ways.
 
     ```html
     <script src="https://atlas.microsoft.com/sdk/javascript/indoor/0.1/atlas-indoor.min.js"></script>
-    <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/indoor/0.1/atlas-indoor.min.css"
+    <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/indoor/0.1/atlas-indoor.min.css">
     ```
 
 - Or, you can load the Indoor Maps module for the Azure Maps Web SDK locally by using the [azure-maps-rest](https://www.npmjs.com/package/azure-maps-rest) npm package, and then host it with your app. This package also includes TypeScript definitions. Use this command:
 
     > **npm install azure-maps-rest**
 
-    Then, add a script reference to the `<head>` in the HTML file:
+    Then, reference the Indoor Module JavaScript and Style Sheet in the `<head>` element of the HTML file:
 
      ```html
     <script src="node_modules/azure-maps-rest/dist/atlas-indoor.min.js"></script>
+    <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/indoor/0.1/atlas-indoor.min.css">
      ```
 
 ## Indoor Manager
@@ -52,9 +53,13 @@ const indoorManager = new atlas.indoor.IndoorManager(map, {
 });
 ```
 
-If you provide a `stateSetId`, you must call `indoorManager.setDynamicStyling(true);` to enable polling of state data. Polling the state data lets you dynamically update the state of the features. Recall, that we refer to feature properties as states, if the properties can be dynamically modified. For example, the color of a tile can be a state. The code below shows you how to enable state polling:
+If you provide a `stateSetId`, you must call `indoorManager.setDynamicStyling(true);` to enable polling of state data. Polling the state data lets you dynamically update the state of the features. Recall, that we refer to feature properties as states, if the properties can be dynamically modified. For example, the color of a feature within a tile can be a state. The code below shows you how to enable state polling:
 
 ```javascript
+
+const tilesetId = "";
+const stateSetId = "";
+
 const indoorManager = new atlas.indoor.IndoorManager(map, {
     tilesetId: "YOUR TILE SET ID HERE",
     stateSetId: "YOUR STATE SET ID HERE" // Optional
@@ -93,7 +98,7 @@ map.events.add("facilitychanged", indoorManager, (eventData) => {
 });
 ```
 
-The `eventData` variable will hold information about the level or the facility that invoked the `levelchanged` or `facilitychanged` event, respectively. When a level changes, the `eventData` object will contain: the `facilityId`, the new `levelNumber`, and other meta data. When a facility changes, the `eventData` object will contain the: ? . And you can incorporate this data in your web application. For example, you can keep a log of the facilities the user visited, and at the end of the session, you can ask the user to rate their experience at each facility.
+The `eventData` variable will hold information about the level or the facility that invoked the `levelchanged` or `facilitychanged` event, respectively. When a level changes, the `eventData` object will contain: the `facilityId`, the new `levelNumber`, and other meta data. When a facility changes, the `eventData` object will contain the: the new `facilityId` and the new `levelNumber`. And you can incorporate this data in your web application. For example, you can keep a log of the facilities the user visited, and at the end of the session, you can ask the user to rate their experience at each facility. You can also visualize your facility's IoT devices at each level. Use the event handlers to reset and redraw the IoT devices every time the level of the facility changes.
 
 ## Use the Indoor Maps Module
 
@@ -108,7 +113,7 @@ This exercise demonstrates how to integrate the Indoor Maps module with the Azur
     <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/indoor/0.1/atlas-indoor.min.css"
     ```
 
-3. Initialize a map object, add style rules, and authenticate to your Azure Maps account. The HTML file should look similar to the HTML below. Use your primary key in the `<your Azure Maps Primary Subscription Key>` place holder. Alter the `center` option to use a latitude and longitude near your indoor map location. You may also change the map `style` option, the `blank` value shows the indoor map on a white background.
+3. Initialize a map object, add style rules, and authenticate to your Azure Maps account. The HTML file should look similar to the HTML below. Use your primary key in the `<your Azure Maps Primary Subscription Key>` place holder. Alter the `center` option to use a latitude and longitude near your indoor map location. If you want to use the `bounds` option, you can retrieve your map bounds by calling the [Tileset List API](). You may also change the map `style` option, the `blank` value shows the indoor map on a white background.
 
     ```html
     <!DOCTYPE html>
@@ -147,6 +152,7 @@ This exercise demonstrates how to integrate the Indoor Maps module with the Azur
           const map = new atlas.Map("map-id", {
             //use your facility's location
             center: [-122.13315, 47.63637],
+            //you can also use bounds: [ # , # , # , # ] and replace # with your Map bounds
             style: "blank",
             subscriptionKey,
             zoom: 19,
@@ -198,6 +204,7 @@ This exercise demonstrates how to integrate the Indoor Maps module with the Azur
           const map = new atlas.Map("map-id", {
             //use your facility's location
             center: [-122.13315, 47.63637],
+            //you can also use bounds: [ # , # , # , # ] and replace # with your Map bounds
             style: "blank",
             subscriptionKey,
             zoom: 19,

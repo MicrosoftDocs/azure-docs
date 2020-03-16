@@ -25,18 +25,18 @@ You'll also need to acquaint yourself with the following terms before we explain
 | Layer | An AutoCAD DWG layer|
 | Level | An area of a building at a set elevation. For example, the floor of a building |
 | Xref  | A DWG file attached to the primary drawing as an external reference |
-| Feature | An object that combines a geometry with an additional metadata information |
-| Feature Classes | A common blueprint for features. For example, a Unit is a feature class and an office is a feature |
+| Feature | An object that combines a geometry with additional metadata information |
+| Feature Classes | A common blueprint for features. For example, a Unit is a feature class, and an office is a feature |
 
 ## Package structure
 
-A DWG package consists of DWG files and a manifest file. The DWG files can be organized in any way inside the zip folder, but the manifest file must live at the root directory of the folder. The files in the package must define a single facility and be zipped in a single folder.  The next sections detail the requirements for the DWG files, manifest file, and the content of these files.
+A DWG package consists of DWG files and a manifest file. The DWG files can be organized in any way inside the folder, but the manifest file must live at the root directory of the folder. The files in the package must define a single facility and be zipped in a single folder.  The next sections detail the requirements for the DWG files, manifest file, and the content of these files.
 
 ## DWG files requirements
 
 A single DWG file is required for each level of the facility. And all data for a level must be contained in a single DWG file. Any external references (xrefs) must be bound to the parent drawing. Additionally, each DWG file:
 
-* Must define the _Exterior_ and _Unit_ layers. It's recommended that each level also defines the following optional layers: _Wall_, _Door_, _UnitLable_, _Zone_, and _ZoneLabel_.
+* Must define the _Exterior_ and _Unit_ layers. It's recommended that each level also defines the following optional layers: _Wall_, _Door_, _UnitLabel_, _Zone_, and _ZoneLabel_.
 * Must not contain features from multiple levels
 * Must not contain features from multiple facilities
 
@@ -47,6 +47,7 @@ The Azure Maps Conversion Service can extract the following feature classes from
 * Zones
 * Openings
 * Walls
+* Vertical Penetrations 
 
 A DWG layer must contain features of a single class. Classes can't share a layer. For example, units and walls can't share a layer.
 
@@ -54,10 +55,10 @@ Moreover:
 
 * The origins of drawings for all DWG files, of a facility, must align to the same latitude and longitude.
 * Each level must be in the same orientation
-* Self-intersecting polygons will be repaired automatically. A warning will be raised, so the repair results can be inspected manually.
+* Self-intersecting polygons will be repaired automatically. A warning will be raised so the repair results can be inspected manually. It's highly recommended to inspect the repair results as they may not match the expected results.
 * All CAD entities must be one of the following types: Line, PolyLine, Polygon, Circular Arc, Circle, Text (single line). Any other entity types will be ignored.
 
-The table below outlines the supported entity types for each layer. The layer ignores any mon-supported entity types.
+The table below outlines the supported entity types for each layer. The layer ignores any non-supported entity types.
 
 | Layer | Supported entity types |
 | :----- | :-------------------|
@@ -75,7 +76,7 @@ The next sections detail the requirements for each layer.
 
 The DWG file for each level must contain a layer to define that level's perimeter. This layer is referred  to as the exterior layer.
 
-Regardless of how many entities you draw in the exterior layer, the [resulting facility data set](indoor-data-management.md#data-sets) will contain only one level feature for each DWG file. Additionally, the exterior layer:
+Regardless of how many entity drawings are in the exterior layer, the [resulting facility data set](indoor-data-management.md#data-sets) will contain only one level feature for each DWG file. Additionally, the exterior layer:
 
 * Must contain at least one closed PolyLine, which defines the exterior perimeter of the building at that level
 * Must not contain multiple PolyLines
@@ -87,9 +88,9 @@ If the layer contains multiple overlapping PolyLines, then the PolyLines will be
 The DWG file for each level should define a layer containing units.  Units are navigable spaces in the building, such as offices and hallways. The Units layer should adhere to the following requirements:
 
 * Units must be drawn as closed PolyLines
+* Units must fall inside the bounds of the facility exterior perimeter
 * Units must not partially overlap
 * Units must not contain any self-intersecting geometry
-* Units must fall inside the bounds of the facility exterior perimeter
 * Units must not overlap
 
  Name a unit by creating a text object in the _unitLabel_ layer, then place the object inside the bounds of the unit. For more information, see the [UnitLabel layer](#unitLabel-layer).
@@ -115,7 +116,7 @@ The DWG file for each level may contain a zone layer that defines the physical e
 * May overlap
 * May fall inside or outside the facility's exterior perimeter
 
-A zone can be named by creating a text object in the _zoneLabel_ layer and placing the text object inside the bounds of the zone. See the [ZoneLabel layer](#zoneLabel-layer) for more details.
+Name a zone by creating a text object in the _zoneLabel_ layer, and placing the text object inside the bounds of the zone. See the [ZoneLabel layer](#zoneLabel-layer) for more details.
 
 ### UnitLabel layer
 
@@ -137,18 +138,20 @@ The DWG file for each level may contain a zone label layer. This layer adds a na
 
 The zip folder must contain a manifest file at the root level of the directory, and the file must be named **manifest.json**. As indicated by the name, the manifest file is a JSON text file. It defines DWG file names, georeferencing information, and facility details.
 
-The DWG file names must match the layer names. The file paths, in the **building_levels** object of the manifest file, must be relative to the root of the zip file. Only the files identified by the manifest will be ingested by the Conversion API. Files that are in the zip folder, but aren't properly listed in the manifest, will be ignored.
+The file paths, in the **building_levels** object of the manifest file, must be relative to the root of the zip folder. The DWG file name must exactly match the name of the facility level. For example, a DWG file for the "Basement" level would be "Basement.dwg." A DWG file for level 2 would be named as "level_2.dwg." Use an underscore, if your level name has a space.  
+
+Only the files identified by the manifest will be ingested by the Conversion API. Files that are in the zip folder, but aren't properly listed in the manifest, will be ignored. Make sure that your file names are spelled correctly.
 
 Although there are requirements when using the manifest objects, not all objects are required. The table below shows the required and the optional objects for version 1.1 of the Conversion API. 
 
-| Object | Required |
-| :----- | :------- |
-| directoryInfo | true |
-| buildingLevels | true |
-| georeference | true |
-| dwgLayers | true |
-| unitProperties | false |
-| zoneProperties | false |
+| Object | Required | Description |
+| :----- | :------- | :------- | 
+| directoryInfo | true | Outlines the facility geographic and contact information |
+| buildingLevels | true | Specifies the levels of the buildings and the files containing the design of the levels | 
+| georeference | true | Contains numerical geographic information for the facility drawing |
+| dwgLayers | true | Lists the names of the layers, and each layer lists the names of its own features |
+| unitProperties | false | Can be used to insert additional metadata for the unit features |
+| zoneProperties | false | Can be used to insert additional metadata for the zone features |
 
 The next sections detail the requirements for each object.
 
@@ -159,11 +162,11 @@ The next sections detail the requirements for each object.
 | name      | string | true   |  Name of building |
 | streetAddress|    string |    false    | Address of building |
 |unit     | string    |  false    |  Unit in building |
-| locality |    string |    false |    Name of an area, neighborhood, or region. Locality isn't part of the mailing address. For example, "Overlake" or "Central District". |
+| locality |    string |    false |    Name of an area, neighborhood, or region. For example, "Overlake" or "Central District." Locality isn't part of the mailing address. |
 | adminDivisions |    JSON Array of strings |    false     | An array containing address designations (Country, State, City) or (Country, Prefecture, City, Town). Use ISO 3166 country codes and ISO 3166-2 state/territory codes. |
-| postalCode |    string    | false    | Mail sorting code |
+| postalCode |    string    | false    | The mail sorting code |
 | hoursOfOperation |    string |     false | Adheres to the [OSM Opening Hours](https://wiki.openstreetmap.org/wiki/Key:opening_hours/specification) format |
-| phone    | string |    false |    Phone number associated with the building, and it must include country code |
+| phone    | string |    false |    Phone number associated with the building, and it must include the country code |
 | website    | string |    false    | Website associated with the building, and it must begin with http or https |
 | nonPublic |    bool    | false | Flag specifying if the building is open to the public. |
 | anchorLatitude | numeric |    false | Latitude of a facility anchor (pushpin) |
@@ -210,19 +213,19 @@ The `unitProperties` object contains a JSON array of unit properties.
 | Property  | Type | Required | Description |
 |-----------|------|----------|-------------|
 |unitName    |string    |true    |Name of unit to associate with this `unitProperty` record. This record is only valid when a label matching `unitName` is found in the `unitLabel` layer(s) |
-|categoryName|    string|    false    |Category Name. For a complete list of categories, refer to [space categories](https://aka.ms/pa-indoor-spacecategories). |
+|categoryName|    string|    false    |Category Name. For a complete list of categories, refer to [categories](https://aka.ms/pa-indoor-spacecategories). |
 |navigableBy| Array of strings |    false    |Indicates the types of navigating agents that can traverse the unit. For example, "pedestrian". This property will inform the wayfinding capabilities.  The permitted values are `pedestrian`, `wheelchair`, `machine`, `bicycle`, `automobile`, `hired_auto`, `bus`, `railcar`, `emergency`, `ferry`, `boat`, and `disallowed`.|
 |routeThroughBehavior|    string|    false    |The route through behavior for the unit. The permitted values are `disallowed`, `allowed`, and `preferred`.|
 |occupants    |directoryInfo[]|false    |List of occupants for the unit |
 |nameAlt|    string|    false|    Alternate Name |
 |nameSubtitle|    string    |false|    Subtitle |
 |addressRoomNumber|    string|    false|    Room/Unit/Apartment/Suite number of the unit|
-|verticalPenetrationCategory|    string|    false|    Vertical Penetration Category Name. For a complete list of categories, refer to [space categories](https://aka.ms/pa-indoor-spacecategories). When this property is defined, the resulting feature will be Vertical Penetration (VRT), meaning it can be used to navigate to other VRT features in levels above or below it. |
+|verticalPenetrationCategory|    string|    false|    Vertical Penetration Category Name. For a complete list of categories, refer to [categories](https://aka.ms/pa-indoor-spacecategories). When this property is defined, the resulting feature will be Vertical Penetration (VRT), meaning it can be used to navigate to other VRT features in levels above or below it. |
 |verticalPenetrationDirection|    string|    false    |If `verticalPenetrationCategory` is defined, optionally define the valid direction of travel. The permitted values are `low_to_high`, `high_to_low`, `both`, and `closed`.|
 | nonWheelchairAccessible  | bool | false | indicates if the unit is accessible by wheelchair |
 | nonPublic | bool | false | Indicates if the unit is open to the public |
 | isRoutable | bool | false | When set to false, unit can't be navigated to, or through |
-| isOpenArea | bool | false | Allows navigating agent to enter the unit without the need for an opening attached to the unit |
+| isOpenArea | bool | false | Allows navigating agent to enter the unit without the need for an opening attached to the unit. By default, this value is set to true unless the unit has an opening. |
 
 ### The zoneProperties object
 
@@ -231,10 +234,10 @@ The `zoneProperties` object contains a JSON array of zone properties.
 | Property  | Type | Required | Description |
 |-----------|------|----------|-------------|
 |zoneName        |string    |true    |Name of zone to associate with `zoneProperty` record. This record is only valid when a label matching `zoneName` is found in the `zoneLabel` layer  |
-|categoryName|    string|    false    |Category Name. For a complete list of categories, refer to [zone categories](https://aka.ms/pa-indoor-spacecategories). |
+|categoryName|    string|    false    |Category Name. For a complete list of categories, refer to [categories](https://aka.ms/pa-indoor-spacecategories). |
 |zoneNameAlt|    string|    false    |Alternate Name  |
 |zoneNameSubtitle|    string |    false    |Subtitle |
-| zoneSetId | string | false | When defined, links zones with the same `zoneSetId` into addressable groups |
+| zoneSetId | string | false | When defined, the user can link zones with the same `zoneSetId` into addressable groups |
 
 ### A sample manifest file
 
@@ -315,10 +318,7 @@ The `zoneProperties` object contains a JSON array of zone properties.
 
 ## Next steps
 
-Once your DWG package meets the outlined requirements, you may use the Conversion API to convert the DWG file to a map data set. Then, you can use the data set to generate an indoor map using the Indoor Maps module. Learn more about using the Indoor Maps module by reading the following articles:
-
-> [!div class="nextstepaction"]
-> [Azure Maps QGIS plug-in](azure-maps-qgis-plugin.md)
+Once your DWG package meets the requirements, you may use the Conversion API to convert the DWG file into a map data set. Then, you can use the data set to generate an indoor map using the Indoor Maps module. Learn more about using the Indoor Maps module by reading the following articles:
 
 > [!div class="nextstepaction"]
 > [Indoor Maps data management](indoor-data-management.md)
