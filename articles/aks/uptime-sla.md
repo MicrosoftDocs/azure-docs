@@ -8,7 +8,9 @@ ms.date: 03/11/2020
 
 # Azure Kubernetes Service (AKS) Uptime SLA
 
-When used with Availability Zones, this **optional** offering allows you to achieve 99.95% availability for the AKS cluster API server. If you do not use Availability Zones, you can achieve 99.9% availability. AKS uses master node replicas across update and fault domains to ensure SLA requirements are met.
+When used with Availability Zones, this **optional** offering allows you to achieve 99.95% availability for the AKS cluster API server. If you do not use Availability Zones, you can achieve 99.9% availability. AKS uses master node replicas across update and fault domains to ensure SLA requirements are met. Customers needing SLA for compliance reasons or extending SLA ‘s to their customers should turn on this feature. Customers with critical workloads who need higher availability with an option of SLA benefit from enabling this feature. Enable the feature with Availablity Zones to obtain higher availability of the Kubernetes API server.  
+
+Customers can create unlimited free clusters with a service level objective (SLO) of 99.5%.
 
 > [!Important]
 > For clusters with egress lockdown, see [limit egress traffic](limit-egress-traffic.md) to open appropriate ports for Uptime SLA.
@@ -59,14 +61,6 @@ Use the [az aks create][az-aks-create] command to create an AKS cluster. The fol
 az aks create --resource-group myResourceGroup --name myAKSCluster --uptime-sla --node-count 1 --enable-addons monitoring --generate-ssh-keys
 ```
 After a few minutes, the command completes and returns JSON-formatted information about the cluster.
-
-## AKS clusters without Uptime SLA
-
-Uptime SLA is an **optional paid service.** For clusters that do not use Uptime SLA, AKS strives to provide an SLA objective of at least 99.5 percent uptime for the Kubernetes API server.
-
-The [Azure Kubernetes Service SLA](https://azure.microsoft.com/support/legal/sla/kubernetes-service/v1_0/) relies on the SLA for Virtual Machines. You can increase the VM availability with features like [Availability Zones][availability-zones].
-
-For mission-critical workloads, use **Uptime SLA and Availability Zones** to increase availability for the API server of your AKS clusters.
 
 ## Limitations
 
