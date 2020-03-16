@@ -82,7 +82,7 @@ To address customer security and manageability requirements Managed Instance is 
 
 With service-aided subnet configuration user is in full control of data (TDS) traffic while Managed Instance takes responsibility to ensure uninterrupted flow of management traffic in order to fulfill SLA.
 
-Service-aided subnet configuration builds on top of virtual network [subnet delegation](virtual-network/subnet-delegation-overview.md) feature to provide automatic network configuration management and enable service endpoints. Service endpoints could be used to configure virtual network firewall rules on storage accounts that keep backups / audit logs.
+Service-aided subnet configuration builds on top of virtual network [subnet delegation](../virtual-network/subnet-delegation-overview.md) feature to provide automatic network configuration management and enable service endpoints. Service endpoints could be used to configure virtual network firewall rules on storage accounts that keep backups / audit logs.
 
 ### Network requirements 
 
@@ -298,8 +298,8 @@ If the virtual network includes a custom DNS, the custom DNS server must be able
 Following virtual network features are currently not supported with Managed Instance:
 
 - **Microsoft peering**: Enabling [Microsoft peering](expressroute/expressroute-faqs.md#microsoft-peering) on express route circuits peered directly or transitively with virtual network where Managed Instance resides affect traffic flow between Managed Instance components inside virtual network and services it depends on causing availability issues. Managed Instance deployments to virtual network with Microsoft peering already enabled are expected to fail.
-- **Global virtual network peering**: [Virtual network peering](virtual-network/virtual-network-peering-overview.md) connectivity across Azure regions doesn't work for Managed Instance due to [documented load balancer constraints](virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers).
-- **AzurePlatformDNS**: Using AzurePlatformDNS [service tag](virtual-network/service-tags-overview.md) to block platform DNS resolution would render Managed Instance unavailable. Although Managed Instance supports customer defined DNS for DNS resolution inside the engine there is a dependency on platform DNS for platform operations.
+- **Global virtual network peering**: [Virtual network peering](../virtual-network/virtual-network-peering-overview.md) connectivity across Azure regions doesn't work for Managed Instance due to [documented load balancer constraints](../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers).
+- **AzurePlatformDNS**: Using AzurePlatformDNS [service tag](../virtual-network/service-tags-overview.md) to block platform DNS resolution would render Managed Instance unavailable. Although Managed Instance supports customer defined DNS for DNS resolution inside the engine there is a dependency on platform DNS for platform operations.
 - **TLS 1.2 enforcement on outbound connections**: In January 2020 Microsoft enforced TLS 1.2 for intra-service traffic in all Azure services. For Azure SQL Database managed instance, this resulted in TLS 1.2 being enforced on outbound connections used for replication and linked server connections to SQL Server. If you are using versions of SQL Server older then 2016 with Managed Instance, please ensure that [TLS 1.2 specific updates](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server) have been applied.
 
 ### [Deprecated] Network requirements without service-aided subnet configuration
