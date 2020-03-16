@@ -113,7 +113,61 @@ When used with a custom handler, the *function.json* contents are no different f
 
 ### Request payload
 
-todo
+The request payload for pure HTTP functions is the raw HTTP request payload. Pure HTTP functions are defined as functions with no input or output bindings, that return an HTTP response.
+
+Any other type of function that includes either input, output bindings or is triggered via an event source other than HTTP have a custom request payload. 
+
+The following code represents a sample request payload. The payload includes a JSON payload with two members: `Data` and `Metadata`.
+
+The `Data` member includes keys that match input and trigger names as defined in the bindings array in the *function.json* file.
+
+The `Metadata` member includes [metadata generated from the event source](./functions-bindings-expressions-patterns.md#trigger-metadata).
+
+Given the bindings defined in the following *function.json* file:
+
+```json
+{
+  "bindings": [
+    {
+      "name": "myQueueItem",
+      "type": "queueTrigger",
+      "direction": "in",
+      "queueName": "messages-incoming",
+      "connection": "AzureWebJobsStorage"
+    },
+    {
+      "name": "$return",
+      "type": "queue",
+      "direction": "out",
+      "queueName": "messages-outgoing",
+      "connection": "AzureWebJobsStorage"      
+    }
+  ]
+}
+```
+
+A request payload similar to this example is returned: 
+
+```json
+{
+	"Data": {
+		"myQueueItem": "{ message: \"Message sent\" }"
+	},
+	"Metadata": {
+		"DequeueCount": 1,
+		"ExpirationTime": "2019-10-16T17:58:31+00:00",
+		"Id": "800ae4b3-bdd2-4c08-badd-f08e5a34b865",
+		"InsertionTime": "2019-10-09T17:58:31+00:00",
+		"NextVisibleTime": "2019-10-09T18:08:32+00:00",
+		"PopReceipt": "AgAAAAMAAAAAAAAAAgtnj8x+1QE=",
+		"sys": {
+			"MethodName": "QueueTrigger",
+			"UtcNow": "2019-10-09T17:58:32.2205399Z",
+			"RandGuid": "24ad4c06-24ad-4e5b-8294-3da9714877e9"
+		}
+	}
+}
+```
 
 ### Response payload
 
@@ -385,8 +439,9 @@ A custom handler can be deployed to any Azure Functions hosting option. If your 
 
 ## Restrictions
 
-Custom handlers are not supported in Linux consumption plans.
+- Custom handlers are not supported in Linux consumption plans.
+- Web servers needs to start within 60 seconds
 
 ## Samples
 
-Refer to the custom handler samples GitHub repo for examples of how to implement functions in a variety of different languages.
+Refer to the [custom handler samples GitHub repo](https://github.com/pragnagopa/functions-http-worker) for examples of how to implement functions in a variety of different languages.
