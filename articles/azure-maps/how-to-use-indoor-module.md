@@ -12,11 +12,11 @@ manager: philmea
 
 # Use the Azure Maps Indoor Maps module
 
-The Azure Maps Web SDK provides the *Indoor Maps* module. This module offers extended functionalities to the Azure Maps *Map Control* library. It conveniently renders indoor maps and integrates the indoor map data in a web application. 
+The Azure Maps Web SDK provides the *Indoor Maps* module. This module offers extended functionalities to the Azure Maps *Map Control* library. It conveniently renders indoor maps created in Private Atlas, and it integrates the indoor map data into a web application.
 
 ## Prerequisites
 
-You'll need to obtain a DWG file for an indoor map, upload your DWG package, and then convert the DWG package to map data. These steps are part of the [indoor data management process](). When you complete these steps, note your data set ID and tile set ID to use in the exercise of this article.
+You'll need to obtain an Azure Maps account with Private Atlas enabled and an indoor map created using Private Atlas. The necessary steps are described in the [indoor map data management]() article. When you complete these steps, note your tile set identifier and feature state set identifier to use in the exercise of this article.
 
 As in using any Azure Maps APIs, you'll need to have an [Azure Maps account]() and a [primary subscription key](). This key may also be referred to as the primary key or the subscription key.
 
@@ -43,7 +43,7 @@ You can load the Azure Maps Indoor Maps module in one of two ways.
 
 ## Indoor Manager
 
-To load indoor tiles and the style of the tiles, you must instantiate the Indoor Manager by providing the map object and its corresponding tileset ID. You may optionally include the `stateSetId`, if you're using dynamic map styling. The code below shows you how to instantiate the indoor manager:
+To load indoor tile sets and the map style of the tiles, you must instantiate the Indoor Manager by providing the map object and its corresponding tileset ID. You may optionally include the `stateSetId`, if you're using [dynamic map styling](). The code below shows you how to instantiate the indoor manager:
 
 ```javascript
 const indoorManager = new atlas.indoor.IndoorManager(map, {
@@ -77,16 +77,23 @@ indoorManager.setOptions({ levelControl });
 
 ## Indoor Events
 
-Because the Indoor Maps module is an extension of the Map Control, the Map Control events are still supported while using the Indoor Maps module. Additionally, the Indoor Maps module supports facility and level change events invoked by the IndoorManager. The event listeners can be added as shown below:
+The Map Control events are supported for the Indoor Maps module. Additionally, this module provides event listeners that are invoked when a level or when a facility change. The event listeners can be added to the map object, as shown in the code below. If you want to run some code, only after a level or a facility have changed, then place your code inside the event listener.
 
 ```javascript
 map.events.add("levelchanged", indoorManager, (eventData) => {
+
+    //code that you want to run after a level has been changed
     console.log("The level has changed: ", eventData);
+
 });
 map.events.add("facilitychanged", indoorManager, (eventData) => {
+
+    //code that you want to run after a facility has been changed
     console.log("The facility has changed: ", eventData);
 });
 ```
+
+The `eventData` variable will hold information about the level or the facility that invoked the `levelchanged` or `facilitychanged` event, respectively. When a level changes, the `eventData` object will contain: the `facilityId`, the new `levelNumber`, and other meta data. When a facility changes, the `eventData` object will contain the: ? . And you can incorporate this data in your web application. For example, you can keep a log of the facilities the user visited, and at the end of the session, you can ask the user to rate their experience at each facility.
 
 ## Use the Indoor Maps Module
 
@@ -138,6 +145,7 @@ This exercise demonstrates how to integrate the Indoor Maps module with the Azur
           const subscriptionKey = "<your Azure Maps Primary Subscription Key>";
 
           const map = new atlas.Map("map-id", {
+            //use your facility's location
             center: [-122.13315, 47.63637],
             style: "blank",
             subscriptionKey,
@@ -188,6 +196,7 @@ This exercise demonstrates how to integrate the Indoor Maps module with the Azur
           const stateSetId = "<your state set id>";
 
           const map = new atlas.Map("map-id", {
+            //use your facility's location
             center: [-122.13315, 47.63637],
             style: "blank",
             subscriptionKey,
@@ -212,7 +221,7 @@ This exercise demonstrates how to integrate the Indoor Maps module with the Azur
             console.log("The level has changed:", eventData);
           });
 
-          map.events.add("levelchanged", indoorManager, (eventData) => {
+          map.events.add("facilitychanged", indoorManager, (eventData) => {
             console.log("The facility has changed:", eventData);
           });
         </script>
