@@ -47,17 +47,17 @@ For more information, see:
 * The [start a StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints/start) reference documentation.
 * Starting a streaming endpoint is an asynchronous operation. 
 
-    For details on how to monitor long-running operations, see [Long-running operations](media-services-apis-overview.md)
-* This [Postman collection](https://github.com/Azure-Samples/media-services-v3-rest-postman/blob/master/Postman/Media%20Services%20v3.postman_collection.json) contains examples of multiple REST operations including on how to start a streaming endpoint.
+    For information about how to monitor long-running operations, see [Long-running operations](media-services-apis-overview.md).
+* This [Postman collection](https://github.com/Azure-Samples/media-services-v3-rest-postman/blob/master/Postman/Media%20Services%20v3.postman_collection.json) contains examples of multiple REST operations, including on how to start a streaming endpoint.
 
-## Use portal 
+## Use the Azure portal 
  
-1. Sign in at the [Azure portal](https://portal.azure.com/).
-1. Navigate to your Azure Media Services account.
-1. On the left, select  **Streaming Endpoints**.
-1. Select the streaming endpoint you want to start, click **Start**.
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. Go to your Azure Media Services account.
+1. In the left pane, select  **Streaming Endpoints**.
+1. Select the streaming endpoint you want to start, and then select **Start**.
 
-## Use CLI
+## Use the Azure CLI
 
 ```cli
 az ams streaming-endpoint start [--account-name]
