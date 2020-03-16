@@ -64,8 +64,8 @@ In the display claims collection, you can include a reference to a [DisplayContr
 
 The following example `TechnicalProfile` illustrates the use of display claims with display controls.
 
-* The first display claim makes a reference to the `emailVerificationControl` display control which collects and verifies the email address.
-* The fifth display claim makes a reference to the `phoneVerificationControl` display control which collects and verifies a phone number.
+* The first display claim makes a reference to the `emailVerificationControl` display control, which collects and verifies the email address.
+* The fifth display claim makes a reference to the `phoneVerificationControl` display control, which collects and verifies a phone number.
 * The other display claims are ClaimTypes to be collected from the user.
 
 ```XML
@@ -128,7 +128,7 @@ The **OutputClaimsTransformations** element may contain a collection of **Output
 
 In a self-asserted technical profile, the output claims collection returns the claims to the next orchestration step.
 
-You should use output claims when:
+Use output claims when:
 
 - **Claims are output by output claims transformation**.
 - **Setting a default value in an output claim** without collecting data from the user or returning the data from the validation technical profile. The `LocalAccountSignUpWithLogonEmail` self-asserted technical profile sets the **executed-SelfAsserted-Input** claim to `true`.
@@ -192,7 +192,7 @@ You can also call a REST API technical profile with your business logic, overwri
 | AllowGenerationOfClaimsWithNullValues| No| Allow to generate a claim with null value. For example, in a case user doesn't select a checkbox.|
 | ContentDefinitionReferenceId | Yes | The identifier of the [content definition](contentdefinitions.md) associated with this technical profile. |
 | EnforceEmailVerification | No | For sign-up or profile edit, enforces email verification. Possible values: `true` (default), or `false`. |
-| setting.retryLimit | No | Controls the number of times a user can try to provide the data that is checked against a validation technical profile . For example, a user tries to sign-up with an account that already exists and keeps trying until the limit reached.
+| setting.retryLimit | No | Controls the number of times a user can try to provide the data that is checked against a validation technical profile. For example, a user tries to sign-up with an account that already exists and keeps trying until the limit reached.
 | SignUpTarget <sup>1</sup>| No | The signup target exchange identifier. When the user clicks the sign-up button, Azure AD B2C executes the specified exchange identifier. |
 | setting.showCancelButton | No | Displays the cancel button. Possible values: `true` (default), or `false` |
 | setting.showContinueButton | No | Displays the continue button. Possible values: `true` (default), or `false` |
