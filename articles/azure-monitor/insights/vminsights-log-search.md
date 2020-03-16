@@ -204,7 +204,7 @@ Records with a type of *VMComputer* have inventory data for servers with the Dep
 |AzureCloudServiceRoleType | Cloud Service role type: *worker* or *web* |
 |AzureCloudServiceInstanceId | Cloud Service role instance ID |
 |AzureVmScaleSetName | The name of the virtual machine scale set |
-|AzureVmScaleSetDeployment | VM scale set deployment ID |
+|AzureVmScaleSetDeployment | Virtual machine scale set deployment ID |
 |AzureVmScaleSetResourceId | The unique identifier of the virtual machine scale set resource.|
 |AzureVmScaleSetInstanceId | The unique identifier of the virtual machine scale set |
 |AzureServiceFabricClusterId | The unique identifer of the Azure Service Fabric cluster | 

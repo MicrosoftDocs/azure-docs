@@ -192,7 +192,7 @@ See [Network firewall requirements](platform/log-analytics-agent.md#network-fire
 
 ## Visualizations
 
-### Why can't I can't see View Designer?
+### Why can't I see View Designer?
 
 View Designer is only available for users assigned with Contributor permissions or higher in the Log Analytics workspace.
 
