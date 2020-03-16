@@ -3,7 +3,7 @@ author: msmimart
 ms.service: active-directory-b2c
 ms.subservice: B2C
 ms.topic: include
-ms.date: 02/26/2020
+ms.date: 03/16/2020
 ms.author: mimart
 ---
 ## Use custom page content
@@ -158,6 +158,9 @@ Configure Blob storage for Cross-Origin Resource Sharing by performing the follo
 
 Validate that you're ready by performing the following steps:
 
-1. Navigate to [www.test-cors.org](https://www.test-cors.org/) and paste the URL in the **Remote URL** box.
+1. Repeat the configure CORS. For **Allowed origins**, enter `https://www.test-cors.org`
+1. Navigate to [www.test-cors.org](https://www.test-cors.org/) 
+1. For the **Remote URL** box, paste the URL of your HTML file. For example `https://your-account.blob.core.windows.net/azure-ad-b2c/unified.html`
 1. Select **Send Request**.
+    The result should be `XHR status: 200`
     If you receive an error, make sure that your CORS settings are correct. You might also need to clear your browser cache or open an in-private browsing session by pressing Ctrl+Shift+P.
