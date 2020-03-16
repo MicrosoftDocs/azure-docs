@@ -16,12 +16,12 @@ A [managed identity from Azure Active Directory](/azure/active-directory/managed
 > [!Note]
 > Managed identities for Azure Data Explorer won't behave as expected if your app is migrated across subscriptions or tenants. The app will need to obtain a new identity, which can be done by [disabling](#remove-a-system-assigned-identity) and [re-enabling](#add-a-system-assigned-identity) the feature. Access policies of downstream resources will also need to be updated to use the new identity.
 
-                                                 # Add a system-assigned identity
-                                                 
-                                                 ssign a system-assigned identity that is tied to your cluster, and is deleted if your cluster is deleted. A cluster can only have one system-assigned identity. Creating a cluster with a system-assigned identity requires an additional property to be set on the cluster. The system-assigned identity is added using C#, ARM templates, or the Azure portal as detailed below.
-                                                 
-                                                  [Azure portal](#tab/portal)
-                                                 
+## Add a system-assigned identity
+                                                                                                    
+Assign a system-assigned identity that is tied to your cluster, and is deleted if your cluster is deleted. A cluster can only have one system-assigned identity. Creating a cluster with a system-assigned identity requires an additional property to be set on the cluster. The system-assigned identity is added using C#, ARM templates, or the Azure portal as detailed below.
+
+# [Azure portal](#tab/portal)
+
 ### Add a system-assigned identity using the Azure portal
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
@@ -32,12 +32,11 @@ A [managed identity from Azure Active Directory](/azure/active-directory/managed
    1. Select **Save**
    1. In the pop-up window, select **Yes**
 
-                                                    ![Add system assigned identity](media/managed-identities/turn-system-assigned-identity-on.png)
-                                                 
-                                                 . After a few minutes, the resulting screen shows **Object ID** and **Role assignments**
-                                                 
-                                                    ![System assigned identity on](media/managed-identities/system-assigned-identity-on.png)
-                                                 
+    ![Add system assigned identity](media/managed-identities/turn-system-assigned-identity-on.png)
+
+1. After a few minutes, the resulting screen shows **Object ID** and **Role assignments**.                                                                                              
+    ![System assigned identity on](media/managed-identities/system-assigned-identity-on.png)
+
 # [C#](#tab/c-sharp)
 
 ### Add a system-assigned identity using C#
@@ -67,12 +66,12 @@ To set up a managed identity using the Azure Data Explorer C# client:
     
     var kustoManagementClient = new KustoManagementClient(credentials)
     {
-                                                        SubscriptionId = subscriptionId
-                                                    };
-                                                    
-                                                    var resourceGroupName = "testrg";
-                                                    var clusterName = "mykustocluster";
-                                                    var location = "Central US";
+    SubscriptionId = subscriptionId
+    };
+                                                                                                          
+    var resourceGroupName = "testrg";
+    var clusterName = "mykustocluster";
+    var location = "Central US";
     var skuName = "Standard_D13_v2";
     var tier = "Standard";
     var capacity = 5;
@@ -85,17 +84,16 @@ To set up a managed identity using the Azure Data Explorer C# client:
 2. Run the following command to check if your cluster was successfully created or updated with an identity:
 
     ```csharp
-                                                    kustoManagementClient.Clusters.Get(resourceGroupName, clusterName);
-                                                    ```
-                                                 
-                                                    If the result contains `ProvisioningState` with the `Succeeded` value, then the cluster was created or updated, and should have the following properties:
-                                                   
-                                                    ```csharp
+    (resourceGroupName, clusterName);
+    ```
+If the result contains `ProvisioningState` with the `Succeeded` value, then the cluster was created or updated, and should have the following properties:
+
+    ```csharp
     var principalId = cluster.Identity.PrincipalId;
     var tenantId = cluster.Identity.TenantId;
     ```
 
-    `PrincipalId` and `TenantId` are replaced with GUIDs. The `TenantId` property identifies the AAD tenant to which the identity belongs. The `PrincipalId` is a unique identifier for the cluster's new identity. Within AAD, the service principal has the same name that you gave to your App Service or Azure Functions instance.
+`PrincipalId` and `TenantId` are replaced with GUIDs. The `TenantId` property identifies the AAD tenant to which the identity belongs. The `PrincipalId` is a unique identifier for the cluster's new identity. Within AAD, the service principal has the same name that you gave to your App Service or Azure Functions instance.
 
 # [ARM](#tab/arm)
 
