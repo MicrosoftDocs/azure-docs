@@ -28,7 +28,7 @@ A Cognitive Insights widget includes all visual insights that were extracted fro
 |Name|Definition|Description|
 |---|---|---|
 |`widgets`|Strings separated by comma|Allows you to control the insights that you want to render. <br/> Example: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search` renders only people and brands UI insights.<br/>Available options: people, keywords, annotations, brands, sentiments, transcript, search.<br/>Note that the `widgets` URL parameter isn't supported in version 2.<br/>|
-|`locale`|A short language code|Controls the insights language. The default value is `en`. <br/> Example: `locale=de`.|
+|`locale`|A short language code|Controls the language of user interface (UI). The default value is `en`. <br/> Example: `locale=de`.|
 |`tab`|The default selected tab|Controls the **Insights** tab that's rendered by default. <br/> Example: `tab=timeline` renders the insights with the **Timeline** tab selected.|
 
 ### Player widget
