@@ -93,10 +93,10 @@ conceptualContent:
     - title: Conversation scenarios
       links:
         - itemType: overview
-          text: About Conversation Transcription
+          text: About Conversation Transcription (meetings)
           url: conversation-transcription.md
         - itemType: overview
-          text: About multi-device conversations
+          text: About multi-device conversations (meetings)
           url: multi-device-conversation.md
         - itemType: how-to-guide
           text: Call center transcription
