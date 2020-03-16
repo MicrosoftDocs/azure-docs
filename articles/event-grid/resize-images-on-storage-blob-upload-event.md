@@ -49,17 +49,17 @@ You must have completed the previous Blob storage tutorial: [Upload image data i
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-If you've not previously registered the Event Grid resource provider in your subscription, make sure it's registered.
-
-```azurecli-interactive
-az provider register --namespace Microsoft.EventGrid
-```
-
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 If you choose to install and use the CLI locally, this tutorial requires the Azure CLI version 2.0.14 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
 If you are not using Cloud Shell, you must first sign in using `az login`.
+
+If you've not previously registered the Event Grid resource provider in your subscription, make sure it's registered.
+
+```azurecli-interactive
+az provider register --namespace Microsoft.EventGrid
+```
 
 ## Create an Azure Storage account
 

@@ -842,7 +842,7 @@ https://docs.microsoft.com/azure/governance/management-groups/create
 
 
 
-How to create and user Tags:
+How to create and use Tags:
 
 https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 

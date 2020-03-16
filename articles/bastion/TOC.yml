@@ -4,6 +4,10 @@
   items: 
   - name: About Azure Bastion
     href: bastion-overview.md
+- name: Quickstarts
+  items:
+  - name: Create a bastion host from VM settings
+    href: quickstart-host-portal.md
 - name: How-to guides
   items:
   - name: Create a bastion host
