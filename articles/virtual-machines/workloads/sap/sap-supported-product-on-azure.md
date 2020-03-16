@@ -15,7 +15,7 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 02/13/2020
+ms.date: 03/16/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ---
@@ -91,6 +91,9 @@ For running SAP HANA, SAP has more and stronger conditions infrastructure needs 
 > [!NOTE]
 > The units starting with the letter 'S' are [HANA Large Instances](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) units. 
 
+> [!NOTE]
+> SAP has no specific certification dependent on the SAP HANA major releases. Contrary to common opinion, the column **Certification scenario** in the [HANA  certified IaaS platforms](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure), the column makes **no statement about the HANA major or minor release certified**. You need to assume that all the units listed that can be used for HANA 1.0 and HANA 2.0 as long as the certified operating system releases for the specific units are supported by HANA 1.0 releases as well. 
+
 For the usage of SAP HANA, different minimum OS releases may apply than for the general NetWeaver cases. You need to check out the supported operating systems for each unit individually since those might vary. You do so by clicking on each unit. More details will appear. One of the details listed is the different operating systems supported for this specific unit.
 
 > [!NOTE]
@@ -105,7 +108,7 @@ As you know the specific HANA releases you can run on the targeted Azure infrast
 
 
 ## Certified Azure VMs and HANA Large Instance units and business transaction throughput
-Besides evaluating supported operating system releases, DBMS releases and dependent support SAP software releases for Azure infrastructure units, you have the need to qualify these units by business transaction throughput, which is expressed in the unit 'SAP' by SAP. All the SAP sizing circles around SAPS. Evaluating existing SAP systems, you usually can, with the help of your infrastructure provider, calculate the SAPS of the units. For the DBMS layer as well as for the application layer. In other cases where new functionality is created, a sizing exercise with SAP can reveal the required SAPS numbers for the application layer and the DBMS layer. As infrastructure provider Microsoft is obliged to provide the SAP throughput characterization of the different units that are either NetWeaver and/or HANA certified.
+Besides evaluating supported operating system releases, DBMS releases and dependent support SAP software releases for Azure infrastructure units, you have the need to qualify these units by business transaction throughput, which is expressed in the unit 'SAP' by SAP. All the SAP sizing depends on SAPS calculations. Evaluating existing SAP systems, you usually can, with the help of your infrastructure provider, calculate the SAPS of the units. For the DBMS layer as well as for the application layer. In other cases where new functionality is created, a sizing exercise with SAP can reveal the required SAPS numbers for the application layer and the DBMS layer. As infrastructure provider Microsoft is obliged to provide the SAP throughput characterization of the different units that are either NetWeaver and/or HANA certified.
 
 For Azure VMs, these SAPS throughput numbers are documented in [SAP support note #1928533](https://launchpad.support.sap.com/#/notes/1928533). 
 For Azure HANA Large Instance units, the SAPS throughput numbers are documented in [SAP support note #2316233](https://launchpad.support.sap.com/#/notes/2316233)
@@ -126,7 +129,7 @@ For Business Objects Data Services, [SAP support note #22288344](https://launchp
 > [!NOTE]
 > As indicated in the SAP support note, you need to check in the SAP PAM to identify the correct support package level to be supported on Azure
 
-SAP Datahub/Vora support Azure Kubernetes Services (AKS) is detailed in [SAP support note #2464722](https://launchpad.support.sap.com/#/notes/2464722)
+SAP Datahub/Vora support in Azure Kubernetes Services (AKS) is detailed in [SAP support note #2464722](https://launchpad.support.sap.com/#/notes/2464722)
 
 Support for SAP BPC 10.1 SP08 is described in [SAP support note #2451795](https://launchpad.support.sap.com/#/notes/2451795)
 
