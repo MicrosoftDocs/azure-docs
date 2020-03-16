@@ -131,14 +131,14 @@ Application started. Press Ctrl+C to shut down.
 
 Http Functions:
 
-    HttpTrigger-Java: [GET,POST] http://localhost:7071/api/HttpTrigger-Java
+    HttpExample: [GET,POST] http://localhost:7071/api/HttpExample
 ...
 ```
 
 Trigger the function from the command line using cURL in a new terminal window:
 
 ```bash
-curl -w "\n" http://localhost:7071/api/HttpTrigger-Java --data AzureFunctions
+curl -w "\n" http://localhost:7071/api/HttpExample --data AzureFunctions
 ```
 
 ```output
@@ -210,7 +210,7 @@ You can now use the copied URL to access your function.
 To verify the function app running on Azure using `cURL`, replace the URL from the sample below with the URL that you copied from the portal.
 
 ```console
-curl -w "\n" https://fabrikam-functions-20190929094703749.azurewebsites.net/api/HttpTrigger-Java?code=zYRohsTwBlZ68YF.... --data AzureFunctions
+curl -w "\n" https://fabrikam-functions-20190929094703749.azurewebsites.net/api/HttpExample?code=zYRohsTwBlZ68YF.... --data AzureFunctions
 ```
 
 This sends a POST request to the function endpoint with `AzureFunctions` in the body of the request. You see the following response.

@@ -5,7 +5,7 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 04/08/2019
+ms.date: 03/12/2020
 ms.author: alkohli
 ms.subservice: common
 ---
@@ -94,18 +94,19 @@ Perform the following steps to create an export job in the Azure portal.
 
     - Click **OK** to complete export job creation.
 
-## Step 2: Ship the drives
+## (Optional) Step 2: 
+## Step 3: Ship the drives
 
 If you do not know the number of drives you need, go to the [Check the number of drives](#check-the-number-of-drives). If you know the number of drives, proceed to ship the drives.
 
 [!INCLUDE [storage-import-export-ship-drives](../../../includes/storage-import-export-ship-drives.md)]
 
-## Step 3: Update the job with tracking information
+## Step 4: Update the job with tracking information
 
 [!INCLUDE [storage-import-export-update-job-tracking](../../../includes/storage-import-export-update-job-tracking.md)]
 
 
-## Step 4: Receive the disks
+## Step 5: Receive the disks
 When the dashboard reports the job is complete, the disks are shipped to you and the tracking number for the shipment is available on the portal.
 
 1. After you receive the drives with exported data, you need to get the BitLocker keys to unlock the drives. Go to the export job in the Azure portal. Click **Import/Export** tab.
@@ -116,6 +117,14 @@ When the dashboard reports the job is complete, the disks are shipped to you and
 3. Use the BitLocker keys to unlock the disks.
 
 The export is complete. At this time, you can delete the job or it automatically gets deleted after 90 days.
+
+## Step 6: Unlock the disks
+
+Use the following command to unlock the drive: 
+
+    `WAImportExport Unlock /externalKey:<BitLocker key (base 64 string) copied from journal (*.jrn*) file>`  
+
+
 
 
 ## Check the number of drives

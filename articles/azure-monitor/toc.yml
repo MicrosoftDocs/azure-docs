@@ -1245,6 +1245,8 @@
       href: app/docker.md
     - name: OMS portal deprecation
       href: platform/oms-portal-transition.md
+    - name: Disk metrics deprecation
+      href: platform/portal-disk-metrics-deprecation.md
 - name: Resources
   items:
   - name: Azure Roadmap
@@ -1261,8 +1263,6 @@
       href: https://azure.microsoft.com/updates/?product=log-analytics
     - name: SDK release notes
       href: app/release-notes.md
-  - name: Windows Analytics
-    href: https://www.microsoft.com/en-us/WindowsForBusiness/windows-analytics
   - name: Regional availability
     href: https://azure.microsoft.com/regions/services/?products=monitor&regions=all
   - name: Videos
