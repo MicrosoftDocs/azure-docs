@@ -41,7 +41,7 @@ To get started, you need the following items:
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Netvision Compas supports **SP and IDP** initiated SSO
-* Once you configure Netvision Compas you can enforce Session Control, which protect exfiltration and infiltration of your organization’s sensitive data in real time. Session Control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
+* Once you configure Netvision Compas you can enforce Session Control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session Control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 
 ## Adding Netvision Compas from the gallery
@@ -145,7 +145,7 @@ In this section, you create a user called B.Simon in Netvision Compas. Work with
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Netvision Compas tile in the Access Panel, you should be automatically signed in to the Netvision Compas for which you setup SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you click the Netvision Compas tile in the Access Panel, you should be automatically signed in to the Netvision Compas for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## Additional resources
 
