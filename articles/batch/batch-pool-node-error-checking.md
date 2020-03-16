@@ -132,7 +132,7 @@ The size of the temporary drive depends on the VM size. One consideration when p
 
 For files written out by each task, a retention time can be specified for each task that determines how long the task files are kept before being automatically cleaned up. The retention time can be reduced to lower the storage requirements.
 
-If the temporary disk runs out of space (or is very close to running out of space), the node will move to [Unusable](/rest/api/batchservice/computenode/get#computenodestate) state and a node error (use the link already there) will be reported saying that the disk is full.
+If the temporary disk runs out of space (or is very close to running out of space), the node will move to [Unusable](/rest/api/batchservice/computenode/get#computenodestate) state and a node error will be reported saying that the disk is full.
 
 
 ## Next steps
