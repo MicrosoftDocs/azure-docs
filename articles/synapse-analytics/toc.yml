@@ -138,7 +138,7 @@
         href: ./security/synapse-workspace-ip-firewall.md
       - name: Synapse workspace Managed virtual network
         href: ./security/synapse-workspace-managed-vnet.md
-      -name: Synapse workspace Managed private endpoints
+      - name: Synapse workspace Managed private endpoints
         href: ./security/synapse-workspace-managed-private-endpoints.md
       - name: Firewall rules
         href: ../sql-database/sql-database-firewall-configure.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
