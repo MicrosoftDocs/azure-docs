@@ -22,12 +22,12 @@ The Identity Experience Framework (IEF) that underpins Azure Active Directory B2
 
 At the end of this walkthrough, you will be able to create an Azure AD B2C user journey that interacts with RESTful services.
 
-IEF has the ability to send data that has been stored in a claims bag during a user journey to your REST API. And parse JSON responses received from the REST API into the Azure AD B2C claim bag. The interaction with the API:
+IEF can send data that has been stored in a claims bag during a user journey to your REST API. It can also parse JSON responses received from the REST API into the Azure AD B2C claim bag. The interaction with the API:
 
-- Can be designed as a REST API claims exchange called from an orchestration step, or as a [validation technical profile](validation-technical-profile.md), called from within a [self asserted technical profile](self-asserted-technical-profile.md).
+- Can be designed as a REST API claims exchange called from an orchestration step, or as a [validation technical profile](validation-technical-profile.md) called from within a [self asserted technical profile](self-asserted-technical-profile.md).
 - Typically validates input from the user. If the value from the user is rejected, the user can try again to enter a valid value with the opportunity to return an error message.
 
-You can also design the interaction as an orchestration step. This is suitable when the REST API will not be validating data on screen, and always return an HTTP 200. For more information, see [Walkthrough: Integrate REST API claims exchanges in your Azure AD B2C user journey as an orchestration step](custom-policy-rest-api-claims-exchange.md).
+You can also design the interaction as an orchestration step. This is suitable when the REST API will not be validating data on screen, and always return claims. For more information, see [Walkthrough: Integrate REST API claims exchanges in your Azure AD B2C user journey as an orchestration step](custom-policy-rest-api-claims-exchange.md).
 
 For the validation profile example, we will use the profile edit user journey in the starter pack file ProfileEdit.xml.
 
@@ -35,7 +35,7 @@ We can verify that the name provided by the user in the profile edit is not part
 
 ## Scenario
 
-In this scenario, we will add the ability for users to enter a loyalty number into the Azure AD B2C during sign-up page. We would like to validate whether this combination of email and loyalty number are mapped to a promotional code by sending this data to a REST API. If the REST API finds a promotional code for this user, it will then be returned to Azure AD B2C. Finally the promotional code will be inserted into the token claims for the application to consume.
+In this scenario, we'll add the ability for users to enter a loyalty number into the Azure AD B2C sign-up page. We'll validate whether this combination of email and loyalty number is mapped to a promotional code by sending this data to a REST API. If the REST API finds a promotional code for this user, it will be returned to Azure AD B2C. Finally, the promotional code will be inserted into the token claims for the application to consume.
 
 ## Prerequisites
 
@@ -45,7 +45,7 @@ Complete the steps in [Get started with custom policies](custom-policy-get-start
 
 For this walkthrough, you should have a REST API that validates whether an email address is registered in your back-end system with a membership ID. If registered, the REST API should return a registration promotion code, which the customer can use to buy goods within your application. Otherwise, the REST API should return an HTTP 409 error message: "Membership ID '{membership ID}' is not associated with '{email}' email address.".
 
-The following JSON illustrates the data Azure AD B2C will send to your REST API endpoint. 
+The following JSON code illustrates the data Azure AD B2C will send to your REST API endpoint. 
 
 ```json
 {
@@ -73,7 +73,7 @@ If the validation failed, the REST API must return an HTTP 409 (Conflict), with 
 }
 ```
 
-The setup of REST API endpoint is outside the scope of this article. We have created an [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-reference) sample. You can access the complete Azure function code at [GitHub](https://github.com/Azure-Samples/active-directory-b2c-advanced-policies/tree/master/AzureFunctionsSamples).
+The setup of the REST API endpoint is outside the scope of this article. We have created an [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-reference) sample. You can access the complete Azure function code at [GitHub](https://github.com/Azure-Samples/active-directory-b2c-advanced-policies/tree/master/AzureFunctionsSamples).
 
 ## Define claims
 
@@ -142,7 +142,7 @@ The comments above `AuthenticationType` and `AllowInsecureAuthInProduction` spec
 
 ## Validate the user input
 
-To obtain the users loyalty number during sign-up, you must allow the user to enter this data on screen. Add the **loyaltyId** output claim to the sign-up page, by adding it to the existing sign-up technical profile sections `OutputClaims` element. Specify the entire list of output claims to control the order the claims are presented on the screen. 
+To obtain the user's loyalty number during sign-up, you must allow the user to enter this data on the screen. Add the **loyaltyId** output claim to the sign-up page by adding it to the existing sign-up technical profile section's `OutputClaims` element. Specify the entire list of output claims to control the order the claims are presented on the screen.  
 
 Add the validation technical profile reference to the sign-up technical profile, which calls the `REST-ValidateProfile`. The new validation technical profile will be added to the top of the `<ValidationTechnicalProfiles>` collection defined in the base policy. This behavior means that only after successful validation, Azure AD B2C moves on to create the account in the directory.   
 
@@ -229,12 +229,12 @@ To return the promo code claim back to the relying party application, add an out
 1. Make sure you're using the directory that contains your Azure AD tenant by selecting the **Directory + subscription** filter in the top menu and choosing the directory that contains your Azure AD tenant.
 1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **App registrations**.
 1. Select **Identity Experience Framework**.
-1. Select **Upload Custom Policy**, and then upload the policy files that you changed, *TrustFrameworkBase.xml*, *TrustFrameworkExtensions.xml*, and *SignUpOrSignin.xml* 
+1. Select **Upload Custom Policy**, and then upload the policy files that you changed: *TrustFrameworkExtensions.xml*, and *SignUpOrSignin.xml*. 
 1. Select the sign-up or sign-in policy that you uploaded, and click the **Run now** button.
 1. You should be able to sign up using an email address.
 1. Click on the **Sign-up now** link.
 1. In the **Your loyalty ID**, type 1234, and click **Continue**. At this point, you should get a validation error message.
-1. Change to another value and click again  **Continue**
+1. Change to another value and click **Continue**.
 1. The token sent back to your application includes the `promoCode` claim.
 
 ```json
