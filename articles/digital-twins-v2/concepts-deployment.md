@@ -35,7 +35,7 @@ A variety of egress services are supported with Azure Digital Twins, and may con
 * [Event Grid](../event-grid/overview.md)
 * [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md)
 
-Learn more about how to configure one of these services to be an Azure Digital Twins endpoint in the [Azure Digital Twins CLI doc](https://github.com/Azure/azure-digital-twins/tree/private-preview/CLI).
+Learn more about how to configure one of these services to be an Azure Digital Twins endpoint in the [Azure Digital Twins CLI documentation](https://github.com/Azure/azure-digital-twins/tree/private-preview/CLI).
 
 There are many other services where you may wish to ultimately direct your data, such as [Azure Storage](../storage/common/storage-introduction.md) or [Time Series Insights](../time-series-insights/time-series-insights-update-overview.md). To send your data to services like these, attach the destination service to one of the endpoint services above, using the endpoint service as a middleman to pass your data along.
 
