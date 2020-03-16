@@ -4,7 +4,7 @@ description: Learn how to provision and secure a linked service with Managed Vne
 services: synapse-analytics 
 author: acomet
 ms.service: synapse-analytics 
-ms.topic: how to
+ms.topic: how-to
 ms.subservice: 
 ms.date: 3/15/2020
 ms.author: acomet
