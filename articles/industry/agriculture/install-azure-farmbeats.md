@@ -92,7 +92,7 @@ Make a note of the **Azure Subscription ID** and the **Azure Region**.
 
 ### Create an AAD application
 
-Azure FarmBeats requires Azure Active Directory application creation and registration. To successfully run the AAD creation script, the following permissions are needed:
+Azure FarmBeats require Azure Active Directory application creation and registration. To successfully run the AAD creation script, the following permissions are needed:
 
 - Tenant - AAD app creator
 - Subscription - Owner
@@ -161,7 +161,7 @@ You are now ready to install FarmBeats. Follow the steps below to start the inst
 
     ![Dependencies Tab](./media/install-azure-farmbeats/create-azure-farmbeats-dependencies.png)
 
-8. Once the entered details are validated, select **OK**. The Terms of use page appears. Review the terms and select **Create** to start the installation. You will be redirected to the page where you can follow the installation progress.
+8. Once the entered details are validated, select **OK**. The Terms of use page appear. Review the terms and select **Create** to start the installation. You will be redirected to the page where you can follow the installation progress.
 
 Once the installation is complete, you can verify the installation and start using FarmBeats portal by navigating to the website name you provided during installation: https://\<FarmBeats-website-name>.azurewebsites.net. You should see FarmBeats user interface with an option to create Farms.
 
