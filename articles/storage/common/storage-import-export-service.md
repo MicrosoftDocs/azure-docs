@@ -5,7 +5,7 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 03/12/2020
+ms.date: 03/15/2020
 ms.author: alkohli
 ms.subservice: common
 ---
@@ -35,7 +35,7 @@ Import/Export service uses the following components:
 - **WAImportExport tool**: This is a command-line tool that does the following: 
     - Prepares your disk drives that are shipped for import.
     - Facilitates copying your data to the drive.
-    - Encrypts the data on the drive with AES 256-bit BitLocker. Optionally, you can use an external key protector to protect your BitLocker key.
+    - Encrypts the data on the drive with AES 256-bit BitLocker. You can use an external key protector to protect your BitLocker key.
     - Generates the drive journal files used during import creation.
     - Helps identify numbers of drives needed for export jobs.
     
