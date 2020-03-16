@@ -531,6 +531,9 @@ For more information on configuring a network rule, see [Deploy and configure Az
     # Update the workspace to use an existing compute cluster
     ws.update(image_build_compute = 'mycomputecluster')
     ```
+
+    > [!IMPORTANT]
+    > Your storage account, compute cluster, and Azure Container Registry must all be in the same subnet of the virtual network.
     
     For more information, see the [update()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#update-friendly-name-none--description-none--tags-none--image-build-compute-none-) method reference.
 

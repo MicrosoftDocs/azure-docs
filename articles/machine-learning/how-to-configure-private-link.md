@@ -104,11 +104,9 @@ For information on VPN gateways, see [What is VPN gateway](/azure/vpn-gateway/vp
 
 ## Using Azure Storage
 
-To secure the Azure Storage account used by your workspace, you can either put it inside the virtual network or enable Private Link for it.
+To secure the Azure Storage account used by your workspace, put it inside the virtual network.
 
 For information on putting the storage account in the virtual network, see [Use a storage account for your workspace](how-to-enable-virtual-network.md#use-a-storage-account-for-your-workspace).
-
-For information on enabling Private Link for the storage account, see [Create a private endpoint for storage](/azure/private-link/create-private-endpoint-storage-portal#create-your-private-endpoint).
 
 ## Using Azure Key Vault
 
