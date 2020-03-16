@@ -2,7 +2,7 @@
 title: Static IP address for container group
 description: Create a container group in a virtual network and use an Azure application gateway to expose a static frontend IP address to a containerized web app 
 ms.topic: article
-ms.date: 03/10/2020
+ms.date: 03/16/2020
 ---
 
 # Expose a static IP address for a container group
@@ -14,6 +14,8 @@ In this article you use the Azure CLI to create the resources for this scenario:
 * An Azure virtual network
 * A container group deployed [in the virtual network (preview)](container-instances-vnet.md) that hosts a small web app
 * An application gateway with a public frontend IP address, a listener to host a website on the gateway, and a route to the backend container group
+
+As long as the application gateway runs and the container group exposes a stable private IP address in the network's delegated subnet, the container group is accessible at this public IP address.
 
 > [!NOTE]
 > Azure charges for an application gateway based on the amount of time that the gateway is provisioned and available, as well as the amount of data it processes. See [pricing](https://azure.microsoft.com/pricing/details/application-gateway/).
@@ -134,8 +136,6 @@ Output is a public IP address, similar to: `52.142.18.133`.
 To view the running web app when successfully configured, navigate to the gateway's public IP address in your browser. Successful access is similar to:
 
 ![Browser screenshot showing application running in an Azure container instance](./media/container-instances-application-gateway/aci-app-app-gateway.png)
-
-As long as the application gateway runs and the container group exposes a stable private IP address in the network, the container group is accessible at this public IP address.
 
 ## Next steps
 
