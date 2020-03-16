@@ -183,7 +183,7 @@ Template parameters:
             }
           ],
           "ipRules":[<YOUR EXISTING IP RULES>],
-          "trustedServiceAccessEnabled": true,
+          "trustedServiceAccessEnabled": false,
           "defaultAction": "Deny"
         }
       }

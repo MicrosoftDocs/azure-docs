@@ -62,7 +62,7 @@ If you already have an Event Hubs namespace, you can create a private link conne
         1. Select the **Azure subscription** in which your **Event Hubs namespace** exists. 
         2. For **Resource type**, Select **Microsoft.EventHub/namespaces** for the **Resource type**.
         3. For **Resource**, select an Event Hubs namespace from the drop-down list. 
-        4. Confirm that the **Target subresource** is set to **topic** or **domain** (based on the resource type you selected).
+        4. Confirm that the **Target subresource** is set to **namespace**.
         5. Select **Next: Configuration >** button at the bottom of the page. 
         
             ![Create Private Endpoint - Resource page](./media/private-link-service/create-private-endpoint-resource-page.png)    
@@ -240,9 +240,7 @@ Aliases:  <your-event-hub-name>.servicebus.azure.net
 
 **Limitations**:  Private Endpoint for Azure Event Hubs is in public preview. This feature is available in all Azure public regions.
 
-**Maximum Number of Private Endpoints per event hub**: 64.
-
-**Maximum Number of Event Hubs namespaces with Private Endpoints per Subscription**: 64.
+**Maximum number of private endpoints per Event Hubs namespace**: 120.
 
 For more, see [Azure Private Link service: Limitations](../private-link/private-link-service-overview.md#limitations)
 

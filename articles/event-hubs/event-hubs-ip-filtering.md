@@ -118,7 +118,7 @@ Template parameters:
                 "action":"Allow"
             }
           ],
-          "trustedServiceAccessEnabled": true,
+          "trustedServiceAccessEnabled": false,
           "defaultAction": "Deny"
         }
       }
