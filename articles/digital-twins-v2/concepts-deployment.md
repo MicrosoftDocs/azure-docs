@@ -20,7 +20,7 @@ ms.service: digital-twins
 The Azure Digital Twins service is not designed to be used alone. It is always deployed alongside an **ingress service** and an **egress service** to make a complete end-to-end data flow. The ingress service collects data and routes it into Azure Digital Twins. The egress service enables Azure Digital Twins to route data to a final endpoint, such as a storage service.
 
 The following images shows the relationships between these three services.
-![Ingress/egress coupling](./media/overview/coupling.jpg)
+![Ingress/egress coupling](./media/concepts-deployment/coupling.jpg)
 
 ## Ingress services
 
