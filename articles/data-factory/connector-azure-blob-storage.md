@@ -509,7 +509,8 @@ Wildcard examples:
 * ```[]``` Matches one of more characters in the brackets
 
 * ```/data/sales/**/*.csv``` Gets all csv files under /data/sales
-* ```/data/sales/20??/**``` Gets all files in the 20th century
+* ```/data/sales/20??/**/``` Gets all files in the 20th century
+* ```/data/sales/*/*/*.csv``` Gets csv files two levels under /data/sales
 * ```/data/sales/2004/*/12/[XY]1?.csv``` Gets all csv files in 2004 in December starting with X or Y prefixed by a two-digit number
 
 **Partition Root Path:** If you have partitioned folders in your file source with  a ```key=value``` format (for example, year=2019), then you can assign the top level of that partition folder tree to a column name in your data flow data stream.
