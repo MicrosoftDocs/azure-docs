@@ -191,7 +191,7 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 &state=12345
 &token_type=Bearer
 &expires_in=3599
-&scope=https%3A%2F%2Fgraph.windows.net%2Fdirectory.read
+&scope=https%3A%2F%2Fgraph.microsoft.com%2Fdirectory.read
 ```
 
 | Parameter | Description |

@@ -8,7 +8,7 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
-ms.date: 10/08/2019
+ms.date: 03/09/2020
 ---
 # Migrate from the DTU-based model to the vCore-based model
 
@@ -39,7 +39,7 @@ The following table provides guidance for specific migration scenarios:
 |General purpose|Business critical|Upgrade|Must migrate secondary first|
 ||||
 
-\* Every 100 DTUs in the standard tier require at least 1 vCore, and every 125 DTUs in the premium tier require at least 1 vCore.
+\* As a rule of thumb, every 100 DTUs in the standard tier require at least 1 vCore, and every 125 DTUs in the premium tier require at least 1 vCore. For more information, see [vCore-based purchasing model](https://docs.microsoft.com/azure/sql-database/sql-database-purchase-models#vcore-based-purchasing-model).
 
 ## Migrate failover groups
 

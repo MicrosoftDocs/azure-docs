@@ -58,6 +58,8 @@
       href: backup-support-matrix-mabs-dpm.md
     - name: MARS agent support matrix
       href: backup-support-matrix-mars-agent.md
+    - name: SQL Server Backup support matrix
+      href: sql-support-matrix.md
     - name: SAP HANA Backup support matrix
       href: sap-hana-backup-support-matrix.md
     - name: Supported VM SKUs for Azure Policy  
@@ -142,10 +144,16 @@
     items:
     - name: Overview
       href: backup-azure-about-mars.md
+    - name: Install or upgrade
+      items:
+      - name: Install MARS agent
+        href: install-mars-agent.md
+      - name: Upgrade MARS agent
+        href: upgrade-mars-agent.md
     - name: Backup
       items:
       - name: Back up Windows Server files and folders
-        href: backup-configure-vault.md
+        href: backup-windows-with-mars-agent.md
       - name: Back up Windows Server System State
         href: backup-azure-system-state.md
     - name: Restore
@@ -160,6 +168,8 @@
     items:
     - name: From the Azure portal
       items:
+      - name: Overview
+        href: azure-file-share-backup-overview.md
       - name: Backup
         href: backup-afs.md
       - name: Restore
