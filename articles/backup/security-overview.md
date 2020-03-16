@@ -30,11 +30,11 @@ Encryption protects your data and helps you to meet your organizational security
 
 * Azure Backup supports backup and restore of Azure VMs that have their OS/data disks encrypted with Azure Disk Encryption (ADE). [Learn more about encrypted Azure VMs and Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption).
 
-## Protection of backup data from Accidental or malicious deletes
+## Protection of backup data from accidental or malicious deletes
 
 Azure Backup provides security features to help protect backup data even after deletion. One such feature is [soft delete](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#soft-delete). With soft delete, if a malicious actor deletes the backup of a VM (or backup data is accidentally deleted), the backup data is retained for 14 additional days, allowing the recovery of that backup item with no data loss. The additional 14 days retention of backup data in the "soft delete" state doesn't incur any cost to the customer. [Learn more about soft delete](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#soft-delete).
 
-## Monitoring and Alerts
+## Monitoring and alerts
 
 Azure Backup provides [built-in monitoring and alerting capabilities](https://docs.microsoft.com/azure/backup/backup-azure-monitoring-built-in-monitor) to view and configure actions for business-critical events. [Backup Reports](https://docs.microsoft.com/azure/backup/configure-reports) serve as a one-stop destination for tracking usage, auditing of backups and restores, and identifying key trends at different levels of granularity.
 
@@ -47,6 +47,10 @@ Azure Backup service uses the Microsoft Azure Recovery Services (MARS) agent to 
 * **Alerting**: An email notification is sent to the subscription admin whenever a critical operation like deleting backup data is performed. This email ensures that the user is notified quickly about such actions. [Learn more about notifications for critical operations](https://docs.microsoft.com/azure/backup/backup-azure-security-feature#notifications-for-critical-operations).
 
 * **Recovery**: Deleted backup data is retained for an additional 14 days from the date of deletion. This ensures recoverability of the data within a given time period, so there's no data loss even if an attack happens. Also, a greater number of minimum recovery points are maintained to guard against corrupt data. [Learn more about recovering deleted backup data](https://docs.microsoft.com/azure/backup/backup-azure-security-feature#recover-deleted-backup-data).
+
+## Compliance
+
+To help organizations comply with national, regional, and industry-specific requirements governing the collection and use of individuals' data, Microsoft Azure & Azure Backup offer a comprehensive set of certifications and attestations. [See the list of compliance certifications](compliance-offerings.md)
 
 ## Next steps
 
