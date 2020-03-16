@@ -12,6 +12,8 @@ ms.date: 01/27/2020
 ms.author: pafarley
 ---
 
+<a name="HOLTop"></a>
+
 [Reference documentation](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision) | [Library source code](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v2.1/computervision) | [Package](https://github.com/Azure/azure-sdk-for-go)
 
 ## Prerequisites
