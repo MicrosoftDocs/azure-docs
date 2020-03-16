@@ -59,6 +59,7 @@ A private link resource is the destination target of a given private endpoint. T
 |**Azure Database for MariaDB** | Microsoft.DBforMariaDB/servers	| mariadbServer |
 |**Azure Key Vault** | Microsoft.KeyVault/vaults	| vault |
 |**Azure Kubernetes Service - Kubernetes API** | Microsoft.ContainerService/managedClusters	| managedCluster |
+|**Azure Search** | Microsoft.Search/searchService| searchService|  
 |**Azure Container Registry** | Microsoft.ContainerRegistry/registries	| registry |
 |**Azure App Configuration** | Microsoft.Appconfiguration/configurationStores	| configurationStore |
 |**Azure Backup** | Microsoft.RecoveryServices/vaults	| vault |
@@ -68,7 +69,6 @@ A private link resource is the destination target of a given private endpoint. T
 |**Azure Event Grid** | Microsoft.EventGrid/topics	| topic |
 |**Azure Event Grid** | Microsoft.EventGrid/domains	| domain |
 |**Azure WebApps** | Microsoft.Web/sites	| site |
-|**Azure Machine Learning** | Microsoft.MachineLearningServices/workspaces	| workspace |
  
 ## Network security of private endpoints 
 When using private endpoints for Azure services, traffic is secured to a specific private link resource. The platform performs an access control to validate network connections reaching only the specified private link resource. To access additional resources within the same Azure service, additional private endpoints are required. 
@@ -129,6 +129,7 @@ For Azure services, use the recommended zone names as described in the following
 |Azure Database for MariaDB (Microsoft.DBforMariaDB/servers)|mariadbServer|privatelink.mariadb.database.azure.com|
 |Azure Key Vault (Microsoft.KeyVault/vaults)|vault|privatelink.vaultcore.azure.net|
 |Azure Kubernetes Service - Kubernetes API (Microsoft.ContainerService/managedClusters)	| managedCluster | {guid}.privatelink.<region>.azmk8s.io|
+|Azure Search (Microsoft.Search/searchServices)|searchService|privatelink.search.windows.net|   
 |Azure Container Registry (Microsoft.ContainerRegistry/registries) | registry | privatelink.azurecr.io |
 |Azure App Configuration (Microsoft.Appconfiguration/configurationStores)| configurationStore | privatelink.azconfig.io|
 |Azure Backup (Microsoft.RecoveryServices/vaults)| vault |privatelink.{region}.backup.windowsazure.com|
@@ -138,7 +139,6 @@ For Azure services, use the recommended zone names as described in the following
 |Azure Event Grid (Microsoft.EventGrid/topics)	 | topic | topic.<region>.privatelink.eventgrid.azure.net|
 |Azure Event Grid (Microsoft.EventGrid/domains) | domain | domain.<region>.privatelink.eventgrid.azure.net |
 |Azure WebApps(Microsoft.Web/sites)	| site | privatelink.azurewebsites.net |
-|Azure Machine Learning (Microsoft.MachineLearningServices/workspaces) | workspace | privatelink.api.azureml.ms |
  
 Azure will create a canonical name DNS record (CNAME) on the public DNS to redirect the resolution to the suggested domain names. You'll be able to override the resolution with the private IP address of your private endpoints. 
  
