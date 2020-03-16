@@ -13,6 +13,8 @@ ms.date: 01/18/2019
 ---
 # Get support and training for Azure Machine Learning Studio (classic)
 
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
+
 This article provides information on how to learn more about Azure Machine Learning Studio (classic) and get support for your issues and questions.
 
 ## Learn more about Studio (classic)
@@ -30,7 +32,7 @@ You can **submit requests** for additional learning materials using the **Conten
 
 Check out these support resources:
 
-+ **Technical support for Azure Customers**: [Submit and manage support requests](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) through the Azure portal.
++ **Technical support for Azure Customers**: [Submit and manage support requests](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) through the Azure portal.
 
 + **User forum**: Ask questions, answer questions, and connect with other users in the [Azure Machine Learning Studio (classic) support forum on MSDN](https://aka.ms/aml-forum-studio).
 

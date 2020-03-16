@@ -31,7 +31,7 @@ Azure automatically routes traffic between Azure subnets, virtual networks, and 
 
 ## Create a route table
 
-The playbook code in this section creates a route table. For information on route-table limits, see [Azure limits](/azure/azure-subscription-service-limits#azure-resource-manager-virtual-networking-limits). 
+The playbook code in this section creates a route table. For information on route-table limits, see [Azure limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-resource-manager-virtual-networking-limits). 
 
 Save the following playbook as `route_table_create.yml`:
 

@@ -1,5 +1,5 @@
 ---
-title: Configure usage settings in classroom labs of Azure Lab Services | Microsoft Docs
+title: Configure usage settings in classroom labs of Azure Lab Services
 description: Learn how to configure the number of users for the lab, get them registered with the lab, control the number of hours they can use the VM, and more. 
 services: lab-services
 documentationcenter: na
@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2019
+ms.date: 02/20/2020
 ms.author: spelluru
 
 ---
@@ -31,7 +31,7 @@ This article describes how to add users to the lab, get them registered with the
     ![Add user email addresses](../media/how-to-configure-student-usage/add-users-email-addresses.png)
 4. Select **Save**. You see the email addresses of users and their statuses (registered or not) in the list. 
 
-    ![Users list](../media/how-to-configure-student-usage/users-list-new.png)
+    ![Users list](../media/how-to-configure-student-usage/list-of-added-users.png)
 
     > [!NOTE]
     > You will see names of users in the list after they are registered to the lab. The name shown in the list is constructed by using first and last names of the user in the Azure Active Directory. 
@@ -97,11 +97,14 @@ You can also get the registration link from the portal and send it using your ow
 2. On the **User registration** dialog box, select **Done**. 
 4. Send the **registration link** to a student so that the student can register for the class. 
 
-## View users registered with the lab
+## View registered users
 
-Select **Users** on the left menu to see the list of users registered with the lab. 
+1. Navigate to [Azure Lab Services website](https://labs.azure.com). 
+2. Select **Sign in** and enter your credentials. Azure Lab Services supports organizational accounts and Microsoft accounts.
+3. On the **My labs** page, select the lab for which you want to track the usage. 
+4. Select **Users** on the left menu or **Users** tile. You see students who have registered with your lab.  
 
-![List of users registered with the lab](../media/how-to-configure-student-usage/students-registered.png)
+    ![Registered users](../media/tutorial-track-usage/registered-users.png)
 
 ## Set quotas for users
 You can set quotas per user by using the following steps: 
@@ -111,7 +114,7 @@ You can set quotas per user by using the following steps:
 3. On the **Quota per user** page, specify the number of hours you want to give to each user (student) outside the scheduled class time, and then select **Save**.
 
     ![Quota per user](../media/how-to-configure-student-usage/quota-per-user.png)    
-5. You see the changed values on the toolbar now: **Quota per user: \<number of hours>**. 
+5. You see the changed values on the toolbar now: **Quota per user: \<number of hours>** and also in the users list.
 
     ![Quota per user — after](../media/how-to-configure-student-usage/quot-per-user-after.png)
 
@@ -137,7 +140,7 @@ To do so, follow these steps:
 ## Student accounts
 To add students to a classroom lab, you use their email accounts. The following types of email accounts might be used:
 
-- A student email account that's provided by your university’s Office 365 Azure Active Directory (AAD). 
+- A student email account that's provided by your university's Office 365 Azure Active Directory. 
 - A Microsoft email account, such as `@outlook.com`, `@hotmail.com`, `@msn.com`, or `@live.com`.
 - A non-Microsoft email account, such as one provided by Yahoo or Google. However, these types of accounts must be linked with a Microsoft account.
 - A GitHub account. This account must be linked with a Microsoft account.
@@ -145,7 +148,7 @@ To add students to a classroom lab, you use their email accounts. The following 
 ### Using a non-Microsoft email account
 Students can use non-Microsoft email accounts to register and sign in to a classroom lab.  However, the registration requires that students first create a Microsoft account that's linked to their non-Microsoft email address.
 
-Many students might already have a Microsoft account linked to their non-Microsoft email addresses. For example, students already have a Microsoft account if they have used their email address with Microsoft’s other products or services, such as Office, Skype, OneDrive, or Windows.  
+Many students might already have a Microsoft account linked to their non-Microsoft email addresses. For example, students already have a Microsoft account if they have used their email address with Microsoft's other products or services, such as Office, Skype, OneDrive, or Windows.  
 
 When a student clicks on the registration URL to sign in to a classroom, they are prompted for their email address and password. If the student attempts to sign in with a non-Microsoft account that does not have a Microsoft account linked, the student will receive the following error message: 
 
@@ -166,6 +169,14 @@ On the **Sign-in options** page, select **Sign in with GitHub**.
 ![Sign in with GitHub link](../media/how-to-configure-student-usage/signin-github.png)
 
 Finally, they are prompted to create a Microsoft account that's linked to their GitHub account. It happens automatically when the student selects **Next**.  The student is then immediately signed in and connected to the classroom lab.
+
+## Export list of users to a CSV file
+
+1. Switch to the **Users** tab.
+2. Select **...** (ellipsis) on the toolbar and then select **Export CSV**. 
+
+    ![Export list of users](../media/how-to-export-users-virtual-machines-csv/users-export-csv.png)
+
 
 ## Next steps
 See the following articles:

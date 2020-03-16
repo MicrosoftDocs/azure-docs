@@ -1,7 +1,6 @@
 ---
 title: Sources of data in Azure Monitor | Microsoft Docs
 description: Describes the data available to monitor the health and performance of your Azure resources and the applications running on them.
-ms.service:  azure-monitor
 ms.subservice: 
 ms.topic: conceptual
 author: bwren
@@ -63,14 +62,14 @@ Telemetry related to the health and operation of your Azure subscription.
 ![Azure subscription](media/data-sources/azure-subscription.png)
 
 ### Azure Activity log 
-The [Azure Activity log](activity-logs-overview.md) includes service health records along with records on any configuration changes made to the resources in your Azure subscription. The Activity log is available to all Azure resources and represents their _external_ view.
+The [Azure Activity log](platform-logs-overview.md) includes service health records along with records on any configuration changes made to the resources in your Azure subscription. The Activity log is available to all Azure resources and represents their _external_ view.
 
 | Destination | Description | Reference |
 |:---|:---|
 | Activity log | The Activity log is collected into its own data store that you can view from the Azure Monitor menu or use to create Activity log alerts. | [Query the Activity log in the Azure portal](activity-log-view.md#azure-portal) |
 | Azure Monitor Logs | Configure Azure Monitor Logs to collect the Activity log to analyze it with other monitoring data. | [Collect and analyze Azure activity logs in Log Analytics workspace in Azure Monitor](activity-log-collect.md) |
-| Azure Storage | Export the Activity log to Azure Storage for archiving. | [Archive Activity log](activity-log-export.md#archive-activity-log)  |
-| Event Hubs | Stream the Activity log to other locations using Event Hubs | [Stream Activity log to Event Hub](activity-log-export.md#stream-activity-log-to-event-hub). |
+| Azure Storage | Export the Activity log to Azure Storage for archiving. | [Archive Activity log](resource-logs-collect-storage.md)  |
+| Event Hubs | Stream the Activity log to other locations using Event Hubs | [Stream Activity log to Event Hub](resource-logs-stream-event-hubs.md). |
 
 ### Azure Service Health
 [Azure Service Health](../../service-health/service-health-overview.md) provides information about the health of the Azure services in your subscription that your application and resources rely on.
@@ -96,9 +95,9 @@ Most Azure services will send [platform metrics](data-platform-metrics.md) that 
 | Event Hubs | Stream metrics to other locations using Event Hubs. |[Stream Azure monitoring data to an event hub for consumption by an external tool](stream-monitoring-data-event-hubs.md) |
 
 ### Resource logs
-[Resource logs](resource-logs-overview.md) provide insights into the _internal_ operation of an Azure resource.  Resource logs are created automatically, but you must create a diagnostic setting to specify a destination for them to collected for each resource.
+[Resource logs](platform-logs-overview.md) provide insights into the _internal_ operation of an Azure resource.  Resource logs are created automatically, but you must create a diagnostic setting to specify a destination for them to collected for each resource.
 
-The configuration requirements and content of resource logs vary by resource type, and not all services yet create them. See [Supported services, schemas, and categories for Azure resource logs](diagnostic-logs-schema.md) for details on each service and links to detailed configuration procedures. If the service isn’t listed in this article, then that service doesn’t currently create resource logs.
+The configuration requirements and content of resource logs vary by resource type, and not all services yet create them. See [Supported services, schemas, and categories for Azure resource logs](diagnostic-logs-schema.md) for details on each service and links to detailed configuration procedures. If the service isn't listed in this article, then that service doesn't currently create resource logs.
 
 | Destination | Description | Reference |
 |:---|:---|:---|
@@ -116,10 +115,11 @@ Enabling the Azure Diagnostics extension for Azure Virtual machines allows you t
 
 | Destination | Description | Reference |
 |:---|:---|:---|
-| Storage | When you enable the Diagnostics Extension, it will write to a storage account by default. | [Store and view diagnostic data in Azure Storage](diagnostics-extension-to-storage.md) |
+| Storage | Azure diagnostics extension always writes to an Azure Storage account. | [Install and configure Windows Azure diagnostics extension (WAD)](diagnostics-extension-windows-install.md)<br>[Use Linux Diagnostic Extension to monitor metrics and logs](../../virtual-machines/extensions/diagnostics-linux.md) |
 | Azure Monitor Metrics | When you configure the Diagnostics Extension to collect performance counters, they are written to the Azure Monitor metrics database. | [Send Guest OS metrics to the Azure Monitor metric store using a Resource Manager template for a Windows virtual machine](collect-custom-metrics-guestos-resource-manager-vm.md) |
+| Event Hubs | Configure the Diagnostics Extension to stream the data to other locations using Event Hubs.  | [Streaming Azure Diagnostics data by using Event Hubs](diagnostics-extension-stream-event-hubs.md)<br>[Use Linux Diagnostic Extension to monitor metrics and logs](../../virtual-machines/extensions/diagnostics-linux.md) |
 | Application Insights Logs | Collect logs and performance counters from the compute resource supporting your application to be analyzed with other application data. | [Send Cloud Service, Virtual Machine, or Service Fabric diagnostic data to Application Insights](diagnostics-extension-to-application-insights.md) |
-| Event Hubs | Configure the Diagnostics Extension to stream the data to other locations using Event Hubs.  | [Streaming Azure Diagnostics data in the hot path by using Event Hubs](diagnostics-extension-stream-event-hubs.md) |
+
 
 ### Log Analytics agent 
 Install the Log Analytics agent for comprehensive monitoring and management of your Windows or Linux virtual machines. The virtual machine can be running in Azure, another cloud, or on-premises.

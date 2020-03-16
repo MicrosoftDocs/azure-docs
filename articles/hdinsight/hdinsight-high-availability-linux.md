@@ -22,13 +22,13 @@ Hadoop achieves high availability and reliability by replicating services and da
 Nodes in an HDInsight cluster are implemented using Azure Virtual Machines. The following sections discuss the individual node types used with HDInsight.
 
 > [!NOTE]  
-> Not all node types are used for a cluster type. For example, a Hadoop cluster type does not have any Nimbus nodes. For more information on nodes used by HDInsight cluster types, see the Cluster types section of the [Create Linux-based Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md#cluster-types) document.
+> Not all node types are used for a cluster type. For example, a Hadoop cluster type does not have any Nimbus nodes. For more information on nodes used by HDInsight cluster types, see the Cluster types section of the [Create Linux-based Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md#cluster-type) document.
 
 ### Head nodes
 
 To ensure high availability of Hadoop services, HDInsight provides two head nodes. Both head nodes are active and running within the HDInsight cluster simultaneously. Some services, such as Apache HDFS or Apache Hadoop YARN, are only 'active' on one head node at any given time. Other services such as HiveServer2 or Hive MetaStore are active on both head nodes at the same time.
 
-Head nodes (and other nodes in HDInsight) have a numeric value as part of the hostname of the node. For example, `hn0-CLUSTERNAME` or `hn4-CLUSTERNAME`.
+To obtain the hostnames for different node types in your cluster, please use the [Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-fqdn-of-cluster-nodes).
 
 > [!IMPORTANT]  
 > Do not associate the numeric value with whether a node is primary or secondary. The numeric value is only present to provide a unique name for each node.
@@ -83,7 +83,7 @@ curl -u admin:$password "https://$clusterName.azurehdinsight.net/api/v1/clusters
 This command returns a value similar to the following, which contains the internal URL to use with the `oozie` command:
 
 ```output
-"oozie.base.url": "http://hn0-CLUSTERNAME-randomcharacters.cx.internal.cloudapp.net:11000/oozie"
+"oozie.base.url": "http://<ACTIVE-HEADNODE-NAME>cx.internal.cloudapp.net:11000/oozie"
 ```
 
 For more information on working with the Ambari REST API, see [Monitor and Manage HDInsight using the Apache Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md).
@@ -189,7 +189,7 @@ The response is similar to the following JSON:
 
 ```json
 {
-    "href" : "http://hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8080/api/v1/clusters/mycluster/services/HDFS?fields=ServiceInfo/state",
+    "href" : "http://mycluster.wutj3h4ic1zejluqhxzvckxq0g.cx.internal.cloudapp.net:8080/api/v1/clusters/mycluster/services/HDFS?fields=ServiceInfo/state",
     "ServiceInfo" : {
     "cluster_name" : "mycluster",
     "service_name" : "HDFS",
@@ -198,7 +198,7 @@ The response is similar to the following JSON:
 }
 ```
 
-The URL tells us that the service is currently running on a head node named **hn0-CLUSTERNAME**.
+The URL tells us that the service is currently running on a head node named **mycluster.wutj3h4ic1zejluqhxzvckxq0g**.
 
 The state tells us that the service is currently running, or **STARTED**.
 
@@ -265,7 +265,7 @@ When creating a cluster, you can specify the size of the nodes. The following in
 
 * **Azure portal**: When creating a cluster, you can set the size of the nodes used by the cluster:
 
-    ![Image of cluster creation wizard with node size selection](./media/hdinsight-high-availability-linux/hdinsight-headnodesize.png)
+    ![Image of cluster creation wizard with node size selection](./media/hdinsight-high-availability-linux/azure-portal-cluster-configuration-pricing-hadoop.png)
 
 * **Azure CLI**: When using the [`az hdinsight create`](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create) command, you can set the size of the head, worker, and ZooKeeper nodes by using the `--headnode-size`, `--workernode-size`, and `--zookeepernode-size` parameters.
 

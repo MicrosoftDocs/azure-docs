@@ -8,7 +8,7 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 12/20/2019
+ms.date: 02/18/2020
 ms.custom: seodec18
 ---
 
@@ -59,9 +59,9 @@ To begin, select the **Model** view from the Time Series Insights explorer **Ana
 
 ### Delete an instance
 
-1. Select the type, and select the **delete** or **waste bin icon**.
+1. Select the instance, and select the **delete** or **waste bin icon**.
 
-   [![Delete a type by selecting Delete.](media/v2-update-how-to-tsm/how-to-tsm-delete-instance.png)](media/v2-update-how-to-tsm/how-to-tsm-delete-instance.png#lightbox)
+   [![Delete an instance by selecting Delete.](media/v2-update-how-to-tsm/how-to-tsm-delete-instance.png)](media/v2-update-how-to-tsm/how-to-tsm-delete-instance.png#lightbox)
 
 1. Confirm deletion by selecting **Delete**.
 

@@ -1,5 +1,5 @@
 ---
-title: Video Indexer business continuity and disaster recovery (BCDR) - Azure | Microsoft Docs
+title: Video Indexer business continuity and disaster recovery - Azure
 description: Learn how to failover to a secondary Video Indexer account if a regional datacenter outage or failure occurs.
 services: media-services
 documentationcenter: ''

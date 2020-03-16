@@ -11,7 +11,6 @@ ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: aaddev, vs-azure
-ms.collection: M365-identity-device-management
 ---
 # What happened to my MVC project (Visual Studio Azure Active Directory connected service)?
 
@@ -19,13 +18,13 @@ ms.collection: M365-identity-device-management
 > - [Getting Started](vs-active-directory-dotnet-getting-started.md)
 > - [What Happened](vs-active-directory-dotnet-what-happened.md)
 
-This article identifies the exact changes made to am ASP.NET MVC project when adding the [Azure Active Directory connected service using Visual Studio](vs-active-directory-add-connected-service.md).
+This article identifies the exact changes made to an ASP.NET MVC project when adding the [Azure Active Directory connected service using Visual Studio](vs-active-directory-add-connected-service.md).
 
 For information on working with the connected service, see [Getting Started](vs-active-directory-dotnet-getting-started.md).
 
 ## Added references
 
-Affects the project file *.NET references) and `packages.config` (NuGet references).
+Affects the project file (*.NET references) and `packages.config` (NuGet references).
 
 | Type | Reference |
 | --- | --- |
@@ -159,4 +158,4 @@ When adding the connected service, Visual Studio 2015 backs up changed and remov
 ## Next steps
 
 - [Authentication scenarios for Azure Active Directory](authentication-scenarios.md)
-- [Add sign-in with Microsoft to an ASP.NET web app](quickstart-v1-aspnet-webapp.md)
+- [Add sign-in with Microsoft to an ASP.NET web app](quickstart-v2-aspnet-webapp.md)

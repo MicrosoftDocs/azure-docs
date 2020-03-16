@@ -176,7 +176,7 @@ This section shows how to access the **Assets** API using **Postman**.
 5. Click **Bulk Edit** link on the right the Postman window.
 6. Paste the following headers:
 
-        x-ms-version:2.15
+        x-ms-version:2.19
         Accept:application/json
         Content-Type:application/json
         DataServiceVersion:3.0

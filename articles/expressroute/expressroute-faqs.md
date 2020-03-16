@@ -44,6 +44,22 @@ Yes. ExpressRoute circuits are configured to allow you to burst up to two times 
 
 Yes. An ExpressRoute circuit, once set up, allows you to access services within a virtual network and other Azure services simultaneously. You connect to virtual networks over the private peering path, and to other services over the Microsoft  peering path.
 
+### How are VNets advertised on ExpressRoute Private Peering?
+
+The ExpressRoute gateway will advertise the *Address Space(s)* of the Azure VNet, you can't include/exclude at the subnet level. It is always the VNet Address Space that is advertised. Also, if VNet Peering is used and the peered VNet has "Use Remote Gateway" enabled, the Address Space of the peered VNet will also be advertised.
+
+### How many prefixes can be advertised from a VNet to on-premises on ExpressRoute Private Peering?
+
+There is a maximum of 200 prefixes advertised on a single ExpressRoute connection, or through VNet peering using gateway transit. For example, if you have 199 address spaces on a single VNet connected to an ExpressRoute circuit, all 199 of those prefixes will be advertised to on-premises. Alternatively, if you have a VNet enabled to allow gateway transit with 1 address space and 150 spoke VNets enabled using the "Allow Remote Gateway" option, the VNet deployed with the gateway will advertise 151 prefixes to on-premises.
+
+### What happens if I exceed the prefix limit on an ExpressRoute connection?
+
+The connection between the ExpressRoute circuit and the gateway (and peered VNets using gateway transit, if applicable) will go down. It will re-establish when the prefix limit is no longer exceeded.  
+
+### Can I filter routes coming from my on-premises network?
+
+The only way to filter/include routes is on the on-premises edge router. User-defined Routes can be added in the VNet to affect specific routing, but this will be static and not part of the BGP advertisement.
+
 ### Does ExpressRoute offer a Service Level Agreement (SLA)?
 
 For information, see the [ExpressRoute SLA](https://azure.microsoft.com/support/legal/sla/) page.
@@ -69,7 +85,8 @@ If your ExpressRoute circuit is enabled for Azure Microsoft peering, you can acc
 * Azure Active Directory
 * [Windows Virtual Desktop](https://azure.microsoft.com/services/virtual-desktop/)
 * [Azure DevOps](https://blogs.msdn.microsoft.com/devops/2018/10/23/expressroute-for-azure-devops/) (Azure Global Services community)
-* Most of the Azure services are supported. Please check directly with the service that you want to use to verify support.
+* Azure Public IP addresses for IaaS (Virtual Machines, Virtual Network Gateways, Load Balancers, etc)  
+* Most of the other Azure services are also supported. Please check directly with the service that you want to use to verify support.
 
 **Not supported:**
 

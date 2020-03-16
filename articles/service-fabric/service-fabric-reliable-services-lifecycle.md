@@ -1,6 +1,6 @@
 ---
 title: Overview of the lifecycle of Reliable Services 
-description: Learn about the different lifecycle events in Service Fabric Reliable Services
+description: Learn about the lifecycle events in an Azure Service Fabric Reliable Services application for stateful and stateless services.
 author: masnider
 
 ms.topic: conceptual

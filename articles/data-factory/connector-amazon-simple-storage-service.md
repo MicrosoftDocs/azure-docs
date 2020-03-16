@@ -149,7 +149,7 @@ The following properties are supported for Amazon S3 under `storeSettings` setti
 
 | Property                 | Description                                                  | Required                                                    |
 | ------------------------ | ------------------------------------------------------------ | ----------------------------------------------------------- |
-| type                     | The type property under `storeSettings` must be set to **AmazonS3ReadSetting**. | Yes                                                         |
+| type                     | The type property under `storeSettings` must be set to **AmazonS3ReadSettings**. | Yes                                                         |
 | recursive                | Indicates whether the data is read recursively from the subfolders or only from the specified folder. Note that when recursive is set to true and the sink is a file-based store, an empty folder or subfolder isn't copied or created at the sink. Allowed values are **true** (default) and **false**. | No                                                          |
 | prefix                   | Prefix for the S3 object key under the given bucket configured in dataset to filter source objects. Objects whose keys start with this prefix are selected. <br>Applies only when `wildcardFolderPath` and `wildcardFileName` properties are not specified. | No                                                          |
 | wildcardFolderPath       | The folder path with wildcard characters under the given bucket configured in dataset to filter source folders. <br>Allowed wildcards are: `*` (matches zero or more characters) and `?` (matches zero or single character); use `^` to escape if your actual folder name has wildcard or this escape char inside. <br>See more examples in [Folder and file filter examples](#folder-and-file-filter-examples). | No                                                          |
@@ -181,11 +181,11 @@ The following properties are supported for Amazon S3 under `storeSettings` setti
             "source": {
                 "type": "DelimitedTextSource",
                 "formatSettings":{
-                    "type": "DelimitedTextReadSetting",
+                    "type": "DelimitedTextReadSettings",
                     "skipLineCount": 10
                 },
                 "storeSettings":{
-                    "type": "AmazonS3ReadSetting",
+                    "type": "AmazonS3ReadSettings",
                     "recursive": true,
                     "wildcardFolderPath": "myfolder*A",
                     "wildcardFileName": "*.csv"
@@ -348,4 +348,4 @@ To learn details about the properties, check [Delete activity](delete-activity.m
 ```
 
 ## Next steps
-For a list of data stores that are supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md##supported-data-stores-and-formats).
+For a list of data stores that are supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

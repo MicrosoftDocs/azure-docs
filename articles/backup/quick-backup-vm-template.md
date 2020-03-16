@@ -35,7 +35,7 @@ New-AzResourceGroup -Name $resourceGroupName -Location $location
 New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri -projectName $projectName -adminUsername $adminUsername -adminPassword $adminPassword -dnsLabelPrefix $dnsPrefix
 ```
 
-Azure PowerShell is used to deploy the Resource Manager template in this quickstart. The [Azure portal](../azure-resource-manager/resource-group-template-deploy-portal.md), [Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md), and [Rest API](../azure-resource-manager/resource-group-template-deploy-rest.md) can also be used to deploy templates.
+Azure PowerShell is used to deploy the Resource Manager template in this quickstart. The [Azure portal](../azure-resource-manager/templates/deploy-portal.md), [Azure CLI](../azure-resource-manager/templates/deploy-cli.md), and [Rest API](../azure-resource-manager/templates/deploy-rest.md) can also be used to deploy templates.
 
 ## Start a backup job
 

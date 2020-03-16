@@ -10,7 +10,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/12/2019
+ms.date: 03/12/2020
 ---
 
 # Copy and transform data in Azure Synapse Analytics (formerly Azure SQL Data Warehouse) by using Azure Data Factory 
@@ -256,6 +256,7 @@ To copy data from Azure Synapse Analytics, set the **type** property in the Copy
 | sqlReaderQuery               | Use the custom SQL query to read data. Example: `select * from MyTable`. | No       |
 | sqlReaderStoredProcedureName | The name of the stored procedure that reads data from the source table. The last SQL statement must be a SELECT statement in the stored procedure. | No       |
 | storedProcedureParameters    | Parameters for the stored procedure.<br/>Allowed values are name or value pairs. Names and casing of parameters must match the names and casing of the stored procedure parameters. | No       |
+| isolationLevel | Specifies the transaction locking behavior for the SQL source. The allowed values are: **ReadCommitted** (default), **ReadUncommitted**, **RepeatableRead**, **Serializable**, **Snapshot**. Refer to [this doc](https://docs.microsoft.com/dotnet/api/system.data.isolationlevel) for more details. | No |
 
 **Example: using SQL query**
 
@@ -464,7 +465,7 @@ If the requirements aren't met, Azure Data Factory checks the settings and autom
             "source": {
                 "type": "ParquetSource",
                 "storeSettings":{
-                    "type": "AzureBlobStorageReadSetting",
+                    "type": "AzureBlobStorageReadSettings",
                     "recursive": true
                 }
             },
@@ -648,7 +649,7 @@ The following COPY statement settings are supported under `allowCopyCommand` in 
             "source": {
                 "type": "ParquetSource",
                 "storeSettings":{
-                    "type": "AzureBlobStorageReadSetting",
+                    "type": "AzureBlobStorageReadSettings",
                     "recursive": true
                 }
             },
@@ -767,4 +768,4 @@ When you copy data from or to Azure Synapse Analytics, the following mappings ar
 | varchar                               | String, Char[]                 |
 
 ## Next steps
-For a list of data stores supported as sources and sinks by Copy Activity in Azure Data Factory, see [supported data stores and formats](copy-activity-overview.md##supported-data-stores-and-formats).
+For a list of data stores supported as sources and sinks by Copy Activity in Azure Data Factory, see [supported data stores and formats](copy-activity-overview.md#supported-data-stores-and-formats).

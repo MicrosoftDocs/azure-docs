@@ -104,6 +104,8 @@ After training has completed, the model's performance is calculated and displaye
 
 Each time you train your detector, you create a new _iteration_ with its own updated performance metrics. You can view all of your iterations in the left pane of the **Performance** tab. In the left pane you will also find the **Delete** button, which you can use to delete an iteration if it's obsolete. When you delete an iteration, you delete any images that are uniquely associated with it.
 
+See [Use your model with the prediction API](./use-prediction-api.md) to learn how to access your trained models programmatically.
+
 ## Next steps
 
 In this quickstart, you learned how to create and train an object detector model using the Custom Vision website. Next, get more information on the iterative process of improving your model.

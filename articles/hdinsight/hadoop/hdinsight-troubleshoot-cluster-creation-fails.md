@@ -10,6 +10,7 @@ ms.topic: troubleshooting
 ms.date: 08/26/2019
 #Customer intent: As an HDInsight user, I would like to understand how to resolve common cluster creation failures.
 ---
+
 # Troubleshoot cluster creation failures with Azure HDInsight
 
 The following issues are most common root causes for cluster creation failures:
@@ -59,7 +60,7 @@ If you are using an express route or your own custom DNS server, see [Plan a vir
 
 ## Resources locks  
 
-Ensure that there are no [locks on your virtual network and resource group](../../azure-resource-manager/resource-group-lock-resources.md).  
+Ensure that there are no [locks on your virtual network and resource group](../../azure-resource-manager/management/lock-resources.md). Clusters cannot be created or deleted if the resource group is locked. 
 
 ## Unsupported component versions
 
@@ -73,7 +74,7 @@ Other naming restrictions also apply for cluster creation. See [Cluster name res
 
 ## Service outages
 
-Check [Azure status](https://status.azure.com/status) for any potential outages or service issues.
+Check [Azure status](https://status.azure.com) for any potential outages or service issues.
 
 ## Next steps
 

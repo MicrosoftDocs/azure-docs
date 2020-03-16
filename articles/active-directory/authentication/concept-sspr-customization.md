@@ -40,9 +40,9 @@ Self-service password reset users have a "Contact your administrator" link avail
 
 The contact email is sent to the following recipients in the following order:
 
-1. If the **password administrator** role is assigned, administrators with this role are notified.
-2. If no password administrators are assigned, then administrators with the **user administrator** role are notified.
-3. If neither of the previous roles are assigned, then the **global administrators** are notified.
+1. If the **helpdesk administrator** role or **password administrator** role is assigned, administrators with these roles are notified.
+1. If no helpdesk administrators or password administrator are assigned, then administrators with the **user administrator** role are notified.
+1. If none of the previous roles are assigned, then the **global administrators** are notified.
 
 In all cases, a maximum of 100 recipients are notified.
 

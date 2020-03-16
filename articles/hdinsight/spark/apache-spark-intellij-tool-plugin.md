@@ -12,9 +12,11 @@ ms.date: 09/04/2019
 
 # Tutorial: Use Azure Toolkit for IntelliJ to create Apache Spark applications for HDInsight cluster
 
-This tutorial demonstrates how to use the Azure Toolkit for IntelliJ plug-in to develop Apache Spark applications written in [Scala](https://www.scala-lang.org/), and then submit them to an HDInsight Spark cluster directly from the IntelliJ integrated development environment (IDE). You can use the plug-in in a few ways:
+This tutorial demonstrates how to develop Apache Spark applications on Azure HDInsight using the **Azure Toolkit** plug-in for the IntelliJ IDE. [Azure HDInsight](../hdinsight-overview.md) is a managed, open-source analytics service in the cloud that allows you to use open-source frameworks like Hadoop, Apache Spark, Apache Hive, and Apache Kafka.
 
-* Develop and submit a Scala Spark application on an HDInsight Spark cluster.
+You can use the **Azure Toolkit** plug-in in a few ways:
+
+* Develop and submit a Scala Spark application to an HDInsight Spark cluster.
 * Access your Azure HDInsight Spark cluster resources.
 * Develop and run a Scala Spark application locally.
 
@@ -22,7 +24,7 @@ In this tutorial, you learn how to:
 > [!div class="checklist"]
 > * Use the Azure Toolkit for IntelliJ plug-in
 > * Develop Apache Spark applications
-> * Submit application to Azure HDInsight cluster
+> * Submit an application to Azure HDInsight cluster
 
 ## Prerequisites
 
@@ -103,6 +105,7 @@ Perform the following steps to install the Scala plugin:
 
    d. The **myApp.scala** file then opens in the main view. Replace the default code with the code found below:  
 
+        ```scala
         import org.apache.spark.SparkConf
         import org.apache.spark.SparkContext
     
@@ -120,10 +123,12 @@ Perform the following steps to install the Scala plugin:
             }
     
         }
+        ```
 
     The code reads the data from HVAC.csv (available on all HDInsight Spark clusters), retrieves the rows that have only one digit in the seventh column in the CSV file, and writes the output to `/HVACOut` under the default storage container for the cluster.
 
 ## Connect to your HDInsight cluster
+
 User can either [sign in to Azure subscription](#sign-in-to-your-azure-subscription), or [link a HDInsight cluster](#link-a-cluster) using Ambari username/password or domain joined credential to connect to your HDInsight cluster.
 
 ### Sign in to your Azure subscription
@@ -227,7 +232,7 @@ After creating a Scala application, you can submit it to the cluster.
     |Spark clusters (Linux only)|Select the HDInsight Spark cluster on which you want to run your application.|
     |Select an Artifact to submit|Leave default setting.|
     |Main class name|The default value is the main class from the selected file. You can change the class by selecting the ellipsis(**...**)  and choosing another class.|
-    |Job configurations|You can change the default keys and/or values. For more information, see [Apache Livy REST API](https://livy.incubator.apache.org./docs/latest/rest-api.html).|
+    |Job configurations|You can change the default keys and/or values. For more information, see [Apache Livy REST API](https://livy.incubator.apache.org/docs/latest/rest-api.html).|
     |Command line arguments|You can enter arguments separated by space for the main class if needed.|
     |Referenced Jars and Referenced Files|You can enter the paths for the referenced Jars and files if any. You can also browse files in the Azure virtual file system, which currently only supports ADLS Gen 2 cluster. For more information: [Apache Spark Configuration](https://spark.apache.org/docs/latest/configuration.html#runtime-environment).  See also, [How to upload resources to cluster](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-storage-explorer).|
     |Job Upload Storage|Expand to reveal additional options.|
@@ -363,9 +368,11 @@ It is convenient for you to foresee the script result by sending some code to th
 ## Integrate with HDInsight Identity Broker (HIB) 
 
 ### Connect to your HDInsight ESP cluster with Id Broker (HIB)
+
 You can follow the normal steps to sign in to Azure subscription to connect to your HDInsight ESP cluster with Id Broker (HIB). After sign in, you will see the cluster list in Azure Explorer. For more instructions, see [Connect to your HDInsight cluster](#connect-to-your-hdinsight-cluster).
 
 ### Run a Spark Scala application on an HDInsight ESP cluster with Id Broker (HIB)
+
 You can follow the normal steps to submit job to HDInsight ESP cluster with Id Broker (HIB). Refer to [Run a Spark Scala application on an HDInsight Spark cluster](#run-a-spark-scala-application-on-an-hdinsight-spark-cluster) for more instructions.
 
 We upload the necessary files to a folder named with your sign in account, and you can see the upload path in the configuration file.
@@ -373,11 +380,11 @@ We upload the necessary files to a folder named with your sign in account, and y
    ![upload path in the configuration](./media/apache-spark-intellij-tool-plugin/upload-path-in-the-configuration.png)
 
 ### Spark console on an HDInsight ESP cluster with Id Broker (HIB)
+
 You can run Spark Local Console(Scala) or run Spark Livy Interactive Session Console(Scala) on an HDInsight ESP cluster with Id Broker (HIB). Refer to [Spark Console](#spark-console) for more instructions.
 
    > [!NOTE]  
    > For the HDInsight ESP cluster with Id Broker (HIB), [link a cluster](#link-a-cluster) and [debug Apache Spark applications remotely](#debug-apache-spark-applications-locally-or-remotely-on-an-hdinsight-cluster) is not supported currently.
-
 
 ## Reader-only role
 
@@ -438,11 +445,15 @@ You can convert the existing Spark Scala applications that you created in Intell
 
 2. At the root level is a **module** element like the following:
 
+        ```
         <module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4">
+        ```
 
    Edit the element to add `UniqueKey="HDInsightTool"` so that the **module** element looks like the following:
 
+        ```
         <module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4" UniqueKey="HDInsightTool">
+        ```
 
 3. Save the changes. Your application should now be compatible with Azure Toolkit for IntelliJ. You can test it by right-clicking the project name in Project. The pop-up menu now has the option **Submit Spark Application to HDInsight**.
 
@@ -467,4 +478,4 @@ If you're not going to continue to use this application, delete the cluster that
 In this tutorial, you learned how to use the Azure Toolkit for IntelliJ plug-in to develop Apache Spark applications written in [Scala](https://www.scala-lang.org/), and then submitted them to an HDInsight Spark cluster directly from the IntelliJ integrated development environment (IDE). Advance to the next article to see how the data you registered in Apache Spark can be pulled into a BI analytics tool such as Power BI.
 
 > [!div class="nextstepaction"]
-> [Analyze data using BI tools](apache-spark-use-bi-tools.md)
+> [Analyze Apache Spark data using Power BI](apache-spark-use-bi-tools.md)

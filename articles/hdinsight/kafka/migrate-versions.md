@@ -63,7 +63,7 @@ The following migration guidance assumes an Apache Kafka 1.0.0 or 1.1.0 cluster 
 
 To complete the migration, do the following steps:
 
-1. **Deploy a new HDInsight 4.0 cluster and clients for test.** Deploy a new HDInsight 4.0 Kafka cluster. If multiple Kafka cluster versions can be selected, it's recommended to select the latest version. After deployment, set some parameters as needed and create a topic with the same as your existing environment. Also, set SSL and bring-your-own-key (BYOK) encryption as needed. Then check if it works correctly with the new cluster.
+1. **Deploy a new HDInsight 4.0 cluster and clients for test.** Deploy a new HDInsight 4.0 Kafka cluster. If multiple Kafka cluster versions can be selected, it's recommended to select the latest version. After deployment, set some parameters as needed and create a topic with the same name as your existing environment. Also, set SSL and bring-your-own-key (BYOK) encryption as needed. Then check if it works correctly with the new cluster.
 
     ![Deploy new HDInsight 4.0 clusters](./media/upgrade-threesix-to-four/deploy-new-hdinsight-clusters.png)
 

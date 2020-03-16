@@ -21,6 +21,8 @@
       items:
         - name: C
           href: quick-create-simulated-device-symm-key.md
+        - name: Java
+          href: quick-create-simulated-device-symmetric-key-java.md
     - name: X.509 Certificate attestation
       items:
         - name: C
@@ -95,6 +97,8 @@
     href: concepts-security.md
   - name: Service
     href: concepts-service.md
+  - name: Understanding DPS IP addresses
+    href: iot-dps-understand-ip-address.md
   - name: TPM attestation
     href: concepts-tpm-attestation.md
   - name: Symmetric key attestation
@@ -125,6 +129,8 @@
       href: how-to-manage-dps-with-cli.md
     - name: Control access to Provisioning Service APIs
       href: how-to-control-access.md
+    - name: Configure IP filtering
+      href: iot-dps-ip-filtering.md
   - name: Provision IoT Edge devices
     items: 
     - name: Linux
@@ -187,7 +193,7 @@
       href: /azure/azure-maps
     - name: Time Series Insights
       href: /azure/time-series-insights
-  - name: IoT Edge
+  - name: Edge solutions
     items:
     - name: Azure IoT Edge
       href: /azure/iot-edge
@@ -195,6 +201,8 @@
       href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks   
 - name: Resources
   items:
+  - name: Support and help options
+    href: /azure/iot-fundamentals/iot-support-help
   - name: Azure IoT Samples for C# (.NET)
     href: https://azure.microsoft.com/resources/samples/azure-iot-samples-csharp/
   - name: Azure IoT Samples for Node.js

@@ -9,7 +9,7 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: troubleshooting
-ms.date: 12/06/2019
+ms.date: 02/04/2020
 ms.custom: seodec18
 ---
 
@@ -29,7 +29,7 @@ No data in the [Azure Time Series Insights explorer](https://insights.timeseries
 
 ### Cause A: event source data isn't in JSON format
 
-Azure Time Series Insights only supports JSON data. For JSON samples, see [Supported JSON shapes](./how-to-shape-query-json.md).
+Azure Time Series Insights only supports JSON data. For JSON samples, read [Supported JSON shapes](./how-to-shape-query-json.md).
 
 ### Cause B: the event source key is missing a required permission
 
@@ -64,7 +64,7 @@ If you have old events in your event source, you can approach throttling in one 
 - Change your event source's retention limits to help remove old events that you don't want to show up in Time Series Insights.
 - Provision a larger environment size (number of units) to increase the throughput of old events. Using the preceding example, if you increase the same S1 environment to five units for one day, the environment should catch up within a day. If your steady-state event production is 1 million or fewer events per day, you can reduce the capacity of the event to one unit after it catches up.
 
-The throttling limit is enforced based on the environment's SKU type and capacity. All event sources in the environment share this capacity. If the event source for your IoT hub or event hub pushes data beyond the enforced limits, you see throttling and a lag.
+The throttling limit is enforced based on the environment's SKU type and capacity. All event sources in the environment share this capacity. If the event source for your IoT hub or event hub pushes data beyond the enforced limits, you'll experience throttling and a lag.
 
 The following figure shows a Time Series Insights environment that has an SKU of S1 and a capacity of 3. It can ingress 3 million events per day.
 
@@ -77,11 +77,11 @@ As an example, assume an environment ingests messages from an event hub. The dai
 
 An S1 SKU environment that has a capacity of 3 can ingress only 2,100 events every minute (1 million events per day = 700 events per minute at three units = 2,100 events per minute). 
 
-For a high-level understanding of how flattening logic works, see [Supported JSON shapes](./how-to-shape-query-json.md).
+For a high-level understanding of how flattening logic works, read [Supported JSON shapes](./how-to-shape-query-json.md).
 
 #### Recommended resolutions for excessive throttling
 
-To fix the lag, increase the SKU capacity of your environment. For more information, see [Scale your Time Series Insights environment](time-series-insights-how-to-scale-your-environment.md).
+To fix the lag, increase the SKU capacity of your environment. For more information, read [Scale your Time Series Insights environment](time-series-insights-how-to-scale-your-environment.md).
 
 ### Cause B: initial ingestion of historical data slows ingress
 
@@ -104,9 +104,9 @@ Ensure that the timestamp property name and value conform to the following rules
 
 The easiest way to ensure that your timestamp property name is captured and working properly is to use the Time Series Insights explorer. In the Time Series Insights explorer, using the chart, select a period of time after you entered the timestamp property name. Right-click the selection, and then select the **Explore events** option.
 
-The first column header should be your timestamp property name. Next to the word **Timestamp**, you should see **($ts)**.
+The first column header should be your timestamp property name. Next to the word **Timestamp**, **($ts)** will be displayed.
 
-You should not see the following values:
+The following values will not be displayed:
 
 - *(abc)*: Indicates that Time Series Insights is reading the data values as strings.
 - *Calendar icon*: Indicates that Time Series Insights is reading the data value as *datetime*.

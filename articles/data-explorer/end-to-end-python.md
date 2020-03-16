@@ -6,7 +6,7 @@ ms.author: lugoldbe
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 10/23/2019
+ms.date: 02/03/2020
 ---
 
 # End-to-end blob ingestion into Azure Data Explorer through Python
@@ -44,7 +44,7 @@ pip install azure-storage-blob
 
 The following code example gives you a step-by-step process that results in data ingestion into Azure Data Explorer. 
 
-You first create a resource group. You also create Azure resources such as a storage account and container, an event hub, and an Azure Data Explorer cluster and database. You then create an Azure Event Grid subscription, along with a table and column mapping, in the Azure Data Explorer database. Finally, you create the data connection to configure Azure Data Explorer to ingest data from the new storage account.
+You first create a resource group. You also create Azure resources such as a storage account and container, an event hub, and an Azure Data Explorer cluster and database, and add principals. You then create an Azure Event Grid subscription, along with a table and column mapping, in the Azure Data Explorer database. Finally, you create the data connection to configure Azure Data Explorer to ingest data from the new storage account.
 
 ```python
 from azure.common.credentials import ServicePrincipalCredentials
@@ -82,6 +82,16 @@ kusto_table_name = "Events"
 kusto_column_mapping_name = "Events_CSV_Mapping"
 kusto_data_connection_name = deployment_name + "kustoeventgridconnection"
 
+#principals
+principal_id_for_cluster = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";//Application ID
+role_for_cluster_principal = "AllDatabasesAdmin";
+tenant_id_for_cluster_principal = tenant_id;
+principal_type_for_cluster = "App";
+principal_id_for_database = "xxxxxxxx@xxxxxxxx.com";//User Email
+role_for_database_principal = "Admin";
+tenant_id_for_database_principal = tenant_id;
+principal_type_for_database = "User";
+
 
 credentials = ServicePrincipalCredentials(
     client_id=client_id,
@@ -98,7 +108,7 @@ resource_client.resource_groups.create_or_update(
     }
 )
 
-print('Step 2: Create a Blob Storage, a container in the Storage account, an Event Hub, an Azure Data Explorer cluster, and database by using an Azure Resource Manager template.')
+print('Step 2: Create a Blob Storage, a container in the Storage account, an Event Hub, an Azure Data Explorer cluster, database, and add principals by using an Azure Resource Manager template.')
 #Read the Azure Resource Manager template
 with open(azure_resource_template_path, 'r') as template_file_fd:
     template = json.load(template_file_fd)
@@ -109,7 +119,15 @@ parameters = {
     'storageAccountName': storage_account_name,
     'containerName': storage_container_name,
     'kustoClusterName': kusto_cluster_name,
-    'kustoDatabaseName': kusto_database_name
+    'kustoDatabaseName': kusto_database_name,
+    'principalIdForCluster': principal_id_for_cluster,
+    'roleForClusterPrincipal': role_for_cluster_principal,
+    'tenantIdForClusterPrincipal': tenant_id_for_cluster_principal,
+    'principalTypeForCluster': principal_type_for_cluster,
+    'principalIdForDatabase': principal_id_for_database,
+    'roleForDatabasePrincipal': role_for_database_principal,
+    'tenantIdForDatabasePrincipal': tenant_id_for_database_principal,
+    'principalTypeForDatabase': principal_type_for_database
 }
 parameters = {k: {'value': v} for k, v in parameters.items()}
 deployment_properties = {

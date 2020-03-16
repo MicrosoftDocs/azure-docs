@@ -35,7 +35,7 @@ The Azure Migrate hub provides the following tools.
 **Database Migration Service (DMS)** | Migrate on-premises databases to Azure VMs running SQL, Azure SQL DB, and Azure SQL Managed Instances. | [Learn more](https://docs.microsoft.com/azure/dms/dms-overview) about DMS.
 **Movere** | Assess servers | [Learn more](#movere) about Movere.
 **Web App Migration Assistant** | Assess and migrate on-premises web apps to Azure. |  Use the Azure App Service Migration Assistant to assess on-premises websites for migration to Azure App Service.<br/><br/> Migrate .NET and PHP web apps to Azure, using Azure App Service Migration Assistant. [Learn more](https://appmigration.microsoft.com/) about the Assistant.
-**Azure Data Box** | Offline data migration. | Use Azure Data Box products to move large amounts of data offline to Azure. [Learn more](https:/docs.microsoft.com/azure/databox/).
+**Azure Data Box** | Offline data migration. | Use Azure Data Box products to move large amounts of data offline to Azure. [Learn more](https://docs.microsoft.com/azure/databox/).
 
 ## ISV integration
 

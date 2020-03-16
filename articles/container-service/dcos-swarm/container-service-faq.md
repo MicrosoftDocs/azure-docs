@@ -60,7 +60,7 @@ If you use [Azure CLI commands](../../container-service/dcos-swarm/container-ser
 You can create a cluster with 1, 3, or 5 master nodes. You can choose up to 100 agent nodes.
 
 > [!IMPORTANT]
-> For larger clusters and depending on the VM size you choose for your nodes, you might need to increase the cores quota in your subscription. To request a quota increase, open an [online customer support request](../../azure-supportability/how-to-create-azure-support-request.md) at no charge. If you're using an [Azure free account](https://azure.microsoft.com/free/), you can use only a limited number of Azure compute cores.
+> For larger clusters and depending on the VM size you choose for your nodes, you might need to increase the cores quota in your subscription. To request a quota increase, open an [online customer support request](../../azure-portal/supportability/how-to-create-azure-support-request.md) at no charge. If you're using an [Azure free account](https://azure.microsoft.com/free/), you can use only a limited number of Azure compute cores.
 > 
 
 ### How do I increase the number of masters after a cluster is created? 

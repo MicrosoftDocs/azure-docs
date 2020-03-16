@@ -59,4 +59,4 @@ Connect this knowledge store to Power BI for deeper analysis, or move forward wi
 
 > [!div class="nextstepaction"]
 > [Connect with Power BI](knowledge-store-connect-power-bi.md)
-> [Create a knowledge store in REST](knowledge-store-howto.md)
+> [Create a knowledge store in REST](knowledge-store-create-rest.md)

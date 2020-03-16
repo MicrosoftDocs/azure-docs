@@ -1,12 +1,11 @@
 ---
 title:  Service plans and quotas for Azure Spring Cloud
 description: Learn about service quotas and service plans for Azure Spring Cloud
-author:  jpconnock
-
+author:  bmitchell287
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.author: jeconnoc
+ms.author: brendm
 ---
 # Quotas and Service Plans for Azure Spring Cloud
 
@@ -31,4 +30,4 @@ When you reach a quota, you'll receive a 400 error that reads: "Quota exceeds li
 
 ## Next steps
 
-Certain default limits and quotas can be increased. If your resource requires an increase, [create a support request](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request).
+Certain default limits and quotas can be increased. If your resource requires an increase, [create a support request](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request).

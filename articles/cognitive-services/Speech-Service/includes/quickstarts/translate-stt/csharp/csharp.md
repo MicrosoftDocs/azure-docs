@@ -18,5 +18,7 @@ ms.author: erhopf
 [!INCLUDE [dotnet](./dotnet.md)]
 #### [.NET Core](#tab/dotnetcore)
 [!INCLUDE [dotnetcore](./dotnetcore.md)]
+#### [UWP](#tab/uwp)
+[!INCLUDE [uwp](./uwp.md)]
 
 * * *

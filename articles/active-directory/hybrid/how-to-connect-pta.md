@@ -44,7 +44,7 @@ You can combine Pass-through Authentication with the [Seamless Single Sign-On](h
   - No management overhead. The agent automatically receives improvements and bug fixes.
 - *Secure*
   - On-premises passwords are never stored in the cloud in any form.
-  - Protects your user accounts by working seamlessly with [Azure AD Conditional Access policies](../active-directory-conditional-access-azure-portal.md), including Multi-Factor Authentication (MFA), [blocking legacy authentication](../conditional-access/conditions.md) and by [filtering out brute force password attacks](../authentication/howto-password-smart-lockout.md).
+  - Protects your user accounts by working seamlessly with [Azure AD Conditional Access policies](../active-directory-conditional-access-azure-portal.md), including Multi-Factor Authentication (MFA), [blocking legacy authentication](../conditional-access/concept-conditional-access-conditions.md) and by [filtering out brute force password attacks](../authentication/howto-password-smart-lockout.md).
   - The agent only makes outbound connections from within your network. Therefore, there is no requirement to install the agent in a perimeter network, also known as a DMZ.
   - The communication between an agent and Azure AD is secured using certificate-based authentication. These certificates are automatically renewed every few months by Azure AD.
 - *Highly available*
@@ -65,7 +65,7 @@ You can combine Pass-through Authentication with the [Seamless Single Sign-On](h
 
 ## Next steps
 
-- [Quick Start](how-to-connect-pta-quick-start.md) - Get up and running Azure AD Pass-through Authentication.
+- [Quickstart](how-to-connect-pta-quick-start.md) - Get up and running Azure AD Pass-through Authentication.
 - [Migrate from AD FS to Pass-through Authentication](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx?raw=true) - A detailed guide to migrate from AD FS (or other federation technologies) to Pass-through Authentication.
 - [Smart Lockout](../authentication/howto-password-smart-lockout.md) - Configure Smart Lockout capability on your tenant to protect user accounts.
 - [Current limitations](how-to-connect-pta-current-limitations.md) - Learn which scenarios are supported and which ones are not.

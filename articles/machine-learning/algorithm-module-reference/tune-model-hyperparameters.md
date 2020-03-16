@@ -9,7 +9,7 @@ ms.topic: reference
 
 author: likebupt
 ms.author: keli19
-ms.date: 10/16/2019
+ms.date: 02/11/2020
 ---
 # Tune Model Hyperparameters
 
@@ -38,17 +38,13 @@ This section describes how to perform a basic parameter sweep, which trains a mo
 
 2.  Connect an untrained model to the leftmost input. 
 
-3. Set the **Create trainer mode** option to **Parameter Range**. Use **Range Builder** to specify a range of values to use in the parameter sweep.  
 
-    Almost all the classification and regression modules support an integrated parameter sweep. For learners that don't support configuring a parameter range, you can test only the available parameter values.
-
-    You can manually set the value for one or more parameters, and then sweep over the remaining parameters. This might save some time.
 
 4.  Add the dataset that you want to use for training, and connect it to the middle input of Tune Model Hyperparameters.  
 
     Optionally, if you have a tagged dataset, you can connect it to the rightmost input port (**Optional validation dataset**). This lets you measure accuracy while training and tuning.
 
-5.  In the **Properties** pane of Tune Model Hyperparameters, choose a value for **Parameter sweeping mode**. This option controls how the parameters are selected.
+5.  In the right panel of Tune Model Hyperparameters, choose a value for **Parameter sweeping mode**. This option controls how the parameters are selected.
 
     - **Entire grid**: When you select this option, the module loops over a grid predefined by the system, to try different combinations and identify the best learner. This option is useful when you don't know what the best parameter settings might be and want to try all possible combinations of values.
 
@@ -59,8 +55,6 @@ This section describes how to perform a basic parameter sweep, which trains a mo
 7.  Choose the number of runs:
 
     1. **Maximum number of runs on random sweep**: If you choose a random sweep, you can specify how many times the model should be trained, by using a random combination of parameter values.
-
-    2. **Maximum number of runs on random grid**: This option also controls the number of iterations over a random sampling of parameter values, but the values are not generated randomly from the specified range. Instead, the module creates a matrix of all possible combinations of parameter values. It then takes a random sampling over the matrix. This method is more efficient and less prone to regional oversampling or undersampling.
 
 8.  For **Ranking**, choose a single metric to use for ranking the models.
 
@@ -76,11 +70,11 @@ This section describes how to perform a basic parameter sweep, which trains a mo
 
 When training is complete:
 
-+ To view a set of accuracy metrics for the best model, right-click the module, select **Sweep results**, and then select **Visualize**.
++ To view a set of accuracy metrics for the best model, right-click the module, and then select **Visualize**.
 
     The output includes all accuracy metrics that apply to the model type, but the metric that you selected for ranking determines which model is considered "best."
 
-+ To use the model for scoring in other pipelines without having to repeat the tuning process, right-click the model output and select **Save as Trained Model**. 
++ To save a snapshot of the trained model, select the **Outputs** tab in the right panel of the **Train model** module. Select the **Register dataset** icon to save the model as a reusable module.
 
 
 ## Technical notes

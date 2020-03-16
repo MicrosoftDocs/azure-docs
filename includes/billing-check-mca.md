@@ -18,4 +18,4 @@ Check the agreement type to determine whether you have access to a billing accou
  
 3. If you have access to multiple billing scopes, check the type in the billing account column. You have access to a billing account for a Microsoft Customer Agreement if the billing account type for any of the scopes is **Microsoft Customer Agreement**.
  
-    ![Microsoft Customer Agreement, Billing Account Type, Billing account list, Microsoft Azure portal](./media/billing-check-mca/billing-mca-in-the-list.png)
+    [![Microsoft Customer Agreement, Billing Account Type, Billing account list, Microsoft Azure portal](./media/billing-check-mca/billing-mca-in-the-list.png)](./media/billing-check-mca/billing-mca-in-the-list-zoomed-in.png#lightbox)

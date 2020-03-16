@@ -9,8 +9,8 @@ metadata:
   description: Application Insights is part of the Azure Monitor service
   ms.service: application-insights
   ms.topic: hub-page
-  author: mrbullwinkle
-  ms.author: mbullwin
+  
+  
   manager: carmonm
   ms.date: 09/30/2019
 
@@ -230,7 +230,7 @@ conceptualContent:
           text:  Smart Detection overview
         - url: ./app/proactive-failure-diagnostics.md
           itemType: how-to-guide
-          text:  Failure anomolies
+          text:  Failure anomalies
         - url: ./app/proactive-performance-diagnostics.md
           itemType: how-to-guide
           text:  Performance anomalies

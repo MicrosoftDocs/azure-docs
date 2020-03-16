@@ -2,7 +2,7 @@
 title: Templates overview
 description: Describes the benefits using Azure Resource Manager templates for deployment of resources.
 ms.topic: conceptual
-ms.date: 09/25/2019
+ms.date: 01/02/2020
 ---
 # Azure Resource Manager templates overview
 
@@ -67,16 +67,15 @@ When you deploy a template, Resource Manager converts the template into REST API
 ```json
 "resources": [
   {
-    "apiVersion": "2016-01-01",
     "type": "Microsoft.Storage/storageAccounts",
+    "apiVersion": "2016-01-01",
     "name": "mystorageaccount",
     "location": "westus",
     "sku": {
       "name": "Standard_LRS"
     },
     "kind": "Storage",
-    "properties": {
-    }
+    "properties": {}
   }
 ]
 ```
@@ -89,12 +88,11 @@ https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{reso
 REQUEST BODY
 {
   "location": "westus",
-  "properties": {
-  }
   "sku": {
     "name": "Standard_LRS"
   },
-  "kind": "Storage"
+  "kind": "Storage",
+  "properties": {}
 }
 ```
 

@@ -3,7 +3,7 @@ title: StorSimple Snapshot Manager MMC menu actions | Microsoft Docs
 description: Describes how to use the standard Microsoft Management Console (MMC) menu actions in StorSimple Snapshot Manager.
 services: storsimple
 documentationcenter: NA
-author: SharS
+author: twooley
 manager: timlt
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2017
-ms.author: v-sharos
+ms.author: twooley
 
 ---
 # Use the MMC menu actions in StorSimple Snapshot Manager
