@@ -65,6 +65,8 @@ Even if in your situation a set of folders can logically sync to the same Azure 
         
         Create a table that records your thoughts, such that you can refer to it in the next step. Staying organized is important as it can be easy to lose details of your mapping plan when provisioning many Azure resources at once. To help you in creating a complete mapping, you can download a Microsoft Excel file as a template.
 
+[//]: # (After many tries there is not a markdown way capable of adding a nested 2-column table with working image parsing and text/hyperlink on the same line. HTML is the only option.)
+
 <br>
 <table>
     <tr>
@@ -72,7 +74,7 @@ Even if in your situation a set of folders can logically sync to the same Azure 
             <img src="media/storage-files-migration-namespace-mapping/excel.png" alt="Microsoft Excel file icon that helps to set the context for the type of file download for the link next to it.">
         </td>
         <td>
-            Download a namespace-mapping template.
+            <a href="https://aka.ms/afs">Download a namespace-mapping template.</a>
         </td>
     </tr>
 </table>
