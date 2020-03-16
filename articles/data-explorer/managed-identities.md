@@ -18,7 +18,9 @@ A [managed identity from Azure Active Directory](/azure/active-directory/managed
 
 ## Add a system-assigned identity
 
-Your cluster can be assigned a **system-assigned identity** that is tied to your cluster, and is deleted if your cluster is deleted. A cluster can only have one system-assigned identity. Creating a cluster with a system-assigned identity requires an additional property to be set on the cluster.
+Your cluster can be assigned a **system-assigned identity** that is tied to your cluster, and is deleted if your cluster is deleted. A cluster can only have one system-assigned identity. Creating a cluster with a system-assigned identity requires an additional property to be set on the cluster. The system-assigned identity can be added using C#, ARM templates, or the Azure portal as detailed below.
+
+# [C#](#tab/c#)
 
 ### Add a system-assigned identity using C#
 
@@ -75,6 +77,8 @@ To set up a managed identity using the Azure Data Explorer C# client, do the fol
 
     `PrincipalId` and `TenantId` are replaced with GUIDs. The `TenantId` property identifies the AAD tenant to which the identity belongs. The `PrincipalId` is a unique identifier for the cluster's new identity. Within AAD, the service principal has the same name that you gave to your App Service or Azure Functions instance.
 
+# [ARM](#tab/arm)
+
 ### Add a system-assigned identity using an Azure Resource Manager template
 
 An Azure Resource Manager template can be used to automate deployment of your Azure resources. To learn more about deploying to Azure Data Explorer, see [Create an Azure Data Explorer cluster and database by using an Azure Resource Manager template](create-cluster-database-resource-manager.md).
@@ -120,15 +124,67 @@ When the cluster is created, it has the following additional properties:
 
 `<TENANTID>` and `<PRINCIPALID>` are replaced with GUIDs. The `TenantId` property identifies the AAD tenant to which the identity belongs. The `PrincipalId` is a unique identifier for the cluster's new identity. Within AAD, the service principal has the same name that you gave to your App Service or Azure Functions instance.
 
+# [Azure Portal](#tab/portal)
+
+### Add a system-assigned identity using the Azure Portal
+
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. [Create an Azure Data Explorer cluster](https://docs.microsoft.com/en-us/azure/data-explorer/create-cluster-database-portal#create-a-cluster)
+1. Select **Settings** > **Identity** in left pane of portal.
+1. In the **Identity** pane > **System assigned** tab:
+
+  ![Add system assigned identity](media/managed-identites/turn-system-assigned-identity-on.png)
+
+    1. Move the **Status** slider to **On**.
+    1. Select **Save**
+    1. In the pop-up window, select **Yes**
+
+1. After a few minutes, the resulting screen shows **Object ID** and **Role assignments**
+
+    ![System assigned identity on](media/managed-identites/system-assigned-identity-on.png)
+---
+
 ## Remove an identity
 
-Removing a system-assigned identity will also delete it from AAD. System-assigned identities are also automatically removed from AAD when the cluster resource is deleted. A system-assigned identity can be removed by disabling the feature:
+Removing a system-assigned identity will also delete it from AAD. System-assigned identities are also automatically removed from AAD when the cluster resource is deleted. A system-assigned identity can be removed by disabling the feature.
+
+# [C#](#tab/c#)
+
+### Remove a system-assigned identity using C#
+
+Run the following to remove the system-assigned identity:
+
+```csharp
+var identity = new Identity(IdentityType.None);
+var cluster = new Cluster(location, sku, identity: identity);
+await kustoManagementClient.Clusters.CreateOrUpdateAsync(resourceGroupName, clusterName, cluster);
+```
+
+# [ARM](#tab/arm)
+
+### Remove a system-assigned identity using an Azure Resource Manager template
+
+Run the following to remove the system-assigned identity:
 
 ```json
 "identity": {
     "type": "None"
 }
 ```
+# [Azure Portal](#tab/portal)
+
+### Remove a system-assigned identity using the Azure Portal
+
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. Select **Settings** > **Identity** in left pane of portal.
+1. In the **Identity** pane > **System assigned** tab:
+    1. Move the **Status** slider to **Off**.
+    1. Select **Save**
+    1. In the pop-up window, select **Yes** to disable the system-assigned identity. The **Identity** pane reverts to same condition as before the addition of the system-assigned identity:
+
+    ![System assigned identity off](media/managed-identites/system-assigned-identity.png)
+
+---
 
 ## Next steps
 
