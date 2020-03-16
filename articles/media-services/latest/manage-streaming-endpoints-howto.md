@@ -50,15 +50,15 @@ For more information, see:
     For details on how to monitor long-running operations, see [Long-running operations](media-services-apis-overview.md)
 * This [Postman collection](https://github.com/Azure-Samples/media-services-v3-rest-postman/blob/master/Postman/Media%20Services%20v3.postman_collection.json) contains examples of multiple REST operations including on how to start a streaming endpoint.
 
-## Use portal or SDKs
-
-### [Portal](#tab/portal)
-    
+## Use portal 
+ 
 1. Sign in at the [Azure portal](https://portal.azure.com/).
 1. Navigate to your Azure Media Services account.
 1. On the left, select  **Streaming Endpoints**.
 1. Select the streaming endpoint you want to start, click **Start**.
-    
+
+## Use SDKs
+
 ### [Java](#tab/java)
     
 ```java
