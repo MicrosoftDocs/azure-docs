@@ -1,103 +1,68 @@
 ---
 title: Edit a knowledge base - QnA Maker
-titleSuffix: Azure Cognitive Services
-description: QnA Maker allows you to manage the content of your knowledge base by providing an easy-to-use editing experience. 
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: qna-maker
+description: QnA Maker allows you to manage the content of your knowledge base by providing an easy-to-use editing experience.
 ms.topic: conceptual
-ms.date: 11/21/2019
-ms.author: diberry
-ms.custom: seodec18
+ms.date: 03/16/2020
 ---
-# Edit a knowledge base in QnA Maker
+
+# Edit QnA sets in your knowledge base
 
 QnA Maker allows you to manage the content of your knowledge base by providing an easy-to-use editing experience.
 
-<a name="add-datasource"></a>
+QnA sets are added from a datasource, such as a file or URL, or added as an editorial source. An editorial source indicates the QnA set was added in the QnA portal manually. All QnA sets are available for editing.
 
-## Edit your knowledge base content
+## Add an editorial QnA set
+1. Sign in to the [QnA portal](https://www.qnamaker.ai/), then select the knowledge base to add the QnA set to.
+1. On the **EDIT** page of the knowledge base, select **Add QnA set** to add a new QnA set.
 
-1.  Select **My knowledge bases** in the top navigation bar. 
+1. In the new QnA set row, add the required **Question** and **Answer** fields. The other fields are optional. All fields can be changed at any time.
 
-    You can see all the services you created or shared with you sorted in the descending order of the **last modified** date.
+1. Optionally, add **alternate phrasing**. Alternate phrasing is any form of the question that is significantly different from the original question but should provide the same answer.
 
-    ![My Knowledge Bases](../media/qnamaker-how-to-edit-kb/my-kbs.png)
+    When your knowledge base is published, and you have active learning turned on, QnA Maker collects alternate phrasing choices for you to accept. These choices are selected in order to increase the prediction accuracy.
 
-1. Select a particular knowledge base to make edits to it.
- 
-1. Select **Settings**. Here you can edit mandatory field Service Name.
-  
-    |Goal|Action|
-    |--|--|
-    |Add URL|You can add new URLs to add new FAQ content to Knowledge base by clicking **Manage knowledge base -> '+ Add URL'** link.|
-    |Delete URL|You can delete existing URLs by selecting the delete icon, the trash can.|
-    |Refresh content|If you want your knowledge base to crawl the latest content of existing URLs, select the **Refresh** checkbox. This will update the knowledge base with latest URL content once. This is not setting a regular schedule of updates.|
-    |Add file|You can add a supported file document to be part of a knowledge base, by selecting **Manage knowledge base**, then selecting **+ Add File**|
-    |Import|You can also import any existing knowledge base by selecting **Import Knowledge base** button. |
-    |Update|Updating of knowledge base depends on **management pricing tier** used while creating QnA Maker service associated with your knowledge base. You can also update the management tier from Azure portal if required.
+1. Optionally, add **metadata**. To view metadata, select **View options** in the context menu. Metadata provides filters to the answers that the client application, such as a chat bot, provides.
 
-1. Once you are done making changes to the knowledge base, select **Save and train** in the top right corner of the page in order to persist the changes.    
+1. Optionally, add **follow-up prompts**. Follow-up prompts provide additional conversation paths to the client application to present to the user.
 
-    ![Save and Train](../media/qnamaker-how-to-edit-kb/save-and-train.png)
+1. Select **Save and train** to see predictions including the new QnA set.
 
-    >[!CAUTION]
-	>If you leave the page before selecting **Save and train**, all changes will be lost.
+## Edit a QnA set
 
-## Add a QnA pair
+Any field in any QnA set can be edited, regardless of the original data source. Some fields may not be visible due to your current **View Options** settings, found in the context tool bar.
 
-On the **EDIT** page, select **Add QnA pair** to add a new row to the knowledge base table.
+## Delete a QnA set
 
-![Add QnA pair](../media/qnamaker-how-to-edit-kb/add-qnapair.png)
+To delete a QnA, click the **delete** icon on the far right of the QnA row. This is a permanent operation. It can't be undone. Consider exporting your KB from the **Publish** page before deleting sets.
 
-## Delete a QnA pair
+![Delete QnA set](../media/qnamaker-how-to-edit-kb/delete-qnapair.png)
 
-To delete a QnA, click the **delete** icon on the far right of the QnA row. This is a permanent operation. It can't be undone. Consider exporting your KB from the **Publish** page before deleting pairs. 
+## Find the QnA set ID
 
-![Delete QnA pair](../media/qnamaker-how-to-edit-kb/delete-qnapair.png)
+If you need to find the QnA set ID, you can find it in two places:
+
+* Hover on the delete icon on the QnA set row you are interested in. The hover text includes the QnA set ID.
+* Export the knowledge base. Each QnA set in the knowledge base includes the QnA set ID.
 
 ## Add alternate questions
 
-Add alternate questions to an existing QnA pair to improve the likelihood of a match to a user query.
+Add alternate questions to an existing QnA set to improve the likelihood of a match to a user query.
 
 ![Add Alternate Questions](../media/qnamaker-how-to-edit-kb/add-alternate-question.png)
 
 ## Add metadata
 
-Add metadata pairs by first selecting **View options**, then selecting **Show metadata**. This displays the metadata column. Next, select the **+** sign to add a metadata pair. This pair consists of one key and one value.
+Add metadata sets by first selecting **View options**, then selecting **Show metadata**. This displays the metadata column. Next, select the **+** sign to add a metadata set. This set consists of one key and one value.
+
+## Save changes to the QnA sets
+
+Periodically select **Save and train** after making edits to avoid losing changes.
 
 ![Add Metadata](../media/qnamaker-how-to-edit-kb/add-metadata.png)
-
-> [!TIP]
-> Make sure to periodically Save and train the knowledge base after making edits to avoid losing changes.
-
-## Manage large knowledge bases
-
-* **Data source groups**: The QnAs are grouped by the data source from which they were extracted. You can expand or collapse the data source.
-
-    ![Use the QnA Maker data source bar to collapse and expand data source questions and answers](../media/qnamaker-how-to-edit-kb/data-source-grouping.png)
-
-* **Search knowledge base**: You can search the knowledge base by typing in the text box at the top of the Knowledge Base table. Click enter to search on the question, answer, or metadata content. Click on the X icon to remove the search filter.
-
-    ![Use the QnA Maker search box above the questions and answers to reduce the view to only filter-matching items](../media/qnamaker-how-to-edit-kb/search-paginate-group.png)
-
-* **Pagination**: Quickly move through data sources to manage large knowledge bases
-
-    ![Use the QnA Maker pagination features above the questions and answers to move through pages of questions and answers](../media/qnamaker-how-to-edit-kb/pagination.png)
-
-## Delete knowledge bases
-
-Deleting a knowledge base (KB) is a permanent operation. It can't be undone. Before deleting a knowledge base, you should export the knowledge base from the **Settings** page of the QnA Maker portal. 
-
-If you share your KB with [collaborators](collaborate-knowledge-base.md) then delete it, everyone loses access to the KB. 
-
-## Delete Azure resources 
-
-If you delete any of the Azure resources used for your QnA Maker knowledge bases, the knowledge bases will no longer function. Before deleting any resources, make sure you export your knowledge bases from the **Settings** page. 
 
 ## Next steps
 
 > [!div class="nextstepaction"]
 > [Collaborate on a knowledge base](./collaborate-knowledge-base.md)
+
+* [Manage Azure resources used by QnA Maker](set-up-qnamaker-service-azure.md)

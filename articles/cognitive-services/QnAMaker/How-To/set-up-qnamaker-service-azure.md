@@ -39,7 +39,7 @@ This procedure creates the Azure resources needed to manage the knowledge base c
     * Choose the **Website location** where App Service will be deployed.
 
         > [!NOTE]
-	    > The **Search Location** can differ from the **Website Location**.
+        > The **Search Location** can differ from the **Website Location**.
 
     * Choose whether or not you want to enable **Application Insights**. If **Application Insights** is enabled, QnA Maker collects telemetry on traffic, chat logs, and errors.
     * Choose the **App insights location** where the Application Insights resource will be deployed.
@@ -182,6 +182,10 @@ QnA Maker's **App Service** resource uses the Cognitive Search resource. In orde
     > ![Screenshot of Azure portal restarting App Service after configuration settings change](../media/qnamaker-how-to-upgrade-qnamaker/screenshot-azure-portal-restart-app-service.png)
 
 If you create a QnA service through Azure Resource Manager templates, you can create all resources and control the App Service creation to use an existing Search service.
+
+## Delete Azure resources
+
+If you delete any of the Azure resources used for your QnA Maker knowledge bases, the knowledge bases will no longer function. Before deleting any resources, make sure you export your knowledge bases from the **Settings** page.
 
 ## Next steps
 
