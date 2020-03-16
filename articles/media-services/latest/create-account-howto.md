@@ -60,10 +60,6 @@ This article shows how to create a Media Services account using the Azure portal
 
     When your Media Services account is created a **default** streaming endpoint is added to your account in the **Stopped** state. To start streaming your content and take advantage of [dynamic packaging](dynamic-packaging-overview.md) and [dynamic encryption](content-protection-overview.md), the streaming endpoint from which you want to stream content has to be in the **Running** state. 
 
-### See also
-
-If you plan to access Media Services API programmatically, see [Access the Azure Media Services API with Azure AD authentication](access-api-portal.md).
-
 ## Use the Azure CLI
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
@@ -88,9 +84,9 @@ az group create --name amsResourceGroup --location westus2
 
 ### Create a storage account
 
-When creating a Media Services account, you need to supply the name of an Azure Storage account resource. The specified storage account is attached to your Media Services account. For more information about how storage accounts are used in Media Services, see [Storage accounts](../articles/media-services/latest/storage-account-concept.md).
+When creating a Media Services account, you need to supply the name of an Azure Storage account resource. The specified storage account is attached to your Media Services account. For more information about how storage accounts are used in Media Services, see [Storage accounts](storage-account-concept.md).
 
-You must have one **Primary** storage account and you can have  any number of **Secondary** storage accounts associated with your Media Services account. Media Services supports **General-purpose v2** (GPv2) or **General-purpose v1** (GPv1) accounts. Blob only accounts are not allowed as **Primary**. If you want to learn more about storage accounts, see [Azure Storage account options](../articles/storage/common/storage-account-options.md). 
+You must have one **Primary** storage account and you can have  any number of **Secondary** storage accounts associated with your Media Services account. Media Services supports **General-purpose v2** (GPv2) or **General-purpose v1** (GPv1) accounts. Blob only accounts are not allowed as **Primary**. If you want to learn more about storage accounts, see [Azure Storage account options](../../storage/common/storage-account-options.md). 
 
 In this example, we create a General Purpose v2, Standard LRS account. If you want to experiment with storage accounts, use `--sku Standard_LRS`. However, when picking a SKU for production you should consider, `--sku Standard_RAGRS`, which provides geographic replication for business continuity. For more information, see [storage accounts](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest).
  
@@ -118,7 +114,6 @@ az ams account create --name amsaccount \
 
 * [Azure CLI](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
 * [Attach a secondary storage to a Media Services account](https://docs.microsoft.com/cli/azure/ams/account/storage?view=azure-cli-latest#az-ams-account-storage-add)
-* [Access v3 APIs](access-api-cli-how-to.md)
 
 ---
 
