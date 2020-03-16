@@ -23,11 +23,11 @@ To start encrypting, encoding, analyzing, managing, and streaming media content 
 > [!NOTE]
 > The Media Services account and all associated storage accounts must be in the same Azure subscription. It is strongly recommended to use storage accounts in the same location as the Media Services account to avoid additional latency and data egress costs.
 
-This article describes steps for creating a new Azure Media Services account. To see the steps using the technology of your choice, choose from the tabs below.
-
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+This article describes steps for creating a new Azure Media Services account. Choose from the following tabs.
 
 ## [Use the Azure portal](#tab/portal)
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 The Azure portal provides a way to quickly create an Azure Media Services account. You can use your account to access Media Services that enable you to store, encrypt, encode, manage, and stream media content in Azure.
 
@@ -66,6 +66,8 @@ If you plan to access Media Services API programmatically, see [Access the Azure
 
 ## [Azure CLI](#tab/azure-cli)
 
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
 ### Set the Azure subscription
 
 In the following command, provide the Azure subscription ID that you want to use for the Media Services account. You can see a list of subscriptions that you have access to by navigating to [Subscriptions](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
@@ -87,7 +89,3 @@ az account set --subscription mySubscriptionId
 ## Next steps
 
 [Stream a file](stream-files-dotnet-quickstart.md)
-
-## Provide feedback
-[!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
-
