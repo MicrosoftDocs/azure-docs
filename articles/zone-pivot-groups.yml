@@ -9,7 +9,7 @@ groups:
   - id: client-operating-system-linux
     title: Linux
   - id: client-operating-system-macos
-    title: MacOS
+    title: macOS
   - id: client-operating-system-windows
     title: Windows
 - id: URL-test-interface
