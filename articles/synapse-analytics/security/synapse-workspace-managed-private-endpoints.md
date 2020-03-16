@@ -11,33 +11,34 @@ ms.reviewer: jrasnick
 
 
 
-# Managed private endpoints (preview)
-<!---Required: 
-For the H1 - that's the primary heading at the top of the article - use the format "What is <service>?"
-You can also use this in the TOC if your service name doesn't cause the phrase to wrap.
---->
+# Synapse Managed private endpoints (preview)
 This article will explain Managed private endpoints in Azure Synapse Analytics
 ## Managed private endpoints
 
 
+Managed private endpoints are private endpoints created in the Managed workspace VNet establishing a private link to  Azure resources. Managed private endpoints are managed by Azure Synapse on your behalf. 
+
+Azure Synapse supports private links. Private link enables you to access Azure services (such as Azure Storage, Azure Cosmos DB and Azure SQL Data Warehouse) and Azure hosted customer/partner services from your Azure VNet using a secure private link. When you use a private link, traffic between your VNet and workspace traverses entirely over the Microsoft backbone network. Private Link protects against data exfiltration risks. You establish a private link to a resource by creating a private endpoint. Private endpoint uses a private IP address from your VNet to effectively bring the service into your VNet. Private endpoints are mapped to a specific resource in Azure and not the entire service. Therefore, customers can limit connectivity to a specific resource approved by their organization. Click here to learn more about private links and private endpoints.
+
+>[!IMPORTANT]
+Managed private endpoints are only supported in Azure Synapse workspaces with a Managed workspace VNet. 
+
+ 
 <!---
 Need to call out the following 
 1. cost put a link
 2. will need to use managed private endpoints when the vnet is closed or when a storage account is acled
 --->
 
-## Create a Synapse workspace with a Managed workspace VNet
-
-To create a Synapse workspace that has a Managed workspace VNet associated with it, select the **Security + networking** tab in Azure portal and check the **Enable managed virtual network** checkbox. If you leave the checkbox unchecked, then your workspace won't have a VNet associated with it. 
-
->[!IMPORTANT]
->You can only use private links in a workspace with a Managed workspace VNet.
-
-![Enable Managed workspace VNet](../media/security/enable-managed-vnet-1.png).
-
 >[!NOTE] 
-All outbound traffic from the Managed workspace VNet will be blocked in the future. It's recommended that you connect to all your data sources using Managed private endpoints.   
+It's recommended that you create Managed private endpoints to connect to all your Azure data sources. All outbound traffic from the Managed workspace VNet will be blocked in the future. 
 
-<!--- Need to add next steps here.
+## Managed private endpoints for SQL Pools and SQL On-demand
+SQL Pools and SQL On-demand are analytic capabilities in your Azure Synapse workspace. These capabilities use multi-tenant infrastructure which are not deployed into the [Managed workspace VNet](./synapse-workspace-managed-vnet.md). When a workspace is created, Azure Synapse creates two Managed private endpoints to SQL Pool and SQL On-demand in that workspace. These two Managed private endpoints are listed in Azure Synapse Studio. Select **Manage** in the left navigation, then select **Managed Virtual Networks** to see then in the Studio. The Managed private endpoint that targets SQL Pool is called *synapse-ws-sql--\<workspacename\>* and the one that targets SQL On-demand is called *synapse-ws-sqlOnDemand--\<workspacename\>*.
+![Managed private endpoints for SQL Pools and SQL On-demand](../media/security/managed-pe-for-sql-1.png)
+
+These two Managed private endpoints are automatically created for you you when your Azure Synapse workspace is created. You do not get charged for these two Managed private endpoints. 
+
 ## Next steps
---->
+
+[Create Managed private endpoints to your data sources](./how-to-create-a-managed-private-endpoint-to-connect-to-your-data-source.md)
