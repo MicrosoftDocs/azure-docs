@@ -71,7 +71,7 @@ Even if in your situation a set of folders can logically sync to the same Azure 
 <table>
     <tr>
         <td>
-            <img src="includes\media\storage-files-migration-namespace-mapping\excel.png" alt="Microsoft Excel file icon that helps to set the context for the type of file download for the link next to it.">
+            <img src="../includes/media/storage-files-migration-namespace-mapping/excel.png" alt="Microsoft Excel file icon that helps to set the context for the type of file download for the link next to it.">
         </td>
         <td>
             <a href="https://aka.ms/afs">Download a namespace-mapping template.</a>
