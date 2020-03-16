@@ -27,11 +27,13 @@ For .NET users, consider the <a href="https://docs.microsoft.com/dotnet/framewor
 
 ## Authentication
 
-Authentication is the act of verifying a user's an identity. < TODO: add more to this... >
+When discussing authentication, there are several common misconceptions. Authentication and authorization are often confused for one another. Identity is also a major component in security. An identity is a collection of information about a <a href="https://en.wikipedia.org/wiki/Principal_(computer_security)" target="_blank">principal <span class="docon docon-navigate-external x-hidden-focus"></span></a>. Identity providers (IdP) provide identities to authentication services. Authentication is the act of verifying a user's identity. Authorization is the specification of access rights and privileges to resources for a given identity.
+
+< TODO: Add more details about authentication with Cog Svcs >
 
 ## Environment variables and application configuration
 
-An alternative to using hardcoded values for sensitive data, is to use environment variables. Hardcoded values are insecure and should be avoided.
+Environment variables are name-value pairs, stored within a specific environment. An alternative to using hardcoded values for sensitive data, is to use environment variables. Hardcoded values are insecure and should be avoided.
 
 ### Set environment variable
 
@@ -69,9 +71,12 @@ echo ENVIRONMENT_VARIABLE_KEY
 
 ---
 
+> [!TIP]
+> After setting an environment variable, restart your integrated development environment (IDE) to ensure that newly added environment variables are available.
+
 ### Get environment variable
 
-To get an environment variable, it must be read into memory. Depending on the language you're using, consider the following code snippets for getting environment variables given the `ENVIRONMENT_VARIABLE_KEY` and assign to a variable named `value`.
+To get an environment variable, it must be read into memory. Depending on the language you're using, consider the following code snippets. These code snippets demonstrate how to get environment variable given the `ENVIRONMENT_VARIABLE_KEY` and assign to a variable named `value`.
 
 # [C#](#tab/csharp)
 
