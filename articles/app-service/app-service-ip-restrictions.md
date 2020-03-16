@@ -38,7 +38,7 @@ The list will show all of the current restrictions that are on your app. If you 
 
 ## Adding IP address rules
 
-You can click on **[+] Add** to add a new access restriction rule. Once you add a rule, it will become effective immediately. Rules are enforced in priority order starting from the lowest number and going up. There is an implicit deny all that is in effect once you add even a single rule.
+You can click on **[+] Add rule** to add a new access restriction rule. Once you add a rule, it will become effective immediately. Rules are enforced in priority order starting from the lowest number and going up. There is an implicit deny all that is in effect once you add even a single rule.
 
 When creating a rule, you must select allow/deny and also the type of rule. You are also required to provide the priority value and what you are restricting access to.  You can optionally add a name, and description to the rule.  
 
@@ -66,13 +66,13 @@ When you edit a rule, you cannot change the type between an IP address rule and 
 
 ![edit an access restriction rule](media/app-service-ip-restrictions/access-restrictions-vnet-edit.png)
 
-To delete a rule, click the **...** on your rule and then click **remove**.
+To delete a rule, click the **...** on your rule and then click **Remove**.
 
 ![delete access restriction rule](media/app-service-ip-restrictions/access-restrictions-delete.png)
 
 ## Blocking a single IP Address ##
 
-When adding your first IP Restriction rule, the service will add an explicit **deny all** rule with a priority of 2147483647. In practice, the explicit **deny all** rule will be last rule executed and will block access to any IP address that is not explicitly allowed using an **Allow** rule.
+When adding your first IP Restriction rule, the service will add an explicit **Deny all** rule with a priority of 2147483647. In practice, the explicit **Deny all** rule will be last rule executed and will block access to any IP address that is not explicitly allowed using an **Allow** rule.
 
 For the scenario where users want to explicitly block a single IP address or IP address block, but allow everything else access, it is necessary to add an explicit **Allow All** rule.
 
@@ -124,7 +124,7 @@ The JSON syntax for the earlier example is:
 
 ## Azure Function App Access Restrictions
 
-Access restrictions are available for both Function Apps with the same functionality as App Service plans. Enabling access restrictions will disable the portal code editor for any disallowed IPs.
+Access restrictions are also available for Function Apps with the same functionality as App Service plans. Enabling access restrictions will disable the portal code editor for any disallowed IPs.
 
 ## Next steps
 [Access restrictions for Azure Function Apps](../azure-functions/functions-networking-options.md#inbound-ip-restrictions)

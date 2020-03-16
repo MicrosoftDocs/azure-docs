@@ -36826,8 +36826,13 @@
     },
     {
       "source_path": "articles/active-directory/application-access-assignment-how-to-add-assignment.md",
-      "redirect_url": "/azure/active-directory/manage-apps/methods-for-assigning-users-and-groups",
-      "redirect_document_id": true
+      "redirect_url": "/azure/active-directory/manage-apps/assign-user-or-group-access-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/manage-apps/methods-for-assigning-users-and-groups.md",
+      "redirect_url": "/azure/active-directory/manage-apps/assign-user-or-group-access-portal",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/application-access-assignment-how-to-remove-assignment.md",
@@ -37156,17 +37161,17 @@
     },
     {
       "source_path": "articles/active-directory/active-directory-applications-guiding-developers-requiring-user-assignment.md",
-      "redirect_url": "/azure/active-directory/manage-apps/methods-for-assigning-users-and-groups",
+      "redirect_url": "/azure/active-directory/manage-apps/assign-user-or-group-access-portal",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/active-directory-applications-guiding-developers-assigning-users.md",
-      "redirect_url": "/azure/active-directory/manage-apps/methods-for-assigning-users-and-groups",
+      "redirect_url": "/azure/active-directory/manage-apps/assign-user-or-group-access-portal",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/active-directory-applications-guiding-developers-assigning-groups.md",
-      "redirect_url": "/azure/active-directory/manage-apps/methods-for-assigning-users-and-groups",
+      "redirect_url": "/azure/active-directory/manage-apps/assign-user-or-group-access-portal",
       "redirect_document_id": false
     },
     {
