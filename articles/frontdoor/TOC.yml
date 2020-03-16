@@ -1,8 +1,8 @@
-- name: Front Door Service Documentation
+- name: Front Door Documentation
   href: index.yml
 - name: Overview
   items:
-  - name: What is Azure Front Door Service?
+  - name: What is Azure Front Door?
     href: front-door-overview.md    
 - name: Quickstarts
   expanded: true
