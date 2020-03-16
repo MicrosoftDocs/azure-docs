@@ -30,7 +30,7 @@ Here is a summary of what you can do with Azure Digital Twins.
 
 ### Represent your real-world business environment
 
-In Azure Digital Twins, you define the digital twin types that represent the people, places, and things in your physical environment, as well as the relationships between them, using custom **twin types**. You can think of these twin type definitions as a specialized vocabulary to describe your business. For a building management solution, for example, you might define twin types such as "building", "floor", "room", "elevator" and "HVAC system". Twin type models are expressed in terms of persistent state properties, telemetry events, commands, relationships, and components.
+In Azure Digital Twins, you define the digital twin types that represent the people, places, and things in your physical environment, as well as the relationships between them, using custom **twin types**. You can think of these twin type definitions as a specialized vocabulary to describe your business. For a building management solution, for example, you might define twin types such as "building", "floor", "room", "elevator" and "HVAC system". Twin types are expressed in terms of persistent state properties, telemetry events, commands, relationships, and components.
 
 Once you have defined the vocabulary for your business, you can represent your concrete environment by creating Azure digital twins from the twin types you previously defined, and connecting them into a graph. For example, using the twin types described above for a building management solution, you can create a **twin graph** that represents the office building you are in with its many floors, rooms, etc.
 

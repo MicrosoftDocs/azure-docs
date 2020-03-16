@@ -19,11 +19,11 @@ ms.service: digital-twins
 
 A key characteristic of Azure Digital Twins is the ability to define your own vocabulary, allowing you to build your twin graph in the self-defined terms of your business. This capability is provided through user-defined **twin types**.
 
-A twin type is a template, defining some sort of digital twin that can exist in your Azure Digital Twins instance. Twin type models have names (such as *Room* or *TemperatureSensor*), and contain elements such as properties, telemetry/events, and commands that describe what this sort of entity in your environment can represent and do. Twin type models are written using the JSON-based **Digital Twin Definition Language (DTDL)**.  
+A twin type is a template, defining some sort of digital twin that can exist in your Azure Digital Twins instance. Twin types have names (such as *Room* or *TemperatureSensor*), and contain elements such as properties, telemetry/events, and commands that describe what this sort of entity in your environment can do. Twin types are written using the JSON-based **Digital Twin Definition Language (DTDL)**.  
 
 ## Digital Twin Definition Language (DTDL) for writing twin types
 
-Twin type models for Azure Digital Twins are defined using the **Digital Twin Definition Language (DTDL)**. DTDL is written in JSON-LD and is programming language independent.
+Twin types for Azure Digital Twins are defined using the **Digital Twin Definition Language (DTDL)**. DTDL is written in JSON-LD and is programming language independent.
 
 DTDL is also used as part of [Azure IoT Plug and Play](../iot-pnp/overview-iot-plug-and-play.md). Developers of Plug and Play (PnP) devices use a subset of the same description language used for Azure digital twins. The DTDL version used for PnP is semantically a subset of DTDL for Azure Digital Twins: every *capability model* as defined by PnP is also a valid twin type for use in Azure Digital Twins. 
 
@@ -43,7 +43,7 @@ The technical term for a twin type's DTDL implementation is its **interface**. A
 
 ## Create a twin type
 
-Twin type models can be written in any text editor. Their DTDL language follows JSON syntax, so you should store twin types with the extension *.json*. Using this extension will enable many programming text editors to provide basic syntax checking and highlighting for your DTDL documents.
+Twin types can be written in any text editor. Their DTDL language follows JSON syntax, so you should store twin types with the extension *.json*. Using this extension will enable many programming text editors to provide basic syntax checking and highlighting for your DTDL documents.
 
 ### Example twin type code
 
