@@ -6762,7 +6762,7 @@
     },
     {
       "source_path": "articles/scheduler/get-started-portal.md",
-      "redirect_url": "/azure/scheduler/migrate-from-scheduler-to-logic-apps",
+      "redirect_url": "/azure/scheduler/migrate-from-scheduler-to-logic-apps"
     },
     {
       "source_path": "articles/connectors/connectors-create-api-googledrive.md",
@@ -16687,6 +16687,11 @@
     {
       "source_path": "articles/search/search-api-scoring-profiles-2015-02-28-preview.md",
       "redirect_url": "https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/service-bus/index.md",
+      "redirect_url": "/azure/service-bus-messaging/index",
       "redirect_document_id": false
     },
     {
@@ -41775,6 +41780,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-monitor/platform/flow-tutorial.md",
+      "redirect_url": "/azure/azure-monitor/platform/logicapp-flow-connector",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/app/automate-with-flow.md",
+      "redirect_url": "/azure/azure-monitor/platform/logicapp-flow-connector",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/azure-monitor/platform/azure-storage-iis-table.md",
       "redirect_url": "/azure/azure-monitor/platform/diagnostics-extension-logs",
       "redirect_document_id": false
@@ -41797,6 +41812,16 @@
     {
       "source_path": "articles/azure-monitor/log-query/log-query-performance.md",
       "redirect_url": "/azure/azure-monitor/log-query/query-optimization",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/insights/vminsights-known-issues.md",
+      "redirect_url": "/azure/azure-monitor/insights/vminsights-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/log-query/vminsights-health.md",
+      "redirect_url": "/azure/azure-monitor/log-query/vminsights-overview",
       "redirect_document_id": false
     },
     {
@@ -49337,6 +49362,41 @@
     {
       "source_path": "articles/cognitive-services/speech-service/how-to-migrate-from-custom-speech-service.md",
       "redirect_url": "/azure/cognitive-services/speech-service",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/latest/access-api-portal.md",
+      "redirect_url": "/azure/media-services/latest/access-api-howto",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/latest/access-api-cli-how-to.md",
+      "redirect_url": "/azure/media-services/latest/access-api-howto",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/latest/create-account-portal.md",
+      "redirect_url": "/azure/media-services/latest/create-account-howto",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/latest/create-account-cli-how-to.md",
+      "redirect_url": "/azure/media-services/latest/create-account-howto",
+      "redirect_document_id": false
+    },
+    { 
+      "source_path": "articles/mariadb/howto-tls-configurations.md", 
+      "redirect_url": "/azure/mariadb/howto-configure-ssl", 
+      "redirect_document_id": false 
+    },
+    {
+      "source_path": "articles/mysql/howto-tls-configurations.md", 
+      "redirect_url": "/azure/mysql/howto-configure-ssl", 
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/postgresql/howto-tls-configurations.md", 
+      "redirect_url": "/azure/postgresql/concepts-ssl-connection-security", 
       "redirect_document_id": false
     }
   ]

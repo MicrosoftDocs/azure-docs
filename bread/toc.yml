@@ -466,12 +466,6 @@
   - name: DNS
     tocHref: /azure/dns/
     topicHref: /azure/dns/
-  - name: Event Grid
-    tocHref: /azure/event-grid/
-    topicHref: /azure/event-grid
-  - name: Event Hubs
-    tocHref: /azure/event-hubs/
-    topicHref: /azure/event-hubs/
   - name: ExpressRoute
     tocHref: /azure/expressroute/
     topicHref: /azure/expressroute/
@@ -628,6 +622,22 @@
       - name: Video Indexer
         tocHref: /azure/media-services/video-indexer/
         topicHref: /azure/media-services/video-indexer/
+  - name: Messaging services
+    tocHref: /azure/messaging-services/
+    topicHref: /azure/messaging-services/
+    items:
+      - name: Event Grid
+        tocHref: /azure/event-grid/
+        topicHref: /azure/event-grid
+      - name: Event Hubs
+        tocHref: /azure/event-hubs/
+        topicHref: /azure/event-hubs/
+      - name: Service Bus Messaging
+        tocHref: /azure/service-bus-messaging/
+        topicHref: /azure/service-bus-messaging/
+      - name: Service Bus Relay
+        tocHref: /azure/service-bus-relay/
+        topicHref: /azure/service-bus-relay/
   - name: Migrate
     tocHref: /azure/migrate/
     topicHref: /azure/migrate/
@@ -714,15 +724,6 @@
   - name: Azure Sentinel
     tocHref: /azure/sentinel/
     topicHref: /azure/sentinel/
-  - name: Service Bus
-    tocHref: /azure/service-bus/
-    topicHref: /azure/service-bus/
-  - name: Service Bus Messaging
-    tocHref: /azure/service-bus-messaging/
-    topicHref: /azure/service-bus-messaging/
-  - name: Service Bus Relay
-    tocHref: /azure/service-bus-relay/
-    topicHref: /azure/service-bus-relay/
   - name: Service Fabric
     tocHref: /azure/service-fabric/
     topicHref: /azure/service-fabric/

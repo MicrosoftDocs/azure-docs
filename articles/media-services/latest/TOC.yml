@@ -202,20 +202,13 @@
   - name: Get started
     items:
     - name: Create an account
-      items:
-      - name: With portal
-        href: create-account-portal.md
-      - name: With CLI
-        href: create-account-cli-how-to.md  
-        displayName: storage
+      href: create-account-howto.md
+      displayName: portal, cli, storage
     - name: Reset the account credentials
       href: cli-reset-account-credentials.md   
-    - name: Access APIs
-      items:
-      - name: With portal
-        href: access-api-portal.md   
-      - name: With CLI
-        href: access-api-cli-how-to.md
+    - name: Access API
+      displayName: portal, cli
+      href: access-api-howto.md   
     - name: Scale Media Reserved Units
       href: media-reserved-units-cli-how-to.md   
     - name: Create an Asset

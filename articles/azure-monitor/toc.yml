@@ -636,8 +636,6 @@
       items:
       - name: Overview
         href: insights/vminsights-overview.md
-      - name: Known issues
-        href: insights/vminsights-known-issues.md
       - name: General Availability FAQ
         href: insights/vminsights-ga-release-faq.md  
       - name: FAQ
@@ -654,10 +652,6 @@
           href: insights/vminsights-enable-at-scale-powershell.md
         - name: Enable for Hybrid environment
           href: insights/vminsights-enable-hybrid-cloud.md
-        - name: Integration with Operations Manager
-          href: insights/service-map-scom.md
-      - name: Monitor health
-        href: insights/vminsights-health.md
       - name: Map dependencies
         href: insights/vminsights-maps.md
       - name: Monitor performance
@@ -680,6 +674,8 @@
         href: insights/wire-data.md
       - name: Service Map solution
         href: insights/service-map.md
+      - name: Service Map and Operations Manager
+        href: insights/service-map-scom.md
     - name: Computer groups
       href: platform/computer-groups.md
   - name: Monitor containers
@@ -896,13 +892,11 @@
           href: log-query/query-optimization.md
         - name: Parse text data
           href: log-query/parse-text.md
-    - name: Flow / Logic Apps
+    - name: Logic Apps
       items: 
-      - name: Flow connector with Logs
-        href: platform/flow-tutorial.md   
-      - name: Flow Connector with applications
-        href: app/automate-with-flow.md
-      - name: Logic Apps with applications
+      - name: Azure Monitor Logs connector
+        href: platform/logicapp-flow-connector.md
+      - name: Application Insights connector
         href: app/automate-with-logic-apps.md
     - name: REST API
       displayname: metrics, analyze
