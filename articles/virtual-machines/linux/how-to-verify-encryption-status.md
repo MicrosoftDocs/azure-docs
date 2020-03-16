@@ -54,19 +54,20 @@ You can also get further details clicking on the extension and then on *View det
 
 ## Using PowerShell:
 
-    You can validate the **general** encryption status of an encrypted VM using the following PowerShell commands:
-    ```azurepowershell
-    $VMNAME="VMNAME"
-    $RGNAME="RGNAME"
-    Get-AzVmDiskEncryptionStatus -ResourceGroupName  ${RGNAME} -VMName ${VMNAME}
-    ```
+You can validate the **general** encryption status of an encrypted VM using the following PowerShell commands:
+
+```azurepowershell
+   $VMNAME="VMNAME"
+   $RGNAME="RGNAME"
+   Get-AzVmDiskEncryptionStatus -ResourceGroupName  ${RGNAME} -VMName ${VMNAME}
+```
 
 >[!NOTE]
 > Replace the "VMNAME" and "RGNAME" variables accordingly
 
 ![verify status PowerShell 1](./media/disk-encryption/verify-encryption-linux/verify-status-ps-01.png)
 
-    You can capture the encryption settings from each individual disk using the following PowerShell commands:
+You can capture the encryption settings from each individual disk using the following PowerShell commands:
 
 **Single-Pass:**
 In the case of single-pass the encryption settings are stamped in each of the disks (OS and Data).
