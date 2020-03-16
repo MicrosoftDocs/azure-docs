@@ -145,7 +145,6 @@ The URLs for accessing Azure Active Directory in Azure Government are different:
 | Service Type | Azure Public | Azure Government |
 | --- | --- | --- |
 | Active Directory Endpoint and Authority | https://login.microsoftonline.com | https://login.microsoftonline.us |
-| Active Directory Graph API| https://graph.windows.net/ | https://graph.windows.net/ |
 
 ## Azure Active Directory Premium P1 and P2
 

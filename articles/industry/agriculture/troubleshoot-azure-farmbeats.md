@@ -115,6 +115,8 @@ While you're deleting a device, you might encounter one of the following common 
 
     > [!NOTE]
     > You can't delete a device if sensors are associated with it. For more information about how to delete associated sensors, see the **Delete sensor** section in [Get sensor data from sensor partners](get-sensor-data-from-sensor-partner.md).
+    
+    > Partners do not have access to delete a device or sensor. Only Admins have access to do the same.
 
 
 ## Issues with jobs
