@@ -36,7 +36,7 @@ For available service tiers and their characteristics, see [technical difference
 
 **Where can I find known issues and bugs?**
 
-For bugs and known issues see [known issues](sql-database-managed-instance-transact-sql-information.md#Issues).
+For bugs and known issues see [known issues](sql-database-release-notesn.md#known-issues).
 
 ## New features
 
