@@ -69,12 +69,12 @@ Follow these instructions to create a similar Flow:
 1. From the dynamic content window, select the parameter you want to use as a condition for next actions.
 1. Select the type of *Relationship* and *Value* to set a specific condition on the given parameter.
 
-    ![](./media/flow-usage/flow-condition.png "Flow conditions")(./media/flow-usage/flow-condition.png#lightbox)
+    [!(./media/flow-usage/flow-condition.png "Flow conditions")](./media/flow-usage/flow-condition.png#lightbox)
 
     Flow applies this condition on each row of the query result table.
 1. Add actions for when the condition is true and false.
 
-    ![](./media/flow-usage/flow-conditionactions.png "Flow condition actions")(./media/flow-usage/flow-conditionactions.png#lightbox)
+    [![(./media/flow-usage/flow-conditionactions.png "Flow condition actions")](./media/flow-usage/flow-conditionactions.png#lightbox)
 
 You can use the result values from the Kusto query as input for the next actions. Select the result values from the dynamic content window.
 In the example below, a Slack - Post Message action and Visual Studio - Create a new work item action containing data from the Kusto query were added.
@@ -100,7 +100,7 @@ Visualize this information as a pie chart and email it to the team.
 1. Add a new step, with one or more Kusto - Run query and visualize results actions. 
 
     ![Run several queries in a flow](./media/flow-usage/flow-severalqueries.png)
-1. For each*Kusto - Run query and visualize result, define the following fields:
+1. For each Kusto - Run query and visualize result, define the following fields:
     * Cluster URL (in the *Cluster Name* field)
     * Database Name
     * Query and Chart Type (HTML Table/ Pie Chart/ Time Chart/ Bar Chart/ Enter Custom Value).
@@ -117,9 +117,9 @@ Visualize this information as a pie chart and email it to the team.
 
 Results:
 
-![Results of multiple attachments](./media/flow-usage/flow-resultsmultipleattachments.png)(./media/flow-usage/flow-resultsmultipleattachments.png#lightbox)
+[![Results of multiple attachments](./media/flow-usage/flow-resultsmultipleattachments.png)](./media/flow-usage/flow-resultsmultipleattachments.png#lightbox)
 
-![Results of multiple attachments](./media/flow-usage/flow-resultsmultipleattachments2.png)(./media/flow-usage/flow-resultsmultipleattachments2.png#lightbox)
+[![Results of multiple attachments](./media/flow-usage/flow-resultsmultipleattachments2.png)](./media/flow-usage/flow-resultsmultipleattachments2.png#lightbox)
 
 ## Send a different email to different contacts
 
@@ -169,7 +169,7 @@ Follow these instructions to create a similar Flow:
 
     ```if(equals(items('Apply_to_each')?['Level'], 'Warning'), 'Yellow', if(equals(items('Apply_to_each')?['Level'], 'Error'), 'red', 'white'))```
 
-    ![Create HTML table loop content](./media/flow-usage/flow-createhtmltableloopcontent.png)(./media/flow-usage/flow-createhtmltableloopcontent.png#lightbox)
+    [![Create HTML table loop content](./media/flow-usage/flow-createhtmltableloopcontent.png)](./media/flow-usage/flow-createhtmltableloopcontent.png#lightbox)
 
 1. Create the full HTML content: 
     1. Add a new action outside Apply to each. 
@@ -182,3 +182,7 @@ Follow these instructions to create a similar Flow:
 Result:
 
 ![Custom HTML table email result](./media/flow-usage/flow-customhtmltableresult.png)
+
+## Next steps
+
+Learn about the [Microsoft Azure Explorer Logic App connector](https://docs.microsoft.com/azure/kusto/tools/logicapps) which is another way to run Kusto queries and commands automatically as part of a scheduled or triggered task.
