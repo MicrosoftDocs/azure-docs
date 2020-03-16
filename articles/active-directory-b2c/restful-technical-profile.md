@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/03/2020
+ms.date: 03/16/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -215,19 +215,7 @@ If the type of authentication is set to `Bearer`, the **CryptographicKeys** elem
 
 ## Returning error message
 
-Your REST API may need to return an error message, such as 'The user was not found in the CRM system'. If an error occurs, the REST API should return an HTTP 409 error message (Conflict response status code) with following attributes:
-
-| Attribute | Required | Description |
-| --------- | -------- | ----------- |
-| version | Yes | 1.0.0 |
-| status | Yes | 409 |
-| code | No | An error code from the RESTful endpoint provider, which is displayed when `DebugMode` is enabled. |
-| requestId | No | A request identifier from the RESTful endpoint provider, which is displayed when `DebugMode` is enabled. |
-| userMessage | Yes | An error message that is shown to the user. |
-| developerMessage | No | The verbose description of the problem and how to fix it, which is displayed when `DebugMode` is enabled. |
-| moreInfo | No | A URI that points to additional information, which is displayed when `DebugMode` is enabled. |
-
-The following example shows a REST API that returns an error message formatted in JSON:
+Your REST API may need to return an error message, such as 'The user was not found in the CRM system'. If an error occurs, the REST API should return an HTTP 4xx error message, such as, 400 (bad request), or 409 (conflict) response status code. The response body contains error message formatted in JSON:
 
 ```JSON
 {
@@ -240,6 +228,17 @@ The following example shows a REST API that returns an error message formatted i
   "moreInfo": "https://restapi/error/API12345/moreinfo"
 }
 ```
+
+| Attribute | Required | Description |
+| --------- | -------- | ----------- |
+| version | Yes | Your REST API version. For example: 1.0.1 |
+| status | Yes | Must be 409 |
+| code | No | An error code from the RESTful endpoint provider, which is displayed when `DebugMode` is enabled. |
+| requestId | No | A request identifier from the RESTful endpoint provider, which is displayed when `DebugMode` is enabled. |
+| userMessage | Yes | An error message that is shown to the user. |
+| developerMessage | No | The verbose description of the problem and how to fix it, which is displayed when `DebugMode` is enabled. |
+| moreInfo | No | A URI that points to additional information, which is displayed when `DebugMode` is enabled. |
+
 
 The following example shows a C# class that returns an error message:
 

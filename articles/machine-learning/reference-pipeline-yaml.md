@@ -28,7 +28,7 @@ The following table lists what is and is not currently supported when defining a
 | DataTransferStep | Yes |
 | AutoMLStep | No |
 | HyperDriveStep | No |
-| ModuleStep | No |
+| ModuleStep | Yes |
 | MPIStep | No |
 | EstimatorStep | No |
 
