@@ -27,10 +27,10 @@ Azure Automation supports three types of source control:
 
 * A source control repository (GitHub or Azure Repos)
 * A [Run As account](manage-runas-account.md)
-* The [latest Azure modules](automation-update-azure-modules.md) in your Automation account, including the **Az.Accounts** module (Az module equivalent of AzureRM.Profile)
+* The [latest Azure modules](automation-update-azure-modules.md) in your Automation account, including the `Az.Accounts` module (Az module equivalent of `AzureRM.Profile`)
 
 > [!NOTE]
-> Source control synchronization jobs run under the user's Automation account and are billed at the same rate as other Automation jobs.
+> Source control synchronization jobs are run under the user's Automation account and are billed at the same rate as other Automation jobs.
 
 ## Configuring source control
 
@@ -48,15 +48,15 @@ Use this procedure to configure source control using the Azure portal.
 
 3. A browser window opens and prompts you to sign in. Follow the prompts to complete authentication.
 
-4. On the **Source Control Summary** page, use the fields to fill in the source control properties defined below. Click **Save** when finished. 
+4. On the Source Control Summary page, use the fields to fill in the source control properties defined below. Click **Save** when finished. 
 
     |Property  |Description  |
     |---------|---------|
     |Source control name     | A friendly name for the source control. This name must contain only letters and numbers.        |
-    |Source control type     | Type of source control mechanism. Available options are:</br> GitHub</br>Azure Repos (Git)</br> Azure Repos (TFVC)        |
+    |Source control type     | Type of source control mechanism. Available options are:</br> * GitHub</br>* Azure Repos (Git)</br> * Azure Repos (TFVC)        |
     |Repository     | Name of the repository or project. The first 200 repositories are retrieved. To search for a repository, type the name in the field and click **Search on GitHub**.|
     |Branch     | Branch from which to pull the source files. Branch targeting isn't available for the TFVC source control type.          |
-    |Folder path     | Folder that contains the runbooks to synchronize, for example, /Runbooks. Only runbooks in the specified folder are synchronized. Recursion isn't supported.        |
+    |Folder path     | Folder that contains the runbooks to synchronize, for example, **/Runbooks**. Only runbooks in the specified folder are synchronized. Recursion isn't supported.        |
     |Auto Sync<sup>1</sup>     | Setting that turns on or off automatic synchronization when a commit is made in the source control repository.        |
     |Publish Runbook     | Setting of On if runbooks are automatically published after synchronization from source control, and Off otherwise.           |
     |Description     | Text specifying additional details about the source control.        |
@@ -66,7 +66,7 @@ Use this procedure to configure source control using the Azure portal.
    ![Source control summary](./media/source-control-integration/source-control-summary.png)
 
 > [!NOTE]
-> Your login for your source control repository might be different from your login for the Azure portal. Ensure that you are logged in with the correct account for your source control repository when configuring source control. If there is a doubt, open a new tab in your browser, log out from visualstudio.com or github.com, and try connecting to source control again.
+> The login for your source control repository might be different from your login for the Azure portal. Ensure that you are logged in with the correct account for your source control repository when configuring source control. If there is a doubt, open a new tab in your browser, log out from **visualstudio.com** or **github.com**, and try connecting to source control again.
 
 ### Configure source control -- PowerShell
 
@@ -103,13 +103,13 @@ The following table defines the minimum PAT permissions required for GitHub. For
 
 |Scope  |Description  |
 |---------|---------|
-|**repo**     |         |
-|repo:status     | Access commit status         |
-|repo_deployment      | Access deployment status         |
-|public_repo     | Access public repositories         |
-|**admin:repo_hook**     |         |
-|write:repo_hook     | Write repository hooks         |
-|read:repo_hook|Read repository hooks|
+|**`repo`**     |         |
+|`repo:status`     | Access commit status         |
+|`repo_deployment`      | Access deployment status         |
+|`public_repo`     | Access public repositories         |
+|**`admin:repo_hook`**     |         |
+|`write:repo_hook`     | Write repository hooks         |
+|`read:repo_hook`|Read repository hooks|
 
 ##### Minimum PAT permissions for Azure Repos
 
@@ -122,15 +122,15 @@ The following list defines the minimum PAT permissions required for Azure Repos.
 | Identity | Read     |
 | User profile | Read     |
 | Work items | Read    |
-| Service Connections | Read, query, manage<sup>1</sup>    |
+| Service connections | Read, query, manage<sup>1</sup>    |
 
-<sup>1</sup> The Service Connections permission is only required if you have enabled autosync.
+<sup>1</sup> The Service connections permission is only required if you have enabled autosync.
 
 ## Synchronizing
 
-Do the following to synchronize with source control. 
+Follow these steps to synchronize with source control. 
 
-1. Select the source from the table on the **Source control** page. 
+1. Select the source from the table on the Source control page. 
 
 2. Click **Start Sync** to start the sync process. 
 
@@ -172,7 +172,7 @@ Do the following to synchronize with source control.
 
     ```
 
-6. Additional logging is available by selecting **All Logs** on the **Source Control Sync Job Summary** page. These additional log entries can help you troubleshoot issues that might arise when using source control.
+6. Additional logging is available by selecting **All Logs** on the Source Control Sync Job Summary page. These additional log entries can help you troubleshoot issues that might arise when using source control.
 
 ## Disconnecting source control
 
@@ -182,11 +182,11 @@ To disconnect from a source control repository:
 
 2. Select the source control mechanism to remove. 
 
-3. On the **Source Control Summary** page, click **Delete**.
+3. On the Source Control Summary page, click **Delete**.
 
 ## Handling encoding issues
 
-If multiple people are editing runbooks in your source control repository using different editors, encoding issues can occur. To learn more about this situation, see [Common causes of encoding issues](/powershell/scripting/components/vscode/understanding-file-encoding#common-causes-of-encoding-issues)
+If multiple people are editing runbooks in your source control repository using different editors, encoding issues can occur. To learn more about this situation, see [Common causes of encoding issues](/powershell/scripting/components/vscode/understanding-file-encoding#common-causes-of-encoding-issues).
 
 ## Updating the PAT
 

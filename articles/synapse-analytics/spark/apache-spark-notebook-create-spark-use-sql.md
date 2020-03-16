@@ -1,27 +1,28 @@
 ---
-title: 'Quickstart: Create a Spark pool in Azure Synapse Analytics'
-description: This quickstart shows how to use the web tools to create a Spark pool in Azure Synapse Analytics, and run a Spark SQL query.
+title: 'Quickstart: Create an Apache Spark pool (preview) in Azure Synapse Analytics'
+description: This quickstart shows how to use the web tools to create an Apache Spark pool (preview) in Azure Synapse Analytics, and run a Spark SQL query.
+services: synapse-analytics
 author: euangMS
 ms.author: euang 
 ms.reviewer: jrasnick, carlrab
-ms.service: sql-data-warehouse
-ms.subservice: design
+ms.service: synapse-analytics
+ms.subservice: 
 ms.topic: quickstart
 ms.date: 03/20/2020
 ---
 
-# Quickstart: Create a Spark pool in Synapse Analytics using web tools
+# Quickstart: Create an Apache Spark pool (preview) in Synapse Analytics using web tools
 
-In this quickstart, you learn how to create a Spark pool in Azure Synapse Analytics using web tools. You then learn to connect to the Spark pool and run Spark SQL queries against files and tables. Apache Spark enables fast data analytics and cluster computing using in-memory processing. For information on Spark on Synapse Analytics, see [Overview: Apache Spark on Azure Synapse Analytics](apache-spark-overview.md).
+In this quickstart, you learn how to create an Apache Spark pool (preview) in Azure Synapse Analytics using web tools. You then learn to connect to the Apache Spark pool and run Spark SQL queries against files and tables. Apache Spark enables fast data analytics and cluster computing using in-memory processing. For information on Spark on Synapse Analytics, see [Overview: Apache Spark on Azure Synapse Analytics](apache-spark-overview.md).
 
 > [!IMPORTANT]
 > Billing for Spark instances is prorated per minute, whether you are using them or not. Be sure to shutdown your Spark instance after you have finished using it, or set a short timeout. For more information, see the **Clean up resources** section of this article.
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
-## Create a Spark pool
+## Create an Apache Spark pool
 
-This article shows you how to create a new Spark pool using web tools.
+This article shows you how to create a new Apache Spark pool using web tools.
 
 ## Create a notebook
 
@@ -34,7 +35,7 @@ A notebook is an interactive environment that supports various programming langu
 
 4. In the **Properties** window, provide a name for the notebook.
 5. On the toolbar, click **Publish**.
-6. If there is only one Spark pool in your workspace, then it is selected by default. Use the drop-down to select the correct Spark pool if none is selected.
+6. If there is only one Apache Spark pool in your workspace, then it is selected by default. Use the drop-down to select the correct Apache Spark pool if none is selected.
 7. Click **Add code**. The default language is `Pyspark`. You are going to use a mix of Pyspark and Spark SQL, so the default choice is fine.
 8. Next you create a simple Spark DataFrame object to manipulate. In this case, you create it from code. There are three rows and three columns:
 
@@ -52,7 +53,7 @@ A notebook is an interactive environment that supports various programming langu
 
    ![Create data frame object](./media/apache-spark-notebook-create-spark-use-sql/spark-get-started-create-data-frame-object.png "Output from the Spark job ")
 
-10. If the Spark pool instance is not already running, it is automatically started. You can see the status of the Spark pool instance below the cell you are running and also on the status panel at the bottom of the notebook. Depending on the size of pool, starting should take 2-5 minutes. Once the code has finished running, information below the cell displays showing how long it took to run and its execution. In the output cell, you see the output.
+10. If the Apache Spark pool instance is not already running, it is automatically started. You can see the status of the Apache Spark pool instance below the cell you are running and also on the status panel at the bottom of the notebook. Depending on the size of pool, starting should take 2-5 minutes. Once the code has finished running, information below the cell displays showing how long it took to run and its execution. In the output cell, you see the output.
 
     ![Output from executing a cell](./media/apache-spark-notebook-create-spark-use-sql/run-cell-with-output.png "Output from the Spark job ")
 
@@ -84,7 +85,7 @@ SQL (Structured Query Language) is the most common and widely used language for 
    SHOW TABLES
    ```
 
-   When you use a Notebook with your Synapse Analytics Spark pool, you get a preset `sqlContext` that you can use to run queries using Spark SQL. `%%sql` tells the notebook to use the preset `sqlContext` to run the query. The query retrieves the top 10 rows from a system table that comes with all Synapse Analytics Spark pools by default.
+   When you use a Notebook with your Synapse Analytics Apache Spark pool, you get a preset `sqlContext` that you can use to run queries using Spark SQL. `%%sql` tells the notebook to use the preset `sqlContext` to run the query. The query retrieves the top 10 rows from a system table that comes with all Synapse Analytics Apache Spark pools by default.
 
 2. Run another query to see the data in `demo_df`.
 
@@ -119,13 +120,13 @@ SQL (Structured Query Language) is the most common and widely used language for 
 
 ## Clean up resources
 
-Synapse Analytics saves your data in Azure Data Lake Storage. You can safely let a Spark instance shut down when it is not in use. You are charged for a Synapse Analytics Spark pool as long as it is running, even when it is not in use. Since the charges for the pool are many times more than the charges for storage, it makes economic sense to let Spark instances shut down when they are not in use.
+Synapse Analytics saves your data in Azure Data Lake Storage. You can safely let a Spark instance shut down when it is not in use. You are charged for a Synapse Analytics Apache Spark pool as long as it is running, even when it is not in use. Since the charges for the pool are many times more than the charges for storage, it makes economic sense to let Spark instances shut down when they are not in use.
 
-To ensure the Spark instance is shut down, end any connected sessions(notebooks). The pool shuts down when the **idle time** specified in the Spark pool is reached. You can also select **end session** from the status bar at the bottom of the notebook.
+To ensure the Spark instance is shut down, end any connected sessions(notebooks). The pool shuts down when the **idle time** specified in the Apache Spark pool is reached. You can also select **end session** from the status bar at the bottom of the notebook.
 
 ## Next steps
 
-In this quickstart, you learned how to create a Synapse Analytics Spark pool and run a basic Spark SQL query.
+In this quickstart, you learned how to create a Synapse Analytics Apache Spark pool and run a basic Spark SQL query.
 
 - [.NET for Apache Spark documentation](https://docs.microsoft.com/dotnet/spark)
 - [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)

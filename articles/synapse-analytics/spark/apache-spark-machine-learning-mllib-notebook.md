@@ -1,11 +1,13 @@
 ---
 title: Build a machine learning app with Apache Spark MLlib and Azure Synapse Analytics
 description: Learn how to use Apache Spark MLlib to create a machine learning app that analyzes a dataset using classification through logistic regression.
+services: synapse-analytics
 author: euangMS
-ms.reviewer: euang
-ms.service: sql-data-warehouse
+ms.service:  synapse-analytics
+ms.reviewer: jrasnick, carlrab
+ms.service: synapse-analytics
 ms.topic: conceptual
-ms.date: 09/10/2019
+ms.date: 03/20/2020
 ms.author: euang
 
 ---
@@ -15,34 +17,33 @@ In this article, you learn how to use Apache Spark [MLlib](https://spark.apache.
 
 MLlib is a core Spark library that provides many utilities that are useful for machine learning tasks, including utilities that are suitable for:
 
-* Classification
-* Regression
-* Clustering
-* Topic modeling
-* Singular value decomposition (SVD) and principal component analysis (PCA)
-* Hypothesis testing and calculating sample statistics
+- Classification
+- Regression
+- Clustering
+- Topic modeling
+- Singular value decomposition (SVD) and principal component analysis (PCA)
+- Hypothesis testing and calculating sample statistics
 
 ## Understand classification and logistic regression
 
-*Classification*, a popular machine learning task, is the process of sorting input data into categories. It is the job of a classification algorithm to figure out how to assign "labels" to input data that you provide. For example, you can think of a machine learning algorithm that accepts stock information as input and divides the stock into two categories: stocks that you should sell and stocks that you should keep.
+*Classification*, a popular machine learning task, is the process of sorting input data into categories. It is the job of a classification algorithm to figure out how to assign *labels* to input data that you provide. For example, you can think of a machine learning algorithm that accepts stock information as input and divides the stock into two categories: stocks that you should sell and stocks that you should keep.
 
-Logistic regression is an algorithm that you can use for classification. Spark's logistic regression API is useful for *binary classification*, or classifying input data into one of two groups. For more information about logistic regressions, see [Wikipedia](https://en.wikipedia.org/wiki/Logistic_regression).
+*Logistic regression* is an algorithm that you can use for classification. Spark's logistic regression API is useful for *binary classification*, or classifying input data into one of two groups. For more information about logistic regressions, see [Wikipedia](https://en.wikipedia.org/wiki/Logistic_regression).
 
-In summary, the process of logistic regression produces a *logistic function* that can be used to predict the probability that an input vector belongs in one group or the other.  
+In summary, the process of logistic regression produces a *logistic function* that can be used to predict the probability that an input vector belongs in one group or the other.
 
 ## Predictive analysis example on NYC Taxi data
 
-In this example, you use Spark to perform some predictive analysis on taxi trip tip data from New York. The data is available through [Azure Open Datasets](https://azure.microsoft.com/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/). This subset of the dataset contains information about yellow taxi trips, including information about each trip, the start, and end time and locations, the cost, and other interesting attributes.
+In this example, you use Spark to perform some predictive analysis on taxi trip tip data from New York. The data is available through [Azure Open Datasets](https://azure.microsoft.com/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/). This subset of the dataset contains information about yellow taxi trips, including information about each trip, the start and end time and locations, the cost, and other interesting attributes.
 
 > [!IMPORTANT]
 > There may be additional charges for pulling this data from its storage location.
 
-In the steps below, you develop a model to predict whether a particular trip includes a tip or not.
+In the following steps, you develop a model to predict whether a particular trip includes a tip or not.
 
 ## Create an Apache Spark MLlib machine learning app
 
 1. Create a notebook using the PySpark kernel. For the instructions, see [Create a notebook](./apache-spark-notebook-create-spark-use-sql.md#create-a-notebook).
-
 2. Import the types required for this application. Copy and paste the following code into an empty cell, and then press **SHIFT + ENTER**, or run the cell by using the blue play icon to the left of the code.
 
     ```python
@@ -65,7 +66,7 @@ In the steps below, you develop a model to predict whether a particular trip inc
 
 Because the raw data is in a Parquet format, you can use the Spark context to pull the file into memory as a dataframe directly. While the code below uses the default options, it is possible to force mapping of data types and other schema attributes if needed.
 
-1. Run the following lines to create a Spark Dataframe by pasting the code into a new cell. The first section assigns Azure storage access information to variables. The second section allows Spark to read from blob storage remotely. The last line of code reads parquet, but no data is loaded at this point.
+1. Run the following lines to create a Spark dataframe by pasting the code into a new cell. The first section assigns Azure storage access information to variables. The second section allows Spark to read from blob storage remotely. The last line of code reads parquet, but no data is loaded at this point.
 
     ```python
     # Azure storage access info
@@ -82,7 +83,7 @@ Because the raw data is in a Parquet format, you can use the Spark context to pu
     df = spark.read.parquet(wasbs_path)
     ```
 
-2. Pulling all of this data generates about 1.5 billion rows. Depending on the size of your Spark pool, the raw data may be too large or take too much time to operate on. You can filter this data down to something smaller. If needed, add the following lines to filter the data down to about 2 million rows for a more responsive experience. Use these parameters to pull one week of data.
+2. Pulling all of this data generates about 1.5 billion rows. Depending on the size of your Spark pool (preview), the raw data may be too large or take too much time to operate on. You can filter this data down to something smaller. If needed, add the following lines to filter the data down to about 2 million rows for a more responsive experience. Use these parameters to pull one week of data.
 
     ```python
     # Create an ingestion filter
@@ -92,29 +93,29 @@ Because the raw data is in a Parquet format, you can use the Spark context to pu
     filtered_df = df.filter('tpepPickupDateTime > "' + start_date + '" and tpepPickupDateTime < "' + end_date + '"')
     ```
 
-3. The downside to simple filtering is that, from a statistical perspective, it may introduce bias into the data. Another approach is to use the sampling built into Spark. The code below reduces the dataset down to about 2000 rows, if applied after the code above. A sampling step can be used instead of the simple  or in conjunction with the previous filter.
+3. The downside to simple filtering is that, from a statistical perspective, it may introduce bias into the data. Another approach is to use the sampling built into Spark. The following code reduces the dataset down to about 2000 rows, if applied after the code above. This sampling step can be used instead of the simple filter or in conjunction with the simple filter.
 
     ```python
-    #To make development easier, faster and less expensive down sample for now
+    # To make development easier, faster and less expensive down sample for now
     sampled_taxi_df = filtered_df.sample(True, 0.001, seed=1234)
     ```
 
-4. It is now possible to look at the data to see what was read, it is normally better to review data with a subset rather than the full set depending on the size of the dataset. The code below offers two different ways to view the data, the former being basic and the later providing a much richer grid experience as well as the capability to visualize the data graphically.
+4. It is now possible to look at the data to see what was read. It is normally better to review data with a subset rather than the full set depending on the size of the dataset. The following code offers two ways to view the data: the former being basic and the latter providing a much richer grid experience, as well as the capability to visualize the data graphically.
 
     ```python
     sampled_taxi_df.show(5)
     display(sampled_taxi_df.show(5))
     ```
 
-5. Depending on the dataset size generated above and your need to experiment/run the notebook many times it may be advisable to cache the dataset locally in the workspace. There are three ways to do perform explicit caching:
+5. Depending on the size of the dataset size generated and your need to experiment or run the notebook many times, it may be advisable to cache the dataset locally in the workspace. There are three ways to do perform explicit caching:
 
-    * Save the dataframe locally as a file
-    * Save the dataframe as a temporary table or view
-    * Save the dataframe as a permanent table
+   - Save the dataframe locally as a file
+   - Save the dataframe as a temporary table or view
+   - Save the dataframe as a permanent table
 
-Examples are included of the first 2 of these approaches below.
+The first 2 of these approaches are included in the following code examples.
 
-Creating a temp table or view provides different access paths to the data but only lasts for the duration of the Spark instance session.
+Creating a temp table or view provides different access paths to the data, but only lasts for the duration of the Spark instance session.
 
 ```Python
 sampled_taxi_df.createOrReplaceTempView("nytaxi")
@@ -122,10 +123,10 @@ sampled_taxi_df.createOrReplaceTempView("nytaxi")
 
 ## Understand the data
 
-Normally you would go through a phase of exploratory data analysis (EDA) at this point to develop an understanding of the data. The code below shows three different visualizations of the data related to tips that lead to conclusions about the state and quality of the data.
+Normally you would go through a phase of *exploratory data analysis* (EDA) at this point to develop an understanding of the data. The following code shows three different visualizations of the data related to tips that lead to conclusions about the state and quality of the data.
 
 ```python
-#The charting package needs a Pandas dataframe or numpy array do the conversion
+# The charting package needs a Pandas dataframe or numpy array do the conversion
 sampled_taxi_pd_df = sampled_taxi_df.toPandas()
 
 # Look at tips by amount count histogram
@@ -164,10 +165,10 @@ The data in its raw form is frequently not suitable for passing directly to a mo
 
 In the code below four classes of operations are performed:
 
-* The removal of outliers/incorrect values through filtering.
-* The removal of columns, which are not needed.
-* The creation of new columns derived from the raw data to make the model work more effectively, sometimes called featurization.
-* Labeling, as you are undertaking binary classification (will there be a tip or not on a given trip) there is a need to convert the tip amount into a 0 or 1 value.
+- The removal of outliers/incorrect values through filtering.
+- The removal of columns, which are not needed.
+- The creation of new columns derived from the raw data to make the model work more effectively, sometimes called featurization.
+- Labeling, as you are undertaking binary classification (will there be a tip or not on a given trip) there is a need to convert the tip amount into a 0 or 1 value.
 
 ```python
 taxi_df = sampled_taxi_df.select('totalAmount', 'fareAmount', 'tipAmount', 'paymentType', 'rateCodeId', 'passengerCount'\
@@ -203,7 +204,7 @@ taxi_featurised_df = taxi_df.select('totalAmount', 'fareAmount', 'tipAmount', 'p
 
 ## Create a logistic regression model
 
-The final task is to convert the labeled data into a format that can be analyzed by logistic regression. The input to a logistic regression algorithm needs to be a set of *label-feature vector pairs*, where the "feature vector" is a vector of numbers representing the input point. So, we need to convert the categorical columns into numbers. The `trafficTimeBins` and `weekdayString` columns need to be converted into integer representations. There are multiple approaches to performing the conversion, however the approach taken in this example is OneHotEncoding, a common approach.
+The final task is to convert the labeled data into a format that can be analyzed by logistic regression. The input to a logistic regression algorithm needs to be a set of *label-feature vector pairs*, where the *feature vector* is a vector of numbers representing the input point. So, we need to convert the categorical columns into numbers. The `trafficTimeBins` and `weekdayString` columns need to be converted into integer representations. There are multiple approaches to performing the conversion, however the approach taken in this example is *OneHotEncoding*, a common approach.
 
 ```python
 # The sample uses an algorithm that only works with numeric features convert them so they can be consumed
@@ -287,13 +288,13 @@ After you have finished running the application, shut down the notebook to relea
 
 ## See also
 
-* [Overview: Apache Spark on Azure Synapse Analytics](apache-spark-overview.md)
+- [Overview: Apache Spark on Azure Synapse Analytics](apache-spark-overview.md)
 
 ## Next steps
 
-* [.NET for Apache Spark documentation](https://docs.microsoft.com/dotnet/spark)
-* [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)
-* [Apache Spark official documentation](https://spark.apache.org/docs/latest/)
+- [.NET for Apache Spark documentation](https://docs.microsoft.com/dotnet/spark)
+- [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)
+- [Apache Spark official documentation](https://spark.apache.org/docs/latest/)
 
 >[!NOTE]
-> Some of the official Apache Spark documentation relies on using the spark console, this is not available on Azure Synapse Spark, use the notebook or IntelliJ experiences instead
+> Some of the official Apache Spark documentation relies on using the Spark console, which is not available on Azure Synapse Spark. Use the [notebook](../spark/apache-spark-notebook-create-spark-use-sql.md) or [IntelliJ](../spark/intellij-tool-synapse.md) experiences instead.

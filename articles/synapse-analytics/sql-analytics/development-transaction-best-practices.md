@@ -1,7 +1,7 @@
 ---
-title: Optimizing transactions for Azure SQL Data Warehouse | Microsoft Docs
-description: Learn how to optimize the performance of your transactional code in Azure SQL Data Warehouse while minimizing risk for long rollbacks.
-services: synapse analytics
+title: Optimizing transactions for SQL pool
+description: Learn how to optimize the performance of your transactional code in SQL pool (data warehouse) while minimizing risk for long rollbacks.
+services: synapse-analytics
 author: XiaoyuMSFT 
 manager: craigg
 ms.service: synapse-analytics
@@ -12,13 +12,14 @@ ms.author: xiaoyul
 ms.reviewer: igorstan
 ---
 
-# Optimizing transactions in Azure SQL Data Warehouse
-Learn how to optimize the performance of your transactional code in Azure SQL Data Warehouse while minimizing risk for long rollbacks.
+# Optimizing transactions in SQL pool
+
+Learn how to optimize the performance of your transactional code in SQL pool while minimizing risk for long rollbacks.
 
 ## Transactions and logging
-Transactions are an important component of a relational database engine. SQL Data Warehouse uses transactions during data modification. These transactions can be explicit or implicit. Single INSERT, UPDATE, and DELETE statements are all examples of implicit transactions. Explicit transactions use BEGIN TRAN, COMMIT TRAN, or ROLLBACK TRAN. Explicit transactions are typically used when multiple modification statements need to be tied together in a single atomic unit. 
+Transactions are an important component of a relational database engine. SQL pool uses transactions during data modification. These transactions can be explicit or implicit. Single INSERT, UPDATE, and DELETE statements are all examples of implicit transactions. Explicit transactions use BEGIN TRAN, COMMIT TRAN, or ROLLBACK TRAN. Explicit transactions are typically used when multiple modification statements need to be tied together in a single atomic unit. 
 
-Azure SQL Data Warehouse commits changes to the database using transaction logs. Each distribution has its own transaction log. Transaction log writes are automatic. There is no configuration required. However, whilst this process guarantees the write it does introduce an overhead in the system. You can minimize this impact by writing transactionally efficient code. Transactionally efficient code broadly falls into two categories.
+SQL pool commits changes to the database using transaction logs. Each distribution has its own transaction log. Transaction log writes are automatic. There is no configuration required. However, whilst this process guarantees the write it does introduce an overhead in the system. You can minimize this impact by writing transactionally efficient code. Transactionally efficient code broadly falls into two categories.
 
 * Use minimal logging constructs whenever possible
 * Process data using scoped batches to avoid singular long running transactions
@@ -72,7 +73,7 @@ CTAS and INSERT...SELECT are both bulk load operations. However, both are influe
 It is worth noting that any writes to update secondary or non-clustered indexes will always be fully logged operations.
 
 > [!IMPORTANT]
-> SQL Data Warehouse has 60 distributions. Therefore, assuming all rows are evenly distributed and landing in a single partition, your batch will need to contain 6,144,000 rows or larger to be minimally logged when writing to a Clustered Columnstore Index. If the table is partitioned and the rows being inserted span partition boundaries, then you will need 6,144,000 rows per partition boundary assuming even data distribution. Each partition in each distribution must independently exceed the 102,400 row threshold for the insert to be minimally logged into the distribution.
+> SQL pool has 60 distributions. Therefore, assuming all rows are evenly distributed and landing in a single partition, your batch will need to contain 6,144,000 rows or larger to be minimally logged when writing to a Clustered Columnstore Index. If the table is partitioned and the rows being inserted span partition boundaries, then you will need 6,144,000 rows per partition boundary assuming even data distribution. Each partition in each distribution must independently exceed the 102,400 row threshold for the insert to be minimally logged into the distribution.
 > 
 > 
 
@@ -171,7 +172,7 @@ DROP TABLE [dbo].[FactInternetSales_old]
 ```
 
 > [!NOTE]
-> Re-creating large tables can benefit from using SQL Data Warehouse workload management features. For more information, see [Resource classes for workload management](../../sql-data-warehouse/resource-classes-for-workload-management.md).
+> Re-creating large tables can benefit from using SQL pool workload management features. For more information, see [Resource classes for workload management](../../sql-data-warehouse/resource-classes-for-workload-management.md).
 > 
 > 
 
@@ -399,18 +400,18 @@ END
 ```
 
 ## Pause and scaling guidance
-Azure SQL Data Warehouse lets you [pause, resume, and scale](../../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md) your data warehouse on demand. When you pause or scale your SQL Data Warehouse, it is important to understand that any in-flight transactions are terminated immediately; causing any open transactions to be rolled back. If your workload had issued a long running and incomplete data modification prior to the pause or scale operation, then this work will need to be undone. This undoing might impact the time it takes to pause or scale your Azure SQL Data Warehouse database. 
+Azure Synapse Analytics lets you [pause, resume, and scale](../../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md) your SQL pool on demand. When you pause or scale your SQL pool, it is important to understand that any in-flight transactions are terminated immediately; causing any open transactions to be rolled back. If your workload had issued a long running and incomplete data modification prior to the pause or scale operation, then this work will need to be undone. This undoing might impact the time it takes to pause or scale your SQL pool. 
 
 > [!IMPORTANT]
 > Both `UPDATE` and `DELETE` are fully logged operations and so these undo/redo operations can take significantly longer than equivalent minimally logged operations. 
 > 
 > 
 
-The best scenario is to let in flight data modification transactions complete prior to pausing or scaling SQL Data Warehouse. However, this scenario might not always be practical. To mitigate the risk of a long rollback, consider one of the following options:
+The best scenario is to let in flight data modification transactions complete prior to pausing or scaling SQL pool. However, this scenario might not always be practical. To mitigate the risk of a long rollback, consider one of the following options:
 
 * Rewrite long running operations using [CTAS](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse)
 * Break the operation into chunks; operating on a subset of the rows
 
 ## Next steps
-See [Transactions in SQL Data Warehouse](development-transactions.md) to learn more about isolation levels and transactional limits.  For an overview of other Best Practices, see [SQL Data Warehouse Best Practices](best-practices-sql-pool.md).
+See [Transactions in SQL pool](development-transactions.md) to learn more about isolation levels and transactional limits.  For an overview of other Best Practices, see [SQL pool best practices](best-practices-sql-pool.md).
 

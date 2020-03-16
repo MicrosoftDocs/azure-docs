@@ -1,5 +1,5 @@
 - name: Azure Synapse Analytics Documentation
-  href: index.md
+  href: index.yml
 - name: Overview
   items:
   # - name: What is Azure Synapse
@@ -22,9 +22,9 @@
     href: quickstart-synapse-studio.md
   - name: Create pools
     items:
-    - name: Create Spark pool using web tools
+    - name: Create Apache Spark pool using web tools
       href: ./spark/apache-spark-notebook-create-spark-use-sql.md
-    - name: Create Spark pool using Azure portal
+    - name: Create Apache Spark pool using Azure portal
       href: quickstart-create-apache-spark-pool.md
     - name: Create SQL pool
       href: quickstart-create-sql-pool.md
@@ -221,7 +221,7 @@
       # - name: Tips and tricks
       #   href: article-template.md
       - name: .NET for Apache Spark
-        href: spark-dotnet.md
+        href: ./spark/spark-dotnet.md
       # - name: Remote jobs with Apache Livy
       #   href: article-template.md
       # - name: Debug jobs remotely with IntelliJ through VPN

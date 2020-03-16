@@ -1,6 +1,6 @@
 ---
 title: Azure Active Directory
-description: Learn about how to use Azure Active Directory for authentication with SQL Database, Managed Instance, and SQL Data Warehouse
+description: Learn about how to use Azure Active Directory for authentication with SQL Database, Managed Instance, and SQL Analytics
 services: synapse-analytics
 author: vvasic-msft
 ms.service: synapse-analytics
@@ -13,16 +13,16 @@ ms.reviewer: jrasnick
 
 Azure Active Directory authentication is a mechanism of connecting to [Azure Synapse Analytics](../overview-faq.md) by using identities in Azure Active Directory (Azure AD). 
 
-With Azure AD authentication, you can centrally manage the identities of users having access to Synapse Analytics to simplify permission management. Benefits include the following:
+With Azure AD authentication, you can centrally manage the identities of users having access to Azure Synapse to simplify permission management. Benefits include the following:
 
 - It provides an alternative to regular username and password authentication.
 - Helps stop the proliferation of user identities across database servers.
 - Allows password rotation in a single place.
 - Customers can manage permissions using external (Azure AD) groups.
 - It can eliminate storing passwords by enabling integrated Windows authentication and other forms of authentication supported by Azure Active Directory.
-- Azure AD supports token-based authentication for applications connecting to Synapse Analytics.
+- Azure AD supports token-based authentication for applications connecting to Azure Synapse.
 - Azure AD authentication supports ADFS (domain federation) or native user/password authentication for a local Azure Active Directory without domain synchronization.
-- Azure AD supports connections from SQL Server Management Studio that use Active Directory Universal Authentication, which includes Multi-Factor Authentication (MFA).  MFA includes strong authentication with a range of easy verification options — phone call, text message, smart cards with pin, or mobile app notification. For more information, see [SSMS support for Azure AD MFA with Synapse SQL Analytics](sql-analytics-mfa-authentication.md).
+- Azure AD supports connections from SQL Server Management Studio that use Active Directory Universal Authentication, which includes Multi-Factor Authentication (MFA).  MFA includes strong authentication with a range of easy verification options — phone call, text message, smart cards with pin, or mobile app notification. For more information, see [SSMS support for Azure AD MFA with SQL Analytics](sql-analytics-mfa-authentication.md).
 - Azure AD supports similar connections from SQL Server Data Tools (SSDT) that use Active Directory Interactive Authentication. For more information, see 
 [Azure Active Directory support in SQL Server Data Tools (SSDT)](/sql/ssdt/azure-active-directory).
 
@@ -30,7 +30,7 @@ The configuration steps include the following procedures to configure and use Az
 
 1. Create and populate Azure AD.
 2. Create an Azure Active Directory identity
-3. Assign role to created Azure Active Directory identity in Azure Synapse Analytics workspace
+3. Assign role to created Azure Active Directory identity in Synapse workspace (preview)
 4. Connect to Synapse Studio by using Azure AD identities.
 
 ## AAD pass-through in Azure Synapse Analytics
@@ -104,7 +104,7 @@ The following authentication methods are supported for Azure AD server principal
 
 - To enhance manageability, we recommend you provision a dedicated Azure AD group as an administrator.   
 - Only one Azure AD administrator (a user or group) can be configured for SQL Analytics pool at any time.
-  - The addition of Azure AD server principals (logins) for SQL Analytics on-demand allows the possibility of creating multiple Azure AD server principals (logins) that can be added to the `sysadmin` role.
+  - The addition of Azure AD server principals (logins) for SQL on-demand (preview) allows the possibility of creating multiple Azure AD server principals (logins) that can be added to the `sysadmin` role.
 - Only an Azure AD administrator for SQL Analytics can initially connect to the SQL Analytics using an Azure Active Directory account. The Active Directory administrator can configure subsequent Azure AD database users.   
 - We recommend setting the connection timeout to 30 seconds.
 - SQL Server 2016 Management Studio and SQL Server Data Tools for Visual Studio 2015 (version 14.0.60311.1April 2016 or later) support Azure Active Directory authentication. (Azure AD authentication is supported by the **.NET Framework Data Provider for SqlServer**; at least version .NET Framework 4.6). Therefore the newest versions of these tools and data-tier applications (DAC and .BACPAC) can use Azure AD authentication.   

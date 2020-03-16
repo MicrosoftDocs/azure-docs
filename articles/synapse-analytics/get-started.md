@@ -1,7 +1,7 @@
 ---
 title: Getting Started Tutorial 
 description: Steps by steps to quickly understand basic concepts in Synapse
-services: synapse analytics
+services: synapse-analytics
 author: julieMSFT
 ms.author: jrasnick
 manager: julieMSFT

@@ -76,5 +76,5 @@ After the SQL pool is created, it will be available in the workspace for loading
 
 ## Next steps
 
-- See [Quickstart: Create a Spark pool in Synapse Studio using web tools](spark/apache-spark-notebook-create-spark-use-sql.md).
-- See [Quickstart: Create a Spark pool using the Azure portal](quickstart-create-apache-spark-pool.md).
+- See [Quickstart: Create an Apache Spark pool in Synapse Studio using web tools](spark/apache-spark-notebook-create-spark-use-sql.md).
+- See [Quickstart: Create an Apache Spark pool using the Azure portal](quickstart-create-apache-spark-pool.md).

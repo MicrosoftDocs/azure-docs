@@ -1,11 +1,11 @@
 ---
 title: Apache Spark in Azure Synapse Analytics - Core Concepts
 description: This article provides an introduction to Apache Spark in Azure Synapse Analytics and the different concepts.
-services: sql-data-warehouse 
+services: synapse-analytics 
 author: euangMS 
-ms.service: sql-data-warehouse 
+ms.service:  synapse-analytics 
 ms.topic: overview
-ms.subservice: design
+ms.subservice: 
 ms.date: 01/15/2020 
 ms.author: euang 
 ms.reviewer: euang
@@ -15,15 +15,15 @@ ms.reviewer: euang
 
 Apache Spark is a parallel processing framework that supports in-memory processing to boost the performance of big-data analytic applications. Apache Spark in Azure Synapse Analytics is one of Microsoft's implementations of Apache Spark in the cloud. Azure Synapse makes it easy to create and configure Spark capabilities in Azure. Azure Synapse provides a different implementation of these Spark capabilities that are documented here.
 
-## Spark pools
+## Spark pools (preview)
 
-A Spark pool is created in the Azure portal. It is the definition of a Spark pool that, when instantiated, is used to create a Spark instance that processes data. When a Spark pool is created, it exists only as metadata; no resources are consumed, running, or charged for. A Spark pool has a series of properties that control the characteristics of a Spark instance; these characteristics include but are not limited to name, size, scaling behavior, time to live.
+A Spark pool (preview) is created in the Azure portal. It is the definition of a Spark pool that, when instantiated, is used to create a Spark instance that processes data. When a Spark pool is created, it exists only as metadata; no resources are consumed, running, or charged for. A Spark pool has a series of properties that control the characteristics of a Spark instance; these characteristics include but are not limited to name, size, scaling behavior, time to live.
 
 As there is no dollar or resource cost associated with creating Spark pools, any number can be created with any number of different configurations. Permissions can also be applied to Spark pools allowing users only to have access to some and not others.
 
 A best practice is to create smaller Spark pools that may be used for development and debugging and then larger ones for running production workloads.
 
-You can read how to create a Spark pool and see all their properties here [Get started with Spark pools in Synapse Analytics](apache-spark-notebook-create-spark-use-sql.md#create-a-spark-pool)
+You can read how to create a Spark pool and see all their properties here [Get started with Spark pools in Synapse Analytics](apache-spark-notebook-create-spark-use-sql.md#create-an-apache-spark-pool)
 
 ## Spark instances
 
