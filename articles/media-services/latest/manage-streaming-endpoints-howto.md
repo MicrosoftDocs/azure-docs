@@ -57,6 +57,19 @@ For more information, see:
 1. On the left, select  **Streaming Endpoints**.
 1. Select the streaming endpoint you want to start, click **Start**.
 
+## Use CLI
+
+```cli
+az ams streaming-endpoint start [--account-name]
+                                [--ids]
+                                [--name]
+                                [--no-wait]
+                                [--resource-group]
+                                [--subscription]
+```
+
+For more information, see [az ams streaming-endpoint start](https://docs.microsoft.com/cli/azure/ams/streaming-endpoint?view=azure-cli-latest#az-ams-streaming-endpoint-start).
+
 ## Use SDKs
 
 ### [Java](#tab/java)
@@ -73,7 +86,6 @@ See the complete [Java code sample](https://github.com/Azure-Samples/media-servi
 
 ### [.NET](#tab/dotnet)
 
-
 ```csharp
 StreamingEndpoint streamingEndpoint = await client.StreamingEndpoints.GetAsync(config.ResourceGroup, config.AccountName, DefaultStreamingEndpointName);
 
@@ -86,20 +98,6 @@ if (streamingEndpoint != null)
 ```
 
 See the complete [.NET code sample](https://github.com/Azure-Samples/media-services-v3-dotnet/blob/master/DynamicPackagingVODContent/StreamHLSAndDASH/Program.cs#L112).
-
-### [Azure CLI](#tab/azure-cli)
-
-```cli
-az ams streaming-endpoint start [--account-name]
-                                [--ids]
-                                [--name]
-                                [--no-wait]
-                                [--resource-group]
-                                [--subscription]
-```
-
-For more information, see [az ams streaming-endpoint start](https://docs.microsoft.com/cli/azure/ams/streaming-endpoint?view=azure-cli-latest#az-ams-streaming-endpoint-start).
-
 ---
 
 ## Next steps
