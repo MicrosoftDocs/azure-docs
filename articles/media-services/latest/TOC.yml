@@ -202,12 +202,8 @@
   - name: Get started
     items:
     - name: Create an account
-      items:
-      - name: With portal
-        href: create-account-portal.md
-      - name: With CLI
-        href: create-account-cli-how-to.md  
-        displayName: storage
+      href: create-account-howto.md
+      displayName: portal, cli, storage
     - name: Reset the account credentials
       href: cli-reset-account-credentials.md   
     - name: Access API
