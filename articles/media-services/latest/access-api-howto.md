@@ -33,7 +33,7 @@ This article describes steps for getting credentials to access Media Services AP
 - An Azure account. If you don't have an account, start with an [Azure free trial](https://azure.microsoft.com/pricing/free-trial/). 
 - A Media Services account. For more information, see [Create an Azure Media Services account by using the Azure portal](create-account-howto.md).
 
-## [The Azure portal](#tab/portal)
+## The Azure portal
 
 ### API access 
 
@@ -65,7 +65,7 @@ This option could be used to authenticate an employee or member of an Azure Acti
 
 Copy your credentials to connect your user application from the **Connect to Media Services API** section. You can get text values or copy the JSON or XML blocks.
 
-## [Azure CLI](#tab/azure-cli)
+## Azure CLI
 
 [!INCLUDE [media-services-cli-instructions](../../../includes/media-services-cli-instructions.md)]
 
