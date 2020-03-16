@@ -18,7 +18,7 @@ To use Azure RBAC, your Azure API for FHIR must be configured to use your Azure 
 
 ![Confirm Azure RBAC mode](media/rbac/confirm-azure-rbac-mode.png)
 
-The **Authority** should be set to the Azure Active directory tenant associated with your subscription and there should be no GUIDs in the box labeled **Allowed object IDs**. You will also notice that the box is disabled and a label indicated that Azure RBAC should be used to assign data plane roles.
+The **Authority** should be set to the Azure Active directory tenant associated with your subscription and there should be no GUIDs in the box labeled **Allowed object IDs**. You will also notice that the box is disabled and a label indicates that Azure RBAC should be used to assign data plane roles.
 
 ## Assign roles
 
