@@ -81,7 +81,7 @@ When querying this data, keep in mind:
 - If multiple resource groups are delegated in a single deployment, separate entries will be returned for each resource group.
 - Changes made to a previous delegation (such as updating the permission structure) will be logged as an added delegation.
 - As noted above, an account must have the Monitoring Reader built-in role at root scope (/) in order to access this tenant-level data.
-- You can use this data in your own workflows and reporting. For example, you can use the [HTTP Data Collector API (public preview)](https://docs.microsoft.com/azure/azure-monitor/platform/data-collector-api) to log data to Azure Monitor from a REST API client.
+- You can use this data in your own workflows and reporting. For example, you can use the [HTTP Data Collector API (public preview)](../../azure-monitor/platform/data-collector-api) to log data to Azure Monitor from a REST API client, then use [action groups](../../azure-monitor/platform/action-groups) to create notifications or alerts.
 
 ```azurepowershell-interactive
 # Log in first with Connect-AzAccount if you're not using Cloud Shell
