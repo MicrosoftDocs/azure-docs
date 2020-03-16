@@ -106,7 +106,7 @@ To add this external data store and make it visible in the **Data** section, fol
    5. Select **Azure Data Lake Storage Gen2** 
    6. Select **Continue**
    7. Enter the name of the linked service in the **Name** section. For the tutorial, call it ***Tutorial_Synapse***
-   8. Select the account and authentication methods
+   8. Select the account and authentication methods from the **Azure subscription**
    9. Select **Create**
    10. The external data store you connected to the workspace should be visible once you select the **refresh** icon
 
@@ -119,22 +119,23 @@ To copy data towards that storage account and container, follow the directions:
    3. Select **Copy data**
    4. In the **Properties** section, give a name to the Task Name such as **FirstCopyActivity**. As a one-off copy activity, make sure the option **run once now** is selected. Select **Next**.
    5. In the **Source** section, select **Create new connection** to establish a connection between your workspace and the public dataset that will be ingested.
-   6. Select **Azure Data Lake storage Gen2** and **Continue**
+   6. Select **Azure Blob Storage** and **Continue**
    7. In this step, create a linked service:
        * Name this linked service ***Source Datasets***.
+       * In the Authentication method, select SAS URl
        * In the Account selection method, select **Enter manually**
-       * In the **URL** section, copy the following name: ***https://<accoutnname>.dfs.core.windows.net***
-       * Enter the storage account key: ***XXXX***
+       * In the **SAS URL** section, copy the following name: ***https://sampledatasetsynapse.blob.core.windows.net/***
+       * Enter the SAS token: ***""***
        * Select ***Create*** 
-       * Now that the linked service has been created, select the linked service ***TutorialDataSource*** and select **Next**
+       * Now that the linked service has been created, select the linked service ***Source Datasets*** and select **Next**
    8. In this step, connect to the path of the linked service that you want to copy:
-       * Write the following path into the section **Choose the input file or folder**: ***XXX***
+       * Write the following path into the section **Choose the input file or folder**: ***datasets/NYCTaxiSample/***
        * Select **Next**
        * Select ***Parquet Format*** in **File format**, leave ***snappy***
        * Select **Next**
    9. Now, define the destination of the data to be ingested:
-       * Select **Tutorial_ADLSg2** and then **Next**
-       * Write the path in the **Folder path** as ***nyctutorial*** and then select **Next**
+       * Select **Tutorial_Synapse** and then **Next**
+       * Write the path in the **Folder path** as ***datasets/nyctaxismall*** and then select **Next**
        * Define as the **File format**, ***Parquet format*** and make sure that ***snappy*** is selected
        * Select **Next** 
        * In the Settings section, just select **Next** 
