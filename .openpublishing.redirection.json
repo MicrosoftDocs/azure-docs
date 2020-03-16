@@ -49365,6 +49365,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/media-services/latest/access-api-portal.md",
+      "redirect_url": "/azure/media-services/latest/access-api-howto",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/latest/access-api-cli-how-to.md",
+      "redirect_url": "/azure/media-services/latest/access-api-howto",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/media-services/latest/create-account-portal.md",
       "redirect_url": "/azure/media-services/latest/create-account-howto",
       "redirect_document_id": false
