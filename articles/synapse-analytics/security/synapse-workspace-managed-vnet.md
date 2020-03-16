@@ -13,7 +13,7 @@ ms.reviewer: jrasnick
 
 # Azure Synapse Analytics Managed Virtual Network (preview)
 
-This article will explain Managed Virtual Network in Azure Synapse Analytics
+This article will explain Managed Virtual Network in Azure Synapse Analytics.
 ## Managed workspace VNet
 When you create your Azure Synapse workspace, you can choose to associate it to a VNet. The VNet associated with your workspace is managed by Azure Synapse. This VNet is called a *Managed workspace VNet*. 
 
@@ -29,7 +29,7 @@ Creating a workspace with a Managed workspace VNet associated with it ensures th
 To create a Azure Synapse workspace that has a Managed workspace VNet associated with it, select the **Security + networking** tab in Azure portal and check the **Enable managed virtual network** checkbox. If you leave the checkbox unchecked, then your workspace won't have a VNet associated with it. 
 
 >[!IMPORTANT]
-You can only use private links in a workspace that has a Managed workspace VNet.
+>You can only use private links in a workspace that has a Managed workspace VNet.
 
 ![Enable Managed workspace VNet](../media/security/enable-managed-vnet-1.png)
 

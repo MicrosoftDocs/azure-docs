@@ -1,11 +1,11 @@
 ---
-title: Configure IP firewall rules in Azure Synapse Analytics #Required; update as needed page title displayed in search results. Include the brand.
-description: An article that teaches you to configure IP firewall rules in Azure Synapse Analytics #Required; Add article description that is displayed in search results.
-author: RonyMSFT #Required; update with your GitHub user alias, with correct capitalization.
+title: Configure IP firewall rules in Azure Synapse Analytics 
+description: An article that teaches you to configure IP firewall rules in Azure Synapse Analytics 
+author: RonyMSFT 
 ms.service: synapse-analytics 
-ms.topic: overview #Required
-ms.date: 03/11/2020 #Update with current date; mm/dd/yyyy format.
-ms.author: ronytho #Required; update with your microsoft alias of author; optional team alias.
+ms.topic: overview 
+ms.date: 03/11/2020 
+ms.author: ronytho 
 ms.reviewer: jrasnick
 ---
 
@@ -27,7 +27,7 @@ There are two ways IP firewall rules are added to a Synapse workspace. An IP fir
 
 You can also add IP firewall rules to a Synapse workspace after the workspace is created. Select **Firewalls** under **Security** from Azure portal. To add a new IP firewall rule, give it a name, Start IP, and End IP. Select **Save** when done.
 
-![Azure Synapse workspace IP configuration in Azure Portal.](../media/security/ip-firewall-3.png)
+![Azure Synapse workspace IP configuration in Azure portal.](../media/security/ip-firewall-3.png)
 
 ## Connecting to Synapse from your own network 
 You can connect to your Synapse workspace using Synapse Studio. You can also use SQL Server Management Studio (SSMS) to connect to the SQL resources (SQL pools and SQL on-demand) in your workspace. You must ensure that the firewall on your network and local computer allow outgoing communication on TCP ports 80, 443 and 1443 for Synapse Studio. You must also allow outgoing communication on UDP port 53 for Synapse Studio. To connect using tools such as SSMS and Power BI, you must allow outgoing communication on TCP port 1433. If you are using the default Redirect connection policy setting, you may need to allow outgoing communication on additional ports. You can learn more about connection policies here.
