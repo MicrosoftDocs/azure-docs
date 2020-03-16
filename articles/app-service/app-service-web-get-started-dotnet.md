@@ -3,7 +3,7 @@ title: 'Quickstart: Create a C# ASP.NET Core app'
 description: Learn how to run web apps in Azure App Service by deploying the default C# ASP.NET Core web app template from Visual Studio.
 ms.assetid: b1e6bd58-48d1-4007-9d6c-53fd6db061e3
 ms.topic: quickstart
-ms.date: 02/28/2020
+ms.date: 03/16/2020
 ms.custom: mvc, devcenter, vs-azure
 ms.custom: seodec18
 ---
@@ -12,15 +12,7 @@ ms.custom: seodec18
 
 In this quickstart, you'll learn how to create and deploy your first ASP.NET Core web app to [Azure App Service](overview.md). 
 
-When you're finished, you'll have a resource group that consists of an App Service hosting plan and an App Service with a deployed web application.
-
-
-   App Service plans define:
-
-   - Region (for example: North Europe, East US, or Southeast Asia)
-   - Instance size (small, medium, or large)
-   - Scale count (1 to 20 instances)
-   - SKU (Free, Shared, Basic, Standard, or Premium)
+When you're finished, you'll have an Azure resource group consisting of an App Service hosting plan and an App Service with a deployed web application.
 
 ## Prerequisites
 
@@ -56,15 +48,20 @@ Create an ASP.NET Core web app in Visual Studio by following these steps:
 
 ## Publish your web app
 
-To publish your web app, you first create and configure a new app service that you can publish your app to. As part of setting up the app service, you'll create a new [resource group](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/overview#terminology) that will contain all of the Azure resources for the service, and you will also create a new [Hosting Plan](https://docs.microsoft.com/en-us/azure/app-service/overview-hosting-plans) that specifies the location, size, and features of the web server farm that hosts your app.
+To publish your web app, you must first create and configure a new App Service that you can publish your app to. 
 
-1. In **Solution Explorer**, right-click the **myFirstAzureWebApp** project and select **Publish**.
+As part of setting up the App Service, you'll create:
+
+- A new [resource group](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/overview#terminology) to contain all of the Azure resources for the service.
+- A new [Hosting Plan](https://docs.microsoft.com/en-us/azure/app-service/overview-hosting-plans) that specifies the location, size, and features of the web server farm that hosts your app.
+
+Follow these steps to create your App Service and publish your web app:
+
+1. In **Solution Explorer**, right-click the **myFirstAzureWebApp** project and select **Publish**. If you haven't already signed-in to your Azure account from Visual Studio, select either **Add an account** or **Sign in**. You can also create a free Azure account.
 
 1. In the **Pick a publish target** dialog box, choose **App Service**, select **Create New**, and then select **Create Profile**.
 
    ![Pick a publish target](./media/app-service-web-get-started-dotnet/pick-a-publish-target-vs2019.png)
-
-1. The options in the **App Service: Create new** dialog depend on whether you're already signed in to Azure and whether you have a Visual Studio account linked to an Azure account. If you haven't already signed-in to your Azure account from Visual Studio, select either **Add an account** or **Sign in**. You can also create a free Azure account.
 
 1. In the **App Service: Create new** dialog, provide a globally unique **Name** for your app by either accepting the default name, or entering a new name. Valid characters are: `a-z`, `A-Z`, `0-9`, and `-`. This **Name** is used as the URL prefix for your web app in the format `http://<app_name>.azurewebsites.net`.
 
@@ -74,7 +71,7 @@ To publish your web app, you first create and configure a new app service that y
 
 1. For **Hosting Plan**, select **New**. 
 
-1. In the **Hosting Plan: Create new** dialog, enter or select the values specified in the following table:
+1. In the **Hosting Plan: Create new** dialog, enter the values specified in the following table:
 
    | Setting  | Suggested Value | Description |
    | -------- | --------------- | ----------- |
@@ -102,6 +99,8 @@ To publish your web app, you first create and configure a new app service that y
 
 ## Update the app and redeploy
 
+Follow these steps to update and redeploy your web app:
+
 1. In **Solution Explorer**, under your project, open **Pages** > **Index.cshtml**.
 
 1. Replace the two `<div>` tags with the following code:
@@ -125,7 +124,7 @@ When publishing completes, Visual Studio launches a browser to the URL of the we
 
 ## Manage the Azure app
 
-To manage the web app, go to the [Azure portal](https://portal.azure.com), and search for and select **App Services**.
+To manage your web app, go to the [Azure portal](https://portal.azure.com), and search for and select **App Services**.
 
 ![Select App Services](./media/app-service-web-get-started-dotnet/app-services.png)
 
