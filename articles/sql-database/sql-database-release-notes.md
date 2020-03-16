@@ -168,7 +168,7 @@ The `@query` parameter in the [sp_send_db_mail](/sql/relational-databases/system
 
 ### Transactional Replication must be reconfigured after geo-failover
 
-If Transactional Replication is enabled on a database in an auto-failover group, the managed instance administrator must clean up all publications on the old primary and reconfigure them on the new primary after a failover to another region occurs. See [Replication](#replication) for more details.
+If Transactional Replication is enabled on a database in an auto-failover group, the managed instance administrator must clean up all publications on the old primary and reconfigure them on the new primary after a failover to another region occurs. See [Replication](sql-database-managed-instance-transact-sql-information.md#replication) for more details.
 
 ### AAD logins and users are not supported in SSDT
 
