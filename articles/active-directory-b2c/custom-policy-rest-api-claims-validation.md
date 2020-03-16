@@ -14,35 +14,38 @@ ms.author: mimart
 ms.subservice: B2C
 ---
 
-# Walkthrough: Integrate REST API claims exchanges in your Azure AD B2C user journey as validation on user input
+# Walkthrough: Integrate REST API claims exchanges in your Azure AD B2C user journey to validate user input
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-The Identity Experience Framework (IEF) that underlies Azure Active Directory B2C (Azure AD B2C) enables the identity developer to integrate an interaction with a RESTful API in a user journey.
+The Identity Experience Framework (IEF) that underpins Azure Active Directory B2C (Azure AD B2C) enables identity developers to integrate an interaction with a RESTful API in a user journey.
 
 At the end of this walkthrough, you will be able to create an Azure AD B2C user journey that interacts with RESTful services.
 
-The IEF sends data in claims and receives data back in claims. The interaction with the API:
+IEF has the ability to send data that has been stored in a claims bag during a user journey to your REST API. And parse JSON responses received from the REST API into the Azure AD B2C claim bag. The interaction with the API:
 
-- Can be designed as a REST API claims exchange or as a validation profile, which happens inside an orchestration step.
+- Can be designed as a REST API claims exchange called from an orchestration step, or as a [validation technical profile](validation-technical-profile.md), called from within a [self asserted technical profile](self-asserted-technical-profile.md).
 - Typically validates input from the user. If the value from the user is rejected, the user can try again to enter a valid value with the opportunity to return an error message.
 
-You can also design the interaction as an orchestration step. For more information, see [Walkthrough: Integrate REST API claims exchanges in your Azure AD B2C user journey as an orchestration step](custom-policy-rest-api-claims-exchange.md).
+You can also design the interaction as an orchestration step. This is suitable when the REST API will not be validating data on screen, and always return an HTTP 200. For more information, see [Walkthrough: Integrate REST API claims exchanges in your Azure AD B2C user journey as an orchestration step](custom-policy-rest-api-claims-exchange.md).
 
 For the validation profile example, we will use the profile edit user journey in the starter pack file ProfileEdit.xml.
 
 We can verify that the name provided by the user in the profile edit is not part of an exclusion list.
 
+## Scenario
+
+In this scenario, we will add the ability for users to enter a loyalty number into the Azure AD B2C during sign-up page. We would like to validate whether this combination of email and loyalty number are mapped to a promotional code by sending this data to a REST API. If the REST API finds a promotional code for this user, it will then be returned to Azure AD B2C. Finally the promotional code will be inserted into the token claims for the application to consume.
+
 ## Prerequisites
 
 Complete the steps in [Get started with custom policies](custom-policy-get-started.md). You should have a working custom policy for sign-up and sign-in with local accounts.
 
-
 ## Prepare a REST API endpoint
 
-For this walkthrough, you should have a REST API that validates whether an email address is register in your back-end system with a membership ID. If registered the REST API returns a registration promotion code customer can use to buy goods at your application. Otherwise, the REST API returns a 409 error message: "Membership ID '{membership ID}' is not associated with '{email}' email address.".
+For this walkthrough, you should have a REST API that validates whether an email address is registered in your back-end system with a membership ID. If registered, the REST API should return a registration promotion code, which the customer can use to buy goods within your application. Otherwise, the REST API should return an HTTP 409 error message: "Membership ID '{membership ID}' is not associated with '{email}' email address.".
 
-The following JSON illustrates data sends by Azure AD B2C to your REST API endpoint. 
+The following JSON illustrates the data Azure AD B2C will send to your REST API endpoint. 
 
 ```json
 {
@@ -52,7 +55,7 @@ The following JSON illustrates data sends by Azure AD B2C to your REST API endpo
 }
 ```
 
-On validation success, the REST API returns HTTP 200 (Ok), with following JSON data:
+Once your REST API validates the data, it must return an HTTP 200 (Ok), with the following JSON data:
 
 ```json
 {
@@ -60,7 +63,7 @@ On validation success, the REST API returns HTTP 200 (Ok), with following JSON d
 }
 ```
 
-If validation failed, the REST API returns HTTP 409 (Conflict), with the `userMessage` JSON element. The IEF expects the `userMessage` claim that the REST API returns. This claim will be presented as a string to the user if the validation fails.
+If the validation failed, the REST API must return an HTTP 409 (Conflict), with the `userMessage` JSON element. The IEF expects the `userMessage` claim that the REST API returns. This claim will be presented as a string to the user if the validation fails.
 
 ```json
 {
@@ -70,11 +73,11 @@ If validation failed, the REST API returns HTTP 409 (Conflict), with the `userMe
 }
 ```
 
-Setup of REST API endpoint is outside the scope of this article. We have created an [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-reference). You can access the complete Azure function code in [GitHub](https://github.com/Azure-Samples/active-directory-b2c-advanced-policies/tree/master/AzureFunctionsSamples).
+The setup of REST API endpoint is outside the scope of this article. We have created an [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-reference) sample. You can access the complete Azure function code at [GitHub](https://github.com/Azure-Samples/active-directory-b2c-advanced-policies/tree/master/AzureFunctionsSamples).
 
 ## Define claims
 
-A claim provides a temporary storage of data during an Azure AD B2C policy execution. The [claims schema](claimsschema.md) is the place where you declare your claims. 
+A claim provides temporary storage of data during an Azure AD B2C policy execution. You can declare claims within the [claims schema](claimsschema.md) section. 
 
 1. Open the extensions file of your policy. For example, <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em>.
 1. Search for the [BuildingBlocks](buildingblocks.md) element. If the element doesn't exist, add it.
@@ -100,7 +103,7 @@ A claim provides a temporary storage of data during an Azure AD B2C policy execu
 
 ## Configure the RESTful API technical profile 
 
-A [Restful technical profile](restful-technical-profile.md) provides support for your own RESTful service. Azure AD B2C sends data to the RESTful service in an `InputClaims` collection and receives data back in an `OutputClaims` collection. Find the **ClaimsProviders** element. Add a new claims provider as follows:
+A [Restful technical profile](restful-technical-profile.md) provides support for interfacing to your own RESTful service. Azure AD B2C sends data to the RESTful service in an `InputClaims` collection and receives data back in an `OutputClaims` collection. Find the **ClaimsProviders** element and add a new claims provider as follows:
 
 ```xml
 <ClaimsProvider>
@@ -118,11 +121,13 @@ A [Restful technical profile](restful-technical-profile.md) provides support for
         <Item Key="AllowInsecureAuthInProduction">true</Item>
       </Metadata>
       <InputClaims>
+        <!-- Claims sent to your REST API -->
         <InputClaim ClaimTypeReferenceId="loyaltyId" />
         <InputClaim ClaimTypeReferenceId="email" />
         <InputClaim ClaimTypeReferenceId="userLanguage" PartnerClaimType="lang" DefaultValue="{Culture:LCID}" AlwaysUseDefaultValue="true" />
       </InputClaims>
       <OutputClaims>
+        <!-- Claims parsed from your REST API -->
         <OutputClaim ClaimTypeReferenceId="promoCode" />
       </OutputClaims>
       <UseTechnicalProfileForSessionManagement ReferenceId="SM-Noop" />
@@ -131,16 +136,16 @@ A [Restful technical profile](restful-technical-profile.md) provides support for
 </ClaimsProvider>
 ```
 
-In this example, the `userLanguage` will be sent to the REST service as `lang`. The value of th e `userLanguage` claim contains the current user language ID. For more information, see [claim resolver](claim-resolver-overview.md).
+In this example, the `userLanguage` will be sent to the REST service as `lang` within the JSON payload. The value of the `userLanguage` claim contains the current user language ID. For more information, see [claim resolver](claim-resolver-overview.md).
 
 The comments above `AuthenticationType` and `AllowInsecureAuthInProduction` specify changes you should make when you move to a production environment. To learn how to secure your RESTful APIs for production, see [Secure RESTful APIs with basic auth](secure-rest-api-dotnet-basic-auth.md) and [Secure RESTful APIs with certificate auth](secure-rest-api-dotnet-certificate-auth.md).
 
 ## Validate the user input
 
-The most common use of the validation step is in the interaction with a user. All interactions where the user is expected to provide input are [self-asserted technical profiles](self-asserted-technical-profile.md). Override this technical profile in the extension file. 
+To obtain the users loyalty number during sign-up, you must allow the user to enter this data on screen. Add the **loyaltyId** output claim to the sign-up page, by adding it to the existing sign-up technical profile sections `OutputClaims` element. Specify the entire list of output claims to control the order the claims are presented on the screen. 
 
-In this step, you add the `loyaltyId` output claim. Specify the entire list of output claims to control the order the claims are presented on the screen. You also and the validation technical profile, which calls the `REST-ValidateProfile`. Specify the entire list of validation technical profile, to control the order the claims are presented on the screen. The order of the validation technical profile is important. As you want to make sure, the first validation technical profile is your REST API. Then, only after successful validation, Azure AD B2C can move on to the next validation technical profile, which creates the account in the directory. This requires you to comment out the validation technical profile from the base policy. 
- 
+Add the validation technical profile reference to the sign-up technical profile, which calls the `REST-ValidateProfile`. The new validation technical profile will be added to the top of the `<ValidationTechnicalProfiles>` collection defined in the base policy. This behavior means that only after successful validation, Azure AD B2C moves on to create the account in the directory.   
+
 1. Find the **ClaimsProviders** element. Add a new claims provider as follows:
 
     ```xml
@@ -155,12 +160,14 @@ In this step, you add the `loyaltyId` output claim. Specify the entire list of o
             <OutputClaim ClaimTypeReferenceId="displayName"/>
             <OutputClaim ClaimTypeReferenceId="givenName"/>
             <OutputClaim ClaimTypeReferenceId="surName"/>
+            <!-- Required to present the text box to collect the data from the user -->
             <OutputClaim ClaimTypeReferenceId="loyaltyId"/>
+            <!-- Required to pass the promoCode returned from "REST-ValidateProfile" 
+            to subsequent orchestration steps and token issuance-->
             <OutputClaim ClaimTypeReferenceId="promoCode" />
           </OutputClaims>
           <ValidationTechnicalProfiles>
-            <ValidationTechnicalProfile ReferenceId="REST-ValidateProfile"/>
-            <ValidationTechnicalProfile ReferenceId="AAD-UserWriteUsingLogonEmail" />
+            <ValidationTechnicalProfile ReferenceId="REST-ValidateProfile" />
           </ValidationTechnicalProfiles>
         </TechnicalProfile>
       </TechnicalProfiles>
@@ -177,26 +184,23 @@ In this step, you add the `loyaltyId` output claim. Specify the entire list of o
             <OutputClaim ClaimTypeReferenceId="displayName"/>
             <OutputClaim ClaimTypeReferenceId="givenName"/>
             <OutputClaim ClaimTypeReferenceId="surname"/>
+            <!-- Required to present the text box to collect the data from the user -->
             <OutputClaim ClaimTypeReferenceId="loyaltyId"/>
+            <!-- Required to pass the promoCode returned from "REST-ValidateProfile" 
+            to subsequent orchestration steps and token issuance-->
             <OutputClaim ClaimTypeReferenceId="promoCode" />
           </OutputClaims>
           <ValidationTechnicalProfiles>
             <ValidationTechnicalProfile ReferenceId="REST-ValidateProfile"/>
-            <ValidationTechnicalProfile ReferenceId="AAD-UserWriteUsingAlternativeSecurityId" />
           </ValidationTechnicalProfiles>
         </TechnicalProfile>
       </TechnicalProfiles>
     </ClaimsProvider>
     ```
 
-1. Open the extensions file of your policy. For example, <em>`SocialAndLocalAccounts/`**`TrustFrameworkBase.xml`**</em>.
-1. Search for `<TechnicalProfile Id="SelfAsserted-ProfileUpdate">`, and comment out the entire `<ValidationTechnicalProfiles>` element.
-1. Search for `<TechnicalProfile Id="SelfAsserted-Social">`, and comment out the entire `<ValidationTechnicalProfiles>` element.
-1. Save and close the TrustFrameworkBase.xml file.
-
 ## Include a claim in the token 
 
-To return the promo code claim back to the relying party application, add an output claim to the <em>`SocialAndLocalAccounts/`**`SignUpOrSignIn.xml`**</em> file. The output claim will be added into the token after a successful user journey, and will be sent to the application. Modify the technical profile element within the relying party section to add the city as an output claim.
+To return the promo code claim back to the relying party application, add an output claim to the <em>`SocialAndLocalAccounts/`**`SignUpOrSignIn.xml`**</em> file. The output claim will allow the claim to be added into the token after a successful user journey, and will be sent to the application. Modify the technical profile element within the relying party section to add the `promoCode` as an output claim.
  
 ```xml
 <RelyingParty>
@@ -228,10 +232,10 @@ To return the promo code claim back to the relying party application, add an out
 1. Select **Upload Custom Policy**, and then upload the policy files that you changed, *TrustFrameworkBase.xml*, *TrustFrameworkExtensions.xml*, and *SignUpOrSignin.xml* 
 1. Select the sign-up or sign-in policy that you uploaded, and click the **Run now** button.
 1. You should be able to sign up using an email address.
-1. Click on the **Sign up now** link.
+1. Click on the **Sign-up now** link.
 1. In the **Your loyalty ID**, type 1234, and click **Continue**. At this point, you should get a validation error message.
 1. Change to another value and click again  **Continue**
-1. The token sent back to your application includes the `city` claim.
+1. The token sent back to your application includes the `promoCode` claim.
 
 ```json
 {
