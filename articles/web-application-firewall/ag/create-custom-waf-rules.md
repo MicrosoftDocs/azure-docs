@@ -121,7 +121,7 @@ And the corresponding JSON:
   }
 ```
 
-### Example 2
+## Example 2
 
 You want to allow traffic from the US using the GeoMatch operator:
 

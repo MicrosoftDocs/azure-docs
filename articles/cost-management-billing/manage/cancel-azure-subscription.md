@@ -1,16 +1,12 @@
 ---
-title: Cancel your Azure subscription | Microsoft Docs
+title: Cancel your Azure subscription
 description: Describes how to cancel your Azure subscription, like the Free Trial subscription
 author: bandersmsft
-manager: amberb
+ms.reviewer: amberb
 tags: billing
-ms.assetid: 3051d6b0-179f-4e3a-bda4-3fee7135eac5
 ms.service: cost-management-billing
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/01/2019
+ms.date: 02/12/2020
 ms.author: banders
 
 ---

@@ -1,5 +1,5 @@
 ---
-title: Azure Database for PostgreSQL Single server data encryption with a customer-managed key
+title: Data encryption with customer-managed key - Azure Database for PostgreSQL - Single server
 description: Azure Database for PostgreSQL Single server data encryption with a customer-managed key enables you to Bring Your Own Key (BYOK) for data protection at rest. It also allows organizations to implement separation of duties in the management of keys and data.
 author: kummanish
 ms.author: manishku
@@ -13,7 +13,7 @@ ms.date: 01/13/2020
 > [!NOTE]
 > At this time, you must request access to use this capability. To do so, contact AskAzureDBforPostgreSQL@service.microsoft.com.
 
-Data encryption with customer-managed keys for Azure Database for PostgreSQL Single server enables you to bring your qwn key (BYOK) for data protection at rest. It also allows organizations to implement separation of duties in the management of keys and data. With customer-managed encryption, you are responsible for, and in a full control of, a key's lifecycle, key usage permissions, and auditing of operations on keys.
+Data encryption with customer-managed keys for Azure Database for PostgreSQL Single server enables you to bring your own key (BYOK) for data protection at rest. It also allows organizations to implement separation of duties in the management of keys and data. With customer-managed encryption, you are responsible for, and in a full control of, a key's lifecycle, key usage permissions, and auditing of operations on keys.
 
 Data encryption with customer-managed keys for Azure Database for PostgreSQL Single server, is set at the server-level. For a given server, a customer-managed key, called the key encryption key (KEK), is used to encrypt the data encryption key (DEK) used by the service. The KEK is an asymmetric key stored in a customer-owned and customer-managed [Azure Key Vault](../key-vault/key-Vault-secure-your-key-Vault.md) instance. The Key Encryption Key (KEK) and Data Encryption Key (DEK) is described in more detail later in this article.
 
@@ -27,9 +27,9 @@ Key Vault is a cloud-based, external key management system. It's highly availabl
 Data encryption for Azure Database for PostgreSQL Single server provides the following benefits:
 
 * Data-access is fully controlled by you by the ability to remove the key and making the database inaccessible 
-*	Full control over the key-lifecycle, including rotation of the key to align with corporate policies
-*	Central management and organization of keys in Azure Key Vault
-*	Ability to implement separation of duties between security officers, and DBA and system administrators
+*    Full control over the key-lifecycle, including rotation of the key to align with corporate policies
+*    Central management and organization of keys in Azure Key Vault
+*    Ability to implement separation of duties between security officers, and DBA and system administrators
 
 ## Terminology and description
 

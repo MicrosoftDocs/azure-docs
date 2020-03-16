@@ -24,7 +24,7 @@ If you get the **You can't get there from here** message saying that you're tryi
 
 ![Error message related to browser support](media/user-help-device-remediation/browser-version.png)
 
-To fix this problem, you must install and run a supported browser, based on your operating system. If you're using Windows 10, the supported browsers include Microsoft Edge, Internet Explorer, and Google Chrome. If you're using a different operating system, you can check the complete list of [supported browsers](../conditional-access/technical-reference.md#supported-browsers).
+To fix this problem, you must install and run a supported browser, based on your operating system. If you're using Windows 10, the supported browsers include Microsoft Edge, Internet Explorer, and Google Chrome. If you're using a different operating system, you can check the complete list of [supported browsers](../conditional-access/concept-conditional-access-conditions.md#supported-browsers).
 
 ## Make sure you're using a supported operating system
 Make sure that you're running a supported version of the operating system, including:

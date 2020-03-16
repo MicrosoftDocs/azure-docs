@@ -29,7 +29,7 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 
 ## Create a Load Balancer
 
-In this section, you create a Load Balancer that helps load balance virtual machines. You can create a public Load Balancer or an internal  Load Balancer. When you create a public Load Balancer, and you must also create a new Public IP address that is configured as the frontend (named as *LoadBalancerFrontend* by default) for the Load Balancer.
+In this section, you create a Load Balancer that helps load balance virtual machines. You can create a public Load Balancer or an internal  Load Balancer. When you create a public Load Balancer, you must also create a new Public IP address that is configured as the frontend (named as *LoadBalancerFrontend* by default) for the Load Balancer.
 
 1. On the top left-hand side of the screen, select **Create a resource** > **Networking** > **Load Balancer**.
 2. In the **Basics** tab of the **Create load balancer** page, enter or select the following information, accept the defaults for the remaining settings, and then select **Review + create**:
@@ -41,10 +41,14 @@ In this section, you create a Load Balancer that helps load balance virtual mach
     | Name                   | *myLoadBalancer*                                   |
     | Region         | Select **West Europe**.                                        |
     | Type          | Select **Public**.                                        |
-    | SKU           | Select **Standard** or **Basic**. Microsoft recommends Standard for production workloads.  |
+    | SKU           | Select **Standard** or **Basic**. Microsoft recommends Standard for production workloads. |
     | Public IP address | Select **Create new**. If you have an existing Public IP you would like to use, select **Use existing** |
-    | Public IP address name              | Type *myPublicIP* in the text box.   |
+    | Public IP address name              | Type *myPublicIP* in the text box.   Use ```-SKU Basic``` to create a Basic Public IP. Basic Public IPs are not compatible with **Standard** load balancer. Microsoft recommends using **Standard** for production workloads.|
     | Availability zone | Type *Zone-redundant* to create a resilient Load Balancer. To create a zonal Load Balancer, select a specific zone from 1, 2, or 3 |
+
+> [!IMPORTANT]
+> The rest of this quickstart assumes that **Standard** SKU is chosen during the SKU selection process above.
+
 
 3. In the **Review + create** tab, select **Create**.   
 
@@ -101,21 +105,20 @@ A Load Balancer rule is used to define how traffic is distributed to the VMs. Yo
 
 In this section, you create a virtual network, create three virtual machines for the backend pool of the Load Balancer, and then install IIS on the virtual machines to help test the Load Balancer.
 
-### Create a virtual network
-1. On the upper-left side of the screen, select **Create a resource** > **Networking** > **Virtual network**.
+## Virtual network and parameters
 
-1. In **Create virtual network**, enter or select this information:
+In this section you'll need to replace the following parameters in the steps with the information below:
 
-    | Setting | Value |
-    | ------- | ----- |
-    | Name | Enter *myVNet*. |
-    | Address space | Enter *10.1.0.0/16*. |
-    | Subscription | Select your subscription.|
-    | Resource group | Select existing resource - *myResourceGroupSLB*. |
-    | Location | Select **West Europe**.|
-    | Subnet - Name | Enter *myBackendSubnet*. |
-    | Subnet - Address range | Enter *10.1.0.0/24*. |
-1. Leave the rest of the defaults and select **Create**.
+| Parameter                   | Value                |
+|-----------------------------|----------------------|
+| **\<resource-group-name>**  | myResourceGroupSLB |
+| **\<virtual-network-name>** | myVNet          |
+| **\<region-name>**          | West Europe      |
+| **\<IPv4-address-space>**   | 10.1.0.0\16          |
+| **\<subnet-name>**          | myBackendSubnet        |
+| **\<subnet-address-range>** | 10.1.0.0\24          |
+
+[!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
 ### Create virtual machines
 Public IP SKUs and Load Balancer SKUs must match. For Standard Load Balancer , use VMs with Standard IP addresses in the backend pool. In this section, you will create three VMs (*myVM1*, *myVM2* and *myVM3*) with a Standard public IP address in three different zones (*Zone 1*, *Zone 2*, and *Zone 3*) that are later added to the backend pool of the Load Balancer that was created earlier. If you selected Basic, use VMs with Basic IP addresses.

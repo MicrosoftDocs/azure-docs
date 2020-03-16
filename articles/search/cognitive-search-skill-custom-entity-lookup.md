@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.date: 01/30/2020
 ---
 
-#	 Custom Entity Lookup cognitive skill (Preview)
+#     Custom Entity Lookup cognitive skill (Preview)
 
 > [!IMPORTANT] 
 > This skill is currently in public preview. Preview functionality is provided without a service level agreement, and is not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). There is currently no portal or .NET SDK support.
@@ -32,25 +32,25 @@ Microsoft.Skills.Text.CustomEntityLookupSkill
 
 Parameters are case-sensitive.
 
-| Parameter name	 | Description |
+| Parameter name     | Description |
 |--------------------|-------------|
-| entitiesDefinitionUri	| Path to a JSON or CSV file containing all the target text to match against. This entity definition is read at the beginning of an indexer run; any updates to this file mid-run won’t be realized until subsequent runs. This config must be accessible over HTTPS. See [Custom Entity Definition](#custom-entity-definition-format) Format” below for expected CSV or JSON schema.|
+| entitiesDefinitionUri    | Path to a JSON or CSV file containing all the target text to match against. This entity definition is read at the beginning of an indexer run; any updates to this file mid-run won't be realized until subsequent runs. This config must be accessible over HTTPS. See [Custom Entity Definition](#custom-entity-definition-format) Format" below for expected CSV or JSON schema.|
 |inlineEntitiesDefinition | Inline JSON entity definitions. This parameter supersedes the entitiesDefinitionUri parameter if present. No more than 10 KB of configuration may be provided inline. See [Custom Entity Definition](#custom-entity-definition-format) below for expected JSON schema. |
-|defaultLanguageCode |	(Optional) Language code of the input text used to tokenize and delineate input text. The following languages are supported: `da, de, en, es, fi, fr, it, ko, pt`. The default is English (`en`). If you pass a languagecode-countrycode format, only the languagecode part of the format is used.  |
+|defaultLanguageCode |    (Optional) Language code of the input text used to tokenize and delineate input text. The following languages are supported: `da, de, en, es, fi, fr, it, ko, pt`. The default is English (`en`). If you pass a languagecode-countrycode format, only the languagecode part of the format is used.  |
 
 
 ## Skill inputs
 
-| Input name	  | Description                   |
+| Input name      | Description                   |
 |---------------|-------------------------------|
 | text          | The text to analyze.          |
-| languageCode	| Optional. Default is `"en"`.  |
+| languageCode    | Optional. Default is `"en"`.  |
 
 
 ## Skill outputs
 
 
-| Output name	  | Description                   |
+| Output name      | Description                   |
 |---------------|-------------------------------|
 | entities | An array of objects that contain information about the matches that were found, and related metadata. Each of the entities identified may contain the following fields:  <ul> <li> *name*: The top-level entity identified. The entity represents the "normalized" form. </li> <li> *id*:  A unique identifier for the entity as defined by the user in the "Custom Entity Definition Format".</li> <li> *description*: Entity description as defined by the user in the "Custom Entity Definition Format". </li> <li> *type:* Entity type as defined by the user in the "Custom Entity Definition Format".</li> <li> *subtype:* Entity subtype as defined by the user in the "Custom Entity Definition Format".</li>  <li> *matches*: Collection that describes each of the matches for that entity on the source text. Each match will have the following members: </li> <ul> <li> *text*: The raw text match from the source document. </li> <li> *offset*: The location where the match was found in the text. </li> <li> *length*:  The length of the matched text. </li> <li> *matchDistance*: The number of characters different this match was from original entity name or alias.  </li> </ul> </ul>
   |
@@ -59,7 +59,7 @@ Parameters are case-sensitive.
 
 There are 3 different ways to provide the list of custom entities to the Custom Entity Lookup skill. You can provide the list in a .CSV file, a .JSON file or as an inline definition as part of the skill definition.  
 
-If the definition file is a .CSV or .JSON file, the path of the file needs to be provided as part of the *entitiesDefitionUri* parameter. In this case, the file is downloaded once at the beginning of each indexer run. The file must be accessible as long as the indexer is intended to run.
+If the definition file is a .CSV or .JSON file, the path of the file needs to be provided as part of the *entitiesDefitionUri* parameter. In this case, the file is downloaded once at the beginning of each indexer run. The file must be accessible as long as the indexer is intended to run. Also, the file must be encoded UTF-8.
 
 If the definition is provided inline, it should be provided as inline as the content of the *inlineEntitiesDefinition* skill parameter. 
 
@@ -155,8 +155,8 @@ The tables below describe in more details the different configuration parameters
 | Alias properties | Description |
 |------------------|-------------|
 | text  | The alternative spelling or representation of some target entity name.  |
-| caseSensitive | (Optional) Acts the same as root entity “caseSensitive” parameter above, but applies to only this one alias. |
-| fuzzyEditDistance | (Optional) Acts the same as root entity “fuzzyEditDistance” parameter above, but applies to only this one alias. |
+| caseSensitive | (Optional) Acts the same as root entity "caseSensitive" parameter above, but applies to only this one alias. |
+| fuzzyEditDistance | (Optional) Acts the same as root entity "fuzzyEditDistance" parameter above, but applies to only this one alias. |
 
 
 ### Inline format
@@ -164,7 +164,7 @@ The tables below describe in more details the different configuration parameters
 In some cases, it may be more convenient to provide the list of custom entities to match inline directly into the skill definition. In that case you can use a similar  JSON format to the one described above, but it is inlined in the skill definition.
 Only configurations that are less than 10 KB in size (serialized size) can be defined inline. 
 
-##	Sample definition
+##    Sample definition
 
 A sample skill definition using an inline format is shown below:
 
@@ -227,7 +227,7 @@ Alternatively, if you decide to provide a pointer to the entities definition fil
 
 ```
 
-##	Sample input
+##    Sample input
 
 ```json
 {
@@ -244,7 +244,7 @@ Alternatively, if you decide to provide a pointer to the entities definition fil
 }
 ```
 
-##	Sample output
+##    Sample output
 
 ```json
   { 
@@ -291,6 +291,12 @@ Alternatively, if you decide to provide a pointer to the entities definition fil
     ] 
   } 
 ```
+
+## Errors and warnings
+
+### Warning: Reached maximum capacity for matches, skipping all further duplicate matches.
+
+This warning will be emitted if the number of matches detected is greater than the maximum allowed. In this case, we will stop including duplicate matches. If this is unacceptable to you, please file a [support ticket](https://ms.portal.azure.com/#create/Microsoft.Support) so we can assist you with your individual use case.
 
 ## See also
 

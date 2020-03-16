@@ -49,7 +49,7 @@ The test peering locations: dummy devices and ports are not exposed to productio
 
 ### 2. Register the Dev_Provider subscription to access the expressRouteCrossConnections API
 
-In order to access the expressRouteCrossConnections API, the partner subscription needs to be enrolled in the **Microsoft.Network Resource Provider**. Follow the steps in the [Azure resource providers and types](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types#portal) article to complete the registration process.
+In order to access the expressRouteCrossConnections API, the partner subscription needs to be enrolled in the **Microsoft.Network Resource Provider**. Follow the steps in the [Azure resource providers and types](/azure/azure-resource-manager/management/resource-providers-and-types#azure-portal) article to complete the registration process.
 
 ### 3. Set up authentication for Azure Resource Manager REST API calls
 

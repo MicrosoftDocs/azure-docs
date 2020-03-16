@@ -72,15 +72,15 @@ conceptualContent:
 
     - title: Authentication
       links: 
-        - url: ./authentication/concept-mfa-howitworks.md
+        - url: ./authentication/overview-authentication.md
           itemType: concept
-          text: "How it works: Azure MFA"
-        - url: ./authentication/concept-sspr-howitworks.md
-          itemType: concept 
-          text: Azure AD self-service password reset 
-        - url: ./authentication/concept-password-ban-bad.md
-          itemType: concept
-          text: Azure AD password protection 
+          text: What is Azure AD Authentication?
+        - url: ./authentication/tutorial-enable-sspr.md
+          itemType: tutorial 
+          text: Enable self-service password reset 
+        - url: ./authentication/tutorial-enable-azure-mfa.md
+          itemType: tutorial
+          text: Enable Azure Multi-Factor Authentication
       footerLink: 
         url: ./authentication/index.yml
         text: See more

@@ -129,7 +129,7 @@ In this quickstart, you use Azure Storage as the checkpoint store. Follow these 
 
 1. In the Solution Explorer window, right-click the **EventHubQuickStart** solution, point to **Add**, and select **New Project**. 
 1. Select **Console App (.NET Core)**, and select **Next**. 
-1. Event **EventHubsReceiver** for the **Project name**, and select **Create**. 
+1. Enter **EventHubsReceiver** for the **Project name**, and select **Create**. 
 
 ### Add the Event Hubs NuGet package
 
@@ -228,3 +228,4 @@ Check out the samples on GitHub.
 
 - [Event Hubs samples on GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs/samples)
 - [Event processor samples on GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples)
+- [Role-based access control (RBAC) sample](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Azure.Messaging.EventHubs/ManagedIdentityWebApp)

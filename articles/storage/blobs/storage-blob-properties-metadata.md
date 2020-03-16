@@ -13,7 +13,7 @@ ms.topic: conceptual
 
 # Manage blob properties and metadata with .NET
 
-In addition to the data they contain, blobs support system properties and user-defined metadata. This article shows how to manage system properties and user-defined metadata with the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage/client).
+In addition to the data they contain, blobs support system properties and user-defined metadata. This article shows how to manage system properties and user-defined metadata with the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage?view=azure-dotnet).
 
 ## About properties and metadata
 
@@ -159,4 +159,4 @@ public static async Task ReadBlobMetadataAsync(CloudBlob blob)
 - [Set Blob Properties operation](/rest/api/storageservices/set-blob-properties)
 - [Get Blob Properties operation](/rest/api/storageservices/get-blob-properties)
 - [Set Blob Metadata operation](/rest/api/storageservices/set-blob-metadata)
-- [Get Blob Metadata operation](/rest/api/storageservices/set-blob-metadata)
+- [Get Blob Metadata operation](/rest/api/storageservices/get-blob-metadata)

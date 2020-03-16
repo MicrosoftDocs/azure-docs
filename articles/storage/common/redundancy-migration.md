@@ -34,10 +34,10 @@ The following table provides an overview of how to switch from each type of repl
 
 | Switching | …to LRS | …to GRS/RA-GRS | …to ZRS | …to GZRS/RA-GZRS |
 |--------------------|----------------------------------------------------|---------------------------------------------------------------------|----------------------------------------------------|---------------------------------------------------------------------|
-| <b>…from LRS</b> | N/A | Use Azure portal, PowerShell, or CLI to change the replication setting | Perform a manual migration <br /><br />Request a live migration | Perform a manual migration <br /><br />Request a live migration |
-| <b>…from GRS/RA-GRS</b> | Use Azure portal, PowerShell, or CLI to change the replication setting | N/A | Perform a manual migration <br /><br />Request a live migration | Perform a manual migration <br /><br />Request a live migration |
-| <b>…from ZRS</b> | Perform a manual migration <br /><br />Request a live migration | Perform a manual migration <br /><br />Request a live migration | N/A | Use Azure portal, PowerShell, or CLI to change the replication setting |
-| <b>…from GZRS/RA-GZRS</b> | Perform a manual migration <br /><br />Request a live migration | Perform a manual migration <br /><br />Request a live migration | Use Azure portal, PowerShell, or CLI to change the replication setting | N/A |
+| <b>…from LRS</b> | N/A | Use Azure portal, PowerShell, or CLI to change the replication setting<sup>1</sup> | Perform a manual migration <br /><br />Request a live migration | Perform a manual migration <br /><br /> OR <br /><br /> Switch to GRS/RA-GRS first and then request a live migration<sup>1</sup> |
+| <b>…from GRS/RA-GRS</b> | Use Azure portal, PowerShell, or CLI to change the replication setting | N/A | Perform a manual migration <br /><br /> OR <br /><br /> Switch to LRS first and then request a live migration | Perform a manual migration <br /><br /> Request a live migration |
+| <b>…from ZRS</b> | Perform a manual migration | Perform a manual migration | N/A | Use Azure portal, PowerShell, or CLI to change the replication setting<sup>1</sup> |
+| <b>…from GZRS/RA-GZRS</b> | Perform a manual migration | Perform a manual migration | Use Azure portal, PowerShell, or CLI to change the replication setting | N/A |
 
 <sup>1</sup> Incurs a one-time egress charge.
 

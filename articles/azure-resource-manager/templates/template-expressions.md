@@ -2,7 +2,7 @@
 title: Template syntax and expressions
 description: Describes the declarative JSON syntax for Azure Resource Manager templates.
 ms.topic: conceptual
-ms.date: 02/10/2020
+ms.date: 02/13/2020
 ---
 
 # Syntax and expressions in Azure Resource Manager templates
@@ -11,11 +11,9 @@ The basic syntax of the template is JSON. However, you can use expressions to ex
 
 A template expression can't exceed 24,576 characters.
 
-Expressions support json('null') and properties support a literal value of null. In both cases, Resource Manager templates treat it as if the property is not present.
-
 ## Use functions
 
-The following example shows an expression in the default value of a parameter:
+Azure Resource Manager provides [functions](template-functions.md) that you can use in a template. The following example shows an expression that uses a function in the default value of a parameter:
 
 ```json
 "parameters": {
@@ -35,6 +33,12 @@ To pass a string value as a parameter to a function, use single quotes.
 ```json
 "name": "[concat('storage', uniqueString(resourceGroup().id))]"
 ```
+
+Most functions work the same whether deployed to a resource group, subscription, management group, or tenant. The following functions have restrictions based on the scope:
+
+* [resourceGroup](template-functions-resource.md#resourcegroup) - can only be used in deployments to a resource group.
+* [resourceId](template-functions-resource.md#resourceid) - can be used at any scope, but the valid parameters change depending on the scope.
+* [subscription](template-functions-resource.md#subscription) - can only be used in deployments to a resource group or subscription.
 
 ## Escape characters
 
@@ -60,6 +64,15 @@ To escape double quotes in an expression, such as adding a JSON object in the te
 "tags": {
     "CostCenter": "{\"Dept\":\"Finance\",\"Environment\":\"Production\"}"
 },
+```
+
+## Null values
+
+To set a property to null, you can use **null** or **[json('null')]**. The [json function](template-functions-array.md#json) returns an empty object when you provide `null` as the parameter. In both cases, Resource Manager templates treat it as if the property is not present.
+
+```json
+"stringValue": null,
+"objectValue": "[json('null')]"
 ```
 
 ## Next steps
