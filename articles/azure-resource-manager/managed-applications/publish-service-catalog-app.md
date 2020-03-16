@@ -7,7 +7,7 @@ ms.topic: tutorial
 ms.date: 10/04/2018
 ms.author: tomfitz
 ---
-# Create and publish a managed application definition
+# Tutorial: Create and publish a managed application definition
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 

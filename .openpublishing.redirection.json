@@ -856,6 +856,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/LUIS/luis-resources-faq.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/troubleshooting",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/LUIS/luis-tutorial-bot-csharp-appinsights.md",
       "redirect_url": "/azure/cognitive-services/LUIS/luis-csharp-tutorial-bf-v4",
       "redirect_document_id": false
@@ -1157,72 +1162,72 @@
     },
     {
       "source_path": "articles/cognitive-services/Custom-Speech-Service/cognitive-services-custom-speech-home.md",
-      "redirect_url": "/azure/cognitive-services/speech-service/how-to-migrate-from-custom-speech-service",
+      "redirect_url": "/azure/cognitive-services/speech-service",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/cognitive-services/Custom-Speech-Service/cognitive-services-custom-speech-faq.md",
-      "redirect_url": "/azure/cognitive-services/speech-service/how-to-migrate-from-custom-speech-service",
+      "redirect_url": "/azure/cognitive-services/speech-service",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/cognitive-services/Custom-Speech-Service/cognitive-services-custom-speech-get-started.md",
-      "redirect_url": "/azure/cognitive-services/speech-service/how-to-migrate-from-custom-speech-service",
+      "redirect_url": "/azure/cognitive-services/speech-service",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/cognitive-services/Custom-Speech-Service/cognitive-services-custom-speech-glossary.md",
-      "redirect_url": "/azure/cognitive-services/speech-service/how-to-migrate-from-custom-speech-service",
+      "redirect_url": "/azure/cognitive-services/speech-service",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/cognitive-services/Custom-Speech-Service/cognitive-services-custom-speech-meters.md",
-      "redirect_url": "/azure/cognitive-services/speech-service/how-to-migrate-from-custom-speech-service",
+      "redirect_url": "/azure/cognitive-services/speech-service",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/cognitive-services/Custom-Speech-Service/CustomSpeech-How-to-Topics/cognitive-services-custom-speech-change-locale.md",
-      "redirect_url": "/azure/cognitive-services/speech-service/how-to-migrate-from-custom-speech-service",
+      "redirect_url": "/azure/cognitive-services/speech-service",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/cognitive-services/Custom-Speech-Service/CustomSpeech-How-to-Topics/cognitive-services-custom-speech-create-acoustic-model.md",
-      "redirect_url": "/azure/cognitive-services/speech-service/how-to-migrate-from-custom-speech-service",
+      "redirect_url": "/azure/cognitive-services/speech-service",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/cognitive-services/Custom-Speech-Service/CustomSpeech-How-to-Topics/cognitive-services-custom-speech-create-custom-pronunciation.md",
-      "redirect_url": "/azure/cognitive-services/speech-service/how-to-migrate-from-custom-speech-service",
+      "redirect_url": "/azure/cognitive-services/speech-service",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/cognitive-services/Custom-Speech-Service/CustomSpeech-How-to-Topics/cognitive-services-custom-speech-create-endpoint.md",
-      "redirect_url": "/azure/cognitive-services/speech-service/how-to-migrate-from-custom-speech-service",
+      "redirect_url": "/azure/cognitive-services/speech-service",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/cognitive-services/Custom-Speech-Service/CustomSpeech-How-to-Topics/cognitive-services-custom-speech-create-language-model.md",
-      "redirect_url": "/azure/cognitive-services/speech-service/how-to-migrate-from-custom-speech-service",
+      "redirect_url": "/azure/cognitive-services/speech-service",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/cognitive-services/Custom-Speech-Service/CustomSpeech-How-to-Topics/cognitive-services-custom-speech-migrate-tiers.md",
-      "redirect_url": "/azure/cognitive-services/speech-service/how-to-migrate-from-custom-speech-service",
+      "redirect_url": "/azure/cognitive-services/speech-service",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/cognitive-services/Custom-Speech-Service/CustomSpeech-How-to-Topics/cognitive-services-custom-speech-subscribe.md",
-      "redirect_url": "/azure/cognitive-services/speech-service/how-to-migrate-from-custom-speech-service",
+      "redirect_url": "/azure/cognitive-services/speech-service",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/cognitive-services/Custom-Speech-Service/CustomSpeech-How-to-Topics/cognitive-services-custom-speech-transcription-guidelines.md",
-      "redirect_url": "/azure/cognitive-services/speech-service/how-to-migrate-from-custom-speech-service",
+      "redirect_url": "/azure/cognitive-services/speech-service",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/cognitive-services/Custom-Speech-Service/CustomSpeech-How-to-Topics/cognitive-services-custom-speech-use-endpoint.md",
-      "redirect_url": "/azure/cognitive-services/speech-service/how-to-migrate-from-custom-speech-service",
+      "redirect_url": "/azure/cognitive-services/speech-service",
       "redirect_document_id": false
     },
     {
@@ -1718,6 +1723,26 @@
     {
       "source_path": "articles/cognitive-services/Bing-Image-Search/image-sdk-python-quickstart.md",
       "redirect_url": "/azure/cognitive-services/bing-image-search/quickstarts/client-libraries?pivots=programming-language-python",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Entities-Search/quickstarts/entity-sdk-csharp-quickstart.md",
+      "redirect_url": "/azure/cognitive-services/bing-entity-search/quickstarts/client-libraries?pivots=programming-language-csharp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Entities-Search/quickstarts/entity-sdk-java-quickstart.md",
+      "redirect_url": "/azure/cognitive-services/bing-entity-search/quickstarts/client-libraries?pivots=programming-language-java",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Entities-Search/quickstarts/entity-sdk-node-quickstart.md",
+      "redirect_url": "/azure/cognitive-services/bing-entity-search/quickstarts/client-libraries?pivots=programming-language-javascript",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Entities-Search/quickstarts/entity-sdk-python-quickstart.md",
+      "redirect_url": "/azure/cognitive-services/bing-entity-search/quickstarts/client-libraries?pivots=programming-language-python",
       "redirect_document_id": false
     },
     {
@@ -3566,6 +3591,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/sql-database/sql-database-operate-query-store.md",
+      "redirect_url": "https://docs.microsoft.com/sql/relational-databases/performance/best-practice-with-the-query-store#Insight",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/sql-database/sql-database-customer-implementations.md",
       "redirect_url": "http://customers.microsoft.com",
       "redirect_document_id": false
@@ -3658,6 +3688,11 @@
     {
       "source_path": "articles/sql-database/sql-database-performance-tutorial.md",
       "redirect_url": "/azure/sql-database/sql-database-performance-guidance",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sql-database/sql-database-performance.md",
+      "redirect_url": "/azure/sql-database/sql-database-monitor-overview",
       "redirect_document_id": false
     },
     {
@@ -6727,7 +6762,7 @@
     },
     {
       "source_path": "articles/scheduler/get-started-portal.md",
-      "redirect_url": "/azure/scheduler/migrate-from-scheduler-to-logic-apps",
+      "redirect_url": "/azure/scheduler/migrate-from-scheduler-to-logic-apps"
     },
     {
       "source_path": "articles/connectors/connectors-create-api-googledrive.md",
@@ -16652,6 +16687,11 @@
     {
       "source_path": "articles/search/search-api-scoring-profiles-2015-02-28-preview.md",
       "redirect_url": "https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/service-bus/index.md",
+      "redirect_url": "/azure/service-bus-messaging/index",
       "redirect_document_id": false
     },
     {
@@ -31675,6 +31715,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/key-vault/automation-manage-key-vault.md",
+      "redirect_url": "/azure/key-vault/",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/load-balancer/load-balancer-security-attributes.md",
       "redirect_url": "/azure/load-balancer/load-balancer-security-controls",
       "redirect_document_id": false
@@ -32792,6 +32837,11 @@
     {
       "source_path": "articles/active-directory/role-based-access-built-in-roles.md",
       "redirect_url": "/azure/role-based-access-control/built-in-roles",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/sql-database/sql-database-control-access.md",
+      "redirect_url": "/azure/sql-database/sql-database-manage-logins",
       "redirect_document_id": true
     },
     {
@@ -36781,8 +36831,13 @@
     },
     {
       "source_path": "articles/active-directory/application-access-assignment-how-to-add-assignment.md",
-      "redirect_url": "/azure/active-directory/manage-apps/methods-for-assigning-users-and-groups",
-      "redirect_document_id": true
+      "redirect_url": "/azure/active-directory/manage-apps/assign-user-or-group-access-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/manage-apps/methods-for-assigning-users-and-groups.md",
+      "redirect_url": "/azure/active-directory/manage-apps/assign-user-or-group-access-portal",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/application-access-assignment-how-to-remove-assignment.md",
@@ -37111,17 +37166,17 @@
     },
     {
       "source_path": "articles/active-directory/active-directory-applications-guiding-developers-requiring-user-assignment.md",
-      "redirect_url": "/azure/active-directory/manage-apps/methods-for-assigning-users-and-groups",
+      "redirect_url": "/azure/active-directory/manage-apps/assign-user-or-group-access-portal",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/active-directory-applications-guiding-developers-assigning-users.md",
-      "redirect_url": "/azure/active-directory/manage-apps/methods-for-assigning-users-and-groups",
+      "redirect_url": "/azure/active-directory/manage-apps/assign-user-or-group-access-portal",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/active-directory-applications-guiding-developers-assigning-groups.md",
-      "redirect_url": "/azure/active-directory/manage-apps/methods-for-assigning-users-and-groups",
+      "redirect_url": "/azure/active-directory/manage-apps/assign-user-or-group-access-portal",
       "redirect_document_id": false
     },
     {
@@ -41725,6 +41780,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-monitor/platform/flow-tutorial.md",
+      "redirect_url": "/azure/azure-monitor/platform/logicapp-flow-connector",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/app/automate-with-flow.md",
+      "redirect_url": "/azure/azure-monitor/platform/logicapp-flow-connector",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/azure-monitor/platform/azure-storage-iis-table.md",
       "redirect_url": "/azure/azure-monitor/platform/diagnostics-extension-logs",
       "redirect_document_id": false
@@ -41747,6 +41812,16 @@
     {
       "source_path": "articles/azure-monitor/log-query/log-query-performance.md",
       "redirect_url": "/azure/azure-monitor/log-query/query-optimization",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/insights/vminsights-known-issues.md",
+      "redirect_url": "/azure/azure-monitor/insights/vminsights-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/log-query/vminsights-health.md",
+      "redirect_url": "/azure/azure-monitor/log-query/vminsights-overview",
       "redirect_document_id": false
     },
     {
@@ -49282,6 +49357,21 @@
     {
       "source_path": "articles/power-bi-embedded/index.md",
       "redirect_url": "https://docs.microsoft.com/power-bi/developer/azure-pbie-what-is-power-bi-embedded",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/speech-service/how-to-migrate-from-custom-speech-service.md",
+      "redirect_url": "/azure/cognitive-services/speech-service",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/latest/create-account-portal.md",
+      "redirect_url": "/azure/media-services/latest/create-account-howto",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/latest/create-account-cli-how-to.md",
+      "redirect_url": "/azure/media-services/latest/create-account-howto",
       "redirect_document_id": false
     }
   ]

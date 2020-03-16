@@ -2,7 +2,7 @@
 title: Deploy resources with PowerShell and template
 description: Use Azure Resource Manager and Azure PowerShell to deploy resources to Azure. The resources are defined in a Resource Manager template.
 ms.topic: conceptual
-ms.date: 08/21/2019
+ms.date: 03/16/2020
 ---
 # Deploy resources with Resource Manager templates and Azure PowerShell
 
@@ -10,7 +10,9 @@ Learn how to use Azure PowerShell with Resource Manager templates to deploy your
 
 ## Deployment scope
 
-You can target your deployment to either an Azure subscription or a resource group within a subscription. In most cases, you'll target deployment to a resource group. Use subscription deployments to apply policies and role assignments across the subscription. You also use subscription deployments to create a resource group and deploy resources to it. Depending on the scope of the deployment, you use different commands.
+You can target your deployment to a resource group, subscription, management group, or tenant. In most cases, you'll target deployment to a resource group. To apply policies and role assignments across a larger scope, use subscription, management group, or tenant deployments. When deploying to a subscription, you can create a resource group and deploy resources to it.
+
+Depending on the scope of the deployment, you use different commands.
 
 To deploy to a **resource group**, use [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment):
 
@@ -18,15 +20,29 @@ To deploy to a **resource group**, use [New-AzResourceGroupDeployment](/powershe
 New-AzResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateFile <path-to-template>
 ```
 
-To deploy to a **subscription**, use [New-AzDeployment](/powershell/module/az.resources/new-azdeployment):
+To deploy to a **subscription**, use New-AzSubscriptionDeployment:
 
 ```azurepowershell
-New-AzDeployment -Location <location> -TemplateFile <path-to-template>
+New-AzSubscriptionDeployment -Location <location> -TemplateFile <path-to-template>
 ```
 
 For more information about subscription level deployments, see [Create resource groups and resources at the subscription level](deploy-to-subscription.md).
 
-Currently, management group deployments are only supported through the REST API. For more information about management group level deployments, see [Create resources at the management group level](deploy-to-management-group.md).
+To deploy to a **management group**, use [New-AzManagementGroupDeployment](/powershell/module/az.resources/New-AzManagementGroupDeployment).
+
+```azurepowershell
+New-AzManagementGroupDeployment -Location <location> -TemplateFile <path-to-template>
+```
+
+For more information about management group level deployments, see [Create resources at the management group level](deploy-to-management-group.md).
+
+To deploy to a **tenant**, use [New-AzTenantDeployment](/powershell/module/az.resources/new-aztenantdeployment).
+
+```azurepowershell
+New-AzTenantDeployment -Location <location> -TemplateFile <path-to-template>
+```
+
+For more information about tenant level deployments, see [Create resources at the tenant level](deploy-to-tenant.md).
 
 The examples in this article use resource group deployments.
 
@@ -34,7 +50,7 @@ The examples in this article use resource group deployments.
 
 You need a template to deploy. If you don't already have one, download and save an [example template](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json) from the Azure Quickstart templates repo. The local file name used in this article is **c:\MyTemplates\azuredeploy.json**.
 
-Unless you use the Azure Cloud shell to deploy templates, you need to install Azure PowerShell and connect to Azure:
+Unless you use the Azure Cloud Shell to deploy templates, you need to install Azure PowerShell and connect to Azure:
 
 - **Install Azure PowerShell cmdlets on your local computer.** For more information, see [Get started with Azure PowerShell](/powershell/azure/get-started-azureps).
 - **Connect to Azure by using [Connect-AZAccount](/powershell/module/az.accounts/connect-azaccount)**. If you have multiple Azure subscriptions, you might also need to run [Set-AzContext](/powershell/module/Az.Accounts/Set-AzContext). For more information, see [Use multiple Azure subscriptions](/powershell/azure/manage-subscriptions-azureps).
@@ -71,7 +87,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName `
 
 The preceding example requires a publicly accessible URI for the template, which works for most scenarios because your template shouldn't include sensitive data. If you need to specify sensitive data (like an admin password), pass that value as a secure parameter. However, if you don't want your template to be publicly accessible, you can protect it by storing it in a private storage container. For information about deploying a template that requires a shared access signature (SAS) token, see [Deploy private template with SAS token](secure-template-with-sas-token.md). To go through a tutorial, see [Tutorial: Integrate Azure Key Vault in Resource Manager Template deployment](template-tutorial-use-key-vault.md).
 
-## Deploy from Azure Cloud shell
+## Deploy from Azure Cloud Shell
 
 You can use the [Azure Cloud Shell](https://shell.azure.com) to deploy your template. To deploy an external template, provide the URI of the template. To deploy a local template, you must first load your template into the storage account for your Cloud Shell. To upload files to the shell, select the **Upload/Download files** menu icon from the shell window.
 
