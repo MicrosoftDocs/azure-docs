@@ -9,7 +9,7 @@ ms.author: sagupt
 
 # Quick Fix remediation for Advisor
 **Quick Fix** enables a faster and easier way of remediation for recommendation on multiple resources. It provides capability for bulk remediations for resources and helps you optimize your subscriptions faster with remediation at scale for your resources.
-The feature is available for certain recommendations only, via Azure Portal.
+The feature is available for certain recommendations only, via Azure portal.
 
 Here are the steps to use Quick Fix:
 
