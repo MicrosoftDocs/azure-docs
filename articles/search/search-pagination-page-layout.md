@@ -103,65 +103,10 @@ POST /indexes/hotels/docs/search?api-version=2019-05-06
     }
 ```
 
-### Improved highlighting capability (for services created after July 15, 2020)
-
-> [!NOTE]
-> Services created after July 15, 2020 will provide a new and improved highlighting experience. Services created before that date will not change in their highlighting behavior.
+> [!IMPORTANT]
+> Services created after July 15, 2020 will provide a different highlighting experience. Services created before that date will not change in their highlighting behavior. With this change, only phrases that match the full phrase query will be returned. Also, it will be possible to specify the fragment size returned for the highlight.
 >
-
-####  Highlight only the matching phrases with phrase queries.
-Phrase queries enable searching of phrases in documents. 
-
-In services created before July 15, 2020, highlighting on phrase queries works by taking individual terms, regardless of their positions in the document, and including them in the response.  After July 15, 2020, only the matching phrases will be highlighted. 
-
-For example, the query "super bowl" returns highlights like this:
-
-```html
-'<em>super</em>  <em>bowl</em> is <em>super</em> awesome with a <em>bowl</em> of chips'
-```
-
-and requires client side filtering of terms. The newer experience will highlight only the phrase super bowl in the above text which is what matched the query:
-
-```html
-'<em>super bowl</em> is super awesome with a bowl of chips'
-```
-
-#### Improved experience with wildcard and fuzzy queries
-In services created after July 15, 2020, highlighting with wildcard and fuzzy queries on fields with scoring profiles will be supported. Previously, highlighting was only supported for wildcard and fuzzy queries on fields without scoring profiles. 
-
-Let's look at a simple index and queries for clarification:
-
-```http
-{
-  "name": "simple-index", 
-  "fields": [
-    {
-      "name": "key",
-      "type": "Edm.String"
-    },
-    {
-      "name": "simplefield",
-      "type": "Edm.String"
-    }
-  ],
-  "scoringProfiles": [
-    {
-      "name": "boostedprofile",
-      "functionAggregation": null,
-      "text": {
-        "weights": {
-          "simplefield": 5,
-        }
-      },
-      "functions": []
-    }
-  ]
-}
-```
-
-Using a wildcard query *search=foo*&highlight=simplefield&querytype=full* will highlight all terms starting with *foo*. The same query when used with a scoring profile *search=foo*&highlight=simplefield&querytype=full&scoringprofile=boostedprofile* will do the same, whereas before these changes it would return no highlights.
-
-
+> When you are writing client code that implements hit highlighting, be aware of this change. Note that this will not impact you unless you create a completely new search service.
 
 ## Faceted navigation
 
