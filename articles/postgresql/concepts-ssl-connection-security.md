@@ -60,31 +60,6 @@ psql "sslmode=verify-full sslrootcert=BaltimoreCyberTrustRoot.crt host=mydemoser
 > [!TIP]
 > Confirm that the value passed to `sslrootcert` matches the file path for the certificate you saved.
 
-## TLS connectivity in Azure Database for PostgreSQL Single server
-
-Azure Database for PostgreSQL - Single server supports encryption for clients connecting to your database server using Transport Layer Security (TLS). TLS is an industry standard protocol that ensures secure network connections between your database server and client applications, allowing you to adhere to compliance requirements.
-
-### TLS settings
-
-Customers now have the ability to enforce the TLS version for the client connecting to their Azure Database for PostgreSQL Single server. To use the TLS option, use the **Minimum TLS Version** option setting. The following values are allowed for this option setting:
-
-|  Minimum TLS Setting             | TLS Version supported                |
-|:---------------------------------|-------------------------------------:|
-| TLSEnforcementDisabled (default) | No TLS required                      |
-| TLS1_0                           | TLS 1.0, TLS 1.1, TLS 1.2 and higher |
-| TLS1_1                           | TLS 1.1, TLS 1.2 and higher          |
-| TLS1_2                           | TLS version 1.2 and higher           |
-
-
-For example, setting this Minimum TLS setting version to TLS 1.0 means your server will allow connections from clients using TLS 1.0, 1.1, and 1.2+. Alternatively, setting this to 1.2 means that you only allow connections from clients using TLS 1.2 and all connections with TLS 1.0 and TLS 1.1 will be rejected.
-
-> [!Note] 
-> Azure Database for PostgreSQL Single server defaults to TLS being disabled for all new servers.
->
-> Currently the TLS versions supported byAzure Database for PostgreSQL are TLS 1.0, 1.1, and 1.2.
-
-To learn how to set the TLS setting for your Azure Database for PostgreSQL Single server, refer to [How to configure TLS setting](howto-tls-configurations.md).
-
 ## Next steps
 
 Review various application connectivity options in [Connection libraries for Azure Database for PostgreSQL](concepts-connection-libraries.md).

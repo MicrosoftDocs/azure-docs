@@ -64,7 +64,7 @@ The following example creates a resource group, and deploys a template from your
 
 ```azurecli-interactive
 az group create --name ExampleGroup --location "Central US"
-az group deployment create \
+az deployment group create \
   --name ExampleDeployment \
   --resource-group ExampleGroup \
   --template-file storage.json \
@@ -85,7 +85,7 @@ To deploy an external template, use the **template-uri** parameter. Use the URI 
 
 ```azurecli-interactive
 az group create --name ExampleGroup --location "Central US"
-az group deployment create \
+az deployment group create \
   --name ExampleDeployment \
   --resource-group ExampleGroup \
   --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json" \
@@ -100,7 +100,7 @@ In the Cloud Shell, use the following commands:
 
 ```azurecli-interactive
 az group create --name examplegroup --location "South Central US"
-az group deployment create --resource-group examplegroup \
+az deployment group create --resource-group examplegroup \
   --template-uri <copied URL> \
   --parameters storageAccountType=Standard_GRS
 ```
@@ -114,7 +114,7 @@ To pass parameter values, you can use either inline parameters or a parameter fi
 To pass inline parameters, provide the values in `parameters`. For example, to pass a string and array to a template is a Bash shell, use:
 
 ```azurecli-interactive
-az group deployment create \
+az deployment group create \
   --resource-group testgroup \
   --template-file demotemplate.json \
   --parameters exampleString='inline string' exampleArray='("value1", "value2")'
@@ -125,7 +125,7 @@ If you're using Azure CLI with Windows Command Prompt (CMD) or PowerShell, pass 
 You can also get the contents of file and provide that content as an inline parameter.
 
 ```azurecli-interactive
-az group deployment create \
+az deployment group create \
   --resource-group testgroup \
   --template-file demotemplate.json \
   --parameters exampleString=@stringContent.txt exampleArray=@arrayContent.json
@@ -151,7 +151,7 @@ For more information about the parameter file, see [Create Resource Manager para
 To pass a local parameter file, use `@` to specify a local file named storage.parameters.json.
 
 ```azurecli-interactive
-az group deployment create \
+az deployment group create \
   --name ExampleDeployment \
   --resource-group ExampleGroup \
   --template-file storage.json \
@@ -182,10 +182,10 @@ To deploy a template with multi-line strings or comments, you must use the `--ha
 
 ## Test a template deployment
 
-To test your template and parameter values without actually deploying any resources, use [az group deployment validate](/cli/azure/group/deployment#az-group-deployment-validate).
+To test your template and parameter values without actually deploying any resources, use [az deployment group validate](/cli/azure/group/deployment#az-deployment-group-validate).
 
 ```azurecli-interactive
-az group deployment validate \
+az deployment group validate \
   --resource-group ExampleGroup \
   --template-file storage.json \
   --parameters @storage.parameters.json
