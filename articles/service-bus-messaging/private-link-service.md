@@ -62,7 +62,7 @@ If you already have an existing namespace, you can create a private endpoint by 
         1. Select the **Azure subscription** in which your **Service Bus namespace** exists. 
         2. For **Resource type**, Select **Microsoft.ServiceBus/namespaces** for the **Resource type**.
         3. For **Resource**, select a Service Bus namespace from the drop-down list. 
-        4. Confirm that the **Target subresource** is set to **topic** or **domain** (based on the resource type you selected).
+        4. Confirm that the **Target subresource** is set to **namespace**.
         5. Select **Next: Configuration >** button at the bottom of the page. 
         
             ![Create Private Endpoint - Resource page](./media/private-link-service/create-private-endpoint-resource-page.png)
@@ -254,9 +254,7 @@ Aliases:  <your-service-bus-namespace-name>.servicebus.azure.net
 
 **Limitations**:  Private Endpoint for Azure Service Bus is in public preview. This feature is available in all Azure public regions.
 
-**Maximum Number of Private Endpoints per Service Bus namespace**: 64.
-
-**Maximum Number of Service Bus namespaces with private endpoints per Subscription**: 64.
+**Maximum number of private endpoints per Service Bus namespace**: 120.
 
 For more, see [Azure Private Link service: Limitations](../private-link/private-link-service-overview.md#limitations)
 
