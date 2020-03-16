@@ -27,7 +27,6 @@ The table below lists the [user resource type](https://docs.microsoft.com/graph/
 - Attribute name used by Azure AD B2C (followed by the Microsoft Graph name in parentheses, if different)
 - Attribute data type
 - Attribute description
-- The attribute’s characteristics, such as the data length, read-only, etc.
 - If the attribute is available in the Azure portal
 - If the attribute can be used in a user flow
 - If the attribute can be used in a custom policy [Azure AD technical profile](active-directory-technical-profile.md) and in which section (&lt;InputClaims&gt;, &lt;OutputClaims&gt;, or &lt;PersistedClaims&gt;)
