@@ -39,7 +39,9 @@ ms.reviewer: sumeh, assafi
 In a console window (such as cmd, PowerShell, or Bash), create a new directory for your app, and navigate to it. 
 
 ```console
-mkdir myapp && cd myapp
+mkdir myapp 
+
+cd myapp
 ```
 
 Run the `npm init` command to create a node application with a `package.json` file. 
