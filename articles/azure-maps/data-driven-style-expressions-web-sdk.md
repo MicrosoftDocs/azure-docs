@@ -67,7 +67,7 @@ All examples in this document use the following feature to demonstrate different
         "subTitle": "Building 40", 
         "temperature": 72,
         "title": "Cafeteria", 
-		"zoneColor": "red"
+        "zoneColor": "red"
 	}
 }
 ```

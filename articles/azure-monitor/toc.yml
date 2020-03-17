@@ -892,13 +892,11 @@
           href: log-query/query-optimization.md
         - name: Parse text data
           href: log-query/parse-text.md
-    - name: Flow / Logic Apps
+    - name: Logic Apps
       items: 
-      - name: Flow connector with Logs
-        href: platform/flow-tutorial.md   
-      - name: Flow Connector with applications
-        href: app/automate-with-flow.md
-      - name: Logic Apps with applications
+      - name: Azure Monitor Logs connector
+        href: platform/logicapp-flow-connector.md
+      - name: Application Insights connector
         href: app/automate-with-logic-apps.md
     - name: REST API
       displayname: metrics, analyze

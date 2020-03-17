@@ -235,7 +235,13 @@
       - name: Bulk copy data using Azure Data Factory template
         href: data-factory-template.md 
       - name: Run control commands using Azure Data Factory
-        href: data-factory-command-activity.md   
+        href: data-factory-command-activity.md
+    - name: Microsoft Flow connector
+      items:
+      - name: Microsoft Flow connector
+        href: flow.md
+      - name: Microsoft Flow connector usage examples
+        href: flow-usage.md
     - name: Apache Spark Connector
       href: spark-connector.md
     - name: Connect from Databricks using Python
