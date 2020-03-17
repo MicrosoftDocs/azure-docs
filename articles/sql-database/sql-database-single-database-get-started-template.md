@@ -4,7 +4,7 @@ description: Create a single database in Azure SQL Database using the Azure Reso
 services: sql-database
 ms.service: sql-database
 ms.subservice: single-database
-ms.custom:
+ms.custom: subject-armqs
 ms.devlang:
 ms.topic: quickstart
 author: mumian
@@ -15,13 +15,23 @@ ms.date: 06/28/2019
 
 # Quickstart: Create a single database in Azure SQL Database using the Azure Resource Manager template
 
-Creating a [single database](sql-database-single-database.md) is the quickest and simplest deployment option for creating a database in Azure SQL Database. This quickstart shows you how to create a single database using the Azure Resource Manager template. For more information, see [Azure Resource Manager documentation](/azure/azure-resource-manager/).
+Creating a [single database](sql-database-single-database.md) is the quickest and simplest deployment option for creating a database in Azure SQL Database. This quickstart shows you how to create a single database using the Azure Resource Manager template.
+
+[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/).
+
+## Prerequisites
+
+None
 
 ## Create a single database
 
 A single database has a defined set of compute, memory, IO, and storage resources using one of two [purchasing models](sql-database-purchase-models.md). When you create a single database, you also define a [SQL Database server](sql-database-servers.md) to manage it and place it within [Azure resource group](../azure-resource-manager/management/overview.md) in a specified region.
+
+### Review the template
+
+The template used in this quickstart is from [Azure Quickstart templates]()
 
 The following JSON file is the template that is used in this article. The template is stored in [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/SQLServerAndDatabase/azuredeploy.json). More Azure SQL database template samples can be found in [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Sql&pageNumber=1&sort=Popular).
 
