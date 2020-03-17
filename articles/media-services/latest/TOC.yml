@@ -337,6 +337,7 @@
   - name: Troubleshoot
     items:
     - name: Frequently asked questions
+      displayName: faqs
       href: frequently-asked-questions.md      
     - name: Error codes
       items:
