@@ -88,7 +88,7 @@ HttpGet probe has additional properties you can set:
 
 ## TCP Probe
 
-For TCP probe, Service Fabric will try to open a socket on the container with the specified port. Here is an example of how to specify probe which uses TCP socket:
+For TCP probe, Service Fabric will try to open a socket on the container with the specified port. If it can establish a connection, the probe is considered success. Here is an example of how to specify probe which uses TCP socket:
 
 ```xml
   <ServiceManifestImport>
