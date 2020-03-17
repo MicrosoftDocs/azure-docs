@@ -119,7 +119,7 @@ Follow these steps to clean up resources as you desire.
 
 1. Sign in to the [Azure portal](https://portal.azure.com), and click on your SQL pool.
 
-    ![Clean up resources](./media/pause-and-resume-compute-powershell/clean-up-resources.png)
+    ![Clean up resources](./media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 
 2. To pause compute, click the **Pause** button. When the SQL pool is paused, you see a **Start** button.  To resume compute, click **Start**.
 

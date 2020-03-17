@@ -49,7 +49,7 @@ Once you've deployed the template, you should find three new resources: a free A
 
    ![Select Integrate for function](./media/manage-compute-with-azure-functions/select-integrate.png)
 
-3. Currently the value displayed should say either *%ScaleDownTime%* or *%ScaleUpTime%*. These values indicate the schedule is based on values defined in your [Application Settings][Application Settings]. For now, you can ignore this value and change the schedule to your preferred time based on the next steps.
+3. Currently the value displayed should say either *%ScaleDownTime%* or *%ScaleUpTime%*. These values indicate the schedule is based on values defined in your [Application Settings](../../azure-functions/functions-how-to-use-azure-function-app-settings.md). For now, you can ignore this value and change the schedule to your preferred time based on the next steps.
 
 4. In the schedule area, add the time the CRON expression you would like to reflect how often you want the SQL Data Warehouse to be scaled up. 
 
@@ -60,7 +60,7 @@ Once you've deployed the template, you should find three new resources: a free A
    {second} {minute} {hour} {day} {month} {day-of-week}
    ```
 
-   For example, *"0 30 9 * * 1-5"* would reflect a trigger every weekday at  9:30am. For more information, visit Azure Functions [schedule examples][schedule examples].
+   For example, *"0 30 9 * * 1-5"* would reflect a trigger every weekday at  9:30am. For more information, visit Azure Functions [schedule examples](../../azure-functions/functions-bindings-timer.md#example).
 
 
 ## Change the time of the scale operation
@@ -88,7 +88,7 @@ Currently, the functions on by default are *DWScaleDownTrigger* and *DWScaleUpTr
 3. Navigate to the *Integrate* tabs for the respective triggers to change their schedule.
 
    > [!NOTE]
-   > The functional difference between the scaling triggers and the pause/resume triggers is the message that is sent to the queue. For more information, see [Add a new trigger function][Add a new trigger function].
+   > The functional difference between the scaling triggers and the pause/resume triggers is the message that is sent to the queue. For more information, see [Add a new trigger function](manage-compute-with-azure-functions.md#add-a-new-trigger-function).
 
 
 ## Add a new trigger function
@@ -142,7 +142,7 @@ Daily scale up at 8am to DW600 and scale down at 8pm to DW200.
 
 | Function  | Schedule     | Operation                                |
 | :-------- | :----------- | :--------------------------------------- |
-| Function1 | 0 0 8 * * *  | `var operation = {"operationType": "ScaleDw",	"ServiceLevelObjective": "DW600"}` |
+| Function1 | 0 0 8 * * *  | `var operation = {"operationType": "ScaleDw",    "ServiceLevelObjective": "DW600"}` |
 | Function2 | 0 0 20 * * * | `var operation = {"operationType": "ScaleDw", "ServiceLevelObjective": "DW200"}` |
 
 ### Example 2: 
@@ -151,7 +151,7 @@ Daily scale up at 8am to DW1000, scale down once to DW600 at 4pm, and scale down
 
 | Function  | Schedule     | Operation                                |
 | :-------- | :----------- | :--------------------------------------- |
-| Function1 | 0 0 8 * * *  | `var operation = {"operationType": "ScaleDw",	"ServiceLevelObjective": "DW1000"}` |
+| Function1 | 0 0 8 * * *  | `var operation = {"operationType": "ScaleDw",    "ServiceLevelObjective": "DW1000"}` |
 | Function2 | 0 0 16 * * * | `var operation = {"operationType": "ScaleDw", "ServiceLevelObjective": "DW600"}` |
 | Function3 | 0 0 22 * * * | `var operation = {"operationType": "ScaleDw", "ServiceLevelObjective": "DW200"}` |
 
@@ -161,7 +161,7 @@ Scale up at 8am to DW1000 , scale down once to DW600 at 4pm on the weekdays. Pau
 
 | Function  | Schedule       | Operation                                |
 | :-------- | :------------- | :--------------------------------------- |
-| Function1 | 0 0 8 * * 1-5  | `var operation = {"operationType": "ScaleDw",	"ServiceLevelObjective": "DW1000"}` |
+| Function1 | 0 0 8 * * 1-5  | `var operation = {"operationType": "ScaleDw",    "ServiceLevelObjective": "DW1000"}` |
 | Function2 | 0 0 16 * * 1-5 | `var operation = {"operationType": "ScaleDw", "ServiceLevelObjective": "DW600"}` |
 | Function3 | 0 0 23 * * 5   | `var operation = {"operationType": "PauseDw"}` |
 | Function4 | 0 0 7 * * 0    | `var operation = {"operationType": "ResumeDw"}` |
@@ -174,9 +174,3 @@ Learn more about [timer trigger](../../azure-functions/functions-create-schedule
 
 Checkout the SQL pool [samples repository](https://github.com/Microsoft/sql-data-warehouse-samples).
 
-
-
-[schedule examples]: ../azure-functions/functions-bindings-timer.md#example
-
-[Application Settings]: ../azure-functions/functions-how-to-use-azure-function-app-settings.md
-[Add a new trigger function]:manage-compute-with-azure-functions.md#add-a-new-trigger-function

@@ -1075,7 +1075,7 @@ Follow these steps to clean up resources as you desire.
 
 1. Sign in to the [Azure portal](https://portal.azure.com), click on your data warehouse.
 
-    ![Clean up resources](./media/load-data-wideworldimportersdw/clean-up-resources.png)
+    ![Clean up resources](./media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 
 2. If you want to keep the data in storage, you can pause compute when you aren't using the data warehouse. By pausing compute, you will only be charge for data storage and you can resume the compute whenever you are ready to work with the data. To pause compute, click the **Pause** button. When the data warehouse is paused, you will see a **Start** button.  To resume compute, click **Start**.
 
