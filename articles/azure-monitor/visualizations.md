@@ -5,7 +5,7 @@ ms.subservice:
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 11/24/2018
+ms.date: 03/17/2020
 
 ---
 
@@ -39,26 +39,6 @@ Visualizations such as charts and graphs can help you analyze your monitoring da
 - Log charts can only be pinned to shared dashboards.
 - No interactivity with dashboard data.
 - Limited contextual drill-down.
-
-## Azure Monitor Views
-[Views in Azure Monitor](platform/view-designer.md)  allow you to create custom visualizations with log data. They are used by [monitoring solutions](insights/solutions.md) to present the data they collect.
-
-![View](media/visualizations/view.png)
-
-### Advantages
-- Rich visualizations for log data.
-- Export and import views to transfer them to other resource groups and subscriptions.
-- Integrates into Azure Monitor management model with workspaces and monitoring solutions.
-- [Filters](platform/view-designer-filters.md) for custom parameters.
-- Interactive, supports multi-level drill-in (view that drills into another view)
-
-### Limitations
-- Supports logs but not metrics.
-- No personal views. Available to all users with access to the workspace.
-- No automatic refresh.
-- Limited layout options.
-- No support for querying across multiple workspaces or Application Insights applications.
-- Queries are limited in response size to 8MB and query execution time of 110 seconds.
 
 
 ## Workbooks
@@ -125,6 +105,29 @@ You can access data in log and metric data in Azure Monitor through their API us
 ### Disadvantages
 - Significant engineering effort required.
 
+
+## Azure Monitor Views
+[Views in Azure Monitor](platform/view-designer.md)  allow you to create custom visualizations with log data. They are used by [monitoring solutions](insights/solutions.md) to present the data they collect.
+
+> [!NOTE]
+> Views are in the process of being deprecated. See [Azure Monitor view designer to workbooks transition guide](platform/view-designer-conversion-overview.md) for guidance on converting views to workbooks.
+
+![View](media/visualizations/view.png)
+
+### Advantages
+- Rich visualizations for log data.
+- Export and import views to transfer them to other resource groups and subscriptions.
+- Integrates into Azure Monitor management model with workspaces and monitoring solutions.
+- [Filters](platform/view-designer-filters.md) for custom parameters.
+- Interactive, supports multi-level drill-in (view that drills into another view)
+
+### Limitations
+- Supports logs but not metrics.
+- No personal views. Available to all users with access to the workspace.
+- No automatic refresh.
+- Limited layout options.
+- No support for querying across multiple workspaces or Application Insights applications.
+- Queries are limited in response size to 8MB and query execution time of 110 seconds.
 
 ## Next steps
 - Learn about the [data collected by Azure Monitor](platform/data-platform.md).
