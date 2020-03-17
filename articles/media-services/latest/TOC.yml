@@ -206,12 +206,9 @@
       displayName: portal, cli, storage
     - name: Reset the account credentials
       href: cli-reset-account-credentials.md   
-    - name: Access APIs
-      items:
-      - name: With portal
-        href: access-api-portal.md   
-      - name: With CLI
-        href: access-api-cli-how-to.md
+    - name: Access API
+      displayName: portal, cli
+      href: access-api-howto.md   
     - name: Scale Media Reserved Units
       href: media-reserved-units-cli-how-to.md   
     - name: Create an Asset
@@ -340,6 +337,7 @@
   - name: Troubleshoot
     items:
     - name: Frequently asked questions
+      displayName: faqs
       href: frequently-asked-questions.md      
     - name: Error codes
       items:
@@ -355,7 +353,7 @@
     href: https://aka.ms/ams-v3-rest-sdk
     displayName: schema
   - name: REST
-    href: https://aka.ms/ams-v3-rest-ref 
+    href: https://docs.microsoft.com/rest/api/media/ 
   - name: Azure CLI
     href: https://aka.ms/ams-v3-cli-ref    
   - name: SDKs
