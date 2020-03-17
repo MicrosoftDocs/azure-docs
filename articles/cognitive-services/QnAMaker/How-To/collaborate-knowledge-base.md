@@ -2,8 +2,16 @@
 title: Collaborating on knowledge base - QnA Maker
 description: QnA Maker allows multiple people to collaborate on a knowledge base. This feature is provided with the Azure Role-Based Access Control.
 ms.topic: conceptual
-ms.date: 01/13/2020
+ms.date: 03/17/2020
 ---
+
+# Collaboration with authors and editors
+
+Collaboration is provided at the QnA Maker resource level in two different ways:
+
+* **Authentication key** for owner and contributor roles. This is the original method of providing access. at subscription level 
+
+* Authentication via **bearer tokens** for other roles. This is a newer method of providing access.
 
 # Add role-based access (RBAC) to your QnA Maker resource
 
@@ -13,7 +21,9 @@ QnA Maker allows multiple people to collaborate on all knowledge bases in the sa
 
 You cannot share a particular knowledge base in a QnA Maker service. If you want more granular access control, consider distributing your knowledge bases across different QnA Maker services.
 
-## Add a user account to the QnA Maker resource
+## Use authentication key for owner and contributor
+
+### Add a user account to the QnA Maker resource
 
 The following steps use the collaborator role but any of the [roles](../reference-role-based-access-control.md) can be added using these steps
 
@@ -46,6 +56,10 @@ The following steps use the collaborator role but any of the [roles](../referenc
     ![QnA Maker IAM add email](../media/qnamaker-how-to-collaborate-knowledge-base/qnamaker-iam-add-email.PNG)
 
 When the person you shared your QnA Maker service with logs into the [QnA Maker portal](https://qnamaker.ai), they can see all the knowledge bases in that service based on their role.
+
+## Use bearer token for other roles
+
+Bearer
 
 ## Next steps
 
