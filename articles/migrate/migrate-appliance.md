@@ -138,7 +138,7 @@ Process arguments | ps
 Application name | dpkg or rpm
 
 
-### Collected performance data - VMware
+### Collected performance data-VMware
 
 
 Here's the VMware VM performance data that the appliance collects and sends to Azure.
@@ -155,7 +155,7 @@ NIC read throughput (MB per second) | net.received.average | Calculation for VM 
 NIC writes throughput (MB per second) | net.transmitted.average  |Calculation for VM size
 
 
-### Collected metadata - VMware
+### Collected metadata-VMware
 
 > [!NOTE]
 > Metadata discovered by the Azure Migrate appliance is used to help you right-size your applications as you migrate them to Azure, perform Azure suitability analysis, application dependency analysis, and cost planning. Microsoft does not use this data in relation to any license compliance audit.
@@ -209,7 +209,7 @@ Host details per VM | ((HostSystem)container).VM
 
 ## Collected data - Hyper-V
 
-### Collected performance data - Hyper-V
+### Collected performance data-Hyper-V
 
 > [!NOTE]
 > Metadata discovered by the Azure Migrate appliance is used to help you right-size your applications as you migrate them to Azure, perform Azure suitability analysis, application dependency analysis, and cost planning. Microsoft does not use this data in relation to any license compliance audit.
@@ -229,7 +229,7 @@ Hyper-V Virtual Network Adapter | Bytes Sent/Second | Calculation for VM size
 - Memory utilization is (Current Pressure * Guest Visible Physical Memory) / 100.
 - Disk and network utilization values are collected from the listed Hyper-V performance counters.
 
-### Collected metadata - Hyper-V
+### Collected metadata-Hyper-V
 
 Here's the full list of Hyper-V VM metadata that the appliance collects and sends to Azure.
 
