@@ -240,7 +240,7 @@ In the editor pane, select **Test pane** to test your script. After the script r
 
 When you set up a key vault, you can turn on auditing to collect logs on access requests made to the key vault. These logs are stored in a designated Azure storage account and can be pulled out, monitored, and analyzed. The following scenario uses Azure functions, Azure logic apps, and key-vault audit logs to create a pipeline that sends an email when an app that doesn't match the app ID of the web app retrieves secrets from the vault.
 
-First, you must enable logging on your key vault. Use the following PowerShell commands. (You can see the full details in  [this article about key-vault-logging](key-vault-logging.md).)
+First, you must enable logging on your key vault. Use the following PowerShell commands. (You can see the full details in  [this article about key-vault-logging](../general/logging.md).)
 
 ```powershell
 $sa = New-AzStorageAccount -ResourceGroupName <resourceGroupName> -Name <storageAccountName> -Type Standard\_LRS -Location 'East US'
@@ -253,7 +253,7 @@ After logging is enabled, audit logs start being stored in the designated storag
 > [!NOTE]
 > You can access your logging information 10 minutes after the key vault operation. It will often be available sooner than that.
 
-The next step is to [create an Azure Service Bus queue](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md). This queue is where key-vault audit logs are pushed. When the audit-log messages are in the queue, the logic app picks them up and acts on them. Create a Service Bus instance with the following steps:
+The next step is to [create an Azure Service Bus queue](../../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md). This queue is where key-vault audit logs are pushed. When the audit-log messages are in the queue, the logic app picks them up and acts on them. Create a Service Bus instance with the following steps:
 
 1. Create a Service Bus namespace (if you already have one that you want to use, skip to step 2).
 2. Browse to the Service Bus instance in the Azure portal and select the namespace you want to create the queue in.

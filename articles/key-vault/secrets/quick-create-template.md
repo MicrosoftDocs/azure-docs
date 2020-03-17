@@ -18,7 +18,7 @@ ms.author: jgao
 ---
 # Quickstart: Set and retrieve a secret from Azure Key Vault using Resource Manager template
 
-[Azure Key Vault](./key-vault-overview.md) is a cloud service that provides a secure store for secrets, such as keys, passwords, certificates, and other secrets. This quickstart focuses on the process of deploying a Resource Manager template to create a key vault and a secret.
+[Azure Key Vault](../general/overview.md) is a cloud service that provides a secure store for secrets, such as keys, passwords, certificates, and other secrets. This quickstart focuses on the process of deploying a Resource Manager template to create a key vault and a secret.
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -158,4 +158,4 @@ In this quickstart, you created a key vault and a secret using an Azure Resource
 - Read an [Overview of Azure Key Vault](../general/overview.md)
 - Learn more about [Azure Resource Manager](../../azure-resource-manager/management/overview.md)
 - Get more info on [keys, secrets, and certificates](../general/about-keys-secrets-and-certificates.md)
-- Review [Azure Key Vault best practices](key-vault-best-practices.md)
+- Review [Azure Key Vault best practices](../general/best-practices.md)

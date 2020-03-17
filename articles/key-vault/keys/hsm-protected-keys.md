@@ -35,14 +35,6 @@ Transferring HSM-protected keys to Key Vault is supported via two different meth
 |Fortanix|HSM as a Service|<ul><li>Self-Defending Key Management Service (SDKMS)</li></ul>|[Use new BYOK method (preview)](hsm-protected-keys-vendor-agnostic-byok.md)|
 
 
-
-
-
-
-
-
-
-
 ## Next steps
 
-Follow [Key Vault Best Practices](../general/key-vault-best-practices.md) to ensure security, durability and monitoring for your keys.
+Follow [Key Vault Best Practices](../general/best-practices.md) to ensure security, durability and monitoring for your keys.

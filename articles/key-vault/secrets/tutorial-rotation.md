@@ -15,7 +15,7 @@ ms.author: mbaldwin
 ---
 # Automate the rotation of a secret for resources with single user/password authentication
 
-Although the best way to authenticate to Azure services is by using an [managed identity](managed-identity.md), there are some scenarios where this is not an option. In these cases, access keys or secrets are used. Access keys or secrets should be periodically rotated.
+Although the best way to authenticate to Azure services is by using an [managed identity](../general/managed-identity.md), there are some scenarios where this is not an option. In these cases, access keys or secrets are used. Access keys or secrets should be periodically rotated.
 
 This tutorial demonstrates how to automate the periodic rotation of secrets for databases and services with single user/password authentication. Specifically, this scenario rotates SQL server passwords stored in key vault using a function triggered by Event Grid notification:
 
@@ -96,7 +96,7 @@ simplerotation-plan           simplerotation             eastus      Microsoft.W
 simplerotation-fn             simplerotation             eastus      Microsoft.Web/sites
 ```
 
-For information how to create Function App and using Managed Identity to access Key Vault, see [Create a function app from the Azure portal](../../azure-functions/functions-create-function-app-portal.md) and [Provide Key Vault authentication with a managed identity](managed-identity.md)
+For information how to create Function App and using Managed Identity to access Key Vault, see [Create a function app from the Azure portal](../../azure-functions/functions-create-function-app-portal.md) and [Provide Key Vault authentication with a managed identity](../general/managed-identity.md)
 
 ### Rotation function and deployment
 Function is using event as trigger and perform rotation of a secret updating Key Vault and SQL database.
@@ -268,6 +268,6 @@ The Generated Secret Value should be shown with Database Connected as true.
 
 ## Learn more:
 
-- Overview: [Monitoring Key Vault with Azure Event Grid (preview)](event-grid-overview.md)
-- How to: [Receive email when a key vault secret changes](event-grid-logicapps.md)
+- Overview: [Monitoring Key Vault with Azure Event Grid (preview)](../general/event-grid-overview.md)
+- How to: [Receive email when a key vault secret changes](../general/event-grid-logicapps.md)
 - [Azure Event Grid event schema for Azure Key Vault (preview)](../../event-grid/event-schema-key-vault.md)

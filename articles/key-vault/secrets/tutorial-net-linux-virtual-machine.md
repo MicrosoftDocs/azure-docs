@@ -29,7 +29,7 @@ In this tutorial, you set up a .NET console application to read information from
 > * Grant the required permissions for the console application to read data from Key Vault
 > * Retrieve a secret from Key Vault
 
-Before we go any further, read about [key vault basic concepts](basic-concepts.md).
+Before we go any further, read about [key vault basic concepts](../general/basic-concepts.md).
 
 ## Prerequisites
 
