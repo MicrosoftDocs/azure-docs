@@ -91,10 +91,10 @@ The same extension attributes are shared between built-in and custom policies. W
 
 You can create these attributes by using the portal UI before, or after you use them in your custom policies. Follow the guidance how to [define custom attributes in Azure Active Directory B2C](user-flow-custom-attributes.md) When you create an attribute **loyaltyId** in the portal, you must refer to it as follows:
 
-   ```
-   extension_loyaltyId in the custom policy.
-   extension_<b2c-extensions-app-guid>_loyaltyId via Graph API.
-   ```
+|Name     |Used in |
+|---------|---------|
+|`extension_loyaltyId`  | Custom policy|
+|`extension_<b2c-extensions-app-guid>_loyaltyId`  | [Microsoft Graph API](manage-user-accounts-graph-api.md)|
 
 The following example demonstrates the use of custom attribute in Azure AD B2C custom policy claim definition.
 
