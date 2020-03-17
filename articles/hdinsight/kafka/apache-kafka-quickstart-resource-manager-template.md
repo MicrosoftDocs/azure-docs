@@ -29,8 +29,6 @@ The template used in this quickstart is from [Azure Quickstart templates](https:
 
 :::code language="json" source="~/quickstart-templates/101-hdinsight-kafka/azuredeploy.json" range="1-150":::
 
-The mapping is defined in the `openpublishing.publish.config` file.
-
 Two Azure resources are defined in the template:
 
 * [Microsoft.Storage/storageAccounts](https://docs.microsoft.com/azure/templates/microsoft.storage/storageaccounts): create an Azure Storage Account.
