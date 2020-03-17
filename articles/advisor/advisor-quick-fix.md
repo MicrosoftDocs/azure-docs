@@ -16,12 +16,12 @@ The feature is available for certain recommendations only, via Azure portal.
 
 1. From the list of recommendations that have the **Quick Fix** label, click on the recommendation.
 
-![Advisor quick fix](./media/quickfix-1.png)
+![Advisor quick fix](./media/quick-fix-1.png)
 
 2. On the Recommendation details page, you'll see list of resources for which you have this recommendation. Select all the resources you want to remediate for the recommendation.
 
 
-![Advisor quick fix](./media/quickfix-2.png)
+![Advisor quick fix](./media/quick-fix-2.png)
 
 3. Once you have selected the resources, click on the **Quick Fix** button to bulk remediate.
 
