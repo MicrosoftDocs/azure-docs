@@ -27,7 +27,7 @@ The following diagram shows the relationship between the Functions host and a we
 
 ![Azure Functions custom handler overview](./media/functions-custom-handlers/azure-functions-custom-handlers-overview.png)
 
-- Events trigger a request sent to the Functions host. The event carries either a raw HTTP payload (for HTTP-triggered functions), or a payload that holds the input binding data for the function.
+- Events trigger a request sent to the Functions host. The event carries either a raw HTTP payload (for HTTP-triggered functions with no bindings), or a payload that holds input binding data for the function.
 - The Functions host then proxies the request to the web server by issuing a [request payload](#request-payload).
 - The web server executes the individual function, and returns a [response payload](#response-payload) to the Functions host.
 - The Functions host proxies the response as an output binding payload to the target.
@@ -36,7 +36,7 @@ An Azure Functions app implemented as a custom handler must configure the *host.
 
 ## Application structure
 
-To implement a custom handler, you need the following aspects in your application:
+To implement a custom handler, you need the following aspects to your application:
 
 - A *host.json* file at the root of your app
 - A *function.json* file for each function (inside a folder that matches the function name)
@@ -118,7 +118,7 @@ The request payload for pure HTTP functions is the raw HTTP request payload. Pur
 
 Any other type of function that includes either input, output bindings or is triggered via an event source other than HTTP have a custom request payload.
 
-The following code represents a sample request payload. The payload includes a JSON payload with two members: `Data` and `Metadata`.
+The following code represents a sample request payload. The payload includes a JSON structure with two members: `Data` and `Metadata`.
 
 The `Data` member includes keys that match input and trigger names as defined in the bindings array in the *function.json* file.
 
@@ -174,13 +174,13 @@ A request payload similar to this example is returned:
 
 By convention, function responses are formatted as key/value pairs. Supported keys include:
 
-| Payload key   | Data type | Remarks                                                      |
+| <nobr>Payload key</nobr>   | Data type | Remarks                                                      |
 | ------------- | --------- | ------------------------------------------------------------ |
 | `Outputs`     | JSON      | Holds response values as defined by the `bindings` array the *function.json* file.<br /><br />For instance, if a function is configured with a blob storage output binding named "blob", then `Outputs` contains a key named `blob`, which is set to the blob's value. |
-| `Logs`        | array     | Messages appear in the Functions invocation logs.<br /><br />When running in Azure, logged messaged appear in Application Insights. |
+| `Logs`        | array     | Messages appear in the Functions invocation logs.<br /><br />When running in Azure, messages appear in Application Insights. |
 | `ReturnValue` | string    | Used to provide a response when an output is configured as `$return` in the *function.json* file. |
 
-See the [example for a sample payload](#server-implementation).
+See the [example for a sample payload](#bindings-implementation).
 
 ## Examples
 
@@ -203,6 +203,8 @@ content-type: application/json
   "message": "Hello World!"
 }
 ```
+
+<a id="hello-implementation" name="hello-implementation"></a>
 
 ### Implementation
 
@@ -278,7 +280,7 @@ The route for the order function here is `/hello` and not `/api/hello` because t
 
 ## Function with bindings
 
-The scenario implemented in this example features a function named `order` that accepts a `POST` with a payload representing a product order.
+The scenario implemented in this example features a function named `order` that accepts a `POST` with a payload representing a product order. As an order is posted to the function, a Queue Storage message is created and an HTTP response is returned.
 
 ```http
 POST http://127.0.0.1:7071/api/order HTTP/1.1
@@ -290,6 +292,8 @@ content-type: application/json
   "color": "black"
 }
 ```
+
+<a id="bindings-implementation" name="bindings-implementation"></a>
 
 ### Implementation
 
@@ -436,7 +440,7 @@ This example is for Node.js, so you may have to alter this example for other lan
 
 ## Deploying
 
-A custom handler can be deployed to any Azure Functions hosting option. If your handler requires custom dependencies (such as a language runtime), you may need to use a [custom container](./functions-create-function-linux-custom-image.md).
+A custom handler can be deployed to nearly every Azure Functions hosting option (see [restrictions](#restrictions)). If your handler requires custom dependencies (such as a language runtime), you may need to use a [custom container](./functions-create-function-linux-custom-image.md).
 
 ## Restrictions
 
