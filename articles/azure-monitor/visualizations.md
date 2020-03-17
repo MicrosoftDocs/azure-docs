@@ -14,7 +14,23 @@ This article provides a summary of the available methods to visualize log and me
 
 Visualizations such as charts and graphs can help you analyze your monitoring data to drill-down on issues and identify patterns. Depending on the tool you use, you may also have the option to share visualizations with other users inside and outside of your organization.
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+## Workbooks
+[Workbooks](../azure-monitor/app/usage-workbooks.md) are interactive documents that provide deep insights into your data, investigation, and collaboration inside the team. Specific examples where workbooks are useful are troubleshooting guides and incident postmortem.
+
+![Workbook](media/visualizations/workbook.png)
+
+### Advantages
+- Supports both metrics and logs.
+- Supports parameters  enabling interactive reports where selecting an element in a table will dynamically update associated charts and visualizations.
+- Document-like flow.
+- Option for personal or shared workbooks.
+- Easy, collaborative-friendly authoring experience.
+- Templates support public GitHub-based template gallery.
+
+### Limitations
+- No automatic refresh.
+- No dense layout like dashboards, which make workbooks less useful as a single pane of glass. Intended more for providing deeper insights.
+
 
 ## Azure Dashboards
 [Azure dashboards](../azure-portal/azure-portal-dashboards.md) are the primary dashboarding technology for Azure. They're particularly useful in providing single pane of glass over your Azure infrastructure and services allowing you to quickly identify important issues.
@@ -39,24 +55,6 @@ Visualizations such as charts and graphs can help you analyze your monitoring da
 - Log charts can only be pinned to shared dashboards.
 - No interactivity with dashboard data.
 - Limited contextual drill-down.
-
-
-## Workbooks
-[Workbooks](../azure-monitor/app/usage-workbooks.md) are interactive documents that provide deep insights into your data, investigation, and collaboration inside the team. Specific examples where workbooks are useful are troubleshooting guides and incident postmortem.
-
-![Workbook](media/visualizations/workbook.png)
-
-### Advantages
-- Supports both metrics and logs.
-- Supports parameters  enabling interactive reports where selecting an element in a table will dynamically update associated charts and visualizations.
-- Document-like flow.
-- Option for personal or shared workbooks.
-- Easy, collaborative-friendly authoring experience.
-- Templates support public GitHub-based template gallery.
-
-### Limitations
-- No automatic refresh.
-- No dense layout like dashboards, which make workbooks less useful as a single pane of glass. Intended more for providing deeper insights.
 
 
 ## Power BI
@@ -107,10 +105,12 @@ You can access data in log and metric data in Azure Monitor through their API us
 
 
 ## Azure Monitor Views
+
+> [!IMPORTANT]
+> Views are in the process of being deprecated. See [Azure Monitor view designer to workbooks transition guide](platform/view-designer-conversion-overview.md) for guidance on converting views to workbooks.
+
 [Views in Azure Monitor](platform/view-designer.md)  allow you to create custom visualizations with log data. They are used by [monitoring solutions](insights/solutions.md) to present the data they collect.
 
-> [!NOTE]
-> Views are in the process of being deprecated. See [Azure Monitor view designer to workbooks transition guide](platform/view-designer-conversion-overview.md) for guidance on converting views to workbooks.
 
 ![View](media/visualizations/view.png)
 
