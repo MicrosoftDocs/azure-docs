@@ -131,7 +131,6 @@ Jump to a resource provider namespace:
 > - [Microsoft.SaaS](#microsoftsaas)
 > - [Microsoft.Search](#microsoftsearch)
 > - [Microsoft.Security](#microsoftsecurity)
-> - [Microsoft.SecurityDetonation](#microsoftsecuritydetonation)
 > - [Microsoft.SecurityInsights](#microsoftsecurityinsights)
 > - [Microsoft.ServerManagement](#microsoftservermanagement)
 > - [Microsoft.ServiceBus](#microsoftservicebus)
@@ -1314,13 +1313,6 @@ Jump to a resource provider namespace:
 > | informationprotectionpolicies | No | No |
 > | iotsecuritysolutions | Yes | Yes |
 > | servervulnerabilityassessments | No | No |
-
-## Microsoft.SecurityDetonation
-
-> [!div class="mx-tableFixed"]
-> | Resource type | Resource group | Subscription |
-> | ------------- | ----------- | ---------- |
-> | chambers | No | No |
 
 ## Microsoft.SecurityInsights
 
