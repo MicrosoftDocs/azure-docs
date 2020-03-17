@@ -31,13 +31,13 @@ This section examines settings of your Video Indexer account.
 
 To view settings:
 
-1. Click on the user icon in the top right corner and select **Settings**.
+1. Click on the user icon in the top-right corner and select **Settings**.
 
     ![Settings in Video Indexer](./media/manage-account-connected-to-azure/select-settings.png)
 
 2. On the **Settings** page, select the **Account** tab.
 
-If your Videos Indexer account is connected to Azure, you see the following:
+If your Videos Indexer account is connected to Azure, you see the following things:
 
 * The name of the underlying Azure Media Services account.
 * The number of indexing jobs running and queued.
@@ -60,7 +60,7 @@ In the **Update connection to Azure Media Services** dialog of your [Video Index
 
 The **Settings** page enables you to set the autoscaling of media reserved units (RU). If the option is **On**, you can allocate the maximum number of RUs and be sure that Video Indexer stops/starts RUs automatically. With this option, you don't pay extra money for idle time but also don't wait for indexing jobs to complete a long time when the indexing load is high.
 
-Autoscale doesn't scale below 1 RU or above the default limit of the Media Services account. In order to increase the limit, create a service request. For information about quotas and limitations and how to open a support ticket, see [Quotas and limitations](../../media-services/previous/media-services-quotas-and-limitations.md).
+Autoscale doesn't scale below 1 RU or above the default limit of the Media Services account. To increase the limit, create a service request. For information about quotas and limitations and how to open a support ticket, see [Quotas and limitations](../../media-services/previous/media-services-quotas-and-limitations.md).
 
 ![Autoscale reserved units Video Indexer](./media/manage-account-connected-to-azure/autoscale-reserved-units.png)
 
@@ -74,7 +74,7 @@ If your account needs some adjustments, you see relevant errors and warnings abo
 
 * Streaming endpoint
 
-    Make sure the underlying Media Services account has the default **Streaming Endpoint** in a started state. Otherwise, you won't be able to watch videos from this Media Services account or in Video Indexer.
+    Make sure the underlying Media Services account has the default **Streaming Endpoint** in a started state. Otherwise, you can't watch videos from this Media Services account or in Video Indexer.
 
 * Media reserved units
 
