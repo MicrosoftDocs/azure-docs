@@ -15,11 +15,19 @@ There are other global configuration options in the [host.json](functions-host-j
 
 ## APPINSIGHTS_INSTRUMENTATIONKEY
 
-The Application Insights instrumentation key if you're using Application Insights. See [Monitor Azure Functions](functions-monitoring.md).
+The Application Insights instrumentation key if you're using Application Insights. See [Monitor Azure Functions](functions-monitoring.md). Only one of `APPINSIGHTS_INSTRUMENTATIONKEY` or `APPLICATIONINSIGHTS_CONNECTIONSTRING` is recommended.
 
 |Key|Sample value|
 |---|------------|
 |APPINSIGHTS_INSTRUMENTATIONKEY|5dbdd5e9-af77-484b-9032-64f83bb83bb|
+
+## APPLICATIONINSIGHTS_CONNECTIONSTRING
+
+The Application Insights connection string if you're using Application Insights and require the added customizability that connection strings provide over instrumentation keys. See [Connection strings](/articles/azure-monitor/app/sdk-connection-string.md) for more details. Only one of `APPINSIGHTS_INSTRUMENTATIONKEY` or `APPLICATIONINSIGHTS_CONNECTIONSTRING` is recommended.
+
+|Key|Sample value|
+|---|------------|
+|APPLICATIONINSIGHTS_CONNECTIONSTRING|InstrumentationKey=5dbdd5e9-af77-484b-9032-64f83bb83bb;IngestionEndpoint=https://custom.com:111/;LiveEndpoint=https://custom.com:222/;ProfilerEndpoint=https://custom.com:333/;SnapshotEndpoint=https://custom.com:444/;|
 
 ## AZURE_FUNCTIONS_ENVIRONMENT
 
