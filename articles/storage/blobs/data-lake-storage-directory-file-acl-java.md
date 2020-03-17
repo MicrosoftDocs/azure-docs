@@ -235,13 +235,13 @@ static public void UploadFile(DataLakeFileSystemClient fileSystemClient)
 ```
 
 > [!TIP]
-> If your file size is large, your code will have to make multiple calls to the **DataLakeFileClient.append** method. Consider using the **uploadFromFile** method method instead. That way, you can upload the entire file in a single call. 
+> If your file size is large, your code will have to make multiple calls to the **DataLakeFileClient.append** method. Consider using the **DataLakeFileClient** method method instead. That way, you can upload the entire file in a single call. 
 >
 > See the next section for an example.
 
 ## Upload a large file to a directory
 
-Use the **uploadFromFile** method to upload large files without having to make multiple calls to the **DataLakeFileClient.append** method.
+Use the **DataLakeFileClient.uploadFromFile** method to upload large files without having to make multiple calls to the **DataLakeFileClient.append** method.
 
 ```java
 static public void UploadFileBulk(DataLakeFileSystemClient fileSystemClient) 
