@@ -549,8 +549,8 @@
           href: role-based-access-control.md
         - href: cosmos-db-advanced-threat-protection.md
           name: Advanced threat protection
-        - name: Built-in security controls
-          href: cosmos-db-security-controls.md
+        - name: Security baseline
+          href: security-baseline.md
     - name: Enterprise readiness
       items:
       - name: Online backup and on-demand restore

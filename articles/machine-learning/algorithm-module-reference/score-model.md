@@ -25,7 +25,7 @@ Use this module to generate predictions using a trained classification or regres
 
     The data should be in a format compatible with the type of trained model you are using. The schema of the input dataset should also generally match the schema of the data used to train the model.
 
-3. Run the pipeline.
+3. Submit the pipeline.
 
 ## Results
 
