@@ -44,6 +44,39 @@ Your logic apps and locations must meet these requirements:
 
   In more advanced scenarios, you can mix both multi-tenant Azure and an ISE as locations. However, make that you consider and understand the differences between how logic apps, built-in triggers and actions, and managed connectors run in each location.
 
+## Connections to resources
+
+If your logic app needs access to services, systems, and resources such as Azure Storage accounts, SQL Server databases, Office 365 Outlook email accounts, and so on, you can create connections that authenticate access to these resources. Azure Logic Apps provides [built-in triggers and actions plus hundreds of Microsoft-managed REST API connectors](../connectors/apis-list.md) that your logic app can use to work with these resources.
+
+From a disaster recovery perspective, when you set up your secondary instance in an alternate location, consider whether or not this instance should have its own connections and entities, rather than share the same connections with the primary instance.
+
+For example, suppose your logic app connects to an external service such as Salesforce. Your logic app's availability in a specific location is usually independent from that service's availability and location. In this case, you could use the same API connection to that service.
+
+However, suppose your logic app connects to a service that's also in the same location or region, for example, Azure SQL Database. If that entire region becomes unavailable, then Azure SQL Database is most likely also unavailable. In this case, you'd want to have a replicated or backup database in your secondary location, and you'd want to use a separate API connection to that database.
+
+## On-premises data gateways
+
+If your logic app runs in multi-tenant Azure and needs access to on-premises resources such as SQL Server databases, you have to install the [on-premises data gateway](../logic-apps/logic-apps-gateway-install.md) on a local computer. You can then create a data gateway resource in the Azure portal for your logic app to use when you create a connection to the resource.
+
+The data gateway resource is associated with a location or Azure region, just like your logic app resource. In your disaster recovery strategy, make sure that the data gateway remains available for your logic app to use. You can [enable high availability for your gateway](../logic-apps/logic-apps-gateway-install.md#high-availability) when you have multiple gateway installations.
+
+> [!NOTE]
+> If your logic app runs in an integration service environment (ISE) and uses only 
+> ISE-versioned connectors for on-premises data sources, you don't need the data 
+> gateway because ISE connectors provide direct access to the the on-premises resource.
+>
+> If no ISE-versioned connector is available for the resource that you want, 
+> your logic app can still create the connection by using a non-ISE connector, 
+> which runs in multi-tenant Azure, not your ISE. However, this connection 
+> requires the on-premises data gateway.
+
+## Integration accounts
+
+but also any [integration accounts](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) that you use for defining and storing B2B artifacts used in [enterprise integration scenarios](../logic-apps/logic-apps-enterprise-integration-overview.md), and any
+
+[Set up cross-region disaster recovery for integration accounts in Azure Logic Apps](../logic-apps/logic-apps-enterprise-integration-b2b-business-continuity.md)
+
+
 <a name="roles"></a>
 
 ## Active-active and active-passive roles
@@ -225,20 +258,6 @@ For this task, create a watchdog logic app that performs these tasks:
 ### Enable your secondary instance
 
 To automatically enable or activate the secondary location, create a logic app that calls the appropriate logic apps in the secondary location. Expand your watchdog app to call this activation logic app after a specific number of failures happen.
-
-## Other components
-
-### API connections
-
-API connections provide authentication and configuration to the resource that a connector used in a logic app is accessing. Each location should have its own set of API Connections. When configuring logic apps in alternate region you need to take into consideration whether or not the secondary is going to utilize the same entity or if it will utilize a distinct entity that is part of the secondary location. If the logic app is referencing an external service, like Salesforce, then the availability of a logic app in a region is likely orthogonal to the referenced service's availability. In this case you can have the API Connection reference the same service endpoint. If the logic app is referencing a service in the same region, like an Azure SQL Database, and that entire region becomes unavailable, then the SQL Database is likely no longer available and in the secondary region you would likely have a replicated or backup database. In this case the API Connection in the secondary should reference the secondary database.
-
-## Integration accounts
-
-[Set up cross-region disaster recovery for integration accounts in Azure Logic Apps](../logic-apps/logic-apps-enterprise-integration-b2b-business-continuity.md)
-
-### Data gateways
-
-* [High availability for on-premises data gateways](../logic-apps/logic-apps-gateway-install.md#high-availability)
 
 ## Diagnostic data
 
