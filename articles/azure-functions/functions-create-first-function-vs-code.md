@@ -4,7 +4,7 @@ description: Create and publish to Azure a simple HTTP triggered function by usi
 ms.topic: quickstart
 ms.date: 01/10/2020
 ms.custom: mvc, devcenter
-zone_pivot_groups: programming-languages-set-functions
+zone_pivot_groups: programming-languages-set-functions02
 ---
 
 # Quickstart: Create an Azure Functions project using Visual Studio Code
