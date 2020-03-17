@@ -33,9 +33,9 @@ In either case, you are need to provide the fault domain count for your host gro
 You can also decide to use both availability zones and fault domains. This example creates a host group in zone 1, with 2 fault domains. 
 
 
-```powershell
+```azurepowershell-interactive
 $rgName = "myDHResourceGroup"
-$location = "East US"
+$location = "EastUS"
 
 New-AzResourceGroup -Location $location -Name $rgName
 $hostGroup = New-AzHostGroup `
@@ -55,7 +55,7 @@ For more information about the host SKUs and pricing, see [Azure Dedicated Host 
 If you set a fault domain count for your host group, you will be asked to specify the fault domain for your host. In this example, we set the fault domain for the host to 1.
 
 
-```powershell
+```azurepowershell-interactive
 $dHost = New-AzHost `
    -HostGroupName $hostGroup.Name `
    -Location $location -Name myHost `
@@ -72,7 +72,7 @@ Create a virtual machine on the dedicated host.
 If you specified an availability zone when creating your host group, you are required to use the same zone when creating the virtual machine. For this example, because our host group is in zone 1, we need to create the VM in zone 1.  
 
 
-```powershell
+```azurepowershell-interactive
 $cred = Get-Credential
 New-AzVM `
    -Credential $cred `
@@ -92,7 +92,7 @@ New-AzVM `
 
 You can check the host health status and how many virtual machines you can still deploy to the host using [GetAzHost](/powershell/module/az.compute/get-azhost) with the `-InstanceView` parameter.
 
-```
+```azurepowershell-interactive
 Get-AzHost `
    -ResourceGroupName $rgName `
    -Name myHost `
@@ -171,22 +171,39 @@ You can add an exiting VM to a dedicated host, but the VM must first be Stop\Dea
 - The VM can't be in an availability set.
 - If the VM is in an availability zone, it must be the same availability zone as the host group. The availability zone settings for the VM and the host group must match.
 
+Replace the values of the variables with your own information.
+
 ```azurepowershell-interactive
-$vmRGName = "myResourceGroup"
-$vmName = "myVM"
+$vmRGName = "movetohost"
+$vmName = "myVMtoHost"
 $dhRGName = "myDHResourceGroup"
 $dhGroupName = "myHostGroup"
 $dhName = "myHost"
 
-$myDH = Get-AzHost -HostGroupName $dhGroupName -ResourceGroupName $dhRGName -Name $dhName
-
-$myVM = Get-AzVM -ResourceGroupName $vmRGName -Name $vmName
-
+$myDH = Get-AzHost `
+   -HostGroupName $dhGroupName `
+   -ResourceGroupName $dhRGName `
+   -Name $dhName
+   
+$myVM = Get-AzVM `
+   -ResourceGroupName $vmRGName `
+   -Name $vmName
+   
 $myVM.Host = New-Object Microsoft.Azure.Management.Compute.Models.SubResource
 
-$myVM.Host.Id = "/subscriptions/$subId/resourceGroups/$dhRGName/providers/Microsoft.Compute/hostGroups/$dhgName/hosts/$dhName"
+$myVM.Host.Id = "$myDH.Id"
 
-Update-AzVM -ResourceGroupName $vmRGName -VM $myVM -Debug
+Stop-AzVM `
+   -ResourceGroupName $vmRGName `
+   -Name $vmName -Force
+   
+Update-AzVM `
+   -ResourceGroupName $vmRGName `
+   -VM $myVM -Debug
+   
+Start-AzVM `
+   -ResourceGroupName $vmRGName `
+   -Name $vmName
 ```
 
 
@@ -196,19 +213,19 @@ You are being charged for your dedicated hosts even when no virtual machines are
 
 You can only delete a host when there are no any longer virtual machines using it. Delete the VMs using [Remove-AzVM](/powershell/module/az.compute/remove-azvm).
 
-```powershell
+```azurepowershell-interactive
 Remove-AzVM -ResourceGroupName $rgName -Name myVM
 ```
 
 After deleting the VMs, you can delete the host using [Remove-AzHost](/powershell/module/az.compute/remove-azhost).
 
-```powershell
+```azurepowershell-interactive
 Remove-AzHost -ResourceGroupName $rgName -Name myHost
 ```
 
 Once you have deleted all of your hosts, you may delete the host group using [Remove-AzHostGroup](/powershell/module/az.compute/remove-azhostgroup). 
 
-```powershell
+```azurepowershell-interactive
 Remove-AzHost -ResourceGroupName $rgName -Name myHost
 ```
 
