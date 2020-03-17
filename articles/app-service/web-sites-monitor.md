@@ -14,7 +14,7 @@ ms.custom: seodec18
 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) provides
 built-in monitoring functionality for web apps, mobile, and API apps in the [Azure portal](https://portal.azure.com).
 
-In the Azure portal, you can review *quotas* and *metrics* for an app and App Service plan, and set up *alerts* and *autoscaling* that are based metrics.
+In the Azure portal, you can review *quotas* and *metrics* for an app and App Service plan, and set up *alerts* and *autoscaling* rules based metrics.
 
 ## Understand quotas
 
