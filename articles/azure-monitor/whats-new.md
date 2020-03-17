@@ -12,7 +12,7 @@ ms.date: 03/05/2020
 # What's new in Azure Monitor documentation?
 This article provides lists Azure Monitor articles that are either new or have been significantly updated. It will be refreshed the first week of each month to include article updates from the previous month.
 
-## March 2020
+## February 2020
 
 ### Agents
 Multiple updates as part of rewrite of diagnostics extension content.

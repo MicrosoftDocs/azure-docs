@@ -13,7 +13,7 @@ ms.reviewer: tasharm, assafi, sumeh
 
 <a name="HOLTop"></a>
 
-[Reference documentation](https://aka.ms/azsdk-java-textanalytics-ref-docs) | [Library source code](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/textanalytics/azure-ai-textanalytics) | [Package](https://search.maven.org/artifact/com.azure/azure-ai-textanalytics/1.0.0-beta.3/jar) | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/textanalytics/azure-ai-textanalytics/src/samples/java/com/azure/ai/textanalytics)
+[Reference documentation](https://aka.ms/azsdk-java-textanalytics-ref-docs) | [Library source code](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/textanalytics/azure-ai-textanalytics) | [Package](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/1.0.0-beta.3) | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/textanalytics/azure-ai-textanalytics/src/samples/java/com/azure/ai/textanalytics)
 
 ## Prerequisites
 
@@ -25,9 +25,9 @@ ms.reviewer: tasharm, assafi, sumeh
 
 ## Setting up
 
-### Create a new Maven project
+### Add the client library
 
-Add the following text analytics dependency to your project. This version of the dependency uses version `3.0-preview` of the Text Analytics API. 
+Create a Maven project in your preferred IDE or development environment. Then add the following dependency to your project's *pom.xml* file. You can find the implementation syntax [for other build tools](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/1.0.0-beta.3) online.
 
 ```xml
 <dependencies>
@@ -39,12 +39,10 @@ Add the following text analytics dependency to your project. This version of the
 </dependencies>
 ```
 
-Create a new java file in the following directory: `\src\main\java`.
-
 > [!TIP]
 > Want to view the whole quickstart code file at once? You can find it [on GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/TextAnalytics/TextAnalyticsSamples.java), which contains the code examples in this quickstart. 
 
-Open the java file and add the following `import` statements:
+Create a Java file named `TextAnalyticsSamples.java`. Open the file and add the following `import` statements:
 
 ```java
 import com.azure.ai.textanalytics.models.*;
@@ -67,7 +65,7 @@ Add the following main method to the class. You will define the methods called h
 
 ```java
 public static void main(String[] args) {
-
+    //You will create these methods later in the quickstart.
     TextAnalyticsClient client = authenticateClient(KEY, ENDPOINT);
 
     sentimentAnalysisExample(client);
@@ -94,7 +92,7 @@ The Text Analytics client is a `TextAnalyticsClient` object that authenticates t
 
 ## Authenticate the client
 
-Create a method to instantiate the `TextAnalyticsClient` object with your `KEY` AND `ENDPOINT` created above.
+Create a method to instantiate the `TextAnalyticsClient` object with the key and endpoint for your Text Analytics resource.
 
 ```java
 static TextAnalyticsClient authenticateClient(String key, String endpoint) {
