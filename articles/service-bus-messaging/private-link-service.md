@@ -223,34 +223,34 @@ In the **Networking** tab:
 Open the command line and run the following command:
 
 ```console
-nslookup <your-service-bus-namespace-name>.servicebus.azure.net
+nslookup <your-service-bus-namespace-name>.servicebus.windows.net
 ```
 
 If you run the ns lookup command to resolve the IP address of a Service Bus namespace over a public endpoint, you will see a result that looks like this:
 
 ```console
-c:\ >nslookup <your-service-bus-namespace-name>.servicebus.azure.net
+c:\ >nslookup <your-service-bus-namespace-name>.servicebus.windows.net
 
 Non-authoritative answer:
 Name:    
 Address:  (public IP address)
-Aliases:  <your-service-bus-namespace-name>.servicebus.azure.net
+Aliases:  <your-service-bus-namespace-name>.servicebus.windows.net
 ```
 
 If you run the ns lookup command to resolve the IP address of a Service Bus namespace over a private endpoint, you will see a result that looks like this:
 
 ```console
-c:\ >nslookup your_service-bus-namespace-name.servicebus.azure.net
+c:\ >nslookup your_service-bus-namespace-name.servicebus.windows.net
 
 Non-authoritative answer:
 Name:    
 Address:  10.1.0.5 (private IP address)
-Aliases:  <your-service-bus-namespace-name>.servicebus.azure.net
+Aliases:  <your-service-bus-namespace-name>.servicebus.windows.net
 ```
 
 ## Limitations and Design Considerations
 
-**Pricing**: For pricing information, see [Azure Private Link (preview) pricing](https://azure.microsoft.com/pricing/details/private-link/).
+**Pricing**: For pricing information, see [Azure Private Link pricing](https://azure.microsoft.com/pricing/details/private-link/).
 
 **Limitations**:  Private Endpoint for Azure Service Bus is in public preview. This feature is available in all Azure public regions.
 
@@ -260,5 +260,5 @@ For more, see [Azure Private Link service: Limitations](../private-link/private-
 
 ## Next Steps
 
-- Learn more about [Azure Private Link (Preview)](../private-link/private-link-service-overview.md)
+- Learn more about [Azure Private Link](../private-link/private-link-service-overview.md)
 - Learn more about [Azure Service Bus](service-bus-messaging-overview.md)
