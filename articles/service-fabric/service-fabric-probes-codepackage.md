@@ -111,7 +111,8 @@ For TCP probe, Service Fabric will try to open a socket on the container with th
 This probe will issue an exec into the container and wait for the command to complete.
 
 > [!NOTE]
-> Exec command takes a comma seperated string
+> Exec command takes a comma seperated string. The following command in the example will work for Linux container.
+> If you are trying windows container, use <Command>cmd</Command>
 
 ```xml
   <ServiceManifestImport>
