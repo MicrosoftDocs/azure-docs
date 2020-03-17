@@ -62,7 +62,7 @@ Each of these configuration steps is described in the following sections.
 ### Enable Azure Monitor for VMs
 [Azure Monitor for VMs](vminsights-overview.md) is an [insight](insights-overview.md) in Azure Monitor that is the primary tool for monitoring virtual machines in Azure Monitor. It provides the following additional value over standard Azure Monitor features.
 
-- Simpified onboarding of Log Analytics agent and Dependency agent to enable monitoring of a virtual machine guest operating system and workloads. 
+- Simplified onboarding of Log Analytics agent and Dependency agent to enable monitoring of a virtual machine guest operating system and workloads. 
 - Pre-defined trending performance charts and workbooks that allow you to analyze core performance metrics from the virtual machine's guest operating system.
 - Dependency map that displays processes running on each virtual machine and the interconnected components with other machines and external sources.
 
@@ -137,7 +137,7 @@ Once you configure collection of monitoring data for a virtual machine, you have
 | Alerts | Views [alerts](../platform/alerts-overview.md) for the current virtual machine.  |
 | Metrics | Open [metrics explorer](../platform/metrics-getting-started.md) with the scope set to the current virtual machine. |
 | Diagnostic settings | Enable and configure [diagnostics extension](../platform/diagnostics-extension-overview.md) for the current virtual machine. |
-| Advisor recommendations | Recommendations for the currentl virtual machine from [Azure Advisor](/azure/advisor/). |
+| Advisor recommendations | Recommendations for the current virtual machine from [Azure Advisor](/azure/advisor/). |
 | Logs | Open [Log Analytics](../log-query/log-query-overview.md#what-is-log-analytics) with the [scope](../log-query/scope.md) set to the current virtual machine. |
 | Connection monitor | Open [Network Watcher Connection Monitor](../../network-watcher/connection-monitor-preview.md) to monitor connections between the current virtual machine and other virtual machines. |
 
