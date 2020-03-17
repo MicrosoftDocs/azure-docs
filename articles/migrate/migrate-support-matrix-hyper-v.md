@@ -17,7 +17,7 @@ You assess Hyper-V VMs with the with [Azure Migrate:Server Assessment](migrate-s
 
 **Support** | **Details**
 --- | ---
-**Assessment limits**| You can discover and assess up to 35,000 Hyper-V VMs in a single [Azure Migrate project](migrate-support-matrix.md#azure-migrate-projects).
+**Assessment limits** | You can discover and assess up to 35,000 Hyper-V VMs in a single [Azure Migrate project](migrate-support-matrix.md#azure-migrate-projects).
 **Project limits** | You can create multiple projects in an Azure subscription. In addition to Hyper-V VMs, a project can include VMware VMs and physical servers, up to the assessment limits for each.
 **Discovery** | The Azure Migrate appliance can discover up to 5000 Hyper-V VMs.<br/><br/> The appliance can connect to up to 300 Hyper-V hosts.
 **Assessment** | You can add up to 35,000 machines in a single group.<br/><br/> You can assess up to 35,000 VMs in a single assessment for a group.
