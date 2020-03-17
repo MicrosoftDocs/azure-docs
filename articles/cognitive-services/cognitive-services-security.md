@@ -7,7 +7,7 @@ author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 03/16/2020
+ms.date: 03/17/2020
 ms.author: dapine
 ---
 
@@ -34,6 +34,9 @@ When discussing authentication, there are several common misconceptions. Authent
 ## Environment variables and application configuration
 
 Environment variables are name-value pairs, stored within a specific environment. An alternative to using hardcoded values for sensitive data, is to use environment variables. Hardcoded values are insecure and should be avoided.
+
+> [!WARNING]
+> Do **not** use hardcoded values for sensitive data, doing so is a major security vulnerability!
 
 ### Set environment variable
 
