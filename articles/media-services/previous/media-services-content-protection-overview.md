@@ -49,6 +49,9 @@ Customers often wonder whether they should use AES encryption or a DRM system. T
 
 PlayReady, Widevine, and FairPlay all provide a higher level of encryption compared to AES-128 clear key encryption. The content key is transmitted in an encrypted format. Additionally, decryption is handled in a secure environment at the operating system level, where it's more difficult for a malicious user to attack. DRM is recommended for use cases where the viewer might not be a trusted party and you require the highest level of security.
 
+> [!NOTE]
+> If content is encrypted with a clear key and it is sent over HTTPS, the content is not in clear until it reaches the client.
+
 ## Storage encryption
 You can use storage encryption to encrypt your clear content locally by using AES 256-bit encryption. You then can upload it to Azure Storage, where it's stored encrypted at rest. Assets protected with storage encryption are automatically unencrypted and placed in an encrypted file system prior to encoding. The assets are optionally re-encrypted prior to uploading back as a new output asset. The primary use case for storage encryption is when you want to secure your high-quality input media files with strong encryption at rest on disk.
 
