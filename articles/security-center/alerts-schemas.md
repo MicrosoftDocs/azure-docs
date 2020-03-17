@@ -23,9 +23,9 @@ These alerts are only available to users of the standard tier.
 
 Security alerts can be seen in Azure Security Center's Threat Protection pages. They can also be accessed from:
 
-- [Azure Sentinel](https://docs.microsoft.com/azure/sentinel/) (or any other SIEM)
+- [Azure Sentinel](https://docs.microsoft.com/azure/sentinel/)
 
-- [Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/) using Security Center's [continuous export feature](continuous-export.md)
+- [Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/) using Security Center's [continuous export feature](continuous-export.md) for integrations with third-party SIEMs
 
 - [The REST API](https://docs.microsoft.com/rest/api/securitycenter/) - If you're using the REST API to access alerts, see the [online Alerts API documentation](https://docs.microsoft.com/rest/api/securitycenter/alerts)
 
@@ -42,7 +42,7 @@ If you're using any programmatic methods to consume the alerts, you'll need the 
 
 ### [Workflow automation](#tab/schema-workflowautomation)
 
-### Sample JSON for alerts sent to Workflow automation or a 3rd-party SIEM
+### Sample JSON for alerts sent to workflow automation
 
 This is the schema of the alert events passed to Logic App instances that were configured in Security Center's workflow automation. For more information about the workflow automation feature see [Automate responses to alerts and recommendations](workflow-automation.md).
 
@@ -51,10 +51,9 @@ This is the schema of the alert events passed to Logic App instances that were c
 
 
 
-
 ### [Continuous export to Event Hub](#tab/schema-continuousexport)
 
-### Sample JSON for alerts sent with continuous export to Event Hub
+### Sample JSON for alerts sent with continuous export to Event Hub and third-party SIEMs
 
 This is the schema of the alert events passed to an Event Hub using the Security Center's continuous export feature. For more information about continuous export, see [Export alerts and recommendations](continuous-export.md).
 
@@ -63,19 +62,23 @@ This is the schema of the alert events passed to an Event Hub using the Security
 
 
 
-
-
-
-
 ### [Azure Sentinel](#tab/schema-sentinel)
 
-This is the schema for alerts sent to Azure Sentinel. 
+The Sentinel Connector gets alerts from Azure Security Center and sends them to the Log Analytics Workspace for Azure Sentinel. 
 
-For more information about Azure Sentinel, see [the documentation](https://docs.microsoft.com/azure/sentinel/).
+To create a Sentinel case or incident using Security Center alerts, you'll need the schema for those alerts shown below. 
 
-### Sample JSON for alerts sent to Workflow Automation, Event Hub, Azure Sentinel or other SIEMs
+> [!TIP]
+> For more information about Azure Sentinel, see [the documentation](https://docs.microsoft.com/azure/sentinel/).
 
-[!INCLUDE [Workflow schema](../../includes/security-center-alerts-schema-workflowautomation.md)]
+[!INCLUDE [Sentinel and workspace schema](../../includes/security-center-alerts-schema-loganalyticsworkspace.md)]
+
+
+
+
+### [Workspace](#tab/schema-workspace)
+
+[!INCLUDE [Sentinel and workspace schema](../../includes/security-center-alerts-schema-loganalyticsworkspace.md)]
 
 
 
@@ -179,44 +182,6 @@ You can easily view the security alerts events in Activity log by searching for 
 
 
 
-### [Workspace](#tab/schema-workspace)
-
-### The data model of the schema
-
-|Field|Description|
-|----|----|
-|**AlertName**|Alert display name|
-|**Severity**|The alert severity (High/Medium/Low/Informational)|
-|**AlertType**|unique alert identifier|
-|**ConfidenceLevel**|(Optional) The confidence level of this alert (High/Low)|
-|**ConfidenceScore**|(Optional) Numeric confidence indicator of the security alert|
-|**Description**|Description text for the alert|
-|**DisplayName**|The alert's display name|
-|**EndTime**|The impact end time of the alert (the time of the last event contributing to the alert)|
-|**Entities**|A list of entities related to the alert. This list can hold a mixture of entities of diverse types|
-|**ExtendedLinks**|(Optional) A bag for all links related to the alert. This bag can hold a mixture of links for diverse types|
-|**ExtendedProperties**|A bag of additional fields which are relevant to the alert|
-|**IsIncident**|Determines if the alert is an incident or a regular alert. An incident is a security alert that aggregates multiple alerts into one security incident|
-|**ProcessingEndTime**|UTC timestamp in which the alert was created|
-|**ProductComponentName**|(Optional) The name of a component inside the product which generated the alert.|
-|**ProductName**|constant ('Azure Security Center')|
-|**ProviderName**|unused|
-|**RemediationSteps**|Manual action items to take to remediate the security threat|
-|**ResourceId**|Full identifier of the affected resource|
-|**SourceComputerId**|a unique GUID for the affected server (if the alert is generated on the server)|
-|**SourceSystem**|unused|
-|**StartTime**|The impact start time of the alert (the time of the first event contributing to the alert)|
-|**SystemAlertId**|Unique identifier of this security alert instance|
-|**TenantId**|the identifier of the parent Azure Active directory tenant of the subscription under which the scanned resource resides|
-|**TimeGenerated**|UTC timestamp on which the assessment took place (Security Center's scan time) (identical to DiscoveredTimeUTC)|
-|**Type**|constant ('SecurityAlert')|
-|**VendorName**|The name of the vendor that provided the alert (e.g. 'Microsoft')|
-|**VendorOriginalId**|unused|
-|**WorkspaceResourceGroup**|in case the alert is generated on a VM, Server, Virtual Machine Scale Set or App Service instance that reports to a workspace, contains that workspace resource group name|
-|**WorkspaceSubscriptionId**|in case the alert is generated on a VM, Server, Virtual Machine Scale Set or App Service instance that reports to a workspace, contains that workspace subscriptionId|
-|||
-
-
 
 
 ### [MS Graph API](#tab/schema-graphapi)
@@ -225,4 +190,4 @@ Microsoft Graph is the gateway to data and intelligence in Microsoft 365. It pro
 
 The schema and a JSON representation for security alerts sent to MS Graph, are available in [the Microsoft Graph documentation](https://docs.microsoft.com/graph/api/resources/alert?view=graph-rest-1.0).
 
---- 
+---
