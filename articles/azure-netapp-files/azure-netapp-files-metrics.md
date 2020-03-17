@@ -29,7 +29,7 @@ Azure NetApp Files provides metrics on allocated storage, actual storage usage, 
 - *Pool Provisioned Size*  
     The logical space (GiB) the capacity pool is provisioned with.  
     This size is the size you selected during capacity pool creation. 
-- *Pool Allocated To Volume Size*  
+- *Pool Allocated to Volume Size*  
     The total of volume quota (GiB) in a given capacity pool (that is, the total of the volumes' provisioned sizes in the capacity pool).  
     This size is the size you selected during volume creation.  
 - *Pool Consumed Size*  
