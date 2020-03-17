@@ -4,7 +4,7 @@ description: Learn about how the CONCAT SQL system function in Azure Cosmos DB r
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
 ---
@@ -40,6 +40,9 @@ SELECT CONCAT("abc", "def") AS concat
 [{"concat": "abcdef"}]  
 ```  
   
+## Remarks
+
+This system function will not utilize the index.
 
 ## Next steps
 

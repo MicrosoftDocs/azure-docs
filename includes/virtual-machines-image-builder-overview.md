@@ -36,6 +36,8 @@ The Azure Image Builder Service will be available for preview in these regions. 
 - West Central US
 - West US
 - West US 2
+- North Europe
+- West Europe
 
 ## OS support
 AIB will support Azure Marketplace base OS images:

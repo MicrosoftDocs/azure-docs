@@ -1,6 +1,6 @@
 --- 
-title: Azure VMware Solutions (AVS) - Stretch a Layer 2 network on-premises to AVS Private Cloud
-description: Describes how to set up a Layer 2 VPN between NSX-T on an AVS Private Cloud and an on-premises standalone NSX Edge client
+title: Azure VMware Solution by CloudSimple - Stretch a Layer 2 network on-premises to Private Cloud
+description: Describes how to set up a Layer 2 VPN between NSX-T on a CloudSimple Private Cloud and an on-premises standalone NSX Edge client
 author: sharaths-cs
 ms.author: b-shsury 
 ms.date: 08/19/2019 
@@ -12,20 +12,20 @@ manager: dikamath
 
 # Migrate workloads using Layer 2 stretched networks
 
-In this guide, you will learn how to use Layer 2 VPN (L2VPN) to stretch a Layer 2 network from your on-premises environment to your AVS Private Cloud. This solution enables migration of workloads running in your on-premises VMware environment to the AVS Private Cloud in Azure within the same subnet address space without having to re-IP your workloads.
+In this guide, you will learn how to use Layer 2 VPN (L2VPN) to stretch a Layer 2 network from your on-premises environment to your CloudSimple Private Cloud. This solution enables migration of workloads running in your on-premises VMware environment to the Private Cloud in Azure within the same subnet address space without having to re-IP your workloads.
 
 L2VPN based stretching of Layer 2 networks can work with or without NSX-based networks in your on-premises VMware environment. If you don't have NSX-based networks for workloads on-premises, you can use a standalone NSX Edge Services Gateway.
 
 > [!NOTE]
-> This guide covers the scenario where on-premises and the AVS Private Cloud datacenters are connected over Site-to-Site VPN.
+> This guide covers the scenario where on-premises and the Private Cloud datacenters are connected over Site-to-Site VPN.
 
 ## Deployment scenario
 
-To stretch your on-premises network using L2VPN, you must configure an L2VPN server (destination NSX-T Tier0 router) and an L2VPN client (source standalone client). 
+To stretch your on-premises network using L2VPN, you must configure an L2VPN server (destination NSX-T Tier0 router) and an L2VPN client (source standalone client).  
 
-In this deployment scenario, your AVS Private Cloud is connected to your on-premises environment via a Site-to-Site VPN tunnel that allows on-premises management and vMotion subnets to communicate with the AVS Private Cloud management and vMotion subnets. This arrangement is necessary for Cross vCenter vMotion (xVC-vMotion). A NSX-T Tier0 router is deployed as an L2VPN server in the AVS Private Cloud.
+In this deployment scenario, your Private Cloud is connected to your on-premises environment via a Site-to-Site VPN tunnel that allows on-premises management and vMotion subnets to communicate with the Private Cloud management and vMotion subnets. This arrangement is necessary for Cross vCenter vMotion (xVC-vMotion). A NSX-T Tier0 router is deployed as an L2VPN server in the Private Cloud.
 
-Standalone NSX Edge is deployed in your on-premises environment as an L2VPN client and subsequently paired with the L2VPN server. A GRE tunnel endpoint is created on each side and configured to 'stretch' the on-premises Layer 2 network to your AVS Private Cloud. This configuration is depicted in the following figure.
+Standalone NSX Edge is deployed in your on-premises environment as an L2VPN client and subsequently paired with the L2VPN server. A GRE tunnel endpoint is created on each side and configured to 'stretch' the on-premises Layer 2 network to your Private Cloud. This configuration is depicted in the following figure.
 
 ![Deployment scenario](media/l2vpn-deployment-scenario.png)
 
@@ -37,18 +37,18 @@ Verify that the following are in place before deploying and configuring the solu
 
 * The on-premises vSphere version is 6.7U1+ or 6.5P03+.
 * The on-premises vSphere license is at the Enterprise Plus level (for vSphere Distributed Switch).
-* Identify the workload Layer 2 network to be stretched to your AVS Private Cloud.
+* Identify the workload Layer 2 network to be stretched to your Private Cloud.
 * Identify a Layer 2 network in your on-premises environment for deploying your L2VPN client appliance.
-* [An AVS Private Cloud is already created](create-private-cloud.md).
-* The version of the standalone NSX-T Edge appliance is compatible with the NSX-T Manager version (NSX-T 2.3.0) used in your AVS Private Cloud environment.
+* [A Private Cloud is already created](create-private-cloud.md).
+* The version of the standalone NSX-T Edge appliance is compatible with the NSX-T Manager version (NSX-T 2.3.0) used in your Private Cloud environment.
 * A trunk port group has been created in the on-premises vCenter with forged transmits enabled.
 * A public IP address has been reserved to use for the NSX-T standalone client uplink IP  address, and 1:1 NAT is in place for translation between the two addresses.
-* DNS forwarding is set on the on-premises DNS servers for the az.cloudsimple.io domain to point to the AVS Private Cloud DNS servers.
+* DNS forwarding is set on the on-premises DNS servers for the az.cloudsimple.io domain to point to the Private Cloud DNS servers.
 * RTT latency is less than or equal to 150 ms, as required for vMotion to work across the two sites.
 
 ## Limitations and considerations
 
-The following table lists supported vSphere versions and network adaptor types. 
+The following table lists supported vSphere versions and network adaptor types.  
 
 | vSphere version | Source vSwitch type | Virtual NIC driver | Target vSwitch Type | Supported? |
 ------------ | ------------- | ------------ | ------------- | ------------- 
@@ -59,7 +59,7 @@ The following table lists supported vSphere versions and network adaptor types.
 
 As of the VMware NSX-T 2.3 release:
 
-* The logical switch on the AVS Private Cloud side that is stretched to on-premises over L2VPN can't be routed at the same time. The stretched logical switch can't be connected to a logical router.
+* The logical switch on the Private Cloud side that is stretched to on-premises over L2VPN can't be routed at the same time. The stretched logical switch can't be connected to a logical router.
 * L2VPN and route-based IPSEC VPNs can only be configured using API calls.
 
 For more information, see [Virtual Private Networks](https://docs.vmware.com/en/VMware-NSX-T-Data-Center/2.3/com.vmware.nsxt.admin.doc/GUID-A8B113EC-3D53-41A5-919E-78F1A3705F58.html#GUID-A8B113EC-3D53-41A5-919E-78F1A3705F58__section_44B4972B5F12453B90625D98F86D5704) in the VMware documentation.
@@ -83,7 +83,7 @@ For more information, see [Virtual Private Networks](https://docs.vmware.com/en/
 | VLAN | 472 |
 | CIDR| 10.250.3.0/24 |
 
-### AVS Private Cloud IP schema for NSX-T Tier0 Router (L2 VPN serve)
+### Private Cloud IP schema for NSX-T Tier0 Router (L2 VPN serve)
 
 | **Item** | **Value** |
 |------------|-----------------|
@@ -92,7 +92,7 @@ For more information, see [Virtual Private Networks](https://docs.vmware.com/en/
 | Logical switch (stretched) | Stretch_LS |
 | Loopback interface (NAT IP address) | 104.40.21.81 |
 
-### AVS Private Cloud network to be mapped to the stretched network
+### Private Cloud network to be mapped to the stretched network
 
 | **Item** | **Value** |
 |------------|-----------------|
@@ -111,7 +111,7 @@ The following steps show how to fetch the logical-router ID of Tier0 DR logical 
 
     ![Note management IP](media/l2vpn-fetch02.png)
 
-3. Open an SSH session to the management IP address of the Edge VM. Run the ```get logical-router``` command with username **admin** and password **AVS 123!**.
+3. Open an SSH session to the management IP address of the Edge VM. Run the ```get logical-router``` command with username **admin** and password **CloudSimple 123!**.
 
     ![get logical-router output](media/l2vpn-fetch03.png)
 
@@ -121,7 +121,7 @@ The following steps show how to fetch the logical-router ID of Tier0 DR logical 
 
     ![Create logical switch](media/l2vpn-fetch04.png)
 
-6. Attach the dummy switch to the Tier1 router with a link local IP address or any non-overlapping subnet from on-premises or your AVS Private Cloud. See [Add a Downlink Port on a Tier-1 Logical Router](https://docs.vmware.com/en/VMware-NSX-T-Data-Center/2.3/com.vmware.nsxt.admin.doc/GUID-E7EA867C-604C-4224-B61D-2A8EF41CB7A6.html) in the VMware documentation.
+6. Attach the dummy switch to the Tier1 router with a link local IP address or any non-overlapping subnet from on-premises or your Private Cloud. See [Add a Downlink Port on a Tier-1 Logical Router](https://docs.vmware.com/en/VMware-NSX-T-Data-Center/2.3/com.vmware.nsxt.admin.doc/GUID-E7EA867C-604C-4224-B61D-2A8EF41CB7A6.html) in the VMware documentation.
 
     ![Attach dummy switch](media/l2vpn-fetch05.png)
 
@@ -143,7 +143,7 @@ To establish an IPsec route-based VPN between the NSX-T Tier0 router and the sta
 
 ### Allow UDP 500/4500 for IPsec
 
-1. [Create a public IP address](public-ips.md) for the NSX-T Tier0 loopback interface in the AVS portal.
+1. [Create a public IP address](public-ips.md) for the NSX-T Tier0 loopback interface in the CloudSimple portal.
 
 2. [Create a firewall table](firewall.md) with stateful rules that allow UDP 500/ 4500 inbound traffic and attach the firewall table to the NSX-T HostTransport subnet.
 
@@ -169,9 +169,9 @@ To establish an IPsec route-based VPN between the NSX-T Tier0 router and the sta
 
 ## Configure a route-based VPN on the NSX-T Tier0 router
 
-Use the following template to fill in all the details for configuring a route-based VPN on the NSX-T Tier0 router. The UUIDs in each POST call are required in subsequent POST calls. The IP addresses for the loopback and tunnel interfaces for L2VPN must be unique and not overlap with the on-premises or AVS Private Cloud networks.
+Use the following template to fill in all the details for configuring a route-based VPN on the NSX-T Tier0 router. The UUIDs in each POST call are required in subsequent POST calls. The IP addresses for the loopback and tunnel interfaces for L2VPN must be unique and not overlap with the on-premises or Private Cloud networks.
 
-The IP addresses chosen for loopback and tunnel interface used for L2VPN must be unique and not overlap with the on-premise or AVS Private Cloud networks. The loopback interface network must always be /32.
+The IP addresses chosen for loopback and tunnel interface used for L2VPN must be unique and not overlap with the on-premises or Private Cloud networks. The loopback interface network must always be /32.
 
 ```
 Loopback interface ip : 192.168.254.254/32
@@ -418,7 +418,7 @@ GET https://192.168.110.201/api/v1/vpn/l2vpn/sessions/<session-id>/peer-codes
 
 ## Deploy the NSX-T standalone client (on-premises)
 
-Before deploying, verify that your on-premises firewall rules allow inbound and outbound UDP 500/4500 traffic from/to the AVS public IP address that was reserved earlier for the NSX-T T0 router loopback interface. 
+Before deploying, verify that your on-premises firewall rules allow inbound and outbound UDP 500/4500 traffic from/to the CloudSimple public IP address that was reserved earlier for the NSX-T T0 router loopback interface. 
 
 1. [Download the Standalone NSX Edge Client](https://my.vmware.com/group/vmware/details?productId=673&rPId=33945&downloadGroup=NSX-T-230) OVF and Extract the files from the downloaded bundle into a folder.
 
@@ -445,14 +445,14 @@ Before deploying, verify that your on-premises firewall rules allow inbound and 
 
     Expand L2T:
 
-    * **Peer Address**. Enter the IP address reserved on Azure AVS portal for NSX-T Tier0 Loopback interface.
+    * **Peer Address**. Enter the IP address reserved on Azure CloudSimple portal for NSX-T Tier0 Loopback interface.
     * **Peer Code**. Paste the peer code obtained from the last step of L2VPN Server deployment.
     * **Sub Interfaces VLAN (Tunnel ID)**. Enter the VLAN ID to be stretched. In parentheses (), enter the tunnel ID that was previously configured.
 
     Expand Uplink Interface:
 
     * **DNS IP Address**. Enter the on-premises DNS IP address.
-    * **Default Gateway**. Enter the default gateway of the VLAN that will act as a default gateway for this client.
+    * **Default Gateway**.  Enter the default gateway of the VLAN that will act as a default gateway for this client.
     * **IP Address**. Enter the uplink IP address of the standalone client.
     * **Prefix Length**. Enter the prefix length of the uplink VLAN/subnet.
     * **CLI admin/enable/root User Password**. Set the password for admin /enable /root account.

@@ -73,6 +73,7 @@ Create the `.github/workflow/main.yml` file in the repository:
 
 ```
 name: AzureSpringCloud
+on: push
 
 env:
   GROUP: <resource group name>
@@ -119,6 +120,7 @@ The az `run` command will use the latest version of Azure CLI. If there are brea
 Create the .github/workflow/main.yml file in the repository:
 ```
 name: AzureSpringCloud
+on: push
 
 jobs:
   build-and-deploy:
@@ -159,6 +161,7 @@ Another option is to use the [Maven Plugin](https://docs.microsoft.com/azure/spr
 
 ```
 name: AzureSpringCloud
+on: push
 
 jobs:
   build-and-deploy:

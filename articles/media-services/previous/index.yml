@@ -1,10 +1,10 @@
 ### YamlMime:Landing
  
-title: Azure Media Services v2 (legacy)
+title: Azure Media Services v2 (legacy) documentation
 summary: No new features are being added to Media Services v2. Check out the latest version, Media Services v3. 
 
 metadata:
-  title: Azure Media Services v2 documentation
+  title: Azure Media Services v2 (legacy) documentation
   description: Learn how to securely stream on-demand or live broadcast-quality video with Media Services v2.
   services: media-services
   ms.service: media-services

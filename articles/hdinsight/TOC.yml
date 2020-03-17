@@ -15,7 +15,7 @@
         href: ./hdinsight-administer-use-command-line.md
       - name: Manage HDInsight clusters - .NET SDK
         href: ./hdinsight-administer-use-dotnet-sdk.md
-      - name: Manage HDInsight clusters - Powershell
+      - name: Manage HDInsight clusters - PowerShell
         href: ./hdinsight-administer-use-powershell.md
       - name: Create clusters with Runbooks
         href: ./manage-clusters-runbooks.md
@@ -69,9 +69,9 @@
         href: ./hdinsight-hadoop-create-linux-clusters-portal.md
       - name: Create clusters using templates
         href: ./hdinsight-hadoop-create-linux-clusters-arm-templates.md
-      - name: Create clusters using command line
+      - name: Create clusters using Azure CLI
         href: ./hdinsight-hadoop-create-linux-clusters-azure-cli.md
-      - name: Create clusters using Powershell
+      - name: Create clusters using PowerShell
         href: ./hdinsight-hadoop-create-linux-clusters-azure-powershell.md
       - name: Create clusters using REST API
         href: ./hdinsight-hadoop-create-linux-clusters-curl-rest.md
@@ -550,6 +550,8 @@
       href: ./kafka/apache-kafka-quickstart-resource-manager-template.md
   - name: Tutorials
     items:
+    - name: Create Apache Kafka cluster - Azure CLI
+      href: ./kafka/tutorial-cli-rest-proxy.md
     - name: Use Apache Kafka Producer and Consumer API
       href: ./kafka/apache-kafka-producer-consumer-api.md
     - name: Develop app with Apache Kafka Streams API
@@ -594,8 +596,6 @@
         href: ./kafka/apache-kafka-mirroring.md
       - name: Analyze Apache Kafka logs
         href: ./kafka/apache-kafka-log-analytics-operations-management.md
-      - name: Bring your own key
-        href: ./kafka/apache-kafka-byok.md
       - name: SSL Encryption and Authentication
         href: ./kafka/apache-kafka-ssl-encryption-authentication.md
     - name: Troubleshoot
@@ -754,6 +754,8 @@
         href: ./interactive-query/interactive-query-troubleshoot-zookeeperhiveclientexception-hiveserver-configs.md
       - name: Apache HIVE troubleshooting
         href: ./hdinsight-troubleshoot-hive.md
+      - name: Apache Hive logs taking up entire disk space on Head node
+        href: ./interactive-query/interactive-query-troubleshoot-hive-logs-diskspace-full-headnodes.md
 - name: ML Services
   items:
   - name: Overview
@@ -844,8 +846,6 @@
       href: ./domain-joined/hdinsight-security-overview.md
   - name: Tutorials
     items:
-    - name: Use firewall to restrict outbound traffic
-      href: ./hdinsight-restrict-outbound-traffic.md
     - name: Apache HBase RBAC with Apache Ranger
       href: ./domain-joined/apache-domain-joined-run-hbase.md
     - name: Apache Hive RBAC with Apache Ranger
@@ -856,6 +856,8 @@
       href: ./domain-joined/hdinsight-use-oozie-domain-joined-clusters.md
   - name: Concepts
     items:
+    - name: Security baseline
+      href: security-baseline.md
     - name: Enterprise security general guidelines
       href: ./domain-joined/general-guidelines.md
     - name: Plan for ESP clusters
@@ -892,6 +894,8 @@
       href: ./domain-joined/ssh-domain-accounts.md
     - name: Securing data
       href: ./hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
+    - name: Use firewall to restrict outbound traffic
+      href: ./hdinsight-restrict-outbound-traffic.md
     - name: Troubleshoot
       items:
       - name: ESP Authentication issues

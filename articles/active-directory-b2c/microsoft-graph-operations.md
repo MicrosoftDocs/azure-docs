@@ -3,14 +3,14 @@ title: Supported Microsoft Graph operations
 titleSuffix: Azure AD B2C
 description: An index of the Microsoft Graph operations supported for the management of Azure AD B2C resources, including users, user flows, identity providers, custom policies, policy keys, and more.
 services: B2C
-author: mmacy
+author: msmimart
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/14/2020
-ms.author: marsma
+ms.date: 02/20/2020
+ms.author: mimart
 ms.subservice: B2C
 ---
 # Microsoft Graph operations available for Azure AD B2C
@@ -52,7 +52,7 @@ Configure pre-built policies for sign-up, sign-in, combined sign-up and sign-in,
 
 The following operations allow you to manage your Azure AD B2C Trust Framework policies, known as [custom policies](custom-policy-overview.md).
 
-- [List all trust framework policies configured in a tenant](https://docs.microsoft.com/graph/api/trustframework-list-trustframeworkpolicies.md)
+- [List all trust framework policies configured in a tenant](https://docs.microsoft.com/graph/api/trustframework-list-trustframeworkpolicies)
 - [Create trust framework policy](https://docs.microsoft.com/graph/api/trustframework-post-trustframeworkpolicy)
 - [Read properties of an existing trust framework policy](https://docs.microsoft.com/graph/api/trustframeworkpolicy-get)
 - [Update or create trust framework policy.](https://docs.microsoft.com/graph/api/trustframework-put-trustframeworkpolicy)

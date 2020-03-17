@@ -49,7 +49,8 @@ To perform the steps described in this article, you must have:
     - **Gateway** (default is: `<apim-service-name>.azure-api.net`),
     - **Portal** (default is: `<apim-service-name>.portal.azure-api.net`),
     - **Management** (default is: `<apim-service-name>.management.azure-api.net`),
-    - **SCM** (default is: `<apim-service-name>.scm.azure-api.net`).
+    - **SCM** (default is: `<apim-service-name>.scm.azure-api.net`),
+    - **NewPortal** (default is: `<apim-service-name>.developer.azure-api.net`).
 
     > [!NOTE]
     > Only the **Gateway** endpoint is available for configuration in the Consumption tier.

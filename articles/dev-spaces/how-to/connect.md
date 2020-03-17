@@ -1,5 +1,5 @@
 ---
-title: "Connect your development machine to an AKS cluster"
+title: "Connect your development machine to an AKS cluster (preview)"
 services: azure-dev-spaces
 ms.date: 11/04/2019
 ms.topic: "conceptual"

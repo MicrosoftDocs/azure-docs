@@ -14,7 +14,7 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 11/27/2019
+ms.date: 03/10/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
@@ -34,13 +34,17 @@ Azure offers two deployment methods for VHDs on Azure Standard and Premium Stora
 
 For a list of storage types and their SLAs in IOPS and storage throughput, review the [Azure documentation for managed disks](https://azure.microsoft.com/pricing/details/managed-disks/).
 
+> [!IMPORTANT]
+> Independent of the Azure storage type chosen, the file system that is used on that storage needs to be supported by SAP for the specific operating system and DBMS. [SAP support note #405827](https://launchpad.support.sap.com/#/notes/405827) lists the supported file systems for different operating systems and databases, including SAP HANA. This applies to all volumes SAP HANA might access for reading and writing for whatever task. Specifically using NFS on Azure for SAP HANA, additional restrictions of NFS versions apply as stated later in this article 
+
+
 The minimum SAP HANA certified conditions for the different storage types are: 
 
 - Azure Premium SSD - /hana/log is required to be cached with Azure [Write Accelerator](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator). The /hana/data volume could be placed on Premium SSD without Azure Write Accelerator or on Ultra disk
 - Azure Ultra disk at least for the /hana/log volume. The /hana/data volume can be placed on either Premium SSD without Azure Write Accelerator or in order to get faster restart times Ultra disk
 - **NFS v4.1** volumes on top of Azure NetApp Files for /hana/log **and** /hana/data. The volume of /hana/shared can use NFS v3 or NFS v4.1 protocol. The NFS v4.1 protocol is mandatory for /hana/data and/hana/log volumes.
 
-Some of the storage types can be combined. E.g., it is possible to put /hana/data onto Premium Storage and /hana/log can be placed on Ultra disk storage in order to get the required low latency. However, if you use an NFS v4.1 volume based on ANF for /hana/data, you are required to use another NFS v4.1 volume based on ANF for /hana/log. Using NFS on top of ANF for one of the volumes (like /hana/data) and Azure Premium Storage or Ultra disk for the other volume (like /hana/log) is **not supported**.
+Some of the storage types can be combined. For example, it is possible to put /hana/data onto Premium Storage and /hana/log can be placed on Ultra disk storage in order to get the required low latency. However, if you use an NFS v4.1 volume based on ANF for /hana/data, you are required to use another NFS v4.1 volume based on ANF for /hana/log. Using NFS on top of ANF for one of the volumes (like /hana/data) and Azure Premium Storage or Ultra disk for the other volume (like /hana/log) is **not supported**.
 
 In the on-premises world, you rarely had to care about the I/O subsystems and its capabilities. Reason was that the appliance vendor needed to make sure that the minimum storage requirements are met for SAP HANA. As you build the Azure infrastructure yourself, you should be aware of some of these SAP issued requirements. Some of the minimum throughput characteristics that are required from SAP, are resulting in the need to:
 
@@ -52,8 +56,11 @@ Given that low storage latency is critical for DBMS systems, even as DBMS, like 
 
 **Recommendation: As stripe sizes for the RAID 0 the recommendation is to use:**
 
-- 64 KB or 128 KB for **/hana/data**
+- 256 KB for **/hana/data**
 - 32 KB for **/hana/log**
+
+> [!IMPORTANT]
+> The stripe size for /hana/data got changed from earlier recommendations calling for 64 KB or 128 KB to 256 KB based on customer experiences with more recent Linux versions. The size of 256 KB is providing slightly better performance
 
 > [!NOTE]
 > You don't need to configure any redundancy level using RAID volumes since Azure Premium and Standard storage keep three images of a VHD. The usage of a RAID volume is purely to configure volumes that provide sufficient I/O throughput.
@@ -63,7 +70,7 @@ Accumulating a number of Azure VHDs underneath a RAID, is accumulative from an I
 Also keep the overall VM I/O throughput in mind when sizing or deciding for a VM. Overall VM storage throughput is documented in the article [Memory optimized virtual machine sizes](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory).
 
 ## Linux I/O Scheduler mode
-Linux has several different I/O scheduling modes. Common recommendation through Linux vendors and SAP is to reconfigure the I/O scheduler mode for disk volumes from the **cfq** mode to the **noop** mode. Details are referenced in [SAP Note #1984787](https://launchpad.support.sap.com/#/notes/1984787). 
+Linux has several different I/O scheduling modes. Common recommendation through Linux vendors and SAP is to reconfigure the I/O scheduler mode for disk volumes from the **cfq** mode to the **noop** (non-multiqueue) or **none** for (multiqueue) mode. Details are referenced in [SAP Note #1984787](https://launchpad.support.sap.com/#/notes/1984787). 
 
 
 ## Solutions with Premium Storage and Azure Write Accelerator for Azure M-Series virtual machines
@@ -180,7 +187,7 @@ Microsoft is in the process of rolling out a new Azure storage type called [Azur
 
 Ultra disk gives you the possibility to define a single disk that fulfills your size, IOPS, and disk throughput range. Instead of using logical volume managers like LVM or MDADM on top of Azure Premium Storage to construct volumes that fulfill IOPS and storage throughput requirements. You can run a configuration mix between Ultra disk and Premium Storage. As a result, you can limit the usage of Ultra disk to the performance critical /hana/data and /hana/log volumes and cover the other volumes with Azure Premium Storage
 
-Other advantages of Ultra disk can be the better read latency in comparison to Premium Storage. The faster read latency can have advantages when you want to reduce the HANA start up times and the subsequent load of the data into memory. Advantages of Ultra disk storage also can be felt when HANA is writing savepoints. Since Premium Storage disks for /hana/data are usually not Write Accelerator cached, the write latency to /hana/data on Premium Storage compared to the Ultra disk is higher. It can be expected that savepoint writing with Ultra disk is performing better on Ultra disk.
+Other advantages of Ultra disk can be the better read latency in comparison to Premium Storage. The faster read latency can have advantages when you want to reduce the HANA startup times and the subsequent load of the data into memory. Advantages of Ultra disk storage also can be felt when HANA is writing savepoints. Since Premium Storage disks for /hana/data are usually not Write Accelerator cached, the write latency to /hana/data on Premium Storage compared to the Ultra disk is higher. It can be expected that savepoint writing with Ultra disk is performing better on Ultra disk.
 
 > [!IMPORTANT]
 > Ultra disk is not yet present in all the Azure regions and is also not yet supporting all VM types listed below. For detailed information where Ultra disk is available and which VM families are supported, check the article [What disk types are available in Azure?](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#ultra-disk).
@@ -270,6 +277,9 @@ As you design the infrastructure for SAP in Azure you should be aware of some mi
 The [Azure NetApp Files throughput limits](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-service-levels) per 1 TiB of volume quota are:
 - Premium Storage Tier - 64 MiB/s  
 - Ultra Storage Tier - 128 MiB/s  
+
+> [!IMPORTANT]
+> Independent of the capacity you deploy on a single NFS volume, the throughput, is expected to plateau in the range of 1.2-1.4 GB/sec bandwidth leveraged by a consumer in a virtual machine. This has to do with the underlying architecture of the ANF offer and related Linux session limits around NFS. The performance and throughput numbers as documented in the article [Performance benchmark test results for Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-performance-benchmarks) were conducted against one shared NFS volume with multiple client VMs and as a result with multiple sessions. That scenario is different to the scenario we measure in SAP. Where we measure throughput from a single VM against an NFS volume. hosted on ANF.
 
 To meet the SAP minimum throughput requirements for data and log, and according to the guidelines for `/hana/shared`, the recommended sizes would look like:
 

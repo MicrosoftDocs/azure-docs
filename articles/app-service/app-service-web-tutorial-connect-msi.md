@@ -5,7 +5,7 @@ description: Learn how to make database connectivity more secure by using a mana
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 11/18/2019
-ms.custom: mvc, , cli-validate
+ms.custom: mvc, cli-validate
 ---
 # Tutorial: Secure Azure SQL Database connection from App Service using a managed identity
 
@@ -122,6 +122,9 @@ In *Web.config*, working from the top of the file and make the following changes
 
 - Find the connection string called `MyDbConnection` and replace its `connectionString` value with `"server=tcp:<server-name>.database.windows.net;database=<db-name>;UID=AnyString;Authentication=Active Directory Interactive"`. Replace _\<server-name>_ and _\<db-name>_ with your server name and database name.
 
+> [!NOTE]
+> The SqlAuthenticationProvider you just registered is based on top of the AppAuthentication library you installed earlier. By default, it uses a system-assigned identity. To leverage a user-assigned identity, you will need to provide an additional configuration. Please see [connection string support](../key-vault/service-to-service-authentication.md#connection-string-support) for the AppAuthentication library.
+
 That's every thing you need to connect to SQL Database. When debugging in Visual Studio, your code uses the Azure AD user you configured in [Set up Visual Studio](#set-up-visual-studio). You'll set up the SQL Database server later to allow connection from the managed identity of your App Service app.
 
 Type `Ctrl+F5` to run the app again. The same CRUD app in your browser is now connecting to the Azure SQL Database directly, using Azure AD authentication. This setup lets you run database migrations from Visual Studio.
@@ -184,6 +187,9 @@ Type `Ctrl+F5` to run the app again. The same CRUD app in your browser is now co
 
 Next, you configure your App Service app to connect to SQL Database with a system-assigned managed identity.
 
+> [!NOTE]
+> While the instructions in this section are for a system-assigned identity, a user-assigned identity can just as easily be used. To do this. you would need the change the `az webapp identity assign command` to assign the desired user-assigned identity. Then, when creating the SQL user, make sure to use the name of the user-assigned identity resource rather than the site name.
+
 ### Enable managed identity on app
 
 To enable a managed identity for your Azure app, use the [az webapp identity assign](/cli/azure/webapp/identity?view=azure-cli-latest#az-webapp-identity-assign) command in the Cloud Shell. In the following command, replace *\<app-name>*.
@@ -232,9 +238,12 @@ ALTER ROLE db_ddladmin ADD MEMBER [<identity-name>];
 GO
 ```
 
-*\<identity-name>* is the name of the managed identity in Azure AD. Since it's system-assigned, it's always the same as the name of your App Service app. To grant permissions for an Azure AD group, use the group's display name instead (for example, *myAzureSQLDBAccessGroup*).
+*\<identity-name>* is the name of the managed identity in Azure AD. If the identity is system-assigned, the name always the same as the name of your App Service app. To grant permissions for an Azure AD group, use the group's display name instead (for example, *myAzureSQLDBAccessGroup*).
 
 Type `EXIT` to return to the Cloud Shell prompt.
+
+> [!NOTE]
+> The back-end services of managed identities also [maintains a token cache](overview-managed-identity.md#obtain-tokens-for-azure-resources) that updates the token for a target resource only when it expires. If you make a mistake configuring your SQL Database permissions and try to modify the permissions *after* trying to get a token with your app, you don't actually get a new token with the updated permissions until the cached token expires.
 
 ### Modify connection string
 

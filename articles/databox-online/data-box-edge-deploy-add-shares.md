@@ -54,26 +54,28 @@ To create a share, do the following procedure:
     The type can be **SMB** or **NFS**, with SMB being the default. SMB is the standard for Windows clients, and NFS is used for Linux clients.  
     Depending upon whether you choose SMB or NFS shares, the rest of the options vary slightly. 
 
-    c. Provide a storage account where the share will reside. 
+    c. Provide a storage account where the share will reside.
 
-    
+      > [!IMPORTANT]
+      > Make sure that the Azure Storage account that you use does not have immutability policies set on it if you are using it with a Azure Stack Edge or Data Box Gateway device. For more information, see [Set and manage immutability policies for blob storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage).
+
     d. In the **Storage service** drop-down list, select **Block Blob**, **Page Blob**, or **Files**.  
     The type of service you select depends on which format you want the data to use in Azure. In this example, because we want to store the data as block blobs in Azure, we select **Block Blob**. If you select **Page Blob**, make sure that your data is 512 bytes aligned. For example, a VHDX is always 512 bytes aligned.
 
     e. Create a new blob container or use an existing one from the dropdown list. If creating a blob container, provide a container name. If a container doesn't already exist, it's created in the storage account with the newly created share name.
-   
-    f. Depending on whether you've created an SMB share or an NFS share, do one of the following steps: 
-     
-    - **SMB share**: Under **All privilege local user**, select **Create new** or **Use existing**. If you create a new local user, enter a username and password, and then confirm the password. This action assigns permissions to the local user. After you've assigned the permissions here, you can use File Explorer to modify them.
+
+    f. Depending on whether you've created an SMB share or an NFS share, do one of the following steps:
+
+    * **SMB share**: Under **All privilege local user**, select **Create new** or **Use existing**. If you create a new local user, enter a username and password, and then confirm the password. This action assigns permissions to the local user. Modification of share-level permissions is currently not supported.
 
         If you select the **Allow only read operations** check box for this share data, you can specify read-only users.
 
         ![Add SMB share](./media/data-box-edge-deploy-add-shares/add-share-smb-1.png)
-   
-    - **NFS share**: Enter the IP addresses of allowed clients that can access the share.
+
+    * **NFS share**: Enter the IP addresses of allowed clients that can access the share.
 
         ![Add NFS share](./media/data-box-edge-deploy-add-shares/add-share-nfs-1.png)
-   
+
 4. Select **Create** to create the share.
     
     You're notified that the share creation is in progress. After the share is created with the specified settings, the **Shares** tile updates to reflect the new share.
@@ -140,7 +142,7 @@ On your Linux client connected to your Data Box Edge device, do the following pr
 
 > [!NOTE] 
 > The following caveats are applicable to this release:
-> - After a file is created in the share, renaming of the file isn’t supported. 
+> - After a file is created in the share, renaming of the file isn't supported. 
 > - Deleting a file from a share does not delete the entry in the storage account.
 
 ## Next steps

@@ -146,6 +146,6 @@ In addition to the above features and functionality that can help your applicati
 
 ## Next steps
 
-- For a discussion of the use of access control features in SQL Database, see [Control access](sql-database-control-access.md).
+- For a discussion of the use of logins, user accounts, database roles, and permissions in SQL Database, see [Manage logins and user accounts](sql-database-manage-logins.md).
 - For a discussion of database auditing, see [SQL Database auditing](sql-database-auditing.md).
 - For a discussion of threat detection, see [SQL Database threat detection](sql-database-threat-detection.md).
