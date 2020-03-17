@@ -18,6 +18,7 @@ When you create first event subscription for an Azure event source such as Azure
 
 System topic isn't applicable to custom topic scenarios, that is, Event Grid topics and Event Grid domains. This will improve the search experience. 
 
+## Location and resource group
 For regional Azure event sources such as Storage account, system topic is created in the same location as the Azure event source. For global Azure event sources such as Azure subscriptions, resource groups or Azure Maps, system topic is created in **global** location. This feature is currently not enabled for Azure Gov cloud. 
   
 For event subscriptions created at Azure subscription scope, system topic is created under the resource group **Default-EventGrid**. If the resource group doesn't exist, Azure Event Grid creates it before creating the system topic. 
