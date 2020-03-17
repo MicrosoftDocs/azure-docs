@@ -44,7 +44,7 @@ You can use the Video Indexer website to edit faces that were detected in a vide
 
     ![Add a new person model](./media/customize-face-model/add-new-person2.png)
 
-    You have created a new Person model. You can now add faces to the new Person model.
+    You've created a new Person model. You can now add faces to the new Person model.
 
 3. Select the list menu button and choose **+ Add person**.
 
@@ -67,7 +67,7 @@ You can use the Video Indexer website to edit faces that were detected in a vide
 
     You can then choose from your file explorer or drag and drop the face images of the face. Video Indexer will take all standard image file types (ex: JPG, PNG, and more).
 
-    Video Indexer should be able to detect occurrences of this person in the future videos that you index and the current videos that you had already indexed, using the Person model to which you added this new face to. Recognition of the person in your current videos might take some time to take effect, as this is a batch process.
+    Video Indexer can detect occurrences of this person in the future videos that you index and the current videos that you had already indexed, using the Person model to which you added this new face to. Recognition of the person in your current videos might take some time to take effect, as this is a batch process.
 
 ## Rename a Person model
 
@@ -121,7 +121,7 @@ To look at the contents of any of your Person models, select the arrow next to t
 
 ### Manage a person
 
-If you select **Manage**, you see all the faces that this Person model is being trained from. These faces come from occurrences of that person in videos that use this Person model or from images that you have manually uploaded.
+If you select **Manage**, you see all the faces that this Person model is being trained from. These faces come from occurrences of that person in videos that use this Person model or from images that you've manually uploaded.
 
 You can add more faces to the person by selecting **Add images**.
 
@@ -191,15 +191,15 @@ If you don't assign a Person model to the video during upload, your edit is save
     ![Edit a face in your video](./media/customize-face-model/edit-face.png)
 
 1. Select any of the detected faces and change their names from "Unknown #X" (or the name that was previously assigned to the face).
-1. After typing in the new name, select the check icon next to the new name. This saves the new name and recognizes and names all occurrences of this face in your other current videos and in the future videos that you upload. Recognition of the face in your other current videos might take some time to take effect as this is a batch process.
+1. After typing in the new name, select the check icon next to the new name. This action saves the new name and recognizes and names all occurrences of this face in your other current videos and in the future videos that you upload. Recognition of the face in your other current videos might take some time to take effect as this is a batch process.
 
-If you name a face with the name of an existing person in the Person model that the video is using, this will merge the detected face images from this video of that person with what already exists in the model. If you name a face with a completely new name, this will create a new Person entry in the Person model that the video is using.
+If you name a face with the name of an existing person in the Person model that the video is using, the detected face images from this video of that person will merge with what already exists in the model. If you name a face with a new name, a new Person entry is created in the Person model that the video is using.
 
 ![Edit a face in your video](./media/customize-face-model/edit-face2.png)
 
 ### Delete a face
 
-To delete a detected face in your video, go to the Insights pane and select the pencil icon in the top-right corner of the pane. Select the **Delete** option underneath the name of the face. This will remove that detected face from the video. The person's face will still be detected in the other videos in which it appears, but you can delete the face from those videos as well after they've been indexed.
+To delete a detected face in your video, go to the Insights pane and select the pencil icon in the top-right corner of the pane. Select the **Delete** option underneath the name of the face. This action removes the detected face from the video. The person's face will still be detected in the other videos in which it appears, but you can delete the face from those videos as well after they've been indexed.
 
 The person, if they had been named, will also continue to exist in the Person model that was used to index the video from which you deleted the face unless you specifically delete the person from the Person model.
 
