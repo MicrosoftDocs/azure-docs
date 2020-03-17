@@ -8,7 +8,7 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 03/16/2020
+ms.date: 03/13/2020
 ms.custom: seodec18
 ---
 
@@ -339,7 +339,7 @@ Variables conform to the following JSON example:
 "Status": {
   "kind": "categorical",
   "value": {
-     "tsx": "toLong($event.[Status].Double)"
+     "tsx": "toLong($event.[Status].Double)" 
 },
   "interpolation": {
     "kind": "step",
@@ -349,7 +349,7 @@ Variables conform to the following JSON example:
   },
   "categories": [
     {
-      "values": [0, 1, 2],
+      "values": [0, 1, 2, 3],
       "label": "Good"
     },
     {

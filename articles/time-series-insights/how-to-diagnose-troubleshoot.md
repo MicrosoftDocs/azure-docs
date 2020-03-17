@@ -8,7 +8,7 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 02/07/2020
+ms.date: 03/13/2020
 ms.custom: seodec18
 ---
 
@@ -18,7 +18,7 @@ This article summarizes several common problems you might encounter when you wor
 
 ## Problem: I can't find my environment in the preview explorer
 
-This problem might occur if you don’t have permissions to access the Time Series Insights environment. Users need a reader-level access role to view their Time Series Insights environment. To verify the current access levels and grant additional access, go to the **Data Access Policies** section on the Time Series Insights resource in the [Azure portal](https://portal.azure.com/).
+This problem might occur if you don't have permissions to access the Time Series Insights environment. Users need a reader-level access role to view their Time Series Insights environment. To verify the current access levels and grant additional access, go to the **Data Access Policies** section on the Time Series Insights resource in the [Azure portal](https://portal.azure.com/).
 
   [![Verify data access policies.](media/preview-troubleshoot/verify-data-access-policies.png)](media/preview-troubleshoot/verify-data-access-policies.png#lightbox)
 
@@ -73,7 +73,7 @@ You might be sending data without the Time Series ID.
 Ensure that the name and value conform to the following rules:
 
 * The Timestamp property name is case sensitive.
-* The Timestamp property value that comes from your event source as a JSON string has the format `yyyy-MM-ddTHH:mm:ss.FFFFFFFK`. An example of such a string is `“2008-04-12T12:53Z”`.
+* The Timestamp property value that comes from your event source as a JSON string has the format `yyyy-MM-ddTHH:mm:ss.FFFFFFFK`. An example of such a string is `"2008-04-12T12:53Z"`.
 
 The easiest way to ensure that your Timestamp property name is captured and working properly is to use the Time Series Insights Preview explorer. Within the Time Series Insights Preview explorer, use the chart to select a period of time after you provided the Timestamp property name. Right-click the selection, and select the **explore events** option. The first column header is your Timestamp property name. It should have `($ts)` next to the word `Timestamp`, rather than:
 
@@ -81,14 +81,14 @@ The easiest way to ensure that your Timestamp property name is captured and work
 * The **calendar** icon, which indicates that Time Series Insights reads the data value as datetime.
 * `#`, which indicates that Time Series Insights reads the data values as an integer.
 
-If the Timestamp property isn’t explicitly specified, an event’s IoT hub or event hub Enqueued Time is used as the default time stamp.
+If the Timestamp property isn't explicitly specified, an event's IoT hub or event hub Enqueued Time is used as the default time stamp.
 
-## Problem: I can’t view data from my warm store in the explorer
+## Problem: I can't view data from my warm store in the explorer
 
 - You might have provisioned your warm store recently, and data is still flowing in.
 - You might have deleted your warm store, in which case you would have lost data.
 
-## Problem: I can’t view or edit my Time Series Model
+## Problem: I can't view or edit my Time Series Model
 
 - You might be accessing a Time Series Insights S1 or S2 environment.
 
@@ -102,7 +102,7 @@ If the Timestamp property isn’t explicitly specified, an event’s IoT hub or 
 
 ## Problem: All my instances in the preview explorer lack a parent
 
-This problem might occur if your environment doesn’t have a Time Series Model hierarchy defined. For more information, read [Work with Time Series Models](./time-series-insights-update-how-to-tsm.md).
+This problem might occur if your environment doesn't have a Time Series Model hierarchy defined. For more information, read [Work with Time Series Models](./time-series-insights-update-how-to-tsm.md).
 
   [![Unparented instances will display a warning.](media/preview-troubleshoot/unparented-instances.png)](media/preview-troubleshoot/unparented-instances.png#lightbox)
 

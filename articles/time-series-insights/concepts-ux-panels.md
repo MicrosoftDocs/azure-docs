@@ -8,7 +8,7 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 01/07/2020
+ms.date: 03/13/2020
 ms.custom: seodec18
 ---
 
@@ -105,7 +105,7 @@ The chart enables you to display time series instances as lines. You can collaps
 
 1. **Chart type**: Controls which data elements are available for visualization.
 
-1. **Interval size**: The Interval size slider tool enables you to zoom in and out of intervals over the same time span. This provides more precise control of movement between large slices of time that show smooth trends down to slices as small as the millisecond, allowing you to review granular, high-resolution cuts of your data. The slider’s default starting point is set as the most optimal view of the data from your selection; balancing resolution, query speed, and granularity.
+1. **Interval size**: The Interval size slider tool enables you to zoom in and out of intervals over the same time span. This provides more precise control of movement between large slices of time that show smooth trends down to slices as small as the millisecond, allowing you to review granular, high-resolution cuts of your data. The slider's default starting point is set as the most optimal view of the data from your selection; balancing resolution, query speed, and granularity.
 
 1. **Zoom and pan**: Select this control to zoom and pan the chart.
 
@@ -200,7 +200,7 @@ Azure Time Series Insights Preview supports two themes:
 
 ### Preview terms panel
 
-This section applies only to existing S1/S2 environments that attempt to use the explorer in the updated UI. You might want to use the generally available product and Preview in combination. We’ve added some functionality from the existing UI to the updated explorer, but you can get the full UI experience for S1/S2 environment in the existing Time Series Insights explorer. 
+This section applies only to existing S1/S2 environments that attempt to use the explorer in the updated UI. You might want to use the generally available product and Preview in combination. We've added some functionality from the existing UI to the updated explorer, but you can get the full UI experience for S1/S2 environment in the existing Time Series Insights explorer. 
 
 Instead of the hierarchy, the Time Series Insights terms panel is displayed. The terms panel allows you to define queries in your environment. Use it to also filter data based on a predicate.
 
@@ -210,7 +210,7 @@ The Time Series Insights Preview terms editor panel takes the following paramete
 
 **Where**: Use the where clause to quickly filter your events by using the set of operands listed in the following table. If you conduct a search by selecting an operand, the predicate is automatically updated based on that search. Supported operand types include the following:
 
-| Operation	| Supported types	| Notes |
+| Operation    | Supported types    | Notes |
 | --- | --- | --- |
 | `<`, `>`, `<=`, `>=` | Double, DateTime, TimeSpan | |
 | `=`, `!=`, `<>` | String, Bool, Double, DateTime, TimeSpan, NULL |
