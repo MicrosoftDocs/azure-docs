@@ -18,9 +18,9 @@
       href: index-speech-to-text.yml
     - name: Overview
       items:
-        - name: What is speech-to-text?
+        - name: What is real-time speech-to-text?
           href: speech-to-text.md
-        - name: What is batch transcription?
+        - name: What is batch speech-to-text?
           href: batch-transcription.md
         - name: Speech recognition basics
           href: speech-to-text-basics.md

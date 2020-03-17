@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 title: Speech-to-text documentation
-summary: Speech-to-text from the Speech service, also known as speech recognition, enables real-time transcription of audio streams into text.
+summary: Speech-to-text from the Speech service, also known as speech recognition, enables real-time and batch transcription of audio streams into text.
 metadata:
   title: Speech-to-text documentation - Tutorials, API Reference - Azure Cognitive Services | Microsoft Docs
   titleSuffix: Azure Cognitive Services
@@ -18,9 +18,9 @@ landingContent:
   linkLists:
     - linkListType: overview
       links:
-      - text: What is speech-to-text?
+      - text: What is real-time speech-to-text?
         url: speech-to-text.md
-      - text: What is batch transcription?
+      - text: What is batch speech-to-text?
         url: batch-transcription.md
       - text: Speech recognition basics?
         url: speech-to-text-basics.md
