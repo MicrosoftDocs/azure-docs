@@ -146,7 +146,7 @@ Although there are requirements when using the manifest objects, not all objects
 
 | Object | Required | Description |
 | :----- | :------- | :------- | 
-| directoryInfo | true | Outlines the facility geographic and contact information |
+| directoryInfo | true | Outlines the facility geographic and contact information. It can also be used to outline an occupant geographic and contact information. |
 | buildingLevels | true | Specifies the levels of the buildings and the files containing the design of the levels | 
 | georeference | true | Contains numerical geographic information for the facility drawing |
 | dwgLayers | true | Lists the names of the layers, and each layer lists the names of its own features |
@@ -216,7 +216,7 @@ The `unitProperties` object contains a JSON array of unit properties.
 |categoryName|    string|    false    |Category Name. For a complete list of categories, refer to [categories](https://aka.ms/pa-indoor-spacecategories). |
 |navigableBy| Array of strings |    false    |Indicates the types of navigating agents that can traverse the unit. For example, "pedestrian". This property will inform the wayfinding capabilities.  The permitted values are `pedestrian`, `wheelchair`, `machine`, `bicycle`, `automobile`, `hired_auto`, `bus`, `railcar`, `emergency`, `ferry`, `boat`, and `disallowed`.|
 |routeThroughBehavior|    string|    false    |The route through behavior for the unit. The permitted values are `disallowed`, `allowed`, and `preferred`.|
-|occupants    |directoryInfo[]|false    |List of occupants for the unit |
+|occupants    |Array of directoryInfo objects |false    |List of occupants for the unit |
 |nameAlt|    string|    false|    Alternate Name |
 |nameSubtitle|    string    |false|    Subtitle |
 |addressRoomNumber|    string|    false|    Room/Unit/Apartment/Suite number of the unit|
