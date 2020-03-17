@@ -4508,7 +4508,7 @@
     {
       "source_path": "articles/azure-supportability/create-manage-support-requests-using-access-control.md",
       "redirect_url": "/azure/azure-portal/supportability/how-to-create-azure-support-request#role-based-access-control",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-supportability/how-to-create-azure-support-request.md",
@@ -49429,19 +49429,19 @@
       "redirect_url": "/azure/media-services/latest/create-account-howto",
       "redirect_document_id": false
     },
-    { 
-      "source_path": "articles/mariadb/howto-tls-configurations.md", 
-      "redirect_url": "/azure/mariadb/howto-configure-ssl", 
-      "redirect_document_id": false 
-    },
     {
-      "source_path": "articles/mysql/howto-tls-configurations.md", 
-      "redirect_url": "/azure/mysql/howto-configure-ssl", 
+      "source_path": "articles/mariadb/howto-tls-configurations.md",
+      "redirect_url": "/azure/mariadb/howto-configure-ssl",
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/postgresql/howto-tls-configurations.md", 
-      "redirect_url": "/azure/postgresql/concepts-ssl-connection-security", 
+      "source_path": "articles/mysql/howto-tls-configurations.md",
+      "redirect_url": "/azure/mysql/howto-configure-ssl",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/postgresql/howto-tls-configurations.md",
+      "redirect_url": "/azure/postgresql/concepts-ssl-connection-security",
       "redirect_document_id": false
     }
   ]
