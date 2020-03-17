@@ -92,7 +92,7 @@ Azure places network rate limits on each virtual machine type/size. The rate lim
 
 ## Is Accelerated Networking recommended?
 
-For maximum performance, it is recommended that you configure [Accelerated Networking](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli) where possible. Keep the following considerations in mind:  
+For maximum performance, it is recommended that you configure [Accelerated Networking](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-powershell) where possible. Keep the following considerations in mind:  
 
 * The Azure portal enables Accelerated Networking by default for virtual machines supporting this feature.  However, other deployment methods such as Ansible and similar configuration tools may not.  Failure to enable Accelerated Networking can hobble the performance of a machine.  
 * If Accelerated Networking is not enabled on the network interface of a virtual machine due to its lack of support for an instance type or size, it will remain disabled with larger instance types. You will need manual intervention in those cases.
