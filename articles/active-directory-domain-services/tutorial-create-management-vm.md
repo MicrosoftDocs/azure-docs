@@ -87,6 +87,7 @@ To get started, connect to the Windows Server VM as follows:
 
     ![Connect to Windows virtual machine using Bastion in the Azure portal](./media/join-windows-vm/connect-to-vm.png)
 
+    You can also [create and use an Azure Bastion host (currently in preview)][azure-bastion] to allow access only through the Azure portal over TLS.
 1. Enter the credentials for your VM, then select **Connect**.
 
    ![Connect through the Bastion host in the Azure portal](./media/join-windows-vm/connect-to-bastion.png)
