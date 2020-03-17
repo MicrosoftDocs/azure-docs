@@ -15,7 +15,7 @@ Control plane operations include changes to the Azure Cosmos account or containe
 
 ## Disable key based metadata write access
  
-Before you audit the control plane operations in Azure Cosmos DB, disable the key-based metadata write access on your account. The Azure Cosmos DB resource provider can be locked down from a client to prevent any changes to resources including Cosmos account, databases, containers, and throughput. You can secure your account by setting the `disableKeyBasedMetadataWriteAccess` property to true. When you set this property, changes to any resource can happen from a user with the proper Role-based access control(RBAC) role and credentials only. To learn more on how to set this property, see the [Preventing changes from SDKs](role-based-access-control.md#preventing-changes-from-cosmos-sdk) article. 
+Before you audit the control plane operations in Azure Cosmos DB, disable the key-based metadata write access on your account. When key based metadata write access is disabled, clients connecting to the Azure Cosmos account through account keys are prevented from accessing the account. You can disable write access by setting the `disableKeyBasedMetadataWriteAccess` property to true. After you set this property, changes to any resource can happen from a user with the proper Role-based access control(RBAC) role and credentials only. To learn more on how to set this property, see the [Preventing changes from SDKs](role-based-access-control.md#preventing-changes-from-cosmos-sdk) article.
 
  Consider the following points when turning off the metadata write access:
 
@@ -39,10 +39,10 @@ You can also store the logs in a storage account or stream to an event hub. This
 
 ## View the control plane operations
 
-After you turn on logging, you can view the logs in Log Analytics with the following steps:
+After you turn on logging, use the following steps to track down operations for a specific account:
 
-1. Sign into [Azure portal](https://portal.azure.com) and navigate to your Log Analytics account that you have used in the previous step.
-1. Open the **Logs** pane and run the following query:
+1. Sign into [Azure portal](https://portal.azure.com).
+1. Open the **Monitor** tab from the left hand navigation and then select the **Logs** pane. It opens a UI where you can easily run queries with that specific account in scope. Run the following query to view control plane logs:
 
    ```kusto
    AzureDiagnostics
@@ -64,3 +64,5 @@ If you want to debug further, you can identify a specific operation in the Activ
 
 ## Next steps
 
+* [Explore Azure Monitor for Azure Cosmos DB](../azure-monitor/insights/cosmosdb-insights-overview.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json)
+* [Monitor and debug with metrics in Azure Cosmos DB](use-metrics.md)
