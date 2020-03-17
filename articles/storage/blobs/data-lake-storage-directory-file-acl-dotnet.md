@@ -215,7 +215,7 @@ public async Task UploadFileBulk(DataLakeFileSystemClient fileSystemClient)
     DataLakeFileClient fileClient = directoryClient.GetFileClient("uploaded-file.txt");
 
     FileStream fileStream =
-        File.OpenRead("C:\\Users\\normesta\\Norms-Test-Projects\\mytestfile.txt");
+        File.OpenRead("C:\\file-to-upload.txt");
 
     await fileClient.UploadAsync(fileStream);
 

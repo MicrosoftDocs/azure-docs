@@ -190,6 +190,17 @@ def upload_file_to_directory():
       print(e) 
 ```
 
+> [!TIP]
+> If your file size is large, your code will have to make multiple calls to the **DataLakeFileClient.append_data** method. Consider using the **need method name** method method instead. That way, you can upload the entire file in a single call. 
+
+## Upload a large file to a directory
+
+Use the **need method name** method to upload large files without having to make multiple calls to the **DataLakeFileClient.append_data** method.
+
+```python
+Put code example here.
+```
+
 ## Manage file permissions
 
 Get the access control list (ACL) of a file by calling the **DataLakeFileClient.get_access_control** method and set the ACL by calling the **DataLakeFileClient.set_access_control** method.
