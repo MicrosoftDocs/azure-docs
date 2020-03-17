@@ -15,7 +15,7 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/16/2020
+ms.date: 03/17/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
@@ -109,6 +109,7 @@ For information on integration of Azure services into SAP components, see:
 
 
 ## Change Log
+- 03/17/2020: Change in [Setting up Pacemaker on SUSE Linux Enterprise Server in Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker) to remove SBD configuration setting that is no longer necessary
 - 03/16/2020: Clarification of column certification scenario in SAP HANA IaaS certified platform in [What SAP software is supported for Azure deployments](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-supported-product-on-azure)
 - 03/11/2020: Change in [SAP workload on Azure virtual machine supported scenarios](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-planning-supported-configurations) to clarify multiple databases per DBMS instance support
 - 03/11/2020: Change in [Azure Virtual Machines planning and implementation for SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide) explaining Generation 1 and Generation 2 VMs
