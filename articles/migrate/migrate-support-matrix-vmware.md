@@ -15,7 +15,6 @@ You assess physical servers with the [Azure Migrate:Server Assessment](migrate-s
 
 **Support** | **Details**
 --- | ---
-**Assessment limits** | 
 **Project limits** | You can create multiple projects in an Azure subscription.<br/><br/> You can discover and assess up to 35,000 VMware VMs in a single [project](migrate-support-matrix.md#azure-migrate-projects). A project can include VMware VMs, physical servers, and Hyper-V VMs, up to the assessment limits for each.
 **Discovery** | The Azure Migrate appliance can discover up to 10,000 VMware VMs on a vCenter Server.
 **Assessment** | You can add up to 35,000 machines in a single group.<br/><br/> You can assess up to 35,000 VMs in a single assessment.
@@ -84,8 +83,6 @@ ESXi hosts (app discovery/agentless dependency analysis) | If you want to do [ap
 **vCenter Server credentials** | Dependency visualization needs a vCenter Server account with read-only access, and privileges enabled for Virtual Machines > Guest Operations. 
 **PowerShell** | VMs must have PowerShell version 2.0 or above installed.
 **Port access** | On ESXi hosts running VMs you want to analyze, the Azure Migrate appliance must be able to connect to TCP port 443.
-
->>>>>>> e468cb64cccb3912cd70b53cee1e48ddd18955b1
 
 ## Agent-based dependency analysis requirements
 
