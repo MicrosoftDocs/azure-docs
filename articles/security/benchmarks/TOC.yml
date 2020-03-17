@@ -44,13 +44,5 @@
     href: ../../key-vault/security-baseline.md
   - name: HDInsight security baseline
     href: ../../hdinsight/security-baseline.md
-  - name: MariaDB security baseline
-    href: ../../mariadb/security-baseline.md
-  - name: MySQL security baseline
-    href: ../../mysql/security-baseline.md
-  - name: PostGreSQL security baseline
-    href: ../../postgresql/security-baseline.md
   - name: SQL Database security baseline
     href: ../../sql-database/security-baseline.md
-  - name: Storage security baseline
-    href: ../../storage/common/security-baseline.md
