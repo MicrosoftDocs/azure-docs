@@ -2,7 +2,7 @@
 title: 'Tutorial - Azure Synapse Analytics: Spark job definition for Synapse'
 description: Tutorial - Use the Azure Synapse Analytics to create Spark job definitions, and submit them to a Synapse Spark pool.
 author: hrasheed-msft
-ms.author: Jenny
+ms.author: jejiang
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
