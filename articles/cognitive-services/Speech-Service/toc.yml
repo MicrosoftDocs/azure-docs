@@ -18,9 +18,11 @@
       href: index-speech-to-text.yml
     - name: Overview
       items:
-        - name: What is speech-to-text?
+        - name: What is real-time speech-to-text?
           href: speech-to-text.md
-        - name: Speech-to-text basics
+        - name: What is batch speech-to-text?
+          href: batch-transcription.md
+        - name: Speech recognition basics
           href: speech-to-text-basics.md
     - name: Quickstart
       items:
@@ -40,6 +42,7 @@
           href: how-to-custom-speech.md
         - name: Use compressed audio input formats
           href: how-to-use-codec-compressed-audio-input-streams.md
+          displayName: codec,codecs,compression,compressed,mp3,flac,mulaw,alaw,mp4,mp4a,wav,opus,ogg,pcm,silk
         - name: Improve accuracy with Phrase Lists
           href: how-to-phrase-lists.md
         - name: Improve accuracy with tenant models
@@ -95,12 +98,12 @@
           items:
             - name: Speech-to-text REST API
               href: rest-speech-to-text.md
-            - name: Batch transcription REST API
-              href: batch-transcription.md
-        - name: Language support
-          href: 'language-support.md#speech-to-text'
     - name: Resources
       items:
+        - name: Language support
+          href: language-support.md#speech-to-text
+        - name: Region support
+          href: regions.md#speech-to-text-text-to-speech-and-translation
         - name: Speech-to-text FAQ
           displayName: 'FAQ,STT FAQ,SR FAQ,frequently asked questions'
           href: faq-stt.md
@@ -193,14 +196,16 @@
           items:
             - name: Text-to-speech REST API
               href: rest-text-to-speech.md
-        - name: Standard voice support
-          href: 'language-support.md#standard-voices'
-        - name: Neural voice support
-          href: 'language-support.md#neural-voices'
-        - name: SSML phonetic sets
-          href: speech-ssml-phonetic-sets.md
     - name: Resources
       items:
+        - name: Standard voice support
+          href: language-support.md#standard-voices
+        - name: Neural voice support
+          href: language-support.md#neural-voices
+        - name: Region support
+          href: regions.md#speech-to-text-text-to-speech-and-translation
+        - name: SSML phonetic sets
+          href: speech-ssml-phonetic-sets.md
         - name: Text-to-speech FAQ
           displayName: 'FAQ,TTS FAQ,SS FAQ,frequently asked questions'
           href: faq-text-to-speech.md
@@ -249,10 +254,12 @@
             - name: Release notes
               displayName: 'release notes,updates,what''s new,what is new,changes'
               href: releasenotes.md
-        - name: Language support
-          href: 'language-support.md#speech-translation'
     - name: Resources
       items:
+        - name: Language support
+          href: language-support.md#speech-translation
+        - name: Region support
+          href: regions.md#speech-to-text-text-to-speech-and-translation
         - name: Speech translation FAQ
           href: 'https://www.microsoft.com/translator/faq.aspx'
 - name: Intent recognition
@@ -297,6 +304,12 @@
           items:
             - name: LUIS developer resources
               href: https://docs.microsoft.com/azure/cognitive-services/luis/developer-reference-resource
+    - name: Resources
+      items:
+        - name: Language support
+          href: ../luis/luis-language-support.md
+        - name: Region support
+          href: regions.md#intent-recognition
 - name: Conversation scenarios
   items:
     - name: Conversation scenarios documentation
@@ -538,6 +551,8 @@
       href: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/
     - name: Compliance
       href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
+    - name: Encryption
+      href: speech-encryption-of-data-at-rest.md
     - name: Azure roadmap
       href: 'https://azure.microsoft.com/roadmap/?category=ai-machine-learning'
     - name: Privacy and cookies
