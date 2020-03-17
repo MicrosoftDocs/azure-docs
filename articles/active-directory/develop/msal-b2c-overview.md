@@ -23,7 +23,7 @@ ms.custom: aaddev
 
 Azure AD B2C also enables you to brand and customize the UI of your applications during the authentication process in order to provide a seamless experience to your customers.
 
-This article demonstrates how to use MSAL.js to work with Azure AD B2C and summarizes key points that you should be aware of. For a complete discussion and tutorial, please consult [Azure AD B2C Documentation](https://docs.microsoft.com/en-us/azure/active-directory-b2c/overview).
+This article demonstrates how to use MSAL.js to work with Azure AD B2C and summarizes key points that you should be aware of. For a complete discussion and tutorial, please consult [Azure AD B2C Documentation](https://docs.microsoft.com/azure/active-directory-b2c/overview).
 
 ## Prerequisites
 
@@ -43,7 +43,7 @@ The following steps demonstrate how a **web API** can use Azure AD B2C to protec
 
 ### Step 1: Register your application
 
-To protect your web API with Azure AD B2C, you first need to register it. See [Register your application](https://docs.microsoft.com/en-us/azure/active-directory-b2c/add-web-application?tabs=applications) for detailed steps.
+To protect your web API with Azure AD B2C, you first need to register it. See [Register your application](https://docs.microsoft.com/azure/active-directory-b2c/add-web-application?tabs=applications) for detailed steps.
 
 ### Step 2: Download the sample application
 
@@ -76,7 +76,7 @@ The following steps demonstrate how a **single-page application** can use Azure 
 
 ### Step 1: Register your application
 
-To implement authentication, you first need to register your application. See [Register your application](https://docs.microsoft.com/en-us/azure/active-directory-b2c/tutorial-register-applications?tabs=applications) for detailed steps.
+To implement authentication, you first need to register your application. See [Register your application](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-register-applications?tabs=applications) for detailed steps.
 
 ### Step 2: Download the sample application
 
@@ -141,6 +141,6 @@ For more information, check out this [JavaScript B2C single-page application sam
 ## Next steps
 
 Learn more about:
-- [User flows](https://docs.microsoft.com/en-us/azure/active-directory-b2c/tutorial-create-user-flows)
-- [Custom policies](https://docs.microsoft.com/en-us/azure/active-directory-b2c/custom-policy-get-started?tabs=applications)
-- [UX customization](https://docs.microsoft.com/en-us/azure/active-directory-b2c/custom-policy-configure-user-input)
+- [User flows](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-user-flows)
+- [Custom policies](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications)
+- [UX customization](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-configure-user-input)
