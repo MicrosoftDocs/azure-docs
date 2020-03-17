@@ -26,7 +26,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Notification Hubs requires version 2.0.67 or later of the Azure CLI. Run `az --version` to find the version and dependent libraries that are installed. To install or upgrade, see [Install Azure CLI][azure-cli-install].
+Notification Hubs requires version 2.0.67 or later of the Azure CLI. Run `az --version` to find the version and dependent libraries that are installed. To install or upgrade, see [Install Azure CLI](azure-cli-install).
 
 ## Prepare your environment
 
@@ -69,7 +69,7 @@ Notification Hubs requires version 2.0.67 or later of the Azure CLI. Run `az --v
    az notification-hub namespace check-availability --name spnhubns
 
    #create the namespace
-   az notification-hub namespace create --resource-group spnhubrg --name spnhubns    --location eastus --sku Free
+   az notification-hub namespace create --resource-group spnhubrg --name spnhubns  --location eastus --sku Free
    ```
 
 2. List keys and connection strings for a namespace access policy.
@@ -77,7 +77,7 @@ Notification Hubs requires version 2.0.67 or later of the Azure CLI. Run `az --v
    An access policy named **RootManageSharedAccessKey** is automatically created for a new namespace.  Every access policy has two sets of keys and connection strings.  To list the keys and connection strings for the namespace, run the [az notification-hub namespace authorization-rule list-keys](/cli/azure/ext/notification-hub/notification-hub/authorization-rule#ext-notification-hub-az-notification-hub-authorization-rule-list-keys) command.
 
    ```azurecli-interactive
-   az notification-hub namespace authorization-rule list-keys --resource-group spnhubrg    --namespace-name spnhubns --name RootManageSharedAccessKey
+   az notification-hub namespace authorization-rule list-keys --resource-group spnhubrg --namespace-name spnhubns --name RootManageSharedAccessKey
    ```
 
 ## Create notification hubs
@@ -117,7 +117,7 @@ Notification Hubs requires version 2.0.67 or later of the Azure CLI. Run `az --v
    ```
 
    > [!IMPORTANT]
-   > Do not use the **DefaultFullSharedAccessSignature** policy in your application. This is meant to be used in your app backend only.
+   > Do not use the **DefaultFullSharedAccessSignature** policy in your application. This is meant to be used in your back-end only.  Use only **Listen** access policies in your client application.
 
 3. List keys and connection strings for a notification hub access policy
 
@@ -128,7 +128,7 @@ Notification Hubs requires version 2.0.67 or later of the Azure CLI. Run `az --v
    az notification-hub authorization-rule list-keys --resource-group spnhubrg --namespace-name spnhubns --notification-hub-name spfcmtutorial1nhub --name DefaultListenSharedAccessSignature --output json
 
    #query the keys and connection strings for the custom policy
-   az notification-hub authorization-rule list-keys --resource-group spnhubrg --namespace-name spnhubns2 --notification-hub-name spfcmtutorial1nhub --name spnhub1key --output json
+   az notification-hub authorization-rule list-keys --resource-group spnhubrg --namespace-name spnhubns --notification-hub-name spfcmtutorial1nhub --name spnhub1key --output table
    ```
 
    > [!NOTE]
