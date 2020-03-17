@@ -15,8 +15,8 @@
     href: quick-backup-vm-powershell.md
   - name: Back up a VM - CLI
     href: quick-backup-vm-cli.md
-  - name: Back up a VM - Resource Manager template
-    displayName: ARM
+  - name: Back up a VM - ARM template
+    displayName: Resource Manager
     href: quick-backup-vm-template.md
 - name: Tutorials
   items:
@@ -40,11 +40,11 @@
     href: tutorial-backup-restore-files-windows-server.md
   - name: SAP HANA databases on Azure VMs – using CLI
     items:
-    - name: Backup SAP HANA databases - CLI  
+    - name: Backup SAP HANA databases - CLI
       href: tutorial-sap-hana-backup-cli.md
     - name: Restore SAP HANA databases - CLI
       href: tutorial-sap-hana-restore-cli.md
-    - name: Manage backed up SAP HANA databases - CLI 
+    - name: Manage backed up SAP HANA databases - CLI
       href: tutorial-sap-hana-manage-cli.md
 - name: Concepts
   items:
@@ -62,7 +62,7 @@
       href: sql-support-matrix.md
     - name: SAP HANA Backup support matrix
       href: sap-hana-backup-support-matrix.md
-    - name: Supported VM SKUs for Azure Policy  
+    - name: Supported VM SKUs for Azure Policy
       href: backup-azure-policy-supported-skus.md
   - name: Frequently asked questions (FAQ)
     items:
@@ -90,13 +90,13 @@
     items:
     - name: Overview
       href: backup-azure-recovery-services-vault-overview.md
-    - name: Create 
+    - name: Create
       href: backup-create-rs-vault.md
     - name: Delete
       href: backup-azure-delete-vault.md
-    - name: Move 
+    - name: Move
       href: backup-azure-move-recovery-services-vault.md
-    - name: Manage 
+    - name: Manage
       href: backup-azure-manage-windows-server.md
   - name: Azure VM backup
     items:
@@ -208,7 +208,7 @@
       href: backup-azure-sap-hana-database.md
     - name: Restore
       href: sap-hana-db-restore.md
-    - name: Manage 
+    - name: Manage
       href: sap-hana-db-manage.md
   - name: Azure Backup Server (MABS)
     items:
@@ -272,9 +272,9 @@
     items:
     - name: Overview
       href: offline-backup-overview.md
-    - name: Offline Backup with Azure Data Box 
+    - name: Offline Backup with Azure Data Box
       href: offline-backup-azure-data-box.md
-    - name: Offline Backup with Import/Export (MARS) 
+    - name: Offline Backup with Import/Export (MARS)
       href: backup-azure-backup-import-export.md
     - name: Offline Backup with Import/Export (DPM/MABS)
       href: backup-azure-backup-server-import-export-.md
