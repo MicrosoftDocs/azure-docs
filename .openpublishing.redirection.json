@@ -15800,6 +15800,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/machine-learning/studio/dedicated-capacity-for-bes-jobs.md",
+      "redirect_url": "/azure/machine-learning/studio/consume-web-services",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/machine-learning/machine-learning-deploy-consume-web-service-guide.md",
       "redirect_url": "/azure/machine-learning/studio/deploy-consume-web-service-guide",
       "redirect_document_id": false
