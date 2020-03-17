@@ -42,7 +42,7 @@ Create a Maven project in your preferred IDE or development environment. Then ad
 > [!TIP]
 > Want to view the whole quickstart code file at once? You can find it [on GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/TextAnalytics/TextAnalyticsSamples.java), which contains the code examples in this quickstart. 
 
-Open the java file and add the following `import` statements:
+Create a Java file named `TextAnalyticsSamples.java`. Open the file and add the following `import` statements:
 
 ```java
 import com.azure.ai.textanalytics.models.*;
