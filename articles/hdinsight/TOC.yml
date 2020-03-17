@@ -764,6 +764,9 @@
       href: ./r-server/r-server-overview.md
   - name: Quickstarts
     items:
+    - name: Create ML Services cluster - ARM Template
+      displayName: Resource Manager
+      href: ./r-server/quickstart-resource-manager-template.md
     - name: Sample job - RStudio Server
       href: ./r-server/machine-learning-services-quickstart-job-rstudio.md
     - name: Sample job - R console
