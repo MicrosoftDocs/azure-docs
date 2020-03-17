@@ -470,6 +470,10 @@
           href: ./partner-center-portal/create-new-operations-offer.md
         - name: Create a Dynamics 365 Business Central offer
           href: ./partner-center-portal/create-new-business-central-offer.md
+    - name: Managed Services offers
+      items:
+      - name: Create a Managed Services offer
+        href: ./partner-center-portal-create-new-managed-services-offer.md
     - name: SaaS offers
       items:
       - name: SaaS offer creation checklist
