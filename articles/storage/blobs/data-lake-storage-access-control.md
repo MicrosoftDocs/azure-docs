@@ -24,6 +24,9 @@ Typically, those Azure resources are constrained to top-level resources (For exa
 
 To learn how to assign roles to security principals in the scope of your storage account, see [Grant access to Azure blob and queue data with RBAC in the Azure portal](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
+> [!NOTE]
+> A guest user can't create a role assignment.
+
 ### The impact of role assignments on file and directory level access control lists
 
 While using RBAC role assignments is a powerful mechanism to control access permissions, it is a very coarsely grained mechanism relative to ACLs. The smallest granularity for RBAC is at the container level and this will be evaluated at a higher priority than ACLs. Therefore, if you assign a role to a security principal in the scope of a container, that security principal has the authorization level associated with that role for ALL directories and files in that container, regardless of ACL assignments.
@@ -46,7 +49,7 @@ SAS tokens include allowed permissions as part of the token. The permissions inc
 You can associate a security principal with an access level for files and directories. These associations are captured in an *access control list (ACL)*. Each file and directory in your storage account has an access control list.
 
 > [!NOTE]
-> ACLs apply only to security principals in the same tenant. You can't associate a guest user with an access level.
+> ACLs apply only to security principals in the same tenant. You can't associate a guest user with an access level.  
 
 If you assigned a role to a security principal at the storage account-level, you can use access control lists to grant that security principal elevated access to specific files and directories.
 
