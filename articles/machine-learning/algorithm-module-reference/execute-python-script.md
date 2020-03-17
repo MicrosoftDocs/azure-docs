@@ -146,7 +146,7 @@ The **Execute Python Script** module contains sample Python code that you can us
 
     + Two datasets can be returned to the designer, which must be a sequence of type `pandas.DataFrame`. You can create other outputs in your Python code and write them directly to Azure storage.
 
-6. Run the pipeline, or select the module and click **Run selected** to run just the Python script.
+6. Submit the pipeline, or select the module and click **Run selected** to run just the Python script.
 
     All of the data and code is loaded into a virtual machine, and run using the specified Python environment.
 
