@@ -17,39 +17,37 @@ ms.date: 03/03/2020
 
 In this tutorial, you create an end-to-end pipeline containing **Validation**, **Copy**, and **Notebook** activities in Data Factory.
 
-- **Validation** activity is used to ensure the source dataset is ready for downstream consumption, before triggering the copy and analytics job.
+- **Validation** ensures that your source dataset is ready for downstream consumption before you trigger the copy and analytics job.
 
-- **Copy** activity copies the source file/ dataset to the sink storage. The sink storage is mounted as DBFS in the Databricks notebook so that the dataset can be directly consumed by Spark.
+- **Copy** duplicates the source dataset to the sink storage which is mounted as DBFS in the Databricks notebook. In this way, the dataset can be directly consumed by Spark.
 
-- **Databricks Notebook** activity triggers the Databricks notebook that transforms the dataset, and adds it to a processed folder/ SQL DW.
+- **Notebook** triggers the Databricks notebook that transforms the dataset. It also adds the dataset to a processed folder or SQL Data Warehouse.
 
-To keep this template simple, the template doesn't create a scheduled trigger. You can add that if necessary.
+For simplicity, the template in this tutorial doesn't create a scheduled trigger. You can add one if necessary.
 
 ![1](media/solution-template-Databricks-notebook/pipeline-example.png)
 
 ## Prerequisites
 
-1. Create a **blob storage account** and a container called `sinkdata` to be used as **sink**. Keep a note of the **storage account name**, **container name**, and **access key**, since they are referenced later in the template.
+- A **blob storage account** with a container called `sinkdata` for use as **sink**
 
-2. Ensure you have an **Azure Databricks workspace** or create a new one.
+  Make note of the **storage account name**, **container name**, and **access key**. You'll need these values later in the template.
 
-3. **Import the notebook for Transformation**. 
-    1. In your Azure Databricks, reference following screenshots for importing a **Transformation** notebook to the Databricks workspace. It does not have to be in the same location as below, but remember the path that you choose for later.
-<<<<<<< HEAD
+- An **Azure Databricks workspace**
 
-       ![2](media/solution-template-Databricks-notebook/Databricks-tutorial-image02.png)
+## Import a notebook for Transformation
 
-    1. Select "Import from: **URL**", and enter following URL in the textbox:
-=======
-   
-       ![2](media/solution-template-Databricks-notebook/import-notebook.png)    
-    
-    1. Select "Import from: **URL**", and enter following URL in the textbox:
+To import a **Transformation** notebook to your Databricks workspace:
+
+1. Sign in to your Azure Databricks account.
+1. In your Databricks workspace, select Import.
+       ![2](media/solution-template-Databricks-notebook/import-notebook.png)
+   Your Databricks location can be different from the one shown, but remember it for later.
+1. Select "Import from: **URL**", and enter following URL in the textbox:
     
        * `https://adflabstaging1.blob.core.windows.net/share/Transformations.html`
         
        ![3](media/solution-template-Databricks-notebook/import-from-url.png)    
->>>>>>> 41a83460d90e44f5f7f328ce77e1e2f72733848a
 
        `https://adflabstaging1.blob.core.windows.net/share/Transformations.html`
 
@@ -129,15 +127,6 @@ In the new pipeline created, most settings have been configured automatically wi
 
     ![14](media/solution-template-Databricks-notebook/copy-sink-settings.png)
 
-<<<<<<< HEAD
-1. A Notebook activity **Transformation** is created, and the linked service created in previous step is selected.
-    ![16](media/solution-template-Databricks-notebook/Databricks-tutorial-image16.png)
-
-     1. Select **Settings** tab. For *Notebook path*, the template defines a path by default. You may need to browse and select the correct notebook path uploaded in **Prerequisite** 2. 
-
-         ![17](media/solution-template-Databricks-notebook/databricks-tutorial-image17.png)
-
-=======
 1.  A Notebook activity **Transformation** is created, and the linked service created in previous step is selected.
     ![16](media/solution-template-Databricks-notebook/notebook-activity.png)
 
@@ -145,7 +134,6 @@ In the new pipeline created, most settings have been configured automatically wi
 
          ![17](media/solution-template-Databricks-notebook/notebook-settings.png)
     
->>>>>>> 41a83460d90e44f5f7f328ce77e1e2f72733848a
      1. Check out the *Base Parameters* created as shown in the screenshot. They are to be passed to the Databricks notebook from Data Factory. 
 
          ![Base parameters](media/solution-template-Databricks-notebook/base-parameters.png)
