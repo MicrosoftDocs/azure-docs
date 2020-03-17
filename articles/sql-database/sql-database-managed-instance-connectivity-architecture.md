@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
-ms.date: 2020/03/17
+ms.date: 03/17/2020
 ---
 
 # Connectivity architecture for a managed instance in Azure SQL Database
