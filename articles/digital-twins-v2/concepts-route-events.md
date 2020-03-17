@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Understand how to route events from Azure Digital Twins to other Azure Services.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 2/27/2020
+ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
 
@@ -21,24 +21,26 @@ It is often useful for data from Azure Digital Twins to be sent to downstream da
 
 For example...
 * A hospital may want to send Azure Digital Twins event data to [Time Series Insights (TSI)](../time-series-insights/time-series-insights-update-overview.md), to record time series data of handwashing-related events for bulk analytics.
-* A business that is already using [Azure Maps](../azure-maps/about-azure-maps.md) may want to use Azure Digital Twins to enhance their solution. They can quickly enable an Azure Map after setting up Azure Digital Twins, bring Azure Map entities into Azure Digital Twins as twin nodes, or run powerful queries leveraging their Azure Maps and Azure Digital Twins data together.
+* A business that is already using [Azure Maps](../azure-maps/about-azure-maps.md) may want to use Azure Digital Twins to enhance their solution. They can quickly enable an Azure Map after setting up Azure Digital Twins, bring Azure Map entities into Azure Digital Twins as digital twins in the twin graph, or run powerful queries leveraging their Azure Maps and Azure Digital Twins data together.
 
 Data egress for scenarios like these is handled using **event routes**. 
 
+## About event routes
+
 An event route lets you send event data from nodes in Azure Digital Twins to custom-defined endpoints in your subscriptions. Three Azure services are currently supported for endpoints: [Event Hub](../event-hubs/event-hubs-about.md), [Event Grid](../event-grid/overview.md), and [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md). Each of these Azure services can be connected to other services and acts as the middleman, sending data along to final destinations such as TSI or Azure Maps for whatever processing you desire.
 
-The following diagram illustrates the flow of event data through a larger IoT solution with an Azure Digital Twins component:
+The following diagram illustrates the flow of event data through a larger IoT solution with an Azure Digital Twins piece:
 ![Azure Digital Twins routing workflow](./media/concepts-route-events/routing-workflow.png)
 
 ## Uses for event routes
 
 Event routes are designed for sending data to external resources. They excel at sending bulk event data from Azure Digital Twins to downstream resources such as TSI, Azure Maps, storage, and analytics solutions.
 
-During the current preview release, they are also used to handle events within the digital twin graph and send data from twin to twin. You can use event routes to affect Azure Digital Twins resources by connecting routes to compute resources such as [Azure Functions](../azure-functions/functions-overview.md). Note that events sent via routes come without context. As a result, a compute resource that wants to modify the Azure Digital Twins graph in response to an event passed via event route must either:
-* know the twin it wants to modify in advance, or
-* use a query or navigation through the graph to find the appropriate target. 
+During the current preview release, they are also used to handle events within the twin graph and send data from Azure digital twin to Azure digital twin. This is done by connecting event routes to compute resources such as [Azure Functions](../azure-functions/functions-overview.md) that define how twins should receive and respond to events. Note that events sent via routes come without context. As a result, a compute resource that wants to modify the Azure Digital Twins twin graph in response to an event passed via event route must either:
+* know the digital twin it wants to modify in advance, or
+* use a query or navigation through the twin graph to find the appropriate target. 
 
-It also needs to establish security and access permissions independently.
+The compute resource also needs to establish security and access permissions independently.
 
 ## Create a route endpoint
 
@@ -61,21 +63,21 @@ The endpoint APIs that are available in control plane are:
 
 ## Create a route
  
-Event routes are created with the following [Azure Digital Twins API](how-to-use-apis.md) call: 
+Event routes are created in a client application with the following [Azure Digital Twins API](how-to-use-apis.md) call: 
 
 `Response RegisterEventRoute(string routeId, string endpointId, string topic, string filter);`
 
 * The `endpointId` identifies an endpoint, such as an Event Hub, Event Grid, or Service Bus. These endpoints must be created in your subscription and attached to Azure Digital Twins using control plane APIs before making this registration call.
 * If a topic is specified and the registered endpoint supports topics, the `topic` field is used to send the message to the specified topic. 
-* By default, an event route accepts and routes every single message generated by the system. The `filter` parameter allows you to selectively route messages based on event types (such as telemetry events, twin property change events, life-cycle events, etc.), or by other parameters such as twin type. In this way, you can create selective routes. 
+* By default, an event route accepts and routes every single message generated by the system. The `filter` parameter allows you to selectively route messages based on event types (such as telemetry events, digital twin property change events, life-cycle events, etc.), or by other parameters such as twin type. This is how you can create selective routes. 
 
 ### Create selective routes with filters
 
 To selectively route event messages as described above, you will provide a filter expressed as a **message routing query**. Filters are written in a single query language.
 
-These are the categories of filters that are supported: 
+These are the categories of filters that are supported by Azure Digital Twins: 
 * Filter on message type
-* Filter on twin instance (no traversal of graph)
+* Filter on digital twin (no traversal of graph)
 * Filter on message/notification body
 * Filter on message properties
 

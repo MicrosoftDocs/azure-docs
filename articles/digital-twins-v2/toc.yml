@@ -8,29 +8,29 @@
     href: overview-differences.md
 - name: Concepts
   items:
-  - name: Model objects
+  - name: Create a twin type
     href: concepts-models.md
-  - name: Create twins and graph
+  - name: Create digital twins and the twin graph
     href: concepts-twins-graph.md
   - name: Integrate IoT Hub devices
     href: concepts-iothub-devices.md
   - name: Route events
     href: concepts-route-events.md
-  - name: Query the ADT graph
+  - name: Query the twin graph
     href: concepts-query-graph.md
   - name: Deploy Azure Digital Twins
     href: concepts-deployment.md
-  - name: Secure digital twin solutions
+  - name: Secure Azure Digital Twins solutions
     href: concepts-security.md
 - name: How-to guides
   items:
   - name: Use the APIs
     href: how-to-use-apis.md
-  - name: Manage an object model
+  - name: Manage a twin type
     href: how-to-manage-model.md
-  - name: Manage a twin
+  - name: Manage a digital twin
     href: how-to-manage-twin.md
-  - name: Manage a graph
+  - name: Manage a twin graph
     href: how-to-manage-graph.md
   - name: Route event data
     href: how-to-route-events.md
