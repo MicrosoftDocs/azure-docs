@@ -30,7 +30,7 @@ You can use the connector with [Azure Databricks](https://azure.microsoft.com/se
 ## Quickstart
 
 * Follow the steps at [Get started with the Java SDK](sql-api-async-java-get-started.md) to set up a Cosmos DB account, and populate some data.
-* Follow the steps at [Azure Databricks getting started](https://docs.azuredatabricks.net/getting-started/index.html) to set up an Azure Databricks workspace and cluster.
+* Follow the steps at [Azure Databricks getting started](/azure/azure-databricks/quickstart-create-databricks-workspace-portal) to set up an Azure Databricks workspace and cluster.
 * You can now create new Notebooks, and import the Cosmos DB connector library. Jump to [Working with the Cosmos DB connector](#bk_working_with_connector) for details on how to set up your workspace.
 * The following section has snippets on how to read and write using the connector.
 
