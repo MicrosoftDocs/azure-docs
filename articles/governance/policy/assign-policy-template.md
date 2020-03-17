@@ -12,7 +12,7 @@ This quickstart steps you through the process of creating a policy assignment to
 machines that aren't using managed disks. At the end of this process, you'll successfully identify virtual machines that aren't using managed
 disks. They're _non-compliant_ with the policy assignment.
 
-[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+[!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
 ## Prerequisites
 
