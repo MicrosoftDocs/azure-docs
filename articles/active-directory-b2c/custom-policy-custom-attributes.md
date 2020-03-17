@@ -15,7 +15,7 @@ ms.subservice: B2C
 ---
 # Azure Active Directory B2C: Enable custom attributes in a custom profile policy
 
-In [add claims and customize user input using custom policies](custom-policy-configure-user-input.md) article you learn how to use built-in [user profile attributes](user-profile-attributes.md). In this article, you enable a custom attribute in your Azure Active Directory B2C (Azure AD B2C) directory. Later you can use the new attribute as a custom claim in [User flows](user-flow-overview.md) or [Custom policies](custom-policy-get-started.md) simultaneously.
+In the [Add claims and customize user input using custom policies](custom-policy-configure-user-input.md) article you learn how to use built-in [user profile attributes](user-profile-attributes.md). In this article, you enable a custom attribute in your Azure Active Directory B2C (Azure AD B2C) directory. Later, you can use the new attribute as a custom claim in [user flows](user-flow-overview.md) or [custom policies](custom-policy-get-started.md) simultaneously.
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
@@ -25,7 +25,7 @@ Follow the steps in the article [Azure Active Directory B2C: Get started with cu
 
 ## Use custom attributes to collect information about your customers 
 
-Your Azure AD B2C directory comes with a [built-in set of attributes](user-profile-attributes.md). However, you often need to create your own attributes to manage your specific scenario, such as:
+Your Azure AD B2C directory comes with a [built-in set of attributes](user-profile-attributes.md). However, you often need to create your own attributes to manage your specific scenario, for example when:
 
 * A customer-facing application needs to persist a **LoyaltyId** attribute.
 * An identity provider has a unique user identifier, **uniqueUserGUID**, that must be persisted.
@@ -56,7 +56,7 @@ To enable custom attributes in your policy, provide **Application ID** and Appli
 
 1. Open the extensions file of your policy. For example, <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em>.
 1. Find the ClaimsProviders element. Add a new ClaimsProvider to the ClaimsProviders element.
-1. Replace `ApplicationObjectId` with the Object ID that you previously recorded. And replace `ClientId` with the Application ID that you previously recorded in the below snippet.
+1. Replace `ApplicationObjectId` with the Object ID that you previously recorded. Then replace `ClientId` with the Application ID that you previously recorded in the below snippet.
 
     ```xml
     <ClaimsProvider>
@@ -83,20 +83,20 @@ To enable custom attributes in your policy, provide **Application ID** and Appli
 5. Select **Upload Custom Policy**, and then upload the TrustFrameworkExtensions.xml policy files that you changed.
 
 > [!NOTE]
-> For the first time Azure AD technical profile persists the claim to the directory, it checks whether the custom attribute existed, if not it creates the custom attribute.  
+> The first time the Azure AD technical profile persists the claim to the directory, it checks whether the custom attribute exists. If not, it creates the custom attribute.  
 
 ## Create a custom attribute through Azure portal
 
 The same extension attributes are shared between built-in and custom policies. When you add custom attributes via the portal experience, those attributes are registered by using the **b2c-extensions-app** that exists in every B2C tenant.
 
-You can create these attributes by using the portal UI before, or after you use them in your custom policies. Follow the guidance how to [define custom attributes in Azure Active Directory B2C](user-flow-custom-attributes.md) When you create an attribute **loyaltyId** in the portal, you must refer to it as follows:
+You can create these attributes by using the portal UI before or after you use them in your custom policies. Follow the guidance for how to [define custom attributes in Azure Active Directory B2C](user-flow-custom-attributes.md). When you create an attribute **loyaltyId** in the portal, you must refer to it as follows:
 
 |Name     |Used in |
 |---------|---------|
 |`extension_loyaltyId`  | Custom policy|
 |`extension_<b2c-extensions-app-guid>_loyaltyId`  | [Microsoft Graph API](manage-user-accounts-graph-api.md)|
 
-The following example demonstrates the use of custom attribute in Azure AD B2C custom policy claim definition.
+The following example demonstrates the use of custom attributes in an Azure AD B2C custom policy claim definition.
 
 ```xml
 <BuildingBlocks>
@@ -111,7 +111,7 @@ The following example demonstrates the use of custom attribute in Azure AD B2C c
 </BuildingBlocks>
 ```
 
-The following example demonstrates the use of custom attribute in Azure AD B2C custom policy in a technical profile, input, output, and persisted claims.
+The following example demonstrates the use of a custom attribute in Azure AD B2C custom policy in a technical profile, input, output, and persisted claims.
 
 ```xml
 <InputClaims>
@@ -127,7 +127,7 @@ The following example demonstrates the use of custom attribute in Azure AD B2C c
 
 ## Use a custom attribute in a policy
 
-Follow the guidance how to [add claims and customize user input using custom policies](custom-policy-configure-user-input.md). This sample uses a built-in claim 'city'. To use custom attribute, replace the 'city' with your own custom attributes. 
+Follow the guidance for how to [add claims and customize user input using custom policies](custom-policy-configure-user-input.md). This sample uses a built-in claim 'city'. To use a custom attribute, replace 'city' with your own custom attributes.
 
 
 ## Next steps
