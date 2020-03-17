@@ -61,7 +61,7 @@ See [best practices](./howto-best-practices.md).
 
 ## How much does App Configuration cost?
 
-There are two pricing tiers: 
+There are two pricing tiers:
 
 - Free tier
 - Standard tier.
@@ -92,6 +92,16 @@ The following are considerations for choosing a tier.
 You can upgrade from the Free tier to the Standard tier at any time.
 
 You can't downgrade a store from the Standard tier to the Free tier. You can create a new store in the Free tier and then [import configuration data into that store](howto-import-export-data.md).
+
+## Are there any limits on the number of requests made to App Configuration?
+
+Configuration stores in the Free tier are limited to 1,000 requests per day.
+
+In addition, all stores have limits on the number of requests made per minute and per hour. This is to prevent a single store from starving resources needed by other stores.
+
+When a store reaches the limit, it will return HTTP status code 429 until the time period expires.
+
+If your application consistently experiences HTTP status code 429, consider redesigning it to reduce the number of requests made. For more information, see [Reduce requests made to App Configuration](./howto-best-practices.md)
 
 ## How can I receive announcements on new releases and other information related to App Configuration?
 

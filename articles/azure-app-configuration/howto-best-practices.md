@@ -67,6 +67,14 @@ You can provide access to App Configuration for web apps or functions by using a
 * Use Azure managed identities to access the App Configuration store. For more information, see [Integrate with Azure managed identities](howto-integrate-azure-managed-service-identity.md).
 * Push configuration from App Configuration to App Service. App Configuration provides an export function (in Azure portal and the Azure CLI) that sends data directly into App Service. With this method, you don't need to change the application code at all.
 
+## Reduce requests made to App Configuration
+
+If your application consistently experiences HTTP status code 429, consider redesigning it to reduce the number of requests made.
+
+* Increase the refresh timeout, especially if your configuration values do not change frequently. Specify a new refresh timeout using the [`SetCacheExpiration` method](/dotnet/api/microsoft.extensions.configuration.azureappconfiguration.azureappconfigurationrefreshoptions.setcacheexpiration).
+
+* Watch a single *sentinel key*, rather than watching individual keys. Refresh all configuration only if the sentinel key changes.
+
 ## Next steps
 
 * [Keys and values](./concept-key-value.md)
