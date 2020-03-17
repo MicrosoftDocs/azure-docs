@@ -1,6 +1,6 @@
 ---
- title: Custom Data and Azure Virtual Machines
- description: Details on using Custom Data and Cloud-Init on Azure Virtual Machines
+ title: Custom data and Azure Virtual Machines
+ description: Details on using Custom data and Cloud-Init on Azure Virtual Machines
  services: virtual-machines
  author: mimckitt
  ms.service: virtual-machines
