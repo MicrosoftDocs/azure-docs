@@ -1,5 +1,5 @@
 ---
-title: How to use batch transcription - Speech service
+title: What is batch transcription - Speech service
 titleSuffix: Azure Cognitive Services
 description: Batch transcription is ideal if you want to transcribe a large quantity of audio in storage, such as Azure Blobs. By using the dedicated REST API, you can point to audio files with a shared access signature (SAS) URI and asynchronously receive transcriptions.
 services: cognitive-services
@@ -8,11 +8,11 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/17/2019
+ms.date: 03/17/2020
 ms.author: panosper
 ---
 
-# How to use batch transcription
+# What is batch transcription?
 
 Batch transcription is ideal for transcribing a large amount of audio in storage. By using the dedicated REST API, you can point to audio files with a shared access signature (SAS) URI and asynchronously receive transcription results.
 
@@ -48,11 +48,11 @@ If you plan to customize acoustic or language models, follow the steps in [Custo
 
 The Batch Transcription API supports the following formats:
 
-| Format | Codec | Bitrate | Sample Rate |
-|--------|-------|---------|-------------|
-| WAV | PCM | 16-bit | 8 kHz or 16 kHz, mono or stereo |
-| MP3 | PCM | 16-bit | 8 kHz or 16 kHz, mono or stereo |
-| OGG | OPUS | 16-bit | 8 kHz or 16 kHz, mono or stereo |
+| Format | Codec | Bitrate | Sample Rate                     |
+|--------|-------|---------|---------------------------------|
+| WAV    | PCM   | 16-bit  | 8 kHz or 16 kHz, mono or stereo |
+| MP3    | PCM   | 16-bit  | 8 kHz or 16 kHz, mono or stereo |
+| OGG    | OPUS  | 16-bit  | 8 kHz or 16 kHz, mono or stereo |
 
 For stereo audio streams, the left and right channels are split during the transcription. For each channel, a JSON result file is being created. The timestamps generated per utterance enable the developer to create an ordered final transcript.
 
@@ -73,7 +73,7 @@ Configuration parameters are provided as JSON:
     "AddWordLevelTimestamps" : "True | False",
     "AddSentiment" : "True | False",
     "AddDiarization" : "True | False",
-    "TranscriptionResultsContainerUrl" : "<SAS to Azure container to store results into (write permission required)>"
+    "TranscriptionResultsContainerUrl" : "<service SAS URI to Azure container to store results into (write permission required)>"
   }
 }
 ```
@@ -82,19 +82,55 @@ Configuration parameters are provided as JSON:
 
 Use these optional properties to configure transcription:
 
-| Parameter | Description |
-|-----------|------------|
-|`ProfanityFilterMode`|Specifies how to handle profanity in recognition results
-||**`Masked`** - Default. Replaces profanity with asterisks<br>`None` - Disables profanity filtering<br>`Removed` - Removes all profanity from the result<br>`Tags` - Adds profanity tags
-|`PunctuationMode`|Specifies to handle punctuation in recognition results
-||`Automatic` - The service inserts punctuation<br>`Dictated` - Dictated (spoken) punctuation<br>**`DictatedAndAutomatic`** - Default. Dictated and automatic punctuation<br>`None` - Disables punctuation
-|`AddWordLevelTimestamps`|Specifies if word level timestamps should be added to the output
-||`True` - Enables word level timestamps<br>**`False`** - Default. Disable word level timestamps
-|`AddSentiment`|Specifies if sentiment analysis is added to the utterance
-||`True` - Enables sentiment per utterance<br>**`False`** - Default. Disable sentiment
-|`AddDiarization`|Specifies if diarization analysis is carried out. If `true`, the input is expected to be mono channel audio containing a maximum of two voices. `AddWordLevelTimestamps` needs to be set to `true`
-||`True` - Enables diarization<br>**`False`** - Default. Disable diarization
-|`TranscriptionResultsContainerUrl`|Optional SAS token to a writeable container in Azure. The result will be stored in this container
+:::row:::
+   :::column span="1":::
+      **Parameter**
+   :::column-end:::
+   :::column span="2":::
+      **Description**
+:::row-end:::
+:::row:::
+   :::column span="1":::
+      `ProfanityFilterMode`
+   :::column-end:::
+   :::column span="2":::
+      Specifies how to handle profanity in recognition results. Accepted values are `None` to disable profanity filtering, `Masked` to replace profanity with asterisks, `Removed` to remove all profanity from the result, or `Tags` to add "profanity" tags. The default setting is `Masked`.
+:::row-end:::
+:::row:::
+   :::column span="1":::
+      `PunctuationMode`
+   :::column-end:::
+   :::column span="2":::
+      Specifies how to handle punctuation in recognition results. Accepted values are `None` to disable punctuation, `Dictated` to imply explicit (spoken) punctuation, `Automatic` to let the decoder deal with punctuation, or `DictatedAndAutomatic` to use dictated and automatic punctuation. The default setting is `DictatedAndAutomatic`.
+:::row-end:::
+:::row:::
+   :::column span="1":::
+      `AddWordLevelTimestamps`
+   :::column-end:::
+   :::column span="2":::
+      Specifies if word level timestamps should be added to the output. Accepted values are `true` to enable word level timestamps and `false` (the default value) to disable it.
+:::row-end:::
+:::row:::
+   :::column span="1":::
+      `AddSentiment`
+   :::column-end:::
+   :::column span="2":::
+      Specifies sentiment should be added to the utterance. Accepted values are `true` to enable sentiment per utterance and `false` (the default value) to disable it.
+:::row-end:::
+:::row:::
+   :::column span="1":::
+      `AddDiarization`
+   :::column-end:::
+   :::column span="2":::
+      Specifies that diarization analysis should be carried out on the input which is expected to be mono channel containing two voices. Accepted values are `true` enabling diarization and `false` (the default value) to disable it. It also requires `AddWordLevelTimestamps` to be set to true.
+:::row-end:::
+:::row:::
+   :::column span="1":::
+      `TranscriptionResultsContainerUrl`
+   :::column-end:::
+   :::column span="2":::
+      Optional URL with [service SAS](../../storage/common/storage-sas-overview.md) to a writeable container in Azure. The result will be stored in this container.
+:::row-end:::
 
 ### Storage
 
@@ -106,7 +142,7 @@ For mono input audio, one transcription result file is being created. For stereo
 
 ```json
 {
-  "AudioFileResults":[ 
+  "AudioFileResults":[
     {
       "AudioFileName": "Channel.0.wav | Channel.1.wav"      'maximum of 2 channels supported'
       "AudioFileUrl": null                                  'always null'
@@ -120,29 +156,29 @@ For mono input audio, one transcription result file is being created. For stereo
           "Display": string
         }
       ]
-      SegmentResults:[                                     'for each individual segment'
+      SegmentResults:[                                      'for each individual segment'
         {
-          "RecognitionStatus": Success | Failure
+          "RecognitionStatus": "Success | Failure"
           "ChannelNumber": null
-          "SpeakerId": null | "1 | 2"                     'null if no diarization
-                                                            or stereo input file, the
-                                                            speakerId as a string if
-                                                            diarization requested for
-                                                            mono audio file'
-          "Offset": number                                'time in milliseconds'
-          "Duration": number                              'time in milliseconds'
-          "OffsetInSeconds" : number                      'Real number. Two decimal places'
-          "DurationInSeconds" : number                    'Real number. Two decimal places'
+          "SpeakerId": null | "1 | 2"                       'null if no diarization
+                                                             or stereo input file, the
+                                                             speakerId as a string if
+                                                             diarization requested for
+                                                             mono audio file'
+          "Offset": number                                  'time in ticks (1 tick is 100 nanosec)'
+          "Duration": number                                'time in ticks (1 tick is 100 nanosec)'
+          "OffsetInSeconds" : number                        'Real number. Two decimal places'
+          "DurationInSeconds" : number                      'Real number. Two decimal places'
           "NBest": [
             {
-              "Confidence": number                        'between 0 and 1'
+              "Confidence": number                          'between 0 and 1'
               "Lexical": string
               "ITN": string
               "MaskedITN": string
               "Display": string
               "Sentiment":
-                {                                          'this is omitted if sentiment is
-                                                            not requested'
+                {                                           'this is omitted if sentiment is
+                                                             not requested'
                   "Negative": number                        'between 0 and 1'
                   "Neutral": number                         'between 0 and 1'
                   "Positive": number                        'between 0 and 1'
@@ -150,10 +186,11 @@ For mono input audio, one transcription result file is being created. For stereo
               "Words": [
                 {
                   "Word": string
-                  "Offset": number                         'time in milliseconds'
-                  "Duration": number                       'time in milliseconds'
-                  "OffsetInSeconds": number                'Real number. Two decimal places'
-                  "DurationInSeconds": number              'Real number. Two decimal places'
+                  "Offset": number                          'time in ticks (1 tick is 100 nanosec)'
+                  "Duration": number                        'time in ticks (1 tick is 100 nanosec)'
+                  "OffsetInSeconds": number                 'Real number. Two decimal places'
+                  "DurationInSeconds": number               'Real number. Two decimal places'
+                  "Confidence": number                      'between 0 and 1'
                 }
               ]
             }
@@ -167,12 +204,12 @@ For mono input audio, one transcription result file is being created. For stereo
 
 The result contains these forms:
 
-|Form|Content|
-|-|-|
-|`Lexical`|The actual words recognized.
-|`ITN`|Inverse-text-normalized form of the recognized text. Abbreviations ("doctor smith" to "dr smith"), phone numbers, and other transformations are applied.
-|`MaskedITN`|The ITN form with profanity masking applied.
-|`Display`|The display form of the recognized text. This includes added punctuation and capitalization.
+| Form        | Content                                                                                                                                                  |
+|-------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `Lexical`   | The actual words recognized.                                                                                                                             |
+| `ITN`       | Inverse-text-normalized form of the recognized text. Abbreviations ("doctor smith" to "dr smith"), phone numbers, and other transformations are applied. |
+| `MaskedITN` | The ITN form with profanity masking applied.                                                                                                             |
+| `Display`   | The display form of the recognized text. This includes added punctuation and capitalization.                                                             |
 
 ## Speaker separation (Diarization)
 
@@ -253,6 +290,9 @@ The transcription service can handle large number of submitted transcriptions. Y
 ## Sample code
 
 Complete samples are available in the [GitHub sample repository](https://aka.ms/csspeech/samples) inside the `samples/batch` subdirectory.
+
+> [!NOTE]
+> Batch transcription functionality is exposed via the REST API described above. Thus Batch transcription can be used from nearly any programming language or environment that supports REST. The examples below and samples in GitHub are merely representative and **do not** connote limits on where the API can be used.
 
 You have to customize the sample code with your subscription information, the service region, the SAS URI pointing to the audio file to transcribe, and model IDs in case you want to use a custom acoustic or language model.
 

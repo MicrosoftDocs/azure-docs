@@ -1,5 +1,5 @@
 ---
-title: Update Recovery Services vault configuration properties using REST API
+title: Update Recovery Services vault configuration with REST API
 description: In this article, learn how to update vault's configuration using REST API.
 ms.topic: conceptual
 ms.date: 12/06/2019
@@ -86,7 +86,7 @@ For more details, refer to [the REST API documentation](https://docs.microsoft.c
 
 #### Example request body
 
-The following example is used to update the soft-delete sate to 'disabled'.
+The following example is used to update the soft-delete state to 'disabled'.
 
 ```json
 {

@@ -39,6 +39,10 @@ highlightedContent:
     - title: Azure IoT on Microsoft Learn
       itemType: learn
       url: https://docs.microsoft.com/learn/browse/?products=azure&term=iot
+    # Card
+    - title: Support and help options
+      itemType: how-to-guide
+      url: ../iot-fundamentals/iot-support-help.md
 
 # conceptualContent section
 conceptualContent:
@@ -69,9 +73,9 @@ conceptualContent:
         - url: ../iot-central/core/quick-deploy-iot-central.md
           itemType: quickstart
           text: Create an IoT Central application
-        - url: ../iot-central/core/tutorial-define-device-type.md
+        - url: ../iot-central/core/tutorial-connect-device.md
           itemType: tutorial
-          text: Define the type for your device
+          text: Connect a device
       # footerLink
       footerLink:
         url: ../iot-central/core/index.yml

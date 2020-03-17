@@ -42,6 +42,6 @@ ms.author: dapine
     |`billing`|Copied from the **Overview** page of the resource.|
     |`eula`|`accept`|
 
-1. Click **Review and Create**
-1. After validation passes, click **Create** to finish the creation process
-1. When the resource is successfully deployed, it's ready
+5. Click **Review and Create**
+6. After validation passes, click **Create** to finish the creation process
+7. When the resource is successfully deployed, it's ready

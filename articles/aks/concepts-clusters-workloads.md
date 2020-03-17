@@ -2,12 +2,9 @@
 title: Concepts - Kubernetes basics for Azure Kubernetes Services (AKS)
 description: Learn the basic cluster and workload components of Kubernetes and how they relate to features in Azure Kubernetes Service (AKS)
 services: container-service
-author: mlearned
-
-ms.service: container-service
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.author: mlearned
+
 ---
 
 # Kubernetes core concepts for Azure Kubernetes Service (AKS)
@@ -91,24 +88,24 @@ To maintain node performance and functionality, resources are reserved on each n
 |---|---|---|---|---|---|---|---|
 |Kube-reserved (millicores)|60|100|140|180|260|420|740|
 
-- **Memory** - reserved memory includes the sum of two values
+- **Memory** - memory utilized by AKS includes the sum of two values.
 
-1. The kubelet daemon is installed on all Kubernetes agent nodes to manage container creation and termination. By default on AKS, this daemon has the following eviction rule: memory.available<750Mi, which means a node must always have at least 750 Mi allocatable at all times.  When a host is below that threshold of available memory, the kubelet will terminate one of the running pods to free memory on the host machine and protect it.
+1. The kubelet daemon is installed on all Kubernetes agent nodes to manage container creation and termination. By default on AKS, this daemon has the following eviction rule: *memory.available<750Mi*, which means a node must always have at least 750 Mi allocatable at all times.  When a host is below that threshold of available memory, the kubelet will terminate one of the running pods to free memory on the host machine and protect it. This is a reactive action once available memory decreases beyond the 750Mi threshold.
 
-2. The second value is a progressive rate of memory reserved for the kubelet daemon to properly function (kube-reserved).
+2. The second value is a progressive rate of memory reservations for the kubelet daemon to properly function (kube-reserved).
     - 25% of the first 4 GB of memory
     - 20% of the next 4 GB of memory (up to 8 GB)
     - 10% of the next 8 GB of memory (up to 16 GB)
     - 6% of the next 112 GB of memory (up to 128 GB)
     - 2% of any memory above 128 GB
 
-As a result of these two defined rules imposed to keep Kubernetes and agent nodes healthy, the amount of allocatable CPU and memory will appear less than the node itself could offer. The resource reservations defined above cannot be changed.
+The above rules for memory and CPU allocation are used to keep agent nodes healthy, including some hosting system pods that are critical to cluster health. These allocation rules also cause the node to report less allocatable memory and CPU than it would if it were not part of a Kubernetes cluster. The above resource reservations can't be changed.
 
-For example, if a node offers 7 GB, it will report 34% of memory not allocatable:
+For example, if a node offers 7 GB, it will report 34% of memory not allocatable on top of the 750Mi hard eviction threshold.
 
-`750Mi + (0.25*4) + (0.20*3) = 0.786GB + 1 GB + 0.6GB = 2.386GB / 7GB = 34% reserved`
+`(0.25*4) + (0.20*3) = + 1 GB + 0.6GB = 1.6GB / 7GB = 22.86% reserved`
 
-In addition to reservations for Kubernetes, the underlying node OS also reserves an amount of CPU and memory resources to maintain OS functions.
+In addition to reservations for Kubernetes itself, the underlying node OS also reserves an amount of CPU and memory resources to maintain OS functions.
 
 For associated best practices, see [Best practices for basic scheduler features in AKS][operator-best-practices-scheduler].
 
@@ -220,7 +217,7 @@ There are two Kubernetes resources that let you manage these types of applicatio
 
 ### StatefulSets
 
-Modern application development often aims for stateless applications, but *StatefulSets* can be used for stateful applications, such as applications that include database components. A StatefulSet is similar to a deployment in that one or more identical pods are created and managed. Replicas in a StatefulSet follow a graceful, sequential approach to deployment, scale, upgrades, and terminations. With a StatefulSet, the naming convention, network names, and storage persist as replicas are rescheduled.
+Modern application development often aims for stateless applications, but *StatefulSets* can be used for stateful applications, such as applications that include database components. A StatefulSet is similar to a deployment in that one or more identical pods are created and managed. Replicas in a StatefulSet follow a graceful, sequential approach to deployment, scale, upgrades, and terminations. With a StatefulSet (as replicas are rescheduled) the naming convention, network names, and storage persist.
 
 You define the application in YAML format using `kind: StatefulSet`, and the StatefulSet Controller then handles the deployment and management of the required replicas. Data is written to persistent storage, provided by Azure Managed Disks or Azure Files. With StatefulSets, the underlying persistent storage remains even when the StatefulSet is deleted.
 
@@ -288,4 +285,4 @@ This article covers some of the core Kubernetes components and how they apply to
 [operator-best-practices-scheduler]: operator-best-practices-scheduler.md
 [use-multiple-node-pools]: use-multiple-node-pools.md
 [operator-best-practices-advanced-scheduler]: operator-best-practices-advanced-scheduler.md
-[reservation-discounts]: ../billing/billing-save-compute-costs-reservations.md
+[reservation-discounts]:../cost-management-billing/reservations/save-compute-costs-reservations.md

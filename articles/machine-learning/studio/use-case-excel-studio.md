@@ -7,38 +7,40 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 
-author: xiaoharper
-ms.author: amlstudiodocs
+author: likebupt
+ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
 ---
 # Migrate analytics from Excel to Azure Machine Learning Studio (classic)
 
-> *Kate Baroni* and *Ben Boatman* are enterprise solution architects in Microsoft’s Data Insights Center of Excellence. In this article, they describe their experience migrating an existing regression analysis suite to a cloud-based solution using Azure Machine Learning Studio (classic).
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
+
+> *Kate Baroni* and *Ben Boatman* are enterprise solution architects in Microsoft's Data Insights Center of Excellence. In this article, they describe their experience migrating an existing regression analysis suite to a cloud-based solution using Azure Machine Learning Studio (classic).
 
 ## Goal
 
 Our project started with two goals in mind: 
 
-1. Use predictive analytics to improve the accuracy of our organization’s monthly revenue projections 
-2. Use the classic version of Azure Machine Learning Studio to confirm, optimize, increase velocity, and scale of our results. 
+1. Use predictive analytics to improve the accuracy of our organization's monthly revenue projections 
+2. Use Azure Machine Learning Studio (classic) to confirm, optimize, increase velocity, and scale of our results. 
 
-Like many businesses, our organization goes through a monthly revenue forecasting process. Our small team of business analysts was tasked with using the classic version of Azure Machine Learning Studio to support the process and improve forecast accuracy. The team spent several months collecting data from multiple sources and running the data attributes through statistical analysis identifying key attributes relevant to services sales forecasting. The next step was to begin prototyping statistical regression models on the data in Excel. Within a few weeks, we had an Excel regression model that was outperforming the current field and finance forecasting processes. This became the baseline prediction result. 
+Like many businesses, our organization goes through a monthly revenue forecasting process. Our small team of business analysts was tasked with using Azure Machine Learning Studio (classic) to support the process and improve forecast accuracy. The team spent several months collecting data from multiple sources and running the data attributes through statistical analysis identifying key attributes relevant to services sales forecasting. The next step was to begin prototyping statistical regression models on the data in Excel. Within a few weeks, we had an Excel regression model that was outperforming the current field and finance forecasting processes. This became the baseline prediction result. 
 
-We then took the next step to moving our predictive analytics over to the classic version of Studio to find out how the classic version of Studio could improve on predictive performance.
+We then took the next step to moving our predictive analytics over to Studio (classic) to find out how Studio (classic) could improve on predictive performance.
 
 ## Achieving predictive performance parity
-Our first priority was to achieve parity between the classic version of Studio and Excel regression models. Given the same data, and the same split for training and testing data, we wanted to achieve predictive performance parity between Excel and the classic version of Studio. Initially we failed. The Excel model outperformed Studio (classic) model. The failure was due to a lack of understanding of the base tool setting in the classic version of Studio. After a sync with the classic version of Studio product team, we gained a better understanding of the base setting required for our data sets, and achieved parity between the two models. 
+Our first priority was to achieve parity between Studio (classic) and Excel regression models. Given the same data, and the same split for training and testing data, we wanted to achieve predictive performance parity between Excel and Studio (classic). Initially we failed. The Excel model outperformed Studio (classic) model. The failure was due to a lack of understanding of the base tool setting in Studio (classic). After a sync with the Studio (classic) product team, we gained a better understanding of the base setting required for our data sets, and achieved parity between the two models. 
 
 ### Create regression model in Excel
 Our Excel Regression used the standard linear regression model found in the Excel Analysis ToolPak. 
 
-We calculated *Mean Absolute % Error* and used it as the performance measure for the model. It took 3 months to arrive at a working model using Excel. We brought much of the learning into the classic version of Studio experiment which ultimately was beneficial in understanding requirements.
+We calculated *Mean Absolute % Error* and used it as the performance measure for the model. It took 3 months to arrive at a working model using Excel. We brought much of the learning into Studio (classic) experiment which ultimately was beneficial in understanding requirements.
 
 ### Create comparable experiment in Studio (classic)
-We followed these steps to create our experiment in the classic version of Studio: 
+We followed these steps to create our experiment in Studio (classic): 
 
-1. Uploaded the dataset as a csv file to the classic version of Studio (very small file)
+1. Uploaded the dataset as a csv file to Studio (classic) (very small file)
 2. Created a new experiment and used the [Select Columns in Dataset][select-columns] module to select the same data features used in Excel 
 3. Used the [Split Data][split] module (with *Relative Expression* mode) to divide the data into the same training datasets as had been done in Excel 
 4. Experimented with the [Linear Regression][linear-regression] module (default options only), documented, and compared the results to our Excel regression model
@@ -56,13 +58,13 @@ At first, the Excel model clearly outperformed the Studio (classic) model:
 
 When we ran our process and results by the developers and data scientists on the Machine Learning team, they quickly provided some useful tips. 
 
-* When you use the [Linear Regression][linear-regression] module in the classic version of Studio, two methods are provided:
+* When you use the [Linear Regression][linear-regression] module in Studio (classic), two methods are provided:
   * Online Gradient Descent: May be more suitable for larger-scale problems
   * Ordinary Least Squares: This is the method most people think of when they hear linear regression. For small datasets, Ordinary Least Squares can be a more optimal choice.
 * Consider tweaking the L2 Regularization Weight parameter to improve performance. It is set to 0.001 by default, but for our small data set we set it to 0.005 to improve performance. 
 
 ### Mystery solved!
-When we applied the recommendations, we achieved the same baseline performance in the classic version of Studio as with Excel: 
+When we applied the recommendations, we achieved the same baseline performance in Studio (classic) as with Excel: 
 
 |  | Excel | Studio (classic) (Initial) | Studio (classic) w/ Least Squares |
 | --- |:---:|:---:|:---:|
@@ -90,7 +92,7 @@ In addition, the Excel coefficients compared well to the feature weights in the 
 ## Next Steps
 We wanted to consume the Machine Learning web service within Excel. Our business analysts rely on Excel and we needed a way to call the Machine Learning web service with a row of Excel data and have it return the predicted value to Excel. 
 
-We also wanted to optimize our model, using the options and algorithms available in the classic version of Studio.
+We also wanted to optimize our model, using the options and algorithms available in Studio (classic).
 
 ### Integration with Excel
 Our solution was to operationalize our Machine Learning regression model by creating a web service from the trained model. Within a few minutes, the web service was created and we could call it directly from Excel to return a predicted revenue value. 
@@ -108,7 +110,7 @@ Now that we had a baseline with our Excel model, we moved ahead to optimize our 
 
 Next we plan to include additional algorithms like [Bayesian][bayesian-linear-regression] or [Boosted Decision Trees][boosted-decision-tree-regression] in our experiment to compare performance. 
 
-If you want to experiment with regression, a good dataset to try is the Energy Efficiency Regression sample dataset, which has lots of numerical attributes. The dataset is provided as part of the sample datasets in the classic version of Studio. You can use a variety of learning modules to predict either Heating Load or Cooling Load. The chart below is a performance comparison of different regression learns against the Energy Efficiency dataset predicting for the target variable Cooling Load: 
+If you want to experiment with regression, a good dataset to try is the Energy Efficiency Regression sample dataset, which has lots of numerical attributes. The dataset is provided as part of the sample datasets in Studio (classic). You can use a variety of learning modules to predict either Heating Load or Cooling Load. The chart below is a performance comparison of different regression learns against the Energy Efficiency dataset predicting for the target variable Cooling Load: 
 
 | Model | Mean Absolute Error | Root Mean Squared Error | Relative Absolute Error | Relative Squared Error | Coefficient of Determination |
 | --- | --- | --- | --- | --- | --- |
@@ -118,17 +120,17 @@ If you want to experiment with regression, a good dataset to try is the Energy E
 | Linear Regression (Ordinary Least Squares) |1.428273 |1.984461 |0.163767 |0.042074 |0.957926 |
 
 ## Key Takeaways
-We learned a lot by from running Excel regression and the classic version of Studio experiments in parallel. Creating the baseline model in Excel and comparing it to models using Machine Learning [Linear Regression][linear-regression] helped us learn Studio (classic), and we discovered opportunities to improve data selection and model performance. 
+We learned a lot by from running Excel regression and Studio (classic) experiments in parallel. Creating the baseline model in Excel and comparing it to models using Machine Learning [Linear Regression][linear-regression] helped us learn Studio (classic), and we discovered opportunities to improve data selection and model performance. 
 
-We also found that it is advisable to use [Filter-Based Feature Selection][filter-based-feature-selection] to accelerate future prediction projects. By applying feature selection to your data, you can create an improved model in the classic version of Studio with better overall performance. 
+We also found that it is advisable to use [Filter-Based Feature Selection][filter-based-feature-selection] to accelerate future prediction projects. By applying feature selection to your data, you can create an improved model in Studio (classic) with better overall performance. 
 
-The ability to transfer the predictive analytic forecasting from the classic version of Studio to Excel systemically allows a significant increase in the ability to successfully provide results to a broad business user audience. 
+The ability to transfer the predictive analytic forecasting from Studio (classic) to Excel systemically allows a significant increase in the ability to successfully provide results to a broad business user audience. 
 
 ## Resources
 Here are some resources for helping you work with regression: 
 
-* Regression in Excel. If you’ve never tried regression in Excel, this tutorial makes it easy: [https://www.excel-easy.com/examples/regression.html](https://www.excel-easy.com/examples/regression.html)
-* Regression vs forecasting. Tyler Chessman wrote a blog article explaining how to do time series forecasting in Excel, which contains a good beginner’s description of linear regression. [https://www.itprotoday.com/sql-server/understanding-time-series-forecasting-concepts](https://www.itprotoday.com/sql-server/understanding-time-series-forecasting-concepts) 
+* Regression in Excel. If you've never tried regression in Excel, this tutorial makes it easy: [https://www.excel-easy.com/examples/regression.html](https://www.excel-easy.com/examples/regression.html)
+* Regression vs forecasting. Tyler Chessman wrote a blog article explaining how to do time series forecasting in Excel, which contains a good beginner's description of linear regression. [https://www.itprotoday.com/sql-server/understanding-time-series-forecasting-concepts](https://www.itprotoday.com/sql-server/understanding-time-series-forecasting-concepts) 
 * Ordinary Least Squares Linear Regression: Flaws, Problems and Pitfalls. For an introduction and discussion of Regression: [https://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/ 
 ](https://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/)
 

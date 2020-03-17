@@ -7,9 +7,9 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 
-author: xiaoharper
-ms.author: zhanxia
-ms.date: 10/22/2019
+author: likebupt
+ms.author: keli19
+ms.date: 02/22/2020
 ---
 # Multiclass Neural Network module
 
@@ -41,7 +41,7 @@ To compute the output of the network for a particular input, a value is calculat
 
     - **Single Parameter**: Choose this option if you already know how you want to configure the model.
 
-    
+    - **Parameter Range**: Select this option if you are not sure of the best parameters, and want to run a parameter sweep. Select a range of values to iterate over, and the [Tune Model Hyperparameters](tune-model-hyperparameters.md) iterates over all possible combinations of the settings you provided to determine the hyperparameters that produce the optimal results.  
 
 3. **Hidden layer specification**: Select the type of network architecture to create.
 
@@ -81,10 +81,7 @@ To compute the output of the network for a particular input, a value is calculat
 
 After training is complete:
 
-- To see a summary of the model's parameters, together with the feature weights learned from training, and other parameters of the neural network, right-click the output of [Train Model](./train-model.md)  and select **Visualize**.  
-
-- To save a snapshot of the trained model, right-click the **Trained model** output and select **Save As Trained Model**. This model is not updated on successive runs of the same pipeline.
-
+- To save a snapshot of the trained model, select the **Outputs** tab in the right panel of the **Train model** module. Select the **Register dataset** icon to save the model as a reusable module.
 
 ## Next steps
 

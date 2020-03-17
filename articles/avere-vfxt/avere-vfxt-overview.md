@@ -4,7 +4,7 @@ description: Introduction to Avere vFXT for Azure, a cloud cache layer for HPC
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: overview
-ms.date: 12/03/2019
+ms.date: 01/13/2020
 ms.author: rohogue
 ---
 
@@ -66,7 +66,7 @@ Avere vFXT for Azure uses the following Azure resources:
 |Virtual machines|3 or more E32s_v3|
 |Premium SSD storage|200 GB OS space plus 1 TB to 4 TB cache space per node |
 |Storage account (optional) |v2|
-|Data backend storage (optional) | One empty LRS Blob container |
+|Data back-end storage (optional) | One empty LRS Blob container |
 
 ## Next steps
 

@@ -4,7 +4,7 @@ description: An overview of Azure Files, a service that enables you to create an
 author: roygara
 ms.service: storage
 ms.topic: overview
-ms.date: 07/19/2018
+ms.date: 03/10/2018
 ms.author: rogarana
 ms.subservice: files 
 #Customer intent: As a < type of user >, I want < what? > so that < why? >.
@@ -22,7 +22,7 @@ Azure Files offers fully managed file shares in the cloud that are accessible vi
 Azure file shares can be used to:
 
 * **Replace or supplement on-premises file servers**:  
-    Azure Files can be used to completely replace or supplement traditional on-premises file servers or NAS devices. Popular operating systems such as Windows, macOS, and Linux can directly mount Azure file shares wherever they are in the world. Azure file shares can also be replicated with Azure File Sync to Windows Servers, either on-premises or in the cloud, for performance and distributed caching of the data where it's being used.
+    Azure Files can be used to completely replace or supplement traditional on-premises file servers or NAS devices. Popular operating systems such as Windows, macOS, and Linux can directly mount Azure file shares wherever they are in the world. Azure file shares can also be replicated with Azure File Sync to Windows Servers, either on-premises or in the cloud, for performance and distributed caching of the data where it's being used. With the recent release of [Azure Files AD Authentication](storage-files-active-directory-overview.md), Azure file shares can continue to work with AD hosted on-premises for access control. 
 
 * **"Lift and shift" applications**:  
     Azure Files makes it easy to "lift and shift" applications to the cloud that expect a file share to store file application or user data. Azure Files enables both the "classic" lift and shift scenario, where both the application and its data are moved to Azure, and the "hybrid" lift and shift scenario, where the application data is moved to Azure Files, and the application continues to run on-premises. 

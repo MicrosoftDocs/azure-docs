@@ -19,19 +19,19 @@ ms.date: 02/20/2019
 
 [Azure Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/) enables you to build, test, and deploy predictive analytics solutions. From a high-level point of view, it is done in three steps:
 
-1. **Create a training experiment**. You do this step by using the Azure Machine Learning studio. Azure Machine Learning studio is a collaborative visual development environment that you use to train and test a predictive analytics model using training data.
+1. **Create a training experiment**. You do this step by using the Azure Machine Learning Studio (classic). Azure Machine Learning Studio (classic) is a collaborative visual development environment that you use to train and test a predictive analytics model using training data.
 2. **Convert it to a predictive experiment**. Once your model has been trained with existing data and you are ready to use it to score new data, you prepare and streamline your experiment for scoring.
 3. **Deploy it as a web service**. You can publish your scoring experiment as an Azure web service. You can send data to your model via this web service end point and receive result predictions from the model.
 
 ### Data Factory and Machine Learning together
-Azure Data Factory enables you to easily create pipelines that use a published [Azure Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning) web service for predictive analytics. Using the **Batch Execution Activity** in an Azure Data Factory pipeline, you can invoke an Azure Machine Learning studio web service to make predictions on the data in batch.
+Azure Data Factory enables you to easily create pipelines that use a published [Azure Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning) web service for predictive analytics. Using the **Batch Execution Activity** in an Azure Data Factory pipeline, you can invoke an Azure Machine Learning Studio (classic) web service to make predictions on the data in batch.
 
-Over time, the predictive models in the Azure Machine Learning studio scoring experiments need to be retrained using new input datasets. You can retrain a model from a Data Factory pipeline by doing the following steps:
+Over time, the predictive models in the Azure Machine Learning Studio (classic) scoring experiments need to be retrained using new input datasets. You can retrain a model from a Data Factory pipeline by doing the following steps:
 
-1. Publish the training experiment (not predictive experiment) as a web service. You do this step in the Azure Machine Learning studio as you did to expose predictive experiment as a web service in the previous scenario.
-2. Use the Azure Machine Learning studio Batch Execution Activity to invoke the web service for the training experiment. Basically, you can use the Azure Machine Learning studio Batch Execution activity to invoke both training web service and scoring web service.
+1. Publish the training experiment (not predictive experiment) as a web service. You do this step in the Azure Machine Learning Studio (classic) as you did to expose predictive experiment as a web service in the previous scenario.
+2. Use the Azure Machine Learning Studio (classic) Batch Execution Activity to invoke the web service for the training experiment. Basically, you can use the Azure Machine Learning Studio (classic) Batch Execution activity to invoke both training web service and scoring web service.
 
-After you are done with retraining, update the scoring web service (predictive experiment exposed as a web service) with the newly trained model by using the **Azure Machine Learning studio Update Resource Activity**. See [Updating models using Update Resource Activity](update-machine-learning-models.md) article for details.
+After you are done with retraining, update the scoring web service (predictive experiment exposed as a web service) with the newly trained model by using the **Azure Machine Learning Studio (classic) Update Resource Activity**. See [Updating models using Update Resource Activity](update-machine-learning-models.md) article for details.
 
 ## Azure Machine Learning linked service
 
@@ -126,14 +126,14 @@ The following JSON snippet defines an Azure Machine Learning Batch Execution act
 | linkedServiceName | Linked Services to the Azure Machine Learning Linked Service. To learn about this linked service, see [Compute linked services](compute-linked-services.md) article. | Yes      |
 | webServiceInputs  | Key, Value pairs, mapping the names of Azure Machine Learning Web Service Inputs. Key must match the input parameters defined in the published Azure Machine Learning Web Service. Value is an Azure Storage Linked Services and FilePath properties pair specifying the input Blob locations. | No       |
 | webServiceOutputs | Key, Value pairs, mapping the names of Azure Machine Learning Web Service Outputs. Key must match the output parameters defined in the published Azure Machine Learning Web Service. Value is an Azure Storage Linked Services and FilePath properties pair specifying the output Blob locations. | No       |
-| globalParameters  | Key, Value pairs to be passed to the Azure Machine Learning studio Batch Execution Service endpoint. Keys must match the names of web service parameters defined in the published Azure Machine Learning studio web service. Values are passed in the GlobalParameters property of the Azure Machine Learning studio batch execution request | No       |
+| globalParameters  | Key, Value pairs to be passed to the Azure Machine Learning Studio (classic) Batch Execution Service endpoint. Keys must match the names of web service parameters defined in the published Azure Machine Learning Studio (classic) web service. Values are passed in the GlobalParameters property of the Azure Machine Learning Studio (classic) batch execution request | No       |
 
 ### Scenario 1: Experiments using Web service inputs/outputs that refer to data in Azure Blob Storage
 
-In this scenario, the Azure Machine Learning Web service makes predictions using data from a file in an Azure blob storage and stores the prediction results in the blob storage. The following JSON defines a Data Factory pipeline with an AzureMLBatchExecution activity. The input and output data in Azure Blog Storage is referenced using a LinkedName and FilePath pair. In the sample Linked Service of inputs and outputs are different, you can use different Linked Services for each of your inputs/outputs for Data Factory to be able to pick up the right files and send to Azure Machine Learning studio Web Service.
+In this scenario, the Azure Machine Learning Web service makes predictions using data from a file in an Azure blob storage and stores the prediction results in the blob storage. The following JSON defines a Data Factory pipeline with an AzureMLBatchExecution activity. The input and output data in Azure Blog Storage is referenced using a LinkedName and FilePath pair. In the sample Linked Service of inputs and outputs are different, you can use different Linked Services for each of your inputs/outputs for Data Factory to be able to pick up the right files and send to Azure Machine Learning Studio (classic) Web Service.
 
 > [!IMPORTANT]
-> In your Azure Machine Learning studio experiment, web service input and output ports, and global parameters have default names ("input1", "input2") that you can customize. The names you use for webServiceInputs, webServiceOutputs, and globalParameters settings must exactly match the names in the experiments. You can view the sample request payload on the Batch Execution Help page for your Azure Machine Learning studio endpoint to verify the expected mapping.
+> In your Azure Machine Learning Studio (classic) experiment, web service input and output ports, and global parameters have default names ("input1", "input2") that you can customize. The names you use for webServiceInputs, webServiceOutputs, and globalParameters settings must exactly match the names in the experiments. You can view the sample request payload on the Batch Execution Help page for your Azure Machine Learning Studio (classic) endpoint to verify the expected mapping.
 >
 >
 
@@ -183,12 +183,12 @@ In this scenario, the Azure Machine Learning Web service makes predictions using
 }
 ```
 ### Scenario 2: Experiments using Reader/Writer Modules to refer to data in various storages
-Another common scenario when creating Azure Machine Learning studio experiments is to use Import Data and Output Data modules. The Import Data module is used to load data into an experiment and the Output Data module is to save data from your experiments. For details about Import Data and Output Data modules, see [Import Data](https://msdn.microsoft.com/library/azure/dn905997.aspx) and [Output Data](https://msdn.microsoft.com/library/azure/dn905984.aspx) topics on MSDN Library.
+Another common scenario when creating Azure Machine Learning Studio (classic) experiments is to use Import Data and Output Data modules. The Import Data module is used to load data into an experiment and the Output Data module is to save data from your experiments. For details about Import Data and Output Data modules, see [Import Data](https://msdn.microsoft.com/library/azure/dn905997.aspx) and [Output Data](https://msdn.microsoft.com/library/azure/dn905984.aspx) topics on MSDN Library.
 
 When using the Import Data and Output Data modules, it is good practice to use a Web service parameter for each property of these modules. These web parameters enable you to configure the values during runtime. For example, you could create an experiment with an Import Data module that uses an Azure SQL Database: XXX.database.windows.net. After the web service has been deployed, you want to enable the consumers of the web service to specify another Azure SQL Server called `YYY.database.windows.net`. You can use a Web service parameter to allow this value to be configured.
 
 > [!NOTE]
-> Web service input and output are different from Web service parameters. In the first scenario, you have seen how an input and output can be specified for an Azure Machine Learning studio Web service. In this scenario, you pass parameters for a Web service that correspond to properties of Import Data/Output Data modules.
+> Web service input and output are different from Web service parameters. In the first scenario, you have seen how an input and output can be specified for an Azure Machine Learning Studio (classic) Web service. In this scenario, you pass parameters for a Web service that correspond to properties of Import Data/Output Data modules.
 >
 >
 
@@ -209,7 +209,7 @@ Let's look at a scenario for using Web service parameters. You have a deployed A
 > The Web service parameters are case-sensitive, so ensure that the names you specify in the activity JSON match the ones exposed by the Web service.
 >
 
-After you are done with retraining, update the scoring web service (predictive experiment exposed as a web service) with the newly trained model by using the **Azure Machine Learning studio Update Resource Activity**. See [Updating models using Update Resource Activity](update-machine-learning-models.md) article for details.
+After you are done with retraining, update the scoring web service (predictive experiment exposed as a web service) with the newly trained model by using the **Azure Machine Learning Studio (classic) Update Resource Activity**. See [Updating models using Update Resource Activity](update-machine-learning-models.md) article for details.
 
 ## Next steps
 See the following articles that explain how to transform data in other ways:

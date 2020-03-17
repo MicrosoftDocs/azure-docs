@@ -1,11 +1,7 @@
 ---
 title: How do I ... in Azure Application Insights | Microsoft Docs
 description: FAQ in Application Insights.
-ms.service:  azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 04/04/2017
 
 ---

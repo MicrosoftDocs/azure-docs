@@ -6,7 +6,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 06/20/2019
+ms.date: 01/16/2020
 ms.author: tamram
 ms.subservice: common
 ---
@@ -17,7 +17,7 @@ Azure Storage is Microsoft's cloud storage solution for modern data storage scen
 
 - **Durable and highly available.** Redundancy ensures that your data is safe in the event of transient hardware failures. You can also opt to replicate data across datacenters or geographical regions for additional protection from local catastrophe or natural disaster. Data replicated in this way remains highly available in the event of an unexpected outage.
 - **Secure.** All data written to Azure Storage is encrypted by the service. Azure Storage provides you with fine-grained control over who has access to your data.
-- **Scalable.** Azure Storage is designed to be massively scalable to meet the data storage and performance needs of today's applications. 
+- **Scalable.** Azure Storage is designed to be massively scalable to meet the data storage and performance needs of today's applications.
 - **Managed.** Microsoft Azure handles hardware maintenance, updates, and critical issues for you.
 - **Accessible.** Data in Azure Storage is accessible from anywhere in the world over HTTP or HTTPS. Microsoft provides client libraries for Azure Storage in a variety of languages, including .NET, Java, Node.js, Python, PHP, Ruby, Go, and others, as well as a mature REST API. Azure Storage supports scripting in Azure PowerShell or Azure CLI. And the Azure portal and Azure Storage Explorer offer easy visual solutions for working with your data.  
 
@@ -27,14 +27,14 @@ Azure Storage includes these data services:
 
 - [Azure Blobs](../blobs/storage-blobs-introduction.md): A massively scalable object store for text and binary data.
 - [Azure Files](../files/storage-files-introduction.md): Managed file shares for cloud or on-premises deployments.
-- [Azure Queues](../queues/storage-queues-introduction.md): A messaging store for reliable messaging between application components. 
+- [Azure Queues](../queues/storage-queues-introduction.md): A messaging store for reliable messaging between application components.
 - [Azure Tables](../tables/table-storage-overview.md): A NoSQL store for schemaless storage of structured data.
 
-Each service is accessed through a storage account. To get started, see [Create a storage account](storage-quickstart-create-account.md).
+Each service is accessed through a storage account. To get started, see [Create a storage account](storage-account-create.md).
 
 ## Blob storage
 
-Azure Blob storage is Microsoft's object storage solution for the cloud. Blob storage is optimized for storing massive amounts of unstructured data, such as text or binary data. 
+Azure Blob storage is Microsoft's object storage solution for the cloud. Blob storage is optimized for storing massive amounts of unstructured data, such as text or binary data.
 
 Blob storage is ideal for:
 
@@ -44,7 +44,7 @@ Blob storage is ideal for:
 - Storing data for backup and restore, disaster recovery, and archiving.
 - Storing data for analysis by an on-premises or Azure-hosted service.
 
-Objects in Blob storage can be accessed from anywhere in the world via HTTP or HTTPS. Users or client applications can access blobs via URLs, the [Azure Storage REST API](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api), [Azure PowerShell](https://docs.microsoft.com/powershell/module/azure.storage), [Azure CLI](https://docs.microsoft.com/cli/azure/storage), or an Azure Storage client library. The storage client libraries are available for multiple languages, including [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage/client), [Java](https://docs.microsoft.com/java/api/overview/azure/storage), [Node.js](https://azure.github.io/azure-storage-node), [Python](https://azure-storage.readthedocs.io/), [PHP](https://azure.github.io/azure-storage-php/), and [Ruby](https://azure.github.io/azure-storage-ruby).
+Objects in Blob storage can be accessed from anywhere in the world via HTTP or HTTPS. Users or client applications can access blobs via URLs, the [Azure Storage REST API](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api), [Azure PowerShell](https://docs.microsoft.com/powershell/module/azure.storage), [Azure CLI](https://docs.microsoft.com/cli/azure/storage), or an Azure Storage client library. The storage client libraries are available for multiple languages, including [.NET](/dotnet/api/overview/azure/storage?view=azure-dotnet), [Java](https://docs.microsoft.com/java/api/overview/azure/storage), [Node.js](https://azure.github.io/azure-storage-node), [Python](https://azure-storage.readthedocs.io/), [PHP](https://azure.github.io/azure-storage-php/), and [Ruby](https://azure.github.io/azure-storage-ruby).
 
 For more information about Blob storage, see [Introduction to Blob storage](../blobs/storage-blobs-introduction.md).
 
@@ -82,7 +82,7 @@ For more information about Table storage, see [Overview of Azure Table storage](
 
 ## Disk storage
 
-An Azure managed disk is a virtual hard disk (VHD). You can think of it like a physical disk in an on-premises server but, virtualized. Azure managed disks are stored as page blobs, which are a random IO storage object in Azure. We call a managed disk ‘managed’ because it is an abstraction over page blobs, blob containers, and Azure storage accounts. With managed disks, all you have to do is provision the disk, and Azure takes care of the rest.
+An Azure managed disk is a virtual hard disk (VHD). You can think of it like a physical disk in an on-premises server but, virtualized. Azure managed disks are stored as page blobs, which are a random IO storage object in Azure. We call a managed disk 'managed' because it is an abstraction over page blobs, blob containers, and Azure storage accounts. With managed disks, all you have to do is provision the disk, and Azure takes care of the rest.
 
 For more information about managed disks, see [Introduction to Azure managed disks](../../virtual-machines/windows/managed-disks-overview.md).
 
@@ -104,7 +104,7 @@ Every request to Azure Storage must be authorized. Azure Storage supports the fo
 
 ## Encryption
 
-There are two basic kinds of encryption available for the Storage services. For more information about security and encryption, see the [Azure Storage security guide](storage-security-guide.md).
+There are two basic kinds of encryption available for the Storage services. For more information about security and encryption, see the [Azure Storage security guide](../blobs/security-recommendations.md).
 
 ### Encryption at rest
 
@@ -116,11 +116,9 @@ The Azure Storage client libraries provide methods for encrypting data from the 
 
 ## Redundancy
 
-In order to ensure that your data is durable, Azure Storage replicates multiple copies of your data. When you set up your storage account, you select a redundancy option.
+In order to ensure that your data is durable, Azure Storage stores multiple copies of your data. When you set up your storage account, you select a redundancy option.
 
 [!INCLUDE [storage-common-redundancy-options](../../../includes/storage-common-redundancy-options.md)]
-
-For more information about disaster recovery, see [Disaster recovery and storage account failover (preview) in Azure Storage](storage-disaster-recovery-guidance.md).
 
 ## Transferring data to and from Azure Storage
 
@@ -139,7 +137,7 @@ Azure Storage resources can be accessed by any language that can make HTTP/HTTPS
 - [Azure Storage REST API](https://docs.microsoft.com/rest/api/storageservices/)
 - [Azure Storage client library for .NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage)
 - [Azure Storage client library for Java/Android](https://docs.microsoft.com/java/api/overview/azure/storage)
-- [Azure Storage client library for Node.js](https://docs.microsoft.com/javascript/api/overview/azure/storage)
+- [Azure Storage client library for Node.js](https://docs.microsoft.com/javascript/api/overview/azure/storage-overview)
 - [Azure Storage client library for Python](https://github.com/Azure/azure-storage-python)
 - [Azure Storage client library for PHP](https://github.com/Azure/azure-storage-php)
 - [Azure Storage client library for Ruby](https://github.com/Azure/azure-storage-ruby)
@@ -167,4 +165,4 @@ Azure Storage resources can be accessed by any language that can make HTTP/HTTPS
 
 ## Next steps
 
-To get up and running with Azure Storage, see [Create a storage account](storage-quickstart-create-account.md).
+To get up and running with Azure Storage, see [Create a storage account](storage-account-create.md).

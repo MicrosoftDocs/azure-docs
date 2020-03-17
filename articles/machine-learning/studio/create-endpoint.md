@@ -7,12 +7,14 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 
-author: xiaoharper
-ms.author: amlstudiodocs
+author: likebupt
+ms.author: keli19
 ms.custom: seodec18
 ms.date: 02/15/2019
 ---
 # Create endpoints for deployed Azure Machine Learning Studio (classic) web services
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 > [!NOTE]
 > This topic describes techniques applicable to a **Classic** Machine Learning web service.
@@ -34,7 +36,7 @@ You can add an endpoint to a web service using the Azure Machine Learning Web Se
 
 ## <a id="scaling"></a> Scale a web service by adding additional endpoints
 
-By default, each published web service is configured to support 20 concurrent requests and can be as high as 200 concurrent requests. The classic version of Azure Machine Learning Studio automatically optimizes the setting to provide the best performance for your web service and the portal value is ignored.
+By default, each published web service is configured to support 20 concurrent requests and can be as high as 200 concurrent requests. Azure Machine Learning Studio (classic) automatically optimizes the setting to provide the best performance for your web service and the portal value is ignored.
 
 If you plan to call the API with a higher load than a Max Concurrent Calls value of 200 will support, you should create multiple endpoints on the same web service. You can then randomly distribute your load across all of them.
 

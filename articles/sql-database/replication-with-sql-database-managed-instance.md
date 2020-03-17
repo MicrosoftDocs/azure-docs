@@ -1,20 +1,24 @@
 ---
 title: Configure replication in a managed instance database
-description: Learn about configuring transactional replication in an Azure SQL Database managed instance database
+description: Learn to configuring transactional replication between an Azure SQL Database managed instance publisher/distributor and managed instance subscriber. 
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
-author: allenwux
-ms.author: xiwu
+author: MashaMSFT
+ms.author: ferno
 ms.reviewer: mathoma
 ms.date: 02/07/2019
 ---
 # Configure replication in an Azure SQL Database managed instance database
 
 Transactional replication enables you to replicate data into an Azure SQL Database managed instance database from a SQL Server database or another instance database. 
+
+This article shows how to configure replication between a managed instance publisher/distributor and a managed instance subscriber. 
+
+![Replicate between two managed instances](media/replication-with-sql-database-managed-instance/sqlmi-sqlmi-repl.png)
 
 You can also use transactional replication to push changes made in an instance database in Azure SQL Database managed instance to:
 
@@ -32,7 +36,6 @@ Transactional replication is in public preview on [Azure SQL Database managed in
 
 Configuring a managed instance to function as a publisher and/or a distributor requires:
 
-- That the managed instance is not currently participating in a geo-replication relationship.
 - That the publisher managed instance is on the same virtual network as the distributor and the subscriber, or [vNet peering](../virtual-network/tutorial-connect-virtual-networks-powershell.md) has been established between the virtual networks of all three entities. 
 - Connectivity uses SQL Authentication between replication participants.
 - An Azure Storage Account share for the replication working directory.
@@ -62,10 +65,10 @@ Use the [Azure portal](https://portal.azure.com) to create a resource group with
 
 ## 2 - Create managed instances
 
-Use the [Azure portal](https://portal.azure.com) to create two [managed instances](sql-database-managed-instance-create-tutorial-portal.md) on the same virtual network and subnet. The two managed instances should be named:
+Use the [Azure portal](https://portal.azure.com) to create two [managed instances](sql-database-managed-instance-create-tutorial-portal.md) on the same virtual network and subnet. For example, name the two managed instances:
 
-- `sql-mi-pub`
-- `sql-mi-sub`
+- `sql-mi-pub` (along with some characters for randomization)
+- `sql-mi-sub` (along with some characters for randomization)
 
 You will also need to [Configure an Azure VM to connect](sql-database-managed-instance-configure-vm.md) to your Azure SQL Database managed instances. 
 
@@ -253,8 +256,8 @@ EXEC sp_addpushsubscription_agent
   @subscriber_security_mode = 0,
   @subscriber_login = N'$(target_username)',
   @subscriber_password = N'$(target_password)',
-  @job_login = N'$(target_username)',
-  @job_password = N'$(target_password)';
+  @job_login = N'$(username)',
+  @job_password = N'$(password)';
 
 -- Initialize the snapshot
 EXEC sp_startpublication_snapshot
@@ -328,11 +331,11 @@ EXEC sp_dropdistributor @no_checks = 1
 GO
 ```
 
-You can clean up your Azure resources by [deleting the managed instance resources from the resource group](../azure-resource-manager/manage-resources-portal.md#delete-resources) and then deleting the resource group `SQLMI-Repl`. 
+You can clean up your Azure resources by [deleting the managed instance resources from the resource group](../azure-resource-manager/management/manage-resources-portal.md#delete-resources) and then deleting the resource group `SQLMI-Repl`. 
 
    
 ## See Also
 
 - [Transactional replication](sql-database-managed-instance-transactional-replication.md)
-- [Tutorial: Configure transactional replication between an MI publisher and an MI subscriber](sql-database-managed-instance-configure-replication-tutorial.md)
+- [Tutorial: Configure transactional replication between an MI publisher and SQL Server subscriber](sql-database-managed-instance-configure-replication-tutorial.md)
 - [What is a Managed Instance?](sql-database-managed-instance.md)

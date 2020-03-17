@@ -3,13 +3,13 @@ title: "Prepare test data for Custom Speech - Speech service"
 titleSuffix: Azure Cognitive Services
 description: "When testing the accuracy of Microsoft speech recognition or training your custom models, you'll need audio and text data. On this page, we cover the types of data, how to use, and manage them."
 services: cognitive-services
-author: erhopf
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/17/2019
-ms.author: erhopf
+ms.date: 03/09/2020
+ms.author: dapine
 ---
 
 # Prepare data for Custom Speech
@@ -20,7 +20,7 @@ When testing the accuracy of Microsoft speech recognition or training your custo
 
 This table lists accepted data types, when each data type should be used, and the recommended quantity. Not every data type is required to create a model. Data requirements will vary depending on whether you're creating a test or training a model.
 
-| Data type | Used of testing | Recommended quantity | Used for training | Recommended quantity |
+| Data type | Used for testing | Recommended quantity | Used for training | Recommended quantity |
 |-----------|-----------------|----------|-------------------|----------|
 | [Audio](#audio-data-for-testing) | Yes<br>Used for visual inspection | 5+ audio files | No | N/a |
 | [Audio + Human-labeled transcripts](#audio--human-labeled-transcript-data-for-testingtraining) | Yes<br>Used to evaluate accuracy | 0.5-5 hours of audio | Yes | 1-1,000 hours of audio |
@@ -50,15 +50,17 @@ Audio data is optimal for testing the accuracy of Microsoft's baseline speech-to
 
 Use this table to ensure that your audio files are formatted correctly for use with Custom Speech:
 
-| Property | Value |
-|----------|-------|
-| File format | RIFF (WAV) |
-| Sample rate | 8,000 Hz or 16,000 Hz |
-| Channels | 1 (mono) |
-| Maximum length per audio | 2 hours |
-| Sample format | PCM, 16-bit |
-| Archive format | .zip |
-| Maximum archive size | 2 GB |
+| Property                 | Value                 |
+|--------------------------|-----------------------|
+| File format              | RIFF (WAV)            |
+| Sample rate              | 8,000 Hz or 16,000 Hz |
+| Channels                 | 1 (mono)              |
+| Maximum length per audio | 2 hours               |
+| Sample format            | PCM, 16-bit           |
+| Archive format           | .zip                  |
+| Maximum archive size     | 2 GB                  |
+
+[!INCLUDE [supported-audio-formats](includes/supported-audio-formats.md)]
 
 > [!TIP]
 > When uploading training and testing data, the .zip file size cannot exceed 2 GB. If you require more data for training, divide it into several .zip files and upload them separately. Later, you can choose to train from *multiple* datasets. However, you can only test from a *single* dataset.
@@ -74,18 +76,20 @@ Use <a href="http://sox.sourceforge.net" target="_blank" rel="noopener">SoX <spa
 
 To measure the accuracy of Microsoft's speech-to-text accuracy when processing your audio files, you must provide human-labeled transcriptions (word-by-word) for comparison. While human-labeled transcription is often time consuming, it's necessary to evaluate accuracy and to train the model for your use cases. Keep in mind, the improvements in recognition will only be as good as the data provided. For that reason, it's important that only high-quality transcripts are uploaded.
 
-| Property | Value |
-|----------|-------|
-| File format | RIFF (WAV) |
-| Sample rate | 8,000 Hz or 16,000 Hz |
-| Channels | 1 (mono) |
+| Property                 | Value                               |
+|--------------------------|-------------------------------------|
+| File format              | RIFF (WAV)                          |
+| Sample rate              | 8,000 Hz or 16,000 Hz               |
+| Channels                 | 1 (mono)                            |
 | Maximum length per audio | 2 hours (testing) / 60 s (training) |
-| Sample format | PCM, 16-bit |
-| Archive format | .zip |
-| Maximum zip size | 2 GB |
+| Sample format            | PCM, 16-bit                         |
+| Archive format           | .zip                                |
+| Maximum zip size         | 2 GB                                |
+
+[!INCLUDE [supported-audio-formats](includes/supported-audio-formats.md)]
 
 > [!NOTE]
-> When uploading training and testing data, the .zip file size cannot exceed 2 GB. Uou can only test from a *single* dataset, be sure to keep it within the appropriate file size.
+> When uploading training and testing data, the .zip file size cannot exceed 2 GB. You can only test from a *single* dataset, be sure to keep it within the appropriate file size. Additionally, each training file cannot exceed 60 seconds otherwise it will error out.
 
 To address issues like word deletion or substitution, a significant amount of data is required to improve recognition. Generally, it's recommended to provide word-by-word transcriptions for roughly 10 to 1,000 hours of audio. The transcriptions for all WAV files should be contained in a single plain-text file. Each line of the transcription file should contain the name of one of the audio files, followed by the corresponding transcription. The file name and transcription should be separated by a tab (\t).
 

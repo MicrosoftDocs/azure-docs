@@ -69,14 +69,40 @@ HDInsight cluster depends on the built-in Python environment, both Python 2.7 an
 
     You can search the [package index](https://pypi.python.org/pypi) for the complete list of packages that are available. You can also get a list of available packages from other sources. For example, you can install packages made available through [conda-forge](https://conda-forge.org/feedstocks/).
 
-    -   `seaborn` is the package name that you would like to install.
-    -   `-n py35new` specify the virtual environment name that just gets created. Make sure to change the name correspondingly based on your virtual environment creation.
+    Use below command if you would like to install a library with its latest version:
+    
+    - Use conda channel:
 
-    ```bash
-    sudo /usr/bin/anaconda/bin/conda install seaborn -n py35new --yes
-    ```
+        -   `seaborn` is the package name that you would like to install.
+        -   `-n py35new` specify the virtual environment name that just gets created. Make sure to change the name correspondingly based on your virtual environment creation.
 
-    if you don't know the virtual environment name, you can SSH to the header node of the cluster and run `/usr/bin/anaconda/bin/conda info -e` to show all virtual environments.
+        ```bash
+        sudo /usr/bin/anaconda/bin/conda install seaborn -n py35new --yes
+        ```
+
+    - Or use PyPi repo, change `seaborn` and `py35new` correspondingly:
+        ```bash
+        sudo /usr/bin/anaconda/env/py35new/bin/pip install seaborn
+        ```        
+
+    Use below command if you would like to install a library with a specific version:
+
+    - Use conda channel:
+
+        -   `numpy=1.16.1` is the package name and version that you would like to install.
+        -   `-n py35new` specify the virtual environment name that just gets created. Make sure to change the name correspondingly based on your virtual environment creation.
+
+        ```bash
+        sudo /usr/bin/anaconda/bin/conda install numpy=1.16.1 -n py35new --yes
+        ```
+
+    - Or use PyPi repo, change `numpy==1.16.1` and `py35new` correspondingly:
+
+        ```bash
+        sudo /usr/bin/anaconda/env/py35new/bin/pip install numpy==1.16.1
+        ```
+
+    if you don't know the virtual environment name, you can SSH to the head node of the cluster and run `/usr/bin/anaconda/bin/conda info -e` to show all virtual environments.
 
 3. Change Spark and Livy configs and point to the created virtual environment.
 
@@ -117,7 +143,7 @@ HDInsight cluster depends on the built-in Python environment, both Python 2.7 an
 
 ## Known issue
 
-There is a known bug for Anaconda version 4.7.11 and 4.7.12. If you see your script actions hanging at `"Collecting package metadata (repodata.json): ...working..."` and failing with `"Python script has been killed due to timeout after waiting 3600 secs"`. You can download [this script](https://gregorysfixes.blob.core.windows.net/public/fix-conda.sh) and run it as script actions on all nodes to fix the issue.
+There is a known bug for Anaconda version 4.7.11, 4.7.12 and 4.8.0. If you see your script actions hanging at `"Collecting package metadata (repodata.json): ...working..."` and failing with `"Python script has been killed due to timeout after waiting 3600 secs"`. You can download [this script](https://gregorysfixes.blob.core.windows.net/public/fix-conda.sh) and run it as script actions on all nodes to fix the issue.
 
 To check your Anaconda version, you can SSH to the cluster header node and run `/usr/bin/anaconda/bin/conda --v`.
 

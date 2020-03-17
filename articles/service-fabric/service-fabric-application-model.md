@@ -1,6 +1,6 @@
 ---
 title: Azure Service Fabric application model
-description: How to model and describe applications and services in Service Fabric.
+description: How to model and describe applications and services in Azure Service Fabric using application and service manifest files.
 
 ms.topic: conceptual
 ms.date: 2/23/2018

@@ -43,7 +43,7 @@ To back up your Windows Server System State, you need to create a Recovery Servi
     Or
     * select **Use existing** and click the drop-down menu to see the available list of Resource groups.
 
-   For complete information on Resource groups, see the [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md).
+   For complete information on Resource groups, see the [Azure Resource Manager overview](../azure-resource-manager/management/overview.md).
 
 7. Click **Location** to select the geographic region for the vault. This choice determines the geographic region where your backup data is sent.
 
@@ -218,10 +218,10 @@ After the initial backup is completed, the **Job completed** status appears in t
 
 ## Questions?
 
-If you have questions, or if there is any feature that you would like to see included, [send us feedback](https://aka.ms/azurebackup_feedback).
+If you have questions, or if there is any feature that you would like to see included, [send us feedback](https://feedback.azure.com/forums/258995-azure-backup).
 
 ## Next steps
 
-* Get more details about [backing up Windows machines](backup-configure-vault.md).
+* Get more details about [backing up Windows machines](backup-windows-with-mars-agent.md).
 * Now that you've backed up your Windows Server System State, you can [manage your vaults and servers](backup-azure-manage-windows-server.md).
 * If you need to restore a backup, use this article to [restore files to a Windows machine](backup-azure-restore-windows-server.md).

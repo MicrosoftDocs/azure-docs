@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 10/03/2019
+ms.date: 01/27/2020
 ms.author: pafarley
 #Customer intent: As a developer or data scientist familiar with cURL, I want to learn how to use a prebuilt Form Recognizer model to extract my receipt data.
 ---
@@ -19,13 +19,9 @@ In this quickstart, you'll use the Azure Form Recognizer REST API with cURL to e
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-> [!IMPORTANT]
-> This quickstart uses the Form Recognizer v2.0 API. If your subscription is not in the `West US 2` or `West Europe` region, you need to use the v1.0 API. Follow the [v1.0 quickstart](./curl-train-extract-v1.md) instead.
-
 ## Prerequisites
 
 To complete this quickstart, you must have:
-- Access to the Form Recognizer limited-access preview. To get access to the preview, fill out and submit the [Form Recognizer access request](https://aka.ms/FormRecognizerRequestAccess) form.
 - [cURL](https://curl.haxx.se/windows/) installed.
 - A URL for an image of a receipt. You can use a [sample image](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/contoso-allinone.jpg?raw=true) for this quickstart.
 
@@ -35,7 +31,7 @@ To complete this quickstart, you must have:
 
 ## Analyze a receipt
 
-To start analyzing a receipt, you call the **Analyze Receipt** API using the cURL command below. Before you run the command, make these changes:
+To start analyzing a receipt, you call the **[Analyze Receipt](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeReceiptAsync)** API using the cURL command below. Before you run the command, make these changes:
 
 1. Replace `<Endpoint>` with the endpoint that you obtained with your Form Recognizer subscription.
 1. Replace `<your receipt URL>` with the URL address of a receipt image.
@@ -53,7 +49,7 @@ https://cognitiveservice/formrecognizer/v2.0-preview/prebuilt/receipt/operations
 
 ## Get the receipt results
 
-After you've called the **Analyze Receipt** API, you call the **Get Receipt Result** API to get the status of the operation and the extracted data. Before you run the command, make these changes:
+After you've called the **Analyze Receipt** API, you call the **[Get Analyze Receipt Result](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/GetAnalyzeReceiptResult)** API to get the status of the operation and the extracted data. Before you run the command, make these changes:
 
 1. Replace `<Endpoint>` with the endpoint that you obtained with your Form Recognizer subscription key. You can find it on your Form Recognizer resource **Overview** tab.
 1. Replace `<operationId>` with the operation ID from the previous step.

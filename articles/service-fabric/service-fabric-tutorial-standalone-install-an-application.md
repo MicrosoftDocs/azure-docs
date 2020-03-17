@@ -1,5 +1,5 @@
 ---
-title: Tutorial install an application on your standalone Service Fabric cluster - Azure Service Fabric 
+title: Install an app on a standalone cluster
 description: In this tutorial, you learn how to install an application into your standalone Service Fabric cluster.
 author: dkkapur
 

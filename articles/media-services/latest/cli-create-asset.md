@@ -1,5 +1,5 @@
 ---
-title: Azure CLI Script Example - Create an Azure Media Services asset | Microsoft Docs
+title: Upload content to an Azure Media Services asset using Azure CLI
 description: The Azure CLI script in this topic shows how to create a Media Services Asset to upload content to.
 services: media-services
 documentationcenter: ''

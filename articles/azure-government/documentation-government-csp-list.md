@@ -6,14 +6,14 @@ cloud: gov
 author: todorgb
 ms.service: azure-government
 ms.topic: article
-ms.date: 12/18/2019
+ms.date: 03/11/2020
 ms.author: todorb
 ---
 # Azure Government authorized reseller list
 
 Since the launch of the [Azure Government in the Cloud Solution Provider Program (CSP)](https://azure.microsoft.com/blog/announcing-microsoft-azure-government-services-in-the-cloud-solution-provider-program/), work has been done with the Partner Community to bring them the benefits of this channel, enable them to resell Azure Government, and help them grow their business while providing the cloud services their customers need.
 
-Below you can find a list of all the authorized Cloud Solution Providers, which can resell Azure Government. This list includes all approved CSPs as of **December 18, 2019** as well as the list of Licensing Solution Providers (LSP). Updates to this list will be made as new partners are onboarded. 
+Below you can find a list of all the authorized Cloud Solution Providers, which can resell Azure Government. This list includes all approved CSPs as of **March 11, 2019** as well as the list of Licensing Solution Providers (LSP). Updates to this list will be made as new partners are onboarded. 
 
 ## Approved direct CSPs
 
@@ -31,7 +31,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[ADNET Technologies](https://thinkadnet.com/)|
 |[Adoxio Business Solutions Limited](https://www.adoxio.com)|
 |[Aeon Nexus Corp.](https://www.aeonnexus.com/)|
-|[Affigent](https://www.affigent.com/)|
+|[Affigent](http://www.affigent.com/)|
 |[Agile IT](https://www.agileit.com/)|
 |[Airnet Group](https://www.airnetgroup.com/)|
 |[AIS Network](https://www.aisn.net/)|
@@ -45,7 +45,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[Anautics](https://anautics.com)|
 |[APEX TECHNOLOGY MANAGEMENT INC](https://www.apex.com)|
 |[Applied Information Sciences, Inc.](https://www.appliedis.com)|
-|[Apollo Information Systems Corp.](http://www.apollo-is.com/)|
+|[Apollo Information Systems Corp.](https://www.apollo-is.com/)|
 |[Approved Contact, LLC](https://approvedcontact.com)|
 |[Apps4Rent](https://www.apps4rent.com)|
 |[Apptus](https://apttus.com)|
@@ -60,7 +60,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[Avtex Solutions](https://www.avtex.com)|
 |[BAE Systems Inc. and Affiliates](https://www.baesystems.com)|
 |[BEMO Corp](https://www.bemopro.com/)|
-|[Bio Automation Support](http://www.stacsdna.com/)|
+|[Bio Automation Support](https://www.stacsdna.com/)|
 |[Blackwood Associates, Inc. (dba BAI Federal)](https://www.blackwoodassociates.com/)|
 |[Blue Source Group, Inc.](https://www.blackwoodassociates.com/)|
 |[Blueforce Development Corporation](https://www.blueforcedev.com/)|
@@ -85,6 +85,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[Ciracom Inc.](https://ciracom.com)|
 |[ClearShark](https://clearshark.com/)|
 |[CloudFit Software, LLC](https://www.cloudfitsoftware.com/)|
+|[Cloud Navigator, Inc - formerly ISC](https://www.cloudnav.com )|
 |[CNSS - Cherokee Nation System Solutions LLC](http://cherokee-cnt.com/Pages/home.aspx)|
 |[CodeLynx, LLC](https://www.codelynx.com/)|
 |[Competitive Innovations, LLC](https://www.cillc.com)|
@@ -92,7 +93,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[Computer Solutions Inc.](http://cs-inc.co/)|
 |[Computex Technology Solutions](https://www.computex-inc.com/)|
 |[ConvergeOne](https://www.convergeone.com)|
-|[Copper River Technologies, LLC](https://www.copperrivertech.com/)|
+|[Copper River Technologies, LLC](http://www.copperrivertech.com/)|
 |[Coretek Services](https://www.coretekservices.com/)|
 |[Cornerstone Technologies](https://www.cornerstonetechnologies.com/)|
 |[CorpInfo Services](https://www.corpinfo.com)|
@@ -120,7 +121,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[DirectApps, Inc. D.B.A. Direct Technology](https://directtechnology.com)|
 |[DominionTech Inc.](https://www.dominiontech.com)|
 |Domino Systems Inc.|
-|[DOT Personable Inc](https://solutions.personable.com/)|
+|[DOT Personable Inc](http://solutions.personable.com/)|
 |[Doublehorn, LLC](https://doublehorn.com/)|
 |[DXC Technology Services LLC](https://www.dxc.technology/services)|
 |[DXL Enterprises, Inc.](https://mahwahnjcoc.wliinc31.com/Supply-Chain-Management/DXL-Enterprises,-Inc-1349)|
@@ -184,7 +185,6 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[Integration Partners Corp.](https://integrationpartners.com/)|
 |[Intelice Solutions, LLC](https://www.intelice.com/)|
 |[Invoke, LLC](https://invokellc.com)|
-|[ISC](https://www.isc2.org/)|
 |[It1 Source LLC](https://www.it1.com)|
 |[ITInfra](https://itinfra.biz/)|
 |[IV4, Inc](https://www.iv4.com)|
@@ -242,7 +242,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[Opsgility](https://www.opsgility.com)|
 |[OpsPro](https://opspro.com/)|
 |[Orion Communications, Inc.](https://www.orioncom.com)|
-|[Outlook Insight, LLC](https://outlookinsight.com/)|
+|[Outlook Insight, LLC](http://outlookinsight.com/)|
 |[Paragon Software Solutions, Inc.](http://www.paragonhq.com/)|
 |[Patrocinium Systems, Inc.](https://www.patrocinium.com)|
 |[PCM](https://www.pcm.com/)|
@@ -253,7 +253,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[Pharicode LLC](https://pharicode.com)|
 |[Picis Envision](https://www.picis.com/solution/analytics-suite/)|
 |[Pinao Consulting LLC](https://www.pcg-msp.com)|
-|[Pitech Solutions Inc](http://www.pitechsol.com/)|
+|[Pitech Solutions Inc](https://www.pitechsol.com/)|
 |[Planet Technologies](https://go-planet.com)|
 |[Plexhosted LLC](https://plexhosted.com/)|
 |[Principle Information Technology Company](https://www.principleinfotech.com/)|
@@ -261,7 +261,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[ProArch IT Solutions](https://www.proarch.com/)|
 |[Project Hosts Inc.](https://www.projecthosts.com)|
 |[Protected Trust](https://www.proarch.com/)|
-|[Pueo Business Solutions, LLC](https://www.pueobusinesssolutions.com)|
+|[Pueo Business Solutions, LLC](https://www.pueo.com/)|
 |[Quality Technology Services LLC](https://www.qtsdatacenters.com/)|
 |[Quisitive](https://quisitive.com)|
 |[Quite Professionals](https://www.quietprofessionalsllc.com)|
@@ -328,7 +328,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[Trigent Solutions Inc.](http://trigentsolutions.com/)|
 |[Triple Point Security Incorporated](https://www.triplepointsecurity.com)|
 |[U2Cloud LLC](https://www.u2cloud.com)|
-|[UDRI - SSG](https://ssg.udri.udayton.edu/)|
+|[UDRI - SSG](https://udayton.edu/udri/_resources/docs/ssg_v8.pdf)|
 |[Unisys Corp / Blue Bell](https://www.unisys.com)|
 |[United Data Technologies, Inc.](https://udtonline.com)|
 |[Universal EVoIP Transitions](https://universalevoiptransitions.com/contact)|
@@ -390,7 +390,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |SoftwareONE|sales@softwareone.com|800-444-9890|
 |Zones International|publicsector@zones.com|253-205-3000|
 
-## Approved 2019 AOS-G Partners
+## Approved 2020 AOS-G Partners
 
 |Partner Name|Phone|
 |----------------------------|---------------------------|
@@ -399,7 +399,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |Arctic Information Technology, Inc.|907-261-9500|
 |C3 Integrated Solutions, Inc.|571-384-7950|
 |Catapult Systems, LLC|512-225-6916|
-|ISC|850-566-8421|
+|Cloud Navigator, Inc - formerly ISC|800-619-7377|
 |KTL Solutions, Inc.|301-360-0001|
 |LiftOff LLC|410-419-1591|
 |Permuta Technologies, Inc.|703-650-5040|

@@ -10,7 +10,9 @@ ms.custom: query-reference
 ---
 # LOWER (Azure Cosmos DB)
  Returns a string expression after converting uppercase character data to lowercase.  
-  
+
+The LOWER system function does not utilize the index. If you plan to do frequent case insensitive comparisons, the LOWER system function may consume a significant amount of RU's. If this is the case, instead of using the LOWER system function to normalize data each time for comparisons, you can normalize the casing upon insertion. Then a query such as SELECT * FROM c WHERE LOWER(c.name) = 'bob' simply becomes SELECT * FROM c WHERE c.name = 'bob'.
+
 ## Syntax
   
 ```sql
@@ -40,6 +42,10 @@ SELECT LOWER("Abc") AS lower
 [{"lower": "abc"}]  
   
 ```  
+
+## Remarks
+
+This system function will not utilize the index.
 
 ## Next steps
 

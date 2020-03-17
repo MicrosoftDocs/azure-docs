@@ -1,14 +1,15 @@
 ---
 title: Phoenix Query Server REST SDK - Azure HDInsight 
 description: Install and use the REST SDK for the Phoenix Query Server in Azure HDInsight.
-ms.service: hdinsight
 author: ashishthaps
 ms.author: ashishth
 ms.reviewer: jasonh
-ms.custom: hdinsightactive
+ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 12/04/2017
+ms.custom: hdinsightactive
+ms.date: 01/01/2020
 ---
+
 # Apache Phoenix Query Server REST SDK
 
 [Apache Phoenix](https://phoenix.apache.org/) is an open source, massively parallel relational database layer on top of [Apache HBase](apache-hbase-overview.md). Phoenix allows you to use SQL-like queries with HBase through SSH tools such as [SQLLine](apache-hbase-query-with-phoenix.md). Phoenix also provides an HTTP server called Phoenix Query Server (PQS), a thin client that supports two transport mechanisms for client communication: JSON and Protocol Buffers. Protocol Buffers is the default mechanism, and offers more efficient communication than JSON.
@@ -78,7 +79,7 @@ Here are the `TransactionIsolation` values:
 
 | Isolation value | Description |
 | -- | -- |
-| 0 | Transactions are not supported. |
+| 0 | Transactions aren't supported. |
 | 1 | Dirty reads, non-repeatable reads, and phantom reads may occur. |
 | 2 | Dirty reads are prevented, but non-repeatable reads and phantom reads may occur. |
 | 4 | Dirty reads and non-repeatable reads are prevented, but phantom reads may occur. |
@@ -88,7 +89,7 @@ Here are the `TransactionIsolation` values:
 
 HBase, like any other RDBMS, stores data in tables. Phoenix uses standard SQL queries to create new tables, while defining the primary key and column types.
 
-This example and all subsequent examples, use the instantiated `PhoenixClient` object as defined in [Instantiate a new PhoenixClient object](#instantiate-new-phoenixclient-object).
+This example and all later examples, use the instantiated `PhoenixClient` object as defined in [Instantiate a new PhoenixClient object](#instantiate-new-phoenixclient-object).
 
 ```csharp
 string connId = Guid.NewGuid().ToString();
@@ -164,7 +165,7 @@ This example shows an individual data insert, referencing a `List<string>` colle
 var states = new List<string> { "AL", "AK", "AS", "AZ", "AR", "CA", "CO", "CT", "DE", "DC", "FM", "FL", "GA", "GU", "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MH", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "MP", "OH", "OK", "OR", "PW", "PA", "PR", "RI", "SC", "SD", "TN", "TX", "UT", "VT", "VI", "VA", "WA", "WV", "WI", "WY" };
 ```
 
-The table's `StateProvince` column value will be used in a subsequent select operation.
+The table's `StateProvince` column value will be used in a later select operation.
 
 ```csharp
 string connId = Guid.NewGuid().ToString();
@@ -271,7 +272,7 @@ finally
 }
 ```
 
-The structure for executing an insert statement is similar to creating a new table. Note that at the end of the `try` block, the transaction is explicitly committed. This example repeats an insert transaction 300 times. The following example shows a more efficient batch insert process.
+The structure for executing an insert statement is similar to creating a new table. At the end of the `try` block, the transaction is explicitly committed. This example repeats an insert transaction 300 times. The following example shows a more efficient batch insert process.
 
 ## Batch insert data
 
@@ -531,7 +532,7 @@ MH: 6
 FM: 5
 ```
 
-## Next steps 
+## Next steps
 
 * [Apache Phoenix in HDInsight](../hdinsight-phoenix-in-hdinsight.md)
 * [Using the Apache HBase REST SDK](apache-hbase-rest-sdk.md)

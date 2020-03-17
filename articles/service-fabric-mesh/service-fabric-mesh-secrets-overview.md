@@ -1,8 +1,8 @@
 ---
 title: Storing and Using Azure Service Fabric Mesh Application Secrets 
 description: Service Fabric Mesh supports Secrets as Azure resources. Here’s how to store and manage secrets with your Service Fabric Mesh applications.
-author: v-steg
-ms.author: jeconnoc
+author: erikadoyle
+ms.author: edoyle
 ms.date: 10/25/2018
 ms.topic: conceptual
 #Customer intent: As a developer, I need to securely deploy Secrets to my Service Fabric Mesh application.

@@ -5,7 +5,7 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 06/25/2019
+ms.date: 01/28/2020
 ms.custom: fasttrack-edit
 ---
 # Limits in Azure Database for PostgreSQL - Single Server
@@ -13,7 +13,7 @@ The following sections describe capacity and functional limits in the database s
 
 
 ## Maximum connections
-The maximum number of connections per pricing tier and vCores are as follows: 
+The maximum number of connections per pricing tier and vCores are shown below. The Azure system requires five connections to monitor the Azure Database for PostgreSQL server. 
 
 |**Pricing Tier**| **vCore(s)**| **Max Connections** | **Max User Connections** |
 |---|---|---|---|
@@ -34,7 +34,10 @@ The maximum number of connections per pricing tier and vCores are as follows:
 When connections exceed the limit, you may receive the following error:
 > FATAL:  sorry, too many clients already
 
-The Azure system requires five connections to monitor the Azure Database for PostgreSQL server. 
+> [!IMPORTANT]
+> For best experience, we recommend that you use a connection pooler like pgBouncer to efficiently manage connections.
+
+A PostgreSQL connection, even idle, can occupy about 10MB of memory. Also, creating new connections takes time. Most applications request many short-lived connections, which compounds this situation. The result is fewer resources available for your actual workload leading to decreased performance. A connection pooler that decreases idle connections and reuses existing connections will help avoid this. To learn more, visit our [blog post](https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/not-all-postgres-connection-pooling-is-equal/ba-p/825717).
 
 ## Functional limitations
 ### Scale operations

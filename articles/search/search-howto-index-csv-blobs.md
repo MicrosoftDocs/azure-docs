@@ -1,7 +1,7 @@
 ---
 title: Search over CSV blobs 
 titleSuffix: Azure Cognitive Search
-description: Extract and import CSV from Azure Blob storage using the delimitedText parsing mode, currently in public preview.
+description: Extract and import CSV from Azure Blob storage using the delimitedText parsing mode.
 
 manager: nitinme
 author: mgottein 
@@ -12,11 +12,7 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ---
 
-# How to index CSV blobs using delimitedText parsing mode and Blob indexers in Azure Cognitive Search 
-
-> [!IMPORTANT] 
-> The delimitedText parsing mode is currently in public preview. Preview functionality is provided without a service level agreement, and is not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
-> The [REST API version 2019-05-06-Preview](search-api-preview.md) provides this feature. There is currently no portal or .NET SDK support.
+# How to index CSV blobs using delimitedText parsing mode and Blob indexers in Azure Cognitive Search
 
 By default, [Azure Cognitive Search blob indexer](search-howto-indexing-azure-blob-storage.md) parses delimited text blobs as a single chunk of text. However, with blobs containing CSV data, you often want to treat each line in the blob as a separate document. For example, given the following delimited text, you might want to parse it into two documents, each containing "id", "datePublished", and "tags" fields: 
 
@@ -60,7 +56,7 @@ Putting this all together, here are the complete payload examples.
 
 Datasource: 
 
-    POST https://[service name].search.windows.net/datasources?api-version=2019-05-06-Preview
+    POST https://[service name].search.windows.net/datasources?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key]
 
@@ -73,7 +69,7 @@ Datasource:
 
 Indexer:
 
-    POST https://[service name].search.windows.net/indexers?api-version=2019-05-06-Preview
+    POST https://[service name].search.windows.net/indexers?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key]
 

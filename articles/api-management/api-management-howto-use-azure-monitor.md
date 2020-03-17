@@ -44,7 +44,7 @@ The following video shows how to monitor API Management using Azure Monitor.
 
 API Management emits metrics every minute, giving you near real-time visibility into the state and health of your APIs. Following is a summary of some of the available metrics:
 
-* Capacity (preview):  helps you make decisions about upgrading/downgrading your APIM services. The metric is emitted per minute and reflects the gateway capacity at the time of reporting. The metric ranges from 0-100 calculated based on gateway resources such as CPU and memory utilization.
+* Capacity:  helps you make decisions about upgrading/downgrading your APIM services. The metric is emitted per minute and reflects the gateway capacity at the time of reporting. The metric ranges from 0-100 calculated based on gateway resources such as CPU and memory utilization.
 * Total Gateway Requests: the number of API requests in the period. 
 * Successful Gateway Requests: the number of API requests that received successful HTTP response codes including 304, 307, and anything smaller than 301 (for example, 200).
 * Failed Gateway Requests: the number of API requests that received erroneous HTTP response codes including 400, and anything larger than 500.

@@ -1,6 +1,6 @@
 ---
 title: Azure Service Bus topic filters | Microsoft Docs
-description: Filter Azure Service Bus topics
+description: This article explains how subscribers can define which messages they want to receive from a topic by specifying filters. 
 services: service-bus-messaging
 documentationcenter: ''
 author: clemensv
@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2018
+ms.date: 01/27/2020
 ms.author: spelluru
 
 ---

@@ -7,12 +7,14 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 
-author: xiaoharper
-ms.author: amlstudiodocs
+author: likebupt
+ms.author: keli19
 ms.custom: seodec18
 ms.date: 04/04/2017
 ---
 # Use PowerShell to create Studio (classic) models and web service endpoints from one experiment
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 Here's a common machine learning problem: You want to create many models that have the same training workflow and use the same algorithm. But you want them to have different training datasets as input. This article shows you how to do this at scale in Azure Machine Learning Studio (classic) using just a single experiment.
 
@@ -20,7 +22,7 @@ For example, let's say you own a global bike rental franchise business. You want
 
 You could train your model once using a merged version of all the datasets across all locations. But, each of your locations has a unique environment. So a better approach would be to train your regression model separately using the dataset for each location. That way, each trained model could take into account the different store sizes, volume, geography, population, bike-friendly traffic environment, and more.
 
-That may be the best approach, but you don't want to create 1,000 training experiments in the classic version of Azure Machine Learning Studio with each one representing a unique location. Besides being an overwhelming task, it also seems inefficient since each experiment would have all the same components except for the training dataset.
+That may be the best approach, but you don't want to create 1,000 training experiments in Azure Machine Learning Studio (classic) with each one representing a unique location. Besides being an overwhelming task, it also seems inefficient since each experiment would have all the same components except for the training dataset.
 
 Fortunately, you can accomplish this by using the [Azure Machine Learning Studio (classic) retraining API](/azure/machine-learning/studio/retrain-machine-learning-model) and automating the task with [Azure Machine Learning Studio (classic) PowerShell](powershell-module.md).
 

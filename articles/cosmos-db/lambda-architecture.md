@@ -38,7 +38,7 @@ Upon further reading, we will be able to implement this architecture using only 
 
 * Azure Cosmos container(s)
 * HDInsight (Apache Spark 2.1) cluster
-* Spark Connector [1.0](https://github.com/Azure/azure-cosmosdb-spark/tree/master/releases/azure-cosmosdb-spark_2.1.0_2.11-1.0.0)
+* Spark Connector [1.0](https://search.maven.org/artifact/com.microsoft.azure/azure-cosmosdb-spark_2.1.0_2.11/1.2.6/jar)
 
 ## Speed layer
 

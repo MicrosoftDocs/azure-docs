@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/04/2019
+ms.date: 01/10/2020
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
@@ -41,7 +41,7 @@ The following sections describe each of these steps in more detail.
 
 > [!NOTE]
 > As an owner of your Azure Storage account, you are not automatically assigned permissions to access data. You must explicitly assign yourself an RBAC role for Azure Storage. You can assign it at the level of your subscription, resource group, storage account, or a container or queue.
-> 
+>
 > You cannot assign a role scoped to a container or queue if your storage account has a hierarchical namespace enabled.
 
 ### Assign a built-in RBAC role
@@ -71,7 +71,6 @@ You can follow similar steps to assign a role scoped to the storage account, res
 ### Assign the Reader role for portal access
 
 When you assign a built-in or custom role for Azure Storage to a security principal, you are granting permissions to that security principal to perform operations on data in your storage account. The built-in **Data Reader** roles provide read permissions for the data in a container or queue, while the built-in **Data Contributor** roles provide read, write, and delete permissions to a container or queue. Permissions are scoped to the specified resource.  
-
 For example, if you assign the **Storage Blob Data Contributor** role to user Mary at the level of a container named **sample-container**, then Mary is granted read, write, and delete access to all of the blobs in that container.
 
 However, if Mary wants to view a blob in the Azure portal, then the **Storage Blob Data Contributor** role by itself will not provide sufficient permissions to navigate through the portal to the blob in order to view it. Additional Azure AD permissions are required to navigate through the portal and view the other resources that are visible there.
@@ -87,8 +86,10 @@ Follow these steps to assign the **Reader** role so that a user can access blobs
 1. Search to locate the security principal to which you want to assign the role.
 1. Save the role assignment.
 
-> [!NOTE]
-> Assigning the Reader role is necessary only for users who need to access blobs or queues using the Azure portal. 
+Assigning the **Reader** role is necessary only for users who need to access blobs or queues using the Azure portal.
+
+> [!IMPORTANT]
+> The preview version of Storage Explorer in the Azure portal does not support using Azure AD credentials to view and modify blob or queue data. Storage Explorer in the Azure portal always uses the account keys to access data. To use Storage Explorer in the Azure portal, you must be assigned a role that includes **Microsoft.Storage/storageAccounts/listkeys/action**.
 
 ## Next steps
 

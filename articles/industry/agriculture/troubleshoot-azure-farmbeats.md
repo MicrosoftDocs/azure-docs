@@ -11,7 +11,7 @@ ms.author: v-umha
 
 This article provides solutions to common Azure FarmBeats issues.
 
-For additional help, contact us at farmbeatssupport@microsoft.com. Be sure to include the **deployer.log** file in your email.
+For additional help, contact us at farmbeatssupport@microsoft.com. Ensure to include the **deployer.log** file in your email.
 
 To download the **deployer.log** file, do the following:
 
@@ -39,6 +39,38 @@ To download the **deployer.log** file, do the following:
    - If there are *incoming messages*, contact farmbeatssupport@microsoft.com. Attach your Datahub and Accelerator logs and captured telemetry.
 
 To understand how to download logs, go to the ["Collect logs manually"](#collect-logs-manually) section.  
+
+### Can't view telemetry data after ingesting historical/streaming data from your sensors
+
+**Symptom**: Devices or sensors are deployed, and you've created the devices/sensors on FarmBeats and ingested telemetry to the EventHub, but you can't get or view telemetry data on FarmBeats.
+
+**Corrective action**:
+
+1. Ensure you have done the partner registration correctly - you can check this by going to your datahub swagger, navigate to /Partner API, Do a Get and check if the partner is registered. If not, follow the [steps here](get-sensor-data-from-sensor-partner.md#enable-device-integration-with-farmbeats) to add partner.
+2. Ensure that you have used the correct Telemetry message format:
+
+```json
+{
+"deviceid": "<id of the Device created>",
+"timestamp": "<timestamp in ISO 8601 format>",
+"version" : "1",
+"sensors": [
+    {
+      "id": "<id of the sensor created>",
+      "sensordata": [
+        {
+          "timestamp": "< timestamp in ISO 8601 format >",
+          "<sensor measure name (as defined in the Sensor Model)>": <value>
+        },
+        {
+          "timestamp": "<timestamp in ISO 8601 format>",
+          "<sensor measure name (as defined in the Sensor Model)>": <value>
+        }
+      ]
+    }
+ ]
+}
+```
 
 ### Don't have the Azure Event Hubs connection string
 
@@ -82,14 +114,16 @@ While you're deleting a device, you might encounter one of the following common 
 2. Delete the specific device.  
 
     > [!NOTE]
-    > You can't delete a device if sensors are associated with it. For more information about how to delete associated sensors, see the "Delete sensor" section in [Get sensor data from sensor partners](get-sensor-data-from-sensor-partner.md).
+    > You can't delete a device if sensors are associated with it. For more information about how to delete associated sensors, see the **Delete sensor** section in [Get sensor data from sensor partners](get-sensor-data-from-sensor-partner.md).
+    
+    > Partners do not have access to delete a device or sensor. Only Admins have access to do the same.
 
 
 ## Issues with jobs
 
 ### FarmBeats internal error
 
-**Message**: "FarmBeats internal error, see troubleshooting guide for more details."
+**Message**: "FarmBeats internal error, see troubleshooting guide for more details".
 
 **Corrective action**:
 This issue might result from a temporary failure in the data pipeline. Create the job again. If the error persists, add the error message in a post on the FarmBeats forum, or contact FarmBeatsSupport@microsoft.com.
@@ -102,13 +136,13 @@ This issue might result from a temporary failure in the data pipeline. Create th
 
 **Message**: "No matching users found."
 
-**Corrective action**: Check the email ID for which you're trying to add a role assignment. The email ID must be an exact match of the ID that's registered for that user in the Active Directory. If the error persists, add the error message in a post on the FarmBeats forum, or contact FarmBeatsSupport@microsoft.com.
+**Corrective action**: Check the email ID for which you're trying to add a role assignment. The email ID must be an exact match of the ID, which is registered for that user in the Active Directory. If the error persists, add the error message in a post on the FarmBeats forum, or contact FarmBeatsSupport@microsoft.com.
 
 ### Unable to log in to Accelerator
 
-**Message**: "Error: You are not authorized to call the service. Contact the admin for authorization."
+**Message**: "Error: You are not authorized to call the service. Contact the administrator for authorization."
 
-**Corrective action**: Ask the admin to authorize you to access the FarmBeats deployment. This can be done by doing a POST of the RoleAssignment APIs or through the Access Control in the **Settings** pane in Accelerator.  
+**Corrective action**: Ask the administrator to authorize you to access the FarmBeats deployment. This can be done by doing a POST of the RoleAssignment APIs or through the Access Control in the **Settings** pane in Accelerator.  
 
 If you've already been granted access and are facing this error, try again by refreshing the page. If the error persists, add the error message in a post on the FarmBeats forum, or contact FarmBeatsSupport@microsoft.com.
 
@@ -127,6 +161,7 @@ If the error persists, add the error message in a post on the FarmBeats forum, o
 **Issue**: FarmBeats Accelerator isn't showing the latest version, even after you've upgraded FarmBeatsDeployment.
 
 **Corrective action**: This error occurs because of service worker persistence in the browser. Do the following:
+
 1. Close all browser tabs that have Accelerator open, and close the browser window.
 2. Start a new instance of the browser, and reload the Accelerator URI. This action loads the new version of Accelerator.
 
@@ -139,6 +174,7 @@ If the error persists, add the error message in a post on the FarmBeats forum, o
 **Corrective action**:
 
 Do one of the following:
+
 - Rerun the installer for upgrading Datahub with the correct username and password.
 - Rerun the failed job, or run a satellite indices job for a date range of 5 to 7 days, and then check to see whether the job is successful.
 
@@ -162,6 +198,7 @@ This issue can occur if any maintenance activities are being done on the Sentine
 1. If any job or pipeline fails because maintenance is being performed, resubmit the job after some time. 
 
    For information about any planned or unplanned Sentinel maintenance activities, go to the [Copernicus Open Access Hub News](https://scihub.copernicus.eu/news/) site.  
+
 2. Rerun the failed job, or run a satellite indices job for a date range of 5 to 7 days, and then check to see whether the job is successful.
 
 ### Sentinel: Maximum number of connections reached
@@ -172,6 +209,7 @@ This issue can occur if any maintenance activities are being done on the Sentine
 
 **Corrective action**:
 Try either of the following:
+
 * Create a new Sentinel account, and then rerun the installer to upgrade Datahub by using a new Sentinel username and password.  
 * Rerun the failed job or run a satellite indices job for a date range of 5 to 7 days, and then check to see whether the job is successful.
 
@@ -183,6 +221,7 @@ Try either of the following:
 1. If any job or pipeline fails because maintenance is being performed, resubmit the job after some time. 
 
    For information about any planned or unplanned Sentinel maintenance activities, go to the [Copernicus Open Access Hub News](https://scihub.copernicus.eu/news/) site.  
+
 2. Rerun the failed job, or run a satellite indices job for a date range of 5 to 7 days, and then check to see whether the job is successful.
 
 ## Collect logs manually
@@ -190,6 +229,7 @@ Try either of the following:
 [Install and deploy Azure Storage Explorer]( https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows).
 
 ### Collect Azure Data Factory job logs in Datahub
+
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. In the **Search** box, search for the FarmBeats Datahub resource group.
 
@@ -265,11 +305,11 @@ Try either of the following:
 
 ### Azure Active Directory (Azure AD)-related issues
 
-**Error message**: "Could not update required settings to Azure AD App d41axx40-xx21-4fbd-8xxf-97xxx9e2xxc0: Insufficient privileges to complete the operation. Ensure that above settings are configured properly for the Azure AD App."
+**Error message**: "Could not update required settings to Azure AD App d41axx40-xx21-4fbd-8xxf-97xxx9e2xxc0: Insufficient privileges to complete the operation. Ensure that the above settings are configured properly for the Azure AD App."
 
 **Meaning**: The Azure AD app registration configuration wasn't completed properly.  
 
-**Corrective action**: Ask the IT admin (the person with tenant read access) to use our [script](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect/tree/master/AppCreationScripts) for creating the Azure AD app registration. This script automatically takes care of the configuration steps as well.
+**Corrective action**: Ask the IT administrator (the person with tenant read access) to use our [script](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect/tree/master/AppCreationScripts) for creating the Azure AD app registration. This script automatically takes care of the configuration steps as well.
 
 **Error message**: "Could not create new Active Directory Application '\<application name\>' in this tenant: Another object with the same value for property identifier URIs already exists."
 

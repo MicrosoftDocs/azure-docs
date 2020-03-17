@@ -8,6 +8,7 @@ manager: mtillman
 
 ms.assetid: 
 ms.service: active-directory
+ms.subservice: pim
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -26,6 +27,7 @@ ms.collection: M365-identity-device-management
 The management experience for Azure AD roles in Privileged Identity Management has been updated to unify how Azure AD roles and Azure resource roles are managed. Previously, Privileged Identity Management for Azure resource roles has had a couple of key features that were not available for Azure AD roles.
 
 With the update being currently rolled out, we are merging the two into a single management experience, and in it you get the same functionality for Azure AD roles as for Azure resource roles. This article informs you of the updated features and any requirements.
+
 
 ## Time-bound assignments
 
@@ -59,7 +61,7 @@ We have tried our best to reach out to all customers who are using the previous 
 
 ## PowerShell change
 
-For customers who are using the Privileged Identity Management PowerShell module for Azure AD roles, the PowerShell will stop working with the update. In place of the previous cmdlets you must use the Privileged Identity Management cmdlets inside the Azure AD Preview PowerShell module. Install the Azure AD PowerShell module from the [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.17). The cmdlets are built on top of Graph API.
+For customers who are using the Privileged Identity Management PowerShell module for Azure AD roles, the PowerShell will stop working with the update. In place of the previous cmdlets you must use the Privileged Identity Management cmdlets inside the Azure AD Preview PowerShell module. Install the Azure AD PowerShell module from the [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.17). You can now [read the documentation and samples for PIM operations in this PowerShell module](powershell-for-azure-ad-roles.md).
 
 ## Next steps
 

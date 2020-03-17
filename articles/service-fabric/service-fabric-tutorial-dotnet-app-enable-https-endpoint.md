@@ -1,5 +1,5 @@
 ---
-title: Add an HTTPS endpoint using Kestrel to a Service Fabric app in Azure 
+title: Add an HTTPS endpoint using Kestrel
 description: In this tutorial, you learn how to add an HTTPS endpoint to an ASP.NET Core front-end web service using Kestrel and deploy the application to a cluster.
 
 ms.topic: tutorial

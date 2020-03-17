@@ -5,7 +5,7 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 12/03/2019
+ms.date: 01/16/2020
 ---
 
 # Read replicas in Azure Database for MariaDB
@@ -132,7 +132,7 @@ If you stop replication between a master server and a read replica, the stopped 
 
 ### Deleted master and standalone servers
 
-When a master server is deleted, replication is stopped to all read replicas. These replicas become standalone servers. The master server itself is deleted.
+When a master server is deleted, replication is stopped to all read replicas. These replicas automatically become standalone servers and can accept both reads and writes. The master server itself is deleted.
 
 ### User accounts
 

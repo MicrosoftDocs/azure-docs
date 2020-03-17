@@ -1,11 +1,10 @@
 ---
-title: Azure PowerShell script sample - Configure IPv6 virtual network endpoints with Standard Load Balancer(preview)
+title: Azure PowerShell script sample - Configure IPv6 frontend with Standard Load Balancer(preview)
 titlesuffix: Azure Virtual Network
 description: Enable IPv6 endpoints using Powershell in Azure Virtual Network
 services: virtual-network
 documentationcenter: na
 author: KumudD
-manager: twooley
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: article
@@ -14,7 +13,7 @@ ms.date: 07/15/2019
 ms.author: kumud
 ---
 
-# Configure IPv6 endpoints in virtual network script sample with Standard Load Balancer(preview)
+# Configure IPv6 frontend in virtual network script sample with Standard Load Balancer(preview)
 
 This article shows you how to deploy a dual stack (IPv4 + IPv6) application in Azure that includes a dual stack virtual network with a dual stack subnet, a load balancer with dual (IPv4 + IPv6) front-end configurations, VMs with NICs that have a dual IP configuration, dual network security group rules, and dual public IPs.
 

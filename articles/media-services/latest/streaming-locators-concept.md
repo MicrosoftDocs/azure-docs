@@ -11,7 +11,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 05/26/2019
+ms.date: 03/04/2020
 ms.author: juliako
 ---
 
@@ -92,15 +92,16 @@ To get Streaming Locators based on the associated Asset name, use the following 
 |REST|[liststreaminglocators](https://docs.microsoft.com/rest/api/media/assets/liststreaminglocators)|
 |CLI|[az ams asset list-streaming-locators](https://docs.microsoft.com/cli/azure/ams/asset?view=azure-cli-latest#az-ams-asset-list-streaming-locators)|
 |.NET|[ListStreamingLocators](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.assetsoperationsextensions.liststreaminglocators?view=azure-dotnet#Microsoft_Azure_Management_Media_AssetsOperationsExtensions_ListStreamingLocators_Microsoft_Azure_Management_Media_IAssetsOperations_System_String_System_String_System_String_)|
-|Java|[AssetStreamingLocator](https://docs.microsoft.com/java/api/com.microsoft.azure.management.mediaservices.v2018_07_01.assetstreaminglocator?view=azure-java-stable)|
+|Java|[AssetStreamingLocator](https://docs.microsoft.com/rest/api/media/assets/liststreaminglocators#assetstreaminglocator)|
 |Node.js|[listStreamingLocators](https://docs.microsoft.com/javascript/api/@azure/arm-mediaservices/assets#liststreaminglocators-string--string--string--msrest-requestoptionsbase-)|
 
-## Also see
+## See also
 
 * [Assets](assets-concept.md)
 * [Streaming Policies](streaming-policy-concept.md)
 * [Content Key Policies](content-key-policy-concept.md)
+* [Tutorial: Upload, encode, and stream videos using .NET](stream-files-tutorial-with-api.md)
 
 ## Next steps
 
-[Tutorial: Upload, encode, and stream videos using .NET](stream-files-tutorial-with-api.md)
+[How to create a streaming locator and build URLs](create-streaming-locator-build-url.md)

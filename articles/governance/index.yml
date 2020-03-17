@@ -75,11 +75,11 @@ productDirectory:
     - title: Cost Management
       imageSrc: ./media/cost-management.svg
       links:
-        - url: ../cost-management/overview-cost-mgt.md
+        - url: ../cost-management-billing/cost-management-billing-overview.md
           text: Overview
-        - url: ../cost-management/aws-integration-manage.md
+        - url: ../cost-management-billing/costs/aws-integration-manage.md
           text: Manage AWS cost and usage
-        - url: ../cost-management/index.yml
+        - url: ../cost-management-billing/index.yml
           text: See more >
 
 tools:
@@ -106,7 +106,7 @@ additionalContent:
         - title: Management Groups
           links:
             - text: Azure CLI
-              url: /cli/azure/ext/managementgroups/?view=azure-cli-latest
+              url: /cli/azure/account/management-group
             - text: Azure PowerShell
               url: /powershell/module/az.resources/#resources
             - text: Azure SDK for .NET

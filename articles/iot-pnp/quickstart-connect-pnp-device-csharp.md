@@ -1,9 +1,9 @@
 ---
 title: Connect IoT Plug and Play Preview sample device code to IoT Hub | Microsoft Docs
 description: Using C# (.NET), build and run IoT Plug and Play Preview sample device code that connects to an IoT hub. Use the Azure IoT explorer tool to view the information sent by the device to the hub.
-author: baanders
-ms.author: baanders
-ms.date: 11/14/2019
+author: dominicbetts
+ms.author: dobett
+ms.date: 12/27/2019
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
@@ -69,7 +69,7 @@ You use the cloned sample code to build an application simulating a device that 
 1. Run a sample application to simulate an IoT Plug and Play device that sends telemetry to your IoT hub. In the same terminal window, to build the necessary packages and run the sample application, use the following command:
 
     ```cmd\sh
-        dotnet run
+    dotnet run --framework=netcoreapp3.0
     ```
 
 You see messages saying that the device has successfully registered and is waiting for updates from the cloud. This indicates that the device is now ready to receive commands and property updates, and has begun sending telemetry data to the hub. Keep the sample running as you complete the next steps.

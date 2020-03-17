@@ -1,5 +1,5 @@
 ---
-title: Examine the Azure Media Services Video Indexer output produced by v2 API
+title: Examine the  Video Indexer output produced by v2 API - Azure
 titleSuffix: Azure Media Services
 description: This topic examines the Azure Media Services Video Indexer output produced by v2 API.
 services: media-services

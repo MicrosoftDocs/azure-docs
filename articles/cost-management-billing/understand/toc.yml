@@ -1,0 +1,53 @@
+- name: Get started with Azure billing documentation
+  href: index.yml
+  items:
+  - name: Tutorials
+    items:
+    - name: Review your individual account bill
+      href: review-individual-bill.md
+    - name: Review your Microsoft Customer Agreement bill
+      href: review-customer-agreement-bill.md
+    - name: Review your Microsoft Partner Agreement bill
+      href: review-partner-agreement-bill.md
+  - name: Concepts
+    items:
+    - name: Individual subscription usage terms
+      href: understand-usage.md
+    - name: Individual subscription invoice terms
+      href: understand-invoice.md
+    - name: Microsoft Customer Agreement usage terms
+      href: mca-understand-your-usage.md
+    - name: Microsoft Customer Agreement invoice terms
+      href: mca-understand-your-invoice.md
+    - name: Microsoft Customer Agreement price sheet terms
+      href: ../manage/mca-understand-pricesheet.md
+    - name: Billing accounts for Microsoft Customer Agreement
+      href: mca-overview.md
+    - name: Microsoft Partner Agreement invoice terms
+      href: mpa-invoice-terms.md
+    - name: Billing accounts for Microsoft Partner Agreement
+      href: mpa-overview.md
+  - name: How-to guides
+    items:
+    - name: Prevent unexpected costs
+      href: ../manage/getting-started.md
+    - name: View and download your Azure invoice
+      href: download-azure-invoice.md
+    - name: View and download your Azure usage and charges
+      href: download-azure-daily-usage.md
+    - name: Download your invoice and daily usage data
+      href: ../manage/download-azure-invoice-daily-usage-date.md
+    - name: View and download tax documents
+      href: mca-download-tax-document.md
+    - name: View external Azure service charges
+      href: understand-azure-marketplace-charges.md
+    - name: Pay your bill
+      href: pay-bill.md
+    - name: View and download your organization's pricing
+      href: ../manage/ea-pricing.md
+    - name: Track credits for Microsoft Customer Agreement
+      href: ../manage/mca-check-azure-credits-balance.md
+    - name: Calculate pricing
+      href: https://azure.microsoft.com/pricing/calculator/
+    - name: Understand spending limit
+      href: ../manage/spending-limit.md

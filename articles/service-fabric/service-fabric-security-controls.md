@@ -1,6 +1,6 @@
 ﻿---
 title: Security controls for Azure Service Fabric
-description: A checklist of security controls for evaluating Azure Service Fabric
+description: Learn about security controls for Azure Service Fabric. Includes a checklist of built-in security controls.
 author: msmbaldwin
 
 ms.topic: conceptual

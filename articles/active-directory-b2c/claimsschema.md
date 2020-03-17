@@ -2,14 +2,14 @@
 title: ClaimsSchema  - Azure Active Directory B2C | Microsoft Docs
 description: Specify the ClaimsSchema element of a custom policy in Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
-ms.author: marsma
+ms.date: 03/05/2020
+ms.author: mimart
 ms.subservice: B2C
 ---
 
@@ -46,14 +46,35 @@ The **ClaimType** element contains the following elements:
 
 | Element | Occurrences | Description |
 | ------- | ----------- | ----------- |
-| DisplayName | 0:1 | The title that's displayed to users on various screens. The value can be [localized](localization.md). |
-| DataType | 0:1 | The type of the claim. The data types of boolean, date, dateTime, int, long, string, stringCollection, alternativeSecurityIdCollection can be used. |
+| DisplayName | 1:1 | The title that's displayed to users on various screens. The value can be [localized](localization.md). |
+| DataType | 1:1 | The type of the claim. |
 | DefaultPartnerClaimTypes | 0:1 | The partner default claim types to use for a specified protocol. The value can be overwritten in the **PartnerClaimType** specified in the **InputClaim** or **OutputClaim** elements. Use this element to specify the default name for a protocol.  |
 | Mask | 0:1 | An optional string of masking characters that can be applied when displaying the claim. For example, the phone number 324-232-4343 can be masked as XXX-XXX-4343. |
 | UserHelpText | 0:1 | A description of the claim type that can be helpful for users to understand its purpose. The value can be [localized](localization.md). |
 | UserInputType | 0:1 | The type of input control that should be available to the user when manually entering the claim data for the claim type. See the user input types defined later in this page. |
+| AdminHelpText | 0:1 | A description of the claim type that can be helpful for administrators to understand its purpose. |
 | Restriction | 0:1 | The value restrictions for this claim, such as a regular expression (Regex) or a list of acceptable values. The value can be [localized](localization.md). |
 PredicateValidationReference| 0:1 | A reference to a **PredicateValidationsInput** element. The **PredicateValidationReference** elements enable you to perform a validation process to ensure that only properly formed data is entered. For more information, see [Predicates](predicates.md). |
+
+
+
+### DataType
+
+The **DataType** element supports the following values:
+
+| Type | Description |
+| ------- | ----------- |
+|boolean|Represents a Boolean (`true` or `false`) value.|
+|date| Represents an instant in time, typically expressed as a date of a day. The value of the date follows ISO 8601 convention.|
+|dateTime|Represents an instant in time, typically expressed as a date and time of day. The value of the date follows ISO 8601 convention.|
+|duration|Represents a time interval in years, months, days, hours, minutes, and seconds. The format of is `PnYnMnDTnHnMnS`, where `P` indicates positive, or `N` for negative value. `nY` is the number of years followed by a literal `Y`. `nMo` is the number of months followed by a literal `Mo`. `nD` is the number of days followed by a literal `D`. Examples: `P21Y` represents 21 years. `P1Y2Mo` represents one year, and two months. `P1Y2Mo5D` represents one year, two months, and five days.  `P1Y2M5DT8H5M620S` represents one year, two months, five days, eight hours, five minutes, and twenty seconds.  |
+|phoneNumber|Represents a phone number. |
+|int| Represents number between -2,147,483,648 and 2,147,483,647|
+|long| Represents number between -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807 |
+|string| Represents text as a sequence of UTF-16 code units.|
+|stringCollection|Represents a collection of `string`.|
+|userIdentity| Represents a user identity.|
+|userIdentityCollection|Represents a collection of `userIdentity`.|
 
 ### DefaultPartnerClaimTypes
 
@@ -61,7 +82,7 @@ The **DefaultPartnerClaimTypes** may contain the following element:
 
 | Element | Occurrences | Description |
 | ------- | ----------- | ----------- |
-| Protocol | 0:n | List of protocols with their default partner claim type name. |
+| Protocol | 1:n | List of protocols with their default partner claim type name. |
 
 The **Protocol** element contains the following attributes:
 
@@ -151,7 +172,9 @@ The **Restriction** element contains the following elements:
 | Enumeration | 1:n | The available options in the user interface for the user to select for a claim, such as a value in a dropdown. |
 | Pattern | 1:1 | The regular expression to use. |
 
-### Enumeration
+#### Enumeration
+
+The **Enumeration** element defines available options for the user to select for a claim in the user interface, such as a value in a `CheckboxMultiSelect`, `DropdownSingleSelect`, or `RadioSingleSelect`. Alternatively, you can define and localize available options with [LocalizedCollections](localization.md#localizedcollections) element. To look up an item from a claim **Enumeration** collection, use [GetMappedValueFromLocalizedCollection](string-transformations.md#getmappedvaluefromlocalizedcollection) claims transformation.
 
 The **Enumeration** element contains the following attributes:
 
@@ -187,7 +210,7 @@ The **Pattern** element can contain the following attributes:
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
 | RegularExpression | Yes | The regular expression that claims of this type must match in order to be valid. |
-| HelpText | No | The pattern or regular expression for this claim. |
+| HelpText | No | An error message for users if the regular expression check fails. |
 
 The following example configures an **email** claim with regular expression input validation and help text:
 
@@ -210,11 +233,26 @@ The Identity Experience Framework renders the email address claim with email for
 
 ![TextBox showing error message triggered by regex restriction](./media/claimsschema/pattern.png)
 
-## UserInputType
+### UserInputType
 
-Azure AD B2C supports a variety of user input types, such as a textbox, password, and dropdown list that can be used when manually entering claim data for the claim type. You must specify the **UserInputType** when you collect information from the user by using a [self-asserted technical profile](self-asserted-technical-profile.md).
+Azure AD B2C supports a variety of user input types, such as a textbox, password, and dropdown list that can be used when manually entering claim data for the claim type. You must specify the **UserInputType** when you collect information from the user by using a [self-asserted technical profile](self-asserted-technical-profile.md) and [display controls](display-controls.md).
 
-### TextBox
+The **UserInputType** element available user input types:
+
+| UserInputType | Supported ClaimType | Description |
+| --------- | -------- | ----------- |
+|CheckboxMultiSelect| `string` |Multi select drop-down box. The claim value is represented in a comma delimiter string of the selected values. |
+|DateTimeDropdown | `date`, `dateTime` |Drop-downs to select a day, month, and year. |
+|DropdownSingleSelect |`string` |Single select drop-down box. The claim value is the selected value.|
+|EmailBox | `string` |Email input field. |
+|Paragraph | `boolean`, `date`, `dateTime`, `duration`, `int`, `long`, `string`|A field that shows text only in a paragraph tag. |
+|Password | `string` |Password text box.|
+|RadioSingleSelect |`string` | Collection of radio buttons. The claim value is the selected value.|
+|Readonly | `boolean`, `date`, `dateTime`, `duration`, `int`, `long`, `string`| Read-only text box. |
+|TextBox |`boolean`, `int`, `string` |Single-line text box. |
+
+
+#### TextBox
 
 The **TextBox** user input type is used to provide a single-line text box.
 
@@ -229,7 +267,7 @@ The **TextBox** user input type is used to provide a single-line text box.
 </ClaimType>
 ```
 
-### EmailBox
+#### EmailBox
 
 The **EmailBox** user input type is used to provide a basic email input field.
 
@@ -247,7 +285,7 @@ The **EmailBox** user input type is used to provide a basic email input field.
 </ClaimType>
 ```
 
-### Password
+#### Password
 
 The **Password** user input type is used to record a password entered by the user.
 
@@ -262,7 +300,7 @@ The **Password** user input type is used to record a password entered by the use
 </ClaimType>
 ```
 
-### DateTimeDropdown
+#### DateTimeDropdown
 
 The **DateTimeDropdown** user input type is used to provide a set of drop-downs to select a day, month, and year. You can use Predicates and PredicateValidations elements to control the minimum and maximum date values. For more information, see the **Configure a date range** section of [Predicates and PredicateValidations](predicates.md).
 
@@ -277,7 +315,7 @@ The **DateTimeDropdown** user input type is used to provide a set of drop-downs 
 </ClaimType>
 ```
 
-### RadioSingleSelect
+#### RadioSingleSelect
 
 The **RadioSingleSelect** user input type is used to provide a collection of radio buttons that allows the user to select one option.
 
@@ -296,7 +334,7 @@ The **RadioSingleSelect** user input type is used to provide a collection of rad
 </ClaimType>
 ```
 
-### DropdownSingleSelect
+#### DropdownSingleSelect
 
 The **DropdownSingleSelect** user input type is used to provide a drop-down box that allows the user to select one option.
 
@@ -315,7 +353,7 @@ The **DropdownSingleSelect** user input type is used to provide a drop-down box 
 </ClaimType>
 ```
 
-### CheckboxMultiSelect
+#### CheckboxMultiSelect
 
 The **CheckboxMultiSelect** user input type is used to provide a collection of checkboxes that allows the user to select multiple options.
 
@@ -334,7 +372,7 @@ The **CheckboxMultiSelect** user input type is used to provide a collection of c
 </ClaimType>
 ```
 
-### Readonly
+#### Readonly
 
 The **Readonly** user input type is used to provide a readonly field to display the claim and value.
 
@@ -350,9 +388,9 @@ The **Readonly** user input type is used to provide a readonly field to display 
 ```
 
 
-### Paragraph
+#### Paragraph
 
-The **Paragraph** user input type is used to provide a field that shows text only in a paragraph tag. For example, &lt;p&gt;text&lt;/p&gt;.
+The **Paragraph** user input type is used to provide a field that shows text only in a paragraph tag.  For example, &lt;p&gt;text&lt;/p&gt;. A **Paragraph** user input type `OutputClaim` of self-asserted technical profile, must set the `Required` attribute `false` (default).
 
 ![Using claim type with paragraph](./media/claimsschema/paragraph.png)
 
@@ -364,11 +402,9 @@ The **Paragraph** user input type is used to provide a field that shows text onl
   <UserHelpText>A claim responsible for holding response messages to send to the relying party</UserHelpText>
   <UserInputType>Paragraph</UserInputType>
   <Restriction>
-    <Enumeration Text="B2C_V1_90001" Value="You cant sign in because you are a minor" />
+    <Enumeration Text="B2C_V1_90001" Value="You cannot sign in because you are a minor" />
     <Enumeration Text="B2C_V1_90002" Value="This action can only be performed by gold members" />
     <Enumeration Text="B2C_V1_90003" Value="You have not been enabled for this operation" />
   </Restriction>
 </ClaimType>
 ```
-
-To display one of the **Enumeration** values in a **responseMsg** claim, use `GetMappedValueFromLocalizedCollection` or `CreateStringClaim` claims transformation. For more information, see [String Claims Transformations](string-transformations.md)

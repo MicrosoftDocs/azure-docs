@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 11/04/2019
+ms.date: 03/11/2020
 ms.author: cherylmc
 
 ---
@@ -56,7 +56,7 @@ When you add a connection, use the information you collected in the previous ste
 
 ## Folder contents
 
-* The **OpenVPN folder** contains the *ovpn* profile that needs to be modified to include the key and the certificate. For more information, see [Configure OpenVPN clients for Azure VPN Gateway](vpn-gateway-howto-openvpn-clients.md#windows).
+* The **OpenVPN folder** contains the *ovpn* profile that needs to be modified to include the key and the certificate. For more information, see [Configure OpenVPN clients for Azure VPN Gateway](vpn-gateway-howto-openvpn-clients.md#windows). This folder will not be present in the zip file if Azure AD authentication is selected on the VPN gateway. Instead, the azurevpnconfig.xml will be in the AzureVPN folder.
 
 * The **generic folder** contains the public server certificate and the VpnSettings.xml file. The VpnSettings.xml file contains information needed to configure a generic client.
 

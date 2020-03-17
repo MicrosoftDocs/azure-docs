@@ -2,7 +2,7 @@
 title: Create app passwords from Security info (preview) page - Azure AD
 description: Create auto-generated passwords (app passwords) to use with any non-browser app, or any app that doesn't support two-factor verification, in your organization. This app password is separate from a normal password and can be set up from the Security info page.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 ms.reviewer: sahenry
 
@@ -11,8 +11,7 @@ ms.workload: identity
 ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 02/13/2018
-ms.author: lizross
-ms.collection: M365-identity-device-management
+ms.author: curtand
 ---
 
 # Create app passwords from the Security info (preview) page

@@ -1,7 +1,7 @@
 ---
-title: "Example: Real-time video analysis - Face API"
+title: "Example: Real-time video analysis - Face"
 titleSuffix: Azure Cognitive Services
-description: Use the Face API to perform near-real-time analysis on frames taken from a live video stream.
+description: Use the Face service to perform near-real-time analysis on frames taken from a live video stream.
 services: cognitive-services
 author: SteveMSFT
 manager: nitinme
@@ -138,7 +138,7 @@ To get your app up and running as quickly as possible, you will use a flexible i
 
 The library contains the class FrameGrabber, which implements the producer-consumer system discussed above to process video frames from a webcam. The user can specify the exact form of the API call, and the class uses events to let the calling code know when a new frame is acquired or a new analysis result is available.
 
-To illustrate some of the possibilities, there are two sample apps that use the library. The first is a simple console app, and a simplified version of it is reproduced below. It grabs frames from the default webcam, and submits them to the Face API for face detection.
+To illustrate some of the possibilities, there are two sample apps that use the library. The first is a simple console app, and a simplified version of it is reproduced below. It grabs frames from the default webcam, and submits them to the Face service for face detection.
 
 ```csharp
 using System;
@@ -155,7 +155,7 @@ namespace VideoFrameConsoleApplication
 			// Create grabber, with analysis type Face[]. 
 			FrameGrabber<Face[]> grabber = new FrameGrabber<Face[]>();
 			
-			// Create Face API Client. Insert your Face API key here.
+			// Create Face Client. Insert your Face API key here.
 			private readonly IFaceClient faceClient = new FaceClient(
             new ApiKeyServiceClientCredentials("<subscription key>"),
             new System.Net.Http.DelegatingHandler[] { });
@@ -199,13 +199,12 @@ To get started with this sample, follow these steps:
 
 1. Get API keys for the Vision APIs from [Subscriptions](https://azure.microsoft.com/try/cognitive-services/). For video frame analysis, the applicable APIs are:
 	- [Computer Vision API](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home)
-	- [Emotion API](https://docs.microsoft.com/azure/cognitive-services/emotion/home)
 	- [Face API](https://docs.microsoft.com/azure/cognitive-services/face/overview)
 
 2. Clone the [Cognitive-Samples-VideoFrameAnalysis](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/) GitHub repo
 
 3. Open the sample in Visual Studio 2015, and build and run the sample applications:
-	- For BasicConsoleSample, the Face API key is hard-coded directly in [BasicConsoleSample/Program.cs](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/blob/master/Windows/BasicConsoleSample/Program.cs).
+	- For BasicConsoleSample, the Face key is hard-coded directly in [BasicConsoleSample/Program.cs](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/blob/master/Windows/BasicConsoleSample/Program.cs).
 	- For LiveCameraSample, the keys should be entered into the Settings pane of the app. They will be persisted across sessions as user data.
 		
 

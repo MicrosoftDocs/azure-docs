@@ -19,9 +19,9 @@ Azure App Service provides built-in authentication and authorization support, so
 Secure authentication and authorization require deep understanding of security, including federation, encryption, [JSON web tokens (JWT)](https://wikipedia.org/wiki/JSON_Web_Token) management, [grant types](https://oauth.net/2/grant-types/), and so on. App Service provides these utilities so that you can spend more time and energy on providing business value to your customer.
 
 > [!IMPORTANT]
-> You're not required to use App Service for AuthN/AuthO. Many web frameworks are bundled with security features, and you can use them if you like. If you need more flexibility than App Service provides, you can also write your own utilities.  
+> You're not required to use App Service for AuthN/AuthO. You can use the bundled security features in your web framework of choice, or you can write your own utilities. However, keep in mind that [Chrome 80 is making breaking changes to its implementation of SameSite for cookies](https://www.chromestatus.com/feature/5088147346030592) (release date around March 2020), and custom remote authentication or other scenarios that rely on cross-site cookie posting may break when client Chrome browsers are updated. The workaround is complex because it needs to support different SameSite behaviors for different browsers. 
 >
-> However, if you go with any of the non-App Service options for remote authentication, keep in mind that [Chrome 80 is making breaking changes to its implementation of SameSite for cookies](https://www.chromestatus.com/feature/5088147346030592) (release date around March 2020), and your app's authentication mechanism may break when client browsers are updated. The ASP.NET Core documentation has information on how to address this in your app, at [HTTP: Browser SameSite changes impact authentication](/dotnet/core/compatibility/3.0-3.1#http-browser-samesite-changes-impact-authentication). It contains helpful guidance on how to test for this breaking change against the major browsers, regardless if you're using ASP.NET Core or not.
+> The ASP.NET Core 2.1 and above versions hosted by App Service are already patched for this breaking change and handle Chrome 80 and older browsers appropriately. In addition, the same patch for ASP.NET Framework 4.7.2 is being deployed on the App Service instances throughout January 2020. For more information, including how to know if your app has received the patch, see [Azure App Service SameSite cookie update](https://azure.microsoft.com/updates/app-service-samesite-cookie-update/).
 >
 
 For information specific to native mobile apps, see [User authentication and authorization for mobile apps with Azure App Service](../app-service-mobile/app-service-mobile-auth.md).
@@ -54,7 +54,7 @@ For more information, see [Access user claims](app-service-authentication-how-to
 App Service provides a built-in token store, which is a repository of tokens that are associated with the users of your web apps, APIs, or native mobile apps. When you enable authentication with any provider, this token store is immediately available to your app. If your application code needs to access data from these providers on the user's behalf, such as: 
 
 - post to the authenticated user's Facebook timeline
-- read the user's corporate data from the Azure Active Directory Graph API or even the Microsoft Graph
+- read the user's corporate data using the Microsoft Graph API
 
 You typically must write code to collect, store, and refresh these tokens in your application. With the token store, you just [retrieve the tokens](app-service-authentication-how-to.md#retrieve-tokens-in-app-code) when you need them and [tell App Service to refresh them](app-service-authentication-how-to.md#refresh-identity-provider-tokens) when they become invalid. 
 

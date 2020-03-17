@@ -33,6 +33,10 @@
       href: cli-samples.md
 - name: Concepts
   items:
+    - name: Security
+      items:
+      - name: Security baseline
+        href: security-baseline.md
     - name: Failover and patching
       href: cache-failover.md
     - name: Best practices
@@ -53,6 +57,8 @@
       href: cache-how-to-premium-vnet.md
     - name: Set up geo-replication
       href: cache-how-to-geo-replication.md
+    - name: Save with reserved capacity
+      href: cache-reserved-pricing.md
     - name: Migrate from Managed Cache Service
       href: cache-migrate-to-redis.md
   - name: Automate

@@ -1,8 +1,6 @@
 ---
 title: Azure Application Insights Agent API reference
 description: Application Insights Agent API reference. Start-Trace. Collect ETW logs from Status Monitor and Application Insights SDK.
-ms.service:  azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee

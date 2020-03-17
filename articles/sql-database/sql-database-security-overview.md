@@ -5,7 +5,7 @@ services: sql-database
 ms.service: sql-database
 ms.subservice: security
 ms.custom:
-ms.devlang: 
+ms.devlang:
 ms.topic: conceptual
 author: jaszymas
 ms.author: jaszymas
@@ -98,7 +98,7 @@ As a best practice, recommend that in your application's connection string you s
 For example when using the ADO.NET driver this is accomplished via  **Encrypt=True** and **TrustServerCertificate=False**. If you obtain your connection string from the Azure portal, it will have the correct settings.
 
 > [!IMPORTANT]
-> Note that some non-Microsoft drivers may not use TLS by default or rely on an older version of TLS (<1.2) in order to function. In this case SQL Server still allows you to connect to your database. However, we recommend that you evaluate the security risks of allowing such drivers and application to connect to SQL Database, especially if you store sensitive data. 
+> Note that some non-Microsoft drivers may not use TLS by default or rely on an older version of TLS (<1.2) in order to function. In this case SQL Server still allows you to connect to your database. However, we recommend that you evaluate the security risks of allowing such drivers and application to connect to SQL Database, especially if you store sensitive data.
 >
 > For further information about TLS and connectivity, see [TLS considerations](sql-database-connect-query.md#tls-considerations-for-sql-database-connectivity)
 
@@ -146,6 +146,6 @@ In addition to the above features and functionality that can help your applicati
 
 ## Next steps
 
-- For a discussion of the use of access control features in SQL Database, see [Control access](sql-database-control-access.md).
+- For a discussion of the use of logins, user accounts, database roles, and permissions in SQL Database, see [Manage logins and user accounts](sql-database-manage-logins.md).
 - For a discussion of database auditing, see [SQL Database auditing](sql-database-auditing.md).
 - For a discussion of threat detection, see [SQL Database threat detection](sql-database-threat-detection.md).

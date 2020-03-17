@@ -37,7 +37,7 @@ One thing to be aware of is that on an Azure IaaS VM failover cluster, we recomm
 You should also have a general understanding of these technologies:
 
 - [Azure premium file share](../../../storage/files/storage-how-to-create-premium-fileshare.md)
-- [Azure resource groups](../../../azure-resource-manager/manage-resource-groups-portal.md)
+- [Azure resource groups](../../../azure-resource-manager/management/manage-resource-groups-portal.md)
 
 > [!IMPORTANT]
 > At this time, SQL Server failover cluster instances on Azure virtual machines are only supported with the [lightweight management mode](virtual-machines-windows-sql-register-with-resource-provider.md#management-modes) of the [SQL Server IaaS Agent Extension](virtual-machines-windows-sql-server-agent-extension.md). To change from full extension mode to lightweight, delete the **SQL Virtual Machine** resource for the corresponding VMs and then register them with the SQL VM resource provider in lightweight mode. When deleting the **SQL Virtual Machine** resource using the Azure portal, **clear the checkbox next to the correct Virtual Machine**. The full extension supports features such as automated backup, patching, and advanced portal management. These features will not work for SQL VMs after the agent is reinstalled in lightweight management mode.
@@ -48,7 +48,7 @@ Check the IOPS activity of your environment and verify that premium file shares 
 
 Many workloads have bursting IO, so it's a good idea to check during heavy usage periods and note both the maximum IOPS and the average IOPS. Premium file shares provide IOPS based on the size of the share. Premium file shares also provide complimentary bursting that allows you to burst your IO to triple the baseline amount for up to one hour.
 
-For more information about premium file share performance, see [File share performance tiers](https://docs.microsoft.com/azure/storage/files/storage-files-planning#file-share-performance-tiers).
+For more information about premium file share performance, see [File share performance tiers](https://docs.microsoft.com/azure/storage/files/storage-files-planning#storage-tiers).
 
 ### Licensing and pricing
 
@@ -72,13 +72,15 @@ Before you complete the steps in this article, you should already have:
 
 - A Microsoft Azure subscription.
 - A Windows domain on Azure virtual machines.
-- An account that has permissions to create objects on both Azure virtual machines and in Active Directory.
+- A domain user account that has permissions to create objects on both Azure virtual machines and in Active Directory.
+- A domain user account to run the SQL Server service and that you can log into the virtual machine with when mounting the file share.  
 - An Azure virtual network and subnet with enough IP address space for these components:
    - Two virtual machines.
    - The failover cluster IP address.
    - An IP address for each FCI.
 - DNS configured on the Azure network, pointing to the domain controllers.
-- A [premium file share](../../../storage/files/storage-how-to-create-premium-fileshare.md) based on the storage quota of your database for your data files.
+- A [premium file share](../../../storage/files/storage-how-to-create-premium-fileshare.md) to be used as the clustered drive, based on the storage quota of your database for your data files.
+- If you're on Windows Server 2012 R2 and older, you will need another file share to use as the file share witness, since cloud witnesses are supported for Windows 2016 and newer. You can use another Azure file share, or you can use a file share on a separate virtual machine. If you're going to use another Azure file share, you can mount it with the same process as for the premium file share used for your clustered drive. 
 
 With these prerequisites in place, you can start building your failover cluster. The first step is to create the virtual machines.
 
@@ -142,7 +144,7 @@ With these prerequisites in place, you can start building your failover cluster.
 
    1. Select **Next**, and then select **Remove**.
 
-1. <a name="ports"></a>Open the firewall ports.
+1. <span id="ports"> </span> Open the firewall ports.  
 
    On each virtual machine, open these ports on the Windows Firewall:
 
@@ -175,16 +177,17 @@ After you create and configure the virtual machines, you can configure the premi
 1. Repeat these steps on each SQL Server VM that will participate in the cluster.
 
   > [!IMPORTANT]
-  > Consider using a separate file share for backup files to save the IOPS and space capacity of this share for Data and Log files. You can use either a premium or standard file share for backup files.
+  > - Consider using a separate file share for backup files to save the IOPS and space capacity of this share for Data and Log files. You can use either a premium or standard file share for backup files.
+  > - If you're on Windows 2012 R2 and older, follow these same steps to mount your file share that you are going to use as the file share witness. 
 
-## Step 3: Configure the failover cluster with the file share
+## Step 3: Configure the failover cluster
 
 The next step is to configure the failover cluster. In this step, you'll complete the following substeps:
 
 1. Add the Windows Server Failover Clustering feature.
 1. Validate the cluster.
 1. Create the failover cluster.
-1. Create the cloud witness.
+1. Create the cloud witness (for Windows Server 2016 and newer) or the file share witness (for Windows Server 2012 R2 and older).
 
 
 ### Add Windows Server Failover Clustering
@@ -258,9 +261,9 @@ New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAd
 ```
 
 
-### Create a cloud witness
+### Create a cloud witness (Win 2016 +)
 
-Cloud Witness is a new type of cluster quorum witness that's stored in an Azure storage blob. This removes the need for a separate VM that hosts a witness share.
+If you're on Windows Server 2016 and greater, you'll need to create a Cloud Witness. Cloud Witness is a new type of cluster quorum witness that's stored in an Azure storage blob. This removes the need for a separate VM that hosts a witness share, or using a separate file share.
 
 1. [Create a cloud witness for the failover cluster](https://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness).
 
@@ -268,7 +271,11 @@ Cloud Witness is a new type of cluster quorum witness that's stored in an Azure 
 
 1. Save the access keys and the container URL.
 
-1. Configure the failover cluster quorum witness. See [Configure the quorum witness in the user interface](https://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness#to-configure-cloud-witness-as-a-quorum-witness).
+### Configure quorum 
+
+For Windows Server 2016 and greater, configure the cluster to use the cloud witness you just created. Follow all of the steps [Configure the quorum witness in the user interface](https://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness#to-configure-cloud-witness-as-a-quorum-witness).
+
+For Windows Server 2012 R2 and older, follow the same steps in [Configure the quorum witness in the user interface](https://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness#to-configure-cloud-witness-as-a-quorum-witness) but on the **Select Quorum Witness** page, select the **Configure a file share witness** option. Specify the file share you allocated to be the file share witness, whether it's one you configured on a separate virtual machine, or mounted from Azure. 
 
 
 ## Step 4: Test cluster failover
@@ -291,7 +298,7 @@ After you've configured the failover cluster, you can create the SQL Server FCI.
 
 1. Select **New SQL Server failover cluster installation**. Follow the instructions in the wizard to install the SQL Server FCI.
 
-   The FCI data directories need to be on the premium file share. Enter the full path of the share, in this form: `\\storageaccountname.file.core.windows.net\filesharename\foldername`. A warning will appear, telling you that you've specified a file server as the data directory. This warning is expected. Ensure that the account you persisted the file share with is the same account that the SQL Server service uses to avoid possible failures.
+   The FCI data directories need to be on the premium file share. Enter the full path of the share, in this form: `\\storageaccountname.file.core.windows.net\filesharename\foldername`. A warning will appear, telling you that you've specified a file server as the data directory. This warning is expected. Ensure that the user account you RDP'd into the VM with when you persisted the file share is the same account that the SQL Server service uses to avoid possible failures.
 
    :::image type="content" source="media/virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-share/use-file-share-as-data-directories.png" alt-text="Use file share as SQL data directories":::
 
@@ -357,7 +364,7 @@ To create the load balancer:
 
 1. Select **Add**.
 
-1. On the **Add health probe** blade, <a name="probe"></a>set the following health probe parameters.
+1. On the **Add health probe** blade, <span id="probe"> </span> set the following health probe parameters.
 
    - **Name**: A name for the health probe.
    - **Protocol**: TCP.

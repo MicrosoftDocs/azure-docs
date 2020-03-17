@@ -38,7 +38,7 @@ If you want to add a pattern for an entity, the _easiest_ way is to create the p
     > [!div class="mx-imgBorder"]
     > ![Screenshot of confirming example utterance as a template pattern on the Intent details page.](./media/luis-how-to-model-intent-pattern/confirm-patterns-from-example-utterance-intent-detail-page.png)
 
-1. If you need to edit the template, such as selecting text as optional, with the `[]` (square) brackets, you need to make this edit form the **Patterns** page.
+1. If you need to edit the template, such as selecting text as optional, with the `[]` (square) brackets, you need to make this edit from the **Patterns** page.
 
 1. In the navigation bar, select **Train** to train the app with the new pattern.
 

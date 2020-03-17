@@ -444,6 +444,9 @@ To create a smaller array that has items, which meet specific criteria, from an 
 > 
 > For actions to use the array output from the **Filter array** action, either those actions must accept arrays as input, or you might 
 > have to transform the output array into another compatible format.
+> 
+> If you call an HTTP endpoint and receive a JSON response, use the **Parse JSON** action to process the JSON response. 
+> Otherwise, the **Filter array** action can read only the response body and not the structure of the JSON payload.
 
 If you prefer working in the code view editor, you can copy the example **Filter array** and **Initialize variable** action definitions from this article into your own logic app's underlying workflow definition: [Data operation code examples - Filter array](../logic-apps/logic-apps-data-operations-code-samples.md#filter-array-action-example)
 

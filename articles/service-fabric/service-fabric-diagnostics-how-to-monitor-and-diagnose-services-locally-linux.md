@@ -6,7 +6,7 @@ ms.topic: conceptual
 ms.date: 2/23/2018
 ---
 
-# Monitor and diagnose services in a local machine development setup
+# Monitor and diagnose services in a local Linux machine development setup
 
 
 > [!div class="op_single_selector"]
