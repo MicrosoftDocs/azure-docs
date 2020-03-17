@@ -80,8 +80,8 @@ ESXi hosts (app discovery/agentless dependency analysis) | If you want to do [ap
 **Linux VMs** | Red Hat Enterprise Linux 7, 6, 5<br/> Ubuntu Linux 14.04, 16.04<br/> Debian 7, 8<br/> Oracle Linux 6, 7<br/> CentOS 5, 6, 7.
 **Linux account** | For dependency analysis, on Linux machines the Azure Migrate appliance needs a user account with Root privilege.<br/><br/> Alternately, the user account needs these permissions on /bin/netstat and /bin/ls files: CAP_DAC_READ_SEARCH and CAP_SYS_PTRACE.
 **Required agents** | No agent required on machines you want to analyze.
-**VMware Tools**: VMware Tools (later than 10.2) must be installed and running on each VM you want to analyze.
-**vCenter Server credentials**: Dependency visualization needs a vCenter Server account with read-only access, and privileges enabled for Virtual Machines > Guest Operations. 
+**VMware Tools** | VMware Tools (later than 10.2) must be installed and running on each VM you want to analyze.
+**vCenter Server credentials** | Dependency visualization needs a vCenter Server account with read-only access, and privileges enabled for Virtual Machines > Guest Operations. 
 **Powershell** | VMs must have Powershell version 2.0 or above installed.
 **Port access** | On ESXi hosts running VMs you want to analyze, the Azure Migrate appliance must be able to connect to TCP port 443.
 
