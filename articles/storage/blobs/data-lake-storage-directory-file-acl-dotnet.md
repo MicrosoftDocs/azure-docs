@@ -3,7 +3,7 @@ title: Azure Data Lake Storage Gen2 .NET SDK for files & ACLs (preview)
 description: Use the Azure Storage client library to manage directories and file and directory access control lists (ACL) in storage accounts that has hierarchical namespace (HNS) enabled.
 author: normesta
 ms.service: storage
-ms.date: 01/09/2020
+ms.date: 03/17/2020
 ms.author: normesta
 ms.topic: article
 ms.subservice: data-lake-storage-gen2
@@ -195,6 +195,32 @@ public async Task UploadFile(DataLakeFileSystemClient fileSystemClient)
     await fileClient.FlushAsync(position: fileSize);
 
 }
+```
+
+The amount of data that you can append to a file by making a call to the [DataLakeFileClient.AppendAsync](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake.datalakefileclient.appendasync) method is limited in size. If the size of your file exceeds this limit, you'll have to make multiple calls to the [DataLakeFileClient.AppendAsync](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake.datalakefileclient.appendasync) method to upload the entire file.
+
+> [!TIP]
+>  Upload large files by using the [DataLakeFileClient.UploadAsync]() method so that you can upload the entire file in a single call.
+
+## Upload large files in bulk
+
+Use the [DataLakeFileClient.UploadAsync]() method to upload large files without having to make multiple calls to the [DataLakeFileClient.AppendAsync](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake.datalakefileclient.appendasync) method.
+
+```cs
+public async Task UploadFileBulk(DataLakeFileSystemClient fileSystemClient)
+{
+    DataLakeDirectoryClient directoryClient =
+        fileSystemClient.GetDirectoryClient("my-directory");
+
+    DataLakeFileClient fileClient = directoryClient.GetFileClient("uploaded-file.txt");
+
+    FileStream fileStream =
+        File.OpenRead("C:\\Users\\normesta\\Norms-Test-Projects\\mytestfile.txt");
+
+    await fileClient.UploadAsync(fileStream);
+
+}
+
 ```
 
 ## Manage a file ACL
