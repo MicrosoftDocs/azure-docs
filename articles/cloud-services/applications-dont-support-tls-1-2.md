@@ -285,10 +285,10 @@ IF "%ComputeEmulatorRunning%" == "false" (
 ) 
 
 IF %EXECUTE_PS1% EQU 1 (
-       echo "Invoking SSLConfigure.ps1 on Azure service at %TIME% on %DATE%" >> %LOG_FILE% 2>&1       
-       PowerShell -ExecutionPolicy Unrestricted %~dp0SSLConfigure.ps1 -sco  >> %LOG_FILE% 2>&1
+       echo "Invoking TLSsettings.ps1 on Azure service at %TIME% on %DATE%" >> %LOG_FILE% 2>&1       
+       PowerShell -ExecutionPolicy Unrestricted %~dp0TLSsettings.ps1 -sco  >> %LOG_FILE% 2>&1
 ) ELSE (
-       echo "Skipping SSLConfigure.ps1 invocation on emulated environment" >> %LOG_FILE% 2>&1       
+       echo "Skipping TLSsettings.ps1 invocation on emulated environment" >> %LOG_FILE% 2>&1       
 )    
 
 EXIT /B %ERRORLEVEL%
