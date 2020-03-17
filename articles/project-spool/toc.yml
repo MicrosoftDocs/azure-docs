@@ -21,6 +21,10 @@
     href: overview.md
 - name: Tutorials
   items:
+  - name: Add SMS To Your App
+    href: tutorials/add-sms-to-your-app.md
+  - name: Add Calling To Your App
+    href: tutorials/add-calling-to-your-app.md  
   - name: Add Video To Your UWP App
     href: tutorials/add-video-to-your-uwp-app.md
 - name: Samples

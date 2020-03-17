@@ -1,6 +1,6 @@
 ---
-title: Spool Docs Philosophy
-description: A place to brainstorm about the purpose of docs and how we can deliver maximum value to our customers.
+title: Add Calling To Your App
+description: TODO
 author: mikben    
 manager: jken
 services: azure-project-spool

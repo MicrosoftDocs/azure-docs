@@ -43,6 +43,6 @@ ms.service: azure-project-spool
   - Nexmo: [Link](https://developer.nexmo.com/documentation)
   - Firebase: [Link](https://firebase.google.com/docs?gclid=Cj0KCQjw6sHzBRCbARIsAF8FMpVEA7WidBpgSSFMLqD1J7X1E9h9vqhrjwyZb2qtOzGpNl_mQQz4KcAaAuqgEALw_wcB)
   - Stripe: [Link](https://stripe.com/docs?utm_campaign=paid_brand-US%20|%20Search%20|%20Category%20|%20Stripe_sitelinkNov1-1803852691&utm_medium=cpc&utm_source=google&ad_content=344587125070&utm_term=stripe%20docs&utm_matchtype=e&utm_adposition=&utm_device=c&gclid=Cj0KCQjw6sHzBRCbARIsAF8FMpVSUUXEM4Bihhj0E37fKdMJMq9IYzs5-E2dU4fJQGG_arU6UekNcXYaAtW-EALw_wcB)
-- The most mature components of our product are Calling (voice + video) and SMS. We'll start there.
+- The most mature components of our product are Calling (voice + video) and SMS. These are the first scenarios we'll complete.
 
 
