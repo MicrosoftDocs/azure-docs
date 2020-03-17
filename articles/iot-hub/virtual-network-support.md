@@ -14,7 +14,7 @@
 This article introduces the VNET connectivity pattern and elaborates on how to set up a private connectivity experience to an IoT hub through a customer-owned Azure VNET.
 
 > [!NOTE]
-> The IoT hub features described in this article are currently available to IoT Hub created in the following regions: East US, South Central US, and West US 2.
+> The IoT hub features described in this article are currently available to IoT Hub [created with managed service identity](#create-an-iot-hub-with-managed-service-identity) in the following regions: East US, South Central US, and West US 2.
 
 
 ## Introduction
@@ -51,7 +51,7 @@ A private endpoint is a private IP address allocated inside a customer-owned VNE
 
 Before proceeding ensure that the following prerequisites are met:
 
-* Your IoT hub must be provisioned with [TLS 1.2 enforcement](#create-an-iot-hub-with-managed-service-identity-and-tls-12-enforcement).
+* Your IoT hub must be provisioned with [managed service identity](#create-an-iot-hub-with-managed-service-identity).
 
 * Your IoT hub must be provisioned in one of the [supported regions](#regional-availability-private-endpoints).
 
@@ -128,7 +128,7 @@ Azure trusted first party services exception to bypass firewall restrictions to 
 Trusted Microsoft first party services exception feature is free of charge in IoT Hubs in the [supported regions](#regional-availability-trusted-microsoft-first-party-services). Charges for the provisioned storage accounts, event hubs, or service bus resources apply separately.
 
 
-### Create an IoT hub with managed service identity and TLS 1.2 enforcement
+### Create an IoT hub with managed service identity
 
 A managed service identity can be assigned to your hub at resource provisioning time (this feature is not currently supported for existing hubs), which requires the IoT hub to use TLS 1.2 as the minimum version. For this purpose, you need to use the ARM resource template below:
 
