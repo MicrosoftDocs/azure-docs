@@ -1,5 +1,6 @@
 ---
-title: Create a static volume for multiple pods in Azure Kubernetes Service (AKS)
+title: Manually create Azure Files share
+titleSuffix: Azure Kubernetes Service
 description: Learn how to manually create a volume with Azure Files for use with multiple concurrent pods in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
