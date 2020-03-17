@@ -12,15 +12,15 @@ manager: philmea
 
 # Bulk import data into a dataset
 
-This guide will show you how to use the [Dataset Import API]() to bulk import data into a dataset. It will also show you how to upload the data that you want to import into an existing data set.
+This guide will show you how to use the [Dataset Import API]() to bulk import data into a data set. You don't need to know how to upload fixture data, we'll show you how to do that process as well.
 
 ## Prerequisites
 
-You need to [obtain a primary subscription key](quick-demo-map-app.md#get-the-primary-key-for-your-account) by [making an Azure Maps account](quick-demo-map-app.md#create-an-account-with-azure-maps).
+First, you need to [obtain a primary subscription key](quick-demo-map-app.md#get-the-primary-key-for-your-account) by [making an Azure Maps account](quick-demo-map-app.md#create-an-account-with-azure-maps).
 
 In this article, the [Postman](https://www.postman.com/) application is used to call the Azure Maps APIs, but you may use any API development environment.
 
-In this article, we assume that the bulk data you want to import into your existing data set is in GeoJSON format. If it's not, then use the [Azure Maps Conversion]() service to convert your bulk data into GeoJSON.
+We assume that the bulk data you want to import into your existing data set is in GeoJSON format. If it's not, then use the [Azure Maps Conversion]() service to convert your bulk data into GeoJSON.
 
 ## Creating an initial data set
 
@@ -36,7 +36,7 @@ The instructions below overview the process of uploading a DWG package, converti
 
 ## Bulk import data into a dataset
 
-This section assumes that you already have a data set. It shows you how to upload bulk data to Azure services, and then import the bulk data into an existing data set.
+This section assumes that you already have a data set, and that you know your `datasetId`. The steps below show you how to upload bulk data to Azure services, and then import the bulk data into an existing data set.
 
 1. Prepare your bulk data by placing your GeoJSON files in a zip folder.
 
@@ -58,13 +58,9 @@ This section assumes that you already have a data set. It shows you how to uploa
 
     </center>
 
-6. Upon a successful post request, the response **Headers** tab will contain a **Location** key with a URL. Make a **GET** request at this URL to obtain the `udid` for the successfully uploaded data. The code block below shows the expected format for this URL, and remember to append your Azure Maps key for authentication.
+6. Upon a successful post request, the response **Headers** tab will contain a **Location** key with a URL. Make a **GET** request at this URL to obtain the `udid` for the successfully uploaded data. Remember to append your Azure Maps key for authentication.
 
-    ```http
-    https://atlas.microsoft.com/mapData/operations/<unique-alphanumeric-value>/status?api-version=1.0&subscription-key=<Azure-Maps-Primary-Subscription-key>
-    ```
-
-7. If the get request was successful, the response body will contain the `resourceLocation` element. The upload `udid` is in the URL of the `resourceLocation` element, as seen in the image below. Copy the `udid` for the upload data.
+7. If the upload failed, the response body will contain a message with details. If the upload was successful, then the response body will contain the `resourceLocation` element. The upload `udid` is in the URL of the `resourceLocation` element, as seen in the image below. Copy the `udid` for the upload data.
 
     <center>
 
@@ -78,21 +74,17 @@ This section assumes that you already have a data set. It shows you how to uploa
     https://atlas.microsoft.com/dataset/import/<datasetId>?api-version=1.0&subscription-key=<Azure-Maps-Primary-Subscription-key>&udid=<upload-udid>&type=fixture
     ```
 
-9. After making the **PATCH** request call, you'll receive a response header containing the status URL, highlighted in the image below. You can use this URL to query the status of the import request.
-
-    <center>
-
-    ![Upload data folder](./media/how-to-ingest-bulk-data-in-dataset/status-uri.png)
-
-    </center>
+9. After making the **PATCH** request call, you'll receive a response header containing the status URL. You can use this URL to query the status of the import request.
 
 10. To query the status URL, append you Azure Maps subscription key, and make a **GET** request.
 
-    ```http
-    https://atlas.microsoft.com/dataset/operations/<unique-alphanumeric-value>?api-version=1.0&subscription-key=TdexqUMLfpcl0Dl9mhBmmVe2g1fqTenJMl3qai-73KE
-    ```
+11. The response body will contain a status indicating if your data bulk import failed or succeeded. If the request failed, you'll see a message with the error details. Remember to append your Azure Maps key for authentication. If the bulk import operation failed, you'll see a message with details. For example, the operation fails if your data is not in the right format. If the bulk import was successful, you'll see a success message, like in the below image.
 
-11. The response body will contain a status indicating if your data bulk import failed or succeeded. If the request failed, you'll see a message with the error details.
+    <center>
+
+    ![Upload data folder](./media/how-to-ingest-bulk-data-in-dataset/success-bulk-import.png)
+
+    </center>
 
 ## Next steps
 
