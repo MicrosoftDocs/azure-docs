@@ -6,9 +6,12 @@ ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 06/21/2019
+ms.date: 03/16/2020
 ---
 # Scale your Stream Analytics job with Azure Machine Learning Studio (classic) functions
+
+> [!TIP]
+> It is highly recommended to use [Azure Machine Learning Service UDFs](azuremlservice-udf.md) instead of Azure Machine Learning Studio (classic) UDF for improved performance and reliability.
 
 This article discusses how to efficiently scale Azure Stream Analytics jobs that use Azure Machine Learning functions. For information on how to scale Stream Analytics jobs in general see the article [Scaling jobs](stream-analytics-scale-jobs.md).
 
