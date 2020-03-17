@@ -183,7 +183,7 @@ As a workaround, downgrade the managed instance to 4 vCore and upgrade it again 
 
 **Can I connect to managed instance using IP address?**
 
-Connecting to managed instance using IP address is not supported. Managed instance host name maps to load balancer in front of managed instance virtual cluster. As one virtual cluster could host multiple managed instances connection could not be routed to proper managed instance without specifying it's name.
+Connecting to managed instance using IP address is not supported. Managed instance host name maps to load balancer in front of managed instance virtual cluster. As one virtual cluster could host multiple managed instances connection could not be routed to proper managed instance without specifying its name.
 
 For more information on managed instance virtual cluster architecture, see [Virtual cluster connectivity architecture](sql-database-managed-instance-connectivity-architecture.md#virtual-cluster-connectivity-architecture).
 
