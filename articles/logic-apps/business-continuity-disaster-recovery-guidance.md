@@ -134,33 +134,38 @@ To avoid repeatedly reading the same data, your logic app needs to remember whic
 
   This server-side approach works similarly for Service Bus queues or topics that have queuing semantics where a trigger can read and lock a message while the logic app processes the message. When the logic app finishes processing, the trigger deletes the message from the queue or topic.
 
-When you design your disaster recovery strategy using primary and secondary instances, make sure that you've accounted for these behaviors based on whether your logic app tracks state on the client side or on the server side:
+From a disaster recovery perspective, when you set up your logic app's primary and secondary instances, make sure that you've accounted for these behaviors based on whether your logic app tracks state on the client side or on the server side:
 
 * For a logic app that tracks client-side state, make sure that your logic app doesn't read the same message more than one time. Only one location can have an active logic app instance at any specific time. Make sure that the logic app instance in the alternate location is inactive or disabled until the primary instance fails over to the alternate location.
 
 * For a logic app that tracks server side state, you can set up your logic app instances with either [active-active roles](#roles) where they work as competing consumers, or with [active-passive roles](#roles) where the alternate instance waits until the primary instance fails over to the alternate location.
 
   > [!NOTE]
-  > If your logic app has to read messages in a specific order from a Service Bus queue, 
+  > If your logic app needs to read messages in a specific order, for example, from a Service Bus queue, 
   > you can use the competing consumer pattern but only when combined with Service Bus sessions, 
-  > which is also known as the *sequential convoy* pattern. Otherwise, you must set up the 
-  > logic app instances with the active-passive roles.
+  > which is also known as the *sequential convoy* pattern. Otherwise, you must set up your logic 
+  > app instances with the active-passive roles.
 
 <a name="request-trigger"></a>
 
 ### Request trigger
 
-A logic app can use a Request trigger  provide a logic app with a direct REST API that can be invoked remotely. Request triggers are typically used in the following ways:
+The **Request** trigger makes your logic app callable from other apps, services, and systems and is typically used to provide these capabilities:
 
-  * REST API for other services to call either as part of an app or as a callback (webhook) mechanism
+* An endpoint or direct REST API for your logic app that others can call
 
-  * Allow the logic app to be called by another logic app using the call workflow action
+  For example, use this trigger when you want to call your logic app from other logic apps by using the **Call workflow - Logic Apps** action.
 
-  * Manual invocation for more user-operations types of routines
+* A callback or webhook mechanism
 
-Request triggers are passive where the logic app will not do any work until the request trigger is explicitly invoked. As a passive endpoint it can be configured as either active-active using a load balancer or active-passive where the calling system or router determines when to deem it as active.
+* The capability for user operation routines to manually call your logic app
 
-A recommended architecture would be to use API Management as a proxy for the logic apps with request triggers. API Management provides the built-in cross-regional resiliency and capability to route across multiple endpoints (https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-deploy-multi-region).
+From a disaster recovery perspective, the Request trigger plays a passive role because the logic app doesn't do any work and waits until something explicitly calls the trigger. As a passive endpoint, you can set up your primary and secondary instances with either of these roles:
+
+* Active-passive where the caller or router determines when to enable or activate those instances
+* Active-active when you use the load balancer pattern
+
+As a recommended architecture, you can use Azure API Management as a proxy for the logic apps that use Request triggers. API Management provides [built-in cross-regional resiliency and the capability to route traffic across multiple endpoints](https://docs.microsoft.com/azure/api-management/api-management-howto-deploy-multi-region).
 
 <a name="webhook-trigger"></a>
 
