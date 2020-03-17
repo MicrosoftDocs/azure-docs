@@ -266,7 +266,7 @@
       - name: On-demand backup of partition
         href: service-fabric-backup-restore-service-ondemand-backup.md
     - name: Initializer CodePackages
-      href: service-fabric-initializer-codepackages.md
+      href: initializer-codepackages.md
   - name: Clusters
     items:
     - name: Clusters overview
