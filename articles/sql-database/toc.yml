@@ -155,6 +155,8 @@
         href: sql-database-managed-instance-public-endpoint-securely.md
       - name: Managed instance auditing
         href: sql-database-managed-instance-auditing.md
+    - name: Security baseline	
+      href: security-baseline.md
 
   - name: Connect and query
     href: sql-database-connect-query.md
@@ -557,6 +559,8 @@
           href: sql-database-resource-limits-database-server.md
         - name: Connectivity architecture
           href: sql-database-connectivity-architecture.md 
+        - name: Connectivity settings	
+          href: sql-database-connectivity-settings.md
 
       - name: Data sync
         items:
