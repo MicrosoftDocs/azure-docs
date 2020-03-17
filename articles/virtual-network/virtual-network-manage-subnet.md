@@ -56,10 +56,12 @@ The account you sign in to, or connect to Azure with, must be assigned to the [N
 
 5. To add the subnet to the virtual network that you selected, select **OK**.
 
-**Commands**
+### Commands
 
-- Azure CLI: [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create)
-- PowerShell: [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig)
+| Tool | Command |
+| ---- | ------- |
+| Azure CLI | [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create) |
+| PowerShell | [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig) |
 
 ## Change subnet settings
 
@@ -83,10 +85,12 @@ The account you sign in to, or connect to Azure with, must be assigned to the [N
 
 6. Select **Save**.
 
-**Commands**
+### Commands
 
-- Azure CLI: [az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update)
-- PowerShell: [Set-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/set-azvirtualnetworksubnetconfig)
+| Tool | Command |
+| ---- | ------- |
+| Azure CLI | [az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update) |
+| PowerShell | [Set-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/set-azvirtualnetworksubnetconfig) |
 
 ## Delete a subnet
 
@@ -102,10 +106,12 @@ You can delete a subnet only if there are no resources in the subnet. If resourc
 
 5. Select **Delete**, and then select **Yes** in the confirmation dialog box.
 
-**Commands**
+### Commands
 
-- Azure CLI: [az network vnet subnet delete](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-delete)
-- PowerShell: [Remove-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/remove-azvirtualnetworksubnetconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)
+| Tool | Command |
+| ---- | ------- |
+| Azure CLI | [az network vnet subnet delete](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-delete) |
+| PowerShell | [Remove-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/remove-azvirtualnetworksubnetconfig?toc=%2fazure%2fvirtual-network%2ftoc.json) |
 
 ## Permissions
 
