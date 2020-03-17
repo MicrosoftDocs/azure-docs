@@ -1,7 +1,7 @@
 ---
 title: Initializer CodePackages in Service Fabric
 description: Describes Initializer CodePackages in Service Fabric.
-author: shsha
+author: shsha-msft
 
 ms.topic: conceptual
 ms.date: 03/10/2020
@@ -9,7 +9,7 @@ ms.author: shsha
 ---
 # Initializer CodePackages
 
-Starting with version 7.1, Service Fabric supports **Initializer CodePackages** for [containers][containers-introduction-link] and [guest executable][guest-executables-introduction-link] applications. Initializer CodePackages provide the opportunity to perform initializations at the ServicePackage scope before other CodePackges begin execution. Their relationship to a ServicePackage is analogous to what a [SetupEntryPoint][setup-entry-point-link] is for a CodePackage.
+Starting with version 7.1, Service Fabric supports **Initializer CodePackages** for [containers][containers-introduction-link] and [guest executable][guest-executables-introduction-link] applications. Initializer CodePackages provide the opportunity to perform initializations at the ServicePackage scope before other CodePackages begin execution. Their relationship to a ServicePackage is analogous to what a [SetupEntryPoint][setup-entry-point-link] is for a CodePackage.
 
 Before proceeding with this article, we recommend getting familiar with the [Service Fabric application model][application-model-link] and the [Service Fabric hosting model][hosting-model-link].
 
@@ -21,7 +21,7 @@ Before proceeding with this article, we recommend getting familiar with the [Ser
 An Initializer CodePackage is expected to run to **successful completion (exit code 0)**. A failed Initializer CodePackage is restarted until it successfully completes. Multiple Initializer CodePackages are allowed and are executed to **successful completion**, **sequentially**, **in a specified order** before other CodePackages in the ServicePackage begin execution.
 
 ## Specifying Initializer CodePackages
-You can mark a CodePackage as an Initializer by setting the **Initializer** attribute to **true** in the ServiceManifest. When there are multiple Initializer CodePackages, their order of execution can be specified via the **ExecOrder** attribute. **ExecOrder** must be a non negative integer and is only valid for Initializer CodePackages. Initializer CodePackages with lower values of **ExecOrder** are executed first. If **ExecOrder** is not specified for an Initializer CodePackage, a default value of 0 is assumed. Relative execution order of Initializer CodePackages with the same value of **ExecOrder** is unspecified.
+You can mark a CodePackage as an Initializer by setting the **Initializer** attribute to **true** in the ServiceManifest. When there are multiple Initializer CodePackages, their order of execution can be specified via the **ExecOrder** attribute. **ExecOrder** must be a non-negative integer and is only valid for Initializer CodePackages. Initializer CodePackages with lower values of **ExecOrder** are executed first. If **ExecOrder** is not specified for an Initializer CodePackage, a default value of 0 is assumed. Relative execution order of Initializer CodePackages with the same value of **ExecOrder** is unspecified.
 
 The following ServiceManifest snippet describes three CodePackages two of which are marked as Initializers. When this ServicePackage is activated, *InitCodePackage0* is executed first since it has the lowest value of **ExecOrder**. On successful completion (exit code 0) of *InitCodePackage0*, *InitCodePackage1* is executed. Finally, on successful completion of *InitCodePackage1*, *WorkloadCodePackage* is executed.
 
