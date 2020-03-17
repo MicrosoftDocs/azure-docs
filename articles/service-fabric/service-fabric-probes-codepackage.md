@@ -51,7 +51,9 @@ Probe can either one of :
 
 ## HtTTP Probe
 
-For HTTP probe, Service Fabric will send an HTTP request to the port and path specified. Here is an example of how to specify HttpGet probe:
+For HTTP probe, Service Fabric will send an HTTP request to the port and path specified. Return code greater than or equal to 200 and less than 400 indicates success.
+
+Here is an example of how to specify HttpGet probe:
 
 ```xml
   <ServiceManifestImport>
