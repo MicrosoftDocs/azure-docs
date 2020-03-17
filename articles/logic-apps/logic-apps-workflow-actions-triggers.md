@@ -2313,7 +2313,7 @@ This loop action contains actions that run until the specified condition is true
 | <*action-type*> | String | The action type you want to run | 
 | <*action-inputs*> | Various | The inputs for the action to run | 
 | <*condition*> | String | The condition or expression to evaluate after all the actions in the loop finish running | 
-| <*loop-count*> | Integer | The limit on the most number of loops that the action can run. The default `count` value is 60. | 
+| <*loop-count*> | Integer | The limit on the most number of loops that the action can run. For more information about the default limit and maximum limit, see [Limits and configuration for Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). | 
 | <*loop-timeout*> | String | The limit on the longest time that the loop can run. The default `timeout` value is `PT1H`, which is the required [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601). |
 |||| 
 

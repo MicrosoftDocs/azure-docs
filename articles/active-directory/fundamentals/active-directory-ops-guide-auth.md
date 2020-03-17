@@ -100,7 +100,7 @@ To better understand your authentication options, see [Choose the right authenti
 
 ### Programmatic usage of credentials
 
-Azure AD scripts using PowerShell or applications using Graph API require secure authentication. Poor credential management executing those scripts and tools increase the risk of credential theft. If you are using scripts or applications that rely on hard-coded passwords or password prompts you should first review passwords in config files or source code, then replace those dependencies and use Azure Managed Identities, Integrated-Windows Authentication, or [certificates](https://docs.microsoft.com/azure/active-directory/reports-monitoring/tutorial-access-api-with-certificates) whenever possible. For applications where the previous solutions aren’t possible, consider using [Azure Key Vault](https://azure.microsoft.com/services/key-vault/).
+Azure AD scripts using PowerShell or applications using the Microsoft Graph API require secure authentication. Poor credential management executing those scripts and tools increase the risk of credential theft. If you are using scripts or applications that rely on hard-coded passwords or password prompts you should first review passwords in config files or source code, then replace those dependencies and use Azure Managed Identities, Integrated-Windows Authentication, or [certificates](https://docs.microsoft.com/azure/active-directory/reports-monitoring/tutorial-access-api-with-certificates) whenever possible. For applications where the previous solutions aren’t possible, consider using [Azure Key Vault](https://azure.microsoft.com/services/key-vault/).
 
 If you determine that there are service principals with password credentials and you’re unsure how those password credentials are secured by scripts or applications, contact the owner of the application to better understand usage patterns.
 
@@ -300,7 +300,7 @@ Below are a list of apps with permissions you might want to scrutinize for Micro
 | Office 365 Exchange Online | EAS.AccessAsUser.All |
 | | EWS.AccessAsUser.All |
 | | Mail.Read |
-| Microsoft Graph | Mail.Read |
+| Microsoft Graph API | Mail.Read |
 | | Mail.Read.Shared |
 | | Mail.ReadWrite |
 
@@ -308,15 +308,14 @@ Below are a list of apps with permissions you might want to scrutinize for Micro
 
 |Resource | Permission |
 | :- | :- |
-| Azure AD Graph | Directory.AccessAsUser.All |
-| Microsoft Graph | Directory.AccessAsUser.All |
+| Microsoft Graph API| Directory.AccessAsUser.All |
 | Azure REST API | user_impersonation |
 
 To avoid this scenario, you should refer to [detect and remediate illicit consent grants in Office 365](https://docs.microsoft.com/office365/securitycompliance/detect-and-remediate-illicit-consent-grants) to identify and fix any applications with illicit grants or applications that have more grants than are necessary. Next, [remove self-service altogether](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-user-consent) and [establish governance procedures](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-admin-consent-workflow). Finally, schedule regular reviews of app permissions and remove them when they are not needed.
 
 #### Consent grants recommended reading
 
-- [Microsoft Graph permissions](https://docs.microsoft.com/graph/permissions-reference)
+- [Microsoft Graph API permissions](https://docs.microsoft.com/graph/permissions-reference)
 
 ### User and group settings
 

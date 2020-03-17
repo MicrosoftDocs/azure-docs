@@ -1,5 +1,5 @@
 ---
-title: Productivity tools on the DSVM
+title: Productivity tools
 titleSuffix: Azure Data Science Virtual Machine 
 description: Learn about the productivity tools on the Data Science Virtual Machines.
 keywords: deep learning, AI, data science tools, data science virtual machine, geospatial analytics, team data science process

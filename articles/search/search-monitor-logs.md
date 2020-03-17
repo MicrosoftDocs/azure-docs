@@ -8,12 +8,12 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/11/2020
+ms.date: 02/18/2020
 ---
 
 # Collect and analyze log data for Azure Cognitive Search
 
-Diagnostic or operational logs provide insight into the detailed operations of Azure Cognitive Search and are useful for monitoring service and workload processes. Internally, logs exist on the backend for a short period of time, sufficient for investigation and analysis if you file a support ticket. However, if you want self-direction over operational data, you should configure a diagnostic setting to specify where logging information is collected. 
+Diagnostic or operational logs provide insight into the detailed operations of Azure Cognitive Search and are useful for monitoring service and workload processes. Internally, logs exist on the backend for a short period of time, sufficient for investigation and analysis if you file a support ticket. However, if you want self-direction over operational data, you should configure a diagnostic setting to specify where logging information is collected.
 
 Setting up logs is useful for diagnostics and preserving operational history. After you enable logging, you can run queries or build reports for structured analysis.
 
@@ -21,9 +21,9 @@ The following table enumerates options for collecting and persisting data.
 
 | Resource | Used for |
 |----------|----------|
-| [Send to Log Analytics workspace](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-resource-logs) | Logged events and query metrics, based on the schemas below. Events are logged to a Log Analytics workspace. Using Log Analytics, you can run queries to return detailed information. For more information, see [Get started with Azure Monitor logs](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-viewdata) |
-| [Archive with Blob storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) | Logged events and query metrics, based on the schemas below. Events are logged to a Blob container and stored in JSON files. Logs can be quite granular (by the hour/minute), useful for researching a specific incident but not for open-ended investigation. Use a JSON editor to view a log file.|
-| [Stream to Event Hub](https://docs.microsoft.com/azure/event-hubs/) | Logged events and query metrics, based on the schemas documented in this article. Choose this as an alternative data collection service for very large logs. |
+| [Send to Log Analytics workspace](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-resource-logs) | Events and metrics are sent to a Log Analytics workspace, which can be queried in the portal to return detailed information. For an introduction, see [Get started with Azure Monitor logs](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-viewdata) |
+| [Archive with Blob storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) | Events and metrics are archived to a Blob container and stored in JSON files. Logs can be quite granular (by the hour/minute), useful for researching a specific incident but not for open-ended investigation. Use a JSON editor to view a raw log file or Power BI to aggregate and visualize log data.|
+| [Stream to Event Hub](https://docs.microsoft.com/azure/event-hubs/) | Events and metrics are streamed to an Azure Event Hubs service. Choose this as an alternative data collection service for very large logs. |
 
 Both Azure Monitor logs and Blob storage are available as a free service so that you can try it out at no charge for the lifetime of your Azure subscription. Application Insights is free to sign up and use as long as application data size is under certain limits (see the [pricing page](https://azure.microsoft.com/pricing/details/monitor/) for details).
 
@@ -33,11 +33,11 @@ If you are using Log Analytics or Azure Storage, you can create resources in adv
 
 + [Create a log analytics workspace](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace)
 
-+ [Create a storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) if you require a log archive.
++ [Create a storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
 
-## Create a log
+## Enable data collection
 
-Diagnostic settings define data collection. A setting specifies how and what is collected. 
+Diagnostic settings specify how logged events and metrics are collected.
 
 1. Under **Monitoring**, select **Diagnostic settings**.
 
@@ -45,26 +45,47 @@ Diagnostic settings define data collection. A setting specifies how and what is 
 
 1. Select **+ Add diagnostic setting**
 
-1. Choose the data you want to export: Logs, Metrics or both. You can collect data in a storage account, a log analytics workspace, or stream it to Event Hub.
-
-   Log analytics is recommended because you can query the workspace in the portal.
-
-   If you are also using Blob storage, containers and blobs will be created as-needed when log data is exported.
+1. Check **Log Analytics**, select your workspace, and select **OperationLogs** and **AllMetrics**.
 
    ![Configure data collection](./media/search-monitor-usage/configure-storage.png "Configure data collection")
 
 1. Save the setting.
 
-1. Test by creating or deleting objects (creates log events) and by submitting queries (generates metrics). 
+1. After logging has been enabled, use your search service to start generating logs and metrics. It will take time before logged events and metrics become available.
 
-In Blob storage, containers are only created when there is an activity to log or measure. When the data is copied to a storage account, the data is formatted as JSON and placed in two containers:
+For Log Analytics, it will be several minutes before data is available, after which you can run Kusto queries to return data. For more information, see [Monitor query requests](search-monitor-logs.md).
 
-* insights-logs-operationlogs: for search traffic logs
-* insights-metrics-pt1m: for metrics
+For Blob storage, it takes one hour before the containers will appear in Blob storage. There is one blob, per hour, per container. Containers are only created when there is an activity to log or measure. When the data is copied to a storage account, the data is formatted as JSON and placed in two containers:
 
-**It takes one hour before the containers will appear in Blob storage. There is one blob, per hour, per container.**
++ insights-logs-operationlogs: for search traffic logs
++ insights-metrics-pt1m: for metrics
 
-Logs are archived for every hour in which activity occurs. The following path is an example of one log file created on January 12 2020 at 9:00 a.m. where each `/` is a folder: `resourceId=/subscriptions/<subscriptionID>/resourcegroups/<resourceGroupName>/providers/microsoft.search/searchservices/<searchServiceName>/y=2020/m=01/d=12/h=09/m=00/name=PT1H.json`
+## Query log information
+
+In diagnostic logs, two tables contain logs and metrics for Azure Cognitive Search: **AzureDiagnostics** and **AzureMetrics**.
+
+1. Under **Monitoring**, select **Logs**.
+
+1. Enter **AzureMetrics** in the query window. Run this simple query to get acquainted with the data collected in this table. Scroll across the table to view metrics and values. Notice the record count at the top, and if your service has been collecting metrics for a while, you might want to adjust the time interval to get a manageable data set.
+
+   ![AzureMetrics table](./media/search-monitor-usage/azuremetrics-table.png "AzureMetrics table")
+
+1. Enter the following query to return a tabular result set.
+
+   ```
+   AzureMetrics
+    | project MetricName, Total, Count, Maximum, Minimum, Average
+   ```
+
+1. Repeat the previous steps, starting with **AzureDiagnostics** to return all columns for informational purposes, followed by a more selective query that extracts more interesting information.
+
+   ```
+   AzureDiagnostics
+   | project OperationName, resultSignature_d, DurationMs, Query_s, Documents_d, IndexName_s
+   | where OperationName == "Query.Search" 
+   ```
+
+   ![AzureDiagnostics table](./media/search-monitor-usage/azurediagnostics-table.png "AzureDiagnostics table")
 
 ## Log schema
 
@@ -119,7 +140,7 @@ For the **Search Queries Per Second** metric, minimum is the lowest value for se
 
 For **Throttled Search Queries Percentage**, minimum, maximum, average and total, all have the same value: the percentage of search queries that were throttled, from the total number of search queries during one minute.
 
-## View log files
+## View raw log files
 
 Blob storage is used for archiving log files. You can use any JSON editor to view the log file. If you don't have one, we recommend [Visual Studio Code](https://code.visualstudio.com/download).
 

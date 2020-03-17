@@ -3,7 +3,7 @@ title: Export the Azure Activity Log
 description: Export Azure Activity log to storage for archiving or Azure Event Hubs for exporting outside of Azure.
 author: bwren
 services: azure-monitor
-ms.service: azure-monitor
+
 ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: bwren

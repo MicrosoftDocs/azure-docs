@@ -3,7 +3,7 @@ title: Deploy the agent to connect CEF data to Azure Sentinel Preview| Microsoft
 description: Learn how to deploy the agent to connect CEF data to Azure Sentinel.
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: rkarlin
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/26/2019
-ms.author: rkarlin
+ms.author: yelevin
 
 ---
 # Step 1: Deploy the agent

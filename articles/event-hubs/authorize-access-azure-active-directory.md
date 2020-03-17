@@ -51,9 +51,13 @@ The following list describes the levels at which you can scope access to Event H
 - **Subscription**: Role assignment applies to all the Event Hubs resources in all of the resource groups in the subscription.
 
 > [!NOTE]
-> Keep in mind that RBAC role assignments may take up to five minutes to propagate. 
+> - Keep in mind that RBAC role assignments may take up to five minutes to propagate. 
+> - This content applies to both Event Hubs and Event Hubs for Apache Kafka. For more information on Event Hubs for Kafka support, see [Event Hubs for Kafka - security and authentication](event-hubs-for-kafka-ecosystem-overview.md#security-and-authentication).
+
 
 For more information about how built-in roles are defined, see [Understand role definitions](../role-based-access-control/role-definitions.md#management-and-data-operations). For information about creating custom RBAC roles, see [Create custom roles for Azure Role-Based Access Control](../role-based-access-control/custom-roles.md).
+
+
 
 ## Samples
 - [Microsoft.Azure.EventHubs samples](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac). 
@@ -62,6 +66,8 @@ For more information about how built-in roles are defined, see [Understand role 
 - [Azure.Messaging.EventHubs samples](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Azure.Messaging.EventHubs/ManagedIdentityWebApp)
 
     This sample has been updated to use the latest **Azure.Messaging.EventHubs** library.
+- [Event Hubs for Kafka - OAuth samples](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/oauth). 
+
 
 ## Next steps
 - Learn how to assign a built-in-RBAC role to a security principal, see [Authenticate access to Event Hubs resources using Azure Active Directory](authenticate-application.md).

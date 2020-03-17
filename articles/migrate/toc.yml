@@ -105,9 +105,9 @@
     href: how-to-assess.md
   - name: Group machines for assessment
     href: how-to-create-a-group.md
-  - name: Group machines using dependency visualization
+  - name: Analyze machine dependencies (agent-based)
     href: how-to-create-group-machine-dependencies.md
-  - name: Group machines using agentless dependency visualization
+  - name: Analyze machine dependencies (agentless)
     href: how-to-create-group-machine-dependencies-agentless.md
   - name: Create an assessment
     href: how-to-create-assessment.md
@@ -117,6 +117,8 @@
     href: how-to-modify-assessment.md
   - name: Add migration tools
     href: how-to-migrate.md
+  - name: Migrate VMware VMs to Azure VMs encrypted with SSE and CMK
+    href: how-to-migrate-vmware-vms-with-cmk-disks.md
   - name: Prepare machines for migration
     href: prepare-for-migration.md
   - name: Delete an Azure Migrate project

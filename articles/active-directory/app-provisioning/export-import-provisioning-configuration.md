@@ -1,6 +1,6 @@
 ---
-title: 'Export or import your provisioning configuration by using Graph API | Microsoft Docs'
-description: Learn how to export and import provisioning configuration using Graph API.
+title: 'Export or import your provisioning configuration by using the Microsoft Graph API | Microsoft Docs'
+description: Learn how to export and import provisioning configuration using the Microsoft Graph API.
 services: active-directory
 author: cmmdesai
 documentationcenter: na
@@ -18,14 +18,14 @@ ms.author: chmutali
 
 ms.collection: M365-identity-device-management
 ---
-# Export or import your provisioning configuration by using Graph API
+# Export or import your provisioning configuration by using the Microsoft Graph API
 
-You can use Microsoft Graph API and Graph Explorer to export your User Provisioning attribute mappings and schema to a JSON file and import it back into Azure AD. You can also use the steps captured here to create a backup of your provisioning configuration. 
+You can use the Microsoft Graph API and the Microsoft Graph Explorer to export your User Provisioning attribute mappings and schema to a JSON file and import it back into Azure AD. You can also use the steps captured here to create a backup of your provisioning configuration. 
 
 ## Step 1: Retrieve your Provisioning App Service Principal ID (Object ID)
 
 1. Launch the [Azure portal](https://portal.azure.com), and navigate to the Properties section of your  provisioning application. For e.g. if you want to export your *Workday to AD User Provisioning application* mapping navigate to the Properties section of that app. 
-1. In the Properties section of your provisioning app, copy the GUID value associated with the *Object ID* field. This value is also called the **ServicePrincipalId** of your App and it will be used in Graph Explorer operations.
+1. In the Properties section of your provisioning app, copy the GUID value associated with the *Object ID* field. This value is also called the **ServicePrincipalId** of your App and it will be used in Microsoft Graph Explorer operations.
 
    ![Workday App Service Principal ID](./media/export-import-provisioning-configuration/wd_export_01.png)
 
@@ -34,7 +34,7 @@ You can use Microsoft Graph API and Graph Explorer to export your User Provision
 1. Launch [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer)
 1. Click on the "Sign-In with Microsoft" button and sign-in using Azure AD Global Admin or App Admin credentials.
 
-    ![Graph Sign-in](./media/export-import-provisioning-configuration/wd_export_02.png)
+    ![Microsoft Graph Sign-in](./media/export-import-provisioning-configuration/wd_export_02.png)
 
 1. Upon successful sign-in, you will see the user account details in the left-hand pane.
 

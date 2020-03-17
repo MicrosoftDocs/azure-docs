@@ -44,7 +44,7 @@ The Azure portal prompts you to validate your login credentials for an Azure Act
 
 ## Using clusterMonitoringUser with RBAC-enabled clusters
 
-To eliminate the need to apply additional configuration changes to allow the Kubernetes user rule binding **clusterUser** access to the Live Data (preview) feature after [enabling RBAC](#configure-kubernetes-rbac-authorization) authorization, AKS has added a new Kubernetes cluster role binding called **clusterMonitoringUser**. This cluster role binding has all the necessary permissions out-of-the-box to access the Kubernetes API and the endpoints for utilizing the Live Data (preview) feature. 
+To eliminate the need to apply additional configuration changes to allow the Kubernetes user role binding **clusterUser** access to the Live Data (preview) feature after [enabling RBAC](#configure-kubernetes-rbac-authorization) authorization, AKS has added a new Kubernetes cluster role binding called **clusterMonitoringUser**. This cluster role binding has all the necessary permissions out-of-the-box to access the Kubernetes API and the endpoints for utilizing the Live Data (preview) feature.
 
 In order to utilize the Live Data (preview) feature with this new user, you need to be a member of the [Contributor](../../role-based-access-control/built-in-roles.md#contributor) role on the AKS cluster resource. Azure Monitor for containers, when enabled, is configured to authenticate using this user by default. If the clusterMonitoringUser role binding does not exist on a cluster, **clusterUser** is used for authentication instead.
 
