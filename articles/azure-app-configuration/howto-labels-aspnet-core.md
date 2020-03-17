@@ -58,7 +58,7 @@ Load configuration values with the label corresponding to the current environmen
 > [!IMPORTANT]
 > The above code snippet loads the App Configuration connection string from an environment variable called `AppConfigConnectionString`. Be sure that this environment variable is set properly.
 
-Note that the `Select` method is called twice. The first time, it loads configuration values with no label. Then, it loads configuration values with the label corresponding to the current environment. These environment-specific values override any corresponding values with no label. You do not need to define environment-specific values for every key. If a key does not have a value with a label corresponding to the current environment, then the value with no label is used.
+The `Select` method is called twice. The first time, it loads configuration values with no label. Then, it loads configuration values with the label corresponding to the current environment. These environment-specific values override any corresponding values with no label. You do not need to define environment-specific values for every key. If a key does not have a value with a label corresponding to the current environment, then the value with no label is used.
 
 ## Testing in different environments
 
