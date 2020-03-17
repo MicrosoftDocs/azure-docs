@@ -15,7 +15,7 @@ Advisor resources are now onboarded to [Azure Resource Graph](https://azure.micr
 * All recommendations for a particular recommendation type
 * Impacted resource count by recommendation category
 
-![Advisor in Azure resource graph explorer](./media/arg-1.png)  
+![Advisor in Azure resource graph explorer](./media/azure-resource-graph-1.png)  
 
 
 ## Advisor resource types in Azure Graph
