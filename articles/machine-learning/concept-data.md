@@ -17,32 +17,30 @@ ms.date: 03/15/2020
 
 In this article, you learn about Azure Machine Learning's data management and integration solutions for your machine learning tasks. This article assumes you've already created an [Azure storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal) and [Azure storage service](https://docs.microsoft.com/azure/storage/common/storage-introduction).
 
-When you're ready to use the data in your Azure storage solution, we recommend you
+When you're ready to use the data in your Azure storage solution, we recommend the following data delivery workflow. 
 
-1. Create an Azure Machine Learning datastore.
-2. From that datastore, create an Azure Machine Learning dataset. 
-3. Use that dataset in your machine learning experiment by either 
-    1. Mounting it to your experiment's compute target for model training
+1. Create an Azure Machine Learning datastore to store connection information to your Azure storage.
+
+2. From that datastore, create an Azure Machine Learning dataset to point to a specific file(s) in your underlying storage. 
+
+3. To use that dataset in your machine learning experiment you can either
+    1. Mount it to your experiment's compute target for model training.
 
         **OR** 
 
-    1. Consuming it directly in Azure Machine Learning solutions like automated machine learning (automated ML) experiment runs, machine learning pipelines, and the [Azure Machine Learning designer](concept-designer.md).
+    1. Consume it directly in Azure Machine Learning solutions like, automated machine learning (automated ML) experiment runs, machine learning pipelines, or the [Azure Machine Learning designer](concept-designer.md).
+
 4. Create dataset monitors for your model output dataset to detect for data drift. 
+
 5. If data drift is detected, update your input dataset and retrain your model accordingly.
 
-The following diagram provides a visual demonstration of this recommended data access workflow.
+The following diagram provides a visual demonstration of this recommended workflow.
 
 ![Data-concept-diagram](./media/concept-data/data-concept-diagram.svg)
 
-## Access data in storage
-
-To access your data in your storage account, Azure Machine Learning offers datastores and datasets. Datastores answer the question: how do I securely connect to my data that's in my Azure Storage? Datastores save the connection information to your Azure Storage. This aids in security and ease of access to your storage, since connection information is kept in the datastore and not exposed in scripts. 
-
-Datasets answer the question: how do I get specific data files in my datastore? Datasets point to the specific file or files in your underlying storage that you want to use for your machine learning experiment. Together, datastores and datasets offer a secure, scalable, and reproducible data delivery workflow for your machine learning tasks.
-
 ## Datastores
 
-An Azure Machine Learning datastore keeps the connection information to your storage so you don't have to code it in your scripts. [Register and create a datastore](how-to-access-data.md) to easily connect to your Azure storage account, and access the data in your underlying Azure storage services.
+Azure Machine Learning datastores securely keep the connection information to your Azure storage, so you don't have to code it in your scripts. [Register and create a datastore](how-to-access-data.md) to easily connect to your storage account, and access the data in your underlying Azure storage. 
 
 Supported Azure storage services that can be registered as datastores:
 + Azure Blob Container
@@ -56,9 +54,9 @@ Supported Azure storage services that can be registered as datastores:
 
 ## Datasets
 
-[Create an Azure Machine Learning dataset](how-to-create-register-datasets.md) to interact with data in your datastores and package your data into a consumable object for machine learning tasks. Register the dataset to your workspace to share and reuse it across different experiments without data ingestion complexities.
+Azure Machine Learning datasets are references that point to the data in your storage service. They aren't copies of your data, so no extra storage cost is incurred. To interact with your data in storage, [create a dataset](how-to-create-register-datasets.md) to package your data into a consumable object for machine learning tasks. Register the dataset to your workspace to share and reuse it across different experiments without data ingestion complexities.
 
-Datasets can be created from local files, public urls, Azure Open Datasets, or specific file(s) in your datastores. To create a dataset from an in memory pandas dataframe, write the data to a local file, like a csv, and create your dataset from that file. Datasets aren't copies of your data, but are references that point to the data in your storage service, so no extra storage cost is incurred. 
+Datasets can be created from local files, public urls, Azure Open Datasets, or specific file(s) in your datastores. To create a dataset from an in memory pandas dataframe, write the data to a local file, like a csv, and create your dataset from that file.  
 
 The following diagram shows that if you don't have an Azure storage service, you can create a dataset directly from local files, public urls, or an Azure Open Dataset. Doing so connects your dataset to the default datastore that was automatically created with your experiment's [Azure Machine Learning workspace](concept-workspace.md).
 
@@ -69,9 +67,9 @@ Additional datasets capabilities can be found in the following documentation:
 + [Version and track](how-to-version-track-datasets.md) dataset lineage.
 + [Monitor your dataset](how-to-monitor-datasets.md) to help with data drift detection.
 +  See the following for documentation on the two types of datasets:
-    + [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) represents data in a tabular format by parsing the provided file or list of files. Which lets you materialize the data into a Pandas or Spark DataFrame for further manipulation and cleansing. For a complete list of files you can create TabularDatasets from, see the [TabularDatasetFactory class](https://aka.ms/tabulardataset-api-reference).
+    + A [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) represents data in a tabular format by parsing the provided file or list of files. Which lets you materialize the data into a Pandas or Spark DataFrame for further manipulation and cleansing. For a complete list of files you can create TabularDatasets from, see the [TabularDatasetFactory class](https://aka.ms/tabulardataset-api-reference).
 
-    + [FileDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py) references single or multiple files in your datastores or public URLs. By this method, you can download or mount files of your choosing to your compute target as a FileDataset object.
+    + A [FileDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py) references single or multiple files in your datastores or public URLs. By this method, you can [download or mount files](how-to-train-with-datasets.md#option-2--mount-files-to-a-remote-compute-target) of your choosing to your compute target as a FileDataset object.
 
 ## Work with your data
 
