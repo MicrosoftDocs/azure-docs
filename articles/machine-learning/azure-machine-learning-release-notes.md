@@ -49,7 +49,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + Renamed parameter 'fine_grain_timestamp' to 'timestamp' and parameter 'coarse_grain_timestamp' to 'partition_timestamp' for the with_timestamp_columns() method in TabularDataset to better reflect the usage of the parameters.
     + Increased max experiment name length to 255.
   + **azureml-interpret**
-    + updated azureml-interpret to interpret-community 0.7.*
+    + Updated azureml-interpret to interpret-community 0.7.*
   + **azureml-sdk**
     + Changing to dependencies with compatible version Tilde for the support of patching in pre-release and stable releases.
 
