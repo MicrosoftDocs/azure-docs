@@ -9,7 +9,7 @@ ms.date: 03/16/2020
 ---
 # Options #
 
-## Setting Options ##
+## Setting options ##
 
 The Azure Media Player embed code is simply an HTML5 video tag, so for many of the options you can use the standard tag attributes to set the options.
 
@@ -26,7 +26,7 @@ Finally, if you're not using the data-setup attribute to trigger the player setu
 > [!NOTE]
 > Options in the constructor are only set on the first initialization before the source is set.  If you wish to modify the options on the same initialized Azure Media Player element, you must update the options before changing the source. You can update the options in JavaScript by using `myPlayer.options({/*updated options*/});`. Note that only changed options will be affected, all other previously set options will persist.
 
-## Individual Options ##
+## Individual options ##
 
 > [!NOTE]
 >Video Tag Attributes can only be true or false (boolean), you simply include the attribute (no equals sign) to turn it on, or exclude it to turn it off. For example, to turn controls on:

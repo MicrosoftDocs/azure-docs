@@ -67,7 +67,7 @@ Include/exclude attributes, settings, sources, and tracks exactly as you would f
 
 By default, the big play button is located in the upper left hand corner so it doesn't cover up the interesting parts of the poster. If you'd prefer to center the big play button, you can add an additional `amp-big-play-centered` `class` to your `<video>` element.
 
-### Alternative Setup for Dynamically Loaded HTML ###
+### Alternative Setup for dynamically loaded HTML ###
 
 If your web page or application loads the video tag dynamically (ajax, appendChild, etc.), so that it may not exist when the page loads, you'll want to manually set up the player instead of relying on the data-setup attribute. To do this, first remove the data-setup attribute from the tag so there's no confusion around when the player is initialized. Next, run the following javascript some time after the Azure Media Player javascript has loaded, and after the video tag has been loaded into the DOM.
 

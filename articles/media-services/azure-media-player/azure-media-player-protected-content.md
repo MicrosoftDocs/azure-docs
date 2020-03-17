@@ -8,7 +8,7 @@ ms.topic: overview
 ms.date: 03/06/2020
 ---
 
-# Protected Content #
+# Protected content #
 
 Azure Media Player currently supports AES-128 bit envelope encrypted content and common encrypted content (through PlayReady and Widevine)  or encrypted content via FairPlay. In order to playback protected content correctly, you must tell Azure Media Player the `protectionInfo`. This information exists per source and can be added directly on the `<source>` tag via the `data-setup`.  You can also add the `protectionInfo` directly as a parameter if setting the source dynamically.
 

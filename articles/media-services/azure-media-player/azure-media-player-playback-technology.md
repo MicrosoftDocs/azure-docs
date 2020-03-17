@@ -8,7 +8,7 @@ ms.topic: overview
 ms.date: 03/16/2020
 ---
 
-# Playback technology ("Tech") #
+# Playback technology ("tech") #
 
 Playback Technology refers to the specific browser or plugin technology used to play the video or audio.
 

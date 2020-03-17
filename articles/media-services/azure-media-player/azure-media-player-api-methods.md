@@ -13,7 +13,7 @@ ms.date: 03/16/2020
 
 The Azure Media Player API allows you to interact with the video through JavaScript, whether the browser is playing the video through HTML5 video, Flash, Silverlight or any other supported playback technologies.
 
-## Referencing the Player ##
+## Referencing the player ##
 
 To use the API functions, you need access to the player object. Luckily this is easy to get. You just need to make sure your video tag has an ID. The example embed code has an ID of `vid1`. If you have multiple videos on one page, make sure every video tag has a unique ID.
 
@@ -22,7 +22,7 @@ To use the API functions, you need access to the player object. Luckily this is 
 > [!NOTE]
 > If the player hasn't been initialized yet via the data-setup attribute or another method, this will also initialize the player.
 
-## Wait Until the Player is Ready ##
+## Wait until the player is ready ##
 
 The time it takes Azure Media Player to set up the video and API will vary depending on the playback technology being used (HTML5 will often be much faster to load than Flash or Silverlight). For that reason, the player's 'ready' function should be used to trigger any code that requires the player's API.
 
@@ -43,7 +43,7 @@ OR
     });
 ```
 
-## API Methods ##
+## API methods ##
 
 Now that you have access to a ready player, you can control the video, get values, or respond to video events. The Azure Media Player API function names attempt to follow the [HTML5 media API](http://www.whatwg.org/specs/web-apps/current-work/multipage/the-video-element.html). The main difference is that getter/setter functions are used for video properties.
 
@@ -55,7 +55,7 @@ Now that you have access to a ready player, you can control the video, get value
     myPlayer.currentTime(120);
 ```
 
-## Registering for Events ##
+## Registering for events ##
 Events should be registered for directly after initializing the player for the first time to ensure all events are appropriately reported to the application. This should be done outside of the ready event.
 
 ```javacript

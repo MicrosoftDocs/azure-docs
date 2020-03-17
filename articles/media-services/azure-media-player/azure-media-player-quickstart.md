@@ -8,7 +8,7 @@ ms.topic: quickstart
 ms.date: 03/13/2020
 ---
 
-# Azure Media Player Quick start
+# Azure Media Player quickstart
 Azure Media Player is easy to set up. It only takes a few minutes to get basic playback of media content from your Azure Media Services account. This section shows you the basic steps without going into details. The sections that follow give you specifics on how to set up and configure Azure Media Player.  Simply add the following includes to your document's `<head>`:
 
 ```html

@@ -4,7 +4,7 @@ description: An error code reference for Azure Media Player.
 author: IngridAtMicrosoft
 ms.author: inhenkel
 ms.service: media-services
-ms.topic: reference
+ms.topic: error-reference
 ms.date: 03/13/2020
 ---
 

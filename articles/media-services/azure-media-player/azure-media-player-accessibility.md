@@ -12,17 +12,17 @@ ms.date: 03/16/2020
 
 Azure Media Player works with screen reader capabilities such as Windows Narrator and Apple OSX/iOS VoiceOver. Alternative tags are available for the UI buttons, and the screen reader is capable of reading these alternative tags when the user navigates to them. Additional configurations can be set at the Operating System level.
 
-## Captions and Subtitles ##
+## Captions and subtitles ##
 
 At this time, Azure Media Player currently supports captions for only On Demand events with WebVTT format and live events using CEA 708. TTML format is currently unsupported. Captions and subtitles allow the player to cater to and empower a broader audience, including people with hearing disabilities or those who want to read along in a different language. Captions also increase video engagement, improve comprehension, and make it possible to view the video in sound sensitive environments, like a workplace.  
 
-## High Contrast Mode ##
+## High contrast mode ##
 
 The default UI in Azure Media Player is compliant with most device/browser high contrast view modes. Configurations can be set at the Operating System level.
 
-## Mobility Options ##
+## Mobility options ##
 
-### Tabbing Focus ###
+### Tabbing focus ###
 
 Tabbing focus, provided by general HTML standards, is available in Azure Media Player. In order to enable tab focusing, you must add `tabindex=0` (or another value if you understand how tab ordering is affected in HTML) to the HTML `<video>` like so: `<video ... tabindex=0>...</video>`. On some platforms, the focus for the controls may only be present if the controls are visible and if the platform supports these capabilities.
 

@@ -8,7 +8,7 @@ ms.topic: reference
 ms.date: 03/13/2020
 ---
 
-# Feature List #
+# Feature list #
 Here is the list of tested features and unsupported features:
 
 |                                         | TESTED | PARTIALLY TESTED | UNTESTED | UNSUPPORTED | NOTES                                                                                                                |

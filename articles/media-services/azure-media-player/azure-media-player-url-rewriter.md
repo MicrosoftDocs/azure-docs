@@ -8,7 +8,7 @@ ms.topic: overview
 ms.date: 03/06/2020
 ---
 
-# URL Rewriter #
+# URL rewriter #
 
 By default, Azure Media Player will rewrite a given URL from Azure Media Services to provide streams for SMOOTH, DASH, HLS v3 and HLS v4. For example, if the source is given as follows, Azure Media Player will ensure that it attempts to play all of the above protocols:
 

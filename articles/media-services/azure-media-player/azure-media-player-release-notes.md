@@ -7,7 +7,7 @@ ms.service: media-services
 ms.topic: reference
 ms.date: 03/06/2020
 ---
-# Release Notes
+# Release notes
 
 Below is a list of known issues associated with this release.  Also, a list of tested and unsupported features is provided below to help during development.
 
