@@ -13,7 +13,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/17/2019
+ms.date: 03/17/2020
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 04/08/2019
@@ -115,7 +115,7 @@ In this case, you use only Listen rights to access your notification hubs from t
 Registering from the device is the simplest method, but it has some drawbacks:
 
 - A client app can only update its tags when the app is active. For example, if a user has two devices that register tags related to sport teams, when the first device registers for an additional tag (for example, Seahawks), the second device will not receive the notifications about the Seahawks until the app on the second device is executed a second time. More generally, when tags are affected by multiple devices, managing tags from the backend is a desirable option.
-- Since apps can be hacked, securing the registration to specific tags requires extra care, as explained in the section “Tag-level security.”
+- Since apps can be hacked, securing the registration to specific tags requires extra care, as explained in the article [Security](notification-hubs-push-notification-security.md).
 
 ### Example code to register with a notification hub from a device using an installation
 
