@@ -21,19 +21,19 @@ QnA sets are added from a datasource, such as a file or URL, or added as an edit
 1. In the new QnA set row, add the required question and answer fields. The other fields are optional. All fields can be changed at any time.
 
     > [!div class="mx-imgBorder"]
-    > ![Add question and answer to QnA set](../media/edit-qna-set/edit-qna-set-question-and-answer.png)
+    > ![Add question and answer to QnA set](../media/qnamaker-how-to-edit-kb/edit-qna-set-question-and-answer.png)
 
 1. Use the rich-text editor to write and format text and save as markdown.
 
     > [!div class="mx-imgBorder"]
-    > ![Use the rich-text editor to write and format text and save as markdown.](../media/edit-qna-set/rich-text-edit-answer.png)
+    > ![Use the rich-text editor to write and format text and save as markdown.](../media/qnamaker-how-to-edit-kb/rich-text-edit-answer.png)
 
     |Rich-text editor features
     |--|
     |Toggle between rich-text editor and markdown. `<>`|
     |Bold. **B**|
     |Italics, indicated with an italicized **_I_**|
-    |Link - add link to a public URL. ![Link icon](../media/edit-qna-set/link-icon.png)|
+    |Link - add link to a public URL. ![Link icon](../media/qnamaker-how-to-edit-kb/link-icon.png)|
     |Unordered list|
     |Ordered list|
     |Undo|
