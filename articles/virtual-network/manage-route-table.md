@@ -82,11 +82,11 @@ Go to the [Azure portal](https://portal.azure.com) to manage your virtual networ
 
 To learn more about common Azure settings, see the following information:
 
-* [Activity log](../azure-monitor/platform/platform-logs-overview.md)<br>
-* [Access control (IAM)](../role-based-access-control/overview.md)<br>
-* [Tags](../azure-resource-manager/management/tag-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br>
-* [Locks](../azure-resource-manager/management/lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br>
-* [Automation script](../azure-resource-manager/templates/export-template-portal.md)
+- [Activity log](../azure-monitor/platform/platform-logs-overview.md)
+- [Access control (IAM)](../role-based-access-control/overview.md)
+- [Tags](../azure-resource-manager/management/tag-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- [Locks](../azure-resource-manager/management/lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- [Automation script](../azure-resource-manager/templates/export-template-portal.md)
 
 ### View details of route table - commands
 
