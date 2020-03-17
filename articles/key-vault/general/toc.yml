@@ -1,0 +1,82 @@
+- name: Key Vault Documentation - General
+  href: index.yml
+- name: About Azure Key Vault keys, secrets and certificates
+  href: about-keys-secrets-and-certificates.md
+- name: Access Key Vault behind a firewall
+  href: access-behind-firewall.md
+- name: Authentication, requests and responses
+  href: authentication-requests-and-responses.md
+- name: Integrate Azure Key Vault with Azure Policy
+  href: azure-policy.md
+- name: What is Azure Key Vault?
+  href: basic-concepts.md
+- name: Best Practices to use Key Vault
+  href: best-practices.md
+- name: Common parameters and headers
+  href: common-parameters-and-headers.md
+- name: Azure Key Vault Developer's Guide
+  href: developers-guide.md
+- name: What to do in the event of an Azure service disruption that affects Azure Key Vault
+  href: disaster-recovery-guidance.md
+- name: Email when Key Vault status of the secret changes
+  href: event-grid-logicapps.md
+- name: Monitoring Key Vault with Azure Event Grid
+  href: event-grid-overview.md
+- name: Receive and respond to key vault notifications with Azure Event Grid
+  href: event-grid-tutorial.md
+- name: Grant permission to applications to access an Azure key vault
+  href: group-permissions-for-apps.md
+- name: Azure Key Vault customer data features
+  href: key-vault-customer-data.md
+- name: Key Vault .NET 2.x API Release Notes| Microsoft Docs
+  href: key-vault-dotnet2api-release-notes.md
+- name: Azure Key Vault logging
+  href: logging.md
+- name: Manage Azure Key Vault using CLI
+  href: manage-with-cli2.md
+- name: Use an system-assigned managed identity to access Azure Key Vault
+  href: managed-identity.md
+- name: Configure Azure Key Vault firewalls and virtual networks
+  href: network-security.md
+- name: Azure Key Vault security worlds
+  href: overview-security-worlds.md
+- name: Azure Key Vault security
+  href: overview-security.md
+- name: Azure Key Vault soft delete
+  href: overview-soft-delete.md
+- name: Azure Key Vault throttling guidance
+  href: overview-throttling.md
+- name: Virtual network service endpoints for Azure Key Vault
+  href: overview-vnet-service-endpoints.md
+- name: Azure Key Vault Overview
+  href: overview.md
+- name: Integrate with Azure Private Link Service
+  href: private-link-service.md
+- name: REST API error codes
+  href: rest-error-codes.md
+- name: Secure access to a key vault
+  href: secure-your-key-vault.md
+- name: Azure Security Baseline for Key Vault
+  href: security-baseline.md
+- name: Security recommendations for Azure Key Vault
+  href: security-recommendations.md
+- name: Azure Key Vault Service Limits
+  href: service-limits.md
+- name: Service-to-service authentication to Azure Key Vault using .NET
+  href: service-to-service-authentication.md
+- name: Azure Key Vault - How to use soft delete with CLI
+  href: soft-delete-cli.md
+- name: Azure Key Vault - How to use soft-delete with PowerShell
+  href: soft-delete-powershell.md
+- name: Change the key vault tenant ID after a subscription move
+  href: subscription-move-fix.md
+- name: Tutorial - Use Azure Key Vault with an Azure web app in .NET
+  href: tutorial-net-create-vault-azure-web-app.md
+- name: Tutorial - Use Azure Key Vault with a Windows virtual machine in .NET
+  href: tutorial-net-windows-virtual-machine.md
+- name: Tutorial - Use Azure Key Vault with a Windows virtual machine in Python
+  href: tutorial-python-windows-virtual-machine.md
+- name: Add Key Vault support to your ASP.NET project using Visual Studio
+  href: vs-key-vault-add-connected-service.md
+- name: Securely saving secret application settings for a web application
+  href: vs-secure-secret-appsettings.md

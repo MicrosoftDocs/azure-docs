@@ -1,0 +1,8 @@
+- name: Key Vault Documentation - Certificates
+  href: index.yml
+- name: Get started with Key Vault certificates
+  href: certificate-scenarios.md
+- name: Monitor and manage certificate creation
+  href: create-certificate-scenarios.md
+- name: Certificate creation methods
+  href: create-certificate.md
