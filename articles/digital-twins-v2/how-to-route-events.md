@@ -113,7 +113,7 @@ You can also specify `IN` operator
 
 ### Filter based on Twins
 
-The query language for this filtering scenario is compatible with Azure Digital Twins query language, and is a subset of it (Azure Digital Twins query language's `JOIN` is out of scope).
+The query language for this filtering scenario is compatible with [Azure Digital Twins Query Store language](concepts-query-graph.md), and is a subset of it (Azure Digital Twins Query Store language's `JOIN` is out of scope).
 
 `$dt.$metadata.$model = "urn:contosocom:example:Thermostat:1"` OR 
 `$dt.$metadata.$model = "urn:contosocom:example:DigitalTwins:Space"`

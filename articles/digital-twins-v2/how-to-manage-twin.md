@@ -82,7 +82,7 @@ The defined properties of the Azure digital twin are returned as top-level prope
     - *Unknown*: The defined twin type cannot be found, so conformance cannot be validated.
 * Metadata. The metadata section contains a variety of metadata. For example:
     - The DTMI of the twin type of the digital twin.
-    - Synchronization status for each writeable property. This is most useful for devices, where it's possible that the service and the device have diverging statuses (for example, when a device is offline). Currently, this property only applies to physical devices connected to IoT Hub. With the data in the metadata section, it is possible to understand the full status of a property, as well as the last modified timestamps. 
+    - Synchronization status for each writeable property. This is most useful for devices, where it's possible that the service and the device have diverging statuses (for example, when a device is offline). Currently, this property only applies to physical devices connected to IoT Hub. With the data in the metadata section, it is possible to understand the full status of a property, as well as the last modified timestamps. For more information about sync status, see [this IoT Hub tutorial](../iot-hub/tutorial-device-twins.md) on synchronizing device state.
     - Service-specific metadata, like from IoT Hub or Azure Digital Twins. 
 
 ## Patch digital twins
