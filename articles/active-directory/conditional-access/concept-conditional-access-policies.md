@@ -128,6 +128,6 @@ The article [Common Conditional Access policies](concept-conditional-access-poli
 
 [Planning a cloud-based Azure Multi-Factor Authentication deployment](../authentication/howto-mfa-getstarted.md)
 
-[Managing device compliance with Intune](https://docs.microsoft.com/intune/device-compliance-get-started)
+[Managing device compliance with Intune](/intune/device-compliance-get-started)
 
-[Microsoft Cloud App Security and Conditional Access](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+[Microsoft Cloud App Security and Conditional Access](/cloud-app-security/proxy-intro-aad)

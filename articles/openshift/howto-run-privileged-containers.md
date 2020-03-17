@@ -135,6 +135,8 @@ Start with the "Install Console" section.
 During `oc create -f twistlock_console.yaml` in Step 2, you'll get an Error when creating the namespace.
 You can safely ignore it, the namespace has been created previously with the `oc new-project` command.
 
+Use `azure-disk` for storage type.
+
 ### Create an external route to Console
 
 You can either follow the documentation, or the instructions below if you prefer the oc command.

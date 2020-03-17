@@ -1,6 +1,6 @@
 ---
-title: "Quickstart: Scale compute - PowerShell "
-description: Scale compute in SQL pool in PowerShell. Scale out compute for better performance, or scale back compute to save costs.
+title: Scale compute for Synapse SQL pool (Azure PowerShell)
+description: You can scale compute for Synapse SQL pool (data warehouse) using Azure PowerShell.
 services: sql-data-warehouse
 author: Antvgski
 manager: craigg
@@ -14,9 +14,9 @@ ms.custom: seo-lt-2019
 ---
 
 
-# Quickstart: Scale compute in in Azure Synapse Analytics SQL pool using Azure PowerShell
+# Quickstart: Scale compute for Synapse SQL pool with Azure PowerShell
 
-Scale compute in SQL pool using Azure PowerShell. [Scale out compute](sql-data-warehouse-manage-compute-overview.md) for better performance, or scale back compute to save costs.
+You can scale compute for Synapse SQL pool (data warehouse) using Azure PowerShell. [Scale out compute](sql-data-warehouse-manage-compute-overview.md) for better performance, or scale back compute to save costs. 
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 

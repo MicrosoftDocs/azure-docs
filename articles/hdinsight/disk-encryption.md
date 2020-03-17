@@ -29,7 +29,7 @@ You can use the Azure portal or Azure CLI to safely rotate the keys in the key v
 
 |Cluster type |OS Disk (Managed disk) |Data disk (Managed disk) |Temp data disk (Local SSD) |
 |---|---|---|---|
-|Kafka, HBase with Accelerated writes|SSE Encryption|SSE Encryption + Optional CMK encryption|Optional CMK encryption|
+|Kafka, HBase with Accelerated writes|[SSE Encryption](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#encryption)|SSE Encryption + Optional CMK encryption|Optional CMK encryption|
 |All other clusters (Spark, Interactive, Hadoop, HBase without Accelerated writes)|SSE Encryption|N/A|Optional CMK encryption|
 
 ## Get started with customer-managed keys

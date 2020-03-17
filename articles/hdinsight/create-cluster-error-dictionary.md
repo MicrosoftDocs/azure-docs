@@ -1,6 +1,6 @@
 ---
-title: Create a cluster error dictionary
-description: Learn how to create a cluster error dictionary.
+title: Azure HDInsight Create a cluster - error dictionary
+description: Learn how to troubleshoot errors that occur when creating Azure HDInsight clusters
 
 author: karkrish
 ms.author: v-todmc

@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 1/24/2020
+ms.date: 3/13/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
@@ -37,6 +37,28 @@ The authentication system alters and adds features on an ongoing basis to improv
 ## Upcoming changes
 
 None scheduled at this time.  Please see below for the changes that are in or are coming to production. 
+
+## March 2020 
+
+### User passwords will be restricted to 256 characters.
+
+**Effective date**: March 13, 2020
+
+**Endpoints impacted**: Both v1.0 and v2.0
+
+**Protocol impacted**: All user flows. 
+
+Users with passwords longer than 256 characters that sign in directly to Azure AD (as opposed to a federated IDP like ADFS) will be unable to sign in starting March 13, 2020, and be asked to reset their password instead.  Admins may recieve requests to help reset the users password. 
+
+The error in the sign in logs will be AADSTS 50052: InvalidPasswordExceedsMaxLength
+
+Message: `The password entered exceeds the maximum length of 256. Please reach out to your admin to reset the password.`
+
+Remediation:
+
+The user is unable to login because their password exceeds the permitted maximum length. They should contact their admin to reset the password. If SSPR is enabled for their tenant, they can reset their password by following the "Forgot your password" link.
+
+
 
 ## February 2020 
 

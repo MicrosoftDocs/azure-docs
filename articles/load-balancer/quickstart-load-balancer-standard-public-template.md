@@ -14,7 +14,8 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2020
 ms.author: allensu
-ms.custom: mvc
+ms.custom: mvc,subject-armqs
+
 ---
 
 # Quickstart: Create a Load Balancer to load balance VMs by using Azure Resource Manager template

@@ -84,7 +84,7 @@
       - name: Start a runbook from a webhook
         href: automation-webhooks.md
       - name: Configure runbook input parameters
-        href: automation-runbook-input-parameters.md
+        href: runbook-input-parameters.md
       - name: Child runbooks
         href: automation-child-runbooks.md
       - name: Pass a JSON object to an Azure Automation runbook
@@ -305,11 +305,11 @@
 - name: Manage Shared Resources
   items:
     - name: Certificates
-      href: automation-certificates.md
+      href: shared-resources/certificates.md
     - name: Connections
       href: automation-connections.md
     - name: Credentials
-      href: automation-credentials.md
+      href: shared-resources/credentials.md
     - name: PowerShell modules
       items: 
       - name: Modules
@@ -319,9 +319,9 @@
       - name: Update Azure PowerShell modules
         href: automation-update-azure-modules.md
     - name: Schedules
-      href: automation-schedules.md
+      href: shared-resources/schedules.md
     - name: Variables
-      href: automation-variables.md
+      href: shared-resources/variables.md
     - name: Manage Python 2 packages
       href: python-packages.md
     - name: Troubleshoot Shared Resources

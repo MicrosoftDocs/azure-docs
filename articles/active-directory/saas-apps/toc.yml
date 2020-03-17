@@ -17,7 +17,7 @@
         href: 360online-tutorial.md
       - name: 4me
         href: 4me-tutorial.md
-      - name: 8x8 Virtual Office
+      - name: 8x8
         href: 8x8virtualoffice-tutorial.md
     - name: A
       items:
@@ -131,6 +131,8 @@
         href: asccontracts-tutorial.md
       - name: Ascentis
         href: ascentis-tutorial.md
+      - name: AskYourTeam
+        href: askyourteam-tutorial.md
       - name: Asset Bank
         href: assetbank-tutorial.md
       - name: AssetSonar
@@ -149,6 +151,8 @@
         href: autotaskendpointbackup-tutorial.md
       - name: Autotask Workplace
         href: autotaskworkplace-tutorial.md
+      - name: Aventri
+        href: etouches-tutorial.md
       - name: AwardSpring
         href: awardspring-tutorial.md
     - name: B
@@ -251,6 +255,8 @@
         href: carbonite-endpoint-backup-tutorial.md
       - name: Carlson Wagonlit Travel
         href: carlsonwagonlit-tutorial.md
+      - name: Catchpoint
+        href: catchpoint-tutorial.md
       - name: CBRE ServiceInsight
         href: cbre-serviceinsight-tutorial.md
       - name: Central Desktop
@@ -385,6 +391,8 @@
         href: databasics-tutorial.md
       - name: DataCamp
         href: datacamp-tutorial.md
+      - name: Datadog
+        href: datadog-tutorial.md
       - name: Datahug
         href: datahug-tutorial.md
       - name: Dealpath
@@ -477,8 +485,6 @@
         href: eplatform-tutorial.md
       - name: EthicsPoint Incident Management (EPIM)
         href: ethicspoint-incident-management-tutorial.md
-      - name: etouches
-        href: etouches-tutorial.md
       - name: Euromonitor Passport
         href: euromonitor-passport-tutorial.md
       - name: EverBridge
@@ -592,14 +598,16 @@
         href: glassfrog-tutorial.md
       - name: GlobalOne
         href: globalone-tutorial.md
-      - name: GoodPractice Toolkit
-        href: goodpractice-toolkit-tutorial.md
       - name: GoToMeeting
         href: citrix-gotomeeting-tutorial.md
       - name: Gra-Pe
         href: grape-tutorial.md
       - name: Greenhouse
         href: greenhouse-tutorial.md
+      - name: Greenlight Compliant Access Management
+        href: greenlight-compliant-access-management-tutorial.md
+      - name: Greenlight Integration Platform
+        href: greenlight-integration-platform-tutorial.md
       - name: GreenOrbit
         href: greenorbit-tutorial.md
       - name: Grok Learning
@@ -730,6 +738,8 @@
         href: intime-tutorial.md
       - name: Intralinks
         href: intralinks-tutorial.md
+      - name: IP Platform
+        href: ip-platform-tutorial.md
       - name: iPass SmartConnect
         href: ipasssmartconnect-tutorial.md
       - name: iProva
@@ -750,6 +760,8 @@
         href: itslearning-tutorial.md
       - name: Ivanti Service Manager (ISM)
         href: ivanti-service-manager-tutorial.md
+      - name: InVision
+        href: invision-tutorial.md
       - name: iWellnessNow
         href: iwellnessnow-tutorial.md
     - name: J - K
@@ -854,6 +866,8 @@
         href: lessonly-tutorial.md
       - name: Lifesize Cloud
         href: lifesize-cloud-tutorial.md
+      - name: LIFT
+        href: lift-tutorial.md
       - name: LINE WORKS
         href: worksmobile-tutorial.md
       - name: Learnster
@@ -912,6 +926,8 @@
         href: mindflash-tutorial.md
       - name: MindTickle
         href: mindtickle-tutorial.md
+      - name: Mind Tools Toolkit
+        href: goodpractice-toolkit-tutorial.md
       - name: mindWireless
         href: mindwireless-tutorial.md
       - name: Miro
@@ -1090,10 +1106,14 @@
         href: picturepark-tutorial.md
       - name: Pingboard
         href: pingboard-tutorial.md
+      - name: Pipedrive
+        href: pipedrive-tutorial.md
       - name: PlanGrid
         href: plangrid-tutorial.md
       - name: PlanMyLeave
         href: planmyleave-tutorial.md
+      - name: Planview Enterprise One
+        href: planview-enterprise-one-tutorial.md
       - name: Pluralsight
         href: pluralsight-tutorial.md
       - name: PolicyStat

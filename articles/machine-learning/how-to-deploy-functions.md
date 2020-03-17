@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.author: vaidyas
 author: vaidyas
 ms.reviewer: larryfr
-ms.date: 11/22/2019
+ms.date: 03/06/2020
 
 
 ---
@@ -145,24 +145,24 @@ When `show_output=True`, the output of the Docker build process is shown. Once t
 
     ```azurecli-interactive
     az group create --name myresourcegroup --location "West Europe"
-    az appservice plan create --name myplanname --resource-group myresourcegroup --sku EP1 --is-linux
+    az appservice plan create --name myplanname --resource-group myresourcegroup --sku B1 --is-linux
     ```
 
-    In this example, a _Linux Premium_ pricing tier (`--sku EP1`) is used.
+    In this example, a _Linux basic_ pricing tier (`--sku B1`) is used.
 
     > [!IMPORTANT]
     > Images created by Azure Machine Learning use Linux, so you must use the `--is-linux` parameter.
 
-1. Create the storage account to use for the web job storage and get it's connection string. Replace `<webjobStorage>` with the name you want to use.
+1. Create the storage account to use for the web job storage and get its connection string. Replace `<webjobStorage>` with the name you want to use.
 
     ```azurecli-interactive
-    az storage account create --name triggerStorage --location westeurope --resource-group myresourcegroup --sku Standard_LRS
+    az storage account create --name <webjobStorage> --location westeurope --resource-group myresourcegroup --sku Standard_LRS
     ```
     ```azurecli-interactive
     az storage account show-connection-string --resource-group myresourcegroup --name <webJobStorage> --query connectionString --output tsv
     ```
 
-1. To create the function app, use the following command. Replace `<app-name>` with the name you want to use. Replace `<acrinstance>` and `<imagename>` with the values from returned `package.location` earlier. Replace Replace `<webjobStorage>` with the name of the storage account from the previous step:
+1. To create the function app, use the following command. Replace `<app-name>` with the name you want to use. Replace `<acrinstance>` and `<imagename>` with the values from returned `package.location` earlier. Replace `<webjobStorage>` with the name of the storage account from the previous step:
 
     ```azurecli-interactive
     az functionapp create --resource-group myresourcegroup --plan myplanname --name <app-name> --deployment-container-image-name <acrinstance>.azurecr.io/package:<imagename> --storage-account <webjobStorage>
@@ -171,12 +171,12 @@ When `show_output=True`, the output of the Docker build process is shown. Once t
     > [!IMPORTANT]
     > At this point, the function app has been created. However, since you haven't provided the connection string for the blob trigger or credentials to the Azure Container Registry that contains the image, the function app is not active. In the next steps, you provide the connection string and the authentication information for the container registry. 
 
-1. Create the storage account to use for the blob trigger storage and get it's connection string. Replace `<triggerStorage>` with the name you want to use.
+1. Create the storage account to use for the blob trigger storage and get its connection string. Replace `<triggerStorage>` with the name you want to use.
 
     ```azurecli-interactive
     az storage account create --name <triggerStorage> --location westeurope --resource-group myresourcegroup --sku Standard_LRS
     ```
-    ```azurecli-interactive
+    ```azurecli-interactiv
     az storage account show-connection-string --resource-group myresourcegroup --name <triggerStorage> --query connectionString --output tsv
     ```
     Record this connection string to provide to the function app. We will use it later when we ask for `<triggerConnectionString>`
@@ -202,7 +202,7 @@ When `show_output=True`, the output of the Docker build process is shown. Once t
     ```
     Save the value returned, it will be used as the `imagetag` in the next step.
 
-1. To provide the function app with the credentials needed to access the container registry, use the following command. Replace `<app-name>` with the name you want to use. Replace `<acrinstance>` and `<imagetag>` with the values from the AZ CLI call in the previous step. Replace `<username>` and `<password>` with the ACR login information retrieved earlier:
+1. To provide the function app with the credentials needed to access the container registry, use the following command. Replace `<app-name>` with the name of the function app. Replace `<acrinstance>` and `<imagetag>` with the values from the AZ CLI call in the previous step. Replace `<username>` and `<password>` with the ACR login information retrieved earlier:
 
     ```azurecli-interactive
     az functionapp config container set --name <app-name> --resource-group myresourcegroup --docker-custom-image-name <acrinstance>.azurecr.io/package:<imagetag> --docker-registry-server-url https://<acrinstance>.azurecr.io --docker-registry-server-user <username> --docker-registry-server-password <password>
@@ -243,6 +243,52 @@ At this point, the function app begins loading the image.
 
 > [!IMPORTANT]
 > It may take several minutes before the image has loaded. You can monitor progress using the Azure Portal.
+
+## Test the deployment
+
+Once the image has loaded and the app is available, use the following steps to trigger the app:
+
+1. Create a text file that contains the data that the score.py file expects. The following example would work with a score.py that expects an array of 10 numbers:
+
+    ```json
+    {"data": [[1, 2, 3, 4, 5, 6, 7, 8, 9, 10], [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]]}
+    ```
+
+    > [!IMPORTANT]
+    > The format of the data depends on what your score.py and model expects.
+
+2. Use the following command to upload this file to the input container in the trigger storage blob created earlier. Replace `<file>` with the name of the file containing the data. Replace `<triggerConnectionString>` with the connection string returned earlier. In this example, `input` is the name of the input container created earlier. If you used a different name, replace this value:
+
+    ```azurecli-interactive
+    az storage blob upload --container-name input --file <file> --name <file> --connection-string <triggerConnectionString>
+    ```
+
+    The output of this command is similar to the following JSON:
+
+    ```json
+    {
+    "etag": "\"0x8D7C21528E08844\"",
+    "lastModified": "2020-03-06T21:27:23+00:00"
+    }
+    ```
+
+3. To view the output produced by the function, use the following command to list the output files generated. Replace `<triggerConnectionString>` with the connection string returned earlier. In this example, `output` is the name of the output container created earlier. If you used a different name, replace this value::
+
+    ```azurecli-interactive
+    az storage blob list --container-name output --connection-string <triggerConnectionString> --query '[].name' --output tsv
+    ```
+
+    The output of this command is similar to `sample_input_out.json`.
+
+4. To download the file and inspect the contents, use the following command. Replace `<file>` with the file name returned by the previous command. Replace `<triggerConnectionString>` with the connection string returned earlier: 
+
+    ```azurecli-interactive
+    az storage blob download --container-name output --file <file> --name <file> --connection-string <triggerConnectionString>
+    ```
+
+    Once the command completes, open the file. It contains the data returned by the model.
+
+For more information on using blob triggers, see the [Create a function triggered by Azure Blob storage](/azure/azure-functions/functions-create-storage-blob-triggered-function) article.
 
 ## Next steps
 

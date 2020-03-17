@@ -8,6 +8,7 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: helohr
+manager: lizross
 ---
 # Create a host pool with PowerShell
 

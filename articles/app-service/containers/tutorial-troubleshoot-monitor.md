@@ -122,7 +122,7 @@ This action fails and produces a `HTTP 500` error that wasn't tested during deve
 
 Let's see what logs are available in the Log Analytics workspace. 
 
-Click this [Log Analytics workspace link](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.OperationalInsights%2Fworkspaces) to access your workspace in the Azure portal.
+Click this [Log Analytics workspace link](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.OperationalInsights%2Fworkspaces) to access your workspace in the Azure portal.
 
 In the Azure portal, select your Log Analytics workspace.
 
