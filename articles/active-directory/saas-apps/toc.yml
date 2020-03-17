@@ -598,8 +598,6 @@
         href: glassfrog-tutorial.md
       - name: GlobalOne
         href: globalone-tutorial.md
-      - name: GoodPractice Toolkit
-        href: goodpractice-toolkit-tutorial.md
       - name: GoToMeeting
         href: citrix-gotomeeting-tutorial.md
       - name: Gra-Pe
@@ -928,6 +926,8 @@
         href: mindflash-tutorial.md
       - name: MindTickle
         href: mindtickle-tutorial.md
+      - name: Mind Tools Toolkit
+        href: goodpractice-toolkit-tutorial.md
       - name: mindWireless
         href: mindwireless-tutorial.md
       - name: Miro
