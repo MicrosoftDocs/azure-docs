@@ -145,6 +145,8 @@
     href: functions-networking-options.md
   - name: IP addresses
     href: ip-addresses.md
+  - name: Custom handlers
+    href: functions-custom-handlers.md
 - name: How-to guides
   items:
   - name: Develop
