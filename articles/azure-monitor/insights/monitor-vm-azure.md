@@ -52,8 +52,8 @@ To enable all features of Azure Monitor for monitoring a virtual machine, you ne
 | Configuration step | Actions completed | Features enabled |
 |:---|:---|:---|
 | No configuration | - Host platform metrics collected to Metrics.<br>- Activity log collected. | - Metrics explorer for host.<br>- Metrics alerts for host.<br>- Activity log alerts. |
-| [Enable Azure Monitor for VMs](#enable-azure-monitor-for-vms-preview) | - Log Analytics agent installed.<br>- Dependency agent installed.<br>- Guest performance data collected to Logs.<br>- Process and dependency details collected to Logs. | - Performance charts and workbooks for guest performance data.<br>- Log queries for guest performance data.<br>- Log alerts for guest performance data.<br>- Dependency map. |
-| [Install the diagnostics extension and telegraf agent](#enable-diagnostics-extension) | - Guest performance data collected to Metrics. | - Metrics explorer for guest.<br>- Metrics alerts for guest.  |
+| [Enable Azure Monitor for VMs](#enable-azure-monitor-for-vms) | - Log Analytics agent installed.<br>- Dependency agent installed.<br>- Guest performance data collected to Logs.<br>- Process and dependency details collected to Logs. | - Performance charts and workbooks for guest performance data.<br>- Log queries for guest performance data.<br>- Log alerts for guest performance data.<br>- Dependency map. |
+| [Install the diagnostics extension and telegraf agent](#enable-diagnostics-extension-and-telegraf-agent) | - Guest performance data collected to Metrics. | - Metrics explorer for guest.<br>- Metrics alerts for guest.  |
 | [Configure Log Analytics workspace](#configure-log-analytics-workspace) | - Events collected from guest. | - Log queries for guest events.<br>- Log alerts for guest events. |
 | [Create diagnostic setting for virtual machine](#collect-platform-metrics-and-activity-log) | - Platform metrics collected to Logs.<br>- Activity log collected to Logs. | - Loq queries for host metrics.<br>- Log alerts for host metrics.<br>- Log queries for Activity log.
 
