@@ -1,6 +1,6 @@
 ---
-title: How to create Guest Configuration policies for Windows
-description: Learn how to create an Azure Policy Guest Configuration policy for Windows using PowerShell.
+title: How to create Guest Configuration policies
+description: Learn how to create an Azure Policy Guest Configuration policy for Windows or Linux VMs with Azure PowerShell.
 ms.date: 12/16/2019
 ms.topic: how-to
 ---
@@ -88,7 +88,7 @@ Manager status for the Guest Assignment should be Compliant/Not-Compliant. Next 
 `Get-TargetResource` to return the current state of each setting so details are available both
 about why a machine is not compliant, or to confirm that the current state is compliant.
 
-### Get-TargetResource requirements
+#### Get-TargetResource requirements
 
 The function `Get-TargetResource` has special requirements for Guest Configuration that haven't been
 needed for Windows Desired State Configuration.
@@ -125,7 +125,7 @@ return @{
     reasons = $reasons
 }
 ```
-### Configuration requirements
+#### Configuration requirements
 
 The only requirement for Guest Configuration to use a custom configuration file is for the name of the
 configuration to be consistent everywhere it's used. This name requirement includes the name of the
@@ -133,7 +133,7 @@ configuration to be consistent everywhere it's used. This name requirement inclu
 package, and the configuration name used in a Resource Manager template as the guest assignment
 name.
 
-### Scaffolding a Guest Configuration project
+#### Scaffolding a Guest Configuration project
 
 For developers who would like to accelerate the process of getting started and working from sample
 code, a community project named **Guest Configuration Project** exists as a template for the
@@ -144,27 +144,95 @@ task runners for Visual Studio Code to automate building and validating the Gues
 package. For more information, see the GitHub project
 [Guest Configuration Project](https://github.com/microsoft/guestconfigurationproject).
 
-For more information about working with configurations in general, see
+### Custom Guest Configuration configuration on Linux
+
+The DSC configuration for Guest Configuration on Linux uses the `ChefInSpecResource` resource to
+provide the engine the name of the [Chef InSpec](https://www.chef.io/inspec/) definition. **Name**
+is the only required resource property.
+
+The following example creates a configuration named **baseline**, imports the **GuestConfiguration**
+resource module, and uses the `ChefInSpecResource` resource set the name of the InSpec definition to
+**linux-patch-baseline**:
+
+```powershell
+# Define the DSC configuration and import GuestConfiguration
+Configuration baseline
+{
+    Import-DscResource -ModuleName 'GuestConfiguration'
+
+    ChefInSpecResource 'Audit Linux patch baseline'
+    {
+        Name = 'linux-patch-baseline'
+    }
+}
+
+# Compile the configuration to create the MOF files
+baseline
+```
+
+For more information, see
 [Write, Compile, and Apply a Configuration](/powershell/scripting/dsc/configurations/write-compile-apply-configuration).
 
-### Expected contents of a Guest Configuration artifact
+### Custom Guest Configuration configuration on Windows
 
-The completed package is used by Guest Configuration to create the Azure Policy definitions.
-The package consists of:
+The DSC configuration for Azure Policy Guest Configuration is used by the Guest Configuration agent
+only, it doesn't conflict with Windows PowerShell Desired State Configuration.
+
+The following example creates a configuration named **AuditBitLocker**, imports the
+**GuestConfiguration** resource module, and uses the `Service` resource to audit for a running
+service:
+
+```powershell
+# Define the DSC configuration and import GuestConfiguration
+Configuration AuditBitLocker
+{
+    Import-DscResource -ModuleName 'PSDscResources'
+
+    Service 'Ensure BitLocker service is present and running'
+    {
+        Name = 'BDESVC'
+        Ensure = 'Present'
+        State = 'Running'
+    }
+}
+
+# Compile the configuration to create the MOF files
+AuditBitLocker
+```
+
+For more information, see
+[Write, Compile, and Apply a Configuration](/powershell/scripting/dsc/configurations/write-compile-apply-configuration).
+
+## Create Guest Configuration custom policy package
+
+Once the MOF is compiled, the supporting files must be packaged together. The completed package is
+used by Guest Configuration to create the Azure Policy definitions. The package consists of:
 
 - The compiled DSC configuration as a MOF
 - Modules folder
   - GuestConfiguration module
   - DscNativeResources module
-  - (Windows) DSC resource modules required by the MOF
+  - (Linux) A folder with the Chef InSpec definition and additional content
+  - (Windows) DSC resource modules that aren't built in
 
-PowerShell cmdlets assist in creating the package.
-No root level folder or version folder is required.
-The package format must be a .zip file.
+The `New-GuestConfigurationPackage` cmdlet creates the package. The following format is used for
+creating a custom package:
 
-### Storing Guest Configuration artifacts
+```azurepowershell-interactive
+New-GuestConfigurationPackage -Name '{PackageName}' -Configuration '{PathToMOF}' `
+    -Path '{OutputFolder}' -Verbose
+```
 
-The .zip package must be stored in a location that is accessible by the managed virtual
+Parameters of the `New-GuestConfigurationPackage` cmdlet:
+
+- **Name**: Guest Configuration package name.
+- **Configuration**: Compiled DSC configuration document full path.
+- **Path**: Output folder path. This parameter is optional. If not specified, the package is created
+  in current directory.
+- **ChefProfilePath**: Full path to InSpec profile. This parameter is supported only when creating
+  content to audit Linux.
+
+The completed package must be stored in a location that is accessible by the managed virtual
 machines. Examples include GitHub repositories, an Azure Repo, or Azure storage. If you prefer to
 not make the package public, you can include a
 [SAS token](../../../storage/common/storage-dotnet-shared-access-signature-part-1.md) in the URL.
@@ -173,59 +241,17 @@ You could also implement
 for machines in a private network, although this configuration applies only to accessing the package
 and not communicating with the service.
 
-## Step by step, creating a custom Guest Configuration audit policy for Windows
-
-Create a DSC configuration. The following PowerShell script example creates a configuration
-named **AuditBitLocker**, imports the **PsDscResources** resource module, and uses
-the `Service` resource to audit for a running service.  This can be executed from a Windows or MacOS machine.
-
-```powershell
-# Define the DSC configuration and import GuestConfiguration
-Configuration AuditBitLocker
-{
-    Import-DscResource -ModuleName 'PSDscResources'
-
-    Node AuditBitlocker {
-      Service 'Ensure BitLocker service is present and running'
-      {
-          Name = 'BDESVC'
-          Ensure = 'Present'
-          State = 'Running'
-      }
-    }
-}
-
-# Compile the configuration to create the MOF files
-AuditBitLocker -out ./DSCConfig
-```
-
-Note that the `Node AuditBitlocker` command is not technically required but it produces a file named `AuditBitlocker.mof` rather than the default, `localhost.mof`. Having the .mof file name follow the configuration makes it easy to organize many files when operating at scale.
-
-Once the MOF is compiled, the supporting files must be packaged together. The completed package is
-used by Guest Configuration to create the Azure Policy definitions.
-
-The `New-GuestConfigurationPackage` cmdlet creates the package. Parameters of the `New-GuestConfigurationPackage` cmdlet when creating Windows content:
-
-- **Name**: Guest Configuration package name.
-- **Configuration**: Compiled DSC configuration document full path.
-- **Path**: Output folder path. This parameter is optional. If not specified, the package is created
-  in current directory.
-
-Run the following command to create a package using the configuration given in the previous step:
-
-```azurepowershell-interactive
-New-GuestConfigurationPackage `
-  -Name 'AuditBitlocker' `
-  -Configuration './DSCConfig/AuditBitlocker.mof'
-```
+## Test a Guest Configuration package
 
 After creating the Configuration package but before publishing it to Azure, you can test the
 functionality of the package from your workstation or CI/CD environment. The GuestConfiguration
 module includes a cmdlet `Test-GuestConfigurationPackage` that loads the same agent in your
 development environment as is used inside Azure machines. Using this solution, you can perform
-integration testing locally before releasing to billed cloud environments.
+integration testing locally before releasing to billed test/QA/production environments.
 
-Since the agent is actually evaluating the local environment, in most cases you will need to run the Test- cmdlet on the same OS platform as you plan to audit.
+```azurepowershell-interactive
+Test-GuestConfigurationPackage -Path .\package\AuditWindowsService\AuditWindowsService.zip -Verbose
+```
 
 Parameters of the `Test-GuestConfigurationPackage` cmdlet:
 
@@ -233,81 +259,37 @@ Parameters of the `Test-GuestConfigurationPackage` cmdlet:
 - **Parameter**: Policy parameters provided in hashtable format.
 - **Path**: Full path of the Guest Configuration package.
 
-Run the following command to test the package created by the previous step:
+The cmdlet also supports input from the PowerShell pipeline. Pipe the output of
+`New-GuestConfigurationPackage` cmdlet to the `Test-GuestConfigurationPackage` cmdlet.
 
 ```azurepowershell-interactive
-Test-GuestConfigurationPackage `
-  -Path ./AuditBitlocker.zip
+New-GuestConfigurationPackage -Name AuditWindowsService -Configuration .\DSCConfig\localhost.mof -Path .\package -Verbose | Test-GuestConfigurationPackage -Verbose
 ```
 
-> [!NOTE]
-> The cmdlet also supports input from the PowerShell pipeline. Pipe the output of
-> `New-GuestConfigurationPackage` cmdlet to the `Test-GuestConfigurationPackage` cmdlet.
->
-> ```azurepowershell-interactive
-> New-GuestConfigurationPackage -Name AuditBitlocker -Configuration ./DSCConfig/AuditBitlocker.mof | Test-GuestConfigurationPackage
-> ```
+For more information about how to test with parameters, see the section below
+[Using parameters in custom Guest Configuration policies](#using-parameters-in-custom-guest-configuration-policies).
 
-The next step is to publish the file to blob storage. The script below contains a function you can use to automate this task. Note that the commands used in the `publish` function require the `Az.Storage` module.
-
-```azurepowershell-interactive
-function publish {
-    param(
-    [Parameter(Mandatory=$true)]
-    $resourceGroup,
-    [Parameter(Mandatory=$true)]
-    $storageAccountName,
-    [Parameter(Mandatory=$true)]
-    $storageContainerName,
-    [Parameter(Mandatory=$true)]
-    $filePath,
-    [Parameter(Mandatory=$true)]
-    $blobName
-    )
-
-    # Get Storage Context
-    $Context = Get-AzStorageAccount -ResourceGroupName $resourceGroup `
-        -Name $storageAccountName | `
-        ForEach-Object { $_.Context }
-
-    # Upload file
-    $Blob = Set-AzStorageBlobContent -Context $Context `
-        -Container $storageContainerName `
-        -File $filePath `
-        -Blob $blobName `
-        -Force
-
-    # Get url with SAS token
-    $StartTime = (Get-Date)
-    $ExpiryTime = $StartTime.AddYears('3')  # THREE YEAR EXPIRATION
-    $SAS = New-AzStorageBlobSASToken -Context $Context `
-        -Container $storageContainerName `
-        -Blob $blobName `
-        -StartTime $StartTime `
-        -ExpiryTime $ExpiryTime `
-        -Permission rl `
-        -FullUri
-
-    # Output
-    return $SAS
-}
-
-# replace the $storageAccountName value below, it must be globally unique
-$resourceGroup        = 'policyfiles'
-$storageAccountName   = 'youraccountname'
-$storageContainerName = 'artifacts'
-
-$uri = publish `
-  -resourceGroup $resourceGroup `
-  -storageAccountName $storageAccountName `
-  -storageContainerName $storageContainerName `
-  -filePath ./AuditBitlocker.zip `
-  -blobName 'AuditBitlocker'
-```
+## Create the Azure Policy definition and initiative deployment files
 
 Once a Guest Configuration custom policy package has been created and uploaded to a location
 accessible by the machines, create the Guest Configuration policy definition for Azure Policy. The
-`New-GuestConfigurationPolicy` cmdlet takes a custom policy package and creates a policy definition.
+`New-GuestConfigurationPolicy` cmdlet takes a publicly accessible Guest Configuration custom policy
+package and creates an **auditIfNotExists** and **deployIfNotExists** policy definition. A policy
+initiative definition that includes both policy definitions is also created.
+
+The following example creates the policy and initiative definitions in a specified path from a Guest
+Configuration custom policy package for Windows and provides a name, description, and version:
+
+```azurepowershell-interactive
+New-GuestConfigurationPolicy
+    -ContentUri 'https://storageaccountname.blob.core.windows.net/packages/AuditBitLocker.zip?st=2019-07-01T00%3A00%3A00Z&se=2024-07-01T00%3A00%3A00Z&sp=rl&sv=2018-03-28&sr=b&sig=JdUf4nOCo8fvuflOoX%2FnGo4sXqVfP5BYXHzTl3%2BovJo%3D' `
+    -DisplayName 'Audit BitLocker Service.' `
+    -Description 'Audit if BitLocker is not enabled on Windows machine.' `
+    -Path '.\policyDefinitions' `
+    -Platform 'Windows' `
+    -Version 1.2.3.4 `
+    -Verbose
+```
 
 Parameters of the `New-GuestConfigurationPolicy` cmdlet:
 
@@ -319,19 +301,6 @@ Parameters of the `New-GuestConfigurationPolicy` cmdlet:
 - **Path**: Destination path where policy definitions are created.
 - **Platform**: Target platform (Windows/Linux) for Guest Configuration policy and content package.
 
-The following example creates the policy definitions in a specified path from a custom policy package:
-
-```azurepowershell-interactive
-New-GuestConfigurationPolicy `
-    -ContentUri 'https://storageaccountname.blob.core.windows.net/packages/AuditBitLocker.zip?st=2019-07-01T00%3A00%3A00Z&se=2024-07-01T00%3A00%3A00Z&sp=rl&sv=2018-03-28&sr=b&sig=JdUf4nOCo8fvuflOoX%2FnGo4sXqVfP5BYXHzTl3%2BovJo%3D' `
-    -DisplayName 'Audit BitLocker Service.' `
-    -Description 'Audit if BitLocker is not enabled on Windows machine.' `
-    -Path './policies' `
-    -Platform 'Windows' `
-    -Version 1.0.0 `
-    -Verbose
-```
-
 The following files are created by `New-GuestConfigurationPolicy`:
 
 - **auditIfNotExists.json**
@@ -341,38 +310,10 @@ The following files are created by `New-GuestConfigurationPolicy`:
 The cmdlet output returns an object containing the initiative display name and path of the policy
 files.
 
-Finally, publish the policy definitions using the `Publish-GuestConfigurationPolicy` cmdlet.
-The cmdlet only has the **Path** parameter that points to the location of the JSON files
-created by `New-GuestConfigurationPolicy`.
-
-```azurepowershell-interactive
-Publish-GuestConfigurationPolicy `
-  -Path '.\policyDefinitions'
-```
-
-> [!NOTE]
-> The `Publish-GuestConfigurationPolicy` cmdlet accepts the path from the PowerShell pipeline. This
-> feature means you can create the policy files and publish them in a single set of piped commands.
->
-> ```azurepowershell-interactive
-> New-GuestConfigurationPolicy `
->  -ContentUri 'https://storageaccountname.blob.core.windows.net/packages/AuditBitLocker.zip?st=2019-07-01T00%3A00%3A00Z&se=2024-07-01T00%3A00%3A00Z&sp=rl&sv=2018-03-28&sr=b&sig=JdUf4nOCo8fvuflOoX%2FnGo4sXqVfP5BYXHzTl3%2BovJo%3D' `
->  -DisplayName 'Audit BitLocker service.' `
->  -Description 'Audit if the BitLocker service is not enabled on Windows machine.' `
->  -Path './policies' `
-> | Publish-GuestConfigurationPolicy
-> ```
-
-With the policy created in Azure, the last step is to assign the
-initiative. See how to assign the initiative with [Portal](../assign-policy-portal.md), [Azure CLI](../assign-policy-azurecli.md),
-and [Azure PowerShell](../assign-policy-powershell.md).
-
-> [!IMPORTANT]
-> Guest Configuration policies must **always** be assigned using the initiative that combines the
-> _AuditIfNotExists_ and _DeployIfNotExists_ policies. If only the _AuditIfNotExists_ policy is
-> assigned, the prerequisites aren't deployed and the policy always shows that '0' servers are
-> compliant.
-
+If you would like to use this command to scaffold a custom policy project, you can make changes to
+these files. An example would be modifying the 'If' section to evaluate whether a specific Tag is
+present for machines. For details on creating policies, see
+[Programmatically create policies](./programmatically-create.md).
 
 ### Using parameters in custom Guest Configuration policies
 
@@ -409,8 +350,80 @@ New-GuestConfigurationPolicy
     -Description 'Audit if a Windows Service is not enabled on Windows machine.' `
     -Path '.\policyDefinitions' `
     -Parameters $PolicyParameterInfo `
-    -Version 1.0.0
+    -Platform 'Windows' `
+    -Version 1.2.3.4 `
+    -Verbose
 ```
+
+For Linux policies, include the property **AttributesYmlContent** in your configuration and
+overwrite the values as needed. The Guest Configuration agent automatically creates the YAML file
+used by InSpec to store attributes. See the example below.
+
+```powershell
+Configuration FirewalldEnabled {
+
+    Import-DscResource -ModuleName 'GuestConfiguration'
+
+    Node FirewalldEnabled {
+
+        ChefInSpecResource FirewalldEnabled {
+            Name = 'FirewalldEnabled'
+            AttributesYmlContent = "DefaultFirewalldProfile: [public]"
+        }
+    }
+}
+```
+
+For each additional parameter, add a hashtable to the array. In the policy files, you'll see
+properties added to the Guest Configuration configurationName that identify the resource type, name,
+property, and value.
+
+```json
+{
+    "apiVersion": "2018-11-20",
+    "type": "Microsoft.Compute/virtualMachines/providers/guestConfigurationAssignments",
+    "name": "[concat(parameters('vmName'), '/Microsoft.GuestConfiguration/', parameters('configurationName'))]",
+    "location": "[parameters('location')]",
+    "properties": {
+        "guestConfiguration": {
+            "name": "[parameters('configurationName')]",
+            "version": "1.*",
+            "configurationParameter": [{
+                "name": "[Service]windowsService;Name",
+                "value": "[parameters('ServiceName')]"
+            }]
+        }
+    }
+}
+```
+
+## Publish to Azure Policy
+
+The **GuestConfiguration** resource module offers a way to create both policy definitions and the
+initiative definition in Azure with one step through the `Publish-GuestConfigurationPolicy` cmdlet.
+The cmdlet only has the **Path** parameter that points to the location of the three JSON files
+created by `New-GuestConfigurationPolicy`.
+
+```azurepowershell-interactive
+Publish-GuestConfigurationPolicy -Path '.\policyDefinitions' -Verbose
+```
+
+The `Publish-GuestConfigurationPolicy` cmdlet accepts the path from the PowerShell pipeline. This
+feature means you can create the policy files and publish them in a single set of piped commands.
+
+```azurepowershell-interactive
+New-GuestConfigurationPolicy -ContentUri 'https://storageaccountname.blob.core.windows.net/packages/AuditBitLocker.zip?st=2019-07-01T00%3A00%3A00Z&se=2024-07-01T00%3A00%3A00Z&sp=rl&sv=2018-03-28&sr=b&sig=JdUf4nOCo8fvuflOoX%2FnGo4sXqVfP5BYXHzTl3%2BovJo%3D' -DisplayName 'Audit BitLocker service.' -Description 'Audit if the BitLocker service is not enabled on Windows machine.' -Path '.\policyDefinitions' -Platform 'Windows' -Version 1.2.3.4 -Verbose | ForEach-Object {$_.Path} | Publish-GuestConfigurationPolicy -Verbose
+```
+
+With the policy and initiative definitions created in Azure, the last step is to assign the
+initiative. See how to assign the initiative with [Portal](../assign-policy-portal.md), [Azure CLI](../assign-policy-azurecli.md),
+and [Azure PowerShell](../assign-policy-powershell.md).
+
+> [!IMPORTANT]
+> Guest Configuration policies must **always** be assigned using the initiative that combines the
+> _AuditIfNotExists_ and _DeployIfNotExists_ policies. If only the _AuditIfNotExists_ policy is
+> assigned, the prerequisites aren't deployed and the policy always shows that '0' servers are
+> compliant.
 
 ## Policy lifecycle
 
@@ -465,6 +478,10 @@ Parameters of the `Protect-GuestConfigurationPackage` cmdlet:
 - **Path**: Full path of the Guest Configuration package.
 - **Certificate**: Code signing certificate to sign the package. This parameter is only supported
   when signing content for Windows.
+- **PrivateGpgKeyPath**: Private GPG key path. This parameter is only supported when signing content
+  for Linux.
+- **PublicGpgKeyPath**: Public GPG key path. This parameter is only supported when signing content
+  for Linux.
 
 GuestConfiguration agent expects the certificate public key to be present in "Trusted Root
 Certificate Authorities" on Windows machines and in the path
@@ -483,6 +500,9 @@ machine.
 $Cert = Get-ChildItem -Path cert:\LocalMachine\My | Where-Object {($_.Subject-eq "CN=mycert3") } | Select-Object -First 1
 $Cert | Export-Certificate -FilePath "$env:temp\DscPublicKey.cer" -Force
 ```
+
+A good reference for creating GPG keys to use with Linux machines is provided by an article on
+GitHub, [Generating a new GPG key](https://help.github.com/en/articles/generating-a-new-gpg-key).
 
 After your content is published, append a tag with name `GuestConfigPolicyCertificateValidation` and
 value `enabled` to all virtual machines where code signing should be required. See the
