@@ -449,4 +449,4 @@ A custom handler can be deployed to nearly every Azure Functions hosting option 
 
 ## Samples
 
-Refer to the [custom handler samples GitHub repo](https://github.com/pragnagopa/functions-http-worker) for examples of how to implement functions in a variety of different languages.
+Refer to the [custom handler samples GitHub repo](https://github.com/Azure-Samples/functions-custom-handlers) for examples of how to implement functions in a variety of different languages.
