@@ -80,7 +80,7 @@ As mentioned, VNet peering is one way to access your private cluster. To use VNe
 ## Dependencies  
 
 * The Private Link service is supported on Standard Azure Load Balancer only. Basic Azure Load Balancer isn't supported.  
-* To use a custom DNS server, add the Azure DNS IP 168.63.129.16 as upstream DNS server on their custom DNS server.
+* To use a custom DNS server, add the Azure DNS IP 168.63.129.16 as the upstream DNS server in the custom DNS server.
 
 ## Limitations 
 * IP authorized ranges cannot be applied to the private api server endpoint, they only apply to the public API server
