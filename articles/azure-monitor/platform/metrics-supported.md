@@ -462,9 +462,9 @@ Azure Monitor provides several ways to interact with metrics, including charting
 
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|
-|BlobCapacity|Blob Capacity|Bytes|Average|The amount of storage used by the storage account’s Blob service in bytes.|BlobType,Tier|
-|BlobCount|Blob Count|Count|Average|The number of Blob in the storage account’s Blob service.|BlobType,Tier|
-|ContainerCount|Blob Container Count|Count|Average|The number of containers in the storage account’s Blob service.|None|
+|BlobCapacity|Blob Capacity|Bytes|Average|The amount of storage used by the storage account's Blob service in bytes.|BlobType,Tier|
+|BlobCount|Blob Count|Count|Average|The number of Blob in the storage account's Blob service.|BlobType,Tier|
+|ContainerCount|Blob Container Count|Count|Average|The number of containers in the storage account's Blob service.|None|
 |IndexCapacity|Index Capacity|Bytes|Average|The amount of storage used by ADLS Gen2 (Hierarchical) Index in bytes.|None|
 |Transactions|Transactions|Count|Total|The number of requests made to a storage service or the specified API operation. This number includes successful and failed requests, as well as requests which produced errors. Use ResponseType dimension for the number of different type of response.|ResponseType,GeoType,ApiName,Authentication|
 |Ingress|Ingress|Bytes|Total|The amount of ingress data, in bytes. This number includes ingress from an external client into Azure Storage as well as ingress within Azure.|GeoType,ApiName,Authentication|
@@ -477,9 +477,9 @@ Azure Monitor provides several ways to interact with metrics, including charting
 
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|
-|TableCapacity|Table Capacity|Bytes|Average|The amount of storage used by the storage account’s Table service in bytes.|None|
-|TableCount|Table Count|Count|Average|The number of table in the storage account’s Table service.|None|
-|TableEntityCount|Table Entity Count|Count|Average|The number of table entities in the storage account’s Table service.|None|
+|TableCapacity|Table Capacity|Bytes|Average|The amount of storage used by the storage account's Table service in bytes.|None|
+|TableCount|Table Count|Count|Average|The number of table in the storage account's Table service.|None|
+|TableEntityCount|Table Entity Count|Count|Average|The number of table entities in the storage account's Table service.|None|
 |Transactions|Transactions|Count|Total|The number of requests made to a storage service or the specified API operation. This number includes successful and failed requests, as well as requests which produced errors. Use ResponseType dimension for the number of different type of response.|ResponseType,GeoType,ApiName,Authentication|
 |Ingress|Ingress|Bytes|Total|The amount of ingress data, in bytes. This number includes ingress from an external client into Azure Storage as well as ingress within Azure.|GeoType,ApiName,Authentication|
 |Egress|Egress|Bytes|Total|The amount of egress data, in bytes. This number includes egress from an external client into Azure Storage as well as egress within Azure. As a result, this number does not reflect billable egress.|GeoType,ApiName,Authentication|
@@ -491,11 +491,11 @@ Azure Monitor provides several ways to interact with metrics, including charting
 
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|
-|FileCapacity|File Capacity|Bytes|Average|The amount of storage used by the storage account’s File service in bytes.|FileShare|
-|FileCount|File Count|Count|Average|The number of file in the storage account’s File service.|FileShare|
-|FileShareCount|File Share Count|Count|Average|The number of file shares in the storage account’s File service.|None|
-|FileShareSnapshotCount|File Share Snapshot Count|Count|Average|The number of snapshots present on the share in storage account’s Files Service.|FileShare|
-|FileShareSnapshotSize|File Share Snapshot Size|Bytes|Average|The amount of storage used by the snapshots in storage account’s File service in bytes.|FileShare|
+|FileCapacity|File Capacity|Bytes|Average|The amount of storage used by the storage account's File service in bytes.|FileShare|
+|FileCount|File Count|Count|Average|The number of file in the storage account's File service.|FileShare|
+|FileShareCount|File Share Count|Count|Average|The number of file shares in the storage account's File service.|None|
+|FileShareSnapshotCount|File Share Snapshot Count|Count|Average|The number of snapshots present on the share in storage account's Files Service.|FileShare|
+|FileShareSnapshotSize|File Share Snapshot Size|Bytes|Average|The amount of storage used by the snapshots in storage account's File service in bytes.|FileShare|
 |FileShareQuota|File share quota size|Bytes|Average|The upper limit on the amount of storage that can be used by Azure Files Service in bytes.|FileShare|
 |Transactions|Transactions|Count|Total|The number of requests made to a storage service or the specified API operation. This number includes successful and failed requests, as well as requests which produced errors. Use ResponseType dimension for the number of different type of response.|ResponseType,GeoType,ApiName,Authentication,FileShare|
 |Ingress|Ingress|Bytes|Total|The amount of ingress data, in bytes. This number includes ingress from an external client into Azure Storage as well as ingress within Azure.|GeoType,ApiName,Authentication,FileShare|
@@ -508,9 +508,9 @@ Azure Monitor provides several ways to interact with metrics, including charting
 
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|
-|QueueCapacity|Queue Capacity|Bytes|Average|The amount of storage used by the storage account’s Queue service in bytes.|None|
-|QueueCount|Queue Count|Count|Average|The number of queue in the storage account’s Queue service.|None|
-|QueueMessageCount|Queue Message Count|Count|Average|The approximate number of queue messages in the storage account’s Queue service.|None|
+|QueueCapacity|Queue Capacity|Bytes|Average|The amount of storage used by the storage account's Queue service in bytes.|None|
+|QueueCount|Queue Count|Count|Average|The number of queue in the storage account's Queue service.|None|
+|QueueMessageCount|Queue Message Count|Count|Average|The approximate number of queue messages in the storage account's Queue service.|None|
 |Transactions|Transactions|Count|Total|The number of requests made to a storage service or the specified API operation. This number includes successful and failed requests, as well as requests which produced errors. Use ResponseType dimension for the number of different type of response.|ResponseType,GeoType,ApiName,Authentication|
 |Ingress|Ingress|Bytes|Total|The amount of ingress data, in bytes. This number includes ingress from an external client into Azure Storage as well as ingress within Azure.|GeoType,ApiName,Authentication|
 |Egress|Egress|Bytes|Total|The amount of egress data, in bytes. This number includes egress from an external client into Azure Storage as well as egress within Azure. As a result, this number does not reflect billable egress.|GeoType,ApiName,Authentication|
@@ -1176,7 +1176,7 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|
 |CacheUtilization|Cache utilization|Percent|Average|Utilization level in the cluster scope|None|
-|QueryDuration|Query duration|Milliseconds|Average|Queries’ duration in seconds|QueryStatus|
+|QueryDuration|Query duration|Milliseconds|Average|Queries' duration in seconds|QueryStatus|
 |IngestionUtilization|Ingestion utilization|Percent|Average|Ratio of used ingestion slots in the cluster|None|
 |KeepAlive|Keep alive|Count|Average|Sanity check indicates the cluster responds to queries|None|
 |IngestionVolumeInMB|Ingestion volume (in MB)|Count|Total|Overall volume of ingested data to the cluster (in MB)|Database|
@@ -1844,8 +1844,8 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |dwu_used|DWU used|Count|Maximum|DWU used. Applies only to data warehouses.|None|
 |cache_hit_percent|Cache hit percentage|Percent|Maximum|Cache hit percentage. Applies only to data warehouses.|None|
 |cache_used_percent|Cache used percentage|Percent|Maximum|Cache used percentage. Applies only to data warehouses.|None|
-|sqlserver_process_core_percent|SQL Server process core percent|Percent|Maximum|CPU usage percentage for the SQL Server process, as measured by the operating system. Currently available for serverless databases only.|None|
-|sqlserver_process_memory_percent|SQL Server process memory percent|Percent|Maximum|Memory usage percentage for the SQL Server process, as measured by the operating system. Currently available for serverless databases only.|None|
+|sqlserver_process_core_percent|SQL Server process core percent|Percent|Maximum|CPU usage percentage for the SQL Server process, as measured by the operating system.|None|
+|sqlserver_process_memory_percent|SQL Server process memory percent|Percent|Maximum|Memory usage percentage for the SQL Server process, as measured by the operating system.|None|
 |tempdb_data_size|Tempdb Data File Size Kilobytes|Count|Maximum|Tempdb Data File Size Kilobytes. Not applicable to data warehouses.|None|
 |tempdb_log_size|Tempdb Log File Size Kilobytes|Count|Maximum|Tempdb Log File Size Kilobytes. Not applicable to data warehouses.|None|
 |tempdb_log_used_percent|Tempdb Percent Log Used|Percent|Maximum|Tempdb Percent Log Used. Not applicable to data warehouses.|None|
@@ -1888,8 +1888,8 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |database_cpu_limit|CPU limit|Count|Average|CPU limit|DatabaseResourceId|
 |cpu_used|CPU used|Count|Average|CPU used. Applies to vCore-based elastic pools.|None|
 |database_cpu_used|CPU used|Count|Average|CPU used|DatabaseResourceId|
-|sqlserver_process_core_percent|SQL Server process core percent|Percent|Maximum|CPU usage as a percentage of the SQL DB process. Applies to elastic pools.|None|
-|sqlserver_process_memory_percent|SQL Server process memory percent|Percent|Maximum|Memory usage as a percentage of the SQL DB process. Applies to elastic pools.|None|
+|sqlserver_process_core_percent|SQL Server process core percent|Percent|Maximum|CPU usage percentage for the SQL Server process, as measured by the operating system. Applies to elastic pools.|None|
+|sqlserver_process_memory_percent|SQL Server process memory percent|Percent|Maximum|Memory usage percentage for the SQL Server process, as measured by the operating system. Applies to elastic pools.|None|
 |tempdb_data_size|Tempdb Data File Size Kilobytes|Count|Maximum|Tempdb Data File Size Kilobytes|None|
 |tempdb_log_size|Tempdb Log File Size Kilobytes|Count|Maximum|Tempdb Log File Size Kilobytes|None|
 |tempdb_log_used_percent|Tempdb Percent Log Used|Percent|Maximum|Tempdb Percent Log Used|None|
@@ -1937,9 +1937,9 @@ Azure Monitor provides several ways to interact with metrics, including charting
 
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|
-|BlobCapacity|Blob Capacity|Bytes|Average|The amount of storage used by the storage account’s Blob service in bytes.|BlobType,Tier|
-|BlobCount|Blob Count|Count|Average|The number of Blob in the storage account’s Blob service.|BlobType,Tier|
-|ContainerCount|Blob Container Count|Count|Average|The number of containers in the storage account’s Blob service.|None|
+|BlobCapacity|Blob Capacity|Bytes|Average|The amount of storage used by the storage account's Blob service in bytes.|BlobType,Tier|
+|BlobCount|Blob Count|Count|Average|The number of Blob in the storage account's Blob service.|BlobType,Tier|
+|ContainerCount|Blob Container Count|Count|Average|The number of containers in the storage account's Blob service.|None|
 |IndexCapacity|Index Capacity|Bytes|Average|The amount of storage used by ADLS Gen2 (Hierarchical) Index in bytes.|None|
 |Transactions|Transactions|Count|Total|The number of requests made to a storage service or the specified API operation. This number includes successful and failed requests, as well as requests which produced errors. Use ResponseType dimension for the number of different type of response.|ResponseType,GeoType,ApiName,Authentication|
 |Ingress|Ingress|Bytes|Total|The amount of ingress data, in bytes. This number includes ingress from an external client into Azure Storage as well as ingress within Azure.|GeoType,ApiName,Authentication|
@@ -1952,9 +1952,9 @@ Azure Monitor provides several ways to interact with metrics, including charting
 
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|
-|TableCapacity|Table Capacity|Bytes|Average|The amount of storage used by the storage account’s Table service in bytes.|None|
-|TableCount|Table Count|Count|Average|The number of table in the storage account’s Table service.|None|
-|TableEntityCount|Table Entity Count|Count|Average|The number of table entities in the storage account’s Table service.|None|
+|TableCapacity|Table Capacity|Bytes|Average|The amount of storage used by the storage account's Table service in bytes.|None|
+|TableCount|Table Count|Count|Average|The number of table in the storage account's Table service.|None|
+|TableEntityCount|Table Entity Count|Count|Average|The number of table entities in the storage account's Table service.|None|
 |Transactions|Transactions|Count|Total|The number of requests made to a storage service or the specified API operation. This number includes successful and failed requests, as well as requests which produced errors. Use ResponseType dimension for the number of different type of response.|ResponseType,GeoType,ApiName,Authentication|
 |Ingress|Ingress|Bytes|Total|The amount of ingress data, in bytes. This number includes ingress from an external client into Azure Storage as well as ingress within Azure.|GeoType,ApiName,Authentication|
 |Egress|Egress|Bytes|Total|The amount of egress data, in bytes. This number includes egress from an external client into Azure Storage as well as egress within Azure. As a result, this number does not reflect billable egress.|GeoType,ApiName,Authentication|
@@ -1966,11 +1966,11 @@ Azure Monitor provides several ways to interact with metrics, including charting
 
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|
-|FileCapacity|File Capacity|Bytes|Average|The amount of storage used by the storage account’s File service in bytes.|FileShare|
-|FileCount|File Count|Count|Average|The number of file in the storage account’s File service.|FileShare|
-|FileShareCount|File Share Count|Count|Average|The number of file shares in the storage account’s File service.|None|
-|FileShareSnapshotCount|File share snapshot count|Count|Average|The number of snapshots present on the share in storage account’s Files Service.|FileShare|
-|FileShareSnapshotSize|File share snapshot size|Bytes|Average|The amount of storage used by the snapshots in storage account’s File service in bytes.|FileShare|
+|FileCapacity|File Capacity|Bytes|Average|The amount of storage used by the storage account's File service in bytes.|FileShare|
+|FileCount|File Count|Count|Average|The number of file in the storage account's File service.|FileShare|
+|FileShareCount|File Share Count|Count|Average|The number of file shares in the storage account's File service.|None|
+|FileShareSnapshotCount|File share snapshot count|Count|Average|The number of snapshots present on the share in storage account's Files Service.|FileShare|
+|FileShareSnapshotSize|File share snapshot size|Bytes|Average|The amount of storage used by the snapshots in storage account's File service in bytes.|FileShare|
 |FileShareQuota|File share quota size|Bytes|Average|The upper limit on the amount of storage that can be used by Azure Files Service in bytes.|FileShare|
 |Transactions|Transactions|Count|Total|The number of requests made to a storage service or the specified API operation. This number includes successful and failed requests, as well as requests which produced errors. Use ResponseType dimension for the number of different type of response.|ResponseType,GeoType,ApiName,Authentication,FileShare|
 |Ingress|Ingress|Bytes|Total|The amount of ingress data, in bytes. This number includes ingress from an external client into Azure Storage as well as ingress within Azure.|GeoType,ApiName,Authentication,FileShare|
@@ -1983,9 +1983,9 @@ Azure Monitor provides several ways to interact with metrics, including charting
 
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|
-|QueueCapacity|Queue Capacity|Bytes|Average|The amount of storage used by the storage account’s Queue service in bytes.|None|
-|QueueCount|Queue Count|Count|Average|The number of queue in the storage account’s Queue service.|None|
-|QueueMessageCount|Queue Message Count|Count|Average|The approximate number of queue messages in the storage account’s Queue service.|None|
+|QueueCapacity|Queue Capacity|Bytes|Average|The amount of storage used by the storage account's Queue service in bytes.|None|
+|QueueCount|Queue Count|Count|Average|The number of queue in the storage account's Queue service.|None|
+|QueueMessageCount|Queue Message Count|Count|Average|The approximate number of queue messages in the storage account's Queue service.|None|
 |Transactions|Transactions|Count|Total|The number of requests made to a storage service or the specified API operation. This number includes successful and failed requests, as well as requests which produced errors. Use ResponseType dimension for the number of different type of response.|ResponseType,GeoType,ApiName,Authentication|
 |Ingress|Ingress|Bytes|Total|The amount of ingress data, in bytes. This number includes ingress from an external client into Azure Storage as well as ingress within Azure.|GeoType,ApiName,Authentication|
 |Egress|Egress|Bytes|Total|The amount of egress data, in bytes. This number includes egress from an external client into Azure Storage as well as egress within Azure. As a result, this number does not reflect billable egress.|GeoType,ApiName,Authentication|
