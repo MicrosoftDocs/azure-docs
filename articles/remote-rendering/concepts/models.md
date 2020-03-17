@@ -34,7 +34,7 @@ There are two distinct loading functions that differ by the way the asset is add
 * The model can be addressed by its SAS URI. Relevant loading function is `LoadModelFromSASAsync` with parameter `LoadModelFromSASParams`. Use this variant also when loading [built-in models](../samples/sample-model.md).
 * The model can be addressed by blob storage parameters directly, in case the [blob storage is linked to the account](../how-tos/create-an-account.md#link-storage-accounts). Relevant loading function in this case is `LoadModelAsync` with parameter `LoadModelParams`.
 
-The following sample code shows how to load a model via its SAS URI - note that only the loading function/parameter differs for the other case:
+The following code snippets show how to load models with either function. To load a model using the SAS URI, use code like the one below:
 
 ```csharp
 async void LoadModel(AzureSession session, Entity modelParent, string modelUri)
@@ -50,6 +50,23 @@ async void LoadModel(AzureSession session, Entity modelParent, string modelUri)
     };
 
     await loadOp.AsTask();
+}
+```
+
+If you want to load a model by directly using its blob storage parameters, use code similar to the following snippet:
+
+```csharp
+async void LoadModel(AzureSession session, Entity modelParent, string storageAccount, string containerName, string assetFilePath)
+{
+    // load a model that will be parented to modelParent
+    var modelParams = new LoadModelParams(
+        storageAccount, // storage account name + '.blob.core.windows.net', e.g., 'mystorageaccount.blob.core.windows.net'
+        containerName,  // name of the container in your storage account, e.g., 'mytestcontainer'
+        assetFilePath,  // the file path to the asset within the container, e.g., 'path/to/file/myAsset.arrAsset'
+        modelParent
+    );
+
+    // ... (identical to the SAS URI snippet above)
 }
 ```
 

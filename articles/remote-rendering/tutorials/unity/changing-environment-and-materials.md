@@ -90,7 +90,7 @@ public class RemoteSky : MonoBehaviour
 }
 ```
 
-Note that the `LoadTextureFromSASAsync` variant is used above because built-in textures are loaded. In case of loading from [linked blob storages](../../how-tos/create-an-account.md#link-storage-accounts), use the `LoadTextureAsync` variant.
+Note that the `LoadTextureFromSASAsync` variant is used above because built-in textures are loaded. In case of loading from [linked blob storages](../../how-tos/create-an-account.md#link-storage-accounts), use the `LoadTextureAsync` variant. An example for how this works for models can be found in [model loading section](../../concepts/models.md#loading-models).
 
 When you run the code and toggle through the sky maps, you will notice drastically different lighting on your model. However, the background will stay black and you cannot see the actual sky texture. This is intentional, as rendering a background would be distracting with an Augmented Reality device. In a proper application, you should use sky textures that are similar to your real world surroundings, as this will help make objects appear more real.
 
