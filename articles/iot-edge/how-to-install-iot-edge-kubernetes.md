@@ -14,7 +14,7 @@ services: iot-edge
 
 IoT Edge can integrate with Kubernetes using it as a resilient, highly available infrastructure layer. Here is where this support fits in a high level IoT Edge solution:
 
-![k8s intro](./media/how-to-install-iot-edge-kubernetes/k8s_model.png)
+![k8s intro](./media/how-to-install-iot-edge-kubernetes/k8s-model.png)
 
 >[!TIP]
 >A good mental model for this integration is to think of Kubernetes as another operating environment IoT Edge applications can run on in addition to Linux and Windows.
