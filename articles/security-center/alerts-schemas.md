@@ -76,7 +76,7 @@ To create a Sentinel case or incident using Security Center alerts, you'll need 
 
 
 
-### [Workspace](#tab/schema-workspace)
+### [Log Analytics workspace](#tab/schema-workspace)
 
 [!INCLUDE [Sentinel and workspace schema](../../includes/security-center-alerts-schema-loganalyticsworkspace.md)]
 
