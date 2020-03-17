@@ -5,14 +5,13 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ---
 
-# What's new in Microsoft Azure Backup Server (MABS) V3 UR1 
+# What's new in Microsoft Azure Backup Server (MABS) V3 UR1
 
 ## Faster backups with Tiered storage using SSDs
 
 MABS V2 introduced [Modern Backup Storage](backup-mabs-add-storage.md) (MBS), improving storage utilization and performance. MBS uses ReFS as underlying file system and is designed to make use of hybrid storage such as tiered storage.
 
 To achieve the scale and performance by MBS we recommend using a small percentage (4% of overall storage) of flash storage (SSD) with MABS V3 UR1  as a tiered volume in combination with DPM HDD storage. MABS V3 UR1  with tiered storage delivers 50-70% faster backups. Please refer to the DPM article [Set up MBS with Tiered Storage](https://docs.microsoft.com/system-center/dpm/add-storage?view=sc-dpm-2019#set-up-mbs-with-tiered-storage) for steps to configure tiered storage.
-
 
 ## VMWare parallel backups
 
@@ -73,9 +72,9 @@ TLS 1.2  is the secure way of communication suggested by Microsoft with best-in 
 
 VMware VM backup is now supported for production deployments. MABS V3 offers the following for VMware VM protection:
 
-- Support for vCenter and ESXi 6.5, along with support for 5.5 and 6.0.
-- Auto-protection of VMware VMs to cloud. If new VMware VMs are added to a protected folder, they are automatically protected to disk and cloud.
-- Recovery efficiency improvements for VMware alternative location recovery.
+* Support for vCenter and ESXi 6.5, along with support for 5.5 and 6.0.
+* Auto-protection of VMware VMs to cloud. If new VMware VMs are added to a protected folder, they are automatically protected to disk and cloud.
+* Recovery efficiency improvements for VMware alternative location recovery.
 
 ### SQL 2017 support
 
@@ -90,14 +89,13 @@ Find more information about the installation/upgrade steps for MABS [here](https
 
 > [!NOTE]
 >
-> MABS has the same code base as System Center Data Protection Manager. MABS v3 is equivalent to Data Protection Manager 1807.
+> MABS has the same code base as System Center Data Protection Manager. MABS v3 is equivalent to Data Protection Manager 1807. MABS v3 UR1 is equivalent to Data Protection Manager 2019 UR1.
 
 ## Next steps
 
 Learn how to prepare your server or begin protecting a workload:
 
-
-- [Prepare Backup Server workloads](backup-azure-microsoft-azure-backup.md)
-- [Use Backup Server to back up a VMware server](backup-azure-backup-server-vmware.md)
-- [Use Backup Server to back up SQL Server](backup-azure-sql-mabs.md)
-- [Use Modern Backup Storage with Backup Server](backup-mabs-add-storage.md)
+* [Prepare Backup Server workloads](backup-azure-microsoft-azure-backup.md)
+* [Use Backup Server to back up a VMware server](backup-azure-backup-server-vmware.md)
+* [Use Backup Server to back up SQL Server](backup-azure-sql-mabs.md)
+* [Use Modern Backup Storage with Backup Server](backup-mabs-add-storage.md)
