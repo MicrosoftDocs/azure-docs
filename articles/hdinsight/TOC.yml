@@ -610,6 +610,9 @@
       href: ./hbase/apache-hbase-overview.md
   - name: Quickstarts
     items:
+    - name: Create Apache HBase cluster - ARM Template
+      displayName: Resource Manager
+      href: ./hbase/quickstart-resource-manager-template.md
     - name: Query Apache HBase - Apache Phoenix
       href: ./hbase/apache-hbase-query-with-phoenix.md
     - name: Query Apache HBase - HBase Shell
