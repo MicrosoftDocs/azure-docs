@@ -83,7 +83,7 @@ To enable custom attributes in your policy, provide **Application ID** and Appli
 5. Select **Upload Custom Policy**, and then upload the TrustFrameworkExtensions.xml policy files that you changed.
 
 > [!NOTE]
-> For the first time to persists the claim to the directory, Azure AD B2C creates the custom attribute for you.
+> For the first time Azure AD technical profile persists the claim to the directory, it checks whether the custom attribute existed, if not it creates the custom attribute.  
 
 ## Create a custom attribute through Azure portal
 
