@@ -22,7 +22,7 @@ This article summarizes the new features and improvements in the recent releases
 
 As new features are rolled out to all regions, check the version deployed to your instance and the latest release notes for feature availability. To check the version, connect to your SQL pool via SQL Server Management Studio (SSMS) and run `SELECT @@VERSION;` to return the current version.
 
-Use the version identified to confirm which release has been applied to your SQL pool.
+Use the version identified to confirm which release has been applied to your SQL pool. The date in the output identifies the month for the release applied to your SQL pool.
 
 > [!NOTE]
 > By June 2020, the product name returned by SELECT @@VERSION will change from Microsoft Azure SQL Data Warehouse to Azure Synapse Analytics. We will publish the schedule in our release notes. This change is relevant for customers who parse product name from the result of SELECT @@VERSION in their application code. To avoid application code changes due to product rebranding, please use these commands to query SERVERPROPERTY for the database product name and version:

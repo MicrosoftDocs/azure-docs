@@ -1,25 +1,20 @@
 ---
-title: "Quickstart: Perform a news search using the SDK for Java - Bing News Search"
+title: Bing News Search Java client library quickstart 
 titleSuffix: Azure Cognitive Services
-description: Use this quickstart to search for news using the Bing News Search SDK for Java, and process the response.
 services: cognitive-services
 author: aahill
 manager: nitinme
-
 ms.service: cognitive-services
-ms.subservice: bing-news-search
-ms.topic: quickstart
-ms.date: 12/12/2019
+ms.topic: include
+ms.date: 03/12/2020
 ms.author: aahi
-ms.custom: seodec2018
 ---
-# Quickstart: Search for news with the Bing News Search SDK for Java
 
-Use this quickstart to begin searching for news with the Bing News Search SDK for Java. While Bing News Search has a REST API compatible with most programming languages, the SDK provides an easy way to integrate the service into your applications. The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingNewsSearch).
+Use this quickstart to begin searching for news with the Bing News Search client library for Java. While Bing News Search has a REST API compatible with most programming languages, the client library provides an easy way to integrate the service into your applications. The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingNewsSearch).
 
 ## Prerequisites
 
-Install the Bing News Search SDK dependencies using Maven, Gradle, or another dependency management system. The Maven POM file requires the following declaration:
+Install the Bing News Search client library dependencies using Maven, Gradle, or another dependency management system. The Maven POM file requires the following declaration:
 
 ```xml
     <dependencies>
@@ -31,7 +26,7 @@ Install the Bing News Search SDK dependencies using Maven, Gradle, or another de
     </dependencies>
 ```
 
-[!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../includes/cognitive-services-bing-news-search-signup-requirements.md)]
+[!INCLUDE [cognitive-services-bing-news-search-signup-requirements](~/includes/cognitive-services-bing-news-search-signup-requirements.md)]
 
 ## Create and initialize a project
 
@@ -62,7 +57,7 @@ import java.io.IOException;
     }
     ```
 
-2. To create the `ServiceClientCredentials` object, override the `applyCredentialsFilter()` function. Pass a `OkHttpClient.Builder` to the method, and use the builder's `addNetworkInterceptor()` method to create your credentials for the SDK call.
+2. To create the `ServiceClientCredentials` object, override the `applyCredentialsFilter()` function. Pass a `OkHttpClient.Builder` to the method, and use the builder's `addNetworkInterceptor()` method to create your credentials for the client library call.
 
     ```java
     new ServiceClientCredentials() {
@@ -133,4 +128,4 @@ import java.io.IOException;
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create a single-page web app](tutorial-bing-news-search-single-page-app.md)
+> [Create a single-page web app](../../tutorial-bing-news-search-single-page-app.md)
