@@ -28,7 +28,6 @@ The template used in this quickstart is from [Azure Quickstart templates](https:
 
 :::code language="json" source="~/quickstart-templates/101-hdinsight-hbase-linux/azuredeploy.json" range="1-145":::
 
-The mapping is defined in the `openpublishing.publish.config` file.
 
 Two Azure resources are defined in the template:
 
