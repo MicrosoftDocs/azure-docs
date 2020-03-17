@@ -15,44 +15,50 @@ ms.service: digital-twins
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# Understand security best practices
+# Securing Azure Digital Twins with role-based access control
 
-Azure Digital Twins enables precise access control over specific data, resources, and actions in your deployment. It does so through granular role and permission management called **role-based access control (RBAC)**. RBAC consists of roles and role assignments. Roles identify the level of permissions. Role assignments associate a role with a user or device.
-Using RBAC, permission can be granted to a user, a group or a service principal.
+Azure Digital Twins enables precise access control over specific data, resources, and actions in your deployment. It does this through a granular role and permission management strategy called **role-based access control (RBAC)**. 
 
-## What can I do with RBAC?
+Here are some sample security tasks an Azure Digital Twins developer might need, and can do with RBAC:
 
-A developer might use RBAC to:
 * Grant a user the ability to manage devices for an entire building, or only for a specific room or floor.
 * Grant an administrator global access to the entire graph, or only for a section of the graph.
 * Grant a support specialist read access to the graph, except for access keys.
 * Grant every member of a domain read access to all graph objects.
 
-Note that ADTv2 Preview supports two roles: Reader and Owner.  There can be configured in the IAM pane of Azure Portal. For details, see <link to tutorial folder in private preview repo>
+## How RBAC works
+
+The two main elements of RBAC are:
+* **Roles** - These describe a level of permission. Azure Digital Twins Preview supports two roles: *Reader* and *Owner*. 
+* **Role assignments** - These associate a role with a user or device.
+
+These can be configured in the access control options in the Azure Portal. For more details about this process, see [this tutorial](https://github.com/Azure/azure-digital-twins/tree/private-preview/Tutorials).
+
+### Role assignments
+
+An Azure Digital Twins role assignment associates a user, group or service principal with a role of *Reader* or *Owner* in order to grant permissions.
+
+To grant permissions to a recipient, create a role assignment in the access control options in the Azure Portal, or via CLI. To revoke permissions, remove the role assignment.
 
 ## RBAC best practices
-Role-based access control is a security strategy for managing access, permissions, and roles.  For example, an Administrator might need global access to run all operations for a deployment. On the other hand, an Operator might need only read to monitor devices and sensors.
-In every case, roles are granted exactly and no more than the access required to fulfill their tasks per the Principle of Least Privilege. 
+
+Role-based access control is a security strategy for managing access, permissions, and roles. 
+
+Consider that an Administrator might need global access to run all operations for a deployment, while an Operator might need only read to monitor devices and sensors. In most cases, a best practice for RBAC is to use the **Principle of Least Privilege.** This principle says that roles are granted exactly and no more than the access required to fulfill their tasks
 
 According to this principle, an identity is granted only:
-* The amount of access needed to complete its job.
-* A role appropriate and limited to carrying out its job.
+* The amount of access needed to complete its job
+* A role appropriate and limited to carrying out its job
 
->[!IMPORTANT]
->Always follow the Principle of Least Privilege.
+> [!NOTE]
+> For the highest level of security, always follow the Principle of Least Privilege.
 
-Two other important role-based access control practices to follow:
-*    Periodically audit role assignments to verify that each role has the correct permissions.
-*    Clean up roles and assignments when individuals change roles or assignments.
-
-## Role assignments
-
-An Azure Digital Twins role assignment associates a user, group or service principal with a role of reader or owner. 
-<Screen shot of IAM in Portal with role selection – from Mitigation doc>
-
-To grant permissions to a recipient, create a role assignment in the IAM pane of Azure Portal or via CLI. To revoke permissions, remove the role assignment.
+Other important role-based access control practices are:
+* Periodically audit role assignments to verify that each role has the correct permissions
+* Clean up roles and assignments when individuals change roles or assignments
 
 ## Next steps
-*  To learn more about creating and managing Azure Digital Twins role assignments, read <link to tutorial/how to>.
-*  Read more about RBAC for Azure.
+* To learn more about creating and managing Azure Digital Twins role assignments, visit the tutorial [here](https://github.com/Azure/azure-digital-twins/tree/private-preview/Tutorials)
+
+* Read more about [RBAC for Azure](../role-based-access-control/overview.md)
 
