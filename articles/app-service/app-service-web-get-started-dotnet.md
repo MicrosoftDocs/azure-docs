@@ -52,8 +52,8 @@ To publish your web app, you must first create and configure a new App Service t
 
 As part of setting up the App Service, you'll create:
 
-- A new [resource group](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/overview#terminology) to contain all of the Azure resources for the service.
-- A new [Hosting Plan](https://docs.microsoft.com/en-us/azure/app-service/overview-hosting-plans) that specifies the location, size, and features of the web server farm that hosts your app.
+- A new [resource group](https://docs.microsoft.com/azure/azure-resource-manager/management/overview#terminology) to contain all of the Azure resources for the service.
+- A new [Hosting Plan](https://docs.microsoft.com/azure/app-service/overview-hosting-plans) that specifies the location, size, and features of the web server farm that hosts your app.
 
 Follow these steps to create your App Service and publish your web app:
 
