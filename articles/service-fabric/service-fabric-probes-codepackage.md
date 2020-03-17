@@ -17,21 +17,21 @@ Before proceeding with this article, we recommend getting familiar with the [Ser
 ## Semantics
 You can specify only 1 liveness probe per container and can control it's behavior with these fields:
 
-* `initialDelaySeconds`: The initial delay in seconds to start executing probe once container has started. Supported value is int. Deafult is 0. Minimum is 0.
+* `initialDelaySeconds`: The initial delay in seconds to start executing probe once container has started. Supported value is int. Default is 0. Minimum is 0.
 
-* `timeoutSeconds`: Period in seconds after which we consider probe as failure if it hasn't completed successfully. Supported value is int. Deafult is 1. Minimum is 1.
+* `timeoutSeconds`: Period in seconds after which we consider probe as failure if it hasn't completed successfully. Supported value is int. Default is 1. Minimum is 1.
 
 * `periodSeconds`: Period in seconds to specify how often we probe. Supported value is int. Default is 10. Minimum is 1.
 
 * `failureThreshold`: Once we hit FailureThreshold, container will restart. Supported value is int. Default is 3. Minimum is 1.
 
-* `successThreshold`: On failure, for probe to be considered success it has to execute successfully for SuccessThreshold. Supported value is int. Deafult is 1. Minimum is 1.
+* `successThreshold`: On failure, for probe to be considered success it has to execute successfully for SuccessThreshold. Supported value is int. Default is 1. Minimum is 1.
 
-There will be atmost 1 probe to container at one moment of time. If the probe does not complete in **timeoutSeconds** we keep waiting and counting it towards the **failureThreshold**. 
+There will be at most 1 probe to container at one moment of time. If the probe does not complete in **timeoutSeconds** we keep waiting and counting it towards the **failureThreshold**. 
 
 Additionally, ServiceFabric will raise following [Health Reports][health-introduction-link] on DeployedServicePackage when a probe fails:
 
-* `Ok`: If the probe succeds for **successThreshold** then we report health as Ok.
+* `Ok`: If the probe succeeds for **successThreshold** then we report health as Ok.
 
 * `Error`: If the probe failureCount ==  **failureThreshold**, before restarting the container we report Error.
 
@@ -51,7 +51,7 @@ Probe can either one of :
 
 ## HtTTP Probe
 
-For HTTP probe, Service Fabric will send an HTTP request to the port and path specified. Here is an exapmple of how to specify HttpGet probe:
+For HTTP probe, Service Fabric will send an HTTP request to the port and path specified. Here is an example of how to specify HttpGet probe:
 
 ```xml
   <ServiceManifestImport>
