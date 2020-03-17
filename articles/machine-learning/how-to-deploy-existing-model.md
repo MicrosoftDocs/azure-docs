@@ -64,13 +64,13 @@ For more information, see the [Model.register()](https://docs.microsoft.com/pyth
 az ml model register -p ./models -n sentiment -w myworkspace -g myresourcegroup
 ```
 
+> [!TIP]
+> You can also set add `tags` and `properties` dictionary objects to the registered model. These values can be used later to help identify a specific model. For example, the framework used, training parameters, etc.
+
 For more information, see the [az ml model register](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-register) reference.
 
 
 For more information on model registration in general, see [Manage, deploy, and monitor machine learning models](concept-model-management-and-deployment.md).
-
-> [!TIP]
-> You can also set add `tags` and `properties` dictionary objects to the registered model. These values can be used later to help identify a specific model. For example, the framework used, training parameters, etc.
 
 ## Define inference configuration
 
