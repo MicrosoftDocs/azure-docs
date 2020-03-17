@@ -157,7 +157,7 @@ For more information, see [Create or update a virtual machine scale set](https:/
 ### How do I use self-signed certificates provisioned for Azure Service Fabric Clusters?
 For the latest example use the following azure CLI statement within azure shell, read Service Fabrics CLI module Example documentation, which will be printed to stdout:
 
-```bash
+```azurecli
 az sf cluster create -h
 ```
 
@@ -634,9 +634,11 @@ Yes, you can use the reimage operation to reset a VM without changing the image.
 ### Is it possible to integrate scale sets with Azure Monitor logs?
 
 Yes, you can by installing the Azure Monitor extension on the scale set VMs. Here is an Azure CLI example:
-```
+
+```azurecli
 az vmss extension set --name MicrosoftMonitoringAgent --publisher Microsoft.EnterpriseCloud.Monitoring --resource-group Team-03 --vmss-name nt01 --settings "{'workspaceId': '<your workspace ID here>'}" --protected-settings "{'workspaceKey': '<your workspace key here'}"
 ```
+
 You can find the required workspaceId and workspaceKey in the Log Analytics workspace of Azure portal. On the Overview page, click the Settings tile. Click the Connected Sources tab at the top.
 
 > [!NOTE]
