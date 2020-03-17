@@ -34,7 +34,7 @@ There are two distinct loading functions that differ by the way the asset is add
 * The model can be addressed by its SAS URI. Relevant loading function is `LoadModelFromSASAsync` with parameter `LoadModelFromSASParams`. Use this variant also when loading [built-in models](../samples/sample-model.md).
 * The model can be addressed by blob storage parameters directly, in case the [blob storage is linked to the account](../how-tos/create-an-account.md#link-storage-accounts). Relevant loading function in this case is `LoadModelAsync` with parameter `LoadModelParams`.
 
-The following two code snippets show how to load models with either function. To load a model using the SAS URI, you would use code like the one below:
+The following code snippets show how to load models with either function. To load a model using the SAS URI, you would use code like the one below:
 
 ```csharp
 async void LoadModel(AzureSession session, Entity modelParent, string modelUri)
