@@ -83,6 +83,7 @@ az appservice plan create \
     --sku S1
 
 ```
+
 ### Create a web app in the app service plan
 Create two instances the web application using [az webapp create](https://docs.microsoft.com/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) in the App Service plans in the *East US* and *West Europe* Azure regions.
 
@@ -122,6 +123,7 @@ az webapp show \
     --query id
 
 ```
+
 Make note of id displayed in output and use in the following command to add the endpoint:
 
 ```azurecli-interactive
@@ -146,6 +148,7 @@ az webapp show \
     --query id
 
 ```
+
 Make note of id displayed in output and use in the following command to add the endpoint:
 
 ```azurecli-interactive
@@ -207,7 +210,7 @@ Copy the **RelativeDnsName** value. The DNS name of your Traffic Manager profile
 
 When you're done, delete the resource groups, web applications, and all related resources using [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete).
 
-```azurepowershell-interactive
+```azurecli-interactive
 
 az group delete \
     --resource-group myResourceGroup
