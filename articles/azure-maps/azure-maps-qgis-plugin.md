@@ -1,5 +1,5 @@
 ---
-title: Azure Maps plugin for the Quantum Geographic Information System [(QGIS) | Microsoft Docs
+title: Azure Maps plugin for the Quantum Geographic Information System (QGIS) software | Microsoft Docs
 description: This article shows you how to install the Azure Maps QGIS plug-in. It also shows you how to use the plugin to perform common tasks on your data set.
 author: farah-alyasari
 ms.author: v-faalya
@@ -13,7 +13,7 @@ ms.custom: mvc
 
 # Azure Maps plugin for QGIS
 
-The Quantum Geographic Information System [(QGIS)](https://qgis.org/) is a Free and Open Source Software (FOSS) application. Azure Maps provides a QGIS plug-in for "Private Atlas - Private Preview", a QGIS tool that lets users develop and own their map data.
+The Quantum Geographic Information System [(QGIS)](https://qgis.org/) is a Free and Open Source Software (FOSS) application. Azure Maps provides a plug-in for "Private Atlas - Private Preview", a QGIS tool that lets users develop and own their map data.
 
 Although the Azure Maps QGIS plug-in is currently under experimentation, it provides complete indoor mapping functionalities. The plug-in lets users visualize their data and perform quality assurance tasks on their data sets. Edits and changes to the data sets can be viewed on a rendered indoor map and in near real-time. All data modifications in the plug-in can be synced up and saved to the Azure Maps resources. This article guides you through the installation process of the Azure Maps QGIS plug-ins. It also shows you how to use the plug-in to perform common tasks with your data set.
 
@@ -21,7 +21,7 @@ Although the Azure Maps QGIS plug-in is currently under experimentation, it prov
 
 Before you can use the Azure Maps QGIS plugin, you need to [make an Azure account](quick-demo-map-app.md#create-an-account-with-azure-maps) and [obtain a primary subscription key](quick-demo-map-app.md#get-the-primary-key-for-your-account). This key may also be called the primary key or the subscription key.
 
-To use the Azure Maps QGIS plug-in, you'll need to [download the QGIS Desktop application](https://www.qgis.org/en/site/forusers/download.html). You'll need a version of 3.8.* or higher.
+To use the Azure Maps QGIS plug-in, you'll need to [download the QGIS Desktop application](https://www.qgis.org/en/site/forusers/download.html). Select a version of 3.8.* or higher.
 
 ## Install the Azure Maps QGIS plug-in
 
@@ -69,7 +69,7 @@ After the installation is complete, the Azure Maps plug-in will be accessible vi
 
    </center>
 
-Click on the Azure Maps QGIS plug-in icon to open the **Azure Maps** window. In the **Private Atlas** tab, provide your **datasetId**. And provide your Azure Maps **primary subscription key** in the **Authentication** tab. Providing your **datasetId** and **primary subscription key** allows you to access and save the Private Atlas data set. The modifications you make in the plug-in, will also be synced with the Azure Maps resources.
+Click on the Azure Maps QGIS plug-in icon to open the **Azure Maps** window. In the **Private Atlas** tab, provide your **datasetId**. Provide your Azure Maps **primary subscription key** in the **Authentication** tab. Providing your **datasetId** and **primary subscription key** allows you to access and save the Private Atlas data set. And the modifications you make in the plug-in, will also be with the Azure Maps resources.
 
    <center>
 
@@ -78,9 +78,9 @@ Click on the Azure Maps QGIS plug-in icon to open the **Azure Maps** window. In 
 
    </center>
 
-You can optionally set the spatial extents for the rendered indoor map in the **Private Atlas** tab. The spatial extent is a bounding box defined by four latitude and longitude coordinates. It's the smallest rectangular shape that encloses all the referenced map data. To obtain your bounding box information, use the [Tileset List API]() from the Azure Maps Tileset service.
+You can optionally set the spatial extents for the rendered indoor map in the **Private Atlas** tab. The spatial extent is a bounding box defined by four latitude and longitude coordinates. The coordinates represent the smallest rectangle that encloses all the referenced map data. To obtain your bounding box information, use the [Tileset List API]() from the Azure Maps Tileset service.
 
-The **Floor Picker** tab lets you select the floor number. The map of the selected floor will render on the map, so you can make edits this floor map data. Initially, this option greyed out because you need to load your data set before you can select a floor number.
+The **Floor Picker** tab lets you select the floor number. The map of the selected floor will render in the QGIS application window, so you can make edits to this floor map data. Initially, this option is greyed out because you need to load your data set before you can select a floor number.
 
    <center>
 
@@ -88,7 +88,7 @@ The **Floor Picker** tab lets you select the floor number. The map of the select
 
    </center>
  
-To load your data set, provide the **datasetId**, and the **primary subscription key**. And press the **get features** button in the **Private Atlas** tab. Once this request completes successfully, you'll see layers with the features of your data set in the **Layers** panel. The layers reflect the content of your DWG package. The features in your data may not encompass [all the feature collections](#Full-list-of-feature-collections) that the **Layers** panel supports. And, you may not have used all the [supported layers](dwg-requirements.md#dwg-files-requirements). However, you'll definitely see the _unit_ and the _Exterior_ layers because they are [required](dwg-requirements.md) to convert a DWG package into map data.
+To load your data set, provide the **datasetId** and the **primary subscription key**. And press the **get features** button in the **Private Atlas** tab. Once this request completes successfully, you'll see layers with the features of your data set in the **Layers** panel. The layers reflect the content of your DWG package. The features in your data may not encompass all the [feature collections](#full-list-of-feature-collections) that the **Layers** panel supports. And, you may not have used all the [supported layers](dwg-requirements.md#dwg-files-requirements). However, you'll definitely see the _Unit_ and the _Exterior_ layers because they're [required](dwg-requirements.md) to convert a DWG package into map data.
 
    <center>
 
@@ -96,7 +96,7 @@ To load your data set, provide the **datasetId**, and the **primary subscription
 
    </center>
 
-You can zoom into a layer by right-clicking on the layer and choosing **Zoom to Layer**. You can also edit the layer by right-clicking and choosing **Open Attribute Table**. In the **Attribute Table** window, you can click the **toggle** icon to make the data editable. And once you make your edits, you need to click the **save** icon.
+You can zoom into a layer by right-clicking on the layer and choosing **Zoom to Layer**. You may also edit the layer by right-clicking and choosing **Open Attribute Table**. In the **Attribute Table** window, click the **toggle** icon to make the data editable. When you're done editing the data, click the **save** icon. The next section shows you common data edits, you'll likely perform on your data set.
 
    <center>
 
@@ -106,11 +106,13 @@ You can zoom into a layer by right-clicking on the layer and choosing **Zoom to 
 
 ### Edit a data set
 
-The QGIS application lets you make geometry changes, add features, or delete features. However, we recommend that you use the application only to edit the properties of the features. Use the Azure Maps Data, Data set, Tile set, and Feature State set services to make major changes to your map data.  In this section, we discuss common edits you'll likely perform on your data set using the Azure Maps QGIS plug-in. These modification or soft touches are performed with the plug-in to keep your data fresh. You'll also be able to see the changes rendered on the map in near real-time, so you can visualize them. If you approve of these changes, you can save them using the plug-in, and the changes would sync up with your Azure Maps resources.
+In this section, we discuss common edits you'll likely perform on your data set using the Azure Maps QGIS plug-in. Modification and soft touches are performed with the plug-in to keep your data fresh. You'll also see the changes rendered on the map in near real-time, so you can visualize them. If you like the changes, you can save them in the QGIS application. The saved changes automatically sync up with your Azure Maps resources.
+
+Although the QGIS application lets you make geometry changes, add features, or delete features, we don't you do so. Use the Azure Maps Data, Dataset, Tileset, and Feature Stateset services to make major changes to your map data. And use the application only to edit the properties of the features. 
 
 #### Update a feature collection
 
-The feature collection in your **Layers** panel is imported using the **DWG convert API**. All the features listed in the [feature table](#Full-list-of-feature-collections) can be updated, except the _point_, _line_, and _area_element_ feature. Follow the steps below to change the name of a unit, assuming a scenario where the building space has been repurposed.
+The feature collection in your **Layers** panel is imported using the **DWG conversion API**. All the features listed in the [feature table](#full-list-of-feature-collections) can be updated, except the _point_, _line_, and _area_element_ feature. Follow the steps below to change the name of a unit, assuming the building unit has been repurposed.
 
 1. In the Azure Maps plug-in, select the **Floor Picker** tab. Choose the floor where the unit to be edited is mapped.
 
@@ -130,7 +132,7 @@ The feature collection in your **Layers** panel is imported using the **DWG conv
 
    </center>
 
-If the changes made to the data set are successful, you'll see a success message like the one below. In case your changes aren't successful, you'll see a failure message.
+If the changes made to the data set are successful, you'll see a success message like the one below. In case your changes aren't successful, you'll see a failure message with details.
 
    <center>
 
@@ -142,9 +144,7 @@ If the changes made to the data set are successful, you'll see a success message
 
 You might want to add, edit or delete project-specific features, such as furniture or points and lines of interest. This exercise shows you how to add an object to your map. More specifically, we'll add a desk.
 
-The first step in adding a feature to the map is to decide the category and the layer for this feature. Because a desk is a type of furniture, we can place a desk in the _furniture_ category or the _furniture.desk_ category. Furniture items are normally inside units, such as rooms. So, we'll place the desk in the _Unit_ layer.  You can use the same thinking processes when adding features to your map. See the [supported categories](https://aka.ms/pa-indoor-spacecategories) and [supported map layer](dwg-requirement.md#dwg-files-requirements) to make your decision.
-
-The steps below start by showing you how to add a furniture category to your list of categories, and obtains its **ID**. Next, we'll show you how to obtain the unit **ID**, and we'll add the desk to this unit. Finally, we'll add the desk to the layer, and check the category and unit layers to ensure that the desk has been successfully added.
+The first step in adding a feature to the map is to decide the category and the layer for this feature. Because a desk is a type of furniture, we can place a desk in the _furniture_ category or the _furniture.desk_ category. Furniture items are normally inside units, such as rooms. So, we'll place the desk in the _Unit_ layer. The steps below start by showing you how to add a furniture category to your list of categories. And obtain the category **ID**. Next, we'll show you how to obtain the unit **ID**, and we'll add the desk to this unit. We'll add the desk to the _Unit_ layer, and check the category and layer to ensure the desk was successfully added.
 
 1. Click on the **category** layer in the **Layers** panel, and click on the **edit** icon in the toolbar. Then, click the **Add Record** icon in the toolbar, it's next to the **edit** button.
 
@@ -172,7 +172,7 @@ The steps below start by showing you how to add a furniture category to your lis
 
 4. To see the assigned category ID, reload the data set by clicking the **Get Features** button in the **Private Atlas** tab. If you closed the **Azure Maps** plug-in window, you can reopen the window and click **Get Features**.
 
-5. Right click on the **category** layer in **Layers** panel. Click on **Open Attributes Table**, and you should be able to see the new category in the list along with its unique category ID. Copy the **ID** for the category, you may right-click and select **Copy Cell Content**.
+5. Right click on the **category** layer in **Layers** panel. Click on **Open Attributes Table**, and you should see the new category in the list along with its unique category ID. Copy the **ID** for the category, you may right-click and select **Copy Cell Content**.
 
    <center>
 
@@ -180,7 +180,7 @@ The steps below start by showing you how to add a furniture category to your lis
 
    </center>
 
-6. Right click on the **unit** layer in the **Layers** panel. Click on **OpenAttribute Table**. Copy the **ID** of the desired unit.
+6. Right click on the **unit** layer in the **Layers** panel. Click on **OpenAttribute Table**. Copy the **ID** of the chosen unit.
 
    <center>
 
@@ -207,7 +207,7 @@ The steps below start by showing you how to add a furniture category to your lis
 
    </center>
 
-10. Now that you provide the required information, you should be able to see the element on the map. Click the **Save Layer Edits** button in the toolbar to save changes to your data set.
+10. Now that you provide the required information, you should see the element on the map. Click the **Save Layer Edits** button in the toolbar to save changes to your data set.
 
    <center>
 
@@ -215,7 +215,7 @@ The steps below start by showing you how to add a furniture category to your lis
 
    </center>
 
-5. You should also be able to see the new category we generated. Right click on **area_element** layer in the **Layers** panel. Click on the **Open Attributes Table**. Check the new category in the list along with the unique category ID that we generated in a previous step.
+5. You should see the new category we generated. Right click on **area_element** layer in the **Layers** panel. Click on the **Open Attributes Table**. Check the new category in the list along with the unique category ID that we generated in a previous step.
 
    <center>
 
@@ -223,7 +223,7 @@ The steps below start by showing you how to add a furniture category to your lis
 
    <center>
 
-You can follow similar steps to add an element to a different feature category or different layer.
+You can use the same thinking processes and steps to add additional features to your map. See the [supported categories](https://aka.ms/pa-indoor-spacecategories) and [supported map layer](dwg-requirement.md#dwg-files-requirements) to decide where to add your features.
 
 ## Full list of feature collections
 
@@ -232,7 +232,7 @@ The table below shows the full list of feature collections. You can also expose 
 | Feature collection ID | Description |
 |---------|-------------|
 | category | Category names. For example,  \"room.conference\". The _is_routable_ attribute puts a feature with that category on the routing graph. The _route_through_behavior_ attribute determines whether a feature can be used for through traffic or not.
-| directory_info | Name, address, phone number, website, and hours of operation for a unit, facility, or an occupant of a unit or facility. |
+| directory_info | The name, address, phone number, website, and hours of operation for a unit, facility, or occupant |
 | vertical_penetration | An area that, when used in a set, represents a method of navigating vertically between levels. It can be used to model stairs, elevators, and so on. Geometry can overlap units and other vertical penetration features. |
 | zone | A virtual area. ex, WiFi zone, emergency assembly area. Zones can be used as destinations but not meant for through traffic.|
 | opening | A traversable boundary between two units, or a unit and vertical_penetration.|
@@ -241,7 +241,7 @@ The table below shows the full list of feature collections. You can also expose 
 | facility | An area of the site, such as a building footprint.|
 | point_element | A point feature in a unit, such as a printer or a device. |
 | line_element | A line feature in a unit, such as a dividing wall or window.|
-| area_element | A polygon feature in a unit, such as an area open to below, an obstruction like an island in a unit.|
+| area_element | A polygon feature in a unit, such as an obstruction like an island in a unit.|
 
 ## Known limitations
 
