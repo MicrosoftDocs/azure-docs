@@ -197,14 +197,14 @@ public async Task UploadFile(DataLakeFileSystemClient fileSystemClient)
 }
 ```
 
-The amount of data that you can append to a file by making a call to the [DataLakeFileClient.AppendAsync](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake.datalakefileclient.appendasync) method is limited in size. If the size of your file exceeds this limit, you'll have to make multiple calls to the [DataLakeFileClient.AppendAsync](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake.datalakefileclient.appendasync) method to upload the entire file.
-
 > [!TIP]
->  Upload large files by using the [DataLakeFileClient.UploadAsync]() method so that you can upload the entire file in a single call.
+> If your file size is large, your code will have to make multiple calls to the [DataLakeFileClient.AppendAsync](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake.datalakefileclient.appendasync). Consider using the [DataLakeFileClient.UploadAsync](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake.datalakefileclient.uploadasync?view=azure-dotnet-preview#Azure_Storage_Files_DataLake_DataLakeFileClient_UploadAsync_System_IO_Stream_) method method instead. That way, you can upload the entire file in a single call. 
+>
+> See the next section for an example.
 
-## Upload large files in bulk
+## Upload a large file to a directory
 
-Use the [DataLakeFileClient.UploadAsync]() method to upload large files without having to make multiple calls to the [DataLakeFileClient.AppendAsync](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake.datalakefileclient.appendasync) method.
+Use the [DataLakeFileClient.UploadAsync](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake.datalakefileclient.uploadasync?view=azure-dotnet-preview#Azure_Storage_Files_DataLake_DataLakeFileClient_UploadAsync_System_IO_Stream_) method to upload large files without having to make multiple calls to the [DataLakeFileClient.AppendAsync](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake.datalakefileclient.appendasync) method.
 
 ```cs
 public async Task UploadFileBulk(DataLakeFileSystemClient fileSystemClient)
