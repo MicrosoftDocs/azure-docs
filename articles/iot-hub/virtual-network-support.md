@@ -14,7 +14,7 @@
 This article introduces the VNET connectivity pattern and elaborates on how to set up a private connectivity experience to an IoT hub through a customer-owned Azure VNET.
 
 > [!NOTE]
-> The IoT hub features described in this article are currently available to IoT Hub [created with managed service identity](#create-an-iot-hub-with-managed-service-identity) in the following regions: East US, South Central US, and West US 2.
+> The IoT Hub features described in this article are currently available to IoT hubs [created with managed service identity](#create-an-iot-hub-with-managed-service-identity) in the following regions: East US, South Central US, and West US 2.
 
 
 ## Introduction
