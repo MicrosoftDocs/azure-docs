@@ -4,7 +4,7 @@ description: Release notes for Azure Media Player
 author: IngridAtMicrosoft
 ms.author: inhenkel
 ms.service: media-services
-ms.topic: release-notes
+ms.topic: reference
 ms.date: 03/06/2020
 ---
 # Release Notes
@@ -15,9 +15,10 @@ Below is a list of known issues associated with this release.  Also, a list of t
 
 [Known Issue List](azure-media-player-known-issues.md)
 
-[Changelog](azure-media-player-change-log.md "Changelog")
+[Changelog](azure-media-player-changelog.md "Changelog")
 
-[TypeScript Definitions (d.ts)](typescript/azuremediaplayer.d.ts "TypeScript Definitions" )
+<!-- Typescript definitions were moved to the samples repository.>-->
+[TypeScript Definitions (d.ts)](https://github.com/Azure-Samples/azure-media-player-samples "TypeScript Definitions" )
 
 ## Next steps
 

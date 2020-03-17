@@ -1,10 +1,10 @@
 ---
-title: 
-description: 
+title: Azure Media Player Quickstart
+description: Learn the basic steps to set up the Azure Media Player.
 author: IngridAtMicrosoft
 ms.author: inhenkel
 ms.service: media-services
-ms.topic: overview
+ms.topic: quickstart
 ms.date: 03/13/2020
 ---
 

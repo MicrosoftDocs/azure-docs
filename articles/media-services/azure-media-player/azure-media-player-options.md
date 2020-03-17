@@ -99,7 +99,8 @@ By setting this option to true video element will take full width of the parent 
 
 `<video ... data-setup='{"playbackSpeed": {"enabled": true}}'>`
 
-Other properties of the `playbackSpeed` setting are given by [PlaybackSpeedOptions](#amp.player.playbackspeedoptions) object. Example of setting playback speed options in JavaScript:
+<!-- API needs onboarding. Commented sentence until remedied. -->
+<!--Other properties of the `playbackSpeed` setting are given by [PlaybackSpeedOptions](#amp.player.playbackspeedoptions) object.--> Example of setting playback speed options in JavaScript:
 
 ```javascript
     var myPlayer = amp('vid1', {

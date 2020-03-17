@@ -66,8 +66,9 @@ ms.date: 03/16/2020
 
 ### Changes ###
 
-<!---API needs onboarding--->
--[Change][Live captioning] Changed API name for CEA captions from 608 to 708, for more details, see [here](index.html#amp.player.cea708captionssettings)
+<!---API needs onboarding. Removed link until this happens to get doc to pass Acrolinx--->
+-[Change][Live captioning] Changed API name for CEA captions from 608 to 708.
+<!--> for more details, see [here](index.html#amp.player.cea708captionssettings)-->
 
 ## 2.2.0 (Official Release) ##
 
@@ -92,7 +93,7 @@ ms.date: 03/16/2020
 
 ### Changes 2.1.9 ###
 
-- [Change][Flash][AES] Modified Flash tech logic to not use sharedbytearrays for AES decryption as Adobe has blocked the usage as of Flash 30. Please note, playback will only work once Adobe deploys a new version of Flash due to a bug in v30. Please see [known issues](known_issues.html) for more details
+- [Change][Flash][AES] Modified Flash tech logic to not use sharedbytearrays for AES decryption as Adobe has blocked the usage as of Flash 30. Please note, playback will only work once Adobe deploys a new version of Flash due to a bug in v30. Please see [known issues](azure-media-player-known_issues.md) for more details
 
 ## 2.1.8 (Official Update) ##
 
@@ -342,9 +343,10 @@ ms.date: 03/16/2020
 ## 1.7.2 (Official Hotfix Update) ##
 
 ### Features 1.7.2 ###
-<!---API needs onboarding--->
+<!---API needs onboarding. Removed link to API until remedied.--->
 - [Feature][AzureHtml5JS|Firefox] Enable Widevine playback with EME for Firefox 47+
-- [Feature] Add event for player ([disposing](index.html#static-amp.eventname.disposing))
+- [Feature] Add event for player disposing
+<!-- ([disposing](index.html#static-amp.eventname.disposing)) -->
 
 ### Bug Fixes 1.7.2 ###
 
@@ -380,9 +382,9 @@ ms.date: 03/16/2020
 ## 1.7.0 (Official Update) ##
 
 ### Features 1.7.0 ###
-<!---API needs onboarding--->
+<!---API needs onboarding. Removed link until remedied.--->
 - [Feature][AzureHtml5JS][FlashSS] Added currentMediaTime() to get the encoder media time of the current time in seconds
-- [Feature][FlashSS] Implemented download telemetry APIs with videoBufferData() and audioBufferData() (see [BufferData](index.html#amp.bufferdata) for more details)
+- [Feature][FlashSS] Implemented download telemetry APIs with videoBufferData() and audioBufferData()<!-- (see [BufferData](index.html#amp.bufferdata) for more details) -->
 - [Feature][FlashSS] Added 'downloadbitratechanged' event
 - [Feature] Loading time improved compared to older versions of player
 - [Feature] Errors are logged to JavaScript console

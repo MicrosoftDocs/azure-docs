@@ -42,8 +42,8 @@ The current release has the following known issues:
 - If in the DVR window of Live content, and content finishes, timeline will continue to grow until seek to the area or reaching the end of the presentation.
 - Live presentations in Firefox with MSE enabled has some issues
 - Assets that are audio or video only will not play back via the AzureHtml5JS tech.
-  - If you'd like to play back assets without audio or video, you can do so by inserting blank audio or video using the [Azure Media Services Explorer tool](http://aka.ms/amse)
-    - Instructions on how to insert silent audio can be found [here](https://azure.microsoft.com/en-us/documentation/articles/media-services-advanced-encoding-with-mes/#silent_audio)
+  - If you'd like to play back assets without audio or video, you can do so by inserting blank audio or video using the [Azure Media Services Explorer tool](https://aka.ms/amse)
+    - Instructions on how to insert silent audio can be found [here](https://azure.microsoft.com/documentation/articles/media-services-advanced-encoding-with-mes/#silent_audio)
 
 ## Flash ##
 

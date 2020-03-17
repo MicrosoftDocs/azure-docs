@@ -27,7 +27,7 @@
   - name: Accessibility
     href: azure-media-player-accessibility.md
   - name: Writing Plugins
-    href: azure-media-player-writing-plugins- 
+    href: azure-media-player-writing-plugins.md
   - name: Plugin gallery
     href: azure-media-player-plugin-gallery.md
   - name: Localization

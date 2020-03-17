@@ -4,15 +4,15 @@ description: Learn how to write a plugin with Azure Media Player with JavaScript
 author: IngridAtMicrosoft
 ms.author: inhenkel
 ms.service: media-services
-ms.topic: overview
+ms.topic: how-to
 ms.date: 03/06/2020
 ---
 
-## Writing plugins for Azure Media Player ##
+# Writing plugins for Azure Media Player #
 
 A plugin is JavaScript written to extend or enhance the player. You can write plugins that change Azure Media Player's appearance, its functionality or even have it interface with other services. You can do this in two easy steps:
 
-### Step 1 ###
+## Step 1 ##
 
 Write your JavaScript in a function like so:
 
@@ -41,7 +41,7 @@ Example:
     <script src="yourPluginName.js"></script>
 ```
 
-### Step 2 ###
+## Step 2 ##
 Initialize the plugin with JavaScript in one of two ways:
 
 Method 1:
