@@ -98,6 +98,9 @@ Running the pre-registration script performs the following functions:
   * SAP_INTERNAL_HANA_SUPPORT: to access a few private tables.
 * The script adds a key to **hdbuserstore** for AZUREWLBACKUPHANAUSER for the HANA backup plug-in to handle all operations (database queries, restore operations, configuring and running backup).
 
+>[!NOTE]
+> Make sure you have a unique set of SSFS files under `/usr/sap/{SID}/home/.hdb/`. There should be only one folder in this path.
+
 To confirm the key creation, run the HDBSQL command on the HANA machine with SIDADM credentials:
 
 ```hdbsql
@@ -107,7 +110,7 @@ hdbuserstore list
 The command output should display the {SID}{DBNAME} key, with the user shown as AZUREWLBACKUPHANAUSER.
 
 >[!NOTE]
-> Make sure you have a unique set of SSFS files under `/usr/sap/{SID}/home/.hdb/`. There should be only one folder in this path.
+> You can explicitly pass parameters to the pre-registration script. To learn how the script runs and what parameters it accepts, use the following command: `bash msawb-plugin-config-com-sap-hana.sh --help`
 
 ## Create a Recovery Service vault
 
