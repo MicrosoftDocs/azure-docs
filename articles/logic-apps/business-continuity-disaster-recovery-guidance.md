@@ -134,11 +134,11 @@ To avoid repeatedly reading the same data, your logic app needs to remember whic
 
   This server-side approach works similarly for Service Bus queues or topics that have queuing semantics where a trigger can read and lock a message while the logic app processes the message. When the logic app finishes processing, the trigger deletes the message from the queue or topic.
 
-From a disaster recovery perspective, when you set up your logic app's primary and secondary instances, make sure that you've accounted for these behaviors based on whether your logic app tracks state on the client side or on the server side:
+From a disaster recovery perspective, when you set up your logic app's primary and secondary instances, make sure that you account for these behaviors based on whether your logic app tracks state on the client side or on the server side:
 
 * For a logic app that tracks client-side state, make sure that your logic app doesn't read the same message more than one time. Only one location can have an active logic app instance at any specific time. Make sure that the logic app instance in the alternate location is inactive or disabled until the primary instance fails over to the alternate location.
 
-* For a logic app that tracks server side state, you can set up your logic app instances with either [active-active roles](#roles) where they work as competing consumers, or with [active-passive roles](#roles) where the alternate instance waits until the primary instance fails over to the alternate location.
+* For a logic app that tracks server side state, you can set up your logic app instances to play either [active-active roles](#roles) where they work as competing consumers or [active-passive roles](#roles) where the alternate instance waits until the primary instance fails over to the alternate location.
 
   > [!NOTE]
   > If your logic app needs to read messages in a specific order, for example, from a Service Bus queue, 
@@ -152,15 +152,15 @@ From a disaster recovery perspective, when you set up your logic app's primary a
 
 The **Request** trigger makes your logic app callable from other apps, services, and systems and is typically used to provide these capabilities:
 
-* An endpoint or direct REST API for your logic app that others can call
+* A direct REST API for your logic app that others can call
 
   For example, use this trigger when you want to call your logic app from other logic apps by using the **Call workflow - Logic Apps** action.
 
-* A callback or webhook mechanism
+* A [webhook](#webhook-trigger) or callback mechanism for your logic app
 
-* The capability for user operation routines to manually call your logic app
+* A mechanism for user operation routines to manually call your logic app
 
-From a disaster recovery perspective, the Request trigger plays a passive role because the logic app doesn't do any work and waits until something explicitly calls the trigger. As a passive endpoint, you can set up your primary and secondary instances with either of these roles:
+From a disaster recovery perspective, the Request trigger plays a passive role because the logic app doesn't do any work and waits until something explicitly calls the trigger. As a passive endpoint, you can set up your primary and secondary instances to play either of these roles:
 
 * Active-passive where the caller or router determines when to enable or activate those instances
 * Active-active when you use the load balancer pattern
@@ -171,25 +171,66 @@ As a recommended architecture, you can use Azure API Management as a proxy for t
 
 ### Webhook trigger
 
-Webhook triggers subscribe to a service by passing an endpoint that the logic app is listening to. Webhook triggers will subscribe when enabled and unsubscribe when disabled. Logic apps with webhook triggers should be configured as active-passive so that only one logic app is getting the messages/events from the subscribed endpoint.
+A *webhook* trigger provides the capability for your logic app to subscribe to a service by passing a *callback URL* to that service. Your logic app can then listen and wait for a specific event to happen at that service endpoint. When the event happens, the service calls the webhook trigger by using the callback URL, which then runs the logic app. When enabled, the webhook trigger subscribes to the service. When disabled, the trigger unsubscribes from the service.
 
-## Assess primary location health
+From a disaster recovery perspective, set up primary and secondary instances that use webhook triggers to play active-passive roles because only one instance should receive events or messages from the subscribed endpoint.
 
-To determine whether or not a primary is no longer available there needs to be a mechanism that makes the determination of its health and another service to monitor it to know if the primary is down and the secondary should now become active.
+## Assess primary instance health
 
-### Check logic app health
+For your disaster recovery strategy to work, you need to have ways that you can perform these tasks:
 
-A simple way to determine if a location is up and running and able to process work is by calling a logic app in the same location. If this logic app successfully responds that means the underlying infrastructure for the logic apps service in that region is working properly. [NOTE: Laveesh was working on enabling a data-plane health check endpoint on a given logic app that will explicitly indicate whether or not the scale unit it is running on is not having issues]. To accomplish this you can create a simple health-check logic app with a request trigger and a response action (note that it's important that the logic app has a response action to ensure that it responds synchronously). If this health-check logic app fails to respond successfully then we can assume that this location is no longer healthy. This health-check logic app can be enhanced to determine the health of other services that the workflows interact with at this location and their health can then be factored into determining whether or not this location is no longer available.
+* [Check the primary instance's availability](#check-primary-availability).
+* [Monitor the primary instance's health](#monitor-primary-health).
+* [Enable the secondary instance](#enable-secondary).
 
-### Set up a watchdog logic app
+This section describes one solution that you can use outright or as a foundation for your own design.
 
-In the alternate location create a watchdog logic app that has a recurrence trigger and uses the HTTP action to call the health-check logic app in the primary region. The recurrence interval can be set to some value below your RTO tolerance. It's important that the watchdog logic app not run in the same location as the primary because the if the logic apps service in the primary location is having issues, then the watchdog may not run. The watchdog logic app can be constructed so that if the call to the health-check logic fails it can send an alert to operations to investigate that something has gone wrong with the primary. A more sophisticated watchdog can be configured such that after a number of failures it will call another logic app that will automatically handle making the secondary location as the primary by enabling the appropriate set of logic apps.
+<a name="check-primary-availability"></a>
+
+### Check primary instance availability
+
+To determine whether an instance is available, running, and able to work, you can call a logic app that's in the same location. If this logic app successfully responds, the underlying infrastructure for the Azure Logic Apps service in that region is available and working. If the logic app fails to respond, you can assume that the location is no longer healthy.
+
+For this task, create a basic health-check logic app that performs these tasks:
+
+1. Call the logic app that you want to check by using the Request trigger.
+
+1. Respond with whether the checked logic app still works by using the Response action.
+
+   > [!IMPORTANT]
+   > The health-check logic app must use a Response action so that the app responds synchronously, not asynchronously.
+
+* Optionally, to further determine whether the primary location is healthy, you can factor in the health of any other services that interact with the target logic app in this location. Just expand the health-check logic app to assess the health for these other services too.
+
+<a name="monitor-primary-health"></a>
+
+### Create a watchdog logic app
+
+To monitor the primary instance's health and call the health-check logic app, create a "watchdog" logic app in an *alternate location*. For example, you can set up the watchdog logic app so that if calling the health-check logic fails, the watchdog can send an alert to your operations team so that they can investigate the failure and why the primary instance doesn't respond.
+
+> [!IMPORTANT]
+> Make sure that your watchdog logic app is in a *location that differs from primary location*. If the 
+> Logic Apps service in the primary location experiences problems, your watchdog logic app might not run.
+
+For this task, create a watchdog logic app that performs these tasks:
+
+1. Run based on a fixed or scheduled recurrence by using the Recurrence trigger.
+
+   You can set the recurrence to a value that below the tolerance level for your recovery time objective (RTO).
+
+1. Call the health-check logic app in the primary location by using the HTTP action.
+
+<a name="enable-secondary"></a>
+
+### Enable your secondary instance
+
+To automatically enable or activate the secondary location, create a logic app that calls the appropriate logic apps in the secondary location. Expand your watchdog app to call this activation logic app after a specific number of failures happen.
 
 ## Other components
 
-## API connections
+### API connections
 
-API Connections provide authentication and configuration to the resource that a connector used in a logic app is accessing. Each location should have its own set of API Connections. When configuring logic apps in alternate region you need to take into consideration whether or not the secondary is going to utilize the same entity or if it will utilize a distinct entity that is part of the secondary location. If the logic app is referencing an external service, like Salesforce, then the availability of a logic app in a region is likely orthogonal to the referenced service's availability. In this case you can have the API Connection reference the same service endpoint. If the logic app is referencing a service in the same region, like an Azure SQL Database, and that entire region becomes unavailable, then the SQL Database is likely no longer available and in the secondary region you would likely have a replicated or backup database. In this case the API Connection in the secondary should reference the secondary database.
+API connections provide authentication and configuration to the resource that a connector used in a logic app is accessing. Each location should have its own set of API Connections. When configuring logic apps in alternate region you need to take into consideration whether or not the secondary is going to utilize the same entity or if it will utilize a distinct entity that is part of the secondary location. If the logic app is referencing an external service, like Salesforce, then the availability of a logic app in a region is likely orthogonal to the referenced service's availability. In this case you can have the API Connection reference the same service endpoint. If the logic app is referencing a service in the same region, like an Azure SQL Database, and that entire region becomes unavailable, then the SQL Database is likely no longer available and in the secondary region you would likely have a replicated or backup database. In this case the API Connection in the secondary should reference the secondary database.
 
 ## Integration accounts
 
@@ -209,7 +250,7 @@ Diagnostic data for logic apps can be ingested to multiple destinations such as 
 ## Next steps
 
 * [Resiliency overview for Azure](https://docs.microsoft.com/azure/architecture/framework/resiliency/overview)
-* [Resiliency checklist for specific Azure servcies](https://docs.microsoft.com/azure/architecture/checklist/resiliency-per-service)
+* [Resiliency checklist for specific Azure services](https://docs.microsoft.com/azure/architecture/checklist/resiliency-per-service)
 * [Data management for resiliency in Azure](https://docs.microsoft.com/azure/architecture/framework/resiliency/data-management)
 * [Backup and disaster recovery for Azure applications](https://docs.microsoft.com/azure/architecture/framework/resiliency/backup-and-recovery.md)
 * [Recover from a region-wide service disruption](https://docs.microsoft.com/azure/architecture/resiliency/recovery-loss-azure-region)
