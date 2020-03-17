@@ -20,7 +20,7 @@ You can check the links in this section for more information about services offe
 | [Citrix](https://www.citrix.com/global-partners/microsoft/sd-wan-for-azure-virtual-wan.html)| [Using Citrix SD-WAN to connect to Microsoft Azure Virtual WAN](https://docs.citrix.com/en-us/citrix-sd-wan-center/11/azure-virtual-wan/configure-azure-virtual-wan.html#how-does-microsoft-azure-virtual-wan-work)|
 | [Cloudgenix](https://www.cloudgenix.com/microsoft-azure/) |[CloudGenix Azure Virtual WAN CloudBlade Deployment Guide](https://sd-wan.cloudgenix.com/Q319ConfigurationGuide_Registration.html)|
 | [Fortinet](https://www.fortinet.com/azure-vwan) |[FortiGate and Microsoft Azure Virtual WAN Integration deployment guide](https://www.fortinet.com/content/dam/fortinet/assets/deployment-guides/dg-fortigate-azure-wan-integration.pdf)|
-| [Netfoundry](https://netfoundry.io/solutions/netfoundry-for-microsoft-azure-virtual-wan/)|[Netfoundry Support Hub: Azure Virtual WAN](https://support.netfoundry.io/hc/en-us/articles/360018137891-Introduction-to-Azure-Virtual-WAN-sites)|
+| [NetFoundry](https://netfoundry.io/solutions/netfoundry-for-microsoft-azure-virtual-wan/)|[Netfoundry Support Hub: Azure Virtual WAN](https://support.netfoundry.io/hc/en-us/articles/360018137891-Introduction-to-Azure-Virtual-WAN-sites)|
 |[Nuage/Nokia (Provided through British Telecom only)](https://www.nuagenetworks.net/our-partners/nuage-networks-virtualized-cloud-interconnect-for-azure/)|* |
 |[Palo Alto Networks](https://researchcenter.paloaltonetworks.com/2018/09/azure-vwan-integration/) |* |
 |[Riverbed Technology](https://www.riverbed.com/go/steelconnect-azurewan.html)|* |
