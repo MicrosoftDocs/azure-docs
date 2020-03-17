@@ -85,7 +85,7 @@ Each snapshot creates a restore point that represents the time the snapshot star
 
 You can either keep the restored data warehouse and the current one, or delete one of them. If you want to replace the current data warehouse with the restored data warehouse, you can rename it using [ALTER DATABASE (SQL pool)](/sql/t-sql/statements/alter-database-azure-sql-data-warehouse) with the MODIFY NAME option.
 
-To restore a data warehouse, see [Restore a SQL pool using the Azure portal](sql-data-warehouse-restore-database-portal.md), [Restore a SQL pool using PowerShell](sql-data-warehouse-restore-database-powershell.md), or [Restore a SQL pool using REST APIs](sql-data-warehouse-restore-database-rest-api.md).
+To restore a data warehouse, see [Restore a SQL pool](../../sql-data-warehouse/sql-data-warehouse-restore-points.md#create-user-defined-restore-points-through-the-azure-portal).
 
 To restore a deleted or paused data warehouse, you can [create a support ticket](../../sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket.md).
 
@@ -95,7 +95,7 @@ If you need to directly restore across subscription, vote for this capability [h
 
 ## Geo-redundant restore
 
-You can [restore your SQL pool](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-restore-from-geo-backup#restore-from-an-azure-geographical-region-through-powershell) to any region supporting SQL pool at your chosen performance level.
+You can [restore your SQL pool](../../sql-data-warehouse/sql-data-warehouse-restore-from-geo-backup#restore-from-an-azure-geographical-region-through-powershell) to any region supporting SQL pool at your chosen performance level.
 
 > [!NOTE]
 > To perform a geo-redundant restore you must not have opted out of this feature.

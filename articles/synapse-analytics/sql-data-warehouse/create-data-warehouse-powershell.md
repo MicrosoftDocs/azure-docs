@@ -69,7 +69,7 @@ $databasename = "mySampleDataWarehouse"
 
 ## Create a resource group
 
-Create an [Azure resource group](../azure-resource-manager/management/overview.md) using the [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) command. A resource group is a logical container into which Azure resources are deployed and managed as a group. The following example creates a resource group named `myResourceGroup` in the `westeurope` location.
+Create an [Azure resource group](../../azure-resource-manager/management/overview.md) using the [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) command. A resource group is a logical container into which Azure resources are deployed and managed as a group. The following example creates a resource group named `myResourceGroup` in the `westeurope` location.
 
 ```powershell
 New-AzResourceGroup -Name $resourcegroupname -Location $location
@@ -77,7 +77,7 @@ New-AzResourceGroup -Name $resourcegroupname -Location $location
 
 ## Create a logical server
 
-Create an [Azure SQL logical server](../sql-database/sql-database-logical-servers.md) using the [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) command. A logical server contains a group of databases managed as a group. The following example creates a randomly named server in your resource group with an admin user named `ServerAdmin` and a password of `ChangeYourAdminPassword1`. Replace these pre-defined values as desired.
+Create an [Azure SQL logical server](../../sql-database/sql-database-logical-servers.md) using the [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) command. A logical server contains a group of databases managed as a group. The following example creates a randomly named server in your resource group with an admin user named `ServerAdmin` and a password of `ChangeYourAdminPassword1`. Replace these pre-defined values as desired.
 
 ```powershell
 New-AzSqlServer -ResourceGroupName $resourcegroupname `
