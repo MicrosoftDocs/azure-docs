@@ -95,13 +95,9 @@ You can't downgrade a store from the Standard tier to the Free tier. You can cre
 
 ## Are there any limits on the number of requests made to App Configuration?
 
-Configuration stores in the Free tier are limited to 1,000 requests per day.
+Configuration stores in the Free tier are limited to 1,000 requests per day. Configuration stores in the Standard tier may experience temporary throttling when the request rate exceeds 20,000 requests per hour. When a store reaches its limit, it will return HTTP status code 429 for all requests made until the time period expires.
 
-In addition, all stores have limits on the number of requests made per minute and per hour. This is to prevent a single store from starving resources needed by other stores.
-
-When a store reaches the limit, it will return HTTP status code 429 until the time period expires.
-
-If your application consistently experiences HTTP status code 429, consider redesigning it to reduce the number of requests made. For more information, see [Reduce requests made to App Configuration](./howto-best-practices.md#reduce-requests-made-to-app-configuration)
+If your application regularly experiences HTTP status code 429, consider redesigning it to reduce the number of requests made. For more information, see [Reduce requests made to App Configuration](./howto-best-practices.md#reduce-requests-made-to-app-configuration)
 
 ## How can I receive announcements on new releases and other information related to App Configuration?
 
