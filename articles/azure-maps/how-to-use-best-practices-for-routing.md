@@ -325,7 +325,7 @@ The Azure Maps Web SDK provides a [Service module](https://docs.microsoft.com/ja
 To learn more, please see:
 
 > [!div class="nextstepaction"]
-> [Azure Maps Route Service](https://docs.microsoft.com/rest/api/maps/route)
+> [Azure Maps Route service](https://docs.microsoft.com/rest/api/maps/route)
 
 > [!div class="nextstepaction"]
 > [How to use the Service module](https://docs.microsoft.com/azure/azure-maps/how-to-use-services-module)
