@@ -19,6 +19,8 @@ ms.author: cherylmc
 
  Use the instructions in the [Configure a Point-to-Site VPN connection](vpn-gateway-howto-point-to-site-resource-manager-portal.md) article to configure the VPN gateway to use IKEv2 and certificate-based authentication.
 
+## Configure a user tunnel
+
 [!INCLUDE [user configuration](../../includes/vpn-gateway-vwan-always-on-user.md)]
 
 ## To remove a profile
