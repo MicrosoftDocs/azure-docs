@@ -68,7 +68,7 @@ A private link resource is the destination target of a given private endpoint. T
 |**Azure Relay** | Microsoft.Relay/namespaces | namespace |
 |**Azure Event Grid** | Microsoft.EventGrid/topics	| topic |
 |**Azure Event Grid** | Microsoft.EventGrid/domains	| domain |
-|**Azure WebApps** | Microsoft.Web/sites	| site |
+|**Azure WebApps** | Microsoft.Web/sites	| sites |
  
 ## Network security of private endpoints 
 When using private endpoints for Azure services, traffic is secured to a specific private link resource. The platform performs an access control to validate network connections reaching only the specified private link resource. To access additional resources within the same Azure service, additional private endpoints are required. 
