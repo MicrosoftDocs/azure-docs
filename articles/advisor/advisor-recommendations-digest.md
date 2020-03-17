@@ -10,7 +10,7 @@ ms.author: sagupt
 
 # Configure periodic summary for recommendations
 
-Advisor **recommendations digest** provides an easy and proactive way to stay on top of your active recommendations, across different categories. The feature provide the ability to configure periodic notifications for the summary of all your active recommendations, across different categories. You can choose your desired channel for notifications like email, sms or any other. 
+Advisor **recommendations digest** provides an easy and proactive way to stay on top of your active recommendations, across different categories. The feature provide the ability to configure periodic notifications for the summary of all your active recommendations, across different categories. You can choose your desired channel for notifications like email, sms, any other. 
 This article shows you how to set-up a **recommendations digest** for your Advisor recommendations.
 
 
@@ -21,11 +21,11 @@ The **recommendations digest** creation experience helps you configure the summa
 2. Frequency of digest: Frequncy for the summary notifications can be weekly, bi-weekly and monthly.
 3. Action group: You can either select an existing action group or create a new action group. To learn more about action groups, see [Create and manage action groups](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups).
 4. Language for the digest
-5. Recommendation digest name: You can use a user-friendly string to better track and monitor the digests.
+5. Recommendations digest name: You can use a user-friendly string to better track and monitor the digests.
 
 ## Steps to create recommendations digest in Azure portal
 
-Here are the steps to create **Recommendations digest:**
+Here are the steps to create **recommendations digest:**
 * **Step 1:** In the Azure portal, go to **Advisor** and under **Monitoring** section and select **Recommendations digest** 
 
    ![Recommendations digest entry-point](./media/digest-0.png)
@@ -46,7 +46,7 @@ Here are the steps to create **Recommendations digest:**
 
    ![Provide recommendations digest input action group](./media/digest-3.png)
 
-* **Step 6:** In this final section for **digest details**, you can assign a name and state to your recommendations digest. Press **create recommendations digest** to complete the set-up.
+* **Step 6:** In this final section for **digest details**, you can assign name and state to your recommendations digest. Press **create recommendations digest** to complete the set-up.
    ![Complete recommendations digest creation](./media/digest-4.png)
 
 ## Next steps
