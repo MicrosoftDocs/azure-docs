@@ -23,7 +23,7 @@ This release corresponds to the software versions:
 - **Data Box Edge 1911 (1.6.1049.786)**
 
 > [!NOTE]
-> Update 1911 can be applied only to Data Box Edge devices that are running general availability (GA) or 1906 version of the software.
+> Update 1911 can be applied only to Data Box Edge devices that are running general availability (GA), 1905, or 1906 version of the software.
 
 ## What's new
 
