@@ -38,6 +38,7 @@ Before deploying the pass-through authentication agent, verify if there is a fir
 In order to install the agent for the Azure Government cloud you must follow these specific steps: 
 In the command line terminal, navigate to folder where the executable for installing the agent is located. 
 Run the following command which specifies the installation is for Azure Government. 
+
 For Passthrough Authentication: 
 ```
 AADConnectAuthAgentSetup.exe ENVIRONMENTNAME="AzureUSGovernment"
