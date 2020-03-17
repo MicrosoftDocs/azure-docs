@@ -30365,7 +30365,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/time-series-insights/time-series-insights-update-quickstart.md ",
+      "source_path": "articles/time-series-insights/time-series-insights-update-quickstart.md",
       "redirect_url": "/azure/time-series-insights/quickstart-explore-tsi",
       "redirect_document_id": false
     },

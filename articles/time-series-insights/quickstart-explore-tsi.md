@@ -9,7 +9,7 @@ manager: cshankar
 ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc seodec18
-ms.date: 02/07/2020
+ms.date: 03/17/2020
 ---
 
 # Quickstart: Explore the Azure Time Series Insights Preview demo environment
@@ -95,7 +95,7 @@ By using Time Series Insights and sensor telemetry, we've discovered a long-term
 
       [![Extend the time span to 60 days](media/v2-update-quickstart/quick-start-expand-interval-range.png)](media/v2-update-quickstart/quick-start-expand-interval-range.png#lightbox)
 
-1. Other sensor data points can be added to provide greater context. The more sensors we view, the fuller our understanding of the problem is. Let’s drop a marker to display the actual values. 
+1. Other sensor data points can be added to provide greater context. The more sensors we view, the fuller our understanding of the problem is. Let's drop a marker to display the actual values. 
 
     1. Select **Generator System**, and then select three sensors: **GridVoltagePhase1**, **GridVoltagePhase2**, and **GridVoltagePhase3**.
     1. Drop a marker on the last data point in the visible area.
@@ -104,7 +104,7 @@ By using Time Series Insights and sensor telemetry, we've discovered a long-term
 
     Two of the voltage sensors are operating comparably and within normal parameters. It looks like the **GridVoltagePhase3** sensor is the culprit.
 
-1. With highly contextual data added, the phase 3 drop-off appears even more to be the problem. Now, we have a good lead on the cause of the warning. We’re ready to refer the issue to our maintenance team.  
+1. With highly contextual data added, the phase 3 drop-off appears even more to be the problem. Now, we have a good lead on the cause of the warning. We're ready to refer the issue to our maintenance team.  
 
     * Change the display to overlay all **Generator System** sensors on the same chart scale.
 
