@@ -91,6 +91,8 @@
           href: password-policy.md
         - name: Enable security audit events
           href: security-audit-events.md
+        - name: Integrate Remote Desktop Services and Azure Multi-Factor Authentication
+          href: enable-remote-desktop-network-policy-server.md
     - name: Domain-join VMs
       items:
         - name: Windows Server VM from template
