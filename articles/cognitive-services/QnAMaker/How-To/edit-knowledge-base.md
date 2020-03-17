@@ -1,7 +1,7 @@
 ---
 title: Edit a knowledge base - QnA Maker
 titleSuffix: Azure Cognitive Services
-description: QnA Maker allows you to manage the content of your knowledge base by providing an easy-to-use editing experience. 
+description: QnA Maker allows you to manage the content of your knowledge base by providing an easy-to-use editing experience.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -20,16 +20,16 @@ QnA Maker allows you to manage the content of your knowledge base by providing a
 
 ## Edit your knowledge base content
 
-1.  Select **My knowledge bases** in the top navigation bar. 
+1.  Select **My knowledge bases** in the top navigation bar.
 
     You can see all the services you created or shared with you sorted in the descending order of the **last modified** date.
 
     ![My Knowledge Bases](../media/qnamaker-how-to-edit-kb/my-kbs.png)
 
 1. Select a particular knowledge base to make edits to it.
- 
+
 1. Select **Settings**. Here you can edit mandatory field Service Name.
-  
+
     |Goal|Action|
     |--|--|
     |Add URL|You can add new URLs to add new FAQ content to Knowledge base by clicking **Manage knowledge base -> '+ Add URL'** link.|
@@ -39,12 +39,12 @@ QnA Maker allows you to manage the content of your knowledge base by providing a
     |Import|You can also import any existing knowledge base by selecting **Import Knowledge base** button. |
     |Update|Updating of knowledge base depends on **management pricing tier** used while creating QnA Maker service associated with your knowledge base. You can also update the management tier from Azure portal if required.
 
-1. Once you are done making changes to the knowledge base, select **Save and train** in the top right corner of the page in order to persist the changes.    
+1. Once you are done making changes to the knowledge base, select **Save and train** in the top right corner of the page in order to persist the changes.
 
     ![Save and Train](../media/qnamaker-how-to-edit-kb/save-and-train.png)
 
     >[!CAUTION]
-	>If you leave the page before selecting **Save and train**, all changes will be lost.
+       >If you leave the page before selecting **Save and train**, all changes will be lost.
 
 ## Add a QnA pair
 
@@ -54,7 +54,7 @@ On the **EDIT** page, select **Add QnA pair** to add a new row to the knowledge 
 
 ## Delete a QnA pair
 
-To delete a QnA, click the **delete** icon on the far right of the QnA row. This is a permanent operation. It can't be undone. Consider exporting your KB from the **Publish** page before deleting pairs. 
+To delete a QnA, click the **delete** icon on the far right of the QnA row. This is a permanent operation. It can't be undone. Consider exporting your KB from the **Publish** page before deleting pairs.
 
 ![Delete QnA pair](../media/qnamaker-how-to-edit-kb/delete-qnapair.png)
 
@@ -89,13 +89,13 @@ Add metadata pairs by first selecting **View options**, then selecting **Show me
 
 ## Delete knowledge bases
 
-Deleting a knowledge base (KB) is a permanent operation. It can't be undone. Before deleting a knowledge base, you should export the knowledge base from the **Settings** page of the QnA Maker portal. 
+Deleting a knowledge base (KB) is a permanent operation. It can't be undone. Before deleting a knowledge base, you should export the knowledge base from the **Settings** page of the QnA Maker portal.
 
-If you share your KB with [collaborators](collaborate-knowledge-base.md) then delete it, everyone loses access to the KB. 
+If you share your KB with [collaborators](collaborate-knowledge-base.md) then delete it, everyone loses access to the KB.
 
-## Delete Azure resources 
+## Delete Azure resources
 
-If you delete any of the Azure resources used for your QnA Maker knowledge bases, the knowledge bases will no longer function. Before deleting any resources, make sure you export your knowledge bases from the **Settings** page. 
+If you delete any of the Azure resources used for your QnA Maker knowledge bases, the knowledge bases will no longer function. Before deleting any resources, make sure you export your knowledge bases from the **Settings** page.
 
 ## Next steps
 

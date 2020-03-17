@@ -9,7 +9,7 @@ ms.date: 03/11/2020
 
 Use the following table to determine your access needs for your QnA Maker resource.
 
-[!INCLUDE [RBAC list](../includes/role-based-access-control.md)]
+[!INCLUDE [RBAC list](./includes/role-based-access-control.md)]
 
 ## Next step
 

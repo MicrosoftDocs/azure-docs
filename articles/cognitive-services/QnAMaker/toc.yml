@@ -29,7 +29,7 @@
   - name: Azure resources
     href: Concepts/azure-resources.md
   - name: Collaborate with others
-    href: ../Concepts/role-based-access-control.md
+    href: Concepts/role-based-access-control.md
   - name: Design a knowledge base
     items:
     - name: For languages
@@ -70,7 +70,7 @@
       displayName: azure, resource, key, upgrade, pricing, tier,
     - name: Create a business continuity plan
       href: How-To/business-continuity-plan.md
-    - name: Collaborate 
+    - name: Collaborate
       href: How-To/collaborate-knowledge-base.md
   - name: Manage knowledge base
     items:
