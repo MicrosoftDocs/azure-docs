@@ -56,7 +56,7 @@ However, suppose your logic app connects to a service that's also in the same lo
 
 ## On-premises data gateways
 
-If your logic app runs in multi-tenant Azure and needs access to on-premises resources such as SQL Server databases, you have to install the [on-premises data gateway](../logic-apps/logic-apps-gateway-install.md) on a local computer. You can then create a data gateway resource in the Azure portal for your logic app to use when you create a connection to the resource.
+If your logic app runs in multi-tenant Azure and needs access to on-premises resources such as SQL Server databases, you need to install the [on-premises data gateway](../logic-apps/logic-apps-gateway-install.md) on a local computer. You can then create a data gateway resource in the Azure portal so that your logic app can use the gateway when you create a connection to the resource.
 
 The data gateway resource is associated with a location or Azure region, just like your logic app resource. In your disaster recovery strategy, make sure that the data gateway remains available for your logic app to use. You can [enable high availability for your gateway](../logic-apps/logic-apps-gateway-install.md#high-availability) when you have multiple gateway installations.
 
@@ -72,10 +72,7 @@ The data gateway resource is associated with a location or Azure region, just li
 
 ## Integration accounts
 
-but also any [integration accounts](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) that you use for defining and storing B2B artifacts used in [enterprise integration scenarios](../logic-apps/logic-apps-enterprise-integration-overview.md), and any
-
-[Set up cross-region disaster recovery for integration accounts in Azure Logic Apps](../logic-apps/logic-apps-enterprise-integration-b2b-business-continuity.md)
-
+Make sure that your disaster recovery strategy includes any [integration accounts](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md), which you use for defining and storing B2B artifacts that your logic app needs in [enterprise integration scenarios](../logic-apps/logic-apps-enterprise-integration-overview.md). In Azure Logic Apps, you can [set up cross-region disaster recovery for integration accounts](../logic-apps/logic-apps-enterprise-integration-b2b-business-continuity.md).
 
 <a name="roles"></a>
 
