@@ -1,7 +1,7 @@
 ---
 title: RunToCompletion semantics in Service Fabric
 description: Describes RunToCompletion semantics in Service Fabric.
-author: shsha
+author: shsha-msft
 
 ms.topic: conceptual
 ms.date: 03/11/2020
@@ -9,7 +9,7 @@ ms.author: shsha
 ---
 # RunToCompletion
 
-Starting with version 7.1, Service Fabric supports **RunToCompletion** semantics for [containers][containers-introduction-link] and [guest executable][guest-executables-introduction-link] applications. These semantics are currently only supported at the [DeployedServicePackage][deployed-service-package-link] and [DeployedCodePackage][deployed-code-package-link] scopes.
+Starting with version 7.1, Service Fabric supports **RunToCompletion** semantics for [containers][containers-introduction-link] and [guest executable][guest-executables-introduction-link] applications. These semantics enable applications and services which complete a task and exit, in contrast to, always running applications and services. These are currently only supported at the [DeployedServicePackage][deployed-service-package-link] and [DeployedCodePackage][deployed-code-package-link] scopes.
 
 Before proceeding with this article, we recommend getting familiar with the [Service Fabric application model][application-model-link] and the [Service Fabric hosting model][hosting-model-link].
 
