@@ -105,7 +105,7 @@ Create a defined procedure for changing UPNs on individual users as part of norm
 
 The following sections detail potential known issues and workarounds when UPNs are changed.
 
-## Application provisioning known issues and workarounds
+## App provisioning known issues and workarounds
 
 [Software as a service (SaaS)](https://azure.microsoft.com/overview/what-is-saas/) and Line of Business (LoB) applications often rely on UPNs to find users and store user profile information, including roles. Applications that use [Just in Time provisioning](https://docs.microsoft.com/azure/active-directory/app-provisioning/user-provisioning) to create a user profile when users sign in to the app for the first time can be affected by UPN changes.
 
@@ -154,7 +154,7 @@ To unjoin a device from Azure AD, run the following command at a command prompt:
 
 The user will need to [re-enroll](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-hybrid-cert-whfb-provision) for Windows Hello for Business if it's being used. Windows 7 and 8.1 devices are not affected by this issue after UPN changes.
 
-## Microsoft Authenticator app known issues and workarounds
+## Microsoft Authenticator known issues and workarounds
 
 Your organization might require the use of the [Microsoft Authenticator app](https://docs.microsoft.com/azure/active-directory/user-help/user-help-auth-app-overview) to sign in and access organizational applications and data. Although a username might appear in the app, the account isn't set up to function as a verification method until the user completes the registration process.
 
@@ -168,7 +168,7 @@ The [Microsoft Authenticator app](https://docs.microsoft.com/azure/active-direct
 
 * Phone sign in, which requires MFA and device registration.
 
-### Multi-Factor Authentication with Android Devices
+### Multi-Factor Authentication with Android devices
 
 The Microsoft Authenticator app offers an out-of-band verification option. Instead of placing an automated phone call or SMS to the user during sign-in, [Multi-Factor Authentication (MFA)](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks) pushes a notification to the Microsoft Authenticator app on the user's smartphone or tablet. The user simply taps Approve (or enters a PIN or biometric and taps "Authenticate") in the app to complete their sign-in.
 
@@ -233,13 +233,13 @@ Users are not able to sign in to Windows Azure AD Join or Hybrid Join devices us
 **Workaround**<br>
 Users must [reset the security key and re-register](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-passwordless-security-key#known-issues).
 
-## OneDrive Known issues and workarounds
+## OneDrive known issues and workarounds
 
 OneDrive users are known to experience issues after UPN changes. 
-For more informaion, see
+For more information, see
 [How UPN changes affect the OneDrive URL and OneDrive features](https://docs.microsoft.com/onedrive/upn-changes).
 
-## Next Steps
+## Next steps
 
 See these resources:
 * [Azure AD Connect: Design concepts](https://docs.microsoft.com/azure/active-directory/hybrid/plan-connect-design-concepts)
