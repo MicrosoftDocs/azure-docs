@@ -25,7 +25,7 @@ A client application would access an FHIR API through a [REST API](https://www.h
 In order to use Postman, the following details are needed:
 
 - Your FHIR server URL, for example `https://MYACCOUNT.azurehealthcareapis.com`
-- The identity provider `Authority` for your FHIR server, for example, `https://login.microsoftonline.com/.{TENANT-ID}`
+- The identity provider `Authority` for your FHIR server, for example, `https://login.microsoftonline.com/{TENANT-ID}`
 - The configured `audience`. This is is usually the URL of the FHIR server, e.g. `https://MYACCOUNT.azurehealthcareapis.com` or just `https://azurehealthcareapis.com`.
 - The `client_id` (or application ID) of the [client application](register-confidential-azure-ad-client-app.md) you will be using to access the FHIR service.
 - The `client_secret` (or application secret) of the client application.

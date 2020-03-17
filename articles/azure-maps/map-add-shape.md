@@ -35,11 +35,11 @@ dataSource.add(new atlas.data.Feature(
 	]])
 ));
 
-//Create and add a polygon layer to render the polygon to the map.
+//Create and add a polygon layer to render the polygon to the map, below the label layer.
 map.layers.add(new atlas.layer.PolygonLayer(dataSource, null,{
 	fillColor: 'red',
-	opacaty: 0.5
-}));
+	fillOpacity: 0.7
+}), 'labels');
 ```
 
 Below is the complete and running sample of the above code.
