@@ -1,16 +1,16 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: 'Azure SQL Database: Single database'
+title: 'Azure SQL Database: Single database, database server, elastic pool'
 metadata:
-  title: Documentation - single database
-  meta.description: Learn how to use Azure SQL databases.
+  title: Documentation - single database, database server, elastic pool
+  description: Find quickstarts, tutorials, and samples for Azure SQL Database single databases, elastic pools, and database servers.
   services: sql-database
   requires-business-manager-approval: false
   ms.service: sql-database
   ms.subservice: single-database
   ms.topic: overview
   author: jovanpop-msft
-  ms.author: jovanpop-msft
+  ms.author: jovanpop
   ms.reviewer: carlrab
   manager: craigg
   ms.date: 04/26/2019
