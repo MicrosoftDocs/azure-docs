@@ -29,14 +29,14 @@ For .NET users, consider the <a href="https://docs.microsoft.com/dotnet/framewor
 
 When discussing authentication, there are several common misconceptions. Authentication and authorization are often confused for one another. Identity is also a major component in security. An identity is a collection of information about a <a href="https://en.wikipedia.org/wiki/Principal_(computer_security)" target="_blank">principal <span class="docon docon-navigate-external x-hidden-focus"></span></a>. Identity providers (IdP) provide identities to authentication services. Authentication is the act of verifying a user's identity. Authorization is the specification of access rights and privileges to resources for a given identity.
 
-< TODO: Add more details about authentication with Cog Svcs >
+For more information on authentication with subscription keys, access tokens and Azure Active Directory (AAD), see <a href="https://docs.microsoft.com/azure/cognitive-services/authentication" target="_blank">authenticate requests to Azure Cognitive Services<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
 ## Environment variables and application configuration
 
 Environment variables are name-value pairs, stored within a specific environment. An alternative to using hardcoded values for sensitive data, is to use environment variables. Hardcoded values are insecure and should be avoided.
 
-> [!WARNING]
-> Do **not** use hardcoded values for sensitive data, doing so is a major security vulnerability!
+> [!CAUTION]
+> Do **not** use hardcoded values for sensitive data, doing so is a major security vulnerability.
 
 ### Set environment variable
 
