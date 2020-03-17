@@ -17,15 +17,15 @@ This article shows you how to set-up a **recommendations digest** for your Advis
 ## Setting-up your recommendations digest 
 
 The **recommendations digest** creation experience helps you configure the summary. You can select below parameters for configurations:
-1. Category: We have recommendation categories like cost, high availability, performance and operational excellence *(the capability is not available for security recommendations yet)*
-2. Frequency of digest: This can be weekly, bi-weekly and monthly.
-3. Action Group: You can either select an existing action group or create a new action group.To learn more about action groups, see [Create and manage action groups](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups).
+1. Category: We have recommendation categories like cost, high availability, performance and operational excellence. The capability is not available for security recommendations yet.
+2. Frequency of digest: Frequncy for the summary notifications can be weekly, bi-weekly and monthly.
+3. Action group: You can either select an existing action group or create a new action group. To learn more about action groups, see [Create and manage action groups](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups).
 4. Language for the digest
 5. Recommendation digest name: You can use a user-friendly string to better track and monitor the digests.
 
 ## Steps to create recommendations digest in Azure portal
 
-Here are the steps to create **Recommendations Digest:**
+Here are the steps to create **Recommendations digest:**
 * **Step 1:** In the Azure portal, go to **Advisor** and under **Monitoring** section and select **Recommendations digest** 
 
    ![Recommendations digest entry-point](./media/digest-0.png)
@@ -36,7 +36,7 @@ Here are the steps to create **Recommendations Digest:**
 
 * **Step 3:** In the **scope** section, select the **subscription** for your digest
 
-![Provide recommendations digest inputs](./media/digest-1.png)
+   ![Provide recommendations digest inputs](./media/digest-1.png)
 
 * **Step 4:** In the **condition** section, select the configurations like **category**, **frequency** and **language**
 
