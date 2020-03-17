@@ -4,9 +4,12 @@ description: Improve the quality of your knowledge base with active learning. Re
 ms.topic: conceptual
 ms.date: 03/16/2020
 ---
-<a name="accept-an-active-learning-suggestion-in-the-knowledge-base"></a>
+
 
 # Accept active learning suggested questions in the knowledge base
+
+
+<a name="accept-an-active-learning-suggestion-in-the-knowledge-base"></a>
 
 Active Learning alters the Knowledge Base or Search Service after you approve the suggestion, then save and train. If you approve the suggestion it will be added as an alternate question.
 
