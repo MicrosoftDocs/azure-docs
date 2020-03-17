@@ -9,7 +9,7 @@ ms.author: shsha
 ---
 # RunToCompletion
 
-Starting with version 7.1, Service Fabric supports **RunToCompletion** semantics for [containers][containers-introduction-link] and [guest executable][guest-executables-introduction-link] applications. These semantics enable applications and services which complete a task and exit, in contrast to, always running applications and services. These are currently only supported at the [DeployedServicePackage][deployed-service-package-link] and [DeployedCodePackage][deployed-code-package-link] scopes.
+Starting with version 7.1, Service Fabric supports **RunToCompletion** semantics for [containers][containers-introduction-link] and [guest executable][guest-executables-introduction-link] applications. These semantics enable applications and services which complete a task and exit, in contrast to, always running applications and services.
 
 Before proceeding with this article, we recommend getting familiar with the [Service Fabric application model][application-model-link] and the [Service Fabric hosting model][hosting-model-link].
 
@@ -17,8 +17,6 @@ Before proceeding with this article, we recommend getting familiar with the [Ser
 > RunToCompletion semantics are currently not supported for services written using the [Reliable Services][reliable-services-link] programming model.
  
 ## RunToCompletion semantics and specification
-An active copy of a ServicePackage on a node is referred to as a [DeployedServicePackage][deployed-service-package-link]. RunToCompletion semantics are applied to the DeployedServicePackage and its constituent DeployedCodePackages. To learn more about DeployedServicePackages, see [Work with a DeployedServicePackage][deployed-service-package-working-with-link].
-
 RunToCompletion semantics can be specified as an **ExecutionPolicy** when [importing the ServiceManifest][application-and-service-manifests-link]. The specified policy is inherited by all the CodePackages comprising the ServiceManifest. The following ApplicationManifest.xml snippet provides an example.
 
 ```xml
@@ -57,7 +55,7 @@ The following ServiceManifest.xml describes a ServicePackage consisting of two C
     <EntryPoint>
       <ContainerHost>
         <ImageName>mcr.microsoft.com/windows/nanoserver:1809</ImageName>
-        <Commands>/c,echo Hi from RunToCompletionCodePackage1</Commands>
+        <Commands>/c,echo Hi from RunToCompletionCodePackage1 &amp;&amp; exit 0</Commands>
         <EntryPoint>cmd</EntryPoint>
       </ContainerHost>
     </EntryPoint>
