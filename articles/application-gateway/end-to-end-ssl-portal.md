@@ -26,7 +26,7 @@ To configure end-to-end TLS with an application gateway, you need a certificate 
 
 For end-to-end TLS encryption, the right back-end servers must be allowed in the application gateway. To allow this access, upload the public certificate of the back-end servers, also known as Authentication Certificates (v1) or Trusted Root Certificates (v2), to the application gateway. Adding the certificate ensures that the application gateway communicates only with known back-end instances. This configuration further secures end-to-end communication.
 
-To learn more, see [SSL termination and end-to-end SSL](https://docs.microsoft.com/azure/application-gateway/ssl-overview).
+To learn more, see [Overview of TLS termination and end to end TLS with Application Gateway](https://docs.microsoft.com/azure/application-gateway/ssl-overview).
 
 ## Create a new application gateway with end-to-end TLS
 
