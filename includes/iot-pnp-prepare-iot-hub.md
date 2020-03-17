@@ -1,14 +1,14 @@
 ---
-author: baanders
-ms.author: baanders
+author: dominicbetts
+ms.author: dobett
 ms.service: iot-pnp
 ms.topic: include
-ms.date: 10/24/2019
+ms.date: 03/17/2020
 ---
 
 ## Prepare an IoT hub
 
-You also need an Azure IoT hub in your Azure subscription to complete this quickstart. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. If you don't have an IoT hub, follow [these instructions to create one](../articles/iot-hub/iot-hub-create-using-cli.md).
+You need an Azure IoT hub in your Azure subscription to complete the steps in this article. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. If you don't have an IoT hub, follow [these instructions to create one](../articles/iot-hub/iot-hub-create-using-cli.md).
 
 > [!IMPORTANT]
 > During public preview, IoT Plug and Play features are only available on IoT hubs created in the **Central US**, **North Europe**, and **Japan East** regions.
@@ -23,7 +23,16 @@ Run the following command to add the Microsoft Azure IoT Extension for Azure CLI
 az extension add --name azure-iot
 ```
 
-Run the following command to create the device identity in your IoT hub. Replace the **YourIoTHubName** and **YourDeviceID** placeholders with your own _IoT Hub name_ and a _device ID_ of your choice.
+If you don't already have an IoT hub to use, run the following commands to create a resource group and a free-tier IoT hub in your subscription. Replace `<YourIoTHubName>` with a hub name of your choice:
+
+```azurecli-interactive
+az group create --name my-pnp-resourcegroup \
+    --location centralus
+az iot hub create --name <YourIoTHubName> \
+    --resource-group my-pnp-resourcegroup --sku F1
+```
+
+Run the following command to create the device identity in your IoT hub. Replace the `<YourIoTHubName>` and `<YourDeviceID>` placeholders with your own _IoT Hub name_ and a _device ID_ of your choice.
 
 ```azurecli-interactive
 az iot hub device-identity create --hub-name <YourIoTHubName> --device-id <YourDeviceID>

@@ -25,16 +25,6 @@
         href: quickstart-connect-pnp-device-java.md
       - name: Node.js
         href: quickstart-connect-pnp-device-node.md
-  - name: Connect a device to IoT Central
-    href: ../iot-central/core/tutorial-connect-pnp-device.md
-  - name: Connect to a device in your solution
-    items:
-      - name: C#
-        href: quickstart-connect-pnp-device-solution-csharp.md
-      - name: Java
-        href: quickstart-connect-pnp-device-solution-java.md
-      - name: Node.js
-        href: quickstart-connect-pnp-device-solution-node.md
 - name: Tutorials
   items:
   - name: Create a device using VS Code
@@ -43,6 +33,8 @@
     href: tutorial-build-device-certification.md
   - name: Certify your device
     href: tutorial-certification-test.md
+  - name: Connect a device to IoT Central
+    href: ../iot-central/core/tutorial-connect-pnp-device.md
 - name: Concepts
   items:
   - name: Glossary
@@ -67,8 +59,8 @@
     href: howto-onboard-portal.md
   - name: Manage models
     href: howto-manage-models.md
-  - name: Connect to and interact with a device
-    href: howto-develop-solution.md
+  - name: Connect to a device in your solution
+    href: howto-connect-pnp-device-solution.md
 - name: Reference
   items:
   - name: Libraries and SDKs

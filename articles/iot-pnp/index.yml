@@ -55,10 +55,6 @@ landingContent:
           url: concepts-common-interfaces.md
   - title: Build solutions
     linkLists:
-    - linkListType: quickstart
-      links:
-        - text: Interact with a device that's connected to your solution
-          url: quickstart-connect-pnp-device-solution-node.md
     - linkListType: concept
       links:
         - text: Model discovery
@@ -67,5 +63,5 @@ landingContent:
           url: concepts-common-interfaces.md
     - linkListType: how-to-guide
       links: 
-        - text: Connect to devices from your solution
-          url: howto-develop-solution.md
+        - text: Interact with a device that's connected to your solution
+          url: howto-connect-pnp-device-solution.md
