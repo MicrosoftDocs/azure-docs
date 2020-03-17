@@ -49,9 +49,9 @@ For recommendations, see [High availability and load balancing of your Applicati
 
 No, this scenario isn't supported. Only the connector and update services can be configured to use a forward proxy for outbound traffic to Azure. See [Work with existing on-premises proxy servers](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-connectors-with-proxy-servers)
 
-### Is SSL termination (SSL/HTTPS inspection or acceleration) on traffic from the connector servers to Azure supported?
+### Is TLS termination (TLS/HTTPS inspection or acceleration) on traffic from the connector servers to Azure supported?
 
-The Application Proxy Connector performs certificate-based authentication to Azure. SSL Termination (SSL/HTTPS inspection or acceleration) breaks this authentication method and isn't supported. Traffic from the connector to Azure must bypass any devices that are performing SSL Termination.  
+The Application Proxy Connector performs certificate-based authentication to Azure. TLS Termination (TLS/HTTPS inspection or acceleration) breaks this authentication method and isn't supported. Traffic from the connector to Azure must bypass any devices that are performing TLS Termination.  
 
 ### Should I create a dedicated account to register the connector with Azure AD Application Proxy?
 
@@ -143,7 +143,7 @@ No. Azure AD Application Proxy is designed to work with Azure AD and doesn’t f
 
 Currently, WebSocket protocol support is still in public preview and it may not work for other applications. Some customers have had mixed success using WebSocket protocol with other applications. If you test such scenarios, we would love to hear your results. Please send us your feedback at aadapfeedback@microsoft.com.
 
-Features (Eventlogs, Powershell and Remote Desktop Services) in Windows Admin Center (WAC) or Remote Desktop Web Client do not work through Azure AD Application Proxy presently.
+Features (Eventlogs, PowerShell and Remote Desktop Services) in Windows Admin Center (WAC) or Remote Desktop Web Client do not work through Azure AD Application Proxy presently.
 
 ## Link translation
 
