@@ -59,7 +59,7 @@ You have control over your logs and you may secure them by restricting access an
 When storing valuable data, you must take several steps. Security information must be secured, it must follow a life cycle, and it must be highly available. Azure Key Vault simplifies the process of meeting these requirements by:
 
 - Removing the need for in-house knowledge of Hardware Security Modules.
-- Scaling up on short notice to meet your organization’s usage spikes.
+- Scaling up on short notice to meet your organization's usage spikes.
 - Replicating the contents of your Key Vault within a region and to a secondary region. Data replication ensures high availability and takes away the need of any action from the administrator to trigger the failover.
 - Providing standard Azure administration options via the portal, Azure CLI and PowerShell.
 - Automating certain tasks on certificates that you purchase from Public CAs, such as enrollment and renewal.
@@ -78,4 +78,3 @@ Key Vault itself can integrate with storage accounts, event hubs, and log analyt
 ## Next steps
 
 - [Quickstart: Create an Azure Key Vault using the CLI](../secrets/quick-create-cli.md)
-- [Configure an Azure web application to read a secret from Key vault](tutorial-web-application-keyvault.md)

@@ -19,7 +19,7 @@ Azure Key Vault is a tool for securely storing and accessing secrets. A secret i
 
 Here are other important terms:
 
-- **Tenant**: A tenant is the organization that owns and manages a specific instance of Microsoft cloud services. It’s most often used to refer to the set of Azure and Office 365 services for an organization.
+- **Tenant**: A tenant is the organization that owns and manages a specific instance of Microsoft cloud services. It's most often used to refer to the set of Azure and Office 365 services for an organization.
 
 - **Vault owner**: A vault owner can create a key vault and gain full access and control over it. The vault owner can also set up auditing to log who accesses secrets and keys. Administrators can control the key lifecycle. They can roll to a new version of the key, back it up, and do related tasks.
 
@@ -37,7 +37,7 @@ Here are other important terms:
 
 - **Managed identities**: Azure Key Vault provides a way to securely store credentials and other keys and secrets, but your code needs to authenticate to Key Vault to retrieve them. Using a managed identity makes solving this problem simpler by giving Azure services an automatically managed identity in Azure AD. You can use this identity to authenticate to Key Vault or any service that supports Azure AD authentication, without having any credentials in your code. For more information, see the following image and the [overview of managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md).
 
-    ![Diagram of how managed identities for Azure resources work](../../media/key-vault-whatis/msi.png)
+    ![Diagram of how managed identities for Azure resources work](../media/key-vault-whatis/msi.png)
 
 ## Authentication
 To do any operations with Key Vault, you first need to authenticate to it. There are three ways to authenticate to Key Vault:
@@ -53,11 +53,11 @@ Use the following table to better understand how Key Vault can help to meet the 
 
 | Role | Problem statement | Solved by Azure Key Vault |
 | --- | --- | --- |
-| Developer for an Azure application |“I want to write an application for Azure that uses keys for signing and encryption. But I want these keys to be external from my application so that the solution is suitable for an application that's geographically distributed. <br/><br/>I want these keys and secrets to be protected, without having to write the code myself. I also want these keys and secrets to be easy for me to use from my applications, with optimal performance.” |√ Keys are stored in a vault and invoked by URI when needed.<br/><br/> √ Keys are safeguarded by Azure, using industry-standard algorithms, key lengths, and hardware security modules.<br/><br/> √ Keys are processed in HSMs that reside in the same Azure datacenters as the applications. This method provides better reliability and reduced latency than keys that reside in a separate location, such as on-premises. |
-| Developer for software as a service (SaaS) |“I don’t want the responsibility or potential liability for my customers’ tenant keys and secrets. <br/><br/>I want customers to own and manage their keys so that I can concentrate on doing what I do best, which is providing the core software features.” |√ Customers can import their own keys into Azure, and manage them. When a SaaS application needs to perform cryptographic operations by using customers’ keys, Key Vault does these operations on behalf of the application. The application does not see the customers’ keys. |
-| Chief security officer (CSO) |“I want to know that our applications comply with FIPS 140-2 Level 2 HSMs for secure key management. <br/><br/>I want to make sure that my organization is in control of the key lifecycle and can monitor key usage. <br/><br/>And although we use multiple Azure services and resources, I want to manage the keys from a single location in Azure.” |√ HSMs are FIPS 140-2 Level 2 validated.<br/><br/>√ Key Vault is designed so that Microsoft does not see or extract your keys.<br/><br/>√ Key usage is logged in near real time.<br/><br/>√ The vault provides a single interface, regardless of how many vaults you have in Azure, which regions they support, and which applications use them. |
+| Developer for an Azure application |"I want to write an application for Azure that uses keys for signing and encryption. But I want these keys to be external from my application so that the solution is suitable for an application that's geographically distributed. <br/><br/>I want these keys and secrets to be protected, without having to write the code myself. I also want these keys and secrets to be easy for me to use from my applications, with optimal performance." |√ Keys are stored in a vault and invoked by URI when needed.<br/><br/> √ Keys are safeguarded by Azure, using industry-standard algorithms, key lengths, and hardware security modules.<br/><br/> √ Keys are processed in HSMs that reside in the same Azure datacenters as the applications. This method provides better reliability and reduced latency than keys that reside in a separate location, such as on-premises. |
+| Developer for software as a service (SaaS) |"I don't want the responsibility or potential liability for my customers' tenant keys and secrets. <br/><br/>I want customers to own and manage their keys so that I can concentrate on doing what I do best, which is providing the core software features." |√ Customers can import their own keys into Azure, and manage them. When a SaaS application needs to perform cryptographic operations by using customers' keys, Key Vault does these operations on behalf of the application. The application does not see the customers' keys. |
+| Chief security officer (CSO) |"I want to know that our applications comply with FIPS 140-2 Level 2 HSMs for secure key management. <br/><br/>I want to make sure that my organization is in control of the key lifecycle and can monitor key usage. <br/><br/>And although we use multiple Azure services and resources, I want to manage the keys from a single location in Azure." |√ HSMs are FIPS 140-2 Level 2 validated.<br/><br/>√ Key Vault is designed so that Microsoft does not see or extract your keys.<br/><br/>√ Key usage is logged in near real time.<br/><br/>√ The vault provides a single interface, regardless of how many vaults you have in Azure, which regions they support, and which applications use them. |
 
-Anybody with an Azure subscription can create and use key vaults. Although Key Vault benefits developers and security administrators, it can be implemented and managed by an organization’s administrator who manages other Azure services. For example, this administrator can sign in with an Azure subscription, create a vault for the organization in which to store keys, and then be responsible for operational tasks like these:
+Anybody with an Azure subscription can create and use key vaults. Although Key Vault benefits developers and security administrators, it can be implemented and managed by an organization's administrator who manages other Azure services. For example, this administrator can sign in with an Azure subscription, create a vault for the organization in which to store keys, and then be responsible for operational tasks like these:
 
 - Create or import a key or secret
 - Revoke or delete a key or secret
@@ -76,5 +76,5 @@ Developers can also manage the keys directly, by using APIs. For more informatio
 Learn how to [secure your vault](secure-your-key-vault.md)).
 
 <!--Image references-->
-[1]: ./media/key-vault-whatis/AzureKeyVault_overview.png
+[1]: ../media/key-vault-whatis/AzureKeyVault_overview.png
 Azure Key Vault is available in most regions. For more information, see the [Key Vault pricing page](https://azure.microsoft.com/pricing/details/key-vault/).

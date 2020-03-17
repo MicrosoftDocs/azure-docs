@@ -317,7 +317,7 @@ Registering an application with Azure Active Directory:
 https://docs.microsoft.com/azure/key-vault/key-vault-manage-with-cli2#registering-an-application-with-azure-active-directory
 
 Secure access to a key vault:
-https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault
+https://docs.microsoft.com/azure/key-vault/secure-your-key-vault
 
 **Azure Security Center monitoring**: Yes
 
@@ -523,7 +523,7 @@ Virtual network service endpoints for Azure Key Vault: https://docs.microsoft.co
 
 **Guidance**: All data stored within Azure Key Vault is considered sensitive. Use Azure Key Vault data plane access controls to control access to Azure Key Vault secrets. You may also use Key Vault's built-in firewall to control access at the network layer. To monitor access to Azure Key Vault, enable Key Vault Diagnostic Settings and send logs to an Azure Storage Account or Log Analytics workspace.
 
-Secure access to a key vault: https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault
+Secure access to a key vault: https://docs.microsoft.com/azure/key-vault/secure-your-key-vault
 
 Configure Azure Key Vault firewalls and virtual networks: https://docs.microsoft.com/azure/key-vault/key-vault-network-security
 
@@ -560,7 +560,7 @@ Access Azure Key Vault behind a firewall: https://docs.microsoft.com/azure/key-v
 
 Secure access to a key vault:
 
-https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault
+https://docs.microsoft.com/azure/key-vault/secure-your-key-vault
 
 **Azure Security Center monitoring**: Not Applicable
 

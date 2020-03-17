@@ -16,7 +16,7 @@ Azure Private Link Service enables you to access Azure Services (for example, Az
 
 An Azure Private Endpoint is a network interface that connects you privately and securely to a service powered by Azure Private Link. The private endpoint uses a private IP address from your VNet, effectively bringing the service into your VNet. All traffic to the service can be routed through the private endpoint, so no gateways, NAT devices, ExpressRoute or VPN connections, or public IP addresses are needed. Traffic between your virtual network and the service traverses over the Microsoft backbone network, eliminating exposure from the public Internet. You can connect to an instance of an Azure resource, giving you the highest level of granularity in access control.
 
-For more information, see [What is Azure Private Link?](../private-link/private-link-overview.md)
+For more information, see [What is Azure Private Link?](../../private-link/private-link-overview.md)
 
 ## Prerequisites
 
@@ -39,7 +39,7 @@ You can then either create a new key vault, or establish a private link connecti
 
 ### Create a new key vault and establish a private link connection
 
-You can create a new key Vault by following the steps in [Set and retrieve a secret from Azure Key Vault using the Azure portal](../secrets/quick-create-)portal.md)
+You can create a new key Vault by following the steps in [Set and retrieve a secret from Azure Key Vault using the Azure portal](../secrets/quick-create-portal.md)
 
 After configuring the key vault basics, select the Networking tab and follow these steps:
 
@@ -235,5 +235,5 @@ For more, see [Azure Private Link service: Limitations](../../private-link/priva
 
 ## Next Steps
 
-- Learn more about [Azure Private Link](../private-link/private-link-service-overview.md)
-- Learn more about [Azure Key Vault](key-vault-overview.md)
+- Learn more about [Azure Private Link](../../private-link/private-link-service-overview.md)
+- Learn more about [Azure Key Vault](overview.md)
