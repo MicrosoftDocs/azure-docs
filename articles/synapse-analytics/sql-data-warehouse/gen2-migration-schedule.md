@@ -36,7 +36,7 @@ The following table summarizes by region when the Lower Gen2 compute tier will b
 
 ## Automatic upgrade process
 
-Based on the availability chart above, we'll be scheduling automated upgrades for your Gen1 instances. To avoid any unexpected interruptions on the availability of the SQL pool, the automated upgrades will be scheduled during your maintenance schedule. The ability to create a new Gen1 instance will be disabled in regions undergoing auto upgrade to Gen2. Gen1 will be deprecated once the automatic upgrades have been completed. For more information on schedules, see [View a maintenance schedule](viewing-maintenance-schedule.md)
+Based on the availability chart above, we'll be scheduling automated upgrades for your Gen1 instances. To avoid any unexpected interruptions on the availability of the SQL pool, the automated upgrades will be scheduled during your maintenance schedule. The ability to create a new Gen1 instance will be disabled in regions undergoing auto upgrade to Gen2. Gen1 will be deprecated once the automatic upgrades have been completed. For more information on schedules, see [View a maintenance schedule](../../sql-data-warehouse//maintenance-scheduling.md#view-a-maintenance-schedule)
 
 The upgrade process will involve a brief drop in connectivity (approximately 5 min) as we restart your SQL pool.  Once your SQL pool has been restarted, it will be fully available for use. However, you may experience a degradation in performance while the upgrade process continues to upgrade the data files in the background. The total time for the performance degradation will vary dependent on the size of your data files.
 
@@ -51,8 +51,8 @@ You can choose to self-upgrade by following these steps on an existing Gen1 SQL 
 
 There are two options when conducting a self-upgrade.  You can either upgrade your current SQL pool in-place or you can restore a Gen1 SQL pool into a Gen2 instance.
 
-- [Upgrade in-place](../../sql-data-warehouse/upgrade-to-latest-generation.md) - This option will upgrade your existing Gen1 SQL pool to Gen2. The upgrade process will involve a brief drop in connectivity (approximately 5 min) as we restart your SQL pool.  Once your SQL pool has been restarted, it will be fully available for use. If you experience issues during the upgrade, open a [support request](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket) and reference “Gen2 upgrade” as the possible cause.
-- [Upgrade from restore point](sql-data-warehouse-restore.md) - Create a user-defined restore point on your current Gen1 SQL pool and then restore directly to a Gen2 instance. The existing Gen1 SQL pool will stay in place. Once the restore has been completed, your Gen2 SQL pool will be fully available for use.  Once you have run all testing and validation processes on the restored Gen2 instance, the original Gen1 instance can be deleted.
+- [Upgrade in-place](../../sql-data-warehouse/upgrade-to-latest-generation.md) - This option will upgrade your existing Gen1 SQL pool to Gen2. The upgrade process will involve a brief drop in connectivity (approximately 5 min) as we restart your SQL pool.  Once your SQL pool has been restarted, it will be fully available for use. If you experience issues during the upgrade, open a [support request](../../sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket) and reference "Gen2 upgrade" as the possible cause.
+- [Upgrade from restore point](../../sql-data-warehouse/sql-data-warehouse-restore-points.md) - Create a user-defined restore point on your current Gen1 SQL pool and then restore directly to a Gen2 instance. The existing Gen1 SQL pool will stay in place. Once the restore has been completed, your Gen2 SQL pool will be fully available for use.  Once you have run all testing and validation processes on the restored Gen2 instance, the original Gen1 instance can be deleted.
 
    - Step 1: From the Azure portal, [create a user-defined restore point](../../sql-data-warehouse/sql-data-warehouse-restore-active-paused-dw.md).
    - Step 2: When restoring from a user-defined restore point, set the "performance Level" to your preferred Gen2 tier.
@@ -64,7 +64,7 @@ To expedite the background data migration process, you can immediately force dat
 > [!NOTE]
 > Alter Index rebuild is an offline operation and the tables will not be available until the rebuild completes.
 
-If you encounter any issues with your SQL pool, create a [support request](../../sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket.md) and reference “Gen2 upgrade” as the possible cause.
+If you encounter any issues with your SQL pool, create a [support request](../../sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket.md) and reference "Gen2 upgrade" as the possible cause.
 
 For more information, see [Upgrade to Gen2](../../sql-data-warehouse/upgrade-to-latest-generation.md).
 

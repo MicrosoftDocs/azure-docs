@@ -40,7 +40,7 @@ Log in to the [Azure portal](https://portal.azure.com/).
 
 ## Create a blank database
 
-A SQL pool is created with a defined set of [compute resources]memory-concurrency-limits.md). The database is created within an [Azure resource group](../azure-resource-manager/management/overview.md) and in an [Azure SQL logical server](../../sql-database/sql-database-features.md). 
+A SQL pool is created with a defined set of [compute resources]memory-concurrency-limits.md). The database is created within an [Azure resource group](../../azure-resource-manager/management/overview.md) and in an [Azure SQL logical server](../../sql-database/sql-database-features.md). 
 
 Follow these steps to create a blank database. 
 
@@ -208,7 +208,7 @@ The first step toward loading data is to login as LoaderRC20.
 
 ## Create external tables for the sample data
 
-You are ready to begin the process of loading data into your new data warehouse. This tutorial shows you how to use external tables to load New York City taxi cab data from an Azure Storage blob. For future reference, to learn how to get your data to Azure blob storage or to load it directly from your source, see the [loading overview](sql-data-warehouse-overview-load.md).
+You are ready to begin the process of loading data into your new data warehouse. This tutorial shows you how to use external tables to load New York City taxi cab data from an Azure Storage blob. For future reference, to learn how to get your data to Azure blob storage or to load it directly from your source, see the [loading overview](../../sql-data-warehouse/design-elt-data-loading.md).
 
 Run the following SQL scripts and specify information about the data you wish to load. This information includes where the data is located, the format of the contents of the data, and the table definition for the data. 
 
@@ -513,7 +513,7 @@ The script uses the [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create
     ;
     ```
 
-2. View your data as it loads. You’re loading several GBs of data and compressing it into highly performant clustered columnstore indexes. Run the following query that uses a dynamic management views (DMVs) to show the status of the load. 
+2. View your data as it loads. You're loading several GBs of data and compressing it into highly performant clustered columnstore indexes. Run the following query that uses a dynamic management views (DMVs) to show the status of the load. 
 
     ```sql
     SELECT
@@ -557,8 +557,8 @@ The script uses the [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create
 Loading using PolyBase and authenticating through managed identities is the most secure mechanism and enables you to leverage virtual network service endpoints with Azure Storage. 
 
 ### Prerequisites
-1.	Install Azure PowerShell using this [guide](https://docs.microsoft.com/powershell/azure/install-az-ps).
-2.	If you have a general-purpose v1 or blob storage account, you must first upgrade to general-purpose v2 using this [guide](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
+1.    Install Azure PowerShell using this [guide](https://docs.microsoft.com/powershell/azure/install-az-ps).
+2.    If you have a general-purpose v1 or blob storage account, you must first upgrade to general-purpose v2 using this [guide](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
 3.  You must have **Allow trusted Microsoft services to access this storage account** turned on under Azure Storage account **Firewalls and Virtual networks** settings menu. Refer to this [guide](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) for more information.
 
 #### Steps
@@ -636,4 +636,4 @@ You did these things:
 Advance to the development overview to learn how to migrate an existing database to Azure Synapse Analytics.
 
 > [!div class="nextstepaction"]
-> [Design decisions to migrate an existing database to Azure Synapse Analytics](sql-data-warehouse-overview-migrate.md)
+> [Design decisions to migrate an existing database to Azure Synapse Analytics](../../sql-data-warehouse/sql-data-warehouse-overview-develop.md)
