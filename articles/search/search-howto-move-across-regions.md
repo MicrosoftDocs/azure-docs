@@ -119,7 +119,7 @@ To obtain region location codes, see [Azure Locations](https://azure.microsoft.c
     "resources": [
         {
             "type": "Microsoft.Search/searchServices",
-            "apiVersion": "2015-08-19",
+            "apiVersion": "2020-03-13",
             "name": "[parameters('searchServices_target_region_search_name')]",
             "location": "centralus",
             "sku": {

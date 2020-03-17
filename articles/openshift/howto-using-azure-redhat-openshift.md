@@ -1,6 +1,6 @@
 ---
 title: Create an Azure Red Hat OpenShift 4.3 Cluster | Microsoft Docs
-description: Create a cluster with Azure Red Hat OpenShift 3.11
+description: Create a cluster with Azure Red Hat OpenShift 4.3
 author: lamek
 ms.author: suvetriv
 ms.service: container-service
@@ -52,7 +52,7 @@ The `az aro` extension allows you to create, access, and delete Azure Red Hat Op
 2. Run the following command to install the `az aro` extension:
 
    ```console
-   az extension add --source https://arosvc.blob.core.windows.net/az-preview/aro-0.1.0-py2.py3-none-any.whl
+   az extension add -n aro --index https://az.aroapp.io/preview
    ```
 
 3. Verify the ARO extension is registered.

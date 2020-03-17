@@ -12,17 +12,6 @@
     href: quick-create-powershell.md
   - name: Create virtual network - Azure CLI
     href: quick-create-cli.md
-  - name: NAT
-    items:
-    - name: Create NAT gateway - Portal
-      href: quickstart-create-nat-gateway-portal.md
-    - name: Create NAT gateway - PowerShell
-      href: quickstart-create-nat-gateway-powershell.md
-    - name: Create NAT gateway - CLI
-      href: quickstart-create-nat-gateway-cli.md
-    - name: Create NAT gateway - ARM template
-      displayname: Resource Manager
-      href: quickstart-create-nat-gateway-template.md
   expanded: true
 - name: Tutorials
   items:
@@ -36,6 +25,15 @@
     href: tutorial-connect-virtual-networks-portal.md
   - name: NAT
     items:
+    - name: Create NAT gateway - Portal
+      href: quickstart-create-nat-gateway-portal.md
+    - name: Create NAT gateway - PowerShell
+      href: quickstart-create-nat-gateway-powershell.md
+    - name: Create NAT gateway - CLI
+      href: quickstart-create-nat-gateway-cli.md
+    - name: Create NAT gateway - ARM template
+      displayname: Resource Manager
+      href: quickstart-create-nat-gateway-template.md
     - name: Create and validate NAT gateway - Portal
       href: tutorial-create-validate-nat-gateway-portal.md
     - name: Create and validate NAT gateway - PowerShell
