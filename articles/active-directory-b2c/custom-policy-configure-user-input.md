@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/10/2020
+ms.date: 03/17/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -19,9 +19,12 @@ ms.subservice: B2C
 
 In this article, you collect a new attribute during your sign-up journey in Azure Active Directory B2C (Azure AD B2C). You'll obtain the users' city, configure it as a drop-down, and define whether it's required to be provided.
 
+> [!NOTE]
+> This sample uses a built-in claim 'city'. You can choose any supported [Azure AD B2C built-in claim](user-profile-attributes.md), or a custom attribute. To use a custom attribute, you first need to [enable custom attribute in your policy](custom-policy-custom-attributes.md). If you choose to use other built-in or custom attribute, replace the 'city' with the attribute you choose. For example, a built-in atribute *jobTitle*, or a custom attribute *extension_loyaltyId*.
+
 You can gather initial data from your users by using the sign-up or sign-in user journey. Additional claims can be gathered later by using a profile edit user journey. Anytime Azure AD B2C gathers information directly from the user interactively, the Identity Experience Framework uses its [self-asserted technical profile](self-asserted-technical-profile.md). In this sample, you:
 
-1. Define a "city" claim.
+1. Define a "city" claim. 
 1. Ask the user for their city.
 1. Persist the city to the user profile in the Azure AD B2C directory.
 1. Read the city claim from the Azure AD B2C directory on each sign-in.
