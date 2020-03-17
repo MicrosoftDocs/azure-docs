@@ -17,6 +17,43 @@ In this article, learn about Azure Machine Learning releases.  For the full SDK 
 
 See [the list of known issues](resource-known-issues.md) to learn about known bugs and workarounds.
 
+## 2020-03-23
+
+### Azure Machine Learning SDK for Python v1.2.0
+
++ **New features**
+  + [Insert new features below. Reference articles and/or doc pages]
+  
+  + **Preview features**
+    + [Contrib features below] 
+
++ **Breaking changes**
+  + Drop support for python 2.7
+
++ **Bug fixes and improvements**
+  + **azure-cli-ml**
+    + Adds "--subscription-id" to `az ml model/computetarget/service` commands in the CLI
+    + Adding support for passing customer managed key(CMK) vault_url, key_name and key_version for ACI deployment
+  + **azureml-automl-core** 
+    + Enabled customized imputation with constant value for both X and y data forecasting tasks.
+    + Fixed the issue in with showing error messages to user.    
+  + **azureml-automl-runtime**
+    + Fixed the issue in with forecasting on the data sets, containing grains with only one row
+    + Decreased the amount of memory required by the forecasting tasks.
+    + Added better error messages if time column has incorrect format.
+    + Enabled customized imputation with constant value for both X and y data forecasting tasks.
+  + **azureml-core**
+    + Add support for loading ServicePrincipal from environment variables: AZUREML_SERVICE_PRINCIPAL_ID, AZUREML_SERVICE_PRINCIPAL_TENANT_ID, and AZUREML_SERVICE_PRINCIPAL_PASSWORD
+    + Introduced a new parameter `support_multi_line` to `Dataset.Tabular.from_delimited_files`: By default (`support_multi_line=False`), all line breaks, including those in quoted field values, will be interpreted as a record break. Reading data this way is faster and more optimized for parallel execution on multiple CPU cores. However, it may result in silently producing more records with misaligned field values. This should be set to `True` when the delimited files are known to contain quoted line breaks.
+    + Added the ability to register ADLS Gen2 in the Azure Machine Learning CLI
+    + Renamed parameter 'fine_grain_timestamp' to 'timestamp' and parameter 'coarse_grain_timestamp' to 'partition_timestamp' for the with_timestamp_columns() method in TabularDataset to better reflect the usage of the parameters.
+    + Increased max experiment name length to 255.
+  + **azureml-interpret**
+    + updated azureml-interpret to interpret-community 0.7.*
+  + **azureml-sdk**
+    + Changing to dependencies with compatible version Tilde for the support of patching in pre-release and stable releases.
+
+
 ## 2020-03-11
 
 ### Azure Machine Learning SDK for Python v1.1.5
