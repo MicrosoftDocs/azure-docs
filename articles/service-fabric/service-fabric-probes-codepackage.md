@@ -1,4 +1,4 @@
-r---
+---
 title: Azure Service Fabric Probes
 description: How to model liveness probe in Azure Service Fabric using application and service manifest files.
 
