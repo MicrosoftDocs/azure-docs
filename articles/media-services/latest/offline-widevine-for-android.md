@@ -172,7 +172,7 @@ five different security levels are outlined. What is the relationship or mapping
 
 ### Answer
 
-The Google’s "Widevine DRM Architecture Review" doc, defines the following three security levels:
+The Google’s "Widevine DRM Architecture Review" doc defines the following three security levels:
 
 1.  Security Level 1: All content processing, cryptography, and control are performed within the Trusted Execution Environment (TEE). In some implementation models, security processing may be performed in different chips.
 2.  Security Level 2: Performs cryptography (but not video processing) within the TEE: decrypted buffers are returned to the application domain and processed through separate video hardware or software. At level 2, however, cryptographic information is still processed only within the TEE.
