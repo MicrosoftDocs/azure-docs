@@ -49,7 +49,7 @@ Azure Private Link provides the following benefits:
 |  |  Azure Database for MySQL         | All public regions      |   GA <br/> [Learn more](https://docs.microsoft.com/azure/mysql/concepts-data-access-security-private-link)     |
 |  |  Azure Database for MariaDB         | All public regions      |   GA <br/> [Learn more](https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-private-link)      |
 |  |  Azure Key Vault         | All public regions      |   GA   <br/> [Learn more](https://docs.microsoft.com/azure/key-vault/private-link-service)   |
-|  |Azure Kubernetes Service - Kubernetes API | All public regions      |   GA   <br/> [Learn more](https://docs.microsoft.com/en-us/azure/aks/private-clusters)   |
+|  |Azure Kubernetes Service - Kubernetes API | All public regions      |   GA   <br/> [Learn more](https://docs.microsoft.com/azure/aks/private-clusters)   |
 |  |Azure Search | EAST US, WEST US2, SOUTH CENTRAL US |   Preview    |
 |  |Azure Container Registry | All public regions      |   Preview   |
 |  |Azure App Configuration | All public regions      |   Preview   |
