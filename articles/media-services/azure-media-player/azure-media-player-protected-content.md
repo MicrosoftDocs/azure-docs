@@ -72,11 +72,11 @@ or, with multiple DRM
     );
 ```
 
-> [!NOTE] Not all browsers/platforms are capable of playing back protected content. See the [Playback Technology](azure-media-player-playback-technology.md) section for more information on what is supported.
-
-> [!IMPORTANT] The token passed into the player is meant for secured content and only used for authenticated users. It is assumed that the application is using SSL or some other form of security measure. Also, the end user is assummed to be trusted to not misuse the token; if that is not the case, please involve your security experts.
+> [!NOTE]
+> Not all browsers/platforms are capable of playing back protected content. See the [Playback Technology](azure-media-player-playback-technology.md) section for more information on what is supported.
+> [!IMPORTANT]
+> The token passed into the player is meant for secured content and only used for authenticated users. It is assumed that the application is using SSL or some other form of security measure. Also, the end user is assummed to be trusted to not misuse the token; if that is not the case, please involve your security experts.
 
 ## Next steps ##
 
-<!---Some context for the following links goes here--->
-- [link to next logical step for the customer](global-quickstart-template.md)
+- [Azure Media Player Quickstart](azure-media-player-quickstart.md)

@@ -10,7 +10,7 @@ ms.date: 03/16/2020
 
 # Azure Media Player full setup #
 
-Azure Media Player is easy to set up. It only takes a few moments to get basic playback of media content right from your Azure Media Services account. [Samples](Samples.html) are also provided in the samples directory of the release.
+Azure Media Player is easy to set up. It only takes a few moments to get basic playback of media content right from your Azure Media Services account. [Samples](https://github.com/Azure-Samples/azure-media-player-samples) are also provided in the samples directory of the release.
 
 
 ## Step 1: Include the Javascript and CSS files in the head of your page ##
@@ -25,7 +25,7 @@ With Azure Media Player, you can access the scripts from the CDN hosted version.
     <script src= "//amp.azure.net/libs/amp/latest/azuremediaplayer.min.js"></script>
 
 > [!IMPORTANT]
-> You should **NOT** use the `latest` version in production, as this is subject to change on demand. Replace `latest` with a version of Azure Media Player. For example, replace `latest` with `2.1.1`. Azure Media Player versions can be queried from [here](changelog.html "Changelog").
+> You should **NOT** use the `latest` version in production, as this is subject to change on demand. Replace `latest` with a version of Azure Media Player. For example, replace `latest` with `2.1.1`. Azure Media Player versions can be queried from [here](azure-media-player-changelog.md).
 
 > [!NOTE]
 > Since the `1.2.0` release, it is no longer required to include the location to the fallback techs (it will automatically pick up the location from the relative path of the azuremediaplayer.min.js file). You can modify the location of the fallback techs by adding the following script in the `<head>` after the above scripts.
@@ -110,7 +110,6 @@ Instead of using an element ID, you can also pass a reference to the element its
     myPlayer.src([{ src: "//example/path/to/myVideo.ism/manifest", type: "application/vnd.ms-sstr+xml"]);
 ```
 
-## Next steps
+## Next steps ##
 
-<!---Some context for the following links goes here--->
-- [link to next logical step for the customer](global-quickstart-template.md)
+- [Azure Media Player Quickstart](azure-media-player-quickstart.md)

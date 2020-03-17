@@ -9,9 +9,10 @@ ms.date: 03/16/2020
 ---
 
 # Known Issues #
+
 The current release has the following known issues:
 
-### Azure Media Player ###
+## Azure Media Player ##
 
 - Incorrectly configured encoders may cause issues with playback
 - Streams with timestamps greater than 2^53 may have playback issues.
@@ -31,35 +32,35 @@ The current release has the following known issues:
 - Minor aesthetic issues may occur in the UI when using high contrast mode of the device
 - URLs containing "%" or "+" in the fully decoded string may have problems setting the source
 
-### Ad insertion ###
+## Ad insertion ##
 
 - Ads may have issues being inserted (on demand or live) when an ad-blocker is installed in the browser
 - Mobile devices may have issues playing back ads.
 
-### AzureHtml5JS ###
+## AzureHtml5JS ##
 
 - If in the DVR window of Live content, and content finishes, timeline will continue to grow until seek to the area or reaching the end of the presentation.
 - Live presentations in Firefox with MSE enabled has some issues
-- Assets that are audio or video only will not play back via the AzureHtml5JS tech. 
+- Assets that are audio or video only will not play back via the AzureHtml5JS tech.
   - If you'd like to play back assets without audio or video, you can do so by inserting blank audio or video using the [Azure Media Services Explorer tool](http://aka.ms/amse)
     - Instructions on how to insert silent audio can be found [here](https://azure.microsoft.com/en-us/documentation/articles/media-services-advanced-encoding-with-mes/#silent_audio)
 
-### Flash ###
+## Flash ##
 
 - AES content does not playback in Flash version 30.0.0.134 due to a bug in Adobe's caching logic. Adobe has fixed the issue and released it in 30.0.0.154
 - Tech and http failures (such as 404 network timeouts), the player will take longer to recover than other techs.
 - Click on video area with flashSS tech will not play/pause the player.
 - Infinite spinner can occur when player is stuck in the case where end user has Flash installed but does not give permission to load on the site. Player thinks plugin is available (as it is installed) and thinks plugin is running the content as JavaScript code has been sent but the browser settings have blocked plugin from executing until user accepts prompt to allow plugin. This can occur in all browsers.  
 
-### Silverlight ###
+## Silverlight ##
 
 - Missing features
 - Tech and http failures (such as 404 network timeouts), the player will take longer to recover than other techs.
-- Safari and Firefox on Mac playback with Silverlight requires explicitly defining "http://" or "https://" for the source.
+- Safari and Firefox on Mac playback with Silverlight requires explicitly defining `"http://` or `https://` for the source.
 - If an API is missing for this tech, it will generally return null.
 - Infinite spinner can occur when player is stuck in the case where end user has Silverlight installed but does not give permission to load on the site. Player thinks plugin is available (as it is installed) and thinks plugin is running the content as JavaScript code has been sent but the browser settings have blocked plugin from executing until user accepts prompt to allow plugin. This can occur in all browsers.  
 
-### Native HTML5 ###
+## Native HTML5 ##
 
 - Html5 tech is only sending canplaythrough event for first set source.
 - This tech only supports what the browser has implemented.  Some features may be missing in this tech.  
@@ -72,17 +73,17 @@ The current release has the following known issues:
 - IE8 playback does not currently work due to incompatibility with ECMAScript 5
 - In IE and some versions of Edge, fullscreen cannot be entered by tabbing to the button and selecting it or using the F/f hotkey.
 
-### Google ###
+## Google ##
 
 - Multiple encoding profiles in the same manifest has some playback issues in Chrome and is not recommended.
 - Chrome cannot playback HE-AAC with AzureHtml5JS. Follow details on the [bug tracker](https://bugs.chromium.org/p/chromium/issues/detail?id=534301).
 - As of Chrome v58, widevine content must be loaded/played back via the https:// protocol otherwise playback will fail.
 
-### Mozilla ###
+## Mozilla ##
 
 - Audio stream switch requires audio streams to have the same codec private data when using AzureHtml5JS. Firefox platform requires this.
 
-### Apple ###
+## Apple ##
 
 - Safari on Mac often enables Power Saver mode by default with the setting "Stop plug-ins to save power", which blocks plugins like Flash and Silverlight when they believe it is not in favor to the user. This block does not block the plugin's existent, only capabilities. Given the default techOrder, this may cause issues when attempting to playback
   - Mitigation 1: If the video player is 'front and center' (within a 3000 x 3000 pixel boundary starting at the top left corner of the document) it should still play.
@@ -98,7 +99,11 @@ The current release has the following known issues:
 - iOS audio stream switch can only be done though iOS native player UI and requires audio streams to have the same codec private data
 - Older versions of Safari may potentially have issues playing back live streams.
 
-### Older Android ###
+## Older Android ##
 
 - AES and restricted token content does not playback using iOS and older Android devices.
   - In order to achieve this scenario, a proxy must be added to your service.
+
+## Next steps ##
+
+- [Azure Media Player Quickstart](azure-media-player-quickstart.md)

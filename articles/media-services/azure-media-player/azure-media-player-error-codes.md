@@ -44,7 +44,7 @@ Describe details of the error, bits 27-20 provide a high level, bits 19-0 provid
 | **MEDIA_ERR_ABORTED errors range (0x0100000 - 0x01FFFFF)** | | |
 | abortedErrUnknown | 0x0100000 | Generic abort error |
 | abortedErrNotImplemented | 0x0100001 | Abort error, not implemented |
-| abortedErrHttpMixedContentBlocked | 0x0100002 | Abort error, mixed content blocked - generally occurs when loading an http:// stream from an https:// page |
+| abortedErrHttpMixedContentBlocked | 0x0100002 | Abort error, mixed content blocked - generally occurs when loading an `http://` stream from an `https://` page |
 | **MEDIA_ERR_NETWORK errors start value (0x0200000 - 0x02FFFFF)** | | |
 | networkErrUnknown | 0x0200000 | Generic network error |
 | networkErrHttpBadUrlFormat | 0x0200190 | Http 400 error response |
@@ -61,7 +61,7 @@ Describe details of the error, bits 27-20 provide a high level, bits 19-0 provid
 | networkErrTimeout | 0x0200258 | Network timeout error
 | networkErrErr | 0x0200259 | Network connection error response |
 | **MEDIA_ERR_DECODE errors (0x0300000 - 0x03FFFFF)** | | |
-| decodeErrUnknown | 0x0300000 | Generic decode error | 
+| decodeErrUnknown | 0x0300000 | Generic decode error |
 | **MEDIA_ERR_SRC_NOT_SUPPORTED errors (0x0400000 - 0x04FFFFF)** | | |
 | srcErrUnknown | 0x0400000 | Generic source not supported error |
 | srcErrParsePresentation | 0x0400001 | Presentation parse error |
@@ -148,5 +148,4 @@ The following code catches just just 404 errors:
 
 ## Next steps ##
 
-<!---Some context for the following links goes here--->
-- [link to next logical step for the customer](global-quickstart-template.md)
+- [Azure Media Player Quickstart](azure-media-player-quickstart.md)

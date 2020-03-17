@@ -47,5 +47,4 @@ Azure Media Player currently supports the following languages with their corresp
 
 ## Next steps ##
 
-<!---Some context for the following links goes here--->
-- [link to next logical step for the customer](global-quickstart-template.md)
+- [Azure Media Player Quickstart](azure-media-player-quickstart.md)

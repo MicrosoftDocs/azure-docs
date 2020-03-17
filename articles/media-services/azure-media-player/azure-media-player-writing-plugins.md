@@ -71,7 +71,7 @@ Method 2:
 
 Plugin options are not required, including them just allows the developers using your plugin to configure its behavior without having to change the source code.
 
-For inspiration and more examples on creating a plugin take a look at our [gallery](http://aka.ms/ampplugins)
+For inspiration and more examples on creating a plugin take a look at our [gallery](azure-media-player-plugin-gallery.md)
 
 >[!NOTE]
 > Plugin code dynamically changes items in the DOM during the lifetime of the viewer's player experience, it never makes permanent changes to the player's source code. This is where an understanding of your browser's developer tools comes in handy. For example, if you'd like to change the appearance of an element in the player you can find its HTML element by its class name and then add or change attributes from there. Here's a great resource on [changing HTML attributes.](http://www.w3schools.com/js/js_htmldom_html.asp)
@@ -83,3 +83,7 @@ For inspiration and more examples on creating a plugin take a look at our [galle
 ### Plugin Gallery ###
 
 The [plugin gallery](http//:aka.ms/ampplugins) has several plugins that the community has already contributed for features like time-line markers, zoom, analytics and more. The page provides accesses to the plugins and instructions on how to set it up as well as a demo that shows the plugin in action. If you create a cool plugin that you think should be included in our gallery then feel free to submit it so we can check it out.
+
+## Next steps ##
+
+- [Azure Media Player Quickstart](azure-media-player-quickstart.md)

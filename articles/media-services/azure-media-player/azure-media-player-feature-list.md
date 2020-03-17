@@ -60,3 +60,6 @@ Here is the list of tested features and unsupported features:
 | Multi-period Presentation               |        |                  |          | X                                                                                                                                  |
 | Multiple camera angles                  |        |                  |          | X           |                                                                                                                      |
 | Playback Speed                          |        | X                |          |             | Playback speed is supported in most scenarios besides the mobile case due to a partial bug in Chrome                 |
+
+## Next steps ##
+- [Azure Media Player Quickstart](azure-media-player-quickstart.md)

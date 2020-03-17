@@ -66,13 +66,14 @@ ms.date: 03/16/2020
 
 ### Changes ###
 
+<!---API needs onboarding--->
 -[Change][Live captioning] Changed API name for CEA captions from 608 to 708, for more details, see [here](index.html#amp.player.cea708captionssettings)
 
 ## 2.2.0 (Official Release) ##
 
 ### Features 2.2.0 ###
 
-- [Feature][Azurehtml5JS][Flash][LiveCaptions]CEA 708 captioning support in Azurehtml5JS and FlashSS tech for clear and AES content. 
+- [Feature][Azurehtml5JS][Flash][LiveCaptions]CEA 708 captioning support in Azurehtml5JS and FlashSS tech for clear and AES content.
 
 ### Bug Fixes 2.2.0 ###
 
@@ -81,11 +82,11 @@ ms.date: 03/16/2020
 ### Changes 2.2.0 ###
 
 - [Change][AMP][Heuristics]Changed heuristic profile name from QuickStartive to LowLatency
-- [Change][Flash]Change in Flash player for version detection to enable playback of AES content with the new Adobe Flash update. 
+- [Change][Flash]Change in Flash player for version detection to enable playback of AES content with the new Adobe Flash update.
 
 ## 2.1.9 (Official Hotfix) ##
 
-### Bug fixes 2.1.9 ###
+### Bug Fixes 2.1.9 ###
 
 - [Bug Fix][Live] Exception occurring when live streams transition to video on demand/live archives
 
@@ -95,7 +96,7 @@ ms.date: 03/16/2020
 
 ## 2.1.8 (Official Update) ##
 
-### Bug fixes 2.1.8 ###
+### Bug Fixes 2.1.8 ###
 
 - [Bug fix] Spinner occasionally doesn't show post seek and pre- play
 - [Bug Fix] Player doesn't start muted when muted option enabled
@@ -110,16 +111,16 @@ ms.date: 03/16/2020
 
 ### Changes 2.1.8 ###
 
-- [Change]Updated 0x0600001 errror to display when AES content is played back with Flash 30 as it's not supported at this time. Please see [known issues](known_issues.html) for more details
+- [Change]Updated 0x0600001 errror to display when AES content is played back with Flash 30 as it's not supported at this time. Please see [known issues](azure-media-player-known_issues.md) for more details
 - [Change] Added additional retries for live scenarios when manifest requests 404 or returns empty manifests.
 
-## 2.1.7 (Official Update)##
+## 2.1.7 (Official Update) ##
 
 ### Features 2.1.7 ###
 
 - [Feature][AzureHtml5JS] Added configuration option to flush stale data in the media source buffer
 
-### Bug fixes 2.1.7 ###
+### Bug Fixes 2.1.7 ###
 
 - [Bug Fix][Accessibility][Screen Reader] Removed the blank header the player included when title is not set
 - [Bug Fix][UWA] AMP throws exception when playback in Universal Windows App
@@ -134,7 +135,7 @@ ms.date: 03/16/2020
 
 ## 2.1.6 (Official Update) ##
 
-### Bug fixes 2.1.6 ###
+### Bug Fixes 2.1.6 ###
 
 - [Bug Fix]AMP displaying incorrect duration for specific asset
 - [Bug Fix][FairPlay-HLS] Fairplay errors not propagating to UI
@@ -151,14 +152,14 @@ ms.date: 03/16/2020
 
 ## 2.1.5 (Official Hotfix) ##
 
-### Bug fixes 2.1.5 ###
+### Bug Fixes 2.1.5 ###
 
 - [Bug Fix][Captions] VTT styling not rendered correctly by player
 - [Bug Fix][Accessibility]Live button has no aria label
 
 ## 2.1.4 (Official Update) ##
 
-### Bug fixes 2.1.4 ###
+### Bug Fixes 2.1.4 ###
 
 - [Bug Fix][Accessibility][Focus]Users cannot tab to focus on custom buttons added to the right of the full screen button in the control bar
 - [Bug Fix][IE11][Volume bar]Tabbing to volume pop-up makes the entire video screen flash in IE11 while in full-screen mode
@@ -169,22 +170,22 @@ ms.date: 03/16/2020
 - [Bug Fix][AMP][Focus] Play/pause requires two clicks when player has focus and is in full screen mode
 - [Bug Fix][AMP][Skin]Incorrect duration being displayed on progress bar for a specific asset
 - [Bug Fix][Ads][Ad Butler] VAST parser doesn't handle VAST file which does not have progress event
-- [Bug Fix][SDN][AMP 2.1.1] Fixed issue for Hive SDN plugin support 
+- [Bug Fix][SDN][AMP 2.1.1] Fixed issue for Hive SDN plugin support
 - [Bug Fix][Accessibility]Narrator reads "Midnight Mute Button" when user has focus of volume button
 
 ### Changes 2.1.4 ###
 
-- [Change][Accessibility][Assistive Technology] Buttons now have aria-live property to improve experience with assistive technology 
-- [Change][Accessibility][Volume button|Narrator]Improved accessibility of volume button by modifying the tabbing functionality and the slider behavior. These changes make it easier for keyboard users to modify the player's volume 
+- [Change][Accessibility][Assistive Technology] Buttons now have aria-live property to improve experience with assistive technology
+- [Change][Accessibility][Volume button|Narrator]Improved accessibility of volume button by modifying the tabbing functionality and the slider behavior. These changes make it easier for keyboard users to modify the player's volume
 - [Change]Increased inactivity context menu timeout from 3 to 5 seconds
 - [Change][Accessibility][Luminosity] Improved luminosity contrast ratio on dropdown menus in captions settings
 
 ## 2.1.3 (Official Update) ##
 
-### Bug fixes 2.1.3 ###
+### Bug Fixes 2.1.3 ###
 
-- [Bug Fix][Plugins|Title Overlay] Title Overlay plugin throws JS exceptions with AMP v2.X+ 
-- [Bug Fix]Source Set event is sent to javascript console even when logging is turned off   
+- [Bug Fix][Plugins|Title Overlay] Title Overlay plugin throws JS exceptions with AMP v2.X+
+- [Bug Fix]Source Set event is sent to javascript console even when logging is turned off
 - [Bug Fix][Skin] Player time tips are rendered outside context of the player when hovering over either end duration bar
 - [Bug Fix][Accessibility][Screen Reader] Narrator reads "Region Landmark" or "Video Player Region Landmark" when viewer has focus on player
 - [Bug Fix][AMP] Cannot disable player outline via CSS
@@ -193,7 +194,7 @@ ms.date: 03/16/2020
 - [Bug Fix][Skin]Duration and current time get cut off when stream > 60 min
  -[Bug Fix][iPhone|Live]player shows text for current time/duration in control bar
 - [Bug Fix][AMP] Calling player heuristics APIs yields javascript exceptions
-- [Bug Fix][Native Html5|iOS] Videotag property "playsinline" not propagating to player 
+- [Bug Fix][Native Html5|iOS] Videotag property "playsinline" not propagating to player
 - [Bug Fix][iOS|iframe]Player cannot enter fullscreen on iPhone if player is loaded in an iframe
 - [Bug Fix][AMP][Heuristics]AMP always operates with hybrid profile regardless of player options
 - [Bug Fix][AMP|Win8.1]throws when hosted in Win8.1 app with a webview
@@ -201,7 +202,7 @@ ms.date: 03/16/2020
 ### Changes 2.1.3 ###
 
 - [Change][AMP] Added CDN endpoint information in FragmentDownloadComplete event
-- [Change][AMP][Live] Improved and optimized live streaming latency 
+- [Change][AMP][Live] Improved and optimized live streaming latency
 
 ## 2.1.2 (Official Hotfix) ##
 
@@ -241,7 +242,7 @@ ms.date: 03/16/2020
 
 ### Changes 2.1.1 ####
 
-- [Change] Added Error Code for Widevine Https requirement: as of Chrome v58, widevine content must be loaded/played back via the https:// protocol otherwise playback will fail.
+- [Change] Added Error Code for Widevine Https requirement: as of Chrome v58, widevine content must be loaded/played back via the `https://` protocol otherwise playback will fail.
 - [Change] Added aria label for loading spinner so assistive technology can narrate "video loading" when content is loading  
 
 ## 2.1.0 (Official Release) ##
@@ -261,16 +262,16 @@ ms.date: 03/16/2020
 
 ### Changes 2.1.0 ###
 
-- [Change] Restructured DOM elements in player to accommodate ads work 
+- [Change] Restructured DOM elements in player to accommodate ads work
 - [Change] Switched from CSS to SCSS for skin development
-- [Change][Samples]Added sample for VOD ads 
-- [Change][Samples]Added sample for playback speed 
-- [Change][Samples]Added sample for Flush Skin 
+- [Change][Samples]Added sample for VOD ads
+- [Change][Samples]Added sample for playback speed
+- [Change][Samples]Added sample for Flush Skin
 
 ## 2.0.0 ( Beta Release) ##
 
 - [Change]updated to VJS5
-- [feature] Added new fluid API for player responsivess fluid
+- [feature] Added new fluid API for player responsiveness fluid
 - [Feature] Playback speed
 - [Change] Switched from CSS to SCSS for skin
 
@@ -303,19 +304,19 @@ ms.date: 03/16/2020
 
 ### Features 1.8.0 ###
 
-- [Features][DRM] Added FairPlay Support (see [Protected Content](index.html#protected-content) for more info)
+- [Features][DRM] Added FairPlay Support (see [Protected Content](azure-media-player-protected-content.md) for more info)
 
 ### Bug Fixes 1.8.0 ###
 
 - [Bug Fix][AMP] User seek doesn't trigger a wait event when network is throttled
-- [Bug Fix][FlashSS] Selecting quality in flash tech throws exception 
-- [Bug Fix][AMP] Dynamically selecting quality does show in context menu 
-- [Bug Fix][Skin] It's difficult to select the last menu item of context menus 
+- [Bug Fix][FlashSS] Selecting quality in flash tech throws exception
+- [Bug Fix][AMP] Dynamically selecting quality does show in context menu
+- [Bug Fix][Skin] It's difficult to select the last menu item of context menus
 
 ### Changes 1.8.0 ###
 
 - [Change] Updated player to current Chrome EME requirements
-- [Change] Default techOrder changed to accommodate new tech- html5FairPlayHLS (see [Protected Content](index.html#protected-content) for more info)
+- [Change] Default techOrder changed to accommodate new tech- html5FairPlayHLS (see [Protected Content](azure-media-player-protected-content.md) for more info)
 - [Change][AzureHtml5JS] Enabled MPEG-Dash playback in Safari
 - [Change][Samples] Changed Multi-DRM samples to accommodate FairPlay
 
@@ -341,7 +342,7 @@ ms.date: 03/16/2020
 ## 1.7.2 (Official Hotfix Update) ##
 
 ### Features 1.7.2 ###
-
+<!---API needs onboarding--->
 - [Feature][AzureHtml5JS|Firefox] Enable Widevine playback with EME for Firefox 47+
 - [Feature] Add event for player ([disposing](index.html#static-amp.eventname.disposing))
 
@@ -379,7 +380,7 @@ ms.date: 03/16/2020
 ## 1.7.0 (Official Update) ##
 
 ### Features 1.7.0 ###
-
+<!---API needs onboarding--->
 - [Feature][AzureHtml5JS][FlashSS] Added currentMediaTime() to get the encoder media time of the current time in seconds
 - [Feature][FlashSS] Implemented download telemetry APIs with videoBufferData() and audioBufferData() (see [BufferData](index.html#amp.bufferdata) for more details)
 - [Feature][FlashSS] Added 'downloadbitratechanged' event
@@ -397,11 +398,11 @@ ms.date: 03/16/2020
 - [Bug Fix][AzureHtml5JS] Error 0x0100002 should be shown when playing HTTP stream on HTTPS site which instead yields infinite spinner as a result of mixed content
 - [Bug Fix][AzureHtml5JS] Missing end segment causing looping health check error displaying a perceived infinite buffering state
 - [Bug Fix][AzureHtml5JS] Incorrect audio track name in menu when useManifestForLabel=false and 3 letter language codes are used
-- [Bug Fix][AzureHtml5JS|Chrome] Perceived infinite buffer state at the end of content caused by floating point imprecision in duration with JavaScript in Chrome 
+- [Bug Fix][AzureHtml5JS|Chrome] Perceived infinite buffer state at the end of content caused by floating point imprecision in duration with JavaScript in Chrome
 - [Bug Fix][FlashSS] Non-fatal intermittent error momentarily displayed when flash player created
-- [Bug Fix][FlashSS] Playback failing when video and audio streams use different timescales due to rounding imprecision failing with "Fragment url (...) is failed to generate FLVTags" 
+- [Bug Fix][FlashSS] Playback failing when video and audio streams use different timescales due to rounding imprecision failing with "Fragment url (...) is failed to generate FLVTags"
 - [Bug Fix][FlashSS] Issues parsing manifest urls with encoded spaces
-- [Bug Fix][FlashSS] Missing check to determine if Flash player version >= 11.4 which causes an error in playback instead of falling back to the next tech in the techOrder 
+- [Bug Fix][FlashSS] Missing check to determine if Flash player version >= 11.4 which causes an error in playback instead of falling back to the next tech in the techOrder
 - [Bug Fix][FlashSS][AES] Issues accepting AES tokens with underscores in it
 - [Bug Fix][SilverlightSS|OSX] "//" prefixing a manifest instead of the protocol (HTTP or HTTPS) is recognized as a local file yielding infinite spinner
 
@@ -422,14 +423,14 @@ ms.date: 03/16/2020
 
 ### Features 1.6.2 ###
 
-- [Feature] Added additional languages for localization (see documentation for more details) 
+- [Feature] Added additional languages for localization (see documentation for more details)
 
 ### Bug Fixes 1.6.2 ###
 
 - [Bug Fix][IE9-10] Clicking on areas around the player minimized browser window due to IE9/IE10 bug that minimizes on window.blur()
-- [Bug Fix][FlashSS] Not accepting AES tokens with underscores 
+- [Bug Fix][FlashSS] Not accepting AES tokens with underscores
 
-## 1.6.1 (Official Hotfix Update)##
+## 1.6.1 (Official Hotfix Update) ##
 
 ### Bug Fixes 1.6.1 ###
 
@@ -499,7 +500,7 @@ ms.date: 03/16/2020
 
 ### Bug Fixes 1.4.0 ###
 
-- [Bug Fix] [FlashSS] Enhancement for parameter validation 
+- [Bug Fix] [FlashSS] Enhancement for parameter validation
 
 ## 1.3.0 (Official Update) ##
 
@@ -511,7 +512,7 @@ ms.date: 03/16/2020
 
 - [Bug Fix] [AzureHtml5JS|Chrome] Intermittent infinite spinner
 - [Bug Fix] [AzureHtml5JS|IE][Windows Phone] Exception causing Windows Phone to have playback issues
-- [Bug Fix] [FlashSS] Autoplay set to false fails for additional instances 
+- [Bug Fix] [FlashSS] Autoplay set to false fails for additional instances
 - [Bug Fix] UI menu sizing issues
 
 ## 1.2.0 (Official Update) ##
@@ -524,7 +525,7 @@ ms.date: 03/16/2020
 ### Bug Fixes 1.2.0 ###
 
 - [Bug Fix] [AzureHtml5JS|Chrome] Player drifts behind live edge when player in the background
-- [Bug Fix] [AzureHtml5JS|Edge] Full screen not working 
+- [Bug Fix] [AzureHtml5JS|Edge] Full screen not working
 - [Bug Fix] [AzureHtml5JS] Logging wasn't enabled properly when set in options
 - [Bug Fix] [Flash] Both "buffering" and buffering icon show during waiting event
 - [Bug Fix] Allow playback to continue if initial bandwidth request fails
@@ -560,14 +561,14 @@ ms.date: 03/16/2020
 - [Feature] Basic accessibility testing for tab control, focus control, screen reader, high contrast UI
 - [Feature] Updated UI
 - [Feature] Dev logging
-- [Feature] API for dynamically setting captions/subtitles tracks 
+- [Feature] API for dynamically setting captions/subtitles tracks
 - [Feature] Basic localization features
 - [Feature] Error code consolidation across techs
 - [Feature] New error code for when plugins (like Flash or Silverlight) aren't installed
 - [Feature] [AzureHtml5JS] Implemented basic diagnostic events
 
 ### Bug Fixes 1.0.0 ###
-
+<!---What is that actually supposed to say?--->
 - [Bug Fix] [AzureHtml5JS] Live playback freezing on MPD updates when there are small imprecision in the timestamp
 - [Bug Fix] [AzureHtml5JS] Mitigated several Live playback issues
 - [Bug Fix] [AzureHtml5JS] Flush buffers when window size heuristics is on and go to a higher resolution screen
@@ -583,7 +584,7 @@ ms.date: 03/16/2020
 - [Feature] Handling Discontinuities
 - [Feature] Support for timestamps greater than 2^53
 - [Feature] URL query parameter persists to the manifest request
-- [Feature] [Untested] Support for `QuickStart` and `HighQuality` heuristics profiles 
+- [Feature] [Untested] Support for `QuickStart` and `HighQuality` heuristics profiles
 - [Feature] [Untested] Exposing video stream information for bitrates, width and height on AzureHtml5JS and FlashSS
 - [Feature] [Untested] Select Bitrate on AzureHtml5JS and FlashSS (see API documentation)
 
@@ -596,7 +597,7 @@ ms.date: 03/16/2020
 - [Bug Fix] AMD loader issue and define method conflicts
 - [Bug Fix] WP 8.1 Cordova App loading issue
 - [Bug Fix] Protected content queries platform/tech supported ProtectionType to select the appropriate tech for playback.  Fixes previous known issue of '_PlayReady content on Chrome (desktop) / Safari 8 (on OSX Yosemite) currently does not fallback to Silverlight player_'
-- [Bug Fix] uncaught exception on WinServer 2012 R2 due to Media Foundation not installed on that machine by default.  Attempt to use HTML video tag APIs, that are not implemented, thus throwing an error. Current mitigation is to catch that error and return false instead of throwing the error. 
+- [Bug Fix] uncaught exception on WinServer 2012 R2 due to Media Foundation not installed on that machine by default.  Attempt to use HTML video tag APIs, that are not implemented, thus throwing an error. Current mitigation is to catch that error and return false instead of throwing the error.
 - [Bug Fix] always get the init segment after seek or http failure to prevent glitches during playback
 - [Bug Fix] turn off tracking simulated progress and timeupdates when Error has occurred.
 - [Bug Fix] remove right click menu
@@ -608,3 +609,7 @@ ms.date: 03/16/2020
 ## 0.1.0 (Beta Release) ##
 
 Initial Pre-Release
+
+## Next steps ##
+
+- [Azure Media Player Quickstart](azure-media-player-quickstart.md)

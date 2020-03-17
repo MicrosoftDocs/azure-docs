@@ -19,7 +19,6 @@ Below is a list of known issues associated with this release.  Also, a list of t
 
 [TypeScript Definitions (d.ts)](typescript/azuremediaplayer.d.ts "TypeScript Definitions" )
 
-## Next steps ##
+## Next steps
 
-<!---Some context for the following links goes here--->
-- [link to next logical step for the customer](global-quickstart-template.md)
+- [Azure Media Player Quickstart](azure-media-player-quickstart.md)

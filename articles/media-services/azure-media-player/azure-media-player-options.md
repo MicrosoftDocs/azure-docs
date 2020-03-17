@@ -144,5 +144,4 @@ This option is only available in Azure Media Player version 2.1.1 and later.
 
 ## Next steps ##
 
-<!---Some context for the following links goes here--->
-- [link to next logical step for the customer](global-quickstart-template.md)
+- [Azure Media Player Quickstart](azure-media-player-quickstart.md)
