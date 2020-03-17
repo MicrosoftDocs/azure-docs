@@ -67,7 +67,7 @@ For additional information about how PCA works, and about the implementation for
 
     - If you set the **Create trainer mode** option to **Single Parameter**, use the [Train Anomaly Detection Model](train-anomaly-detection-model.md) module.
 
-7. Run the pipeline.
+7. Submit the pipeline.
 
 ## Results
 
