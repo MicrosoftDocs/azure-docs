@@ -26,7 +26,7 @@ The following section highlights specific error messages and possible resolution
 When you attempt to enable the Update Management solution in your Automation account, you encounter the following error:
 
 ```error
-Error details: Failed ot enable the Update solution
+Error details: Failed to enable the Update solution
 ```
 
 ### Cause
