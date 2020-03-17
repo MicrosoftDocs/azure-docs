@@ -29,7 +29,7 @@ Device registration with a Notification Hub is accomplished using a **Registrati
 
 ### Registrations
 
-A registration associates the Platform Notification Service (PNS) handle for a device with tags and possibly a template. The PNS handle could be a ChannelURI, device token, or FCM registration id. Tags are used to route notifications to the correct set of device handles. For more information, see [Routing and Tag Expressions](notification-hubs-tags-segment-push-message.md). Templates are used to implement per-registration transformation. For more information, see [Templates](notification-hubs-templates-cross-platform-push-messages.md).
+A registration associates the Platform Notification Service (PNS) handle for a device with tags and possibly a template. The PNS handle could be a ChannelURI, device token, or FCM registration ID. Tags are used to route notifications to the correct set of device handles. For more information, see [Routing and Tag Expressions](notification-hubs-tags-segment-push-message.md). Templates are used to implement per-registration transformation. For more information, see [Templates](notification-hubs-templates-cross-platform-push-messages.md).
 
 > [!NOTE]
 > Azure Notification Hubs supports a maximum of 60 tags per device.
@@ -166,7 +166,7 @@ var channel = await PushNotificationChannelManager.CreatePushNotificationChannel
 string installationId = null;
 var settings = ApplicationData.Current.LocalSettings.Values;
 
-// If we have not stored an installation id in application data, create and store as application data.
+// If we have not stored an installation ID in application data, create and store as application data.
 if (!settings.ContainsKey("__NHInstallationId"))
 {
     installationId = Guid.NewGuid().ToString();
@@ -208,15 +208,15 @@ These methods create or update a registration for the device on which they are c
 // Initialize the Notification Hub
 NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString(listenConnString, hubName);
 
-// The Device id from the PNS
+// The Device ID from the PNS
 var pushChannel = await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
 
-// If you are registering from the client itself, then store this registration id in device
-// storage. Then when the app starts, you can check if a registration id already exists or not before
+// If you are registering from the client itself, then store this registration ID in device
+// storage. Then when the app starts, you can check if a registration ID already exists or not before
 // creating.
 var settings = ApplicationData.Current.LocalSettings.Values;
 
-// If we have not stored a registration id in application data, store in application data.
+// If we have not stored a registration ID in application data, store in application data.
 if (!settings.ContainsKey("__NHRegistrationId"))
 {
     // make sure there are no existing registrations for this push handle (used for iOS and Android)    
@@ -324,7 +324,7 @@ var reg = new WindowsRegistrationDescription(channelUri, tags);
 // Create
 await hub.CreateRegistrationAsync(reg);
 
-// Get by id
+// Get by ID
 var r = await hub.GetRegistrationAsync<RegistrationDescription>("id");
 
 // update
