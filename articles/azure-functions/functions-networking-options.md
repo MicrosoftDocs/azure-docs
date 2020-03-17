@@ -54,7 +54,7 @@ To learn how to set up private site access, see [Establish Azure Functions priva
 
 ## Virtual network integration
 
-Virtual network integration allows your function app to access resources inside a virtual network. 
+Virtual network integration allows your function app to access resources inside a virtual network.
 Azure Functions supports two kinds of virtual network integration:
 
 [!INCLUDE [app-service-web-vnet-types](../../includes/app-service-web-vnet-types.md)]
