@@ -42,11 +42,11 @@ QnA sets are added from a datasource, such as a file or URL, or added as an edit
     |Emoticon - add from a selection of markdown emoticons.|
     |Header style|
 
-1. Optionally, add **[alternate phrasing](../Quickstarts/add-question-metadata-portal#add-additional-alternatively-phrased-questions)**. Alternate phrasing is any form of the question that is significantly different from the original question but should provide the same answer.
+1. Optionally, add **[alternate phrasing](../Quickstarts/add-question-metadata-portal.md#add-additional-alternatively-phrased-questions)**. Alternate phrasing is any form of the question that is significantly different from the original question but should provide the same answer.
 
     When your knowledge base is published, and you have active learning turned on, QnA Maker collects alternate phrasing choices for you to accept. These choices are selected in order to increase the prediction accuracy.
 
-1. Optionally, add **[metadata](../Quickstarts/add-question-metadata-portal#add-metadata-to-filter-the-answers)**. To view metadata, select **View options** in the context menu. Metadata provides filters to the answers that the client application, such as a chat bot, provides.
+1. Optionally, add **[metadata](../Quickstarts/add-question-metadata-portal.md#add-metadata-to-filter-the-answers)**. To view metadata, select **View options** in the context menu. Metadata provides filters to the answers that the client application, such as a chat bot, provides.
 
 1. Optionally, add **[follow-up prompts](multiturn-conversation.md)**. Follow-up prompts provide additional conversation paths to the client application to present to the user.
 
