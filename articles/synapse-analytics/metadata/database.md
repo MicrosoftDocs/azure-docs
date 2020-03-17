@@ -17,7 +17,7 @@ Azure Synapse Analytics allows the different computational workspace engines to 
 
 [!INCLUDE [synapse-analytics-preview-terms](../../../includes/synapse-analytics-preview-terms.md)]
 
-Once a database is created with a Spark job, that database will become visible as a database with that same name, and to all current and future Spark pools (preview) in the workspace and the SQL on-demand engine.
+A database created with a Spark job will become visible with that same name to all current and future Spark pools (preview) in the workspace as well as the SQL on-demand engine.
 
 If there are SQL pools in the workspace that have metadata synchronization enabled or if a new SQL pool is created with the metadata synchronization enabled, these Spark created databases are automatically mapped into special schemas in the SQL pool database. 
 
