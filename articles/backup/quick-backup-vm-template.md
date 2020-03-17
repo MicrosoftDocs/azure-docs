@@ -38,7 +38,7 @@ The resources defined in the template are:
 
 ### Deploy the template
 
-To deploy the template, select **Try it** to open the Azure Cloud shell, and then paste the following PowerShell script into the shell window. To paste the code, right-click the shell window and then select **Paste**.
+To deploy the template, select **Try it** to open the Azure Cloud Shell, and then paste the following PowerShell script into the shell window. To paste the code, right-click the shell window and then select **Paste**.
 
 ```azurepowershell-interactive
 $projectName = Read-Host -Prompt "Enter a project name (limited to eight characters) that is used to generate Azure resource names"
