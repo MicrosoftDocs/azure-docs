@@ -32,7 +32,7 @@ This article provides examples that you can re-create by using the [nutrition](h
     - The number of items in a page can and will change without notice.
 - Empty pages are expected for queries and can appear at any time.
     - Empty pages are exposed in the SDKs because that exposure allows more opportunities to cancel a query. It also makes it clear that the SDK is doing multiple network calls.
-    - Empty pages can appear in existing workloads because a physical partition is split in Azure Cosmos DB. The first partition now has zero results, which causes the empty page.
+    - Empty pages can appear in existing workloads because a physical partition is split in Azure Cosmos DB. The first partition will have zero results, which causes the empty page.
     - Empty pages are caused by the backend preempting a query because the query is taking more than some fixed amount of time on the backend to retrieve the documents. If Azure Cosmos DB preempts a query, it will return a continuation token that will allow the query to continue.
 - Be sure to drain the query completely. Look at the SDK samples, and use a `while` loop on `FeedIterator.HasMoreResults` to drain the entire query.
 
@@ -42,7 +42,7 @@ When you optimize a query in Azure Cosmos DB, the first step is always to [get t
 
 [ ![Getting query metrics](./media/troubleshoot-query-performance/obtain-query-metrics.png) ](./media/troubleshoot-query-performance/obtain-query-metrics.png#lightbox)
 
-After you get the query metrics, compare the Retrieved Document Count with the Output Document Count for your query. Use this comparison to identify the relevant sections to reference in this article.
+After you get the query metrics, compare the Retrieved Document Count with the Output Document Count for your query. Use this comparison to identify the relevant sections to review in this article.
 
 The Retrieved Document Count is the number of documents that the query needed to load. The Output Document Count is the number of documents that were needed for the results of the query. If the Retrieved Document Count is significantly higher than the Output Document Count, there was at least one part of your query that was unable to use the index and needed to do a scan.
 
@@ -86,7 +86,7 @@ Refer to the following sections to understand the relevant query optimizations f
 
  The Retrieved Document Count is the number of documents that the query needed to load. The Output Document Count is the number of documents that were needed for the results of the query. If the Retrieved Document Count is significantly higher than the Output Document Count, there was at least one part of your query that was unable to use the index and needed to do a scan.
 
-Here's an example of scan query that wasn't entirely served by the index.
+Here's an example of scan query that wasn't entirely served by the index:
 
 Query:
 
@@ -291,7 +291,7 @@ AND n.nutritionValue < 10) AND s.amount > 1
 
 For this query, the index will match any document that has a tag with the name "infant formula", nutritionValue greater than 0, and serving amount greater than 1. The `JOIN` expression here will perform the cross-product of all items of tags, nutrients, and servings arrays for each matching document before any filter is applied. The `WHERE` clause will then apply the filter predicate on each `<c, t, n, s>` tuple.
 
-For example, if a matching document had 10 items in each of the three arrays, it will expand to 1 x 10 x 10 x 10 (that is, 1,000) tuples. The use of subqueries here can help to filter out joined array items before joining with the next expression.
+For example, if a matching document has 10 items in each of the three arrays, it will expand to 1 x 10 x 10 x 10 (that is, 1,000) tuples. The use of subqueries here can help to filter out joined array items before joining with the next expression.
 
 This query is equivalent to the preceding one but uses subqueries:
 
@@ -305,7 +305,7 @@ JOIN (SELECT VALUE s FROM s IN c.servings WHERE s.amount > 1)
 
 **RU charge:** 22.17 RUs
 
-Assume that only one item in the tags array matches the filter and that there are five items for both the nutrients and servings arrays. The `JOIN` expressions will then expand to 1 x 1 x 5 x 5 = 25 items, as opposed to 1,000 items in the first query.
+Assume that only one item in the tags array matches the filter and that there are five items for both the nutrients and servings arrays. The `JOIN` expressions will expand to 1 x 1 x 5 x 5 = 25 items, as opposed to 1,000 items in the first query.
 
 ## Queries where Retrieved Document Count is equal to Output Document Count
 
@@ -317,7 +317,7 @@ Azure Cosmos DB uses [partitioning](partitioning-overview.md) to scale individua
 
 If you have a large number of provisioned RUs (more than 30,000) or a large amount of data stored (more than approximately 100 GB), you probably have a large enough container to see a significant reduction in query RU charges.
 
-For example, if you create a container with the partition key foodGroup, the following queries would need to check only a single physical partition:
+For example, if you create a container with the partition key foodGroup, the following queries will need to check only a single physical partition:
 
 ```sql
 SELECT * FROM c
