@@ -49,7 +49,7 @@ Probe can either one of :
 2. TCP
 3. Exec 
 
-## HtTTP Probe
+## HTTP Probe
 
 For HTTP probe, Service Fabric will send an HTTP request to the port and path specified. Return code greater than or equal to 200 and less than 400 indicates success.
 
