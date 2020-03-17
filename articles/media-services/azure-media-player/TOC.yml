@@ -1,0 +1,36 @@
+- name: Overview
+  items:
+  - name: Azure Media Player Overview
+    href: azure-media-player-overview.md
+  - name: Release notes
+    href: azure-media-player-release-notes.md
+- name: Quickstarts
+  items:
+  - name: Azure Media Player Quickstart
+    href: azure-media-player-quickstart.md
+- name: Tutorials
+  items:
+  - name: Full setup of Azure Media Player
+    href: azure-media-player-full-setup.md
+- name: Concepts
+  items:
+  - name: Playback Technology
+    href: azure-media-player-playback-technology.md
+  - name: Protected content
+    href: azure-media-player-protected-content.md
+  - name: URL Rewriter
+    href: azure-media-player-url-rewriter.md
+  - name: Accessibility
+    href: azure-media-player-accessibility.md
+    name: Plugin gallery
+    href: azure-media-player-plugin-gallery.md
+    name: Localization
+    href: azure-media-player-localization.md
+- name: Reference
+  items:
+  - name: Samples
+    href: https://github.com/Azure-Samples/azure-media-player-samples
+  - name: Options
+    href: azure-media-player-options.md
+  - name: API
+    href: azure-media-player-api.md
