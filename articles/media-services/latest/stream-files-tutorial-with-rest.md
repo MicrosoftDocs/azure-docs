@@ -11,7 +11,7 @@ ms.service: media-services
 ms.workload: 
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 11/05/2019
+ms.date: 03/16/2020
 ms.author: juliako
 ---
 
@@ -54,7 +54,9 @@ Clone a GitHub repository that contains the  Postman collection and environment 
  git clone https://github.com/Azure-Samples/media-services-v3-rest-postman.git
  ```
 
-[!INCLUDE [media-services-v3-cli-access-api-include](../../../includes/media-services-v3-cli-access-api-include.md)]
+## Access API
+
+For detailed information, see [Get credentials to access Media Services API](access-api-howto.md)
 
 ## Configure Postman
 
