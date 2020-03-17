@@ -14,7 +14,7 @@ services: iot-edge
 
 IoT Edge can integrate with Kubernetes using it as a resilient, highly available infrastructure layer. Here is where this support fits in a high level IoT Edge solution:
 
-![k8s intro](./media/how-to-install-iot-edge-kubernetes/k8s-model.png)
+![k8s intro](./media/how-to-install-iot-edge-kubernetes/kubernetes-model.png)
 
 >[!TIP]
 >A good mental model for this integration is to think of Kubernetes as another operating environment IoT Edge applications can run on in addition to Linux and Windows.
@@ -26,7 +26,7 @@ Module lifetime is managed by the Kubernetes scheduler, which maintains module a
 
 Here is a high-level architecture diagram:
 
-![kubernetes arch](./media/how-to-install-iot-edge-kubernetes/pp-refresh-k8s.png)
+![kubernetes arch](./media/how-to-install-iot-edge-kubernetes/publicpreview-refresh-kubernetes.png)
 
 Every component of the edge deployment is scoped to a Kubernetes namespace specific to the device, making it possible to share the same cluster resources among multiple edge devices and their deployments.
 
