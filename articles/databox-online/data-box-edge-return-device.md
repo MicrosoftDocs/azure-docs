@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 07/19/2019
+ms.date: 02/26/2020
 ms.author: alkohli
 ---
 
@@ -68,7 +68,7 @@ To begin the return process, take the following steps.
 3. Unplug the power cables and remove all the network cables from the device.
 4. Prepare the shipment package by using your own box or the empty box you received from Azure. Place the device and the power cords that were shipped with the device in the box.
 5. Affix the shipping label that you received from Azure on the package.
-6. Schedule a pickup with your regional carrier. If returning the device in US, your carrier is UPS. To schedule a pickup:
+6. Schedule a pickup with your regional carrier. If returning the device in US, your carrier could be UPS or FedEx. To schedule a pickup with UPS:
 
     1. Call the local UPS (country-specific toll free number).
     2. In your call, quote the reverse shipment tracking number as shown on your printed label.

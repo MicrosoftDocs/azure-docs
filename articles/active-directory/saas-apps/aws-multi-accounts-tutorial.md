@@ -38,7 +38,7 @@ If you want to know more details about SaaS app integration with Azure AD, see [
 
 **Please note that we do not recommend to use this approach for following reasons:**
 
-* You have to use the Graph Explorer approach to patch all the roles to the app. We don’t recommend using the manifest file approach.
+* You have to use the Microsoft Graph Explorer approach to patch all the roles to the app. We don’t recommend using the manifest file approach.
 
 * We have seen customers reporting that after adding ~1200 app roles for a single AWS app, any operation on the app started throwing the errors related to size. There is a hard limit of size on the application object.
 
@@ -243,7 +243,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 16. Perform the above step for all the roles in all the accounts and store all of them in format **Role ARN,Trusted entities** in a notepad.
 
-17. Open [Azure AD Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) in another window.
+17. Open [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) in another window.
 
 	a. Sign in to the Graph Explorer site using the Global Admin/Co-admin credentials for your tenant.
 
@@ -322,9 +322,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	> [!Note]
 	> You can only add new roles after the **msiam_access** for the patch operation. Also, you can add as many roles as you want per your Organization need. Azure AD will send the **value** of these roles as the claim value in SAML response.
 
-	j. Go back to your Graph Explorer and change the method from **GET** to **PATCH**. Patch the Service Principal object to have desired roles by updating appRoles property similar to the one shown above in the example. Click **Run Query** to execute the patch operation. A success message confirms the creation of the role for your Amazon Web Services application.
+	j. Go back to Microsoft Graph Explorer and change the method from **GET** to **PATCH**. Patch the Service Principal object to have desired roles by updating appRoles property similar to the one shown above in the example. Click **Run Query** to execute the patch operation. A success message confirms the creation of the role for your Amazon Web Services application.
 
-	![Graph explorer dialog box](./media/aws-multi-accounts-tutorial/graph-explorer-new11.png)
+	![Microsoft Graph explorer dialog box](./media/aws-multi-accounts-tutorial/graph-explorer-new11.png)
 
 18. After the Service Principal is patched with more roles, you can assign Users/Groups to the respective roles. This can be done by going to portal and navigating to the Amazon Web Services application. Click on the **Users and Groups** tab on the top.
 
@@ -360,7 +360,7 @@ For more information about the Access Panel, see [Introduction to the Access 
 
 ## Additional resources
 
-* [How to configure provisioning using MS Graph APIs](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-configure-api)
+* [How to configure provisioning using Microsoft Graph APIs](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-configure-api)
 * [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 

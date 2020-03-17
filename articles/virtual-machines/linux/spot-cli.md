@@ -13,7 +13,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/20/2019
+ms.date: 02/11/2020
 ms.author: cynthn
 ---
 
@@ -32,7 +32,7 @@ The process to create a VM with Spot using the Azure CLI is the same as detailed
 > This preview version is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 >
-> For the early part of the public preview, Spot instances will have a fixed price, so there will not be any price-based evictions.
+
 
 
 ## Install Azure CLI

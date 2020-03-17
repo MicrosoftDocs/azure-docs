@@ -1,18 +1,14 @@
 ---
 title: Software plan discount - Azure | Microsoft Docs
 description: Learn how software plan discounts are applied to software on virtual machines.
-documentationcenter: ''
 author: yashesvi
-manager: yashar
-editor: ''
+ms.reviewer: yashar
 ms.service: cost-management-billing
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 09/30/2019
+ms.date: 02/13/2020
 ms.author: banders
 ---
+
 # Azure software plan discount
 
 Azure software plans for SUSE and RedHat are reservations that apply to deployed VMs. The software plan discount is applied to the software usage of deployed VMs that match the reservation.

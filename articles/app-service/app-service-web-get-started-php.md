@@ -4,7 +4,7 @@ description: Deploy your first PHP Hello World to Azure App Service in minutes. 
 ms.assetid: 6feac128-c728-4491-8b79-962da9a40788
 ms.topic: quickstart
 ms.date: 08/24/2018
-ms.custom: mvc
+ms.custom: mvc, cli-validate
 ms.custom: seodec18
 
 ---

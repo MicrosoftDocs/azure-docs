@@ -9,7 +9,7 @@ ms.topic: reference
 
 author: likebupt
 ms.author: keli19
-ms.date: 10/10/2019
+ms.date: 02/22/2020
 ---
 
 # Train SVD Recommender
@@ -44,14 +44,11 @@ Before you use the module, your input data must be in the format that the recomm
 + The second column contains item identifiers.
 + The third column contains the rating for the user-item pair. Rating values must be numeric type.  
 
-The **Restaurant ratings** dataset in Azure Machine Learning designer (select **Saved Datasets** and then **Samples**) demonstrates the expected format:
+The **Movie Ratings** dataset in Azure Machine Learning designer (select **Datasets** and then **Samples**) demonstrates the expected format:
 
-|userID|placeID|rating|
-|------------|-------------|------------|
-|U1077|135085|2|
-|U1077|135038|2|
+![Movie Ratings](media/module/movie-ratings-dataset.png)
 
-From this sample, you can see that a single user has rated two separate restaurants. 
+From this sample, you can see that a single user has rated several movies. 
 
 ### Train the model
 

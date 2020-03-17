@@ -8,6 +8,7 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: helohr
+manager: lizross
 ---
 # Connect with the Windows Desktop client
 
@@ -52,4 +53,4 @@ Once subscribed to a feed, the content of the feed is updated automatically on a
 
 ## Next steps
 
-To learn more about how to use the Windows Desktop client, check out [Get started with the Windows Desktop client](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/windowsdesktop).
+To learn more about how to use the Windows Desktop client, check out [Get started with the Windows Desktop client](/windows-server/remote/remote-desktop-services/clients/windowsdesktop/).

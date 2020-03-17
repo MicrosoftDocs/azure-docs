@@ -666,7 +666,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 |DisableFirewallRuleForDomainProfile| bool, default is TRUE |Static| Indicates if firewall rule should not be enabled for domain profile |
 |DisableFirewallRuleForPrivateProfile| bool, default is TRUE |Static| Indicates if firewall rule should not be enabled for private profile | 
 |DisableFirewallRuleForPublicProfile| bool, default is TRUE | Static|Indicates if firewall rule should not be enabled for public profile |
-| EnforceLinuxMinTlsVersion | bool, default is FALSE | Dynamic | If set to true; only TLS version 1.2+ is supported.  If false; support earlier TLS versions. Applies to Linux only |
+| EnforceLinuxMinTlsVersion | bool, default is FALSE | Static | If set to true; only TLS version 1.2+ is supported.  If false; support earlier TLS versions. Applies to Linux only |
 |FabricHostSpn| string, default is "" |Static| Service principal name of FabricHost; when fabric runs as a single domain user (gMSA/domain user account) and FabricHost runs under machine account. It is the SPN of IPC listener for FabricHost; which by default should be left empty since FabricHost runs under machine account |
 |IgnoreCrlOfflineError|bool, default is FALSE|Dynamic|Whether to ignore CRL offline error when server-side verifies incoming client certificates |
 |IgnoreSvrCrlOfflineError|bool, default is TRUE|Dynamic|Whether to ignore CRL offline error when client side verifies incoming server certificates; default to true. Attacks with revoked server certificates require compromising DNS; harder than with revoked client certificates. |
@@ -675,6 +675,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 |SettingsX509StoreName| string, default is "MY"| Dynamic|X509 certificate store used by fabric for configuration protection |
 |UseClusterCertForIpcServerTlsSecurity|bool, default is FALSE|Static|Whether to use cluster certificate to secure IPC Server TLS transport unit |
 |X509Folder|string, default is /var/lib/waagent|Static|Folder where X509 certificates and private keys are located |
+|TLS1_2_CipherList| string| Static|If set to a non-empty string; overrides the supported cipher list for TLS1.2 and below. See the 'openssl-ciphers' documentation for retrieving the supported cipher list and the list format Example of strong cipher list for TLS1.2: "ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES-128-GCM-SHA256:ECDHE-ECDSA-AES256-CBC-SHA384:ECDHE-ECDSA-AES128-CBC-SHA256:ECDHE-RSA-AES256-CBC-SHA384:ECDHE-RSA-AES128-CBC-SHA256" Applies to Linux only. |
 
 ## Security/AdminClientX509Names
 

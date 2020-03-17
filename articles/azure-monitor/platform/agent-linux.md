@@ -1,7 +1,6 @@
 ---
 title: Connect Linux computers to Azure Monitor | Microsoft Docs
 description: This article describes how to connect Linux computers hosted in other clouds or on-premises to Azure Monitor with the Log Analytics agent for Linux.
-ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: mgoedtel

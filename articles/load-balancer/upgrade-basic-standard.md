@@ -9,13 +9,14 @@ ms.date: 01/23/2020
 ms.author: irenehua
 ---
 
-# Upgrade Azure Public Load Balancer from Basic SKU to Standard SKU
+# Upgrade Azure Public Load Balancer
 [Azure Standard Load Balancer](load-balancer-overview.md) offers a rich set of functionality and high availability through zone redundancy. To learn more about Load Balancer SKU, see [comparison table](https://docs.microsoft.com/azure/load-balancer/concepts-limitations#skus).
 
-There are two stages in a upgrade:
+There are three stages in a upgrade:
 
 1. Migrate the configuration
 2. Add VMs to backend pools of Standard Load Balancer
+3. Create an outbound rule on the load balancer for outbound connection
 
 This article covers configuration migration. Adding VMs to backend pools may vary depending on your specific environment. However, some high-level, general recommendations [are provided](#add-vms-to-backend-pools-of-standard-load-balancer).
 
@@ -23,8 +24,8 @@ This article covers configuration migration. Adding VMs to backend pools may var
 
 An Azure PowerShell script is available that does the following:
 
-* Creates a Standard Public SKU Load Balancer in the resource group and location the you specify.
-* Seamlessly copies the configurations of the Basic SKU Public Load Balancer to the newly create Standard Public Load Balancer.
+* Creates a Standard SKU Load Balancer in the resource group and location the you specify.
+* Seamlessly copies the configurations of the Basic SKU Load Balancer to the newly create Standard Load Balancer.
 
 ### Caveats\Limitations
 
@@ -65,18 +66,9 @@ To run the script:
 
 1. Use `Import-Module Az` to import the Az modules.
 
-1. Run `Get-Help AzureLBUpgrade.ps1` to examine the required parameters:
+1. Examine the required parameters:
 
-   ```
-   AzurePublicLBUpgrade.ps1
-    -oldRgName <name of the Resource Group where Basic Load Balancer exists>
-    -oldLBName <name of existing Basic Load Balancer>
-    -newrgName <Name of the Resource Group where the new Standard Load Balancer will be created>
-    -newlocation <Name of the location where the new Standard Load Balancer will be created>
-    -newLBName <Name of the Standard Load Balancer to be created>
-   ```
-   Parameters for the script:
-   * **oldRgName: [String]: Required** – This is the resource group for your existing Basic Load Balancer you want to upgrade. To find this string value, navigate to Azure Portal, select your Basic Load Balancer source, and click the **Overview** for the load balancer. The Resource Group is located on that page.
+   * **oldRgName: [String]: Required** – This is the resource group for your existing Basic Load Balancer you want to upgrade. To find this string value, navigate to Azure portal, select your Basic Load Balancer source, and click the **Overview** for the load balancer. The Resource Group is located on that page.
    * **oldLBName: [String]: Required** – This is the name of your existing Basic Balancer you want to upgrade. 
    * **newrgName: [String]: Required** – This is the resource group in which the Standard Load Balancer will be created. It can be a new resource group or an existing one. If you pick an existing resource group, note that the name of the Load Balancer has to be unique within the resource group. 
    * **newlocation: [String]: Required** – This is the location in which the Standard Load Balancer will be created. It is recommended to inherit the same location of the chosen Basic Load Balancer to the Standard Load Balancer for better association with other existing resources.
@@ -86,7 +78,7 @@ To run the script:
     **Example**
 
    ```azurepowershell
-   ./AzurePublicLBUpgrade.ps1 -oldRgName "test_publicUpgrade_rg" -oldLBName "LBForPublic" -newrgName "test_userInput3_rg" -newlocation "centralus" -newLbName "LBForUpgrade"
+   AzurePublicLBUpgrade.ps1 -oldRgName "test_publicUpgrade_rg" -oldLBName "LBForPublic" -newrgName "test_userInput3_rg" -newlocation "centralus" -newLbName "LBForUpgrade"
    ```
 
 ### Add VMs to backend pools of Standard Load Balancer
@@ -112,6 +104,12 @@ Here are a few scenarios of how you add VMs to backend pools of the newly create
 
 * **Creating new VMs to add to the backend pools of the newly created Standard Public Load Balancer**.
     * More instructions on how to create VM and associate it with Standard Load Balancer can be found [here](https://docs.microsoft.com/azure/load-balancer/quickstart-load-balancer-standard-public-portal#create-virtual-machines).
+
+### Create an outbound rule for outbound connection
+
+Follow the [instructions](https://docs.microsoft.com/azure/load-balancer/configure-load-balancer-outbound-portal#create-outbound-rule-configuration) to create an outbound rule so you can
+* Define outbound NAT from scratch.
+* Scale and tune the behavior of existing outbound NAT.
 
 ## Common questions
 

@@ -1,7 +1,6 @@
 ---
 title: Creating a management solution file in Azure | Microsoft Docs
 description: Management solutions provide packaged management scenarios that customers can add to their Azure environment.  This article provides details on how you can create management solutions to be used in your own environment or made available to your customers.
-ms.service:  azure-monitor
 ms.subservice: 
 ms.topic: conceptual
 author: bwren

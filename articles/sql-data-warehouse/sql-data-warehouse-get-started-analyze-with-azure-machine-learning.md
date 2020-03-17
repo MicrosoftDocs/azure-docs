@@ -1,16 +1,17 @@
 ---
 title: Analyze data with Azure Machine Learning 
-description: Use Azure Machine Learning to build a predictive machine learning model based on data stored in Azure SQL Data Warehouse.
+description: Use Azure Machine Learning to build a predictive machine learning model based on data stored in Azure Synapse.
 services: sql-data-warehouse
 author: mlee3gsd 
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: integration
-ms.date: 03/22/2019
+ms.date: 02/05/2020
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
+tag: azure-Synapse
 ---
 
 # Analyze data with Azure Machine Learning
@@ -23,7 +24,7 @@ ms.custom: seo-lt-2019
 > 
 > 
 
-This tutorial uses Azure Machine Learning to build a predictive machine learning model based on data stored in Azure SQL Data Warehouse. Specifically, this builds a targeted marketing campaign for Adventure Works, the bike shop, by predicting if a customer is likely to buy a bike or not.
+This tutorial uses Azure Machine Learning to build a predictive machine learning model based on data stored in Azure Synapse. Specifically, this builds a targeted marketing campaign for Adventure Works, the bike shop, by predicting if a customer is likely to buy a bike or not.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Integrating-Azure-Machine-Learning-with-Azure-SQL-Data-Warehouse/player]
 > 
@@ -32,7 +33,7 @@ This tutorial uses Azure Machine Learning to build a predictive machine learning
 ## Prerequisites
 To step through this tutorial, you need:
 
-* A SQL Data Warehouse pre-loaded with AdventureWorksDW sample data. To provision this, see [Create a SQL Data Warehouse](create-data-warehouse-portal.md) and choose to load the sample data. If you already have a data warehouse but do not have sample data, you can [load sample data manually](sql-data-warehouse-load-sample-databases.md).
+* A SQL pool pre-loaded with AdventureWorksDW sample data. To provision this, see [Create a SQL pool](create-data-warehouse-portal.md) and choose to load the sample data. If you already have a data warehouse but do not have sample data, you can [load sample data manually](sql-data-warehouse-load-sample-databases.md).
 
 ## 1. Get the data
 The data is in the dbo.vTargetMail view in the AdventureWorksDW database. To read this data:
@@ -41,7 +42,7 @@ The data is in the dbo.vTargetMail view in the AdventureWorksDW database. To rea
 2. Click **+NEW** on the bottom left of the screen and select **Blank Experiment**.
 3. Enter a name for your experiment: Targeted Marketing.
 4. Drag the **Import data** module under **Data Input and output** from the modules pane into the canvas.
-5. Specify the details of your SQL Data Warehouse database in the Properties pane.
+5. Specify the details of your SQL pool in the Properties pane.
 6. Specify the database **query** to read the data of interest.
 
 ```sql
@@ -123,7 +124,7 @@ You will see two more columns added to your test dataset.
 * Scored Probabilities: the likelihood that a customer is a bike buyer.
 * Scored Labels: the classification done by the model – bike buyer (1) or not (0). This probability threshold for labeling is set to 50% and can be adjusted.
 
-Comparing the column BikeBuyer (actual) with the Scored Labels (prediction), you can see how well the model has performed. Next, you can use this model to make predictions for new customers and publish this model as a web service or write results back to SQL Data Warehouse.
+Comparing the column BikeBuyer (actual) with the Scored Labels (prediction), you can see how well the model has performed. Next, you can use this model to make predictions for new customers and publish this model as a web service or write results back to Azure Synapse.
 
 ## Next steps
 To learn more about building predictive machine learning models, refer to [Introduction to Machine Learning on Azure](https://azure.microsoft.com/documentation/articles/machine-learning-what-is-machine-learning/).

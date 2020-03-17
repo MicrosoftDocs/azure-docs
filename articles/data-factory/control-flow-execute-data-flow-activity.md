@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.author: makromer
-ms.date: 01/02/2020
+ms.date: 03/16/2020
 ---
 
 # Data Flow activity in Azure Data Factory
@@ -57,6 +57,14 @@ staging.linkedService | If you're using a SQL DW source or sink, the storage acc
 staging.folderPath | If you're using a SQL DW source or sink, the folder path in blob storage account used for PolyBase staging | String | Only if the data flow reads or writes to a SQL DW
 
 ![Execute Data Flow](media/data-flow/activity-data-flow.png "Execute Data Flow")
+
+### Dynamically size data flow compute at runtime
+
+The Core Count and Compute Type properties can be set dynamically to adjust to the size of your incoming source data at runtime. Use pipeline activities like Lookup or Get Metadata in order to find the size of the source dataset data. Then, use Add Dynamic Content in the Data Flow activity properties.
+
+![Dynamic Data Flow](media/data-flow/dyna1.png "Dynamic data flow")
+
+[Here is a brief video tutorial explaining this technique](https://www.youtube.com/watch?v=jWSkJdtiJNM)
 
 ### Data Flow integration runtime
 
