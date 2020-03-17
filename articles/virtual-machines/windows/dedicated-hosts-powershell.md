@@ -161,6 +161,35 @@ Location               : eastus
 Tags                   : {}
 ```
 
+## Add an existing VM 
+
+You can add an exiting VM to a dedicated host, but the VM must first be Stop\Deallocated. Before you move a VM to a dedicated host, make sure that the VM configuration is supported:
+
+- The VM size must be in the same size family as the dedicated host. For example, if your dedicated host is DSv3, then the VM size could be Standard_D4s_v3, but it could not be a Standard_A4_v2. 
+- The VM needs to be located in same region as the dedicated host.
+- The VM can't be part of a proximity placement group. Remove the VM from the proximity placement group before moving it to a dedicated host. For more information, see [Move a VM out of a proximity placement group](https://docs.microsoft.com/azure/virtual-machines/windows/proximity-placement-groups#move-an-existing-vm-out-of-a-proximity-placement-group)
+- The VM can't be in an availability set.
+- If the VM is in an availability zone, it must be the same availability zone as the host group. The availability zone settings for the VM and the host group must match.
+
+```azurepowershell-interactive
+$vmRGName = "myResourceGroup"
+$vmName = "myVM"
+$dhRGName = "myDHResourceGroup"
+$dhGroupName = "myHostGroup"
+$dhName = "myHost"
+
+$myDH = Get-AzHost -HostGroupName $dhGroupName -ResourceGroupName $dhRGName -Name $dhName
+
+$myVM = Get-AzVM -ResourceGroupName $vmRGName -Name $vmName
+
+$myVM.Host = New-Object Microsoft.Azure.Management.Compute.Models.SubResource
+
+$myVM.Host.Id = "/subscriptions/$subId/resourceGroups/$dhRGName/providers/Microsoft.Compute/hostGroups/$dhgName/hosts/$dhName"
+
+Update-AzVM -ResourceGroupName $vmRGName -VM $myVM -Debug
+```
+
+
 ## Clean up
 
 You are being charged for your dedicated hosts even when no virtual machines are deployed. You should delete any hosts you are currently not using to save costs.  
