@@ -6,8 +6,8 @@ ms.topic: conceptual
 ms.date: 3/12/2020
 ---
 # Liveness Probe
-Starting with 7.1 Service Fabric supports Liveness probe for [containers][containers-introduction-link] applications. Liveness Probe helps catch stuck containers by restarting them. for ex: if your container has reached a deadlock state but the container is still running, liveness probe will help detect such situation and mitigate by restarting your container.  
-This article provides an overview of how to define a liveness probe via manifest files.
+Starting with 7.1 Service Fabric supports Liveness Probe mechanism for [containerized][containers-introduction-link] applications. Liveness Probe help announce the liveness of the containerized application and when they don't respond in a timely fashion, it will result in a restart. for ex: if your container has reached a deadlock state but the container is still running, Liveness Probe will help detect such situation and mitigate by restarting your container.  
+This article provides an overview of how to define a Liveness Probe via manifest files.
 
 Before proceeding with this article, we recommend getting familiar with the [Service Fabric application model][application-model-link] and the [Service Fabric hosting model][hosting-model-link].
 
@@ -15,11 +15,11 @@ Before proceeding with this article, we recommend getting familiar with the [Ser
 > Liveness Probe is only supported for containers on NAT networking mode.
 
 ## Semantics
-You can specify only 1 liveness probe per container and can control it's behavior with these fields:
+You can specify only 1 Liveness Probe per container and can control it's behavior with these fields:
 
 * `initialDelaySeconds`: The initial delay in seconds to start executing probe once container has started. Supported value is int. Default is 0. Minimum is 0.
 
-* `timeoutSeconds`: Period in seconds after which we consider probe as failure if it hasn't completed successfully. Supported value is int. Default is 1. Minimum is 1.
+* `timeoutSeconds`: Period in seconds after which we consider probe as failed if it hasn't completed successfully. Supported value is int. Default is 1. Minimum is 1.
 
 * `periodSeconds`: Period in seconds to specify how often we probe. Supported value is int. Default is 10. Minimum is 1.
 
@@ -29,7 +29,7 @@ You can specify only 1 liveness probe per container and can control it's behavio
 
 There will be at most 1 probe to container at one moment of time. If the probe does not complete in **timeoutSeconds** we keep waiting and counting it towards the **failureThreshold**. 
 
-Additionally, ServiceFabric will raise following [Health Reports][health-introduction-link] on DeployedServicePackage when a probe fails:
+Additionally, ServiceFabric will raise following probe [Health Reports][health-introduction-link] on DeployedServicePackage:
 
 * `Ok`: If the probe succeeds for **successThreshold** then we report health as Ok.
 
@@ -106,7 +106,10 @@ For TCP probe, Service Fabric will try to open a socket on the container with th
 
 ## Exec Probe
 
-This probe will issue an exec into the container and wait for the command to complete. 
+This probe will issue an exec into the container and wait for the command to complete.
+
+> [!NOTE]
+> Exec command takes a comma seperated string
 
 ```xml
   <ServiceManifestImport>
