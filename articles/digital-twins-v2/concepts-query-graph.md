@@ -64,13 +64,47 @@ Once you have decided on a query string, you execute it by making a call to the 
 The following code snippet illustrates this call from the client app:
 
 ```csharp
-var client = DigitalTwinsServiceClient.CreateFromConnectionString("...");
-string results;
-IAsynEnumerable<Result<JsonDocument>> result = client.Query("<querystring>");
+var client = new AzureDigitalTwinsAPIClient(<your-credentials>);
+client.BaseUri = new Uri(<your-adt-instance-url>);
+
+QuerySpecification spec = new QuerySpecification("SELECT * FROM digitaltwins");
+QueryResult result = await client.Query.QueryTwinsAsync(spec);
 ```
 
-This call returns query results in the form of a JSON string. 
-To parse the JSON results returned, you can use the JSON parser of your choice.
+This call returns query results in form of a QueryResult object. 
+
+Query calls support paging. A complete example with error handling and paging:
+
+```csharp
+string query = "SELECT * FROM digitaltwins";
+string conToken = null; // continuation token from the query
+int page = 0;
+try
+{
+    // Repeat the query while there are pages
+    do
+    {
+        QuerySpecification spec = new QuerySpecification(query, conToken);
+        QueryResult qr = await client.Query.QueryTwinsAsync(spec);
+        page++;
+        Console.WriteLine($"== Query results page {page}:");
+        if (qr.Items != null)
+        {
+            // Query returns are JObjects
+            foreach(JObject o in qr.Items)
+            {
+                string twinId = o.Value<string>("$dtId");
+                Console.WriteLine($"  Found {twinId}");
+            }
+        }
+        Console.WriteLine($"== End query results page {page}");
+        conToken = qr.ContinuationToken;
+    } while (conToken != null);
+} catch (ErrorResponseException e)
+{
+    Console.WriteLine($"*** Error in twin query: ${e.Response.StatusCode}");
+}
+```
 
 ## Relationship-based queries
 
