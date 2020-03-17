@@ -59,7 +59,7 @@ From a browser, navigate to the [Azure portal](https://portal.azure.com) and sig
 4. After you finish filling out the fields, select **Review +Create**.
 5. Once validation passes, select **Create** to create the virtual WAN.
 
-## <a name="site"></a>Create an empty virtual hub
+## <a name="hub"></a>Create an empty virtual hub
 
 1. Under your virtual WAN, select Hubs and click **+New Hub**
 
@@ -76,7 +76,7 @@ From a browser, navigate to the [Azure portal](https://portal.azure.com) and sig
 3. Click **Review + create**
 4. On the **validation passed** page, click **create**
 
-## <a name="site"></a>Create a P2S configuration
+## <a name="p2sconfig"></a>Create a P2S configuration
 
 A P2S configuration defines the parameters for connecting remote clients.
 
@@ -98,7 +98,7 @@ A P2S configuration defines the parameters for connecting remote clients.
    ![new site](media/virtual-wan-point-to-site-portal/p2s2.jpg)
 5. Click **Create** to create the configuration.
 
-## <a name="hub"></a>Edit hub assignment
+## <a name="edit"></a>Edit hub assignment
 
 1. Navigate to the **Hubs** blade under the virtual WAN
 2. Select the hub that you want to associate the vpn server configuration to and click **...**
@@ -112,7 +112,7 @@ A P2S configuration defines the parameters for connecting remote clients.
 6. Click **Confirm**
 7. The operation will can take up to 30 minutes to complete.
 
-## <a name="device"></a>Download VPN profile
+## <a name="download"></a>Download VPN profile
 
 Use the VPN profile to configure your clients.
 
