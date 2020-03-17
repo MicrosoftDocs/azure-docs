@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab
-ms.date: 07/16/2019
+ms.date: 2020/03/17
 ---
 # SQL Database managed instance frequently asked questions (FAQ)
 
