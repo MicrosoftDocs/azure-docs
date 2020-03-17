@@ -20,7 +20,7 @@ AKS creates two managed identities:
 - **System-assigned managed identity**: The identity that the Kubernetes cloud provider uses to create Azure resources on behalf of the user. The life cycle of the system-assigned identity is tied to that of the cluster. The identity is deleted when the cluster is deleted.
 - **User-assigned managed identity**: The identity that's used for authorization in the cluster. For example, the user-assigned identity is used to authorize AKS to use access control records (ACRs), or to authorize the kubelet to get metadata from Azure.
 
-Any add-ons also authenticate using a managed identity created by the service.
+Add-ons also authenticate using a managed identity. For each add-on, a managed identity is created by AKS and lasts for the life of the add-on.
 
 ## Before you begin
 
@@ -43,6 +43,15 @@ Then, create an AKS cluster:
 
 ```azurecli-interactive
 az aks create -g MyResourceGroup -n MyManagedCluster --enable-managed-identity
+```
+
+A successful cluster creation using managed identities contains this service principal profile information:
+
+```json
+"servicePrincipalProfile": {
+    "clientId": "msi",
+    "secret": null
+  }
 ```
 
 Finally, get credentials to access the cluster:
