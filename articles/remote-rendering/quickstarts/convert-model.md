@@ -82,7 +82,7 @@ The website now informs you about the progress of your deployment and reports "Y
 
 Next we need two blob containers, one for input and one for output.
 
-From the **"Go to resource"** button above, you get to a page with a panel on the left that contains a list menu. In the middle of the list, under the **"Blob service"** category, click on the **"Containers"** button:
+From the **"Go to resource"** button above, you get to a page with a panel on the left that contains a list menu. In that list under the **"Blob service"** category, click on the **"Containers"** button:
 
 ![Azure - add Containers](./media/azure-add-containers.png)
 
