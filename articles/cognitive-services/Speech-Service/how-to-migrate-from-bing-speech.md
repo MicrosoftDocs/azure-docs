@@ -53,7 +53,7 @@ The Speech service is largely similar to Bing Speech, with the following differe
 | REST APIs | :heavy_check_mark: | :heavy_check_mark: | The Speech service REST APIs are compatible with Bing Speech (different endpoint). REST APIs support text-to-speech and limited speech-to-text functionality. |
 | WebSockets protocols | :heavy_check_mark: | :heavy_check_mark: | The Speech service WebSockets API is compatible with Bing Speech (different endpoint). Migrate to the Speech SDK if possible, to simplify your code. |
 | Service-to-service API calls | :heavy_check_mark: | :heavy_minus_sign: | Provided in Bing Speech via the C# Service Library. |
-| Open source SDK | :heavy_check_mark: | :heavy_minus_sign: |
+| Open-source SDK | :heavy_check_mark: | :heavy_minus_sign: |
 
 The Speech service uses a time-based pricing model (rather than a transaction-based model). See [Speech service pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) for details.
 
