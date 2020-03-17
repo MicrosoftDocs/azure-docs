@@ -336,7 +336,7 @@ Here is an example that shows both the worker role and web role.
 </ServiceDefinition> 
 ```
 
-## Step 5: Add the scripts to your Cloud Service 
+## Step 4: Add the scripts to your Cloud Service 
 
 1) In Visual Studio, right-click on your WebRole
 2) Select **Add**
@@ -353,7 +353,7 @@ To ensure the scripts are uploaded with every update pushed from Visual Studio, 
 3) In the properties tab, change *Copy to Output Directory* to *Copy Always"*
 4) Repeat the steps for **TLSsettings.ps1**
 
-## Step 7: Publish & Validate
+## Step 6: Publish & Validate
 
 Now that the above steps have been complete, publish the update to your existing Cloud Service. 
 
