@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: larryfr
 author: Blackmist
-ms.date: 12/27/2019
+ms.date: 03/17/2020
 ms.custom: seoapril2019
 # As a data scientist, I want to understand the big picture about how Azure Machine Learning works.
 ms.custom: seodec18
