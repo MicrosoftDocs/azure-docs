@@ -47,7 +47,7 @@ The IP firewall rules are applied at the Service Bus namespace level. Therefore,
 For more information, see [How to configure IP firewall for a Service Bus namespace](service-bus-ip-filtering.md)
 
 ## Network service endpoints
-The integration of Service Bus with [Virtual Network (VNet) service endpoints][vnet-sep] enables secure access to messaging capabilities from workloads like virtual machines that are bound to virtual networks, with the network traffic path being secured on both ends.
+The integration of Service Bus with [Virtual Network (VNet) service endpoints](service-bus-service-endpoints.md) enables secure access to messaging capabilities from workloads like virtual machines that are bound to virtual networks, with the network traffic path being secured on both ends.
 
 Once configured to be bound to at least one virtual network subnet service endpoint, the respective Service Bus namespace will no longer accept traffic from anywhere but authorized virtual network(s). From the virtual network perspective, binding a Service Bus namespace to a service endpoint configures an isolated networking tunnel from the virtual network subnet to the messaging service.
 
@@ -70,7 +70,7 @@ That means your security sensitive cloud solutions not only gain access to Azure
 
 *Virtual network rules* are the firewall security feature that controls whether your Azure Service Bus server accepts connections from a particular virtual network subnet.
 
-Binding a Service Bus namespace to a virtual network is a two-step process. You first need to create a **Virtual Network service endpoint** on a Virtual Network subnet and enable it for **Microsoft.ServiceBus** as explained in the [service endpoint overview][vnet-sep]. Once you have added the service endpoint, you bind the Service Bus namespace to it with a **virtual network rule**.
+Binding a Service Bus namespace to a virtual network is a two-step process. You first need to create a **Virtual Network service endpoint** on a Virtual Network subnet and enable it for **Microsoft.ServiceBus** as explained in the [service endpoint overview](service-bus-service-endpoints.md). Once you have added the service endpoint, you bind the Service Bus namespace to it with a **virtual network rule**.
 
 The virtual network rule is an association of the Service Bus namespace with a virtual network subnet. While the rule exists, all workloads bound to the subnet are granted access to the Service Bus namespace. Service Bus itself never establishes outbound connections, does not need to gain access, and is therefore never granted access to your subnet by enabling this rule.
 

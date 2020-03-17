@@ -5,7 +5,7 @@ author: anirudhcavale
 services: azure-monitor
 
 ms.topic: reference
-ms.date: 12/18/2019
+ms.date: 03/17/2020
 ms.author: ancav
 ms.subservice: metrics
 ---
@@ -1465,9 +1465,9 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |BackendConnectTime|Backend Connect Time|MilliSeconds|Average|Time spent establishing a connection with a backend server|Listener,BackendServer,BackendPool,BackendHttpSetting|
 |BackendFirstByteResponseTime|Backend First Byte Response Time|MilliSeconds|Average|Time interval between start of establishing a connection to backend server and receiving the first byte of the response header, approximating processing time of backend server|Listener,BackendServer,BackendPool,BackendHttpSetting|
 |BackendLastByteResponseTime|Backend Last Byte Response Time|MilliSeconds|Average|Time interval between start of establishing a connection to backend server and receiving the last byte of the response body|Listener,BackendServer,BackendPool,BackendHttpSetting|
-|MatchedCount|Web Application Firewall Total Rule Distribution|Count|Total|Web Application Firewall Total Rule Distribution for the incoming traffic|RuleGroup,RuleId|
-|BlockedCount|Web Application Firewall Blocked Requests Rule Distribution|Count|Total|Web Application Firewall blocked requests rule distribution|RuleGroup,RuleId|
-|BlockedReqCount|Web Application Firewall Blocked Requests Count|Count|Total|Web Application Firewall blocked requests count|None|
+|MatchedCount|Web Application Firewall v1 Total Rule Distribution|Count|Total|Web Application Firewall v1 Total Rule Distribution for the incoming traffic|RuleGroup,RuleId|
+|BlockedCount|Web Application Firewall v1 Blocked Requests Rule Distribution|Count|Total|Web Application Firewall v1 blocked requests rule distribution|RuleGroup,RuleId|
+|BlockedReqCount|Web Application Firewall v1 Blocked Requests Count|Count|Total|Web Application Firewall v1 blocked requests count|None|
 
 ## Microsoft.Network/virtualNetworkGateways
 
