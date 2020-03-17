@@ -24,8 +24,8 @@ Use the information in this topic to help you plan for, generate, and then trans
 This functionality is not available for Azure China.
 
 > [!NOTE]
-> For more information about Azure Key Vault, see [What is Azure Key Vault?](key-vault-overview.md)  
-> For a getting started tutorial, which includes creating a key vault for HSM-protected keys, see [What is Azure Key Vault?](key-vault-overview.md).
+> For more information about Azure Key Vault, see [What is Azure Key Vault?](../general/overview.md)  
+> For a getting started tutorial, which includes creating a key vault for HSM-protected keys, see [What is Azure Key Vault?](../general/overview.md).
 
 More information about generating and transferring an HSM-protected key over the Internet:
 

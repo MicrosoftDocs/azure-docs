@@ -155,7 +155,7 @@ Write-Host "Press [ENTER] to continue..."
 
 In this quickstart, you created a key vault and a secret using an Azure Resource Manager template, and validated the deployment. To learn more about Key Vault and Azure Resource Manager, continue on to the articles below.
 
-- Read an [Overview of Azure Key Vault](key-vault-overview.md)
+- Read an [Overview of Azure Key Vault](../general/overview.md)
 - Learn more about [Azure Resource Manager](../../azure-resource-manager/management/overview.md)
 - Get more info on [keys, secrets, and certificates](../general/about-keys-secrets-and-certificates.md)
 - Review [Azure Key Vault best practices](key-vault-best-practices.md)

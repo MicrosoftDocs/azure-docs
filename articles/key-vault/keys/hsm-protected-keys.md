@@ -21,8 +21,8 @@ For added assurance, when you use Azure Key Vault, you can import or generate ke
 This functionality is not available for Azure China 21Vianet.
 
 > [!NOTE]
-> For more information about Azure Key Vault, see [What is Azure Key Vault?](key-vault-overview.md)  
-> For a getting started tutorial, which includes creating a key vault for HSM-protected keys, see [What is Azure Key Vault?](key-vault-overview.md).
+> For more information about Azure Key Vault, see [What is Azure Key Vault?](../general/overview.md)  
+> For a getting started tutorial, which includes creating a key vault for HSM-protected keys, see [What is Azure Key Vault?](../general/overview.md).
 
 ## Supported HSMs
 
@@ -45,4 +45,4 @@ Transferring HSM-protected keys to Key Vault is supported via two different meth
 
 ## Next steps
 
-Follow [Key Vault Best Practices](key-vault-best-practices.md) to ensure security, durability and monitoring for your keys.
+Follow [Key Vault Best Practices](../general/key-vault-best-practices.md) to ensure security, durability and monitoring for your keys.

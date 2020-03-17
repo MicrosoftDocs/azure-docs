@@ -27,9 +27,9 @@
 - name: Grant permission to applications to access an Azure key vault
   href: group-permissions-for-apps.md
 - name: Azure Key Vault customer data features
-  href: key-vault-customer-data.md
+  href: customer-data.md
 - name: Key Vault .NET 2.x API Release Notes| Microsoft Docs
-  href: key-vault-dotnet2api-release-notes.md
+  href: dotnet2api-release-notes.md
 - name: Azure Key Vault logging
   href: logging.md
 - name: Manage Azure Key Vault using CLI
