@@ -1,6 +1,6 @@
 ---
 title: Azure Media Player API Methods 
-description: The Azure Media Player API allows you to interact with the video through JavaScript, whether the browser is playing the video through HTML5 video, Flash, Silverlight or any other supported playback technologies. 
+description: The Azure Media Player API allows you to interact with the video through JavaScript, whether the browser is playing the video through HTML5 video, Flash, Silverlight, or any other supported playback technologies. 
 author: IngridAtMicrosoft
 ms.author: inhenkel
 ms.service: media-services
@@ -11,11 +11,11 @@ ms.date: 03/16/2020
 
 # API #
 
-The Azure Media Player API allows you to interact with the video through JavaScript, whether the browser is playing the video through HTML5 video, Flash, Silverlight or any other supported playback technologies.
+The Azure Media Player API allows you to interact with the video through JavaScript, whether the browser is playing the video through HTML5 video, Flash, Silverlight, or any other supported playback technologies.
 
 ## Referencing the player ##
 
-To use the API functions, you need access to the player object. Luckily this is easy to get. You just need to make sure your video tag has an ID. The example embed code has an ID of `vid1`. If you have multiple videos on one page, make sure every video tag has a unique ID.
+To use the API functions, you need access to the player object. Luckily it is easy to get. You just need to make sure your video tag has an ID. The example embed code has an ID of `vid1`. If you have multiple videos on one page, make sure every video tag has a unique ID.
 
 `var myPlayer = amp('vid1');`
 
@@ -24,7 +24,7 @@ To use the API functions, you need access to the player object. Luckily this is 
 
 ## Wait until the player is ready ##
 
-The time it takes Azure Media Player to set up the video and API will vary depending on the playback technology being used (HTML5 will often be much faster to load than Flash or Silverlight). For that reason, the player's 'ready' function should be used to trigger any code that requires the player's API.
+The time it takes Azure Media Player to set up the video and API will vary depending on the playback technology being used. HTML5 will often be much faster to load than Flash or Silverlight. For that reason, the player's 'ready' function should be used to trigger any code that requires the player's API.
 
 ```javacript
     amp("vid_1").ready(function(){
@@ -56,7 +56,7 @@ Now that you have access to a ready player, you can control the video, get value
 ```
 
 ## Registering for events ##
-Events should be registered for directly after initializing the player for the first time to ensure all events are appropriately reported to the application. This should be done outside of the ready event.
+Events should be registered directly after initializing the player for the first time to ensure all events are appropriately reported to the application, and should be done outside of the ready event.
 
 ```javacript
     var myPlayer = amp("vid_1", myOptions, function(){

@@ -12,15 +12,15 @@ ms.date: 03/16/2020
 
 Playback Technology refers to the specific browser or plugin technology used to play the video or audio.
 
-- **azureHtml5JS**: utilizes MSE and EME standards in conjunction with the video element for plugin-less based playback of DASH content with support for AES-128 bit envelope encrypted content or DRM common encrypted content (via PlayReady and Widevine when the browser support it) from Azure Media Services
-- **flashSS**: utilizes flash player technology to playback Smooth content with support for AES-128 bit envelope decryption from Azure Media Services - requires Flash version of 11.4 or higher
-- **html5FairPlayHLS**: utilizes Safari specific in browser based playback technology via HLS with the video element. This tech is requires to playback FairPlay protected content from Azure Media Services and was added to the techOrder as of 10/19/16
-- **silverlightSS**: utilizes silverlight technology to playback Smooth content with support for PlayReady protected content from Azure Media Services.
-- **html5**: utilizes in browser based playback technology with the video element.  When on an Apple iOS or Android device, this tech allows playback of HLS streams with some basic support for AES-128 bit envelope encryption or DRM content (via FairPlay when the browser supports it).
+- **azureHtml5JS**: utilizes MSE and EME standards in conjunction with the video element for plugin-less based playback of DASH content with support for AES-128 bit envelope encrypted content or DRM common encrypted content (via PlayReady and Widevine when the browser supports it) from Azure Media Services
+- **flashSS**: utilizes flash player technology to play back Smooth content with support for AES-128 bit envelope decryption from Azure Media Services - requires Flash version of 11.4 or higher
+- **html5FairPlayHLS**: utilizes Safari specific in browser-based playback technology via HLS with the video element. This tech is requires to play back FairPlay protected content from Azure Media Services and was added to the techOrder as of 10/19/16
+- **silverlightSS**: utilizes silverlight technology to play back Smooth content with support for PlayReady protected content from Azure Media Services.
+- **html5**: utilizes in browser-based playback technology with the video element.  When on an Apple iOS or Android device, this tech allows playback of HLS streams with some basic support for AES-128 bit envelope encryption or DRM content (via FairPlay when the browser supports it).
 
 ## Tech Order ##
 
-In order to ensure that your asset is playable on a wide variety of devices, the following tech order is recommended and is the default if : `techOrder: ["azureHtml5JS", "flashSS", "html5FairPlayHLS","silverlightSS", "html5"]` and can be set directly on the `<video>` or programatically in the options:
+In order to ensure that your asset is playable on a wide variety of devices, the following tech order is recommended and is the default if: `techOrder: ["azureHtml5JS", "flashSS", "html5FairPlayHLS","silverlightSS", "html5"]` and can be set directly on the `<video>` or programatically in the options:
 
 `<video data-setup='{"techOrder": ["azureHtml5JS", "flashSS", "html5FairPlayHLS, "silverlightSS", "html5"]}`
 
@@ -56,7 +56,7 @@ Given the recommended tech order with streaming content from Azure Media Service
 
 <sup>1</sup> Configuration not supported or tested; listed as reference for completion.
 
-<sup>2</sup> Successful playback on Android devices requires a combination of device capabilities, graphics support, codec rendering, OS support and more. Since Android is an open source platform which allows phone manufacturers to change the Vanilla Android OS provided by Google, this cause some fragmentation in the Android space, and some devices may not be supported because of lack of features. Also, some Android devices do not have support for all codecs.  
+<sup>2</sup> Successful playback on Android devices requires a combination of device capabilities, graphics support, codec rendering, OS support and more. Since Android is an open-source platform that allows phone manufacturers to change the Vanilla Android OS provided by Google, this cause some fragmentation in the Android space, and some devices may not be supported because of lack of features. Also, some Android devices do not have support for all codecs.  
 
 <sup>3</sup> In the cases where there is no support for token, a proxy can be used to add this functionality. Check out this [blog](https://azure.microsoft.com/blog/2015/03/06/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/) to learn more about this solution.
 

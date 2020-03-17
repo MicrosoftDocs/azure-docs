@@ -16,17 +16,17 @@ The current release has the following known issues:
 
 - Incorrectly configured encoders may cause issues with playback
 - Streams with timestamps greater than 2^53 may have playback issues.
-  - Mitigation: Use 90 kHz video and 44.1 kHz audio timescales
-- No autoplay on mobile devices without user interaction. This is blocked by the platform.
+  - Mitigation: Use 90-kHz video and 44.1-kHz audio timescales
+- No autoplay on mobile devices without user interaction. It's blocked by the platform.
 - Seeking near discontinuities may cause playback failure.
 - Download of large presentations may cause UI to lockup.
-- Cannot automatically playback same source again after presentation ended.
-  - To replay a source after it has ended, it is required to set the source again.
+- Can't automatically play back same source again after presentation ended.
+  - To replay a source after it has ended, it's required to set the source again.
 - Empty manifests may cause issues with the player.
   - This issue can occur when starting a live stream and not enough chunks are found in the manifest.
 - Playback position maybe outside UI seekbar.
-- Event ordering is not consistent across all techs.
-- Buffered property is not consistent across techs.
+- Event ordering isn't consistent across all techs.
+- Buffered property isn't consistent across techs.
 - nativeControlsForTouch must be false (default) to avoid "Object doesn't support property or method 'setControls'"
 - Posters must now be absolute urls
 - Minor aesthetic issues may occur in the UI when using high contrast mode of the device
@@ -39,18 +39,18 @@ The current release has the following known issues:
 
 ## AzureHtml5JS ##
 
-- If in the DVR window of Live content, and content finishes, timeline will continue to grow until seek to the area or reaching the end of the presentation.
+- In the DVR window of Live content, when content finishes the timeline will continue to grow until seeking to the area or reaching the end of the presentation.
 - Live presentations in Firefox with MSE enabled has some issues
-- Assets that are audio or video only will not play back via the AzureHtml5JS tech.
+- Assets that are audio or video only won't play back via the AzureHtml5JS tech.
   - If you'd like to play back assets without audio or video, you can do so by inserting blank audio or video using the [Azure Media Services Explorer tool](https://aka.ms/amse)
     - Instructions on how to insert silent audio can be found [here](https://azure.microsoft.com/documentation/articles/media-services-advanced-encoding-with-mes/#silent_audio)
 
 ## Flash ##
 
-- AES content does not playback in Flash version 30.0.0.134 due to a bug in Adobe's caching logic. Adobe has fixed the issue and released it in 30.0.0.154
+- AES content does not play back in Flash version 30.0.0.134 due to a bug in Adobe's caching logic. Adobe has fixed the issue and released it in 30.0.0.154
 - Tech and http failures (such as 404 network timeouts), the player will take longer to recover than other techs.
-- Click on video area with flashSS tech will not play/pause the player.
-- Infinite spinner can occur when player is stuck in the case where end user has Flash installed but does not give permission to load on the site. Player thinks plugin is available (as it is installed) and thinks plugin is running the content as JavaScript code has been sent but the browser settings have blocked plugin from executing until user accepts prompt to allow plugin. This can occur in all browsers.  
+- Click on video area with flashSS tech won't play/pause the player.
+- If the user has Flash installed but doesn't give permission to load it on the site, infinite spinning can occur. This is because the player thinks the plugin is installed and available and it thinks the plugin is running the content. JavaScript code has been sent but the browser settings have blocked the plugin from executing until the user accepts the prompt to allow the plugin. This can occur in all browsers.  
 
 ## Silverlight ##
 
@@ -58,7 +58,7 @@ The current release has the following known issues:
 - Tech and http failures (such as 404 network timeouts), the player will take longer to recover than other techs.
 - Safari and Firefox on Mac playback with Silverlight requires explicitly defining `"http://` or `https://` for the source.
 - If an API is missing for this tech, it will generally return null.
-- Infinite spinner can occur when player is stuck in the case where end user has Silverlight installed but does not give permission to load on the site. Player thinks plugin is available (as it is installed) and thinks plugin is running the content as JavaScript code has been sent but the browser settings have blocked plugin from executing until user accepts prompt to allow plugin. This can occur in all browsers.  
+- If the user has Flash installed but doesn't give permission to load it on the site, infinite spinning can occur. This is because the player thinks the plugin is installed and available and it thinks the plugin is running the content. JavaScript code has been sent but the browser settings have blocked the plugin from executing until the user accepts the prompt to allow the plugin. This can occur in all browsers.  
 
 ## Native HTML5 ##
 
@@ -76,7 +76,7 @@ The current release has the following known issues:
 ## Google ##
 
 - Multiple encoding profiles in the same manifest has some playback issues in Chrome and is not recommended.
-- Chrome cannot playback HE-AAC with AzureHtml5JS. Follow details on the [bug tracker](https://bugs.chromium.org/p/chromium/issues/detail?id=534301).
+- Chrome cannot play back HE-AAC with AzureHtml5JS. Follow details on the [bug tracker](https://bugs.chromium.org/p/chromium/issues/detail?id=534301).
 - As of Chrome v58, widevine content must be loaded/played back via the https:// protocol otherwise playback will fail.
 
 ## Mozilla ##
@@ -85,11 +85,11 @@ The current release has the following known issues:
 
 ## Apple ##
 
-- Safari on Mac often enables Power Saver mode by default with the setting "Stop plug-ins to save power", which blocks plugins like Flash and Silverlight when they believe it is not in favor to the user. This block does not block the plugin's existent, only capabilities. Given the default techOrder, this may cause issues when attempting to playback
+- Safari on Mac often enables Power Saver mode by default with the setting "Stop plug-ins to save power", which blocks plugins like Flash and Silverlight when they believe it is not in favor to the user. This block does not block the plugin's existent, only capabilities. Given the default techOrder, this may cause issues when attempting to play back
   - Mitigation 1: If the video player is 'front and center' (within a 3000 x 3000 pixel boundary starting at the top left corner of the document) it should still play.
   - Mitigation 2: Change the techOrder for Safari to be ["azureHtml5JS", "html5"]. This mitigation has implication of not getting all the features that are available in the FlashSS tech.
 - PlayReady content via Silverlight may have issues playing back in Safari.
-- AES and restricted token content does not playback using iOS and older Android devices.
+- AES and restricted token content does not play back using iOS and older Android devices.
   - In order to achieve this scenario, a proxy must be added to your service.
 - Default skin for iOS Phone shows through.
 - iPhone playback always occurs in the native player fullscreen.
@@ -101,7 +101,7 @@ The current release has the following known issues:
 
 ## Older Android ##
 
-- AES and restricted token content does not playback using iOS and older Android devices.
+- AES and restricted token content does not play back using iOS and older Android devices.
   - In order to achieve this scenario, a proxy must be added to your service.
 
 ## Next steps ##

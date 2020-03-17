@@ -10,7 +10,7 @@ ms.date: 03/13/2020
 
 # Error codes #
 
-When playback can not start or has stopped, an error event will be fired and `error()` function will return a code and an optional message, which is to help the app developer get more details. `error().message` is not the message displayed to the user.  The message displayed to the user is based on `error().code` bits 27-20, see table below.
+When playback can't start or has stopped, an error event will be fired and the `error()` function will return a code and an optional message to help the app developer get more details. `error().message` isn't the message displayed to the user.  The message displayed to the user is based on `error().code` bits 27-20, see table below.
 
 ```javascript
 
@@ -70,15 +70,15 @@ Describe details of the error, bits 27-20 provide a high level, bits 19-0 provid
 | srcErrInvalidSegment | 0x0400004 | Invalid segment |
 | **MEDIA_ERR_ENCRYPTED errors start value(0x0500000 - 0x05FFFFF)** | | |
 | encryptErrUnknown | 0x0500000 | Generic encrypted error | 
-| encryptErrDecrypterNotFound | 0x0500001 | Decryptor not found |
-| encryptErrDecrypterInit | 0x0500002 | Decryptor initialization error |
-| encryptErrDecrypterNotSupported | 0x0500003 | Decryptor not supported |
+| encryptErrDecrypterNotFound | 0x0500001 | Decrypter not found |
+| encryptErrDecrypterInit | 0x0500002 | Decrypter initialization error |
+| encryptErrDecrypterNotSupported | 0x0500003 | Decrypter not supported |
 | encryptErrKeyAcquire | 0x0500004 | Key acquire failed |
 | encryptErrDecryption | 0x0500005 | Decryption of segment failed |
 | encryptErrLicenseAcquire | 0x0500006 | License acquire failed |
 | **SRC_PLAYER_MISMATCH errors start value(0x0600000 - 0x06FFFFF)** | | |
 | srcPlayerMismatchUnknown | 0x0600000 | Generic no matching tech player to play the source |
-| srcPlayerMismatchFlashNotInstalled | 0x0600001 |Flash plugin is not installed, if installed the source may play. *OR* Flash 30 is installed and playing back AES content.  If this is the case, please try a different browser. Flash 30 is unsupported today as of June 7th. See [known issues](azure-media-player-known-issues.md) for more details. Note: If 0x00600003, both Flash and Silverlight are not installed, if specified in the techOrder.|
+| srcPlayerMismatchFlashNotInstalled | 0x0600001 |Flash plugin isn't installed, if installed the source may play. *OR* Flash 30 is installed and playing back AES content.  If this is the case, please try a different browser. Flash 30 is unsupported today as of June 7th. See [known issues](azure-media-player-known-issues.md) for more details. Note: If 0x00600003, both Flash and Silverlight are not installed, if specified in the techOrder.|
 | srcPlayerMismatchSilverlightNotInstalled | 0x0600002 | Silverlight plugin is not installed, if installed the source may play. Note: If 0x00600003, both Flash and Silverlight are not installed, if specified in the techOrder. |
 | | 0x00600003 | Both Flash and Silverlight are not installed, if specified in the techOrder. |
 | **Unknown errors (0x0FF00000)** | | |

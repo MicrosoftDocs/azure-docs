@@ -12,7 +12,7 @@ ms.date: 03/17/2020
 
 ## MICROSOFT AZURE MEDIA PLAYER ##
 
-These license terms are an agreement between Microsoft Corporation (or based on where you live, one of its affiliates) and you. Please read them. They apply to the software named above, which includes the media on which you received it, if any. The terms also apply to any Microsoft
+These license terms are an agreement between Microsoft Corporation (or based on where you live, one of its affiliates) and you. They apply to the software named above, which includes the media on which you received it, if any. The terms also apply to any Microsoft
 
 - updates,
 - supplements,
@@ -29,25 +29,25 @@ for this software, unless other terms accompany those items. If so, those terms 
 
     **a. Installation and Use.** You may use the software with your programs that deliver, receive, playback or otherwise handle video or audio content in the delivery chain with Microsoft Azure Media Services.
     **b. Included Microsoft Programs.** The software contains other Microsoft programs. These license terms apply to your use of those programs.
-    **c.    Third Party Programs.** The software may include third party programs that Microsoft, not the third party, licenses to you under this agreement. Notices, if any, for the third party program are included for your information only.
-    **d.    Third Party Notices.**  Third party scripts, linked to, called or referenced from the software, are licensed to you by the third parties that own such code, not by Microsoft, see [Microsoft Azure Terms of Use](https://azure.microsoft.com/support/legal/)
+    **c.    Third-Party Programs.** The software may include third-party programs that Microsoft, not the third party, licenses to you under this agreement. Notices, if any, for the third-party program are included for your information only.
+    **d.    Third-Party Notices.**  Third-party scripts, linked to, called, or referenced from the software, are licensed to you by the third parties that own such code, not by Microsoft, see [Microsoft Azure Terms of Use](https://azure.microsoft.com/support/legal/)
 
 2. **SCOPE OF LICENSE.** The software is licensed, not sold. This agreement only gives you some rights to use the software. Microsoft reserves all other rights. Unless applicable law gives you more rights despite this limitation, you may use the software only as expressly permitted in this agreement. In doing so, you must comply with any technical limitations in the software that only allow you to use it in certain ways. You may not
     - work around any technical limitations in the software;
     - reverse engineer, decompile or disassemble the software, except and only to the extent that applicable law expressly permits, despite this limitation;
     - make more copies of the software than specified in this agreement or allowed by applicable law, despite this limitation;
     - publish the software for others to copy;
-    - rent, lease or lend the software;
+    - rent, lease, or lend the software;
     - transfer the software or this agreement to any third party; or
     - use the software for commercial software hosting services.
 
 3. **DOCUMENTATION.** Any person that has valid access to your computer or internal network may copy and use the documentation for your internal, reference purposes.
 
-4. **EXPORT RESTRICTIONS.** The software is subject to United States export laws and regulations. You must comply with all domestic and international export laws and regulations that apply to the software. These laws include restrictions on destinations, end users and end use. For additional information, see [Microsoft exporting](https://www.microsoft.com/exporting).
+4. **EXPORT RESTRICTIONS.** The software is subject to United States export laws and regulations. You must comply with all domestic and international export laws and regulations that apply to the software. These laws include restrictions on destinations, end users and end use. For more information, see [Microsoft exporting](https://www.microsoft.com/exporting).
 
 5. **SUPPORT SERVICES.** Because this software is "as is," we may not provide support services for it.
 
-6. **ENTIRE AGREEMENT.** This agreement, and the terms for supplements, updates, Internet-based services and support services that you use, are the entire agreement for the software and support services.
+6. **ENTIRE AGREEMENT.** This agreement, and the terms for supplements, updates, Internet-based services, and support services that you use, are the entire agreement for the software and support services.
 
 7. **APPLICABLE LAW.**
 
@@ -55,7 +55,7 @@ for this software, unless other terms accompany those items. If so, those terms 
     **b. Outside the United States.** If you acquired the software in any other country, the laws of that country apply.
 8. **LEGAL EFFECT.** This agreement describes certain legal rights. You may have other rights under the laws of your country. You may also have rights with respect to the party from whom you acquired the software. This agreement does not change your rights under the laws of your country if the laws of your country do not permit it to do so.
 
-9. **DISCLAIMER OF WARRANTY. The software is licensed "as-is." You bear the risk of using it. Microsoft gives no express warranties, guarantees or conditions. You may have additional consumer rights or statutory guarantees under your local laws which this agreement cannot change. To the extent permitted under your local laws, Microsoft excludes the implied warranties of merchantability, fitness for a particular purpose and non-infringement.**
+9. **DISCLAIMER OF WARRANTY. The software is licensed "as-is." You bear the risk of using it. Microsoft gives no express warranties, guarantees, or conditions. You may have additional consumer rights or statutory guarantees under your local laws which this agreement cannot change. To the extent permitted under your local laws, Microsoft excludes the implied warranties of merchantability, fitness for a particular purpose and non-infringement.**
 
     **FOR AUSTRALIA – You have statutory guarantees under the Australian Consumer Law and nothing in these terms is intended to affect those rights.**
 
@@ -63,7 +63,7 @@ for this software, unless other terms accompany those items. If so, those terms 
 
 You can recover from Microsoft and its suppliers only direct damages up to U.S. $
 
-You cannot recover any other damages, including consequential, lost profits, special, indirect or incidental damages.** This limitation applies to
+You cannot recover any other damages, including consequential, lost profits, special, indirect, or incidental damages.** This limitation applies to
 
     - anything related to the software, services, content (including code) on third party Internet sites, or third party programs; and
     - claims for breach of contract, breach of warranty, guarantee or condition, strict liability, negligence, or other tort to the extent permitted by applicable law.
