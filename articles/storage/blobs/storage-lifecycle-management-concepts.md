@@ -243,6 +243,9 @@ Each rule definition includes a filter set and an action set. The [filter set](#
 
 The following sample rule filters the account to run the actions on objects that exist inside `container1` and start with `foo`.  
 
+>[!NOTE]
+>Lifecycle management only supports block blob type.  
+
 - Tier blob to cool tier 30 days after last modification
 - Tier blob to archive tier 90 days after last modification
 - Delete blob 2,555 days (seven years) after last modification
@@ -341,9 +344,9 @@ This example shows how to transition block blobs prefixed with `container1/foo` 
 }
 ```
 
-### Archive data at ingest
+### Archive data after ingest
 
-Some data stays idle in the cloud and is rarely, if ever, accessed once stored. The following lifecycle policy is configured to archive data once it's ingested. This example transitions block blobs in the storage account within container `archivecontainer` into an archive tier. The transition is accomplished by acting on blobs 0 days after last modified time:
+Some data stays idle in the cloud and is rarely, if ever, accessed once stored. The following lifecycle policy is configured to archive data shortly after it is ingested. This example transitions block blobs in the storage account within container `archivecontainer` into an archive tier. The transition is accomplished by acting on blobs 0 days after last modified time:
 
 > [!NOTE] 
 > It is recommended to upload your blobs directly the archive tier to be more efficient. You can use the x-ms-acess-tier header for [PutBlob](https://docs.microsoft.com/rest/api/storageservices/put-blob) or [PutBlockList](https://docs.microsoft.com/rest/api/storageservices/put-block-list) with REST version 2018-11-09 and newer or our latest blob storage client libraries. 
@@ -431,7 +434,7 @@ For data that is modified and accessed regularly throughout its lifetime, snapsh
 The platform runs the lifecycle policy once a day. Once you configure a policy, it can take up to 24 hours for some actions to run for the first time.  
 
 **If I update an existing policy, how long does it take for the actions to run?**  
-The updated policy takes up to 24 hours to go into effect. Once the policy is in effect, it could take up to 24 hours for the actions to run. Therefore, the policy may take up to 48 hours to execute.   
+The updated policy takes up to 24 hours to go into effect. Once the policy is in effect, it could take up to 24 hours for the actions to run. Therefore, the policy actions may take up to 48 hours to complete.   
 
 **I manually rehydrated an archived blob, how do I prevent it from being moved back to the Archive tier temporarily?**  
 When a blob is moved from one access tier to another, its last modification time doesn't change. If you manually rehydrate an archived blob to hot tier, it would be moved back to archive tier by the lifecycle management engine. Disable the rule that affects this blob temporarily to prevent it from being archived again. Re-enable the rule when the blob can be safely moved back to archive tier. You may also copy the blob to another location if it needs to stay in hot or cool tier permanently.

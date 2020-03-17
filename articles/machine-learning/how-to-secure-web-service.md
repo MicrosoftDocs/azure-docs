@@ -1,7 +1,7 @@
 ---
-title: Secure web services using SSL
+title: Secure web services using TLS
 titleSuffix: Azure Machine Learning
-description: Learn how to enable HTTPS in order to secure a web service that's deployed through Azure Machine Learning. 
+description: Learn how to enable HTTPS in order to secure a web service that's deployed through Azure Machine Learning. Azure Machine Learning uses TLS version 1.2 to secure models deployed as web services.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
-ms.date: 08/12/2019
+ms.date: 03/05/2020
 ms.custom: seodec18
 ---
 
-# Use SSL to secure a web service through Azure Machine Learning
+# Use TLS to secure a web service through Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 This article shows you how to secure a web service that's deployed through Azure Machine Learning.
@@ -78,7 +78,7 @@ To deploy (or redeploy) the service with SSL enabled, set the *ssl_enabled* para
 
 When you deploy to AKS, you can create a new AKS cluster or attach an existing one. For more information on creating or attaching a cluster, see [Deploy a model to an Azure Kubernetes Service cluster](how-to-deploy-azure-kubernetes-service.md).
   
--  If you create a new cluster, you use **[AksCompute.provisionining_configuration()](/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py#provisioning-configuration-agent-count-none--vm-size-none--ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--location-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--service-cidr-none--dns-service-ip-none--docker-bridge-cidr-none--cluster-purpose-none--load-balancer-type-none--load-balancer-subnet-none-)**.
+-  If you create a new cluster, you use **[AksCompute.provisioning_configuration()](/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py#provisioning-configuration-agent-count-none--vm-size-none--ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--location-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--service-cidr-none--dns-service-ip-none--docker-bridge-cidr-none--cluster-purpose-none--load-balancer-type-none--load-balancer-subnet-none-)**.
 - If you attach an existing cluster, you use **[AksCompute.attach_configuration()](/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py#attach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none-)**. Both return a configuration object that has an **enable_ssl** method.
 
 The **enable_ssl** method can use a certificate that's provided by Microsoft or a certificate that you purchase.

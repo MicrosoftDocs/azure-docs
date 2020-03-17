@@ -1,21 +1,14 @@
 ---
-title: Deploy Virtual Machine Scale Set using Visual Studio | Microsoft Docs
+title: Deploy Virtual Machine Scale Set using Visual Studio
 description: Deploy Virtual Machine Scale Sets using Visual Studio and a Resource Manager template
-services: virtual-machine-scale-sets
 ms.custom: vs-azure
 ms.workload: azure-vs
-documentationcenter: ''
 author: mayanknayar
-manager: jeconnoc
-editor: ''
 tags: azure-resource-manager
 
 ms.assetid: ed0786b8-34b2-49a8-85b5-2a628128ead6
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: manayar
 ms.custom: H1Hack27Feb2017

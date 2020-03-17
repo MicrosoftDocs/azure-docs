@@ -1,5 +1,5 @@
 ---
-title: Azure Media Services with Widevine license template overview | Microsoft Docs
+title: Azure Media Services v3 with Widevine license template overview
 description: This topic gives an overview of a Widevine license template that is used to configure Widevine licenses.
 author: juliako
 manager: femila
@@ -16,7 +16,7 @@ ms.date: 02/10/2019
 ms.author: juliako
 
 ---
-# Widevine license template overview 
+# Media Services v3 with Widevine license template overview
 
 Azure Media Services enables you to encrypt your content with **Google Widevine**. Media Services also provides a service for delivering Widevine licenses. You can use Azure Media Services APIs to configure Widevine licenses. When a player tries to play your Widevine-protected content, a request is sent to the license delivery service to obtain the license. If the license service approves the request, the service issues the license. It's sent to the client and is used to decrypt and play the specified content.
 

@@ -14,7 +14,7 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/01/2019
+ms.date: 01/17/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
@@ -154,7 +154,7 @@ The result of this deployment is:
 > Because you deploy one DBMS VM into one zone and the second DBMS VM into another zone to create a high availability configuration, you'll need a different proximity placement group for each of the zones. The same is true for any availability set that you use.
 
 ## Move an existing system into proximity placement groups
-If you already have SAP systems deployed, you might want to optimize the network latency of some of your critical systems and locate the application layer and the DBMS layer in the same datacenter. During the public preview of proximity placement groups, you need to delete the VMs and create new ones to move the system into proximity placement groups. You can’t currently just shut down the VMs and assign them to proximity placement groups.
+If you already have SAP systems deployed, you might want to optimize the network latency of some of your critical systems and locate the application layer and the DBMS layer in the same datacenter. To move the VMs of a complete Azure availability set to an existing proximity placement group that is scoped already, you need to shutdown all VMs of the availability set and assign the availability set to the existing proximity placement group through Azure portal, PowerShell or CLI. If you want to move a VM that is not part of an availability set into an existing proximity placement group, you just need to shutdown the VM and assign it to an existing proximity placement group. 
 
 
 ## Next steps

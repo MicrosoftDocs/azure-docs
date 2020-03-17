@@ -34,10 +34,10 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 You need set up permissions for Azure Migrate deployment.
 
-- Permissions for your Azure account to create an Azure Migrate project.
-- Permissions for your account to register the Azure Migrate appliance. The appliance is used for discovery and assessment of Hyper-V VMs you migrate. During appliance registration, Azure Migrate creates two Azure Active Directory (Azure AD) apps that uniquely identify the appliance:
-    - The first app communicates with Azure Migrate service endpoints.
-    - The second app accesses an Azure Key Vault that's created during registration, to store Azure AD app info and appliance configuration settings.
+**Task** | **Permissions**
+--- | ---
+**Create an Azure Migrate project** | Your Azure account needs permissions to create a project.
+**Register the Azure Migrate appliance** | Azure Migrate uses a lightweight Azure Migrate appliance to discover and assess Hyper-V VMs with Azure Migrate Server Assessment. This appliance discovers VMs, and sends VM metadata and performance data to Azure Migrate.<br/><br/>During appliance registration, the following Resource Providers are registered with the subscription chosen in the appliance- Microsoft.OffAzure, Microsoft.Migrate and Microsoft.KeyVault. Registering a resource provider configures your subscription to work with the resource provider. To register the resource providers, you need a Contributor or Owner role on the subscription.<br/><br/> As part of onboarding, Azure Migrate creates an Azure Active Directory (Azure AD) app:<br/> The AAD app is used for communication (authentication and authorization) between the agents running on the appliance with their respective services running on Azure. This app does not have privileges to make ARM calls or RBAC access on any resource.
 
 
 
@@ -54,15 +54,14 @@ Check you have permissions to create an Azure Migrate project.
 
 ### Assign permissions to register the appliance
 
-You can assign permissions for Azure Migrate to create the Azure AD apps created during appliance registration, using one of the following methods:
+You can assign permissions for Azure Migrate to create the Azure AD app during appliance registration, using one of the following methods:
 
 - A tenant/global admin can grant permissions to users in the tenant, to create and register Azure AD apps.
 - A tenant/global admin can assign the Application Developer role (that has the permissions) to the account.
 
-It's worth noting that:
-
-- The apps don't have any other access permissions on the subscription other than those described above.
-- You only need these permissions when you register a new appliance. You can remove the permissions after the appliance is set up.
+> [!NOTE]
+> - The app does not have any other access permissions on the subscription other than those described above.
+> - You only need these permissions when you register a new appliance. You can remove the permissions after the appliance is set up.
 
 
 #### Grant account permissions
@@ -86,9 +85,9 @@ The tenant/global admin can assign the Application Developer role to an account.
 
 ## Prepare Hyper-V for assessment
 
-You can prepare Hyper-V for VM assessment manually, or using a configuration script. Here's what needs to be prepared:
+You can prepare Hyper-V for VM assessment manually, or using a configuration script. Here's what needs to be prepared, either with the script or [manually](#prepare-hyper-v-manually).
 
-- Verify Hyper-V host settings, and make sure that the required ports are open on Hyper-V hosts.
+- [Verify](migrate-support-matrix-hyper-v.md#hyper-v-host-requirements) Hyper-V host settings, and make sure that the [required ports](migrate-support-matrix-hyper-v.md#port-access) are open on Hyper-V hosts.
 - Set up PowerShell remoting on each host, so that the Azure Migrate appliance can run PowerShell commands on the host, over a WinRM connection.
 - Delegate credentials if VM disks are located on remote SMB shares.
 - Set up an account that the appliance will use to discover VMs on Hyper-V hosts.
@@ -166,8 +165,8 @@ Azure Migrate needs permissions to discover on-premises VMs.
 
 ### Verify Hyper-V host settings
 
-1. Verify [Hyper-V host requirements](migrate-support-matrix-hyper-v.md#assessment-hyper-v-host-requirements) for server assessment.
-2. Make sure the [required ports](migrate-support-matrix-hyper-v.md#assessment-port-requirements) are open on Hyper-V hosts.
+1. Verify [Hyper-V host requirements](migrate-support-matrix-hyper-v.md#hyper-v-host-requirements) for server assessment.
+2. Make sure the [required ports](migrate-support-matrix-hyper-v.md#port-access) are open on Hyper-V hosts.
 
 ### Enable PowerShell remoting on hosts
 
@@ -209,17 +208,17 @@ When you set up the appliance, you finish setting up CredSSP by [enabling it on 
 
 Before setting up the Azure Migrate appliance and beginning assessment in the next tutorial, prepare for appliance deployment.
 
-1. [Verify](migrate-support-matrix-hyper-v.md#assessment-appliance-requirements) appliance requirements.
-2. [Review](migrate-support-matrix-hyper-v.md#assessment-appliance-url-access) the Azure URLs that the appliance will need to access.
+1. [Verify](migrate-appliance.md#appliance---hyper-v) appliance requirements.
+2. [Review](migrate-appliance.md#url-access) the Azure URLs that the appliance will need to access.
 3. Review the data that the appliance will collect during discovery and assessment.
-4. [Note](migrate-support-matrix-hyper-v.md#assessment-port-requirements) port access requirements for the appliance.
+4. [Note](migrate-appliance.md#collected-data---hyper-v) port access requirements for the appliance.
 
 
 ## Prepare for Hyper-V migration
 
-1. [Review](migrate-support-matrix-hyper-v.md#migration-hyper-v-host-requirements) Hyper-V host requirements for migration.
-2. [Review](migrate-support-matrix-hyper-v.md#migration-hyper-v-vm-requirements) the requirements for Hyper-V VMs that you want to migrate to Azure.
-3. [Note](migrate-support-matrix-hyper-v.md#migration-hyper-v-host-url-access) the Azure URLs to which Hyper-V hosts and clusters need access for VM migration.
+1. [Review](migrate-support-matrix-hyper-v-migration.md#hyper-v-hosts) Hyper-V host requirements for migration, and the Azure URLs to which Hyper-V hosts and clusters need access for VM migration.
+2. [Review](migrate-support-matrix-hyper-v-migration.md#hyper-v-vms) the requirements for Hyper-V VMs that you want to migrate to Azure.
+
 
 ## Next steps
 

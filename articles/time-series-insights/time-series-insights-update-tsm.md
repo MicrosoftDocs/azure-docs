@@ -8,7 +8,7 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 12/20/2019
+ms.date: 03/16/2020
 ms.custom: seodec18
 ---
 
@@ -124,7 +124,7 @@ Instances have the following JSON representation:
 ```
 
 > [!TIP]
-> For Time Series Insights Instance API and create, read, update, and delete (CRUD) support, see the [Data querying](time-series-insights-update-tsq.md#time-series-model-query-tsm-q-apis) article and the [Instance API REST documentation](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#instances-api).
+> For Time Series Insights Instance API and create, read, update, and delete (CRUD) support, read the [Data querying](time-series-insights-update-tsq.md#time-series-model-query-tsm-q-apis) article and the [Instance API REST documentation](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#instances-api).
 
 ## Time Series Model hierarchies
 
@@ -181,7 +181,7 @@ In the previous JSON example:
 * `ManufactureDate` defines a hierarchy with parent `year` and child `month`. Each `ManufactureDate` can have multiple `years`, which in turn can have multiple `months`.
 
 > [!TIP]
-> For Time Series Insights Instance API and CRUD support, see the [Data querying](time-series-insights-update-tsq.md#time-series-model-query-tsm-q-apis) article and the [Hierarchy API REST documentation](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#hierarchies-api).
+> For Time Series Insights Instance API and CRUD support, read the [Data querying](time-series-insights-update-tsq.md#time-series-model-query-tsm-q-apis) article and the [Hierarchy API REST documentation](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#hierarchies-api).
 
 ### Hierarchy example
 
@@ -205,11 +205,11 @@ Given the instance fields used in the previous definition and several time serie
 
 | Time Series ID | Instance fields |
 | --- | --- |
-| ID1 | “building” = “1000”, “floor” = “10”, “room” = “55”  |
-| ID2 | “building” = “1000”, “room” = “55” |
-| ID3 | “floor” = “10” |
-| ID4 | “building” = “1000”, “floor” = “10”  |
-| ID5 | None of “building”, “floor”, or “room” is set. |
+| ID1 | "building" = "1000", "floor" = "10", "room" = "55"  |
+| ID2 | "building" = "1000", "room" = "55" |
+| ID3 | "floor" = "10" |
+| ID4 | "building" = "1000", "floor" = "10"  |
+| ID5 | None of "building", "floor", or "room" is set. |
 
 Time Series **ID1** and **ID4** are displayed as part of hierarchy **H1** in the [Azure Time Series Insights explorer](time-series-insights-update-explorer.md) because they have fully defined and correctly ordered *building*, *floor*, and *room* parameters.
 
@@ -226,7 +226,7 @@ The [Contoso Wind Farm demo](https://insights.timeseries.azure.com/preview/sampl
 [![Time Series Model type example](media/v2-update-tsm/time-series-model-types.png)](media/v2-update-tsm/time-series-model-types.png#lightbox)
 
 > [!TIP]
-> For Time Series Insights Instance API and CRUD support, see the [Data querying](time-series-insights-update-tsq.md#time-series-model-query-tsm-q-apis) article and the [Type API REST documentation](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#types-api).
+> For Time Series Insights Instance API and CRUD support, read the [Data querying](time-series-insights-update-tsq.md#time-series-model-query-tsm-q-apis) article and the [Type API REST documentation](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#types-api).
 
 ### Type properties
 
@@ -339,7 +339,7 @@ Variables conform to the following JSON example:
 "Status": {
   "kind": "categorical",
   "value": {
-     "tsx": "toLong($event.[Status].Double)" 
+     "tsx": "toLong($event.[Status].Double)"
 },
   "interpolation": {
     "kind": "step",
@@ -349,7 +349,7 @@ Variables conform to the following JSON example:
   },
   "categories": [
     {
-      "values": [0, 1, 2, 3],
+      "values": [0, 1, 2],
       "label": "Good"
     },
     {
@@ -386,7 +386,7 @@ Variables are stored in the type definition of a time series model and can be pr
 
 ## Next steps
 
-- See [Azure Time Series Insights Preview storage and ingress](./time-series-insights-update-storage-ingress.md).
+- Read [Azure Time Series Insights Preview storage and ingress](./time-series-insights-update-storage-ingress.md).
 
 - Learn about common Time Series Model operations in [Data modeling in Azure Time Series Insights Preview](./time-series-insights-update-how-to-tsm.md)
 

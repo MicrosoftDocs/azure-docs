@@ -4,7 +4,7 @@ description: Frequently asked questions about Avere vFXT for Azure
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 11/06/2019
+ms.date: 12/19/2019
 ms.author: rohogue
 ---
 
@@ -20,11 +20,11 @@ Avere vFXT for Azure is a high-performance file system that caches active data i
 
 ### Is Avere vFXT a storage solution?
 
-No. Avere vFXT is a file-system *cache* that attaches to storage environments, such as your EMC or NetApp NAS or an Azure blob container. Avere vFXT streamlines data requests from clients, and it caches the data that it serves to improve performance at scale and over time. Avere vFXT itself does not store data. It has no information about the amount of data stored behind it.
+No. Avere vFXT for Azure is a file-system *cache* that attaches to storage environments, such as your EMC or NetApp NAS, or an Azure blob container. Avere vFXT streamlines data requests from clients, and it caches the data that it serves to improve performance at scale and over time. Avere vFXT itself does not store data. It has no information about the amount of data stored behind it.
 
 ### Is Avere vFXT a tiering solution?
 
-Avere vFXT does not automatically tier data between hot and cool tiers.  
+Avere vFXT for Azure does not automatically tier data between hot and cool tiers.  
 
 ### How do I know if an environment is right for Avere vFXT?
 
@@ -42,9 +42,9 @@ Consider Avere vFXT for Azure if you have a file-based analytic pipeline that ru
 
 * Your HPC application is based on NFSv3 clients. (In some circumstances, it can use SMB 2.1 clients, but performance is limited.)
 
-The following diagram simplifies the answer to this question. The closer your workflow is to the upper right, the more likely it is that the Avere caching solution is right for your environment.
+The following diagram can help you answer to this question. The closer your workflow is to the upper right, the more likely it is that the Avere vFXT for Azure caching solution is right for your environment.
 
-![Diagram showing that read-heavy loads with thousands of clients are better suited for Avere vFXT](media/avere-vfxt-fit-assessment.png)
+![Graph diagram showing that read-heavy loads with thousands of clients are better suited for Avere vFXT](media/avere-vfxt-fit-assessment.png)
 
 ### At what scale of clients does the Avere vFXT solution make the most sense?
 
@@ -54,7 +54,7 @@ Typical Avere vFXT customers run demanding workloads starting at about 1,000 CPU
 
 ### How much data can an Avere vFXT environment store?
 
-Avere vFXT is a cache. It doesn't specifically store data. It uses a combination of RAM and SSDs to store the cached data. The data is permanently stored on a back-end storage system (for example, a NetApp NAS system or a blob container). The Avere vFXT system does not have information about the amount of data stored behind it. Avere vFXT only caches the subset of that data that clients request.  
+Avere vFXT for Azure is a cache. It doesn't specifically store data. It uses a combination of RAM and SSDs to store the cached data. The data is permanently stored on a back-end storage system (for example, a NetApp NAS system or a blob container). The Avere vFXT system does not have information about the amount of data stored behind it. Avere vFXT only caches the subset of that data that clients request.  
 
 ### What regions are supported?
 
@@ -62,7 +62,7 @@ Avere vFXT for Azure is supported in all regions except for sovereign regions (C
 
 ### How do I get help with Avere vFXT?
 
-A specialized support group offers help with Avere vFXT for Azure. Follow the instructions in [Get help with your system](avere-vfxt-open-ticket.md#open-a-support-ticket-for-your-avere-vfxt) to open a support ticket from the Azure portal.
+A specialized group of support staff offers help with Avere vFXT for Azure. Follow the instructions in [Get help with your system](avere-vfxt-open-ticket.md#open-a-support-ticket-for-your-avere-vfxt) to open a support ticket from the Azure portal.
 
 ### Is Avere vFXT highly available?
 
@@ -73,7 +73,7 @@ Yes, Avere vFXT runs exclusively as an HA solution.
 Yes, customers can use more than one cloud provider with the Avere vFXT cluster. It supports AWS S3 standard buckets, Google Cloud Services standard buckets, and Azure blob containers.
 
 > [!NOTE]
-> A software fee applies to use Avere vFXT in AWS or Google Cloud, but not with Azure.
+> A software fee applies to use Avere vFXT with AWS or Google Cloud storage. There is no additional software fee for using Azure blob storage.
 
 ## Technical: Compute
 
@@ -160,10 +160,10 @@ Data is striped across the disks but is not encrypted. However, the disks themse
 
 ### What network is recommended?
 
-If you're using on-premises storage with Avere vFXT, you should have a 1-Gbps or better network connection. If you have a small amount of data and are willing to copy data to the cloud before running jobs, VPN connectivity might be enough. 
+If you're using on-premises storage with Avere vFXT, you should have a 1-Gbps or better network connection between your storage and the cluster. If you have a small amount of data and are willing to copy data to the cloud before running jobs, VPN connectivity might be sufficient.
 
 > [!TIP]
-> The slower the network link is, the slower the initial cold reads will be. Slow reads increase the latency of the work pipeline.
+> The slower the network link is, the slower the initial "cold" reads will be. Slow reads increase the latency of the work pipeline.
 
 ### Can I run Avere vFXT in a different virtual network than my compute cluster?
 
@@ -171,7 +171,7 @@ Yes, you can create your Avere vFXT system in a different virtual network. Read 
 
 ### Does Avere vFXT require its own subnet?
 
-Yes. Avere vFXT runs strictly as a high availability (HA) cluster and requires multiple IP addresses to operate. If the cluster is in its own subnet, you avoid the risk of IP address conflicts, which can cause problems for installation and normal operation. The cluster's subnet can be within the existing virtual network as long as no IP addresses overlap.
+Yes. Avere vFXT runs strictly as a high availability (HA) cluster and requires multiple IP addresses to operate. If the cluster is in its own subnet, you avoid the risk of IP address conflicts, which can cause problems for installation and normal operation. The cluster's subnet can be within a virtual network used by other resources, as long as no IP addresses overlap.
 
 ### Can I run Avere vFXT on InfiniBand?
 
@@ -219,9 +219,6 @@ In general terms, Avere vFXT for Azure supports the following systems as core fi
 * Dell EMC Isilon (OneFS 7.1, 7.2, 8.0, and 8.1) 
 * NetApp ONTAP (Clustered Mode 9.4, 9.3, 9.2, 9.1P1, 8.0-8.3) and (7-Mode 7.*, 8.0-8.3)
 
-  > [!NOTE]
-  > Azure NetApp Files currently is not supported.
-
 * Azure blob containers (locally redundant storage only)
 * AWS S3 buckets
 * Google Cloud buckets
@@ -240,11 +237,13 @@ Support is based on the amount of demand in the field. If there are enough reven
 
 ### Can I use Azure Blob storage as a core filer?
 
-Yes, Avere vFXT for Azure can use a block blob container as a cloud core filer.  
+Yes, Avere vFXT for Azure can use a block blob container as a cloud core filer.
 
 ### What are the storage account requirements for a blob core filer?
 
 Your storage account must be a general-purpose v2 (GPv2) account and configured for locally redundant storage only. Geo-redundant storage and zone-redundant storage are not supported.
+
+Read [Azure Blob Storage cloud core filer](avere-vfxt-add-storage.md#azure-blob-storage-cloud-core-filer) for more details about the storage account requirements.
 
 ### Can I use archive blob storage?
 
@@ -254,7 +253,7 @@ No. The service-level agreement (SLA) for archive storage is not compatible with
 
 Cool tier blob storage is not usually recommended for an Avere vFXT for Azure core filer. Cool tier offers lower storage costs but higher operations costs. (See [Block blob pricing](<https://azure.microsoft.com/pricing/details/storage/blobs/>) for more details.) If data will be accessed and modified or deleted frequently, please consider using the Hot tier.
 
-[Access tiers](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers#cool-access-tier) gives more information about when it might make sense to use cool tier storage as a vFXT core filer.
+[Access tiers](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers#cool-access-tier) gives more information about when it might make sense to use Cool tier storage as a vFXT core filer.
 
 ### How do I encrypt the blob container?
 

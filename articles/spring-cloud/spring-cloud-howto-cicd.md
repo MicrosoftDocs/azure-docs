@@ -1,11 +1,11 @@
 ---
 title: CI/CD for Azure Spring Cloud
 description: CI/CD for Azure Spring Cloud
-author: jpconnock
+author: bmitchell287
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 10/04/2019
-ms.author: jeconnoc
+ms.author: brendm
 
 ---
 # CI/CD for Azure Spring Cloud

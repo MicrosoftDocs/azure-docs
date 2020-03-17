@@ -1,5 +1,5 @@
 - name: Azure Marketplace and AppSource documentation
-  href: index.md
+  href: index.yml
   items:
   - name: Azure Marketplace and AppSource roadmap
     href: ./marketplace-roadmap.md
@@ -58,9 +58,6 @@
       items:
       - name: Offer listing best practices
         href: ./gtm-offer-listing-best-practices.md
-        items:
-        - name: Categories
-          href: ./gtm-offer-listing-best-practices-categories.md
       - name: How to get featured
         href: ./gtm-how-to-get-featured.md
       - name: Marketplace content validation

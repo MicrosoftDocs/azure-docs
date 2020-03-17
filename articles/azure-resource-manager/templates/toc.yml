@@ -1,8 +1,8 @@
-- name: Azure Resource Manager template documentation
+- name: ARM template documentation
   href: index.yml
 - name: Overview
   items:
-  - name: What are Azure Resource Manager templates?
+  - name: What are ARM templates?
     href: overview.md
 - name: Quickstarts
   items:
@@ -10,6 +10,16 @@
     href: quickstart-create-templates-use-the-portal.md
   - name: Create templates - VS Code
     href: quickstart-create-templates-use-visual-studio-code.md
+  - name: Azure services
+    items:
+    - name: Cosmos DB
+      href: ../../cosmos-db/quick-create-template.md
+    - name: Event Grid
+      href: ../../event-grid/blob-event-quickstart-template.md
+    - name: Key Vault
+      href: ../../key-vault/quick-create-template.md
+    - name: Load Balancer
+      href: ../../load-balancer/quickstart-load-balancer-standard-public-template.md
 - name: Tutorials
   items:
   - name: Beginner
@@ -44,6 +54,9 @@
     - name: Set resource deployment order
       displayName: dependent resources, dependency
       href: template-tutorial-create-templates-with-dependent-resources.md
+    - name: Use deployment script
+      displayName: custom script
+      href: template-tutorial-deployment-script.md
     - name: Use conditions
       href: template-tutorial-use-conditions.md
     - name: Integrate Key Vault
@@ -61,8 +74,6 @@
     - name: Continuous integration with Azure Pipelines
       displayName: DevOps
       href: template-tutorial-use-azure-pipelines.md
-    - name: Update VS Deployment script to Az Powershell
-      href: update-visual-studio-deployment-script.md
     - name: Use safe deployment practices
       displayName: adm
       href: deployment-manager-tutorial.md
@@ -85,6 +96,8 @@
     href: templates-cloud-consistency.md
   - name: Deployment modes
     href: deployment-modes.md
+  - name: Complete mode deletion
+    href: complete-mode-deletion.md
   - name: Deployment Manager
     items:
     - name: Overview
@@ -122,21 +135,34 @@
         href: add-resource-extensions.md
     - name: Outputs
       href: template-outputs.md
+    - name: Deployment script
+      displayName: custom script
+      href: deployment-script-template.md
     - name: Modularize templates
       displayName: linked templates, nested templates
       href: linked-templates.md
     - name: Create multiple instances
-      href: create-multiple-instances.md
-    - name: Subscription level resources
-      href: deploy-to-subscription.md
-    - name: Management group level resources
-      href: deploy-to-management-group.md
+      items:
+      - name: Resources
+        displayName: iteration,copy
+        href: copy-resources.md
+      - name: Properties
+        displayName: iteration,copy
+        href: copy-properties.md
+      - name: Variables
+        displayName: iteration,copy
+        href: copy-variables.md
+      - name: Outputs
+        displayName: iteration,copy
+        href: copy-outputs.md
   - name: Use authoring tools
     items:
     - name: VS Code
       href: use-vs-code-to-create-template.md
     - name: Visual Studio
       href: create-visual-studio-deployment-project.md
+    - name: Update VS deployment script to Az module
+      href: update-visual-studio-deployment-script.md
     - name: IntelliJ IDEA
       href: create-templates-use-intellij.md
   - name: Deploy templates
@@ -153,6 +179,8 @@
     - name: Deploy - REST API
       displayName: deployment
       href: deploy-rest.md
+    - name: Deploy from GitHub
+      href: deploy-to-azure-button.md
     - name: What-if deployment
       href: template-deploy-what-if.md
     - name: Redeploy on error
@@ -160,7 +188,15 @@
       href: rollback-on-error.md
     - name: Secure template with SAS token
       href: secure-template-with-sas-token.md
-    - name: Deploy to multiple resource groups or subscriptions
+  - name: Scoped deployments
+    items:
+    - name: Subscription
+      href: deploy-to-subscription.md
+    - name: Management group
+      href: deploy-to-management-group.md
+    - name: Tenant
+      href: deploy-to-tenant.md
+    - name: Multiple resource groups or subscriptions
       href: cross-resource-group-deployment.md
   - name: Provide parameters
     items:
@@ -231,12 +267,6 @@
       href: template-functions-resource.md
     - name: String functions
       href: template-functions-string.md
-  - name: Resource capabilities
-    items:
-    - name: Complete mode deletion
-      href: complete-mode-deletion.md
-    - name: Extension resource types
-      href: extension-resource-types.md
   - name: REST
     href: /rest/api/resources/
   - name: Azure PowerShell

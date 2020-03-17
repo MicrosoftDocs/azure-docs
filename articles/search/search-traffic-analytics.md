@@ -108,7 +108,7 @@ Every time that a search request is issued by a user, you should log that as a s
 **ScoringProfile**: (string) name of the scoring profile used, if any
 
 > [!NOTE]
-> Request count on user generated queries by adding $count=true to your search query. See more information [here](https://docs.microsoft.com/rest/api/searchservice/search-documents#request)
+> Request count on user generated queries by adding $count=true to your search query. See more information [here](/rest/api/searchservice/search-documents#counttrue--false).
 >
 
 > [!NOTE]

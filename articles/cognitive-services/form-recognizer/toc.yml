@@ -1,6 +1,7 @@
 - name: Form Recognizer Documentation
   href: index.yml
 - name: Overview
+  expanded: true
   items:
   - name: What is Form Recognizer?
     href: overview.md
@@ -17,36 +18,20 @@
     items:
     - name: Train and use custom model without labels  
       items:
-      - name: v2.0
-        items:
-        - name: cURL
-          href: quickstarts/curl-train-extract.md
-        - name: Python
-          href: quickstarts/python-train-extract.md
-      - name: v1.0
-        items:
-        - name: cURL
-          href: quickstarts/curl-train-extract-v1.md
-        - name: Python
-          href: quickstarts/python-train-extract-v1.md
+      - name: cURL
+        href: quickstarts/curl-train-extract.md
+      - name: Python
+        href: quickstarts/python-train-extract.md
     - name: Train and use custom model with labels
       items:
       - name: Python
         href: quickstarts/python-labeled-data.md
     - name: Use prebuilt receipt model
       items:
-      - name: v2.0
-        items:
-        - name: cURL
-          href: quickstarts/curl-receipts.md
-        - name: Python
-          href: quickstarts/python-receipts.md
-      - name: v1.0
-        items:
-        - name: cURL
-          href: quickstarts/curl-receipts-v1.md
-        - name: Python
-          href: quickstarts/python-receipts-v1.md
+      - name: cURL
+        href: quickstarts/curl-receipts.md
+      - name: Python
+        href: quickstarts/python-receipts.md
     - name: Get text layout information
       items:
       - name: Python
@@ -61,6 +46,8 @@
   items:
   - name: Build a training data set
     href: build-training-data-set.md
+  - name: Deploy the sample labeling tool
+    href: deploy-label-tool.md
   - name: Use containers
     items:
     - name: Install and run containers

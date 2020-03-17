@@ -3,7 +3,7 @@ title: Manage updates for multiple Azure virtual machines
 description: This article describes how to manage updates for Azure and non-Azure virtual machines.
 services: automation
 ms.subservice: update-management
-ms.date: 11/20/2019
+ms.date: 01/16/2020
 ms.topic: conceptual
 ---
 # Manage updates for multiple machines
@@ -141,6 +141,13 @@ In the **New update deployment** pane, specify the following information:
   - Updates
 
 - **Updates to include/exclude** - This opens the **Include/Exclude** page. Updates to be included or excluded are on separate tabs. For additional information on how inclusion is handled, see [Schedule an Update Deployment](automation-tutorial-update-management.md#schedule-an-update-deployment).
+
+> [!NOTE]
+> It is important to know that exclusions override inclusions. For instance, if you define an exclusion rule of `*`, then no patches or packages are installed as they are all excluded. Excluded patches still show as missing from the machine. For Linux machines if a package is included but has a dependent package that was excluded, the package is not installed.
+
+> [!NOTE]
+> You cannot specify updates that have been superseded for inclusion with the update deployment.
+>
 
 - **Schedule settings**: You can accept the default date and time, which is 30 minutes after the current time. You can also specify a different time.
 

@@ -69,9 +69,9 @@ The following example shows a storage account that is deployed to a location spe
   "resources": [
     {
       "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2018-07-01",
       "name": "[variables('storageAccountName')]",
       "location": "[parameters('location')]",
-      "apiVersion": "2018-07-01",
       "sku": {
         "name": "[parameters('storageAccountType')]"
       },

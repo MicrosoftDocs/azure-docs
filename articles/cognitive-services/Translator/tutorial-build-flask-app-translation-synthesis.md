@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: tutorial
-ms.date: 12/09/2019
+ms.date: 02/10/2020
 ms.author: swmachan
 ---
 
@@ -124,7 +124,7 @@ Requests is a popular module that is used to send HTTP 1.1 requests. There’s n
    ```
 
 > [!NOTE]
-> If you'd like to learn more about requests, see [Requests: HTTP for Humans](http://docs.python-requests.org/en/master/).
+> If you'd like to learn more about requests, see [Requests: HTTP for Humans](https://2.python-requests.org/en/master/).
 
 ### Install and configure Flask
 

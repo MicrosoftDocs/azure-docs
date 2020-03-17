@@ -27,7 +27,7 @@ In this case, a task needs to be repeated within the same environment, but with 
 Furthermore, as the organization wants to deploy these 10 data factories multiple times across different environments, templates can use this **reusability** by utilizing separate parameter files for development, test, and production environments.
 
 ## Templating with Azure Resource Manager
-[Azure Resource Manager templates](../../azure-resource-manager/template-deployment-overview.md) are a great way to achieve templating in Azure Data Factory. Resource Manager templates define the infrastructure and configuration of your Azure solution through a JSON file. Because Azure Resource Manager templates work with all/most Azure services, it can be widely used to easily manage all resources of your Azure assets. See [Authoring Azure Resource Manager templates](../../azure-resource-manager/templates/template-syntax.md) to learn more about the Resource Manager Templates in general.
+[Azure Resource Manager templates](../../azure-resource-manager/templates/overview.md) are a great way to achieve templating in Azure Data Factory. Resource Manager templates define the infrastructure and configuration of your Azure solution through a JSON file. Because Azure Resource Manager templates work with all/most Azure services, it can be widely used to easily manage all resources of your Azure assets. See [Authoring Azure Resource Manager templates](../../azure-resource-manager/templates/template-syntax.md) to learn more about the Resource Manager Templates in general.
 
 ## Tutorials
 See the following tutorials for step-by-step instructions to create Data Factory entities by using Resource Manager templates:

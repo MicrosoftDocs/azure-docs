@@ -4,7 +4,7 @@ description: This article describes how to configure OPC Publisher to specify OP
 author: dominicbetts
 ms.author: dobett
 ms.date: 06/10/2019
-ms.topic: overview
+ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
@@ -219,7 +219,7 @@ The syntax of the configuration file is as follows:
 
             // Pattern is a regular expression, which is applied to the actual value of the
             // property (here 'EndpointUrl').
-            // If this key is ommited (which is the default), then no regex matching is done
+            // If this key is omitted (which is the default), then no regex matching is done
             // at all, which improves performance.
             // If the key is used you need to define groups in the regular expression.
             // Publisher applies the regular expression and then concatenates all groups

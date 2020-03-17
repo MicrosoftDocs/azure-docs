@@ -79,23 +79,9 @@ Yes. To install additional components or customize cluster configuration, use:
 
 - Scripts during or after creation. Scripts are invoked via [script action](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux), which is a configuration option you can use from the Azure portal, HDInsight Windows PowerShell cmdlets, or the HDInsight .NET SDK. This configuration option can be used from the Azure portal, HDInsight Windows PowerShell cmdlets, or the HDInsight .NET SDK.
 
-- `sudo` or other methods after you provision the cluster.
-  
 - [HDInsight Application Platform](https://azure.microsoft.com/services/hdinsight/partner-ecosystem/) to install ecosystem applications.
 
-However, Microsoft Support teams can offer support only for the following situations:
-
-- Issues or errors that occur when loading the script. Any errors that occur during the execution of custom scripts are outside the scope of a support ticket.
-
-- Additional applications that are part the cluster creation process. 
-
 For a list of supported components see [What are the Apache Hadoop components and versions available with HDInsight?](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#apache-hadoop-components-available-with-different-hdinsight-versions)
-
-Support for individual components can also vary by cluster type. For example, Spark is not supported on a Kafka cluster, and vice-versa.
-
-For applications and services outside of the cluster creation process, contact the vendor or service provider for support. You can also use many community support sites. Examples are the [MSDN forum for HDInsight](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight) and [Stack Overflow](https://stackoverflow.com/). Apache projects also have project sites on the [Apache website](https://apache.org/). An example is [Hadoop](https://hadoop.apache.org/). 
-
-For more information about Azure support, see the [Azure Support FAQs](https://azure.microsoft.com/support/faq/).
 
 ### Can I upgrade the individual components that are pre-installed on the cluster?
 
@@ -240,9 +226,9 @@ In scenarios in which you must control the schedule, you can use the following s
 For more information about how to set up and run a cron job, see [How do I set up a Cron job](https://askubuntu.com/questions/2368/how-do-i-set-up-a-cron-job)?
 
 ### Why is LLAP available on Spark ESP clusters?
-On ESP Spark clusters, LLAP is enabled for security reasons (i.e. Apache Ranger), not performance. You should use larger node VMs to accomodate for the resource usage of LLAP (e.g. minimum D13V2). 
+On ESP Spark clusters, LLAP is enabled for security reasons (i.e. Apache Ranger), not performance. You should use larger node VMs to accommodate for the resource usage of LLAP (e.g. minimum D13V2). 
 
-### How can I add addional AAD groups after creating an ESP cluster?
+### How can I add additional AAD groups after creating an ESP cluster?
 There are two ways to achieve this:
 1- You can recreate the cluster and add the additional group at the time of cluster creation. If you are using scoped synchronization in AAD-DS, please make sure group B is included in the scoped synchronization.
 2- Add the group as a nested sub group of the previous group that was used to create the ESP cluster. For example, if you have created an ESP cluster with group `A`, you can later on add group `B` as a nested subgroup of `A` and after approximately one hour it will be synced and available in the cluster automatically. 

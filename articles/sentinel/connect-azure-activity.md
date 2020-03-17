@@ -3,7 +3,7 @@ title: Connect Azure Activity data to Azure Sentinel | Microsoft Docs
 description: Learn how to connect Azure Activity data to Azure Sentinel.
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: rkarlin
 editor: ''
 
@@ -15,7 +15,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
-ms.author: rkarlin
+ms.author: yelevin
 
 ---
 # Connect data from Azure Activity log
@@ -27,7 +27,7 @@ You can stream logs from [Azure Activity log](../azure-monitor/platform/platform
 
 ## Prerequisites
 
-- User with global administrator or security administrator permissions
+- User with contributor permissions to Log Analytics workspace 
 
 
 ## Connect to Azure Activity log

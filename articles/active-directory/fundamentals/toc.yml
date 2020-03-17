@@ -39,10 +39,12 @@
     href: active-directory-deployment-checklist-p2.md
   - name: Identity data storage for the EU
     href: active-directory-data-storage-eu.md
-  - name: Identity data storage for Austrailia
-    href: active-directory-data-storage-australia.md
+  - name: Identity data storage for Australia and New Zealand
+    href: active-directory-data-storage-australia-newzealand.md
   - name: What's new in Microsoft 365 Government
     href: whats-new-microsoft-365-government.md
+  - name: Compare Azure AD with ADDS
+    href: active-directory-compare-azure-ad-to-ad.md
   - name: Azure AD Operations reference
     items:
     - name: Introduction

@@ -67,7 +67,7 @@ To build a serverless app in Visual Studio, you need:
 ## Create a resource group project
 
 To get started, create an 
-[Azure Resource Group project](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) 
+[Azure Resource Group project](../azure-resource-manager/templates/create-visual-studio-deployment-project.md) 
 for your serverless app. In Azure, you create resources within a *resource group*, 
 which is a logical collection you use for organizing, managing, and deploying 
 resources for an entire app as a single asset. For a serverless app in Azure, 

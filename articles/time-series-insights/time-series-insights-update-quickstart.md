@@ -9,7 +9,7 @@ manager: cshankar
 ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc seodec18
-ms.date: 12/20/2019
+ms.date: 02/07/2020
 ---
 
 # Quickstart: Explore the Azure Time Series Insights Preview demo environment
@@ -40,7 +40,7 @@ The Time Series Insights Preview explorer demonstrates historical data and root 
 
       [![W7 in Contoso Plant 1](media/v2-update-quickstart/quick-start-generator-speed.png)](media/v2-update-quickstart/quick-start-generator-speed.png#lightbox)
 
-1. Recently, Contoso found a fire in wind turbine **W7**. Opinions vary about what caused the fire. In Time Series Insights, we can see that the fire alert sensor was activated during the fire.
+1. Recently, Contoso found a fire in wind turbine **W7**. Opinions vary about what caused the fire. In Time Series Insights, the fire alert sensor that was activated during the fire is displayed.
 
    1. Change the view range to **3/9/17 20:00:00.00 to 3/10/17 20:00:00.00 (UTC)**.
    1. Select **Safety System** > **FireAlert**.
@@ -54,7 +54,7 @@ The Time Series Insights Preview explorer demonstrates historical data and root 
 
       [![Review other events around the same time](media/v2-update-quickstart/quick-start-active-warning.png)](media/v2-update-quickstart/quick-start-active-warning.png#lightbox)
 
-1. The oil pressure and active warning sensors spiked right before the fire. Expand the displayed time series to see other signs that were evident leading up to the fire. Both sensors fluctuated consistently over time. The fluctuations indicate a persistent and worrisome pattern.
+1. The oil pressure and active warning sensors spiked right before the fire. Expand the displayed time series to review other signs that were evident leading up to the fire. Both sensors fluctuated consistently over time. The fluctuations indicate a persistent and worrisome pattern.
 
     * Change the view range to **2/24/17 20:00:00.00 to 3/10/17 20:00:00.00 (UTC)**.
 
@@ -81,7 +81,7 @@ By using Time Series Insights and sensor telemetry, we've discovered a long-term
 
        [![Change the view range and select W6](media/v2-update-quickstart/quick-start-voltage-switch-warning.png)](media/v2-update-quickstart/quick-start-voltage-switch-warning.png#lightbox)
 
-1. The warning indicates an issue with the voltage from the generator. The overall power output of the generator is within normal parameters in the current interval. By increasing our interval, we see another pattern emerge. A drop-off is evident.
+1. The warning indicates an issue with the voltage from the generator. The overall power output of the generator is within normal parameters in the current interval. By increasing our interval, another pattern emerges. A drop-off is evident.
 
     1. Remove the **VoltageActuatorSwitchWarning** sensor.
     1. Select **Generator System** > **ActivePower**.
@@ -95,7 +95,7 @@ By using Time Series Insights and sensor telemetry, we've discovered a long-term
 
       [![Extend the time span to 60 days](media/v2-update-quickstart/quick-start-expand-interval-range.png)](media/v2-update-quickstart/quick-start-expand-interval-range.png#lightbox)
 
-1. Other sensor data points can be added to provide greater context. The more sensors we view, the fuller our understanding of the problem is. Let’s drop a marker to see the actual values. 
+1. Other sensor data points can be added to provide greater context. The more sensors we view, the fuller our understanding of the problem is. Let’s drop a marker to display the actual values. 
 
     1. Select **Generator System**, and then select three sensors: **GridVoltagePhase1**, **GridVoltagePhase2**, and **GridVoltagePhase3**.
     1. Drop a marker on the last data point in the visible area.

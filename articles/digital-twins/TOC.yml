@@ -72,25 +72,47 @@
   - name: User-defined functions client library
     href: reference-user-defined-functions-client-library.md
 - name: Resources
+  expanded: true
   items:
-  - name: Azure Digital Twins samples for C# (.NET)
-    href: https://github.com/Azure-Samples/digital-twins-samples-csharp 
-  - name: Azure Digital Twins REST API
-    href: https://docs.westcentralus.azuresmartspaces.net/management/swagger 
-  - name: Pricing
-    href: https://azure.microsoft.com/pricing/details/digital-twins/     
-  - name: Pricing calculator
-    href: https://azure.microsoft.com/pricing/calculator/
-  - name: Azure Digital Twins Graph Viewer
-    href: https://github.com/Azure/azure-digital-twins-graph-viewer
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/azure-digital-twins
+  - name: Developer resources
+    items:
+    - name: Azure Digital Twins Graph Viewer
+      href: https://github.com/Azure/azure-digital-twins-graph-viewer
+    - name: Azure Digital Twins samples for C# (.NET)
+      href: https://github.com/Azure-Samples/digital-twins-samples-csharp 
+    - name: Azure Digital Twins REST API
+      href: https://docs.westcentralus.azuresmartspaces.net/management/swagger 
+  - name: Pricing and availability
+    items:   
+    - name: Pricing
+      href: https://azure.microsoft.com/pricing/details/digital-twins/     
+    - name: Pricing calculator
+      href: https://azure.microsoft.com/pricing/calculator/
+    - name: Region availability
+      href: https://azure.microsoft.com/regions/services/
+  - name: Support and help options
+    items:
+    - name: Azure support options
+      href: https://azure.microsoft.com/support/options/
+    - name: Azure IoT support and help options
+      href: https://docs.microsoft.com/azure/iot-fundamentals/iot-support-help
+    - name: Stack Overflow
+      href: https://stackoverflow.com/questions/tagged/azure-digital-twins
+    - name: MSDN forum
+      href: https://social.msdn.microsoft.com/Forums/home?category=&forum=&filter=&sort=relevancedesc&brandIgnore=true&searchTerm=Azure+Digital+Twins
+    - name: Azure IoT code samples
+      href: https://docs.microsoft.com/samples/browse/?term=iot
+  - name: Feedback and forums
+    items:  
+    - name: MSDN forum
+      href: https://social.msdn.microsoft.com/Forums/home?category=&forum=&filter=&sort=relevancedesc&brandIgnore=true&searchTerm=Azure+Digital+Twins
+    - name: Product requests and suggestions
+      href: https://feedback.azure.com/forums/916621-azure-digital-twins
   - name: Customer stories
-    href: https://blogs.microsoft.com/iot/2018/09/24/announcing-azure-digital-twins-create-digital-replicas-of-spaces-and-infrastructure-using-cloud-ai-and-iot/ 
-  - name: Azure IoT Developer Center
-    href: https://azure.microsoft.com/develop/iot/
-  - name: Azure roadmap
+    href: https://customers.microsoft.com/en-us/search?sq=%22Azure%20Digital%20Twins%22&ff=&p=0&so=story_publish_date%20desc
+  - name: Azure videos
+    href: https://azure.microsoft.com/resources/videos/index/?services=digital-twins&sort=newest
+  - name: Channel 9 videos
+    href: https://channel9.msdn.com/Search?term=%22Azure%20Digital%20Twins%22
+  - name: Azure IoT updates
     href: https://azure.microsoft.com/roadmap/?category=iot
-  - name: Videos
-    href: https://channel9.msdn.com/Search?term=%22Azure%20Digital%20Twins%22&lang-en=true
-

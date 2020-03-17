@@ -19,11 +19,13 @@ This page describes common issues with input connections and how to troubleshoot
 
 2.  Examine your input data.
 
-    To verify that input data is flowing into Event Hub, use [Service Bus Explorer](https://code.msdn.microsoft.com/windowsapps/Service-Bus-Explorer-f2abca5a) to connect to Azure Event Hub (if Event Hub input is used).
+    1. To verify that input data is flowing into Event Hub, use [Service Bus Explorer](https://code.msdn.microsoft.com/windowsapps/Service-Bus-Explorer-f2abca5a) to connect to Azure Event Hub (if Event Hub input is used).
         
-    Use the [**Sample Data**](stream-analytics-sample-data-input.md) button for each input, and download the input sample data.
+    1. Use the [**Sample Data**](stream-analytics-sample-data-input.md) button for each input. Download the input sample data.
         
-    Inspect the sample data to understand the shape of the data: the schema and the [data types](https://docs.microsoft.com/stream-analytics-query/data-types-azure-stream-analytics).
+    1. Inspect the sample data to understand the shape of the data--that is, the schema and [data types](https://docs.microsoft.com/stream-analytics-query/data-types-azure-stream-analytics).
+
+3.  Ensure that you have selected a time range in the input preview. Choose **Select time range**, and then enter a sample duration before testing your query.
 
 ## Malformed input events causes deserialization errors 
 Deserialization issues are caused when the input stream of your Stream Analytics job contains malformed messages. For example, a malformed message could be caused by a missing parenthesis or a brace in a JSON object, or an incorrect timestamp format in the time field. 

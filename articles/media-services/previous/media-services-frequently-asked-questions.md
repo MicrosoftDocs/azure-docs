@@ -1,5 +1,5 @@
 ---
-title: Azure Media Services frequently asked questions | Microsoft Docs
+title: Azure Media Services frequently asked questions
 description: This article gives answers to the Frequently asked questions about Azure Media Services.
 services: media-services
 documentationcenter: ''
@@ -16,7 +16,7 @@ ms.date: 03/18/2019
 ms.author: juliako
 
 ---
-# Frequently asked questions
+# Media Services v2 frequently asked questions
 
 This article addresses frequently asked questions raised by the Azure Media Services (AMS) user community.
 

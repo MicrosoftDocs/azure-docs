@@ -87,6 +87,7 @@ Server Assessment reports "PercentageOfCoresUtilizedMissing" or "PercentageOfMem
 - This can occur if the VMs are turned off during the assessment duration. The appliance can't collect performance data for a VM when it's turned off.
 - If only the memory counters are missing and you're trying to assess Hyper-V VMs, check whether you have dynamic memory enabled on these VMs. There's a known issue for Hyper-V VMs only, in which an Azure Migrate appliance can't collect memory utilization data for VMs that don't have dynamic memory enabled.
 - If any of the performance counters are missing, Azure Migrate Server Assessment falls back to the allocated cores and memory, and it recommends a corresponding VM size.
+- If all of the performance counters are missing, ensure the port access requirements for assessment are met. Learn more about the port access requirements for [VMware](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#port-access), [Hyper-V](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-hyper-v#port-access) and [physical](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-physical#port-access) server assessment.
 
 ## Is the operating system license included?
 

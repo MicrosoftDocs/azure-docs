@@ -57,10 +57,12 @@
         href: team-development-nodejs.md
   - name: Concepts
     items:
-    - name: How Dev Spaces Works
+    - name: How Dev Spaces works
       href: how-dev-spaces-works.md
     - name: How VS Code works with Dev Spaces
       href: how-vs-code-works-with-dev-spaces.md
+    - name: Networking configuration in different network topologies
+      href: configure-networking.md
   - name: How to
     items:
     - name: Install Azure Dev Spaces
@@ -95,6 +97,8 @@
       href: how-to/ingress-https-nginx.md
     - name: Connect your development machine to an AKS cluster (preview)
       href: how-to/connect.md
+    - name: Configure your Azure Dev Spaces cluster to use Helm 3 (preview)
+      href: how-to/helm-3.md
   - name: Troubleshooting
     href: troubleshooting.md
   - name: FAQ

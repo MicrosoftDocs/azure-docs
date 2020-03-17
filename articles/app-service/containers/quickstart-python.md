@@ -4,9 +4,10 @@ description: Get started with Linux apps on Azure App Service by deploying your 
 ms.topic: quickstart
 ms.date: 10/22/2019
 ms.custom: seo-python-october2019
+ms.custom: cli-validate
 
-experimental: false
-experiment_id: 1e304dc9-5add-4b
+experimental: true
+experiment_id: 01a9132f-eaab-4c
 ---
 # Quickstart: Create a Python app in Azure App Service on Linux
 
@@ -47,7 +48,7 @@ In a terminal window, use the commands below (as appropriate for your operating 
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
-FLASK_APP=application.py
+export FLASK_APP=application.py
 flask run
 ```
 
@@ -75,7 +76,7 @@ flask run
 
 Open a web browser, and go to the sample app at `http://localhost:5000/`. The app displays the message **Hello World!**.
 
-![Run a sample Python app locally](./media/quickstart-python/run-hello-world-sample-python-app-in-browser.png)
+![Run a sample Python app locally](./media/quickstart-python/run-hello-world-sample-python-app-in-browser-localhost.png)
 
 In your terminal window, press **Ctrl**+**C** to exit the web server.
 
@@ -85,7 +86,7 @@ The Azure CLI provides you with many convenient commands that you use from a loc
 
 To run Azure commands in the Azure CLI, you must first sign in using the `az login` command. This command opens a browser to gather your credentials.
 
-```terminal
+```azurecli
 az login
 ```
 
@@ -93,14 +94,14 @@ az login
 
 The [`az webapp up`](/cli/azure/webapp#az-webapp-up) command creates the web app on App Service and deploys your code.
 
-In the *python-docs-hello-world* folder that contains the sample code, run the following `az webapp up` command. Replace  `<app-name>` with a globally unique app name (*valid characters are `a-z`, `0-9`, and `-`*). Also replace `<location-name>` with an Azure region such as **centralus**, **eastasia**, **westeurope**, **koreasouth**, **brazilsouth**, **centralindia**, and so on. (You can retrieve a list of allowable regions for your Azure account by running the [`az account locations-list`](/cli/azure/appservice?view=azure-cli-latest.md#az-appservice-list-locations) command.)
+In the *python-docs-hello-world* folder that contains the sample code, run the following `az webapp up` command. Replace  `<app-name>` with a globally unique app name (*valid characters are `a-z`, `0-9`, and `-`*). Also replace `<location-name>` with an Azure region such as **centralus**, **eastasia**, **westeurope**, **koreasouth**, **brazilsouth**, **centralindia**, and so on. (You can retrieve a list of allowable regions for your Azure account by running the [`az account list-locations`](/cli/azure/appservice?view=azure-cli-latest.md#az-appservice-list-locations) command.)
 
 
-```terminal
+```azurecli
 az webapp up --sku F1 -n <app-name> -l <location-name>
 ```
 
-This command may take a few minutes complete run. While running, it displays information similar to the following example:
+This command may take a few minutes to completely run. While running, it displays information similar to the following example:
 
 ```output
 The behavior of this command has been altered by the following extension: webapp
@@ -152,7 +153,7 @@ Save your changes and exit the editor.
 
 Redeploy the app using the following `az webapp up` command, using the same command you used to deploy the app the first time, replacing `<app-name>` and `<location-name>` with the same names you used before. 
 
-```terminal
+```azurecli
 az webapp up --sku F1 -n <app-name> -l <location-name>
 ```
 
@@ -169,13 +170,13 @@ You can access the console logs generated from inside the app and the container 
 
 First, turn on container logging by running the following command in a terminal, replacing `<app-name>` with the name of your app and `<resource-group-name>` with the name of the resource group shown in the output of the `az webapp up` command you used (such as "appsvc_rg_Linux_centralus"):
 
-```terminal
+```azurecli
 az webapp log config --name <app-name> --resource-group <resource-group-name> --docker-container-logging filesystem
 ```
 
 Once container logging is turned on, run the following command to show the log stream:
 
-```terminal
+```azurecli
 az webapp log tail --name <app-name> --resource-group <resource-group-name>
 ```
 
@@ -212,7 +213,7 @@ In the preceding steps, you created Azure resources in a resource group. The res
 
 If you don't expect to need these resources in the future, delete the resource group by running the following command, replacing `<resource-group-name>` with the resource group shown in the output of the `az webapp up` command, such as "appsvc_rg_Linux_centralus". The command may take a minute to complete.
 
-```terminal
+```azurecli
 az group delete -n <resource-group-name>
 ```
 

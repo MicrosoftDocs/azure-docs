@@ -34,7 +34,7 @@ How to view your Azure Subscriptions:
 
 https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0
 
-Understanding Azure RBAC:
+Understand Azure RBAC:
 
 https://docs.microsoft.com/azure/role-based-access-control/overview
 
@@ -120,7 +120,7 @@ How to use File Integrity Monitoring:
 
 https://docs.microsoft.com/azure/security-center/security-center-file-integrity-monitoring#using-file-integrity-monitoring
 
-Understanding Azure Change Tracking:
+Understand Azure Change Tracking:
 
 https://docs.microsoft.com/azure/automation/change-tracking
 
@@ -191,6 +191,7 @@ https://docs.microsoft.com/azure/role-based-access-control/conditional-access-az
 Use operating system specific configurations or third-party resources to limit users' ability to execute scripts within Azure compute resources.
 
 For example, how to control PowerShell script execution in Windows Environments:
+
 https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6
 
 ## 6.13: Physically or logically segregate high risk applications

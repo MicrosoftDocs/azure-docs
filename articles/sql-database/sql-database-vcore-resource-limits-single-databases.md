@@ -9,8 +9,8 @@ ms.devlang:
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
-ms.reviewer: 
-ms.date: 12/11/2019
+ms.reviewer: carlrab
+ms.date: 03/11/2020
 ---
 # Resource limits for single databases using the vCore purchasing model
 
@@ -96,6 +96,7 @@ The [serverless compute tier](sql-database-serverless.md) is currently available
 |TempDB max data size (GB)|32|64|96|128|160|192|
 |Storage type| [Note 1](#notes) |[Note 1](#notes)|[Note 1](#notes) |[Note 1](#notes) |[Note 1](#notes) |[Note 1](#notes) |
 |Max data IOPS *|[Note 2](#notes)|[Note 2](#notes)|[Note 2](#notes)|[Note 2](#notes)|[Note 2](#notes)|[Note 2](#notes)|
+|Max log rate (MBps)|100 |100 |100 |100 |100 |100 |
 |IO latency (approximate)|[Note 3](#notes)|[Note 3](#notes)|[Note 3](#notes)|[Note 3](#notes)|[Note 3](#notes)|[Note 3](#notes)|
 |Max concurrent workers (requests)|200|400|600|800|1000|1200|
 |Max concurrent sessions|30,000|30,000|30,000|30,000|30,000|30,000|
@@ -120,6 +121,7 @@ The [serverless compute tier](sql-database-serverless.md) is currently available
 |TempDB max data size (GB)|224|256|288|320|512|768|
 |Storage type| [Note 1](#notes) |[Note 1](#notes) |[Note 1](#notes) |[Note 1](#notes) |[Note 1](#notes) |[Note 1](#notes) |
 |Max data IOPS *|[Note 2](#notes)|[Note 2](#notes)|[Note 2](#notes)|[Note 2](#notes)|[Note 2](#notes)|[Note 2](#notes)|
+|Max log rate (MBps)|100 |100 |100 |100 |100 |100 |
 |IO latency (approximate)|[Note 3](#notes)|[Note 3](#notes)|[Note 3](#notes)|[Note 3](#notes)|[Note 3](#notes)|[Note 3](#notes)|
 |Max concurrent workers (requests)|1400|1600|1800|2000|3200|4800|
 |Max concurrent sessions|30,000|30,000|30,000|30,000|30,000|30,000|
@@ -148,6 +150,7 @@ The [serverless compute tier](sql-database-serverless.md) is currently available
 |TempDB max data size (GB)|64|128|192|256|320|384|448|
 |Storage type| [Note 1](#notes) |[Note 1](#notes)|[Note 1](#notes) |[Note 1](#notes) |[Note 1](#notes) |[Note 1](#notes) |[Note 1](#notes) |
 |Max data IOPS *|[Note 2](#notes)|[Note 2](#notes)|[Note 2](#notes)|[Note 2](#notes)|[Note 2](#notes)|[Note 2](#notes)|[Note 2](#notes)|
+|Max log rate (MBps)|100 |100 |100 |100 |100 |100 |100 |
 |IO latency (approximate)|[Note 3](#notes)|[Note 3](#notes)|[Note 3](#notes)|[Note 3](#notes)|[Note 3](#notes)|[Note 3](#notes)|[Note 3](#notes)|
 |Max concurrent workers (requests)|200|400|600|800|1000|1200|1400|
 |Max concurrent sessions|30,000|30,000|30,000|30,000|30,000|30,000|30,000|
@@ -174,8 +177,9 @@ The [serverless compute tier](sql-database-serverless.md) is currently available
 |TempDB max data size (GB)|512|576|640|768|1024|1280|2560|
 |Storage type| [Note 1](#notes) |[Note 1](#notes)|[Note 1](#notes)|[Note 1](#notes) |[Note 1](#notes) |[Note 1](#notes) |[Note 1](#notes) |
 |Max data IOPS *|[Note 2](#notes)|[Note 2](#notes)|[Note 2](#notes)|[Note 2](#notes)|[Note 2](#notes)|[Note 2](#notes)|[Note 2](#notes)|
+|Max log rate (MBps)|100 |100 |100 |100 |100 |100 |100 |
 |IO latency (approximate)|[Note 3](#notes)|[Note 3](#notes)|[Note 3](#notes)|[Note 3](#notes)|[Note 3](#notes)|[Note 3](#notes)|[Note 3](#notes)|
-|Max concurrent workers (requests)|200|400|800|1600|2400|3200|8000|
+|Max concurrent workers (requests)|1600|1800|2000|2400|3200|4000|8000|
 |Max concurrent sessions|30,000|30,000|30,000|30,000|30,000|30,000|30,000|
 |Secondary replicas|0-4|0-4|0-4|0-4|0-4|0-4|0-4|
 |Multi-AZ|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
@@ -316,9 +320,10 @@ The [serverless compute tier](sql-database-serverless.md) is currently available
 |TempDB max data size (GB)|333|
 |Storage type|Remote SSD|
 |IO latency (approximate)|5-7 ms (write)<br>5-10 ms (read)|
-|Max data IOPS *|23,040|
+|Max data IOPS *|12,800|
 |Max log rate (MBps)|30|
 |Max concurrent workers (requests)|3600|
+|Max concurrent logins|3600|
 |Max concurrent sessions|30,000|
 |Number of replicas|1|
 |Multi-AZ|N/A|
@@ -442,21 +447,22 @@ The [serverless compute tier](sql-database-serverless.md) is currently available
 
 ### M-series compute generation (preview)
 
-|Compute size|GP_M_128|
+|Compute size|BC_M_128|
 |:--- | --: |
 |Compute generation|M-series|
 |vCores|128|
-|Memory (GB)|3767|
+|Memory (GB)|3767.1|
 |Columnstore support|Yes|
-|In-memory OLTP storage (GB)|481|
+|In-memory OLTP storage (GB)|1768|
 |Max data size (GB)|4096|
 |Max log size (GB)|2048|
 |TempDB max data size (GB)|4096|
 |Storage type|Local SSD|
 |IO latency (approximate)|1-2 ms (write)<br>1-2 ms (read)|
-|Max data IOPS *|204,800|
-|Max log rate (MBps)|192|
-|Max concurrent workers (requests)|12800|
+|Max data IOPS *|160,000|
+|Max log rate (MBps)|264|
+|Max concurrent workers (requests)|12,800|
+|Max concurrent logins|12,800|
 |Max concurrent sessions|30000|
 |Number of replicas|4|
 |Multi-AZ|Yes|

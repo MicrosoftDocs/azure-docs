@@ -15,6 +15,8 @@ Other support matrices are available:
 - Support matrix for backup by using [System Center Data Protection Manager (DPM)/Microsoft Azure Backup Server (MABS)](backup-support-matrix-mabs-dpm.md)
 - Support matrix for backup by using the [Microsoft Azure Recovery Services (MARS) agent](backup-support-matrix-mars-agent.md)
 
+[!INCLUDE [azure-lighthouse-supported-service](../../includes/azure-lighthouse-supported-service.md)]
+
 ## Vault support
 
 Azure Backup uses Recovery Services vaults to orchestrate and manage backups. It also uses vaults to store backed-up data.
@@ -25,10 +27,10 @@ The following table describes the features of Recovery Services vaults:
 --- | ---
 **Vaults in subscription** | Up to 500 Recovery Services vaults in a single subscription.
 **Machines in a vault** | Up to 1,000 Azure VMs in a single vault.<br/><br/> Up to 50 MABS servers can be registered in a single vault.
-**Data sources in vault storage** | Maximum 54,400 GB. There's no limit for Azure VM backups.
+**Data sources** | Maximum size of an individual [data source](https://docs.microsoft.com/azure/backup/backup-azure-backup-faq#how-is-the-data-source-size-determined) is 54,400 GB. This limit does not apply to Azure VM backups. No limits apply to the total amount of data you can back up to the vault.
 **Backups to vault** | **Azure VMs:** Once a day.<br/><br/>**Machines protected by DPM/MABS:** Twice a day.<br/><br/> **Machines backed up directly by using the MARS agent:** Three times a day.
 **Backups between vaults** | Backup is within a region.<br/><br/> You need a vault in every Azure region that contains VMs you want to back up. You can't back up to a different region.
-**Move vaults** | You can [move vaults](https://review.docs.microsoft.com/azure/backup/backup-azure-move-recovery-services-vault) across subscriptions or between resource groups in the same subscription.
+**Move vaults** | You can [move vaults](https://docs.microsoft.com/azure/backup/backup-azure-move-recovery-services-vault) across subscriptions or between resource groups in the same subscription. However, moving vaults across regions isn't supported.
 **Move data between vaults** | Moving backed-up data between vaults isn't supported.
 **Modify vault storage type** | You can modify the storage replication type (either geo-redundant storage or locally redundant storage) for a vault before backups are stored. After backups begin in the vault, the replication type can't be modified.
 
@@ -71,12 +73,13 @@ Here's what's supported if you want to back up Linux machines:
 --- | ---
 **Direct backup of on-premises machine that's running Linux** | Not supported. The MARS agent can be installed only on Windows machines.
 **Using agent extension to back up Azure VM that's running Linux** | App-consistent backup by using [custom scripts](backup-azure-linux-app-consistent.md).<br/><br/> File-level recovery.<br/><br/> Restore by creating a VM from a recovery point or disk.
-**Using DPM to back up on-premises or Azure VM that's running Linux** | File-consistent backup of Linux Guest VMs on Hyper-V and VMWare.<br/><br/> VM restoration of Hyper-V and VMWare Linux Guest VMs.<br/><br/> File-consistent backup not available for Azure VM.
-**Using MABS to back up on-premises machine or Azure VM that's running Linux** | File-consistent backup of Linux Guest VMs on Hyper-V and VMWare.<br/><br/> VM restoration of Hyper-V and VMWare Linux guest VMs.<br/><br/> File-consistent backup not available for Azure VMs.
+**Using DPM to back up on-premises machines running Linux** | File-consistent backup of Linux Guest VMs on Hyper-V and VMWare.<br/><br/> VM restoration of Hyper-V and VMWare Linux Guest VMs.
+**Using MABS to back up on-premises machines running Linux** | File-consistent backup of Linux Guest VMs on Hyper-V and VMWare.<br/><br/> VM restoration of Hyper-V and VMWare Linux guest VMs.
+**Using MABS or DPM to back up Linux Azure VMs** | Not supported.
 
 ## Daylight saving time support
 
-Azure Backup doesn't support automatic clock adjustment for daylight saving time for Azure VM backups. Modify backup policies manually as required.
+Azure Backup doesn't support automatic clock adjustment for daylight saving time for Azure VM backups. It does not shift the hour of the backup forward or backwards. To ensure the backup runs at the desired time, modify the backup policies manually as required.
 
 ## Disk deduplication support
 
@@ -147,8 +150,6 @@ Azure Backup has added the Cross Region Restore feature to strengthen data avail
 | MARS Agent/On premises | No                                                           | N/A               |
 | SQL /SAP HANA          | No                                                           | N/A               |
 | AFS                    | No                                                           | N/A               |
-
-
 
 ## Next steps
 

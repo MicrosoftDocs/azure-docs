@@ -1,11 +1,11 @@
 ---
 title:  "Quickstart - Launch your Spring Cloud application from source code"
 description: In this quickstart, learn how to launch your Azure Spring Cloud application directly from your source code
-author:  jpconnock
+author:  bmitchell287
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 10/30/2019
-ms.author: jeconnoc
+ms.author: brendm
 ---
 
 # Quickstart: Launch your Spring Cloud application from source code
@@ -26,7 +26,7 @@ Following this quickstart, you will learn how to:
 ## Prerequisites
 
 >[!Note]
-> Azure Spring Cloud is currently offered as a public preview. Public preview offerings allow customers to experiment with new features prior to their official release.  Public preview features and services are not meant for production use.  For more information about support during previews, please review our [FAQ](https://azure.microsoft.com/support/faq/) or file a [Support request](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) to learn more.
+> Azure Spring Cloud is currently offered as a public preview. Public preview offerings allow customers to experiment with new features prior to their official release.  Public preview features and services are not meant for production use.  For more information about support during previews, please review our [FAQ](https://azure.microsoft.com/support/faq/) or file a [Support request](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) to learn more.
 
 Before you begin, ensure that your Azure subscription has the required dependencies:
 
@@ -43,7 +43,7 @@ Before you begin, ensure that your Azure subscription has the required dependenc
 
 Install the Azure Spring Cloud extension for the Azure CLI with the following command
 
-```Azure CLI
+```azurecli
 az extension add --name spring-cloud
 ```
 
@@ -51,16 +51,22 @@ az extension add --name spring-cloud
 
 Login to the Azure CLI and choose your active subscription. Be sure to choose the active subscription that is whitelisted for Azure Spring Cloud
 
-```Azure CLI
+```azurecli
 az login
 az account list -o table
 az account set --subscription
 ```
 
-Open an Azure CLI window and run the following commands to provision an instance of Azure Spring Cloud. Note that we also tell Azure Spring Cloud to assign a public domain here.
+Create a resource group to contain your Azure Spring Cloud service. You can learn more about [Azure Resource Groups](../azure-resource-manager/management/overview.md).
 
 ```azurecli
-    az spring-cloud create -n <resource name> -g <resource group name> --is-public true
+az group create --location eastus --name <resource group name>
+```
+
+Run the following commands to provision an instance of Azure Spring Cloud. Prepare a name for your Azure Spring Cloud service. The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens. The first character of the service name must be a letter and the last character must be either a letter or a number.
+
+```azurecli
+az spring-cloud create -n <resource name> -g <resource group name>
 ```
 
 The service instance will take about five minutes to deploy.
