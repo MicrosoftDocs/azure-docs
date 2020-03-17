@@ -134,11 +134,10 @@ $host = '<yourservername>.mysql.database.azure.com';
 $username = '<yourusername>@<yourservername>';
 $password = '<yourpassword>';
 $db_name = 'testdb';
-
   echo "mysqlnd_azure.enableRedirect: ", ini_get("mysqlnd_azure.enableRedirect"), "\n";
   $db = mysqli_init();
   //The connection must be configured with SSL for redirection test
-  $link = mysqli_real_connect ($db, 'your-hostname-with-redirection-enabled', 'user@host', 'password', "db", 3306, NULL, MYSQLI_CLIENT_SSL);
+  $link = mysqli_real_connect ($db, $host, $username, $password, $db_name, 3306, NULL, MYSQLI_CLIENT_SSL);
   if (!$link) {
      die ('Connect error (' . mysqli_connect_errno() . '): ' . mysqli_connect_error() . "\n");
   }
