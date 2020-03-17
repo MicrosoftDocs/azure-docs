@@ -74,6 +74,8 @@
       href: custom-policy-overview.md
   - name: User accounts
     href: user-overview.md
+  - name: User profile attributes
+    href: user-profile-attributes.md
 - name: How-to guides
   items:
   - name: App integration
