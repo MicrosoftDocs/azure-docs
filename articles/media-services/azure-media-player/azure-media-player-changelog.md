@@ -93,7 +93,7 @@ ms.date: 03/16/2020
 
 ### Changes 2.1.9 ###
 
-- [Change][Flash][AES] Modified Flash tech logic to not use sharedbytearrays for AES decryption as Adobe has blocked the usage as of Flash 30. Please note, playback will only work once Adobe deploys a new version of Flash due to a bug in v30. Please see [known issues](azure-media-player-known_issues.md) for more details
+- [Change][Flash][AES] Modified Flash tech logic to not use sharedbytearrays for AES decryption as Adobe has blocked the usage as of Flash 30. Please note, playback will only work once Adobe deploys a new version of Flash due to a bug in v30. Please see [known issues](azure-media-player-known-issues.md) for more details
 
 ## 2.1.8 (Official Update) ##
 
@@ -112,7 +112,7 @@ ms.date: 03/16/2020
 
 ### Changes 2.1.8 ###
 
-- [Change]Updated 0x0600001 errror to display when AES content is played back with Flash 30 as it's not supported at this time. Please see [known issues](azure-media-player-known_issues.md) for more details
+- [Change]Updated 0x0600001 errror to display when AES content is played back with Flash 30 as it's not supported at this time. Please see [known issues](azure-media-player-known-issues.md) for more details
 - [Change] Added additional retries for live scenarios when manifest requests 404 or returns empty manifests.
 
 ## 2.1.7 (Official Update) ##

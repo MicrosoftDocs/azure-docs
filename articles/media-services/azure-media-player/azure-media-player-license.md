@@ -30,7 +30,7 @@ for this software, unless other terms accompany those items. If so, those terms 
     **a. Installation and Use.** You may use the software with your programs that deliver, receive, playback or otherwise handle video or audio content in the delivery chain with Microsoft Azure Media Services.
     **b. Included Microsoft Programs.** The software contains other Microsoft programs. These license terms apply to your use of those programs.
     **c.    Third Party Programs.** The software may include third party programs that Microsoft, not the third party, licenses to you under this agreement. Notices, if any, for the third party program are included for your information only.
-    **d.    Third Party Notices.**  Third party scripts, linked to, called or referenced from the software, are licensed to you by the third parties that own such code, not by Microsoft, see [Microsoft Azure Terms of Use](http://azure.microsoft.com/en-us/support/legal/)
+    **d.    Third Party Notices.**  Third party scripts, linked to, called or referenced from the software, are licensed to you by the third parties that own such code, not by Microsoft, see [Microsoft Azure Terms of Use](https://azure.microsoft.com/support/legal/)
 
 2. **SCOPE OF LICENSE.** The software is licensed, not sold. This agreement only gives you some rights to use the software. Microsoft reserves all other rights. Unless applicable law gives you more rights despite this limitation, you may use the software only as expressly permitted in this agreement. In doing so, you must comply with any technical limitations in the software that only allow you to use it in certain ways. You may not
     - work around any technical limitations in the software;
@@ -43,7 +43,7 @@ for this software, unless other terms accompany those items. If so, those terms 
 
 3. **DOCUMENTATION.** Any person that has valid access to your computer or internal network may copy and use the documentation for your internal, reference purposes.
 
-4. **EXPORT RESTRICTIONS.** The software is subject to United States export laws and regulations. You must comply with all domestic and international export laws and regulations that apply to the software. These laws include restrictions on destinations, end users and end use. For additional information, see www.microsoft.com/exporting.
+4. **EXPORT RESTRICTIONS.** The software is subject to United States export laws and regulations. You must comply with all domestic and international export laws and regulations that apply to the software. These laws include restrictions on destinations, end users and end use. For additional information, see [Microsoft exporting](https://www.microsoft.com/exporting).
 
 5. **SUPPORT SERVICES.** Because this software is "as is," we may not provide support services for it.
 
