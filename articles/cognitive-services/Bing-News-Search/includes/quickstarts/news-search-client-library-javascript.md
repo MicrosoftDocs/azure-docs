@@ -1,32 +1,27 @@
 ---
-title: "Quickstart: Perform a news search using the SDK for Node.js - Bing News Search"
+title: Bing News Search JavaScript client library quickstart 
 titleSuffix: Azure Cognitive Services
-description: Use this quickstart to search for news using the Bing News Search SDK for Node.js, and process the response.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: bing-news-search
-ms.topic: quickstart
-ms.date: 12/12/2019
+ms.topic: include
+ms.date: 03/12/2020
 ms.author: aahi
-ms.custom: seodec2018
 ---
 
-# Quickstart: Perform a news search with the Bing News Search SDK for Node.js
-
-Use this quickstart to begin searching for news with the Bing News Search SDK for Node.js. While Bing News Search has a REST API compatible with most programming languages, the SDK provides an easy way to integrate the service into your applications. The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/newsSearch.js).
+Use this quickstart to begin searching for news with the Bing News Search client library for JavaScript. While Bing News Search has a REST API compatible with most programming languages, the client library provides an easy way to integrate the service into your applications. The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/newsSearch.js).
 
 ## Prerequisites
 
 * [Node.js](https://nodejs.org/en/)
 
-To set up a console application using the Bing News Search SDK:
+To set up a console application using the Bing News Search client library:
 1. Run `npm install ms-rest-azure` in your development environment.
 2. Run `npm install azure-cognitiveservices-newssearch` in your development environment.
 
 
-[!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../includes/cognitive-services-bing-news-search-signup-requirements.md)]
+[!INCLUDE [cognitive-services-bing-news-search-signup-requirements](~/includes/cognitive-services-bing-news-search-signup-requirements.md)]
 
 ## Create and initialize the application
 
@@ -67,4 +62,4 @@ The code prints `result.value` items to the console without parsing any text. Th
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create a single-page web app](tutorial-bing-news-search-single-page-app.md)
+> [Create a single-page web app](../../tutorial-bing-news-search-single-page-app.md)

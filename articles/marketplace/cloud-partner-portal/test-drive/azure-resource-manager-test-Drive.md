@@ -88,7 +88,7 @@ It is also important to note that **all parameters are optional**, so if you don
 | **password**    | secure string    | New random password | Lp!ACS\^2kh     |
 | **session id**   | string          | Unique Test Drive session ID (GUID)    | b8c8693e-5673-449c-badd-257a405a6dee |
 
-#### username
+#### baseuri
 
 Test Drive initializes this parameter with a **Base Uri** of your deployment package, so you can use this parameter to construct Uri of any file included into your package.
 
