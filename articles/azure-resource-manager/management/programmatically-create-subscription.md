@@ -4,7 +4,6 @@ description: Learn how to create additional Azure subscriptions programmatically
 author: amberbhargava
 ms.topic: conceptual
 ms.date: 03/17/2020
-ms.service: cost-management-billing
 ms.reviewer: andalmia
 ms.author: banders
 ---
