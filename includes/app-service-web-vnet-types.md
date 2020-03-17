@@ -14,7 +14,7 @@ The VNet Integration feature is used in multitenant apps. If your app is in [App
 VNet Integration gives your app access to resources in your virtual network, but it doesn't grant inbound private access to your app from the VNet. Private site access refers to making an app accessible only from a private network, such as from within an Azure virtual network. VNet Integration is used only to make outbound calls from your app into your VNet. The VNet Integration feature behaves differently when it's used with VNets in the same region and with VNets in other regions. The VNet Integration feature has two variations:
 
 * **Regional VNet Integration**: When you connect to Azure Resource Manager VNets in the same region, you must have a dedicated subnet in the VNet you're integrating with.
-* **Gateway-required VNet Integration**: When you connect to VNets in other regions or to a classic VNet in the same region, you need an Azure Virtual Network gateway provisioned in the target VNet.
+* **Gateway-required VNet Integration**: When you connect to VNets in other regions or to a Classic VNet in the same region, you need an Azure Virtual Network gateway provisioned in the target VNet.
 
 The VNet Integration features:
 

@@ -42,7 +42,7 @@ To learn more, see [Azure App Service static access restrictions](../app-service
 
 ## Private site access
 
-Private site access refers to making your app accessible only from a private network such as an Azure virtual network.
+Private site access refers to making your app accessible only from a private network, such as an Azure virtual network.
 
 * Private site access is available in the [Premium](./functions-premium-plan.md), [Consumption](functions-scale.md#consumption-plan), and [App Service](functions-scale.md#app-service-plan) plans when service endpoints are configured.
     * Service endpoints can be configured on a per-app basis under **Platform features** > **Networking** > **Configure Access Restrictions** > **Add Rule**. Virtual networks can now be selected as a rule type.
@@ -62,7 +62,7 @@ Azure Functions supports two kinds of virtual network integration:
 Virtual network integration in Azure Functions uses shared infrastructure with App Service web apps. To learn more about the two types of virtual network integration, see:
 
 * [Regional virtual network Integration](../app-service/web-sites-integrate-with-vnet.md#regional-vnet-integration)
-* [Gateway required virtual network integration](../app-service/web-sites-integrate-with-vnet.md#gateway-required-vnet-integration)
+* [Gateway-required virtual network Integration](../app-service/web-sites-integrate-with-vnet.md#gateway-required-vnet-integration)
 
 To learn how to set up virtual network integration, see [Integrate a function app with an Azure virtual network](functions-create-vnet.md).
 
@@ -97,7 +97,7 @@ Currently, you can use non-HTTP trigger functions from within a virtual network 
 
 ### Premium plan with virtual network triggers
 
-When you run a Premium plan, you can connect non-HTTP trigger functions to services that run inside a virtual network. To do this, you must enable virtual network trigger support for your function app. The **virtual network trigger support** setting is found in the [Azure portal](https://portal.azure.com) under **Function app settings**.
+When you run a Premium plan, you can connect non-HTTP trigger functions to services that run inside a virtual network. To do this, you must enable virtual network trigger support for your function app. The **Virtual network trigger support** setting is found in the [Azure portal](https://portal.azure.com) under **Function app settings**.
 
 ![Virtual network toggle](media/functions-networking-options/virtual-network-trigger-toggle.png)
 
