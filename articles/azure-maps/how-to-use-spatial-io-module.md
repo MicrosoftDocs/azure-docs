@@ -15,13 +15,16 @@ manager: philmea
 
 The Azure Maps Web SDK provides the **Spatial IO module**, which integrates spatial data with the Azure Maps web SDK using JavaScript or TypeScript. The robust features in this module allow developers to:
 
-- [Read and write data to common spatial files](spatial-io-read-write-spatial-data.md). Supported file formats include: KML, KMZ, GPX, GeoRSS, GML, and CSV files containing columns with spatial information.
-- [Connect to Open Geospatial Consortium (OGC) services and integrate with Azure Maps web SDK. Overlay Web Mapping Services (WMS) and Web Map Tile Services (WMTS) as layers on the map.](spatial-io-add-ogc-map-layer.md).
+- [Read and write data to common spatial files](spatial-io-read-write-spatial-data.md). Supported file formats include: KML, KMZ, GPX, GeoRSS, GML, and CSV files containing columns with spatial information. Also supports Well-Known Text (WKT).
+- [Connect to Open Geospatial Consortium (OGC) services and integrate with Azure Maps web SDK. Overlay Web Map Services (WMS) and Web Map Tile Services (WMTS) as layers on the map.](spatial-io-add-ogc-map-layer.md).
 - [Query data in a Web Feature Service (WFS)](spatial-io-connect-wfs-service.md).
 - [Overlay complex data sets that contain style information and have them render automatically](spatial-io-add-simple-data-layer.md).
 - [Leverage high-speed XML and delimited file reader and writer classes](spatial-io-core-operations.md).
 
 In this guide, we'll learn how to integrate and use the Spatial IO module in a web application.
+
+> [!WARNING]
+> Only use data and services that are from a source you trust, especially if referencing it from another domain. The spatial IO module does take steps to minimize risk, however the safest approach is too not allow any danagerous data into your application to begin with. 
 
 ## Prerequisites
 
@@ -107,7 +110,7 @@ You can load the Azure Maps spatial IO module using one of the two options:
     </html>
     ```
 
-2. Load the Azure Maps spatial IO module. For this exercise, use the CDN for the Azure Maps spatial IO module. Add the reference below to the the `<head>` element of your HTML file:
+2. Load the Azure Maps spatial IO module. For this exercise, use the CDN for the Azure Maps spatial IO module. Add the reference below to the `<head>` element of your HTML file:
 
     ```html
     <script src="https://atlas.microsoft.com/sdk/javascript/spatial/0/atlas-spatial.js"></script>

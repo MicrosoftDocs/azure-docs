@@ -64,7 +64,7 @@ This section describes how to perform a basic parameter sweep, which trains a mo
 
 9.  For **Random seed**, enter a number to use for starting the parameter sweep. 
 
-10. Run the pipeline.
+10. Submit the pipeline.
 
 ## Results of hyperparameter tuning
 

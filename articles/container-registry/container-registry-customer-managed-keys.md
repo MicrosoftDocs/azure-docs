@@ -22,6 +22,7 @@ This feature is available in the **Premium** container registry service tier. Fo
 
 * You can currently enable this feature only when you create a registry.
 * After enabling a customer-managed key on a registry, you can't disable it.
+* [Content trust](container-registry-content-trust.md) is currently not supported in a registry encrypted with a customer-managed key.
 * In a registry encrypted with a customer-managed key, run logs for [ACR Tasks](container-registry-tasks-overview.md) are currently retained for only 24 hours. If you need to retain logs for a longer period, see guidance to [export and store task run logs](container-registry-tasks-logs.md#alternative-log-storage).
 
 ## Prerequisites

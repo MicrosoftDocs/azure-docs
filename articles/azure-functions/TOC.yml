@@ -288,6 +288,8 @@
       href: ../app-service/overview-managed-identity.md?toc=%2fazure%2fazure-functions%2ftoc.json
     - name: Reference secrets from Key Vault
       href: ../app-service/app-service-key-vault-references.md?toc=%2fazure%2fazure-functions%2ftoc.json
+    - name: Encrypt site data
+      href: configure-encrypt-at-rest-using-cmk.md
   - name: Integrate
     items:
     - name: Add bindings
