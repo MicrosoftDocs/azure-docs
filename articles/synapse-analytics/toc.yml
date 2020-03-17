@@ -220,8 +220,8 @@
       #   href: article-template.md
     - name: Development
       items:
-      - name: Spark Job definitions
-        href: ../hdinsight/spark/azure-synapse-analytics-job-definition.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+      - name: Spark job definitions
+        href: ./spark/apache-spark-job-definitions.md  
       - name: Azure Synapse studio notebooks
         href: ./spark/apache-spark-development-using-notebooks.md
       # - name: Tips and tricks

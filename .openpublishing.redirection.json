@@ -49333,6 +49333,11 @@
       "source_path": "articles/cognitive-services/speech-service/how-to-migrate-from-custom-speech-service.md",
       "redirect_url": "/azure/cognitive-services/speech-service",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight/spark/azure-synapse-analytics-job-definition.md",
+      "redirect_url": "../../synapse-analytics/spark/apache-spark-job-definitions.md",
+      "redirect_document_id": true
     }
   ]
 }
