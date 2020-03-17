@@ -69,6 +69,8 @@
     items:
     - name: JavaScript
       href: tutorial-v2-javascript-spa.md
+    - name: Angular
+      href: tutorial-v2-angular.md
   - name: Web apps
     items:
     - name: ASP .NET
