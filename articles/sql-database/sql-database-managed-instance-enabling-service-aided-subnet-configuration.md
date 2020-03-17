@@ -22,7 +22,7 @@ Service-aided configuration is enabled automatically once you turn on [subnet-de
 > Once subnet-delegation is turned on you could not turn it off until you remove last virtual cluster from the subnet. For more details on how to delete virtual cluster see the following [article](sql-database-managed-instance-delete-virtual-cluster.md#delete-virtual-> cluster-from-the-azure-portal).
 
 > [!NOTE] 
-> As service-aided subnet configuration is essential feature for maintaining SLA, starting May 1st, it won't be possible to deploy managed instances in subnets that are not delegated to managed instance resource provider. On July 1st all subnets containing managed instances will be automatically delegated to managed instance resource provider. 
+> As service-aided subnet configuration is essential feature for maintaining SLA, starting May 1st 2020, it won't be possible to deploy managed instances in subnets that are not delegated to managed instance resource provider. On July 1st 2020 all subnets containing managed instances will be automatically delegated to managed instance resource provider. 
 
 ## Enabling subnet-delegation for new deployments
 To deploy managed instance in to empty subnet you need to delegate it to `Microsoft.Sql/managedInstances` resource provider as described in following [article](../virtual-network/manage-subnet-delegation.md). _Please note that referenced article uses `Microsoft.DBforPostgreSQL/serversv2` resource provider for example. You'll need to use `Microsoft.Sql/managedInstances` resource provider instead._
