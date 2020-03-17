@@ -73,7 +73,7 @@ If your application consistently experiences HTTP status code 429, consider rede
 
 * Increase the refresh timeout, especially if your configuration values do not change frequently. Specify a new refresh timeout using the [`SetCacheExpiration` method](/dotnet/api/microsoft.extensions.configuration.azureappconfiguration.azureappconfigurationrefreshoptions.setcacheexpiration).
 
-* Watch a single *sentinel key*, rather than watching individual keys. Refresh all configuration only if the sentinel key changes.
+* Watch a single *sentinel key*, rather than watching individual keys. Refresh all configuration only if the sentinel key changes. See [Use dynamic configuration in an ASP.NET Core app](enable-dynamic-configuration-aspnet-core.md) for an example.
 
 ## Next steps
 

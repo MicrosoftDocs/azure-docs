@@ -101,7 +101,7 @@ In addition, all stores have limits on the number of requests made per minute an
 
 When a store reaches the limit, it will return HTTP status code 429 until the time period expires.
 
-If your application consistently experiences HTTP status code 429, consider redesigning it to reduce the number of requests made. For more information, see [Reduce requests made to App Configuration](./howto-best-practices.md)
+If your application consistently experiences HTTP status code 429, consider redesigning it to reduce the number of requests made. For more information, see [Reduce requests made to App Configuration](./howto-best-practices.md#reduce-requests-made-to-app-configuration)
 
 ## How can I receive announcements on new releases and other information related to App Configuration?
 
