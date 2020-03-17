@@ -88,7 +88,7 @@ Before a process can send data to an event hub, the event hub must have a policy
     >[!NOTE]
     >Make sure you're working with the event hub, not the event hub namespace.
 
-3.	Add a policy named `sa-policy-manage-demo` and for **Claim**, select **Manage**.
+3.	Add a policy named `asa-policy-manage-demo` and for **Claim**, select **Manage**.
 
     <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-shared-access-policy-manage-new-portal.png" alt="Create shared access policy for Stream Analytics" width="300px"/>
  

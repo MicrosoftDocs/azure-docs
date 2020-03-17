@@ -147,7 +147,7 @@ marks the message as being consumed and remove it from the queue.
 
 The following example demonstrates how messages can be received and
 processed using **PeekLock** mode (not the default mode). The example
-below uses the callback model with a registered mesage handler
+below uses the callback model with a registered message handler
 and processes messages as they arrive into our `TestQueue`. This mode
 calls **complete()** automatically as the callback returns normally and calls
 **abandon()** if the callback throws an exception. 
@@ -237,7 +237,7 @@ Now that you've learned the basics of Service Bus queues, see [Queues, topics, a
 
 For more information, see the [Java Developer Center](https://azure.microsoft.com/develop/java/).
 
-[Azure SDK for Java]: https://docs.microsoft.com/java/api/overview/azure/
+[Azure SDK for Java]: /azure/java/java-sdk-azure-get-started
 [Azure Toolkit for Eclipse]: https://docs.microsoft.com/java/azure/eclipse/azure-toolkit-for-eclipse
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
 [BrokeredMessage]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage

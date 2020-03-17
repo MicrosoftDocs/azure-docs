@@ -1,11 +1,7 @@
 ---
 title: Monitor a SharePoint site with Application Insights
 description: Start monitoring a new application with a new instrumentation key
-ms.service:  azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 07/11/2018
 
 ---

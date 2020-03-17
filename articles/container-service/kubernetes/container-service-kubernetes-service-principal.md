@@ -101,7 +101,7 @@ As with other Kubernetes cluster creation options, you can specify parameters fo
 
 The following command creates a Kubernetes cluster and generates both SSH keys and service principal credentials:
 
-```console
+```azurecli
 az acs create -n myClusterName -d myDNSPrefix -g myResourceGroup --generate-ssh-keys --orchestrator-type kubernetes
 ```
 

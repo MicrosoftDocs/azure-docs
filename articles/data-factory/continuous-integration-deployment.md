@@ -1,4 +1,4 @@
-﻿---
+---
 title: Continuous integration and delivery in Azure Data Factory 
 description: Learn how to use continuous integration and delivery to move Data Factory pipelines from one environment (development, test, production) to another.
 services: data-factory
@@ -55,7 +55,7 @@ Below is a sample overview of the CI/CD lifecycle in an Azure data factory that'
 
    ![Build your own template](media/continuous-integration-deployment/custom-deployment-build-your-own-template.png) 
 
-1. Select **Load file**, and then select the generated Resource Manager template.
+1. Select **Load file**, and then select the generated Resource Manager template. This is the **arm_template.json** file located in the .zip file exported in step 1.
 
    ![Edit template](media/continuous-integration-deployment/custom-deployment-edit-template.png)
 
@@ -166,7 +166,7 @@ There are two ways to handle secrets:
 
     The parameters file needs to be in the publish branch as well.
 
--  Add an [Azure Key Vault task](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-key-vault) before the Azure Resource Manager Deployment task described in the previous section:
+1. Add an [Azure Key Vault task](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-key-vault) before the Azure Resource Manager Deployment task described in the previous section:
 
     1.  On the **Tasks** tab, create a new task. Search for **Azure Key Vault** and add it.
 
@@ -174,9 +174,9 @@ There are two ways to handle secrets:
 
     ![Add a Key Vault task](media/continuous-integration-deployment/continuous-integration-image8.png)
 
-   #### Grant permissions to the Azure Pipelines agent
+#### Grant permissions to the Azure Pipelines agent
 
-   The Azure Key Vault task might fail with an Access Denied error if the correct permissions aren't set. Download the logs for the release, and locate the .ps1 file that contains the command to give permissions to the Azure Pipelines agent. You can run the command directly. Or you can copy the principal ID from the file and add the access policy manually in the Azure portal. `Get` and `List` are the minimum permissions required.
+The Azure Key Vault task might fail with an Access Denied error if the correct permissions aren't set. Download the logs for the release, and locate the .ps1 file that contains the command to give permissions to the Azure Pipelines agent. You can run the command directly. Or you can copy the principal ID from the file and add the access policy manually in the Azure portal. `Get` and `List` are the minimum permissions required.
 
 ### Update active triggers
 
@@ -466,7 +466,10 @@ If you're in GIT mode, you can override the default properties in your Resource 
 * You use automated CI/CD and you want to change some properties during Resource Manager deployment, but the properties aren't parameterized by default.
 * Your factory is so large that the default Resource Manager template is invalid because it has more than the maximum allowed parameters (256).
 
-Under these conditions, to override the default parameterization template, create a file named arm-template-parameters-definition.json in the folder specified as the root folder for the data factory git integration. You must use that exact file name. Data Factory reads this file from whichever branch you're currently on in the Azure Data Factory portal, not just from the collaboration branch. You can create or edit the file from a private branch, where you can test your changes by selecting **Export ARM Template** in the UI. You can then merge the file into the collaboration branch. If no file is found, the default template is used.
+Under these conditions, to override the default parameterization template, create a file named **arm-template-parameters-definition.json** in the folder specified as the root folder for the data factory git integration. You must use that exact file name. Data Factory reads this file from whichever branch you're currently on in the Azure Data Factory portal, not just from the collaboration branch. You can create or edit the file from a private branch, where you can test your changes by selecting **Export ARM Template** in the UI. You can then merge the file into the collaboration branch. If no file is found, the default template is used.
+
+> [!NOTE]
+> A custom parameterization template doesn't change the ARM template parameter limit of 256. It lets you choose and decrease the number of parameterized properties.
 
 ### Syntax of a custom parameters file
 
@@ -652,7 +655,7 @@ Following is the current default parameterization template. If you need to add o
                     "database": "=",
                     "serviceEndpoint": "=",
                     "batchUri": "=",
-		    "poolName": "=",
+                    "poolName": "=",
                     "databaseName": "=",
                     "systemNumber": "=",
                     "server": "=",

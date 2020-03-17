@@ -9,7 +9,7 @@ ms.reviewer: nibaccam
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 01/06/2020
+ms.date: 02/27/2020
 
 ## As a developer, I need to configure my experiment context with the necessary software packages so my machine learning models can be trained and deployed on different compute targets.
 
@@ -244,10 +244,20 @@ Additionally, the service automatically uses one of the Ubuntu Linux-based [base
 # Specify custom Docker base image and registry, if you don't want to use the defaults
 myenv.docker.base_image="your_base-image"
 myenv.docker.base_image_registry="your_registry_location"
-# Alternatively, you can specify the contents of dockerfile of your base image
-with open("docker_file_of_your_base_image", "r") as f:
-    dockerfile_contents_of_your_base_image=f.read()
-myenv.docker.base_dockerfile=dockerfile_contents_of_your_base_image 
+```
+
+Alternatively, you can specify a custom Dockerfile. It is simplest to start from one of Azure Machine Learning base images using Docker ```FROM``` command, and then add your own custom steps. Use this approach if you need to install non-Python packages as dependencies.
+
+```python
+# Specify docker steps as a string. Alternatively, load the string from a file.
+dockerfile = r"""
+FROM mcr.microsoft.com/azureml/base:intelmpi2018.3-ubuntu16.04
+RUN echo "Hello from custom container!"
+"""
+
+# Set base image to None, because the image is defined by dockerfile.
+myenv.docker.base_image = None
+myenv.docker.base_dockerfile = dockerfile
 ```
 
 > [!NOTE]

@@ -3,7 +3,7 @@ title: Azure Linux VM sizes - previous generations | Microsoft Docs
 description: Lists the previous generations of sizes available for Linux virtual machines in Azure. Lists information about the number of vCPUs, data disks and NICs as well as storage throughput and network bandwidth for sizes in this series.
 services: virtual-machines-linux
 documentationcenter: ''
-author: jonbeck7
+author: mimckitt
 manager: gwallace
 editor: ''
 tags: azure-resource-manager,azure-service-management
@@ -85,7 +85,7 @@ Each GPU in NVv2 instances comes with a GRID license. This license gives you the
 
 This section provides information on older generations of virtual machine sizes. These sizes are still supported but will not receive additional capacity. There are newer or alternative sizes that are generally available. Please refer to [Sizes for Linux virtual machines in Azure](linux/sizes.md) to choose the VM sizes that will best fit your need.  
 
-For more information on resizing a Windows VM, see [Resize a Linux VM](linux/change-vm-size.md).  
+For more information on resizing a Linux VM, see [Resize a Linux VM](linux/change-vm-size.md).  
 
 <br>
 
@@ -164,6 +164,9 @@ The A8-A11 and H-series sizes are also known as *compute-intensive instances*. T
 | Standard_A11 | 16 | 112 | 382 | 64 | 64x500 | 4 |
 
 <sup>1</sup>For MPI applications, dedicated RDMA backend network is enabled by FDR InfiniBand network, which delivers ultra-low-latency and high bandwidth.  
+
+> [!NOTE]
+> The A8 – A11 VMs are planned for retirement on 3/2021. For more information, see [HPC Migration Guide](https://azure.microsoft.com/resources/hpc-migration-guide/).
 
 <br>
 

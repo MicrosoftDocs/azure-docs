@@ -1,5 +1,5 @@
 ---
-title: Create a support request for Cloudyn in Azure | Microsoft Docs
+title: Create a support request for Cloudyn in Azure
 description: This article walks you through the steps needed to create a support request for Cloudyn.
 author: bandersmsft
 ms.author: banders

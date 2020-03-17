@@ -8,13 +8,13 @@
   expanded: true
   items:
   - name: Create a Jenkins server
-    href: install-jenkins-solution-template.md
+    href: install-solution-template-quickstart.md
 - name: Tutorials
   items:
   - name: 1. Install
     items:
     - name: Create a Jenkins server
-      href: install-jenkins-solution-template.md
+      href: install-solution-template-tutorial.md
   - name: 2. Configure
     items:
     - name: Scale with Azure Container Instances
@@ -55,7 +55,7 @@
       href: tutorial-jenkins-github-docker-cicd.md
       maintainContext: true
     - name: CI/CD to Service Fabric
-      href: /azure/service-fabric/service-fabric-cicd-your-linux-applications-with-jenkins
+      href: service-fabric-cicd-your-linux-applications-with-jenkins.md
       maintainContext: true
 - name: How-to
   items: 
