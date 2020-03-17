@@ -24,7 +24,7 @@ In Azure Monitor, you can create your own alerts in a Log Analytics workspace. I
 > [!IMPORTANT]
 > For information on the cost of creating this query, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
 
-Open the **Logs** section of the Log Analytics workspace and write a query your own Logs. When you select **New Alert Rule**, the Azure Monitor alert-creation page opens, as shown in the following image.
+Open the **Logs** section of the Log Analytics workspace and create a query for your own Logs. When you select **New Alert Rule**, the Azure Monitor alert-creation page opens, as shown in the following image.
 
 ![Create an alert in a Log Analytics workspace](media/backup-azure-monitoring-laworkspace/custom-alert.png)
 

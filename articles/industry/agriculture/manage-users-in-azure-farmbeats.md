@@ -24,8 +24,6 @@ Azure FarmBeats uses Azure AD for authentication, access control, and roles. You
 > [!NOTE]
 > If a user is not an Azure AD tenant user, , follow the instructions in the **Add Azure AD users** section to complete the setup.
 
-> If a user you're trying to add as an Azure FarmBeats user isn't present in the Azure AD tenant, complete the setup by following the instructions in the "Add Azure AD users" section.
-
 Azure FarmBeats supports two types of user roles:
 
  - **Admin**: Full access to Azure FarmBeats Datahub APIs. Users in this role can query all Azure FarmBeats Datahub objects and perform all operations from the FarmBeats Accelerator.

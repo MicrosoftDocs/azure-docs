@@ -93,10 +93,13 @@ Running the pre-registration script performs the following functions:
 * It performs outbound network connectivity checks with Azure Backup servers and dependent services like Azure Active Directory and Azure Storage.
 * It logs into your HANA system using the user key listed as part of the [prerequisites](#prerequisites). The user key is used to create a backup user (AZUREWLBACKUPHANAUSER) in the HANA system and the user key can be deleted after the pre-registration script runs successfully.
 * AZUREWLBACKUPHANAUSER is assigned these required roles and permissions:
-  * DATABASE ADMIN: to create new databases during restore.
+  * DATABASE ADMIN (in case of MDC) and BACKUP ADMIN (in case of SDC): to create new databases during restore.
   * CATALOG READ: to read the backup catalog.
   * SAP_INTERNAL_HANA_SUPPORT: to access a few private tables.
-* The script adds a key to **hdbuserstore** for AZUREWLBACKUPHANAUSER for the HANA plug-in to handle all operations (database queries, restore operations, configuring and running backup).
+* The script adds a key to **hdbuserstore** for AZUREWLBACKUPHANAUSER for the HANA backup plug-in to handle all operations (database queries, restore operations, configuring and running backup).
+
+>[!NOTE]
+> Make sure you have a unique set of SSFS files under `/usr/sap/{SID}/home/.hdb/`. There should be only one folder in this path.
 
 To confirm the key creation, run the HDBSQL command on the HANA machine with SIDADM credentials:
 
@@ -107,7 +110,7 @@ hdbuserstore list
 The command output should display the {SID}{DBNAME} key, with the user shown as AZUREWLBACKUPHANAUSER.
 
 >[!NOTE]
-> Make sure you have a unique set of SSFS files under `/usr/sap/{SID}/home/.hdb/`. There should be only one folder in this path.
+> You can explicitly pass parameters to the pre-registration script. To learn how the script runs and what parameters it accepts, use the following command: `bash msawb-plugin-config-com-sap-hana.sh --help`
 
 ## Create a Recovery Service vault
 
