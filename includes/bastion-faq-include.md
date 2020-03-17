@@ -5,7 +5,7 @@
  author: cherylmc
  ms.service: bastion
  ms.topic: include
- ms.date: 02/03/2020
+ ms.date: 03/02/2020
  ms.author: cherylmc
  ms.custom: include file
 ---
@@ -26,6 +26,9 @@ At this time, IPv6 is not supported. Azure Bastion supports IPv4 only.
 ### <a name="rdpssh"></a>Do I need an RDP or SSH client?
 
 You do not need an RDP or SSH client to access the RDP/SSH to your Azure virtual machine in your Azure portal. Use the [Azure portal](https://portal.azure.com) to let you get RDP/SSH access to your virtual machine directly in the browser.
+
+### <a name="rdscal"></a>Does Azure Bastion require an RDS CAL for administrative purposes on Azure-hosted VMs?
+No, access to Windows Server VMs by Azure Bastion does not require an [RDS CAL](https://www.microsoft.com/en-us/p/windows-server-remote-desktop-services-cal/dg7gmgf0dvsv?activetab=pivot:overviewtab) when used solely for administrative purposes.
 
 ### <a name="agent"></a>Do I need an agent running in the Azure virtual machine?
 

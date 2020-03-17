@@ -1,14 +1,9 @@
 ---
 title: Deploy Azure dedicated hosts using the Azure PowerShell 
 description: Deploy VMs to dedicated hosts using Azure PowerShell.
-services: virtual-machines-windows
 author: cynthn
-manager: gwallace
-editor: tysonn
-tags: azure-resource-manager
 ms.service: virtual-machines-windows
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/01/2019
 ms.author: cynthn
@@ -25,7 +20,7 @@ Make sure that you have installed Azure PowerShell version 2.8.0 or later, and y
 ## Limitations
 
 - Virtual machine scale sets are not currently supported on dedicated hosts.
-- The following VM series are supported: DSv3, ESv3, and Fsv2. 
+- The sizes and hardware types available for dedicated hosts vary by region. Refer to the host [pricing page](https://aka.ms/ADHPricing) to learn more.
 
 ## Create a host group
 
@@ -54,7 +49,6 @@ $hostGroup = New-AzHostGroup `
 ## Create a host
 
 Now let's create a dedicated host in the host group. In addition to a name for the host, you are required to provide the SKU for the host. Host SKU captures the supported VM series as well as the hardware generation for your dedicated host.
-
 
 For more information about the host SKUs and pricing, see [Azure Dedicated Host pricing](https://aka.ms/ADHPricing).
 

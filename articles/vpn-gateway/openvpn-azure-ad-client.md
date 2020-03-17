@@ -6,7 +6,7 @@ author: anzaman
 
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 02/10/2020
+ms.date: 02/28/2020
 ms.author: alzam
 
 ---
@@ -164,9 +164,30 @@ You can modify the downloaded profile XML file and add the **\<dnssuffixes>\<dns
 </azvpnprofile>
 ```
 
+### How do I add custom DNS servers to the VPN client?
+
+You can modify the downloaded profile XML file and add the **\<dnsservers>\<dnsserver> \</dnsserver>\</dnsservers>** tags
+
+```
+<azvpnprofile>
+<clientconfig>
+
+	<dnsservers>
+		<dnsserver>x.x.x.x</dnsserver>
+        <dnsserver>y.y.y.y</dnsserver>
+	</dnsservers>
+    
+</clientconfig>
+</azvpnprofile>
+```
+
+> [!NOTE]
+> The OpenVPN Azure AD client utilizes DNS Name Resolution Policy Table (NRPT) entries, which means DNS servers will not be listed under the output of `ipconfig /all`. To confirm your in-use DNS settings, please consult [Get-DnsClientNrptPolicy](https://docs.microsoft.com/powershell/module/dnsclient/get-dnsclientnrptpolicy?view=win10-ps) in PowerShell.
+>
+
 ### How do I add custom routes to the VPN client?
 
-You can modify the downloaded profile XML file and add the **\<route>\<includeroutes>\<destination>\<mask> \</route>\</includeroutes>\</destination>\</mask>** tags
+You can modify the downloaded profile XML file and add the **\<includeroutes>\<route>\<destination>\<mask> \</destination>\</mask>\</route>\</includeroutes>** tags
 
 ```
 <azvpnprofile>
@@ -177,6 +198,24 @@ You can modify the downloaded profile XML file and add the **\<route>\<includero
 			<destination>x.x.x.x</destination><mask>24</mask>
 		</route>
 	</includeroutes>
+    
+</clientconfig>
+</azvpnprofile>
+```
+
+### How do I block (exclude) routes from the VPN client?
+
+You can modify the downloaded profile XML file and add the **\<excluderoutes>\<route>\<destination>\<mask> \</destination>\</mask>\</route>\</excluderoutes>** tags
+
+```
+<azvpnprofile>
+<clientconfig>
+
+	<excluderoutes>
+		<route>
+			<destination>x.x.x.x</destination><mask>24</mask>
+		</route>
+	</excluderoutes>
     
 </clientconfig>
 </azvpnprofile>

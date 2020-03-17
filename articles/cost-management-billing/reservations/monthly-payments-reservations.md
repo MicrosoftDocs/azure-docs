@@ -5,7 +5,7 @@ author: bandersmsft
 ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 02/12/2020
+ms.date: 02/24/2020
 ms.author: banders
 ---
 
@@ -25,7 +25,7 @@ Monthly payments are available for:
 - App Service stamp fee
 - Managed Disk
 - Azure Data Explorer
-- Azure Database for MariaDB, MySQL and PostgreSQL
+- Azure Database for MariaDB, MySQL, and PostgreSQL
 - Azure VMware Solution by CloudSimple
 
 
@@ -43,7 +43,7 @@ To view the payments schedule after purchase, select a reservation, click the **
 
 You can view payments that were made using APIs, usage data, and in cost analysis. For reservations paid for monthly, the frequency value is shown as **recurring** in usage data and Reservation Charges API. For reservations paid up front, the value is shown as **onetime**.
 
-Cost analysis shows monthly purchases in the default view. Apply the **purchase** filter for **Charge type** and **recurring** for **Frequency** to see all purchases. To view only reservations, apply a filter for **Reservation**.
+Cost analysis shows monthly purchases in the default view. Apply the **purchase** filter to **Charge type** and **recurring** for **Frequency** to see all purchases. To view only reservations, apply a filter for **Reservation**.
 
 ![Example showing reservation purchase costs in cost analysis](./media/monthly-payments-reservations/cost-analysis.png)
 
@@ -57,7 +57,7 @@ Like other reservations, you can refund or exchange reservations purchased with 
 
 When you exchange a reservation that's paid for monthly, the total lifetime cost of the new purchase should be greater than the leftover payments that are canceled for the returned reservation. There are no other limits or fees for exchanges. You can exchange a reservation that's paid for up front to purchase a new reservation that's billed monthly. However, the lifetime value of the new reservation should be greater than the prorated value of the reservation being returned.
 
-If canceling a reservation that's paid for monthly, Microsoft might apply a cancellation fee to the future committed payments that are canceled. The remaining committed payments accrue towards the $50,000 USD refund limit.
+If you cancel a reservation that's paid for monthly, Microsoft might apply a 12% cancellation fee to the canceled committed payments. However, Microsoft isn’t currently charging the penalty. Canceled committed payments accrue towards the $50,000 USD refund limit. If a cancellation penalty is charged, it doesn’t affect the refund limit.
 
 For more information about exchange and refunds, see [Self-service exchanges and refunds for Azure Reservations](exchange-and-refund-azure-reservations.md).
 

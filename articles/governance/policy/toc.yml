@@ -11,14 +11,14 @@
   - name: Assign a policy - Portal
     displayName: assign, compliance
     href: assign-policy-portal.md
-  - name: Assign a policy - PowerShell
+  - name: Assign a policy - Azure PowerShell
     displayName: assign, compliance
     href: assign-policy-powershell.md
   - name: Assign a policy - Azure CLI
     displayName: assign, compliance
     href: assign-policy-azurecli.md
-  - name: Assign a policy - template
-    displayName: assign, compliance, resource manager, ARM
+  - name: Assign a policy - ARM template
+    displayName: assign, compliance, resource manager
     href: assign-policy-template.md
 - name: Tutorials
   items:

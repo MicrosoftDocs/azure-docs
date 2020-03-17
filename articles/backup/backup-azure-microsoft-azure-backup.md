@@ -40,7 +40,7 @@ The first step towards getting the Azure Backup Server up and running is to set 
 
 When choosing a server for running Azure Backup Server, it is recommended you start with a gallery image of Windows Server 2016 Datacenter or Windows Server 2019 Datacenter. The article, [Create your first Windows virtual machine in the Azure portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), provides a tutorial for getting started with the recommended virtual machine in Azure, even if you've never used Azure before. The recommended minimum requirements for the server virtual machine (VM) should be: Standard_A4_v2  with four cores and 8-GB RAM.
 
-Protecting workloads with Azure Backup Server has many nuances. The article, [Install DPM as an Azure virtual machine](https://technet.microsoft.com/library/jj852163.aspx), helps explain these nuances. Before deploying the machine, read this article completely.
+Protecting workloads with Azure Backup Server has many nuances. The article, [Install DPM as an Azure virtual machine](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/jj852163(v=sc.12)), helps explain these nuances. Before deploying the machine, read this article completely.
 
 ### Using an on-premises server
 
@@ -51,7 +51,7 @@ If you do not want to run the base server in Azure, you can run the server on a 
 | Windows Server 2019 |64 bit |Standard, Datacenter, Essentials |
 | Windows Server 2016 and latest SPs |64 bit |Standard, Datacenter, Essentials  |
 
-You can deduplicate the DPM storage using Windows Server Deduplication. Learn more about how [DPM and deduplication](https://technet.microsoft.com/library/dn891438.aspx) work together when deployed in Hyper-V VMs.
+You can deduplicate the DPM storage using Windows Server Deduplication. Learn more about how [DPM and deduplication](https://docs.microsoft.com/system-center/dpm/deduplicate-dpm-storage?view=sc-dpm-2019) work together when deployed in Hyper-V VMs.
 
 > [!NOTE]
 > Azure Backup Server is designed to run on a dedicated, single-purpose server. You cannot install Azure Backup Server on:
@@ -191,7 +191,7 @@ Once the extraction process complete, check the box to launch the freshly extrac
 
     ![Microsoft Azure Backup PreReq2](./media/backup-azure-microsoft-azure-backup/space-screen.png)
 
-    The scratch location is a requirement for back up to Azure. Ensure the scratch location is at least 5% of the data planned to be backed up to the cloud. For disk protection, separate disks need to be configured once the installation completes. For more information regarding storage pools, see [Configure storage pools and disk storage](https://technet.microsoft.com/library/hh758075.aspx).
+    The scratch location is a requirement for back up to Azure. Ensure the scratch location is at least 5% of the data planned to be backed up to the cloud. For disk protection, separate disks need to be configured once the installation completes. For more information regarding storage pools, see [Configure storage pools and disk storage](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/hh758075(v=sc.12)).
 5. Provide a strong password for restricted local user accounts and click **Next**.
 
     ![Microsoft Azure Backup PreReq2](./media/backup-azure-microsoft-azure-backup/security-screen.png)
@@ -301,6 +301,14 @@ If you have a firewall or a proxy that is preventing access to Azure, you need t
 * \*.microsoftonline.com
 * \*.windows.net
 
+If you are using ExpressRoute Microsoft peering, please select the following services/regions:
+
+* Azure Active Directory (12076:5060)
+* Microsoft Azure Region (as per the location of your Recovery Services vault)
+* Azure Storage (as per the location of your Recovery Services vault)
+
+For more details, visit [ExpressRoute routing requirements](https://docs.microsoft.com/azure/expressroute/expressroute-routing).
+
 Once connectivity to Azure has been restored to the Azure Backup Server machine, the operations that can be performed are determined by the Azure subscription state. The table above has details about the operations allowed once the machine is "Connected".
 
 ### Handling subscription states
@@ -347,7 +355,7 @@ You can also refer to [Azure Backup related FAQs](backup-azure-backup-faq.md)
 
 ## Next steps
 
-You can get detailed information about [preparing your environment for DPM](https://technet.microsoft.com/library/hh758176.aspx) on the Microsoft TechNet site. It also contains information about supported configurations on which Azure Backup Server can be deployed and used. You can use a series of [PowerShell cmdlet](https://docs.microsoft.com/powershell/module/dataprotectionmanager/?view=systemcenter-ps-2016)  for performing various operations.
+You can get detailed information here about [preparing your environment for DPM](https://docs.microsoft.com/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-2019). It also contains information about supported configurations on which Azure Backup Server can be deployed and used. You can use a series of [PowerShell cmdlet](https://docs.microsoft.com/powershell/module/dataprotectionmanager/?view=systemcenter-ps-2016)  for performing various operations.
 
 You can use these articles to gain a deeper understanding of workload protection using Microsoft Azure Backup server.
 

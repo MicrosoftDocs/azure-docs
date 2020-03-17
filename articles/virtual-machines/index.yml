@@ -1,4 +1,4 @@
-### YamlMime:Hub
+﻿### YamlMime:Hub
 
 title: Virtual Machines Documentation
 summary: Learn how to create, deploy, and manage Windows or Linux virtual machines in Azure. 
@@ -51,6 +51,9 @@ conceptualContent:
         - url: https://docs.microsoft.com/azure/virtual-machines/linux/image-builder
           itemType: how-to-guide
           text: Azure Image Builder
+        - url: https://docs.microsoft.com/azure/virtual-machines/troubleshooting/linux-index
+          itemType: how-to-guide
+          text: Troubleshoot Linux virtual machines
       footerLink:
         url: https://docs.microsoft.com/azure/virtual-machines/linux/
         text: See more
@@ -66,9 +69,12 @@ conceptualContent:
         - url: https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm?context=azure/virtual-machines/windows/context/windows-vm-context
           itemType: how-to-guide
           text: Configure managed identities
+        - url: https://docs.microsoft.com/azure/virtual-machines/troubleshooting/index
+          itemType: how-to-guide
+          text: Troubleshoot Windows virtual machines
       # footerLink (optional)
       footerLink:
-        url: https://docs.microsoft.com/azure/virtual-machines/linux/
+        url: https://docs.microsoft.com/azure/virtual-machines/windows/
         text: See more
     # Card
     - title: Virtual machine scale sets
@@ -119,9 +125,3 @@ additionalContent:
           links:
             - text: Information for troubleshooting errors
               url: https://docs.microsoft.com/azure/virtual-machines/troubleshooting/
-
-
-
-
-
-

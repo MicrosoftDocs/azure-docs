@@ -1,7 +1,6 @@
 ---
 title: Assign access to Azure Cost Management data
 description: This article walks you though assigning permission to Azure Cost Management data for various access scopes.
-keywords:
 author: bandersmsft
 ms.author: banders
 ms.date: 02/11/2020

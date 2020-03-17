@@ -1,6 +1,6 @@
 --- 
-title: Azure VMware Solutions (AVS) - Allocate public IP addresses
-description: Describes how to allocate public IP addresses for virtual machines in the AVS Private Cloud environment
+title: Azure VMware Solution by CloudSimple - Allocate public IP addresses
+description: Describes how to allocate public IP addresses for virtual machines in the Private Cloud environment
 author: sharaths-cs 
 ms.author: b-shsury 
 ms.date: 08/15/2019 
@@ -10,11 +10,11 @@ ms.reviewer: cynthn
 manager: dikamath 
 ---
 
-# Allocate public IP addresses for AVS Private Cloud environment
+# Allocate public IP addresses for Private Cloud environment
 
-Open the Public IPs tab on the Network page to allocate public IP addresses for virtual machines in your AVS Private Cloud environment.
+Open the Public IPs tab on the Network page to allocate public IP addresses for virtual machines in your Private Cloud environment.
 
-1. [Access the AVS portal](access-cloudsimple-portal.md) and select **Network** on the side menu.
+1. [Access the CloudSimple portal](access-cloudsimple-portal.md) and select **Network** on the side menu.
 2. Select **Public IPs**.
 3. Click **New Public IP**.
 

@@ -146,6 +146,25 @@ The Zeppelin notebooks are saved to the cluster headnodes. So, if you delete the
 
 This saves the notebook as a JSON file in your download location.
 
+## Use Shiro to Configure Access to Zeppelin Interpreters in Enterprise Security Package (ESP) Clusters
+As noted above, the `%sh` interpreter is not supported from HDInsight 4.0 onwards. Furthermore, since `%sh` interpreter introduces potential security issues, such as access keytabs using shell commands, it has been removed from HDInsight 3.6 ESP clusters as well. It means `%sh` interpreter is not available when clicking **Create new note** or in the Interpreter UI by default. 
+
+Privileged domain users can utilize the `Shiro.ini` file to control access to the Interpreter UI. Thus, only these users can create new `%sh` interpreters and set permissions on each new `%sh` interpreter. To control access using the `shiro.ini` file, use the following steps:
+
+1. Define a new role using an existing domain group name. In the following example, `adminGroupName` is a group of privileged users in AAD. Do not use special characters or white spaces in the group name. The characters after `=` give the permissions for this role. `*` means the group has full permissions.
+
+    ```
+    [roles]
+    adminGroupName = *
+    ```
+
+2. Add the new role for access to Zeppelin interpreters. In the following example, all users in `adminGroupName` are given access to Zeppelin interpreters and are able to create new interpreters. You can put multiple roles between the brackets in `roles[]`, separated by commas. Then, users that have the necessary permissions, can access Zeppelin interpreters.
+
+    ```
+    [urls]
+    /api/interpreter/** = authc, roles[adminGroupName]
+    ```
+
 ## Livy session management
 
 When you run the first code paragraph in your Zeppelin notebook, a new Livy session is created in your HDInsight Spark cluster. This session is shared across all Zeppelin notebooks that you subsequently create. If for some reason the Livy session is killed (cluster reboot, and so on), you won't be able to run jobs from the Zeppelin notebook.

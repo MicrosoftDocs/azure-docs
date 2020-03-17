@@ -2,11 +2,11 @@
 title: What is Azure Private Link service?
 description: Learn about Azure Private Link service.
 services: private-link
-author: malopMSFT
+author: sumeetmittal
 ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
-ms.author: allensu
+ms.author: sumi
 
 ---
 # What is Azure Private Link service?
@@ -106,6 +106,8 @@ Custom TLV details:
 |Value  |1     |PP2_SUBTYPE_AZURE_PRIVATEENDPOINT_LINKID (0x01)|
 |  |4        |UINT32 (4 bytes) representing the LINKID of the private endpoint. Encoded in little endian format.|
 
+ > [!NOTE]
+ > Service provider is responsible for making sure that the service behind the standard load balancer is configured to parse the proxy protocol header as per the [specification](https://www.haproxy.org/download/1.8/doc/proxy-protocol.txt) when proxy protocol is enabled on private link service. The request will fail if proxy protocol setting is enabled on private link service but service provider's service is not configured to parse the header. Similarly, the request will fail if the service provider's service is expecting a proxy protocol header while the setting is not enabled on the private link service. Once proxy protocol setting is enabled, proxy protocol header will also be included in HTTP/TCP health probes from host to the backend virtual machines, even though there will be no client information in the header. 
 
 ## Limitations
 
