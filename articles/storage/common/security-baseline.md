@@ -4,7 +4,7 @@ description: Azure Security Baseline for Azure Storage
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 03/16/2020
+ms.date: 03/17/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -379,7 +379,8 @@ https://docs.microsoft.com/azure/azure-monitor/insights/dns-analytics
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/3733).
 
-**Guidance**: N/A; benchmark is intended for compute resources.
+**Guidance**: Not applicable; benchmark is intended for compute resources.
+
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -870,10 +871,11 @@ https://docs.microsoft.com/azure/security-center/recommendations-reference
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/3760).
 
-**Guidance**: Use the default risk ratings (Secure Score) provided by Azure Security Center.
+**Guidance**: Use the default risk ratings (Secure Score) provided by Azure Security Center. 
 
 Understand Azure Security Center Secure Score:
 https://docs.microsoft.com/azure/security-center/security-center-secure-score
+
 
 **Azure Security Center monitoring**: Not applicable
 

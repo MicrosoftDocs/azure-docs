@@ -4,7 +4,7 @@ description: Azure Security Baseline for Azure Database for MariaDB
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 03/16/2020
+ms.date: 03/17/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -81,8 +81,11 @@ How to Enable and use Traffic Analytics: https://docs.microsoft.com/azure/networ
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/3628).
 
 **Guidance**: Use Advanced Threat Protection for Azure Database for MariaDB. Advanced Threat Protection detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases.
+
 Enable DDoS Protection Standard on the virtual networks associated with your Azure Database for MariaDB instances to guard against DDoS attacks. Use Azure Security Center Integrated Threat Intelligence to deny communications with known malicious or unused Internet IP addresses.
+
 How to configure Advanced Threat Protection for Azure Database for MariaDB: https://docs.microsoft.com/azure/mariadb/howto-database-threat-protection-portal
+
 How to configure DDoS protection: https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection
 
 
@@ -157,13 +160,19 @@ Understand service tag usage for Azure Database for MariaDB: https://docs.micros
 
 **Guidance**: 
 Define and implement standard security configurations for network settings and network resources associated with your Azure Database for MariaDB instances with Azure Policy. Use Azure Policy aliases in the "Microsoft.DBforMariaDB" and "Microsoft.Network" namespaces to create custom policies to audit or enforce the network configuration of your Azure Database for MariaDB instances. You may also make use of built-in policy definitions related to networking or your Azure Database for MariaDB instances, such as:
+
 - DDoS Protection Standard should be enabled
+
 - Private endpoint should be enabled for MariaDB servers
+
 - MariaDB server should use a virtual network service endpoint
 
 How to configure and manage Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+
 Azure Policy samples for networking: https://docs.microsoft.com/azure/governance/policy/samples/#network
+
 How to create an Azure Blueprint: https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal
+
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -300,13 +309,13 @@ How to perform custom queries in Azure Monitor: https://docs.microsoft.com/azure
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/3642).
 
-**Guidance**: Enable Advanced Threat Protection for Maria DB. Advanced Threat Protection for Azure Database for MariaDB detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases.
+**Guidance**: Enable Advanced Threat Protection for MariaDB. Advanced Threat Protection for Azure Database for MariaDB detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases.
 
 In addition, you may enable Server Logs and Diagnostic Settings for MariaDB and send logs to a Log Analytics Workspace. Onboard your Log Analytics Workspace to Azure Sentinel as it provides a security orchestration automated response (SOAR) solution. This allows for playbooks (automated solutions) to be created and used to remediate security issues.
 
 How to enable Advanced Threat Protection for MariaDB: https://docs.microsoft.com/azure/mariadb/howto-database-threat-protection-portal
 
-How to configure and access Server Logs for MariaDB: https://docs.microsoft.com/azure/mariadb/concepts-server-logs
+How to configure and access Server Logs for MariDB: https://docs.microsoft.com/azure/mariadb/concepts-server-logs
 
 How to configure and access audit logs for MariaDB: https://docs.microsoft.com/azure/mariadb/howto-configure-audit-logs-portal
 
@@ -374,11 +383,12 @@ Understand built-in RBAC roles for Azure Subscriptions: https://docs.microsoft.c
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/3647).
 
-**Guidance**: Azure AD does not have the concept of default passwords.
+**Guidance**: Azure Active Directory does not have the concept of default passwords.
 
 Upon creation of the MariaDB resource itself, Azure forces the creation of an administrative user with a strong password. However, once the MariaDB instance has been created, you may use the first server admin account you created account to create additional users and grant administrative access to them. When creating these accounts, ensure you configure a different, strong password for each account.
 
 How to create additional accounts for MariaDB: https://docs.microsoft.com/azure/mariadb/howto-create-users
+
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -524,15 +534,15 @@ How to integrate Azure Activity Logs into Azure Monitor: https://docs.microsoft.
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/3657).
 
-**Guidance**: Enable Advanced Threat Protection for Maria DB. Advanced Threat Protection for Azure Database for MariaDB detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases.
+**Guidance**: Enable Advanced Threat Protection for MariaDB. Advanced Threat Protection for Azure Database for MariaDB detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases.
 
-Use Azure Active Directory's Risk and Identity Protection features to configure automated responses to detected suspicious actions. You may enable automated responses through Azure Sentinel to implement your organization's security responses.
+Use Azure Active Directory's Identity Protection and risk detection features to configure automated responses to detected suspicious actions. You may enable automated responses through Azure Sentinel to implement your organization's security responses.
 
 How to enable Advanced Threat Protection for MariaDB: https://docs.microsoft.com/azure/mariadb/howto-database-threat-protection-portal
 
-How to view Azure AD risky sign-ins: https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risky-sign-ins
-
 How to configure and enable Identity Protection risk policies: https://docs.microsoft.com/azure/active-directory/identity-protection/howto-identity-protection-configure-risk-policies
+
+How to view Azure AD risky sign-ins: https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risky-sign-ins
 
 How to onboard Azure Sentinel: https://docs.microsoft.com/azure/sentinel/quickstart-onboard
 

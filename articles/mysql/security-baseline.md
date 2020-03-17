@@ -4,7 +4,7 @@ description: Azure Security Baseline for Azure Database for MySQL
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 03/16/2020
+ms.date: 03/17/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
