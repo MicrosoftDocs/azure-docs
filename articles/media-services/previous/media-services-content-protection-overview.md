@@ -49,6 +49,9 @@ Customers often wonder whether they should use AES encryption or a DRM system. T
 
 PlayReady, Widevine, and FairPlay all provide a higher level of encryption compared to AES-128 clear key encryption. The content key is transmitted in an encrypted format. Additionally, decryption is handled in a secure environment at the operating system level, where it's more difficult for a malicious user to attack. DRM is recommended for use cases where the viewer might not be a trusted party and you require the highest level of security.
 
+> [!NOTE]
+> If content is encrypted with a clear key and it is sent over HTTPS, the content is not in clear until it reaches the client.
+
 ## Storage encryption
 You can use storage encryption to encrypt your clear content locally by using AES 256-bit encryption. You then can upload it to Azure Storage, where it's stored encrypted at rest. Assets protected with storage encryption are automatically unencrypted and placed in an encrypted file system prior to encoding. The assets are optionally re-encrypted prior to uploading back as a new output asset. The primary use case for storage encryption is when you want to secure your high-quality input media files with strong encryption at rest on disk.
 
@@ -70,6 +73,19 @@ With an open authorization policy, the content key is sent to any client (no res
 With a token-restricted authorization policy, the content key is sent only to a client that presents a valid JSON Web Token (JWT) or simple web token (SWT) in the key/license request. This token must be issued by a security token service (STS). You can use Azure Active Directory as an STS or deploy a custom STS. The STS must be configured to create a token signed with the specified key and issue claims that you specified in the token restriction configuration. The Media Services key delivery service returns the requested key/license to the client if the token is valid and the claims in the token match those configured for the key/license.
 
 When you configure the token restricted policy, you must specify the primary verification key, issuer, and audience parameters. The primary verification key contains the key that the token was signed with. The issuer is the secure token service that issues the token. The audience, sometimes called scope, describes the intent of the token or the resource the token authorizes access to. The Media Services key delivery service validates that these values in the token match the values in the template.
+
+### Token replay prevention
+
+The *Token Replay Prevention* feature allows Media Services customers to set a limit on how many times the same token can be used to request a key or a license. The customer can add a claim of type `urn:microsoft:azure:mediaservices:maxuses` in the token, where the value is the number of times the token can be used to acquire a license or key. All subsequent requests with the same token to Key Delivery will return an unauthorized response. See how to add the claim in the [DRM sample](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs#L601).
+ 
+#### Considerations
+
+* Customers must have control over token generation. The claim needs to be placed in the token itself.
+* When using this feature, requests with tokens whose expiry time is more than one hour away from the time the request is received are rejected with an unauthorized response.
+* Tokens are uniquely identified by their signature. Any change to the payload (for example, update to the expiry time or the claim) changes the signature of the token and it will count as a new token that Key Delivery hasn't come across before.
+* Playback fails if the token has exceeded the `maxuses` value set by the customer.
+* This feature can be used for all existing protected content (only the token issued needs to be changed).
+* This feature works with both JWT and SWT.
 
 ## Streaming URLs
 If your asset was encrypted with more than one DRM, use an encryption tag in the streaming URL: (format='m3u8-aapl', encryption='xxx').

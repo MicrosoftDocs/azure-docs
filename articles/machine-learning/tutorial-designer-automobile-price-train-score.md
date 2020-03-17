@@ -263,7 +263,7 @@ Use the **Evaluate Model** module to evaluate how well your model scored the tes
 
     ![Screenshot showing the correct configuration of the pipeline.](./media/tutorial-designer-automobile-price-train-score/pipeline-final-graph.png)
 
-## Run the pipeline
+## Submit the pipeline
 
 Now that your pipeline is all setup, you can submit a pipeline run to train your machine learning model. You can submit a pipeline run at any point while building pipelines in the designer. You can do this to check your work as you go to verify your pipeline works as expected.
 

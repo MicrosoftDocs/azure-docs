@@ -337,6 +337,7 @@
   - name: Troubleshoot
     items:
     - name: Frequently asked questions
+      displayName: faqs
       href: frequently-asked-questions.md      
     - name: Error codes
       items:
@@ -352,7 +353,7 @@
     href: https://aka.ms/ams-v3-rest-sdk
     displayName: schema
   - name: REST
-    href: https://aka.ms/ams-v3-rest-ref 
+    href: https://docs.microsoft.com/rest/api/media/ 
   - name: Azure CLI
     href: https://aka.ms/ams-v3-cli-ref    
   - name: SDKs
