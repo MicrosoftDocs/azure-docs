@@ -68,7 +68,8 @@ The following limits apply only for networking resources managed through Azure R
 | Frontend IP configurations              | 600                           |
 | Backend pool size                       | 1,000 IP configurations, single virtual network |
 | High-availability ports                 | 1 per internal frontend       |
-| Outbound rules per Load Balancer         | 20                            |
+| Outbound rules per Load Balancer        | 20                            |
+| [TCP idle timeout](https://docs.microsoft.com/azure/load-balancer/load-balancer-tcp-idle-timeout#tcp-idle-timeout) | 4 minutes/30 minutes          |
 
 
 **Basic Load Balancer**
