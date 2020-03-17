@@ -118,18 +118,20 @@ Increasing look-back periods and number of violations can also allow filtering a
 
 ## Monitoring at scale using metric alerts in Azure Monitor
 
-So far, you have seen how a single metric alert could be used to monitor one or many metric time-series related to a single Azure resource. Many times, you might want the same alert rule applied to many resources. Azure Monitor also supports monitoring multiple resources (of the same type) with one metric alert rule, for resources that exist in the same Azure region. This feature is currently supported for these services:
+So far, you have seen how a single metric alert could be used to monitor one or many metric time-series related to a single Azure resource. Many times, you might want the same alert rule applied to many resources. Azure Monitor also supports monitoring multiple resources (of the same type) with one metric alert rule, for resources that exist in the same Azure region. 
 
-- SQL server databases 
-- SQL server elastic pools 
-- Data box edge devices 
-- Virtual machines (public cloud only)
+This feature is currently supported for platform metrics (not custom metrics) for the following services in the following Azure clouds:
 
-Also, this feature is only available for platform metrics, and isn't supported for custom metrics.
+| Service | Public Azure | Government | China |
+|:--------|:--------|:--------|:--------|
+| Virtual machines  | **Yes** | No | No |
+| SQL server databases | **Yes** | **Yes** | No |
+| SQL server elastic pools | **Yes** | **Yes** | No |
+| Data box edge devices | **Yes** | **Yes** | No |
 
-You can specify the scope of monitoring by a single metric alert rule in one of three ways:
+You can specify the scope of monitoring by a single metric alert rule in one of three ways. For example, with virtual machines you can specify the scope as:  
 
-- as a list of virtual machines in one Azure region within a subscription
+- a list of virtual machines in one Azure region within a subscription
 - all virtual machines (in one Azure region) in one or more resource groups in a subscription
 - all virtual machines (in one Azure region) in one subscription
 
