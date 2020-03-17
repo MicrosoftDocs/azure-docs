@@ -15,7 +15,7 @@ Azure Private Link Service enables you to access Azure Services (for example, Az
 
 A private endpoint is a network interface that connects you privately and securely to a service powered by Azure Private Link. The private endpoint uses a private IP address from your VNet, effectively bringing the service into your VNet. All traffic to the service can be routed through the private endpoint, so no gateways, NAT devices, ExpressRoute or VPN connections, or public IP addresses are needed. Traffic between your virtual network and the service traverses over the Microsoft backbone network, eliminating exposure from the public Internet. You can connect to an instance of an Azure resource, giving you the highest level of granularity in access control.
 
-For more information, see [What is Azure Private Link (Preview)?](../private-link/private-link-overview.md)
+For more information, see [What is Azure Private Link?](../private-link/private-link-overview.md)
 
 > [!NOTE]
 > This feature is supported only with the **dedicated** tier. For more information about the dedicated tier, see [Overview of Event Hubs Dedicated](event-hubs-dedicated-overview.md). 
@@ -27,7 +27,7 @@ For more information, see [What is Azure Private Link (Preview)?](../private-lin
 
 ### Prerequisites
 
-To integrate an Event Hubs namespace with Azure Private Link (Preview), you'll need the following entities or permissions:
+To integrate an Event Hubs namespace with Azure Private Link, you'll need the following entities or permissions:
 
 - An Event Hubs namespace.
 - An Azure virtual network.
@@ -209,34 +209,34 @@ In the **Networking** tab:
 Open the command line and run the following command:
 
 ```console
-nslookup <your-event-hubs-namespace-name>.servicebus.azure.net
+nslookup <your-event-hubs-namespace-name>.servicebus.windows.net
 ```
 
 If you run the ns lookup command to resolve the IP address of an Event Hubs namespace over a public endpoint, you will see a result that looks like this:
 
 ```console
-c:\ >nslookup <your-event-hubs-namespae-name>.servicebus.azure.net
+c:\ >nslookup <your-event-hubs-namespae-name>.servicebus.windows.net
 
 Non-authoritative answer:
 Name:    
 Address:  (public IP address)
-Aliases:  <your-event-hubs-namespace-name>.servicebus.azure.net
+Aliases:  <your-event-hubs-namespace-name>.servicebus.windows.net
 ```
 
 If you run the ns lookup command to resolve the IP address of an Event Hubs namespace over a private endpoint, you will see a result that looks like this:
 
 ```console
-c:\ >nslookup your_event-hubs-namespace-name.servicebus.azure.net
+c:\ >nslookup your_event-hubs-namespace-name.servicebus.windows.net
 
 Non-authoritative answer:
 Name:    
 Address:  10.1.0.5 (private IP address)
-Aliases:  <your-event-hub-name>.servicebus.azure.net
+Aliases:  <your-event-hub-name>.servicebus.windows.net
 ```
 
 ## Limitations and Design Considerations
 
-**Pricing**: For pricing information, see [Azure Private Link (preview) pricing](https://azure.microsoft.com/pricing/details/private-link/).
+**Pricing**: For pricing information, see [Azure Private Link pricing](https://azure.microsoft.com/pricing/details/private-link/).
 
 **Limitations**:  Private Endpoint for Azure Event Hubs is in public preview. This feature is available in all Azure public regions.
 
@@ -246,5 +246,5 @@ For more, see [Azure Private Link service: Limitations](../private-link/private-
 
 ## Next Steps
 
-- Learn more about [Azure Private Link (Preview)](../private-link/private-link-service-overview.md)
+- Learn more about [Azure Private Link](../private-link/private-link-service-overview.md)
 - Learn more about [Azure Event Hubs](event-hubs-about.md)
