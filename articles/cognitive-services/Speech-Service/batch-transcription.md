@@ -1,5 +1,5 @@
 ---
-title: How to use batch transcription - Speech service
+title: What is batch transcription - Speech service
 titleSuffix: Azure Cognitive Services
 description: Batch transcription is ideal if you want to transcribe a large quantity of audio in storage, such as Azure Blobs. By using the dedicated REST API, you can point to audio files with a shared access signature (SAS) URI and asynchronously receive transcriptions.
 services: cognitive-services
@@ -8,11 +8,11 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/16/2020
+ms.date: 03/17/2020
 ms.author: panosper
 ---
 
-# How to use batch transcription
+# What is batch transcription?
 
 Batch transcription is ideal for transcribing a large amount of audio in storage. By using the dedicated REST API, you can point to audio files with a shared access signature (SAS) URI and asynchronously receive transcription results.
 
@@ -48,11 +48,11 @@ If you plan to customize acoustic or language models, follow the steps in [Custo
 
 The Batch Transcription API supports the following formats:
 
-| Format | Codec | Bitrate | Sample Rate |
-|--------|-------|---------|-------------|
-| WAV | PCM | 16-bit | 8 kHz or 16 kHz, mono or stereo |
-| MP3 | PCM | 16-bit | 8 kHz or 16 kHz, mono or stereo |
-| OGG | OPUS | 16-bit | 8 kHz or 16 kHz, mono or stereo |
+| Format | Codec | Bitrate | Sample Rate                     |
+|--------|-------|---------|---------------------------------|
+| WAV    | PCM   | 16-bit  | 8 kHz or 16 kHz, mono or stereo |
+| MP3    | PCM   | 16-bit  | 8 kHz or 16 kHz, mono or stereo |
+| OGG    | OPUS  | 16-bit  | 8 kHz or 16 kHz, mono or stereo |
 
 For stereo audio streams, the left and right channels are split during the transcription. For each channel, a JSON result file is being created. The timestamps generated per utterance enable the developer to create an ordered final transcript.
 
@@ -142,7 +142,7 @@ For mono input audio, one transcription result file is being created. For stereo
 
 ```json
 {
-  "AudioFileResults":[ 
+  "AudioFileResults":[
     {
       "AudioFileName": "Channel.0.wav | Channel.1.wav"      'maximum of 2 channels supported'
       "AudioFileUrl": null                                  'always null'
@@ -204,12 +204,12 @@ For mono input audio, one transcription result file is being created. For stereo
 
 The result contains these forms:
 
-|Form|Content|
-|-|-|
-|`Lexical`|The actual words recognized.
-|`ITN`|Inverse-text-normalized form of the recognized text. Abbreviations ("doctor smith" to "dr smith"), phone numbers, and other transformations are applied.
-|`MaskedITN`|The ITN form with profanity masking applied.
-|`Display`|The display form of the recognized text. This includes added punctuation and capitalization.
+| Form        | Content                                                                                                                                                  |
+|-------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `Lexical`   | The actual words recognized.                                                                                                                             |
+| `ITN`       | Inverse-text-normalized form of the recognized text. Abbreviations ("doctor smith" to "dr smith"), phone numbers, and other transformations are applied. |
+| `MaskedITN` | The ITN form with profanity masking applied.                                                                                                             |
+| `Display`   | The display form of the recognized text. This includes added punctuation and capitalization.                                                             |
 
 ## Speaker separation (Diarization)
 
