@@ -6,7 +6,7 @@ ms.topic: conceptual
 ms.date: 3/12/2020
 ---
 # Liveness Probe
-Starting with 7.1 Service Fabric supports Liveness Probe mechanism for [containerized][containers-introduction-link] applications. Liveness Probe help announce the liveness of the containerized application and when they don't respond in a timely fashion, it will result in a restart. for ex: if your container has reached a deadlock state but the container is still running, Liveness Probe will help detect such situation and mitigate by restarting your container.  
+Starting with 7.1 Service Fabric supports Liveness Probe mechanism for [containerized][containers-introduction-link] applications. Liveness Probe help announce the liveness of the containerized application and when they do not respond in a timely fashion, it will result in a restart.
 This article provides an overview of how to define a Liveness Probe via manifest files.
 
 Before proceeding with this article, we recommend getting familiar with the [Service Fabric application model][application-model-link] and the [Service Fabric hosting model][hosting-model-link].
