@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.reviewer: nibaccam
 author: nibaccam
 ms.author: nibaccam
-ms.date: 12/09/2019
+ms.date: 03/15/2020
 
 ---
 
@@ -17,7 +17,7 @@ ms.date: 12/09/2019
 
 In this article, you learn about Azure Machine Learning's data management and integration solutions for your machine learning tasks. This article assumes you've already created an [Azure storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal) and [Azure storage service](https://docs.microsoft.com/azure/storage/common/storage-introduction).
 
-When you're ready to use the data in your storage, we recommend you
+When you're ready to use the data in your Azure storage solution, we recommend you
 
 1. Create an Azure Machine Learning datastore.
 2. From that datastore, create an Azure Machine Learning dataset. 
@@ -36,13 +36,13 @@ The following diagram provides a visual demonstration of this recommended data a
 
 ## Access data in storage
 
-To access your data in your storage account, Azure Machine Learning offers datastores and datasets. Datastores answer the question: how do I securely connect to my data that's in my Azure Storage? Datastores provide a layer of abstraction over your storage service. This aids in security and ease of access to your storage, since connection information is kept in the datastore and not exposed in scripts. 
+To access your data in your storage account, Azure Machine Learning offers datastores and datasets. Datastores answer the question: how do I securely connect to my data that's in my Azure Storage? Datastores save the connection information to your Azure Storage. This aids in security and ease of access to your storage, since connection information is kept in the datastore and not exposed in scripts. 
 
 Datasets answer the question: how do I get specific data files in my datastore? Datasets point to the specific file or files in your underlying storage that you want to use for your machine learning experiment. Together, datastores and datasets offer a secure, scalable, and reproducible data delivery workflow for your machine learning tasks.
 
-### Datastores
+## Datastores
 
-An Azure Machine Learning datastore is a storage abstraction over your Azure storage services. [Register and create a datastore](how-to-access-data.md) to easily connect to your Azure storage account, and access the data in your underlying Azure storage services.
+An Azure Machine Learning datastore keeps the connection information to your storage so you don't have to code it in your scripts. [Register and create a datastore](how-to-access-data.md) to easily connect to your Azure storage account, and access the data in your underlying Azure storage services.
 
 Supported Azure storage services that can be registered as datastores:
 + Azure Blob Container
@@ -54,11 +54,11 @@ Supported Azure storage services that can be registered as datastores:
 + Databricks File System
 + Azure Database for MySQL
 
-### Datasets
+## Datasets
 
 [Create an Azure Machine Learning dataset](how-to-create-register-datasets.md) to interact with data in your datastores and package your data into a consumable object for machine learning tasks. Register the dataset to your workspace to share and reuse it across different experiments without data ingestion complexities.
 
-Datasets can be created from local files, public urls, [Azure Open Datasets](#open), or specific file(s) in your datastores. To create a dataset from an in memory pandas dataframe, write the data to a local file, like a csv, and create your dataset from that file. Datasets aren't copies of your data, but are references that point to the data in your storage service, so no extra storage cost is incurred. 
+Datasets can be created from local files, public urls, Azure Open Datasets, or specific file(s) in your datastores. To create a dataset from an in memory pandas dataframe, write the data to a local file, like a csv, and create your dataset from that file. Datasets aren't copies of your data, but are references that point to the data in your storage service, so no extra storage cost is incurred. 
 
 The following diagram shows that if you don't have an Azure storage service, you can create a dataset directly from local files, public urls, or an Azure Open Dataset. Doing so connects your dataset to the default datastore that was automatically created with your experiment's [Azure Machine Learning workspace](concept-workspace.md).
 
@@ -77,21 +77,15 @@ Additional datasets capabilities can be found in the following documentation:
 
 With datasets, you can accomplish a number of machine learning tasks through seamless integration with Azure Machine Learning features. 
 
++ Create a [data labeling project](#label).
++ Create a dataset from an [Azure Open Dataset](how-to-create-register-datasets.md#create-datasets-with-azure-open-datasets).
 + [Train machine learning models](how-to-train-with-datasets.md).
 + Consume datasets in 
      + [automated ML experiments](how-to-use-automated-ml-for-ml-models.md)
      + the [designer](tutorial-designer-automobile-price-train-score.md#import-data) 
+     + [Azure Machine Learning pipelines](how-to-create-your-first-pipeline.md)
 + Access datasets for scoring with batch inference in [machine learning pipelines](how-to-create-your-first-pipeline.md).
-+ Create a [data labeling project](#label).
 + Set up a dataset monitor for [data drift](#drift) detection.
-
-<a name="open"></a>
-
-## Azure Open Datasets
-
-[Azure Open Datasets](how-to-create-register-datasets.md#create-datasets-with-azure-open-datasets) are curated public datasets that you can use to add scenario-specific features to machine learning solutions for more accurate models. Open Datasets are in the cloud on Microsoft Azure and are integrated into Azure Machine Learning. You can also access the datasets through APIs and use them in other products, such as Power BI and Azure Data Factory.
-
-Azure Open Datasets include public-domain data for weather, census, holidays, public safety, and location that help you train machine learning models and enrich predictive solutions. You can also share your public datasets on Azure Open Datasets.
 
 <a name="label"></a>
 

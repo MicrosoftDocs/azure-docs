@@ -315,6 +315,8 @@
           href: disk-encryption-sample-scripts.md
         - name: Disk encryption on an isolated network
           href: disk-encryption-isolated-network.md
+        - name: How to verify encryption status
+          href: how-to-verify-encryption-status.md
         - name: Disk encryption troubleshooting
           href: disk-encryption-troubleshooting.md
         - name: Disk encryption FAQ
