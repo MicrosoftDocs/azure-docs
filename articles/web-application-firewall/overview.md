@@ -19,9 +19,10 @@ Preventing such attacks in application code is challenging. It can require rigor
 
 A WAF solution can  react to a security threat faster by centrally patching a known vulnerability, instead of securing each individual web application.
 
-WAF can be deployed with Azure Application Gateway and Azure Front Door Service. Currently, WAF has features that are customized for each specific service. For more information about WAF features for each service, see the overview for each service.
+WAF can be deployed with Azure Application Gateway and Azure Front Door Service. WAF with Azure CDN service from Microsoft is currently under public preview.  WAF has features that are customized for each specific service. For more information about WAF features for each service, see the overview for each service.
 
 ## Next steps
 
 - For more information about Web Application Firewall on Application Gateway, see [Web Application Firewall on Azure Application Gateway](./ag/ag-overview.md).
 - For more information about Web Application Firewall on Azure Front Door Service see [Web Application Firewall on Azure Front Door Service](./afds/afds-overview.md).
+- For more information about Web Application Firewall on Azure CDN Service see [Web Application Firewall on Azure CDN Service](./cdn/cdn-overview.md)
