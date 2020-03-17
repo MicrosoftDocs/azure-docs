@@ -320,7 +320,7 @@ Here is an example that shows both the worker role and web role.
 			</Site> 
 		</Sites> 
 		<Startup> 
-			<Taske xecutionContext="elevated" taskType="simple" commandLine="RunTLSSettings.cmd"> 
+			<Task executionContext="elevated" taskType="simple" commandLine="RunTLSSettings.cmd"> 
 			</Task> 
 		</Startup> 
 		<Endpoints> 
