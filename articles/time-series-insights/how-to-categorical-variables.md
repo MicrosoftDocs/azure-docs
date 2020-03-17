@@ -1,14 +1,14 @@
 ---
-title: 'GA Update - Azure Time Series Insights | Microsoft Docs'
-description: This article describes Ingestion & Storage - GA update.
+title: 'How to use categorical variables - Azure Time Series Insights | Microsoft Docs'
+description: 'Learn how to use categorical variables'
 author: deepakpalled
 ms.author: dpalled
 ms.service: time-series-insights
 ms.topic: conceptual
-ms.date: 03/11/2020
+ms.date: 03/06/2020
 ---
 
-# GA Update
+# How to use categorical variables
 
 This article describes...
 
