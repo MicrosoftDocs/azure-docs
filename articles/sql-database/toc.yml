@@ -735,6 +735,8 @@
         href: sql-database-instance-pools-how-to.md
     - name: Configure
       items:
+      - name: Service-aided subnet configuration
+        href: sql-database-managed-instance-enabling-service-aided-subnet-configuration.md      
       - name: Public endpoint
         href: sql-database-managed-instance-public-endpoint-configure.md
       - name: Client VM connection
