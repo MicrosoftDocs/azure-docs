@@ -1,6 +1,6 @@
 ---
 title: Configure usage settings in classroom labs of Azure Lab Services
-description: Learn how to configure the number of users for a lab, get them registered with the lab, control the number of hours they can use the VM, and more. 
+description: Learn how to configure the number of students for a lab, get them registered with the lab, control the number of hours they can use the VM, and more. 
 services: lab-services
 documentationcenter: na
 author: spelluru
@@ -43,7 +43,7 @@ In this section, you add students to a lab manually or by uploading a CSV file. 
     ![Users list](../media/how-to-configure-student-usage/list-of-added-users.png)
 
     > [!NOTE]
-    > The list displays the students' names after they're registered with the lab. The name that's shown in the list is constructed by using the first and last names of the users in Azure Active Directory. 
+    > The list displays the students' names after they're registered with the lab. The name that's shown in the list is constructed by using the first and last names of the students in Azure Active Directory. 
 
 ### Add users by uploading a CSV file
 
@@ -57,7 +57,7 @@ You can also add users by uploading a CSV file that contains their email address
 
     ![The "Upload CSV" button](../media/how-to-configure-student-usage/upload-csv-button.png)
 
-1. Select the CSV file that contains the users' email addresses, and then select **Open**.
+1. Select the CSV file that contains the students' email addresses, and then select **Open**.
 
     The **Add users** window displays the email address list from the CSV file. 
 
@@ -65,7 +65,7 @@ You can also add users by uploading a CSV file that contains their email address
 
 1. Select **Save**. 
 
-1. In the **Users** pane, view the list of added users. 
+1. In the **Users** pane, view the list of added students. 
 
     ![List of added users in the "Users" pane](../media/how-to-configure-student-usage/list-of-added-users.png)
 
@@ -99,7 +99,7 @@ This method shows you how to invite only certain students and get a registration
 
 1. In the **Users** pane, select a student or multiple students in the list. 
 
-1. In the row for the user you've selected, select the envelope icon or, on the toolbar, select **Invite**. 
+1. In the row for the student you've selected, select the **envelope** icon or, on the toolbar, select **Invite**. 
 
     ![Invite selected users](../media/how-to-configure-student-usage/invite-selected-users.png)
 
@@ -150,11 +150,11 @@ You can set an hour quota for each student by doing the following:
     ![Quota hours per user](../media/how-to-configure-student-usage/quot-per-user-after.png)
 
     > [!IMPORTANT]
-    > The [scheduled running time of VMs](how-to-create-schedules.md) does not count against the quota allotted to a user. The quota is for the time outside of scheduled hours that a student spends on VMs. 
+    > The [scheduled running time of VMs](how-to-create-schedules.md) does not count against the quota that's allotted to a student. The quota is for the time outside of scheduled hours that a student spends on VMs. 
 
 ## Set additional quotas for specific users
 
-You can specify quotas for certain users beyond the common quotas that were set for all users in the preceding section. For example, if you (as an instructor) set the quota for all users to 10 hours and set an additional quota of 5 hours for a specific user, that user gets 15 (10 + 5) hours of quota. If you change the common quota later to, say, 15, the user gets 20 (15 + 5) hours of quota. Remember that this overall quota is outside the scheduled time. The time that a student spends on a lab VM during the scheduled time does not count against this quota. 
+You can specify quotas for certain students beyond the common quotas that were set for all users in the preceding section. For example, if you, as an instructor, set the quota for all students to 10 hours and set an additional quota of 5 hours for a specific student, that student gets 15 (10 + 5) hours of quota. If you change the common quota later to, say, 15, the student gets 20 (15 + 5) hours of quota. Remember that this overall quota is outside the scheduled time. The time that a student spends on a lab VM during the scheduled time does not count against this quota. 
 
 To set additional quotas, do the following:
 
