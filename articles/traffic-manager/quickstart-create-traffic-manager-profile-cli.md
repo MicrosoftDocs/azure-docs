@@ -107,7 +107,7 @@ az webapp create \
 Add the two Web Apps as Traffic Manager endpoints using [az network traffic-manager endpoint create](https://docs.microsoft.com/cli/azure/network/traffic-manager/endpoint?view=azure-cli-latest#az-network-traffic-manager-endpoint-create) to the Traffic Manager profile as follows:
 
 - Determine the Web App id and add the Web App located in the *East US* Azure region as the primary endpoint to route all the user traffic. 
-- Determinet the Web App id and add the Web App located in the *West Europe* Azure region as the failover endpoint. 
+- Determine the Web App id and add the Web App located in the *West Europe* Azure region as the failover endpoint. 
 
 When the primary endpoint is unavailable, traffic automatically routes to the failover endpoint.
 
