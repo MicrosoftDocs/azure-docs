@@ -6,7 +6,7 @@ ms.topic: conceptual
 ms.date: 3/12/2020
 ---
 # Liveness Probe
-Starting with 7.1 Service Fabric supports Liveness probe for [containers][containers-introduction-link] applications. Liveness Probe helps catch stuck containers by restarting them. for ex: if your container has reached a deadlock state but the contaner is still running, liveness probe will help detect such situation and mitigate by restarting your container.  
+Starting with 7.1 Service Fabric supports Liveness probe for [containers][containers-introduction-link] applications. Liveness Probe helps catch stuck containers by restarting them. for ex: if your container has reached a deadlock state but the container is still running, liveness probe will help detect such situation and mitigate by restarting your container.  
 This article provides an overview of how to define a liveness probe via manifest files.
 
 Before proceeding with this article, we recommend getting familiar with the [Service Fabric application model][application-model-link] and the [Service Fabric hosting model][hosting-model-link].
@@ -21,7 +21,7 @@ You can specify only 1 liveness probe per container and can control it's behavio
 
 * `timeoutSeconds`: Period in seconds after which we consider probe as failure if it hasn't completed successfully. Supported value is int. Deafult is 1. Minimum is 1.
 
-* `periodSeconds`: Periodic in seconds to specify how often we probe. Supported value is int. Default is 10. Minimum is 1.
+* `periodSeconds`: Period in seconds to specify how often we probe. Supported value is int. Default is 10. Minimum is 1.
 
 * `failureThreshold`: Once we hit FailureThreshold, container will restart. Supported value is int. Default is 3. Minimum is 1.
 
@@ -86,7 +86,7 @@ HttpGet probe has additional properties you can set:
 
 ## TCP Probe
 
-For TCP probe, Service Fabric will try to opena  socket on the container with the specified port. Here is an example of how to specify probe which uses TCP socket:
+For TCP probe, Service Fabric will try to open a socket on the container with the specified port. Here is an example of how to specify probe which uses TCP socket:
 
 ```xml
   <ServiceManifestImport>
