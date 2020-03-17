@@ -2171,6 +2171,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cosmos-db/cosmos-db-security-controls.md",
+      "redirect_url": "/azure/cosmos-db/security-baseline",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cosmos-db/powershell-samples.md",
       "redirect_url": "/azure/cosmos-db/powershell-samples-sql",
       "redirect_document_id": true
@@ -13605,6 +13610,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/event-hubs/event-hubs-tutorial-virtual-networks-firewalls.md",
+      "redirect_url": "/azure/event-hubs/event-hubs-service-endpoints",
+      "redirect_document_id": false
+    },    
+    {
       "source_path": "articles/active-directory/active-directory-saml-protocol-reference.md",
       "redirect_url": "/azure/active-directory/develop/active-directory-saml-protocol-reference",
       "redirect_document_id": false
@@ -15786,7 +15796,12 @@
     },
     {
       "source_path": "articles/machine-learning/machine-learning-dedicated-capacity-for-bes-jobs.md",
-      "redirect_url": "/azure/machine-learning/studio/dedicated-capacity-for-bes-jobs",
+      "redirect_url": "/azure/machine-learning/studio/consume-web-services",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/studio/dedicated-capacity-for-bes-jobs.md",
+      "redirect_url": "/azure/machine-learning/studio/consume-web-services",
       "redirect_document_id": false
     },
     {
@@ -49283,6 +49298,11 @@
       "source_path": "articles/azure-monitor/app/hockeyapp-bridge-app.md",
       "redirect_url": "/azure/azure-monitor/overview",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cli/index.yml",
+      "redirect_url": "/cli/azure",
+      "redirect_document_id": false 
     },
     {
       "source_path": "articles/virtual-machines/linux/tutorial-build-deploy-jenkins.md",

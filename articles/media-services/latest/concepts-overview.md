@@ -3,7 +3,7 @@
 title: Media Services terminology and concepts
 titleSuffix: Azure Media Services
 description: Learn about terminology and concepts for Azure Media Services.
-services: media-services
+services: media-servicesgit
 documentationcenter: ''
 author: Juliako
 manager: femila
