@@ -18,13 +18,17 @@
     href: azure-media-player-playback-technology.md
   - name: Protected content
     href: azure-media-player-protected-content.md
+  - name: Feature list
+    href: azure-media-player-feature-list.md
   - name: URL Rewriter
     href: azure-media-player-url-rewriter.md
   - name: Accessibility
     href: azure-media-player-accessibility.md
-    name: Plugin gallery
+  - name: Writing Plugins
+    href: azure-media-player-writing-plugins- 
+  - name: Plugin gallery
     href: azure-media-player-plugin-gallery.md
-    name: Localization
+  - name: Localization
     href: azure-media-player-localization.md
 - name: Reference
   items:
@@ -33,4 +37,8 @@
   - name: Options
     href: azure-media-player-options.md
   - name: API
-    href: azure-media-player-api.md
+    href: azure-media-player-api-methods.md
+  - name: Error codes
+    href: azure-media-player-error-codes.md
+  - name: Known issues
+    href: azure-media-player-known-issues.md
