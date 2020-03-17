@@ -154,7 +154,7 @@ Datasets stored in the designer are automatically converted to an R data frame w
 
 1.  **Random Seed**: Type a value to use inside the R environment as the random seed value. This parameter is equivalent to calling `set.seed(value)` in R code.  
 
-1. Run the pipeline.  
+1. Submit the pipeline.  
 
 ## Results
 
