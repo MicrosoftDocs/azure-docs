@@ -46,7 +46,7 @@ Here are the steps to create **Recommendations digest:**
 
    ![Provide recommendations digest input action group](./media/digest-3.png)
 
-* **Step 6:** In this final section for **digest details**, you can assign a name and state to your recommendations digest. Press **Create recommendations digest** to complete the set-up.
+* **Step 6:** In this final section for **digest details**, you can assign a name and state to your recommendations digest. Press **create recommendations digest** to complete the set-up.
    ![Complete recommendations digest creation](./media/digest-4.png)
 
 ## Next steps
