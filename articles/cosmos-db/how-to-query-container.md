@@ -25,7 +25,7 @@ For example, consider the below query with an equality filter on `DeviceId`. Thi
 As with the earlier example,  this query will also filter to a single partition. Adding the additional filter on `Location` does not change this:
 
 ```sql
-    SELECT * FROM c WHERE c.DeviceId = 'XMS-0001' AND c.Location = 'Seattle`
+    SELECT * FROM c WHERE c.DeviceId = 'XMS-0001' AND c.Location = 'Seattle'
 ```
 
 Here's a query that has a range filter on the partition key and will not be scoped to a single physical partition. In order to be an in-partition query, the query must have an equality filter that includes the partition key:
@@ -48,11 +48,11 @@ The indexes in different physical partitions are completely independent from one
 
 ## Parallel cross-partition query
 
-The Azure Cosmos DB SDKs 1.9.0 and later support parallel query execution options. Parallel cross-partition queries allow you to perform low latency, cross-partition queries. 
+The Azure Cosmos DB SDKs 1.9.0 and later support parallel query execution options. Parallel cross-partition queries allow you to perform low latency, cross-partition queries.
 
 You can manage parallel query execution by tuning the following parameters:
 
-- **MaxConcurrency**: Sets the maximum number of simultaneous network connections to the container's partitions. If you set this property to -1, the SDK manages the degree of parallelism. If the `MaxConcurrency*` is not specified or set to 0, which is the default value, there is a single network connection to the container's partitions.
+- **MaxConcurrency**: Sets the maximum number of simultaneous network connections to the container's partitions. If you set this property to `-1`, the SDK manages the degree of parallelism. If the `MaxConcurrency` is not specified or set to `0`, there is a single network connection to the container's partitions.
 
 - **MaxBufferedItemCount**: Trades query latency versus client-side memory utilization. If this option is omitted or to set to -1, the SDK manages the number of items buffered during parallel query execution.
 
@@ -62,23 +62,23 @@ When you run a cross-partition query, you are essentially doing a separate query
 
 ## Useful example
 
-Here's an analogy to better understand  cross-partition queries:
+Here's an analogy to better understand cross-partition queries:
 
-Let's imagine you are a delivery driver that has to delivery packages to different apartment complexes. Each apartment complex has a sign on the premises that lists all of the resident's unit numbers. We can compare each apartment complex to a physical partition and each sign to the physical partition's index.
+Let's imagine you are a delivery driver that has to delivery packages to different apartment complexes. Each apartment complex has a list on the premises that has all of the resident's unit numbers. We can compare each apartment complex to a physical partition and each list to the physical partition's index.
 
 We can compare in-partition and cross-partition queries using this example:
 
 ### In-partition query
 
-If the delivery driver knows the correct apartment complex (physical partition), then they can immediately drive to the correct building. The driver can check the apartment complex's sign that lists all of the resident's unit numbers (the index) and quickly deliver the appropriate package. In this case, the driver does not waste any time or effort driving to a building to check the sign and see if any package recipients live there.
+If the delivery driver knows the correct apartment complex (physical partition), then they can immediately drive to the correct building. The driver can check the apartment complex's list of the resident's unit numbers (the index) and quickly deliver the appropriate packages. In this case, the driver does not waste any time or effort driving to an apartment complex to check and see if any package recipients live there.
 
 ### Cross-partition query (fan-out)
 
-If the delivery driver does not know the correct apartment complex (physical partition), they'll need to drive to every single apartment building and check the sign that lists all of the resident's unit numbers (the index). Once they arrive at each building, they'll still be able to utilize the sign at each building that lists the address of each resident. However, they will need to check every building's sign, whether any package recipients live there or not. This is how cross-partition queries work.While they can utilize the index, they must separately check the index for every physical partition.
+If the delivery driver does not know the correct apartment complex (physical partition), they'll need to drive to every single apartment building and check the list with all of the resident's unit numbers (the index). Once they arrive at each apartment complex, they'll still be able to utilize the list of the address of each resident. However, they will need to check every apartment complex's list, whether any package recipients live there or not. This is how cross-partition queries work. While they can utilize the index (don't need to knock on every single door), they must separately check the index for every physical partition.
 
 ### Cross-partition query (scoped to only a few physical partitions)
 
-If the delivery driver knows that all package recipients live within a certain few apartment complexes, they won't need to drive to every single apartment building. While this will still require more work than visiting just a single building, the delivery driver still saves significant time and effort. If a query has the partition key in its filter with the `IN` keyword, it will only check the relevant physical partition's indexes for data.
+If the delivery driver knows that all package recipients live within a certain few apartment complexes, they won't need to drive to every single one. While this will still require more work than visiting just a single building, the delivery driver still saves significant time and effort. If a query has the partition key in its filter with the `IN` keyword, it will only check the relevant physical partition's indexes for data.
 
 ## Avoiding cross-partition queries
 
