@@ -40,9 +40,12 @@ A successful response will contain a JSON payload representing the resulting acc
 Access tokens will be cached by Service Fabric at various levels (node, cluster, resource provider service), so a successful response does not necessarily imply that the token was issued directly in response to the user application's request. Tokens will be cached for less than their lifetime, and so an application is guaranteed to receive a valid token. It is recommended that the application code caches itself any access tokens it acquires; the caching key should include (a derivation of) the audience. 
 
 
+> [!NOTE]
+> The only accepted API version is presently `2019-07-01-preview`, and is subject to change.
+
 Sample request:
 ```http
-GET 'https://localhost:2377/metadata/identity/oauth2/token?api-version=2019-07-01-preview&resource=https://keyvault.azure.com/' HTTP/1.1 Secret: 912e4af7-77ba-4fa5-a737-56c8e3ace132
+GET 'https://localhost:2377/metadata/identity/oauth2/token?api-version=2019-07-01-preview&resource=https://vault.azure.net/' HTTP/1.1 Secret: 912e4af7-77ba-4fa5-a737-56c8e3ace132
 ```
 where:
 
@@ -51,7 +54,7 @@ where:
 | `GET` | The HTTP verb, indicating you want to retrieve data from the endpoint. In this case, an OAuth access token. | 
 | `https://localhost:2377/metadata/identity/oauth2/token` | The managed identity endpoint for Service Fabric applications, provided via the IDENTITY_ENDPOINT environment variable. |
 | `api-version` | A query string parameter, specifying the API version of the Managed Identity Token Service; currently the only accepted value is `2019-07-01-preview`, and is subject to change. |
-| `resource` | A query string parameter, indicating the App ID URI of the target resource. This will be reflected as the `aud` (audience) claim of the issued token. This example requests a token to access Azure Key Vault, whose an App ID URI is https:\//keyvault.azure.com/. |
+| `resource` | A query string parameter, indicating the App ID URI of the target resource. This will be reflected as the `aud` (audience) claim of the issued token. This example requests a token to access Azure Key Vault, whose an App ID URI is https:\//vault.azure.net/. |
 | `Secret` | An HTTP request header field, required by the Service Fabric Managed Identity Token Service for Service Fabric services to authenticate the caller. This value is provided by the SF runtime via IDENTITY_HEADER environment variable. |
 
 
@@ -63,7 +66,7 @@ Content-Type: application/json
     "token_type":  "Bearer",
     "access_token":  "eyJ0eXAiO...",
     "expires_on":  1565244611,
-    "resource":  "https://keyvault.azure.com/"
+    "resource":  "https://vault.azure.net/"
 }
 ```
 where:
@@ -134,9 +137,9 @@ namespace Azure.ServiceFabric.ManagedIdentity.Samples
             requestMessage.Headers.Add(managedIdentityAuthenticationHeader, managedIdentityAuthenticationCode);
             
             var handler = new HttpClientHandler();
-            handler.ServerCertificateCustomValidationCallback = (httpRequestMessage, cert, cetChain, policyErrors) =>
+            handler.ServerCertificateCustomValidationCallback = (httpRequestMessage, cert, certChain, policyErrors) =>
             {
-                // Do any addtional validation here
+                // Do any additional validation here
                 if (policyErrors == SslPolicyErrors.None)
                 {
                     return true;
