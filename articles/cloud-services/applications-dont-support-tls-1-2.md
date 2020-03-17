@@ -65,6 +65,7 @@ Param(
    param ( $restart)
   $subkeys = Get-Item -Path "HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL"
   $ciphers = $subkeys.OpenSubKey("Ciphers", $true)
+
   if($ciphers.SubKeyCount -eq 0) {
     $k1 = $ciphers.CreateSubKey("RC4 128/128")
     $k1.SetValue("Enabled", 0, [Microsoft.Win32.RegistryValueKind]::DWord)
@@ -103,7 +104,9 @@ Function Set-CryptoSetting {
     New-ItemProperty -Path $regkeys[$keyindex] -Name $value -Value $valuedata -PropertyType $valuetype | Out-Null
     $restart = $True
     Write-Host "Configuring $regkeys[$keyindex]...."
+
   } Else {
+
     # Value does exist - if not equal to desired value, change it
     If ($val -ne $valuedata) {
       Set-ItemProperty -Path $regkeys[$keyindex] -Name $value -Value $valuedata
@@ -149,7 +152,9 @@ Function Set-Windows10PlusCurveOrder {
         if( $null -eq $val) {
             New-ItemProperty -Path $regkeys[15] -Name EccCurves -Value $desiredOrder -PropertyType MultiString | Out-Null
             $reboot = $True
+
         } else {
+
             if ([System.String]::Join(';', $val) -ne [System.String]::Join(';', $desiredOrder)) {
                 Write-Host "The original curve order ", `n, $val, `n, "needs to be updated to ", $desiredOrder
                 Set-ItemProperty -Path $regkeys[15] -Name EccCurves -Value $desiredOrder
@@ -159,6 +164,7 @@ Function Set-Windows10PlusCurveOrder {
     }
 
     $reboot
+
 }
 
 If ([Environment]::OSVersion.Version.Major -lt 10) {
@@ -188,18 +194,14 @@ If ([Environment]::OSVersion.Version.Major -lt 10) {
 }
 
 # If any settings are changed, this will change to $True and the server will reboot
-
 $reboot = $False
 
 # Check for existence of registry keys (SSL 2.0, SSL 3.0, TLS 1.0, TLS 1.1, TLS 1.2), and create if they do not exist
-
 For ($i = 0; $i -le 14; $i = $i + 1) {
   If (!(Test-Path -Path $regkeys[$i])) {
     New-Item $regkeys[$i] | Out-Null
   }
 }
-
-####################################################
 
 # Ensure SSL 2.0 disabled for client/server
 $reboot = Set-CryptoSetting 10 DisabledByDefault 1 DWord $reboot
@@ -231,8 +233,6 @@ $reboot = Set-CryptoSetting 7 Enabled 1 DWord $reboot
 $reboot = Set-CryptoSetting 8 DisabledByDefault 0 DWord $reboot
 $reboot = Set-CryptoSetting 8 Enabled 1 DWord $reboot
 
-####################################################
-
 $reboot = DisableRC4($reboot)
 
 If ($SetCipherOrder) {
@@ -253,30 +253,19 @@ If ($SetCipherOrder) {
 
 $reboot = Set-Windows10PlusCurveOrder $reboot
 
-# If any settings were changed, reboot
-    # If any settings were changed, reboot 
-    If ($reboot) 
-    {      
-        Write-Host "Rebooting now..." 
-        Write-Host "Using this command: shutdown.exe /r /t 5 /c ""Crypto settings changed"" /f /d p:2:4 " 
-        shutdown.exe /r /t 5 /c "Crypto settings changed" /f /d p:2:4 
-    }
-    Else 
-    { 
-        Write-Host "Nothing get updated."       
-    }  
-
-
-<# If ($reboot) {
+If ($reboot) {
   # Randomize the reboot timing since it could be run in a large cluster.
   $tick = [System.Int32]([System.DateTime]::Now.Ticks % [System.Int32]::MaxValue)
   $rand = [System.Random]::new($tick)
   $sec = $rand.Next(30, 600)
   Write-Host "Rebooting after", $sec, " second(s)..."
-  Write-Host  shutdown.exe /r /t $sec /c "Crypto settings changed" /f /d p:2:4
+  Write-Host  "shutdown.exe /r /t $sec /c ""Crypto settings changed"" /f /d p:2:4"
+  shutdown.exe /r /t $sec /c "Crypto settings changed" /f /d p:2:4
+
 } Else {
+
   Write-Host "Nothing get updated."
-} #>
+}
 ```
 
 ## Step 2: Create a command file 
@@ -284,9 +273,26 @@ $reboot = Set-Windows10PlusCurveOrder $reboot
 Create a CMD file named **RunTLSSettings.cmd** using the below. Store this script on your local desktop for easy access in later steps. 
 
 ```cmd
-PowerShell -ExecutionPolicy Unrestricted %~dp0TLSsettings.ps1
-REM This line is required to ensure the startup tasks does not block the role from starting in case of error.  DO NOT REMOVE!!!! 
-EXIT /B 0
+SET LOG_FILE="%TEMP%\StartupLog.txt"
+SET EXECUTE_PS1=0
+
+IF "%ComputeEmulatorRunning%" == "" (
+       SET EXECUTE_PS1=1
+)
+
+IF "%ComputeEmulatorRunning%" == "false" (
+       SET EXECUTE_PS1=1
+) 
+
+IF %EXECUTE_PS1% EQU 1 (
+       echo "Invoking SSLConfigure.ps1 on Azure service at %TIME% on %DATE%" >> %LOG_FILE% 2>&1       
+       PowerShell -ExecutionPolicy Unrestricted %~dp0SSLConfigure.ps1 -sco  >> %LOG_FILE% 2>&1
+) ELSE (
+       echo "Skipping SSLConfigure.ps1 invocation on emulated environment" >> %LOG_FILE% 2>&1       
+)    
+
+EXIT /B %ERRORLEVEL%
+
 ```
 
 ## Step 3: Add the startup task to the role’s service definition (csdef) 
