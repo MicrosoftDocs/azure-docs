@@ -37,12 +37,18 @@ ms.service: azure-project-spool
 - The core priorities of docs are **simplicity** and **progress**.
 - To make progess, **all primitive owners need to contribute docs and samples**. Mick's role is not to create docs - it's editorial and docs-ops support.
 - To maintain progress and accountability, **we need to track docs ownership and status**. This is being tracked [here](https://microsoft.sharepoint-df.com/:x:/t/IC3SDK/EasbZy5MyMBLq2S0NyTNBVABhKiR6r8bq8Ld8clQQkgOeA?e=jxpgWn).
+- The most mature components of our product are Calling (voice + video) and SMS. These are the first scenarios we'll complete depth-first. Then we'll expand breadth of our docs.
+
+
+
+## Notes
+
+- We also have to prove out the **auto-generation of reference docs**. The prerequisite to testing these pipelines is prepared SDKs (non-REST) and Swagger Specs (REST). This process is outlined here: [Link](https://review.docs.microsoft.com/en-us/azure/project-spool/automatingreferencedocs?branch=pr-en-us-104477)
 - References we can use as we develop our docs:
   - Twilio: [Link](https://www.twilio.com/docs/glossary/what-is-voip)
   - MSFT Cognitive Services: [Link](https://docs.microsoft.com/en-us/azure/cognitive-services/text-analytics/quickstarts/text-analytics-sdk?pivots=programming-language-javascript&tabs=version-3#sentiment-analysis)
   - Nexmo: [Link](https://developer.nexmo.com/documentation)
   - Firebase: [Link](https://firebase.google.com/docs?gclid=Cj0KCQjw6sHzBRCbARIsAF8FMpVEA7WidBpgSSFMLqD1J7X1E9h9vqhrjwyZb2qtOzGpNl_mQQz4KcAaAuqgEALw_wcB)
   - Stripe: [Link](https://stripe.com/docs?utm_campaign=paid_brand-US%20|%20Search%20|%20Category%20|%20Stripe_sitelinkNov1-1803852691&utm_medium=cpc&utm_source=google&ad_content=344587125070&utm_term=stripe%20docs&utm_matchtype=e&utm_adposition=&utm_device=c&gclid=Cj0KCQjw6sHzBRCbARIsAF8FMpVSUUXEM4Bihhj0E37fKdMJMq9IYzs5-E2dU4fJQGG_arU6UekNcXYaAtW-EALw_wcB)
-- The most mature components of our product are Calling (voice + video) and SMS. These are the first scenarios we'll complete.
 
 
