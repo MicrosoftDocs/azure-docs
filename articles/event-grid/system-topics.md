@@ -13,17 +13,21 @@ ms.author: spelluru
 # System topics in Azure Event Grid
 The Azure Event Grid service creates system topics when you create a first event subscription for an Azure event source. This article describes **system topics** in Azure Event Grid.
 
+> [!NOTE]
+> This feature is currently not enabled for Azure Government cloud. 
+
 ## Overview
-When you create first event subscription for an Azure event source such as Azure Storage account, the event subscription provisioning process creates an additional resource of type **Microsoft.EventGrid/systemTopics** in the same resource group that has the Azure event source. When the last event subscription to the Azure event source is deleted, the system topic resource is also automatically deleted.
+When you create first event subscription for an Azure event source such as Azure Storage account, provisioning process for the subscription creates an additional resource of type **Microsoft.EventGrid/systemTopics**. When the last event subscription to the Azure event source is deleted, the system topic is automatically deleted.
 
-System topic isn't applicable to custom topic scenarios, that is, Event Grid topics and Event Grid domains. This will improve the search experience. 
+System topic isn't applicable to custom topic scenarios, that is, Event Grid topics and Event Grid domains. 
 
-## Location and resource group
-For regional Azure event sources such as Storage account, system topic is created in the same location as the Azure event source. For global Azure event sources such as Azure subscriptions, resource groups or Azure Maps, system topic is created in **global** location. This feature is currently not enabled for Azure Gov cloud. 
-  
-For event subscriptions created at Azure subscription scope, system topic is created under the resource group **Default-EventGrid**. If the resource group doesn't exist, Azure Event Grid creates it before creating the system topic. 
+## Location
+For regional Azure event sources such as Storage account, system topic is created in the same region/location as the Azure event source. For global Azure event sources such as Azure subscriptions, resource groups or Azure Maps, Event Grid creates the system topic in **global** location. 
 
-When you try to delete the resource with the storage account, you'll see the system topic in the list of affected resources.  
+## Resource group 
+In general, system topic is created in the same resource group that the Azure event source is in. For event subscriptions created at Azure subscription scope, system topic is created under the resource group **Default-EventGrid**. If the resource group doesn't exist, Azure Event Grid creates it before creating the system topic. 
+
+When you try to delete the resource group with the storage account, you'll see the system topic in the list of affected resources.  
 
 ![Delete resource group](./media/system-topics/delete-resource-group.png)
 
