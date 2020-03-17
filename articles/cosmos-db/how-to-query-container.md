@@ -91,8 +91,8 @@ Avoiding cross-partition queries typically only matters with large containers. Y
 The number of physical partitions is tied to the amount of provisioned RU's. Each physical partition allows for up to 10,000 provisioned RU's and can store up to 50 GB of data. Azure Cosmos DB will automatically manage physical partitions for you. The number of physical partitions in your container is dependent on your provisioned throughput and consumed storage.
 
 You should try to avoid cross-partition queries if your workload meets the criteria below:
-    - You plan to have over 30,000 RU's provisioned
-    - You plan to store over 100 GB of data
+- You plan to have over 30,000 RU's provisioned
+- You plan to store over 100 GB of data
 
 ## Next steps
 
