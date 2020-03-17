@@ -11,7 +11,7 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 10/31/2019
+ms.date: 03/31/2020
 ms.author: apimpm
 
 ---
@@ -19,10 +19,6 @@ ms.author: apimpm
 # Deploy a self-hosted Azure API Management gateway to Kubernetes
 
 This article provides the steps for deploying self-hosted Azure API Management gateway into a Kubernetes Cluster.
-
-> [!NOTE]
-> Self-hosted gateway feature is in preview. During the preview, the self-hosted gateway is available only in the Developer and Premium tiers at no additional charge. Developer tier is limited to a single self-hosted gateway deployment.
-
 
 ## Prerequisites
 

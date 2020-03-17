@@ -11,7 +11,7 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 10/31/2019
+ms.date: 03/31/2020
 ms.author: apimpm
 
 ---
@@ -19,9 +19,6 @@ ms.author: apimpm
 # Provision a self-hosted gateway in Azure API Management
 
 Provisioning a gateway resource in your Azure API Management instance is a prerequisite for deploying a self-hosted gateway. This article walks through the steps to provision a gateway resource in API Management.
-
-> [!NOTE]
-> Self-hosted gateway feature is in preview. During the preview, the self-hosted gateway is available only in the Developer and Premium tiers at no additional charge. Developer tier is limited to a single self-hosted gateway deployment.
 
 ## Prerequisites
 
