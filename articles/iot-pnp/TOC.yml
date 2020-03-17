@@ -7,12 +7,6 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create a device
-    items:
-      - name: C Linux
-        href: quickstart-create-pnp-device-linux.md
-      - name: C Windows
-        href: quickstart-create-pnp-device-windows.md
   - name: Connect a device to IoT Hub
     items:
       - name: C Linux
@@ -37,8 +31,10 @@
         href: quickstart-connect-pnp-device-solution-node.md
 - name: Tutorials
   items:
-  - name: Create a device using VS Code
-    href: tutorial-pnp-visual-studio-code.md
+  - name: Use VS Code tools (Linux)
+    href: tutorial-visual-studio-code-linux.md
+  - name: Use VS Code tools (Windows)
+    href: tutorial-visual-studio-code-windows.md
   - name: Build a device ready for certification
     href: tutorial-build-device-certification.md
   - name: Certify your device
