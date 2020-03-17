@@ -180,7 +180,7 @@ The Google’s "Widevine DRM Architecture Review" doc defines the following thre
 
 At the same time, in [Azure Media Services documentation on Widevine license template](widevine-license-template-overview.md), the security_level property of content_key_specs can have the following five different values (client robustness requirements for playback):
 
-1.  Software-based whitebox crypto is required.
+1.  Software-based white-box crypto is required.
 2.  Software crypto and an obfuscated decoder is required.
 3.  The key material and crypto operations must be performed within a hardware backed TEE.
 4.  The crypto and decoding of content must be performed within a hardware backed TEE.
