@@ -6,7 +6,7 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: python
 ms.topic: conceptual
-ms.date: 08/16/2019
+ms.date: 03/17/2020
 ms.author: robinsh
 ---
 
