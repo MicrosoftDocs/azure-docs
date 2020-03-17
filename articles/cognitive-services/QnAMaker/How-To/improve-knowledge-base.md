@@ -4,6 +4,7 @@ description: Improve the quality of your knowledge base with active learning. Re
 ms.topic: conceptual
 ms.date: 03/16/2020
 ---
+<a name="accept-an-active-learning-suggestion-in-the-knowledge-base"></a>
 
 # Accept active learning suggested questions in the knowledge base
 
