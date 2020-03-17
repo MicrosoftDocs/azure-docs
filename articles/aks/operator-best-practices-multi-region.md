@@ -3,8 +3,6 @@ title: High availability and disaster recovery in Azure Kubernetes Service (AKS)
 description: Learn a cluster operator's best practices to achieve maximum uptime for your applications, providing high availability and preparing for disaster recovery in Azure Kubernetes Service (AKS).
 services: container-service
 author: lastcoolnameleft
-
-ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: thfalgou

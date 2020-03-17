@@ -6,7 +6,7 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 10/23/2019
+ms.date: 03/11/2020
 ---
 
 # Configure outbound network traffic for Azure HDInsight clusters using Firewall
@@ -21,12 +21,13 @@ There are several dependencies that require inbound traffic. The inbound managem
 
 The HDInsight outbound traffic dependencies are almost entirely defined with FQDNs, which don't have static IP addresses behind them. The lack of static addresses means that Network Security Groups (NSGs) can't be used to lock down the outbound traffic from a cluster. The addresses change often enough that one can't set up rules based on the current name resolution and use that to set up NSG rules.
 
-The solution to securing outbound addresses is to use a firewall device that can control outbound traffic based on domain names. Azure Firewall can restrict outbound HTTP and HTTPS traffic based on the FQDN of the destination or [FQDN tags](https://docs.microsoft.com/azure/firewall/fqdn-tags).
+The solution to securing outbound addresses is to use a firewall device that can control outbound traffic based on domain names. Azure Firewall can restrict outbound HTTP and HTTPS traffic based on the FQDN of the destination or [FQDN tags](../firewall/fqdn-tags.md).
 
 ## Configuring Azure Firewall with HDInsight
 
 A summary of the steps to lock down egress from your existing HDInsight with Azure Firewall are:
 
+1. Create a subnet.
 1. Create a firewall.
 1. Add application rules to the firewall
 1. Add network rules to the firewall.
@@ -72,7 +73,7 @@ Create an application rule collection that allows the cluster to send and receiv
     | --- | --- | --- | --- | --- |
     | Rule_2 | * | https:443 | login.windows.net | Allows Windows login activity |
     | Rule_3 | * | https:443 | login.microsoftonline.com | Allows Windows login activity |
-    | Rule_4 | * | https:443,http:80 | storage_account_name.blob.core.windows.net | Replace `storage_account_name` with your actual storage account name. If your cluster is backed by WASB, then add a rule for WASB. To use ONLY https connections, make sure ["secure transfer required"](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) is enabled on the storage account. |
+    | Rule_4 | * | https:443,http:80 | storage_account_name.blob.core.windows.net | Replace `storage_account_name` with your actual storage account name. If your cluster is backed by WASB, then add a rule for WASB. To use ONLY https connections, make sure ["secure transfer required"](../storage/common/storage-require-secure-transfer.md) is enabled on the storage account. |
 
    ![Title: Enter application rule collection details](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection-details.png)
 
@@ -177,7 +178,7 @@ To learn about the scale limits of Azure Firewall and request increases, see [th
 
 ## Access to the cluster
 
-After having the firewall set up successfully, you can use the internal endpoint (`https://CLUSTERNAME-int.azurehdinsight.net`) to access the Ambari from inside the VNET.
+After having the firewall set up successfully, you can use the internal endpoint (`https://CLUSTERNAME-int.azurehdinsight.net`) to access the Ambari from inside the virtual network.
 
 To use the public endpoint (`https://CLUSTERNAME.azurehdinsight.net`) or ssh endpoint (`CLUSTERNAME-ssh.azurehdinsight.net`), make sure you have the right routes in the route table and NSG rules to avoid the asymmetric routing issue explained [here](../firewall/integrate-lb.md). Specifically in this case, you need to allow the client IP address in the Inbound NSG rules and also add it to the user-defined route table with the next hop set as `internet`. If this isn't set up correctly, you'll see a timeout error.
 

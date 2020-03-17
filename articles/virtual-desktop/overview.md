@@ -8,12 +8,13 @@ ms.service: virtual-desktop
 ms.topic: overview
 ms.date: 01/27/2020
 ms.author: helohr
+manager: lizross
 ---
 # What is Windows Virtual Desktop? 
 
 Windows Virtual Desktop is a desktop and app virtualization service that runs on the cloud.
 
-Here’s what you can do when you run Windows Virtual Desktop on Azure:
+Here's what you can do when you run Windows Virtual Desktop on Azure:
 
 * Set up a multi-session Windows 10 deployment that delivers a full Windows 10 with scalability
 * Virtualize Office 365 ProPlus and optimize it to run in multi-user virtual scenarios
@@ -24,7 +25,7 @@ Here’s what you can do when you run Windows Virtual Desktop on Azure:
 
 ## Introductory video
 
-Learn about Windows Virtual Desktop, why it’s unique, and what’s new in this video:
+Learn about Windows Virtual Desktop, why it's unique, and what's new in this video:
 
 <br></br><iframe src="https://www.youtube.com/embed/NQFtI3JLtaU" width="640" height="320" allowFullScreen="true" frameBorder="0"></iframe>
 
@@ -67,7 +68,7 @@ We plan to add support for the following OSes, so make sure you have the [approp
 
 Your infrastructure needs the following things to support Windows Virtual Desktop:
 
-* An [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/)
+* An [Azure Active Directory](/azure/active-directory/)
 * A Windows Server Active Directory in sync with Azure Active Directory. You can configure this with one of the following:
   * Azure AD Connect (for hybrid organizations)
   * Azure AD Domain Services (for hybrid or cloud organizations)
@@ -75,7 +76,7 @@ Your infrastructure needs the following things to support Windows Virtual Deskto
   
 The Azure virtual machines you create for Windows Virtual Desktop must be:
 
-* [Standard domain-joined](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-comparison) or [Hybrid AD-joined](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan). Virtual machines can't be Azure AD-joined.
+* [Standard domain-joined](../active-directory-domain-services/active-directory-ds-comparison.md) or [Hybrid AD-joined](../active-directory/devices/hybrid-azuread-join-plan.md). Virtual machines can't be Azure AD-joined.
 * Running one of the following [supported OS images](#supported-virtual-machine-os-images).
 
 >[!NOTE]

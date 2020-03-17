@@ -254,8 +254,6 @@ static public void ManageFileACLs(DataLakeFileSystemClient fileSystemClient){
 
 First, create a **DataLakeFileClient** instance that represents the file that you want to download. Use the **DataLakeFileClient.read** method to read the file. Use any .NET file processing API to save bytes from the stream to a file. 
 
-Make sure to complete the download by calling the **DataLakeFileClient.flush** method.
-
 ```java
 static public void DownloadFile(DataLakeFileSystemClient fileSystemClient)
     throws FileNotFoundException, java.io.IOException{

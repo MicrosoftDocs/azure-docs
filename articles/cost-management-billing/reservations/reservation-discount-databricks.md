@@ -1,12 +1,11 @@
 ---
 title: How an Azure Databricks pre-purchase discount is applied
 description: Learn how an Azure Databricks pre-purchase discount applies to your usage.
-services: billing
 author: yashesvi
-manager: yashar
+ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 10/01/2019
+ms.date: 02/12/2020
 ms.author: banders
 ---
 

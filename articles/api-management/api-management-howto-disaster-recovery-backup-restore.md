@@ -165,7 +165,7 @@ Set the value of the `Content-Type` request header to `application/json`.
 
 Backup is a long running operation that may take more than a minute to complete. If the request succeeded and the backup process began, you receive a `202 Accepted` response status code with a `Location` header. Make 'GET' requests to the URL in the `Location` header to find out the status of the operation. While the backup is in progress, you continue to receive a '202 Accepted' status code. A Response code of `200 OK` indicates successful completion of the backup operation.
 
-Note the following constraints when making a backup request:
+Note the following constraints when making a backup or restore request:
 
 -   **Container** specified in the request body **must exist**.
 -   While backup is in progress, **avoid management changes in the service** such as SKU upgrade or downgrade, change in domain name, and more.
@@ -174,11 +174,11 @@ Note the following constraints when making a backup request:
 -   In addition, the following items are not part of the backup data: custom domain SSL certificates and any intermediate or root certificates uploaded by customer, developer portal content, and virtual network integration settings.
 -   The frequency with which you perform service backups affect your recovery point objective. To minimize it, we recommend implementing regular backups and performing on-demand backups after you make changes to your API Management service.
 -   **Changes** made to the service configuration, (for example, APIs, policies, and developer portal appearance) while backup operation is in process **might be excluded from the backup and will be lost**.
--   **Allow** access from control plane to Azure Storage Account. Customer should open the set of [Azure API Management Control Plane IP Addresses][control-plane-ip-address] on their Storage Account for Backup. 
+-   **Allow** access from control plane to Azure Storage Account, if it has [firewall][azure-storage-ip-firewall] enabled. Customer should open the set of [Azure API Management Control Plane IP Addresses][control-plane-ip-address] on their Storage Account for Backup to or Restore from. 
 
 > [!NOTE]
-> If you have firewall enabled on the Storage Account and the are trying to do backup/restore from an API Management service in the same Region, 
-> then this will not work, as the requests to Azure Storage are not SNATed to public IP from Compute deployed in the same region.
+> If you attempt to do backup/restore from/to an API Management service using a storage account which has [firewall][azure-storage-ip-firewall] 
+> enabled, in the same Azure Region, then this will not work. This is because the requests to Azure Storage are not SNATed to a public IP from Compute > (Azure Api Management control Plane). Cross Region storage request will be SNATed.
 
 ### <a name="step2"> </a>Restore an API Management service
 
@@ -241,3 +241,4 @@ Check out the following resources for different walkthroughs of the backup/resto
 [api-management-arm-token]: ./media/api-management-howto-disaster-recovery-backup-restore/api-management-arm-token.png
 [api-management-endpoint]: ./media/api-management-howto-disaster-recovery-backup-restore/api-management-endpoint.png
 [control-plane-ip-address]: api-management-using-with-vnet.md#control-plane-ips
+[azure-storage-ip-firewall]: ../storage/common/storage-network-security.md#grant-access-from-an-internet-ip-range

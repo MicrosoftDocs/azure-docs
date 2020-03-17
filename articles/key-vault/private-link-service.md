@@ -1,15 +1,15 @@
 ---
 title: Integrate with Azure Private Link Service
 description: Learn how to integrate Azure Key Vault with Azure Private Link Service
-author: msmbaldwin
-ms.author: mbaldwin
-ms.date: 01/28/2020
+author: ShaneBala-keyvault
+ms.author: sudbalas
+ms.date: 03/08/2020
 ms.service: key-vault
 ms.topic: quickstart
 
 ---
 
-# Integrate Key Vault with Azure Private Link (Preview)
+# Integrate Key Vault with Azure Private Link
 
 Azure Private Link Service enables you to access Azure Services (for example, Azure Key Vault, Azure Storage, and Azure Cosmos DB) and Azure hosted customer/partner services over a Private Endpoint in your virtual network.
 
@@ -30,7 +30,7 @@ Your private endpoint and virtual network must be in the same region. When you s
 
 Your private endpoint uses a private IP address in your virtual network.
 
-## Establish a private link connection to key vault
+## Establish a private link connection to Key Vault using the Azure portal 
 
 First, create a virtual network by following the steps in [Create a virtual network using the Azure portal](../virtual-network/quick-create-portal.md)
 
@@ -77,6 +77,60 @@ You can choose to create a private endpoint for any Azure resource in using this
 ![Image](./media/private-link-service-3.png)
 ![Image](./media/private-link-service-4.png)
 
+## Establish a private link connection to Key Vault using CLI
+
+### Login to Azure CLI
+```console
+az login 
+```
+### Select your Azure Subscription 
+```console
+az account set --subscription {AZURE SUBSCRIPTION ID}
+```
+### Create a new Resource Group 
+```console
+az group create -n {RG} -l {AZURE REGION}
+```
+### Register Microsoft.KeyVault as a provider 
+```console
+az provider register -n Microsoft.KeyVault
+```
+### Create a new Key Vault
+```console
+az keyvault create --name {KEY VAULT NAME} --resource-group {RG} --location {AZURE REGION}
+```
+### Create a Virtual Network
+```console
+az network vnet create --resource-group {RG} --name {vNet NAME} --location {AZURE REGION}
+```
+### Add a subnet
+```console
+az network vnet subnet create --resource-group {RG} --vnet-name {vNet NAME} --name {subnet NAME} --address-prefixes {addressPrefix}
+```
+### Disable Virtual Network Policies 
+```console
+az network vnet subnet update --name {subnet NAME} --resource-group {RG} --vnet-name {vNet NAME} --disable-private-endpoint-network-policies true
+```
+### Add a Private DNS Zone 
+```console
+az network private-dns zone create --resource-group {RG} --name privatelink.vaultcore.azure.net
+```
+### Link Private DNS Zone to Virtual Network 
+```console
+az network private-dns link vnet create --resoruce-group {RG} --virtual-network {vNet NAME} --zone-name privatelink.vaultcore.azure.net --name {dnsZoneLinkName} --registration-enabled true
+```
+### Create a Private Endpoint (Automatically Approve) 
+```console
+az network private-endpoint create --resource-group {RG} --vnet-name {vNet NAME} --subnet {subnet NAME} --name {Private Endpoint Name}  --private-connection-resource-id "/subscriptions/{AZURE SUBSCRIPTION ID}/resourceGroups/{RG}/providers/Microsoft.KeyVault/vaults/ {KEY VAULT NAME}" --group-ids vault --connection-name {Private Link Connection Name} --location {AZURE REGION}
+```
+### Create a Private Endpoint (Manually Request Approval) 
+```console
+az network private-endpoint create --resource-group {RG} --vnet-name {vNet NAME} --subnet {subnet NAME} --name {Private Endpoint Name}  --private-connection-resource-id "/subscriptions/{AZURE SUBSCRIPTION ID}/resourceGroups/{RG}/providers/Microsoft.KeyVault/vaults/ {KEY VAULT NAME}" --group-ids vault --connection-name {Private Link Connection Name} --location {AZURE REGION} --manual-request
+```
+### Show Connection Status 
+```console
+az network private-endpoint show --resource-group {RG} --name {Private Endpoint Name}
+```
 ## Manage private link connection
 
 When you create a private endpoint, the connection must be approved. If the resource for which you are creating a private endpoint is in your directory, you will be able to approve the connection request provided you have sufficient permissions; if you are connecting to an Azure resource in another directory, you must wait for the owner of that resource to approve your connection request.
@@ -90,7 +144,7 @@ There are four provisioning states:
 | Reject | Rejected | Connection was rejected by the private link resource owner. |
 | Remove | Disconnected | Connection was removed by the private link resource owner, the private endpoint becomes informative and should be deleted for cleanup. |
  
-###  How to manage a private endpoint connection to key vault
+###  How to manage a private endpoint connection to Key Vault using the Azure portal 
 
 1. Log in to the Azure portal.
 1. In the search bar, type in "key vaults"
@@ -102,6 +156,23 @@ There are four provisioning states:
 1. If there are any private endpoint connections you want to reject, whether it is a pending request or existing connection, select the connection and click the "Reject" button.
 
     ![Image](./media/private-link-service-7.png)
+
+##  How to manage a private endpoint connection to Key Vault using Azure CLI
+
+### Approve a Private Link Connection Request
+```console
+az keyvault private-endpoint-connection approve --approval-description {"OPTIONAL DESCRIPTION"} --resource-group {RG} --vault-name {KEY VAULT NAME} –name {PRIVATE LINK CONNECTION NAME}
+```
+
+### Deny a Private Link Connection Request
+```console
+az keyvault private-endpoint-connection reject --rejection-description {"OPTIONAL DESCRIPTION"} --resource-group {RG} --vault-name {KEY VAULT NAME} –name {PRIVATE LINK CONNECTION NAME}
+```
+
+### Delete a Private Link Connection Request
+```console
+az keyvault private-endpoint-connection delete --resource-group {RG} --vault-name {KEY VAULT NAME} --name {PRIVATE LINK CONNECTION NAME}
+```
 
 ## Validate that the private link connection works
 

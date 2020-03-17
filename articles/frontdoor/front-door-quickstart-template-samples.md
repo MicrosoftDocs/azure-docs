@@ -1,6 +1,6 @@
 ---
-title: Azure Resource Manager template samples - Azure Front Door Service
-description: Azure Resource Manager template samples for Azure Front Door Service
+title: Azure Resource Manager template samples - Azure Front Door
+description: Azure Resource Manager template samples for Azure Front Door
 services: frontdoor
 documentationcenter: ""
 author: sharad4u
@@ -13,7 +13,7 @@ ms.author: sharadag
 ---
 # Azure Resource Manager deployment model templates for Front Door
 
-The following table includes links to Azure Resource Manager deployment model templates for Azure Front Door Service. 
+The following table includes links to Azure Resource Manager deployment model templates for Azure Front Door. 
 
 | | |
 | ---| ---|

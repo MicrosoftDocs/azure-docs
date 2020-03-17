@@ -1,6 +1,6 @@
 ---
 title: Transparent Data Encryption (Portal)
-description: Transparent Data Encryption (TDE) in SQL Data Warehouse
+description: Transparent Data Encryption (TDE) in Azure Synapse Analytics
 services: sql-data-warehouse
 author: julieMSFT
 manager: craigg
@@ -13,7 +13,7 @@ ms.reviewer: rortloff
 ms.custom: seo-lt-2019
 ---
 
-# Get started with Transparent Data Encryption (TDE) in SQL Data Warehouse
+# Get started with Transparent Data Encryption (TDE)
 > [!div class="op_single_selector"]
 > * [Security Overview](sql-data-warehouse-overview-manage-security.md)
 > * [Authentication](sql-data-warehouse-authentication.md)
@@ -26,7 +26,7 @@ ms.custom: seo-lt-2019
 To enable Transparent Data Encryption (TDE), you must be an administrator or a member of the dbmanager role.
 
 ## Enabling Encryption
-To enable TDE for a SQL Data Warehouse, follow the steps below:
+To enable TDE, follow the steps below:
 
 1. Open the database in the [Azure portal](https://portal.azure.com)
 2. In the database blade, click the **Settings** button
@@ -38,7 +38,7 @@ To enable TDE for a SQL Data Warehouse, follow the steps below:
    ![][3]  
 
 ## Disabling Encryption
-To disable TDE for a SQL Data Warehouse, follow the steps below:
+To disable TDE, follow the steps below:
 
 1. Open the database in the [Azure portal](https://portal.azure.com)
 2. In the database blade, click the **Settings** button
