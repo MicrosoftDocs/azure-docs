@@ -234,7 +234,7 @@ Address:  10.1.0.5 (private IP address)
 Aliases:  <your-event-hub-name>.servicebus.windows.net
 ```
 
-## Limitations and Design Considerations
+## Limitations and design considerations
 
 **Pricing**: For pricing information, see [Azure Private Link pricing](https://azure.microsoft.com/pricing/details/private-link/).
 
@@ -244,7 +244,7 @@ Aliases:  <your-event-hub-name>.servicebus.windows.net
 
 For more, see [Azure Private Link service: Limitations](../private-link/private-link-service-overview.md#limitations)
 
-## Next Steps
+## Next steps
 
 - Learn more about [Azure Private Link](../private-link/private-link-service-overview.md)
 - Learn more about [Azure Event Hubs](event-hubs-about.md)
