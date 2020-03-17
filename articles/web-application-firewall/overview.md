@@ -21,7 +21,7 @@ A WAF solution can  react to a security threat faster by centrally patching a kn
 
 ## Supported service
 
-WAF can be deployed with Azure Application Gateway,  Azure Front Door and CDN service from Microsoft. WAF with Azure CDN service from Microsoft is currently under public preview.  WAF has features that are customized for each specific service. For more information about WAF features for each service, see the overview for each service.
+WAF can be deployed with Azure Application Gateway,  Azure Front Door and Azure Content Delivery Network (CDN) service from Microsoft. WAF on Azure CDN is currently under public preview.  WAF has features that are customized for each specific service. For more information about WAF features for each service, see the overview for each service.
 
 ## Next steps
 
