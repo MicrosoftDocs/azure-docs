@@ -3,6 +3,8 @@
 - name: Meta [Temporary]
   expanded: true
   items:
+  - name: Docs Philosophy
+    href: docs-philosophy.md
   - name: Contributor Quickstart
     href: contribute.md
   - name: Internal Questions
