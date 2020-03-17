@@ -22,21 +22,32 @@ The Recommendations creation experience help you configure your Recommendations 
 5. Recommendation Digest name: User-friendly string
 
 Here are the steps to create **Recommendation Digest:**
-* **Step 1:** In the Azure portal, go to **Advisor** and under **Monitoring** section select **Recommendations Digest** 
+* **Step 1:** In the Azure portal, go to **Advisor** and under **Monitoring** section and select **Recommendations Digest** 
+
+![Recommendations Digest entry-point](./media/digest-0.png)
 
 * **Step 2:** Select **New Recommendations Digest** from the top bar as below:
 
+![Create recommendations digest](./media/digest-5.png)
+
 * **Step 3:** In the **scope** section, select the **subscription** for your digest
+
+![provide recommendations digest inputs](./media/digest-1.png)
 
 * **Step 4:** In the **condition** section, select the configurations like **category**, **frequency** and **language**
 
+![provide recommendations digest input conditions](./media/digest-2.png)
+
 * **Step 5:** In the **action group** section, select the **action group** for the digest. You can learn more here - [Create and manage action groups](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups)
+
+![provide recommendations digest input action group](./media/digest-3.png)
 
 * **Step 6:** In this final section for **digest details**, you can assign a name and state to your recommendation digest. 
 
 Press **Create recommendations digest** to complete the set-up.
 
-Once you have create the digests, you can manage them in our *manage recommendation digest** experience as below:
+![complete recommendations digest creation](./media/digest-4.png)
+
 
 ## Next steps
 
