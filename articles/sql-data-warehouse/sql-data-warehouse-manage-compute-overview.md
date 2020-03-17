@@ -98,7 +98,7 @@ When you resume a SQL pool:
 
 If you always want your SQL pool accessible, consider scaling it down to the smallest size rather than pausing. 
 
-For pause and resume steps, see the [Azure portal](pause-and-resume-compute-portal.md), or [PowerShell](pause-and-resume-compute-powershell.md) quickstarts. You can also use the [pause REST API](sql-data-warehouse-manage-compute-rest-api.md#pause-compute) or the [resume REST API](sql-data-warehouse-manage-compute-rest-api.md#resume-compute).
+For pause and resume steps, see the [Azure portal](../synapse-analytics/sql-data-warehouse/pause-and-resume-compute-portal.md), or [PowerShell](../synapse-analytics/sql-data-warehouse/pause-and-resume-compute-powershell.md) quickstarts. You can also use the [pause REST API](sql-data-warehouse-manage-compute-rest-api.md#pause-compute) or the [resume REST API](sql-data-warehouse-manage-compute-rest-api.md#resume-compute).
 
 ## Drain transactions before pausing or scaling
 
@@ -110,7 +110,7 @@ See also [Understanding transactions](sql-data-warehouse-develop-transactions.md
 
 ## Automating compute management
 
-To automate the compute management operations, see [Manage compute with Azure functions](manage-compute-with-azure-functions.md).
+To automate the compute management operations, see [Manage compute with Azure functions](../synapse-analytics/sql-data-warehouse/manage-compute-with-azure-functions.md).
 
 Each of the scale-out, pause, and resume operations can take several minutes to complete. If you are scaling, pausing, or resuming automatically, we recommend implementing logic to ensure that certain operations have completed before proceeding with another action. Checking the SQL pool state through various endpoints allows you to correctly implement automation of such operations. 
 
@@ -123,4 +123,4 @@ Scaling the SQL pool requires the permissions described in [ALTER DATABASE](/sql
 
 
 ## Next steps
-See the how to guide for [manage compute](manage-compute-with-azure-functions.md) Another aspect of managing compute resources is allocating different compute resources for individual queries. For more information, see [Resource classes for workload management](resource-classes-for-workload-management.md).
+See the how to guide for [manage compute](../synapse-analytics/sql-data-warehouse/manage-compute-with-azure-functions.md) Another aspect of managing compute resources is allocating different compute resources for individual queries. For more information, see [Resource classes for workload management](resource-classes-for-workload-management.md).

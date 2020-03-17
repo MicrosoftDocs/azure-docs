@@ -167,4 +167,4 @@ CREATE TABLE t6 (c1 INT UNIQUE NOT ENFORCED, c2 INT);
 
 ## Next steps
 
-After creating the tables for your SQL Analytics database, the next step is to load data into the table. For a loading tutorial, see [Loading data to SQL Analytics databases](load-data-wideworldimportersdw.md).
+After creating the tables for your SQL Analytics database, the next step is to load data into the table. For a loading tutorial, see [Loading data to SQL Analytics databases](../synapse-analytics/sql-data-warehouse/load-data-wideworldimportersdw.md).

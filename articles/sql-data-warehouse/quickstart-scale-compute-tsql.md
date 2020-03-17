@@ -144,4 +144,4 @@ AND
 You've now learned how to scale compute for your data warehouse. To learn more about Azure Synapse, continue to the tutorial for loading data.
 
 > [!div class="nextstepaction"]
->[Load data into a Azure Synapse Analytics](load-data-from-azure-blob-storage-using-polybase.md)
+>[Load data into a Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md)

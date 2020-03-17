@@ -119,4 +119,4 @@ $database | Select-Object DatabaseName,Status
 You have now learned how to scale compute for SQL pool. To learn more about SQL pool, continue to the tutorial for loading data.
 
 > [!div class="nextstepaction"]
->[Load data into a SQL pool](load-data-from-azure-blob-storage-using-polybase.md)
+>[Load data into a SQL pool](../synapse-analytics/sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md)
