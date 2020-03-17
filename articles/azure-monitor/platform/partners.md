@@ -235,6 +235,8 @@ The Azure Monitor Add-on for Splunk is [available in the Splunkbase here](https:
 
 SquaredUp for Azure makes visualizing your Azure applications beautifully simple. It gives you real time, interactive dashboards. You can drill down into subscriptions, resource groups, tags and individual resources to see metrics such as CPU, most inbound connections, Application Insights response time, total cost, and summary health status, and drill across to see related data such as alerts, Log Analytics events, more detailed metrics, or to see related data from the other tools you use – such as ServiceNow, Dynatrace, PagerDuty or Pingdom for example.  You can customize your own dashboards, publish, and share them with individuals or on intranet pages. 
 
+[Learn more.](https://squaredup.com/)
+
 ## Sumo Logic
 
 ![Sumo Logic Logo](./media/partners/SumoLogic.png)
