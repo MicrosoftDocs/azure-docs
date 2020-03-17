@@ -20,12 +20,16 @@ The fully supported tool is Azure Data Studio (preview).
 SQL Server Management Studio is supported partially from version 18.4. There are limited features such as connecting and querying.
 
 ## Find your server name
-The server name in the following example is samplesvr.sql.azuresynapse.net. To find the fully qualified server name:
+The server name for SQL Pool in the following example is: showdemoweu.sql.azuresynapse.net.
+The server name for SQL on-demand in the following example is: showdemoweu-ondemand.sql.azuresynapse.net.
+
+To find the fully qualified server name:
 
 1. Go to the [Azure portal](https://portal.azure.com).
-2. Click on **SQL Analytics**.
-3. Click on the Analytics you want to connect to.
-4. Locate the full server name.
+2. Click on **Synapse workspaces**.
+3. Click on the workspace you want to connect to.
+4. Go to overview.
+5. Locate the full server name.
 
 ## **SQL pool**
 
