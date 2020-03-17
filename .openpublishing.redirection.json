@@ -48185,11 +48185,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/mysql/howto-redirection.md",
-      "redirect_url": "/azure/mysql/concepts-connectivity-architecture",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-storage.md",
       "redirect_url": "/azure/active-directory/managed-identities-azure-resources/overview",
       "redirect_document_id": false
