@@ -109,7 +109,7 @@ Next, upload the SAML assertion and response signing certificate to Azure AD B2C
 
 ### 2.1 Create the SAML token issuer
 
-Now, add the capability for your tenant to issue SAML tokens.
+Now, add the capability for your tenant to issue SAML tokens, using [SAML token issuer](saml-issuer-technical-profile.md) and [SAML session provider](custom-policy-reference-sso.md#samlssosessionprovider) technical profiles.
 
 Open `SocialAndLocalAccounts\`**`TrustFrameworkExtensions.xml`** in the custom policy starter pack.
 
@@ -293,7 +293,7 @@ The metadata is information used in the SAML protocol to expose the configuratio
 
 If there are properties specified in *both* the SAML metadata URL and in the application registration's manifest, they are **merged**. The properties specified in the metadata URL are processed first and take precedence.
 
-For this tutorial which uses the SAML test application, use the following value for `samlMetadataUrl`:
+For this tutorial, which uses the SAML test application, use the following value for `samlMetadataUrl`:
 
 ```JSON
 "samlMetadataUrl":"https://samltestapp2.azurewebsites.net/Metadata",
@@ -320,7 +320,7 @@ For this tutorial, in which you use the SAML test application, set the `url` pro
 
 This optional property represents the `Logout` URL (`SingleLogoutService` URL in the relying party metadata), and the `BindingType` for this is assumed to be `Http-Redirect`.
 
-For this tutorial which uses the SAML test application, leave `logoutUrl` set to `https://samltestapp2.azurewebsites.net/logout`:
+For this tutorial, which uses the SAML test application, leave `logoutUrl` set to `https://samltestapp2.azurewebsites.net/logout`:
 
 ```JSON
 "logoutUrl": "https://samltestapp2.azurewebsites.net/logout",

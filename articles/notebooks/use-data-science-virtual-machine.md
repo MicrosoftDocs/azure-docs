@@ -33,6 +33,9 @@ Once you're created the DSVM, select the **Run** drop-down list on the Azure Not
 
 When you select a DSVM instance, Azure Notebooks may prompt you for the specific machine credentials used when you created the VM.
 
+> [!Important]
+> The username must be lowercase to use it with JupyterHub.
+
 If any of the conditions aren't met, you can still connect to the DSVM. On the drop-down list, select the **Direct Compute** option,
 which prompts you for a name (to show in the list), the VM's IP address and port (typically 8000, the default port to which JupyterHub listens), and the VM credentials:
 
@@ -56,7 +59,7 @@ If multiple users share a DSVM, you can avoid blocking each other by creating an
 
 1. On the [Azure portal](https://portal.azure.com), navigate to your virtual machine.
 1. Under **Support + troubleshooting** in the left margin, select **Reset password**.
-1. Enter a new username and password and select **Update**. (Existing usernames are not affected.)
+1. Enter a new **username**. The username must be lowercase to use it with JupyterHub. Enter a password. Then select **Update**. (Existing usernames are not affected.)
 1. Repeat the previous step for any additional users.
 
 ## Next steps

@@ -90,9 +90,7 @@ The following rules apply:
 - The AEK is used to derive DEKs, which are the keys that are used to
     encrypt each block of data written to disk.
 
-- When you configure your key in Key Vault and reference it in the
-    *Cluster* resource, Azure Storage wraps the AEK with your KEK in
-    Azure Key Vault.
+- When you configure your key in Key Vault and reference it in the *Cluster* resource, the Azure Storage sends requests to your Azure Key Vault to wrap and unwrap the AEK to perform data encryption and decryption operations.
 
 - Your KEK never leaves your Key Vault and in the case of an HSM key,
     it never leaves the hardware.
@@ -100,10 +98,6 @@ The following rules apply:
 - Azure Storage uses the managed identity that's associated with the
     *Cluster* resource to authenticate and access to Azure Key Vault via
     Azure Active Directory.
-
-- For read/write operations, Azure Storage sends requests to Azure Key
-    Vault to wrap and unwrap the AEK to perform encryption
-    and decryption operations.
 
 ## CMK provisioning procedure
 
@@ -317,6 +311,11 @@ Content-type: application/json
 
 For Application Insights CMK configuration, follow the Appendix content for this step.
 
+You need to have ‘write’ permissions on both your workspace and *Cluster* resource to perform this operation, which include these actions:
+
+- In workspace: Microsoft.OperationalInsights/workspaces/write
+- In *Cluster* resource: Microsoft.OperationalInsights/clusters/write
+
 ```rst
 PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>/linkedservices/cluster?api-version=2019-08-01-preview 
 Authorization: Bearer <token>
@@ -324,18 +323,17 @@ Content-type: application/json
 
 {
   "properties": {
-    "WriteAccessResourceId": "subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/clusters/<cluster-name>"
+    "WriteAccessResourceId": "/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/clusters/<cluster-name>"
     }
 }
 ```
-The *clusterDefinitionId* is the *clusterId* value provided in the response from the previous step.
 
 **Response**
 
 ```json
 {
   "properties": {
-    "WriteAccessResourceId": "subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/clusters/<cluster-name>"
+    "WriteAccessResourceId": "/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/clusters/<cluster-name>"
     },
   "id": "/subscriptions/subscription-id/resourcegroups/resource-group-name/providers/microsoft.operationalinsights/workspaces/workspace-name/linkedservices/cluster",
   "name": "workspace-name/cluster",
@@ -399,12 +397,8 @@ encryption key and once accessed, data ingestion and query resume within
 
 ## CMK (KEK) rotation
 
-Rotation of CMK requires explicit update of the *Cluster* resource with
-the new Azure Key Vault Key version. To update Azure Monitor with your
-new key version, follow the instructions in "Update *Cluster* resource
-with *Key identifier* details" step.
-
-If you update your key in Key Vault and don't update the new *Key identifier* details in the *Cluster* resource*, Azure Monitor Storage will keep using your previous key.
+Rotation of CMK requires explicit update of the *Cluster* resource with the new key version in Azure Key Vault. To update Azure Monitor with your new key version, follow the instructions in "Update *Cluster* resource with Key identifier details" step. If you update your key version in Key Vault and don't update the new Key identifier details in the *Cluster* resource, Azure Monitor Storage will keep using your previous key.
+All your data is accessible after the key rotation operation including data ingested before the rotation and after it, since all data remains encrypted by the Account Encryption Key (AEK) while it’s now being encrypted by your new Key Encryption Key (KEK) version.
 
 ## Limitations and constraints
 
@@ -544,7 +538,6 @@ apply to your Application Insights data.
 The configuration of Application Insights CMK is identical to the process illustrated in this article, including constraints and troubleshooting except these steps:
 
 - Create a *Cluster* resource
-
 - Associate a component to a *Cluster* resource
 
 When configuring CMK for Application Insights, use these steps instead
@@ -601,6 +594,11 @@ Identity is assigned to the *Cluster* resource at creation time.
 > Copy and keep the "principle-id" value since you will need it in next steps.
 
 ### Associate a component to a *Cluster* resource using [Components - Create Or Update](https://docs.microsoft.com/rest/api/application-insights/components/createorupdate) API
+
+You need to have ‘write’ permissions on both your component and *Cluster* resource to perform this operation, which include these actions:
+
+- In component: Microsoft.Insights/component/write
+- In *Cluster* resource: Microsoft.OperationalInsights/clusters/write
 
 ```rst
 PUT https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Insights/components/<component-name>?api-version=2015-05-01
