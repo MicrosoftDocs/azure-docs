@@ -52,26 +52,28 @@
       href: virtual-wan-site-to-site-portal.md
   - name: User VPN (point-to-site)
     items:
-    - name: Create User VPN (point-to-site) connections
+    - name: Create a User VPN connection
       href: virtual-wan-point-to-site-portal.md
-    - name: Configure certificates for User VPN
+    - name: Configure certificates
       href: certificates-point-to-site.md
-    - name: Configure Azure AD tenant for User VPN
+    - name: Configure Azure AD tenant
       href: openvpn-azure-ad-tenant.md
-    - name: Configure Always On VPN user tunnel
-      href: ../vpn-gateway/vpn-gateway-howto-always-on-user-tunnel.md?toc=%2fazure%2fvirtual-wan%2ftoc.json
-    - name: Configure Always On VPN device tunnel
-      href: ../vpn-gateway/vpn-gateway-howto-always-on-device-tunnel.md?toc=%2fazure%2fvirtual-wan%2ftoc.json
+    - name: Download a VPN profile
+      href: ../vpn-gateway/about-vpn-profile-download.md?toc=%2fazure%2fvirtual-wan%2ftoc.json
+    - name: Download global and hub-based profiles
+      href: global-hub-profile.md
     - name: Configure OpenVPN clients
       href: ../vpn-gateway/vpn-gateway-howto-openvpn-clients.md?toc=%2fazure%2fvirtual-wan%2ftoc.json
-    - name: Enable Multi-Factor Authentication(MFA) for User VPN
+    - name: Configure Always On VPN user tunnel
+      href: howto-always-on-user-tunnel.md
+    - name: Configure Always On VPN device tunnel
+      href: howto-always-on-device-tunnel.md
+    - name: Enable Multi-Factor Authentication(MFA)
       href: openvpn-azure-ad-mfa.md   
-    - name: Configure Azure AD authentication for User VPN
+    - name: Configure Azure AD authentication
       href: virtual-wan-point-to-site-azure-ad.md
-    - name: Configure Multi-application Azure AD authentication for User VPN
+    - name: Configure Multi-application Azure AD authentication
       href: openvpn-azure-ad-tenant-multi-app.md  
-    - name: Download global and hub-based User VPN profiles
-      href: global-hub-profile.md
   - name: Configure routing
     items:
     - name: Route traffic from a virtual hub to an NVA
