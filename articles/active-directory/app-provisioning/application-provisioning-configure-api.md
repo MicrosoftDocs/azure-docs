@@ -171,7 +171,7 @@ Content-type: application/json
 
 ### Retrieve the template for the provisioning connector
 
-Applications in the gallery that are enabled for provisioning have templates to streamline configuration. Use the request below to [retrieve the template for the provisioning configuration](https://docs.microsoft.com/graph/api/synchronization-synchronizationtemplate-list?view=graph-rest-beta&tabs=http).
+Applications in the gallery that are enabled for provisioning have templates to streamline configuration. Use the request below to [retrieve the template for the provisioning configuration](https://docs.microsoft.com/graph/api/synchronization-synchronizationtemplate-list?view=graph-rest-beta&tabs=http). Note that you will need to provide the ID. The ID refers to the preceding resource, which in this case is the ServicePrincipal. 
 
 #### *Request*
 
