@@ -16,12 +16,15 @@ The feature is available for certain recommendations only, via Azure portal.
 
 1. From the list of recommendations that have the **Quick Fix** label, click on the recommendation.
 
-![Advisor quick fix](./media/quick-fix-1.png)
+   ![Advisor quick fix](./media/quick-fix-1.png)
+   
+   *Prices in the image are for example purposes only*
 
 2. On the Recommendation details page, you'll see list of resources for which you have this recommendation. Select all the resources you want to remediate for the recommendation.
 
-
-![Advisor quick fix](./media/quick-fix-2.png)
+   ![Advisor quick fix](./media/quick-fix-2.png)
+   
+   *Prices in the image are for example purposes only*
 
 3. Once you have selected the resources, click on the **Quick Fix** button to bulk remediate.
 
@@ -31,7 +34,7 @@ The feature is available for certain recommendations only, via Azure portal.
    > [!NOTE]
    > If there are other implications, in addition to benefits mentioned in Advisor, you will be communicated in the experience to help you take informed remediation decisions.
    
-4. You will get a notification for the remediation completion.You will see an error if there are resources which are not remediated and resources in the selected mode in the resource list view.  
+4. You will get a notification for the remediation completion. You will see an error if there are resources which are not remediated and resources in the selected mode in the resource list view.  
 
 
 ## Next steps
