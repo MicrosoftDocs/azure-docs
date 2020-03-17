@@ -4,7 +4,7 @@ description: Learn how to configure customer-managed keys for your Azure Cosmos 
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 01/14/2020
+ms.date: 03/12/2020
 ms.author: thweiss
 ROBOTS: noindex, nofollow
 ---
@@ -182,6 +182,22 @@ New-AzResourceGroupDeployment `
     -accountName $accountName `
     -location $accountLocation `
     -keyVaultKeyUri $keyVaultKeyUri
+```
+
+### Using the Azure CLI
+
+When you create a new Azure Cosmos account through the Azure CLI, pass the URI of the Azure Key Vault key that you copied earlier under the **--key-uri** parameter.
+
+```azurecli-interactive
+resourceGroupName='myResourceGroup'
+accountName='mycosmosaccount'
+keyVaultKeyUri = 'https://<my-vault>.vault.azure.net/keys/<my-key>'
+
+az cosmosdb create \
+    -n $accountName \
+    -g $resourceGroupName \
+    --locations regionName='West US 2' failoverPriority=0 isZoneRedundant=False \
+    --key-uri $keyVaultKeyUri
 ```
 
 ## Frequently asked questions

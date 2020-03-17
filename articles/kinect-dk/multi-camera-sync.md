@@ -25,7 +25,7 @@ There are many reasons to use multiple Azure Kinect DK devices, including the fo
    Additional synchronized devices can provide the occluded data.
 - Scan objects in three dimensions.
 - Increase the effective frame rate to a value that's greater than 30 frames per second (FPS).
-- Capture multiple 4K color images of the same scene, all aligned within 100 microseconds (&mu;s) of the start of exposure.
+- Capture multiple 4K color images of the same scene, all aligned within 100 microseconds (&mu;s) of the center of exposure.
 - Increase camera coverage within the space.
 
 ## Plan your multi-device configuration
@@ -69,9 +69,6 @@ This section discusses several factors that affect synchronized devices (but not
 If you want to control the precise timing of each device, we recommend that you use a manual exposure setting. Under the automatic exposure setting, each color camera can dynamically change the actual exposure. Because the exposure affects the timing, such changes quickly push the cameras out of sync.
 
 In the image capture loop, avoid repeatedly setting the same exposure setting. Call the API only one time when it's needed.
-
-#### Timestamp considerations
-Devices that are acting in master or subordinate roles report image timestamps in terms of *Start of Frame* instead of *Center of Frame*.
 
 #### Avoiding interference between multiple depth cameras
 

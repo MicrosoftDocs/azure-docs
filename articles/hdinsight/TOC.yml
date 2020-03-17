@@ -682,6 +682,9 @@
       href: ./interactive-query/apache-interactive-query-get-started.md
   - name: Quickstarts
     items:
+    - name: Create Interactive Query cluster - ARM Template
+      displayName: Resource Manager
+      href: ./interactive-query/quickstart-resource-manager-template.md
     - name: Execute Apache Hive queries - Apache Zeppelin
       href: ./interactive-query/hdinsight-connect-hive-zeppelin.md
   - name: Tutorials
@@ -754,6 +757,8 @@
         href: ./interactive-query/interactive-query-troubleshoot-zookeeperhiveclientexception-hiveserver-configs.md
       - name: Apache HIVE troubleshooting
         href: ./hdinsight-troubleshoot-hive.md
+      - name: Apache Hive logs taking up entire disk space on Head node
+        href: ./interactive-query/interactive-query-troubleshoot-hive-logs-diskspace-full-headnodes.md
 - name: ML Services
   items:
   - name: Overview
@@ -762,6 +767,9 @@
       href: ./r-server/r-server-overview.md
   - name: Quickstarts
     items:
+    - name: Create ML Services cluster - ARM Template
+      displayName: Resource Manager
+      href: ./r-server/quickstart-resource-manager-template.md
     - name: Sample job - RStudio Server
       href: ./r-server/machine-learning-services-quickstart-job-rstudio.md
     - name: Sample job - R console
@@ -844,8 +852,6 @@
       href: ./domain-joined/hdinsight-security-overview.md
   - name: Tutorials
     items:
-    - name: Use firewall to restrict outbound traffic
-      href: ./hdinsight-restrict-outbound-traffic.md
     - name: Apache HBase RBAC with Apache Ranger
       href: ./domain-joined/apache-domain-joined-run-hbase.md
     - name: Apache Hive RBAC with Apache Ranger
@@ -894,6 +900,8 @@
       href: ./domain-joined/ssh-domain-accounts.md
     - name: Securing data
       href: ./hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
+    - name: Use firewall to restrict outbound traffic
+      href: ./hdinsight-restrict-outbound-traffic.md
     - name: Troubleshoot
       items:
       - name: ESP Authentication issues

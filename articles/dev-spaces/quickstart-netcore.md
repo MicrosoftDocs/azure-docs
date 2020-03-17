@@ -24,7 +24,7 @@ Azure Dev Spaces also allows you to debug and iterate using:
 
 - An Azure subscription. If you don't have one, you can create a [free account](https://azure.microsoft.com/free).
 - [Visual Studio Code installed](https://code.visualstudio.com/download).
-- The [Azure Dev Spaces](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds) and [C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) extensions for Visual Studio Code installed.
+- The [Azure Dev Spaces](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds) and [C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) extensions for Visual Studio Code installed.
 - [Azure CLI installed](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## Create an Azure Kubernetes Service cluster

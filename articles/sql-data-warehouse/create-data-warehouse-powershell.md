@@ -1,6 +1,6 @@
 ---
-title: "Quickstart: Create a data warehouse (PowerShell)"
-description: Quickly create an Azure Synapse Analytics data warehouse logical server, with a server-level firewall rule using Azure PowerShell.
+title: Create and query a Synapse SQL pool with Azure PowerShell
+description: Quickly create a Synapse SQL pool logical server with a server-level firewall rule using Azure PowerShell.
 services: sql-data-warehouse
 author: XiaoyuMSFT
 manager: craigg
@@ -12,16 +12,16 @@ ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse    
 ---
-# Quickstart: Create & query a data warehouse with Azure PowerShell
+# Quickstart: Create and query a Synapse SQL pool with Azure PowerShell
 
-Create an Azure Synapse Analytics data warehouse by provisioning a SQL pool using Azure PowerShell.
+Create an Synapse SQL pool (data warehouse) in Azure Synapse Analytics using Azure PowerShell.
 
 ## Prerequisites
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
-> [!NOTE]
-> Creating a warehouse may result in a new billable service.  For more information, see [Azure Synapse Analytics pricing](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
+> [!IMPORTANT]
+> Creating a SQL pool may result in a new billable service.  For more information, see [Azure Synapse Analytics pricing](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -88,7 +88,9 @@ New-AzSqlServer -ResourceGroupName $resourcegroupname `
 
 ## Configure a server firewall rule
 
-Create an [Azure SQL server-level firewall rule](../sql-database/sql-database-firewall-configure.md) using the [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) command. A server-level firewall rule allows an external application, such as SQL Server Management Studio or the SQLCMD utility to connect to a SQL Data Warehouse through the SQL Data Warehouse service firewall. In the following example, the firewall is only opened for other Azure resources. To enable external connectivity, change the IP address to an appropriate address for your environment. To open all IP addresses, use 0.0.0.0 as the starting IP address and 255.255.255.255 as the ending address.
+Create an [Azure SQL server-level firewall rule](../sql-database/sql-database-firewall-configure.md) using the [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) command. A server-level firewall rule allows an external application, such as SQL Server Management Studio or the SQLCMD utility to connect to a SQL pool through the SQL pool service firewall. 
+
+In the following example, the firewall is only opened for other Azure resources. To enable external connectivity, change the IP address to an appropriate address for your environment. To open all IP addresses, use 0.0.0.0 as the starting IP address and 255.255.255.255 as the ending address.
 
 ```powershell
 New-AzSqlServerFirewallRule -ResourceGroupName $resourcegroupname `
@@ -101,8 +103,8 @@ New-AzSqlServerFirewallRule -ResourceGroupName $resourcegroupname `
 >
 
 
-## Create a data warehouse
-This example creates a data warehouse using the previously defined variables.  It specifies the service objective as DW100c, which is a lower-cost starting point for your data warehouse. 
+## Create a SQL pool
+The following example creates a SQL pool using the previously defined variables.  It specifies the service objective as DW100c, which is a lower-cost starting point for your SQL pool. 
 
 ```Powershell
 New-AzSqlDatabase `
@@ -118,10 +120,10 @@ New-AzSqlDatabase `
 Required Parameters are:
 
 * **RequestedServiceObjectiveName**: The amount of [data warehouse units](what-is-a-data-warehouse-unit-dwu-cdwu.md) you're requesting. Increasing this amount increases compute cost. For a list of supported values, see [memory and concurrency limits](memory-concurrency-limits.md).
-* **DatabaseName**: The name of the data warehouse that you're creating.
+* **DatabaseName**: The name of the SQL pool that you're creating.
 * **ServerName**: The name of the server that you're using for creation.
 * **ResourceGroupName**: Resource group you're using. To find available resource groups in your subscription use Get-AzureResource.
-* **Edition**: Must be "DataWarehouse" to create a data warehouse.
+* **Edition**: Must be "DataWarehouse" to create a SQL pool.
 
 Optional Parameters are:
 
@@ -145,6 +147,4 @@ Remove-AzResourceGroup -ResourceGroupName $resourcegroupname
 
 ## Next steps
 
-You've now created a data warehouse, created a firewall rule, connected to your data warehouse, and run a few queries. To learn more, continue to the tutorial for loading data.
-> [!div class="nextstepaction"]
->[Load data into a data warehouse](load-data-from-azure-blob-storage-using-polybase.md)
+You've now created a SQL pool, created a firewall rule, connected to your SQL pool, and run a few queries. To learn more, continue to the [Load data into SQL pool](load-data-from-azure-blob-storage-using-polybase.md) article.

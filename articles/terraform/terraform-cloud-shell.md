@@ -1,8 +1,9 @@
 ---
 title: Tutorial - Configure Azure Cloud Shell for Terraform
-description: Use Terraform with Azure Cloud Shell to simplify authentication and template configuration.
+description: In this tutorial, you use Terraform with Azure Cloud Shell to simplify authentication and template configuration.
+keywords: azure devops terraform cloud shell
 ms.topic: tutorial
-ms.date: 10/26/2019
+ms.date: 03/09/2020
 ---
 
 # Tutorial: Configure Azure Cloud Shell for Terraform
@@ -26,6 +27,10 @@ Azure Terraform modules require credentials to access and modify Azure resources
 ```hcl
 # Configure the Microsoft Azure Provider
 provider "azurerm" {
+    # The "feature" block is required for AzureRM provider 2.x. 
+    # If you are using version 1.x, the "features" block is not allowed.
+    version = "~>2.0"
+    features {}
 }
 ```
 

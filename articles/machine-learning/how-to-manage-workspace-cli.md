@@ -32,7 +32,7 @@ In this article, you learn how to create an Azure Machine Learning workspace usi
 
 There are several ways that you can authenticate to your Azure subscription from the CLI. The most basic is to interactively authenticate using a browser. To authenticate interactively, open a command line or terminal and use the following command:
 
-```azurecli
+```azurecli-interactive
 az login
 ```
 
@@ -146,13 +146,13 @@ To create a workspace that uses existing resources, you must provide the ID for 
 
     1. Install the application insights extension:
 
-        ```bash
+        ```azurecli-interactive
         az extension add -n application-insights
         ```
 
     2. Get the ID of your application insight service:
 
-        ```bash
+        ```azurecli-interactive
         az monitor app-insights component show --app <application-insight-name> -g <resource-group-name> --query "id"
         ```
 

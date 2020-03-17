@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: tutorial
-ms.date: 12/09/2019
+ms.date: 03/05/2020
 ms.author: aahi
 ---
 
@@ -32,8 +32,7 @@ To use this app, an [Azure Cognitive Services account](https://docs.microsoft.co
 Here are a few things that you'll need to run the app:
 
 * Node.js 8 or later
-* A subscription key
-
+* A subscription key for the Bing Search API. If you don't have one, [Create a Bing Search v7 resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7). You can also use a [trial key](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api).
 ## Get the source code and install dependencies
 
 The first step is to clone the repository with the sample app's source code.

@@ -63,12 +63,12 @@ You can find **ConfigureSharePoint.exe** in the [DPM Installation Path]\bin fold
 
 1. On the WFE server, at a command prompt, go to [DPM installation location]\bin\
 2. Enter ConfigureSharePoint -EnableSharePointProtection.
-3. Enter the farm administrator credentials. This account should be a member of the local Administrator group on the WFE server. If the farm administrator isn’t a local admin grant the following permissions on the WFE server:
+3. Enter the farm administrator credentials. This account should be a member of the local Administrator group on the WFE server. If the farm administrator isn't a local admin grant the following permissions on the WFE server:
    * Grant the WSS_Admin_WPG group full control to the DPM folder (%Program Files%\Microsoft Data Protection Manager\DPM).
    * Grant the WSS_Admin_WPG group read access to the DPM Registry key (HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft Data Protection Manager).
 
 > [!NOTE]
-> You’ll need to rerun ConfigureSharePoint.exe whenever there’s a change in the SharePoint farm administrator credentials.
+> You'll need to rerun ConfigureSharePoint.exe whenever there's a change in the SharePoint farm administrator credentials.
 >
 >
 
@@ -127,7 +127,7 @@ After you have configured DPM and the SharePoint farm as explained previously, S
     ![Online_backup_schedule](./media/backup-azure-backup-sharepoint/specify-online-backup-schedule.png)
 
     > [!NOTE]
-    > DPM provides a maximum of two daily backups to Azure at different times. Azure Backup can also control the amount of WAN bandwidth that can be used for backups in peak and off-peak hours by using [Azure Backup Network Throttling](https://azure.microsoft.com/documentation/articles/backup-configure-vault/#enable-network-throttling).
+    > DPM provides a maximum of two daily backups to Azure at different times. Azure Backup can also control the amount of WAN bandwidth that can be used for backups in peak and off-peak hours by using  [Azure Backup Network Throttling](backup-windows-with-mars-agent.md#enable-network-throttling).
     >
     >
 11. Depending on the backup schedule that you selected, on the **Specify Online Retention Policy** page, select the retention policy for daily, weekly, monthly, and yearly backup points.
