@@ -1,6 +1,6 @@
 ---
-title: Route efficiently by using Azure Maps Route Service  | Microsoft Azure Maps 
-description: Learn how to apply the best practices when using the Route Service from Microsoft Azure Maps.
+title: Best practices for Azure Maps Route Service  | Microsoft Azure Maps 
+description: Learn how to route efficiently by using Route Service from Microsoft Azure Maps.
 author: farah-alyasari
 ms.author: v-faalya
 ms.date: 03/11/2020
