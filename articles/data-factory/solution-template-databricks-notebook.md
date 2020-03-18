@@ -39,21 +39,19 @@ For simplicity, the template in this tutorial doesn't create a scheduled trigger
 
 To import a **Transformation** notebook to your Databricks workspace:
 
-1. Sign in to your Azure Databricks account.
-1. In your Databricks workspace, select Import.
+1. Sign in to your Azure Databricks workspace, and then select **Import**.
        ![2](media/solution-template-Databricks-notebook/import-notebook.png)
-   Your Databricks location can be different from the one shown, but remember it for later.
-1. Select "Import from: **URL**", and enter following URL in the textbox:
-    
-       * `https://adflabstaging1.blob.core.windows.net/share/Transformations.html`
-        
-       ![3](media/solution-template-Databricks-notebook/import-from-url.png)    
+   Your workspace path can be different from the one shown, but remember it for later.
+1. Select **Import from: URL**. In the textbox, enter `https://adflabstaging1.blob.core.windows.net/share/Transformations.html`
 
-       `https://adflabstaging1.blob.core.windows.net/share/Transformations.html`
+   ![3](media/solution-template-Databricks-notebook/import-from-url.png)
 
-       ![3](media/solution-template-Databricks-notebook/Databricks-tutorial-image03.png)
+1. Now let's update the **Transformation** notebook with your storage connection information.
 
-4. Now let's update the **Transformation** notebook with your storage connection information. Go to **command 5** (as shown in below code snippet) in the imported notebook above, and replace `<storage name>`and `<access key>` with your own storage connection information. Ensure this account is the same storage account created earlier and contains the `sinkdata` container.
+   In the imported notebook, go to **command 5** as shown in the following code snippet.
+
+   - Replace `<storage name>`and `<access key>` with your own storage connection information.
+   - Use the storage account with the `sinkdata` container.
 
     ```python
     # Supply storageName and accessKey values  
@@ -77,62 +75,70 @@ To import a **Transformation** notebook to your Databricks workspace:
       print e \# Otherwise print the whole stack trace.  
     ```
 
-5. Generate a **Databricks access token** for Data Factory to access Databricks. **Save the access token** for later use in creating a Databricks linked service, which looks something like 'dapi32db32cbb4w6eee18b7d87e45exxxxxx'.
-
+1. Generate a **Databricks access token** for Data Factory to access Databricks.
+   1. In your Databricks workspace, select your user profile icon in the upper right.
+   1. Select **User Settings**.
     ![4](media/solution-template-Databricks-notebook/user-setting.png)
+   1. Select **Generate New Token** under the **Access Tokens** tab.
+   1. Select **Generate**.
 
     ![5](media/solution-template-Databricks-notebook/generate-new-token.png)
 
+   **Save the access token** for later use in creating a Databricks linked service. The access token looks something like 'dapi32db32cbb4w6eee18b7d87e45exxxxxx'.
+
 ## How to use this template
 
-1. Go to **Transformation with Azure Databricks** template. Create new linked services for following connections.
+1. Go to the **Transformation with Azure Databricks** template and create new linked services for following connections.
 
-    ![Connections setting](media/solution-template-Databricks-notebook/connections-preview.png)
+   ![Connections setting](media/solution-template-Databricks-notebook/connections-preview.png)
 
-    1. **Source Blob Connection** – for accessing source data.
+    - **Source Blob Connection** – to access the source data.
 
-        You can use the public blob storage containing the source files for this sample. Reference following screenshot for configuration. Use below **SAS URL** to connect to source storage (read-only access):
+       For this exercise, you can use the public blob storage that contains the source files. Reference following screenshot for configuration. Use the following **SAS URL** to connect to source storage (read-only access):
 
-        `https://storagewithdata.blob.core.windows.net/data?sv=2018-03-28&si=read%20and%20list&sr=c&sig=PuyyS6%2FKdB2JxcZN0kPlmHSBlD8uIKyzhBWmWzznkBw%3D`
+       `https://storagewithdata.blob.core.windows.net/data?sv=2018-03-28&si=read%20and%20list&sr=c&sig=PuyyS6%2FKdB2JxcZN0kPlmHSBlD8uIKyzhBWmWzznkBw%3D`
 
         ![6](media/solution-template-Databricks-notebook/source-blob-connection.png)
 
-    1. **Destination Blob Connection** – for copying data into.
+    - **Destination Blob Connection** – to store the copied data.
 
-        In the sink linked service, select a storage created in the **Prerequisite** 1.
+       In the linked service, select your sink storage blob.
 
-        ![7](media/solution-template-Databricks-notebook/destination-blob-connection.png)
+       ![7](media/solution-template-Databricks-notebook/destination-blob-connection.png)
 
-    1. **Azure Databricks** – for connecting to Databricks cluster.
+    - **Azure Databricks** – to connect to the Databricks cluster.
 
-        Create a Databricks linked service using access key generated in **Prerequisite** 2.c. If you have an *interactive cluster*, you may select that. (This example uses the *New job cluster* option.)
+        Create a Databricks-linked service using the access key you generated earier. You may opt to select an *interactive cluster* if you have one. This example uses the *New job cluster* option.
 
         ![8](media/solution-template-Databricks-notebook/databricks-connection.png)
 
-1. Select **Use this template**, and you would see a pipeline created as shown below:
+1. Select **Use this template**. You'll see a pipeline created.
 
     ![Create a pipeline](media/solution-template-Databricks-notebook/new-pipeline.png)
 
 ## Pipeline introduction and configuration
 
-In the new pipeline created, most settings have been configured automatically with default values. Check out the configurations and update where necessary to suit your own settings. For details, you can check below instructions and screenshots for reference.
+In the new pipeline, most settings are  configured automatically with default values. Review the configurations of your pipeline and make any necessary changes:
 
-1. A Validation activity **Availability flag** is created for doing a Source Availability check. *SourceAvailabilityDataset* created in previous step is selected as Dataset.
+- A _Validation_ activity **Availability flag** is created for checking the source. The Dataset value should be set to   *SourceAvailabilityDataset* which was created earlier.
 
-    ![12](media/solution-template-Databricks-notebook/validation-settings.png)
+   ![12](media/solution-template-Databricks-notebook/validation-settings.png)
 
-1. A Copy activity **file-to-blob** is created for copying dataset from source to sink. Reference the below screenshots for source and sink configurations in the copy activity.
+- A _Copy data_ activity **file-to-blob** is created for copying the dataset from the source to the sink. Check the source and sink tabs to change these settings.
 
-    ![13](media/solution-template-Databricks-notebook/copy-source-settings.png)
+  - Source tab
+   ![13](media/solution-template-Databricks-notebook/copy-source-settings.png)
 
-    ![14](media/solution-template-Databricks-notebook/copy-sink-settings.png)
+  - Sink tab
+   ![14](media/solution-template-Databricks-notebook/copy-sink-settings.png)
 
-1.  A Notebook activity **Transformation** is created, and the linked service created in previous step is selected.
+\***
+- A _Notebook_ activity **Transformation** is created with the linked service from earlier.
     ![16](media/solution-template-Databricks-notebook/notebook-activity.png)
 
-     1. Select **Settings** tab. For *Notebook path*, the template defines a path by default. You may need to browse and select the correct notebook path uploaded in **Prerequisite** 2. 
+   1. Select **Settings** tab. For *Notebook path*, the template defines a path by default. You may need to browse and select the correct notebook path uploaded in **Prerequisite** 2.
 
-         ![17](media/solution-template-Databricks-notebook/notebook-settings.png)
+       ![17](media/solution-template-Databricks-notebook/notebook-settings.png)
     
      1. Check out the *Base Parameters* created as shown in the screenshot. They are to be passed to the Databricks notebook from Data Factory. 
 
