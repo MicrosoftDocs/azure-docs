@@ -1,6 +1,6 @@
 ---
-title: Connect to and manage Microsoft Azure Data Box Edge device via the Windows PowerShell interface | Microsoft Docs
-description: Describes how to connect to and then manage Data Box Edge via the Windows PowerShell interface.
+title: Connect to and manage Microsoft Azure Stack Edge device via the Windows PowerShell interface | Microsoft Docs
+description: Describes how to connect to and then manage Azure Stack Edge via the Windows PowerShell interface.
 services: databox
 author: alkohli
 
@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 06/25/2019
 ms.author: alkohli
 ---
-# Manage an Azure Data Box Edge device via Windows PowerShell
+# Manage an Azure Stack Edge device via Windows PowerShell
 
-Azure Data Box Edge solution lets you process data and send it over the network to Azure. This article describes some of the configuration and management tasks for your Data Box Edge device. You can use the Azure portal, local web UI, or the Windows PowerShell interface to manage your device.
+Azure Stack Edge solution lets you process data and send it over the network to Azure. This article describes some of the configuration and management tasks for your Azure Stack Edge device. You can use the Azure portal, local web UI, or the Windows PowerShell interface to manage your device.
 
-This article focuses on the tasks you do using the PowerShell interface.
+This article focuses on the tasks you do using the PowerShell interface. 
 
 This article includes the following procedures:
 
@@ -89,4 +89,4 @@ To exit the remote PowerShell session, close the PowerShell window.
 
 ## Next steps
 
-- Deploy [Azure Data Box Edge](data-box-edge-deploy-prep.md) in Azure portal.
+- Deploy [Azure Azure Stack Edge](data-box-edge-deploy-prep.md) in Azure portal.
