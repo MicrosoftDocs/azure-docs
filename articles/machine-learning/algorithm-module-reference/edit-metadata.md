@@ -89,7 +89,7 @@ Typical metadata changes might include:
   
     + All selected columns must be renamed. You can't omit or skip columns.  
   
-1. Run the pipeline.  
+1. Submit the pipeline.  
 
 ## Next steps
 
