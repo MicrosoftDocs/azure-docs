@@ -12,22 +12,24 @@ ms.date: 03/16/2020
 
 This topic explains how to connect an application your Azure Database for MySQL server with redirection mode. Redirection aims to reduce network latency between client applications and MySQL servers by allowing applications to connect directly to backend server nodes.
 
-> [!IMPORTANT]
-> Support for redirection in the PHP [mysqlnd_azure](https://github.com/microsoft/mysqlnd_azure) extension is currently in preview.
-
 ## Before you begin
 Sign in to the [Azure portal](https://portal.azure.com). Create an Azure Database for MySQL server with engine version 5.6, 5.7, or 8.0. For details, refer to [How to create Azure Database for MySQL server from Portal](quickstart-create-mysql-server-database-using-azure-portal.md) or [How to create Azure Database for MySQL server using CLI](quickstart-create-mysql-server-database-using-azure-cli.md).
 
-Redirection is currently only supported when SSL is enabled. For details on how to configure SSL, see [Using SSL with Azure Database for MySQL](https://docs.microsoft.com/azure/mysql/howto-configure-ssl#step-3-enforcing-ssl-connections-in-azure). 
+Redirection is currently only supported when **SSL is enabled** on your Azure Database for MySQL server. For details on how to configure SSL, see [Using SSL with Azure Database for MySQL](https://docs.microsoft.com/azure/mysql/howto-configure-ssl#step-3-enforcing-ssl-connections-in-azure).
 
 ## PHP
 
-It is highly recommended to use PECL to install and configure the [mysqlnd_azure](https://pecl.php.net/package/mysqlnd_azure) extension. 
+Support for redirection in PHP applications is available through the [mysqlnd_azure](https://github.com/microsoft/mysqlnd_azure) extension, developed by Microsoft. 
+
+The mysqlnd_azure extension is available to add to PHP applications through PECL and it is highly recommended to install and configure the extension through the officially published [PECL package](https://pecl.php.net/package/mysqlnd_azure).
+
+> [!IMPORTANT]
+> Support for redirection in the PHP [mysqlnd_azure](https://github.com/microsoft/mysqlnd_azure) extension is currently in preview.
 
 ### Redirection logic
 
 >[!IMPORTANT]
-> Redirection logic/behavior beginning version 1.1.0 was updated and **it is recommended to use 1.1.0+**.
+> Redirection logic/behavior beginning version 1.1.0 was updated and **it is recommended to use version 1.1.0+**.
 
 The redirection behavior is determined by the value of `mysqlnd_azure.enableRedirect`. The table below outlines the behavior of redirection based on the value of this parameter beginning in **version 1.1.0+**.
 
