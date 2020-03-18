@@ -14,7 +14,7 @@ ms.author: anzaman
 
 # Customize a Person model with the Video Indexer API
 
-Video Indexer supports face detection and celebrity recognition for video content. The celebrity recognition feature covers approximately one million faces based on commonly requested data source such as IMDB, Wikipedia, and top LinkedIn influencers. Faces that aren't recognized by the celebrity recognition feature are detected but left unnamed. After you upload your video to Video Indexer and get results back, you can go back and name the faces that weren't recognized. Once you label a face with a name, the face and name get added to your account's Person model. Video Indexer will then recognize this face in your future videos and past videos.
+Video Indexer supports face detection and celebrity recognition for video content. The celebrity recognition feature covers about one million faces based on commonly requested data source such as IMDB, Wikipedia, and top LinkedIn influencers. Faces that aren't recognized by the celebrity recognition feature are detected but left unnamed. After you upload your video to Video Indexer and get results back, you can go back and name the faces that weren't recognized. Once you label a face with a name, the face and name get added to your account's Person model. Video Indexer will then recognize this face in your future videos and past videos.
 
 You can use the Video Indexer API to edit faces that were detected in a video, as described in this topic. You can also use the Video Indexer website, as described in [Customize Person model using the Video Indexer website](customize-person-model-with-api.md).
 
@@ -41,7 +41,7 @@ The response provides the name and generated model ID of the Person model that y
 }
 ```
 
-You should then use the **id** value for the **personModelId** parameter when [uploading a video to index](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) or [reindexing a video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-index-video?).
+You then use the **id** value for the **personModelId** parameter when [uploading a video to index](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) or [reindexing a video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-index-video?).
 
 ## Delete a Person model
 
@@ -74,9 +74,9 @@ You can choose which model you want to use for a video by using the `id` value o
 
 ## Update a face
 
-This command allows you to update a face in your video with a name using the ID of the video and ID of the face. This then updates the Person model that the video was associated with upon uploading/indexing or reindexing. If no Person model was assigned, it updates the account's default Person model.
+This command allows you to update a face in your video with a name using the ID of the video and ID of the face. This action then updates the Person model that the video was associated with upon uploading/indexing or reindexing. If no Person model was assigned, it updates the account's default Person model.
 
-Once this happens, it recognizes the occurrences of the same face in your other current videos that share the same Person model. Recognition of the face in your other current videos might take some time to take effect as this is a batch process.
+The system then recognizes the occurrences of the same face in your other current videos that share the same Person model. Recognition of the face in your other current videos might take some time to take effect as this is a batch process.
 
 You can update a face that Video Indexer recognized as a celebrity with a new name. The new name that you give will take precedence over the built-in celebrity recognition.
 
