@@ -337,6 +337,6 @@ static void QueryMysteryBooks(BlobClient blobClient)
 ## Next steps
 
 - [Query acceleration enrollment form](https://aka.ms/adls/queryaccelerationpreview)    
-- [Azure Data Lake Storage query acceleration (Preview)](data-lake-storage-quick-query.md)
+- [Azure Data Lake Storage query acceleration (Preview)](data-lake-storage-query-acceleration.md)
 - Query acceleration SQL language reference
 - Query acceleration REST API reference
