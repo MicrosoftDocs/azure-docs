@@ -23,7 +23,7 @@
     - name: Azure Cost Management best practices
       href: cost-mgt-best-practices.md
     - name: Choose between Cost Management and Cloudyn
-      href: ../understand/choose-between-azure-cost-management-cloudyn.md
+      href: choose-between-azure-cost-management-cloudyn.md
     - name: Understand Cost Management data
       href: understand-cost-mgt-data.md
     - name: Understand and work with scopes
