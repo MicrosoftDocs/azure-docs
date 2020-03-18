@@ -21,7 +21,7 @@ Make sure that you have installed Azure CLI version 2.0.70 or later, and signed 
 ## Limitations
 
 - Virtual machine scale sets are not currently supported on dedicated hosts.
-- The initial release supports the following VM series: DSv3, ESv3, FSv2, LSv2, and MSv2. 
+- The sizes and hardware types available for dedicated hosts vary by region. Refer to the host [pricing page](https://aka.ms/ADHPricing) to learn more.
  
 
 ## Create resource group 
@@ -74,7 +74,7 @@ az vm host group create \
  
 ## Create a host 
 
-Now let's create a dedicated host in the host group. In addition to a name for the host, you are required to provide the SKU for the host. Host SKU captures the supported VM series as well as the hardware generation for your dedicated host.  The following SKU values are supported: DSv3_Type1 and ESv3_Type1.
+Now let's create a dedicated host in the host group. In addition to a name for the host, you are required to provide the SKU for the host. Host SKU captures the supported VM series as well as the hardware generation for your dedicated host.  
 
 For more information about the host SKUs and pricing, see [Azure Dedicated Host pricing](https://aka.ms/ADHPricing).
 

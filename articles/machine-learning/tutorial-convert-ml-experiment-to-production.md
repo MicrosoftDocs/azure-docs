@@ -6,7 +6,7 @@ author: bjcmit
 ms.author: brysmith
 ms.service: machine-learning
 ms.topic: tutorial
-ms.date: 02/10/2020
+ms.date: 03/13/2020
 ---
 
 # Tutorial: Convert ML experimental code to production code
@@ -25,7 +25,7 @@ In this tutorial, you learn how to:
 ## Prerequisites
 
 - Generate the [MLOpsPython template](https://github.com/microsoft/MLOpsPython/generate)
-and use the `experimentation/Diabetes Ridge Regression Training.ipynb` and `experimentation/Diabetes Ridge Regression Scoring.ipynb` notebooks. These notebooks are used as an example of converting from experimentation to production.
+and use the `experimentation/Diabetes Ridge Regression Training.ipynb` and `experimentation/Diabetes Ridge Regression Scoring.ipynb` notebooks. These notebooks are used as an example of converting from experimentation to production. You can find these notebooks at [https://github.com/microsoft/MLOpsPython/tree/master/experimentation](https://github.com/microsoft/MLOpsPython/tree/master/experimentation).
 - Install nbconvert. Follow only the installation instructions under section __Installing nbconvert__ on the [Installation](https://nbconvert.readthedocs.io/en/latest/install.html) page.
 
 ## Remove all nonessential code
@@ -70,7 +70,7 @@ Second, the Jupyter code needs to be refactored into functions. Refactoring code
 In `experimentation/Diabetes Ridge Regression Training.ipynb`, complete the following steps:
 
 1. Create a function called `train_model`, which takes the parameters `data` and `alpha` and returns a model.
-1. Copy the code under the headings “Train Model on Training Set” and “Validate Model on Validation Set” into the `train_model` function.
+1. Copy the code under the headings "Train Model on Training Set" and "Validate Model on Validation Set" into the `train_model` function.
 
 The `train_model` function should look like the following code:
 
@@ -84,7 +84,7 @@ def train_model(data, alpha):
     return reg
 ```
 
-Once the `train_model` function is created, replace the code under the headings “Train Model on Training Set” and “Validate Model on Validation Set” with the following statement:
+Once the `train_model` function is created, replace the code under the headings "Train Model on Training Set" and "Validate Model on Validation Set" with the following statement:
 
 ```python
 reg = train_model(data, alpha)
@@ -95,7 +95,7 @@ The previous statement calls the `train_model` function passing the `data` and `
 In `experimentation/Diabetes Ridge Regression Training.ipynb`, complete the following steps:
 
 1. Create a new function called `main`, which takes no parameters and returns nothing.
-1. Copy the code under the headings “Load Data”, “Split Data into Training and Validation Sets”, and “Save Model” into the `main` function.
+1. Copy the code under the headings "Load Data", "Split Data into Training and Validation Sets", and "Save Model" into the `main` function.
 1. Copy the newly created call to `train_model` into the `main` function.
 
 The `main` function should look like the following code:
@@ -118,7 +118,7 @@ def main():
     joblib.dump(value=reg, filename=model_name)
 ```
 
-Once the `main` function is created, replace all the code under the headings “Load Data”, “Split Data into Training and Validation Sets”, and “Save Model” along with the newly created call to `train_model` with the following statement:
+Once the `main` function is created, replace all the code under the headings "Load Data", "Split Data into Training and Validation Sets", and "Save Model" along with the newly created call to `train_model` with the following statement:
 
 ```python
 main()
@@ -166,7 +166,7 @@ main()
 In `experimentation/Diabetes Ridge Regression Scoring.ipynb`, complete the following steps:
 
 1. Create a new function called `init`, which takes no parameters and return nothing.
-1. Copy the code under the “Load Model” heading into the `init` function.
+1. Copy the code under the "Load Model" heading into the `init` function.
 
 The `init` function should look like the following code:
 
@@ -177,7 +177,7 @@ def init():
     model = joblib.load(model_path)
 ```
 
-Once the `init` function has been created, replace all the code under the heading “Load Model” with a single call to `init` as follows:
+Once the `init` function has been created, replace all the code under the heading "Load Model" with a single call to `init` as follows:
 
 ```python
 init()
@@ -191,7 +191,7 @@ In `experimentation/Diabetes Ridge Regression Scoring.ipynb`, complete the follo
     {"result": result.tolist()}
     ```
 
-1. Copy the code under the “Prepare Data” and “Score Data” headings into the `run` function.
+1. Copy the code under the "Prepare Data" and "Score Data" headings into the `run` function.
 
     The `run` function should look like the following code (Remember to remove the statements that set the variables `raw_data` and `request_headers`, which will be used later when the `run` function is called):
 
@@ -204,7 +204,7 @@ In `experimentation/Diabetes Ridge Regression Scoring.ipynb`, complete the follo
         return {"result": result.tolist()}
     ```
 
-Once the `run` function has been created, replace all the code under the “Prepare Data” and “Score Data” headings with the following code:
+Once the `run` function has been created, replace all the code under the "Prepare Data" and "Score Data" headings with the following code:
 
 ```python
 raw_data = '{"data":[[1,2,3,4,5,6,7,8,9,10],[10,9,8,7,6,5,4,3,2,1]]}'

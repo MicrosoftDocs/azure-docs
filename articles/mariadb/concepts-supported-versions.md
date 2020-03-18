@@ -5,7 +5,7 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 09/12/2019
+ms.date: 03/18/2020
 ---
 # Supported Azure Database for MariaDB server versions
 

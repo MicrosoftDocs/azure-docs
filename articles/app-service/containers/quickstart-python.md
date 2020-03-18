@@ -86,7 +86,7 @@ The Azure CLI provides you with many convenient commands that you use from a loc
 
 To run Azure commands in the Azure CLI, you must first sign in using the `az login` command. This command opens a browser to gather your credentials.
 
-```terminal
+```azurecli
 az login
 ```
 
@@ -97,11 +97,11 @@ The [`az webapp up`](/cli/azure/webapp#az-webapp-up) command creates the web app
 In the *python-docs-hello-world* folder that contains the sample code, run the following `az webapp up` command. Replace  `<app-name>` with a globally unique app name (*valid characters are `a-z`, `0-9`, and `-`*). Also replace `<location-name>` with an Azure region such as **centralus**, **eastasia**, **westeurope**, **koreasouth**, **brazilsouth**, **centralindia**, and so on. (You can retrieve a list of allowable regions for your Azure account by running the [`az account list-locations`](/cli/azure/appservice?view=azure-cli-latest.md#az-appservice-list-locations) command.)
 
 
-```terminal
+```azurecli
 az webapp up --sku F1 -n <app-name> -l <location-name>
 ```
 
-This command may take a few minutes complete run. While running, it displays information similar to the following example:
+This command may take a few minutes to completely run. While running, it displays information similar to the following example:
 
 ```output
 The behavior of this command has been altered by the following extension: webapp
@@ -153,7 +153,7 @@ Save your changes and exit the editor.
 
 Redeploy the app using the following `az webapp up` command, using the same command you used to deploy the app the first time, replacing `<app-name>` and `<location-name>` with the same names you used before. 
 
-```terminal
+```azurecli
 az webapp up --sku F1 -n <app-name> -l <location-name>
 ```
 
@@ -170,13 +170,13 @@ You can access the console logs generated from inside the app and the container 
 
 First, turn on container logging by running the following command in a terminal, replacing `<app-name>` with the name of your app and `<resource-group-name>` with the name of the resource group shown in the output of the `az webapp up` command you used (such as "appsvc_rg_Linux_centralus"):
 
-```terminal
+```azurecli
 az webapp log config --name <app-name> --resource-group <resource-group-name> --docker-container-logging filesystem
 ```
 
 Once container logging is turned on, run the following command to show the log stream:
 
-```terminal
+```azurecli
 az webapp log tail --name <app-name> --resource-group <resource-group-name>
 ```
 
@@ -213,7 +213,7 @@ In the preceding steps, you created Azure resources in a resource group. The res
 
 If you don't expect to need these resources in the future, delete the resource group by running the following command, replacing `<resource-group-name>` with the resource group shown in the output of the `az webapp up` command, such as "appsvc_rg_Linux_centralus". The command may take a minute to complete.
 
-```terminal
+```azurecli
 az group delete -n <resource-group-name>
 ```
 

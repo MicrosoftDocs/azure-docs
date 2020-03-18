@@ -20,7 +20,7 @@ The [default consistency level](consistency-levels.md) is the consistency level 
 
 ### CLI
 
-```bash
+```azurecli
 # create with a default consistency
 az cosmosdb create --name <name of Cosmos DB Account> --resource-group <resource group name> --default-consistency-level Session
 
