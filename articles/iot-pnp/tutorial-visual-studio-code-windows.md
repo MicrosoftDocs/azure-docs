@@ -15,7 +15,7 @@ manager: eliotgra
 
 # Tutorial: Use Visual Studio Code modeling and code generation tools (Windows)
 
-[!INCLUDE [iot-pnp-vscode-selector.md](../../includes/iot-pnp-vscode-selector.md)]
+[!INCLUDE [iot-pnp-vs-code-selector.md](../../includes/iot-pnp-vs-code-selector.md)]
 
 This tutorial shows you how, as a device developer, to use Visual Studio Code on Windows to create a _device capability model_. You can use the model to generate skeleton code to run on a device that connects to an Azure IoT Hub instance in the cloud.
 
@@ -76,7 +76,7 @@ In this tutorial, you use the [Vcpkg](https://github.com/microsoft/vcpkg) librar
     .\vcpkg.exe install azure-iot-sdk-c[public-preview,use_prov_client]
     ```
 
-[!INCLUDE [iot-pnp-vscode-model.md](../../includes/iot-pnp-vscode-model.md)]
+[!INCLUDE [iot-pnp-vs-code-model.md](../../includes/iot-pnp-vs-code-model.md)]
 
 ## Generate code
 
@@ -168,7 +168,7 @@ When you run the code, it connects to IoT Hub and starts sending sample telemetr
     sensorbox_app.exe {your device connection string}
     ```
 
-[!INCLUDE [iot-pnp-vscode-validate.md](../../includes/iot-pnp-vscode-validate.md)]
+[!INCLUDE [iot-pnp-vs-code-validate.md](../../includes/iot-pnp-vs-code-validate.md)]
 
 [!INCLUDE [iot-pnp-clean-resources.md](../../includes/iot-pnp-clean-resources.md)]
 
