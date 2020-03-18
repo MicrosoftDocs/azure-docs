@@ -151,7 +151,7 @@ You have used Visual Studio Code to create and publish a C# durable function app
 > [!div class="nextstepaction"]
 > [Learn about common durable function patterns](durable-functions-overview.md#application-patterns)
 
-:::
+::: zone-end
 
 ::: zone pivot="code-editor-visualstudio"
 
@@ -285,4 +285,4 @@ You have used Visual Studio to create and publish a C# durable function app.
 > [!div class="nextstepaction"]
 > [Learn about common durable function patterns](durable-functions-overview.md#application-patterns)
 
-:::
+::: zone-end
