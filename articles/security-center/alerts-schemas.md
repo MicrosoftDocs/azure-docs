@@ -163,8 +163,8 @@ You can view the security alerts events in Activity Log by searching for the Act
 |**subStatus**|The value and localizedValue sub-fields are empty|
 |**submissionTimestamp**|The UTC timestamp of event submission to Activity Log|
 |**subscriptionId**|The subscription ID of the compromised resource|
-|**properties**|A JSON bag of additional properties pertaining to the alert. These can change from one alert to the other, however, the following fields will appear in all alerts:<br>- severity: The severity of the attack<br>- compromisedEntity: The name of the comrpomised resource<br>- remediationSteps: Array of remediation steps to be taken<br>- intent: The kill-chain intent of the alert. Possible intents are documented in the [Intentions table](alerts-reference.md#intentions)|
-|**relatedEvents**|Constnt - empty array|
+|**properties**|A JSON bag of additional properties pertaining to the alert. These can change from one alert to the other, however, the following fields will appear in all alerts:<br>- severity: The severity of the attack<br>- compromisedEntity: The name of the compromised resource<br>- remediationSteps: Array of remediation steps to be taken<br>- intent: The kill-chain intent of the alert. Possible intents are documented in the [Intentions table](alerts-reference.md#intentions)|
+|**relatedEvents**|Constant - empty array|
 |||
 
 
