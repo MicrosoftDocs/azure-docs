@@ -41,7 +41,7 @@ The object synchronization occurs asynchronously. Objects will therefore have a 
 
 [!INCLUDE [synapse-analytics-preview-features](../../../includes/synapse-analytics-preview-features.md)]
 
-Spark allows you to create databases, external and managed tables as well as views. However, since Spark views require a Spark engine to process the defining Spark SQL statement and cannot be processed by a SQL engine, only databases and their contained external and managed tables that use the Parquet storage format are being shared with the workspace SQL engines. Spark views are only shared among the Spark pool instances.
+Spark allows you to create databases, external and managed tables as well as views. Since Spark views require a Spark engine to process the defining Spark SQL statement, and cannot be processed by a SQL engine, only databases and their contained external and managed tables that use the Parquet storage format are shared with the workspace SQL engines. Spark views are only shared among the Spark pool instances.
 
 ## Security model at a glance
 
@@ -53,7 +53,7 @@ For more information, see [Azure Synapse Analytics shared database](database.md)
 
 ## Change maintenance
 
-If a metadata object gets deleted or changed with Spark, the changes are picked up and propagated to the SQL on-demand engine as well as the SQL pools that have the objects synchronized. Synchronization is asynchronous and changes are reflected in the SQL engines after a short delay.
+If a metadata object is deleted or changed with Spark, the changes are picked up and propagated to the SQL on-demand engine and the SQL pools that have the objects synchronized. Synchronization is asynchronous and changes are reflected in the SQL engines after a short delay.
 
 ## Next steps
 
