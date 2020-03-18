@@ -39,9 +39,9 @@ The upgrade process works as follows:
 The scale set OS upgrade orchestrator checks for the overall scale set health before upgrading every batch. While upgrading a batch, there could be other concurrent planned or unplanned maintenance activities that could impact the health of your scale set instances. In such cases if more than 20% of the scale set's instances become unhealthy, then the scale set upgrade stops at the end of current batch.
 
 ## Supported OS images
-Only certain OS platform images are currently supported. Custom image support is available in preview for custom images deployed through Shared Image Gallery.
+Only certain OS platform images are currently supported. Custom image support is available [in preview](virtual-machine-scale-sets-automatic-upgrade.md#automatic-os-image-upgrade-for-custom-images-preview) for custom images deployed through [Shared Image Gallery](shared-image-galleries.md).
 
-The following SKUs are currently supported (and more are added periodically):
+The following platform SKUs are currently supported (and more are added periodically):
 
 | Publisher               | OS Offer      |  Sku               |
 |-------------------------|---------------|--------------------|
