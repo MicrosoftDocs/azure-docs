@@ -2,7 +2,7 @@
 title: Azure Peering Service Preview connection 
 description: Learn about Microsoft Azure Peering Service connection
 services: peering-service
-author: derekol
+author: derekolo
 ms.service: peering-service
 ms.devlang: na
 ms.topic: article
