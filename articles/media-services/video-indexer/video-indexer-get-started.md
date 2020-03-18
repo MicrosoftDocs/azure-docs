@@ -9,7 +9,7 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: quickstart
-ms.date: 02/03/2020
+ms.date: 03/17/2020
 ms.author: juliako
 ---
 
@@ -44,6 +44,9 @@ See the [input container/file formats](../latest/media-encoder-standard-formats.
     ![Uploaded](./media/video-indexer-get-started/video-indexer-uploaded.png) 
 
     Once Video Indexer is done analyzing, you will get a notification with a link to your video and a short description of what was found in your video. For example: people, topics, OCRs.
+
+> [!NOTE]
+> Once you upload your content, it is stored encrypted at rest with a Microsoft managed key.
 
 ## See also
 
