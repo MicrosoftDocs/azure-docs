@@ -103,7 +103,7 @@ Azure Functions Core Tools lets you run an Azure Functions project on your local
 
 1. In the **Terminal** panel, copy the URL endpoint of your HTTP-triggered function.
 
-    ![Azure local output](../media/durable-functions-create-first-csharp/functions-vscode-f5.png)
+    ![Azure local output](media/durable-functions-create-first-csharp/functions-vscode-f5.png)
 
 1. Using a tool like [Postman](https://www.getpostman.com/) or [cURL](https://curl.haxx.se/), send an HTTP POST request to the URL endpoint.
 
