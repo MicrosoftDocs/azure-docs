@@ -27,6 +27,9 @@ Query acceleration (Preview) is a new capability for Azure Data Lake Storage tha
 
 ## Install the packages that enable query acceleration 
 
+
+# [.NET](#tab/dotnet)
+
 1. To get started, download the query acceleration packages. You can obtain a compressed .zip file that contains these packages by using this link: [https://aka.ms/adls/qqsdk/.net](https://aka.ms/adls/qqsdk/.net). 
 
 2. Extract the files in this .zip file to any folder on your local drive. 
@@ -53,7 +56,16 @@ Query acceleration (Preview) is a new capability for Azure Data Lake Storage tha
 
    For more information about how to install NuGet packages, see [Install and manage packages in Visual Studio using the NuGet Package Manager](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-visual-studio).
 
+# [Java](#tab/java)
+
+Links for Java
+
+---
+
 ## Add using statements to your code files
+
+
+# [.NET](#tab/dotnet)
 
 Add these `using` statements to the top of your code file.
 
@@ -72,6 +84,12 @@ using CsvHelper;
 using CsvHelper.Configuration;
 ```
 
+# [Java](#tab/java)
+
+Links for Java
+
+---
+
 ## Retrieve data by using a filter
 
 You can use SQL to specify the row filter predicates and column projections in a query acceleration request. The following code queries a CSV file in storage and returns all rows of data where the third column matches the value `Hemingway, Ernest`. 
@@ -80,7 +98,9 @@ You can use SQL to specify the row filter predicates and column projections in a
 
 - Column references are specified as `_N` where the first column is `_1`. If the source file contains a header row, then you can specify `CvsTextConfiguration.HasHeaders = true` which will allow you to refer to columns by their name.
 
-- The async method `BlobQuickQueryClient.QueryAsync` sends the query to the query acceleration API, and then streams the results back to the application as a [Stream](https://docs.microsoft.com/dotnet/api/system.io.stream?view=netframework-4.8) object.
+# [.NET](#tab/dotnet)
+
+The async method `BlobQuickQueryClient.QueryAsync` sends the query to the query acceleration API, and then streams the results back to the application as a [Stream](https://docs.microsoft.com/dotnet/api/system.io.stream?view=netframework-4.8) object.
 
 ```csharp
 static async Task QueryHemingway(BlockBlobClient blob)
@@ -140,11 +160,22 @@ class ProgressHandler : IProgress<long>
 
 ```
 
+
+# [Java](#tab/java)
+
+Links for Java
+
+---
+
+
 ## Retrieve specific columns
 
 You can scope your results to a subset of columns. That way you retrieve only the columns needed to perform a given calculation. This improves application performance and reduces cost because less data is transferred over the network. 
 
-This code retrieves only the `PublicationYear` column for all books in the data set. It also uses the information from the header row in the source file to reference columns in the query. 
+This code retrieves only the `PublicationYear` column for all books in the data set. It also uses the information from the header row in the source file to reference columns in the query.
+
+
+# [.NET](#tab/dotnet)
 
 ```csharp
 class BirthDateMapping : CsvMapping<Person>
@@ -162,7 +193,15 @@ private static async Task QueryBirthDates(CloudBlobClient serviceClient, Uri blo
 }
 ```
 
+# [Java](#tab/java)
+
+Links for Java
+
+---
+
 The following code combines row filtering and column projections into the same query. 
+
+# [.NET](#tab/dotnet)
 
 ```csharp
 private static async Task QueryBirthDates(CloudBlobClient serviceClient, Uri blobUri)
@@ -171,6 +210,12 @@ private static async Task QueryBirthDates(CloudBlobClient serviceClient, Uri blo
     await Query<Person, BirthDateMapping>(serviceClient, blobUri, query);
 }
 ```
+
+# [Java](#tab/java)
+
+Links for Java
+
+---
 
 ## Next steps
 
