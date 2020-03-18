@@ -32,7 +32,6 @@ The following table provides a mapping of the version of the Windows Log Analyti
 
 | Log Analytics Windows agent bundle version | Log Analytics Windows VM extension version | Release Date | Release Notes |
 |--------------------------------|--------------------------|--------------------------|--------------------------|
-| 10.20.18029 | 1.0.18029 | March 2020   | <ul><li>Adds SHA-2 code signing support</li><li>Improves VM extension installation and management</li><li>Resolves a bug in Azure Arc for Servers integration</li><li>Adds a built-in troubleshooting tool for customer support</li><li>Adds support for additional Azure Government regions</li> |
 | 10.20.18018 | 1.0.18018 | October 2019 | <ul><li> Minor bug fixes and stabilization improvements </li></ul> |
 | 10.20.18011 | 1.0.18011 | July 2019 | <ul><li> Minor bug fixes and stabilization improvements </li><li> Increased MaxExpressionDepth to 10000 </li></ul> |
 | 10.20.18001 | 1.0.18001 | June 2019 | <ul><li> Minor bug fixes and stabilization improvements </li><li> Added ability to disable default credentials when making proxy connection (support for WINHTTP_AUTOLOGON_SECURITY_LEVEL_HIGH) </li></ul>|
@@ -58,25 +57,25 @@ The following JSON shows the schema for the Log Analytics agent extension. The e
 
 ```json
 {
-    "type": "extensions",
-    "name": "OMSExtension",
-    "apiVersion": "[variables('apiVersion')]",
-    "location": "[resourceGroup().location]",
-    "dependsOn": [
-        "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
-    ],
-    "properties": {
-        "publisher": "Microsoft.EnterpriseCloud.Monitoring",
-        "type": "MicrosoftMonitoringAgent",
-        "typeHandlerVersion": "1.0",
-        "autoUpgradeMinorVersion": true,
-        "settings": {
-            "workspaceId": "myWorkSpaceId"
-        },
-        "protectedSettings": {
-            "workspaceKey": "myWorkspaceKey"
-        }
-    }
+	"type": "extensions",
+	"name": "OMSExtension",
+	"apiVersion": "[variables('apiVersion')]",
+	"location": "[resourceGroup().location]",
+	"dependsOn": [
+		"[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
+	],
+	"properties": {
+		"publisher": "Microsoft.EnterpriseCloud.Monitoring",
+		"type": "MicrosoftMonitoringAgent",
+		"typeHandlerVersion": "1.0",
+		"autoUpgradeMinorVersion": true,
+		"settings": {
+			"workspaceId": "myWorkSpaceId"
+		},
+		"protectedSettings": {
+			"workspaceKey": "myWorkspaceKey"
+		}
+	}
 }
 ```
 ### Property values
@@ -109,25 +108,25 @@ The following example assumes the Log Analytics extension is nested inside the v
 
 ```json
 {
-    "type": "extensions",
-    "name": "OMSExtension",
-    "apiVersion": "[variables('apiVersion')]",
-    "location": "[resourceGroup().location]",
-    "dependsOn": [
-        "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
-    ],
-    "properties": {
-        "publisher": "Microsoft.EnterpriseCloud.Monitoring",
-        "type": "MicrosoftMonitoringAgent",
-        "typeHandlerVersion": "1.0",
-        "autoUpgradeMinorVersion": true,
-        "settings": {
-            "workspaceId": "myWorkSpaceId"
-        },
-        "protectedSettings": {
-            "workspaceKey": "myWorkspaceKey"
-        }
-    }
+	"type": "extensions",
+	"name": "OMSExtension",
+	"apiVersion": "[variables('apiVersion')]",
+	"location": "[resourceGroup().location]",
+	"dependsOn": [
+		"[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
+	],
+	"properties": {
+		"publisher": "Microsoft.EnterpriseCloud.Monitoring",
+		"type": "MicrosoftMonitoringAgent",
+		"typeHandlerVersion": "1.0",
+		"autoUpgradeMinorVersion": true,
+		"settings": {
+			"workspaceId": "myWorkSpaceId"
+		},
+		"protectedSettings": {
+			"workspaceKey": "myWorkspaceKey"
+		}
+	}
 }
 ```
 
@@ -135,25 +134,25 @@ When placing the extension JSON at the root of the template, the resource name i
 
 ```json
 {
-    "type": "Microsoft.Compute/virtualMachines/extensions",
-    "name": "<parentVmResource>/OMSExtension",
-    "apiVersion": "[variables('apiVersion')]",
-    "location": "[resourceGroup().location]",
-    "dependsOn": [
-        "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
-    ],
-    "properties": {
-        "publisher": "Microsoft.EnterpriseCloud.Monitoring",
-        "type": "MicrosoftMonitoringAgent",
-        "typeHandlerVersion": "1.0",
-        "autoUpgradeMinorVersion": true,
-        "settings": {
-            "workspaceId": "myWorkSpaceId"
-        },
-        "protectedSettings": {
-            "workspaceKey": "myWorkspaceKey"
-        }
-    }
+	"type": "Microsoft.Compute/virtualMachines/extensions",
+	"name": "<parentVmResource>/OMSExtension",
+	"apiVersion": "[variables('apiVersion')]",
+	"location": "[resourceGroup().location]",
+	"dependsOn": [
+		"[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
+	],
+	"properties": {
+		"publisher": "Microsoft.EnterpriseCloud.Monitoring",
+		"type": "MicrosoftMonitoringAgent",
+		"typeHandlerVersion": "1.0",
+		"autoUpgradeMinorVersion": true,
+		"settings": {
+			"workspaceId": "myWorkSpaceId"
+		},
+		"protectedSettings": {
+			"workspaceKey": "myWorkspaceKey"
+		}
+	}
 }
 ```
 
