@@ -64,7 +64,9 @@ A registered model is a logical container for one or more files that make up you
 > [!TIP]
 > When you register a model, you provide the path of either a cloud location (from a training run) or a local directory. This path is just to locate the files for upload as part of the registration process. It doesn't need to match the path used in the entry script. For more information, see [Locate model files in your entry script](#locate-model-files-in-your-entry-script).
 
-Machine learning models are registered in your Azure Machine Learning workspace. The model can come from Azure Machine Learning or from somewhere else. The following examples demonstrate how to register a model.
+Machine learning models are registered in your Azure Machine Learning workspace. The model can come from Azure Machine Learning or from somewhere else. When registering a model, you can optionally provide metadata about the model. The `tags` and `properties` dictionaries that you apply to a model registration can then be used to filter models.
+
+The following examples demonstrate how to register a model.
 
 ### Register a model from an experiment run
 
@@ -80,7 +82,9 @@ The code snippets in this section demonstrate how to register a model from a tra
   + Register a model from an `azureml.core.Run` object:
  
     ```python
-    model = run.register_model(model_name='sklearn_mnist', model_path='outputs/sklearn_mnist_model.pkl')
+    model = run.register_model(model_name='sklearn_mnist',
+                               tags={'area': 'mnist'},
+                               model_path='outputs/sklearn_mnist_model.pkl')
     print(model.name, model.id, model.version, sep='\t')
     ```
 
@@ -90,7 +94,8 @@ The code snippets in this section demonstrate how to register a model from a tra
 
     ```python
         description = 'My AutoML Model'
-        model = run.register_model(description = description)
+        model = run.register_model(description = description,
+                                   tags={'area': 'mnist'})
 
         print(run.model_id)
     ```
@@ -102,7 +107,7 @@ The code snippets in this section demonstrate how to register a model from a tra
 + **Using the CLI**
 
   ```azurecli-interactive
-  az ml model register -n sklearn_mnist  --asset-path outputs/sklearn_mnist_model.pkl  --experiment-name myexperiment --run-id myrunid
+  az ml model register -n sklearn_mnist  --asset-path outputs/sklearn_mnist_model.pkl  --experiment-name myexperiment --run-id myrunid --tag area=mnist
   ```
 
   [!INCLUDE [install extension](../../includes/machine-learning-service-install-extension.md)]
