@@ -10,8 +10,7 @@ ms.subservice: development
 ms.date: 03/18/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.custom: azure-synapse
+ms.custom: seo-lt-2019, azure-synapse
 ---
 
 # Indexing tables in SQL Analytics

@@ -10,8 +10,7 @@ ms.subservice: development
 ms.date: 03/26/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.custom: seoapril2019
-ms.custom: azure-synapse
+ms.custom: seoapril2019, azure-synapse
 ---
 
 # CREATE TABLE AS SELECT (CTAS) in SQL Analytics
