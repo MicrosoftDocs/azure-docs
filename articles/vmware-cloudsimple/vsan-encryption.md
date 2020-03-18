@@ -1,6 +1,6 @@
 --- 
-title: Azure VMware Solutions (AVS) - Configure vSAN encryption for AVS Private Cloud
-description: Describes how to configure vSAN software encryption feature so your AVS Private Cloud can work with a key management server running in your Azure virtual network.
+title: Azure VMware Solution by CloudSimple - Configure vSAN encryption for Private Cloud
+description: Describes how to configure vSAN software encryption feature so your CloudSimple Private Cloud can work with a key management server running in your Azure virtual network.
 author: sharaths-cs 
 ms.author: b-shsury 
 ms.date: 08/19/2019 
@@ -9,9 +9,9 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn 
 manager: dikamath 
 ---
-# Configure vSAN encryption for AVS Private Cloud
+# Configure vSAN encryption for CloudSimple Private Cloud
 
-You can configure the vSAN software encryption feature so your AVS Private Cloud can work with a key management server running in your Azure virtual network.
+You can configure the vSAN software encryption feature so your CloudSimple Private Cloud can work with a key management server running in your Azure virtual network.
 
 VMware requires use of an external KMIP 1.1 compliant third-party key management server (KMS) tool when using vSAN encryption. You can leverage any supported KMS that is certified by VMware and is available for Azure.
 
@@ -21,11 +21,11 @@ This KMS solution requires you to:
 
 * Install, configure, and manage a VMware certified third-party KMS tool in your Azure virtual network.
 * Provide your own licenses for the KMS tool.
-* Configure and manage vSAN encryption in your AVS Private Cloud using the third-party KMS tool running in your Azure virtual network.
+* Configure and manage vSAN encryption in your Private Cloud using the third-party KMS tool running in your Azure virtual network.
 
 ## KMS deployment scenario
 
-The KMS server cluster runs in your Azure virtual network and is IP reachable from the AVS Private Cloud vCenter over the configured Azure ExpressRoute connection.
+The KMS server cluster runs in your Azure virtual network and is IP reachable from the Private Cloud vCenter over the configured Azure ExpressRoute connection.
 
 ![../media/KMS cluster in Azure virtual network](media/vsan-kms-cluster.png)
 
@@ -34,8 +34,8 @@ The KMS server cluster runs in your Azure virtual network and is IP reachable fr
 The deployment process has the following steps:
 
 1. [Verify that prerequisites are met](#verify-prerequisites-are-met)
-2. [AVS portal: Obtain ExpressRoute Peering Information](#avs-portal-obtain-expressroute-peering-information)
-3. [Azure portal: Connect your virtual network to the AVS Private Cloud](#azure-portal-connect-your-virtual-network-to-the-avs-private-cloud)
+2. [CloudSimple portal: Obtain ExpressRoute Peering Information](#cloudsimple-portal-obtain-expressroute-peering-information)
+3. [Azure portal: Connect your virtual network to the Private Cloud](#azure-portal-connect-your-virtual-network-to-your-private-cloud)
 4. [Azure portal: Deploy a HyTrust KeyControl Cluster in your virtual network](#azure-portal-deploy-a-hytrust-keycontrol-cluster-in-the-azure-resource-manager-in-your-virtual-network)
 5. [HyTrust WebUI: Configure KMIP server](#hytrust-webui-configure-the-kmip-server)
 6. [vCenter UI: Configure vSAN encryption to use KMS cluster in your Azure virtual network](#vcenter-ui-configure-vsan-encryption-to-use-kms-cluster-in-your-azure-virtual-network)
@@ -48,17 +48,17 @@ Verify the following prior to deployment:
 * The selected vendor supports a version of the tool to run in Azure.
 * The Azure version of the KMS tool is KMIP 1.1 compliant.
 * An Azure Resource Manager and a virtual network are already created.
-* A AVS Private Cloud is already created.
+* A CloudSimple Private Cloud is already created.
 
-### AVS portal: Obtain ExpressRoute peering information
+### CloudSimple portal: Obtain ExpressRoute peering information
 
-To continue the setup, you need the authorization key and peer circuit URI for ExpressRoute plus access to your Azure Subscription. This information is available on the Virtual Network Connection page in the AVS portal. For instructions, see [Set up a virtual network connection to the AVS Private Cloud](virtual-network-connection.md). If you have any trouble obtaining the information, open a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+To continue the setup, you need the authorization key and peer circuit URI for ExpressRoute plus access to your Azure Subscription. This information is available on the Virtual Network Connection page in the CloudSimple portal. For instructions, see [Set up a virtual network connection to the Private Cloud](virtual-network-connection.md). If you have any trouble obtaining the information, open a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
-### Azure portal: Connect your virtual network to the AVS Private Cloud
+### Azure portal: Connect your virtual network to your Private Cloud
 
 1. Create a virtual network gateway for your virtual network by following the instructions in [Configure a virtual network gateway for ExpressRoute using the Azure portal](../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md).
-2. Link your virtual network to the AVS ExpressRoute circuit by following the instructions in [Connect a virtual network to an ExpressRoute circuit using the portal](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md).
-3. Use the AVS ExpressRoute circuit information received in your welcome email from AVS to link your virtual network to the AVS ExpressRoute circuit in Azure.
+2. Link your virtual network to the CloudSimple ExpressRoute circuit by following the instructions in [Connect a virtual network to an ExpressRoute circuit using the portal](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md).
+3. Use the CloudSimple ExpressRoute circuit information received in your welcome email from CloudSimple to link your virtual network to the CloudSimple ExpressRoute circuit in Azure.
 4. Enter the authorization key and peer circuit URI, give the connection a name, and click **OK**.
 
 ![Provide CS peer circuit URI when creating the virtual network](media/vsan-azureportal01.png) 
@@ -69,7 +69,7 @@ To deploy a HyTrust KeyControl cluster in the Azure Resource Manager in your vir
 
 1. Create an Azure network security group (nsg-hytrust) with specified inbound rules by following the instructions in the HyTrust documentation.
 2. Generate an SSH key pair in Azure.
-3. Deploy the initial KeyControl node from the image in Azure Marketplace. Use the public key of the key pair that was generated and select **nsg-hytrust** as the network security group for the KeyControl node.
+3. Deploy the initial KeyControl node from the image in Azure Marketplace.  Use the public key of the key pair that was generated and select **nsg-hytrust** as the network security group for the KeyControl node.
 4. Convert the private IP address of KeyControl to a static IP address.
 5. SSH to the KeyControl VM using its public IP address and the private key of the previously mentioned key pair.
 6. When prompted in the SSH shell, select `No` to set the node as the initial KeyControl node.

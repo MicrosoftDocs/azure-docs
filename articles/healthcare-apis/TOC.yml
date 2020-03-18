@@ -62,6 +62,8 @@
       href: configure-database.md
     - name: Configure CORS
       href: configure-cross-origin-resource-sharing.md
+    - name: Configure Export
+      href: configure-export-data.md
   - name: Find identity object IDs
     href: find-identity-object-ids.md
   - name: Enable Diagnostics Logging in Azure API for FHIR®

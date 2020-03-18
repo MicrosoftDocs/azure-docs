@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/19/2020
+ms.date: 03/14/2020
 ms.author: allensu
 ---
 
-# Designing virtual networks with NAT gateway resources (Public Preview)
+# Designing virtual networks with NAT gateway resources
 
 NAT gateway resources are part of [Virtual Network NAT](nat-overview.md) and provide outbound Internet connectivity for one or more subnets of a virtual network. The subnet of the virtual network states which NAT gateway will be used. NAT provides source network address translation (SNAT) for a subnet.  NAT gateway resources specify which static IP addresses virtual machines use when creating outbound flows. Static IP addresses come from public IP address resources, public IP prefix resources, or both. A NAT gateway resource can use up to 16 static IP addresses from either.
 
@@ -28,13 +28,6 @@ NAT gateway resources are part of [Virtual Network NAT](nat-overview.md) and pro
 
 *Figure: Virtual Network NAT for outbound to Internet*
 
-
->[!NOTE] 
->Virtual Network NAT is available as public preview at this time. Currently it's only available in a limited set of [regions](nat-overview.md#region-availability). This preview is provided without a service level agreement and isn't recommended for production workloads. Certain features may not be supported or may have constrained capabilities. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.comsupport/legal/preview-supplemental-terms) for details.
-
-> [!IMPORTANT]
-> After Virtual Network NAT [preview is enabled](./nat-overview.md#enable-preview) on your subscription, use https://aka.ms/natportal to access the portal.
-
 ## How to deploy NAT
 
 Configuring and using NAT gateway is intentionally made simple:  
@@ -42,7 +35,7 @@ Configuring and using NAT gateway is intentionally made simple:
 NAT gateway resource:
 - Create regional or zonal (zone-isolated) NAT gateway resource,
 - Assign IP addresses,
-- Modify idle timeout (optional).
+- Modify TCP idle timeout (optional).
 
 Virtual network:
 - Configure virtual network subnet to use a NAT gateway.
@@ -146,7 +139,7 @@ Review this section to familiarize yourself with considerations for designing vi
 
 ### Cost optimization
 
-[Service endpoints](virtual-network-service-endpoints-overview.md) and [private link](../private-link/private-link-overview.md) are two options to consider for optimizing cost where NAT isn't needed.  Any traffic directed to service endpoints or private link is not processed by the virtual network's NAT.  
+[Service endpoints](virtual-network-service-endpoints-overview.md) and [private link](../private-link/private-link-overview.md) are options to consider for optimizing cost. NAT isn't needed for these services. Traffic directed to service endpoints or private link is not processed by the virtual network's NAT.  
 
 Service endpoints tie Azure service resources to your virtual network and control access to your Azure service resources. For example, when you access Azure storage, use a service endpoint for storage to avoid data processed NAT charges. Service endpoints are free.
 
@@ -316,7 +309,7 @@ NAT gateway resources interact with IP and IP transport headers of UDP and TCP f
 
 ### Timers
 
-Idle timeout can be adjusted from 4 minutes (default) to 120 minutes (2 hours) for all flows.  Additionally, you can reset the idle timer with traffic on the flow.  A recommended pattern for refreshing long idle connections and endpoint liveness detection is TCP keepalives.  TCP keepalives appear as duplicate ACKs to the endpoints, are low overhead, and invisible to the application layer.
+TCP idle timeout can be adjusted from 4 minutes (default) to 120 minutes (2 hours) for all flows.  Additionally, you can reset the idle timer with traffic on the flow.  A recommended pattern for refreshing long idle connections and endpoint liveness detection is TCP keepalives.  TCP keepalives appear as duplicate ACKs to the endpoints, are low overhead, and invisible to the application layer.
 
 The following timers are used for SNAT port release:
 
@@ -334,36 +327,36 @@ A SNAT port is available for reuse to the same destination IP address and destin
 ## Limitations
 
 - NAT is compatible with standard SKU public IP, public IP prefix, and load balancer resources.   Basic resources (for example basic load balancer) and any products derived from them aren't compatible with NAT.  Basic resources must be placed on a subnet not configured with NAT.
-- IPv4 address family is supported.  NAT doesn't interact with IPv6 address family.
-- NSG on subnet or NIC isn't honored for outbound flows to public endpoints using NAT.
+- IPv4 address family is supported.  NAT doesn't interact with IPv6 address family.  NAT can't be deployed on a subnet with an IPv6 prefix.
 - NSG flow logging isn't supported when using NAT.
 - NAT can't span multiple virtual networks.
 
-## Preview participation
-
-Follow [instructions to enable your subscription](nat-overview.md#public-preview-participation).
 
 ## Feedback
 
-We want to know how we can improve the service. Share your [feedback on the Public Preview](https://aka.ms/natfeedback) with us.  And you can propose and vote on what we should build next at [UserVoice for NAT](https://aka.ms/natuservoice).
+We want to know how we can improve the service. Propose and vote on what we should build next at [UserVoice for NAT](https://aka.ms/natuservoice).
 
 ## Next steps
 
-- Learn more about [virtual network NAT](nat-overview.md).
-- Tutorial for validating NAT Gateway
-  * [Azure CLI](tutorial-create-validate-nat-gateway-cli.md),
-  * [PowerShell](tutorial-create-validate-nat-gateway-cli.md),
-  * [Portal](tutorial-create-validate-nat-gateway-cli.md)
-- Quickstart for deploying a NAT gateway resource
-  * [Azure CLI](./quickstart-create-nat-gateway-cli.md),
-  * [PowerShell](./quickstart-create-nat-gateway-powershell.md),
-  * [Portal](./quickstart-create-nat-gateway-portal.md).
-- Learn more about [availability zones](../availability-zones/az-overview.md).
-- Learn more about [standard load balancer](../load-balancer/load-balancer-standard-overview.md).
-- Learn more about [availability zones and standard load balancer](../load-balancer/load-balancer-standard-availability-zones.md).
-- Learn more about NAT gateway resource API
-  * [REST API](https://docs.microsoft.com/rest/api/virtualnetwork/natgateways),
-  * [Azure CLI](https://docs.microsoft.com/cli/azure/network/nat/gateway?view=azure-cli-latest),
-  * [PowerShell](https://docs.microsoft.com/powershell/module/az.network/new-aznatgateway).
-- [Tell us what to build next in UserVoice](https://aka/natuservoice).
-- [Provide feedback on the Public Preview](https://aka.ms/natfeedback).
+* Learn about [virtual network NAT](nat-overview.md).
+* Learn about [metrics and alerts for NAT gateway resources](nat-metrics.md).
+* Learn about [troubleshooting NAT gateway resources](troubleshoot-nat.md).
+* Tutorial for validating NAT Gateway
+  - [Azure CLI](tutorial-create-validate-nat-gateway-cli.md)
+  - [PowerShell](tutorial-create-validate-nat-gateway-cli.md)
+  - [Portal](tutorial-create-validate-nat-gateway-cli.md)
+* Quickstart for deploying a NAT gateway resource
+  - [Azure CLI](./quickstart-create-nat-gateway-cli.md)
+  - [PowerShell](./quickstart-create-nat-gateway-powershell.md)
+  - [Portal](./quickstart-create-nat-gateway-portal.md)
+  - [Template](./quickstart-create-nat-gateway-template.md)
+* Learn about NAT gateway resource API
+  - [REST API](https://docs.microsoft.com/rest/api/virtualnetwork/natgateways)
+  - [Azure CLI](https://docs.microsoft.com/cli/azure/network/nat/gateway?view=azure-cli-latest)
+  - [PowerShell](https://docs.microsoft.com/powershell/module/az.network/new-aznatgateway)
+
+* Learn about [availability zones](../availability-zones/az-overview.md).
+* Learn about [standard load balancer](../load-balancer/load-balancer-standard-overview.md).
+* Learn about [availability zones and standard load balancer](../load-balancer/load-balancer-standard-availability-zones.md).
+
+

@@ -1,7 +1,6 @@
 ---
 title: Delete and recover Azure Log Analytics workspace | Microsoft Docs
 description: Learn how to delete your Log Analytics workspace if you created one in a personal subscription or restructure your workspace model.
-ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
@@ -56,7 +55,7 @@ PS C:\>Remove-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-
 ```
 
 ## Permanent workspace delete
-The soft-delete method may not fit in some scenarios such as development and testing, where you need to repeat a deployment with the same settings and workspace name. In such cases you can permanently delete your workspace and “override” the soft-delete period. The permanent workspace delete operation releases the workplace name and you can create a new workspace using the same name.
+The soft-delete method may not fit in some scenarios such as development and testing, where you need to repeat a deployment with the same settings and workspace name. In such cases you can permanently delete your workspace and “override” the soft-delete period. The permanent workspace delete operation releases the workspace name and you can create a new workspace using the same name.
 
 
 > [!IMPORTANT]

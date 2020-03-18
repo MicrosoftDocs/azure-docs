@@ -35,6 +35,8 @@ For Azure Storage accounts:
 - Write permissions are required to change the configured storage account, regardless of permissions on the export.
 - Your Azure storage account must be configured for blob or file storage.
 
+If you have a new subscription, you can’t immediately use Cost Management features. It might take up to 48 hours before you can use all Cost Management features.
+
 ## Sign in to Azure
 Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com/).
 

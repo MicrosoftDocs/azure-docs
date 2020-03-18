@@ -8,17 +8,17 @@
   expanded: true
   items:
   - name: Create a Jenkins server
-    href: install-jenkins-solution-template.md
+    href: install-solution-template-quickstart.md
 - name: Tutorials
   items:
   - name: 1. Install
     items:
     - name: Create a Jenkins server
-      href: install-jenkins-solution-template.md
+      href: install-solution-template-tutorial.md
   - name: 2. Configure
     items:
     - name: Scale with Azure Container Instances
-      href: /azure/container-instances/container-instances-jenkins
+      href: container-instances-jenkins.md
       maintainContext: true
     - name: Scale with Azure VM agents
       href: jenkins-azure-vm-agents.md
@@ -31,7 +31,7 @@
     - name: AKS
       items:
       - name: CI/CD to Kubernetes
-        href: /azure/aks/jenkins-continuous-deployment
+        href: jenkins-continuous-deployment.md
         maintainContext: true
       - name: Deploy to AKS using blue/green pattern
         href: jenkins-aks-blue-green-deployment.md
@@ -44,18 +44,18 @@
       - name: Deploy an app from GitHub to App Service
         href: tutorial-jenkins-deploy-web-app-azure-app-service.md
     - name: Use Jenkins with Azure DevOps
-      href: /azure/virtual-machines/linux/tutorial-build-deploy-jenkins
+      href: tutorial-build-deploy-jenkins.md
       maintainContext: true
     - name: Deploy to Azure Functions
       href: jenkins-azure-functions-deploy.md
     - name: Publish to Azure Storage
-      href: /azure/storage/storage-java-jenkins-continuous-integration-solution
+      href: storage-java-jenkins-continuous-integration-solution.md
       maintainContext: true
     - name: CI/CD to Linux VMs
-      href: /azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd
+      href: tutorial-jenkins-github-docker-cicd.md
       maintainContext: true
     - name: CI/CD to Service Fabric
-      href: /azure/service-fabric/service-fabric-cicd-your-linux-applications-with-jenkins
+      href: service-fabric-cicd-your-linux-applications-with-jenkins.md
       maintainContext: true
 - name: How-to
   items: 

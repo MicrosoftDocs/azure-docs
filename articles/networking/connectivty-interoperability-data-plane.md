@@ -168,14 +168,14 @@ In this traceroute, the first hop is the hub VNet’s ExpressRoute gateway tunne
 Traceroute output from the spoke VNet to a VM in on-premises Location 2 is shown here:
 
 
-	C:\Users\rb>tracert 10.2.30.10
+	C:\Users\rb>tracert 10.1.31.10
 
-	Tracing route to 10.2.30.10 over a maximum of 30 hops
+	Tracing route to 10.1.31.10 over a maximum of 30 hops
 
-	  1    24 ms     2 ms     3 ms  10.10.30.132
+	  1    76 ms    75 ms    76 ms  10.10.30.134
 	  2     *        *        *     Request timed out.
 	  3     *        *        *     Request timed out.
-	  4     3 ms     2 ms     2 ms  10.2.30.10
+	  4    75 ms    75 ms    75 ms  10.1.31.10
 
 	Trace complete.
 

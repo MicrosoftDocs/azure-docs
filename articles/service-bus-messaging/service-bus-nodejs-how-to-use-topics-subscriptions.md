@@ -18,13 +18,12 @@ ms.author: aschhab
 
 ---
 # Quickstart: How to Use Service Bus topics and subscriptions with Node.js and the azure-sb package
-> [!div class="op_multi_selector" title1="Programming language" title2="Node.js pacakge"]
-> - [(Node.js | azure-sb)](service-bus-nodejs-how-to-use-topics-subscriptions.md)
-> - [(Node.js | @azure/service-bus)](service-bus-nodejs-how-to-use-topics-subscriptions-new-package.md)
-
 In this tutorial, you learn how to create Node.js applications to send messages to a Service Bus topic and receive messages from a Service Bus subscription using the [azure-sb](https://www.npmjs.com/package/azure-sb) package. The samples are written in JavaScript and use the Node.js [Azure module](https://www.npmjs.com/package/azure) which internally uses the `azure-sb` package.
 
-The [azure-sb](https://www.npmjs.com/package/azure-sb) package uses [Service Bus REST run-time APIs](/rest/api/servicebus/service-bus-runtime-rest). You can get a faster experience using the new [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) package which uses the faster [AMQP 1.0 protocol](service-bus-amqp-overview.md). To learn more about the new package, see [How to use Service Bus topics and subscriptions with Node.js and @azure/service-bus package](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-nodejs-how-to-use-topics-subscriptions-new-package), otherwise continue reading to see how to use the [azure](https://www.npmjs.com/package/azure) package.
+> [!IMPORTANT]
+> The [azure-sb](https://www.npmjs.com/package/azure-sb) package uses [Service Bus REST run-time APIs](/rest/api/servicebus/service-bus-runtime-rest). You can get a faster experience using the new [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) package which uses the faster [AMQP 1.0 protocol](service-bus-amqp-overview.md). 
+> 
+> To learn more about the new package, see [How to use Service Bus topics and subscriptions with Node.js and @azure/service-bus package](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-nodejs-how-to-use-topics-subscriptions-new-package), otherwise continue reading to see how to use the [azure](https://www.npmjs.com/package/azure) package.
 
 The scenarios covered here include:
 

@@ -24,11 +24,11 @@ In Azure Monitor, you can create your own alerts in a Log Analytics workspace. I
 > [!IMPORTANT]
 > For information on the cost of creating this query, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
 
-Select any of the graphs to open the **Logs** section of the Log Analytics workspace. In the **Logs** section, edit the queries and create alerts on them.
+Open the **Logs** section of the Log Analytics workspace and create a query for your own Logs. When you select **New Alert Rule**, the Azure Monitor alert-creation page opens, as shown in the following image.
 
-![Create an alert in a Log Analytics workspace](media/backup-azure-monitoring-laworkspace/la-azurebackup-customalerts.png)
+![Create an alert in a Log Analytics workspace](media/backup-azure-monitoring-laworkspace/custom-alert.png)
 
-When you select **New Alert Rule**, the Azure Monitor alert-creation page opens, as shown in the following image. Here the resource is already marked as the Log Analytics workspace, and action group integration is provided.
+Here the resource is already marked as the Log Analytics workspace, and action group integration is provided.
 
 ![The Log Analytics alert-creation page](media/backup-azure-monitoring-laworkspace/inkedla-azurebackup-createalert.jpg)
 
@@ -117,6 +117,26 @@ The default graphs give you Kusto queries for basic scenarios on which you can b
     )
     on BackupItemUniqueId
     ````
+
+- Backup Storage Consumed per Backup Item
+
+    ````Kusto
+    CoreAzureBackup
+    //Get all Backup Items
+    | where OperationName == "BackupItem"
+    //Get distinct Backup Items
+    | distinct BackupItemUniqueId, BackupItemFriendlyName
+    | join kind=leftouter
+    (AddonAzureBackupStorage
+    | where OperationName == "StorageAssociation"
+    //Get latest record for each Backup Item
+    | summarize arg_max(TimeGenerated, *) by BackupItemUniqueId 
+    | project BackupItemUniqueId , StorageConsumedInMBs)
+    on BackupItemUniqueId
+    | project BackupItemUniqueId , BackupItemFriendlyName , StorageConsumedInMBs 
+    | sort by StorageConsumedInMBs desc
+    ````
+
 
 ### Diagnostic data update frequency
 

@@ -35,6 +35,8 @@ landingContent:
     linkLists:
       - linkListType: tutorial
         links:
+          - text: Connect a device
+            url: tutorial-connect-device.md
           - text: Connect an IoT Plug and Play (preview) device
             url: tutorial-connect-pnp-device.md
       - linkListType: how-to-guide
@@ -65,8 +67,10 @@ landingContent:
         links:
           - text: Create telemetry rules
             url: tutorial-create-telemetry-rules.md
-          - text: Export data
-            url: howto-export-data.md                   
+          - text: Export data to destinations in Azure
+            url: howto-export-data.md
+          - text: Explore the IoT Central APIs
+            url: https://docs.microsoft.com/learn/modules/manage-iot-central-apps-with-rest-api/                    
       - linkListType: how-to-guide
         links:
           - text: Create custom rules

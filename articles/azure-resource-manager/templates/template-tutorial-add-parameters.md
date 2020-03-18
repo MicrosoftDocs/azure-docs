@@ -52,7 +52,7 @@ New-AzResourceGroupDeployment `
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
-az group deployment create \
+az deployment group create \
   --name addnameparameter \
   --resource-group myResourceGroup \
   --template-file $templateFile \
@@ -96,7 +96,7 @@ New-AzResourceGroupDeployment `
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
-az group deployment create \
+az deployment group create \
   --name addskuparameter \
   --resource-group myResourceGroup \
   --template-file $templateFile \
@@ -121,7 +121,7 @@ New-AzResourceGroupDeployment `
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
-az group deployment create \
+az deployment group create \
   --name usedefaultsku \
   --resource-group myResourceGroup \
   --template-file $templateFile \
@@ -146,7 +146,7 @@ New-AzResourceGroupDeployment `
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
-az group deployment create \
+az deployment group create \
   --name testskuparameter \
   --resource-group myResourceGroup \
   --template-file $templateFile \

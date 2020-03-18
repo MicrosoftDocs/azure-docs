@@ -1,7 +1,6 @@
 ---
 title: Azure Monitor for VMs (GA) frequently asked questions | Microsoft Docs
 description: Azure Monitor for VMs is a solution in Azure that combines health and performance monitoring of the Azure VM operating system, as well as automatically discovering application components and dependencies with other resources and maps the communication between them. This article answers common questions about the GA release.
-ms.service:  azure-monitor
 ms.subservice: 
 ms.topic: conceptual
 author: bwren
@@ -21,8 +20,6 @@ We have released a new version of Azure Monitor for VMs. Customers enabling Azur
 With this upgrade, Azure Monitor for VMs performance data are stored in the same *InsightsMetrics* table as [Azure Monitor for containers](container-insights-overview.md), which makes it easier for you to query the two data sets. Also, you are able to store more diverse data sets that we could not store in the table previously used. 
 
 Our performance views are now using the data we store in the *InsightsMetrics* table.  If you have not yet upgraded to use the latest VMInsights solution on your workspace, your charts will no longer display information.  You can upgrade from our **Get Started** page as described below.
-
-With this upgrade, Azure Monitor for VMs performance data are stored in the same *InsightsMetrics* table as [Azure Monitor for containers](container-insights-overview.md) making it easier for you to query the two data sets. You are also able to store more diverse data sets that we could not store in the table previously used. 
 
 We realize that asking existing customers to upgrade causes disruption to their workflow, which is why we have chosen to do this now while in Public Preview rather than later after GA.
 
@@ -47,9 +44,7 @@ Set-AzureRmOperationalInsightsIntelligencePack -ResourceGroupName <resource-grou
 
 ## What should I do about the Performance counters in my workspace if I install the VMInsights solution?
 
-The current method of enabling Azure Monitor for VMs uses performance counters in your workspace. The new method stores this data in a new table, named `InsightsMetrics`.
-
-Once we update our user interface to use the data in the `InsightsMetrics` table, we will update our documentation, and communicate this announcement via multiple channels, including displaying a banner in the Azure portal. At that point, you may choose to disable these [performance counters](vminsights-enable-overview.md#performance-counters-enabled) in your workspace if you no longer need to use them. 
+The previous method of enabling Azure Monitor for VMs used performance counters in your workspace. The current version stores this data in a table named `InsightsMetrics`. You may choose to disable these performance countersin your workspace if you no longer need to use them. 
 
 >[!NOTE]
 >If you have Alert Rules that reference these counters in the `Perf` table, you need to update them to reference new data stored in the `InsightsMetrics` table. Refer to our documentation for example log queries that you can use that refer to this table.

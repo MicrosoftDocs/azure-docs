@@ -4,7 +4,7 @@ description: Learn how managed identities work in Azure App Configuration and ho
 author: jpconnock
 
 ms.topic: article
-ms.date: 02/18/2020
+ms.date: 02/25/2020
 ms.author: jeconnoc
 ms.reviewer: lcozzens
 ms.service: azure-app-configuration

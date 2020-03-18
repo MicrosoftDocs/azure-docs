@@ -1,21 +1,21 @@
 ---
 title: Memory and concurrency limits
-description: View the memory and concurrency limits allocated to the various performance levels and resource classes in Azure SQL Data Warehouse.
+description: View the memory and concurrency limits allocated to the various performance levels and resource classes in Azure Synapse Analytics.
 services: sql-data-warehouse
 author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload-management
-ms.date: 12/04/2019
+ms.date: 02/04/2020
 ms.author: rortloff
-ms.reviewer: igorstan
-ms.custom: seo-lt-2019
+ms.reviewer: jrasnick
+ms.custom: azure-synapse
 ---
 
 
-# Memory and concurrency limits for Azure SQL Data Warehouse
-View the memory and concurrency limits allocated to the various performance levels and resource classes in Azure SQL Data Warehouse.  
+# Memory and concurrency limits for Azure Synapse Analytics
+View the memory and concurrency limits allocated to the various performance levels and resource classes in Azure Synapse Analytics.  
 
 ## Data warehouse capacity settings
 The following tables show the maximum capacity for the data warehouse at different performance levels. To change the performance level, see [Scale compute - portal](quickstart-scale-compute-portal.md).
@@ -69,7 +69,7 @@ With the introduction of [workload groups](sql-data-warehouse-workload-isolation
 ||||
 
 ## Concurrency maximums for resource classes
-To ensure each query has enough resources to execute efficiently, SQL Data Warehouse tracks resource utilization by assigning concurrency slots to each query. The system puts queries into a queue based on importance and concurrency slots. Queries wait in the queue until enough concurrency slots are available. [Importance](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-workload-importance) and concurrency slots determine CPU prioritization. For more information, see [Analyze your workload](analyze-your-workload.md)
+To ensure each query has enough resources to execute efficiently, SQL Analytics in Azure Synapse tracks resource utilization by assigning concurrency slots to each query. The system puts queries into a queue based on importance and concurrency slots. Queries wait in the queue until enough concurrency slots are available. [Importance](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-workload-importance) and concurrency slots determine CPU prioritization. For more information, see [Analyze your workload](analyze-your-workload.md)
 
 **Static resource classes**
 
