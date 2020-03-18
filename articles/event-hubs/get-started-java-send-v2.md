@@ -137,6 +137,10 @@ Build the program, and ensure that there are no errors. You will run this progra
 ## Receive events
 The code in this tutorial is based on the [EventProcessorClient sample on GitHub](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs/src/samples/java/com/azure/messaging/eventhubs/EventProcessorClientSample.java), which you can examine to see the full working application.
 
+> [!NOTE]
+> If you are running Event Hubs on an Azure Stack Hub version 2002, the highest available version for the Storage service is version 2017-11-09. In this case, change the following code to use the Storage service API version 2017-11-09. For an example on how to target a specific Storage API version, see [this sample on GitHub](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/src/samples/java/com/azure/messaging/eventhubs/checkpointstore/blob/EventProcessorWithOlderStorageVersion.java). For more information on the Azure Storage service versions supported on Azure Stack Hub, see [Azure Stack Hub storage: Differences and considerations](https://docs.microsoft.com/azure-stack/user/azure-stack-acs-differences). 
+
+
 ### Create a Java project
 
 The Java client library for Event Hubs is available for use in Maven projects from the [Maven Central Repository](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs-eph%22), and can be referenced using the following dependency declaration inside your Maven project file: 
