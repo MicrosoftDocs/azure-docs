@@ -8,13 +8,13 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/12/2020
+ms.date: 03/18/2020
 ms.author: iainfou
 
 ---
 # Review security audit events in Azure AD Domain Services using Azure Monitor Workbooks
 
-To help you understand the health of your Azure Active Directory Domain Services (Azure AD DS) managed domain, you can enable security audit events. These security audit events can then be reviewed using Azure Monitor Workbooks that combine text, analytics queries, and parameters into rich interactive reports. Azure AD DS includes workbook templates for security overview and account activity that let you dig into audit events and manage your environment.
+To help you understand the state of your Azure Active Directory Domain Services (Azure AD DS) managed domain, you can enable security audit events. These security audit events can then be reviewed using Azure Monitor Workbooks that combine text, analytics queries, and parameters into rich interactive reports. Azure AD DS includes workbook templates for security overview and account activity that let you dig into audit events and manage your environment.
 
 This article shows you how to use Azure Monitor Workbooks to review security audit events in Azure AD DS.
 
@@ -69,7 +69,7 @@ To access the workbook template for the security overview report, complete the f
 
 1. The lower part of the security overview report below the chart then breaks down the activity type selected. You can filter by usernames involved on the right-hand side, as shown in the following example report:
 
-    ![Details of account lockouts in Azure Monitor Workbooks](./media/use-azure-monitor-workbooks/account-lockout-details.png)
+    [![](./media/use-azure-monitor-workbooks/account-lockout-details-cropped.png "Details of account lockouts in Azure Monitor Workbooks")](./media/use-azure-monitor-workbooks/account-lockout-details.png#lightbox)
 
 ## Use the account activity report workbook
 
@@ -83,7 +83,7 @@ To access the workbook template for the account activity report, complete the fo
 1. Choose the **Account Activity Report**.
 1. From the drop-down menus at the top of the workbook, select your Azure subscription and then Azure Monitor workspace. Choose a **Time range**, such as *Last 30 days*, then how you want the **Tile view** to represent the data. You can filter by **Account username**, such as *felix*, as shown in the following example report:
 
-    ![Account activity report in Azure Monitor Workbooks](./media/use-azure-monitor-workbooks/account-activity-report.png)
+    [![](./media/use-azure-monitor-workbooks/account-activity-report-cropped.png "Account activity report in Azure Monitor Workbooks")](./media/use-azure-monitor-workbooks/account-activity-report.png#lightbox)
 
     The area below the chart shows individual sign-in events along with information such as the activity result and source workstation. This information can help determine repeated sources of sign-in events that may cause account lockouts or indicate a potential attack.
 
