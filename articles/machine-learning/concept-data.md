@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.reviewer: nibaccam
 author: nibaccam
 ms.author: nibaccam
-ms.date: 03/15/2020
+ms.date: 03/18/2020
 
 ---
 
@@ -40,9 +40,10 @@ The following diagram provides a visual demonstration of this recommended workfl
 
 ## Datastores
 
-Azure Machine Learning datastores securely keep the connection information to your Azure storage, so you don't have to code it in your scripts. [Register and create a datastore](how-to-access-data.md) to easily connect to your storage account, and access the data in your underlying Azure storage. 
+Azure Machine Learning datastores securely keep the connection information to your Azure storage, so you don't have to code it in your scripts. [Register and create a datastore](how-to-access-data.md) to easily connect to your storage account, and access the data in your underlying Azure storage service. 
 
 Supported Azure storage services that can be registered as datastores:
+
 + Azure Blob Container
 + Azure File Share
 + Azure Data Lake
@@ -104,6 +105,6 @@ See the [Create a dataset monitor](how-to-monitor-datasets.md) article, to learn
 
 ## Next steps 
 
-+ Create a dataset in Azure Machine Learning studio or with the Python SDK, [use these steps.](how-to-create-register-datasets.md)
++ Create a dataset in Azure Machine Learning studio or with the Python SDK [using these steps.](how-to-create-register-datasets.md)
 + Try out dataset training examples with our [sample notebooks](https://aka.ms/dataset-tutorial).
 + For data drift examples, see this [data drift tutorial](https://aka.ms/datadrift-notebook).
