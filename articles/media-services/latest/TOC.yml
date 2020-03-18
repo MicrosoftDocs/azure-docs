@@ -113,7 +113,7 @@
   - name: Packaging and delivery
     items:
     - name: Dynamic packaging
-      displayName: origin, packager, HLS, DASH, CMAF, Smooth, manifest, deliver, format, URL, streaming  
+      displayName: origin, packager, HLS, DASH, CMAF, Smooth, manifest, deliver, format, URL, streaming, audio, video 
       href: dynamic-packaging-overview.md
     - name: Dynamic manifests
       href: filters-dynamic-manifest-overview.md 
