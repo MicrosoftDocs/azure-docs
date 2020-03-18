@@ -1,6 +1,6 @@
 ---
-title: Create and query a data warehouse (Azure portal)
-description: Create and query an Azure Synapse Analytics SQL pool using the Azure portal
+title: Create and query a Synapse SQL pool (Azure portal)
+description: Create and query a Synapse SQL pool using the Azure portal
 services: sql-data-warehouse
 author: XiaoyuMSFT
 manager: craigg
@@ -13,9 +13,9 @@ ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse 
 ---
 
-# Quickstart: Create and query an Azure Synapse Analytics SQL pool using the Azure portal
+# Quickstart: Create and query a Synapse SQL pool using the Azure portal
 
-Quickly create and query a data warehouse by provisioning SQL pool in Azure Synapse Analytics (formerly SQL DW) using the Azure portal.
+Quickly create and query a Synapse SQL pool (data warehouse) in Azure Synapse Analytics (formerly SQL DW) using the Azure portal.
 
 ## Prerequisites
 
@@ -34,7 +34,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 Data warehouses are created using SQL pool in Azure Synapse Analytics. A SQL pool is created with a defined set of [compute resources](memory-concurrency-limits.md). The database is created within an [Azure resource group](../azure-resource-manager/management/overview.md) and in an [Azure SQL logical server](../sql-database/sql-database-servers.md).
 
-Follow these steps to create a data warehouse that contains the **AdventureWorksDW** sample data.
+Follow these steps to create a SQL pool that contains the **AdventureWorksDW** sample data.
 
 1. select **Create a resource** in the upper left-hand corner of the Azure portal.
 
@@ -50,7 +50,7 @@ Follow these steps to create a data warehouse that contains the **AdventureWorks
    | :------ | :-------------- | :---------- |
    | **Subscription** | Your subscription | For details about your subscriptions, see [Subscriptions](https://account.windowsazure.com/Subscriptions). |
    | **Resource group** | myResourceGroup | For valid resource group names, see [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming). |
-   | **Data warehouse name** | Any globally unique name  (An example is *mySampleDataWarehouse*) | For valid database names, see [Database Identifiers](/sql/relational-databases/databases/database-identifiers). Note, a data warehouse is one type of database. |
+   | **SQL pool name** | Any globally unique name  (An example is *mySampleDataWarehouse*) | For valid database names, see [Database Identifiers](/sql/relational-databases/databases/database-identifiers). Note, a SQL pool is one type of database. |
    | **Server** | Any globally unique name | Select existing server, or create a new server name, select **Create new**. For valid server names, see [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming). |
 
    ![create a data warehouse basic details](media/create-data-warehouse-portal/create-sql-pool-basics.png)
@@ -61,7 +61,7 @@ Follow these steps to create a data warehouse that contains the **AdventureWorks
 
    For more information about performance levels, see [Manage compute in Azure SQL Data Warehouse](sql-data-warehouse-manage-compute-overview.md).
 
-5. Now that you've completed the Basics tab of the Azure Synapse Analytics form, select **Review + Create** and then **Create** to create the data warehouse in the SQL pool. Provisioning takes a few minutes.
+5. Now that you've completed the Basics tab of the Azure Synapse Analytics form, select **Review + Create** and then **Create** to create the SQL pool. Provisioning takes a few minutes.
 
    ![select Review + Create](media/create-data-warehouse-portal/create-sql-pool-review-create.png)
 
@@ -100,7 +100,7 @@ The Azure Synapse service creates a firewall at the server-level. This firewall 
 
 8. select **OK** and then close the **Firewall settings** page.
 
-You can now connect to the SQL server and its data warehouses using this IP address. The connection works from SQL Server Management Studio or another tool of your choice. When you connect, use the ServerAdmin account you created previously.
+You can now connect to the SQL server and its SQL pools using this IP address. The connection works from SQL Server Management Studio or another tool of your choice. When you connect, use the ServerAdmin account you created previously.
 
 > [!IMPORTANT]
 > By default, access through the SQL Database firewall is enabled for all Azure services. select **OFF** on this page and then select **Save** to disable the firewall for all Azure services.
@@ -111,7 +111,7 @@ Get the fully qualified server name for your SQL server in the Azure portal. Lat
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-2. Select **Azure Synapse Analytics** from the left-hand menu, and select your data warehouse on the **Azure Synapse Analytics** page.
+2. Select **Azure Synapse Analytics** from the left-hand menu, and select your  on the **Azure Synapse Analytics** page.
 
 3. In the **Essentials** pane in the Azure portal page for your database, locate and then copy the **Server name**. In this example, the fully qualified name is sqlpoolservername.database.windows.net.
 
@@ -169,21 +169,21 @@ SQL Data Warehouse uses T-SQL as the query language. To open a query window and 
 
 ## Clean up resources
 
-You're being charged for data warehouse units and data stored your data warehouse. These compute and storage resources are billed separately.
+You're being charged for data warehouse units and data stored your SQL pool. These compute and storage resources are billed separately.
 
-- If you want to keep the data in storage, you can pause compute when you aren't using the data warehouse. By pausing compute, you're only charged for data storage. You can resume compute whenever you're ready to work with the data.
+- If you want to keep the data in storage, you can pause compute when you aren't using the SQL pool. By pausing compute, you're only charged for data storage. You can resume compute whenever you're ready to work with the data.
 
-- If you want to remove future charges, you can delete the data warehouse.
+- If you want to remove future charges, you can delete the SQL pool.
 
 Follow these steps to clean up resources you no longer need.
 
-1. Sign in to the [Azure portal](https://portal.azure.com), select on your data warehouse.
+1. Sign in to the [Azure portal](https://portal.azure.com), select your SQL pool.
 
    ![Clean up resources](media/create-data-warehouse-portal/clean-up-resources.png)
 
-2. To pause compute, select the **Pause** button. When the data warehouse is paused, you see a **Resume** button. To resume compute, select **Resume**.
+2. To pause compute, select the **Pause** button. When the SQL pool is paused, you see a **Resume** button. To resume compute, select **Resume**.
 
-3. To remove the data warehouse so you aren't charged for compute or storage, select **Delete**.
+3. To remove the SQL pool so you aren't charged for compute or storage, select **Delete**.
 
 4. To remove the SQL server you created, select **sqlpoolservername.database.windows.net** in the previous image, and then select **Delete**. Be careful with this deletion, since deleting the server also deletes all databases assigned to the server.
 
@@ -191,7 +191,4 @@ Follow these steps to clean up resources you no longer need.
 
 ## Next steps
 
-You've now created a data warehouse, created a firewall rule, connected to your data warehouse, and run a few queries. To learn more about Azure SQL Data Warehouse, continue to the tutorial for loading data.
-
-> [!div class="nextstepaction"]
-> [Load data into a SQL Data Warehouse](load-data-from-azure-blob-storage-using-polybase.md)
+To learn more about loading data into your SQL pool, continue to the [Load data into SQL pool](load-data-from-azure-blob-storage-using-polybase.md) article. 

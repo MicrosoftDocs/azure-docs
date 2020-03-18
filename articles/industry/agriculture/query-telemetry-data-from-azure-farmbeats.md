@@ -103,8 +103,8 @@ Telemetry data is received on an EventHub and then processed and pushed to a TSI
 
 Follow the below steps to visualize data on TSI
 
-1. Go to Azure Portal -> FarmBeats DataHub resource group -> click on Time Series Insights environment (tsi-xxxx) -> Data Access Policies. Add user with Reader or Contributor access.
-2. Go to the Overview page of Time Series Insights environment (tsi-xxxx) and click on the “Time Series Insights Explorer URL”. You will now be able to visualize the ingested telemetry.
+1. Go to Azure Portal -> FarmBeats DataHub resource group -> Select Time Series Insights environment (tsi-xxxx) -> Data Access Policies. Add user with Reader or Contributor access.
+2. Go to the Overview page of Time Series Insights environment (tsi-xxxx) and Select the “Time Series Insights Explorer URL”. You will now be able to visualize the ingested telemetry.
 
 Apart from storing, querying and visualization of telemetry, TSI also enables integration to a Power BI dashboard. More details [here]( https://docs.microsoft.com/azure/time-series-insights/how-to-connect-power-bi)
 
