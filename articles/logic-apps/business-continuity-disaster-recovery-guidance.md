@@ -12,15 +12,17 @@ ms.date: 03/31/2020
 
 # Business continuity and disaster recovery for Azure Logic Apps
 
-To help reduce the impact and effects that unpredictable events can have on your business, you need a *disaster recovery* (DR) solution that helps you protect data, restore resources that support critical and important business functions, and keep operations running so that you can maintain *business continuity* (BC). Disruptions can include outages, losses in underlying infrastructure or components such as storage, network, or compute resources, unrecoverable application failures, or even a full datacenter loss. By having a BCDR solution ready, your business or organization can more respond more quickly to interruptions, planned or unplanned, and keep workloads running.
+To help reduce the impact and effects that unpredictable events can have on your business, you need a *disaster recovery* (DR) solution so that you can protect data, quickly restore resources that support critical business functions, and keep operations running to maintain *business continuity* (BC). Disruptions can include outages, losses in underlying infrastructure or components such as storage, network, or compute resources, unrecoverable application failures, or even a full datacenter loss. By having a BCDR solution ready, your organization can more respond more quickly to interruptions, planned or unplanned, and lessen the consequences on your business.
 
-This article provides guidance for planning and creating a disaster recovery solution for the automated workflows that you can build and run using [Azure Logic Apps](../logic-apps/logic-apps-overview.md). These logic app workflows help you more easily integrate and orchestrate data between various apps, cloud-based services, and on-premises systems.
+This article provides guidance for designing a disaster recovery solution for the automated workflows that you build and run by using [Azure Logic Apps](../logic-apps/logic-apps-overview.md). These logic app workflows help you integrate and orchestrate data between apps, cloud services, and on-premises systems more easily. When you plan your disaster recovery solution, make sure that you consider not only your logic apps but these resources too:
 
-When you design a disaster recovery strategy, consider not only your logic apps but also any [integration accounts](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) that you use for defining and storing B2B artifacts used in [enterprise integration scenarios](../logic-apps/logic-apps-enterprise-integration-overview.md), and any [integration service environments (ISEs)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) that you use for running logic apps in an isolated instance of the Logic Apps runtime.
+* [Integration accounts](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) where you define and store the artifacts that logic apps use for [business-to-business (B2B) enterprise integration](../logic-apps/logic-apps-enterprise-integration-overview.md) scenarios. For example, you can [set up cross-region disaster recovery for integration accounts](../logic-apps/logic-apps-enterprise-integration-b2b-business-continuity.md).
 
-Each logic app specifies a location to use for deployment. This location is either a public region in global multi-tenant Azure or a previously created ISE that's deployed into an Azure virtual network. If your logic apps need to use B2B artifacts that are stored in an integration account, both your integration account and logic apps must use the same location. Running logic apps in an ISE is similar to running logic apps in a public Azure region, so your disaster recovery strategy can apply to both scenarios. However, an ISE might require that you consider additional or other elements, such as network configuration.
+* [Integration service environments (ISEs)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) where you can create and run logic apps within an isolated instance of the Logic Apps runtime when you need to access resources in Azure virtual networks
 
 ## Primary and secondary locations
+
+Each logic app specifies a location to use for deployment. This location is either a public region in global multi-tenant Azure or a previously created ISE that's deployed into an Azure virtual network. If your logic apps need to use B2B artifacts that are stored in an integration account, both your integration account and logic apps must use the same location. Running logic apps in an ISE is similar to running logic apps in a public Azure region, so your disaster recovery strategy can apply to both scenarios. However, an ISE might require that you consider additional or other elements, such as network configuration.
 
 This disaster recovery strategy focuses on setting up your primary logic app to *failover* onto a standby or backup logic app in an alternate location where Azure Logic Apps is available. That way, if the primary suffers losses or failures, the secondary can perform the work instead. For this strategy, you need to have your logic app and dependent resources already deployed and ready to run in the alternate location.
 
@@ -69,10 +71,6 @@ The data gateway resource is associated with a location or Azure region, just li
 > your logic app can still create the connection by using a non-ISE connector, 
 > which runs in multi-tenant Azure, not your ISE. However, this connection 
 > requires the on-premises data gateway.
-
-## Integration accounts
-
-Make sure that your disaster recovery strategy includes any [integration accounts](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md), which you use for defining and storing B2B artifacts that your logic app needs in [enterprise integration scenarios](../logic-apps/logic-apps-enterprise-integration-overview.md). In Azure Logic Apps, you can [set up cross-region disaster recovery for integration accounts](../logic-apps/logic-apps-enterprise-integration-b2b-business-continuity.md).
 
 <a name="roles"></a>
 
