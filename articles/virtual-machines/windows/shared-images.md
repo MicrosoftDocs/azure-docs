@@ -80,7 +80,11 @@ $nsg = New-AzNetworkSecurityGroup -ResourceGroupName $resourceGroup -Location $l
   -Name myNetworkSecurityGroup -SecurityRules $nsgRuleRDP
 $nic = New-AzNetworkInterface -Name myNic -ResourceGroupName $resourceGroup -Location $location `
   -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -NetworkSecurityGroupId $nsg.Id
+```
 
+If your image was of a generalized VM.
+
+```azurepowershell-interactive
 # Create a virtual machine configuration using $imageVersion.Id to specify the shared image
 $vmConfig = New-AzVMConfig -VMName $vmName -VMSize Standard_D1_v2 | `
 Set-AzVMOperatingSystem -Windows -ComputerName $vmName -Credential $cred | `
@@ -90,6 +94,37 @@ Add-AzVMNetworkInterface -Id $nic.Id
 # Create a virtual machine
 New-AzVM -ResourceGroupName $resourceGroup -Location $location -VM $vmConfig
 ```
+
+If your image was of a specialized VM. ***Get-cred isn't used in this case - not sure how to handle**
+
+```azurepowershell-interactive
+# Create a virtual machine configuration using $imageVersion.Id to specify the shared image
+
+$vmConfig = New-AzVMConfig -VMName $vmName -VMSize Standard_D1_v2 | `
+Set-AzVMSourceImage -Id $imageVersion.Id | `
+Add-AzVMNetworkInterface -Id $nic.Id
+
+# Create a virtual machine
+New-AzVM -ResourceGroupName $resourceGroup -Location $location -VM $vmConfig
+```
+
+And, if your image contained a data disk, you need to create a disk from the image and attach it to the VM. 
+
+```azurepowershell-interactive
+$vm = Get-AzVM -Name $vmName -ResourceGroupName $resourceGroup 
+$lun = $imageVersion.StorageProfile.DataDiskImages.Lun
+
+Add-AzVMDataDisk `
+   -CreateOption FromImage `
+   -SourceImageUri $imageversion.Id `
+   -Lun $lun `
+   -Caching $imageVersion.StorageProfile.DataDiskImages.HostCaching `
+   -DiskSizeInGB $imageVersion.StorageProfile.DataDiskImages.SizeInGB `
+   -VM $vm
+```
+
+
+
 
 [!INCLUDE [virtual-machines-common-gallery-list-ps](../../../includes/virtual-machines-common-gallery-list-ps.md)]
 
