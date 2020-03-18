@@ -25,75 +25,117 @@ Query acceleration (Preview) is a new capability for Azure Data Lake Storage tha
 
 - A **general-purpose v2** storage account. see [Create a storage account](../common/storage-quickstart-create-account.md).
 
-## Set up your project
+## Install the packages that enable query acceleration 
 
-To get started, download the query acceleration packages. 
+1. To get started, download the query acceleration packages. You can obtain a compressed .zip file that contains these packages by using this link: [https://aka.ms/adls/qqsdk/.net](https://aka.ms/adls/qqsdk/.net). 
 
-install the [Azure.Storage.Blob](https://www.nuget.org/packages/Azure.Storage.Files.DataLake/12.0.0-preview.6) NuGet package.  (Need preview package name and install location).
+2. Extract the files in this .zip file to any folder on your local drive. 
 
-For more information about how to install NuGet packages, see [Install and manage packages in Visual Studio using the NuGet Package Manager](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-visual-studio).
+3. In **Solution Explorer**, right-click either **References** or your project and select **Manage NuGet Packages**.
 
-Then, add these using statements to the top of your code file.
+   The NuGet Package Manager opens.
+
+4. In the NuGet Package Manager, add the folder on your local drive as a package source. 
+
+   For more guidance, see [Package sources](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-visual-studio#package-sources).
+
+5. Make sure that the **Package source** drop-down list is set to **all**. This ensures that you install any packages from [https://www.nuget.org/]() that the query accelerator packages depends on.
+
+   > [!div class="mx-imgBorder"]
+   > ![Nuget Packages set to all](./media/data-lake-storage-query-acceleration/nuget-package-all.png)
+
+6. Choose the **Browse** tab, select the **Include pre-release** checkbox, and in the search text box, type **Azure.Storage**. 
+
+      > [!div class="mx-imgBorder"]
+   > ![Search for query accelerator packages](./media/data-lake-storage-query-acceleration/nuget-package-search.png)
+
+7. Install the **Azure.Storage.Blobs**, **Azure.Storage.Common**, and **Azure.Storage.QuickQuery** packages.
+
+   For more information about how to install NuGet packages, see [Install and manage packages in Visual Studio using the NuGet Package Manager](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-visual-studio).
+
+## Add using statements to your code files
+
+Add these `using` statements to the top of your code file.
 
 ```csharp
-using statement 1;
-using statement 2;
-...
-...
+using Azure.Storage.Blobs;
+using Azure.Storage.Blobs.Models;
+using Azure.Storage.Blobs.Specialized;
+using Azure.Storage.QuickQuery;
+using Azure.Storage.QuickQuery.Models;
 ```
+
+Quick query retrieves CSV and Json formatted data. Therefore, make sure to add using statements for any CSV or Json parsing libraries that you choose to use. The examples that appear in this article parse a CSV file by using the [CsvHelper](https://www.nuget.org/packages/CsvHelper/) library that is available on NuGet. Therefore, we'd add these using statements to the top of the code file.
+
+```csharp
+using CsvHelper;
+using CsvHelper.Configuration;
+```
+
 ## Retrieve data by using a filter
 
-Quick query can retrieve CSV and Json formatted data. In this section, we'll parse a CSV file by using the [TinyCsvParser](https://www.nuget.org/packages/TinyCsvParser/) library that is available on NuGet.  The following code defines a class that holds the data for each returned row, and a class that provides a way to map each column in the CSV file with a class member.  
-
-```csharp
-class Person 
-{
-    public string FirstName { get; set; }
-    public string LastName { get; set; }
-    public DateTime BirthDate { get; set; }
-}
-
-class CsvPersonMapping : CsvMapping<Person>
-{
-    public CsvPersonMapping()
-    {
-        MapProperty(0, x => x.FirstName);
-        MapProperty(1, x => x.LastName);
-        MapProperty(2, x => x.BirthDate);
-    }
-}
-```
-
-You can use SQL to specify the row filter predicates and column projections in a quick query request. The following code queries a CSV file in storage and returns all rows of data where the first column matches the value `Contoso`. 
+You can use SQL to specify the row filter predicates and column projections in a query acceleration request. The following code queries a CSV file in storage and returns all rows of data where the third column matches the value `Hemingway, Ernest`. 
 
 - In the SQL query, the keyword `BlobStorage` is used to denote the file that is being queried.
 
-- Column references are specified as `_N` where the first column is `_1`.
+- Column references are specified as `_N` where the first column is `_1`. If the source file contains a header row, then you can specify `CvsTextConfiguration.HasHeaders = true` which will allow you to refer to columns by their name.
 
-- The async method `RunQueryAsync` sends the query to the quick query API, and then streams the results back to the application as a [Stream](https://docs.microsoft.com/dotnet/api/system.io.stream?view=netframework-4.8) object.
-
+- The async method `BlobQuickQueryClient.QueryAsync` sends the query to the query acceleration API, and then streams the results back to the application as a [Stream](https://docs.microsoft.com/dotnet/api/system.io.stream?view=netframework-4.8) object.
 
 ```csharp
-
-private static async Task Query<TRecord, TMapper>
-    (CloudBlobClient serviceClient, Uri blobUri, string query) 
-        where TMapper : ICsvMapping<TRecord>, new()
+static async Task QueryHemingway(BlockBlobClient blob)
 {
-    var blob = (CloudBlob)serviceClient.GetBlobReferenceFromServer(blobUri);
-    var parser = new CsvParser<TRecord>(new CsvParserOptions(false, ','), new TMapper());
-    
-    using (Stream resultStream = await blob.RunQueryAsync(query, null))
+    string query = @"SELECT * FROM BlobStorage WHERE _3 = 'Hemingway, Ernest'";
+    await DumpQueryCsv(blob, query, false);
+}
+
+private static async Task DumpQueryCsv(BlockBlobClient blob, string query, bool headers)
+{
+    try
     {
-        parser.ReadFromStream(resultStream, Encoding.UTF8)
-            .ForAll(row => Console.WriteLine
-            (row.IsValid ? row.Result.ToString() : row.Error.ToString()));
+        using (var reader = new StreamReader((await blob.GetQuickQueryClient().QueryAsync(query,
+                new CvsTextConfiguration() { HasHeaders = headers }, 
+                new CvsTextConfiguration() { HasHeaders = true }, 
+                new ErrorHandler(),
+                new BlobRequestConditions(), 
+                new ProgressHandler(),
+                CancellationToken.None)).Value.Content))
+        {
+            using (var parser = new CsvReader(reader, new CsvConfiguration(CultureInfo.CurrentCulture) 
+            { HasHeaderRecord = true }))
+            {
+                while (await parser.ReadAsync())
+                {
+                    parser.Context.Record.All(cell =>
+                    {
+                        Console.Out.Write(cell + "  ");
+                        return true;
+                    });
+                    Console.Out.WriteLine();
+                }
+            }
+        }
+    }
+    catch (Exception ex)
+    {
+        Console.Error.WriteLine("Exception: " + ex.ToString());
     }
 }
 
-private static async Task QueryPeople(CloudBlobClient serviceClient, Uri blobUri)
+class ErrorHandler : IBlobQueryErrorReceiver
 {
-    string query = @"SELECT * FROM BlobStorage WHERE _1 = 'Contoso'";
-    await Query<Person, CsvPersonMapping>(serviceClient, blobUri, query);
+    public void ReportError(BlobQueryError err)
+    {
+        Console.Error.WriteLine(String.Format("Error: {1}:{2}", err.Name, err.Description));
+    }
+}
+
+class ProgressHandler : IProgress<long>
+{
+    public void Report(long value)
+    {
+        Console.Error.WriteLine("Bytes scanned: " + value.ToString());
+    }
 }
 
 ```
@@ -102,7 +144,7 @@ private static async Task QueryPeople(CloudBlobClient serviceClient, Uri blobUri
 
 You can scope your results to a subset of columns. That way you retrieve only the columns needed to perform a given calculation. This improves application performance and reduces cost because less data is transferred over the network. 
 
-This code retrieves only the `BirthDate` column. To achieve this with the TinyCsvParser library, you'll need to define a new mapping class. 
+This code retrieves only the `PublicationYear` column for all books in the data set. It also uses the information from the header row in the source file to reference columns in the query. 
 
 ```csharp
 class BirthDateMapping : CsvMapping<Person>
@@ -132,7 +174,7 @@ private static async Task QueryBirthDates(CloudBlobClient serviceClient, Uri blo
 
 ## Next steps
 
-- [Quick query enrollment form](https://aka.ms/adlsquickquerypreview)    
-- [Azure Data Lake Storage quick query (Preview)](data-lake-storage-quick-query.md)
-- Quick query SQL language reference
-- Quick query REST API reference
+- [Query acceleration enrollment form](https://aka.ms/adls/queryaccelerationpreview)    
+- [Azure Data Lake Storage query acceleration (Preview)](data-lake-storage-quick-query.md)
+- Query acceleration SQL language reference
+- Query acceleration REST API reference
