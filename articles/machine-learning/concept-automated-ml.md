@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
-ms.date: 11/04/2019
+ms.date: 02/28/2020
 ---
 
 # What is automated machine learning?
@@ -84,7 +84,7 @@ In every automated machine learning experiment, your data is automatically scale
 |Scaling&nbsp;&&nbsp;normalization| Description |
 | ------------- | ------------- |
 | [StandardScaleWrapper](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html)  | Standardize features by removing the mean and scaling to unit variance  |
-| [MinMaxScalar](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.MinMaxScaler.html)  | Transforms features by scaling each feature by that column’s minimum and maximum  |
+| [MinMaxScalar](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.MinMaxScaler.html)  | Transforms features by scaling each feature by that column's minimum and maximum  |
 | [MaxAbsScaler](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.MaxAbsScaler.html#sklearn.preprocessing.MaxAbsScaler) |Scale each feature by its maximum absolute value |
 | [RobustScalar](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.RobustScaler.html) |This Scaler features by their quantile range |
 | [PCA](https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.PCA.html) |Linear dimensionality reduction using Singular Value Decomposition of the data to project it to a lower dimensional space |
@@ -93,10 +93,10 @@ In every automated machine learning experiment, your data is automatically scale
 
 ### Advanced preprocessing: optional featurization
 
-Additional advanced preprocessing and featurization are also available, such as data guardrails, encoding, and transforms. [Learn more about what featurization is included](how-to-create-portal-experiments.md#featurization). 
+Additional advanced preprocessing and featurization are also available, such as data guardrails, encoding, and transforms. [Learn more about what featurization is included](how-to-use-automated-ml-for-ml-models.md#featurization). 
 Enable this setting with:
 
-+ Azure Machine Learning studio: Enable **Automatic featurization** in the **View additional configuration** section [with these steps](how-to-create-portal-experiments.md#create-and-run-experiment).
++ Azure Machine Learning studio: Enable **Automatic featurization** in the **View additional configuration** section [with these steps](how-to-use-automated-ml-for-ml-models.md#create-and-run-experiment).
 
 + Python SDK: Specifying `"feauturization": 'auto' / 'off' / 'FeaturizationConfig'` for the [`AutoMLConfig` class](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig). 
 
@@ -151,11 +151,19 @@ When comparing models **A** and **B**, model **A** is a better model because it 
 
 Model **C** represents a clear case of over-fitting; the training accuracy is very high but the test accuracy isn't anywhere near as high. This distinction is subjective, but comes from knowledge of your problem and data, and what magnitudes of error are acceptable. 
 
+## Classification & regression
+
+Classification and regression are the most common types of machine learning tasks. Both are types of supervised learning in which models learn using training data, and apply those learnings to new data. Azure Machine Learning offers featurizations specifically for these tasks, such as deep neural network text featurizers for classification. Learn more about [featurization options](how-to-use-automated-ml-for-ml-models.md#featurization). 
+
+The main goal of classification models is to predict which categories new data will fall into based on learnings from its training data. Common classification examples include fraud detection, handwriting recognition, and object detection.  Learn more and see an example of [classification with automated machine learning](tutorial-train-models-with-aml.md).
+
+Different from classification where predicted output values are categorical, regression models predict numerical output values based on independent predictors. In regression, the objective is to help establish the relationship among those independent predictor variables by estimating how one variable impacts the others. For example, automobile price based on features like, gas mileage, safety rating, etc. Learn more and see an example of [regression with automated machine learning](tutorial-auto-train-models.md).
+
 ## Time-series forecasting
 
-Building forecasts is an integral part of any business, whether it’s revenue, inventory, sales, or customer demand. You can use automated ML to combine techniques and approaches and get a recommended, high-quality time-series forecast.
+Building forecasts is an integral part of any business, whether it's revenue, inventory, sales, or customer demand. You can use automated ML to combine techniques and approaches and get a recommended, high-quality time-series forecast.
 
-An automated time-series experiment is treated as a multivariate regression problem. Past time-series values are “pivoted” to become additional dimensions for the regressor together with other predictors. This approach, unlike classical time series methods, has an advantage of naturally incorporating multiple contextual variables and their relationship to one another during training. Automated ML learns a single, but often internally branched model for all items in the dataset and prediction horizons. More data is thus available to estimate model parameters and generalization to unseen series becomes possible.
+An automated time-series experiment is treated as a multivariate regression problem. Past time-series values are "pivoted" to become additional dimensions for the regressor together with other predictors. This approach, unlike classical time series methods, has an advantage of naturally incorporating multiple contextual variables and their relationship to one another during training. Automated ML learns a single, but often internally branched model for all items in the dataset and prediction horizons. More data is thus available to estimate model parameters and generalization to unseen series becomes possible.
 
 Learn more and see an example of [automated machine learning for time series forecasting](how-to-auto-train-forecast.md). Or, see the [energy demand notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb) for detailed code examples of advanced forecasting configuration including:
 
@@ -183,7 +191,7 @@ Imbalanced data is commonly found in data for machine learning classification sc
 
 As part of its goal of simplifying the machine learning workflow, automated ML has built in capabilities to help deal with imbalanced data such as, 
 
-- A **weight column**: automated ML supports a weighted column as input, causing rows in the data to be weighted up or down, which can make a class more or less “important”.
+- A **weight column**: automated ML supports a weighted column as input, causing rows in the data to be weighted up or down, which can make a class more or less "important".
 
 - The algorithms used by automated ML can properly handle imbalance of up to 20:1, meaning the most common class can have 20 times more rows in the data than the least common class.
 
@@ -205,33 +213,86 @@ The following techniques are additional options to handle imbalanced data outsid
 
 - Resampling to even the class imbalance, either by up-sampling the smaller classes or down-sampling the larger classes. These methods require expertise to process and analyze.
 
-- Use a performance metric that deals better with imbalanced data. For example, the F1 score is a weighted average of precision and recall. Precision measures a classifier’s exactness-- low precision indicates a high number of false positives--, while recall measures a classifier’s completeness-- low recall indicates a high number of false negatives. 
+- Use a performance metric that deals better with imbalanced data. For example, the F1 score is a weighted average of precision and recall. Precision measures a classifier's exactness-- low precision indicates a high number of false positives--, while recall measures a classifier's completeness-- low recall indicates a high number of false negatives. 
 
 ## Use with ONNX in C# apps
 
 With Azure Machine Learning, you can use automated ML to build a Python model and have it converted to the ONNX format. The ONNX runtime supports  C#, so you can use the model built automatically in your C# apps without any need for recoding or any of the network latencies that REST endpoints introduce. Try an example of this flow [in this Jupyter notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb).
 
-## Automated ML across Microsoft
+## Automated ML in Azure Machine Learning
 
-Automated ML is also available in other Microsoft solutions such as:
+Azure Machine Learning offers two experiences for working with automated ML
 
-|Integrations|Description|
-|------------|-----------|
-|[ML.NET](https://docs.microsoft.com/dotnet/machine-learning/automl-overview)|Automatic model selection and training in .NET apps using Visual Studio and Visual Studio Code with ML.NET automated ML.|
-|[HDInsight](../hdinsight/spark/apache-spark-run-machine-learning-automl.md)|Scale out your automated ML training jobs on Spark in HDInsight clusters in parallel.|
-|[Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-automated)|Invoke machine learning models directly in Power BI.|
-|[SQL Server](https://cloudblogs.microsoft.com/sqlserver/2019/01/09/how-to-automate-machine-learning-on-sql-server-2019-big-data-clusters/)|Create new machine learning models over your data in SQL Server 2019 big data clusters.|
+* For code experienced customers, [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) 
+
+* For limited/no code experience customers, Azure Machine Learning studio at [https://ml.azure.com](https://ml.azure.com/)  
+
+The following summarizes the high level automated ML capabilities supported in each experience.
+
+<a name="parity"></a>
+
+### Experiment settings 
+
+The following settings allow you to configure your automated ML experiment. 
+
+| | Python SDK| studio
+----|:----:|:----:
+Split data into train/validation sets| ✓|✓
+Supports ML tasks: classification, regression and forecasting| ✓| ✓
+Optimizes based on primary metric| ✓| ✓
+Supports AML compute as compute target | ✓|✓
+Configure forecast horizon, target lags & rolling window|✓|✓
+Set exit criteria |✓|✓ 
+Set concurrent iterations| ✓|✓
+Drop columns| ✓|✓
+Block algorithms|✓|✓
+Cross validation |✓|✓
+Supports training on Azure Databricks clusters| ✓|
+View engineered feature names|✓|
+Featurization summary| ✓|
+Holiday featurization|✓|
+Verbosity level for log files| ✓|
+
+### Model settings
+
+These settings can be applied to the best model as a result of your automated ML experiment.
+
+||Python SDK|studio
+----|:----:|:----:
+Best model registration| ✓|✓
+Best model deployment| ✓| ✓
+Best model explainability| ✓|✓
+Enable voting ensemble & stack ensemble models| ✓|✓
+Show best model based on non-primary metric|✓|Enable/disable ONNX model compatibility|✓|
+Test the model | ✓| |
+
+### Run control settings
+
+These settings allow you to review and control your experiment runs and its child runs. 
+
+||Python SDK| studio
+----|:----:|:----:
+Run summary table| ✓|✓
+Cancel run| ✓|✓
+Cancel child run| ✓| ✓
+Get guardrails| ✓|✓
+Pause run| ✓| 
+Resume run| ✓| 
 
 ## Next steps
 
 See examples and learn how to build models using automated machine learning:
 
-+ Follow the [Tutorial: Automatically train a regression model with Azure Automated Machine Learning](tutorial-auto-train-models.md)
++ Follow the [Tutorial: Automatically train a regression model with Azure Machine Learning](tutorial-auto-train-models.md)
 
 + Configure the settings for automatic training experiment:
-  + In Azure Machine Learning studio, [use these steps](how-to-create-portal-experiments.md).
+  + In Azure Machine Learning studio, [use these steps](how-to-use-automated-ml-for-ml-models.md).
   + With the Python SDK, [use these steps](how-to-configure-auto-train.md).
 
 + Learn how to auto train using time series data, [use these steps](how-to-auto-train-forecast.md).
 
 + Try out [Jupyter Notebook samples for automated machine learning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/)
+
+* Automated ML is also available in other Microsoft solutions such as, 
+[ML.NET](https://docs.microsoft.com/dotnet/machine-learning/automl-overview), 
+[HDInsight](../hdinsight/spark/apache-spark-run-machine-learning-automl.md), [Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-automated) and [SQL Server](https://cloudblogs.microsoft.com/sqlserver/2019/01/09/how-to-automate-machine-learning-on-sql-server-2019-big-data-clusters/)

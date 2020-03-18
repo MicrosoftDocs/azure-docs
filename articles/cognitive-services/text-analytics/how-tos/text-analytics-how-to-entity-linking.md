@@ -24,7 +24,9 @@ Entity linking is the ability to identify and disambiguate the identity of an en
 
 ### Named Entity Recognition (NER)
 
-Named Entity Recognition (NER) is the ability to identify different entities in text and categorize them into pre-defined classes or types. For example: people, places and organizations.
+Named Entity Recognition (NER) is the ability to identify different entities in text and categorize them into pre-defined classes or types such as: person, location, event, product and organization.  
+
+Starting in version 3, this feature of the Text Analytics API can also identify personal and sensitive information types such as: phone number, Social Security Number, email address, and bank account number.  Identifying these entities can help in classifying sensitive documents, and redacting personal information.
 
 ## Named Entity Recognition versions and features
 
@@ -176,14 +178,13 @@ The Text Analytics API is stateless. No data is stored in your account, and resu
 
 All POST requests return a JSON formatted response with the IDs and detected entity properties.
 
-Output is returned immediately. You can stream the results to an application that accepts JSON or save the output to a file on the local system, and then import it into an application that allows you to sort, search, and manipulate the data.
-
+Output is returned immediately. You can stream the results to an application that accepts JSON or save the output to a file on the local system, and then import it into an application that allows you to sort, search, and manipulate the data. Due to multilingual and emoji support, the response may contain text offsets. See [how to process text offsets](../concepts/text-offsets.md) for more information.
 
 #### [Version 3.0-preview)](#tab/version-3)
 
 ### Example v3 responses
 
-Version 3 provides separate endpoints for NER and entity linking. The responses for both operations are below.
+Version 3 provides separate endpoints for NER and entity linking. The responses for both operations are below. 
 
 #### Example NER response
 

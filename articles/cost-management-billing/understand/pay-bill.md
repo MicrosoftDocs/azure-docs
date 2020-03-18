@@ -3,16 +3,12 @@ title: Pay your bill for Microsoft Azure | Microsoft Docs
 description: Describes how to pay an invoice in the Azure portal
 keywords: billing, past due, balance, pay now,
 author: banders
-manager: judupont
+ms.reviewer: judupont
 tags: billing, past due, pay now, bill, invoice, pay
 ms.service: cost-management-billing
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/10/2020
 ms.author: banders
-
 ---
 
 # How to pay your bill for Microsoft Azure

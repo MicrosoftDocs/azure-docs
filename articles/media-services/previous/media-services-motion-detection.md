@@ -18,6 +18,9 @@ ms.reviewer: milanga
 
 ---
 # Detect Motions with Azure Media Analytics
+
+> [!NOTE]
+> The **Azure Media Motion Detector** media processor will be retired. For the retirement date, see the [legacy components](legacy-components.md) topic.
  
 ## Overview
 
