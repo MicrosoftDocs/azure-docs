@@ -1,7 +1,7 @@
 ---
 title: Add a popup to a point on a map |Microsoft Azure Maps
 description: In this article, you will learn how to add a popup to a point using the Microsoft Azure Maps Web SDK.
-author: jingjing-z
+author: jinzh-azureiot
 ms.author: jinzh
 ms.date: 02/27/2020
 ms.topic: conceptual
@@ -102,6 +102,14 @@ By default, the popup has a white background, a pointer arrow on the bottom, and
 
 Popup templates make it easy to create data driven layouts for popups. The sections below demonstrates the use of various popup templates to generate formatted content using properties of features.
 
+> [!NOTE]
+> By default, all content rendered use the popup template will be sandboxed inside of an iframe as a security feature. However, there are limitations:
+>
+> - All scripts, forms, pointer lock and top navigation functionality is disabled. Links are allowed to open up in a new tab when clicked. 
+> - Older browsers that don't support the `srcdoc` parameter on iframes will be limited to rendering a small amount of content.
+> 
+> If you trust the data being loaded into the popups and potentially want these scripts loaded into popups be able to access your application, you can disable this by setting the popup templates `sandboxContent` option to false. 
+
 ### String template
 
 The String template replaces placeholders with values of the feature properties. The properties of the feature don't have to be assigned a value of type String. For example, `value1` holds an integer. These values are then passed to the content property of the `popupTemplate`. 
@@ -116,14 +124,14 @@ new atlas.data.Feature(new atlas.data.Point([-20, -20]), {
     title: 'Template 1 - String template',
     value1: 1.2345678,
     value2: {
-    	subValue: 'Pizza'
+        subValue: 'Pizza'
     },
     arrayValue: [3, 4, 5, 6],
     popupTemplate: {
-    	content: 'This template uses a string template with placeholders.<br/><br/> - Value 1 = {value1}<br/> - Value 2 = {value2/subValue}<br/> - Array value [2] = {arrayValue/2}',
-    	numberFormat: {
+        content: 'This template uses a string template with placeholders.<br/><br/> - Value 1 = {value1}<br/> - Value 2 = {value2/subValue}<br/> - Array value [2] = {arrayValue/2}',
+        numberFormat: {
             maximumFractionDigits: 2
-    	}
+        }
     }
 }),
 ```
@@ -142,7 +150,7 @@ new atlas.data.Feature(new atlas.data.Point([20, -20]), {
     url: 'https://aka.ms/AzureMapsSamples',
     email: 'info@microsoft.com',
     popupTemplate: {
-    	content: [{
+        content: [{
     propertyPath: 'createDate',
     label: 'Created Date'
     },
@@ -150,12 +158,12 @@ new atlas.data.Feature(new atlas.data.Point([20, -20]), {
     propertyPath: 'dateNumber',
     label: 'Formatted date from number',
     dateFormat: {
-    	weekday: 'long',
-    	year: 'numeric',
-    	month: 'long',
-    	day: 'numeric',
-    	timeZone: 'UTC',
-    	timeZoneName: 'short'
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        timeZone: 'UTC',
+        timeZoneName: 'short'
     }
     },
     {
@@ -163,8 +171,8 @@ new atlas.data.Feature(new atlas.data.Point([20, -20]), {
     label: 'Code samples',
     hideLabel: true,
     hyperlinkFormat: {
-    	lable: 'Go to code samples!',
-    	target: '_blank'
+        lable: 'Go to code samples!',
+        target: '_blank'
     }
     },
     {
@@ -172,11 +180,11 @@ new atlas.data.Feature(new atlas.data.Point([20, -20]), {
     label: 'Email us',
     hideLabel: true,
     hyperlinkFormat: {
-    	target: '_blank',
-    	scheme: 'mailto:'
+        target: '_blank',
+        scheme: 'mailto:'
         }
     }
-    	]
+        ]
     }
 }),
 

@@ -10,8 +10,7 @@ ms.subservice: development
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.custom: azure-synapse
+ms.custom: seo-lt-2019, azure-synapse
 ---
 
 # Guidance for designing distributed tables in SQL Analytics
@@ -24,7 +23,7 @@ A distributed table appears as a single table, but the rows are actually stored 
 
 **Hash-distributed tables** improve query performance on large fact tables, and are the focus of this article. **Round-robin tables** are useful for improving loading speed. These design choices have a significant impact on improving query and loading performance.
 
-Another table storage option is to replicate a small table across all the Compute nodes. For more information, see [Design guidance for replicated tables](design-guidance-for-replicated-tables.md). To quickly choose among the three options, see Distributed tables in the [tables overview](sql-data-warehouse-tables-overview.md). 
+Another table storage option is to replicate a small table across all the Compute nodes. For more information, see [Design guidance for replicated tables](../synapse-analytics/sql-data-warehouse/design-guidance-for-replicated-tables.md). To quickly choose among the three options, see Distributed tables in the [tables overview](sql-data-warehouse-tables-overview.md). 
 
 As part of table design, understand as much as possible about your data and how the data is queried.  For example, consider these questions:
 
@@ -61,7 +60,7 @@ Consider using the round-robin distribution for your table in the following scen
 - If the join is less significant than other joins in the query
 - When the table is a temporary staging table
 
-The tutorial [Load New York taxicab data](load-data-from-azure-blob-storage-using-polybase.md#load-the-data-into-your-data-warehouse) gives an example of loading data into a round-robin staging table in SQL Analytics.
+The tutorial [Load New York taxicab data](../synapse-analytics/sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md#load-the-data-into-your-data-warehouse) gives an example of loading data into a round-robin staging table in SQL Analytics.
 
 
 ## Choosing a distribution column

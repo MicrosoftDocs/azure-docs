@@ -237,8 +237,6 @@ Browse to your web app by using a browser to verify that the content is deployed
 http://<app_name>.azurewebsites.net
 ```
 
-![App running in App Service](../app-service/media/app-service-web-tutorial-dotnetcore-sqldb/azure-app-in-browser.png)
-
 ## Use managed identity in other languages
 
 App Configuration providers for .NET Framework and Java Spring also have built-in support for managed identity. You can use your store's URL endpoint instead of its full connection string when you configure one of these providers. 

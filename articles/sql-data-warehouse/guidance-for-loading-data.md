@@ -139,5 +139,5 @@ No other changes to underlying external data sources are needed.
 ## Next steps
 
 - To learn more about PolyBase and designing an Extract, Load, and Transform (ELT) process, see [Design ELT for SQL Data Warehouse](design-elt-data-loading.md).
-- For a loading tutorial, [Use PolyBase to load data from Azure blob storage to Azure SQL Data Warehouse](load-data-from-azure-blob-storage-using-polybase.md).
+- For a loading tutorial, [Use PolyBase to load data from Azure blob storage to Azure SQL Data Warehouse](../synapse-analytics/sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md).
 - To monitor data loads, see [Monitor your workload using DMVs](sql-data-warehouse-manage-monitor.md).

@@ -6,7 +6,7 @@ ms.author: cynthn
 ms.date: 04/20/2019
 ms.topic: article
 ms.service: virtual-machines-linux
-manager: gwallace
+ms.subservice: imaging
 ---
 # Preview: Create a Linux image and distribute it to a Shared Image Gallery 
 
